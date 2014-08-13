@@ -1,0 +1,75 @@
+﻿html {
+    margin: auto;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background-color: #252525;
+    color: #fff !important;
+    margin: auto !important;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#container {
+    margin-top: 20px;
+}
+
+#divBrand {
+    table-layout: fixed;
+}
+
+progress {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+}
+
+    progress[value]::-webkit-progress-value {
+        background-image: -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%, rgba(0,0, 0, .1) 66%, transparent 66%), -webkit-linear-gradient(top, rgba(255, 255, 255, .25), rgba(0, 0, 0, .25)), -webkit-linear-gradient(left, #0f0, #0f0);
+        border-radius: 2px;
+        background-size: 35px 20px, 100% 100%, 100% 100%;
+    }
+
+#divBrand span {
+    display: inline-block;
+    font-size: 4.5em;
+    font-family: Tahoma;
+    vertical-align: middle;
+    padding: .2em .03em;
+}
+
+    #divBrand span img {
+        display: block;
+        width: 80%;
+        text-align: center;
+        margin: auto;
+    }
+
+#lblBrandCS {
+    display: none;
+}
+
+#divProducts span {
+    color: #0489B1;
+    font-size: 1.5em;
+    font-weight: 700;
+    font-family: 'Open Sans', sans-serif;
+}
+
+    #divProducts span:after {
+        content: " . ";
+    }
+
+#divProgressbar {
+    margin-top: 2em;
+}
+
+#divChooseDevice {
+    display:none;
+    margin-top:2em;
+}
+#divChooseDevice a img{
+    width:45%;
+    white-space:nowrap;
+    max-width:320px;
+}

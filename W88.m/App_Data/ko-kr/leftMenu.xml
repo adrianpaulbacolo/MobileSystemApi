@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menu>
+  <brand><![CDATA[W88.com - ]]></brand>
+  <closeMenu><![CDATA[메뉴 숨기기]]></closeMenu>
+  <home><![CDATA[홈]]></home>
+  <login><![CDATA[로그인]]></login>
+  <register><![CDATA[회원가입]]></register>
+  <cashier><![CDATA[캐쉬어]]></cashier>
+  <deposit><![CDATA[입금]]></deposit>
+  <transfer><![CDATA[자금 이체]]></transfer>
+  <withdrawal><![CDATA[출금]]></withdrawal>
+  <freebets><![CDATA[무료머니]]></freebets>
+  <misc><![CDATA[Misc]]></misc>
+  <liveHelp><![CDATA[라이브 채팅]]></liveHelp>
+  <contactUs><![CDATA[연락처]]></contactUs>
+  <helpCenter><![CDATA[고객 센터]]></helpCenter>
+  <language><![CDATA[언어]]></language>
+  <logout><![CDATA[로그 아웃]]></logout>
+  <products><![CDATA[상품]]></products>
+  <desktopsite><![CDATA[PC버전]]></desktopsite>
+  <joinnow><![CDATA[지금 가입]]></joinnow>
+  <promotions><![CDATA[이벤트]]></promotions>
+  <updateProfile><![CDATA[Update Profile]]></updateProfile>
+  <fastdeposit><![CDATA[은행송금]]></fastdeposit>
+  <banktransfer><![CDATA[은행송금]]></banktransfer>
+  <wingmoney><![CDATA[온라인]]></wingmoney>
+</menu>

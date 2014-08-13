@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <btnSubmit><![CDATA[제출]]></btnSubmit>
+  <btnCancel><![CDATA[취소]]></btnCancel>
+  <lblID><![CDATA[ID]]></lblID>
+  <lblComment><![CDATA[의견]]></lblComment>
+  <lblMultipleRebateCode><![CDATA[보너스 코드를 원하시는 게임 제품을 선택해 주시기 바랍니다.]]></lblMultipleRebateCode>
+  <lblMoreInfo><![CDATA[자세히 보기]]></lblMoreInfo>
+</default>

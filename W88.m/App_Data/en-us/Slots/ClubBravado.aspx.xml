@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+
+  <Category>
+    <Slot Label="Slots">
+      <BikiniBeach>
+        <ImageName><![CDATA[bikinibeach]]></ImageName>
+        <PlayForRealURL><![CDATA[{BaravadoUrl}/BikiniBeach/fun.html]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BaravadoUrl}?/BikiniBeach/real.html]]></PlayForFunURL>
+      </BikiniBeach>
+    </Slot>
+  </Category>
+</default>

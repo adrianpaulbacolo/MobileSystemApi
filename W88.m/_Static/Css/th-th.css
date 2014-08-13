@@ -1,0 +1,10 @@
+﻿.ui-li-heading {
+    font-size:1.15em !important;
+    font-weight:normal !important;
+}
+
+.nav-menu a {
+    font-size:1.15em !important;
+    font-weight:normal !important;
+    line-height:.5em;
+}

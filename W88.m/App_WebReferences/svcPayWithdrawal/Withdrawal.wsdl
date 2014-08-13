@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Withdrawal" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://paymentservices.ms1dev.com/Withdrawal.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://paymentservices.ms1dev.com/Withdrawal.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IWithdrawal_createTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:createTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IWithdrawal_createTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWithdrawal_createBankTransferTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:createBankTransferTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IWithdrawal_createBankTransferTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createBankTransferTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWithdrawal_createBankTransferTransactionV1_InputMessage">
+    <wsdl:part name="parameters" element="tns:createBankTransferTransactionV1" />
+  </wsdl:message>
+  <wsdl:message name="IWithdrawal_createBankTransferTransactionV1_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createBankTransferTransactionV1Response" />
+  </wsdl:message>
+  <wsdl:message name="IWithdrawal_SMSWithdrawal_InputMessage">
+    <wsdl:part name="parameters" element="tns:SMSWithdrawal" />
+  </wsdl:message>
+  <wsdl:message name="IWithdrawal_SMSWithdrawal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SMSWithdrawalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWithdrawal_createWingMoneyTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:createWingMoneyTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IWithdrawal_createWingMoneyTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createWingMoneyTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWithdrawal_createWingMoneyTransactionV1_InputMessage">
+    <wsdl:part name="parameters" element="tns:createWingMoneyTransactionV1" />
+  </wsdl:message>
+  <wsdl:message name="IWithdrawal_createWingMoneyTransactionV1_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createWingMoneyTransactionV1Response" />
+  </wsdl:message>
+  <wsdl:message name="IWithdrawal_createPayPalTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:createPayPalTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IWithdrawal_createPayPalTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createPayPalTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWithdrawal_createOnlineWithdrawalTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:createOnlineWithdrawalTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IWithdrawal_createOnlineWithdrawalTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createOnlineWithdrawalTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWithdrawal_processNetellerWithdrawal_InputMessage">
+    <wsdl:part name="parameters" element="tns:processNetellerWithdrawal" />
+  </wsdl:message>
+  <wsdl:message name="IWithdrawal_processNetellerWithdrawal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:processNetellerWithdrawalResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IWithdrawal">
+    <wsdl:operation name="createTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWithdrawal/createTransaction" message="tns:IWithdrawal_createTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWithdrawal/createTransactionResponse" message="tns:IWithdrawal_createTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="createBankTransferTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWithdrawal/createBankTransferTransaction" message="tns:IWithdrawal_createBankTransferTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWithdrawal/createBankTransferTransactionResponse" message="tns:IWithdrawal_createBankTransferTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="createBankTransferTransactionV1">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWithdrawal/createBankTransferTransactionV1" message="tns:IWithdrawal_createBankTransferTransactionV1_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWithdrawal/createBankTransferTransactionV1Response" message="tns:IWithdrawal_createBankTransferTransactionV1_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SMSWithdrawal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWithdrawal/SMSWithdrawal" message="tns:IWithdrawal_SMSWithdrawal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWithdrawal/SMSWithdrawalResponse" message="tns:IWithdrawal_SMSWithdrawal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="createWingMoneyTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWithdrawal/createWingMoneyTransaction" message="tns:IWithdrawal_createWingMoneyTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWithdrawal/createWingMoneyTransactionResponse" message="tns:IWithdrawal_createWingMoneyTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="createWingMoneyTransactionV1">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWithdrawal/createWingMoneyTransactionV1" message="tns:IWithdrawal_createWingMoneyTransactionV1_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWithdrawal/createWingMoneyTransactionV1Response" message="tns:IWithdrawal_createWingMoneyTransactionV1_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="createPayPalTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWithdrawal/createPayPalTransaction" message="tns:IWithdrawal_createPayPalTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWithdrawal/createPayPalTransactionResponse" message="tns:IWithdrawal_createPayPalTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="createOnlineWithdrawalTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWithdrawal/createOnlineWithdrawalTransaction" message="tns:IWithdrawal_createOnlineWithdrawalTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWithdrawal/createOnlineWithdrawalTransactionResponse" message="tns:IWithdrawal_createOnlineWithdrawalTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="processNetellerWithdrawal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWithdrawal/processNetellerWithdrawal" message="tns:IWithdrawal_processNetellerWithdrawal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWithdrawal/processNetellerWithdrawalResponse" message="tns:IWithdrawal_processNetellerWithdrawal_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IWithdrawal" type="tns:IWithdrawal">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="createTransaction">
+      <soap:operation soapAction="http://tempuri.org/IWithdrawal/createTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createBankTransferTransaction">
+      <soap:operation soapAction="http://tempuri.org/IWithdrawal/createBankTransferTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createBankTransferTransactionV1">
+      <soap:operation soapAction="http://tempuri.org/IWithdrawal/createBankTransferTransactionV1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SMSWithdrawal">
+      <soap:operation soapAction="http://tempuri.org/IWithdrawal/SMSWithdrawal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createWingMoneyTransaction">
+      <soap:operation soapAction="http://tempuri.org/IWithdrawal/createWingMoneyTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createWingMoneyTransactionV1">
+      <soap:operation soapAction="http://tempuri.org/IWithdrawal/createWingMoneyTransactionV1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createPayPalTransaction">
+      <soap:operation soapAction="http://tempuri.org/IWithdrawal/createPayPalTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createOnlineWithdrawalTransaction">
+      <soap:operation soapAction="http://tempuri.org/IWithdrawal/createOnlineWithdrawalTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="processNetellerWithdrawal">
+      <soap:operation soapAction="http://tempuri.org/IWithdrawal/processNetellerWithdrawal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Withdrawal">
+    <wsdl:port name="BasicHttpBinding_IWithdrawal" binding="tns:BasicHttpBinding_IWithdrawal">
+      <soap:address location="http://paymentservices.ms1dev.com/Withdrawal.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lblSysMsg3><![CDATA[你正在和 {LPOPERATOR} 聊天]]></lblSysMsg3>
+  <lblSysMsg4><![CDATA[请稍等客服正在回应。]]></lblSysMsg4>
+  <lblSysMsg5><![CDATA[运营商已终止聊天。]]></lblSysMsg5>
+  <lblSysMsg14><![CDATA[所有客服正在协助他人，请你耐心等待，将会尽快与你交谈]]></lblSysMsg14>
+  <lblChatEnded><![CDATA[聊天已经终止]]></lblChatEnded>
+  <btnReqChat><![CDATA[开始聊天]]></btnReqChat>
+  <btnEndChat><![CDATA[结束聊天]]></btnEndChat>
+  <btnSend><![CDATA[传送]]></btnSend>
+  <lblMessage><![CDATA[在这输入你的信息]]></lblMessage>
+  <lblSkill><![CDATA[简体中文]]></lblSkill>
+</default>

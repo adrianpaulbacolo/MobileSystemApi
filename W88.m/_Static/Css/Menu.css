@@ -1,0 +1,32 @@
+﻿#divPanel { height: 100px !important; max-height: none; }
+#divPanel div:nth-child(n+2) { padding: 5px 0 5px 10px; }
+#divPanel div:nth-child(2) { padding-top: 10px; }
+.ui-panel-inner { padding: 0; }
+.nav-menu { background: #333; display: block; position: relative; margin: 0 !important; }
+.nav-menu > li { background: #b3b3b3; color: #2a8fbd; text-shadow: none; display: block; }
+.nav-menu > .liLogout > a { background: #666666; color: #fff; text-shadow: none; display: block; }
+.nav-menu > li.ui-li { border-bottom: 1px solid #777; }
+.nav-menu > li > a { font-size: 14px; font-weight: 700; font-family: 'Open Sans', sans-serif, helvetica, Tahoma, Arial, Verdana, 'Comic Sans MS'; color: #1c6080; text-transform: uppercase; padding: 12px 0 12px 10px; }
+.nav-menu > li.ui-icon > a { padding-left: 40px !important; background-repeat: no-repeat !important; background-size: 25px !important; background-position: 8px center !important; }
+.nav-menu > li.ui-misc > a { background-color: #bfbfbf; }
+#divCopyright { display: block; text-shadow: none; font-size: .75em; color: #c1c1c1; }
+.div-other-links { border-bottom: none; text-shadow: none; font-size: .75em; color: #c1c1c1; font-weight: 300; }
+.div-other-links > a { color: #c1c1c1; text-decoration: none; border-bottom: 1px solid #c1c1c1; }
+#liOptions { background-color: #333; padding: 10px; }
+#liOptions > div > a:first-child { margin-right: 5px; }
+#liOptions > div > a { padding: 5px; width: 44%; display: inline-table; text-transform: uppercase; font-family: 'Open Sans', sans-serif, helvetica, Tahoma, Arial, Verdana, 'Comic Sans MS'; font-size: .9em; font-weight: 700; }
+#aMnuHome { background-image: url("/_Static/Images/Menu/mnu-home.png"); }
+#liUser { background-color: #333; background-image: url("/_Static/Images/Menu/mnu-avatar.png"); background-repeat: no-repeat !important; background-size: 25px !important; background-position: 8px; }
+#liUser > a { text-transform: uppercase; font-family: 'Open Sans', sans-serif, helvetica, Tahoma, Arial, Verdana, 'Comic Sans MS'; font-size: .9em; font-weight: 700; text-shadow: none; background-color: transparent; border: none; color: #2a8fbd; display: block; }   
+#aMnuCloseMenu { background-image: url("/_Static/Images/Menu/mnu-closemenu.png"); }
+#aMnuASports { background-image: url("/_Static/Images/Menu/mnu-asports.png"); }
+#aMnuESports { background-image: url("/_Static/Images/Menu/mnu-esports.png"); }
+#aMnuLottery { background-image: url("/_Static/Images/Menu/mnu-lottery.png"); }
+#aMnuClubCrescendo { background-image: url("/_Static/Images/Menu/mnu-clubcrescendo.png"); }
+#aMnuClubDivino  { background-image: url("/_Static/Images/Menu/mnu-clubdivino.png"); }
+#aMnuClubBravado { background-image: url("/_Static/Images/Menu/mnu-clubbravado.png"); }
+#aMnuClubMassimoSlot { background-image: url("/_Static/Images/Menu/mnu-clubmassimo-slots.png"); }
+#aMnuClubMassimoCasino { background-image: url("/_Static/Images/Menu/mnu-clubmassimo-casino.png"); }
+#aMnuDeposit { background-image: url("/_Static/Images/Menu/mnu-deposit.png"); }
+#aMnuTransfer { background-image: url("/_Static/Images/Menu/mnu-fundtransfer.png"); }
+#aMnuWithdrawal { background-image: url("/_Static/Images/Menu/mnu-withdrawal.png"); }

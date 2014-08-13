@@ -1,0 +1,312 @@
+﻿.lv-Product {
+    display: none;
+}
+
+.ui-content {
+    padding: 0;
+    margin: 0;
+    /*margin-top: 43px;*/
+}
+
+#divContent {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #333;
+}
+
+.div-product-scroll {
+    /*display: block;
+    z-index: 1;*/
+    /*position: relative;*/
+    height: 100px;
+    width: 100%;
+    background: #ccc;
+    overflow: hidden;
+    -ms-touch-action: none;
+    background-color: transparent;
+}
+
+    .div-product-scroll .li-asports {
+        background-image: url('/_Static/Images/bnr-asports.jpg');
+    }
+
+    .div-product-scroll .li-esports {
+        background-image: url('/_Static/Images/bnr-esports.jpg');
+    }
+
+    .div-product-scroll .li-lottery {
+        background-image: url('/_Static/Images/bnr-lottery.png');
+    }
+
+    .div-product-scroll .li-clubcrescendo {
+        background-image: url('/_Static/Images/bnr-clubcrescendo.png');
+    }
+
+    .div-product-scroll .li-clubdivino {
+        background-image: url('/_Static/Images/bnr-clubdivino.jpg');
+    }
+
+    .div-product-scroll .li-clubmassimo {
+        background-image: url('/_Static/Images/bnr-clubmassimo.jpg');
+    }
+
+    .div-product-scroll .li-clubmassimo-slots {
+        background-image: url('/_Static/Images/bnr-clubmassimo-slots.jpg');
+    }
+
+    .div-product-scroll .li-clubmassimo-casino {
+        background-image: url('/_Static/Images/bnr-clubmassimo-casino.jpg');
+    }
+
+.li-clubmassimo-slots > a > div:nth-child(2), .li-clubmassimo-casino > a > div:nth-child(2) {
+    height:50px !important;
+}
+
+.li-clubmassimo-slots > a > div:nth-child(1) > span, .li-clubmassimo-casino > a > div:nth-child(1) > span {
+    font-size:.8em;
+}
+
+.li-clubmassimo-slots > a > div:nth-child(1) > span:before, .li-clubmassimo-casino > a > div:nth-child(1) > span:before {
+    content: ' ';
+    clear: right;
+    display: block;
+}
+
+
+.div-product-scroll .li-clubbravado {
+    background-image: url('/_Static/Images/bnr-clubbravado.jpg');
+}
+
+.div-product-scroll .li-clubw {
+    background-image: url('/_Static/Images/bnr-clubw.jpg');
+}
+
+.div-product-scroll .li-deposit {
+    background-image: url('/_Static/Images/index-deposit.png');
+}
+
+.div-product-scroll .li-fundtransfer {
+    background-image: url('/_Static/Images/index-fundtransfer.png');
+}
+
+.div-product-scroll .li-withdrawal {
+    background-image: url('/_Static/Images/index-withdrawal.png');
+}
+
+.div-product-scroll .li-wcinfo {
+    background-image: url('/_Static/Images/bnr-wcinfo.jpg');
+}
+
+
+.div-product-scroll div:first-child {
+    position: absolute;
+    z-index: 1;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -o-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+.div-product-scroll > div:first-child > ul {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+}
+
+    .div-product-scroll > div:first-child > ul > li {
+        width: 88px;
+        height: 96px;
+        display: inline-block;
+        background-color: transparent;
+        font-size: 14px;
+        overflow: hidden;
+        text-align: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+        .div-product-scroll > div:first-child > ul > li > a {
+            display: block;
+            height: 100%;
+        }
+
+            .div-product-scroll > div:first-child > ul > li > a > div {
+                width: 88px;
+            }
+
+                .div-product-scroll > div:first-child > ul > li > a > div:first-child {
+                    bottom: 5px;
+                    text-align: center;
+                    color: #fff;
+                }
+
+
+                .div-product-scroll > div:first-child > ul > li > a > div:last-child {
+                    height: 25px;
+                    bottom: 0;
+                    background: #000;
+                    opacity: 0.8;
+                    position: absolute;
+                }
+
+/*#region Promotions*/
+#divPromoHeader {
+    background: #1C607F;
+    padding: .5em;
+    color: #f1f1f1;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.div-promotions-wrapper > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.div-promo-row {
+    background-color: #f1f1f1;
+    max-height: 60px;
+}
+
+    .div-promo-row > a {
+        text-decoration: none;
+    }
+
+        .div-promo-row > a > div {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+            .div-promo-row > a > div:last-child {
+                padding-left: .5em;
+                width: 100%;
+                border-bottom: 1px dashed #ccc;
+                background-repeat: no-repeat;
+                background-position: 98% 2.7em;
+                background-size: 1em;
+                background-image: url('/_Static/Images/arrow-down.png');
+            }
+
+                .div-promo-row > a > div:last-child > div {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+.div-promo-img > img {
+    display: block;
+}
+
+.div-promo-row-alt {
+    background-color: #ddd;
+}
+
+.div-promo-header {
+    width: 100%;
+    color: #2a8fbd;
+    text-decoration: none;
+    font-size: .9em;
+}
+
+.div-promo-desc {
+    color: #000;
+    font-size: .75em;
+}
+
+.div-promo-content {
+    color: #808080;
+    font-size: .8em;
+    padding-bottom: 1em;
+    border: 1px solid #333;
+    display: none;
+}
+
+    .div-promo-content > ol {
+        padding: 0;
+        margin: 0;
+        margin-left: 2em;
+        padding-right: 1em;
+    }
+
+    .div-promo-content .ui-btn {
+        margin-top: 1em;
+    }
+
+.rowHeader {
+    background: #404040;
+    font-weight: bold;
+    font-size: .85em;
+}
+
+.row1 {
+    background: #333333;
+    font-size: .85em;
+}
+
+.row2 {
+    background: #333333;
+}
+
+.div-claim-promo {
+    border: 1px solid #333;
+    padding: 10px;
+    margin: .5em;
+}
+
+    .div-claim-promo textarea {
+        resize: none;
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+.div-claim-promo-header {
+    font: normal 1.3em Tahoma, Malgun Gothic, Dotum, sans-serif;
+}
+
+.div-claim-promo-data > div {
+    table-layout: fixed;
+    display: table;
+    width: 100%;
+}
+
+    .div-claim-promo-data > div > a {
+        display: block;
+    }
+
+.div-promo-radio {
+    text-align: left;
+    display: inline-block;
+}
+
+    .div-promo-radio > input {
+        width: 1em;
+    }
+
+    .div-promo-radio > label {
+        display: inline-block;
+        width: 95%;
+        text-align: left;
+    }
+
+    .div-promo-radio > input, label {
+        /*display:inline-block;*/
+    }
+/*#endregion*/

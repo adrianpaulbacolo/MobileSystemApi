@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+
+  <Category>
+    <Slot3D Version="IOS" Label="ស្លត 3D">
+      <Slot3D1 ProductId="409">
+        <ImageName><![CDATA[W88-Slots-Mobile-Puppy-Love]]></ImageName>
+        <Label><![CDATA[Puppy Love]]></Label>
+        <Description><![CDATA[Cute/Puppy themed 20 line 5 reel slot game]]></Description>
+      </Slot3D1>
+      <Slot3D2 ProductId="291">
+        <ImageName><![CDATA[W88-Slots-Mobile-Three-Wishes]]></ImageName>
+        <Label><![CDATA[Three Wishes]]></Label>
+        <Description><![CDATA[Genie/Arabian themed 30 Line 5 Reel Slots3 Game]]></Description>
+      </Slot3D2>
+      <Slot3D3 ProductId="345">
+        <ImageName><![CDATA[W88-Slots-Mobile-The-Slotfather]]></ImageName>
+        <Label><![CDATA[The Slotfather]]></Label>
+        <Description><![CDATA[Mobster Themed 30 Line 5 Reel Slots3 Game Non Jackpot Version]]></Description>
+      </Slot3D3>
+      <Slot3D4 ProductId="269">
+        <ImageName><![CDATA[W88-Slots-Mobile-Mr.-Vegas]]></ImageName>
+        <Label><![CDATA[Mr. Vegas]]></Label>
+        <Description><![CDATA[Las Vegas themed 30 Line 5 Reel Slots3 Game with Progressive Jackpot]]></Description>
+      </Slot3D4>
+      <Slot3D5 ProductId="334">
+        <ImageName><![CDATA[W88-Slots-Mobile-Tycoons]]></ImageName>
+        <Label><![CDATA[Tycoons]]></Label>
+        <Description><![CDATA[Billionaire Themed 30 Line 5 Reel Slots3 Game with Progressive Jackpot]]></Description>
+      </Slot3D5>
+      <Slot3D6 ProductId="391">
+        <ImageName><![CDATA[W88-Slots-Mobile-A-Night-In-Paris]]></ImageName>
+        <Label><![CDATA[A Night In Paris]]></Label>
+        <Description><![CDATA[Cat Burglar Themed 30 Line 5 Reel Slots3 Game]]></Description>
+      </Slot3D6>
+      <Slot3D7 ProductId="396">
+        <ImageName><![CDATA[W88-Slots-Mobile-True-Illusions]]></ImageName>
+        <Label><![CDATA[True Illusions]]></Label>
+        <Description><![CDATA[Magician themed 30 Line 5 Reel Slots3 Game]]></Description>
+      </Slot3D7>
+      <Slot3D8 ProductId="318">
+        <ImageName><![CDATA[W88-Slots-Mobile-Rooks-Revenge]]></ImageName>
+        <Label><![CDATA[Rook's Revenge]]></Label>
+        <Description><![CDATA['25 Line 5 Reel Cascading Reel Slots3 Game]]></Description>
+      </Slot3D8>
+      <Slot3D9 ProductId="303">
+        <ImageName><![CDATA[W88-Slots-Mobile-Safari-Sam]]></ImageName>
+        <Label><![CDATA[Safari Sam]]></Label>
+        <Description><![CDATA[Safari Themed 30 Line 5 Reel Slots3 Game]]></Description>
+      </Slot3D9>
+      <Slot3D10 ProductId="306">
+        <ImageName><![CDATA[W88-Slots-Mobile-After-Night-Falls]]></ImageName>
+        <Label><![CDATA[After Night Falls]]></Label>
+        <Description><![CDATA[Cops and Robbers themed 30 Line 5 Reel Slots3 Game]]></Description>
+      </Slot3D10>
+      <Slot3D11 ProductId="312">
+        <ImageName><![CDATA[W88-Slots-Mobile-At-The-Copa]]></ImageName>
+        <Label><![CDATA[At The Copa]]></Label>
+        <Description><![CDATA[Salsa Dancing Themed 30 Line 5 Reel Slots3 Game with 3 Progressive Jackpots]]></Description>
+      </Slot3D11>
+      <Slot3D12 ProductId="320">
+        <ImageName><![CDATA[W88-Slots-Mobile-Under-The-Bed]]></ImageName>
+        <Label><![CDATA[Under the Bed]]></Label>
+        <Description><![CDATA[Monsters and Children themed 30 line 5 reel Slots 3 Game]]></Description>
+      </Slot3D12>
+      <Slot3D13 ProductId="324">
+        <ImageName><![CDATA[W88-Slots-Mobile-Boomanji]]></ImageName>
+        <Label><![CDATA[Boomanji]]></Label>
+        <Description><![CDATA[Fast Paced Fireworks themed 10 line 5 reel Slots3 Game Note: Has a cloned version called Gemscapades that's 7RED exclusive, it's the same exact game.]]></Description>
+      </Slot3D13>
+      <Slot3D14 ProductId="342">
+        <ImageName><![CDATA[W88-Slots-Mobile-Greedy-Goblins]]></ImageName>
+        <Label><![CDATA[Greedy Goblins]]></Label>
+        <Description><![CDATA[Fantasy Themed 30 Line 5 Reel Slots 3 Game. Sequel to "Once Upon A Time"]]></Description>
+      </Slot3D14>
+      <Slot3D15 ProductId="385">
+        <ImageName><![CDATA[W88-Slots-Mobile-The-True-Sheriff]]></ImageName>
+        <Label><![CDATA[The True Sheriff]]></Label>
+        <Description><![CDATA[5 Reel 30 Line 3D Slot Game with Sheriff/Cowboy Theme]]></Description>
+      </Slot3D15>
+      <Slot3D16 ProductId="428">
+        <ImageName><![CDATA[W88-Slots-Mobile-Good-Girl-Bad-Girl]]></ImageName>
+        <Label><![CDATA[Good Girl Bad Girl]]></Label>
+        <Description><![CDATA[30 reels]]></Description>
+      </Slot3D16>
+    </Slot3D>
+    <TableCard Version="IOS" Label="ហ្គេមតុ &amp; ហ្គេមបៀរ">
+      <TableCard1 ProductId="271">
+        <ImageName><![CDATA[W88-Slots-Mobile-American-Blackjack]]></ImageName>
+        <Label><![CDATA[American Blackjack]]></Label>
+        <Description><![CDATA[Single Deck Blackjack with no sidebet]]></Description>
+      </TableCard1>
+      <TableCard2 ProductId="275">
+        <ImageName><![CDATA[W88-Slots-Mobile-European-Roulette]]></ImageName>
+        <Label><![CDATA[European Roulette]]></Label>
+        <Description><![CDATA[European (Single Zero) Roulette with Hamburg rules]]></Description>
+      </TableCard2>
+    </TableCard>
+    <Slots Version="IOS" Label="ស្លត">
+      <Slots1 ProductId="263">
+        <ImageName><![CDATA[W88-Slots-Mobile-Lucky7]]></ImageName>
+        <Label><![CDATA[Lucky7]]></Label>
+        <Description><![CDATA[Traditional 3 Reel 1 Line Slot Game]]></Description>
+      </Slots1>
+    </Slots>
+    <Slot3D Version="ANDROID" Label="Slots 3D">
+      <Slot3D1 ProductId="410">
+        <ImageName><![CDATA[W88-Slots-Mobile-Puppy-Love]]></ImageName>
+        <Label><![CDATA[Puppy Love]]></Label>
+        <Description><![CDATA[Cute/Puppy themed 20 line 5 reel slot game]]></Description>
+      </Slot3D1>
+      <Slot3D2 ProductId="292">
+        <ImageName><![CDATA[W88-Slots-Mobile-Three-Wishes]]></ImageName>
+        <Label><![CDATA[Three Wishes]]></Label>
+        <Description><![CDATA[Genie/Arabian themed 30 Line 5 Reel Slots3 Game]]></Description>
+      </Slot3D2>
+      <Slot3D3 ProductId="346">
+        <ImageName><![CDATA[W88-Slots-Mobile-The-Slotfather]]></ImageName>
+        <Label><![CDATA[The Slotfather]]></Label>
+        <Description><![CDATA[Mobster Themed 30 Line 5 Reel Slots3 Game Non Jackpot Version]]></Description>
+      </Slot3D3>
+      <Slot3D4 ProductId="270">
+        <ImageName><![CDATA[W88-Slots-Mobile-Mr.-Vegas]]></ImageName>
+        <Label><![CDATA[Mr. Vegas]]></Label>
+        <Description><![CDATA[Las Vegas themed 30 Line 5 Reel Slots3 Game with Progressive Jackpot]]></Description>
+      </Slot3D4>
+      <Slot3D5 ProductId="335">
+        <ImageName><![CDATA[W88-Slots-Mobile-Tycoons]]></ImageName>
+        <Label><![CDATA[Tycoons]]></Label>
+        <Description><![CDATA[Billionaire Themed 30 Line 5 Reel Slots3 Game with Progressive Jackpot]]></Description>
+      </Slot3D5>
+      <Slot3D6 ProductId="392">
+        <ImageName><![CDATA[W88-Slots-Mobile-A-Night-In-Paris]]></ImageName>
+        <Label><![CDATA[A Night In Paris]]></Label>
+        <Description><![CDATA[Cat Burglar Themed 30 Line 5 Reel Slots3 Game]]></Description>
+      </Slot3D6>
+      <Slot3D7 ProductId="397">
+        <ImageName><![CDATA[W88-Slots-Mobile-True-Illusions]]></ImageName>
+        <Label><![CDATA[True Illusions]]></Label>
+        <Description><![CDATA[Magician themed 30 Line 5 Reel Slots3 Game]]></Description>
+      </Slot3D7>
+      <Slot3D8 ProductId="319">
+        <ImageName><![CDATA[W88-Slots-Mobile-Rooks-Revenge]]></ImageName>
+        <Label><![CDATA[Rook's Revenge]]></Label>
+        <Description><![CDATA['25 Line 5 Reel Cascading Reel Slots3 Game]]></Description>
+      </Slot3D8>
+      <Slot3D9 ProductId="304">
+        <ImageName><![CDATA[W88-Slots-Mobile-Safari-Sam]]></ImageName>
+        <Label><![CDATA[Safari Sam]]></Label>
+        <Description><![CDATA[Safari Themed 30 Line 5 Reel Slots3 Game]]></Description>
+      </Slot3D9>
+      <Slot3D10 ProductId="307">
+        <ImageName><![CDATA[W88-Slots-Mobile-After-Night-Falls]]></ImageName>
+        <Label><![CDATA[After Night Falls]]></Label>
+        <Description><![CDATA[Cops and Robbers themed 30 Line 5 Reel Slots3 Game]]></Description>
+      </Slot3D10>
+      <Slot3D11 ProductId="315">
+        <ImageName><![CDATA[W88-Slots-Mobile-At-The-Copa]]></ImageName>
+        <Label><![CDATA[At The Copa]]></Label>
+        <Description><![CDATA[Salsa Dancing Themed 30 Line 5 Reel Slots3 Game with 3 Progressive Jackpots]]></Description>
+      </Slot3D11>
+      <Slot3D12 ProductId="321">
+        <ImageName><![CDATA[W88-Slots-Mobile-Under-The-Bed]]></ImageName>
+        <Label><![CDATA[Under the Bed]]></Label>
+        <Description><![CDATA[Monsters and Children themed 30 line 5 reel Slots 3 Game]]></Description>
+      </Slot3D12>
+      <Slot3D13 ProductId="325">
+        <ImageName><![CDATA[W88-Slots-Mobile-Boomanji]]></ImageName>
+        <Label><![CDATA[Boomanji]]></Label>
+        <Description><![CDATA[Fast Paced Fireworks themed 10 line 5 reel Slots3 Game Note: Has a cloned version called Gemscapades that's 7RED exclusive, it's the same exact game.]]></Description>
+      </Slot3D13>
+      <Slot3D14 ProductId="343">
+        <ImageName><![CDATA[W88-Slots-Mobile-Greedy-Goblins]]></ImageName>
+        <Label><![CDATA[Greedy Goblins]]></Label>
+        <Description><![CDATA[Fantasy Themed 30 Line 5 Reel Slots 3 Game. Sequel to "Once Upon A Time"]]></Description>
+      </Slot3D14>
+      <Slot3D15 ProductId="386">
+        <ImageName><![CDATA[W88-Slots-Mobile-The-True-Sheriff]]></ImageName>
+        <Label><![CDATA[The True Sheriff]]></Label>
+        <Description><![CDATA[5 Reel 30 Line 3D Slot Game with Sheriff/Cowboy Theme]]></Description>
+      </Slot3D15>
+      <Slot3D16 ProductId="430">
+        <ImageName><![CDATA[W88-Slots-Mobile-Good-Girl-Bad-Girl]]></ImageName>
+        <Label><![CDATA[Good Girl Bad Girl]]></Label>
+        <Description><![CDATA[30 reels]]></Description>
+      </Slot3D16>
+    </Slot3D>
+    <TableCard Version="ANDROID" Label="Table &amp; Cards">
+      <TableCard1 ProductId="272">
+        <ImageName><![CDATA[W88-Slots-Mobile-American-Blackjack]]></ImageName>
+        <Label><![CDATA[American Blackjack]]></Label>
+        <Description><![CDATA[Single Deck Blackjack with no sidebet]]></Description>
+      </TableCard1>
+      <TableCard2 ProductId="276">
+        <ImageName><![CDATA[W88-Slots-Mobile-European-Roulette]]></ImageName>
+        <Label><![CDATA[European Roulette]]></Label>
+        <Description><![CDATA[European (Single Zero) Roulette with Hamburg rules]]></Description>
+      </TableCard2>
+    </TableCard>
+    <Slots Version="ANDROID" Label="Slots">
+      <Slots1 ProductId="268">
+        <ImageName><![CDATA[W88-Slots-Mobile-Lucky7]]></ImageName>
+        <Label><![CDATA[Lucky7]]></Label>
+        <Description><![CDATA[Traditional 3 Reel 1 Line Slot Game]]></Description>
+      </Slots1>
+    </Slots>
+    <Slot3DWP Version="WP" Label="Slots 3D">
+      <Slot3D1 ProductId="411">
+        <ImageName><![CDATA[W88-Slots-Mobile-Puppy-Love]]></ImageName>
+        <Label><![CDATA[Puppy Love]]></Label>
+        <Description><![CDATA[Cute/Puppy themed 20 line 5 reel slot game]]></Description>
+      </Slot3D1>
+      <Slot3D2 ProductId="356">
+        <ImageName><![CDATA[W88-Slots-Mobile-Three-Wishes]]></ImageName>
+        <Label><![CDATA[Three Wishes]]></Label>
+        <Description><![CDATA[Genie/Arabian themed 30 Line 5 Reel Slots3 Game]]></Description>
+      </Slot3D2>
+      <Slot3D3 ProductId="376">
+        <ImageName><![CDATA[W88-Slots-Mobile-The-Slotfather]]></ImageName>
+        <Label><![CDATA[The Slotfather]]></Label>
+        <Description><![CDATA[Mobster Themed 30 Line 5 Reel Slots3 Game Non Jackpot Version]]></Description>
+      </Slot3D3>
+      <Slot3D4 ProductId="362">
+        <ImageName><![CDATA[W88-Slots-Mobile-Mr.-Vegas]]></ImageName>
+        <Label><![CDATA[Mr. Vegas]]></Label>
+        <Description><![CDATA[Las Vegas themed 30 Line 5 Reel Slots3 Game with Progressive Jackpot]]></Description>
+      </Slot3D4>
+      <Slot3D5 ProductId="370">
+        <ImageName><![CDATA[W88-Slots-Mobile-Tycoons]]></ImageName>
+        <Label><![CDATA[Tycoons]]></Label>
+        <Description><![CDATA[Billionaire Themed 30 Line 5 Reel Slots3 Game with Progressive Jackpot]]></Description>
+      </Slot3D5>
+      <Slot3D6 ProductId="392">
+        <ImageName><![CDATA[W88-Slots-Mobile-A-Night-In-Paris]]></ImageName>
+        <Label><![CDATA[A Night In Paris]]></Label>
+        <Description><![CDATA[Cat Burglar Themed 30 Line 5 Reel Slots3 Game]]></Description>
+      </Slot3D6>
+      <Slot3D7 ProductId="398">
+        <ImageName><![CDATA[W88-Slots-Mobile-True-Illusions]]></ImageName>
+        <Label><![CDATA[True Illusions]]></Label>
+        <Description><![CDATA[Magician themed 30 Line 5 Reel Slots3 Game]]></Description>
+      </Slot3D7>
+      <Slot3D8 ProductId="368">
+        <ImageName><![CDATA[W88-Slots-Mobile-Rooks-Revenge]]></ImageName>
+        <Label><![CDATA[Rook's Revenge]]></Label>
+        <Description><![CDATA['25 Line 5 Reel Cascading Reel Slots3 Game]]></Description>
+      </Slot3D8>
+      <Slot3D9 ProductId="373">
+        <ImageName><![CDATA[W88-Slots-Mobile-Safari-Sam]]></ImageName>
+        <Label><![CDATA[Safari Sam]]></Label>
+        <Description><![CDATA[Safari Themed 30 Line 5 Reel Slots3 Game]]></Description>
+      </Slot3D9>
+      <Slot3D10 ProductId="364">
+        <ImageName><![CDATA[W88-Slots-Mobile-After-Night-Falls]]></ImageName>
+        <Label><![CDATA[After Night Falls]]></Label>
+        <Description><![CDATA[Cops and Robbers themed 30 Line 5 Reel Slots3 Game]]></Description>
+      </Slot3D10>
+      <Slot3D11 ProductId="361">
+        <ImageName><![CDATA[W88-Slots-Mobile-At-The-Copa]]></ImageName>
+        <Label><![CDATA[At The Copa]]></Label>
+        <Description><![CDATA[Salsa Dancing Themed 30 Line 5 Reel Slots3 Game with 3 Progressive Jackpots]]></Description>
+      </Slot3D11>
+      <Slot3D12 ProductId="365">
+        <ImageName><![CDATA[W88-Slots-Mobile-Under-The-Bed]]></ImageName>
+        <Label><![CDATA[Under the Bed]]></Label>
+        <Description><![CDATA[Monsters and Children themed 30 line 5 reel Slots 3 Game]]></Description>
+      </Slot3D12>
+      <Slot3D13 ProductId="369">
+        <ImageName><![CDATA[W88-Slots-Mobile-Boomanji]]></ImageName>
+        <Label><![CDATA[Boomanji]]></Label>
+        <Description><![CDATA[Fast Paced Fireworks themed 10 line 5 reel Slots3 Game Note: Has a cloned version called Gemscapades that's 7RED exclusive, it's the same exact game.]]></Description>
+      </Slot3D13>
+      <Slot3D14 ProductId="353">
+        <ImageName><![CDATA[W88-Slots-Mobile-Greedy-Goblins]]></ImageName>
+        <Label><![CDATA[Greedy Goblins]]></Label>
+        <Description><![CDATA[Fantasy Themed 30 Line 5 Reel Slots 3 Game. Sequel to "Once Upon A Time"]]></Description>
+      </Slot3D14>
+      <Slot3D15 ProductId="387">
+        <ImageName><![CDATA[W88-Slots-Mobile-The-True-Sheriff]]></ImageName>
+        <Label><![CDATA[The True Sheriff]]></Label>
+        <Description><![CDATA[5 Reel 30 Line 3D Slot Game with Sheriff/Cowboy Theme]]></Description>
+      </Slot3D15>
+      <Slot3D16 ProductId="432">
+        <ImageName><![CDATA[W88-Slots-Mobile-Good-Girl-Bad-Girl]]></ImageName>
+        <Label><![CDATA[Good Girl Bad Girl]]></Label>
+        <Description><![CDATA[30 reels]]></Description>
+      </Slot3D16>
+    </Slot3DWP>
+    <TableCardWP Version="WP" Label="Table &amp; Cards">
+      <TableCard1 ProductId="366">
+        <ImageName><![CDATA[W88-Slots-Mobile-American-Blackjack]]></ImageName>
+        <Label><![CDATA[American Blackjack]]></Label>
+        <Description><![CDATA[Single Deck Blackjack with no sidebet]]></Description>
+      </TableCard1>
+      <TableCard2 ProductId="371">
+        <ImageName><![CDATA[W88-Slots-Mobile-European-Roulette]]></ImageName>
+        <Label><![CDATA[European Roulette]]></Label>
+        <Description><![CDATA[European (Single Zero) Roulette with Hamburg rules]]></Description>
+      </TableCard2>
+    </TableCardWP>
+    <SlotsWP Version="WP" Label="Slots">
+      <Slots1 ProductId="355">
+        <ImageName><![CDATA[W88-Slots-Mobile-Lucky7]]></ImageName>
+        <Label><![CDATA[Lucky7]]></Label>
+        <Description><![CDATA[Traditional 3 Reel 1 Line Slot Game]]></Description>
+      </Slots1>
+    </SlotsWP>
+  </Category>
+</default>
