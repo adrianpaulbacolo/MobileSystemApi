@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+  <lblTitle><![CDATA[ដាក់ប្រាក់រហ័ស]]></lblTitle>
+  <lblDepositAmount><![CDATA[ចំនួនប្រាក់ដាក់]]></lblDepositAmount>
+  <lblReferenceId><![CDATA[លេខយោង]]></lblReferenceId>
+  <lblSystemAccount><![CDATA[គណនីរបស់ប្រព័ន្ធ]]></lblSystemAccount>
+  <drpSystemAccount><![CDATA[គណនីរបស់ប្រព័ន្ធ ជ្រើស]]></drpSystemAccount>
+  <drpDepositDateTime><![CDATA[ថ្ងៃ/ម៉ោងដាក់ប្រាក់]]></drpDepositDateTime>
+  <lblDepositChannel><![CDATA[ប្រភេទដែលបានដាក់]]></lblDepositChannel>
+  <drpDepositChannel><![CDATA[ប្រភេទដែលបានដាក់ ជ្រើស]]></drpDepositChannel>
+  <lblBank><![CDATA[ធនាគារ]]></lblBank>
+  <drpBank><![CDATA[ធនាគារ ជ្រើស]]></drpBank>
+  <lblBankName><![CDATA[ឈ្មោះធនាគារ]]></lblBankName>
+  <drpOtherBank><![CDATA[ធនាគារផ្សេង]]></drpOtherBank>
+  <lblAccountName><![CDATA[ឈ្មោះគណនី]]></lblAccountName>
+  <lblAccountNumber><![CDATA[លេខគណនី]]></lblAccountNumber>
+  <btnSubmit><![CDATA[ស្នើសុំ]]></btnSubmit>
+  <lblTransactionId><![CDATA[លេខប្រតិបត្តិការ]]></lblTransactionId>
+  <lblDailyLimit><![CDATA[ចំនួនកំនត់ប្រចាំថ្ងៃ: ]]></lblDailyLimit>
+  <lblTotalAllowed><![CDATA[ចំនួនអនុញ្ញាតសរុប: ]]></lblTotalAllowed>
+  
+  <DepositChannel>
+    <ATM><![CDATA[ATM]]></ATM>
+    <iBanking><![CDATA[iBanking]]></iBanking>
+    <mBanking><![CDATA[mBanking]]></mBanking>
+    <cBanking><![CDATA[cBanking]]></cBanking>
+    <CDM><![CDATA[CDM]]></CDM>
+  </DepositChannel>
+
+  <BankNameNative>
+    <ZH-CN_RMB />
+    <VI-VN_VND />
+    <TH-TH_THB />
+    <ID-ID_IDR />
+    <KM-KH_USD />
+    <KO-KR_KRW />
+    <JA-JP_JPY />
+  </BankNameNative>
+  
+  <Calendar>
+    <m1><![CDATA[Jan]]></m1>
+    <m2><![CDATA[Feb]]></m2>
+    <m3><![CDATA[Mar]]></m3>
+    <m4><![CDATA[Apr]]></m4>
+    <m5><![CDATA[May]]></m5>
+    <m6><![CDATA[Jun]]></m6>
+    <m7><![CDATA[Jul]]></m7>
+    <m8><![CDATA[Aug]]></m8>
+    <m9><![CDATA[Sep]]></m9>
+    <m10><![CDATA[Oct]]></m10>
+    <m11><![CDATA[Nov]]></m11>
+    <m12><![CDATA[Dec]]></m12>
+  </Calendar>
+</Deposit>

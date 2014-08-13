@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lblSysMsg3><![CDATA[Bạn đang nói chuyện với {LPOPERATOR}]]></lblSysMsg3>
+  <lblSysMsg4><![CDATA[Vui lòng đợi nhà điều hành trang web phản hồi]]></lblSysMsg4>
+  <lblSysMsg5><![CDATA[Phiên chát đã được chấm dứt bởi nhân viên hỗ trợ]]></lblSysMsg5>
+  <lblSysMsg14><![CDATA[Tất cả các hỗ trợ viên hiện đang hỗ trợ khách hàng khác. Cảm ơn sự kiên nhẫn của bạn. Một nhân viên hỗ trợ sẽ liên lạc với bạn sớm.]]></lblSysMsg14>
+  <lblChatEnded><![CDATA[Phiên chát đã kết thúc.]]></lblChatEnded>
+  <btnReqChat><![CDATA[Bắt đầu trò chuyện]]></btnReqChat>
+  <btnEndChat><![CDATA[Kết thúc trò chuyện]]></btnEndChat>
+  <btnSend><![CDATA[Gửi]]></btnSend>
+  <lblMessage><![CDATA[Nhập tin nhắn của bạn ở đây]]></lblMessage>
+  <lblSkill><![CDATA[Vietnamese]]></lblSkill>
+</default>

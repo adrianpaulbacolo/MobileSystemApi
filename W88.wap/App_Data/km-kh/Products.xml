@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <Products>
+    <ASports>
+      <Url><![CDATA[{SportsbookUrl}?lang={language}&amp;st={token}]]></Url>
+      <Label><![CDATA[A-កីឡា]]></Label>
+      <Description><![CDATA[Sportsbook]]></Description>
+    </ASports>
+    <Lottery>
+      <Url><![CDATA[{KenoUrl}]]></Url>
+      <Label><![CDATA[គីណូ]]></Label>
+      <Description><![CDATA[គីណូ & LOTTO]]></Description>
+    </Lottery>
+    <Slots>
+      <Url><![CDATA[/Slots]]></Url>
+      <Label><![CDATA[ស្លត]]></Label>
+      <Description><![CDATA[Crescendo Slots]]></Description>
+    </Slots>
+    <LiveCasino>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[កាស៊ីណូផ្សាយផ្ទាល់]]></Label>
+      <Description><![CDATA[New Live Casino]]></Description>
+    </LiveCasino>
+  </Products>
+  <Wallets>
+    <main><![CDATA[ចំបង]]></main>
+    <asports><![CDATA[A-កីឡា]]></asports>
+    <lottery><![CDATA[ឆ្នោតឡូតូ]]></lottery>
+    <casino><![CDATA[កាស៊ីណូ , Bravado & Crescendo]]></casino>
+    <playtech><![CDATA[Palazzo]]></playtech>
+    <binary><![CDATA[ល្បែងភាគហ៊ុន]]></binary>
+    <poker><![CDATA[ពុកគ័រ (USD)]]></poker>
+  </Wallets>
+</default>

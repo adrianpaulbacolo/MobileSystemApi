@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lblSysMsg3><![CDATA[Saat ini anda sedang chatting dengan {LPOPERATOR}]]></lblSysMsg3>
+  <lblSysMsg4><![CDATA[Silahkan menunggu respon dari operator situs]]></lblSysMsg4>
+  <lblSysMsg5><![CDATA[Sesi chat telah diakhiri oleh operator situs.]]></lblSysMsg5>
+  <lblSysMsg14><![CDATA[Saat ini seluruh operator sedang melayani kostumer. Terimakasih anda bersedia menunggu. Anda akan terhubung dengan operator kami segera..]]></lblSysMsg14>
+  <lblChatEnded><![CDATA[Sesi chat telah berakhir]]></lblChatEnded>
+  <btnReqChat><![CDATA[Mulai chat]]></btnReqChat>
+  <btnEndChat><![CDATA[Akhiri chat]]></btnEndChat>
+  <btnSend><![CDATA[Kirim]]></btnSend>
+  <lblMessage><![CDATA[Ketik pesan anda di sini]]></lblMessage>
+  <lblSkill><![CDATA[Bahasa]]></lblSkill>
+</default>

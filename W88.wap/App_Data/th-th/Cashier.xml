@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<cashier>
+  <lblShowBalance><![CDATA[แสดงยอดเงิน]]></lblShowBalance>
+  <lblHideBalance><![CDATA[ซ่อนยอดเงิน]]></lblHideBalance>
+  <lblTransferFrom><![CDATA[โอนเงินจาก]]></lblTransferFrom>
+  <lblTransferTo><![CDATA[โอนเงินไปยัง]]></lblTransferTo>
+  <lblTransferAmount><![CDATA[ยอดการโอนเงิน]]></lblTransferAmount>
+  <lblPromoCode><![CDATA[รหัสโปรโมชั่น]]></lblPromoCode>
+  <lblFreebetCode><![CDATA[Freebet Code]]></lblFreebetCode>
+  <btnSubmit><![CDATA[ยืนยัน]]></btnSubmit>
+  <btnCancel><![CDATA[ยกเลิก]]></btnCancel>
+</cashier>
