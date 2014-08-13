@@ -30,3 +30,5 @@
 #aMnuDeposit { background-image: url("/_Static/Images/Menu/mnu-deposit.png"); }
 #aMnuTransfer { background-image: url("/_Static/Images/Menu/mnu-fundtransfer.png"); }
 #aMnuWithdrawal { background-image: url("/_Static/Images/Menu/mnu-withdrawal.png"); }
+#aMnuClubMassimoSlot br {display: none;}
+#aMnuClubMassimoCasino br { display: none;}

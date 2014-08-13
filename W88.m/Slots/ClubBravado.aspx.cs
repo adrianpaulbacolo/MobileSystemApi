@@ -46,14 +46,11 @@ public partial class Slots_ClubBravado : BasePage
 
                     sbGames.AppendFormat("<li rel='{0}.jpg' class='bkg-game'><div class='div-links'>", commonCulture.ElementValues.getResourceString("ImageName", xeGame));
 
-                    //if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { sbGames.AppendFormat("<a href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubBravado") + "' data-rel='dialog' data-transition='slidedown'>"); }
-                    //else { sbGames.AppendFormat("<a href='{0}'>", commonClubBravado.getRealUrl.Replace(@"{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId)); }
+                    if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { sbGames.AppendFormat("<a href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubBravado") + "' data-rel='dialog' data-transition='slidedown'>"); }
+                    else { sbGames.AppendFormat("<a href='{0}'>", commonClubBravado.getRealUrl.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId)); }
 
-                    sbGames.AppendFormat("<a href='{0}'{1}><img src='/_Static/Images/btn_play.jpg' /></a>",
-                        string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) ? "/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubBravado") : commonClubBravado.getRealUrl.Replace(@"{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId), 
-                        string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) ? "data-rel='dialog' data-transition='slidedown'" : string.Empty);
-                    //sbGames.Append("<img src='/_Static/Images/btn_play.jpg' /></a>");
-                    sbGames.AppendFormat("<a href='{0}'><img src='/_Static/Images/btn_try.jpg' /></a></div>", commonClubBravado.getFunUrl.Replace(@"{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
+                    sbGames.Append("<img src='/_Static/Images/btn_play.jpg' /></a>");
+                    sbGames.AppendFormat("<a href='{0}'><img src='/_Static/Images/btn_try.jpg' /></a></div>", commonClubBravado.getFunUrl.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
                     sbGames.Append("</li>"); 
                 }
 

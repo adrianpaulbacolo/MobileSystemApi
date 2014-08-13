@@ -28,12 +28,12 @@
     </Lottery>
     <ClubCrescendo>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[เครสเซนโด้]]></Label>
+      <Label><![CDATA[สล็อต]]></Label>
       <Description><![CDATA[Crescendo Slots]]></Description>
     </ClubCrescendo>
     <ClubDivino>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[ดิวิโน่]]></Label>
+      <Label><![CDATA[คลับดิวิโน่]]></Label>
       <Description><![CDATA[คลับบราวาโด้ 3D]]></Description>
     </ClubDivino>
     <ClubW>
@@ -48,12 +48,12 @@
     </ClubBravado>
     <ClubMassimoSlots>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[แมสซิโม<span>(สล๊อต)</span>]]></Label>
+      <Label><![CDATA[คลับแมสซิโม <br /><span>(Slots)</span>]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoSlots>
     <ClubMassimoCasino>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[แมสซิโม<span>(คาสิโนสด)</span>]]></Label>
+      <Label><![CDATA[คลับแมสซิโม <br /><span>(Casino)</span>]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoCasino>
   </Products>

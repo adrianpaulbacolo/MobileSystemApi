@@ -2,8 +2,9 @@
 <default>
 
   <Category>
-    <Slot3D Version="IOS" Label="สล็อต 3D">
-      <Slot3D1 ProductId="409">
+  
+    <Slot3D Version="IOS" Label="สล็อต 3D IOS">
+      <Slot3D1 ProductId="483">
         <ImageName><![CDATA[W88-Slots-Mobile-Puppy-Love]]></ImageName>
         <Label><![CDATA[Puppy Love]]></Label>
         <Description><![CDATA[Cute/Puppy themed 20 line 5 reel slot game]]></Description>
@@ -23,7 +24,7 @@
         <Label><![CDATA[Mr. Vegas]]></Label>
         <Description><![CDATA[Las Vegas themed 30 Line 5 Reel Slots3 Game with Progressive Jackpot]]></Description>
       </Slot3D4>
-      <Slot3D5 ProductId="334">
+      <Slot3D5 ProductId="472">
         <ImageName><![CDATA[W88-Slots-Mobile-Tycoons]]></ImageName>
         <Label><![CDATA[Tycoons]]></Label>
         <Description><![CDATA[Billionaire Themed 30 Line 5 Reel Slots3 Game with Progressive Jackpot]]></Description>
@@ -83,8 +84,40 @@
         <Label><![CDATA[Good Girl Bad Girl]]></Label>
         <Description><![CDATA[30 reels]]></Description>
       </Slot3D16>
+      <Slot3D17 ProductId="513">
+        <ImageName><![CDATA[W88-Slots-Mobile-Fruit-Zen]]></ImageName>
+        <Label><![CDATA[Fruit Zen]]></Label>
+        <Description><![CDATA[Fruit Zen]]></Description>
+      </Slot3D17>
+      <Slot3D18 ProductId="479">
+        <ImageName><![CDATA[W88-Slots-Mobile-Gypsy-Rose]]></ImageName>
+        <Label><![CDATA[Gypsy Rose]]></Label>
+        <Description><![CDATA[Gypsy Rose]]></Description>
+      </Slot3D18>
+      <Slot3D19 ProductId="451">
+        <ImageName><![CDATA[W88-Slots-Mobile-More-Gold-Diggin]]></ImageName>
+        <Label><![CDATA[More Gold Diggin]]></Label>
+        <Description><![CDATA[More Gold Diggin]]></Description>
+      </Slot3D19>
+      <Slot3D20 ProductId="494">
+        <ImageName><![CDATA[W88-Slots-Mobile-Sugar-Pop]]></ImageName>
+        <Label><![CDATA[Sugar Pop]]></Label>
+        <Description><![CDATA[Sugar Pop]]></Description>
+      </Slot3D20>
+      <Slot3D21 ProductId="468">
+        <ImageName><![CDATA[W88-Slots-Mobile-Heist]]></ImageName>
+        <Label><![CDATA[Heist]]></Label>
+        <Description><![CDATA[Heist]]></Description>
+      </Slot3D21>
+      <Slot3D22 ProductId="462">
+        <ImageName><![CDATA[W88-Slots-Mobile-Curious-Machine]]></ImageName>
+        <Label><![CDATA[The Curious Machine]]></Label>
+        <Description><![CDATA[The Curious Machine]]></Description>
+      </Slot3D22>
+
     </Slot3D>
-    <TableCard Version="IOS" Label="เกมส์โต๊ะ &amp; การ์ด">
+
+    <TableCard Version="IOS" Label="เกมส์โต๊ะ &amp; การ์ด IOS">
       <TableCard1 ProductId="271">
         <ImageName><![CDATA[W88-Slots-Mobile-American-Blackjack]]></ImageName>
         <Label><![CDATA[American Blackjack]]></Label>
@@ -96,15 +129,16 @@
         <Description><![CDATA[European (Single Zero) Roulette with Hamburg rules]]></Description>
       </TableCard2>
     </TableCard>
-    <Slots Version="IOS" Label="สล็อต">
+    <Slots Version="IOS" Label="สล็อต IOS">
       <Slots1 ProductId="263">
         <ImageName><![CDATA[W88-Slots-Mobile-Lucky7]]></ImageName>
         <Label><![CDATA[Lucky7]]></Label>
         <Description><![CDATA[Traditional 3 Reel 1 Line Slot Game]]></Description>
       </Slots1>
     </Slots>
-    <Slot3D Version="ANDROID" Label="Slots 3D">
-      <Slot3D1 ProductId="410">
+
+    <Slot3D Version="ANDROID" Label="สล็อต 3D Android">
+      <Slot3D1 ProductId="484">
         <ImageName><![CDATA[W88-Slots-Mobile-Puppy-Love]]></ImageName>
         <Label><![CDATA[Puppy Love]]></Label>
         <Description><![CDATA[Cute/Puppy themed 20 line 5 reel slot game]]></Description>
@@ -124,7 +158,7 @@
         <Label><![CDATA[Mr. Vegas]]></Label>
         <Description><![CDATA[Las Vegas themed 30 Line 5 Reel Slots3 Game with Progressive Jackpot]]></Description>
       </Slot3D4>
-      <Slot3D5 ProductId="335">
+      <Slot3D5 ProductId="473">
         <ImageName><![CDATA[W88-Slots-Mobile-Tycoons]]></ImageName>
         <Label><![CDATA[Tycoons]]></Label>
         <Description><![CDATA[Billionaire Themed 30 Line 5 Reel Slots3 Game with Progressive Jackpot]]></Description>
@@ -184,8 +218,39 @@
         <Label><![CDATA[Good Girl Bad Girl]]></Label>
         <Description><![CDATA[30 reels]]></Description>
       </Slot3D16>
+      <Slot3D17 ProductId="514">
+        <ImageName><![CDATA[W88-Slots-Mobile-Fruit-Zen]]></ImageName>
+        <Label><![CDATA[Fruit Zen]]></Label>
+        <Description><![CDATA[Fruit Zen]]></Description>
+      </Slot3D17>
+      <Slot3D18 ProductId="480">
+        <ImageName><![CDATA[W88-Slots-Mobile-Gypsy-Rose]]></ImageName>
+        <Label><![CDATA[Gypsy Rose]]></Label>
+        <Description><![CDATA[Gypsy Rose]]></Description>
+      </Slot3D18>
+      <Slot3D19 ProductId="452">
+        <ImageName><![CDATA[W88-Slots-Mobile-More-Gold-Diggin]]></ImageName>
+        <Label><![CDATA[More Gold Diggin]]></Label>
+        <Description><![CDATA[More Gold Diggin]]></Description>
+      </Slot3D19>
+      <Slot3D20 ProductId="495">
+        <ImageName><![CDATA[W88-Slots-Mobile-Sugar-Pop]]></ImageName>
+        <Label><![CDATA[Sugar Pop]]></Label>
+        <Description><![CDATA[Sugar Pop]]></Description>
+      </Slot3D20>
+      <Slot3D21 ProductId="469">
+        <ImageName><![CDATA[W88-Slots-Mobile-Heist]]></ImageName>
+        <Label><![CDATA[Heist]]></Label>
+        <Description><![CDATA[Heist]]></Description>
+      </Slot3D21>
+      <Slot3D22 ProductId="463">
+        <ImageName><![CDATA[W88-Slots-Mobile-Curious-Machine]]></ImageName>
+        <Label><![CDATA[The Curious Machine]]></Label>
+        <Description><![CDATA[The Curious Machine]]></Description>
+      </Slot3D22>
     </Slot3D>
-    <TableCard Version="ANDROID" Label="Table &amp; Cards">
+    
+    <TableCard Version="ANDROID" Label="เกมส์โต๊ะ &amp; การ์ด Android">
       <TableCard1 ProductId="272">
         <ImageName><![CDATA[W88-Slots-Mobile-American-Blackjack]]></ImageName>
         <Label><![CDATA[American Blackjack]]></Label>
@@ -197,15 +262,16 @@
         <Description><![CDATA[European (Single Zero) Roulette with Hamburg rules]]></Description>
       </TableCard2>
     </TableCard>
-    <Slots Version="ANDROID" Label="Slots">
+    <Slots Version="ANDROID" Label="สล็อต Android">
       <Slots1 ProductId="268">
         <ImageName><![CDATA[W88-Slots-Mobile-Lucky7]]></ImageName>
         <Label><![CDATA[Lucky7]]></Label>
         <Description><![CDATA[Traditional 3 Reel 1 Line Slot Game]]></Description>
       </Slots1>
     </Slots>
-    <Slot3DWP Version="WP" Label="Slots 3D">
-      <Slot3D1 ProductId="411">
+    
+    <Slot3DWP Version="WP" Label="สล็อต 3D WP">
+      <Slot3D1 ProductId="485">
         <ImageName><![CDATA[W88-Slots-Mobile-Puppy-Love]]></ImageName>
         <Label><![CDATA[Puppy Love]]></Label>
         <Description><![CDATA[Cute/Puppy themed 20 line 5 reel slot game]]></Description>
@@ -225,7 +291,7 @@
         <Label><![CDATA[Mr. Vegas]]></Label>
         <Description><![CDATA[Las Vegas themed 30 Line 5 Reel Slots3 Game with Progressive Jackpot]]></Description>
       </Slot3D4>
-      <Slot3D5 ProductId="370">
+      <Slot3D5 ProductId="474">
         <ImageName><![CDATA[W88-Slots-Mobile-Tycoons]]></ImageName>
         <Label><![CDATA[Tycoons]]></Label>
         <Description><![CDATA[Billionaire Themed 30 Line 5 Reel Slots3 Game with Progressive Jackpot]]></Description>
@@ -285,8 +351,38 @@
         <Label><![CDATA[Good Girl Bad Girl]]></Label>
         <Description><![CDATA[30 reels]]></Description>
       </Slot3D16>
+      <Slot3D17 ProductId="515">
+        <ImageName><![CDATA[W88-Slots-Mobile-Fruit-Zen]]></ImageName>
+        <Label><![CDATA[Fruit Zen]]></Label>
+        <Description><![CDATA[Fruit Zen]]></Description>
+      </Slot3D17>
+      <Slot3D18 ProductId="481">
+        <ImageName><![CDATA[W88-Slots-Mobile-Gypsy-Rose]]></ImageName>
+        <Label><![CDATA[Gypsy Rose]]></Label>
+        <Description><![CDATA[Gypsy Rose]]></Description>
+      </Slot3D18>
+      <Slot3D19 ProductId="453">
+        <ImageName><![CDATA[W88-Slots-Mobile-More-Gold-Diggin]]></ImageName>
+        <Label><![CDATA[More Gold Diggin]]></Label>
+        <Description><![CDATA[More Gold Diggin]]></Description>
+      </Slot3D19>
+      <Slot3D20 ProductId="496">
+        <ImageName><![CDATA[W88-Slots-Mobile-Sugar-Pop]]></ImageName>
+        <Label><![CDATA[Sugar Pop]]></Label>
+        <Description><![CDATA[Sugar Pop]]></Description>
+      </Slot3D20>
+      <Slot3D21 ProductId="470">
+        <ImageName><![CDATA[W88-Slots-Mobile-Heist]]></ImageName>
+        <Label><![CDATA[Heist]]></Label>
+        <Description><![CDATA[Heist]]></Description>
+      </Slot3D21>
+      <Slot3D22 ProductId="464">
+        <ImageName><![CDATA[W88-Slots-Mobile-Curious-Machine]]></ImageName>
+        <Label><![CDATA[The Curious Machine]]></Label>
+        <Description><![CDATA[The Curious Machine]]></Description>
+      </Slot3D22>
     </Slot3DWP>
-    <TableCardWP Version="WP" Label="Table &amp; Cards">
+    <TableCardWP Version="WP" Label="เกมส์โต๊ะ &amp; การ์ด WP">
       <TableCard1 ProductId="366">
         <ImageName><![CDATA[W88-Slots-Mobile-American-Blackjack]]></ImageName>
         <Label><![CDATA[American Blackjack]]></Label>
@@ -298,7 +394,7 @@
         <Description><![CDATA[European (Single Zero) Roulette with Hamburg rules]]></Description>
       </TableCard2>
     </TableCardWP>
-    <SlotsWP Version="WP" Label="Slots">
+    <SlotsWP Version="WP" Label="สล็อต WP">
       <Slots1 ProductId="355">
         <ImageName><![CDATA[W88-Slots-Mobile-Lucky7]]></ImageName>
         <Label><![CDATA[Lucky7]]></Label>

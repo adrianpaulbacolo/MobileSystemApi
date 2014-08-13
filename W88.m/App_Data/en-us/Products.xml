@@ -51,12 +51,12 @@
     </ClubBravado>
     <ClubMassimoSlots>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Massimo<span>(Slots)</span>]]></Label>
+      <Label><![CDATA[Massimo <br /><span>(Slots)</span>]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoSlots>
     <ClubMassimoCasino>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Massimo<span>(Casino)</span>]]></Label>
+      <Label><![CDATA[Massimo <br /><span>(Casino)</span>]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoCasino>
     <Deposit>

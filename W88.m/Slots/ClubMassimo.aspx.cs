@@ -34,6 +34,9 @@ public partial class Slots_ClubMassimo : BasePage
        
                     sbGames.AppendFormat("<li rel='{0}.jpg' class='bkg-game'><div class='div-links'>", commonCulture.ElementValues.getResourceString("ImageName", xeGame));
 
+                    //{RealUrl}/cashapillar/en?casinoID=5053&loginType=VanguardSessionToken&isRGI=true&bankingURL={cashier}&authToken={token}&lobbyURL={lobby}
+                    //{FunUrl}/cashapillar/en?casinoID=5002&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL={lobby}
+
                     if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { sbGames.AppendFormat("<a href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubMassimo") + "' data-rel='dialog' data-transition='slidedown'>"); }
                     else { sbGames.AppendFormat("<a href='{0}'>", commonCulture.ElementValues.getResourceString("PlayForRealURL", xeGame).Replace("{RealUrl}", commonClubMassimo.getRealUrl).Replace("{token}", commonVariables.CurrentMemberSessionId)).Replace("{lobby}","m.w88.com/ClubMassimo").Replace("{cashier}","m.w88.com/fundtransfer"); }
 

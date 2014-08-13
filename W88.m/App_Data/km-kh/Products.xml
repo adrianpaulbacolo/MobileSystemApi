@@ -28,12 +28,12 @@
     </Lottery>
     <ClubCrescendo>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Crescendo]]></Label>
+      <Label><![CDATA[ស្លត]]></Label>
       <Description><![CDATA[Crescendo Slots]]></Description>
     </ClubCrescendo>
     <ClubDivino>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Divino]]></Label>
+      <Label><![CDATA[Club Divino]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubDivino>
     <ClubW>
@@ -48,12 +48,12 @@
     </ClubBravado>
     <ClubMassimoSlots>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Massimo<span>(ស្លត)</span>]]></Label>
+      <Label><![CDATA[លឹបMassimo<br /><span>(Slots)</span>]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoSlots>
     <ClubMassimoCasino>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Massimo<span>(កាស៊ីណ)</span>]]></Label>
+      <Label><![CDATA[លឹបMassimo<br /><span>(Casino)</span>]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoCasino>
   </Products>

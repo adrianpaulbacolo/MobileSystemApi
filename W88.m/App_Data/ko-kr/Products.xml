@@ -33,7 +33,7 @@
     </ClubCrescendo>
     <ClubDivino>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[디비노]]></Label>
+      <Label><![CDATA[클럽 디비노]]></Label>
       <Description><![CDATA[클럽 브라바도 3D]]></Description>
     </ClubDivino>
     <ClubW>
@@ -48,12 +48,12 @@
     </ClubBravado>
     <ClubMassimoSlots>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[마시모<span>(슬롯게임)</span>]]></Label>
+      <Label><![CDATA[클럽 마시모 <br /><span>(Slots)</span>]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoSlots>
     <ClubMassimoCasino>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[마시모<span>(카지노)</span>]]></Label>
+      <Label><![CDATA[클럽 마시모 <br /><span>(Casino)</span>]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoCasino>
   </Products>
