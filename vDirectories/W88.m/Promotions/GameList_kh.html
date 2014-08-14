@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Game List</title>
+<style type="text/css">
+body {
+	font-family: Tahoma, Arial, Helvetica, sans-serif; font-size:11px; color:#808080;
+	background:#1f1f1f;
+}
+.rowHeader	{background:#404040;font-weight:bold;}
+.row1		{background:#333333;}
+.row2		{background:#333333;}
+a.button {
+	display:inline-block;	
+	background: #333;
+	width: 120px;
+	height:22px;
+	line-height:22px;
+	color:#fff;
+	font-weight: bold;
+	text-decoration: none;
+	margin-left: 1px;
+}
+
+a.button:hover, a.button.selected {
+	background: #404040;
+}
+
+body.white {
+	background:#eee;color:#404040;
+}
+body.white .rowHeader	{background:#ddd;}
+body.white .row1		{background:#fff;}
+body.white .row2		{background:#fff;}
+body.white a.button {
+	background: #fff;
+	color:#404040;
+}
+
+body.white  a.button:hover, body.white  a.button.selected {
+	background: #ddd;
+}
+
+	table {
+		width: 240px;
+	}
+</style>
+<script src="/_static/_script/combined.js"></script>
+<script>
+	$(function () {
+		if ($.cookie("color")) {
+			$("body").addClass($.cookie("color"));
+		}
+	});
+
+	$(function () {
+		$("table").hide();
+		$("table:first").show();
+	});
+	function changeTable(tableName) {
+		$("a").removeClass("selected");
+		$("a#btn_" + tableName).addClass("selected");
+		$("table").hide();
+		$("table#" + tableName).show();
+	}
+</script>
+</head>
+<body>
+<div style="text-align:center;">
+		<a href="javascript:changeTable('Divino')" class="button selected" id="btn_Divino">Club Divino</a><a href="javascript:changeTable('Crescendo')" class="button" id="btn_Crescendo">Club Crescendo</a>
+</div>
+<table border="0" align="center" cellpadding="5" cellspacing="1" id="Divino">
+  <tr class="rowHeader">
+    <td align="center"><strong>ឈ្មោះហ្គេម</strong></td>
+  </tr>
+  <tr class="row1">
+    <td>21 Burn    Blackjack</td>
+  </tr>
+  <tr class="row1">
+    <td>Baccarat</td>
+  </tr>
+  <tr class="row1">
+    <td>Deuces Wild</td>
+  </tr>
+  <tr class="row1">
+    <td>European Blackjack</td>
+  </tr>
+  <tr class="row1">
+    <td>Five Draw Poker</td>
+  </tr>
+  <tr class="row1">
+    <td>Joker Poker</td>
+  </tr>
+  <tr class="row1">
+    <td>Multihand All American</td>
+  </tr>
+  <tr class="row1">
+    <td>Multihand Deuces Wild</td>
+  </tr>
+  <tr class="row1">
+    <td>Multihand Double Jackpot</td>
+  </tr>
+  <tr class="row1">
+    <td>Multihand Jacks or Better</td>
+  </tr>
+  <tr class="row1">
+    <td>Multihand Joker Poker</td>
+  </tr>
+  <tr class="row1">
+    <td>Oasis Poker</td>
+  </tr>
+  <tr class="row1">
+    <td>Pirate 21</td>
+  </tr>
+  <tr class="row1">
+    <td>Pontoon</td>
+  </tr>
+  <tr class="row1">
+    <td>Pyramid Joker Poker</td>
+  </tr>
+  <tr class="row1">
+    <td>Single Deck Blackjack</td>
+  </tr>
+  <tr class="row1">
+    <td>Super 7</td>
+  </tr>
+  <tr class="row1">
+    <td>Three Card Rummy</td>
+  </tr>
+ <tr class="rowHeader">
+    <td align="center">ទូរស័ព្ទដៃ </td>
+  </tr>
+  <tr class="row1">
+    <td>Mobile American Blackjack (Android)</td>
+  </tr>
+  <tr class="row1">
+    <td>Mobile American Blackjack (IOS)</td>
+  </tr>
+  <tr class="row1">
+    <td>Mobile American Blackjack (WIN)</td>
+  </tr>
+</table>
+<table border="0" align="center" cellpadding="5" cellspacing="1" id="Crescendo">
+  <tr class="rowHeader">
+    <td align="center"><strong>ឈ្មោះហ្គេម</strong></td>
+  </tr>
+  <tr class="row1">
+    <td>Baccarat</td>
+  </tr>
+  <tr class="row1">
+    <td>BlackJack</td>
+  </tr>
+  <tr class="row1">
+    <td>BlackJack Classic</td>
+  </tr>
+  <tr class="row1">
+    <td>BlackJack Progressive</td>
+  </tr>
+  <tr class="row1">
+    <td>BlackJack Surrender</td>
+  </tr>
+  <tr class="row1">
+    <td>BlackJack Surrender Classic</td>
+  </tr>
+  <tr class="row1">
+    <td>Blackjack Switch</td>
+  </tr>
+  <tr class="row1">
+    <td>Deuces Wild 10-Line</td>
+  </tr>
+  <tr class="row1">
+    <td>Deuces Wild 25-Line</td>
+  </tr>
+  <tr class="row1">
+    <td>Deuces Wild 4-Line</td>
+  </tr>
+  <tr class="row1">
+    <td>Deuces Wild 50-Line</td>
+  </tr>
+  <tr class="row1">
+    <td>DeucesWild</td>
+  </tr>
+  <tr class="row1">
+    <td>Jacks or Better 10-Line</td>
+  </tr>
+  <tr class="row1">
+    <td>Jacks or Better 25-Line</td>
+  </tr>
+  <tr class="row1">
+    <td>Jacks or Better 4-Line</td>
+  </tr>
+  <tr class="row1">
+    <td>Jacks or Better 50-Line</td>
+  </tr>
+  <tr class="row1">
+    <td>JacksOrBetter</td>
+  </tr>
+  <tr class="row1">
+    <td>Joker Wild 10-Line</td>
+  </tr>
+  <tr class="row1">
+    <td>Joker Wild 25-Line</td>
+  </tr>
+  <tr class="row1">
+    <td>Joker Wild 4-Line</td>
+  </tr>
+  <tr class="row1">
+    <td>Joker Wild 50-Line</td>
+  </tr>
+  <tr class="row1">
+    <td>JokerWild</td>
+  </tr>
+  <tr class="row1">
+    <td>Oasis Poker</td>
+  </tr>
+  <tr class="row1">
+    <td>Pai Gow    Poker</td>
+  </tr>
+  <tr class="row1">
+    <td>Perfect Pairs Blackjack</td>
+  </tr>
+  <tr class="row1">
+    <td>Pontoon</td>
+  </tr>
+  <tr class="row1">
+    <td>Russian Poker</td>
+  </tr>
+  <tr class="row1">
+    <td>Spanish BlackJack</td>
+  </tr>
+   <tr class="rowHeader">
+    <td align="center">ទូរស័ព្ទដៃ </td>
+  </tr>
+ <tr class="row1">
+    <td>Mobile Baccarat</td>
+  </tr>
+  <tr class="row1">
+    <td>Mobile BlackJack</td>
+  </tr>
+  <tr class="row1">
+    <td>Mobile BlackJack Surrender</td>
+  </tr>
+  <tr class="row1">
+    <td>Mobile Deuces Wild 4-Line</td>
+  </tr>
+  <tr class="row1">
+    <td>Mobile Perfect Pairs Blackjack</td>
+  </tr>
+  <tr class="row1">
+    <td>Mobile Pontoon</td>
+  </tr>
+  <tr class="row1">
+    <td>Mobile    Spanish Blackjack</td>
+  </tr>
+
+</table>
+
+
+
+</body>
+</html>
