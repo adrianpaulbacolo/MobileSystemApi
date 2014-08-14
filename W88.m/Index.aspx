@@ -35,8 +35,8 @@
                       var imgPromo = $('<img />', { src: strImageSrc });
                       var hrefPromo = $('<a />', { href: "/Promotions#" + $(this).attr('id'), 'data-ajax': false });
                       var divPromoTitle = $('<div />', { class: 'div-promo-header' }).text(strPromoTitle);
-                      var divPromoContent = $('<div />', { class: 'div-promo-desc' }).text(strPromoContent);
-                      var divPromoDetail = $('<div />', { class: 'div-promo-content' }).html(strPromoDetail.replace(/<img rel=/g, '<img src='));
+                      var divPromoContent = $('<div />', { class: 'div-promo-desc' }).text(strPromoContent);                      
+                      var divPromoDetail = $('<div />', { class: 'div-promo-content' }).html(/<img rel=/g.test(strPromoDetail) ? strPromoDetail.replace(/<img rel=/g, '<img src=') : strPromoDetail);
                       listObj.append($(liPromo).append($(divPromoWrapper).append($(hrefPromo).append($(divPromoImg).append(imgPromo)).append($('<div />', {}).append(divPromoTitle).append(divPromoContent)))));
                       $('.div-promo-row > a > div:last-child > div').css({ maxWidth: ($(window).width() - 160) + 'px' });
                       $(this).find('script').each(function () { $.globalEval(this.text || this.textContent || this.innerHTML || ''); });
@@ -269,6 +269,7 @@
                 <img id="promoLoader" src="/_Static/Css/images/ajax-loader.gif" style="display: none;" />
                 <div id="divPromoHeader" onclick="javascript:$(this).next().children(':nth-child(n+4)').slideToggle();"><span><%=commonCulture.ElementValues.getResourceString("promotions", commonVariables.LeftMenuXML)%></span></div>
             </div>
+            <div class="div-mobile-download"><img src="/_Static/Images/Download/W88-Mobile-ClubW-<%=commonVariables.SelectedLanguageShort%>.jpg" /><img src="/_Static/Images/Download/W88-Mobile-MassimoCasino-<%=commonVariables.SelectedLanguageShort%>.jpg" /></div>
         </div>
         <!-- /content -->
         <!--#include virtual="~/_static/footer.shtml" -->
