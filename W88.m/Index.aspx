@@ -196,7 +196,7 @@
                             </a>
                         </li>
                         <li class="li-clubw">
-                            <a id="aClubW" runat="server" href="//casino.w88live.com/mob/app-release.apk" data-ajax="false">
+                            <a id="aClubW" runat="server" rel="clubw" href="//casino.w88live.com/mob/app-release.apk" data-ajax="false">
                                 <img src="/_Static/Images/bnr-clubw-android.jpg" class="ui-li-thumb" />
                                 <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></h2>
                             </a>

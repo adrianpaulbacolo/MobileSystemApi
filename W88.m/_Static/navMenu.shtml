@@ -9,7 +9,7 @@
 <li id="liOptions"><div><a class="ui-btn ui-blue ui-mini" href="/_Secure/Register.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("joinnow", commonVariables.LeftMenuXML)%></a>&nbsp;<a class="ui-btn ui-gray ui-mini" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></a></div></li>
 <% } %>
 <li data-icon="false" class="ui-icon"><a rel="asports" id="aMnuASports" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceXPathString("Products/ASports/Label", commonVariables.ProductsXML)%></a></li>
-<li data-icon="false" class="ui-icon"><a rel="clubw" id="aMnuClubW" href="//casino.w88live.com/mob/app-release.apk" data-ajax="false"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></a></li>
+<li data-icon="false" class="ui-icon"><a rel="clubw" id="aMnuClubW" href="/mob/app-release.apk" data-ajax="false"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></a></li>
 <li data-icon="false" class="ui-icon"><a rel="clubmassimo-casino" id="aMnuClubMassimoCasino" href="//livegames.gameassists.co.uk/MobileClient/MobileRedirector/index.aspx?AppID=W88Diamond&ClientID=5&UL=en" data-ajax="false"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoCasino/Label", commonVariables.ProductsXML)%></a></li>
 <li data-icon="false" class="ui-icon"><a rel="lottery" id="aMnuLottery" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceXPathString("Products/Lottery/Label", commonVariables.ProductsXML)%></a></li>
 <li data-icon="false" class="ui-icon"><a rel="clubmassimo-slots" id="aMnuClubMassimoSlot" href="/ClubMassimo" data-ajax="false"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML)%></a></li>
@@ -50,10 +50,12 @@
             $('a[rel="lottery"]').each(function () {
                 $(this).removeAttr('data-rel').removeAttr('data-transition').attr('data-ajax', 'false').attr('href', '<%=(string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) ? "_Secure/Login" : commonLottery.getKenoUrl)%>');
             });
-            $('a[rel="clubw"]').each(function () {
-                $(this).removeAttr('data-rel').removeAttr('data-transition').attr('data-ajax', 'false').attr('href', '<%=(string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) ? "_Secure/Login" : commonClubW.getUrl)%>');
-            });
         }
+        $('a[rel="clubw"]').each(function () {
+            $(this).attr('href', '//casino' + location.hostname.substring(location.hostname.indexOf('.')) + $(this).attr('href'));
+            //console.log('//casino' + location.hostname.substring(location.hostname.indexOf('.')) + $(this).attr('href'));
+        });
+
         var wcLang = 'EN';
         switch ('<%=commonVariables.SelectedLanguage.ToLower()%>') {
             case "id-id": wcLang = "id"; break;
