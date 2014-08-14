@@ -3,22 +3,22 @@
   <Products>
     <ASports>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[A-កីឡា]]></Label>
+      <Label><![CDATA[a-កីឡា]]></Label>
       <Description><![CDATA[Sportsbook]]></Description>
     </ASports>
     <ESports>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[E-កីឡា]]></Label>
+      <Label><![CDATA[e-កីឡា]]></Label>
       <Description><![CDATA[Sportsbook]]></Description>
     </ESports>
     <ISports>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[I-កីឡា]]></Label>
+      <Label><![CDATA[i-កីឡា]]></Label>
       <Description><![CDATA[Sportsbook]]></Description>
     </ISports>
     <USports>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[U-កីឡា]]></Label>
+      <Label><![CDATA[u-កីឡា]]></Label>
       <Description><![CDATA[Sportsbook]]></Description>
     </USports>
     <Lottery>

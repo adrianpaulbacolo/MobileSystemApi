@@ -105,39 +105,9 @@
                                     <div></div>
                                 </a>
                             </li>
-                            <li class="li-esports">
-                                <a rel="esports" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></div>
-                                    <div></div>
-                                </a>
-                            </li>
-                            <li class="li-lottery">
-                                <a rel="lottery" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/Lottery/Label", commonVariables.ProductsXML)%></div>
-                                    <div></div>
-                                </a>
-                            </li>
-                            <li class="li-clubcrescendo">
-                                <a rel="clubcrescendo" href="/ClubCrescendo" data-ajax="false">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubCrescendo/Label", commonVariables.ProductsXML)%></div>
-                                    <div></div>
-                                </a>
-                            </li>
-                            <li class="li-clubbravado">
-                                <a rel="clubbravado" href="/ClubBravado" data-ajax="false">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubBravado/Label", commonVariables.ProductsXML)%></div>
-                                    <div></div>
-                                </a>
-                            </li>
-                            <li class="li-clubdivino">
-                                <a rel="clubdivino" href="/ClubDivino" data-ajax="false">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubDivino/Label", commonVariables.ProductsXML)%></div>
-                                    <div></div>
-                                </a>
-                            </li>
-                            <li class="li-clubmassimo-slots">
-                                <a rel="clubmassimo-slots" href="/ClubMassimo" data-ajax="false">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML)%></div>
+                            <li class="li-clubw">
+                                <a rel="clubw" href="//casino.w88live.com/mob/app-release.apk" data-ajax="false">
+                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></div>
                                     <div></div>
                                 </a>
                             </li>
@@ -147,9 +117,39 @@
                                     <div></div>
                                 </a>
                             </li>
-                            <li class="li-clubw">
-                                <a rel="clubw" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></div>
+                            <li class="li-lottery">
+                                <a rel="lottery" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
+                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/Lottery/Label", commonVariables.ProductsXML)%></div>
+                                    <div></div>
+                                </a>
+                            </li>
+                            <li class="li-clubmassimo-slots">
+                                <a rel="clubmassimo-slots" href="/ClubMassimo" data-ajax="false">
+                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML)%></div>
+                                    <div></div>
+                                </a>
+                            </li>
+                            <li class="li-clubdivino">
+                                <a rel="clubdivino" href="/ClubDivino" data-ajax="false">
+                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubDivino/Label", commonVariables.ProductsXML)%></div>
+                                    <div></div>
+                                </a>
+                            </li>
+                            <li class="li-clubcrescendo">
+                                <a rel="clubcrescendo" href="/ClubCrescendo" data-ajax="false">
+                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubCrescendo/Label", commonVariables.ProductsXML)%></div>
+                                    <div></div>
+                                </a>
+                            </li>
+                            <li class="li-esports">
+                                <a rel="esports" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
+                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></div>
+                                    <div></div>
+                                </a>
+                            </li>
+                            <li class="li-clubbravado">
+                                <a rel="clubbravado" href="/ClubBravado" data-ajax="false">
+                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubBravado/Label", commonVariables.ProductsXML)%></div>
                                     <div></div>
                                 </a>
                             </li>
@@ -182,21 +182,29 @@
 
                 <div id="divProduct">
                     <ul class="lv-Product" data-role="listview" data-icon="false">
+                        <!--
                         <li class="li-wcinfo">
                             <a rel="awcinfo" href="//ls.betradar.com/ls/livescore/?/w88/{LANG}/page/worldcup_matchcentermobile" data-ajax="false">
                                 <img src="/_Static/Images/bnr-wcinfo.jpg" class="ui-li-thumb" />
                             </a>
                         </li>
+                        -->
                         <li class="li-asports">
                             <a id="aASports" runat="server" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
                                 <img src="/_Static/Images/bnr-asports.jpg" class="ui-li-thumb" />
                                 <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ASports/Label", commonVariables.ProductsXML)%></h2>
                             </a>
                         </li>
-                        <li class="li-esports">
-                            <a id="aESports" runat="server" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                                <img src="/_Static/Images/bnr-esports.jpg" class="ui-li-thumb" />
-                                <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></h2>
+                        <li class="li-clubw">
+                            <a id="aClubW" runat="server" href="//casino.w88live.com/mob/app-release.apk" data-ajax="false">
+                                <img src="/_Static/Images/bnr-clubw-android.jpg" class="ui-li-thumb" />
+                                <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></h2>
+                            </a>
+                        </li>
+                        <li class="li-clubmassimo-casino">
+                            <a id="aClubMassimoCasino" runat="server" href="//livegames.gameassists.co.uk/MobileClient/MobileRedirector/index.aspx?AppID=W88Diamond&ClientID=5&UL=en" data-ajax="false">
+                                <img src="/_Static/Images/bnr-clubmassimo-casino-android.jpg" class="ui-li-thumb" />
+                                <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoCasino/Label", commonVariables.ProductsXML)%></h2>
                             </a>
                         </li>
                         <li class="li-lottery">
@@ -205,16 +213,10 @@
                                 <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/Lottery/Label", commonVariables.ProductsXML)%></h2>
                             </a>
                         </li>
-                        <li class="li-clubbravado">
-                            <a id="aClubBravado" runat="server" href="/ClubBravado" data-ajax="false">
-                                <img src="/_Static/Images/bnr-clubbravado.jpg" class="ui-li-thumb" />
-                                <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubBravado/Label", commonVariables.ProductsXML)%></h2>
-                            </a>
-                        </li>
-                        <li class="li-clubcrescendo">
-                            <a id="aClubCrescendo" runat="server" href="/ClubCrescendo" data-ajax="false">
-                                <img src="/_Static/Images/bnr-clubcrescendo.png" class="ui-li-thumb" />
-                                <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubCrescendo/Label", commonVariables.ProductsXML)%></h2>
+                        <li class="li-clubmassimo-slots">
+                            <a id="aClubMassimo" runat="server" href="/ClubMassimo" data-ajax="false">
+                                <img src="/_Static/Images/bnr-clubmassimo-slots.jpg" class="ui-li-thumb" />
+                                <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML)%></h2>
                             </a>
                         </li>
                         <li class="li-clubdivino">
@@ -223,24 +225,25 @@
                                 <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubDivino/Label", commonVariables.ProductsXML)%></h2>
                             </a>
                         </li>
-                        <li class="li-clubmassimo-slots">
-                            <a id="aClubMassimo" runat="server" href="/ClubMassimo" data-ajax="false">
-                                <img src="/_Static/Images/bnr-clubmassimo-slots.jpg" class="ui-li-thumb" />
-                                <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML)%></h2>
+                        <li class="li-clubcrescendo">
+                            <a id="aClubCrescendo" runat="server" href="/ClubCrescendo" data-ajax="false">
+                                <img src="/_Static/Images/bnr-clubcrescendo.png" class="ui-li-thumb" />
+                                <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubCrescendo/Label", commonVariables.ProductsXML)%></h2>
                             </a>
                         </li>
-                        <li class="li-clubmassimo-casino">
-                            <a id="aClubMassimoCasino" runat="server" href="//livegames.gameassists.co.uk/MobileClient/MobileRedirector/index.aspx?AppID=W88Diamond&ClientID=5&UL=en" data-ajax="false">
-                                <img src="/_Static/Images/bnr-clubmassimo-casino.jpg" class="ui-li-thumb" />
-                                <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoCasino/Label", commonVariables.ProductsXML)%></h2>
+                        <li class="li-esports">
+                            <a id="aESports" runat="server" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
+                                <img src="/_Static/Images/bnr-esports.jpg" class="ui-li-thumb" />
+                                <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></h2>
                             </a>
                         </li>
-                        <li class="li-clubw">
-                            <a id="aClubW" runat="server" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                                <img src="/_Static/Images/bnr-clubw.jpg" class="ui-li-thumb" />
-                                <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></h2>
+                        <li class="li-clubbravado">
+                            <a id="aClubBravado" runat="server" href="/ClubBravado" data-ajax="false">
+                                <img src="/_Static/Images/bnr-clubbravado.jpg" class="ui-li-thumb" />
+                                <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubBravado/Label", commonVariables.ProductsXML)%></h2>
                             </a>
                         </li>
+
                         <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                            { %>
 

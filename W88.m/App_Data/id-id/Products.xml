@@ -3,32 +3,32 @@
   <Products>
     <ASports>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[A-SPORT]]></Label>
+      <Label><![CDATA[a-Sport]]></Label>
       <Description><![CDATA[Sportsbook]]></Description>
     </ASports>
     <ESports>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[E-SPORT]]></Label>
+      <Label><![CDATA[e-Sport]]></Label>
       <Description><![CDATA[Sportsbook]]></Description>
     </ESports>
     <ISports>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[I-SPORT]]></Label>
+      <Label><![CDATA[i-Sport]]></Label>
       <Description><![CDATA[Sportsbook]]></Description>
     </ISports>
     <USports>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[U-SPORT]]></Label>
+      <Label><![CDATA[u-Sport]]></Label>
       <Description><![CDATA[Sportsbook]]></Description>
     </USports>
     <Lottery>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[KENO]]></Label>
+      <Label><![CDATA[Keno]]></Label>
       <Description><![CDATA[KENO & LOTERE]]></Description>
     </Lottery>
     <ClubCrescendo>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[SLOT]]></Label>
+      <Label><![CDATA[Slot]]></Label>
       <Description><![CDATA[Crescendo Slots]]></Description>
     </ClubCrescendo>
     <ClubDivino>
