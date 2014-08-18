@@ -106,7 +106,7 @@
                                 </a>
                             </li>
                             <li class="li-clubw">
-                                <a rel="clubw" href="//casino.w88live.com/mob/app-release.apk" data-ajax="false">
+                                <a rel="clubw" href="/mob/app-release.apk" data-ajax="false">
                                     <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></div>
                                     <div></div>
                                 </a>
@@ -196,7 +196,7 @@
                             </a>
                         </li>
                         <li class="li-clubw">
-                            <a id="aClubW" runat="server" rel="clubw" href="//casino.w88live.com/mob/app-release.apk" data-ajax="false">
+                            <a id="aClubW" runat="server" rel="clubw" href="/mob/app-release.apk" data-ajax="false">
                                 <img src="/_Static/Images/bnr-clubw-android.jpg" class="ui-li-thumb" />
                                 <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></h2>
                             </a>
@@ -269,7 +269,7 @@
                 <img id="promoLoader" src="/_Static/Css/images/ajax-loader.gif" style="display: none;" />
                 <div id="divPromoHeader" onclick="javascript:$(this).next().children(':nth-child(n+4)').slideToggle();"><span><%=commonCulture.ElementValues.getResourceString("promotions", commonVariables.LeftMenuXML)%></span></div>
             </div>
-            <div class="div-mobile-download"><img src="/_Static/Images/Download/W88-Mobile-ClubW-<%=commonVariables.SelectedLanguageShort%>.jpg" /><img src="/_Static/Images/Download/W88-Mobile-MassimoCasino-<%=commonVariables.SelectedLanguageShort%>.jpg" /></div>
+            <div class="div-mobile-download"><a rel="clubw" href="/mob/app-release.apk" data-ajax="false"><img src="/_Static/Images/Download/W88-Mobile-ClubW-<%=commonVariables.SelectedLanguageShort%>.jpg" /></a><a href="//livegames.gameassists.co.uk/MobileClient/MobileRedirector/index.aspx?AppID=W88Diamond&ClientID=5&UL=en" data-ajax="false"><img src="/_Static/Images/Download/W88-Mobile-MassimoCasino-<%=commonVariables.SelectedLanguageShort%>.jpg" /></a></div>
         </div>
         <!-- /content -->
         <!--#include virtual="~/_static/footer.shtml" -->

@@ -307,7 +307,7 @@
 /*#endregion*/
 
 
-.div-mobile-download img {
+.div-mobile-download a {
     display:inline-block;
     width:50%;
     max-width:352px;
