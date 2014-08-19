@@ -15,7 +15,7 @@
 <% if (string.Compare(commonVariables.SelectedLanguage, "th-th", true) == 0) { %>
 <link type="text/css" rel="stylesheet" href="/_Static/Css/th-th.css" />
 <% } else if (string.Compare(commonVariables.SelectedLanguage, "km-kh", true) == 0) { %>
-<link type="text/css" rel="stylesheet" href="/_Static/Css/km-kh.css" />
+<link type="text/css" rel="stylesheet" href="/_Static/Css/th-th.css" />
 <% } else if (string.Compare(commonVariables.SelectedLanguage, "zh-cn", true) == 0) { %>
 <link type="text/css" rel="stylesheet" href="/_Static/Css/zh-cn.css" />
 <% } %>
