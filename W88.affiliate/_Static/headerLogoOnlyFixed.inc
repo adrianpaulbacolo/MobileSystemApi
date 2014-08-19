@@ -1,0 +1,2 @@
+﻿<style type="text/css">.div-nav-header { background-position: center center !important; }</style>
+<div data-role="header" data-position="fixed" data-theme="b" data-tap-toggle="false" class="div-nav-header"></div>

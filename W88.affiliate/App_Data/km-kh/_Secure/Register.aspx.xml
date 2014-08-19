@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<register>
+  <lblUsername><![CDATA[ឈ្មោះគណនី]]></lblUsername>
+  <lblPassword><![CDATA[លេខសំងាត់]]></lblPassword>
+  <lblEmailAddress><![CDATA[អ៊ីម៉ែល]]></lblEmailAddress>
+  <lblContact><![CDATA[លេខទំនាក់ទំនង]]></lblContact>
+  <lblCurrency><![CDATA[រូបិយវត្ថុ]]></lblCurrency>
+  <drpCurrencySelect><![CDATA[រូបិយវត្ថុ ជ្រើស]]></drpCurrencySelect>
+
+  <lblOptionFields><![CDATA[Optional Fields]]></lblOptionFields>
+  <lblFirstName><![CDATA[ឈ្មោះ]]></lblFirstName>
+  <lblLastName><![CDATA[នាមត្រកូល]]></lblLastName>
+  <lblDOB><![CDATA[ថ្ងៃខែឆ្នាំកំណើត]]></lblDOB>
+  <lblAffiliateID><![CDATA[Affiliate ID]]></lblAffiliateID>
+
+  <lblCaptcha><![CDATA[កូត]]></lblCaptcha>
+  <lblDisclaimer><![CDATA[ខ្ញុំយល់ស្របតាមល័ក្ខខ័ណ្ឌនិងច្បាប់នៃវេបសាយ W88.com។]]></lblDisclaimer>
+  <btnSubmit><![CDATA[ចូលរួម]]></btnSubmit>
+  <btnCancel><![CDATA[លុប]]></btnCancel>
+
+  <Calendar>
+    <m1><![CDATA[Jan]]></m1>
+    <m2><![CDATA[Feb]]></m2>
+    <m3><![CDATA[Mar]]></m3>
+    <m4><![CDATA[Apr]]></m4>
+    <m5><![CDATA[May]]></m5>
+    <m6><![CDATA[Jun]]></m6>
+    <m7><![CDATA[Jul]]></m7>
+    <m8><![CDATA[Aug]]></m8>
+    <m9><![CDATA[Sep]]></m9>
+    <m10><![CDATA[Oct]]></m10>
+    <m11><![CDATA[Nov]]></m11>
+    <m12><![CDATA[Dec]]></m12>
+  </Calendar>
+
+  <Currency>
+    <UUS><![CDATA[(UUS) Virtual Currency]]></UUS>
+    <AUD><![CDATA[(AUD) Australian Dollar]]></AUD>
+    <EUR><![CDATA[(EUR) Euro]]></EUR>
+    <GBP><![CDATA[(GBP) British Pound]]></GBP>
+    <IDR><![CDATA[(IDR) Indonesia Rupiah]]></IDR>
+    <MYR><![CDATA[(MYR) Malaysian Ringgit]]></MYR>
+    <RMB><![CDATA[(RMB) Chinese RenMinBi]]></RMB>
+    <THB><![CDATA[(THB) Thai Baht]]></THB>
+    <USD><![CDATA[(USD) United States Dollar]]></USD>
+    <JPY><![CDATA[(JPY) Japanese Yen]]></JPY>
+    <KRW><![CDATA[(KRW) Korean Won]]></KRW>
+    <VND><![CDATA[(VND) Vietnamese Dong]]></VND>
+    <INR><![CDATA[(INR) Indian Rupee]]></INR>
+  </Currency>
+</register>

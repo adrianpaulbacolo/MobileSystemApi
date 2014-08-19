@@ -1,0 +1,20 @@
+﻿.div-product-scroll {
+    display:none !important;
+}
+.lv-Product {
+    display:block !important;
+}
+
+.bkg-game {
+    display: none;
+}
+
+    .bkg-game > div {
+        float: right;
+        margin: auto;
+        vertical-align: middle;
+        height: 100%;
+        position: relative;
+        margin: 0;
+        padding: 0;
+    }

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<cashier>
+  <lblShowBalance><![CDATA[잔액 확인]]></lblShowBalance>
+  <lblHideBalance><![CDATA[잔액 숨기기]]></lblHideBalance>
+  <lblTransferFrom><![CDATA[발신]]></lblTransferFrom>
+  <lblTransferTo><![CDATA[수신]]></lblTransferTo>
+  <lblTransferAmount><![CDATA[이동 금액]]></lblTransferAmount>
+  <lblPromoCode><![CDATA[보너스 코드]]></lblPromoCode>
+  <lblFreebetCode><![CDATA[무료머니 코드]]></lblFreebetCode>
+  <btnSubmit><![CDATA[제출]]></btnSubmit>
+</cashier>

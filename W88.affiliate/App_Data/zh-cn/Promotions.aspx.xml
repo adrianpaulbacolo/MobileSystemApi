@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <btnSubmit><![CDATA[提交]]></btnSubmit>
+  <btnCancel><![CDATA[取消]]></btnCancel>
+  <lblID><![CDATA[ID]]></lblID>
+  <lblComment><![CDATA[备注]]></lblComment>
+  <lblMultipleRebateCode><![CDATA[请注明您想要申请红利的产品名称:]]></lblMultipleRebateCode>
+  <lblMoreInfo><![CDATA[更多信息]]></lblMoreInfo>
+</default>

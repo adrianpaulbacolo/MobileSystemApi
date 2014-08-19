@@ -1,0 +1,103 @@
+﻿/*#region language*/
+#diven-us:after {
+    content: url('/_Static/Images/2x/lang-en.png');
+}
+
+#divzh-cn:after {
+    content: url('/_Static/Images/2x/lang-cn.png');
+}
+
+#divid-id:after {
+    content: url('/_Static/Images/2x/lang-id.png');
+}
+
+#divja-jp:after {
+    content: url('/_Static/Images/2x/lang-jp.png');
+}
+
+#divkm-kh:after {
+    content: url('/_Static/Images/2x/lang-kh.png');
+}
+
+#divko-kr:after {
+    content: url('/_Static/Images/2x/lang-kr.png');
+}
+
+#divth-th:after {
+    content: url('/_Static/Images/2x/lang-th.png');
+}
+
+#divvi-vn:after {
+    content: url('/_Static/Images/2x/lang-vn.png');
+}
+
+.divLangImg {
+    max-width: 120px;
+}
+/*#endregion*/
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media screen and (max-width: 480px)
+/*only screen and (min-device-width : 320px) and (max-device-width : 480px) */
+{
+    #diven-us:after {
+        content: url('/_Static/Images/lang-en.png');
+    }
+
+    #divzh-cn:after {
+        content: url('/_Static/Images/lang-cn.png');
+    }
+
+    #divid-id:after {
+        content: url('/_Static/Images/lang-id.png');
+    }
+
+    #divja-jp:after {
+        content: url('/_Static/Images/lang-jp.png');
+    }
+
+    #divkm-kh:after {
+        content: url('/_Static/Images/lang-kh.png');
+    }
+
+    #divko-kr:after {
+        content: url('/_Static/Images/lang-kr.png');
+    }
+
+    #divth-th:after {
+        content: url('/_Static/Images/lang-th.png');
+    }
+
+    #divvi-vn:after {
+        content: url('/_Static/Images/lang-vn.png');
+    }
+
+    .divLangImg {
+        max-width: 60px;
+    }
+}
+
+.div-langContainer {
+    table-layout: fixed;
+    display: block;
+    margin: auto;
+    /*border: 1px solid blue !important;*/
+    text-align: center;
+}
+
+    .div-langContainer > a > div {
+        /*border: 1px solid red;*/
+        text-align: center;
+        display: inline-block;
+        margin: auto;
+        padding: 10px;
+    }
+
+.div-nav-header {
+    background-position: center center;
+}
+
+.page-content {
+    margin: .5em .5em 0 .5em;
+}
