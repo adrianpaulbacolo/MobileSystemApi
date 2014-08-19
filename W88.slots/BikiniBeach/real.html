@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="ScreenOrientation" content="autoRotate:Disabled" />
+    <meta http-equiv="ScreenOrientation" content="RightHanded" />
+    <meta name="viewport" id="viewport" content="minimal-ui, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="W88">
+    <link rel="apple-touch-icon" href="/_Static/Images/icon_76.png" />
+    <link rel="apple-touch-startup-image" href="/_Static/Images/icon_120.png" />
+    <link rel="stylesheet" href="/_Static/CSS/_Slots.css">
+    <script type="text/javascript" src="/_Static/JS/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+    <div class="div-content-wrapper">
+        <div class="div-overlay-top"></div>
+        <div class="div-overlay-left"></div>
+        <div class="div-overlay-right"></div>
+        <div class="div-overlay-bottom"></div>
+        <div class="div-button-spin"><img src="/_Static/Images/Slots/BikiniBeach/Controls/spin.png" /></div>
+        <div class="div-button-home"><img src="/_Static/Images/Slots/BikiniBeach/Controls/home.png" /></div>
+        <div class="div-button-lobby"><img src="/_Static/Images/Slots/BikiniBeach/Controls/lobby.png" /></div>
+        <div class="div-game-labels div-game-logo"></div>
+        <div class="div-game-labels div-game-credits-label"></div>
+        <div class="div-game-labels div-game-credits"></div>
+        <div class="div-game-labels div-game-totalbets-label"></div>
+        <div class="div-game-labels div-game-totalbets">-</div>
+        <div class="div-game-labels div-game-winnings-label"></div>
+        <div class="div-game-labels div-game-winnings">-</div>
+        <div class="div-bonus"></div>
+        <div class="div-main">
+            <div class="div-canvas">
+                <div><canvas class="cvs-main"></canvas></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+    $(function () {		
+        $('.div-content-wrapper').parent().append($('<div />', { style: '', class: 'loader' }).append($('<div />', { style: 'z-index:99;' }).append($('<img />', { src: '/_Static/Css/ajax-loader.gif', style: '' }))));
+        $.getScript('/_Static/JS/Slots.js').done(function () { Canvas_Init(true, 'bikinibeach'); });
+    });	
+</script>
+</html>
