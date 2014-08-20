@@ -9,8 +9,15 @@
   <xs:complexType name="SystemBankAccount">
     <xs:sequence>
       <xs:element minOccurs="0" name="accountId" type="xs:long" />
+      <xs:element minOccurs="0" name="accountName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="accountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="bankCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="bankDowntimeId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="bankNameNative" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dateFrom" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="dateTo" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="descriptionExternal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="showBankInfo" type="xs:boolean" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="SystemBankAccount" nillable="true" type="tns:SystemBankAccount" />

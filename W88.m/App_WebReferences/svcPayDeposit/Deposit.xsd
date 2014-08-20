@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://paymentservices.ms1dev.com/Deposit.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Services" />
   <xs:element name="createFastDepositTransaction">
     <xs:complexType>
       <xs:sequence>
@@ -67,6 +68,41 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="createFastDepositTransactionV2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="operatorId" type="xs:long" />
+        <xs:element minOccurs="0" name="memberId" type="xs:long" />
+        <xs:element minOccurs="0" name="memberCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="channel" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="payMethodId" type="xs:long" />
+        <xs:element minOccurs="0" name="requestCurrency" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="requestAmount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="bankAccountId" type="xs:long" />
+        <xs:element minOccurs="0" name="bankAccountName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bankAccountNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bankTransferDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="bankReference" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bankCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bankName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bankNameNative" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Services" minOccurs="0" name="source" type="q1:DepositSource" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="createFastDepositTransactionV2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="createFastDepositTransactionV2Result" nillable="true">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:any minOccurs="0" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="createOnlineDepositTransaction">
     <xs:complexType>
       <xs:sequence>
@@ -82,6 +118,32 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="createOnlineDepositTransactionResult" nillable="true">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:any minOccurs="0" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="createOnlineDepositTransactionV1">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="operatorId" type="xs:long" />
+        <xs:element minOccurs="0" name="memberId" type="xs:long" />
+        <xs:element minOccurs="0" name="memberCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="payMethodId" type="xs:long" />
+        <xs:element minOccurs="0" name="requestCurrency" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="requestAmount" type="xs:decimal" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Services" minOccurs="0" name="source" type="q2:DepositSource" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="createOnlineDepositTransactionV1Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="createOnlineDepositTransactionV1Result" nillable="true">
           <xs:complexType>
             <xs:sequence>
               <xs:any minOccurs="0" processContents="lax" />
@@ -358,6 +420,36 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="createWingDepositTransactionV2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="operatorId" type="xs:long" />
+        <xs:element minOccurs="0" name="memberId" type="xs:long" />
+        <xs:element minOccurs="0" name="memberCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="payMethodId" type="xs:long" />
+        <xs:element minOccurs="0" name="requestCurrency" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="requestAmount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="bankAccountName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bankAccountNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bankTransferDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="bankReference" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Services" minOccurs="0" name="source" type="q3:DepositSource" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="createWingDepositTransactionV2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="createWingDepositTransactionV2Result" nillable="true">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:any minOccurs="0" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="createPayPalDepositTransaction">
     <xs:complexType>
       <xs:sequence>
@@ -378,6 +470,36 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="createPayPalDepositTransactionResult" nillable="true">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:any minOccurs="0" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="createPayPalDepositTransactionV1">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="operatorId" type="xs:long" />
+        <xs:element minOccurs="0" name="memberId" type="xs:long" />
+        <xs:element minOccurs="0" name="memberCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="payMethodId" type="xs:long" />
+        <xs:element minOccurs="0" name="requestCurrency" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="requestAmount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="accountName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="accountEmail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="transferDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="referenceId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Services" minOccurs="0" name="source" type="q4:DepositSource" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="createPayPalDepositTransactionV1Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="createPayPalDepositTransactionV1Result" nillable="true">
           <xs:complexType>
             <xs:sequence>
               <xs:any minOccurs="0" processContents="lax" />
@@ -628,6 +750,131 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="validateAlogatewayResult" type="xs:short" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateAffiliateDepositAmount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="invId" type="xs:long" />
+        <xs:element minOccurs="0" name="amount" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateAffiliateDepositAmountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateAffiliateDepositAmountResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="validateECPSSTransaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ip" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="billNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="amount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="succeed" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="result" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="signMD5info" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="validateECPSSTransactionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="validateECPSSTransactionResult" type="xs:short" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="validateHnapayTransaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ip" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="orderID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="resultCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stateCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="orderAmount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="payAmount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="acquiringTime" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="completeTime" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="orderNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="partnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="remark" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="charset" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="signType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="signMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="validateHnapayTransactionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="validateHnapayTransactionResult" type="xs:short" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="validatePay19Transaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ip" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="versionId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="merchantId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="verifyString" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="orderDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="orderId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="result" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="amount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currency" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="paySq" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="payDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pmId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pcId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="payCardNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="payCardPwd" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="validatePay19TransactionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="validatePay19TransactionResult" type="xs:short" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="validateAllInPayTransaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ip" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="merchantId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="version" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="signType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="payType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="issuerId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="paymentOrderId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="orderNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="orderDatetime" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="orderAmount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="payDatetime" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="payAmount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ext1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ext2" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="payResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="returnDatetime" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="signMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="validateAllInPayTransactionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="validateAllInPayTransactionResult" type="xs:short" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

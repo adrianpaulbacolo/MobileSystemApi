@@ -14,6 +14,12 @@
   <wsdl:message name="IMember_getWallets_OutputMessage">
     <wsdl:part name="parameters" element="tns:getWalletsResponse" />
   </wsdl:message>
+  <wsdl:message name="IMember_getBalances_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBalances" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getBalances_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBalancesResponse" />
+  </wsdl:message>
   <wsdl:message name="IMember_getWalletBalance_InputMessage">
     <wsdl:part name="parameters" element="tns:getWalletBalance" />
   </wsdl:message>
@@ -104,10 +110,68 @@
   <wsdl:message name="IMember_getLastWithdrawalMoneyTransfer_OutputMessage">
     <wsdl:part name="parameters" element="tns:getLastWithdrawalMoneyTransferResponse" />
   </wsdl:message>
+  <wsdl:message name="IMember_createBankDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:createBankDetails" />
+  </wsdl:message>
+  <wsdl:message name="IMember_createBankDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createBankDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getBankDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBankDetails" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getBankDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBankDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMember_AddMemberVerificationBonus_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMemberVerificationBonus" />
+  </wsdl:message>
+  <wsdl:message name="IMember_AddMemberVerificationBonus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMemberVerificationBonusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMember_AddMemberAffiliateTopUp_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMemberAffiliateTopUp" />
+  </wsdl:message>
+  <wsdl:message name="IMember_AddMemberAffiliateTopUp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMemberAffiliateTopUpResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getMethodLimitsAffiliate_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMethodLimitsAffiliate" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getMethodLimitsAffiliate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMethodLimitsAffiliateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getAffiliateDepositWithdrawalHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAffiliateDepositWithdrawalHistory" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getAffiliateDepositWithdrawalHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAffiliateDepositWithdrawalHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getLastAffiliateDepositWireTransfer_InputMessage">
+    <wsdl:part name="parameters" element="tns:getLastAffiliateDepositWireTransfer" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getLastAffiliateDepositWireTransfer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getLastAffiliateDepositWireTransferResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getLastAffiliateDepositMoneyTransfer_InputMessage">
+    <wsdl:part name="parameters" element="tns:getLastAffiliateDepositMoneyTransfer" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getLastAffiliateDepositMoneyTransfer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getLastAffiliateDepositMoneyTransferResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMember_sendFundInAccountSMS_InputMessage">
+    <wsdl:part name="parameters" element="tns:sendFundInAccountSMS" />
+  </wsdl:message>
+  <wsdl:message name="IMember_sendFundInAccountSMS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:sendFundInAccountSMSResponse" />
+  </wsdl:message>
   <wsdl:portType name="IMember">
     <wsdl:operation name="getWallets">
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/getWallets" message="tns:IMember_getWallets_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMember/getWalletsResponse" message="tns:IMember_getWallets_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBalances">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/getBalances" message="tns:IMember_getBalances_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/getBalancesResponse" message="tns:IMember_getBalances_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="getWalletBalance">
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/getWalletBalance" message="tns:IMember_getWalletBalance_InputMessage" />
@@ -169,11 +233,56 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/getLastWithdrawalMoneyTransfer" message="tns:IMember_getLastWithdrawalMoneyTransfer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMember/getLastWithdrawalMoneyTransferResponse" message="tns:IMember_getLastWithdrawalMoneyTransfer_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="createBankDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/createBankDetails" message="tns:IMember_createBankDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/createBankDetailsResponse" message="tns:IMember_createBankDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBankDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/getBankDetails" message="tns:IMember_getBankDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/getBankDetailsResponse" message="tns:IMember_getBankDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMemberVerificationBonus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/AddMemberVerificationBonus" message="tns:IMember_AddMemberVerificationBonus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/AddMemberVerificationBonusResponse" message="tns:IMember_AddMemberVerificationBonus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMemberAffiliateTopUp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/AddMemberAffiliateTopUp" message="tns:IMember_AddMemberAffiliateTopUp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/AddMemberAffiliateTopUpResponse" message="tns:IMember_AddMemberAffiliateTopUp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMethodLimitsAffiliate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/getMethodLimitsAffiliate" message="tns:IMember_getMethodLimitsAffiliate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/getMethodLimitsAffiliateResponse" message="tns:IMember_getMethodLimitsAffiliate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAffiliateDepositWithdrawalHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/getAffiliateDepositWithdrawalHistory" message="tns:IMember_getAffiliateDepositWithdrawalHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/getAffiliateDepositWithdrawalHistoryResponse" message="tns:IMember_getAffiliateDepositWithdrawalHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getLastAffiliateDepositWireTransfer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/getLastAffiliateDepositWireTransfer" message="tns:IMember_getLastAffiliateDepositWireTransfer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/getLastAffiliateDepositWireTransferResponse" message="tns:IMember_getLastAffiliateDepositWireTransfer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getLastAffiliateDepositMoneyTransfer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/getLastAffiliateDepositMoneyTransfer" message="tns:IMember_getLastAffiliateDepositMoneyTransfer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/getLastAffiliateDepositMoneyTransferResponse" message="tns:IMember_getLastAffiliateDepositMoneyTransfer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="sendFundInAccountSMS">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/sendFundInAccountSMS" message="tns:IMember_sendFundInAccountSMS_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/sendFundInAccountSMSResponse" message="tns:IMember_sendFundInAccountSMS_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IMember" type="tns:IMember">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="getWallets">
       <soap:operation soapAction="http://tempuri.org/IMember/getWallets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBalances">
+      <soap:operation soapAction="http://tempuri.org/IMember/getBalances" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -309,6 +418,87 @@
     </wsdl:operation>
     <wsdl:operation name="getLastWithdrawalMoneyTransfer">
       <soap:operation soapAction="http://tempuri.org/IMember/getLastWithdrawalMoneyTransfer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createBankDetails">
+      <soap:operation soapAction="http://tempuri.org/IMember/createBankDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBankDetails">
+      <soap:operation soapAction="http://tempuri.org/IMember/getBankDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMemberVerificationBonus">
+      <soap:operation soapAction="http://tempuri.org/IMember/AddMemberVerificationBonus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMemberAffiliateTopUp">
+      <soap:operation soapAction="http://tempuri.org/IMember/AddMemberAffiliateTopUp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMethodLimitsAffiliate">
+      <soap:operation soapAction="http://tempuri.org/IMember/getMethodLimitsAffiliate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAffiliateDepositWithdrawalHistory">
+      <soap:operation soapAction="http://tempuri.org/IMember/getAffiliateDepositWithdrawalHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLastAffiliateDepositWireTransfer">
+      <soap:operation soapAction="http://tempuri.org/IMember/getLastAffiliateDepositWireTransfer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLastAffiliateDepositMoneyTransfer">
+      <soap:operation soapAction="http://tempuri.org/IMember/getLastAffiliateDepositMoneyTransfer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendFundInAccountSMS">
+      <soap:operation soapAction="http://tempuri.org/IMember/sendFundInAccountSMS" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

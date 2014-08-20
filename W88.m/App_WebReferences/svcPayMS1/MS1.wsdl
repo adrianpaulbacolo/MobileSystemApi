@@ -26,6 +26,12 @@
   <wsdl:message name="IMS1_uploadFile_OutputMessage">
     <wsdl:part name="parameters" element="tns:uploadFileResponse" />
   </wsdl:message>
+  <wsdl:message name="IMS1_getAffiliateSystemBankAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAffiliateSystemBankAccount" />
+  </wsdl:message>
+  <wsdl:message name="IMS1_getAffiliateSystemBankAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAffiliateSystemBankAccountResponse" />
+  </wsdl:message>
   <wsdl:portType name="IMS1">
     <wsdl:operation name="getSystemAccounts">
       <wsdl:input wsaw:Action="http://tempuri.org/IMS1/getSystemAccounts" message="tns:IMS1_getSystemAccounts_InputMessage" />
@@ -38,6 +44,10 @@
     <wsdl:operation name="uploadFile">
       <wsdl:input wsaw:Action="http://tempuri.org/IMS1/uploadFile" message="tns:IMS1_uploadFile_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMS1/uploadFileResponse" message="tns:IMS1_uploadFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAffiliateSystemBankAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMS1/getAffiliateSystemBankAccount" message="tns:IMS1_getAffiliateSystemBankAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMS1/getAffiliateSystemBankAccountResponse" message="tns:IMS1_getAffiliateSystemBankAccount_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IMS1" type="tns:IMS1">
@@ -62,6 +72,15 @@
     </wsdl:operation>
     <wsdl:operation name="uploadFile">
       <soap:operation soapAction="http://tempuri.org/IMS1/uploadFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAffiliateSystemBankAccount">
+      <soap:operation soapAction="http://tempuri.org/IMS1/getAffiliateSystemBankAccount" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

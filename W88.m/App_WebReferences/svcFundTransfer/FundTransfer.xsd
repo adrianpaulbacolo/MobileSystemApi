@@ -5,6 +5,7 @@
       <xs:enumeration value="MemberSite" />
       <xs:enumeration value="Admin" />
       <xs:enumeration value="Mobile" />
+      <xs:enumeration value="WAP" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="transferOrigin" nillable="true" type="tns:transferOrigin" />
