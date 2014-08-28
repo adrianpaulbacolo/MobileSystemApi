@@ -619,7 +619,6 @@ namespace commonCulture
             languageCode = commonVariables.SelectedLanguage;
             xmlFilePath = physicalPath + (@"/App_Data/" + languageCode + @"/" + filePath + ".xml");
 
-            //G:\Work\Projects\integrationServices\App_Data\en-us\Services\services.svc.xml
             if (System.IO.File.Exists(xmlFilePath)) { xElement = System.Xml.Linq.XElement.Load(xmlFilePath); }
             else
             {
