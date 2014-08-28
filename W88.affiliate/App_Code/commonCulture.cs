@@ -613,16 +613,19 @@ namespace commonCulture
             string languageCode = string.Empty;
             string xmlFilePath = string.Empty;
 
+            string strPhyPath = HttpContext.Current.Request.PhysicalPath;
+            string strPhyAppPath = HttpContext.Current.Request.PhysicalApplicationPath;
+
             filePath = System.Web.HttpContext.Current.Request.CurrentExecutionFilePath;
-            string appPath = HttpContext.Current.Request.ApplicationPath;
-            string physicalPath = HttpContext.Current.Request.MapPath(appPath);
-            languageCode = commonVariables.SelectedLanguage;
-            xmlFilePath = physicalPath + (@"/App_Data/" + languageCode + @"/" + filePath + ".xml");
+            languageCode = commonVariables.SelectedLanguage; ;
+            //strXmlFilePath = System.Web.HttpContext.Current.Server.MapPath(@"~/App_Data/" + strLanguageCode + @"/" + strFilePath + ".xml");
+            xmlFilePath = string.Format("{0}.xml", strPhyPath.Insert(strPhyAppPath.Length, string.Format(@"App_Data\{0}\", languageCode)));
 
             if (System.IO.File.Exists(xmlFilePath)) { xElement = System.Xml.Linq.XElement.Load(xmlFilePath); }
             else
             {
-                xmlFilePath = System.Web.HttpContext.Current.Server.MapPath(@"~/App_Data/en-us/" + filePath + ".xml");
+                languageCode = "en-us";
+                xmlFilePath = string.Format("{0}.xml", strPhyPath.Insert(strPhyAppPath.Length, string.Format(@"App_Data\{0}\", languageCode)));
                 if (System.IO.File.Exists(xmlFilePath)) { xElement = System.Xml.Linq.XElement.Load(xmlFilePath); }
             }
         }
