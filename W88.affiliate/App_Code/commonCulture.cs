@@ -614,8 +614,11 @@ namespace commonCulture
             string xmlFilePath = string.Empty;
 
             filePath = System.Web.HttpContext.Current.Request.CurrentExecutionFilePath;
+            string appPath = HttpContext.Current.Request.ApplicationPath;
+            string physicalPath = HttpContext.Current.Request.MapPath(appPath);
             languageCode = commonVariables.SelectedLanguage;
-            xmlFilePath = System.Web.HttpContext.Current.Server.MapPath(@"~/App_Data/" + languageCode + @"/" + filePath + ".xml");
+            xmlFilePath = physicalPath + (@"/App_Data/" + languageCode + @"/" + filePath + ".xml");
+
             //G:\Work\Projects\integrationServices\App_Data\en-us\Services\services.svc.xml
             if (System.IO.File.Exists(xmlFilePath)) { xElement = System.Xml.Linq.XElement.Load(xmlFilePath); }
             else
