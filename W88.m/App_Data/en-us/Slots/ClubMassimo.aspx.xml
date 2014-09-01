@@ -29,8 +29,8 @@
         <Label><![CDATA[5ReelDrive]]></Label>
         <Description><![CDATA[5ReelDrive]]></Description>
         <ImageName><![CDATA[W88-Slots-Mobile-5-Reel-Drive]]></ImageName>
-        <PlayForRealURL><![CDATA[{RealUrl}/5reelDrive/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{FunUrl}/5reelDrive/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+        <PlayForRealURL><![CDATA[{RealUrl}/5ReelDrive/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{FunUrl}/5ReelDrive/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
       </FiveReelDrive>
       <AdventurePalace>
         <Label><![CDATA[AdventurePalace]]></Label>
