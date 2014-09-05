@@ -42,7 +42,7 @@
       <MagicPot>
         <Label><![CDATA[Magic Pot]]></Label>
         <Description><![CDATA[Magic Pot]]></Description>
-        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilemagicpotslots&mode=real&ticket={token}&language=EN&merch_id=CVN]]></PlayForRealURL>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilemagicpotslots&mode=real&ticket={token}&language=EN&merch_id=CVN2]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilemagicpotslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
       </MagicPot>
     </Slot>

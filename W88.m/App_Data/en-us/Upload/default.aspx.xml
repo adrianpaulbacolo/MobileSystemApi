@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lblUsername><![CDATA[Username: ]]></lblUsername>
+  <lblCurrency><![CDATA[Currency: ]]></lblCurrency>
+  <lblRemarks><![CDATA[Remarks: ]]></lblRemarks>
+  <lblFileUpload><![CDATA[File (Max 3MB): ]]></lblFileUpload>
+  <btnSubmit><![CDATA[Submit]]></btnSubmit>
+  <Success><![CDATA[Thank you for your submission. Your submission ID is [submissionID]. If you have any further enquiries, please quote this submission ID to our customer service officer.”]]></Success>
+  <MissingAttachment><![CDATA[Please attach file.]]></MissingAttachment>
+</default>
