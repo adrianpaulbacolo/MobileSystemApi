@@ -22,7 +22,6 @@
                     var strPromoTitle = $(this).find('div.promotion_title').text();
                     var strPromoContent = $(this).find('div.promotion_content').text();
                     var strPromoDetail = ($(this).find('div.promotion_detail').html().substr(0, 4) == '<br>' ? $(this).find('div.promotion_detail').html().substring(4) : $(this).find('div.promotion_detail').html()).replace(/<img rel=/g, '<img src=');
-
                     var objImage = $(this).find('img')[0];
                     var strImageSrc = null;
                     if (objImage != null) { if (/\/promotions\/img\/W88-Promotion(s)*-/i.test($(objImage).attr('rel'))) { strImageSrc = $(objImage).attr('rel').replace(/\/promotions\/img\/W88-Promotion(s)*-/i, '/promotions/mobile/images/w88-mobile-'); } }
@@ -35,13 +34,14 @@
                     var hrefPromo = $('<a />', { href: "javascript:void(0)", onclick: "javascript:OpenPromoDetails(this);" });
                     var divPromoTitle = $('<div />', { class: 'div-promo-header' }).text(strPromoTitle);
                     var divPromoContent = $('<div />', { class: 'div-promo-desc' }).text(strPromoContent);
-                    var divPromoDetail = $('<div />', { class: 'div-promo-content' }).html(strPromoDetail);
+                    //var divPromoDetail = $('<div />', { class: 'div-promo-content' }).html(strPromoDetail);
+                    var divPromoDetail = $('<div />', { class: 'div-promo-content' }).html(/<img rel=/g.test(strPromoDetail) ? strPromoDetail.replace(/<img rel=/g, '<img src=') : strPromoDetail);
 
                     var pViewMore = null;
 
-                    if ($(this).find('p.p-tnc').length > 0) { pViewMore = $('<p />').append($('<a />', { href: 'javascript:void(0);', onclick: 'javascript:$(this).parents(".div-promo-content").find(".p-tnc").next().andSelf().slideDown();$(this).remove();' }).text('<%=commonCulture.ElementValues.getResourceString("lblMoreInfo", xeResources)%>')); }
+                    if ($(this).find('div.p-tnc').length > 0) { pViewMore = $('<p />').append($('<a />', { href: 'javascript:void(0);', onclick: 'javascript:$(this).parents(".div-promo-content").find(".p-tnc").next().andSelf().slideDown();$(this).remove();' }).text('<%=commonCulture.ElementValues.getResourceString("lblMoreInfo", xeResources)%>')); }
                     if ($(this).find('.promo_join_btn').length > 0) {
-                        if ('<%=commonVariables.CurrentMemberSessionId%>'.trim() == '') {
+                        if ('<%=commonVariables.CurrentMemberSessionId%>'.trim() != '') {
                             var hrefJoin = $('<a />', { class: 'ui-btn ui-blue ui-mini', 'data-transition': 'flip', href: '/_Secure/Register.aspx' }).text('<%=commonCulture.ElementValues.getResourceString("joinnow", commonVariables.LeftMenuXML)%>');
                             $(divPromoDetail).append(pViewMore).append(hrefJoin);
                         }
@@ -60,6 +60,21 @@
                                     var strProducts = $obj.substr($obj.lastIndexOf('=') + 1, $obj.length);
                                     var hrefClaim = $('<a />', { class: 'ui-btn ui-blue ui-mini', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNow(this, \'' + strCode + '\',  \'' + strProducts + '\')' }).text($(objCode).text());
                                     $(divPromoDetail).append(pViewMore).append(hrefClaim);
+                                }
+
+                                var objCode = $(this).find('.promo_join_btn[href^="/promotions/promo_apply_v3.aspx?promoid="]');
+                                if ($(objCode).length > 0) {
+                                    $obj = $(objCode).attr('href');
+                                    var strCode = $obj.substring($obj.indexOf('=') + 1);
+                                    $.get('/_Static/Promotions/' + strCode + '.<%=commonVariables.SelectedLanguage%>.xml', function (xml) {
+                                        var title = $(xml).find('lbl').text();
+                                        strProducts =
+                                            $(xml).find('item').map(function () {
+                                                return $(this).attr('name');
+                                            }).get().join();
+                                        var hrefClaim = $('<a />', { class: 'ui-btn ui-blue ui-mini', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNow(this, \'' + strCode + '\',  \'' + strProducts + '\')' }).text($(objCode).text());
+                                        $(divPromoDetail).append(pViewMore).append(hrefClaim);
+                                   });
                                 }
                             }
                         }
@@ -95,8 +110,8 @@
             });
         }
 
-        function PromoClaimNow(obj, code, products) {
-            if ('<%=commonVariables.CurrentMemberSessionId%>'.trim() == '') {
+        function PromoClaimNow(obj, code, products, title) {
+            if ('<%=commonVariables.CurrentMemberSessionId%>'.trim() != '') {
                 location.assign('_Secure/Register.aspx');
             } else {
                 $(obj).hide();
