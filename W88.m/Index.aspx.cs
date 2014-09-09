@@ -9,6 +9,19 @@ public partial class _Index : BasePage
 {
     protected System.Xml.Linq.XElement xeErrors = null;
 
+    protected void Page_Init(object sender, EventArgs e) 
+    {
+        System.Text.RegularExpressions.Regex rxDomains_CN = new System.Text.RegularExpressions.Regex(@"(.w88uat|.w88cn)");
+
+        if (string.IsNullOrEmpty(commonVariables.SelectedLanguage))
+        {
+            if (rxDomains_CN.IsMatch(Request.ServerVariables["SERVER_NAME"]))
+            {
+                commonVariables.SelectedLanguage = "zh-cn";
+            }
+        }
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         System.Web.UI.WebControls.Literal litScript = (System.Web.UI.WebControls.Literal)Page.FindControl("litScript");

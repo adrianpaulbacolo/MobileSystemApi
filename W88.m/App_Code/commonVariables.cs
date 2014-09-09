@@ -20,7 +20,7 @@ public class commonVariables
     public static string DisplayDateTimeFormat { get { return System.Configuration.ConfigurationManager.AppSettings.Get("DisplayDateTimeFormat"); } }
     public static string DateTimeFormat { get { return System.Configuration.ConfigurationManager.AppSettings.Get("DateTimeFormat"); } }
     public static string DecimalFormat { get { return System.Configuration.ConfigurationManager.AppSettings.Get("DecimalFormat"); } }
-    public static string SelectedLanguage { get { return string.IsNullOrEmpty(System.Web.HttpContext.Current.Session["SelectedLanguage"] as string) ? (!string.IsNullOrEmpty(commonCookie.CookieLanguage) ? commonCookie.CookieLanguage : "en-us") : Convert.ToString(System.Web.HttpContext.Current.Session["SelectedLanguage"]); } set { commonCookie.CookieLanguage = value; commonVariables.SetSessionVariable("SelectedLanguage", value); } }
+    public static string SelectedLanguage { get { return string.IsNullOrEmpty(System.Web.HttpContext.Current.Session["SelectedLanguage"] as string) ? (!string.IsNullOrEmpty(commonCookie.CookieLanguage) ? commonCookie.CookieLanguage : "") : Convert.ToString(System.Web.HttpContext.Current.Session["SelectedLanguage"]); } set { commonCookie.CookieLanguage = value; commonVariables.SetSessionVariable("SelectedLanguage", value); } }
     public static string SelectedLanguageShort { get { 
         switch (commonVariables.SelectedLanguage.ToLower()) 
         {

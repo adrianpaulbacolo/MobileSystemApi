@@ -20,7 +20,7 @@
     </style>
 </head>
 <body>
-    <!--#include virtual="/_static/splash.shtml" -->
+    <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="a">
         <!--#include virtual="~/_static/header.shtml" -->
         <div class="ui-content" role="main">
