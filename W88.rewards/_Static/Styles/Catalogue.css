@@ -238,8 +238,8 @@
     }
 
     #resultscroller > ul > li {
-        height: 130px;
-    margin: 9px 1.6%;
+              height: 130px;
+    margin: 9px 7.5px;
     width: 137px;
     }
 
@@ -273,22 +273,24 @@
 @media all and ( min-width: 600px ) and ( max-width: 767px ) {
      .page-content {
         margin: 0 auto;
-        max-width: 600px;
+        max-width: 580px;
     }
 
     #resultwrapper {
         top: 130px;
-        width: 600px;
+        width: 580px;
     }
 
+ 
     #resultscroller > ul {
-        width: 600px;
+        width: 580px;
+        margin: 0 auto;
     }
 
     #resultscroller > ul > li {
            height: 152px;
-    margin: 10px 1.6%;
-    width: 178px;
+    margin: 10px;
+    width: 171px;
     }
 }
 
@@ -317,23 +319,24 @@
 @media all and ( min-width: 800px ) and ( max-width: 1019px ) {
     .page-content {
         margin: 0 auto;
-        max-width: 800px;
+        max-width: 780px;
     }
 
     #resultwrapper {
         top: 130px;
-        width: 800px;
+        width: 780px;
     }
 
+  
     #resultscroller > ul {
-        max-width: 800px;
+        max-width: 780px;
         margin: 0 auto;
     }
 
     #resultscroller > ul > li {
-        height: 152px;
-        margin: 10px 1.46%;
-        width: 170px;
+            height: 152px;
+    margin: 10px;
+    width: 173px;
     }
 
     #resultscroller > ul > li .points {
