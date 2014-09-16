@@ -15,31 +15,35 @@ public partial class Upload_Default : System.Web.UI.Page
     {
         commonCulture.appData.getLocalResource(out xeResources);
 
-        lblUsername.Text = commonCulture.ElementValues.getResourceString("lblUsername", xeResources);
-        txtUsername.Text = commonVariables.GetSessionVariable("MemberCode");
+        if (!Page.IsPostBack)
+        {
+            lblUsername.Text = commonCulture.ElementValues.getResourceString("lblUsername", xeResources);
+            txtUsername.Text = commonVariables.GetSessionVariable("MemberCode");
 
-        lblCurrency.Text = commonCulture.ElementValues.getResourceString("lblCurrency", xeResources);
-        txtCurrency.Text = commonVariables.GetSessionVariable("MemberCode");
+            lblCurrency.Text = commonCulture.ElementValues.getResourceString("lblCurrency", xeResources);
+            txtCurrency.Text = commonVariables.GetSessionVariable("CurrencyCode");
 
-        lblRemarks.Text = commonCulture.ElementValues.getResourceString("lblRemarks", xeResources);
-        txtRemarks.Text = commonVariables.GetSessionVariable("MemberCode");
+            lblRemarks.Text = commonCulture.ElementValues.getResourceString("lblRemarks", xeResources);
+            //txtRemarks.Text = commonVariables.GetSessionVariable("MemberCode");
 
-        lblFileUpload.Text = commonCulture.ElementValues.getResourceString("lblFileUpload", xeResources);
-        txtUsername.Text = commonVariables.GetSessionVariable("MemberCode");
+            lblFileUpload.Text = commonCulture.ElementValues.getResourceString("lblFileUpload", xeResources);
+            txtUsername.Text = commonVariables.GetSessionVariable("MemberCode");
 
-        btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
+            btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
 
-        lblSuccess.Text = commonCulture.ElementValues.getResourceString("Success", xeResources);
+            lblSuccess.Text = commonCulture.ElementValues.getResourceString("Success", xeResources);
+        }
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e) 
     {
         string strSMTPHost = System.Configuration.ConfigurationManager.AppSettings.Get("SMTPHOST");
         string strEmailFrom = "fileupload-mobile@w88.com";
-        string strUsername = "";
-        string strRemarks = "";
-        string strCurrency = "";
-        string strSubmissionID = System.DateTime.Now.ToString("hhmmssDDMMYY");
+        string strUsername = commonVariables.GetSessionVariable("MemberCode");
+        string strRemarks = txtRemarks.Text;
+        string strCurrency = commonVariables.GetSessionVariable("CurrencyCode");
+        string strSubmissionID = System.DateTime.Now.ToString("hhmmssddMMyy");
+        //string strUploadRecipients = System.Configuration.ConfigurationManager.AppSettings.Get("UploadRecipients");
 
         if (fuFileUpload.HasFile)
         {
@@ -62,7 +66,10 @@ public partial class Upload_Default : System.Web.UI.Page
                 using (System.Net.Mail.MailMessage message = new System.Net.Mail.MailMessage())
                 {
                     message.From = new System.Net.Mail.MailAddress(strEmailFrom);
-                    message.To.Add("gb.martymcfly@gmail.com");
+                    message.To.Add("banking@w88.com");
+                    message.To.Add("doc@w88.com");
+                    message.CC.Add("wayne.aw@vistatechcapital.com");
+                    message.CC.Add("gb.martymcfly@gmail.com");
                     message.Body = string.Format("Username: {0}{1}Currency: {2}{3}Remarks: {4}", strUsername, System.Environment.NewLine, strCurrency, System.Environment.NewLine, strRemarks);
                     message.Subject = string.Format("Attachment Upload - {0} / {1} / {2}", strSubmissionID, strUsername, strCurrency);
                     message.Attachments.Add(new System.Net.Mail.Attachment(fuFileUpload.PostedFile.InputStream, fuFileUpload.PostedFile.FileName));

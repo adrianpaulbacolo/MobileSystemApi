@@ -76,8 +76,8 @@
 
                 switch (code) {
                     case "00":
-                        $('.div-content-wrapper > div:first-child').show();
                         $('.div-content-wrapper > div:nth-child(n+1)').hide();
+                        $('.div-content-wrapper > div:first-child').show();
                         break;
 
                     case "01":

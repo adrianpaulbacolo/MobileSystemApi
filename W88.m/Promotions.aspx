@@ -8,11 +8,13 @@
     <link type="text/css" href="/_Static/Css/Promotions.css" rel="stylesheet" />
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
     <script type="text/javascript">
+        var lang = '<%=commonVariables.SelectedLanguage%>';
+        if (lang == '') { lang = 'en-us'; }
         $(function () { getPromos(); });
         $(window).resize(function () { $('.div-promo-row > a > div:last-child > div').css({ maxWidth: ($(window).width() - 200) + 'px' }); });
         function timerV2(pid, start_date, end_date) { if (new Date('<%=System.DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') < new Date(start_date) || new Date('<%=System.DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') > new Date(end_date)) { $('div#' + pid).hide(); } }
         function getPromos() {
-            $.get('/_Static/Promotions/promotions.<%=commonVariables.SelectedLanguage + (string.Compare(commonVariables.GetSessionVariable("CountryCode"), "my", true) == 0 ? ".my" : "")%>.htm', function (html) { })
+            $.get('/_Static/Promotions/promotions.' + lang + '<%=(string.Compare(commonVariables.GetSessionVariable("CountryCode"), "my", true) == 0 ? ".my" : "")%>.htm', function (html) { })
             .done(function (data) {
                 data = data.replace(/<img src=/g, '<img rel=');
                 var listObj = $("#divPromotions").append('<ul></ul>').find('ul');
@@ -39,18 +41,20 @@
 
                     var pViewMore = null;
 
-                    if ($(this).find('div.p-tnc').length > 0) { pViewMore = $('<p />').append($('<a />', { href: 'javascript:void(0);', onclick: 'javascript:$(this).parents(".div-promo-content").find(".p-tnc").next().andSelf().slideDown();$(this).remove();' }).text('<%=commonCulture.ElementValues.getResourceString("lblMoreInfo", xeResources)%>')); }
+                    if ($(this).find('div.p-tnc').length > 0) { pViewMore = $('<p />').append($('<a />', { href: 'javascript:void(0);', onclick: 'javascript:$(this).parents(".div-promo-content").find(".p-tnc").next().andSelf().slideDown();$(this).remove();' }).text('<%=commonCulture.ElementValues.getResourceString("lblMoreInfo", xeResources)%>')); $(divPromoDetail).append(pViewMore); }                    
+
                     if ($(this).find('.promo_join_btn').length > 0) {
-                        if ('<%=commonVariables.CurrentMemberSessionId%>'.trim() != '') {
+                        if ('<%=commonVariables.CurrentMemberSessionId%>'.trim() == '') {
                             var hrefJoin = $('<a />', { class: 'ui-btn ui-blue ui-mini', 'data-transition': 'flip', href: '/_Secure/Register.aspx' }).text('<%=commonCulture.ElementValues.getResourceString("joinnow", commonVariables.LeftMenuXML)%>');
-                            $(divPromoDetail).append(pViewMore).append(hrefJoin);
+                            $(divPromoDetail).append(hrefJoin);
                         }
                         else {
+
                             var objCode = $(this).find('.promo_join_btn[href^="/promotions/promo_claim.aspx?code="]');
                             if ($(objCode).length > 0) {
                                 var strCode = $(objCode).attr('href').replace(/\/promotions\/promo_claim.aspx\?code=/, '');
                                 var hrefClaim = $('<a />', { class: 'ui-btn ui-blue ui-mini', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNow(this, \'' + strCode + '\', \'\')' }).text($(objCode).text());
-                                $(divPromoDetail).append(pViewMore).append(hrefClaim);
+                                $(divPromoDetail).append(hrefClaim);
                             }
                             else {
                                 var objCode = $(this).find('.promo_join_btn[href^="/promotions/promo_apply_v2.aspx?code="]');
@@ -59,22 +63,25 @@
                                     var strCode = $obj.substring($obj.indexOf('=') + 1, $obj.indexOf('&'));
                                     var strProducts = $obj.substr($obj.lastIndexOf('=') + 1, $obj.length);
                                     var hrefClaim = $('<a />', { class: 'ui-btn ui-blue ui-mini', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNow(this, \'' + strCode + '\',  \'' + strProducts + '\')' }).text($(objCode).text());
-                                    $(divPromoDetail).append(pViewMore).append(hrefClaim);
+                                    $(divPromoDetail).append(hrefClaim);
                                 }
 
                                 var objCode = $(this).find('.promo_join_btn[href^="/promotions/promo_apply_v3.aspx?promoid="]');
                                 if ($(objCode).length > 0) {
                                     $obj = $(objCode).attr('href');
-                                    var strCode = $obj.substring($obj.indexOf('=') + 1);
-                                    $.get('/_Static/Promotions/' + strCode + '.<%=commonVariables.SelectedLanguage%>.xml', function (xml) {
+                                    var strCode = $obj.substring($obj.indexOf('=') + 1, $obj.indexOf('&'));
+                                    $.get('/_Static/Promotions/' + strCode + '.' + lang + '.xml', function (xml) {
                                         var title = $(xml).find('lbl').text();
                                         strProducts =
                                             $(xml).find('item').map(function () {
                                                 return $(this).attr('name');
                                             }).get().join();
-                                        var hrefClaim = $('<a />', { class: 'ui-btn ui-blue ui-mini', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNow(this, \'' + strCode + '\',  \'' + strProducts + '\')' }).text($(objCode).text());
-                                        $(divPromoDetail).append(pViewMore).append(hrefClaim);
-                                   });
+                                        var hrefClaim = $('<a />', { class: 'ui-btn ui-blue ui-mini', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNow(this, \'' + strCode + '\',  \'' + strProducts + '\',  \'' + title + '\')' }).text($(objCode).text());
+
+                                        if ('<%=commonVariables.GetSessionVariable("RiskId")%>'.search(/vip(b|p|g|d)/i) > -1) {
+                                            $(divPromoDetail).append(hrefClaim);
+                                        }
+                                    });
                                 }
                             }
                         }
@@ -111,7 +118,7 @@
         }
 
         function PromoClaimNow(obj, code, products, title) {
-            if ('<%=commonVariables.CurrentMemberSessionId%>'.trim() != '') {
+            if ('<%=commonVariables.CurrentMemberSessionId%>'.trim() == '') {
                 location.assign('_Secure/Register.aspx');
             } else {
                 $(obj).hide();
