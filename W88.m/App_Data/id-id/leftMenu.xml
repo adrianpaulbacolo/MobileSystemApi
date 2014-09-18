@@ -24,4 +24,6 @@
   <fastdeposit><![CDATA[Fast Deposit]]></fastdeposit>
   <banktransfer><![CDATA[Bank Transfer]]></banktransfer>
   <wingmoney><![CDATA[Wing Money]]></wingmoney>
+  <fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
+  <submitUpload><![CDATA[Kirim Upload]]></submitUpload>
 </menu>

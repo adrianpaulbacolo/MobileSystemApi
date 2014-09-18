@@ -24,4 +24,6 @@
   <fastdeposit><![CDATA[ฝากเงินด่วน]]></fastdeposit>
   <banktransfer><![CDATA[ถอนเงินด่วน]]></banktransfer>
   <wingmoney><![CDATA[Wing Money]]></wingmoney>
+  <fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
+  <submitUpload><![CDATA[ยื่นอัพโหลด]]></submitUpload>
 </menu>

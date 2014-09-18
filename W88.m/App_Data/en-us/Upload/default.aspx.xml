@@ -2,9 +2,11 @@
 <default>
   <lblUsername><![CDATA[Username: ]]></lblUsername>
   <lblCurrency><![CDATA[Currency: ]]></lblCurrency>
-  <lblRemarks><![CDATA[Remarks: ]]></lblRemarks>
+  <lblRemarks><![CDATA[Remarks or Submission Purpose: ]]></lblRemarks>
   <lblFileUpload><![CDATA[File (Max 3MB): ]]></lblFileUpload>
   <btnSubmit><![CDATA[Submit]]></btnSubmit>
-  <Success><![CDATA[Thank you for your submission. Your submission ID is [submissionID]. If you have any further enquiries, please quote this submission ID to our customer service officer.]]></Success>
+  <Success><![CDATA[Thank you for your submission. Your submission ID is [SubmissionID]. If you have any further enquiries, please quote this submission ID to our customer service officer.]]></Success>
   <MissingAttachment><![CDATA[Please attach file.]]></MissingAttachment>
+  <InvalidFileType><![CDATA[Sorry, we only allowed .gif / .jpg files to be uploaded]]></InvalidFileType>
+  <ExceedSizeLimit><![CDATA[Attached file exceeds 3MB]]></ExceedSizeLimit>
 </default>

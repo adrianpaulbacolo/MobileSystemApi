@@ -24,4 +24,6 @@
   <fastdeposit><![CDATA[Chuyển Khoản Ngân Hàng]]></fastdeposit>
   <banktransfer><![CDATA[Chuyển Khoản Ngân Hàng]]></banktransfer>
   <wingmoney><![CDATA[Wing Money]]></wingmoney>
+  <fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
+  <submitUpload><![CDATA[Tải tập tin]]></submitUpload>
 </menu>

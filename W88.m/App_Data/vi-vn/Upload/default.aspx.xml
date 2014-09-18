@@ -2,9 +2,11 @@
 <default>
   <lblUsername><![CDATA[Tên Đăng Nhập: ]]></lblUsername>
   <lblCurrency><![CDATA[Tiền Tệ: ]]></lblCurrency>
-  <lblRemarks><![CDATA[Remarks: ]]></lblRemarks>
-  <lblFileUpload><![CDATA[File (Max 3MB): ]]></lblFileUpload>
-  <btnSubmit><![CDATA[THAM GIA]]></btnSubmit>
-  <Success><![CDATA[Thank you for your submission. Your submission ID is [submissionID]. If you have any further enquiries, please quote this submission ID to our customer service officer.”]]></Success>
-  <MissingAttachment><![CDATA[Please attach file.]]></MissingAttachment>
+  <lblRemarks><![CDATA[Ghi chú hay Mục đích xác nhận: ]]></lblRemarks>
+  <lblFileUpload><![CDATA[Tập tin (Max 3MB): ]]></lblFileUpload>
+  <btnSubmit><![CDATA[Xác nhận]]></btnSubmit>
+  <Success><![CDATA[Cám ơn Quý khách đã đăng ký. Mã ID đăng ký của Quý khách là [SubmissionID]. Nếu có bất kỳ thắc mắc nào, vui lòng liên hệ hỗ trợ trực tuyến và cung cấp mã số đăng ký của Quý khách.]]></Success>
+  <MissingAttachment><![CDATA[Vui lòng đính kèm tập tin.]]></MissingAttachment>
+  <InvalidFileType><![CDATA[Sorry, we only allowed .gif / .jpg files to be uploaded]]></InvalidFileType>
+  <ExceedSizeLimit><![CDATA[Attached file exceeds 3MB]]></ExceedSizeLimit>
 </default>

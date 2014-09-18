@@ -5,11 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Upload_Default : System.Web.UI.Page
+public partial class Upload_Default : BasePage
 {
     private System.Xml.Linq.XElement xeResources = null;
     protected string strAlertCode = string.Empty;
     protected string strAlertMessage = string.Empty;
+
+    protected void Page_Init(object sender, EventArgs e) { base.CheckLogin(); }
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -24,10 +26,8 @@ public partial class Upload_Default : System.Web.UI.Page
             txtCurrency.Text = commonVariables.GetSessionVariable("CurrencyCode");
 
             lblRemarks.Text = commonCulture.ElementValues.getResourceString("lblRemarks", xeResources);
-            //txtRemarks.Text = commonVariables.GetSessionVariable("MemberCode");
 
-            lblFileUpload.Text = commonCulture.ElementValues.getResourceString("lblFileUpload", xeResources);
-            txtUsername.Text = commonVariables.GetSessionVariable("MemberCode");
+            lblFileUpload.Text = commonCulture.ElementValues.getResourceString("lblFileUpload", xeResources);            
 
             btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
 
@@ -44,46 +44,65 @@ public partial class Upload_Default : System.Web.UI.Page
         string strCurrency = commonVariables.GetSessionVariable("CurrencyCode");
         string strSubmissionID = System.DateTime.Now.ToString("hhmmssddMMyy");
         //string strUploadRecipients = System.Configuration.ConfigurationManager.AppSettings.Get("UploadRecipients");
+        int fileSize = fuFileUpload.PostedFile.ContentLength;
+        string fileExtension = System.IO.Path.GetExtension(fuFileUpload.PostedFile.FileName.ToString());
+        System.Text.RegularExpressions.Regex rexFileExt = new System.Text.RegularExpressions.Regex("(.gif|.jpg)");
 
         if (fuFileUpload.HasFile)
         {
-            try
+            if (rexFileExt.IsMatch(fileExtension))
             {
-                System.Net.Mail.SmtpClient sClient = new System.Net.Mail.SmtpClient();
-
-                sClient.Host = strSMTPHost;
-                sClient.Port = 25;
-
-                if (string.Compare(sClient.Host, "retail.smtp.com", true) == 0)
+                if (fileSize <= (3 * 1024 * 1024))
                 {
-                    System.Net.NetworkCredential nCredentials = new System.Net.NetworkCredential();
-                    nCredentials.UserName = "dev@w88.com";
-                    nCredentials.Password = "2NDbr0isFAT!";
-                    sClient.UseDefaultCredentials = false;
-                    sClient.Credentials = nCredentials;
-                }
+                    try
+                    {
+                        System.Net.Mail.SmtpClient sClient = new System.Net.Mail.SmtpClient();
 
-                using (System.Net.Mail.MailMessage message = new System.Net.Mail.MailMessage())
+                        sClient.Host = strSMTPHost;
+                        sClient.Port = 25;
+
+                        if (string.Compare(sClient.Host, "retail.smtp.com", true) == 0)
+                        {
+                            System.Net.NetworkCredential nCredentials = new System.Net.NetworkCredential();
+                            nCredentials.UserName = "dev@w88.com";
+                            nCredentials.Password = "2NDbr0isFAT!";
+                            sClient.UseDefaultCredentials = false;
+                            sClient.Credentials = nCredentials;
+                        }
+
+                        using (System.Net.Mail.MailMessage message = new System.Net.Mail.MailMessage())
+                        {
+                            message.From = new System.Net.Mail.MailAddress(strEmailFrom);
+                            message.To.Add("banking@w88.com");
+                            message.To.Add("doc@w88.com");
+                            message.CC.Add("wayne.aw@vistatechcapital.com");
+                            //message.To.Add("gb.martymcfly@gmail.com");
+                            message.Body = string.Format("Username: {0}{1}Currency: {2}{3}Remarks: {4}", strUsername, System.Environment.NewLine, strCurrency, System.Environment.NewLine, strRemarks);
+                            message.Subject = string.Format("Attachment Upload - {0} / {1} / {2}", strSubmissionID, strUsername, strCurrency);
+                            message.Attachments.Add(new System.Net.Mail.Attachment(fuFileUpload.PostedFile.InputStream, fuFileUpload.PostedFile.FileName));
+                            sClient.Send(message);
+                        }
+
+                        strAlertCode = "00";
+                        lblSuccess.Text = commonCulture.ElementValues.getResourceString("Success", xeResources).Replace("[SubmissionID]", strSubmissionID);
+                    }
+                    catch (Exception ex)
+                    {
+                        //textBox4.Text += Environment.NewLine + ex.Message;
+                    }
+                    GC.Collect();
+                }
+                else
                 {
-                    message.From = new System.Net.Mail.MailAddress(strEmailFrom);
-                    message.To.Add("banking@w88.com");
-                    message.To.Add("doc@w88.com");
-                    message.CC.Add("wayne.aw@vistatechcapital.com");
-                    message.CC.Add("gb.martymcfly@gmail.com");
-                    message.Body = string.Format("Username: {0}{1}Currency: {2}{3}Remarks: {4}", strUsername, System.Environment.NewLine, strCurrency, System.Environment.NewLine, strRemarks);
-                    message.Subject = string.Format("Attachment Upload - {0} / {1} / {2}", strSubmissionID, strUsername, strCurrency);
-                    message.Attachments.Add(new System.Net.Mail.Attachment(fuFileUpload.PostedFile.InputStream, fuFileUpload.PostedFile.FileName));
-                    sClient.Send(message);
+                    strAlertCode = "01";
+                    strAlertMessage = commonCulture.ElementValues.getResourceString("ExceedSizeLimit", xeResources);
                 }
-
-                strAlertCode = "00";
-                lblSuccess.Text = commonCulture.ElementValues.getResourceString("Success", xeResources).Replace("[submissionID]", strSubmissionID);
             }
-            catch (Exception ex)
+            else
             {
-                //textBox4.Text += Environment.NewLine + ex.Message;
+                strAlertCode = "01";
+                strAlertMessage = commonCulture.ElementValues.getResourceString("InvalidFileType", xeResources);
             }
-            GC.Collect();
         }
         else 
         { 

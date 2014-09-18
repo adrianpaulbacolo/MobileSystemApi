@@ -2,9 +2,11 @@
 <default>
   <lblUsername><![CDATA[ชื่อผู้ใช้งาน: ]]></lblUsername>
   <lblCurrency><![CDATA[สกุลเงิน: ]]></lblCurrency>
-  <lblRemarks><![CDATA[Remarks: ]]></lblRemarks>
-  <lblFileUpload><![CDATA[File (Max 3MB): ]]></lblFileUpload>
-  <btnSubmit><![CDATA[สมัครสมาชิก]]></btnSubmit>
-  <Success><![CDATA[Thank you for your submission. Your submission ID is [submissionID]. If you have any further enquiries, please quote this submission ID to our customer service officer.”]]></Success>
-  <MissingAttachment><![CDATA[Please attach file.]]></MissingAttachment>
+  <lblRemarks><![CDATA[หมายเหตุ หรือ ระบุวัตถุประสงค์: ]]></lblRemarks>
+  <lblFileUpload><![CDATA[ไฟล์ (สุงสุด 3MB): ]]></lblFileUpload>
+  <btnSubmit><![CDATA[ยื่นรายการ]]></btnSubmit>
+  <Success><![CDATA[ขอบคุณสำหรับการทำรายการฝาก-ถอน เลขที่รายการของท่านคือ[SubmissionID] หากสมาชิกต้องการสอบถามเพิ่มเติม นำหมายเลขรายการของท่านมาสอบถามได้ที่ ฝ่ายบริการลูกค้าค่ะ]]></Success>
+  <MissingAttachment><![CDATA[กรุณาแนบไฟล์.]]></MissingAttachment>
+  <InvalidFileType><![CDATA[Sorry, we only allowed .gif / .jpg files to be uploaded]]></InvalidFileType>
+  <ExceedSizeLimit><![CDATA[Attached file exceeds 3MB]]></ExceedSizeLimit>
 </default>

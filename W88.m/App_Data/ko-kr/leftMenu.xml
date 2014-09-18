@@ -24,4 +24,6 @@
   <fastdeposit><![CDATA[은행송금]]></fastdeposit>
   <banktransfer><![CDATA[은행송금]]></banktransfer>
   <wingmoney><![CDATA[온라인]]></wingmoney>
+  <fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
+  <submitUpload><![CDATA[업로드 신청]]></submitUpload>
 </menu>

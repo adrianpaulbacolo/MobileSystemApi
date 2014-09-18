@@ -13,7 +13,7 @@
 </head>
 <body>
     <!--#include virtual="~/_static/splash.shtml" -->
-    <div data-role="page" data-theme="a" data-ajax="false">
+    <div data-role="page" data-theme="b" data-ajax="false">
         <div data-role="header" data-position="fixed" class="div-nav-header">
             <div class="text-center"></div>
         </div>

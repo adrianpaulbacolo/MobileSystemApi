@@ -2,9 +2,11 @@
 <default>
   <lblUsername><![CDATA[아이디: ]]></lblUsername>
   <lblCurrency><![CDATA[통화: ]]></lblCurrency>
-  <lblRemarks><![CDATA[Remarks: ]]></lblRemarks>
-  <lblFileUpload><![CDATA[File (Max 3MB): ]]></lblFileUpload>
+  <lblRemarks><![CDATA[의견 / 신청 사유: ]]></lblRemarks>
+  <lblFileUpload><![CDATA[파일 (최대 3MB): ]]></lblFileUpload>
   <btnSubmit><![CDATA[회원가입]]></btnSubmit>
-  <Success><![CDATA[Thank you for your submission. Your submission ID is [submissionID]. If you have any further enquiries, please quote this submission ID to our customer service officer.”]]></Success>
-  <MissingAttachment><![CDATA[Please attach file.]]></MissingAttachment>
+  <Success><![CDATA[성공적으로 접수되었습니다. 접수번호는 [SubmissionID]이며 재문의시, 상담원에게 접수번호를 알려주세요. 감사합니다.]]></Success>
+  <MissingAttachment><![CDATA[파일을 첨부해 주세요..]]></MissingAttachment>
+  <InvalidFileType><![CDATA[Sorry, we only allowed .gif / .jpg files to be uploaded]]></InvalidFileType>
+  <ExceedSizeLimit><![CDATA[Attached file exceeds 3MB]]></ExceedSizeLimit>
 </default>

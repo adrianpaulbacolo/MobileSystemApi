@@ -2,9 +2,11 @@
 <default>
   <lblUsername><![CDATA[ឈ្មោះគណនី: ]]></lblUsername>
   <lblCurrency><![CDATA[រូបិយវត្ថុ: ]]></lblCurrency>
-  <lblRemarks><![CDATA[Remarks: ]]></lblRemarks>
-  <lblFileUpload><![CDATA[File (Max 3MB): ]]></lblFileUpload>
-  <btnSubmit><![CDATA[ចូលរួម]]></btnSubmit>
-  <Success><![CDATA[Thank you for your submission. Your submission ID is [submissionID]. If you have any further enquiries, please quote this submission ID to our customer service officer.”]]></Success>
-  <MissingAttachment><![CDATA[Please attach file.]]></MissingAttachment>
+  <lblRemarks><![CDATA[ចំណាំ ឫ គោលបំណងនៃការបញ្ជូន: ]]></lblRemarks>
+  <lblFileUpload><![CDATA[ទំហំ (អតិ 3MB): ]]></lblFileUpload>
+  <btnSubmit><![CDATA[បញ្ជូន]]></btnSubmit>
+  <Success><![CDATA[សូមអរគុណសំរាប់ការស្នើសុំ។ លេខសំគាល់ការស្នើសុំរបស់អ្នកគឺ [SubmissionID]។ បើសិនជាលោកអ្នកមានសំនួរ សូមផ្តល់លេខសំគាល់មកកាន់ផ្នែកបំរើអតិថិជន។]]></Success>
+  <MissingAttachment><![CDATA[សូមភ្ជាប់ឯកសារ.]]></MissingAttachment>
+  <InvalidFileType><![CDATA[Sorry, we only allowed .gif / .jpg files to be uploaded]]></InvalidFileType>
+  <ExceedSizeLimit><![CDATA[Attached file exceeds 3MB]]></ExceedSizeLimit>
 </default>
