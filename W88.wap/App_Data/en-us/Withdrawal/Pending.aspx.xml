@@ -8,4 +8,5 @@
 
   <btnCancelWithdrawal><![CDATA[Cancel]]></btnCancelWithdrawal>
   <lblConfirmWithdrawal><![CDATA[Do you wish to cancel this withdrawal ?]]></lblConfirmWithdrawal>
+  <lblHeader><![CDATA[Pending Withdrawal]]></lblHeader>
 </default>

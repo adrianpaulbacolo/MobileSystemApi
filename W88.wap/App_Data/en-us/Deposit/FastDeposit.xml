@@ -15,6 +15,7 @@
   <lblAccountName><![CDATA[Your Account Name]]></lblAccountName>
   <lblAccountNumber><![CDATA[Your Account Number]]></lblAccountNumber>
   <btnSubmit><![CDATA[SUBMIT]]></btnSubmit>
+  <btnCancel><![CDATA[CANCEL]]></btnCancel>
   <lblTransactionId><![CDATA[Transaction ID]]></lblTransactionId>
   <lblDailyLimit><![CDATA[Daily Limit: ]]></lblDailyLimit>
   <lblTotalAllowed><![CDATA[Total Allowed: ]]></lblTotalAllowed>

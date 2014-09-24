@@ -17,6 +17,8 @@ public partial class _Index : BasePage
         {
             aHrefASports.InnerText = commonCulture.ElementValues.getResourceXPathString("Products/ASports/Label", commonVariables.ProductsXML);
             aHrefASports.HRef = commonASports.getSportsbookUrl;
+            aHrefDeposit.InnerText = commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML);
+            aHrefWithdrawal.InnerText = commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML);
             aHrefFundTransfer.InnerText = commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML);
             aHrefLogout.InnerText = commonCulture.ElementValues.getResourceString("logout", commonVariables.LeftMenuXML);
         }

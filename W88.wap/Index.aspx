@@ -11,6 +11,8 @@
         <table>
             <tr><td><a id="aHrefASports" runat="server" href="">A-Sports</a></td></tr>
             <tr><td><a id="aHrefFundTransfer" runat="server" href="/FundTransfer">FT</a></td></tr>
+            <tr><td><a id="aHrefDeposit" runat="server" href="/Deposit/FastDeposit.aspx">FT</a></td></tr>
+            <tr><td><a id="aHrefWithdrawal" runat="server" href="/Withdrawal/BankTransfer.aspx">FT</a></td></tr>
             <tr><td><a id="aHrefLogout" runat="server" href="/Logout">Logout</a></td></tr>
         </table>    
     </div>

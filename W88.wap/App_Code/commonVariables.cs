@@ -90,7 +90,8 @@ public class commonVariables
 
     public enum TransactionSource 
     { 
-        Mobile
+        Mobile,
+        Wap
     }
 
     public enum PaymentTransactionType 
