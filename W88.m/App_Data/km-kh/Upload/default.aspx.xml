@@ -7,6 +7,6 @@
   <btnSubmit><![CDATA[បញ្ជូន]]></btnSubmit>
   <Success><![CDATA[សូមអរគុណសំរាប់ការស្នើសុំ។ លេខសំគាល់ការស្នើសុំរបស់អ្នកគឺ [SubmissionID]។ បើសិនជាលោកអ្នកមានសំនួរ សូមផ្តល់លេខសំគាល់មកកាន់ផ្នែកបំរើអតិថិជន។]]></Success>
   <MissingAttachment><![CDATA[សូមភ្ជាប់ឯកសារ.]]></MissingAttachment>
-  <InvalidFileType><![CDATA[Sorry, we only allowed .gif / .jpg files to be uploaded]]></InvalidFileType>
-  <ExceedSizeLimit><![CDATA[Attached file exceeds 3MB]]></ExceedSizeLimit>
+  <InvalidFileType><![CDATA[សូមអភ័យទោស, អ្នកត្រូវបានអនុញ្ញាតអោយ uploadតែឯកសារប្រភេទ .gif / .jpg ប៉ុណ្ណោះ]]></InvalidFileType>
+  <ExceedSizeLimit><![CDATA[ឯកសារ Attached លើសពី 3MB.]]></ExceedSizeLimit>
 </default>

@@ -103,7 +103,7 @@ public class commonESports
         if (!string.IsNullOrEmpty(msLanguageCode))
         {
             System.Xml.Linq.XElement xeLanguage = commonCulture.appData.getRootResource("SportsLanguage");
-            strLanguage = commonCulture.ElementValues.getResourceXPathString(commonVariables.OperatorCode + "/Sports/Language/" + msLanguageCode, xeLanguage);
+            strLanguage = commonCulture.ElementValues.getResourceXPathString(commonVariables.OperatorCode + "/ESports/Language/" + msLanguageCode, xeLanguage);
         }
         return string.IsNullOrEmpty(strLanguage) ? "en" : strLanguage;
     }
@@ -114,10 +114,11 @@ public class commonESports
         if (!string.IsNullOrEmpty(SportsLanguageId))
         {
             System.Xml.Linq.XElement xeLanguage = commonCulture.appData.getRootResource("SportsLanguage");
-            strLanguage = commonCulture.ElementValues.getResourceXPathName(commonVariables.OperatorCode + "/Sports/Language", SportsLanguageId, xeLanguage);
+            strLanguage = commonCulture.ElementValues.getResourceXPathName(commonVariables.OperatorCode + "/ESports/Language", SportsLanguageId, xeLanguage);
         }
         return string.IsNullOrEmpty(strLanguage) ? "en-us" : strLanguage;
     }
+    /*
     internal static string getSportsCurrencyId(string msCurrencyCode)
     {
         string strCurrencyId = string.Empty;
@@ -162,7 +163,7 @@ public class commonESports
         }
         return strOperatorCode;
     }
-
+    */
     public static System.Collections.Specialized.NameValueCollection Values { get { return System.Configuration.ConfigurationManager.GetSection("ProductGroupSettings/" + commonVariables.OperatorCode + "/oneworks") as System.Collections.Specialized.NameValueCollection; } }
 }
 

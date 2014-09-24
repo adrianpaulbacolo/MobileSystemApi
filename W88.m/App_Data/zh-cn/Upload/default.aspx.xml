@@ -7,6 +7,6 @@
   <btnSubmit><![CDATA[交提]]></btnSubmit>
   <Success><![CDATA[感谢您提交,您的提交账号是[SubmissionID]。如果您有任何疑问,请提交账号给我们的客服]]></Success>
   <MissingAttachment><![CDATA[请附上文件]]></MissingAttachment>
-  <InvalidFileType><![CDATA[Sorry, we only allowed .gif / .jpg files to be uploaded]]></InvalidFileType>
-  <ExceedSizeLimit><![CDATA[Attached file exceeds 3MB]]></ExceedSizeLimit>
+  <InvalidFileType><![CDATA[对不起,你只允许上传 .gif /.jpg 格式文件]]></InvalidFileType>
+  <ExceedSizeLimit><![CDATA[附加文件不得超过3MB.]]></ExceedSizeLimit>
 </default>

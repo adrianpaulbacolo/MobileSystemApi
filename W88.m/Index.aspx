@@ -105,6 +105,12 @@
                                     <div></div>
                                 </a>
                             </li>
+                            <li class="li-esports">
+                                <a rel="esports" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
+                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></div>
+                                    <div></div>
+                                </a>
+                            </li>
                             <li class="li-clubw">
                                 <a rel="clubw" href="/mob/app-release.apk" data-ajax="false">
                                     <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></div>
@@ -141,19 +147,14 @@
                                     <div></div>
                                 </a>
                             </li>
-                            <li class="li-esports">
-                                <a rel="esports" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></div>
-                                    <div></div>
-                                </a>
-                            </li>
+                            <!--
                             <li class="li-clubbravado">
                                 <a rel="clubbravado" href="/ClubBravado" data-ajax="false">
                                     <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubBravado/Label", commonVariables.ProductsXML)%></div>
                                     <div></div>
                                 </a>
                             </li>
-
+                            -->
                             <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                                { %>
 
@@ -190,9 +191,15 @@
                         </li>
                         -->
                         <li class="li-asports">
-                            <a id="aASports" runat="server" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
+                            <a id="aASports" rel="asports" runat="server" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
                                 <img src="/_Static/Images/bnr-asports.jpg" class="ui-li-thumb" />
                                 <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ASports/Label", commonVariables.ProductsXML)%></h2>
+                            </a>
+                        </li>
+                        <li class="li-esports">
+                            <a id="aESports" rel="esports" runat="server" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
+                                <img src="/_Static/Images/bnr-esports.jpg" class="ui-li-thumb" />
+                                <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></h2>
                             </a>
                         </li>
                         <li class="li-clubw">
@@ -229,12 +236,6 @@
                             <a id="aClubCrescendo" runat="server" href="/ClubCrescendo" data-ajax="false">
                                 <img src="/_Static/Images/bnr-clubcrescendo.png" class="ui-li-thumb" />
                                 <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubCrescendo/Label", commonVariables.ProductsXML)%></h2>
-                            </a>
-                        </li>
-                        <li class="li-esports">
-                            <a id="aESports" runat="server" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                                <img src="/_Static/Images/bnr-esports.jpg" class="ui-li-thumb" />
-                                <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></h2>
                             </a>
                         </li>
                         <li class="li-clubbravado">

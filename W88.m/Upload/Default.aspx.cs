@@ -46,7 +46,7 @@ public partial class Upload_Default : BasePage
         //string strUploadRecipients = System.Configuration.ConfigurationManager.AppSettings.Get("UploadRecipients");
         int fileSize = fuFileUpload.PostedFile.ContentLength;
         string fileExtension = System.IO.Path.GetExtension(fuFileUpload.PostedFile.FileName.ToString());
-        System.Text.RegularExpressions.Regex rexFileExt = new System.Text.RegularExpressions.Regex("(.gif|.jpg)");
+        System.Text.RegularExpressions.Regex rexFileExt = new System.Text.RegularExpressions.Regex("(.gif|.jpg|.png)");
 
         if (fuFileUpload.HasFile)
         {
@@ -75,7 +75,7 @@ public partial class Upload_Default : BasePage
                             message.From = new System.Net.Mail.MailAddress(strEmailFrom);
                             message.To.Add("banking@w88.com");
                             message.To.Add("doc@w88.com");
-                            message.CC.Add("wayne.aw@vistatechcapital.com");
+                            //message.CC.Add("wayne.aw@vistatechcapital.com");
                             //message.To.Add("gb.martymcfly@gmail.com");
                             message.Body = string.Format("Username: {0}{1}Currency: {2}{3}Remarks: {4}", strUsername, System.Environment.NewLine, strCurrency, System.Environment.NewLine, strRemarks);
                             message.Subject = string.Format("Attachment Upload - {0} / {1} / {2}", strSubmissionID, strUsername, strCurrency);
@@ -96,6 +96,7 @@ public partial class Upload_Default : BasePage
                 {
                     strAlertCode = "01";
                     strAlertMessage = commonCulture.ElementValues.getResourceString("ExceedSizeLimit", xeResources);
+                    return;
                 }
             }
             else

@@ -33,5 +33,16 @@
       51,VND | 52,DKK | 53,SEK | 54 NOK | 55,RUB | 56,PLN | 57,CZK | 58,RON | 61,INR"/>-->
 
     </Sports>
+    <ESports>
+      <Language>
+        <en-us><![CDATA[236]]></en-us>
+        <zh-cn><![CDATA[240]]></zh-cn>
+        <ko-kr><![CDATA[270]]></ko-kr>
+        <ja-jp><![CDATA[269]]></ja-jp>
+        <th-th><![CDATA[244]]></th-th>
+        <vi-vn><![CDATA[241]]></vi-vn>
+        <id-id><![CDATA[242]]></id-id>
+      </Language>
+    </ESports>
   </W88>  
 </default>
