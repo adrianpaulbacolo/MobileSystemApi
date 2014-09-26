@@ -1,0 +1,71 @@
+﻿<link href="/_Static/Css/Menu.css" rel="stylesheet" />
+<div data-role="panel" data-theme="a" id="divPanel">
+<ul data-role="listview" data-theme="none" class="nav-menu">
+<li data-icon="false" class="ui-icon"><a id="aMnuCloseMenu" runat="server" href="#" data-rel="close"><%=commonCulture.ElementValues.getResourceString("closeMenu", commonVariables.LeftMenuXML)%></a></li>
+<li data-icon="false" class="ui-icon"><a id="aMnuHome" runat="server" href="/Index.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("home", commonVariables.LeftMenuXML)%></a></li>
+<% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+<li id="liUser" data-icon="false" class="ui-icon"><a id="aMnuUser" runat="server" href="javascript:void(0)" data-ajax="false"><span class="span-user"><%=commonVariables.GetSessionVariable("MemberCode")%></span></a></li>
+<% } else { %>
+<li id="liOptions"><div><a class="ui-btn ui-blue ui-mini" href="/_Secure/Register.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("joinnow", commonVariables.LeftMenuXML)%></a>&nbsp;<a class="ui-btn ui-gray ui-mini" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></a></div></li>
+<% } %>
+<li data-icon="false" class="ui-icon"><a rel="asports" id="aMnuASports" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceXPathString("Products/ASports/Label", commonVariables.ProductsXML)%></a></li>
+<li data-icon="false" class="ui-icon"><a rel="clubw" id="aMnuClubW" href="/mob/app-release.apk" data-ajax="false"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></a></li>
+<li data-icon="false" class="ui-icon"><a rel="clubmassimo-casino" id="aMnuClubMassimoCasino" href="//livegames.gameassists.co.uk/MobileClient/MobileRedirector/index.aspx?AppID=W88Diamond&ClientID=5&UL=en" data-ajax="false"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoCasino/Label", commonVariables.ProductsXML)%></a></li>
+<li data-icon="false" class="ui-icon"><a rel="lottery" id="aMnuLottery" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceXPathString("Products/Lottery/Label", commonVariables.ProductsXML)%></a></li>
+<li data-icon="false" class="ui-icon"><a rel="clubmassimo-slots" id="aMnuClubMassimoSlot" href="/ClubMassimo" data-ajax="false"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML)%></a></li>
+<li data-icon="false" class="ui-icon"><a rel="clubdivino" id="aMnuClubDivino" href="/ClubDivino" data-ajax="false"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubDivino/Label", commonVariables.ProductsXML)%></a></li>
+<li data-icon="false" class="ui-icon"><a rel="clubcrescendo" id="aMnuClubCrescendo" href="/ClubCrescendo" data-ajax="false"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubCrescendo/Label", commonVariables.ProductsXML)%></a></li>
+<li data-icon="false" class="ui-icon"><a rel="esports" id="aMnuESports" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></a></li>
+<li data-icon="false" class="ui-icon"><a rel="clubbravado" id="aMnuClubBravado" href="/ClubBravado" data-ajax="false"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubBravado/Label", commonVariables.ProductsXML)%></a></li>
+<% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+<li data-icon="false" class="ui-icon"><a rel="deposit" id="aMnuDeposit" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%></a></li>
+<li data-icon="false" class="ui-icon"><a rel="fundtransfer" id="aMnuTransfer" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%></a></li>
+<li data-icon="false" class="ui-icon"><a rel="withdrawal" id="aMnuWithdrawal" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%></a></li>
+<!-- <li data-icon="false"><a id="aMnuClaim" runat="server"><%=commonCulture.ElementValues.getResourceString("claims", commonVariables.LeftMenuXML)%></a></li> -->
+<% } %>
+<li data-icon="false" class="ui-misc"><a id="aMnuLiveHelp" runat="server" href="/LivePerson/Default.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%></a></li>
+<!--<li data-icon="false" class="ui-misc"><a id="aMnuContactUs" runat="server" href="/ContactUs.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("contactUs", commonVariables.LeftMenuXML)%></a></li>-->
+<li data-icon="false" class="ui-misc"><a id="aMnuLanguage" runat="server" href="/Lang.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("language", commonVariables.LeftMenuXML)%></a></li>
+<% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %><li data-icon="false" class="liLogout"><a id="aMnuLogOut" runat="server" href="/Logout" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("logout", commonVariables.LeftMenuXML)%></a></li><% } %>
+</ul>
+<div class="div-other-links"><a id="aMnuDesktop" runat="server" href="javascript:void(0);" onclick="javascript:window.location.href='//www.' + document.domain.substring(document.domain.indexOf('.') + 1);" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("desktopsite", commonVariables.LeftMenuXML)%></a></div>
+<!--  div class="div-other-links"><a id="aMnuFullScreenMode" runat="server" href="javascript:toggleFullScreen();" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("fullscreenMode", commonVariables.LeftMenuXML)%></a></div> -->
+<div id="divCopyright">&copy; <%=System.DateTime.Now.Year%> W88.com <br />All rights reserved | 18+</div>
+</div><!-- /panel -->
+<script type="text/javascript">
+    $(function () {
+        if ('<%=commonVariables.CurrentMemberSessionId%>'.trim().length > 0) {
+            $('a[rel="deposit"]').each(function () {
+                $(this).removeAttr('data-rel').removeAttr('data-transition').attr('data-ajax', 'false').attr('href', '/Deposit');
+            });
+            $('a[rel="fundtransfer"]').each(function () {
+                $(this).removeAttr('data-rel').removeAttr('data-transition').attr('data-ajax', 'false').attr('href', '/FundTransfer');
+            });
+            $('a[rel="withdrawal"]').each(function () {
+                $(this).removeAttr('data-rel').removeAttr('data-transition').attr('data-ajax', 'false').attr('href', '/Withdrawal');
+            });
+            $('a[rel="asports"]').each(function () {
+                $(this).removeAttr('data-rel').removeAttr('data-transition').attr('data-ajax', 'false').attr('href', '<%=(string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) ? "_Secure/Login" : commonASports.getSportsbookUrl)%>');
+            });
+            $('a[rel="lottery"]').each(function () {
+                $(this).removeAttr('data-rel').removeAttr('data-transition').attr('data-ajax', 'false').attr('href', '<%=(string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) ? "_Secure/Login" : commonLottery.getKenoUrl)%>');
+            });
+        }
+        $('a[rel="clubw"]').each(function () {
+            $(this).attr('href', '//casino' + location.hostname.substring(location.hostname.indexOf('.')) + $(this).attr('href'));
+            //console.log('//casino' + location.hostname.substring(location.hostname.indexOf('.')) + $(this).attr('href'));
+        });
+
+        var wcLang = 'EN';
+        switch ('<%=commonVariables.SelectedLanguage.ToLower()%>') {
+            case "id-id": wcLang = "id"; break;
+            case "ko-kr": wcLang = "ko"; break;
+            case "th-th": wcLang = "th"; break;
+            case "zh-cn": wcLang = "zh"; break;
+            default: wcLang = "en"; break;
+        }
+        $('a[rel="awcinfo"]').each(function () {
+            $(this).attr('href', $(this).attr('href').replace('{LANG}', wcLang));
+        });
+    });
+</script>

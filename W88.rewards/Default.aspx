@@ -30,7 +30,7 @@
             prods.show();
 
             $('#categorylist li a').bind('click touchstart', function () {
-               
+
                 var customType = $(this).data('filter'); // category
                 if (customType == 'all')
                 { prods.show(); }
@@ -48,16 +48,21 @@
         function CatScroll() {
             HorScroll = new IScroll('#categorywrapper', { scrollX: true, scrollY: false, mouseWheel: true });
         }
-                
+
         var VerScroll;
         function ProductScroll() {
             VerScroll = null;
-            VerScroll = new IScroll('#resultwrapper', {scrollX: false, scrollY: true, mouseWheel: true, bounceEasing: 'elastic', bounceTime: 1000 });
+            VerScroll = new IScroll('#resultwrapper', { scrollX: false, scrollY: true, mouseWheel: true, bounceEasing: 'elastic', bounceTime: 1000 });
         }
 
     </script>
-    
- 
+    <style type="text/css">
+
+
+
+
+    </style>
+
 
 
 </head>
@@ -73,12 +78,12 @@
                 <div id="categorywrapper" style="overflow: hidden;">
                     <div id="category-nav">
                         <ul id="categorylist" class="">
-                            <li><a   href="#" class="current-cat" data-filter="all">
+                            <li><a href="#" class="current-cat" data-filter="all">
                                 <span class="image">
                                     <img height="60" alt="" src="_Static/Images/c_all.png"></span>
                                 <span class="label">All</span>
                             </a></li>
-                            <li><a   href="#" data-filter="football">
+                            <li><a href="#" data-filter="football">
                                 <span class="image">
                                     <img height="60" alt="" src="_Static/Images/c_football.png"></span>
                                 <span class="label">Football</span>
@@ -132,7 +137,7 @@
                                 <div class="small-label">
                                     HOT
                                 </div>
-                                <a  href="#">
+                                <a href="#">
                                     <span class="image">
                                         <img height="60" alt="" src="_Static/Images/131.jpg"></span>
                                     <span class="description">Barcelona 13-14 Home T-Shirt</span>
@@ -143,7 +148,7 @@
                                 <div class="small-label">
                                     HOT
                                 </div>
-                                <a   href="#">
+                                <a href="#">
                                     <span class="image">
                                         <img height="60" alt="" src="_Static/Images/8.jpg"></span>
                                     <span class="description">Iphone 5S 16GB</span>
@@ -2350,7 +2355,7 @@
                             </li>
 
                         </ul>
-                    
+
                     </div>
                 </div>
 
