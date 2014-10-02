@@ -33,3 +33,13 @@
 #aMnuWithdrawal { background-image: url("/_Static/Images/Menu/mnu-withdrawal.png"); }
 #aMnuClubMassimoSlot br {display: none;}
 #aMnuClubMassimoCasino br { display: none;}
+
+.mnuSports {
+    background-image: url("/_Static/Images/Menu/mnu-asports.png");
+}
+.mnuLiveCasino {
+    background-image: url("/_Static/Images/Menu/mnu-clubmassimo-casino.png");
+}
+.mnuSlots {
+    background-image: url("/_Static/Images/Menu/mnu-clubmassimo-slots.png");
+}
