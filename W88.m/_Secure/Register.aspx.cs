@@ -346,7 +346,7 @@ public partial class _Secure_Register : System.Web.UI.Page
             using (wsMemberMS1.memberWSSoapClient svcInstance = new wsMemberMS1.memberWSSoapClient())
             {
                 dsRegister = svcInstance.MemberRegistrationNew(lngOperatorId, strMemberCode, strPasswordEncrypted, strEmail, strContactNumber,
-                            strAddress, strCity, strPostal, strCountryCode, strCurrencyCode, strGender, intOddsType, strLanguageCode,
+                    strAddress, strCity, strPostal, strCountryCode, strCurrencyCode, strGender, intOddsType, string.IsNullOrEmpty(strLanguageCode) ? "en-us" : strLanguageCode,
                             intAffiliateId, strReferBy, strIPAddress, strSignUpUrl, strDeviceId, isTestAccount, strFName, strLName, dtDOB, string.Empty);
 
                 strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | Password: {2} | Email: {3} | Contact: {4} | Address: {5} | City: {6} | Postal: {6} | Country: {8} | Currency: {9} | Gender: {10} | OddsType: {11} | Language: {12} | Affiliate: {13} | ReferBy: {14} | IP: {15} | SignUpUrl: {16} | DeviceID: {17} | TestAccount: {18} | FName: {19} | LName: {20} | DOB: {21} | REMOTEIP: {22} | FORWARDEDIP: {23} | REQUESTERIP: {24} | AffiliateID: {25}",

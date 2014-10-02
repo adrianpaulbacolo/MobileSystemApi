@@ -8,7 +8,7 @@
     <link type="text/css" href="/_Static/Css/Promotions.css" rel="stylesheet" />
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
     <script type="text/javascript">
-        var lang = '<%=commonVariables.SelectedLanguage%>';
+        var lang = '<%=(string.IsNullOrEmpty(commonVariables.SelectedLanguage) ? "en-us" : commonVariables.SelectedLanguage)%>';
         if (lang == '') { lang = 'en-us'; }
         $(function () { getPromos(); });
         $(window).resize(function () { $('.div-promo-row > a > div:last-child > div').css({ maxWidth: ($(window).width() - 200) + 'px' }); });

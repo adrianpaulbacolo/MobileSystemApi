@@ -17,7 +17,7 @@
         $(window).resize(function () { $('.div-promo-row > a > div:last-child > div').css({ maxWidth: ($(window).width() - 200) + 'px' }); });
         function timerV2(pid, start_date, end_date) { if (new Date('<%=System.DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') < new Date(start_date) || new Date('<%=System.DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') > new Date(end_date)) { $('div#' + pid).hide(); } }
         function getPromos() {
-            $.get('/_Static/Promotions/promotions.<%=commonVariables.SelectedLanguage + (string.Compare(commonVariables.GetSessionVariable("CountryCode"), "my", true) == 0 ? ".my" : "")%>.htm', function (html) { })
+            $.get('/_Static/Promotions/promotions.<%=(string.IsNullOrEmpty(commonVariables.SelectedLanguage) ? "en-us" : commonVariables.SelectedLanguage) + (string.Compare(commonVariables.GetSessionVariable("CountryCode"), "my", true) == 0 ? ".my" : "")%>.htm', function (html) { })
               .done(function (data) {
                   data = data.replace(/<img src=/g, '<img rel=');
                   var listObj = $("#divPromotions").append('<ul></ul>').find('ul');
@@ -124,7 +124,7 @@
                                 </a>
                             </li>
                             <li class="li-lottery">
-                                <a rel="lottery" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
+                                <a rel="lottery" href="/_Secure/Login.aspx?redirect=mlotto" data-rel="dialog" data-transition="slidedown">
                                     <div><%=commonCulture.ElementValues.getResourceXPathString("Products/Lottery/Label", commonVariables.ProductsXML)%></div>
                                     <div></div>
                                 </a>
@@ -215,7 +215,7 @@
                             </a>
                         </li>
                         <li class="li-lottery">
-                            <a id="aLottery" runat="server" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
+                            <a id="aLottery" runat="server" href="/_Secure/Login.aspx?redirect=mlotto" data-rel="dialog" data-transition="slidedown">
                                 <img src="/_Static/Images/bnr-lottery.png" class="ui-li-thumb" />
                                 <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/Lottery/Label", commonVariables.ProductsXML)%></h2>
                             </a>

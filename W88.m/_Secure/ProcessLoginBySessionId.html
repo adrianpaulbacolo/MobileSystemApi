@@ -16,7 +16,7 @@
                 url: "https://www.w88.com/IP2LOC?v=" + new Date().getTime(),
                 dataType: "jsonp",
                 success: function (data) {
-                    $.post("/_Secure/ProcessLoginBySessionId.aspx", { ip: data.ip, country: data.country })
+                    $.post("/_secure/ProcessLoginBySessionId.aspx", { ip: data.ip, country: data.country })
                         .done(function (data) { if (data == '0') { window.location.href = '/Expire' } else { window.location.href = '/Index.aspx' + ((lang == '') ? '' : lang) } });
                 },
                 error: function (err) {

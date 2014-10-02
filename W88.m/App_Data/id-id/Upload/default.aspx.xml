@@ -7,6 +7,6 @@
   <btnSubmit><![CDATA[Kirim]]></btnSubmit>
   <Success><![CDATA[Terima kasih atas permohonan anda. Untuk permohonan ID anda adalah [SubmissionID]. Jika anda masih memiliki pertanyaan lebih lanjut, silahkan anda menyertakan ID anda ini ke bagian Customer Service kami pak.]]></Success>
   <MissingAttachment><![CDATA[Lampiran File.]]></MissingAttachment>
-  <InvalidFileType><![CDATA[Maaf, anda hanya bisa melampirkan .gif / .jpg files.]]></InvalidFileType>
+  <InvalidFileType><![CDATA[Maaf, anda hanya bisa melampirkan .gif / .jpg / .png files.]]></InvalidFileType>
   <ExceedSizeLimit><![CDATA[Lampiran file melebihi 3MB.]]></ExceedSizeLimit>
 </default>

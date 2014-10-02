@@ -28,7 +28,7 @@
                         <asp:Label ID="lblCaptcha" runat="server" AssociatedControlID="txtCaptcha" Text="code" CssClass="ui-hidden-accessible" />
                         <div class="ui-grid-a">
                             <div class="ui-block-a"><asp:TextBox ID="txtCaptcha" runat="server" MaxLength="4" type="tel" data-mini="true" /></div>
-                            <div class="ui-block-b"><asp:Image ID="imgCaptcha" runat="server" ImageUrl="/Captcha" CssClass="imgCaptcha" /></div>
+                            <div class="ui-block-b"><asp:Image ID="imgCaptcha" runat="server" CssClass="imgCaptcha" /></div>
                         </div>
                     </div>
                     <div>
@@ -40,6 +40,8 @@
             </form>
         </div>
         <script type="text/javascript">   
+            $(function () { $('#<%=imgCaptcha.ClientID%>').attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime()); });
+
             $('#form1').submit(function (e) {
                 $('#btnSubmit').attr("disabled", true);
                 if ($('#txtUsername').val().trim().length == 0) {
@@ -95,9 +97,10 @@
                 return;
             });
 
-            $('#imgCaptcha').click(function () { $(this).attr('src', '/Captcha'); });
+            $('#<%=imgCaptcha.ClientID%>').click(function () { $(this).attr('src', '/_Secure/Captcha.aspx'); });
 
-            function initiateLogin(postData) {                
+            function initiateLogin(postData) {
+                console.log('txt: ' + $('#txtCaptcha').val());
                 $.ajax({
                     type: "POST",
                     url: '/_Secure/Login',
@@ -111,11 +114,18 @@
                     success: function (xml) {
                         switch ($(xml).find('ErrorCode').text()) {
                             case "1":
-                                window.location.replace('<%=strRedirect%>');
+                                switch ('<%=strRedirect%>') {
+                                    case 'mlotto':
+                                        window.location.replace('<%=commonLottery.getKenoUrl%>');
+                                        break;
+                                    default:
+                                        window.location.replace('<%=strRedirect%>');
+                                        break;
+                                }
                                 break;
                             default:
                                 alert($(xml).find('Message').text());
-                                $('#<%=imgCaptcha.ClientID%>').attr('src', '/Captcha');
+                                $('#<%=imgCaptcha.ClientID%>').attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime());
                                 $('#<%=txtCaptcha.ClientID%>').val('');
                                 $('#<%=txtPassword.ClientID%>').val('');
                                 GPINTMOBILE.HideSplash();

@@ -7,6 +7,6 @@
   <btnSubmit><![CDATA[ยื่นรายการ]]></btnSubmit>
   <Success><![CDATA[ขอบคุณสำหรับการทำรายการฝาก-ถอน เลขที่รายการของท่านคือ[SubmissionID] หากสมาชิกต้องการสอบถามเพิ่มเติม นำหมายเลขรายการของท่านมาสอบถามได้ที่ ฝ่ายบริการลูกค้าค่ะ]]></Success>
   <MissingAttachment><![CDATA[กรุณาแนบไฟล์.]]></MissingAttachment>
-  <InvalidFileType><![CDATA[ขออภัยค่ะ อัพโหลดได้เฉพาะไฟล์ .gif / .jpg เท่านั้น]]></InvalidFileType>
+  <InvalidFileType><![CDATA[ขออภัยค่ะ อัพโหลดได้เฉพาะไฟล์ .gif / .jpg / .png เท่านั้น]]></InvalidFileType>
   <ExceedSizeLimit><![CDATA[ไฟล์แนบสูงสุด 3MB.]]></ExceedSizeLimit>
 </default>

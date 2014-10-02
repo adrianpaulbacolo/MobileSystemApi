@@ -3,7 +3,7 @@
     window.setInterval(function () {
         $.ajax({
             contentType: "application/json; charset=utf-8",
-            url: "/_Secure/AjaxHandlers/MemberSessionCheck.ashx",
+            url: "/_secure/AjaxHandlers/MemberSessionCheck.ashx",
             /*dataType: "jsonp",*/
             success: function (data) {
                 if (data != '1' && data != '-1') { window.location.replace('/Expire'); }

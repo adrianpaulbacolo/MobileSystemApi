@@ -7,6 +7,6 @@
   <btnSubmit><![CDATA[Xác nhận]]></btnSubmit>
   <Success><![CDATA[Cám ơn Quý khách đã đăng ký. Mã ID đăng ký của Quý khách là [SubmissionID]. Nếu có bất kỳ thắc mắc nào, vui lòng liên hệ hỗ trợ trực tuyến và cung cấp mã số đăng ký của Quý khách.]]></Success>
   <MissingAttachment><![CDATA[Vui lòng đính kèm tập tin.]]></MissingAttachment>
-  <InvalidFileType><![CDATA[Rất tiếc, bạn chỉ được phép tải lên file đuôi .gif / .jpg]]></InvalidFileType>
+  <InvalidFileType><![CDATA[Rất tiếc, bạn chỉ được phép tải lên file đuôi .gif / .jpg / .png]]></InvalidFileType>
   <ExceedSizeLimit><![CDATA[File đính kèm vượt quá 3MB.]]></ExceedSizeLimit>
 </default>
