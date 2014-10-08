@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <btnSubmit><![CDATA[KIRIM]]></btnSubmit>
+  <btnCancel><![CDATA[Batal]]></btnCancel>
+  <lblID><![CDATA[ID]]></lblID>
+  <lblComment><![CDATA[Komentar]]></lblComment>
+  <lblMultipleRebateCode><![CDATA[Silahkan tandai pada produk mana Kode Bonus yang Anda inginkan:]]></lblMultipleRebateCode>
+  <lblMoreInfo><![CDATA[INFO LEBIH]]></lblMoreInfo>
+</default>

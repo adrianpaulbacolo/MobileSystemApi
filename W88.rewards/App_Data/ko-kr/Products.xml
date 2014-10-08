@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <Products>
+    <ASports>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[a-스포츠]]></Label>
+      <Description><![CDATA[Sportsbook]]></Description>
+    </ASports>
+    <ESports>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[e-스포츠]]></Label>
+      <Description><![CDATA[Sportsbook]]></Description>
+    </ESports>
+    <ISports>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[i-스포츠]]></Label>
+      <Description><![CDATA[Sportsbook]]></Description>
+    </ISports>
+    <USports>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[u-스포츠]]></Label>
+      <Description><![CDATA[Sportsbook]]></Description>
+    </USports>
+    <Lottery>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[키노]]></Label>
+      <Description><![CDATA[키노 & 로또]]></Description>
+    </Lottery>
+    <ClubCrescendo>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[크레센도]]></Label>
+      <Description><![CDATA[Crescendo Slots]]></Description>
+    </ClubCrescendo>
+    <ClubDivino>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[디비노]]></Label>
+      <Description><![CDATA[클럽 브라바도 3D]]></Description>
+    </ClubDivino>
+    <ClubW>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[클럽 W]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubW>
+    <ClubBravado>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[브라바도]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubBravado>
+    <ClubMassimoSlots>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[마시모 <br /><span>(슬롯게임)</span>]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubMassimoSlots>
+    <ClubMassimoCasino>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[마시모 <br /><span>(카지노)</span>]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubMassimoCasino>
+  </Products>
+  <Wallets>
+    <main><![CDATA[메인]]></main>
+    <asports><![CDATA[A-스포츠]]></asports>
+    <esports><![CDATA[E-스포츠]]></esports>
+    <isports><![CDATA[I-스포츠]]></isports>
+    <lottery><![CDATA[복권]]></lottery>
+    <casino><![CDATA[클럽 W, 브라바도, 크레센도, 디비노 & 마시모]]></casino>
+    <playtech><![CDATA[팔라쪼]]></playtech>
+    <binary><![CDATA[바이너리]]></binary>
+    <poker><![CDATA[포커 (USD)]]></poker>
+  </Wallets>
+</default>

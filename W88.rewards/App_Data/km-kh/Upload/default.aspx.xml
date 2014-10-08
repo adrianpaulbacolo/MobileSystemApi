@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lblUsername><![CDATA[ឈ្មោះគណនី: ]]></lblUsername>
+  <lblCurrency><![CDATA[រូបិយវត្ថុ: ]]></lblCurrency>
+  <lblRemarks><![CDATA[ចំណាំ ឫ គោលបំណងនៃការបញ្ជូន: ]]></lblRemarks>
+  <lblFileUpload><![CDATA[ទំហំ (អតិ 3MB): ]]></lblFileUpload>
+  <btnSubmit><![CDATA[បញ្ជូន]]></btnSubmit>
+  <Success><![CDATA[សូមអរគុណសំរាប់ការស្នើសុំ។ លេខសំគាល់ការស្នើសុំរបស់អ្នកគឺ [SubmissionID]។ បើសិនជាលោកអ្នកមានសំនួរ សូមផ្តល់លេខសំគាល់មកកាន់ផ្នែកបំរើអតិថិជន។]]></Success>
+  <MissingAttachment><![CDATA[សូមភ្ជាប់ឯកសារ.]]></MissingAttachment>
+  <InvalidFileType><![CDATA[សូមអភ័យទោស, អ្នកត្រូវបានអនុញ្ញាតអោយ uploadតែឯកសារប្រភេទ .gif / .jpg / .png ប៉ុណ្ណោះ]]></InvalidFileType>
+  <ExceedSizeLimit><![CDATA[ឯកសារ Attached លើសពី 3MB.]]></ExceedSizeLimit>
+</default>

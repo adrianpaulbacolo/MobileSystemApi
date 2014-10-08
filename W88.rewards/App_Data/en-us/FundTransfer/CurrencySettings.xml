@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CurrencySettings>
+  <Currencies>
+    <UUS>
+      <!--
+      <MAIN disabledfundin="true" />
+      <SPORTSBOOK disabledfundin="true" disabledfundout="true" />
+      <LOTTERY disabledfundin="true" disabledfundout="true" />
+      <CASINO disabledfundin="false" disabledfundout="true" />
+      <PLAYTECH disabledfundin="true" disabledfundout="true" />
+      <BINARY disabledfundin="true" disabledfundout="true"/>
+      <POKER disabledfundin="true" disabledfundout="true" />
+      -->
+    </UUS>
+    <KRW>
+      <PLAYTECH disabled="true" />
+    </KRW>
+  </Currencies>
+</CurrencySettings>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<cashier>
+  <lblShowBalance><![CDATA[显示余额]]></lblShowBalance>
+  <lblHideBalance><![CDATA[隐藏余额]]></lblHideBalance>
+  <lblTransferFrom><![CDATA[转从]]></lblTransferFrom>
+  <lblTransferTo><![CDATA[转入]]></lblTransferTo>
+  <lblTransferAmount><![CDATA[转账金额]]></lblTransferAmount>
+  <lblPromoCode><![CDATA[红利代码]]></lblPromoCode>
+  <lblFreebetCode><![CDATA[免费投注代码]]></lblFreebetCode>
+  <btnSubmit><![CDATA[确认]]></btnSubmit>
+</cashier>

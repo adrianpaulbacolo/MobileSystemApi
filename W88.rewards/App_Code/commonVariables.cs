@@ -13,7 +13,13 @@ public class commonVariables
     //public static System.Xml.Linq.XElement LeftMenuXML { get { return commonCulture.appData.getRootResource("/leftMenu"); } }
     //public static System.Xml.Linq.XElement ProductsXML { get { return commonCulture.appData.getRootResource("/Products"); } }
 
-    public static System.Xml.Linq.XElement ErrorsXML { get { if (System.Web.HttpContext.Current.Cache.Get("errorsXML_" + commonVariables.SelectedLanguage) != null) { return System.Web.HttpContext.Current.Cache.Get("errorsXML_" + commonVariables.SelectedLanguage) as System.Xml.Linq.XElement; } else { System.Xml.Linq.XElement xcErrors = commonCulture.appData.getRootResource("/Errors"); System.Web.HttpContext.Current.Cache.Add("errorsXML_" + commonVariables.SelectedLanguage, xcErrors, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.AboveNormal, null); return xcErrors; } } }
+    public static System.Xml.Linq.XElement ErrorsXML {
+        get {
+            if (System.Web.HttpContext.Current.Cache.Get("errorsXML_" + commonVariables.SelectedLanguage) != null)
+            { return System.Web.HttpContext.Current.Cache.Get("errorsXML_" + commonVariables.SelectedLanguage) as System.Xml.Linq.XElement; } 
+            else { System.Xml.Linq.XElement xcErrors = commonCulture.appData.getRootResource("/Errors"); 
+                System.Web.HttpContext.Current.Cache.Add("errorsXML_" + commonVariables.SelectedLanguage, xcErrors, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.AboveNormal, null);
+                return xcErrors; } } }
     public static string SiteUrl { get { return System.Web.HttpContext.Current.Request.ServerVariables["SERVER_NAME"]; } }
 
     public static string DisplayDateFormat { get { return System.Configuration.ConfigurationManager.AppSettings.Get("DisplayDateFormat"); } }

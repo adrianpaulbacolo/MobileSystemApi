@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <Products>
+    <ASports>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[a-Sport]]></Label>
+      <Description><![CDATA[Sportsbook]]></Description>
+    </ASports>
+    <ESports>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[e-Sport]]></Label>
+      <Description><![CDATA[Sportsbook]]></Description>
+    </ESports>
+    <ISports>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[i-Sport]]></Label>
+      <Description><![CDATA[Sportsbook]]></Description>
+    </ISports>
+    <USports>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[u-Sport]]></Label>
+      <Description><![CDATA[Sportsbook]]></Description>
+    </USports>
+    <Lottery>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[Keno]]></Label>
+      <Description><![CDATA[KENO & LOTERE]]></Description>
+    </Lottery>
+    <ClubCrescendo>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[Crescendo]]></Label>
+      <Description><![CDATA[Crescendo Slots]]></Description>
+    </ClubCrescendo>
+    <ClubDivino>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[Divino]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubDivino>
+    <ClubW>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[Club W]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubW>
+    <ClubBravado>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[Bravado]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubBravado>
+    <ClubMassimoSlots>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[Massimo <br /><span>(Slot)</span>]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubMassimoSlots>
+    <ClubMassimoCasino>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[Massimo <br /><span>(Kasino)</span>]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubMassimoCasino>
+  </Products>
+  <Wallets>
+    <main><![CDATA[Main]]></main>
+    <asports><![CDATA[A-SPORT]]></asports>
+    <esports><![CDATA[E-SPORT]]></esports>
+    <isports><![CDATA[I-SPORT]]></isports>
+    <lottery><![CDATA[Lotere]]></lottery>
+    <casino><![CDATA[Club W, Bravado, Crescendo, Divino & Massimo]]></casino>
+    <playtech><![CDATA[Palazzo]]></playtech>
+    <binary><![CDATA[Biner]]></binary>
+    <poker><![CDATA[Poker (USD)]]></poker>
+  </Wallets>
+</default>

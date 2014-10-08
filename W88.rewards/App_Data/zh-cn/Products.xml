@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <Products>
+    <ASports>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[东方体育]]></Label>
+      <Description><![CDATA[体育博彩]]></Description>
+    </ASports>
+    <ESports>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[西方体育]]></Label>
+      <Description><![CDATA[Sportsbook]]></Description>
+    </ESports>
+    <ISports>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[爱体育]]></Label>
+      <Description><![CDATA[Sportsbook]]></Description>
+    </ISports>
+    <USports>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[优体育]]></Label>
+      <Description><![CDATA[Sportsbook]]></Description>
+    </USports>
+    <Lottery>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[快乐彩]]></Label>
+      <Description><![CDATA[快乐彩和分分乐]]></Description>
+    </Lottery>
+    <ClubCrescendo>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[金弦]]></Label>
+      <Description><![CDATA[金弦俱乐部]]></Description>
+    </ClubCrescendo>
+    <ClubDivino>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[金梵]]></Label>
+      <Description><![CDATA[金池俱乐部3D]]></Description>
+    </ClubDivino>
+    <ClubW>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[优德俱乐部]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubW>
+    <ClubBravado>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[金池]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubBravado>
+    <ClubMassimoSlots>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[金銮 <br /><span>(老虎机)</span>]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubMassimoSlots>
+    <ClubMassimoCasino>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[金銮 <br /><span>(真人娱乐城)</span>]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubMassimoCasino>
+  </Products>
+  <Wallets>
+    <main><![CDATA[中心钱包]]></main>
+    <asports><![CDATA[东方体育]]></asports>
+    <esports><![CDATA[西方体育]]></esports>
+    <isports><![CDATA[爱体育]]></isports>
+    <lottery><![CDATA[乐透]]></lottery>
+    <casino><![CDATA[优德俱乐部, 金池, 金弦, 金梵 & 玛西莫]]></casino>
+    <playtech><![CDATA[金殿]]></playtech>
+    <binary><![CDATA[金融]]></binary>
+    <poker><![CDATA[扑克 (USD)]]></poker>
+  </Wallets>
+</default>
