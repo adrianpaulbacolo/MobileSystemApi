@@ -42,6 +42,8 @@ public partial class _Secure_Login : System.Web.UI.Page
             txtUsername.Focus();
 
             lblRegister.Text = commonCulture.ElementValues.getResourceString("btnRegister", xeResources);
+
+
         }
     }
 }

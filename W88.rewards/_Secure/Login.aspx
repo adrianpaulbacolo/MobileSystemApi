@@ -128,9 +128,6 @@ $('#<%=imgCaptcha.ClientID%>').click(function () { $(this).attr('src', '/_Secure
                         switch ($(xml).find('ErrorCode').text()) {
                             case "1":
                                 switch ('<%=strRedirect%>') {
-                                    case 'mlotto':
-                                        window.location.replace('<%=commonLottery.getKenoUrl%>');
-                                        break;
                                     default:
                                         window.location.replace('<%=strRedirect%>');
                                         break;

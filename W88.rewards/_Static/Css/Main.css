@@ -20,6 +20,21 @@ body {
     overflow-y: auto;
 }
 
+/*#region points div*/
+#divLevel {
+    position: relative;
+    margin-right: 10px;
+    height: 20PT;
+}
+
+#lblPoint {
+    margin-top: 5PX;
+    position: relative;
+    float: right;
+    right: 0px;
+    font-size: smaller;
+}
+/*#endregion*/
 
 /*#region Common*/
 .center {
@@ -66,8 +81,8 @@ body {
 }
 
     .div-nav-header > div:first-child {
-        border-right:1px solid #252525;
-        background-color:#1d1d1d;
+        border-right: 1px solid #252525;
+        background-color: #1d1d1d;
     }
 
     .div-nav-header div {
@@ -88,7 +103,6 @@ body {
             margin: 0;
             display: block;
             height: 41px;
-            
             /*width: 50px;*/
         }
 /*#endregion*/
@@ -126,11 +140,15 @@ body {
     overflow-x: initial;
 }
 
-    .div-nav-footer .ui-btn { background: none !important; }
+    .div-nav-footer .ui-btn {
+        background: none !important;
+    }
 
     /*#divPageFooter.ui-panel-fixed-toolbar { overflow-x: initial; }*/
-    
-    .div-nav-footer > div > ul { margin: 0; }
+
+    .div-nav-footer > div > ul {
+        margin: 0;
+    }
 
         .div-nav-footer > div > ul > li {
             border-top: 1px solid #333;
@@ -187,7 +205,7 @@ body {
         padding: 0;
         height: 100%;
     }
-    
+
 .div-footer-popup-menu-lang {
     position: absolute;
     width: 100%;
@@ -423,17 +441,30 @@ body {
         }*/
 
 .loader {
-    background-color:black;z-index:9999;height:100%;width:100%;position:absolute;top:0;left:0;vertical-align:middle;margin:auto;display:table;table-layout:fixed;
+    background-color: black;
+    z-index: 9999;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    vertical-align: middle;
+    margin: auto;
+    display: table;
+    table-layout: fixed;
 }
+
     .loader > div {
-        display:table-cell;vertical-align:middle;margin:auto;
+        display: table-cell;
+        vertical-align: middle;
+        margin: auto;
     }
 
         .loader > div > img {
-            display:block;
-            margin:auto;
-            max-width:100%;
-            max-height:100%;
+            display: block;
+            margin: auto;
+            max-width: 100%;
+            max-height: 100%;
         }
 /*#endregion*/
 
