@@ -20,21 +20,6 @@ body {
     overflow-y: auto;
 }
 
-/*#region points div*/
-#divLevel {
-    position: relative;
-    margin-right: 10px;
-    height: 20PT;
-}
-
-#lblPoint {
-    margin-top: 5PX;
-    position: relative;
-    float: right;
-    right: 0px;
-    font-size: smaller;
-}
-/*#endregion*/
 
 /*#region Common*/
 .center {

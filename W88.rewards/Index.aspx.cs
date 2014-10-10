@@ -50,7 +50,7 @@ public partial class _Index : BasePage
         if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
         {
             divLoginMessage.Visible = false;
-            lblPoint.InnerText = "Current Points Balance: " + getCurrentPoints().ToString();
+            lblPoint.InnerText = "Points Bal: " + getCurrentPoints().ToString();
             divLevel.Visible = true;
 
 
