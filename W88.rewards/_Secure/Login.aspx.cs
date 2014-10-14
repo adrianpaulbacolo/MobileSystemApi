@@ -25,8 +25,18 @@ public partial class _Secure_Login : System.Web.UI.Page
         System.Xml.Linq.XElement xeResources = null;
         commonCulture.appData.getLocalResource(out xeResources);
 
-        if (string.IsNullOrEmpty(Request.QueryString.Get("redirect"))) { strRedirect = "/Index.aspx"; }
-        else { strRedirect = Request.QueryString.Get("redirect"); }
+        if (string.IsNullOrEmpty(Request.QueryString.Get("redirect")))
+        {
+            strRedirect = "/Index.aspx";
+        }
+        else
+        {
+            strRedirect = Request.QueryString.Get("redirect");
+            if (strRedirect == "/Catalogue" && !(string.IsNullOrEmpty(Request.QueryString.Get("categoryId"))))
+                strRedirect = (string.Format("/Catalogue?categoryId={0}&sortBy={1}", Request.QueryString.Get("categoryId"),Request.QueryString.Get("sortBy"))); }
+                
+           
+       
 
         if (!Page.IsPostBack)
         {

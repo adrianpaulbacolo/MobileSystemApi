@@ -54,77 +54,71 @@ public partial class _Index : BasePage
             divLevel.Visible = true;
 
 
-            #region Catalogue
-            using (RewardsServices.RewardsServicesClient sClient = new RewardsServices.RewardsServicesClient())
+        }
+        #region Catalogue
+        using (RewardsServices.RewardsServicesClient sClient = new RewardsServices.RewardsServicesClient())
+        {
+
+            //HttpContext.Current.Session.Add("MemberSessionId", Convert.ToString(dsSignin.Tables[0].Rows[0]["memberSessionId"]));
+            //HttpContext.Current.Session.Add("MemberId", Convert.ToString(dsSignin.Tables[0].Rows[0]["memberId"]));
+            //HttpContext.Current.Session.Add("MemberCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["memberCode"]));
+            //HttpContext.Current.Session.Add("CountryCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["countryCode"]));
+            //HttpContext.Current.Session.Add("CurrencyCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["currencyCode"]));
+            //HttpContext.Current.Session.Add("LanguageCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["languageCode"]));
+            //HttpContext.Current.Session.Add("RiskId", Convert.ToString(dsSignin.Tables[0].Rows[0]["riskId"]));
+            //HttpContext.Current.Session.Add("PartialSignup", Convert.ToString(dsSignin.Tables[0].Rows[0]["partialSignup"]));
+            //HttpContext.Current.Session.Add("ResetPassword", Convert.ToString(dsSignin.Tables[0].Rows[0]["resetPassword"]));
+
+
+            DataSet ds = sClient.getCatalogueSearch(commonVariables.OperatorId, commonVariables.SelectedLanguage,
+                string.IsNullOrEmpty((string)Session["CountryCode"]) ? "0" : (string)Session["CountryCode"],
+            string.IsNullOrEmpty((string)Session["CurrencyCode"]) ? "0" : (string)Session["CurrencyCode"],
+            string.IsNullOrEmpty((string)Session["RiskId"]) ? "0" : (string)Session["RiskId"]);
+
+            if (ds.Tables.Count > 0)
             {
-
-                //HttpContext.Current.Session.Add("MemberSessionId", Convert.ToString(dsSignin.Tables[0].Rows[0]["memberSessionId"]));
-                //HttpContext.Current.Session.Add("MemberId", Convert.ToString(dsSignin.Tables[0].Rows[0]["memberId"]));
-                //HttpContext.Current.Session.Add("MemberCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["memberCode"]));
-                //HttpContext.Current.Session.Add("CountryCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["countryCode"]));
-                //HttpContext.Current.Session.Add("CurrencyCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["currencyCode"]));
-                //HttpContext.Current.Session.Add("LanguageCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["languageCode"]));
-                //HttpContext.Current.Session.Add("RiskId", Convert.ToString(dsSignin.Tables[0].Rows[0]["riskId"]));
-                //HttpContext.Current.Session.Add("PartialSignup", Convert.ToString(dsSignin.Tables[0].Rows[0]["partialSignup"]));
-                //HttpContext.Current.Session.Add("ResetPassword", Convert.ToString(dsSignin.Tables[0].Rows[0]["resetPassword"]));
-
-
-                DataSet ds = sClient.getCatalogueSearch(commonVariables.OperatorId, commonVariables.SelectedLanguage,
-                    string.IsNullOrEmpty((string)Session["CountryCode"]) ? "0" : (string)Session["CountryCode"],
-                string.IsNullOrEmpty((string)Session["CurrencyCode"]) ? "0" : (string)Session["CurrencyCode"],
-                string.IsNullOrEmpty((string)Session["RiskId"]) ? "0" : (string)Session["RiskId"]);
-
-                if (ds.Tables.Count > 0)
+                if (!ds.Tables[0].Columns.Contains("redemptionValidity"))
                 {
-                    if (!ds.Tables[0].Columns.Contains("redemptionValidity"))
-                    {
-                        ds.Tables[0].Columns.Add("redemptionValidity");
-                    }
-                    foreach (DataRow dr in ds.Tables[0].Rows)
-                    {
-                      string imgNameOn = dr["imageNameOn"].ToString().Split('.')[0];
-                        string imgPathOn = imgNameOn + ".png";
+                    ds.Tables[0].Columns.Add("redemptionValidity");
+                }
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    string imgNameOn = dr["imageNameOn"].ToString().Split('.')[0];
+                    string imgPathOn = imgNameOn + ".png";
 
-                        string imgNameOff = dr["imageNameOff"].ToString().Split('.')[0];
-                        string imgPathOff = imgNameOn + ".png";
-                        
-                        dr["imagePathOn"] = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings.Get("ImagesDirectoryPath") + "Category/" + imgPathOn);
-                        dr["imagePathOff"] = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings.Get("ImagesDirectoryPath") + "Category/" + imgPathOff);
+                    string imgNameOff = dr["imageNameOff"].ToString().Split('.')[0];
+                    string imgPathOff = imgNameOn + ".png";
 
-                        if (!string.IsNullOrEmpty((string)Session["user_riskID"]))
+                    dr["imagePathOn"] = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings.Get("ImagesDirectoryPath") + "Category/" + imgPathOn);
+                    dr["imagePathOff"] = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings.Get("ImagesDirectoryPath") + "Category/" + imgPathOff);
+
+                    if (!string.IsNullOrEmpty((string)Session["user_riskID"]))
+                    {
+                        dr["redemptionValidity"] += ",";
+                        if (dr["redemptionValidity"].ToString().ToUpper() != "ALL,")
                         {
-                            dr["redemptionValidity"] += ",";
-                            if (dr["redemptionValidity"].ToString().ToUpper() != "ALL,")
-                            {
-                                if (((string)dr["redemptionValidity"]).IndexOf(((string)Session["user_riskID"]).ToUpper() + ",") < 0)
-                                {
-                                    dr["redemptionValidity"] = "0";
-                                }
-                                else
-                                {
-                                    dr["redemptionValidity"] = "1";
-                                }
-                            }
+                            if (((string)dr["redemptionValidity"]).IndexOf(((string)Session["user_riskID"]).ToUpper() + ",") < 0)
+                                dr["redemptionValidity"] = "0";
                             else
-                            {
                                 dr["redemptionValidity"] = "1";
-                            }
                         }
                         else
-                        {
-                            dr["redemptionValidity"] += "0";
-                        }
+                            dr["redemptionValidity"] = "1";
 
                     }
+                    else
+
+                        dr["redemptionValidity"] += "0";
+
+
                 }
-
-                Listview1.DataSource = ds;
-                Listview1.DataBind();
             }
-            #endregion
 
-
+            Listview1.DataSource = ds;
+            Listview1.DataBind();
         }
+        #endregion
+
     }
 
 

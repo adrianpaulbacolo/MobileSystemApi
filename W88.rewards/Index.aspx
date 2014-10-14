@@ -32,50 +32,38 @@
     <div id="divMain" data-role="page" data-theme="b" data-ajax="false">
         <!--#include virtual="~/_static/header.shtml" -->
         <div class="ui-content" role="main">
-                <div id="divLoginMessage" runat="server"><span id="lblLogin" runat="server">please login to start redemption</span></div>
-                <div id="divLevel" runat="server" visible="False">
-                    <span id="lblPoint" runat="server"></span>
-                </div>
+            <div id="divLoginMessage" runat="server"><span id="lblLogin" runat="server">please login to start redemption</span></div>
+            <div id="divLevel" runat="server" visible="False">
+                <span id="lblPoint" runat="server"></span>
+            </div>
             <div class="page-content">
-            
                 <div id="divContent">
                     <div class="div-product-scroll">
-
                         <asp:ListView ID="Listview1" runat="server" GroupItemCount="3">
                             <LayoutTemplate>
-                                <%--     <table id="tblCatalogue">
-                                    <div runat="server" id="groupPlaceholder">
-                                    </div>
-                                </table>--%>
-
-                                <ul id="CatalogueUL">
+                              <ul id="CatalogueUL">
                                     <div runat="server" id="groupPlaceholder">
                                     </div>
                                 </ul>
                             </LayoutTemplate>
                             <GroupTemplate>
-                                <%-- <tr>--%>
                                 <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
-                                <%--</tr>--%>
                             </GroupTemplate>
                             <ItemTemplate>
-                                <%-- <td>--%>
-                                <li><a href="/Product?categoryId=<%#DataBinder.Eval(Container.DataItem,"categoryId")%>&sortBy=2">
-                                    <img src="<%#DataBinder.Eval(Container.DataItem,"imagePathOff")%>" data-imageover="<%#DataBinder.Eval(Container.DataItem,"imagePathOn")%>" />
-                                    <br />
-                                    <div class="catName"><%#DataBinder.Eval(Container.DataItem,"categoryName")%></div>
-
-                                </a></li>
-
-                                <%-- </td>--%>
-
-                                <%-- <td style="width: 5%; text-align: center;"></td>--%>
+                                <li>
+                                    <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+                                       { %>
+                                    <a href="/_Secure/Login.aspx?redirect=/Catalogue&categoryId=<%#DataBinder.Eval(Container.DataItem,"categoryId")%>&sortBy=2" data-rel="dialog" data-transition="slidedown"><% }
+                                       else
+                                       {%>
+                                        <a href="/Catalogue?categoryId=<%#DataBinder.Eval(Container.DataItem,"categoryId")%>&sortBy=2"><% }%>
+                                            <img src="<%#DataBinder.Eval(Container.DataItem,"imagePathOff")%>" data-imageover="<%#DataBinder.Eval(Container.DataItem,"imagePathOn")%>" />
+                                            <br />
+                                            <div class="catName"><%#DataBinder.Eval(Container.DataItem,"categoryName")%></div>
+                                        </a></li>
                             </ItemTemplate>
                         </asp:ListView>
-
-
                     </div>
-
 
                 </div>
             </div>
