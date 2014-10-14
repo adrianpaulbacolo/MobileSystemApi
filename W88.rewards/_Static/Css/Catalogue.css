@@ -15,13 +15,13 @@
 }
 
 #divLevel {
-     background-color: #1c6080;
+    background-color: #1c6080;
     height: 20pt;
     position: relative;
 }
 
 #lblPoint {
-      color: white;
+    color: white;
     float: right;
     font-family: "Open Sans",sans-serif,helvetica,Tahoma,Arial,Verdana,"Comic Sans MS";
     font-size: smaller;
@@ -32,58 +32,11 @@
     padding-right: 3pt;
 }
 
-.div-product-scroll {
-    /*display: block;
-    z-index: 1;*/
-    /*position: relative;*/
-    height: 100%;
-    /*width: 100%;*/
-    background: #ccc;
-    overflow: hidden;
-    -ms-touch-action: none;
-    background-color: transparent;
-}
 
-#CatalogueUL li {
-    background-color: #333;
-    border: 1pt solid #333;
-    float: left;
-    left: 0;
-    list-style-type: none;
-    margin: 2%;
-    padding-left: 0;
-    text-align: center;
-    width: 45%;
-   
-}
-
-
-
-    #CatalogueUL li img {
-       
-         height: 90px;
-    }
-
-    #CatalogueUL li a {
-        text-decoration: none;
-    }
-
-
-#CatalogueUL .catName {
-    font-size: 9pt;
-    min-height: 20pt;
-}
-
-.div-product-scroll ul {
-    margin: 0 auto;
-    padding: 0;
-}
 
 
 
 @media all and (min-width:320px) and (max-width: 479px ) {
-
-   
 }
 
 
@@ -95,9 +48,9 @@
     height: 110px;
     left: 0;
     position: relative;
-    top: 10px;
+    /*top: 10px;*/
     width: 100%;
- /*must put 100% for iscroll to work*/
+    /*must put 100% for iscroll to work*/
     z-index: 1;
 }
 
@@ -107,38 +60,38 @@
     overflow: hidden;
     position: relative;
     width: 1000px;
-    height: 90px;
+    height: 100px;
     float: left;
     padding: 0;
-    margin: 10px;
+    /*margin: 10px;*/
 }
 
-#category-nav ul {
-    list-style: none;
-    display: block;
-    float: left;
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    text-align: left;
-}
+    #category-nav ul {
+        list-style: none;
+        display: block;
+        float: left;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+    }
 
-#category-nav li {
-    background-color: #000;
-    background-size: contain;
-    border-left: 2px solid #252525;
-    border-right: 2px solid #252525;
-    display: block;
-    float: left;
-    font-size: 14px;
-    height: 100%;
-    padding: 0 10px;
-    vertical-align: middle;
-    width: 84.6px;
-    overflow: hidden;
-    text-align: center;
-}
+    #category-nav li {
+        background-color: #000;
+        background-size: contain;
+        border-left: 2px solid #252525;
+        border-right: 2px solid #252525;
+        display: block;
+        float: left;
+        font-size: 14px;
+        height: 100%;
+        padding: 0 10px;
+        vertical-align: middle;
+        width: 84.6px;
+        overflow: hidden;
+        text-align: center;
+    }
 
 #categorylist li img {
     width: 80px;
@@ -151,7 +104,8 @@
 #categorylist li .label {
     color: white;
     display: block;
-    margin-top: 0px;
+    font-size: 7.5pt;
+    margin-top: 0;
 }
 
 
@@ -189,62 +143,62 @@
     text-size-adjust: none;
 }
 
-#resultscroller > ul {
-    display: block;
-    overflow: hidden;
-    padding-left: 0;
-    max-width: 1000px;
-    margin-top: 0px;
-}
+    #resultscroller > ul {
+        display: block;
+        overflow: hidden;
+        padding-left: 0;
+        max-width: 1000px;
+        margin-top: 0px;
+    }
 
-#resultscroller > ul > li {
-    background-color: #252525;
-    border: 1px solid #252525;
-    display: block;
-    float: left;
-    margin: 0.5% 0.5%;
-    width: 140px;
-}
+        #resultscroller > ul > li {
+            background-color: #252525;
+            border: 1px solid #252525;
+            display: block;
+            float: left;
+            margin: 0.5% 0.5%;
+            width: 140px;
+        }
 
-#resultscroller > ul > li > a {
-    color: #fff;
-    text-decoration: none;
-}
+            #resultscroller > ul > li > a {
+                color: #fff;
+                text-decoration: none;
+            }
 
-#resultscroller > ul > li > a > span {
-    display: block;
-}
+                #resultscroller > ul > li > a > span {
+                    display: block;
+                }
 
-#resultscroller > ul > li .image {
-    /*height: 60px;*/
-    margin-top: 5px;
-    text-align: center;
-}
+            #resultscroller > ul > li .image {
+                /*height: 60px;*/
+                margin-top: 5px;
+                text-align: center;
+            }
 
-#resultscroller > ul > li img {
-    height: auto;
-    max-height: none;
-    max-width: 100%;
-}
+            #resultscroller > ul > li img {
+                height: auto;
+                max-height: none;
+                max-width: 100%;
+            }
 
-#resultscroller > ul > li .points {
-    background-color: #252525;
-    color: #2a8fbd;
-    font-size: 12px;
-    padding: 0 8px 5px;
-    text-align: right;
-}
+            #resultscroller > ul > li .points {
+                background-color: #252525;
+                color: #2a8fbd;
+                font-size: 12px;
+                padding: 0 8px 5px;
+                text-align: right;
+            }
 
-#resultscroller > ul > li .description {
-    font-size: 12px;
-    margin: 8px 8px 0 8px;
-    min-height: 32px;
-    text-align: right;
-}
+            #resultscroller > ul > li .description {
+                font-size: 12px;
+                margin: 8px 8px 0 8px;
+                min-height: 32px;
+                text-align: right;
+            }
 
-#resultscroller li.hotitem {
-    position: relative;
-}
+    #resultscroller li.hotitem {
+        position: relative;
+    }
 
 .small-label {
     background-color: RED;
@@ -264,9 +218,9 @@
 
 @media all and (min-width:320px) and (max-width: 479px ) {
 
-  .page-content {
-        margin: 0 auto;
-        max-width: 300px;
+    .page-content {
+        /*margin: 0 auto;
+        max-width: 300px;*/
     }
 
     #resultwrapper {
@@ -276,45 +230,45 @@
 
     #resultscroller > ul {
         width: 300px;
-          margin: 0 auto;
+        margin: 0 auto;
     }
 
-    #resultscroller > ul > li { 
-         height: 130px;
-    margin: 9px 2.5%;
-    width: 132px;
-    }
-
-    
-#resultscroller > ul > li .image {
-    height: 70px;
-    margin-top: 5px;
-    text-align: center;
-}
+        #resultscroller > ul > li {
+            height: 130px;
+            margin: 9px 2.5%;
+            width: 132px;
+        }
 
 
-#resultscroller > ul > li .description {
-    font-size: 11px;
-    margin: 6px 6px 0;
-    min-height: 30px;
-    text-align: right;
-}
+            #resultscroller > ul > li .image {
+                height: 70px;
+                margin-top: 5px;
+                text-align: center;
+            }
 
-#resultscroller > ul > li .points {
-    background-color: #252525;
-    color: #2a8fbd;
-    font-size: 11px;
-    padding: 0 6px 6px;
-    text-align: right;
-}
+
+            #resultscroller > ul > li .description {
+                font-size: 11px;
+                margin: 6px 6px 0;
+                min-height: 30px;
+                text-align: right;
+            }
+
+            #resultscroller > ul > li .points {
+                background-color: #252525;
+                color: #2a8fbd;
+                font-size: 11px;
+                padding: 0 6px 6px;
+                text-align: right;
+            }
 }
 
 
 @media all and (min-width: 480px) and (max-width: 599px ) {
 
-      .page-content {
-        margin: 0 auto;
-        max-width: 480px;
+    .page-content {
+        /*margin: 0 auto;
+        max-width: 480px;*/
     }
 
     #resultwrapper {
@@ -326,43 +280,40 @@
         width: 480px;
     }
 
-    #resultscroller > ul > li {
-              height: 130px;
-    margin: 9px 7.5px;
-    width: 137px;
-    }
-
-    
-#resultscroller > ul > li .image {
-    height: 70px;
-    margin-top: 5px;
-    text-align: center;
-}
+        #resultscroller > ul > li {
+            height: 130px;
+            margin: 9px 7.5px;
+            width: 137px;
+        }
 
 
-#resultscroller > ul > li .description {
-    font-size: 11px;
-    margin: 6px 6px 0;
-    min-height: 30px;
-    text-align: right;
-}
-
-#resultscroller > ul > li .points {
-    background-color: #252525;
-    color: #2a8fbd;
-    font-size: 11px;
-    padding: 0 6px 6px;
-    text-align: right;
-}
+            #resultscroller > ul > li .image {
+                height: 70px;
+                margin-top: 5px;
+                text-align: center;
+            }
 
 
+            #resultscroller > ul > li .description {
+                font-size: 11px;
+                margin: 6px 6px 0;
+                min-height: 30px;
+                text-align: right;
+            }
 
+            #resultscroller > ul > li .points {
+                background-color: #252525;
+                color: #2a8fbd;
+                font-size: 11px;
+                padding: 0 6px 6px;
+                text-align: right;
+            }
 }
 
 @media all and ( min-width: 600px ) and ( max-width: 767px ) {
-     .page-content {
-        margin: 0 auto;
-        max-width: 580px;
+    .page-content {
+        /*margin: 0 auto;
+        max-width: 580px;*/
     }
 
     #resultwrapper {
@@ -370,23 +321,23 @@
         width: 580px;
     }
 
- 
+
     #resultscroller > ul {
         width: 580px;
         margin: 0 auto;
     }
 
-    #resultscroller > ul > li {
-           height: 152px;
-    margin: 10px;
-    width: 171px;
-    }
+        #resultscroller > ul > li {
+            height: 152px;
+            margin: 10px;
+            width: 171px;
+        }
 }
 
 @media all and ( min-width: 768px ) and ( max-width: 799px ) {
     .page-content {
-        margin: 0 auto;
-        max-width: 768px;
+        /*margin: 0 auto;
+        max-width: 768px;*/
     }
 
     #resultwrapper {
@@ -398,17 +349,17 @@
         width: 768px;
     }
 
-    #resultscroller > ul > li {
-        height: 152px;
-        margin: 10px 1.3%;
-        width: 166px;
-    }
+        #resultscroller > ul > li {
+            height: 152px;
+            margin: 10px 1.3%;
+            width: 166px;
+        }
 }
 
 @media all and ( min-width: 800px ) and ( max-width: 1019px ) {
     .page-content {
-        margin: 0 auto;
-        max-width: 780px;
+        /*margin: 0 auto;
+        max-width: 780px;*/
     }
 
     #resultwrapper {
@@ -416,32 +367,32 @@
         width: 780px;
     }
 
-  
+
     #resultscroller > ul {
         max-width: 780px;
         margin: 0 auto;
     }
 
-    #resultscroller > ul > li {
+        #resultscroller > ul > li {
             height: 152px;
-    margin: 10px;
-    width: 173px;
-    }
+            margin: 10px;
+            width: 173px;
+        }
 
-    #resultscroller > ul > li .points {
-        background-color: #252525;
-        color: #2a8fbd;
-        font-size: 12px;
-        padding: 5px 8px 10px;
-        text-align: right;
-    }
+            #resultscroller > ul > li .points {
+                background-color: #252525;
+                color: #2a8fbd;
+                font-size: 12px;
+                padding: 5px 8px 10px;
+                text-align: right;
+            }
 }
 
 @media all and ( min-width: 1020px ) {
 
     .page-content {
-        margin: 0 auto;
-        max-width: 1000px;
+        /*margin: 0 auto;
+        max-width: 1000px;*/
     }
 
     #resultwrapper {
@@ -458,17 +409,17 @@
         margin: 0 auto;
     }
 
-    #resultscroller > ul li {
-        height: 160px;
-        margin: 10px;
-        width: 178px;
-    }
+        #resultscroller > ul li {
+            height: 160px;
+            margin: 10px;
+            width: 178px;
+        }
 
-    #resultscroller > ul > li .points {
-        background-color: #252525;
-        color: #2a8fbd;
-        font-size: 12px;
-        padding: 5px 8px 10px;
-        text-align: right;
-    }
+        #resultscroller > ul > li .points {
+            background-color: #252525;
+            color: #2a8fbd;
+            font-size: 12px;
+            padding: 5px 8px 10px;
+            text-align: right;
+        }
 }
