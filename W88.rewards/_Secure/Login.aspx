@@ -129,7 +129,6 @@ $('#<%=imgCaptcha.ClientID%>').click(function () { $(this).attr('src', '/_Secure
                             case "1":
                                 switch ('<%=strRedirect%>') {
                                     default:
-                                        alert('<%=strRedirect%>');
                                         window.location.replace('<%=strRedirect%>');
                                         break;
                                 }

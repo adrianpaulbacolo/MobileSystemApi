@@ -40,6 +40,8 @@ public partial class _Secure_Login : System.Web.UI.Page
 
         if (!Page.IsPostBack)
         {
+
+
             lblUsername.Text = commonCulture.ElementValues.getResourceString("lblUsername", xeResources);
             lblPassword.Text = commonCulture.ElementValues.getResourceString("lblPassword", xeResources);
             lblCaptcha.Text = commonCulture.ElementValues.getResourceString("lblCaptcha", xeResources);
