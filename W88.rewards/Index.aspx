@@ -40,7 +40,7 @@
                     <div class="div-product-scroll">
                         <asp:ListView ID="Listview1" runat="server" GroupItemCount="3">
                             <LayoutTemplate>
-                              <ul id="CatalogueUL">
+                                <ul id="CatalogueUL">
                                     <div runat="server" id="groupPlaceholder">
                                     </div>
                                 </ul>
@@ -52,10 +52,17 @@
                                 <li>
                                     <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                                        { %>
-                                    <a data-ajax="false" href="/_Secure/Login.aspx?redirect=/Catalogue&categoryId=<%#DataBinder.Eval(Container.DataItem,"categoryId")%>&sortBy=2" data-rel="dialog" data-transition="slidedown"><% }
+                                   <%-- <a data-ajax="false" href="/_Secure/Login.aspx?redirect=/Catalogue&categoryId=<%#DataBinder.Eval(Container.DataItem,"categoryId")%>&sortBy=2" data-rel="dialog" data-transition="slidedown">--%>
+
+                                         <a data-ajax="false" href="/Catalogue/?categoryId=<%#DataBinder.Eval(Container.DataItem,"categoryId")%>&sortBy=2">
+
+                                        <% }
                                        else
                                        {%>
-                                        <a data-ajax="false" href="/Catalogue/?categoryId=<%#DataBinder.Eval(Container.DataItem,"categoryId")%>&sortBy=2"><% }%>
+                                        <a data-ajax="false" href="/Catalogue/?categoryId=<%#DataBinder.Eval(Container.DataItem,"categoryId")%>&sortBy=2">
+                                            <% 
+                                       }%>
+
                                             <img src="<%#DataBinder.Eval(Container.DataItem,"imagePathOff")%>" data-imageover="<%#DataBinder.Eval(Container.DataItem,"imagePathOn")%>" />
                                             <br />
                                             <div class="catName"><%#DataBinder.Eval(Container.DataItem,"categoryName")%></div>
