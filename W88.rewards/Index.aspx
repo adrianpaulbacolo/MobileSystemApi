@@ -5,17 +5,8 @@
 <head>
     <title><%=commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML).Replace(" -", "")/* + commonCulture.ElementValues.getResourceString("home", commonVariables.LeftMenuXML)*/%></title>
     <!--#include virtual="~/_static/head.inc" -->
-    
-  <%--  <link type="text/css" rel="stylesheet" href="/_Static/Css/jquery.mobile-1.4.2.min.css" />
-  <script type="text/javascript" src="/_Static/JS/jquery-1.10.2.min.js"></script>
-  <script type="text/javascript" src="/_Static/JS/jquery.mobile-1.4.2.min.js"></script>
-  <script type="text/javascript" src="/_Static/JS/GPINT.js"></script>
-    --%>
-    <link href="/_Static/Css/jquery.mobile-1.4.2.min.css" rel="stylesheet" />
-    <script src="_Static/JS/jquery-1.10.2.min.js"></script>
-    <script src="_Static/JS/jquery.mobile-1.4.2.min.js"></script>
-    <script src="_Static/JS/GPINT.js"></script>
     <script type="text/javascript" src="~/_Static/Js/Main.js"></script>
+
     <!--[if IE]><link type="text/css" href="/_Static/Css/Index.css" rel="stylesheet"><![endif]-->
     <!--[if !IE]><!-->
     <link type="text/css" href="/_Static/Css/IndexScroll.css" rel="stylesheet">
