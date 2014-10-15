@@ -59,7 +59,7 @@
     -moz-user-select: none;
     overflow: hidden;
     position: relative;
-    width: 1000px;
+    width: 980px; /*adjust scroller length*/
     height: 100px;
     float: left;
     padding: 0;
