@@ -110,7 +110,7 @@
     z-index: 10;
     top: 125px;
     bottom: 5px;
-    overflow: hidden;
+    overflow: scroll;
 }
 
 #resultscroller {
@@ -259,16 +259,6 @@
         min-height: 30px;
         text-align: right;
     }
-
-    /*#resultscroller > ul > li .points {
-        background-color: #252525;
-        color: #2a8fbd;
-        font-size: 11px;
-        padding: 0 6px 6px;
-        text-align: right;
-    }*/
-
-
 
         
            #resultscroller > ul > li .points {
