@@ -7,8 +7,7 @@
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="~/_Static/Js/Main.js"></script>
 
-    <!--[if IE]><link type="text/css" href="/_Static/Css/Index.css" rel="stylesheet"><![endif]-->
-    <!--[if !IE]><!-->
+
     <link type="text/css" href="/_Static/Css/IndexScroll.css" rel="stylesheet">
     <!--<![endif]-->
 
