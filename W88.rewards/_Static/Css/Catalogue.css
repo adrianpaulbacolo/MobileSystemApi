@@ -92,6 +92,7 @@
 
 #categorylist li a {
     text-decoration: none;
+    display: block;
 }
 
 #categorylist li .label {

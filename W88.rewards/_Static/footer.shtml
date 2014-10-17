@@ -6,8 +6,12 @@
             </li>
             <li class="footer-image" data-rel="toolbar-catalogue-">
                 <div> <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
-                    <a  href="/_Secure/Login.aspx?redirect=/Catalogue" data-rel="dialog" data-transition="slidedown">&nbsp;</a> <% } else {%>
-                    <a href="/Catalogue" data-ajax="false">&nbsp;</a><% }%>  </div>
+                    
+                     <a href="/Catalogue" data-ajax="false">&nbsp;</a>
+     <!--               <a  href="/_Secure/Login.aspx?redirect=/Catalogue" data-rel="dialog" data-transition="slidedown">&nbsp;</a> -->
+                    <% } else {%>
+                    <a href="/Catalogue" data-ajax="false">&nbsp;</a>
+                    <% }%>  </div>
             </li>
             <li class="footer-image" data-rel="toolbar-info-">
                 <div class="div-footer-info">
