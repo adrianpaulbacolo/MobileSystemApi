@@ -1,4 +1,4 @@
-﻿ <%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="_Secure_Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="_Secure_Login" %>
 
 <!DOCTYPE html>
 
@@ -36,16 +36,20 @@
                         <asp:Label ID="lblCaptcha" runat="server" AssociatedControlID="txtCaptcha" Text="code" CssClass="ui-hidden-accessible" />
                         <div class="ui-grid-a">
                             <div class="ui-block-a">
-                                <asp:TextBox ID="txtCaptcha" runat="server" MaxLength="4" type="tel" data-mini="true" /></div>
+                                <asp:TextBox ID="txtCaptcha" runat="server" MaxLength="4" type="tel" data-mini="true" />
+                            </div>
                             <div class="ui-block-b">
-                                <asp:Image ID="imgCaptcha" runat="server" CssClass="imgCaptcha" /></div>
+                                <asp:Image ID="imgCaptcha" runat="server" CssClass="imgCaptcha" />
+                            </div>
                         </div>
                     </div>
                     <div>
+
                         <asp:Button ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" data-corners="false" />
                     </div>
                     <div class="label-white">
-                        <asp:Literal ID="lblRegister" runat="server" /></div>
+                        <asp:Literal ID="lblRegister" runat="server" />
+                    </div>
                     <asp:HiddenField runat="server" ID="ioBlackBox" Value="" />
                 </div>
             </form>

@@ -15,7 +15,7 @@ public partial class _Secure_Login : System.Web.UI.Page
         string strLanguage = string.Empty;
 
         strLanguage = Request.QueryString.Get("lang");
-
+        
         commonVariables.SelectedLanguage = string.IsNullOrEmpty(strLanguage) ? (string.IsNullOrEmpty(commonVariables.SelectedLanguage) ? "en-us" : commonVariables.SelectedLanguage) : strLanguage;
     }
 
@@ -35,13 +35,9 @@ public partial class _Secure_Login : System.Web.UI.Page
             if (strRedirect == "/Catalogue" && !(string.IsNullOrEmpty(Request.QueryString.Get("categoryId"))))
                 strRedirect = (string.Format("/Catalogue?categoryId={0}&sortBy={1}", Request.QueryString.Get("categoryId"),Request.QueryString.Get("sortBy"))); }
                 
-           
-       
 
         if (!Page.IsPostBack)
         {
-
-
             lblUsername.Text = commonCulture.ElementValues.getResourceString("lblUsername", xeResources);
             lblPassword.Text = commonCulture.ElementValues.getResourceString("lblPassword", xeResources);
             lblCaptcha.Text = commonCulture.ElementValues.getResourceString("lblCaptcha", xeResources);
