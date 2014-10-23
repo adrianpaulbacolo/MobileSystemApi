@@ -33,7 +33,11 @@ public partial class _Secure_Login : System.Web.UI.Page
         {
             strRedirect = Request.QueryString.Get("redirect");
             if (strRedirect == "/Catalogue" && !(string.IsNullOrEmpty(Request.QueryString.Get("categoryId"))))
-                strRedirect = (string.Format("/Catalogue?categoryId={0}&sortBy={1}", Request.QueryString.Get("categoryId"),Request.QueryString.Get("sortBy"))); }
+                strRedirect = (string.Format("/Catalogue?categoryId={0}&sortBy={1}", Request.QueryString.Get("categoryId"),Request.QueryString.Get("sortBy")));
+            else if (strRedirect == "Redeem" && !(string.IsNullOrEmpty(Request.QueryString.Get("productId"))) )
+                strRedirect = (string.Format("/Catalogue/Redeem.aspx?productId={0}", Request.QueryString.Get("productId")));         
+        
+        }
                 
 
         if (!Page.IsPostBack)
@@ -51,7 +55,11 @@ public partial class _Secure_Login : System.Web.UI.Page
 
             lblRegister.Text = commonCulture.ElementValues.getResourceString("btnRegister", xeResources);
 
-
+        }
+        else
+        {
+                //  if (strRedirect == "Redeem" && !(string.IsNullOrEmpty(Request.QueryString.Get("productId")))  )
+                //strRedirect = (string.Format("/Catalogue/Redeem.aspx?productId={0}", Request.QueryString.Get("productId"))); 
         }
     }
 }

@@ -164,6 +164,24 @@
   <wsdl:message name="IMember_sendFundInAccountSMS_OutputMessage">
     <wsdl:part name="parameters" element="tns:sendFundInAccountSMSResponse" />
   </wsdl:message>
+  <wsdl:message name="IMember_checkAlogatewayTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:checkAlogatewayTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IMember_checkAlogatewayTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:checkAlogatewayTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMember_checkNganLuongTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:checkNganLuongTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IMember_checkNganLuongTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:checkNganLuongTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMember_validateNextPayMemberRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:validateNextPayMemberRequest" />
+  </wsdl:message>
+  <wsdl:message name="IMember_validateNextPayMemberRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:validateNextPayMemberRequestResponse" />
+  </wsdl:message>
   <wsdl:portType name="IMember">
     <wsdl:operation name="getWallets">
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/getWallets" message="tns:IMember_getWallets_InputMessage" />
@@ -268,6 +286,18 @@
     <wsdl:operation name="sendFundInAccountSMS">
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/sendFundInAccountSMS" message="tns:IMember_sendFundInAccountSMS_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMember/sendFundInAccountSMSResponse" message="tns:IMember_sendFundInAccountSMS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="checkAlogatewayTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/checkAlogatewayTransaction" message="tns:IMember_checkAlogatewayTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/checkAlogatewayTransactionResponse" message="tns:IMember_checkAlogatewayTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="checkNganLuongTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/checkNganLuongTransaction" message="tns:IMember_checkNganLuongTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/checkNganLuongTransactionResponse" message="tns:IMember_checkNganLuongTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="validateNextPayMemberRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/validateNextPayMemberRequest" message="tns:IMember_validateNextPayMemberRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/validateNextPayMemberRequestResponse" message="tns:IMember_validateNextPayMemberRequest_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IMember" type="tns:IMember">
@@ -499,6 +529,33 @@
     </wsdl:operation>
     <wsdl:operation name="sendFundInAccountSMS">
       <soap:operation soapAction="http://tempuri.org/IMember/sendFundInAccountSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkAlogatewayTransaction">
+      <soap:operation soapAction="http://tempuri.org/IMember/checkAlogatewayTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkNganLuongTransaction">
+      <soap:operation soapAction="http://tempuri.org/IMember/checkNganLuongTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateNextPayMemberRequest">
+      <soap:operation soapAction="http://tempuri.org/IMember/validateNextPayMemberRequest" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

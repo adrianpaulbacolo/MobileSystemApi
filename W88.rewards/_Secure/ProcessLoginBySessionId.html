@@ -16,6 +16,7 @@
                 url: "http://w88uat.com/IP2LOC?v=" + new Date().getTime(),
                 dataType: "jsonp",
                 success: function (data) {
+                    alert("loginseesom");
                     $.post("/_Secure/ProcessLoginBySessionId.aspx", { ip: data.ip, country: data.country })
                         .done(function (data) { if (data == '0') { window.location.href = '/Expire' } else { window.location.href = '/Index.aspx' + ((lang == '') ? '' : lang) } });
                 },

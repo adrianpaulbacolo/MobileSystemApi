@@ -59,7 +59,7 @@
 
 
     #CatalogueUL li img {
-        width: 80%;
+        height: 60pt;
     }
 
     #CatalogueUL li a {
@@ -69,7 +69,7 @@
 
 #CatalogueUL .catName {
     font-size: 9pt;
-    min-height: 20pt;
+    min-height: 25pt;
 }
 
 .div-product-scroll ul {

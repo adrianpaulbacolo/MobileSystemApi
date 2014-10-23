@@ -169,7 +169,7 @@
 }
 
 #resultscroller > ul > li img {
-    max-height: 80px;
+    height: 80px;
 }
 
 #resultscroller > ul > li .points {

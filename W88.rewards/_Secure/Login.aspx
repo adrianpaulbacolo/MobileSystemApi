@@ -115,6 +115,7 @@
 $('#<%=imgCaptcha.ClientID%>').click(function () { $(this).attr('src', '/_Secure/Captcha.aspx'); });
 
             function initiateLogin(postData) {
+               // alert("going to process login");
                 console.log('txt: ' + $('#txtCaptcha').val());
                 $.ajax({
                     type: "POST",
@@ -133,7 +134,8 @@ $('#<%=imgCaptcha.ClientID%>').click(function () { $(this).attr('src', '/_Secure
                             case "1":
                                 switch ('<%=strRedirect%>') {
                                     default:
-                                        window.location.replace('<%=strRedirect%>');
+                                       // alert('<%=strRedirect%>');
+                                        window.location.replace   ('<%=strRedirect%>');
                                         break;
                                 }
                                 break;
