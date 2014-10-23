@@ -51,9 +51,9 @@
                                 <li>
                                     <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                                        { %>
-                                   <%-- <a data-ajax="false" href="/_Secure/Login.aspx?redirect=/Catalogue&categoryId=<%#DataBinder.Eval(Container.DataItem,"categoryId")%>&sortBy=2" data-rel="dialog" data-transition="slidedown">--%>
+                                    <%-- <a data-ajax="false" href="/_Secure/Login.aspx?redirect=/Catalogue&categoryId=<%#DataBinder.Eval(Container.DataItem,"categoryId")%>&sortBy=2" data-rel="dialog" data-transition="slidedown">--%>
 
-                                         <a data-ajax="false" href="/Catalogue/?categoryId=<%#DataBinder.Eval(Container.DataItem,"categoryId")%>&sortBy=2">
+                                    <a data-ajax="false" href="/Catalogue/?categoryId=<%#DataBinder.Eval(Container.DataItem,"categoryId")%>&sortBy=2">
 
                                         <% }
                                        else
