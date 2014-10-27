@@ -39,7 +39,7 @@ public partial class _Secure_ProcessLoginBySessionId : System.Web.UI.Page
         strCountryCode = HttpContext.Current.Request.Form.Get("country");
 
         if (string.IsNullOrEmpty(strSessionId))
-        {
+        { 
             isProcessAbort = true;
             commonVariables.ClearSessionVariables();
             commonCookie.ClearCookies();
