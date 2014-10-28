@@ -75,7 +75,7 @@
                     color: white;
                 }
 
-                .ui-input-text, .ui-input-search, .ui-field-contain textarea {
+                .ui-input-text, .ui-input-search {
                     border-style: solid;
                     border-width: 1px;
                     float: left;
@@ -99,7 +99,19 @@
 
                 .errormessage {
                     color: red;
+                }
 
+                .ui-field-contain textarea {
+                    background: none repeat scroll 0 0 transparent;
+                    border: 0 none;
+                    border-radius: inherit;
+                    margin: 0;
+                    min-height: 2.2em;
+                    text-align: left;
+                }
+
+                .ui-mini textarea.ui-input-text, textarea.ui-mini {
+                    margin: 0px;
                 }
             </style>
 
@@ -175,7 +187,7 @@
                                 </div>
                             </div>
                         </div>
-                          <div id="AccountDiv" runat="server" class="ui-field-contain ui-hide-label" visible="true">
+                        <div id="AccountDiv" runat="server" class="ui-field-contain ui-hide-label" visible="true">
                             <div class="ui-grid-a">
                                 <div class="ui-block-a">
                                     <asp:Label ID="Label11" runat="server" Text="Account: " data-mini="true" />
@@ -194,7 +206,7 @@
                                 <asp:Label ID="Label4" CssClass="validator" runat="server" Text="*" data-mini="true" />
                             </div>
                             <div class="ui-field-contain ui-hide-label">
-                                <div>
+                                <div class="ui-input-text ui-body-inherit ui-corner-all ui-mini ui-shadow-inset">
                                     <textarea cols="40" rows="3" name="textarea" id="tbAddress" style="height: auto;" placeholder="Mailing Address"></textarea>
                                 </div>
                                 <asp:Label ID="Label6" CssClass="validator" runat="server" Text="*" data-mini="true" />
@@ -225,10 +237,10 @@
                         <div>
 
 
-                           <%-- <asp:TextBox runat="server" ID="HiddenQuanFreebet"></asp:TextBox>--%>
+                            <%-- <asp:TextBox runat="server" ID="HiddenQuanFreebet"></asp:TextBox>--%>
 
                             <%--Normal--%>
-                          <%--  <asp:TextBox runat="server" ID="HiddenName"></asp:TextBox>
+                            <%--  <asp:TextBox runat="server" ID="HiddenName"></asp:TextBox>
                             <asp:TextBox runat="server" ID="HiddenAddress"></asp:TextBox>
                             <asp:TextBox runat="server" ID="HiddenPostal"></asp:TextBox>
                             <asp:TextBox runat="server" ID="HiddenCity"></asp:TextBox>
@@ -237,7 +249,7 @@
                             <asp:TextBox runat="server" ID="HiddenQuanNormal"></asp:TextBox>--%>
 
                             <%--WishList--%>
-                        <%--    <asp:TextBox runat="server" ID="HiddenNameWL"></asp:TextBox>
+                            <%--    <asp:TextBox runat="server" ID="HiddenNameWL"></asp:TextBox>
                             <asp:TextBox runat="server" ID="HiddenAddressWL"></asp:TextBox>
                             <asp:TextBox runat="server" ID="HiddenPostalWL"></asp:TextBox>
                             <asp:TextBox runat="server" ID="HiddenCityWL"></asp:TextBox>
@@ -247,29 +259,25 @@
                             <asp:TextBox runat="server" ID="HiddenQuanWish"></asp:TextBox>--%>
 
                             <%--Online--%>
-                          <%--  <asp:TextBox runat="server" ID="HiddenOnline"></asp:TextBox>
+                            <%--  <asp:TextBox runat="server" ID="HiddenOnline"></asp:TextBox>
                             <asp:TextBox runat="server" ID="HiddenQuanOnline"></asp:TextBox>--%>
 
 
                             <%--Error Message--%>
-                                <asp:Label ID="lblerror" CssClass="errormessage" runat="server" Text="error msg"  />
-                            
-                           <%-- Hey there! This rewards redemption is only for VIP-Gold and above HOUSE OF HIGHROLLERS, YOU DESERVED IT!--%>
+                            <asp:Label ID="lblerror" CssClass="errormessage" runat="server" Text="error msg" />
 
-                            </div>
+                            <%-- Hey there! This rewards redemption is only for VIP-Gold and above HOUSE OF HIGHROLLERS, YOU DESERVED IT!--%>
+                        </div>
                     </div>
 
                 </form>
                 <div id="divContent">
                 </div>
             </div>
-
-
-
-        </div>
-        <!-- /content -->
-        <!--#include virtual="~/_static/footer.shtml" -->
-        <!--#include virtual="~/_static/navMenu.shtml" -->
+    </div>
+    <!-- /content -->
+    <!--#include virtual="~/_static/footer.shtml" -->
+    <!--#include virtual="~/_static/navMenu.shtml" -->
     </div>
     <!-- /page -->
 </body>
