@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6611acc6-18c8-4475-92a7-b3a7582d451a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://rewardsservices.ms1dev.com/RewardsServices.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="RewardsServices.wsdl" MetadataType="Wsdl" ID="b80c59ba-8fd6-4650-b190-882d2c944154" SourceId="1" SourceUrl="http://rewardsservices.ms1dev.com/RewardsServices.svc?wsdl" />
+    <MetadataFile FileName="RewardsServices.xsd" MetadataType="Schema" ID="5a5958f6-e23f-4055-acd6-8f4809bdf958" SourceId="1" SourceUrl="http://rewardsservices.ms1dev.com/RewardsServices.svc?xsd=xsd3" />
+    <MetadataFile FileName="RewardsServices1.xsd" MetadataType="Schema" ID="6a784e80-9a94-46b0-be57-5743092ce5a2" SourceId="1" SourceUrl="http://rewardsservices.ms1dev.com/RewardsServices.svc?xsd=xsd2" />
+    <MetadataFile FileName="RewardsServices2.xsd" MetadataType="Schema" ID="7322e446-4d54-420f-9174-543175026ec1" SourceId="1" SourceUrl="http://rewardsservices.ms1dev.com/RewardsServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="RewardsServices3.xsd" MetadataType="Schema" ID="6d2463b3-355d-47bb-b2fe-a7131873e609" SourceId="1" SourceUrl="http://rewardsservices.ms1dev.com/RewardsServices.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
