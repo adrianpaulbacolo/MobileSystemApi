@@ -202,7 +202,7 @@
                         <div id="RecipientDiv" runat="server">
                             <h4>RECIPIENT</h4>
                             <div class="ui-field-contain ui-hide-label">
-                                <asp:TextBox ID="TextBox1" runat="server" MaxLength="50" type="Text" data-mini="true" placeholder="Recipient Name" />
+                                <asp:TextBox ID="tbRName" runat="server" MaxLength="50" type="Text" data-mini="true" placeholder="Recipient Name" />
                                 <asp:Label ID="Label4" CssClass="validator" runat="server" Text="*" data-mini="true" />
                             </div>
                             <div class="ui-field-contain ui-hide-label">
@@ -212,72 +212,95 @@
                                 <asp:Label ID="Label6" CssClass="validator" runat="server" Text="*" data-mini="true" />
                             </div>
                             <div class="ui-field-contain ui-hide-label">
-                                <asp:TextBox ID="TextBox3" runat="server" MaxLength="10" type="Text" data-mini="true" placeholder="Postal Code" />
+                                <asp:TextBox ID="tbPostal" runat="server" MaxLength="10" type="Text" data-mini="true" placeholder="Postal Code" />
                                 <asp:Label ID="Label1" CssClass="validator" runat="server" Text="*" data-mini="true" />
                             </div>
                             <div class="ui-field-contain ui-hide-label">
-                                <asp:TextBox ID="TextBox4" runat="server" MaxLength="50" type="Text" data-mini="true" placeholder="City" />
+                                <asp:TextBox ID="tbCity" runat="server" MaxLength="50" type="Text" data-mini="true" placeholder="City" />
                                 <asp:Label ID="Label8" CssClass="validator" runat="server" Text="*" data-mini="true" />
                             </div>
                             <div class="ui-field-contain ui-hide-label">
-                                <asp:TextBox ID="TextBox5" runat="server" MaxLength="50" type="Text" data-mini="true" placeholder="Country" />
+                                <asp:TextBox ID="tbCountry" runat="server" MaxLength="50" type="Text" data-mini="true" placeholder="Country" />
                                 <asp:Label ID="Label9" CssClass="validator" runat="server" Text="*" data-mini="true" />
                             </div>
                             <div class="ui-field-contain ui-hide-label">
-                                <asp:TextBox ID="TextBox2" runat="server" MaxLength="50" type="tel" data-mini="true" placeholder="Contact Number" />
+                                <asp:TextBox ID="tbContact" runat="server" MaxLength="50" type="tel" data-mini="true" placeholder="Contact Number" />
                                 <asp:Label ID="Label10" CssClass="validator" runat="server" Text="*" data-mini="true" />
                             </div>
                         </div>
 
                         <div class="ui-field-contain ui-hide-label">
                             <asp:Button ID="btnSubmit" runat="server" Text="Redeem Now" CssClass="button-blue" data-corners="false" />
+                            <a class="button-blue ui-link ui-btn ui-shadow ui-corner-all" href="#" onclick="javascript:RedeemNow();" onserverclick="btnSubmit_Click" style="color: #fff" data-role="button" role="button">Redeem Now 2</a>
+
                         </div>
-
-
                         <div>
 
 
-                            <%-- <asp:TextBox runat="server" ID="HiddenQuanFreebet"></asp:TextBox>--%>
-
-                            <%--Normal--%>
-                            <%--  <asp:TextBox runat="server" ID="HiddenName"></asp:TextBox>
-                            <asp:TextBox runat="server" ID="HiddenAddress"></asp:TextBox>
-                            <asp:TextBox runat="server" ID="HiddenPostal"></asp:TextBox>
-                            <asp:TextBox runat="server" ID="HiddenCity"></asp:TextBox>
-                            <asp:TextBox runat="server" ID="HiddenCountry"></asp:TextBox>
-                            <asp:TextBox runat="server" ID="HiddenContact"></asp:TextBox>
-                            <asp:TextBox runat="server" ID="HiddenQuanNormal"></asp:TextBox>--%>
-
-                            <%--WishList--%>
-                            <%--    <asp:TextBox runat="server" ID="HiddenNameWL"></asp:TextBox>
-                            <asp:TextBox runat="server" ID="HiddenAddressWL"></asp:TextBox>
-                            <asp:TextBox runat="server" ID="HiddenPostalWL"></asp:TextBox>
-                            <asp:TextBox runat="server" ID="HiddenCityWL"></asp:TextBox>
-                            <asp:TextBox runat="server" ID="HiddenCountryWL"></asp:TextBox>
-                            <asp:TextBox runat="server" ID="HiddenContactWL"></asp:TextBox>
-                            <asp:TextBox runat="server" ID="HiddenWishList"></asp:TextBox>
-                            <asp:TextBox runat="server" ID="HiddenQuanWish"></asp:TextBox>--%>
-
-                            <%--Online--%>
-                            <%--  <asp:TextBox runat="server" ID="HiddenOnline"></asp:TextBox>
-                            <asp:TextBox runat="server" ID="HiddenQuanOnline"></asp:TextBox>--%>
 
 
                             <%--Error Message--%>
-                            <asp:Label ID="lblerror" CssClass="errormessage" runat="server" Text="error msg" />
+                            <asp:Label ID="lblerror" CssClass="errormessage" runat="server" Text="" />
 
-                            <%-- Hey there! This rewards redemption is only for VIP-Gold and above HOUSE OF HIGHROLLERS, YOU DESERVED IT!--%>
+
                         </div>
                     </div>
-
                 </form>
                 <div id="divContent">
                 </div>
             </div>
-    </div>
-    <!-- /content -->
-    <!--#include virtual="~/_static/footer.shtml" -->
-    <!--#include virtual="~/_static/navMenu.shtml" -->
+        </div>
+        <!-- /content -->
+        <!--#include virtual="~/_static/footer.shtml" -->
+        <!--#include virtual="~/_static/navMenu.shtml" -->
+
+
+        <script type="text/javascript">
+
+            function RedeemNow() {
+
+                alert("hdhdhdhhdh");
+            }
+
+            $('#form1').submit(function (e) {
+                $('#btnSubmit').attr("disabled", true);
+                if ($('#tbQuantity').val().trim().length == 0) {
+                    alert('Please enter quantity');
+                    $('#btnSubmit').attr("disabled", false);
+                    e.preventDefault();
+                    return;
+                } else if ($('#tbRName').val().trim().length == 0) {
+                    alert('Please enter Recipient Name');
+                    $('#btnSubmit').attr("disabled", false);
+                    e.preventDefault();
+                    return;
+                }
+                else {
+
+                    $.ajax({
+                        type: "POST",
+                        url: "Redeem/Submit",
+                        success: function (xml) {
+                            switch ($(xml).find('ErrorCode').text()) {
+                                case "1":
+                                    alert("1");
+                                    break;
+                                default:
+                                    alert($(xml).find('Message').text());
+                                    break;
+                            }
+                        },
+                        error: function (err) {
+                            window.location.replace('/Default.aspx');
+
+                        }
+                    });
+                }
+                e.preventDefault();
+                return;
+            });
+        </script>
+
     </div>
     <!-- /page -->
 </body>
