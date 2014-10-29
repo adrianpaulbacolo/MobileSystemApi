@@ -22,53 +22,27 @@ public partial class Catalogue_Redeem : BasePage
     {
         if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
         {
-          
-            lblPoint.InnerText = "Points Bal: " + getCurrentPoints().ToString();
+
+            lblPoint.InnerText = "Points Bal: " + getCurrentPoints();
             divLevel.Visible = true;
         }
 
-
-     //   string productid = Request.QueryString.Get("productId");
-
-          
-      
-
-        //string userMemberId = string.IsNullOrEmpty((string) Session["MemberId"]) ? "" : (string) Session["MemberId"];
-        //string countryCode = string.IsNullOrEmpty((string) Session["CountryCode"])
-        //    ? "0"
-        //    : (string) Session["CountryCode"];
-        //string currencyCode = string.IsNullOrEmpty((string) Session["CurrencyCode"])
-        //    ? "0"
-        //    : (string) Session["CurrencyCode"];
-        //string riskId = string.IsNullOrEmpty((string) Session["RiskId"]) ? "0" : (string) Session["RiskId"];
-        //string productID = HttpContext.Current.Request.QueryString.Get("id");
-        //System.Web.HttpContext.Current.Session["productId"] = productID;
-
-        //using (RewardsServices.RewardsServicesClient sClient = new RewardsServices.RewardsServicesClient())
-        //{
-
-
-
-        //}
-
-
-        
         string userMemberId = string.IsNullOrEmpty((string)Session["MemberId"]) ? "" : (string)Session["MemberId"];
-        string countryCode = string.IsNullOrEmpty((string)Session["CountryCode"])
-            ? "0"
-            : (string)Session["CountryCode"];
-        string currencyCode = string.IsNullOrEmpty((string)Session["CurrencyCode"])
-            ? "0"
-            : (string)Session["CurrencyCode"];
+        string countryCode = string.IsNullOrEmpty((string)Session["CountryCode"]) ? "0" : (string)Session["CountryCode"];
+        string currencyCode = string.IsNullOrEmpty((string)Session["CurrencyCode"]) ? "0" : (string)Session["CurrencyCode"];
         string riskId = string.IsNullOrEmpty((string)Session["RiskId"]) ? "0" : (string)Session["RiskId"];
         string productID = HttpContext.Current.Request.QueryString.Get("productId");
-        System.Web.HttpContext.Current.Session["productId"] = productID;
-       
+        string productType = "";
 
         lblproductid.Value = productID;
-        
+
+        int quantity = 0;
+
         using (RewardsServices.RewardsServicesClient sClient = new RewardsServices.RewardsServicesClient())
         {
+
+            #region product
+
             System.Data.DataSet ds = sClient.getProductDetail(productID, commonVariables.SelectedLanguage, riskId);
 
             if (ds.Tables.Count > 0)
@@ -83,8 +57,9 @@ public partial class Catalogue_Redeem : BasePage
                         System.Web.HttpContext.Current.Session["categoryIdReload"] = dr["categoryId"].ToString();
                         System.Web.HttpContext.Current.Session["currencyValidity"] = currencyCode;
 
-                        dr["pointsRequired"] =
-                            Convert.ToInt32(dr["pointsRequired"].ToString().Replace(" ", string.Empty));
+                         productType = dr["productType"].ToString();
+
+                        dr["pointsRequired"] =  Convert.ToInt32(dr["pointsRequired"].ToString().Replace(" ", string.Empty));
 
                         if (!ds.Tables[0].Columns.Contains("pointsLeveldiscount"))
                         {
@@ -105,9 +80,7 @@ public partial class Catalogue_Redeem : BasePage
                         }
 
                         if (dr["discountPoints"] != DBNull.Value)
-                        {
                             System.Web.HttpContext.Current.Session["pointsRequired"] = dr["discountPoints"];
-                        }
                         else
                         {
                             if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) &&
@@ -115,8 +88,7 @@ public partial class Catalogue_Redeem : BasePage
                             {
                                 //grap member point level
                                 string pointLevel = sClient.getMemberPointLevelFE(userMemberId);
-                                int pointLevelDiscount = sClient.getMemberPointLevelDiscount(
-                                    commonVariables.OperatorId, currencyCode, pointLevel);
+                                int pointLevelDiscount = sClient.getMemberPointLevelDiscount(commonVariables.OperatorId, currencyCode, pointLevel);
 
                                 double percentage = Convert.ToDouble(pointLevelDiscount) / 100;
                                 int normalPoint = int.Parse(dr["pointsRequired"].ToString());
@@ -128,8 +100,9 @@ public partial class Catalogue_Redeem : BasePage
                                 dr["pointsLeveldiscount"] = pointAfterLevelDiscount;
                                 dr["discountPercentage"] = pointLevelDiscount;
 
-                                System.Web.HttpContext.Current.Session["pointsRequired"] = dr["pointsRequired"];
-                                System.Web.HttpContext.Current.Session["pointsLeveldiscount"] = dr["pointsRequired"];
+                                System.Web.HttpContext.Current.Session["pointsRequired"] = dr["pointsLeveldiscount"];
+                                System.Web.HttpContext.Current.Session["pointsLeveldiscount"] =
+                                    dr["pointsLeveldiscount"];
                             }
                             else
                                 System.Web.HttpContext.Current.Session["pointsRequired"] = dr["pointsRequired"];
@@ -140,7 +113,6 @@ public partial class Catalogue_Redeem : BasePage
                             Convert.ToString(
                                 System.Configuration.ConfigurationManager.AppSettings.Get("ImagesDirectoryPath") +
                                 "Product/" + dr["imageName"]);
-
 
                         if (!string.IsNullOrEmpty(riskId))
                         {
@@ -176,43 +148,74 @@ public partial class Catalogue_Redeem : BasePage
                         }
 
                         imgPic.ImageUrl = dr["imageName"].ToString();
-                        lblPointCenter.Text = String.Format("{0:#,###,##0.##}", dr["pointsRequired"].ToString()) +
-                                              " Points";
-
-                   
+                        if (dr["discountPoints"] != DBNull.Value)
+                        {
+                            lblBeforeDiscount.Text =
+                                String.Format("{0:#,###,##0.##}", dr["pointsRequired"].ToString()) + " Points";
+                            lblPointCenter.Text = String.Format("{0:#,###,##0.##}", dr["discountPoints"].ToString()) +
+                                                  " Points";
+                        }
+                        else
+                        {
+                            lblBeforeDiscount.Text = "";
+                            lblPointCenter.Text = String.Format("{0:#,###,##0.##}", dr["pointsRequired"].ToString()) +
+                                               " Points";
+                        }
                         lblName.Text = dr["productName"].ToString();
-                       // name.Value = dr["productName"].ToString();
-
-                      //  lblDescription.Text = "<p>" + (dr["productDescription"].ToString()) + "</p>";
+                        lblCategory.Text = dr["categoryName"].ToString();
 
                         if (!string.IsNullOrEmpty(dr["deliveryPeriod"].ToString()))
                         {
-                            lblDelivery.Text =  (dr["deliveryPeriod"].ToString()) + " Day(s).";
+                            lblDelivery.Text = (dr["deliveryPeriod"].ToString()) + " Day(s).";
                             DeliveryDiv.Visible = true;
                         }
-
-
-                        //freebet only
-                        if (!string.IsNullOrEmpty(dr["currencyValidity"].ToString()))
-                        {
+                          
+                      if (!string.IsNullOrEmpty(dr["currencyValidity"].ToString()))
                             lblCurrency.Text = (dr["currencyValidity"].ToString());
-                            CurrencyDiv.Visible = true;
+                           
+                       
+
+                        switch (productType)
+                        {
+                            case "1"://freebet
+                                CurrencyDiv.Visible = true;
+                                RecipientDiv.Visible = false;
+                                DeliveryDiv.Visible = false;
+                                AccountDiv.Visible = false;
+                                break;
+                            case "2"://normal
+                                RecipientDiv.Visible = true;
+                                CurrencyDiv.Visible = false;
+                                AccountDiv.Visible = false;
+                                break;
+                            case "3"://wishlist same as normal
+                                 RecipientDiv.Visible = true;
+                                CurrencyDiv.Visible = false;
+                                AccountDiv.Visible = false;
+                                break;
+                            case "4"://online
+                                AccountDiv.Visible = true;
+                                CurrencyDiv.Visible = false;
+                                  RecipientDiv.Visible = false;
+                                  DeliveryDiv.Visible = false;
+                                break;
+
                         }
+                        /*
+                         freebet show  currency, hide recipient panel , hide delivery, hide account
+                         normal product show recipient, show delivery if any,  hide currency, hide account
+                         online show account, hide delivery, hide recipient, hide currency
+                         */
 
 
-                        
-                    }
-
-
-
-
+                    }//end for loop
                 }
             }
-
+            #endregion product
 
         }
 
-
+    
 
 
 
@@ -281,7 +284,7 @@ public partial class Catalogue_Redeem : BasePage
     }
 }
 
-    
+
 
 
 

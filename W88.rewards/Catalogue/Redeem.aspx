@@ -161,7 +161,7 @@
                                 </div>
                                 <div class="ui-block-b">
 
-                                    <asp:Label ID="lblDiscount" runat="server" Style="text-decoration: line-through;" Visible="true" data-mini="true" Text="39" />
+                                    <asp:Label ID="lblBeforeDiscount" runat="server" Style="text-decoration: line-through;" Visible="true" data-mini="true" Text="39" />
                                     <asp:Label ID="lblPointCenter" runat="server" data-mini="true" Text="39" />
 
                                 </div>
