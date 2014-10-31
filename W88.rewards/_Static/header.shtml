@@ -4,7 +4,7 @@
 <div><a class="ui-btn ui-gray" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
          <%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></a></div>
     <% } else { %>
-   <div> <a class="ui-btn ui-gray" href="/Catalogue/Cart.aspx" data-ajax="false">Cart</a></div>
+   <div> <a class="ui-btn ui-gray" href="/Catalogue/Cart.aspx" data-ajax="false" style="display: none">Cart</a></div>
 <!--<style type="text/css">.div-nav-header { background-position: center center !important; }</style>-->
 <% } %>
 </div>

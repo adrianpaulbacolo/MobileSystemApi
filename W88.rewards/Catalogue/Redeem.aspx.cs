@@ -65,8 +65,15 @@ public partial class Catalogue_Redeem : BasePage
                             System.Web.HttpContext.Current.Session["amountLimit"] = dr["amountLimit"];
                             System.Web.HttpContext.Current.Session["categoryId"] = dr["categoryId"].ToString();
                             System.Web.HttpContext.Current.Session["categoryIdReload"] = dr["categoryId"].ToString();
-                            System.Web.HttpContext.Current.Session["currencyValidity"] = currencyCode;
+                            System.Web.HttpContext.Current.Session["currencyValidity"] = dr["currencyValidity"].ToString();
                             productType = dr["productType"].ToString();
+
+                            if (productType == "1" && (dr["currencyValidity"].ToString() != currencyCode))
+                            {
+                                strAlertCode = "CURR";
+                                strAlertMessage = "Please select free bet of another currency";
+                                return;
+                            }
 
                             dr["pointsRequired"] = Convert.ToInt32(dr["pointsRequired"].ToString().Replace(" ", string.Empty));
 
@@ -117,7 +124,7 @@ public partial class Catalogue_Redeem : BasePage
                                     System.Web.HttpContext.Current.Session["pointsRequired"] = dr["pointsRequired"];
                             }
 
-                            dr["currencyValidity"] = currencyCode;
+
                             dr["imageName"] =
                                 Convert.ToString(
                                     System.Configuration.ConfigurationManager.AppSettings.Get("ImagesDirectoryPath") +
@@ -157,7 +164,10 @@ public partial class Catalogue_Redeem : BasePage
                             }
 
                             if (!(dr["redemptionValidity"].ToString() == "1" && dr["redemptionValidityCat"].ToString() == "1"))
+                            {
                                 strAlertCode = "VIP";
+                                return;
+                            }
 
 
                             imgPic.ImageUrl = dr["imageName"].ToString();
@@ -325,7 +335,6 @@ public partial class Catalogue_Redeem : BasePage
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-
         strAlertCode = "";//FAIL SUCCESS
         strAlertMessage = "";
         int resultLog = 0;
@@ -334,7 +343,7 @@ public partial class Catalogue_Redeem : BasePage
         string countryCode = string.IsNullOrEmpty((string)Session["CountryCode"]) ? "0" : (string)Session["CountryCode"];
         string currencyCode = string.IsNullOrEmpty((string)Session["CurrencyCode"]) ? "0" : (string)Session["CurrencyCode"];
         string riskId = string.IsNullOrEmpty((string)Session["RiskId"]) ? "0" : (string)Session["RiskId"];
-         productType = (string)System.Web.HttpContext.Current.Session["productType"];
+        productType = (string)System.Web.HttpContext.Current.Session["productType"];
         string productID = lblproductid.Value;
         string categoryId = string.IsNullOrEmpty((string)Session["categoryId"]) ? "" : (string)Session["categoryId"];
         int pointsRequired = int.Parse(System.Web.HttpContext.Current.Session["pointsRequired"].ToString());
@@ -342,231 +351,232 @@ public partial class Catalogue_Redeem : BasePage
         string quantitytext = tbQuantity.Text.Trim();
         int quantity;
 
+        string redemptionId = "";
+        string result = "";
+
         bool res = int.TryParse(quantitytext, out quantity);
         if (res == false)
         {
             strAlertCode = "FAIL";
-            strAlertMessage = "Please enter an integer for quantity";
+            strAlertMessage = "Please enter an number for quantity";
             return;
         }
         else
-            quantity = int.Parse(quantitytext);
-
-
-        using (RewardsServices.RewardsServicesClient sClient = new RewardsServices.RewardsServicesClient())
         {
-            //checking before redeem
-            string pointLevel = sClient.getMemberPointLevelFE(userMemberId);
-            System.Data.DataSet dsPoint = sClient.getProductPoint(commonVariables.OperatorId, productID, riskId, currencyCode, pointLevel);
-
-            int pointsProduct = 0;
-            int pointsDiscount = 0;
-            int pointsLevelDiscount = 0;
-            int pointsLevelDiscountPoint = 0;
-            int actualPoint = 0;
-
-            if (dsPoint.Tables.Count > 0)
+            quantity = int.Parse(quantitytext);
+            if (quantity < 1)
             {
-                if (dsPoint.Tables[0].Rows.Count > 0)
+                strAlertCode = "FAIL";
+                strAlertMessage = "Please enter an number bigger than zero";
+                return;
+            }
+        }
+
+        try
+        {
+            #region redeemnow
+            using (RewardsServices.RewardsServicesClient sClient = new RewardsServices.RewardsServicesClient())
+            {
+                //checking before redeem
+                string pointLevel = sClient.getMemberPointLevelFE(userMemberId);
+                System.Data.DataSet dsPoint = sClient.getProductPoint(commonVariables.OperatorId, productID, riskId, currencyCode, pointLevel);
+
+                int pointsProduct = 0;
+                int pointsDiscount = 0;
+                int pointsLevelDiscount = 0;
+                int pointsLevelDiscountPoint = 0;
+                int actualPoint = 0;
+
+                if (dsPoint.Tables.Count > 0)
                 {
-                    pointsProduct = int.Parse(dsPoint.Tables[0].Rows[0][0].ToString());
-                    actualPoint = pointsProduct;
-
-                    if (dsPoint.Tables[1].Rows.Count > 0)
+                    if (dsPoint.Tables[0].Rows.Count > 0)
                     {
-                        pointsDiscount = int.Parse(dsPoint.Tables[1].Rows[0][0].ToString());
-                        if (pointsDiscount != 0)
-                            actualPoint = pointsDiscount;
-                    }
+                        pointsProduct = int.Parse(dsPoint.Tables[0].Rows[0][0].ToString());
+                        actualPoint = pointsProduct;
 
-                    if (dsPoint.Tables[2].Rows.Count > 0)
-                    {
-                        pointsLevelDiscount = int.Parse(dsPoint.Tables[2].Rows[0][0].ToString());
-                        if (pointsDiscount == 0 && pointsLevelDiscount != 0 && productType != "1")
+                        if (dsPoint.Tables[1].Rows.Count > 0)
                         {
-                            //reverse to new points maintain in bo Discount
-                            double percentage = Convert.ToDouble(pointsLevelDiscount) / 100;
-                            int normalPoint = pointsProduct;
+                            pointsDiscount = int.Parse(dsPoint.Tables[1].Rows[0][0].ToString());
+                            if (pointsDiscount != 0)
+                                actualPoint = pointsDiscount;
+                        }
 
-                            double points = Math.Floor(normalPoint * (1 - percentage));
-                            int pointAfterLevelDiscount = Convert.ToInt32(points);
+                        if (dsPoint.Tables[2].Rows.Count > 0)
+                        {
+                            pointsLevelDiscount = int.Parse(dsPoint.Tables[2].Rows[0][0].ToString());
+                            if (pointsDiscount == 0 && pointsLevelDiscount != 0 && productType != "1")
+                            {
+                                //reverse to new points maintain in bo Discount
+                                double percentage = Convert.ToDouble(pointsLevelDiscount) / 100;
+                                int normalPoint = pointsProduct;
 
-                            pointsLevelDiscountPoint = pointAfterLevelDiscount;
-                            if (pointsLevelDiscountPoint != 0)
-                                actualPoint = pointsLevelDiscountPoint;
+                                double points = Math.Floor(normalPoint * (1 - percentage));
+                                int pointAfterLevelDiscount = Convert.ToInt32(points);
+
+                                pointsLevelDiscountPoint = pointAfterLevelDiscount;
+                                if (pointsLevelDiscountPoint != 0)
+                                    actualPoint = pointsLevelDiscountPoint;
+                            }
                         }
                     }
                 }
-            }
 
-            if (pointsRequired != actualPoint)
-            {
-                strAlertCode = "FAIL";
-                strAlertMessage = "Request Submission Fail"; //lblPointCheckError
-                return;
-            }
-            else
-            {
-                System.Data.DataSet ds = sClient.getRedemptionDetail(commonVariables.OperatorId, strMemberCode);
-                int total = 0;
-                int utilize = 0;
-                int current = 0;
-                int cart = 0;
-
-                int totalPoint = 0;
-
-                if (ds.Tables.Count > 0)
-                {
-                    if (ds.Tables[0].Rows.Count > 0)
-                    {
-                        total = int.Parse(ds.Tables[0].Rows[0][0].ToString());
-
-                        if (ds.Tables[1].Rows.Count > 0)
-                            utilize = int.Parse(ds.Tables[1].Rows[0][0].ToString());
-
-                        if (ds.Tables[2].Rows.Count > 0)
-                            cart = int.Parse(ds.Tables[2].Rows[0][0].ToString());
-                    }
-                }
-                current = total - utilize - cart;
-
-                totalPoint = pointsRequired * quantity;
-
-                if (current < totalPoint)
+                if (pointsRequired != actualPoint)
                 {
                     strAlertCode = "FAIL";
-                    strAlertMessage = "Your Points Are Insufficient. Please Earn More Reward Points For This Redemption!"; //lbl_points_insufficient
-                return;
+                    strAlertMessage = "Request Submission Fail"; //lblPointCheckError
+                    return;
                 }
                 else
                 {
-                    string redemptionId = "";
-                    string result = "";
+                    System.Data.DataSet ds = sClient.getRedemptionDetail(commonVariables.OperatorId, strMemberCode);
+                    int total = 0;
+                    int utilize = 0;
+                    int current = 0;
+                    int cart = 0;
 
-                    int totalCount = sClient.checkRedemptionLimitDaily(commonVariables.OperatorId, strMemberCode, productID, quantity);
+                    int totalPoint = 0;
 
-                    // marty
-                    if (sClient.CheckRedemptionLimitWithRedemptionQuantity(commonVariables.OperatorId, strMemberCode, productID, quantity))
+                    if (ds.Tables.Count > 0)
                     {
-                        strAlertCode = "FAIL";
-                        strAlertMessage = "Redemption limit reached!"; //lbl_redemption_limit_reached
-                        return;
-                    }
-                    else if (totalCount > 10)
-                    {
-                        strAlertCode = "FAIL";
-                        strAlertMessage = "Redemption limit reached!"; //lbl_redemption_limit_reached
-                        return;
-                    }
-
-                    if (productType == "1") //Freebet
-                    {
-                        double creditAmt = Convert.ToDouble(Session["amountLimit"]);
-                        int redemptionStatus = 1;
-                        decimal creditAmtFreebet = Convert.ToDecimal(Session["amountLimit"]);
-                        string remarks = "Free Bets (Rewards) " + currencyCode + " " + Math.Round(creditAmt, 0);
-                        //Freebets Auto Credit
-
-                        if ((string)System.Configuration.ConfigurationManager.AppSettings.Get("AutoFreebets") == "1")
-                            redemptionStatus = 2;
-
-                        if ((string)System.Configuration.ConfigurationManager.AppSettings.Get("AutoFreebets") == "1")
+                        if (ds.Tables[0].Rows.Count > 0)
                         {
-                            int FreebetAuto = 0;
+                            total = int.Parse(ds.Tables[0].Rows[0][0].ToString());
+
+                            if (ds.Tables[1].Rows.Count > 0)
+                                utilize = int.Parse(ds.Tables[1].Rows[0][0].ToString());
+
+                            if (ds.Tables[2].Rows.Count > 0)
+                                cart = int.Parse(ds.Tables[2].Rows[0][0].ToString());
+                        }
+                    }
+                    current = total - utilize - cart;
+
+                    totalPoint = pointsRequired * quantity;
+
+                    if (current < totalPoint)
+                    {
+                        strAlertCode = "FAIL";
+                        strAlertMessage = "Your Points Are Insufficient. Please Earn More Reward Points For This Redemption!"; //lbl_points_insufficient
+                        return;
+                    }
+                    else
+                    {
+
+                        int totalCount = sClient.checkRedemptionLimitDaily(commonVariables.OperatorId, strMemberCode, productID, quantity);
+
+                        // marty
+                        if (sClient.CheckRedemptionLimitWithRedemptionQuantity(commonVariables.OperatorId, strMemberCode, productID, quantity))
+                        {
+                            strAlertCode = "FAIL";
+                            strAlertMessage = "Redemption limit reached!"; //lbl_redemption_limit_reached
+                            return;
+                        }
+                        else if (totalCount > 10)
+                        {
+                            strAlertCode = "FAIL";
+                            strAlertMessage = "Redemption limit reached!"; //lbl_redemption_limit_reached
+                            return;
+                        }
+
+                        if (productType == "1") //Freebet
+                        {
+                            double creditAmt = Convert.ToDouble(Session["amountLimit"]);
+                            int redemptionStatus = 1;
+                            decimal creditAmtFreebet = Convert.ToDecimal(Session["amountLimit"]);
+                            string remarks = "Free Bets (Rewards) " + currencyCode + " " + Math.Round(creditAmt, 0);
+                            //Freebets Auto Credit
+
+                            if ((string)System.Configuration.ConfigurationManager.AppSettings.Get("AutoFreebets") == "1")
+                                redemptionStatus = 2;
+
+                            if ((string)System.Configuration.ConfigurationManager.AppSettings.Get("AutoFreebets") == "1")
+                            {
+                                int FreebetAuto = 0;
+
+                                for (int i = 1; i <= quantity; i++)
+                                {
+                                    using (PaymentServices.MemberClient sClientFreebetCredit = new PaymentServices.MemberClient())
+                                    {
+                                        FreebetAuto = sClientFreebetCredit.AddMemberRewards(long.Parse(commonVariables.OperatorId), strMemberCode, currencyCode, creditAmtFreebet, remarks);
+
+                                        if (FreebetAuto == 0) //error during credit
+                                            redemptionStatus = 1;
+                                    }
+                                }
+                            }
+
+                            Session["redemptionStatus"] = redemptionStatus;
+                            for (int i = 1; i <= quantity; i++)
+                            {
+                                redemptionId = sClient.addRedemptionFreebet(commonVariables.OperatorId, strMemberCode, productID, categoryId, productType, riskId, pointsRequired, createdBy, currencyCode, creditAmt, redemptionStatus, remarks, "0");
+
+                                #region get member Info
+                                using (RewardsServices.RewardsServicesClient sClientMember = new RewardsServices.RewardsServicesClient())
+                                {
+                                    System.Data.DataSet dsMember = sClientMember.getMemberRedemptionDetail(commonVariables.OperatorId, strMemberCode);
+
+                                    if (dsMember.Tables.Count > 0)
+                                    {
+                                        if (dsMember.Tables[1].Rows.Count > 0)
+                                        {
+                                            foreach (System.Data.DataRow drMember in dsMember.Tables[1].Rows)
+                                                System.Web.HttpContext.Current.Session["pointsBeforeCart"] = drMember["pointsBefore"];
+                                        }
+                                    }
+                                }
+                                #endregion
+
+                                int pointsBefore = (int)System.Web.HttpContext.Current.Session["pointsBeforeCart"];
+                                int pointsAfter = pointsBefore - pointsRequired;
+                                string actionId = "2";
+                                resultLog = sClient.addLogPointsBalance(commonVariables.OperatorId, strMemberCode, pointsBefore, pointsRequired * -1, pointsAfter, actionId, redemptionId, createdBy);
+                            }
+                        }
+                        else if (productType == "2") //Normal 
+                        {
+                            string name = tbRName.Text.Trim();
+                            string contact = tbContact.Text.Trim();
+                            string address = tbAddress.Value.Trim();
+                            string postal = tbPostal.Text.Trim();
+                            string city = tbCity.Text.Trim();
+                            string country = tbCountry.Text.Trim();
 
                             for (int i = 1; i <= quantity; i++)
                             {
-                                using (PaymentServices.MemberClient sClientFreebetCredit = new PaymentServices.MemberClient())
+                                if (productType == "2")
+                                    redemptionId = sClient.addRedemptionNormal(commonVariables.OperatorId, strMemberCode, productID, categoryId, productType, riskId, pointsRequired, createdBy, name, address, postal, city, country, contact, "0");
+
+                                #region get member Info
+                                using (RewardsServices.RewardsServicesClient sClientMember = new RewardsServices.RewardsServicesClient())
                                 {
-                                    FreebetAuto = sClientFreebetCredit.AddMemberRewards(long.Parse(commonVariables.OperatorId), strMemberCode, currencyCode, creditAmtFreebet, remarks);
+                                    System.Data.DataSet dsMember = sClientMember.getMemberRedemptionDetail(commonVariables.OperatorId, strMemberCode);
 
-                                    if (FreebetAuto == 0) //error during credit
-                                        redemptionStatus = 1;
-                                }
-                            }
-                        }
-
-                        Session["redemptionStatus"] = redemptionStatus;
-                        for (int i = 1; i <= quantity; i++)
-                        {
-                            redemptionId = sClient.addRedemptionFreebet(commonVariables.OperatorId, strMemberCode, productID, categoryId, productType, riskId, pointsRequired, createdBy, currencyCode, creditAmt, redemptionStatus, remarks, "0");
-
-                            #region get member Info
-                            using (RewardsServices.RewardsServicesClient sClientMember = new RewardsServices.RewardsServicesClient())
-                            {
-
-                                System.Data.DataSet dsMember = sClientMember.getMemberRedemptionDetail(commonVariables.OperatorId, strMemberCode);
-
-                                if (dsMember.Tables.Count > 0)
-                                {
-
-                                    if (dsMember.Tables[1].Rows.Count > 0)
+                                    if (dsMember.Tables.Count > 0)
                                     {
-                                        foreach (System.Data.DataRow drMember in dsMember.Tables[1].Rows)
-                                            System.Web.HttpContext.Current.Session["pointsBeforeCart"] = drMember["pointsBefore"];
+                                        if (dsMember.Tables[1].Rows.Count > 0)
+                                        {
+                                            foreach (System.Data.DataRow drMember in dsMember.Tables[1].Rows)
+                                                System.Web.HttpContext.Current.Session["pointsBeforeCart"] = drMember["pointsBefore"];
+                                        }
                                     }
                                 }
+                                #endregion
 
+                                int pointsBefore = (int)System.Web.HttpContext.Current.Session["pointsBeforeCart"];
+                                int pointsAfter = pointsBefore - pointsRequired;
+                                string actionId = "2";
+                                resultLog = sClient.addLogPointsBalance(commonVariables.OperatorId, strMemberCode, pointsBefore, pointsRequired * -1, pointsAfter, actionId, redemptionId, createdBy);
                             }
-                            #endregion
-
-                            int pointsBefore = (int)System.Web.HttpContext.Current.Session["pointsBeforeCart"];
-                            int pointsAfter = pointsBefore - pointsRequired;
-                            string actionId = "2";
-                            resultLog = sClient.addLogPointsBalance(commonVariables.OperatorId, strMemberCode, pointsBefore, pointsRequired * -1, pointsAfter, actionId, redemptionId, createdBy);
-
                         }
-                    }
 
-                    else if (productType == "2" ) //Normal 
-                    {
-                        string name = tbRName.Text.Trim();
-                        string contact = tbContact.Text.Trim();
-                        string address = tbAddress.Value.Trim();
-                        string postal = tbPostal.Text.Trim();
-                        string city = tbCity.Text.Trim();
-                        string country = tbCountry.Text.Trim();
-
-
-                        for (int i = 1; i <= quantity; i++)
+                        else if (productType == "4") //Online
                         {
-                            if (productType == "2")
-                                redemptionId = sClient.addRedemptionNormal(commonVariables.OperatorId, strMemberCode, productID, categoryId, productType, riskId, pointsRequired, createdBy, name, address, postal, city, country, contact, "0");
-                          
-
-                            #region get member Info
-                            using (RewardsServices.RewardsServicesClient sClientMember = new RewardsServices.RewardsServicesClient())
-                            {
-                                System.Data.DataSet dsMember = sClientMember.getMemberRedemptionDetail(commonVariables.OperatorId, strMemberCode);
-
-                                if (dsMember.Tables.Count > 0)
-                                {
-                                    if (dsMember.Tables[1].Rows.Count > 0)
-                                    {
-                                        foreach (System.Data.DataRow drMember in dsMember.Tables[1].Rows)
-                                            System.Web.HttpContext.Current.Session["pointsBeforeCart"] = drMember["pointsBefore"];
-                                    }
-                                }
-                            }
-                            #endregion
-
-                            int pointsBefore = (int)System.Web.HttpContext.Current.Session["pointsBeforeCart"];
-                            int pointsAfter = pointsBefore - pointsRequired;
-                            string actionId = "2";
-
-                            resultLog = sClient.addLogPointsBalance(commonVariables.OperatorId, strMemberCode, pointsBefore, pointsRequired * -1, pointsAfter, actionId, redemptionId, createdBy);
-                        }
-
-
-                    }
-                   //fix until here
-                    else if (productType == "4") //Online
-                    {
-                        string aimId = tbAccount.Text.Trim();
+                            string aimId = tbAccount.Text.Trim();
                             for (int i = 1; i <= quantity; i++)
                             {
                                 redemptionId = sClient.addRedemptionOnline(commonVariables.OperatorId, strMemberCode, productID, categoryId, productType, riskId, pointsRequired, createdBy, aimId, "0");
-                               
+
                                 #region get member Info
                                 using (RewardsServices.RewardsServicesClient sClientMember = new RewardsServices.RewardsServicesClient())
                                 {
@@ -579,7 +589,6 @@ public partial class Catalogue_Redeem : BasePage
                                             foreach (System.Data.DataRow drMember in dsMember.Tables[1].Rows)
                                             {
                                                 System.Web.HttpContext.Current.Session["pointsBeforeCart"] = drMember["pointsBefore"];
-
                                             }
                                         }
                                     }
@@ -591,31 +600,37 @@ public partial class Catalogue_Redeem : BasePage
                                 string actionId = "2";
 
                                 resultLog = sClient.addLogPointsBalance(commonVariables.OperatorId, strMemberCode, pointsBefore, pointsRequired * -1, pointsAfter, actionId, redemptionId, createdBy);
-
                             }
-                    }
-
-
-                    if (resultLog == 1)
-                    {
-                        if (productType == "1" && (int)Session["redemptionStatus"] == 2) //Freebet success
-                        {
-                            sendMail(commonVariables.OperatorId, strMemberCode, redemptionId);
-                            strAlertCode = "SUCCESS";
-                            strAlertMessage = "Redemption is processed successfully!"; //lbl_redeem_success_processed
-                        }
-                        else
-                        {
-                            strAlertCode = "SUCCESS";
-                            strAlertMessage = "Redemption is submitted successfully!"; //lbl_redeem_success_submit
                         }
 
+                        if (resultLog == 1)
+                        {
+                            if (productType == "1" && (int)Session["redemptionStatus"] == 2) //Freebet success
+                            {
+                                sendMail(commonVariables.OperatorId, strMemberCode, redemptionId);
+                                strAlertCode = "SUCCESS";
+                                strAlertMessage = "Redemption is processed successfully!"; //lbl_redeem_success_processed
+                            }
+                            else
+                            {
+                                strAlertCode = "SUCCESS";
+                                strAlertMessage = "Redemption is submitted successfully!"; //lbl_redeem_success_submit
+                            }
 
-                        lblPoint.InnerText = "Points Bal: " + getCurrentPoints();
+                            lblPoint.InnerText = "Points Bal: " + getCurrentPoints();
+                        }
 
                     }
                 }
             }
+            #endregion redeemnow
+        }
+        catch (Exception ex)
+        {
+            strAlertCode = "FAIL";
+            strAlertMessage = "Unexpected system error. Please contact customer service.";
+            Guid newerrorid = new Guid();
+            commonAuditTrail.appendLog("system", "Redeem.aspx", "Redeem Now", "Redeem.aspx", "", "Redeem now", "", ex.Message + " stacktrace: " + ex.StackTrace, "Redemption id: " + redemptionId + " Member id: " + userMemberId, "", newerrorid.ToString(), false);
         }
 
     }
@@ -628,13 +643,11 @@ public partial class Catalogue_Redeem : BasePage
         string senderName = System.Configuration.ConfigurationManager.AppSettings.Get("senderName");
         string email_bcc = System.Configuration.ConfigurationManager.AppSettings.Get("email_bcc");
         string languageCode = "";
-
         string smtpAlternative = System.Configuration.ConfigurationManager.AppSettings.Get("smtpAlternative");
         bool alternative = false;
 
         string localResxMail = "~/redemption_mail.{0}.aspx";
 
-        //get member language Code
         using (RewardsServices.RewardsServicesClient sClientMember = new RewardsServices.RewardsServicesClient())
         {
             System.Data.DataSet ds = sClientMember.getMemberInfo(operatorId, memberCode);
@@ -643,9 +656,7 @@ public partial class Catalogue_Redeem : BasePage
             {
                 email_to = dr["email"].ToString();
                 languageCode = dr["languageCode"].ToString();
-                //languageCode = "zh-cn";
             }
-
         }
 
         localResxMail = string.Format(localResxMail, languageCode);
@@ -698,12 +709,10 @@ public partial class Catalogue_Redeem : BasePage
                 sClient.Send(message);
             }
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            string mess = ex.Message;
+            throw;
         }
-
-
 
     }
 

@@ -262,6 +262,10 @@
                             alert('<%=strAlertMessage%>');
                             $('#btnSubmit').attr("disabled", false);
                             break;
+                        case 'CURR':
+                            alert('<%=strAlertMessage%>');
+                            window.location.replace('/Catalogue?categoryId=53&sortBy=2');
+                            break;
                         default:
                             break;
                     }
@@ -305,7 +309,7 @@
 
             function validateFreebet() {
                 if ($('#tbQuantity').val().trim().length == 0) {
-                    alert('Please enter Quantity');
+                    alert('Please enter a number for Quantity');
                     return false;
                 }
                 else {
@@ -317,7 +321,7 @@
             function validateOnlineAccount() {
               
                 if ($('#tbQuantity').val().trim().length == 0) {
-                    alert('Please enter Quantity');
+                    alert('Please enter a number for Quantity');
                     return false;
                 } else if ($('#tbAccount').val().trim().length == 0) {
                     alert('Please enter Account');
@@ -330,7 +334,7 @@
 
             function validateNormal() {
                 if ($('#tbQuantity').val().trim().length == 0) {
-                    alert('Please enter Quantity');
+                    alert('Please enter a number for Quantity');
                     return false;
                 } else if ($('#tbRName').val().trim().length == 0) {
                     alert('Please enter Recipient Name');
