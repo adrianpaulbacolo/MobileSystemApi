@@ -1,19 +1,20 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="About.aspx.cs" Inherits="_ContactUs" %>
 
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>About Rewards</title>
+    <title>FAQ</title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
-    
-    <!--[if IE]><link type="text/css" href="/_Static/Css/Index.css" rel="stylesheet"><![endif]-->
-    <!--[if !IE]><!-->
-</head>
-<body>
 
+</head>
+
+
+<body>
+<!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="b">
-     
+        <!--#include virtual="~/_static/header.shtml" -->
         <div class="ui-content" role="main">
             <div class="div-page-header"><span>ABOUT REWARDS</span></div>
 

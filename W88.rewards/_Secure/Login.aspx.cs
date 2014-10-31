@@ -56,10 +56,6 @@ public partial class _Secure_Login : System.Web.UI.Page
             lblRegister.Text = commonCulture.ElementValues.getResourceString("btnRegister", xeResources);
 
         }
-        else
-        {
-                //  if (strRedirect == "Redeem" && !(string.IsNullOrEmpty(Request.QueryString.Get("productId")))  )
-                //strRedirect = (string.Format("/Catalogue/Redeem.aspx?productId={0}", Request.QueryString.Get("productId"))); 
-        }
+      
     }
 }

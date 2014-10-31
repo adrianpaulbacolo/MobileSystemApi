@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<default>
-  <btnSubmit><![CDATA[ยืนยัน]]></btnSubmit>
-  <btnCancel><![CDATA[ยกเลิก]]></btnCancel>
-  <lblID><![CDATA[ID]]></lblID>
-  <lblComment><![CDATA[ข้อความ]]></lblComment>
-  <lblMultipleRebateCode><![CDATA[กรุณาระบุผลิตภัณฑ์ที่คุณต้องการขอรับโบนัสด้วยค่ะ:]]></lblMultipleRebateCode>
-  <lblMoreInfo><![CDATA[เพิ่มข้อมูล]]></lblMoreInfo>
-</default>

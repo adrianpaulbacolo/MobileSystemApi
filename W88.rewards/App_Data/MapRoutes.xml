@@ -6,30 +6,5 @@
   <mr4 AbsoluteURL="~/Lang.aspx"><![CDATA[Lang]]></mr4>
   <mr5 AbsoluteURL="~/ContactUs.aspx"><![CDATA[ContactUs]]></mr5>
   <mr6 AbsoluteURL="~/Catalogue/Redeem.aspx"><![CDATA[Redeem/Submit]]></mr6>
- 
 
-  <!--
-  <mr3><![CDATA[Lottery/]]></mr3>
-  <mr4><![CDATA[Games/]]></mr4>
-  <mr5><![CDATA[Games/Bravado/]]></mr5>
-  <mr6><![CDATA[Games/Crescendo/]]></mr6>
-  <mr7><![CDATA[Games/Palazzo/]]></mr7>
-  <mr8><![CDATA[Binary/]]></mr8>
-  <mr9><![CDATA[Promotions/]]></mr9>
-  <mr10 absoluteURL="_Secure/Register.aspx"><![CDATA[Register/]]></mr10>
-  <mr11><![CDATA[Track.aspx]]></mr11>
-  <mr12 absoluteURL="_Secure/Register.aspx"><![CDATA[Register.aspx]]></mr12>
-  <mr13 absoluteURL="forgot_login.aspx"><![CDATA[ForgotLogin]]></mr13>
-  <mr14><![CDATA[Promotion.aspx]]></mr14>
-  <mr15><![CDATA[Mobile/]]></mr15>
-  <mr16><![CDATA[Poker/]]></mr16>
-
-  <mr17 absoluteURL="_Static/Poker/Misc/LuckyPoker_en.html"><![CDATA[luckypokertournament_en/]]></mr17>
-  <mr18 absoluteURL="_Static/Poker/Misc/LuckyPoker_cs.html"><![CDATA[luckypokertournament_cs/]]></mr18>
-  <mr19 absoluteURL="_Static/Poker/Misc/LuckyPoker_vn.html"><![CDATA[luckypokertournament_vn/]]></mr19>
-  <mr20 absoluteURL="_Static/Poker/Misc/LuckyPoker_th.html"><![CDATA[luckypokertournament_th/]]></mr20>
-  <mr21 absoluteURL="_Static/Poker/Misc/LuckyPoker_kh.html"><![CDATA[luckypokertournament_kh/]]></mr21>
-  <mr22 absoluteURL="_Static/Poker/Misc/LuckyPoker_id.html"><![CDATA[luckypokertournament_id/]]></mr22>
-  <mr23 absoluteURL="_Static/Poker/Misc/LuckyPoker_kr.html"><![CDATA[luckypokertournament_kr/]]></mr23>
-  -->
 </MapRoutes>
