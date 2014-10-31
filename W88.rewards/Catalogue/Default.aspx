@@ -82,6 +82,7 @@
                                             <%#(DataBinder.Eval(Container.DataItem, "productIcon").ToString()=="2") ? "<span class='productIcon'>"+"HOT"+"</span>":"<span></span>"%>
                                             <%#(DataBinder.Eval(Container.DataItem, "productIcon").ToString()=="3") ? "<span class='productIcon'>"+"NEW" +"</span>":"<span></span>"%>
                                         </div>
+                                        
 
                                         <a data-role="button" data-rel="dialog" data-transition="slidedown" href="/Catalogue/Detail.aspx?id=<%#DataBinder.Eval(Container.DataItem,"productId")%>">
                                             <span class="image">
@@ -94,32 +95,7 @@
                                             <span class="newpoints" style="<%#(DataBinder.Eval(Container, "DataItem.discountPoints").ToString() != "") ? "visibility:visible;": "visibility:hidden;" %>"><%# String.Format("{0:#,###,##0.##}",DataBinder.Eval(Container.DataItem,"discountPoints"))%> Points</span>
                                         </a>
                                     </li>
-                                    <%-- <td>
-                                        <div class="product">
-                                            <div class="detail">
-                                                <a href="#">
-
-                                                    <%#(DataBinder.Eval(Container.DataItem, "productIcon").ToString()=="2") ? "<span class='productIcon'>"+"HOT"+"</span>":"<span></span>"%>
-                                                    <%#(DataBinder.Eval(Container.DataItem, "productIcon").ToString()=="3") ? "<span class='productIcon'>"+"NEW" +"</span>":"<span></span>"%>
-
-                                                    <img src="<%#DataBinder.Eval(Container.DataItem,"imagePath")%>" data-imageover="" />
-                                                    <br />
-                                                    <br />
-
-                                                    <div class="productName productNameLimit dinpro"><%#DataBinder.Eval(Container.DataItem,"productName")%></div>
-
-                                                    <div class="productPoints dinpro" style="<%#(DataBinder.Eval(Container, "DataItem.discountPoints").ToString() != "") ? "text-decoration:line-through;": "text-decoration:none;" %>"><%# String.Format("{0:#,###,##0.##}",DataBinder.Eval(Container.DataItem,"pointsRequired"))%> POINTS</div>
-                                                    <div class="productPointsDiscount dinpro" style="<%#(DataBinder.Eval(Container, "DataItem.discountPoints").ToString() != "") ? "visibility:visible;": "visibility:hidden;" %>"><%# String.Format("{0:#,###,##0.##}",DataBinder.Eval(Container.DataItem,"discountPoints"))%> POINTS</div>
-
-                                                </a>
-                                                <%-- <div class="button_redeem">
-                                            <a href="#">REDEEM<i class='sprite_white_arrow'></i></a>
-                                        </div>
-                                        <div class="button_detail">
-                                            <a href="#">VIEW DETAIL <i class='sprite_dark_blue_arrow'></i></a>
-                                        </div>
-                                    </td>
-                                    <td style="width: <%# (Container.DataItemIndex+1)%5==0?"0":"15" %>px;"></td>--%>
+                                   
                                 </ItemTemplate>
                             </asp:ListView>
 

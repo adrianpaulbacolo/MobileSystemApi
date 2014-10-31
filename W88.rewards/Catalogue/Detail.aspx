@@ -102,16 +102,23 @@
                         <span id="DescHeader">Product Description</span>
 
                         <asp:Label ID="lblDescription" runat="server" />
-                         <asp:Label ID="lblCurrency" runat="server" />
+                        <asp:Label ID="lblCurrency" runat="server" />
 
                         <asp:Label ID="lblDelivery" runat="server" />
                     </div>
 
                     <div id="bottomdiv">
                         <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-                           { %>
+                           {
+                               if(validredemption)
+                               {  %>
                         <a data-role="button" class="button-blue" style="color: #fff" href='<%= strRedirect %>'>Redeem</a>
                         <% }
+                               else
+                               { %>
+                         <a data-role="button" class="button-blue" style="color: #fff" href='#' onclick="VIPOnly();">Redeem</a>
+                        <% }
+                           }
                            else
                            {%>
                         <a data-role="button" class="button-blue" style="color: #fff" data-rel="dialog" data-transition="slidedown" href='<%= strRedirect %>'>Redeem</a>
@@ -122,7 +129,9 @@
             </form>
         </div>
         <script type="text/javascript">
-           
+            function VIPOnly() {
+                alert('<%= vipOnly %>');
+            }
         </script>
 
 

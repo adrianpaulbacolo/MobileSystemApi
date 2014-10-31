@@ -12,6 +12,10 @@ using System.Text;
 public partial class Catalogue_Detail : BasePage
 {
     protected string strRedirect = string.Empty;
+    protected bool validredemption = false;
+    protected string vipOnly =
+        "Hey there! This rewards redemption is only for VIP-Gold and above HOUSE OF HIGHROLLERS, YOU DESERVED IT!";
+
     protected void Page_Init(object sender, EventArgs e)
     {
 
@@ -157,6 +161,12 @@ public partial class Catalogue_Detail : BasePage
                             dr["redemptionValidity"] += "0";
                             dr["redemptionValidityCat"] += "0";
                         }
+
+                        if (dr["redemptionValidity"].ToString() == "1" && dr["redemptionValidityCat"].ToString() == "1")
+                        {
+                            validredemption = true;
+                        }
+                        
 
                         imgPic.ImageUrl = dr["imageName"].ToString();
 

@@ -63,7 +63,9 @@
     }
 
     #CatalogueUL li a {
-        text-decoration: none;
+            display: inline-block;
+    text-decoration: none;
+    width: 100%;
     }
 
 

@@ -207,7 +207,7 @@
                             </div>
                             <div class="ui-field-contain ui-hide-label">
                                 <div class="ui-input-text ui-body-inherit ui-corner-all ui-mini ui-shadow-inset">
-                                    <textarea cols="40" rows="3" name="textarea" id="tbAddress" style="height: auto;" placeholder="Mailing Address"></textarea>
+                                    <textarea cols="40" rows="3" runat="server" id="tbAddress" style="height: auto;" placeholder="Mailing Address"></textarea>
                                 </div>
                                 <asp:Label ID="Label6" CssClass="validator" runat="server" Text="*" data-mini="true" />
                             </div>
@@ -230,20 +230,9 @@
                         </div>
 
                         <div class="ui-field-contain ui-hide-label">
-                            <asp:Button ID="btnSubmit" runat="server" Text="Redeem Now" CssClass="button-blue" data-corners="false" />
-                            <a class="button-blue ui-link ui-btn ui-shadow ui-corner-all" href="#" onclick="javascript:RedeemNow();" onserverclick="btnSubmit_Click" style="color: #fff" data-role="button" role="button">Redeem Now 2</a>
-
+                            <asp:Button ID="btnSubmit" runat="server" Text="Redeem Now" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" />
                         </div>
-                        <div>
 
-
-
-
-                            <%--Error Message--%>
-                            <asp:Label ID="lblerror" CssClass="errormessage" runat="server" Text="" />
-
-
-                        </div>
                     </div>
                 </form>
                 <div id="divContent">
@@ -257,48 +246,118 @@
 
         <script type="text/javascript">
 
-            function RedeemNow() {
-
-                alert("hdhdhdhhdh");
-            }
+            $(function () {
+                if ('<%=strAlertCode%>'.length > 0) {
+                    switch ('<%=strAlertCode%>') {
+                        case 'VIP':
+                            alert('<%= vipOnly%>');
+                            $('#btnSubmit').attr("disabled", true);
+                            window.location.replace('/Catalogue');
+                            break;
+                        case 'SUCCESS':
+                            alert('<%=strAlertMessage%>');
+                            window.location.replace('/Catalogue');
+                            break;
+                        case 'FAIL':
+                            alert('<%=strAlertMessage%>');
+                            $('#btnSubmit').attr("disabled", false);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            });
 
             $('#form1').submit(function (e) {
                 $('#btnSubmit').attr("disabled", true);
+
+                switch ('<%= productType%>') {
+                    case '1': //freebet
+                        if (validateNormal() == false) {
+                            $('#btnSubmit').attr("disabled", false);
+                            return false;
+                        } else {
+                            return true;
+                        }
+                        break;
+                    case '2': //normal
+                    case '3': //wishlist same as normal
+                        if (validateNormal() == false) {
+                            $('#btnSubmit').attr("disabled", false);
+                            return false;
+                        } else {
+                            return true;
+                        }
+                        break;
+                    case '4': //online
+                        if (validateOnlineAccount() == false) {
+                            $('#btnSubmit').attr("disabled", false);
+                            return false;
+                        } else {
+                            return true;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+
+            });
+
+            function validateFreebet() {
                 if ($('#tbQuantity').val().trim().length == 0) {
-                    alert('Please enter quantity');
-                    $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
-                    return;
-                } else if ($('#tbRName').val().trim().length == 0) {
-                    alert('Please enter Recipient Name');
-                    $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
-                    return;
+                    alert('Please enter Quantity');
+                    return false;
                 }
                 else {
-
-                    $.ajax({
-                        type: "POST",
-                        url: "Redeem/Submit",
-                        success: function (xml) {
-                            switch ($(xml).find('ErrorCode').text()) {
-                                case "1":
-                                    alert("1");
-                                    break;
-                                default:
-                                    alert($(xml).find('Message').text());
-                                    break;
-                            }
-                        },
-                        error: function (err) {
-                            window.location.replace('/Default.aspx');
-
-                        }
-                    });
+                    return true;
                 }
-                e.preventDefault();
-                return;
-            });
+
+            }
+
+            function validateOnlineAccount() {
+              
+                if ($('#tbQuantity').val().trim().length == 0) {
+                    alert('Please enter Quantity');
+                    return false;
+                } else if ($('#tbAccount').val().trim().length == 0) {
+                    alert('Please enter Account');
+                    return false;
+                } else {
+                    return true;
+                }
+
+            }
+
+            function validateNormal() {
+                if ($('#tbQuantity').val().trim().length == 0) {
+                    alert('Please enter Quantity');
+                    return false;
+                } else if ($('#tbRName').val().trim().length == 0) {
+                    alert('Please enter Recipient Name');
+                    return false;
+                }
+                else if ($('#tbAddress').val().trim().length == 0) {
+                    alert('Please enter Mailing Address');
+                    return false;
+                }
+                else if ($('#tbPostal').val().trim().length == 0) {
+                    alert('Please enter Postal Code');
+                    return false;
+                }
+                else if ($('#tbCity').val().trim().length == 0) {
+                    alert('Please enter City');
+                    return false;
+                }
+                else if ($('#tbCountry').val() == 0) {
+                    alert('Please enter Country');
+                    return false;
+                }
+                else if ($('#tbContact').val().trim().length == 0) {
+                    alert('Please enter Contact Number');
+                    return false;
+                } else {
+                    return true;}
+            }
         </script>
 
     </div>
