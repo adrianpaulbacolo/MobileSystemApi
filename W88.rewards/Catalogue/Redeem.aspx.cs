@@ -36,6 +36,10 @@ public partial class Catalogue_Redeem : BasePage
                 lblPoint.InnerText = "Points Bal: " + getCurrentPoints();
                 divLevel.Visible = true;
             }
+            else
+            { Response.Redirect("~/Index");
+            }
+            
 
             string userMemberId = string.IsNullOrEmpty((string)Session["MemberId"]) ? "" : (string)Session["MemberId"];
             string strMemberCode = string.IsNullOrEmpty((string)Session["MemberCode"]) ? "" : (string)Session["MemberCode"];

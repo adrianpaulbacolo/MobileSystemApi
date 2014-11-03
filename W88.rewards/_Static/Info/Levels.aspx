@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Levels.aspx.cs" Inherits="_ContactUs" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Levels.aspx.cs" Inherits="_Info_Levels" %>
 
 <!DOCTYPE html>
 <html>
