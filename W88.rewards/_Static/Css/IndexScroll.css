@@ -13,15 +13,15 @@
     padding: 10px;
     /*border: 1px solid #333;*/
 }
-
 #divLevel {
-     background-color: #1c6080;
+    background-color: #1c6080;
     height: 20pt;
     position: relative;
 }
 
+
 #lblPoint {
-      color: white;
+    color: white;
     float: right;
     font-family: "Open Sans",sans-serif,helvetica,Tahoma,Arial,Verdana,"Comic Sans MS";
     font-size: smaller;
@@ -30,7 +30,14 @@
     position: relative;
     right: 5px;
     padding-right: 3pt;
+    text-decoration: none;
 }
+
+
+#divLevel a:hover   {
+    text-decoration: underline;
+}
+
 
 .div-product-scroll {
     /*display: block;

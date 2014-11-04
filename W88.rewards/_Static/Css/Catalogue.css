@@ -20,6 +20,7 @@
     position: relative;
 }
 
+
 #lblPoint {
     color: white;
     float: right;
@@ -30,6 +31,12 @@
     position: relative;
     right: 5px;
     padding-right: 3pt;
+    text-decoration: none;
+}
+
+
+#divLevel a:hover   {
+    text-decoration: underline;
 }
 
 /*#endregion*/

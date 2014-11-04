@@ -11,19 +11,7 @@
     <link type="text/css" href="/_Static/Css/IndexScroll.css" rel="stylesheet">
     <!--<![endif]-->
 
-    <%--  <script type="text/javascript">
-        $(document).ready(function () {
-            ProductScroll();
-            document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-        });
-
-
-        var VerScroll;
-        function ProductScroll() {
-            VerScroll = new IScroll('#divContent', { bounceEasing: 'elastic', bounceTime: 1200 });
-        }
-
-    </script>--%>
+   
 </head>
 <body>
     <!--#include virtual="~/_static/splash.shtml" -->
@@ -31,8 +19,8 @@
         <!--#include virtual="~/_static/header.shtml" -->
         <div class="ui-content" role="main">
             <div id="divLoginMessage" runat="server"><span id="lblLogin" runat="server">please login to start redemption</span></div>
-            <div id="divLevel" runat="server" visible="False">
-                <span id="lblPoint" runat="server"></span>
+          <div id="divLevel" runat="server" visible="False">
+                <a id="lblPoint" runat="server" href="/Profile/Account.aspx" class="pointslink"></a>
             </div>
             <div class="page-content">
                 <div id="divContent">

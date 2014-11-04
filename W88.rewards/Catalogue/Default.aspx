@@ -8,13 +8,7 @@
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
     <link href="/_Static/Css/Catalogue.css" rel="stylesheet" />
 
-
-
     <script>
-        
-
-
-
     </script>
 
 </head>
@@ -26,7 +20,7 @@
         <div class="ui-content" role="main">
             <div id="divLoginMessage" runat="server"><span id="lblLogin" runat="server">please login to start redemption</span></div>
             <div id="divLevel" runat="server" visible="False">
-                <span id="lblPoint" runat="server"></span>
+                <a id="lblPoint" runat="server" href="/Profile/Account.aspx" class="pointslink"></a>
             </div>
 
             <div class="page-content">
