@@ -4,6 +4,7 @@
 .ui-panel-inner { padding: 0; }
 .nav-menu { background: #333; display: block; position: relative; margin: 0 !important; }
 .nav-menu > li { background: #b3b3b3; color: #2a8fbd; text-shadow: none; display: block; }
+
 .nav-menu > .liLogout > a { background: #666666; color: #fff; text-shadow: none; display: block; }
 .nav-menu > li.ui-li { border-bottom: 1px solid #777; }
 .nav-menu > li > a { font-size: 14px; font-weight: 700; font-family: 'Open Sans', sans-serif, helvetica, Tahoma, Arial, Verdana, 'Comic Sans MS'; color: #1c6080; text-transform: uppercase; padding: 12px 0 12px 10px; }
@@ -18,11 +19,14 @@
 #aMnuHome { background-image: url("/_Static/Images/Menu/mnu-home.png"); }
 #liUser { background-color: #333; background-image: url("/_Static/Images/Menu/mnu-avatar.png"); background-repeat: no-repeat !important; background-size: 25px !important; background-position: 8px; }
 #liUser > a { text-transform: uppercase; font-family: 'Open Sans', sans-serif, helvetica, Tahoma, Arial, Verdana, 'Comic Sans MS'; font-size: .9em; font-weight: 700; text-shadow: none; background-color: transparent; border: none; color: #2a8fbd; display: block; }   
-#aMnuCloseMenu { background-image: url("/_Static/Images/Menu/mnu-closemenu.png"); }
+#blueli {padding-left: 6pt; text-transform: uppercase; font-family: 'Open Sans', sans-serif, helvetica, Tahoma, Arial, Verdana, 'Comic Sans MS'; font-size: .9em; font-weight: 700; text-shadow: none; background-color:#2a8fbd; border: none; color: #fff; display: block; }
 
+#aMnuLiveHelp, #aMnuLanguage { background-color: #bdbdbd;}
+#aMnuLogOut { background-color: #848484;}
+#aMnuCloseMenu { background-image: url("/_Static/Images/Menu/mnu-closemenu.png"); }
 #aMnuAbout { background-image: url("/_Static/Images/Menu/mnu-about.png"); }
 #aMnuLevels { background-image: url("/_Static/Images/Menu/mnu-levels.png"); }
 #aMnuFAQ { background-image: url("/_Static/Images/Menu/mnu-faq.png"); }
 #aMnuTerms { background-image: url("/_Static/Images/Menu/mnu-terms.png"); }
-#aCatalogue { background-image: url("/_Static/Images/Menu/mnu-home.png"); }
+#aCatalogue { background-image: url("/_Static/Images/Menu/mnu-catalogue.png"); }
 

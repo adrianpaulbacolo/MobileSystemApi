@@ -10,16 +10,17 @@
             <div><a class="ui-btn ui-gray ui-mini" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></a></div>
         </li>
         <% } %>
-
+         <li data-icon="false" class="ui-icon" id="blueli" >Quick Links</li>
         <li data-icon="false" class="ui-icon"><a rel="about" id="aMnuAbout" href="/_Static/Info/About.aspx" data-ajax="false">ABOUT REWARDS</a></li>
         <li data-icon="false" class="ui-icon"><a rel="levels" id="aMnuLevels" href="/_Static/Info/Levels.aspx" data-ajax="false">REWARD LEVELS</a></li>
-          <li data-icon="false" class="ui-icon"><a rel="faq" id="aMnuFAQ" href="/_Static/Info/FAQ.aspx" data-ajax="false">FAQ</a></li>
-        <li data-icon="false" class="ui-icon"><a rel="terms" id="aMnuTerms" href="/_Static/Info/Terms.aspx" data-ajax="false">TERMS & CONDITIONS</a></li>
+        
         <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
         <li data-icon="false" class="ui-icon"><a rel="catalogue" id="aCatalogue" href="/Catalogue" data-ajax="false">CATALOGUE</a></li>
-<% } %>
+        <% } %>
+          <li data-icon="false" class="ui-icon"><a rel="faq" id="aMnuFAQ" href="/_Static/Info/FAQ.aspx" data-ajax="false">FAQ</a></li>
+        <li data-icon="false" class="ui-icon"><a rel="terms" id="aMnuTerms" href="/_Static/Info/Terms.aspx" data-ajax="false">TERMS & CONDITIONS</a></li>
         <li data-icon="false" class="ui-misc"><a id="aMnuLiveHelp" runat="server" href="/LivePerson/Default.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%></a></li>
-        <!--<li data-icon="false" class="ui-misc"><a id="aMnuContactUs" runat="server" href="/ContactUs.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("contactUs", commonVariables.LeftMenuXML)%></a></li>-->
+        
         <li data-icon="false" class="ui-misc"><a id="aMnuLanguage" runat="server" href="/Lang.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("language", commonVariables.LeftMenuXML)%></a></li>
         <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %><li data-icon="false" class="liLogout"><a id="aMnuLogOut" runat="server" href="/Logout" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("logout", commonVariables.LeftMenuXML)%></a></li>
         <% } %>
