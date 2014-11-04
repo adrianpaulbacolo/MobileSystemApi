@@ -8,41 +8,43 @@
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 
 
-   
+
 </head>
 <body>
     <!--#include virtual="~/_static/splash.shtml" -->
-             <style>
+    <style>
         table td div.pointDetailMainHeader {
             background: none repeat scroll 0 0 #404040;
             display: block;
             font-weight: bold !important;
-            line-height: 30px;
+            line-height: 40px;
             position: relative;
             text-align: left;
-                padding: 0 5pt;
+            padding: 0 8pt;
+            font-size: 10pt;
         }
 
         table td div.pointsLink {
             background: none repeat scroll 0 0 #333;
             display: block;
-         line-height: 30px;
-             padding: 0 5pt;
+            line-height: 40px;
+            padding: 0 8pt;
+            font-size: 10pt;
         }
 
         table td div.points {
             background: none repeat scroll 0 0 #333;
             display: block;
-             line-height: 30px;
-                 padding: 0 5pt;
+            line-height: 40px;
+            padding: 0 8pt;
+            font-size: 10pt;
         }
-
     </style>
 
     <div data-role="page" data-theme="b">
 
         <!--#include virtual="~/_static/header.shtml" -->
-        
+
         <div class="ui-content" role="main">
             <div class="div-page-header"><span>Account Summary</span></div>
 
