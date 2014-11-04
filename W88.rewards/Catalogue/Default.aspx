@@ -20,7 +20,7 @@
         <div class="ui-content" role="main">
             <div id="divLoginMessage" runat="server"><span id="lblLogin" runat="server">please login to start redemption</span></div>
             <div id="divLevel" runat="server" visible="False">
-                <a id="lblPoint" runat="server" href="/Profile/Account.aspx" class="pointslink"></a>
+                <a id="lblPoint" runat="server" href="/Account" class="pointslink"></a>
             </div>
 
             <div class="page-content">

@@ -6,13 +6,22 @@
     <title>Account Summary</title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
-
+   
 
 
 </head>
 <body>
     <!--#include virtual="~/_static/splash.shtml" -->
-    <style>
+    
+    <div data-role="page" data-theme="b" data-ajax="false">
+
+        <!--#include virtual="~/_static/header.shtml" -->
+
+        <div class="ui-content" role="main">
+            <div class="div-page-header"><span>Account Summary</span></div>
+
+            <div class="page-content">
+                 <style>
         table td div.pointDetailMainHeader {
             background: none repeat scroll 0 0 #404040;
             display: block;
@@ -41,16 +50,8 @@
         }
     </style>
 
-    <div data-role="page" data-theme="b">
-
-        <!--#include virtual="~/_static/header.shtml" -->
-
-        <div class="ui-content" role="main">
-            <div class="div-page-header"><span>Account Summary</span></div>
-
-            <div class="page-content">
                 <div class="history_menu">
-                    <asp:ListView ID="ListviewHistory" runat="server">
+                    <asp:ListView ID="ListviewHistory" runat="server"  data-ajax="false"> 
                         <LayoutTemplate>
                             <table id="tblHistory" cellpadding="1" cellspacing="0" style="width: 100%">
                                 <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
@@ -67,7 +68,7 @@
                                     <% 
                                         if ((int)HttpContext.Current.Session["pointsAwarded"] > 0)
                                         {%>
-                                    <a href='javascript:showProduct();' id='pointsProduct' data-toggle='popover' data-html='true' data-placement='bottom' data-content='' runat="server">
+                                    <a href='/Account?type=stake' id='pointsProduct' runat="server">
                                         <div class="pointsLink" style="text-align: right;"><span><%#DataBinder.Eval(Container.DataItem,"stake")%></span></div>
                                     </a>
                                     <% }
@@ -87,7 +88,7 @@
                                     <% 
                                         if ((int)HttpContext.Current.Session["pointsAwarded"] > 0)
                                         {%>
-                                    <a href='javascript:showProduct();' id='pointsEarn' data-toggle='popover' data-html='true' data-placement='bottom' data-content='' runat="server">
+                                   <a href='/Account?type=earning'  id='pointsEarn' runat="server">
                                         <div class="pointsLink" style="text-align: right;"><span><%#DataBinder.Eval(Container.DataItem,"earning")%></span></div>
                                     </a>
                                     <% }
@@ -105,7 +106,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <a href='javascript:showRedeem();' id='pointsRedeem' data-toggle='popover' data-html='true' data-placement='bottom' data-content='' runat="server">
+                                   <a href='/Account?type=redeem' id='pointsRedeem'  runat="server">
                                         <div class="pointsLink" style="text-align: right;"><span><%#DataBinder.Eval(Container.DataItem,"redemption")%></span></div>
                                     </a>
                                 </td>
@@ -122,7 +123,7 @@
                                         if ((int)HttpContext.Current.Session["pointsExpired"] > 0)
                                         {%>
 
-                                    <a href='javascript:showExpired();' id='pointsExpired' data-toggle='popover' data-html='true' data-placement='bottom' data-content='' runat="server">
+                                        <a href='/Account?type=expired'  id='pointsExpired'  runat="server">
                                         <div class="pointsLink" style="text-align: right;"><span><%#DataBinder.Eval(Container.DataItem,"expired")%></span></div>
                                     </a>
                                     <% }
@@ -142,7 +143,7 @@
                                     <% 
                                         if ((int)HttpContext.Current.Session["pointsAdjusted"] > 0)
                                         {%>
-                                    <a href='javascript:showAdjusted();' id='pointsAdjusted' data-toggle='popover' data-html='true' data-placement='bottom' data-content='' runat="server">
+                                                    <a href='/Account?type=adjusted' id='pointsAdjusted' runat="server">
                                         <div class="pointsLink" style="text-align: right;"><span><%#DataBinder.Eval(Container.DataItem,"adjusted")%></span></div>
                                     </a>
                                     <% }
@@ -162,7 +163,7 @@
                                     <% 
                                         if ((int)HttpContext.Current.Session["pointsCart"] > 0)
                                         {%>
-                                    <a href='/Cart' id='pointsCart' data-toggle='popover' data-html='true' data-placement='bottom' data-content='' runat="server">
+                                                      <a href='/Account?type=cart' id='pointsCart'  runat="server">
                                         <div class="pointsLink" style="text-align: right;"><span><%#DataBinder.Eval(Container.DataItem,"cart")%></span></div>
                                     </a>
                                     <% }

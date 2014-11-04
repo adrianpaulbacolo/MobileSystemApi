@@ -6,5 +6,6 @@
   <mr4 AbsoluteURL="~/Lang.aspx"><![CDATA[Lang]]></mr4>
   <mr5 AbsoluteURL="~/ContactUs.aspx"><![CDATA[ContactUs]]></mr5>
   <mr6 AbsoluteURL="~/Catalogue/Redeem.aspx"><![CDATA[Redeem/Submit]]></mr6>
+  <mr7 AbsoluteURL="~/Profile/Account.aspx"><![CDATA[Account]]></mr7>
 
 </MapRoutes>
