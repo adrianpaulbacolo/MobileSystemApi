@@ -6,52 +6,50 @@
     <title>Account Summary</title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
-   
+
 
 
 </head>
 <body>
     <!--#include virtual="~/_static/splash.shtml" -->
-    
+
     <div data-role="page" data-theme="b" data-ajax="false">
 
         <!--#include virtual="~/_static/header.shtml" -->
 
         <div class="ui-content" role="main">
-            <div class="div-page-header"><span>Account Summary</span></div>
+            <div class="div-page-header"><span><%= title %></span></div>
 
             <div class="page-content">
-                 <style>
-        table td div.pointDetailMainHeader {
-            background: none repeat scroll 0 0 #404040;
-            display: block;
-            font-weight: bold !important;
-            line-height: 40px;
-            position: relative;
-            text-align: left;
-            padding: 0 8pt;
-            font-size: 10pt;
-        }
+                <style>
+                    table td div.pointDetailMainHeader {
+                        background: none repeat scroll 0 0 #404040;
+                        display: block;
+                        font-weight: bold !important;
+                        line-height: 40px;
+                        position: relative;
+                        text-align: left;
+                        padding: 0 8pt;
+                        font-size: 10pt;
+                    }
 
-        table td div.pointsLink {
-            background: none repeat scroll 0 0 #333;
-            display: block;
-            line-height: 40px;
-            padding: 0 8pt;
-            font-size: 10pt;
-        }
+                    table td div.pointsLink {
+                        background: none repeat scroll 0 0 #333;
+                        display: block;
+                        line-height: 40px;
+                        padding: 0 8pt;
+                        font-size: 10pt;
+                    }
 
-        table td div.points {
-            background: none repeat scroll 0 0 #333;
-            display: block;
-            line-height: 40px;
-            padding: 0 8pt;
-            font-size: 10pt;
-        }
-    </style>
-
-                <div class="history_menu">
-                    <asp:ListView ID="ListviewHistory" runat="server"  data-ajax="false"> 
+                    table td div.points {
+                        background: none repeat scroll 0 0 #333;
+                        display: block;
+                        line-height: 40px;
+                        padding: 0 8pt;
+                        font-size: 10pt;
+                    }
+                </style>
+                    <asp:ListView ID="ListviewHistory" runat="server" data-ajax="false">
                         <LayoutTemplate>
                             <table id="tblHistory" cellpadding="1" cellspacing="0" style="width: 100%">
                                 <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
@@ -88,7 +86,7 @@
                                     <% 
                                         if ((int)HttpContext.Current.Session["pointsAwarded"] > 0)
                                         {%>
-                                   <a href='/Account?type=earning'  id='pointsEarn' runat="server">
+                                    <a href='/Account?type=earned' id='pointsEarn' runat="server">
                                         <div class="pointsLink" style="text-align: right;"><span><%#DataBinder.Eval(Container.DataItem,"earning")%></span></div>
                                     </a>
                                     <% }
@@ -106,7 +104,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                   <a href='/Account?type=redeem' id='pointsRedeem'  runat="server">
+                                    <a href='/Account?type=redeemed' id='pointsRedeem' runat="server">
                                         <div class="pointsLink" style="text-align: right;"><span><%#DataBinder.Eval(Container.DataItem,"redemption")%></span></div>
                                     </a>
                                 </td>
@@ -123,7 +121,7 @@
                                         if ((int)HttpContext.Current.Session["pointsExpired"] > 0)
                                         {%>
 
-                                        <a href='/Account?type=expired'  id='pointsExpired'  runat="server">
+                                    <a href='/Account?type=expired' id='pointsExpired' runat="server">
                                         <div class="pointsLink" style="text-align: right;"><span><%#DataBinder.Eval(Container.DataItem,"expired")%></span></div>
                                     </a>
                                     <% }
@@ -143,7 +141,7 @@
                                     <% 
                                         if ((int)HttpContext.Current.Session["pointsAdjusted"] > 0)
                                         {%>
-                                                    <a href='/Account?type=adjusted' id='pointsAdjusted' runat="server">
+                                    <a href='/Account?type=adjusted' id='pointsAdjusted' runat="server">
                                         <div class="pointsLink" style="text-align: right;"><span><%#DataBinder.Eval(Container.DataItem,"adjusted")%></span></div>
                                     </a>
                                     <% }
@@ -163,7 +161,7 @@
                                     <% 
                                         if ((int)HttpContext.Current.Session["pointsCart"] > 0)
                                         {%>
-                                                      <a href='/Account?type=cart' id='pointsCart'  runat="server">
+                                    <a href='/Account?type=cart' id='pointsCart' runat="server">
                                         <div class="pointsLink" style="text-align: right;"><span><%#DataBinder.Eval(Container.DataItem,"cart")%></span></div>
                                     </a>
                                     <% }
@@ -187,14 +185,22 @@
 
                         </ItemTemplate>
                     </asp:ListView>
-                </div>
 
-                <div id="lblNoRecord" runat="server" style="text-align: center; padding-right: 35px;">No record found</div>
+                    <div id="resultpanel" runat="server">
+                        
+                    </div>
+                <div id="lblNoRecord" runat="server" Visible="False" style="text-align: center; padding-right: 35px;">No record found</div>
             </div>
         </div>
         <!-- /content -->
         <!--#include virtual="~/_static/footer.shtml" -->
         <!--#include virtual="~/_static/navMenu.shtml" -->
+        
+        
+          <script type="text/javascript">
+
+              </script>
+
     </div>
     <!-- /page -->
 </body>
