@@ -115,7 +115,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <a href='/Account?type=redeemed' id='pointsRedeem' runat="server">
+                                    <a href='/Points?type=redeemed' id='pointsRedeem' runat="server">
                                         <div class="pointsLink" style="text-align: right;"><span><%#DataBinder.Eval(Container.DataItem,"redemption")%></span></div>
                                     </a>
                                 </td>
@@ -132,7 +132,7 @@
                                         if ((int)HttpContext.Current.Session["pointsExpired"] > 0)
                                         {%>
 
-                                    <a href='/Account?type=expired' id='pointsExpired' runat="server">
+                                    <a href='/Points?type=expired' id='pointsExpired' runat="server">
                                         <div class="pointsLink" style="text-align: right;"><span><%#DataBinder.Eval(Container.DataItem,"expired")%></span></div>
                                     </a>
                                     <% }
@@ -152,7 +152,7 @@
                                     <% 
                                         if ((int)HttpContext.Current.Session["pointsAdjusted"] > 0)
                                         {%>
-                                    <a href='/Account?type=adjusted' id='pointsAdjusted' runat="server">
+                                    <a href='/Points?type=adjusted' id='pointsAdjusted' runat="server">
                                         <div class="pointsLink" style="text-align: right;"><span><%#DataBinder.Eval(Container.DataItem,"adjusted")%></span></div>
                                     </a>
                                     <% }
@@ -172,7 +172,7 @@
                                     <% 
                                         if ((int)HttpContext.Current.Session["pointsCart"] > 0)
                                         {%>
-                                    <a href='/Account?type=cart' id='pointsCart' runat="server">
+                                    <a href='/Points?type=cart' id='pointsCart' runat="server" data-ajax="false">
                                         <div class="pointsLink" style="text-align: right;"><span><%#DataBinder.Eval(Container.DataItem,"cart")%></span></div>
                                     </a>
                                     <% }
@@ -198,7 +198,6 @@
                     </asp:ListView>
 
                     <div id="resultpanel" runat="server">
-                        
                     </div>
                 <div id="lblNoRecord" runat="server" Visible="False" style="text-align: center; padding-right: 35px;">No record found</div>
             </div>
