@@ -29,24 +29,35 @@
                         line-height: 40px;
                         position: relative;
                         text-align: left;
-                        padding: 0 8pt;
+                        padding: 0 5pt;
                         font-size: 10pt;
+                    }
+
+                    table td div.pointDetailMainHeaderHor {
+                        background: none repeat scroll 0 0 #404040;
+                        display: block;
+                        font-size: 10pt;
+                        font-weight: bold !important;
+                      min-height: 35px;
+                        padding: 4pt 5pt;
+                        position: relative;
+                        text-align: left;
                     }
 
                     table td div.pointsLink {
                         background: none repeat scroll 0 0 #333;
                         display: block;
                         line-height: 40px;
-                        padding: 0 8pt;
-                        font-size: 10pt;
+                        padding: 0 5pt;
+                        font-size: 9pt;
                     }
 
                     table td div.points {
                         background: none repeat scroll 0 0 #333;
                         display: block;
                         line-height: 40px;
-                        padding: 0 8pt;
-                        font-size: 10pt;
+                        padding: 0 5pt;
+                        font-size: 9pt;
                     }
                 </style>
                     <asp:ListView ID="ListviewHistory" runat="server" data-ajax="false">
@@ -86,7 +97,7 @@
                                     <% 
                                         if ((int)HttpContext.Current.Session["pointsAwarded"] > 0)
                                         {%>
-                                    <a href='/Account?type=earned' id='pointsEarn' runat="server">
+                                    <a href='/Account?type=stake' id='pointsEarn' runat="server">
                                         <div class="pointsLink" style="text-align: right;"><span><%#DataBinder.Eval(Container.DataItem,"earning")%></span></div>
                                     </a>
                                     <% }

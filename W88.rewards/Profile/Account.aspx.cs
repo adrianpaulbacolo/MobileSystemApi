@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Activities.Statements;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IdentityModel;
@@ -50,18 +51,18 @@ public partial class Account : BasePage
                         case "stake":
                             if (walletid == "") //all stakes
                             {
-                                title = "Earning Listing";
+                                title = "Earning Listing by Product";
                                 html = TotalStake(userMemberCode);
                             }
                             else if (!string.IsNullOrEmpty(walletid) && yearmonth == "") //stakes by walletid
                             {
                                 title = "Earning Listing by Month";
-                                html = TotalStakeMonth(userMemberCode);
+                                html = TotalStakeMonth(userMemberCode, walletid);
                             }
                             else //stakes detail
                             {
                                 title = "Earning Listing Detail";
-                                html = TotalStakeDetail(userMemberCode);
+                                html = TotalStakeDetail(userMemberCode, walletid, yearmonth);
                             }
 
                             if (!string.IsNullOrEmpty(html))
@@ -69,9 +70,7 @@ public partial class Account : BasePage
                             else
                                 lblNoRecord.Visible = true;
                             ListviewHistory.Visible = false;
-                            break;
-                        case "earned":
-                            title = "Earning Listing";
+
                             break;
                         case "redeemed":
                             title = "Redemption Listing";
@@ -89,7 +88,7 @@ public partial class Account : BasePage
                             title = "Account Summary";
                             System.Data.DataSet dsDisplay = AccountSummary(userMemberCode);
                             if (dsDisplay.Tables[0].Rows.Count > 0)
-                            {
+                            {  
                                 lblNoRecord.Visible = false;
                                 ListviewHistory.DataSource = dsDisplay.Tables[0];
                                 ListviewHistory.DataBind();
@@ -197,7 +196,7 @@ public partial class Account : BasePage
     }
 
 
-    public string TotalStake(string userMemberCode)
+    public string TotalStake1(string userMemberCode)
     {
 
         using (RewardsServices.RewardsServicesClient sClient = new RewardsServices.RewardsServicesClient())
@@ -258,15 +257,212 @@ public partial class Account : BasePage
         }
     }
 
-
-    public string TotalStakeMonth(string userMemberCode)//by wallet id
+    public string TotalStake(string userMemberCode)
     {
-        return "";
+
+        using (RewardsServices.RewardsServicesClient sClient = new RewardsServices.RewardsServicesClient())
+        {
+            string html = "";
+            System.Data.DataSet ds = sClient.getEarnProductFE(commonVariables.OperatorId, userMemberCode);
+
+            if (ds.Tables.Count > 0)
+            {
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    DataTable dt = ds.Tables[0];
+                    html = "<table>";
+                    string th = "";
+                    string tr = "";
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        string columnname = "";
+                        tr += "<tr>";
+
+                        for (int j = 0; j < dt.Columns.Count; j++)
+                        {
+                            if (i == 0)
+                            {
+                                switch (dt.Columns[j].ColumnName)
+                                {
+                                    case "walletName":
+                                        columnname = "Product Wallet";
+                                        th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
+                                        break;
+                                    case "totalStake":
+                                        columnname = "Total Stake";
+                                        th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
+                                        break;
+                                    case "pointsAwarded":
+                                        columnname = "Points Earn";
+                                        th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+
+                            if (j == 0)
+                                tr += "";
+                            else if (j == 2) //stake
+                                tr += "<td><div class='points'><span>" + String.Format("{0:#,###,##0.##}", dt.Rows[i].ItemArray[j]) + "</span></div></td>";
+                            else if (j == 3) //points earn
+                                tr += "<td><a href='/Account?type=stake&walletid=" + dt.Rows[i].ItemArray[0] + "'><div class='points'><span>" +
+                                        String.Format("{0:#,###,##0.##}", dt.Rows[i].ItemArray[j]) + "</span></div></a></td>";
+                            else
+                                tr += "<td><div class='points'><span>" + dt.Rows[i].ItemArray[j] +
+                                        "</span></div></td>";
+
+                        }
+                        tr += "</tr>";
+                    }
+                    html = "<table width='100%'>" + "<tr>" + th + "</tr>" + tr + "</table>";
+
+                }
+            }
+
+            return html;
+
+        }
     }
 
-    public string TotalStakeDetail(string userMemberCode)//by wallet id, year, month
+    public string TotalStakeMonth(string userMemberCode, string walletid)//by wallet id
     {
-        return "";
+        using (RewardsServices.RewardsServicesClient sClient = new RewardsServices.RewardsServicesClient())
+        {
+            System.Data.DataSet ds = sClient.getEarnMonthFE(commonVariables.OperatorId, userMemberCode, walletid);
+
+            if (ds.Tables.Count > 0)
+            {
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    DataTable dt = ds.Tables[0];
+                    html = "";
+                    string th = "";
+                    string tr = "";
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        string columnname = "";
+                        tr += "<tr>";
+
+                        for (int j = 0; j < dt.Columns.Count; j++)
+                        {
+                            if (i == 0)
+                            {
+                                switch (dt.Columns[j].ColumnName)
+                                {
+                                    case "pointsYear":
+                                        columnname = "Year";
+                                        th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
+                                        break;
+                                    case "pointsMonth":
+                                        columnname = "Month";
+                                        th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
+                                        break;
+                                    case "totalStake":
+                                        columnname = "Total Stake";
+                                        th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
+                                        break;
+                                    case "pointsAwarded":
+                                        columnname = "Points Earn";
+                                        th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+                            //j=0 year j=1 month
+                            if (j == 2) //stake
+                                tr += "<td><div class='points'><span>" + String.Format("{0:#,###,##0.##}", dt.Rows[i].ItemArray[j]) + "</span></div></td>";
+                            else if (j == 3) //points earn
+                                tr += "<td><a href='/Account?type=stake&walletid=" + walletid + "&yearmonth=" + dt.Rows[i].ItemArray[0] + dt.Rows[i].ItemArray[1] + "'><div class='points'><span>" +
+                                        String.Format("{0:#,###,##0.##}", dt.Rows[i].ItemArray[j]) + "</span></div></a></td>";
+                            else
+                                tr += "<td><div class='points'><span>" + dt.Rows[i].ItemArray[j] +
+                                        "</span></div></td>";
+
+                        }
+                        tr += "</tr>";
+                    }
+                    html = "<table width='100%'>" + "<tr>" + th + "</tr>" + tr + "</table>";
+                }
+            }
+
+        }
+        return html;
+    }
+
+    public string TotalStakeDetail(string userMemberCode, string walletid, string yearmonth)//by wallet id, year, month
+    {
+        int year = int.Parse(yearmonth.Substring(0, 4));
+        int month = (yearmonth.Length > 5) ? int.Parse(yearmonth.Substring(4, 2)) : int.Parse(yearmonth.Substring(4, 1));
+        
+        using (RewardsServices.RewardsServicesClient sClient = new RewardsServices.RewardsServicesClient())
+        {
+          System.Data.DataSet ds = sClient.getEarnDetailFE(commonVariables.OperatorId, userMemberCode, walletid, month, year);
+
+            if (ds.Tables.Count > 0)
+            {
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                     DataTable dt = ds.Tables[0];
+                    html = "";
+                    string th = "";
+                    string tr = "";
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        string columnname = "";
+                        tr += "<tr>";
+
+                        for (int j = 0; j < dt.Columns.Count; j++)
+                        {
+                            if (i == 0)
+                            {
+                                switch (dt.Columns[j].ColumnName)
+                                {
+                                    case "createdDateTime":
+                                        columnname = "Date";
+                                        th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
+                                        break;
+                                    case "transactionDateTime":
+                                        columnname = "Bet Date";
+                                        th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
+                                        break;
+                                    case "totalStake":
+                                        columnname = "Total Stake";
+                                        th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
+                                        break;
+                                    case "pointsAwarded":
+                                        columnname = "Points Earn";
+                                        th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
+                                        break;
+                                    default:
+                                       // th += "<td><div class='pointDetailMainHeaderHor'><span>" + dt.Columns[j].ColumnName + "</span></div></td>";
+                                        break;
+                                }
+                            }
+                           
+                            if (j == 2) //stake
+                                tr += "<td><div class='points'><span>" + String.Format("{0:#,###,##0.##}", dt.Rows[i].ItemArray[j]) + "</span></div></td>";
+                            else if (j == 3) //points earn
+                                tr += "<td><div class='points'><span>" +
+                                      String.Format("{0:#,###,##0.##}", dt.Rows[i].ItemArray[j]) + "</span></div></td>";
+                            else
+                                tr += "<td><div class='points'><span>" +
+                                      Convert.ToString(
+                                          DateTime.Parse(dt.Rows[i].ItemArray[j].ToString()).ToString("yyyy/MM/dd")) +
+                                      "</span></div></td>";
+
+                        }
+                        tr += "</tr>";
+                    }
+                    html = "<table width='100%'>" + "<tr>" + th + "</tr>" + tr + "</table>";
+                }
+                  
+                }
+            }
+
+        
+        return html;
     }
 
 }
