@@ -219,8 +219,9 @@
                             </div>
                         </div>
                         <div class="ui-field-contain ui-hide-label">
-                            <asp:Button ID="btnSubmit" runat="server" Text="Search" CssClass="button-blue" data-corners="false" OnClientClick="validate();" OnClick="btnSubmit_Click" />
+                            <asp:Button ID="btnSubmit" runat="server" Text="Search" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" />
                         </div>
+                          
 
                         <div id="resultpanel" runat="server">
                     </div>
