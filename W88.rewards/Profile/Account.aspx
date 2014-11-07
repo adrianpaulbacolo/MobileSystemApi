@@ -169,17 +169,9 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <% 
-                                        if ((int)HttpContext.Current.Session["pointsCart"] > 0)
-                                        {%>
-                                    <a href='/Points?type=cart' id='pointsCart' runat="server" data-ajax="false">
-                                        <div class="pointsLink" style="text-align: right;"><span><%#DataBinder.Eval(Container.DataItem,"cart")%></span></div>
-                                    </a>
-                                    <% }
-                                        else
-                                        {%>
+                                  
                                     <div class="points" style="text-align: right;"><span><%#DataBinder.Eval(Container.DataItem,"cart")%></span></div>
-                                    <% } %>               
+                                            
                                 </td>
                             </tr>
                             <tr>
