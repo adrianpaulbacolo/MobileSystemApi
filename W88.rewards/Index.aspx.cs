@@ -68,7 +68,8 @@ public partial class _Index : BasePage
             //HttpContext.Current.Session.Add("RiskId", Convert.ToString(dsSignin.Tables[0].Rows[0]["riskId"]));
             //HttpContext.Current.Session.Add("PartialSignup", Convert.ToString(dsSignin.Tables[0].Rows[0]["partialSignup"]));
             //HttpContext.Current.Session.Add("ResetPassword", Convert.ToString(dsSignin.Tables[0].Rows[0]["resetPassword"]));
-
+           
+        
 
             DataSet ds = sClient.getCatalogueSearch(commonVariables.OperatorId, commonVariables.SelectedLanguage,
                 string.IsNullOrEmpty((string)Session["CountryCode"]) ? "0" : (string)Session["CountryCode"],
@@ -89,6 +90,9 @@ public partial class _Index : BasePage
                     string imgNameOff = dr["imageNameOff"].ToString().Split('.')[0];
                     string imgPathOff = imgNameOn + ".png";
 
+
+                    string catname = dr["categoryName"].ToString();
+
                     dr["imagePathOn"] = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings.Get("ImagesDirectoryPath") + "Category/" + imgPathOn);
                     dr["imagePathOff"] = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings.Get("ImagesDirectoryPath") + "Category/" + imgPathOff);
 
@@ -104,13 +108,9 @@ public partial class _Index : BasePage
                         }
                         else
                             dr["redemptionValidity"] = "1";
-
                     }
                     else
-
                         dr["redemptionValidity"] += "0";
-
-
                 }
             }
 

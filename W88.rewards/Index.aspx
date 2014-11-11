@@ -6,12 +6,9 @@
     <title><%=commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML).Replace(" -", "")/* + commonCulture.ElementValues.getResourceString("home", commonVariables.LeftMenuXML)*/%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="~/_Static/Js/Main.js"></script>
-
-
     <link type="text/css" href="/_Static/Css/IndexScroll.css" rel="stylesheet">
     <!--<![endif]-->
 
-   
 </head>
 <body>
     <!--#include virtual="~/_static/splash.shtml" -->
@@ -39,18 +36,13 @@
                                 <li>
                                     <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                                        { %>
-                                    <%-- <a data-ajax="false" href="/_Secure/Login.aspx?redirect=/Catalogue&categoryId=<%#DataBinder.Eval(Container.DataItem,"categoryId")%>&sortBy=2" data-rel="dialog" data-transition="slidedown">--%>
-
                                     <a data-ajax="false" href="/Catalogue/?categoryId=<%#DataBinder.Eval(Container.DataItem,"categoryId")%>&sortBy=2">
-
-                                        <% }
+                                    <% }
                                        else
                                        {%>
                                         <a data-ajax="false" href="/Catalogue/?categoryId=<%#DataBinder.Eval(Container.DataItem,"categoryId")%>&sortBy=2">
                                             <% 
-                                       }%>
-
-                                            <img src="<%#DataBinder.Eval(Container.DataItem,"imagePathOff")%>" data-imageover="<%#DataBinder.Eval(Container.DataItem,"imagePathOn")%>" />
+                                       }%><img src="<%#DataBinder.Eval(Container.DataItem,"imagePathOff")%>" data-imageover="<%#DataBinder.Eval(Container.DataItem,"imagePathOn")%>" />
                                             <br />
                                             <div class="catName"><%#DataBinder.Eval(Container.DataItem,"categoryName")%></div>
                                         </a></li>
