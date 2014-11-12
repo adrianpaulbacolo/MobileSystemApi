@@ -109,7 +109,6 @@ body {
     background-color: #f1f1f1;
     text-shadow: none;
     color: #000;
-  
     border-left: 1px solid #ccc;
 }
 
@@ -236,6 +235,84 @@ body {
     background-size: 40px;
 }
 /*#endregion*/
+/*#endregion*/
+
+
+/*#region Info*/
+
+
+.info-page-content {
+    overflow: hidden;
+    max-width: 100%;
+    min-height: 100%;
+    /*border: 1px solid #333;*/
+    background: #252525;
+    padding: .8em 0.8em;
+    font: 11px Tahoma,Arial,Helvetica,sans-serif;
+}
+
+p, ol li {
+    color: #808080;
+    text-align: justify;
+}
+
+h6 {
+    color: #bfbfbf;
+    font-weight: bold;
+    font-size: 9pt;
+}
+
+ol {
+    padding-left: 18pt;
+}
+
+table {
+    border-collapse: separate;
+    border-color: gray;
+}
+
+td {
+    color: #808080;
+}
+
+.tableCss table {
+    background-color: #333333;
+}
+
+table tr .rowHeader {
+    background: none repeat scroll 0 0 #333333;
+}
+
+.rowHeader {
+    background: none repeat scroll 0 0 #404040 !important;
+    font-weight: bold;
+}
+
+.row1 {
+    background: none repeat scroll 0 0 #252525;
+}
+
+.row2 {
+    background: none repeat scroll 0 0 #1f1f1f;
+}
+
+.row3 {
+    background: none repeat scroll 0 0 #333333;
+}
+
+.row4 {
+    background: none repeat scroll 0 0 #404040;
+}
+
+.section-header {
+    color: #bfbfbf;
+    font-weight: bold;
+    line-height: 25px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-left: 5px;
+    background: none repeat scroll 0 0 #1c6080;
+}
 /*#endregion*/
 
 .div-content-wrapper {
