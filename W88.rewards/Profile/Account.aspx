@@ -181,7 +181,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="points" style="text-align: right;"><span><%#DataBinder.Eval(Container.DataItem,"cart")%></span></div>
+                                    <div class="points" style="text-align: right;"><span><%#DataBinder.Eval(Container.DataItem,"balance")%></span></div>
                                 </td>
                             </tr>
 
