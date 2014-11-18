@@ -114,8 +114,9 @@
 /*#region Product Scroll Bar*/
 
 .nodata {
-  color: white;
+      color: white;
     font-size: 12px;
+    font-weight: bold;
     position: relative;
     top: 20px;
 }
