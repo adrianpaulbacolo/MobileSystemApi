@@ -120,7 +120,7 @@ public partial class _Index : BasePage
             int pointLevelDiscount = 0;
             int totalCount = 0;
 
-            
+
             DataSet dsPr = sClient.getProductSearch(commonVariables.OperatorId, categoryId, commonVariables.SelectedLanguage, min, max, search,
                 countryCode, currencyCode, riskId, System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), sortBy, pageSize, pageNum);
 
@@ -158,65 +158,77 @@ public partial class _Index : BasePage
                 if (!dsPr.Tables[0].Columns.Contains("redemptionValidity"))
                     dsPr.Tables[0].Columns.Add("redemptionValidity");
 
-                foreach (DataRow dr in dsPr.Tables[0].Rows)
+                if (dsPr.Tables[0].Rows.Count > 0)
                 {
-                    if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+                    foreach (DataRow dr in dsPr.Tables[0].Rows)
                     {
-                        if (dr["discountPoints"] == DBNull.Value && pointLevelDiscount != 0 &&
-                            dr["productType"].ToString() != "1")
+                        if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                         {
-                            //reverse to new points maintain in bo Discount
-                            //dr["pointsRequired"] = int.Parse(dr["pointsRequired"].ToString()) - int.Parse(dr["discountPoints"].ToString());
-                            double percentage = Convert.ToDouble(pointLevelDiscount) / 100;
-                            int normalPoint = int.Parse(dr["pointsRequired"].ToString());
+                            if (dr["discountPoints"] == DBNull.Value && pointLevelDiscount != 0 &&
+                                dr["productType"].ToString() != "1")
+                            {
+                                //reverse to new points maintain in bo Discount
+                                //dr["pointsRequired"] = int.Parse(dr["pointsRequired"].ToString()) - int.Parse(dr["discountPoints"].ToString());
+                                double percentage = Convert.ToDouble(pointLevelDiscount) / 100;
+                                int normalPoint = int.Parse(dr["pointsRequired"].ToString());
 
-                            double points = Math.Floor(normalPoint * (1 - percentage));
-                            int pointAfterLevelDiscount = Convert.ToInt32(points);
-                            dr["pointsRequired"] = pointAfterLevelDiscount;
+                                double points = Math.Floor(normalPoint * (1 - percentage));
+                                int pointAfterLevelDiscount = Convert.ToInt32(points);
+                                dr["pointsRequired"] = pointAfterLevelDiscount;
+                            }
                         }
-                    }
 
-                    dr["imagePath"] =
-                        Convert.ToString(
-                            System.Configuration.ConfigurationManager.AppSettings.Get("ImagesDirectoryPath") +
-                            "Product/" + dr["imageName"]);
+                        dr["imagePath"] =
+                            Convert.ToString(
+                                System.Configuration.ConfigurationManager.AppSettings.Get("ImagesDirectoryPath") +
+                                "Product/" + dr["imageName"]);
 
-                    categoryId = dr["categoryId"].ToString(); //???? 
+                        categoryId = dr["categoryId"].ToString(); //???? 
 
-                    //remove - cause overwrite during redeem
-                    //System.Web.HttpContext.Current.Session["categoryId"] = categoryId;
+                        //remove - cause overwrite during redeem
+                        //System.Web.HttpContext.Current.Session["categoryId"] = categoryId;
 
 
-                    if (!string.IsNullOrEmpty((string)Session["user_riskID"]))
-                    {
-                        dr["redemptionValidity"] += ",";
-                        if (dr["redemptionValidity"].ToString().ToUpper() != "ALL,")
+                        if (!string.IsNullOrEmpty((string)Session["user_riskID"]))
                         {
-                            if (((string)dr["redemptionValidity"]).IndexOf(
-                                    ((string)Session["user_riskID"]).ToUpper() + ",") < 0)
-                                dr["redemptionValidity"] = "0";
+                            dr["redemptionValidity"] += ",";
+                            if (dr["redemptionValidity"].ToString().ToUpper() != "ALL,")
+                            {
+                                if (((string)dr["redemptionValidity"]).IndexOf(
+                                        ((string)Session["user_riskID"]).ToUpper() + ",") < 0)
+                                    dr["redemptionValidity"] = "0";
+                                else
+                                    dr["redemptionValidity"] = "1";
+                            }
                             else
                                 dr["redemptionValidity"] = "1";
                         }
                         else
-                            dr["redemptionValidity"] = "1";
+                            dr["redemptionValidity"] += "0";
                     }
-                    else
-                        dr["redemptionValidity"] += "0";
+
+
+                    if (sortBy == "2")
+                        dsPr.Tables[0].DefaultView.Sort = "pointsRequired";
+
+                    //john paging
+                    if (dsPr.Tables.Count > 1)
+                    {
+                        if (dsPr.Tables[1].Rows.Count > 0)
+                            totalCount = int.Parse(dsPr.Tables[1].Rows[0][0].ToString());
+                    }
+                    ListviewProduct.DataSource = dsPr.Tables[0];
+                    ListviewProduct.DataBind();
+                    lblnodata.Visible = false;
                 }
-            }
+                else
+                {
+                    lblnodata.Visible = true;
+                }
 
-            if (sortBy == "2")
-                dsPr.Tables[0].DefaultView.Sort = "pointsRequired";
-
-            //john paging
-            if (dsPr.Tables.Count > 1)
-            {
-                if (dsPr.Tables[1].Rows.Count > 0)
-                    totalCount = int.Parse(dsPr.Tables[1].Rows[0][0].ToString());
             }
-            ListviewProduct.DataSource = dsPr.Tables[0];
-            ListviewProduct.DataBind();
+           
+
 
         }
 

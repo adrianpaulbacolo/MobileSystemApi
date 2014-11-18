@@ -52,7 +52,7 @@
                 <div id="productwrapper">
                     <div id="resultwrapper">
                         <div id="resultscroller">
-
+                            <asp:Label ID="lblnodata" runat="server" CssClass="nodata" Text="Label" Visible="false">No product for this category yet.</asp:Label>
                             <asp:ListView ID="ListviewProduct" runat="server" GroupItemCount="5">
                                 <LayoutTemplate>
                                     <ul>

@@ -113,6 +113,13 @@
 
 /*#region Product Scroll Bar*/
 
+.nodata {
+  color: white;
+    font-size: 12px;
+    position: relative;
+    top: 20px;
+}
+
 #resultwrapper {
     position: absolute;
     z-index: 10;
