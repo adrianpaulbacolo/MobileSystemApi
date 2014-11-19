@@ -94,6 +94,7 @@
 }
 
 #categorylist li img {
+     max-height: 65px;
     width: 80px;
 }
 
