@@ -16,6 +16,8 @@ public partial class _Info_Terms : BasePage
         {
 
             string path = Server.MapPath("~").ToLower() + string.Format("_Static\\Info\\Terms\\TnC.{0}.htm", commonVariables.SelectedLanguage);
+                 // string path = Server.MapPath("~").ToLower() + string.Format("_static\\TnC\\TnC.{0}.htm", commonVariables.SelectedLanguage);
+          
             htmltext.Text = System.IO.File.ReadAllText(path);
           
         }

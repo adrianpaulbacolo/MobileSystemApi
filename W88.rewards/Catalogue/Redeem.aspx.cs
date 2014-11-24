@@ -14,6 +14,7 @@ using System.Text;
 
 public partial class Catalogue_Redeem : BasePage
 {
+    public string localResx = "~/default.{0}.aspx";
     protected string strAlertCode = string.Empty;
     protected string strAlertMessage = string.Empty;
     protected string productType = string.Empty;
@@ -27,12 +28,13 @@ public partial class Catalogue_Redeem : BasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
         if (!Page.IsPostBack)
         {
+
+            localResx = string.Format(localResx, commonVariables.SelectedLanguage);
+
             if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
             {
-
                 lblPoint.InnerText = "Points Bal: " + getCurrentPoints();
                 divLevel.Visible = true;
             }
@@ -461,7 +463,9 @@ public partial class Catalogue_Redeem : BasePage
                     if (current < totalPoint)
                     {
                         strAlertCode = "FAIL";
-                        strAlertMessage = "Your Points Are Insufficient. Please Earn More Reward Points For This Redemption!"; //lbl_points_insufficient
+                       // strAlertMessage = "Your Points Are Insufficient. Please Earn More Reward Points For This Redemption!"; 
+                        strAlertMessage = HttpContext.GetLocalResourceObject(localResx, "lbl_points_insufficient").ToString();
+                        //lbl_points_insufficient
                         return;
                     }
                     else
@@ -473,13 +477,15 @@ public partial class Catalogue_Redeem : BasePage
                         if (sClient.CheckRedemptionLimitWithRedemptionQuantity(commonVariables.OperatorId, strMemberCode, productID, quantity))
                         {
                             strAlertCode = "FAIL";
-                            strAlertMessage = "Redemption limit reached!"; //lbl_redemption_limit_reached
+                          //  strAlertMessage = "Redemption limit reached!"; 
+                            strAlertMessage = HttpContext.GetLocalResourceObject(localResx, "lbl_redemption_limit_reached").ToString();
                             return;
                         }
                         else if (totalCount > 10)
                         {
                             strAlertCode = "FAIL";
-                            strAlertMessage = "Redemption limit reached!"; //lbl_redemption_limit_reached
+                          //  strAlertMessage = "Redemption limit reached!"; 
+                            strAlertMessage = HttpContext.GetLocalResourceObject(localResx, "lbl_redemption_limit_reached").ToString();
                             return;
                         }
 
@@ -614,11 +620,13 @@ public partial class Catalogue_Redeem : BasePage
                                 sendMail(commonVariables.OperatorId, strMemberCode, redemptionId);
                                 strAlertCode = "SUCCESS";
                                 strAlertMessage = "Redemption is processed successfully!"; //lbl_redeem_success_processed
+                                strAlertMessage = HttpContext.GetLocalResourceObject(localResx, "lbl_redemption_limit_reached").ToString();
                             }
                             else
                             {
                                 strAlertCode = "SUCCESS";
                                 strAlertMessage = "Redemption is submitted successfully!"; //lbl_redeem_success_submit
+                                strAlertMessage = HttpContext.GetLocalResourceObject(localResx, "lbl_redemption_limit_reached").ToString();
                             }
 
                             lblPoint.InnerText = "Points Bal: " + getCurrentPoints();

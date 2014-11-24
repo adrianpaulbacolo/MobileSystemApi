@@ -14,9 +14,8 @@ public partial class _Info_Faq : BasePage
 
         if (!Page.IsPostBack)
         {
-
-            string path = Server.MapPath("~").ToLower() + string.Format("_Static\\Info\\FAQ\\FAQ_rewards_{0}.shtml", commonVariables.SelectedLanguage);
-            htmltext.Text = System.IO.File.ReadAllText(path);
+           string path = Server.MapPath("~").ToLower() + string.Format("_Static\\Info\\FAQ\\FAQ_rewards_{0}.shtml", commonVariables.SelectedLanguage);
+               htmltext.Text = System.IO.File.ReadAllText(path);
             
         }
     }
