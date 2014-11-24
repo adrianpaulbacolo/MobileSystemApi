@@ -224,19 +224,18 @@ public partial class _Index : BasePage
                         lblnodata.Visible = false;
                     }
                     else
-                    {
-                        lblnodata.Text = "There is no product for  yet.";
+                    { //translation needed
+                        string categoryname = getCategoryName(categoryId);
+                        if (string.IsNullOrEmpty(categoryname))
+                            lblnodata.Text = "There is no redemption for this category.";
+                        else
+                            lblnodata.Text = "There is no redemption for " + categoryname + ".";
                         lblnodata.Visible = true;
                     }
 
                 }
 
-
-
             }
-
-
-            //}
 
                 #endregion
         }
@@ -295,6 +294,28 @@ public partial class _Index : BasePage
 
     }
 
+
+    public static string getCategoryName(string categoryCode)
+    {
+
+        try
+        {
+
+            using (RewardsServices.RewardsServicesClient sClient = new RewardsServices.RewardsServicesClient())
+                {
+                    string categoryname = sClient.getCategoryName(categoryCode, commonVariables.SelectedLanguage);
+
+                    return categoryname;
+
+                }
+           
+        }
+        catch (Exception ex)
+        {
+            //throw;
+            return "";
+        }
+    }
 
     [WebMethod()]
     [System.Web.Script.Services.ScriptMethod(

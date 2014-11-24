@@ -62,6 +62,12 @@
   <wsdl:message name="IDeposit_validateNextPayTransaction_OutputMessage">
     <wsdl:part name="parameters" element="tns:validateNextPayTransactionResponse" />
   </wsdl:message>
+  <wsdl:message name="IDeposit_validateNextPayTransactionV1_InputMessage">
+    <wsdl:part name="parameters" element="tns:validateNextPayTransactionV1" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_validateNextPayTransactionV1_OutputMessage">
+    <wsdl:part name="parameters" element="tns:validateNextPayTransactionV1Response" />
+  </wsdl:message>
   <wsdl:message name="IDeposit_getDepositTransaction_InputMessage">
     <wsdl:part name="parameters" element="tns:getDepositTransaction" />
   </wsdl:message>
@@ -212,6 +218,18 @@
   <wsdl:message name="IDeposit_validateAllInPayTransaction_OutputMessage">
     <wsdl:part name="parameters" element="tns:validateAllInPayTransactionResponse" />
   </wsdl:message>
+  <wsdl:message name="IDeposit_createNextPayDepositTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:createNextPayDepositTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_createNextPayDepositTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createNextPayDepositTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_validateSdPayTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:validateSdPayTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_validateSdPayTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:validateSdPayTransactionResponse" />
+  </wsdl:message>
   <wsdl:portType name="IDeposit">
     <wsdl:operation name="createFastDepositTransaction">
       <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/createFastDepositTransaction" message="tns:IDeposit_createFastDepositTransaction_InputMessage" />
@@ -248,6 +266,10 @@
     <wsdl:operation name="validateNextPayTransaction">
       <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/validateNextPayTransaction" message="tns:IDeposit_validateNextPayTransaction_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/validateNextPayTransactionResponse" message="tns:IDeposit_validateNextPayTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="validateNextPayTransactionV1">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/validateNextPayTransactionV1" message="tns:IDeposit_validateNextPayTransactionV1_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/validateNextPayTransactionV1Response" message="tns:IDeposit_validateNextPayTransactionV1_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="getDepositTransaction">
       <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/getDepositTransaction" message="tns:IDeposit_getDepositTransaction_InputMessage" />
@@ -349,6 +371,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/validateAllInPayTransaction" message="tns:IDeposit_validateAllInPayTransaction_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/validateAllInPayTransactionResponse" message="tns:IDeposit_validateAllInPayTransaction_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="createNextPayDepositTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/createNextPayDepositTransaction" message="tns:IDeposit_createNextPayDepositTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/createNextPayDepositTransactionResponse" message="tns:IDeposit_createNextPayDepositTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="validateSdPayTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/validateSdPayTransaction" message="tns:IDeposit_validateSdPayTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/validateSdPayTransactionResponse" message="tns:IDeposit_validateSdPayTransaction_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDeposit" type="tns:IDeposit">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -426,6 +456,15 @@
     </wsdl:operation>
     <wsdl:operation name="validateNextPayTransaction">
       <soap:operation soapAction="http://tempuri.org/IDeposit/validateNextPayTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateNextPayTransactionV1">
+      <soap:operation soapAction="http://tempuri.org/IDeposit/validateNextPayTransactionV1" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -651,6 +690,24 @@
     </wsdl:operation>
     <wsdl:operation name="validateAllInPayTransaction">
       <soap:operation soapAction="http://tempuri.org/IDeposit/validateAllInPayTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createNextPayDepositTransaction">
+      <soap:operation soapAction="http://tempuri.org/IDeposit/createNextPayDepositTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateSdPayTransaction">
+      <soap:operation soapAction="http://tempuri.org/IDeposit/validateSdPayTransaction" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

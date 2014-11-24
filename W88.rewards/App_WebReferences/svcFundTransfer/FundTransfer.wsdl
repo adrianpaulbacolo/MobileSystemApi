@@ -19,6 +19,12 @@
   <wsdl:message name="IFundTransfer_initiateClaim_OutputMessage">
     <wsdl:part name="parameters" element="tns:initiateClaimResponse" />
   </wsdl:message>
+  <wsdl:message name="IFundTransfer_initiateClaimInternal_InputMessage">
+    <wsdl:part name="parameters" element="tns:initiateClaimInternal" />
+  </wsdl:message>
+  <wsdl:message name="IFundTransfer_initiateClaimInternal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:initiateClaimInternalResponse" />
+  </wsdl:message>
   <wsdl:portType name="IFundTransfer">
     <wsdl:operation name="initiateTransfer">
       <wsdl:input wsaw:Action="http://tempuri.org/IFundTransfer/initiateTransfer" message="tns:IFundTransfer_initiateTransfer_InputMessage" />
@@ -27,6 +33,10 @@
     <wsdl:operation name="initiateClaim">
       <wsdl:input wsaw:Action="http://tempuri.org/IFundTransfer/initiateClaim" message="tns:IFundTransfer_initiateClaim_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFundTransfer/initiateClaimResponse" message="tns:IFundTransfer_initiateClaim_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="initiateClaimInternal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFundTransfer/initiateClaimInternal" message="tns:IFundTransfer_initiateClaimInternal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFundTransfer/initiateClaimInternalResponse" message="tns:IFundTransfer_initiateClaimInternal_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IFundTransfer" type="tns:IFundTransfer">
@@ -42,6 +52,15 @@
     </wsdl:operation>
     <wsdl:operation name="initiateClaim">
       <soap:operation soapAction="http://tempuri.org/IFundTransfer/initiateClaim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="initiateClaimInternal">
+      <soap:operation soapAction="http://tempuri.org/IFundTransfer/initiateClaimInternal" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

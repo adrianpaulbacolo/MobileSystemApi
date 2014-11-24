@@ -101,10 +101,41 @@ body {
     letter-spacing: 1px;
 }
 
+.title {
+       background: #1C607F;
+    padding: .5em 0;
+    color: #f1f1f1;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+      padding-left: .5em;
+
+}
+
+.contentTitle {
+        background: #1C607F;
+    padding: .5em 0;
+    color: #f1f1f1;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+      padding-left: .5em;
+}
+
+
+
+
     .div-page-header span {
         padding-left: .5em;
     }
 
+.subTitle {
+    color: #2a8fbd;
+    font-weight: bold;
+
+}
+
+    
 #divLoginMessage {
     background-color: #f1f1f1;
     text-shadow: none;
@@ -117,6 +148,12 @@ body {
         line-height: 2em;
         font-size: .9em;
     }
+
+
+.sectionLink {
+    display: none;
+}
+
 
 /*#region navigation-footer*/
 .div-nav-footer {
@@ -241,15 +278,15 @@ body {
 /*#region Info*/
 
 
-.info-page-content {
+.info-page-content, .contentArticle, .textContent, .textContentLevel{
     overflow: hidden;
     max-width: 100%;
     min-height: 100%;
-    /*border: 1px solid #333;*/
     background: #252525;
     padding: .8em 0.8em;
     font: 11px Tahoma,Arial,Helvetica,sans-serif;
 }
+
 
 p, ol li {
     color: #808080;
@@ -289,11 +326,11 @@ table tr .rowHeader {
 }
 
 .row1 {
-    background: none repeat scroll 0 0 #252525;
+    background: none repeat scroll 0 0 #333333;
 }
 
 .row2 {
-    background: none repeat scroll 0 0 #1f1f1f;
+    background: none repeat scroll 0 0 #404040;
 }
 
 .row3 {

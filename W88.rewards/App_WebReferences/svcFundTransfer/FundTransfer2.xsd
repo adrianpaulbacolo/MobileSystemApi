@@ -14,6 +14,7 @@
         <xs:element minOccurs="0" name="transferAmount" type="xs:decimal" />
         <xs:element minOccurs="0" name="promoCode" nillable="true" type="xs:string" />
         <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Services" minOccurs="0" name="transferBy" type="q1:transferOrigin" />
+        <xs:element minOccurs="0" name="onBehalf" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -58,6 +59,34 @@
         </xs:element>
         <xs:element minOccurs="0" name="processCode" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="processText" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="initiateClaimInternal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strTransferTo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="operatorId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="siteCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="memberCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currencyCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="claimCode" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Services" minOccurs="0" name="transferBy" type="q3:transferOrigin" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="initiateClaimInternalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="initiateClaimInternalResult" nillable="true">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:any minOccurs="0" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="statusCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="statusText" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

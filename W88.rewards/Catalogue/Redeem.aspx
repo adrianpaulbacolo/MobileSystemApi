@@ -13,10 +13,12 @@
     <!--#include virtual="~/_static/splash.shtml" -->
     <div id="divMain" data-role="page" data-theme="b" data-ajax="false">
         <!--#include virtual="~/_static/header.shtml" -->
-        <div class="ui-content" role="main">
-            <div id="divLevel" runat="server" visible="False">
-                <span id="lblPoint" runat="server"></span>
+  
+               <div id="divLevel" runat="server" visible="False">
+                <a id="lblPoint" runat="server" href="/Account" class="pointslink"></a>
             </div>
+
+
             <style type="text/css">
                 .div-content-wrapper > div {
                     margin-bottom: 6px;

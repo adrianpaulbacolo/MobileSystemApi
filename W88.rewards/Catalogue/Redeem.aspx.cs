@@ -513,7 +513,7 @@ public partial class Catalogue_Redeem : BasePage
                             Session["redemptionStatus"] = redemptionStatus;
                             for (int i = 1; i <= quantity; i++)
                             {
-                                redemptionId = sClient.addRedemptionFreebet(commonVariables.OperatorId, strMemberCode, productID, categoryId, productType, riskId, pointsRequired, createdBy, currencyCode, creditAmt, redemptionStatus, remarks, "0");
+                                redemptionId = sClient.addRedemptionFreebetNew(commonVariables.OperatorId, strMemberCode, productID, categoryId, productType, riskId, pointsRequired, createdBy, currencyCode, creditAmt, redemptionStatus, remarks, "0", 2);
 
                                 #region get member Info
                                 using (RewardsServices.RewardsServicesClient sClientMember = new RewardsServices.RewardsServicesClient())
@@ -549,7 +549,7 @@ public partial class Catalogue_Redeem : BasePage
                             for (int i = 1; i <= quantity; i++)
                             {
                                 if (productType == "2")
-                                    redemptionId = sClient.addRedemptionNormal(commonVariables.OperatorId, strMemberCode, productID, categoryId, productType, riskId, pointsRequired, createdBy, name, address, postal, city, country, contact, "0");
+                                    redemptionId = sClient.addRedemptionNormalNew(commonVariables.OperatorId, strMemberCode, productID, categoryId, productType, riskId, pointsRequired, createdBy, name, address, postal, city, country, contact, "0",2);
 
                                 #region get member Info
                                 using (RewardsServices.RewardsServicesClient sClientMember = new RewardsServices.RewardsServicesClient())
@@ -579,7 +579,7 @@ public partial class Catalogue_Redeem : BasePage
                             string aimId = tbAccount.Text.Trim();
                             for (int i = 1; i <= quantity; i++)
                             {
-                                redemptionId = sClient.addRedemptionOnline(commonVariables.OperatorId, strMemberCode, productID, categoryId, productType, riskId, pointsRequired, createdBy, aimId, "0");
+                                redemptionId = sClient.addRedemptionOnlineNew(commonVariables.OperatorId, strMemberCode, productID, categoryId, productType, riskId, pointsRequired, createdBy, aimId, "0", 2);
 
                                 #region get member Info
                                 using (RewardsServices.RewardsServicesClient sClientMember = new RewardsServices.RewardsServicesClient())
