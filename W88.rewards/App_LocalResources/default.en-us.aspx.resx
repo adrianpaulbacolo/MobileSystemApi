@@ -459,4 +459,7 @@
   <data name="lbl_redemption_type_SW" xml:space="preserve">
     <value>Spin Wheel Prize</value>
   </data>
+  <data name="lbl_noRedemption" xml:space="preserve">
+    <value>No redemption items available</value>
+  </data>
 </root>

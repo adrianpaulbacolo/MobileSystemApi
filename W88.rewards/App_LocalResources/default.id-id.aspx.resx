@@ -459,4 +459,7 @@
   <data name="lbl_redemption_type_SW" xml:space="preserve">
     <value>Hadiah Roda Berputar</value>
   </data>
+  <data name="lbl_noRedemption" xml:space="preserve">
+    <value>Tidak ada barang penukaran yang tersedia</value>
+  </data>
 </root>

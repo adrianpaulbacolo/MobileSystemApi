@@ -459,4 +459,7 @@
   <data name="lbl_redemption_type_SW" xml:space="preserve">
     <value>ប្រាក់រង្វាន់កង់បង្វិល</value>
   </data>
+  <data name="lbl_noRedemption" xml:space="preserve">
+    <value>គ្មានវត្ថុសម្រាប់ការប្តូរ</value>
+  </data>
 </root>

@@ -460,4 +460,7 @@
   <data name="lbl_redemption_type_SW" xml:space="preserve">
     <value>หมุนวงล้อรางวัล</value>
   </data>
+  <data name="lbl_noRedemption" xml:space="preserve">
+    <value>ไม่มีรายการของรางวัลที่มีอยู่</value>
+  </data>
 </root>

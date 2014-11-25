@@ -459,4 +459,7 @@
   <data name="lbl_redemption_type_SW" xml:space="preserve">
     <value>상금휠을 돌려주세요</value>
   </data>
+  <data name="lbl_noRedemption" xml:space="preserve">
+    <value>해당 부분은 리워드 보너스입니다.</value>
+  </data>
 </root>
