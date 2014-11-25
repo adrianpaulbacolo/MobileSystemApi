@@ -462,4 +462,7 @@
   <data name="lbl_Exception" xml:space="preserve">
     <value>Đã xảy ra lỗi không xác định. Vui lòng thử lại lần nữa</value>
   </data>
+  <data name="lbl_noRedemption" xml:space="preserve">
+    <value>Quà tặng quy đổi hiện chưa có sẵn</value>
+  </data>
 </root>

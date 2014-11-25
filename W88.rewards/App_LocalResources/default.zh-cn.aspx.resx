@@ -462,4 +462,7 @@
   <data name="lbl_Exception" xml:space="preserve">
     <value>为止错误，请重试。</value>
   </data>
+  <data name="lbl_noRedemption" xml:space="preserve">
+    <value>没有物品可兑换</value>
+  </data>
 </root>
