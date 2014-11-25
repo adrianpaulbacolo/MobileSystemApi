@@ -99,7 +99,7 @@
                     </div>
                     <div id="rightdiv">
                         <asp:Label ID="lblName" runat="server" Visible="false" />
-                        <span id="DescHeader">Product Description</span>
+                        <span id="DescHeader"><%=HttpContext.GetLocalResourceObject(localResx, "lbl_product_desc").ToString() %></span>
 
                         <asp:Label ID="lblDescription" runat="server" />
                         <asp:Label ID="lblCurrency" runat="server" />
@@ -112,16 +112,16 @@
                            {
                                if(validredemption)
                                {  %>
-                        <a data-role="button" class="button-blue" style="color: #fff" href='<%= strRedirect %>'>Redeem</a>
+                        <a data-role="button" class="button-blue" style="color: #fff" href='<%= strRedirect %>'><%=HttpContext.GetLocalResourceObject(localResx, "lbl_redeem").ToString() %></a>
                         <% }
                                else
                                { %>
-                         <a data-role="button" class="button-blue" style="color: #fff" href='#' onclick="VIPOnly();">Redeem</a>
+                         <a data-role="button" class="button-blue" style="color: #fff" href='#' onclick="VIPOnly();"><%=HttpContext.GetLocalResourceObject(localResx, "lbl_redeem").ToString() %></a>
                         <% }
                            }
                            else
                            {%>
-                        <a data-role="button" class="button-blue" style="color: #fff" data-rel="dialog" data-transition="slidedown" href='<%= strRedirect %>'>Redeem</a>
+                        <a data-role="button" class="button-blue" style="color: #fff" data-rel="dialog" data-transition="slidedown" href='<%= strRedirect %>'><%=HttpContext.GetLocalResourceObject(localResx, "lbl_redeem").ToString() %></a>
                         <% }%>
                     </div>
 

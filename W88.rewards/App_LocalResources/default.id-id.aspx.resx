@@ -462,4 +462,7 @@
   <data name="lbl_noRedemption" xml:space="preserve">
     <value>Tidak ada barang penukaran yang tersedia</value>
   </data>
+  <data name="lbl_Exception" xml:space="preserve">
+    <value>Error tak dikenal, silahkan coba lagi.</value>
+  </data>
 </root>

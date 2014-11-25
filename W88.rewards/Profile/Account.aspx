@@ -70,7 +70,7 @@
                             <tr>
                                 <td>
                                     <div class="pointDetailMainHeader">
-                                        <asp:Label ID="txtStake" runat="server" Text="Total Stake" />
+                                        <span><%= HttpContext.GetLocalResourceObject(localResx, "lbl_total_stake").ToString() %></span>
                                     </div>
                                 </td>
                                 <td>
@@ -90,7 +90,7 @@
                             <tr>
                                 <td>
                                     <div class="pointDetailMainHeader">
-                                        <asp:Label ID="txtEarn" runat="server" Text="Total Points Earning" />
+                                        <span><%= HttpContext.GetLocalResourceObject(localResx, "lbl_earning").ToString() %></span>
                                     </div>
                                 </td>
                                 <td>
@@ -111,7 +111,7 @@
                             <tr>
                                 <td>
                                     <div class="pointDetailMainHeader spinWheelIcon">
-                                        <asp:Label ID="txtRedeem" runat="server" Text="Total Points Redeemed" />
+                                          <span><%= HttpContext.GetLocalResourceObject(localResx, "lbl_redemption").ToString() %></span>
                                     </div>
                                 </td>
                                 <td>
@@ -124,7 +124,8 @@
                             <tr>
                                 <td>
                                     <div class="pointDetailMainHeader">
-                                        <asp:Label ID="txtExpired" runat="server" Text="Total Points Expired" />
+                                        <span><%= HttpContext.GetLocalResourceObject(localResx, "lbl_expired").ToString() %></span>
+                                       
                                     </div>
                                 </td>
                                 <td>
@@ -145,7 +146,8 @@
                             <tr>
                                 <td>
                                     <div class="pointDetailMainHeader">
-                                        <asp:Label ID="txtAdjusted" runat="server" Text="Net Points Adjusted" />
+                                         <span><%= HttpContext.GetLocalResourceObject(localResx, "lbl_adjusted").ToString() %></span>
+                                       
                                     </div>
                                 </td>
                                 <td>
@@ -165,7 +167,8 @@
                             <tr>
                                 <td>
                                     <div class="pointDetailMainHeader">
-                                        <asp:Label ID="txtCart" runat="server" Text="Total Points in Cart" />
+                                             <span><%= HttpContext.GetLocalResourceObject(localResx, "lbl_cart").ToString() %></span>
+                                       
                                     </div>
                                 </td>
                                 <td>
@@ -177,7 +180,8 @@
                             <tr>
                                 <td>
                                     <div class="pointDetailMainHeader">
-                                        <asp:Label ID="txtBalance" runat="server" Text="    Current Points Balance" />
+                                      <span><%= HttpContext.GetLocalResourceObject(localResx, "lbl_current").ToString() %></span>
+                                       
                                     </div>
                                 </td>
                                 <td>
@@ -191,7 +195,7 @@
 
                     <div id="resultpanel" runat="server">
                     </div>
-                <div id="lblNoRecord" runat="server" Visible="False" style="text-align: center; padding-right: 35px;">No record found</div>
+                <div id="lblNoRecord" runat="server" Visible="False" style="text-align: center; padding-right: 35px;"><%= HttpContext.GetLocalResourceObject(localResx, "lbl_no_record_found").ToString() %></div>
             </div>
         </div>
         <!-- /content -->

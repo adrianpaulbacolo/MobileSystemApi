@@ -73,10 +73,10 @@
                                 <ItemTemplate>
                                     <li class="hotitem">
                                         <div class="small-label">
-                                            <%#(DataBinder.Eval(Container.DataItem, "productIcon").ToString()=="2") ? "<span class='productIcon'>"+"HOT"+"</span>":"<span></span>"%>
-                                            <%#(DataBinder.Eval(Container.DataItem, "productIcon").ToString()=="3") ? "<span class='productIcon'>"+"NEW" +"</span>":"<span></span>"%>
+                                            <%#(DataBinder.Eval(Container.DataItem, "productIcon").ToString()=="2") ? "<span class='productIcon'>"+  HttpContext.GetLocalResourceObject(localResx, "lbl_hot").ToString() +"</span>":"<span></span>"%>
+                                            <%#(DataBinder.Eval(Container.DataItem, "productIcon").ToString()=="3") ? "<span class='productIcon'>"+HttpContext.GetLocalResourceObject(localResx, "lbl_new").ToString() +"</span>":"<span></span>"%>
                                         </div>
-                                        
+
 
                                         <a data-role="button" data-rel="dialog" data-transition="slidedown" href="/Catalogue/Detail.aspx?id=<%#DataBinder.Eval(Container.DataItem,"productId")%>">
                                             <span class="image">
@@ -85,11 +85,11 @@
                                                 <%#DataBinder.Eval(Container.DataItem,"productName")%> 
                                             </span>
 
-                                            <span class="points" style="<%#(DataBinder.Eval(Container, "DataItem.discountPoints").ToString() != "") ? "text-decoration:line-through;": "text-decoration:none;" %>"><%# String.Format("{0:#,###,##0.##}",DataBinder.Eval(Container.DataItem,"pointsRequired"))%> Points</span>
-                                            <span class="newpoints" style="<%#(DataBinder.Eval(Container, "DataItem.discountPoints").ToString() != "") ? "visibility:visible;": "visibility:hidden;" %>"><%# String.Format("{0:#,###,##0.##}",DataBinder.Eval(Container.DataItem,"discountPoints"))%> Points</span>
+                                            <span class="points" style="<%#(DataBinder.Eval(Container, "DataItem.discountPoints").ToString() != "") ? "text-decoration:line-through;": "text-decoration:none;" %>"><%# String.Format("{0:#,###,##0.##}",DataBinder.Eval(Container.DataItem,"pointsRequired"))%> <%=HttpContext.GetLocalResourceObject(localResx, "lbl_points").ToString()%></span>
+                                            <span class="newpoints" style="<%#(DataBinder.Eval(Container, "DataItem.discountPoints").ToString() != "") ? "visibility:visible;": "visibility:hidden;" %>"><%# String.Format("{0:#,###,##0.##}",DataBinder.Eval(Container.DataItem,"discountPoints"))%> <%=HttpContext.GetLocalResourceObject(localResx, "lbl_points").ToString()%></span>
                                         </a>
                                     </li>
-                                   
+
                                 </ItemTemplate>
                             </asp:ListView>
 

@@ -463,4 +463,7 @@
   <data name="lbl_noRedemption" xml:space="preserve">
     <value>ไม่มีรายการของรางวัลที่มีอยู่</value>
   </data>
+  <data name="lbl_Exception" xml:space="preserve">
+    <value>เกิดความผิดพลาด กรุณาลองใหม่อีกครั้ง</value>
+  </data>
 </root>

@@ -462,4 +462,7 @@
   <data name="lbl_noRedemption" xml:space="preserve">
     <value>No redemption items available</value>
   </data>
+  <data name="lbl_Exception" xml:space="preserve">
+    <value>Unknown error, please try again.</value>
+  </data>
 </root>

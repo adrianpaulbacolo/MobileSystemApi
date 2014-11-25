@@ -12,10 +12,12 @@ using System.Text;
 public partial class _Index : BasePage
 {
     protected System.Xml.Linq.XElement xeErrors = null;
+    public string localResx = "~/default.{0}.aspx";
 
     protected void Page_Init(object sender, EventArgs e)
     {
         System.Text.RegularExpressions.Regex rxDomains_CN = new System.Text.RegularExpressions.Regex(@"(.w88uat|.w88cn)");
+        localResx = string.Format("~/default.{0}.aspx", commonVariables.SelectedLanguage);
 
         if (string.IsNullOrEmpty(commonVariables.SelectedLanguage))
         {
@@ -81,7 +83,7 @@ public partial class _Index : BasePage
 
                 DataRow drAll = dt.NewRow();
                 drAll["categoryId"] = "0";
-                drAll["categoryName"] = "All";
+                drAll["categoryName"] = HttpContext.GetLocalResourceObject(localResx, "lbl_all").ToString();
                 drAll["imagePathOn"] = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings.Get("ImagesDirectoryPath") + "Category/" + "clt_all_on.png");
                 drAll["imagePathOff"] = Convert.ToString(System.Configuration.ConfigurationManager.AppSettings.Get("ImagesDirectoryPath") + "Category/" + "clt_all_off.png");
 
@@ -224,12 +226,9 @@ public partial class _Index : BasePage
                         lblnodata.Visible = false;
                     }
                     else
-                    { //translation needed
-                        string categoryname = getCategoryName(categoryId);
-                        if (string.IsNullOrEmpty(categoryname))
-                            lblnodata.Text = "There is no redemption for this category.";
-                        else
-                            lblnodata.Text = "There is no redemption for " + categoryname + ".";
+                    {
+                        lblnodata.Text = HttpContext.GetLocalResourceObject(localResx, "lbl_noRedemption").ToString();
+                    
                         lblnodata.Visible = true;
                     }
 
@@ -257,9 +256,17 @@ public partial class _Index : BasePage
         if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("lang"))) { commonVariables.SelectedLanguage = HttpContext.Current.Request.QueryString.Get("lang"); }
 
         xeErrors = commonVariables.ErrorsXML;
-
+        localResx = string.Format("~/default.{0}.aspx", commonVariables.SelectedLanguage);
         System.Xml.Linq.XElement xeResources = null;
         commonCulture.appData.getRootResource("/Index.aspx", out xeResources);
+
+
+        if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+        {
+            divLoginMessage.Visible = false;
+            lblPoint.InnerText = HttpContext.GetLocalResourceObject(localResx, "lbl_points").ToString() + ": " + getCurrentPoints().ToString();
+            divLevel.Visible = true;
+        }
 
         if (!Page.IsPostBack)
         {
@@ -272,12 +279,6 @@ public partial class _Index : BasePage
 
 
 
-            if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-            {
-                divLoginMessage.Visible = false;
-                lblPoint.InnerText = "Points Bal: " + getCurrentPoints().ToString();
-                divLevel.Visible = true;
-            }
 
             //if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("categoryId")) &&
             // !string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("sortBy")))
@@ -326,7 +327,7 @@ public partial class _Index : BasePage
         int claim = 0;
         int current = 0;
         int cart = 0;
-
+       
         try
         {
 

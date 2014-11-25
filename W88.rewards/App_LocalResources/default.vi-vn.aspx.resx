@@ -459,4 +459,7 @@
   <data name="lbl_redemption_type_SW" xml:space="preserve">
     <value>Giải thưởng của vòng quay</value>
   </data>
+  <data name="lbl_Exception" xml:space="preserve">
+    <value>Đã xảy ra lỗi không xác định. Vui lòng thử lại lần nữa</value>
+  </data>
 </root>

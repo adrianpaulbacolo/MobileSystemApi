@@ -27,11 +27,18 @@ public partial class Points : BasePage
     protected int selecteddayto = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
     protected int selectedmonthto = DateTime.Now.Month;
     protected int selectedyearto = DateTime.Now.Year;
+    public string localResx = "~/default.{0}.aspx";
+
 
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
         {
+            localResx = string.Format("~/default.{0}.aspx", commonVariables.SelectedLanguage);
+            lbdatefrom.Text = HttpContext.GetLocalResourceObject(localResx, "lbl_date_from").ToString() + ":";
+            lbdateto.Text = HttpContext.GetLocalResourceObject(localResx, "lbl_date_to").ToString() + ":";
+            btnSubmit.Text = HttpContext.GetLocalResourceObject(localResx, "lbl_search").ToString();
+
             if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                 Response.Redirect("~/Index");
             else
@@ -45,13 +52,13 @@ public partial class Points : BasePage
                         case "stake":
                             break;
                         case "redeemed":
-                            title = "Redemption Listing";
+                            title = HttpContext.GetLocalResourceObject(localResx, "lbl_redemption_listing").ToString();
                             break;
                         case "expired":
-                            title = "Points Expired";
+                            title = HttpContext.GetLocalResourceObject(localResx, "lbl_points_expired").ToString();
                             break;
                         case "adjusted":
-                            title = "Net Points Adjusted";
+                            title = HttpContext.GetLocalResourceObject(localResx, "lbl_points_adjusted").ToString();
                             break;
                         case "cart":
                             //   title = "Cart Listing";
@@ -161,7 +168,7 @@ public partial class Points : BasePage
                                     switch (dt.Columns[j].ColumnName)
                                     {
                                         case "createdDateTime":
-                                            columnname = "Date";
+                                            columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_date").ToString();
                                             th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
                                             break;
                                         case "redemptionId":
@@ -169,11 +176,11 @@ public partial class Points : BasePage
                                             th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
                                             break;
                                         case "categoryCode":
-                                            columnname = "Category (Points)";
+                                            columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_category").ToString() + " (" + HttpContext.GetLocalResourceObject(localResx, "lbl_points").ToString() + ")";
                                             th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
                                             break;
                                         case "statusName":
-                                            columnname = "Status";
+                                            columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_status").ToString();
                                             th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
                                             break;
                                         default:
@@ -245,19 +252,19 @@ public partial class Points : BasePage
                                     switch (dt.Columns[j].ColumnName)
                                     {
                                         case "createdDateTime":
-                                            columnname = "Date";
+                                            columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_date").ToString();
                                             th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
                                             break;
                                         case "actionName":
-                                            columnname = "Adjustment";
+                                            columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_adjustment_type").ToString();
                                             th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
                                             break;
                                         case "pointsAdjusted":
-                                            columnname = "Points";
+                                            columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_points").ToString();
                                             th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
                                             break;
                                         case "remarks":
-                                            columnname = "Remarks";
+                                            columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_remarks").ToString();
                                             th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
                                             break;
                                         default:
@@ -323,15 +330,15 @@ public partial class Points : BasePage
                                     switch (dt.Columns[j].ColumnName)
                                     {
                                         case "createdDateTime":
-                                            columnname = "Date";
+                                            columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_date").ToString();
                                             th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
                                             break;
                                         case "pointsExpired":
-                                            columnname = "Points Expired";
+                                            columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_points_expired").ToString();
                                             th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
                                             break;
                                         case "remarks":
-                                            columnname = "Remarks";
+                                            columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_remarks").ToString();
                                             th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
                                             break;
                                         default:
@@ -366,7 +373,7 @@ public partial class Points : BasePage
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        
+        localResx = string.Format("~/default.{0}.aspx", commonVariables.SelectedLanguage);
         strAlertCode = "";
         bool isvalid = false;
         string userMemberCode = string.IsNullOrEmpty((string)Session["MemberCode"]) ? "" : (string)Session["MemberCode"];
@@ -420,7 +427,7 @@ public partial class Points : BasePage
                     switch (type)
                     {
                         case "redeemed":
-                            title = "Redemption Listing";
+                            title = HttpContext.GetLocalResourceObject(localResx, "lbl_redemption_listing").ToString();
                             html = GetRedemptionList(userMemberCode, fromDate, toDate);
                             if (!string.IsNullOrEmpty(html))
                                 resultpanel.InnerHtml = html;
@@ -431,7 +438,7 @@ public partial class Points : BasePage
                             }
                             break;
                         case "expired":
-                            title = "Points Expired";
+                            title = HttpContext.GetLocalResourceObject(localResx, "lbl_points_expired").ToString();
                             //   html = GetExpiredList("mooretest1", fromDate, toDate);
                             html = GetExpiredList(userMemberCode, fromDate, toDate);
                             if (!string.IsNullOrEmpty(html))
@@ -444,7 +451,7 @@ public partial class Points : BasePage
                             break;
                         case "adjusted":
                             title = "Net Points Adjusted";
-                            //   html = GetAdjustmentList("testRMB01", fromDate, toDate);
+                            title = HttpContext.GetLocalResourceObject(localResx, "lbl_points_adjusted").ToString();
                             html = GetAdjustmentList(userMemberCode, fromDate, toDate);
                             if (!string.IsNullOrEmpty(html))
                                 resultpanel.InnerHtml = html;

@@ -19,23 +19,38 @@ public partial class Catalogue_Redeem : BasePage
     protected string strAlertMessage = string.Empty;
     protected string productType = string.Empty;
     protected string vipOnly = "Hey there! This rewards redemption is only for VIP-Gold and above HOUSE OF HIGHROLLERS, YOU DESERVED IT!";
+  
 
     protected void Page_Init(object sender, EventArgs e)
     {
-
-
+       
     }
 
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
         {
+            localResx = string.Format("~/default.{0}.aspx", commonVariables.SelectedLanguage);
+            lbcat.Text = HttpContext.GetLocalResourceObject(localResx, "lbl_category").ToString() + ":";
+            lbproduct.Text = HttpContext.GetLocalResourceObject(localResx, "lbl_product").ToString() + ":";
+            lbcurr.Text = HttpContext.GetLocalResourceObject(localResx, "lbl_currency").ToString() + ":";
+            lbpoint.Text = HttpContext.GetLocalResourceObject(localResx, "lbl_points").ToString() + ":";
+            lbperiod.Text =HttpContext.GetLocalResourceObject(localResx, "lbl_delivery_period").ToString()+ ":";
+            lbqty.Text =HttpContext.GetLocalResourceObject(localResx, "lbl_quantity").ToString() + ":";
+            lbaccount.Text = HttpContext.GetLocalResourceObject(localResx, "lbl_account").ToString() + ":";
+            tbRName.Attributes.Add("PLACEHOLDER", HttpContext.GetLocalResourceObject(localResx, "lbl_enter_name").ToString());
+            tbAddress.Attributes.Add("PLACEHOLDER", HttpContext.GetLocalResourceObject(localResx, "lbl_enter_address").ToString());
+            tbPostal.Attributes.Add("PLACEHOLDER", HttpContext.GetLocalResourceObject(localResx, "lbl_enter_postal").ToString());
+            tbCity.Attributes.Add("PLACEHOLDER", HttpContext.GetLocalResourceObject(localResx, "lbl_enter_city").ToString());
+            tbCountry.Attributes.Add("PLACEHOLDER", HttpContext.GetLocalResourceObject(localResx, "lbl_enter_country").ToString());
+            tbContact.Attributes.Add("PLACEHOLDER", HttpContext.GetLocalResourceObject(localResx, "lbl_enter_contact").ToString());  
 
-            localResx = string.Format(localResx, commonVariables.SelectedLanguage);
+            btnSubmit.Text = HttpContext.GetLocalResourceObject(localResx, "lbl_redeem_now").ToString();
 
             if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
             {
-                lblPoint.InnerText = "Points Bal: " + getCurrentPoints();
+                lblPoint.InnerText = HttpContext.GetLocalResourceObject(localResx, "lbl_points").ToString() +": " + getCurrentPoints();
+             
                 divLevel.Visible = true;
             }
             else
@@ -77,7 +92,6 @@ public partial class Catalogue_Redeem : BasePage
                             if (productType == "1" && (dr["currencyValidity"].ToString() != currencyCode))
                             {
                                 strAlertCode = "CURR";
-                                strAlertMessage = "Please select free bet of another currency";
                                 return;
                             }
 
@@ -172,6 +186,7 @@ public partial class Catalogue_Redeem : BasePage
                             if (!(dr["redemptionValidity"].ToString() == "1" && dr["redemptionValidityCat"].ToString() == "1"))
                             {
                                 strAlertCode = "VIP";
+                                  vipOnly =HttpContext.GetLocalResourceObject(localResx, "lbl_redeem_vip").ToString();
                                 return;
                             }
 
@@ -180,7 +195,7 @@ public partial class Catalogue_Redeem : BasePage
                             if (dr["discountPoints"] != DBNull.Value)
                             {
                                 lblBeforeDiscount.Text =
-                                    String.Format("{0:#,###,##0.##}", dr["pointsRequired"].ToString()) + " Points";
+                                    String.Format("{0:#,###,##0.##}", dr["pointsRequired"].ToString()) + " " + HttpContext.GetLocalResourceObject(localResx, "lbl_points").ToString() ;
                                 lblPointCenter.Text = String.Format("{0:#,###,##0.##}", dr["discountPoints"].ToString()) +
                                                       " Points";
                             }
@@ -188,7 +203,7 @@ public partial class Catalogue_Redeem : BasePage
                             {
                                 lblBeforeDiscount.Text = "";
                                 lblPointCenter.Text = String.Format("{0:#,###,##0.##}", dr["pointsRequired"].ToString()) +
-                                                   " Points";
+                                                   " " + HttpContext.GetLocalResourceObject(localResx, "lbl_points").ToString();
                             }
 
 
@@ -198,7 +213,7 @@ public partial class Catalogue_Redeem : BasePage
 
                             if (!string.IsNullOrEmpty(dr["deliveryPeriod"].ToString()))
                             {
-                                lblDelivery.Text = (dr["deliveryPeriod"].ToString()) + " Day(s).";
+                                lblDelivery.Text = (dr["deliveryPeriod"].ToString());
                                 DeliveryDiv.Visible = true;
                             }
 
@@ -341,6 +356,8 @@ public partial class Catalogue_Redeem : BasePage
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
+        localResx = string.Format("~/default.{0}.aspx", commonVariables.SelectedLanguage);
+
         strAlertCode = "";//FAIL SUCCESS
         strAlertMessage = "";
         int resultLog = 0;
@@ -364,7 +381,9 @@ public partial class Catalogue_Redeem : BasePage
         if (res == false)
         {
             strAlertCode = "FAIL";
-            strAlertMessage = "Please enter an number for quantity";
+           // strAlertMessage = "Please enter an number for quantity";
+            strAlertMessage = HttpContext.GetLocalResourceObject(localResx, "lbl_invalid_number").ToString();
+            
             return;
         }
         else
@@ -373,7 +392,9 @@ public partial class Catalogue_Redeem : BasePage
             if (quantity < 1)
             {
                 strAlertCode = "FAIL";
-                strAlertMessage = "Please enter an number bigger than zero";
+              //  strAlertMessage = "Please enter an number bigger than zero";
+                strAlertMessage = HttpContext.GetLocalResourceObject(localResx, "lbl_invalid_at_least").ToString();
+                
                 return;
             }
         }
@@ -430,7 +451,8 @@ public partial class Catalogue_Redeem : BasePage
                 if (pointsRequired != actualPoint)
                 {
                     strAlertCode = "FAIL";
-                    strAlertMessage = "Request Submission Fail"; //lblPointCheckError
+                   // strAlertMessage = "Request Submission Fail"; //
+                    strAlertMessage = HttpContext.GetLocalResourceObject(localResx, "lblPointCheckError").ToString();
                     return;
                 }
                 else
@@ -620,13 +642,13 @@ public partial class Catalogue_Redeem : BasePage
                                 sendMail(commonVariables.OperatorId, strMemberCode, redemptionId);
                                 strAlertCode = "SUCCESS";
                                 strAlertMessage = "Redemption is processed successfully!"; //lbl_redeem_success_processed
-                                strAlertMessage = HttpContext.GetLocalResourceObject(localResx, "lbl_redemption_limit_reached").ToString();
+                                strAlertMessage = HttpContext.GetLocalResourceObject(localResx, "lbl_redeem_success_processed").ToString();
                             }
                             else
                             {
                                 strAlertCode = "SUCCESS";
                                 strAlertMessage = "Redemption is submitted successfully!"; //lbl_redeem_success_submit
-                                strAlertMessage = HttpContext.GetLocalResourceObject(localResx, "lbl_redemption_limit_reached").ToString();
+                                strAlertMessage = HttpContext.GetLocalResourceObject(localResx, "lbl_redeem_success_submit").ToString();
                             }
 
                             lblPoint.InnerText = "Points Bal: " + getCurrentPoints();
@@ -640,7 +662,7 @@ public partial class Catalogue_Redeem : BasePage
         catch (Exception ex)
         {
             strAlertCode = "FAIL";
-            strAlertMessage = "Unexpected system error. Please contact customer service.";
+            strAlertMessage = HttpContext.GetLocalResourceObject(localResx, "lbl_Exception").ToString();
             Guid newerrorid = new Guid();
             commonAuditTrail.appendLog("system", "Redeem.aspx", "Redeem Now", "Redeem.aspx", "", "Redeem now", "", ex.Message + " stacktrace: " + ex.StackTrace, "Redemption id: " + redemptionId + " Member id: " + userMemberId, "", newerrorid.ToString(), false);
         }

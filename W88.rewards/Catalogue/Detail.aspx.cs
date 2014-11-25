@@ -11,6 +11,7 @@ using System.Text;
 
 public partial class Catalogue_Detail : BasePage
 {
+    public string localResx = "~/default.{0}.aspx";
     protected string strRedirect = string.Empty;
     protected bool validredemption = false;
     protected string vipOnly =
@@ -24,6 +25,8 @@ public partial class Catalogue_Detail : BasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        localResx = string.Format("~/default.{0}.aspx", commonVariables.SelectedLanguage);
+        vipOnly = HttpContext.GetLocalResourceObject(localResx, "lbl_redeem_vip").ToString();
 
         if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("id")))
         {
@@ -174,9 +177,9 @@ public partial class Catalogue_Detail : BasePage
                             imgPic.ImageUrl = dr["imageName"].ToString();
 
                             if (!string.IsNullOrEmpty(dr["discountPoints"].ToString()) && int.Parse(dr["discountPoints"].ToString()) != 0)
-                                lblPointCenter.Text = String.Format("{0:#,###,##0.##}", dr["discountPoints"].ToString()) + " Points";
+                                lblPointCenter.Text = String.Format("{0:#,###,##0.##}", dr["discountPoints"].ToString()) + " " + HttpContext.GetLocalResourceObject(localResx, "lbl_points").ToString();
                             else
-                                lblPointCenter.Text = String.Format("{0:#,###,##0.##}", dr["pointsRequired"].ToString()) + " Points";
+                                lblPointCenter.Text = String.Format("{0:#,###,##0.##}", dr["pointsRequired"].ToString()) + " " + HttpContext.GetLocalResourceObject(localResx, "lbl_points").ToString();
 
 
                             lblName.Text = dr["productName"].ToString();
@@ -185,7 +188,7 @@ public partial class Catalogue_Detail : BasePage
 
                             if (!string.IsNullOrEmpty(dr["deliveryPeriod"].ToString()))
                             {
-                                lblDelivery.Text = "<p>Delivery Days: " + (dr["deliveryPeriod"].ToString()) + " Day(s).</p>";
+                                lblDelivery.Text = "<p>" + HttpContext.GetLocalResourceObject(localResx, "lbl_delivery_period").ToString() + ": " +(dr["deliveryPeriod"].ToString()) + "</p>";
                             }
 
                         }

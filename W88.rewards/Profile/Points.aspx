@@ -147,7 +147,7 @@
                         <div class="ui-field-contain ui-hide-label">
                             <div class="ui-grid-a">
                                 <div class="ui-block-a">
-                                    <asp:Label ID="lbl1" CssClass="labelleft" runat="server" Text="Date From: " data-mini="true" />
+                                    <asp:Label ID="lbdatefrom" CssClass="labelleft" runat="server" Text="Date From: " data-mini="true" />
                                 </div>
                                 <div class="ui-block-b">
                                     <select name="selectdayfrom" id="selectdayfrom" runat="server">
@@ -163,7 +163,7 @@
                         <div class="ui-field-contain ui-hide-label">
                             <div class="ui-grid-a">
                                 <div class="ui-block-a">
-                                    <asp:Label ID="Label1" CssClass="labelleft" runat="server" Text="Date To: " data-mini="true" />
+                                    <asp:Label ID="lbdateto" CssClass="labelleft" runat="server" Text="Date To: " data-mini="true" />
                                 </div>
                                 <div class="ui-block-b">
                                     <select name="selectdayto" id="selectdayto" runat="server">
@@ -182,7 +182,7 @@
 
                         <div id="resultpanel" runat="server">
                         </div>
-                     
+
                     </div>
 
 
@@ -201,7 +201,7 @@
                     switch ('<%=strAlertCode%>') {
                         case 'wrongfromdate':
                             alert('Invalid Date From. Please correct and search again.');
-                           // $('#btnSubmit').attr("disabled", true);
+                            // $('#btnSubmit').attr("disabled", true);
                             break;
                         case 'wrongtodate':
                             alert('Invalid Date To. Please correct and search again.');
@@ -209,31 +209,31 @@
                             break;
                         case 'wrongdaterange':
                             alert('Invalid date range. Date To cannot be earlier than Date From.');
-                         //   $('#btnSubmit').attr("disabled", true);                          
+                            //   $('#btnSubmit').attr("disabled", true);                          
                             break;
                         case 'nodata':
-                            alert('No record found.');
-                          //  $('#btnSubmit').attr("disabled", true);                          
+                            alert('<%=HttpContext.GetLocalResourceObject(localResx, "lbl_no_record_found").ToString()%>'); 
+                            //  $('#btnSubmit').attr("disabled", true);                          
                             break;
                         case 'FAIL':
-                            alert("Unexpected system error. Please contact customer service.");
-                          //  $('#btnSubmit').attr("disabled", true);
+                            alert('<%=HttpContext.GetLocalResourceObject(localResx, "lbl_Exception").ToString()%>');
+                            //  $('#btnSubmit').attr("disabled", true);
                             break;
                         default:
-                          //  $('#btnSubmit').attr("disabled", true);
+                            //  $('#btnSubmit').attr("disabled", true);
                             break;
                     }
                 }
             });
 
-           
+
             function SetHdnField(clientid, val) {
                 var x = document.getElementById(clientid);
                 x.value = val;
                 return false;
             }
 
-           
+
         </script>
 
     </div>

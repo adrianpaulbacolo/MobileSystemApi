@@ -462,4 +462,7 @@
   <data name="lbl_noRedemption" xml:space="preserve">
     <value>គ្មានវត្ថុសម្រាប់ការប្តូរ</value>
   </data>
+  <data name="lbl_Exception" xml:space="preserve">
+    <value>ប្រព័ន្ធរអាក់រអួល, ព្យាយាមម្តងទៀត</value>
+  </data>
 </root>

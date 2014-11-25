@@ -19,10 +19,12 @@ public partial class Account : BasePage
     protected string type = string.Empty;
     protected string title = string.Empty;
     protected string html = string.Empty;
+    public string localResx = "~/default.{0}.aspx";
 
     protected void Page_Load(object sender, EventArgs e)
     {
         //*
+        localResx = string.Format("~/default.{0}.aspx", commonVariables.SelectedLanguage);
         string userMemberSessionId = string.IsNullOrEmpty((string)Session["MemberSessionId"]) ? "" : (string)Session["MemberSessionId"];
         string userMemberId = string.IsNullOrEmpty((string)Session["MemberId"]) ? "" : (string)Session["MemberId"];
         string userMemberCode = string.IsNullOrEmpty((string)Session["MemberCode"]) ? "" : (string)Session["MemberCode"];
@@ -51,17 +53,20 @@ public partial class Account : BasePage
                         case "stake":
                             if (walletid == "") //all stakes
                             {
-                                title = "Earning Listing by Product";
+                              //  title = "Earning Listing by Product";
+                                title = HttpContext.GetLocalResourceObject(localResx, "lbl_earning_listing").ToString() + " (" + HttpContext.GetLocalResourceObject(localResx, "lbl_product").ToString() + ")";
                                 html = TotalStake(userMemberCode);
                             }
                             else if (!string.IsNullOrEmpty(walletid) && yearmonth == "") //stakes by walletid
                             {
-                                title = "Earning Listing by Month";
+                                //title = "Earning Listing by Month";
+                                title = HttpContext.GetLocalResourceObject(localResx, "lbl_earning_listing").ToString() + " (" + HttpContext.GetLocalResourceObject(localResx, "lbl_month").ToString() + ")";
                                 html = TotalStakeMonth(userMemberCode, walletid);
                             }
                             else //stakes detail
                             {
-                                title = "Earning Listing Detail";
+                                //title = "Earning Listing Detail";
+                                title = HttpContext.GetLocalResourceObject(localResx, "lbl_earning_listing").ToString() + " (" + HttpContext.GetLocalResourceObject(localResx, "lbl_details").ToString() + ")";
                                 html = TotalStakeDetail(userMemberCode, walletid, yearmonth);
                             }
 
@@ -73,19 +78,19 @@ public partial class Account : BasePage
 
                             break;
                         case "redeemed":
-                            title = "Redemption Listing";
+                            title = HttpContext.GetLocalResourceObject(localResx, "lbl_redemption_listing").ToString();
                             break;
                         case "expired":
-                            title = "Points Expired";
+                            title = HttpContext.GetLocalResourceObject(localResx, "lbl_points_expired").ToString();
                             break;
                         case "adjusted":
-                            title = "Net Points Adjusted";
+                            title = HttpContext.GetLocalResourceObject(localResx, "lbl_points_adjusted").ToString();
                             break;
                         case "cart":
-                            title = "Cart Listing";
+                            title = "Points in your cart";
                             break;
                         default:
-                            title = "Account Summary";
+                            title = HttpContext.GetLocalResourceObject(localResx, "lbl_account_summary").ToString();
                             System.Data.DataSet dsDisplay = AccountSummary(userMemberCode);
                             if (dsDisplay.Tables[0].Rows.Count > 0)
                             {  
@@ -100,7 +105,7 @@ public partial class Account : BasePage
                 }
                 else
                 {
-                    type = "summary"; title = "Account Summary";
+                    type = "summary"; title = HttpContext.GetLocalResourceObject(localResx, "lbl_account_summary").ToString();
                     System.Data.DataSet dsDisplay = AccountSummary(userMemberCode);
                     if (dsDisplay.Tables[0].Rows.Count > 0)
                     {
@@ -218,13 +223,13 @@ public partial class Account : BasePage
                         switch (dt.Columns[j].ColumnName)
                         {
                             case "walletName":
-                                columnname = "Product Wallet";
+                                columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_wallet").ToString();
                                 break;
                             case "totalStake":
-                                columnname = "Total Stake";
+                                columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_total_stake").ToString();
                                 break;
                             case "pointsAwarded":
-                                columnname = "Points Earn";
+                                columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_earn").ToString();
                                 break;
                             default:
                                 break;
@@ -285,15 +290,15 @@ public partial class Account : BasePage
                                 switch (dt.Columns[j].ColumnName)
                                 {
                                     case "walletName":
-                                        columnname = "Product Wallet";
+                                        columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_wallet").ToString();
                                         th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
                                         break;
                                     case "totalStake":
-                                        columnname = "Total Stake";
+                                        columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_total_stake").ToString();
                                         th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
                                         break;
                                     case "pointsAwarded":
-                                        columnname = "Points Earn";
+                                        columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_earn").ToString();
                                         th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
                                         break;
                                     default:
@@ -351,19 +356,19 @@ public partial class Account : BasePage
                                 switch (dt.Columns[j].ColumnName)
                                 {
                                     case "pointsYear":
-                                        columnname = "Year";
+                                        columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_year").ToString();
                                         th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
                                         break;
                                     case "pointsMonth":
-                                        columnname = "Month";
+                                        columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_month").ToString();
                                         th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
                                         break;
                                     case "totalStake":
-                                        columnname = "Total Stake";
+                                        columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_total_stake").ToString();
                                         th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
                                         break;
                                     case "pointsAwarded":
-                                        columnname = "Points Earn";
+                                        columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_earn").ToString();
                                         th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
                                         break;
                                     default:
@@ -420,19 +425,19 @@ public partial class Account : BasePage
                                 switch (dt.Columns[j].ColumnName)
                                 {
                                     case "createdDateTime":
-                                        columnname = "Date";
+                                        columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_date").ToString();
                                         th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
                                         break;
                                     case "transactionDateTime":
-                                        columnname = "Bet Date";
+                                        columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_bet_date").ToString();
                                         th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
                                         break;
                                     case "totalStake":
-                                        columnname = "Total Stake";
+                                        columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_total_stake").ToString();
                                         th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
                                         break;
                                     case "pointsAwarded":
-                                        columnname = "Points Earn";
+                                        columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_earn").ToString();
                                         th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
                                         break;
                                     default:

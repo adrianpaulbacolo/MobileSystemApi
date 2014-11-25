@@ -12,10 +12,12 @@ using System.Text;
 public partial class _Index : BasePage
 {
     protected System.Xml.Linq.XElement xeErrors = null;
+    public string localResx = "~/default.{0}.aspx";
 
     protected void Page_Init(object sender, EventArgs e)
     {
         System.Text.RegularExpressions.Regex rxDomains_CN = new System.Text.RegularExpressions.Regex(@"(.w88uat|.w88cn)");
+        localResx = string.Format("~/default.{0}.aspx", commonVariables.SelectedLanguage);
 
         if (string.IsNullOrEmpty(commonVariables.SelectedLanguage))
         {
@@ -31,6 +33,7 @@ public partial class _Index : BasePage
         System.Web.UI.WebControls.Literal litScript = (System.Web.UI.WebControls.Literal)Page.FindControl("litScript");
 
         if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("lang"))) { commonVariables.SelectedLanguage = HttpContext.Current.Request.QueryString.Get("lang"); }
+        localResx = string.Format("~/default.{0}.aspx", commonVariables.SelectedLanguage);
 
         xeErrors = commonVariables.ErrorsXML;
 
@@ -50,7 +53,7 @@ public partial class _Index : BasePage
         if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
         {
             divLoginMessage.Visible = false;
-            lblPoint.InnerText = "Points Bal: " + getCurrentPoints().ToString();
+            lblPoint.InnerText = HttpContext.GetLocalResourceObject(localResx, "lbl_points").ToString() + ": " + getCurrentPoints().ToString();
             divLevel.Visible = true;
 
 

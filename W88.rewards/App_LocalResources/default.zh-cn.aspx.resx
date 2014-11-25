@@ -403,7 +403,7 @@
     <value>全部</value>
   </data>
   <data name="lbl_delivery_period" xml:space="preserve">
-    <value>交货日期:</value>
+    <value>交货日期</value>
   </data>
   <data name="lbl_redemption_limit_reached" xml:space="preserve">
     <value>Redemption limit reached!</value>
@@ -458,5 +458,8 @@
   </data>
   <data name="lbl_redemption_type_SW" xml:space="preserve">
     <value>旋转轮奖品</value>
+  </data>
+  <data name="lbl_Exception" xml:space="preserve">
+    <value>为止错误，请重试。</value>
   </data>
 </root>

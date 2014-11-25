@@ -462,4 +462,7 @@
   <data name="lbl_noRedemption" xml:space="preserve">
     <value>해당 부분은 리워드 보너스입니다.</value>
   </data>
+  <data name="lbl_Exception" xml:space="preserve">
+    <value>알 수 없는 오류가 발생했습니다. 다시 시도해 주시기 바랍니다.</value>
+  </data>
 </root>

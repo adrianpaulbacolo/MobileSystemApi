@@ -13,11 +13,10 @@
     <!--#include virtual="~/_static/splash.shtml" -->
     <div id="divMain" data-role="page" data-theme="b" data-ajax="false">
         <!--#include virtual="~/_static/header.shtml" -->
-  
-               <div id="divLevel" runat="server" visible="False">
+        <div class="ui-content" role="main">
+            <div id="divLevel" runat="server" visible="False">
                 <a id="lblPoint" runat="server" href="/Account" class="pointslink"></a>
             </div>
-
 
             <style type="text/css">
                 .div-content-wrapper > div {
@@ -121,7 +120,7 @@
                 <form id="form1" runat="server">
                     <div class="div-content-wrapper">
 
-                        <h4>REDEEM INFO</h4>
+                        <h4> <%=HttpContext.GetLocalResourceObject(localResx, "lbl_redeem_info").ToString() %></h4>
                         <div class="imagediv">
                             <asp:Image ID="imgPic" runat="server" CssClass="imgProduct" />
                         </div>
@@ -129,17 +128,18 @@
                         <div class="ui-field-contain ui-hide-label">
                             <div class="ui-grid-a">
                                 <div class="ui-block-a">
-                                    <asp:Label ID="lbl1" runat="server" Text="Category: " data-mini="true" />
-                                </div>
+                                    <asp:Label ID="lbcat" runat="server" Text="" data-mini="true" />
+                               
+                                     </div>
                                 <div class="ui-block-b">
-                                    <asp:Label ID="lblCategory" runat="server" Text="Category text here" data-mini="true" />
+                                    <asp:Label ID="lblCategory" runat="server" Text="" data-mini="true" />
                                 </div>
                             </div>
                         </div>
                         <div class="ui-field-contain ui-hide-label">
                             <div class="ui-grid-a">
                                 <div class="ui-block-a">
-                                    <asp:Label ID="Label2" runat="server" Text="Product: " data-mini="true" />
+                                    <asp:Label ID="lbproduct" runat="server" Text="" data-mini="true" />
                                 </div>
                                 <div class="ui-block-b">
                                     <asp:Label ID="lblName" runat="server" data-mini="true" />
@@ -149,7 +149,7 @@
                         <div id="CurrencyDiv" runat="server" class="ui-field-contain ui-hide-label" visible="false">
                             <div class="ui-grid-a">
                                 <div class="ui-block-a">
-                                    <asp:Label ID="Label3" runat="server" Text="Currency: " data-mini="true" />
+                                    <asp:Label ID="lbcurr" runat="server" Text="" data-mini="true" />
                                 </div>
                                 <div class="ui-block-b">
                                     <asp:Label ID="lblCurrency" runat="server" data-mini="true" />
@@ -159,7 +159,7 @@
                         <div class="ui-field-contain ui-hide-label">
                             <div class="ui-grid-a">
                                 <div class="ui-block-a">
-                                    <asp:Label ID="Label7" runat="server" Text="Points: " data-mini="true" />
+                                    <asp:Label ID="lbpoint" runat="server" Text="" data-mini="true" />
                                 </div>
                                 <div class="ui-block-b">
 
@@ -172,7 +172,7 @@
                         <div id="DeliveryDiv" class="ui-field-contain ui-hide-label" runat="server" visible="false">
                             <div class="ui-grid-a">
                                 <div class="ui-block-a">
-                                    <asp:Label ID="lbl42" runat="server" Text="Delivery Day(s):" data-mini="true" />
+                                    <asp:Label ID="lbperiod" runat="server" Text="" data-mini="true" />
                                 </div>
                                 <div class="ui-block-b">
                                     <asp:Label ID="lblDelivery" runat="server" data-mini="true" />
@@ -182,7 +182,7 @@
                         <div id="QuantityDiv" class="ui-field-contain ui-hide-label">
                             <div class="ui-grid-a">
                                 <div class="ui-block-a">
-                                    <asp:Label ID="Label5" runat="server" Text="Quantity" data-mini="true" />
+                                    <asp:Label ID="lbqty" runat="server" Text="" data-mini="true" />
                                 </div>
                                 <div class="ui-block-b">
                                     <asp:TextBox ID="tbQuantity" runat="server" MaxLength="2" type="number" data-mini="true" Text="1" />
@@ -192,7 +192,7 @@
                         <div id="AccountDiv" runat="server" class="ui-field-contain ui-hide-label" visible="true">
                             <div class="ui-grid-a">
                                 <div class="ui-block-a">
-                                    <asp:Label ID="Label11" runat="server" Text="Account: " data-mini="true" />
+                                    <asp:Label ID="lbaccount" runat="server" Text="" data-mini="true" />
                                 </div>
                                 <div class="ui-block-b">
                                     <asp:TextBox ID="tbAccount" runat="server" MaxLength="100" type="text" data-mini="true" Text="" />
@@ -202,7 +202,7 @@
                         <br />
 
                         <div id="RecipientDiv" runat="server">
-                            <h4>RECIPIENT</h4>
+                            <h4><%=HttpContext.GetLocalResourceObject(localResx, "lbl_receipient").ToString() %>: </h4>
                             <div class="ui-field-contain ui-hide-label">
                                 <asp:TextBox ID="tbRName" runat="server" MaxLength="50" type="Text" data-mini="true" placeholder="Recipient Name" />
                                 <asp:Label ID="Label4" CssClass="validator" runat="server" Text="*" data-mini="true" />
@@ -232,7 +232,7 @@
                         </div>
 
                         <div class="ui-field-contain ui-hide-label">
-                            <asp:Button ID="btnSubmit" runat="server" Text="Redeem Now" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" />
+                            <asp:Button ID="btnSubmit" runat="server" Text="" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" />
                         </div>
 
                     </div>
@@ -241,6 +241,7 @@
                 </div>
             </div>
         </div>
+
         <!-- /content -->
         <!--#include virtual="~/_static/footer.shtml" -->
         <!--#include virtual="~/_static/navMenu.shtml" -->
@@ -250,9 +251,9 @@
 
             $(function () {
                 if ('<%=strAlertCode%>'.length > 0) {
-                    switch ('<%=strAlertCode%>') {
-                        case 'VIP':
-                            alert('<%= vipOnly%>');
+                switch ('<%=strAlertCode%>') {
+                    case 'VIP':
+                        alert('<%= vipOnly%>');
                             $('#btnSubmit').attr("disabled", true);
                             window.location.replace('/Catalogue');
                             break;
@@ -265,14 +266,14 @@
                             $('#btnSubmit').attr("disabled", false);
                             break;
                         case 'CURR':
-                            alert('<%=strAlertMessage%>');
+                         
                             window.location.replace('/Catalogue?categoryId=53&sortBy=2');
                             break;
                         default:
                             break;
                     }
                 }
-            });
+        });
 
             $('#form1').submit(function (e) {
                 $('#btnSubmit').attr("disabled", true);
@@ -311,7 +312,7 @@
 
             function validateFreebet() {
                 if ($('#tbQuantity').val().trim().length == 0) {
-                    alert('Please enter a number for Quantity');
+                    alert('<%=HttpContext.GetLocalResourceObject(localResx, "lbl_invalid_number").ToString()%>');
                     return false;
                 }
                 else {
@@ -321,12 +322,12 @@
             }
 
             function validateOnlineAccount() {
-              
+
                 if ($('#tbQuantity').val().trim().length == 0) {
-                    alert('Please enter a number for Quantity');
+                    alert('<%=HttpContext.GetLocalResourceObject(localResx, "lbl_invalid_number").ToString()%>');
                     return false;
                 } else if ($('#tbAccount').val().trim().length == 0) {
-                    alert('Please enter Account');
+                    alert('<%=HttpContext.GetLocalResourceObject(localResx, "lbl_enter_account").ToString()%>');
                     return false;
                 } else {
                     return true;
@@ -336,36 +337,36 @@
 
             function validateNormal() {
                 if ($('#tbQuantity').val().trim().length == 0) {
-                    alert('Please enter a number for Quantity');
+                    alert('<%=HttpContext.GetLocalResourceObject(localResx, "lbl_invalid_number").ToString()%>');
                     return false;
                 } else if ($('#tbRName').val().trim().length == 0) {
-                    alert('Please enter Recipient Name');
+                    alert('<%=HttpContext.GetLocalResourceObject(localResx, "lbl_enter_name").ToString()%>');
                     return false;
                 }
                 else if ($('#tbAddress').val().trim().length == 0) {
-                    alert('Please enter Mailing Address');
+                    alert('<%=HttpContext.GetLocalResourceObject(localResx, "lbl_enter_address").ToString()%>');
                     return false;
                 }
                 else if ($('#tbPostal').val().trim().length == 0) {
-                    alert('Please enter Postal Code');
+                    alert('<%=HttpContext.GetLocalResourceObject(localResx, "lbl_enter_postal").ToString()%>');
                     return false;
                 }
                 else if ($('#tbCity').val().trim().length == 0) {
-                    alert('Please enter City');
+                    alert('<%=HttpContext.GetLocalResourceObject(localResx, "lbl_enter_city").ToString()%>');
                     return false;
                 }
                 else if ($('#tbCountry').val() == 0) {
-                    alert('Please enter Country');
+                    alert('<%=HttpContext.GetLocalResourceObject(localResx, "lbl_enter_country").ToString()%>');
                     return false;
                 }
                 else if ($('#tbContact').val().trim().length == 0) {
-                    alert('Please enter Contact Number');
+                    alert('<%=HttpContext.GetLocalResourceObject(localResx, "lbl_enter_contact").ToString()%>');
                     return false;
                 } else {
-                    return true;}
+                    return true;
+                }
             }
         </script>
-
     </div>
     <!-- /page -->
 </body>
