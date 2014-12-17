@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+﻿ <%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
 
 <!DOCTYPE html>
 <html>
@@ -22,7 +22,7 @@
                 <div id="divLanguageContainer" runat="server" class="div-langContainer"></div>
             </div>
         </div>
-        <!-- /content -->
+        <!-- /content -->  
         <div data-role="footer" data-theme="b" data-position="fixed">
             <!--#include virtual="~/_static/footer.shtml" -->
         </div>

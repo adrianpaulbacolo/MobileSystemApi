@@ -87,13 +87,25 @@ public partial class Catalogue_Redeem : BasePage
                             System.Web.HttpContext.Current.Session["categoryId"] = dr["categoryId"].ToString();
                             System.Web.HttpContext.Current.Session["categoryIdReload"] = dr["categoryId"].ToString();
                             System.Web.HttpContext.Current.Session["currencyValidity"] = dr["currencyValidity"].ToString();
+               
+
                             productType = dr["productType"].ToString();
 
                             if (productType == "1" && (dr["currencyValidity"].ToString() != currencyCode))
                             {
-                                strAlertCode = "CURR";
+                                Response.Redirect("/Catalogue?categoryId=53&sortBy=2");
                                 return;
                             }
+
+                            if (dr["countryValidity"].ToString().Trim() != "All")
+                            {
+                                if (!dr["countryValidity"].ToString().Contains(countryCode))
+                                {
+                                    Response.Redirect("/Catalogue?categoryId=" + dr["categoryId"].ToString() + "&sortBy=2");
+                                    return;
+                                }
+                            }
+                            
 
                             dr["pointsRequired"] = Convert.ToInt32(dr["pointsRequired"].ToString().Replace(" ", string.Empty));
 

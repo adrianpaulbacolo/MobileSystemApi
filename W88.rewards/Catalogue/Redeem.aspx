@@ -266,8 +266,7 @@
                             $('#btnSubmit').attr("disabled", false);
                             break;
                         case 'CURR':
-                         
-                            window.location.replace('/Catalogue?categoryId=53&sortBy=2');
+                            window.location.replace('/Catalogue?categoryId=0&sortBy=2');
                             break;
                         default:
                             break;
