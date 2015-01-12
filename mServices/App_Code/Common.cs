@@ -62,16 +62,19 @@ namespace mServices
             }
         }
 
-        public static string connCore()
+        public static string connCore
         {
-            try
+            get
             {
-                return System.Configuration.ConfigurationManager.ConnectionStrings["connCore"].ConnectionString.Replace("[xxx]", Encryption.Decrypt(System.Configuration.ConfigurationManager.AppSettings["databasePassword"]));
-            }
-            catch
-            {
-                return "";
-            }
+                try
+                {
+                    return System.Configuration.ConfigurationManager.ConnectionStrings["connCore"].ConnectionString.Replace("[xxx]", Encryption.Decrypt(System.Configuration.ConfigurationManager.AppSettings["databasePassword"]));
+                }
+                catch
+                {
+                    return "";
+                }
+            }            
         }
 
         public static string connWarehouse()
