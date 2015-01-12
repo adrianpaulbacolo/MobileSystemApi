@@ -1,0 +1,12 @@
+﻿.frmlogin_wrapper {
+    display: table;
+    table-layout: fixed;
+}
+
+    .frmlogin_wrapper > div {
+        display: table-cell;
+    }
+
+    .frmlogin_wrapper > div > input[type="submit"] {
+        display:none;
+    }

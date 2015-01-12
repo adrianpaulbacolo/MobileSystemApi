@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="12e62841-b0cc-4513-bdd1-8696051d9f24" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://paymentservices.ms1dev.com/MS1.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MS1.xsd" MetadataType="Schema" ID="ec247519-c2b4-4422-bda6-837c11a807c0" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/MS1.svc?xsd=xsd2" />
+    <MetadataFile FileName="MS1.disco" MetadataType="Disco" ID="d0e6ba6a-0a2e-4a16-81e3-58f736e72aeb" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/MS1.svc?disco" />
+    <MetadataFile FileName="MS11.xsd" MetadataType="Schema" ID="23d0640b-c796-4847-8f29-0ebf55656ee9" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/MS1.svc?xsd=xsd3" />
+    <MetadataFile FileName="MS12.xsd" MetadataType="Schema" ID="d84e2de1-7911-46cc-a43d-9ef1c9af6128" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/MS1.svc?xsd=xsd0" />
+    <MetadataFile FileName="MS13.xsd" MetadataType="Schema" ID="91f0f64e-a74b-4ac0-bf19-bcc87c231ebb" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/MS1.svc?xsd=xsd1" />
+    <MetadataFile FileName="MS1.wsdl" MetadataType="Wsdl" ID="4bb515e2-053f-423d-8234-cd7fd7b6446e" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/MS1.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

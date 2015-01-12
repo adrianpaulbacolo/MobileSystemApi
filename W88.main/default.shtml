@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript" src="/_static/js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="_static/js/md5.js"></script>
+    <link type="text/css" href="/_static/css/main.css" rel="stylesheet" />
+    <link type="text/css" href="/_static/css/login.css" rel="stylesheet" />
+    <link type="text/css" href="/_static/css/loader.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="frmLogin">
+        <div class="frmlogin_wrapper">
+            <div><input id="txtUsername" type="text" /></div>
+            <div><input id="txtPassword" type="password" /></div>
+            <div><input type="submit" value="sub" /></div>
+            <div id="loader_g"><div id="blockG_1" class="loader_blockG"></div><div id="blockG_2" class="loader_blockG"></div><div id="blockG_3" class="loader_blockG"></div></div>
+        </div>
+    </form>
+</body>
+
+<script type="text/javascript">
+    var alert_obj = null;
+
+    $(function () {
+        $(':submit').show();
+        $('#loader_g').fadeOut();
+    });
+
+    $.ajax({
+        dataType: "json",
+        url: '/handlers/getlabels.ashx',
+        data: { 'ext': 'json', 'path': 'alerts' },
+        type: 'POST'
+        //success: success
+    })
+    .done(function (data) {
+        //$('body').append(data.wallets.asports["en-us"]);
+        //$('body').append(data.wallets.asports.en_us);
+        alert_obj = data;
+        $('body').append(alert_obj.login.missing_username["en_us"]);
+    })
+    .fail(function () { })
+    .always(function () { })
+    .then(function () { });
+
+    $('#txtPassword').on({
+        focus: function () {
+            $(this).select();
+        }
+    });
+
+    $('form').on({
+        submit: function (e) {
+            var user = $('#txtUsername').val();
+            var pwd = $('#txtPassword').val();
+            var that = $(this);
+
+            $('#txtPassword').val($.MD5(pwd));
+            console.log(pwd + ' | ' + $.MD5(pwd));
+
+            $.ajax({
+                beforeSend: function (xhr) {
+                    login_disable(that);
+                },
+                dataType: "json",
+                type: 'POST',
+                url: '/_secure/handlers/login_process.ashx',
+                data: { 'username': user, 'password': $('#txtPassword').val() },
+                //async: false,
+                timeout: 10000
+            })
+            .done(function (data) {
+                console.log('data : ' + data);
+                $('body').append(data);
+
+                console.log(data.error + ' | ' + data.alert);
+                alert(alert_obj.login[data.alert]["en_us"]);
+
+                login_enable(that);
+            })
+            .fail(function () {
+                alert('fail');
+                login_enable(that);
+            })
+            .always(function () { })
+            .then(function () {
+                //alert('then');
+                //$(':input', that).attr('disabled', false);
+            });
+
+            e.preventDefault();
+        }
+    });
+
+    function login_disable(obj) {
+        $(':input', obj).attr('disabled', true);
+        $(':submit').val('login in process');
+        $('#loader_g').show();
+    }
+
+    function login_enable(obj) {
+        $(':input', obj).attr('disabled', false);
+        $('#txtPassword').val('').focus();
+        $(':submit').val('login');
+        $('#loader_g').fadeOut();
+    }
+</script>
+</html>

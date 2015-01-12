@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="23b5bfcb-7e09-48cd-a8a5-4fbe36d5577a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://paymentservices.ms1dev.com/Deposit.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Deposit.disco" MetadataType="Disco" ID="a51199c0-2266-4e3f-b89c-73bf5fb4497c" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/Deposit.svc?disco" />
+    <MetadataFile FileName="Deposit.wsdl" MetadataType="Wsdl" ID="10ff13b9-f217-4354-92e4-4b65e0917ccf" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/Deposit.svc?wsdl" />
+    <MetadataFile FileName="Deposit.xsd" MetadataType="Schema" ID="579ab73a-dc88-4dd7-812c-213bf48cfe0e" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/Deposit.svc?xsd=xsd1" />
+    <MetadataFile FileName="Deposit1.xsd" MetadataType="Schema" ID="1d6b8115-6580-4fb0-82f3-b906c25a5ea2" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/Deposit.svc?xsd=xsd0" />
+    <MetadataFile FileName="Deposit2.xsd" MetadataType="Schema" ID="93083806-91d7-456f-bd27-8e97760820bf" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/Deposit.svc?xsd=xsd3" />
+    <MetadataFile FileName="Deposit3.xsd" MetadataType="Schema" ID="4c6afe7a-8bb0-4a00-bd50-f9bc10c804a3" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/Deposit.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

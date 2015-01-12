@@ -1,0 +1,27 @@
+﻿{
+  "company": "ABC Company",
+  "products": [
+    {
+      "firstName": "John",
+      "lastName": "Doe"
+    },
+    {
+      "firstName": "Anna",
+      "lastName": "Smith"
+    },
+    {
+      "firstName": "Peter",
+      "lastName": "Jones"
+    }
+  ],
+  "wallets": {
+    "main": {
+      "en-us": "Main"
+    },
+    "asports": {
+      "en_us": "A-Sports",
+      "zh_cn": "东方体育",
+	  "en-us": "a-Sports"
+    }
+  }
+}

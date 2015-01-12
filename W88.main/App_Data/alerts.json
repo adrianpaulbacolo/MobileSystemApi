@@ -1,0 +1,91 @@
+﻿{
+  "login": {
+    "missing_username": {
+      "en_us": "Please enter your username"
+    },
+    "missing_password": {
+      "en_us": "Please enter your password"
+    },
+    "invalid_user": {
+      "en_us": "Invalid Username and/or Password."
+    },
+    "incorrect_password": {
+      "en_us": "Invalid Username and/or Password."
+    },
+    "inactive_account": {
+      "en_us": "W88.com: Your account login failed. Please contact our Customer Service 24/7 for assistance."
+    },
+    "success": {
+      "en_us": "you have successfully logged in!"
+    }
+  },
+  "registration": {
+    "missing_username": {
+      "en_us": "Please enter your username"
+    },
+    "missing_password": {
+      "en_us": "Please enter your password"
+    },
+    "missing_email": {
+      "en_us": "Please enter your email"
+    },
+    "missing_contact": {
+      "en_us": "Please enter your contact number. \n e.g. +86-111111 (Maximum of 12 characters)"
+    },
+    "missing_currency": {
+      "en_us": "Please select your preferred currency"
+    },
+    "missing_fname": {
+      "en_us": "Please enter your first name"
+    },
+    "missing_lname": {
+      "en_us": "Please enter your last name"
+    },
+    "missing_vcode": {
+      "en_us": "Invalid verfication code"
+    },
+    "invalid_username": {
+      "en_us": "Invalid Username and/or Password."
+    },
+    "invalid_password": {
+      "en_us": "Invalid Username and/or Password."
+    },
+    "invalid_email": {
+      "en_us": "Invalid email"
+    },
+    "invalid_contact": {
+      "en_us": "Invalid contact number"
+    },
+    "invalid_fname": {
+      "en_us": "Invalid first name"
+    },
+    "invalid_lname": {
+      "en_us": "Invalid last name"
+    },
+    "invalid_dob": {
+      "en_us": "Invalid Date of Birth"
+    },
+    "invalid_vcode": {
+      "en_us": "Invalid verfication code"
+    },
+    "username_taken": {
+      "en_us": "Username is already registered. Please enter a new Username."
+    },
+    "email_taken": {
+      "en_us": "Email address is already registered. Please enter a new email address."
+    },
+    "success": {
+      "en_us": "Welcome to W88, and thank you for opening an account.\nYour account is now ready for you to login and play on W88.com and mobile m.w88.com."
+    }
+  },
+  "wallets": {
+    "main": {
+      "en-us": "Main"
+    },
+    "asports": {
+      "en_us": "A-Sports",
+      "zh_cn": "东方体育",
+      "en-us": "a-Sports"
+    }
+  }
+}
