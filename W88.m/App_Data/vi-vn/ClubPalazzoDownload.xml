@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <message>
+    <![CDATA[<span class="blue">3 Bước Đơn Giản để chơi Phiên Bản Download của Club Palazzo</span>
+            <br />Bước 1:  Nhấp vào nút Download bên dưới
+            <br />Bước 2:  Cài đặt bằng cách nhấp Chạy hoặc Lưu trên ổ cứng máy tính
+            <br />Bước 3:  Đăng nhập bằng cách gõ thêm "<span class='blue'>W88</span>" phía trước tên tài khoản của quý khách.
+            <br />
+            <br />Ví dụ:  
+            <br />nếu tên tài khoản của quý khách là "luckyplayer", quý khách đăng nhập bằng "<span class='blue'>W88</span>LUCKYPLAYER". ]]>
+  </message>
+  <downloadnow><![CDATA[TẢI NGAY]]></downloadnow>
+</default>

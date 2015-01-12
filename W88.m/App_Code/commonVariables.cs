@@ -106,7 +106,8 @@ public class commonVariables
         NextPay = 120204,
         Bill99 = 120206,
         IPS = 120207,
-        WingMoney = 110308
+        WingMoney = 110308,
+        SDPay = 120223
     }
 
     public enum WithdrawalMethod 

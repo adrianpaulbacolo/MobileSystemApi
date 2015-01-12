@@ -23,9 +23,14 @@
     </USports>
     <Lottery>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[คีโน]]></Label>
+      <Label><![CDATA[ล็อตเตอรี่]]></Label>
       <Description><![CDATA[คีโน & ล็อตโต้]]></Description>
     </Lottery>
+    <Keno>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[คีโน]]></Label>
+      <Description><![CDATA[คีโน & ล็อตโต้]]></Description>
+    </Keno>
     <ClubCrescendo>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[เครสเซนโด้]]></Label>
@@ -48,14 +53,24 @@
     </ClubBravado>
     <ClubMassimoSlots>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[แมสซิโม <br /><span>(สล๊อต)</span>]]></Label>
+      <Label><![CDATA[แมสซิโม]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoSlots>
     <ClubMassimoCasino>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[แมสซิโม <br /><span>(คาสิโนสด)</span>]]></Label>
+      <Label><![CDATA[แมสซิโม]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoCasino>
+    <ClubPalazzoSlots>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[พาลาซโซ]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubPalazzoSlots>
+    <ClubPalazzoCasino>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[พาลาซโซ]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubPalazzoCasino>
   </Products>
   <Wallets>
     <main><![CDATA[กระเป๋าหลัก]]></main>
@@ -63,9 +78,10 @@
     <esports><![CDATA[E-กีฬา]]></esports>
     <isports><![CDATA[I-กีฬา]]></isports>
     <lottery><![CDATA[ล็อตเตอรี่]]></lottery>
-    <casino><![CDATA[คลับ W, บราวาโด้, เครสเชนโด, ดิวิโน่ & แมสซิโม]]></casino>
+    <casino><![CDATA[คลับ W, บราวาโด้, อพอลโล, เครสเชนโด้, ดิวิโน่ & แมสซิโม่]]></casino>
     <playtech><![CDATA[พาลาซโซ]]></playtech>
     <binary><![CDATA[ไบนารี่]]></binary>
     <poker><![CDATA[โป๊กเกอร์ (USD)]]></poker>
+    <sbtech><![CDATA[E-กีฬา]]></sbtech>
   </Wallets>
 </default>

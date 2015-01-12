@@ -18,6 +18,45 @@ public class AjaxHandlers_ASHX_RegisterPromo : IHttpHandler, System.Web.SessionS
         strSubjectCode = context.Request.Form.Get("SCode");
         strComment = context.Request.Form.Get("Comment");
 
+        switch (strComment.ToLower()) 
+        {
+            case "asports":
+                strComment = "SB";
+                break;
+            case "esports":
+                strComment = "SB2";
+                break;
+            case "isports":
+                strComment = "SB3";
+                break;
+            case "usports":
+                strComment = "SB4";
+                break;
+            case "bravado":
+                strComment = "slot";
+                break;
+            case "crescendo":
+                strComment = "ctxm";
+                break;
+            case "divino":
+                strComment = "betsoft";
+                break;
+            case "palazzo":
+                strComment = "playtech";
+                break;
+            case "massimo":
+                strComment = "vanguard";
+                break;
+            case "apollo":
+                strComment = "ags";
+                break;
+            case "casino":
+            case "ilotto":
+            case "keno":
+            default:
+                break;
+        }
+
         intResult = 1;  
         using (wsMemberMS1.memberWSSoapClient wsInstance = new wsMemberMS1.memberWSSoapClient()) 
         {

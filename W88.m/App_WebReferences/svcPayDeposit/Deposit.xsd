@@ -111,6 +111,7 @@
         <xs:element minOccurs="0" name="payMethodId" type="xs:long" />
         <xs:element minOccurs="0" name="requestCurrency" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="requestAmount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="bankCode" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -137,6 +138,7 @@
         <xs:element minOccurs="0" name="requestCurrency" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="requestAmount" type="xs:decimal" />
         <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Services" minOccurs="0" name="source" type="q2:DepositSource" />
+        <xs:element minOccurs="0" name="bankCode" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -920,6 +922,21 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="validateSdPayTransaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ip" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="res" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="validateSdPayTransactionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="validateSdPayTransactionResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

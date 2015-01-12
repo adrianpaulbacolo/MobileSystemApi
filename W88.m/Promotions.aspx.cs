@@ -14,5 +14,7 @@ public partial class _Promotions : System.Web.UI.Page
     {
         xeErrors = commonVariables.ErrorsXML;
         commonCulture.appData.getRootResource("/Promotions.aspx", out xeResources);
+
+        if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("AffiliateId"))) { commonVariables.SetSessionVariable("AffiliateId", HttpContext.Current.Request.QueryString.Get("AffiliateId")); }
     }
 }

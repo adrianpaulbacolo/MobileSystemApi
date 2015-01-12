@@ -224,6 +224,12 @@
   <wsdl:message name="IDeposit_createNextPayDepositTransaction_OutputMessage">
     <wsdl:part name="parameters" element="tns:createNextPayDepositTransactionResponse" />
   </wsdl:message>
+  <wsdl:message name="IDeposit_validateSdPayTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:validateSdPayTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_validateSdPayTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:validateSdPayTransactionResponse" />
+  </wsdl:message>
   <wsdl:portType name="IDeposit">
     <wsdl:operation name="createFastDepositTransaction">
       <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/createFastDepositTransaction" message="tns:IDeposit_createFastDepositTransaction_InputMessage" />
@@ -368,6 +374,10 @@
     <wsdl:operation name="createNextPayDepositTransaction">
       <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/createNextPayDepositTransaction" message="tns:IDeposit_createNextPayDepositTransaction_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/createNextPayDepositTransactionResponse" message="tns:IDeposit_createNextPayDepositTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="validateSdPayTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/validateSdPayTransaction" message="tns:IDeposit_validateSdPayTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/validateSdPayTransactionResponse" message="tns:IDeposit_validateSdPayTransaction_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDeposit" type="tns:IDeposit">
@@ -689,6 +699,15 @@
     </wsdl:operation>
     <wsdl:operation name="createNextPayDepositTransaction">
       <soap:operation soapAction="http://tempuri.org/IDeposit/createNextPayDepositTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateSdPayTransaction">
+      <soap:operation soapAction="http://tempuri.org/IDeposit/validateSdPayTransaction" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

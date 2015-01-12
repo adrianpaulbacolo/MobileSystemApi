@@ -59,7 +59,7 @@ public class commonEncryption
     }
 
     //decryption using md5 algorithm with a private key
-    internal static string decrypting(string str, string private_key)
+    public static string decrypting(string str, string private_key)
     {
         string functionReturnValue = null;
         if (!string.IsNullOrEmpty(str))

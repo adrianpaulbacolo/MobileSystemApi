@@ -23,9 +23,14 @@
     </USports>
     <Lottery>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Keno]]></Label>
+      <Label><![CDATA[Lotere]]></Label>
       <Description><![CDATA[KENO & LOTERE]]></Description>
     </Lottery>
+    <Keno>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[Keno]]></Label>
+      <Description><![CDATA[KENO & LOTERE]]></Description>
+    </Keno>
     <ClubCrescendo>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[Crescendo]]></Label>
@@ -48,24 +53,35 @@
     </ClubBravado>
     <ClubMassimoSlots>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Massimo <br /><span>(Slot)</span>]]></Label>
+      <Label><![CDATA[Massimo]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoSlots>
     <ClubMassimoCasino>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Massimo <br /><span>(Kasino)</span>]]></Label>
+      <Label><![CDATA[Massimo]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoCasino>
-  </Products>
+    <ClubPalazzoSlots>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[Palazzo]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubPalazzoSlots>
+    <ClubPalazzoCasino>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[Palazzo]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubPalazzoCasino>  
+</Products>
   <Wallets>
     <main><![CDATA[Main]]></main>
     <asports><![CDATA[A-SPORT]]></asports>
     <esports><![CDATA[E-SPORT]]></esports>
     <isports><![CDATA[I-SPORT]]></isports>
     <lottery><![CDATA[Lotere]]></lottery>
-    <casino><![CDATA[Club W, Bravado, Crescendo, Divino & Massimo]]></casino>
+    <casino><![CDATA[Club W, Bravado, Apollo, Crescendo, Divino & Massimo]]></casino>
     <playtech><![CDATA[Palazzo]]></playtech>
     <binary><![CDATA[Biner]]></binary>
     <poker><![CDATA[Poker (USD)]]></poker>
+    <sbtech><![CDATA[E-SPORT]]></sbtech>
   </Wallets>
 </default>

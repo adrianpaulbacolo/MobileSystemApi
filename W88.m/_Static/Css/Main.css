@@ -379,6 +379,10 @@ body {
     border: 1px solid #000;
     background-color: #a1a1a1;
 }
+
+.ui-page-active {
+    background:#1f1f1f !important;
+}
 /*#endregion*/
 
 
@@ -444,4 +448,16 @@ body {
     body {
         overflow-y: auto;
     }
+}
+
+.div-product-header > a {
+    color: #fff;
+    background-color: #333;
+    width: 100%;
+    display:block;
+    padding:.5em;
+    border-bottom: 1px solid #111;
+}
+.div-product-header + div {
+    display:none;
 }

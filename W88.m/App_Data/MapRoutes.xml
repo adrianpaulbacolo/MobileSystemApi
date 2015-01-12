@@ -21,6 +21,7 @@
   <mr19 AbsoluteURL="~/Slots/default.aspx"><![CDATA[ClubCrescendo]]></mr19>
   <mr20 AbsoluteURL="~/FundTransfer/default.aspx"><![CDATA[FundTransfer]]></mr20>
   <mr21 AbsoluteURL="~/Slots/ClubMassimo.aspx"><![CDATA[ClubMassimo]]></mr21>
+  <mr22 AbsoluteURL="~/Deposit/SDPay.aspx"><![CDATA[Deposit/SDPay]]></mr22>
   <!--
   <mr3><![CDATA[Lottery/]]></mr3>
   <mr4><![CDATA[Games/]]></mr4>

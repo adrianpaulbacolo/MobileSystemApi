@@ -40,12 +40,8 @@ public partial class _Index : BasePage
                 Session.Remove("Error");
                 if (litScript != null) { litScript.Text += string.Format("<script type='text/javascript'>alert('{0}');</script>", HttpContext.Current.Request.QueryString.Get("Error")); }
             }
-
-            lblLogin.InnerHtml = commonCulture.ElementValues.getResourceString("lblPlaceBet", xeResources);
         }
 
         if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("AffiliateId"))) { commonVariables.SetSessionVariable("AffiliateId", HttpContext.Current.Request.QueryString.Get("AffiliateId")); }
-
-        if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { divLoginMessage.Visible = false; }
     }
 }

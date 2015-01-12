@@ -58,7 +58,7 @@
                     </div>
                     <div class="div-affiliateid ui-field-contain ui-hide-label">
                         <asp:Label ID="lblAffiliateID" runat="server" AssociatedControlID="txtAffiliateID" Text="email" CssClass="ui-hidden-accessible" />
-                        <asp:TextBox ID="txtAffiliateID" runat="server" placeholder="affiliate" data-mini="true" type="number" data-clear-btn="true" />
+                        <asp:TextBox ID="txtAffiliateID" runat="server" placeholder="affiliate" data-mini="true" type="number" />
                     </div>
                     <div class="div-register-captcha">
                         <asp:Label ID="lblCaptcha" runat="server" AssociatedControlID="txtCaptcha" Text="code" CssClass="ui-hidden-accessible ui-block-a" />

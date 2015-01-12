@@ -23,9 +23,14 @@
     </USports>
     <Lottery>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[គីណូ]]></Label>
+      <Label><![CDATA[ឆ្នោតឡូតូ]]></Label>
       <Description><![CDATA[គីណូ & LOTTO]]></Description>
     </Lottery>
+    <Keno>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[គីណូ]]></Label>
+      <Description><![CDATA[គីណូ & LOTTO]]></Description>
+    </Keno>
     <ClubCrescendo>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[Crescendo]]></Label>
@@ -48,14 +53,24 @@
     </ClubBravado>
     <ClubMassimoSlots>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Massimo<br /><span>(ស្លត)</span>]]></Label>
+      <Label><![CDATA[Massimo]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoSlots>
     <ClubMassimoCasino>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Massimo<br /><span>(កាស៊ីណូ)</span>]]></Label>
+      <Label><![CDATA[Massimo]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoCasino>
+    <ClubPalazzoSlots>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[Palazzo]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubPalazzoSlots>
+    <ClubPalazzoCasino>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[Palazzo]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubPalazzoCasino>
   </Products>
   <Wallets>
     <main><![CDATA[ចំបង]]></main>
@@ -63,9 +78,10 @@
     <esports><![CDATA[E-កីឡា]]></esports>
     <isports><![CDATA[I-កីឡា]]></isports>
     <lottery><![CDATA[ឆ្នោតឡូតូ]]></lottery>
-    <casino><![CDATA[Club W, Bravado, Crescendo, Divino & Massimo]]></casino>
+    <casino><![CDATA[Club W, Bravado, Apollo, Crescendo, Divino & Massimo]]></casino>
     <playtech><![CDATA[Palazzo]]></playtech>
     <binary><![CDATA[ល្បែងភាគហ៊ុន]]></binary>
     <poker><![CDATA[ពុកគ័រ (USD)]]></poker>
+    <sbtech><![CDATA[E-កីឡា]]></sbtech>
   </Wallets>
 </default>

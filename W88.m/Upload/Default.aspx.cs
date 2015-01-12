@@ -75,8 +75,40 @@ public partial class Upload_Default : BasePage
                             message.From = new System.Net.Mail.MailAddress(strEmailFrom);
                             message.To.Add("banking@w88.com");
                             message.To.Add("doc@w88.com");
-                            //message.CC.Add("wayne.aw@vistatechcapital.com");
-                            //message.To.Add("gb.martymcfly@gmail.com");
+
+                            switch (strCurrency.ToLower()) 
+                            {
+                                case "myr":
+                                    message.CC.Add("CS_English@aquozsolutions.com");
+                                    message.CC.Add("team_cscambodia@aquozsolutions.com");
+                                    break;
+
+                                case "usd":
+                                    message.CC.Add("team_cscambodia@aquozsolutions.com");
+                                    message.CC.Add("CS_English@aquozsolutions.com");
+                                    break;
+
+                                case "rmb":
+                                    message.CC.Add("team_cschina@aquozsolutions.com");
+                                    break;
+
+                                case "idr":
+                                    message.CC.Add("team_csindo@aquozsolutions.com");
+                                    break;
+
+                                case "thb":
+                                    message.CC.Add("team_csthai@aquozsolutions.com");
+                                    break;
+
+                                case "krw":
+                                    message.CC.Add("DG-CsKorea@aquozsolutions.com");
+                                    break;
+
+                                case "vnd":
+                                    message.CC.Add("team_csvietnam@aquozsolutions.com");
+                                    break;
+                            }
+
                             message.Body = string.Format("Username: {0}{1}Currency: {2}{3}Remarks: {4}", strUsername, System.Environment.NewLine, strCurrency, System.Environment.NewLine, strRemarks);
                             message.Subject = string.Format("Attachment Upload - {0} / {1} / {2}", strSubmissionID, strUsername, strCurrency);
                             message.Attachments.Add(new System.Net.Mail.Attachment(fuFileUpload.PostedFile.InputStream, fuFileUpload.PostedFile.FileName));

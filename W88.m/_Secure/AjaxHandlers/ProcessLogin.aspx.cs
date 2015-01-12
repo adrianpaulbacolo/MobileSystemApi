@@ -12,9 +12,6 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
         System.Xml.Linq.XElement xeErrors = commonVariables.ErrorsXML;
 
         #region initialiseVariables
-        
-        
-        
         int intProcessSerialId = 0;
         string strProcessId = Guid.NewGuid().ToString().ToUpper();
         string strPageName = "ProcessLogin";

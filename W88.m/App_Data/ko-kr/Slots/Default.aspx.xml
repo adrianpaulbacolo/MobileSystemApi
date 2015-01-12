@@ -45,6 +45,18 @@
         <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilemagicpotslots&mode=real&ticket={token}&language=EN&merch_id=CVN2]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilemagicpotslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
       </MagicPot>
+      <KaraokeStar>
+        <Label><![CDATA[Karaoke Star]]></Label>
+        <Description><![CDATA[Karaoke Star]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilekaraokeslots&mode=real&ticket={token}&language=EN&merch_id=CVN2]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilekaraokeslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </KaraokeStar>
+      <NonStopParty>
+        <Label><![CDATA[Non-Stop Party]]></Label>
+        <Description><![CDATA[Non-Stop Party]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilenonstoppartyslots&mode=real&ticket={token}&language=EN&merch_id=CVN2]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilenonstoppartyslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </NonStopParty>
     </Slot>
     <Card Label="카드게임">
       <Baccarat>
@@ -95,6 +107,12 @@
         <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_hold_em&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_hold_em&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
       </HoldEm>-->
+      <VIPBaccaratMH>
+        <Label><![CDATA[Mobile VIP Baccarat (Multi-Hand)]]></Label>
+        <Description><![CDATA[Mobile VIP Baccarat (Multi-Hand)]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilemhbaccarat&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilemhbaccarat&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </VIPBaccaratMH>
     </Card>
     <Table Label="테이블 게임">
       <AmericanRoulette>

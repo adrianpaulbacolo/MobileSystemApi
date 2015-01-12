@@ -18,7 +18,7 @@
   <logout><![CDATA[Logout]]></logout>
   <products><![CDATA[Produk]]></products>
   <desktopsite><![CDATA[Situs Desktop]]></desktopsite>
-  <joinnow><![CDATA[Join Now]]></joinnow>
+  <joinnow><![CDATA[Join]]></joinnow>
   <promotions><![CDATA[PROMOSI]]></promotions>
   <updateProfile><![CDATA[Update Profile]]></updateProfile>
   <fastdeposit><![CDATA[Fast Deposit]]></fastdeposit>
@@ -26,4 +26,12 @@
   <wingmoney><![CDATA[Wing Money]]></wingmoney>
   <fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
   <submitUpload><![CDATA[Kirim Upload]]></submitUpload>
+  <sports><![CDATA[Sport]]></sports>
+  <livecasino><![CDATA[Live Kasino]]></livecasino>
+  <slots><![CDATA[Slot]]></slots>
+  <lottery><![CDATA[Lotere]]></lottery>
+  <fundmanagement><![CDATA[Pengelolaan Dana]]></fundmanagement>
+  <customerservice><![CDATA[Customer Service]]></customerservice>
+  <rewards><![CDATA[Klub Reward]]></rewards>
+  <sdpay><![CDATA[SDPay]]></sdpay>
 </menu>

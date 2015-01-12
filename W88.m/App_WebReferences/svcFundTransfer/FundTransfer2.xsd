@@ -14,7 +14,6 @@
         <xs:element minOccurs="0" name="transferAmount" type="xs:decimal" />
         <xs:element minOccurs="0" name="promoCode" nillable="true" type="xs:string" />
         <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Services" minOccurs="0" name="transferBy" type="q1:transferOrigin" />
-        <xs:element minOccurs="0" name="onBehalf" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

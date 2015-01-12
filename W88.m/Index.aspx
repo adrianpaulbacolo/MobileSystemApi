@@ -1,4 +1,4 @@
-﻿ <%@ Page Language="C#" AutoEventWireup="true" CodeFile="Index.aspx.cs" Inherits="_Index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Index.aspx.cs" Inherits="_Index" %>
 
 <!DOCTYPE html>
 <html>
@@ -13,7 +13,21 @@
     <link type="text/css" href="/_Static/Css/IndexScroll.css" rel="stylesheet">
     <!--<![endif]-->
     <script type="text/javascript">
-        $(function () { getPromos(); window.document.referrer.indexOf('aSports'); var prodScroll = new IScroll('.div-product-scroll', { eventPassthrough: true, scrollX: true, scrollY: false, preventDefault: false, speedRatioX: 9000 }); });
+        var cache = [];
+        $(function () {
+            $('.div-product-header').each(function () {
+                $(this).bind('click touch', function () {
+                    $('.div-product-header').not(this).next().hide();
+                    $(this).next().toggle();
+                    $('.div-product-scroll').each(function () {
+                        $(this).attr('id', $(this).attr('data-rel'));
+                        var scrollObj = new IScroll('#' + $(this).attr('data-rel'), { eventPassthrough: true, scrollX: true, scrollY: false, preventDefault: false, speedRatioX: 9000 });
+                        cache.push(scrollObj);
+                    });
+                });
+            });
+        });
+
         $(window).resize(function () { $('.div-promo-row > a > div:last-child > div').css({ maxWidth: ($(window).width() - 200) + 'px' }); });
         function timerV2(pid, start_date, end_date) { if (new Date('<%=System.DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') < new Date(start_date) || new Date('<%=System.DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') > new Date(end_date)) { $('div#' + pid).hide(); } }
         function getPromos() {
@@ -70,7 +84,6 @@
                         case 1: // success
                             alert('<%=commonCulture.ElementValues.getResourceXPathString("/Promotion/RegisterSuccess", xeErrors)%>');
                             $(obj).parent().hide();
-                            //$(obj).parent().prev().show();
                             break;
                         case 10: // multiple submit
                             alert('<%=commonCulture.ElementValues.getResourceXPathString("/Promotion/SubmitOnce", xeErrors)%>');
@@ -94,11 +107,12 @@
     <div id="divMain" data-role="page" data-theme="b" data-ajax="false">
         <!--#include virtual="~/_static/header.shtml" -->
         <div class="ui-content" role="main">
-            <div id="divLoginMessage" runat="server"><span id="lblLogin" runat="server">please login to place a bet</span></div>
+            <div class="div-mobile-download"><a rel="clubpalazzo" href="/_static/palazzo/casino.aspx" data-ajax="false"><img src="/_Static/Images/Download/W88-Mobile-ClubPalazzo-<%=commonVariables.SelectedLanguageShort%>.jpg" /></a><a rel="clubw" href="/mob/app-release.apk" data-ajax="false"><img src="/_Static/Images/Download/W88-Mobile-ClubW-<%=commonVariables.SelectedLanguageShort%>.jpg" /></a><a href="https://livegames.gameassists.co.uk/MobileClient/MobileRedirector/index.aspx?AppID=W88Diamond&ClientID=5&UL=en" data-ajax="false"><img src="/_Static/Images/Download/W88-Mobile-ClubMassimo-<%=commonVariables.SelectedLanguageShort%>.jpg" /></a></div>
             <div id="divContent">
-                <div class="div-product-scroll">
+                <div class="div-product-header"><a data-theme="none"><%=commonCulture.ElementValues.getResourceString("sports", commonVariables.LeftMenuXML)%></a></div>
+                <div data-rel="sports" class="div-product-scroll">
                     <div>
-                        <ul>                  
+                        <ul>
                             <li class="li-asports">
                                 <a rel="asports" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
                                     <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ASports/Label", commonVariables.ProductsXML)%></div>
@@ -111,9 +125,22 @@
                                     <div></div>
                                 </a>
                             </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="div-product-header"><a><%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%></a></div>
+                <div data-rel="livecasino" class="div-product-scroll">
+                    <div>
+                        <ul>
                             <li class="li-clubw">
                                 <a rel="clubw" href="/mob/app-release.apk" data-ajax="false">
                                     <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></div>
+                                    <div></div>
+                                </a>
+                            </li>
+                            <li class="li-clubpalazzo-casino">
+                                <a rel="clubpalazzo-casino" href="/_static/palazzo/casino.aspx" data-ajax="false">
+                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoCasino/Label", commonVariables.ProductsXML)%></div>
                                     <div></div>
                                 </a>
                             </li>
@@ -123,9 +150,22 @@
                                     <div></div>
                                 </a>
                             </li>
-                            <li class="li-lottery">
-                                <a rel="lottery" href="/_Secure/Login.aspx?redirect=mlotto" data-rel="dialog" data-transition="slidedown">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/Lottery/Label", commonVariables.ProductsXML)%></div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="div-product-header"><a><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></a></div>
+                <div data-rel="slots" class="div-product-scroll">
+                    <div>
+                        <ul>
+                            <li class="li-clubbravado">
+                                <a rel="clubbravado" href="/ClubBravado" data-ajax="false">
+                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubBravado/Label", commonVariables.ProductsXML)%></div>
+                                    <div></div>
+                                </a>
+                            </li>
+                            <li class="li-clubpalazzo-slots">
+                                <a rel="clubpalazzo-slots" href="/_static/palazzo/slots.aspx" data-ajax="false">
+                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML)%></div>
                                     <div></div>
                                 </a>
                             </li>
@@ -147,17 +187,28 @@
                                     <div></div>
                                 </a>
                             </li>
-                            <!--
-                            <li class="li-clubbravado">
-                                <a rel="clubbravado" href="/ClubBravado" data-ajax="false">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubBravado/Label", commonVariables.ProductsXML)%></div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="div-product-header"><a><%=commonCulture.ElementValues.getResourceXPathString("lottery", commonVariables.LeftMenuXML)%></a></div>
+                <div data-rel="keno" class="div-product-scroll">
+                    <div>
+                        <ul>
+                            <li class="li-lottery">
+                                <a rel="keno" href="/_Secure/Login.aspx?redirect=mlotto" data-rel="dialog" data-transition="slidedown">
+                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/Keno/Label", commonVariables.ProductsXML)%></div>
                                     <div></div>
                                 </a>
                             </li>
-                            -->
-                            <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-                               { %>
+                        </ul>
+                    </div>
+                </div>
 
+                <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+                <div class="div-product-header"><a><%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%></a></div>
+                <div data-rel="fundmanagement" class="div-product-scroll">
+                    <div>
+                        <ul>
                             <li class="li-deposit">
                                 <a rel="deposit" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
                                     <div><%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%></div>
@@ -176,10 +227,11 @@
                                     <div></div>
                                 </a>
                             </li>
-                            <% } %>
                         </ul>
                     </div>
                 </div>
+                <% } %>
+
 
                 <div id="divProduct">
                     <ul class="lv-Product" data-role="listview" data-icon="false">
@@ -266,11 +318,6 @@
                     </ul>
                 </div>
             </div>
-            <div id="divPromotions" class="div-promotions-wrapper">
-                <img id="promoLoader" src="/_Static/Css/images/ajax-loader.gif" style="display: none;" />
-                <div id="divPromoHeader" onclick="javascript:$(this).next().children(':nth-child(n+4)').slideToggle();"><span><%=commonCulture.ElementValues.getResourceString("promotions", commonVariables.LeftMenuXML)%></span></div>
-            </div>
-            <div class="div-mobile-download"><a rel="clubw" href="/mob/app-release.apk" data-ajax="false"><img src="/_Static/Images/Download/W88-Mobile-ClubW-<%=commonVariables.SelectedLanguageShort%>.jpg" /></a><a href="https://livegames.gameassists.co.uk/MobileClient/MobileRedirector/index.aspx?AppID=W88Diamond&ClientID=5&UL=en" data-ajax="false"><img src="/_Static/Images/Download/W88-Mobile-MassimoCasino-<%=commonVariables.SelectedLanguageShort%>.jpg" /></a></div>
         </div>
         <!-- /content -->
         <!--#include virtual="~/_static/footer.shtml" -->

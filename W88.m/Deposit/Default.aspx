@@ -21,6 +21,7 @@
                         <%if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "usd", true) == 0) { %>  
                             <li id="<%=string.Format("d{0}", Convert.ToInt32(commonVariables.DepositMethod.WingMoney))%>"><a href="/Deposit/WingMoney" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("wingmoney", commonVariables.LeftMenuXML)%></a></li>
                         <% } %>
+                        <li id="<%=string.Format("d{0}", Convert.ToInt32(commonVariables.DepositMethod.SDPay))%>"><a href="/Deposit/SDPay" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("sdpay", commonVariables.LeftMenuXML)%></a></li>
                     </ul>
                     <br />
                 </div>

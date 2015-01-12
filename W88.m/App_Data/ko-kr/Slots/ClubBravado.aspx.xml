@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+
+  <Category>
+    <Slot Label="슬롯">
+      <Soccer>
+        <ImageName><![CDATA[soccer]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/Soccer/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/Soccer/?fun=1]]></PlayForFunURL>
+      </Soccer>
+      <ThreeKingdoms>
+        <ImageName><![CDATA[threekingdoms]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/threekingdoms/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/threekingdoms/?fun=1]]></PlayForFunURL>
+      </ThreeKingdoms>
+      <FreedomFighter>
+        <ImageName><![CDATA[freedomfighter]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/freedomfighter/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/freedomfighter/?fun=1]]></PlayForFunURL>
+      </FreedomFighter>
+      <LittleMonsters>
+        <ImageName><![CDATA[littlemonsters]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/littlemonsters/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/littlemonsters/?fun=1]]></PlayForFunURL>
+      </LittleMonsters>
+    </Slot>
+  </Category>
+</default>

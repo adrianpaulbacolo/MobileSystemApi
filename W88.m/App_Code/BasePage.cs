@@ -21,14 +21,13 @@ public class BasePage : System.Web.UI.Page
     protected override void OnLoad(EventArgs e)
     {
         string strMemberSessionId = string.Empty;
+        string strLanguage = HttpContext.Current.Request.QueryString.Get("lang");
 
         strMemberSessionId = commonVariables.CurrentMemberSessionId;
+        if (!string.IsNullOrEmpty(strLanguage)) { commonVariables.SelectedLanguage = strLanguage; }
 
         if (string.IsNullOrEmpty(commonVariables.GetSessionVariable("LoginStatus")) && !string.IsNullOrEmpty(strMemberSessionId))
         {
-            string strLanguage = HttpContext.Current.Request.QueryString.Get("lang");
-
-            if (!string.IsNullOrEmpty(strLanguage)) { commonVariables.SelectedLanguage = strLanguage; }
             Response.Redirect("/_Secure/ProcessLoginBySessionId.html" + (!string.IsNullOrEmpty(strLanguage) ? "?lang=" + strLanguage : ""), true);
         }
         else if (string.IsNullOrEmpty(strMemberSessionId) && string.Compare(commonVariables.GetSessionVariable("LoginStatus"), "success", true) == 0)

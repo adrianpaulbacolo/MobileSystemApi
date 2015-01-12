@@ -26,7 +26,7 @@
                     var strPromoDetail = ($(this).find('div.promotion_detail').html().substr(0, 4) == '<br>' ? $(this).find('div.promotion_detail').html().substring(4) : $(this).find('div.promotion_detail').html()).replace(/<img rel=/g, '<img src=');
                     var objImage = $(this).find('img')[0];
                     var strImageSrc = null;
-                    if (objImage != null) { if (/\/promotions\/img\/W88-Promotion(s)*-/i.test($(objImage).attr('rel'))) { strImageSrc = $(objImage).attr('rel').replace(/\/promotions\/img\/W88-Promotion(s)*-/i, '/promotions/mobile/images/w88-mobile-'); } }
+                    if (objImage != null) { if (/\/promotions\/img\/W88-Promotion(s)*-/i.test($(objImage).attr('rel'))) { strImageSrc = $(objImage).attr('rel').replace(/\/promotions\/img\/W88-Promotion(s)*-/i, '/promotions/mobile/images/w88-mobile-').replace(/-small/i, ''); } }
 
                     var liPromo = $('<li />');
                     var divPromoWrapper = $('<div />', { id: $(this).attr('id'), class: index % 2 == 0 ? 'div-promo-row' : 'div-promo-row div-promo-row-alt' });
@@ -36,7 +36,6 @@
                     var hrefPromo = $('<a />', { href: "javascript:void(0)", onclick: "javascript:OpenPromoDetails(this);" });
                     var divPromoTitle = $('<div />', { class: 'div-promo-header' }).text(strPromoTitle);
                     var divPromoContent = $('<div />', { class: 'div-promo-desc' }).text(strPromoContent);
-                    //var divPromoDetail = $('<div />', { class: 'div-promo-content' }).html(strPromoDetail);
                     var divPromoDetail = $('<div />', { class: 'div-promo-content' }).html(/<img rel=/g.test(strPromoDetail) ? strPromoDetail.replace(/<img rel=/g, '<img src=') : strPromoDetail);
 
                     var pViewMore = null;
@@ -187,7 +186,21 @@
                             case 'divino':
                                 taPromoLabel.text('<%=commonCulture.ElementValues.getResourceXPathString("/Products/ClubDivino/Label", commonVariables.ProductsXML)%> - ' + code);
                                 break;
-                        }
+                            case 'massimo':
+                                taPromoLabel.text('<%=commonCulture.ElementValues.getResourceXPathString("/Products/ClubMassimoCasino/Label", commonVariables.ProductsXML)%> - ' + code);
+                                break;
+                            case 'palazzo':
+                                taPromoLabel.text('<%=commonCulture.ElementValues.getResourceXPathString("/Products/ClubPalazzoCasino/Label", commonVariables.ProductsXML)%> - ' + code);
+                                break;
+                            case 'keno':
+                                taPromoLabel.text('<%=commonCulture.ElementValues.getResourceXPathString("/Products/Keno/Label", commonVariables.ProductsXML)%> - ' + code);
+                                break;
+                            case 'ilotto':
+                                taPromoLabel.text('<%=commonCulture.ElementValues.getResourceXPathString("/Products/Lottery/Label", commonVariables.ProductsXML)%> - ' + code);
+                                break;
+
+
+                         }
                         $(divPromoClaimData).append($(divRadio).append(taPromoRadio).append(taPromoLabel));
                     });
 

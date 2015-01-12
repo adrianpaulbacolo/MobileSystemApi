@@ -3,11 +3,13 @@
 
   <Category>
     <Slot3D Version="IOS" Label="ស្លត 3D IOS">
+      <!--
       <Slot3D1 ProductId="483">
         <ImageName><![CDATA[W88-Slots-Mobile-Puppy-Love]]></ImageName>
         <Label><![CDATA[Puppy Love]]></Label>
         <Description><![CDATA[Cute/Puppy themed 20 line 5 reel slot game]]></Description>
       </Slot3D1>
+      -->
       <Slot3D2 ProductId="291">
         <ImageName><![CDATA[W88-Slots-Mobile-Three-Wishes]]></ImageName>
         <Label><![CDATA[Three Wishes]]></Label>

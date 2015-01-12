@@ -7,8 +7,6 @@
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/PreLoad.js"></script>
     <link type="text/css" rel="stylesheet" href="/_Static/Css/Language.css" />
-    <link rel="stylesheet" href="/_Static/Css/add2home.css">
-    <script type="application/javascript" src="/_Static/Js/add2home.js"></script>
     <script type="application/javascript" src="/_Static/Js/checkManifest.js"></script>
 </head>
 <body>

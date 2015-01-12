@@ -24,7 +24,7 @@ public partial class _Secure_Register : System.Web.UI.Page
 
         if (!Page.IsPostBack)
         {
-            if (string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId"))) { if (string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("AffiliateId"))) { commonVariables.SetSessionVariable("AffiliateId", HttpContext.Current.Request.QueryString.Get("AffiliateId")); } }
+            if (string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId"))) { if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("AffiliateId"))) { commonVariables.SetSessionVariable("AffiliateId", HttpContext.Current.Request.QueryString.Get("AffiliateId")); } }
             strAffiliateId = string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId")) ? string.Empty : Convert.ToString(commonVariables.GetSessionVariable("AffiliateId"));
 
             lblUsername.Text = commonCulture.ElementValues.getResourceString("lblUsername", xeResources);
@@ -84,6 +84,8 @@ public partial class _Secure_Register : System.Web.UI.Page
             for (int intYear = System.DateTime.Now.Year - 18; intYear >= System.DateTime.Now.Year - 99; intYear--) { drpYear.Items.Add(new ListItem(Convert.ToString(intYear))); }
 
             txtAffiliateID.Text = strAffiliateId;
+
+            if (!string.IsNullOrEmpty(strAffiliateId)) { txtAffiliateID.ReadOnly = true; }
         }
     }
 

@@ -26,4 +26,12 @@
   <wingmoney><![CDATA[온라인]]></wingmoney>
   <fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
   <submitUpload><![CDATA[업로드 신청]]></submitUpload>
+  <sports><![CDATA[스포츠]]></sports>
+  <livecasino><![CDATA[라이브 카지노]]></livecasino>
+  <slots><![CDATA[슬롯게임]]></slots>
+  <lottery><![CDATA[복권]]></lottery>
+  <fundmanagement><![CDATA[펀드 매니지먼트]]></fundmanagement>
+  <customerservice><![CDATA[Customer Service]]></customerservice>
+  <rewards><![CDATA[리워드클럽]]></rewards>
+  <sdpay><![CDATA[SDPay]]></sdpay>
 </menu>

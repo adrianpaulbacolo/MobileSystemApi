@@ -9,9 +9,11 @@
 }
 
 #divContent {
+    /*
     margin: 10px;
     padding: 10px;
-    border: 1px solid #333;
+    */
+    /*border: 1px solid #333;*/
 }
 
 .div-product-scroll {
@@ -24,6 +26,7 @@
     overflow: hidden;
     -ms-touch-action: none;
     background-color: transparent;
+    padding:.25em 0;
 }
 
     .div-product-scroll .li-asports {
@@ -58,15 +61,13 @@
         background-image: url('/_Static/Images/bnr-clubmassimo-casino-android.jpg');
     }
 
-.li-clubmassimo-slots > a > div:nth-child(2), .li-clubmassimo-casino > a > div:nth-child(2) {
-    height:50px !important;
-}
+    .div-product-scroll .li-clubpalazzo-slots {
+        background-image: url('/_Static/Images/bnr-clubpalazzo-slots.jpg');
+    }
 
-.li-clubmassimo-slots > a > div:nth-child(1) > span, .li-clubmassimo-casino > a > div:nth-child(1) > span {
-    font-size:.8em;
-}
-
-
+    .div-product-scroll .li-clubpalazzo-casino {
+        background-image: url('/_Static/Images/bnr-clubpalazzo-casino-android.jpg');
+    }
 
 .div-product-scroll .li-clubbravado {
     background-image: url('/_Static/Images/bnr-clubbravado.jpg');
@@ -308,11 +309,12 @@
 
 
 .div-mobile-download > a {
-    display:inline-block;
-    width:50%;
-    max-width:352px;
+    display:table-cell;
+    /*width:50%;
+    max-width:352px;*/
 }
 
     .div-mobile-download > a > img {
         width:100%;
+        display:block;
     }
