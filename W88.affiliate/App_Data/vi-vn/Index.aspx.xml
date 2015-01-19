@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
-  <lblPlaceBet><![CDATA[Hãy Đăng nhập hoặc Đăng ký để tham gia cược]]></lblPlaceBet>
+  <lblPlaceBet><![CDATA[Hãy Đăng nhập hoặc Đăng ký]]></lblPlaceBet>
+  <lblAffiliate><![CDATA[Đại Lý]]></lblAffiliate>
 </default>

@@ -36,7 +36,7 @@ body {
     max-width: 100%;
     min-height: 100%;
     border: 1px solid #333;
-    background: #252525;
+    /*background: #252525;*/
     padding: .5em .5em 0 .5em;
 }
 
@@ -444,4 +444,96 @@ body {
     body {
         overflow-y: auto;
     }
+}
+
+.div-report-header {
+    width: 100%;
+    color: #2a8fbd;
+    text-decoration: none;
+    /*font-size: .9em;*/
+    font-weight:bold;
+}
+
+.div-report-content {
+    color: #808080;
+    font-size: .8em;
+    padding-bottom: 1em;
+    /*border: 1px solid #333;*/
+    /*display:none;*/
+}
+
+    /*.div-report-content > ol {
+        padding: 0;
+        margin: 0;
+        margin-left: 2.5em;
+        padding-right: 1em;
+    }
+
+    .div-report-content .ui-btn {
+        margin-top: 1em;
+    }
+
+.div-report-content > p {
+    padding-left:.5em;
+}*/
+
+.mandatory {
+    /*color: #555;*/
+}
+
+.mandatory:after {
+   /* Empty content, but required for pseudo element to display */
+   content: "*";
+
+   /* Size of star within sprite */
+    vertical-align: top;
+    margin: 0px 5px 0px 10px;
+    /*font-size: 20px;*/
+    color: #D6001E;
+}
+
+.Notmandatory {
+    /*color: #555;*/
+}
+
+.Notmandatory:after {
+   /* Empty content, but required for pseudo element to display */
+   content: " ";
+
+   /* Size of star within sprite */
+    /*vertical-align: top;*/
+    /*margin-left: 10px;
+    margin-right: 5px;*/
+    margin: 0px 10px 0px 10px;
+    /*font-size: 20px;*/
+    /*color: #D6001E;*/
+}
+
+div.homePage {
+    width:70%;
+}
+
+div.titleUpperCase {
+	/*color: lightgray;
+	font: bold 15px dinpro;	
+    text-transform: uppercase;*/
+
+    color: #BFBFBF;
+    font: 18px dinpro;
+    text-transform: uppercase;
+}
+
+.verticalTop {
+    vertical-align: top;
+}
+
+.div-faq-title {
+    text-align:center;
+    font-weight:bold;
+    font: 18px dinpro;
+    text-transform: uppercase;
+}
+
+.section-header {
+    font-weight:bold;
 }

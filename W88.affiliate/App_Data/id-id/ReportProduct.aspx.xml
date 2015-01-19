@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lblall><![CDATA[ALL]]></lblall>
+  <lblbetsoft><![CDATA[Club Divino]]></lblbetsoft>
+  <lblbinary><![CDATA[Biner]]></lblbinary>
+  <lblbravado><![CDATA[Bravado]]></lblbravado>
+  <lblcrescendo><![CDATA[Crescendo]]></lblcrescendo>
+  <lblctmx><![CDATA[Crescendo]]></lblctmx>
+  <lble-sport><![CDATA[e-Sport]]></lble-sport>
+  <lblhorseracing><![CDATA[Pacuan Kuda]]></lblhorseracing>
+  <lblilotto><![CDATA[iLotto]]></lblilotto>
+  <lbli-sport><![CDATA[i-Sport]]></lbli-sport>
+  <lblkeno><![CDATA[Keno]]></lblkeno>
+  <lbllivecasino><![CDATA[Live Kasino]]></lbllivecasino>
+  <lblmossimo><![CDATA[Mossimo]]></lblmossimo>
+  <lblpalazzo><![CDATA[Palazzo]]></lblpalazzo>
+  <lblplaytech><![CDATA[Palazzo]]></lblplaytech>
+  <lblpoker><![CDATA[Poker]]></lblpoker>
+  <lblslot><![CDATA[Bravado]]></lblslot>
+  <lblsportsbook><![CDATA[a-Sport]]></lblsportsbook>
+  <lblu-sport><![CDATA[u-Sport]]></lblu-sport>
+
+
+</default>

@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
-  <lblPlaceBet><![CDATA[请登陆或注册后进行投注]]></lblPlaceBet>
+  <lblPlaceBet><![CDATA[请登陆或注册]]></lblPlaceBet>
+  <lblAffiliate><![CDATA[合营伙伴]]></lblAffiliate>
 </default>

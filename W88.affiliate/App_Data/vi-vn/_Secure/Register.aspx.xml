@@ -6,7 +6,6 @@
   <lblContact><![CDATA[Số Điện Thoại Liên Lạc]]></lblContact>
   <lblCurrency><![CDATA[Tiền Tệ]]></lblCurrency>
   <drpCurrencySelect><![CDATA[Lựa chọn tiền tệ]]></drpCurrencySelect>
-
   <lblOptionFields><![CDATA[Optional Fields]]></lblOptionFields>
   <lblFirstName><![CDATA[Tên Đệm và Tên]]></lblFirstName>
   <lblLastName><![CDATA[Họ]]></lblLastName>
@@ -17,6 +16,23 @@
   <lblDisclaimer><![CDATA[Tôi đồng ý với các Điều khoản, Điều kiện và Luật chơi trên W88.com]]></lblDisclaimer>
   <btnSubmit><![CDATA[THAM GIA]]></btnSubmit>
   <btnCancel><![CDATA[Hủy]]></btnCancel>
+
+  <drpCountrySelect><![CDATA[Chọn quốc gia]]></drpCountrySelect>
+  <drpLanguageSelect><![CDATA[Chọn ngôn ngữ]]></drpLanguageSelect>
+  <lblFullName><![CDATA[Họ tên đầy đủ]]></lblFullName>
+  <lblAccount><![CDATA[QQ/MSN/Skype]]></lblAccount>
+  <lblAddress><![CDATA[Địa chỉ]]></lblAddress>
+  <lblCity><![CDATA[Thành phố]]></lblCity>
+  <lblPostal><![CDATA[bưu chính]]></lblPostal>
+  <lblLanguage><![CDATA[Lựa chọn Ngôn ngữ]]></lblLanguage>
+  <lblCommissionType><![CDATA[Loại Hoa hồng]]></lblCommissionType>
+  <lblRevenueShare><![CDATA[Revenue Share]]></lblRevenueShare>
+  <lblWebsiteUrl><![CDATA[URL của website]]></lblWebsiteUrl>
+  <lblURL1><![CDATA[(1)]]></lblURL1>
+  <lblURL2><![CDATA[(2)]]></lblURL2>
+  <lblURL3><![CDATA[(3)]]></lblURL3>
+  <lblDesc><![CDATA[Vui lòng miêu tả cách Quý Khách quảng bá cho thương hiệu của chúng tôi nếu không có một URL]]></lblDesc>
+  <lblReferralID><![CDATA[ID giới thiệu]]></lblReferralID>
 
   <Calendar>
     <m1><![CDATA[Jan]]></m1>

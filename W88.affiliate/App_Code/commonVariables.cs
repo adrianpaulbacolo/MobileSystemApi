@@ -45,7 +45,19 @@ public class commonVariables
         } 
     } }
 
-    public static string CurrentMemberSessionId { get { return string.IsNullOrEmpty(System.Web.HttpContext.Current.Session["MemberSessionId"] as string) ? (!string.IsNullOrEmpty(commonCookie.CookieS) ? commonCookie.CookieS : "") : Convert.ToString(System.Web.HttpContext.Current.Session["MemberSessionId"]); } }
+    public static string CurrentMemberSessionId
+    {
+        get
+        {
+            string strProcessRemark = string.Format("MemberSessionId:{0} | commonCookie.CookieS:{1} | MemberSessionId: {2}", (string)System.Web.HttpContext.Current.Session["MemberSessionId"], commonCookie.CookieS, (string)System.Web.HttpContext.Current.Session["MemberSessionId"]);
+            int intProcessSerialId = 0;
+            intProcessSerialId += 1;
+            commonAuditTrail.appendLog("system", "commonVariable", "CurrentMemberSessionId", "DataBaseManager.DLL", "", "", "", "", strProcessRemark, Convert.ToString(intProcessSerialId), "", true);
+
+
+            return string.IsNullOrEmpty(System.Web.HttpContext.Current.Session["MemberSessionId"] as string) ? (!string.IsNullOrEmpty(commonCookie.CookieS) ? commonCookie.CookieS : "") : Convert.ToString(System.Web.HttpContext.Current.Session["MemberSessionId"]);
+        }
+    }
 
     public static string OperatorId
     {
@@ -63,8 +75,34 @@ public class commonVariables
         }
     }
 
-    public static string GetSessionVariable(string key) { return string.IsNullOrEmpty(HttpContext.Current.Session[key] as string) ? "" : Convert.ToString(HttpContext.Current.Session[key]); }
-    public static void SetSessionVariable(string key, string value) { HttpContext.Current.Session.Add(key, value); }
+    public static string GetSessionVariable(string key) {
+        if (key == "vCode")
+        {
+            string strProcessRemark = "key:" + (string.IsNullOrEmpty(HttpContext.Current.Session[key] as string) ? "" : Convert.ToString(HttpContext.Current.Session[key]));
+            int intProcessSerialId = 0;
+            intProcessSerialId += 1;
+            commonAuditTrail.appendLog("system", "commonVariable", "GetSessionVariable", "DataBaseManager.DLL", "", "", "", "", strProcessRemark, Convert.ToString(intProcessSerialId), "", true);
+
+        }
+
+        return string.IsNullOrEmpty(HttpContext.Current.Session[key] as string) ? "" : Convert.ToString(HttpContext.Current.Session[key]);
+
+
+    }
+    public static void SetSessionVariable(string key, string value) 
+    { 
+        HttpContext.Current.Session.Add(key, value);
+
+        if (key == "vCode")
+        {
+            string strProcessRemark = string.Format("key:{0} | value:{1}", key, value);
+            int intProcessSerialId = 0;
+            intProcessSerialId += 1;
+            commonAuditTrail.appendLog("system", "commonVariable", "SetSessionVariable", "DataBaseManager.DLL", "", "", "", "", strProcessRemark, Convert.ToString(intProcessSerialId), "", true);
+
+        }
+
+    }
 
     public static void ClearSessionVariables() 
     {
@@ -79,6 +117,13 @@ public class commonVariables
 
         commonVariables.SelectedLanguage = strLanguage;
         commonVariables.SetSessionVariable("vCode", strVCode);
+
+        string strProcessRemark = string.Format("strVCode:{0}", strVCode);
+        int intProcessSerialId = 0;
+        intProcessSerialId += 1;
+        //commonAuditTrail.appendLog("system", "commonVariable", "ClearSessionVariables", "DataBaseManager.DLL", "", "", "", "", strProcessRemark, Convert.ToString(intProcessSerialId), "", true);
+
+
     }
 
     internal enum TransferWallet

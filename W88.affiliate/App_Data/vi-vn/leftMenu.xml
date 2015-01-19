@@ -24,4 +24,21 @@
   <fastdeposit><![CDATA[Chuyển Khoản Ngân Hàng]]></fastdeposit>
   <banktransfer><![CDATA[Chuyển Khoản Ngân Hàng]]></banktransfer>
   <wingmoney><![CDATA[Wing Money]]></wingmoney>
+
+  <overview><![CDATA[Khái quát]]></overview>
+  <myAccount><![CDATA[Tài khoản của tôi]]></myAccount>
+  <creative><![CDATA[Tạo mới]]></creative>
+  <reports><![CDATA[Báo cáo]]></reports>
+  <trackingStatistic><![CDATA[Thống kê Theo dõi]]></trackingStatistic>
+
+  <affiliate><![CDATA[Đại Lý]]></affiliate>
+  <account><![CDATA[Tài khoản của tôi]]></account>
+  <accountinfo><![CDATA[Thông tin tài khoản]]></accountinfo>
+  <changePassword><![CDATA[Thay đổi mật khẩu]]></changePassword>
+  <subAffmgmt><![CDATA[Quản lý đại lý tuyến dưới]]></subAffmgmt>
+
+  <commissionPlans><![CDATA[HOA HỒNG]]></commissionPlans>
+  <faq><![CDATA[NHỮNG CÂU  HỎI THƯỜNG GẶP]]></faq>
+  <ourProducts><![CDATA[SẢN PHẨM]]></ourProducts>
+  
 </menu>

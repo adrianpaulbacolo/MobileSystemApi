@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lblAffiliateInfo1><![CDATA[AFFILIATE'S INFORMATION]]></lblAffiliateInfo1>
+  <lblAffiliateInfo><![CDATA[파트너님의 정보]]></lblAffiliateInfo>
+  <lblAffiliateId><![CDATA[1단계 파트너 ID:]]></lblAffiliateId>
+  <lblLastLogin><![CDATA[귀하의 마지막 로그인: ]]></lblLastLogin>
+  <lblAffiliateLink><![CDATA[귀하의 파트너 링크: ]]></lblAffiliateLink>
+  <lblCreative_bk><![CDATA[Please go to <a href="/Creative.aspx">Creative</a> to select appropriate marketing banners. There is no need to download, just cut and paste the URL code into your existing webpage and the banner(s) is/are shown on you side. ]]></lblCreative_bk>
+  <lblCreative>
+    <![CDATA[마케팅 배너를 선택하시려면생성에서 선택하실 수 있습니다. 다운로드가 필요없이, 짤라 붙이기를 통해서 이용하시고자 하는 웹사이트와 배너에 URL 코드를 이용하실 수 있습니다. ]]></lblCreative>
+
+
+  <lblOverallSummary><![CDATA[전체 현황]]></lblOverallSummary>
+  <lblSummary><![CDATA[현황]]></lblSummary>
+  <lblTotalMember><![CDATA[총 회원]]></lblTotalMember>
+  <lblCommission><![CDATA[커미션]]></lblCommission>
+  <lblNegBal><![CDATA[다음달로 이월될 마이너스 잔액]]></lblNegBal>
+  <lblQuickSummary><![CDATA[이번달 현황]]></lblQuickSummary>
+  <lblNoOfClicks><![CDATA[클릭 횟수]]></lblNoOfClicks>
+  <lblNewSignUp><![CDATA[신규가입]]></lblNewSignUp>
+  <lblNewSignUpWDeposit><![CDATA[신규가입 후 입금]]></lblNewSignUpWDeposit>
+  <lblActiveMembers><![CDATA[활동중인 회원]]></lblActiveMembers>
+
+  <lblTrans><![CDATA[거래 데이터]]></lblTrans>
+  <lblTitle><![CDATA[이번달 ]]></lblTitle>
+  <lblWinLoss><![CDATA[전체 Win/Loss]]></lblWinLoss>
+  <lblActiveMember><![CDATA[총 활동중인 회원]]></lblActiveMember>
+  <lblBets><![CDATA[베팅 횟수]]></lblBets>
+  <lblTurnOver><![CDATA[회전율(턴오버)]]></lblTurnOver>
+
+  <lblSubAff><![CDATA[서브 파트너 현황]]></lblSubAff>
+  <lblSubAffTitle><![CDATA[서브 파트너]]></lblSubAffTitle>
+  <lblProduct><![CDATA[게임정보]]></lblProduct>
+  
+</default>

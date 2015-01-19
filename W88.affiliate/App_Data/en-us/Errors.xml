@@ -12,10 +12,12 @@
     <InactiveAccount><![CDATA[W88.com: Your account login failed. Please contact our Customer Service 24/7 for assistance.]]></InactiveAccount>    
     <MissingUsername><![CDATA[Please enter your username]]></MissingUsername>
     <MissingPassword><![CDATA[Please enter your password]]></MissingPassword>
+    <AccountPending><![CDATA[Your account status pending]]></AccountPending>    
   </Login>
 
   <Register>
-    <Success><![CDATA[Welcome to W88, and thank you for opening an account.\nYour account is now ready for you to login and play on W88.com and mobile m.w88.com.]]></Success>
+    <!--<Success><![CDATA[Welcome to W88, and thank you for opening an account.\nYour account is now ready for you to login and play on W88.com and mobile m.w88.com.]]></Success>-->
+    <Success><![CDATA[Thank you for register with us, we will send your approval confirmation via email.]]></Success>
     <DuplicateUsername><![CDATA[Username is already registered. Please enter a new Username.]]></DuplicateUsername>
     <DuplicateEmail><![CDATA[Email address is already registered. Please enter a new email address.]]></DuplicateEmail>
     <IncorrectVCode><![CDATA[Incorrect verification code]]></IncorrectVCode>
@@ -25,23 +27,41 @@
     <MissingEmail><![CDATA[Please enter your email]]></MissingEmail>
     <MissingContact><![CDATA[Please enter your contact number. \n e.g. +86-111111 (Maximum of 12 characters)]]></MissingContact>
     <MissingCurrency><![CDATA[Please select your preferred currency]]></MissingCurrency>
-    <MissingFName><![CDATA[Please enter your first name]]></MissingFName>
+    <!--<MissingFName><![CDATA[Please enter your first name]]></MissingFName>-->
     <MissingLName><![CDATA[Please enter your last name]]></MissingLName>
     <MissingVCode><![CDATA[Please enter verification code]]></MissingVCode>
+
+    <MissingFName><![CDATA[Please enter your full name]]></MissingFName>
+    <MissingCountryCode><![CDATA[Please select your preferred Country Code]]></MissingCountryCode>
+    <MissingLanguageCode><![CDATA[Please select your preferred Language Code]]></MissingLanguageCode>
+    <MissingCommissionType><![CDATA[Please select your preferred Commission Type]]></MissingCommissionType>
     
     <InvalidUsername><![CDATA[Invalid Username and/or Password.]]></InvalidUsername>
     <InvalidPassword><![CDATA[Invalid Username and/or Password.]]></InvalidPassword>
     <InvalidEmail><![CDATA[Invalid email]]></InvalidEmail>
     <InvalidContact><![CDATA[Invalid contact number]]></InvalidContact>    
-    <InvalidFName><![CDATA[Invalid first name]]></InvalidFName>
+    <!--<InvalidFName><![CDATA[Invalid first name]]></InvalidFName>-->
     <InvalidLName><![CDATA[Invalid last name]]></InvalidLName>
     <InvalidDOB><![CDATA[Invalid Date of Birth]]></InvalidDOB>
     <InvalidVCode><![CDATA[Invalid verfication code]]></InvalidVCode>
     <chkDisclaimer><![CDATA[You have to agree with our Terms & Conditions & Privacy Policy in order to proceed.]]></chkDisclaimer>
     <!--<chkDisclaimer><![CDATA[Bets may only be placed by those who are aged 18 or over. We may undertake a search with third party for the purpose of verifying thatyou are 18 or over, W88 reserves the right to ask for the proof of age. Customer accounts may be suspended and funds withheld untill satisfactory proof of age is provided.]]></chkDisclaimer>-->
+
+    <InvalidFName><![CDATA[Invalid full name]]></InvalidFName>
+    <InvalidCurrency><![CDATA[Invalid currency]]></InvalidCurrency>
+    <InvalidCountryCode><![CDATA[Invalid country code]]></InvalidCountryCode>
+    <InvalidAccount><![CDATA[Invalid QQ/MSN/Skype]]></InvalidAccount>
+    <InvalidReferralId><![CDATA[Invalid referral ID]]></InvalidReferralId>
+    <InvalidLanguageCode><![CDATA[Invalid language code]]></InvalidLanguageCode>
+    <InvalidCommissionType><![CDATA[Invalid commission type]]></InvalidCommissionType>
+    <InvalidAddress><![CDATA[Invalid address]]></InvalidAddress>
+    <InvalidCity><![CDATA[Invalid city]]></InvalidCity>
+    <InvalidPostal><![CDATA[Invalid postal]]></InvalidPostal>
+ 
+
   </Register>
 
-  <UpdateProfile>
+  <!--<UpdateProfile>
     <Success><![CDATA[Profile updated!]]></Success>
     <MissingAddress><![CDATA[Please enter your residential address]]></MissingAddress>
     <MissingCity><![CDATA[Please enter your city]]></MissingCity>
@@ -55,6 +75,24 @@
     <InvalidPostal><![CDATA[Invalid postal]]></InvalidPostal>
     <InvalidSecurityAnswer><![CDATA[Invalid security answer]]></InvalidSecurityAnswer>
     <IncorrectPassword><![CDATA[Please enter correct password]]></IncorrectPassword>
+  </UpdateProfile>-->
+
+  <UpdateProfile>
+    <Success><![CDATA[Update account information successful]]></Success>
+    <MissingSecurityQuestion><![CDATA[Please select your security question]]></MissingSecurityQuestion>
+    <MissingSecurityAnswer><![CDATA[Please enter security answer]]></MissingSecurityAnswer>
+    <MissingBankAccName><![CDATA[Please enter bank account name]]></MissingBankAccName>
+    <MissingBankAccNo><![CDATA[Please enter bank account number]]></MissingBankAccNo>
+    <MissingBankName><![CDATA[Please enter bank account name]]></MissingBankName>
+    <MissingBankAdd><![CDATA[Please enter bank address]]></MissingBankAdd>
+    
+
+    <InvalidSecurityQuestion><![CDATA[Please select your security question]]></InvalidSecurityQuestion>
+    <InvalidSecurityAnswer><![CDATA[Invalid security answer]]></InvalidSecurityAnswer>
+    <InvalidBankAccName><![CDATA[Please enter bank account name]]></InvalidBankAccName>
+    <InvalidBankAccNo><![CDATA[Please enter bank account number]]></InvalidBankAccNo>
+    <InvalidBankName><![CDATA[Please enter bank account name]]></InvalidBankName>
+    <InvalidBankAdd><![CDATA[Please enter bank address]]></InvalidBankAdd>
   </UpdateProfile>
 
   <UpdatePassword>
@@ -67,6 +105,12 @@
     <IncorrectPassword><![CDATA[Please enter correct password]]></IncorrectPassword>
     <UnmatchedPassword><![CDATA[Passwords does not match]]></UnmatchedPassword>
   </UpdatePassword>
+  
+  <SubAffiliate>
+      <MissingValidEmail><![CDATA[Please enter at least 1 valid email address]]></MissingValidEmail>
+      <InvitationFailed><![CDATA[Invitation to affiliate failed]]></InvitationFailed>
+      <InvitationSuccess><![CDATA[Invitation to affiliate successful]]></InvitationSuccess>
+    </SubAffiliate>
   
   <FundTransfer>
     <SelectTransferFrom><![CDATA[Please select a wallet to transfer from.]]></SelectTransferFrom>

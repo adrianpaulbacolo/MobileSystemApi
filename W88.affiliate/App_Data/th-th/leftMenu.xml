@@ -24,4 +24,21 @@
   <fastdeposit><![CDATA[ฝากเงินด่วน]]></fastdeposit>
   <banktransfer><![CDATA[ถอนเงินด่วน]]></banktransfer>
   <wingmoney><![CDATA[Wing Money]]></wingmoney>
+
+  <overview><![CDATA[ภาพรวม]]></overview>
+  <myAccount><![CDATA[บัญชีของฉัน]]></myAccount>
+  <creative><![CDATA[แบนเนอร์]]></creative>
+  <reports><![CDATA[รายงาน]]></reports>
+  <trackingStatistic><![CDATA[ติดตามสถิติ]]></trackingStatistic>
+
+  <affiliate><![CDATA[พันธมิตร]]></affiliate>
+  <account><![CDATA[บัญชีของฉัน]]></account>
+  <accountinfo><![CDATA[ข้อมูลบัญชี]]></accountinfo>
+  <changePassword><![CDATA[เปลี่ยนรหัสผ่าน]]></changePassword>
+  <subAffmgmt><![CDATA[การจัดการพันธมิตรย่อย]]></subAffmgmt>
+
+  <commissionPlans><![CDATA[แผนคอมมิชชั่น]]></commissionPlans>
+  <faq><![CDATA[คำถามที่พบบ่อย]]></faq>
+  <ourProducts><![CDATA[ผลิตภัณฑ์ของเรา]]></ourProducts>
+  
 </menu>

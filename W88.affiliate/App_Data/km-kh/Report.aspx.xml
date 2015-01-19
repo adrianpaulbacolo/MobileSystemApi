@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lbl_btn_submit><![CDATA[បញ្ជូន]]></lbl_btn_submit>
+  <lbl_dropdown_earliest_first><![CDATA[ដំបូងបង្អស់មុន]]></lbl_dropdown_earliest_first>
+  <lbl_dropdown_latest_first><![CDATA[ក្រោយបង្អស់មុន]]></lbl_dropdown_latest_first>
+  <lbl_option_current_day><![CDATA[ថ្ងៃនេះ]]></lbl_option_current_day>
+  <lbl_option_current_month><![CDATA[ខែនេះ]]></lbl_option_current_month>
+  <lbl_option_current_week><![CDATA[សប្តាហ៍នេះ]]></lbl_option_current_week>
+  <lbl_option_from><![CDATA[ពី]]></lbl_option_from>
+  <lbl_option_to><![CDATA[ទៅ]]></lbl_option_to>
+  <lbl_period><![CDATA[រយៈពេល]]></lbl_period>
+  <lbl_sort_by><![CDATA[រៀបដោយ]]></lbl_sort_by>
+  <lbl_table_footer_total_click><![CDATA[ចំនួនចុចសរុប]]></lbl_table_footer_total_click>
+  <lbl_table_header_clicks><![CDATA[ចុច]]></lbl_table_header_clicks>
+  <lbl_table_header_date><![CDATA[ថ្ងៃ]]></lbl_table_header_date>
+  <lbl_table_header_unique_clicks><![CDATA[ចំនួនចុចដែលមិនជាន់គ្នា]]></lbl_table_header_unique_clicks>
+  <lbl_table_no_result><![CDATA[គ្មានលទ្ធផល]]></lbl_table_no_result>
+  <lbl_tracking_code><![CDATA[កូដសំរាប់តាមដាន]]></lbl_tracking_code>
+  <msg_option_from_to_date_blank><![CDATA[សូមរើសយកពីថ្ងៃ និង ទៅថ្ងៃ]]></msg_option_from_to_date_blank>
+
+
+</default>

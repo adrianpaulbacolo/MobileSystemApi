@@ -20,7 +20,9 @@ public partial class _Secure_Login : System.Web.UI.Page
     }
 
     protected void Page_Load(object sender, EventArgs e)
-    {   
+    {
+        //string a = commonEncryption.Encrypt("a");
+
         xeErrors = commonVariables.ErrorsXML;
         System.Xml.Linq.XElement xeResources = null;
         commonCulture.appData.getLocalResource(out xeResources);

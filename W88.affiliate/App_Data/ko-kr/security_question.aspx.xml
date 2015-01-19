@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lblsecurityquestion1><![CDATA[내 어머니의 성함은?]]></lblsecurityquestion1>
+  <lblsecurityquestion2><![CDATA[내 유년시절 별명은?]]></lblsecurityquestion2>
+  <lblsecurityquestion3><![CDATA[내 유년시절 장래희망은?]]></lblsecurityquestion3>
+  <lblsecurityquestion4><![CDATA[내 첫 직업을 가졌던 도시는?]]></lblsecurityquestion4>
+  <lblsecurityquestion5><![CDATA[내 초등학교의 이름은?]]></lblsecurityquestion5>
+  <lblsecurityquestion6><![CDATA[내 아버지의 성함은?]]></lblsecurityquestion6>
+</default>

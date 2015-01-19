@@ -6,7 +6,6 @@
   <lblContact><![CDATA[Nomor Kontak]]></lblContact>
   <lblCurrency><![CDATA[Mata Uang]]></lblCurrency>
   <drpCurrencySelect><![CDATA[Select Currency]]></drpCurrencySelect>
-
   <lblOptionFields><![CDATA[Optional Fields]]></lblOptionFields>
   <lblFirstName><![CDATA[Nama Depan]]></lblFirstName>
   <lblLastName><![CDATA[Nama Belakang]]></lblLastName>
@@ -17,6 +16,23 @@
   <lblDisclaimer><![CDATA[Saya Setuju Syarat dan Ketentuan dan Aturan W88.com]]></lblDisclaimer>
   <btnSubmit><![CDATA[SUBMIT]]></btnSubmit>
   <btnCancel><![CDATA[Batal]]></btnCancel>
+
+  <drpCountrySelect><![CDATA[Pilih Negara]]></drpCountrySelect>
+  <drpLanguageSelect><![CDATA[Pilih Bahasa]]></drpLanguageSelect>
+  <lblFullName><![CDATA[Nama Lengkap]]></lblFullName>
+  <lblAccount><![CDATA[QQ/MSN/Skype]]></lblAccount>
+  <lblAddress><![CDATA[Alamat]]></lblAddress>
+  <lblCity><![CDATA[Kota]]></lblCity>
+  <lblPostal><![CDATA[Postal]]></lblPostal>
+  <lblLanguage><![CDATA[Bahasa yang diinginkan]]></lblLanguage>
+  <lblCommissionType><![CDATA[Tipe Komisi]]></lblCommissionType>
+  <lblRevenueShare><![CDATA[Berbagi Pendapatan]]></lblRevenueShare>
+  <lblWebsiteUrl><![CDATA[Situs URL]]></lblWebsiteUrl>
+  <lblURL1><![CDATA[(1)]]></lblURL1>
+  <lblURL2><![CDATA[(2)]]></lblURL2>
+  <lblURL3><![CDATA[(3)]]></lblURL3>
+  <lblDesc><![CDATA[Harap dijelaskan bagaimana anda akan memasarkan brand kami jika anda tidak memiliki URL]]></lblDesc>
+  <lblReferralID><![CDATA[Referral ID]]></lblReferralID>
 
   <Calendar>
     <m1><![CDATA[Jan]]></m1>

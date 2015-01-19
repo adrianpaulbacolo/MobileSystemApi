@@ -6,7 +6,6 @@
   <lblContact><![CDATA[Contact]]></lblContact>
   <lblCurrency><![CDATA[Currency]]></lblCurrency>
   <drpCurrencySelect><![CDATA[Select Currency]]></drpCurrencySelect>
-
   <lblOptionFields><![CDATA[Optional Fields]]></lblOptionFields>
   <lblFirstName><![CDATA[First Name]]></lblFirstName>
   <lblLastName><![CDATA[Last Name]]></lblLastName>
@@ -17,6 +16,23 @@
   <lblDisclaimer><![CDATA[I Accept the W88.com Terms and Conditions and Rules]]></lblDisclaimer>
   <btnSubmit><![CDATA[SUBMIT]]></btnSubmit>
   <btnCancel><![CDATA[Cancel]]></btnCancel>
+
+  <drpCountrySelect><![CDATA[Select Country]]></drpCountrySelect>
+  <drpLanguageSelect><![CDATA[Select Language]]></drpLanguageSelect>
+  <lblFullName><![CDATA[Full Name]]></lblFullName>
+  <lblAccount><![CDATA[QQ/MSN/Skype]]></lblAccount>
+  <lblAddress><![CDATA[Address]]></lblAddress>
+  <lblCity><![CDATA[City]]></lblCity>
+  <lblPostal><![CDATA[Postal]]></lblPostal>
+  <lblLanguage><![CDATA[Language]]></lblLanguage>
+  <lblCommissionType><![CDATA[Commission Type]]></lblCommissionType>
+  <lblRevenueShare><![CDATA[Revenue Share]]></lblRevenueShare>
+  <lblWebsiteUrl><![CDATA[Website Url]]></lblWebsiteUrl>
+  <lblURL1><![CDATA[(1)]]></lblURL1>
+  <lblURL2><![CDATA[(2)]]></lblURL2>
+  <lblURL3><![CDATA[(3)]]></lblURL3>
+  <lblDesc><![CDATA[Please describe how you like to market our brand if you do not have a URL]]></lblDesc>
+  <lblReferralID><![CDATA[Referral ID]]></lblReferralID>
 
   <Calendar>
     <m1><![CDATA[Jan]]></m1>
@@ -48,4 +64,7 @@
     <VND><![CDATA[(VND) Vietnamese Dong]]></VND>
     <INR><![CDATA[(INR) Indian Rupee]]></INR>
   </Currency>
-</register>
+
+
+
+  </register>

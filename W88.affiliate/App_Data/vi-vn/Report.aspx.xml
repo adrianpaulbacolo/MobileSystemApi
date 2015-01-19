@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lbl_btn_submit><![CDATA[Gửi]]></lbl_btn_submit>
+  <lbl_dropdown_earliest_first><![CDATA[Đầu tiên]]></lbl_dropdown_earliest_first>
+  <lbl_dropdown_latest_first><![CDATA[Cuối cùng]]></lbl_dropdown_latest_first>
+  <lbl_option_current_day><![CDATA[Ngày hiện tại]]></lbl_option_current_day>
+  <lbl_option_current_month><![CDATA[Tháng hiện tại]]></lbl_option_current_month>
+  <lbl_option_current_week><![CDATA[Tuần hiện tại]]></lbl_option_current_week>
+  <lbl_option_from><![CDATA[Từ]]></lbl_option_from>
+  <lbl_option_to><![CDATA[Tới]]></lbl_option_to>
+  <lbl_period><![CDATA[thời hạn]]></lbl_period>
+  <lbl_sort_by><![CDATA[Sắp xếp theo]]></lbl_sort_by>
+  <lbl_table_footer_total_click><![CDATA[Tổng số nhấp chuột]]></lbl_table_footer_total_click>
+  <lbl_table_header_clicks><![CDATA[Số nhấp chuột]]></lbl_table_header_clicks>
+  <lbl_table_header_date><![CDATA[Ngày]]></lbl_table_header_date>
+  <lbl_table_header_unique_clicks><![CDATA[Nhấp chuột duy nhất]]></lbl_table_header_unique_clicks>
+  <lbl_table_no_result><![CDATA[Không có kết quả]]></lbl_table_no_result>
+  <lbl_tracking_code><![CDATA[Mã theo dõi]]></lbl_tracking_code>
+  <msg_option_from_to_date_blank><![CDATA[Vui lòng chọn từ ngày đến ngày]]></msg_option_from_to_date_blank>
+
+
+</default>

@@ -40,8 +40,17 @@ public class _Secure_AjaxHandlers_MemberSessionCheck : IHttpHandler, System.Web.
             //strLanguage = commonVariables.SelectedLanguage;
             commonVariables.ClearSessionVariables();
             commonCookie.ClearCookies();
+
+            strProcessRemark = string.Format("strSessionId:{0} | isProcessAbort:{1}", strSessionId, isProcessAbort);
+            intProcessSerialId += 1;
+            commonAuditTrail.appendLog("system", "MemberSessionCheck", "EmptyStrSessionId", "DataBaseManager.DLL", "", "", "", "", strProcessRemark, Convert.ToString(intProcessSerialId), "", true);
+
         }
 
+        strProcessRemark = string.Format("strSessionId:{0} | isProcessAbort:{1}", strSessionId, isProcessAbort);
+        intProcessSerialId += 1;
+        //commonAuditTrail.appendLog("system", "MemberSessionCheck", "ProcessRequest", "DataBaseManager.DLL", "", "", "", "", strProcessRemark, Convert.ToString(intProcessSerialId), "", true);
+        
         #endregion
 
         #region initiateSessionCheck
@@ -54,7 +63,7 @@ public class _Secure_AjaxHandlers_MemberSessionCheck : IHttpHandler, System.Web.
         {
             try
             {
-                using (wsMemberMS1.memberWSSoapClient svcInstance = new wsMemberMS1.memberWSSoapClient())
+                using (wsAffiliateMS1.affiliateWSSoapClient svcInstance = new wsAffiliateMS1.affiliateWSSoapClient())
                 {
                     System.Data.DataSet dsSignin = null;
                     dsSignin = svcInstance.MemberSessionCheck(strSessionId, strLoginIp);
@@ -68,21 +77,6 @@ public class _Secure_AjaxHandlers_MemberSessionCheck : IHttpHandler, System.Web.
                                 strProcessMessage = "Exception";
                                 break;
                             case "1":
-                                //string strMemberSessionId = Convert.ToString(dsSignin.Tables[0].Rows[0]["memberSessionId"]);
-                                //HttpContext.Current.Session.Add("MemberSessionId", Convert.ToString(dsSignin.Tables[0].Rows[0]["memberSessionId"]));
-                                //HttpContext.Current.Session.Add("MemberId", Convert.ToString(dsSignin.Tables[0].Rows[0]["memberId"]));
-                                //HttpContext.Current.Session.Add("MemberCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["memberCode"]));
-                                //HttpContext.Current.Session.Add("CountryCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["countryCode"]));
-                                //HttpContext.Current.Session.Add("CurrencyCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["currencyCode"]));
-                                //HttpContext.Current.Session.Add("LanguageCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["languageCode"]));
-                                //HttpContext.Current.Session.Add("RiskId", Convert.ToString(dsSignin.Tables[0].Rows[0]["riskId"]));
-                                ////HttpContext.Current.Session.Add("PaymentGroup", "A"); //Convert.ToString(dsSignin.Tables[0].Rows[0]["paymentGroup"]));
-                                //HttpContext.Current.Session.Add("PartialSignup", Convert.ToString(dsSignin.Tables[0].Rows[0]["partialSignup"]));
-                                //HttpContext.Current.Session.Add("ResetPassword", Convert.ToString(dsSignin.Tables[0].Rows[0]["resetPassword"]));
-
-                                //commonCookie.CookieS = strMemberSessionId;
-                                //commonCookie.CookieG = strMemberSessionId;
-                                //HttpContext.Current.Session.Add("LoginStatus", "success");
                                 break;
                             case "10":
                                 strProcessMessage = "NotLogin";
@@ -120,7 +114,7 @@ public class _Secure_AjaxHandlers_MemberSessionCheck : IHttpHandler, System.Web.
         strProcessRemark = string.Format("SessionId: {0} | IPAddress: {1} | ProcessCode: {2} | ProcessMessage: {3}", strSessionId, strLoginIp, strProcessCode, strProcessMessage);
 
         intProcessSerialId += 1;
-        commonAuditTrail.appendLog("system", strPageName, "InitiateMemberSessionCheck", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
+        //commonAuditTrail.appendLog("system", strPageName, "InitiateMemberSessionCheck", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
         #endregion
 
         context.Response.Write(strProcessCode);

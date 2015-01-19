@@ -15,7 +15,8 @@
   </Login>
 
   <Register>
-    <Success><![CDATA[ยินดีต้อนรับสู่ W88 และขอขอบคุณที่ท่านทำการสมัครสมาชิกกับเรา \nบัญชีของท่านพร้อมใช้งานแล้ว ท่านสามารถทำการเข้าสู่ระบบและเดิมพันผ่านเว็บไซต์ W88.com หรือทำการเดิมพันผ่านมือถือ m.w88.com ได้แล้ววันนี้]]></Success>
+    <!--<Success><![CDATA[ยินดีต้อนรับสู่ W88 และขอขอบคุณที่ท่านทำการสมัครสมาชิกกับเรา \nบัญชีของท่านพร้อมใช้งานแล้ว ท่านสามารถทำการเข้าสู่ระบบและเดิมพันผ่านเว็บไซต์ W88.com หรือทำการเดิมพันผ่านมือถือ m.w88.com ได้แล้ววันนี้]]></Success>-->
+    <Success><![CDATA[ขอบคุณสำหรับการลงทะเบียนกับเราเราจะส่งการยืนยันการอนุมัติของคุณผ่านทางอีเมล์]]></Success>
     <DuplicateUsername><![CDATA[ล็อกอินไอดีนี้ลงทะเบียนแล้ว  กรุณาใส่ล็อกอินใหม่]]></DuplicateUsername>
     <DuplicateEmail><![CDATA[อีเมล์นี้ลงทะเบียนแล้ว กรุณาใส่อีเมล์ใหม่]]></DuplicateEmail>
     <IncorrectVCode><![CDATA[รหัสตรวจสอบไม่ถูกต้อง.]]></IncorrectVCode>
@@ -25,22 +26,73 @@
     <MissingEmail><![CDATA[กรุณาใส่อีเมล์]]></MissingEmail>
     <MissingContact><![CDATA[กรุณาใส่หมายเลขโทรศัพท์ที่ใช้]]></MissingContact>
     <MissingCurrency><![CDATA[กรุณาเลือกสกุลเงินที่ท่านต้องการ]]></MissingCurrency>
-    <MissingFName><![CDATA[กรุณาใส่ชื่อจริง]]></MissingFName>
+    <!--<MissingFName><![CDATA[กรุณาใส่ชื่อจริง]]></MissingFName>-->
     <MissingLName><![CDATA[กรุณาใส่นามสกุล]]></MissingLName>
     <MissingVCode><![CDATA[กรุณาใส่รหัสตรวจสอบ 4 หลัก.]]></MissingVCode>
+
+    <MissingFName><![CDATA[กรุณากรอกชื่อ]]></MissingFName>
+    <MissingCountryCode><![CDATA[กรุณาเลือกประเทศ]]></MissingCountryCode>
+    <MissingLanguageCode><![CDATA[กรุณาเลือกภาษา]]></MissingLanguageCode>
+    <MissingCommissionType><![CDATA[กรุณาเลือกประเภทค่าคอมมิชชั่น]]></MissingCommissionType>
 
     <InvalidUsername><![CDATA[ชื่อผู้ใช้งาน และ พาสเวิร์ดไม่ถูกต้อง]]></InvalidUsername>
     <InvalidPassword><![CDATA[ชื่อผู้ใช้งาน และ พาสเวิร์ดไม่ถูกต้อง]]></InvalidPassword>
     <InvalidEmail><![CDATA[กรุณาใส่อีเมล์]]></InvalidEmail>
     <InvalidContact><![CDATA[กรุณาใส่หมายเลขโทรศัพท์ที่ใช้]]></InvalidContact>
-    <InvalidFName><![CDATA[กรุณาใส่ชื่อจริง]]></InvalidFName>
+    <!--<InvalidFName><![CDATA[กรุณาใส่ชื่อจริง]]></InvalidFName>-->
     <InvalidLName><![CDATA[กรุณาใส่นามสกุล]]></InvalidLName>
     <InvalidDOB><![CDATA[วันเดือนปีเกิด]]></InvalidDOB>
     <InvalidVCode><![CDATA[รหัสตรวจสอบไม่ถูกต้อง.]]></InvalidVCode>
     <chkDisclaimer><![CDATA[กรุณาทำความเข้าใจและตกลงกับเงื่อนไขและข้อกำหนดก่อนไปต่อ]]></chkDisclaimer>
     <!--<chkDisclaimer><![CDATA[Bets may only be placed by those who are aged 18 or over. We may undertake a search with third party for the purpose of verifying thatyou are 18 or over, W88 reserves the right to ask for the proof of age. Customer accounts may be suspended and funds withheld untill satisfactory proof of age is provided.]]></chkDisclaimer>-->
+
+    <InvalidFName><![CDATA[Invalid full name]]></InvalidFName>
+    <InvalidCurrency><![CDATA[Invalid currency]]></InvalidCurrency>
+    <InvalidCountryCode><![CDATA[Invalid country code]]></InvalidCountryCode>
+    <InvalidAccount><![CDATA[กรุณากรอกไอดี QQ/MSN/Skype]]></InvalidAccount>
+    <InvalidReferralId><![CDATA[Invalid referral ID]]></InvalidReferralId>
+    <InvalidLanguageCode><![CDATA[Invalid language code]]></InvalidLanguageCode>
+    <InvalidCommissionType><![CDATA[Invalid commission type]]></InvalidCommissionType>
+    <InvalidAddress><![CDATA[กรุณากรอกที่อยู่ที่ถูกต้อง]]></InvalidAddress>
+    <InvalidCity><![CDATA[กรุณากรอกชื่อเมืองที่ถูกต้อง]]></InvalidCity>
+    <InvalidPostal><![CDATA[กรุณากรอกรหัสไปรษณีย์ที่ถูกต้อง]]></InvalidPostal>
   </Register>
 
+  <UpdateProfile>
+    <Success><![CDATA[การเปลี่ยนแปลงข้อมูลในบัญชีสำเร็จเรียบร้อยแล้ว]]></Success>
+    <MissingSecurityQuestion><![CDATA[กรุณาเลือกคำตอบรักษาความปลอดภัย]]></MissingSecurityQuestion>
+    <MissingSecurityAnswer><![CDATA[กรุณาเลือกคำถามรักษาความปลอดภัย]]></MissingSecurityAnswer>
+    <MissingBankAccName><![CDATA[กรุณากรอกชื่อบัญชีของคุณ]]></MissingBankAccName>
+    <MissingBankAccNo><![CDATA[กรุณากรอกหมายเลขบัญชีของคุณ]]></MissingBankAccNo>
+    <MissingBankName><![CDATA[กรุณากรอกชื่อบัญชีของคุณ]]></MissingBankName>
+    <MissingBankAdd><![CDATA[กรุณากรอกที่อยู่ของธนาคาร]]></MissingBankAdd>
+
+
+    <InvalidSecurityQuestion><![CDATA[กรุณาเลือกคำตอบรักษาความปลอดภัย]]></InvalidSecurityQuestion>
+    <InvalidSecurityAnswer><![CDATA[กรุณาเลือกคำถามรักษาความปลอดภัย]]></InvalidSecurityAnswer>
+    <InvalidBankAccName><![CDATA[กรุณากรอกชื่อบัญชีของคุณ]]></InvalidBankAccName>
+    <InvalidBankAccNo><![CDATA[กรุณากรอกหมายเลขบัญชีของคุณ]]></InvalidBankAccNo>
+    <InvalidBankName><![CDATA[กรุณากรอกชื่อบัญชีของคุณ]]></InvalidBankName>
+    <InvalidBankAdd><![CDATA[กรุณากรอกที่อยู่ของธนาคาร]]></InvalidBankAdd>
+  </UpdateProfile>
+
+  <UpdatePassword>
+    <Success><![CDATA[รหัสผ่านของท่านได้เปลี่ยนแปลงเรียบร้อยแล้ว!]]></Success>
+    <MissingPassword><![CDATA[กรุณากรอกรหัสผ่านปัจจุบัน]]></MissingPassword>
+    <MissingPasswordNew><![CDATA[กรุณากรอกรหัสผ่าน]]></MissingPasswordNew>
+    <MissingPasswordConfirm><![CDATA[กรุณากรอกรหัสผ่าน]]></MissingPasswordConfirm>
+
+    <InvalidPassword><![CDATA[Invalid password]]></InvalidPassword>
+    <IncorrectPassword><![CDATA[กรุณากรอกรหัสผ่าน]]></IncorrectPassword>
+    <UnmatchedPassword><![CDATA[Passwords does not match]]></UnmatchedPassword>
+  </UpdatePassword>
+
+  <SubAffiliate>
+    <MissingValidEmail><![CDATA[กรุณาใส่อีเมล์ที่ใช้งานได้จริง]]></MissingValidEmail>
+    <InvitationFailed><![CDATA[การสมัครเป็นพันธมิตรล้มเหลว]]></InvitationFailed>
+    <InvitationSuccess><![CDATA[การสมัครพันธมิตรเสร็จสมบูรณ์]]></InvitationSuccess>
+  </SubAffiliate>
+  
   <FundTransfer>
     <SelectTransferFrom><![CDATA[กรุณาเลือกกระเป๋าเงินที่ต้องการโอน]]></SelectTransferFrom>
     <SelectTransferTo><![CDATA[กรุณาเลือกกระเป๋าเงินที่ต้องการโอน]]></SelectTransferTo>

@@ -6,7 +6,6 @@
   <lblContact><![CDATA[연락 전화번호를 입력해 주세요.]]></lblContact>
   <lblCurrency><![CDATA[통화]]></lblCurrency>
   <drpCurrencySelect><![CDATA[통화 선택]]></drpCurrencySelect>
-
   <lblOptionFields><![CDATA[Optional Fields]]></lblOptionFields>
   <lblFirstName><![CDATA[이름( 성 제외)]]></lblFirstName>
   <lblLastName><![CDATA[성(이름 제외)]]></lblLastName>
@@ -17,6 +16,23 @@
   <lblDisclaimer><![CDATA[본인은 W88.com 의 이용약관, 규칙, 개인정보 보호정책에 동의합니다]]></lblDisclaimer>
   <btnSubmit><![CDATA[회원가입]]></btnSubmit>
   <btnCancel><![CDATA[취소]]></btnCancel>
+
+  <drpCountrySelect><![CDATA[국가 선택]]></drpCountrySelect>
+  <drpLanguageSelect><![CDATA[언어 선택]]></drpLanguageSelect>
+  <lblFullName><![CDATA[성명]]></lblFullName>
+  <lblAccount><![CDATA[카카오톡/라인/스카이프]]></lblAccount>
+  <lblAddress><![CDATA[주소]]></lblAddress>
+  <lblCity><![CDATA[도시]]></lblCity>
+  <lblPostal><![CDATA[우편]]></lblPostal>
+  <lblLanguage><![CDATA[사용 언어]]></lblLanguage>
+  <lblCommissionType><![CDATA[커미션 타입]]></lblCommissionType>
+  <lblRevenueShare><![CDATA[수익 분배]]></lblRevenueShare>
+  <lblWebsiteUrl><![CDATA[웹사이트 URL]]></lblWebsiteUrl>
+  <lblURL1><![CDATA[(1)]]></lblURL1>
+  <lblURL2><![CDATA[(2)]]></lblURL2>
+  <lblURL3><![CDATA[(3)]]></lblURL3>
+  <lblDesc><![CDATA[웹사이트 URL이 없을 경우에는, 홍보 계획을 서술해 주시기 바랍니다.]]></lblDesc>
+  <lblReferralID><![CDATA[추천 아이디]]></lblReferralID>
 
   <Calendar>
     <m1><![CDATA[Jan]]></m1>

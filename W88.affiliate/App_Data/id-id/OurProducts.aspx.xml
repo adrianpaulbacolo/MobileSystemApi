@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lblSports><![CDATA[SPORT]]></lblSports>
+  <lblLiveCasino><![CDATA[LIVE KASINO]]></lblLiveCasino>
+  <lblLottery><![CDATA[LOTERE]]></lblLottery>
+  <lblSlots><![CDATA[SLOTS DAN PERMAINAN KASINO]]></lblSlots>
+  <lblPoker><![CDATA[POKER]]></lblPoker>
+
+
+
+</default>

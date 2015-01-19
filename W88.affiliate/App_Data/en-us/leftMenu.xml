@@ -25,4 +25,22 @@
   <banktransfer><![CDATA[Bank Transfer]]></banktransfer>
   <wingmoney><![CDATA[Wing Money]]></wingmoney>
   <fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
+  
+  <overview><![CDATA[Overview]]></overview>
+  <myAccount><![CDATA[My Account]]></myAccount>
+  <creative><![CDATA[Creative]]></creative>
+  <reports><![CDATA[Reports]]></reports>
+  <trackingStatistic><![CDATA[Tracking Statistic]]></trackingStatistic>
+
+  <affiliate><![CDATA[AFFILIATE]]></affiliate>
+  <account><![CDATA[MY ACCOUNT]]></account>
+  <accountinfo><![CDATA[ACCOUNT INFORMATION]]></accountinfo>
+  <changePassword><![CDATA[CHANGE PASSWORD]]></changePassword>
+  <subAffmgmt><![CDATA[SUB AFFILIATE MANAGEMENT]]></subAffmgmt>
+
+  <commissionPlans><![CDATA[COMMISSION PLANS]]></commissionPlans>
+  <faq><![CDATA[FAQ]]></faq>
+  <ourProducts><![CDATA[OUR PRODUCTS]]></ourProducts>
+  <report><![CDATA[REPORT]]></report>
+  
 </menu>

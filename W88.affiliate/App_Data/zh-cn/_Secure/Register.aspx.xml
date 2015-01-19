@@ -6,7 +6,6 @@
   <lblContact><![CDATA[电话号码]]></lblContact>
   <lblCurrency><![CDATA[货币]]></lblCurrency>
   <drpCurrencySelect><![CDATA[货币选择]]></drpCurrencySelect>
-
   <lblOptionFields><![CDATA[Optional Fields]]></lblOptionFields>
   <lblFirstName><![CDATA[名]]></lblFirstName>
   <lblLastName><![CDATA[姓]]></lblLastName>
@@ -17,6 +16,23 @@
   <lblDisclaimer><![CDATA[我已阅读、理解并同意W88规则与条款。]]></lblDisclaimer>
   <btnSubmit><![CDATA[加入]]></btnSubmit>
   <btnCancel><![CDATA[取消]]></btnCancel>
+
+  <drpCountrySelect><![CDATA[国家选择]]></drpCountrySelect>
+  <drpLanguageSelect><![CDATA[语言选择]]></drpLanguageSelect>
+  <lblFullName><![CDATA[全名]]></lblFullName>
+  <lblAccount><![CDATA[QQ/MSN/Skype]]></lblAccount>
+  <lblAddress><![CDATA[地址]]></lblAddress>
+  <lblCity><![CDATA[城市]]></lblCity>
+  <lblPostal><![CDATA[邮政]]></lblPostal>
+  <lblLanguage><![CDATA[首选语言]]></lblLanguage>
+  <lblCommissionType><![CDATA[佣金类型]]></lblCommissionType>
+  <lblRevenueShare><![CDATA[收入分享]]></lblRevenueShare>
+  <lblWebsiteUrl><![CDATA[网站URL]]></lblWebsiteUrl>
+  <lblURL1><![CDATA[(1)]]></lblURL1>
+  <lblURL2><![CDATA[(2)]]></lblURL2>
+  <lblURL3><![CDATA[(3)]]></lblURL3>
+  <lblDesc><![CDATA[如果你有一个分享网址，请告诉我们您打算如何推广我们的网站。]]></lblDesc>
+  <lblReferralID><![CDATA[推荐人账号]]></lblReferralID>
 
   <Calendar>
     <m1><![CDATA[1月]]></m1>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lbl_tab_disclaimer><![CDATA[Quyền từ chối]]></lbl_tab_disclaimer>
+  <lbl_tab_earnings><![CDATA[Thu nhập và Thanh Toán]]></lbl_tab_earnings>
+  <lbl_tab_marketing><![CDATA[Vấn đề thao tác]]></lbl_tab_marketing>
+  <lbl_tab_myaccount><![CDATA[Tài khoản của tôi]]></lbl_tab_myaccount>
+  <lbl_tab_privacypolicy><![CDATA[Chính Sách Bảo Mật]]></lbl_tab_privacypolicy>
+  <lbl_tab_programme><![CDATA[Chương trình đại lý]]></lbl_tab_programme>
+
+
+</default>

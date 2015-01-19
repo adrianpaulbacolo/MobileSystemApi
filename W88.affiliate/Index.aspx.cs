@@ -28,11 +28,18 @@ public partial class _Index : BasePage
                 if (litScript != null) { litScript.Text += string.Format("<script type='text/javascript'>alert('{0}');</script>", HttpContext.Current.Request.QueryString.Get("Error")); }
             }
 
-            lblLogin.InnerHtml = commonCulture.ElementValues.getResourceString("lblPlaceBet", xeResources);
+            //if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+            //{
+                string path = Server.MapPath("~").ToLower() + string.Format("_static\\home\\content_main\\{0}.htm", commonVariables.SelectedLanguage);
+                mainContent.Text = System.IO.File.ReadAllText(path);
+            //}
+
         }
-
+      
         if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("AffiliateId"))) { commonVariables.SetSessionVariable("AffiliateId", HttpContext.Current.Request.QueryString.Get("AffiliateId")); }
+        if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { divDefaultContent.Visible = false; } else { divAfterLoginContent.Visible = false; }
 
-        if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { divLoginMessage.Visible = false; }
+        //if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { lblDefaultHeader.InnerHtml = commonCulture.ElementValues.getResourceString("lblAffiliate", xeResources); }
+
     }
 }

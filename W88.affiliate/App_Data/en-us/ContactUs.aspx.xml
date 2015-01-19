@@ -6,10 +6,14 @@
   <lblBanking><![CDATA[Banking]]></lblBanking>
   <lblPhone><![CDATA[Phone]]></lblPhone>
   <lblLine><![CDATA[Line]]></lblLine>
+  <lblWechat><![CDATA[Wechat]]></lblWechat>
+  <lblKakaotalk><![CDATA[Kakaotalk]]></lblKakaotalk>
   <lblFooter><![CDATA[Our member support is here to support you 24 hours a day, 7 days a week. Before you contact us, please check our FAQs and Tutorials [User Guides] to see if your question has already been answered. Thank you.]]></lblFooter>
 
-  <lnkSkype><![CDATA[skype:w88cs.help]]></lnkSkype>
-  <lnkEmail><![CDATA[mailto:info@w88.com]]></lnkEmail>
+  <lnkSkype><![CDATA[skype:affiliate_w88]]></lnkSkype>
+  <lnkEmail><![CDATA[mailto:affiliate_support@w88.com]]></lnkEmail>
   <lnkBanking><![CDATA[mailto:banking@w88.com]]></lnkBanking>
-  <lnkPhone><![CDATA[]]></lnkPhone>
+  <lnkPhone><![CDATA[tel:+85239733983]]></lnkPhone>
+  
+
 </ContactUs>

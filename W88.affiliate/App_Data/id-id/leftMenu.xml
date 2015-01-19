@@ -24,4 +24,20 @@
   <fastdeposit><![CDATA[Fast Deposit]]></fastdeposit>
   <banktransfer><![CDATA[Bank Transfer]]></banktransfer>
   <wingmoney><![CDATA[Wing Money]]></wingmoney>
+
+  <overview><![CDATA[Overview]]></overview>
+  <myAccount><![CDATA[Account Saya]]></myAccount>
+  <creative><![CDATA[Kreatif]]></creative>
+  <reports><![CDATA[Laporan]]></reports>
+  <trackingStatistic><![CDATA[Pelacakan Statistik]]></trackingStatistic>
+
+  <affiliate><![CDATA[Afiliasi]]></affiliate>
+  <account><![CDATA[Account Saya]]></account>
+  <accountinfo><![CDATA[Informasi Account]]></accountinfo>
+  <changePassword><![CDATA[Ganti Kata Sandi]]></changePassword>
+  <subAffmgmt><![CDATA[SUB AFFILIATE MANAGEMENT]]></subAffmgmt>
+
+  <commissionPlans><![CDATA[Tabel Komisi]]></commissionPlans>
+  <faq><![CDATA[FAQ]]></faq>
+  <ourProducts><![CDATA[Produk Kami]]></ourProducts>
 </menu>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lblSports><![CDATA[스포츠]]></lblSports>
+  <lblLiveCasino><![CDATA[라이브 카지노]]></lblLiveCasino>
+  <lblLottery><![CDATA[복권]]></lblLottery>
+  <lblSlots><![CDATA[슬롯 그리고 카지노 게임들]]></lblSlots>
+  <lblPoker><![CDATA[포커]]></lblPoker>
+
+
+
+</default>

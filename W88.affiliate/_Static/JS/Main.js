@@ -6,10 +6,11 @@
             url: "/_Secure/AjaxHandlers/MemberSessionCheck.ashx",
             /*dataType: "jsonp",*/
             success: function (data) {
+                console.log(data);
                 if (data != '1' && data != '-1') { window.location.replace('/Expire'); }
             },
             error: function (err) {
-                //console.log(err);
+                console.log(err);
             }
         });
     }, 5000);

@@ -15,7 +15,8 @@
   </Login>
 
   <Register>
-    <Success><![CDATA[W88에 회원가입을 해주셔서 대단히 감사합니다.\n귀하의 계정은 이제 W88.com과 모바일 버전 m.w88.com에서 이용하실 수 있습니다. ]]></Success>
+    <!--<Success><![CDATA[W88에 회원가입을 해주셔서 대단히 감사합니다.\n귀하의 계정은 이제 W88.com과 모바일 버전 m.w88.com에서 이용하실 수 있습니다. ]]></Success>-->
+    <Success><![CDATA[가입해 주셔서 대단히 감사합니다. 빠른 시일내로 승인 이메일이 발송될 예정입니다.]]></Success>
     <DuplicateUsername><![CDATA[이미 등록된 아이디 입니다. 새로운 아이디를 사용해 주세요.]]></DuplicateUsername>
     <DuplicateEmail><![CDATA[이미 등록된 이메일 주소입니다. 새로운 이메일 주소를 사용해 주세요.]]></DuplicateEmail>
     <IncorrectVCode><![CDATA[보안문자 오류]]></IncorrectVCode>
@@ -25,21 +26,72 @@
     <MissingEmail><![CDATA[이메일 주소를 입력 하세요]]></MissingEmail>
     <MissingContact><![CDATA[연락 가능한 번호를 입력 하세요]]></MissingContact>
     <MissingCurrency><![CDATA[고객님께서 사용하실 통화를 선택해주십시오.]]></MissingCurrency>
-    <MissingFName><![CDATA[이름을 입력하세요]]></MissingFName>
+    <!--<MissingFName><![CDATA[이름을 입력하세요]]></MissingFName>-->
     <MissingLName><![CDATA[성을 입력 하세요]]></MissingLName>
     <MissingVCode><![CDATA[보안문자 오류]]></MissingVCode>
+
+    <MissingFName><![CDATA[성명을 입력해 주세요.]]></MissingFName>
+    <MissingCountryCode><![CDATA[국가를 선택해 주세요.]]></MissingCountryCode>
+    <MissingLanguageCode><![CDATA[사용하시려는 언어를 선택해 주세요.]]></MissingLanguageCode>
+    <MissingCommissionType><![CDATA[커미션 타입을 선택해 주세요.]]></MissingCommissionType>
 
     <InvalidUsername><![CDATA[일치하지 않는 아이디/ 비밀번호 입니다.]]></InvalidUsername>
     <InvalidPassword><![CDATA[일치하지 않는 아이디/ 비밀번호 입니다.]]></InvalidPassword>
     <InvalidEmail><![CDATA[이메일 주소를 입력 하세요]]></InvalidEmail>
     <InvalidContact><![CDATA[연락 가능한 번호를 입력 하세요]]></InvalidContact>
-    <InvalidFName><![CDATA[이름을 입력하세요]]></InvalidFName>
+    <!--<InvalidFName><![CDATA[이름을 입력하세요]]></InvalidFName>-->
     <InvalidLName><![CDATA[성을 입력 하세요]]></InvalidLName>
     <InvalidDOB><![CDATA[생년월일을 선택 하세요]]></InvalidDOB>
     <InvalidVCode><![CDATA[성을 입력 하세요]]></InvalidVCode>
     <chkDisclaimer><![CDATA[처리 하기 전에 다시한번 조건과 계약에 동의 하세요.]]></chkDisclaimer>
     <!--<chkDisclaimer><![CDATA[Bets may only be placed by those who are aged 18 or over. We may undertake a search with third party for the purpose of verifying thatyou are 18 or over, W88 reserves the right to ask for the proof of age. Customer accounts may be suspended and funds withheld untill satisfactory proof of age is provided.]]></chkDisclaimer>-->
+
+    <InvalidFName><![CDATA[Invalid full name]]></InvalidFName>
+    <InvalidCurrency><![CDATA[Invalid currency]]></InvalidCurrency>
+    <InvalidCountryCode><![CDATA[Invalid country code]]></InvalidCountryCode>
+    <InvalidAccount><![CDATA[올바른 카카오톡/ MSN/ 스카이프를 입력해 주세요.]]></InvalidAccount>
+    <InvalidReferralId><![CDATA[Invalid referral ID]]></InvalidReferralId>
+    <InvalidLanguageCode><![CDATA[Invalid language code]]></InvalidLanguageCode>
+    <InvalidCommissionType><![CDATA[Invalid commission type]]></InvalidCommissionType>
+    <InvalidAddress><![CDATA[올바른 주소를 입력해 주세요.]]></InvalidAddress>
+    <InvalidCity><![CDATA[올바른 도시명을 입력해 주세요.]]></InvalidCity>
+    <InvalidPostal><![CDATA[올바른 우편번호를 입력해 주세요.]]></InvalidPostal>
   </Register>
+
+  <UpdateProfile>
+    <Success><![CDATA[계정 정보가 성공적으로 변경되었습니다.]]></Success>
+    <MissingSecurityQuestion><![CDATA[보안 질문을 선택해 주세요.]]></MissingSecurityQuestion>
+    <MissingSecurityAnswer><![CDATA[보안 답변을 입력해 주세요.]]></MissingSecurityAnswer>
+    <MissingBankAccName><![CDATA[은행 계좌주 성명을 입력해 주세요.]]></MissingBankAccName>
+    <MissingBankAccNo><![CDATA[은행 계좌번호를 입력해 주세요.]]></MissingBankAccNo>
+    <MissingBankName><![CDATA[은행 계좌주 성명을 입력해 주세요.]]></MissingBankName>
+    <MissingBankAdd><![CDATA[은행 주소를 입력해 주세요.]]></MissingBankAdd>
+
+
+    <InvalidSecurityQuestion><![CDATA[보안 질문을 선택해 주세요.]]></InvalidSecurityQuestion>
+    <InvalidSecurityAnswer><![CDATA[보안 답변을 입력해 주세요.]]></InvalidSecurityAnswer>
+    <InvalidBankAccName><![CDATA[은행 계좌주 성명을 입력해 주세요.]]></InvalidBankAccName>
+    <InvalidBankAccNo><![CDATA[은행 계좌번호를 입력해 주세요.]]></InvalidBankAccNo>
+    <InvalidBankName><![CDATA[은행 계좌주 성명을 입력해 주세요.]]></InvalidBankName>
+    <InvalidBankAdd><![CDATA[은행 주소를 입력해 주세요.]]></InvalidBankAdd>
+  </UpdateProfile>
+
+  <UpdatePassword>
+    <Success><![CDATA[비밀번호가 변경되었습니다!]]></Success>
+    <MissingPassword><![CDATA[현재 비밀번호를 입력해 주세요.]]></MissingPassword>
+    <MissingPasswordNew><![CDATA[비밀번호를 입력해 주세요.]]></MissingPasswordNew>
+    <MissingPasswordConfirm><![CDATA[비밀번호를 입력해 주세요.]]></MissingPasswordConfirm>
+
+    <InvalidPassword><![CDATA[Invalid password]]></InvalidPassword>
+    <IncorrectPassword><![CDATA[현재 비밀번호를 입력해 주세요.]]></IncorrectPassword>
+    <UnmatchedPassword><![CDATA[Passwords does not match]]></UnmatchedPassword>
+  </UpdatePassword>
+
+  <SubAffiliate>
+    <MissingValidEmail><![CDATA[최소 1개 이상의 유효한 이메일 주소를 입력하세요.]]></MissingValidEmail>
+    <InvitationFailed><![CDATA[파트너 제휴 초대 실패]]></InvitationFailed>
+    <InvitationSuccess><![CDATA[파트너 제휴 초대 성공]]></InvitationSuccess>
+  </SubAffiliate>
 
   <FundTransfer>
     <SelectTransferFrom><![CDATA[잔액을 이동할 상품을 지갑에서 선택해주세요.]]></SelectTransferFrom>

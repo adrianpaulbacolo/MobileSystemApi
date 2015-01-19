@@ -6,7 +6,6 @@
   <lblContact><![CDATA[លេខទំនាក់ទំនង]]></lblContact>
   <lblCurrency><![CDATA[រូបិយវត្ថុ]]></lblCurrency>
   <drpCurrencySelect><![CDATA[រូបិយវត្ថុ ជ្រើស]]></drpCurrencySelect>
-
   <lblOptionFields><![CDATA[Optional Fields]]></lblOptionFields>
   <lblFirstName><![CDATA[ឈ្មោះ]]></lblFirstName>
   <lblLastName><![CDATA[នាមត្រកូល]]></lblLastName>
@@ -17,6 +16,23 @@
   <lblDisclaimer><![CDATA[ខ្ញុំយល់ស្របតាមល័ក្ខខ័ណ្ឌនិងច្បាប់នៃវេបសាយ W88.com។]]></lblDisclaimer>
   <btnSubmit><![CDATA[ចូលរួម]]></btnSubmit>
   <btnCancel><![CDATA[លុប]]></btnCancel>
+
+  <drpCountrySelect><![CDATA[ជ្រើស​ប្រទេស]]></drpCountrySelect>
+  <drpLanguageSelect><![CDATA[ជ្រើស​ភាសា]]></drpLanguageSelect>
+  <lblFullName><![CDATA[ឈ្មោះពេញ]]></lblFullName>
+  <lblAccount><![CDATA[QQ/MSN/Skype]]></lblAccount>
+  <lblAddress><![CDATA[អាស័យដ្ឋាន]]></lblAddress>
+  <lblCity><![CDATA[ទីក្រុង]]></lblCity>
+  <lblPostal><![CDATA[ប្រៃសណីយ៍]]></lblPostal>
+  <lblLanguage><![CDATA[ភាសាចំនូលចិត្ត]]></lblLanguage>
+  <lblCommissionType><![CDATA[ប្រភេទកំរៃជើងសារ]]></lblCommissionType>
+  <lblRevenueShare><![CDATA[ចំនែកប្រាក់ចំនេញ]]></lblRevenueShare>
+  <lblWebsiteUrl><![CDATA[ឈ្មោះវេបសាយ]]></lblWebsiteUrl>
+  <lblURL1><![CDATA[(1)]]></lblURL1>
+  <lblURL2><![CDATA[(2)]]></lblURL2>
+  <lblURL3><![CDATA[(3)]]></lblURL3>
+  <lblDesc><![CDATA[សូមពណ៌នាថាអ្នកធ្វើយ៉ាងដើម្បីផ្សព្ធផ្សាយវេបសាយយើងខ្ញុំ បើអ្នកមិនមានវេបសាយផ្ទាល់ខ្លួន។]]></lblDesc>
+  <lblReferralID><![CDATA[ID ណែនាំ]]></lblReferralID>
 
   <Calendar>
     <m1><![CDATA[Jan]]></m1>

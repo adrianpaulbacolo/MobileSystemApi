@@ -24,4 +24,21 @@
   <fastdeposit><![CDATA[은행송금]]></fastdeposit>
   <banktransfer><![CDATA[은행송금]]></banktransfer>
   <wingmoney><![CDATA[온라인]]></wingmoney>
+
+  <overview><![CDATA[개요]]></overview>
+  <myAccount><![CDATA[내 계정]]></myAccount>
+  <creative><![CDATA[생성]]></creative>
+  <reports><![CDATA[리포트]]></reports>
+  <trackingStatistic><![CDATA[트랙킹 통계]]></trackingStatistic>
+
+  <affiliate><![CDATA[파트너제휴]]></affiliate>
+  <account><![CDATA[내 계정]]></account>
+  <accountinfo><![CDATA[계정 정보]]></accountinfo>
+  <changePassword><![CDATA[비밀번호 변경]]></changePassword>
+  <subAffmgmt><![CDATA[서브-파트너 관리]]></subAffmgmt>
+
+  <commissionPlans><![CDATA[커미션 계획]]></commissionPlans>
+  <faq><![CDATA[자주 묻는 질문]]></faq>
+  <ourProducts><![CDATA[게임정보]]></ourProducts>
+  
 </menu>

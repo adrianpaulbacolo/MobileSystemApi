@@ -10,9 +10,17 @@
 
     void RegisterRoutes(System.Web.Routing.RouteCollection routes)
     {
+        //xmlFilePath = System.Web.HttpContext.Current.Server.MapPath(@"~/App_Data/" + languageCode + @"/" + filePath + ".xml");
         System.Xml.Linq.XDocument doc = System.Xml.Linq.XDocument.Load(Server.MapPath("~/") + @"/App_data/MapRoutes.xml");
+        //System.Xml.Linq.XDocument doc = System.Xml.Linq.XDocument.Load(Server.MapPath(@"~/") + @"/App_data/MapRoutes.xml");
         System.Web.Routing.Route rtElement = null;
         System.Web.Routing.RouteValueDictionary rvdRoutes = null;
+
+        string strProcessRemark = "current: " + Server.MapPath("~/") + @"/App_data/MapRoutes.xml" + " | edit: " + Server.MapPath(@"~/") + @"/App_data/MapRoutes.xml";
+        int intProcessSerialId = 0;
+        intProcessSerialId += 1;
+        commonAuditTrail.appendLog("system", "global", "ParameterValidation", "DataBaseManager.DLL", "", "", "", "", strProcessRemark, Convert.ToString(intProcessSerialId), "", true);
+
 
         routes.RouteExistingFiles = true;
 

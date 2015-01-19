@@ -354,3 +354,60 @@
     /*display:inline-block;*/
 }
 /*#endregion*/
+
+.div-home-center {
+    /*display: table-row;*/
+    display: table;
+    width: 100%;
+}
+
+    .div-home-center > div {
+        display: table-cell;
+    }
+
+        .div-home-center > div:first-child {
+            width: 40%;
+            vertical-align: middle;
+            display: table;
+            float: left;
+            text-align:right;
+        }
+
+            .div-home-center > div:first-child > label {
+                color: #fff;
+                padding: 0 5px;
+                height: 43px;
+                vertical-align: middle;
+                display: table-cell;
+                width: 100%;
+                white-space: nowrap;
+                /*font-weight:700;*/
+                font-size:1em;
+            }
+
+        .div-home-center > div:last-child {
+            table-layout: fixed;
+            display: table;
+            /*width: 73%;*/
+            width: 60%;
+            float: right;
+        }
+
+            .div-home-center > div:last-child .ui-select {
+                margin: 0;
+            }
+
+            .div-home-center > div:last-child > div {
+                display: table-cell;
+                width: 5px;
+            }
+
+                .div-home-center > div:last-child > div:first-child {
+                    padding-right: .5em;
+                }
+
+                .div-home-center > div:last-child > div:nth-child(2) {
+                    /*padding-right: .5em;*/
+                }
+
+

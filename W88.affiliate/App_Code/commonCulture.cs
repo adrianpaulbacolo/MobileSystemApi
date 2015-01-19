@@ -628,6 +628,9 @@ namespace commonCulture
                 xmlFilePath = string.Format("{0}.xml", strPhyPath.Insert(strPhyAppPath.Length, string.Format(@"App_Data\{0}\", languageCode)));
                 if (System.IO.File.Exists(xmlFilePath)) { xElement = System.Xml.Linq.XElement.Load(xmlFilePath); }
             }
+
+            //commonAuditTrail.appendLog("system", "commonCulture", "ParameterValidation", "DataBaseManager.DLL", "", "", "xmlFilePath:" + xmlFilePath, "", "", "", "", true);
+
         }
         internal static void getLocalResource(string languageCode, out System.Xml.Linq.XDocument xDocument)
         {

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lbl_btn_submit><![CDATA[ตกลง]]></lbl_btn_submit>
+  <lbl_dropdown_earliest_first><![CDATA[แรก]]></lbl_dropdown_earliest_first>
+  <lbl_dropdown_latest_first><![CDATA[สุดท้าย]]></lbl_dropdown_latest_first>
+  <lbl_option_current_day><![CDATA[วันที่ปัจจุบัน]]></lbl_option_current_day>
+  <lbl_option_current_month><![CDATA[เดือนปัจจุบัน]]></lbl_option_current_month>
+  <lbl_option_current_week><![CDATA[สัปดาห์ปัจจุบัน]]></lbl_option_current_week>
+  <lbl_option_from><![CDATA[จาก]]></lbl_option_from>
+  <lbl_option_to><![CDATA[ถึง]]></lbl_option_to>
+  <lbl_period><![CDATA[ระยะเวลา]]></lbl_period>
+  <lbl_sort_by><![CDATA[เรียงตาม]]></lbl_sort_by>
+  <lbl_table_footer_total_click><![CDATA[จำนวนคลิกทั้งหมด]]></lbl_table_footer_total_click>
+  <lbl_table_header_clicks><![CDATA[การคลิก]]></lbl_table_header_clicks>
+  <lbl_table_header_date><![CDATA[วันที่]]></lbl_table_header_date>
+  <lbl_table_header_unique_clicks><![CDATA[การคลิกที่ไม่ซ้ำกัน]]></lbl_table_header_unique_clicks>
+  <lbl_table_no_result><![CDATA[ไม่พบข้อมูล]]></lbl_table_no_result>
+  <lbl_tracking_code><![CDATA[รหัสติดตาม]]></lbl_tracking_code>
+  <msg_option_from_to_date_blank><![CDATA[กรุณาเลือกจากวันที่ถึงวันที่]]></msg_option_from_to_date_blank>
+
+
+</default>

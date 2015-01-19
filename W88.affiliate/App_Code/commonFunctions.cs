@@ -5,6 +5,7 @@ using System.Web;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using System.Text;
 
 public static class commonFunctions
 {
@@ -396,6 +397,12 @@ public static class commonFunctions
 
                     context.Session.Add("vCode", random_string);
 
+                    string strProcessRemark = "CommonFunction:" + random_string;
+                    int intProcessSerialId = 0;
+                    intProcessSerialId += 1;
+                    commonAuditTrail.appendLog("system", "generateCaptcha2", "ParameterValidation", "DataBaseManager.DLL", "", "", "", "", strProcessRemark, Convert.ToString(intProcessSerialId), "", true);
+
+
                     using (obj_font = new System.Drawing.Font("Arial", 20, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel))
                     {
                         obj_graphics.DrawString(new string(char_array), obj_font, System.Drawing.Brushes.MidnightBlue, 5, 0);
@@ -500,6 +507,13 @@ public static class commonFunctions
         string strCode = commonFunctions.generateRandom(length, type);
 
         commonVariables.SetSessionVariable("vCode", commonEncryption.encrypting(strCode));
+
+        string strProcessRemark = "CommonFunction:" + strCode;
+        int intProcessSerialId = 0;
+        intProcessSerialId += 1;
+        commonAuditTrail.appendLog("system", "CommonFunction", "ParameterValidation", "DataBaseManager.DLL", "", "", "", "", strProcessRemark, Convert.ToString(intProcessSerialId), "", true);
+
+
         //context.Session["vCode"] = commonEncryption.encrypting(strCode);
 
         char[] char_array = null;
@@ -659,5 +673,72 @@ public static class commonFunctions
         alphaNumeric,
         numeric,
         alpha
+    }
+
+    public static double TruncateDecimal(double value, int digits)
+    {
+        double mult = System.Math.Pow(10.0, digits);
+        return System.Math.Truncate(value * mult) / mult;
+    }
+
+    public static string Tuncate2DecimalToString(double value)
+    {
+        if (value.ToString("#,0.0000#", System.Globalization.CultureInfo.InvariantCulture) == "0.0000")
+            return "0.00";
+        else
+            return TruncateDecimal(double.Parse(value.ToString()), 2).ToString("#,0.00#", System.Globalization.CultureInfo.InvariantCulture);
+    }
+
+    public static string wcDateFormat = System.Configuration.ConfigurationManager.AppSettings["dateFormat"];
+
+    public static DateTime DateParse(string dateString)
+    {
+        return DateTime.ParseExact(dateString, wcDateFormat, null);
+    }
+
+    public static string EncodeJsString(string s)
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.Append("\"");
+        foreach (char c in s)
+        {
+            switch (c)
+            {
+                case '\"':
+                    sb.Append("\\\"");
+                    break;
+                case '\\':
+                    sb.Append("\\\\");
+                    break;
+                case '\b':
+                    sb.Append("\\b");
+                    break;
+                case '\f':
+                    sb.Append("\\f");
+                    break;
+                case '\n':
+                    sb.Append("\\n");
+                    break;
+                case '\r':
+                    sb.Append("\\r");
+                    break;
+                case '\t':
+                    sb.Append("\\t");
+                    break;
+                default:
+                    int i = (int)c;
+                    if (i < 32 || i > 127)
+                    {
+                        sb.AppendFormat("\\u{0:X04}", i);
+                    }
+                    else
+                    {
+                        sb.Append(c);
+                    }
+                    break;
+            }
+        }
+        sb.Append("\"");
+        return sb.ToString();
     }
 }

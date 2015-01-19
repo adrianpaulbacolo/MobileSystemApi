@@ -15,7 +15,8 @@
   </Login>
 
   <Register>
-    <Success><![CDATA[欢迎来到W88，感谢您成为我们的会员。\n您的账号已经可以登录W88.com网页版本和m.w88.com手机版本进行游戏。]]></Success>
+    <!--<Success><![CDATA[欢迎来到W88，感谢您成为我们的会员。\n您的账号已经可以登录W88.com网页版本和m.w88.com手机版本进行游戏。]]></Success>-->
+    <Success><![CDATA[感谢您与我们注册，我们将通过电子邮件发送您的批准确认。]]></Success>
     <DuplicateUsername><![CDATA[此用户名已被注册。请尝试输入新的用户名。]]></DuplicateUsername>
     <DuplicateEmail><![CDATA[此电子邮箱已被注册。请尝试输入新的电邮地址。]]></DuplicateEmail>
     <IncorrectVCode><![CDATA[错误的验证码]]></IncorrectVCode>
@@ -25,21 +26,72 @@
     <MissingEmail><![CDATA[请输入有效的邮箱]]></MissingEmail>
     <MissingContact><![CDATA[请输入有效的联系电话]]></MissingContact>
     <MissingCurrency><![CDATA[请选择您的首选货币。]]></MissingCurrency>
-    <MissingFName><![CDATA[请输入您的名]]></MissingFName>
+    <!--<MissingFName><![CDATA[请输入您的名]]></MissingFName>-->
     <MissingLName><![CDATA[请输入您的姓]]></MissingLName>
     <MissingVCode><![CDATA[请输入验证码]]></MissingVCode>
+    
+    <MissingFName><![CDATA[请输入全名]]></MissingFName>
+    <MissingCountryCode><![CDATA[请选择国家]]></MissingCountryCode>
+    <MissingLanguageCode><![CDATA[请选择首选语言]]></MissingLanguageCode>
+    <MissingCommissionType><![CDATA[请选择佣金类型]]></MissingCommissionType>
 
     <InvalidUsername><![CDATA[请输入有效的用户名]]></InvalidUsername>
     <InvalidPassword><![CDATA[请输入有效的密码]]></InvalidPassword>
     <InvalidEmail><![CDATA[请输入有效的邮箱]]></InvalidEmail>
     <InvalidContact><![CDATA[请输入有效的联系电话]]></InvalidContact>
-    <InvalidFName><![CDATA[请输入您的名]]></InvalidFName>
+    <!--<InvalidFName><![CDATA[请输入您的名]]></InvalidFName>-->
     <InvalidLName><![CDATA[请输入您的姓]]></InvalidLName>
     <InvalidDOB><![CDATA[请选择有效的出生日期]]></InvalidDOB>
     <InvalidVCode><![CDATA[无效验证码]]></InvalidVCode>
     <chkDisclaimer><![CDATA[请检查，并同意继续之前的条款和条件。]]></chkDisclaimer>
     <!--<chkDisclaimer><![CDATA[我们仅接受超过法定年龄18岁的会员进行投注。我们有权通过第三方核实您的年龄是否已超过18周岁，我们也有权要求您出示相关证明。会员账户可能会被暂时冻结，直至您的年龄被有效核实。]]></chkDisclaimer>-->
+    
+    <InvalidFName><![CDATA[Invalid full name]]></InvalidFName>
+    <InvalidCurrency><![CDATA[Invalid currency]]></InvalidCurrency>
+    <InvalidCountryCode><![CDATA[Invalid country code]]></InvalidCountryCode>
+    <InvalidAccount><![CDATA[请输入有效的QQ/MSN/Skype]]></InvalidAccount>
+    <InvalidReferralId><![CDATA[Invalid referral ID]]></InvalidReferralId>
+    <InvalidLanguageCode><![CDATA[Invalid language code]]></InvalidLanguageCode>
+    <InvalidCommissionType><![CDATA[Invalid commission type]]></InvalidCommissionType>
+    <InvalidAddress><![CDATA[请输入有效的地址]]></InvalidAddress>
+    <InvalidCity><![CDATA[请输入有效的城市]]></InvalidCity>
+    <InvalidPostal><![CDATA[请输入有效的邮编]]></InvalidPostal>
   </Register>
+
+  <UpdateProfile>
+    <Success><![CDATA[已成功更新账户信息]]></Success>
+    <MissingSecurityQuestion><![CDATA[请选择安全问题]]></MissingSecurityQuestion>
+    <MissingSecurityAnswer><![CDATA[请输入安全问题答案]]></MissingSecurityAnswer>
+    <MissingBankAccName><![CDATA[请输入银行账户名]]></MissingBankAccName>
+    <MissingBankAccNo><![CDATA[请输入银行账户号码]]></MissingBankAccNo>
+    <MissingBankName><![CDATA[请输入银行账户名]]></MissingBankName>
+    <MissingBankAdd><![CDATA[请输入银行地址]]></MissingBankAdd>
+
+
+    <InvalidSecurityQuestion><![CDATA[请选择安全问题]]></InvalidSecurityQuestion>
+    <InvalidSecurityAnswer><![CDATA[请输入安全问题答案]]></InvalidSecurityAnswer>
+    <InvalidBankAccName><![CDATA[请输入银行账户名]]></InvalidBankAccName>
+    <InvalidBankAccNo><![CDATA[请输入银行账户号码]]></InvalidBankAccNo>
+    <InvalidBankName><![CDATA[请输入银行账户名]]></InvalidBankName>
+    <InvalidBankAdd><![CDATA[请输入银行地址]]></InvalidBankAdd>
+  </UpdateProfile>
+
+  <UpdatePassword>
+    <Success><![CDATA[密码已更换！]]></Success>
+    <MissingPassword><![CDATA[请输入当前密码]]></MissingPassword>
+    <MissingPasswordNew><![CDATA[请输入密码]]></MissingPasswordNew>
+    <MissingPasswordConfirm><![CDATA[请输入密码]]></MissingPasswordConfirm>
+
+    <InvalidPassword><![CDATA[Invalid password]]></InvalidPassword>
+    <IncorrectPassword><![CDATA[请输入密码]]></IncorrectPassword>
+    <UnmatchedPassword><![CDATA[Passwords does not match]]></UnmatchedPassword>
+  </UpdatePassword>
+
+  <SubAffiliate>
+    <MissingValidEmail><![CDATA[请至少输入一个有效的电子邮件]]></MissingValidEmail>
+    <InvitationFailed><![CDATA[邀请加入失败]]></InvitationFailed>
+    <InvitationSuccess><![CDATA[邀请加入成功]]></InvitationSuccess>
+  </SubAffiliate>
 
   <FundTransfer>
     <SelectTransferFrom><![CDATA[请选择一个钱包转出资金。]]></SelectTransferFrom>

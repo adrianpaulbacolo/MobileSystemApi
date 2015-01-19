@@ -76,7 +76,7 @@
                     GPINTMOBILE.ShowSplash();
                     $.ajax({
                         contentType: "application/json; charset=utf-8",
-                        url: "https://www.w88.com/IP2LOC?v=" + new Date().getTime(),
+                        url: "http://w88uat.com/IP2LOC?v=" + new Date().getTime(),
                         dataType: "jsonp",
                         success: function (data) {
                             initiateLogin(data);
@@ -97,7 +97,7 @@
 
             $('#imgCaptcha').click(function () { $(this).attr('src', '/Captcha'); });
 
-            function initiateLogin(postData) {                
+            function initiateLogin(postData) {
                 $.ajax({
                     type: "POST",
                     url: '/_Secure/Login',
@@ -109,9 +109,11 @@
                     },
                     data: { txtUsername: $('#txtUsername').val(), txtPassword: $('#txtPassword').val(), txtCaptcha: $('#txtCaptcha').val(), txtIPAddress: postData.ip, txtCountry: postData.country, txtPermission: postData.permission, ioBlackBox: $('#ioBlackBox').val() },
                     success: function (xml) {
+                        //alert($(xml).find('ErrorCode').text());
                         switch ($(xml).find('ErrorCode').text()) {
                             case "1":
                                 window.location.replace('<%=strRedirect%>');
+                                //window.location.replace('/Overview.aspx');
                                 break;
                             default:
                                 alert($(xml).find('Message').text());
@@ -123,6 +125,7 @@
                         }
                     },
                     error: function (err) {
+                        //alert("Error:initiateLogin");
                         alert('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
                         window.location.replace('<%=strRedirect%>');
                     }

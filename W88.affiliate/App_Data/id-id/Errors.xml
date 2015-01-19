@@ -15,7 +15,8 @@
   </Login>
 
   <Register>
-    <Success><![CDATA[Selamat datang di W88 dan terima kasih telah bergabung dengan kami.\nAccount anda saat ini sudah aktif, silahkan login dan mulai bermain di W88.com atau akses melalui ponsel di m.w88.com]]></Success>
+    <!--<Success><![CDATA[Selamat datang di W88 dan terima kasih telah bergabung dengan kami.\nAccount anda saat ini sudah aktif, silahkan login dan mulai bermain di W88.com atau akses melalui ponsel di m.w88.com]]></Success>-->
+    <Success><![CDATA[Terima Kasih telah mendaftar dengan kami, Kami akan mengirimkan konfirmasi melalui email]]></Success>
     <DuplicateUsername><![CDATA[Username telah terdaftar. Silahkan masukkan Username baru.]]></DuplicateUsername>
     <DuplicateEmail><![CDATA[Alamat email telah terdaftar. Silahkan masukkan alamat email baru.]]></DuplicateEmail>
     <IncorrectVCode><![CDATA[Silahkan masukan 4-Digit kode Validasi.]]></IncorrectVCode>
@@ -25,21 +26,73 @@
     <MissingEmail><![CDATA[Silahkan masukkan Alamat Email yang valid]]></MissingEmail>
     <MissingContact><![CDATA[Silahkan masukkan Nomor Kontak]]></MissingContact>
     <MissingCurrency><![CDATA[Silahkan pilih mata uang anda]]></MissingCurrency>
-    <MissingFName><![CDATA[Silahkan masukkan Nama Depan dan Nama Tengah anda]]></MissingFName>
+    <!--<MissingFName><![CDATA[Silahkan masukkan Nama Depan dan Nama Tengah anda]]></MissingFName>-->
     <MissingLName><![CDATA[Silahkan masukkan Nama Belakang anda]]></MissingLName>
     <MissingVCode><![CDATA[Silahkan masukan 4-Digit kode Validasi.]]></MissingVCode>
+
+    <MissingFName><![CDATA[Harap masukkan Nama Lengkap]]></MissingFName>
+    <MissingCountryCode><![CDATA[Harap pilih negara]]></MissingCountryCode>
+    <MissingLanguageCode><![CDATA[Harap pilih bahasa yang diinginkan]]></MissingLanguageCode>
+    <MissingCommissionType><![CDATA[Harap pilih tipe komisi]]></MissingCommissionType>
 
     <InvalidUsername><![CDATA[Username dan/atau Password tidak valid]]></InvalidUsername>
     <InvalidPassword><![CDATA[Username dan/atau Password tidak valid]]></InvalidPassword>
     <InvalidEmail><![CDATA[Silahkan masukkan Alamat Email yang valid]]></InvalidEmail>
     <InvalidContact><![CDATA[Silahkan masukkan Nomor Kontak]]></InvalidContact>
-    <InvalidFName><![CDATA[Silahkan masukkan Nama Depan dan Nama Tengah anda]]></InvalidFName>
+    <!--<InvalidFName><![CDATA[Silahkan masukkan Nama Depan dan Nama Tengah anda]]></InvalidFName>-->
     <InvalidLName><![CDATA[Silahkan masukkan Nama Belakang anda]]></InvalidLName>
     <InvalidDOB><![CDATA[Silahkan pilih Tanggal Lahir yang valid]]></InvalidDOB>
     <InvalidVCode><![CDATA[Silahkan masukan 4-Digit kode Validasi.]]></InvalidVCode>
     <chkDisclaimer><![CDATA[Silahkan periksa dan setujui Syarat & Ketentuan sebelum memproses.]]></chkDisclaimer>
     <!--<chkDisclaimer><![CDATA[Bets may only be placed by those who are aged 18 or over. We may undertake a search with third party for the purpose of verifying thatyou are 18 or over, W88 reserves the right to ask for the proof of age. Customer accounts may be suspended and funds withheld untill satisfactory proof of age is provided.]]></chkDisclaimer>-->
+
+    <InvalidFName><![CDATA[Nama Lengkap tidak valid]]></InvalidFName>
+    <InvalidCurrency><![CDATA[Invalid currency]]></InvalidCurrency>
+    <InvalidCountryCode><![CDATA[Invalid country code]]></InvalidCountryCode>
+    <InvalidAccount><![CDATA[Harap masukkan QQ/MSN/Skype yang benar]]></InvalidAccount>
+    <InvalidReferralId><![CDATA[Invalid referral ID]]></InvalidReferralId>
+    <InvalidLanguageCode><![CDATA[Invalid language code]]></InvalidLanguageCode>
+    <InvalidCommissionType><![CDATA[Invalid commission type]]></InvalidCommissionType>
+    <InvalidAddress><![CDATA[Harap masukkan alamat yang benar]]></InvalidAddress>
+    <InvalidCity><![CDATA[Harap masukkan Kota yang benar]]></InvalidCity>
+    <InvalidPostal><![CDATA[Harap masukkan Kode Pos yang benar]]></InvalidPostal>
+
   </Register>
+
+  <UpdateProfile>
+    <Success><![CDATA[Perbaharuan Informasi Account telah sukses]]></Success>
+    <MissingSecurityQuestion><![CDATA[Please select your security question]]></MissingSecurityQuestion>
+    <MissingSecurityAnswer><![CDATA[Harap memasukkan jawaban keamanan]]></MissingSecurityAnswer>
+    <MissingBankAccName><![CDATA[Harap masukkan Nama Rekening Bank]]></MissingBankAccName>
+    <MissingBankAccNo><![CDATA[Harap masukkan Nomor Rekening Bank]]></MissingBankAccNo>
+    <MissingBankName><![CDATA[Harap masukkan Nama Rekening Bank]]></MissingBankName>
+    <MissingBankAdd><![CDATA[Harap masukkan Alamat Bank]]></MissingBankAdd>
+
+
+    <InvalidSecurityQuestion><![CDATA[Harap pilih pertanyaan keamanan]]></InvalidSecurityQuestion>
+    <InvalidSecurityAnswer><![CDATA[Harap memasukkan jawaban keamanan]]></InvalidSecurityAnswer>
+    <InvalidBankAccName><![CDATA[Harap masukkan Nama Rekening Bank]]></InvalidBankAccName>
+    <InvalidBankAccNo><![CDATA[Harap masukkan Nomor Rekening Bank]]></InvalidBankAccNo>
+    <InvalidBankName><![CDATA[Harap masukkan Nama Rekening Bank]]></InvalidBankName>
+    <InvalidBankAdd><![CDATA[Harap masukkan Alamat Bank]]></InvalidBankAdd>
+  </UpdateProfile>
+
+  <UpdatePassword>
+    <Success><![CDATA[Kata Sandi diubah!]]></Success>
+    <MissingPassword><![CDATA[Harap masukkan kata sandi yang sekarang]]></MissingPassword>
+    <MissingPasswordNew><![CDATA[Harap masukkan Kata sandi]]></MissingPasswordNew>
+    <MissingPasswordConfirm><![CDATA[Harap masukkan Kata sandi]]></MissingPasswordConfirm>
+
+    <InvalidPassword><![CDATA[Invalid password]]></InvalidPassword>
+    <IncorrectPassword><![CDATA[Kata Sandi Sekarang salah]]></IncorrectPassword>
+    <UnmatchedPassword><![CDATA[Passwords does not match]]></UnmatchedPassword>
+  </UpdatePassword>
+
+  <SubAffiliate>
+    <MissingValidEmail><![CDATA[Harap masukkan paling tidak 1 alamat email yang benar]]></MissingValidEmail>
+    <InvitationFailed><![CDATA[Undangan ke Afiliasi Gagal]]></InvitationFailed>
+    <InvitationSuccess><![CDATA[Undangan ke Afiliasi Berhasil]]></InvitationSuccess>
+  </SubAffiliate>
 
   <FundTransfer>
     <SelectTransferFrom><![CDATA[Silahkan pilih dompet asal untuk mentransfer.]]></SelectTransferFrom>

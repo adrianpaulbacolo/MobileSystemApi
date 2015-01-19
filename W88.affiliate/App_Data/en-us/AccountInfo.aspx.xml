@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<register>
+  <lblUsername><![CDATA[Username]]></lblUsername>
+  <lblPassword><![CDATA[Password]]></lblPassword>
+  <lblEmailAddress><![CDATA[Email Address]]></lblEmailAddress>
+  <lblContact><![CDATA[Contact]]></lblContact>
+  <lblCurrency><![CDATA[Preferred Currency]]></lblCurrency>
+  <drpCurrencySelect><![CDATA[Select Currency]]></drpCurrencySelect>
+  <lblOptionFields><![CDATA[Optional Fields]]></lblOptionFields>
+  <lblFirstName><![CDATA[First Name]]></lblFirstName>
+  <lblLastName><![CDATA[Last Name]]></lblLastName>
+  <lblDOB><![CDATA[Date Of Birth]]></lblDOB>
+  <lblAffiliateID><![CDATA[Affiliate ID]]></lblAffiliateID>
+  
+  <lblCaptcha><![CDATA[Code]]></lblCaptcha>
+  <lblDisclaimer><![CDATA[I Accept the W88.com Terms and Conditions and Rules]]></lblDisclaimer>
+  <btnSubmit><![CDATA[SUBMIT]]></btnSubmit>
+  <btnCancel><![CDATA[Cancel]]></btnCancel>
+
+  <drpCountrySelect><![CDATA[Select Country]]></drpCountrySelect>
+  <drpLanguageSelect><![CDATA[Select Language]]></drpLanguageSelect>
+  <lblFullName><![CDATA[Full Name]]></lblFullName>
+  <lblAccount><![CDATA[QQ/MSN/Skype]]></lblAccount>
+  <lblAddress><![CDATA[Address]]></lblAddress>
+  <lblCity><![CDATA[City]]></lblCity>
+  <lblPostal><![CDATA[Postal]]></lblPostal>
+  <lblLanguage><![CDATA[Preferred Language]]></lblLanguage>
+  <lblCommissionType><![CDATA[Commission Type]]></lblCommissionType>
+  <lblRevenueShare><![CDATA[Revenue Share]]></lblRevenueShare>
+  <lblWebsiteUrl><![CDATA[Website Url]]></lblWebsiteUrl>
+  <lblURL1><![CDATA[(1)]]></lblURL1>
+  <lblURL2><![CDATA[(2)]]></lblURL2>
+  <lblURL3><![CDATA[(3)]]></lblURL3>
+  <lblDesc><![CDATA[Please describe how you like to market our brand if you do not have a URL]]></lblDesc>
+  <lblReferralID><![CDATA[Referral ID]]></lblReferralID>
+
+  <lblSecQues><![CDATA[Security Question]]></lblSecQues>
+  <lblSecAns><![CDATA[Security Answer]]></lblSecAns>
+
+  <lblBankAccName><![CDATA[Bank Account Name]]></lblBankAccName>
+  <lblBankAccNo><![CDATA[Bank Account Number]]></lblBankAccNo>
+  <lblSwiftCode><![CDATA[Swift Code]]></lblSwiftCode>
+  <lblBankName><![CDATA[Bank Name]]></lblBankName>
+  <lblBankAdd><![CDATA[Bank Address]]></lblBankAdd>
+  
+  <lblCountry><![CDATA[Country]]></lblCountry>
+  <lblUpdate><![CDATA[Update]]></lblUpdate>
+
+  <lblCurrentPassword><![CDATA[Current Password]]></lblCurrentPassword>
+  <lblNewPassword><![CDATA[New Password]]></lblNewPassword>
+  <lblConfirmPassword><![CDATA[Confirm Password]]></lblConfirmPassword>
+
+  <btnInvite><![CDATA[Invite]]></btnInvite>
+  <lblInviteSubAff><![CDATA[Invite Sub Affiliate]]></lblInviteSubAff>
+  <lblMessage><![CDATA[Message]]></lblMessage>
+  <lblInvitation><![CDATA[Invitation to affiliate W88]]></lblInvitation>
+  <lblsenderName><![CDATA[AFFILIATE DEPARTMENT W88.COM]]></lblsenderName>
+
+
+
+  <Calendar>
+    <m1><![CDATA[Jan]]></m1>
+    <m2><![CDATA[Feb]]></m2>
+    <m3><![CDATA[Mar]]></m3>
+    <m4><![CDATA[Apr]]></m4>
+    <m5><![CDATA[May]]></m5>
+    <m6><![CDATA[Jun]]></m6>
+    <m7><![CDATA[Jul]]></m7>
+    <m8><![CDATA[Aug]]></m8>
+    <m9><![CDATA[Sep]]></m9>
+    <m10><![CDATA[Oct]]></m10>
+    <m11><![CDATA[Nov]]></m11>
+    <m12><![CDATA[Dec]]></m12>
+  </Calendar>
+
+  <Currency>
+    <UUS><![CDATA[(UUS) Virtual Currency]]></UUS>
+    <AUD><![CDATA[(AUD) Australian Dollar]]></AUD>
+    <EUR><![CDATA[(EUR) Euros]]></EUR>
+    <GBP><![CDATA[(GBP) British Pound]]></GBP>
+    <IDR><![CDATA[(IDR) Indonesia Rupiah]]></IDR>
+    <MYR><![CDATA[(MYR) Malaysian Ringgit]]></MYR>
+    <RMB><![CDATA[(RMB) Chinese RenMinBi]]></RMB>
+    <THB><![CDATA[(THB) Thai Baht]]></THB>
+    <USD><![CDATA[(USD) United States Dollar]]></USD>
+    <JPY><![CDATA[(JPY) Japanese Yen]]></JPY>
+    <KRW><![CDATA[(KRW) Korean Won]]></KRW>
+    <VND><![CDATA[(VND) Vietnamese Dong]]></VND>
+    <INR><![CDATA[(INR) Indian Rupee]]></INR>
+  </Currency>
+
+</register>

@@ -6,7 +6,6 @@
   <lblContact><![CDATA[หมายเลขโทรศัพท์ที่ติดต่อได้สะดวก]]></lblContact>
   <lblCurrency><![CDATA[สกุลเงิน]]></lblCurrency>
   <drpCurrencySelect><![CDATA[เลือกสกุลเงิน]]></drpCurrencySelect>
-
   <lblOptionFields><![CDATA[Optional Fields]]></lblOptionFields>
   <lblFirstName><![CDATA[ชื่อ]]></lblFirstName>
   <lblLastName><![CDATA[สกุล]]></lblLastName>
@@ -18,6 +17,23 @@
   <btnSubmit><![CDATA[สมัครสมาชิก ]]></btnSubmit>
   <btnCancel><![CDATA[ยกเลิก]]></btnCancel>
 
+  <drpCountrySelect><![CDATA[เลือกประเทศ]]></drpCountrySelect>
+  <drpLanguageSelect><![CDATA[เลือกภาษา]]></drpLanguageSelect>
+  <lblFullName><![CDATA[ชื่อ]]></lblFullName>
+  <lblAccount><![CDATA[QQ/MSN/Skype]]></lblAccount>
+  <lblAddress><![CDATA[ที่อยู่]]></lblAddress>
+  <lblCity><![CDATA[เมือง]]></lblCity>
+  <lblPostal><![CDATA[ไปรษณีย์]]></lblPostal>
+  <lblLanguage><![CDATA[ภาษาที่ต้องการใช้งาน]]></lblLanguage>
+  <lblCommissionType><![CDATA[ประเภทค่าคอมมิชชั่น]]></lblCommissionType>
+  <lblRevenueShare><![CDATA[Revenue Share]]></lblRevenueShare>
+  <lblWebsiteUrl><![CDATA[เว็บไซต์ URL]]></lblWebsiteUrl>
+  <lblURL1><![CDATA[(1)]]></lblURL1>
+  <lblURL2><![CDATA[(2)]]></lblURL2>
+  <lblURL3><![CDATA[(3)]]></lblURL3>
+  <lblDesc><![CDATA[หากคุณไม่มีเว็บไซต์โปรดอธิบายวิธีการทำการตลาดให้กับเรา]]></lblDesc>
+  <lblReferralID><![CDATA[รหัสผู้แนะนำ]]></lblReferralID>
+  
   <Calendar>
     <m1><![CDATA[Jan]]></m1>
     <m2><![CDATA[Feb]]></m2>

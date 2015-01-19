@@ -71,7 +71,7 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
             strPassword = commonEncryption.Encrypt(strPassword);
         }
 
-        strProcessRemark = string.Format("MemberCode: {0} | Password: {1} | VCode: {2} | SVCode: {3} | IP: {4} | Country: {5}", strMemberCode, strPassword, strVCode, strSessionVCode, strLoginIp, strCountryCode);
+        strProcessRemark = string.Format("MemberCode: {0} | Password: {1} | VCode: {2} | EVCode: {3} | SVCode: {4} | IP: {5} | Country: {6} | ProcessCode: {7}", strMemberCode, strPassword, strVCode, commonEncryption.encrypting(strVCode), strSessionVCode, strLoginIp, strCountryCode, strProcessCode);
 
         intProcessSerialId += 1;
         commonAuditTrail.appendLog("system", strPageName, "ParameterValidation", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
@@ -83,13 +83,23 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
         {
             try
             {
-                using (wsMemberMS1.memberWSSoapClient svcInstance = new wsMemberMS1.memberWSSoapClient())
+
+                //using (wsAffiliateMS1.affiliateWSSoapClient svcInstance = new wsAffiliateMS1.affiliateWSSoapClient())
+                using (mwsAffiliate.mws_affiliateSoapClient svcInstance = new mwsAffiliate.mws_affiliateSoapClient())
                 {
                     System.Data.DataSet dsSignin = null;
-                    dsSignin = svcInstance.MemberSignin(lngOperatorId, strMemberCode, strPassword, strSiteURL, strLoginIp, strDeviceId);
+                    //dsSignin = svcInstance.MemberSignin(lngOperatorId, strMemberCode, strPassword, strSiteURL, strLoginIp, strDeviceId);
+                    dsSignin = svcInstance.MobileMemberSignin(lngOperatorId, strMemberCode, strPassword, strSiteURL, strLoginIp, strDeviceId);
 
                     if (dsSignin.Tables[0].Rows.Count > 0)
                     {
+
+                        strProcessRemark = string.Format("OpID: {0} | MemberCode: {1} | Password: {2} | URL: {3} | LoginIp: {4} | Device: {5}", lngOperatorId, strMemberCode, strPassword, strSiteURL, strLoginIp, strDeviceId);
+
+                        intProcessSerialId += 1;
+                        commonAuditTrail.appendLog("system", strPageName, "ParameterValidation", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
+
+
                         strProcessCode = Convert.ToString(dsSignin.Tables[0].Rows[0]["RETURN_VALUE"]);
                         switch (strProcessCode)
                         {
@@ -99,21 +109,22 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
                             case "1":
                                 string strMemberSessionId = Convert.ToString(dsSignin.Tables[0].Rows[0]["memberSessionId"]);
                                 HttpContext.Current.Session.Add("MemberSessionId", Convert.ToString(dsSignin.Tables[0].Rows[0]["memberSessionId"]));
-                                HttpContext.Current.Session.Add("MemberId", Convert.ToString(dsSignin.Tables[0].Rows[0]["memberId"]));
+                                HttpContext.Current.Session.Add("MemberId", Convert.ToString(dsSignin.Tables[0].Rows[0]["affiliateID"]));
+                                //affiliate id
+                                HttpContext.Current.Session.Add("AffiliateId", Convert.ToString(dsSignin.Tables[0].Rows[0]["affiliateID"]));
                                 HttpContext.Current.Session.Add("MemberCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["memberCode"]));
                                 HttpContext.Current.Session.Add("CountryCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["countryCode"]));
                                 HttpContext.Current.Session.Add("CurrencyCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["currency"]));
                                 HttpContext.Current.Session.Add("LanguageCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["languageCode"]));
-                                HttpContext.Current.Session.Add("RiskId", Convert.ToString(dsSignin.Tables[0].Rows[0]["riskId"]));
-                                //HttpContext.Current.Session.Add("PaymentGroup", "A"); //Convert.ToString(dsSignin.Tables[0].Rows[0]["paymentGroup"]));
-                                HttpContext.Current.Session.Add("PartialSignup", Convert.ToString(dsSignin.Tables[0].Rows[0]["partialSignup"]));
+                                //HttpContext.Current.Session.Add("RiskId", Convert.ToString(dsSignin.Tables[0].Rows[0]["riskId"]));
+                                //HttpContext.Current.Session.Add("PartialSignup", Convert.ToString(dsSignin.Tables[0].Rows[0]["partialSignup"]));
                                 HttpContext.Current.Session.Add("ResetPassword", Convert.ToString(dsSignin.Tables[0].Rows[0]["resetPassword"]));
 
                                 commonCookie.CookieS = strMemberSessionId;
                                 commonCookie.CookieG = strMemberSessionId;
                                 HttpContext.Current.Session.Add("LoginStatus", "success");
 
-                                strLastLoginIP = Convert.ToString(dsSignin.Tables[0].Rows[0]["lastLoginIP"]);
+                                //strLastLoginIP = Convert.ToString(dsSignin.Tables[0].Rows[0]["lastLoginIP"]);
                                 if (HttpContext.Current.Request.Cookies[strMemberCode] == null) { runIovation = true; }
                                 else if (HttpContext.Current.Request.Cookies[strMemberCode] != null && string.Compare(strLastLoginIP, strLoginIp, true) != 0) { runIovation = true; }
                                 if (runIovation) { this.IovationSubmit(ref intProcessSerialId, strProcessId, strPageName, strMemberCode, strLoginIp, strPermission); }
@@ -126,6 +137,9 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
                                 break;
                             case "23":
                                 strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/InvalidPassword", xeErrors);
+                                break;
+                            case "24":
+                                strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/AccountPending", xeErrors);
                                 break;
                         }
                     }

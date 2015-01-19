@@ -24,4 +24,21 @@
   <fastdeposit><![CDATA[银行汇款]]></fastdeposit>
   <banktransfer><![CDATA[银行汇款]]></banktransfer>
   <wingmoney><![CDATA[Wing Money]]></wingmoney>
+
+  <overview><![CDATA[汇总]]></overview>
+  <myAccount><![CDATA[我的账号]]></myAccount>
+  <creative><![CDATA[创意]]></creative>
+  <reports><![CDATA[报告]]></reports>
+  <trackingStatistic><![CDATA[跟踪统计]]></trackingStatistic>
+
+  <affiliate><![CDATA[合营伙伴]]></affiliate>
+  <account><![CDATA[我的账号]]></account>
+  <accountinfo><![CDATA[账号信息]]></accountinfo>
+  <changePassword><![CDATA[修改密码]]></changePassword>
+  <subAffmgmt><![CDATA[子代理管理]]></subAffmgmt>
+
+  <commissionPlans><![CDATA[佣金计划]]></commissionPlans>
+  <faq><![CDATA[常见问题]]></faq>
+  <ourProducts><![CDATA[我们的产品]]></ourProducts>
+  
 </menu>

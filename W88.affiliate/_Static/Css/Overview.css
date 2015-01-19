@@ -1,0 +1,210 @@
+﻿#divPromoHeader {
+    background: #1C607F;
+    padding: .5em;
+    color: #f1f1f1;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.div-promotions-wrapper > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.div-promo-row {
+    background-color: #f1f1f1;
+    max-height: 60px;
+}
+
+    .div-promo-row > a {
+        text-decoration: none;
+    }
+
+        /*.div-promo-row > a > div {
+            display: table-cell;
+            vertical-align: middle;
+        }*/
+
+            .div-promo-row > a > div:last-child {
+                padding-left: .5em;
+                /*width: 100%;*/
+                border-bottom: 1px dashed #ccc;
+                background-repeat:no-repeat;
+                background-position:97% 50%;
+                background-size:1em;
+                background-image:url('/_Static/Images/arrow-down.png');
+
+
+            }
+
+                .div-promo-row > a > div:last-child > div {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+.div-promo-img > img {
+    display: block;
+}
+
+.div-promo-row-alt {
+    background-color: #ddd;
+}
+
+.div-overview-header {
+    width: 100%;
+    color: #2a8fbd;
+    text-decoration: none;
+    font-size: .9em;
+    line-height:36px;
+}
+
+.div-promo-desc {
+    color: #000;
+    font-size: .75em;
+}
+
+.div-overview-content {
+    color: #808080;
+    font-size: .8em;
+    padding-bottom: 1em;
+    border: 1px solid #333;
+    display:none;
+}
+
+    /*.div-overview-content > ol {
+        padding: 0;
+        margin: 0;
+        margin-left: 2.5em;
+        padding-right: 1em;
+    }
+
+    .div-overview-content .ui-btn {
+        margin-top: 1em;
+    }*/
+
+.div-overview-content > p {
+    padding-left:.5em;
+}
+
+.div-overview-content > table > tbody > tr:first-child > td {
+    background-color: #333333;
+}
+
+.div-overview-content > table > tbody tr td {
+    background-color: #252525;
+    padding-left: 1em;
+    padding-right: 1em;
+    border: 0px;
+    border-bottom: 2px;
+    border-style: solid;
+    border-color: #1f1f1f;*/
+   }
+
+.div-overview-content-tranData {
+    color: #808080;
+    font-size: .8em;
+    padding-bottom: 1em;
+    border: 1px solid #333;
+    display:none;
+}
+
+   
+.div-overview-content-tranData > p {
+    padding-left:.5em;
+}
+
+.div-overview-content-tranData > table > tbody > tr:first-child > td {
+    background-color: #333333;
+}
+
+.div-overview-content-tranData > table > tbody tr td {
+    background-color: #252525;
+    padding-left: 1em;
+    padding-right: 1em;
+    border: 0px;
+    border-bottom: 2px;
+    border-style: solid;
+    border-color: #1f1f1f;*/
+   }
+
+/*.div-overview-content-tranData > table > tbody > tr:nth-child(5n+1) > td {
+    background-color: #333333;
+    text-align:center;
+    width:100%;
+    column-span: all !importan;
+    -webkit-column-span: all;
+    -moz-column-spam: all;
+}*/
+
+.rowHeader {
+    background: #404040;
+    font-weight: bold;
+    font-size: .85em;
+}
+
+.row1 {
+    background: #333333;
+    font-size: .85em;
+}
+
+.row2 {
+    background: #333333;
+}
+
+.div-claim-promo {
+    border: 1px solid #333;
+    padding: 10px;
+    margin: .5em;
+}
+
+    .div-claim-promo textarea {
+        resize: none;
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+.div-claim-promo-header {
+    font: normal 1.3em Tahoma, Malgun Gothic, Dotum, sans-serif;
+}
+
+.div-claim-promo-data > div {
+    table-layout: fixed;
+    display: table;
+    width: 100%;    
+}
+
+    .div-claim-promo-data > div > a {
+        display: block;
+    }
+
+.div-promo-radio {
+    text-align:left;
+    display:inline-block;
+}
+
+    .div-promo-radio > input {
+        width:1em;
+    }
+    .div-promo-radio > label {
+        display: inline-block; width: 95%; text-align: left;
+    }
+.div-promo-radio > input,label {
+    /*display:inline-block;*/
+}
+
+.p-tnc,.p-tnc + ol{
+    display:none;
+}
+
+.div-column3 {
+    float: left;
+    width: 300px;
+    margin: 10px 10px 10px 0px;
+    text-align: center;
+    border: none;
+}

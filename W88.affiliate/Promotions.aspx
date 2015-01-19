@@ -13,7 +13,7 @@
         function timerV2(pid, start_date, end_date) { if (new Date('<%=System.DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') < new Date(start_date) || new Date('<%=System.DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') > new Date(end_date)) { $('div#' + pid).hide(); } }
         function getPromos() {
             $.get('/_Static/Promotions/promotions.<%=commonVariables.SelectedLanguage + (string.Compare(commonVariables.GetSessionVariable("CountryCode"), "my", true) == 0 ? ".my" : "")%>.htm', function (html) { })
-            .done(function (data) {
+                .done(function (data) {
                 data = data.replace(/<img src=/g, '<img rel=');
                 var listObj = $("#divPromotions").append('<ul></ul>').find('ul');
                 var promo_length = $(data).find('.promotion_group').length;
@@ -30,6 +30,8 @@
                     var liPromo = $('<li />');
                     var divPromoWrapper = $('<div />', { id: $(this).attr('id'), class: index % 2 == 0 ? 'div-promo-row' : 'div-promo-row div-promo-row-alt' });
                     var divPromoImg = $('<div />', { class: 'div-promo-img' });
+
+                    alert($(this).attr('id'));
 
                     var imgPromo = $('<img />', { src: strImageSrc });
                     var hrefPromo = $('<a />', { href: "javascript:void(0)", onclick: "javascript:OpenPromoDetails(this);" });
@@ -77,6 +79,7 @@
                 }
             })
             .always(function (data) { $('#promoLoader').hide(); });
+            alert('always')
         }
 
         function OpenPromoDetails(obj) {
