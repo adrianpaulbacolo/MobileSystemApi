@@ -312,4 +312,10 @@
   <data name="lbl_noRedemption" xml:space="preserve">
     <value>No redemption items available</value>
   </data>
+  <data name="lbl_processing_redemption" xml:space="preserve">
+    <value>Oops! You have already redeemed your BIRTHDAY item which is under processing stage now.</value>
+  </data>
+  <data name="lbl_redeemed_thisyear" xml:space="preserve">
+    <value>Oops! You have already redeemed your BIRTHDAY item for this year.</value>
+  </data>
 </root>

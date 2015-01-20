@@ -465,4 +465,10 @@
   <data name="lbl_Exception" xml:space="preserve">
     <value>알 수 없는 오류가 발생했습니다. 다시 시도해 주시기 바랍니다.</value>
   </data>
+  <data name="lbl_processing_redemption" xml:space="preserve">
+    <value>회원님의 생일 보너스 신청이 현재 검토 처리 중입니다.</value>
+  </data>
+  <data name="lbl_redeemed_thisyear" xml:space="preserve">
+    <value>회원님께서는 이미 올해의 생일 보너스를 지급 받으셨습니다.</value>
+  </data>
 </root>

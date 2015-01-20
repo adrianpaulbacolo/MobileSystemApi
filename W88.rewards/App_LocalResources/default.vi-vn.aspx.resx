@@ -465,4 +465,10 @@
   <data name="lbl_noRedemption" xml:space="preserve">
     <value>Quà tặng quy đổi hiện chưa có sẵn</value>
   </data>
+  <data name="lbl_processing_redemption" xml:space="preserve">
+    <value>Rất tiếc! Quý Khách đã đổi quà sinh nhật và đang trong quá trình tiến hành.</value>
+  </data>
+  <data name="lbl_redeemed_thisyear" xml:space="preserve">
+    <value>Rất tiếc! Quý Khách đã đổi quà sinh nhật năm nay.</value>
+  </data>
 </root>

@@ -466,4 +466,10 @@
   <data name="lbl_Exception" xml:space="preserve">
     <value>เกิดความผิดพลาด กรุณาลองใหม่อีกครั้ง</value>
   </data>
+  <data name="lbl_processing_redemption" xml:space="preserve">
+    <value>ขออภัยค่ะ! คุณได้ทำการแลกของขวัญวันเกิดของคุณแล้ว ซึ่งขณะนี้อยู่ในระหว่างการดำเนินการค่ะ</value>
+  </data>
+  <data name="lbl_redeemed_thisyear" xml:space="preserve">
+    <value>ขออภัยค่ะ! คุณได้ทำการแลกของขวัญวันเกิดของคุณไปแล้วในปีนี้</value>
+  </data>
 </root>

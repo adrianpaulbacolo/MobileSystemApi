@@ -465,4 +465,10 @@
   <data name="lbl_Exception" xml:space="preserve">
     <value>ប្រព័ន្ធរអាក់រអួល, ព្យាយាមម្តងទៀត</value>
   </data>
+  <data name="lbl_processing_redemption" xml:space="preserve">
+    <value>អ្នកបានធ្វើការទាមទារវត្ថុអនុស្សាវរីយ៍សំរាប់ខួបកំណើតអ្នករួចហើយ។ យើងខ្ញុំកំពុងរៀបចំជូន។</value>
+  </data>
+  <data name="lbl_redeemed_thisyear" xml:space="preserve">
+    <value>អ្នកបានធ្វើការទាមទារវត្ថុអនុស្សាវរីយ៍សំរាប់ខួបកំណើតអ្នក ក្នុងឆ្នាំនេះរួចហើយ។</value>
+  </data>
 </root>
