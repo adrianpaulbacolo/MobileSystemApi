@@ -51,6 +51,8 @@ public class commonVariables
         } 
     } }
 
+    public static string VIPCategoryId { get { return System.Configuration.ConfigurationManager.AppSettings.Get("vipCategoryId"); } }
+
     public static string CurrentMemberSessionId { get { return string.IsNullOrEmpty(System.Web.HttpContext.Current.Session["MemberSessionId"] as string) ? (!string.IsNullOrEmpty(commonCookie.CookieS) ? commonCookie.CookieS : "") : Convert.ToString(System.Web.HttpContext.Current.Session["MemberSessionId"]); } }
 
     public static string OperatorId

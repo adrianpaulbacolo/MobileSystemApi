@@ -328,7 +328,7 @@
     <value>Redemption is submitted successfully</value>
   </data>
   <data name="lbl_redeem_vip" xml:space="preserve">
-    <value>This Redemption Selection is EXCLUSIVELY for VIP Members only&lt;br/&gt; ~ Feel The Difference for Being Part of Prestige Club ~</value>
+    <value>This Redemption Selection is EXCLUSIVELY for VIP Members only~ Feel The Difference for Being Part of Prestige Club ~</value>
   </data>
   <data name="lbl_redemption" xml:space="preserve">
     <value>Total Points Redemption</value>
@@ -465,10 +465,10 @@
   <data name="lbl_Exception" xml:space="preserve">
     <value>Unknown error, please try again.</value>
   </data>
-  <data name="lbl_processing_redemption" xml:space="preserve">
+  <data name="lbl_redemption_processing_limit_reached" xml:space="preserve">
     <value>Oops! You have already redeemed your BIRTHDAY item which is under processing stage now.</value>
   </data>
-  <data name="lbl_redeemed_thisyear" xml:space="preserve">
+  <data name="lbl_redemption_success_limit_reached" xml:space="preserve">
     <value>Oops! You have already redeemed your BIRTHDAY item for this year.</value>
   </data>
 </root>

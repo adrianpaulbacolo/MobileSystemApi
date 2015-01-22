@@ -465,10 +465,10 @@
   <data name="lbl_Exception" xml:space="preserve">
     <value>Error tak dikenal, silahkan coba lagi.</value>
   </data>
-  <data name="lbl_processing_redemption" xml:space="preserve">
+  <data name="lbl_redemption_processing_limit_reached" xml:space="preserve">
     <value>Oops! Anda sudah klaim BIRTHDAY reward dan saat ini sedang dalam proses.</value>
   </data>
-  <data name="lbl_redeemed_thisyear" xml:space="preserve">
+  <data name="lbl_redemption_success_limit_reached" xml:space="preserve">
     <value>Oops! .Anda sudah klaim BIRTHDAY reward untuk tahun ini.</value>
   </data>
 </root>

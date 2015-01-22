@@ -14,8 +14,12 @@ public partial class Catalogue_Detail : BasePage
     public string localResx = "~/default.{0}.aspx";
     protected string strRedirect = string.Empty;
     protected bool validredemption = false;
-    protected string vipOnly =
-        "Hey there! This rewards redemption is only for VIP-Gold and above HOUSE OF HIGHROLLERS, YOU DESERVED IT!";
+    protected bool redemption_success_limit_reached = false;
+    protected bool redemption_processing_limit_reached = false;
+    protected string vipOnly = "";
+    protected string Errormsg = "";
+
+
 
     protected void Page_Init(object sender, EventArgs e)
     {
@@ -34,12 +38,9 @@ public partial class Catalogue_Detail : BasePage
         }
 
         string userMemberId = string.IsNullOrEmpty((string)Session["MemberId"]) ? "" : (string)Session["MemberId"];
-        string countryCode = string.IsNullOrEmpty((string)Session["CountryCode"])
-            ? "0"
-            : (string)Session["CountryCode"];
-        string currencyCode = string.IsNullOrEmpty((string)Session["CurrencyCode"])
-            ? "0"
-            : (string)Session["CurrencyCode"];
+        string strMemberCode = string.IsNullOrEmpty((string)Session["MemberCode"]) ? "" : (string)Session["MemberCode"];
+        string countryCode = string.IsNullOrEmpty((string)Session["CountryCode"]) ? "0" : (string)Session["CountryCode"];
+        string currencyCode = string.IsNullOrEmpty((string)Session["CurrencyCode"]) ? "0" : (string)Session["CurrencyCode"];
         string riskId = string.IsNullOrEmpty((string)Session["RiskId"]) ? "0" : (string)Session["RiskId"];
         string productID = HttpContext.Current.Request.QueryString.Get("id");
         System.Web.HttpContext.Current.Session["productId"] = productID;
@@ -54,10 +55,7 @@ public partial class Catalogue_Detail : BasePage
             if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                 strRedirect = string.Format("/Catalogue/Redeem.aspx?productId={0}", productID);
             else
-            {
                 strRedirect = string.Format("/_Secure/Login.aspx?redirect=Redeem&productid={0}", productID);
-                //  strRedirect = string.Format("/_Secure/Login.aspx");
-            }
 
 
             using (RewardsServices.RewardsServicesClient sClient = new RewardsServices.RewardsServicesClient())
@@ -135,9 +133,9 @@ public partial class Catalogue_Detail : BasePage
                                     "Product/" + dr["imageName"]);
 
 
-                            if (!string.IsNullOrEmpty(riskId))
+                            if (!string.IsNullOrEmpty(riskId))//
                             {
-                                //category
+                                //valid category
                                 dr["redemptionValidityCat"] += ",";
                                 if (dr["redemptionValidityCat"].ToString().ToUpper() != "ALL,")
                                 {
@@ -160,7 +158,6 @@ public partial class Catalogue_Detail : BasePage
                                 }
                                 else
                                     dr["redemptionValidity"] = "1";
-
                             }
                             else
                             {
@@ -168,9 +165,31 @@ public partial class Catalogue_Detail : BasePage
                                 dr["redemptionValidityCat"] += "0";
                             }
 
+
                             if (dr["redemptionValidity"].ToString() == "1" && dr["redemptionValidityCat"].ToString() == "1")
                             {
                                 validredemption = true;
+                                //alicia
+                                if (dr["categoryId"].ToString() == commonVariables.VIPCategoryId.ToString())
+                                {
+                                    var redemptionLimitResult = sClient.CheckRedemptionLimitForVIPCategory(commonVariables.OperatorId, strMemberCode, commonVariables.VIPCategoryId.ToString());
+
+                                    //exists success item
+                                    if (redemptionLimitResult == 0)
+                                    {
+                                        Errormsg = (string)System.Web.HttpContext.GetLocalResourceObject(localResx, "lbl_redemption_success_limit_reached");
+                                        redemption_success_limit_reached = true;
+                                        validredemption = false;
+                                       
+                                    }
+                                    else if (redemptionLimitResult == 1) // exists pending/processing item
+                                    {
+                                        Errormsg = (string)System.Web.HttpContext.GetLocalResourceObject(localResx, "lbl_redemption_processing_limit_reached");
+                                        redemption_processing_limit_reached = true;
+                                        validredemption = false;
+                                      
+                                    }
+                                }
                             }
 
 
@@ -188,7 +207,7 @@ public partial class Catalogue_Detail : BasePage
 
                             if (!string.IsNullOrEmpty(dr["deliveryPeriod"].ToString()))
                             {
-                                lblDelivery.Text = "<p>" + HttpContext.GetLocalResourceObject(localResx, "lbl_delivery_period").ToString() + ": " +(dr["deliveryPeriod"].ToString()) + "</p>";
+                                lblDelivery.Text = "<p>" + HttpContext.GetLocalResourceObject(localResx, "lbl_delivery_period").ToString() + ": " + (dr["deliveryPeriod"].ToString()) + "</p>";
                             }
 
                         }
@@ -201,8 +220,8 @@ public partial class Catalogue_Detail : BasePage
         }
         catch (Exception ex)
         {
-                      Guid newerrorid = new Guid();
-                      commonAuditTrail.appendLog("system", "Catalogue/Detail.aspx", "Page_Load", "Detail.aspx", "", "Page_Load", "", ex.Message + " stacktrace: " + ex.StackTrace, "" + "" + "" + "", "", newerrorid.ToString(), false);
+            Guid newerrorid = new Guid();
+            commonAuditTrail.appendLog("system", "Catalogue/Detail.aspx", "Page_Load", "Detail.aspx", "", "Page_Load", "", ex.Message + " stacktrace: " + ex.StackTrace, "" + "" + "" + "", "", newerrorid.ToString(), false);
         }
 
 

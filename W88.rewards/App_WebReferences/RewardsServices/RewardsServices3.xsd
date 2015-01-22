@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="DoWork">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DoWorkResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
   <xs:element name="getMemberDetails">
     <xs:complexType>
       <xs:sequence>
@@ -1175,6 +1165,22 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="CheckRedemptionLimitForVIPCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="operatorId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="memberCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="vipCategoryId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckRedemptionLimitForVIPCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckRedemptionLimitForVIPCategoryResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="getMemberInfo">
     <xs:complexType>
       <xs:sequence>
@@ -1465,6 +1471,22 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="getMemberSpinWheelCountDOBResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMemberSpinWheelCountDOB_revised">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="operatorId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="memberCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentYear" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMemberSpinWheelCountDOB_revisedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getMemberSpinWheelCountDOB_revisedResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1885,6 +1907,33 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="addRedemptionFreebet3">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="operatorId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="memberCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="productId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="categoryId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="productType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="riskId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pointsRequired" type="xs:int" />
+        <xs:element minOccurs="0" name="createdBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currencyCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="creditAmt" type="xs:double" />
+        <xs:element minOccurs="0" name="redemptionStatus" type="xs:int" />
+        <xs:element minOccurs="0" name="remarksAdmin" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="spinWheelPrize" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="redemptionSource" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRedemptionFreebet3Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addRedemptionFreebet3Result" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="updateRedemptionFreebet">
     <xs:complexType>
       <xs:sequence>
@@ -2022,6 +2071,32 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="getCategoryNameResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRedemptionAutoCreditNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="operatorId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="memberCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="productId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="categoryId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="productType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="riskId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pointsRequired" type="xs:int" />
+        <xs:element minOccurs="0" name="createdBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="spinWheelPrize" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="redemptionStatus" type="xs:int" />
+        <xs:element minOccurs="0" name="remarksAdmin" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="creditAmt" type="xs:double" />
+        <xs:element minOccurs="0" name="redemptionSource" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addRedemptionAutoCreditNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addRedemptionAutoCreditNewResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

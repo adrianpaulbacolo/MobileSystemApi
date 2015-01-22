@@ -110,14 +110,23 @@
                     <div id="bottomdiv">
                         <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                            {
-                               if(validredemption)
+                               if (validredemption)
                                {  %>
                         <a data-role="button" class="button-blue" style="color: #fff" href='<%= strRedirect %>'><%=HttpContext.GetLocalResourceObject(localResx, "lbl_redeem").ToString() %></a>
                         <% }
+                               else if (redemption_success_limit_reached)
+                               { %>
+                        <a data-role="button" class="button-blue" style="color: #fff" href='#' onclick="Error();"><%=HttpContext.GetLocalResourceObject(localResx, "lbl_redeem").ToString() %></a>
+                        <% }
+                               else if (redemption_processing_limit_reached)
+                               { %>
+                        <a data-role="button" class="button-blue" style="color: #fff" href='#' onclick="Error();"><%=HttpContext.GetLocalResourceObject(localResx, "lbl_redeem").ToString() %></a>
+                        <% }
                                else
                                { %>
-                         <a data-role="button" class="button-blue" style="color: #fff" href='#' onclick="VIPOnly();"><%=HttpContext.GetLocalResourceObject(localResx, "lbl_redeem").ToString() %></a>
+                        <a data-role="button" class="button-blue" style="color: #fff" href='#' onclick="VIPOnly();"><%=HttpContext.GetLocalResourceObject(localResx, "lbl_redeem").ToString() %></a>
                         <% }
+
                            }
                            else
                            {%>
@@ -131,6 +140,9 @@
         <script type="text/javascript">
             function VIPOnly() {
                 alert('<%= vipOnly %>');
+            }
+            function Error() {
+                alert('<%= Errormsg %>');
             }
         </script>
 

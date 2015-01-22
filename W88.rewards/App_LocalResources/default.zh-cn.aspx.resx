@@ -328,7 +328,7 @@
     <value>兑换提交成功</value>
   </data>
   <data name="lbl_redeem_vip" xml:space="preserve">
-    <value>这项兑换选项仅为VIP客户提供&lt;br/&gt; ~ 贵宾俱乐部与众不同</value>
+    <value>这项兑换选项仅为VIP客户提供~ 贵宾俱乐部与众不同</value>
   </data>
   <data name="lbl_redemption" xml:space="preserve">
     <value>兑换积分</value>
@@ -465,10 +465,10 @@
   <data name="lbl_noRedemption" xml:space="preserve">
     <value>没有物品可兑换</value>
   </data>
-  <data name="lbl_processing_redemption" xml:space="preserve">
+  <data name="lbl_redemption_processing_limit_reached" xml:space="preserve">
     <value>出错啦！您已经提交了生日礼物的申请，正在处理中，请您耐心等待！</value>
   </data>
-  <data name="lbl_redeemed_thisyear" xml:space="preserve">
+  <data name="lbl_redemption_success_limit_reached" xml:space="preserve">
     <value>出错啦！生日礼物一年仅限申请一次，本年度您已经兑换，感谢参与和支持！</value>
   </data>
 </root>

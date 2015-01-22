@@ -328,7 +328,7 @@
     <value>상환이 성공적으로 제출되었습니다.</value>
   </data>
   <data name="lbl_redeem_vip" xml:space="preserve">
-    <value>선택하신 상환은 VIP 회원 전용입니다.&lt;br/&gt; ~ 프레스티지 클럽에 참여하셔서 다른 혜택을 받으세요 ~</value>
+    <value>선택하신 상환은 VIP 회원 전용입니다.~ 프레스티지 클럽에 참여하셔서 다른 혜택을 받으세요 ~</value>
   </data>
   <data name="lbl_redemption" xml:space="preserve">
     <value>신청된 총 포인트</value>
@@ -465,10 +465,10 @@
   <data name="lbl_Exception" xml:space="preserve">
     <value>알 수 없는 오류가 발생했습니다. 다시 시도해 주시기 바랍니다.</value>
   </data>
-  <data name="lbl_processing_redemption" xml:space="preserve">
+  <data name="lbl_redemption_processing_limit_reached" xml:space="preserve">
     <value>회원님의 생일 보너스 신청이 현재 검토 처리 중입니다.</value>
   </data>
-  <data name="lbl_redeemed_thisyear" xml:space="preserve">
+  <data name="lbl_redemption_success_limit_reached" xml:space="preserve">
     <value>회원님께서는 이미 올해의 생일 보너스를 지급 받으셨습니다.</value>
   </data>
 </root>

@@ -8,12 +8,6 @@
       <xsd:import schemaLocation="http://rewardsservices.ms1dev.com/RewardsServices.svc?xsd=xsd3" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IRewardsServices_DoWork_InputMessage">
-    <wsdl:part name="parameters" element="tns:DoWork" />
-  </wsdl:message>
-  <wsdl:message name="IRewardsServices_DoWork_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DoWorkResponse" />
-  </wsdl:message>
   <wsdl:message name="IRewardsServices_getMemberDetails_InputMessage">
     <wsdl:part name="parameters" element="tns:getMemberDetails" />
   </wsdl:message>
@@ -284,6 +278,12 @@
   <wsdl:message name="IRewardsServices_CheckRedemptionLimitWithRedemptionQuantity_OutputMessage">
     <wsdl:part name="parameters" element="tns:CheckRedemptionLimitWithRedemptionQuantityResponse" />
   </wsdl:message>
+  <wsdl:message name="IRewardsServices_CheckRedemptionLimitForVIPCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckRedemptionLimitForVIPCategory" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_CheckRedemptionLimitForVIPCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckRedemptionLimitForVIPCategoryResponse" />
+  </wsdl:message>
   <wsdl:message name="IRewardsServices_getMemberInfo_InputMessage">
     <wsdl:part name="parameters" element="tns:getMemberInfo" />
   </wsdl:message>
@@ -367,6 +367,12 @@
   </wsdl:message>
   <wsdl:message name="IRewardsServices_getMemberSpinWheelCountDOB_OutputMessage">
     <wsdl:part name="parameters" element="tns:getMemberSpinWheelCountDOBResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberSpinWheelCountDOB_revised_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberSpinWheelCountDOB_revised" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberSpinWheelCountDOB_revised_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberSpinWheelCountDOB_revisedResponse" />
   </wsdl:message>
   <wsdl:message name="IRewardsServices_getMemberDOB_InputMessage">
     <wsdl:part name="parameters" element="tns:getMemberDOB" />
@@ -476,6 +482,12 @@
   <wsdl:message name="IRewardsServices_addRedemptionFreebet2_OutputMessage">
     <wsdl:part name="parameters" element="tns:addRedemptionFreebet2Response" />
   </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionFreebet3_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionFreebet3" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionFreebet3_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionFreebet3Response" />
+  </wsdl:message>
   <wsdl:message name="IRewardsServices_updateRedemptionFreebet_InputMessage">
     <wsdl:part name="parameters" element="tns:updateRedemptionFreebet" />
   </wsdl:message>
@@ -512,11 +524,13 @@
   <wsdl:message name="IRewardsServices_getCategoryName_OutputMessage">
     <wsdl:part name="parameters" element="tns:getCategoryNameResponse" />
   </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionAutoCreditNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionAutoCreditNew" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionAutoCreditNew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionAutoCreditNewResponse" />
+  </wsdl:message>
   <wsdl:portType name="IRewardsServices">
-    <wsdl:operation name="DoWork">
-      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/DoWork" message="tns:IRewardsServices_DoWork_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/DoWorkResponse" message="tns:IRewardsServices_DoWork_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="getMemberDetails">
       <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberDetails" message="tns:IRewardsServices_getMemberDetails_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberDetailsResponse" message="tns:IRewardsServices_getMemberDetails_OutputMessage" />
@@ -697,6 +711,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/CheckRedemptionLimitWithRedemptionQuantity" message="tns:IRewardsServices_CheckRedemptionLimitWithRedemptionQuantity_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/CheckRedemptionLimitWithRedemptionQuantityResponse" message="tns:IRewardsServices_CheckRedemptionLimitWithRedemptionQuantity_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="CheckRedemptionLimitForVIPCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/CheckRedemptionLimitForVIPCategory" message="tns:IRewardsServices_CheckRedemptionLimitForVIPCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/CheckRedemptionLimitForVIPCategoryResponse" message="tns:IRewardsServices_CheckRedemptionLimitForVIPCategory_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="getMemberInfo">
       <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberInfo" message="tns:IRewardsServices_getMemberInfo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberInfoResponse" message="tns:IRewardsServices_getMemberInfo_OutputMessage" />
@@ -752,6 +770,10 @@
     <wsdl:operation name="getMemberSpinWheelCountDOB">
       <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberSpinWheelCountDOB" message="tns:IRewardsServices_getMemberSpinWheelCountDOB_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberSpinWheelCountDOBResponse" message="tns:IRewardsServices_getMemberSpinWheelCountDOB_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberSpinWheelCountDOB_revised">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberSpinWheelCountDOB_revised" message="tns:IRewardsServices_getMemberSpinWheelCountDOB_revised_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberSpinWheelCountDOB_revisedResponse" message="tns:IRewardsServices_getMemberSpinWheelCountDOB_revised_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="getMemberDOB">
       <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberDOB" message="tns:IRewardsServices_getMemberDOB_InputMessage" />
@@ -825,6 +847,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionFreebet2" message="tns:IRewardsServices_addRedemptionFreebet2_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionFreebet2Response" message="tns:IRewardsServices_addRedemptionFreebet2_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="addRedemptionFreebet3">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionFreebet3" message="tns:IRewardsServices_addRedemptionFreebet3_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionFreebet3Response" message="tns:IRewardsServices_addRedemptionFreebet3_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="updateRedemptionFreebet">
       <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/updateRedemptionFreebet" message="tns:IRewardsServices_updateRedemptionFreebet_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/updateRedemptionFreebetResponse" message="tns:IRewardsServices_updateRedemptionFreebet_OutputMessage" />
@@ -849,18 +875,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getCategoryName" message="tns:IRewardsServices_getCategoryName_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getCategoryNameResponse" message="tns:IRewardsServices_getCategoryName_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="addRedemptionAutoCreditNew">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionAutoCreditNew" message="tns:IRewardsServices_addRedemptionAutoCreditNew_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionAutoCreditNewResponse" message="tns:IRewardsServices_addRedemptionAutoCreditNew_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IRewardsServices" type="tns:IRewardsServices">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="DoWork">
-      <soap:operation soapAction="http://tempuri.org/IRewardsServices/DoWork" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="getMemberDetails">
       <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberDetails" style="document" />
       <wsdl:input>
@@ -1266,6 +1287,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="CheckRedemptionLimitForVIPCategory">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/CheckRedemptionLimitForVIPCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getMemberInfo">
       <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberInfo" style="document" />
       <wsdl:input>
@@ -1385,6 +1415,15 @@
     </wsdl:operation>
     <wsdl:operation name="getMemberSpinWheelCountDOB">
       <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberSpinWheelCountDOB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberSpinWheelCountDOB_revised">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberSpinWheelCountDOB_revised" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1554,6 +1593,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="addRedemptionFreebet3">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/addRedemptionFreebet3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="updateRedemptionFreebet">
       <soap:operation soapAction="http://tempuri.org/IRewardsServices/updateRedemptionFreebet" style="document" />
       <wsdl:input>
@@ -1601,6 +1649,15 @@
     </wsdl:operation>
     <wsdl:operation name="getCategoryName">
       <soap:operation soapAction="http://tempuri.org/IRewardsServices/getCategoryName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionAutoCreditNew">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/addRedemptionAutoCreditNew" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

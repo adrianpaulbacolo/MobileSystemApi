@@ -329,7 +329,7 @@
     <value>การแลกของรางวัลได้ทำรายการเรียบร้อยแล้ว</value>
   </data>
   <data name="lbl_redeem_vip" xml:space="preserve">
-    <value>ของรางวัลสำหรับสมาชิกวีไอพีเท่านั้น  &lt;br/&gt; เป็นความรู้สึกที่แตกต่างของการบริการระดับสมาชิกวีไอพี</value>
+    <value>ของรางวัลสำหรับสมาชิกวีไอพีเท่านั้น  เป็นความรู้สึกที่แตกต่างของการบริการระดับสมาชิกวีไอพี</value>
   </data>
   <data name="lbl_redemption" xml:space="preserve">
     <value>ยอดรวมคะแนนสะสมที่ใช้แลก</value>
@@ -466,10 +466,10 @@
   <data name="lbl_Exception" xml:space="preserve">
     <value>เกิดความผิดพลาด กรุณาลองใหม่อีกครั้ง</value>
   </data>
-  <data name="lbl_processing_redemption" xml:space="preserve">
+  <data name="lbl_redemption_processing_limit_reached" xml:space="preserve">
     <value>ขออภัยค่ะ! คุณได้ทำการแลกของขวัญวันเกิดของคุณแล้ว ซึ่งขณะนี้อยู่ในระหว่างการดำเนินการค่ะ</value>
   </data>
-  <data name="lbl_redeemed_thisyear" xml:space="preserve">
+  <data name="lbl_redemption_success_limit_reached" xml:space="preserve">
     <value>ขออภัยค่ะ! คุณได้ทำการแลกของขวัญวันเกิดของคุณไปแล้วในปีนี้</value>
   </data>
 </root>

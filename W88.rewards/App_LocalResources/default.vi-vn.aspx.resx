@@ -328,7 +328,7 @@
     <value>Đổi quà đã được xác nhận thành công</value>
   </data>
   <data name="lbl_redeem_vip" xml:space="preserve">
-    <value>Lựa chọn đổi quà này chỉ DÀNH cho thành viên VIP &lt;br/&gt; ~ Cảm nhận sự khác biệt khi là thành viên của Club Prestige ~</value>
+    <value>Lựa chọn đổi quà này chỉ DÀNH cho thành viên VIP ~ Cảm nhận sự khác biệt khi là thành viên của Club Prestige ~</value>
   </data>
   <data name="lbl_redemption" xml:space="preserve">
     <value>Tổng số điểm đổi</value>
@@ -465,10 +465,10 @@
   <data name="lbl_noRedemption" xml:space="preserve">
     <value>Quà tặng quy đổi hiện chưa có sẵn</value>
   </data>
-  <data name="lbl_processing_redemption" xml:space="preserve">
+  <data name="lbl_redemption_processing_limit_reached" xml:space="preserve">
     <value>Rất tiếc! Quý Khách đã đổi quà sinh nhật và đang trong quá trình tiến hành.</value>
   </data>
-  <data name="lbl_redeemed_thisyear" xml:space="preserve">
+  <data name="lbl_redemption_success_limit_reached" xml:space="preserve">
     <value>Rất tiếc! Quý Khách đã đổi quà sinh nhật năm nay.</value>
   </data>
 </root>

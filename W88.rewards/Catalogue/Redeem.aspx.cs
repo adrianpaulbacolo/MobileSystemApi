@@ -105,6 +105,12 @@ public partial class Catalogue_Redeem : BasePage
                                     return;
                                 }
                             }
+
+                            //vip cannot select quantity
+                            if (dr["categoryId"].ToString() == commonVariables.VIPCategoryId.ToString())
+                            {
+                                tbQuantity.Enabled = false;
+                            }
                             
 
                             dr["pointsRequired"] = Convert.ToInt32(dr["pointsRequired"].ToString().Replace(" ", string.Empty));
@@ -499,13 +505,33 @@ public partial class Catalogue_Redeem : BasePage
                         strAlertCode = "FAIL";
                        // strAlertMessage = "Your Points Are Insufficient. Please Earn More Reward Points For This Redemption!"; 
                         strAlertMessage = HttpContext.GetLocalResourceObject(localResx, "lbl_points_insufficient").ToString();
-                        //lbl_points_insufficient
                         return;
                     }
                     else
                     {
 
                         int totalCount = sClient.checkRedemptionLimitDaily(commonVariables.OperatorId, strMemberCode, productID, quantity);
+
+                        ////alicia
+                        //if (categoryId == commonVariables.VIPCategoryId.ToString())
+                        //{
+                        //    var redemptionLimitResult = sClient.CheckRedemptionLimitForVIPCategory(commonVariables.OperatorId, strMemberCode, commonVariables.VIPCategoryId.ToString());
+
+                        //    //exists success item
+                        //    if (redemptionLimitResult == 0)
+                        //    {
+                        //        strAlertCode = "FAIL";
+                        //        strAlertMessage = (string)System.Web.HttpContext.GetLocalResourceObject(localResx, "lbl_redemption_success_limit_reached");
+                        //       return;
+                        //    }
+                        //    else if (redemptionLimitResult == 1) // exists pending/processing item
+                        //    {
+                        //        strAlertCode = "FAIL";
+                        //        strAlertMessage = (string)System.Web.HttpContext.GetLocalResourceObject(localResx, "lbl_redemption_processing_limit_reached");
+                        //         return;
+                        //    }
+                        //}
+                      
 
                         // marty
                         if (sClient.CheckRedemptionLimitWithRedemptionQuantity(commonVariables.OperatorId, strMemberCode, productID, quantity))
