@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<routes>
-  <r1 path="~/payment/fastdeposit.shtml"><![CDATA[payment/fastdeposit]]></r1>
-  <r2 path="~/payment/banktransfer.shtml"><![CDATA[payment/banktransfer]]></r2>
-  <r3 path="~/payment/wingmoney_d.shtml"><![CDATA[payment/wingmoney/deposit]]></r3>
-  <r4 path="~/payment/wingmoney_w.shtml"><![CDATA[payment/wingmoney/withdraw]]></r4>
-  <r5 path="~/handlers/getlabels.ashx" type="handler"><![CDATA[labels/get]]></r5>
-</routes>
