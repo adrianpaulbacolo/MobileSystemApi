@@ -161,9 +161,7 @@
       <SingleDeckBlackJackMH>
         <ImageName><![CDATA[singledeckblackjackmhmobile]]></ImageName>
       </SingleDeckBlackJackMH>
-      <TreyCardPoker>
-        <ImageName><![CDATA[treycardpokermobile]]></ImageName>
-      </TreyCardPoker>
+    
     </CardAndTable>
     <VideoPoker Label="비디오 포커">
       <DeucesWildMH>

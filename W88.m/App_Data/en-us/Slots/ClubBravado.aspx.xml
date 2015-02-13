@@ -159,10 +159,7 @@
       </PaiGowPoker>
       <SingleDeckBlackJackMH>
         <ImageName><![CDATA[singledeckblackjackmhmobile]]></ImageName>
-      </SingleDeckBlackJackMH>
-      <TreyCardPoker>
-        <ImageName><![CDATA[treycardpokermobile]]></ImageName>
-      </TreyCardPoker>
+      </SingleDeckBlackJackMH>    
     </CardAndTable>
     <VideoPoker Label="VIDEO POKER">
       <DeucesWildMH>
