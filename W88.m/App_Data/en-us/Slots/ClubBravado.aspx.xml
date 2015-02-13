@@ -2,7 +2,7 @@
 <default>
 
   <Category>
-    <Slot Label="Slots">
+    <Slot Label="SLOT">
       <Soccer>
         <ImageName><![CDATA[soccer]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/Soccer/?fun=0]]></PlayForRealURL>
@@ -126,7 +126,7 @@
         <ImageName><![CDATA[wildmelonmobile]]></ImageName>
       </WildMelon>
     </Slot>
-    <CardAndTable Label="Card &amp; Table Games">
+    <CardAndTable Label="GAME KARTU &amp; MEJA">
       <AmericanRoulette>
         <ImageName><![CDATA[americanroulettemobile]]></ImageName>
       </AmericanRoulette>
@@ -136,7 +136,8 @@
       <BlackJackMH>
         <ImageName><![CDATA[blackjackmhmobile]]></ImageName>
       </BlackJackMH>
-      <CasinoHoldem><ImageName><![CDATA[casinoholdemmobile]]></ImageName>
+      <CasinoHoldem>
+        <ImageName><![CDATA[casinoholdemmobile]]></ImageName>
       </CasinoHoldem>
       <CasinoStudPoker>
         <ImageName><![CDATA[casinostudpokermobile]]></ImageName>
@@ -148,7 +149,7 @@
         <ImageName><![CDATA[europeanblackjackmhmobile]]></ImageName>
       </EuropeanBlackJackMH>
       <EuropeanRoulette>
-        <ImageName><![CDATA[roulettemobile]]></ImageName>
+        <ImageName><![CDATA[europeanroulettemobile]]></ImageName>
       </EuropeanRoulette>
       <MiniBaccarat>
         <ImageName><![CDATA[minibaccaratmobile]]></ImageName>
@@ -163,7 +164,7 @@
         <ImageName><![CDATA[treycardpokermobile]]></ImageName>
       </TreyCardPoker>
     </CardAndTable>
-    <VideoPoker Label="Video Poker">
+    <VideoPoker Label="VIDEO POKER">
       <DeucesWildMH>
         <ImageName><![CDATA[deuceswildmobile]]></ImageName>
       </DeucesWildMH>
@@ -176,8 +177,20 @@
       <JokerPokerMH>
         <ImageName><![CDATA[jokerpokermobile]]></ImageName>
       </JokerPokerMH>
+      <DeucesAndJokerMH>
+        <ImageName><![CDATA[deucesandjokermobile]]></ImageName>
+      </DeucesAndJokerMH>
+      <DoubleBonusMH>
+        <ImageName><![CDATA[doublebonusmobile]]></ImageName>
+      </DoubleBonusMH>
+      <KingsOrBetterMH>
+        <ImageName><![CDATA[kingsorbettermobile]]></ImageName>
+      </KingsOrBetterMH>
+      <TensOrBetterMH>
+        <ImageName><![CDATA[tensorbettermobile]]></ImageName>
+      </TensOrBetterMH>
     </VideoPoker>
-    <Others Label="Others">
+    <Others Label="OTHERS">
       <Keno>
         <ImageName><![CDATA[kenomobile]]></ImageName>
       </Keno>
@@ -191,6 +204,5 @@
         <ImageName><![CDATA[scratchahoymobile]]></ImageName>
       </ScratchAhoy>
     </Others>
-
   </Category>
 </default>

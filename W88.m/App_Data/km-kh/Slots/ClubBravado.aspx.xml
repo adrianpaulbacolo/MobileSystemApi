@@ -129,7 +129,8 @@
     </Slot>
     <CardAndTable Label="ហ្គេមបៀរ ហ្គេមតុ">
       <AmericanRoulette>
-        <ImageName><![CDATA[americanroulettemobile]]></ImageName>
+        <ImageName><![CDATA[american
+        ]]></ImageName>
       </AmericanRoulette>
       <BeatMe>
         <ImageName><![CDATA[beatmemobile]]></ImageName>
@@ -150,7 +151,7 @@
         <ImageName><![CDATA[europeanblackjackmhmobile]]></ImageName>
       </EuropeanBlackJackMH>
       <EuropeanRoulette>
-        <ImageName><![CDATA[roulettemobile]]></ImageName>
+        <ImageName><![CDATA[europeanroulettemobile]]></ImageName>
       </EuropeanRoulette>
       <MiniBaccarat>
         <ImageName><![CDATA[minibaccaratmobile]]></ImageName>
@@ -178,6 +179,18 @@
       <JokerPokerMH>
         <ImageName><![CDATA[jokerpokermobile]]></ImageName>
       </JokerPokerMH>
+      <DeucesAndJokerMH>
+        <ImageName><![CDATA[deucesandjokermobile]]></ImageName>
+      </DeucesAndJokerMH>
+      <DoubleBonusMH>
+        <ImageName><![CDATA[doublebonusmobile]]></ImageName>
+      </DoubleBonusMH>
+      <KingsOrBetterMH>
+        <ImageName><![CDATA[kingsorbettermobile]]></ImageName>
+      </KingsOrBetterMH>
+      <TensOrBetterMH>
+        <ImageName><![CDATA[tensorbettermobile]]></ImageName>
+      </TensOrBetterMH>
     </VideoPoker>
     <Others Label="Others">
       <Keno>
