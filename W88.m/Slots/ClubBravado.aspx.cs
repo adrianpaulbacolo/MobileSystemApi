@@ -23,7 +23,7 @@ public partial class Slots_ClubBravado : BasePage
 
             System.Xml.Linq.XElement xeCategories = xeResources.Element("Category");
 
-            switch (commonVariables.SelectedLanguage) 
+            switch (commonVariables.SelectedLanguage)
             {
                 case "zh-cn":
                     strLanguageCode = "zh";
@@ -38,20 +38,36 @@ public partial class Slots_ClubBravado : BasePage
             {
                 sbGames.AppendFormat("<div data-role='collapsible' data-collapsed='false' data-theme='b' data-content-theme='a' data-mini='true'><h4>{0}</h4>", xeCategory.Attribute("Label").Value);
 
-                sbGames.AppendFormat("<div id='div{0}' class='div-product'><div><ul>", xeCategory.Name); 
+                sbGames.AppendFormat("<div id='div{0}' class='div-product'><div><ul>", xeCategory.Name);
 
                 foreach (System.Xml.Linq.XElement xeGame in xeCategory.Elements())
                 {
                     strGameId = (xeGame.Attribute("ProductId") == null ? "" : xeGame.Attribute("ProductId").Value);
-
                     sbGames.AppendFormat("<li rel='{0}.jpg' class='bkg-game'><div class='div-links'>", commonCulture.ElementValues.getResourceString("ImageName", xeGame));
 
-                    if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { sbGames.AppendFormat("<a href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubBravado") + "' data-rel='dialog' data-transition='slidedown'>"); }
-                    else { sbGames.AppendFormat("<a href='{0}'>", commonClubBravado.getRealUrl.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId)); }
+                    //in-house
+                    if (xeGame.Name == "Soccer" || xeGame.Name == "ThreeKingdoms" || xeGame.Name == "FreedomFighter" || xeGame.Name == "LittleMonsters")
+                    {
+                        if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+                            sbGames.AppendFormat("<a href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubBravado") + "' data-rel='dialog' data-transition='slidedown'>");
+                        else
+                            sbGames.AppendFormat("<a href='{0}'>", commonClubBravado.getRealUrl.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
 
-                    sbGames.Append("<img src='/_Static/Images/btn_play.jpg' /></a>");
-                    sbGames.AppendFormat("<a href='{0}'><img src='/_Static/Images/btn_try.jpg' /></a></div>", commonClubBravado.getFunUrl.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
-                    sbGames.Append("</li>"); 
+                        sbGames.Append("<img src='/_Static/Images/btn_play.jpg' /></a>");
+                        sbGames.AppendFormat("<a href='{0}'><img src='/_Static/Images/btn_try.jpg' /></a></div>", commonClubBravado.getFunUrl.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
+                    }
+                    else
+                    {
+                        if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+                            sbGames.AppendFormat("<a href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubBravado") + "' data-rel='dialog' data-transition='slidedown'>");
+                        else
+                            sbGames.AppendFormat("<a href='{0}'>", commonClubBravado.getThirdPartyRealUrl.Replace("{GAME}", commonCulture.ElementValues.getResourceString("ImageName", xeGame)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
+
+                        sbGames.Append("<img src='/_Static/Images/btn_play.jpg' /></a>");
+                        sbGames.AppendFormat("<a href='{0}'><img src='/_Static/Images/btn_try.jpg' /></a></div>", commonClubBravado.getThirdPartyFunUrl.Replace("{GAME}", commonCulture.ElementValues.getResourceString("ImageName", xeGame)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
+                    }
+
+                    sbGames.Append("</li>");
                 }
 
                 sbGames.Append("</ul></div></div></div>");
@@ -59,6 +75,6 @@ public partial class Slots_ClubBravado : BasePage
             }
 
             divContainer.InnerHtml = Convert.ToString(sbGames);
-        }        
+        }
     }
 }

@@ -132,23 +132,24 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "W88.affiliate", "http://loc
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "W88Rewards", "..\..\..\..\..\..\Projects\W88Rewards\", "{0929AB6B-F216-4B62-BEF7-900D99691E64}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "W88Rewards", "..\..\..\W88Rewards\", "{0929AB6B-F216-4B62-BEF7-900D99691E64}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
 		Debug.AspNetCompiler.VirtualPath = "/BET8.rewards"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\..\..\Projects\W88Rewards\"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\W88Rewards\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\BET8.rewards\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/BET8.rewards"
-		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\..\..\Projects\W88Rewards\"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\W88Rewards\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\BET8.rewards\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "52940"
 	EndProjectSection
 EndProject
 Global

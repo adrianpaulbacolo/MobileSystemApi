@@ -100,7 +100,7 @@
 
                 $.ajax({
                     contentType: "application/json; charset=utf-8",
-                    url: "https://www.w88.com/IP2LOC?v=" + new Date().getTime(),
+                    url: "http://w88uat.com/ip2loc?v=" + new Date().getTime(),
                     dataType: "jsonp",
                     success: function (data) {
                         if ($('#hidValues').val().trim().length == 0) {
@@ -288,7 +288,7 @@
                         GPINTMOBILE.ShowSplash();
                         $.ajax({
                             contentType: "application/json; charset=utf-8",
-                            url: "https://www.w88.com/IP2LOC?v=" + new Date().getTime(),
+                            url: "http://w88uat.com/ip2loc?v=" + new Date().getTime(),
                             dataType: "jsonp",
                             success: function (data) {
                                 //initiateLogin(data);
