@@ -128,8 +128,7 @@
     </Slot>
     <CardAndTable Label="TRÒ CHƠI BÀI &amp; TRÒ CHƠI BÀN">
       <AmericanRoulette>
-        <ImageName><![CDATA[american
-        ]]></ImageName>
+        <ImageName><![CDATA[americanroulettemobile]]></ImageName>
       </AmericanRoulette>
       <BeatMe>
         <ImageName><![CDATA[beatmemobile]]></ImageName>
@@ -189,7 +188,7 @@
         <ImageName><![CDATA[tensorbettermobile]]></ImageName>
       </TensOrBetterMH>
     </VideoPoker>
-    <Others Label="Others">
+    <Others Label="KHÁC">
       <Keno>
         <ImageName><![CDATA[kenomobile]]></ImageName>
       </Keno>

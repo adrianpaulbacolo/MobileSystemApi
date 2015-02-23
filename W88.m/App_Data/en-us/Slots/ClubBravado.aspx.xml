@@ -2,7 +2,7 @@
 <default>
 
   <Category>
-    <Slot Label="SLOT">
+    <Slot Label="Slots">
       <Soccer>
         <ImageName><![CDATA[soccer]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/Soccer/?fun=0]]></PlayForRealURL>
@@ -126,7 +126,7 @@
         <ImageName><![CDATA[wildmelonmobile]]></ImageName>
       </WildMelon>
     </Slot>
-    <CardAndTable Label="GAME KARTU &amp; MEJA">
+    <CardAndTable Label="Card &amp; Table Games">
       <AmericanRoulette>
         <ImageName><![CDATA[americanroulettemobile]]></ImageName>
       </AmericanRoulette>
@@ -161,7 +161,7 @@
         <ImageName><![CDATA[singledeckblackjackmhmobile]]></ImageName>
       </SingleDeckBlackJackMH>    
     </CardAndTable>
-    <VideoPoker Label="VIDEO POKER">
+    <VideoPoker Label="Video Poker">
       <DeucesWildMH>
         <ImageName><![CDATA[deuceswildmobile]]></ImageName>
       </DeucesWildMH>
@@ -187,7 +187,7 @@
         <ImageName><![CDATA[tensorbettermobile]]></ImageName>
       </TensOrBetterMH>
     </VideoPoker>
-    <Others Label="OTHERS">
+    <Others Label="Others">
       <Keno>
         <ImageName><![CDATA[kenomobile]]></ImageName>
       </Keno>

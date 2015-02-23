@@ -1,8 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
-
   <Category>
-   
     <Slot Label="ស្លត">
       <Soccer>
         <ImageName><![CDATA[soccer]]></ImageName>
@@ -129,8 +127,7 @@
     </Slot>
     <CardAndTable Label="ហ្គេមបៀរ ហ្គេមតុ">
       <AmericanRoulette>
-        <ImageName><![CDATA[american
-        ]]></ImageName>
+        <ImageName><![CDATA[americanroulettemobile]]></ImageName>
       </AmericanRoulette>
       <BeatMe>
         <ImageName><![CDATA[beatmemobile]]></ImageName>
@@ -190,7 +187,7 @@
         <ImageName><![CDATA[tensorbettermobile]]></ImageName>
       </TensOrBetterMH>
     </VideoPoker>
-    <Others Label="Others">
+    <Others Label="ផ្សេងទៀត">
       <Keno>
         <ImageName><![CDATA[kenomobile]]></ImageName>
       </Keno>

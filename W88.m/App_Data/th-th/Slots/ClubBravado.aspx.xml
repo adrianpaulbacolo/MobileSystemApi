@@ -129,8 +129,7 @@
     </Slot>
     <CardAndTable Label="การ์ด เกมส์โต๊ะ">
       <AmericanRoulette>
-        <ImageName><![CDATA[american
-        ]]></ImageName>
+        <ImageName><![CDATA[americanroulettemobile]]></ImageName>
       </AmericanRoulette>
       <BeatMe>
         <ImageName><![CDATA[beatmemobile]]></ImageName>
@@ -190,7 +189,7 @@
         <ImageName><![CDATA[tensorbettermobile]]></ImageName>
       </TensOrBetterMH>
     </VideoPoker>
-    <Others Label="Others">
+    <Others Label="อื่น ๆ">
       <Keno>
         <ImageName><![CDATA[kenomobile]]></ImageName>
       </Keno>

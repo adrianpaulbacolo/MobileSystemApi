@@ -58,13 +58,16 @@ public partial class Slots_ClubBravado : BasePage
                     }
                     else
                     {
+                     string newstrLanguageCode = (strLanguageCode == "zh") ? "zh_CN" : "en_GB"; 
+
+
                         if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                             sbGames.AppendFormat("<a href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubBravado") + "' data-rel='dialog' data-transition='slidedown'>");
                         else
-                            sbGames.AppendFormat("<a href='{0}'>", commonClubBravado.getThirdPartyRealUrl.Replace("{GAME}", commonCulture.ElementValues.getResourceString("ImageName", xeGame)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
+                            sbGames.AppendFormat("<a href='{0}'>", commonClubBravado.getThirdPartyRealUrl.Replace("{GAME}", commonCulture.ElementValues.getResourceString("ImageName", xeGame)).Replace("{LANG}", newstrLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
 
                         sbGames.Append("<img src='/_Static/Images/btn_play.jpg' /></a>");
-                        sbGames.AppendFormat("<a href='{0}'><img src='/_Static/Images/btn_try.jpg' /></a></div>", commonClubBravado.getThirdPartyFunUrl.Replace("{GAME}", commonCulture.ElementValues.getResourceString("ImageName", xeGame)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
+                        sbGames.AppendFormat("<a href='{0}'><img src='/_Static/Images/btn_try.jpg' /></a></div>", commonClubBravado.getThirdPartyFunUrl.Replace("{GAME}", commonCulture.ElementValues.getResourceString("ImageName", xeGame)).Replace("{LANG}", newstrLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
                     }
 
                     sbGames.Append("</li>");
