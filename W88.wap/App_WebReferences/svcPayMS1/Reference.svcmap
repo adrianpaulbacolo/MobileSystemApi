@@ -19,15 +19,16 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://paymentservices.ms1dev.com/MS1.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://paymentservices.aqzbouat.com/MS1.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="MS1.xsd" MetadataType="Schema" ID="d9a7a309-6cbc-4cc6-bf11-019808558e3d" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/MS1.svc?xsd=xsd2" />
-    <MetadataFile FileName="MS1.disco" MetadataType="Disco" ID="0d87cd58-3a50-4628-82ab-ef82a62a8358" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/MS1.svc?disco" />
-    <MetadataFile FileName="MS11.xsd" MetadataType="Schema" ID="b8cf60a8-f01f-4a6e-b54b-51ec00bb63f1" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/MS1.svc?xsd=xsd3" />
-    <MetadataFile FileName="MS12.xsd" MetadataType="Schema" ID="5a88bcb8-ccf6-4c15-bbf7-38c9f7c20c14" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/MS1.svc?xsd=xsd0" />
-    <MetadataFile FileName="MS13.xsd" MetadataType="Schema" ID="fcf93b1c-5cc7-4011-ac3d-7bbabf28ec7f" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/MS1.svc?xsd=xsd1" />
-    <MetadataFile FileName="MS1.wsdl" MetadataType="Wsdl" ID="bcf819ba-5f67-4c71-a065-ba567d4dd593" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/MS1.svc?wsdl" />
+    <MetadataFile FileName="MS11.wsdl" MetadataType="Wsdl" ID="50461912-7822-48da-b2dd-d76ca218d1e4" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/MS1.svc?wsdl" />
+    <MetadataFile FileName="MS11.disco" MetadataType="Disco" ID="e975b1e8-c82c-4d58-aef9-80772226c098" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/MS1.svc?disco" />
+    <MetadataFile FileName="MS14.xsd" MetadataType="Schema" ID="29bd5c48-dedf-49ce-a179-6d3f606f395c" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/MS1.svc?xsd=xsd3" />
+    <MetadataFile FileName="MS142.xsd" MetadataType="Schema" ID="1ed96729-9e47-4dd6-8a91-0701c362be14" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/MS1.svc?xsd=xsd0" />
+    <MetadataFile FileName="MS143.xsd" MetadataType="Schema" ID="cc1746a8-823f-486f-a008-0153f45cec73" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/MS1.svc?xsd=xsd2" />
+    <MetadataFile FileName="MS144.xsd" MetadataType="Schema" ID="da034947-25c4-44a2-97ce-037a183031bb" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/MS1.svc?xsd=xsd1" />
+    <MetadataFile FileName="MS145.xsd" MetadataType="Schema" ID="3d357537-a150-4ebc-8dce-207638d107bc" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/MS1.svc?xsd=xsd4" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

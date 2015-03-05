@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://locationservices.ms1dev.com/service.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://locationservices.aqzbouat.com/service.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="0d687dc7-4af0-4976-8933-54017ed6b770" SourceId="1" SourceUrl="http://locationservices.ms1dev.com/service.asmx?wsdl" />
-    <MetadataFile FileName="service.disco" MetadataType="Disco" ID="b4d351a3-1ed3-4a09-963f-d88f5596111c" SourceId="1" SourceUrl="http://locationservices.ms1dev.com/service.asmx?disco" />
+    <MetadataFile FileName="service1.disco" MetadataType="Disco" ID="763efae3-4f23-429f-925a-4a6896f1a22c" SourceId="1" SourceUrl="http://locationservices.aqzbouat.com/service.asmx?disco" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="c661ff29-3096-47d2-9e36-de7e9129129c" SourceId="1" SourceUrl="http://locationservices.aqzbouat.com/service.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

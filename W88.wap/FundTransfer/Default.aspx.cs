@@ -183,9 +183,10 @@ public partial class FundTransfer_Default : BasePage
             {
                 using (svcFundTransfer.FundTransferClient svcInstance = new svcFundTransfer.FundTransferClient())
                 {
-                    xeResponse = svcInstance.initiateTransfer(strTransferFrom, strTransferTo, strOperatorId, strSiteCode, strMemberCode, strCurrencyCode, strSessionToken, Math.Abs(Convert.ToDecimal(strTransferAmount)), strPromoCode, svcFundTransfer.transferOrigin.WAP, out strStatusCode, out strStatusText);
+                    xeResponse = svcInstance.initiateTransfer(strTransferFrom, strTransferTo, strOperatorId, strSiteCode, strMemberCode, strCurrencyCode, strSessionToken, Math.Abs(Convert.ToDecimal(strTransferAmount)), strPromoCode, svcFundTransfer.transferOrigin.WAP);
                 }
             }
+
             catch (Exception ex)
             {
                 strResultCode = Convert.ToString(ex.HResult);

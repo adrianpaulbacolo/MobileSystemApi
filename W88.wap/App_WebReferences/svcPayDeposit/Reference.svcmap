@@ -19,15 +19,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://paymentservices.ms1dev.com/Deposit.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://paymentservices.aqzbouat.com/Deposit.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Deposit.disco" MetadataType="Disco" ID="f4a482e8-1d9b-4c49-9bec-2b1ef8c34853" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/Deposit.svc?disco" />
-    <MetadataFile FileName="Deposit.wsdl" MetadataType="Wsdl" ID="aa8f7c32-1dfd-45d9-9481-f8ce5af0f998" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/Deposit.svc?wsdl" />
-    <MetadataFile FileName="Deposit.xsd" MetadataType="Schema" ID="11edd9a3-75e8-428c-af5d-6545f9992673" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/Deposit.svc?xsd=xsd1" />
-    <MetadataFile FileName="Deposit1.xsd" MetadataType="Schema" ID="1d858abd-5e43-4672-8eb3-df1f4b227d18" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/Deposit.svc?xsd=xsd0" />
-    <MetadataFile FileName="Deposit2.xsd" MetadataType="Schema" ID="9f1222b8-a552-42a8-85e3-70be9c954b9d" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/Deposit.svc?xsd=xsd3" />
-    <MetadataFile FileName="Deposit3.xsd" MetadataType="Schema" ID="0241132b-ddc3-4007-91d4-70f2a521834a" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/Deposit.svc?xsd=xsd2" />
+    <MetadataFile FileName="Deposit4.xsd" MetadataType="Schema" ID="0ecc339b-9650-4500-930d-ab39a4eebd57" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/Deposit.svc?xsd=xsd2" />
+    <MetadataFile FileName="Deposit42.xsd" MetadataType="Schema" ID="872aaf54-ccc6-41dc-9696-f95269eaee32" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/Deposit.svc?xsd=xsd1" />
+    <MetadataFile FileName="Deposit1.wsdl" MetadataType="Wsdl" ID="753556c0-8704-4876-bbe4-85c60ad94a0d" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/Deposit.svc?wsdl" />
+    <MetadataFile FileName="Deposit43.xsd" MetadataType="Schema" ID="a0cdf2b7-bba5-4c9b-9e9d-767f026a5cbe" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/Deposit.svc?xsd=xsd3" />
+    <MetadataFile FileName="Deposit1.disco" MetadataType="Disco" ID="7c755925-5055-427f-b5e2-1d361bf211d8" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/Deposit.svc?disco" />
+    <MetadataFile FileName="Deposit44.xsd" MetadataType="Schema" ID="9403bccd-bb76-49d0-b323-54dda131a30f" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/Deposit.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="RJAiihd4HngV4YWJtuBp0PvYXfw=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="2mIaapwuZof9CWDYQui9KwwW3oA=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IMember">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IMember" contract="svcPayMember.IMember" bindingType="basicHttpBinding" address="http://paymentservices.ms1dev.com/Member.svc" bindingConfiguration="BasicHttpBinding_IMember">
+    <endpoint name="BasicHttpBinding_IMember" contract="svcPayMember.IMember" bindingType="basicHttpBinding" address="http://paymentservices.aqzbouat.com/Member.svc" bindingConfiguration="BasicHttpBinding_IMember">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://paymentservices.ms1dev.com/Member.svc</serializedValue>
+          <serializedValue>http://paymentservices.aqzbouat.com/Member.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

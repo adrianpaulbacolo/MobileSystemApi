@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b48f6f19-9172-427d-8ef8-2ba80d99627c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="bf9aec85-a453-49d9-8f40-cfb66f745507" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://paymentservices.ms1dev.com/FundTransfer.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://paymentservices.aqzbouat.com/FundTransfer.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="FundTransfer.xsd" MetadataType="Schema" ID="b756cbc4-49cc-490b-85bf-6aae7aba82e7" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/FundTransfer.svc?xsd=xsd1" />
-    <MetadataFile FileName="FundTransfer1.xsd" MetadataType="Schema" ID="c54e28de-ab01-411f-a90f-43a671896ca1" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/FundTransfer.svc?xsd=xsd0" />
-    <MetadataFile FileName="FundTransfer.wsdl" MetadataType="Wsdl" ID="a1ee13a3-40cc-42b1-a45f-762b3d517234" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/FundTransfer.svc?wsdl" />
-    <MetadataFile FileName="FundTransfer2.xsd" MetadataType="Schema" ID="02101d69-0f17-40b7-8dcc-ea53571d2287" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/FundTransfer.svc?xsd=xsd2" />
-    <MetadataFile FileName="FundTransfer.disco" MetadataType="Disco" ID="ce881413-cbad-433b-a9f7-2e2c49879e7a" SourceId="1" SourceUrl="http://paymentservices.ms1dev.com/FundTransfer.svc?disco" />
+    <MetadataFile FileName="FundTransfer.wsdl" MetadataType="Wsdl" ID="0ebf8e25-9de4-42f6-baa9-4e5fcf0e8956" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/FundTransfer.svc?wsdl" />
+    <MetadataFile FileName="FundTransfer.xsd" MetadataType="Schema" ID="45669c4e-6c31-4a55-8eec-a34da9101039" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/FundTransfer.svc?xsd=xsd2" />
+    <MetadataFile FileName="FundTransfer.disco" MetadataType="Disco" ID="03b1c2c3-0ebd-42e9-916a-dffcb250b685" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/FundTransfer.svc?disco" />
+    <MetadataFile FileName="FundTransfer1.xsd" MetadataType="Schema" ID="3d530a80-40e4-4d75-a211-9023529c517f" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/FundTransfer.svc?xsd=xsd1" />
+    <MetadataFile FileName="FundTransfer2.xsd" MetadataType="Schema" ID="dcaa1a89-f882-44eb-a3d7-dd80c33f4e68" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/FundTransfer.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

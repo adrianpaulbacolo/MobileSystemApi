@@ -262,6 +262,41 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="MemberProfileUpdateNew">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="memberId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="postal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="gender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dob" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="verifyPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="languageCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="securityQuestion" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="securityAnswer" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="oddsType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberProfileUpdateNewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberProfileUpdateNewResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="MemberChangePassword">
         <s:complexType>
           <s:sequence>
@@ -578,6 +613,271 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="MemberAddVIPProgrammeRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="memberId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberAddVIPProgrammeRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MemberAddVIPProgrammeRequestResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberVIPProgramme">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="memberId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberVIPProgrammeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMemberVIPProgrammeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberSuccessfulDeposits">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="memberId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateFrom" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateTo" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberSuccessfulDepositsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MemberSuccessfulDepositsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberRebateStatement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="memberId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="fromDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberRebateStatementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMemberRebateStatementResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberRebateStatement_staging">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="memberId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="fromDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberRebateStatement_stagingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMemberRebateStatement_stagingResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckClaimedRebateCodes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="memberId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="rebateCodes" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckClaimedRebateCodesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckClaimedRebateCodesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckMobile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="mobile" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckMobileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckMobileResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyContactVerificationTSM">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="memberId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="updatedBy" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyContactVerificationTSMResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerifyContactVerificationTSMResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberRebateSummary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="memberId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="fromDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="subProductCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isClaimNow" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberRebateSummaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMemberRebateSummaryResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberInstantRebateClaimNow">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="memberId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="fromDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="subProductCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="requestedClaim" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberInstantRebateClaimNowResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberInstantRebateClaimNowResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberAutoSigninFromApp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="playtechCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sitURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loginIP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberAutoSigninFromAppResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAutoSigninFromAppResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberSlotsNetWinLose">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberSlotsNetWinLoseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMemberSlotsNetWinLoseResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddMemberSlotRescueClaim">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="netWinLose" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="claimableAmt" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddMemberSlotRescueClaimResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddMemberSlotRescueClaimResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="MemberRegistrationSoapIn">
@@ -639,6 +939,12 @@
   </wsdl:message>
   <wsdl:message name="MemberProfileUpdateSoapOut">
     <wsdl:part name="parameters" element="tns:MemberProfileUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="MemberProfileUpdateNewSoapIn">
+    <wsdl:part name="parameters" element="tns:MemberProfileUpdateNew" />
+  </wsdl:message>
+  <wsdl:message name="MemberProfileUpdateNewSoapOut">
+    <wsdl:part name="parameters" element="tns:MemberProfileUpdateNewResponse" />
   </wsdl:message>
   <wsdl:message name="MemberChangePasswordSoapIn">
     <wsdl:part name="parameters" element="tns:MemberChangePassword" />
@@ -742,6 +1048,84 @@
   <wsdl:message name="VerifyContactVerificationCodeSoapOut">
     <wsdl:part name="parameters" element="tns:VerifyContactVerificationCodeResponse" />
   </wsdl:message>
+  <wsdl:message name="MemberAddVIPProgrammeRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:MemberAddVIPProgrammeRequest" />
+  </wsdl:message>
+  <wsdl:message name="MemberAddVIPProgrammeRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:MemberAddVIPProgrammeRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberVIPProgrammeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMemberVIPProgramme" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberVIPProgrammeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMemberVIPProgrammeResponse" />
+  </wsdl:message>
+  <wsdl:message name="MemberSuccessfulDepositsSoapIn">
+    <wsdl:part name="parameters" element="tns:MemberSuccessfulDeposits" />
+  </wsdl:message>
+  <wsdl:message name="MemberSuccessfulDepositsSoapOut">
+    <wsdl:part name="parameters" element="tns:MemberSuccessfulDepositsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberRebateStatementSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMemberRebateStatement" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberRebateStatementSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMemberRebateStatementResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberRebateStatement_stagingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMemberRebateStatement_staging" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberRebateStatement_stagingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMemberRebateStatement_stagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckClaimedRebateCodesSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckClaimedRebateCodes" />
+  </wsdl:message>
+  <wsdl:message name="CheckClaimedRebateCodesSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckClaimedRebateCodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckMobileSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckMobile" />
+  </wsdl:message>
+  <wsdl:message name="CheckMobileSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckMobileResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerifyContactVerificationTSMSoapIn">
+    <wsdl:part name="parameters" element="tns:VerifyContactVerificationTSM" />
+  </wsdl:message>
+  <wsdl:message name="VerifyContactVerificationTSMSoapOut">
+    <wsdl:part name="parameters" element="tns:VerifyContactVerificationTSMResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberRebateSummarySoapIn">
+    <wsdl:part name="parameters" element="tns:GetMemberRebateSummary" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberRebateSummarySoapOut">
+    <wsdl:part name="parameters" element="tns:GetMemberRebateSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="MemberInstantRebateClaimNowSoapIn">
+    <wsdl:part name="parameters" element="tns:MemberInstantRebateClaimNow" />
+  </wsdl:message>
+  <wsdl:message name="MemberInstantRebateClaimNowSoapOut">
+    <wsdl:part name="parameters" element="tns:MemberInstantRebateClaimNowResponse" />
+  </wsdl:message>
+  <wsdl:message name="MemberAutoSigninFromAppSoapIn">
+    <wsdl:part name="parameters" element="tns:MemberAutoSigninFromApp" />
+  </wsdl:message>
+  <wsdl:message name="MemberAutoSigninFromAppSoapOut">
+    <wsdl:part name="parameters" element="tns:MemberAutoSigninFromAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberSlotsNetWinLoseSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMemberSlotsNetWinLose" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberSlotsNetWinLoseSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMemberSlotsNetWinLoseResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddMemberSlotRescueClaimSoapIn">
+    <wsdl:part name="parameters" element="tns:AddMemberSlotRescueClaim" />
+  </wsdl:message>
+  <wsdl:message name="AddMemberSlotRescueClaimSoapOut">
+    <wsdl:part name="parameters" element="tns:AddMemberSlotRescueClaimResponse" />
+  </wsdl:message>
   <wsdl:portType name="memberWSSoap">
     <wsdl:operation name="MemberRegistration">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Member Registration : Process Code Description&lt;br&gt;1 = Registration Successful&lt;br&gt;10 = Registration Failed - Member Code already exists&lt;br&gt;11 = Registration Failed - Email already exists&lt;br&gt;0 = Error occurred.&lt;br&gt;</wsdl:documentation>
@@ -749,7 +1133,7 @@
       <wsdl:output message="tns:MemberRegistrationSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="MemberRegistrationNew">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Member Registration : Process Code Description&lt;br&gt;Included Card Integration&lt;br&gt;1 = Registration Successful&lt;br&gt;10 = Registration Failed - Member Code already exists&lt;br&gt;11 = Registration Failed - Email already exists&lt;br&gt;40 = Registration Failed - CardCode already registered&lt;br&gt;0 = Error occurred.&lt;br&gt;</wsdl:documentation>
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Member Registration : Process Code Description&lt;br&gt;Included Card Integration&lt;br&gt;1 = Registration Successful&lt;br&gt;10 = Registration Failed - Member Code already exists&lt;br&gt;11 = Registration Failed - Email already exists&lt;br&gt;40 = Registration Failed - CardCode already registered&lt;br&gt;50 = Registration Failed - Mobile number is not unique for VN member&lt;br&gt;0 = Error occurred.&lt;br&gt;</wsdl:documentation>
       <wsdl:input message="tns:MemberRegistrationNewSoapIn" />
       <wsdl:output message="tns:MemberRegistrationNewSoapOut" />
     </wsdl:operation>
@@ -792,6 +1176,11 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Member Profile Update : Process Code Description&lt;br&gt; 1 = Profile Update Successful&lt;br&gt;10 = Password is wrong. Profile not updated.&lt;br&gt; 0 = Error occurred.&lt;br&gt;</wsdl:documentation>
       <wsdl:input message="tns:MemberProfileUpdateSoapIn" />
       <wsdl:output message="tns:MemberProfileUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MemberProfileUpdateNew">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Member Profile Update : Process Code Description&lt;br&gt; 1 = Profile Update Successful&lt;br&gt;10 = Password is wrong. Profile not updated.&lt;br&gt; 0 = Error occurred.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:MemberProfileUpdateNewSoapIn" />
+      <wsdl:output message="tns:MemberProfileUpdateNewSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="MemberChangePassword">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">MemberChangePassword : Process Code Description&lt;br&gt;1 = Password Change Successful&lt;br&gt;10 = Same Password. Nothing to Change&lt;br&gt;11 = Old Password is wrong&lt;br&gt;0 = Error occurred.&lt;br&gt;</wsdl:documentation>
@@ -877,6 +1266,71 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">VerifyContactVerificationCode : Verify contact verification code.&lt;br&gt;1 = Verification Successful&lt;br&gt;10 = Verification Failed - Code Expired&lt;br&gt;11 = Verification Failed - Code is wrong&lt;br&gt;12 = Verification Failed - Code is wrong/Code Expired&lt;br&gt;0 = Error occurred.&lt;br&gt;</wsdl:documentation>
       <wsdl:input message="tns:VerifyContactVerificationCodeSoapIn" />
       <wsdl:output message="tns:VerifyContactVerificationCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MemberAddVIPProgrammeRequest">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">MemberAddVIPProgrammeRequest : Process Code Description&lt;br&gt;1 = Request Successful&lt;br&gt;0 = Error occurred.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:MemberAddVIPProgrammeRequestSoapIn" />
+      <wsdl:output message="tns:MemberAddVIPProgrammeRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberVIPProgramme">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Member VIP Programme Info&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetMemberVIPProgrammeSoapIn" />
+      <wsdl:output message="tns:GetMemberVIPProgrammeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MemberSuccessfulDeposits">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">MemberSuccessfulDeposits : Process Code Description&lt;br&gt;-1 = Error&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:MemberSuccessfulDepositsSoapIn" />
+      <wsdl:output message="tns:MemberSuccessfulDepositsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberRebateStatement">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Member Rebate Statement&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetMemberRebateStatementSoapIn" />
+      <wsdl:output message="tns:GetMemberRebateStatementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberRebateStatement_staging">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Member Rebate Statement Staging&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetMemberRebateStatement_stagingSoapIn" />
+      <wsdl:output message="tns:GetMemberRebateStatement_stagingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckClaimedRebateCodes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">CheckClaimedRebateCodes : Process Code Description&lt;br&gt;return string of claimed code. Empty string means all code passed in has not been claimed before.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:CheckClaimedRebateCodesSoapIn" />
+      <wsdl:output message="tns:CheckClaimedRebateCodesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckMobile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">CheckMobile : Process Code Description&lt;br&gt;1 = Mobile does not exist.&lt;br&gt;10 = Mobile already exist.&lt;br&gt;0 = Error occur.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:CheckMobileSoapIn" />
+      <wsdl:output message="tns:CheckMobileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyContactVerificationTSM">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">VerifyContactVerificationTSM : Verify contact verification code.&lt;br&gt;1 = Verification Successful&lt;br&gt;0 = Error occurred.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:VerifyContactVerificationTSMSoapIn" />
+      <wsdl:output message="tns:VerifyContactVerificationTSMSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberRebateSummary">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Member Rebate Summary&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetMemberRebateSummarySoapIn" />
+      <wsdl:output message="tns:GetMemberRebateSummarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MemberInstantRebateClaimNow">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">MemberInstantRebateClaimNow : Member Instant Rebate Claim.&lt;br&gt;1 = Claim Successful&lt;br&gt;-10 = No Instant Rebate Setting&lt;br&gt;-20 = Allowable Claim Amount lesser than Requested Claim Amount&lt;br&gt;-30 = Requested Claim Amount lesser than Min Claim Amount&lt;br&gt;-40 = Requested Claim Amount more than Max Claim Amount. Sent for approval&lt;br&gt;-50 = Total Stake Amount is smaller then total Eligible Stake Amt&lt;br&gt;0 = Error occurred.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:MemberInstantRebateClaimNowSoapIn" />
+      <wsdl:output message="tns:MemberInstantRebateClaimNowSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MemberAutoSigninFromApp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Member AutoSignin From App : Process Code Description&lt;br&gt;Included Card Integration&lt;br&gt;1 = Login Successful&lt;br&gt;21 = Member Code does not exist.&lt;br&gt;22 = Member is not active.&lt;br&gt;0 = Error occur.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:MemberAutoSigninFromAppSoapIn" />
+      <wsdl:output message="tns:MemberAutoSigninFromAppSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberSlotsNetWinLose">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">GetMemberSlotsNetWinLose : Get Member Slots Net Win/Lose.claimed:1 = Can Claim.&lt;br&gt;claimed:-1 = Member already claimed this week.&lt;br&gt;claimed:-11 = Member already claimed yesterday.&lt;br&gt;claimed:-12 = Member is winning. Cannot Claim&lt;br&gt;claimed:-13 = Member lost less than tier 1. Cannot Claim&lt;br&gt;claimed:-100 = No bet record for the day.&lt;br&gt;claimed:0 = Error occur.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetMemberSlotsNetWinLoseSoapIn" />
+      <wsdl:output message="tns:GetMemberSlotsNetWinLoseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMemberSlotRescueClaim">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AddMemberSlotRescueClaim : Process Code Description&lt;br&gt;20 = Success AND Auto Claim .&lt;br&gt;30 = Success but Need Approval .&lt;br&gt;-1 = Member already claimed this week.&lt;br&gt;-11 = Member already claimed yesterday.&lt;br&gt;-100 = FundTransfer Error.&lt;br&gt;0 = Error occur.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:AddMemberSlotRescueClaimSoapIn" />
+      <wsdl:output message="tns:AddMemberSlotRescueClaimSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="memberWSSoap" type="tns:memberWSSoap">
@@ -964,6 +1418,15 @@
     </wsdl:operation>
     <wsdl:operation name="MemberProfileUpdate">
       <soap:operation soapAction="http://tempuri.org/MemberProfileUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberProfileUpdateNew">
+      <soap:operation soapAction="http://tempuri.org/MemberProfileUpdateNew" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1124,6 +1587,123 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="MemberAddVIPProgrammeRequest">
+      <soap:operation soapAction="http://tempuri.org/MemberAddVIPProgrammeRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberVIPProgramme">
+      <soap:operation soapAction="http://tempuri.org/GetMemberVIPProgramme" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberSuccessfulDeposits">
+      <soap:operation soapAction="http://tempuri.org/MemberSuccessfulDeposits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberRebateStatement">
+      <soap:operation soapAction="http://tempuri.org/GetMemberRebateStatement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberRebateStatement_staging">
+      <soap:operation soapAction="http://tempuri.org/GetMemberRebateStatement_staging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckClaimedRebateCodes">
+      <soap:operation soapAction="http://tempuri.org/CheckClaimedRebateCodes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckMobile">
+      <soap:operation soapAction="http://tempuri.org/CheckMobile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyContactVerificationTSM">
+      <soap:operation soapAction="http://tempuri.org/VerifyContactVerificationTSM" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberRebateSummary">
+      <soap:operation soapAction="http://tempuri.org/GetMemberRebateSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberInstantRebateClaimNow">
+      <soap:operation soapAction="http://tempuri.org/MemberInstantRebateClaimNow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberAutoSigninFromApp">
+      <soap:operation soapAction="http://tempuri.org/MemberAutoSigninFromApp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberSlotsNetWinLose">
+      <soap:operation soapAction="http://tempuri.org/GetMemberSlotsNetWinLose" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMemberSlotRescueClaim">
+      <soap:operation soapAction="http://tempuri.org/AddMemberSlotRescueClaim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="memberWSSoap12" type="tns:memberWSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -1210,6 +1790,15 @@
     </wsdl:operation>
     <wsdl:operation name="MemberProfileUpdate">
       <soap12:operation soapAction="http://tempuri.org/MemberProfileUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberProfileUpdateNew">
+      <soap12:operation soapAction="http://tempuri.org/MemberProfileUpdateNew" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1370,13 +1959,130 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="MemberAddVIPProgrammeRequest">
+      <soap12:operation soapAction="http://tempuri.org/MemberAddVIPProgrammeRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberVIPProgramme">
+      <soap12:operation soapAction="http://tempuri.org/GetMemberVIPProgramme" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberSuccessfulDeposits">
+      <soap12:operation soapAction="http://tempuri.org/MemberSuccessfulDeposits" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberRebateStatement">
+      <soap12:operation soapAction="http://tempuri.org/GetMemberRebateStatement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberRebateStatement_staging">
+      <soap12:operation soapAction="http://tempuri.org/GetMemberRebateStatement_staging" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckClaimedRebateCodes">
+      <soap12:operation soapAction="http://tempuri.org/CheckClaimedRebateCodes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckMobile">
+      <soap12:operation soapAction="http://tempuri.org/CheckMobile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyContactVerificationTSM">
+      <soap12:operation soapAction="http://tempuri.org/VerifyContactVerificationTSM" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberRebateSummary">
+      <soap12:operation soapAction="http://tempuri.org/GetMemberRebateSummary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberInstantRebateClaimNow">
+      <soap12:operation soapAction="http://tempuri.org/MemberInstantRebateClaimNow" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberAutoSigninFromApp">
+      <soap12:operation soapAction="http://tempuri.org/MemberAutoSigninFromApp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberSlotsNetWinLose">
+      <soap12:operation soapAction="http://tempuri.org/GetMemberSlotsNetWinLose" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMemberSlotRescueClaim">
+      <soap12:operation soapAction="http://tempuri.org/AddMemberSlotRescueClaim" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="memberWS">
     <wsdl:port name="memberWSSoap" binding="tns:memberWSSoap">
-      <soap:address location="http://ws.ms1dev.com/memberws.asmx" />
+      <soap:address location="http://ws.aqzbouat.com/memberws.asmx" />
     </wsdl:port>
     <wsdl:port name="memberWSSoap12" binding="tns:memberWSSoap12">
-      <soap12:address location="http://ws.ms1dev.com/memberws.asmx" />
+      <soap12:address location="http://ws.aqzbouat.com/memberws.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
