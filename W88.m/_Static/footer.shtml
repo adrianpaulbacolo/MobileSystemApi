@@ -3,7 +3,7 @@
         <ul>
             <li class="footer-image" data-rel="toolbar-home-"><div><a href="/Index" data-ajax="false">&nbsp;</a></div></li>
             <li class="footer-image" data-rel="toolbar-promotion-"><div><a href="/Promotions" data-ajax="false">&nbsp;</a></div></li>
-            <li class="footer-image" data-rel="toolbar-livechat-"><div><a href="/LivePerson" data-ajax="false">&nbsp;</a></div></li>
+            <li class="footer-image" data-rel="toolbar-livechat-"><div><a href="/LiveChat" data-ajax="false">&nbsp;</a></div></li>
             <li class="footer-image" data-rel="toolbar-contactus-">
                 <div class="div-footer-contactus"><a href="javascript:void(0);" class="a-footer-popup" onclick="javascript:GPINTMOBILE.LoadPopupMenu(this);" data-ajax="false">&nbsp;</a>
                     <div class="div-footer-popup-menu">

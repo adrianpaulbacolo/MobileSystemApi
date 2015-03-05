@@ -182,6 +182,8 @@ public class SDPay : IHttpHandler,System.Web.SessionState.IReadOnlySessionState 
             string username = strMemberId;
             string md5, xml, d, des;
 
+            commonAuditTrail.appendLog("system", pageName, taskName, string.Empty, string.Empty, processDetail, string.Empty, "MerchantKey1:" + merchantKey1 + "MerchantKey2:" + merchantKey2, string.Empty, Convert.ToString(processSerialId), processId, false);
+            
             System.Text.StringBuilder sbXml = new System.Text.StringBuilder();
             sbXml.Append("<?xml version=\"1.0\" encoding=\"utf-8\" ?>");
             sbXml.Append("<message>");
@@ -193,7 +195,7 @@ public class SDPay : IHttpHandler,System.Web.SessionState.IReadOnlySessionState 
             sbXml.AppendFormat("<username>{0}</username>", username);
             sbXml.AppendFormat("<money>{0}</money>", requestAmount.ToString());
             sbXml.Append("<unit>1</unit>");
-            sbXml.AppendFormat("<time>{0}</time>", DateTime.Now.ToString("yyyy-mm-dd HH:mm:ss"));
+            sbXml.AppendFormat("<time>{0}</time>", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             sbXml.Append("<remark></remark>");
             sbXml.AppendFormat("<backurl>{0}</backurl>", serverReturnUrl);
             sbXml.Append("</userinfo>");
@@ -208,10 +210,13 @@ public class SDPay : IHttpHandler,System.Web.SessionState.IReadOnlySessionState 
 
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
             sb.Append(@"<form id=""theForm"" name=""theForm"" target=""_self"" method=""post"" action='" + postUrl + "'>");
+            sb.Append(@"<input type=""hidden"" id=""cmd"" name=""cmd"" value=""6009""/>");
             sb.Append(@"<input type=""hidden"" id=""pid"" name=""pid"" value='" + merchantAccount + "'/>");
             sb.Append(@"<input type=""hidden"" id=""des"" name=""des"" value='" + des + "'/>");
             sb.Append(@"</form>");
 
+            commonAuditTrail.appendLog("system", pageName, taskName, string.Empty, string.Empty, processDetail, string.Empty, sb.ToString(), string.Empty, Convert.ToString(processSerialId), processId, false);
+            
             context.Response.Write(sb.ToString());
 
             commonAuditTrail.appendLog("system", pageName, taskName, string.Empty, string.Empty, processDetail, string.Empty, "ok", string.Empty, Convert.ToString(processSerialId), processId, false);

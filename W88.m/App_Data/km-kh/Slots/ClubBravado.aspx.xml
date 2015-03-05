@@ -22,6 +22,11 @@
         <PlayForRealURL><![CDATA[{BravadoUrl}/littlemonsters/?fun=0]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{BravadoUrl}/littleffmonsters/?fun=1]]></PlayForFunURL>
       </LittleMonsters>
+      <Fruitilicious>
+        <ImageName><![CDATA[fruitilicious]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/fruitilicious/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/fruitilicious/?fun=1]]></PlayForFunURL>
+      </Fruitilicious>
       <FiveXMagicMobile>
         <ImageName><![CDATA[5xmagicmobile]]></ImageName>
       </FiveXMagicMobile>
