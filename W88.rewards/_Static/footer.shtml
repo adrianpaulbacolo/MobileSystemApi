@@ -77,3 +77,21 @@
     ga('send', 'pageview');
     */
 </script>
+
+<!-- Piwik -->
+<script type="text/javascript">
+    var _paq = _paq || [];
+    _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+    _paq.push(["setCookieDomain", "*.w88.com"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function () {
+        var u = "//d32w03ub2ys01w.cloudfront.net/";
+        _paq.push(['setTrackerUrl', u + 'piwik.php']);
+        _paq.push(['setSiteId', 7]);
+        var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+        g.type = 'text/javascript'; g.async = true; g.defer = true; g.src = '//d3i17s55l4a87p.cloudfront.net/piwik.js'; s.parentNode.insertBefore(g, s);
+    })();
+</script>
+<noscript><p><img src="//d32w03ub2ys01w.cloudfront.net/piwik.php?idsite=7" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
