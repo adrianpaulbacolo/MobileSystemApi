@@ -28,6 +28,11 @@
         <PlayForRealURL><![CDATA[{BravadoUrl}/fruitilicious/?fun=0]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{BravadoUrl}/fruitilicious/?fun=1]]></PlayForFunURL>
       </Fruitilicious>
+      <Ninetailedninja>
+        <ImageName><![CDATA[ninetailedninja]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/ninetailedninja/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/ninetailedninja/?fun=1]]></PlayForFunURL>
+      </Ninetailedninja>
       <FiveXMagicMobile>
         <ImageName><![CDATA[5xmagicmobile]]></ImageName>
       </FiveXMagicMobile>
