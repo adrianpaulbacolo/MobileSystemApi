@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<banks>
+  <MYR>
+    <bank id="MBB"><![CDATA[Maybank]]></bank>
+    <bank id="PBB"><![CDATA[Public Bank]]></bank>
+    <bank id="CIMB"><![CDATA[CIMB]]></bank>
+    <bank id="HLB"><![CDATA[Hong Leong Bank]]></bank>
+  </MYR>
+  <THB>
+    <bank id="KKR"><![CDATA[Karsikorn Bank (K-Bank)]]></bank>
+    <bank id="BBL"><![CDATA[Bangkok Bank]]></bank>
+    <bank id="SCB"><![CDATA[Siam Commercial Bank]]></bank>
+  </THB>
+</banks>

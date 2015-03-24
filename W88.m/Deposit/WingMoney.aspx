@@ -18,49 +18,70 @@
                 <div data-role="navbar">
                     <ul>
                         <li id="<%=string.Format("d{0}", Convert.ToInt32(commonVariables.DepositMethod.FastDeposit))%>"><a href="/Deposit/FastDeposit" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("fastdeposit", commonVariables.LeftMenuXML)%></a></li>
-                        <li id="<%=string.Format("d{0}", Convert.ToInt32(commonVariables.DepositMethod.WingMoney))%>"><a href="/Deposit/WingMoney" data-ajax="false" class="ui-btn-active"><%=commonCulture.ElementValues.getResourceString("wingmoney", commonVariables.LeftMenuXML)%></a></li>
-                        <li id='<%=string.Format("d{0}", Convert.ToInt32(commonVariables.DepositMethod.SDPay))%>'><a href="/Deposit/FastDeposit" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("sdpay", commonVariables.LeftMenuXML)%></a></li>
+                         <%if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "usd", true) == 0)
+                          { %>
+                        <li id='<%=string.Format("d{0}", Convert.ToInt32(commonVariables.DepositMethod.WingMoney))%>'><a href="/Deposit/WingMoney" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("wingmoney", commonVariables.LeftMenuXML)%></a></li>
+                        <% } %>
+                        <li id='<%=string.Format("d{0}", Convert.ToInt32(commonVariables.DepositMethod.SDPay))%>'><a href="/Deposit/SDPay" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("sdpay", commonVariables.LeftMenuXML)%></a></li>
+                         <%if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "myr", true) == 0 || string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "thb", true) == 0)
+                          { %>
+                        <li id='<%=string.Format("d{0}", Convert.ToInt32(commonVariables.DepositMethod.Help2Pay))%>'><a href="/Deposit/Help2Pay" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("help2pay", commonVariables.LeftMenuXML)%></a></li>
+                        <% } %>
                     </ul>
                     <br />
                 </div>
 
                 <form id="form1" runat="server" data-ajax="false">
-                <div class="div-content-wrapper">
-                    <div>
-                        <div class="ui-field-contain ui-hide-label">
-                            <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" Text="from" CssClass="ui-hidden-accessible" />
-                            <asp:TextBox ID="txtDepositAmount" runat="server" placeholder="amount" type="number" step="any" min="1" data-clear-btn="true" />
+                    <div class="div-content-wrapper">
+                        <div>
+                            <div class="ui-field-contain ui-hide-label">
+                                <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" Text="from" CssClass="ui-hidden-accessible" />
+                                <asp:TextBox ID="txtDepositAmount" runat="server" placeholder="amount" type="number" step="any" min="1" data-clear-btn="true" />
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="ui-field-contain div-limit"><div><asp:Literal ID="lblDailyLimit" runat="server" /></div><div>&nbsp;</div><div><asp:Literal ID="lblTotalAllowed" runat="server" /></div></div>
-                    </div>
-                    <div>
-                        <div class="ui-field-contain ui-hide-label">
-                            <asp:Label ID="lblReferenceId" runat="server" AssociatedControlID="txtReferenceId" Text="from" CssClass="ui-hidden-accessible" />
-                            <asp:TextBox ID="txtReferenceId" runat="server" placeholder="referenceid" data-clear-btn="true" />
+                        <div>
+                            <div class="ui-field-contain div-limit">
+                                <div>
+                                    <asp:Literal ID="lblDailyLimit" runat="server" />
+                                </div>
+                                <div>&nbsp;</div>
+                                <div>
+                                    <asp:Literal ID="lblTotalAllowed" runat="server" />
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div id="divDepositDateTime" runat="server" class="ui-field-contain ui-grid-b">
-                            <div class="ui-block-a"><asp:DropDownList ID="drpDepositDate" runat="server" /></div>
-                            <div class="ui-block-b"><asp:DropDownList ID="drpHour" runat="server"/></div>
-                            <div class="ui-block-c"><asp:DropDownList ID="drpMinute" runat="server"/></div>
-                    </div>
-                    <div>
-                        <div class="ui-field-contain ui-hide-label">
-                            <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" Text="to" CssClass="ui-hidden-accessible" />
-                            <asp:TextBox ID="txtAccountName" runat="server" placeholder="accountname" data-clear-btn="true" />
+                        <div>
+                            <div class="ui-field-contain ui-hide-label">
+                                <asp:Label ID="lblReferenceId" runat="server" AssociatedControlID="txtReferenceId" Text="from" CssClass="ui-hidden-accessible" />
+                                <asp:TextBox ID="txtReferenceId" runat="server" placeholder="referenceid" data-clear-btn="true" />
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="ui-field-contain ui-hide-label">
-                            <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" Text="to" CssClass="ui-hidden-accessible" />
-                            <asp:TextBox ID="txtAccountNumber" runat="server" placeholder="accountnum" data-clear-btn="true" />
+                        <div id="divDepositDateTime" runat="server" class="ui-field-contain ui-grid-b">
+                            <div class="ui-block-a">
+                                <asp:DropDownList ID="drpDepositDate" runat="server" />
+                            </div>
+                            <div class="ui-block-b">
+                                <asp:DropDownList ID="drpHour" runat="server" />
+                            </div>
+                            <div class="ui-block-c">
+                                <asp:DropDownList ID="drpMinute" runat="server" />
+                            </div>
                         </div>
+                        <div>
+                            <div class="ui-field-contain ui-hide-label">
+                                <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" Text="to" CssClass="ui-hidden-accessible" />
+                                <asp:TextBox ID="txtAccountName" runat="server" placeholder="accountname" data-clear-btn="true" />
+                            </div>
+                        </div>
+                        <div>
+                            <div class="ui-field-contain ui-hide-label">
+                                <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" Text="to" CssClass="ui-hidden-accessible" />
+                                <asp:TextBox ID="txtAccountNumber" runat="server" placeholder="accountnum" data-clear-btn="true" />
+                            </div>
+                        </div>
+                        <asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" OnClick="btnSubmit_Click" data-corners="false" />
+                        <asp:HiddenField runat="server" ID="_repostcheckcode" />
                     </div>
-                    <asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" OnClick="btnSubmit_Click" data-corners="false" />
-                    <asp:HiddenField runat="server" ID="_repostcheckcode" />
-                </div>
                 </form>
             </div>
         </div>
