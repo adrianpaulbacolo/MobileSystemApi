@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+  <lblTitle><![CDATA[Help2Pay]]></lblTitle>
+  <lblDepositAmount><![CDATA[ยอดเงินการฝาก]]></lblDepositAmount>
+  <btnSubmit><![CDATA[การฝาก]]></btnSubmit>
+  <lblDailyLimit><![CDATA[การจำกัดยอดเงินต่อวัน]]></lblDailyLimit>
+  <lblTotalAllowed><![CDATA[ยอดเงินที่ทำรายการได้]]></lblTotalAllowed>
+  <lblMinMaxLimit><![CDATA[การจำกัดยอดขั้นต่ำ /สูงสุด]]></lblMinMaxLimit>
+  <lblMode><![CDATA[วิธีการ]]></lblMode>
+  <txtMode><![CDATA[ออนไลน์]]></txtMode>
+  <txtProcessing><![CDATA[Your transaction is being processed, please check your balance for updates.]]></txtProcessing>
+  <drpBank><![CDATA[ธนาคาร กรุณาเลือก]]></drpBank>
+</Deposit>

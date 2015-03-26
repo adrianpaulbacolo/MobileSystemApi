@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+  <lblTitle><![CDATA[Help2Pay]]></lblTitle>
+  <lblDepositAmount><![CDATA[ចំនួនប្រាក់ដាក់]]></lblDepositAmount>
+  <btnSubmit><![CDATA[ស្នើសុំ]]></btnSubmit  <lblDailyLimit><![CDATA[ចំនួនកំនត់ប្រចាំថ្ងៃ]]></lblDailyLimit>
+  <lblTotalAllowed><![CDATA[ចំនួនអនុញ្ញាតសរុប]]></lblTotalAllowed>
+  <lblMinMaxLimit><![CDATA[ចំនួនអប្ប/អតិ]]></lblMinMaxLimit>
+  <lblMode><![CDATA[ប្រភេទ]]></lblMode>
+  <txtMode><![CDATA[អនឡាញ]]></txtMode>
+   <txtProcessing><![CDATA[Your transaction is being processed, please check your balance for updates.]]></txtProcessing>
+  <drpBank><![CDATA[ធនាគារ ជ្រើស]]></drpBank>
+</Deposit>

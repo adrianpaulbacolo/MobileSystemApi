@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+  <lblTitle><![CDATA[Help2Pay]]></lblTitle>
+  <lblDepositAmount><![CDATA[Số Tiền Gửi]]></lblDepositAmount>
+  <btnSubmit><![CDATA[GỬI TIỀN]]></btnSubmit>
+  <lblDailyLimit><![CDATA[Giới Hạn Trong Ngày]]></lblDailyLimit>
+  <lblTotalAllowed><![CDATA[Tổng Số Cho Phép]]></lblTotalAllowed>
+  <lblMinMaxLimit><![CDATA[Giới Hạn Min/Max]]></lblMinMaxLimit>
+  <lblMode><![CDATA[Phương thức]]></lblMode>
+  <txtMode><![CDATA[Trực Tuyến]]></txtMode>
+  <txtProcessing><![CDATA[Your transaction is being processed, please check your balance for updates.]]></txtProcessing>
+  <drpBank><![CDATA[Ngân Hàng Lựa Chọn]]></drpBank>
+</Deposit>
