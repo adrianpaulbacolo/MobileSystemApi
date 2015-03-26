@@ -43,7 +43,7 @@ public partial class LiveChat_Default : System.Web.UI.Page
                     }
                 }
 
-                if (shortlang == "en" || shortlang == "kh")
+                if (shortlang == "en" || shortlang == "kh" || shortlang == "kr" || shortlang == "th")
                 {
                     #region livezilla
 
@@ -59,7 +59,7 @@ public partial class LiveChat_Default : System.Web.UI.Page
                         code1 = "";
                         code4 = "";
 
-                        switch (shortlang)
+                        switch (shortlang)//null member
                         {
                             case "en":
                                 redirectLink = "http://en.liveperson88.net/live/chat.php?a=db524&hg=P01hbmFnZXI_&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__&rgs=MQ__";
@@ -67,9 +67,16 @@ public partial class LiveChat_Default : System.Web.UI.Page
                             case "kh":
                                 redirectLink = "http://kh.liveperson88.net/live/chat.php?a=1e3b4&hg=P01hbmFnZXI_&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__&rgs=MQ__&el=" + KM;
                                 break;
+                            case "kr":
+                                redirectLink = "http://kr.liveperson88.net/live/chat.php?a=882d3&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
+                                break;
+                            case "th":
+                                redirectLink = "http://th.liveperson88.net/live/chat.php?a=b915d&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
+                                break;
                             default:
                                 redirectLink = "http://en.liveperson88.net/live/chat.php?a=db524&hg=P01hbmFnZXI_&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__&rgs=MQ__";
                                 break;
+
                         }
                     }
                     else
@@ -87,6 +94,18 @@ public partial class LiveChat_Default : System.Web.UI.Page
                                     redirectLink = "http://kh.liveperson88.net/live/chat.php?a=618aa&intgroup=VklQ&hg=P01hbmFnZXI_&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__&el=" + KM;
                                 else
                                     redirectLink = "http://kh.liveperson88.net/live/chat.php?a=8d2b0&hg=P01hbmFnZXI,VklQ&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__&rgs=MQ__&el=" + KM;
+                                break;
+                            case "kr":
+                                if (isVIP)
+                                    redirectLink = "http://kr.liveperson88.net/live/chat.php?a=a6071&intgroup=VklQ&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}";
+                                else
+                                    redirectLink = "http://kr.liveperson88.net/live/chat.php?a=882d3&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
+                                break;
+                            case "th":
+                                if (isVIP)
+                                    redirectLink = "http://th.liveperson88.net/live/chat.php?a=55660&intgroup=VklQ&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}";
+                                else
+                                    redirectLink = "http://th.liveperson88.net/live/chat.php?a=b915d&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
                                 break;
                             default:
                                 if (isVIP)
@@ -111,9 +130,9 @@ public partial class LiveChat_Default : System.Web.UI.Page
                             case "id":
                                 chatLang = "VIP-Bahasa"; skill = "VIP-Bahasa";
                                 break;
-                            case "th":
-                                chatLang = "VIP-Thailand"; skill = "VIP-Thailand";
-                                break;
+                            //case "th":
+                            //    chatLang = "VIP-Thailand"; skill = "VIP-Thailand";
+                            //    break;
                             case "vn":
                                 chatLang = "VIP-TiengViet "; skill = "VIP-TiengViet ";
                                 break;
@@ -131,9 +150,9 @@ public partial class LiveChat_Default : System.Web.UI.Page
                         {
                             case "id": chatLang = "Indonesia"; skill = "Indonesia"; break;
                             case "jp": chatLang = "Japanese"; skill = "Japanese"; break;
-                            case "kh": chatLang = "Cambodia"; skill = "Cambodia"; break;
-                            case "kr": chatLang = "Korean"; skill = "Korean"; break;
-                            case "th": chatLang = "Thailand"; skill = "Thailand"; break;
+                            //case "kh": chatLang = "Cambodia"; skill = "Cambodia"; break;
+                            //case "kr": chatLang = "Korean"; skill = "Korean"; break;
+                            //case "th": chatLang = "Thailand"; skill = "Thailand"; break;
                             case "vn": chatLang = "Vietnamese"; skill = "Vietnamese"; break;
                             case "cn": chatLang = "Chinese"; skill = "Chinese"; break;
                             default: chatLang = "English"; break;
