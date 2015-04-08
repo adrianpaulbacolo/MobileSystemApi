@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PaymentMethods>
+  <d110101><![CDATA[高速入金]]></d110101>
+  <d120203><![CDATA[SDAペイ]]></d120203>
+  <d120204><![CDATA[ネクストペイ]]></d120204>
+  <d120206><![CDATA[オンライン入金]]></d120206>
+  <d120207><![CDATA[オンライン入金]]></d120207>
+  <d110308><![CDATA[ウィングマネー]]></d110308>
+  <w210602><![CDATA[銀行振込み]]></w210602>
+  <w210709><![CDATA[ウィングマネー]]></w210709>
+  <online><![CDATA[オンライン]]></online>
+  <offline><![CDATA[オフライン]]></offline>
+</PaymentMethods>

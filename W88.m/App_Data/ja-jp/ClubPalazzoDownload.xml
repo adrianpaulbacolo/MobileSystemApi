@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <message>
+    <![CDATA[<span class="blue">クラブパラゾーのダウンロード版をプレイするための簡単な3ステップは</span>
+            <br />ステップ1：下記の[ダウンロード]ボタンをクリックします。
+            <br />ステップ2：クリックしてファイル名を指定して実行することによってインストールするか、ローカルのハードドライブに保存します。
+            <br />ステップ3：お客様のウェブユーザ名前に「W88」のプレフィックスを追加してログインします。
+            <br />
+            <br />例：
+            <br />あなたのウェブユーザ名が「luckyplayer」であれば、「<span class='blue'>W88</span>」としてログインしてください.]]>
+  </message>
+  <downloadnow><![CDATA[今すぐダウンロードしましょう]]></downloadnow>
+</default>
