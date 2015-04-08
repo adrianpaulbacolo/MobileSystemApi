@@ -8,31 +8,37 @@
         <ImageName><![CDATA[soccer]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/Soccer/?fun=0]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{BravadoUrl}/Soccer/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
       </Soccer>
       <ThreeKingdoms>
         <ImageName><![CDATA[threekingdoms]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/threekingdoms/?fun=0]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{BravadoUrl}/threekingdoms/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
       </ThreeKingdoms>
       <FreedomFighter>
         <ImageName><![CDATA[freedomfighter]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/freedomfighter/?fun=0]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{BravadoUrl}/freedomfighter/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
       </FreedomFighter>
       <LittleMonsters>
         <ImageName><![CDATA[littlemonsters]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/littlemonsters/?fun=0]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{BravadoUrl}/littleffmonsters/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
       </LittleMonsters>
       <Fruitilicious>
         <ImageName><![CDATA[fruitilicious]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/fruitilicious/?fun=0]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{BravadoUrl}/fruitilicious/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
       </Fruitilicious>
       <Ninetailedninja>
         <ImageName><![CDATA[ninetailedninja]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/ninetailedninja/?fun=0]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{BravadoUrl}/ninetailedninja/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
       </Ninetailedninja>
       <FiveXMagicMobile>
         <ImageName><![CDATA[5xmagicmobile]]></ImageName>

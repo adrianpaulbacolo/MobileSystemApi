@@ -45,8 +45,12 @@ public partial class Slots_ClubBravado : BasePage
                     strGameId = (xeGame.Attribute("ProductId") == null ? "" : xeGame.Attribute("ProductId").Value);
                     sbGames.AppendFormat("<li rel='{0}.jpg' class='bkg-game'><div class='div-links'>", commonCulture.ElementValues.getResourceString("ImageName", xeGame));
 
+                    bool isInternal = false;
+                    if (commonCulture.ElementValues.getResourceString("IsInternal", xeGame) != "")
+                        isInternal = bool.Parse(commonCulture.ElementValues.getResourceString("IsInternal", xeGame));
+
                     //in-house
-                    if (xeGame.Name == "Soccer" || xeGame.Name == "ThreeKingdoms" || xeGame.Name == "FreedomFighter" || xeGame.Name == "LittleMonsters" || xeGame.Name == "Fruitilicious" || xeGame.Name == "Ninetailedninja")
+                    if (isInternal)
                     {
                         if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                             sbGames.AppendFormat("<a href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubBravado") + "' data-rel='dialog' data-transition='slidedown'>");

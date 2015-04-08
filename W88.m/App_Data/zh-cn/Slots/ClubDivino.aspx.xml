@@ -8,6 +8,11 @@
         <Label><![CDATA[Puppy Love]]></Label>
         <Description><![CDATA[Cute/Puppy themed 20 line 5 reel slot game]]></Description>
       </Slot3D1>-->
+      <Slot3D2 ProductId="521">
+        <ImageName><![CDATA[W88-Slots-Mobile-Pinocchio]]></ImageName>
+        <Label><![CDATA[Pinocchio]]></Label>
+        <Description><![CDATA[Pinocchio]]></Description>
+      </Slot3D2>
       <Slot3D2 ProductId="291">
         <ImageName><![CDATA[W88-Slots-Mobile-Three-Wishes]]></ImageName>
         <Label><![CDATA[Three Wishes]]></Label>
@@ -135,6 +140,11 @@
       </Slots1>
     </Slots>
     <Slot3D Version="ANDROID" Label="3D 老虎机 Android">
+      <Slot3D1 ProductId="522">
+        <ImageName><![CDATA[W88-Slots-Mobile-Pinocchio]]></ImageName>
+        <Label><![CDATA[Pinocchio]]></Label>
+        <Description><![CDATA[Pinocchio]]></Description>
+      </Slot3D1>
       <Slot3D1 ProductId="484">
         <ImageName><![CDATA[W88-Slots-Mobile-Puppy-Love]]></ImageName>
         <Label><![CDATA[Puppy Love]]></Label>
@@ -267,6 +277,11 @@
     </Slots>
 
     <Slot3DWP Version="WP" Label="3D 老虎机 WP">
+      <Slot3D1 ProductId="523">
+        <ImageName><![CDATA[W88-Slots-Mobile-Pinocchio]]></ImageName>
+        <Label><![CDATA[Pinocchio]]></Label>
+        <Description><![CDATA[Pinocchio]]></Description>
+      </Slot3D1>
       <Slot3D1 ProductId="485">
         <ImageName><![CDATA[W88-Slots-Mobile-Puppy-Love]]></ImageName>
         <Label><![CDATA[Puppy Love]]></Label>
