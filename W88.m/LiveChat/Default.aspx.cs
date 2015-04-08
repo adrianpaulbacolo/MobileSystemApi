@@ -43,7 +43,7 @@ public partial class LiveChat_Default : System.Web.UI.Page
                     }
                 }
 
-                if (shortlang == "en" || shortlang == "kh" || shortlang == "kr" || shortlang == "th")
+                if (shortlang == "en" || shortlang == "kh" || shortlang == "kr" || shortlang == "th" || shortlang == "id" || shortlang == "jp")
                 {
                     #region livezilla
 
