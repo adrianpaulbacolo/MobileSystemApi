@@ -17,6 +17,7 @@
             $.get('/_Static/Promotions/promotions.' + lang + '<%=(string.Compare(commonVariables.GetSessionVariable("CountryCode"), "my", true) == 0 ? ".my" : "")%>.htm', function (html) { })
             .done(function (data) {
                 data = data.replace(/<img src=/g, '<img rel=');
+                data = data.replace('[domain]', '.'+ location.hostname.split('.').slice(-2).join('.'));
                 var listObj = $("#divPromotions").append('<ul></ul>').find('ul');
                 var promo_length = $(data).find('.promotion_group').length;
                 $(data).find('.promotion_group').each(function (index) {
