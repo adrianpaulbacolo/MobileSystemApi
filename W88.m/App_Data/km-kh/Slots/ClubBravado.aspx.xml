@@ -38,6 +38,15 @@
         <PlayForFunURL><![CDATA[{BravadoUrl}/ninetailedninja/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
       </Ninetailedninja>
+      <towerquestmobile>
+        <ImageName><![CDATA[towerquestmobile]]></ImageName>
+      </towerquestmobile>
+      <eastereggsmobile>
+        <ImageName><![CDATA[eastereggsmobile]]></ImageName>
+      </eastereggsmobile>
+      <pimpedmobile>
+        <ImageName><![CDATA[pimpedmobile]]></ImageName>
+      </pimpedmobile>
       <FiveXMagicMobile>
         <ImageName><![CDATA[5xmagicmobile]]></ImageName>
       </FiveXMagicMobile>
