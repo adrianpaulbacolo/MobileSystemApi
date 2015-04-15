@@ -38,6 +38,12 @@
         <PlayForFunURL><![CDATA[{BravadoUrl}/ninetailedninja/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
       </Ninetailedninja>
+      <QueenBee>
+        <ImageName><![CDATA[queenbee]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/Queenbee/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/Queenbee/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </QueenBee>
       <towerquestmobile>
         <ImageName><![CDATA[towerquestmobile]]></ImageName>
       </towerquestmobile>
