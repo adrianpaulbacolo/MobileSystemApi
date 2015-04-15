@@ -118,48 +118,48 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="required_18" xml:space="preserve">
-    <value>You must be older than 18</value>
+    <value>あなたは18才以上でなければなりません。</value>
   </data>
   <data name="required_alpha_numeric" xml:space="preserve">
-    <value>Username must contain only letters or numbers</value>
+    <value>ユーザー名は、文字または数字だけを含まなければなりません</value>
   </data>
   <data name="required_date" xml:space="preserve">
-    <value>Please enter a valid date.</value>
+    <value>有効な日付を入力してください。</value>
   </data>
   <data name="required_digits" xml:space="preserve">
-    <value>Please enter only digits.</value>
+    <value>桁だけを入力してください。</value>
   </data>
   <data name="required_email" xml:space="preserve">
-    <value>Please enter a valid email address.</value>
+    <value>有効なＥメールアドレスを入力してください。</value>
   </data>
   <data name="required_equalTo" xml:space="preserve">
-    <value>Please enter the same value again.</value>
+    <value>もう一度同じ値を入力してください。</value>
   </data>
   <data name="required_fields" xml:space="preserve">
-    <value>Required field</value>
+    <value>必要な分野</value>
   </data>
   <data name="required_max" xml:space="preserve">
-    <value>Please enter a value less than or equal to {0}.</value>
+    <value>{0}～より少ないか、または同等の値を入力してください。</value>
   </data>
   <data name="required_maxlength" xml:space="preserve">
-    <value>Please enter no more than {0} characters.</value>
+    <value>{0}～以下の文字 を入力してください。</value>
   </data>
   <data name="required_min" xml:space="preserve">
-    <value>Please enter a value greater than or equal to {0}.</value>
+    <value>{0}～以上の値を入力してください。</value>
   </data>
   <data name="required_minlength" xml:space="preserve">
-    <value>Please enter at least {0} characters.</value>
+    <value>少なくとも｛0｝文字を入力してください。</value>
   </data>
   <data name="required_number" xml:space="preserve">
-    <value>Please enter a valid number.</value>
+    <value>有効な数を入れてください。</value>
   </data>
   <data name="required_range" xml:space="preserve">
-    <value>Please enter a value between {0} and {1}.</value>
+    <value>{0}～と{1}～の間の値を入れてください。</value>
   </data>
   <data name="required_rangelength" xml:space="preserve">
     <value>Please enter a value between {0} and {1} characters long.</value>
   </data>
   <data name="required_remote" xml:space="preserve">
-    <value>Please enter the captcha or refresh to get a new captcha</value>
+    <value>キャプチャを入力するか、または　リフレッシュして別のを入力してください。</value>
   </data>
 </root>

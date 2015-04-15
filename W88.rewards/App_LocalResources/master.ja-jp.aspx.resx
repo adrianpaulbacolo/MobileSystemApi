@@ -117,8 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="account_safety_100" xml:space="preserve">
+    <value>エクセレンス</value>
+  </data>
+  <data name="account_safety_25" xml:space="preserve">
+    <value>プア</value>
+  </data>
+  <data name="account_safety_50" xml:space="preserve">
+    <value>ノーマル</value>
+  </data>
+  <data name="account_safety_75" xml:space="preserve">
+    <value>グッド</value>
+  </data>
   <data name="btn_close_modal" xml:space="preserve">
-    <value>閉じる</value>
+    <value>クローズ</value>
+  </data>
+  <data name="lbl_account_safety_title" xml:space="preserve">
+    <value>アカウントの安全性：</value>
+  </data>
+  <data name="lbl_balance" xml:space="preserve">
+    <value>残高（ポーカーを除く）。</value>
   </data>
   <data name="lbl_live_help" xml:space="preserve">
     <value>ライブヘルプ</value>
@@ -126,8 +144,8 @@
   <data name="lbl_message" xml:space="preserve">
     <value>メッセージ</value>
   </data>
-  <data name="link_rewards" xml:space="preserve">
-    <value>Rewards</value>
+  <data name="lbl_rewards_point" xml:space="preserve">
+    <value>リワードポイント</value>
   </data>
   <data name="lbl_title" xml:space="preserve">
     <value>マイアカウント</value>
@@ -142,13 +160,19 @@
     <value>パスワード変更</value>
   </data>
   <data name="link_claim" xml:space="preserve">
-    <value>クレーム</value>
+    <value>フリーベット</value>
   </data>
   <data name="link_deposit" xml:space="preserve">
     <value>入金</value>
   </data>
   <data name="link_edit_profile" xml:space="preserve">
-    <value>プロフィール変更</value>
+    <value>プロファイル編集</value>
+  </data>
+  <data name="link_fund_management" xml:space="preserve">
+    <value>資金管理</value>
+  </data>
+  <data name="link_fund_transfer" xml:space="preserve">
+    <value>資金管理</value>
   </data>
   <data name="link_history" xml:space="preserve">
     <value>履歴</value>
@@ -157,63 +181,36 @@
     <value>入金/出金</value>
   </data>
   <data name="link_history_fund_transfer" xml:space="preserve">
-    <value>ファンドトランスファー</value>
+    <value>送金</value>
   </data>
   <data name="link_history_promotion_claim" xml:space="preserve">
-    <value>プロモーションクレーム</value>
+    <value>プロモーション請求</value>
   </data>
   <data name="link_history_referral" xml:space="preserve">
-    <value>紹介ボーナス</value>
+    <value>ボーナスの紹介</value>
+  </data>
+  <data name="link_private_message" xml:space="preserve">
+    <value>プライベートメッセージ</value>
   </data>
   <data name="link_profile" xml:space="preserve">
-    <value>プロフィール</value>
+    <value>プロファイル</value>
+  </data>
+  <data name="link_rewards" xml:space="preserve">
+    <value>リワードクラブ</value>
+  </data>
+  <data name="link_safety_bankingdetail" xml:space="preserve">
+    <value>アップデート銀行詳細</value>
+  </data>
+  <data name="link_safety_contact" xml:space="preserve">
+    <value>連絡先番号確認</value>
+  </data>
+  <data name="link_safety_email" xml:space="preserve">
+    <value>Eメール確認</value>
   </data>
   <data name="link_transfer" xml:space="preserve">
     <value>トランスファー</value>
   </data>
   <data name="link_withdrawal" xml:space="preserve">
     <value>出金</value>
-  </data>
-  <data name="lbl_balance" xml:space="preserve">
-    <value>Balance&lt;br /&gt;(Except Poker)</value>
-  </data>
-  <data name="lbl_rewards_point" xml:space="preserve">
-    <value>Rewards Points</value>
-  </data>
-  <data name="link_fund_management" xml:space="preserve">
-    <value>Fund Management</value>
-  </data>
-  <data name="link_fund_transfer" xml:space="preserve">
-    <value>Fund Management</value>
-  </data>
-  <data name="link_private_message" xml:space="preserve">
-    <value>Private Messages</value>
-  </data>
-  <data name="account_safety_100" xml:space="preserve">
-    <value>Very Good</value>
-  </data>
-  <data name="account_safety_25" xml:space="preserve">
-    <value>Fine</value>
-  </data>
-  <data name="account_safety_50" xml:space="preserve">
-    <value>Quite Good</value>
-  </data>
-  <data name="account_safety_75" xml:space="preserve">
-    <value>Good</value>
-  </data>
-  <data name="lbl_account_safety_title" xml:space="preserve">
-    <value>Account Safety:</value>
-  </data>
-  <data name="data-content-bank-details" xml:space="preserve">
-    <value>成功绑定银行卡后才能进行提款操作，成功提款后如需修改请联系客服。</value>
-  </data>
-  <data name="data-content-email" xml:space="preserve">
-    <value>成功绑定邮箱后您将享受找回密码、更换手机验证等安全服务。&lt;br/&gt;&lt;font color=#41b983&gt;此外，您将获得10元奖励&lt;/font&gt;</value>
-  </data>
-  <data name="data-content-phone" xml:space="preserve">
-    <value>成功绑定手机后您将享受第三方在线存款、极速提款以及找回密码等安全服务。&lt;br/&gt;&lt;font color=#41b983&gt;此外，您将获得15元奖励&lt;/font&gt;</value>
-  </data>
-  <data name="data-content-registered" xml:space="preserve">
-    <value>成功绑定真实姓名后才能进行提款操作，如需修改请联系客服。&lt;br/&gt;&lt;font color=#41b983&gt;此外，您将获得5元奖励&lt;/font&gt;</value>
   </data>
 </root>

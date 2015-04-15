@@ -118,27 +118,27 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="btn_cancel" xml:space="preserve">
-    <value>CANCEL</value>
+    <value>キャンセル</value>
   </data>
   <data name="btn_submit" xml:space="preserve">
-    <value>SUBMIT</value>
+    <value>提出</value>
   </data>
   <data name="lbl_comment" xml:space="preserve">
-    <value>Comment</value>
+    <value>コメント</value>
   </data>
   <data name="lbl_id" xml:space="preserve">
     <value>ID</value>
   </data>
   <data name="msg_error" xml:space="preserve">
-    <value>Error occur, please try again later.</value>
+    <value>エラーが発生しました。後ほどまたお試しください。</value>
   </data>
   <data name="msg_multiple_submit" xml:space="preserve">
-    <value>Only allow to submit once.</value>
+    <value>サブミットは１度のみです。</value>
   </data>
   <data name="msg_success" xml:space="preserve">
-    <value>Bravo! Your submission was successful. Thank you.</value>
+    <value>ブラボー！あなたの申請は成功しました。ありがとうございます。</value>
   </data>
   <data name="msg_vip_only" xml:space="preserve">
-    <value>当プロモーションは、VIPメンバーのみにご案内差し上げております。&lt;br/&gt;~プレステージクラブの違いを感じて頂けます~</value>
+    <value>このプロモーションはVIP会員のみです。評判の高いクラブの一員であるという違いを感じてください。</value>
   </data>
 </root>

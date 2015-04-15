@@ -112,27 +112,27 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="security_question_1" xml:space="preserve">
-    <value>What is your mother's middle name? </value>
+    <value>あなたのお母様のミドルネームは、何ですか。</value>
   </data>
   <data name="security_question_2" xml:space="preserve">
-    <value>What was your childhood nickname? </value>
+    <value>あなたの幼年期のあだ名は何でしたか?</value>
   </data>
   <data name="security_question_3" xml:space="preserve">
-    <value>What was your dream job as a child? </value>
+    <value>子供の時、理想の仕事は何でしたか?</value>
   </data>
   <data name="security_question_4" xml:space="preserve">
-    <value>In what city or town was your first job?</value>
+    <value>どんな都市か町で、あなたの最初の仕事がありましたか?</value>
   </data>
   <data name="security_question_5" xml:space="preserve">
-    <value>What is the name of the first school you attended?</value>
+    <value>あなたが通った最初の学校の名前は何ですか。</value>
   </data>
   <data name="security_question_6" xml:space="preserve">
-    <value>What is your father's middle name?</value>
+    <value>あなたのお父様のミドルネームは、何ですか。</value>
   </data>
 </root>

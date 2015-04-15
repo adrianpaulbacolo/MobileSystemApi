@@ -118,45 +118,47 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lbl_emptyItem" xml:space="preserve">
-    <value>Opps! Kindly contact our Customer Service for assistance.</value>
+    <value>お手数ですがカスタマーサービスにご連絡ください。</value>
   </data>
   <data name="lbl_header1" xml:space="preserve">
-    <value>SPIN YOUR CHANCE AND WIN FABULOUS PRIZES!</value>
+    <value>あなたのチャンスですスピンを回して、素晴らしい賞を獲得してください！</value>
   </data>
   <data name="lbl_header2" xml:space="preserve">
-    <value>The more you play, the greater gift you'll receive.</value>
+    <value>あなたが、より多くプレイすれば、するほど、あなたが受け取る贈り物は、よりすばらしいものになるでしょう。</value>
   </data>
   <data name="lbl_header3" xml:space="preserve">
-    <value>Upgrade your level for even more amazing prizes await!</value>
+    <value>あなたのレベルをアップグレードしてください、なぜならば、さらに驚くべき賞が待っているからです。</value>
   </data>
   <data name="lbl_headerButton" xml:space="preserve">
-    <value>SPIN NOW</value>
+    <value>今スピンしてください。</value>
   </data>
   <data name="lbl_headerNoRedeem" xml:space="preserve">
-    <value>You have redeemed your spin for this week</value>
+    <value>今週のスピンは償還が終わっております。</value>
   </data>
   <data name="lbl_headerShowPlay1" xml:space="preserve">
-    <value>You have </value>
+    <value>あなたは～を持ってます。</value>
   </data>
   <data name="lbl_headerShowPlay2" xml:space="preserve">
-    <value> spin(s) left.</value>
+    <value>残りスピン</value>
   </data>
   <data name="lbl_notEligible" xml:space="preserve">
-    <value>Oops! Your account is not eligible for this spin. Thank you for trying and please look for our Customer Service via Live Chat should you require further assistance. =)</value>
+    <value>あなたのアカウントはこのスピンをご利用出来ません。　お試し頂きありがとうございます。ライブチャットを通してカスタマーサービスにご連絡ください。
+</value>
   </data>
   <data name="lbl_reachLimit" xml:space="preserve">
-    <value>Oops! You have already used your spin recently. Please try again on the wheel soon! =)</value>
+    <value>あなたは最近すでにこのスピンを利用してます。　次のホイールをお待ちください。</value>
   </data>
   <data name="lbl_redeemLimit" xml:space="preserve">
-    <value>All prize item(s) are successfully redeemed. For more details, kindly contact our Customer Service for enquiry.</value>
+    <value>すべての賞の商品が償還されました。その他の詳細に関しては、カスタマーサービスにご連絡ください。
+</value>
   </data>
   <data name="lbl_remark1" xml:space="preserve">
-    <value>One spin</value>
+    <value>スピン</value>
   </data>
   <data name="lbl_remark2" xml:space="preserve">
-    <value>Prize won is free.</value>
+    <value>獲得される賞は、無料です。</value>
   </data>
   <data name="lbl_remark3" xml:space="preserve">
-    <value>Prize is not refundable, and cannot be exchanged or transferred.</value>
+    <value>賞は払い戻しも、交換もできませんし、移動させることができません。</value>
   </data>
 </root>
