@@ -112,51 +112,51 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AUD" xml:space="preserve">
-    <value>AUD</value>
+    <value>オーストラリアドル</value>
   </data>
   <data name="EMPTY" xml:space="preserve">
-    <value>Please select your prefer currency</value>
+    <value>お好みの通貨をお選びください</value>
   </data>
   <data name="EUR" xml:space="preserve">
-    <value>EUR</value>
+    <value>ユーロ</value>
   </data>
   <data name="GBP" xml:space="preserve">
-    <value>GBP</value>
+    <value>英ポンド</value>
   </data>
   <data name="IDR" xml:space="preserve">
-    <value>IDR</value>
+    <value>インドネシアルピア</value>
   </data>
   <data name="INR" xml:space="preserve">
-    <value>INR</value>
+    <value>インドルピー</value>
   </data>
   <data name="JPY" xml:space="preserve">
-    <value>JPY</value>
+    <value>日本円</value>
   </data>
   <data name="KRW" xml:space="preserve">
-    <value>KRW</value>
+    <value>韓国ウオン</value>
   </data>
   <data name="MYR" xml:space="preserve">
-    <value>MYR</value>
+    <value>マレーシア・リンギット</value>
   </data>
   <data name="RMB" xml:space="preserve">
-    <value>RMB</value>
+    <value>中国レンミンビ</value>
   </data>
   <data name="THB" xml:space="preserve">
-    <value>THB</value>
+    <value>タイバーツ</value>
   </data>
   <data name="USD" xml:space="preserve">
-    <value>USD</value>
+    <value>アメリカドル</value>
   </data>
   <data name="UUS" xml:space="preserve">
-    <value>Demo Currency (UUS)</value>
+    <value>デモ通貨(UUS)</value>
   </data>
   <data name="VND" xml:space="preserve">
-    <value>VND</value>
+    <value>ベトナムドン</value>
   </data>
 </root>

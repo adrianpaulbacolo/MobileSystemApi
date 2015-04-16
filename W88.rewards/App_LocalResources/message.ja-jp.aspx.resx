@@ -121,10 +121,10 @@
     <value>戻る</value>
   </data>
   <data name="btn_select_all" xml:space="preserve">
-    <value>全て選択</value>
+    <value>すべてを選択</value>
   </data>
   <data name="btn_Send" xml:space="preserve">
-    <value>送信</value>
+    <value>送る</value>
   </data>
   <data name="lbl_message_count" xml:space="preserve">
     <value>アイテム</value>
@@ -136,6 +136,6 @@
     <value>ページ</value>
   </data>
   <data name="title_message" xml:space="preserve">
-    <value>ペッセージ</value>
+    <value>メッセージ</value>
   </data>
 </root>

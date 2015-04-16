@@ -10,8 +10,9 @@ public class commonASports
     {
         get
         {
-            customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
-            string strUrl = opSettings.Values.Get("ASportsUrl");
+            //customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
+            //string strUrl = opSettings.Values.Get("ASportsUrl"); 
+            string strUrl = commonCountry.getISportURL();
             return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName).Replace("{LANG}", commonASports.getSportsLanguageId(commonVariables.SelectedLanguage)).Replace("{TOKEN}", commonVariables.GetSessionVariable("MemberSessionId"));
         }
     }

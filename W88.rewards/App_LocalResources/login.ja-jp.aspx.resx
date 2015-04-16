@@ -121,48 +121,48 @@
     <value>ログイン</value>
   </data>
   <data name="link_register" xml:space="preserve">
-    <value>新規登録</value>
+    <value>参加する</value>
   </data>
   <data name="login_lbl_captcha" xml:space="preserve">
     <value>コード</value>
   </data>
   <data name="login_lbl_forgot_login" xml:space="preserve">
-    <value>ログイン情報を忘れた</value>
+    <value>ログイン情報をお忘れですか。</value>
   </data>
   <data name="login_lbl_join_now" xml:space="preserve">
-    <value>&lt;a href="{0}" target="_top" type="register"&gt;新規登録&lt;/a&gt;</value>
+    <value>&lt;a href="{0}" target="_top" type="register"&gt;ジョインナウ&lt;/a&gt;</value>
   </data>
   <data name="login_lbl_password" xml:space="preserve">
     <value>パスワード</value>
   </data>
   <data name="login_lbl_username" xml:space="preserve">
-    <value>ユーザー名</value>
+    <value>ユーザーネーム</value>
   </data>
   <data name="msg_account_disable" xml:space="preserve">
-    <value>W88.com: ログインに失敗しました。サポートセンターにお問い合わせください</value>
+    <value>お客様のアカウントはログインに失敗しました。24時間、年中無休のカスタマーサービスにご連絡してください。</value>
   </data>
   <data name="msg_card_code_not_exist" xml:space="preserve">
-    <value>Card Code does not exist.</value>
+    <value>そのカードコードは存在しません。</value>
   </data>
   <data name="msg_card_code_not_match_password" xml:space="preserve">
-    <value>Card Code and Password do not match.</value>
+    <value>カードコードとパスワードがマッチしません。</value>
   </data>
   <data name="msg_card_code_used" xml:space="preserve">
-    <value>Card Code already registered.</value>
+    <value>カードコードはすでに登録済みです。</value>
   </data>
   <data name="msg_error" xml:space="preserve">
-    <value>エラーが発生しました。再度トライしてください</value>
+    <value>原因不明のエラーです。もう１度お試しください。</value>
   </data>
   <data name="msg_forbidden" xml:space="preserve">
-    <value>We are not serving your location. Apologise for any inconvenience that this may have caused.</value>
+    <value>ご不便をおかけして申し訳ございません。お客様がお住まいの地域はサービスを行っておりません。</value>
   </data>
   <data name="msg_not_exist" xml:space="preserve">
-    <value>ユーザー名または、パスワードが無効です</value>
+    <value>無効のユーザーネームと/またはパスワード</value>
   </data>
   <data name="msg_wrong_password" xml:space="preserve">
-    <value>ユーザー名または、パスワードが無効です</value>
+    <value>無効のユーザーネームと/またはパスワード</value>
   </data>
   <data name="msg_wrong_password_not_exist" xml:space="preserve">
-    <value>ユーザー名または、パスワードが無効です</value>
+    <value>無効のユーザーネームと/またはパスワード</value>
   </data>
 </root>

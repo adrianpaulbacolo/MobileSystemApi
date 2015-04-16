@@ -118,177 +118,177 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="btn_submit" xml:space="preserve">
-    <value>SUBMIT</value>
+    <value>サブミット</value>
   </data>
   <data name="default_address" xml:space="preserve">
-    <value>Please key in your address</value>
+    <value>あなたのアドレスを入力してください。</value>
   </data>
   <data name="default_affiliate" xml:space="preserve">
-    <value>Please enter Affiliate ID</value>
+    <value>アフィリエイトＩＤを入力してください。</value>
   </data>
   <data name="default_agreement" xml:space="preserve">
-    <value>Please tick to confirm you have read and understood W88's Terms &amp; conditions, Rules, Privacy Policy, Cookie policy and policies relating to age verification.</value>
+    <value>タームズコンディション、ルール、  プライバシーポリシー、クッキーポリシー、年齢確認に関するポリシーを読んで、理解したことをご確認ください。</value>
   </data>
   <data name="default_captcha" xml:space="preserve">
-    <value>Please enter validation code</value>
+    <value>認証コードを入れてください。</value>
   </data>
   <data name="default_city" xml:space="preserve">
-    <value>Please key in your city</value>
+    <value>シティを入れてください。</value>
   </data>
   <data name="default_confirm_password" xml:space="preserve">
-    <value>Please enter your password again</value>
+    <value>もう一度パスワードを入力してください。</value>
   </data>
   <data name="default_contact_no" xml:space="preserve">
-    <value>Please enter your contact number</value>
+    <value>ご連絡先番号を入力してください。</value>
   </data>
   <data name="default_contact_no_country" xml:space="preserve">
-    <value>Please select your contact no country code</value>
+    <value>コンタクトナンバー、国コードをお選びください。</value>
   </data>
   <data name="default_currency" xml:space="preserve">
-    <value>Please select your preferred currency.&lt;br /&gt;Currency chosen is not changeable.</value>
+    <value>お好みの通貨を選んでください。選んだ通貨を変えることはできません。</value>
   </data>
   <data name="default_current_password" xml:space="preserve">
-    <value>Please enter your current password</value>
+    <value>現在のパスワードを入力してください。</value>
   </data>
   <data name="default_dob" xml:space="preserve">
-    <value>Please enter valid DOB</value>
+    <value>有効なDOBを入力してください。</value>
   </data>
   <data name="default_email" xml:space="preserve">
-    <value>Please enter your email address</value>
+    <value>Ｅメールアドレスを入力してください。</value>
   </data>
   <data name="default_first_name" xml:space="preserve">
-    <value>Please enter your first name only. &lt;br /&gt;Card transcations, cheques and bank wires can only processed if the name matches that of the account holder.</value>
+    <value>ファーストネームのみ入力してください。&lt;br /&gt;　お名前がアカウント保持者とマッチすれば、カード処理、チェック、バンクワイヤ、の手続きを致します。</value>
   </data>
   <data name="default_gender" xml:space="preserve">
-    <value>Gender</value>
+    <value>性別</value>
   </data>
   <data name="default_language" xml:space="preserve">
-    <value>Please choose your prefer language</value>
+    <value>お好みの言語をお選びください。</value>
   </data>
   <data name="default_last_name" xml:space="preserve">
-    <value>Please enter your last name only. &lt;br /&gt;Card transcations, cheques and bank wires can only processed if the name matches that of the account holder.</value>
+    <value>名字のみ入力してください。&lt;br /&gt;お名前がアカウント保持者とマッチすれば、カード処理、チェック、バンクワイヤ、の手続きを致します。</value>
   </data>
   <data name="default_odds" xml:space="preserve">
-    <value>Please enter odds</value>
+    <value>賭け率を入力してください。</value>
   </data>
   <data name="default_password" xml:space="preserve">
-    <value>Please enter your password</value>
+    <value>パスワードを入力してください。</value>
   </data>
   <data name="default_postal" xml:space="preserve">
-    <value>Please key in your postal code</value>
+    <value>郵便番号を入力してください。</value>
   </data>
   <data name="default_security_answer" xml:space="preserve">
-    <value>Please enter your security answer.</value>
+    <value>セキュリティアンサーを入力してください。</value>
   </data>
   <data name="default_security_question" xml:space="preserve">
-    <value>Please select a security question.</value>
+    <value>セキュリティ、クエッションをお選びください。</value>
   </data>
   <data name="default_title" xml:space="preserve">
-    <value>Please select your preferred title.</value>
+    <value>お好きなタイトルを選択してください。</value>
   </data>
   <data name="default_username" xml:space="preserve">
-    <value>Please enter your desired username</value>
+    <value>ご希望のユーザー名を入力してください。</value>
   </data>
   <data name="lbl_address" xml:space="preserve">
-    <value>Address</value>
+    <value>アドレス</value>
   </data>
   <data name="lbl_affiliate" xml:space="preserve">
-    <value>Affiliate ID</value>
+    <value>アフィリエイトＩＤ</value>
   </data>
   <data name="lbl_agreement" xml:space="preserve">
-    <value>I am at least 18 years of age and I have read, accept and agree to the &lt;a href='javascript:load_info("/termOfUse_en.shtml");' &gt; Terms &amp; Conditions, Rules, Privacy Policy, Cookie Policy&lt;/a&gt; and policies relating to &lt;a href='{1}' data-toggle='modal' data-target='#age_policy' &gt;age verification&lt;/a&gt;.</value>
+    <value>私は18歳以上であり、契約条件を読み、受け入れて同意します。&lt;a href='javascript:load_info("/termOfUse_en.shtml");' &gt; Terms &amp; Conditions, Rules, Privacy Policy, Cookie Policy&lt;/a&gt; and policies relating to &lt;a href='{1}' data-toggle='modal' data-target='#age_policy' &gt;age verification&lt;/a&gt;.</value>
   </data>
   <data name="lbl_captcha" xml:space="preserve">
-    <value>Validation Code</value>
+    <value>認証コード</value>
   </data>
   <data name="lbl_city" xml:space="preserve">
-    <value>City</value>
+    <value>シティ</value>
   </data>
   <data name="lbl_confirm_password" xml:space="preserve">
-    <value>Confirm password</value>
+    <value>パスワードの確認</value>
   </data>
   <data name="lbl_contact_no" xml:space="preserve">
-    <value>Contact Number</value>
+    <value>ご連絡先番号</value>
   </data>
   <data name="lbl_country" xml:space="preserve">
-    <value>Country</value>
+    <value>国</value>
   </data>
   <data name="lbl_currency" xml:space="preserve">
-    <value>Currency</value>
+    <value>通貨</value>
   </data>
   <data name="lbl_current_password" xml:space="preserve">
-    <value>Current Password</value>
+    <value>現在のパスワード</value>
   </data>
   <data name="lbl_dob" xml:space="preserve">
-    <value>Date of birth</value>
+    <value>生年月日</value>
   </data>
   <data name="lbl_email" xml:space="preserve">
-    <value>Email Address</value>
+    <value>Ｅメールアドレス</value>
   </data>
   <data name="lbl_first_name" xml:space="preserve">
-    <value>First Name</value>
+    <value>名</value>
   </data>
   <data name="lbl_forgot_login" xml:space="preserve">
-    <value>Already a member? Find your &lt;a href="/forgot_login.aspx"&gt;Login Details&lt;/a&gt;</value>
+    <value>既に登録されていますか？ログイン詳細を見つけてください</value>
   </data>
   <data name="lbl_gender" xml:space="preserve">
-    <value>Gender</value>
+    <value>性別</value>
   </data>
   <data name="lbl_language" xml:space="preserve">
-    <value>Language</value>
+    <value>言語</value>
   </data>
   <data name="lbl_last_name" xml:space="preserve">
-    <value>Last Name</value>
+    <value>姓</value>
   </data>
   <data name="lbl_new_password" xml:space="preserve">
-    <value>New password</value>
+    <value>新しいパスワード</value>
   </data>
   <data name="lbl_odds" xml:space="preserve">
-    <value>Odds</value>
+    <value>オッズ</value>
   </data>
   <data name="lbl_password" xml:space="preserve">
-    <value>Password</value>
+    <value>パスワード</value>
   </data>
   <data name="lbl_policy_age" xml:space="preserve">
-    <value>Age Verification Policy</value>
+    <value>年齢確認方針</value>
   </data>
   <data name="lbl_postal" xml:space="preserve">
-    <value>Postal</value>
+    <value>郵便</value>
   </data>
   <data name="lbl_security_answer" xml:space="preserve">
-    <value>Security Answer</value>
+    <value>セキュリティアンサー</value>
   </data>
   <data name="lbl_security_question" xml:space="preserve">
-    <value>Security Question</value>
+    <value>セキュリティ、クエッション</value>
   </data>
   <data name="lbl_term_n_condition" xml:space="preserve">
-    <value>Term &amp; Condition</value>
+    <value>契約条件</value>
   </data>
   <data name="lbl_title" xml:space="preserve">
-    <value>Title</value>
+    <value>タイトル</value>
   </data>
   <data name="lbl_username" xml:space="preserve">
-    <value>Username</value>
+    <value>ユーザーネーム</value>
   </data>
   <data name="msg_required" xml:space="preserve">
-    <value>Required fields &lt;span class="red"&gt;*&lt;/span&gt;</value>
+    <value>必要な分野　&lt;span class="red"&gt;*&lt;/span&gt;</value>
   </data>
   <data name="option_gender_f" xml:space="preserve">
-    <value>Female</value>
+    <value>女性</value>
   </data>
   <data name="option_gender_m" xml:space="preserve">
-    <value>Male</value>
+    <value>男性</value>
   </data>
   <data name="option_security_question" xml:space="preserve">
-    <value>Please select a question</value>
+    <value>質問を選択してください。</value>
   </data>
   <data name="option_title_miss" xml:space="preserve">
-    <value>Miss</value>
+    <value>様</value>
   </data>
   <data name="option_title_mr" xml:space="preserve">
-    <value>Mr.</value>
+    <value>様</value>
   </data>
   <data name="option_title_mrs" xml:space="preserve">
-    <value>Mrs.</value>
+    <value>様</value>
   </data>
 </root>

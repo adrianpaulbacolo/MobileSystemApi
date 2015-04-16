@@ -118,38 +118,36 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lbl_tab_account" xml:space="preserve">
-    <value>Rewards Account</value>
+    <value>リワードアカウント</value>
   </data>
   <data name="lbl_tab_disclaimer" xml:space="preserve">
-    <value>Disclaimer</value>
-    <comment>Disclaimer</comment>
+    <value>免責事項</value>
   </data>
   <data name="lbl_tab_earnings" xml:space="preserve">
-    <value>Earnings and Payments</value>
+    <value>収益と支払い</value>
   </data>
   <data name="lbl_tab_Freebet" xml:space="preserve">
-    <value>Redemption for Free Bet</value>
+    <value>無料の賭けのための償還</value>
   </data>
   <data name="lbl_tab_marketing" xml:space="preserve">
-    <value>Marketing Materials</value>
+    <value>マーケティング</value>
   </data>
   <data name="lbl_tab_myaccount" xml:space="preserve">
-    <value>My Account</value>
+    <value>マイ　アカウント</value>
   </data>
   <data name="lbl_tab_points" xml:space="preserve">
-    <value>Points Computation</value>
+    <value>ポイント計算</value>
   </data>
   <data name="lbl_tab_privacypolicy" xml:space="preserve">
-    <value>Privacy Policy</value>
-    <comment>Privacy Policy</comment>
+    <value>プライバシーポリシー</value>
   </data>
   <data name="lbl_tab_product" xml:space="preserve">
-    <value>Redemption for other Products</value>
+    <value>他の製品の償還</value>
   </data>
   <data name="lbl_tab_programme" xml:space="preserve">
-    <value>Affiliate Programme</value>
+    <value>アフィリエイトプログラム</value>
   </data>
   <data name="lbl_tab_rewards_program" xml:space="preserve">
-    <value>Rewards Programme</value>
+    <value>リワ－ズクラブ</value>
   </data>
 </root>

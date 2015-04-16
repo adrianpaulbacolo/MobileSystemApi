@@ -112,54 +112,55 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="btn_close_modal" xml:space="preserve">
-    <value>Close</value>
+    <value>クローズ</value>
   </data>
   <data name="btn_close_window" xml:space="preserve">
-    <value>Close</value>
-  </data>
-  <data name="msg_duplicate_email" xml:space="preserve">
-    <value>Email address is already registered. Please enter a new email address.</value>
-  </data>
-  <data name="msg_duplicate_username" xml:space="preserve">
-    <value>Username is already registered. Please enter a new Username.</value>
-  </data>
-  <data name="msg_error" xml:space="preserve">
-    <value>Unknown error, please try again.</value>
-  </data>
-  <data name="msg_other" xml:space="preserve">
-    <value>Unknown error, please try again.</value>
-  </data>
-  <data name="msg_success" xml:space="preserve">
-    <value>Your account has been created and ready for you to start experiencing the thrills and excitement of online gaming.&lt;br/&gt;&lt;br/&gt;You're are just moments away to enjoy attractive sign up bonuses!</value>
-  </data>
-  <data name="content_policy_age" xml:space="preserve">
-    <value>Bets may only be placed by those who are aged 18 or over. We may undertake a search with third party for the purpose of verifying thatyou are 18 or over, W88 reserves the right to ask for the proof of age. Customer accounts may be suspended and funds withheld untill satisfactory proof of age is provided.</value>
-  </data>
-  <data name="title_register" xml:space="preserve">
-    <value>Create Account</value>
-  </data>
-  <data name="remote_captcha" xml:space="preserve">
-    <value>wrong captcha</value>
-  </data>
-  <data name="remote_email" xml:space="preserve">
-    <value>email is taken</value>
-  </data>
-  <data name="remote_username" xml:space="preserve">
-    <value>username is taken</value>
-  </data>
-  <data name="link_forgot_login" xml:space="preserve">
-    <value>Already a member? Find your &lt;a href="/forgot_login.aspx"&gt;Login Details&lt;/a&gt;</value>
+    <value>クローズ</value>
   </data>
   <data name="btn_submit" xml:space="preserve">
-    <value>JOIN</value>
+    <value>ジョイン</value>
+  </data>
+  <data name="content_policy_age" xml:space="preserve">
+    <value>ベットは１８歳以上の方がご利用になれます。我々は第三者機関に年齢の証明を委託する権利を有します。</value>
   </data>
   <data name="content_term_n_condition" xml:space="preserve">
-    <value>Bets may only be placed by those who are aged 18 or over. We may undertake a search with third party for the purpose of verifying thatyou are 18 or over, W88 reserves the right to ask for the proof of age. Customer accounts may be suspended and funds withheld untill satisfactory proof of age is provided.</value>
+    <value>お客様のアカウントは年齢の証明が提供されるまで一時ご利用できない場合がございます。ご了承くださいませ。
+</value>
+  </data>
+  <data name="link_forgot_login" xml:space="preserve">
+    <value>すでにメンバーですか。あなたの&lt;a href="/forgot_login.aspx"&gt;ログインの詳細&lt;/a&gt;を確認してください。　</value>
+  </data>
+  <data name="msg_duplicate_email" xml:space="preserve">
+    <value>Eメールアドレスは既に登録されております。 新しいEメールアドレスを入力してください。</value>
+  </data>
+  <data name="msg_duplicate_username" xml:space="preserve">
+    <value>ユーザーネームは既に登録されております。新しいユーザーネームを入力してください。</value>
+  </data>
+  <data name="msg_error" xml:space="preserve">
+    <value>原因不明のエラーです。もう１度お試しください。</value>
+  </data>
+  <data name="msg_other" xml:space="preserve">
+    <value>原因不明のエラーです。もう１度お試しください。</value>
+  </data>
+  <data name="msg_success" xml:space="preserve">
+    <value>あなたのアカウントが作成され、オンラインゲームのスリルと興奮を経験し始める準備ができています。&lt;br/&gt;&lt;br/&gt;　あなたは魅力的なサインアップボーナス楽しめるすぐそばにいます。</value>
+  </data>
+  <data name="remote_captcha" xml:space="preserve">
+    <value>間違ったcaptcha</value>
+  </data>
+  <data name="remote_email" xml:space="preserve">
+    <value>そのEメールは使われております。</value>
+  </data>
+  <data name="remote_username" xml:space="preserve">
+    <value>そのユーザーネームは使われております。</value>
+  </data>
+  <data name="title_register" xml:space="preserve">
+    <value>クリエイトアカウント</value>
   </data>
 </root>

@@ -50,6 +50,7 @@
                             <div class="footer-image-lang" data-rel="lang-kh"><a href="/Index?lang=km-kh" data-ajax="false">&nbsp;</a></div>
                             <div class="footer-image-lang" data-rel="lang-id"><a href="/Index?lang=id-id" data-ajax="false">&nbsp;</a></div>
                             <div class="footer-image-lang" data-rel="lang-kr"><a href="/Index?lang=ko-kr" data-ajax="false">&nbsp;</a></div>
+                              <div class="footer-image-lang" data-rel="lang-jp"><a href="/Index?lang=jp-ja" data-ajax="false">&nbsp;</a></div>
                         </div>
                     </div>
                 </div>

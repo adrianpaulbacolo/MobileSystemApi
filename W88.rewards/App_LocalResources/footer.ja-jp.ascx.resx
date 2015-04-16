@@ -118,36 +118,36 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lbl_about" xml:space="preserve">
-    <value>About Us</value>
+    <value>弊社について</value>
   </data>
   <data name="lbl_affiliates" xml:space="preserve">
-    <value>Affiliates</value>
+    <value>アフィリエイト</value>
   </data>
   <data name="lbl_contact_us" xml:space="preserve">
-    <value>Contact Us</value>
+    <value>お問い合わせ</value>
   </data>
   <data name="lbl_copyrights" xml:space="preserve">
-    <value>&amp;copy;{0} W88. All rights reserved | 18+</value>
+    <value>{0} 著作権所有</value>
   </data>
   <data name="lbl_help_centre" xml:space="preserve">
-    <value>Info Centre</value>
+    <value>インフォセンター</value>
   </data>
   <data name="lbl_payment_method" xml:space="preserve">
     <value />
   </data>
   <data name="lbl_responsible" xml:space="preserve">
-    <value>Responsible Gaming</value>
+    <value>リスポンスィブルゲーム</value>
   </data>
   <data name="lbl_rewards" xml:space="preserve">
-    <value>Rewards</value>
+    <value>リワーズクラブ</value>
   </data>
   <data name="lbl_social_network" xml:space="preserve">
-    <value>Connect with us</value>
+    <value>私たちと繋がっていてください。</value>
   </data>
   <data name="lbl_sponsor" xml:space="preserve">
-    <value>Proud sponsor of</value>
+    <value>誇りに思っているスポンサー</value>
   </data>
   <data name="lbl_winner" xml:space="preserve">
-    <value>Winners</value>
+    <value>勝者</value>
   </data>
 </root>
