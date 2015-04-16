@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lblUsername><![CDATA[ユーザーネーム]]></lblUsername>
+  <lblPassword><![CDATA[パスワード]]></lblPassword>
+  <lblCaptcha><![CDATA[確認コード]]></lblCaptcha>
+  <btnLogin><![CDATA[ログイン]]></btnLogin>
+  <btnRegister><![CDATA[あなたは、ログインするのにW88.comの会員である必要があります。<br />まだ、会員ではありませんか?<a href='/_Secure/Register.aspx' data-ajax='false'>今すぐ参加</a>]]></btnRegister>
+  <lblRegister><![CDATA[あなたは、ログインするのにW88.comの会員である必要があります。 まだ、会員ではありませんか? 私たちのウェブサイトwww.w88.comを訪問して、アカウントを開いてください。]]></lblRegister>-->
+</default>
