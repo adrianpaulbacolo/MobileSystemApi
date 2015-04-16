@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lbl_tab_disclaimer><![CDATA[免責事項]]></lbl_tab_disclaimer>
+  <lbl_tab_earnings><![CDATA[所得と支払い]]></lbl_tab_earnings>
+  <lbl_tab_marketing><![CDATA[マーケティング資材]]></lbl_tab_marketing>
+  <lbl_tab_myaccount><![CDATA[マイアカウント]]></lbl_tab_myaccount>
+  <lbl_tab_privacypolicy><![CDATA[プライバシーポリシー]]></lbl_tab_privacypolicy>
+  <lbl_tab_programme><![CDATA[アフィリエイトプログラム]]></lbl_tab_programme>
+
+
+</default>
