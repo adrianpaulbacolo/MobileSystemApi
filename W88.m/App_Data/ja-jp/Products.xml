@@ -31,12 +31,12 @@
     </Lottery>
     <Keno>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[ケノ]]></Label>
+      <Label><![CDATA[キノ]]></Label>
       <Description><![CDATA[ケノとロト]]></Description>
     </Keno>
     <ClubCrescendo>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[クレッシェンド]]></Label>
+      <Label><![CDATA[クレセンド]]></Label>
       <Description><![CDATA[クレッシェンドスロット]]></Description>
     </ClubCrescendo>
     <ClubDivino>
@@ -51,17 +51,17 @@
     </ClubW>
     <ClubBravado>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[ブラヴァド]]></Label>
+      <Label><![CDATA[ブラバド]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubBravado>
     <ClubMassimoSlots>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[マッシモ]]></Label>
+      <Label><![CDATA[モッシモ]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoSlots>
     <ClubMassimoCasino>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[マッシモ]]></Label>
+      <Label> <![CDATA[モッシモ]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoCasino>
     <ClubPalazzoSlots>
