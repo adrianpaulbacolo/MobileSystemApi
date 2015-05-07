@@ -93,7 +93,7 @@
         });
 
         $('a[rel="rewards"]').each(function () {
-            $(this).attr('href', '//rewards' + location.hostname.substring(location.hostname.indexOf('.')));
+            $(this).attr('href', '//mrewards' + location.hostname.substring(location.hostname.indexOf('.')));
         });
 
 
