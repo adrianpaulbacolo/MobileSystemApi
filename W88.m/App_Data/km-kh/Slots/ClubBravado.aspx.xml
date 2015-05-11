@@ -44,6 +44,12 @@
         <PlayForFunURL><![CDATA[{BravadoUrl}/Queenbee/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
       </QueenBee>
+      <GodOfFortune>
+        <ImageName><![CDATA[godoffortune]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/godoffortune/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/godoffortune/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </GodOfFortune>
       <towerquestmobile>
         <ImageName><![CDATA[towerquestmobile]]></ImageName>
       </towerquestmobile>
