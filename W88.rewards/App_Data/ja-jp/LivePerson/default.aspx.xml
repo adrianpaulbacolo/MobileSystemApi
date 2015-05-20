@@ -9,5 +9,5 @@
   <btnEndChat><![CDATA[End Chat]]></btnEndChat>
   <btnSend><![CDATA[Send]]></btnSend>
   <lblMessage><![CDATA[Type your message here]]></lblMessage>
-  <lblSkill><![CDATA[English]]></lblSkill>
+  <lblSkill><![CDATA[Japanese]]></lblSkill>
 </default>

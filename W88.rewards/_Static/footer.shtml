@@ -29,7 +29,7 @@
                 <div class="div-footer-contactus">
                     <a href="javascript:void(0);" class="a-footer-popup" onclick="javascript:GPINTMOBILE.LoadPopupMenu(this);" data-ajax="false">&nbsp;</a>
                     <div class="div-footer-popup-menu">
-                        <div class="footer-image" data-rel="pop-livechat-"><a id="aHrefPopUpLiveChat" href='/LivePerson' data-ajax="false">&nbsp;</a></div>
+                        <div class="footer-image" data-rel="pop-livechat-"><a id="aHrefPopUpLiveChat" href='/LiveChat' data-ajax="false">&nbsp;</a></div>
                         <div class="footer-image" data-rel="pop-email-"><a id="aHrefPopUpEmail" href='<%= string.IsNullOrEmpty(commonCulture.ElementValues.getResourceString("lnkEmail", commonVariables.ContactUsXML))? "javascript:void(0)" : commonCulture.ElementValues.getResourceString("lnkEmail", commonVariables.ContactUsXML) %>' data-ajax="false">&nbsp;</a></div>
                         <div class="footer-image" data-rel="pop-skype-"><a id="aHrefPopUpSkype" href='<%= string.IsNullOrEmpty(commonCulture.ElementValues.getResourceString("lnkSkype", commonVariables.ContactUsXML))? "javascript:void(0)" : commonCulture.ElementValues.getResourceString("lnkSkype", commonVariables.ContactUsXML) %>' data-ajax="false">&nbsp;</a></div>
                         <%if (!string.IsNullOrEmpty(commonCulture.ElementValues.getResourceString("lnkPhone", commonVariables.ContactUsXML))) { %>
@@ -50,7 +50,7 @@
                             <div class="footer-image-lang" data-rel="lang-kh"><a href="/Index?lang=km-kh" data-ajax="false">&nbsp;</a></div>
                             <div class="footer-image-lang" data-rel="lang-id"><a href="/Index?lang=id-id" data-ajax="false">&nbsp;</a></div>
                             <div class="footer-image-lang" data-rel="lang-kr"><a href="/Index?lang=ko-kr" data-ajax="false">&nbsp;</a></div>
-                              <div class="footer-image-lang" data-rel="lang-jp"><a href="/Index?lang=jp-ja" data-ajax="false">&nbsp;</a></div>
+                            <div class="footer-image-lang" data-rel="lang-jp"><a href="/Index?lang=ja-jp" data-ajax="false">&nbsp;</a></div>
                         </div>
                     </div>
                 </div>

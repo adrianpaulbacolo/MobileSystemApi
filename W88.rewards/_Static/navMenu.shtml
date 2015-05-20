@@ -19,7 +19,7 @@
         <% } %>
           <li data-icon="false" class="ui-icon"><a rel="faq" id="aMnuFAQ" href="/_Static/Info/FAQ.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("faq", commonVariables.LeftMenuXML)%></a></li>
         <li data-icon="false" class="ui-icon"><a rel="terms" id="aMnuTerms" href="/_Static/Info/Terms.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("terms", commonVariables.LeftMenuXML)%></a></li>
-        <li data-icon="false" class="ui-misc"><a id="aMnuLiveHelp" runat="server" href="/LivePerson/Default.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%></a></li>
+        <li data-icon="false" class="ui-misc"><a id="aMnuLiveHelp" runat="server" href="/LiveChat/Default.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%></a></li>
 
         <li data-icon="false" class="ui-misc"><a id="aMnuLanguage" runat="server" href="/Lang.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("language", commonVariables.LeftMenuXML)%></a></li>
         <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %><li data-icon="false" class="liLogout"><a id="aMnuLogOut" runat="server" href="/Logout" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("logout", commonVariables.LeftMenuXML)%></a></li>
