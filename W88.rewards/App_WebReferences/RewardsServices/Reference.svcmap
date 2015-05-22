@@ -19,14 +19,19 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://rewardsservices.ms1dev.com/RewardsServices.svc?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:56326/RewardsServices.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="RewardsServices.wsdl" MetadataType="Wsdl" ID="b80c59ba-8fd6-4650-b190-882d2c944154" SourceId="1" SourceUrl="http://rewardsservices.ms1dev.com/RewardsServices.svc?wsdl" />
-    <MetadataFile FileName="RewardsServices.xsd" MetadataType="Schema" ID="5a5958f6-e23f-4055-acd6-8f4809bdf958" SourceId="1" SourceUrl="http://rewardsservices.ms1dev.com/RewardsServices.svc?xsd=xsd3" />
-    <MetadataFile FileName="RewardsServices1.xsd" MetadataType="Schema" ID="6a784e80-9a94-46b0-be57-5743092ce5a2" SourceId="1" SourceUrl="http://rewardsservices.ms1dev.com/RewardsServices.svc?xsd=xsd2" />
-    <MetadataFile FileName="RewardsServices2.xsd" MetadataType="Schema" ID="7322e446-4d54-420f-9174-543175026ec1" SourceId="1" SourceUrl="http://rewardsservices.ms1dev.com/RewardsServices.svc?xsd=xsd1" />
-    <MetadataFile FileName="RewardsServices3.xsd" MetadataType="Schema" ID="6d2463b3-355d-47bb-b2fe-a7131873e609" SourceId="1" SourceUrl="http://rewardsservices.ms1dev.com/RewardsServices.svc?xsd=xsd0" />
+    <MetadataFile FileName="RewardsServices4.xsd" MetadataType="Schema" ID="9c5b0224-ee83-4e20-bced-323945ab4503" SourceId="1" SourceUrl="http://localhost:56326/RewardsServices.svc?xsd=xsd7" />
+    <MetadataFile FileName="RewardsServices42.xsd" MetadataType="Schema" ID="1152877b-61f4-455b-83cf-84b02eb44c79" SourceId="1" SourceUrl="http://localhost:56326/RewardsServices.svc?xsd=xsd6" />
+    <MetadataFile FileName="RewardsServices43.xsd" MetadataType="Schema" ID="60e22052-e7bf-49c1-9541-200ee02894af" SourceId="1" SourceUrl="http://localhost:56326/RewardsServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="RewardsServices44.xsd" MetadataType="Schema" ID="7880cc8b-f2b0-4343-997a-f45a3709636f" SourceId="1" SourceUrl="http://localhost:56326/RewardsServices.svc?xsd=xsd4" />
+    <MetadataFile FileName="RewardsServices1.wsdl" MetadataType="Wsdl" ID="95583807-d2e7-477d-b532-bb95f2ed95fb" SourceId="1" SourceUrl="http://localhost:56326/RewardsServices.svc?wsdl" />
+    <MetadataFile FileName="RewardsServices45.xsd" MetadataType="Schema" ID="6cd92cf7-0503-47e3-b061-58f78fafe367" SourceId="1" SourceUrl="http://localhost:56326/RewardsServices.svc?xsd=xsd3" />
+    <MetadataFile FileName="RewardsServices46.xsd" MetadataType="Schema" ID="13c2720b-c42a-4114-9812-eb236db0f5e4" SourceId="1" SourceUrl="http://localhost:56326/RewardsServices.svc?xsd=xsd0" />
+    <MetadataFile FileName="RewardsServices47.xsd" MetadataType="Schema" ID="5782dc35-5c5c-4f63-b1d5-0f03bd413f05" SourceId="1" SourceUrl="http://localhost:56326/RewardsServices.svc?xsd=xsd8" />
+    <MetadataFile FileName="RewardsServices48.xsd" MetadataType="Schema" ID="dc491e26-e8f4-4976-b967-4532c00f0221" SourceId="1" SourceUrl="http://localhost:56326/RewardsServices.svc?xsd=xsd2" />
+    <MetadataFile FileName="RewardsServices49.xsd" MetadataType="Schema" ID="cebddd45-cafe-449b-8013-2072b0b1d6b1" SourceId="1" SourceUrl="http://localhost:56326/RewardsServices.svc?xsd=xsd5" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
