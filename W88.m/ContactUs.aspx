@@ -18,7 +18,7 @@
             <div class="page-content">
                 <ul data-role="listview" data-icon="false">
                     <li class="li-livechat">
-                        <a id="aLiveChat" runat="server" href="/LiveChat/default.aspx" data-ajax="true">
+                        <a id="aLiveChat" runat="server" href="/LiveChat" data-ajax="false">
                             <img src="/_Static/Images/contactus-livechat.png" class="ui-li-thumb" />
                             <h2><%=commonCulture.ElementValues.getResourceString("lblLiveChat", xeResources)%></h2>
                         </a>
