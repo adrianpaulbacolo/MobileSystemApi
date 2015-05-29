@@ -154,7 +154,7 @@ public partial class Deposit_WingMoney : BasePage
         else if (commonValidation.isInjection(strAccountNumber)) { strAlertCode = "-1"; strAlertMessage = commonCulture.ElementValues.getResourceXPathString("/Deposit/InvalidAccountNumber", xeErrors); return; }
         else if (!string.IsNullOrEmpty(strDepositDate))
         {
-            dtDepositDateTime = System.DateTime.Parse(strDepositDate);
+            dtDepositDateTime = System.DateTime.Parse(strDepositDate).AddHours(double.Parse(strDepositHour)).AddMinutes(double.Parse(strDepositMinute)); 
             if ((dtDepositDateTime - System.DateTime.Now).TotalHours > 72 || (dtDepositDateTime - System.DateTime.Now).TotalHours < -72) { strAlertCode = "-1"; strAlertMessage = commonCulture.ElementValues.getResourceXPathString("/Deposit/InvalidDateTime", xeErrors); return; }
         }
         #endregion
