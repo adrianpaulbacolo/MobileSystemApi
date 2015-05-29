@@ -136,6 +136,12 @@ public partial class LiveChat_Default : System.Web.UI.Page
                                 else
                                     redirectLink = "http://cn.liveperson88.net/live/chat.php?a=13bb1&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
                                 break;
+                            case "vn":
+                                if (isVIP)
+                                    redirectLink = "http://vn.liveperson88.net/live/chat.php?a=37d97&intgroup=VklQ&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}";
+                                else
+                                    redirectLink = "http://vn.liveperson88.net/live/chat.php?a=eea3e&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
+                                break;
                             default:
                                 if (isVIP)
                                     redirectLink = "http://en.liveperson88.net/live/chat.php?a=a78ef&intgroup=VklQ&hg=P01hbmFnZXI_&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__";

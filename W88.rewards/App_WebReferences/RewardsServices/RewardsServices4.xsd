@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Rewards.Contract.Message" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Rewards.Contract.Message" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:56326/RewardsServices.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Rewards.Core.DTOs" />
+  <xs:complexType name="ProductRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OperatorId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProductRequest" nillable="true" type="tns:ProductRequest" />
+  <xs:complexType name="ProductResponse">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Rewards.Core.DTOs" minOccurs="0" name="Products" nillable="true" type="q1:ArrayOfRedemptionProductDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProductResponse" nillable="true" type="tns:ProductResponse" />
+</xs:schema>

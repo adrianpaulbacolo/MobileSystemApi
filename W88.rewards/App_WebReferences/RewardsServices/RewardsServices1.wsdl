@@ -1,0 +1,1869 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RewardsServices" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:56326/RewardsServices.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:56326/RewardsServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:56326/RewardsServices.svc?xsd=xsd2" />
+      <xsd:import schemaLocation="http://localhost:56326/RewardsServices.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Rewards.Contract.Message.Redemption" />
+      <xsd:import schemaLocation="http://localhost:56326/RewardsServices.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:56326/RewardsServices.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Rewards.Core.DTOs" />
+      <xsd:import schemaLocation="http://localhost:56326/RewardsServices.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Rewards.Core.Domain" />
+      <xsd:import schemaLocation="http://localhost:56326/RewardsServices.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Rewards.Contract.Message" />
+      <xsd:import schemaLocation="http://localhost:56326/RewardsServices.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IRewardsServices_addRedemptionFreebetRevised_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionFreebetRevised" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionFreebetRevised_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionFreebetRevisedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberPointsBefore_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberPointsBefore" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberPointsBefore_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberPointsBeforeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberSpinWheelInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberSpinWheelInfo" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberSpinWheelInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberSpinWheelInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberInfoSpinWheelEligible_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberInfoSpinWheelEligible" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberInfoSpinWheelEligible_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberInfoSpinWheelEligibleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberSpinWheelEligible_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberSpinWheelEligible" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberSpinWheelEligible_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberSpinWheelEligibleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_checkSWPrizeMax_InputMessage">
+    <wsdl:part name="parameters" element="tns:checkSWPrizeMax" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_checkSWPrizeMax_OutputMessage">
+    <wsdl:part name="parameters" element="tns:checkSWPrizeMaxResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addAdjustmentAutoCredit_InputMessage">
+    <wsdl:part name="parameters" element="tns:addAdjustmentAutoCredit" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addAdjustmentAutoCredit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addAdjustmentAutoCreditResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionAutoCredit_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionAutoCredit" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionAutoCredit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionAutoCreditResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getlogSpinWheelSingle_InputMessage">
+    <wsdl:part name="parameters" element="tns:getlogSpinWheelSingle" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getlogSpinWheelSingle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getlogSpinWheelSingleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_checklogSpinWheel_InputMessage">
+    <wsdl:part name="parameters" element="tns:checklogSpinWheel" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_checklogSpinWheel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:checklogSpinWheelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberSpinWheelFEItemV2_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberSpinWheelFEItemV2" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberSpinWheelFEItemV2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberSpinWheelFEItemV2Response" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberSpinWheelFEV2_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberSpinWheelFEV2" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberSpinWheelFEV2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberSpinWheelFEV2Response" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberSpinWheelWinItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberSpinWheelWinItem" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberSpinWheelWinItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberSpinWheelWinItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_checkWinProductPercentage_InputMessage">
+    <wsdl:part name="parameters" element="tns:checkWinProductPercentage" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_checkWinProductPercentage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:checkWinProductPercentageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addLogSpinWheel2_InputMessage">
+    <wsdl:part name="parameters" element="tns:addLogSpinWheel2" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addLogSpinWheel2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addLogSpinWheel2Response" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionFreebet2_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionFreebet2" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionFreebet2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionFreebet2Response" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionFreebet3_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionFreebet3" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionFreebet3_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionFreebet3Response" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_updateRedemptionFreebet_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateRedemptionFreebet" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_updateRedemptionFreebet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateRedemptionFreebetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionNormalNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionNormalNew" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionNormalNew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionNormalNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionFreebetNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionFreebetNew" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionFreebetNew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionFreebetNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionWishList2New_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionWishList2New" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionWishList2New_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionWishList2NewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionOnlineNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionOnlineNew" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionOnlineNew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionOnlineNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getCategoryName_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCategoryName" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getCategoryName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCategoryNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionAutoCreditNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionAutoCreditNew" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionAutoCreditNew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionAutoCreditNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_GetExpirationPoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExpirationPoint" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_GetExpirationPoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExpirationPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_GetPointExpirationByRiskId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPointExpirationByRiskId" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_GetPointExpirationByRiskId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPointExpirationByRiskIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_GetAging_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAging" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_GetAging_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAgingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_RedemptionFreebet_InputMessage">
+    <wsdl:part name="parameters" element="tns:RedemptionFreebet" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_RedemptionFreebet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RedemptionFreebetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_RedemptionOnline_InputMessage">
+    <wsdl:part name="parameters" element="tns:RedemptionOnline" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_RedemptionOnline_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RedemptionOnlineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_RedemptionNormal_InputMessage">
+    <wsdl:part name="parameters" element="tns:RedemptionNormal" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_RedemptionNormal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RedemptionNormalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_RedemptionWishlist_InputMessage">
+    <wsdl:part name="parameters" element="tns:RedemptionWishlist" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_RedemptionWishlist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RedemptionWishlistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_RedemptionCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:RedemptionCart" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_RedemptionCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RedemptionCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_GetProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProducts" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_GetProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberDetails" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getCatalogueDefault_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCatalogueDefault" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getCatalogueDefault_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCatalogueDefaultResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getCatalogueSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCatalogueSearch" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getCatalogueSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCatalogueSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getProductDefault_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProductDefault" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getProductDefault_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductDefaultResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getProductSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProductSearch" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getProductSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getProductValidity_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProductValidity" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getProductValidity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductValidityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getProductSearchProductId_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProductSearchProductId" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getProductSearchProductId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductSearchProductIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getProductSearchLang_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProductSearchLang" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getProductSearchLang_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductSearchLangResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getProductDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProductDetail" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getProductDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getRedemptionDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:getRedemptionDetail" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getRedemptionDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getRedemptionDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberRedemptionDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberRedemptionDetail" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberRedemptionDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberRedemptionDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemption_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemption" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemption_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionNormal_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionNormal" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionNormal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionNormalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionFreebet_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionFreebet" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionFreebet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionFreebetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionWishList_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionWishList" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionWishList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionWishListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionWishList2_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionWishList2" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionWishList2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionWishList2Response" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionOnline_InputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionOnline" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addRedemptionOnline_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addRedemptionOnlineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addLogPointsBalance_InputMessage">
+    <wsdl:part name="parameters" element="tns:addLogPointsBalance" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addLogPointsBalance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addLogPointsBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberPointByMonth_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberPointByMonth" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberPointByMonth_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberPointByMonthResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberPointByMonthNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberPointByMonthNew" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberPointByMonthNew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberPointByMonthNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_GetPointsAddDeduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPointsAddDeduct" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_GetPointsAddDeduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPointsAddDeductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getFeaturedProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:getFeaturedProduct" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getFeaturedProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getFeaturedProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addCartNormal_InputMessage">
+    <wsdl:part name="parameters" element="tns:addCartNormal" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addCartNormal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addCartNormalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addCartFreebet_InputMessage">
+    <wsdl:part name="parameters" element="tns:addCartFreebet" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addCartFreebet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addCartFreebetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addCartWishList_InputMessage">
+    <wsdl:part name="parameters" element="tns:addCartWishList" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addCartWishList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addCartWishListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addCartWishList2_InputMessage">
+    <wsdl:part name="parameters" element="tns:addCartWishList2" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addCartWishList2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addCartWishList2Response" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addCartOnline_InputMessage">
+    <wsdl:part name="parameters" element="tns:addCartOnline" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addCartOnline_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addCartOnlineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCart" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getCartId_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCartId" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getCartId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCartIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_deleteCartRedeemSuccess_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteCartRedeemSuccess" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_deleteCartRedeemSuccess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteCartRedeemSuccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_deleteSingleCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteSingleCart" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_deleteSingleCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteSingleCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_deleteCartByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteCartByID" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_deleteCartByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteCartByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getCartByProductId_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCartByProductId" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getCartByProductId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCartByProductIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_deleteExtraCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteExtraCart" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_deleteExtraCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteExtraCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberAccountByMonth_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberAccountByMonth" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberAccountByMonth_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberAccountByMonthResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberAccount" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getEarnProductFE_InputMessage">
+    <wsdl:part name="parameters" element="tns:getEarnProductFE" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getEarnProductFE_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getEarnProductFEResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getEarnMonthFE_InputMessage">
+    <wsdl:part name="parameters" element="tns:getEarnMonthFE" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getEarnMonthFE_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getEarnMonthFEResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getEarnDetailFE_InputMessage">
+    <wsdl:part name="parameters" element="tns:getEarnDetailFE" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getEarnDetailFE_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getEarnDetailFEResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getRedemptionFE_InputMessage">
+    <wsdl:part name="parameters" element="tns:getRedemptionFE" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getRedemptionFE_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getRedemptionFEResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getExpiredFE_InputMessage">
+    <wsdl:part name="parameters" element="tns:getExpiredFE" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getExpiredFE_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getExpiredFEResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getAdjustmentFE_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAdjustmentFE" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getAdjustmentFE_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAdjustmentFEResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getProductDiscountFE_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProductDiscountFE" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getProductDiscountFE_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductDiscountFEResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getProductDefaultLang_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProductDefaultLang" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getProductDefaultLang_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductDefaultLangResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_CheckRedemptionLimit_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckRedemptionLimit" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_CheckRedemptionLimit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckRedemptionLimitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_CheckRedemptionLimitWithRedemptionQuantity_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckRedemptionLimitWithRedemptionQuantity" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_CheckRedemptionLimitWithRedemptionQuantity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckRedemptionLimitWithRedemptionQuantityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_CheckRedemptionLimitForVIPCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckRedemptionLimitForVIPCategory" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_CheckRedemptionLimitForVIPCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckRedemptionLimitForVIPCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberInfo" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberPointLevelFE_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberPointLevelFE" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberPointLevelFE_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberPointLevelFEResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberPointLevelDiscount_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberPointLevelDiscount" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberPointLevelDiscount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberPointLevelDiscountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_checkRedemptionLimitDaily_InputMessage">
+    <wsdl:part name="parameters" element="tns:checkRedemptionLimitDaily" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_checkRedemptionLimitDaily_OutputMessage">
+    <wsdl:part name="parameters" element="tns:checkRedemptionLimitDailyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberPointLevelRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberPointLevelRange" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberPointLevelRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberPointLevelRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberEarnFE_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberEarnFE" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberEarnFE_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberEarnFEResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberPointLevelRequired_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberPointLevelRequired" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberPointLevelRequired_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberPointLevelRequiredResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberSpinWheelFE_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberSpinWheelFE" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberSpinWheelFE_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberSpinWheelFEResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberSpinWheelFEItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberSpinWheelFEItem" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberSpinWheelFEItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberSpinWheelFEItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberSpinWheelFEItemByProductId_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberSpinWheelFEItemByProductId" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberSpinWheelFEItemByProductId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberSpinWheelFEItemByProductIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addLogSpinWheel_InputMessage">
+    <wsdl:part name="parameters" element="tns:addLogSpinWheel" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_addLogSpinWheel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addLogSpinWheelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_updateLogSpinWheel_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateLogSpinWheel" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_updateLogSpinWheel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateLogSpinWheelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberSpinWheelCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberSpinWheelCount" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberSpinWheelCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberSpinWheelCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberSpinWheelCountDOB_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberSpinWheelCountDOB" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberSpinWheelCountDOB_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberSpinWheelCountDOBResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberSpinWheelCountDOB_revised_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberSpinWheelCountDOB_revised" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberSpinWheelCountDOB_revised_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberSpinWheelCountDOB_revisedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberDOB_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberDOB" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getMemberDOB_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberDOBResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getProductPoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProductPoint" />
+  </wsdl:message>
+  <wsdl:message name="IRewardsServices_getProductPoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductPointResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IRewardsServices">
+    <wsdl:operation name="addRedemptionFreebetRevised">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionFreebetRevised" message="tns:IRewardsServices_addRedemptionFreebetRevised_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionFreebetRevisedResponse" message="tns:IRewardsServices_addRedemptionFreebetRevised_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberPointsBefore">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberPointsBefore" message="tns:IRewardsServices_getMemberPointsBefore_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberPointsBeforeResponse" message="tns:IRewardsServices_getMemberPointsBefore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberSpinWheelInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberSpinWheelInfo" message="tns:IRewardsServices_getMemberSpinWheelInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberSpinWheelInfoResponse" message="tns:IRewardsServices_getMemberSpinWheelInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberInfoSpinWheelEligible">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberInfoSpinWheelEligible" message="tns:IRewardsServices_getMemberInfoSpinWheelEligible_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberInfoSpinWheelEligibleResponse" message="tns:IRewardsServices_getMemberInfoSpinWheelEligible_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberSpinWheelEligible">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberSpinWheelEligible" message="tns:IRewardsServices_getMemberSpinWheelEligible_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberSpinWheelEligibleResponse" message="tns:IRewardsServices_getMemberSpinWheelEligible_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="checkSWPrizeMax">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/checkSWPrizeMax" message="tns:IRewardsServices_checkSWPrizeMax_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/checkSWPrizeMaxResponse" message="tns:IRewardsServices_checkSWPrizeMax_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addAdjustmentAutoCredit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addAdjustmentAutoCredit" message="tns:IRewardsServices_addAdjustmentAutoCredit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addAdjustmentAutoCreditResponse" message="tns:IRewardsServices_addAdjustmentAutoCredit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionAutoCredit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionAutoCredit" message="tns:IRewardsServices_addRedemptionAutoCredit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionAutoCreditResponse" message="tns:IRewardsServices_addRedemptionAutoCredit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getlogSpinWheelSingle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getlogSpinWheelSingle" message="tns:IRewardsServices_getlogSpinWheelSingle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getlogSpinWheelSingleResponse" message="tns:IRewardsServices_getlogSpinWheelSingle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="checklogSpinWheel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/checklogSpinWheel" message="tns:IRewardsServices_checklogSpinWheel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/checklogSpinWheelResponse" message="tns:IRewardsServices_checklogSpinWheel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberSpinWheelFEItemV2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberSpinWheelFEItemV2" message="tns:IRewardsServices_getMemberSpinWheelFEItemV2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberSpinWheelFEItemV2Response" message="tns:IRewardsServices_getMemberSpinWheelFEItemV2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberSpinWheelFEV2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberSpinWheelFEV2" message="tns:IRewardsServices_getMemberSpinWheelFEV2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberSpinWheelFEV2Response" message="tns:IRewardsServices_getMemberSpinWheelFEV2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberSpinWheelWinItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberSpinWheelWinItem" message="tns:IRewardsServices_getMemberSpinWheelWinItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberSpinWheelWinItemResponse" message="tns:IRewardsServices_getMemberSpinWheelWinItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="checkWinProductPercentage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/checkWinProductPercentage" message="tns:IRewardsServices_checkWinProductPercentage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/checkWinProductPercentageResponse" message="tns:IRewardsServices_checkWinProductPercentage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addLogSpinWheel2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addLogSpinWheel2" message="tns:IRewardsServices_addLogSpinWheel2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addLogSpinWheel2Response" message="tns:IRewardsServices_addLogSpinWheel2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionFreebet2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionFreebet2" message="tns:IRewardsServices_addRedemptionFreebet2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionFreebet2Response" message="tns:IRewardsServices_addRedemptionFreebet2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionFreebet3">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionFreebet3" message="tns:IRewardsServices_addRedemptionFreebet3_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionFreebet3Response" message="tns:IRewardsServices_addRedemptionFreebet3_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateRedemptionFreebet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/updateRedemptionFreebet" message="tns:IRewardsServices_updateRedemptionFreebet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/updateRedemptionFreebetResponse" message="tns:IRewardsServices_updateRedemptionFreebet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionNormalNew">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionNormalNew" message="tns:IRewardsServices_addRedemptionNormalNew_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionNormalNewResponse" message="tns:IRewardsServices_addRedemptionNormalNew_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionFreebetNew">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionFreebetNew" message="tns:IRewardsServices_addRedemptionFreebetNew_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionFreebetNewResponse" message="tns:IRewardsServices_addRedemptionFreebetNew_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionWishList2New">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionWishList2New" message="tns:IRewardsServices_addRedemptionWishList2New_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionWishList2NewResponse" message="tns:IRewardsServices_addRedemptionWishList2New_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionOnlineNew">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionOnlineNew" message="tns:IRewardsServices_addRedemptionOnlineNew_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionOnlineNewResponse" message="tns:IRewardsServices_addRedemptionOnlineNew_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategoryName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getCategoryName" message="tns:IRewardsServices_getCategoryName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getCategoryNameResponse" message="tns:IRewardsServices_getCategoryName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionAutoCreditNew">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionAutoCreditNew" message="tns:IRewardsServices_addRedemptionAutoCreditNew_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionAutoCreditNewResponse" message="tns:IRewardsServices_addRedemptionAutoCreditNew_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExpirationPoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/GetExpirationPoint" message="tns:IRewardsServices_GetExpirationPoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/GetExpirationPointResponse" message="tns:IRewardsServices_GetExpirationPoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPointExpirationByRiskId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/GetPointExpirationByRiskId" message="tns:IRewardsServices_GetPointExpirationByRiskId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/GetPointExpirationByRiskIdResponse" message="tns:IRewardsServices_GetPointExpirationByRiskId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAging">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/GetAging" message="tns:IRewardsServices_GetAging_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/GetAgingResponse" message="tns:IRewardsServices_GetAging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RedemptionFreebet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/RedemptionFreebet" message="tns:IRewardsServices_RedemptionFreebet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/RedemptionFreebetResponse" message="tns:IRewardsServices_RedemptionFreebet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RedemptionOnline">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/RedemptionOnline" message="tns:IRewardsServices_RedemptionOnline_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/RedemptionOnlineResponse" message="tns:IRewardsServices_RedemptionOnline_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RedemptionNormal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/RedemptionNormal" message="tns:IRewardsServices_RedemptionNormal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/RedemptionNormalResponse" message="tns:IRewardsServices_RedemptionNormal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RedemptionWishlist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/RedemptionWishlist" message="tns:IRewardsServices_RedemptionWishlist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/RedemptionWishlistResponse" message="tns:IRewardsServices_RedemptionWishlist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RedemptionCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/RedemptionCart" message="tns:IRewardsServices_RedemptionCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/RedemptionCartResponse" message="tns:IRewardsServices_RedemptionCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/GetProducts" message="tns:IRewardsServices_GetProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/GetProductsResponse" message="tns:IRewardsServices_GetProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberDetails" message="tns:IRewardsServices_getMemberDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberDetailsResponse" message="tns:IRewardsServices_getMemberDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCatalogueDefault">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getCatalogueDefault" message="tns:IRewardsServices_getCatalogueDefault_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getCatalogueDefaultResponse" message="tns:IRewardsServices_getCatalogueDefault_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCatalogueSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getCatalogueSearch" message="tns:IRewardsServices_getCatalogueSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getCatalogueSearchResponse" message="tns:IRewardsServices_getCatalogueSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductDefault">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getProductDefault" message="tns:IRewardsServices_getProductDefault_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getProductDefaultResponse" message="tns:IRewardsServices_getProductDefault_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getProductSearch" message="tns:IRewardsServices_getProductSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getProductSearchResponse" message="tns:IRewardsServices_getProductSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductValidity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getProductValidity" message="tns:IRewardsServices_getProductValidity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getProductValidityResponse" message="tns:IRewardsServices_getProductValidity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductSearchProductId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getProductSearchProductId" message="tns:IRewardsServices_getProductSearchProductId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getProductSearchProductIdResponse" message="tns:IRewardsServices_getProductSearchProductId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductSearchLang">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getProductSearchLang" message="tns:IRewardsServices_getProductSearchLang_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getProductSearchLangResponse" message="tns:IRewardsServices_getProductSearchLang_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getProductDetail" message="tns:IRewardsServices_getProductDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getProductDetailResponse" message="tns:IRewardsServices_getProductDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getRedemptionDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getRedemptionDetail" message="tns:IRewardsServices_getRedemptionDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getRedemptionDetailResponse" message="tns:IRewardsServices_getRedemptionDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberRedemptionDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberRedemptionDetail" message="tns:IRewardsServices_getMemberRedemptionDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberRedemptionDetailResponse" message="tns:IRewardsServices_getMemberRedemptionDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRedemption">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addRedemption" message="tns:IRewardsServices_addRedemption_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionResponse" message="tns:IRewardsServices_addRedemption_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionNormal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionNormal" message="tns:IRewardsServices_addRedemptionNormal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionNormalResponse" message="tns:IRewardsServices_addRedemptionNormal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionFreebet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionFreebet" message="tns:IRewardsServices_addRedemptionFreebet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionFreebetResponse" message="tns:IRewardsServices_addRedemptionFreebet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionWishList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionWishList" message="tns:IRewardsServices_addRedemptionWishList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionWishListResponse" message="tns:IRewardsServices_addRedemptionWishList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionWishList2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionWishList2" message="tns:IRewardsServices_addRedemptionWishList2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionWishList2Response" message="tns:IRewardsServices_addRedemptionWishList2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionOnline">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionOnline" message="tns:IRewardsServices_addRedemptionOnline_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addRedemptionOnlineResponse" message="tns:IRewardsServices_addRedemptionOnline_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addLogPointsBalance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addLogPointsBalance" message="tns:IRewardsServices_addLogPointsBalance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addLogPointsBalanceResponse" message="tns:IRewardsServices_addLogPointsBalance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberPointByMonth">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberPointByMonth" message="tns:IRewardsServices_getMemberPointByMonth_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberPointByMonthResponse" message="tns:IRewardsServices_getMemberPointByMonth_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberPointByMonthNew">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberPointByMonthNew" message="tns:IRewardsServices_getMemberPointByMonthNew_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberPointByMonthNewResponse" message="tns:IRewardsServices_getMemberPointByMonthNew_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPointsAddDeduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/GetPointsAddDeduct" message="tns:IRewardsServices_GetPointsAddDeduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/GetPointsAddDeductResponse" message="tns:IRewardsServices_GetPointsAddDeduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getFeaturedProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getFeaturedProduct" message="tns:IRewardsServices_getFeaturedProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getFeaturedProductResponse" message="tns:IRewardsServices_getFeaturedProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addCartNormal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addCartNormal" message="tns:IRewardsServices_addCartNormal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addCartNormalResponse" message="tns:IRewardsServices_addCartNormal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addCartFreebet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addCartFreebet" message="tns:IRewardsServices_addCartFreebet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addCartFreebetResponse" message="tns:IRewardsServices_addCartFreebet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addCartWishList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addCartWishList" message="tns:IRewardsServices_addCartWishList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addCartWishListResponse" message="tns:IRewardsServices_addCartWishList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addCartWishList2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addCartWishList2" message="tns:IRewardsServices_addCartWishList2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addCartWishList2Response" message="tns:IRewardsServices_addCartWishList2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addCartOnline">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addCartOnline" message="tns:IRewardsServices_addCartOnline_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addCartOnlineResponse" message="tns:IRewardsServices_addCartOnline_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getCart" message="tns:IRewardsServices_getCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getCartResponse" message="tns:IRewardsServices_getCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCartId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getCartId" message="tns:IRewardsServices_getCartId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getCartIdResponse" message="tns:IRewardsServices_getCartId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteCartRedeemSuccess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/deleteCartRedeemSuccess" message="tns:IRewardsServices_deleteCartRedeemSuccess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/deleteCartRedeemSuccessResponse" message="tns:IRewardsServices_deleteCartRedeemSuccess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteSingleCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/deleteSingleCart" message="tns:IRewardsServices_deleteSingleCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/deleteSingleCartResponse" message="tns:IRewardsServices_deleteSingleCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteCartByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/deleteCartByID" message="tns:IRewardsServices_deleteCartByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/deleteCartByIDResponse" message="tns:IRewardsServices_deleteCartByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCartByProductId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getCartByProductId" message="tns:IRewardsServices_getCartByProductId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getCartByProductIdResponse" message="tns:IRewardsServices_getCartByProductId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteExtraCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/deleteExtraCart" message="tns:IRewardsServices_deleteExtraCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/deleteExtraCartResponse" message="tns:IRewardsServices_deleteExtraCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberAccountByMonth">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberAccountByMonth" message="tns:IRewardsServices_getMemberAccountByMonth_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberAccountByMonthResponse" message="tns:IRewardsServices_getMemberAccountByMonth_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberAccount" message="tns:IRewardsServices_getMemberAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberAccountResponse" message="tns:IRewardsServices_getMemberAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getEarnProductFE">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getEarnProductFE" message="tns:IRewardsServices_getEarnProductFE_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getEarnProductFEResponse" message="tns:IRewardsServices_getEarnProductFE_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getEarnMonthFE">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getEarnMonthFE" message="tns:IRewardsServices_getEarnMonthFE_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getEarnMonthFEResponse" message="tns:IRewardsServices_getEarnMonthFE_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getEarnDetailFE">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getEarnDetailFE" message="tns:IRewardsServices_getEarnDetailFE_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getEarnDetailFEResponse" message="tns:IRewardsServices_getEarnDetailFE_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getRedemptionFE">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getRedemptionFE" message="tns:IRewardsServices_getRedemptionFE_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getRedemptionFEResponse" message="tns:IRewardsServices_getRedemptionFE_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getExpiredFE">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getExpiredFE" message="tns:IRewardsServices_getExpiredFE_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getExpiredFEResponse" message="tns:IRewardsServices_getExpiredFE_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAdjustmentFE">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getAdjustmentFE" message="tns:IRewardsServices_getAdjustmentFE_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getAdjustmentFEResponse" message="tns:IRewardsServices_getAdjustmentFE_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductDiscountFE">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getProductDiscountFE" message="tns:IRewardsServices_getProductDiscountFE_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getProductDiscountFEResponse" message="tns:IRewardsServices_getProductDiscountFE_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductDefaultLang">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getProductDefaultLang" message="tns:IRewardsServices_getProductDefaultLang_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getProductDefaultLangResponse" message="tns:IRewardsServices_getProductDefaultLang_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckRedemptionLimit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/CheckRedemptionLimit" message="tns:IRewardsServices_CheckRedemptionLimit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/CheckRedemptionLimitResponse" message="tns:IRewardsServices_CheckRedemptionLimit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckRedemptionLimitWithRedemptionQuantity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/CheckRedemptionLimitWithRedemptionQuantity" message="tns:IRewardsServices_CheckRedemptionLimitWithRedemptionQuantity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/CheckRedemptionLimitWithRedemptionQuantityResponse" message="tns:IRewardsServices_CheckRedemptionLimitWithRedemptionQuantity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckRedemptionLimitForVIPCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/CheckRedemptionLimitForVIPCategory" message="tns:IRewardsServices_CheckRedemptionLimitForVIPCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/CheckRedemptionLimitForVIPCategoryResponse" message="tns:IRewardsServices_CheckRedemptionLimitForVIPCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberInfo" message="tns:IRewardsServices_getMemberInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberInfoResponse" message="tns:IRewardsServices_getMemberInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberPointLevelFE">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberPointLevelFE" message="tns:IRewardsServices_getMemberPointLevelFE_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberPointLevelFEResponse" message="tns:IRewardsServices_getMemberPointLevelFE_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberPointLevelDiscount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberPointLevelDiscount" message="tns:IRewardsServices_getMemberPointLevelDiscount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberPointLevelDiscountResponse" message="tns:IRewardsServices_getMemberPointLevelDiscount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="checkRedemptionLimitDaily">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/checkRedemptionLimitDaily" message="tns:IRewardsServices_checkRedemptionLimitDaily_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/checkRedemptionLimitDailyResponse" message="tns:IRewardsServices_checkRedemptionLimitDaily_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberPointLevelRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberPointLevelRange" message="tns:IRewardsServices_getMemberPointLevelRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberPointLevelRangeResponse" message="tns:IRewardsServices_getMemberPointLevelRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberEarnFE">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberEarnFE" message="tns:IRewardsServices_getMemberEarnFE_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberEarnFEResponse" message="tns:IRewardsServices_getMemberEarnFE_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberPointLevelRequired">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberPointLevelRequired" message="tns:IRewardsServices_getMemberPointLevelRequired_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberPointLevelRequiredResponse" message="tns:IRewardsServices_getMemberPointLevelRequired_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberSpinWheelFE">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberSpinWheelFE" message="tns:IRewardsServices_getMemberSpinWheelFE_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberSpinWheelFEResponse" message="tns:IRewardsServices_getMemberSpinWheelFE_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberSpinWheelFEItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberSpinWheelFEItem" message="tns:IRewardsServices_getMemberSpinWheelFEItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberSpinWheelFEItemResponse" message="tns:IRewardsServices_getMemberSpinWheelFEItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberSpinWheelFEItemByProductId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberSpinWheelFEItemByProductId" message="tns:IRewardsServices_getMemberSpinWheelFEItemByProductId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberSpinWheelFEItemByProductIdResponse" message="tns:IRewardsServices_getMemberSpinWheelFEItemByProductId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addLogSpinWheel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/addLogSpinWheel" message="tns:IRewardsServices_addLogSpinWheel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/addLogSpinWheelResponse" message="tns:IRewardsServices_addLogSpinWheel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateLogSpinWheel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/updateLogSpinWheel" message="tns:IRewardsServices_updateLogSpinWheel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/updateLogSpinWheelResponse" message="tns:IRewardsServices_updateLogSpinWheel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberSpinWheelCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberSpinWheelCount" message="tns:IRewardsServices_getMemberSpinWheelCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberSpinWheelCountResponse" message="tns:IRewardsServices_getMemberSpinWheelCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberSpinWheelCountDOB">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberSpinWheelCountDOB" message="tns:IRewardsServices_getMemberSpinWheelCountDOB_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberSpinWheelCountDOBResponse" message="tns:IRewardsServices_getMemberSpinWheelCountDOB_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberSpinWheelCountDOB_revised">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberSpinWheelCountDOB_revised" message="tns:IRewardsServices_getMemberSpinWheelCountDOB_revised_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberSpinWheelCountDOB_revisedResponse" message="tns:IRewardsServices_getMemberSpinWheelCountDOB_revised_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberDOB">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getMemberDOB" message="tns:IRewardsServices_getMemberDOB_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getMemberDOBResponse" message="tns:IRewardsServices_getMemberDOB_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductPoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRewardsServices/getProductPoint" message="tns:IRewardsServices_getProductPoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRewardsServices/getProductPointResponse" message="tns:IRewardsServices_getProductPoint_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IRewardsServices" type="tns:IRewardsServices">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addRedemptionFreebetRevised">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/addRedemptionFreebetRevised" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberPointsBefore">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberPointsBefore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberSpinWheelInfo">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberSpinWheelInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberInfoSpinWheelEligible">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberInfoSpinWheelEligible" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberSpinWheelEligible">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberSpinWheelEligible" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkSWPrizeMax">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/checkSWPrizeMax" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAdjustmentAutoCredit">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/addAdjustmentAutoCredit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionAutoCredit">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/addRedemptionAutoCredit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getlogSpinWheelSingle">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getlogSpinWheelSingle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checklogSpinWheel">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/checklogSpinWheel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberSpinWheelFEItemV2">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberSpinWheelFEItemV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberSpinWheelFEV2">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberSpinWheelFEV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberSpinWheelWinItem">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberSpinWheelWinItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkWinProductPercentage">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/checkWinProductPercentage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addLogSpinWheel2">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/addLogSpinWheel2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionFreebet2">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/addRedemptionFreebet2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionFreebet3">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/addRedemptionFreebet3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRedemptionFreebet">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/updateRedemptionFreebet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionNormalNew">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/addRedemptionNormalNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionFreebetNew">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/addRedemptionFreebetNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionWishList2New">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/addRedemptionWishList2New" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionOnlineNew">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/addRedemptionOnlineNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategoryName">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getCategoryName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionAutoCreditNew">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/addRedemptionAutoCreditNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExpirationPoint">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/GetExpirationPoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPointExpirationByRiskId">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/GetPointExpirationByRiskId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAging">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/GetAging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RedemptionFreebet">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/RedemptionFreebet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RedemptionOnline">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/RedemptionOnline" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RedemptionNormal">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/RedemptionNormal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RedemptionWishlist">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/RedemptionWishlist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RedemptionCart">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/RedemptionCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProducts">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/GetProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberDetails">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCatalogueDefault">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getCatalogueDefault" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCatalogueSearch">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getCatalogueSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductDefault">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getProductDefault" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductSearch">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getProductSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductValidity">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getProductValidity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductSearchProductId">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getProductSearchProductId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductSearchLang">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getProductSearchLang" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductDetail">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getProductDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRedemptionDetail">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getRedemptionDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberRedemptionDetail">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberRedemptionDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRedemption">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/addRedemption" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionNormal">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/addRedemptionNormal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionFreebet">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/addRedemptionFreebet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionWishList">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/addRedemptionWishList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionWishList2">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/addRedemptionWishList2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRedemptionOnline">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/addRedemptionOnline" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addLogPointsBalance">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/addLogPointsBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberPointByMonth">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberPointByMonth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberPointByMonthNew">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberPointByMonthNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPointsAddDeduct">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/GetPointsAddDeduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFeaturedProduct">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getFeaturedProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCartNormal">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/addCartNormal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCartFreebet">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/addCartFreebet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCartWishList">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/addCartWishList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCartWishList2">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/addCartWishList2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCartOnline">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/addCartOnline" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCart">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCartId">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getCartId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteCartRedeemSuccess">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/deleteCartRedeemSuccess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteSingleCart">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/deleteSingleCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteCartByID">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/deleteCartByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCartByProductId">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getCartByProductId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteExtraCart">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/deleteExtraCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberAccountByMonth">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberAccountByMonth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberAccount">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEarnProductFE">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getEarnProductFE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEarnMonthFE">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getEarnMonthFE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEarnDetailFE">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getEarnDetailFE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRedemptionFE">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getRedemptionFE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getExpiredFE">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getExpiredFE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAdjustmentFE">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getAdjustmentFE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductDiscountFE">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getProductDiscountFE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductDefaultLang">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getProductDefaultLang" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckRedemptionLimit">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/CheckRedemptionLimit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckRedemptionLimitWithRedemptionQuantity">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/CheckRedemptionLimitWithRedemptionQuantity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckRedemptionLimitForVIPCategory">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/CheckRedemptionLimitForVIPCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberInfo">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberPointLevelFE">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberPointLevelFE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberPointLevelDiscount">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberPointLevelDiscount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkRedemptionLimitDaily">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/checkRedemptionLimitDaily" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberPointLevelRange">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberPointLevelRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberEarnFE">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberEarnFE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberPointLevelRequired">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberPointLevelRequired" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberSpinWheelFE">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberSpinWheelFE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberSpinWheelFEItem">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberSpinWheelFEItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberSpinWheelFEItemByProductId">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberSpinWheelFEItemByProductId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addLogSpinWheel">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/addLogSpinWheel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateLogSpinWheel">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/updateLogSpinWheel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberSpinWheelCount">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberSpinWheelCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberSpinWheelCountDOB">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberSpinWheelCountDOB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberSpinWheelCountDOB_revised">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberSpinWheelCountDOB_revised" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberDOB">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getMemberDOB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductPoint">
+      <soap:operation soapAction="http://tempuri.org/IRewardsServices/getProductPoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RewardsServices">
+    <wsdl:port name="BasicHttpBinding_IRewardsServices" binding="tns:BasicHttpBinding_IRewardsServices">
+      <soap:address location="http://localhost:56326/RewardsServices.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
