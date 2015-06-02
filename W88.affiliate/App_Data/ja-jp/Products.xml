@@ -6,57 +6,57 @@
     </WCINFO>
     <ASports>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[a-Sports]]></Label>
-      <Description><![CDATA[Sportsbook]]></Description>
+      <Label><![CDATA[Aスポーツ]]></Label>
+      <Description><![CDATA[スポーツブック]]></Description>
     </ASports>
     <ESports>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[e-Sports]]></Label>
-      <Description><![CDATA[Sportsbook]]></Description>
+      <Label><![CDATA[Eスポーツ]]></Label>
+      <Description><![CDATA[スポーツブック]]></Description>
     </ESports>
     <ISports>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[i-Sports]]></Label>
-      <Description><![CDATA[Sportsbook]]></Description>
+      <Label><![CDATA[Iスポーツ]]></Label>
+      <Description><![CDATA[スポーツブック]]></Description>
     </ISports>
     <USports>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[u-Sports]]></Label>
-      <Description><![CDATA[Sportsbook]]></Description>
+      <Label><![CDATA[Xスポーツ]]></Label>
+      <Description><![CDATA[スポーツブック]]></Description>
     </USports>
     <Lottery>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Keno]]></Label>
-      <Description><![CDATA[Keno & Lotto]]></Description>
+      <Label><![CDATA[キノ]]></Label>
+      <Description><![CDATA[キノ & ロット]]></Description>
     </Lottery>
     <ClubCrescendo>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Crescendo]]></Label>
-      <Description><![CDATA[Crescendo Slots]]></Description>
+      <Label><![CDATA[クレセンド]]></Label>
+      <Description><![CDATA[クレセンド スロット]]></Description>
     </ClubCrescendo>
     <ClubDivino>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Divino]]></Label>
+      <Label><![CDATA[ディビノ]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubDivino>
     <ClubW>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club W]]></Label>
+      <Label><![CDATA[クラブW]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubW>
     <ClubBravado>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Bravado]]></Label>
+      <Label><![CDATA[ブラバド]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubBravado>
     <ClubMassimoSlots>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Massimo <br /><span>(Slots)</span>]]></Label>
+      <Label><![CDATA[マッシモ <br /><span>(スロット)</span>]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoSlots>
     <ClubMassimoCasino>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Massimo <br /><span>(Casino)</span>]]></Label>
+      <Label><![CDATA[マッシモ <br /><span>(カジノ)</span>]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoCasino>
     <Deposit>
@@ -70,14 +70,14 @@
     </FundTransfer>
   </Products>
   <Wallets>
-    <main><![CDATA[Main]]></main>
-    <asports><![CDATA[A-Sports]]></asports>
-    <esports><![CDATA[E-Sports]]></esports>
-    <isports><![CDATA[I-Sports]]></isports>
-    <lottery><![CDATA[Lottery]]></lottery>
-    <casino><![CDATA[Club W, Bravado, Crescendo, Divino & Massimo]]></casino>
-    <playtech><![CDATA[Palazzo]]></playtech>
-    <binary><![CDATA[Binary]]></binary>
-    <poker><![CDATA[Poker (USD)]]></poker>
+    <main><![CDATA[メイン]]></main>
+    <asports><![CDATA[Aスポーツ]]></asports>
+    <esports><![CDATA[Eスポーツ]]></esports>
+    <isports><![CDATA[Iスポーツ]]></isports>
+    <lottery><![CDATA[ロト]]></lottery>
+    <casino><![CDATA[クラブW、ブラバド、クレセンド、ディビノ&マッシモ]]></casino>
+    <playtech><![CDATA[宮殿]]></playtech>
+    <binary><![CDATA[バイナリー]]></binary>
+    <poker><![CDATA[ポーカー(USD)]]></poker>
   </Wallets>
 </default>

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
-  <btnSubmit><![CDATA[Submit]]></btnSubmit>
-  <btnCancel><![CDATA[Cancel]]></btnCancel>
+  <btnSubmit><![CDATA[提出]]></btnSubmit>
+  <btnCancel><![CDATA[キャンセル]]></btnCancel>
   <lblID><![CDATA[ID]]></lblID>
-  <lblComment><![CDATA[Comment]]></lblComment>
-  <lblMultipleRebateCode><![CDATA[Please indicate on which product that you wish to apply for the Code:]]></lblMultipleRebateCode>
-  <lblMoreInfo><![CDATA[MORE INFO]]></lblMoreInfo>
+  <lblComment><![CDATA[コメント]]></lblComment>
+  <lblMultipleRebateCode><![CDATA[どの製品のボーナスコードを申請するのか記載してください:]]></lblMultipleRebateCode>
+  <lblMoreInfo><![CDATA[詳細情報]]></lblMoreInfo>
 </default>
