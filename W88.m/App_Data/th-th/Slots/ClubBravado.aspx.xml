@@ -52,6 +52,9 @@
         <PlayForFunURL><![CDATA[{BravadoUrl}/godoffortune/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
       </GodOfFortune>
+      <goldenlegendmobile>
+        <ImageName><![CDATA[goldenlegendmobile]]></ImageName>
+      </goldenlegendmobile>
       <towerquestmobile>
         <ImageName><![CDATA[towerquestmobile]]></ImageName>
       </towerquestmobile>
