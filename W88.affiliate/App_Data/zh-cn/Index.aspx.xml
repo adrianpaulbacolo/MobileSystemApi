@@ -2,4 +2,8 @@
 <default>
   <lblPlaceBet><![CDATA[请登陆或注册]]></lblPlaceBet>
   <lblAffiliate><![CDATA[合营伙伴]]></lblAffiliate>
+  <lblOurProduct><![CDATA[Our Product]]></lblOurProduct>
+  <lblComissionPlan><![CDATA[Commission Plans]]></lblComissionPlan>
+  <lblMyAccount><![CDATA[My Account]]></lblMyAccount>
+  <lblOverview><![CDATA[Overview]]></lblOverview>
 </default>

@@ -32,13 +32,13 @@
   <reports><![CDATA[レポート]]></reports>
   <trackingStatistic><![CDATA[追跡統計]]></trackingStatistic>
 
-  <affiliate><![CDATA[系列会社]]></affiliate>
+  <affiliate><![CDATA[アフェリエイト]]></affiliate>
   <account><![CDATA[マイアカウント]]></account>
   <accountinfo><![CDATA[アカウント情報]]></accountinfo>
   <changePassword><![CDATA[変化パスワード]]></changePassword>
   <subAffmgmt><![CDATA[下位系列会社管理]]></subAffmgmt>
 
-  <commissionPlans><![CDATA[委員会制]]></commissionPlans>
+  <commissionPlans><![CDATA[コミッションプラン]]></commissionPlans>
   <faq><![CDATA[よくある質問と回答]]></faq>
   <ourProducts><![CDATA[弊社製品]]></ourProducts>
   <report><![CDATA[レポート]]></report>
