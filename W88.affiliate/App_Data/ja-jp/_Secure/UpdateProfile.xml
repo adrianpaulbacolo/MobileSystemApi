@@ -39,7 +39,7 @@
   <drpSecurityQuestion title="質問を選択してください">
     <SQ0><![CDATA[:: 質問を選択してください ::]]></SQ0>
     <SQ1><![CDATA[あなたのお母さんの旧姓は何ですか？]]></SQ1>
-    <SQ2><![CDATA[あなたの子供の頃のあだ名は何ですか？ ]]></SQ2>
+    <SQ2><![CDATA[子供の頃のニックネームは何ですか？ ]]></SQ2>
     <SQ3><![CDATA[子供の頃の将来の夢は何でしたか？]]></SQ3>
     <SQ4><![CDATA[初めての勤め先の町または市はどこでしたか？]]></SQ4>
     <SQ5><![CDATA[あなたの小学校名は何ですか？]]></SQ5>
@@ -69,7 +69,7 @@
     <female><![CDATA[女性]]></female>
   </drpGender>
 
-  <lblSecurityAnswer><![CDATA[セキュリティーの回答]]></lblSecurityAnswer>
+  <lblSecurityAnswer><![CDATA[セキュリティの答え]]></lblSecurityAnswer>
 
   <btnSubmit><![CDATA[提出]]></btnSubmit>
 </updateProfile>

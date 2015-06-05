@@ -5,7 +5,7 @@
   <lblAffiliateId><![CDATA[ティア1アフィリエイトID：]]></lblAffiliateId>
   <lblLastLogin><![CDATA[あなたの最後のログイン時に：]]></lblLastLogin>
   <lblAffiliateLink><![CDATA[あなたのアフィリエイトリンク： ]]></lblAffiliateLink>
-  <lblCreative_bk><![CDATA[適切なマーケティングのバナーを選択するには <a href="/Creative.aspx">クリエイティブ</a> にアクセスしてください。ダウンロードの必要はありません、切り取ってお客様のウェブサイトのURLコードに貼り付けることによってお客様のサイトに表示されます。]]></lblCreative_bk>
+  <lblCreative_bk><![CDATA[適切なマーケティングのバナーを選択するには <a href="/Creative.aspx"> クリエイティブ </a> にアクセスしてください。ダウンロードの必要はなく、ただURLコードをコピペしてあなたのエキサイティングなウェブページに挿入すると、バナーはあなたのサイトに表示されます。]]></lblCreative_bk>
   <lblCreative><![CDATA[適切なマーケティングのバナーを選択してクリエイティブにアクセスしてください。ダウンロードし、ちょうどカットして、既存のWebページとバナー（S）があなたの側に/表示されているにURLコードを貼り付けする必要はありません。]]></lblCreative>
 
 
@@ -22,7 +22,7 @@
 
   <lblTrans><![CDATA[取引データ]]></lblTrans>
   <lblTitle><![CDATA[今月 ]]></lblTitle>
-  <lblWinLoss><![CDATA[弊社勝利/敗北]]></lblWinLoss>
+  <lblWinLoss><![CDATA[弊社 利益/損失]]></lblWinLoss>
   <lblActiveMember><![CDATA[総アクティブなメンバー]]></lblActiveMember>
   <lblBets><![CDATA[ベット数]]></lblBets>
   <lblTurnOver><![CDATA[売上高]]></lblTurnOver>

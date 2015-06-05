@@ -6,22 +6,22 @@
     </WCINFO>
     <ASports>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Aスポーツ]]></Label>
+      <Label><![CDATA[a-スポーツ]]></Label>
       <Description><![CDATA[スポーツブック]]></Description>
     </ASports>
     <ESports>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Eスポーツ]]></Label>
+      <Label><![CDATA[e-スポーツ]]></Label>
       <Description><![CDATA[スポーツブック]]></Description>
     </ESports>
     <ISports>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Iスポーツ]]></Label>
+      <Label><![CDATA[i-スポーツ]]></Label>
       <Description><![CDATA[スポーツブック]]></Description>
     </ISports>
     <USports>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Xスポーツ]]></Label>
+      <Label><![CDATA[x-スポーツ]]></Label>
       <Description><![CDATA[スポーツブック]]></Description>
     </USports>
     <Lottery>

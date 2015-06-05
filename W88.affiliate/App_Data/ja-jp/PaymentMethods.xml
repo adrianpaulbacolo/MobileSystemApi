@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <PaymentMethods>
-  <d110101><![CDATA[高速入金]]></d110101>
+  <d110101><![CDATA[初回入金]]></d110101>
   <d120203><![CDATA[SDAPay]]></d120203>
   <d120204><![CDATA[NextPay]]></d120204>
   <d120206><![CDATA[オンライン入金]]></d120206>

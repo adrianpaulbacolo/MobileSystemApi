@@ -8,15 +8,15 @@
   <drpOtherBank><![CDATA[その他銀行]]></drpOtherBank>
   <lblBankBranch><![CDATA[銀行支店]]></lblBankBranch>
   <lblAddress><![CDATA[住所]]></lblAddress>
-  <lblAccountName><![CDATA[お客様の口座名]]></lblAccountName>
-  <lblAccountNumber><![CDATA[お客様の口座番号]]></lblAccountNumber>
+  <lblAccountName><![CDATA[あなたの口座名]]></lblAccountName>
+  <lblAccountNumber><![CDATA[あなたの口座番号]]></lblAccountNumber>
   <lblMyKad><![CDATA[マイカッド]]></lblMyKad>
   <lblMobileNumber><![CDATA[携帯番号]]></lblMobileNumber>
-  <lblMobileNotify><![CDATA[携帯経由で情報を知らせる]]></lblMobileNotify>
+  <lblMobileNotify><![CDATA[携帯経由で通知する]]></lblMobileNotify>
   <btnSubmit><![CDATA[提出]]></btnSubmit>
   <lblTransactionId><![CDATA[トランザクションID]]></lblTransactionId>
-  <lblDailyLimit><![CDATA[毎日の制限： ]]></lblDailyLimit>
-  <lblTotalAllowed><![CDATA[合計許可： ]]></lblTotalAllowed>
+  <lblDailyLimit><![CDATA[1日の限度： ]]></lblDailyLimit>
+  <lblTotalAllowed><![CDATA[許容合計： ]]></lblTotalAllowed>
   <lblAtmNumber><![CDATA[お客様のATMカード番号]]></lblAtmNumber>
 
   <BankNameNative>

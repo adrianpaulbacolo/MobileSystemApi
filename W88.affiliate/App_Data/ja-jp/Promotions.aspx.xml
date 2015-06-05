@@ -4,6 +4,6 @@
   <btnCancel><![CDATA[キャンセル]]></btnCancel>
   <lblID><![CDATA[ID]]></lblID>
   <lblComment><![CDATA[コメント]]></lblComment>
-  <lblMultipleRebateCode><![CDATA[どの製品のボーナスコードを申請するのか記載してください:]]></lblMultipleRebateCode>
+  <lblMultipleRebateCode><![CDATA[コード申請する製品を選んで下さい：]]></lblMultipleRebateCode>
   <lblMoreInfo><![CDATA[詳細情報]]></lblMoreInfo>
 </default>
