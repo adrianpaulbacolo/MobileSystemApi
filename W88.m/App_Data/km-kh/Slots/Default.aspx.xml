@@ -3,6 +3,12 @@
 
   <Category>
     <Slot Label="ស្លត">
+      <FireCrackers>
+        <Label><![CDATA[Midnight Lucky Sky Slots]]></Label>
+        <Description><![CDATA[Midnight Lucky Sky Slots]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilefirecrackerslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilefirecrackerslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </FireCrackers>
       <AtlantisDive>
         <Label><![CDATA[AtlantisDive]]></Label>
         <Description><![CDATA[AtlantisDive]]></Description>
