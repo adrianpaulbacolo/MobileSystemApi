@@ -62,22 +62,22 @@ public partial class LiveChat_Default : System.Web.UI.Page
                         switch (shortlang)//null member
                         {
                             case "en":
-                                redirectLink = "http://en.liveperson88.net/live/chat.php?a=db524&hg=P01hbmFnZXI_&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__&rgs=MQ__";
+                                redirectLink = "http://en.chat.liveperson88.com/chat.php?a=1bb6a&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__&rgs=MQ__";
                                 break;
                             case "kh":
-                                redirectLink = "http://kh.liveperson88.net/live/chat.php?a=1e3b4&hg=P01hbmFnZXI_&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__&rgs=MQ__&el=" + KM;
+                                redirectLink = "http://kh.chat.liveperson88.com/chat.php?a=d1712&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__&rgs=MQ__&el=" + KM;
                                 break;
                             case "kr":
-                                redirectLink = "http://kr.liveperson88.net/live/chat.php?a=882d3&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
+                                redirectLink = "http://kr.chat.liveperson88.com/chat.php?a=7b233&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
                                 break;
                             case "th":
-                                redirectLink = "http://th.liveperson88.net/live/chat.php?a=b915d&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
+                                redirectLink = "http://th.chat.liveperson88.com/chat.php?a=d4a99&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
                                 break;
                             case "id":
                                 redirectLink = "http://id.chat.liveperson88.com/chat.php?a=5c303&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
                                 break;
                             case "jp":
-                                redirectLink = "http://jp.liveperson88.net/live/chat.php?a=c846b&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
+                                redirectLink = "http://jp.chat.liveperson88.com/chat.php?a=f3c22&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
                                 break;
                             case "vn":
                                 redirectLink = "http://vn.liveperson88.net/live/chat.php?a=eea3e&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
@@ -86,7 +86,7 @@ public partial class LiveChat_Default : System.Web.UI.Page
                                 redirectLink = "http://cn.liveperson88.net/live/chat.php?a=13bb1&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
                                 break;
                             default:
-                                redirectLink = "http://en.liveperson88.net/live/chat.php?a=db524&hg=P01hbmFnZXI_&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__&rgs=MQ__";
+                                redirectLink = "http://en.chat.liveperson88.com/chat.php?a=1bb6a&hg=P1ZJUA__&hg=P01hbmFnZXI_&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__&rgs=MQ__";
                                 break;
 
                         }
@@ -97,39 +97,39 @@ public partial class LiveChat_Default : System.Web.UI.Page
                         {
                             case "en":
                                 if (isVIP)
-                                    redirectLink = "http://en.liveperson88.net/live/chat.php?a=a78ef&intgroup=VklQ&hg=P01hbmFnZXI_&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__";
+                                    redirectLink = "http://en.chat.liveperson88.com/chat.php?a=a08c2&intgroup=VklQ&hg=Pw__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__";
                                 else
-                                    redirectLink = "http://en.liveperson88.net/live/chat.php?a=a58c2&hg=P01hbmFnZXI,VklQ&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__&rgs=MQ__";
+                                    redirectLink = "http://en.chat.liveperson88.com/chat.php?a=1bb6a&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__&rgs=MQ__";
                                 break;
                             case "kh":
                                 if (isVIP)
-                                    redirectLink = "http://kh.liveperson88.net/live/chat.php?a=618aa&intgroup=VklQ&hg=P01hbmFnZXI_&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__&el=" + KM;
+                                    redirectLink = "http://kh.chat.liveperson88.com/chat.php?a=35df1&intgroup=VklQ&hg=Pw__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__&el=" + KM;
                                 else
-                                    redirectLink = "http://kh.liveperson88.net/live/chat.php?a=8d2b0&hg=P01hbmFnZXI,VklQ&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__&rgs=MQ__&el=" + KM;
+                                    redirectLink = "http://kh.chat.liveperson88.com/chat.php?a=d1712&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__&rgs=MQ__&el=" + KM;
                                 break;
                             case "kr":
                                 if (isVIP)
-                                    redirectLink = "http://kr.liveperson88.net/live/chat.php?a=a6071&intgroup=VklQ&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}";
+                                    redirectLink = "http://kr.chat.liveperson88.com/chat.php?a=581f1&intgroup=VklQ&hg=Pw__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}";
                                 else
-                                    redirectLink = "http://kr.liveperson88.net/live/chat.php?a=882d3&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
+                                    redirectLink = "http://kr.chat.liveperson88.com/chat.php?a=7b233&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
                                 break;
                             case "th":
                                 if (isVIP)
-                                    redirectLink = "http://th.liveperson88.net/live/chat.php?a=55660&intgroup=VklQ&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}";
+                                    redirectLink = "http://th.chat.liveperson88.com/chat.php?a=0db09&intgroup=VklQ&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}";
                                 else
-                                    redirectLink = "http://th.liveperson88.net/live/chat.php?a=b915d&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
+                                    redirectLink = "http://th.chat.liveperson88.com/chat.php?a=d4a99&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
                                 break;
                             case "id":
                                 if (isVIP)
-                                    redirectLink = "http://id.liveperson88.net/live/chat.php?a=c17ec&intgroup=VklQ&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}";
+                                    redirectLink = "http://id.chat.liveperson88.com/chat.php?a=f7bd2&intgroup=VklQ&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}";
                                 else
-                                    redirectLink = "http://id.liveperson88.net/live/chat.php?a=8e452&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
+                                    redirectLink = "http://id.chat.liveperson88.com/chat.php?a=5c303&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
                                 break;
                             case "jp":
                                 if (isVIP)
-                                    redirectLink = "http://jp.liveperson88.net/live/chat.php?a=a7732&intgroup=VklQ&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}";
+                                    redirectLink = "http://jp.chat.liveperson88.com/chat.php?a=e94d5&intgroup=VklQ&hg=Pw__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}";
                                 else
-                                    redirectLink = "http://jp.liveperson88.net/live/chat.php?a=c846b&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
+                                    redirectLink = "http://jp.chat.liveperson88.com/chat.php?a=f3c22&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
                                 break;
                             case "vn":
                                 if (isVIP)
@@ -145,9 +145,9 @@ public partial class LiveChat_Default : System.Web.UI.Page
                                 break;
                             default:
                                 if (isVIP)
-                                    redirectLink = "http://en.liveperson88.net/live/chat.php?a=a78ef&intgroup=VklQ&hg=P01hbmFnZXI_&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__";
+                                    redirectLink = "http://en.chat.liveperson88.com/chat.php?a=a08c2&intgroup=VklQ&hg=Pw__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__";
                                 else
-                                    redirectLink = "http://en.liveperson88.net/live/chat.php?a=a58c2&hg=P01hbmFnZXI,VklQ&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__&rgs=MQ__";
+                                    redirectLink = "http://en.chat.liveperson88.com/chat.php?a=1bb6a&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__&rgs=MQ__";
                                 break;
                         }
                     }
