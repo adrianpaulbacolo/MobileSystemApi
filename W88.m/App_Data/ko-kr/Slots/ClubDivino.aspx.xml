@@ -121,7 +121,11 @@
         <Label><![CDATA[The Curious Machine]]></Label>
         <Description><![CDATA[The Curious Machine]]></Description>
       </Slot3D22>
-    
+      <Slot3D23 ProductId="549">
+        <ImageName><![CDATA[W88-Slots-Mobile-Event-Horizon]]></ImageName>
+        <Label><![CDATA[Event Horizon]]></Label>
+        <Description><![CDATA[Event Horizon]]></Description>
+      </Slot3D23>
   </Slot3D>
     <TableCard Version="IOS" Label="테이블 게임 &amp; 카드게임 IOS">
       <TableCard1 ProductId="271">
@@ -258,6 +262,11 @@
         <Label><![CDATA[The Curious Machine]]></Label>
         <Description><![CDATA[The Curious Machine]]></Description>
       </Slot3D22>
+      <Slot3D23 ProductId="550">
+        <ImageName><![CDATA[W88-Slots-Mobile-Event-Horizon]]></ImageName>
+        <Label><![CDATA[Event Horizon]]></Label>
+        <Description><![CDATA[Event Horizon]]></Description>
+      </Slot3D23>
     </Slot3D>
       
     <TableCard Version="ANDROID" Label="테이블 게임 &amp; 카드게임 Android">
@@ -396,6 +405,11 @@
         <Label><![CDATA[The Curious Machine]]></Label>
         <Description><![CDATA[The Curious Machine]]></Description>
       </Slot3D22>
+      <Slot3D23 ProductId="551">
+        <ImageName><![CDATA[W88-Slots-Mobile-Event-Horizon]]></ImageName>
+        <Label><![CDATA[Event Horizon]]></Label>
+        <Description><![CDATA[Event Horizon]]></Description>
+      </Slot3D23>
     </Slot3DWP>
     <TableCardWP Version="WP" Label="테이블 게임 &amp; 카드게임 WP">
       <TableCard1 ProductId="366">
