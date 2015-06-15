@@ -71,9 +71,9 @@
   </Products>
   <Wallets>
     <main><![CDATA[メイン]]></main>
-    <asports><![CDATA[Aスポーツ]]></asports>
-    <esports><![CDATA[Eスポーツ]]></esports>
-    <isports><![CDATA[Iスポーツ]]></isports>
+    <asports><![CDATA[a-スポーツ]]></asports>
+    <esports><![CDATA[e-スポーツ]]></esports>
+    <isports><![CDATA[i-スポーツ]]></isports>
     <lottery><![CDATA[ロト]]></lottery>
     <casino><![CDATA[クラブW、ブラバド、クレセンド、ディビノ&マッシモ]]></casino>
     <playtech><![CDATA[宮殿]]></playtech>
