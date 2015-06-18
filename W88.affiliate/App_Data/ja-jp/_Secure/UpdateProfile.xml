@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <updateProfile>
-  <lblRequiredFields><![CDATA[Required fields]]></lblRequiredFields>
-  <lblEmail><![CDATA[Email Address]]></lblEmail>
-  <lblContact><![CDATA[Contact Number]]></lblContact>
-  <lblUsername><![CDATA[Username]]></lblUsername>
-  <lblFirstName><![CDATA[First Name]]></lblFirstName>
-  <lblLastName><![CDATA[Last Name]]></lblLastName>
-  <lblDOB><![CDATA[Date of birth]]></lblDOB>
-  <lblCountry><![CDATA[Country]]></lblCountry>
-  <lblCurrency><![CDATA[Currency]]></lblCurrency>
+  <lblRequiredFields><![CDATA[必須フィールド]]></lblRequiredFields>
+  <lblEmail><![CDATA[Eメール]]></lblEmail>
+  <lblContact><![CDATA[連絡先]]></lblContact>
+  <lblUsername><![CDATA[ユーザーネーム]]></lblUsername>
+  <lblFirstName><![CDATA[姓]]></lblFirstName>
+  <lblLastName><![CDATA[名]]></lblLastName>
+  <lblDOB><![CDATA[生年月日]]></lblDOB>
+  <lblCountry><![CDATA[国]]></lblCountry>
+  <lblCurrency><![CDATA[通貨]]></lblCurrency>
 
   <Currency>
     <UUS><![CDATA[(UUS) 仮想の通貨]]></UUS>
@@ -26,27 +26,27 @@
     <INR><![CDATA[(INR) インドルピー]]></INR>
   </Currency>
 
-  <lblAddress><![CDATA[Address]]></lblAddress>
-  <lblCity><![CDATA[City]]></lblCity>
-  <lblPostal><![CDATA[Postal]]></lblPostal>
-  <lblGender><![CDATA[Gender]]></lblGender>
-  <lblOdds><![CDATA[Odds]]></lblOdds>
-  <lblLanguage><![CDATA[Language]]></lblLanguage>
-  <lblPassword><![CDATA[Password]]></lblPassword>
+  <lblAddress><![CDATA[住所]]></lblAddress>
+  <lblCity><![CDATA[国]]></lblCity>
+  <lblPostal><![CDATA[郵便番号]]></lblPostal>
+  <lblGender><![CDATA[性別]]></lblGender>
+  <lblOdds><![CDATA[オッズ]]></lblOdds>
+  <lblLanguage><![CDATA[言語]]></lblLanguage>
+  <lblPassword><![CDATA[パスワード]]></lblPassword>
 
-  <lblSecurityQuestion><![CDATA[Security Question]]></lblSecurityQuestion>
+  <lblSecurityQuestion><![CDATA[セキュリティーの質問]]></lblSecurityQuestion>
   
-  <drpSecurityQuestion title="Select your security question">
-    <SQ0><![CDATA[:: Select your security question ::]]></SQ0>
-    <SQ1><![CDATA[What is your mother's middle name?]]></SQ1>
-    <SQ2><![CDATA[What was your childhood nickname? ]]></SQ2>
-    <SQ3><![CDATA[What was your dream job as a child?]]></SQ3>
-    <SQ4><![CDATA[In what city or town was your first job?]]></SQ4>
-    <SQ5><![CDATA[What is the name of the first school you attended?]]></SQ5>
-    <SQ6><![CDATA[What is your father's middle name?]]></SQ6>
+  <drpSecurityQuestion title="質問を選択してください">
+    <SQ0><![CDATA[:: 質問を選択してください ::]]></SQ0>
+    <SQ1><![CDATA[あなたのお母さんの旧姓は何ですか？]]></SQ1>
+    <SQ2><![CDATA[子供の頃のニックネームは何ですか？ ]]></SQ2>
+    <SQ3><![CDATA[子供の頃の将来の夢は何でしたか？]]></SQ3>
+    <SQ4><![CDATA[初めての勤め先の町または市はどこでしたか？]]></SQ4>
+    <SQ5><![CDATA[あなたの小学校名は何ですか？]]></SQ5>
+    <SQ6><![CDATA[あなたのお父さんの苗字はなんですか？]]></SQ6>
   </drpSecurityQuestion>
 
-  <drpLanguage title="Select your preferred language">
+  <drpLanguage title="言語を選択する">
     <en-us><![CDATA[English]]></en-us>
     <zh-cn><![CDATA[简体中文]]></zh-cn>
     <vi-vn><![CDATA[Tiếng Việt]]></vi-vn>
@@ -65,11 +65,11 @@
   </drpOdds>
 
   <drpGender>
-    <male><![CDATA[Male]]></male>
-    <female><![CDATA[Female]]></female>
+    <male><![CDATA[男性]]></male>
+    <female><![CDATA[女性]]></female>
   </drpGender>
 
-  <lblSecurityAnswer><![CDATA[Security Answer]]></lblSecurityAnswer>
+  <lblSecurityAnswer><![CDATA[セキュリティの答え]]></lblSecurityAnswer>
 
-  <btnSubmit><![CDATA[Submit]]></btnSubmit>
+  <btnSubmit><![CDATA[提出]]></btnSubmit>
 </updateProfile>

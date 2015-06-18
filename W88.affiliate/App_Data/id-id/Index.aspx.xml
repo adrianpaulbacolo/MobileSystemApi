@@ -2,4 +2,8 @@
 <default>
   <lblPlaceBet><![CDATA[Harap Login atau Daftar]]></lblPlaceBet>
   <lblAffiliate><![CDATA[Afiliasi]]></lblAffiliate>
+  <lblOurProduct><![CDATA[Our Product]]></lblOurProduct>
+  <lblComissionPlan><![CDATA[Commission Plans]]></lblComissionPlan>
+  <lblMyAccount><![CDATA[My Account]]></lblMyAccount>
+  <lblOverview><![CDATA[Overview]]></lblOverview>
 </default>
