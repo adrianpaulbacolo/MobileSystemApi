@@ -12,6 +12,8 @@
       <xs:enumeration value="NotBelongToAnyType" />
       <xs:enumeration value="ConcurrencyDetected" />
       <xs:enumeration value="UnknownError" />
+      <xs:enumeration value="CurrencyMismatch" />
+      <xs:enumeration value="InvalidValidation" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="RedemptionResultEnum" nillable="true" type="tns:RedemptionResultEnum" />

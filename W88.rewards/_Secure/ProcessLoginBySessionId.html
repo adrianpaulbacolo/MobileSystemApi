@@ -4,8 +4,7 @@
     <title></title>
     <script type="text/javascript" src="/_Static/JS/jquery-1.10.2.min.js"></script>
     <script type="text/javascript">
-        window.onload = function ()
-        {
+        window.onload = function () {
             var lang = '';
 
             if (window.location.href.indexOf('?lang=') > 0) {
@@ -13,7 +12,7 @@
             }
             $.ajax({
                 contentType: "application/json; charset=utf-8",
-                url: "http://w88uat.com/IP2LOC?v=" + new Date().getTime(),
+                url: "https://ip2loc.w2script.com/IP2LOC?v=" + new Date().getTime(),
                 dataType: "jsonp",
                 success: function (data) {
                     $.post("/_Secure/ProcessLoginBySessionId.aspx", { ip: data.ip, country: data.country })
@@ -26,7 +25,23 @@
             });
         }
     </script>
-    <style type="text/css">body {margin:0;padding:0;width:100%;height:100%;overflow-x:hidden;overflow-y:hidden;position:relative;background:#1f1f1f !important;background-image:url('/_Static/Images/2x/splash-logo.gif') !important;background-position:center center !important;background-repeat:no-repeat !important;background-size:contain !important;}</style>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            position: relative;
+            background: #1f1f1f !important;
+            background-image: url('/_Static/Images/2x/splash-logo.gif') !important;
+            background-position: center center !important;
+            background-repeat: no-repeat !important;
+            background-size: contain !important;
+        }
+    </style>
 </head>
-    <body></body>
+<body>
+</body>
 </html>

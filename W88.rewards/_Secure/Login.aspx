@@ -93,7 +93,7 @@
                         GPINTMOBILE.ShowSplash();
                         $.ajax({
                             contentType: "application/json; charset=utf-8",
-                            url: "http://w88uat.com/IP2LOC?v=" + new Date().getTime(),
+                            url: "https://ip2loc.w2script.com/IP2LOC?v=" + new Date().getTime(),
                             dataType: "jsonp",
                             success: function (data) {
                                 initiateLogin(data);
@@ -115,7 +115,7 @@
 $('#<%=imgCaptcha.ClientID%>').click(function () { $(this).attr('src', '/_Secure/Captcha.aspx'); });
 
             function initiateLogin(postData) {
-               // alert("going to process login");
+                // alert("going to process login");
                 console.log('txt: ' + $('#txtCaptcha').val());
                 $.ajax({
                     type: "POST",
@@ -134,8 +134,8 @@ $('#<%=imgCaptcha.ClientID%>').click(function () { $(this).attr('src', '/_Secure
                             case "1":
                                 switch ('<%=strRedirect%>') {
                                     default:
-                                       // alert('<%=strRedirect%>');
-                                        window.location.replace   ('<%=strRedirect%>');
+                                        // alert('<%=strRedirect%>');
+                                        window.location.replace('<%=strRedirect%>');
                                         break;
                                 }
                                 break;

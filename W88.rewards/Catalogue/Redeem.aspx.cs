@@ -461,11 +461,6 @@ public partial class Catalogue_Redeem : BasePage
                     {
                         case RedemptionResultEnum.ConcurrencyDetected:
                             break;
-                        case RedemptionResultEnum.UnknownError:
-                        case RedemptionResultEnum.PointCheckError:
-                            strAlertCode = "FAIL";
-                            strAlertMessage = (string)System.Web.HttpContext.GetLocalResourceObject(localResx, "lblPointCheckError");
-                            break;
                         case RedemptionResultEnum.LimitReached:
                             strAlertCode = "FAIL";
                             strAlertMessage = (string)System.Web.HttpContext.GetLocalResourceObject(localResx, "lbl_redemption_limit_reached");
@@ -497,6 +492,12 @@ public partial class Catalogue_Redeem : BasePage
                                 strAlertMessage = (string)System.Web.HttpContext.GetLocalResourceObject(localResx, "lbl_redeem_success_submit");
 
                           
+                            break;
+                        default:
+                        case RedemptionResultEnum.UnknownError:
+                        case RedemptionResultEnum.PointCheckError:
+                            strAlertCode = "FAIL";
+                            strAlertMessage = (string)System.Web.HttpContext.GetLocalResourceObject(localResx, "lblPointCheckError");
                             break;
                     }
 
