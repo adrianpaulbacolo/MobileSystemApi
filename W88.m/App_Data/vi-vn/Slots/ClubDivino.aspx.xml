@@ -121,7 +121,11 @@
         <Label><![CDATA[The Curious Machine]]></Label>
         <Description><![CDATA[The Curious Machine]]></Description>
       </Slot3D22>
-
+      <Slot3D23 ProductId="549">
+        <ImageName><![CDATA[W88-Slots-Mobile-Event-Horizon]]></ImageName>
+        <Label><![CDATA[Event Horizon]]></Label>
+        <Description><![CDATA[Event Horizon]]></Description>
+      </Slot3D23>
     </Slot3D>
     <TableCard Version="IOS" Label="TRÒ CHƠI BÀN &amp; TRÒ CHƠI BÀI IOS">
       <TableCard1 ProductId="271">
@@ -259,6 +263,11 @@
         <Label><![CDATA[The Curious Machine]]></Label>
         <Description><![CDATA[The Curious Machine]]></Description>
       </Slot3D22>
+      <Slot3D23 ProductId="550">
+        <ImageName><![CDATA[W88-Slots-Mobile-Event-Horizon]]></ImageName>
+        <Label><![CDATA[Event Horizon]]></Label>
+        <Description><![CDATA[Event Horizon]]></Description>
+      </Slot3D23>
     </Slot3D>
     
     <TableCard Version="ANDROID" Label="TRÒ CHƠI BÀN &amp; TRÒ CHƠI BÀI Android">
@@ -397,6 +406,11 @@
         <Label><![CDATA[The Curious Machine]]></Label>
         <Description><![CDATA[The Curious Machine]]></Description>
       </Slot3D22>
+      <Slot3D23 ProductId="551">
+        <ImageName><![CDATA[W88-Slots-Mobile-Event-Horizon]]></ImageName>
+        <Label><![CDATA[Event Horizon]]></Label>
+        <Description><![CDATA[Event Horizon]]></Description>
+      </Slot3D23>
     </Slot3DWP>
     
     

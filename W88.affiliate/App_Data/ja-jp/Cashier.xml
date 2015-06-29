@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <cashier>
-  <lblShowBalance><![CDATA[Show Balance]]></lblShowBalance>
-  <lblHideBalance><![CDATA[Hide Balance]]></lblHideBalance>
-  <lblTransferFrom><![CDATA[Transfer From]]></lblTransferFrom>
-  <lblTransferTo><![CDATA[Transfer To]]></lblTransferTo>
-  <lblTransferAmount><![CDATA[Transfer Amount]]></lblTransferAmount>
-  <lblPromoCode><![CDATA[Bonus Code]]></lblPromoCode>
-  <lblFreebetCode><![CDATA[Freebet Code]]></lblFreebetCode>
-  <btnSubmit><![CDATA[SUBMIT]]></btnSubmit>
+  <lblShowBalance><![CDATA[残高表示]]></lblShowBalance>
+  <lblHideBalance><![CDATA[残高非表示]]></lblHideBalance>
+  <lblTransferFrom><![CDATA[より転送]]></lblTransferFrom>
+  <lblTransferTo><![CDATA[へ転送]]></lblTransferTo>
+  <lblTransferAmount><![CDATA[転送額]]></lblTransferAmount>
+  <lblPromoCode><![CDATA[ボーナスコード]]></lblPromoCode>
+  <lblFreebetCode><![CDATA[フリーベットコード]]></lblFreebetCode>
+  <btnSubmit><![CDATA[提出]]></btnSubmit>
 </cashier>

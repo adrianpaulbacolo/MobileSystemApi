@@ -4,6 +4,6 @@
   <lblPassword><![CDATA[パスワード]]></lblPassword>
   <lblCaptcha><![CDATA[検証コード]]></lblCaptcha>
   <btnLogin><![CDATA[ログイン]]></btnLogin>
-  <btnRegister><![CDATA[You need to be a member of W88.com to login. <br />Not yet a member? <a href='/_Secure/Register.aspx' data-ajax='false'>Join Now</a>]]></btnRegister>
-  <lblRegister><![CDATA[あなたは、ログインするのにW88.comの会員である必要があります。まだ、会員ではありませんか?私たちのウェブサイトwww.w88.comを訪問して、アカウントを開いてください。]]></lblRegister>
+  <btnRegister><![CDATA[W88.comへログインするには会員である必要があります <br />まだ会員ではありませんか？ <a href='/_Secure/Register.aspx' data-ajax='false'>今すぐ参加</a>]]></btnRegister>
+  <lblRegister><![CDATA[W88.comへログインするには会員である必要があります。まだ、会員ではありませんか?私たちのウェブサイトwww.w88.comを訪問して、アカウントを開いてください。]]></lblRegister>
 </default>

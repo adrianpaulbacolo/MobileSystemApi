@@ -1,30 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <menu>
   <brand><![CDATA[W88.com - ]]></brand>
-  <closeMenu><![CDATA[Close Menu]]></closeMenu>
-  <home><![CDATA[Home]]></home>
-  <login><![CDATA[Login]]></login>
-  <register><![CDATA[Registration]]></register>
-  <cashier><![CDATA[Cashier]]></cashier>
-  <deposit><![CDATA[Deposit]]></deposit>
-  <transfer><![CDATA[Transfer]]></transfer>
-  <withdrawal><![CDATA[Withdrawal]]></withdrawal>
-  <freebets><![CDATA[Freebet]]></freebets>
-  <misc><![CDATA[Misc]]></misc>
-  <liveHelp><![CDATA[Live Help]]></liveHelp>
-  <contactUs><![CDATA[Contact Us]]></contactUs>
-  <helpCenter><![CDATA[Help Center]]></helpCenter>
-  <language><![CDATA[Language]]></language>
-  <logout><![CDATA[Logout]]></logout>
-  <products><![CDATA[Products]]></products>
-  <desktopsite><![CDATA[Desktop Site]]></desktopsite>
-  <joinnow><![CDATA[Join]]></joinnow>
-  <promotions><![CDATA[Promotions]]></promotions>
-  <updateProfile><![CDATA[Update Profile]]></updateProfile>
-  <fastdeposit><![CDATA[Bank Transfer]]></fastdeposit>
-  <banktransfer><![CDATA[Bank Transfer]]></banktransfer>
-  <wingmoney><![CDATA[Wing Money]]></wingmoney>
-  <fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
+  <closeMenu><![CDATA[メニューを閉じる]]></closeMenu>
+  <home><![CDATA[ホーム]]></home>
+  <login><![CDATA[ログイン]]></login>
+  <register><![CDATA[登録]]></register>
+  <cashier><![CDATA[キャッシャー]]></cashier>
+  <deposit><![CDATA[入金]]></deposit>
+  <transfer><![CDATA[転送]]></transfer>
+  <withdrawal><![CDATA[出金]]></withdrawal>
+  <freebets><![CDATA[フリーベット]]></freebets>
+  <misc><![CDATA[ウイングマネー]]></misc>
+  <liveHelp><![CDATA[ライブヘルプ]]></liveHelp>
+  <contactUs><![CDATA[お問い合わせ先]]></contactUs>
+  <helpCenter><![CDATA[ヘルプセンター]]></helpCenter>
+  <language><![CDATA[言語]]></language>
+  <logout><![CDATA[ログアウト]]></logout>
+  <products><![CDATA[製品]]></products>
+  <desktopsite><![CDATA[デスクトップサイト]]></desktopsite>
+  <joinnow><![CDATA[参加]]></joinnow>
+  <promotions><![CDATA[プロモーション]]></promotions>
+  <updateProfile><![CDATA[プロフィールのアップデート]]></updateProfile>
+  <fastdeposit><![CDATA[銀行振込]]></fastdeposit>
+  <banktransfer><![CDATA[銀行振込]]></banktransfer>
+  <wingmoney><![CDATA[ウイングマネー]]></wingmoney>
+  <fullscreenMode><![CDATA[全画面モード]]></fullscreenMode>
   
   <overview><![CDATA[概要]]></overview>
   <myAccount><![CDATA[マイアカウント]]></myAccount>
@@ -32,13 +32,13 @@
   <reports><![CDATA[レポート]]></reports>
   <trackingStatistic><![CDATA[追跡統計]]></trackingStatistic>
 
-  <affiliate><![CDATA[系列会社]]></affiliate>
+  <affiliate><![CDATA[アフェリエイト]]></affiliate>
   <account><![CDATA[マイアカウント]]></account>
   <accountinfo><![CDATA[アカウント情報]]></accountinfo>
   <changePassword><![CDATA[変化パスワード]]></changePassword>
   <subAffmgmt><![CDATA[下位系列会社管理]]></subAffmgmt>
 
-  <commissionPlans><![CDATA[委員会制]]></commissionPlans>
+  <commissionPlans><![CDATA[コミッションプラン]]></commissionPlans>
   <faq><![CDATA[よくある質問と回答]]></faq>
   <ourProducts><![CDATA[弊社製品]]></ourProducts>
   <report><![CDATA[レポート]]></report>

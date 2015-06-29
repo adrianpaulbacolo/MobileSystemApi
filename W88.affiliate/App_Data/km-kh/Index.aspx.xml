@@ -2,4 +2,8 @@
 <default>
   <lblPlaceBet><![CDATA[សូមចូលឬចុះឈ្មោះដើម្បីដាក់ភ្នាល់]]></lblPlaceBet>
   <lblAffiliate><![CDATA[ភ្នាក់ងារ]]></lblAffiliate>
+  <lblOurProduct><![CDATA[Our Product]]></lblOurProduct>
+  <lblComissionPlan><![CDATA[Commission Plans]]></lblComissionPlan>
+  <lblMyAccount><![CDATA[My Account]]></lblMyAccount>
+  <lblOverview><![CDATA[Overview]]></lblOverview>
 </default>

@@ -2,4 +2,8 @@
 <default>
   <lblPlaceBet><![CDATA[Hãy Đăng nhập hoặc Đăng ký]]></lblPlaceBet>
   <lblAffiliate><![CDATA[Đại Lý]]></lblAffiliate>
+  <lblOurProduct><![CDATA[Our Product]]></lblOurProduct>
+  <lblComissionPlan><![CDATA[Commission Plans]]></lblComissionPlan>
+  <lblMyAccount><![CDATA[My Account]]></lblMyAccount>
+  <lblOverview><![CDATA[Overview]]></lblOverview>
 </default>
