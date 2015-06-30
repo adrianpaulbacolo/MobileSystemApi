@@ -16,7 +16,7 @@ public partial class _Index : BasePage
 
     protected void Page_Init(object sender, EventArgs e)
     {
-        System.Text.RegularExpressions.Regex rxDomains_CN = new System.Text.RegularExpressions.Regex(@"(.w88uat|.w88cn)");
+        System.Text.RegularExpressions.Regex rxDomains_CN = new System.Text.RegularExpressions.Regex(commonVariables.ChinaDomain);
         localResx = string.Format("~/default.{0}.aspx", commonVariables.SelectedLanguage);
 
         if (string.IsNullOrEmpty(commonVariables.SelectedLanguage))

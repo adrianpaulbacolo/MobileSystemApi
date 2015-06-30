@@ -6,6 +6,7 @@ using System.Web;
 
 public class commonVariables
 {
+    private static System.Text.RegularExpressions.Regex rxDomains_CN = new System.Text.RegularExpressions.Regex(commonVariables.ChinaDomain);
     public static System.Xml.Linq.XElement LeftMenuXML { get { if (System.Web.HttpContext.Current.Cache.Get("leftMenuXML_" + commonVariables.SelectedLanguage) != null) { return System.Web.HttpContext.Current.Cache.Get("leftMenuXML_" + commonVariables.SelectedLanguage) as System.Xml.Linq.XElement; } else { System.Xml.Linq.XElement xcMenu = commonCulture.appData.getRootResource("/leftMenu"); System.Web.HttpContext.Current.Cache.Add("leftMenuXML_" + commonVariables.SelectedLanguage, xcMenu, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.AboveNormal, null); return xcMenu; } } }
     public static System.Xml.Linq.XElement ProductsXML { get { if (System.Web.HttpContext.Current.Cache.Get("ProductsXML_" + commonVariables.SelectedLanguage) != null) { return System.Web.HttpContext.Current.Cache.Get("ProductsXML_" + commonVariables.SelectedLanguage) as System.Xml.Linq.XElement; } else { System.Xml.Linq.XElement xcMenu = commonCulture.appData.getRootResource("/Products"); System.Web.HttpContext.Current.Cache.Add("ProductsXML_" + commonVariables.SelectedLanguage, xcMenu, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.AboveNormal, null); return xcMenu; } } }
     public static System.Xml.Linq.XElement ContactUsXML { get { if (System.Web.HttpContext.Current.Cache.Get("ContactUsXML_" + commonVariables.SelectedLanguage) != null) { return System.Web.HttpContext.Current.Cache.Get("ContactUsXML_" + commonVariables.SelectedLanguage) as System.Xml.Linq.XElement; } else { System.Xml.Linq.XElement xcMenu = commonCulture.appData.getRootResource("/ContactUs.aspx"); System.Web.HttpContext.Current.Cache.Add("ContactUsXML_" + commonVariables.SelectedLanguage, xcMenu, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.AboveNormal, null); return xcMenu; } } }
@@ -20,7 +21,21 @@ public class commonVariables
     public static string DisplayDateTimeFormat { get { return System.Configuration.ConfigurationManager.AppSettings.Get("DisplayDateTimeFormat"); } }
     public static string DateTimeFormat { get { return System.Configuration.ConfigurationManager.AppSettings.Get("DateTimeFormat"); } }
     public static string DecimalFormat { get { return System.Configuration.ConfigurationManager.AppSettings.Get("DecimalFormat"); } }
-    public static string SelectedLanguage { get { return string.IsNullOrEmpty(System.Web.HttpContext.Current.Session["SelectedLanguage"] as string) ? (!string.IsNullOrEmpty(commonCookie.CookieLanguage) ? commonCookie.CookieLanguage : "en-us") : Convert.ToString(System.Web.HttpContext.Current.Session["SelectedLanguage"]); } set { commonCookie.CookieLanguage = value; commonVariables.SetSessionVariable("SelectedLanguage", value); } }
+    public static string SelectedLanguage
+    {
+        get
+        {
+            var defaultLang = rxDomains_CN.IsMatch(System.Web.HttpContext.Current.Request.ServerVariables["SERVER_NAME"]) ? "zh-cn" : "en-us";
+
+            return string.IsNullOrEmpty(System.Web.HttpContext.Current.Session["SelectedLanguage"] as string) ?
+                (!string.IsNullOrEmpty(commonCookie.CookieLanguage) ? commonCookie.CookieLanguage : defaultLang) :
+                Convert.ToString(System.Web.HttpContext.Current.Session["SelectedLanguage"]);
+        }
+        set
+        {
+            commonCookie.CookieLanguage = value; commonVariables.SetSessionVariable("SelectedLanguage", value);
+        }
+    }
     public static string SelectedLanguageShort { get { 
         switch (commonVariables.SelectedLanguage.ToLower()) 
         {
@@ -173,4 +188,12 @@ public class commonVariables
         Deposit = 1,
         Withdrawal = 2
     }
+    public static string ChinaDomain
+    {
+        get
+        {
+            return System.Configuration.ConfigurationManager.AppSettings.Get("CN_domain");
+        }
+    }
+
 }

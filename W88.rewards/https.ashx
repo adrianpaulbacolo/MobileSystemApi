@@ -7,7 +7,7 @@ public class https : IHttpHandler, System.Web.SessionState.IReadOnlySessionState
     
     public void ProcessRequest (HttpContext context) {
         context.Response.ContentType = "text/html";
-        System.Text.RegularExpressions.Regex rxDomains_CN = new System.Text.RegularExpressions.Regex(@"(.w88uat|.w88cn)");
+        System.Text.RegularExpressions.Regex rxDomains_CN = new System.Text.RegularExpressions.Regex(commonVariables.ChinaDomain);
 
         if (rxDomains_CN.IsMatch(context.Request.ServerVariables["SERVER_NAME"]))
         {
