@@ -31,6 +31,12 @@ public partial class LiveChat_Default : System.Web.UI.Page
                 bool isVIP = false;
 
                 string CurrentUrl = System.Web.HttpContext.Current.Request.Url.ToString();
+
+                Uri myUri = new Uri(CurrentUrl);
+                string[] host = myUri.Host.Split('.');
+                string domain = string.Format(ConfigurationManager.AppSettings["WebHandler"], host[1]);
+
+
                 string chatLang = string.Empty;
                 string skill = string.Empty;
 
@@ -52,71 +58,7 @@ public partial class LiveChat_Default : System.Web.UI.Page
 
                 try
                 {
-                    var livechat_type = string.Empty;
-
-                    DataSet dataSet = new DataSet();
-                    dataSet = GetLiveChatLinks(Convert.ToInt64(ConfigurationManager.AppSettings["W88_Operator"]), lang);
-
-                    string KM = Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes("KM"));
-                    var code1 = Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(strMemberCode));
-                    var code2 = Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(platform));
-                    var code3 = Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(CurrentUrl));
-                    var code4 = Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(strMemberId));
-                    var code5 = Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(System.Web.HttpContext.Current.Request.ServerVariables["HTTP_USER_AGENT"].ToString()));
-
-                    if (isVIP)
-                    {
-                        redirectLink = dataSet.Tables[0].Rows[0]["VIPLink"].ToString();
-                        livechat_type = dataSet.Tables[0].Rows[0]["VIPLinkType"].ToString();
-                    }
-                    else
-                    {
-                        redirectLink = dataSet.Tables[0].Rows[0]["NONVIPLink"].ToString();
-                        livechat_type = dataSet.Tables[0].Rows[0]["NONVIPLinkType"].ToString();
-                    }
-
-                    if (livechat_type.ToLower() == "liveperson")
-                    {
-                        chatLang = string.Empty;
-                        skill = "English";
-                        switch (lang)
-                        {
-                            case "id-id": chatLang = "Indonesia"; skill = "Indonesia"; break;
-                            case "ja-jp": chatLang = "Japanese"; skill = "Japanese"; break;
-                            case "km-kh": chatLang = "Cambodia"; skill = "Cambodia"; break;
-                            case "ko-kr": chatLang = "Korean"; skill = "Korean"; break;
-                            case "th-th": chatLang = "Thailand"; skill = "Thailand"; break;
-                            case "vi-vn": chatLang = "Vietnamese"; skill = "Vietnamese"; break;
-                            case "zh-cn": chatLang = "Chinese"; skill = "Chinese"; break;
-                            default: chatLang = "English"; break;
-                        }
-                        if (isVIP)
-                        {
-                            switch (lang)
-                            {
-                                case "id-id": chatLang = "VIP-Bahasa"; skill = "VIP-Bahasa"; break;
-                                case "ja-jp": chatLang = "Japanese"; skill = "Japanese"; break;
-                                case "km-kh": chatLang = "VIP-Cambodian"; skill = "VIP-Cambodian"; break;
-                                case "ko-kr": chatLang = "VIP-Korean"; skill = "VIP-Korean"; break;
-                                case "th-th": chatLang = "VIP-Thailand"; skill = "VIP-Thailand"; break;
-                                case "vi-vn": chatLang = "VIP-TiengViet "; skill = "VIP-TiengViet "; break;
-                                case "zh-cn": chatLang = "VIP-Chinese "; skill = "VIP-Chinese "; break;
-                                case "en-us": chatLang = "VIP-English"; skill = "VIP-English"; break;
-                                //default: chatLang = "VIP-English"; skill = "VIP-English"; break;
-                                default: break;
-                            }
-                        }
-
-                        code1 = skill;
-                        code2 = Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(CurrentUrl));
-                        code3 = chatLang;
-
-                        redirectLink = string.Format(redirectLink, code1, code2, code3);
-                    }
-                    else
-                    {
-                        redirectLink = string.Format(redirectLink, code1, code2, code3, code4, code5);
-                    }
+                    redirectLink = domain + CurrentUrl;
                 
                 }
                 catch (Exception)
@@ -241,9 +183,6 @@ public partial class LiveChat_Default : System.Web.UI.Page
                                 case "id":
                                     chatLang = "VIP-Bahasa"; skill = "VIP-Bahasa";
                                     break;
-                                //case "th":
-                                //    chatLang = "VIP-Thailand"; skill = "VIP-Thailand";
-                                //    break;
                                 case "vn":
                                     chatLang = "VIP-TiengViet "; skill = "VIP-TiengViet ";
                                     break;
@@ -261,9 +200,6 @@ public partial class LiveChat_Default : System.Web.UI.Page
                             {
                                 case "id": chatLang = "Indonesia"; skill = "Indonesia"; break;
                                 case "jp": chatLang = "Japanese"; skill = "Japanese"; break;
-                                //case "kh": chatLang = "Cambodia"; skill = "Cambodia"; break;
-                                //case "kr": chatLang = "Korean"; skill = "Korean"; break;
-                                //case "th": chatLang = "Thailand"; skill = "Thailand"; break;
                                 case "vn": chatLang = "Vietnamese"; skill = "Vietnamese"; break;
                                 case "cn": chatLang = "Chinese"; skill = "Chinese"; break;
                                 default: chatLang = "English"; break;
@@ -283,66 +219,5 @@ public partial class LiveChat_Default : System.Web.UI.Page
             }
         }
     }
-
-
-
-    /// <summary>
-    /// Invoke GetLiveChatLinks Web Method
-    /// </summary>
-    /// <param name="operatorId"></param>
-    /// <param name="languageCode"></param>
-    /// <returns></returns>
-
-    public DataSet GetLiveChatLinks(long operatorId, string languageCode)
-    {
-        DataSet dataset = new DataSet();
-        HttpWebRequest request = CreateWebRequest();
-        XmlDocument soapEnvelopeXml = new XmlDocument();
-
-        string XML = string.Format(@"<?xml version=""1.0"" encoding=""utf-8""?>
-                                    <soap:Envelope xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" xmlns:soap=""http://schemas.xmlsoap.org/soap/envelope/"">
-                                      <soap:Body>
-                                        <GetLiveChatLinks xmlns=""http://tempuri.org/"">
-                                          <operatorId>{0}</operatorId>
-                                          <languageCode>{1}</languageCode>
-                                        </GetLiveChatLinks>
-                                      </soap:Body>
-                                    </soap:Envelope>", operatorId, languageCode);
-
-        soapEnvelopeXml.LoadXml(XML);
-
-        using (Stream stream = request.GetRequestStream())
-        {
-            soapEnvelopeXml.Save(stream);
-        }
-
-        using (WebResponse response = request.GetResponse())
-        {
-            using (StreamReader rd = new StreamReader(response.GetResponseStream()))
-            {
-                string soapResult = rd.ReadToEnd();
-                StringReader stringReader = new StringReader(soapResult);
-                dataset.ReadXml(stringReader, XmlReadMode.ReadSchema);
-            }
-        }
-
-        return dataset;
-    }
-
-
-    /// <summary>
-    ///Create HttpWebRequest 
-    /// </summary>
-    /// <returns></returns>
-    public HttpWebRequest CreateWebRequest()
-    {
-        HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(ConfigurationManager.AppSettings["ProductWS"]);
-        webRequest.Headers.Add(@"SOAP:Action");
-        webRequest.ContentType = "text/xml;charset=\"utf-8\"";
-        webRequest.Accept = "text/xml";
-        webRequest.Method = "POST";
-        return webRequest;
-    }
-
 
 }
