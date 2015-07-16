@@ -33,7 +33,6 @@ public partial class LiveChat_Default : System.Web.UI.Page
                     Uri myUri = new Uri(CurrentUrl);
                     string [] host = myUri.Host.Split('.');
                     string domain = string.Format(ConfigurationManager.AppSettings["WebHandler"], host[1]);
-                    
 
                     string chatLang = string.Empty;
                     string skill = string.Empty;
@@ -57,7 +56,14 @@ public partial class LiveChat_Default : System.Web.UI.Page
                     //BO settings integration
                     try
                     {
-                        redirectLink = domain + CurrentUrl;
+                        if (lang == "zh-cn" || lang == "vi-vn")
+                        {
+                            redirectLink = ConfigurationManager.AppSettings["LivePersonMobile"];
+                        }
+                        else
+                        {
+                            redirectLink = domain + CurrentUrl;
+                        }
 
                     }
                     catch (Exception)

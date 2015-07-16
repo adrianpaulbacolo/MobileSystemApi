@@ -58,8 +58,14 @@ public partial class LiveChat_Default : System.Web.UI.Page
 
                 try
                 {
-                    redirectLink = domain + CurrentUrl;
-                
+                    if (lang == "zh-cn" || lang == "vi-vn")
+                    {
+                        redirectLink = ConfigurationManager.AppSettings["LivePersonMobile"];
+                    }
+                    else
+                    {
+                        redirectLink = domain + CurrentUrl;
+                    }
                 }
                 catch (Exception)
                 {
