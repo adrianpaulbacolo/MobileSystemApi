@@ -1,7 +1,8 @@
 ﻿<div data-role="header" data-position="fixed" data-theme="b" data-tap-toggle="false" class="div-nav-header">
 <div><a href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true"><img src="/_Static/Images/icon-menu.png" /></a></div>
-<% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
-<div><a class="ui-btn ui-blue" href="/_Secure/Register.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("joinnow", commonVariables.LeftMenuXML)%></a>&nbsp;<a class="ui-btn ui-gray" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></a></div>
+<% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { 
+    var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
+<div><a class="ui-btn ui-blue" href="/_Secure/Register.aspx<%= queryString %>" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("joinnow", commonVariables.LeftMenuXML)%></a>&nbsp;<a class="ui-btn ui-gray" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></a></div>
 <% } else { %>
 <style type="text/css">.div-nav-header { background-position: center center !important; }</style>
 <% } %>

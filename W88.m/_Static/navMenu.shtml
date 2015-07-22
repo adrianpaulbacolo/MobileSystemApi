@@ -5,8 +5,9 @@
 <li data-icon="false" class="ui-icon"><a id="aMnuHome" runat="server" href="/Index.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("home", commonVariables.LeftMenuXML)%></a></li>
 <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
 <li id="liUser" data-icon="false" class="ui-icon"><a id="aMnuUser" runat="server" href="javascript:void(0)" data-ajax="false"><span class="span-user"><%=commonVariables.GetSessionVariable("MemberCode")%></span></a></li>
-<% } else { %>
-<li id="liOptions"><div><a class="ui-btn ui-blue ui-mini" href="/_Secure/Register.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("joinnow", commonVariables.LeftMenuXML)%></a>&nbsp;<a class="ui-btn ui-gray ui-mini" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></a></div></li>
+<% } else {
+       var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
+<li id="liOptions"><div><a class="ui-btn ui-blue ui-mini" href="/_Secure/Register.aspx<%= queryString %>" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("joinnow", commonVariables.LeftMenuXML)%></a>&nbsp;<a class="ui-btn ui-gray ui-mini" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></a></div></li>
 <% } %>
 <li data-icon="false" class="ui-icon"><a class="mnuSports"><%=commonCulture.ElementValues.getResourceString("sports", commonVariables.LeftMenuXML)%></a></li>
 <li data-icon="false" class="ui-icon" data-rel="sports" style="display:none;"><a rel="asports" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceXPathString("Products/ASports/Label", commonVariables.ProductsXML)%></a></li>
