@@ -10,5 +10,6 @@
     <bank id="KKR"><![CDATA[Karsikorn Bank (K-Bank)]]></bank>
     <bank id="BBL"><![CDATA[Bangkok Bank]]></bank>
     <bank id="SCB"><![CDATA[Siam Commercial Bank]]></bank>
+    <bank id="KTB"><![CDATA[Krung Thai Bank]]></bank>
   </THB>
 </banks>
