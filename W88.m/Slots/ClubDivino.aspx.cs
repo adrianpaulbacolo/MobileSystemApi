@@ -14,6 +14,7 @@ public partial class Slots_ClubDivino : BasePage
     {
         string strGameId = string.Empty;
         string strLanguageCode = string.Empty;
+        Uri myUri = new Uri(System.Web.HttpContext.Current.Request.Url.ToString());
 
         commonCulture.appData.getRootResource("/Slots/ClubDivino.aspx", out xeResources);
 
@@ -47,10 +48,10 @@ public partial class Slots_ClubDivino : BasePage
                     sbGames.AppendFormat("<li rel='{0}.jpg' class='bkg-game'><div class='div-links'>", commonCulture.ElementValues.getResourceString("ImageName", xeGame));
 
                     if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { sbGames.AppendFormat("<a href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubDivino") + "' data-rel='dialog' data-transition='slidedown'>"); }
-                    else { sbGames.AppendFormat("<a href='{0}'>", commonClubDivino.getRealUrl.Replace("{GAMEID}", strGameId).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId)); }
+                    else { sbGames.AppendFormat("<a href='{0}'>", commonClubDivino.getRealUrl.Replace("{GAMEID}", strGameId).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId).Replace("{HOMEURL}",myUri.Host).Replace("{CASHIERURL}",myUri.Host)); }
 
                     sbGames.Append("<img src='/_Static/Images/btn_play.jpg' /></a>");
-                    sbGames.AppendFormat("<a href='{0}'><img src='/_Static/Images/btn_try.jpg' /></a></div>", commonClubDivino.getFunUrl.Replace("{GAMEID}", strGameId).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
+                    sbGames.AppendFormat("<a href='{0}'><img src='/_Static/Images/btn_try.jpg' /></a></div>", commonClubDivino.getFunUrl.Replace("{GAMEID}", strGameId).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId).Replace("{HOMEURL}", myUri.Host).Replace("{CASHIERURL}", myUri.Host));
                     sbGames.Append("</li>"); 
                 }
 
