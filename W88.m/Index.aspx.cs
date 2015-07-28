@@ -137,10 +137,10 @@ public partial class _Index : BasePage
         switch (CountryCode.ToLower())
         {
             case "us":
-               return  "en-us";
+                return "en-us";
             case "id":
                 return "id-id";
-            case "km-kh":
+            case "my":
                 return "km-kh";
             case "kr":
                 return "ko-kr";
@@ -154,7 +154,7 @@ public partial class _Index : BasePage
                 return "ja-jp";
             default:
                 return "en-us";
-        } 
+        }
     }
 
 
