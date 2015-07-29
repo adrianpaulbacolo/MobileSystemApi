@@ -150,7 +150,7 @@ public partial class _Index : BasePage
                 return "en-us";
             case "id":
                 return "id-id";
-            case "km-kh":
+            case "kh":
                 return "km-kh";
             case "kr":
                 return "ko-kr";
