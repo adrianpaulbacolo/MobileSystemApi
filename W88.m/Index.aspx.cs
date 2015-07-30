@@ -157,7 +157,6 @@ public partial class _Index : BasePage
         }
     }
 
-
     public string GetLanguageByDomain(string Domain)
     {
         string Language = string.Empty;
