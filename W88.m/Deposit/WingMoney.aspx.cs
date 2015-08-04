@@ -186,7 +186,7 @@ public partial class Deposit_WingMoney : BasePage
                             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("/Deposit/AmountMinLimit", xeErrors);
                             isProcessAbort = true;
                         }
-                        else if (Convert.ToDecimal(strDepositAmount) > decMaxLimit)
+                        else if ((Convert.ToDecimal(strDepositAmount) > decTotalAllowed) && (decTotalAllowed != 0))
                         {
                             strAlertCode = "-1";
                             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("/Deposit/AmountMaxLimit", xeErrors);
