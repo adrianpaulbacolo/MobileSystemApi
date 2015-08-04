@@ -13,5 +13,6 @@
   <lblAndroidDownload><![CDATA[セキュアペイプラグインをダウンロードする（アンドロイド）]]></lblAndroidDownload>
   <lblIOSDownload><![CDATA[セキュアペイぺラグインをダウンロードする（IOS)]]></lblIOSDownload>
   <lblNoticeDownload><![CDATA[念のため：このお支払い方法は、お使いの携帯デバイスにインストールするユニオン セキュアペイ プラグインを必要とし、下記のダウンロードリンクをクリックしてください。]]></lblNoticeDownload>
+  <unlimited><![CDATA[制限無し]]></unlimited>
 </Deposit>
 

@@ -10,4 +10,5 @@
   <txtMode><![CDATA[在线]]></txtMode>
   <txtProcessing><![CDATA[交易提交当中]]></txtProcessing>
   <drpBank><![CDATA[银行选择]]></drpBank>
+  <unlimited><![CDATA[无限]]></unlimited>
 </Deposit>

@@ -10,4 +10,5 @@
   <txtMode><![CDATA[Trực Tuyến]]></txtMode>
   <txtProcessing><![CDATA[Your transaction is being processed, please check your balance for updates.]]></txtProcessing>
   <drpBank><![CDATA[Ngân Hàng Lựa Chọn]]></drpBank>
+  <unlimited><![CDATA[Không giới hạn]]></unlimited>
 </Deposit>

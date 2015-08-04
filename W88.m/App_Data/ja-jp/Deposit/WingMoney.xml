@@ -18,6 +18,7 @@
   <lblTransactionId><![CDATA[トランザクションID]]></lblTransactionId>
   <lblDailyLimit><![CDATA[日々制限：]]></lblDailyLimit>
   <lblTotalAllowed><![CDATA[合計許可：]]></lblTotalAllowed>
+  <unlimited><![CDATA[制限無し]]></unlimited>
  
   <DepositChannel>
     <ATM><![CDATA[ATM]]></ATM>

@@ -186,13 +186,13 @@ public partial class Deposit_WingMoney : BasePage
                             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("/Deposit/AmountMinLimit", xeErrors);
                             isProcessAbort = true;
                         }
-                        else if ((Convert.ToDecimal(strDepositAmount) > decTotalAllowed) && (decTotalAllowed != 0))
+                        else if (Convert.ToDecimal(strDepositAmount) > decMaxLimit)
                         {
                             strAlertCode = "-1";
                             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("/Deposit/AmountMaxLimit", xeErrors);
                             isProcessAbort = true;
                         }
-                        else if (Convert.ToDecimal(strDepositAmount) > decTotalAllowed)
+                        else if ((Convert.ToDecimal(strDepositAmount) > decTotalAllowed) && (decTotalAllowed != 0))
                         {
                             strAlertCode = "-1";
                             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("/Deposit/TotalAllowedExceeded", xeErrors);
@@ -325,7 +325,7 @@ public partial class Deposit_WingMoney : BasePage
 
             strMinLimit = Convert.ToDecimal(dtPaymentMethodLimits.Rows[0]["minDeposit"]).ToString(commonVariables.DecimalFormat);
             strMaxLimit = Convert.ToDecimal(dtPaymentMethodLimits.Rows[0]["maxDeposit"]).ToString(commonVariables.DecimalFormat);
-            strTotalAllowed = Convert.ToDecimal(dtPaymentMethodLimits.Rows[0]["totalAllowed"]).ToString(commonVariables.DecimalFormat);
+            strTotalAllowed = Convert.ToDecimal(dtPaymentMethodLimits.Rows[0]["totalAllowed"]) == 0 ? commonCulture.ElementValues.getResourceString("unlimited", xeResources) : Convert.ToDecimal(dtPaymentMethodLimits.Rows[0]["totalAllowed"]).ToString(commonVariables.DecimalFormat);
             strDailyLimit = Convert.ToDecimal(dtPaymentMethodLimits.Rows[0]["limitDaily"]).ToString(commonVariables.DecimalFormat);
 
             txtDepositAmount.Attributes.Add("PLACEHOLDER", string.Format("{0} {1}({2} / {3})", lblDepositAmount.Text, strCurrencyCode, strMinLimit, strMaxLimit));

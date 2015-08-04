@@ -18,6 +18,7 @@
   <lblTransactionId><![CDATA[交易号码]]></lblTransactionId>
   <lblDailyLimit><![CDATA[每日限额: ]]></lblDailyLimit>
   <lblTotalAllowed><![CDATA[允许的总额: ]]></lblTotalAllowed>
+  <unlimited><![CDATA[无限]]></unlimited>
 
   <DepositChannel>
     <ATM><![CDATA[ATM]]></ATM>
