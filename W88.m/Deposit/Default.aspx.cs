@@ -222,7 +222,7 @@ public partial class Deposit_Default : BasePage
                             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("/Deposit/AmountMaxLimit", xeErrors);
                             isProcessAbort = true;
                         }
-                        else if ((Convert.ToDecimal(strDepositAmount) > decTotalAllowed) && (decTotalAllowed != 0))
+                        else if ((Convert.ToDecimal(strDepositAmount) > decTotalAllowed) && (decTotalAllowed > 0))
                         {
                             strAlertCode = "-1";
                             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("/Deposit/TotalAllowedExceeded", xeErrors);
