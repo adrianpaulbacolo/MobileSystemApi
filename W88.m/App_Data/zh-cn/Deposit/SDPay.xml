@@ -13,4 +13,5 @@
   <lblAndroidDownload><![CDATA[安卓插件下载]]></lblAndroidDownload>
   <lblIOSDownload><![CDATA[IOS插件下载]]></lblIOSDownload>
   <lblNoticeDownload><![CDATA[温馨提示，如果您点击手机支付没有反应或者异常，请点击下面链接下载相应插件。]]></lblNoticeDownload>
+  <unlimited><![CDATA[无限]]></unlimited>
 </Deposit>

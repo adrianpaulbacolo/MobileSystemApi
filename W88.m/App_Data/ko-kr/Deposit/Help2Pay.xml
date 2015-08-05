@@ -10,4 +10,5 @@
   <txtMode><![CDATA[온라인]]></txtMode>
   <txtProcessing><![CDATA[Your transaction is being processed, please check your balance for updates.]]></txtProcessing>
   <drpBank><![CDATA[은행 선택]]></drpBank>
+  <unlimited><![CDATA[무제한]]></unlimited>
 </Deposit>

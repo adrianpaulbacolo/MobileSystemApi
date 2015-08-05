@@ -10,4 +10,5 @@
   <txtMode><![CDATA[Online]]></txtMode>
   <txtProcessing><![CDATA[Your transaction is being processed, please check your balance for updates.]]></txtProcessing>
   <drpBank><![CDATA[Select Bank]]></drpBank>
+  <unlimited><![CDATA[Unlimited]]></unlimited>
 </Deposit>
