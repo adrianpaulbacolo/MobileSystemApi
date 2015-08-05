@@ -4,6 +4,18 @@
   <Category>
    
     <Slot Label="สล็อต">
+      <FourBeauties>
+        <ImageName><![CDATA[fourbeauties]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/fourbeauties/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/fourbeauties/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </FourBeauties>
+      <Panda>
+        <ImageName><![CDATA[panda]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/panda/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/panda/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </Panda>
       <Soccer>
         <ImageName><![CDATA[soccer]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/Soccer/?fun=0]]></PlayForRealURL>
@@ -40,6 +52,12 @@
         <PlayForFunURL><![CDATA[{BravadoUrl}/ninetailedninja/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
       </Ninetailedninja>
+      <PiratesTreasure>
+        <ImageName><![CDATA[piratestreasure]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/piratestreasure/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/piratestreasure/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </PiratesTreasure>
       <QueenBee>
         <ImageName><![CDATA[queenbee]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/Queenbee/?fun=0]]></PlayForRealURL>
@@ -52,6 +70,24 @@
         <PlayForFunURL><![CDATA[{BravadoUrl}/godoffortune/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
       </GodOfFortune>
+      <Sherlock>
+        <ImageName><![CDATA[sherlock]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/sherlock/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/sherlock/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </Sherlock>
+      <Klassik>
+        <ImageName><![CDATA[klassik]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/klassik/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/klassik/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </Klassik>
+      <TrickorTreat>
+        <ImageName><![CDATA[trickortreat]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/trickortreat/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/trickortreat/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </TrickorTreat>
       <goldenlegendmobile>
         <ImageName><![CDATA[goldenlegendmobile]]></ImageName>
       </goldenlegendmobile>
@@ -67,7 +103,6 @@
       <FiveXMagicMobile>
         <ImageName><![CDATA[5xmagicmobile]]></ImageName>
       </FiveXMagicMobile>
-      
       <AceofSpades>
         <ImageName><![CDATA[aceofspadesmobile]]></ImageName>
       </AceofSpades>
@@ -167,6 +202,9 @@
       <WildMelon>
         <ImageName><![CDATA[wildmelonmobile]]></ImageName>
       </WildMelon>
+      <MasqueradeMobile>
+        <ImageName><![CDATA[masquerademobile]]></ImageName>
+      </MasqueradeMobile>
     </Slot>
     <CardAndTable Label="การ์ด เกมส์โต๊ะ">
       <AmericanRoulette>
