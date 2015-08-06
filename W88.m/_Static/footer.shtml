@@ -1,7 +1,10 @@
 ﻿<div id="divPageFooter" data-role="footer" data-theme="b" data-position="fixed" data-tap-toggle="false" class="div-nav-footer">
     <div data-role="navbar">
         <ul>
-            <li class="footer-image" data-rel="toolbar-home-"><div><a href="/Index" data-ajax="false">&nbsp;</a></div></li>
+            <% if (!string.IsNullOrEmpty(commonVariables.SelectedLanguage)) {
+            var language = commonVariables.SelectedLanguage; %>
+            <li class="footer-image" data-rel="toolbar-home-"><div><a href="/Index.aspx?lang=<%=language%>" data-ajax="false">&nbsp;</a></div></li>
+            <% } %>
             <li class="footer-image" data-rel="toolbar-promotion-"><div><a href="/Promotions" data-ajax="false">&nbsp;</a></div></li>
             <li class="footer-image" data-rel="toolbar-livechat-"><div><a href="/LiveChat" data-ajax="false">&nbsp;</a></div></li>
             <li class="footer-image" data-rel="toolbar-contactus-">
