@@ -2,7 +2,10 @@
 <div data-role="panel" data-theme="a" id="divPanel">
 <ul data-role="listview" data-theme="none" class="nav-menu">
 <li data-icon="false" class="ui-icon"><a id="aMnuCloseMenu" runat="server" href="#" data-rel="close"><%=commonCulture.ElementValues.getResourceString("closeMenu", commonVariables.LeftMenuXML)%></a></li>
-<li data-icon="false" class="ui-icon"><a id="aMnuHome" runat="server" href="/Index.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("home", commonVariables.LeftMenuXML)%></a></li>
+<% if (!string.IsNullOrEmpty(commonVariables.SelectedLanguage)) { 
+    var language = commonVariables.SelectedLanguage; %>
+<li data-icon="false" class="ui-icon"><a id="aMnuHome" href="/Index.aspx?lang=<%=language%>" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("home", commonVariables.LeftMenuXML)%></a></li>
+ <% } %>
 <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
 <li id="liUser" data-icon="false" class="ui-icon"><a id="aMnuUser" runat="server" href="javascript:void(0)" data-ajax="false"><span class="span-user"><%=commonVariables.GetSessionVariable("MemberCode")%></span></a></li>
 <% } else {
