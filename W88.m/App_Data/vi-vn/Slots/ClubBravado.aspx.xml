@@ -87,6 +87,9 @@
         <PlayForFunURL><![CDATA[{BravadoUrl}/trickortreat/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
       </TrickorTreat>
+      <SpinParty>
+        <ImageName><![CDATA[spinpartymobile]]></ImageName>
+      </SpinParty>
       <goldenlegendmobile>
         <ImageName><![CDATA[goldenlegendmobile]]></ImageName>
       </goldenlegendmobile>
