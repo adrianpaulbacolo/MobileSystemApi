@@ -87,12 +87,9 @@
         <PlayForFunURL><![CDATA[{BravadoUrl}/trickortreat/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
       </TrickorTreat>
-      <PiratesTreasure>
-        <ImageName><![CDATA[piratestreasure]]></ImageName>
-        <PlayForRealURL><![CDATA[{BravadoUrl}/piratestreasure/?fun=0]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{BravadoUrl}/piratestreasure/?fun=1]]></PlayForFunURL>
-        <IsInternal><![CDATA[true]]></IsInternal>
-      </PiratesTreasure>
+      <SpinParty>
+        <ImageName><![CDATA[spinpartymobile]]></ImageName>
+      </SpinParty>
       <goldenlegendmobile>
         <ImageName><![CDATA[goldenlegendmobile]]></ImageName>
       </goldenlegendmobile>
