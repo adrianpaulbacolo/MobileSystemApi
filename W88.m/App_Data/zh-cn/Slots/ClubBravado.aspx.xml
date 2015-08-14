@@ -3,6 +3,7 @@
 
   <Category>
     <Slot Label="老虎机">
+      
       <FourBeauties>
         <ImageName><![CDATA[fourbeauties]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/fourbeauties/?fun=0]]></PlayForRealURL>
@@ -87,9 +88,6 @@
         <PlayForFunURL><![CDATA[{BravadoUrl}/trickortreat/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
       </TrickorTreat>
-      <SpinParty>
-        <ImageName><![CDATA[spinpartymobile]]></ImageName>
-      </SpinParty>
       <goldenlegendmobile>
         <ImageName><![CDATA[goldenlegendmobile]]></ImageName>
       </goldenlegendmobile>
@@ -209,7 +207,8 @@
       </MasqueradeMobile>
       
              
-    </Slot>
+    
+  </Slot>
     <CardAndTable Label="卡牌桌面游戏">
       <AmericanRoulette>
         <ImageName><![CDATA[americanroulettemobile]]></ImageName>

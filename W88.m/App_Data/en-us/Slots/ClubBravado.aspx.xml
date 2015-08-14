@@ -3,6 +3,12 @@
 
   <Category>
     <Slot Label="Slots">
+       <GolfTour>
+        <ImageName><![CDATA[golftour]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/golftour/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/golftour/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </GolfTour>
       <FourBeauties>
         <ImageName><![CDATA[fourbeauties]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/fourbeauties/?fun=0]]></PlayForRealURL>
