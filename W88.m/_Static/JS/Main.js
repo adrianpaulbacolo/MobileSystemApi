@@ -4,7 +4,6 @@
         $.ajax({
             contentType: "application/json; charset=utf-8",
             url: "/_secure/AjaxHandlers/MemberSessionCheck.ashx",
-            crossDomain: true,
             /*dataType: "jsonp",*/
             success: function (data) {
                 if (data != '1' && data != '-1') { window.location.replace('/Expire'); }
