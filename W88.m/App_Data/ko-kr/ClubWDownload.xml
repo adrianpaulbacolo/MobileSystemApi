@@ -1,13 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
   <message>
-    <![CDATA[<span class="blue">3 Easy Steps to Play Club W Download Version</span>
-            <br />Step 1:  Click the Download button below.
-            <br />Step 2:  Install by clicking Run or Save it in your local hard drive.
-            <br />Step 3:  Login by adding "<span class='blue'>W88</span>" prefix in front of your web username.
-            <br />
-            <br />Example: 
-            <br />If your web username is "luckyplayer", then login as "<span class='blue'>W88</span>LUCKYPLAYER".]]>
+    <![CDATA[<span class="blue">클럽 W 다운로드 이용하기 3 스텝</span>
+            <br />스텝 1. 아래의 다운 로드 버튼을 클릭하세요.
+            <br />스텝 2. 실행하기 혹은 저장하기를 선택하여 설치해주세요.
+            <br />스텝 3. 아이디와 비밀번호를 입력하여 로그인하세요.]]>
   </message>
   <downloadnow><![CDATA[Download now]]></downloadnow>
 </default>

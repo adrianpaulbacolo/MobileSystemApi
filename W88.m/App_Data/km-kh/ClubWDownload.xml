@@ -1,13 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
   <message>
-    <![CDATA[<span class="blue">3 Easy Steps to Play Club W Download Version</span>
-            <br />Step 1:  Click the Download button below.
-            <br />Step 2:  Install by clicking Run or Save it in your local hard drive.
-            <br />Step 3:  Login by adding "<span class='blue'>W88</span>" prefix in front of your web username.
-            <br />
-            <br />Example: 
-            <br />If your web username is "luckyplayer", then login as "<span class='blue'>W88</span>LUCKYPLAYER".]]>
+    <![CDATA[<span class="blue">វិធីងាយ៣ ជំហ៊ាន ដើម្បីលេងក្លឹបW ប្រភេទដោនឡូត</span>
+            <br />ជំហ៊ាន១: ចុចដោនឡូត
+            <br />ជំហ៊ាន២: បញ្ចូលកម្មវិធី ដោយចុច Run ឬ Save
+            <br />ជំហ៊ាន៣: ប្រើឈ្មោះប្រើប្រាស់ ដើម្បីចូល.]]>
   </message>
   <downloadnow><![CDATA[Download now]]></downloadnow>
 </default>
