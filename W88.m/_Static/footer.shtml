@@ -1,4 +1,6 @@
-﻿<div id="divPageFooter" data-role="footer" data-theme="b" data-position="fixed" data-tap-toggle="false" class="div-nav-footer">
+﻿
+<link href="_Static/Css/lightbox.css" rel="stylesheet">
+<div id="divPageFooter" data-role="footer" data-theme="b" data-position="fixed" data-tap-toggle="false" class="div-nav-footer">
     <div data-role="navbar">
         <ul>
             <% if (!string.IsNullOrEmpty(commonVariables.SelectedLanguage)) {
@@ -10,6 +12,23 @@
             <li class="footer-image" data-rel="toolbar-contactus-">
                 <div class="div-footer-contactus"><a href="javascript:void(0);" class="a-footer-popup" onclick="javascript:GPINTMOBILE.LoadPopupMenu(this);" data-ajax="false">&nbsp;</a>
                     <div class="div-footer-popup-menu">
+                        <%
+
+                        var CurrentUrl = System.Web.HttpContext.Current.Request.Url.ToString();
+
+                        Uri myUri = new Uri(CurrentUrl);
+                        var host = myUri.Host.Split('.');
+                        var result = host[1].ToString();
+
+                            if (result.ToLower() == "w88bet") {
+                                if (!string.IsNullOrEmpty(commonCulture.ElementValues.getResourceString("lnkLine", commonVariables.ContactUsXML))) { %><div class="footer-image" data-rel="pop-line-">
+                                    <a id="aHrefPopUpLine" href='<%= string.IsNullOrEmpty(commonCulture.ElementValues.getResourceString("lnkLineThai", commonVariables.ContactUsXML)) ? "javascript:void(0)" : commonCulture.ElementValues.getResourceString("lnkLine", commonVariables.ContactUsXML) %>' data-lightbox="TH" title="ID: W88Thai" data-ajax="false">&nbsp;</a>
+                                    <a style="display: none;" href='<%= string.IsNullOrEmpty(commonCulture.ElementValues.getResourceString("lnkLineThai", commonVariables.ContactUsXML)) ? "javascript:void(0)" : commonCulture.ElementValues.getResourceString("lnkLineThai", commonVariables.ContactUsXML) %>' data-lightbox="TH" title="ID: W88Thailand" data-ajax="false">&nbsp;></a>
+                                </div>
+
+                            <% }
+                        }
+                        %>
                         <div class="footer-image" data-rel="pop-email-"><a id="aHrefPopUpEmail" href='<%= string.IsNullOrEmpty(commonCulture.ElementValues.getResourceString("lnkEmail", commonVariables.ContactUsXML)) ? "javascript:void(0)" : commonCulture.ElementValues.getResourceString("lnkEmail", commonVariables.ContactUsXML) %>' data-ajax="false">&nbsp;</a></div>
                         <div class="footer-image" data-rel="pop-banking-"><a id="aHrefPopUpBanking" href='<%= string.IsNullOrEmpty(commonCulture.ElementValues.getResourceString("lnkBanking", commonVariables.ContactUsXML)) ? "javascript:void(0)" : commonCulture.ElementValues.getResourceString("lnkBanking", commonVariables.ContactUsXML) %>' data-ajax="false">&nbsp;</a></div>
                         <div class="footer-image" data-rel="pop-skype-"><a id="aHrefPopUpSkype" href='<%= string.IsNullOrEmpty(commonCulture.ElementValues.getResourceString("lnkSkype", commonVariables.ContactUsXML)) ? "javascript:void(0)" : commonCulture.ElementValues.getResourceString("lnkSkype", commonVariables.ContactUsXML) %>' data-ajax="false">&nbsp;</a></div>
@@ -73,4 +92,5 @@
     })();
 </script>
 <noscript><p><img src="//d32w03ub2ys01w.cloudfront.net/piwik.php?idsite=7" style="border:0;" alt="" /></p></noscript>
+<script src="_Static/JS/lightbox.js"></script>
 <!-- End Piwik Code -->
