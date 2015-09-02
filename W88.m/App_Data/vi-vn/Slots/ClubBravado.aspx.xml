@@ -228,7 +228,7 @@
         <ImageName><![CDATA[masquerademobile]]></ImageName>
       </MasqueradeMobile>
     </Slot>
-    <CardAndTable Label="ហ្គេមបៀរ ហ្គេមតុ">
+    <CardAndTable Label="TRÒ CHƠI BÀI &amp; TRÒ CHƠI BÀN">
       <AmericanRoulette>
         <ImageName><![CDATA[americanroulettemobile]]></ImageName>
       </AmericanRoulette>
@@ -264,7 +264,7 @@
       </SingleDeckBlackJackMH>
      
     </CardAndTable>
-    <VideoPoker Label="វីដេអូប៉ូកកឺ">
+    <VideoPoker Label="VIDEO POKER">
       <DeucesWildMH>
         <ImageName><![CDATA[deuceswildmobile]]></ImageName>
       </DeucesWildMH>
@@ -290,7 +290,7 @@
         <ImageName><![CDATA[tensorbettermobile]]></ImageName>
       </TensOrBetterMH>
     </VideoPoker>
-    <Others Label="ផ្សេងទៀត">
+    <Others Label="KHÁC">
       <Keno>
         <ImageName><![CDATA[kenomobile]]></ImageName>
       </Keno>

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
   <Category>
+      <Slot Label="สล็อต">
       <GolfTour>
         <ImageName><![CDATA[golftour]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/golftour/?fun=0]]></PlayForRealURL>
@@ -228,7 +229,7 @@
         <ImageName><![CDATA[masquerademobile]]></ImageName>
       </MasqueradeMobile>
     </Slot>
-    <CardAndTable Label="ហ្គេមបៀរ ហ្គេមតុ">
+    <CardAndTable Label="การ์ด เกมส์โต๊ะ">
       <AmericanRoulette>
         <ImageName><![CDATA[americanroulettemobile]]></ImageName>
       </AmericanRoulette>
@@ -264,7 +265,7 @@
       </SingleDeckBlackJackMH>
      
     </CardAndTable>
-    <VideoPoker Label="វីដេអូប៉ូកកឺ">
+    <VideoPoker Label="วีดีโอโป๊กเกอร์">
       <DeucesWildMH>
         <ImageName><![CDATA[deuceswildmobile]]></ImageName>
       </DeucesWildMH>
@@ -290,7 +291,7 @@
         <ImageName><![CDATA[tensorbettermobile]]></ImageName>
       </TensOrBetterMH>
     </VideoPoker>
-    <Others Label="ផ្សេងទៀត">
+    <Others Label="อื่น ๆ">
       <Keno>
         <ImageName><![CDATA[kenomobile]]></ImageName>
       </Keno>

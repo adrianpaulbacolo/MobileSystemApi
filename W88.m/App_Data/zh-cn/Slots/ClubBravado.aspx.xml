@@ -231,7 +231,7 @@
              
     
   </Slot>
-    <CardAndTable Label="ហ្គេមបៀរ ហ្គេមតុ">
+    <CardAndTable Label="卡牌桌面游戏">
       <AmericanRoulette>
         <ImageName><![CDATA[americanroulettemobile]]></ImageName>
       </AmericanRoulette>
@@ -267,7 +267,7 @@
       </SingleDeckBlackJackMH>
      
     </CardAndTable>
-    <VideoPoker Label="វីដេអូប៉ូកកឺ">
+    <VideoPoker Label="视频扑克">
       <DeucesWildMH>
         <ImageName><![CDATA[deuceswildmobile]]></ImageName>
       </DeucesWildMH>
@@ -293,7 +293,7 @@
         <ImageName><![CDATA[tensorbettermobile]]></ImageName>
       </TensOrBetterMH>
     </VideoPoker>
-    <Others Label="ផ្សេងទៀត">
+    <Others Label="其他">
       <Keno>
         <ImageName><![CDATA[kenomobile]]></ImageName>
       </Keno>
