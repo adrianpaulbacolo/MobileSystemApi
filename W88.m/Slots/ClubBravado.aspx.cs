@@ -37,14 +37,6 @@ public partial class Slots_ClubBravado : BasePage
 
             foreach (System.Xml.Linq.XElement xeCategory in xeCategories.Elements())
             {
-                //string CurrentUrl = System.Web.HttpContext.Current.Request.Url.ToString();
-                //Uri myUri = new Uri(CurrentUrl);
-                //string[] host = myUri.Host.Split('.');
-
-                //string ClubBravadoRealUrl_MR =ConfigurationManager.AppSettings["ClubBravadoRealUrl_MR"].Replace("{0}",host[1]);
-                //string ClubBravadoFunUrl_MR = ConfigurationManager.AppSettings["ClubBravadoFunUrl_MR"].Replace("{0}", host[1]);
-
-
                 sbGames.AppendFormat("<div data-role='collapsible' data-collapsed='false' data-theme='b' data-content-theme='a' data-mini='true'><h4>{0}</h4>", xeCategory.Attribute("Label").Value);
 
                 sbGames.AppendFormat("<div id='div{0}' class='div-product'><div><ul>", xeCategory.Name);
