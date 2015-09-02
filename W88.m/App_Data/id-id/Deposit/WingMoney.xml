@@ -18,6 +18,7 @@
   <lblTransactionId><![CDATA[No. Transaksi]]></lblTransactionId>
   <lblDailyLimit><![CDATA[Batas Perhari: ]]></lblDailyLimit>
   <lblTotalAllowed><![CDATA[Jumlah yang diperbolehkan: ]]></lblTotalAllowed>
+  <unlimited><![CDATA[Tanpa Batas]]></unlimited>
 
   <DepositChannel>
     <ATM><![CDATA[ATM]]></ATM>

@@ -10,5 +10,6 @@
   <txtMode><![CDATA[オンライン]]></txtMode>
   <txtProcessing><![CDATA[お客様のトランザクションが処理されているので更新した上でお客様の残高をご確認くださいませ。]]></txtProcessing>
   <drpBank><![CDATA[銀行を選択してください]]></drpBank>
+  <unlimited><![CDATA[制限無し]]></unlimited>
 </Deposit>
 

@@ -3,7 +3,7 @@
 
   <Category>
     <Slot Label="スロット">
-       <GolfTour>
+      <GolfTour>
         <ImageName><![CDATA[golftour]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/golftour/?fun=0]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{BravadoUrl}/golftour/?fun=1]]></PlayForFunURL>
@@ -224,10 +224,10 @@
       <WildMelon>
         <ImageName><![CDATA[wildmelonmobile]]></ImageName>
       </WildMelon>
-<!-- 20150710 Add new game -->
       <MasqueradeMobile>
         <ImageName><![CDATA[masquerademobile]]></ImageName>
       </MasqueradeMobile>
+      
     </Slot>
     <CardAndTable Label="テーブルゲーム">
       <AmericanRoulette>

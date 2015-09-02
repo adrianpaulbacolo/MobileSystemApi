@@ -3,7 +3,7 @@
 
   <Category>
     <Slot Label="SLOT">
-       <GolfTour>
+      <GolfTour>
         <ImageName><![CDATA[golftour]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/golftour/?fun=0]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{BravadoUrl}/golftour/?fun=1]]></PlayForFunURL>

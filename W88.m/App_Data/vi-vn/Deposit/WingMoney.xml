@@ -18,6 +18,7 @@
   <lblTransactionId><![CDATA[Mã Số Giao Dịch]]></lblTransactionId>
   <lblDailyLimit><![CDATA[Giới Hạn Trong Ngày: ]]></lblDailyLimit>
   <lblTotalAllowed><![CDATA[Tổng Số Cho Phép: ]]></lblTotalAllowed>
+  <unlimited><![CDATA[Không giới hạn]]></unlimited>
 
   <DepositChannel>
     <ATM><![CDATA[ATM]]></ATM>

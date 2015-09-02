@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
   <Category>
-    <Slot Label="ស្លត">
-       <GolfTour>
+    <Slot Label="老虎机">
+      <GolfTour>
         <ImageName><![CDATA[golftour]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/golftour/?fun=0]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{BravadoUrl}/golftour/?fun=1]]></PlayForFunURL>
@@ -227,7 +227,10 @@
       <MasqueradeMobile>
         <ImageName><![CDATA[masquerademobile]]></ImageName>
       </MasqueradeMobile>
-    </Slot>
+      
+             
+    
+  </Slot>
     <CardAndTable Label="ហ្គេមបៀរ ហ្គេមតុ">
       <AmericanRoulette>
         <ImageName><![CDATA[americanroulettemobile]]></ImageName>
