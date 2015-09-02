@@ -224,6 +224,25 @@ public class commonClubBravado
         }
     }
 
+    public static string getFunUrl_mrslot
+    {
+        get
+        {
+            customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
+            string strUrl = opSettings.Values.Get("ClubBravadoFunUrl_MR");
+            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName);
+        }
+    }
+    public static string getRealUrl_mrslot
+    {
+        get
+        {
+            customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
+            string strUrl = opSettings.Values.Get("ClubBravadoRealUrl_MR");
+            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName);
+        }
+    }
+
     public static string getThirdPartyFunUrl
     {
         get

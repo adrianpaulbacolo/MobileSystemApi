@@ -37,12 +37,12 @@ public partial class Slots_ClubBravado : BasePage
 
             foreach (System.Xml.Linq.XElement xeCategory in xeCategories.Elements())
             {
-                string CurrentUrl = System.Web.HttpContext.Current.Request.Url.ToString();
-                Uri myUri = new Uri(CurrentUrl);
-                string[] host = myUri.Host.Split('.');
+                //string CurrentUrl = System.Web.HttpContext.Current.Request.Url.ToString();
+                //Uri myUri = new Uri(CurrentUrl);
+                //string[] host = myUri.Host.Split('.');
 
-                string ClubBravadoRealUrl_MR =ConfigurationManager.AppSettings["ClubBravadoRealUrl_MR"].Replace("{0}",host[1]);
-                string ClubBravadoFunUrl_MR = ConfigurationManager.AppSettings["ClubBravadoFunUrl_MR"].Replace("{0}", host[1]);
+                //string ClubBravadoRealUrl_MR =ConfigurationManager.AppSettings["ClubBravadoRealUrl_MR"].Replace("{0}",host[1]);
+                //string ClubBravadoFunUrl_MR = ConfigurationManager.AppSettings["ClubBravadoFunUrl_MR"].Replace("{0}", host[1]);
 
 
                 sbGames.AppendFormat("<div data-role='collapsible' data-collapsed='false' data-theme='b' data-content-theme='a' data-mini='true'><h4>{0}</h4>", xeCategory.Attribute("Label").Value);
@@ -71,7 +71,7 @@ public partial class Slots_ClubBravado : BasePage
                             if (slotType == "RSLOT")
                             {
                                 customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
-                                sbGames.AppendFormat("<a href='{0}'>", ClubBravadoRealUrl_MR.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
+                                sbGames.AppendFormat("<a href='{0}'>", commonClubBravado.getRealUrl_mrslot.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
                             }
                             else
                             {
@@ -82,7 +82,7 @@ public partial class Slots_ClubBravado : BasePage
 
                         if (slotType == "RSLOT")
                         {
-                            sbGames.AppendFormat("<a href='{0}'><img src='/_Static/Images/btn_try.jpg' /></a></div>", ClubBravadoFunUrl_MR.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
+                            sbGames.AppendFormat("<a href='{0}'><img src='/_Static/Images/btn_try.jpg' /></a></div>", commonClubBravado.getFunUrl_mrslot.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
                         }
                         else
                         {
