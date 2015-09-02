@@ -3,6 +3,30 @@
 
   <Category>
     <Slot Label="スロット">
+       <GolfTour>
+        <ImageName><![CDATA[golftour]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/golftour/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/golftour/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </GolfTour>
+      <zodiac>
+        <ImageName><![CDATA[zodiac]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/zodiac/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/zodiac/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </zodiac>
+      <FourBeauties>
+        <ImageName><![CDATA[fourbeauties]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/fourbeauties/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/fourbeauties/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </FourBeauties>
+      <Panda>
+        <ImageName><![CDATA[panda]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/panda/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/panda/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </Panda>
       <Soccer>
         <ImageName><![CDATA[soccer]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/Soccer/?fun=0]]></PlayForRealURL>
@@ -39,6 +63,12 @@
         <PlayForFunURL><![CDATA[{BravadoUrl}/ninetailedninja/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
       </Ninetailedninja>
+      <PiratesTreasure>
+        <ImageName><![CDATA[piratestreasure]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/piratestreasure/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/piratestreasure/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </PiratesTreasure>
       <QueenBee>
         <ImageName><![CDATA[queenbee]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/Queenbee/?fun=0]]></PlayForRealURL>
@@ -50,7 +80,36 @@
         <PlayForRealURL><![CDATA[{BravadoUrl}/godoffortune/?fun=0]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{BravadoUrl}/godoffortune/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
       </GodOfFortune>
+      <Sherlock>
+        <ImageName><![CDATA[sherlock]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/sherlock/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/sherlock/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </Sherlock>
+      <Klassik>
+        <ImageName><![CDATA[klassik]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/klassik/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/klassik/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </Klassik>
+      <TrickorTreat>
+        <ImageName><![CDATA[trickortreat]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/trickortreat/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/trickortreat/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </TrickorTreat>
+      <BikiniBeach>
+        <ImageName><![CDATA[bikinibeach]]></ImageName>
+        <PlayForRealURL><![CDATA[{BaravadoUrl}/BikiniBeach/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BaravadoUrl}?/BikiniBeach/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </BikiniBeach>
+      <SpinParty>
+        <ImageName><![CDATA[spinpartymobile]]></ImageName>
+      </SpinParty>
       <goldenlegendmobile>
         <ImageName><![CDATA[goldenlegendmobile]]></ImageName>
       </goldenlegendmobile>
@@ -165,6 +224,10 @@
       <WildMelon>
         <ImageName><![CDATA[wildmelonmobile]]></ImageName>
       </WildMelon>
+<!-- 20150710 Add new game -->
+      <MasqueradeMobile>
+        <ImageName><![CDATA[masquerademobile]]></ImageName>
+      </MasqueradeMobile>
     </Slot>
     <CardAndTable Label="テーブルゲーム">
       <AmericanRoulette>
