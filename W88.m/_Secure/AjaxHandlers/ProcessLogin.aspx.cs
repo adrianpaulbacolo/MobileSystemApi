@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -98,6 +99,7 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
                                 break;
                             case "1":
                                 string strMemberSessionId = Convert.ToString(dsSignin.Tables[0].Rows[0]["memberSessionId"]);
+                                
                                 HttpContext.Current.Session.Add("MemberSessionId", Convert.ToString(dsSignin.Tables[0].Rows[0]["memberSessionId"]));
                                 HttpContext.Current.Session.Add("MemberId", Convert.ToString(dsSignin.Tables[0].Rows[0]["memberId"]));
                                 HttpContext.Current.Session.Add("MemberCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["memberCode"]));
@@ -108,7 +110,8 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
                                 //HttpContext.Current.Session.Add("PaymentGroup", "A"); //Convert.ToString(dsSignin.Tables[0].Rows[0]["paymentGroup"]));
                                 HttpContext.Current.Session.Add("PartialSignup", Convert.ToString(dsSignin.Tables[0].Rows[0]["partialSignup"]));
                                 HttpContext.Current.Session.Add("ResetPassword", Convert.ToString(dsSignin.Tables[0].Rows[0]["resetPassword"]));
-
+                                HttpContext.Current.Session.Add("priorityVIP", Convert.ToString(dsSignin.Tables[0].Rows[0]["priorityVIP"]));
+                                
                                 commonCookie.CookieS = strMemberSessionId;
                                 commonCookie.CookieG = strMemberSessionId;
                                 HttpContext.Current.Session.Add("LoginStatus", "success");
@@ -117,12 +120,21 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
                                 if (HttpContext.Current.Request.Cookies[strMemberCode] == null) { runIovation = true; }
                                 else if (HttpContext.Current.Request.Cookies[strMemberCode] != null && string.Compare(strLastLoginIP, strLoginIp, true) != 0) { runIovation = true; }
                                 if (runIovation) { this.IovationSubmit(ref intProcessSerialId, strProcessId, strPageName, strMemberCode, strLoginIp, strPermission); }
+
+                                // test
+                                try 
+                                {
+                                    Session["testMemberId"] = commonVariables.GetSessionVariable("MemberId");
+                                    Session["testMemberCode"] = commonVariables.GetSessionVariable("MemberCode");
+                                    Session["testCurrencyCode"] = commonVariables.GetSessionVariable("CurrencyCode");
+                                }
+                                catch (Exception ex) { }
                                 break;
                             case "21":
                                 strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/InvalidUsername", xeErrors);
                                 break;
                             case "22":
-                                strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/InactiveAccount", xeErrors);
+                                strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/InactiveAccount", xeErrors).Replace("{0}",GetLiveChatURL());
                                 break;
                             case "23":
                                 strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/InvalidPassword", xeErrors);
@@ -237,5 +249,222 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
 
         intProcessSerialId += 1;
         commonAuditTrail.appendLog("system", strPageName, "Iovation", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
+    }
+
+
+
+    private string GetLiveChatURL()
+    {
+        string strMemberId = string.Empty;
+        string strMemberCode = string.Empty;
+        string riskId = string.Empty;
+        string redirectLink = string.Empty;
+
+        try
+        {
+            string strMemberName = commonVariables.GetSessionVariable("name");
+            string shortlang = commonVariables.SelectedLanguageShort;
+            string lang = commonVariables.SelectedLanguage.ToLower();
+            bool isVIP = false;
+
+            string value = commonVariables.GetSessionVariable("priorityVIP");
+            string CurrentUrl = System.Web.HttpContext.Current.Request.Url.ToString();
+
+            Uri myUri = new Uri(CurrentUrl);
+            string[] host = myUri.Host.Split('.');
+            string domain = string.Format(ConfigurationManager.AppSettings["WebHandler"], host[1]);
+
+            string chatLang = string.Empty;
+            string skill = string.Empty;
+
+            string platform = "Mobile";
+
+
+            if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+            {
+                strMemberId = commonVariables.GetSessionVariable("MemberId");
+                strMemberCode = commonVariables.GetSessionVariable("MemberCode");
+                riskId = commonVariables.GetSessionVariable("RiskId");
+
+                if (riskId.Length >= 3)
+                {
+                    if (riskId.Trim().ToLower() == "vipg" || riskId.ToLower() == "vipd" || riskId.ToLower() == "vipp")
+                        isVIP = true;
+                }
+            }
+
+            //BO settings integration
+            try
+            {
+                if (lang == "zh-cn" || lang == "vi-vn")
+                {
+                    Uri Myuri_ = new Uri(CurrentUrl);
+                    string[] host_ = myUri.Host.Split('.');
+                    string domain_ = string.Format(ConfigurationManager.AppSettings["LivePersonMobile"], host_[1]);
+                    redirectLink = domain_;
+                }
+                else
+                {
+                    redirectLink = domain + CurrentUrl;
+                }
+            }
+            catch (Exception)
+            {
+                if (shortlang == "en" || shortlang == "kh" || shortlang == "kr" || shortlang == "th" || shortlang == "jp" || shortlang == "id" || shortlang == "vn")
+                {
+                    #region livezilla
+
+                    string KM = Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes("KM"));
+                    var code1 = Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(strMemberCode));
+                    var code2 = Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(platform));
+                    var code3 = Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(CurrentUrl));
+                    var code4 = Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(strMemberId));
+                    var code5 = Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(System.Web.HttpContext.Current.Request.ServerVariables["HTTP_USER_AGENT"].ToString()));
+
+                    if (string.IsNullOrEmpty(strMemberCode) || string.IsNullOrEmpty(strMemberId))
+                    {
+                        code1 = "";
+                        code4 = "";
+
+                        switch (shortlang)//null member
+                        {
+                            case "en":
+                                redirectLink = "http://en.chat.liveperson88.com/chat.php?a=1bb6a&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__&rgs=MQ__";
+                                break;
+                            case "kh":
+                                redirectLink = "http://kh.chat.liveperson88.com/chat.php?a=d1712&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__&rgs=MQ__&el=" + KM;
+                                break;
+                            case "kr":
+                                redirectLink = "http://kr.chat.liveperson88.com/chat.php?a=7b233&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
+                                break;
+                            case "th":
+                                redirectLink = "http://th.chat.liveperson88.com/chat.php?a=d4a99&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
+                                break;
+                            case "id":
+                                redirectLink = "http://id.chat.liveperson88.com/chat.php?a=5c303&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
+                                break;
+                            case "jp":
+                                redirectLink = "http://jp.chat.liveperson88.com/chat.php?a=f3c22&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
+                                break;
+                            case "vn":
+                                redirectLink = "http://vn.chat.liveperson88.com/chat.php?a=1052a&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
+                                break;
+                            case "cn":
+                                redirectLink = "http://cn.chat.liveperson88.com/chat.php?a=1cbe6&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
+                                break;
+                            default:
+                                redirectLink = "http://en.chat.liveperson88.com/chat.php?a=1bb6a&hg=P1ZJUA__&hg=P01hbmFnZXI_&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__&rgs=MQ__";
+                                break;
+
+                        }
+                    }
+                    else
+                    {
+                        switch (shortlang)
+                        {
+                            case "en":
+                                if (isVIP)
+                                    redirectLink = "http://en.chat.liveperson88.com/chat.php?a=a08c2&intgroup=VklQ&hg=Pw__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__";
+                                else
+                                    redirectLink = "http://en.chat.liveperson88.com/chat.php?a=1bb6a&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__&rgs=MQ__";
+                                break;
+                            case "kh":
+                                if (isVIP)
+                                    redirectLink = "http://kh.chat.liveperson88.com/chat.php?a=35df1&intgroup=VklQ&hg=Pw__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__&el=" + KM;
+                                else
+                                    redirectLink = "http://kh.chat.liveperson88.com/chat.php?a=d1712&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__&rgs=MQ__&el=" + KM;
+                                break;
+                            case "kr":
+                                if (isVIP)
+                                    redirectLink = "http://kr.chat.liveperson88.com/chat.php?a=581f1&intgroup=VklQ&hg=Pw__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}";
+                                else
+                                    redirectLink = "http://kr.chat.liveperson88.com/chat.php?a=7b233&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
+                                break;
+                            case "th":
+                                if (isVIP)
+                                    redirectLink = "http://th.chat.liveperson88.com/chat.php?a=0db09&intgroup=VklQ&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}";
+                                else
+                                    redirectLink = "http://th.chat.liveperson88.com/chat.php?a=d4a99&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
+                                break;
+                            case "id":
+                                if (isVIP)
+                                    redirectLink = "http://id.chat.liveperson88.com/chat.php?a=f7bd2&intgroup=VklQ&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}";
+                                else
+                                    redirectLink = "http://id.chat.liveperson88.com/chat.php?a=5c303&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
+                                break;
+                            case "jp":
+                                if (isVIP)
+                                    redirectLink = "http://jp.chat.liveperson88.com/chat.php?a=e94d5&intgroup=VklQ&hg=Pw__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}";
+                                else
+                                    redirectLink = "http://jp.chat.liveperson88.com/chat.php?a=f3c22&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
+                                break;
+                            case "vn":
+                                if (isVIP)
+                                    redirectLink = "http://vn.chat.liveperson88.com/chat.php?a=f9d71&intgroup=VklQ&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}";
+                                else
+                                    redirectLink = "http://vn.chat.liveperson88.com/chat.php?a=1052a&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
+                                break;
+                            case "cn":
+                                if (isVIP)
+                                    redirectLink = "http://cn.chat.liveperson88.com/chat.php?a=dd1c7&intgroup=VklQ&hg=Pw__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}";
+                                else
+                                    redirectLink = "http://cn.chat.liveperson88.com/chat.php?a=1cbe6&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&mp=MQ__&rgs=MQ__";
+                                break;
+                            default:
+                                if (isVIP)
+                                    redirectLink = "http://en.chat.liveperson88.com/chat.php?a=a08c2&intgroup=VklQ&hg=Pw__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__";
+                                else
+                                    redirectLink = "http://en.chat.liveperson88.com/chat.php?a=1bb6a&hg=P1ZJUA__&en={0}&cf0={1}&cf1={2}&cf2={3}&cf3={4}&dl=MQ__&rgs=MQ__";
+                                break;
+                        }
+                    }
+                    redirectLink = string.Format(redirectLink, code1, code2, code3, code4, code5);
+
+                    #endregion livezilla
+
+                }
+                else
+                {
+                    #region liveperson
+                    if (isVIP)
+                    {
+                        switch (lang)
+                        {
+                            case "id":
+                                chatLang = "VIP-Bahasa"; skill = "VIP-Bahasa";
+                                break;
+                            case "vn":
+                                chatLang = "VIP-TiengViet "; skill = "VIP-TiengViet ";
+                                break;
+                            case "cn":
+                                chatLang = "VIP-Chinese "; skill = "VIP-Chinese ";
+                                break;
+                            default:
+                                chatLang = "VIP-English"; skill = "VIP-English";
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        switch (shortlang)
+                        {
+                            case "id": chatLang = "Indonesia"; skill = "Indonesia"; break;
+                            case "jp": chatLang = "Japanese"; skill = "Japanese"; break;
+                            case "vn": chatLang = "Vietnamese"; skill = "Vietnamese"; break;
+                            case "cn": chatLang = "Chinese"; skill = "Chinese"; break;
+                            default: chatLang = "English"; break;
+                        }
+                    }
+                    redirectLink = "https://server.iad.liveperson.net/hc/88942816/?cmd=file&file=visitorWantsToChat&site=88942816&SV!skill=" + skill + "&leInsId=88942816527642465&skId=1&leEngId=88942816_29aeab82-a5fc-4de7-b801-c6a87c638106&leEngTypeId=8&leEngName=LiveHelp_default&leRepAvState=3&referrer=" + CurrentUrl + "&SESSIONVAR!visitor_profile=" + chatLang;
+
+                    #endregion liveperson
+                }
+            }
+            return redirectLink;
+        }
+        catch(Exception)
+        {
+            return redirectLink;
+        }
     }
 }

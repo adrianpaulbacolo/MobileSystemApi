@@ -48,6 +48,20 @@ public partial class Upload_Default : BasePage
         string fileExtension = System.IO.Path.GetExtension(fuFileUpload.PostedFile.FileName.ToString());
         System.Text.RegularExpressions.Regex rexFileExt = new System.Text.RegularExpressions.Regex("(.gif|.jpg|.png)");
 
+        bool isPriority = false;
+        string riskId = string.Empty;
+
+        if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+        {
+            riskId = commonVariables.GetSessionVariable("RiskId");
+
+            if(commonVariables.GetSessionVariable("priorityVIP").ToLower() == "true")
+            {
+                isPriority = true;
+            }
+        }
+
+
         if (fuFileUpload.HasFile)
         {
             if (rexFileExt.IsMatch(fileExtension))
@@ -79,38 +93,96 @@ public partial class Upload_Default : BasePage
                             switch (strCurrency.ToLower()) 
                             {
                                 case "myr":
-                                    message.CC.Add("CS_English@aquozsolutions.com");
-                                    message.CC.Add("team_cscambodia@aquozsolutions.com");
+                                    if (isPriority)
+                                    {
+                                        message.CC.Add("CS_English@aquozsolutions.com");
+                                    }
+                                    else
+                                    {
+                                        message.CC.Add("CS_English@aquozsolutions.com");
+                                    }
                                     break;
 
                                 case "usd":
-                                    message.CC.Add("team_cscambodia@aquozsolutions.com");
-                                    message.CC.Add("CS_English@aquozsolutions.com");
+                                    if (isPriority)
+                                    {
+                                        message.CC.Add("team_cscambodia@aquozsolutions.com");
+                                    }
+                                    else
+                                    {
+                                        message.CC.Add("team_cscambodia@aquozsolutions.com");
+                                    }
                                     break;
 
                                 case "rmb":
-                                    message.CC.Add("team_cschina@aquozsolutions.com");
+                                    if (isPriority)
+                                    {
+                                        message.CC.Add("team_vd@aquozsolutions.com");
+                                    }
+                                    else
+                                    {
+                                        message.CC.Add("team_cschina@aquozsolutions.com");
+                                    }
                                     break;
 
                                 case "idr":
-                                    message.CC.Add("team_csindo@aquozsolutions.com");
+                                    if (isPriority)
+                                    {
+                                        message.CC.Add("team_vd@aquozsolutions.com");
+                                    }
+                                    else
+                                    {
+                                        message.CC.Add("team_csindo@aquozsolutions.com");
+                                    }
                                     break;
 
                                 case "thb":
-                                    message.CC.Add("team_csthai@aquozsolutions.com");
+                                    if (isPriority)
+                                    {
+                                        message.CC.Add("team_vd@aquozsolutions.com");
+                                    }
+                                    else
+                                    {
+                                        message.CC.Add("team_csthai@aquozsolutions.com");
+                                    }
                                     break;
 
                                 case "krw":
-                                    message.CC.Add("DG-CsKorea@aquozsolutions.com");
+                                    if (isPriority)
+                                    {
+                                        message.CC.Add("DG-CsKorea@aquozsolutions.com");
+                                    }
+                                    else
+                                    {
+                                        message.CC.Add("DG-CsKorea@aquozsolutions.com");
+                                    }
                                     break;
 
                                 case "vnd":
-                                    message.CC.Add("team_csvietnam@aquozsolutions.com");
+                                    if (isPriority)
+                                    {
+                                        message.CC.Add("team_vd@aquozsolutions.com");
+                                    }
+                                    else
+                                    {
+                                        message.CC.Add("team_csvietnam@aquozsolutions.com");
+                                    }
+                                    break;
+
+                                case "jpy":
+                                    if (isPriority)
+                                    {
+                                        message.CC.Add("team_CSJapan@aquozsolutions.com");
+                                    }
+                                    else
+                                    {
+                                        message.CC.Add("team_CSJapan@aquozsolutions.com");
+                                    }
                                     break;
                             }
 
                             message.Body = string.Format("Username: {0}{1}Currency: {2}{3}Remarks: {4}", strUsername, System.Environment.NewLine, strCurrency, System.Environment.NewLine, strRemarks);
-                            message.Subject = string.Format("Attachment Upload - {0} / {1} / {2}", strSubmissionID, strUsername, strCurrency);
+                            message.Subject = string.Format("Attachment Upload - {0} / {1} / {2}", strSubmissionID, strUsername + " - " +riskId.ToUpper(), strCurrency);
                             message.Attachments.Add(new System.Net.Mail.Attachment(fuFileUpload.PostedFile.InputStream, fuFileUpload.PostedFile.FileName));
                             sClient.Send(message);
                         }
