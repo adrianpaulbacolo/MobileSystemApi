@@ -120,15 +120,6 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
                                 if (HttpContext.Current.Request.Cookies[strMemberCode] == null) { runIovation = true; }
                                 else if (HttpContext.Current.Request.Cookies[strMemberCode] != null && string.Compare(strLastLoginIP, strLoginIp, true) != 0) { runIovation = true; }
                                 if (runIovation) { this.IovationSubmit(ref intProcessSerialId, strProcessId, strPageName, strMemberCode, strLoginIp, strPermission); }
-
-                                // test
-                                try 
-                                {
-                                    Session["testMemberId"] = commonVariables.GetSessionVariable("MemberId");
-                                    Session["testMemberCode"] = commonVariables.GetSessionVariable("MemberCode");
-                                    Session["testCurrencyCode"] = commonVariables.GetSessionVariable("CurrencyCode");
-                                }
-                                catch (Exception ex) { }
                                 break;
                             case "21":
                                 strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/InvalidUsername", xeErrors);
