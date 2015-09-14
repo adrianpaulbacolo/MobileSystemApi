@@ -126,6 +126,11 @@
         <Label><![CDATA[Event Horizon]]></Label>
         <Description><![CDATA[Event Horizon]]></Description>
       </Slot3D23>
+      <Slot3D24 ProductId="607">
+        <ImageName><![CDATA[W88-Slots-Mobile-At-the-Movies]]></ImageName>
+        <Label><![CDATA[At the Movies]]></Label>
+        <Description><![CDATA[At the Movies]]></Description>
+      </Slot3D24>
     </Slot3D>
 
     <TableCard Version="IOS" Label="เกมส์โต๊ะ &amp; การ์ด IOS">
@@ -269,6 +274,11 @@
         <Label><![CDATA[Event Horizon]]></Label>
         <Description><![CDATA[Event Horizon]]></Description>
       </Slot3D23>
+      <Slot3D24 ProductId="608">
+        <ImageName><![CDATA[W88-Slots-Mobile-At-the-Movies]]></ImageName>
+        <Label><![CDATA[At the Movies]]></Label>
+        <Description><![CDATA[At the Movies]]></Description>
+      </Slot3D24>
     </Slot3D>
     
     <TableCard Version="ANDROID" Label="เกมส์โต๊ะ &amp; การ์ด Android">
@@ -412,6 +422,11 @@
         <Label><![CDATA[Event Horizon]]></Label>
         <Description><![CDATA[Event Horizon]]></Description>
       </Slot3D23>
+      <Slot3D24 ProductId="607">
+        <ImageName><![CDATA[W88-Slots-Mobile-At-the-Movies]]></ImageName>
+        <Label><![CDATA[At the Movies]]></Label>
+        <Description><![CDATA[At the Movies]]></Description>
+      </Slot3D24>
     </Slot3DWP>
     <TableCardWP Version="WP" Label="เกมส์โต๊ะ &amp; การ์ด WP">
       <TableCard1 ProductId="366">

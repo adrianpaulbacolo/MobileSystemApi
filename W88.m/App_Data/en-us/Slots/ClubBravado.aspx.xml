@@ -219,7 +219,11 @@
       <MasqueradeMobile>
         <ImageName><![CDATA[masquerademobile]]></ImageName>
       </MasqueradeMobile>
-    </Slot>
+      <wildnorthmobile>
+        <ImageName><![CDATA[wildnorthmobile]]></ImageName>
+      </wildnorthmobile>
+    
+  </Slot>
     <CardAndTable Label="Card &amp; Table Games">
       <AmericanRoulette>
         <ImageName><![CDATA[americanroulettemobile]]></ImageName>

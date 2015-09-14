@@ -228,6 +228,9 @@
       <MasqueradeMobile>
         <ImageName><![CDATA[masquerademobile]]></ImageName>
       </MasqueradeMobile>
+      <wildnorthmobile>
+        <ImageName><![CDATA[wildnorthmobile]]></ImageName>
+      </wildnorthmobile>
     </Slot>
     <CardAndTable Label="GAME KARTU &amp; MEJA">
       <AmericanRoulette>
