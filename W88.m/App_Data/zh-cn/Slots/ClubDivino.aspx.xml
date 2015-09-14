@@ -123,6 +123,11 @@
         <Label><![CDATA[Event Horizon]]></Label>
         <Description><![CDATA[Event Horizon]]></Description>
       </Slot3D23>
+      <Slot3D24 ProductId="607">
+        <ImageName><![CDATA[W88-Slots-Mobile-At-the-Movies]]></ImageName>
+        <Label><![CDATA[At the Movies]]></Label>
+        <Description><![CDATA[At the Movies]]></Description>
+      </Slot3D24>
     </Slot3D>
     <TableCard Version="IOS" Label="桌面及卡牌游戏 IOS">
       <TableCard1 ProductId="271">
@@ -264,6 +269,11 @@
         <Label><![CDATA[Event Horizon]]></Label>
         <Description><![CDATA[Event Horizon]]></Description>
       </Slot3D23>
+      <Slot3D24 ProductId="608">
+        <ImageName><![CDATA[W88-Slots-Mobile-At-the-Movies]]></ImageName>
+        <Label><![CDATA[At the Movies]]></Label>
+        <Description><![CDATA[At the Movies]]></Description>
+      </Slot3D24>
     </Slot3D>
     <TableCard Version="ANDROID" Label="桌面及卡牌游戏 Android">
       <TableCard1 ProductId="272">
@@ -406,6 +416,11 @@
         <Label><![CDATA[Event Horizon]]></Label>
         <Description><![CDATA[Event Horizon]]></Description>
       </Slot3D23>
+      <Slot3D24 ProductId="609">
+        <ImageName><![CDATA[W88-Slots-Mobile-At-the-Movies]]></ImageName>
+        <Label><![CDATA[At the Movies]]></Label>
+        <Description><![CDATA[At the Movies]]></Description>
+      </Slot3D24>
     </Slot3DWP>
     <TableCardWP Version="WP" Label="桌面及卡牌游戏 WP">
       <TableCard1 ProductId="366">

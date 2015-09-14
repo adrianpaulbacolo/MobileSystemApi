@@ -219,6 +219,9 @@
       <MasqueradeMobile>
         <ImageName><![CDATA[masquerademobile]]></ImageName>
       </MasqueradeMobile>
+      <wildnorthmobile>
+        <ImageName><![CDATA[wildnorthmobile]]></ImageName>
+      </wildnorthmobile>
     </Slot>
     <CardAndTable Label="การ์ด เกมส์โต๊ะ">
       <AmericanRoulette>
