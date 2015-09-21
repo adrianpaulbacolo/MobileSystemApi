@@ -32,8 +32,7 @@ public partial class LiveChat_Default : System.Web.UI.Page
                     string value = commonVariables.GetSessionVariable("priorityVIP");
                     string CurrentUrl = System.Web.HttpContext.Current.Request.Url.ToString();
 
-                    //Uri myUri = new Uri(CurrentUrl);
-                    Uri myUri = new Uri("http://m.w88vv.asia/");
+                    Uri myUri = new Uri(CurrentUrl);
                     string [] host = myUri.Host.Split('.');
                     string domain = string.Format(ConfigurationManager.AppSettings["WebHandler2"], host[1], host[2]);
 
@@ -63,17 +62,6 @@ public partial class LiveChat_Default : System.Web.UI.Page
                         if (lang == "zh-cn" || lang == "vi-vn")
                         {
                             redirectLink = string.Format(ConfigurationManager.AppSettings["LivePersonMobile2"],host[1],host[2]);
-                        }
-                        else if (lang == "en-us")
-                        {
-                            if (isVIP)
-                            {
-                                redirectLink = "http://www.livehelpnow.net/lhn/lcv.aspx?d=31079&ms=&zzwindow=29776&lhnid=26811&custom1=&custom2=&custom3=" + strMemberId;
-                            }
-                            else
-                            {
-                                redirectLink = "https://www.livehelpnow.net/lhn/lcv.aspx?d=0&ms=&zzwindow=29773&lhnid=26811&custom1=&custom2=&custom3=" + strMemberId;
-                            }
                         }
                         else
                         {
