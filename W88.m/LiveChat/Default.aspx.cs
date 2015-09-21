@@ -24,15 +24,18 @@ public partial class LiveChat_Default : System.Web.UI.Page
 
             try
             {
+                    string strMemberName = commonVariables.GetSessionVariable("name");
                     string shortlang = commonVariables.SelectedLanguageShort;
                     string lang = commonVariables.SelectedLanguage.ToLower();
                     bool isVIP = false;
 
+                    string value = commonVariables.GetSessionVariable("priorityVIP");
                     string CurrentUrl = System.Web.HttpContext.Current.Request.Url.ToString();
 
-                    Uri myUri = new Uri(CurrentUrl);
+                    //Uri myUri = new Uri(CurrentUrl);
+                    Uri myUri = new Uri("http://m.w88vv.asia/");
                     string [] host = myUri.Host.Split('.');
-                    string domain = string.Format(ConfigurationManager.AppSettings["WebHandler"], host[1]);
+                    string domain = string.Format(ConfigurationManager.AppSettings["WebHandler2"], host[1],host[2]);
 
                     string chatLang = string.Empty;
                     string skill = string.Empty;
@@ -46,6 +49,7 @@ public partial class LiveChat_Default : System.Web.UI.Page
                         strMemberId = commonVariables.GetSessionVariable("MemberId");
                         strMemberCode = commonVariables.GetSessionVariable("MemberCode");
                         riskId = commonVariables.GetSessionVariable("RiskId");
+
                         if (riskId.Length >= 3)
                         {
                             if (riskId.Trim().ToLower() == "vipg" || riskId.ToLower() == "vipd" || riskId.ToLower() == "vipp")
@@ -58,10 +62,18 @@ public partial class LiveChat_Default : System.Web.UI.Page
                     {
                         if (lang == "zh-cn" || lang == "vi-vn")
                         {
-                            Uri Myuri_ = new Uri(CurrentUrl);
-                            string[] host_ = myUri.Host.Split('.');
-                            string domain_ = string.Format(ConfigurationManager.AppSettings["LivePersonMobile"], host_[1]);
-                            redirectLink = domain_;
+                            redirectLink = string.Format(ConfigurationManager.AppSettings["LivePersonMobile2"],host[1],host[2]);
+                        }
+                        else if (lang == "en-us")
+                        {
+                            if (isVIP)
+                            {
+                                redirectLink = "http://www.livehelpnow.net/lhn/lcv.aspx?d=31079&ms=&zzwindow=29776&lhnid=26811&custom1=&custom2=&custom3=" + strMemberId;
+                            }
+                            else
+                            {
+                                redirectLink = "https://www.livehelpnow.net/lhn/lcv.aspx?d=0&ms=&zzwindow=29773&lhnid=26811&custom1=&custom2=&custom3=" + strMemberId;
+                            }
                         }
                         else
                         {
