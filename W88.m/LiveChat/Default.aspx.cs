@@ -35,7 +35,7 @@ public partial class LiveChat_Default : System.Web.UI.Page
                     //Uri myUri = new Uri(CurrentUrl);
                     Uri myUri = new Uri("http://m.w88vv.asia/");
                     string [] host = myUri.Host.Split('.');
-                    string domain = string.Format(ConfigurationManager.AppSettings["WebHandler2"], host[1],host[2]);
+                    string domain = string.Format(ConfigurationManager.AppSettings["WebHandler2"], host[1], host[2]);
 
                     string chatLang = string.Empty;
                     string skill = string.Empty;
