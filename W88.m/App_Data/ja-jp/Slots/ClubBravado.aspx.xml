@@ -80,6 +80,7 @@
         <PlayForRealURL><![CDATA[{BravadoUrl}/godoffortune/?fun=0]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{BravadoUrl}/godoffortune/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
       </GodOfFortune>
       <Sherlock>
         <ImageName><![CDATA[sherlock]]></ImageName>
@@ -99,6 +100,13 @@
         <PlayForFunURL><![CDATA[{BravadoUrl}/trickortreat/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
       </TrickorTreat>
+      <BikiniBeach>
+        <ImageName><![CDATA[bikinibeach]]></ImageName>
+        <PlayForRealURL><![CDATA[{BaravadoUrl}/BikiniBeach/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BaravadoUrl}?/BikiniBeach/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </BikiniBeach>
       <SpinParty>
         <ImageName><![CDATA[spinpartymobile]]></ImageName>
       </SpinParty>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
 
 public partial class Slots_ClubBravado : BasePage
 {
@@ -46,8 +47,12 @@ public partial class Slots_ClubBravado : BasePage
                     sbGames.AppendFormat("<li rel='{0}.jpg' class='bkg-game'><div class='div-links'>", commonCulture.ElementValues.getResourceString("ImageName", xeGame));
 
                     bool isInternal = false;
+                    string slotType = string.Empty;
                     if (commonCulture.ElementValues.getResourceString("IsInternal", xeGame) != "")
                         isInternal = bool.Parse(commonCulture.ElementValues.getResourceString("IsInternal", xeGame));
+
+                    if (commonCulture.ElementValues.getResourceString("SlotType", xeGame) != "")
+                        slotType = Convert.ToString(commonCulture.ElementValues.getResourceString("SlotType", xeGame));
 
                     //in-house
                     if (isInternal)
@@ -55,10 +60,26 @@ public partial class Slots_ClubBravado : BasePage
                         if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                             sbGames.AppendFormat("<a href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubBravado") + "' data-rel='dialog' data-transition='slidedown'>");
                         else
-                            sbGames.AppendFormat("<a href='{0}'>", commonClubBravado.getRealUrl.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
+                            if (slotType == "RSLOT")
+                            {
+                                customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
+                                sbGames.AppendFormat("<a href='{0}'>", commonClubBravado.getRealUrl_mrslot.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
+                            }
+                            else
+                            {
+                                sbGames.AppendFormat("<a href='{0}'>", commonClubBravado.getRealUrl.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
+                            }
 
                         sbGames.Append("<img src='/_Static/Images/btn_play.jpg' /></a>");
-                        sbGames.AppendFormat("<a href='{0}'><img src='/_Static/Images/btn_try.jpg' /></a></div>", commonClubBravado.getFunUrl.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
+
+                        if (slotType == "RSLOT")
+                        {
+                            sbGames.AppendFormat("<a href='{0}'><img src='/_Static/Images/btn_try.jpg' /></a></div>", commonClubBravado.getFunUrl_mrslot.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
+                        }
+                        else
+                        {
+                            sbGames.AppendFormat("<a href='{0}'><img src='/_Static/Images/btn_try.jpg' /></a></div>", commonClubBravado.getFunUrl.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
+                        }
                     }
                     else
                     {
