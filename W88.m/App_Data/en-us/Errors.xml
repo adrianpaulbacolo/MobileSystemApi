@@ -9,7 +9,7 @@
   <Login>
     <InvalidUsername><![CDATA[Invalid Username and/or Password.]]></InvalidUsername>
     <InvalidPassword><![CDATA[Invalid Username and/or Password.]]></InvalidPassword>
-    <InactiveAccount><![CDATA[W88.com: Your account login failed. Please contact our Customer Service 24/7 for assistance.]]></InactiveAccount>    
+    <InactiveAccount><![CDATA[For security reasons your user account has been be locked due to too many unsuccessful attempts.Kindly click <a href="{0}">here</a> to contact our customer services to unlock your account for password recovery. <br /><br /><table style="width:100%"><tr><td style="width:38%"></td><td style="width:50%"><button type="button" id="closeBtn" class="button-blue" onclick="closeModal()">CLOSE</button></td></tr></table>]]></InactiveAccount>    
     <MissingUsername><![CDATA[Please enter your username]]></MissingUsername>
     <MissingPassword><![CDATA[Please enter your password]]></MissingPassword>
   </Login>

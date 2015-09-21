@@ -9,7 +9,8 @@
   <Login>
     <InvalidUsername><![CDATA[로그인 ID를 입력하세요.]]></InvalidUsername>
     <InvalidPassword><![CDATA[비밀번호를 입력하세요.]]></InvalidPassword>
-    <InactiveAccount><![CDATA[W88.com:로그인에 실패하였습니다. 고객센터로 문의해 주시기 바랍니다.]]></InactiveAccount>    
+    <InactiveAccount>
+      <![CDATA[비밀번호 다수 입력 오류로 인해 회원님의 계정이 잠금 상태로 변경되었습니다.잠금 해제를 원하실 경우 <a href="https://www.w88world.com/ContactUs.aspx">여기</a>를 클릭해 고객 센터로 문의 주시기 바랍니다. <br /><br /><table style="width:100%"><tr><td style="width:38%"></td><td style="width:50%"><button type="button" id="closeBtn" class="button-blue" onclick="closeModal()">종료</button></td></tr></table>]]></InactiveAccount>    
     <MissingUsername><![CDATA[로그인 ID를 입력하세요.]]></MissingUsername>
     <MissingPassword><![CDATA[비밀번호를 입력하세요.]]></MissingPassword>
   </Login>
