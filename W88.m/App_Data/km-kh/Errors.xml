@@ -9,7 +9,8 @@
   <Login>
     <InvalidUsername><![CDATA[ខុសឈ្មោះគណនី/ឬខុសលេខសំងាត់]]></InvalidUsername>
     <InvalidPassword><![CDATA[ខុសឈ្មោះគណនី/ឬខុសលេខសំងាត់]]></InvalidPassword>
-    <InactiveAccount><![CDATA[W88.com: ការចូលទៅកាន់គណនីរបស់អ្នកបរាជ័យ។ សូមទំនាក់ទំនងមកកាន់ផ្នែកបំរើសេវាអតិថិជន 24/7 សំរាប់ជំនួយ។]]></InactiveAccount>    
+    <InactiveAccount>
+      <![CDATA[ដើម្បីសុវត្ថិភាព គណនីរបស់អ្នកត្រូវបានផ្អាក។ សូម <a href="https://www.w88world.com/ContactUs.aspx">ចុចទីនេះ</a> ដើម្បីជំនួយ។ <br /><br /><table style="width:100%"><tr><td style="width:38%"></td><td style="width:50%"><button type="button" id="closeBtn" class="button-blue" onclick="closeModal()">បិទ</button></td></tr></table>]]></InactiveAccount>    
     <MissingUsername><![CDATA[ប្រអប់សំរាប់បញ្ចូល ឈ្មោះប្រើប្រាស់ នៅទទេរ សូមបំពេញអោយបានត្រឹមត្រូវ]]></MissingUsername>
     <MissingPassword><![CDATA[ប្រអប់សំរាប់បញ្ចូល លេខសម្ងាត់ នៅទទេរ សូមបំពេញអោយបានត្រឹមត្រូវ]]></MissingPassword>
   </Login>
