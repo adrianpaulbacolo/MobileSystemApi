@@ -27,6 +27,15 @@
                           { %>
                         <li id='<%=string.Format("d{0}", Convert.ToInt32(commonVariables.DepositMethod.Help2Pay))%>'><a href="/Deposit/Help2Pay" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("help2pay", commonVariables.LeftMenuXML)%></a></li>
                         <% } %>
+                        <%if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "rmb", true) == 0)
+                        { %>
+                        <li id='<%=string.Format("d{0}", Convert.ToInt32(commonVariables.DepositMethod.DaddyPay))%>'><a runat="server" id="daddyPay_link" href="/Deposit/DaddyPay.aspx?value=1" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("daddypay", commonVariables.LeftMenuXML)%></a></li>
+<%--                        <li id='<%=string.Format("d{0}", Convert.ToInt32(commonVariables.DepositMethod.DaddyPayQR))%>'><a runat="server" id="daddyPayQR_link" href="/Deposit/DaddyPay.aspx?value=2" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("daddypayqr", commonVariables.LeftMenuXML)%></a></li>  --%>
+                        <% } %> 
+                        <%if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "thb", true) == 0)
+                        { %>
+                        <li id='<%=string.Format("d{0}", Convert.ToInt32(commonVariables.DepositMethod.NextPay))%>'><a href="/Deposit/NextPay.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("nextpay", commonVariables.LeftMenuXML)%></a></li>
+                       <% } %> 
                     </ul>
                     <br />
                 </div>
