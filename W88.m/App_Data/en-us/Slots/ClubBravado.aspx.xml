@@ -1,68 +1,77 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
-
   <Category>
     <Slot Label="Slots">
-       <GolfTour>
-        <ImageName><![CDATA[golftour]]></ImageName>
-        <PlayForRealURL><![CDATA[{BravadoUrl}/golftour/?fun=0]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{BravadoUrl}/golftour/?fun=1]]></PlayForFunURL>
+
+      <candylicious>
+        <ImageName><![CDATA[candylicious]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/candylicious/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/candylicious/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
-      </GolfTour>
-      <zodiac>
-        <ImageName><![CDATA[zodiac]]></ImageName>
-        <PlayForRealURL><![CDATA[{BravadoUrl}/zodiac/?fun=0]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{BravadoUrl}/zodiac/?fun=1]]></PlayForFunURL>
-        <IsInternal><![CDATA[true]]></IsInternal>
-      </zodiac>
-      <FourBeauties>
-        <ImageName><![CDATA[fourbeauties]]></ImageName>
-        <PlayForRealURL><![CDATA[{BravadoUrl}/fourbeauties/?fun=0]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{BravadoUrl}/fourbeauties/?fun=1]]></PlayForFunURL>
-        <IsInternal><![CDATA[true]]></IsInternal>
-      </FourBeauties>
-      <Panda>
-        <ImageName><![CDATA[panda]]></ImageName>
-        <PlayForRealURL><![CDATA[{BravadoUrl}/panda/?fun=0]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{BravadoUrl}/panda/?fun=1]]></PlayForFunURL>
-        <IsInternal><![CDATA[true]]></IsInternal>
-      </Panda>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </candylicious>
+
       <Soccer>
         <ImageName><![CDATA[soccer]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/Soccer/?fun=0]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{BravadoUrl}/Soccer/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
       </Soccer>
-      <ThreeKingdoms>
-        <ImageName><![CDATA[threekingdoms]]></ImageName>
-        <PlayForRealURL><![CDATA[{BravadoUrl}/threekingdoms/?fun=0]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{BravadoUrl}/threekingdoms/?fun=1]]></PlayForFunURL>
+      <FourBeauties>
+        <ImageName><![CDATA[fourbeauties]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/fourbeauties/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/fourbeauties/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
-      </ThreeKingdoms>
+      </FourBeauties>
       <FreedomFighter>
         <ImageName><![CDATA[freedomfighter]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/freedomfighter/?fun=0]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{BravadoUrl}/freedomfighter/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
       </FreedomFighter>
-      <LittleMonsters>
-        <ImageName><![CDATA[littlemonsters]]></ImageName>
-        <PlayForRealURL><![CDATA[{BravadoUrl}/littlemonsters/?fun=0]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{BravadoUrl}/littleffmonsters/?fun=1]]></PlayForFunURL>
-        <IsInternal><![CDATA[true]]></IsInternal>
-      </LittleMonsters>
       <Fruitilicious>
         <ImageName><![CDATA[fruitilicious]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/fruitilicious/?fun=0]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{BravadoUrl}/fruitilicious/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
       </Fruitilicious>
+      <GodOfFortune>
+        <ImageName><![CDATA[godoffortune]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/godoffortune/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/godoffortune/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </GodOfFortune>
+       <GolfTour>
+        <ImageName><![CDATA[golftour]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/golftour/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/golftour/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </GolfTour>
+      <Klassik>
+        <ImageName><![CDATA[klassik]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/klassik/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/klassik/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </Klassik>
+      <LittleMonsters>
+        <ImageName><![CDATA[littlemonsters]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/littlemonsters/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/littleffmonsters/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </LittleMonsters>
       <Ninetailedninja>
         <ImageName><![CDATA[ninetailedninja]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/ninetailedninja/?fun=0]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{BravadoUrl}/ninetailedninja/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
       </Ninetailedninja>
+      <Panda>
+        <ImageName><![CDATA[panda]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/panda/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/panda/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </Panda>
       <PiratesTreasure>
         <ImageName><![CDATA[piratestreasure]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/piratestreasure/?fun=0]]></PlayForRealURL>
@@ -75,31 +84,30 @@
         <PlayForFunURL><![CDATA[{BravadoUrl}/Queenbee/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
       </QueenBee>
-      <GodOfFortune>
-        <ImageName><![CDATA[godoffortune]]></ImageName>
-        <PlayForRealURL><![CDATA[{BravadoUrl}/godoffortune/?fun=0]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{BravadoUrl}/godoffortune/?fun=1]]></PlayForFunURL>
-        <IsInternal><![CDATA[true]]></IsInternal>
-        <SlotType><![CDATA[RSLOT]]></SlotType>
-      </GodOfFortune>
       <Sherlock>
         <ImageName><![CDATA[sherlock]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/sherlock/?fun=0]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{BravadoUrl}/sherlock/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
       </Sherlock>
-      <Klassik>
-        <ImageName><![CDATA[klassik]]></ImageName>
-        <PlayForRealURL><![CDATA[{BravadoUrl}/klassik/?fun=0]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{BravadoUrl}/klassik/?fun=1]]></PlayForFunURL>
+      <ThreeKingdoms>
+        <ImageName><![CDATA[threekingdoms]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/threekingdoms/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/threekingdoms/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
-      </Klassik>
+      </ThreeKingdoms>
       <TrickorTreat>
         <ImageName><![CDATA[trickortreat]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/trickortreat/?fun=0]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{BravadoUrl}/trickortreat/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
       </TrickorTreat>
+      <zodiac>
+        <ImageName><![CDATA[zodiac]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/zodiac/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/zodiac/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </zodiac>
       <BikiniBeach>
         <ImageName><![CDATA[bikinibeach]]></ImageName>
         <PlayForRealURL><![CDATA[{BaravadoUrl}/BikiniBeach/?fun=0]]></PlayForRealURL>
@@ -107,9 +115,6 @@
         <IsInternal><![CDATA[true]]></IsInternal>
         <SlotType><![CDATA[RSLOT]]></SlotType>
       </BikiniBeach>
-      <SpinParty>
-        <ImageName><![CDATA[spinpartymobile]]></ImageName>
-      </SpinParty>
       <goldenlegendmobile>
         <ImageName><![CDATA[goldenlegendmobile]]></ImageName>
       </goldenlegendmobile>
@@ -215,15 +220,14 @@
       <WildMelon>
         <ImageName><![CDATA[wildmelonmobile]]></ImageName>
       </WildMelon>
-      <!-- 20150710 Add new game -->
-      <MasqueradeMobile>
+       <MasqueradeMobile>
         <ImageName><![CDATA[masquerademobile]]></ImageName>
       </MasqueradeMobile>
       <wildnorthmobile>
         <ImageName><![CDATA[wildnorthmobile]]></ImageName>
       </wildnorthmobile>
-    
-  </Slot>
+
+    </Slot>
     <CardAndTable Label="Card &amp; Table Games">
       <AmericanRoulette>
         <ImageName><![CDATA[americanroulettemobile]]></ImageName>
