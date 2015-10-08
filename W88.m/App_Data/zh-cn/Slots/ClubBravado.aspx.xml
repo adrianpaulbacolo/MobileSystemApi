@@ -3,7 +3,20 @@
 
   <Category>
     <Slot Label="老虎机">
-
+      <dimsumlicious>
+        <ImageName><![CDATA[dimsumlicious]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/dimsumlicious/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/dimsumlicious/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </dimsumlicious>
+      <legendofnezha>
+        <ImageName><![CDATA[legendofnezha]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/legendofnezha/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/legendofnezha/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </legendofnezha>ss
       <candylicious>
         <ImageName><![CDATA[candylicious]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/candylicious/?fun=0]]></PlayForRealURL>
