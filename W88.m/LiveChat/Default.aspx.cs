@@ -29,7 +29,6 @@ public partial class LiveChat_Default : System.Web.UI.Page
                     string lang = commonVariables.SelectedLanguage.ToLower();
                     bool isVIP = false;
 
-                    string value = commonVariables.GetSessionVariable("priorityVIP");
                     string CurrentUrl = System.Web.HttpContext.Current.Request.Url.ToString();
 
                     Uri myUri = new Uri(CurrentUrl);
@@ -59,14 +58,26 @@ public partial class LiveChat_Default : System.Web.UI.Page
                     //BO settings integration
                     try
                     {
-                        if (lang == "zh-cn" || lang == "vi-vn")
+                        //**************************************************//
+                        //******Uncomment to enable live person mobile******//
+                        //*************************************************///
+                        //if (lang == "zh-cn" || lang == "vi-vn")
+                        //{
+                        //    redirectLink = string.Format(ConfigurationManager.AppSettings["LivePersonMobile2"],host[1],host[2]);
+                        //}
+                        //else
+                        //{
+                        //    redirectLink = domain + CurrentUrl;
+                        //}
+                        if (lang == "zh-cn")
                         {
-                            redirectLink = string.Format(ConfigurationManager.AppSettings["LivePersonMobile2"],host[1],host[2]);
+                            redirectLink = string.Format(ConfigurationManager.AppSettings["LivePersonMobile2"], host[1], host[2]);
                         }
                         else
                         {
                             redirectLink = domain + CurrentUrl;
                         }
+
                     }
                     catch (Exception)
                     {
