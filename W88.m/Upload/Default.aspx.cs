@@ -121,7 +121,7 @@ public partial class Upload_Default : BasePage
                                     }
                                     else
                                     {
-                                        message.CC.Add("team_cschina@aquozsolutions.com");
+                                        message.CC.Add("infocn@w88.com");
                                     }
                                     break;
 
