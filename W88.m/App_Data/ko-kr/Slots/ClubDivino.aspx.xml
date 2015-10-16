@@ -131,6 +131,11 @@
         <Label><![CDATA[At the Movies]]></Label>
         <Description><![CDATA[At the Movies]]></Description>
       </Slot3D24>
+      <Slot3D26 ProductId="598">
+        <ImageName><![CDATA[The-Tipsy-Tourist-mobile]]></ImageName>
+        <Label><![CDATA[The Tipsy Tourist]]></Label>
+        <Description><![CDATA[The Tipsy Tourist]]></Description>
+      </Slot3D26>
   </Slot3D>
     <TableCard Version="IOS" Label="테이블 게임 &amp; 카드게임 IOS">
       <TableCard1 ProductId="271">
@@ -277,6 +282,11 @@
         <Label><![CDATA[At the Movies]]></Label>
         <Description><![CDATA[At the Movies]]></Description>
       </Slot3D24>
+      <Slot3D26 ProductId="599">
+        <ImageName><![CDATA[The-Tipsy-Tourist-mobile]]></ImageName>
+        <Label><![CDATA[The Tipsy Tourist]]></Label>
+        <Description><![CDATA[The Tipsy Tourist]]></Description>
+      </Slot3D26>
     </Slot3D>
       
     <TableCard Version="ANDROID" Label="테이블 게임 &amp; 카드게임 Android">
@@ -425,6 +435,11 @@
         <Label><![CDATA[At the Movies]]></Label>
         <Description><![CDATA[At the Movies]]></Description>
       </Slot3D24>
+      <Slot3D26 ProductId="600">
+        <ImageName><![CDATA[The-Tipsy-Tourist-mobile]]></ImageName>
+        <Label><![CDATA[The Tipsy Tourist]]></Label>
+        <Description><![CDATA[The Tipsy Tourist]]></Description>
+      </Slot3D26>
     </Slot3DWP>
     <TableCardWP Version="WP" Label="테이블 게임 &amp; 카드게임 WP">
       <TableCard1 ProductId="366">
