@@ -2,6 +2,11 @@
 <default>
   <Category>
     <Slot Label="ស្លត">
+
+      <eyeofthekrakenmobile>
+        <ImageName><![CDATA[eyeofthekrakenmobile]]></ImageName>
+      </eyeofthekrakenmobile>
+
       <dimsumlicious>
         <ImageName><![CDATA[dimsumlicious]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/dimsumlicious/?fun=0]]></PlayForRealURL>

@@ -3,6 +3,14 @@
 
   <Category>
     <Slot Label="슬롯">
+
+      <xc_mobiledoublebonusslots>
+        <Label><![CDATA[xc_mobiledoublebonusslots]]></Label>
+        <Description><![CDATA[xc_mobiledoublebonusslots]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobiledoublebonusslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobiledoublebonusslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </xc_mobiledoublebonusslots>
+
       <FireCrackers>
         <Label><![CDATA[Midnight Lucky Sky Slots]]></Label>
         <Description><![CDATA[Midnight Lucky Sky Slots]]></Description>
