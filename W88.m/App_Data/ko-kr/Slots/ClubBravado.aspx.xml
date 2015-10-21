@@ -3,6 +3,13 @@
 
   <Category>
     <Slot Label="슬롯">
+      <lanternfestival>
+        <ImageName><![CDATA[lanternfestival]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/lanternfestival/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/lanternfestival/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </lanternfestival>
       <dimsumlicious>
         <ImageName><![CDATA[dimsumlicious]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/dimsumlicious/?fun=0]]></PlayForRealURL>
