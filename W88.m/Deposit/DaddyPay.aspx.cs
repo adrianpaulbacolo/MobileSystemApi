@@ -97,6 +97,30 @@ public partial class Deposit_DaddyPay : BasePage
 
             PopulateBankList();
         }
+        else
+        {
+            string strProcessCode = string.Empty;
+            string strProcessText = string.Empty;
+            string strMethodId = string.Empty;
+            strMethodId = "0";
+            System.Data.DataTable dtPaymentMethodLimits = null;
+            System.Text.StringBuilder sbMethodsUnavailable = new System.Text.StringBuilder();
+
+            using (svcPayMember.MemberClient svcInstance = new svcPayMember.MemberClient())
+            {
+                dtPaymentMethodLimits = svcInstance.getMethodLimits(strOperatorId, strMemberCode, strMethodId, Convert.ToString(Convert.ToInt32(commonVariables.PaymentTransactionType.Deposit)), false, out strProcessCode, out strProcessText);
+            }
+
+            foreach (commonVariables.DepositMethod EnumMethod in Enum.GetValues(typeof(commonVariables.DepositMethod)))
+            {
+                if (dtPaymentMethodLimits.Select("[methodId] = " + Convert.ToInt32(EnumMethod)).Count() < 1)
+                {
+                    sbMethodsUnavailable.AppendFormat("{0}|", Convert.ToInt32(EnumMethod));
+                }
+            }
+
+            strMethodsUnAvailable = Convert.ToString(sbMethodsUnavailable).TrimEnd('|');
+        }
     }
 
     private void CancelUnexpectedRePost()
@@ -203,7 +227,7 @@ public partial class Deposit_DaddyPay : BasePage
                 {
                     Response.Write("<script>alert('金额大于最高限额');</script>");
                 }
-                else if (bankDropDownList.Text == "SELECT BANK")
+                else if (bankDropDownList.SelectedIndex.ToString() == "0")
                 {
                     Response.Write("<script>alert('Please select a bank');</script>");
                 }
@@ -258,7 +282,7 @@ public partial class Deposit_DaddyPay : BasePage
 
                     DataRow dr = dt.Rows[0];
 
-                    string config = Md5Hash(decrypt("OG1WIZ5004ikW2KTuYl5mBmN8yv+4hTT"));
+                    string config = Md5Hash(commonEncryption.decrypting("03WUpD2ff5AojnGcH/VL7tzEekc0XJp4X8x7F2IWVPQLECQgWSGhNMLgMioGWCI2"));
 
                     var builder = new StringBuilder();
                     builder.AppendFormat("{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}{11}{12}", config, Convert.ToString(dr["merchantId"]), bankDropDownList.SelectedValue.ToString(), Convert.ToDouble(amount_txt.Text).ToString("#.00"), xElement.Element("invId").Value.ToString(),
@@ -293,11 +317,13 @@ public partial class Deposit_DaddyPay : BasePage
 
                     if (status == "1")
                     {
-                        Response.Redirect(break_url.ToString());
+                        //Response.Redirect(break_url.ToString());
+                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "popup", "window.open('" + break_url.ToString() + "','_blank')", true);
                     }
                     else
                     {
-                        Response.Redirect(break_url.ToString());
+                        //Response.Redirect(break_url.ToString());
+                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "popup", "window.open('" + break_url.ToString() + "','_blank')", true);
                     }
                 }
             }
@@ -342,34 +368,6 @@ public partial class Deposit_DaddyPay : BasePage
             {
                 responseBytes = wc.UploadValues(postUrl, "POST", postData);
             }
-
-            string val = string.Empty;
-            try
-            {
-                if (responseBytes.Length == 0)
-                {
-                    val = "null";
-
-                    StreamWriter writetext = new StreamWriter(@"C:\Users\tech.support22\Desktop\test\params.txt");
-                    writetext.WriteLine(daddyPay.companyId + "|" + daddyPay.bankId + "|" + daddyPay.amount + "|" + daddyPay.companyOrderNum + "|" + daddyPay.companyUser + "|" + daddyPay.key + "|" + daddyPay.estimatedPaymentBank + "|" + daddyPay.depositMode + "|" + daddyPay.groupId + "|" + daddyPay.webUrl + "|" + daddyPay.memo + "|" + daddyPay.note + "|" + daddyPay.noteModel + "----Response = " + val);
-                    writetext.Close();
-                }
-                else
-                {
-                    val = Encoding.UTF8.GetString(responseBytes);
-
-                    StreamWriter writetext = new StreamWriter(@"C:\Users\tech.support22\Desktop\test\params.txt");
-                    writetext.WriteLine(daddyPay.companyId + "|" + daddyPay.bankId + "|" + daddyPay.amount + "|" + daddyPay.companyOrderNum + "|" + daddyPay.companyUser + "|" + daddyPay.key + "|" + daddyPay.estimatedPaymentBank + "|" + daddyPay.depositMode + "|" + daddyPay.groupId + "|" + daddyPay.webUrl + "|" + daddyPay.memo + "|" + daddyPay.note + "|" + daddyPay.noteModel + "----Response = " + val);
-                    writetext.Close();
-                }
-            }
-            catch(Exception)
-            {
-                StreamWriter writetext = new StreamWriter(@"C:\Users\tech.support22\Desktop\test\params.txt");
-                writetext.WriteLine(daddyPay.companyId + "|" + daddyPay.bankId + "|" + daddyPay.amount + "|" + daddyPay.companyOrderNum + "|" + daddyPay.companyUser + "|" + daddyPay.key + "|" + daddyPay.estimatedPaymentBank + "|" + daddyPay.depositMode + "|" + daddyPay.groupId + "|" + daddyPay.webUrl + "|" + daddyPay.memo + "|" + daddyPay.note + "|" + daddyPay.noteModel + "----Response = " + val);
-                writetext.Close();
-            }
-
 
             return responseBytes;
         }
