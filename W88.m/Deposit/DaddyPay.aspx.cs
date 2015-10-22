@@ -97,6 +97,30 @@ public partial class Deposit_DaddyPay : BasePage
 
             PopulateBankList();
         }
+        else
+        {
+            string strProcessCode = string.Empty;
+            string strProcessText = string.Empty;
+            string strMethodId = string.Empty;
+            strMethodId = "0";
+            System.Data.DataTable dtPaymentMethodLimits = null;
+            System.Text.StringBuilder sbMethodsUnavailable = new System.Text.StringBuilder();
+
+            using (svcPayMember.MemberClient svcInstance = new svcPayMember.MemberClient())
+            {
+                dtPaymentMethodLimits = svcInstance.getMethodLimits(strOperatorId, strMemberCode, strMethodId, Convert.ToString(Convert.ToInt32(commonVariables.PaymentTransactionType.Deposit)), false, out strProcessCode, out strProcessText);
+            }
+
+            foreach (commonVariables.DepositMethod EnumMethod in Enum.GetValues(typeof(commonVariables.DepositMethod)))
+            {
+                if (dtPaymentMethodLimits.Select("[methodId] = " + Convert.ToInt32(EnumMethod)).Count() < 1)
+                {
+                    sbMethodsUnavailable.AppendFormat("{0}|", Convert.ToInt32(EnumMethod));
+                }
+            }
+
+            strMethodsUnAvailable = Convert.ToString(sbMethodsUnavailable).TrimEnd('|');
+        }
     }
 
     private void CancelUnexpectedRePost()
@@ -203,7 +227,7 @@ public partial class Deposit_DaddyPay : BasePage
                 {
                     Response.Write("<script>alert('金额大于最高限额');</script>");
                 }
-                else if (bankDropDownList.Text == "SELECT BANK")
+                else if (bankDropDownList.SelectedIndex.ToString() == "0")
                 {
                     Response.Write("<script>alert('Please select a bank');</script>");
                 }
