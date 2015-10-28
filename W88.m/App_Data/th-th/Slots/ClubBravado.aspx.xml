@@ -4,11 +4,27 @@
   <Category>
    
     <Slot Label="สล็อต">
+      <baseball>
+        <ImageName><![CDATA[baseball]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/baseball/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/baseball/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </baseball>
 
+      <happyhalloweenmobile>
+        <ImageName><![CDATA[happyhalloweenmobile]]></ImageName>
+      </happyhalloweenmobile>
+      <lanternfestival>
+        <ImageName><![CDATA[lanternfestival]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/lanternfestival/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/lanternfestival/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </lanternfestival>
       <eyeofthekrakenmobile>
         <ImageName><![CDATA[eyeofthekrakenmobile]]></ImageName>
       </eyeofthekrakenmobile>
-
       <dimsumlicious>
         <ImageName><![CDATA[dimsumlicious]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/dimsumlicious/?fun=0]]></PlayForRealURL>
