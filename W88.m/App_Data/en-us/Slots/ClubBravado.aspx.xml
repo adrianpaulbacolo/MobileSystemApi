@@ -2,6 +2,17 @@
 <default>
   <Category>
     <Slot Label="Slots">
+      <baseball>
+        <ImageName><![CDATA[baseball]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/baseball/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/baseball/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </baseball>
+
+      <happyhalloweenmobile>
+        <ImageName><![CDATA[happyhalloweenmobile]]></ImageName>
+      </happyhalloweenmobile>
       <lanternfestival>
         <ImageName><![CDATA[lanternfestival]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/lanternfestival/?fun=0]]></PlayForRealURL>
