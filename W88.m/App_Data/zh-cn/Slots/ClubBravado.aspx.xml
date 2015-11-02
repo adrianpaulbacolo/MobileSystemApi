@@ -3,6 +3,13 @@
 
   <Category>
     <Slot Label="老虎机">
+      <fortunecat>
+        <ImageName><![CDATA[fortunecat]]></ImageName>
+        <PlayForRealURL><![CDATA[{BaravadoUrl}/fortunecat/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BaravadoUrl}?/fortunecat/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </fortunecat>
       <baseball>
         <ImageName><![CDATA[baseball]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/baseball/?fun=0]]></PlayForRealURL>
