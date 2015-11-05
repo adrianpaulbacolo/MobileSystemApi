@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
 
 public partial class Slots_ClubMassimo : BasePage
 {
@@ -38,10 +39,10 @@ public partial class Slots_ClubMassimo : BasePage
                     //{FunUrl}/cashapillar/en?casinoID=5002&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL={lobby}
 
                     if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { sbGames.AppendFormat("<a href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubMassimo") + "' data-rel='dialog' data-transition='slidedown'>"); }
-                    else { sbGames.AppendFormat("<a href='{0}'>", commonCulture.ElementValues.getResourceString("PlayForRealURL", xeGame).Replace("{RealUrl}", commonClubMassimo.getRealUrl).Replace("{token}", commonVariables.CurrentMemberSessionId)).Replace("{lobby}","m.w88.com/ClubMassimo").Replace("{cashier}","m.w88.com/fundtransfer"); }
+                    else { sbGames.AppendFormat("<a href='{0}'>", commonCulture.ElementValues.getResourceString("PlayForRealURL", xeGame).Replace("{RealUrl}", commonClubMassimo.getRealUrl).Replace("{token}", commonVariables.CurrentMemberSessionId)).Replace("{lobby}",ConfigurationManager.AppSettings["Lobby"]).Replace("{cashier}",ConfigurationManager.AppSettings["Cashier"]); }
 
                     sbGames.Append("<img src='/_Static/Images/btn_play.jpg' /></a>");
-                    sbGames.AppendFormat("<a href='{0}' data-ajax='false'><img src='/_Static/Images/btn_try.jpg' /></a></div>", commonCulture.ElementValues.getResourceString("PlayForFunURL", xeGame).Replace("{FunUrl}", commonClubMassimo.getFunUrl).Replace("{token}", commonVariables.CurrentMemberSessionId)).Replace("{lobby}","m.w88.com/ClubMassimo");
+                    sbGames.AppendFormat("<a href='{0}' data-ajax='false'><img src='/_Static/Images/btn_try.jpg' /></a></div>", commonCulture.ElementValues.getResourceString("PlayForFunURL", xeGame).Replace("{FunUrl}", commonClubMassimo.getFunUrl).Replace("{token}", commonVariables.CurrentMemberSessionId)).Replace("{lobby}", ConfigurationManager.AppSettings["Lobby"]);
                     sbGames.Append("</li>");
                 }
 
