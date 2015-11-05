@@ -24,6 +24,10 @@ public partial class Slots_ClubMassimo : BasePage
 
             bool collapsed = false;
 
+            string CurrentUrl = System.Web.HttpContext.Current.Request.Url.ToString();
+            Uri myUri = new Uri(CurrentUrl);
+            string [] host = myUri.Host.Split('.');
+
             foreach (System.Xml.Linq.XElement xeCategory in xeCategories.Elements())
             {
                 sbGames.AppendFormat("<div data-role='collapsible' data-collapsed='false' data-theme='b' data-content-theme='a' data-mini='true'><h4>{0}</h4>", xeCategory.Attribute("Label").Value);
@@ -39,10 +43,10 @@ public partial class Slots_ClubMassimo : BasePage
                     //{FunUrl}/cashapillar/en?casinoID=5002&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL={lobby}
 
                     if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { sbGames.AppendFormat("<a href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubMassimo") + "' data-rel='dialog' data-transition='slidedown'>"); }
-                    else { sbGames.AppendFormat("<a href='{0}'>", commonCulture.ElementValues.getResourceString("PlayForRealURL", xeGame).Replace("{RealUrl}", commonClubMassimo.getRealUrl).Replace("{token}", commonVariables.CurrentMemberSessionId)).Replace("{lobby}",ConfigurationManager.AppSettings["Lobby"]).Replace("{cashier}",ConfigurationManager.AppSettings["Cashier"]); }
+                    else { sbGames.AppendFormat("<a href='{0}'>", commonCulture.ElementValues.getResourceString("PlayForRealURL", xeGame).Replace("{RealUrl}", commonClubMassimo.getRealUrl).Replace("{token}", commonVariables.CurrentMemberSessionId)).Replace("{lobby}", string.Format(ConfigurationManager.AppSettings["Lobby"], host[1], host[2])).Replace("{cashier}", string.Format(ConfigurationManager.AppSettings["Cashier"], host[1], host[2])); }
 
                     sbGames.Append("<img src='/_Static/Images/btn_play.jpg' /></a>");
-                    sbGames.AppendFormat("<a href='{0}' data-ajax='false'><img src='/_Static/Images/btn_try.jpg' /></a></div>", commonCulture.ElementValues.getResourceString("PlayForFunURL", xeGame).Replace("{FunUrl}", commonClubMassimo.getFunUrl).Replace("{token}", commonVariables.CurrentMemberSessionId)).Replace("{lobby}", ConfigurationManager.AppSettings["Lobby"]);
+                    sbGames.AppendFormat("<a href='{0}' data-ajax='false'><img src='/_Static/Images/btn_try.jpg' /></a></div>", commonCulture.ElementValues.getResourceString("PlayForFunURL", xeGame).Replace("{FunUrl}", commonClubMassimo.getFunUrl).Replace("{token}", commonVariables.CurrentMemberSessionId)).Replace("{lobby}", string.Format(ConfigurationManager.AppSettings["Lobby"], host[1], host[2]));
                     sbGames.Append("</li>");
                 }
 
