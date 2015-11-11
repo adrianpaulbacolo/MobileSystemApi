@@ -2,6 +2,33 @@
 <default>
   <Category>
     <Slot Label="Slots">
+
+      <mafia>
+        <ImageName><![CDATA[mafia]]></ImageName>
+        <PlayForRealURL><![CDATA[{BaravadoUrl}/mafia/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BaravadoUrl}?/mafia/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </mafia>
+
+
+      <goldeneggs>
+        <ImageName><![CDATA[goldeneggs]]></ImageName>
+        <PlayForRealURL><![CDATA[{BaravadoUrl}/goldeneggs/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BaravadoUrl}?/goldeneggs/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </goldeneggs>
+
+
+      <deepblue>
+        <ImageName><![CDATA[deepblue]]></ImageName>
+        <PlayForRealURL><![CDATA[{BaravadoUrl}/deepblue/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BaravadoUrl}?/deepblue/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </deepblue>
+      
       <baseball>
         <ImageName><![CDATA[baseball]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/baseball/?fun=0]]></PlayForRealURL>
