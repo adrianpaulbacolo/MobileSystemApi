@@ -49,7 +49,7 @@
                       var imgPromo = $('<img />', { src: strImageSrc });
                       var hrefPromo = $('<a />', { href: "/Promotions#" + $(this).attr('id'), 'data-ajax': false });
                       var divPromoTitle = $('<div />', { class: 'div-promo-header' }).text(strPromoTitle);
-                      var divPromoContent = $('<div />', { class: 'div-promo-desc' }).text(strPromoContent);                      
+                      var divPromoContent = $('<div />', { class: 'div-promo-desc' }).text(strPromoContent);
                       var divPromoDetail = $('<div />', { class: 'div-promo-content' }).html(/<img rel=/g.test(strPromoDetail) ? strPromoDetail.replace(/<img rel=/g, '<img src=') : strPromoDetail);
                       listObj.append($(liPromo).append($(divPromoWrapper).append($(hrefPromo).append($(divPromoImg).append(imgPromo)).append($('<div />', {}).append(divPromoTitle).append(divPromoContent)))));
                       $('.div-promo-row > a > div:last-child > div').css({ maxWidth: ($(window).width() - 160) + 'px' });
@@ -63,7 +63,7 @@
                   }
               })
               .always(function (data) { $('#promoLoader').hide(); });
-          }
+        }
 
         function OpenPromoDetails(obj) { $(obj).parent().next().slideToggle(); }
         function PromoClaimNow(obj) { $(obj).hide(); $(obj).next().show(); }
@@ -125,9 +125,51 @@
                                     <div></div>
                                 </a>
                             </li>
+                            <li class="li-vsports-tennis">
+                                <a href="#" data-transition="slidedown" class="sports">
+                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports/Label", commonVariables.ProductsXML)%></div>
+                                    <div></div>
+                                </a>
+                            </li>
+                            <li class="li-vsports-basketball sports-sub">
+                                <a rel="vsportsBasketball" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
+                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-basketball/Label", commonVariables.ProductsXML)%></div>
+                                    <div></div>
+                                </a>
+                            </li>
+                            <li class="li-vsports-tennis sports-sub">
+                                <a rel="vsportsTennis" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
+                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-tennis/Label", commonVariables.ProductsXML)%></div>
+                                    <div></div>
+                                </a>
+                            </li>
+                            <li class="li-vsports-horseracing sports-sub">
+                                <a rel="vsportsHorseRacing" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
+                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-horseracing/Label", commonVariables.ProductsXML)%></div>
+                                    <div></div>
+                                </a>
+                            </li>
+                            <li class="li-vsports-football sports-sub">
+                                <a rel="vsportsFootBall" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
+                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-football/Label", commonVariables.ProductsXML)%></div>
+                                    <div></div>
+                                </a>
+                            </li>
+                             <li class="li-vsports-dogracing sports-sub">
+                                <a rel="vsportsDogRacing" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
+                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-dogracing/Label", commonVariables.ProductsXML)%></div>
+                                    <div></div>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
+                <script type="text/javascript">
+                    $(".sports-sub").hide();
+                    $(".div-product-scroll .sports").click(function () {
+                        $(".sports-sub").toggle();
+                    });
+                </script>
                 <div class="div-product-header"><a><%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%></a></div>
                 <div data-rel="livecasino" class="div-product-scroll">
                     <div>
@@ -153,6 +195,29 @@
                         </ul>
                     </div>
                 </div>
+
+                        <script type="text/javascript">
+                            var cache = [];
+                            $(function () {
+                                $('.bkg-game').each(function () { var $this = $(this); $this.css({ backgroundImage: "url('/_Static/Images/ClubDivino/" + $this.attr('rel') + "')" }); });
+                                $('.div-product').each(function () { var scrollObj = new IScroll('#' + $(this).attr('id'), { eventPassthrough: true, scrollX: true, scrollY: false, preventDefault: false, speedRatioX: 9000 }); cache.push(scrollObj); });
+
+                                (function (a) { (jQuery.browser = jQuery.browser || {}).android = /android|(android|bb\d+|meego).+mobile/i.test(a) })(navigator.userAgent || navigator.vendor || window.opera);
+                                (function (a) { (jQuery.browser = jQuery.browser || {}).wp = /iemobile|windows (ce|phone)/i.test(a) })(navigator.userAgent || navigator.vendor || window.opera);
+                                (function (a) { (jQuery.browser = jQuery.browser || {}).ios = /ip(hone|od|ad)/i.test(a) })(navigator.userAgent || navigator.vendor || window.opera);
+
+                                if ($.browser.mobile) {
+                                    $('div[type="IOS"]').hide(); $('div[type="ANDROID"]').hide(); $('div[type="WP"]').hide();
+                                    //if ($.android) { $('div[type="ANDROID"]').show(); }
+                                    if ($.browser.ios) { $('div[type="IOS"]').show(); }
+                                    else if ($.browser.wp) { $('div[type="WP"]').show(); }
+                                    else { $('div[type="ANDROID"]').show(); }
+                                } else { $('div[type="ANDROID"]').show(); }
+                            });
+                       </script>
+
+
+
                 <div class="div-product-header"><a><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></a></div>
                 <div data-rel="slots" class="div-product-scroll">
                     <div>

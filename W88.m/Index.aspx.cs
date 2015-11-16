@@ -10,8 +10,10 @@ public partial class _Index : BasePage
 {
     protected System.Xml.Linq.XElement xeErrors = null;
 
-    protected void Page_Init(object sender, EventArgs e) 
+    protected void Page_Init(object sender, EventArgs e)
     {
+        string priorityVIP = commonVariables.GetSessionVariable("PriorityVIP");
+
         string CDN_Value = string.Empty;
         string key = string.Empty;
 
@@ -34,9 +36,9 @@ public partial class _Index : BasePage
         }
 
 
-        if(!string.IsNullOrEmpty(CDN_Value) && !string.IsNullOrEmpty(key))
+        if (!string.IsNullOrEmpty(CDN_Value) && !string.IsNullOrEmpty(key))
         {
-            commonVariables.SelectedLanguage = GetLanguageByCountry(GetCountryCode(CDN_Value,key));
+            commonVariables.SelectedLanguage = GetLanguageByCountry(GetCountryCode(CDN_Value, key));
         }
         else
         {
@@ -47,7 +49,7 @@ public partial class _Index : BasePage
 
                 commonVariables.SelectedLanguage = GetLanguageByDomain("." + host[1] + "." + host[2]);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 commonVariables.SelectedLanguage = GetLanguageByDomain("default");
             }
@@ -59,7 +61,7 @@ public partial class _Index : BasePage
     protected void Page_Load(object sender, EventArgs e)
     {
         System.Web.UI.WebControls.Literal litScript = (System.Web.UI.WebControls.Literal)Page.FindControl("litScript");
-        
+
         if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("lang"))) { commonVariables.SelectedLanguage = HttpContext.Current.Request.QueryString.Get("lang"); }
 
         xeErrors = commonVariables.ErrorsXML;
@@ -77,6 +79,8 @@ public partial class _Index : BasePage
         }
 
         if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("AffiliateId"))) { commonVariables.SetSessionVariable("AffiliateId", HttpContext.Current.Request.QueryString.Get("AffiliateId")); }
+
+        DetectDownloadLinks(DetectMobileDevice());
     }
 
 
@@ -109,7 +113,7 @@ public partial class _Index : BasePage
     }
 
 
-    public string GetCountryCode(string CDN_Value,string key)
+    public string GetCountryCode(string CDN_Value, string key)
     {
         string CountryCode = string.Empty;
 
@@ -119,15 +123,14 @@ public partial class _Index : BasePage
             Values = CDN_Value.Split(',');
             CountryCode = Values[1].Split('=')[1];
         }
-        if(key == Keys.HTTP_CF_IPCOUNTRY)
+        if (key == Keys.HTTP_CF_IPCOUNTRY)
         {
             CountryCode = CDN_Value;
         }
-        if(key == Keys.HTTP_GEO_COUNTRY)
+        if (key == Keys.HTTP_GEO_COUNTRY)
         {
             CountryCode = CDN_Value;
         }
-
         return CountryCode;
     }
 
@@ -199,6 +202,252 @@ public partial class _Index : BasePage
         }
 
         return Language;
+    }
+
+    public int DetectMobileDevice()
+    {
+        string strUserAgent = Request.UserAgent.ToString().ToLower();
+
+        int responseCode = 0;
+
+        if (strUserAgent != null)
+        {
+            if (strUserAgent.Contains("mac"))
+            {
+                pokerAndroid_link.Visible = false;
+                pokerIOS_link.Visible = true;
+                responseCode = 1;
+                Session["responseCode"] = "1";
+            }
+            else if (strUserAgent.Contains("android"))
+            {
+                pokerAndroid_link.Visible = true;
+                pokerIOS_link.Visible = false;
+                responseCode = 2;
+                Session["responseCode"] = "2";
+            }
+            else
+            {
+                pokerAndroid_link.Visible = true;
+                pokerIOS_link.Visible = true;
+                responseCode = 3;
+                Session["responseCode"] = "3";
+            }
+        }
+        return responseCode;
+    }
+
+    public void DetectDownloadLinks(int responseCode)
+    {
+        if (commonVariables.SelectedLanguage == "en-us")
+        {
+            if (responseCode == 1)
+            {
+                pokerIOS.Attributes.Remove("href");
+                pokerIOS.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_IOSURL_EN"]);
+                Session["iosLink"] = ConfigurationManager.AppSettings["Poker_IOSURL_EN"];
+            }
+            else if (responseCode == 2)
+            {
+                pokerAndroid.Attributes.Remove("href");
+                pokerAndroid.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_AndroidURL_EN"]);
+                Session["androidLink"] = ConfigurationManager.AppSettings["Poker_AndroidURL_EN"];
+            }
+            else if (responseCode == 3)
+            {
+                pokerIOS.Attributes.Remove("href");
+                pokerIOS.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_IOSURL_EN"]);
+
+                pokerAndroid.Attributes.Remove("href");
+                pokerAndroid.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_AndroidURL_EN"]);
+
+                Session["iosLink"] = ConfigurationManager.AppSettings["Poker_IOSURL_EN"];
+                Session["androidLink"] = ConfigurationManager.AppSettings["Poker_AndroidURL_EN"];
+            }
+        }
+        if (commonVariables.SelectedLanguage == "km-kh")
+        {
+            if (responseCode == 1)
+            {
+                pokerIOS.Attributes.Remove("href");
+                pokerIOS.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_IOSURL_EN"]);
+                Session["iosLink"] = ConfigurationManager.AppSettings["Poker_IOSURL_EN"];
+            }
+            else if (responseCode == 2)
+            {
+                pokerAndroid.Attributes.Remove("href");
+                pokerAndroid.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_AndroidURL_EN"]);
+                Session["androidLink"] = ConfigurationManager.AppSettings["Poker_AndroidURL_EN"];
+            }
+            else if (responseCode == 3)
+            {
+                pokerIOS.Attributes.Remove("href");
+                pokerIOS.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_IOSURL_EN"]);
+
+                pokerAndroid.Attributes.Remove("href");
+                pokerAndroid.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_AndroidURL_EN"]);
+
+                Session["iosLink"] = ConfigurationManager.AppSettings["Poker_IOSURL_EN"];
+                Session["androidLink"] = ConfigurationManager.AppSettings["Poker_AndroidURL_EN"];
+            }
+        }
+        if (commonVariables.SelectedLanguage == "ja-jp")
+        {
+            if (responseCode == 1)
+            {
+                pokerIOS.Attributes.Remove("href");
+                pokerIOS.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_IOSURL_JA"]);
+                Session["iosLink"] = ConfigurationManager.AppSettings["Poker_IOSURL_JA"];
+            }
+            else if (responseCode == 2)
+            {
+                pokerAndroid.Attributes.Remove("href");
+                pokerAndroid.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_AndroidURL_JA"]);
+                Session["androidLink"] = ConfigurationManager.AppSettings["Poker_AndroidURL_JA"];
+            }
+            else if (responseCode == 3)
+            {
+                pokerIOS.Attributes.Remove("href");
+                pokerIOS.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_IOSURL_JA"]);
+
+                pokerAndroid.Attributes.Remove("href");
+                pokerAndroid.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_AndroidURL_JA"]);
+
+                Session["iosLink"] = ConfigurationManager.AppSettings["Poker_IOSURL_JA"];
+                Session["androidLink"] = ConfigurationManager.AppSettings["Poker_AndroidURL_JA"];
+            }
+        }
+        if (commonVariables.SelectedLanguage == "ko-kr")
+        {
+            if (responseCode == 1)
+            {
+                pokerIOS.Attributes.Remove("href");
+                pokerIOS.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_IOSURL_EN"]);
+                Session["iosLink"] = ConfigurationManager.AppSettings["Poker_IOSURL_EN"];
+            }
+            else if (responseCode == 2)
+            {
+                pokerAndroid.Attributes.Remove("href");
+                pokerAndroid.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_AndroidURL_EN"]);
+                Session["androidLink"] = ConfigurationManager.AppSettings["Poker_AndroidURL_EN"];
+            }
+            else if (responseCode == 3)
+            {
+                pokerIOS.Attributes.Remove("href");
+                pokerIOS.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_IOSURL_EN"]);
+
+                pokerAndroid.Attributes.Remove("href");
+                pokerAndroid.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_AndroidURL_EN"]);
+
+                Session["iosLink"] = ConfigurationManager.AppSettings["Poker_IOSURL_EN"];
+                Session["androidLink"] = ConfigurationManager.AppSettings["Poker_AndroidURL_EN"];
+            }
+        }
+        if (commonVariables.SelectedLanguage == "id-id")
+        {
+            if (responseCode == 1)
+            {
+                pokerIOS.Attributes.Remove("href");
+                pokerIOS.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_IOSURL_ID"]);
+                Session["iosLink"] = ConfigurationManager.AppSettings["Poker_IOSURL_ID"];
+            }
+            else if (responseCode == 2)
+            {
+                pokerAndroid.Attributes.Remove("href");
+                pokerAndroid.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_AndroidURL_ID"]);
+                Session["androidLink"] = ConfigurationManager.AppSettings["Poker_AndroidURL_ID"];
+            }
+            else if (responseCode == 3)
+            {
+                pokerIOS.Attributes.Remove("href");
+                pokerIOS.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_IOSURL_ID"]);
+
+                pokerAndroid.Attributes.Remove("href");
+                pokerAndroid.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_AndroidURL_ID"]);
+
+                Session["iosLink"] = ConfigurationManager.AppSettings["Poker_IOSURL_ID"];
+                Session["androidLink"] = ConfigurationManager.AppSettings["Poker_AndroidURL_ID"];
+            }
+        }
+        if (commonVariables.SelectedLanguage == "th-th")
+        {
+            if (responseCode == 1)
+            {
+                pokerIOS.Attributes.Remove("href");
+                pokerIOS.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_IOSURL_EN"]);
+                Session["iosLink"] = ConfigurationManager.AppSettings["Poker_IOSURL_EN"];
+            }
+            else if (responseCode == 2)
+            {
+                pokerAndroid.Attributes.Remove("href");
+                pokerAndroid.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_AndroidURL_EN"]);
+                Session["androidLink"] = ConfigurationManager.AppSettings["Poker_AndroidURL_EN"];
+            }
+            else if (responseCode == 3)
+            {
+                pokerIOS.Attributes.Remove("href");
+                pokerIOS.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_IOSURL_EN"]);
+
+                pokerAndroid.Attributes.Remove("href");
+                pokerAndroid.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_AndroidURL_EN"]);
+
+                Session["iosLink"] = ConfigurationManager.AppSettings["Poker_IOSURL_EN"];
+                Session["androidLink"] = ConfigurationManager.AppSettings["Poker_AndroidURL_EN"];
+            }
+        }
+        if (commonVariables.SelectedLanguage == "vi-vn")
+        {
+            if (responseCode == 1)
+            {
+                pokerIOS.Attributes.Remove("href");
+                pokerIOS.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_IOSURL_EN"]);
+                Session["iosLink"] = ConfigurationManager.AppSettings["Poker_IOSURL_EN"];
+            }
+            else if (responseCode == 2)
+            {
+                pokerAndroid.Attributes.Remove("href");
+                pokerAndroid.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_AndroidURL_EN"]);
+                Session["androidLink"] = ConfigurationManager.AppSettings["Poker_AndroidURL_EN"];
+            }
+            else if (responseCode == 3)
+            {
+                pokerIOS.Attributes.Remove("href");
+                pokerIOS.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_IOSURL_EN"]);
+
+                pokerAndroid.Attributes.Remove("href");
+                pokerAndroid.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_AndroidURL_EN"]);
+
+                Session["iosLink"] = ConfigurationManager.AppSettings["Poker_IOSURL_EN"];
+                Session["androidLink"] = ConfigurationManager.AppSettings["Poker_AndroidURL_EN"];
+            }
+        }
+        if (commonVariables.SelectedLanguage == "zh-cn")
+        {
+            if (responseCode == 1)
+            {
+                pokerIOS.Attributes.Remove("href");
+                pokerIOS.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_IOSURL_CN"]);
+                Session["iosLink"] = ConfigurationManager.AppSettings["Poker_IOSURL_CN"];
+            }
+            else if (responseCode == 2)
+            {
+                pokerAndroid.Attributes.Remove("href");
+                pokerAndroid.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_AndroidURL_CN"]);
+                Session["androidLink"] = ConfigurationManager.AppSettings["Poker_AndroidURL_CN"];
+            }
+            else if (responseCode == 3)
+            {
+                pokerIOS.Attributes.Remove("href");
+                pokerIOS.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_IOSURL_CN"]);
+
+                pokerAndroid.Attributes.Remove("href");
+                pokerAndroid.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_AndroidURL_CN"]);
+
+                Session["iosLink"] = ConfigurationManager.AppSettings["Poker_IOSURL_CN"];
+                Session["androidLink"] = ConfigurationManager.AppSettings["Poker_AndroidURL_CN"];
+
+            }
+        }
     }
 
 }

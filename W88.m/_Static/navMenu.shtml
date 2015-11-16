@@ -1,52 +1,78 @@
 ﻿<link href="/_Static/Css/Menu.css" rel="stylesheet" />
 <div data-role="panel" data-theme="a" id="divPanel">
-<ul data-role="listview" data-theme="none" class="nav-menu">
-<li data-icon="false" class="ui-icon"><a id="aMnuCloseMenu" runat="server" href="#" data-rel="close"><%=commonCulture.ElementValues.getResourceString("closeMenu", commonVariables.LeftMenuXML)%></a></li>
-<% if (!string.IsNullOrEmpty(commonVariables.SelectedLanguage)) { 
-    var language = commonVariables.SelectedLanguage; %>
-<li data-icon="false" class="ui-icon"><a id="aMnuHome" href="/Index.aspx?lang=<%=language%>" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("home", commonVariables.LeftMenuXML)%></a></li>
- <% } %>
-<% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
-<li id="liUser" data-icon="false" class="ui-icon"><a id="aMnuUser" runat="server" href="javascript:void(0)" data-ajax="false"><span class="span-user"><%=commonVariables.GetSessionVariable("MemberCode")%></span></a></li>
-<% } else {
-       var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
-<li id="liOptions"><div><a class="ui-btn ui-blue ui-mini" href="/_Secure/Register.aspx<%= queryString %>" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("joinnow", commonVariables.LeftMenuXML)%></a>&nbsp;<a class="ui-btn ui-gray ui-mini" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></a></div></li>
-<% } %>
-<li data-icon="false" class="ui-icon"><a class="mnuSports"><%=commonCulture.ElementValues.getResourceString("sports", commonVariables.LeftMenuXML)%></a></li>
-<li data-icon="false" class="ui-icon" data-rel="sports" style="display:none;"><a rel="asports" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceXPathString("Products/ASports/Label", commonVariables.ProductsXML)%></a></li>
-<li data-icon="false" class="ui-icon" data-rel="sports" style="display:none;"><a rel="esports" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></a></li>
+    <ul data-role="listview" data-theme="none" class="nav-menu">
+        <li data-icon="false" class="ui-icon"><a id="aMnuCloseMenu" runat="server" href="#" data-rel="close"><%=commonCulture.ElementValues.getResourceString("closeMenu", commonVariables.LeftMenuXML)%></a></li>
+        <% if (!string.IsNullOrEmpty(commonVariables.SelectedLanguage)) {
+        var language = commonVariables.SelectedLanguage; %>
+        <li data-icon="false" class="ui-icon"><a id="aMnuHome" href="/Index.aspx?lang=<%=language%>" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("home", commonVariables.LeftMenuXML)%></a></li>
+        <% } %>
+        <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+        <li id="liUser" data-icon="false" class="ui-icon"><a id="aMnuUser" runat="server" href="javascript:void(0)" data-ajax="false"><span class="span-user"><%=commonVariables.GetSessionVariable("MemberCode")%></span></a></li>
+        <% } else {
+        var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
+        <li id="liOptions"><div><a class="ui-btn ui-blue ui-mini" href="/_Secure/Register.aspx<%= queryString %>" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("joinnow", commonVariables.LeftMenuXML)%></a>&nbsp;<a class="ui-btn ui-gray ui-mini" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></a></div></li>
+        <% } %>
+        <li data-icon="false" class="ui-icon"><a class="mnuSports"><%=commonCulture.ElementValues.getResourceString("sports", commonVariables.LeftMenuXML)%></a></li>
+        <li data-icon="false" class="ui-icon" data-rel="sports" style="display:none;"><a rel="asports" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceXPathString("Products/ASports/Label", commonVariables.ProductsXML)%></a></li>
+        <li data-icon="false" class="ui-icon" data-rel="sports" style="display:none;"><a rel="esports" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></a></li>
 
-<li data-icon="false" class="ui-icon"><a class="mnuLiveCasino"><%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%></a></li>
-<li data-icon="false" class="ui-icon" data-rel="livecasino" style="display:none;"><a rel="clbW" href="/_static/ClubW/casino.aspx" data-ajax="false" target="_blank"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></a></li>
-<li data-icon="false" class="ui-icon" data-rel="livecasino" style="display:none;"><a rel="clubpalazzo-casino" href="/_static/palazzo/casino.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoCasino/Label", commonVariables.ProductsXML).Replace("<br />", "")%></a></li>
-<li data-icon="false" class="ui-icon" data-rel="livecasino" style="display:none;"><a rel="clubmassimo-casino" href="https://livegames.gameassists.co.uk/MobileClient/MobileRedirector/index.aspx?AppID=W88Diamond&ClientID=5&UL=en" data-ajax="false"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoCasino/Label", commonVariables.ProductsXML).Replace("<br />", "")%></a></li>
-<!-- <li data-icon="false" class="ui-icon"><a rel="clubbravado" id="aMnuClubBravado" href="/ClubBravado" data-ajax="false"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubBravado/Label", commonVariables.ProductsXML)%></a></li> -->
-<li data-icon="false" class="ui-icon"><a class="mnuSlots"><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></a></li>
-<li data-icon="false" class="ui-icon" data-rel="slots" style="display:none;"><a rel="clubbravado" href="/ClubBravado" data-ajax="false"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubBravado/Label", commonVariables.ProductsXML)%></a></li>
-<li data-icon="false" class="ui-icon" data-rel="slots" style="display:none;"><a rel="clubpalazzo-slots" href="/_static/palazzo/slots.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%></a></li>
-<li data-icon="false" class="ui-icon" data-rel="slots" style="display:none;"><a rel="clubmassimo-slots" href="/ClubMassimo" data-ajax="false"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%></a></li>
-<li data-icon="false" class="ui-icon" data-rel="slots" style="display:none;"><a rel="clubdivino" href="/ClubDivino" data-ajax="false"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubDivino/Label", commonVariables.ProductsXML)%></a></li>
-<li data-icon="false" class="ui-icon" data-rel="slots" style="display:none;"><a rel="clubcrescendo" href="/ClubCrescendo" data-ajax="false"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubCrescendo/Label", commonVariables.ProductsXML)%></a></li>
-<li data-icon="false" class="ui-icon"><a class="mnuLottery"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></a></li>
-<li data-icon="false" class="ui-icon" data-rel="lottery" style="display:none;"><a rel="keno" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceXPathString("Products/Keno/Label", commonVariables.ProductsXML)%></a></li>
-<li data-icon="false" class="ui-icon"><a rel="rewards" class="mnuRewards" href="javascript:void(0);"><%=commonCulture.ElementValues.getResourceString("rewards", commonVariables.LeftMenuXML)%></a></li>
-<% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
-<li data-icon="false" class="ui-icon"><a class="mnuFundMgmt"><%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%></a></li>
-<li data-icon="false" class="ui-icon" data-rel="fundmanagement" style="display:none;"><a rel="deposit" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%></a></li>
-<li data-icon="false" class="ui-icon" data-rel="fundmanagement" style="display:none;"><a rel="fundtransfer" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%></a></li>
-<li data-icon="false" class="ui-icon" data-rel="fundmanagement" style="display:none;"><a rel="withdrawal" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%></a></li>
-<!-- <li data-icon="false"><a id="aMnuClaim" runat="server"><%=commonCulture.ElementValues.getResourceString("claims", commonVariables.LeftMenuXML)%></a></li> -->
-<% } %>
-<% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %><li data-icon="false" class="ui-misc"><a id="aMnuUpload" runat="server" href="/Upload/Default.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("submitUpload", commonVariables.LeftMenuXML)%></a></li><% } %>
-<li data-icon="false" class="ui-misc"><a id="aMnuLiveHelp" runat="server" href="/LiveChat/Default.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%></a></li>
-<!--<li data-icon="false" class="ui-misc"><a id="aMnuContactUs" runat="server" href="/ContactUs.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("contactUs", commonVariables.LeftMenuXML)%></a></li>-->
-<li data-icon="false" class="ui-misc"><a id="aMnuLanguage" runat="server" href="/Lang.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("language", commonVariables.LeftMenuXML)%></a></li>
-<% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %><li data-icon="false" class="liLogout"><a id="aMnuLogOut" runat="server" href="/Logout" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("logout", commonVariables.LeftMenuXML)%></a></li><% } %>
-</ul>
-<div class="div-other-links"><a id="aMnuDesktop" runat="server" href="javascript:void(0);" onclick="javascript:window.location.href='//www.' + document.domain.substring(document.domain.indexOf('.') + 1);" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("desktopsite", commonVariables.LeftMenuXML)%></a></div>
-<!--  div class="div-other-links"><a id="aMnuFullScreenMode" runat="server" href="javascript:toggleFullScreen();" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("fullscreenMode", commonVariables.LeftMenuXML)%></a></div> -->
-<div id="divCopyright">&copy; <%=System.DateTime.Now.Year%> W88.com <br />All rights reserved | 18+</div>
+        <li data-icon="false" class="ui-icon"><a class="mnuLiveCasino"><%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%></a></li>
+        <li data-icon="false" class="ui-icon" data-rel="livecasino" style="display:none;"><a rel="clbW" href="/_static/ClubW/casino.aspx" data-ajax="false" target="_blank"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></a></li>
+        <li data-icon="false" class="ui-icon" data-rel="livecasino" style="display:none;"><a rel="clubpalazzo-casino" href="/_static/palazzo/casino.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoCasino/Label", commonVariables.ProductsXML).Replace("<br />", "")%></a></li>
+        <li data-icon="false" class="ui-icon" data-rel="livecasino" style="display:none;"><a rel="clubmassimo-casino" href="https://livegames.gameassists.co.uk/MobileClient/MobileRedirector/index.aspx?AppID=W88Diamond&ClientID=5&UL=en" data-ajax="false"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoCasino/Label", commonVariables.ProductsXML).Replace("<br />", "")%></a></li>
+        <!-- <li data-icon="false" class="ui-icon"><a rel="clubbravado" id="aMnuClubBravado" href="/ClubBravado" data-ajax="false"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubBravado/Label", commonVariables.ProductsXML)%></a></li> -->
+        <%try{%>
+        <li data-icon="false" class="ui-icon"><a class="mnuPoker"><%=commonCulture.ElementValues.getResourceString("Poker", commonVariables.LeftMenuXML)%></a></li>
+        <%if(Session["responseCode"].ToString()=="1"){%>
+        <li data-icon="false" class="ui-icon" data-rel="poker" style="display:none;"><a rel="PokerIOS" href='<%= Session["iosLink"].ToString()%>' data-transition="slidedown">IOS DOWNLOAD</a></li>
+        <%}%>
+        <%if(Session["responseCode"].ToString()=="2"){%>
+        <li data-icon="false" class="ui-icon" data-rel="poker" style="display:none;"><a rel="PokerAndroid" href='<%= Session["androidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">ANDROID DOWNLOAD</a></li>
+        <%}%>
+        <%if(Session["responseCode"].ToString()=="3"){%>
+        <li data-icon="false" class="ui-icon" data-rel="poker" style="display:none;"><a rel="PokerIOS" href='<%= Session["iosLink"].ToString()%>' data-transition="slidedown">IOS DOWNLOAD</a></li>
+        <li data-icon="false" class="ui-icon" data-rel="poker" style="display:none;"><a rel="PokerAndroid" href='<%= Session["androidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">ANDROID DOWNLOAD</a></li>
+        <%}%>
+        <%}catch(Exception){}%>
+
+        <li data-icon="false" class="ui-icon"><a class="mnuSlots"><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></a></li>
+        <li data-icon="false" class="ui-icon" data-rel="slots" style="display:none;"><a rel="clubbravado" href="/ClubBravado" data-ajax="false"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubBravado/Label", commonVariables.ProductsXML)%></a></li>
+        <li data-icon="false" class="ui-icon" data-rel="slots" style="display:none;"><a rel="clubpalazzo-slots" href="/_static/palazzo/slots.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%></a></li>
+        <li data-icon="false" class="ui-icon" data-rel="slots" style="display:none;"><a rel="clubmassimo-slots" href="/ClubMassimo" data-ajax="false"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%></a></li>
+        <li data-icon="false" class="ui-icon" data-rel="slots" style="display:none;"><a rel="clubdivino" href="/ClubDivino" data-ajax="false"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubDivino/Label", commonVariables.ProductsXML)%></a></li>
+        <li data-icon="false" class="ui-icon" data-rel="slots" style="display:none;"><a rel="clubcrescendo" href="/ClubCrescendo" data-ajax="false"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubCrescendo/Label", commonVariables.ProductsXML)%></a></li>
+        <li data-icon="false" class="ui-icon"><a class="mnuLottery"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></a></li>
+        <li data-icon="false" class="ui-icon" data-rel="lottery" style="display:none;"><a rel="keno" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceXPathString("Products/Keno/Label", commonVariables.ProductsXML)%></a></li>
+        <li data-icon="false" class="ui-icon"><a rel="rewards" class="mnuRewards" href="javascript:void(0);"><%=commonCulture.ElementValues.getResourceString("rewards", commonVariables.LeftMenuXML)%></a></li>
+        <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+        <li data-icon="false" class="ui-icon"><a class="mnuFundMgmt"><%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%></a></li>
+        <li data-icon="false" class="ui-icon" data-rel="fundmanagement" style="display:none;"><a rel="deposit" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%></a></li>
+        <li data-icon="false" class="ui-icon" data-rel="fundmanagement" style="display:none;"><a rel="fundtransfer" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%></a></li>
+        <li data-icon="false" class="ui-icon" data-rel="fundmanagement" style="display:none;"><a rel="withdrawal" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%></a></li>
+        <!-- <li data-icon="false"><a id="aMnuClaim" runat="server"><%=commonCulture.ElementValues.getResourceString("claims", commonVariables.LeftMenuXML)%></a></li> -->
+        <% } %>
+        <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+        <li data-icon="false" class="ui-misc"><a id="aMnuUpload" runat="server" href="/Upload/Default.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("submitUpload", commonVariables.LeftMenuXML)%></a></li><% } %>
+        <li data-icon="false" class="ui-misc"><a id="aMnuLiveHelp" runat="server" href="/LiveChat/Default.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%></a></li>
+        <!--<li data-icon="false" class="ui-misc"><a id="aMnuContactUs" runat="server" href="/ContactUs.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("contactUs", commonVariables.LeftMenuXML)%></a></li>-->
+        <li data-icon="false" class="ui-misc"><a id="aMnuLanguage" runat="server" href="/Lang.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("language", commonVariables.LeftMenuXML)%></a></li>
+        <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+        <li data-icon="false" class="liLogout"><a id="aMnuLogOut" runat="server" href="/Logout" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("logout", commonVariables.LeftMenuXML)%></a></li><% } %>
+    </ul>
+    <div class="div-other-links"><a id="aMnuDesktop" runat="server" href="javascript:void(0);" onclick="javascript:window.location.href='//www.' + document.domain.substring(document.domain.indexOf('.') + 1);" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("desktopsite", commonVariables.LeftMenuXML)%></a></div>
+    <!--  div class="div-other-links"><a id="aMnuFullScreenMode" runat="server" href="javascript:toggleFullScreen();" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("fullscreenMode", commonVariables.LeftMenuXML)%></a></div> -->
+    <div id="divCopyright">&copy; <%=System.DateTime.Now.Year%> W88.com <br />All rights reserved | 18+</div>
 </div><!-- /panel -->
+
+<script type="text/javascript">
+    $(".menu-sports-sub").addClass("hide");
+    $(".nav-menu .menu-sports").click(function () {
+        $(".menu-sports-sub").toggleClass("hide");
+    });
+</script>
+<style type="text/css">
+    .menu-sports-sub.hide {display:none!important;}
+</style>
 <script type="text/javascript">
     $(function () {
         if ('<%=commonVariables.CurrentMemberSessionId%>'.trim().length > 0) {
@@ -71,8 +97,12 @@
         }
 
         $('a.mnuSports').bind('touch click', function () {
-            $('.nav-menu li[data-rel]').not('nav-menu li[data-rel="sports"]').hide();
+            $('.nav-menu li[data-rel]').not('.nav-menu li[data-rel="sports"]').hide();
             $('.nav-menu li[data-rel="sports"]').toggle();
+        });
+        $('a.mnuPoker').bind('touch click', function () {
+            $('.nav-menu li[data-rel]').not('.nav-menu li[data-rel="poker"]').hide();
+            $('.nav-menu li[data-rel="poker"]').toggle();
         });
         $('a.mnuLottery').bind('touch click', function () {
             $('.nav-menu li[data-rel]').not('.nav-menu li[data-rel="lottery"]').hide();
