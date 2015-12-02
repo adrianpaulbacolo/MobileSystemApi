@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<updateProfile>
+  <lblRequiredFields><![CDATA[Required fields]]></lblRequiredFields>
+  <lblEmail><![CDATA[이메일 주소]]></lblEmail>
+  <lblContact><![CDATA[연락 전화번호를 입력해 주세요.]]></lblContact>
+  <lblUsername><![CDATA[아이디]]></lblUsername>
+  <lblFirstName><![CDATA[이름( 성 제외)]]></lblFirstName>
+  <lblLastName><![CDATA[성(이름 제외)]]></lblLastName>
+  <lblDOB><![CDATA[생년월일]]></lblDOB>
+  <lblCountry><![CDATA[국가]]></lblCountry>
+  <lblCurrency><![CDATA[통화]]></lblCurrency>
+
+  <Currency>
+    <UUS><![CDATA[(UUS) Virtual Currency]]></UUS>
+    <AUD><![CDATA[(AUD) 오스트레일리아 달러]]></AUD>
+    <EUR><![CDATA[(EUR) 유로]]></EUR>
+    <GBP><![CDATA[(GBP) 영국 파운드]]></GBP>
+    <IDR><![CDATA[(IDR) 인도네시아 루피]]></IDR>
+    <MYR><![CDATA[(MYR) 말레이시아 링깃]]></MYR>
+    <RMB><![CDATA[(RMB) 중국 인민패]]></RMB>
+    <THB><![CDATA[(THB) 태국 바트]]></THB>
+    <USD><![CDATA[(USD) 미국 달러]]></USD>
+    <JPY><![CDATA[(JPY) 일본 엔]]></JPY>
+    <KRW><![CDATA[(KRW) 한국 원]]></KRW>
+    <VND><![CDATA[(VND) Vietnamese Dong]]></VND>
+    <INR><![CDATA[(INR) Indian Rupee]]></INR>
+  </Currency>
+
+  <lblAddress><![CDATA[주소를 입력해 주세요]]></lblAddress>
+  <lblCity><![CDATA[도시]]></lblCity>
+  <lblPostal><![CDATA[우편]]></lblPostal>
+  <lblGender><![CDATA[성별]]></lblGender>
+  <lblOdds><![CDATA[배당률]]></lblOdds>
+  <lblLanguage><![CDATA[언어]]></lblLanguage>
+  <lblPassword><![CDATA[비밀번호]]></lblPassword>
+
+  <lblSecurityQuestion><![CDATA[보안 질분]]></lblSecurityQuestion>
+  
+  <drpSecurityQuestion title="Select your security question">
+    <SQ0><![CDATA[:: 보안 질문을 입력해 주세요 ::]]></SQ0>
+    <SQ1><![CDATA[내 어머니의 성함은?]]></SQ1>
+    <SQ2><![CDATA[내 유년시절 별명은?]]></SQ2>
+    <SQ3><![CDATA[내 유년시절 장래희망은?]]></SQ3>
+    <SQ4><![CDATA[내 첫 직업을 가졌던 도시는?]]></SQ4>
+    <SQ5><![CDATA[내 초등학교의 이름은?]]></SQ5>
+    <SQ6><![CDATA[내 아버지의 성함은?]]></SQ6>
+  </drpSecurityQuestion>
+
+  <drpLanguage title="Select your preferred language">
+    <en-us><![CDATA[English]]></en-us>
+    <zh-cn><![CDATA[简体中文]]></zh-cn>
+    <vi-vn><![CDATA[Tiếng Việt]]></vi-vn>
+    <th-th><![CDATA[ไทย]]></th-th>
+    <km-kh><![CDATA[ខ្មែរ]]></km-kh>
+    <id-id><![CDATA[Bhs Indonesia]]></id-id>
+    <ko-kr><![CDATA[한국어]]></ko-kr>
+    <ja-jp><![CDATA[ジャパニーズ]]></ja-jp>
+  </drpLanguage>
+
+  <drpOdds>
+    <malay id="1"><![CDATA[말레이(Malay)]]></malay>
+    <hongkong id="2"><![CDATA[홍콩(Hongkong)]]></hongkong>
+    <decimal id="3"><![CDATA[데시멀(Decimal)]]></decimal>
+    <indo id="4"><![CDATA[인도(Indo)]]></indo>
+    <american id="5"><![CDATA[아메리칸(American)]]></american>
+  </drpOdds>
+
+  <drpGender>
+    <male><![CDATA[남성]]></male>
+    <female><![CDATA[여성]]></female>
+  </drpGender>
+
+  <lblSecurityAnswer><![CDATA[보안 답변]]></lblSecurityAnswer>
+
+  <btnSubmit><![CDATA[제출]]></btnSubmit>
+</updateProfile>

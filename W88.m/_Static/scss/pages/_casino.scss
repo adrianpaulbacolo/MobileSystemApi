@@ -1,0 +1,23 @@
+//
+// Casino
+// -------------------------------
+
+#casino {
+    .ui-content > ul > li {
+        margin-bottom: 0;
+        .banner-caption {
+            max-width: 70%;
+            .ui-btn {
+                display: inline-block;
+                min-width: 130px;
+                margin: 0;
+            }
+        }
+        &:nth-child(2n+2) {
+            .banner-caption {
+                float: right;
+                max-width: 60%;
+            }
+        }
+    }
+}

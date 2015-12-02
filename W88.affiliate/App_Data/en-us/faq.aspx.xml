@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lbl_tab_disclaimer><![CDATA[DISCLAIMER]]></lbl_tab_disclaimer>
+  <lbl_tab_earnings><![CDATA[EARNINGS AND PAYMENTS]]></lbl_tab_earnings>
+  <lbl_tab_marketing><![CDATA[MARKETING MATERIALS]]></lbl_tab_marketing>
+  <lbl_tab_myaccount><![CDATA[MY ACCOUNT]]></lbl_tab_myaccount>
+  <lbl_tab_privacypolicy><![CDATA[PRIVACY POLICY]]></lbl_tab_privacypolicy>
+  <lbl_tab_programme><![CDATA[AFFILIATE PROGRAMME]]></lbl_tab_programme>
+
+
+</default>

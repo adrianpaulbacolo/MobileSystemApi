@@ -1,0 +1,2 @@
+﻿$(function () { $("a").click(function () { if ($(this).attr('data-load-ignore-splash') != 'true' && $(this).attr('data-rel') != "dialog") { if ($(this).className != null) { if ($(this).className.indexOf('ui-collapsible-heading-toggle') < 0) { GPINTMOBILE.ShowSplash(); } } } }); });
+$(window).load(function () { GPINTMOBILE.HideSplash(); });

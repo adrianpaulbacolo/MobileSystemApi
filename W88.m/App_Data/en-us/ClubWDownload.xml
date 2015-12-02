@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+    <message>
+        <![CDATA[
+            <h4 class="title">3 Easy Steps to Play Club W Download Version</h4>
+            <ol>
+                <li>Click the Download button below.</li>
+                <li>Install by clicking Run or Save it in your local hard drive.</li>
+                <li>Login with your web username & password.</li>
+            </ol>
+        ]]>
+    </message>
+    <downloadnow><![CDATA[Download now]]></downloadnow>
+</default>

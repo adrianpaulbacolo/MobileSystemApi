@@ -1,0 +1,111 @@
+//
+// Variables
+// --------------------------------------------------
+
+$icomoon-font-path           : '../fonts/icomoon/fonts' !default;
+$dinpro-font-path            : '../fonts/din-pro-reg' !default;
+
+// W88 Color Standards
+// --------------------------
+
+// -- BG Colors (Gray)
+$bgColor-01                  : #1f1f1f !default;
+$bgColor-02                  : #252525 !default;
+$bgColor-03                  : #333333 !default;
+$bgColor-04                  : #4a4a4a !default;
+
+// -- Logo Color
+$brand-color                 : #dab867 !default; // Lt. Gold
+$brandAlt-color              : #C69734 !default; // Dk. Gold
+
+// -- Primary Colors (texts, links)
+$black                       : #000000 !default; // [0]
+$white                       : #ffffff !default; // [1]
+$ltGray-color                : #b3b3b3 !default; // [2] Lt. Gray
+$gray-color                  : #808080 !default; // [3] Gray
+$primary-color               : #2a8fbd !default; // [4] Blue
+$primaryAlt-color            : #38c0ff !default; // [5] Lt. Blue (hover)
+$primaryOff-color            : #1c6080 !default; // [6] Dk. Blue
+$secondary-color             : #d1d3d4 !default;
+
+// -- Secondary Colors
+$red-color                   : #d6001e !default; // [7] #c20000 (old samantha)
+$lumred-color                : #ff0040 !default; // Luminous Red
+$pink-color                  : #dc4554 !default;
+$green-color                 : #669900 !default;
+
+$energized                   : $brand-color !default;
+$assertive                   : $red-color !default;
+
+
+// -- Media Queries
+// --------------------------
+$screen-xxs                  : 320px  !default;
+$screen-xs                   : 480px  !default;
+$screen-sm                   : 768px  !default;
+$screen-md                   : 992px  !default;
+$screen-lg                   : 1200px !default;
+
+$iphone5                     : 320px !default;
+$iphone6                     : 375px !default;
+$iphone6plus                 : 414px !default;
+$mobileCommonSize            : 360px !default;
+
+// -- IONIC
+$grid-padding-width          : 10px !default;
+$grid-responsive-sm-break    : 567px !default;  // smaller than landscape phone
+$grid-responsive-md-break    : $screen-sm - 1 !default;  // smaller than portrait tablet
+$grid-responsive-lg-break    : 1023px !default; // smaller than landscape tablet
+
+
+// Base
+// --------------------------
+
+$font-family-sans-serif      : -apple-system, "Helvetica Neue", "Roboto", sans-serif !default;
+$font-family-sans-serif-light: -apple-system, "HelveticaNeue-Light", "Roboto-Light", sans-serif-light !default;
+
+$font-family-base            : $font-family-sans-serif !default;
+$font-size-root              : 62.5% !default;
+$font-size-base              : 1.4rem !default; // 1.4rem == 14px
+$font-size-small             : 1rem !default;
+
+$line-height-base            : 1.4 !default;
+$line-height-computed        : 3rem !default;
+$line-height-large           : 1.33 !default;
+$line-height-small           : 1.5 !default;
+
+$headings-font-weight        : 500 !default;
+$headings-line-height        : 1.2 !default;
+
+$primary-font                : 'dinpro', sans-serif !default;
+$iconic-font                 : 'icomoon' !default;
+
+$base-background-color       : $bgColor-01 !default;
+$base-color                  : hsl(0, 0%, 65%) !default;
+$link-color                  : $primary-color !default;
+$sign-bg                     : darken($white, 7%); // #ededed
+
+$strong-color                : $white !default;
+
+$border-color                : rgba(255,255,255,.03) !default;
+
+$tile-odd-color              : #292a2a !default;
+$tile-even-color             : $bgColor-01 !default;
+
+$panel-width                 : 100px; // (20em)
+$panel-width-full            : 320px;
+$content-padding             : $grid-padding-width !default;
+
+// -- Form
+$border-input-color          : rgba(255,255,255,.1) !default;
+
+// -- Items
+$item-icon-font-size         : 32px !default;
+$item-icon-padding           : 80px !default;
+$item-icon-position          : 25px !default;
+
+// Image Path
+// --------------------------
+$logo-en-image               : '/_Static/Images/logo-en.png' !default;
+$logo-cn-image               : '/_Static/Images/logo-cn.png' !default;
+$base-background-image       : '/_Static/Images/bg.jpg' !default;

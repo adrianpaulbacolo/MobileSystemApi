@@ -1,0 +1,474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="lblPointCheckError" xml:space="preserve">
+    <value>要求申請失敗</value>
+  </data>
+  <data name="lbl_about" xml:space="preserve">
+    <value>リワードについて</value>
+  </data>
+  <data name="lbl_account" xml:space="preserve">
+    <value>アカウント</value>
+  </data>
+  <data name="lbl_account_summary" xml:space="preserve">
+    <value>アカウント概要</value>
+  </data>
+  <data name="lbl_add_to_cart" xml:space="preserve">
+    <value>カートに加える</value>
+  </data>
+  <data name="lbl_adjusted" xml:space="preserve">
+    <value>調整されたネットポイント</value>
+  </data>
+  <data name="lbl_adjustment_type" xml:space="preserve">
+    <value>調整タイプ</value>
+  </data>
+  <data name="lbl_affiliates" xml:space="preserve">
+    <value>アフィリエイト</value>
+  </data>
+  <data name="lbl_all" xml:space="preserve">
+    <value>全部</value>
+  </data>
+  <data name="lbl_amount" xml:space="preserve">
+    <value>金額</value>
+  </data>
+  <data name="lbl_bet_date" xml:space="preserve">
+    <value>賭けられた日付</value>
+  </data>
+  <data name="lbl_cart" xml:space="preserve">
+    <value>カートのトータル・ポイント</value>
+  </data>
+  <data name="lbl_cart_removed" xml:space="preserve">
+    <value>アイテムは、カートから取り除かれました</value>
+  </data>
+  <data name="lbl_cart_success" xml:space="preserve">
+    <value>アイテムは、カートに加えられました</value>
+  </data>
+  <data name="lbl_cart_title" xml:space="preserve">
+    <value>カートの中のアイテム</value>
+  </data>
+  <data name="lbl_category" xml:space="preserve">
+    <value>カテゴリー</value>
+  </data>
+  <data name="lbl_category_code" xml:space="preserve">
+    <value>カテゴリーコード</value>
+  </data>
+  <data name="lbl_city" xml:space="preserve">
+    <value>都市</value>
+  </data>
+  <data name="lbl_claim" xml:space="preserve">
+    <value>賞品の請求</value>
+  </data>
+  <data name="lbl_claim_info" xml:space="preserve">
+    <value>情報の要求</value>
+  </data>
+  <data name="lbl_claim_now" xml:space="preserve">
+    <value>すぐに要求する</value>
+  </data>
+  <data name="lbl_contact" xml:space="preserve">
+    <value>連絡先番号</value>
+  </data>
+  <data name="lbl_contact_us" xml:space="preserve">
+    <value>お問合せ</value>
+  </data>
+  <data name="lbl_cont_shopping" xml:space="preserve">
+    <value>買い物を続ける。</value>
+  </data>
+  <data name="lbl_copyrights" xml:space="preserve">
+    <value>{0}著作権所有</value>
+  </data>
+  <data name="lbl_country" xml:space="preserve">
+    <value>国</value>
+  </data>
+  <data name="lbl_currency" xml:space="preserve">
+    <value>通貨</value>
+  </data>
+  <data name="lbl_current" xml:space="preserve">
+    <value>現在のポイント残高</value>
+  </data>
+  <data name="lbl_date" xml:space="preserve">
+    <value>日付</value>
+  </data>
+  <data name="lbl_date_from" xml:space="preserve">
+    <value>から始まる</value>
+  </data>
+  <data name="lbl_date_to" xml:space="preserve">
+    <value>への日付</value>
+  </data>
+  <data name="lbl_days" xml:space="preserve">
+    <value>日</value>
+  </data>
+  <data name="lbl_delivery_period" xml:space="preserve">
+    <value>配達日</value>
+  </data>
+  <data name="lbl_details" xml:space="preserve">
+    <value>詳細</value>
+  </data>
+  <data name="lbl_discount" xml:space="preserve">
+    <value>割引</value>
+  </data>
+  <data name="lbl_earn" xml:space="preserve">
+    <value>ポイントの獲得</value>
+  </data>
+  <data name="lbl_earning" xml:space="preserve">
+    <value>トータルポイントの獲得</value>
+  </data>
+  <data name="lbl_earning_listing" xml:space="preserve">
+    <value>獲得リスト</value>
+  </data>
+  <data name="lbl_enter_account" xml:space="preserve">
+    <value>アカウントに入力してください</value>
+  </data>
+  <data name="lbl_enter_address" xml:space="preserve">
+    <value>アドレスを入力してください</value>
+  </data>
+  <data name="lbl_enter_city" xml:space="preserve">
+    <value>都市名を入力してください</value>
+  </data>
+  <data name="lbl_enter_contact" xml:space="preserve">
+    <value>連絡先番号を入力してください</value>
+  </data>
+  <data name="lbl_enter_country" xml:space="preserve">
+    <value>国を入力してください</value>
+  </data>
+  <data name="lbl_enter_name" xml:space="preserve">
+    <value>お名前を入力してください</value>
+  </data>
+  <data name="lbl_enter_postal" xml:space="preserve">
+    <value>郵便番号を入力してください</value>
+  </data>
+  <data name="lbl_enter_remarks" xml:space="preserve">
+    <value>備考を入力してください</value>
+  </data>
+  <data name="lbl_error_redemption" xml:space="preserve">
+    <value>償還におけるエラー</value>
+  </data>
+  <data name="lbl_expired" xml:space="preserve">
+    <value>合計ポイントの期限切れ</value>
+  </data>
+  <data name="lbl_expired_listing" xml:space="preserve">
+    <value>期限切れのリスト</value>
+  </data>
+  <data name="lbl_faq" xml:space="preserve">
+    <value>よくある質問とその回答</value>
+  </data>
+  <data name="lbl_first_page" xml:space="preserve">
+    <value>最初のページ</value>
+  </data>
+  <data name="lbl_help_centre" xml:space="preserve">
+    <value>インフォメーションセンター</value>
+  </data>
+  <data name="lbl_hot" xml:space="preserve">
+    <value>ホット</value>
+  </data>
+  <data name="lbl_invalid_at_least" xml:space="preserve">
+    <value>無効の数、少なくとも1以上でなければなりません</value>
+  </data>
+  <data name="lbl_invalid_number" xml:space="preserve">
+    <value>無効の数、数を入力してください</value>
+  </data>
+  <data name="lbl_item_name" xml:space="preserve">
+    <value>アイテム名</value>
+  </data>
+  <data name="lbl_item_remove" xml:space="preserve">
+    <value>カートのアイテムは品切れ/アイテムの更新中のため削除されました。</value>
+  </data>
+  <data name="lbl_last_page" xml:space="preserve">
+    <value>最後のページ</value>
+  </data>
+  <data name="lbl_latest" xml:space="preserve">
+    <value>最新</value>
+  </data>
+  <data name="lbl_mailing_address" xml:space="preserve">
+    <value>住所</value>
+  </data>
+  <data name="lbl_mail_subject" xml:space="preserve">
+    <value>償還EN</value>
+  </data>
+  <data name="lbl_month" xml:space="preserve">
+    <value>月</value>
+  </data>
+  <data name="lbl_name" xml:space="preserve">
+    <value>名前</value>
+  </data>
+  <data name="lbl_new" xml:space="preserve">
+    <value>新しい</value>
+  </data>
+  <data name="lbl_no_record_found" xml:space="preserve">
+    <value>記録は見つかりません</value>
+  </data>
+  <data name="lbl_of" xml:space="preserve">
+    <value>オブ</value>
+  </data>
+  <data name="lbl_page" xml:space="preserve">
+    <value>ページ</value>
+  </data>
+  <data name="lbl_per_page" xml:space="preserve">
+    <value>ページごと</value>
+  </data>
+  <data name="lbl_points" xml:space="preserve">
+    <value>ポイント</value>
+  </data>
+  <data name="lbl_points_adjusted" xml:space="preserve">
+    <value>ポイントアジャステッド（ポイント調整）</value>
+  </data>
+  <data name="lbl_points_expired" xml:space="preserve">
+    <value>ポイント有効期限切れあなたのポイントは不十分です。この償還のためには、より多くのリワードポイントが必要です。</value>
+  </data>
+  <data name="lbl_points_insufficient" xml:space="preserve">
+    <value>Your Points Are Insufficient. Please Earn More Reward Points For This Redemption!</value>
+  </data>
+  <data name="lbl_points_redeemed" xml:space="preserve">
+    <value>ポイント償還（交換、引き換え）</value>
+  </data>
+  <data name="lbl_postal" xml:space="preserve">
+    <value>郵便番号</value>
+  </data>
+  <data name="lbl_product" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="lbl_product_code" xml:space="preserve">
+    <value>プロダクトコード</value>
+  </data>
+  <data name="lbl_product_desc" xml:space="preserve">
+    <value>プロダクトの概要</value>
+  </data>
+  <data name="lbl_quantity" xml:space="preserve">
+    <value>クオンティティ（数量）</value>
+  </data>
+  <data name="lbl_quantity_success" xml:space="preserve">
+    <value>クオンティティは更新されました</value>
+  </data>
+  <data name="lbl_range" xml:space="preserve">
+    <value>変動</value>
+  </data>
+  <data name="lbl_rangeTitle" xml:space="preserve">
+    <value>アイテムのためのポイント検索範囲</value>
+  </data>
+  <data name="lbl_receipient" xml:space="preserve">
+    <value>受取人</value>
+  </data>
+  <data name="lbl_redeem" xml:space="preserve">
+    <value>償還</value>
+  </data>
+  <data name="lbl_redeem_info" xml:space="preserve">
+    <value>リディームインフォ</value>
+  </data>
+  <data name="lbl_redeem_insuffient" xml:space="preserve">
+    <value>ごめんなさい。 あなたは、ホイールをご利用になれません 。</value>
+  </data>
+  <data name="lbl_redeem_now" xml:space="preserve">
+    <value>今償還できます。</value>
+  </data>
+  <data name="lbl_redeem_success_processed" xml:space="preserve">
+    <value>償還は処理されました。</value>
+  </data>
+  <data name="lbl_redeem_success_processed_SW" xml:space="preserve">
+    <value>償還は確かに提出されました。申請された詳細をお客様の電子メールに送りました。リワードチームが24時間以内にご連絡致します。</value>
+  </data>
+  <data name="lbl_redeem_success_submit" xml:space="preserve">
+    <value>償還は確かに提出されました</value>
+  </data>
+  <data name="lbl_redeem_success_submit_SW" xml:space="preserve">
+    <value>償還は確かに提出されました。申請された詳細をお客様の電子メールに送りました。リワードチームが24時間以内にご連絡致します。</value>
+  </data>
+  <data name="lbl_redeem_vip" xml:space="preserve">
+    <value>皆さん！この報酬償還はＶＩＰ-Gold以上、またはHOUSE OF HIGHROLLERSの会員のためだけです、あなたはそれに値しました。</value>
+  </data>
+  <data name="lbl_redemption" xml:space="preserve">
+    <value>合計ポイント償還</value>
+  </data>
+  <data name="lbl_redemption_id" xml:space="preserve">
+    <value>リデンプション　ID</value>
+  </data>
+  <data name="lbl_redemption_limit_reached" xml:space="preserve">
+    <value>償還期限に達しました</value>
+  </data>
+  <data name="lbl_redemption_listing" xml:space="preserve">
+    <value>償還リストオップス！ あなたは既に今年の誕生日アイテムを償還しました、現在処理中でございます。</value>
+  </data>
+  <data name="lbl_redemption_processing_limit_reached" xml:space="preserve">
+    <value>オップス！ あなたは既に今年の誕生日アイテムを償還しました。</value>
+  </data>
+  <data name="lbl_redemption_success_limit_reached" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lbl_redemption_type" xml:space="preserve">
+    <value>償還タイプ</value>
+  </data>
+  <data name="lbl_redemption_type_Redeem" xml:space="preserve">
+    <value>償還</value>
+  </data>
+  <data name="lbl_redemption_type_SW" xml:space="preserve">
+    <value>ホイールプライズのスピン</value>
+  </data>
+  <data name="lbl_remarks" xml:space="preserve">
+    <value>備考</value>
+  </data>
+  <data name="lbl_responsible" xml:space="preserve">
+    <value>リスポンスィブルゲーム</value>
+  </data>
+  <data name="lbl_rewards" xml:space="preserve">
+    <value>リワード</value>
+  </data>
+  <data name="lbl_search" xml:space="preserve">
+    <value>サーチ</value>
+  </data>
+  <data name="lbl_sort" xml:space="preserve">
+    <value>検索、サーチ</value>
+  </data>
+  <data name="lbl_status" xml:space="preserve">
+    <value>ステータス</value>
+  </data>
+  <data name="lbl_SWItem" xml:space="preserve">
+    <value>おめでとうございます。あなたは勝ちました。</value>
+  </data>
+  <data name="lbl_title" xml:space="preserve">
+    <value>タイトル</value>
+  </data>
+  <data name="lbl_tnc" xml:space="preserve">
+    <value>利用規約</value>
+  </data>
+  <data name="lbl_to" xml:space="preserve">
+    <value>トゥー</value>
+  </data>
+  <data name="lbl_total" xml:space="preserve">
+    <value>トータル</value>
+  </data>
+  <data name="lbl_total_stake" xml:space="preserve">
+    <value>トータルステーク</value>
+  </data>
+  <data name="lbl_update" xml:space="preserve">
+    <value>最新のものにする</value>
+  </data>
+  <data name="lbl_view" xml:space="preserve">
+    <value>ビュー</value>
+  </data>
+  <data name="lbl_wallet" xml:space="preserve">
+    <value>プロダクトウォレット</value>
+  </data>
+  <data name="lbl_winner" xml:space="preserve">
+    <value>ｗ88 ウイナー</value>
+  </data>
+  <data name="lbl_year" xml:space="preserve">
+    <value>年</value>
+  </data>
+  <data name="lbl_noRedemption" xml:space="preserve">
+    <value>利用可能な償還アイテムはありません</value>
+  </data>
+</root>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContactUs>
+  <lblLiveChat><![CDATA[在线客服]]></lblLiveChat>
+  <lblSkype><![CDATA[Skype]]></lblSkype>
+  <lblEmail><![CDATA[一般问题]]></lblEmail>
+  <lblBanking><![CDATA[存提款问题]]></lblBanking>
+  <lblPhone><![CDATA[电话咨询]]></lblPhone>
+  <lblLine><![CDATA[Line]]></lblLine>
+  <lblFooter><![CDATA[我们的客户服务团队24小时全年无休竭诚为您服务。为了节约您的宝贵时间，我们已对常见问题提前做出相应的解答，请在联系我们之前参阅我们的 常见问题 以及 演示教程。]]></lblFooter>
+
+  <lnkSkype><![CDATA[skype:china_W88]]></lnkSkype>
+  <lnkEmail><![CDATA[mailto:affiliate_support@w88.com]]></lnkEmail>
+  <lnkBanking><![CDATA[mailto:banking@w88.com]]></lnkBanking>
+  <lnkPhone><![CDATA[tel:+85239733983]]></lnkPhone>
+</ContactUs>

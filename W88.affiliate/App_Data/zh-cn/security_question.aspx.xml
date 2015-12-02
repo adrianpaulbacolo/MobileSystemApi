@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lblsecurityquestion1><![CDATA[您母亲的名字？]]></lblsecurityquestion1>
+  <lblsecurityquestion2><![CDATA[您幼年时的昵称？]]></lblsecurityquestion2>
+  <lblsecurityquestion3><![CDATA[您幼年时的理想工作？]]></lblsecurityquestion3>
+  <lblsecurityquestion4><![CDATA[您的第一份工作在哪个城市？]]></lblsecurityquestion4>
+  <lblsecurityquestion5><![CDATA[您第一个学校的名字？]]></lblsecurityquestion5>
+  <lblsecurityquestion6><![CDATA[您父亲的名字？]]></lblsecurityquestion6>
+</default>

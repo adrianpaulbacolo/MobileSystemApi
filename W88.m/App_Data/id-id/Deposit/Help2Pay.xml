@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+  <lblTitle><![CDATA[Help2Pay]]></lblTitle>
+  <lblDepositAmount><![CDATA[Jumlah Deposit]]></lblDepositAmount>
+  <btnSubmit><![CDATA[SUBMIT]]></btnSubmit>
+  <lblDailyLimit><![CDATA[Batas Perhari]]></lblDailyLimit>
+  <lblTotalAllowed><![CDATA[Jumlah yang diperbolehkan]]></lblTotalAllowed>
+  <lblMinMaxLimit><![CDATA[Batas Min/Max]]></lblMinMaxLimit>
+  <lblMode><![CDATA[Mode]]></lblMode>
+  <txtMode><![CDATA[Online]]></txtMode>
+  <txtProcessing><![CDATA[Your transaction is being processed, please check your balance for updates.]]></txtProcessing>
+  <drpBank><![CDATA[Bank Pilih]]></drpBank>
+  <unlimited><![CDATA[Tanpa Batas]]></unlimited>
+</Deposit>

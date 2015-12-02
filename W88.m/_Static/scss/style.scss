@@ -1,0 +1,52 @@
+//
+// Base
+// -------------------------------
+
+@import
+
+    // -- Core Variables & Mixins
+    "variables",
+    "mixins",
+
+    // -- Vendors
+    "vendor/jquery.mobile-1.4.2",
+
+    // -- Reset & Utility classes
+    "partials/normalize",
+    "partials/typography",
+    "partials/helper",
+
+    // -- Components
+    "partials/grid",
+    "partials/icons",
+    "partials/panel",
+    "partials/collapse",
+    "partials/form",
+    "partials/button",
+    "partials/lists",
+    "partials/tabs",
+    "partials/popup",
+    "partials/badge",
+    "partials/card",
+    "partials/lightbox",
+    "partials/loader",
+    "partials/menu",
+    "partials/slots",
+    "partials/header",
+    "partials/footer",
+    "partials/banner",
+    "partials/wallet",
+
+    // -- Pages
+    "base",
+    "pages/language",
+    "pages/home",
+    "pages/static-page",
+    "pages/login-reg",
+    "pages/funds",
+    "pages/sports",
+    "pages/casino",
+    "pages/lottery",
+
+    // -- Media Query
+    "responsive";

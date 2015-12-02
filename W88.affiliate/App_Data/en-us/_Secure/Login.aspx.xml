@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lblUsername><![CDATA[Username]]></lblUsername>
+  <lblPassword><![CDATA[Password]]></lblPassword>
+  <lblCaptcha><![CDATA[Verification Code]]></lblCaptcha>
+  <btnLogin><![CDATA[LOGIN]]></btnLogin>
+  <btnRegister><![CDATA[You need to be a member of W88.com to login. <br />Not yet a member? <a href='/_Secure/Register.aspx' data-ajax='false'>Join Now</a>]]></btnRegister>
+  <lblRegister><![CDATA[You need to be a member of W88.com to login. Not yet a member? Please visit our website www.w88.com to open an account.]]></lblRegister>-->
+</default>

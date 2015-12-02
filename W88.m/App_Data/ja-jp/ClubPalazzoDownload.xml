@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+    <message>
+        <![CDATA[
+            <h4 class="title">クラブパラッツォのダウンロード版をプレイするための簡単な3ステップは</h4>
+            <ol>
+                <li>下の「今すぐダウンロード」をクリック</li>
+                <li>「実行」をクリックしてインストールを実行するか、ハードディスクに保存</li>
+                <li>ユーザー名の前に「W88」を追加してログイン</li>
+            </ol>
+            <p>
+                <span class="label">例：</span> <br>
+                ユーザー名が"luckyplayer"の場合、ログイン名は<strong>W88</strong>LUCKYPLAYER"です。
+            </p>
+            <p>このプログラムはインターネットエクスプローラー上のフラッシュプレイヤーをを使用していますので、インストール前にインターネットエクスプローラーを起動して、最新の<strong>Adobe Flash Player</strong>をインストールしてください。</p>
+        ]]>
+    </message>
+    <downloadnow><![CDATA[今すぐダウンロードしましょう]]></downloadnow>
+</default>

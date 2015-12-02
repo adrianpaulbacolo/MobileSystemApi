@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<cashier>
+  <lblShowBalance><![CDATA[ទឹកប្រាក់ដែលនៅសល់]]></lblShowBalance>
+  <lblHideBalance><![CDATA[លាក់សមតុល្យ]]></lblHideBalance>
+  <lblTransferFrom><![CDATA[ផ្ទេរពី]]></lblTransferFrom>
+  <lblTransferTo><![CDATA[ផ្ទេរទៅ]]></lblTransferTo>
+  <lblTransferAmount><![CDATA[ចំនួនផ្ទេរ]]></lblTransferAmount>
+  <lblPromoCode><![CDATA[កូដកម្មវិធី]]></lblPromoCode>
+  <btnSubmit><![CDATA[បញ្ជូន]]></btnSubmit>
+  <btnCancel><![CDATA[លុប]]></btnCancel>
+</cashier>

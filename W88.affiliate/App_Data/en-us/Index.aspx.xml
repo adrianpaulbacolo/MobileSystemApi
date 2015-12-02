@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lblPlaceBet><![CDATA[Please Login or Register]]></lblPlaceBet>
+  <lblAffiliate><![CDATA[Affiliate]]></lblAffiliate>
+
+  <lblHome><![CDATA[SUBMIT APPLICATION <br/> Start by filling the W88 Affiliate Programme application form with your details today .As soon as you submit it, you become part of the most rewarding affiliate program around. Join now! <br/><br/>START PROMOTING<br/>W88 Affiliate Program offers you a vast array of advanced marketing tools to attract new Members and start promoting.<br/><br/>START MAKING MONEY<br/>You profit from every player that you refer to W88. Make the most of your potential to attract as many players as you can. The more you keep them coming, the higher your revenue.]]></lblHome>
+
+  <lblHomeTitle1><![CDATA[SUBMIT APPLICATION]]></lblHomeTitle1>
+  <lblHome1><![CDATA[Start by filling the W88 Affiliate Programme application form with your details today .As soon as you submit it, you become part of the most rewarding affiliate program around. Join now!]]></lblHome1>
+  <lblHomeTitle2><![CDATA[START PROMOTING]]></lblHomeTitle2>
+  <lblHome2><![CDATA[W88 Affiliate Program offers you a vast array of advanced marketing tools to attract new Members and start promoting.]]></lblHome2>
+  <lblHomeTitle3><![CDATA[START MAKING MONEY]]></lblHomeTitle3>
+  <lblHome3><![CDATA[You profit from every player that you refer to W88. Make the most of your potential to attract as many players as you can. The more you keep them coming, the higher your revenue.]]></lblHome3>
+  <lblOurProduct><![CDATA[Our Product]]></lblOurProduct>
+  <lblComissionPlan><![CDATA[Commission Plans]]></lblComissionPlan>
+  <lblMyAccount><![CDATA[My Account]]></lblMyAccount>
+  <lblOverview><![CDATA[Overview]]></lblOverview>
+</default>

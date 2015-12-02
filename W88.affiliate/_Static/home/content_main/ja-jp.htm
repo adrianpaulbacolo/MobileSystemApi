@@ -1,0 +1,376 @@
+﻿<style>
+    body {
+        /*background:url('/img/banner_home.jpg') no-repeat center 115px #1F1F1F;*/
+        font: dinpro;
+    }
+
+    #tbstayconnected td {
+        padding-bottom: 9px;
+        vertical-align: middle;
+    }
+
+    #tbwhyjoinaffiliate td {
+        padding-right: 2px;
+        padding-bottom: 5px;
+        vertical-align: top;
+    }
+
+    div.titleUppercasecontent {
+        color: #BFBFBF;
+        font: 18px dinpro;
+        text-transform: uppercase;
+    }
+
+        div.titleUppercasecontent em2 {
+            color: #2A8FBD;
+            font: bold 25px dinpro;
+            text-transform: uppercase;
+        }
+
+    div em2 {
+        color: #2A8FBD;
+        font: normal 12px;
+    }
+
+    .auto-style1 {
+        height: 27px;
+    }
+
+
+    .tdhover {
+        color: #808080;
+    }
+
+        .tdhover:hover {
+            color: #2A8FB9;
+            cursor: pointer;
+        }
+
+
+    a.button.disable {
+        cursor: default;
+    }
+
+    wrapper a.button.disable:hover {
+        background: #2A8FBD;
+    }
+
+    #wrapper {
+        background-color: #000;
+        width: 960px;
+        height: 420px;
+        overflow: hidden;
+        position: relative;
+    }
+
+        #wrapper div.slide {
+            position: relative;
+            float: left;
+            height: 420px;
+            width: 960px;
+        }
+
+            #wrapper div.slide div.slide_content {
+                display: none;
+                width: 960px;
+                height: auto;
+                _height: 80px;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+            }
+
+                #wrapper div.slide div.slide_content div.slide_text {
+                    width: 960px;
+                    height: 100%;
+                    position: relative;
+                    z-index: 1;
+                }
+
+                    #wrapper div.slide div.slide_content div.slide_text > table {
+                        margin: 5px 0;
+                    }
+
+                #wrapper div.slide div.slide_content div.opacity_bg {
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    background: #1c6080;
+                    top: 0;
+                    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+                    filter: alpha(opacity=70);
+                    -moz-opacity: 0.70;
+                    -khtml-opacity: 0.70;
+                    opacity: 0.70;
+                    z-index: 0;
+                }
+
+            #wrapper div.slide h4 {
+                font-size: 35px;
+                padding: 5px 0px;
+                white-space: nowrap;
+            }
+
+            #wrapper div.slide h4, .html_carousel div.slide p {
+                color: #fff;
+                margin: 0;
+            }
+
+    #pager {
+        text-align: center;
+        z-index: 10;
+    }
+
+
+        #pager > a > img {
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+            filter: alpha(opacity=50);
+            -moz-opacity: 0.50;
+            -khtml-opacity: 0.50;
+            opacity: 0.50;
+        }
+
+        #pager > a.selected > img {
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+            filter: alpha(opacity=100);
+            -moz-opacity: 1;
+            -khtml-opacity: 1;
+            opacity: 1;
+        }
+
+    #progressBar {
+        margin: 0 auto;
+        width: 960px;
+        height: 5px;
+        position: relative;
+        background: #000;
+        z-index: 5;
+    }
+
+    div.sprite {
+        margin: 10px;
+    }
+
+    #paging {
+        margin: 10px;
+        font-size: 20px;
+        position: relative;
+        text-align: left;
+        font-size: 12px;
+        float: left;
+    }
+
+    #bar {
+        height: 5px;
+        background: #f00;
+        width: 960px;
+    }
+
+    #pager img {
+        margin: 5px;
+        width: 53px;
+        height: 23px;
+    }
+
+    #pager img {
+        border: 2px solid #4e4e4e;
+    }
+
+    #pager a.selected img {
+        border: 2px solid #2b92bb;
+    }
+
+    div.mainCarousel {
+        width: 960px;
+        height: 440px;
+        margin: 8px auto;
+        position: relative;
+    }
+
+    a#prev1 {
+        position: absolute;
+        top: 50%;
+        left: 6px;
+        visibility: hidden;
+    }
+
+    a#next1 {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        visibility: hidden;
+    }
+
+    .button.big {
+        font-size: 14px;
+        height: 26px;
+        line-height: 26px;
+    }
+
+    #wrapper2 {
+        width: 352px;
+        height: 440px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .home_sub_carousel_item {
+        width: 352px;
+        height: 160px;
+        margin-bottom: 8px;
+    }
+
+    a#prev2 {
+        position: absolute;
+        top: 6px;
+        left: 50%;
+        visibility: hidden;
+    }
+
+    a#next2 {
+        position: absolute;
+        bottom: 6px;
+        left: 50%;
+        visibility: hidden;
+    }
+
+    #carousel {
+        width: 870px;
+        height: 175px;
+        overflow: hidden;
+    }
+
+    .div-home-banner {
+        background-image: url('_Static/home/img/banner_home2_1.jpg');
+        background-repeat: no-repeat;
+        /*background-position:center;*/
+        background-size: contain;
+        height: 150px;
+        /*width:400px;*/
+    }
+</style>
+
+
+<script type="text/javascript">
+    function over(ico) {
+        $("#" + ico).attr("src", "/_static/img/ico_" + ico + "_over.png");
+
+
+    }
+
+    function out(ico) {
+
+        $("#" + ico).attr("src", "/_static/img/ico_" + ico + ".png");
+
+    }
+
+
+    function clickTd(ico) {
+
+        switch (ico) {
+            case 'skype': window.open("callto:affiliate_w88", '_self', false); "";
+                break;
+
+            case 'yahoo': window.open("ymsgr:sendim?hotro.dailyw88@yahoo.com", '_self', false);
+                break;
+
+            case 'mail': window.open("mailto:affiliate_support@w88.com", '_self', false);
+                break;
+
+            case 'phone': window.open("callto:+85239733983", '_self', false);
+                break;
+        }
+
+
+    }
+
+
+</script>
+<div class="mainContent clear">
+
+    <div class="float opacity_content">
+        <div style="height: 10px;"></div>
+        <div class="first3_column_withborder">
+            <div class="opacity_content">
+                <div class="titleUppercasecontent"><em2>1</em2> 申請書の提出</div>
+                まずはW88のアフェリエイトプログラム申請フォームにあなたの詳細情報を入力して始めましょう。<br/>
+                提出後すぐにあなたは最もやりがいのあるアフェリエイトプログラムの一員になれます。今すぐ登録！
+                <br/><br />
+                <div class="titleUppercasecontent"><em2>2</em2> 進出を始めよう</div>
+                W88アフェリエイトプログラムは、新しいメンバーを惹きつけプロモーションをスタートするための <br />
+                高度なマーケティングツールをあなたへ提供します。
+                <br /><br />
+                <div class="titleUppercasecontent"><em2>3</em2> 収入を得る</div>
+                あなたがW88へ紹介するすべてのプレイヤーから利益を得ることができます。<br/>
+                できるだけたくさんのプレイヤーを魅了できるよう、あなたの可能性を最大限に活用しましょう。<br/>
+                より多くのメンバーをキープすることにより、あなたは高収益を得ます。
+                <br /><br />
+            </div>
+        </div>
+    </div>
+    <div class="float opacity_content ">
+        <br />
+        <!--<div style="height: 60px;"></div>-->
+
+        <div class="first3_column verticalLine">
+            <div class="opacity_content ">
+                <div class="titleUppercasecontent">なぜこのアフェリエイトプログラムに参加するのですか？</div><br />
+                <div class="content_normal">W88のアフェリエイトになってできること：</div><br />
+                <table id="tbwhyjoinaffiliate">
+                    <tr>
+                        <td>
+                            <i class="sprite_blue_arrow"></i>
+                        </td>
+                        <td>
+                            <em2>あなたの収益分配において最大40％のコミッション</em2>が得られます。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="sprite_blue_arrow"></i>
+                        </td>
+                        <td>
+                            あなたの紹介されたプレイヤーにより<em2>生涯収入</em2>を得ます。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style1">
+                            <i class="sprite_blue_arrow"></i>
+                        </td>
+                        <td class="auto-style1">
+                            完全な<em2>クロス プロダクトの収益</em2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="sprite_blue_arrow"></i>
+                        </td>
+                        <td>
+                            <em2>オンライン スポーツベッティングの次世代パートナー</em2>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="auto-style1">
+                            <i class="sprite_blue_arrow"></i>
+                        </td>
+                        <td class="auto-style1">
+                            <em2>広範囲で素晴らしい製品の数々</em2>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <i class="sprite_blue_arrow"></i>
+                        </td>
+                        <td>
+                            当社のアフェリエイト専用マネージャーからの<em2>フルサポート</em2>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

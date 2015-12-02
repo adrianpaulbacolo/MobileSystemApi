@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lblsecurityquestion1><![CDATA[Apa nama tengah ibu anda?]]></lblsecurityquestion1>
+  <lblsecurityquestion2><![CDATA[Apa nama panggilan masa kecil anda?]]></lblsecurityquestion2>
+  <lblsecurityquestion3><![CDATA[Apa pekerjaan impian anda sewaktu kecil?]]></lblsecurityquestion3>
+  <lblsecurityquestion4><![CDATA[Di kota apa pekerjaan pertama anda?]]></lblsecurityquestion4>
+  <lblsecurityquestion5><![CDATA[Apa nama sekolah pertama anda?]]></lblsecurityquestion5>
+  <lblsecurityquestion6><![CDATA[Apa nama tengah ayah anda?]]></lblsecurityquestion6>
+</default>

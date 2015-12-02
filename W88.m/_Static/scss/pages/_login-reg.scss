@@ -1,0 +1,57 @@
+//
+// Login / Register
+// -------------------------------
+#login,
+#register {
+    .ui-content {
+        @include bg-gradient();
+    }
+    .item-text-wrap {
+        font-size: 12px;
+    }
+}
+
+// -- Login
+#login {
+    padding: 0;
+    .list {
+        padding-top: 1.5em;
+    }
+    #header {
+        .btn-clear {font-size: 1.2em !important}
+        .ui-btn-right {display: none}
+    }
+    .ui-dialog-contain {
+        width: 100%;
+        margin: auto;
+        top: 0;
+        @include box-shadow(none);
+    }
+
+    .ui-field-contain {
+        border: none;
+    }
+}
+
+#myDialogText {
+    font-family: 'Tahoma';
+    -webkit-font-smoothing: antialiased;
+    font-size: medium;
+    font-weight: normal;
+    text-shadow: none;
+    a {
+        color: #2A8FBD;
+        &:hover {
+            color: #2A8FBD;
+        }
+    }
+}
+
+@media screen and (min-width: 100%) {
+    .center-me {
+      top:50%;
+      left: 50%;
+      transform: translate3d(-50%,-50%, 0);
+      position: fixed;
+    }
+}

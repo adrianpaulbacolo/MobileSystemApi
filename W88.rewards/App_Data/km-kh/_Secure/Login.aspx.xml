@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lblUsername><![CDATA[ឈ្មោះគណនី]]></lblUsername>
+  <lblPassword><![CDATA[លេខសំងាត់]]></lblPassword>
+  <lblCaptcha><![CDATA[កូត]]></lblCaptcha>
+  <btnLogin><![CDATA[ចូល]]></btnLogin>
+  <btnRegister><![CDATA[អ្នកត្រូវតែជាសមាជិករបស់ W88.com ដើម្បីចូលរួម។ មិនទាន់ជាសមាជិកមែនទេ? <a href='/_Secure/Register.aspx' data-ajax='false'>Join Now</a>]]></btnRegister>
+  <lblRegister><![CDATA[អ្នកត្រូវតែជាសមាជិករបស់ W88.com ដើម្បីចូលរួម។ មិនទាន់ជាសមាជិកមែនទេ? សូមចុចទីនេះ ដើម្បីចុះឈ្មោះក្លាយជាសមាជិករបស់យើង]]></lblRegister>
+</default>

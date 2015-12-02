@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+  <lblTitle><![CDATA[ផ្ទេរប្រាក់តាមធនាគារ]]></lblTitle>
+  <lblAmount><![CDATA[ចំនួនប្រាក់ដក]]></lblAmount>  
+  <lblBank><![CDATA[ធនាគារ]]></lblBank>
+  <drpBank><![CDATA[ធនាគារ ជ្រើស]]></drpBank>
+  <lblBankName><![CDATA[ឈ្មោះធនាគារ]]></lblBankName>
+  <drpOtherBank><![CDATA[ធនាគារផ្សេង]]></drpOtherBank>
+  <lblBankBranch><![CDATA[សាខា]]></lblBankBranch>
+  <lblAddress><![CDATA[អាស័យដ្ឋាន]]></lblAddress>
+  <lblAccountName><![CDATA[ឈ្មោះគណនី]]></lblAccountName>
+  <lblAccountNumber><![CDATA[លេខគណនី]]></lblAccountNumber>
+  <lblMyKad><![CDATA[MyKad]]></lblMyKad>
+  <lblMobileNumber><![CDATA[លេខទូរស័ព្ទ]]></lblMobileNumber>
+  <lblMobileNotify><![CDATA[បញ្ជាក់ខ្ញុំតាមទូរស័ព្ទ]]></lblMobileNotify>
+  <btnSubmit><![CDATA[ស្នើសុំ]]></btnSubmit>
+  <lblTransactionId><![CDATA[លេខប្រតិបត្តិការ]]></lblTransactionId>
+  <lblDailyLimit><![CDATA[ចំនួនកំនត់ប្រចាំថ្ងៃ: ]]></lblDailyLimit>
+  <lblTotalAllowed><![CDATA[ចំនួនអនុញ្ញាតសរុប: ]]></lblTotalAllowed>
+  <lblAtmNumber><![CDATA[លេខកាត ATM ស់អ្នក]]></lblAtmNumber>
+
+  <BankNameNative>
+    <ZH-CN_RMB />
+    <VI-VN_VND />
+    <TH-TH_THB />
+    <ID-ID_IDR />
+    <KM-KH_USD />
+    <KO-KR_KRW />
+    <JA-JP_JPY />
+  </BankNameNative>
+</Deposit>

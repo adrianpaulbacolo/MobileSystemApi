@@ -1,0 +1,40 @@
+//
+// Header
+// -------------------------------
+
+#header {
+    text-align: center;
+    background-color: $base-background-color;
+    overflow: hidden;
+    min-height: 3.2142857em; // 45px
+    .btn-clear {
+        color: $primary-color;
+        padding: 0;
+        width: auto;
+        margin: .45em 0;
+        [class^="icon-"], [class*=" icon-"] {
+            font-size: 2.28571429em; // 32px
+        }
+    }
+
+    .title {
+        margin: auto 12.5%;
+        padding: 9.5px 0;
+        font-size: 1.42857em; // 20px
+        .logo {
+            max-height: 22px;
+        }
+    }
+}
+
+.div-page-header {
+    font: 400 1em $primary-font;
+    color: $strong-color;
+    background: $primary-color;
+    padding: .5em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ui-header .ui-title,
+.ui-footer .ui-title {}

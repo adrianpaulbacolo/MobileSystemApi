@@ -1,0 +1,338 @@
+﻿.loader {
+    background-color: black;
+    z-index: 9999;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    vertical-align: middle;
+    margin: auto;
+    display: table;
+    table-layout: fixed;
+}
+
+    .loader > div {
+        display: table-cell;
+        vertical-align: middle;
+        margin: auto;
+    }
+
+        .loader > div > img {
+            display: block;
+            margin: auto;
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+* {
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box; /* Opera/IE 8+ */
+}
+
+
+html {
+    width: 100%;
+    display: block;
+    height: 100%;
+}
+
+body {
+    background: #000;
+    overflow: hidden;
+    color: #fff;
+    height: 100%;
+    margin: 0 auto;
+    background-image: url('/_Static/Images/rotate_white.png');
+    background-position: center center;
+    background-size: auto;
+    background-repeat: no-repeat;
+}
+
+.div-content-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+@media only screen and (orientation : portrait) {
+    .div-content-wrapper {
+        display: none;
+    }
+}
+
+@media only screen and (orientation : landscape) {
+    body {
+        background-image: none;
+    }
+}
+
+.div-content-wrapper {
+    width: 100%;
+}
+
+.div-overlay {
+    /*border:1px solid red;*/
+}
+
+@media only screen and (min-device-width: 768px) and (orientation : landscape) {
+}
+
+/* Nexus 7 2012 */
+@media screen and (min-device-width: 602px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 1.325) and (-webkit-max-device-pixel-ratio: 1.332) {
+
+    .device-name:after {
+        content: " \00a9  2012";
+    }
+
+    .div-overlay {
+    }
+}
+
+/* Nexus 7 2013 */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:1920px) and (orientation : landscape) {
+    .device-name:after {
+        content: " \00a9  2013";
+    }
+
+    .div-overlay {
+        /*
+        max-width: 960px;
+        max-height: 539px;
+        */
+    }
+}
+
+.div-main {
+    /*position: absolute;    
+    top: -12px;*/
+    z-index: 2;
+}
+
+.cvs-main {
+    /*border:1px solid cyan;*/
+    display: table-cell;
+    margin: auto;
+}
+
+.div-canvas {
+    table-layout: fixed;
+    width: 100%;
+    display: table;
+}
+
+    .div-canvas > div {
+        display: table-cell;
+        /*border:1px solid green;*/
+        width: 100%;
+        margin: auto;
+        padding-top: 18px;
+    }
+
+.div-overlay-left {
+    background-image: url('/_Static/Images/Slots/BikiniBeach/Background/left.jpg');
+    background-size: cover;
+    background-position: right;
+    position: absolute;
+    top: 0;
+    z-index: 3;
+}
+
+.div-overlay-right {
+    background-image: url('/_Static/Images/Slots/BikiniBeach/Background/right.jpg');
+    background-size: cover;
+    background-position: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.div-overlay-bottom {
+    background-image: url('/_Static/Images/Slots/BikiniBeach/Background/below.png'), url('/_Static/Images/Slots/BikiniBeach/Background/below.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom, top;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.div-overlay-top {
+    position: absolute;
+    background-image: url('/_Static/Images/Slots/BikiniBeach/Background/1-px.jpg');
+    background-repeat: repeat-x;
+    top: 0;
+    width: 100%;
+    height: 18px;
+}
+
+.div-button-spin {
+    position: absolute;
+    z-index: 4;
+}
+
+.div-button-home, .div-button-lobby {
+    position: absolute;
+    z-index: 4;
+    max-width:80px;
+    max-height:80px;
+}
+
+        .div-button-spin > img {
+            display:inline-block;
+            width:100%;
+        }
+        .div-button-home > img, .div-button-lobby > img {
+            display:inline-block;
+            width:100%;
+            max-width:80px;
+            max-height:80px;
+        }
+
+.div-game-labels {
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: contain;
+    z-index: 4;
+    position: absolute;
+}
+
+.div-game-logo {
+    background-image: url('/_Static/Images/Slots/BikiniBeach/Labels/logo.png');
+    width: 165px;
+    height: 111px;
+}
+
+.div-game-winnings-label {
+    background-image: url('/_Static/Images/Slots/BikiniBeach/Labels/winnings.png');
+    width: 69px;
+    height: 35px;
+    /*background-size:65%;*/
+    background-position: left center;
+}
+
+.div-game-credits {
+    text-shadow: 1px 0 10px #f00, -1px 0 10px #f00, 0 1px 10px #f00, 0 -1px 10px #f00;
+    font-size: 1.2em;
+    color: #ff0;
+}
+
+.div-game-winnings, .div-game-totalbets {
+    text-shadow: 1px 0 10px #00f, -1px 0 10px #00f, 0 1px 10px #00f, 0 -1px 10px #00f;
+    font-size: 1.2em;
+}
+
+.div-game-totalbets-label {
+    background-image: url('/_Static/Images/Slots/BikiniBeach/Labels/totalbets.png');
+    width: 63px;
+    height: 35px;
+    /*background-size:65%;*/
+    background-position: left center;
+}
+
+.div-game-credits-label {
+    background-image: url('/_Static/Images/Slots/BikiniBeach/Labels/credits.png');
+    width: 107px;
+    height: 35px;
+    /*background-size:65%;*/
+    background-position: left center;
+    vertical-align: middle;
+    text-align: right;
+}
+
+.div-bonus {
+    position: absolute;
+    top: 0;
+    display: table;
+    table-layout: fixed;
+}
+
+    .div-bonus > div {
+        display: table-row;
+        width: 100%;
+        background-color:#000;
+    }
+
+        .div-bonus > div > div:nth-child(2) {
+            border-left: 1px dashed #333;
+            border-right: 1px dashed #333;
+        }
+
+        .div-bonus > div > div {
+            background-repeat: no-repeat;
+            background-position: center center;
+            display: table-cell;
+            position: relative;
+        }
+
+            .div-bonus > div > div[class^="div-tmu-"] {
+                background-size: cover;
+            }
+                /*
+                .div-bonus > div > div[class^="div-tmu-"] > span.span-bonus-win {
+                    position: absolute;
+                    text-align: center;
+                    width: 100%;
+                    vertical-align: middle;
+                    text-shadow: 1px 0 10px #00f, -1px 0 10px #00f, 0 1px 10px #00f, 0 -1px 10px #00f;
+                    font-weight: 700;
+                    font-size:1.2em;
+                }
+                */
+                .div-bonus > div > div > span.span-bonus-win, .div-bonus > span.span-bonus-win {
+                    position: absolute;
+                    text-align: center;
+                    width: 100%;
+                    height:100%;
+                    vertical-align: middle;
+                    text-shadow: 1px 0 10px #00f, -1px 0 10px #00f, 0 1px 10px #00f, 0 -1px 10px #00f;
+                    font-weight: 700;
+                    font-size:1.2em;
+                }
+
+.div-tmu-1 {
+    background-image: url('/_Static/Images/Slots/BikiniBeach/Bonus/tmu/01.jpg');
+}
+
+.div-tmu-2 {
+    background-image: url('/_Static/Images/Slots/BikiniBeach/Bonus/tmu/02.jpg');
+}
+
+.div-tmu-3 {
+    background-image: url('/_Static/Images/Slots/BikiniBeach/Bonus/tmu/03.jpg');
+}
+
+.div-tmu-4 {
+    background-image: url('/_Static/Images/Slots/BikiniBeach/Bonus/tmu/04.jpg');
+}
+
+.div-tmu-5 {
+    background-image: url('/_Static/Images/Slots/BikiniBeach/Bonus/tmu/05.jpg');
+}
+
+.div-tmu-6 {
+    background-image: url('/_Static/Images/Slots/BikiniBeach/Bonus/tmu/06.jpg');
+}
+
+.div-sw-1 {
+    background-image: url('/_Static/Images/Slots/BikiniBeach/Bonus/sw/01.png');
+}
+
+.div-sw-2 {
+    background-image: url('/_Static/Images/Slots/BikiniBeach/Bonus/sw/02.png');
+}
+
+.div-sw-3 {
+    background-image: url('/_Static/Images/Slots/BikiniBeach/Bonus/sw/03.png');
+}
+
+.div-sw-4 {
+    background-image: url('/_Static/Images/Slots/BikiniBeach/Bonus/sw/04.png');
+}
+
+.div-sw-5 {
+    background-image: url('/_Static/Images/Slots/BikiniBeach/Bonus/sw/05.png');
+}

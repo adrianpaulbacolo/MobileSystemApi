@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+    <message>
+        <![CDATA[
+            <h4 class="title">クラブWのダウンロードバージョンをプレイする3つの簡単な手順`です。</h4>
+            <ol>
+                <li>下記の[ダウンロード]ボタンをクリックします。</li>
+                <li>実行または保存（ローカル ハードドライブに）をクリックしてインストールを行います。</li>
+                <li>あなたのウェブ のユーザ名とパスワードでログインします。</li>
+            </ol>
+        ]]>
+    </message>
+    <downloadnow><![CDATA[今すぐダウンロードしましょう]]></downloadnow>
+</default>

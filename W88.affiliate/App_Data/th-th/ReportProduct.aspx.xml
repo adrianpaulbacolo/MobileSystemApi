@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lblall><![CDATA[ALL]]></lblall>
+  <lblbetsoft><![CDATA[คลับดิวิโน่]]></lblbetsoft>
+  <lblbinary><![CDATA[ไบนารี่]]></lblbinary>
+  <lblbravado><![CDATA[บราวาโด้]]></lblbravado>
+  <lblcrescendo><![CDATA[เครสเชนโด]]></lblcrescendo>
+  <lblctmx><![CDATA[เครสเชนโด]]></lblctmx>
+  <lble-sport><![CDATA[e-Sports]]></lble-sport>
+  <lblhorseracing><![CDATA[ม้าแข่ง]]></lblhorseracing>
+  <lblilotto><![CDATA[ล็อตโต้]]></lblilotto>
+  <lbli-sport><![CDATA[i-Sport]]></lbli-sport>
+  <lblkeno><![CDATA[าคีโน]]></lblkeno>
+  <lbllivecasino><![CDATA[คาสิโนสด]]></lbllivecasino>
+  <lblmossimo><![CDATA[Mossimo]]></lblmossimo>
+  <lblpalazzo><![CDATA[พาลาซโซ]]></lblpalazzo>
+  <lblplaytech><![CDATA[พาลาซโซ]]></lblplaytech>
+  <lblpoker><![CDATA[โป๊กเกอร์]]></lblpoker>
+  <lblslot><![CDATA[บราวาโด้]]></lblslot>
+  <lblsportsbook><![CDATA[a-Sport]]></lblsportsbook>
+  <lblu-sport><![CDATA[u-Sport]]></lblu-sport>
+  <lblclubapollo><![CDATA[คลับอพอลโล]]></lblclubapollo>
+  <lblx-sport><![CDATA[x-Sport]]></lblx-sport>
+
+</default>

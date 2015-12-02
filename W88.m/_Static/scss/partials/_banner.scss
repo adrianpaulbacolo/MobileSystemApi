@@ -1,0 +1,21 @@
+//
+// Banner
+// -------------------------------
+
+.banner {
+    background-color: darken($base-background-color, 8%);
+    position: relative;
+    .img-bg {
+        position: absolute;
+    }
+    .banner-caption {
+        position: relative;
+        z-index: 1;
+        padding: $content-padding;
+    }
+    .title {
+        color: $brand-color;
+        font-size: 2rem;
+        margin-top: 1rem;
+    }
+}

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+  <lblTitle><![CDATA[Bank Transfer]]></lblTitle>
+  <lblAmount><![CDATA[Withdraw Amount]]></lblAmount>  
+  <lblBank><![CDATA[Bank]]></lblBank>
+  <drpBank><![CDATA[Select Bank]]></drpBank>
+  <lblBankName><![CDATA[Your Bank Name]]></lblBankName>
+  <drpOtherBank><![CDATA[Other Bank]]></drpOtherBank>
+  <lblBankBranch><![CDATA[Bank Branch]]></lblBankBranch>
+  <lblAddress><![CDATA[Address]]></lblAddress>
+  <lblAccountName><![CDATA[Your Account Name]]></lblAccountName>
+  <lblAccountNumber><![CDATA[Your Account Number]]></lblAccountNumber>
+  <lblMyKad><![CDATA[MyKad]]></lblMyKad>
+  <lblMobileNumber><![CDATA[Mobile Number]]></lblMobileNumber>
+  <lblMobileNotify><![CDATA[Notify me through mobile]]></lblMobileNotify>
+  <btnSubmit><![CDATA[SUBMIT]]></btnSubmit>
+  <lblTransactionId><![CDATA[Transaction ID]]></lblTransactionId>
+  <lblDailyLimit><![CDATA[Daily Limit: ]]></lblDailyLimit>
+  <lblTotalAllowed><![CDATA[Total Allowed: ]]></lblTotalAllowed>
+  <lblAtmNumber><![CDATA[Your ATM Card Number]]></lblAtmNumber>
+
+  <BankNameNative>
+    <ZH-CN_RMB />
+    <VI-VN_VND />
+    <TH-TH_THB />
+    <ID-ID_IDR />
+    <KM-KH_USD />
+    <KO-KR_KRW />
+    <JA-JP_JPY />
+  </BankNameNative>
+</Deposit>

@@ -1,0 +1,37 @@
+//
+// Collapse
+// -------------------------------
+
+.ui-collapsible {
+    > h1, > h2, > h3, > h4, > h5, > h6 {
+        font-size: 1em;
+        margin: 0;
+    }
+    .ui-btn {
+        color: $strong-color;
+        background-color: transparent;
+        border-bottom: 1px solid $border-input-color !important;
+        &:after {
+            left: inherit;
+            right: .5625em;
+        }
+        &:hover, &:focus {
+            color: $strong-color;
+            background-color: darken($primary-color, 10%);
+        }
+    }
+    .ui-collapsible-content {
+        padding: 0;
+        background-color: rgba(0,0,0,.1) !important;
+        .ui-field-contain {
+            font-size: .92em;
+            padding: .8em;
+            border-color: $border-color;
+            &, span {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+    }
+}

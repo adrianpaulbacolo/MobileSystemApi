@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menu>
+  <brand><![CDATA[W88.com - ]]></brand>
+  <closeMenu><![CDATA[メニューを閉じる]]></closeMenu>
+  <home><![CDATA[ホーム]]></home>
+  <login><![CDATA[ログイン]]></login>
+  <about><![CDATA[リワードについて]]></about>
+  <levels><![CDATA[リワードレベル]]></levels>
+  <catalogue><![CDATA[カタログ]]></catalogue>
+  <faq><![CDATA[よくある質問とその答え]]></faq>
+  <terms><![CDATA[契約条件]]></terms>
+  <misc><![CDATA[その他]]></misc>
+  <liveHelp><![CDATA[ライブチャット]]></liveHelp>
+  <contactUs><![CDATA[お問い合わせ]]></contactUs>
+  <helpCenter><![CDATA[ヘルプセンター]]></helpCenter>
+  <language><![CDATA[言語]]></language>
+  <logout><![CDATA[ログアウト]]></logout>
+  <products><![CDATA[製品]]></products>
+  <desktopsite><![CDATA[デスクトップサイト]]></desktopsite>
+  <fullscreenMode><![CDATA[全画面モード]]></fullscreenMode>
+
+</menu>

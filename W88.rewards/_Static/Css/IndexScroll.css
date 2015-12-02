@@ -1,0 +1,161 @@
+﻿.lv-Product {
+    display: none;
+}
+
+.ui-content {
+    padding: 0;
+    margin: 0;
+    /*margin-top: 43px;*/
+}
+
+#divContent {
+    margin: 0px 10px;
+    padding: 10px;
+    /*border: 1px solid #333;*/
+}
+#divLevel {
+    background-color: #1c6080;
+    height: 20pt;
+    position: relative;
+}
+
+
+#lblPoint {
+    color: white;
+    float: right;
+    font-family: "Open Sans",sans-serif,helvetica,Tahoma,Arial,Verdana,"Comic Sans MS";
+    font-size: smaller;
+    font-weight: 700;
+    margin-top: 5px;
+    position: relative;
+    right: 5px;
+    padding-right: 3pt;
+    text-decoration: underline;
+}
+
+
+#divLevel a:hover   {
+    text-decoration: underline;
+}
+
+
+.div-product-scroll {
+    /*display: block;
+    z-index: 1;*/
+    /*position: relative;*/
+    height: 100%;
+    /*width: 100%;*/
+    background: #ccc;
+    overflow: hidden;
+    -ms-touch-action: none;
+    background-color: transparent;
+}
+
+#CatalogueUL li {
+    background-color: #333;
+    border: 1pt solid #333;
+    float: left;
+    left: 0;
+    list-style-type: none;
+    margin: 2%;
+    padding-left: 0;
+    text-align: center;
+    width: 45%;
+}
+
+
+
+    #CatalogueUL li img {
+        height: 60pt;
+    }
+
+    #CatalogueUL li a {
+            display: inline-block;
+    text-decoration: none;
+    width: 100%;
+    }
+
+
+#CatalogueUL .catName {
+    font-size: 9pt;
+    min-height: 25pt;
+}
+
+.div-product-scroll ul {
+    margin: 0 auto;
+    padding: 0;
+}
+
+
+
+@media all and (min-width:320px) and (max-width: 479px ) {
+
+   
+}
+
+
+
+/*.div-product-scroll div:first-child {
+    position: absolute;
+    z-index: 1;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -o-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+.div-product-scroll > div:first-child > ul {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+}
+
+    .div-product-scroll > div:first-child > ul > li {
+        width: 88px;
+        height: 96px;
+        display: inline-block;
+        background-color: transparent;
+        font-size: 14px;
+        overflow: hidden;
+        text-align: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+        .div-product-scroll > div:first-child > ul > li > a {
+            display: block;
+            height: 100%;
+        }
+
+            .div-product-scroll > div:first-child > ul > li > a > div {
+                width: 88px;
+            }
+
+                .div-product-scroll > div:first-child > ul > li > a > div:first-child {
+                    bottom: 5px;
+                    text-align: center;
+                    color: #fff;
+                }
+
+
+                .div-product-scroll > div:first-child > ul > li > a > div:last-child {
+                    height: 25px;
+                    bottom: 0;
+                    background: #000;
+                    opacity: 0.8;
+                    position: absolute;
+                }*/

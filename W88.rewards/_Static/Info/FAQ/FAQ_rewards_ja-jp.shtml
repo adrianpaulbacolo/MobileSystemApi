@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script src="/_static/_script/slideToggle.js"></script>
+    <style>
+       table td {
+            line-height :1.8;
+        }
+        ol li {
+            line-height :1.8 !important;
+        }
+
+        p {
+            line-height :1.8 !important;
+        }
+        </style>
+</head>
+
+<body>
+<div id="container">
+     <div>
+<!--	<div class="header"></div>
+    <div class="navBar"><img src="images/navTitle_en.gif" /></div>
+    <div id="menu"></div>
+    <div class="content">-->
+    	<div class="contentTitle">よくある質問</div>
+        <div class="contentArticle" id="section">
+          <p class="subTitle">リウォーズクラブ</p>
+          <p>リウォーズクラブはただ単にベットするだけではなく、同時にプレイヤーがより報酬を得るためのものです。フリーベット/プロダクト/あなたのご希望の商品などポイント交換できるレジャーを、忠誠心を持って、すべてのメンバーのために価値ある事をやりがいとして作ってまいります。</p>
+          <ol class="sectionLink">
+           	    <li><a href="#1" onclick="openAccordianFromLink('1');">報酬ポイントって何ですか？</a></li>
+                <li><a href="#2" onclick="openAccordianFromLink('2');">報酬ポイントをゲットするにはどうすれば良いですか？</a></li>
+                <li><a href="#3" onclick="openAccordianFromLink('3');">W88のリウォードクラブにサインアップする必要はありますか？</a></li>
+                <li><a href="#4" onclick="openAccordianFromLink('4');">私の報酬ポイントに期限はありますか？</a></li>
+                <li><a href="#5" onclick="openAccordianFromLink('5');">いつ自分のアカウントに報酬ポイントは反映されますか？</a></li>
+                <li><a href="#6" onclick="openAccordianFromLink('6');">タイベット/ボイド/ドロー/キャンセルは報酬ポイントに加算されますか？</a></li>
+                <li><a href="#7" onclick="openAccordianFromLink('7');">ポイントを振替できますか？</a></li>
+                <li><a href="#8" onclick="openAccordianFromLink('8');">私の獲得したポイントはどのようにして見れますか？</a></li>
+                <li><a href="#9" onclick="openAccordianFromLink('9');">ポイント交換はどのようにしたら良いですか？</a></li>
+                <li><a href="#10" onclick="openAccordianFromLink('10');">ポイント交換のお知らせにある、保留、成功もしくは受付不可とはどういう意味ですか？</a></li>
+                <li><a href="#11" onclick="openAccordianFromLink('11');">無料ベットと商品交換とは何ですか？</a></li>
+                <li><a href="#12" onclick="openAccordianFromLink('12');">W88のホイールオブフォーチュンとは何ですか？</a></li>
+                <li><a href="#13" onclick="openAccordianFromLink('13');">私がリベートもしくはリロードプログラムにある場合、アカウントで報酬ポイントをゲットすることは可能ですか？</a></li>
+          </ol>
+          
+             <div class="tab">
+        <a name="1"></a><div id="1" class="1 section-header">1.報酬ポイントって何ですか？</div>
+
+        <div class="section-content open1">
+	            <p>W88の報酬ポイントは、それぞれのメンバーが選択したゲームにおいて、楽しみながらベットすると同時に、システムにて自動的にポイントゲットされ、ご自身でリクエスト可能な、無料ベットや商品アイテムの交換などのさらなる特典との交換が可能なポイントプログラムです。</p>
+        </div>
+
+          <a name="2"></a><div id="2" class="2 section-header">2.報酬ポイントをゲットするにはどうすれば良いですか？</div>
+          
+          <div class="section-content open2">
+            <p>W88はただ単にベットするだけではない、やりがいあるプレイヤーを信じています。最小額からのベットにおいても価値を作り出します。2014年2月1日より参加されたすべてのメンバーは自動的にW VIP クラブの”ブルー”メンバーとしてポイント獲得が開始されています。
+</p>
+</div>
+
+          <a name="3"></a><div id="3" class="3 section-header">3. W88のリウォードクラブにサインアップする必要はありますか？</div>
+          
+          <div class="section-content open3">
+            <p>サインアップの必要はありません。あなたがW VIPクラブ”ブルー”のメンバーになられると自動的にアクティブになり、ベット成功時に加算されます。</p>
+</div>
+
+          <a name="4"></a><div id="4" class="4 section-header">4. 私の報酬ポイントに期限はありますか？</div>
+          
+          <div class="section-content open4">
+            <p>はい、W88の報酬ポイントの有効期限は以下です。<br/>
+            ブルーで獲得したポイントは6ヶ月間有効です。<br/>
+            ゴールドで獲得したポイントは6ヶ月間有効です。<br/>
+            プラチナとダイアモンドで獲得したポイントは無期限です。<br/>
+あなたがW VIPクラブ”ブルー”のメンバーになると同時に、自動的にアクティブになりベット成功時にポイント加算となります。すべての未使用のポイントは、ポイントの期限/アニバーサリィにて没収されます。あなたのポイントが期限切れになる前に交換することを忘れないでください。また、W88の報酬ポイント期限のお知らせをご参照ください。</p>
+</div>
+
+          <a name="5"></a><div id="5" class="5 section-header">5. いつ自分のアカウントに報酬ポイントは反映されますか？</div>
+          
+          <div class="section-content open5">
+            <p>報酬ポイントは、、週単位（後7日）で計算されており、2PM（GMT+8）の更新となります。 W88の営業日は午後12時から翌日午前11：59です。例えば、2013年6月1日で獲得された報酬ポイントは、それが2013年6月8日（7日後）にアカウントに入金されます。ご不明な点は、カスタマーサービスサポートに直接お問い合わせいただくか、<a href="mailto:rewards@w88.com">rewards@w88.com</a>へメールにてお問合せください。</p>
+          </div>
+
+          <a name="6"></a><div id="6" class="6 section-header">6. タイベット/ボイド/ドロー/キャンセルは報酬ポイントに加算されますか？</div>
+          
+          <div class="section-content open6">
+            <p>いいえ、タイベット/ボイド/ドロー/キャンセルにおいては、報酬ポイントの対象となりませんので、加算はされません。</p>
+</div>
+
+          <a name="7"></a><div id="7" class="7 section-header">7. ポイントを振替できますか？</div>
+          
+          <div class="section-content open7">
+            <p>報酬ポイントは、W88の他のメンバーのアカウントへ移行することはできません。</p>
+</div>
+
+          <a name="8"></a><div id="8" class="8 section-header">8. 私の獲得したポイントはどのようにして見れますか？</div>
+          
+          <div class="section-content open8">
+            <p>W88にログインして頂き、あなたのポイントを確認するために”報酬”をクリックしてください。あなたの合計ポイントと有効期限は右上に表示されます。”ポイントのお知らせ”をクリックすると、今月のその日のポイントのほかポイントゲット数/有効期限間近のポイント/失効ポイントがご覧になれます。</p>
+</div>
+
+          <a name="9"></a><div id="9" class="9 section-header">9. ポイント交換はどのようにしたら良いですか？</div>
+          
+          <div class="section-content open9">
+            <p>W88リウォーズクラブでは、無料ベットへの交換、商品やより多くのプロダクトとの交換が可能です。交換するために、W88リウォーズにログインしてカテゴリーからご希望の商品をお選び下さい。ご希望の商品を”クリック”し、必要事項を入力して、あなたの交換リクエストを送信してください。</p>
+</div>
+
+          <a name="10"></a><div id="10" class="10 section-header">10. ポイント交換のお知らせにある、保留、成功もしくは受付不可とはどういう意味ですか？</div>
+          
+          <div class="section-content open10">
+            <!--<table cellspacing="1" cellpadding="5" width="100%">-->
+              <table class="tableCss" width="100%" cellspacing="1" cellpadding="5">
+  <tr class="rowHeader">
+    <td align="center"><strong style="font-weight: bold;">Status</strong></td>
+    <td align="center"><strong style="font-weight: bold;">詳細</strong></td>
+    <td width="130" align="center"><strong style="font-weight: bold;">所要時間</strong></td>
+  </tr>
+  <tr class="row1">
+    <td>保留</td>
+    <td>あなたのポイント交換のお手続きの為にお待ち頂いている状態です<br />
+    あなたのポイントは即座に取得可能な残高から差し引かれた状態です</td>
+    <td>２週間以内</td>
+  </tr>
+  <tr class="row1">
+    <td>成功</td>
+    <td>あなたがリクエストに成功した事を表示しています<br />
+    無料ベットの場合、あなたのプレイアカウントはベット数分加算されます<br />
+    製品について、あなたがリクエストされた商品は配送のために準備中です
+    </td>
+    <td>-</td>
+  </tr>
+  <tr class="row2">
+    <td>受付不可</td>
+    <td>あなたの交換リクエストは無効の状態です<br />
+    －メンバーのリクエスト変更によるもの<br />
+    －W88の利用規約を満たしていない場合<br />
+    －商品の在庫切れ<br />
+    －他の理由<br />
+    あなたのポイントはアカウントへそのまま戻されます</td>
+    <td>-</td>
+  </tr>
+</table>
+          </div>
+
+          <a name="11"></a><div id="11" class="11 section-header">11. 無料ベットと商品交換とは何ですか？</div>
+          
+          <div class="section-content open11">
+            <p>&ldquo;無料ベット&rdquo;と&ldquo;プロダクト/商品&rdquo;の２種類のリウォーズクラブ商品交換があります。下記が詳細になります。</p>
+            <p><strong>&ldquo;無料ベット&rdquo;交換</strong></p>
+            <ol type="a" class="sectionLink">
+              <li>&ldquo無料ベット&rdquo;のポイント交換を選択した場合、どのくらいでアカウントに加算されますか？</li>
+              <li>なぜ他のプレイ通貨で&ldquo;無料ベット&rdquo;に交換できないのですか？</li>
+              <li>&ldquo;無料ベット&rdquo;の分の金額を出金するためのロールオーバーの要件が何かありますか？</li>
+            </ol>
+            <p>リウォーズ無料ベットは、一般的にすぐに交換可能な累積ポイントやリベートと似ていることでメンバーには知られています。<strong></strong></p>
+            <a name="11.1.1"></a>
+            <p><strong>a.  &ldquo;無料ベット&rdquo;のポイント交換を選択した場合、どのくらいでアカウントに加算されますか？</strong><br />
+            唯一W88では、あなたが交換を選択された時点で即座にあなたのメインアカウント（メインウォレット）に反映されます。</p>
+            <a name="11.1.2"></a>
+            <p><strong>b.  なぜ他のプレイ通貨で&ldquo;無料ベット&rdquo;に交換できないのですか？</strong><br />
+            あなたは、最初にW88に登録したときに選択した通貨でのみ、&ldquo;無料ベット&rdquo;に交換可能です。それに合意いただけない場合は、W88の検討のもと、交換条件に適応外とされ、リクエストはキャンセルされます。</p>
+            <a name="11.1.3"></a>
+            <p><strong>c. &ldquo;無料ベット&rdquo;の分の金額を出金するためのロールオーバーの要件が何かありますか？</strong><br />
+              すべての引出許可の前に必要とされるロールオーバーの要件はありません。W88の一般の引出規約条件が適用されます。<br />
+  <br />
+  <strong>&ldquo;プロダクト&rdquo;交換</strong></p>
+            <ol type="a" class="sectionLink">
+              <li>交換できる&ldquo;プロダクト&rdquo;には何がありますか？</li>
+              <li>効果なプロダクトに保険などはつきますか？</li>
+              <li>&ldquo;プロダクト&rdquo;を返品できますか？</li>
+              <li>交換品を配送してもらうのに、料金はかかりますか？</li>
+              <li>どのくらいで交換品を受け取れますか？</li>
+            </ol>
+            <p>W88はあなたが登録されたエリアにより様々な&ldquo;本日のプロダクト&rdquo;を提供し、新着商品やその他盛りだくさんを毎月ご提案します。</p>
+            <a name="11.2.1"></a>
+            <p><strong>a.  交換できる&ldquo;プロダクト&rdquo;には何がありますか？</strong><br />
+            W88ではゲームのための&ldquo;無料ベット&rdquo;交換のみではなく、スポーツ、ガジェット、ファッションとより多くの&ldquo;商品&rdquo;をご提供させて頂きたいと考えます。お得な情報やお楽しみ頂ける商品の詳細なリストに関しては、W88のリウォーズページをご参照ください。</p>
+            <a name="11.2.2"></a>
+            <p><strong>b.  効果なプロダクトに保険などはつきますか？</strong><br />
+            W88には各ブランドにおいて保証があり、高価な製品でも保険があります、商品の発送元からのみとなっております。</p>
+            <a name="11.2.3"></a>
+            <p><strong>c. &ldquo;プロダクト&rdquo;を返品できますか？</strong><br />
+            商品の返品は、もともと商品が通常の状態でなかった場合を除き、配送後の返品は出来ません。W88は、このような状況の責任を負わない権利を保有し、また交換商品の現金への払い戻しなども出来かねます。商品がもともと作動しない等の不具合が起因である懸念がある場合は、商品受取後５日以内に、カスタマーサービスサポート<a href="javascript:load_livechat('en-us');">ライブチャット</a>までご連絡ください。</p>
+           <a name="11.2.4"></a>
+           <p><strong>d.交換品を配送してもらうのに、料金はかかりますか？</strong><br />
+            W88リウォーズクラブチームはあなたのご心配やご配慮を取り去ります。リクエストされた商品の配送代金や保険などの料金は一切かかりません。</p>
+            <a name="11.2.5"></a>
+            <p><strong>e.どのくらいで交換品を受け取れますか？</strong><br />
+            あなたの交換リクエストを確認し、お手続きをするのに約10営業日かかります。（地域によって異なります）あなたの交換リクエストが商品配送部にて&ldquo;完了&rdquo;後、約5-15営業日の間で商品がお手元に届きます。</p>     
+
+          </div>
+
+<!------------------------------>
+
+          <a name="12"></a><div id="12" class="12 section-header">12.W88のホイールオブフォーチュンとは何ですか？
+</div>
+          
+          <div class="section-content open12">
+            <p>このすばらしいプログラムは私たちのすべてのメンバーに勝利と興奮、最新のプロモーションをお手に出来る機会と、継続的なサポートをご提供するためのものです。</p>
+            <a name="12.1.1"></a>
+            <p><strong>a. どのようなメンバーが、W88のホイールオブフォーチュンのフリースピンをゲットできるのですか？</strong><br />
+ 私たちへすでに登録頂きアカウントをお持ちである事、そして週に１回以上のご入金を頂いているメンバーの方すべてに、フリースピンの権利があります。</p>
+            <a name="12.1.2"></a>
+            <p><strong>b.W88ホイールオブフォーチュンはどのようなプロセスでなされるのですか？</strong><br />
+            W88リウォードクラブはあなたの入金に伴い、毎週１回のフリースピンを進呈します。リウォーズページを開いてホイールオブフォーチュンのタブをクリックするだけ、&ldquo;今すぐスピン&rdquo;という表示が現れます。</p>
+            <a name="12.1.3"></a>
+            <p><strong>c.報酬ポイント/無料ベット/プロモーション/商品はすぐに手続きされますか？</strong><br />
+              受賞者の&ldquo;報酬ポイント&rdquo;と&ldquo;無料ベット&rdquo;は即座にあなたのアカウントに反映されます。<br /><br />   
+              i. &ldquo;プロモーション&rdquo;の受賞者ついては、カスタマーサービスより２４時間以内にお知らせし、お手続きの前にT&Cキャンペーンのメンバーとして受付の必要があります。<br />
+              ii. &ldquo;商品&rdquo;の受賞者については、リウォーズチームが配達の詳細お知らせのためとT&Cのメンバー受付のために受賞者にご連絡します。メンバーは、その後15日以内に商品詳細と共にお届けが可能になります。<br /><br />
+
+             注：もしすべての勝者が連絡不可能な場合や提供された情報が不十分の場合、また受賞より7日間たっても連絡が取れない場合においては、その受賞は無効とみなされ、他のレクリエーションメンバーの再度獲得チャンスのために、ホイールオブフォーチュン・スピンチャンスへ戻されます。<br /></p>
+
+            <a name="12.1.4"></a>
+            <p><strong>d.私は今度はいつ、ホイールオブフォーチュンの次のスピンを楽しめますか？</strong><br />
+            無料スピンは毎週日曜日の真夜中23：59：59（GT+8）に締め切られます。あなたは次の週に新たな無料スピンを獲得できます。</p>
+
+            <p>注：週に１度、あなたの無料スピンチャンスにチャレンジする事を忘れないでください。未使用のスピンチャンスは次回に積み立てたり、他者と交換したり、他のものと調整したりする事は出来かねます。</p>
+          </div>
+
+
+          <a name="13"></a><div id="13" class="13 section-header">13.私がリベートもしくはリロードプログラムにある場合、アカウントで報酬ポイントをゲットすることは可能ですか？</div>
+          
+          <div class="section-content open13">
+            <p>はい、可能です。あなたのアカウントが通常のリロードもしくはリベートプログラムを受けている間でもあなたは報酬ポイントを獲得することが出来ます。</p>
+          </div>
+
+<!-------------------------------->
+</div>
+            </div> </div>
+<!--      </div>-->
+    <br class="clearfloat" />
+<!--<a href="#" id="gotop" rel="nofollow"><img src="images/goTop.gif" title="Back to Top"/></a>
+<script type="text/javascript" src="js/goTop.js"></script>-->
+</div>
+</body>
+</html>

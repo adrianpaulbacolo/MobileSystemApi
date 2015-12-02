@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+    <message>
+        <![CDATA[
+            <h4 class="title">클럽 팔라쪼 다운로드 버젼을 시작하는 세가지 방법</h4>
+            <ol>
+                <li>아래의 다운로드 버튼을 클릭하세요</li>
+                <li>고객님의 로컬 하드 드라이브에 실행 또는 저장을 클릭하시면 설치됩니다.</li>
+                <li>고객님의 아이디 앞에 "<strong>W88</strong>"를 붙이신 후 그 아이디로 로그인을 하세요</li>
+            </ol>
+            <p>
+                <span class="label">예를 들어:</span> <br>
+                고객님의 아이디가 "luckyplayer"이면, "<strong>W88</strong>LUCKYPLAYER"로 로그인 하시면 됩니다.
+            </p>
+        ]]>
+    </message>
+    <downloadnow><![CDATA[지금 다운로드]]></downloadnow>
+</default>

@@ -1,0 +1,156 @@
+﻿//
+// Side Navigation
+// -------------------------------
+
+#divPanel {
+    @include bg-gradient();
+
+    ul, ol {
+        padding: 0;
+        list-style: none;
+        ul {display: none}
+    }
+
+    li {
+        &, a {text-align: center}
+    }
+    li > .ui-btn {
+        padding: .5em;
+        background: none transparent;
+        border-bottom: 1px solid $border-color !important;
+    }
+    [class^="icon-"],
+    [class*=" icon-"] {
+        font-size: 2.285714285714286em; // 32px
+        color: $primary-color;
+    }
+    .label {
+        font-size: .7857em; // 11px
+        color: $energized;
+        margin-top: .5em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-transform: uppercase;
+    }
+    a {
+        @include transition(.3s);
+        &.active,
+        &.ui-btn-active,
+        &:hover,
+        &:focus {
+            &, * {
+                color: $strong-color !important;
+            }
+            background-color: $primary-color !important;
+        }
+    }
+}
+
+// -- Sub-NavOPen
+// -------------------------------
+
+// Fixed
+.nav-menu {
+    width: $panel-width;
+    &.ui-listview > li {
+        position: static;
+    }
+    .sub-menu {
+        @extend .row, .row-wrap;
+        position: fixed;
+        left: $panel-width;
+        top: 0; right: 0; bottom: 0;
+        max-width: $panel-width-full - $panel-width;
+        background-color: darken($base-background-color, 5%);
+        overflow-x: auto;
+
+        > .title {
+            color: $brand-color;
+            text-align: left;
+            margin: 1em $grid-padding-width; // 10px
+            text-transform: uppercase;
+        }
+
+        li {
+            @extend .col, .col-50;
+            padding: 0;
+            float: left;
+            text-align: center;
+            a {
+                display: block;
+                padding: $content-padding;
+                margin: $content-padding/5;
+                border: 1px solid $border-color;
+            }
+        }
+        .close {
+            position: fixed;
+            top: $content-padding + 6;
+            left: 285px;
+            display: none; // reveal on 320px width
+        }
+        .tile {
+            [class^="icon-"],
+            [class*=" icon-"] {
+                line-height: 50px;
+            }
+            min-height: 100px;
+            background-color: darken($base-background-color, 6%);
+        }
+    }
+    .menu-link {
+        li {
+            text-align: left !important;
+            @include flex(1);
+            display: block;
+            max-width: 100%;
+            a {
+                text-align: left !important;
+                color: $white;
+                border: none;
+                margin: 0;
+                border-bottom: 1px solid $bgColor-01;
+                &:hover, &:focus {
+                    background-color: $primary-color;
+                }
+            }
+        }
+    }
+}
+
+.open-subnav {
+    // close nav - content blocker
+    .ui-panel-dismiss {
+        left: $panel-width-full;
+    }
+
+    .ui-panel {
+        width: $panel-width-full;
+    }
+    // ANIMATE
+    .ui-panel-animate {
+        &.ui-panel-page-content-position-left { // left open animated
+            @include transform(translate3d($panel-width-full, 0, 0));
+        }
+        &.ui-panel-position-left { // left closed animated
+            &.ui-panel-display-overlay,
+            &.ui-panel-display-push {
+                @include transform(translate3d(-$panel-width-full, 0, 0));
+            }
+        }
+    }
+
+}
+
+//
+// Media Query
+// -------------------------------
+@media screen and (max-width: $iphone5 + 1) {
+    .nav-menu .sub-menu {
+        padding-top: 40px !important;
+        .close {
+            display: inline-block;
+        }
+    }
+}

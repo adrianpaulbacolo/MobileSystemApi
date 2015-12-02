@@ -1,0 +1,74 @@
+﻿#chatLines {
+    text-shadow:none;
+}
+#btnEndChat.ui-btn-up-d {
+    background: #B90000 !important;
+    color: #fff;
+    text-shadow: none;
+}
+
+#btnEndChat.ui-btn-hover-d {
+    background: #B90000 !important;
+    color: #fff;
+    text-shadow: none;
+}
+
+#btnEndChat {
+    display: none;
+}
+
+#divChatSend {
+    display: none;
+}
+
+    #divChatSend > div:first-child {
+        width: 100%;
+        display: table-cell;
+        vertical-align: top;
+        padding-right: 10px;
+    }
+
+    #divChatSend > div:last-child {
+        width: 20%;
+        display: table-cell;
+        vertical-align: top;
+    }
+
+@media all and (max-width: 320px) {
+    #divChatSend {
+        /*border: 1px solid red;*/
+    }
+
+        #divChatSend div {
+        }
+}
+
+.chat-bubble {
+border:1px solid #666;
+overflow: hidden;
+word-wrap: break-word;
+width:90%;
+padding: 5px 0 5px 5px;
+}
+
+.visitor {
+margin: 5px 0;
+color:#fff;
+}
+
+.agent {
+margin: 5px 0 5px auto;
+color:#00AFAF;
+}
+
+.system {
+    color:#aaa;
+    font-style:italic;
+}
+
+#divWaitFor , #divChatWith {
+    color:#aaa;
+    font-style:italic;
+}
+
+        .page-content { max-width:750px; margin-left:auto; margin-right:auto; padding-bottom:.5em;}

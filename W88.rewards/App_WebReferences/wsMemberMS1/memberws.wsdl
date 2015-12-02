@@ -1,0 +1,1382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="MemberRegistration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="postal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="countryCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="currencyCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="gender" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="oddsType" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="languageCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="affiliateId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="referBy" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="signupIP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="signupSiteURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="testAccount" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dob" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberRegistrationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberRegistrationResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberRegistrationNew">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="postal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="countryCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="currencyCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="gender" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="oddsType" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="languageCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="affiliateId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="referBy" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="signupIP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="signupSiteURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="testAccount" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dob" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="cardCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberRegistrationNewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberRegistrationNewResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckMemberCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckMemberCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckMemberCodeResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckEmailResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCountryInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCountryInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCountryInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberSignin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sitURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loginIP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberSigninResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberSigninResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProductSignin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loginIP" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProductSigninResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProductSigninResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberSigninNew">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sitURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loginIP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberSigninNewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberSigninNewResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberRegistrationPart2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="memberId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dob" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="securityQuestion" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="securityAnswer" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberRegistrationPart2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MemberRegistrationPart2Result" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberProfileUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="memberId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="postal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="gender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dob" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="verifyPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="languageCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="securityQuestion" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="securityAnswer" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="oddsType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberProfileUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MemberProfileUpdateResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberChangePassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="memberId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="currentPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberChangePasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MemberChangePasswordResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberSignout">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="memberId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberSignoutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MemberSignoutResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberSessionCheck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loginIP" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberSessionCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberSessionCheckResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="memberId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMemberInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberPartialRegistration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberPartialRegistrationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MemberPartialRegistrationResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberForgotPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="securityQuestion" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="securityAnswer" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberForgotPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MemberForgotPasswordResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberForgotPasswordPartial">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberForgotPasswordPartialResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MemberForgotPasswordPartialResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendRAFEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="memberId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="languageCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="friendName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="friendEmail" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendRAFEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendRAFEmailResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberPromotionRegistration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="memberId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="subjectCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="comment" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberPromotionRegistrationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MemberPromotionRegistrationResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberPromotionRegistrationHistory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="memberId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateFrom" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateTo" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberPromotionRegistrationHistoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberPromotionRegistrationHistoryResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberReferralHistory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="memberId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateFrom" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateTo" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberReferralHistoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberReferralHistoryResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberRAFSendCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="memberId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberRAFSendCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MemberRAFSendCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendEmailVerificationCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="memberId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="languageCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendEmailVerificationCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendEmailVerificationCodeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendContactVerificationCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="memberId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="languageCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendContactVerificationCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendContactVerificationCodeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberSafetyRating">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="memberId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberSafetyRatingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMemberSafetyRatingResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyEmailVerificationCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="memberId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="verificationCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyEmailVerificationCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerifyEmailVerificationCodeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyContactVerificationCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="memberId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="verificationCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyContactVerificationCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerifyContactVerificationCodeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="MemberRegistrationSoapIn">
+    <wsdl:part name="parameters" element="tns:MemberRegistration" />
+  </wsdl:message>
+  <wsdl:message name="MemberRegistrationSoapOut">
+    <wsdl:part name="parameters" element="tns:MemberRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="MemberRegistrationNewSoapIn">
+    <wsdl:part name="parameters" element="tns:MemberRegistrationNew" />
+  </wsdl:message>
+  <wsdl:message name="MemberRegistrationNewSoapOut">
+    <wsdl:part name="parameters" element="tns:MemberRegistrationNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckMemberCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckMemberCode" />
+  </wsdl:message>
+  <wsdl:message name="CheckMemberCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckMemberCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckEmail" />
+  </wsdl:message>
+  <wsdl:message name="CheckEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCountryInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCountryInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetCountryInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCountryInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="MemberSigninSoapIn">
+    <wsdl:part name="parameters" element="tns:MemberSignin" />
+  </wsdl:message>
+  <wsdl:message name="MemberSigninSoapOut">
+    <wsdl:part name="parameters" element="tns:MemberSigninResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductSigninSoapIn">
+    <wsdl:part name="parameters" element="tns:ProductSignin" />
+  </wsdl:message>
+  <wsdl:message name="ProductSigninSoapOut">
+    <wsdl:part name="parameters" element="tns:ProductSigninResponse" />
+  </wsdl:message>
+  <wsdl:message name="MemberSigninNewSoapIn">
+    <wsdl:part name="parameters" element="tns:MemberSigninNew" />
+  </wsdl:message>
+  <wsdl:message name="MemberSigninNewSoapOut">
+    <wsdl:part name="parameters" element="tns:MemberSigninNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="MemberRegistrationPart2SoapIn">
+    <wsdl:part name="parameters" element="tns:MemberRegistrationPart2" />
+  </wsdl:message>
+  <wsdl:message name="MemberRegistrationPart2SoapOut">
+    <wsdl:part name="parameters" element="tns:MemberRegistrationPart2Response" />
+  </wsdl:message>
+  <wsdl:message name="MemberProfileUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:MemberProfileUpdate" />
+  </wsdl:message>
+  <wsdl:message name="MemberProfileUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:MemberProfileUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="MemberChangePasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:MemberChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="MemberChangePasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:MemberChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="MemberSignoutSoapIn">
+    <wsdl:part name="parameters" element="tns:MemberSignout" />
+  </wsdl:message>
+  <wsdl:message name="MemberSignoutSoapOut">
+    <wsdl:part name="parameters" element="tns:MemberSignoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="MemberSessionCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:MemberSessionCheck" />
+  </wsdl:message>
+  <wsdl:message name="MemberSessionCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:MemberSessionCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMemberInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMemberInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="MemberPartialRegistrationSoapIn">
+    <wsdl:part name="parameters" element="tns:MemberPartialRegistration" />
+  </wsdl:message>
+  <wsdl:message name="MemberPartialRegistrationSoapOut">
+    <wsdl:part name="parameters" element="tns:MemberPartialRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="MemberForgotPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:MemberForgotPassword" />
+  </wsdl:message>
+  <wsdl:message name="MemberForgotPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:MemberForgotPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="MemberForgotPasswordPartialSoapIn">
+    <wsdl:part name="parameters" element="tns:MemberForgotPasswordPartial" />
+  </wsdl:message>
+  <wsdl:message name="MemberForgotPasswordPartialSoapOut">
+    <wsdl:part name="parameters" element="tns:MemberForgotPasswordPartialResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendRAFEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:SendRAFEmail" />
+  </wsdl:message>
+  <wsdl:message name="SendRAFEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:SendRAFEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="MemberPromotionRegistrationSoapIn">
+    <wsdl:part name="parameters" element="tns:MemberPromotionRegistration" />
+  </wsdl:message>
+  <wsdl:message name="MemberPromotionRegistrationSoapOut">
+    <wsdl:part name="parameters" element="tns:MemberPromotionRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="MemberPromotionRegistrationHistorySoapIn">
+    <wsdl:part name="parameters" element="tns:MemberPromotionRegistrationHistory" />
+  </wsdl:message>
+  <wsdl:message name="MemberPromotionRegistrationHistorySoapOut">
+    <wsdl:part name="parameters" element="tns:MemberPromotionRegistrationHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="MemberReferralHistorySoapIn">
+    <wsdl:part name="parameters" element="tns:MemberReferralHistory" />
+  </wsdl:message>
+  <wsdl:message name="MemberReferralHistorySoapOut">
+    <wsdl:part name="parameters" element="tns:MemberReferralHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="MemberRAFSendCountSoapIn">
+    <wsdl:part name="parameters" element="tns:MemberRAFSendCount" />
+  </wsdl:message>
+  <wsdl:message name="MemberRAFSendCountSoapOut">
+    <wsdl:part name="parameters" element="tns:MemberRAFSendCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendEmailVerificationCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:SendEmailVerificationCode" />
+  </wsdl:message>
+  <wsdl:message name="SendEmailVerificationCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:SendEmailVerificationCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendContactVerificationCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:SendContactVerificationCode" />
+  </wsdl:message>
+  <wsdl:message name="SendContactVerificationCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:SendContactVerificationCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberSafetyRatingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMemberSafetyRating" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberSafetyRatingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMemberSafetyRatingResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerifyEmailVerificationCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:VerifyEmailVerificationCode" />
+  </wsdl:message>
+  <wsdl:message name="VerifyEmailVerificationCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:VerifyEmailVerificationCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerifyContactVerificationCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:VerifyContactVerificationCode" />
+  </wsdl:message>
+  <wsdl:message name="VerifyContactVerificationCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:VerifyContactVerificationCodeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="memberWSSoap">
+    <wsdl:operation name="MemberRegistration">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Member Registration : Process Code Description&lt;br&gt;1 = Registration Successful&lt;br&gt;10 = Registration Failed - Member Code already exists&lt;br&gt;11 = Registration Failed - Email already exists&lt;br&gt;0 = Error occurred.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:MemberRegistrationSoapIn" />
+      <wsdl:output message="tns:MemberRegistrationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MemberRegistrationNew">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Member Registration : Process Code Description&lt;br&gt;Included Card Integration&lt;br&gt;1 = Registration Successful&lt;br&gt;10 = Registration Failed - Member Code already exists&lt;br&gt;11 = Registration Failed - Email already exists&lt;br&gt;40 = Registration Failed - CardCode already registered&lt;br&gt;0 = Error occurred.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:MemberRegistrationNewSoapIn" />
+      <wsdl:output message="tns:MemberRegistrationNewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckMemberCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">CheckMemberCode : Process Code Description&lt;br&gt;1 = MemberCode does not exist.&lt;br&gt;10 = Member Code already exist.&lt;br&gt;0 = Error occur.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:CheckMemberCodeSoapIn" />
+      <wsdl:output message="tns:CheckMemberCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckEmail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">CheckEmail : Process Code Description&lt;br&gt;1 = Email does not exist.&lt;br&gt;10 = Email already exist.&lt;br&gt;0 = Error occur.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:CheckEmailSoapIn" />
+      <wsdl:output message="tns:CheckEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">GetCountryInfo &lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetCountryInfoSoapIn" />
+      <wsdl:output message="tns:GetCountryInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MemberSignin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Member Signin : Process Code Description&lt;br&gt;1 = Login Successful&lt;br&gt;21 = Member Code does not exist.&lt;br&gt;22 = Member is not active.&lt;br&gt;23 = Member password is wrong.&lt;br&gt;0 = Error occur.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:MemberSigninSoapIn" />
+      <wsdl:output message="tns:MemberSigninSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProductSignin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Product Signin : Process Code Description&lt;br&gt;1 = Login Successful&lt;br&gt;21 = Member Code does not exist.&lt;br&gt;22 = Member is not active.&lt;br&gt;23 = Member password is wrong.&lt;br&gt;0 = Error occur.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:ProductSigninSoapIn" />
+      <wsdl:output message="tns:ProductSigninSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MemberSigninNew">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Member Signin : Process Code Description&lt;br&gt;Included Card Integration&lt;br&gt;1 = Login Successful&lt;br&gt;21 = Member Code does not exist.&lt;br&gt;22 = Member is not active.&lt;br&gt;23 = Member password is wrong.&lt;br&gt;41 = Card Code does not exist.&lt;br&gt;42 = Card Code already registered.&lt;br&gt;43 = Card Code and Password do not match.&lt;br&gt;0 = Error occur.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:MemberSigninNewSoapIn" />
+      <wsdl:output message="tns:MemberSigninNewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MemberRegistrationPart2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Member Registration Part 2 : Process Code Description&lt;br&gt;1 = Registration Successful&lt;br&gt;0 = Error occurred.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:MemberRegistrationPart2SoapIn" />
+      <wsdl:output message="tns:MemberRegistrationPart2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MemberProfileUpdate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Member Profile Update : Process Code Description&lt;br&gt; 1 = Profile Update Successful&lt;br&gt;10 = Password is wrong. Profile not updated.&lt;br&gt; 0 = Error occurred.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:MemberProfileUpdateSoapIn" />
+      <wsdl:output message="tns:MemberProfileUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MemberChangePassword">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">MemberChangePassword : Process Code Description&lt;br&gt;1 = Password Change Successful&lt;br&gt;10 = Same Password. Nothing to Change&lt;br&gt;11 = Old Password is wrong&lt;br&gt;0 = Error occurred.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:MemberChangePasswordSoapIn" />
+      <wsdl:output message="tns:MemberChangePasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MemberSignout">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">MemberSignout : Process Code Description&lt;br&gt;1 = Logout Successful&lt;br&gt;0 = Error occur.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:MemberSignoutSoapIn" />
+      <wsdl:output message="tns:MemberSignoutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MemberSessionCheck">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">MemberSessionCheck : Process Code Description&lt;br&gt;1 = Member is login&lt;br&gt;10 = Member is not login&lt;br&gt;13 = Member is login at another session. (Multiple Login)&lt;br&gt;20 = Member is in VIP club.&lt;br&gt;0 = Error occur.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:MemberSessionCheckSoapIn" />
+      <wsdl:output message="tns:MemberSessionCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Member Info : Process Code Description&lt;br&gt;1 = Login Successful&lt;br&gt;11 = MemberId does not belong to operator.&lt;br&gt;0 = Error occur.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetMemberInfoSoapIn" />
+      <wsdl:output message="tns:GetMemberInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MemberPartialRegistration">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">MemberPartialRegistration : Process Code Description&lt;br&gt; 1 = Partial Signup.&lt;br&gt; 2 = Complete Signup.&lt;br&gt;10 = Member Code does not exist.&lt;br&gt;11 = MemberCode and Email does not match.&lt;br&gt; 0 = Error occur.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:MemberPartialRegistrationSoapIn" />
+      <wsdl:output message="tns:MemberPartialRegistrationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MemberForgotPassword">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">MemberForgotPassword : Process Code Description&lt;br&gt; 1 = Member Password Reset Successful&lt;br&gt;11 = Email/MemberCode does not match.&lt;br&gt;12 = Security Question Does Not Match&lt;br&gt;13 = Security Answer Does Not Match&lt;br&gt; 0 = Error occur.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:MemberForgotPasswordSoapIn" />
+      <wsdl:output message="tns:MemberForgotPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MemberForgotPasswordPartial">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">MemberForgotPasswordPartial : Process Code Description&lt;br&gt; 1 = Member Password Reset Successful&lt;br&gt;11 = Email/MemberCode does not match.&lt;br&gt;12 = Security Question Does Not Match&lt;br&gt;13 = Security Answer Does Not Match&lt;br&gt; 0 = Error occur.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:MemberForgotPasswordPartialSoapIn" />
+      <wsdl:output message="tns:MemberForgotPasswordPartialSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendRAFEmail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendRAFEmail : Process Code Description&lt;br&gt; 1 = Email Send Successful&lt;br&gt;10 = Email Send Failed&lt;br&gt;20 = Already Sent 20 Email Today&lt;br&gt;30 = Email already registered&lt;br&gt;40 = Already Sent 3 Emails to this Email Address Today&lt;br&gt; 0 = Error occurred.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:SendRAFEmailSoapIn" />
+      <wsdl:output message="tns:SendRAFEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MemberPromotionRegistration">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">memberPromotionRegistration : Process Code Description&lt;br&gt;1 = Promo Registration successfully submitted.&lt;br&gt;10 = Promo Registration already submitted.&lt;br&gt;0 = Error occur.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:MemberPromotionRegistrationSoapIn" />
+      <wsdl:output message="tns:MemberPromotionRegistrationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MemberPromotionRegistrationHistory">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">MemberPromotionRegistrationHistory&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:MemberPromotionRegistrationHistorySoapIn" />
+      <wsdl:output message="tns:MemberPromotionRegistrationHistorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MemberReferralHistory">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">MemberReferralHistory&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:MemberReferralHistorySoapIn" />
+      <wsdl:output message="tns:MemberReferralHistorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MemberRAFSendCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">MemberRAFSendCount : Return the number of email sent for today.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:MemberRAFSendCountSoapIn" />
+      <wsdl:output message="tns:MemberRAFSendCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEmailVerificationCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendEmailVerificationCode : Send to member email the verification code.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:SendEmailVerificationCodeSoapIn" />
+      <wsdl:output message="tns:SendEmailVerificationCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendContactVerificationCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendContactVerificationCode : Send to member mobile the verification code.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:SendContactVerificationCodeSoapIn" />
+      <wsdl:output message="tns:SendContactVerificationCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberSafetyRating">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Member Safety Rating&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetMemberSafetyRatingSoapIn" />
+      <wsdl:output message="tns:GetMemberSafetyRatingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyEmailVerificationCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">VerifyEmailVerificationCode : Verify email verification code.&lt;br&gt;1 = Verification Successful&lt;br&gt;10 = Verification Failed - Code Expired&lt;br&gt;11 = Verification Failed - Code is wrong&lt;br&gt;12 = Verification Failed - Code is wrong/Code Expired&lt;br&gt;0 = Error occurred.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:VerifyEmailVerificationCodeSoapIn" />
+      <wsdl:output message="tns:VerifyEmailVerificationCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyContactVerificationCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">VerifyContactVerificationCode : Verify contact verification code.&lt;br&gt;1 = Verification Successful&lt;br&gt;10 = Verification Failed - Code Expired&lt;br&gt;11 = Verification Failed - Code is wrong&lt;br&gt;12 = Verification Failed - Code is wrong/Code Expired&lt;br&gt;0 = Error occurred.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:VerifyContactVerificationCodeSoapIn" />
+      <wsdl:output message="tns:VerifyContactVerificationCodeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="memberWSSoap" type="tns:memberWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MemberRegistration">
+      <soap:operation soapAction="http://tempuri.org/MemberRegistration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberRegistrationNew">
+      <soap:operation soapAction="http://tempuri.org/MemberRegistrationNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckMemberCode">
+      <soap:operation soapAction="http://tempuri.org/CheckMemberCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckEmail">
+      <soap:operation soapAction="http://tempuri.org/CheckEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryInfo">
+      <soap:operation soapAction="http://tempuri.org/GetCountryInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberSignin">
+      <soap:operation soapAction="http://tempuri.org/MemberSignin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductSignin">
+      <soap:operation soapAction="http://tempuri.org/ProductSignin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberSigninNew">
+      <soap:operation soapAction="http://tempuri.org/MemberSigninNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberRegistrationPart2">
+      <soap:operation soapAction="http://tempuri.org/MemberRegistrationPart2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberProfileUpdate">
+      <soap:operation soapAction="http://tempuri.org/MemberProfileUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberChangePassword">
+      <soap:operation soapAction="http://tempuri.org/MemberChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberSignout">
+      <soap:operation soapAction="http://tempuri.org/MemberSignout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberSessionCheck">
+      <soap:operation soapAction="http://tempuri.org/MemberSessionCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberInfo">
+      <soap:operation soapAction="http://tempuri.org/GetMemberInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberPartialRegistration">
+      <soap:operation soapAction="http://tempuri.org/MemberPartialRegistration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberForgotPassword">
+      <soap:operation soapAction="http://tempuri.org/MemberForgotPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberForgotPasswordPartial">
+      <soap:operation soapAction="http://tempuri.org/MemberForgotPasswordPartial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendRAFEmail">
+      <soap:operation soapAction="http://tempuri.org/SendRAFEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberPromotionRegistration">
+      <soap:operation soapAction="http://tempuri.org/MemberPromotionRegistration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberPromotionRegistrationHistory">
+      <soap:operation soapAction="http://tempuri.org/MemberPromotionRegistrationHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberReferralHistory">
+      <soap:operation soapAction="http://tempuri.org/MemberReferralHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberRAFSendCount">
+      <soap:operation soapAction="http://tempuri.org/MemberRAFSendCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmailVerificationCode">
+      <soap:operation soapAction="http://tempuri.org/SendEmailVerificationCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendContactVerificationCode">
+      <soap:operation soapAction="http://tempuri.org/SendContactVerificationCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberSafetyRating">
+      <soap:operation soapAction="http://tempuri.org/GetMemberSafetyRating" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyEmailVerificationCode">
+      <soap:operation soapAction="http://tempuri.org/VerifyEmailVerificationCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyContactVerificationCode">
+      <soap:operation soapAction="http://tempuri.org/VerifyContactVerificationCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="memberWSSoap12" type="tns:memberWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MemberRegistration">
+      <soap12:operation soapAction="http://tempuri.org/MemberRegistration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberRegistrationNew">
+      <soap12:operation soapAction="http://tempuri.org/MemberRegistrationNew" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckMemberCode">
+      <soap12:operation soapAction="http://tempuri.org/CheckMemberCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckEmail">
+      <soap12:operation soapAction="http://tempuri.org/CheckEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetCountryInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberSignin">
+      <soap12:operation soapAction="http://tempuri.org/MemberSignin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductSignin">
+      <soap12:operation soapAction="http://tempuri.org/ProductSignin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberSigninNew">
+      <soap12:operation soapAction="http://tempuri.org/MemberSigninNew" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberRegistrationPart2">
+      <soap12:operation soapAction="http://tempuri.org/MemberRegistrationPart2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberProfileUpdate">
+      <soap12:operation soapAction="http://tempuri.org/MemberProfileUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberChangePassword">
+      <soap12:operation soapAction="http://tempuri.org/MemberChangePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberSignout">
+      <soap12:operation soapAction="http://tempuri.org/MemberSignout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberSessionCheck">
+      <soap12:operation soapAction="http://tempuri.org/MemberSessionCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetMemberInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberPartialRegistration">
+      <soap12:operation soapAction="http://tempuri.org/MemberPartialRegistration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberForgotPassword">
+      <soap12:operation soapAction="http://tempuri.org/MemberForgotPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberForgotPasswordPartial">
+      <soap12:operation soapAction="http://tempuri.org/MemberForgotPasswordPartial" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendRAFEmail">
+      <soap12:operation soapAction="http://tempuri.org/SendRAFEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberPromotionRegistration">
+      <soap12:operation soapAction="http://tempuri.org/MemberPromotionRegistration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberPromotionRegistrationHistory">
+      <soap12:operation soapAction="http://tempuri.org/MemberPromotionRegistrationHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberReferralHistory">
+      <soap12:operation soapAction="http://tempuri.org/MemberReferralHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberRAFSendCount">
+      <soap12:operation soapAction="http://tempuri.org/MemberRAFSendCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmailVerificationCode">
+      <soap12:operation soapAction="http://tempuri.org/SendEmailVerificationCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendContactVerificationCode">
+      <soap12:operation soapAction="http://tempuri.org/SendContactVerificationCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberSafetyRating">
+      <soap12:operation soapAction="http://tempuri.org/GetMemberSafetyRating" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyEmailVerificationCode">
+      <soap12:operation soapAction="http://tempuri.org/VerifyEmailVerificationCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyContactVerificationCode">
+      <soap12:operation soapAction="http://tempuri.org/VerifyContactVerificationCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="memberWS">
+    <wsdl:port name="memberWSSoap" binding="tns:memberWSSoap">
+      <soap:address location="http://ws.ms1dev.com/memberws.asmx" />
+    </wsdl:port>
+    <wsdl:port name="memberWSSoap12" binding="tns:memberWSSoap12">
+      <soap12:address location="http://ws.ms1dev.com/memberws.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

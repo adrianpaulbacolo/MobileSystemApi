@@ -1,0 +1,91 @@
+//
+// Slots
+// -------------------------------
+
+#slots {
+    // .ui-icon-plus:after {
+    //     content: '\e20b'; // icon-expand_more
+    // }
+    .ui-icon-minus:after {
+        content: '\e208'; // icon-chevron_right
+        right: $content-padding/2;
+    }
+    .ui-content {
+        @include bg-gradient();
+    }
+    .ui-collapsible {
+        margin-bottom: .5em;
+        &:first-child {
+            margin-top: .5em;
+        }
+    }
+    .ui-collapsible-heading {
+        .ui-btn {
+            color: $energized;
+            font-size: 1.1em !important;
+            border: none !important;
+            background-color: transparent;
+            padding: .5em;
+        }
+    }
+    .ui-collapsible-collapsed {
+        margin: 0;
+        .ui-btn {
+            color: $strong-color;
+            font-size: 1em !important;
+            background-color: darken($primary-color, 10%);
+            padding: 1em;
+        }
+    }
+    .ui-collapsible-content {
+        border: none;
+        background-color: transparent !important;
+    }
+
+    .div-product {
+        width: 100%;
+        height: 130px;
+        display: block;
+        position: relative;
+        z-index: 1;
+        -ms-touch-action: none;
+        > div:first-child {
+            position: absolute;
+            z-index: 1;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            -webkit-touch-callout: none;
+            @include transform(translateZ(0));
+            @include text-size-adjust(none);
+            @include user-select(none);
+        }
+        ul {
+            width: 100%;
+            list-style: none;
+            margin: 0; padding: 0;
+            white-space: nowrap;
+        }
+    }
+
+    // Card
+    .bkg-game {
+        @extend .play-card;
+    }
+    .div-links {
+        width: 100%;
+        height: 30px;
+        position: absolute;
+        bottom: 0;
+        background-color: rgba(0,0,0,.9);
+        a {
+            color: $strong-color;
+            background-color: $primary-color;
+            width: 50%;
+            position: absolute;
+            left: 0; padding: .5em;
+            &:last-child {
+                left: inherit; right: 0;
+            }
+        }
+    }
+
+}

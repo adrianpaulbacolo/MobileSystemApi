@@ -1,0 +1,56 @@
+﻿<link href="/_Static/Css/Menu.css" rel="stylesheet" />
+<div data-role="panel" data-theme="a" id="divPanel">
+    <ul data-role="listview" data-theme="none" class="nav-menu">
+        <li data-icon="false" class="ui-icon"><a id="aMnuCloseMenu" runat="server" href="#" data-rel="close"><%=commonCulture.ElementValues.getResourceString("closeMenu", commonVariables.LeftMenuXML)%></a></li>
+        <% if (!string.IsNullOrEmpty(commonVariables.SelectedLanguage)) {
+        var language = commonVariables.SelectedLanguage; %>
+        <li data-icon="false" class="ui-icon"><a id="aMnuHome" href="/Index.aspx?lang=<%=language%>" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("home", commonVariables.LeftMenuXML)%></a></li>
+        <% } %>
+        <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+        <li id="liUser" data-icon="false" class="ui-icon"><a id="aMnuUser" runat="server" href="javascript:void(0)" data-ajax="false"><span class="span-user"><%=commonVariables.GetSessionVariable("MemberCode")%></span></a></li>
+        <% } else { %>
+        <li id="liOptions">
+            <div><a class="ui-btn ui-gray ui-mini" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown"><%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></a></div>
+        </li>
+        <% } %>
+         <li data-icon="false" class="ui-icon" id="blueli">Quick Links</li>
+        <li data-icon="false" class="ui-icon"><a rel="about" id="aMnuAbout" href="/_Static/Info/About.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("about", commonVariables.LeftMenuXML)%></a></li>
+        <li data-icon="false" class="ui-icon"><a rel="levels" id="aMnuLevels" href="/_Static/Info/Levels.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("levels", commonVariables.LeftMenuXML)%></a></li>
+
+        <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+        <li data-icon="false" class="ui-icon"><a rel="catalogue" id="aCatalogue" href="/Catalogue" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("catalogue", commonVariables.LeftMenuXML)%></a></li>
+        <% } %>
+          <li data-icon="false" class="ui-icon"><a rel="faq" id="aMnuFAQ" href="/_Static/Info/FAQ.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("faq", commonVariables.LeftMenuXML)%></a></li>
+        <li data-icon="false" class="ui-icon"><a rel="terms" id="aMnuTerms" href="/_Static/Info/Terms.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("terms", commonVariables.LeftMenuXML)%></a></li>
+        <li data-icon="false" class="ui-misc"><a id="aMnuLiveHelp" runat="server" href="/LiveChat/Default.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%></a></li>
+
+        <li data-icon="false" class="ui-misc"><a id="aMnuLanguage" runat="server" href="/Lang.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("language", commonVariables.LeftMenuXML)%></a></li>
+        <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %><li data-icon="false" class="liLogout"><a id="aMnuLogOut" runat="server" href="/Logout" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("logout", commonVariables.LeftMenuXML)%></a></li>
+        <% } %>
+    </ul>
+    <div class="div-other-links"><a id="aMnuDesktop" runat="server" href="javascript:void(0);" onclick="javascript:window.location.href='//www.' + document.domain.substring(document.domain.indexOf('.') + 1);" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("desktopsite", commonVariables.LeftMenuXML)%></a></div>
+    <!--  div class="div-other-links"><a id="aMnuFullScreenMode" runat="server" href="javascript:toggleFullScreen();" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("fullscreenMode", commonVariables.LeftMenuXML)%></a></div> -->
+    <div id="divCopyright">
+        &copy; <%=System.DateTime.Now.Year%> W88.com
+        <br />
+        All rights reserved | 18+
+    </div>
+</div>
+<!-- /panel -->
+<script type="text/javascript">
+    $(function () {
+
+
+        var wcLang = 'EN';
+        switch ('<%=commonVariables.SelectedLanguage.ToLower()%>') {
+            case "id-id": wcLang = "id"; break;
+            case "ko-kr": wcLang = "ko"; break;
+            case "th-th": wcLang = "th"; break;
+            case "zh-cn": wcLang = "zh"; break;
+            default: wcLang = "en"; break;
+        }
+        $('a[rel="awcinfo"]').each(function () {
+            $(this).attr('href', $(this).attr('href').replace('{LANG}', wcLang));
+        });
+    });
+</script>

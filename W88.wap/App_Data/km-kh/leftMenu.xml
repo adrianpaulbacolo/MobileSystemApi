@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menu>
+  <closeMenu><![CDATA[បិទម៉ឺនុយ]]></closeMenu>
+  <home><![CDATA[ទំព័រដើម]]></home>
+  <login><![CDATA[បេឡាធិការ]]></login>
+  <register><![CDATA[ចូលរួមឥឡូវនេះ]]></register>
+  <cashier><![CDATA[បេឡាធិការ]]></cashier>
+  <deposit><![CDATA[ប្រាក់កក់]]></deposit>
+  <transfer><![CDATA[ផេ្ទរ]]></transfer>
+  <withdrawal><![CDATA[ការដកប្រាក់ចេញ]]></withdrawal>
+  <freebets><![CDATA[Claims]]></freebets>
+  <misc><![CDATA[ផ្រេងទៀត]]></misc>
+  <liveHelp><![CDATA[Live Help]]></liveHelp>
+  <contactUs><![CDATA[ទំនាក់ទំនងមកយើងខ្ញុំ]]></contactUs>
+  <helpCenter><![CDATA[ផ្នែកជំនួយ]]></helpCenter>
+  <language><![CDATA[ភាសា]]></language>
+  <logout><![CDATA[ចាកចេញ]]></logout>
+  <products><![CDATA[ផលិតផល]]></products>
+  <desktopsite><![CDATA[សៃថ៍ ផ្ទៃតុ]]></desktopsite>
+  <joinnow><![CDATA[Join Now]]></joinnow>
+</menu>

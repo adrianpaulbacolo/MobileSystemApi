@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btn_submit" xml:space="preserve">
+    <value>ยืนยัน</value>
+  </data>
+  <data name="default_address" xml:space="preserve">
+    <value>กรุณากรอกที่อยู่ของท่าน</value>
+  </data>
+  <data name="default_affiliate" xml:space="preserve">
+    <value>กรุณากรอกพันธมิตร ID</value>
+  </data>
+  <data name="default_agreement" xml:space="preserve">
+    <value>กรุณาทำเครื่องหมายเพื่อยืนยันว่าท่านได้ทำความเข้าใจ และยอมรับข้อกำหนดเงื่อนไขต่างๆของ W88 รวมถึงกฎของเกมส์, นโยบายความเป็นส่วนตัว, การใช้งานคุ๊กกี้ และนโยบายต่างๆ ที่เกี่ยวข้องกับการตรวจสอบอายุผู้ใช้งานเว็บไซต์</value>
+  </data>
+  <data name="default_captcha" xml:space="preserve">
+    <value>กรุณากรอกรหัสที่ถูกต้อง</value>
+  </data>
+  <data name="default_city" xml:space="preserve">
+    <value>กรุณากรอกชื่อเมือง</value>
+  </data>
+  <data name="default_confirm_password" xml:space="preserve">
+    <value>กรุณากรอกรหัสผ่านของท่านอีกครั้ง</value>
+  </data>
+  <data name="default_contact_no" xml:space="preserve">
+    <value>กรุณากรอกหมายเลขโทรศัพท์ของท่าน</value>
+  </data>
+  <data name="default_contact_no_country" xml:space="preserve">
+    <value>กรุณาเลือกรหัสประเทศ</value>
+  </data>
+  <data name="default_currency" xml:space="preserve">
+    <value>กรุณาเลือกสกุลเงินที่ท่านต้องการ&lt;br /&gt;สกุลเงินที่ท่านเลือกจะไม่สามารถเปลี่ยนแปลงได้</value>
+  </data>
+  <data name="default_current_password" xml:space="preserve">
+    <value> กรุณากรอกรหัสผ่านปัจจุบันของท่าน</value>
+  </data>
+  <data name="default_dob" xml:space="preserve">
+    <value>กรุณากรอก วัน/เดือน/ปี เกิดของท่าน</value>
+  </data>
+  <data name="default_email" xml:space="preserve">
+    <value>กรุณากรอกอีเมล์ของท่าน</value>
+  </data>
+  <data name="default_first_name" xml:space="preserve">
+    <value>กรุณากรอกชื่อของท่านเท่านั้น &lt;br /&gt; รายการของบัตร, เช็ค และการโอนเงิน สามารถดำเนินการได้หากชื่อตรงกับบัญชีผู้ใช้งาน</value>
+  </data>
+  <data name="default_gender" xml:space="preserve">
+    <value>เพศ</value>
+  </data>
+  <data name="default_language" xml:space="preserve">
+    <value>กรุณาเลือกภาษาที่ท่านต้องการ</value>
+  </data>
+  <data name="default_last_name" xml:space="preserve">
+    <value>กรุณากรอกนามสกุลของท่านเท่านั้น &lt;br /&gt; รายการของบัตร, เช็ค และการโอนเงิน สามารถดำเนินการได้หากชื่อสกุลตรงกับบัญชีผู้ใช้งาน</value>
+  </data>
+  <data name="default_odds" xml:space="preserve">
+    <value>Please enter odds</value>
+  </data>
+  <data name="default_password" xml:space="preserve">
+    <value>กรุณากรอกรหัสผ่านของท่าน</value>
+  </data>
+  <data name="default_postal" xml:space="preserve">
+    <value>กรุณากรอกรหัสเมือง</value>
+  </data>
+  <data name="default_security_answer" xml:space="preserve">
+    <value>กรุณากรอกคำตอบเพื่อรักษาความปลอดภัย</value>
+  </data>
+  <data name="default_security_question" xml:space="preserve">
+    <value> กรุณาเลือกคำถามเพื่อรักษาความปลอดภัย</value>
+  </data>
+  <data name="default_title" xml:space="preserve">
+    <value>กรุณาเลือกคำนำหน้าชื่อของท่าน</value>
+  </data>
+  <data name="default_username" xml:space="preserve">
+    <value>กรุณากรอกชื่อผู้ใช้งานที่ท่านต้องการ</value>
+  </data>
+  <data name="lbl_address" xml:space="preserve">
+    <value>ที่อยู่</value>
+  </data>
+  <data name="lbl_affiliate" xml:space="preserve">
+    <value>พันธมิตร ID</value>
+  </data>
+  <data name="lbl_agreement" xml:space="preserve">
+    <value>ข้าพเจ้าขอยืนยันว่า เป็นบุคคลที่มีอายุครบ 18 ปีบริบรูณ์ ได้อ่าน ตกลงและยอมรับ &lt;a href='javascript:load_info("/termOfUse_en.shtml");' &gt; และนโยบายที่เกี่ยวข้องกับ &lt;a href='{1}' data-toggle='modal' data-target='#age_policy' &gt;การตรวจสอบอายุของผู้ใช้งานเว็บไซต์ &lt;/a&gt;ทั้งหมดเรียบร้อยแล้ว</value>
+  </data>
+  <data name="lbl_captcha" xml:space="preserve">
+    <value>กรอกรหัสให้ถูกต้อง</value>
+  </data>
+  <data name="lbl_city" xml:space="preserve">
+    <value>เมือง</value>
+  </data>
+  <data name="lbl_confirm_password" xml:space="preserve">
+    <value>ยืนยันรหัสผ่าน</value>
+  </data>
+  <data name="lbl_contact_no" xml:space="preserve">
+    <value>หมายเลขโทรศัพท์ที่ติดต่อได้สะดวก</value>
+  </data>
+  <data name="lbl_country" xml:space="preserve">
+    <value>ประเทศ</value>
+  </data>
+  <data name="lbl_currency" xml:space="preserve">
+    <value>สกุลเงิน</value>
+  </data>
+  <data name="lbl_current_password" xml:space="preserve">
+    <value> รหัสผ่านปัจจุบัน</value>
+  </data>
+  <data name="lbl_dob" xml:space="preserve">
+    <value>วัน เดือน ปี เกิด</value>
+  </data>
+  <data name="lbl_email" xml:space="preserve">
+    <value> อีเมล์</value>
+  </data>
+  <data name="lbl_first_name" xml:space="preserve">
+    <value> ชื่อ</value>
+  </data>
+  <data name="lbl_forgot_login" xml:space="preserve">
+    <value>เป็นสมาชิกกับเราหรือยังค่ะ? ตรวจสอบ  &lt;a href="/forgot_login.aspx" type="member"&gt;ชื่อผู้ใช้งานได้ที่นี่ค่ะ&lt;/a&gt;</value>
+  </data>
+  <data name="lbl_gender" xml:space="preserve">
+    <value> เพศ</value>
+  </data>
+  <data name="lbl_language" xml:space="preserve">
+    <value>ภาษา</value>
+  </data>
+  <data name="lbl_last_name" xml:space="preserve">
+    <value>สกุล</value>
+  </data>
+  <data name="lbl_new_password" xml:space="preserve">
+    <value>รหัสผ่านใหม่</value>
+  </data>
+  <data name="lbl_odds" xml:space="preserve">
+    <value>ประเภทอัตราต่อรอง</value>
+  </data>
+  <data name="lbl_password" xml:space="preserve">
+    <value>รหัสผ่าน</value>
+  </data>
+  <data name="lbl_policy_age" xml:space="preserve">
+    <value>นโยบายการตรวจสอบอายุของผู้ใช้งานเว็บไซต์</value>
+  </data>
+  <data name="lbl_postal" xml:space="preserve">
+    <value>รหัสไปรษณีย์</value>
+  </data>
+  <data name="lbl_security_answer" xml:space="preserve">
+    <value>คำตอบเพื่อรักษาความปลอดภัย</value>
+  </data>
+  <data name="lbl_security_question" xml:space="preserve">
+    <value> คำถามเพื่อรักษาความปลอดภัย</value>
+  </data>
+  <data name="lbl_term_n_condition" xml:space="preserve">
+    <value>ข้อกำหนด &amp; เงื่อนไขการใช้งาน</value>
+  </data>
+  <data name="lbl_title" xml:space="preserve">
+    <value> คำนำหน้าชื่อ</value>
+  </data>
+  <data name="lbl_username" xml:space="preserve">
+    <value>ชื่อผู้ใช้งาน</value>
+  </data>
+  <data name="msg_required" xml:space="preserve">
+    <value>จำเป็นต้องกรอกข้อมูลส่วนนี้</value>
+  </data>
+  <data name="option_gender_f" xml:space="preserve">
+    <value>หญิง</value>
+  </data>
+  <data name="option_gender_m" xml:space="preserve">
+    <value>ชาย</value>
+  </data>
+  <data name="option_security_question" xml:space="preserve">
+    <value>กรุณาเลือกคำถาม</value>
+  </data>
+  <data name="option_title_miss" xml:space="preserve">
+    <value> นางสาว</value>
+  </data>
+  <data name="option_title_mr" xml:space="preserve">
+    <value> นาย</value>
+  </data>
+  <data name="option_title_mrs" xml:space="preserve">
+    <value>  นาง</value>
+  </data>
+</root>

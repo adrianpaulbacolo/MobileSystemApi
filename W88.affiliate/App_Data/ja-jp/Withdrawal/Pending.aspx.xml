@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lblTransactionId><![CDATA[トランザクションID]]></lblTransactionId>
+  <lblRequestDateTime><![CDATA[申請日時]]></lblRequestDateTime>
+  <lblPaymentMethod><![CDATA[支払方法]]></lblPaymentMethod>
+  <lblAmount><![CDATA[金額]]></lblAmount>
+  <lblAction><![CDATA[アクション]]></lblAction>
+
+  <btnCancelWithdrawal><![CDATA[キャンセル]]></btnCancelWithdrawal>
+  <lblConfirmWithdrawal><![CDATA[この出金をキャンセルしますか？]]></lblConfirmWithdrawal>
+  <lblHeader><![CDATA[保留中の出金]]></lblHeader>
+</default>

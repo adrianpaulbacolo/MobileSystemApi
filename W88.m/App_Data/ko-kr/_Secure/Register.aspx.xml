@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<register>
+  <lblUsername><![CDATA[아이디]]></lblUsername>
+  <lblPassword><![CDATA[비밀번호]]></lblPassword>
+  <lblEmailAddress><![CDATA[이메일 주소]]></lblEmailAddress>
+  <lblContact><![CDATA[연락 전화번호를 입력해 주세요.]]></lblContact>
+  <lblCurrency><![CDATA[통화]]></lblCurrency>
+  <drpCurrencySelect><![CDATA[통화 선택]]></drpCurrencySelect>
+
+  <lblOptionFields><![CDATA[Optional Fields]]></lblOptionFields>
+  <lblFirstName><![CDATA[이름( 성 제외)]]></lblFirstName>
+  <lblLastName><![CDATA[성(이름 제외)]]></lblLastName>
+  <lblDOB><![CDATA[생년월일]]></lblDOB>
+  <lblAffiliateID><![CDATA[파트너 제휴 아이디]]></lblAffiliateID>
+
+  <lblCaptcha><![CDATA[코드]]></lblCaptcha>
+  <lblDisclaimer><![CDATA[본인은 W88.com 의 이용약관, 규칙, 개인정보 보호정책에 동의합니다]]></lblDisclaimer>
+  <btnSubmit><![CDATA[회원가입]]></btnSubmit>
+  <btnCancel><![CDATA[취소]]></btnCancel>
+
+  <Calendar>
+    <m1><![CDATA[Jan]]></m1>
+    <m2><![CDATA[Feb]]></m2>
+    <m3><![CDATA[Mar]]></m3>
+    <m4><![CDATA[Apr]]></m4>
+    <m5><![CDATA[May]]></m5>
+    <m6><![CDATA[Jun]]></m6>
+    <m7><![CDATA[Jul]]></m7>
+    <m8><![CDATA[Aug]]></m8>
+    <m9><![CDATA[Sep]]></m9>
+    <m10><![CDATA[Oct]]></m10>
+    <m11><![CDATA[Nov]]></m11>
+    <m12><![CDATA[Dec]]></m12>
+  </Calendar>
+
+  <Currency>
+    <UUS><![CDATA[(UUS) Virtual Currency]]></UUS>
+    <AUD><![CDATA[(AUD) 오스트레일리아 달러]]></AUD>
+    <EUR><![CDATA[(EUR) 유로]]></EUR>
+    <GBP><![CDATA[(GBP) 영국 파운드]]></GBP>
+    <IDR><![CDATA[(IDR) 인도네시아 루피]]></IDR>
+    <MYR><![CDATA[(MYR) 말레이시아 링깃]]></MYR>
+    <RMB><![CDATA[(RMB) 중국 인민패]]></RMB>
+    <THB><![CDATA[(THB) 태국 바트]]></THB>
+    <USD><![CDATA[(USD) 미국 달러]]></USD>
+    <JPY><![CDATA[(JPY) 일본 엔]]></JPY>
+    <KRW><![CDATA[(KRW) 한국 원]]></KRW>
+    <VND><![CDATA[(VND) Vietnamese Dong]]></VND>
+    <INR><![CDATA[(INR) Indian Rupee]]></INR>
+  </Currency>
+</register>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PaymentMethods>
+  <d110101><![CDATA[빠른 입금]]></d110101>
+  <d120203><![CDATA[SDA 페이]]></d120203>
+  <d120204><![CDATA[Next 페이]]></d120204>
+  <d120206><![CDATA[온라인 입금]]></d120206>
+  <d120207><![CDATA[온라인 입금]]></d120207>
+  <d110308><![CDATA[온라인]]></d110308>
+  <w210602><![CDATA[은행송금]]></w210602>
+  <w210709><![CDATA[온라인]]></w210709>
+  <online><![CDATA[온라인]]></online>
+  <offline><![CDATA[오프라인]]></offline>
+</PaymentMethods>

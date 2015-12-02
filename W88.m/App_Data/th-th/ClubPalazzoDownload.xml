@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+    <message>
+        <![CDATA[
+            <h4 class="title">3 ขั้นตอนง่ายๆในการเล่นคลับพาลาซโซเวอร์ชั่นดาวน์โหลด</h4>
+            <ol>
+                <li>คลิกที่ปุ่มดาวน์โหลดด้านล่าง</li>
+                <li>ทำการติดตั้งโปรแกรมเกมส์ด้วยการคลิก RUN หรือ Save เพื่อเก็บข้อมูลที่ Hard drive ของคุณ</li>
+                <li>ทำการเข้าสู่ระบบด้วยการใส่ "<strong>W88</strong>" นำหน้าชื่อผู้ใช้งานของคุณ</li>
+            </ol>
+            <p>
+                <span class="label">ตัวอย่าง:</span> <br>
+                หากชื่อผู้ใช้งานของคุณคือ "luckyplayer", ดังนั้นในการเข้าสู่ระบบคุณต้องใช้ "<strong>W88</strong>LUCKYPLAYER"เป็นต้น
+            </p>
+        ]]>
+    </message>
+    <downloadnow><![CDATA[ดาวน์โหลดทันที]]></downloadnow>
+</default>

@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <Exception><![CDATA[Unknown error, please try again.]]></Exception>
+  <IncorrectVCode><![CDATA[Please enter the 4-Digit Validation Code.]]></IncorrectVCode>
+  <MissingVCode><![CDATA[Please enter the 4-Digit Validation Code.]]></MissingVCode>
+  <SessionExpired><![CDATA[Sorry, your session has expired.\nPlease log in again.]]></SessionExpired>
+  <ServerError><![CDATA[Sorry, a server error has occurred]]></ServerError>
+  
+  <Login>
+    <InvalidUsername><![CDATA[Invalid Username and/or Password.]]></InvalidUsername>
+    <InvalidPassword><![CDATA[Invalid Username and/or Password.]]></InvalidPassword>
+    <InactiveAccount><![CDATA[W88.com: Your account login failed. Please contact our Customer Service 24/7 for assistance.]]></InactiveAccount>    
+    <MissingUsername><![CDATA[Please enter your username]]></MissingUsername>
+    <MissingPassword><![CDATA[Please enter your password]]></MissingPassword>
+    <AccountPending><![CDATA[Your account status pending]]></AccountPending>    
+  </Login>
+
+  <Register>
+    <!--<Success><![CDATA[Welcome to W88, and thank you for opening an account.\nYour account is now ready for you to login and play on W88.com and mobile m.w88.com.]]></Success>-->
+    <Success><![CDATA[Thank you for register with us, we will send your approval confirmation via email.]]></Success>
+    <DuplicateUsername><![CDATA[Username is already registered. Please enter a new Username.]]></DuplicateUsername>
+    <DuplicateEmail><![CDATA[Email address is already registered. Please enter a new email address.]]></DuplicateEmail>
+    <IncorrectVCode><![CDATA[Incorrect verification code]]></IncorrectVCode>
+
+    <MissingUsername><![CDATA[Please enter your username]]></MissingUsername>
+    <MissingPassword><![CDATA[Please enter your password]]></MissingPassword>
+    <MissingEmail><![CDATA[Please enter your email]]></MissingEmail>
+    <MissingContact><![CDATA[Please enter your contact number. \n e.g. +86-111111 (Maximum of 12 characters)]]></MissingContact>
+    <MissingCurrency><![CDATA[Please select your preferred currency]]></MissingCurrency>
+    <!--<MissingFName><![CDATA[Please enter your first name]]></MissingFName>-->
+    <MissingLName><![CDATA[Please enter your last name]]></MissingLName>
+    <MissingVCode><![CDATA[Please enter verification code]]></MissingVCode>
+
+    <MissingFName><![CDATA[Please enter your full name]]></MissingFName>
+    <MissingCountryCode><![CDATA[Please select your preferred Country Code]]></MissingCountryCode>
+    <MissingLanguageCode><![CDATA[Please select your preferred Language Code]]></MissingLanguageCode>
+    <MissingCommissionType><![CDATA[Please select your preferred Commission Type]]></MissingCommissionType>
+    
+    <InvalidUsername><![CDATA[Invalid Username and/or Password.]]></InvalidUsername>
+    <InvalidPassword><![CDATA[Invalid Username and/or Password.]]></InvalidPassword>
+    <InvalidEmail><![CDATA[Invalid email]]></InvalidEmail>
+    <InvalidContact><![CDATA[Invalid contact number]]></InvalidContact>    
+    <!--<InvalidFName><![CDATA[Invalid first name]]></InvalidFName>-->
+    <InvalidLName><![CDATA[Invalid last name]]></InvalidLName>
+    <InvalidDOB><![CDATA[Invalid Date of Birth]]></InvalidDOB>
+    <InvalidVCode><![CDATA[Invalid verfication code]]></InvalidVCode>
+    <chkDisclaimer><![CDATA[You have to agree with our Terms & Conditions & Privacy Policy in order to proceed.]]></chkDisclaimer>
+    <!--<chkDisclaimer><![CDATA[Bets may only be placed by those who are aged 18 or over. We may undertake a search with third party for the purpose of verifying thatyou are 18 or over, W88 reserves the right to ask for the proof of age. Customer accounts may be suspended and funds withheld untill satisfactory proof of age is provided.]]></chkDisclaimer>-->
+
+    <InvalidFName><![CDATA[Invalid full name]]></InvalidFName>
+    <InvalidCurrency><![CDATA[Invalid currency]]></InvalidCurrency>
+    <InvalidCountryCode><![CDATA[Invalid country code]]></InvalidCountryCode>
+    <InvalidAccount><![CDATA[Invalid QQ/MSN/Skype]]></InvalidAccount>
+    <InvalidReferralId><![CDATA[Invalid referral ID]]></InvalidReferralId>
+    <InvalidLanguageCode><![CDATA[Invalid language code]]></InvalidLanguageCode>
+    <InvalidCommissionType><![CDATA[Invalid commission type]]></InvalidCommissionType>
+    <InvalidAddress><![CDATA[Invalid address]]></InvalidAddress>
+    <InvalidCity><![CDATA[Invalid city]]></InvalidCity>
+    <InvalidPostal><![CDATA[Invalid postal]]></InvalidPostal>
+ 
+
+  </Register>
+
+  <!--<UpdateProfile>
+    <Success><![CDATA[Profile updated!]]></Success>
+    <MissingAddress><![CDATA[Please enter your residential address]]></MissingAddress>
+    <MissingCity><![CDATA[Please enter your city]]></MissingCity>
+    <MissingPostal><![CDATA[Please enter your postal code]]></MissingPostal>
+    <MissingSecurityQuestion><![CDATA[Please select your security question]]></MissingSecurityQuestion>
+    <MissingSecurityAnswer><![CDATA[Please enter your security answer]]></MissingSecurityAnswer>
+    <MissingPassword><![CDATA[Please enter your password]]></MissingPassword>
+
+    <InvalidAddress><![CDATA[Invalid address]]></InvalidAddress>
+    <InvalidCity><![CDATA[Invalid city]]></InvalidCity>
+    <InvalidPostal><![CDATA[Invalid postal]]></InvalidPostal>
+    <InvalidSecurityAnswer><![CDATA[Invalid security answer]]></InvalidSecurityAnswer>
+    <IncorrectPassword><![CDATA[Please enter correct password]]></IncorrectPassword>
+  </UpdateProfile>-->
+
+  <UpdateProfile>
+    <Success><![CDATA[Update account information successful]]></Success>
+    <MissingSecurityQuestion><![CDATA[Please select your security question]]></MissingSecurityQuestion>
+    <MissingSecurityAnswer><![CDATA[Please enter security answer]]></MissingSecurityAnswer>
+    <MissingBankAccName><![CDATA[Please enter bank account name]]></MissingBankAccName>
+    <MissingBankAccNo><![CDATA[Please enter bank account number]]></MissingBankAccNo>
+    <MissingBankName><![CDATA[Please enter bank account name]]></MissingBankName>
+    <MissingBankAdd><![CDATA[Please enter bank address]]></MissingBankAdd>
+    
+
+    <InvalidSecurityQuestion><![CDATA[Please select your security question]]></InvalidSecurityQuestion>
+    <InvalidSecurityAnswer><![CDATA[Invalid security answer]]></InvalidSecurityAnswer>
+    <InvalidBankAccName><![CDATA[Please enter bank account name]]></InvalidBankAccName>
+    <InvalidBankAccNo><![CDATA[Please enter bank account number]]></InvalidBankAccNo>
+    <InvalidBankName><![CDATA[Please enter bank account name]]></InvalidBankName>
+    <InvalidBankAdd><![CDATA[Please enter bank address]]></InvalidBankAdd>
+  </UpdateProfile>
+
+  <UpdatePassword>
+    <Success><![CDATA[Password changed!]]></Success>
+    <MissingPassword><![CDATA[Please enter your password]]></MissingPassword>
+    <MissingPasswordNew><![CDATA[Please enter your new password]]></MissingPasswordNew>
+    <MissingPasswordConfirm><![CDATA[Please confirm your new password]]></MissingPasswordConfirm>
+
+    <InvalidPassword><![CDATA[Invalid password]]></InvalidPassword>
+    <IncorrectPassword><![CDATA[Please enter correct password]]></IncorrectPassword>
+    <UnmatchedPassword><![CDATA[Passwords does not match]]></UnmatchedPassword>
+  </UpdatePassword>
+  
+  <SubAffiliate>
+      <MissingValidEmail><![CDATA[Please enter at least 1 valid email address]]></MissingValidEmail>
+      <InvitationFailed><![CDATA[Invitation to affiliate failed]]></InvitationFailed>
+      <InvitationSuccess><![CDATA[Invitation to affiliate successful]]></InvitationSuccess>
+    </SubAffiliate>
+  
+  <FundTransfer>
+    <SelectTransferFrom><![CDATA[Please select a wallet to transfer from.]]></SelectTransferFrom>
+    <SelectTransferTo><![CDATA[Please select a wallet to transfer to.]]></SelectTransferTo>
+    <InputTransferAmount><![CDATA[Please enter your desired transfer amount.]]></InputTransferAmount>
+    <TransferSuccess><![CDATA[Your transaction is successful]]></TransferSuccess>
+    <BalanceBeforeAfter><![CDATA[\nWallet From: {walletFrom}\nWallet To: {walletTo}]]></BalanceBeforeAfter>    
+    <TransferFailed><![CDATA[Your transfer request has failed.]]></TransferFailed>
+    <TransferDeclined><![CDATA[Your transfer request has been declined.]]></TransferDeclined>
+    <UnderMaintenance><![CDATA[Product is under maintenance at the moment. Please try again later.]]></UnderMaintenance>
+    <InvalidFundTransfer><![CDATA[Invalid fund transfer]]></InvalidFundTransfer>
+    <SessionExpired><![CDATA[Sorry, a server error has occurred]]></SessionExpired>
+    <InsufficientFunds><![CDATA[Your transfer request is declined due to insufficient funds]]></InsufficientFunds>
+    <MinTransferNotMet><![CDATA[Sorry, you have not meet the minimum transfer amount.]]></MinTransferNotMet>
+    <TransferAmountDisallowed><![CDATA[Sorry, transfer amount is not allowed.]]></TransferAmountDisallowed>
+    <ERR01><![CDATA[- ERR01: Failure to complete transaction]]></ERR01>
+    <USDDeposited><![CDATA[ has been deposited.]]></USDDeposited>
+    <RolloverNotMet><![CDATA[Sorry, you have not met your rollover amount.]]></RolloverNotMet>
+    <RolloverAmountNeeded><![CDATA[Rollover amount needed: ]]></RolloverAmountNeeded>
+    <TransferAmountAllowed><![CDATA[Amount allowed: ]]></TransferAmountAllowed>
+    <BonusAmount><![CDATA[Bonus Amount: ]]></BonusAmount>
+  </FundTransfer>
+  <Promotion>
+    <InvalidPromo><![CDATA[Invalid promo code]]></InvalidPromo>
+    <PromoAlreadyClaimed><![CDATA[Promo has already been claimed.]]></PromoAlreadyClaimed>
+    <PromoGroupAlreadyClaimed><![CDATA[Sorry, you have already have a claim in the bonus group.]]></PromoGroupAlreadyClaimed>
+
+    <RegisterSuccess><![CDATA[Bravo! Your submission was successful. Thank you.]]></RegisterSuccess>
+    <VipOnly><![CDATA[This Promotion is EXCLUSIVELY for VIP Members ONLY.\n~Feel The Difference for Being Part of Prestige Club~]]></VipOnly>
+    <SubmitOnce><![CDATA[Only allow to submit once.]]></SubmitOnce>
+  </Promotion>
+
+  <Deposit>
+    <TransferSuccess><![CDATA[Your request has been submitted successfully.]]></TransferSuccess>    
+    <TransferFail><![CDATA[Request Submission Fail]]></TransferFail>
+    
+    <MissingDepositAmount><![CDATA[Please enter a deposit amount]]></MissingDepositAmount>
+    <MissingReferenceId><![CDATA[Please enter a Reference ID]]></MissingReferenceId>
+    <MissingAccountName><![CDATA[Please enter your account name]]></MissingAccountName>
+    <MissingAccountNumber><![CDATA[Please enter your account number]]></MissingAccountNumber>
+    <MissingBankName><![CDATA[Please enter your other bank name]]></MissingBankName>
+    <SelectSystemAccount><![CDATA[Please select a system account]]></SelectSystemAccount>
+    <SelectDepositChannel><![CDATA[Please select a deposit channel]]></SelectDepositChannel>
+    <SelectBank><![CDATA[Please select a bank]]></SelectBank>
+    <InvalidDepositAmount><![CDATA[Invalid deposit amount]]></InvalidDepositAmount>
+    <InvalidReferenceId><![CDATA[Invalid reference ID]]></InvalidReferenceId>
+    <InvalidBankName><![CDATA[Invalid bank name]]></InvalidBankName>
+    <InvalidAccountName><![CDATA[Invalid account name]]></InvalidAccountName>
+    <InvalidAccountNumber><![CDATA[Invalid account number]]></InvalidAccountNumber>
+    <InvalidDateTime><![CDATA[Invalid Date/Time]]></InvalidDateTime>
+
+    <TotalAllowedExceeded><![CDATA[Amount is more than total allowed]]></TotalAllowedExceeded>
+    <AmountMinLimit><![CDATA[Amount is less than min limit]]></AmountMinLimit>
+    <AmountMaxLimit><![CDATA[Amount is more than max limit]]></AmountMaxLimit>
+
+    <error-1><![CDATA[Sorry, a server error has occurred]]></error-1>
+    <error-2><![CDATA[Deposit not allowed]]></error-2>
+    <error-3><![CDATA[Invalid deposit method]]></error-3>
+    <error-4><![CDATA[Maximum limit exceeded]]></error-4>
+    <error-5><![CDATA[Minimum limit not reached]]></error-5>
+    <error-6><![CDATA[Maximum daily limit exceeded]]></error-6>
+    <error-7><![CDATA[Maximum daily submission count exceeded]]></error-7>
+    <error-99><![CDATA[Sorry, a server error has occurred]]></error-99>
+
+    <Exception><![CDATA[Unable to process request]]></Exception>
+    <!--
+    <errorAmountMinLimit><![CDATA[Amount is less than min limit]]></errorAmountMinLimit>
+    <errorAmountMaxLimit><![CDATA[Amount is more than max limit]]></errorAmountMaxLimit>
+    <errorAmountTotalAllowed><![CDATA[Amount is more than total allowed]]></errorAmountTotalAllowed>
+    <exceptionCreateTransaction><![CDATA[Unable to process request]]></exceptionCreateTransaction>
+    <errorMaxLength><![CDATA[- Maximum length exceeded for {0}]]></errorMaxLength>
+    <errorInput><![CDATA[Please enter a valid {0}]]></errorInput>
+    <errorSelect><![CDATA[Please select a valid {0}]]></errorSelect>
+    <errorSelectFile><![CDATA[Please select a valid image file with max size 2Mb]]></errorSelectFile>
+    <errorDateRange><![CDATA[Please select a valid Deposit Date/Time with  than 72 hours]]></errorDateRange>
+    <errorSelectTitle><![CDATA[Required field]]></errorSelectTitle>
+    <errorPositiveNumberTitle><![CDATA[Invalid amount]]></errorPositiveNumberTitle>
+    <errorAlphaNumericTitle><![CDATA[Alphanumeric only]]></errorAlphaNumericTitle>
+    <errorDateRangeTitle><![CDATA[Date range error]]></errorDateRangeTitle>
+    <errorMinLimitTitle><![CDATA[Min limit not reached]]></errorMinLimitTitle>
+    <errorMaxLimitTitle><![CDATA[Max limit exceeded]]></errorMaxLimitTitle>
+    <errorTotalAllowedTitle><![CDATA[Total allowed exceeded]]></errorTotalAllowedTitle>
+    <okButton><![CDATA[OK]]></okButton>
+    <cancelButton><![CDATA[CANCEL]]></cancelButton>
+    -->
+  </Deposit>
+
+  <Withdrawal>
+    <TransferSuccess><![CDATA[Your request has been submitted successfully.]]></TransferSuccess>
+    <TransferFail><![CDATA[Request Submission Fail]]></TransferFail>
+    
+    <MissingWithdrawAmount><![CDATA[Please enter a withdrawal amount]]></MissingWithdrawAmount>
+    <MissingAccountName><![CDATA[Please enter your account name]]></MissingAccountName>
+    <MissingAccountNumber><![CDATA[Please enter your account number]]></MissingAccountNumber>
+    <MissingBankName><![CDATA[Please enter your other bank name]]></MissingBankName>
+    <MissingBankBranch><![CDATA[Please enter your bank branch]]></MissingBankBranch>
+    <MissingBankAddress><![CDATA[Please enter your bank address]]></MissingBankAddress>
+    <MissingMyKad><![CDATA[Please enter your MyKad ID]]></MissingMyKad>
+    <SelectBank><![CDATA[Please select a bank]]></SelectBank>
+    <InvalidWithdrawAmount><![CDATA[Invalid withdraw amount]]></InvalidWithdrawAmount>
+    <InvalidBankName><![CDATA[Invalid bank name]]></InvalidBankName>
+    <InvalidBankBranch><![CDATA[Invalid bank branch]]></InvalidBankBranch>
+    <InvalidBankAddress><![CDATA[Invalid bank address]]></InvalidBankAddress>
+    <InvalidAccountName><![CDATA[Invalid account name]]></InvalidAccountName>
+    <InvalidAccountNumber><![CDATA[Invalid account number]]></InvalidAccountNumber>
+    <InvalidMyKad><![CDATA[Invalid MyKad]]></InvalidMyKad>
+    <InvalidAtmNumber><![CDATA[Invalid ATM Card Number]]></InvalidAtmNumber>
+
+    <TotalAllowedExceeded><![CDATA[Amount is more than total allowed]]></TotalAllowedExceeded>
+    <AmountMinLimit><![CDATA[Amount is less than min limit]]></AmountMinLimit>
+    <AmountMaxLimit><![CDATA[Amount is more than max limit]]></AmountMaxLimit>
+
+    <error-1><![CDATA[Sorry, a server error has occurred]]></error-1>
+    <error-2><![CDATA[Withdrawal not allowed]]></error-2>
+    <error-3><![CDATA[Invalid currency]]></error-3>
+    <error-4><![CDATA[Invalid withdrawal method]]></error-4>
+    <error-5><![CDATA[Minimum / Maximum limit exceeded]]></error-5>
+    <error-6><![CDATA[Maximum daily limit exceeded]]></error-6>
+    <error-7><![CDATA[Maximum daily submission count exceeded]]></error-7>
+    <error-99><![CDATA[Sorry, a server error has occurred]]></error-99>
+
+    <CancelSuccess><![CDATA[Your withdrawal cancellation has been submitted successfully.\nTransaction ID: {trxId}]]></CancelSuccess>
+
+    <Exception><![CDATA[Unable to process request]]></Exception>
+  </Withdrawal>
+</default>

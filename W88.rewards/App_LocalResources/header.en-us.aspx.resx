@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="link_banking_options" xml:space="preserve">
+    <value>Banking Options</value>
+  </data>
+  <data name="link_bingo" xml:space="preserve">
+    <value>BINGO</value>
+  </data>
+  <data name="link_contact_us" xml:space="preserve">
+    <value>Contact Us</value>
+  </data>
+  <data name="link_binary" xml:space="preserve">
+    <value>BINARY</value>
+  </data>
+  <data name="link_grab_a_friend" xml:space="preserve">
+    <value>Grab A Friend</value>
+  </data>
+  <data name="link_help_centre" xml:space="preserve">
+    <value>Info Centre</value>
+  </data>
+  <data name="link_home" xml:space="preserve">
+    <value>HOME</value>
+  </data>
+  <data name="link_about" xml:space="preserve">
+    <value>ABOUT REWARDS</value>
+  </data>
+  <data name="link_catalogue" xml:space="preserve">
+    <value>CATALOGUE</value>
+  </data>
+  <data name="link_tnc" xml:space="preserve">
+    <value>TERMS &amp; CONDITIONS</value>
+  </data>
+  <data name="link_faq" xml:space="preserve">
+    <value>FAQ</value>
+  </data>
+  <data name="link_contactus" xml:space="preserve">
+    <value>CONTACT US</value>
+  </data>
+  <data name="link_lottery" xml:space="preserve">
+    <value>LOTTERY</value>
+  </data>
+  <data name="link_live_casino" xml:space="preserve">
+    <value>LIVE CASINO</value>
+  </data>
+  <data name="link_live_help" xml:space="preserve">
+    <value>Live Chat</value>
+  </data>
+  <data name="link_mobile" xml:space="preserve">
+    <value>MOBILE</value>
+  </data>
+  <data name="link_notification" xml:space="preserve">
+    <value>Notification</value>
+  </data>
+  <data name="link_poker" xml:space="preserve">
+    <value>POKER</value>
+  </data>
+  <data name="link_promotions" xml:space="preserve">
+    <value>PROMOTIONS</value>
+  </data>
+  <data name="link_sports" xml:space="preserve">
+    <value>SPORTS</value>
+  </data>
+  <data name="link_games" xml:space="preserve">
+    <value>GAMES</value>
+  </data>
+  <data name="link_rewards" xml:space="preserve">
+    <value>Rewards</value>
+  </data>
+  <data name="link_login" xml:space="preserve">
+    <value>LOGIN</value>
+  </data>
+  <data name="link_register" xml:space="preserve">
+    <value>JOIN</value>
+  </data>
+  <data name="btn_close_modal" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="link_deposit" xml:space="preserve">
+    <value>Deposit</value>
+  </data>
+  <data name="link_logout" xml:space="preserve">
+    <value>LOGOUT</value>
+  </data>
+  <data name="link_show_balance" xml:space="preserve">
+    <value>Show Balance</value>
+  </data>
+  <data name="link_withdrawal" xml:space="preserve">
+    <value>Withdrawal</value>
+  </data>
+  <data name="link_private_message" xml:space="preserve">
+    <value>Private Messasge</value>
+  </data>
+  <data name="msg_multiple_login" xml:space="preserve">
+    <value>Multiple login detected, please login after redirection</value>
+  </data>
+  <data name="btn_view_announcement" xml:space="preserve">
+    <value>View All</value>
+  </data>
+  <data name="lbl_welcome" xml:space="preserve">
+    <value>Welcome,</value>
+  </data>
+  <data name="link_fund_transfer" xml:space="preserve">
+    <value>Fund Transfer</value>
+  </data>
+  <data name="link_games_crescendo" xml:space="preserve">
+    <value>Crescendo</value>
+  </data>
+  <data name="link_games_palazzo" xml:space="preserve">
+    <value>Palazzo</value>
+  </data>
+  <data name="lbl_pointRemaining1" xml:space="preserve">
+    <value>You need </value>
+  </data>
+  <data name="lbl_pointRemaining2" xml:space="preserve">
+    <value>points </value>
+  </data>
+  <data name="lbl_pointRemaining3" xml:space="preserve">
+    <value>to reach Level </value>
+  </data>
+  <data name="lbl_pointLevel8" xml:space="preserve">
+    <value>You are currently at highest level</value>
+  </data>
+  <data name="lbl_pointRemaining4" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="link_color" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="link_SW" xml:space="preserve">
+    <value>WHEEL OF W88 REWARDS CLUB</value>
+  </data>
+  <data name="link_forgot_login" xml:space="preserve">
+    <value>Forgot login details?</value>
+  </data>
+  <data name="msg_logout" xml:space="preserve">
+    <value>You have been logged out</value>
+  </data>
+</root>

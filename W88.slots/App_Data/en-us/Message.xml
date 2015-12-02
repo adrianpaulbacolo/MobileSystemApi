@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Messages>
+  <Error7><![CDATA[Sorry, you have been disconnected from the game server.<br />Please try again later.<br />Please contact our 24/7 Customer Service Team for assistance if the problem persists.<br />Thank you.]]></Error7>
+  <Error10><![CDATA[Insufficient funds.]]></Error10>
+  <SessionExpired><![CDATA[Your session has expired. Please refresh.]]></SessionExpired>
+  <SessionInvalid><![CDATA[Invalid session. Please login]]></SessionInvalid>
+  <YouHaveWon><![CDATA[You have won ]]></YouHaveWon>
+  <YouHaveWonTotal><![CDATA[You have won a total of ]]></YouHaveWonTotal>
+  <ATotalOf><![CDATA[A total of ]]></ATotalOf>
+</Messages>

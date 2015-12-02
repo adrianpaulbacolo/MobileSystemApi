@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<updateProfile>
+  <lblRequiredFields><![CDATA[Required fields]]></lblRequiredFields>
+  <lblEmail><![CDATA[អ៊ីម៉ែល]]></lblEmail>
+  <lblContact><![CDATA[លេខទំនាក់ទំនង]]></lblContact>
+  <lblUsername><![CDATA[ឈ្មោះគណនី]]></lblUsername>
+  <lblFirstName><![CDATA[ឈ្មោះ]]></lblFirstName>
+  <lblLastName><![CDATA[នាមត្រកូល]]></lblLastName>
+  <lblDOB><![CDATA[ថ្ងៃខែឆ្នាំកំណើត]]></lblDOB>
+  <lblCountry><![CDATA[ប្រទេស]]></lblCountry>
+  <lblCurrency><![CDATA[រូបិយវត្ថុ]]></lblCurrency>
+
+  <Currency>
+    <UUS><![CDATA[(UUS) Virtual Currency]]></UUS>
+    <AUD><![CDATA[(AUD) Australian Dollar]]></AUD>
+    <EUR><![CDATA[(EUR) Euro]]></EUR>
+    <GBP><![CDATA[(GBP) British Pound]]></GBP>
+    <IDR><![CDATA[(IDR) Indonesia Rupiah]]></IDR>
+    <MYR><![CDATA[(MYR) Malaysian Ringgit]]></MYR>
+    <RMB><![CDATA[(RMB) Chinese RenMinBi]]></RMB>
+    <THB><![CDATA[(THB) Thai Baht]]></THB>
+    <USD><![CDATA[(USD) United States Dollar]]></USD>
+    <JPY><![CDATA[(JPY) Japanese Yen]]></JPY>
+    <KRW><![CDATA[(KRW) Korean Won]]></KRW>
+    <VND><![CDATA[(VND) Vietnamese Dong]]></VND>
+    <INR><![CDATA[(INR) Indian Rupee]]></INR>
+  </Currency>
+
+  <lblAddress><![CDATA[អាស័យដ្ឋាន]]></lblAddress>
+  <lblCity><![CDATA[ទីក្រុង]]></lblCity>
+  <lblPostal><![CDATA[ប្រៃសណីយ]]></lblPostal>
+  <lblGender><![CDATA[ភេទ]]></lblGender>
+  <lblOdds><![CDATA[សូមបញ្ចូលហាងឆេង]]></lblOdds>
+  <lblLanguage><![CDATA[ភាសា]]></lblLanguage>
+  <lblPassword><![CDATA[លេខសំងាត់]]></lblPassword>
+
+  <lblSecurityQuestion><![CDATA[សំណួរការពារ]]></lblSecurityQuestion>
+  
+  <drpSecurityQuestion title="Select your security question">
+    <SQ0><![CDATA[:: សូមជ្រើសរើសយកសំណួរដើម្បីសុវត្ថិភាព ::]]></SQ0>
+    <SQ1><![CDATA[តើឈ្មោះកណ្តាលបស់ម្តាយ អ្នកឈ្មោះអ្វី?]]></SQ1>
+    <SQ2><![CDATA[តើឈ្មោះហៅក្រៅកាលពីនៅ កុមារភាពរបស់អ្នក?]]></SQ2>
+    <SQ3><![CDATA[តើការងារក្នុងក្តីសុបិន្តកាលពីនៅ កុមារភាពរបស់អ្នកជាអ្វី?]]></SQ3>
+    <SQ4><![CDATA[តើទីក្រុង ឬ ខេត្តមួយណាដែលជា ទីតាំងរបស់កន្លែងការងារដំបូងអ្នក?]]></SQ4>
+    <SQ5><![CDATA[តើសាលាដំបូងដែលអ្នកបាន ចូលសិក្សាមានឈ្មោះអ្វី?]]></SQ5>
+    <SQ6><![CDATA[តើឈ្មោះកណ្តាលបស់ ឪពុកអ្នកឈ្មោះអ្វី?]]></SQ6>
+  </drpSecurityQuestion>
+
+  <drpLanguage title="Select your preferred language">
+    <en-us><![CDATA[English]]></en-us>
+    <zh-cn><![CDATA[简体中文]]></zh-cn>
+    <vi-vn><![CDATA[Tiếng Việt]]></vi-vn>
+    <th-th><![CDATA[ไทย]]></th-th>
+    <km-kh><![CDATA[ខ្មែរ]]></km-kh>
+    <id-id><![CDATA[Bhs Indonesia]]></id-id>
+    <ko-kr><![CDATA[한국어]]></ko-kr>
+  </drpLanguage>
+
+  <drpOdds>
+    <malay id="1"><![CDATA[ម៉ាឡេស៊ី]]></malay>
+    <hongkong id="2"><![CDATA[ហុងកុង]]></hongkong>
+    <decimal id="3"><![CDATA[ដើម]]></decimal>
+    <indo id="4"><![CDATA[ឥណ្ឌូនេស៊ី]]></indo>
+    <american id="5"><![CDATA[អាមេរិក]]></american>
+  </drpOdds>
+
+  <drpGender>
+    <male><![CDATA[ប្រុស]]></male>
+    <female><![CDATA[ស្រី]]></female>
+  </drpGender>
+
+  <lblSecurityAnswer><![CDATA[ចម្លើយការពារ]]></lblSecurityAnswer>
+
+  <btnSubmit><![CDATA[ស្នើសុំ]]></btnSubmit>
+</updateProfile>

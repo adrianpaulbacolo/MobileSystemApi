@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lblTransactionId><![CDATA[หมายเลขธุรกรรม]]></lblTransactionId>
+  <lblRequestDateTime><![CDATA[วันที่ส่งคำขอ]]></lblRequestDateTime>
+  <lblPaymentMethod><![CDATA[ประเภทการถอนเงิน]]></lblPaymentMethod>
+  <lblAmount><![CDATA[จำนวนเงิน]]></lblAmount>
+  <lblAction><![CDATA[Action]]></lblAction>
+
+  <btnCancelWithdrawal><![CDATA[ยกเลิก]]></btnCancelWithdrawal>
+  <lblConfirmWithdrawal><![CDATA[คุณต้องการทำการยกเลิกใช่หรือไม่]]></lblConfirmWithdrawal>
+</default>

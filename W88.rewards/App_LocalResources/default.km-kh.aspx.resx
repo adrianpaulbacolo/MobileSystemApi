@@ -1,0 +1,474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="lbl_about" xml:space="preserve">
+    <value>អំពីរង្វាន់</value>
+  </data>
+  <data name="lbl_account" xml:space="preserve">
+    <value>គណនី</value>
+  </data>
+  <data name="lbl_account_summary" xml:space="preserve">
+    <value>គណនីសង្ខេប</value>
+  </data>
+  <data name="lbl_add_to_cart" xml:space="preserve">
+    <value>ដាក់ចូលក្នុងទូទំនិញ</value>
+  </data>
+  <data name="lbl_adjusted" xml:space="preserve">
+    <value>ពិន្ទុសរុបដែលបានកែសម្រួល</value>
+  </data>
+  <data name="lbl_adjustment_type" xml:space="preserve">
+    <value>ប្រភេទនៃការកែសម្រួល</value>
+  </data>
+  <data name="lbl_affiliates" xml:space="preserve">
+    <value>ភ្នាល់ងារ</value>
+  </data>
+  <data name="lbl_bet_date" xml:space="preserve">
+    <value>កាលបរិច្ចេទការភ្នាល់</value>
+  </data>
+  <data name="lbl_cart" xml:space="preserve">
+    <value>ពិន្ទុសរុបនៅក្នុងទូទំនិញ</value>
+  </data>
+  <data name="lbl_cart_removed" xml:space="preserve">
+    <value>ទំនិញត្រូវបានយកចេញពីរទូដាក់ទំនិញដោយជោគជ័យ</value>
+  </data>
+  <data name="lbl_cart_success" xml:space="preserve">
+    <value>ទំនិញត្រូវបានបន្ថែមចូលក្នុងទូដាក់ទំនិញដោយជោគជ័យ</value>
+  </data>
+  <data name="lbl_cart_title" xml:space="preserve">
+    <value>ទំនិញនៅក្នុងទូដាក់ទំនិញរបស់អ្នក</value>
+  </data>
+  <data name="lbl_category" xml:space="preserve">
+    <value>ការតាឡុក</value>
+  </data>
+  <data name="lbl_category_code" xml:space="preserve">
+    <value>កូដការតាឡុក</value>
+  </data>
+  <data name="lbl_city" xml:space="preserve">
+    <value>ទីក្រុង</value>
+  </data>
+  <data name="lbl_contact" xml:space="preserve">
+    <value>លេទទូរសព្ទ័សម្រាប់ទំនាក់ទំនង</value>
+  </data>
+  <data name="lbl_contact_us" xml:space="preserve">
+    <value>អំពីយើង</value>
+  </data>
+  <data name="lbl_cont_shopping" xml:space="preserve">
+    <value>បន្តការទិញទំនិញ</value>
+  </data>
+  <data name="lbl_copyrights" xml:space="preserve">
+    <value>&amp; ចម្លង;  {0} W88. រក្សាសិទិ្ធគ្រប់យ៉ាង | ១៨+</value>
+  </data>
+  <data name="lbl_country" xml:space="preserve">
+    <value>ប្រទេស</value>
+  </data>
+  <data name="lbl_currency" xml:space="preserve">
+    <value>រូបិយវត្ថុ</value>
+  </data>
+  <data name="lbl_current" xml:space="preserve">
+    <value>សមតុល្យពិន្ទុបច្ចុប្បន្ន</value>
+  </data>
+  <data name="lbl_date" xml:space="preserve">
+    <value>កាលបរិច្ចេទ</value>
+  </data>
+  <data name="lbl_date_from" xml:space="preserve">
+    <value>កាលបរិច្ចេទពី</value>
+  </data>
+  <data name="lbl_date_to" xml:space="preserve">
+    <value>កាលបរិច្ចេទដល់</value>
+  </data>
+  <data name="lbl_details" xml:space="preserve">
+    <value>ព័ត៌មានលំអិត</value>
+  </data>
+  <data name="lbl_earn" xml:space="preserve">
+    <value>ពិន្ទុរកបាន</value>
+  </data>
+  <data name="lbl_earning" xml:space="preserve">
+    <value>ពិន្ទុរកបានសរុប</value>
+  </data>
+  <data name="lbl_earning_listing" xml:space="preserve">
+    <value>តារាងពិន្ទុរកបាន</value>
+  </data>
+  <data name="lbl_enter_account" xml:space="preserve">
+    <value>សូមបញ្ចូលគណនី</value>
+  </data>
+  <data name="lbl_enter_address" xml:space="preserve">
+    <value>សូមបញ្ចូលអាស័យដ្ឋាន</value>
+  </data>
+  <data name="lbl_enter_contact" xml:space="preserve">
+    <value>សូមបញ្ចូលលេខទំនាក់ទំនង</value>
+  </data>
+  <data name="lbl_enter_name" xml:space="preserve">
+    <value>សូមបញ្ចូលឈ្មោះ</value>
+  </data>
+  <data name="lbl_enter_remarks" xml:space="preserve">
+    <value>សូមបញ្ចូលកំណត់សំគាល់</value>
+  </data>
+  <data name="lbl_expired" xml:space="preserve">
+    <value>ពិន្ទុសរុបដែលបានផុតកំណត់</value>
+  </data>
+  <data name="lbl_expired_listing" xml:space="preserve">
+    <value>តារាងផុតកំណត់</value>
+  </data>
+  <data name="lbl_faq" xml:space="preserve">
+    <value>សំនួរចម្លើយទូទៅ</value>
+  </data>
+  <data name="lbl_first_page" xml:space="preserve">
+    <value>ទំព័រទី១</value>
+  </data>
+  <data name="lbl_help_centre" xml:space="preserve">
+    <value>មជ្ឈមណ្ឌលផ្តល់ព័ត៌មាន</value>
+  </data>
+  <data name="lbl_hot" xml:space="preserve">
+    <value>ពិសេស</value>
+  </data>
+  <data name="lbl_invalid_at_least" xml:space="preserve">
+    <value>បរិមាណមិនត្រឹមត្រូវ បរិមាណយ៉ាងហោចណាស់ចាប់ពីមួយ</value>
+  </data>
+  <data name="lbl_invalid_number" xml:space="preserve">
+    <value>បរិមាណមិនត្រឹមត្រូវ សូមបញ្ចូលចំនួនបរិមាណ</value>
+  </data>
+  <data name="lbl_item_name" xml:space="preserve">
+    <value>ឈ្មោះរបស់</value>
+  </data>
+  <data name="lbl_last_page" xml:space="preserve">
+    <value>ទំព័រចុងក្រោយ</value>
+  </data>
+  <data name="lbl_mailing_address" xml:space="preserve">
+    <value>អាស័យដ្ឋានសារអេឡិចត្រូនិច</value>
+  </data>
+  <data name="lbl_month" xml:space="preserve">
+    <value>ខែ</value>
+  </data>
+  <data name="lbl_name" xml:space="preserve">
+    <value>ឈ្មោះ</value>
+  </data>
+  <data name="lbl_new" xml:space="preserve">
+    <value>ថ្មី</value>
+  </data>
+  <data name="lbl_no_record_found" xml:space="preserve">
+    <value>មិនមានកំណត់ហេតុ</value>
+  </data>
+  <data name="lbl_of" xml:space="preserve">
+    <value>នៃ</value>
+  </data>
+  <data name="lbl_page" xml:space="preserve">
+    <value>ទំព័រ</value>
+  </data>
+  <data name="lbl_per_page" xml:space="preserve">
+    <value>១ទំព័រ</value>
+  </data>
+  <data name="lbl_points" xml:space="preserve">
+    <value>ពិន្ទុ</value>
+  </data>
+  <data name="lbl_points_adjusted" xml:space="preserve">
+    <value>ពិន្ទុដែលបានកែសម្រួល</value>
+  </data>
+  <data name="lbl_points_expired" xml:space="preserve">
+    <value>ពិន្ទុដែលផុតកំណត់</value>
+  </data>
+  <data name="lbl_points_insufficient" xml:space="preserve">
+    <value>១- ពិន្ទុរបស់លោកអ្នកមិនគ្រប់គ្រាន់ទេ។ សូមមេត្តាសន្សំពិន្ទុរង្វាន់បន្ថែមទៀតសំរាប់ការរំលោះ!</value>
+  </data>
+  <data name="lbl_points_redeemed" xml:space="preserve">
+    <value>ពិន្ទុប្តូររង្វាន់</value>
+  </data>
+  <data name="lbl_postal" xml:space="preserve">
+    <value>ប្រៃសណីយ៌</value>
+  </data>
+  <data name="lbl_product" xml:space="preserve">
+    <value>ផលិតផល</value>
+  </data>
+  <data name="lbl_product_code" xml:space="preserve">
+    <value>កូដផលិតផល</value>
+  </data>
+  <data name="lbl_product_desc" xml:space="preserve">
+    <value>ពិពណ៌នាផលិតផល</value>
+  </data>
+  <data name="lbl_quantity" xml:space="preserve">
+    <value>បរិមាណ</value>
+  </data>
+  <data name="lbl_quantity_success" xml:space="preserve">
+    <value>បរិមាណត្រូវបានកែសំរួលជោគជ័យ</value>
+  </data>
+  <data name="lbl_range" xml:space="preserve">
+    <value>ចាប់ពី</value>
+  </data>
+  <data name="lbl_receipient" xml:space="preserve">
+    <value>អ្នកទទួល</value>
+  </data>
+  <data name="lbl_redeem" xml:space="preserve">
+    <value>ប្តូររង្វាន់</value>
+  </data>
+  <data name="lbl_redeem_info" xml:space="preserve">
+    <value>ព័ត៌មានការប្តូររង្វាន់</value>
+  </data>
+  <data name="lbl_redeem_now" xml:space="preserve">
+    <value>ប្តូររង្វាន់ឥឡូវនេះ</value>
+  </data>
+  <data name="lbl_redeem_success_processed" xml:space="preserve">
+    <value>ការប្តូរយករង្វាន់បានជោគជ័យ</value>
+  </data>
+  <data name="lbl_redeem_success_submit" xml:space="preserve">
+    <value>ការប្តូរយករង្វាន់ត្រូវបានដាក់ស្នើជោគជ័យ</value>
+  </data>
+  <data name="lbl_redeem_vip" xml:space="preserve">
+    <value>ការប្ទូរយករង្វាន់នេះត្រូវបានជ្រើសរើសសមាជិកពិសេសតែប៉ុណ្ណោះ ~ មុខងារផ្សេងគ្នាសម្រាប់ជាផ្នែកនៃក្លឹបកិត្យានុភាព ~</value>
+  </data>
+  <data name="lbl_redemption" xml:space="preserve">
+    <value>ពិន្ទុសរុបនៃការប្តូររង្វាន់</value>
+  </data>
+  <data name="lbl_redemption_id" xml:space="preserve">
+    <value>អត្ដសញ្ញាណនៃការប្តូររង្វាន់</value>
+  </data>
+  <data name="lbl_redemption_listing" xml:space="preserve">
+    <value>តារាងនៃការប្តូររង្វាន់</value>
+  </data>
+  <data name="lbl_remarks" xml:space="preserve">
+    <value>កំណត់សម្គាល់</value>
+  </data>
+  <data name="lbl_responsible" xml:space="preserve">
+    <value>ការទទួលខុសត្រូវផ្នែកហ្គេម</value>
+  </data>
+  <data name="lbl_rewards" xml:space="preserve">
+    <value>រង្វាន់</value>
+  </data>
+  <data name="lbl_search" xml:space="preserve">
+    <value>ស្វែងរក</value>
+  </data>
+  <data name="lbl_sort" xml:space="preserve">
+    <value>រៀបតាម</value>
+  </data>
+  <data name="lbl_status" xml:space="preserve">
+    <value>ស្ថានភាព</value>
+  </data>
+  <data name="lbl_title" xml:space="preserve">
+    <value>ឈ្មោះ</value>
+  </data>
+  <data name="lbl_tnc" xml:space="preserve">
+    <value>លក្ខខណ័្ឌទូទៅ</value>
+  </data>
+  <data name="lbl_to" xml:space="preserve">
+    <value>ទៅ</value>
+  </data>
+  <data name="lbl_total" xml:space="preserve">
+    <value>សរុប</value>
+  </data>
+  <data name="lbl_total_stake" xml:space="preserve">
+    <value>ប្រាក់ភ្នាល់សរុប</value>
+  </data>
+  <data name="lbl_update" xml:space="preserve">
+    <value>កែសំរួល</value>
+  </data>
+  <data name="lbl_view" xml:space="preserve">
+    <value>មើល</value>
+  </data>
+  <data name="lbl_wallet" xml:space="preserve">
+    <value>ផលិតផលចំបង</value>
+  </data>
+  <data name="lbl_winner" xml:space="preserve">
+    <value>អ្នកឈ្នះនៃវេបសាយW88</value>
+  </data>
+  <data name="lbl_year" xml:space="preserve">
+    <value>ឆ្នាំ</value>
+  </data>
+  <data name="lbl_enter_city" xml:space="preserve">
+    <value>សូមបញ្ចូលទីក្រុង</value>
+  </data>
+  <data name="lbl_enter_country" xml:space="preserve">
+    <value>សូមបញ្ចូលប្រទេស</value>
+  </data>
+  <data name="lbl_enter_postal" xml:space="preserve">
+    <value>សូមបញ្ចូលលេខកូដប្រៃសនីយ៍</value>
+  </data>
+  <data name="lbl_error_redemption" xml:space="preserve">
+    <value>ការប្តូរយករង្វាន់មានបញ្ហា</value>
+  </data>
+  <data name="lbl_all" xml:space="preserve">
+    <value>ទាំងអស់</value>
+  </data>
+  <data name="lbl_delivery_period" xml:space="preserve">
+    <value>រយៈពេលដឹកជញ្ជូន:</value>
+  </data>
+  <data name="lbl_redemption_limit_reached" xml:space="preserve">
+    <value>Redemption limit reached!</value>
+  </data>
+  <data name="lbl_days" xml:space="preserve">
+    <value> ថ្ងៃ</value>
+  </data>
+  <data name="lbl_mail_subject" xml:space="preserve">
+    <value>Redemption</value>
+  </data>
+  <data name="lbl_item_remove" xml:space="preserve">
+    <value>ទំនិញនៅក្នុងកន្ត្រកត្រូវបានដកចេញពីក្នុងស្តុក/ទំនិញមានការផ្លាស់ប្តូរ</value>
+  </data>
+  <data name="lbl_discount" xml:space="preserve">
+    <value>Discount</value>
+  </data>
+  <data name="lbl_rangeTitle" xml:space="preserve">
+    <value>POINTS SEARCH RANGE FOR ITEMS</value>
+  </data>
+  <data name="lbl_claim" xml:space="preserve">
+    <value>ទាមទាររង្វាន់</value>
+  </data>
+  <data name="lbl_SWItem" xml:space="preserve">
+    <value>សូមអបអរសាទរ!&lt;br/&gt; អ្នកបានឈ្នះរង្វាន់ </value>
+  </data>
+  <data name="lbl_claim_info" xml:space="preserve">
+    <value>CLAIM INFO</value>
+  </data>
+  <data name="lbl_amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="lbl_claim_now" xml:space="preserve">
+    <value>ទាមទាររង្វាន់</value>
+  </data>
+  <data name="lbl_redeem_insuffient" xml:space="preserve">
+    <value>Sorry. You are not eligible for Spin Wheel</value>
+  </data>
+  <data name="lblPointCheckError" xml:space="preserve">
+    <value>សំនើរការបញ្ជូនត្រូវបានបរាជ័យ</value>
+  </data>
+  <data name="lbl_redeem_success_processed_SW" xml:space="preserve">
+    <value>សំណើរការដូរយករង្វាន់ ត្រូវបានបញ្ជូនដោយជោគជ័យ។ ពភ៌មានលំអិតត្រូវបានផ្ញើរទៅកាន់សារអេឡិចត្រូនិច និងសារឯកជន។ ក្រុមក្លឹបរង្វាន់របស់យើងនឹងទំនាក់ទំនងទៅកាន់លោកអ្នកក្នុងកំឡុងពេល24ម៉ោង។</value>
+  </data>
+  <data name="lbl_redeem_success_submit_SW" xml:space="preserve">
+    <value>សំណើរការដូរយករង្វាន់ ត្រូវបានបញ្ជូនដោយជោគជ័យ។ ពភ៌មានលំអិតត្រូវបានផ្ញើរទៅកាន់សារអេឡិចត្រូនិច និងសារឯកជន។ ក្រុមក្លឹបរង្វាន់របស់យើងនឹងទំនាក់ទំនងទៅកាន់លោកអ្នកក្នុងកំឡុងពេល24ម៉ោង។</value>
+  </data>
+  <data name="lbl_redemption_type" xml:space="preserve">
+    <value>ប្រភេទការដូររង្វាន់</value>
+  </data>
+  <data name="lbl_redemption_type_Redeem" xml:space="preserve">
+    <value>ការដូររង្វាន់</value>
+  </data>
+  <data name="lbl_redemption_type_SW" xml:space="preserve">
+    <value>ប្រាក់រង្វាន់កង់បង្វិល</value>
+  </data>
+  <data name="lbl_noRedemption" xml:space="preserve">
+    <value>គ្មានវត្ថុសម្រាប់ការប្តូរ</value>
+  </data>
+  <data name="lbl_Exception" xml:space="preserve">
+    <value>ប្រព័ន្ធរអាក់រអួល, ព្យាយាមម្តងទៀត</value>
+  </data>
+  <data name="lbl_redemption_processing_limit_reached" xml:space="preserve">
+    <value>អ្នកបានធ្វើការទាមទារវត្ថុអនុស្សាវរីយ៍សំរាប់ខួបកំណើតអ្នករួចហើយ។ យើងខ្ញុំកំពុងរៀបចំជូន។</value>
+  </data>
+  <data name="lbl_redemption_success_limit_reached" xml:space="preserve">
+    <value>អ្នកបានធ្វើការទាមទារវត្ថុអនុស្សាវរីយ៍សំរាប់ខួបកំណើតអ្នក ក្នុងឆ្នាំនេះរួចហើយ។</value>
+  </data>
+</root>

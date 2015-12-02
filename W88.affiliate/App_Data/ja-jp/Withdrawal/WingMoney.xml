@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+  <lblTitle><![CDATA[銀行振込]]></lblTitle>
+  <lblAmount><![CDATA[出金額]]></lblAmount>  
+  <lblBank><![CDATA[銀行]]></lblBank>
+  <drpBank><![CDATA[銀行を選択する]]></drpBank>
+  <lblBankName><![CDATA[お客様の銀行名]]></lblBankName>
+  <drpOtherBank><![CDATA[その他銀行]]></drpOtherBank>
+  <lblBankBranch><![CDATA[銀行支店]]></lblBankBranch>
+  <lblAddress><![CDATA[住所]]></lblAddress>
+  <lblAccountName><![CDATA[あなたの口座名]]></lblAccountName>
+  <lblAccountNumber><![CDATA[あなたの口座番号]]></lblAccountNumber>
+  <lblMyKad><![CDATA[マイカッド]]></lblMyKad>
+  <lblMobileNumber><![CDATA[携帯番号]]></lblMobileNumber>
+  <lblMobileNotify><![CDATA[携帯経由で通知する]]></lblMobileNotify>
+  <btnSubmit><![CDATA[提出]]></btnSubmit>
+  <lblTransactionId><![CDATA[トランザクションID]]></lblTransactionId>
+  <lblDailyLimit><![CDATA[1日の限度： ]]></lblDailyLimit>
+  <lblTotalAllowed><![CDATA[許容合計： ]]></lblTotalAllowed>
+  <lblAtmNumber><![CDATA[お客様のATMカード番号]]></lblAtmNumber>
+
+  <BankNameNative>
+    <ZH-CN_RMB />
+    <VI-VN_VND />
+    <TH-TH_THB />
+    <ID-ID_IDR />
+    <KM-KH_USD />
+    <KO-KR_KRW />
+    <JA-JP_JPY />
+  </BankNameNative>
+</Deposit>

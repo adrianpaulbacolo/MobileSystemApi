@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<updateProfile>
+  <lblRequiredFields><![CDATA[Required fields]]></lblRequiredFields>
+  <lblEmail><![CDATA[电子邮箱]]></lblEmail>
+  <lblContact><![CDATA[电话号码]]></lblContact>
+  <lblUsername><![CDATA[用户名]]></lblUsername>
+  <lblFirstName><![CDATA[名]]></lblFirstName>
+  <lblLastName><![CDATA[姓]]></lblLastName>
+  <lblDOB><![CDATA[出生日期]]></lblDOB>
+  <lblCountry><![CDATA[国家]]></lblCountry>
+  <lblCurrency><![CDATA[货币]]></lblCurrency>
+
+  <Currency>
+    <UUS><![CDATA[(UUS) 测试货币]]></UUS>
+    <!--虚拟货币 -->
+    <AUD><![CDATA[(AUD) 澳大利亚元]]></AUD>
+    <GBP><![CDATA[(GBP) 英镑]]></GBP>
+    <IDR><![CDATA[(IDR) 印尼盾]]></IDR>
+    <MYR><![CDATA[(MYR) 马币]]></MYR>
+    <RMB><![CDATA[(RMB) 人民币]]></RMB>
+    <THB><![CDATA[(THB) 泰铢]]></THB>
+    <USD><![CDATA[(USD) 美元]]></USD>
+    <JPY><![CDATA[(JPY) 日元]]></JPY>
+    <KRW><![CDATA[(KRW) 韩币]]></KRW>
+    <VND><![CDATA[(VND) 越南盾]]></VND>
+    <INR><![CDATA[(INR) 印度卢比]]></INR>
+  </Currency>
+
+  <lblAddress><![CDATA[地址]]></lblAddress>
+  <lblCity><![CDATA[城市]]></lblCity>
+  <lblPostal><![CDATA[邮编]]></lblPostal>
+  <lblGender><![CDATA[邮编]]></lblGender>
+  <lblOdds><![CDATA[盘口]]></lblOdds>
+  <lblLanguage><![CDATA[语言]]></lblLanguage>
+  <lblPassword><![CDATA[密码]]></lblPassword>
+
+  <lblSecurityQuestion><![CDATA[安全问题]]></lblSecurityQuestion>
+  
+  <drpSecurityQuestion title="Select your security question">
+    <SQ0><![CDATA[:: 请选择您的安全问题 ::]]></SQ0>
+    <SQ1><![CDATA[您母亲的名字？]]></SQ1>
+    <SQ2><![CDATA[您幼年时的昵称？]]></SQ2>
+    <SQ3><![CDATA[您幼年时的理想工作？]]></SQ3>
+    <SQ4><![CDATA[您的第一份工作在哪个城市？]]></SQ4>
+    <SQ5><![CDATA[您第一个学校的名字？]]></SQ5>
+    <SQ6><![CDATA[您父亲的名字？]]></SQ6>
+  </drpSecurityQuestion>
+
+  <drpLanguage title="Select your preferred language">
+    <en-us><![CDATA[English]]></en-us>
+    <zh-cn><![CDATA[简体中文]]></zh-cn>
+    <vi-vn><![CDATA[Tiếng Việt]]></vi-vn>
+    <th-th><![CDATA[ไทย]]></th-th>
+    <km-kh><![CDATA[ខ្មែរ]]></km-kh>
+    <id-id><![CDATA[Bhs Indonesia]]></id-id>
+    <ko-kr><![CDATA[한국어]]></ko-kr>
+    <ja-jp><![CDATA[ジャパニーズ]]></ja-jp>
+  </drpLanguage>
+
+  <drpOdds>
+    <malay id="1"><![CDATA[马来盘]]></malay>
+    <hongkong id="2"><![CDATA[香港盘]]></hongkong>
+    <decimal id="3"><![CDATA[小数盘]]></decimal>
+    <indo id="4"><![CDATA[印尼盘]]></indo>
+    <american id="5"><![CDATA[美国盘]]></american>
+  </drpOdds>
+
+  <drpGender>
+    <male><![CDATA[男]]></male>
+    <female><![CDATA[女]]></female>
+  </drpGender>
+
+  <lblSecurityAnswer><![CDATA[安全问题答案]]></lblSecurityAnswer>
+
+  <btnSubmit><![CDATA[提交]]></btnSubmit>
+</updateProfile>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PaymentMethods>
+  <d110101><![CDATA[ដាក់ប្រាក់រហ័ស]]></d110101>
+  <d120203><![CDATA[SDAPay]]></d120203>
+  <d120204><![CDATA[NextPay]]></d120204>
+  <d120206><![CDATA[Online Deposit]]></d120206>
+  <d120207><![CDATA[Online Deposit]]></d120207>
+  <d110308><![CDATA[Wing Money]]></d110308>
+  <w210602><![CDATA[ផ្ទេរប្រាក់តាមធនាគារ]]></w210602>
+  <w210709><![CDATA[Wing Money]]></w210709>
+  <online><![CDATA[អនឡាញ]]></online>
+  <offline><![CDATA[មិនអនឡាញ]]></offline>
+</PaymentMethods>

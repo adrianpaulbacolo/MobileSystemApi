@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menu>
+  <brand><![CDATA[W88.com - ]]></brand>
+  <closeMenu><![CDATA[ปิดเมนู]]></closeMenu>
+  <home><![CDATA[หน้าแรก]]></home>
+  <login><![CDATA[เข้าสู่ระบบ]]></login>
+  <register><![CDATA[สมัครสมาชิก]]></register>
+  <cashier><![CDATA[การเงิน]]></cashier>
+  <deposit><![CDATA[ฝาก]]></deposit>
+  <transfer><![CDATA[ย้ายทุน]]></transfer>
+  <withdrawal><![CDATA[ถอน]]></withdrawal>
+  <freebets><![CDATA[Claims]]></freebets>
+  <misc><![CDATA[เบ็ดเตล็ด]]></misc>
+  <liveHelp><![CDATA[การสนทนาสด]]></liveHelp>
+  <contactUs><![CDATA[ติดต่อเรา]]></contactUs>
+  <helpCenter><![CDATA[ศูนย์ช่วยเหลือ]]></helpCenter>
+  <language><![CDATA[ภาษา]]></language>
+  <logout><![CDATA[ล๊อกเอ๊าท์]]></logout>
+  <products><![CDATA[ผลิตภัณฑ์]]></products>
+  <desktopsite><![CDATA[ไซต์บนเดสก์ท็อป]]></desktopsite>
+  <joinnow><![CDATA[สมัครสมาชิก]]></joinnow>
+  <promotions><![CDATA[โปรโมชั่น]]></promotions>
+  <updateProfile><![CDATA[Update Profile]]></updateProfile>
+  <fastdeposit><![CDATA[ฝากเงินด่วน]]></fastdeposit>
+  <banktransfer><![CDATA[ถอนเงินด่วน]]></banktransfer>
+  <wingmoney><![CDATA[Wing Money]]></wingmoney>
+  <fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
+  <submitUpload><![CDATA[ยื่นอัพโหลด]]></submitUpload>
+  <sports><![CDATA[กีฬา]]></sports>
+  <livecasino><![CDATA[คาสิโนสด]]></livecasino>
+  <slots><![CDATA[สล๊อต]]></slots>
+  <lottery><![CDATA[ล็อตเตอรี่]]></lottery>
+  <fundmanagement><![CDATA[จัดการด้านการเงิน]]></fundmanagement>
+  <customerservice><![CDATA[Customer Service]]></customerservice>
+  <rewards><![CDATA[คลับสะสมแต้ม]]></rewards>
+  <sdpay><![CDATA[SDPay]]></sdpay>
+  <help2pay><![CDATA[Help2Pay]]></help2pay>
+  <withrawal><![CDATA[ถอน]]></withrawal>-->
+  <fundTransfer><![CDATA[ย้ายทุน]]></fundTransfer>-->
+  <deposit><![CDATA[ฝาก]]></deposit>-->
+</menu>

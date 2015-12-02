@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e70bb160-1853-4f15-8f33-b3eee70363b5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://paymentservices.aqzbouat.com/Withdrawal.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Withdrawal3.xsd" MetadataType="Schema" ID="e4a62d5d-8854-4e52-9a39-4f1597d81288" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/Withdrawal.svc?xsd=xsd1" />
+    <MetadataFile FileName="Withdrawal32.xsd" MetadataType="Schema" ID="46e66203-d9d8-49a3-aaa3-5f06241beea5" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/Withdrawal.svc?xsd=xsd2" />
+    <MetadataFile FileName="Withdrawal1.wsdl" MetadataType="Wsdl" ID="24255ae8-04ec-4aa7-9ee4-cb86d3575651" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/Withdrawal.svc?wsdl" />
+    <MetadataFile FileName="Withdrawal1.disco" MetadataType="Disco" ID="2e3d17ad-3474-4f6f-93de-00032548970d" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/Withdrawal.svc?disco" />
+    <MetadataFile FileName="Withdrawal33.xsd" MetadataType="Schema" ID="67786c5a-71f3-4544-a194-96138c802044" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/Withdrawal.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

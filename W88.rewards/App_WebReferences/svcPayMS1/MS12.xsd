@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://paymentservices.ms1dev.com/MS1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Services" />
+  <xs:element name="getSystemAccounts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="operatorId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="memberCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currencyCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="countryCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="riskId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="paymentGroup" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getSystemAccountsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bankAccountsDataTable" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="processCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="processText" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getSystemBankAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="operatorId" type="xs:long" />
+        <xs:element minOccurs="0" name="memberCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getSystemBankAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Services" minOccurs="0" name="getSystemBankAccountResult" nillable="true" type="q1:ArrayOfSystemBankAccount" />
+        <xs:element minOccurs="0" name="statusCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="statusText" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="uploadFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="operatorId" type="xs:long" />
+        <xs:element minOccurs="0" name="memberCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="memberName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="invId" type="xs:long" />
+        <xs:element minOccurs="0" name="fileName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fileStream" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="uploadFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="uploadFileResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="statusCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="statusText" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAffiliateSystemBankAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="operatorId" type="xs:long" />
+        <xs:element minOccurs="0" name="affiliateId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAffiliateSystemBankAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Services" minOccurs="0" name="getAffiliateSystemBankAccountResult" nillable="true" type="q2:ArrayOfSystemBankAccount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

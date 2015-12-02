@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="MemberFirstDepositCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="affiliateId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="month" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="year" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MemberFirstDepositCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MemberFirstDepositCountResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewSignupMemberCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="affiliateId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="month" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="year" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewSignupMemberCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NewSignupMemberCountResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsCardAffiliate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="affiliateId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsCardAffiliateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsCardAffiliateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCardListing">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="affiliateId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="cardCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="currencyCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCardListingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCardListingResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TagCardToAffiliate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="affiliateId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="affiliateUser" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cardId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="updatedBy" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TagCardToAffiliateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TagCardToAffiliateResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberListingByAffiliate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="affiliateId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="registrationDateFrom" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="registrationDateTo" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberListingByAffiliateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMemberListingByAffiliateResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="MemberFirstDepositCountSoapIn">
+    <wsdl:part name="parameters" element="tns:MemberFirstDepositCount" />
+  </wsdl:message>
+  <wsdl:message name="MemberFirstDepositCountSoapOut">
+    <wsdl:part name="parameters" element="tns:MemberFirstDepositCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="NewSignupMemberCountSoapIn">
+    <wsdl:part name="parameters" element="tns:NewSignupMemberCount" />
+  </wsdl:message>
+  <wsdl:message name="NewSignupMemberCountSoapOut">
+    <wsdl:part name="parameters" element="tns:NewSignupMemberCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsCardAffiliateSoapIn">
+    <wsdl:part name="parameters" element="tns:IsCardAffiliate" />
+  </wsdl:message>
+  <wsdl:message name="IsCardAffiliateSoapOut">
+    <wsdl:part name="parameters" element="tns:IsCardAffiliateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCardListingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCardListing" />
+  </wsdl:message>
+  <wsdl:message name="GetCardListingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCardListingResponse" />
+  </wsdl:message>
+  <wsdl:message name="TagCardToAffiliateSoapIn">
+    <wsdl:part name="parameters" element="tns:TagCardToAffiliate" />
+  </wsdl:message>
+  <wsdl:message name="TagCardToAffiliateSoapOut">
+    <wsdl:part name="parameters" element="tns:TagCardToAffiliateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberListingByAffiliateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMemberListingByAffiliate" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberListingByAffiliateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMemberListingByAffiliateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="affiliateWSSoap">
+    <wsdl:operation name="MemberFirstDepositCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">MemberFirstDepositCount : Return the number of member whom made a first deposit during the month and year entered.</wsdl:documentation>
+      <wsdl:input message="tns:MemberFirstDepositCountSoapIn" />
+      <wsdl:output message="tns:MemberFirstDepositCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NewSignupMemberCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">NewSignupMemberCount &lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:NewSignupMemberCountSoapIn" />
+      <wsdl:output message="tns:NewSignupMemberCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsCardAffiliate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">IsCardAffiliate : Return true if affiliateId exists in the card table.</wsdl:documentation>
+      <wsdl:input message="tns:IsCardAffiliateSoapIn" />
+      <wsdl:output message="tns:IsCardAffiliateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardListing">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">GetCardListing&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetCardListingSoapIn" />
+      <wsdl:output message="tns:GetCardListingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TagCardToAffiliate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">TagCardToAffiliate : Process Code Description&lt;br&gt; 1 = Tag Successful&lt;br&gt; 10 = Card already registered. Cannot retag&lt;br&gt; 0 = Error occurred.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:TagCardToAffiliateSoapIn" />
+      <wsdl:output message="tns:TagCardToAffiliateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberListingByAffiliate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">GetMemberListingByAffiliate&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetMemberListingByAffiliateSoapIn" />
+      <wsdl:output message="tns:GetMemberListingByAffiliateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="affiliateWSSoap" type="tns:affiliateWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MemberFirstDepositCount">
+      <soap:operation soapAction="http://tempuri.org/MemberFirstDepositCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewSignupMemberCount">
+      <soap:operation soapAction="http://tempuri.org/NewSignupMemberCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsCardAffiliate">
+      <soap:operation soapAction="http://tempuri.org/IsCardAffiliate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardListing">
+      <soap:operation soapAction="http://tempuri.org/GetCardListing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TagCardToAffiliate">
+      <soap:operation soapAction="http://tempuri.org/TagCardToAffiliate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberListingByAffiliate">
+      <soap:operation soapAction="http://tempuri.org/GetMemberListingByAffiliate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="affiliateWSSoap12" type="tns:affiliateWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MemberFirstDepositCount">
+      <soap12:operation soapAction="http://tempuri.org/MemberFirstDepositCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewSignupMemberCount">
+      <soap12:operation soapAction="http://tempuri.org/NewSignupMemberCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsCardAffiliate">
+      <soap12:operation soapAction="http://tempuri.org/IsCardAffiliate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardListing">
+      <soap12:operation soapAction="http://tempuri.org/GetCardListing" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TagCardToAffiliate">
+      <soap12:operation soapAction="http://tempuri.org/TagCardToAffiliate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberListingByAffiliate">
+      <soap12:operation soapAction="http://tempuri.org/GetMemberListingByAffiliate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="affiliateWS">
+    <wsdl:port name="affiliateWSSoap" binding="tns:affiliateWSSoap">
+      <soap:address location="http://ws.aqzbouat.com/affiliateWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="affiliateWSSoap12" binding="tns:affiliateWSSoap12">
+      <soap12:address location="http://ws.aqzbouat.com/affiliateWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

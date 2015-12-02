@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lblPlaceBet><![CDATA[กรุณาเข้าสู่ระบบหรือลงทะเบียนเพื่อวางเดิมพัน .]]></lblPlaceBet>
+  <lblAffiliate><![CDATA[พันธมิตร]]></lblAffiliate>
+  <lblOurProduct><![CDATA[Our Product]]></lblOurProduct>
+  <lblComissionPlan><![CDATA[Commission Plans]]></lblComissionPlan>
+  <lblMyAccount><![CDATA[My Account]]></lblMyAccount>
+  <lblOverview><![CDATA[Overview]]></lblOverview>
+</default>

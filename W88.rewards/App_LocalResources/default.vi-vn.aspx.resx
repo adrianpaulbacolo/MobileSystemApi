@@ -1,0 +1,474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="lbl_about" xml:space="preserve">
+    <value>Về điểm thưởng</value>
+  </data>
+  <data name="lbl_account" xml:space="preserve">
+    <value>Tài khoản</value>
+  </data>
+  <data name="lbl_account_summary" xml:space="preserve">
+    <value>Tóm tắt thông tin tài khoản</value>
+  </data>
+  <data name="lbl_add_to_cart" xml:space="preserve">
+    <value>Bỏ vào giỏ</value>
+  </data>
+  <data name="lbl_adjusted" xml:space="preserve">
+    <value>Điểm điều chỉnh ròng</value>
+  </data>
+  <data name="lbl_adjustment_type" xml:space="preserve">
+    <value>Loại điều chỉnh</value>
+  </data>
+  <data name="lbl_affiliates" xml:space="preserve">
+    <value>Đại lý</value>
+  </data>
+  <data name="lbl_bet_date" xml:space="preserve">
+    <value>Ngày cược</value>
+  </data>
+  <data name="lbl_cart" xml:space="preserve">
+    <value>Tổng điểm trong giỏ</value>
+  </data>
+  <data name="lbl_cart_removed" xml:space="preserve">
+    <value>Mặt hàng đã được gỡ bỏ khỏi giỏ hàng thành công</value>
+  </data>
+  <data name="lbl_cart_success" xml:space="preserve">
+    <value>Mặt hàng được thêm vào giỏ thành công</value>
+  </data>
+  <data name="lbl_cart_title" xml:space="preserve">
+    <value>Mặt hàng trong giỏ của bạn</value>
+  </data>
+  <data name="lbl_category" xml:space="preserve">
+    <value>Danh mục</value>
+  </data>
+  <data name="lbl_category_code" xml:space="preserve">
+    <value>Mã danh mục</value>
+  </data>
+  <data name="lbl_city" xml:space="preserve">
+    <value>Thành phố</value>
+  </data>
+  <data name="lbl_contact" xml:space="preserve">
+    <value>Số điện thoại liên hệ</value>
+  </data>
+  <data name="lbl_contact_us" xml:space="preserve">
+    <value>Liên Hệ</value>
+  </data>
+  <data name="lbl_cont_shopping" xml:space="preserve">
+    <value>Tiếp tục mua sắm</value>
+  </data>
+  <data name="lbl_copyrights" xml:space="preserve">
+    <value>&amp;copy;{0} Bản Quyền Thuộc W88 | 18+</value>
+  </data>
+  <data name="lbl_country" xml:space="preserve">
+    <value>Quốc gia</value>
+  </data>
+  <data name="lbl_currency" xml:space="preserve">
+    <value>Tiền tệ</value>
+  </data>
+  <data name="lbl_current" xml:space="preserve">
+    <value>Số  dư điểm hiện tại</value>
+  </data>
+  <data name="lbl_date" xml:space="preserve">
+    <value>Ngày</value>
+  </data>
+  <data name="lbl_date_from" xml:space="preserve">
+    <value>Từ ngày</value>
+  </data>
+  <data name="lbl_date_to" xml:space="preserve">
+    <value>Tới ngày</value>
+  </data>
+  <data name="lbl_details" xml:space="preserve">
+    <value>Chi tiết</value>
+  </data>
+  <data name="lbl_earn" xml:space="preserve">
+    <value>Điểm sinh ra</value>
+  </data>
+  <data name="lbl_earning" xml:space="preserve">
+    <value>Tổng điểm sinh ra</value>
+  </data>
+  <data name="lbl_earning_listing" xml:space="preserve">
+    <value>Bảng liệt kê điểm</value>
+  </data>
+  <data name="lbl_enter_account" xml:space="preserve">
+    <value>Vui lòng nhập tài khoản</value>
+  </data>
+  <data name="lbl_enter_address" xml:space="preserve">
+    <value>Vui loòng nhập địa chỉ</value>
+  </data>
+  <data name="lbl_enter_contact" xml:space="preserve">
+    <value>Vui lòng nhập số điện thoại liên hệ</value>
+  </data>
+  <data name="lbl_enter_name" xml:space="preserve">
+    <value>Vui lòng nhập tên</value>
+  </data>
+  <data name="lbl_enter_remarks" xml:space="preserve">
+    <value>Vui lòng nhập chú ý</value>
+  </data>
+  <data name="lbl_expired" xml:space="preserve">
+    <value>Tổng điểm hết hạn</value>
+  </data>
+  <data name="lbl_expired_listing" xml:space="preserve">
+    <value>Bảng liệt kê hết hạn</value>
+  </data>
+  <data name="lbl_faq" xml:space="preserve">
+    <value>Câu hỏi thường gặp</value>
+  </data>
+  <data name="lbl_first_page" xml:space="preserve">
+    <value>Trang nhất</value>
+  </data>
+  <data name="lbl_help_centre" xml:space="preserve">
+    <value>Trung tâm thông tin</value>
+  </data>
+  <data name="lbl_hot" xml:space="preserve">
+    <value>HOT</value>
+  </data>
+  <data name="lbl_invalid_at_least" xml:space="preserve">
+    <value>Số lượng không hợp lệ. Số lượng phải có ít nhất 1</value>
+  </data>
+  <data name="lbl_invalid_number" xml:space="preserve">
+    <value>Số lượng không hợp lệ. Vui lòng nhập số lượng</value>
+  </data>
+  <data name="lbl_item_name" xml:space="preserve">
+    <value>Tên quà tặng</value>
+  </data>
+  <data name="lbl_last_page" xml:space="preserve">
+    <value>Trang cuối</value>
+  </data>
+  <data name="lbl_mailing_address" xml:space="preserve">
+    <value>địa chỉ nhận quà</value>
+  </data>
+  <data name="lbl_month" xml:space="preserve">
+    <value>Tháng</value>
+  </data>
+  <data name="lbl_name" xml:space="preserve">
+    <value>Tên</value>
+  </data>
+  <data name="lbl_new" xml:space="preserve">
+    <value>MÕìI</value>
+  </data>
+  <data name="lbl_no_record_found" xml:space="preserve">
+    <value>Dữ liệu không tìm thấy</value>
+  </data>
+  <data name="lbl_of" xml:space="preserve">
+    <value>của</value>
+  </data>
+  <data name="lbl_page" xml:space="preserve">
+    <value>Trang</value>
+  </data>
+  <data name="lbl_per_page" xml:space="preserve">
+    <value>mỗi trang</value>
+  </data>
+  <data name="lbl_points" xml:space="preserve">
+    <value>Điểm</value>
+  </data>
+  <data name="lbl_points_adjusted" xml:space="preserve">
+    <value>Điểm điều chỉnh</value>
+  </data>
+  <data name="lbl_points_expired" xml:space="preserve">
+    <value>Điểm hết hạn</value>
+  </data>
+  <data name="lbl_points_insufficient" xml:space="preserve">
+    <value>Điểm của bạn chưa đủ. Vui lòng tích lũy thêm Điểm Thưởng để qui đổi.</value>
+  </data>
+  <data name="lbl_points_redeemed" xml:space="preserve">
+    <value>Điểm đã đổi</value>
+  </data>
+  <data name="lbl_postal" xml:space="preserve">
+    <value>Mã bưu chính</value>
+  </data>
+  <data name="lbl_product" xml:space="preserve">
+    <value>Sản phẩm</value>
+  </data>
+  <data name="lbl_product_code" xml:space="preserve">
+    <value>Mã sản phẩm</value>
+  </data>
+  <data name="lbl_product_desc" xml:space="preserve">
+    <value>Miêu tả sản phẩm</value>
+  </data>
+  <data name="lbl_quantity" xml:space="preserve">
+    <value>Số lượng</value>
+  </data>
+  <data name="lbl_quantity_success" xml:space="preserve">
+    <value>Số lượng được cập nhật thành công</value>
+  </data>
+  <data name="lbl_range" xml:space="preserve">
+    <value>Phạm vi từ</value>
+  </data>
+  <data name="lbl_receipient" xml:space="preserve">
+    <value>Người nhận</value>
+  </data>
+  <data name="lbl_redeem" xml:space="preserve">
+    <value>Đổi quà</value>
+  </data>
+  <data name="lbl_redeem_info" xml:space="preserve">
+    <value>Thông tin đổi quà</value>
+  </data>
+  <data name="lbl_redeem_now" xml:space="preserve">
+    <value>Đổi ngay</value>
+  </data>
+  <data name="lbl_redeem_success_processed" xml:space="preserve">
+    <value>Đổi quà đã được tiến hành thành công</value>
+  </data>
+  <data name="lbl_redeem_success_submit" xml:space="preserve">
+    <value>Đổi quà đã được xác nhận thành công</value>
+  </data>
+  <data name="lbl_redeem_vip" xml:space="preserve">
+    <value>Lựa chọn đổi quà này chỉ DÀNH cho thành viên VIP ~ Cảm nhận sự khác biệt khi là thành viên của Club Prestige ~</value>
+  </data>
+  <data name="lbl_redemption" xml:space="preserve">
+    <value>Tổng số điểm đổi</value>
+  </data>
+  <data name="lbl_redemption_id" xml:space="preserve">
+    <value>Mã số đổi điểm</value>
+  </data>
+  <data name="lbl_redemption_listing" xml:space="preserve">
+    <value>Bảng liệt kê điểm đổi</value>
+  </data>
+  <data name="lbl_remarks" xml:space="preserve">
+    <value>Chú thích</value>
+  </data>
+  <data name="lbl_responsible" xml:space="preserve">
+    <value>Trách nhiệm chơi </value>
+  </data>
+  <data name="lbl_rewards" xml:space="preserve">
+    <value>Điểm thưởng</value>
+  </data>
+  <data name="lbl_search" xml:space="preserve">
+    <value>Tìm</value>
+  </data>
+  <data name="lbl_sort" xml:space="preserve">
+    <value>Liệt kê bằng</value>
+  </data>
+  <data name="lbl_status" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="lbl_title" xml:space="preserve">
+    <value>Tiêu đề</value>
+  </data>
+  <data name="lbl_tnc" xml:space="preserve">
+    <value>Điều khoản &amp; Điều Kiện</value>
+  </data>
+  <data name="lbl_to" xml:space="preserve">
+    <value>tới</value>
+  </data>
+  <data name="lbl_total" xml:space="preserve">
+    <value>Tổng cộng</value>
+  </data>
+  <data name="lbl_total_stake" xml:space="preserve">
+    <value>Tổng tiền cược</value>
+  </data>
+  <data name="lbl_update" xml:space="preserve">
+    <value>Cập nhật</value>
+  </data>
+  <data name="lbl_view" xml:space="preserve">
+    <value>Xem</value>
+  </data>
+  <data name="lbl_wallet" xml:space="preserve">
+    <value>Tài khoản sản phẩm</value>
+  </data>
+  <data name="lbl_winner" xml:space="preserve">
+    <value>Người chiến thắng W88</value>
+  </data>
+  <data name="lbl_year" xml:space="preserve">
+    <value>Năm</value>
+  </data>
+  <data name="lbl_enter_city" xml:space="preserve">
+    <value>Vui lòng nhập thành phố</value>
+  </data>
+  <data name="lbl_enter_country" xml:space="preserve">
+    <value>Vui lòng nhập quốc gia</value>
+  </data>
+  <data name="lbl_enter_postal" xml:space="preserve">
+    <value>Vui lòng nhập mã bưu chính</value>
+  </data>
+  <data name="lbl_error_redemption" xml:space="preserve">
+    <value>Lỗi trong quá trình đổi</value>
+  </data>
+  <data name="lbl_all" xml:space="preserve">
+    <value>Tất cả</value>
+  </data>
+  <data name="lbl_delivery_period" xml:space="preserve">
+    <value>Ngày giao hàng :</value>
+  </data>
+  <data name="lbl_redemption_limit_reached" xml:space="preserve">
+    <value>Redemption limit reached!</value>
+  </data>
+  <data name="lbl_days" xml:space="preserve">
+    <value> Ngày</value>
+  </data>
+  <data name="lbl_mail_subject" xml:space="preserve">
+    <value>Redemption</value>
+  </data>
+  <data name="lbl_item_remove" xml:space="preserve">
+    <value>Mặt hàng trong giỏ của bạn được loại bỏ do hết hàng/ mặt hàng đã được cập nhật</value>
+  </data>
+  <data name="lbl_discount" xml:space="preserve">
+    <value>Discount</value>
+  </data>
+  <data name="lbl_rangeTitle" xml:space="preserve">
+    <value>POINTS SEARCH RANGE FOR ITEMS</value>
+  </data>
+  <data name="lbl_claim" xml:space="preserve">
+    <value>NHẬN GIẢI</value>
+  </data>
+  <data name="lbl_SWItem" xml:space="preserve">
+    <value>XIN CHÚC MỪNG! &lt;br/&gt; Bạn Đã Chiến Thắng </value>
+  </data>
+  <data name="lbl_claim_info" xml:space="preserve">
+    <value>CLAIM INFO</value>
+  </data>
+  <data name="lbl_amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="lbl_claim_now" xml:space="preserve">
+    <value>ĐỔI NGAY</value>
+  </data>
+  <data name="lbl_redeem_insuffient" xml:space="preserve">
+    <value>Sorry. You are not eligible for Spin Wheel</value>
+  </data>
+  <data name="lblPointCheckError" xml:space="preserve">
+    <value>Yêu cầu xác nhận không thành công</value>
+  </data>
+  <data name="lbl_redeem_success_processed_SW" xml:space="preserve">
+    <value>Qui đổi được đăng ký thành công. Chi tiết đổi quà của Quý khách đã được gửi đến email và hộp thư tin nhắn của Quý khách trên W88. Chúng tôi sẽ liên hệ với Quý khách trong vòng 24 giờ đồng hồ.</value>
+  </data>
+  <data name="lbl_redeem_success_submit_SW" xml:space="preserve">
+    <value>Qui đổi được đăng ký thành công. Chi tiết đổi quà của Quý khách đã được gửi đến email và hộp thư tin nhắn của Quý khách trên W88. Chúng tôi sẽ liên hệ với Quý khách trong vòng 24 giờ đồng hồ.</value>
+  </data>
+  <data name="lbl_redemption_type" xml:space="preserve">
+    <value>Phương thức quy đổi</value>
+  </data>
+  <data name="lbl_redemption_type_Redeem" xml:space="preserve">
+    <value>Quy đổi</value>
+  </data>
+  <data name="lbl_redemption_type_SW" xml:space="preserve">
+    <value>Giải thưởng của vòng quay</value>
+  </data>
+  <data name="lbl_Exception" xml:space="preserve">
+    <value>Đã xảy ra lỗi không xác định. Vui lòng thử lại lần nữa</value>
+  </data>
+  <data name="lbl_noRedemption" xml:space="preserve">
+    <value>Quà tặng quy đổi hiện chưa có sẵn</value>
+  </data>
+  <data name="lbl_redemption_processing_limit_reached" xml:space="preserve">
+    <value>Rất tiếc! Quý Khách đã đổi quà sinh nhật và đang trong quá trình tiến hành.</value>
+  </data>
+  <data name="lbl_redemption_success_limit_reached" xml:space="preserve">
+    <value>Rất tiếc! Quý Khách đã đổi quà sinh nhật năm nay.</value>
+  </data>
+</root>

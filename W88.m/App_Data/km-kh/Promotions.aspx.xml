@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <btnSubmit><![CDATA[ស្នើសុំ]]></btnSubmit>
+  <btnCancel><![CDATA[លុប]]></btnCancel>
+  <lblID><![CDATA[ID]]></lblID>
+  <lblComment><![CDATA[យោបល់]]></lblComment>
+  <lblMultipleRebateCode><![CDATA[សូមបញ្ជាក់ពីផលិតផល ដែលអ្នកចង់ដាក់ពាក្យយកកូដប្រាក់បន្ថែម៖]]></lblMultipleRebateCode>
+  <lblMoreInfo><![CDATA[MORE INFO]]></lblMoreInfo>
+</default>

@@ -1,0 +1,63 @@
+﻿<div id="divPageFooter" data-role="footer" data-theme="b" data-position="fixed" data-tap-toggle="false" class="div-nav-footer">
+    <div data-role="navbar">
+        <ul>
+            <% if (!string.IsNullOrEmpty(commonVariables.SelectedLanguage)) {
+            var language = commonVariables.SelectedLanguage; %>
+            <li class="footer-image" data-rel="toolbar-home-"><div><a href="/Index.aspx?lang=<%=language%>" data-ajax="false">&nbsp;</a></div></li>
+            <% } %>
+            <!--<li class="footer-image" data-rel="toolbar-promotion-"><div><a href="/Promotions" data-ajax="false">&nbsp;</a></div></li>
+            <li class="footer-image" data-rel="toolbar-livechat-"><div><a href="/LivePerson" data-ajax="false">&nbsp;</a></div></li>-->
+            <!--<li class="footer-image" data-rel="toolbar-faq-"><div><a href="/FAQ/FAQHeader.aspx" data-ajax="false">&nbsp;</a></div></li>-->
+            <li class="footer-image" data-rel="toolbar-contactus-">
+                <div class="div-footer-contactus"><a href="javascript:void(0);" class="a-footer-popup" onclick="javascript:GPINTMOBILE.LoadPopupMenu(this);" data-ajax="false">&nbsp;</a>
+                    <div class="div-footer-popup-menu">
+                        
+                       <!-- <%if (!string.IsNullOrEmpty(commonCulture.ElementValues.getResourceString("lnkPhone", commonVariables.ContactUsXML))) { %><div class="footer-image" data-rel="pop-phone-"><a id="a1" href='<%= string.IsNullOrEmpty(commonCulture.ElementValues.getResourceString("lnkPhone", commonVariables.ContactUsXML)) ? "javascript:void(0)" : commonCulture.ElementValues.getResourceString("lnkPhone", commonVariables.ContactUsXML) %>' data-ajax="false">&nbsp;</a></div> <% } %>-->
+                        
+                        <div class="footer-image" data-rel="pop-skype-"><a id="aHrefPopUpSkype" href='<%= string.IsNullOrEmpty(commonCulture.ElementValues.getResourceString("lnkSkype", commonVariables.ContactUsXML)) ? "javascript:void(0)" : commonCulture.ElementValues.getResourceString("lnkSkype", commonVariables.ContactUsXML) %>' data-ajax="false">&nbsp;</a></div>
+                        <div class="footer-image" data-rel="pop-email-"><a id="aHrefPopUpEmail" href='<%= string.IsNullOrEmpty(commonCulture.ElementValues.getResourceString("lnkEmail", commonVariables.ContactUsXML)) ? "javascript:void(0)" : commonCulture.ElementValues.getResourceString("lnkEmail", commonVariables.ContactUsXML) %>' data-ajax="false">&nbsp;</a></div>
+                        <div class="footer-image" data-rel="pop-phone-"><a id="aHrefPopUpPhone" href='<%= string.IsNullOrEmpty(commonCulture.ElementValues.getResourceString("lnkPhone", commonVariables.ContactUsXML)) ? "javascript:void(0)" : commonCulture.ElementValues.getResourceString("lnkPhone", commonVariables.ContactUsXML) %>' data-ajax="false">&nbsp;</a></div>
+                       
+                    </div>
+                </div>
+            </li>
+            <li class="footer-image" data-rel="toolbar-language-">
+                <div class="div-footer-lang"><a href="javascript:void(0);" class="a-footer-popup" onclick="javascript:GPINTMOBILE.LoadPopupMenu(this);" data-ajax="false">&nbsp;</a>
+                    <div class="div-footer-popup-menu-lang">
+                        <div>
+                            <div class="footer-image-lang" data-rel="lang-en"><a href="/Index?lang=en-us" data-ajax="false">&nbsp;</a></div>
+                            <div class="footer-image-lang" data-rel="lang-cn"><a href="/Index?lang=zh-cn" data-ajax="false">&nbsp;</a></div>
+                            <div class="footer-image-lang" data-rel="lang-vn"><a href="/Index?lang=vi-vn" data-ajax="false">&nbsp;</a></div>
+                            <div class="footer-image-lang" data-rel="lang-th"><a href="/Index?lang=th-th" data-ajax="false">&nbsp;</a></div>
+                            <div class="footer-image-lang" data-rel="lang-kh"><a href="/Index?lang=km-kh" data-ajax="false">&nbsp;</a></div>
+                            <div class="footer-image-lang" data-rel="lang-id"><a href="/Index?lang=id-id" data-ajax="false">&nbsp;</a></div>
+                            <div class="footer-image-lang" data-rel="lang-kr"><a href="/Index?lang=ko-kr" data-ajax="false">&nbsp;</a></div>
+                            <div class="footer-image-lang" data-rel="lang-jp"><a href="/Index?lang=ja-jp" data-ajax="false">&nbsp;</a></div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <asp:Literal id="litScript" runat="server" />
+</div>
+<script type="text/javascript">
+    $(function () {
+        //alert('<%=commonVariables.SelectedLanguageShort%>');
+        FOOTERLANGMENUSCROLL = new IScroll('.div-footer-popup-menu-lang', { eventPassthrough: true, scrollX: true, scrollY: false, preventDefault: false, speedRatioX: 9000 });
+        $('.footer-image').each(function () { $(this).css('background-image', 'url("/_Static/Images/Footer/' + $(this).attr('data-rel') + '<%=commonVariables.SelectedLanguageShort%>.png")'); });
+        $('.footer-image-lang').each(function () { $(this).css('background-image', 'url("/_Static/Images/' + $(this).attr('data-rel') + '.png")'); });
+    });
+
+    /*
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-43681688-1', 'w88.com');
+    ga('send', 'pageview');
+    */
+</script>

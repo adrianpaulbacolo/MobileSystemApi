@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+  <lblTitle><![CDATA[SDPay]]></lblTitle>
+  <lblDepositAmount><![CDATA[存款金额]]></lblDepositAmount>
+  <btnSubmit><![CDATA[确认提交存款]]></btnSubmit>
+  <lblTransactionId><![CDATA[交易号码]]></lblTransactionId>
+  <lblDailyLimit><![CDATA[每日限额]]></lblDailyLimit>
+  <lblTotalAllowed><![CDATA[允许的总额]]></lblTotalAllowed>
+  <lblMinMaxLimit><![CDATA[最低/最高限额]]></lblMinMaxLimit>
+  <lblMode><![CDATA[方式]]></lblMode>
+  <txtMode><![CDATA[在线]]></txtMode>
+  <txtProcessing><![CDATA[交易提交当中]]></txtProcessing>
+  <lblAndroidDownload><![CDATA[安卓插件下载]]></lblAndroidDownload>
+  <lblIOSDownload><![CDATA[IOS插件下载]]></lblIOSDownload>
+  <lblNoticeDownload><![CDATA[温馨提示，如果您点击手机支付没有反应或者异常，请点击下面链接下载相应插件。]]></lblNoticeDownload>
+  <unlimited><![CDATA[无限]]></unlimited>
+</Deposit>

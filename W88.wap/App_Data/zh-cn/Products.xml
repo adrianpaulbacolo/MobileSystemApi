@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <Products>
+    <ASports>
+      <Url><![CDATA[{SportsbookUrl}?lang={language}&amp;st={token}]]></Url>
+      <Label><![CDATA[东方体育]]></Label>
+      <Description><![CDATA[体育博彩]]></Description>
+    </ASports>
+    <Lottery>
+      <Url><![CDATA[{KenoUrl}]]></Url>
+      <Label><![CDATA[快乐彩]]></Label>
+      <Description><![CDATA[快乐彩和分分乐]]></Description>
+    </Lottery>
+    <Slots>
+      <Url><![CDATA[/Slots]]></Url>
+      <Label><![CDATA[老虎机]]></Label>
+      <Description><![CDATA[金弦俱乐部]]></Description>
+    </Slots>
+    <LiveCasino>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[真人娱乐城]]></Label>
+      <Description><![CDATA[真人娱乐城]]></Description>
+    </LiveCasino>
+  </Products>
+  <Wallets>
+    <main><![CDATA[中心钱包]]></main>
+    <asports><![CDATA[东方体育]]></asports>
+    <lottery><![CDATA[乐透]]></lottery>
+    <casino><![CDATA[真人娱乐城, 金池 & 金弦]]></casino>
+    <playtech><![CDATA[金殿]]></playtech>
+    <binary><![CDATA[金融]]></binary>
+    <poker><![CDATA[扑克 (USD)]]></poker>
+  </Wallets>
+</default>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lblAffiliateInfo1><![CDATA[AFFILIATE'S INFORMATION]]></lblAffiliateInfo1>
+  <lblAffiliateInfo><![CDATA[รายละเอียดพันธมิตร]]></lblAffiliateInfo>
+  <lblAffiliateId><![CDATA[ไอดีพันธมิตรขั้นที่ 1]]></lblAffiliateId>
+  <lblLastLogin><![CDATA[เข้าระบบครั้งสุดท้าย ]]></lblLastLogin>
+  <lblAffiliateLink><![CDATA[ลิงก์พันธมิตรของคุณ ]]></lblAffiliateLink>
+  <lblCreative_bk><![CDATA[Please go to <a href="/Creative.aspx">Creative</a> to select appropriate marketing banners. There is no need to download, just cut and paste the URL code into your existing webpage and the banner(s) is/are shown on you side. ]]></lblCreative_bk>
+  <lblCreative><![CDATA[โปรดไปที่สร้างสรรค์เพื่อเลือกแบนเนอร์ในการโฆษณา ไม่จำเป็นต้องดาวน์โหลดเพียงคัดลอก URL ไปวางที่เว็บไซต์ของคุณเท่านี้ แบนเนอร์ก็จะไปแสดงบนหน้าเว็บไซต์ของคุณแล้ว]]></lblCreative>
+
+
+  <lblOverallSummary><![CDATA[ข้อมูลโดยรวม]]></lblOverallSummary>
+  <lblSummary><![CDATA[สรุป]]></lblSummary>
+  <lblTotalMember><![CDATA[สมาชิกทั้งหมด]]></lblTotalMember>
+  <lblCommission><![CDATA[คอมมิชชั่น]]></lblCommission>
+  <lblNegBal><![CDATA[ยกยอดติดลบไปเดือนถัดไป]]></lblNegBal>
+  <lblQuickSummary><![CDATA[ผลสรุปแบบย่อของเดือนปัจจุบัน]]></lblQuickSummary>
+  <lblNoOfClicks><![CDATA[จำนวนการคลิก]]></lblNoOfClicks>
+  <lblNewSignUp><![CDATA[ลงทะเบียนใหม่]]></lblNewSignUp>
+  <lblNewSignUpWDeposit><![CDATA[ลงทะเบียนใหม่และทำการฝาก]]></lblNewSignUpWDeposit>
+  <lblActiveMembers><![CDATA[สมาชิกที่ฝากเงินและเดิมพัน]]></lblActiveMembers>
+
+  <lblTrans><![CDATA[ข้อมูลการทำรายการ]]></lblTrans>
+  <lblTitle><![CDATA[เดือนปัจจุบัน ]]></lblTitle>
+  <lblWinLoss><![CDATA[บริษัท กำไร/ขาดทุน]]></lblWinLoss>
+  <lblActiveMember><![CDATA[สมาชิกที่ฝากเงินและเดิมพัน ทั้งหมด]]></lblActiveMember>
+  <lblBets><![CDATA[การเดิมพันทั้งหมด]]></lblBets>
+  <lblTurnOver><![CDATA[ยอดเดิมพันหมุนเวียน]]></lblTurnOver>
+
+  <lblSubAff><![CDATA[พันธมิตรย่อย สรุป]]></lblSubAff>
+  <lblSubAffTitle><![CDATA[พันธมิตรย่อย]]></lblSubAffTitle>
+  <lblProduct><![CDATA[ผลิตภัณฑ์]]></lblProduct>
+  
+</default>

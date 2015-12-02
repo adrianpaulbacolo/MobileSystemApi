@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lbl1><![CDATA[1월]]></lbl1>
+  <lbl2><![CDATA[2월]]></lbl2>
+  <lbl3><![CDATA[3월]]></lbl3>
+  <lbl4><![CDATA[4월]]></lbl4>
+  <lbl5><![CDATA[5월]]></lbl5>
+  <lbl6><![CDATA[6월]]></lbl6>
+  <lbl7><![CDATA[7월]]></lbl7>
+  <lbl8><![CDATA[8월]]></lbl8>
+  <lbl9><![CDATA[9월]]></lbl9>
+  <lbl10><![CDATA[10월]]></lbl10>
+  <lbl11><![CDATA[11월]]></lbl11>
+  <lbl12><![CDATA[12월]]></lbl12>
+  <lbl1sthalf><![CDATA[전반기]]></lbl1sthalf>
+  <lbl2ndhalf><![CDATA[후반기]]></lbl2ndhalf>
+</default>

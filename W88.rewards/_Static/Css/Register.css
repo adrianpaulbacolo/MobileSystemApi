@@ -1,0 +1,125 @@
+﻿.page-content {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.div-register-contact > div:nth-child(n+2) {
+    display: inline-block;
+}
+
+.div-register-contact > div:nth-child(2) {
+    width: 20%;
+}
+
+.div-register-contact > div:nth-child(3) {
+    width: 78%;
+    float: right;
+}
+
+.div-register-firstlastname {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+
+    .div-register-firstlastname > div {
+        display: table-cell;
+    }
+
+        .div-register-firstlastname > div:first-child {
+            padding-right: 1em;
+        }
+
+
+.div-register-dob {
+    display: table-row;
+    width: 100%;
+}
+
+    .div-register-dob > div {
+        display: table-cell;
+    }
+
+        .div-register-dob > div:first-child {
+            width: 20%;
+            vertical-align: middle;
+            display: table;
+            float: left;
+        }
+
+            .div-register-dob > div:first-child > label {
+                color: #fff;
+                padding: 0 5px;
+                height: 43px;
+                vertical-align: middle;
+                display: table-cell;
+                width: 100%;
+                white-space: nowrap;
+                font-weight:700;
+                font-size:1em;
+            }
+
+        .div-register-dob > div:last-child {
+            table-layout: fixed;
+            display: table;
+            width: 73%;
+            float: right;
+        }
+
+            .div-register-dob > div:last-child .ui-select {
+                margin: 0;
+            }
+
+            .div-register-dob > div:last-child > div {
+                display: table-cell;
+            }
+
+                .div-register-dob > div:last-child > div:first-child {
+                    padding-right: .5em;
+                }
+
+                .div-register-dob > div:last-child > div:nth-child(2) {
+                    padding-right: .5em;
+                }
+
+                .div-register-dob > div:last-child > div:nth-child(3) {
+                }
+
+
+
+.div-register-disclaimer {
+    display: table;
+}
+
+    .div-register-disclaimer > div {
+        display: table-cell;
+    }
+
+        .div-register-disclaimer > div:first-child {
+            width: 100%;
+            vertical-align: middle;
+        }
+
+        .div-register-disclaimer > div:last-child {
+            float: right;
+            border: 1px solid red;
+            width: 100px;
+        }
+
+.div-register-captcha {
+    margin-top: .5em;
+}
+
+.chk-disclaimer {
+    border:1px solid red;
+}
+
+.ui-checkbox {
+    /*border: 1px solid red;*/
+}
+
+.div-affiliateid {
+    padding-top:1em;
+}

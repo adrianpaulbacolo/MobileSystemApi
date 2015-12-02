@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MapRoutes>
+  <mr1 AbsoluteURL="~/_Secure/Captcha.aspx"><![CDATA[Captcha]]></mr1>
+  <mr2 AbsoluteURL="~/_Secure/AjaxHandlers/ProcessLogin.aspx"><![CDATA[_Secure/Login]]></mr2>
+  <mr3 AbsoluteURL="~/Index.aspx"><![CDATA[Index]]></mr3>
+  <mr4 AbsoluteURL="~/Lang.aspx"><![CDATA[Lang]]></mr4>
+  <mr5 AbsoluteURL="~/ContactUs.aspx"><![CDATA[ContactUs]]></mr5>
+  <mr6 AbsoluteURL="~/Catalogue/Redeem.aspx"><![CDATA[Redeem/Submit]]></mr6>
+  <mr7 AbsoluteURL="~/Profile/Account.aspx"><![CDATA[Account]]></mr7>
+  <mr8 AbsoluteURL="~/Profile/Points.aspx"><![CDATA[Points]]></mr8>
+</MapRoutes>

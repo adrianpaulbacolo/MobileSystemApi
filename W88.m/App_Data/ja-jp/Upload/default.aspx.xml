@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lblUsername><![CDATA[ユーザー名: ]]></lblUsername>
+  <lblCurrency><![CDATA[通貨: ]]></lblCurrency>
+  <lblRemarks><![CDATA[備考または提出目的: ]]></lblRemarks>
+  <lblFileUpload><![CDATA[ファイル（最大3MB): ]]></lblFileUpload>
+  <btnSubmit><![CDATA[提出]]></btnSubmit>
+  <Success><![CDATA[ご提出いただき誠にありがとうございます。お客様の提出IDは「SubmissionID」になります。以上の点につきましてご質問がある場合は、我々当社のカスタマーサポートに提出IDを引用の上ご連絡くださいませ。]]></Success>
+  <MissingAttachment><![CDATA[ファイルを添付してください。]]></MissingAttachment>
+  <InvalidFileType><![CDATA[申し訳ありませんが、我々は許可されたの.gif/.jpgの/.PNGファイルはアップロード可能でございます。]]></InvalidFileType>
+  <ExceedSizeLimit><![CDATA[添付ファイルは3MBを超えています。]]></ExceedSizeLimit>
+</default>

@@ -1,0 +1,26 @@
+.static-content {
+    @extend .fixed-tablet-size;
+
+    .title {
+        font-size: 1.3em;
+        color: $primary-color;
+        text-align: center;
+        font-weight: bold;
+    }
+    strong {
+        color: $primary-color;
+        font-weight: bold;
+    }
+    .label {
+        font-size: 90%;
+        font-weight: bold;
+    }
+}
+
+.downloadmsg {
+    padding: .5em;
+}
+
+#sDownload {
+    @extend .ui-btn, .btn-primary;
+}

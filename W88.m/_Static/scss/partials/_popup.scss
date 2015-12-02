@@ -1,0 +1,47 @@
+//
+// Popup
+// -------------------------------
+
+.ui-popup-screen {
+    background: none $black !important;
+    &.in {
+        @include opacity(.75);
+    }
+}
+
+.ui-popup-container {
+    width: 90%;
+    // 567px (smaller than landscape phone)
+    max-width: $grid-responsive-sm-break !important;
+    .title {
+        font-size: 1.2em;
+        text-align: center;
+    }
+    .app {
+        text-align: center;
+        img {
+            width: 100px;
+            background-color: $black;
+            border: 1px solid $border-color;
+            @include border-radius(3px);
+        }
+        .app-title {
+            margin-top: $content-padding/2;
+        }
+    }
+    .close {
+        color: $primary-color !important;
+        background-color: $bgColor-02;
+        @include box-shadow(inset 0 0 0 1px $border-color);
+        position: absolute;
+        top: -$content-padding; right: -$content-padding;
+        z-index: 1;
+    }
+}
+
+.ui-dialog {
+    padding-top: 0 !important;
+}
+.ui-dialog-contain {
+    max-width: none;
+}

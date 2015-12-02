@@ -1,0 +1,76 @@
+//
+// Login
+// -------------------------------
+
+.form {
+    @include bg-gradient();
+
+    .list {
+        margin: 0 auto;
+        padding: 0;
+        list-style: none;
+    }
+    .item {
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 1em;
+    }
+    label {
+        font-size: 1em;
+        color: $energized;
+    }
+    .ui-body-inherit {
+        color: $strong-color;
+        border: transparent;
+        text-shadow: none;
+        background-color: transparent;
+        @include box-shadow(none);
+    }
+    .ui-input-text {
+        margin: 0;
+        border-bottom: 1px solid $border-input-color !important;
+        background-color: transparent !important;
+        input,
+        textarea {
+            padding-left: 0;
+            color: $strong-color !important;
+            @include placeholder($strong-color);
+        }
+    }
+    textarea {
+        &.ui-input-text {
+            padding-left: 0;
+            color: $strong-color;
+        }
+    }
+    .row > .col > .ui-btn {
+        margin: 0;
+    }
+    .item-checkbox {
+        margin-bottom: 0;
+    }
+
+    // forced style
+    .ui-btn.ui-input-btn,
+    #btnSubmit {
+        @extend .btn-primary;
+    }
+    #btnSubmit {
+        display: block;
+        width: 100%;
+        padding: 1em;
+        background-image: none;
+        border: none;
+    }
+}
+
+.captcha {float: right}
+.imgCaptcha {height: 35px}
+
+input,
+textarea,
+select {
+    &:-webkit-autofill {
+        background: none transparent !important;
+    }
+}

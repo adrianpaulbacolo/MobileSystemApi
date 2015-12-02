@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+
+  <Category>
+    <Slot Label="SLOT">
+      <FireCrackers>
+        <Label><![CDATA[Midnight Lucky Sky Slots]]></Label>
+        <Description><![CDATA[Midnight Lucky Sky Slots]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilefirecrackerslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilefirecrackerslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </FireCrackers>
+      <AtlantisDive>
+        <Label><![CDATA[AtlantisDive]]></Label>
+        <Description><![CDATA[AtlantisDive]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_atlantisdiveslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_atlantisdiveslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </AtlantisDive>
+      <ChinaMegaWild>
+        <Label><![CDATA[ChinaMegaWild]]></Label>
+        <Description><![CDATA[ChinaMegaWild]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_wildchinaslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_wildchinaslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </ChinaMegaWild>
+      <FreakyFruits>
+        <Label><![CDATA[FreakyFruits]]></Label>
+        <Description><![CDATA[FreakyFruits]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_freakyfruitsslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_freakyfruitsslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </FreakyFruits>
+      <PartyNight>
+        <Label><![CDATA[PartyNight]]></Label>
+        <Description><![CDATA[PartyNight]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_partynightslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_partynightslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </PartyNight>
+      <SummerDream>
+        <Label><![CDATA[SummerDream]]></Label>
+        <Description><![CDATA[SummerDream]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_summerdreamslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_summerdreamslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </SummerDream>
+      <HouseOfScare>
+        <Label><![CDATA[HouseOfScare]]></Label>
+        <Description><![CDATA[HouseOfScare]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilehouseofscareslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilehouseofscareslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </HouseOfScare>
+      <MagicPot>
+        <Label><![CDATA[Magic Pot]]></Label>
+        <Description><![CDATA[Magic Pot]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilemagicpotslots&mode=real&ticket={token}&language=EN&merch_id=CVN2]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilemagicpotslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </MagicPot>
+      <KaraokeStar>
+        <Label><![CDATA[Karaoke Star]]></Label>
+        <Description><![CDATA[Karaoke Star]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilekaraokeslots&mode=real&ticket={token}&language=EN&merch_id=CVN2]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilekaraokeslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </KaraokeStar>
+      <NonStopParty>
+        <Label><![CDATA[Non-Stop Party]]></Label>
+        <Description><![CDATA[Non-Stop Party]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilenonstoppartyslots&mode=real&ticket={token}&language=EN&merch_id=CVN2]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilenonstoppartyslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </NonStopParty>
+    </Slot>
+    <Card Label="GAME KARTU">
+      <Baccarat>
+        <Label><![CDATA[Baccarat]]></Label>
+        <Description><![CDATA[Baccarat]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_baccarat&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_baccarat&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </Baccarat>
+      <BlackJack>
+        <Label><![CDATA[BlackJack]]></Label>
+        <Description><![CDATA[BlackJack]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_blackjack&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_blackjack&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </BlackJack>
+      <BlackJackFaceUp>
+        <Label><![CDATA[BlackJackFaceUp]]></Label>
+        <Description><![CDATA[BlackJackFaceUp]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_blackjack_faceup&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_blackjack_faceup&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </BlackJackFaceUp>
+      <BlackJackPerfectPairs>
+        <Label><![CDATA[BlackJackPerfectPairs]]></Label>
+        <Description><![CDATA[BlackJackPerfectPairs]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilebj_perfectpairs&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilebj_perfectpairs&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </BlackJackPerfectPairs>
+      <BlackJackPontoon>
+        <Label><![CDATA[BlackJackPontoon]]></Label>
+        <Description><![CDATA[BlackJackPontoon]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_blackjack_pontoon&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_blackjack_pontoon&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </BlackJackPontoon>
+      <BlackJackS>
+        <Label><![CDATA[BlackJackSpanish]]></Label>
+        <Description><![CDATA[BlackJackSpanish]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_blackjack_s&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_blackjack_s&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </BlackJackS>
+      <BlackJackSpanish>
+        <Label><![CDATA[Summer Dream]]></Label>
+        <Description><![CDATA[Summer Dreaming]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_blackjack_spanish&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_blackjack_spanish&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </BlackJackSpanish>
+      <!--<HoldEm>
+        <Label><![CDATA[HoldEm]]></Label>
+        <Description><![CDATA[HoldEm]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_hold_em&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_hold_em&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </HoldEm>-->
+      <VIPBaccaratMH>
+        <Label><![CDATA[Mobile VIP Baccarat (Multi-Hand)]]></Label>
+        <Description><![CDATA[Mobile VIP Baccarat (Multi-Hand)]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilemhbaccarat&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilemhbaccarat&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </VIPBaccaratMH>
+    </Card>
+    <Table Label="GAME MEJA">
+      <AmericanRoulette>
+        <Label><![CDATA[AmericanRoulette]]></Label>
+        <Description><![CDATA[AmericanRoulette]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_americanroulette&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_americanroulette&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </AmericanRoulette>
+      <EuropeanRoulette>
+        <Label><![CDATA[EuropeanRoulette]]></Label>
+        <Description><![CDATA[EuropeanRoulette]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_euroulette&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_euroulette&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </EuropeanRoulette>
+    </Table>
+    <VideoPoker Label="VIDEO POKER">
+      <DeucesWild4L>
+        <Label><![CDATA[DeucesWild4L]]></Label>
+        <Description><![CDATA[DeucesWild4L]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_deuceswild4l&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_deuceswild4l&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </DeucesWild4L>
+      <JokerWild4L>
+        <Label><![CDATA[Joker Wild]]></Label>
+        <Description><![CDATA[Joker Wild]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilejokerwild4l&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilejokerwild4l&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </JokerWild4L>
+      <JacksOrBetter4L>
+        <Label><![CDATA[JacksOrBetter4L]]></Label>
+        <Description><![CDATA[JacksOrBetter4L]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilejacksorbetter4l&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilejacksorbetter4l&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </JacksOrBetter4L>
+    </VideoPoker>
+  </Category>
+</default>

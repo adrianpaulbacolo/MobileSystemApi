@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+    <message>
+        <![CDATA[
+            <h4 class="title">温馨提示</h4>
+            <p>登录游戏时，请记得在用户名前面加“<strong>W88</strong>”</p>
+            <p>
+                <span class="label">比如:</span> <br>
+                您原本的用户名为"luckyplayer", 那么您需要用"<strong>W88</strong>LUCKYPLAYER"来登录
+            </p>
+        ]]>
+    </message>
+    <downloadnow><![CDATA[立即下载]]></downloadnow>
+</default>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <btnSubmit><![CDATA[XÁC NHẬN]]></btnSubmit>
+  <btnCancel><![CDATA[Hủy]]></btnCancel>
+  <lblID><![CDATA[ID]]></lblID>
+  <lblComment><![CDATA[Bình Luận]]></lblComment>
+  <lblMultipleRebateCode><![CDATA[Vui lòng cho biết sản phẩm nào mà Quý Khách muốn sử dụng Mã Khuyến Mãi:]]></lblMultipleRebateCode>
+  <lblMoreInfo><![CDATA[THÔNG TIN CHI TIẾT]]></lblMoreInfo>
+</default>

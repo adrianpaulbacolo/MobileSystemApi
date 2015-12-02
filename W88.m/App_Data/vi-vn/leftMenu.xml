@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menu>
+  <brand><![CDATA[W88.com - ]]></brand>
+  <closeMenu><![CDATA[Đóng Menu]]></closeMenu>
+  <home><![CDATA[Trang Chủ]]></home>
+  <login><![CDATA[Đăng Nhập]]></login>
+  <register><![CDATA[ĐĂNG KÝ]]></register>
+  <cashier><![CDATA[Thu ngân]]></cashier>
+  <deposit><![CDATA[Gửi Tiền]]></deposit>
+  <transfer><![CDATA[Chuyển Quỹ]]></transfer>
+  <withdrawal><![CDATA[Rút Tiền]]></withdrawal>
+  <freebets><![CDATA[Tiền Thưởng Miễn Phí]]></freebets>
+  <misc><![CDATA[Khác]]></misc>
+  <liveHelp><![CDATA[Chat Online]]></liveHelp>
+  <contactUs><![CDATA[Liên Hệ Với Chúng Tôi]]></contactUs>
+  <helpCenter><![CDATA[Trung Tâm Hỗ Trợ]]></helpCenter>
+  <language><![CDATA[Ngôn Ngữ]]></language>
+  <logout><![CDATA[Thoát Khỏi]]></logout>
+  <products><![CDATA[Sản phẩm]]></products>
+  <desktopsite><![CDATA[Trang dành cho máy tính]]></desktopsite>
+  <joinnow><![CDATA[Đăng Ký]]></joinnow>
+  <promotions><![CDATA[KHUYẾN MÃI]]></promotions>
+  <updateProfile><![CDATA[Update Profile]]></updateProfile>
+  <fastdeposit><![CDATA[Chuyển Khoản Ngân Hàng]]></fastdeposit>
+  <banktransfer><![CDATA[Chuyển Khoản Ngân Hàng]]></banktransfer>
+  <wingmoney><![CDATA[Wing Money]]></wingmoney>
+  <fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
+  <submitUpload><![CDATA[Tải tập tin]]></submitUpload>
+  <sports><![CDATA[Thể thao]]></sports>
+  <livecasino><![CDATA[Casino Trực Tuyến]]></livecasino>
+  <slots><![CDATA[Slot]]></slots>
+  <lottery><![CDATA[Xổ Số]]></lottery>
+  <fundmanagement><![CDATA[Quản Lý Quỹ]]></fundmanagement>
+  <customerservice><![CDATA[Customer Service]]></customerservice>
+  <rewards><![CDATA[Câu Lạc Bộ Điểm Thưởng]]></rewards>
+  <sdpay><![CDATA[SDPay]]></sdpay>
+  <help2pay><![CDATA[Help2Pay]]></help2pay>
+  <withrawal><![CDATA[Rút Tiền]]></withrawal>-->
+  <fundTransfer><![CDATA[Chuyển Quỹ]]></fundTransfer>-->
+  <deposit><![CDATA[Gửi Tiền]]></deposit>-->
+</menu>

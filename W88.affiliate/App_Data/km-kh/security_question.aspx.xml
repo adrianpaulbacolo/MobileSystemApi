@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lblsecurityquestion1><![CDATA[តើឈ្មោះកណ្តាលរបស់ម្តាយអ្នក គឺអ្វី?]]></lblsecurityquestion1>
+  <lblsecurityquestion2><![CDATA[តើឈ្មោះហៅក្រៅរបស់អ្នក ពេលដែលនៅកុមារគឺអ្វី?]]></lblsecurityquestion2>
+  <lblsecurityquestion3><![CDATA[តើការងារអ្វីដែលអ្នកចង់ធ្វើកាលពីកុមារ?]]></lblsecurityquestion3>
+  <lblsecurityquestion4><![CDATA[តើការងារដំបូងរបស់អ្នក នៅទីក្រុងណា?]]></lblsecurityquestion4>
+  <lblsecurityquestion5><![CDATA[តើសាលារៀនដែលអ្នករៀនដំបូង មានឈ្មោះអ្វី?]]></lblsecurityquestion5>
+  <lblsecurityquestion6><![CDATA[តើឈ្មោះកណ្តាលរបស់ឪពុកអ្នក គឺអ្វី?]]></lblsecurityquestion6>
+</default>

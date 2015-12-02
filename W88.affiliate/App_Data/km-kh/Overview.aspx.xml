@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lblAffiliateInfo1><![CDATA[AFFILIATE'S INFORMATION]]></lblAffiliateInfo1>
+  <lblAffiliateInfo><![CDATA[ព័ត៌មានភ្នាក់ងារ]]></lblAffiliateInfo>
+  <lblAffiliateId><![CDATA[ID ភ្នាក់ងារ ជាន់ទី1]]></lblAffiliateId>
+  <lblLastLogin><![CDATA[ការចូលក្នុងចុងក្រោយរបស់អ្នក៖ ]]></lblLastLogin>
+  <lblAffiliateLink><![CDATA[តំនរភ្នាក់ងាររបស់អ្នក៖ ]]></lblAffiliateLink>
+  <lblCreative_bk><![CDATA[Please go to <a href="/Creative.aspx">Creative</a> to select appropriate marketing banners. There is no need to download, just cut and paste the URL code into your existing webpage and the banner(s) is/are shown on you side. ]]></lblCreative_bk>
+  <lblCreative><![CDATA[សូមទៅកាន់ ឆ្នៃប្រឌិត ដើម្បីរើសយកបដាផ្សព្ធផ្សាយ។ អ្នកមិនចាំបាច់ដោនឡូតទេ គ្រាន់តែចំលងURLនេះ រួចដាក់លើវេបសាយរបស់អ្នក។ ]]></lblCreative>
+
+
+  <lblOverallSummary><![CDATA[សង្ខេបទូទៅ]]></lblOverallSummary>
+  <lblSummary><![CDATA[សង្ខេប]]></lblSummary>
+  <lblTotalMember><![CDATA[ចំនួនសមាជិកសរុប]]></lblTotalMember>
+  <lblCommission><![CDATA[កំរៃជើងសារ]]></lblCommission>
+  <lblNegBal><![CDATA[Negative Balance Rollover to Next Month]]></lblNegBal>
+  <lblQuickSummary><![CDATA[សង្ខេបសំរាប់ខែនេះ]]></lblQuickSummary>
+  <lblNoOfClicks><![CDATA[ចំនួនចុច]]></lblNoOfClicks>
+  <lblNewSignUp><![CDATA[ចុះឈ្មោះថ្មី]]></lblNewSignUp>
+  <lblNewSignUpWDeposit><![CDATA[ចុះឈ្មោះថ្មី ដែលដាក់ប្រាក់]]></lblNewSignUpWDeposit>
+  <lblActiveMembers><![CDATA[សមាជិកនៅដំនើរការ]]></lblActiveMembers>
+
+  <lblTrans><![CDATA[ទិន្នន័យប្រតិបត្តិការ]]></lblTrans>
+  <lblTitle><![CDATA[ខែនេះ ]]></lblTitle>
+  <lblWinLoss><![CDATA[ឈ្នះ/ចាញ់ របស់ក្រុមហ៊ុន]]></lblWinLoss>
+  <lblActiveMember><![CDATA[ចំនួនសមាជិកសរុបដែលដំនើរការ]]></lblActiveMember>
+  <lblBets><![CDATA[ចំនួនភ្នាល់]]></lblBets>
+  <lblTurnOver><![CDATA[ចំនួនភ្នាល់]]></lblTurnOver>
+
+  <lblSubAff><![CDATA[សង្ខេបភ្នាក់ងាររង]]></lblSubAff>
+  <lblSubAffTitle><![CDATA[ភ្នាក់ងាររង]]></lblSubAffTitle>
+  <lblProduct><![CDATA[ផលិតផល]]></lblProduct>
+  
+</default>

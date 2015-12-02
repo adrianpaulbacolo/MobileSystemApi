@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lbl1><![CDATA[Januari]]></lbl1>
+  <lbl2><![CDATA[Februari]]></lbl2>
+  <lbl3><![CDATA[Maret]]></lbl3>
+  <lbl4><![CDATA[April]]></lbl4>
+  <lbl5><![CDATA[Mei]]></lbl5>
+  <lbl6><![CDATA[Juni]]></lbl6>
+  <lbl7><![CDATA[Juli]]></lbl7>
+  <lbl8><![CDATA[Agustus]]></lbl8>
+  <lbl9><![CDATA[September]]></lbl9>
+  <lbl10><![CDATA[Oktober]]></lbl10>
+  <lbl11><![CDATA[November]]></lbl11>
+  <lbl12><![CDATA[Desember]]></lbl12>
+  <lbl1sthalf><![CDATA[Periode pertama]]></lbl1sthalf>
+  <lbl2ndhalf><![CDATA[Periode kedua]]></lbl2ndhalf>
+</default>

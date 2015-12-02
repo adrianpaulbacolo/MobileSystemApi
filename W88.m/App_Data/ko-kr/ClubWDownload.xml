@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <message>
+        <![CDATA[
+            <h4 class="title">클럽 W 다운로드 이용하기 3 스텝</h4>
+            <ol>
+                <li>아래의 다운 로드 버튼을 클릭하세요.</li>
+                <li>실행하기 혹은 저장하기를 선택하여 설치해주세요.</li>
+                <li>아이디와 비밀번호를 입력하여 로그인하세요.</li>
+            </ol>
+        ]]>
+  </message>
+  <downloadnow><![CDATA[지금 다운로드]]></downloadnow>
+</default>

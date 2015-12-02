@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lblTransactionId><![CDATA[No. Transaksi]]></lblTransactionId>
+  <lblRequestDateTime><![CDATA[Tanggal Permintaan]]></lblRequestDateTime>
+  <lblPaymentMethod><![CDATA[Metode Pembayaran]]></lblPaymentMethod>
+  <lblAmount><![CDATA[Jumlah Penarikan]]></lblAmount>
+  <lblAction><![CDATA[Action]]></lblAction>
+
+  <btnCancelWithdrawal><![CDATA[Batal]]></btnCancelWithdrawal>
+  <lblConfirmWithdrawal><![CDATA[Apakah anda ingin melanjutkan pembatalan ini?]]></lblConfirmWithdrawal>
+</default>

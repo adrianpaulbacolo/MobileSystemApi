@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+  <lblSysMsg3><![CDATA[회원님은 지금 채팅 중입니다 {LPOPERATOR}]]></lblSysMsg3>
+  <lblSysMsg4><![CDATA[상담원이 응답할 때 까지 잠시만 기다려 주십시요.]]></lblSysMsg4>
+  <lblSysMsg5><![CDATA[상담원이 채팅을 종료시켰습니다.]]></lblSysMsg5>
+  <lblSysMsg14><![CDATA[모든 상담원이 다른 회원님들과 채팅 중입니다.  잠시만 기다려 주십시요. ]]></lblSysMsg14>
+  <lblChatEnded><![CDATA[채팅이 종료되었습니다. ]]></lblChatEnded>
+  <btnReqChat><![CDATA[채팅 시작]]></btnReqChat>
+  <btnEndChat><![CDATA[채칭 종료]]></btnEndChat>
+  <btnSend><![CDATA[보내기]]></btnSend>
+  <lblMessage><![CDATA[여기에 메시지를 입력해 주세요.]]></lblMessage>
+  <lblSkill><![CDATA[한국어]]></lblSkill>
+</default>
