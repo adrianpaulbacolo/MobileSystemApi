@@ -1,0 +1,40 @@
+//
+// UI Icons
+// -------------------------------
+
+[class^="ui-icon-"], [class*=" ui-icon-"],
+[class^="ui-btn-icon-"], [class*=" ui-btn-icon-"] {
+    &:after {
+        font: 1.5em $iconic-font;
+        color: $strong-color;
+        text-indent: 0;
+        background: none transparent !important;
+    }
+}
+
+.ui-icon-carat-d:after {
+    content: '\e20b'; // icon-expand_more
+}
+.ui-icon-plus:after {
+    content: '\e069'; // icon-add
+}
+.ui-icon-minus:after {
+    content: '\e07f'; // icon-remove
+}
+.ui-checkbox-on:after {
+    content: '\e206'; // icon-check2
+}
+.ui-icon-delete:after {
+    content: '\e205'; // icon-cancel
+    // content: '\e06e'; // icon-backspace
+    @include opacity(.5);
+    @include transition(.3s);
+}
+.ui-icon-delete {
+    &:hover, &:focus {
+        &:after {
+            color: $assertive;
+            @include opacity(.9)
+        }
+    }
+}

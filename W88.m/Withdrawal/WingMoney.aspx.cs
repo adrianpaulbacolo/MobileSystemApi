@@ -27,8 +27,8 @@ public partial class Withdrawal_WingMoney : BasePage
     private string strPaymentGroup = string.Empty;
     private string strSelectedLanguage = string.Empty;
 
-    protected void Page_Init(object sender, EventArgs e) 
-    { 
+    protected void Page_Init(object sender, EventArgs e)
+    {
         base.CheckLogin();
 
         System.Web.UI.WebControls.Literal litScript = (System.Web.UI.WebControls.Literal)Page.FindControl("litScript");
@@ -41,17 +41,17 @@ public partial class Withdrawal_WingMoney : BasePage
 
         svcPayMember.PendingWithdrawal[] arrPending = null;
 
-        using (svcPayMember.MemberClient svcInstance = new svcPayMember.MemberClient()) 
+        using (svcPayMember.MemberClient svcInstance = new svcPayMember.MemberClient())
         {
             arrPending = svcInstance.getPendingWithdrawal(Convert.ToInt64(strOperatorId), strMemberCode, out strStatusCode, out strStatusText);
         }
 
-        if (arrPending != null && arrPending.Length > 0) 
+        if (arrPending != null && arrPending.Length > 0)
         {
             if (litScript != null) { litScript.Text += "<script type='text/javascript'>window.location.replace('/Withdrawal/Pending.aspx');</script>"; }
         }
     }
-    
+
     protected void Page_Load(object sender, EventArgs e)
     {
         CancelUnexpectedRePost();
@@ -75,11 +75,11 @@ public partial class Withdrawal_WingMoney : BasePage
             lblAccountNumber.Text = commonCulture.ElementValues.getResourceString("lblAccountNumber", xeResources);
             btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
 
-            #region Placeholder
-            txtWithdrawAmount.Attributes.Add("PLACEHOLDER", string.Format("{0} {1}", lblWithdrawAmount.Text, strCurrencyCode));            
-            txtAccountName.Attributes.Add("PLACEHOLDER", lblAccountName.Text);
-            txtAccountNumber.Attributes.Add("PLACEHOLDER", lblAccountNumber.Text);
-            #endregion
+            // #region Placeholder
+            // txtWithdrawAmount.Attributes.Add("PLACEHOLDER", string.Format("{0} {1}", lblWithdrawAmount.Text, strCurrencyCode));
+            // txtAccountName.Attributes.Add("PLACEHOLDER", lblAccountName.Text);
+            // txtAccountNumber.Attributes.Add("PLACEHOLDER", lblAccountNumber.Text);
+            // #endregion
 
             #region PopulateDropDownList
             System.Threading.Tasks.Task t1 = System.Threading.Tasks.Task.Factory.StartNew(this.InitialisePaymentLimits);
@@ -107,7 +107,7 @@ public partial class Withdrawal_WingMoney : BasePage
         bool isSystemError = false;
 
         long lngOperatorId = long.MinValue;
-        string strWithdrawAmount = string.Empty;        
+        string strWithdrawAmount = string.Empty;
         string strAccountName = string.Empty;
         string strAccountNumber = string.Empty;
         string strMobileNumber = string.Empty;

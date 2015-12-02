@@ -1,0 +1,25 @@
+//
+// Media Query
+// -------------------------------
+
+@media all and (min-width: $screen-sm) { // 768px
+    .div-nav-header {
+        background-position: center center;
+    }
+}
+
+// Smartphones (portrait and landscape)
+// only screen and (min-device-width : 320px) and (max-device-width : 480px)
+@media all and (max-width: $iphone5) {
+    body {
+        overflow-y: auto;
+    }
+}
+
+@media screen and (min-width: $iphone6plus + 1) {
+    .fixed-tablet-size {
+        max-width: $grid-responsive-md-break; // smaller than portrait tablet (767px)
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

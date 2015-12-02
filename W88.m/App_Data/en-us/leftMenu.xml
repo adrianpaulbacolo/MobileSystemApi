@@ -30,9 +30,16 @@
   <livecasino><![CDATA[Live Casino]]></livecasino>
   <slots><![CDATA[Slots]]></slots>
   <lottery><![CDATA[Lottery]]></lottery>
-  <fundmanagement><![CDATA[Fund Management]]></fundmanagement>
+  <fundmanagement><![CDATA[Funds]]></fundmanagement>
   <customerservice><![CDATA[Customer Service]]></customerservice>
-  <rewards><![CDATA[Rewards Club]]></rewards>
+  <rewards><![CDATA[Rewards]]></rewards>
   <sdpay><![CDATA[SDPay]]></sdpay>
   <help2pay><![CDATA[Help2Pay]]></help2pay>
+  <daddypay><![CDATA[Quick Online]]></daddypay>
+  <daddypayqr><![CDATA[QR Code Payment]]></daddypayqr>
+  <nextpay><![CDATA[NextPay]]></nextpay>
+  <withrawal><![CDATA[Withdrawal]]></withrawal>-->
+  <fundTransfer><![CDATA[Fund Transfer]]></fundTransfer>-->
+  <neteller><![CDATA[Netteller]]></neteller>
+  <Poker><![CDATA[Poker]]></Poker>
 </menu>

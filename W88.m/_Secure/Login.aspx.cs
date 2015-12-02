@@ -10,7 +10,7 @@ public partial class _Secure_Login : System.Web.UI.Page
     protected System.Xml.Linq.XElement xeErrors = null;
     protected string strRedirect = string.Empty;
 
-    protected void Page_Init(object sender, EventArgs e) 
+    protected void Page_Init(object sender, EventArgs e)
     {
         string strLanguage = string.Empty;
 
@@ -20,7 +20,7 @@ public partial class _Secure_Login : System.Web.UI.Page
     }
 
     protected void Page_Load(object sender, EventArgs e)
-    {   
+    {
         xeErrors = commonVariables.ErrorsXML;
         System.Xml.Linq.XElement xeResources = null;
         commonCulture.appData.getLocalResource(out xeResources);
@@ -35,9 +35,9 @@ public partial class _Secure_Login : System.Web.UI.Page
             lblCaptcha.Text = commonCulture.ElementValues.getResourceString("lblCaptcha", xeResources);
             btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnLogin", xeResources);
 
-            txtUsername.Attributes.Add("PLACEHOLDER", lblUsername.Text);
-            txtPassword.Attributes.Add("PLACEHOLDER", lblPassword.Text);
-            txtCaptcha.Attributes.Add("PLACEHOLDER", lblCaptcha.Text);
+            // txtUsername.Attributes.Add("PLACEHOLDER", lblUsername.Text);
+            // txtPassword.Attributes.Add("PLACEHOLDER", lblPassword.Text);
+            // txtCaptcha.Attributes.Add("PLACEHOLDER", lblCaptcha.Text);
 
             txtUsername.Focus();
 

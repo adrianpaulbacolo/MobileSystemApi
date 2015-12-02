@@ -35,4 +35,8 @@
   <rewards><![CDATA[Klub Reward]]></rewards>
   <sdpay><![CDATA[SDPay]]></sdpay>
   <help2pay><![CDATA[Help2Pay]]></help2pay>
+  <withrawal><![CDATA[Penarikan]]></withrawal>-->
+  <fundTransfer><![CDATA[Fund Transfer]]></fundTransfer>
+  <deposit><![CDATA[Deposit]]></deposit>
+  <poker><![CDATA[Poker]]></poker>
 </menu>

@@ -1,13 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
-  <message>
-    <![CDATA[<span class="blue">3 Easy Steps to Play Club Palazzo Download Version</span>
-            <br />Step 1:  Click the Download button below.
-            <br />Step 2:  Install by clicking Run or Save it in your local hard drive.
-            <br />Step 3:  Login by adding "<span class='blue'>W88</span>" prefix in front of your web username.
-            <br />
-            <br />Example: 
-            <br />If your web username is "luckyplayer", then login as "<span class='blue'>W88</span>LUCKYPLAYER".]]>
-  </message>
-  <downloadnow><![CDATA[Download now]]></downloadnow>
+    <message>
+        <![CDATA[
+            <h4 class="title">3 Easy Steps to Play Club Palazzo Download Version</h4>
+            <ol>
+                <li>Click the Download button below.</li>
+                <li>Install by clicking Run or Save it in your local hard drive.</li>
+                <li>Login by adding "<strong>W88</strong>" prefix in front of your web username.</li>
+            </ol>
+            <p>
+                <span class="label">Example:</span> <br>
+                If your web username is "luckyplayer", then login as "<strong>W88</strong>LUCKYPLAYER".
+            </p>
+        ]]>
+    </message>
+    <downloadnow><![CDATA[Download now]]></downloadnow>
 </default>

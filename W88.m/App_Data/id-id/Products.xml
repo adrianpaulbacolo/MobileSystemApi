@@ -16,6 +16,11 @@
       <Label><![CDATA[i-Sport]]></Label>
       <Description><![CDATA[Sportsbook]]></Description>
     </ISports>
+    <VSports>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[v-Sport]]></Label>
+      <Description><![CDATA[Sportsbook]]></Description>
+    </VSports>
     <USports>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[u-Sport]]></Label>
@@ -76,6 +81,7 @@
     <main><![CDATA[Main]]></main>
     <asports><![CDATA[A-SPORT]]></asports>
     <esports><![CDATA[E-SPORT]]></esports>
+    <vsports><![CDATA[V-SPORT]]></vsports>
     <isports><![CDATA[I-SPORT]]></isports>
     <lottery><![CDATA[Lotere]]></lottery>
     <casino><![CDATA[Club W, Bravado, Apollo, Crescendo, Divino & Massimo]]></casino>

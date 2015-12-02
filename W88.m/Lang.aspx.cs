@@ -32,7 +32,7 @@ public partial class _Lang : System.Web.UI.Page
             //if (string.IsNullOrEmpty(commonCookie.CookieS) || login) { sbLanguageHTML.AppendFormat("<a data-theme='b' href='/_Secure/Login.aspx?lang={0}' data-transition='slide'  data-rel='dialog' data-transition='slidedown' data-inline='true'><div id='div{1}' class='divLangImg'></div></a>", strLanguage, strLanguage); }
             //else { sbLanguageHTML.AppendFormat("<a data-theme='b' data-ajax='false' href='/Index.aspx?lang={0}' data-inline='true'><div id='div{1}' class='divLangImg'></div></a>", strLanguage, strLanguage); }
 
-            sbLanguageHTML.AppendFormat("<a data-theme='b' data-ajax='false' href='/Index.aspx?lang={0}' data-inline='true'><div id='div{1}' class='divLangImg'></div></a>", strLanguage, strLanguage);
+            sbLanguageHTML.AppendFormat("<li class='col col-50'><a data-ajax='false' href='/Index.aspx?lang={0}' data-inline='true' id='div{1}' class='divLangImg'></a></li>", strLanguage, strLanguage);
         }
         divLanguageContainer.InnerHtml = Convert.ToString(sbLanguageHTML);
 

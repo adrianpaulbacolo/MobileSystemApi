@@ -1,0 +1,195 @@
+//
+// Base (Main)
+// -------------------------------
+
+*, *:before, *:after {
+  @include box-sizing(border-box);
+}
+
+html, body, .ui-page, .ui-content,
+
+.ui-body-a,
+.ui-page-theme-a .ui-body-inherit,
+html .ui-bar-a .ui-body-inherit,
+html .ui-body-a .ui-body-inherit,
+html body .ui-group-theme-a .ui-body-inherit,
+html .ui-panel-page-container-a,
+
+.ui-body-b, .ui-overlay-b, .ui-page-theme-b,
+.ui-page-theme-b .ui-body-inherit,
+html .ui-bar-b .ui-body-inherit,
+html .ui-body-b .ui-body-inherit,
+html body .ui-group-theme-b .ui-body-inherit,
+html .ui-panel-page-container-b,
+.ui-page-theme-b .ui-panel-wrapper {
+    background-color: $base-background-color;
+    border-color: $border-color;
+    color: $base-color;
+    text-shadow: none;
+    font-family: sans-serif;
+}
+// over-write base
+.ui-overlay-a,
+.ui-page-theme-a,
+.ui-page-theme-a .ui-panel-wrapper,
+.ui-dialog {
+    background-color: $base-background-color !important;
+}
+
+// Links
+.ui-page-theme-b a,
+html .ui-bar-b a,
+html .ui-body-b a,
+html body .ui-group-theme-b a {
+    color: $primary-color;
+    font-weight: normal;
+}
+.ui-page-theme-b a:visited,
+html .ui-bar-b a:visited,
+html .ui-body-b a:visited,
+html body .ui-group-theme-b a:visited {
+    color: $primary-color;
+}
+.ui-page-theme-b a:hover,
+html .ui-bar-b a:hover,
+html .ui-body-b a:hover,
+html body .ui-group-theme-b a:hover {
+    color: $primary-color;
+}
+.ui-page-theme-b a:active,
+html .ui-bar-b a:active,
+html .ui-body-b a:active,
+html body .ui-group-theme-b a:active {
+    color: $primary-color;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.bg-solid {
+    background-color: darken($primary-color, 34%);
+}
+.bg-gradient {
+    @include bg-gradient();
+}
+.bg-image {
+    // @include linear-gradient(to bottom, #023144 0%, #000000 100%);
+    background: url($base-background-image) center bottom no-repeat $base-background-color;
+    @include background-size(cover);
+}
+
+a { &,
+    &:active,
+    &:visited {
+        text-decoration: none;
+        color: $primary-color;
+    }
+}
+h1, h2, h3, h4, h5, h6 {
+    color: $strong-color;
+    font-family: $primary-font;
+}
+hr {
+    height: 1px;
+    border: none;
+    background-color: $border-color;
+}
+
+figure {
+    margin: 0;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 1.2em;
+    margin: $content-padding auto !important;
+}
+
+.page-content {
+    overflow: hidden;
+    max-width: 100%;
+    min-height: 100%;
+    border: 1px solid $border-color;
+    background: $base-background-color;
+    padding: .5em .5em 0 .5em;
+}
+
+#divLoginMessage {
+    background-color: $base-background-color;
+    text-shadow: none;
+    color: $black;
+    margin-bottom: 1em;
+    border-left: 1px solid #ccc;
+    > span {
+        margin: .5em .1em .5em .2em;
+        line-height: 2em;
+        font-size: .9em;
+    }
+}
+
+.hideSplash {
+    opacity: 0;
+}
+
+.label-white {
+    text-shadow: none;
+    color: $white;
+}
+
+.div-limit div {
+    display: inline-block;
+    font-size: 0.75em;
+}
+
+// -- Content
+// -------------------------------
+
+.ui-body-a {
+    background: $base-background-color;
+}
+
+.ui-title,
+.product-index .ui-li-aside {
+    font-family: $primary-font;
+    font-weight: 400;
+}
+
+.ui-collapsible-inset {
+    margin: 0;
+}
+
+.ui-bar-a {
+    border-bottom-color: transparent;
+    background: $base-background-color;
+}
+
+.ui-content {
+    padding: 0;
+    > div:n {
+        margin: 1em;
+    }
+}
+
+.ui-br {
+    border-style: none;
+}
+
+.ui-corner-all {
+    @include border-radius(0);
+}
+
+
+.ui-icon-checkbox-off {
+    border: 1px solid $black;
+    background-color: #a1a1a1;
+}
+
+.ui-page-active {
+    background: $base-background-color;
+}
+

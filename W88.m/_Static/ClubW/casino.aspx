@@ -6,83 +6,32 @@
     <title><%=commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML).Replace(" -", "")/* + commonCulture.ElementValues.getResourceString("home", commonVariables.LeftMenuXML)*/%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
-    <style type="text/css">
-        #divContent {
-            margin:auto;
-            text-align:center;
-        }
-
-            #divContent > div > img {
-                width:100%;
-                max-width:900px;
-            }
-
-        .downloadmsg {
-            max-width:900px;
-            width:100%;
-            margin:auto;
-            text-align:left;
-                font-weight:bold;
-        }
-
-            .downloadmsg > span {
-                display:block;
-                padding:.5em;
-            }
-        .downloadmsg > span > span:first-child {
-            display:block;
-                text-align:center;
-        }
-
-        .blue {
-            color:#2ad;
-            font-weight:bold;
-        }
-
-        #sDownload {
-            display:block;
-            background-color:#2ad;
-            color:#fff;
-            text-align:center;
-            padding:.75em;
-            text-decoration:none;
-            text-transform:uppercase;
-            margin:1em .5em;
-        }
-    </style>
 </head>
 <body>
     <!--#include virtual="~/_static/splash.shtml" -->
     <div id="divMain" data-role="page" data-theme="b" data-ajax="false">
         <!--#include virtual="~/_static/header.shtml" -->
         <div class="ui-content" role="main">
-            <div id="divContent">
-                <div>
-                    <img src="/_Static/Images/Download/W88-Mobile-ClubW-Casino.jpg" />
+            <div class="static-content">
+                <div class="banner slider">
+                    <img src="/_Static/Images/Download/W88-Mobile-ClubW-Casino.jpg" alt="banner" class="img-responsive">
                 </div>
                 <div class="downloadmsg">
                     <span runat="server" id="spanMsg"></span>
-                    <a href="#" runat="server" rel="CW" data-ajax="false" id="sDownload"></a>     
+                    <a href="#" runat="server" rel="CW" data-ajax="false" id="sDownload"></a>
                 </div>
             </div>
         </div>
-
         <!-- /content -->
         <!--#include virtual="~/_static/footer.shtml" -->
         <!--#include virtual="~/_static/navMenu.shtml" -->
     </div>
-</body>
-
-<script type="text/javascript">
-    $(function () {
-        $('a[rel="CW"]').each(function () {
-            $(this).attr('href', '//casino' + location.hostname.substring(location.hostname.indexOf('.')) + $(this).attr('href'));
+    <script type="text/javascript">
+        $(function () {
+            $('a[rel="CW"]').each(function () {
+                $(this).attr('href', '//casino' + location.hostname.substring(location.hostname.indexOf('.')) + $(this).attr('href'));
+            });
         });
-    });
-</script>
-
-
-
-
-
+    </script>
+</body>
 </html>

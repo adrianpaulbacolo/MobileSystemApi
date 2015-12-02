@@ -7,98 +7,84 @@
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
     <script type="text/javascript" src="/_Static/JS/jquery.mask.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="/_Static/Css/Withdrawal.css" />
 </head>
-<body>    
+<body>
     <!--#include virtual="~/_static/splash.shtml" -->
-    <div data-role="page" data-theme="a">
-        <!--#include virtual="~/_static/header.shtml" -->
+    <div data-role="page" data-theme="b">
+        <header data-role="header" data-theme="b" data-position="fixed" id="header">
+            <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
+                <i class="icon-navicon"></i>
+            </a>
+            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("banktransfer", commonVariables.LeftMenuXML))%></h1>
+        </header>
+
         <div class="ui-content" role="main">
-            <div class="div-page-header"><span><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("banktransfer", commonVariables.LeftMenuXML))%></span></div>
-            <div class="page-content">
-                <div data-role="navbar">
-                    <ul>
-                        <li id="<%=string.Format("w{0}", Convert.ToInt32(commonVariables.WithdrawalMethod.BankTransfer))%>"><a href="/Withdrawal/BankTransfer" data-ajax="false" class="ui-btn-active"><%=commonCulture.ElementValues.getResourceString("banktransfer", commonVariables.LeftMenuXML)%></a></li>
-                        <%if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "usd", true) == 0) { %>  
-                            <li id='<%=string.Format("w{0}", Convert.ToInt32(commonVariables.WithdrawalMethod.WingMoney))%>'><a href="/Withdrawal/WingMoney" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("wingmoney", commonVariables.LeftMenuXML)%></a></li>
-                        <% } %>
-
-                    </ul>
-                    <br />
-                </div>
-
-                <form id="form1" runat="server" data-ajax="false">
-                    <div class="div-content-wrapper">
-                        <div>
-                            <div class="ui-field-contain ui-hide-label">
-                                <asp:Label ID="lblWithdrawAmount" runat="server" AssociatedControlID="txtWithdrawAmount" Text="from" CssClass="ui-hidden-accessible" />
-                                <asp:TextBox ID="txtWithdrawAmount" runat="server" placeholder="amount" type="number" step="any" min="1" />
-                            </div>
-                        </div>
-                        <div>
-                            <div class="ui-field-contain div-limit"><div><asp:Literal ID="lblDailyLimit" runat="server" /></div><div>&nbsp;</div><div><asp:Literal ID="lblTotalAllowed" runat="server" /></div></div>
-                        </div>
-                        <div>
-                            <div class="ui-field-contain ui-hide-label">
-                                <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" Text="to" CssClass="ui-hidden-accessible" />
-                                <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
-                            </div>
-                        </div>
-                        <div id="divBankName" style="display:none;">
-                            <div class="ui-field-contain ui-hide-label">
-                                <asp:Label ID="lblBankName" runat="server" AssociatedControlID="txtBankName" Text="other" CssClass="ui-hidden-accessible" />
-                                <asp:TextBox ID="txtBankName" runat="server" placeholder="bankname" />
-                            </div>
-                        </div>
-                        <div id="divBankBranch" runat="server">
-                            <div class="ui-field-contain ui-hide-label">
-                                <asp:Label ID="lblBankBranch" runat="server" AssociatedControlID="txtBankBranch" Text="other" CssClass="ui-hidden-accessible" />
-                                <asp:TextBox ID="txtBankBranch" runat="server" placeholder="bankbranch" />
-                            </div>
-                        </div>
-                        <div id="divAddress" runat="server">
-                            <div class="ui-field-contain ui-hide-label">
-                                <asp:Label ID="lblAddress" runat="server" AssociatedControlID="txtAddress" Text="other" CssClass="ui-hidden-accessible" />
-                                <asp:TextBox ID="txtAddress" runat="server" placeholder="address" />
-                            </div>
-                        </div>
-                        <div>
-                            <div class="ui-field-contain ui-hide-label">
-                                <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" Text="to" CssClass="ui-hidden-accessible" />
-                                <asp:TextBox ID="txtAccountName" runat="server" placeholder="accountname" />
-                            </div>
-                        </div>
-                        <div>
-                            <div class="ui-field-contain ui-hide-label">
-                                <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" Text="to" CssClass="ui-hidden-accessible" />
-                                <asp:TextBox ID="txtAccountNumber" runat="server" placeholder="accountnum" />
-                            </div>
-                        </div>
-                        <% if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "myr", true) == 0) { %>
-                        <div>                            
-                            <div class="ui-field-contain ui-hide-label">
-                                <asp:Label ID="lblMyKad" runat="server" AssociatedControlID="txtMyKad" Text="to" CssClass="ui-hidden-accessible" />
-                                <asp:TextBox ID="txtMyKad" runat="server" placeholder="mykad" />
-                            </div>
-                        </div>
-                        <% } %>
-                        <!--
-                        <div>                            
-                            <div class="ui-field-contain ui-hide-label">
-                                <asp:Label ID="lblMobile" runat="server" AssociatedControlID="txtMobile" Text="to" CssClass="ui-hidden-accessible" />
-                                <asp:TextBox ID="txtMobile" runat="server" placeholder="mykad" />
-                            </div>
-                        </div>
-                        -->
-                        <div>
-                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" OnClick="btnSubmit_Click" data-corners="false" />
-                        </div>
-                        <asp:HiddenField runat="server" ID="_repostcheckcode" />
-                    </div>
-                </form>
+            <div data-role="navbar">
+                <ul>
+                    <li id="<%=string.Format("w{0}", Convert.ToInt32(commonVariables.WithdrawalMethod.BankTransfer))%>"><a href="/Withdrawal/BankTransfer" data-ajax="false" class="ui-btn-active"><%=commonCulture.ElementValues.getResourceString("banktransfer", commonVariables.LeftMenuXML)%></a></li>
+                    <%if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "usd", true) == 0) { %>
+                        <li id='<%=string.Format("w{0}", Convert.ToInt32(commonVariables.WithdrawalMethod.WingMoney))%>'><a href="/Withdrawal/WingMoney" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("wingmoney", commonVariables.LeftMenuXML)%></a></li>
+                    <% } %>
+                </ul>
             </div>
+
+            <form class="form" id="form1" runat="server" data-ajax="false">
+                <p>&nbsp;</p>
+                <ul class="list fixed-tablet-size">
+                    <li class="item item-input">
+                        <asp:Label ID="lblWithdrawAmount" runat="server" AssociatedControlID="txtWithdrawAmount" Text="from" />
+                        <asp:TextBox ID="txtWithdrawAmount" runat="server" type="number" step="any" min="1" />
+                    </li>
+                    <li class="item item-text-wrap">
+                        <div class="div-limit">
+                            <div><asp:Literal ID="lblDailyLimit" runat="server" /></div>
+                            <div><asp:Literal ID="lblTotalAllowed" runat="server" /></div>
+                        </div>
+                    </li>
+                    <li class="item item-select">
+                        <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" Text="to" />
+                        <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
+                    </li>
+                    <li class="item item-input" id="divBankName" style="display:none;">
+                        <asp:Label ID="lblBankName" runat="server" AssociatedControlID="txtBankName" Text="other" />
+                        <asp:TextBox ID="txtBankName" runat="server" />
+                    </li>
+                    <li class="item item-input" id="divBankBranch" runat="server">
+                        <asp:Label ID="lblBankBranch" runat="server" AssociatedControlID="txtBankBranch" Text="other" />
+                        <asp:TextBox ID="txtBankBranch" runat="server" />
+                    </li>
+                    <li class="item item-input" id="divAddress" runat="server">
+                        <asp:Label ID="lblAddress" runat="server" AssociatedControlID="txtAddress" Text="other" />
+                        <asp:TextBox ID="txtAddress" runat="server" />
+                    </li>
+                    <li class="item item-input">
+                        <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" Text="to" />
+                        <asp:TextBox ID="txtAccountName" runat="server" />
+                    </li>
+                    <li class="item item-input">
+                        <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" Text="to" />
+                        <asp:TextBox ID="txtAccountNumber" runat="server" />
+                    </li>
+                    <% if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "myr", true) == 0) { %>
+                    <li class="item item-input">
+                        <asp:Label ID="lblMyKad" runat="server" AssociatedControlID="txtMyKad" Text="to" />
+                        <asp:TextBox ID="txtMyKad" runat="server" />
+                    </li>
+                    <% } %>
+                    <!--
+                    <li class="item item-input">
+                        <asp:Label ID="lblMobile" runat="server" AssociatedControlID="txtMobile" Text="to" />
+                        <asp:TextBox ID="txtMobile" runat="server" />
+                    </li>
+                    -->
+                    <li class="item row">
+                        <div class="col"><asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" OnClick="btnSubmit_Click" /></div>
+                    </li>
+                    <asp:HiddenField runat="server" ID="_repostcheckcode" />
+                </ul>
+            </form>
         </div>
-        <!-- /content -->
+
         <!--#include virtual="~/_static/footer.shtml" -->
         <!--#include virtual="~/_static/navMenu.shtml" -->
         <script type="text/javascript">
@@ -108,7 +94,7 @@
                 $('#txtMyKad').mask('999999-99-9999');
                 <% } %>
 
-                var strMethodsUnavailable = '<%=strMethodsUnAvailable%>';                
+                var strMethodsUnavailable = '<%=strMethodsUnAvailable%>';
 
                 if (strMethodsUnavailable.length > 0) {
                     var arrMethodsUnavailable = strMethodsUnavailable.split('|');

@@ -1,0 +1,123 @@
+//
+// Buttons
+// -------------------------------
+
+// Button up
+.ui-page-theme-b .ui-btn,
+html .ui-bar-b .ui-btn,
+html .ui-body-b .ui-btn,
+html body .ui-group-theme-b .ui-btn,
+html head + body .ui-btn.ui-btn-b,
+
+// Button visited
+.ui-page-theme-b .ui-btn:visited,
+html .ui-bar-b .ui-btn:visited,
+html .ui-body-b .ui-btn:visited,
+html body .ui-group-theme-b .ui-btn:visited,
+html head + body .ui-btn.ui-btn-b:visited {
+    background-color: $base-background-color;
+    border-color: $border-color;
+    color: $base-color;
+    text-shadow: none;
+}
+
+.ui-btn {
+    font: 400 1em $primary-font !important;
+    padding: 1em;
+    background-image: none;
+    border: none !important;
+    text-shadow: none !important;
+    @include box-shadow(none);
+    @include transition(.3s);
+}
+
+// icon-btn
+.ui-btn-icon-notext {
+    padding: 0;
+}
+.ui-btn:focus
+.ui-btn-active {
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.btn-primary {
+    font-weight: 400 !important;
+    color: $strong-color !important;
+    background-color: $primary-color !important;
+    &:hover, &:focus {
+        background-color: darken($primary-color, 10%) !important;
+    }
+}
+.btn-secondary {
+    font-weight: 600 !important;
+    color: $primary-color !important;
+    background-color: $secondary-color !important;
+    &:hover, &:focus {
+        background-color: darken($secondary-color, 10%) !important;
+    }
+}
+.btn-bordered,
+html head+body .ui-btn.ui-btn-a {
+    color: $primary-color !important;
+    background-color: transparent !important;
+    @include box-shadow(inset 0 0 0 1px $border-input-color);
+    &:hover, &:focus {
+        color: $strong-color !important;
+        background-color: darken($primary-color, 10%) !important;
+        @include box-shadow(none);
+    }
+}
+.btn-primary,
+.btn-secondary,
+.btn-bordered {
+    text-transform: uppercase;
+}
+
+.btn-clear {
+    background-color: transparent !important;
+}
+
+.ui-btn-corner-all,
+.ui-btn.ui-corner-all,
+.ui-slider-track.ui-corner-all,
+.ui-flipswitch.ui-corner-all,
+.ui-li-count,
+.ui-corner-all {
+    @include border-radius(0 !important);
+}
+
+.button-blue {
+    font: 700 1em $primary-font !important;
+    color: $white;
+    background-color: $primary-color !important;
+    @include opacity(1);
+}
+
+.ui-input-btn {
+    background: none !important;
+}
+
+// Focus
+.ui-btn:focus,
+.ui-btn.ui-btn-a:focus,
+.ui-page-theme-a .ui-focus,
+.ui-focus,
+.ui-btn-a.ui-focus,
+.ui-body-a.ui-focus {
+    @include opacity(.8);
+    @include box-shadow(none!important);
+}
+
+.close {
+    font: 400 1.2857em $font-family-sans-serif; // 18px
+    text-align: center;
+    display: inline-block;
+    color: $base-background-color !important;
+    background-color: darken($primary-color, 15%);
+    min-width: $content-padding + 11;
+    min-height: $content-padding + 11;
+    line-height: $content-padding + 11;
+    @include border-radius(50%);
+    cursor: pointer;
+}

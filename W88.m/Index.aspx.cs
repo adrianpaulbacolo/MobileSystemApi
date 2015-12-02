@@ -10,7 +10,7 @@ public partial class _Index : BasePage
 {
     protected System.Xml.Linq.XElement xeErrors = null;
 
-    protected void Page_Init(object sender, EventArgs e)
+    protected void Page_Init(object sender, EventArgs e) 
     {
         string priorityVIP = commonVariables.GetSessionVariable("PriorityVIP");
 
@@ -36,9 +36,9 @@ public partial class _Index : BasePage
         }
 
 
-        if (!string.IsNullOrEmpty(CDN_Value) && !string.IsNullOrEmpty(key))
+        if(!string.IsNullOrEmpty(CDN_Value) && !string.IsNullOrEmpty(key))
         {
-            commonVariables.SelectedLanguage = GetLanguageByCountry(GetCountryCode(CDN_Value, key));
+            commonVariables.SelectedLanguage = GetLanguageByCountry(GetCountryCode(CDN_Value,key));
         }
         else
         {
@@ -49,7 +49,7 @@ public partial class _Index : BasePage
 
                 commonVariables.SelectedLanguage = GetLanguageByDomain("." + host[1] + "." + host[2]);
             }
-            catch (Exception)
+            catch(Exception)
             {
                 commonVariables.SelectedLanguage = GetLanguageByDomain("default");
             }
@@ -61,7 +61,7 @@ public partial class _Index : BasePage
     protected void Page_Load(object sender, EventArgs e)
     {
         System.Web.UI.WebControls.Literal litScript = (System.Web.UI.WebControls.Literal)Page.FindControl("litScript");
-
+        
         if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("lang"))) { commonVariables.SelectedLanguage = HttpContext.Current.Request.QueryString.Get("lang"); }
 
         xeErrors = commonVariables.ErrorsXML;
@@ -81,6 +81,8 @@ public partial class _Index : BasePage
         if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("AffiliateId"))) { commonVariables.SetSessionVariable("AffiliateId", HttpContext.Current.Request.QueryString.Get("AffiliateId")); }
 
         DetectDownloadLinks(DetectMobileDevice());
+
+       InitializeWalletBalance();
     }
 
 
@@ -113,7 +115,7 @@ public partial class _Index : BasePage
     }
 
 
-    public string GetCountryCode(string CDN_Value, string key)
+    public string GetCountryCode(string CDN_Value,string key)
     {
         string CountryCode = string.Empty;
 
@@ -123,11 +125,11 @@ public partial class _Index : BasePage
             Values = CDN_Value.Split(',');
             CountryCode = Values[1].Split('=')[1];
         }
-        if (key == Keys.HTTP_CF_IPCOUNTRY)
+        if(key == Keys.HTTP_CF_IPCOUNTRY)
         {
             CountryCode = CDN_Value;
         }
-        if (key == Keys.HTTP_GEO_COUNTRY)
+        if(key == Keys.HTTP_GEO_COUNTRY)
         {
             CountryCode = CDN_Value;
         }
@@ -239,31 +241,31 @@ public partial class _Index : BasePage
 
     public void DetectDownloadLinks(int responseCode)
     {
-        if (commonVariables.SelectedLanguage == "en-us")
+        if(commonVariables.SelectedLanguage == "en-us")
         {
-            if (responseCode == 1)
-            {
-                pokerIOS.Attributes.Remove("href");
-                pokerIOS.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_IOSURL_EN"]);
-                Session["iosLink"] = ConfigurationManager.AppSettings["Poker_IOSURL_EN"];
-            }
-            else if (responseCode == 2)
-            {
-                pokerAndroid.Attributes.Remove("href");
-                pokerAndroid.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_AndroidURL_EN"]);
-                Session["androidLink"] = ConfigurationManager.AppSettings["Poker_AndroidURL_EN"];
-            }
-            else if (responseCode == 3)
-            {
-                pokerIOS.Attributes.Remove("href");
-                pokerIOS.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_IOSURL_EN"]);
+           if(responseCode == 1)
+           {
+               pokerIOS.Attributes.Remove("href");
+               pokerIOS.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_IOSURL_EN"]);
+               Session["iosLink"] = ConfigurationManager.AppSettings["Poker_IOSURL_EN"];
+           }
+           else if(responseCode == 2)
+           {
+               pokerAndroid.Attributes.Remove("href");
+               pokerAndroid.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_AndroidURL_EN"]);
+               Session["androidLink"] = ConfigurationManager.AppSettings["Poker_AndroidURL_EN"];
+           }
+           else if(responseCode == 3)
+           {
+               pokerIOS.Attributes.Remove("href");
+               pokerIOS.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_IOSURL_EN"]);
 
-                pokerAndroid.Attributes.Remove("href");
-                pokerAndroid.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_AndroidURL_EN"]);
+               pokerAndroid.Attributes.Remove("href");
+               pokerAndroid.Attributes.Add("href", ConfigurationManager.AppSettings["Poker_AndroidURL_EN"]);
 
-                Session["iosLink"] = ConfigurationManager.AppSettings["Poker_IOSURL_EN"];
-                Session["androidLink"] = ConfigurationManager.AppSettings["Poker_AndroidURL_EN"];
-            }
+               Session["iosLink"] = ConfigurationManager.AppSettings["Poker_IOSURL_EN"];
+               Session["androidLink"] = ConfigurationManager.AppSettings["Poker_AndroidURL_EN"];
+           }
         }
         if (commonVariables.SelectedLanguage == "km-kh")
         {
@@ -447,6 +449,98 @@ public partial class _Index : BasePage
                 Session["androidLink"] = ConfigurationManager.AppSettings["Poker_AndroidURL_CN"];
 
             }
+        }
+    }
+
+
+    public void InitializeWalletBalance()
+    {
+        string[] keys = { "0", "2", "7", "1", "3", "4", "6", "13", "12" };
+        
+        for(int x=0;x<keys.Length;x++)
+        {
+            getWalletBalance(keys[x]);
+        }
+    }
+
+
+
+    private class Wallet
+    {
+        public const string MAIN = "0";
+        public const string ASPORTS = "2";
+        public const string LOTTERY = "1";
+        public const string CASINO = "3";
+        public const string PLAYTECH = "4";
+        public const string POKER = "6";
+        public const string SBTECH = "7";
+        public const string SBO = "13";
+        public const string NETENT = "12";
+    }
+
+
+
+    public void getWalletBalance(string walletId)
+    {
+        string strOperatorId = commonVariables.OperatorId;
+        string strMemberCode = string.Empty;
+        string strSiteUrl = commonVariables.SiteUrl;
+
+        string processCode = string.Empty;
+        string processText = string.Empty;
+
+        string strWalletId = string.Empty;
+        string strWalletAmount = string.Empty;
+        string strProductCurrency = string.Empty;
+
+        strWalletId = walletId;
+
+        strMemberCode = commonVariables.GetSessionVariable("MemberCode");
+
+        if (!string.IsNullOrEmpty(strMemberCode) && !string.IsNullOrEmpty(strOperatorId))
+        {
+            using (svcPayMember.MemberClient svcInstance = new svcPayMember.MemberClient())
+            {
+                strWalletAmount = svcInstance.getWalletBalance(strOperatorId, strSiteUrl, strMemberCode, strWalletId, out strProductCurrency);
+            }
+        }
+        else { strWalletAmount = "0"; }
+
+        if(walletId == Wallet.MAIN)
+        {
+            Session["MAIN"] = strWalletAmount;
+        }
+        if (walletId == Wallet.ASPORTS)
+        {
+            Session["ASPORTS"] = strWalletAmount;
+        }
+        else if (walletId == Wallet.SBO)
+        {
+            Session["SBO"] = strWalletAmount;
+        }
+        else if (walletId == Wallet.CASINO)
+        {
+            Session["CASINO"] = strWalletAmount;
+        }
+        else if (walletId == Wallet.PLAYTECH)
+        {
+            Session["PLAYTECH"] = strWalletAmount;
+        }
+        else if (walletId == Wallet.SBTECH)
+        {
+            Session["SBTECH"] = strWalletAmount;
+        }
+        else if (walletId == Wallet.LOTTERY)
+        {
+            Session["LOTTERY"] = strWalletAmount;
+        }
+        else if (walletId == Wallet.NETENT )
+        {
+            Session["NETENT"] = strWalletAmount;
+        }
+        else if (walletId == Wallet.POKER)
+        {
+            Session["POKER"] = strWalletAmount;
         }
     }
 

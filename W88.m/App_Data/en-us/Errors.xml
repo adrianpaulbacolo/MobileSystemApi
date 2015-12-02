@@ -157,6 +157,7 @@
   <Withdrawal>
     <TransferSuccess><![CDATA[Your request has been submitted successfully.]]></TransferSuccess>
     <TransferFail><![CDATA[Request Submission Fail]]></TransferFail>
+    <InsufficientBalance><![CDATA[Insufficient balance.]]></InsufficientBalance>
     
     <MissingWithdrawAmount><![CDATA[Please enter a withdrawal amount]]></MissingWithdrawAmount>
     <MissingAccountName><![CDATA[Please enter your account name]]></MissingAccountName>

@@ -42,40 +42,42 @@ public partial class FundTransfer_Default : BasePage
         commonCulture.appData.getRootResource("/FundTransfer/CurrencySettings", out xeFTCurrencySettings);
         strCurrencyCode = commonVariables.GetSessionVariable("CurrencyCode");
 
-        if (!Page.IsPostBack)
-        {
-            sbWallets = new System.Text.StringBuilder();
-            sbWallets.AppendFormat("<h4 id='hBalance' onclick='javascript:hBalanceToggle(this, \"{0}\", \"{1}\")'>{2}</h4>", commonCulture.ElementValues.getResourceString("lblShowBalance", xeResources), commonCulture.ElementValues.getResourceString("lblHideBalance", xeResources), commonCulture.ElementValues.getResourceString("lblShowBalance", xeResources));
-            foreach (string product in lstProductsSelection)
+            if (!Page.IsPostBack)
             {
-                strProduct = product.Trim();
-                strWalletName = Convert.ToString(commonCulture.ElementValues.getResourceXPathString("Wallets/" + strProduct, commonVariables.ProductsXML));
-
-                customConfig.WalletVariables walletVar = System.Configuration.ConfigurationManager.GetSection("WalletGroupSettings/" + strProduct) as customConfig.WalletVariables;
-
-                if (string.Compare(commonCulture.ElementValues.getResourceXPathAttribute("Currencies/" + strCurrencyCode + "/" + strProduct.ToUpper(), "disabledfundout", xeFTCurrencySettings), "true", true) != 0)
+                sbWallets = new System.Text.StringBuilder();
+                sbWallets.AppendFormat("<h4 id='hBalance' onclick='javascript:hBalanceToggle(this, \"{0}\", \"{1}\")'>{2}</h4>", commonCulture.ElementValues.getResourceString("lblShowBalance", xeResources), commonCulture.ElementValues.getResourceString("lblHideBalance", xeResources), commonCulture.ElementValues.getResourceString("lblShowBalance", xeResources));
+                foreach (string product in lstProductsSelection)
                 {
-                    drpTransferFrom.Items.Add(new ListItem(commonCulture.ElementValues.getResourceXPathString("Wallets/" + strProduct, commonVariables.ProductsXML), walletVar.walletId));
+                    strProduct = product.Trim();
+                    strWalletName = Convert.ToString(commonCulture.ElementValues.getResourceXPathString("Wallets/" + strProduct, commonVariables.ProductsXML));
+
+                    customConfig.WalletVariables walletVar = System.Configuration.ConfigurationManager.GetSection("WalletGroupSettings/" + strProduct) as customConfig.WalletVariables;
+
+                    if (string.Compare(commonCulture.ElementValues.getResourceXPathAttribute("Currencies/" + strCurrencyCode + "/" + strProduct.ToUpper(), "disabledfundout", xeFTCurrencySettings), "true", true) != 0)
+                    {
+                        drpTransferFrom.Items.Add(new ListItem(commonCulture.ElementValues.getResourceXPathString("Wallets/" + strProduct, commonVariables.ProductsXML), walletVar.walletId));
+                    }
+
+                    if (string.Compare(commonCulture.ElementValues.getResourceXPathAttribute("Currencies/" + strCurrencyCode + "/" + strProduct.ToUpper(), "disabledfundin", xeFTCurrencySettings), "true", true) != 0)
+                    {
+                        drpTransferTo.Items.Add(new ListItem(commonCulture.ElementValues.getResourceXPathString("Wallets/" + strProduct, commonVariables.ProductsXML), walletVar.walletId));
+                    }
+
+                    sbWallets.AppendFormat("<div class='ui-field-contain'><span>{0}</span><span name='WalletBalance' id='" + walletVar.walletId + "' style='float:right;'>{1}</span></div>", strWalletName, "~");
                 }
 
-                if (string.Compare(commonCulture.ElementValues.getResourceXPathAttribute("Currencies/" + strCurrencyCode + "/" + strProduct.ToUpper(), "disabledfundin", xeFTCurrencySettings), "true" , true) != 0) { 
-                    drpTransferTo.Items.Add(new ListItem(commonCulture.ElementValues.getResourceXPathString("Wallets/" + strProduct, commonVariables.ProductsXML), walletVar.walletId));                
-                }
+                drpTransferFrom.Items.Insert(0, new ListItem(commonCulture.ElementValues.getResourceString("lblTransferFrom", xeResources), "-1"));
+                drpTransferTo.Items.Insert(0, new ListItem(commonCulture.ElementValues.getResourceString("lblTransferTo", xeResources), "-1"));
+                lblTransferAmount.Text = commonCulture.ElementValues.getResourceString("lblTransferAmount", xeResources);
+                lblPromoCode.Text = commonCulture.ElementValues.getResourceString("lblPromoCode", xeResources);
+                txtTransferAmount.Attributes["PLACEHOLDER"] = lblTransferAmount.Text + " (" + commonVariables.GetSessionVariable("CurrencyCode") + ")";
+                txtPromoCode.Attributes["PLACEHOLDER"] = lblPromoCode.Text;
+                btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
 
-                sbWallets.AppendFormat("<div class='ui-field-contain'><span>{0}</span><span name='WalletBalance' id='" + walletVar.walletId + "' style='float:right;'>{1}</span></div>", strWalletName, "~");
+                divBalance.InnerHtml += Convert.ToString(sbWallets);
             }
-
-            drpTransferFrom.Items.Insert(0, new ListItem(commonCulture.ElementValues.getResourceString("lblTransferFrom", xeResources), "-1"));
-            drpTransferTo.Items.Insert(0, new ListItem(commonCulture.ElementValues.getResourceString("lblTransferTo", xeResources), "-1"));
-            lblTransferAmount.Text = commonCulture.ElementValues.getResourceString("lblTransferAmount", xeResources);
-            lblPromoCode.Text = commonCulture.ElementValues.getResourceString("lblPromoCode", xeResources);
-            txtTransferAmount.Attributes["PLACEHOLDER"] = lblTransferAmount.Text + " (" + commonVariables.GetSessionVariable("CurrencyCode") + ")";
-            txtPromoCode.Attributes["PLACEHOLDER"] = lblPromoCode.Text;
-            btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
-
-            divBalance.InnerHtml += Convert.ToString(sbWallets);
         }
-    }
+    
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {

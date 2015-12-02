@@ -35,4 +35,7 @@
   <rewards><![CDATA[คลับสะสมแต้ม]]></rewards>
   <sdpay><![CDATA[SDPay]]></sdpay>
   <help2pay><![CDATA[Help2Pay]]></help2pay>
+  <withrawal><![CDATA[ถอน]]></withrawal>-->
+  <fundTransfer><![CDATA[ย้ายทุน]]></fundTransfer>-->
+  <deposit><![CDATA[ฝาก]]></deposit>-->
 </menu>

@@ -1,13 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
-  <message>
-    <![CDATA[<span class="blue">3 Langkah Mudah bermain Club Palazzo Versi Download</span>
-            <br />Langkah 1:  Klik pada tombol Download di bawah.
-            <br />Langkah 2:  Instal dengan klik pada Run atau Simpan di harddisk anda.
-            <br />Langkah 3:   Login dengan menambahkan "<span class='blue'>W88</span>" di depan username anda.
-            <br />
-            <br />Contoh: 
-            <br />Jika username anda "luckyplayer", maka login sebagai "<span class='blue'>W88</span>LUCKYPLAYER". ]]>
-  </message>
-  <downloadnow><![CDATA[DOWNLOAD SEKARANG]]></downloadnow>
+    <message>
+        <![CDATA[
+            <h4 class="title">3 Langkah Mudah bermain Club Palazzo Versi Download</h4>
+            <ol>
+                <li>Klik pada tombol Download di bawah.</li>
+                <li>Instal dengan klik pada Run atau Simpan di harddisk anda.</li>
+                <li>Login dengan menambahkan "<strong>W88</strong>" di depan username anda.</li>
+            </ol>
+            <p>
+                <span class="label">Contoh:</span> <br>
+                Jika username anda "luckyplayer", maka login sebagai "<strong>W88</strong>LUCKYPLAYER".
+            </p>
+        ]]>
+    </message>
+    <downloadnow><![CDATA[DOWNLOAD SEKARANG]]></downloadnow>
 </default>

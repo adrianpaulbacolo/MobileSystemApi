@@ -6,26 +6,28 @@
     <title>Pending Withdrawal</title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
-    <link type="text/css" href="/_Static/Css/Pending.css" rel="stylesheet" />
-    <style type="text/css">
-        .page-content { max-width:700px; margin-left:auto; margin-right:auto; }
-    </style>
 </head>
 <body>
-    <div data-role="page" data-theme="a">
-        <div class="ui-content" role="main">
-            <div class="div-page-header"><span>Pending Withdrawal</span></div>
-            <div class="page-content">
+    <div data-role="page" data-theme="b">
+        <header data-role="header" data-theme="b" data-position="fixed" id="header">
+            <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
+                <i class="icon-navicon"></i>
+            </a>
+            <h1 class="title">Pending Withdrawal</h1>
+        </header>
 
-                <form id="form1" runat="server" data-ajax="false">
-                    <div class="div-content-wrapper">
-                        <asp:Literal ID="litPending" runat="server"></asp:Literal>                        
+        <div class="ui-content" role="main">
+            <form class="form" id="form1" runat="server" data-ajax="false">
+                <br>
+                <ul class="list fixed-tablet-size">
+                    <li class="item item-input">
+                        <asp:Literal ID="litPending" runat="server"></asp:Literal>
                         <asp:HiddenField runat="server" ID="_repostcheckcode" />
                         <br />
-                                     <input type="button" onclick="location.href = '/Deposit/Default_app.aspx';" value="Back" class="button-blue"  data-corners="false" />
-                    </div>
-                </form>
-            </div>            
+                        <input type="button" onclick="location.href = '/Deposit/Default_app.aspx';" value="Back" class="button-blue"  data-corners="false" />
+                    </li>
+                </ul>
+            </form>
         </div>
         <!-- /content -->
         <script type="text/javascript">
@@ -49,7 +51,7 @@
                                     alert('<%=commonCulture.ElementValues.getResourceXPathString("Withdrawal/CancelSuccess", xeErrors)%>'.replace('{trxId}', $(obj).attr('data-id')));
                                     $(obj).parentsUntil('tbody').fadeOut();
                                     window.setTimeout(function () { $(obj).parentsUntil('tbody').remove(); if ($('#table-reflow tbody tr').length == 0) { window.location.replace('/Withdrawal/Withrawal.aspx'); } }, 2000);
-                                    
+
                                 }
                                 else {
                                     switch (html)

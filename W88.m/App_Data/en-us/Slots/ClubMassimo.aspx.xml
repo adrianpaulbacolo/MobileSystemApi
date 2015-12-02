@@ -6,8 +6,20 @@
         <Label><![CDATA[americanRouletteGold]]></Label>
         <Description><![CDATA[americanRouletteGold]]></Description>
         <ImageName><![CDATA[americanRouletteGold]]></ImageName>
-        <PlayForRealURL><![CDATA[{RealUrl}/americanRouletteGold/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{FunUrl}/americanRouletteGold/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+        <PlayForRealURL>
+          <![CDATA[{RealUrl}/americanRouletteGold/en?
+
+casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken=
+
+{token}&lobbyURL=http://{lobby}]]>
+        </PlayForRealURL>
+        <PlayForFunURL>
+          <![CDATA[{FunUrl}/americanRouletteGold/en?
+
+casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=
+
+&lobbyURL=http://{lobby}]]>
+        </PlayForFunURL>
       </americanRouletteGold>
 
 
@@ -16,16 +28,40 @@
         <Label><![CDATA[atlanticCityBlackjackGold]]></Label>
         <Description><![CDATA[atlanticCityBlackjackGold]]></Description>
         <ImageName><![CDATA[atlanticCityBlackjackGold]]></ImageName>
-        <PlayForRealURL><![CDATA[{RealUrl}/atlanticCityBlackjackGold/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{FunUrl}/atlanticCityBlackjackGold/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+        <PlayForRealURL>
+          <![CDATA[{RealUrl}/atlanticCityBlackjackGold/en?
+
+casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken=
+
+{token}&lobbyURL=http://{lobby}]]>
+        </PlayForRealURL>
+        <PlayForFunURL>
+          <![CDATA[{FunUrl}/atlanticCityBlackjackGold/en?
+
+casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=
+
+&lobbyURL=http://{lobby}]]>
+        </PlayForFunURL>
       </atlanticCityBlackjackGold>
 
       <classicBlackjackGold>
         <Label><![CDATA[classicBlackjackGold]]></Label>
         <Description><![CDATA[classicBlackjackGold]]></Description>
         <ImageName><![CDATA[classicBlackjackGold]]></ImageName>
-        <PlayForRealURL><![CDATA[{RealUrl}/classicBlackjackGold/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{FunUrl}/classicBlackjackGold/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+        <PlayForRealURL>
+          <![CDATA[{RealUrl}/classicBlackjackGold/en?
+
+casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken=
+
+{token}&lobbyURL=http://{lobby}]]>
+        </PlayForRealURL>
+        <PlayForFunURL>
+          <![CDATA[{FunUrl}/classicBlackjackGold/en?
+
+casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=
+
+&lobbyURL=http://{lobby}]]>
+        </PlayForFunURL>
       </classicBlackjackGold>
 
 
@@ -33,8 +69,20 @@
         <Label><![CDATA[vegasDowntownBlackjackGold]]></Label>
         <Description><![CDATA[vegasDowntownBlackjackGold]]></Description>
         <ImageName><![CDATA[vegasDowntownBlackjackGold]]></ImageName>
-        <PlayForRealURL><![CDATA[{RealUrl}/vegasDowntownBlackjackGold/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{FunUrl}/vegasDowntownBlackjackGold/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+        <PlayForRealURL>
+          <![CDATA[{RealUrl}/vegasDowntownBlackjackGold/en?
+
+casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken=
+
+{token}&lobbyURL=http://{lobby}]]>
+        </PlayForRealURL>
+        <PlayForFunURL>
+          <![CDATA[{FunUrl}/vegasDowntownBlackjackGold/en?
+
+casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=
+
+&lobbyURL=http://{lobby}]]>
+        </PlayForFunURL>
       </vegasDowntownBlackjackGold>
 
 
@@ -42,17 +90,63 @@
         <Label><![CDATA[vegasSingleDeckBlackjackGold]]></Label>
         <Description><![CDATA[vegasSingleDeckBlackjackGold]]></Description>
         <ImageName><![CDATA[vegasSingleDeckBlackjackGold]]></ImageName>
-        <PlayForRealURL><![CDATA[{RealUrl}/vegasSingleDeckBlackjackGold/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{FunUrl}/vegasSingleDeckBlackjackGold/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+        <PlayForRealURL>
+          <![CDATA[{RealUrl}/vegasSingleDeckBlackjackGold/en?
+
+casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken=
+
+{token}&lobbyURL=http://{lobby}]]>
+        </PlayForRealURL>
+        <PlayForFunURL>
+          <![CDATA[{FunUrl}/vegasSingleDeckBlackjackGold/en?
+
+casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=
+
+&lobbyURL=http://{lobby}]]>
+        </PlayForFunURL>
       </vegasSingleDeckBlackjackGold>
 
       <vegasStripBlackjackGold>
         <Label><![CDATA[vegasStripBlackjackGold]]></Label>
         <Description><![CDATA[vegasStripBlackjackGold]]></Description>
         <ImageName><![CDATA[vegasStripBlackjackGold]]></ImageName>
-        <PlayForRealURL><![CDATA[{RealUrl}/vegasStripBlackjackGold/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{FunUrl}/vegasStripBlackjackGold/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+        <PlayForRealURL>
+          <![CDATA[{RealUrl}/vegasStripBlackjackGold/en?
+
+casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken=
+
+{token}&lobbyURL=http://{lobby}]]>
+        </PlayForRealURL>
+        <PlayForFunURL>
+          <![CDATA[{FunUrl}/vegasStripBlackjackGold/en?
+
+casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=
+
+&lobbyURL=http://{lobby}]]>
+        </PlayForFunURL>
       </vegasStripBlackjackGold>
+
+      <BonusDeucesWild>
+        <Label><![CDATA[BonusDeucesWild]]></Label>
+        <Description><![CDATA[BonusDeucesWild]]></Description>
+        <ImageName><![CDATA[W88-Slots-Mobile-Bonus-Deuces-Wild]]></ImageName>
+        <PlayForRealURL><![CDATA[{RealUrl}/bonusDeucesWild/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{FunUrl}/bonusDeucesWild/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+      </BonusDeucesWild>
+      <EuropeanBlackjackGold>
+        <Label><![CDATA[EuropeanBlackjackGold]]></Label>
+        <Description><![CDATA[EuropeanBlackjackGold]]></Description>
+        <ImageName><![CDATA[W88-Slots-Mobile-European-Blackjack-Gold]]></ImageName>
+        <PlayForRealURL><![CDATA[{RealUrl}/europeanBlackjackGold/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{FunUrl}/europeanBlackjackGold/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+      </EuropeanBlackjackGold>
+      <EuropeanRoulette>
+        <Label><![CDATA[EuropeanRoulette]]></Label>
+        <Description><![CDATA[EuropeanRoulette]]></Description>
+        <ImageName><![CDATA[W88-Slots-Mobile-European-Roulette]]></ImageName>
+        <PlayForRealURL><![CDATA[{RealUrl}/europeanRoulette/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{FunUrl}/europeanRoulette/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+      </EuropeanRoulette>
     </CardAndTable>
     <Slot Label="Slots">
 
@@ -132,6 +226,15 @@
         <PlayForRealURL><![CDATA[{RealUrl}/bushTelegraph/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{FunUrl}/bushTelegraph/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
       </bushTelegraph>
+
+
+      <cashSplash>
+        <Label><![CDATA[cashSplash]]></Label>
+        <Description><![CDATA[cashSplash]]></Description>
+        <ImageName><![CDATA[cashSplash]]></ImageName>
+        <PlayForRealURL><![CDATA[{RealUrl}/cashSplash/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{FunUrl}/cashSplash/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+      </cashSplash>
 
 
       <cashVille>
@@ -225,6 +328,22 @@
       </luckyLeprechaun>
 
 
+      <majorMillions>
+        <Label><![CDATA[majorMillions]]></Label>
+        <Description><![CDATA[majorMillions]]></Description>
+        <ImageName><![CDATA[majorMillions]]></ImageName>
+        <PlayForRealURL><![CDATA[{RealUrl}/majorMillions/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{FunUrl}/majorMillions/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+      </majorMillions>
+
+
+      <megaMoolah>
+        <Label><![CDATA[megaMoolah]]></Label>
+        <Description><![CDATA[megaMoolah]]></Description>
+        <ImageName><![CDATA[megaMoolah]]></ImageName>
+        <PlayForRealURL><![CDATA[{RealUrl}/megaMoolah/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{FunUrl}/megaMoolah/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+      </megaMoolah>
 
 
       <mysticDreams>
@@ -296,7 +415,7 @@
         <Description><![CDATA[silverFang]]></Description>
         <ImageName><![CDATA[silverFang]]></ImageName>
         <PlayForRealURL><![CDATA[{RealUrl}/silverFang/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{FunUrl}/silverFang/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+        <PlayForFunURL><![CDATA[{FunUrl}/secretAdmirer/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
       </silverFang>
 
 
@@ -354,7 +473,16 @@
         <PlayForRealURL><![CDATA[{RealUrl}/theGrandJourney/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{FunUrl}/theGrandJourney/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
       </theGrandJourney>
-      
+
+
+
+      <treasureNile>
+        <Label><![CDATA[treasureNile]]></Label>
+        <Description><![CDATA[treasureNile]]></Description>
+        <ImageName><![CDATA[treasureNile]]></ImageName>
+        <PlayForRealURL><![CDATA[{RealUrl}/treasureNile/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{FunUrl}/treasureNile/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+      </treasureNile>
       <FiveReelDrive>
         <Label><![CDATA[5ReelDrive]]></Label>
         <Description><![CDATA[5ReelDrive]]></Description>

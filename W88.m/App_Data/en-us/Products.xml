@@ -14,6 +14,41 @@
       <Label><![CDATA[e-Sports]]></Label>
       <Description><![CDATA[Sportsbook]]></Description>
     </ESports>
+    <VSports>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[v-Sports]]></Label>
+      <Description><![CDATA[v-Sports]]></Description>
+    </VSports>
+    <Poker>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[Poker]]></Label>
+      <Description><![CDATA[Poker]]></Description>
+    </Poker>
+    <VSports-basketball>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[Basketball]]></Label>
+      <Description><![CDATA[Sportsbook]]></Description>
+    </VSports-basketball>
+    <VSports-tennis>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[Tennis]]></Label>
+      <Description><![CDATA[Sportsbook]]></Description>
+    </VSports-tennis>
+    <VSports-horseracing>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[Horse Racing]]></Label>
+      <Description><![CDATA[Sportsbook]]></Description>
+    </VSports-horseracing>
+    <VSports-football>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[Football]]></Label>
+      <Description><![CDATA[Sportsbook]]></Description>
+    </VSports-football>
+    <VSports-dogracing>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[Dog Racing]]></Label>
+      <Description><![CDATA[Sportsbook]]></Description>
+    </VSports-dogracing>
     <ISports>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[i-Sports]]></Label>
@@ -90,10 +125,11 @@
     <esports><![CDATA[E-Sports]]></esports>
     <isports><![CDATA[I-Sports]]></isports>
     <lottery><![CDATA[Lottery]]></lottery>
-    <casino><![CDATA[Club W, Bravado, Apollo, Crescendo, Divino & Massimo]]></casino>
+    <casino><![CDATA[Club W, Bravado, Apollo, Crescendo, Divino & Massimo , V-Sports]]></casino>
     <playtech><![CDATA[Palazzo]]></playtech>
     <binary><![CDATA[Binary]]></binary>
     <poker><![CDATA[Poker (USD)]]></poker>
     <sbtech><![CDATA[E-Sports]]></sbtech>
+    <sbo><![CDATA[W-Sports]]></sbo>
   </Wallets>
 </default>

@@ -3,6 +3,23 @@
   <Category>
     <Slot Label="Slots">
 
+
+      <desertoasis>
+        <ImageName><![CDATA[desertoasis]]></ImageName>
+        <PlayForRealURL><![CDATA[{BaravadoUrl}/desertoasis/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BaravadoUrl}?/desertoasis/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </desertoasis>
+
+      <pharaoh>
+        <ImageName><![CDATA[pharaoh]]></ImageName>
+        <PlayForRealURL><![CDATA[{BaravadoUrl}/pharaoh/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BaravadoUrl}?/pharaoh/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </pharaoh>
+
       <mafia>
         <ImageName><![CDATA[mafia]]></ImageName>
         <PlayForRealURL><![CDATA[{BaravadoUrl}/mafia/?fun=0]]></PlayForRealURL>
@@ -11,6 +28,21 @@
         <SlotType><![CDATA[RSLOT]]></SlotType>
       </mafia>
 
+      <monkeyking>
+        <ImageName><![CDATA[monkeyking]]></ImageName>
+        <PlayForRealURL><![CDATA[{BaravadoUrl}/monkeyking/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BaravadoUrl}?/monkeyking/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </monkeyking>
+
+      <fruitilicious>
+        <ImageName><![CDATA[fruitilicious]]></ImageName>
+        <PlayForRealURL><![CDATA[{BaravadoUrl}/fruitilicious/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BaravadoUrl}?/fruitilicious/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </fruitilicious>
 
       <goldeneggs>
         <ImageName><![CDATA[goldeneggs]]></ImageName>
@@ -28,44 +60,26 @@
         <IsInternal><![CDATA[true]]></IsInternal>
         <SlotType><![CDATA[RSLOT]]></SlotType>
       </deepblue>
-      
-      <baseball>
-        <ImageName><![CDATA[baseball]]></ImageName>
-        <PlayForRealURL><![CDATA[{BravadoUrl}/baseball/?fun=0]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{BravadoUrl}/baseball/?fun=1]]></PlayForFunURL>
-        <IsInternal><![CDATA[true]]></IsInternal>
-        <SlotType><![CDATA[RSLOT]]></SlotType>
-      </baseball>
 
-      <happyhalloweenmobile>
-        <ImageName><![CDATA[happyhalloweenmobile]]></ImageName>
-      </happyhalloweenmobile>
-      <lanternfestival>
-        <ImageName><![CDATA[lanternfestival]]></ImageName>
-        <PlayForRealURL><![CDATA[{BravadoUrl}/lanternfestival/?fun=0]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{BravadoUrl}/lanternfestival/?fun=1]]></PlayForFunURL>
+
+      <fortunecat>
+        <ImageName><![CDATA[fortunecat]]></ImageName>
+        <PlayForRealURL><![CDATA[{BaravadoUrl}/fortunecat/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BaravadoUrl}?/fortunecat/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
         <SlotType><![CDATA[RSLOT]]></SlotType>
-      </lanternfestival>
+      </fortunecat>
+
       <eyeofthekrakenmobile>
         <ImageName><![CDATA[eyeofthekrakenmobile]]></ImageName>
       </eyeofthekrakenmobile>
-      <dimsumlicious>
-        <ImageName><![CDATA[dimsumlicious]]></ImageName>
-        <PlayForRealURL><![CDATA[{BravadoUrl}/dimsumlicious/?fun=0]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{BravadoUrl}/dimsumlicious/?fun=1]]></PlayForFunURL>
+      <BikiniBeach>
+        <ImageName><![CDATA[bikinibeach]]></ImageName>
+        <PlayForRealURL><![CDATA[{BaravadoUrl}/BikiniBeach/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BaravadoUrl}?/BikiniBeach/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
         <SlotType><![CDATA[RSLOT]]></SlotType>
-      </dimsumlicious>
-
-      <legendofnezha>
-        <ImageName><![CDATA[legendofnezha]]></ImageName>
-        <PlayForRealURL><![CDATA[{BravadoUrl}/legendofnezha/?fun=0]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{BravadoUrl}/legendofnezha/?fun=1]]></PlayForFunURL>
-        <IsInternal><![CDATA[true]]></IsInternal>
-        <SlotType><![CDATA[RSLOT]]></SlotType>
-      </legendofnezha>
-
+      </BikiniBeach>
       <candylicious>
         <ImageName><![CDATA[candylicious]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/candylicious/?fun=0]]></PlayForRealURL>
@@ -73,13 +87,13 @@
         <IsInternal><![CDATA[true]]></IsInternal>
         <SlotType><![CDATA[RSLOT]]></SlotType>
       </candylicious>
-
-      <Soccer>
-        <ImageName><![CDATA[soccer]]></ImageName>
-        <PlayForRealURL><![CDATA[{BravadoUrl}/Soccer/?fun=0]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{BravadoUrl}/Soccer/?fun=1]]></PlayForFunURL>
+      <dimsumlicious>
+        <ImageName><![CDATA[dimsumlicious]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/dimsumlicious/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/dimsumlicious/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
-      </Soccer>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </dimsumlicious>
       <FourBeauties>
         <ImageName><![CDATA[fourbeauties]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/fourbeauties/?fun=0]]></PlayForRealURL>
@@ -105,7 +119,7 @@
         <IsInternal><![CDATA[true]]></IsInternal>
         <SlotType><![CDATA[RSLOT]]></SlotType>
       </GodOfFortune>
-       <GolfTour>
+      <GolfTour>
         <ImageName><![CDATA[golftour]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/golftour/?fun=0]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{BravadoUrl}/golftour/?fun=1]]></PlayForFunURL>
@@ -117,6 +131,13 @@
         <PlayForFunURL><![CDATA[{BravadoUrl}/klassik/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
       </Klassik>
+      <legendofnezha>
+        <ImageName><![CDATA[legendofnezha]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/legendofnezha/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/legendofnezha/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </legendofnezha>
       <LittleMonsters>
         <ImageName><![CDATA[littlemonsters]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/littlemonsters/?fun=0]]></PlayForRealURL>
@@ -153,6 +174,12 @@
         <PlayForFunURL><![CDATA[{BravadoUrl}/sherlock/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
       </Sherlock>
+      <Soccer>
+        <ImageName><![CDATA[soccer]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/Soccer/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/Soccer/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </Soccer>
       <ThreeKingdoms>
         <ImageName><![CDATA[threekingdoms]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/threekingdoms/?fun=0]]></PlayForRealURL>
@@ -171,13 +198,6 @@
         <PlayForFunURL><![CDATA[{BravadoUrl}/zodiac/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
       </zodiac>
-      <BikiniBeach>
-        <ImageName><![CDATA[bikinibeach]]></ImageName>
-        <PlayForRealURL><![CDATA[{BaravadoUrl}/BikiniBeach/?fun=0]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{BaravadoUrl}?/BikiniBeach/?fun=1]]></PlayForFunURL>
-        <IsInternal><![CDATA[true]]></IsInternal>
-        <SlotType><![CDATA[RSLOT]]></SlotType>
-      </BikiniBeach>
       <goldenlegendmobile>
         <ImageName><![CDATA[goldenlegendmobile]]></ImageName>
       </goldenlegendmobile>
@@ -283,13 +303,15 @@
       <WildMelon>
         <ImageName><![CDATA[wildmelonmobile]]></ImageName>
       </WildMelon>
-       <MasqueradeMobile>
+      <MasqueradeMobile>
         <ImageName><![CDATA[masquerademobile]]></ImageName>
       </MasqueradeMobile>
       <wildnorthmobile>
         <ImageName><![CDATA[wildnorthmobile]]></ImageName>
       </wildnorthmobile>
-
+      <happyhalloweenmobile>
+        <ImageName><![CDATA[happyhalloweenmobile]]></ImageName>
+      </happyhalloweenmobile>
     </Slot>
     <CardAndTable Label="Card &amp; Table Games">
       <AmericanRoulette>
@@ -324,7 +346,7 @@
       </PaiGowPoker>
       <SingleDeckBlackJackMH>
         <ImageName><![CDATA[singledeckblackjackmhmobile]]></ImageName>
-      </SingleDeckBlackJackMH>    
+      </SingleDeckBlackJackMH>
     </CardAndTable>
     <VideoPoker Label="Video Poker">
       <DeucesWildMH>

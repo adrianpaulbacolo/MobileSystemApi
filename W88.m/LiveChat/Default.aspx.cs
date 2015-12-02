@@ -29,11 +29,13 @@ public partial class LiveChat_Default : System.Web.UI.Page
                     string lang = commonVariables.SelectedLanguage.ToLower();
                     bool isVIP = false;
 
+                    string value = commonVariables.GetSessionVariable("priorityVIP");
                     string CurrentUrl = System.Web.HttpContext.Current.Request.Url.ToString();
 
-                    Uri myUri = new Uri(CurrentUrl);
+                    //Uri myUri = new Uri(CurrentUrl);
+                    Uri myUri = new Uri("http://m.w88vv.asia/");
                     string [] host = myUri.Host.Split('.');
-                    string domain = string.Format(ConfigurationManager.AppSettings["WebHandler2"], host[1], host[2]);
+                    string domain = string.Format(ConfigurationManager.AppSettings["WebHandler2"], host[1],host[2]);
 
                     string chatLang = string.Empty;
                     string skill = string.Empty;
@@ -58,26 +60,28 @@ public partial class LiveChat_Default : System.Web.UI.Page
                     //BO settings integration
                     try
                     {
-                        //**************************************************//
-                        //******Uncomment to enable live person mobile******//
-                        //*************************************************///
+                        //Uncomment to enable LivePerson Mobile//
                         //if (lang == "zh-cn" || lang == "vi-vn")
                         //{
                         //    redirectLink = string.Format(ConfigurationManager.AppSettings["LivePersonMobile2"],host[1],host[2]);
                         //}
+                        //if (lang == "en-us")
+                        //{
+                        //    if (isVIP)
+                        //    {
+                        //        redirectLink = "http://www.livehelpnow.net/lhn/livechatvisitor.aspx?lhnid=26982&zzwindow=29999&custom1=&custom2=&custom3=" + strMemberId;
+                        //    }
+                        //    else
+                        //    {
+                        //        redirectLink = "http://www.livehelpnow.net/lhn/livechatvisitor.aspx?lhnid=26982&zzwindow=29995&custom1=&custom2=&custom3=" + strMemberId;
+                        //    }
+                        //}
                         //else
                         //{
-                        //    redirectLink = domain + CurrentUrl;
-                        //}
-                        if (lang == "zh-cn")
-                        {
-                            redirectLink = string.Format(ConfigurationManager.AppSettings["LivePersonMobile2"], host[1], host[2]);
-                        }
-                        else
-                        {
                             redirectLink = domain + CurrentUrl;
-                        }
+                        //}
 
+                        //redirectLink = domain + CurrentUrl;
                     }
                     catch (Exception)
                     {

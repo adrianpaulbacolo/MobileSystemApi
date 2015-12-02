@@ -12,7 +12,7 @@
 </head>
 <body>
     <!--#include virtual="~/_static/splash.shtml" -->
-    <div data-role="page" data-theme="a">
+    <div data-role="page" data-theme="b">
         <!--#include virtual="~/_static/header.shtml" -->
         <div class="ui-content" role="main">
             <div class="div-page-header"><span><%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%></span></div>
@@ -29,7 +29,7 @@
                         <div id="btnSend" runat="server" class="ui-btn ui-btn-a">send</div>
                     </div>
                 </div>
-                <a id="btnReqChat" runat="server" class="ui-btn ui-blue" data-corners="false">start chat</a>
+                <a id="btnReqChat" runat="server" class="ui-btn btn-primary" data-corners="false">start chat</a>
                 <a id="btnEndChat" runat="server" data-corners="false" class="ui-button">end chat</a>
                 </div>
             </div>

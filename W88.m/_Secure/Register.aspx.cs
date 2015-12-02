@@ -37,12 +37,12 @@ public partial class _Secure_Register : System.Web.UI.Page
             btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
             btnCancel.InnerText = commonCulture.ElementValues.getResourceString("btnCancel", xeResources);
 
-            txtUsername.Attributes.Add("PLACEHOLDER", lblUsername.Text);
-            txtPassword.Attributes.Add("PLACEHOLDER", lblPassword.Text);
-            txtEmail.Attributes.Add("PLACEHOLDER", lblEmail.Text);
-            txtContact.Attributes.Add("PLACEHOLDER", lblContact.Text);
-            txtAffiliateID.Attributes.Add("PLACEHOLDER", lblAffiliateID.Text);
-            txtCaptcha.Attributes.Add("PLACEHOLDER", lblCaptcha.Text);
+            // txtUsername.Attributes.Add("PLACEHOLDER", lblUsername.Text);
+            // txtPassword.Attributes.Add("PLACEHOLDER", lblPassword.Text);
+            // txtEmail.Attributes.Add("PLACEHOLDER", lblEmail.Text);
+            // txtContact.Attributes.Add("PLACEHOLDER", lblContact.Text);
+            // txtAffiliateID.Attributes.Add("PLACEHOLDER", lblAffiliateID.Text);
+            // txtCaptcha.Attributes.Add("PLACEHOLDER", lblCaptcha.Text);
             lblDisclaimer.InnerText = commonCulture.ElementValues.getResourceString("lblDisclaimer", xeResources);
 
             #region PhoneCountryCode
@@ -71,9 +71,9 @@ public partial class _Secure_Register : System.Web.UI.Page
             #endregion
 
             lblFirstName.Text = commonCulture.ElementValues.getResourceString("lblFirstName", xeResources);
-            txtFirstName.Attributes.Add("PLACEHOLDER", lblFirstName.Text);
+            // txtFirstName.Attributes.Add("PLACEHOLDER", lblFirstName.Text);
             lblLastName.Text = commonCulture.ElementValues.getResourceString("lblLastName", xeResources);
-            txtLastName.Attributes.Add("PLACEHOLDER", lblLastName.Text);
+            // txtLastName.Attributes.Add("PLACEHOLDER", lblLastName.Text);
             lblDOB.Text = commonCulture.ElementValues.getResourceString("lblDOB", xeResources);
 
             //drpDOB.Items.Add(new ListItem(commonCulture.ElementValues.getResourceString("lblDOB", xeResources), string.Empty, true));
@@ -297,9 +297,9 @@ public partial class _Secure_Register : System.Web.UI.Page
 
             if (string.IsNullOrEmpty(strIPAddress)) { strIPAddress = commonIp.UserIP; }
 
-            if (string.IsNullOrEmpty(strCountryCode) || string.Compare(strCountryCode, "-", true) == 0) 
+            if (string.IsNullOrEmpty(strCountryCode) || string.Compare(strCountryCode, "-", true) == 0)
             {
-                using (wsIP2Loc.ServiceSoapClient wsInstance = new wsIP2Loc.ServiceSoapClient()) 
+                using (wsIP2Loc.ServiceSoapClient wsInstance = new wsIP2Loc.ServiceSoapClient())
                 {
                     wsInstance.location(strIPAddress, ref strCountryCode, ref strPermission);
                 }

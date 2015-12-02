@@ -1,10 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
-  <message>
-    <![CDATA[<span class="blue">3 Langkah Mudah Bermain di Club W Versi Download</span>
-            <br />Step 1:  Klik pada menu Download berikut.
-            <br />Step 2:  Install dengan Klik di Run atau Simpan pada lokal hard drive.
-            <br />Step 3:  Login dengan masukan Username & password.]]>
-  </message>
-  <downloadnow><![CDATA[Download now]]></downloadnow>
+    <message>
+        <![CDATA[
+            <h4 class="title">3 Langkah Mudah Bermain di Club W Versi Download</h4>
+            <ol>
+                <li>Klik pada menu Download berikut.</li>
+                <li>Install dengan Klik di Run atau Simpan pada lokal hard drive.</li>
+                <li>Login dengan masukan Username & password.</li>
+            </ol>
+        ]]>
+    </message>
+    <downloadnow><![CDATA[Download Sekarang]]></downloadnow>
 </default>

@@ -6,12 +6,7 @@
     <title><%=commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML).Replace(" -", "")/* + commonCulture.ElementValues.getResourceString("home", commonVariables.LeftMenuXML)*/%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
-    <link rel="stylesheet" href="/_Static/Css/add2home.css">
     <script type="application/javascript" src="/_Static/Js/add2home.js"></script>
-    <!--[if IE]><link type="text/css" href="/_Static/Css/Index.css" rel="stylesheet"><![endif]-->
-    <!--[if !IE]><!-->
-    <link type="text/css" href="/_Static/Css/IndexScroll.css" rel="stylesheet">
-    <!--<![endif]-->
     <script type="text/javascript">
         var cache = [];
         $(function () {
@@ -107,287 +102,138 @@
     <div id="divMain" data-role="page" data-theme="b" data-ajax="false">
         <!--#include virtual="~/_static/header.shtml" -->
         <div class="ui-content" role="main">
-            <div class="div-mobile-download"><a rel="clubpalazzo" href="/_static/palazzo/casino.aspx" data-ajax="false"><img src="/_Static/Images/Download/W88-Mobile-ClubPalazzo-<%=commonVariables.SelectedLanguageShort%>.jpg" /></a><a rel="clbW" href="/_static/ClubW/casino.aspx" data-ajax="false"><img src="/_Static/Images/Download/W88-Mobile-ClubW-<%=commonVariables.SelectedLanguageShort%>.jpg" /></a><a href="https://livegames.gameassists.co.uk/MobileClient/MobileRedirector/index.aspx?AppID=W88Diamond&ClientID=5&UL=en" data-ajax="false"><img src="/_Static/Images/Download/W88-Mobile-ClubMassimo-<%=commonVariables.SelectedLanguageShort%>.jpg" /></a></div>
-            <div id="divContent">
-                <div class="div-product-header"><a data-theme="none"><%=commonCulture.ElementValues.getResourceString("sports", commonVariables.LeftMenuXML)%></a></div>
-                <div data-rel="sports" class="div-product-scroll">
-                    <div>
-                        <ul>
-                            <li class="li-asports">
-                                <a rel="asports" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ASports/Label", commonVariables.ProductsXML)%></div>
-                                    <div></div>
-                                </a>
-                            </li>
-                            <li class="li-esports">
-                                <a rel="esports" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></div>
-                                    <div></div>
-                                </a>
-                            </li>
-                            <li class="li-vsports-tennis">
-                                <a href="#" data-transition="slidedown" class="sports">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports/Label", commonVariables.ProductsXML)%></div>
-                                    <div></div>
-                                </a>
-                            </li>
-                            <li class="li-vsports-basketball sports-sub">
-                                <a rel="vsportsBasketball" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-basketball/Label", commonVariables.ProductsXML)%></div>
-                                    <div></div>
-                                </a>
-                            </li>
-                            <li class="li-vsports-tennis sports-sub">
-                                <a rel="vsportsTennis" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-tennis/Label", commonVariables.ProductsXML)%></div>
-                                    <div></div>
-                                </a>
-                            </li>
-                            <li class="li-vsports-horseracing sports-sub">
-                                <a rel="vsportsHorseRacing" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-horseracing/Label", commonVariables.ProductsXML)%></div>
-                                    <div></div>
-                                </a>
-                            </li>
-                            <li class="li-vsports-football sports-sub">
-                                <a rel="vsportsFootBall" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-football/Label", commonVariables.ProductsXML)%></div>
-                                    <div></div>
-                                </a>
-                            </li>
-                             <li class="li-vsports-dogracing sports-sub">
-                                <a rel="vsportsDogRacing" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-dogracing/Label", commonVariables.ProductsXML)%></div>
-                                    <div></div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+
+            <div class="banner slider">
+                <img src="/_Static/Images/banner/home-banner-<%=commonVariables.SelectedLanguageShort%>.png" class="img-responsive" alt="banner">
+            </div>
+
+        <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) {
+            var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
+            <div class="row row-no-padding action-btn">
+                <div class="col">
+                    <a href="/_Secure/Register.aspx<%= queryString %>" class="ui-btn btn-secondary" role="button" data-ajax="false">
+                        <%=commonCulture.ElementValues.getResourceString("joinnow", commonVariables.LeftMenuXML)%>
+                    </a>
                 </div>
-                <script type="text/javascript">
-                    $(".sports-sub").hide();
-                    $(".div-product-scroll .sports").click(function () {
-                        $(".sports-sub").toggle();
-                    });
-                </script>
-                <div class="div-product-header"><a><%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%></a></div>
-                <div data-rel="livecasino" class="div-product-scroll">
-                    <div>
-                        <ul>
-                            <li class="li-clubw">
-                                <a rel="clbW" href="/_static/ClubW/casino.aspx" data-ajax="false" target="_blank">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></div>
-                                    <div></div>
-                                </a>
-                            </li>
-                            <li class="li-clubpalazzo-casino">
-                                <a rel="clubpalazzo-casino" href="/_static/palazzo/casino.aspx" data-ajax="false">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoCasino/Label", commonVariables.ProductsXML)%></div>
-                                    <div></div>
-                                </a>
-                            </li>
-                            <li class="li-clubmassimo-casino">
-                                <a rel="clubmassimo-casino" href="https://livegames.gameassists.co.uk/MobileClient/MobileRedirector/index.aspx?AppID=W88Diamond&ClientID=5&UL=en" data-ajax="false">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoCasino/Label", commonVariables.ProductsXML)%></div>
-                                    <div></div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                        <script type="text/javascript">
-                            var cache = [];
-                            $(function () {
-                                $('.bkg-game').each(function () { var $this = $(this); $this.css({ backgroundImage: "url('/_Static/Images/ClubDivino/" + $this.attr('rel') + "')" }); });
-                                $('.div-product').each(function () { var scrollObj = new IScroll('#' + $(this).attr('id'), { eventPassthrough: true, scrollX: true, scrollY: false, preventDefault: false, speedRatioX: 9000 }); cache.push(scrollObj); });
-
-                                (function (a) { (jQuery.browser = jQuery.browser || {}).android = /android|(android|bb\d+|meego).+mobile/i.test(a) })(navigator.userAgent || navigator.vendor || window.opera);
-                                (function (a) { (jQuery.browser = jQuery.browser || {}).wp = /iemobile|windows (ce|phone)/i.test(a) })(navigator.userAgent || navigator.vendor || window.opera);
-                                (function (a) { (jQuery.browser = jQuery.browser || {}).ios = /ip(hone|od|ad)/i.test(a) })(navigator.userAgent || navigator.vendor || window.opera);
-
-                                if ($.browser.mobile) {
-                                    $('div[type="IOS"]').hide(); $('div[type="ANDROID"]').hide(); $('div[type="WP"]').hide();
-                                    //if ($.android) { $('div[type="ANDROID"]').show(); }
-                                    if ($.browser.ios) { $('div[type="IOS"]').show(); }
-                                    else if ($.browser.wp) { $('div[type="WP"]').show(); }
-                                    else { $('div[type="ANDROID"]').show(); }
-                                } else { $('div[type="ANDROID"]').show(); }
-                            });
-                       </script>
-
-
-
-                <div class="div-product-header"><a><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></a></div>
-                <div data-rel="slots" class="div-product-scroll">
-                    <div>
-                        <ul>
-                            <li class="li-clubbravado">
-                                <a rel="clubbravado" href="/ClubBravado" data-ajax="false">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubBravado/Label", commonVariables.ProductsXML)%></div>
-                                    <div></div>
-                                </a>
-                            </li>
-                            <li class="li-clubpalazzo-slots">
-                                <a rel="clubpalazzo-slots" href="/_static/palazzo/slots.aspx" data-ajax="false">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML)%></div>
-                                    <div></div>
-                                </a>
-                            </li>
-                            <li class="li-clubmassimo-slots">
-                                <a rel="clubmassimo-slots" href="/ClubMassimo" data-ajax="false">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML)%></div>
-                                    <div></div>
-                                </a>
-                            </li>
-                            <li class="li-clubdivino">
-                                <a rel="clubdivino" href="/ClubDivino" data-ajax="false">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubDivino/Label", commonVariables.ProductsXML)%></div>
-                                    <div></div>
-                                </a>
-                            </li>
-                            <li class="li-clubcrescendo">
-                                <a rel="clubcrescendo" href="/ClubCrescendo" data-ajax="false">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubCrescendo/Label", commonVariables.ProductsXML)%></div>
-                                    <div></div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="div-product-header"><a><%=commonCulture.ElementValues.getResourceXPathString("lottery", commonVariables.LeftMenuXML)%></a></div>
-                <div data-rel="keno" class="div-product-scroll">
-                    <div>
-                        <ul>
-                            <li class="li-lottery">
-                                <a rel="keno" href="/_Secure/Login.aspx?redirect=mlotto" data-rel="dialog" data-transition="slidedown">
-                                    <div><%=commonCulture.ElementValues.getResourceXPathString("Products/Keno/Label", commonVariables.ProductsXML)%></div>
-                                    <div></div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
-                <div class="div-product-header"><a><%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%></a></div>
-                <div data-rel="fundmanagement" class="div-product-scroll">
-                    <div>
-                        <ul>
-                            <li class="li-deposit">
-                                <a rel="deposit" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                                    <div><%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%></div>
-                                    <div></div>
-                                </a>
-                            </li>
-                            <li class="li-fundtransfer">
-                                <a rel="fundtransfer" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                                    <div><%=commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%></div>
-                                    <div></div>
-                                </a>
-                            </li>
-                            <li class="li-withdrawal">
-                                <a rel="withdrawal" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                                    <div><%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%></div>
-                                    <div></div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <% } %>
-
-
-                <div id="divProduct">
-                    <ul class="lv-Product" data-role="listview" data-icon="false">
-                        <!--
-                        <li class="li-wcinfo">
-                            <a rel="awcinfo" href="//ls.betradar.com/ls/livescore/?/w88/{LANG}/page/worldcup_matchcentermobile" data-ajax="false">
-                                <img src="/_Static/Images/bnr-wcinfo.jpg" class="ui-li-thumb" />
-                            </a>
-                        </li>
-                        -->
-                        <li class="li-asports">
-                            <a id="aASports" rel="asports" runat="server" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                                <img src="/_Static/Images/bnr-asports.jpg" class="ui-li-thumb" />
-                                <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ASports/Label", commonVariables.ProductsXML)%></h2>
-                            </a>
-                        </li>
-                        <li class="li-esports">
-                            <a id="aESports" rel="esports" runat="server" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                                <img src="/_Static/Images/bnr-esports.jpg" class="ui-li-thumb" />
-                                <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></h2>
-                            </a>
-                        </li>
-                        <li class="li-clubw">
-                            <a id="aClubW" runat="server" rel="clubw" href="/mob/download.html?op=w88" data-ajax="false" target="_blank">
-                                <img src="/_Static/Images/bnr-clubw-android.jpg" class="ui-li-thumb" />
-                                <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></h2>
-                            </a>
-                        </li>
-                        <li class="li-clubmassimo-casino">
-                            <a id="aClubMassimoCasino" runat="server" href="https://livegames.gameassists.co.uk/MobileClient/MobileRedirector/index.aspx?AppID=W88Diamond&ClientID=5&UL=en" data-ajax="false">
-                                <img src="/_Static/Images/bnr-clubmassimo-casino-android.jpg" class="ui-li-thumb" />
-                                <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoCasino/Label", commonVariables.ProductsXML)%></h2>
-                            </a>
-                        </li>
-                        <li class="li-lottery">
-                            <a id="aLottery" runat="server" href="/_Secure/Login.aspx?redirect=mlotto" data-rel="dialog" data-transition="slidedown">
-                                <img src="/_Static/Images/bnr-lottery.png" class="ui-li-thumb" />
-                                <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/Lottery/Label", commonVariables.ProductsXML)%></h2>
-                            </a>
-                        </li>
-                        <li class="li-clubmassimo-slots">
-                            <a id="aClubMassimo" runat="server" href="/ClubMassimo" data-ajax="false">
-                                <img src="/_Static/Images/bnr-clubmassimo-slots.jpg" class="ui-li-thumb" />
-                                <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML)%></h2>
-                            </a>
-                        </li>
-                        <li class="li-clubdivino">
-                            <a id="aClubDivino" runat="server" href="/ClubDivino" data-ajax="false">
-                                <img src="/_Static/Images/bnr-clubdivino.jpg" class="ui-li-thumb" />
-                                <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubDivino/Label", commonVariables.ProductsXML)%></h2>
-                            </a>
-                        </li>
-                        <li class="li-clubcrescendo">
-                            <a id="aClubCrescendo" runat="server" href="/ClubCrescendo" data-ajax="false">
-                                <img src="/_Static/Images/bnr-clubcrescendo.png" class="ui-li-thumb" />
-                                <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubCrescendo/Label", commonVariables.ProductsXML)%></h2>
-                            </a>
-                        </li>
-                        <li class="li-clubbravado">
-                            <a id="aClubBravado" runat="server" href="/ClubBravado" data-ajax="false">
-                                <img src="/_Static/Images/bnr-clubbravado.jpg" class="ui-li-thumb" />
-                                <h2><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubBravado/Label", commonVariables.ProductsXML)%></h2>
-                            </a>
-                        </li>
-
-                        <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-                           { %>
-
-                        <li class="li-deposit">
-                            <a href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                                <img src="/_Static/Images/index-deposit.png" class="ui-li-thumb" />
-                                <h2><%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%></h2>
-                            </a>
-                        </li>
-
-                        <li class="li-fundtransfer">
-                            <a href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                                <img src="/_Static/Images/index-fundtransfer.png" class="ui-li-thumb" />
-                                <h2><%=commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%></h2>
-                            </a>
-                        </li>
-
-                        <% } %>
-                    </ul>
+                <div class="col">
+                    <a href="/_Secure/Login.aspx" class="ui-btn btn-primary" role="button" data-rel="dialog" data-transition="slidedown">
+                        <%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%>
+                    </a>
                 </div>
             </div>
+        <% } %>
+
+            <ul class="row row-bordered bg-gradient">
+
+                <%--<!-- Profile -->
+                <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+                <li class="col col-33">
+                    <a href="" class="tile">
+                        <span class="icon-profile"></span>
+                        <h4 class="title"><%=commonVariables.GetSessionVariable("MemberCode")%></h4>
+                    </a>
+                </li>
+                <% } else {
+                       var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
+                <% } %>--%>
+
+                <!-- Funds -->
+                <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+                <li class="col col-33">
+                    <a href="Funds.aspx" class="tile" data-ajax="false" data-transition="slidedown">
+                        <span class="icon-wallet"></span>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%></h4>
+                    </a>
+                </li>
+                <% } %>
+
+                <li class="col col-33">
+                    <a href="/Promotions" data-ajax="false" class="tile">
+                        <span class="icon-promo"></span>
+                        <h4 class="title">Promotions</h4>
+                    </a>
+                </li>
+                <li class="col col-33">
+                    <a href="Sports.aspx" class="tile" data-ajax="false" data-transition="slidedown">
+                        <span class="icon-sports"></span>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("sports", commonVariables.LeftMenuXML)%></h4>
+                    </a>
+                </li>
+                <li class="col col-33">
+                    <a href="Casino.aspx" class="tile" data-ajax="false" data-transition="slidedown">
+                        <span class="icon-casino"></span>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%></h4>
+                    </a>
+                </li>
+                <li class="col col-33">
+                    <a href="#divPanel" class="tile nav-slots">
+                        <span class="icon-slots"></span>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></h4>
+                    </a>
+                </li>
+                <li class="col col-33">
+                    <a href="Lottery.aspx" class="tile" data-ajax="false" data-transition="slidedown">
+                        <span class="icon-keno"></span>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></h4>
+                    </a>
+                </li>
+                <li class="col col-33">
+                    <a href="" class="tile">
+                        <span class="icon-rewards"></span>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("rewards", commonVariables.LeftMenuXML)%></h4>
+                    </a>
+                </li>
+                <li class="col col-33">
+                    <!-- <a href="#download" class="tile notify" data-rel="popup" data-position-to="window" data-transition="fade"> -->
+                    <a href="" class="tile notify">
+                        <span class="icon-bell"></span>
+                        <span class="badge">13</span>
+                        <h4 class="title">Announcement</h4>
+                    </a>
+                </li>
+            </ul>
+
+            <%--<div id="download" data-role="popup" data-overlay-theme="b" data-theme="b">
+                <a href="#" data-rel="back" class="close">&times;</a>
+                <div class="padding">
+                    <h2 class="title">Download App</h2>
+                    <div class="app">
+                        <img src="/_Static/Images/w88-appicon-<%=commonVariables.SelectedLanguageShort%>.png" alt="app-icon" class="img-responsive">
+                        <div class="app-title">W88</div>
+                    </div>
+                </div>
+                <div class="row row-no-padding">
+                    <div class="col">
+                        <a href="#" data-rel="back" class="ui-btn btn-secondary">
+                            Close
+                        </a>
+                    </div>
+                    <div class="col">
+                        <button class="btn-primary">
+                            <i class="icon-android"></i> Download
+                        </button>
+                    </div>
+                </div>
+            </div>--%>
+
+            <ul class="hide">
+                <li class="li-pokerIOS" runat="server" id ="pokerIOS_link">
+                    <a rel="PokerIOS" href="#" data-ajax="false" target="_blank" runat="server" id ="pokerIOS">
+                        <div><%=commonCulture.ElementValues.getResourceXPathString("Products/Poker/Label", commonVariables.ProductsXML)%></div>
+                    </a>
+                </li>
+                <li class="li-pokerAndroid" runat="server" id ="pokerAndroid_link" >
+                    <a rel="PokerAndroid" href="#" data-ajax="false" target="_blank" runat="server" id ="pokerAndroid">
+                        <div><%=commonCulture.ElementValues.getResourceXPathString("Products/Poker/Label", commonVariables.ProductsXML)%></div>
+                    </a>
+                </li>
+            </ul>
+
         </div>
-        <!-- /content -->
+
         <!--#include virtual="~/_static/footer.shtml" -->
         <!--#include virtual="~/_static/navMenu.shtml" -->
+
     </div>
-    <!-- /page -->
 </body>
 </html>

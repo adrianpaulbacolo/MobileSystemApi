@@ -1,0 +1,17 @@
+//
+// Tabs
+// -------------------------------
+
+.ui-tabs {
+    padding: 0;
+    .ui-tabs-nav {
+        text-transform: uppercase;
+        a.ui-btn {
+            background-color: transparent;
+            border: 1px solid $border-color !important;
+            &.ui-btn-active {
+                background-color: $primary-color !important;
+            }
+        }
+    }
+}

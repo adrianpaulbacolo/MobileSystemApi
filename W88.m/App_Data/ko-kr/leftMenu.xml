@@ -35,4 +35,7 @@
   <rewards><![CDATA[리워드클럽]]></rewards>
   <sdpay><![CDATA[SDPay]]></sdpay>
   <help2pay><![CDATA[Help2Pay]]></help2pay>
+  <withrawal><![CDATA[출금]]></withrawal>-->
+  <fundTransfer><![CDATA[자금 이체]]></fundTransfer>-->
+  <deposit><![CDATA[입금]]></deposit>-->
 </menu>

@@ -1,10 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
-  <message>
-    <![CDATA[<span class="blue">វិធីងាយ៣ ជំហ៊ាន ដើម្បីលេងក្លឹបW ប្រភេទដោនឡូត</span>
-            <br />ជំហ៊ាន១: ចុចដោនឡូត
-            <br />ជំហ៊ាន២: បញ្ចូលកម្មវិធី ដោយចុច Run ឬ Save
-            <br />ជំហ៊ាន៣: ប្រើឈ្មោះប្រើប្រាស់ ដើម្បីចូល.]]>
-  </message>
-  <downloadnow><![CDATA[Download now]]></downloadnow>
+    <message>
+        <![CDATA[
+            <h4 class="title">វិធីងាយ៣ ជំហ៊ាន ដើម្បីលេងក្លឹបW ប្រភេទដោនឡូត</h4>
+            <ol>
+                <li>ចុចដោនឡូត</li>
+                <li>បញ្ចូលកម្មវិធី ដោយចុច Run ឬ Save</li>
+                <li>ប្រើឈ្មោះប្រើប្រាស់ ដើម្បីចូល.</li>
+            </ol>
+        ]]>
+    </message>
+    <downloadnow><![CDATA[ទាញយកឥឡូវនេះ]]></downloadnow>
 </default>

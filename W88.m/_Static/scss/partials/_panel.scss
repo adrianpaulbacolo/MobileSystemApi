@@ -1,0 +1,84 @@
+//
+// Panels
+// -------------------------------
+
+.ui-overlay-b .ui-content,
+.ui-overlay-b .ui-panel-wrapper {
+    // @extend .bg-gradient;
+    background-color: $base-background-color;
+}
+
+.ui-panel-display-reveal {
+    @include box-shadow(inset -10px 0 15px -5px rgba(0,0,0,.25));
+}
+
+// -- Panel
+.ui-panel {
+    width: $panel-width;
+}
+
+// Panel positioning (for overlay and push)
+.ui-panel-position-left { // left closed
+    left: -$panel-width;
+}
+.ui-panel-position-right { // right closed
+    right: -$panel-width;
+}
+
+// Wrapper and fixed toolbars positioning (for reveal and push)
+.ui-panel-page-content-position-left { // left open
+    left: $panel-width;
+    right: -$panel-width;
+}
+.ui-panel-page-content-position-right { // right open
+    left: -$panel-width;
+    right: $panel-width;
+}
+
+// ANIMATE
+.ui-panel-animate {
+
+    // Left Panel
+    &.ui-panel-page-content-position-left { // left open animated
+        @include transform(translate3d($panel-width, 0, 0));
+    }
+    &.ui-panel-position-left { // left closed animated
+        &.ui-panel-display-overlay,
+        &.ui-panel-display-push {
+            @include transform(translate3d(-$panel-width, 0, 0));
+        }
+    }
+
+    // Right Panel
+    &.ui-panel-page-content-position-right { // right open animated
+        @include transform(translate3d(-$panel-width, 0, 0));
+    }
+    &.ui-panel-position-right { // right closed animated
+        &.ui-panel-display-overlay,
+        &.ui-panel-display-push {
+            @include transform(translate3d($panel-width, 0, 0));
+        }
+    }
+}
+
+// Dismiss model open
+.ui-panel-dismiss-open {
+    &.ui-panel-dismiss-position-left {
+        left: $panel-width;
+    }
+    &.ui-panel-dismiss-position-right {
+        right: $panel-width;
+    }
+}
+
+// Responsive: wrap on wide viewports once open
+@media (min-width:55em) {
+    .ui-responsive-panel .ui-panel-page-content-open {
+        &.ui-panel-page-content-position-left {
+            margin-right: $panel-width;
+        }
+        &.ui-panel-page-content-position-right {
+            margin-left: $panel-width;
+        }
+    }
+}

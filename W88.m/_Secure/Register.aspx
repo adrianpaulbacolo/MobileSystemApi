@@ -6,87 +6,108 @@
     <title><%=commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML) + commonCulture.ElementValues.getResourceString("register", commonVariables.LeftMenuXML)%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/PreLoad.js"></script>
-    <link type="text/css" rel="stylesheet" href="/_Static/Css/Register.css" />
 </head>
 <body>
     <!--#include virtual="~/_static/splash.shtml" -->
-    <div data-role="page">
-        <!--#include virtual="~/_static/headerLogoOnlyFixed.inc" -->
+    <div data-role="page" id="register">
+
+        <header data-role="header" data-theme="b" data-position="fixed" id="header">
+            <a href="" role="button" data-rel="back" class="btn-clear ui-btn-left ui-btn"> < </a>
+            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("register", commonVariables.LeftMenuXML)%></h1>
+        </header>
+
         <div class="ui-content" role="main">
-            <div class="div-page-header"><span><%=commonCulture.ElementValues.getResourceString("register", commonVariables.LeftMenuXML)%></span></div>
-            <div class="page-content">
-                <form id="form1" runat="server" data-ajax="false">
-                <div class="div-content-wrapper">
-                    <div class="ui-field-contain ui-hide-label" data-mini="true" >
-                        <asp:Label ID="lblUsername" runat="server" AssociatedControlID="txtUsername" Text="username" CssClass="ui-hidden-accessible" />
-                        <asp:TextBox ID="txtUsername" runat="server" placeholder="username" data-mini="true" MaxLength="16" data-clear-btn="true" />
-                    </div>
-                    <div class="ui-field-contain ui-hide-label">
-                        <asp:Label ID="lblPassword" runat="server" AssociatedControlID="txtPassword" Text="password" CssClass="ui-hidden-accessible" />
-                        <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" placeholder="password" data-mini="true" MaxLength="10" data-clear-btn="true" />
-                    </div>
-                    <div class="ui-field-contain ui-hide-label">
-                        <asp:Label ID="lblEmail" runat="server" AssociatedControlID="txtEmail" Text="email" CssClass="ui-hidden-accessible" />
-                        <asp:TextBox ID="txtEmail" runat="server" placeholder="email" data-mini="true" type="email" data-clear-btn="true" />
-                    </div>
-                    <div class="div-register-contact">
-                        <div><asp:Label ID="lblContact" runat="server" AssociatedControlID="txtContact" Text="email" CssClass="ui-hidden-accessible" /></div>
-                        <div><asp:DropDownList ID="drpContactCountry" runat="server" data-icon="false" data-mini="true" /></div>                                
-                        <div><asp:TextBox ID="txtContact" runat="server" type="tel" placeholder="contact" data-mini="true" data-clear-btn="true" /></div>                                
-                    </div>
-                    <div class="ui-field-contain ui-hide-label">
-                        <asp:Label ID="lblCurrency" runat="server" AssociatedControlID="drpCurrency" Text="currency" CssClass="ui-hidden-accessible" />
+            <form class="form" id="form1" runat="server" data-ajax="false">
+                <ul class="list fixed-tablet-size">
+                    <li class="item item-text-wrap text-center">
+                        You need to be a member of W88.com to login. <br>
+                        Please create your W88 account.
+                    </li>
+                    <li class="item item-icon-left item-input" data-mini="true" >
+                        <i class="icon icon-profile"></i>
+                        <asp:Label ID="lblUsername" runat="server" AssociatedControlID="txtUsername" Text="username" />
+                        <asp:TextBox ID="txtUsername" runat="server" data-mini="true" MaxLength="16" data-clear-btn="true" />
+                    </li>
+                    <li class="item item-icon-left item-input">
+                        <i class="icon icon-password"></i>
+                        <asp:Label ID="lblPassword" runat="server" AssociatedControlID="txtPassword" Text="password" />
+                        <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" data-mini="true" MaxLength="10" data-clear-btn="true" />
+                    </li>
+                    <li class="item item-icon-left item-input">
+                        <i class="icon icon-mail"></i>
+                        <asp:Label ID="lblEmail" runat="server" AssociatedControlID="txtEmail" Text="email" />
+                        <asp:TextBox ID="txtEmail" runat="server" data-mini="true" type="email" data-clear-btn="true" />
+                    </li>
+                    <li class="item item-icon-left item-select">
+                        <i class="icon icon-phone"></i>
+                        <asp:Label ID="lblContact" runat="server" AssociatedControlID="txtContact" Text="email" />
+                        <div class="row">
+                            <div class="col col-25">
+                                <asp:DropDownList ID="drpContactCountry" runat="server" data-icon="false" data-mini="true" />
+                            </div>
+                            <div class="col col-75">
+                                <asp:TextBox ID="txtContact" runat="server" type="tel" data-mini="true" data-clear-btn="true" />
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item item-icon-left item-select">
+                        <i class="icon icon-currency"></i>
+                        <asp:Label ID="lblCurrency" runat="server" AssociatedControlID="drpCurrency" Text="currency" />
                         <asp:DropDownList ID="drpCurrency" runat="server" data-mini="true" />
-                    </div>
-                    <div class="div-register-firstlastname">
-                        <div>
-                            <div><asp:Label ID="lblFirstName" runat="server" AssociatedControlID="txtFirstName" Text="fName" CssClass="ui-hidden-accessible" /></div>
-                            <div><asp:TextBox ID="txtFirstName" runat="server" data-mini="true" MaxLength="12" data-clear-btn="true" /></div>
+                    </li>
+                    <li class="item item-icon-left item-input">
+                        <i class="icon icon-profile"></i>
+                        <div class="row">
+                            <div class="col">
+                                <asp:Label ID="lblFirstName" runat="server" AssociatedControlID="txtFirstName" Text="fName" />
+                                <asp:TextBox ID="txtFirstName" runat="server" data-mini="true" MaxLength="12" data-clear-btn="true" />
+                            </div>
+                            <div class="col">
+                                <asp:Label ID="lblLastName" runat="server" AssociatedControlID="txtLastName" Text="lName" />
+                                <asp:TextBox ID="txtLastName" runat="server" data-mini="true" data-clear-btn="true" />
+                            </div>
                         </div>
-                        <div>
-                            <div><asp:Label ID="lblLastName" runat="server" AssociatedControlID="txtLastName" Text="lName" CssClass="ui-hidden-accessible" /></div>
-                            <div><asp:TextBox ID="txtLastName" runat="server" data-mini="true" data-clear-btn="true" /></div>
+                    </li>
+                    <li class="item item-icon-left item-select">
+                        <i class="icon icon-event"></i>
+                        <asp:Label ID="lblDOB" runat="server" AssociatedControlID="drpDay" Text="DOB" />
+                        <div class="row">
+                            <div class="col"><asp:DropDownList ID="drpDay" runat="server"/></div>
+                            <div class="col"><asp:DropDownList ID="drpMonth" runat="server"/></div>
+                            <div class="col"><asp:DropDownList ID="drpYear" runat="server"/></div>
                         </div>
-                    </div>
-                    <div class="div-register-dob">
-                        <div><asp:Label ID="lblDOB" runat="server" AssociatedControlID="drpDay" Text="DOB" /></div>
-                        <div>
-                            <div><asp:DropDownList ID="drpDay" runat="server"/></div>
-                            <div><asp:DropDownList ID="drpMonth" runat="server"/></div>
-                            <div><asp:DropDownList ID="drpYear" runat="server"/></div>
-                        </div>                            
-                    </div>
-                    <div class="div-affiliateid ui-field-contain ui-hide-label">
-                        <asp:Label ID="lblAffiliateID" runat="server" AssociatedControlID="txtAffiliateID" Text="email" CssClass="ui-hidden-accessible" />
-                        <asp:TextBox ID="txtAffiliateID" runat="server" placeholder="affiliate" data-mini="true" type="number" />
-                    </div>
-                    <div class="div-register-captcha">
-                        <asp:Label ID="lblCaptcha" runat="server" AssociatedControlID="txtCaptcha" Text="code" CssClass="ui-hidden-accessible ui-block-a" />
-                        <div class="ui-grid-a">
-                            <div class="ui-block-a"><asp:TextBox ID="txtCaptcha" runat="server" MaxLength="4" type="tel" data-mini="true" data-clear-btn="true" /></div>
-                            <div class="ui-block-b"><asp:Image ID="imgCaptcha" runat="server" ImageUrl="/Captcha" CssClass="imgCaptcha" /></div>
-                        </div>
-                    </div>
-                    <div>
-                        <input type="checkbox" name="checkbox-mini-0" id="chkDisclaimer" runat="server" class="chk-disclaimer" data-theme="c">
+                    </li>
+                    <li class="item item-icon-left item-input">
+                        <i class="icon icon-referral-bonus"></i>
+                        <asp:Label ID="lblAffiliateID" runat="server" AssociatedControlID="txtAffiliateID" Text="email" />
+                        <asp:TextBox ID="txtAffiliateID" runat="server" data-mini="true" type="number" />
+                    </li>
+                    <li class="item item-icon-left item-input">
+                        <i class="icon icon-security"></i>
+                        <asp:Label ID="lblCaptcha" runat="server" AssociatedControlID="txtCaptcha" Text="code" />
+                        <asp:Image ID="imgCaptcha" runat="server" ImageUrl="/Captcha" CssClass="imgCaptcha" />
+                        <asp:TextBox ID="txtCaptcha" runat="server" MaxLength="4" type="tel" data-mini="true" data-clear-btn="true" />
+                    </li>
+                    <li class="item item-checkbox">
                         <label id="lblDisclaimer" runat="server" for="chkDisclaimer">I agree</label>
-                    </div>
+                        <input type="checkbox" name="checkbox-mini-0" id="chkDisclaimer" runat="server" class="chk-disclaimer" data-theme="c">
+                    </li>
                     <%--<div class="div-register-disclaimer">
                         <div><label id="lblDisclaimer" runat="server" for="chkDisclaimer">I agree</label></div>
                         <div><asp:DropDownList ID="drpDisclaimer" runat="server" data-role="flipswitch" data-corners="false" CssClass="ui-mini" /></div>
                     </div>--%>
-
-                    <div>
-                        <asp:Button ID="btnSubmit" runat="server" Text="submit" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" />
-                    </div>
-                    <div>
-                        <a data-theme="c" ID="btnCancel" runat="server" Text="cancel" class="ui-btn" data-corners="false" data-ajax="false" href="/Index" />
-                    </div>
-                    <asp:HiddenField id="hidValues" runat="server" />
-                	<asp:HiddenField runat="server" ID="ioBlackBox" Value="" />
-                </div>
-                </form>
-            </div>
+                    <li class="item row">
+                        <div class="col">
+                            <a class="ui-btn btn-bordered" ID="btnCancel" runat="server" Text="cancel" data-corners="false" data-ajax="false" href="/Index" />
+                        </div>
+                        <div class="col">
+                            <asp:Button ID="btnSubmit" runat="server" Text="submit" data-corners="false" OnClick="btnSubmit_Click" />
+                        </div>
+                    </li>
+                </ul>
+                <asp:HiddenField id="hidValues" runat="server" />
+                <asp:HiddenField runat="server" ID="ioBlackBox" Value="" />
+            </form>
         </div>
         <!-- /content -->
         <!--#include virtual="~/_static/footer.shtml" -->
@@ -106,7 +127,7 @@
                         if ($('#hidValues').val().trim().length == 0) {
                             switch (data.country.toString().toUpperCase())
                             {
-                                case "SG":                                    
+                                case "SG":
                                     if ($('#drpCurrency option[value="UUS"]').length > 0) { $('#drpCurrency').val('UUS'); }
                                     break;
                                 case 'CN':
@@ -272,7 +293,7 @@
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
                     return;
-                }                    
+                }
                 else {
                     //if ($('#txtContact').val().indexOf('-') > 0) {
                     //var strContact = $('#txtContact').val().substring($('#txtContact').val().indexOf('-') + 1, $('#txtContact').val().length);

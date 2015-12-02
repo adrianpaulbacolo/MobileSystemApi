@@ -49,9 +49,10 @@ public class _Secure_AjaxHandlers_MemberSessionCheck : IHttpHandler, System.Web.
         {
             strProcessCode = "-1";
             isProcessAbort = true;
+            
         }
         else if (!isProcessAbort)
-        {
+        {   
             try
             {
                 using (wsMemberMS1.memberWSSoapClient svcInstance = new wsMemberMS1.memberWSSoapClient())
@@ -126,6 +127,9 @@ public class _Secure_AjaxHandlers_MemberSessionCheck : IHttpHandler, System.Web.
         context.Response.Write(strProcessCode);
         context.Response.End();
     }
+    
+    
+    
  
     public bool IsReusable {
         get {

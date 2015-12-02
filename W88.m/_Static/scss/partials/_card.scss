@@ -1,0 +1,33 @@
+//
+// Cards
+// -------------------------------
+
+.card {
+    padding: 0 !important;
+    background-color: $black;
+    .title {
+        color: $energized;
+        margin: $content-padding/2 auto;
+    }
+    small {
+        display: block;
+        color: $base-color;
+    }
+}
+
+.play-card {
+    width: 94px;
+    min-height: 120px;
+    font-size: 1em;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    margin: $content-padding/2;
+    margin-right: 0;
+    background-repeat: no-repeat;
+    background-color: lighten(#000, 80%); // #ccc
+    @include border-radius(3px);
+    @include background-size(contain);
+    @include box-shadow(0 2px 4px rgba(0,0,0,.3));
+}

@@ -24,7 +24,7 @@ public partial class Slots_ClubDivino : BasePage
 
             System.Xml.Linq.XElement xeCategories = xeResources.Element("Category");
 
-            switch (commonVariables.SelectedLanguage) 
+            switch (commonVariables.SelectedLanguage)
             {
                 case "zh-cn":
                     strLanguageCode = "zh";
@@ -39,7 +39,7 @@ public partial class Slots_ClubDivino : BasePage
             {
                 sbGames.AppendFormat("<div data-role='collapsible' data-collapsed='false' data-theme='b' data-content-theme='a' data-mini='true' type='{1}'><h4>{0}</h4>", xeCategory.Attribute("Label").Value, xeCategory.Attribute("Version").Value);
 
-                sbGames.AppendFormat("<div id='div{0}_{1}' class='div-product'><div><ul>", xeCategory.Name, xeCategory.Attribute("Version").Value); 
+                sbGames.AppendFormat("<div id='div{0}_{1}' class='div-product'><div><ul>", xeCategory.Name, xeCategory.Attribute("Version").Value);
 
                 foreach (System.Xml.Linq.XElement xeGame in xeCategory.Elements())
                 {
@@ -47,12 +47,12 @@ public partial class Slots_ClubDivino : BasePage
 
                     sbGames.AppendFormat("<li rel='{0}.jpg' class='bkg-game'><div class='div-links'>", commonCulture.ElementValues.getResourceString("ImageName", xeGame));
 
-                    if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { sbGames.AppendFormat("<a href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubDivino") + "' data-rel='dialog' data-transition='slidedown'>"); }
+                    if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { sbGames.AppendFormat("<a class='btn-primary' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubDivino") + "' data-rel='dialog' data-transition='slidedown'>"); }
                     else { sbGames.AppendFormat("<a href='{0}'>", commonClubDivino.getRealUrl.Replace("{GAMEID}", strGameId).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId).Replace("{HOMEURL}",myUri.Host).Replace("{CASHIERURL}",myUri.Host)); }
 
-                    sbGames.Append("<img src='/_Static/Images/btn_play.jpg' /></a>");
-                    sbGames.AppendFormat("<a href='{0}'><img src='/_Static/Images/btn_try.jpg' /></a></div>", commonClubDivino.getFunUrl.Replace("{GAMEID}", strGameId).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId).Replace("{HOMEURL}", myUri.Host).Replace("{CASHIERURL}", myUri.Host));
-                    sbGames.Append("</li>"); 
+                    sbGames.Append("<i class='icon-play_arrow'></i></a>");
+                    sbGames.AppendFormat("<a class='btn-secondary' href='{0}'><i class='icon-fullscreen'></i></a></div>", commonClubDivino.getFunUrl.Replace("{GAMEID}", strGameId).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId).Replace("{HOMEURL}", myUri.Host).Replace("{CASHIERURL}", myUri.Host));
+                    sbGames.Append("</li>");
                 }
 
                 sbGames.Append("</ul></div></div></div>");
@@ -60,6 +60,6 @@ public partial class Slots_ClubDivino : BasePage
             }
 
             divContainer.InnerHtml = Convert.ToString(sbGames);
-        }        
+        }
     }
 }

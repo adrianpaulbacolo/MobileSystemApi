@@ -1,0 +1,75 @@
+//
+// Utility helper classes
+// -------------------------------
+
+// Alignment
+.text-justify        {text-align: justify;}
+.text-nowrap         {white-space: nowrap;}
+.text-center         {text-align: center;}
+
+// Transformation
+.text-lowercase      {text-transform: lowercase;}
+.text-uppercase      {text-transform: uppercase;}
+.text-capitalize     {text-transform: capitalize;}
+.text-default        {text-transform: none !important;}
+
+.span-user           {font-weight: 700;}
+
+.text-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// Floats
+.pull-right          {float: right !important;}
+.pull-left           {float: left !important;}
+.center              {
+    margin-left: 5% !important;
+    margin-right: 5% !important;
+}
+
+.noselect {
+    @include user-select(none);
+}
+
+.padding        {padding:        $content-padding}
+.padding-top    {padding-top:    $content-padding}
+.padding-right  {padding-right:  $content-padding}
+.padding-bottom {padding-bottom: $content-padding}
+.padding-left   {padding-left:   $content-padding}
+
+// Media
+.img-responsive {
+    @include img-responsive;
+    margin: auto;
+}
+.img-responsive-full {
+    @extend .img-responsive;
+    width: 100%;
+}
+.full-image {
+    display: block;
+}
+
+.notify {
+    position: relative;
+    .badge {
+        font-size: 0.71428571em; // 10px
+        position: absolute;
+        top: $content-padding * 2; left: 55%;
+    }
+}
+
+.hide {display:none!important;}
+
+// Animations
+// ----------------------------------------------
+.animated {
+    @include animation-duration(1s);
+    @include animation-fill-mode(both);
+}
+.animated3D {
+    @include backface-visibility(visible)
+}
+

@@ -33,8 +33,24 @@
         background-image: url('/_Static/Images/bnr-asports.jpg');
     }
 
-    .div-product-scroll .li-esports {
+    .div-product-scroll .li-esports{
         background-image: url('/_Static/Images/bnr-esports.jpg');
+    }
+
+    .div-product-scroll .li-vsports-basketball {
+        background-image: url('/_Static/Images/bnr-vSPORTS-basketball.jpg');
+    }
+    .div-product-scroll .li-vsports-tennis {
+        background-image: url('/_Static/Images/bnr-vSPORTS-tennis.jpg');
+    }
+    .div-product-scroll .li-vsports-horseracing {
+        background-image: url('/_Static/Images/bnr-vSPORTS-horseracing.jpg');
+    }
+    .div-product-scroll .li-vsports-football {
+        background-image: url('/_Static/Images/bnr-vSPORTS-football.jpg');
+    }
+    .div-product-scroll .li-vsports-dogracing {
+        background-image: url('/_Static/Images/bnr-vSPORTS-dogracing.jpg');
     }
 
     .div-product-scroll .li-lottery {
@@ -75,6 +91,13 @@
 
 .div-product-scroll .li-clubw {
     background-image: url('/_Static/Images/bnr-clubw-android.jpg');
+}
+
+.div-product-scroll .li-pokerIOS {
+    background-image: url('/_Static/Images/W88-Mobile-Poker-iOS.jpg');
+}
+.div-product-scroll .li-pokerAndroid {
+    background-image: url('/_Static/Images/W88-Mobile-Poker-Android.jpg');
 }
 
 .div-product-scroll .li-deposit {

@@ -37,7 +37,7 @@ public partial class Deposit_Default : BasePage
         strCurrencyCode = commonVariables.GetSessionVariable("CurrencyCode");
         strCountryCode = commonVariables.GetSessionVariable("CountryCode");
         strRiskId = commonVariables.GetSessionVariable("RiskId");
-        strPaymentGroup = commonVariables.GetSessionVariable("PaymentGroup");
+        strPaymentGroup = commonVariables.GetSessionVariable("paymentGroup");
         strSelectedLanguage = commonVariables.SelectedLanguage;
 
         xeErrors = commonVariables.ErrorsXML;
@@ -60,11 +60,11 @@ public partial class Deposit_Default : BasePage
             btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
 
             #region Placeholder
-            txtDepositAmount.Attributes.Add("PLACEHOLDER", string.Format("{0} {1}", lblDepositAmount.Text, strCurrencyCode));
-            txtReferenceId.Attributes.Add("PLACEHOLDER", lblReferenceId.Text);
-            txtBankName.Attributes.Add("PLACEHOLDER", lblBankName.Text);
-            txtAccountName.Attributes.Add("PLACEHOLDER", lblAccountName.Text);
-            txtAccountNumber.Attributes.Add("PLACEHOLDER", lblAccountNumber.Text);
+            // txtDepositAmount.Attributes.Add("PLACEHOLDER", string.Format("{0} {1}", lblDepositAmount.Text, strCurrencyCode));
+            // txtReferenceId.Attributes.Add("PLACEHOLDER", lblReferenceId.Text);
+            // txtBankName.Attributes.Add("PLACEHOLDER", lblBankName.Text);
+            // txtAccountName.Attributes.Add("PLACEHOLDER", lblAccountName.Text);
+            // txtAccountNumber.Attributes.Add("PLACEHOLDER", lblAccountNumber.Text);
             #endregion
 
             #region PopulateDropDownList
@@ -216,7 +216,7 @@ public partial class Deposit_Default : BasePage
                             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("/Deposit/AmountMinLimit", xeErrors);
                             isProcessAbort = true;
                         }
-                        else if (Convert.ToDecimal(strDepositAmount) > decMaxLimit) 
+                        else if (Convert.ToDecimal(strDepositAmount) > decMaxLimit)
                         {
                             strAlertCode = "-1";
                             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("/Deposit/AmountMaxLimit", xeErrors);
@@ -400,7 +400,7 @@ public partial class Deposit_Default : BasePage
             strMaxLimit = Convert.ToDecimal(dtPaymentMethodLimits.Rows[0]["maxDeposit"]).ToString(commonVariables.DecimalFormat);
             strTotalAllowed = Convert.ToDecimal(dtPaymentMethodLimits.Rows[0]["totalAllowed"]) == 0 ? commonCulture.ElementValues.getResourceString("unlimited", xeResources) : Convert.ToDecimal(dtPaymentMethodLimits.Rows[0]["totalAllowed"]).ToString(commonVariables.DecimalFormat);
             strDailyLimit = Convert.ToDecimal(dtPaymentMethodLimits.Rows[0]["limitDaily"]) == 0 ? commonCulture.ElementValues.getResourceString("unlimited", xeResources) : Convert.ToDecimal(dtPaymentMethodLimits.Rows[0]["limitDaily"]).ToString(commonVariables.DecimalFormat);
-            txtDepositAmount.Attributes.Add("PLACEHOLDER", string.Format("{0} {1}({2} / {3})", lblDepositAmount.Text, strCurrencyCode, strMinLimit, strMaxLimit));
+            // txtDepositAmount.Attributes.Add("PLACEHOLDER", string.Format("{0} {1}({2} / {3})", lblDepositAmount.Text, strCurrencyCode, strMinLimit, strMaxLimit));
             lblDailyLimit.Text = string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("lblDailyLimit", xeResources), strDailyLimit);
             lblTotalAllowed.Text = string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("lblTotalAllowed", xeResources), strTotalAllowed);
         }

@@ -41,11 +41,11 @@
 
                     var pViewMore = null;
 
-                    if ($(this).find('div.p-tnc').length > 0) { pViewMore = $('<p />').append($('<a />', { href: 'javascript:void(0);', onclick: 'javascript:$(this).parents(".div-promo-content").find(".p-tnc").next().andSelf().slideDown();$(this).remove();' }).text('<%=commonCulture.ElementValues.getResourceString("lblMoreInfo", xeResources)%>')); $(divPromoDetail).append(pViewMore); }                    
+                    if ($(this).find('div.p-tnc').length > 0) { pViewMore = $('<p />').append($('<a />', { href: 'javascript:void(0);', onclick: 'javascript:$(this).parents(".div-promo-content").find(".p-tnc").next().andSelf().slideDown();$(this).remove();' }).text('<%=commonCulture.ElementValues.getResourceString("lblMoreInfo", xeResources)%>')); $(divPromoDetail).append(pViewMore); }
 
                     if ($(this).find('.promo_join_btn').length > 0) {
                         if ('<%=commonVariables.CurrentMemberSessionId%>'.trim() == '') {
-                            var hrefJoin = $('<a />', { class: 'ui-btn ui-blue ui-mini', 'data-transition': 'flip', href: '/_Secure/Register.aspx' }).text('<%=commonCulture.ElementValues.getResourceString("joinnow", commonVariables.LeftMenuXML)%>');
+                            var hrefJoin = $('<a />', { class: 'ui-btn btn-primary ui-mini', 'data-transition': 'flip', href: '/_Secure/Register.aspx' }).text('<%=commonCulture.ElementValues.getResourceString("joinnow", commonVariables.LeftMenuXML)%>');
                             $(divPromoDetail).append(hrefJoin);
                         }
                         else {
@@ -53,7 +53,7 @@
                             var objCode = $(this).find('.promo_join_btn[href^="/promotions/promo_claim.aspx?code="]');
                             if ($(objCode).length > 0) {
                                 var strCode = $(objCode).attr('href').replace(/\/promotions\/promo_claim.aspx\?code=/, '');
-                                var hrefClaim = $('<a />', { class: 'ui-btn ui-blue ui-mini', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNow(this, \'' + strCode + '\', \'\')' }).text($(objCode).text());
+                                var hrefClaim = $('<a />', { class: 'ui-btn btn-primary ui-mini', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNow(this, \'' + strCode + '\', \'\')' }).text($(objCode).text());
                                 $(divPromoDetail).append(hrefClaim);
                             }
                             else {
@@ -62,7 +62,7 @@
                                     $obj = $(objCode).attr('href');
                                     var strCode = $obj.substring($obj.indexOf('=') + 1, $obj.indexOf('&'));
                                     var strProducts = $obj.substr($obj.lastIndexOf('=') + 1, $obj.length);
-                                    var hrefClaim = $('<a />', { class: 'ui-btn ui-blue ui-mini', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNow(this, \'' + strCode + '\',  \'' + strProducts + '\')' }).text($(objCode).text());
+                                    var hrefClaim = $('<a />', { class: 'ui-btn btn-primary ui-mini', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNow(this, \'' + strCode + '\',  \'' + strProducts + '\')' }).text($(objCode).text());
                                     $(divPromoDetail).append(hrefClaim);
                                 }
 
@@ -76,7 +76,7 @@
                                             $(xml).find('item').map(function () {
                                                 return $(this).attr('name');
                                             }).get().join();
-                                        var hrefClaim = $('<a />', { class: 'ui-btn ui-blue ui-mini', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNow(this, \'' + strCode + '\',  \'' + strProducts + '\',  \'' + title + '\')' }).text($(objCode).text());
+                                        var hrefClaim = $('<a />', { class: 'ui-btn btn-primary ui-mini', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNow(this, \'' + strCode + '\',  \'' + strProducts + '\',  \'' + title + '\')' }).text($(objCode).text());
 
                                         if ('<%=commonVariables.GetSessionVariable("RiskId")%>'.search(/vip(b|p|g|d)/i) > -1) {
                                             $(divPromoDetail).append(hrefClaim);
@@ -129,8 +129,8 @@
                     var taPromoClaim = $('<textarea />');
 
                     var divPromoClaimButtons = $('<div />');
-                    var hrefClaim = $('<a />', { class: 'ui-btn ui-blue ui-mini', onclick: 'javascript:PromoClaim(this)' }).text('<%=commonCulture.ElementValues.getResourceString("btnSubmit", xeResources)%>');
-                    var hrefClaimCancel = $('<a />', { class: 'ui-btn ui-gray ui-mini', onclick: 'javascript:PromoCancelClaim(this)' }).text('<%=commonCulture.ElementValues.getResourceString("btnCancel", xeResources)%>');
+                    var hrefClaim = $('<a />', { class: 'ui-btn btn-primary ui-mini', onclick: 'javascript:PromoClaim(this)' }).text('<%=commonCulture.ElementValues.getResourceString("btnSubmit", xeResources)%>');
+                    var hrefClaimCancel = $('<a />', { class: 'ui-btn btn-secondary ui-mini', onclick: 'javascript:PromoCancelClaim(this)' }).text('<%=commonCulture.ElementValues.getResourceString("btnCancel", xeResources)%>');
 
                     $(divPromoClaimButtons).append(hrefClaim).append(hrefClaimCancel)
                     $(divPromoClaimData).append(taPromoClaim).append(divPromoClaimButtons);
@@ -151,8 +151,8 @@
 
                     var divPromoClaimButtons = $('<div />');
 
-                    var hrefClaim = $('<a />', { class: 'ui-btn ui-blue ui-mini', onclick: 'javascript:PromoClaim(this)' }).text('<%=commonCulture.ElementValues.getResourceString("btnSubmit", xeResources)%>');
-                    var hrefClaimCancel = $('<a />', { class: 'ui-btn ui-gray ui-mini', onclick: 'javascript:PromoCancelClaim(this)' }).text('<%=commonCulture.ElementValues.getResourceString("btnCancel", xeResources)%>');
+                    var hrefClaim = $('<a />', { class: 'ui-btn btn-primary ui-mini', onclick: 'javascript:PromoClaim(this)' }).text('<%=commonCulture.ElementValues.getResourceString("btnSubmit", xeResources)%>');
+                    var hrefClaimCancel = $('<a />', { class: 'ui-btn btn-secondary ui-mini', onclick: 'javascript:PromoCancelClaim(this)' }).text('<%=commonCulture.ElementValues.getResourceString("btnCancel", xeResources)%>');
 
                     $(divPromoClaimButtons).append(hrefClaim).append(hrefClaimCancel)
 
@@ -259,11 +259,18 @@
 <body>
     <!--#include virtual="~/_static/splash.shtml" -->
     <div id="divMain" data-role="page" data-theme="b" data-ajax="false">
-        <!--#include virtual="~/_static/header.shtml" -->
+
+        <header id="header" data-role="header" data-position="fixed" data-theme="b" data-tap-toggle="false">
+            <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" role="button" id="aMenu" data-load-ignore-splash="true">
+                <i class="icon-navicon"></i>
+            </a>
+            <h1 class="title">
+                <%=commonCulture.ElementValues.getResourceString("promotions", commonVariables.LeftMenuXML)%>
+            </h1>
+        </header>
 
         <div class="ui-content" role="main">
             <img id="promoLoader" src="/_Static/Css/images/ajax-loader.gif" style="display: none;" />
-            <div class="div-page-header"><span><%=commonCulture.ElementValues.getResourceString("promotions", commonVariables.LeftMenuXML)%></span></div>
             <div class="page-content div-promotions-wrapper" id="divPromotions"></div>
         </div>
 

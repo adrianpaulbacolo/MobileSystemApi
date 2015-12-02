@@ -1,0 +1,92 @@
+//
+// Loader
+// -------------------------------
+
+.ui-loader {
+    pointer-events: none;
+    text-align: center;
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 50%; left: 50%;
+    margin: 0;
+    z-index: 1000;
+    @include opacity(1);
+    @include transform(translateX(-50%) translateY(-50%));
+    &.ui-body-a {
+        background-color: rgba(0,0,0,.75);
+    }
+    .ui-icon-loading, h1 {display: none}
+
+    &:after,
+    &:before {
+        content: '';
+        width: 2.2585em;
+        height: 2.2585em;
+        margin: -1.22925em 0 0 -1.22925em;
+        position: absolute;
+        top: 50%; left: 50%;
+        border-radius: 500rem;
+        border: .2em solid rgba(255,255,255,.25);
+    }
+    &:after {
+        border-color: $strong-color transparent transparent;
+        box-shadow: 0 0 0 1px transparent;
+        @include animation(loader .6s linear infinite);
+        // @include animation(loader-pulsar 2s infinite linear);
+    }
+}
+@include keyframes(loader) {
+    from {@include transform(rotate(0deg))}
+    to   {@include transform(rotate(360deg))}
+}
+
+// @include keyframes(loader-pulsar) {
+//   0% {
+//     @include transform(rotate(0deg));
+//     @include opacity(0);
+//   }
+//   20% {
+//     @include transform(rotate(360deg));
+//   }
+//   40% {
+//     @include transform(rotate(740deg));
+//     @include opacity(1);
+//   }
+//   60% {
+//     @include transform(rotate(1120deg));
+//     @include opacity(1);
+//   }
+//   80% {
+//     @include transform(rotate(1440deg));
+//   }
+//   100% {
+//     @include transform(rotate(1800deg));
+//     @include opacity(0);
+//   }
+// }
+
+.loader {
+    background-color: $black;
+    z-index: 9999;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    vertical-align: middle;
+    margin: auto;
+    display: table;
+    table-layout: fixed;
+    > div {
+        display: table-cell;
+        vertical-align: middle;
+        margin: auto;
+        > img {
+            display: block;
+            margin: auto;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+}
+

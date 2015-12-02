@@ -35,4 +35,7 @@
   <rewards><![CDATA[リワードクラブ]]></rewards>
   <sdpay><![CDATA[SDペイ]]></sdpay>
   <help2pay><![CDATA[Help2ペイ]]></help2pay>
+  <withrawal><![CDATA[出金]]></withrawal>-->
+  <fundTransfer><![CDATA[送金]]></fundTransfer>-->
+  <deposit><![CDATA[入金]]></deposit>-->
 </menu>

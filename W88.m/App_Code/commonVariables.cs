@@ -76,7 +76,8 @@ public class commonVariables
         }
     }
 
-    public static string GetSessionVariable(string key) { return string.IsNullOrEmpty(HttpContext.Current.Session[key] as string) ? "" : Convert.ToString(HttpContext.Current.Session[key]); }
+    public static string GetSessionVariable(string key) 
+    { return string.IsNullOrEmpty(HttpContext.Current.Session[key] as string) ? "" : Convert.ToString(HttpContext.Current.Session[key]); }
     public static void SetSessionVariable(string key, string value) { HttpContext.Current.Session.Add(key, value); }
 
     public static void ClearSessionVariables() 
@@ -124,7 +125,10 @@ public class commonVariables
         IPS = 120207,
         WingMoney = 110308,
         SDPay = 120223,
-        Help2Pay = 120227
+        Help2Pay = 120227,
+        DaddyPay = 120243,
+        DaddyPayQR = 120244,
+        Neteller = 123441
     }
 
     public enum WithdrawalMethod 

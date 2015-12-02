@@ -1,0 +1,105 @@
+//
+// Item Icons
+// -------------------------------
+
+.item {
+    font-size: 1em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.item-input,
+.item-select,
+.item-textarea,
+.item-checkbox,
+.item-collapse {
+    padding-left: $content-padding;
+    .row, .col {
+        padding: 0;
+    }
+    .col {
+        padding-left: $content-padding;
+        &:first-child {
+            padding: 0;
+        }
+    }
+    .ui-btn {
+        padding-left: 0;
+        &:hover, &:focus {
+            padding-left: 1em;
+        }
+    }
+}
+.item-icon-left  {padding-left: $item-icon-padding}
+.item-icon-right {padding-right: $item-icon-padding}
+
+.item-icon-left,
+.item-icon-right {
+    .icon {
+        color: $primary-color;
+        font-size: $item-icon-font-size;
+        position: absolute;
+        top: 0; left: $item-icon-position;
+        height: 100%;
+        @include display-flex();
+        @include align-items(center);
+
+        &:before {
+            width: $item-icon-font-size;
+            text-align: center;
+            display: block;
+        }
+    }
+}
+.item-text-wrap {
+    overflow: visible;
+    white-space: normal;
+    padding: $content-padding;
+}
+
+.item-select {
+    .ui-select {
+        margin: 0;
+        border-bottom: 1px solid $border-input-color;
+        .ui-btn {
+            text-align: left;
+            color: $strong-color;
+            padding: .65em 40px 1em 0;
+            background-color: transparent;
+        }
+        select {
+            border: none;
+            background-color: $base-background-color;
+        }
+    }
+}
+.item-checkbox {
+    .ui-btn {
+        color: $primary-color;
+        background-color: transparent;
+        padding-left: $item-icon-padding - 10;
+        &.ui-checkbox-off:after,
+        &.ui-checkbox-on:after,
+        &.ui-radio-off:after,
+        &.ui-radio-on:after {
+            font-size: 1.2em;
+            width: 22px;
+            height: 22px;
+            margin: -11px 0 0;
+        }
+        &:hover,
+        &:focus {
+            color: $primary-color;
+            background-color: transparent;
+            padding-left: $item-icon-padding - 10;
+        }
+    }
+    .ui-btn-icon-left:after,
+    .ui-checkbox input,
+    .ui-radio input {
+        left: $item-icon-position - 5;
+        @include appearance(none);
+        @include border-radius(50%);
+        border: 2px solid $primary-color;
+    }
+}

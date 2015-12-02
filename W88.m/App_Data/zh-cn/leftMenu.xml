@@ -35,4 +35,7 @@
   <rewards><![CDATA[奖励俱乐部]]></rewards>
   <sdpay><![CDATA[SDPay]]></sdpay>
   <help2pay><![CDATA[Help2Pay]]></help2pay>
+  <withrawal><![CDATA[提款]]></withrawal>-->
+  <fundTransfer><![CDATA[转账]]></fundTransfer>-->
+  <deposit><![CDATA[存款]]></deposit>-->
 </menu>

@@ -1,10 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
-  <message>
-    <![CDATA[<span class="blue"> 3 Bước đơn giản để tham gia Câu Lạc Bộ W phiên bản tải về</span>
-            <br />Bước 1 : Nhấp chọn vào nút Tải Ngay bên dưới
-            <br />Bước 2: Nhấp chọn “ Run” hay “ Save” để sao lưu trong ổ đĩa cứng
-            <br />Bước 3: Nhập tên đăng nhập và mật khẩu để đăng nhập.]]>
-  </message>
-  <downloadnow><![CDATA[Download now]]></downloadnow>
+    <message>
+        <![CDATA[
+            <h4 class="title">3 Bước đơn giản để tham gia Câu Lạc Bộ W phiên bản tải về</h4>
+            <ol>
+                <li>Nhấp chọn vào nút Tải Ngay bên dưới</li>
+                <li>Nhấp chọn “ Run” hay “ Save” để sao lưu trong ổ đĩa cứng</li>
+                <li>Nhập tên đăng nhập và mật khẩu để đăng nhập.</li>
+            </ol>
+        ]]>
+    </message>
+    <downloadnow><![CDATA[TẢI NGAY]]></downloadnow>
 </default>

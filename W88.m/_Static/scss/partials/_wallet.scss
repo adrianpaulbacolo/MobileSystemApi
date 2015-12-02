@@ -1,0 +1,28 @@
+//
+// Wallets
+// -------------------------------
+
+.wallet {
+    text-align: center;
+    padding: $grid-padding-width*1.5;
+    .label {
+        font-size: 90%;
+        text-transform: uppercase;
+    }
+    .value {
+        font-size: 2rem;
+        line-height: 1;
+        color: $brand-color;
+        margin: 0;
+    }
+    .currency {
+        color: $bgColor-04;
+    }
+}
+
+.main-wallet {
+    background-color: darken($primary-color, 34%);
+    .value {
+        font-size: 3rem;
+    }
+}

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -99,7 +98,6 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
                                 break;
                             case "1":
                                 string strMemberSessionId = Convert.ToString(dsSignin.Tables[0].Rows[0]["memberSessionId"]);
-                                
                                 HttpContext.Current.Session.Add("MemberSessionId", Convert.ToString(dsSignin.Tables[0].Rows[0]["memberSessionId"]));
                                 HttpContext.Current.Session.Add("MemberId", Convert.ToString(dsSignin.Tables[0].Rows[0]["memberId"]));
                                 HttpContext.Current.Session.Add("MemberCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["memberCode"]));
@@ -107,11 +105,10 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
                                 HttpContext.Current.Session.Add("CurrencyCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["currency"]));
                                 HttpContext.Current.Session.Add("LanguageCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["languageCode"]));
                                 HttpContext.Current.Session.Add("RiskId", Convert.ToString(dsSignin.Tables[0].Rows[0]["riskId"]));
-                                //HttpContext.Current.Session.Add("PaymentGroup", "A"); //Convert.ToString(dsSignin.Tables[0].Rows[0]["paymentGroup"]));
+                                HttpContext.Current.Session.Add("PaymentGroup", Convert.ToString(dsSignin.Tables[0].Rows[0]["paymentGroup"]));
                                 HttpContext.Current.Session.Add("PartialSignup", Convert.ToString(dsSignin.Tables[0].Rows[0]["partialSignup"]));
                                 HttpContext.Current.Session.Add("ResetPassword", Convert.ToString(dsSignin.Tables[0].Rows[0]["resetPassword"]));
-                                HttpContext.Current.Session.Add("priorityVIP", Convert.ToString(dsSignin.Tables[0].Rows[0]["priorityVIP"]));
-                                
+
                                 commonCookie.CookieS = strMemberSessionId;
                                 commonCookie.CookieG = strMemberSessionId;
                                 HttpContext.Current.Session.Add("LoginStatus", "success");
@@ -125,7 +122,7 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
                                 strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/InvalidUsername", xeErrors);
                                 break;
                             case "22":
-                                strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/InactiveAccount", xeErrors).Replace("{0}",getLiveChatURL());
+                                strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/InactiveAccount", xeErrors);
                                 break;
                             case "23":
                                 strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/InvalidPassword", xeErrors);
@@ -240,71 +237,5 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
 
         intProcessSerialId += 1;
         commonAuditTrail.appendLog("system", strPageName, "Iovation", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
-    }
-
-    private string getLiveChatURL()
-    {
-        string strPageName = "LiveChat";
-        string strMemberId = string.Empty;
-        string strMemberCode = string.Empty;
-        string riskId = string.Empty;
-
-        try
-        {
-            string strMemberName = commonVariables.GetSessionVariable("name");
-            string shortlang = commonVariables.SelectedLanguageShort;
-            string lang = commonVariables.SelectedLanguage.ToLower();
-            bool isVIP = false;
-
-            string value = commonVariables.GetSessionVariable("priorityVIP");
-            string CurrentUrl = System.Web.HttpContext.Current.Request.Url.ToString();
-
-            Uri myUri = new Uri("https://m.88vv.asia");
-            string[] host = myUri.Host.Split('.');
-            string domain = string.Format(ConfigurationManager.AppSettings["WebHandler2"], host[1], host[2]);
-
-            string chatLang = string.Empty;
-            string skill = string.Empty;
-
-            string platform = "Mobile";
-            string redirectLink = string.Empty;
-
-
-            if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-            {
-                strMemberId = commonVariables.GetSessionVariable("MemberId");
-                strMemberCode = commonVariables.GetSessionVariable("MemberCode");
-                riskId = commonVariables.GetSessionVariable("RiskId");
-
-                if (riskId.Length >= 3)
-                {
-                    if (riskId.Trim().ToLower() == "vipg" || riskId.ToLower() == "vipd" || riskId.ToLower() == "vipp")
-                        isVIP = true;
-                }
-            }
-
-            //BO settings integration
-            try
-            {
-                if (lang == "zh-cn" || lang == "vi-vn")
-                {
-                    redirectLink = string.Format(ConfigurationManager.AppSettings["LivePersonMobile2"], host[1], host[2]);
-                }
-                else
-                {
-                    redirectLink = domain + CurrentUrl;
-                }
-            }
-            catch (Exception)
-            {
-                return "";
-            }
-            return redirectLink;
-        }
-        catch (Exception ex)
-        {
-            commonAuditTrail.appendLog("system", strPageName, "PageLoad", "LivechatDefault.DLL", "", "", "Ex: " + ex.Message, "StackTrace: " + ex.StackTrace, "MemberId:" + strMemberId + ", MemberCode:" + strMemberCode + ", RiskId: " + riskId, "", "", true);
-            return "";
-        }
     }
 }

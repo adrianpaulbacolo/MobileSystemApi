@@ -10,13 +10,6 @@
         <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobiledoublebonusslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobiledoublebonusslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
       </xc_mobiledoublebonusslots>
-
-      <FireCrackers>
-        <Label><![CDATA[Midnight Lucky Sky Slots]]></Label>
-        <Description><![CDATA[Midnight Lucky Sky Slots]]></Description>
-        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilefirecrackerslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilefirecrackerslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-      </FireCrackers>
       <AtlantisDive>
         <Label><![CDATA[AtlantisDive]]></Label>
         <Description><![CDATA[AtlantisDive]]></Description>
@@ -35,6 +28,36 @@
         <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_freakyfruitsslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_freakyfruitsslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
       </FreakyFruits>
+      <HouseOfScare>
+        <Label><![CDATA[HouseOfScare]]></Label>
+        <Description><![CDATA[HouseOfScare]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilehouseofscareslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilehouseofscareslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </HouseOfScare>
+      <KaraokeStar>
+        <Label><![CDATA[Karaoke Star]]></Label>
+        <Description><![CDATA[Karaoke Star]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilekaraokeslots&mode=real&ticket={token}&language=EN&merch_id=CVN2]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilekaraokeslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </KaraokeStar>
+      <MagicPot>
+        <Label><![CDATA[Magic Pot]]></Label>
+        <Description><![CDATA[Magic Pot]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilemagicpotslots&mode=real&ticket={token}&language=EN&merch_id=CVN2]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilemagicpotslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </MagicPot>
+      <FireCrackers>
+        <Label><![CDATA[Midnight Lucky Sky Slots]]></Label>
+        <Description><![CDATA[Midnight Lucky Sky Slots]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilefirecrackerslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilefirecrackerslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </FireCrackers>
+      <NonStopParty>
+        <Label><![CDATA[Non-Stop Party]]></Label>
+        <Description><![CDATA[Non-Stop Party]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilenonstoppartyslots&mode=real&ticket={token}&language=EN&merch_id=CVN2]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilenonstoppartyslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </NonStopParty>
       <PartyNight>
         <Label><![CDATA[PartyNight]]></Label>
         <Description><![CDATA[PartyNight]]></Description>
@@ -47,30 +70,6 @@
         <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_summerdreamslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_summerdreamslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
       </SummerDream>
-      <HouseOfScare>
-        <Label><![CDATA[HouseOfScare]]></Label>
-        <Description><![CDATA[HouseOfScare]]></Description>
-        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilehouseofscareslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilehouseofscareslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-      </HouseOfScare>
-      <MagicPot>
-        <Label><![CDATA[Magic Pot]]></Label>
-        <Description><![CDATA[Magic Pot]]></Description>
-        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilemagicpotslots&mode=real&ticket={token}&language=EN&merch_id=CVN2]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilemagicpotslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-      </MagicPot>
-      <KaraokeStar>
-        <Label><![CDATA[Karaoke Star]]></Label>
-        <Description><![CDATA[Karaoke Star]]></Description>
-        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilekaraokeslots&mode=real&ticket={token}&language=EN&merch_id=CVN2]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilekaraokeslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-      </KaraokeStar>
-      <NonStopParty>
-        <Label><![CDATA[Non-Stop Party]]></Label>
-        <Description><![CDATA[Non-Stop Party]]></Description>
-        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilenonstoppartyslots&mode=real&ticket={token}&language=EN&merch_id=CVN2]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilenonstoppartyslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-      </NonStopParty>
     </Slot>
     <Card Label="Card Games">
       <Baccarat>
@@ -145,7 +144,7 @@
     <VideoPoker Label="Video Poker">
       <DeucesWild4L>
         <Label><![CDATA[DeucesWild4L]]></Label>
-        <Description><![CDATA[DeucesWild4L]]></Description> 
+        <Description><![CDATA[DeucesWild4L]]></Description>
         <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_deuceswild4l&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_deuceswild4l&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
       </DeucesWild4L>

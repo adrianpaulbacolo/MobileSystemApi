@@ -57,7 +57,7 @@ public partial class Deposit_SDPay : BasePage
 
             btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
 
-            txtDepositAmount.Attributes.Add("PLACEHOLDER", string.Format("{0} {1}", lblDepositAmount.Text, strCurrencyCode));
+            // txtDepositAmount.Attributes.Add("PLACEHOLDER", string.Format("{0} {1}", lblDepositAmount.Text, strCurrencyCode));
 
             System.Threading.Tasks.Task t1 = System.Threading.Tasks.Task.Factory.StartNew(this.InitialisePaymentLimits);
 

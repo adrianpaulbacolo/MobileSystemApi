@@ -35,4 +35,7 @@
   <rewards><![CDATA[Câu Lạc Bộ Điểm Thưởng]]></rewards>
   <sdpay><![CDATA[SDPay]]></sdpay>
   <help2pay><![CDATA[Help2Pay]]></help2pay>
+  <withrawal><![CDATA[Rút Tiền]]></withrawal>-->
+  <fundTransfer><![CDATA[Chuyển Quỹ]]></fundTransfer>-->
+  <deposit><![CDATA[Gửi Tiền]]></deposit>-->
 </menu>

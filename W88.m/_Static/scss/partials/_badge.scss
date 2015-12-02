@@ -1,0 +1,20 @@
+//
+// Badges
+// -------------------------------
+
+.badge {
+  font: 1em/16px $font-family-base;
+  color: $strong-color;
+  z-index: 1;
+  display: inline-block;
+  padding: 3px 6px;
+  min-width: 10px;
+  @include border-radius(10px);
+  vertical-align: baseline;
+  text-align: center;
+  white-space: nowrap;
+  background-color: $assertive;
+  &:empty {
+    display: none;
+  }
+}

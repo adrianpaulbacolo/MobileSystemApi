@@ -25,7 +25,8 @@ public static class commonCookie
         }
     }
 
-    /// <summary>Sportsbook Session ID</summary>
+    /// <summary>Sport
+    /// ok Session ID</summary>
     public static string CookieG
     {
         get

@@ -6,27 +6,26 @@
     <title></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/PreLoad.js"></script>
-    <link type="text/css" rel="stylesheet" href="/_Static/Css/Language.css" />
-    <link rel="stylesheet" href="/_Static/Css/add2home.css">
     <script type="application/javascript" src="/_Static/Js/add2home.js"></script>
     <script type="application/javascript" src="/_Static/Js/checkManifest.js"></script>
 </head>
-<body>
+<body id="language">
     <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="b" data-ajax="false">
-        <div data-role="header" data-position="fixed" class="div-nav-header">
-            <div class="text-center"></div>
-        </div>
+
+        <header id="header" data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1 class="title">
+                <img src="/_Static/Images/logo-<%=commonVariables.SelectedLanguageShort%>.png" class="logo" alt="logo">
+            </h1>
+        </header>
+
         <div class="ui-content" role="main">
-            <div class="page-content">
-                <div id="divLanguageContainer" runat="server" class="div-langContainer"></div>
-            </div>
+            <h2 class="page-title">Select Language</h2>
+            <ul id="divLanguageContainer" runat="server" class="row row-wrap row-no-padding"></ul>
         </div>
-        <!-- /content -->
-        <div data-role="footer" data-theme="b" data-position="fixed">
-            <!--#include virtual="~/_static/footer.shtml" -->
-        </div>
-        <!-- /footer -->
+
+        <!--#include virtual="~/_static/footer.shtml" -->
+
     </div>
     <!-- /page -->
     <script type="text/javascript">
