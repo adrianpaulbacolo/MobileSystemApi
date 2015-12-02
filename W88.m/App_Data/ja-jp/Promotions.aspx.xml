@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<default>
-  <btnSubmit><![CDATA[提出]]></btnSubmit>
-  <btnCancel><![CDATA[キャンセル]]></btnCancel>
-  <lblID><![CDATA[ID]]></lblID>
-  <lblComment><![CDATA[コメント]]></lblComment>
-  <lblMultipleRebateCode><![CDATA[コードの申請を希望する製品を、明記してください：]]></lblMultipleRebateCode>
-  <lblMoreInfo><![CDATA[詳細]]></lblMoreInfo>
-</default>

@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<default>
-  <lblsecurityquestion1><![CDATA[Mẹ của bạn tên gì?]]></lblsecurityquestion1>
-  <lblsecurityquestion2><![CDATA[Biệt danh thời thơ ấu của bạn là gì?]]></lblsecurityquestion2>
-  <lblsecurityquestion3><![CDATA[Công việc ước mơ khi còn bé của bạn là gì?]]></lblsecurityquestion3>
-  <lblsecurityquestion4><![CDATA[Công việc đầu tiên của bạn làm tại thành phố hoặc thị xã nào?]]></lblsecurityquestion4>
-  <lblsecurityquestion5><![CDATA[Tên trường học đầu tiên của bạn là gì?]]></lblsecurityquestion5>
-  <lblsecurityquestion6><![CDATA[Ba của bạn tên gì?]]></lblsecurityquestion6>
-</default>

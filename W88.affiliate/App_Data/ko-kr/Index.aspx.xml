@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<default>
-  <lblPlaceBet><![CDATA[로그인 또는 가입을 해주시기 바랍니다.]]></lblPlaceBet>
-  <lblAffiliate><![CDATA[파트너제휴]]></lblAffiliate>
-  <lblOurProduct><![CDATA[Our Product]]></lblOurProduct>
-  <lblComissionPlan><![CDATA[Commission Plans]]></lblComissionPlan>
-  <lblMyAccount><![CDATA[My Account]]></lblMyAccount>
-  <lblOverview><![CDATA[Overview]]></lblOverview>
-</default>

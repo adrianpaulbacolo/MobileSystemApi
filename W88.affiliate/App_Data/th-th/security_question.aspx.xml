@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<default>
-  <lblsecurityquestion1><![CDATA[ชื่อกลางของมารดาคุณคือ?]]></lblsecurityquestion1>
-  <lblsecurityquestion2><![CDATA[ชื่อเล่น หรือฉายาของคุณในวัยเด็กคือ?]]></lblsecurityquestion2>
-  <lblsecurityquestion3><![CDATA[ความฝันในวัยเด็กของคุณคือ ?]]></lblsecurityquestion3>
-  <lblsecurityquestion4><![CDATA[ชื่อเมือง หรือจังหวัดที่ท่านเริ่มทำงานครั้งแรกคือ?]]></lblsecurityquestion4>
-  <lblsecurityquestion5><![CDATA[ชื่อโรงเรียนแรกที่คุณเข้าเรียนคือ?]]></lblsecurityquestion5>
-  <lblsecurityquestion6><![CDATA[ชื่อกลางของบิดาคุณคือ?]]></lblsecurityquestion6>
-</default>

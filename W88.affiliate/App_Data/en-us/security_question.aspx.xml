@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<default>
-<lblsecurityquestion1><![CDATA[What is your mother's middle name?]]></lblsecurityquestion1>
-<lblsecurityquestion2><![CDATA[What was your childhood nickname?]]></lblsecurityquestion2>
-<lblsecurityquestion3><![CDATA[What was your dream job as a child?]]></lblsecurityquestion3>
-<lblsecurityquestion4><![CDATA[In what city or town was your first job?]]></lblsecurityquestion4>
-<lblsecurityquestion5><![CDATA[What is the name of the first school you attended?]]></lblsecurityquestion5>
-<lblsecurityquestion6><![CDATA[What is your father's middle name?]]></lblsecurityquestion6>
- </default>

@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<default>
-  <lblUsername><![CDATA[用户名]]></lblUsername>
-  <lblPassword><![CDATA[密码]]></lblPassword>
-  <lblCaptcha><![CDATA[代码]]></lblCaptcha>
-  <btnLogin><![CDATA[登录]]></btnLogin>  
-  <btnRegister><![CDATA[您需要成为优德W88.com的会员方能登录。<br />还不是会员？ <a href='/_Secure/Register.aspx' data-ajax='false'>立即加入</a>]]></btnRegister>
-  <lblRegister><![CDATA[您需要成为优德W88.com的会员方能登录。还不是会员？请访问我们的网站www.w88.com并注册账户。]]></lblRegister>
-</default>
