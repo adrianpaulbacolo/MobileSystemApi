@@ -2,7 +2,10 @@
 // Variables
 // --------------------------------------------------
 
+@import "../fonts/ionicons/ionicons-variables";
+
 $icomoon-font-path           : '../fonts/icomoon/fonts' !default;
+$ionicons-font-path          : '../fonts/ionicons' !default;
 $dinpro-font-path            : '../fonts/din-pro-reg' !default;
 
 // W88 Color Standards
@@ -79,6 +82,7 @@ $headings-line-height        : 1.2 !default;
 
 $primary-font                : 'dinpro', sans-serif !default;
 $iconic-font                 : 'icomoon' !default;
+$ionicons-font               : 'ionicons' !default;
 
 $base-background-color       : $bgColor-01 !default;
 $base-color                  : hsl(0, 0%, 65%) !default;
