@@ -26,12 +26,12 @@
                 <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
             </div>
 
-            <div data-role="tabs" id="tabs">
+            <div  id="tabs">
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="#deposit"><%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%></a></li>
-                        <li><a href="#transfer"><%=commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%></a></li>
-                        <li><a href="#withdrawal"><%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%></a></li>
+                        <li><a href="/Deposit/Default.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%></a></li>
+                        <li><a href="/FundTransfer/Default.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%></a></li>
+                        <li><a href="/Withdrawal/Default.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%></a></li>
                     </ul>
                 </div>
                 <!-- <div id="deposit">
