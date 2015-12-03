@@ -21,41 +21,41 @@
         <div class="ui-content" role="main" id="sports">
 
             <ul class="row row-wrap bg-gradient">
-                <li class="col col-50">
+<%--                <li class="col col-50">
                     <a href="">
                         <img src="_Static/Images/sports/wsports-<%=commonVariables.SelectedLanguageShort%>.png" alt="a-Sports" class="img-responsive">
                     </a>
-                </li>
+                </li>--%>
                 <li class="col col-50">
-                    <a href="">
+                    <a href="http://smartsbtest.w88.com:808/Deposit_ProcessLogin.aspx?lang=en&st=17C33072-F998-4FD6-8495-61BA807989DC">
                         <img src="_Static/Images/sports/asports-<%=commonVariables.SelectedLanguageShort%>.png" alt="a-Sports" class="img-responsive">
                     </a>
                 </li>
                 <li class="col col-50">
-                    <a href="">
+                    <a href="http://mobile.w88.agent1818.com/?LangID=236&ExternalToken=91ECE285-C45E-44BB-AA1F-3C06EAE3A4BF&oddsstyleid=1">
                         <img src="_Static/Images/sports/esports-<%=commonVariables.SelectedLanguageShort%>.png" alt="a-Sports" class="img-responsive">
                     </a>
                 </li>
-                <li class="col col-50">
+<%--                <li class="col col-50">
                     <a href="">
                         <img src="_Static/Images/sports/esports_2-<%=commonVariables.SelectedLanguageShort%>.png" alt="a-Sports" class="img-responsive">
                     </a>
-                </li>
-                <li class="col col-50">
+                </li>--%>
+<%--                <li class="col col-50">
                     <a href="">
                         <img src="_Static/Images/sports/isports-<%=commonVariables.SelectedLanguageShort%>.png" alt="a-Sports" class="img-responsive">
                     </a>
-                </li>
+                </li>--%>
                 <!-- <li class="col col-50">
                     <a href="">
                         <img src="_Static/Images/sports/xsports-<%=commonVariables.SelectedLanguageShort%>.png" alt="a-Sports" class="img-responsive">
                     </a>
                 </li> -->
-                <li class="col col-50">
+<%--                <li class="col col-50">
                     <a href="">
                         <img src="_Static/Images/sports/fantasyepl-<%=commonVariables.SelectedLanguageShort%>.png" alt="a-Sports" class="img-responsive">
                     </a>
-                </li>
+                </li>--%>
             </ul>
         </div>
 

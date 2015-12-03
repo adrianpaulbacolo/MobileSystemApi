@@ -22,21 +22,11 @@
             <ul class="row row-wrap row-no-padding responsive-lg">
                 <li class="col">
                     <figure class="banner">
-                        <img src="_Static/Images/lottery/01.png" class="img-responsive-full img-bg">
-                        <figcaption class="banner-caption">
-                            <h3 class="title">W Keno</h3>
-                            <P>60 seconds to play and win. Get in the game!</P>
-                            <a href="" class="ui-btn btn-secondary">Try Now</a> <a href="" class="ui-btn btn-primary">Play Now</a>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="col">
-                    <figure class="banner">
                         <img src="_Static/Images/lottery/02.png" class="img-responsive-full img-bg">
                         <figcaption class="banner-caption">
                             <h3 class="title">Keno</h3>
                             <P>Every minutes filled with fun and non-stop games. Get the excitement!</P>
-                            <a href="" class="ui-btn btn-secondary">Try Now</a> <a href="" class="ui-btn btn-primary">Play Now</a>
+                            <a href="http://mlotto.w88uat.com/Mobile/keno?lang=en-US" class="ui-btn btn-primary">Play Now</a>
                         </figcaption>
                     </figure>
                 </li>
