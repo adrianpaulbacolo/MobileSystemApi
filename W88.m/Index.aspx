@@ -142,7 +142,6 @@
                 <!-- Profile -->
                 <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
                 <li class="col col-33">
-                    <a href="" class="tile">
                     <a href="/Profile" class="tile" data-ajax="false" data-transition="slidedown">
                         <span class="icon-profile"></span>
                         <h4 class="title"><%=commonVariables.GetSessionVariable("MemberCode")%></h4>

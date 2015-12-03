@@ -16,11 +16,6 @@
     }
 }
 
-$tabs-text-font-size-side-icon: 12px;
-$tabs-icon-size: 32px;
-$tabs-height: 50px;
-$tab-item-max-width: 150px;
-
 .tabs {
   @include display-flex();
   @include flex-direction(horizontal);
