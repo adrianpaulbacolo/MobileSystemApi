@@ -1,4 +1,17 @@
 ﻿
+<footer id="footer" data-role="footer" data-position="fixed" data-theme="b">
+    <div class="tabs tabs-icon-left" data-role="navbar">
+        <a href="/Lang.aspx" class="tab-item" role="button" runat="server" data-ajax="false">
+            <i class="icon ion-ios-world-outline"></i> Language
+        </a>
+        <a href="/LiveChat/Default.aspx" class="tab-item" role="button" runat="server" data-ajax="false">
+            <i class="icon ion-ios-chatboxes-outline"></i> Live Chat
+        </a>
+    </div>
+    <p class="colophon"><small>&copy; 2015 W88.com. All rights reserved | 18+</small></p>
+</footer>
+
+
 <!-- Piwik -->
 <script type="text/javascript">
     var _paq = _paq || [];

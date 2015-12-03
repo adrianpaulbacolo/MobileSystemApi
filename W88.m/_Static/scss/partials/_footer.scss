@@ -2,106 +2,18 @@
 // Footer
 // -------------------------------
 
-.div-nav-footer {
-    background-color: #252525;
-    overflow-x: initial;
-    .ui-btn {
-        background: none !important
+#footer {
+    border: none !important;
+    background-color: rgba(29,29,29,.98);
+    .tabs {
+        width: 60%;
+        margin: auto;
     }
-    > div > ul {
-        margin: 0;
+    .tab-item {
+        background-color: transparent !important;
     }
-
-    > div > ul > li {
-        border-top: 1px solid #333;
-        border-right: 1px solid #333;
+    .colophon {
+        color: $base-color;
+        text-align: center;
     }
-    > div > ul > li > div > a {
-        display: block;
-        border: none;
-        padding: 0;
-        text-decoration: none;
-        width: 100%;
-        height: 50px;
-    }
-}
-
-.div-footer-contactus {
-    position: relative;
-}
-
-.div-footer-lang {
-    position: initial;
-}
-
-.div-footer-popup-menu {
-    position: absolute;
-    bottom: 51px;
-    width: 100%;
-    left: 0;
-    display: none;
-    border-top: 1px solid #333;
-    border-left: 1px solid #333;
-    border-right: 1px solid #333;
-    background-color: #252525;
-    left: -1px;
-    > div {
-        height: 50px;
-        width: 100%;
-        border-bottom: 1px solid #333;
-        &:last-child {
-            border-bottom: none;
-        }
-    }
-    .ui-btn {
-        padding: 0;
-        height: 100%;
-    }
-}
-
-.div-footer-popup-menu-lang {
-    position: absolute;
-    width: 100%;
-    height: 50px;
-    left: 0;
-    bottom: 51px;
-    display: none;
-    border-top: 1px solid #333;
-    background-color: #252525;
-    .ui-btn {
-        padding: 0;
-        height: 100%;
-    }
-    > div {
-        position: absolute;
-        > div {
-            height: 50px;
-            min-width: 100px;
-            border-right: 1px solid #333;
-            display: table-cell;
-            &:first-child {
-                border-left: 1px solid #333;
-                border-bottom: none;
-            }
-        }
-    }
-}
-
-.footer-image, .footer-image-lang {
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
-}
-
-.footer-image-lang {
-    background-size: 40px;
-}
-
-.ui-footer {
-    color: #666;
-}
-
-.ui-footer-fixed {
-    padding: 0;
-    bottom: -2px;
 }
