@@ -1,0 +1,56 @@
+//
+// Items
+// -------------------------------
+
+.item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: relative;
+  z-index: 2;
+  margin: -1px;
+  &, * {
+    font-size: 1em;
+  }
+  .title {
+    color: $brand-color;
+  }
+}
+
+.item-border-btm {
+  display: block;
+  padding: 1em;
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    left: 80px; bottom: 0;
+    width: 100%;
+    border-bottom: 1px solid $border-color;
+  }
+}
+
+.item-icon-left .icon,
+.item-icon-right .icon {
+  @include display-flex();
+  @include align-items(center);
+  position: absolute;
+  top: 0;
+  height: 100%;
+  font-size: $item-icon-font-size;
+
+  &:before {
+    display: block;
+    width: $item-icon-font-size;
+    text-align: center;
+  }
+}
+
+.item-icon-left.item-icon-right .icon:first-child {
+  right: auto;
+}
+.item-icon-left.item-icon-right .icon:last-child,
+.item-icon-left .item-delete .icon {
+  left: auto;
+  color: $base-color;
+}
