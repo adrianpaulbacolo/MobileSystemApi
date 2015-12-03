@@ -103,9 +103,23 @@
         <!--#include virtual="~/_static/header.shtml" -->
         <div class="ui-content" role="main">
 
-            <div class="banner slider">
-                <img src="/_Static/Images/banner/home-banner-<%=commonVariables.SelectedLanguageShort%>.png" class="img-responsive" alt="banner">
-            </div>
+            <section class="section banner-slider">
+                <div class="slide">
+                    <a rel="clubpalazzo" href="/_static/palazzo/casino.aspx" data-ajax="false">
+                        <img src="/_Static/Images/Download/W88-Mobile-ClubPalazzo-Casino.jpg" alt="banner" class="img-responsive">
+                    </a>
+                </div>
+                <div class="slide">
+                    <a rel="clbW" href="/_static/ClubW/casino.aspx" data-ajax="false">
+                        <img src="/_Static/Images/Download/W88-Mobile-ClubW-Casino.jpg" alt="banner" class="img-responsive">
+                    </a>
+                </div>
+                <div class="slide">
+                    <a href="https://livegames.gameassists.co.uk/MobileClient/MobileRedirector/index.aspx?AppID=W88Diamond&ClientID=5&UL=en" data-ajax="false">
+                        <img src="/_Static/Images/Download/W88-Mobile-ClubPalazzo-Slots.jpg" alt="banner" class="img-responsive">
+                    </a>
+                </div>
+            </section>
 
         <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) {
             var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
@@ -233,6 +247,16 @@
 
         <!--#include virtual="~/_static/footer.shtml" -->
         <!--#include virtual="~/_static/navMenu.shtml" -->
+
+        <script src="/_Static/Js/vendor/slick.min.js"></script>
+        <script>
+            // Slick - Slider Banner
+            $(document).ready(function(){
+                $('.banner-slider').slick({
+                    dots: true
+                });
+            });
+        </script>
 
     </div>
 </body>
