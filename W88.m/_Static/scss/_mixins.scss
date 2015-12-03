@@ -176,6 +176,9 @@ $retina-suffix: '@2x';
      -moz-transition: -moz-transform $transition;
           transition: transform $transition;
 }
+@mixin translate3d($x, $y, $z) {
+  @include transform( translate3d($x, $y, $z) );
+}
 
 @mixin transform($transform...) {
   -webkit-transform: $transform;

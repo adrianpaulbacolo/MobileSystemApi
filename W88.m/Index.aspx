@@ -139,17 +139,18 @@
 
             <ul class="row row-bordered bg-gradient">
 
-                <%--<!-- Profile -->
+                <!-- Profile -->
                 <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
                 <li class="col col-33">
                     <a href="" class="tile">
+                    <a href="/Profile" class="tile" data-ajax="false" data-transition="slidedown">
                         <span class="icon-profile"></span>
                         <h4 class="title"><%=commonVariables.GetSessionVariable("MemberCode")%></h4>
                     </a>
                 </li>
                 <% } else {
-                       var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
-                <% } %>--%>
+                   var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
+                <% } %>
 
                 <!-- Funds -->
                 <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
@@ -180,6 +181,12 @@
                     </a>
                 </li>
                 <li class="col col-33">
+                    <a href="#divPanel" class="tile nav-poker">
+                        <span class="icon-casino"></span>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("Poker", commonVariables.LeftMenuXML)%></h4>
+                    </a>
+                </li>
+                <li class="col col-33">
                     <a href="#divPanel" class="tile nav-slots">
                         <span class="icon-slots"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></h4>
@@ -191,20 +198,19 @@
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
-                <li class="col col-33">
+                <%--<li class="col col-33">
                     <a href="" class="tile">
                         <span class="icon-rewards"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("rewards", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
                 <li class="col col-33">
-                    <!-- <a href="#download" class="tile notify" data-rel="popup" data-position-to="window" data-transition="fade"> -->
                     <a href="" class="tile notify">
                         <span class="icon-bell"></span>
                         <span class="badge">13</span>
                         <h4 class="title">Announcement</h4>
                     </a>
-                </li>
+                </li>--%>
             </ul>
 
             <%--<div id="download" data-role="popup" data-overlay-theme="b" data-theme="b">

@@ -20,14 +20,12 @@
 
     <!-- Profile -->
     <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
-        <!--
         <li id="liUser" data-icon="false">
             <a id="aMnuUser" runat="server" href="javascript:void(0)" data-ajax="false">
                 <i class="icon-profile"></i>
                 <div class="label"><%=commonVariables.GetSessionVariable("MemberCode")%></div>
             </a>
         </li>
-        -->
     <% } else { var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
         <li id="liOptions" data-icon="false">
             <a href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
@@ -267,13 +265,13 @@
             </ul>
         </li>
 
-    <!-- Rewards -->
+    <!-- Rewards
         <li data-icon="false">
             <a rel="rewards" class="nav-rewards" href="javascript:void(0);">
                 <i class="icon-rewards"></i>
                 <div class="label"><%=commonCulture.ElementValues.getResourceString("rewards", commonVariables.LeftMenuXML)%></div>
             </a>
-        </li>
+        </li> -->
 
     <!-- Submit -->
     <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
@@ -285,7 +283,7 @@
         </li>
     <% } %>
 
-        <li data-icon="false">
+        <!-- <li data-icon="false">
             <a rel="infos" class="nav-infos" href="javascript:void(0);">
                 <i class="icon-info"></i>
                 <div class="label">Info</div>
@@ -295,19 +293,19 @@
                 <h2 class="title">Infos</h2>
                 <li>
                     <a class="tile" id="aMnuLiveHelp" runat="server" href="/LiveChat/Default.aspx" data-ajax="false">
-                        <span class="icon-chat_bubble_outline"></span>
+                        <span class="ion-ios-chatboxes-outline"></span>
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%></div>
                     </a>
                 </li>
                 <li>
                     <a class="tile" id="aMnuLanguage" runat="server" href="/Lang.aspx" data-ajax="false">
-                        <span class="icon-language"></span>
+                        <span class="ion-ios-world-outline"></span>
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("language", commonVariables.LeftMenuXML)%></div>
                     </a>
-                </li>
+                </li> -->
                 <!--<li data-icon="false" class="ui-misc"><a id="aMnuContactUs" runat="server" href="/ContactUs.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("contactUs", commonVariables.LeftMenuXML)%></a></li>-->
-            </ul>
-        </li>
+            <!-- </ul>
+        </li> -->
 
     <!-- Logout -->
         <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
