@@ -26,17 +26,17 @@
                         <figcaption class="banner-caption">
                             <h3 class="title">Club W</h3>
                             <P>Enjoy live Casino instant cash rebate up to 0.8%. No payout limit &amp; rollover.</P>
-                            <a href="" class="ui-btn btn-primary">Play Now</a>
+                            <a href="/_Static/ClubW/casino.aspx" data-ajax="false" class="ui-btn btn-primary">Play Now</a>
                         </figcaption>
                     </figure>
                 </li>
                 <li class="col">
                     <figure class="banner">
-                        <img src="_Static/Images/casino/casino-banner-2.png" class="img-responsive-full img-bg">
+                        <img src="_Static/Images/casino/casino-banner-2.png" data-rel="dialog" class="img-responsive-full img-bg">
                         <figcaption class="banner-caption">
                             <h3 class="title">Club Palazzo</h3>
                             <P>Innovative casino games with Asian &amp; European live dealers!</P>
-                            <a href="" class="ui-btn btn-primary">Play Now</a>
+                            <a href="/_Static/Palazzo/casino.aspx"  data-ajax="false" data-rel="dialog" class="ui-btn btn-primary">Play Now</a>
                         </figcaption>
                     </figure>
                 </li>
@@ -46,7 +46,7 @@
                         <figcaption class="banner-caption">
                             <h3 class="title">Club Massimo</h3>
                             <P>Popular live casino games with high-quality video!</P>
-                            <a href="" class="ui-btn btn-primary">Play Now</a>
+                            <a href="https://livegames.cdn.gameassists.co.uk/AIR/Poria/Installer/V20021/w88/Download.html"  class="ui-btn btn-primary">Play Now</a>
                         </figcaption>
                     </figure>
                 </li>
