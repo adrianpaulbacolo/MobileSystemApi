@@ -25,8 +25,8 @@
                 <div class="col">
                     <div class="wallet main-wallet">
                         <label class="label">Main Wallet</label>
-                        <h2 class="value">28,104,693.52</h2>
-                        <small class="currency">RMB</small>
+                        <h2 class="value"><%=Session["Main"].ToString()%></h2>
+                        <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
                     </div>
                 </div>
                 <div class="col">
