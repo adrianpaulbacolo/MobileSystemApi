@@ -12,12 +12,11 @@
         position: relative;
         display: block;
         > a {
-            display: block;
-            padding-left: 80px;
+            padding-left: 0;
             background-color: transparent !important;
             &:hover, &:focus {
                 color: $white !important;
-                background-color: $primary-color !important;
+                background-color: transparent !important;
                 .icon {color: $white}
             }
         }
@@ -27,6 +26,11 @@
             left: 80px; bottom: 0;
             width: 100%;
             border-bottom: 1px solid $border-color;
+        }
+        &:hover, &:focus {
+            color: $white !important;
+            background-color: $primary-color !important;
+            .icon {color: $white}
         }
     }
 }

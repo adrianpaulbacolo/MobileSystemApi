@@ -21,37 +21,37 @@
         <div class="ui-content contact-us" role="main">
             <ul class="list fixed-tablet-size" data-role="listview" data-icon="false">
                 <li class="item item-icon-left">
+                    <i class="icon ion-ios-chatboxes-outline"></i>
                     <a id="aLiveChat" runat="server" href="/LiveChat" data-ajax="false">
-                        <i class="icon ion-ios-chatboxes-outline"></i>
-                        <h4><%=commonCulture.ElementValues.getResourceString("lblLiveChat", xeResources)%></h4>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("lblLiveChat", xeResources)%></h4>
                         <p>Get an instant live chat from our support team</p>
                     </a>
                 </li>
                 <li class="item item-icon-left">
+                    <i class="icon icon-skype"></i>
                     <a id="aSkype" runat="server" href="javascript:void(0);">
-                        <i class="icon icon-skype"></i>
-                        <h4><%=commonCulture.ElementValues.getResourceString("lblSkype", xeResources)%></h4>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("lblSkype", xeResources)%></h4>
                         <p>Should you prefer to use Skype to chat with us</p>
                     </a>
                 </li>
                 <li class="item item-icon-left">
+                    <i class="icon icon-mail"></i>
                     <a id="aEmail" runat="server" href="javascript:void(0);">
-                        <i class="icon icon-mail"></i>
-                        <h4><%=commonCulture.ElementValues.getResourceString("lblEmail", xeResources)%></h4>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("lblEmail", xeResources)%></h4>
                         <p>For General Betting and Account Enquiry only.</p>
                     </a>
                 </li>
                 <li class="item item-icon-left">
+                    <i class="icon ion-social-usd-outline"></i>
                     <a id="aBanking" runat="server" href="javascript:void(0);">
-                        <i class="icon ion-social-usd-outline"></i>
-                        <h4><%=commonCulture.ElementValues.getResourceString("lblBanking", xeResources)%></h4>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("lblBanking", xeResources)%></h4>
                         <p>For Banking Enquiry only.</p>
                     </a>
                 </li>
                 <li class="item item-icon-left" id="liPhone" runat="server">
+                    <i class="icon ion-ios-telephone-outline"></i>
                     <a id="aPhone" runat="server" href="/_Secure/Login.aspx">
-                        <i class="icon ion-ios-telephone-outline"></i>
-                        <h4><%=commonCulture.ElementValues.getResourceString("lblPhone", xeResources)%></h4>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("lblPhone", xeResources)%></h4>
                         <p>Call (+60) 166770468 or (+44) 2036085161 and we will be pleased to assist you (International charges may apply).</p>
                     </a>
                 </li>

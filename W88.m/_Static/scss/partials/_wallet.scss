@@ -6,7 +6,8 @@
     text-align: center;
     padding: $grid-padding-width*1.5;
     .label {
-        font-size: 90%;
+        font-size: 85%;
+        color: darken($base-color, 5%);
         text-transform: uppercase;
     }
     .value {
@@ -16,13 +17,20 @@
         margin: 0;
     }
     .currency {
-        color: $bgColor-04;
+        color: darken($base-color, 25%);
     }
 }
 
 .main-wallet {
     background-color: darken($primary-color, 34%);
     .value {
-        font-size: 3rem;
+        font-size: 2.5rem;
+    }
+}
+
+// Rewards
+.rewards {
+    .value {
+        color: $primary-color;
     }
 }

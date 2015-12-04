@@ -64,6 +64,7 @@
         max-width: $panel-width-full - $panel-width;
         background-color: darken($base-background-color, 5%);
         overflow-x: auto;
+        margin: 0;
 
         > .title {
             color: $brand-color;

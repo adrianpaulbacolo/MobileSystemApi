@@ -15,8 +15,10 @@
         [class^="icon-"], [class*=" icon-"] {
             font-size: 2.28571429em; // 32px
         }
+        &[data-rel="back"] {
+            font-size: 18px !important;
+        }
     }
-
     .title {
         margin: auto 12.5%;
         padding: 9.5px 0;

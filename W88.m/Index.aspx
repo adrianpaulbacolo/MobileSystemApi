@@ -181,7 +181,7 @@
                 </li>
                 <li class="col col-33">
                     <a href="#divPanel" class="tile nav-poker">
-                        <span class="icon-casino"></span>
+                        <span class="icon-spade"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("Poker", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
