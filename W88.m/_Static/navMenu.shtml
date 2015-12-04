@@ -21,7 +21,7 @@
     <!-- Profile -->
     <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
         <li id="liUser" data-icon="false">
-            <a id="aMnuUser" runat="server" href="javascript:void(0)" data-ajax="false">
+            <a href="/Profile" id="aMnuUser" runat="server" data-ajax="false" data-transition="slidedown">
                 <i class="icon-profile"></i>
                 <div class="label"><%=commonVariables.GetSessionVariable("MemberCode")%></div>
             </a>
@@ -164,7 +164,7 @@
     <!-- Poker -->
         <li data-icon="false">
             <a class="nav-poker">
-                <i class="icon-casino"></i>
+                <i class="icon-spade"></i>
                 <div class="label"><%=commonCulture.ElementValues.getResourceString("Poker", commonVariables.LeftMenuXML)%></div>
             </a>
             <ul class="sub-menu" data-rel="poker">
@@ -274,14 +274,14 @@
         </li> -->
 
     <!-- Submit -->
-    <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+    <!--<% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
         <li data-icon="false">
             <a id="aMnuUpload" runat="server" href="/Upload/Default.aspx" data-ajax="false">
                 <i class="icon-submit"></i>
                 <div class="label"><%=commonCulture.ElementValues.getResourceString("submitUpload", commonVariables.LeftMenuXML)%></div>
             </a>
         </li>
-    <% } %>
+    <% } %>-->
 
         <!-- <li data-icon="false">
             <a rel="infos" class="nav-infos" href="javascript:void(0);">

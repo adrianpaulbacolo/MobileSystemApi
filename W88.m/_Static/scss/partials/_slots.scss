@@ -4,11 +4,12 @@
 
 #slots {
     // .ui-icon-plus:after {
-    //     content: '\e20b'; // icon-expand_more
+    //     content: '\f217'; // ion-plus-round (bold)
     // }
     .ui-icon-minus:after {
-        content: '\e208'; // icon-chevron_right
+        content: '\f3d3'; // ion-ios-arrow-right
         right: $content-padding/2;
+        font-size: 1.2em;
     }
     .ui-content {
         @include bg-gradient();
@@ -88,4 +89,19 @@
         }
     }
 
+}
+
+// Icons
+.icon-play_arrow, .icon-fullscreen {
+    font-family: $ionicons-font;
+}
+.icon-play_arrow {
+    &:after {
+        content: '\f215'; // ion-play
+    }
+}
+.icon-fullscreen {
+    &:after {
+        content: '\f25e'; // ion-arrow-expand
+    }
 }
