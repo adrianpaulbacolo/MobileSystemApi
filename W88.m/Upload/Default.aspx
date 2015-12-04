@@ -10,8 +10,10 @@
 <body>
     <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="b">
-        <header data-role="header" data-theme="b" data-position="fixed" id="header">
-            <a href="" role="button" data-rel="back" class="btn-clear ui-btn-left ui-btn"> < </a>
+        <header id="header" data-role="header" data-position="fixed" data-theme="b" data-tap-toggle="false">
+            <a href="" role="button" data-rel="back" class="btn-clear ui-btn-left ui-btn ion-ios-arrow-back" id="aMenu" data-load-ignore-splash="true">
+                Back
+            </a>
             <h1 class="title"><%=commonCulture.ElementValues.getResourceString("submitUpload", commonVariables.LeftMenuXML)%></h1>
         </header>
         <div class="ui-content" role="main">

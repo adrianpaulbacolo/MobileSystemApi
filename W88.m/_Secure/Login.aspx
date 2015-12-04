@@ -22,8 +22,10 @@
                 width: 100% !important;
             }
         </style>
-        <header data-role="header" data-theme="b" data-position="fixed" id="header">
-            <a href="" role="button" data-rel="back" class="btn-clear ui-btn-left ui-btn"> < </a>
+        <header id="header" data-role="header" data-position="fixed" data-theme="b" data-tap-toggle="false">
+            <a href="" role="button" data-rel="back" class="btn-clear ui-btn-left ui-btn ion-ios-arrow-back" id="aMenu" data-load-ignore-splash="true">
+                Back
+            </a>
             <h1 class="title">Login</h1>
         </header>
         <div class="ui-content" role="main">
