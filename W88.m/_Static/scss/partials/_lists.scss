@@ -2,6 +2,10 @@
 // Item Icons
 // -------------------------------
 
+.list {
+    padding: 0;
+}
+
 .item {
     font-size: 1em;
     overflow: hidden;
@@ -30,8 +34,8 @@
         }
     }
 }
-.item-icon-left  {padding-left: $item-icon-padding}
-.item-icon-right {padding-right: $item-icon-padding}
+.item-icon-left  {padding-left: $item-icon-padding !important}
+.item-icon-right {padding-right: $item-icon-padding !important}
 
 .item-icon-left,
 .item-icon-right {
@@ -51,6 +55,12 @@
         }
     }
 }
+.item-icon-right {
+  .icon {
+    right: ceil( ($item-padding / 3) * 2);
+  }
+}
+
 .item-text-wrap {
     overflow: visible;
     white-space: normal;

@@ -103,9 +103,23 @@
         <!--#include virtual="~/_static/header.shtml" -->
         <div class="ui-content" role="main">
 
-            <div class="banner slider">
-                <img src="/_Static/Images/banner/home-banner-<%=commonVariables.SelectedLanguageShort%>.png" class="img-responsive" alt="banner">
-            </div>
+            <section class="section banner-slider">
+                <div class="slide">
+                    <a rel="clubpalazzo" href="/_static/palazzo/casino.aspx" data-ajax="false">
+                        <img src="/_Static/Images/Download/W88-Mobile-ClubPalazzo-Casino.jpg" alt="banner" class="img-responsive">
+                    </a>
+                </div>
+                <div class="slide">
+                    <a rel="clbW" href="/_static/ClubW/casino.aspx" data-ajax="false">
+                        <img src="/_Static/Images/Download/W88-Mobile-ClubW-Casino.jpg" alt="banner" class="img-responsive">
+                    </a>
+                </div>
+                <div class="slide">
+                    <a href="https://livegames.gameassists.co.uk/MobileClient/MobileRedirector/index.aspx?AppID=W88Diamond&ClientID=5&UL=en" data-ajax="false">
+                        <img src="/_Static/Images/Download/W88-Mobile-ClubPalazzo-Slots.jpg" alt="banner" class="img-responsive">
+                    </a>
+                </div>
+            </section>
 
         <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) {
             var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
@@ -125,17 +139,17 @@
 
             <ul class="row row-bordered bg-gradient">
 
-                <%--<!-- Profile -->
+                <!-- Profile -->
                 <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
                 <li class="col col-33">
-                    <a href="" class="tile">
+                    <a href="/Profile" class="tile" data-ajax="false" data-transition="slidedown">
                         <span class="icon-profile"></span>
                         <h4 class="title"><%=commonVariables.GetSessionVariable("MemberCode")%></h4>
                     </a>
                 </li>
                 <% } else {
-                       var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
-                <% } %>--%>
+                   var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
+                <% } %>
 
                 <!-- Funds -->
                 <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
@@ -166,6 +180,12 @@
                     </a>
                 </li>
                 <li class="col col-33">
+                    <a href="#divPanel" class="tile nav-poker">
+                        <span class="icon-casino"></span>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("Poker", commonVariables.LeftMenuXML)%></h4>
+                    </a>
+                </li>
+                <li class="col col-33">
                     <a href="#divPanel" class="tile nav-slots">
                         <span class="icon-slots"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></h4>
@@ -177,7 +197,7 @@
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
-                <li class="col col-33">
+                <%--<li class="col col-33">
                     <a href="" class="tile">
                         <span class="icon-rewards"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("rewards", commonVariables.LeftMenuXML)%></h4>
@@ -187,7 +207,6 @@
                 
                 <%if(DetectMobileDevice() == 2){%>
                 <li class="col col-33">
-                    <!-- <a href="#download" class="tile notify" data-rel="popup" data-position-to="window" data-transition="fade"> -->
                     <a href="#download" id="downloadButton" runat="server" class="tile notify" data-rel="popup" data-position-to="window" data-transition="fade">
                         <span class="icon-bell"></span>
                         <span class="badge">13</span>
@@ -236,6 +255,16 @@
 
         <!--#include virtual="~/_static/footer.shtml" -->
         <!--#include virtual="~/_static/navMenu.shtml" -->
+
+        <script src="/_Static/Js/vendor/slick.min.js"></script>
+        <script>
+            // Slick - Slider Banner
+            $(document).ready(function(){
+                $('.banner-slider').slick({
+                    dots: true
+                });
+            });
+        </script>
 
     </div>
 </body>

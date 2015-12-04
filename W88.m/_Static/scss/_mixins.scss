@@ -176,6 +176,9 @@ $retina-suffix: '@2x';
      -moz-transition: -moz-transform $transition;
           transition: transform $transition;
 }
+@mixin translate3d($x, $y, $z) {
+  @include transform( translate3d($x, $y, $z) );
+}
 
 @mixin transform($transform...) {
   -webkit-transform: $transform;
@@ -496,4 +499,9 @@ $retina-suffix: '@2x';
   background:    -moz-linear-gradient(legacy-direction(to bottom),rgba(2,49,68,1) 0, $base-background-color 100%);
   background:     -ms-linear-gradient(legacy-direction(to bottom),rgba(2,49,68,1) 0, $base-background-color 100%);
   background:         linear-gradient(to bottom,rgba(2,49,68,1) 0, $base-background-color 100%);
+}
+
+@mixin overlay {
+  position: absolute;
+  top:0; right:0; bottom:0; left:0;
 }
