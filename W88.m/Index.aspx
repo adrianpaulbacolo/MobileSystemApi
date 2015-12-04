@@ -203,17 +203,22 @@
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("rewards", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
+                
+                
+                <%if(DetectMobileDevice() == 2){%>
                 <li class="col col-33">
-                    <a href="" class="tile notify">
+                    <a href="#download" id="downloadButton" runat="server" class="tile notify" data-rel="popup" data-position-to="window" data-transition="fade">
                         <span class="icon-bell"></span>
                         <span class="badge">13</span>
-                        <h4 class="title">Announcement</h4>
+                        <h4 class="title">Download</h4>
                     </a>
-                </li>--%>
+                </li>
+                <%}%>
+
             </ul>
 
-            <%--<div id="download" data-role="popup" data-overlay-theme="b" data-theme="b">
-                <a href="#" data-rel="back" class="close">&times;</a>
+            <div id="download" data-role="popup" data-overlay-theme="b" data-theme="b">
+                <a href="#"  data-rel="back" class="close">&times;</a>
                 <div class="padding">
                     <h2 class="title">Download App</h2>
                     <div class="app">
@@ -223,17 +228,15 @@
                 </div>
                 <div class="row row-no-padding">
                     <div class="col">
-                        <a href="#" data-rel="back" class="ui-btn btn-secondary">
+                        <a href="#" data-rel="back" data-ajax="false" class="ui-btn btn-secondary">
                             Close
                         </a>
                     </div>
                     <div class="col">
-                        <button class="btn-primary">
-                            <i class="icon-android"></i> Download
-                        </button>
+                        <a href="/_Static/ClubW/casino.aspx" data-ajax="false" class="ui-btn btn-primary">Download</a>
                     </div>
                 </div>
-            </div>--%>
+            </div>
 
             <ul class="hide">
                 <li class="li-pokerIOS" runat="server" id ="pokerIOS_link">

@@ -422,7 +422,5 @@
         $('a[rel="awcinfo"]').each(function () {
             $(this).attr('href', $(this).attr('href').replace('{LANG}', wcLang));
         });
-
-        $('#download').popup('open');
     });
 </script>
