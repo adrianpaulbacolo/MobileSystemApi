@@ -12,7 +12,7 @@
     <div data-role="page" id="register">
 
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
-            <a href="" role="button" data-rel="back" class="btn-clear ui-btn-left ui-btn"> < </a>
+            <a href="" role="button" data-rel="back" class="btn-clear ui-btn-left ui-btn"> &lt; </a>
             <h1 class="title"><%=commonCulture.ElementValues.getResourceString("register", commonVariables.LeftMenuXML)%></h1>
         </header>
 

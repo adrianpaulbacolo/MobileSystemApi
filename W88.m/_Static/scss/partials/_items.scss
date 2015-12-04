@@ -9,17 +9,15 @@
   position: relative;
   z-index: 2;
   margin: -1px;
-  &, * {
-    font-size: 1em;
-  }
   .title {
+    font-size: 1em;
     color: $brand-color;
   }
 }
 
 .item-border-btm {
   display: block;
-  padding: 1em;
+  padding: .5em 0;
   position: relative;
   &:after {
     content: '';
@@ -53,4 +51,5 @@
 .item-icon-left .item-delete .icon {
   left: auto;
   color: $base-color;
+  font-size: 1.5em;
 }

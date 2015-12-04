@@ -48,6 +48,14 @@
     }
     .item-checkbox {
         margin-bottom: 0;
+        .ui-checkbox-on,
+        .ui-icon-check {
+            &:after {
+                font-size: 2em;
+                line-height: 18px;
+                text-align: center;
+            }
+        }
     }
 
     // forced style

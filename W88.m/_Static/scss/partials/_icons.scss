@@ -5,28 +5,28 @@
 [class^="ui-icon-"], [class*=" ui-icon-"],
 [class^="ui-btn-icon-"], [class*=" ui-btn-icon-"] {
     &:after {
-        font: 1.5em $iconic-font;
+        font: 1.5em $ionicons-font;
         color: $strong-color;
+        color: rgba(255,255,255,0.5);
         text-indent: 0;
         background: none transparent !important;
     }
 }
 
 .ui-icon-carat-d:after {
-    content: '\e20b'; // icon-expand_more
+    content: '\f3d0'; // ion-ios-arrow-down
 }
 .ui-icon-plus:after {
-    content: '\e069'; // icon-add
+    content: '\f489'; // ion-ios-plus-empty
 }
 .ui-icon-minus:after {
-    content: '\e07f'; // icon-remove
+    content: '\f489'; // ion-ios-plus-empty
 }
 .ui-checkbox-on:after {
-    content: '\e206'; // icon-check2
+    content: '\f3fd'; // ion-ios-checkmark-empty
 }
 .ui-icon-delete:after {
-    content: '\e205'; // icon-cancel
-    // content: '\e06e'; // icon-backspace
+    content: '\f36e'; // ion-android-cancel
     @include opacity(.5);
     @include transition(.3s);
 }
