@@ -10,8 +10,11 @@
     <script type="text/javascript">
         var lang = '<%=(string.IsNullOrEmpty(commonVariables.SelectedLanguage) ? "en-us" : commonVariables.SelectedLanguage)%>';
         if (lang == '') { lang = 'en-us'; }
-        $(function () { getPromos(); });
-        $(window).resize(function () { $('.div-promo-row > a > div:last-child > div').css({ maxWidth: ($(window).width() - 200) + 'px' }); });
+        $(function() {
+            getPromos();
+        });
+
+        //$(window).resize(function () { $('.div-promo-row > a > div:last-child > div').css({ maxWidth: ($(window).width() - 100) + 'px' }); });
         function timerV2(pid, start_date, end_date) { if (new Date('<%=System.DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') < new Date(start_date) || new Date('<%=System.DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') > new Date(end_date)) { $('div#' + pid).hide(); } }
         function getPromos() {
             $.get('/_Static/Promotions/promotions.' + lang + '<%=(string.Compare(commonVariables.GetSessionVariable("CountryCode"), "my", true) == 0 ? ".my" : "")%>.htm', function (html) { })
@@ -30,12 +33,13 @@
                     if (objImage != null) { if (/\/promotions\/img\/W88-Promotion(s)*-/i.test($(objImage).attr('rel'))) { strImageSrc = $(objImage).attr('rel').replace(/\/promotions\/img\/W88-Promotion(s)*-/i, '/promotions/mobile/images/w88-mobile-').replace(/-small/i, ''); } }
 
                     var liPromo = $('<li />');
-                    var divPromoWrapper = $('<div />', { id: $(this).attr('id'), class: index % 2 == 0 ? 'div-promo-row' : 'div-promo-row div-promo-row-alt' });
+                    var divPromoWrapper = $('<div />', { id: $(this).attr('id'), class: index % 2 == 0 ? 'div-promo-row' : 'div-promo-row' });
                     var divPromoImg = $('<div />', { class: 'div-promo-img' });
 
                     var imgPromo = $('<img />', { src: strImageSrc });
                     var hrefPromo = $('<a />', { href: "javascript:void(0)", onclick: "javascript:OpenPromoDetails(this);" });
-                    var divPromoTitle = $('<div />', { class: 'div-promo-header' }).text(strPromoTitle);
+                    
+                    var divJoinButton = $('<div />', { class: 'div-promo-join' });
                     var divPromoContent = $('<div />', { class: 'div-promo-desc' }).text(strPromoContent);
                     var divPromoDetail = $('<div />', { class: 'div-promo-content' }).html(/<img rel=/g.test(strPromoDetail) ? strPromoDetail.replace(/<img rel=/g, '<img src=') : strPromoDetail);
 
@@ -46,7 +50,8 @@
                     if ($(this).find('.promo_join_btn').length > 0) {
                         if ('<%=commonVariables.CurrentMemberSessionId%>'.trim() == '') {
                             var hrefJoin = $('<a />', { class: 'ui-btn btn-primary ui-mini', 'data-transition': 'flip', href: '/_Secure/Register.aspx' }).text('<%=commonCulture.ElementValues.getResourceString("joinnow", commonVariables.LeftMenuXML)%>');
-                            $(divPromoDetail).append(hrefJoin);
+                            //$(divPromoDetail).append(hrefJoin);
+                            $(divJoinButton).append(hrefJoin);
                         }
                         else {
 
@@ -54,7 +59,7 @@
                             if ($(objCode).length > 0) {
                                 var strCode = $(objCode).attr('href').replace(/\/promotions\/promo_claim.aspx\?code=/, '');
                                 var hrefClaim = $('<a />', { class: 'ui-btn btn-primary ui-mini', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNow(this, \'' + strCode + '\', \'\')' }).text($(objCode).text());
-                                $(divPromoDetail).append(hrefClaim);
+                                $(divJoinButton).append(hrefClaim);
                             }
                             else {
                                 var objCode = $(this).find('.promo_join_btn[href^="/promotions/promo_apply_v2.aspx?code="]');
@@ -63,7 +68,7 @@
                                     var strCode = $obj.substring($obj.indexOf('=') + 1, $obj.indexOf('&'));
                                     var strProducts = $obj.substr($obj.lastIndexOf('=') + 1, $obj.length);
                                     var hrefClaim = $('<a />', { class: 'ui-btn btn-primary ui-mini', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNow(this, \'' + strCode + '\',  \'' + strProducts + '\')' }).text($(objCode).text());
-                                    $(divPromoDetail).append(hrefClaim);
+                                    $(divJoinButton).append(hrefClaim);
                                 }
 
                                 var objCode = $(this).find('.promo_join_btn[href^="/promotions/promo_apply_v3.aspx?promoid="]');
@@ -79,15 +84,22 @@
                                         var hrefClaim = $('<a />', { class: 'ui-btn btn-primary ui-mini', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNow(this, \'' + strCode + '\',  \'' + strProducts + '\',  \'' + title + '\')' }).text($(objCode).text());
 
                                         if ('<%=commonVariables.GetSessionVariable("RiskId")%>'.search(/vip(b|p|g|d)/i) > -1) {
-                                            $(divPromoDetail).append(hrefClaim);
+                                            $(divJoinButton).append(hrefClaim);
                                         }
                                     });
                                 }
                             }
                         }
                     }
-                    listObj.append($(liPromo).append($(divPromoWrapper).append($(hrefPromo).append($(divPromoImg).append(imgPromo)).append($('<div />', {}).append(divPromoTitle).append(divPromoContent)))).append(divPromoDetail));
-                    $('.div-promo-row > a > div:last-child > div').css({ maxWidth: ($(window).width() - 200) + 'px' });
+
+                    var divPromoTitle = $('<div />', { class: 'div-promo-header' }).text(strPromoTitle);
+                    
+                    var divSecond = $('<div />', { class: 'div-promo-second', id:'div-promo-second' }).append(hrefPromo.append(divPromoTitle)).append(divJoinButton);
+
+                    //listObj.append($(liPromo).append($(divPromoWrapper).append($(hrefPromo).append($(divPromoImg).append(imgPromo)).append($('<div />', {}).append(divPromoTitle).append(divPromoContent))).append(divJoinButton)).append(divPromoDetail));
+                    //listObj.append($(liPromo).append($(divPromoWrapper).append($(divPromoImg).append(imgPromo)).append($(hrefPromo).append(divPromoTitle)).append(divJoinButton)).append(divPromoDetail));
+                    listObj.append($(liPromo).append($(divPromoWrapper).append($(divPromoImg).append(imgPromo)).append(divSecond)).append(divPromoDetail));
+                    //$('.div-promo-row > a > div:last-child > div').css({ maxWidth: ($(window).width() - 200) + 'px' });
                     $(this).find('script').each(function () { $.globalEval(this.text || this.textContent || this.innerHTML || ''); });
 
                 });
@@ -101,17 +113,14 @@
             .always(function (data) { $('#promoLoader').hide(); });
         }
 
-        function OpenPromoDetails(obj) {
-            var selected_promo_id = $(obj).parent().attr('id');
 
+        function OpenPromoDetails(obj) {
+            var selected_promo_id = $(obj).parent().parent().attr('id');
             $('.div-promo-row').each(function () {
                 if ($(this).attr('id') != selected_promo_id) {
-                    $(this).find('a > div:last-child').css('background-image', "url('/_Static/Images/arrow-down.png')");
                     $(this).next().slideUp();
                 }
                 else {
-                    if ($(this).find('a > div:last-child').css('background-image').indexOf('arrow-up') > 0) { $(this).find('a > div:last-child').css('background-image', "url('/_Static/Images/arrow-down.png')"); }
-                    else { $(this).find('a > div:last-child').css('background-image', "url('/_Static/Images/arrow-up.png')"); }
                     $(this).next().slideToggle();
                 }
             });

@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Game List</title>
+<style type="text/css">
+body {
+	font-family: Tahoma, Arial, Helvetica, sans-serif; font-size:11px; color:#808080;
+	background:#1f1f1f;
+}
+.rowHeader	{background:#404040;font-weight:bold;}
+.row1		{background:#333333;}
+.row2		{background:#333333;}
+a.button {
+	display:inline-block;	
+	background: #333;
+	width: 120px;
+	height:22px;
+	line-height:22px;
+	color:#fff;
+	font-weight: bold;
+	text-decoration: none;
+	margin-left: 1px;
+}
+
+a.button:hover, a.button.selected {
+	background: #404040;
+}
+
+body.white {
+	background:#eee;color:#404040;
+}
+body.white .rowHeader	{background:#ddd;}
+body.white .row1		{background:#fff;}
+body.white .row2		{background:#fff;}
+body.white a.button {
+	background: #fff;
+	color:#404040;
+}
+
+body.white  a.button:hover, body.white  a.button.selected {
+	background: #ddd;
+}
+
+	table {
+		width: 240px;
+	}
+</style>
+<script src="/_static/_script/combined.js"></script>
+<script>
+	$(function () {
+		if ($.cookie("color")) {
+			$("body").addClass($.cookie("color"));
+		}
+	});
+
+	$(function () {
+		$("table").hide();
+		$("table:first").show();
+	});
+	function changeTable(tableName) {
+		$("a").removeClass("selected");
+		$("a#btn_" + tableName).addClass("selected");
+		$("table").hide();
+		$("table#" + tableName).show();
+	}
+</script>
+</head>
+<body>
+<div style="text-align:center;">
+		<a href="javascript:changeTable('Divino')" class="button selected" id="btn_Divino">金梵俱乐部</a><a href="javascript:changeTable('Crescendo')" class="button" id="btn_Crescendo">金弦俱乐部</a>
+</div>
+<table border="0" align="center" cellpadding="5" cellspacing="1" id="Divino">
+  <tr class="rowHeader">
+    <td align="center"><strong>游戏名字</strong></td>
+  </tr>
+  <tr class="row1">
+    <td>燃烧21点</td>
+  </tr>
+  <tr class="row1">
+    <td>百家乐</td>
+  </tr>
+  <tr class="row1">
+    <td>疯狂对决视频扑克</td>
+  </tr>
+  <tr class="row1">
+    <td>欧洲21点</td>
+  </tr>
+  <tr class="row1">
+    <td>5牌扑克</td>
+  </tr>
+  <tr class="row1">
+    <td>小丑扑克</td>
+  </tr>
+  <tr class="row1">
+    <td>多注全美扑克</td>
+  </tr>
+  <tr class="row1">
+    <td>多注万能两点</td>
+  </tr>
+  <tr class="row1">
+    <td>多注翻倍大奖</td>
+  </tr>
+  <tr class="row1">
+    <td>多注好过杰克</td>
+  </tr>
+  <tr class="row1">
+    <td>多注小丑扑克</td>
+  </tr>
+  <tr class="row1">
+    <td>绿洲扑克</td>
+  </tr>
+  <tr class="row1">
+    <td>海盗21点</td>
+  </tr>
+  <tr class="row1">
+    <td>英式21点</td>
+  </tr>
+  <tr class="row1">
+    <td>金字塔小丑扑克</td>
+  </tr>
+  <tr class="row1">
+    <td>决斗21点</td>
+  </tr>
+  <tr class="row1">
+    <td>超级七21点</td>
+  </tr>
+  <tr class="row1">
+    <td>拉米纸牌游戏</td>
+  </tr>
+ <tr class="rowHeader">
+    <td align="center"><strong>手机</strong></td>
+  </tr>
+  <tr class="row1">
+    <td>美式21点 (安卓)</td>
+  </tr>
+  <tr class="row1">
+    <td>美式21点 (IOS)</td>
+  </tr>
+  <tr class="row1">
+    <td>美式21点 (WIN)</td>
+  </tr>
+</table>
+<table border="0" align="center" cellpadding="5" cellspacing="1" id="Crescendo">
+  <tr class="rowHeader">
+    <td align="center"><strong>游戏名字</strong></td>
+  </tr>
+  <tr class="row1">
+    <td>百家乐</td>
+  </tr>
+  <tr class="row1">
+    <td>21 点</td>
+  </tr>
+  <tr class="row1">
+    <td>经典21 点</td>
+  </tr>
+  <tr class="row1">
+    <td>累积二十一点</td>
+  </tr>
+  <tr class="row1">
+    <td>投降 21 点</td>
+  </tr>
+  <tr class="row1">
+    <td>经典投降 21 点</td>
+  </tr>
+  <tr class="row1">
+    <td>换牌21点</td>
+  </tr>
+  <tr class="row1">
+    <td>10 行万能两点</td>
+  </tr>
+  <tr class="row1">
+    <td>25 线万能两点</td>
+  </tr>
+  <tr class="row1">
+    <td>4 行万能两点</td>
+  </tr>
+  <tr class="row1">
+    <td>50 行万能两点</td>
+  </tr>
+  <tr class="row1">
+    <td>万能两点</td>
+  </tr>
+  <tr class="row1">
+    <td>10 行好过杰克</td>
+  </tr>
+  <tr class="row1">
+    <td>25 线好过杰克</td>
+  </tr>
+  <tr class="row1">
+    <td>4 行好过杰克</td>
+  </tr>
+  <tr class="row1">
+    <td>50 行好过杰克</td>
+  </tr>
+  <tr class="row1">
+    <td>好过杰克</td>
+  </tr>
+  <tr class="row1">
+    <td>10 线万能小丑</td>
+  </tr>
+  <tr class="row1">
+    <td>25 线万能小丑</td>
+  </tr>
+  <tr class="row1">
+    <td>4 线万能小丑</td>
+  </tr>
+  <tr class="row1">
+    <td>50 线万能小丑</td>
+  </tr>
+  <tr class="row1">
+    <td>万能小丑</td>
+  </tr>
+  <tr class="row1">
+    <td>绿洲扑克</td>
+  </tr>
+  <tr class="row1">
+    <td>牌九扑克</td>
+  </tr>
+  <tr class="row1">
+    <td>完美对子二十一点</td>
+  </tr>
+  <tr class="row1">
+    <td>英式二十一点</td>
+  </tr>
+  <tr class="row1">
+    <td>俄罗斯扑克</td>
+  </tr>
+  <tr class="row1">
+    <td>西班牙二十一点</td>
+  </tr>
+   <tr class="rowHeader">
+    <td align="center"><strong>手机</strong></td>
+  </tr>
+ <tr class="row1">
+    <td>百家乐 (手机版)</td>
+  </tr>
+  <tr class="row1">
+    <td>21 点 (手机版)</td>
+  </tr>
+  <tr class="row1">
+    <td>投降 21 点 (手机版)</td>
+  </tr>
+  <tr class="row1">
+    <td>4 行万能两点 (手机版)</td>
+  </tr>
+  <tr class="row1">
+    <td>完美对子二十一点 (手机版)</td>
+  </tr>
+  <tr class="row1">
+    <td>英式二十一点 (手机版)</td>
+  </tr>
+  <tr class="row1">
+    <td>西班牙二十一点 (手机版)</td>
+  </tr>
+
+</table>
+
+
+
+</body>
+</html>
