@@ -6,7 +6,7 @@
             url: "/_secure/AjaxHandlers/MemberSessionCheck.ashx",
             /*dataType: "jsonp",*/
             success: function (data) {
-                if (data != '1' && data != '-1') { window.location.replace('/Expire'); }
+                if (data != "1" && data != "-1") { window.location.replace("/Expire"); }
             },
             error: function (err) {
                 //console.log(err);
@@ -15,7 +15,7 @@
     }, 5000);
 });
 
-if ($('#divBalance').hasClass('open')) { $('#divBalance').addClass('close'); } else { if ($('#divBalance').hasClass('open')) { $('#divBalance').addClass('close'); } }
+if ($("#divBalance").hasClass("open")) { $("#divBalance").addClass("close"); } else { if ($("#divBalance").hasClass("open")) { $("#divBalance").addClass("close"); } }
 
 // mozfullscreenerror event handler
 function errorHandler() { /*alert('mozfullscreenerror');*/ }

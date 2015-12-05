@@ -17,10 +17,18 @@
             <h1 class="title"><%=commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%></h1>
         </header>
         <div class="ui-content" role="main">
+            <div class="wallet main-wallet">
+                <label class="label">Main Wallet</label>
+                <h2 class="value"><%=Session["Main"].ToString()%></h2>
+                <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
+            </div>
+
             <form class="form" id="form1" runat="server" data-ajax="false">
                 <ul class="list fixed-tablet-size">
-                    <li class="item item-collapse" runat="server" id="divBalance" data-role="collapsible" data-mini="true">
+                    <li class="item" runat="server" id="divBalance" data-role="collapsible">
                     </li>
+                    
+
                     <li class="item item-select">
                         <asp:Label ID="lblTransferFrom" runat="server" AssociatedControlID="drpTransferFrom" Text="from" />
                         <asp:DropDownList ID="drpTransferFrom" runat="server" data-corners="false" />
@@ -176,13 +184,19 @@
                 }
             });
 
-            function hBalanceToggle(obj, strShow, strHide)
-            {
+            function hBalanceToggle(obj, strShow, strHide) {
                 if ($(obj).hasClass('ui-collapsible-heading-collapsed')) {
-                    $(obj).find(".ui-btn-text").text(strHide);
+                    $(obj).find(".ui-btn").text(strHide);
+                    //var link = $(obj).find(".ui-icon-plus");
+                    //link.removeClass("ui-icon-plus");
+                    //link.addClass("ui-icon-minus");
                     getBalance();
+                } else {
+                    $(obj).find(".ui-btn").text(strShow);
+                    //var link = $(obj).find(".ui-icon-minus");
+                    //link.removeClass("ui-icon-minus");
+                    //link.addClass("ui-icon-plus");
                 }
-                else { $(obj).find(".ui-btn-text").text(strShow); }
             }
 
             function getBalance()
