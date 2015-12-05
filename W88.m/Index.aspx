@@ -164,7 +164,7 @@
                 <li class="col col-33">
                     <a href="/Promotions" data-ajax="false" class="tile">
                         <span class="icon-promo"></span>
-                        <h4 class="title">Promotions</h4>
+                        <h4 class="title">Promos</h4>
                     </a>
                 </li>
                 <li class="col col-33">
