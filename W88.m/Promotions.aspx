@@ -94,7 +94,7 @@
 
                     var divPromoTitle = $('<div />', { class: 'div-promo-header' }).text(strPromoTitle);
                     
-                    var divSecond = $('<div />', { class: 'div-promo-second', id:'div-promo-second' }).append(hrefPromo.append(divPromoTitle)).append(divJoinButton);
+                    var divSecond = $('<div />', { class: 'div-promo-second', id: 'div-promo-second' }).append(divJoinButton).append(hrefPromo.append(divPromoTitle));
 
                     //listObj.append($(liPromo).append($(divPromoWrapper).append($(hrefPromo).append($(divPromoImg).append(imgPromo)).append($('<div />', {}).append(divPromoTitle).append(divPromoContent))).append(divJoinButton)).append(divPromoDetail));
                     //listObj.append($(liPromo).append($(divPromoWrapper).append($(divPromoImg).append(imgPromo)).append($(hrefPromo).append(divPromoTitle)).append(divJoinButton)).append(divPromoDetail));
