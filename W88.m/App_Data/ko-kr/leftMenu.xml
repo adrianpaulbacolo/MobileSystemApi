@@ -38,4 +38,5 @@
   <withrawal><![CDATA[출금]]></withrawal>-->
   <fundTransfer><![CDATA[자금 이체]]></fundTransfer>-->
   <deposit><![CDATA[입금]]></deposit>-->
+  <poker><![CDATA[포커]]></poker>-->
 </menu>

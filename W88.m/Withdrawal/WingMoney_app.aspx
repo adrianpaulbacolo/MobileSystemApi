@@ -19,6 +19,12 @@
         </header>
 
         <div class="ui-content" role="main">
+            <div class="wallet main-wallet">
+                <label class="label">Main Wallet</label>
+                <h2 class="value"><%=Session["Main"].ToString()%></h2>
+                <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
+            </div>
+
             <div data-role="navbar">
                 <ul>
                     <li id="<%=string.Format("w{0}", commonVariables.WithdrawalMethod.BankTransfer)%>"><a href="/Withdrawal/BankTransfer" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("banktransfer", commonVariables.LeftMenuXML)%></a></li>

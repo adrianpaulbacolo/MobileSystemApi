@@ -25,17 +25,17 @@
                     <li class="item item-input">
                         
                         <div><asp:Label ID="lblPassword" runat="server" AssociatedControlID="txtPassword" /></div>
-                        <asp:TextBox name="txtPassword" runat="server" type="password" maxlength="10" id="txtPassword" data-mini="true" data-clear-btn="true"/>
+                        <asp:TextBox name="txtPassword" runat="server" type="password" maxlength="20" id="txtPassword" data-mini="true" data-clear-btn="true"/>
                     </li>
                     <li class="item item-input">
                         
                         <div><asp:Label ID="lblPasswordNew" runat="server" AssociatedControlID="txtPasswordNew" /></div>
-                        <asp:TextBox  name="txtPasswordNew" runat="server" type="password" maxlength="10" id="txtPasswordNew" data-mini="true" data-clear-btn="true" />
+                        <asp:TextBox  name="txtPasswordNew" runat="server" type="password" maxlength="40" id="txtPasswordNew" data-mini="true" data-clear-btn="true" />
                     </li>
                     <li class="item item-input">
                         
                         <div><asp:Label ID="lblPasswordConfirm" runat="server" AssociatedControlID="txtPasswordConfirm" /></div>
-                        <asp:TextBox  name="txtPasswordConfirm" runat="server" type="password" maxlength="10" id="txtPasswordConfirm" data-mini="true" data-clear-btn="true" />
+                        <asp:TextBox  name="txtPasswordConfirm" runat="server" type="password" maxlength="40" id="txtPasswordConfirm" data-mini="true" data-clear-btn="true" />
                     </li>
 
                     <li class="item row">

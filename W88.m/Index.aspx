@@ -164,7 +164,7 @@
                 <li class="col col-33">
                     <a href="/Promotions" data-ajax="false" class="tile">
                         <span class="icon-promo"></span>
-                        <h4 class="title">Promos</h4>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("promotions", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
                 <li class="col col-33">
@@ -182,7 +182,7 @@
                 <li class="col col-33">
                     <a href="#divPanel" class="tile nav-poker">
                         <span class="icon-spade"></span>
-                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("Poker", commonVariables.LeftMenuXML)%></h4>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("poker", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
                 <li class="col col-33">

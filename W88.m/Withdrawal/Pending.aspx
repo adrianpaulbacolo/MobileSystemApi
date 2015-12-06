@@ -18,6 +18,12 @@
         </header>
 
         <div class="ui-content" role="main">
+            <div class="wallet main-wallet">
+                <label class="label">Main Wallet</label>
+                <h2 class="value"><%=Session["Main"].ToString()%></h2>
+                <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
+            </div>
+
             <form class="form" id="form1" runat="server" data-ajax="false">
                 <br>
                 <ul class="list fixed-tablet-size">

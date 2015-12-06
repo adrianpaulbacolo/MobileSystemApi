@@ -41,5 +41,5 @@
   <withrawal><![CDATA[Withdrawal]]></withrawal>-->
   <fundTransfer><![CDATA[Fund Transfer]]></fundTransfer>-->
   <neteller><![CDATA[Netteller]]></neteller>
-  <Poker><![CDATA[Poker]]></Poker>
+  <poker><![CDATA[Poker]]></poker>
 </menu>
