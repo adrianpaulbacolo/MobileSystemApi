@@ -35,7 +35,8 @@ $slick-opacity-on-hover: 0.75 !default;
 $slick-opacity-not-active: 0.5 !default;
 
 .slick-slider {
-
+    min-height: 100px;
+    background-color: $black;
     > button,
     .slick-dots button {
         border: 0;

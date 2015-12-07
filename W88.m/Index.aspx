@@ -186,7 +186,8 @@
                     </a>
                 </li>
                 <li class="col col-33">
-                    <a href="#divPanel" class="tile nav-slots">
+                    <%--<a href="#divPanel" class="tile nav-slots">--%>
+                    <a href="Slots.aspx" class="tile" data-ajax="false" data-transition="slidedown">
                         <span class="icon-slots"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></h4>
                     </a>
@@ -203,7 +204,7 @@
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("rewards", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
-                    
+
                 <li class="col col-33">
                     <a href="#download" runat="server" class="tile notify" data-rel="popup" data-position-to="window" data-transition="fade">
                         <span class="icon-bell"></span>
@@ -211,8 +212,8 @@
                         <h4 class="title">Announcements</h4>
                     </a>
                 </li>--%>
-                
-                
+
+
                 <%if(DetectMobileDevice() == 2){%>
                 <li class="col col-33">
                     <a href="#download" id="downloadButton" runat="server" class="tile notify" data-rel="popup" data-position-to="window" data-transition="fade">
