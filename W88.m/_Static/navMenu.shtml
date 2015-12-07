@@ -91,7 +91,7 @@
                 </li>
                 <!-- Toggle to hide elements -->
                 <li>
-                    <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx">
+                    <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-ajax="false" data-transition="slidedown">
                         <img src="/_Static/Images/bnr-vSPORTS-tennis.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports/Label", commonVariables.ProductsXML)%></div>
                     </a>

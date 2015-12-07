@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Sports</title>
+    <title>Slots</title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
@@ -15,43 +15,44 @@
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
             </a>
-            <h1 class="title">Virtual</h1>
+            <h1 class="title">Slots</h1>
         </header>
 
         <div class="ui-content" role="main" id="sports">
 
             <ul class="row row-wrap bg-gradient">
                 <li class="col col-33">
-                    <a href="/_Secure/Login.aspx" class="card" data-rel="sports" rel="vsportsBasketball">
-                        <img src="/_Static/Images/bnr-vSPORTS-basketball.jpg" class="img-responsive">
-                        <div class="title">Basketball</div>
+                    <a href="/ClubBravado" class="card" data-ajax="false">
+                        <img src="/_Static/Images/bnr-clubbravado.jpg" class="img-responsive">
+                        <div class="title">Bravado</div>
                     </a>
                 </li>
                 <li class="col col-33">
-                    <a href="/_Secure/Login.aspx" class="card" data-rel="sports" rel="vsportsDogRacing">
-                        <img src="_Static/Images/bnr-vSPORTS-dogracing.jpg" alt="a-Sports" class="img-responsive">
-                        <div class="title">Dog Racing</div>
+                    <a href="/_static/palazzo/slots.aspx" class="card" data-ajax="false">
+                        <img src="/_Static/Images/bnr-clubpalazzo-slots.jpg" class="img-responsive">
+                        <div class="title">Palazzo</div>
                     </a>
                 </li>
                 <li class="col col-33">
-                    <a href="/_Secure/Login.aspx" class="card" data-rel="sports" rel="vsportsFootBall">
-                        <img src="_Static/Images/bnr-vSPORTS-football.jpg" alt="a-Sports" class="img-responsive">
-                        <div class="title">Football</div>
+                    <a href="/ClubMassimo" class="card" data-ajax="false">
+                        <img src="/_Static/Images/bnr-clubmassimo-slots.jpg" class="img-responsive">
+                        <div class="title">Massimo</div>
                     </a>
                 </li>
                 <li class="col col-33">
-                    <a href="/_Secure/Login.aspx" class="card" data-rel="sports" rel="vsportsHorseRacing">
-                        <img src="_Static/Images/bnr-vSPORTS-horseracing.jpg" alt="a-Sports" class="img-responsive">
-                        <div class="title">Horse Racing</div>
+                    <a href="/ClubDivino" class="card" data-ajax="false">
+                        <img src="/_Static/Images/bnr-clubdivino.jpg" class="img-responsive">
+                        <div class="title">Divino</div>
                     </a>
                 </li>
-               <li class="col col-33">
-                    <a href="/_Secure/Login.aspx" class="card" data-rel="sports" rel="vsportsTennis">
-                        <img src="_Static/Images/bnr-vSPORTS-tennis.jpg" alt="a-Sports" class="img-responsive">
-                        <div class="title">Tennis</div>
+                <li class="col col-33">
+                    <a href="/ClubCrescendo" class="card" data-ajax="false">
+                        <img src="/_Static/Images/bnr-clubcrescendo.png" class="img-responsive">
+                        <div class="title">Cresendo</div>
                     </a>
                 </li>
             </ul>
+
         </div>
 
         <!--#include virtual="~/_static/footer.shtml" -->

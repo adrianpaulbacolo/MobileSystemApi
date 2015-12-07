@@ -84,6 +84,7 @@
                 margin: $content-padding/5;
                 border: 1px solid $border-color;
             }
+            margin-top: -$content-padding/5;
         }
         .close {
             position: fixed;
