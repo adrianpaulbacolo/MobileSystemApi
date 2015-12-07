@@ -1,7 +1,7 @@
 ﻿
 <footer id="footer" data-role="footer" data-position="fixed" data-theme="b">
     <div class="tabs tabs-icon-left" data-role="navbar">
-        <a href="/Lang.aspx" class="tab-item" role="button" runat="server" data-ajax="false">
+        <a href="/Lang.aspx" class="tab-item" role="button" data-transition="slideup">
             <i class="icon ion-ios-world-outline"></i> Language
         </a>
         <a href="/LiveChat/Default.aspx" class="tab-item" role="button" runat="server" data-ajax="false">
