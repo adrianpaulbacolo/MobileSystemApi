@@ -1,0 +1,148 @@
+//
+// Promotions
+// -------------------------------
+
+#divPromotions {
+    .col {
+        margin: 0 auto;
+        min-width: 100%;
+    }
+    .div-promo-join {
+        .btn-primary {
+            margin: 0 auto;
+            min-width: 100px;
+        }
+    }
+    .div-promo-img {
+        max-height: 250px;
+        overflow: hidden;
+        > img {
+            display: block;
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+            margin: auto;
+        }
+    }
+    .div-promo-header {
+        color: $base-color;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        padding-left: $content-padding;
+        line-height: 45px; // btn height
+    }
+    .div-promo-content {
+        display: none;
+        font-size: 0.857em; // 12px
+        color: darken($base-color, 10%);
+        padding: 1em;
+        border-top: 1px solid $border-color;
+        background-color: darken($base-background-color, 5%);
+        .subtitle {
+            margin-bottom: .5em;
+        }
+        ul, ol {
+            padding-left: 2.5em;
+        }
+        > ol {
+            padding: 0;
+            margin: 0;
+            margin-left: 2.5em;
+            padding-right: 1em;
+        }
+        > p {padding-left:.5em}
+        .ui-btn {margin-top: 1em}
+    }
+}
+
+#divPromoHeader {
+    background: #1C607F;
+    padding: .5em;
+    color: #f1f1f1;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.div-promotions-wrapper > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.div-promo-row {
+    width: 100%;
+    background-color: #1f1f1f;
+    display: table;
+    > a {
+        text-decoration: none;
+        > div:last-child {
+            padding-left: .5em;
+            background-repeat:no-repeat;
+            background-position:97% 50%;
+            background-size:1em;
+        }
+    }
+}
+.div-promo-second {
+    display: table;
+    width:100%;
+}
+.div-promo-join {
+    float: right;
+}
+.div-promo-desc {
+    color: #000;
+    font-size: .75em;
+    display: none;
+}
+.rowHeader {
+    background: #404040;
+    font-weight: bold;
+    font-size: .85em;
+}
+
+.row1 {
+    background: #333333;
+    font-size: .85em;
+}
+
+.row2 {
+    background: #333333;
+}
+
+.div-claim-promo {
+    border: 1px solid #333;
+    padding: 10px;
+    margin: .5em;
+    textarea {
+        resize: none;
+        width: 100%;
+    }
+}
+.div-claim-promo-header {
+    font: normal 1.3em Tahoma, Malgun Gothic, Dotum, sans-serif;
+}
+
+.div-claim-promo-data > div {
+    table-layout: fixed;
+    display: table;
+    width: 100%;
+    > a {
+        display: block;
+    }
+}
+.div-promo-radio {
+    text-align:left;
+    display:inline-block;
+    > input {
+        width:1em;
+    }
+    > label {
+        display: inline-block; width: 95%; text-align: left;
+    }
+}
+.p-tnc,.p-tnc + ol{
+    display:none;
+}
