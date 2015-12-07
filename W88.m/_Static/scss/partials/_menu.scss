@@ -122,6 +122,9 @@
 }
 
 .open-subnav {
+    // disable scroll
+    // position: fixed;
+
     // close nav - content blocker
     .ui-panel-dismiss {
         left: $panel-width-full;
