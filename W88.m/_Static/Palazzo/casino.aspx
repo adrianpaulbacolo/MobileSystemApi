@@ -17,7 +17,7 @@
                 </div>
                 <div class="downloadmsg">
                     <span runat="server" id="spanMsg"></span>
-                    <a runat="server" data-ajax="false" href="http://mlive.w88palazzo.com" id="sDownload"></a>
+                    <a runat="server" data-ajax="false" href="http://mlive.w88palazzo.com" id="sDownload" target="_blank"></a>
                 </div>
             </div>
         </div>

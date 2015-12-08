@@ -46,7 +46,7 @@
                         <figcaption class="banner-caption">
                             <h3 class="title">Club Massimo</h3>
                             <P>Popular live casino games with high-quality video!</P>
-                            <a href="https://livegames.cdn.gameassists.co.uk/AIR/Poria/Installer/V20021/w88/Download.html"  class="ui-btn btn-primary">Play Now</a>
+                            <a href="https://livegames.cdn.gameassists.co.uk/AIR/Poria/Installer/V20021/w88/Download.html"  class="ui-btn btn-primary" target="_blank">Play Now</a>
                         </figcaption>
                     </figure>
                 </li>

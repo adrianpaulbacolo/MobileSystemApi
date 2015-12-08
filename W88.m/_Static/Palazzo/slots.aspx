@@ -17,7 +17,7 @@
                 </div>
                 <div class="downloadmsg">
                     <span runat="server" id="spanMsg"></span>
-                    <a href="http://mgames.w88palazzo.com" id="sDownload" class="ui-btn btn-primary" runat="server" data-ajax="false"></a>
+                    <a href="http://mgames.w88palazzo.com" id="sDownload" class="ui-btn btn-primary" runat="server" data-ajax="false" target="_blank"></a>
                 </div>
             </div>
         </div>

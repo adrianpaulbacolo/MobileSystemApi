@@ -24,6 +24,14 @@
                 <label class="label">Main Wallet</label>
                 <h2 class="value"><%=Session["Main"].ToString()%></h2>
                 <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
+                <a
+                    href="Funds.aspx"
+                    role="button"
+                    runat="server"
+                    data-ajax="false"
+                    class="reload ion-ios-refresh-empty"
+                    data-transition="fade"
+                ></a>
             </div>
 
             <div  id="tabs">

@@ -77,10 +77,10 @@
                         <asp:Literal ID="lblNoticeDownload" runat="server" />
                     </li>
                     <li class="item-text-wrap">
-                        <a href="http://mobile.unionpay.com/getclient?platform=android&type=securepayplugin"><%=commonCulture.ElementValues.getResourceString("lblAndroidDownload", xeResources)%></a>
+                        <a href="http://mobile.unionpay.com/getclient?platform=android&type=securepayplugin" target="_blank"><%=commonCulture.ElementValues.getResourceString("lblAndroidDownload", xeResources)%></a>
                     </li>
                     <li class="item-text-wrap">
-                        <a href="http://mobile.unionpay.com/getclient?platform=ios&type=securepayplugin"><%=commonCulture.ElementValues.getResourceString("lblIOSDownload", xeResources)%></a>
+                        <a href="http://mobile.unionpay.com/getclient?platform=ios&type=securepayplugin" target="_blank"><%=commonCulture.ElementValues.getResourceString("lblIOSDownload", xeResources)%></a>
                     </li>
                     <asp:HiddenField runat="server" ID="_repostcheckcode" />
                 </ul>
