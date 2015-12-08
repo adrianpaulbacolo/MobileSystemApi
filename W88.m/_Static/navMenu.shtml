@@ -20,12 +20,12 @@
 
     <!-- Profile -->
     <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
-        <li id="liUser" data-icon="false">
+        <!-- <li id="liUser" data-icon="false">
             <a href="/Profile" id="aMnuUser" runat="server" data-ajax="false" data-transition="slidedown">
                 <i class="icon-profile"></i>
                 <div class="label"><%=commonVariables.GetSessionVariable("MemberCode")%></div>
             </a>
-        </li>
+        </li> -->
     <% } else { var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
         <li id="liOptions" data-icon="false">
             <a href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
@@ -61,6 +61,11 @@
                     <a data-rel="dialog" rel="withdrawal" href="/_Secure/Login.aspx" data-transition="slidedown">
                         <!-- <img src="/_Static/Images/index-withdrawal.png" class="img-responsive"> -->
                         <%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%>
+                    </a>
+                </li>
+                <li>
+                    <a href="/History" role="button" data-ajax="false">
+                        History
                     </a>
                 </li>
                 <!-- <li data-icon="false"><a id="aMnuClaim" runat="server"><%=commonCulture.ElementValues.getResourceString("claims", commonVariables.LeftMenuXML)%></a></li> -->
@@ -158,7 +163,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="card" data-rel="livecasino" rel="clubmassimo-casino" href="https://livegames.gameassists.co.uk/MobileClient/MobileRedirector/index.aspx?AppID=W88Diamond&ClientID=5&UL=en" data-ajax="false">
+                    <a class="card" data-rel="livecasino" rel="clubmassimo-casino" bs://livegames.gameassists.co.uk/MobileClient/MobileRedirector/index.aspx?AppID=W88Diamond&ClientID=5&UL=en" data-ajax="false" target="_blank">
                         <img src="/_Static/Images/bnr-clubmassimo-casino-android.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoCasino/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
                     </a>

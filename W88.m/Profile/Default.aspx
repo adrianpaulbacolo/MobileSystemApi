@@ -57,10 +57,22 @@
                         <h4 class="title">Submit/Upload</h4>
                     </a>
                 </li>
-                <li class="col col-33">
+                <%--<li class="col col-33">
                     <a href="../Settings" class="tile" data-ajax="false">
                         <span class="icon-settings"></span>
                         <h4 class="title">Settings</h4>
+                    </a>
+                </li>--%>
+                <li class="col col-33">
+                    <a href="../Settings/ChangePassword.aspx" class="tile" runat="server" data-ajax="false">
+                        <span class="icon-password"></span>
+                        <h4 class="title">Change Password</h4>
+                    </a>
+                </li>
+                <li class="col col-33">
+                    <a href="../ContacyUs.aspx" class="tile" runat="server" data-ajax="false">
+                        <span class="icon-phone"></span>
+                        <h4 class="title">Contact Us</h4>
                     </a>
                 </li>
             </ul>

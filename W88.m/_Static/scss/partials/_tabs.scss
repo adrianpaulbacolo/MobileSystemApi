@@ -3,17 +3,28 @@
 // -------------------------------
 
 .ui-tabs {
-    padding: 0;
-    .ui-tabs-nav {
-        text-transform: uppercase;
-        a.ui-btn {
-            background-color: transparent;
-            border: 1px solid $border-color !important;
-            &.ui-btn-active {
-                background-color: $primary-color !important;
-            }
-        }
+  padding: 0;
+  .ui-tabs-nav {
+    text-transform: uppercase;
+    a.ui-btn {
+      background-color: transparent;
+      border: 1px solid $border-color !important;
+      &.ui-btn-active {
+        background-color: $primary-color !important;
+      }
     }
+  }
+}
+
+#tabs li {
+  text-transform: uppercase;
+  a.ui-btn {
+    background-color: darken($primary-color, 34%);
+    border: 1px solid $border-color !important;
+    &.ui-btn-active {
+      background-color: $primary-color !important;
+    }
+  }
 }
 
 .tabs {
