@@ -227,6 +227,12 @@
                     </a>
                 </li>
                 <li>
+                    <a class="card" rel="clubpalazzo-slots" href="/ClubPalazzo" data-ajax="false">
+                        <img src="/_Static/Images/bnr-clubpalazzo-slots.jpg" class="img-responsive">
+                        <div class="title">Palazzo 2</div>
+                    </a>
+                </li>
+                <li>
                     <a class="card" rel="clubpalazzo-slots" href="/_static/palazzo/slots.aspx" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubpalazzo-slots.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
