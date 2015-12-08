@@ -102,4 +102,45 @@ public partial class Funds_Main : System.Web.UI.Page
             Session["POKER"] = strWalletAmount;
         }
     }
+
+    protected void aSportsBtn_Click(object sender, EventArgs e)
+    {
+        Session["Wallet"] = "2";
+        Response.Redirect("FundTransfer/Default.aspx");
+    }
+    protected void eSportsBtn_Click(object sender, EventArgs e)
+    {
+        Session["Wallet"] = "4";
+        Response.Redirect("FundTransfer/Default.aspx");
+    }
+    protected void wSportsBtn_Click(object sender, EventArgs e)
+    {
+        Session["Wallet"] = "3";
+        Response.Redirect("FundTransfer/Default.aspx");
+    }
+    protected void lotteryBtn_Click(object sender, EventArgs e)
+    {
+        Session["Wallet"] = "7";
+        Response.Redirect("FundTransfer/Default.aspx");
+    }
+    protected void casinoBtn_Click(object sender, EventArgs e)
+    {
+        Session["Wallet"] = "5";
+        Response.Redirect("FundTransfer/Default.aspx");
+    }
+    protected void nuovoBtn_Click(object sender, EventArgs e)
+    {
+        Session["Wallet"] = "0";
+        Response.Redirect("FundTransfer/Default.aspx");
+    }
+    protected void clubPalazzoBtn_Click(object sender, EventArgs e)
+    {
+        Session["Wallet"] = "6";
+        Response.Redirect("FundTransfer/Default.aspx");
+    }
+    protected void pokerBtn_Click(object sender, EventArgs e)
+    {
+        Session["Wallet"] = "8";
+        Response.Redirect("FundTransfer/Default.aspx");
+    }
 }

@@ -52,65 +52,82 @@
                     <%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%>
                 </div> -->
             </div>
-
-            <ul class="row row-bordered bg-gradient">
-                <li class="col col-50">
-                    <div class="wallet">
-                        <label class="label">a-Sports</label>
-                        <h4 class="value"><%=Session["ASPORTS"].ToString()%></h4>
-                        <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
-                    </div>
-                </li>
-                <li class="col col-50">
-                    <div class="wallet">
-                        <label class="label">e-Sports</label>
-                        <h4 class="value"><%=Session["SBTECH"].ToString()%></h4>
-                        <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
-                    </div>
-                </li>
-                <li class="col col-50">
-                    <div class="wallet">
-                        <label class="label">w-Sports</label>
-                        <h4 class="value"><%=Session["SBO"].ToString()%></h4>
-                        <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
-                    </div>
-                </li>
-                <li class="col col-50">
-                    <div class="wallet">
-                        <label class="label">Lottery</label>
-                        <h4 class="value"><%=Session["LOTTERY"].ToString()%></h4>
-                        <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
-                    </div>
-                </li>
-                <li class="col col-50">
-                    <div class="wallet">
-                        <label class="label">*Live Casino</label>
-                        <h4 class="value"><%=Session["CASINO"].ToString()%></h4>
-                        <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
-                    </div>
-                </li>
-                <li class="col col-50">
-                    <div class="wallet">
-                        <label class="label">Nuovo</label>
-                        <h4 class="value"><%=Session["NETENT"].ToString()%></h4>
-                        <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
-                    </div>
-                </li>
-                <li class="col col-50">
-                    <div class="wallet">
-                        <label class="label">Club Palazzo</label>
-                        <h4 class="value"><%=Session["CASINO"].ToString()%></h4>
-                        <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
-                    </div>
-                </li>
-                <li class="col col-50">
-                    <div class="wallet">
-                        <label class="label">Poker</label>
-                        <h4 class="value"><%=Session["POKER"].ToString()%></h4>
-                        <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
-                    </div>
-                </li>
-            </ul>
+            <form runat="server">
+                <ul class="row row-bordered bg-gradient">
+                    <li class="col col-50">
+                        <asp:LinkButton ID="aSportsBtn" runat="server" OnClick="aSportsBtn_Click">
+                        <div class="wallet">
+                            <label class="label">a-Sports</label>
+                            <h4 class="value"><%=Session["ASPORTS"].ToString()%></h4>
+                            <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
+                        </div>
+                        </asp:LinkButton>
+                    </li>
+                    <li class="col col-50">
+                        <asp:LinkButton ID="eSportsBtn" runat="server" OnClick="eSportsBtn_Click">
+                        <div class="wallet">
+                            <label class="label">e-Sports</label>
+                            <h4 class="value"><%=Session["SBTECH"].ToString()%></h4>
+                            <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
+                        </div>
+                        </asp:LinkButton>
+                    </li>
+                    <li class="col col-50">
+                        <asp:LinkButton ID="wSportsBtn" runat="server" OnClick="wSportsBtn_Click">
+                        <div class="wallet">
+                            <label class="label">w-Sports</label>
+                            <h4 class="value"><%=Session["SBO"].ToString()%></h4>
+                            <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
+                        </div>
+                        </asp:LinkButton>
+                    </li>
+                    <li class="col col-50">
+                        <asp:LinkButton ID="lotteryBtn" runat="server" OnClick="lotteryBtn_Click">
+                        <div class="wallet">
+                            <label class="label">Lottery</label>
+                            <h4 class="value"><%=Session["LOTTERY"].ToString()%></h4>
+                            <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
+                        </div>
+                        </asp:LinkButton>
+                    </li>
+                    <li class="col col-50">
+                        <asp:LinkButton ID="casinoBtn" runat="server" OnClick="casinoBtn_Click">
+                        <div class="wallet">
+                            <label class="label">*Live Casino</label>
+                            <h4 class="value"><%=Session["CASINO"].ToString()%></h4>
+                            <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
+                        </div>
+                    </asp:LinkButton>
+                    </li>
+                    <li class="col col-50">
+                        <asp:LinkButton ID="nuovoBtn" runat="server" OnClick="nuovoBtn_Click">
+                        <div class="wallet">
+                            <label class="label">Nuovo</label>
+                            <h4 class="value"><%=Session["NETENT"].ToString()%></h4>
+                            <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
+                        </div>
+                        </asp:LinkButton>
+                    </li>
+                    <li class="col col-50">
+                        <asp:LinkButton ID="clubPalazzoBtn" runat="server" OnClick="clubPalazzoBtn_Click">
+                        <div class="wallet">
+                            <label class="label">Club Palazzo</label>
+                            <h4 class="value"><%=Session["CASINO"].ToString()%></h4>
+                            <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
+                        </div>
+                        </asp:LinkButton>
+                    </li>
+                    <li class="col col-50">
+                        <asp:LinkButton ID="pokerBtn" runat="server" OnClick="pokerBtn_Click">
+                        <div class="wallet">
+                            <label class="label">Poker</label>
+                            <h4 class="value"><%=Session["POKER"].ToString()%></h4>
+                            <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
+                        </div>
+                      </asp:LinkButton>
+                    </li>
+                </ul>
+            </form>
             <br>
             <p class="note text-center">
                 <small>*Cub W, Bravado, Apollo, Crescendo, Divino & Massimo</small>

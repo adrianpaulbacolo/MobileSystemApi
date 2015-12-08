@@ -54,6 +54,11 @@
                     <li class="item item-input">
                         <span id="litPromoDetails" />
                     </li>
+                    <li>
+                        <div class="col">
+                            <asp:Button ID="btnSwap" runat="server" Text="Swap Wallets" OnClick="btnSwap_Click"  />
+                        </div>
+                    </li>
                     <li class="item row">
                         <div class="col">
                             <a href="" role="button" data-rel="back" class="ui-btn btn-bordered">Cancel</a>
@@ -88,7 +93,7 @@
                     e.preventDefault();
                     return;
                 }
-                else if (isNaN(parseFloat($('#txtTransferAmount').val()))) {
+<%--                else if (isNaN(parseFloat($('#txtTransferAmount').val()))) {
                     alert('<%=commonCulture.ElementValues.getResourceXPathString("/FundTransfer/InputTransferAmount", xeErrors)%>');
                     e.preventDefault();
                     return;
@@ -97,7 +102,7 @@
                     alert('<%=commonCulture.ElementValues.getResourceXPathString("/FundTransfer/TransferAmountDisallowed", xeErrors)%>');
                     e.preventDefault();
                     return;
-                }
+                }--%>
                 GPINTMOBILE.ShowSplash();
             });
 
