@@ -32,7 +32,7 @@
                 <div class="col">
                     <div class="wallet main-wallet rewards">
                         <label class="label">Rewards Club</label>
-                        <h2 class="value">2983</h2>
+                        <h2 class="value"><%=getCurrentPoints().ToString() %></h2>
                         <small class="currency">Points</small>
                     </div>
                 </div>
