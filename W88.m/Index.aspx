@@ -115,7 +115,7 @@
                     </a>
                 </div>
                 <div class="slide">
-                    <a href="https://livegames.gameassists.co.uk/MobileClient/MobileRedirector/index.aspx?AppID=W88Diamond&ClientID=5&UL=en" data-ajax="false">
+                    <a href="https://livegames.gameassists.co.uk/MobileClient/MobileRedirector/index.aspx?AppID=W88Diamond&ClientID=5&UL=en" data-ajax="false" target="_blank">
                         <img src="/_Static/Images/Download/W88-Mobile-ClubPalazzo-Slots.jpg" alt="banner" class="img-responsive">
                     </a>
                 </div>
@@ -144,7 +144,10 @@
                 <li class="col col-33">
                     <a href="/Profile" class="tile" data-ajax="false" data-transition="slidedown">
                         <span class="icon-profile"></span>
-                        <h4 class="title"><%=commonVariables.GetSessionVariable("MemberCode")%></h4>
+                        <h4 class="title">
+                            <%--<%=commonVariables.GetSessionVariable("MemberCode")%>--%>
+                            Profile
+                        </h4>
                     </a>
                 </li>
                 <% } else {
@@ -222,6 +225,19 @@
                     </a>
                 </li>
                 <%}%>
+
+                <li class="col col-33">
+                    <a href="/Lang.aspx" class="tile" role="button" data-transition="slideup">
+                        <span class="icon- ion-ios-world-outline"></span>
+                        <h4 class="title">Language</h4>
+                    </a>
+                </li>
+                <li class="col col-33">
+                    <a href="/LiveChat/Default.aspx" class="tile" role="button" runat="server" data-ajax="false" target="_blank">
+                        <span class="icon-chat"></span>
+                        <h4 class="title">Live Chat</h4>
+                    </a>
+                </li>
 
             </ul>
 

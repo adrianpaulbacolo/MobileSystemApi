@@ -1,5 +1,5 @@
 ﻿
-<footer id="footer" data-role="footer" data-position="fixed" data-theme="b">
+<!--<footer id="footer" data-role="footer" data-position="fixed" data-theme="b">
     <div class="tabs tabs-icon-left" data-role="navbar">
         <a href="/Lang.aspx" class="tab-item" role="button" data-transition="slideup">
             <i class="icon ion-ios-world-outline"></i> Language
@@ -9,8 +9,7 @@
         </a>
     </div>
     <p class="colophon"><small>&copy; 2015 W88.com. All rights reserved | 18+</small></p>
-</footer>
-
+</footer>-->
 
 <!-- Piwik -->
 <script type="text/javascript">

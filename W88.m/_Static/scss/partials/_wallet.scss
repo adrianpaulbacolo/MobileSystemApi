@@ -5,6 +5,7 @@
 .wallet {
     text-align: center;
     padding: $grid-padding-width*1.5;
+    position: relative;
     .label {
         font-size: 85%;
         color: darken($base-color, 5%);
@@ -23,8 +24,20 @@
 
 .main-wallet {
     background-color: darken($primary-color, 34%);
+    min-height: 92px;
     .value {
         font-size: 2.5rem;
+    }
+    .reload {
+        font-size: 20px;
+        line-height: 0;
+        position: absolute;
+        top: 8px; left: 50%;
+        margin-left: 2.5em;
+        padding: 3px 8px;
+        display: inline-block;
+        background-color: rgba(42,143,189,0.25);
+        @include border-radius(2px);
     }
 }
 
