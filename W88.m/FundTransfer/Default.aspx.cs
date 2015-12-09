@@ -75,6 +75,15 @@ public partial class FundTransfer_Default : BasePage
                 btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
 
                 divBalance.InnerHtml += Convert.ToString(sbWallets);
+
+
+                try
+                {
+                    drpTransferFrom.SelectedIndex= 1;
+                    drpTransferTo.SelectedIndex = Convert.ToInt32(Session["Wallet"].ToString());
+                }
+                catch (Exception)
+                { }
             }
         }
     
@@ -321,5 +330,13 @@ public partial class FundTransfer_Default : BasePage
             ViewState["postids"] = Session["postid"];
             //System.Web.HttpContext.Current.Request.RawUrl
         }
+    }
+    protected void btnSwap_Click(object sender, EventArgs e)
+    {
+        string from = drpTransferFrom.Text;
+        string to = drpTransferTo.Text;
+
+        drpTransferFrom.SelectedValue = to;
+        drpTransferTo.SelectedValue = from;
     }
 }

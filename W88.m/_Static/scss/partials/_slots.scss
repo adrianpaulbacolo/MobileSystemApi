@@ -2,10 +2,19 @@
 // Slots
 // -------------------------------
 
+// Icons
+.icon-play_arrow,
+.icon-fullscreen {
+    font-family: $ionicons-font;
+}
+.icon-play_arrow:after {
+    content: '\f215'; // ion-play
+}
+.icon-fullscreen:after {
+    content: '\f25e'; // ion-arrow-expand
+}
+
 #slots {
-    // .ui-icon-plus:after {
-    //     content: '\f217'; // ion-plus-round (bold)
-    // }
     .ui-icon-minus:after {
         content: '\f3d3'; // ion-ios-arrow-right
         right: $content-padding/2;
@@ -19,28 +28,28 @@
         &:first-child {
             margin-top: .5em;
         }
-    }
-    .ui-collapsible-heading {
-        .ui-btn {
-            color: $energized;
-            font-size: 1.1em !important;
-            border: none !important;
-            background-color: transparent;
-            padding: .5em;
+        &-heading {
+            .ui-btn {
+                color: $energized;
+                font-size: 1.1em !important;
+                background-color: transparent;
+                border: none !important;
+                padding: .5em;
+            }
         }
-    }
-    .ui-collapsible-collapsed {
-        margin: 0;
-        .ui-btn {
-            color: $strong-color;
-            font-size: 1em !important;
-            background-color: darken($primary-color, 10%);
-            padding: 1em;
+        &-collapsed {
+            margin: 0;
+            .ui-btn {
+                color: $strong-color;
+                font-size: 1em !important;
+                background-color: darken($primary-color, 10%);
+                padding: 1em;
+            }
         }
-    }
-    .ui-collapsible-content {
-        border: none;
-        background-color: transparent !important;
+        &-content {
+            border: none;
+            background-color: transparent !important;
+        }
     }
 
     .div-product {
@@ -76,32 +85,48 @@
         height: 30px;
         position: absolute;
         bottom: 0;
-        background-color: rgba(0,0,0,.9);
+        background-color: $white;
         a {
             color: $strong-color;
             background-color: $primary-color;
             width: 50%;
             position: absolute;
-            left: 0; padding: .5em;
+            left: 0; padding: .45em;
             &:last-child {
                 left: inherit; right: 0;
             }
         }
     }
 
-}
-
-// Icons
-.icon-play_arrow, .icon-fullscreen {
-    font-family: $ionicons-font;
-}
-.icon-play_arrow {
-    &:after {
-        content: '\f215'; // ion-play
+    // New Design (ref. Google Play)
+    .bkg-game {
+        padding: 5px;
+        background-color: $white;
+        @include border-radius(2px);
     }
-}
-.icon-fullscreen {
-    &:after {
-        content: '\f25e'; // ion-arrow-expand
+    .div-links {
+        margin-left: -5px;
+        a {
+            color: $primary-color !important;
+            background-color: transparent !important;
+            // padding: .35em;
+            // &:first-child, &:last-child {
+            //     border-top: 1px solid rgba(0,0,0,.1);
+            // }
+            &:first-child {
+                padding-right: 0;
+            }
+            &:last-child {
+                padding-left: 0;
+                border-left: 1px solid rgba(0,0,0,.1);
+            }
+        }
     }
+    .icon-play_arrow,
+    .icon-fullscreen {
+        font: 11px $primary-font;
+        text-transform: uppercase;
+    }
+    .icon-play_arrow:after {content: 'Play'}
+    .icon-fullscreen:after {content: 'Try'}
 }

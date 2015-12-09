@@ -219,7 +219,7 @@
 
                 <%if(DetectMobileDevice() == 2){%>
                 <li class="col col-33">
-                    <a href="#download" id="downloadButton" runat="server" class="tile notify" data-rel="popup" data-position-to="window" data-transition="fade">
+                    <a href="/_Static/ClubW/casino.aspx" id="downloadButton" runat="server" class="tile notify" data-ajax="false">
                         <span class="icon- ion-ios-download-outline"></span>
                         <h4 class="title">Download</h4>
                     </a>
@@ -240,27 +240,6 @@
                 </li>
 
             </ul>
-
-            <div id="download" data-role="popup" data-overlay-theme="b" data-theme="b">
-                <a href="#"  data-rel="back" class="close">&times;</a>
-                <div class="padding">
-                    <h2 class="title">Download App</h2>
-                    <div class="app">
-                        <img src="/_Static/Images/w88-appicon-<%=commonVariables.SelectedLanguageShort%>.png" alt="app-icon" class="img-responsive">
-                        <div class="app-title">W88</div>
-                    </div>
-                </div>
-                <div class="row row-no-padding">
-                    <div class="col">
-                        <a href="#" data-rel="back" data-ajax="false" class="ui-btn btn-secondary">
-                            Close
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="/_Static/ClubW/casino.aspx" data-ajax="false" class="ui-btn btn-primary">Download</a>
-                    </div>
-                </div>
-            </div>
 
             <ul class="hide">
                 <li class="li-pokerIOS" runat="server" id ="pokerIOS_link">
