@@ -63,6 +63,12 @@
             </form>
         </div>
         <script type="text/javascript">
+
+            var counter = 0;
+            $('#<%=imgCaptcha.ClientID%>').attr('class', 'hide');
+            $('#<%=lblCaptcha.ClientID%>').attr('class', 'hide');
+            $('#<%=txtCaptcha.ClientID%>').attr('class', 'hide');
+
             $(function () { $('#<%=imgCaptcha.ClientID%>').attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime()); });
 
             $('#form1').submit(function (e) {
@@ -91,7 +97,7 @@
                     e.preventDefault();
                     return;
                 }
-                else if ($('#txtCaptcha').val().trim().length == 0) {
+                else if ($('#txtCaptcha').val().trim().length == 0 && $('#imgCaptcha').is(':visible') == true) {
                     alert('<%=commonCulture.ElementValues.getResourceString("MissingVCode", xeErrors)%>');
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
@@ -169,11 +175,22 @@
                                 break;
                             default:
 
-                                alert($(xml).find('Message').text());
-                                $('#<%=imgCaptcha.ClientID%>').attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime());
-                                $('#<%=txtCaptcha.ClientID%>').val('');
-                                $('#<%=txtPassword.ClientID%>').val('');
-                                GPINTMOBILE.HideSplash();
+                                counter += 1;
+
+                                if (counter >= 3) {
+                                    $('#<%=imgCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
+                                    $('#<%=lblCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
+                                    $('#<%=txtCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
+                                    alert($(xml).find('Message').text());
+                                    $('#<%=imgCaptcha.ClientID%>').attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime());
+                                    $('#<%=txtCaptcha.ClientID%>').val('');
+                                    $('#<%=txtPassword.ClientID%>').val('');
+                                    GPINTMOBILE.HideSplash();
+                                }
+                                else if (counter < 3)
+                                {
+                                    alert($(xml).find('Message').text());
+                                }
                                 break;
                         }
                     },
