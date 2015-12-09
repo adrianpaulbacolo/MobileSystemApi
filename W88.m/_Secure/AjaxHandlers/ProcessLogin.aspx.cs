@@ -111,6 +111,7 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
 
                                 commonCookie.CookieS = strMemberSessionId;
                                 commonCookie.CookieG = strMemberSessionId;
+                                commonCookie.CookiePalazzo = strPassword;
                                 HttpContext.Current.Session.Add("LoginStatus", "success");
 
                                 strLastLoginIP = Convert.ToString(dsSignin.Tables[0].Rows[0]["lastLoginIP"]);

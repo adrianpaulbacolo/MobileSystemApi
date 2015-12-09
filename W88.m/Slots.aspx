@@ -28,6 +28,12 @@
                     </a>
                 </li>
                 <li class="col col-33">
+                    <a href="/ClubPalazzo" class="card" data-ajax="false">
+                        <img src="/_Static/Images/bnr-clubpalazzo-slots.jpg" class="img-responsive">
+                        <div class="title">Palazzo 2</div>
+                    </a>
+                </li>
+                <li class="col col-33">
                     <a href="/_static/palazzo/slots.aspx" class="card" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubpalazzo-slots.jpg" class="img-responsive">
                         <div class="title">Palazzo</div>

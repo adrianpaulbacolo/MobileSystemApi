@@ -44,6 +44,22 @@ public static class commonCookie
         }
     }
 
+    public static string CookiePalazzo
+    {
+        get
+        {
+            HttpCookie cookie = HttpContext.Current.Request.Cookies.Get("palazzo");
+            return cookie == null ? "" : cookie.Value;
+        }
+        set
+        {
+            HttpCookie cookie = new HttpCookie("palazzo");
+            cookie.Value = value;
+            if (!string.IsNullOrEmpty(commonIp.DomainName)) { cookie.Domain = commonIp.DomainName; }
+            HttpContext.Current.Response.Cookies.Add(cookie);
+        }
+    }
+
     public static string CookieLanguage
     {
         get
