@@ -122,9 +122,6 @@
 }
 
 .open-subnav {
-    // disable scroll
-    // position: fixed;
-
     // close nav - content blocker
     .ui-panel-dismiss {
         left: $panel-width-full;
@@ -145,12 +142,26 @@
             }
         }
     }
-
 }
 
 //
 // Media Query
 // -------------------------------
+
+// 768px
+@media screen and (max-width: $screen-sm) {
+    .open-subnav { // disable scroll
+        position: fixed;
+        #divPanel {
+            overflow-x: auto;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+        }
+    }
+}
+
+// 320px + 1
 @media screen and (max-width: $iphone5 + 1) {
     .nav-menu .sub-menu {
         padding-top: 40px !important;
