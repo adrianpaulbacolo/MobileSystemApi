@@ -36,9 +36,9 @@ public partial class _Index : BasePage
         }
 
 
-        if(!string.IsNullOrEmpty(CDN_Value) && !string.IsNullOrEmpty(key))
+        if (!string.IsNullOrEmpty(CDN_Value) && !string.IsNullOrEmpty(key))
         {
-            commonVariables.SelectedLanguage = GetLanguageByCountry(GetCountryCode(CDN_Value,key));
+            commonVariables.SelectedLanguage = GetLanguageByCountry(GetCountryCode(CDN_Value, key));
         }
         else
         {
@@ -49,7 +49,7 @@ public partial class _Index : BasePage
 
                 commonVariables.SelectedLanguage = GetLanguageByDomain("." + host[1] + "." + host[2]);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 commonVariables.SelectedLanguage = GetLanguageByDomain("default");
             }
@@ -73,7 +73,7 @@ public partial class _Index : BasePage
         {
             if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("Error")) && !string.IsNullOrEmpty(commonVariables.GetSessionVariable("Error")))
             {
-                Session.Remove("Error");
+                //Session.Remove("Error");
                 if (litScript != null) { litScript.Text += string.Format("<script type='text/javascript'>alert('{0}');</script>", HttpContext.Current.Request.QueryString.Get("Error")); }
             }
         }
@@ -81,32 +81,6 @@ public partial class _Index : BasePage
         if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("AffiliateId"))) { commonVariables.SetSessionVariable("AffiliateId", HttpContext.Current.Request.QueryString.Get("AffiliateId")); }
 
         DetectDownloadLinks(DetectMobileDevice());
-
-        
-        HttpCookie myCookie = Request.Cookies["Cookie"];
-
-        try
-        {
-            if (DetectMobileDevice() == 2 && myCookie.Value == "")
-            {
-                Response.Redirect("Download.aspx");
-            }
-            else if (myCookie != null)
-            {
-                if (myCookie.Value == "0")
-                {
-                    HttpCookie Cookie = new HttpCookie("Cookie");
-                    Cookie.Value = "";
-                    Cookie.Expires = DateTime.Now.AddYears(1);
-                    Response.Cookies.Add(Cookie);
-                }
-            }
-        }
-        catch(Exception ex)
-        { Response.Redirect("Download.aspx"); }
-    
-        
-
     }
 
 
@@ -476,8 +450,50 @@ public partial class _Index : BasePage
         }
     }
 
-    protected void LinkButton1_Click(object sender, EventArgs e)
+    protected void Download_Btn_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Casino.aspx");
+        HttpCookie myCookie = new HttpCookie("Cookie");
+        DateTime now = DateTime.Now;
+
+        if (clubW_msg_chk.Checked == true)
+        {
+            myCookie.Value = "1";
+            myCookie.Expires = now.AddYears(50);
+            Response.Cookies.Add(myCookie);
+            Response.Redirect("//casino.w88bet.com/mob/app-prod-release-1.4.3.apk");
+
+        }
+        else
+        {
+            myCookie.Value = "0";
+            myCookie.Expires = now.AddYears(50);
+            Response.Cookies.Add(myCookie);
+            Response.Redirect("//casino.w88bet.com/mob/app-prod-release-1.4.3.apk");
+
+        }
+    }
+    protected void Cancel_Btn_Click(object sender, EventArgs e)
+    {
+        HttpCookie myCookie = new HttpCookie("Cookie");
+        DateTime now = DateTime.Now;
+
+        if (clubW_msg_chk.Checked == true)
+        {
+            myCookie.Value = "1";
+            myCookie.Expires = now.AddYears(1);
+            Response.Cookies.Add(myCookie);
+            Response.Redirect("Index.aspx");
+
+        }
+        else
+        {
+            myCookie.Value = "0";
+            myCookie.Expires = now.AddYears(1);
+            Response.Cookies.Add(myCookie);
+            Response.Redirect("Index.aspx");
+
+        }
+
+
     }
 }
