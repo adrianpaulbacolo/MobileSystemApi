@@ -57,8 +57,7 @@ public partial class Slots_ClubPalazzo: BasePage
         else if (Request.QueryString["mode"] == "fun")
         {
             //Response.Redirect(string.Format(AppVar.palazzo_url_fun, Request.QueryString["game"], ((string)Session["language"] == "zh-cn") ? "zh-cn" : "en"));
-            javascriptLogin = string.Format("location.href= '{0}'", string.Format(ConfigurationManager.AppSettings["palazzo_url_fun"], Request.QueryString["game"], strLanguageCode));
-            javascriptToken = string.Format("iapiRequestTemporaryToken(0, '427', 'GamePlay');");
+            javascriptLogin = string.Format("iapiRequestTemporaryToken(0, '427', 'GamePlay');location.href= '{0}'", string.Format(ConfigurationManager.AppSettings["palazzo_url_fun"], Request.QueryString["game"], strLanguageCode));
         }
         else
         {

@@ -22,7 +22,15 @@
 
         //CALLOUT----------------------------------------------
 
-
+        function calloutLogin(response) {
+            if (response.errorCode) {
+                alert("Login failed. " + response.playerMessage + " Error code: " + response.errorCode);
+            }
+            else {
+                <%=javascriptToken%>
+                iapiSetCallout('GetTemporaryAuthenticationToken', calloutGetTemporaryAuthenticationToken);
+            }
+        }
 
         function calloutGetTemporaryAuthenticationToken(response) {
             if (response.errorCode) {
@@ -36,9 +44,6 @@
         $(function () {
             <%=javascriptLogin%>
 
-            <%=javascriptToken%>
-
-            iapiSetCallout('GetTemporaryAuthenticationToken', calloutGetTemporaryAuthenticationToken);
         });
     </script>
 </head>
