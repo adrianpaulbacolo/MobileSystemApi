@@ -12,10 +12,11 @@
         function launchMobileClient(temptoken) {
 
             if (gametype = "ngm") {
-                var clientUrl = <%=link%>;
+                var clientUrl = <%=link%> + '&lobby=' + location.href.substring(0, location.href.lastIndexOf('.com') + 4) + '/ClubPalazzo' + '&support=' + location.href.substring(0, location.href.lastIndexOf('.com') + 4) + '/LiveChat/Default.aspx' + '&logout=' + location.href.substring(0, location.href.lastIndexOf('.com') + 4) + '/Logout';;
             }
 
             console.log(clientUrl);
+            alert("wait");
             document.location = clientUrl;
         }
 
