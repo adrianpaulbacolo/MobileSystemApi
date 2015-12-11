@@ -26,6 +26,8 @@
   <mr24 AbsoluteURL="~/Deposit/Help2Pay.aspx"><![CDATA[Deposit/Help2Pay]]></mr24>
   <mr25 AbsoluteURL="~/Deposit/Default.aspx"><![CDATA[Deposit]]></mr25>
   <mr26 AbsoluteURL="~/Slots/ClubPalazzo.aspx"><![CDATA[ClubPalazzo]]></mr26>
+  <mr27 AbsoluteURL="~/History/Default.aspx"><![CDATA[History]]></mr27>
+  <mr28 AbsoluteURL="~/History/DepositWithdrawal.aspx"><![CDATA[History/DepositWithdrawal]]></mr28>
   <!--
   <mr3><![CDATA[Lottery/]]></mr3>
   <mr4><![CDATA[Games/]]></mr4>

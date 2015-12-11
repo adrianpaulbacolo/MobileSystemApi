@@ -33,7 +33,7 @@
 
             <ul class="list fixed-tablet-size">
                 <li class="item item-icon-left item-icon-right item-border-btm">
-                    <a href="" data-ajax="false">
+                    <a href="History/DepositWithdrawal.aspx" data-ajax="false">
                         <i class="icon icon-deposit"></i>
                         <h4 class="title">Deposit/Withdrawal</h4>
                         <i class="icon ion-ios-arrow-right"></i>

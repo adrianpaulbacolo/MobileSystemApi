@@ -42,4 +42,6 @@
   <fundTransfer><![CDATA[Fund Transfer]]></fundTransfer>-->
   <neteller><![CDATA[Netteller]]></neteller>
   <poker><![CDATA[Poker]]></poker>
+  <history><![CDATA[History]]></history>
+  <depositwithdrawal><![CDATA[Deposit / Withdrawal History]]></depositwithdrawal>
 </menu>
