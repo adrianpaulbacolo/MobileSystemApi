@@ -47,11 +47,11 @@ public partial class Slots_ClubDivino : BasePage
 
                     sbGames.AppendFormat("<li rel='{0}.jpg' class='bkg-game'><div class='div-links'>", commonCulture.ElementValues.getResourceString("ImageName", xeGame));
 
-                    if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { sbGames.AppendFormat("<a class='btn-primary' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubDivino") + "' data-rel='dialog' data-transition='slidedown'>"); }
-                    else { sbGames.AppendFormat("<a href='{0}'>", commonClubDivino.getRealUrl.Replace("{GAMEID}", strGameId).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId).Replace("{HOMEURL}",myUri.Host).Replace("{CASHIERURL}",myUri.Host)); }
+                    if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { sbGames.AppendFormat("<a class='btn-primary' target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubDivino") + "' data-rel='dialog' data-transition='slidedown'>"); }
+                    else { sbGames.AppendFormat("<a href='{0}' target='_blank'>", commonClubDivino.getRealUrl.Replace("{GAMEID}", strGameId).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId).Replace("{HOMEURL}", myUri.Host).Replace("{CASHIERURL}", myUri.Host)); }
 
                     sbGames.Append("<i class='icon-play_arrow'></i></a>");
-                    sbGames.AppendFormat("<a class='btn-secondary' href='{0}'><i class='icon-fullscreen'></i></a></div>", commonClubDivino.getFunUrl.Replace("{GAMEID}", strGameId).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId).Replace("{HOMEURL}", myUri.Host).Replace("{CASHIERURL}", myUri.Host));
+                    sbGames.AppendFormat("<a class='btn-secondary' target='_blank' href='{0}'><i class='icon-fullscreen'></i></a></div>", commonClubDivino.getFunUrl.Replace("{GAMEID}", strGameId).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId).Replace("{HOMEURL}", myUri.Host).Replace("{CASHIERURL}", myUri.Host));
                     sbGames.Append("</li>");
                 }
 

@@ -137,27 +137,6 @@
             </div>
         <% } %>
 
-            <%if(DetectMobileDevice() == 2){%>
-            <div class="download-app">
-                <div class="row">
-                    <div class="col col-25 download-icon">
-                        <span class="ion-social-android"></span>
-                    </div>
-                    <div class="col col-75 download-summary">
-                        <h5 class="title">W88 Android Download</h5>
-                        <p>Sports, Live Casino, Slots in 1 App</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <a href="" role="button" data-rel="back" class="ui-btn btn-bordered">No Thanks</a>
-                    </div>
-                    <div class="col">
-                        <button class="ui-btn btn-primary">Download Now</button>
-                    </div>
-                </div>
-            </div>
-            <%}%>
 
             <ul class="row row-bordered bg-gradient">
 
@@ -181,7 +160,7 @@
                 </li>
                 <li class="col col-33 product">
                     <%--<a href="#divPanel" class="tile nav-slots">--%>
-                    <a href="Slots.aspx" class="tile" data-ajax="false" data-transition="slidedown">
+                    <a href="Slots.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>" class="tile" data-ajax="false" data-transition="slidedown">
                         <span class="icon-slots"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></h4>
                     </a>
@@ -200,7 +179,7 @@
                         <span class="icon-profile"></span>
                         <h4 class="title">
                             <%--<%=commonVariables.GetSessionVariable("MemberCode")%>--%>
-                            Profile
+                             <%=commonCulture.ElementValues.getResourceString("profile", commonVariables.LeftMenuXML)%>
                         </h4>
                     </a>
                 </li>
@@ -251,13 +230,13 @@
                 <li class="col col-33">
                     <a href="/Lang.aspx" class="tile" role="button" data-transition="slideup">
                         <span class="icon- ion-ios-world-outline"></span>
-                        <h4 class="title">Language</h4>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("language", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
                 <li class="col col-33">
                     <a href="/LiveChat/Default.aspx" class="tile" role="button" runat="server" data-ajax="false" target="_blank">
                         <span class="icon-chat"></span>
-                        <h4 class="title">Live Chat</h4>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
             </ul>
@@ -274,6 +253,28 @@
                     </a>
                 </li>
             </ul> -->
+
+           <%if(DetectMobileDevice() == 2 && string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)){%>
+                <div class="download-app">
+                    <div class="row">
+                        <div class="col col-25 download-icon">
+                            <span class="ion-social-android"></span>
+                        </div>
+                        <div class="col col-75 download-summary">
+                            <h5 class="title">W88 Android Download</h5>
+                            <p>Sports, Live Casino, Slots in 1 App</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a href="#" role="button" data-rel="back" class="ui-btn btn-bordered">No Thanks</a>
+                        </div>
+                        <div class="col">
+                            <a href="//casino.w88bet.com/mob/app-prod-release-1.4.3.apk" class="ui-btn btn-primary">Download Now</a>
+                        </div>
+                    </div>
+                </div>
+            <%}%>
 
         </div>
 
