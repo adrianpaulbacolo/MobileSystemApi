@@ -28,6 +28,7 @@
   <mr26 AbsoluteURL="~/Slots/ClubPalazzo.aspx"><![CDATA[ClubPalazzo]]></mr26>
   <mr27 AbsoluteURL="~/History/Default.aspx"><![CDATA[History]]></mr27>
   <mr28 AbsoluteURL="~/History/DepositWithdrawal.aspx"><![CDATA[History/DepositWithdrawal]]></mr28>
+	<mr29 AbsoluteURL="~/History/DepositWithdrawalResults.aspx"><![CDATA[HistoryDepositWithdrawalResults]]></mr29>
   <!--
   <mr3><![CDATA[Lottery/]]></mr3>
   <mr4><![CDATA[Games/]]></mr4>

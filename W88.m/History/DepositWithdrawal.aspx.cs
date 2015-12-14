@@ -20,4 +20,13 @@ public partial class History_DepositWithdrawal : System.Web.UI.Page
             lblType.Text = commonCulture.ElementValues.getResourceString("lblType", xeResources);
         }
     }
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        var dateFrom = txtDateFrom.Text + " 00:00";
+        var dateTo = txtDateTo.Text + " 23:59";
+
+        string url = "DepositWithdrawalResults.aspx?dateFrom=" + dateFrom +"&dateTo=" + dateTo + "&status="+ddlStatus.SelectedValue + "&type=" +ddlType.SelectedValue;
+        Response.Redirect(url);
+    }
+
 }
