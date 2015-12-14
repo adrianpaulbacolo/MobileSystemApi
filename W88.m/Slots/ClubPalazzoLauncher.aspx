@@ -16,7 +16,6 @@
             }
 
             console.log(clientUrl);
-            alert("wait");
             document.location = clientUrl;
         }
 
