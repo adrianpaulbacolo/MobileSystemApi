@@ -72,5 +72,5 @@
 
   <lblSecurityAnswer><![CDATA[セキュリティの答え]]></lblSecurityAnswer>
 
-  <btnSubmit><![CDATA[提出]]></btnSubmit>
+  <btnSubmit><![CDATA[転送]]></btnSubmit>
 </updateProfile>

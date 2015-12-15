@@ -49,7 +49,7 @@
                     </li>
                     <li class="item row">
                         <div class="col">
-                            <a href="" role="button" data-rel="back" class="ui-btn btn-bordered">Cancel</a>
+                            <a href="" role="button" data-rel="back" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
                         </div>
                         <div class="col">
                             <asp:Button ID="btnSubmit" runat="server" Text="login" data-corners="false" />

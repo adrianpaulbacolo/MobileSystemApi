@@ -7,5 +7,5 @@
   <lblTransferAmount><![CDATA[転送額]]></lblTransferAmount>
   <lblPromoCode><![CDATA[ボーナスコード]]></lblPromoCode>
   <lblFreebetCode><![CDATA[フリーベットコード]]></lblFreebetCode>
-  <btnSubmit><![CDATA[提出]]></btnSubmit>
+  <btnSubmit><![CDATA[転送]]></btnSubmit>
 </cashier>

@@ -15,28 +15,46 @@
   <contactUs><![CDATA[연락처]]></contactUs>
   <helpCenter><![CDATA[고객 센터]]></helpCenter>
   <language><![CDATA[언어]]></language>
-  <logout><![CDATA[로그 아웃]]></logout>
+  <logout><![CDATA[로그아웃]]></logout>
   <products><![CDATA[상품]]></products>
   <desktopsite><![CDATA[PC버전]]></desktopsite>
-  <joinnow><![CDATA[지금 가입]]></joinnow>
+  <joinnow><![CDATA[회원 가입]]></joinnow>
   <promotions><![CDATA[이벤트]]></promotions>
   <updateProfile><![CDATA[Update Profile]]></updateProfile>
   <fastdeposit><![CDATA[은행송금]]></fastdeposit>
   <banktransfer><![CDATA[은행송금]]></banktransfer>
   <wingmoney><![CDATA[온라인]]></wingmoney>
   <fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
-  <submitUpload><![CDATA[업로드 신청]]></submitUpload>
+  <submitUpload><![CDATA[업로드]]></submitUpload>
   <sports><![CDATA[스포츠]]></sports>
   <livecasino><![CDATA[라이브 카지노]]></livecasino>
-  <slots><![CDATA[슬롯게임]]></slots>
+  <slots><![CDATA[슬롯]]></slots>
   <lottery><![CDATA[복권]]></lottery>
-  <fundmanagement><![CDATA[펀드 매니지먼트]]></fundmanagement>
+  <fundmanagement><![CDATA[머니$]]></fundmanagement>
   <customerservice><![CDATA[Customer Service]]></customerservice>
   <rewards><![CDATA[리워드클럽]]></rewards>
   <sdpay><![CDATA[SDPay]]></sdpay>
   <help2pay><![CDATA[Help2Pay]]></help2pay>
   <withrawal><![CDATA[출금]]></withrawal>-->
-  <fundTransfer><![CDATA[자금 이체]]></fundTransfer>-->
-  <deposit><![CDATA[입금]]></deposit>-->
+  <fundTransfer><![CDATA[잔액 이동]]></fundTransfer>-->
   <poker><![CDATA[포커]]></poker>-->
+
+  <reminder1><![CDATA[W88.com 을 이용하시기 위해서는 ]]></reminder1>
+  <reminder2><![CDATA[회원가입을 해주셔야합니다.]]></reminder2>
+  <cancel><![CDATA[취소]]></cancel>
+  <funds><![CDATA[머니$]]></funds>
+  <profile><![CDATA[프로필]]></profile>
+
+  <mainWallet><![CDATA[메인 지갑]]></mainWallet>
+  <rewardsClub><![CDATA[리워드 클럽]]></rewardsClub>
+  <points><![CDATA[Points]]></points>
+  <submitUpload><![CDATA[업로드]]></submitUpload>
+  <changePassword><![CDATA[CHANGE PASSWORD]]></changePassword>
+  <contactUs><![CDATA[CONTACT US]]></contactUs>
+
+
+  <androidDownload><![CDATA[안드로이드 다운로드]]></androidDownload>
+  <iosDownload><![CDATA[IOS 다운로드]]></iosDownload>
+  
+  
 </menu>

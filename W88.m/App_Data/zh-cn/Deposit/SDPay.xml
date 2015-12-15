@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Deposit>
-  <lblTitle><![CDATA[SDPay]]></lblTitle>
+  <lblTitle><![CDATA[银联]]></lblTitle>
   <lblDepositAmount><![CDATA[存款金额]]></lblDepositAmount>
   <btnSubmit><![CDATA[确认提交存款]]></btnSubmit>
   <lblTransactionId><![CDATA[交易号码]]></lblTransactionId>
