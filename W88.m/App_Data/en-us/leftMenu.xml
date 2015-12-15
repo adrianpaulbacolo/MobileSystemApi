@@ -38,6 +38,12 @@
   <withrawal><![CDATA[Withdrawal]]></withrawal>-->
   <fundTransfer><![CDATA[Fund Transfer]]></fundTransfer>-->
   <neteller><![CDATA[Netteller]]></neteller>
+  <poker><![CDATA[Poker]]></poker>
+  <history><![CDATA[History]]></history>
+  <depositwithdrawal><![CDATA[Deposit / Withdrawal History]]></depositwithdrawal>
+  <fundtransfer><![CDATA[Fund Transfer History]]></fundtransfer>
+  <referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
+  <promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
   <reminder1><![CDATA[You need to be a member of W88.com to login.]]></reminder1>
   <reminder2><![CDATA[Please create your W88 account]]></reminder2>
   <profile><![CDATA[PROFILE]]></profile>

@@ -63,12 +63,12 @@ public partial class Slots_ClubPalazzo: BasePage
                         sbGames.Append("<i class='icon-play_arrow'></i></a>");
                     }
                     
-                    //Fun URL
-                    if (commonCulture.ElementValues.getResourceString("PlayForFun", xeGame) == "true")
-                    {
-                        //sbGames.AppendFormat("<a class='btn-secondary' href='{0}'><i class='icon-fullscreen'></i></a></div>", commonClubBravado.getFunUrl.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
-                        sbGames.AppendFormat("<a class='btn-secondary' href=\"javascript:load_palazzo_link('{0}','{1}','{2}')\"><i class='icon-fullscreen'></i></a></div>", commonCulture.ElementValues.getResourceString("Type", xeGame), commonCulture.ElementValues.getResourceString("ImageName", xeGame), "fun");
-                    }
+                    ////Fun URL
+                    //if (commonCulture.ElementValues.getResourceString("PlayForFun", xeGame) == "true")
+                    //{
+                    //    //sbGames.AppendFormat("<a class='btn-secondary' href='{0}'><i class='icon-fullscreen'></i></a></div>", commonClubBravado.getFunUrl.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
+                    //    sbGames.AppendFormat("<a class='btn-secondary' href=\"javascript:load_palazzo_link('{0}','{1}','{2}')\"><i class='icon-fullscreen'></i></a></div>", commonCulture.ElementValues.getResourceString("Type", xeGame), commonCulture.ElementValues.getResourceString("ImageName", xeGame), "fun");
+                    //}
 
                     sbGames.Append("</li>");
                 }
