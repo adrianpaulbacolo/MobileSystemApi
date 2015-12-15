@@ -82,31 +82,6 @@ public partial class _Index : BasePage
 
         DetectDownloadLinks(DetectMobileDevice());
 
-        
-        HttpCookie myCookie = Request.Cookies["Cookie"];
-
-        try
-        {
-            if (DetectMobileDevice() == 2 && myCookie.Value == "")
-            {
-                Response.Redirect("Download.aspx");
-            }
-            else if (myCookie != null)
-            {
-                if (myCookie.Value == "0")
-                {
-                    HttpCookie Cookie = new HttpCookie("Cookie");
-                    Cookie.Value = "";
-                    Cookie.Expires = DateTime.Now.AddYears(1);
-                    Response.Cookies.Add(Cookie);
-                }
-            }
-        }
-        catch(Exception ex)
-        { Response.Redirect("Download.aspx"); }
-    
-        
-
     }
 
 

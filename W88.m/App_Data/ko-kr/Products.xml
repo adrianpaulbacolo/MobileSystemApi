@@ -16,6 +16,11 @@
       <Label><![CDATA[i-스포츠]]></Label>
       <Description><![CDATA[Sportsbook]]></Description>
     </ISports>
+    <VSports>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[가상 스포츠]]></Label>
+      <Description><![CDATA[v-Sports]]></Description>
+    </VSports>
     <USports>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[u-스포츠]]></Label>
@@ -58,12 +63,12 @@
     </ClubMassimoSlots>
     <ClubMassimoCasino>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[마시모]]></Label>
+      <Label><![CDATA[클럽 마시모]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoCasino>
     <ClubPalazzoSlots>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[팔라쪼]]></Label>
+      <Label><![CDATA[클럽 팔라쪼]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubPalazzoSlots>
     <ClubPalazzoCasino>

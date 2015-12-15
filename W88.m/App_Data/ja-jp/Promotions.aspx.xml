@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
-  <btnSubmit><![CDATA[提出]]></btnSubmit>
+  <btnSubmit><![CDATA[転送]]></btnSubmit>
   <btnCancel><![CDATA[キャンセル]]></btnCancel>
   <lblID><![CDATA[ID]]></lblID>
   <lblComment><![CDATA[コメント]]></lblComment>

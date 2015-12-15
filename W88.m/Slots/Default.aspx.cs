@@ -31,7 +31,7 @@ public partial class Slots_Default : BasePage
                 foreach (System.Xml.Linq.XElement xeGame in xeCategory.Elements())
                 {
                     sbGames.AppendFormat("<li rel='{0}-{1}.jpg' class='bkg-game'><div class='div-links'>", xeCategory.Name, xeGame.Name);
-
+              
                     if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { sbGames.AppendFormat("<a class='btn-primary' target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubCrescendo") + "' data-rel='dialog' data-transition='slidedown'>"); }
                     else { sbGames.AppendFormat("<a href='{0}' target='_blank'>", commonCulture.ElementValues.getResourceString("PlayForRealURL", xeGame).Replace("{SlotsUrl}", commonClubCrescendo.getSlotsUrl).Replace("{token}", commonVariables.CurrentMemberSessionId)); }
 

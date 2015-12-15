@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("submitUpload", commonVariables.LeftMenuXML))%></title>
+    <title><%=commonCulture.ElementValues.getResourceString("submitUpload", commonVariables.LeftMenuXML)%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
@@ -40,7 +40,7 @@
                     </li>
                     <li class="item row">
                         <div class="col">
-                            <a href="" role="button" data-rel="back" class="ui-btn btn-bordered">Cancel</a>
+                            <a href="" role="button" data-rel="back" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
                         </div>
                         <div class="col">
                             <asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="upload" data-corners="false" OnClick="btnSubmit_Click" />

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Deposit>
   <lblTitle><![CDATA[빠른입금]]></lblTitle>
-  <lblDepositAmount><![CDATA[입금금액]]></lblDepositAmount>
-  <lblReferenceId><![CDATA[참고아이디]]></lblReferenceId>
-  <lblSystemAccount><![CDATA[시스템계정]]></lblSystemAccount>
+  <lblDepositAmount><![CDATA[입금 금액]]></lblDepositAmount>
+  <lblReferenceId><![CDATA[참고 아이디]]></lblReferenceId>
+  <lblSystemAccount><![CDATA[W88 계좌]]></lblSystemAccount>
   <drpSystemAccount><![CDATA[시스템계정 선택]]></drpSystemAccount>
   <drpDepositDateTime><![CDATA[입금날짜/시간]]></drpDepositDateTime>
   <lblDepositChannel><![CDATA[입금채널]]></lblDepositChannel>

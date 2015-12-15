@@ -18,7 +18,7 @@
         </header>
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <label class="label">Main Wallet</label>
+                <label class="label"><%=commonCulture.ElementValues.getResourceString("mainWallet", commonVariables.LeftMenuXML)%></label>
                 <h2 class="value"><%=Session["Main"].ToString()%></h2>
                 <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
             </div>
@@ -57,7 +57,7 @@
                     </li>
                     <li class="item row">
                         <div class="col">
-                            <a href="" role="button" data-rel="back" class="ui-btn btn-bordered">Cancel</a>
+                            <a href="" role="button" data-rel="back" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
                         </div>
                         <div class="col">
                             <asp:Button ID="btnSubmit" runat="server" Text="login" OnClick="btnSubmit_Click" />

@@ -2,7 +2,7 @@
 <Deposit>
   <lblTitle><![CDATA[Help2ペイ]]></lblTitle>
   <lblDepositAmount><![CDATA[入金金額]]></lblDepositAmount>
-  <btnSubmit><![CDATA[提出]]></btnSubmit>
+  <btnSubmit><![CDATA[転送]]></btnSubmit>
   <lblDailyLimit><![CDATA[日々制限：]]></lblDailyLimit>
   <lblTotalAllowed><![CDATA[合計許可：]]></lblTotalAllowed>
   <lblMinMaxLimit><![CDATA[最小/最高リミット]]></lblMinMaxLimit>
