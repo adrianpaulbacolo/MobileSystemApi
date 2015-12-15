@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DepositWithdrawalResults.aspx.cs" Inherits="History_DepositWithdrawalResults" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ReferralBonusResults.aspx.cs" Inherits="History_ReferralBonusResults" %>
 
 <!DOCTYPE html>
 
 <html>
 <head>
-    <title><%=commonCulture.ElementValues.getResourceString("depositwithdrawal", commonVariables.LeftMenuXML)%></title>
+    <title><%=commonCulture.ElementValues.getResourceString("referralbonus", commonVariables.LeftMenuXML)%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
     
@@ -25,7 +25,7 @@
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
             </a>
-            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("depositwithdrawal", commonVariables.LeftMenuXML)%></h1>
+            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("referralbonus", commonVariables.LeftMenuXML)%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -36,7 +36,14 @@
                 <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
             </div>
             
+            <div class="row row-no-padding"> <label>Total Invitees: </label><asp:Label ID="lblInvitees" runat="server"></asp:Label> </div>
+                <div class="row row-no-padding"> <label>Total Registered: </label><asp:Label ID="lblRegistered" runat="server"></asp:Label> </div>
+                <div class="row row-no-padding"> <label>Total Successful Referrals: </label><asp:Label ID="lblSuccessfulReferrals" runat="server"></asp:Label> </div>
+                <div class="row row-no-padding"> <label>Total Referral Bonus (RMB)</label><asp:Label ID="lblTotalReferralBonus" runat="server"></asp:Label> </div>
+
             <div class="row row-no-padding">
+                
+                
 
                 <form id="form1" runat="server" >
                     <asp:GridView ID="GridView1" Runat="server" CssClass="gridHistory"
@@ -49,9 +56,6 @@
                             <PagerStyle ForeColor="#dab867" HorizontalAlign="Right" ></PagerStyle>
                             <HeaderStyle ForeColor="#dab867" Font-Bold="True"></HeaderStyle>
                             <Columns>
-                                <%--<asp:BoundField HeaderText="NO" 
-                                  DataField="paymentType" SortExpression="paymentType">
-                                </asp:BoundField>--%>
                                 <asp:TemplateField ItemStyle-Width="10%" HeaderText="#">
                                     <ItemStyle HorizontalAlign="Center" />
                                   <ItemTemplate>
@@ -65,20 +69,8 @@
                                   DataField="invId" SortExpression="invId" ItemStyle-Width="13%" >
                                      <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField HeaderText="PAYMENT METHOD" 
-                                  DataField="methodCode" SortExpression="methodCode" ItemStyle-Width="13%">
-                                     <ItemStyle HorizontalAlign="Center" />
-                                </asp:BoundField>
-                                <asp:BoundField HeaderText="TYPE" 
-                                  DataField="paymentType" SortExpression="paymentType" ItemStyle-Width="10%">
-                                     <ItemStyle HorizontalAlign="Center" />
-                                </asp:BoundField>
-                                <asp:BoundField HeaderText="SUBMITTED AMT" 
+                                <asp:BoundField HeaderText="AMOUNT" 
                                   DataField="requestAmount" SortExpression="requestAmount" ItemStyle-Width="13%">
-                                     <ItemStyle HorizontalAlign="Center" />
-                                </asp:BoundField>
-                                <asp:BoundField HeaderText="RECEIVED AMT" 
-                                  DataField="transAmount" SortExpression="transAmount" ItemStyle-Width="13%">
                                      <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:BoundField HeaderText="STATUS" 

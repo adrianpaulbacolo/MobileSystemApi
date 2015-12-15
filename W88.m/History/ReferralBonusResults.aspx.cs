@@ -7,25 +7,21 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class History_DepositWithdrawalResults : System.Web.UI.Page
+public partial class History_ReferralBonusResults : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         
             if (!string.IsNullOrEmpty(Request["dateFrom"]) && !string.IsNullOrEmpty(Request["dateTo"]) &&
-                !string.IsNullOrEmpty(Request["status"]) && !string.IsNullOrEmpty(Request["type"]) &&
-                !string.IsNullOrEmpty(commonVariables.OperatorId) &&
-                !string.IsNullOrEmpty(commonVariables.GetSessionVariable("MemberCode")))
+               !string.IsNullOrEmpty(commonVariables.GetSessionVariable("MemberId")))
             {
                 //Request Params
                 var dateFrom = DateTime.Parse(Request["dateFrom"].ToString());
                 var dateTo = DateTime.Parse(Request["dateTo"].ToString());
-                var status = Request["status"];
-                var type = int.Parse(Request["type"]);
 
                 //Other Params
-                var strOperatorId = int.Parse(commonVariables.OperatorId);
-                var strMemberCode = commonVariables.GetSessionVariable("MemberCode");
+                var strMemberId = long.Parse(commonVariables.GetSessionVariable("MemberId"));
+                
                 //if((dateTo-dateFrom).TotalDays > 90)
                 //{
                 //    dateTo = dateFrom.AddDays(90);
@@ -34,11 +30,14 @@ public partial class History_DepositWithdrawalResults : System.Web.UI.Page
 
                 try
                 {
-                    using (var svcInstance = new svcPayMember.MemberClient())
+                    using (var svcInstance = new wsMemberMS1.memberWSSoapClient())
                     {
-                        string statusCode;
-                        DataTable history = svcInstance.getDepositWithdrawalHistory(strOperatorId, strMemberCode, type,
-                            status, dateFrom, dateTo, out statusCode);
+                        DataSet history = svcInstance.MemberReferralHistory(strMemberId, dateFrom, dateTo);
+
+                        lblInvitees.Text = history.Tables[0].Rows[0]["totInvitees"].ToString();
+                        lblRegistered.Text = history.Tables[0].Rows[0]["totRegistered"].ToString();
+                        lblSuccessfulReferrals.Text = history.Tables[0].Rows[0]["totSuccessful"].ToString();
+                        lblTotalReferralBonus.Text = history.Tables[0].Rows[0]["totBonus"].ToString();
 
                         GridView1.DataSource = history;
                         GridView1.PagerSettings.Mode = PagerButtons.NextPrevious;

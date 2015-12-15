@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DepositWithdrawalResults.aspx.cs" Inherits="History_DepositWithdrawalResults" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="FundTransferResults.aspx.cs" Inherits="History_FundTransferResults" %>
 
 <!DOCTYPE html>
 
 <html>
 <head>
-    <title><%=commonCulture.ElementValues.getResourceString("depositwithdrawal", commonVariables.LeftMenuXML)%></title>
+    <title><%=commonCulture.ElementValues.getResourceString("fundtransfer", commonVariables.LeftMenuXML)%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
     
@@ -25,7 +25,7 @@
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
             </a>
-            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("depositwithdrawal", commonVariables.LeftMenuXML)%></h1>
+            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("fundtransfer", commonVariables.LeftMenuXML)%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -44,7 +44,7 @@
                             AllowSorting="false"
                             GridLines="None" 
                             CellSpacing="1"  
-                            AllowPaging="True" PageSize="10" OnPageIndexChanging="GridView1_PageIndexChanging">
+                            AllowPaging="True" PageSize="10" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowDataBound="GridView1_RowDataBound1">
                             <FooterStyle ForeColor="#dab867"></FooterStyle>
                             <PagerStyle ForeColor="#dab867" HorizontalAlign="Right" ></PagerStyle>
                             <HeaderStyle ForeColor="#dab867" Font-Bold="True"></HeaderStyle>
@@ -52,37 +52,37 @@
                                 <%--<asp:BoundField HeaderText="NO" 
                                   DataField="paymentType" SortExpression="paymentType">
                                 </asp:BoundField>--%>
-                                <asp:TemplateField ItemStyle-Width="10%" HeaderText="#">
+                                <asp:TemplateField ItemStyle-Width="3%" HeaderText="#">
                                     <ItemStyle HorizontalAlign="Center" />
                                   <ItemTemplate>
                                     <%# Container.DataItemIndex + 1 %>
                                   </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField HeaderText="DATE/TIME" DataField="requestDate" SortExpression="requestDate" ItemStyle-Width="15%">
+                                <asp:BoundField HeaderText="DATE/TIME" DataField="createdDateTime" SortExpression="createdDateTime" ItemStyle-Width="10%">
                                      <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:BoundField HeaderText="REF. NO." 
-                                  DataField="invId" SortExpression="invId" ItemStyle-Width="13%" >
+                                  DataField="transferId" SortExpression="transferId" ItemStyle-Width="10%" >
                                      <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField HeaderText="PAYMENT METHOD" 
-                                  DataField="methodCode" SortExpression="methodCode" ItemStyle-Width="13%">
+                                <asp:BoundField HeaderText="FROM" 
+                                  DataField="transferFromWalletId" SortExpression="transferFromWalletId" ItemStyle-Width="25%">
                                      <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField HeaderText="TYPE" 
-                                  DataField="paymentType" SortExpression="paymentType" ItemStyle-Width="10%">
+                                <asp:BoundField HeaderText="TO" 
+                                  DataField="transferToWalletId" SortExpression="transferToWalletId" ItemStyle-Width="25%">
                                      <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField HeaderText="SUBMITTED AMT" 
-                                  DataField="requestAmount" SortExpression="requestAmount" ItemStyle-Width="13%">
+                                <asp:BoundField HeaderText="SOURCE" 
+                                  DataField="createdBy" SortExpression="createdBy" ItemStyle-Width="9%">
                                      <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField HeaderText="RECEIVED AMT" 
-                                  DataField="transAmount" SortExpression="transAmount" ItemStyle-Width="13%">
+                                <asp:BoundField HeaderText="AMOUNT" 
+                                  DataField="transferAmount" SortExpression="transferAmount" ItemStyle-Width="9%">
                                      <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:BoundField HeaderText="STATUS" 
-                                  DataField="status" SortExpression="status" ItemStyle-Width="13%">
+                                  DataField="transferStatus" SortExpression="transferStatus" ItemStyle-Width="9%">
                                      <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                             </Columns>

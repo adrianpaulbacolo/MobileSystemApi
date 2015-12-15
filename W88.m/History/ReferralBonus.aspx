@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DepositWithdrawal.aspx.cs" Inherits="History_DepositWithdrawal" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ReferralBonus.aspx.cs" Inherits="History_ReferralBonus" %>
 
 <!DOCTYPE html>
 
 <html>
 <head>
-    <title><%=commonCulture.ElementValues.getResourceString("depositwithdrawal", commonVariables.LeftMenuXML)%></title>
+    <title><%=commonCulture.ElementValues.getResourceString("referralbonus", commonVariables.LeftMenuXML)%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
@@ -15,7 +15,7 @@
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
             </a>
-            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("depositwithdrawal", commonVariables.LeftMenuXML)%></h1>
+            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("referralbonus", commonVariables.LeftMenuXML)%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -36,23 +36,6 @@
                     <li class="item item-select">
                         <asp:Label ID="lblDateTo" runat="server" Text="" />
                         <asp:TextBox ID="txtDateTo" type="date" runat="server"></asp:TextBox>
-                    </li>
-                    <li class="item item-select">
-                        <asp:Label ID="lblType" runat="server" AssociatedControlID="ddlType" Text="" />
-                        <asp:DropDownList ID="ddlType" runat="server" data-corners="false" >
-                            <asp:ListItem Text="ALL" Value="0" />
-                            <asp:ListItem Text="DEPOSIT" Value="1" />
-                            <asp:ListItem Text="WITHDRAWAL" Value="2" />
-                        </asp:DropDownList>
-                    </li>
-                    <li class="item item-select">
-                        <asp:Label ID="lblStatus" runat="server" AssociatedControlID="ddlStatus" Text="" />
-                        <asp:DropDownList ID="ddlStatus" runat="server" data-corners="false">
-                             <asp:ListItem Text="ALL" Value="ALL" />
-                            <asp:ListItem Text="SUCCESSFUL" Value="SUCCESSFUL" />
-                            <asp:ListItem Text="PENDING" Value="PENDING" />
-                            <asp:ListItem Text="FAILED" Value="FAILED" />
-                        </asp:DropDownList>
                     </li>
                     <li class="item row">
                         <div class="col">

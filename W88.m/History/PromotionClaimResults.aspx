@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DepositWithdrawalResults.aspx.cs" Inherits="History_DepositWithdrawalResults" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="PromotionClaimResults.aspx.cs" Inherits="History_PromotionClaimResults" %>
 
 <!DOCTYPE html>
 
 <html>
 <head>
-    <title><%=commonCulture.ElementValues.getResourceString("depositwithdrawal", commonVariables.LeftMenuXML)%></title>
+    <title><%=commonCulture.ElementValues.getResourceString("promotionclaim", commonVariables.LeftMenuXML)%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
     
@@ -25,7 +25,7 @@
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
             </a>
-            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("depositwithdrawal", commonVariables.LeftMenuXML)%></h1>
+            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("promotionclaim", commonVariables.LeftMenuXML)%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -58,33 +58,14 @@
                                     <%# Container.DataItemIndex + 1 %>
                                   </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField HeaderText="DATE/TIME" DataField="requestDate" SortExpression="requestDate" ItemStyle-Width="15%">
+                                <asp:BoundField HeaderText="DATE/TIME (GMT+8)" DataField="submissionDate" SortExpression="submissionDate" ItemStyle-Width="15%">
                                      <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField HeaderText="REF. NO." 
-                                  DataField="invId" SortExpression="invId" ItemStyle-Width="13%" >
+                                <asp:BoundField HeaderText="SUBJECT CODE" 
+                                  DataField="subjectCode" SortExpression="subjectCode" ItemStyle-Width="13%" >
                                      <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField HeaderText="PAYMENT METHOD" 
-                                  DataField="methodCode" SortExpression="methodCode" ItemStyle-Width="13%">
-                                     <ItemStyle HorizontalAlign="Center" />
-                                </asp:BoundField>
-                                <asp:BoundField HeaderText="TYPE" 
-                                  DataField="paymentType" SortExpression="paymentType" ItemStyle-Width="10%">
-                                     <ItemStyle HorizontalAlign="Center" />
-                                </asp:BoundField>
-                                <asp:BoundField HeaderText="SUBMITTED AMT" 
-                                  DataField="requestAmount" SortExpression="requestAmount" ItemStyle-Width="13%">
-                                     <ItemStyle HorizontalAlign="Center" />
-                                </asp:BoundField>
-                                <asp:BoundField HeaderText="RECEIVED AMT" 
-                                  DataField="transAmount" SortExpression="transAmount" ItemStyle-Width="13%">
-                                     <ItemStyle HorizontalAlign="Center" />
-                                </asp:BoundField>
-                                <asp:BoundField HeaderText="STATUS" 
-                                  DataField="status" SortExpression="status" ItemStyle-Width="13%">
-                                     <ItemStyle HorizontalAlign="Center" />
-                                </asp:BoundField>
+                                
                             </Columns>
                             <SelectedRowStyle ForeColor="White" Font-Bold="True" 
                                  BackColor="#9471DE"></SelectedRowStyle>

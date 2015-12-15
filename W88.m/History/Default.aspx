@@ -40,21 +40,21 @@
                     </a>
                 </li>
                 <li class="item item-icon-left item-icon-right item-border-btm">
-                    <a href="" data-ajax="false">
+                    <a href="History/FundTransfer.aspx" data-ajax="false">
                         <i class="icon icon-transfer"></i>
                         <h4 class="title">Fund Transfer</h4>
                         <i class="icon ion-ios-arrow-right"></i>
                     </a>
                 </li>
                 <li class="item item-icon-left item-icon-right item-border-btm">
-                    <a href="" data-ajax="false">
+                    <a href="History/ReferralBonus.aspx" data-ajax="false">
                         <i class="icon icon-referral-bonus"></i>
                         <h4 class="title">Referral Bonus</h4>
                         <i class="icon ion-ios-arrow-right"></i>
                     </a>
                 </li>
                 <li class="item item-icon-left item-icon-right item-border-btm">
-                    <a href="" data-ajax="false">
+                    <a href="History/PromotionClaim.aspx" data-ajax="false">
                         <i class="icon icon-promo"></i>
                         <h4 class="title">Promotion Claim</h4>
                         <i class="icon ion-ios-arrow-right"></i>
