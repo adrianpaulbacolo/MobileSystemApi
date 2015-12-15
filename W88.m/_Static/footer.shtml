@@ -27,5 +27,5 @@
     })();
 </script>
 <noscript><p><img src="//d32w03ub2ys01w.cloudfront.net/piwik.php?idsite=7" style="border:0;" alt="" /></p></noscript>
-<script src="Static/JS/lightbox.js"></script>
+<script src="_Static/JS/lightbox.js"></script>
 <!-- End Piwik Code -->
