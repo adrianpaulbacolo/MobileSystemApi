@@ -4,7 +4,7 @@
   <closeMenu><![CDATA[Close Menu]]></closeMenu>
   <home><![CDATA[Home]]></home>
   <login><![CDATA[Login]]></login>
-  <register><![CDATA[注册账号]]></register>
+  <register><![CDATA[Register]]></register>
   <cashier><![CDATA[Cashier]]></cashier>
   <deposit><![CDATA[Deposit]]></deposit>
   <transfer><![CDATA[Transfer]]></transfer>
