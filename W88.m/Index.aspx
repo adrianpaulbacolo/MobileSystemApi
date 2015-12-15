@@ -165,7 +165,7 @@
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
-                <li class="col col-33 product">
+                <li class="col col-33 product">                    
                     <a href="Lottery.aspx" class="tile" data-ajax="false" data-transition="slidedown">
                         <span class="icon-keno"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></h4>
@@ -176,7 +176,7 @@
                 <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
                 <li class="col col-33">
                     <a href="/Profile" class="tile" data-ajax="false" data-transition="slidedown">
-                        <span class="icon-profile"></span>
+                        <span class="icon-profile"> </span>
                         <h4 class="title">
                             <%--<%=commonVariables.GetSessionVariable("MemberCode")%>--%>
                              <%=commonCulture.ElementValues.getResourceString("profile", commonVariables.LeftMenuXML)%>
