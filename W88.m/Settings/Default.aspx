@@ -24,14 +24,14 @@
                 <li class="item item-icon-left item-icon-right item-border-btm">
                     <a href="ChangePassword.aspx" data-ajax="false">
                         <i class="icon icon-password"></i>
-                        <h4 class="title">Change Password</h4>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("changePassword", commonVariables.LeftMenuXML)%></h4>
                         <i class="icon ion-ios-arrow-right"></i>
                     </a>
                 </li>
                 <li class="item item-icon-left item-icon-right item-border-btm">
                     <a href="../ContactUs.aspx" data-ajax="false">
                         <i class="icon icon-phone"></i>
-                        <h4 class="title">Contact Us</h4>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("contactUs", commonVariables.LeftMenuXML)%></h4>
                         <i class="icon ion-ios-arrow-right"></i>
                     </a>
                 </li>

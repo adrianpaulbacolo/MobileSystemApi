@@ -12,7 +12,7 @@
         function launchMobileClient(temptoken) {
 
             if (gametype = "ngm") {
-                var clientUrl = <%=link%>;
+                var clientUrl = <%=link%> + '&lobby=' + location.href.substring(0, location.href.lastIndexOf('.com') + 4) + '/ClubPalazzo' + '&support=' + location.href.substring(0, location.href.lastIndexOf('.com') + 4) + '/LiveChat/Default.aspx' + '&logout=' + location.href.substring(0, location.href.lastIndexOf('.com') + 4) + '/Logout';;
             }
 
             console.log(clientUrl);
@@ -22,7 +22,15 @@
 
         //CALLOUT----------------------------------------------
 
-
+        function calloutLogin(response) {
+            if (response.errorCode) {
+                alert("Login failed. " + response.playerMessage + " Error code: " + response.errorCode);
+            }
+            else {
+                <%=javascriptToken%>
+                iapiSetCallout('GetTemporaryAuthenticationToken', calloutGetTemporaryAuthenticationToken);
+            }
+        }
 
         function calloutGetTemporaryAuthenticationToken(response) {
             if (response.errorCode) {
@@ -35,10 +43,9 @@
 
         $(function () {
             <%=javascriptLogin%>
+            
 
-            <%=javascriptToken%>
 
-            iapiSetCallout('GetTemporaryAuthenticationToken', calloutGetTemporaryAuthenticationToken);
         });
     </script>
 </head>

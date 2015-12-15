@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <register>
   <lblUsername><![CDATA[아이디]]></lblUsername>
-  <lblPassword><![CDATA[비밀번호]]></lblPassword>
+  <lblPassword><![CDATA[비밀 번호]]></lblPassword>
   <lblEmailAddress><![CDATA[이메일 주소]]></lblEmailAddress>
-  <lblContact><![CDATA[연락 전화번호를 입력해 주세요.]]></lblContact>
+  <lblContact><![CDATA[전화 번호]]></lblContact>
   <lblCurrency><![CDATA[통화]]></lblCurrency>
   <drpCurrencySelect><![CDATA[통화 선택]]></drpCurrencySelect>
 
@@ -11,9 +11,9 @@
   <lblFirstName><![CDATA[이름( 성 제외)]]></lblFirstName>
   <lblLastName><![CDATA[성(이름 제외)]]></lblLastName>
   <lblDOB><![CDATA[생년월일]]></lblDOB>
-  <lblAffiliateID><![CDATA[파트너 제휴 아이디]]></lblAffiliateID>
+  <lblAffiliateID><![CDATA[파트너 코드]]></lblAffiliateID>
 
-  <lblCaptcha><![CDATA[코드]]></lblCaptcha>
+  <lblCaptcha><![CDATA[보안 코드]]></lblCaptcha>
   <lblDisclaimer><![CDATA[본인은 W88.com 의 이용약관, 규칙, 개인정보 보호정책에 동의합니다]]></lblDisclaimer>
   <btnSubmit><![CDATA[회원가입]]></btnSubmit>
   <btnCancel><![CDATA[취소]]></btnCancel>

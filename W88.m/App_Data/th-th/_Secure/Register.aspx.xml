@@ -11,7 +11,7 @@
   <lblFirstName><![CDATA[ชื่อ]]></lblFirstName>
   <lblLastName><![CDATA[สกุล]]></lblLastName>
   <lblDOB><![CDATA[วัน เดือน ปี เกิด]]></lblDOB>
-  <lblAffiliateID><![CDATA[Đại Lý ID]]></lblAffiliateID>
+  <lblAffiliateID><![CDATA[พันธมิตร ID]]></lblAffiliateID>
 
   <lblCaptcha><![CDATA[รหัส]]></lblCaptcha>
   <lblDisclaimer><![CDATA[ฉันยอมรับข้อตกลง กฎและเงื่อนไขทั้งหมดของ W88.com]]></lblDisclaimer>

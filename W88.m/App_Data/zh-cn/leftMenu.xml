@@ -3,7 +3,7 @@
   <brand><![CDATA[优德 W88.com - ]]></brand>
   <closeMenu><![CDATA[关闭菜单]]></closeMenu>
   <home><![CDATA[主页]]></home>
-  <login><![CDATA[登录]]></login>
+  <login><![CDATA[登陆]]></login>
   <register><![CDATA[加入]]></register>
   <cashier><![CDATA[出纳台]]></cashier>
   <deposit><![CDATA[存款]]></deposit>
@@ -14,22 +14,20 @@
   <liveHelp><![CDATA[在线客服]]></liveHelp>
   <contactUs><![CDATA[联系我们]]></contactUs>
   <helpCenter><![CDATA[帮助中心]]></helpCenter>
-  <language><![CDATA[语言选择]]></language>
+  <language><![CDATA[语言]]></language>
   <logout><![CDATA[登出]]></logout>
   <products><![CDATA[产品]]></products>
   <desktopsite><![CDATA[桌面版网站]]></desktopsite>
-  <joinnow><![CDATA[立即加入]]></joinnow>
+  <joinnow><![CDATA[注册账号]]></joinnow>
   <promotions><![CDATA[优惠]]></promotions>
   <updateProfile><![CDATA[Update Profile]]></updateProfile>
   <fastdeposit><![CDATA[银行汇款]]></fastdeposit>
   <banktransfer><![CDATA[银行汇款]]></banktransfer>
   <wingmoney><![CDATA[Wing Money]]></wingmoney>
   <fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
-  <submitUpload><![CDATA[提交上传]]></submitUpload>
   <sports><![CDATA[体育]]></sports>
   <livecasino><![CDATA[真人娱乐城]]></livecasino>
   <slots><![CDATA[老虎机]]></slots>
-  <lottery><![CDATA[乐透]]></lottery>
   <fundmanagement><![CDATA[资金管理]]></fundmanagement>
   <customerservice><![CDATA[顾客服务]]></customerservice>
   <rewards><![CDATA[奖励俱乐部]]></rewards>
@@ -37,6 +35,33 @@
   <help2pay><![CDATA[Help2Pay]]></help2pay>
   <withrawal><![CDATA[提款]]></withrawal>-->
   <fundTransfer><![CDATA[转账]]></fundTransfer>-->
-  <deposit><![CDATA[存款]]></deposit>-->
-  <poker><![CDATA[扑克]]></poker>-->
+  <cancel><![CDATA[取消]]></cancel>
+
+  <virtual><![CDATA[虚拟体育]]></virtual>
+  <basketball><![CDATA[篮球]]></basketball>
+  <dogRacing><![CDATA[赛狗]]></dogRacing>
+  <football><![CDATA[足球]]></football>
+  <horseRacing><![CDATA[赛马]]></horseRacing>
+  <tennis><![CDATA[网球]]></tennis>
+
+
+  <mainWallet><![CDATA[中心钱包]]></mainWallet>
+  <rewardsClub><![CDATA[奖励积分]]></rewardsClub>
+  <points><![CDATA[积分个数]]></points>
+  <submitUpload><![CDATA[上传]]></submitUpload>
+  <changePassword><![CDATA[更改密码]]></changePassword>
+  <profile><![CDATA[个人资料]]></profile>
+
+  <funds><![CDATA[资金管理]]></funds>
+  <aSports><![CDATA[东方体育]]></aSports>
+  <eSports><![CDATA[西方体育]]></eSports>
+  <wSports><![CDATA[优德体育]]></wSports>
+  <lottery><![CDATA[乐透]]></lottery>
+  <nuovo><![CDATA[金蟾]]></nuovo>
+  <clubPalazo><![CDATA[金殿PT]]></clubPalazo>
+  <poker><![CDATA[扑克]]></poker>
+  <fundFooter><![CDATA[*优德俱乐部(真人+其他老虎机俱乐部)]]></fundFooter>
+  <androidDownload><![CDATA[安卓下载版]]></androidDownload>
+  <iosDownload><![CDATA[苹果下载版]]></iosDownload>
+  
 </menu>

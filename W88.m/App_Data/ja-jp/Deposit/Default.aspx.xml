@@ -14,7 +14,7 @@
   <drpOtherBank><![CDATA[その他銀行]]></drpOtherBank>
   <lblAccountName><![CDATA[お客様アカウント名]]></lblAccountName>
   <lblAccountNumber><![CDATA[お客様アカウント番号]]></lblAccountNumber>
-  <btnSubmit><![CDATA[提出]]></btnSubmit>
+  <btnSubmit><![CDATA[転送]]></btnSubmit>
   <lblTransactionId><![CDATA[トランザクションID]]></lblTransactionId>
   <lblDailyLimit><![CDATA[日々制限：]]></lblDailyLimit>
   <lblTotalAllowed><![CDATA[合計許可：]]></lblTotalAllowed>

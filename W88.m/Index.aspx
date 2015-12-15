@@ -137,16 +137,49 @@
             </div>
         <% } %>
 
+
             <ul class="row row-bordered bg-gradient">
+
+                <li class="col col-33 product">
+                    <a href="Sports.aspx" class="tile" data-ajax="false" data-transition="slidedown">
+                        <span class="icon-sports"></span>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("sports", commonVariables.LeftMenuXML)%></h4>
+                    </a>
+                </li>
+                <li class="col col-33 product">
+                    <a href="Casino.aspx" class="tile" data-ajax="false" data-transition="slidedown">
+                        <span class="icon-casino"></span>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%></h4>
+                    </a>
+                </li>
+                <li class="col col-33 product">
+                    <a href="#divPanel" class="tile nav-poker">
+                        <span class="icon-spade"></span>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("poker", commonVariables.LeftMenuXML)%></h4>
+                    </a>
+                </li>
+                <li class="col col-33 product">
+                    <%--<a href="#divPanel" class="tile nav-slots">--%>
+                    <a href="Slots.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>" class="tile" data-ajax="false" data-transition="slidedown">
+                        <span class="icon-slots"></span>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></h4>
+                    </a>
+                </li>
+                <li class="col col-33 product">                    
+                    <a href="Lottery.aspx" class="tile" data-ajax="false" data-transition="slidedown">
+                        <span class="icon-keno"></span>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></h4>
+                    </a>
+                </li>
 
                 <!-- Profile -->
                 <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
                 <li class="col col-33">
                     <a href="/Profile" class="tile" data-ajax="false" data-transition="slidedown">
-                        <span class="icon-profile"></span>
+                        <span class="icon-profile"> </span>
                         <h4 class="title">
                             <%--<%=commonVariables.GetSessionVariable("MemberCode")%>--%>
-                            Profile
+                             <%=commonCulture.ElementValues.getResourceString("profile", commonVariables.LeftMenuXML)%>
                         </h4>
                     </a>
                 </li>
@@ -158,7 +191,7 @@
                 <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
                 <li class="col col-33">
                     <a href="Funds.aspx" class="tile" data-ajax="false" data-transition="slidedown">
-                        <span class="icon-wallet"></span>
+                        <span class="icon- ion-social-usd-outline"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
@@ -168,37 +201,6 @@
                     <a href="/Promotions" data-ajax="false" class="tile">
                         <span class="icon-promo"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("promotions", commonVariables.LeftMenuXML)%></h4>
-                    </a>
-                </li>
-                <li class="col col-33">
-                    <a href="Sports.aspx" class="tile" data-ajax="false" data-transition="slidedown">
-                        <span class="icon-sports"></span>
-                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("sports", commonVariables.LeftMenuXML)%></h4>
-                    </a>
-                </li>
-                <li class="col col-33">
-                    <a href="Casino.aspx" class="tile" data-ajax="false" data-transition="slidedown">
-                        <span class="icon-casino"></span>
-                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%></h4>
-                    </a>
-                </li>
-                <li class="col col-33">
-                    <a href="#divPanel" class="tile nav-poker">
-                        <span class="icon-spade"></span>
-                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("poker", commonVariables.LeftMenuXML)%></h4>
-                    </a>
-                </li>
-                <li class="col col-33">
-                    <%--<a href="#divPanel" class="tile nav-slots">--%>
-                    <a href="Slots.aspx" class="tile" data-ajax="false" data-transition="slidedown">
-                        <span class="icon-slots"></span>
-                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></h4>
-                    </a>
-                </li>
-                <li class="col col-33">
-                    <a href="Lottery.aspx" class="tile" data-ajax="false" data-transition="slidedown">
-                        <span class="icon-keno"></span>
-                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
                 <%--<li class="col col-33">
@@ -216,7 +218,6 @@
                     </a>
                 </li>--%>
 
-
                 <%if(DetectMobileDevice() == 2){%>
                 <li class="col col-33">
                     <a href="/_Static/ClubW/casino.aspx" id="downloadButton" runat="server" class="tile notify" data-ajax="false">
@@ -229,19 +230,18 @@
                 <li class="col col-33">
                     <a href="/Lang.aspx" class="tile" role="button" data-transition="slideup">
                         <span class="icon- ion-ios-world-outline"></span>
-                        <h4 class="title">Language</h4>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("language", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
                 <li class="col col-33">
                     <a href="/LiveChat/Default.aspx" class="tile" role="button" runat="server" data-ajax="false" target="_blank">
                         <span class="icon-chat"></span>
-                        <h4 class="title">Live Chat</h4>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
-
             </ul>
 
-            <ul class="hide">
+            <!-- <ul class="hide">
                 <li class="li-pokerIOS" runat="server" id ="pokerIOS_link">
                     <a rel="PokerIOS" href="#" data-ajax="false" target="_blank" runat="server" id ="pokerIOS">
                         <div><%=commonCulture.ElementValues.getResourceXPathString("Products/Poker/Label", commonVariables.ProductsXML)%></div>
@@ -252,7 +252,29 @@
                         <div><%=commonCulture.ElementValues.getResourceXPathString("Products/Poker/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
-            </ul>
+            </ul> -->
+
+           <%if(DetectMobileDevice() == 2 && string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)){%>
+                <div class="download-app">
+                    <div class="row">
+                        <div class="col col-25 download-icon">
+                            <span class="ion-social-android"></span>
+                        </div>
+                        <div class="col col-75 download-summary">
+                            <h5 class="title">W88 Android Download</h5>
+                            <p>Sports, Live Casino, Slots in 1 App</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a href="#" role="button" data-rel="back" class="ui-btn btn-bordered">No Thanks</a>
+                        </div>
+                        <div class="col">
+                            <a href="//casino.w88bet.com/mob/app-prod-release-1.4.3.apk" class="ui-btn btn-primary">Download Now</a>
+                        </div>
+                    </div>
+                </div>
+            <%}%>
 
         </div>
 

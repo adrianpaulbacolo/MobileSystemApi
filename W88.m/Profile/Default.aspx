@@ -16,7 +16,7 @@
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
             </a>
-            <h1 class="title">Profile</h1>
+            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("profile", commonVariables.LeftMenuXML)%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -24,16 +24,16 @@
             <div class="row row-no-padding">
                 <div class="col">
                     <div class="wallet main-wallet">
-                        <label class="label">Main Wallet</label>
+                        <label class="label"><%=commonCulture.ElementValues.getResourceString("mainWallet", commonVariables.LeftMenuXML)%></label>
                         <h2 class="value"><%=Session["Main"].ToString()%></h2>
                         <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
                     </div>
                 </div>
                 <div class="col">
                     <div class="wallet main-wallet rewards">
-                        <label class="label">Rewards Club</label>
+                        <label class="label"><%=commonCulture.ElementValues.getResourceString("rewardsClub", commonVariables.LeftMenuXML)%></label>
                         <h2 class="value"><%=getCurrentPoints().ToString() %></h2>
-                        <small class="currency">Points</small>
+                        <small class="currency"><%=commonCulture.ElementValues.getResourceString("points", commonVariables.LeftMenuXML)%></small>
                     </div>
                 </div>
             </div>
@@ -48,13 +48,13 @@
                 <li class="col col-33">
                     <a href="/LiveChat/Default.aspx" class="tile" runat="server" data-ajax="false">
                         <span class="icon-chat"></span>
-                        <h4 class="title">Live Chat</h4>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
                 <li class="col col-33">
                     <a href="/Upload/Default.aspx" class="tile" data-ajax="false">
                         <span class="icon-submit"></span>
-                        <h4 class="title">Submit/Upload</h4>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("submitUpload", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
                 <%--<li class="col col-33">
@@ -66,13 +66,13 @@
                 <li class="col col-33">
                     <a href="../Settings/ChangePassword.aspx" class="tile" runat="server" data-ajax="false">
                         <span class="icon-password"></span>
-                        <h4 class="title">Change Password</h4>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("changePassword", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
                 <li class="col col-33">
-                    <a href="../ContacyUs.aspx" class="tile" runat="server" data-ajax="false">
+                    <a href="../ContactUs.aspx" class="tile" runat="server" data-ajax="false">
                         <span class="icon-phone"></span>
-                        <h4 class="title">Contact Us</h4>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("contactUs", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
             </ul>

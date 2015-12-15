@@ -15,7 +15,7 @@
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
             </a>
-            <h1 class="title">Change Password</h1>
+            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("changePassword", commonVariables.LeftMenuXML)%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -40,7 +40,7 @@
 
                     <li class="item row">
                         <div class="col">
-                            <a href="/Index" id="btnCancel" class="ui-btn btn-bordered" text="cancel" data-corners="false" data-ajax="false">Cancel</a>
+                            <a href="/Index" id="btnCancel" class="ui-btn btn-bordered" text="cancel" data-corners="false" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
                         </div>
                         <div class="col">
                             <asp:Button  ID="btnSubmit" name="btnSubmit" runat="server" Text="Submit"  OnClick="btnSubmit_Click" />

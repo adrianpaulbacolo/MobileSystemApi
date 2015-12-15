@@ -177,6 +177,14 @@
     overflow: hidden;
   }
 }
+.product {
+  background-color: darken($primary-color, 34%);
+  a,
+  [class^="icon-"],
+  [class*=" icon-"] {
+    color: hsl(0, 0%, 80%);
+  }
+}
 
 // Tiles (odd-even colors)
 // --------------------------------------------------

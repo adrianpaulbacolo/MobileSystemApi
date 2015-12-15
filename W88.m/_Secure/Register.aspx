@@ -22,8 +22,8 @@
             <form class="form" id="form1" runat="server" data-ajax="false">
                 <ul class="list fixed-tablet-size">
                     <li class="item item-text-wrap text-center">
-                        You need to be a member of W88.com to login. <br>
-                        Please create your W88 account.
+                        <%=commonCulture.ElementValues.getResourceString("reminder1", commonVariables.LeftMenuXML)%><br>
+                        <%=commonCulture.ElementValues.getResourceString("reminder2", commonVariables.LeftMenuXML)%>
                     </li>
                     <li class="item item-icon-left item-input" data-mini="true" >
                         <i class="icon icon-profile"></i>
@@ -187,7 +187,7 @@
                             break;
                         case '1':
                             alert('<%=strAlertMessage%>');
-                            window.location.replace('/Index.aspx');
+                            window.location.replace('/Index.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
                             break;
                         default:
                             break;

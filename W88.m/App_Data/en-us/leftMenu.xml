@@ -4,7 +4,7 @@
   <closeMenu><![CDATA[Close Menu]]></closeMenu>
   <home><![CDATA[Home]]></home>
   <login><![CDATA[Login]]></login>
-  <register><![CDATA[Registration]]></register>
+  <register><![CDATA[Register]]></register>
   <cashier><![CDATA[Cashier]]></cashier>
   <deposit><![CDATA[Deposit]]></deposit>
   <transfer><![CDATA[Transfer]]></transfer>
@@ -12,7 +12,6 @@
   <freebets><![CDATA[Freebet]]></freebets>
   <misc><![CDATA[Misc]]></misc>
   <liveHelp><![CDATA[Live Chat]]></liveHelp>
-  <contactUs><![CDATA[Contact Us]]></contactUs>
   <helpCenter><![CDATA[Help Center]]></helpCenter>
   <language><![CDATA[Language]]></language>
   <logout><![CDATA[Logout]]></logout>
@@ -25,11 +24,9 @@
   <banktransfer><![CDATA[Bank Transfer]]></banktransfer>
   <wingmoney><![CDATA[Wing Money]]></wingmoney>
   <fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
-  <submitUpload><![CDATA[Submit Upload]]></submitUpload>
   <sports><![CDATA[Sports]]></sports>
   <livecasino><![CDATA[Live Casino]]></livecasino>
   <slots><![CDATA[Slots]]></slots>
-  <lottery><![CDATA[Lottery]]></lottery>
   <fundmanagement><![CDATA[Funds]]></fundmanagement>
   <customerservice><![CDATA[Customer Service]]></customerservice>
   <rewards><![CDATA[Rewards]]></rewards>
@@ -47,4 +44,37 @@
   <fundtransfer><![CDATA[Fund Transfer History]]></fundtransfer>
   <referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
   <promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
+  <reminder1><![CDATA[You need to be a member of W88.com to login.]]></reminder1>
+  <reminder2><![CDATA[Please create your W88 account]]></reminder2>
+  <profile><![CDATA[PROFILE]]></profile>
+  <cancel><![CDATA[CANCEL]]></cancel>
+
+  <mainWallet><![CDATA[MAIN WALLET]]></mainWallet>
+  <rewardsClub><![CDATA[REWARDS CLUB]]></rewardsClub>
+  <points><![CDATA[Points]]></points>
+  <submitUpload><![CDATA[SUBMIT/UPLOAD]]></submitUpload>
+  <changePassword><![CDATA[CHANGE PASSWORD]]></changePassword>
+  <contactUs><![CDATA[CONTACT US]]></contactUs>
+
+  <funds><![CDATA[Funds]]></funds>
+  <aSports><![CDATA[A-SPORTS]]></aSports>
+  <eSports><![CDATA[E-SPORTS]]></eSports>
+  <wSports><![CDATA[W-SPORTS]]></wSports>
+  <lottery><![CDATA[LOTTERY]]></lottery>
+  <liveCasino><![CDATA[*LIVE CASINO]]></liveCasino>
+  <nuovo><![CDATA[NUOVO]]></nuovo>
+  <clubPalazo><![CDATA[CLUB PALAZO]]></clubPalazo>
+  <poker><![CDATA[POKER]]></poker>
+  <fundFooter><![CDATA[*Club W, Bravado, Apollo, Crescendo, Divino & Massimo]]></fundFooter>
+  <androidDownload><![CDATA[ANDROID DOWNLOAD]]></androidDownload>
+  <iosDownload><![CDATA[IOS DOWNLOAD]]></iosDownload>
+
+  <virtual><![CDATA[Virtual]]></virtual>
+  <basketball><![CDATA[Basketball]]></basketball>
+  <dogRacing><![CDATA[Dog Racing]]></dogRacing>
+  <football><![CDATA[Football]]></football>
+  <horseRacing><![CDATA[Horse Racing]]></horseRacing>
+  <tennis><![CDATA[Tennis]]></tennis>
+  
+  
 </menu>

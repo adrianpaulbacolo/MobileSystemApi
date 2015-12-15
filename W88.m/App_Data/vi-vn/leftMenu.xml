@@ -11,10 +11,10 @@
   <withdrawal><![CDATA[Rút Tiền]]></withdrawal>
   <freebets><![CDATA[Tiền Thưởng Miễn Phí]]></freebets>
   <misc><![CDATA[Khác]]></misc>
-  <liveHelp><![CDATA[Chat Online]]></liveHelp>
+  <liveHelp><![CDATA[Hỗ trợ trực tuyến]]></liveHelp>
   <contactUs><![CDATA[Liên Hệ Với Chúng Tôi]]></contactUs>
   <helpCenter><![CDATA[Trung Tâm Hỗ Trợ]]></helpCenter>
-  <language><![CDATA[Ngôn Ngữ]]></language>
+  <language><![CDATA[Ngôn ngữ]]></language>
   <logout><![CDATA[Thoát Khỏi]]></logout>
   <products><![CDATA[Sản phẩm]]></products>
   <desktopsite><![CDATA[Trang dành cho máy tính]]></desktopsite>
@@ -29,7 +29,6 @@
   <sports><![CDATA[Thể thao]]></sports>
   <livecasino><![CDATA[Casino Trực Tuyến]]></livecasino>
   <slots><![CDATA[Slot]]></slots>
-  <lottery><![CDATA[Xổ Số]]></lottery>
   <fundmanagement><![CDATA[Quản Lý Quỹ]]></fundmanagement>
   <customerservice><![CDATA[Customer Service]]></customerservice>
   <rewards><![CDATA[Câu Lạc Bộ Điểm Thưởng]]></rewards>
@@ -38,5 +37,32 @@
   <withrawal><![CDATA[Rút Tiền]]></withrawal>-->
   <fundTransfer><![CDATA[Chuyển Quỹ]]></fundTransfer>-->
   <deposit><![CDATA[Gửi Tiền]]></deposit>-->
-  <poker><![CDATA[POKER]]></poker>-->
+  <cancel><![CDATA[Hủy]]></cancel>
+  
+  <virtual><![CDATA[Thể Thao ảo]]></virtual>
+  <basketball><![CDATA[Bóng rổ]]></basketball>
+  <dogRacing><![CDATA[Đua chó]]></dogRacing>
+  <football><![CDATA[Bóng đá]]></football>
+  <horseRacing><![CDATA[Đua ngựa]]></horseRacing>
+  <tennis><![CDATA[Quần vợt]]></tennis>
+
+
+  <mainWallet><![CDATA[Tài khoản chính]]></mainWallet>
+  <funds><![CDATA[Quỹ]]></funds>
+  <aSports><![CDATA[a- Thể Thao]]></aSports>
+  <eSports><![CDATA[e- Thể Thao]]></eSports>
+  <wSports><![CDATA[W- Thể Thao]]></wSports>
+  <lottery><![CDATA[Xổ số]]></lottery>
+  <nuovo><![CDATA[NUOVO]]></nuovo>
+  <clubPalazo><![CDATA[CLUB PALAZO]]></clubPalazo>
+  <poker><![CDATA[POKER]]></poker>
+  <fundFooter><![CDATA[*Club W, Bravado, Apollo, Crescendo, Divino & Massimo]]></fundFooter>
+  <androidDownload><![CDATA[ANDROID DOWNLOAD]]></androidDownload>
+  <iosDownload><![CDATA[TẢI ANDROID]]></iosDownload>
+
+
+  <rewardsClub><![CDATA[Điểm thưởng]]></rewardsClub>
+  <points><![CDATA[Points]]></points>
+  <changePassword><![CDATA[CHANGE PASSWORD]]></changePassword>
+  <profile><![CDATA[Thông tin cá nhân]]></profile>
 </menu>

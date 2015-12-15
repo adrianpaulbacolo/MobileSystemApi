@@ -15,13 +15,13 @@
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
             </a>
-            <h1 class="title">Funds</h1>
+            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("funds", commonVariables.LeftMenuXML)%></h1>
         </header>
 
         <div class="ui-content" role="main" id="funds">
 
             <div class="wallet main-wallet">
-                <label class="label">Main Wallet</label>
+                <label class="label"><%=commonCulture.ElementValues.getResourceString("mainWallet", commonVariables.LeftMenuXML)%></label>
                 <h2 class="value"><%=Session["Main"].ToString()%></h2>
                 <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
                 <a
@@ -58,7 +58,7 @@
                     <li class="col col-50">
                         <asp:LinkButton ID="aSportsBtn" runat="server" OnClick="aSportsBtn_Click">
                         <div class="wallet">
-                            <label class="label">a-Sports</label>
+                            <label class="label"><%=commonCulture.ElementValues.getResourceString("aSports", commonVariables.LeftMenuXML)%></label>
                             <h4 class="value"><%=Session["ASPORTS"].ToString()%></h4>
                             <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
                         </div>
@@ -67,7 +67,7 @@
                     <li class="col col-50">
                         <asp:LinkButton ID="eSportsBtn" runat="server" OnClick="eSportsBtn_Click">
                         <div class="wallet">
-                            <label class="label">e-Sports</label>
+                            <label class="label"><%=commonCulture.ElementValues.getResourceString("eSports", commonVariables.LeftMenuXML)%></label>
                             <h4 class="value"><%=Session["SBTECH"].ToString()%></h4>
                             <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
                         </div>
@@ -76,7 +76,7 @@
                     <li class="col col-50">
                         <asp:LinkButton ID="wSportsBtn" runat="server" OnClick="wSportsBtn_Click">
                         <div class="wallet">
-                            <label class="label">w-Sports</label>
+                            <label class="label"><%=commonCulture.ElementValues.getResourceString("wSports", commonVariables.LeftMenuXML)%></label>
                             <h4 class="value"><%=Session["SBO"].ToString()%></h4>
                             <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
                         </div>
@@ -85,7 +85,7 @@
                     <li class="col col-50">
                         <asp:LinkButton ID="lotteryBtn" runat="server" OnClick="lotteryBtn_Click">
                         <div class="wallet">
-                            <label class="label">Lottery</label>
+                            <label class="label"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></label>
                             <h4 class="value"><%=Session["LOTTERY"].ToString()%></h4>
                             <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
                         </div>
@@ -94,7 +94,7 @@
                     <li class="col col-50">
                         <asp:LinkButton ID="casinoBtn" runat="server" OnClick="casinoBtn_Click">
                         <div class="wallet">
-                            <label class="label">*Live Casino</label>
+                            <label class="label"><%=commonCulture.ElementValues.getResourceString("liveCasino", commonVariables.LeftMenuXML)%></label>
                             <h4 class="value"><%=Session["CASINO"].ToString()%></h4>
                             <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
                         </div>
@@ -103,7 +103,7 @@
                     <li class="col col-50">
                         <asp:LinkButton ID="nuovoBtn" runat="server" OnClick="nuovoBtn_Click">
                         <div class="wallet">
-                            <label class="label">Nuovo</label>
+                            <label class="label"><%=commonCulture.ElementValues.getResourceString("nuovo", commonVariables.LeftMenuXML)%></label>
                             <h4 class="value"><%=Session["NETENT"].ToString()%></h4>
                             <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
                         </div>
@@ -112,7 +112,7 @@
                     <li class="col col-50">
                         <asp:LinkButton ID="clubPalazzoBtn" runat="server" OnClick="clubPalazzoBtn_Click">
                         <div class="wallet">
-                            <label class="label">Club Palazzo</label>
+                            <label class="label"><%=commonCulture.ElementValues.getResourceString("clubPalazo", commonVariables.LeftMenuXML)%></label>
                             <h4 class="value"><%=Session["CASINO"].ToString()%></h4>
                             <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
                         </div>
@@ -121,7 +121,7 @@
                     <li class="col col-50">
                         <asp:LinkButton ID="pokerBtn" runat="server" OnClick="pokerBtn_Click">
                         <div class="wallet">
-                            <label class="label">Poker</label>
+                            <label class="label"><%=commonCulture.ElementValues.getResourceString("poker", commonVariables.LeftMenuXML)%></label>
                             <h4 class="value"><%=Session["POKER"].ToString()%></h4>
                             <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
                         </div>
@@ -131,7 +131,7 @@
             </form>
             <br>
             <p class="note text-center">
-                <small>*Cub W, Bravado, Apollo, Crescendo, Divino & Massimo</small>
+                <small><%=commonCulture.ElementValues.getResourceString("fundFooter", commonVariables.LeftMenuXML)%></small>
             </p>
         </div>
 

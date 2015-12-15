@@ -14,6 +14,11 @@
       <Label><![CDATA[e-スポーツ]]></Label>
       <Description><![CDATA[スポーツブック]]></Description>
     </ESports>
+    <VSports>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[Virtual]]></Label>
+      <Description><![CDATA[v-Sports]]></Description>
+    </VSports>
     <ISports>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[i-スポーツ]]></Label>

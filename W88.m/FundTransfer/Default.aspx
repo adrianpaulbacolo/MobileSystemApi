@@ -18,7 +18,7 @@
         </header>
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <label class="label">Main Wallet</label>
+                <label class="label"><%=commonCulture.ElementValues.getResourceString("mainWallet", commonVariables.LeftMenuXML)%></label>
                 <h2 class="value"><%=Session["Main"].ToString()%></h2>
                 <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
             </div>
@@ -27,11 +27,12 @@
                 <ul class="list fixed-tablet-size">
                     <li class="item" runat="server" id="divBalance" data-role="collapsible">
                     </li>
-                    
-
                     <li class="item item-select">
                         <asp:Label ID="lblTransferFrom" runat="server" AssociatedControlID="drpTransferFrom" Text="from" />
                         <asp:DropDownList ID="drpTransferFrom" runat="server" data-corners="false" />
+                    </li>
+                    <li class="btn-swap ion-arrow-swap">
+                        <asp:Button ID="btnSwap" runat="server" Text="Swap Wallets" OnClick="btnSwap_Click"  />
                     </li>
                     <%--<div><a href="javascript:void(0)" onclick="javascript:switchWallets();">switch</a></div>--%>
                     <li class="item item-select">
@@ -54,14 +55,9 @@
                     <li class="item item-input">
                         <span id="litPromoDetails" />
                     </li>
-                    <li>
-                        <div class="col">
-                            <asp:Button ID="btnSwap" runat="server" Text="Swap Wallets" OnClick="btnSwap_Click"  />
-                        </div>
-                    </li>
                     <li class="item row">
                         <div class="col">
-                            <a href="" role="button" data-rel="back" class="ui-btn btn-bordered">Cancel</a>
+                            <a href="" role="button" data-rel="back" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
                         </div>
                         <div class="col">
                             <asp:Button ID="btnSubmit" runat="server" Text="login" OnClick="btnSubmit_Click" />

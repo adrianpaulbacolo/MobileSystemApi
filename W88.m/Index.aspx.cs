@@ -80,9 +80,8 @@ public partial class _Index : BasePage
 
         if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("AffiliateId"))) { commonVariables.SetSessionVariable("AffiliateId", HttpContext.Current.Request.QueryString.Get("AffiliateId")); }
 
-        DetectDownloadLinks(DetectMobileDevice());
+        DetectDownloadLinks(DetectMobileDevice()); 
 
-       
     }
 
 
@@ -452,4 +451,8 @@ public partial class _Index : BasePage
         }
     }
 
+    protected void LinkButton1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Casino.aspx");
+    }
 }

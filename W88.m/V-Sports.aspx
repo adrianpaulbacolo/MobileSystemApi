@@ -15,7 +15,7 @@
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
             </a>
-            <h1 class="title">Virtual</h1>
+            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("virtual", commonVariables.LeftMenuXML)%></h1>
         </header>
 
         <div class="ui-content" role="main" id="sports">
@@ -24,31 +24,31 @@
                 <li class="col col-33">
                     <a href="/_Secure/Login.aspx" class="card" data-rel="sports" rel="vsportsBasketball">
                         <img src="/_Static/Images/bnr-vSPORTS-basketball.jpg" class="img-responsive">
-                        <div class="title">Basketball</div>
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("basketball", commonVariables.LeftMenuXML)%></div>
                     </a>
                 </li>
                 <li class="col col-33">
                     <a href="/_Secure/Login.aspx" class="card" data-rel="sports" rel="vsportsDogRacing">
                         <img src="_Static/Images/bnr-vSPORTS-dogracing.jpg" alt="a-Sports" class="img-responsive">
-                        <div class="title">Dog Racing</div>
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("dogRacing", commonVariables.LeftMenuXML)%></div>
                     </a>
                 </li>
                 <li class="col col-33">
                     <a href="/_Secure/Login.aspx" class="card" data-rel="sports" rel="vsportsFootBall">
                         <img src="_Static/Images/bnr-vSPORTS-football.jpg" alt="a-Sports" class="img-responsive">
-                        <div class="title">Football</div>
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("football", commonVariables.LeftMenuXML)%></div>
                     </a>
                 </li>
                 <li class="col col-33">
                     <a href="/_Secure/Login.aspx" class="card" data-rel="sports" rel="vsportsHorseRacing">
                         <img src="_Static/Images/bnr-vSPORTS-horseracing.jpg" alt="a-Sports" class="img-responsive">
-                        <div class="title">Horse Racing</div>
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("horseRacing", commonVariables.LeftMenuXML)%></div>
                     </a>
                 </li>
                <li class="col col-33">
                     <a href="/_Secure/Login.aspx" class="card" data-rel="sports" rel="vsportsTennis">
                         <img src="_Static/Images/bnr-vSPORTS-tennis.jpg" alt="a-Sports" class="img-responsive">
-                        <div class="title">Tennis</div>
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("tennis", commonVariables.LeftMenuXML)%></div>
                     </a>
                 </li>
             </ul>
