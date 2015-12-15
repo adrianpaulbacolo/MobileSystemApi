@@ -32,8 +32,8 @@ public partial class LiveChat_Default : System.Web.UI.Page
                     string value = commonVariables.GetSessionVariable("priorityVIP");
                     string CurrentUrl = System.Web.HttpContext.Current.Request.Url.ToString();
 
-                    //Uri myUri = new Uri(CurrentUrl);
-                    Uri myUri = new Uri("http://m.w88vv.asia/");
+                    Uri myUri = new Uri(CurrentUrl);
+                    //Uri myUri = new Uri("http://m.w88vv.asia/");
                     string [] host = myUri.Host.Split('.');
                     string domain = string.Format(ConfigurationManager.AppSettings["WebHandler2"], host[1],host[2]);
 
