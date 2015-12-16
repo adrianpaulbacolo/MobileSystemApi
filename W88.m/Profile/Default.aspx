@@ -41,7 +41,7 @@
             <ul class="row row-bordered bg-gradient">
                 <li class="col col-33">
                     <a href="../Funds.aspx" class="tile" data-ajax="false" data-transition="slidedown">
-                        <span class="icon-wallet"></span>
+                        <span class="icon- ion-social-usd-outline"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
