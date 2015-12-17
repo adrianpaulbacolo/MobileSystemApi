@@ -65,7 +65,7 @@
                             break;
                         case '1':
                             alert('<%=strAlertMessage%>');
-                            //window.location.replace('/Index.aspx');
+                            window.location.replace('/Index.aspx');
                             break;
                         default:
                             break;
