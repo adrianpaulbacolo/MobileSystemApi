@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
+using System.Web.UI.HtmlControls;
 
 public partial class _Index : BasePage
 {
@@ -42,18 +43,23 @@ public partial class _Index : BasePage
         }
         else
         {
-            try
-            {
-                Uri myUri = new Uri(System.Web.HttpContext.Current.Request.Url.ToString());
-                string[] host = myUri.Host.Split('.');
+            Uri myUri = new Uri(System.Web.HttpContext.Current.Request.Url.ToString());
+            string[] host = myUri.Host.Split('.');
 
+            if (host.Count() > 1)
+            {
                 commonVariables.SelectedLanguage = GetLanguageByDomain("." + host[1] + "." + host[2]);
+
+                HtmlAnchor lottoLink = (HtmlAnchor)Page.FindControl("mLottoLink");
+                if (lottoLink != null)
+                {
+                    lottoLink.HRef = string.Format("http://mlotto.{0}.{1}/Mobile/keno?lang={3}", host[1], host[2], commonVariables.SelectedLanguage);
+                }
             }
-            catch(Exception)
+            else
             {
                 commonVariables.SelectedLanguage = GetLanguageByDomain("default");
             }
-
         }
 
     }
@@ -80,8 +86,7 @@ public partial class _Index : BasePage
 
         if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("AffiliateId"))) { commonVariables.SetSessionVariable("AffiliateId", HttpContext.Current.Request.QueryString.Get("AffiliateId")); }
 
-        DetectDownloadLinks(DetectMobileDevice()); 
-
+        DetectDownloadLinks(DetectMobileDevice());
     }
 
 

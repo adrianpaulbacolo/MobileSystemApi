@@ -26,7 +26,7 @@
                         <figcaption class="banner-caption">
                             <h3 class="title">Keno</h3>
                             <P>Every minutes filled with fun and non-stop games. Get the excitement!</P>
-                            <a href="http://mlotto.w88uat.com/Mobile/keno?lang=en-US" class="ui-btn btn-primary" target="_blank">Play Now</a>
+                            <a id="mLottoLink" runat="server" href="http://mlotto.w88uat.com/Mobile/keno?lang=en-US" class="ui-btn btn-primary" target="_blank">Play Now</a>
                         </figcaption>
                     </figure>
                 </li>
