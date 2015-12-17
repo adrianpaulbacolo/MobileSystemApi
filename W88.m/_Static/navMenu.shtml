@@ -163,7 +163,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="card" data-rel="livecasino" rel="clubmassimo-casino" bs://livegames.gameassists.co.uk/MobileClient/MobileRedirector/index.aspx?AppID=W88Diamond&ClientID=5&UL=en" data-ajax="false" target="_blank">
+                    <a class="card" data-rel="livecasino" rel="clubmassimo-casino" href="https://livegames.cdn.gameassists.co.uk/AIR/Poria/Installer/V20021/w88/Download.html" data-ajax="false" target="_blank">
                         <img src="/_Static/Images/bnr-clubmassimo-casino-android.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoCasino/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
                     </a>
