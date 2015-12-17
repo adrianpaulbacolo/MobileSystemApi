@@ -48,8 +48,8 @@ public partial class Withdrawal_Default : BasePage
 
         if (arrPending != null && arrPending.Length > 0)
         {
-            //Response.Redirect("/Withdrawal/Pending.aspx");
-            if (litScript != null) { litScript.Text += "<script type='text/javascript'>window.location.replace('/Withdrawal/Pending.aspx');</script>"; }
+            Response.Redirect("/Withdrawal/Pending.aspx");
+            //if (litScript != null) { litScript.Text += "<script type='text/javascript'>window.location.replace('/Withdrawal/Pending.aspx');</script>"; }
         }
     }
 
