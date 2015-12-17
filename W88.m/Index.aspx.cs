@@ -43,25 +43,23 @@ public partial class _Index : BasePage
         }
         else
         {
-            try
+            Uri myUri = new Uri(System.Web.HttpContext.Current.Request.Url.ToString());
+            string[] host = myUri.Host.Split('.');
+
+            if (host.Count() > 1)
             {
-                Uri myUri = new Uri(System.Web.HttpContext.Current.Request.Url.ToString());
-                string[] host = myUri.Host.Split('.');
+                commonVariables.SelectedLanguage = GetLanguageByDomain("." + host[1] + "." + host[2]);
 
                 HtmlAnchor lottoLink = (HtmlAnchor)Page.FindControl("mLottoLink");
-               
                 if (lottoLink != null)
                 {
-                    lottoLink.HRef = string.Format("http://mlotto.{0}.{1}/Mobile/keno?lang=en-US", host.Count() > 1 ? host[1] : host[0], host.Count() > 1 ? host[2] : host[0]);
+                    lottoLink.HRef = string.Format("http://mlotto.{0}.{1}/Mobile/keno?lang={3}", host[1], host[2], commonVariables.SelectedLanguage);
                 }
-
-                commonVariables.SelectedLanguage = GetLanguageByDomain("." + host[1] + "." + host[2]);
             }
-            catch(Exception)
+            else
             {
                 commonVariables.SelectedLanguage = GetLanguageByDomain("default");
             }
-
         }
 
     }
