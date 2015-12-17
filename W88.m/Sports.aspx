@@ -37,7 +37,7 @@
                     </a>
                 </li>
                 <li class="col col-50">
-                    <a href="/V-Sports.aspx" data-ajax="false">
+                    <a href="/V-Sports.aspx" data-ajax="false" target="_blank">
                         <img src="_Static/Images/vsports_en.png" alt="a-Sports" class="img-responsive">
                     </a>
                 </li>
