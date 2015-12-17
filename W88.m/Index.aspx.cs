@@ -52,7 +52,7 @@ public partial class _Index : BasePage
                
                 if (lottoLink != null)
                 {
-                    lottoLink.HRef = string.Format("http://mlotto.{0}.com/Mobile/keno?lang=en-US", host.Count() > 1 ? host[1] : host[0]);
+                    lottoLink.HRef = string.Format("http://mlotto.{0}.{1}/Mobile/keno?lang=en-US", host.Count() > 1 ? host[1] : host[0], host.Count() > 1 ? host[2] : host[0]);
                 }
 
                 commonVariables.SelectedLanguage = GetLanguageByDomain("." + host[1] + "." + host[2]);
