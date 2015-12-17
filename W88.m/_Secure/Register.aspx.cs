@@ -404,7 +404,9 @@ public partial class _Secure_Register : System.Web.UI.Page
                         case "11":
                             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/DuplicateEmail", xeErrors);
                             break;
-
+                        case "50":
+                            strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/DuplicateContact", xeErrors);
+                            break;
                         default:
                             strAlertMessage = commonCulture.ElementValues.getResourceString("Exception", xeErrors);
                             break;

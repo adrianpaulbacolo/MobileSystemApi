@@ -19,6 +19,7 @@
     <Success><![CDATA[Chào mừng đến với W88, và cám ơn quý khách đã mở tài khoản. \nTài khoản của quý khách đã được kích hoạt, Quý Khách có thể đăng nhập và cược tại W88.com hoặc phiên bản di động m.w88.com.]]></Success>
     <DuplicateUsername><![CDATA[Tên Đăng Nhập này đã được đăng ký, vui lòng chọn Tên Đăng Nhập khác]]></DuplicateUsername>
     <DuplicateEmail><![CDATA[Email này đã được đăng ký. Vui lòng chọn email khác]]></DuplicateEmail>
+	<DuplicateContact><![CDATA[Contact Number is already registered. Please enter a new Contact Number.]]></DuplicateContact>
     <IncorrectVCode><![CDATA[Mã xác nhận sai]]></IncorrectVCode>
 
     <MissingUsername><![CDATA[Vui lòng điền tên đăng nhập hợp lệ.]]></MissingUsername>

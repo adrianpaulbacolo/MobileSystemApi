@@ -19,6 +19,7 @@
     <Success><![CDATA[ยินดีต้อนรับสู่ W88 และขอขอบคุณที่ท่านทำการสมัครสมาชิกกับเรา \nบัญชีของท่านพร้อมใช้งานแล้ว ท่านสามารถทำการเข้าสู่ระบบและเดิมพันผ่านเว็บไซต์ W88.com หรือทำการเดิมพันผ่านมือถือ m.w88.com ได้แล้ววันนี้]]></Success>
     <DuplicateUsername><![CDATA[ล็อกอินไอดีนี้ลงทะเบียนแล้ว  กรุณาใส่ล็อกอินใหม่]]></DuplicateUsername>
     <DuplicateEmail><![CDATA[อีเมล์นี้ลงทะเบียนแล้ว กรุณาใส่อีเมล์ใหม่]]></DuplicateEmail>
+	<DuplicateContact><![CDATA[Contact Number is already registered. Please enter a new Contact Number.]]></DuplicateContact>
     <IncorrectVCode><![CDATA[รหัสตรวจสอบไม่ถูกต้อง.]]></IncorrectVCode>
 
     <MissingUsername><![CDATA[กรุณาใส่ชื่อล๊อกอินที่ถูกต้อง.]]></MissingUsername>
