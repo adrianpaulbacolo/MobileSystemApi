@@ -19,7 +19,7 @@
     <Success><![CDATA[欢迎来到W88，感谢您成为我们的会员。\n您的账号已经可以登录W88.com网页版本和m.w88.com手机版本进行游戏。]]></Success>
     <DuplicateUsername><![CDATA[此用户名已被注册。请尝试输入新的用户名。]]></DuplicateUsername>
     <DuplicateEmail><![CDATA[此电子邮箱已被注册。请尝试输入新的电邮地址。]]></DuplicateEmail>
-	<DuplicateContact><![CDATA[Contact Number is already registered. Please enter a new Contact Number.]]></DuplicateContact>
+	<DuplicateContact><![CDATA[电话号码已被占用。请输入您的电话号码。]]></DuplicateContact>
     <IncorrectVCode><![CDATA[错误的验证码]]></IncorrectVCode>
 
     <MissingUsername><![CDATA[请输入有效的用户名]]></MissingUsername>

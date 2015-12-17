@@ -19,7 +19,7 @@
     <Success><![CDATA[Selamat datang di W88 dan terima kasih telah bergabung dengan kami.\nAccount anda saat ini sudah aktif, silahkan login dan mulai bermain di W88.com atau akses melalui ponsel di m.w88.com]]></Success>
     <DuplicateUsername><![CDATA[Username telah terdaftar. Silahkan masukkan Username baru.]]></DuplicateUsername>
     <DuplicateEmail><![CDATA[Alamat email telah terdaftar. Silahkan masukkan alamat email baru.]]></DuplicateEmail>
-	<DuplicateContact><![CDATA[Contact Number is already registered. Please enter a new Contact Number.]]></DuplicateContact>
+	<DuplicateContact><![CDATA[Nomor kontak yang digunakan. Masukkan nomor kontak Anda.]]></DuplicateContact>
     <IncorrectVCode><![CDATA[Silahkan masukan 4-Digit kode Validasi.]]></IncorrectVCode>
 
     <MissingUsername><![CDATA[Silahkan masukan Username yang valid.]]></MissingUsername>
