@@ -302,6 +302,7 @@ public partial class Deposit_Default : BasePage
         }
 
         getMainWalletBalance("0");
+        System.Threading.Tasks.Task t5 = System.Threading.Tasks.Task.Factory.StartNew(this.InitialisePaymentLimits);
         #endregion
     }
 
