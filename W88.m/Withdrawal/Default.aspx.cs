@@ -111,6 +111,29 @@ public partial class Withdrawal_Default : BasePage
                 divAddress.Visible = false;
             }
 
+            getMainWalletBalance("0");
+
+        }
+    }
+
+    private void getMainWalletBalance(string walletId)
+    {
+        string strOperatorId = commonVariables.OperatorId;
+        string strMemberCode = commonVariables.GetSessionVariable("MemberCode");
+        string strSiteUrl = commonVariables.SiteUrl;
+
+        string strProductCurrency = string.Empty;
+
+        if (!string.IsNullOrEmpty(strMemberCode) && !string.IsNullOrEmpty(strOperatorId))
+        {
+            using (svcPayMember.MemberClient svcInstance = new svcPayMember.MemberClient())
+            {
+                Session["MAIN"] = svcInstance.getWalletBalance(strOperatorId, strSiteUrl, strMemberCode, walletId, out strProductCurrency);
+            }
+        }
+        else
+        {
+            Session["MAIN"] = "0.00";
         }
     }
 

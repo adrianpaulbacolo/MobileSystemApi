@@ -76,6 +76,7 @@ public partial class FundTransfer_Default : BasePage
 
                 divBalance.InnerHtml += Convert.ToString(sbWallets);
 
+                getMainWalletBalance("0");
 
                 try
                 {
@@ -86,7 +87,27 @@ public partial class FundTransfer_Default : BasePage
                 { }
             }
         }
-    
+
+    private void getMainWalletBalance(string walletId)
+    {
+        string strOperatorId = commonVariables.OperatorId;
+        string strMemberCode = commonVariables.GetSessionVariable("MemberCode");
+        string strSiteUrl = commonVariables.SiteUrl;
+
+        string strProductCurrency = string.Empty;
+
+        if (!string.IsNullOrEmpty(strMemberCode) && !string.IsNullOrEmpty(strOperatorId))
+        {
+            using (svcPayMember.MemberClient svcInstance = new svcPayMember.MemberClient())
+            {
+                Session["MAIN"] = svcInstance.getWalletBalance(strOperatorId, strSiteUrl, strMemberCode, walletId, out strProductCurrency);
+            }
+        }
+        else
+        {
+            Session["MAIN"] = "0.00";
+        }
+    }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
