@@ -307,6 +307,7 @@ public partial class Withdrawal_Default : BasePage
             intProcessSerialId += 1;
             commonAuditTrail.appendLog("system", strPageName, "InitiateWithdrawal", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
         }
+        getMainWalletBalance("0");
         #endregion
     }
 

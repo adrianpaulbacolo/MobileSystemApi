@@ -329,6 +329,8 @@ public partial class FundTransfer_Default : BasePage
             intProcessSerialId += 1;
             commonAuditTrail.appendLog("system", strPageName, "InitiateFundTransfer", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
         }
+
+        getMainWalletBalance("0");
         #endregion
     }
 
@@ -360,4 +362,6 @@ public partial class FundTransfer_Default : BasePage
         drpTransferFrom.SelectedValue = to;
         drpTransferTo.SelectedValue = from;
     }
+
+
 }
