@@ -100,5 +100,6 @@
     <binary><![CDATA[バイナリ]]></binary>
     <poker><![CDATA[ポーカー（米ドル）]]></poker>
     <sbtech><![CDATA[E-スポーツ]]></sbtech>
+	<netent><![CDATA[ヌォーボ]]></netent>
   </Wallets>
 </default>
