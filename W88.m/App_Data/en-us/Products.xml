@@ -130,6 +130,6 @@
     <binary><![CDATA[Binary]]></binary>
     <poker><![CDATA[Poker (USD)]]></poker>
     <sbtech><![CDATA[E-Sports]]></sbtech>
-    <sbo><![CDATA[W-Sports]]></sbo>
+	<netent><![CDATA[Nuovo]]></netent>    
   </Wallets>
 </default>

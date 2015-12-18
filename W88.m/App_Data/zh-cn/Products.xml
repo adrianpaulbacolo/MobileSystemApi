@@ -83,5 +83,6 @@
     <binary><![CDATA[金融]]></binary>
     <poker><![CDATA[扑克 (USD)]]></poker>
     <sbtech><![CDATA[西方体育]]></sbtech>
+	<netent><![CDATA[金蟾]]></netent>
   </Wallets>
 </default>

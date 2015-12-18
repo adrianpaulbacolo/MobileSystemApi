@@ -25,7 +25,7 @@ public partial class _Secure_Login : System.Web.UI.Page
         System.Xml.Linq.XElement xeResources = null;
         commonCulture.appData.getLocalResource(out xeResources);
 
-        if (string.IsNullOrEmpty(Request.QueryString.Get("redirect"))) { strRedirect = "/Index.aspx"; }
+        if (string.IsNullOrEmpty(Request.QueryString.Get("redirect"))) { strRedirect = "/Index.aspx?lang=" + commonVariables.SelectedLanguage; }
         else { strRedirect = Request.QueryString.Get("redirect"); }
 
         if (!Page.IsPostBack)

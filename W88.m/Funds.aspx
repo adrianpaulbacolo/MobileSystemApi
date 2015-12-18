@@ -59,7 +59,15 @@
                         <asp:LinkButton ID="aSportsBtn" runat="server" OnClick="aSportsBtn_Click">
                         <div class="wallet">
                             <label class="label"><%=commonCulture.ElementValues.getResourceString("aSports", commonVariables.LeftMenuXML)%></label>
-                            <h4 class="value"><%=Session["ASPORTS"].ToString()%></h4>
+                            <h4 class="value">
+                                <%if(Session["ASPORTS"].ToString() != "-"){%> 
+                                   <%=Session["ASPORTS"].ToString()%>
+                                <%}%>
+                                <%else{%>
+                                      0.00
+                                <%}%>
+
+                            </h4>
                             <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
                         </div>
                         </asp:LinkButton>
@@ -68,16 +76,14 @@
                         <asp:LinkButton ID="eSportsBtn" runat="server" OnClick="eSportsBtn_Click">
                         <div class="wallet">
                             <label class="label"><%=commonCulture.ElementValues.getResourceString("eSports", commonVariables.LeftMenuXML)%></label>
-                            <h4 class="value"><%=Session["SBTECH"].ToString()%></h4>
-                            <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
-                        </div>
-                        </asp:LinkButton>
-                    </li>
-                    <li class="col col-50">
-                        <asp:LinkButton ID="wSportsBtn" runat="server" OnClick="wSportsBtn_Click">
-                        <div class="wallet">
-                            <label class="label"><%=commonCulture.ElementValues.getResourceString("wSports", commonVariables.LeftMenuXML)%></label>
-                            <h4 class="value"><%=Session["SBO"].ToString()%></h4>
+                            <h4 class="value">
+                                <%if(Session["SBTECH"].ToString() != "-"){%> 
+                                   <%=Session["SBTECH"].ToString()%>
+                                <%}%>
+                                <%else{%>
+                                      0.00
+                                <%}%>
+                            </h4>
                             <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
                         </div>
                         </asp:LinkButton>
@@ -86,7 +92,14 @@
                         <asp:LinkButton ID="lotteryBtn" runat="server" OnClick="lotteryBtn_Click">
                         <div class="wallet">
                             <label class="label"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></label>
-                            <h4 class="value"><%=Session["LOTTERY"].ToString()%></h4>
+                            <h4 class="value">
+                                <%if(Session["LOTTERY"].ToString() != "-"){%> 
+                                   <%=Session["LOTTERY"].ToString()%>
+                                <%}%>
+                                <%else{%>
+                                      0.00
+                                <%}%>
+                            </h4>
                             <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
                         </div>
                         </asp:LinkButton>
@@ -95,7 +108,14 @@
                         <asp:LinkButton ID="casinoBtn" runat="server" OnClick="casinoBtn_Click">
                         <div class="wallet">
                             <label class="label"><%=commonCulture.ElementValues.getResourceString("liveCasino", commonVariables.LeftMenuXML)%></label>
-                            <h4 class="value"><%=Session["CASINO"].ToString()%></h4>
+                            <h4 class="value">
+                                <%if(Session["CASINO"].ToString() != "-"){%> 
+                                   <%=Session["CASINO"].ToString()%>
+                                <%}%>
+                                <%else{%>
+                                      0.00
+                                <%}%>                           
+                            </h4>
                             <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
                         </div>
                     </asp:LinkButton>
@@ -104,7 +124,14 @@
                         <asp:LinkButton ID="nuovoBtn" runat="server" OnClick="nuovoBtn_Click">
                         <div class="wallet">
                             <label class="label"><%=commonCulture.ElementValues.getResourceString("nuovo", commonVariables.LeftMenuXML)%></label>
-                            <h4 class="value"><%=Session["NETENT"].ToString()%></h4>
+                            <h4 class="value">
+                                <%if(Session["NETENT"].ToString() != "-"){%> 
+                                   <%=Session["NETENT"].ToString()%>
+                                <%}%>
+                                <%else{%>
+                                      0.00
+                                <%}%>                                  
+                            </h4>
                             <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
                         </div>
                         </asp:LinkButton>
@@ -113,7 +140,14 @@
                         <asp:LinkButton ID="clubPalazzoBtn" runat="server" OnClick="clubPalazzoBtn_Click">
                         <div class="wallet">
                             <label class="label"><%=commonCulture.ElementValues.getResourceString("clubPalazo", commonVariables.LeftMenuXML)%></label>
-                            <h4 class="value"><%=Session["CASINO"].ToString()%></h4>
+                            <h4 class="value">
+                                <%if(Session["PLAYTECH"].ToString() != "-"){%> 
+                                   <%=Session["PLAYTECH"].ToString()%>
+                                <%}%>
+                                <%else{%>
+                                      0.00
+                                <%}%>  
+                                </h4>
                             <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
                         </div>
                         </asp:LinkButton>
@@ -122,7 +156,14 @@
                         <asp:LinkButton ID="pokerBtn" runat="server" OnClick="pokerBtn_Click">
                         <div class="wallet">
                             <label class="label"><%=commonCulture.ElementValues.getResourceString("poker", commonVariables.LeftMenuXML)%></label>
-                            <h4 class="value"><%=Session["POKER"].ToString()%></h4>
+                            <h4 class="value">
+                                <%if(Session["POKER"].ToString() != "-"){%> 
+                                   <%=Session["POKER"].ToString()%>
+                                <%}%>
+                                <%else{%>
+                                      0.00
+                                <%}%> 
+                                </h4>
                             <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
                         </div>
                       </asp:LinkButton>
