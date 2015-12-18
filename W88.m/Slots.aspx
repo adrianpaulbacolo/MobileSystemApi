@@ -27,12 +27,12 @@
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubBravado/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
-                <li class="col col-33">
+                <%--<li class="col col-33">
                     <a href="/ClubPalazzo" class="card" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubpalazzo-slots.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%> 2</div>
                     </a>
-                </li>
+                </li>--%>
                 <li class="col col-33">
                     <a href="/_static/palazzo/slots.aspx" class="card" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubpalazzo-slots.jpg" class="img-responsive">

@@ -24,9 +24,9 @@
         </style>
         <header id="header" data-role="header" data-position="fixed" data-theme="b" data-tap-toggle="false">
             <a href="" role="button" data-rel="back" class="btn-clear ui-btn-left ui-btn ion-ios-arrow-back" id="aMenu" data-load-ignore-splash="true">
-                Back
+                <%=commonCulture.ElementValues.getResourceString("back", commonVariables.LeftMenuXML)%>
             </a>
-            <h1 class="title">Login</h1>
+            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></h1>
         </header>
         <div class="ui-content" role="main">
             <form class="form" id="form1" runat="server" data-ajax="false">

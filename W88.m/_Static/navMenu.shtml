@@ -44,7 +44,7 @@
             </a>
             <ul class="sub-menu menu-link" data-rel="funds">
                 <a class="close" data-rel="close">&times;</a>
-                <h2 class="title">Funds</h2>
+                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%></h2>
                 <li>
                     <a data-rel="dialog" rel="deposit" href="/_Secure/Login.aspx" data-transition="slidedown">
                         <!-- <img src="/_Static/Images/index-deposit.png" class="img-responsive"> -->
@@ -63,11 +63,11 @@
                         <%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%>
                     </a>
                 </li>
-                <li>
+                <!--<li>
                     <a href="/History" role="button" data-ajax="false">
                         History
                     </a>
-                </li>
+                </li>-->
                 <!-- <li data-icon="false"><a id="aMnuClaim" runat="server"><%=commonCulture.ElementValues.getResourceString("claims", commonVariables.LeftMenuXML)%></a></li> -->
             </ul>
         </li>
@@ -231,12 +231,12 @@
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubBravado/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
-                <li>
+                <!--<li>
                     <a class="card" rel="clubpalazzo-slots" href="/ClubPalazzo" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubpalazzo-slots.jpg" class="img-responsive">
                         <div class="title">Palazzo 2</div>
                     </a>
-                </li>
+                </li>-->
                 <li>
                     <a class="card" rel="clubpalazzo-slots" href="/_static/palazzo/slots.aspx" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubpalazzo-slots.jpg" class="img-responsive">
