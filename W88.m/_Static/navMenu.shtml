@@ -44,7 +44,7 @@
             </a>
             <ul class="sub-menu menu-link" data-rel="funds">
                 <a class="close" data-rel="close">&times;</a>
-                <h2 class="title">Funds</h2>
+                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%></h2>
                 <li>
                     <a data-rel="dialog" rel="deposit" href="/_Secure/Login.aspx" data-transition="slidedown">
                         <!-- <img src="/_Static/Images/index-deposit.png" class="img-responsive"> -->

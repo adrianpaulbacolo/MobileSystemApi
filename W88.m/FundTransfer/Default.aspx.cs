@@ -73,7 +73,8 @@ public partial class FundTransfer_Default : BasePage
                 txtTransferAmount.Attributes["PLACEHOLDER"] = lblTransferAmount.Text + " (" + commonVariables.GetSessionVariable("CurrencyCode") + ")";
                 txtPromoCode.Attributes["PLACEHOLDER"] = lblPromoCode.Text;
                 btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
-
+                lblTransferFrom.Text = commonCulture.ElementValues.getResourceString("lblTransferFrom", xeResources);
+                lblTransferTo.Text =commonCulture.ElementValues.getResourceString("lblTransferTo", xeResources);
                 divBalance.InnerHtml += Convert.ToString(sbWallets);
 
                 getMainWalletBalance("0");
