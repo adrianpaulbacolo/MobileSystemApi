@@ -141,7 +141,7 @@
             <ul class="row row-bordered bg-gradient">
 
                 <li class="col col-33 product">
-                    <a href="Sports.aspx" class="tile" data-ajax="false" data-transition="slidedown">
+                    <a href="Sports.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower() %>" class="tile" data-ajax="false" data-transition="slidedown">
                         <span class="icon-sports"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("sports", commonVariables.LeftMenuXML)%></h4>
                     </a>

@@ -88,6 +88,29 @@ public partial class Deposit_Default : BasePage
             {
                 divDepositDateTime.Visible = false;
             }
+
+            getMainWalletBalance("0");
+        }
+    }
+
+    private void getMainWalletBalance(string walletId)
+    {
+        string strOperatorId = commonVariables.OperatorId;
+        string strMemberCode = commonVariables.GetSessionVariable("MemberCode");
+        string strSiteUrl = commonVariables.SiteUrl;
+
+        string strProductCurrency = string.Empty;
+
+        if (!string.IsNullOrEmpty(strMemberCode) && !string.IsNullOrEmpty(strOperatorId))
+        {
+            using (svcPayMember.MemberClient svcInstance = new svcPayMember.MemberClient())
+            {
+                Session["MAIN"] = svcInstance.getWalletBalance(strOperatorId, strSiteUrl, strMemberCode, walletId, out strProductCurrency);
+            }
+        }
+        else
+        {
+            Session["MAIN"] = "0.00";
         }
     }
 
@@ -277,6 +300,9 @@ public partial class Deposit_Default : BasePage
             intProcessSerialId += 1;
             commonAuditTrail.appendLog("system", strPageName, "InitiateDeposit", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
         }
+
+        getMainWalletBalance("0");
+        System.Threading.Tasks.Task t5 = System.Threading.Tasks.Task.Factory.StartNew(this.InitialisePaymentLimits);
         #endregion
     }
 

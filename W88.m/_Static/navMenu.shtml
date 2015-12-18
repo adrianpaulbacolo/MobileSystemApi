@@ -83,20 +83,20 @@
                 <!--<a class="close" data-rel="close">&times;</a>-->
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("sports", commonVariables.LeftMenuXML)%></h2>
                 <li>
-                    <a class="card" data-rel="sports" rel="asports" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
+                    <a class="card" data-rel="sports" rel="asports" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown" target="_blank">
                         <img src="/_Static/Images/bnr-asports.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ASports/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
                 <li>
-                    <a class="card" data-rel="sports" rel="esports" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
+                    <a class="card" data-rel="sports" rel="esports" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown" target="_blank">
                         <img src="/_Static/Images/bnr-esports.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
                 <!-- Toggle to hide elements -->
                 <li>
-                    <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-ajax="false" data-transition="slidedown">
+                    <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-ajax="false" data-transition="slidedown" target="_blank">
                         <img src="/_Static/Images/bnr-vSPORTS-tennis.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports/Label", commonVariables.ProductsXML)%></div>
                     </a>
@@ -163,7 +163,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="card" data-rel="livecasino" rel="clubmassimo-casino" bs://livegames.gameassists.co.uk/MobileClient/MobileRedirector/index.aspx?AppID=W88Diamond&ClientID=5&UL=en" data-ajax="false" target="_blank">
+                    <a class="card" data-rel="livecasino" rel="clubmassimo-casino" href="https://livegames.cdn.gameassists.co.uk/AIR/Poria/Installer/V20021/w88/Download.html" data-ajax="false" target="_blank">
                         <img src="/_Static/Images/bnr-clubmassimo-casino-android.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoCasino/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
                     </a>

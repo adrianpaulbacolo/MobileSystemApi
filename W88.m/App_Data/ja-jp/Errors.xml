@@ -19,6 +19,7 @@
     <Success><![CDATA[W88へようこそ、アカウントをお作りいただき誠にありがとうございます。あなたが、W88.comおよびモバイルのm.w88.comでログインし、プレイするための準備が出来ました。]]></Success>
     <DuplicateUsername><![CDATA[ユーザー名は、すでに登録されています。新しいユーザー名を入力してください。]]></DuplicateUsername>
     <DuplicateEmail><![CDATA[Eメールアドレスはすでに登録されています。新しいメールアドレスを入力してください。]]></DuplicateEmail>
+	<DuplicateContact><![CDATA[お問い合わせ番号が既に使用されています。あなたの連絡先番号を入力してください。]]></DuplicateContact>
     <IncorrectVCode><![CDATA[確認コードが正しくありません]]></IncorrectVCode>
 
     <MissingUsername><![CDATA[ユーザー名を入力してください]]></MissingUsername>

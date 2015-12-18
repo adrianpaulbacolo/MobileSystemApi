@@ -24,37 +24,37 @@
                 <li class="col col-33">
                     <a href="/ClubBravado" class="card" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubbravado.jpg" class="img-responsive">
-                        <div class="title">Bravado</div>
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubBravado/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
                 <li class="col col-33">
                     <a href="/ClubPalazzo" class="card" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubpalazzo-slots.jpg" class="img-responsive">
-                        <div class="title">Palazzo 2</div>
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%> 2</div>
                     </a>
                 </li>
                 <li class="col col-33">
                     <a href="/_static/palazzo/slots.aspx" class="card" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubpalazzo-slots.jpg" class="img-responsive">
-                        <div class="title">Palazzo</div>
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
                     </a>
                 </li>
                 <li class="col col-33">
                     <a href="/ClubMassimo" class="card" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubmassimo-slots.jpg" class="img-responsive">
-                        <div class="title">Massimo</div>
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
                     </a>
                 </li>
                 <li class="col col-33">
                     <a href="/ClubDivino" class="card" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubdivino.jpg" class="img-responsive">
-                        <div class="title">Divino</div>
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubDivino/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
                 <li class="col col-33">
                     <a href="/ClubCrescendo" class="card" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubcrescendo.png" class="img-responsive">
-                        <div class="title">Cresendo</div>
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubCrescendo/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
             </ul>
