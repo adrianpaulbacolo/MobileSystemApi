@@ -15,7 +15,7 @@
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
             </a>
-            <h1 class="title">Live Casino</h1>
+            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("liveCasinoTitle", commonVariables.LeftMenuXML)%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -24,9 +24,9 @@
                     <figure class="banner">
                         <img src="_Static/Images/casino/casino-banner-1.png" class="img-responsive-full img-bg">
                         <figcaption class="banner-caption">
-                            <h3 class="title">Club W</h3>
-                            <P>Enjoy live Casino instant cash rebate up to 0.8%. No payout limit &amp; rollover.</P>
-                            <a href="/_Static/ClubW/casino.aspx" data-ajax="false" class="ui-btn btn-primary">Play Now</a>
+                            <h3 class="title"><%=commonCulture.ElementValues.getResourceString("liveCasino", commonVariables.LeftMenuXML)%></h3>
+                            <P><%=commonCulture.ElementValues.getResourceString("liveCasinoMessage", commonVariables.LeftMenuXML)%></P>
+                            <a href="/_Static/ClubW/casino.aspx" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
                         </figcaption>
                     </figure>
                 </li>
@@ -34,9 +34,9 @@
                     <figure class="banner">
                         <img src="_Static/Images/casino/casino-banner-2.png" data-rel="dialog" class="img-responsive-full img-bg">
                         <figcaption class="banner-caption">
-                            <h3 class="title">Club Palazzo</h3>
-                            <P>Innovative casino games with Asian &amp; European live dealers!</P>
-                            <a href="/_Static/Palazzo/casino.aspx"  data-ajax="false" data-rel="dialog" class="ui-btn btn-primary">Play Now</a>
+                            <h3 class="title"><%=commonCulture.ElementValues.getResourceString("clubPalazo", commonVariables.LeftMenuXML)%></h3>
+                            <P><%=commonCulture.ElementValues.getResourceString("clubPalazoMessage", commonVariables.LeftMenuXML)%></P>
+                            <a href="/_Static/Palazzo/casino.aspx"  data-ajax="false" data-rel="dialog" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
                         </figcaption>
                     </figure>
                 </li>
@@ -44,9 +44,9 @@
                     <figure class="banner">
                         <img src="_Static/Images/casino/casino-banner-3.png" class="img-responsive-full img-bg">
                         <figcaption class="banner-caption">
-                            <h3 class="title">Club Massimo</h3>
-                            <P>Popular live casino games with high-quality video!</P>
-                            <a href="https://livegames.cdn.gameassists.co.uk/AIR/Poria/Installer/V20021/w88/Download.html"  class="ui-btn btn-primary" target="_blank">Play Now</a>
+                            <h3 class="title"><%=commonCulture.ElementValues.getResourceString("clubMassimo", commonVariables.LeftMenuXML)%></h3>
+                            <P><%=commonCulture.ElementValues.getResourceString("clubMassimoMessage", commonVariables.LeftMenuXML)%></P>
+                            <a href="https://livegames.cdn.gameassists.co.uk/AIR/Poria/Installer/V20021/w88/Download.html"  class="ui-btn btn-primary" target="_blank"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
                         </figcaption>
                     </figure>
                 </li>

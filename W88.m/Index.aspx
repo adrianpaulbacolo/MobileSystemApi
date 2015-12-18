@@ -222,7 +222,7 @@
                 <li class="col col-33">
                     <a href="/_Static/ClubW/casino.aspx" id="downloadButton" runat="server" class="tile notify" data-ajax="false">
                         <span class="icon- ion-ios-download-outline"></span>
-                        <h4 class="title">Download</h4>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("download", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
                 <%}%>
