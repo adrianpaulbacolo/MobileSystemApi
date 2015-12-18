@@ -166,7 +166,7 @@
                     </a>
                 </li>
                 <li class="col col-33 product">                    
-                    <a href="Lottery.aspx" class="tile" data-ajax="false" data-transition="slidedown">
+                    <a href="Lottery.aspx?lang=<%=commonVariables.SelectedLanguage%>" class="tile" data-ajax="false" data-transition="slidedown">
                         <span class="icon-keno"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></h4>
                     </a>
