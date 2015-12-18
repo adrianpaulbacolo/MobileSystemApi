@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
   <Category>
-    <Slot3D Version="IOS" Label="Slots 3D IOS">
+    <Slot3D Version="IOS" Label="Slots 3D">
       <Slot3D19 ProductId="598">
         <ImageName><![CDATA[The-Tipsy-Tourist-mobile]]></ImageName>
         <Label><![CDATA[The Tipsy Tourist]]></Label>
@@ -140,7 +140,7 @@
           <Description><![CDATA[Weekend in Vegas]]></Description>
         </Slot3D27>
       </Slot3D>
-    <TableCard Version="IOS" Label="Table &amp; Cards IOS">
+    <TableCard Version="IOS" Label="Table &amp; Cards">
       <Slot3D26 ProductId="599">
         <ImageName><![CDATA[The-Tipsy-Tourist-mobile]]></ImageName>
         <Label><![CDATA[The Tipsy Tourist]]></Label>
@@ -157,14 +157,14 @@
         <Description><![CDATA[European (Single Zero) Roulette with Hamburg rules]]></Description>
       </TableCard2>
     </TableCard>
-    <Slots Version="IOS" Label="Slots IOS">
+    <Slots Version="IOS" Label="Slots">
       <Slots1 ProductId="263">
         <ImageName><![CDATA[W88-Slots-Mobile-Lucky7]]></ImageName>
         <Label><![CDATA[Lucky7]]></Label>
         <Description><![CDATA[Traditional 3 Reel 1 Line Slot Game]]></Description>
       </Slots1>
     </Slots>
-    <Slot3D Version="ANDROID" Label="Slots 3D Android">
+    <Slot3D Version="ANDROID" Label="Slots 3D">
       <Slot3D19 ProductId="599">
         <ImageName><![CDATA[The-Tipsy-Tourist-mobile]]></ImageName>
         <Label><![CDATA[The Tipsy Tourist]]></Label>
@@ -301,7 +301,7 @@
         <Description><![CDATA[Weekend in Vegas]]></Description>
       </Slot3D24>
     </Slot3D>
-    <TableCard Version="ANDROID" Label="Table &amp; Cards Android">
+    <TableCard Version="ANDROID" Label="Table &amp; Cards">
       <TableCard1 ProductId="272">
         <ImageName><![CDATA[W88-Slots-Mobile-American-Blackjack]]></ImageName>
         <Label><![CDATA[American Blackjack]]></Label>
@@ -313,14 +313,14 @@
         <Description><![CDATA[European (Single Zero) Roulette with Hamburg rules]]></Description>
       </TableCard2>
     </TableCard>
-    <Slots Version="ANDROID" Label="Slots Android">
+    <Slots Version="ANDROID" Label="Slots">
       <Slots1 ProductId="268">
         <ImageName><![CDATA[W88-Slots-Mobile-Lucky7]]></ImageName>
         <Label><![CDATA[Lucky7]]></Label>
         <Description><![CDATA[Traditional 3 Reel 1 Line Slot Game]]></Description>
       </Slots1>
     </Slots>
-    <Slot3D Version="WP" Label="Slots 3D WP">
+    <Slot3D Version="WP" Label="Slots 3D">
       <Slot3D26 ProductId="600">
         <ImageName><![CDATA[The-Tipsy-Tourist-mobile]]></ImageName>
         <Label><![CDATA[The Tipsy Tourist]]></Label>
@@ -457,7 +457,7 @@
         <Description><![CDATA[Weekend in Vegas]]></Description>
       </Slot3D24>
     </Slot3D>
-    <TableCard Version="WP" Label="Table &amp; Cards WP">
+    <TableCard Version="WP" Label="Table &amp; Cards">
       <TableCard1 ProductId="366">
         <ImageName><![CDATA[W88-Slots-Mobile-American-Blackjack]]></ImageName>
         <Label><![CDATA[American Blackjack]]></Label>
@@ -469,7 +469,7 @@
         <Description><![CDATA[European (Single Zero) Roulette with Hamburg rules]]></Description>
       </TableCard2>
     </TableCard>
-    <Slots Version="WP" Label="Slots WP">
+    <Slots Version="WP" Label="Slots">
       <Slots1 ProductId="355">
         <ImageName><![CDATA[W88-Slots-Mobile-Lucky7]]></ImageName>
         <Label><![CDATA[Lucky7]]></Label>

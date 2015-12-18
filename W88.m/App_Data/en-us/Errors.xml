@@ -18,6 +18,7 @@
     <Success><![CDATA[Welcome to W88, and thank you for opening an account.\nYour account is now ready for you to login and play on W88.com and mobile m.w88.com.]]></Success>
     <DuplicateUsername><![CDATA[Username is already registered. Please enter a new Username.]]></DuplicateUsername>
     <DuplicateEmail><![CDATA[Email address is already registered. Please enter a new email address.]]></DuplicateEmail>
+	<DuplicateContact><![CDATA[Contact Number is already registered. Please enter a new Contact Number.]]></DuplicateContact>
     <IncorrectVCode><![CDATA[Incorrect verification code]]></IncorrectVCode>
 
     <MissingUsername><![CDATA[Please enter your username]]></MissingUsername>

@@ -300,6 +300,9 @@ public partial class Deposit_Default : BasePage
             intProcessSerialId += 1;
             commonAuditTrail.appendLog("system", strPageName, "InitiateDeposit", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
         }
+
+        getMainWalletBalance("0");
+        System.Threading.Tasks.Task t5 = System.Threading.Tasks.Task.Factory.StartNew(this.InitialisePaymentLimits);
         #endregion
     }
 
