@@ -41,7 +41,7 @@
                         <asp:Label ID="lblPassword" runat="server" AssociatedControlID="txtPassword" Text="password" />
                         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" data-corners="false" MaxLength="10" data-clear-btn="true" />
                     </li>
-                    <li class="item item-icon-left item-input">
+                    <li class="item item-icon-left item-input hide capt">
                         <i class="icon icon-check"></i>
                         <asp:Label ID="lblCaptcha" runat="server" AssociatedControlID="txtCaptcha" Text="code" />
                         <asp:Image ID="imgCaptcha" runat="server" CssClass="imgCaptcha" />
@@ -178,6 +178,7 @@
                                 counter += 1;
 
                                 if (counter >= 3) {
+                                    $(".capt").removeClass("hide");
                                     $('#<%=imgCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
                                     $('#<%=lblCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
                                     $('#<%=txtCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
