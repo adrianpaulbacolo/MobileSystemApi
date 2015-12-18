@@ -26,7 +26,7 @@
                         <figcaption class="banner-caption">
                             <h3 class="title">Keno</h3>
                             <P>Every minutes filled with fun and non-stop games. Get the excitement!</P>
-                            <a href="<%=(string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) ? "_Secure/Login" : commonLottery.getKenoUrl)%>" class="ui-btn btn-primary" target="_blank">Play Now</a>
+                            <a href="<%=(string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) ? "_Secure/Login.aspx" : commonLottery.getKenoUrl)%>" class="ui-btn btn-primary" target="_blank">Play Now</a>
                         </figcaption>
                     </figure>
                 </li>
