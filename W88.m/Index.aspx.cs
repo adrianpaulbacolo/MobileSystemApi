@@ -48,13 +48,13 @@ public partial class _Index : BasePage
 
             if (host.Count() > 1)
             {
-                commonVariables.SelectedLanguage = GetLanguageByDomain("." + host[1] + "." + host[2]);
-
                 HtmlAnchor lottoLink = (HtmlAnchor)Page.FindControl("mLottoLink");
                 if (lottoLink != null)
                 {
-                    lottoLink.HRef = string.Format("http://mlotto.{0}.{1}/Mobile/keno?lang={3}", host[1], host[2], commonVariables.SelectedLanguage);
+                    lottoLink.HRef = string.Format("http://mlotto.{0}.{1}/Mobile/keno?lang={2}", host[1], host[2], commonVariables.SelectedLanguage);
                 }
+
+                commonVariables.SelectedLanguage = GetLanguageByDomain("." + host[1] + "." + host[2]);
             }
             else
             {
