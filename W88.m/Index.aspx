@@ -267,7 +267,7 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <a href="#" role="button" data-rel="back" class="ui-btn btn-bordered">No Thanks</a>
+                            <a href="javascript:hideDownload();" role="button" class="ui-btn btn-bordered">No Thanks</a>
                         </div>
                         <div class="col">
                             <a href="//casino.w88bet.com/mob/app-prod-release-1.4.3.apk" class="ui-btn btn-primary">Download Now</a>
@@ -289,6 +289,10 @@
                     dots: true
                 });
             });
+
+            function hideDownload() {
+                $(".download-app").addClass("hide");
+            }
         </script>
 
     </div>
