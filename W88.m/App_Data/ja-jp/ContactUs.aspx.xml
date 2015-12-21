@@ -1,15 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContactUs>
-  <lblLiveChat><![CDATA[ライブチャット]]></lblLiveChat>
-  <lblSkype><![CDATA[スカイプ]]></lblSkype>
-  <lblEmail><![CDATA[Eメール]]></lblEmail>
-  <lblBanking><![CDATA[バンキング]]></lblBanking>
-  <lblPhone><![CDATA[携帯]]></lblPhone>
-  <lblLine><![CDATA[ライン]]></lblLine>
-  <lblFooter><![CDATA[我々のカスタマーサポートはお客様のために24時間週7日体制で行っております、お問い合わせいただく前によくある質問やチュートリアル「ユーザーガイド」でお客様の質問の回答がされていないかご確認くださいませ。よろしくお願いいたします。]]></lblFooter>
+	<lblLiveChat><![CDATA[ライブチャット]]></lblLiveChat>
+	<lblLiveChatMessage><![CDATA[W88サポートにライブチャットでおつなぎします。]]></lblLiveChatMessage>
+	<lblSkype><![CDATA[スカイプ]]></lblSkype>
+	<lblSkypeMessage><![CDATA[W88サポートにSkype通話で連絡します。]]></lblSkypeMessage>
+	<lblEmail><![CDATA[Eメール]]></lblEmail>
+	<lblEmailMessage><![CDATA[一般的なご質問はこちらからメールでお問い合わせください。]]></lblEmailMessage>
+	<lblBanking><![CDATA[バンキング]]></lblBanking>
+	<lblBankingMessage><![CDATA[入出金に関するお問い合わせはこちらからメールでお問い合わせください。]]></lblBankingMessage>
+	<lblPhone><![CDATA[携帯]]></lblPhone>
+	<lblPhoneMessage><![CDATA[Call (+60) 166770468 or (+44) 2036085161 and we will be pleased to assist you (International charges may apply).]]></lblPhoneMessage>
+	<lblLine><![CDATA[ライン]]></lblLine>
+	<lblFooter><![CDATA[我々のカスタマーサポートはお客様のために24時間週7日体制で行っております、お問い合わせいただく前によくある質問やチュートリアル「ユーザーガイド」でお客様の質問の回答がされていないかご確認くださいませ。よろしくお願いいたします。]]></lblFooter>
 
-  <lnkSkype><![CDATA[skype:w88cs.jp]]></lnkSkype>
-  <lnkEmail><![CDATA[mailto:infojp@w88.com]]></lnkEmail>
-  <lnkBanking><![CDATA[mailto:banking@w88.com]]></lnkBanking>
-  <lnkPhone><![CDATA[]]></lnkPhone>
+	<lnkSkype><![CDATA[skype:w88cs.jp]]></lnkSkype>
+	<lnkEmail><![CDATA[mailto:infojp@w88.com]]></lnkEmail>
+	<lnkBanking><![CDATA[mailto:banking@w88.com]]></lnkBanking>
+	<lnkPhone><![CDATA[]]></lnkPhone>
 </ContactUs>

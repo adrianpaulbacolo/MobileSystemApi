@@ -14,7 +14,7 @@
   <drpOtherBank><![CDATA[Bank Lain]]></drpOtherBank>
   <lblAccountName><![CDATA[Nama Rekening Anda]]></lblAccountName>
   <lblAccountNumber><![CDATA[Nomor Rekening Anda]]></lblAccountNumber>
-  <btnSubmit><![CDATA[SUBMIT]]></btnSubmit>
+  <btnSubmit><![CDATA[Kirim]]></btnSubmit>
   <lblTransactionId><![CDATA[No. Transaksi]]></lblTransactionId>
   <lblDailyLimit><![CDATA[Batas Perhari: ]]></lblDailyLimit>
   <lblTotalAllowed><![CDATA[Jumlah yang diperbolehkan: ]]></lblTotalAllowed>

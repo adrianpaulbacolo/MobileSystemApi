@@ -2,7 +2,7 @@
 <Deposit>
   <lblTitle><![CDATA[SDPay]]></lblTitle>
   <lblDepositAmount><![CDATA[Jumlah Deposit]]></lblDepositAmount>
-  <btnSubmit><![CDATA[SUBMIT]]></btnSubmit>
+  <btnSubmit><![CDATA[Kirim]]></btnSubmit>
   <lblTransactionId><![CDATA[No. Transaksi]]></lblTransactionId>
   <lblDailyLimit><![CDATA[Batas Perhari]]></lblDailyLimit>
   <lblTotalAllowed><![CDATA[Jumlah yang diperbolehkan]]></lblTotalAllowed>

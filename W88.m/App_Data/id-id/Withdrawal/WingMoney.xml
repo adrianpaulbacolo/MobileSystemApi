@@ -13,7 +13,7 @@
   <lblMyKad><![CDATA[MyKad]]></lblMyKad>
   <lblMobileNumber><![CDATA[No Handphone]]></lblMobileNumber>
   <lblMobileNotify><![CDATA[Beritahu saya melalui handphone]]></lblMobileNotify>
-  <btnSubmit><![CDATA[SUBMIT]]></btnSubmit>
+  <btnSubmit><![CDATA[Kirim]]></btnSubmit>
   <lblTransactionId><![CDATA[No. Transaksi]]></lblTransactionId>
   <lblDailyLimit><![CDATA[Batas Perhari: ]]></lblDailyLimit>
   <lblTotalAllowed><![CDATA[Jumlah yang diperbolehkan: ]]></lblTotalAllowed>

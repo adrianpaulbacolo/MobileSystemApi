@@ -2,7 +2,7 @@
 <Deposit>
   <lblTitle><![CDATA[Help2Pay]]></lblTitle>
   <lblDepositAmount><![CDATA[Jumlah Deposit]]></lblDepositAmount>
-  <btnSubmit><![CDATA[SUBMIT]]></btnSubmit>
+  <btnSubmit><![CDATA[Kirim]]></btnSubmit>
   <lblDailyLimit><![CDATA[Batas Perhari]]></lblDailyLimit>
   <lblTotalAllowed><![CDATA[Jumlah yang diperbolehkan]]></lblTotalAllowed>
   <lblMinMaxLimit><![CDATA[Batas Min/Max]]></lblMinMaxLimit>

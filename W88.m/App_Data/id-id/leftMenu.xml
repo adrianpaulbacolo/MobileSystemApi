@@ -25,7 +25,7 @@
   <banktransfer><![CDATA[Bank Transfer]]></banktransfer>
   <wingmoney><![CDATA[Wing Money]]></wingmoney>
   <fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
-  <submitUpload><![CDATA[Kirim Upload]]></submitUpload>
+  <submitUpload><![CDATA[Kirim/Upload]]></submitUpload>
   <sports><![CDATA[Sport]]></sports>
   <livecasino><![CDATA[Live Kasino]]></livecasino>
   <slots><![CDATA[Slot]]></slots>
@@ -39,34 +39,36 @@
   <withrawal><![CDATA[Penarikan]]></withrawal>-->
   <fundTransfer><![CDATA[Fund Transfer]]></fundTransfer>
   <poker><![CDATA[Poker]]></poker>
-  <fundFooter><![CDATA[*Club W, Bravado, Apollo, Crescendo, Divino & Massimo, Virtual , Lotto]]></fundFooter>
+  <fundFooter><![CDATA[*Klub W, Bravado, Apollo, Crescendo, Divino, Massimo & Virtual]]></fundFooter>
   <cancel><![CDATA[CANCEL]]></cancel>
-  <changePassword><![CDATA[CHANGE PASSWORD]]></changePassword>
-  <profile><![CDATA[PROFILE]]></profile>
-  <mainWallet><![CDATA[MAIN WALLET]]></mainWallet>
-  <rewardsClub><![CDATA[REWARDS CLUB]]></rewardsClub>
-  <points><![CDATA[Points]]></points>
-  <funds><![CDATA[Funds]]></funds>
+  <changePassword><![CDATA[Ganti Kata Sandi]]></changePassword>
+  <profile><![CDATA[PROFIL]]></profile>
+  <mainWallet><![CDATA[Dompet Utama]]></mainWallet>
+  <rewardsClub><![CDATA[Klub Rewards]]></rewardsClub>
+  <points><![CDATA[Poin]]></points>
+  <funds><![CDATA[Pengelolaan Dana]]></funds>
   <aSports><![CDATA[A-SPORTS]]></aSports>
   <eSports><![CDATA[E-SPORTS]]></eSports>
   <nuovo><![CDATA[NUOVO]]></nuovo>
-  <liveCasino><![CDATA[*CLUB W]]></liveCasino>
-  <liveCasinoTitle><![CDATA[Live Casino]]></liveCasinoTitle>
-  <liveCasinoMessage><![CDATA[Enjoy live Casino instant cash rebate up to 0.8%. No payout limit & rollover.]]></liveCasinoMessage>
-  <clubPalazo><![CDATA[CLUB PALAZO]]></clubPalazo>
-  <clubPalazoMessage><![CDATA[Innovative casino games with Asian & European live dealers!]]></clubPalazoMessage>
-  <clubMassimo><![CDATA[CLUB MASSIMO]]></clubMassimo>
-  <clubMassimoMessage><![CDATA[Popular live casino games with high-quality video!]]></clubMassimoMessage>
-  <playNow><![CDATA[PLAY NOW]]></playNow>
+  <liveCasino><![CDATA[*Klub W]]></liveCasino>
+  <liveCasinoTitle><![CDATA[Live Kasino]]></liveCasinoTitle>
+  <liveCasinoMessage><![CDATA[Nikmati rebate instan Kasino hingga 0.8%. Tanpa batas dan tanpa rollover.]]></liveCasinoMessage>
+  <clubPalazo><![CDATA[Klub Palazzo]]></clubPalazo>
+  <clubPalazoMessage><![CDATA[Permainan kasino inovatif dengan dealer-dealer cantik Asia & Eropa]]></clubPalazoMessage>
+  <clubMassimo><![CDATA[Klub Massimo]]></clubMassimo>
+  <clubMassimoMessage><![CDATA[Permainan kasino populer dengan video berkualitas tinggi dan menarik.]]></clubMassimoMessage>
+  <playNow><![CDATA[MAIN]]></playNow>
   <androidDownload><![CDATA[ANDROID DOWNLOAD]]></androidDownload>
   <iosDownload><![CDATA[IOS DOWNLOAD]]></iosDownload>
 
   <download><![CDATA[DOWNLOAD]]></download>
 
   <virtual><![CDATA[Virtual]]></virtual>
-  <basketball><![CDATA[Basketball]]></basketball>
-  <dogRacing><![CDATA[Dog Racing]]></dogRacing>
-  <football><![CDATA[Football]]></football>
-  <horseRacing><![CDATA[Horse Racing]]></horseRacing>
-  <tennis><![CDATA[Tennis]]></tennis>
+  <basketball><![CDATA[Bola Basket]]></basketball>
+  <dogRacing><![CDATA[Balap Anjing]]></dogRacing>
+  <football><![CDATA[Sepak Bola]]></football>
+  <horseRacing><![CDATA[Balap Kuda]]></horseRacing>
+  <tennis><![CDATA[Tenis]]></tennis>
+
+  <kenoMessage><![CDATA[Nikmati setiap menit dengan permainan dan kesenangan tiada henti. Rasakan keseruannya!]]></kenoMessage>
 </menu>

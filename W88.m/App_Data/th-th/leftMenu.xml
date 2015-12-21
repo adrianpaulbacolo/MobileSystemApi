@@ -7,7 +7,7 @@
   <register><![CDATA[สมัครสมาชิก]]></register>
   <cashier><![CDATA[การเงิน]]></cashier>
   <deposit><![CDATA[ฝาก]]></deposit>
-  <transfer><![CDATA[ย้ายทุน]]></transfer>
+  <transfer><![CDATA[ย้ายเงิน]]></transfer>
   <withdrawal><![CDATA[ถอน]]></withdrawal>
   <freebets><![CDATA[Claims]]></freebets>
   <misc><![CDATA[เบ็ดเตล็ด]]></misc>
@@ -15,7 +15,7 @@
   <contactUs><![CDATA[ติดต่อเรา]]></contactUs>
   <helpCenter><![CDATA[ศูนย์ช่วยเหลือ]]></helpCenter>
   <language><![CDATA[ภาษา]]></language>
-  <logout><![CDATA[ล๊อกเอ๊าท์]]></logout>
+  <logout><![CDATA[ออกจากระบบ]]></logout>
   <products><![CDATA[ผลิตภัณฑ์]]></products>
   <desktopsite><![CDATA[ไซต์บนเดสก์ท็อป]]></desktopsite>
   <joinnow><![CDATA[สมัครสมาชิก]]></joinnow>
@@ -50,7 +50,7 @@
   <points><![CDATA[ แต้มสะสม ]]></points>
   <funds><![CDATA[ จัดการด้านการเงิน ]]></funds>
   <aSports><![CDATA[ a-กีฬา ]]></aSports>
-  <eSports><![CDATA[ e-กีฬา ]]></eSports>
+  <eSports><![CDATA[ e-SPORTS  [ แบบเอเชีย ] ]]></eSports>
   <nuovo><![CDATA[ นูโอโว้ ]]></nuovo>
   <liveCasino><![CDATA[*คลับ W]]></liveCasino>
   <liveCasinoTitle><![CDATA[ คาสิโนสด ]]></liveCasinoTitle>
@@ -63,12 +63,14 @@
   <androidDownload><![CDATA[ โป๊กเกอร์ ]]></androidDownload>
   <iosDownload><![CDATA[ โป๊กเกอร์ ]]></iosDownload>
 
-  <virtual><![CDATA[Virtual]]></virtual>
-  <basketball><![CDATA[Basketball]]></basketball>
-  <dogRacing><![CDATA[Dog Racing]]></dogRacing>
-  <football><![CDATA[Football]]></football>
-  <horseRacing><![CDATA[Horse Racing]]></horseRacing>
-  <tennis><![CDATA[Tennis]]></tennis>
+  <virtual><![CDATA[กีฬาอนิเมชั่น]]></virtual>
+  <basketball><![CDATA[บาสเก็ตบอล]]></basketball>
+  <dogRacing><![CDATA[แข่งขันสุนัข]]></dogRacing>
+  <football><![CDATA[ฟุตบอล]]></football>
+  <horseRacing><![CDATA[ม้าแข่ง]]></horseRacing>
+  <tennis><![CDATA[เทนนิส]]></tennis>
 
   <download><![CDATA[DOWNLOAD]]></download>
+
+  <kenoMessage><![CDATA[Every minutes filled with fun and non-stop games. Get the excitement!]]></kenoMessage>
 </menu>

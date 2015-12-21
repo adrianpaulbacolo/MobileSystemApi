@@ -15,7 +15,7 @@
 
   <lblCaptcha><![CDATA[Kode Validasi]]></lblCaptcha>
   <lblDisclaimer><![CDATA[Saya Setuju Syarat dan Ketentuan dan Aturan W88.com]]></lblDisclaimer>
-  <btnSubmit><![CDATA[SUBMIT]]></btnSubmit>
+  <btnSubmit><![CDATA[Kirim]]></btnSubmit>
   <btnCancel><![CDATA[Batal]]></btnCancel>
 
   <Calendar>
