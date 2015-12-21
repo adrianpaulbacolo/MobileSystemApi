@@ -35,9 +35,8 @@
   <sdpay><![CDATA[Union Pay]]></sdpay>
   <help2pay><![CDATA[Help2Pay]]></help2pay>
   <daddypay><![CDATA[Trực Tuyến Nhanh]]></daddypay>
-  <withrawal><![CDATA[Rút Tiền]]></withrawal>-->
-  <fundTransfer><![CDATA[Chuyển Quỹ]]></fundTransfer>-->
-  <deposit><![CDATA[Gửi Tiền]]></deposit>-->
+  <withrawal><![CDATA[Rút Tiền]]></withrawal>
+  <fundTransfer><![CDATA[Chuyển Quỹ]]></fundTransfer>
   <cancel><![CDATA[Hủy]]></cancel>
   
   <virtual><![CDATA[Thể Thao ảo]]></virtual>

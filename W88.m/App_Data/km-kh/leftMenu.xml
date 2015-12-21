@@ -36,9 +36,8 @@
   <sdpay><![CDATA[Union Pay]]></sdpay>
   <help2pay><![CDATA[Help2Pay]]></help2pay>
   <daddypay><![CDATA[រហ័សអនឡាញ]]></daddypay>
-  <withrawal><![CDATA[ការដកប្រាក់ចេញ]]></withrawal>-->
-  <fundTransfer><![CDATA[ផេ្ទរ]]></fundTransfer>-->
-  <deposit><![CDATA[ប្រាក់កក់]]></deposit>-->
+  <withrawal><![CDATA[ការដកប្រាក់ចេញ]]></withrawal>
+  <fundTransfer><![CDATA[ផេ្ទរ]]></fundTransfer>
   <poker><![CDATA[ពុកគ័រ]]></poker>-->
   <fundFooter><![CDATA[*Club W, Bravado, Apollo, Crescendo, Divino & Massimo, Virtual , Lotto]]></fundFooter>
   <cancel><![CDATA[បោះបង់]]></cancel>
