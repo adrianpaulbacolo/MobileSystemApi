@@ -15,7 +15,7 @@
   
   <lblCaptcha><![CDATA[コード]]></lblCaptcha>
   <lblDisclaimer><![CDATA[私はW88.comの条件と規則を受け入れます。]]></lblDisclaimer>
-  <btnSubmit><![CDATA[転送]]></btnSubmit>
+  <btnSubmit><![CDATA[登録]]></btnSubmit>
   <btnCancel><![CDATA[キャンセル]]></btnCancel>
 
   <Calendar>
