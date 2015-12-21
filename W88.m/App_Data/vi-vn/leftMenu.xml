@@ -32,8 +32,9 @@
   <fundmanagement><![CDATA[Quản Lý Quỹ]]></fundmanagement>
   <customerservice><![CDATA[Customer Service]]></customerservice>
   <rewards><![CDATA[Câu Lạc Bộ Điểm Thưởng]]></rewards>
-  <sdpay><![CDATA[SDPay]]></sdpay>
+  <sdpay><![CDATA[Union Pay]]></sdpay>
   <help2pay><![CDATA[Help2Pay]]></help2pay>
+  <daddypay><![CDATA[Trực Tuyến Nhanh]]></daddypay>
   <withrawal><![CDATA[Rút Tiền]]></withrawal>-->
   <fundTransfer><![CDATA[Chuyển Quỹ]]></fundTransfer>-->
   <deposit><![CDATA[Gửi Tiền]]></deposit>-->

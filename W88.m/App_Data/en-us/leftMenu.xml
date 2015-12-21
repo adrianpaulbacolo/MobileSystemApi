@@ -4,7 +4,7 @@
   <closeMenu><![CDATA[Close Menu]]></closeMenu>
   <home><![CDATA[Home]]></home>
   <login><![CDATA[Login]]></login>
-  <register><![CDATA[Register]]></register>
+  <register><![CDATA[Registration]]></register>
   <cashier><![CDATA[Cashier]]></cashier>
   <deposit><![CDATA[Deposit]]></deposit>
   <transfer><![CDATA[Transfer]]></transfer>
@@ -30,7 +30,7 @@
   <fundmanagement><![CDATA[Funds]]></fundmanagement>
   <customerservice><![CDATA[Customer Service]]></customerservice>
   <rewards><![CDATA[Rewards]]></rewards>
-  <sdpay><![CDATA[SDPay]]></sdpay>
+  <sdpay><![CDATA[Union Pay]]></sdpay>
   <help2pay><![CDATA[Help2Pay]]></help2pay>
   <daddypay><![CDATA[Quick Online]]></daddypay>
   <daddypayqr><![CDATA[QR Code Payment]]></daddypayqr>

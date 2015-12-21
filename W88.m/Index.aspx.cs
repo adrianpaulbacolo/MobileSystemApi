@@ -164,7 +164,11 @@ public partial class _Index : BasePage
     {
         string Language = string.Empty;
 
-        if (ConfigurationManager.AppSettings[Keys.COUNTRY_DOMAIN_CN].Contains(Domain))
+        if (!string.IsNullOrWhiteSpace(commonVariables.SelectedLanguage))
+        {
+            Language = commonVariables.SelectedLanguage;
+        }
+        else if (ConfigurationManager.AppSettings[Keys.COUNTRY_DOMAIN_CN].Contains(Domain))
         {
             Language = "zh-cn";
         }

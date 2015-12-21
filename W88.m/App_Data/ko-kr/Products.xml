@@ -11,6 +11,11 @@
       <Label><![CDATA[e-스포츠]]></Label>
       <Description><![CDATA[Sportsbook]]></Description>
     </ESports>
+    <Poker>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[포커]]></Label>
+      <Description><![CDATA[포커]]></Description>
+    </Poker>
     <ISports>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[i-스포츠]]></Label>
@@ -83,7 +88,7 @@
     <esports><![CDATA[E-스포츠]]></esports>
     <isports><![CDATA[I-스포츠]]></isports>
     <lottery><![CDATA[복권]]></lottery>
-    <casino><![CDATA[클럽 W, 브라바도, 아폴로, 크레센도, 디비노 & 마시모]]></casino>
+    <casino><![CDATA[클럽 W, 브라바도, 아폴로, 크레센도, 복권, 디비노 & 마시모]]></casino>
     <playtech><![CDATA[팔라쪼]]></playtech>
     <binary><![CDATA[바이너리]]></binary>
     <poker><![CDATA[포커 (USD)]]></poker>

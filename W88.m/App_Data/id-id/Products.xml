@@ -11,6 +11,11 @@
       <Label><![CDATA[e-Sport]]></Label>
       <Description><![CDATA[Sportsbook]]></Description>
     </ESports>
+    <Poker>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[Poker]]></Label>
+      <Description><![CDATA[Poker]]></Description>
+    </Poker>
     <ISports>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[i-Sport]]></Label>

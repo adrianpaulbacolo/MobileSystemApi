@@ -33,11 +33,31 @@
   <fundmanagement><![CDATA[Pengelolaan Dana]]></fundmanagement>
   <customerservice><![CDATA[Customer Service]]></customerservice>
   <rewards><![CDATA[Klub Reward]]></rewards>
-  <sdpay><![CDATA[SDPay]]></sdpay>
+  <sdpay><![CDATA[Union Pay]]></sdpay>
   <help2pay><![CDATA[Help2Pay]]></help2pay>
+  <daddypay><![CDATA[Quick Online]]></daddypay>
   <withrawal><![CDATA[Penarikan]]></withrawal>-->
   <fundTransfer><![CDATA[Fund Transfer]]></fundTransfer>
-  <deposit><![CDATA[Deposit]]></deposit>
   <poker><![CDATA[Poker]]></poker>
   <fundFooter><![CDATA[*Club W, Bravado, Apollo, Crescendo, Divino & Massimo, Virtual , Lotto]]></fundFooter>
+  <cancel><![CDATA[CANCEL]]></cancel>
+  <changePassword><![CDATA[CHANGE PASSWORD]]></changePassword>
+  <profile><![CDATA[PROFILE]]></profile>
+  <mainWallet><![CDATA[MAIN WALLET]]></mainWallet>
+  <rewardsClub><![CDATA[REWARDS CLUB]]></rewardsClub>
+  <points><![CDATA[Points]]></points>
+  <funds><![CDATA[Funds]]></funds>
+  <aSports><![CDATA[A-SPORTS]]></aSports>
+  <eSports><![CDATA[E-SPORTS]]></eSports>
+  <nuovo><![CDATA[NUOVO]]></nuovo>
+  <liveCasino><![CDATA[*CLUB W]]></liveCasino>
+  <liveCasinoTitle><![CDATA[Live Casino]]></liveCasinoTitle>
+  <liveCasinoMessage><![CDATA[Enjoy live Casino instant cash rebate up to 0.8%. No payout limit & rollover.]]></liveCasinoMessage>
+  <clubPalazo><![CDATA[CLUB PALAZO]]></clubPalazo>
+  <clubPalazoMessage><![CDATA[Innovative casino games with Asian & European live dealers!]]></clubPalazoMessage>
+  <clubMassimo><![CDATA[CLUB MASSIMO]]></clubMassimo>
+  <clubMassimoMessage><![CDATA[Popular live casino games with high-quality video!]]></clubMassimoMessage>
+  <playNow><![CDATA[PLAY NOW]]></playNow>
+  <androidDownload><![CDATA[ANDROID DOWNLOAD]]></androidDownload>
+  <iosDownload><![CDATA[IOS DOWNLOAD]]></iosDownload>
 </menu>

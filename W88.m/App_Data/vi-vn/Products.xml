@@ -11,6 +11,11 @@
       <Label><![CDATA[e-Thể thao]]></Label>
       <Description><![CDATA[Sportsbook]]></Description>
     </ESports>
+    <Poker>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[Poker]]></Label>
+      <Description><![CDATA[Poker]]></Description>
+    </Poker>
     <ISports>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[i-Thể thao]]></Label>
@@ -83,7 +88,7 @@
     <esports><![CDATA[E-Thể Thao]]></esports>
     <isports><![CDATA[I-Thể Thao]]></isports>
     <lottery><![CDATA[Xổ Số]]></lottery>
-    <casino><![CDATA[Club W, Bravado, Apollo, Crescendo, Divino & Massimo]]></casino>
+    <casino><![CDATA[Club W, Bravado, Apollo, Crescendo, XỔ SỐ, Divino & Massimo]]></casino>
     <playtech><![CDATA[Palazzo]]></playtech>
     <binary><![CDATA[Tài Chính]]></binary>
     <poker><![CDATA[Poker (USD)]]></poker>

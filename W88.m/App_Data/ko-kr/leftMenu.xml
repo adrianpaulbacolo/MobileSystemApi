@@ -27,13 +27,14 @@
   <fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
   <sports><![CDATA[스포츠]]></sports>
   <livecasino><![CDATA[라이브 카지노]]></livecasino>
-  <slots><![CDATA[슬롯]]></slots>
+  <slots><![CDATA[슬롯게임]]></slots>
   <lottery><![CDATA[복권]]></lottery>
   <fundmanagement><![CDATA[머니$]]></fundmanagement>
   <customerservice><![CDATA[Customer Service]]></customerservice>
   <rewards><![CDATA[리워드클럽]]></rewards>
-  <sdpay><![CDATA[SDPay]]></sdpay>
+  <sdpay><![CDATA[Union Pay]]></sdpay>
   <help2pay><![CDATA[Help2Pay]]></help2pay>
+  <daddypay><![CDATA[퀵 온라인]]></daddypay>
   <withrawal><![CDATA[출금]]></withrawal>-->
   <fundTransfer><![CDATA[잔액 이동]]></fundTransfer>-->
   <poker><![CDATA[포커]]></poker>-->
