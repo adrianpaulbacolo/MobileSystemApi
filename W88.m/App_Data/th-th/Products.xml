@@ -26,6 +26,11 @@
       <Label><![CDATA[u-กีฬา]]></Label>
       <Description><![CDATA[Sportsbook]]></Description>
     </USports>
+	<VSports>
+	 <Url><![CDATA[]]></Url>
+	 <Label><![CDATA[กีฬาอนิเมชั่น]]></Label>
+	 <Description><![CDATA[v-Sports]]></Description>
+	</VSports>
     <Lottery>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[ล็อตเตอรี่]]></Label>

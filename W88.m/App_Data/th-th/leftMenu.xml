@@ -42,4 +42,32 @@
   <deposit><![CDATA[ฝาก]]></deposit>-->
   <poker><![CDATA[โป๊กเกอร์]]></poker>-->
   <fundFooter><![CDATA[*คลับ W, บราวาโด้, อพอลโล, เครสเชนโด้, ดิวิโน่ & แมสซิโม่, กีฬาอนิเมชั่น, ล็อตเตอรี่]]></fundFooter>
+  <cancel><![CDATA[CANCEL]]></cancel>
+
+  <changePassword><![CDATA[CHANGE PASSWORD]]></changePassword>
+  <profile><![CDATA[PROFILE]]></profile>
+  <mainWallet><![CDATA[กระเป๋าหลัก ]]></mainWallet>
+  <rewardsClub><![CDATA[ คลับสะสมแต้ม ]]></rewardsClub>
+  <points><![CDATA[ แต้มสะสม ]]></points>
+  <funds><![CDATA[ จัดการด้านการเงิน ]]></funds>
+  <aSports><![CDATA[ a-กีฬา ]]></aSports>
+  <eSports><![CDATA[ e-กีฬา ]]></eSports>
+  <nuovo><![CDATA[ นูโอโว้ ]]></nuovo>
+  <liveCasino><![CDATA[*คลับ W]]></liveCasino>
+  <liveCasinoTitle><![CDATA[ คาสิโนสด ]]></liveCasinoTitle>
+  <liveCasinoMessage><![CDATA[Enjoy live Casino instant cash rebate up to 0.8%. No payout limit & rollover.]]></liveCasinoMessage>
+  <clubPalazo><![CDATA[CLUB PALAZO]]></clubPalazo>
+  <clubPalazoMessage><![CDATA[Innovative casino games with Asian & European live dealers!]]></clubPalazoMessage>
+  <clubMassimo><![CDATA[CLUB MASSIMO]]></clubMassimo>
+  <clubMassimoMessage><![CDATA[Popular live casino games with high-quality video!]]></clubMassimoMessage>
+  <playNow><![CDATA[PLAY NOW]]></playNow>
+  <androidDownload><![CDATA[ โป๊กเกอร์ ]]></androidDownload>
+  <iosDownload><![CDATA[ โป๊กเกอร์ ]]></iosDownload>
+
+  <virtual><![CDATA[Virtual]]></virtual>
+  <basketball><![CDATA[Basketball]]></basketball>
+  <dogRacing><![CDATA[Dog Racing]]></dogRacing>
+  <football><![CDATA[Football]]></football>
+  <horseRacing><![CDATA[Horse Racing]]></horseRacing>
+  <tennis><![CDATA[Tennis]]></tennis>
 </menu>

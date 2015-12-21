@@ -41,5 +41,31 @@
   <deposit><![CDATA[ប្រាក់កក់]]></deposit>-->
   <poker><![CDATA[ពុកគ័រ]]></poker>-->
   <fundFooter><![CDATA[*Club W, Bravado, Apollo, Crescendo, Divino & Massimo, Virtual , Lotto]]></fundFooter>
-	<cancel><![CDATA[បោះបង់]]></cancel>
+  <cancel><![CDATA[បោះបង់]]></cancel>
+  <changePassword><![CDATA[CHANGE PASSWORD]]></changePassword>
+  <profile><![CDATA[PROFILE]]></profile>
+  <mainWallet><![CDATA[ចំបង ]]></mainWallet>
+  <rewardsClub><![CDATA[REWARDS CLUB]]></rewardsClub>
+  <points><![CDATA[ ពិន្ទុ ]]></points>
+  <funds><![CDATA[ គ្រប់គ្រងទឹកប្រាក់ ]]></funds>
+  <aSports><![CDATA[ a-កីឡា ]]></aSports>
+  <eSports><![CDATA[ e-កីឡា ]]></eSports>
+  <nuovo><![CDATA[NUOVO]]></nuovo>
+  <liveCasino><![CDATA[*CLUB W]]></liveCasino>
+  <liveCasinoTitle><![CDATA[ កាស៊ីណូផ្សាយផ្ទាល់ ]]></liveCasinoTitle>
+  <liveCasinoMessage><![CDATA[Enjoy live Casino instant cash rebate up to 0.8%. No payout limit & rollover.]]></liveCasinoMessage>
+  <clubPalazo><![CDATA[CLUB PALAZO]]></clubPalazo>
+  <clubPalazoMessage><![CDATA[Innovative casino games with Asian & European live dealers!]]></clubPalazoMessage>
+  <clubMassimo><![CDATA[CLUB MASSIMO]]></clubMassimo>
+  <clubMassimoMessage><![CDATA[Popular live casino games with high-quality video!]]></clubMassimoMessage>
+  <playNow><![CDATA[PLAY NOW]]></playNow>
+  <androidDownload><![CDATA[ ពុកគ័រ ]]></androidDownload>
+  <iosDownload><![CDATA[ ពុកគ័រ ]]></iosDownload>
+
+  <virtual><![CDATA[Virtual]]></virtual>
+  <basketball><![CDATA[Basketball]]></basketball>
+  <dogRacing><![CDATA[Dog Racing]]></dogRacing>
+  <football><![CDATA[Football]]></football>
+  <horseRacing><![CDATA[Horse Racing]]></horseRacing>
+  <tennis><![CDATA[Tennis]]></tennis>
 </menu>
