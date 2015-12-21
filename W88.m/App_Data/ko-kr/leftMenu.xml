@@ -25,7 +25,6 @@
   <banktransfer><![CDATA[은행송금]]></banktransfer>
   <wingmoney><![CDATA[온라인]]></wingmoney>
   <fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
-  <submitUpload><![CDATA[업로드]]></submitUpload>
   <sports><![CDATA[스포츠]]></sports>
   <livecasino><![CDATA[라이브 카지노]]></livecasino>
   <slots><![CDATA[슬롯]]></slots>
@@ -49,8 +48,7 @@
   <rewardsClub><![CDATA[리워드 클럽]]></rewardsClub>
   <points><![CDATA[Points]]></points>
   <submitUpload><![CDATA[업로드]]></submitUpload>
-  <changePassword><![CDATA[CHANGE PASSWORD]]></changePassword>
-  <contactUs><![CDATA[CONTACT US]]></contactUs>
+  <changePassword><![CDATA[비밀번호 변경]]></changePassword>
 
 
   <androidDownload><![CDATA[안드로이드 다운로드]]></androidDownload>

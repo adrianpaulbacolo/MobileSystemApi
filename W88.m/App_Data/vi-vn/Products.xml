@@ -21,6 +21,11 @@
       <Label><![CDATA[u-Thể thao]]></Label>
       <Description><![CDATA[Sportsbook]]></Description>
     </USports>
+	<VSports>
+		<Url><![CDATA[]]></Url>
+		<Label><![CDATA[Virtual]]></Label>
+		<Description><![CDATA[v-Sports]]></Description>
+	</VSports>
     <Lottery>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[Xổ Số]]></Label>
