@@ -60,4 +60,13 @@
   <playNow><![CDATA[PLAY NOW]]></playNow>
   <androidDownload><![CDATA[ANDROID DOWNLOAD]]></androidDownload>
   <iosDownload><![CDATA[IOS DOWNLOAD]]></iosDownload>
+
+  <download><![CDATA[DOWNLOAD]]></download>
+
+  <virtual><![CDATA[Virtual]]></virtual>
+  <basketball><![CDATA[Basketball]]></basketball>
+  <dogRacing><![CDATA[Dog Racing]]></dogRacing>
+  <football><![CDATA[Football]]></football>
+  <horseRacing><![CDATA[Horse Racing]]></horseRacing>
+  <tennis><![CDATA[Tennis]]></tennis>
 </menu>
