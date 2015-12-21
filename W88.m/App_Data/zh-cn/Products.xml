@@ -11,6 +11,11 @@
       <Label><![CDATA[西方体育]]></Label>
       <Description><![CDATA[Sportsbook]]></Description>
     </ESports>
+    <Poker>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[扑克]]></Label>
+      <Description><![CDATA[扑克]]></Description>
+    </Poker>
     <ISports>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[爱体育]]></Label>
@@ -21,11 +26,11 @@
       <Label><![CDATA[优体育]]></Label>
       <Description><![CDATA[Sportsbook]]></Description>
     </USports>
-	<VSports>
-		<Url><![CDATA[]]></Url>
-		<Label><![CDATA[虚拟]]></Label>
-		<Description><![CDATA[v-Sports]]></Description>
-	</VSports>
+    <VSports>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[虚拟体育]]></Label>
+      <Description><![CDATA[v-Sports]]></Description>
+    </VSports>
     <Lottery>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[乐透]]></Label>
@@ -83,11 +88,11 @@
     <esports><![CDATA[西方体育]]></esports>
     <isports><![CDATA[爱体育]]></isports>
     <lottery><![CDATA[乐透]]></lottery>
-    <casino><![CDATA[优德俱乐部(真人+其他老虎机俱乐部)]]></casino>
+    <casino><![CDATA[优德俱乐部(真人+其他老虎机俱乐部),乐透]]></casino>
     <playtech><![CDATA[金殿(PT真人+老虎机)]]></playtech>
     <binary><![CDATA[金融]]></binary>
     <poker><![CDATA[扑克 (USD)]]></poker>
     <sbtech><![CDATA[西方体育]]></sbtech>
-	<netent><![CDATA[金蟾]]></netent>
+    <netent><![CDATA[金蟾]]></netent>
   </Wallets>
 </default>
