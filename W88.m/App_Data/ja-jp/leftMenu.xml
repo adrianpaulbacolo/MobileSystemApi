@@ -29,11 +29,12 @@
   <fundmanagement><![CDATA[資金管理]]></fundmanagement>
   <customerservice><![CDATA[カスタマーサービス]]></customerservice>
   <rewards><![CDATA[リワードクラブ]]></rewards>
-  <sdpay><![CDATA[SDペイ]]></sdpay>
+  <sdpay><![CDATA[Union Pay]]></sdpay>
   <help2pay><![CDATA[Help2ペイ]]></help2pay>
-  <withrawal><![CDATA[出金]]></withrawal>-->
-  <fundTransfer><![CDATA[送金]]></fundTransfer>-->
-  <deposit><![CDATA[入金]]></deposit>-->
+  <daddypay><![CDATA[クイックオンライン]]></daddypay>
+  <withrawal><![CDATA[出金]]></withrawal>
+  <fundTransfer><![CDATA[送金]]></fundTransfer>
+  <deposit><![CDATA[入金]]></deposit>
   <reminder1><![CDATA[あなたは、ログインするのにW88.comの会員である必要があります。]]></reminder1>
   <reminder2><![CDATA[W88.comの口座を作ってください。]]></reminder2>
   <cancel><![CDATA[キャンセル]]></cancel>

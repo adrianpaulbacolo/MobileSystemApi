@@ -11,6 +11,11 @@
       <Label><![CDATA[e-กีฬา]]></Label>
       <Description><![CDATA[Sportsbook]]></Description>
     </ESports>
+    <Poker>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[โป๊กเกอร์]]></Label>
+      <Description><![CDATA[โป๊กเกอร์]]></Description>
+    </Poker>
     <ISports>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[i-กีฬา]]></Label>
@@ -78,7 +83,7 @@
     <esports><![CDATA[E-กีฬา]]></esports>
     <isports><![CDATA[I-กีฬา]]></isports>
     <lottery><![CDATA[ล็อตเตอรี่]]></lottery>
-    <casino><![CDATA[คลับ W, บราวาโด้, อพอลโล, เครสเชนโด้, ดิวิโน่ & แมสซิโม่]]></casino>
+    <casino><![CDATA[คลับ W, บราวาโด้, อพอลโล, เครสเชนโด้, ล็อตเตอรี่, ดิวิโน่ & แมสซิโม่]]></casino>
     <playtech><![CDATA[พาลาซโซ]]></playtech>
     <binary><![CDATA[ไบนารี่]]></binary>
     <poker><![CDATA[โป๊กเกอร์ (USD)]]></poker>

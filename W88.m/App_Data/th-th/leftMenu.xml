@@ -33,8 +33,10 @@
   <fundmanagement><![CDATA[จัดการด้านการเงิน]]></fundmanagement>
   <customerservice><![CDATA[Customer Service]]></customerservice>
   <rewards><![CDATA[คลับสะสมแต้ม]]></rewards>
-  <sdpay><![CDATA[SDPay]]></sdpay>
+  <sdpay><![CDATA[Union Pay]]></sdpay>
   <help2pay><![CDATA[Help2Pay]]></help2pay>
+  <nextpay><![CDATA[ควิกออนไลน์]]></nextpay>
+  <daddypay><![CDATA[ควิกออนไลน์]]></daddypay>
   <withrawal><![CDATA[ถอน]]></withrawal>-->
   <fundTransfer><![CDATA[ย้ายทุน]]></fundTransfer>-->
   <deposit><![CDATA[ฝาก]]></deposit>-->

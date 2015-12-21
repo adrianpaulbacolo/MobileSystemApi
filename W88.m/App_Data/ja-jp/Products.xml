@@ -19,6 +19,11 @@
       <Label><![CDATA[バーチャル]]></Label>
       <Description><![CDATA[v-Sports]]></Description>
     </VSports>
+    <Poker>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[ポーカー]]></Label>
+      <Description><![CDATA[ポーカー]]></Description>
+    </Poker>
     <ISports>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[i-スポーツ]]></Label>
@@ -95,7 +100,7 @@
     <esports><![CDATA[E-スポーツ]]></esports>
     <isports><![CDATA[I-スポーツ]]></isports>
     <lottery><![CDATA[ロト]]></lottery>
-    <casino><![CDATA[クラブW、ブラヴァド、アポロ、クレッシェンド、ディヴィノとマッシモ]]></casino>
+    <casino><![CDATA[クラブW、ブラヴァド、アポロ、クレッシェンド、 ロト、 ディヴィノとマッシモ]]></casino>
     <playtech><![CDATA[パラッツオ]]></playtech>
     <binary><![CDATA[バイナリ]]></binary>
     <poker><![CDATA[ポーカー（米ドル）]]></poker>

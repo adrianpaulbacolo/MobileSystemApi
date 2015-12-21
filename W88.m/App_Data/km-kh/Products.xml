@@ -11,6 +11,11 @@
       <Label><![CDATA[e-កីឡា]]></Label>
       <Description><![CDATA[Sportsbook]]></Description>
     </ESports>
+    <Poker>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[ពុកគ័រ]]></Label>
+      <Description><![CDATA[ពុកគ័រ]]></Description>
+    </Poker>
     <ISports>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[i-កីឡា]]></Label>
@@ -78,7 +83,7 @@
     <esports><![CDATA[E-កីឡា]]></esports>
     <isports><![CDATA[I-កីឡា]]></isports>
     <lottery><![CDATA[ឆ្នោតឡូតូ]]></lottery>
-    <casino><![CDATA[Club W, Bravado, Apollo, Crescendo, Divino & Massimo]]></casino>
+    <casino><![CDATA[Club W, Bravado, Apollo, Crescendo, Lotto, Divino, Massimo & Virtual]]></casino>
     <playtech><![CDATA[Palazzo]]></playtech>
     <binary><![CDATA[ល្បែងភាគហ៊ុន]]></binary>
     <poker><![CDATA[ពុកគ័រ (USD)]]></poker>
