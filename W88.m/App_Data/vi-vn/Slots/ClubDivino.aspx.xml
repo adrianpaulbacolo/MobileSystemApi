@@ -3,7 +3,7 @@
 
   <Category>
    
-    <Slot3D Version="IOS" Label="Slot 3D IOS">
+    <Slot3D Version="IOS" Label="Slot 3D ">
       <!--
       <Slot3D1 ProductId="483">
         <ImageName><![CDATA[W88-Slots-Mobile-Puppy-Love]]></ImageName>
@@ -132,7 +132,7 @@
         <Description><![CDATA[At the Movies]]></Description>
       </Slot3D24>
     </Slot3D>
-    <TableCard Version="IOS" Label="TRÒ CHƠI BÀN &amp; TRÒ CHƠI BÀI IOS">
+    <TableCard Version="IOS" Label="TRÒ CHƠI BÀN &amp; TRÒ CHƠI BÀI ">
       <TableCard1 ProductId="271">
         <ImageName><![CDATA[W88-Slots-Mobile-American-Blackjack]]></ImageName>
         <Label><![CDATA[American Blackjack]]></Label>
@@ -144,7 +144,7 @@
         <Description><![CDATA[European (Single Zero) Roulette with Hamburg rules]]></Description>
       </TableCard2>
     </TableCard>
-    <Slots Version="IOS" Label="Slot IOS">
+    <Slots Version="IOS" Label="Slot ">
       <Slots1 ProductId="263">
         <ImageName><![CDATA[W88-Slots-Mobile-Lucky7]]></ImageName>
         <Label><![CDATA[Lucky7]]></Label>
@@ -152,7 +152,7 @@
       </Slots1>
     </Slots>
 
-    <Slot3D Version="ANDROID" Label="Slot 3D Android">
+    <Slot3D Version="ANDROID" Label="Slot 3D ">
       <Slot3D1 ProductId="522">
         <ImageName><![CDATA[W88-Slots-Mobile-Pinocchio]]></ImageName>
         <Label><![CDATA[Pinocchio]]></Label>
@@ -280,7 +280,7 @@
       </Slot3D24>
     </Slot3D>
     
-    <TableCard Version="ANDROID" Label="TRÒ CHƠI BÀN &amp; TRÒ CHƠI BÀI Android">
+    <TableCard Version="ANDROID" Label="TRÒ CHƠI BÀN &amp; TRÒ CHƠI BÀI ">
       <TableCard1 ProductId="272">
         <ImageName><![CDATA[W88-Slots-Mobile-American-Blackjack]]></ImageName>
         <Label><![CDATA[American Blackjack]]></Label>
@@ -292,7 +292,7 @@
         <Description><![CDATA[European (Single Zero) Roulette with Hamburg rules]]></Description>
       </TableCard2>
     </TableCard>
-    <Slots Version="ANDROID" Label="Slot Android">
+    <Slots Version="ANDROID" Label="Slot ">
       <Slots1 ProductId="268">
         <ImageName><![CDATA[W88-Slots-Mobile-Lucky7]]></ImageName>
         <Label><![CDATA[Lucky7]]></Label>
@@ -300,7 +300,7 @@
       </Slots1>
     </Slots>
    
-    <Slot3DWP Version="WP" Label="Slot 3D WP">
+    <Slot3DWP Version="WP" Label="Slot 3D ">
       <Slot3D1 ProductId="522">
         <ImageName><![CDATA[W88-Slots-Mobile-Pinocchio]]></ImageName>
         <Label><![CDATA[Pinocchio]]></Label>
@@ -429,7 +429,7 @@
     </Slot3DWP>
     
     
-    <TableCardWP Version="WP" Label="TRÒ CHƠI BÀN &amp; TRÒ CHƠI BÀI WP">
+    <TableCardWP Version="WP" Label="TRÒ CHƠI BÀN &amp; TRÒ CHƠI BÀI ">
       <TableCard1 ProductId="366">
         <ImageName><![CDATA[W88-Slots-Mobile-American-Blackjack]]></ImageName>
         <Label><![CDATA[American Blackjack]]></Label>
@@ -441,7 +441,7 @@
         <Description><![CDATA[European (Single Zero) Roulette with Hamburg rules]]></Description>
       </TableCard2>
     </TableCardWP>
-    <SlotsWP Version="WP" Label="Slot WP">
+    <SlotsWP Version="WP" Label="Slot ">
       <Slots1 ProductId="355">
         <ImageName><![CDATA[W88-Slots-Mobile-Lucky7]]></ImageName>
         <Label><![CDATA[Lucky7]]></Label>
