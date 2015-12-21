@@ -31,8 +31,9 @@
   <fundmanagement><![CDATA[资金管理]]></fundmanagement>
   <customerservice><![CDATA[顾客服务]]></customerservice>
   <rewards><![CDATA[奖励俱乐部]]></rewards>
-  <sdpay><![CDATA[SDPay]]></sdpay>
+  <sdpay><![CDATA[银联支付]]></sdpay>
   <help2pay><![CDATA[Help2Pay]]></help2pay>
+  <daddypay><![CDATA[快捷支付]]></daddypay>
   <withrawal><![CDATA[提款]]></withrawal>-->
   <fundTransfer><![CDATA[转账]]></fundTransfer>-->
   <cancel><![CDATA[取消]]></cancel>
@@ -58,10 +59,21 @@
   <wSports><![CDATA[优德体育]]></wSports>
   <lottery><![CDATA[乐透]]></lottery>
   <nuovo><![CDATA[金蟾]]></nuovo>
-  <clubPalazo><![CDATA[金殿PT]]></clubPalazo>
+  <clubPalazo><![CDATA[金殿俱乐部]]></clubPalazo>
   <poker><![CDATA[扑克]]></poker>
   <fundFooter><![CDATA[*优德俱乐部(真人+其他老虎机俱乐部),虚拟,乐透]]></fundFooter>
   <androidDownload><![CDATA[安卓下载版]]></androidDownload>
   <iosDownload><![CDATA[苹果下载版]]></iosDownload>
-  
+  <download><![CDATA[下载]]></download>
+  <liveCasinoTitle><![CDATA[真人娱乐城]]></liveCasinoTitle>
+  <liveCasinoMessage><![CDATA[优德真人娱乐城尊享高达0.8%现金返水，即玩即得！]]></liveCasinoMessage>
+  <clubPalazoMessage><![CDATA[亚欧美女荷官聚焦荧屏!]]></clubPalazoMessage>
+  <clubMassimoMessage><![CDATA[亚欧美女荷官聚]]></clubMassimoMessage>
+  <playNow><![CDATA[立即游戏]]></playNow>
+  <clubMassimo><![CDATA[金銮俱乐部]]></clubMassimo>
+  <liveCasino><![CDATA[真人娱乐城]]></liveCasino>
+  <back><![CDATA[返回]]></back>
+  <login><![CDATA[登陆]]></login>
+
+
 </menu>
