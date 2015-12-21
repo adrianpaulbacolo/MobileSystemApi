@@ -21,6 +21,11 @@
       <Label><![CDATA[优体育]]></Label>
       <Description><![CDATA[Sportsbook]]></Description>
     </USports>
+	<VSports>
+		<Url><![CDATA[]]></Url>
+		<Label><![CDATA[虚拟]]></Label>
+		<Description><![CDATA[v-Sports]]></Description>
+	</VSports>
     <Lottery>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[乐透]]></Label>
