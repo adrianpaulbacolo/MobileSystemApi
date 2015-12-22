@@ -73,4 +73,10 @@
 	<kenoMessage><![CDATA[Every minutes filled with fun and non-stop games. Get the excitement!]]></kenoMessage>
 
 	<depositDaddyPay><![CDATA[ប្រាក់កក់ - រហ័សអនឡាញ]]></depositDaddyPay>
+
+	<history><![CDATA[History]]></history>
+	<depositwithdrawal><![CDATA[Deposit / Withdrawal History]]></depositwithdrawal>
+	<fundtransfer><![CDATA[Fund Transfer History]]></fundtransfer>
+	<referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
+	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
 </menu>
