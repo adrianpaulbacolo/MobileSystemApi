@@ -78,7 +78,7 @@
                     </li>
                     <li class="item item-select">
                         <asp:Label ID="lblDepositChannel" runat="server" AssociatedControlID="drpDepositChannel" Text="to" />
-                        <asp:DropDownList ID="drpDepositChannel" runat="server" data-corners="false" />
+                        <asp:DropDownList ID="drpDepositChannel" runat="server" data-corners="false" AutoPostBack="True" />
                     </li>
                     <li class="item item-select">
                         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" Text="to" />
