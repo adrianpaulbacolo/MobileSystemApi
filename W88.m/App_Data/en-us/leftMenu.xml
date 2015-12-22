@@ -80,4 +80,10 @@
 	<tennis><![CDATA[Tennis]]></tennis>
 
 	<depositDaddyPay><![CDATA[DEPOSIT - QUICK ONLINE]]></depositDaddyPay>
+
+	<history><![CDATA[History]]></history>
+	<depositwithdrawal><![CDATA[Deposit / Withdrawal History]]></depositwithdrawal>
+	<fundtransfer><![CDATA[Fund Transfer History]]></fundtransfer>
+	<referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
+	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
 </menu>

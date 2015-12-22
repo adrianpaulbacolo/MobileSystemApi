@@ -12,11 +12,11 @@
         function launchMobileClient(temptoken) {
 
             if (gametype = "ngm") {
-                var clientUrl = <%=link%> + '&lobby=' + location.href.substring(0, location.href.lastIndexOf('.com') + 4) + '/ClubPalazzo' + '&support=' + location.href.substring(0, location.href.lastIndexOf('.com') + 4) + '/LiveChat/Default.aspx' + '&logout=' + location.href.substring(0, location.href.lastIndexOf('.com') + 4) + '/Logout';;
+                var clientUrl = <%=link%> + '&lobby=' + location.href.substring(0, location.href.lastIndexOf('.com') + 4) + '/ClubPalazzo' + '&support=' + location.href.substring(0, location.href.lastIndexOf('.com') + 4) + '/LiveChat/Default.aspx' + '&logout=' + location.href.substring(0, location.href.lastIndexOf('.com') + 4) + '/Logout';
+                console.log(clientUrl);
+                document.location = clientUrl;
             }
 
-            console.log(clientUrl);
-            document.location = clientUrl;
         }
 
 
@@ -42,7 +42,9 @@
         }
 
         $(function () {
+            iapiSetClientPlatform("mobile&deliveryPlatform=HTML5");
             <%=javascriptLogin%>
+            iapiSetCallout('Login',calloutLogin);
             
 
 
