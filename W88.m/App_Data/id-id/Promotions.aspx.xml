@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
-  <btnSubmit><![CDATA[KIRIM]]></btnSubmit>
+  <btnSubmit><![CDATA[Kirim]]></btnSubmit>
   <btnCancel><![CDATA[Batal]]></btnCancel>
   <lblID><![CDATA[ID]]></lblID>
   <lblComment><![CDATA[Komentar]]></lblComment>

@@ -25,7 +25,7 @@
                         <img src="_Static/Images/lottery/02.png" class="img-responsive-full img-bg">
                         <figcaption class="banner-caption">
                             <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/Keno/Label", commonVariables.ProductsXML)%></h3>
-                            <P>Every minutes filled with fun and non-stop games. Get the excitement!</P>
+                            <P><%=commonCulture.ElementValues.getResourceString("kenoMessage", commonVariables.LeftMenuXML)%></P>
                             <a href="<%=(string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) ? "_Secure/Login.aspx" : commonLottery.getKenoUrl)%>" class="ui-btn btn-primary" target="_blank"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
                         </figcaption>
                     </figure>

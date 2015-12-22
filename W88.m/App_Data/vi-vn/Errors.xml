@@ -54,7 +54,7 @@
     <UnderMaintenance><![CDATA[Sản phẩm hiện tại đang được bảo trì, xin vui lòng thử lại sau]]></UnderMaintenance>
     <InvalidFundTransfer><![CDATA[Chuyển khoản không hợp lệ]]></InvalidFundTransfer>
     <SessionExpired><![CDATA[Xin lỗi, đã xảy ra lỗi ở máy chủ]]></SessionExpired>
-    <InsufficientFunds><![CDATA[Yêu cầu chuyển quỹ của quý khách bị trừ chối do không đủ số dư]]></InsufficientFunds>
+    <InsufficientFunds><![CDATA[do không đủ số dư]]></InsufficientFunds>
     <MinTransferNotMet><![CDATA[Xin lỗi, quý khách không đủ số dư tối thiểu để chuyển quỹ]]></MinTransferNotMet>
     <TransferAmountDisallowed><![CDATA[Xin lỗi, số dư chuyển quỹ không được phép]]></TransferAmountDisallowed>
     <ERR01><![CDATA[- ERR01: Failure to complete transaction]]></ERR01>

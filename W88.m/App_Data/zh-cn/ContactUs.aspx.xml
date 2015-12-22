@@ -1,15 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContactUs>
-  <lblLiveChat><![CDATA[在线客服]]></lblLiveChat>
-  <lblSkype><![CDATA[Skype]]></lblSkype>
-  <lblEmail><![CDATA[一般问题]]></lblEmail>
-  <lblBanking><![CDATA[存提款问题]]></lblBanking>
-  <lblPhone><![CDATA[电话咨询]]></lblPhone>
-  <lblLine><![CDATA[Line]]></lblLine>
-  <lblFooter><![CDATA[我们的客户服务团队24小时全年无休竭诚为您服务。为了节约您的宝贵时间，我们已对常见问题提前做出相应的解答，请在联系我们之前参阅我们的 常见问题 以及 演示教程。]]></lblFooter>
+	<lblLiveChat><![CDATA[在线客服]]></lblLiveChat>
+	<lblLiveChatMessage><![CDATA[Get an instant live chat from our support team]]></lblLiveChatMessage>
+	<lblSkype><![CDATA[Skype]]></lblSkype>
+	<lblSkypeMessage><![CDATA[Should you prefer to use Skype to chat with us]]></lblSkypeMessage>
+	<lblEmail><![CDATA[一般问题]]></lblEmail>
+	<lblEmailMessage><![CDATA[For General Betting and Account Enquiry only.]]></lblEmailMessage>
+	<lblBanking><![CDATA[存提款问题]]></lblBanking>
+	<lblBankingMessage><![CDATA[For Banking Enquiry only.]]></lblBankingMessage>
+	<lblPhone><![CDATA[电话咨询]]></lblPhone>
+	<lblPhoneMessage><![CDATA[Call (+60) 166770468 or (+44) 2036085161 and we will be pleased to assist you (International charges may apply).]]></lblPhoneMessage>
+	<lblLine><![CDATA[Line]]></lblLine>
+	<lblFooter><![CDATA[我们的客户服务团队24小时全年无休竭诚为您服务。为了节约您的宝贵时间，我们已对常见问题提前做出相应的解答，请在联系我们之前参阅我们的 常见问题 以及 演示教程。]]></lblFooter>
 
-  <lnkSkype><![CDATA[skype:w88cs.china]]></lnkSkype>
-  <lnkEmail><![CDATA[mailto:infocn@w88.com]]></lnkEmail>
-  <lnkBanking><![CDATA[mailto:banking@w88.com]]></lnkBanking>
-  <lnkPhone><![CDATA[tel:+8613120857088]]></lnkPhone>
+	<lnkSkype><![CDATA[skype:w88cs.china]]></lnkSkype>
+	<lnkEmail><![CDATA[mailto:infocn@w88.com]]></lnkEmail>
+	<lnkBanking><![CDATA[mailto:banking@w88.com]]></lnkBanking>
+	<lnkPhone><![CDATA[tel:+8613120857088]]></lnkPhone>
 </ContactUs>

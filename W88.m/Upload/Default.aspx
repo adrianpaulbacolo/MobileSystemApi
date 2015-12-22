@@ -19,7 +19,7 @@
         <div class="ui-content" role="main">
             <form class="form" id="form1" runat="server" data-ajax="false">
                 <ul class="list fixed-tablet-size">
-                    <li class="item item-text-wrap">
+                    <li class="item-text-wrap">
                         <p><asp:Literal ID="lblSuccess" runat="server"></asp:Literal></p>
                         <p>
                             <strong><asp:Label ID="lblUsername" runat="server" /></strong>
