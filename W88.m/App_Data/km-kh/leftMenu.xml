@@ -1,74 +1,76 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <menu>
-  <brand><![CDATA[W88.com - ]]></brand>
-  <closeMenu><![CDATA[បិទម៉ឺនុយ]]></closeMenu>
-  <home><![CDATA[ទំព័រដើម]]></home>
-  <login><![CDATA[ចូល]]></login>
-  <register><![CDATA[ចូលរួមឥឡូវនេះ]]></register>
-  <cashier><![CDATA[បេឡាធិការ]]></cashier>
-  <deposit><![CDATA[ប្រាក់កក់]]></deposit>
-  <transfer><![CDATA[ផេ្ទរ]]></transfer>
-  <withdrawal><![CDATA[ការដកប្រាក់ចេញ]]></withdrawal>
-  <freebets><![CDATA[ទាមទារ]]></freebets>
-  <misc><![CDATA[ផ្រេងទៀត]]></misc>
-  <liveHelp><![CDATA[ជំនួយផ្ទាល់។]]></liveHelp>
-  <contactUs><![CDATA[ទំនាក់ទំនងមកយើងខ្ញុំ]]></contactUs>
-  <helpCenter><![CDATA[ផ្នែកជំនួយ]]></helpCenter>
-  <language><![CDATA[ភាសា]]></language>
-  <logout><![CDATA[ចាកចេញ]]></logout>
-  <products><![CDATA[ផលិតផល]]></products>
-  <desktopsite><![CDATA[Desktop Site]]></desktopsite>
-  <joinnow><![CDATA[ចូលរួម]]></joinnow>
-  <promotions><![CDATA[ការផ្តល់ជូនពិសេស]]></promotions>
-  <updateProfile><![CDATA[Update Profile]]></updateProfile>
-  <fastdeposit><![CDATA[ផ្ទេរប្រាក់តាមធនាគារ]]></fastdeposit>
-  <banktransfer><![CDATA[ផ្ទេរប្រាក់តាមធនាគារ]]></banktransfer>
-  <wingmoney><![CDATA[Wing Money]]></wingmoney>
-  <fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
-  <submitUpload><![CDATA[បញ្ញូនការតំឡើង]]></submitUpload>
-  <sports><![CDATA[កីឡា]]></sports>
-  <livecasino><![CDATA[កាស៊ីណូផ្សាយផ្ទាល់]]></livecasino>
-  <slots><![CDATA[ស្លត]]></slots>
-  <lottery><![CDATA[ឆ្នោតឡូតូ]]></lottery>
-  <fundmanagement><![CDATA[គ្រប់គ្រងទឹកប្រាក់]]></fundmanagement>
-  <customerservice><![CDATA[Customer Service]]></customerservice>
-  <rewards><![CDATA[ក្លឹបរង្វាន់]]></rewards>
-  <sdpay><![CDATA[Union Pay]]></sdpay>
-  <help2pay><![CDATA[Help2Pay]]></help2pay>
-  <daddypay><![CDATA[រហ័សអនឡាញ]]></daddypay>
-  <withrawal><![CDATA[ការដកប្រាក់ចេញ]]></withrawal>
-  <fundTransfer><![CDATA[ផេ្ទរ]]></fundTransfer>
-  <poker><![CDATA[ពុកគ័រ]]></poker>-->
-  <fundFooter><![CDATA[*Club W, Bravado, Apollo, Crescendo, Divino & Massimo, Virtual , Lotto]]></fundFooter>
-  <cancel><![CDATA[បោះបង់]]></cancel>
-  <changePassword><![CDATA[CHANGE PASSWORD]]></changePassword>
-  <profile><![CDATA[PROFILE]]></profile>
-  <mainWallet><![CDATA[ចំបង ]]></mainWallet>
-  <rewardsClub><![CDATA[REWARDS CLUB]]></rewardsClub>
-  <points><![CDATA[ ពិន្ទុ ]]></points>
-  <funds><![CDATA[ គ្រប់គ្រងទឹកប្រាក់ ]]></funds>
-  <aSports><![CDATA[ a-កីឡា ]]></aSports>
-  <eSports><![CDATA[ e-កីឡា ]]></eSports>
-  <nuovo><![CDATA[NUOVO]]></nuovo>
-  <liveCasino><![CDATA[*CLUB W]]></liveCasino>
-  <liveCasinoTitle><![CDATA[ កាស៊ីណូផ្សាយផ្ទាល់ ]]></liveCasinoTitle>
-  <liveCasinoMessage><![CDATA[Enjoy live Casino instant cash rebate up to 0.8%. No payout limit & rollover.]]></liveCasinoMessage>
-  <clubPalazo><![CDATA[CLUB PALAZO]]></clubPalazo>
-  <clubPalazoMessage><![CDATA[Innovative casino games with Asian & European live dealers!]]></clubPalazoMessage>
-  <clubMassimo><![CDATA[CLUB MASSIMO]]></clubMassimo>
-  <clubMassimoMessage><![CDATA[Popular live casino games with high-quality video!]]></clubMassimoMessage>
-  <playNow><![CDATA[PLAY NOW]]></playNow>
-  <androidDownload><![CDATA[ ពុកគ័រ ]]></androidDownload>
-  <iosDownload><![CDATA[ ពុកគ័រ ]]></iosDownload>
+	<brand><![CDATA[W88.com - ]]></brand>
+	<closeMenu><![CDATA[បិទម៉ឺនុយ]]></closeMenu>
+	<home><![CDATA[ទំព័រដើម]]></home>
+	<login><![CDATA[ចូល]]></login>
+	<register><![CDATA[ចូលរួមឥឡូវនេះ]]></register>
+	<cashier><![CDATA[បេឡាធិការ]]></cashier>
+	<deposit><![CDATA[ប្រាក់កក់]]></deposit>
+	<transfer><![CDATA[ផេ្ទរ]]></transfer>
+	<withdrawal><![CDATA[ការដកប្រាក់ចេញ]]></withdrawal>
+	<freebets><![CDATA[ទាមទារ]]></freebets>
+	<misc><![CDATA[ផ្រេងទៀត]]></misc>
+	<liveHelp><![CDATA[ជំនួយផ្ទាល់។]]></liveHelp>
+	<contactUs><![CDATA[ទំនាក់ទំនងមកយើងខ្ញុំ]]></contactUs>
+	<helpCenter><![CDATA[ផ្នែកជំនួយ]]></helpCenter>
+	<language><![CDATA[ភាសា]]></language>
+	<logout><![CDATA[ចាកចេញ]]></logout>
+	<products><![CDATA[ផលិតផល]]></products>
+	<desktopsite><![CDATA[Desktop Site]]></desktopsite>
+	<joinnow><![CDATA[ចូលរួម]]></joinnow>
+	<promotions><![CDATA[ការផ្តល់ជូនពិសេស]]></promotions>
+	<updateProfile><![CDATA[Update Profile]]></updateProfile>
+	<fastdeposit><![CDATA[ផ្ទេរប្រាក់តាមធនាគារ]]></fastdeposit>
+	<banktransfer><![CDATA[ផ្ទេរប្រាក់តាមធនាគារ]]></banktransfer>
+	<wingmoney><![CDATA[Wing Money]]></wingmoney>
+	<fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
+	<submitUpload><![CDATA[បញ្ញូនការតំឡើង]]></submitUpload>
+	<sports><![CDATA[កីឡា]]></sports>
+	<livecasino><![CDATA[កាស៊ីណូផ្សាយផ្ទាល់]]></livecasino>
+	<slots><![CDATA[ស្លត]]></slots>
+	<lottery><![CDATA[ឆ្នោតឡូតូ]]></lottery>
+	<fundmanagement><![CDATA[គ្រប់គ្រងទឹកប្រាក់]]></fundmanagement>
+	<customerservice><![CDATA[Customer Service]]></customerservice>
+	<rewards><![CDATA[ក្លឹបរង្វាន់]]></rewards>
+	<sdpay><![CDATA[Union Pay]]></sdpay>
+	<help2pay><![CDATA[Help2Pay]]></help2pay>
+	<daddypay><![CDATA[រហ័សអនឡាញ]]></daddypay>
+	<withrawal><![CDATA[ការដកប្រាក់ចេញ]]></withrawal>
+	<fundTransfer><![CDATA[ផេ្ទរ]]></fundTransfer>
+	<poker><![CDATA[ពុកគ័រ]]></poker>-->
+	<fundFooter><![CDATA[*Club W, Bravado, Apollo, Crescendo, Divino & Massimo, Virtual , Lotto]]></fundFooter>
+	<cancel><![CDATA[បោះបង់]]></cancel>
+	<changePassword><![CDATA[CHANGE PASSWORD]]></changePassword>
+	<profile><![CDATA[PROFILE]]></profile>
+	<mainWallet><![CDATA[ចំបង ]]></mainWallet>
+	<rewardsClub><![CDATA[REWARDS CLUB]]></rewardsClub>
+	<points><![CDATA[ ពិន្ទុ ]]></points>
+	<funds><![CDATA[ គ្រប់គ្រងទឹកប្រាក់ ]]></funds>
+	<aSports><![CDATA[ a-កីឡា ]]></aSports>
+	<eSports><![CDATA[ e-កីឡា ]]></eSports>
+	<nuovo><![CDATA[NUOVO]]></nuovo>
+	<liveCasino><![CDATA[*CLUB W]]></liveCasino>
+	<liveCasinoTitle><![CDATA[ កាស៊ីណូផ្សាយផ្ទាល់ ]]></liveCasinoTitle>
+	<liveCasinoMessage><![CDATA[Enjoy live Casino instant cash rebate up to 0.8%. No payout limit & rollover.]]></liveCasinoMessage>
+	<clubPalazo><![CDATA[CLUB PALAZO]]></clubPalazo>
+	<clubPalazoMessage><![CDATA[Innovative casino games with Asian & European live dealers!]]></clubPalazoMessage>
+	<clubMassimo><![CDATA[CLUB MASSIMO]]></clubMassimo>
+	<clubMassimoMessage><![CDATA[Popular live casino games with high-quality video!]]></clubMassimoMessage>
+	<playNow><![CDATA[PLAY NOW]]></playNow>
+	<androidDownload><![CDATA[ ពុកគ័រ ]]></androidDownload>
+	<iosDownload><![CDATA[ ពុកគ័រ ]]></iosDownload>
 
-  <virtual><![CDATA[Virtual]]></virtual>
-  <basketball><![CDATA[Basketball]]></basketball>
-  <dogRacing><![CDATA[Dog Racing]]></dogRacing>
-  <football><![CDATA[Football]]></football>
-  <horseRacing><![CDATA[Horse Racing]]></horseRacing>
-  <tennis><![CDATA[Tennis]]></tennis>
+	<virtual><![CDATA[Virtual]]></virtual>
+	<basketball><![CDATA[Basketball]]></basketball>
+	<dogRacing><![CDATA[Dog Racing]]></dogRacing>
+	<football><![CDATA[Football]]></football>
+	<horseRacing><![CDATA[Horse Racing]]></horseRacing>
+	<tennis><![CDATA[Tennis]]></tennis>
 
-  <download><![CDATA[DOWNLOAD]]></download>
+	<download><![CDATA[DOWNLOAD]]></download>
 
-  <kenoMessage><![CDATA[Every minutes filled with fun and non-stop games. Get the excitement!]]></kenoMessage>
+	<kenoMessage><![CDATA[Every minutes filled with fun and non-stop games. Get the excitement!]]></kenoMessage>
+
+	<depositDaddyPay><![CDATA[ប្រាក់កក់ - រហ័សអនឡាញ]]></depositDaddyPay>
 </menu>

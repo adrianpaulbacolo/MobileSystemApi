@@ -26,11 +26,11 @@
     }
     .div-promo-header {
         color: $base-color;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
+        white-space: normal;
+        overflow: visible;
         padding-left: $content-padding;
-        line-height: 45px; // btn height
+        //line-height: 45px; // btn height
+        padding: 10px;
     }
     .div-promo-content {
         display: none;
