@@ -32,6 +32,7 @@ public partial class Upload_Default : BasePage
             btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
 
             lblSuccess.Text = commonCulture.ElementValues.getResourceString("Success", xeResources);
+            lblSuccess.Visible = false;
         }
     }
 
@@ -117,6 +118,7 @@ public partial class Upload_Default : BasePage
 
                         strAlertCode = "00";
                         lblSuccess.Text = commonCulture.ElementValues.getResourceString("Success", xeResources).Replace("[SubmissionID]", strSubmissionID);
+                        lblSuccess.Visible = true;
                     }
                     catch (Exception ex)
                     {

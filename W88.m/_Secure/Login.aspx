@@ -24,9 +24,9 @@
         </style>
         <header id="header" data-role="header" data-position="fixed" data-theme="b" data-tap-toggle="false">
             <a href="" role="button" data-rel="back" class="btn-clear ui-btn-left ui-btn ion-ios-arrow-back" id="aMenu" data-load-ignore-splash="true">
-                Back
+                <%=commonCulture.ElementValues.getResourceString("back", commonVariables.LeftMenuXML)%>
             </a>
-            <h1 class="title">Login</h1>
+            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></h1>
         </header>
         <div class="ui-content" role="main">
             <form class="form" id="form1" runat="server" data-ajax="false">
@@ -41,7 +41,7 @@
                         <asp:Label ID="lblPassword" runat="server" AssociatedControlID="txtPassword" Text="password" />
                         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" data-corners="false" MaxLength="10" data-clear-btn="true" />
                     </li>
-                    <li class="item item-icon-left item-input">
+                    <li class="item item-icon-left item-input hide capt">
                         <i class="icon icon-check"></i>
                         <asp:Label ID="lblCaptcha" runat="server" AssociatedControlID="txtCaptcha" Text="code" />
                         <asp:Image ID="imgCaptcha" runat="server" CssClass="imgCaptcha" />
@@ -107,7 +107,7 @@
                     GPINTMOBILE.ShowSplash();
                     $.ajax({
                         contentType: "application/json; charset=utf-8",
-                        url: "http://w88uat.com/ip2loc?v=" + new Date().getTime(),
+                        url: "https://ip2loc.w2script.com/IP2LOC?v=" + new Date().getTime(),
                         dataType: "jsonp",
                         success: function (data) {
                             initiateLogin(data);
@@ -178,6 +178,7 @@
                                 counter += 1;
 
                                 if (counter >= 3) {
+                                    $(".capt").removeClass("hide");
                                     $('#<%=imgCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
                                     $('#<%=lblCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
                                     $('#<%=txtCaptcha.ClientID%>').attr('class', 'show imgCaptcha');

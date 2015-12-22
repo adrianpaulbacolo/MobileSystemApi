@@ -13,12 +13,12 @@
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
             </a>
-            <h1 class="title">DEPOSIT - DADDYPAY</h1>
+            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("depositDaddyPay", commonVariables.LeftMenuXML)%></h1>
         </header>
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <label class="label">Main Wallet</label>
+                <label class="label"><%=commonCulture.ElementValues.getResourceString("mainWallet", commonVariables.LeftMenuXML)%></label>
                 <h2 class="value"><%=Session["Main"].ToString()%></h2>
                 <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
             </div>

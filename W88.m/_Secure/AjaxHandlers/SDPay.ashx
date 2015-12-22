@@ -36,32 +36,6 @@ public class SDPay : IHttpHandler,System.Web.SessionState.IReadOnlySessionState 
         processSerialId++;
         processDetail = "log parameters";
 
-        try
-        {
-            
-            string path = @"C:\temp\log.txt";
-
-            if (!System.IO.File.Exists(path))
-            {
-                using (System.IO.StreamWriter sw = System.IO.File.CreateText(path))
-                {
-                    var log = string.Format("Operator: {0} Member: {1} Code:{2} Currency: {3}", strOperatorId, strMemberId, strMemberCode, strCurrencyCode);
-                    sw.Write(log);
-                    sw.Close();
-                }
-            }
-
-            using (System.IO.StreamWriter sw = System.IO.File.AppendText(path))
-            {
-                var log = string.Format("Operator: {0} Member: {1} Code: {2} Currency: {3}", strOperatorId, strMemberId, strMemberCode, strCurrencyCode);
-                sw.WriteLine(log);
-                sw.Close();
-            }
-
-        }
-        catch(Exception)
-        { }
-        
         commonAuditTrail.appendLog("system", pageName, taskName, string.Empty, string.Empty, processDetail, string.Empty, "ok", parameters, Convert.ToString(processSerialId), processId, false);
         #endregion
 
@@ -134,7 +108,7 @@ public class SDPay : IHttpHandler,System.Web.SessionState.IReadOnlySessionState 
                 return;
             }
 
-            if (Convert.ToDecimal(dr["totalAllowed"]) < requestAmount)
+            if ((Convert.ToDecimal(dr["totalAllowed"]) < requestAmount) && (Convert.ToDecimal(dr["totalAllowed"]) > 0))
             {
                 commonAuditTrail.appendLog("system", pageName, taskName, string.Empty, string.Empty, processDetail, string.Empty, "error", "Amount is more than total allowed", Convert.ToString(processSerialId), processId, false);
                 context.Response.Write("金额大于总允许额度");

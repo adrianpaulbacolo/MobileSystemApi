@@ -15,7 +15,7 @@
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
             </a>
-            <h1 class="title">Lottery</h1>
+            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -24,9 +24,9 @@
                     <figure class="banner">
                         <img src="_Static/Images/lottery/02.png" class="img-responsive-full img-bg">
                         <figcaption class="banner-caption">
-                            <h3 class="title">Keno</h3>
-                            <P>Every minutes filled with fun and non-stop games. Get the excitement!</P>
-                            <a id="mLottoLink" runat="server" href="http://mlotto.w88uat.com/Mobile/keno?lang=en-US" class="ui-btn btn-primary" target="_blank">Play Now</a>
+                            <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/Keno/Label", commonVariables.ProductsXML)%></h3>
+                            <P><%=commonCulture.ElementValues.getResourceString("kenoMessage", commonVariables.LeftMenuXML)%></P>
+                            <a href="<%=(string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) ? "_Secure/Login.aspx" : commonLottery.getKenoUrl)%>" class="ui-btn btn-primary" target="_blank"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
                         </figcaption>
                     </figure>
                 </li>

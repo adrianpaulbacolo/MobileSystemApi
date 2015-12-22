@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
-using System.Web.UI.HtmlControls;
 
 public partial class _Index : BasePage
 {
@@ -48,18 +47,13 @@ public partial class _Index : BasePage
 
             if (host.Count() > 1)
             {
-                HtmlAnchor lottoLink = (HtmlAnchor)Page.FindControl("mLottoLink");
-                if (lottoLink != null)
-                {
-                    lottoLink.HRef = string.Format("http://mlotto.{0}.{1}/Mobile/keno?lang={2}", host[1], host[2], commonVariables.SelectedLanguage);
-                }
-
                 commonVariables.SelectedLanguage = GetLanguageByDomain("." + host[1] + "." + host[2]);
             }
             else
             {
                 commonVariables.SelectedLanguage = GetLanguageByDomain("default");
             }
+
         }
 
     }
@@ -170,7 +164,11 @@ public partial class _Index : BasePage
     {
         string Language = string.Empty;
 
-        if (ConfigurationManager.AppSettings[Keys.COUNTRY_DOMAIN_CN].Contains(Domain))
+        if (!string.IsNullOrWhiteSpace(commonVariables.SelectedLanguage))
+        {
+            Language = commonVariables.SelectedLanguage;
+        }
+        else if (ConfigurationManager.AppSettings[Keys.COUNTRY_DOMAIN_CN].Contains(Domain))
         {
             Language = "zh-cn";
         }

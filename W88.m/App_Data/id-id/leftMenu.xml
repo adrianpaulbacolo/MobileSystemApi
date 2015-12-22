@@ -1,43 +1,76 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <menu>
-  <brand><![CDATA[W88.com - ]]></brand>
-  <closeMenu><![CDATA[Close Menu]]></closeMenu>
-  <home><![CDATA[Home]]></home>
-  <login><![CDATA[Login]]></login>
-  <register><![CDATA[Bergabung]]></register>
-  <cashier><![CDATA[Kasir]]></cashier>
-  <deposit><![CDATA[Deposit]]></deposit>
-  <transfer><![CDATA[Transfer]]></transfer>
-  <withdrawal><![CDATA[Penarikan]]></withdrawal>
-  <freebets><![CDATA[Freebet]]></freebets>
-  <misc><![CDATA[Lain-lain]]></misc>
-  <liveHelp><![CDATA[Live Chat]]></liveHelp>
-  <contactUs><![CDATA[Hubungi Kami]]></contactUs>
-  <helpCenter><![CDATA[Pusat Bantuan]]></helpCenter>
-  <language><![CDATA[Bahasa]]></language>
-  <logout><![CDATA[Logout]]></logout>
-  <products><![CDATA[Produk]]></products>
-  <desktopsite><![CDATA[Situs Desktop]]></desktopsite>
-  <joinnow><![CDATA[Join]]></joinnow>
-  <promotions><![CDATA[PROMOSI]]></promotions>
-  <updateProfile><![CDATA[Update Profile]]></updateProfile>
-  <fastdeposit><![CDATA[Fast Deposit]]></fastdeposit>
-  <banktransfer><![CDATA[Bank Transfer]]></banktransfer>
-  <wingmoney><![CDATA[Wing Money]]></wingmoney>
-  <fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
-  <submitUpload><![CDATA[Kirim Upload]]></submitUpload>
-  <sports><![CDATA[Sport]]></sports>
-  <livecasino><![CDATA[Live Kasino]]></livecasino>
-  <slots><![CDATA[Slot]]></slots>
-  <lottery><![CDATA[Lotere]]></lottery>
-  <fundmanagement><![CDATA[Pengelolaan Dana]]></fundmanagement>
-  <customerservice><![CDATA[Customer Service]]></customerservice>
-  <rewards><![CDATA[Klub Reward]]></rewards>
-  <sdpay><![CDATA[SDPay]]></sdpay>
-  <help2pay><![CDATA[Help2Pay]]></help2pay>
-  <withrawal><![CDATA[Penarikan]]></withrawal>-->
-  <fundTransfer><![CDATA[Fund Transfer]]></fundTransfer>
-  <deposit><![CDATA[Deposit]]></deposit>
-  <poker><![CDATA[Poker]]></poker>
-  <fundFooter><![CDATA[*Club W, Bravado, Apollo, Crescendo, Divino & Massimo, Virtual , Lotto]]></fundFooter>
+	<brand><![CDATA[W88.com - ]]></brand>
+	<closeMenu><![CDATA[Close Menu]]></closeMenu>
+	<home><![CDATA[Home]]></home>
+	<login><![CDATA[Login]]></login>
+	<register><![CDATA[Bergabung]]></register>
+	<cashier><![CDATA[Kasir]]></cashier>
+	<deposit><![CDATA[Deposit]]></deposit>
+	<transfer><![CDATA[Transfer]]></transfer>
+	<withdrawal><![CDATA[Penarikan]]></withdrawal>
+	<freebets><![CDATA[Freebet]]></freebets>
+	<misc><![CDATA[Lain-lain]]></misc>
+	<liveHelp><![CDATA[Live Chat]]></liveHelp>
+	<contactUs><![CDATA[Hubungi Kami]]></contactUs>
+	<helpCenter><![CDATA[Pusat Bantuan]]></helpCenter>
+	<language><![CDATA[Bahasa]]></language>
+	<logout><![CDATA[Logout]]></logout>
+	<products><![CDATA[Produk]]></products>
+	<desktopsite><![CDATA[Situs Desktop]]></desktopsite>
+	<joinnow><![CDATA[Join]]></joinnow>
+	<promotions><![CDATA[PROMOSI]]></promotions>
+	<updateProfile><![CDATA[Update Profile]]></updateProfile>
+	<fastdeposit><![CDATA[Fast Deposit]]></fastdeposit>
+	<banktransfer><![CDATA[Bank Transfer]]></banktransfer>
+	<wingmoney><![CDATA[Wing Money]]></wingmoney>
+	<fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
+	<submitUpload><![CDATA[Kirim/Upload]]></submitUpload>
+	<sports><![CDATA[Sport]]></sports>
+	<livecasino><![CDATA[Live Kasino]]></livecasino>
+	<slots><![CDATA[Slot]]></slots>
+	<lottery><![CDATA[Lotere]]></lottery>
+	<fundmanagement><![CDATA[Pengelolaan Dana]]></fundmanagement>
+	<customerservice><![CDATA[Customer Service]]></customerservice>
+	<rewards><![CDATA[Klub Reward]]></rewards>
+	<sdpay><![CDATA[Union Pay]]></sdpay>
+	<help2pay><![CDATA[Help2Pay]]></help2pay>
+	<daddypay><![CDATA[Quick Online]]></daddypay>
+	<withrawal><![CDATA[Penarikan]]></withrawal>-->
+	<fundTransfer><![CDATA[Fund Transfer]]></fundTransfer>
+	<poker><![CDATA[Poker]]></poker>
+	<fundFooter><![CDATA[*Klub W, Bravado, Apollo, Crescendo, Divino, Massimo & Virtual]]></fundFooter>
+	<cancel><![CDATA[CANCEL]]></cancel>
+	<changePassword><![CDATA[Ganti Kata Sandi]]></changePassword>
+	<profile><![CDATA[PROFIL]]></profile>
+	<mainWallet><![CDATA[Dompet Utama]]></mainWallet>
+	<rewardsClub><![CDATA[Klub Rewards]]></rewardsClub>
+	<points><![CDATA[Poin]]></points>
+	<funds><![CDATA[Pengelolaan Dana]]></funds>
+	<aSports><![CDATA[A-SPORTS]]></aSports>
+	<eSports><![CDATA[E-SPORTS]]></eSports>
+	<nuovo><![CDATA[NUOVO]]></nuovo>
+	<liveCasino><![CDATA[*Klub W]]></liveCasino>
+	<liveCasinoTitle><![CDATA[Live Kasino]]></liveCasinoTitle>
+	<liveCasinoMessage><![CDATA[Nikmati rebate instan Kasino hingga 0.8%. Tanpa batas dan tanpa rollover.]]></liveCasinoMessage>
+	<clubPalazo><![CDATA[Klub Palazzo]]></clubPalazo>
+	<clubPalazoMessage><![CDATA[Permainan kasino inovatif dengan dealer-dealer cantik Asia & Eropa]]></clubPalazoMessage>
+	<clubMassimo><![CDATA[Klub Massimo]]></clubMassimo>
+	<clubMassimoMessage><![CDATA[Permainan kasino populer dengan video berkualitas tinggi dan menarik.]]></clubMassimoMessage>
+	<playNow><![CDATA[MAIN]]></playNow>
+	<androidDownload><![CDATA[ANDROID DOWNLOAD]]></androidDownload>
+	<iosDownload><![CDATA[IOS DOWNLOAD]]></iosDownload>
+
+	<download><![CDATA[DOWNLOAD]]></download>
+
+	<virtual><![CDATA[Virtual]]></virtual>
+	<basketball><![CDATA[Bola Basket]]></basketball>
+	<dogRacing><![CDATA[Balap Anjing]]></dogRacing>
+	<football><![CDATA[Sepak Bola]]></football>
+	<horseRacing><![CDATA[Balap Kuda]]></horseRacing>
+	<tennis><![CDATA[Tenis]]></tennis>
+
+	<kenoMessage><![CDATA[Nikmati setiap menit dengan permainan dan kesenangan tiada henti. Rasakan keseruannya!]]></kenoMessage>
+
+	<depositDaddyPay><![CDATA[DEPOSIT - QUICK ONLINE]]></depositDaddyPay>
 </menu>

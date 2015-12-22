@@ -166,7 +166,7 @@
                     </a>
                 </li>
                 <li class="col col-33 product">                    
-                    <a href="Lottery.aspx" class="tile" data-ajax="false" data-transition="slidedown">
+                    <a href="Lottery.aspx?lang=<%=commonVariables.SelectedLanguage%>" class="tile" data-ajax="false" data-transition="slidedown">
                         <span class="icon-keno"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></h4>
                     </a>
@@ -222,7 +222,7 @@
                 <li class="col col-33">
                     <a href="/_Static/ClubW/casino.aspx" id="downloadButton" runat="server" class="tile notify" data-ajax="false">
                         <span class="icon- ion-ios-download-outline"></span>
-                        <h4 class="title">Download</h4>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("download", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
                 <%}%>
@@ -267,7 +267,7 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <a href="#" role="button" data-rel="back" class="ui-btn btn-bordered">No Thanks</a>
+                            <a href="javascript:hideDownload();" role="button" class="ui-btn btn-bordered">No Thanks</a>
                         </div>
                         <div class="col">
                             <a href="//casino.w88bet.com/mob/app-prod-release-1.4.3.apk" class="ui-btn btn-primary">Download Now</a>
@@ -289,6 +289,10 @@
                     dots: true
                 });
             });
+
+            function hideDownload() {
+                $(".download-app").addClass("hide");
+            }
         </script>
 
     </div>

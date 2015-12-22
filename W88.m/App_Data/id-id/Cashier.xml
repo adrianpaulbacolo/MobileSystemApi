@@ -7,5 +7,5 @@
   <lblTransferAmount><![CDATA[Jumlah Transfer]]></lblTransferAmount>
   <lblPromoCode><![CDATA[Kode Bonus]]></lblPromoCode>
   <lblFreebetCode><![CDATA[Kode Freebet]]></lblFreebetCode>
-  <btnSubmit><![CDATA[SUBMIT]]></btnSubmit>
+  <btnSubmit><![CDATA[Kirim]]></btnSubmit>
 </cashier>

@@ -1,69 +1,84 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <menu>
-  <brand><![CDATA[W88.com - ]]></brand>
-  <closeMenu><![CDATA[Đóng Menu]]></closeMenu>
-  <home><![CDATA[Trang Chủ]]></home>
-  <login><![CDATA[Đăng Nhập]]></login>
-  <register><![CDATA[ĐĂNG KÝ]]></register>
-  <cashier><![CDATA[Thu ngân]]></cashier>
-  <deposit><![CDATA[Gửi Tiền]]></deposit>
-  <transfer><![CDATA[Chuyển Quỹ]]></transfer>
-  <withdrawal><![CDATA[Rút Tiền]]></withdrawal>
-  <freebets><![CDATA[Tiền Thưởng Miễn Phí]]></freebets>
-  <misc><![CDATA[Khác]]></misc>
-  <liveHelp><![CDATA[Hỗ trợ trực tuyến]]></liveHelp>
-  <contactUs><![CDATA[Liên Hệ Với Chúng Tôi]]></contactUs>
-  <helpCenter><![CDATA[Trung Tâm Hỗ Trợ]]></helpCenter>
-  <language><![CDATA[Ngôn ngữ]]></language>
-  <logout><![CDATA[Thoát Khỏi]]></logout>
-  <products><![CDATA[Sản phẩm]]></products>
-  <desktopsite><![CDATA[Trang dành cho máy tính]]></desktopsite>
-  <joinnow><![CDATA[Đăng Ký]]></joinnow>
-  <promotions><![CDATA[KHUYẾN MÃI]]></promotions>
-  <updateProfile><![CDATA[Update Profile]]></updateProfile>
-  <fastdeposit><![CDATA[Chuyển Khoản Ngân Hàng]]></fastdeposit>
-  <banktransfer><![CDATA[Chuyển Khoản Ngân Hàng]]></banktransfer>
-  <wingmoney><![CDATA[Wing Money]]></wingmoney>
-  <fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
-  <submitUpload><![CDATA[Tải tập tin]]></submitUpload>
-  <sports><![CDATA[Thể thao]]></sports>
-  <livecasino><![CDATA[Casino Trực Tuyến]]></livecasino>
-  <slots><![CDATA[Slot]]></slots>
-  <fundmanagement><![CDATA[Quản Lý Quỹ]]></fundmanagement>
-  <customerservice><![CDATA[Customer Service]]></customerservice>
-  <rewards><![CDATA[Câu Lạc Bộ Điểm Thưởng]]></rewards>
-  <sdpay><![CDATA[SDPay]]></sdpay>
-  <help2pay><![CDATA[Help2Pay]]></help2pay>
-  <withrawal><![CDATA[Rút Tiền]]></withrawal>-->
-  <fundTransfer><![CDATA[Chuyển Quỹ]]></fundTransfer>-->
-  <deposit><![CDATA[Gửi Tiền]]></deposit>-->
-  <cancel><![CDATA[Hủy]]></cancel>
-  
-  <virtual><![CDATA[Thể Thao ảo]]></virtual>
-  <basketball><![CDATA[Bóng rổ]]></basketball>
-  <dogRacing><![CDATA[Đua chó]]></dogRacing>
-  <football><![CDATA[Bóng đá]]></football>
-  <horseRacing><![CDATA[Đua ngựa]]></horseRacing>
-  <tennis><![CDATA[Quần vợt]]></tennis>
+	<brand><![CDATA[W88.com - ]]></brand>
+	<closeMenu><![CDATA[Đóng Menu]]></closeMenu>
+	<home><![CDATA[Trang Chủ]]></home>
+	<login><![CDATA[Đăng Nhập]]></login>
+	<register><![CDATA[ĐĂNG KÝ]]></register>
+	<cashier><![CDATA[Thu ngân]]></cashier>
+	<deposit><![CDATA[Gửi Tiền]]></deposit>
+	<transfer><![CDATA[Chuyển Quỹ]]></transfer>
+	<withdrawal><![CDATA[Rút Tiền]]></withdrawal>
+	<freebets><![CDATA[Tiền Thưởng Miễn Phí]]></freebets>
+	<misc><![CDATA[Khác]]></misc>
+	<liveHelp><![CDATA[Hỗ trợ trực tuyến]]></liveHelp>
+	<contactUs><![CDATA[Liên Hệ Với Chúng Tôi]]></contactUs>
+	<helpCenter><![CDATA[Trung Tâm Hỗ Trợ]]></helpCenter>
+	<language><![CDATA[Ngôn ngữ]]></language>
+	<logout><![CDATA[Thoát Khỏi]]></logout>
+	<products><![CDATA[Sản phẩm]]></products>
+	<desktopsite><![CDATA[Trang dành cho máy tính]]></desktopsite>
+	<joinnow><![CDATA[Đăng Ký]]></joinnow>
+	<promotions><![CDATA[KHUYẾN MÃI]]></promotions>
+	<updateProfile><![CDATA[Update Profile]]></updateProfile>
+	<fastdeposit><![CDATA[Chuyển Khoản Ngân Hàng]]></fastdeposit>
+	<banktransfer><![CDATA[Chuyển Khoản Ngân Hàng]]></banktransfer>
+	<wingmoney><![CDATA[Wing Money]]></wingmoney>
+	<fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
+	<submitUpload><![CDATA[Tải tập tin]]></submitUpload>
+	<sports><![CDATA[Thể thao]]></sports>
+	<livecasino><![CDATA[Casino Trực Tuyến]]></livecasino>
+	<slots><![CDATA[Slot]]></slots>
+	<fundmanagement><![CDATA[Quản Lý Quỹ]]></fundmanagement>
+	<customerservice><![CDATA[Customer Service]]></customerservice>
+	<rewards><![CDATA[Câu Lạc Bộ Điểm Thưởng]]></rewards>
+	<sdpay><![CDATA[Union Pay]]></sdpay>
+	<help2pay><![CDATA[Help2Pay]]></help2pay>
+	<daddypay><![CDATA[Trực Tuyến Nhanh]]></daddypay>
+	<withrawal><![CDATA[Rút Tiền]]></withrawal>
+	<fundTransfer><![CDATA[Chuyển Quỹ]]></fundTransfer>
+	<cancel><![CDATA[Hủy]]></cancel>
+
+	<virtual><![CDATA[Thể Thao ảo]]></virtual>
+	<basketball><![CDATA[Bóng rổ]]></basketball>
+	<dogRacing><![CDATA[Đua chó]]></dogRacing>
+	<football><![CDATA[Bóng đá]]></football>
+	<horseRacing><![CDATA[Đua ngựa]]></horseRacing>
+	<tennis><![CDATA[Quần vợt]]></tennis>
 
 
-  <mainWallet><![CDATA[Tài khoản chính]]></mainWallet>
-  <funds><![CDATA[Quỹ]]></funds>
-  <aSports><![CDATA[a- Thể Thao]]></aSports>
-  <eSports><![CDATA[e- Thể Thao]]></eSports>
-  <wSports><![CDATA[W- Thể Thao]]></wSports>
-  <lottery><![CDATA[Xổ số]]></lottery>
-  <nuovo><![CDATA[NUOVO]]></nuovo>
-  <clubPalazo><![CDATA[CLUB PALAZO]]></clubPalazo>
-  <poker><![CDATA[POKER]]></poker>
-  <fundFooter><![CDATA[*Club W, Bravado, Apollo, Crescendo, Divino & Massimo, Virtual , Lotto]]></fundFooter>
-  <androidDownload><![CDATA[ANDROID DOWNLOAD]]></androidDownload>
-  <iosDownload><![CDATA[TẢI ANDROID]]></iosDownload>
+	<mainWallet><![CDATA[Tài khoản chính]]></mainWallet>
+	<funds><![CDATA[Quỹ]]></funds>
+	<aSports><![CDATA[a- Thể Thao]]></aSports>
+	<eSports><![CDATA[e- Thể Thao]]></eSports>
+	<wSports><![CDATA[W- Thể Thao]]></wSports>
+	<lottery><![CDATA[Xổ số]]></lottery>
+	<nuovo><![CDATA[NUOVO]]></nuovo>
+	<clubPalazo><![CDATA[CLUB PALAZO]]></clubPalazo>
+	<poker><![CDATA[POKER]]></poker>
+	<fundFooter><![CDATA[*Club W, Bravado, Apollo, Crescendo, Divino & Massimo, Virtual , Lotto]]></fundFooter>
+	<androidDownload><![CDATA[ANDROID DOWNLOAD]]></androidDownload>
+	<iosDownload><![CDATA[TẢI ANDROID]]></iosDownload>
 
 
-  <rewardsClub><![CDATA[Điểm thưởng]]></rewardsClub>
-  <points><![CDATA[Points]]></points>
-  <changePassword><![CDATA[CHANGE PASSWORD]]></changePassword>
-  <profile><![CDATA[Thông tin cá nhân]]></profile>
- 
+	<rewardsClub><![CDATA[Điểm thưởng]]></rewardsClub>
+	<points><![CDATA[Điểm]]></points>
+	<changePassword><![CDATA[Đổi mật khẩu]]></changePassword>
+	<profile><![CDATA[Thông tin cá nhân]]></profile>
+
+	<liveCasino><![CDATA[*CLUB W]]></liveCasino>
+	<liveCasinoTitle><![CDATA[Casino Trực Tuyến]]></liveCasinoTitle>
+	<liveCasinoMessage><![CDATA[Casino Trực Tuyến hoàn trả ngay lên đến 0.8%. Không giới hạn & không cần cược lại]]></liveCasinoMessage>
+	<clubPalazo><![CDATA[CLUB PALAZO]]></clubPalazo>
+	<clubPalazoMessage><![CDATA[Các trò chơi casino đẳng cấp với cô gái chia bài trực tuyến Châu Á & Châu Âu!]]></clubPalazoMessage>
+	<clubMassimo><![CDATA[CLUB MASSIMO]]></clubMassimo>
+	<clubMassimoMessage><![CDATA[Casino trực tuyến phổ biến với video chất lượng cao!]]></clubMassimoMessage>
+	<playNow><![CDATA[PLAY NOW]]></playNow>
+
+
+	<download><![CDATA[DOWNLOAD]]></download>
+
+	<kenoMessage><![CDATA[Hồi hộp, hào hứng trên từng giây và chơi không ngừng. Tham gia ngay ]]></kenoMessage>
+
+	<depositDaddyPay><![CDATA[Gửi Tiền - Trực Tuyến Nhanh]]></depositDaddyPay>
 </menu>

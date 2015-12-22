@@ -1,16 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContactUs>
-  <lblLiveChat><![CDATA[Live Chat]]></lblLiveChat>
-  <lblSkype><![CDATA[Skype]]></lblSkype>
-  <lblEmail><![CDATA[Email]]></lblEmail>
-  <lblBanking><![CDATA[ធនាគារ]]></lblBanking>
-  <lblPhone><![CDATA[ទូរស័ព្ទ]]></lblPhone>
-  <lblLine><![CDATA[Line]]></lblLine>
-  <lblFooter><![CDATA[ផ្នែកសេវាបំរើអតិថិជនយើងខ្ញុំគឺនៅទីនេះត្រៀមខ្លួនបំរើជូនលោកអ្នក ក្នុងមួយថ្ងៃ24ម៉ោង ក្នុងមួយសប្តាហ៍ 7ថ្ងៃ។ មុនពេលលោកអ្នកទំនាក់ទំនងមកកាន់យើងខ្ញុំ សូមឆែកមើល សំនួរចម្លើយ និង លំណែនាំ របស់យើងខ្ញុំដើម្បីអោយដឹងថាតើចម្ងល់អ្នកមាននៅទីនោះឬទេ។]]></lblFooter>
+	<lblLiveChat><![CDATA[Live Chat]]></lblLiveChat>
+	<lblLiveChatMessage><![CDATA[Get an instant live chat from our support team]]></lblLiveChatMessage>
+	<lblSkype><![CDATA[Skype]]></lblSkype>
+	<lblSkypeMessage><![CDATA[Should you prefer to use Skype to chat with us]]></lblSkypeMessage>
+	<lblEmail><![CDATA[Email]]></lblEmail>
+	<lblEmailMessage><![CDATA[For General Betting and Account Enquiry only.]]></lblEmailMessage>
+	<lblBanking><![CDATA[ធនាគារ]]></lblBanking>
+	<lblBankingMessage><![CDATA[For Banking Enquiry only.]]></lblBankingMessage>
+	<lblPhone><![CDATA[ទូរស័ព្ទ]]></lblPhone>
+	<lblPhoneMessage><![CDATA[Call (+60) 166770468 or (+44) 2036085161 and we will be pleased to assist you (International charges may apply).]]></lblPhoneMessage>
+	<lblLine><![CDATA[Line]]></lblLine>
+	<lblFooter><![CDATA[ផ្នែកសេវាបំរើអតិថិជនយើងខ្ញុំគឺនៅទីនេះត្រៀមខ្លួនបំរើជូនលោកអ្នក ក្នុងមួយថ្ងៃ24ម៉ោង ក្នុងមួយសប្តាហ៍ 7ថ្ងៃ។ មុនពេលលោកអ្នកទំនាក់ទំនងមកកាន់យើងខ្ញុំ សូមឆែកមើល សំនួរចម្លើយ និង លំណែនាំ របស់យើងខ្ញុំដើម្បីអោយដឹងថាតើចម្ងល់អ្នកមាននៅទីនោះឬទេ។]]></lblFooter>
 
 
-  <lnkSkype><![CDATA[skype:w88cs.khmer]]></lnkSkype>
-  <lnkEmail><![CDATA[mailto:infokh@w88.com]]></lnkEmail>
-  <lnkBanking><![CDATA[mailto:banking@w88.com]]></lnkBanking>
-  <lnkPhone><![CDATA[tel:+855888885286]]></lnkPhone>
+	<lnkSkype><![CDATA[skype:w88cs.khmer]]></lnkSkype>
+	<lnkEmail><![CDATA[mailto:infokh@w88.com]]></lnkEmail>
+	<lnkBanking><![CDATA[mailto:banking@w88.com]]></lnkBanking>
+	<lnkPhone><![CDATA[tel:+855888885286]]></lnkPhone>
 </ContactUs>
