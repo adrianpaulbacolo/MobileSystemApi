@@ -90,6 +90,20 @@ public partial class Deposit_Default : BasePage
             }
 
             getMainWalletBalance("0");
+
+
+        }
+        string test = commonVariables.GetSessionVariable("CurrencyCode").ToString();
+        if (commonVariables.GetSessionVariable("CurrencyCode").ToString() == "MYR" && drpDepositChannel.Text == "CDM")
+        {
+            txtAccountNumber.Visible = false;
+            lblAccountNumber.Visible = false;
+        }
+        else
+        {
+            txtAccountNumber.Visible = true;
+            lblAccountNumber.Visible = true;
+
         }
     }
 
