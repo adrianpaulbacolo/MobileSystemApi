@@ -40,7 +40,8 @@
                             AllowSorting="false"
                             GridLines="None"
                             CellSpacing="1"
-                            AllowPaging="True" PageSize="10" OnPageIndexChanging="GridView1_PageIndexChanging">
+                            AllowPaging="True" PageSize="10" OnPageIndexChanging="GridView1_PageIndexChanging"
+                            ShowHeaderWhenEmpty="true" EmptyDataText="No Records Found" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataRowStyle-ForeColor="#dab867">
                             <FooterStyle ForeColor="#dab867"></FooterStyle>
                             <PagerStyle ForeColor="#dab867" HorizontalAlign="Right" ></PagerStyle>
                             <HeaderStyle ForeColor="#dab867" Font-Bold="True"></HeaderStyle>
@@ -71,7 +72,11 @@
                         </asp:GridView>
                     </form>
             </div>
-
+            <div class="row row-no-padding">
+                <div class="col">
+                    <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
+                </div>
+            </div>
         </div>
         <!-- /content -->
         <!--#include virtual="~/_static/footer.shtml" -->
