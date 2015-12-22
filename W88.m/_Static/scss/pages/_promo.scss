@@ -28,9 +28,7 @@
         color: $base-color;
         white-space: normal;
         overflow: visible;
-        padding-left: $content-padding;
-        //line-height: 45px; // btn height
-        padding: 10px;
+        padding: $content-padding;
     }
     .div-promo-content {
         display: none;
