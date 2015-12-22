@@ -1,82 +1,83 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <menu>
-  <brand><![CDATA[W88.com - ]]></brand>
-  <closeMenu><![CDATA[메뉴 숨기기]]></closeMenu>
-  <home><![CDATA[홈]]></home>
-  <login><![CDATA[로그인]]></login>
-  <register><![CDATA[회원가입]]></register>
-  <cashier><![CDATA[캐쉬어]]></cashier>
-  <deposit><![CDATA[입금]]></deposit>
-  <transfer><![CDATA[자금 이체]]></transfer>
-  <withdrawal><![CDATA[출금]]></withdrawal>
-  <freebets><![CDATA[무료머니]]></freebets>
-  <misc><![CDATA[Misc]]></misc>
-  <liveHelp><![CDATA[라이브 채팅]]></liveHelp>
-  <contactUs><![CDATA[연락처]]></contactUs>
-  <helpCenter><![CDATA[고객 센터]]></helpCenter>
-  <language><![CDATA[언어]]></language>
-  <logout><![CDATA[로그아웃]]></logout>
-  <products><![CDATA[상품]]></products>
-  <desktopsite><![CDATA[PC버전]]></desktopsite>
-  <joinnow><![CDATA[회원 가입]]></joinnow>
-  <promotions><![CDATA[이벤트]]></promotions>
-  <updateProfile><![CDATA[Update Profile]]></updateProfile>
-  <fastdeposit><![CDATA[은행송금]]></fastdeposit>
-  <banktransfer><![CDATA[은행송금]]></banktransfer>
-  <wingmoney><![CDATA[온라인]]></wingmoney>
-  <fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
-  <sports><![CDATA[스포츠]]></sports>
-  <livecasino><![CDATA[라이브 카지노]]></livecasino>
-  <slots><![CDATA[슬롯게임]]></slots>
-  <lottery><![CDATA[복권]]></lottery>
-  <fundmanagement><![CDATA[머니$]]></fundmanagement>
-  <customerservice><![CDATA[Customer Service]]></customerservice>
-  <rewards><![CDATA[리워드클럽]]></rewards>
-  <sdpay><![CDATA[Union Pay]]></sdpay>
-  <help2pay><![CDATA[Help2Pay]]></help2pay>
-  <daddypay><![CDATA[퀵 온라인]]></daddypay>
-  <withrawal><![CDATA[출금]]></withrawal>
-  <fundTransfer><![CDATA[잔액 이동]]></fundTransfer>
-  <poker><![CDATA[포커]]></poker>-->
-  <aSports><![CDATA[a-스포츠]]></aSports>
-  <eSports><![CDATA[e-스포츠]]></eSports>
-  <nuovo><![CDATA[NUOVO]]></nuovo>
-  <reminder1><![CDATA[W88.com 을 이용하시기 위해서는 ]]></reminder1>
-  <reminder2><![CDATA[회원가입을 해주셔야합니다.]]></reminder2>
-  <cancel><![CDATA[취소]]></cancel>
-  <funds><![CDATA[머니$]]></funds>
-  <profile><![CDATA[프로필]]></profile>
+	<brand><![CDATA[W88.com - ]]></brand>
+	<closeMenu><![CDATA[메뉴 숨기기]]></closeMenu>
+	<home><![CDATA[홈]]></home>
+	<login><![CDATA[로그인]]></login>
+	<register><![CDATA[회원가입]]></register>
+	<cashier><![CDATA[캐쉬어]]></cashier>
+	<deposit><![CDATA[입금]]></deposit>
+	<transfer><![CDATA[자금 이체]]></transfer>
+	<withdrawal><![CDATA[출금]]></withdrawal>
+	<freebets><![CDATA[무료머니]]></freebets>
+	<misc><![CDATA[Misc]]></misc>
+	<liveHelp><![CDATA[라이브 채팅]]></liveHelp>
+	<contactUs><![CDATA[연락처]]></contactUs>
+	<helpCenter><![CDATA[고객 센터]]></helpCenter>
+	<language><![CDATA[언어]]></language>
+	<logout><![CDATA[로그아웃]]></logout>
+	<products><![CDATA[상품]]></products>
+	<desktopsite><![CDATA[PC버전]]></desktopsite>
+	<joinnow><![CDATA[회원 가입]]></joinnow>
+	<promotions><![CDATA[이벤트]]></promotions>
+	<updateProfile><![CDATA[Update Profile]]></updateProfile>
+	<fastdeposit><![CDATA[은행송금]]></fastdeposit>
+	<banktransfer><![CDATA[은행송금]]></banktransfer>
+	<wingmoney><![CDATA[온라인]]></wingmoney>
+	<fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
+	<sports><![CDATA[스포츠]]></sports>
+	<livecasino><![CDATA[라이브 카지노]]></livecasino>
+	<slots><![CDATA[슬롯게임]]></slots>
+	<lottery><![CDATA[복권]]></lottery>
+	<fundmanagement><![CDATA[머니$]]></fundmanagement>
+	<customerservice><![CDATA[Customer Service]]></customerservice>
+	<rewards><![CDATA[리워드클럽]]></rewards>
+	<sdpay><![CDATA[Union Pay]]></sdpay>
+	<help2pay><![CDATA[Help2Pay]]></help2pay>
+	<daddypay><![CDATA[퀵 온라인]]></daddypay>
+	<withrawal><![CDATA[출금]]></withrawal>
+	<fundTransfer><![CDATA[잔액 이동]]></fundTransfer>
+	<poker><![CDATA[포커]]></poker>-->
+	<aSports><![CDATA[a-스포츠]]></aSports>
+	<eSports><![CDATA[e-스포츠]]></eSports>
+	<nuovo><![CDATA[NUOVO]]></nuovo>
+	<reminder1><![CDATA[W88.com 을 이용하시기 위해서는 ]]></reminder1>
+	<reminder2><![CDATA[회원가입을 해주셔야합니다.]]></reminder2>
+	<cancel><![CDATA[취소]]></cancel>
+	<funds><![CDATA[머니$]]></funds>
+	<profile><![CDATA[프로필]]></profile>
 
-  <mainWallet><![CDATA[메인 지갑]]></mainWallet>
-  <rewardsClub><![CDATA[리워드 클럽]]></rewardsClub>
-  <points><![CDATA[Points]]></points>
-  <submitUpload><![CDATA[업로드]]></submitUpload>
-  <changePassword><![CDATA[비밀번호 변경]]></changePassword>
+	<mainWallet><![CDATA[메인 지갑]]></mainWallet>
+	<rewardsClub><![CDATA[리워드 클럽]]></rewardsClub>
+	<points><![CDATA[Points]]></points>
+	<submitUpload><![CDATA[업로드]]></submitUpload>
+	<changePassword><![CDATA[비밀번호 변경]]></changePassword>
 
 
-  <androidDownload><![CDATA[안드로이드 다운로드]]></androidDownload>
-  <iosDownload><![CDATA[IOS 다운로드]]></iosDownload>
+	<androidDownload><![CDATA[안드로이드 다운로드]]></androidDownload>
+	<iosDownload><![CDATA[IOS 다운로드]]></iosDownload>
 
-  <fundFooter><![CDATA[클럽 W, 브라바도, 아폴로, 크레센도, 디비노 & 마시모, 가상 스포츠, 복권]]></fundFooter>
+	<fundFooter><![CDATA[클럽 W, 브라바도, 아폴로, 크레센도, 디비노 & 마시모, 가상 스포츠, 복권]]></fundFooter>
 
-  <liveCasino><![CDATA[*CLUB W]]></liveCasino>
-  <liveCasinoTitle><![CDATA[라이브 카지노]]></liveCasinoTitle>
-  <liveCasinoMessage><![CDATA[Enjoy live Casino instant cash rebate up to 0.8%. No payout limit & rollover.]]></liveCasinoMessage>
-  <clubPalazo><![CDATA[CLUB PALAZO]]></clubPalazo>
-  <clubPalazoMessage><![CDATA[Innovative casino games with Asian & European live dealers!]]></clubPalazoMessage>
-  <clubMassimo><![CDATA[CLUB MASSIMO]]></clubMassimo>
-  <clubMassimoMessage><![CDATA[Popular live casino games with high-quality video!]]></clubMassimoMessage>
-  <playNow><![CDATA[PLAY NOW]]></playNow>
+	<liveCasino><![CDATA[*CLUB W]]></liveCasino>
+	<liveCasinoTitle><![CDATA[라이브 카지노]]></liveCasinoTitle>
+	<liveCasinoMessage><![CDATA[Enjoy live Casino instant cash rebate up to 0.8%. No payout limit & rollover.]]></liveCasinoMessage>
+	<clubPalazo><![CDATA[CLUB PALAZO]]></clubPalazo>
+	<clubPalazoMessage><![CDATA[Innovative casino games with Asian & European live dealers!]]></clubPalazoMessage>
+	<clubMassimo><![CDATA[CLUB MASSIMO]]></clubMassimo>
+	<clubMassimoMessage><![CDATA[Popular live casino games with high-quality video!]]></clubMassimoMessage>
+	<playNow><![CDATA[PLAY NOW]]></playNow>
 
-  <download><![CDATA[DOWNLOAD]]></download>
+	<download><![CDATA[DOWNLOAD]]></download>
 
-  <virtual><![CDATA[Virtual]]></virtual>
-  <basketball><![CDATA[Basketball]]></basketball>
-  <dogRacing><![CDATA[Dog Racing]]></dogRacing>
-  <football><![CDATA[Football]]></football>
-  <horseRacing><![CDATA[Horse Racing]]></horseRacing>
-  <tennis><![CDATA[Tennis]]></tennis>
+	<virtual><![CDATA[Virtual]]></virtual>
+	<basketball><![CDATA[Basketball]]></basketball>
+	<dogRacing><![CDATA[Dog Racing]]></dogRacing>
+	<football><![CDATA[Football]]></football>
+	<horseRacing><![CDATA[Horse Racing]]></horseRacing>
+	<tennis><![CDATA[Tennis]]></tennis>
 
-  <kenoMessage><![CDATA[Every minutes filled with fun and non-stop games. Get the excitement!]]></kenoMessage>
-  
+	<kenoMessage><![CDATA[Every minutes filled with fun and non-stop games. Get the excitement!]]></kenoMessage>
+
+	<depositDaddyPay><![CDATA[입금 - 퀵 온라인]]></depositDaddyPay>
 </menu>

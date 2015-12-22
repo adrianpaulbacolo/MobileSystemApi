@@ -1,76 +1,78 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <menu>
-  <brand><![CDATA[W88.com - ]]></brand>
-  <closeMenu><![CDATA[ปิดเมนู]]></closeMenu>
-  <home><![CDATA[หน้าแรก]]></home>
-  <login><![CDATA[เข้าสู่ระบบ]]></login>
-  <register><![CDATA[สมัครสมาชิก]]></register>
-  <cashier><![CDATA[การเงิน]]></cashier>
-  <deposit><![CDATA[ฝาก]]></deposit>
-  <transfer><![CDATA[ย้ายเงิน]]></transfer>
-  <withdrawal><![CDATA[ถอน]]></withdrawal>
-  <freebets><![CDATA[Claims]]></freebets>
-  <misc><![CDATA[เบ็ดเตล็ด]]></misc>
-  <liveHelp><![CDATA[สนทนาสด]]></liveHelp>
-  <contactUs><![CDATA[ติดต่อเรา]]></contactUs>
-  <helpCenter><![CDATA[ศูนย์ช่วยเหลือ]]></helpCenter>
-  <language><![CDATA[ภาษา]]></language>
-  <logout><![CDATA[ออกจากระบบ]]></logout>
-  <products><![CDATA[ผลิตภัณฑ์]]></products>
-  <desktopsite><![CDATA[ไซต์บนเดสก์ท็อป]]></desktopsite>
-  <joinnow><![CDATA[สมัครสมาชิก]]></joinnow>
-  <promotions><![CDATA[โปรโมชั่น]]></promotions>
-  <updateProfile><![CDATA[Update Profile]]></updateProfile>
-  <fastdeposit><![CDATA[ฝากเงินด่วน]]></fastdeposit>
-  <banktransfer><![CDATA[ถอนเงินด่วน]]></banktransfer>
-  <wingmoney><![CDATA[Wing Money]]></wingmoney>
-  <fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
-  <submitUpload><![CDATA[ยื่นอัพโหลด]]></submitUpload>
-  <sports><![CDATA[กีฬา]]></sports>
-  <livecasino><![CDATA[คาสิโนสด]]></livecasino>
-  <slots><![CDATA[สล๊อต]]></slots>
-  <lottery><![CDATA[ล็อตเตอรี่]]></lottery>
-  <fundmanagement><![CDATA[จัดการด้านการเงิน]]></fundmanagement>
-  <customerservice><![CDATA[Customer Service]]></customerservice>
-  <rewards><![CDATA[คลับสะสมแต้ม]]></rewards>
-  <sdpay><![CDATA[Union Pay]]></sdpay>
-  <help2pay><![CDATA[Help2Pay]]></help2pay>
-  <nextpay><![CDATA[ควิกออนไลน์]]></nextpay>
-  <daddypay><![CDATA[ควิกออนไลน์]]></daddypay>
-  <withrawal><![CDATA[ถอน]]></withrawal>
-  <fundTransfer><![CDATA[ย้ายทุน]]></fundTransfer>
-  <poker><![CDATA[โป๊กเกอร์]]></poker>
-  <fundFooter><![CDATA[*คลับ W, บราวาโด้, อพอลโล, เครสเชนโด้, ดิวิโน่ & แมสซิโม่, กีฬาอนิเมชั่น, ล็อตเตอรี่]]></fundFooter>
-  <cancel><![CDATA[CANCEL]]></cancel>
+	<brand><![CDATA[W88.com - ]]></brand>
+	<closeMenu><![CDATA[ปิดเมนู]]></closeMenu>
+	<home><![CDATA[หน้าแรก]]></home>
+	<login><![CDATA[เข้าสู่ระบบ]]></login>
+	<register><![CDATA[สมัครสมาชิก]]></register>
+	<cashier><![CDATA[การเงิน]]></cashier>
+	<deposit><![CDATA[ฝาก]]></deposit>
+	<transfer><![CDATA[ย้ายเงิน]]></transfer>
+	<withdrawal><![CDATA[ถอน]]></withdrawal>
+	<freebets><![CDATA[Claims]]></freebets>
+	<misc><![CDATA[เบ็ดเตล็ด]]></misc>
+	<liveHelp><![CDATA[สนทนาสด]]></liveHelp>
+	<contactUs><![CDATA[ติดต่อเรา]]></contactUs>
+	<helpCenter><![CDATA[ศูนย์ช่วยเหลือ]]></helpCenter>
+	<language><![CDATA[ภาษา]]></language>
+	<logout><![CDATA[ออกจากระบบ]]></logout>
+	<products><![CDATA[ผลิตภัณฑ์]]></products>
+	<desktopsite><![CDATA[ไซต์บนเดสก์ท็อป]]></desktopsite>
+	<joinnow><![CDATA[สมัครสมาชิก]]></joinnow>
+	<promotions><![CDATA[โปรโมชั่น]]></promotions>
+	<updateProfile><![CDATA[Update Profile]]></updateProfile>
+	<fastdeposit><![CDATA[ฝากเงินด่วน]]></fastdeposit>
+	<banktransfer><![CDATA[ถอนเงินด่วน]]></banktransfer>
+	<wingmoney><![CDATA[Wing Money]]></wingmoney>
+	<fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
+	<submitUpload><![CDATA[ยื่นอัพโหลด]]></submitUpload>
+	<sports><![CDATA[กีฬา]]></sports>
+	<livecasino><![CDATA[คาสิโนสด]]></livecasino>
+	<slots><![CDATA[สล๊อต]]></slots>
+	<lottery><![CDATA[ล็อตเตอรี่]]></lottery>
+	<fundmanagement><![CDATA[จัดการด้านการเงิน]]></fundmanagement>
+	<customerservice><![CDATA[Customer Service]]></customerservice>
+	<rewards><![CDATA[คลับสะสมแต้ม]]></rewards>
+	<sdpay><![CDATA[Union Pay]]></sdpay>
+	<help2pay><![CDATA[Help2Pay]]></help2pay>
+	<nextpay><![CDATA[ควิกออนไลน์]]></nextpay>
+	<daddypay><![CDATA[ควิกออนไลน์]]></daddypay>
+	<withrawal><![CDATA[ถอน]]></withrawal>
+	<fundTransfer><![CDATA[ย้ายทุน]]></fundTransfer>
+	<poker><![CDATA[โป๊กเกอร์]]></poker>
+	<fundFooter><![CDATA[*คลับ W, บราวาโด้, อพอลโล, เครสเชนโด้, ดิวิโน่ & แมสซิโม่, กีฬาอนิเมชั่น, ล็อตเตอรี่]]></fundFooter>
+	<cancel><![CDATA[CANCEL]]></cancel>
 
-  <changePassword><![CDATA[CHANGE PASSWORD]]></changePassword>
-  <profile><![CDATA[PROFILE]]></profile>
-  <mainWallet><![CDATA[กระเป๋าหลัก ]]></mainWallet>
-  <rewardsClub><![CDATA[ คลับสะสมแต้ม ]]></rewardsClub>
-  <points><![CDATA[ แต้มสะสม ]]></points>
-  <funds><![CDATA[ จัดการด้านการเงิน ]]></funds>
-  <aSports><![CDATA[ a-กีฬา ]]></aSports>
-  <eSports><![CDATA[ e-SPORTS  [ แบบเอเชีย ] ]]></eSports>
-  <nuovo><![CDATA[ นูโอโว้ ]]></nuovo>
-  <liveCasino><![CDATA[*คลับ W]]></liveCasino>
-  <liveCasinoTitle><![CDATA[ คาสิโนสด ]]></liveCasinoTitle>
-  <liveCasinoMessage><![CDATA[Enjoy live Casino instant cash rebate up to 0.8%. No payout limit & rollover.]]></liveCasinoMessage>
-  <clubPalazo><![CDATA[พาลาซโซ]]></clubPalazo>
-  <clubPalazoMessage><![CDATA[Innovative casino games with Asian & European live dealers!]]></clubPalazoMessage>
-  <clubMassimo><![CDATA[CLUB MASSIMO]]></clubMassimo>
-  <clubMassimoMessage><![CDATA[Popular live casino games with high-quality video!]]></clubMassimoMessage>
-  <playNow><![CDATA[PLAY NOW]]></playNow>
-  <androidDownload><![CDATA[ โป๊กเกอร์ ]]></androidDownload>
-  <iosDownload><![CDATA[ โป๊กเกอร์ ]]></iosDownload>
+	<changePassword><![CDATA[CHANGE PASSWORD]]></changePassword>
+	<profile><![CDATA[PROFILE]]></profile>
+	<mainWallet><![CDATA[กระเป๋าหลัก ]]></mainWallet>
+	<rewardsClub><![CDATA[ คลับสะสมแต้ม ]]></rewardsClub>
+	<points><![CDATA[ แต้มสะสม ]]></points>
+	<funds><![CDATA[ จัดการด้านการเงิน ]]></funds>
+	<aSports><![CDATA[ a-กีฬา ]]></aSports>
+	<eSports><![CDATA[ e-SPORTS  [ แบบเอเชีย ] ]]></eSports>
+	<nuovo><![CDATA[ นูโอโว้ ]]></nuovo>
+	<liveCasino><![CDATA[*คลับ W]]></liveCasino>
+	<liveCasinoTitle><![CDATA[ คาสิโนสด ]]></liveCasinoTitle>
+	<liveCasinoMessage><![CDATA[Enjoy live Casino instant cash rebate up to 0.8%. No payout limit & rollover.]]></liveCasinoMessage>
+	<clubPalazo><![CDATA[พาลาซโซ]]></clubPalazo>
+	<clubPalazoMessage><![CDATA[Innovative casino games with Asian & European live dealers!]]></clubPalazoMessage>
+	<clubMassimo><![CDATA[CLUB MASSIMO]]></clubMassimo>
+	<clubMassimoMessage><![CDATA[Popular live casino games with high-quality video!]]></clubMassimoMessage>
+	<playNow><![CDATA[PLAY NOW]]></playNow>
+	<androidDownload><![CDATA[ โป๊กเกอร์ ]]></androidDownload>
+	<iosDownload><![CDATA[ โป๊กเกอร์ ]]></iosDownload>
 
-  <virtual><![CDATA[กีฬาอนิเมชั่น]]></virtual>
-  <basketball><![CDATA[บาสเก็ตบอล]]></basketball>
-  <dogRacing><![CDATA[แข่งขันสุนัข]]></dogRacing>
-  <football><![CDATA[ฟุตบอล]]></football>
-  <horseRacing><![CDATA[ม้าแข่ง]]></horseRacing>
-  <tennis><![CDATA[เทนนิส]]></tennis>
+	<virtual><![CDATA[กีฬาอนิเมชั่น]]></virtual>
+	<basketball><![CDATA[บาสเก็ตบอล]]></basketball>
+	<dogRacing><![CDATA[แข่งขันสุนัข]]></dogRacing>
+	<football><![CDATA[ฟุตบอล]]></football>
+	<horseRacing><![CDATA[ม้าแข่ง]]></horseRacing>
+	<tennis><![CDATA[เทนนิส]]></tennis>
 
-  <download><![CDATA[DOWNLOAD]]></download>
+	<download><![CDATA[DOWNLOAD]]></download>
 
-  <kenoMessage><![CDATA[Every minutes filled with fun and non-stop games. Get the excitement!]]></kenoMessage>
+	<kenoMessage><![CDATA[Every minutes filled with fun and non-stop games. Get the excitement!]]></kenoMessage>
+	
+	<depositDaddyPay><![CDATA[ฝาก - ควิกออนไลน์]]></depositDaddyPay>
 </menu>
