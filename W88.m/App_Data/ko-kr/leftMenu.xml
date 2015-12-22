@@ -33,7 +33,7 @@
 	<customerservice><![CDATA[Customer Service]]></customerservice>
 	<rewards><![CDATA[리워드클럽]]></rewards>
 	<sdpay><![CDATA[Union Pay]]></sdpay>
-	<help2pay><![CDATA[Help2Pay]]></help2pay>
+	<help2pay><![CDATA[퀵 지불]]></help2pay>
 	<daddypay><![CDATA[퀵 온라인]]></daddypay>
 	<withrawal><![CDATA[출금]]></withrawal>
 	<fundTransfer><![CDATA[잔액 이동]]></fundTransfer>

@@ -31,7 +31,7 @@
 	<customerservice><![CDATA[顾客服务]]></customerservice>
 	<rewards><![CDATA[奖励俱乐部]]></rewards>
 	<sdpay><![CDATA[银联支付]]></sdpay>
-	<help2pay><![CDATA[Help2Pay]]></help2pay>
+	<help2pay><![CDATA[快速支付]]></help2pay>
 	<daddypay><![CDATA[快捷支付]]></daddypay>
 	<withrawal><![CDATA[提款]]></withrawal>
 	<fundTransfer><![CDATA[转账]]></fundTransfer>
