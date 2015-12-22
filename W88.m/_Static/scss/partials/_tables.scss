@@ -212,7 +212,7 @@ table {
 
 .gridHistory  {
   &.table tr:last-child[align="right"] {
-    position: fixed;
+    position: inherit;
     bottom: 0; right: 0; left: 0;
     .ui-link {
       @extend .ui-btn;
