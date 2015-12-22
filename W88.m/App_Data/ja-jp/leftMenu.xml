@@ -81,4 +81,10 @@
 	<kenoMessage><![CDATA[毎分開催されるエキサイティングなノンストップナンバーゲームをお楽しみください。]]></kenoMessage>
 
 	<depositDaddyPay><![CDATA[入金 - クイックオンライン]]></depositDaddyPay>
+
+	<history><![CDATA[History]]></history>
+	<depositwithdrawal><![CDATA[Deposit / Withdrawal History]]></depositwithdrawal>
+	<fundtransfer><![CDATA[Fund Transfer History]]></fundtransfer>
+	<referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
+	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
 </menu>
