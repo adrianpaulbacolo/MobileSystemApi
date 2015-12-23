@@ -114,7 +114,7 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
                                 commonCookie.CookiePalazzo = strPassword;
                                 HttpContext.Current.Session.Add("LoginStatus", "success");
 
-                                bool isResetPassword = Convert.ToBoolean(dsSignin.Tables[0].Rows[0]["resetPassword"]);
+                                bool isResetPassword = Convert.ToBoolean(string.IsNullOrWhiteSpace(Session["ResetPassword"] as string) ? 0 : Session["ResetPassword"]);
 
                                 if (isResetPassword)
                                 {
