@@ -63,9 +63,14 @@
     </ClubBravado>
     <ClubMassimoSlots>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[แมสซิโม]]></Label>
+      <Label><![CDATA[แมสซิโม HTML5]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoSlots>
+    <ClubMassimoSlots2>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[แมสซิโม ดาวน์โหลด]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubMassimoSlots2>
     <ClubMassimoCasino>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[แมสซิโม]]></Label>
@@ -73,9 +78,14 @@
     </ClubMassimoCasino>
     <ClubPalazzoSlots>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[พาลาซโซ]]></Label>
+      <Label><![CDATA[พาลาซโซ HTML5]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubPalazzoSlots>
+    <ClubPalazzoSlots2>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[พาลาซโซ ดาวน์โหลด]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubPalazzoSlots2>
     <ClubPalazzoCasino>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[พาลาซโซ]]></Label>
