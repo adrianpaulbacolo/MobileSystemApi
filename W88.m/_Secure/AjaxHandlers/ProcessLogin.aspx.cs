@@ -114,6 +114,13 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
                                 commonCookie.CookiePalazzo = strPassword;
                                 HttpContext.Current.Session.Add("LoginStatus", "success");
 
+                                bool isResetPassword = Convert.ToBoolean(dsSignin.Tables[0].Rows[0]["resetPassword"]);
+
+                                if (isResetPassword)
+                                {
+                                    strProcessCode = "resetPassword";
+                                }
+
                                 strLastLoginIP = Convert.ToString(dsSignin.Tables[0].Rows[0]["lastLoginIP"]);
                                 if (HttpContext.Current.Request.Cookies[strMemberCode] == null) { runIovation = true; }
                                 else if (HttpContext.Current.Request.Cookies[strMemberCode] != null && string.Compare(strLastLoginIP, strLoginIp, true) != 0) { runIovation = true; }

@@ -173,6 +173,9 @@
                                     hide: "fade"
                                 });
                                 break;
+                            case "resetPassword":
+                                    window.location.replace('/Settings/ChangePassword.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
+                                break;
                             default:
 
                                 counter += 1;
