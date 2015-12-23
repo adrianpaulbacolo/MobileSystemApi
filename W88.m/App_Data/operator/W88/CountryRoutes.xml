@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-  <WebURL>
-    <Item>
-      <Country><![CDATA[KR]]></Country>
-      <WebDomain><![CDATA[.88vv.asia,.vv88vv.asia,localhost]]></WebDomain>
-      <ISportURL><![CDATA[http://smartsbtest.w88.com:808/Deposit_ProcessLogin.aspx?lang={LANG}&st={TOKEN}]]></ISportURL>
-    </Item>
-    <Item>
-      <Country><![CDATA[US]]></Country>
-      <WebDomain><![CDATA[]]></WebDomain>
-      <ISportURL><![CDATA[http://smartsbtest.w88.com:808/Deposit_ProcessLogin.aspx?lang={LANG}&st={TOKEN}]]></ISportURL>
-    </Item>
-  </WebURL>
+<WebURL>
+  <Item>
+    <Country><![CDATA[KR]]></Country>
+    <WebDomain><![CDATA[.w88vipkr.com,.w88kr.com,.w88hankook.com,.w88kor.com,.w88wkr.com,.w88wkor.com,.w88fin.com,.w88cup.com,.88vv.asia,.vv88vv.asia,.w88love.com]]></WebDomain>
+    <ISportURL><![CDATA[http://ismart.vv88id.com/Deposit_ProcessLogin.aspx?lang={LANG}&st={TOKEN}]]></ISportURL>
+  </Item>
+  <Item>
+    <Country><![CDATA[US]]></Country>
+    <WebDomain><![CDATA[]]></WebDomain>
+    <ISportURL><![CDATA[http://ismart.w88id.com/Deposit_ProcessLogin.aspx?lang={LANG}&st={TOKEN}]]></ISportURL>
+  </Item>
+</WebURL>
 
