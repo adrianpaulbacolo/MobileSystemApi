@@ -12,6 +12,22 @@
         <SlotType><![CDATA[RSLOT]]></SlotType>
       </desertoasis>
 
+      <romanempire>
+        <ImageName><![CDATA[romanempire]]></ImageName>
+        <PlayForRealURL><![CDATA[{BaravadoUrl}/romanempire/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BaravadoUrl}?/romanempire/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </romanempire>
+
+      <worldofwarlords>
+        <ImageName><![CDATA[worldofwarlords]]></ImageName>
+        <PlayForRealURL><![CDATA[{BaravadoUrl}/worldofwarlords/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BaravadoUrl}?/worldofwarlords/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </worldofwarlords>
+
       <pharaoh>
         <ImageName><![CDATA[pharaoh]]></ImageName>
         <PlayForRealURL><![CDATA[{BaravadoUrl}/pharaoh/?fun=0]]></PlayForRealURL>
