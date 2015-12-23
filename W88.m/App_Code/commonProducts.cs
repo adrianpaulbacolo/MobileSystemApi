@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Xml.XPath;
@@ -380,5 +381,12 @@ public class commonClubMassimo
         }
     }
 
+    public static string getDownloadUrl
+    {
+        get { 
+            string _downloadUrl = ConfigurationManager.AppSettings["ClubMassimoDL"];
+            return string.IsNullOrWhiteSpace(_downloadUrl) ? "" : _downloadUrl;
+        }
+    }
 
 }
