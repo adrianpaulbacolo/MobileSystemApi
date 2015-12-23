@@ -3,6 +3,31 @@
 
   <Category>
     <Slot Label="สล็อต">
+
+      <desertoasis>
+        <ImageName><![CDATA[desertoasis]]></ImageName>
+        <PlayForRealURL><![CDATA[{BaravadoUrl}/desertoasis/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BaravadoUrl}?/desertoasis/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </desertoasis>
+
+      <romanempire>
+        <ImageName><![CDATA[romanempire]]></ImageName>
+        <PlayForRealURL><![CDATA[{BaravadoUrl}/romanempire/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BaravadoUrl}?/romanempire/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </romanempire>
+
+      <worldofwarlords>
+        <ImageName><![CDATA[worldofwarlords]]></ImageName>
+        <PlayForRealURL><![CDATA[{BaravadoUrl}/worldofwarlords/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BaravadoUrl}?/worldofwarlords/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </worldofwarlords>
+
       <GolfTour>
         <ImageName><![CDATA[golftour]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/golftour/?fun=0]]></PlayForRealURL>
