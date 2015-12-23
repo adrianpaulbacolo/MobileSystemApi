@@ -3,7 +3,6 @@
 
   <Category>
     <Slot Label="슬롯">
-
       <desertoasis>
         <ImageName><![CDATA[desertoasis]]></ImageName>
         <PlayForRealURL><![CDATA[{BaravadoUrl}/desertoasis/?fun=0]]></PlayForRealURL>
@@ -11,7 +10,6 @@
         <IsInternal><![CDATA[true]]></IsInternal>
         <SlotType><![CDATA[RSLOT]]></SlotType>
       </desertoasis>
-
       <romanempire>
         <ImageName><![CDATA[romanempire]]></ImageName>
         <PlayForRealURL><![CDATA[{BaravadoUrl}/romanempire/?fun=0]]></PlayForRealURL>
@@ -19,7 +17,6 @@
         <IsInternal><![CDATA[true]]></IsInternal>
         <SlotType><![CDATA[RSLOT]]></SlotType>
       </romanempire>
-
       <worldofwarlords>
         <ImageName><![CDATA[worldofwarlords]]></ImageName>
         <PlayForRealURL><![CDATA[{BaravadoUrl}/worldofwarlords/?fun=0]]></PlayForRealURL>
@@ -28,120 +25,203 @@
         <SlotType><![CDATA[RSLOT]]></SlotType>
       </worldofwarlords>
 
-      <GolfTour>
-        <ImageName><![CDATA[golftour]]></ImageName>
-        <PlayForRealURL><![CDATA[{BravadoUrl}/golftour/?fun=0]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{BravadoUrl}/golftour/?fun=1]]></PlayForFunURL>
-        <IsInternal><![CDATA[true]]></IsInternal>
-      </GolfTour>
-      <zodiac>
-        <ImageName><![CDATA[zodiac]]></ImageName>
-        <PlayForRealURL><![CDATA[{BravadoUrl}/zodiac/?fun=0]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{BravadoUrl}/zodiac/?fun=1]]></PlayForFunURL>
-        <IsInternal><![CDATA[true]]></IsInternal>
-      </zodiac>
-      <FourBeauties>
-        <ImageName><![CDATA[fourbeauties]]></ImageName>
-        <PlayForRealURL><![CDATA[{BravadoUrl}/fourbeauties/?fun=0]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{BravadoUrl}/fourbeauties/?fun=1]]></PlayForFunURL>
-        <IsInternal><![CDATA[true]]></IsInternal>
-      </FourBeauties>
-      <Panda>
-        <ImageName><![CDATA[panda]]></ImageName>
-        <PlayForRealURL><![CDATA[{BravadoUrl}/panda/?fun=0]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{BravadoUrl}/panda/?fun=1]]></PlayForFunURL>
-        <IsInternal><![CDATA[true]]></IsInternal>
-      </Panda>
+
+
       <Soccer>
         <ImageName><![CDATA[soccer]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/Soccer/?fun=0]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{BravadoUrl}/Soccer/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
       </Soccer>
-      <ThreeKingdoms>
-        <ImageName><![CDATA[threekingdoms]]></ImageName>
-        <PlayForRealURL><![CDATA[{BravadoUrl}/threekingdoms/?fun=0]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{BravadoUrl}/threekingdoms/?fun=1]]></PlayForFunURL>
+      <baseball>
+        <ImageName><![CDATA[baseball]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/baseball/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/baseball/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
-      </ThreeKingdoms>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </baseball>
+      <BikiniBeach>
+        <ImageName><![CDATA[bikinibeach]]></ImageName>
+        <PlayForRealURL><![CDATA[{BaravadoUrl}/BikiniBeach/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BaravadoUrl}?/BikiniBeach/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </BikiniBeach>
+      <boxing>
+        <ImageName><![CDATA[boxing]]></ImageName>
+        <PlayForRealURL><![CDATA[{BaravadoUrl}/boxing/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BaravadoUrl}?/boxing/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </boxing>
+      <candylicious>
+        <ImageName><![CDATA[candylicious]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/candylicious/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/candylicious/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </candylicious>
+      <deepblue>
+        <ImageName><![CDATA[deepblue]]></ImageName>
+        <PlayForRealURL><![CDATA[{BaravadoUrl}/deepblue/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BaravadoUrl}?/deepblue/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </deepblue>
+      <dimsumlicious>
+        <ImageName><![CDATA[dimsumlicious]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/dimsumlicious/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/dimsumlicious/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </dimsumlicious>
+      <fortunecat>
+        <ImageName><![CDATA[fortunecat]]></ImageName>
+        <PlayForRealURL><![CDATA[{BaravadoUrl}/fortunecat/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BaravadoUrl}?/fortunecat/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </fortunecat>
+      <FourBeauties>
+        <ImageName><![CDATA[fourbeauties]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/fourbeauties/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/fourbeauties/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </FourBeauties>
       <FreedomFighter>
         <ImageName><![CDATA[freedomfighter]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/freedomfighter/?fun=0]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{BravadoUrl}/freedomfighter/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
       </FreedomFighter>
-      <LittleMonsters>
-        <ImageName><![CDATA[littlemonsters]]></ImageName>
-        <PlayForRealURL><![CDATA[{BravadoUrl}/littlemonsters/?fun=0]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{BravadoUrl}/littleffmonsters/?fun=1]]></PlayForFunURL>
-        <IsInternal><![CDATA[true]]></IsInternal>
-      </LittleMonsters>
       <Fruitilicious>
         <ImageName><![CDATA[fruitilicious]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/fruitilicious/?fun=0]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{BravadoUrl}/fruitilicious/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
       </Fruitilicious>
-      <Ninetailedninja>
-        <ImageName><![CDATA[ninetailedninja]]></ImageName>
-        <PlayForRealURL><![CDATA[{BravadoUrl}/ninetailedninja/?fun=0]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{BravadoUrl}/ninetailedninja/?fun=1]]></PlayForFunURL>
-        <IsInternal><![CDATA[true]]></IsInternal>
-      </Ninetailedninja>
-      <PiratesTreasure>
-        <ImageName><![CDATA[piratestreasure]]></ImageName>
-        <PlayForRealURL><![CDATA[{BravadoUrl}/piratestreasure/?fun=0]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{BravadoUrl}/piratestreasure/?fun=1]]></PlayForFunURL>
-        <IsInternal><![CDATA[true]]></IsInternal>
-      </PiratesTreasure>
-      <QueenBee>
-        <ImageName><![CDATA[queenbee]]></ImageName>
-        <PlayForRealURL><![CDATA[{BravadoUrl}/Queenbee/?fun=0]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{BravadoUrl}/Queenbee/?fun=1]]></PlayForFunURL>
-        <IsInternal><![CDATA[true]]></IsInternal>
-      </QueenBee>
       <GodOfFortune>
         <ImageName><![CDATA[godoffortune]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/godoffortune/?fun=0]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{BravadoUrl}/godoffortune/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
       </GodOfFortune>
-      <Sherlock>
-        <ImageName><![CDATA[sherlock]]></ImageName>
-        <PlayForRealURL><![CDATA[{BravadoUrl}/sherlock/?fun=0]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{BravadoUrl}/sherlock/?fun=1]]></PlayForFunURL>
+      <goldeneggs>
+        <ImageName><![CDATA[goldeneggs]]></ImageName>
+        <PlayForRealURL><![CDATA[{BaravadoUrl}/goldeneggs/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BaravadoUrl}?/goldeneggs/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
-      </Sherlock>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </goldeneggs>
+      <GolfTour>
+        <ImageName><![CDATA[golftour]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/golftour/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/golftour/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </GolfTour>
       <Klassik>
         <ImageName><![CDATA[klassik]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/klassik/?fun=0]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{BravadoUrl}/klassik/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
       </Klassik>
+      <lanternfestival>
+        <ImageName><![CDATA[lanternfestival]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/lanternfestival/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/lanternfestival/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </lanternfestival>
+      <legendofnezha>
+        <ImageName><![CDATA[legendofnezha]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/legendofnezha/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/legendofnezha/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </legendofnezha>
+      <LittleMonsters>
+        <ImageName><![CDATA[littlemonsters]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/littlemonsters/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/littleffmonsters/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </LittleMonsters>
+      <mafia>
+        <ImageName><![CDATA[mafia]]></ImageName>
+        <PlayForRealURL><![CDATA[{BaravadoUrl}/mafia/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BaravadoUrl}?/mafia/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </mafia>
+      <monkeyking>
+        <ImageName><![CDATA[monkeyking]]></ImageName>
+        <PlayForRealURL><![CDATA[{BaravadoUrl}/monkeyking/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BaravadoUrl}?/monkeyking/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </monkeyking>
+      <Ninetailedninja>
+        <ImageName><![CDATA[ninetailedninja]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/ninetailedninja/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/ninetailedninja/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </Ninetailedninja>
+      <Panda>
+        <ImageName><![CDATA[panda]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/panda/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/panda/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </Panda>
+      <PiratesTreasure>
+        <ImageName><![CDATA[piratestreasure]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/piratestreasure/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/piratestreasure/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </PiratesTreasure>
+      <pharaoh>
+        <ImageName><![CDATA[pharaoh]]></ImageName>
+        <PlayForRealURL><![CDATA[{BaravadoUrl}/pharaoh/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BaravadoUrl}?/pharaoh/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+        <SlotType><![CDATA[RSLOT]]></SlotType>
+      </pharaoh>
+      <QueenBee>
+        <ImageName><![CDATA[queenbee]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/Queenbee/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/Queenbee/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </QueenBee>
+      <Sherlock>
+        <ImageName><![CDATA[sherlock]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/sherlock/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/sherlock/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </Sherlock>
+      <ThreeKingdoms>
+        <ImageName><![CDATA[threekingdoms]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/threekingdoms/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/threekingdoms/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </ThreeKingdoms>
       <TrickorTreat>
         <ImageName><![CDATA[trickortreat]]></ImageName>
         <PlayForRealURL><![CDATA[{BravadoUrl}/trickortreat/?fun=0]]></PlayForRealURL>
         <PlayForFunURL><![CDATA[{BravadoUrl}/trickortreat/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
       </TrickorTreat>
-      <SpinParty>
-        <ImageName><![CDATA[spinpartymobile]]></ImageName>
-      </SpinParty>
-      <goldenlegendmobile>
-        <ImageName><![CDATA[goldenlegendmobile]]></ImageName>
-      </goldenlegendmobile>
-      <towerquestmobile>
-        <ImageName><![CDATA[towerquestmobile]]></ImageName>
-      </towerquestmobile>
-      <eastereggsmobile>
-        <ImageName><![CDATA[eastereggsmobile]]></ImageName>
-      </eastereggsmobile>
-      <pimpedmobile>
-        <ImageName><![CDATA[pimpedmobile]]></ImageName>
-      </pimpedmobile>
-      <FiveXMagicMobile>
-        <ImageName><![CDATA[5xmagicmobile]]></ImageName>
-      </FiveXMagicMobile>
+      <zodiac>
+        <ImageName><![CDATA[zodiac]]></ImageName>
+        <PlayForRealURL><![CDATA[{BravadoUrl}/zodiac/?fun=0]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{BravadoUrl}/zodiac/?fun=1]]></PlayForFunURL>
+        <IsInternal><![CDATA[true]]></IsInternal>
+      </zodiac>
+      <christmasjokermobile>
+        <ImageName><![CDATA[christmasjokermobile]]></ImageName>
+      </christmasjokermobile>
+      <wizardofgemsmobile>
+        <ImageName><![CDATA[wizardofgemsmobile]]></ImageName>
+      </wizardofgemsmobile>
+
       <AceofSpades>
         <ImageName><![CDATA[aceofspadesmobile]]></ImageName>
       </AceofSpades>
@@ -160,6 +240,9 @@
       <DragonShip>
         <ImageName><![CDATA[dragonshipmobile]]></ImageName>
       </DragonShip>
+      <eastereggsmobile>
+        <ImageName><![CDATA[eastereggsmobile]]></ImageName>
+      </eastereggsmobile>
       <EnchantedCrystals>
         <ImageName><![CDATA[enchantedcrystalsmobile]]></ImageName>
       </EnchantedCrystals>
@@ -169,6 +252,9 @@
       <Energoonz>
         <ImageName><![CDATA[energoonzmobile]]></ImageName>
       </Energoonz>
+      <eyeofthekrakenmobile>
+        <ImageName><![CDATA[eyeofthekrakenmobile]]></ImageName>
+      </eyeofthekrakenmobile>
       <FortuneTeller>
         <ImageName><![CDATA[fortunetellermobile]]></ImageName>
       </FortuneTeller>
@@ -178,6 +264,9 @@
       <GiftShop>
         <ImageName><![CDATA[giftshopmobile]]></ImageName>
       </GiftShop>
+      <goldenlegendmobile>
+        <ImageName><![CDATA[goldenlegendmobile]]></ImageName>
+      </goldenlegendmobile>
       <GoldTrophy2>
         <ImageName><![CDATA[goldtrophy2mobile]]></ImageName>
       </GoldTrophy2>
@@ -187,6 +276,9 @@
       <GoldenTicket>
         <ImageName><![CDATA[goldenticketmobile]]></ImageName>
       </GoldenTicket>
+      <happyhalloweenmobile>
+        <ImageName><![CDATA[happyhalloweenmobile]]></ImageName>
+      </happyhalloweenmobile>
       <IrishGold>
         <ImageName><![CDATA[irishgoldmobile]]></ImageName>
       </IrishGold>
@@ -226,6 +318,12 @@
       <PhotoSafari>
         <ImageName><![CDATA[photosafarimobile]]></ImageName>
       </PhotoSafari>
+      <pimpedmobile>
+        <ImageName><![CDATA[pimpedmobile]]></ImageName>
+      </pimpedmobile>
+      <ragetorichesmobile>
+        <ImageName><![CDATA[ragetorichesmobile]]></ImageName>
+      </ragetorichesmobile>
       <RichesofRA>
         <ImageName><![CDATA[richesoframobile]]></ImageName>
       </RichesofRA>
@@ -244,6 +342,9 @@
       <MasqueradeMobile>
         <ImageName><![CDATA[masquerademobile]]></ImageName>
       </MasqueradeMobile>
+      <towerquestmobile>
+        <ImageName><![CDATA[towerquestmobile]]></ImageName>
+      </towerquestmobile>
       <wildnorthmobile>
         <ImageName><![CDATA[wildnorthmobile]]></ImageName>
       </wildnorthmobile>
