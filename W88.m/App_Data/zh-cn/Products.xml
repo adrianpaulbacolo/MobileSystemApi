@@ -63,9 +63,14 @@
     </ClubBravado>
     <ClubMassimoSlots>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[金銮]]></Label>
+      <Label><![CDATA[金銮 HTML5]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoSlots>
+    <ClubMassimoSlots2>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[金銮 下载]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubMassimoSlots2>
     <ClubMassimoCasino>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[金銮]]></Label>
@@ -73,9 +78,14 @@
     </ClubMassimoCasino>
     <ClubPalazzoSlots>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[金殿]]></Label>
+      <Label><![CDATA[金殿 HTML5]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubPalazzoSlots>
+    <ClubPalazzoSlots2>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[金殿 下载]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubPalazzoSlots2>
     <ClubPalazzoCasino>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[金殿]]></Label>
