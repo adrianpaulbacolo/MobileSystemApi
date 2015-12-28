@@ -225,6 +225,12 @@
             <ul class="sub-menu" data-rel="slots">
                 <!--<a class="close" data-rel="close">&times;</a>-->
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></h2>
+                <!--<li>
+                    <a class="card" rel="clubmassimo-slots" href=" <%=commonClubMassimo.getDownloadUrl%>" data-ajax="false">
+                        <img src="/_Static/Images/bnr-clubmassimo-slots.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots2/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
+                    </a>
+                </li>-->
                 <li>
                     <a class="card" rel="clubbravado" href="/ClubBravado" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubbravado.jpg" class="img-responsive">
@@ -243,12 +249,6 @@
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots2/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
                     </a>
                 </li>
-                <%-- <li>
-                    <a class="card" rel="clubmassimo-slots" href=" <%=commonClubMassimo.getDownloadUrl%>" data-ajax="false">
-                        <img src="/_Static/Images/bnr-clubmassimo-slots.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots2/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
-                    </a>
-                </li> --%>
                 <li>
                     <a class="card" rel="clubmassimo-slots" href="/ClubMassimo" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubmassimo-slots.jpg" class="img-responsive">
