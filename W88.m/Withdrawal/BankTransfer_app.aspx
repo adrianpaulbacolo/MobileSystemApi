@@ -91,10 +91,10 @@
 
                 <div class="row">
                     <div class="col">
-                        <input type="button" onclick="location.href = '/Deposit/Default_app.aspx';" value="Deposit" class="ui-btn btn-bordered" />
+                        <input type="button" data-theme="b" onclick="location.href = '/Deposit/Default_app.aspx';" value="Deposit" class="ui-btn btn-bordered" />
                     </div>
                     <div class="col">
-                        <input type="button" onclick="location.href = '/FundTransfer/FundTransfer.aspx';" value="Fund Transfer" class="ui-btn btn-bordered" />
+                        <input type="button" data-theme="b" onclick="location.href = '/FundTransfer/FundTransfer.aspx';" value="Fund Transfer" class="ui-btn btn-bordered" />
                     </div>
                 </div>
 
