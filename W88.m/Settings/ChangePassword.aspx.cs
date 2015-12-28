@@ -134,9 +134,11 @@ public partial class _Change_Password : BasePage
             switch (intResult)
             {
                 case 1: // success
-                case 10:
                     strAlertCode = "1";
                     strAlertMessage = commonCulture.ElementValues.getResourceXPathString("UpdatePassword/Success", xeErrors);
+                    break;
+                case 10: // invalid password
+                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString("UpdatePassword/InvalidPassword", xeErrors);
                     break;
                 case 11: // wrong password
                     strAlertMessage = commonCulture.ElementValues.getResourceXPathString("UpdatePassword/IncorrectPassword", xeErrors);
