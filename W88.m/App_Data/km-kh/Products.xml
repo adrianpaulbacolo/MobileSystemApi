@@ -16,6 +16,11 @@
       <Label><![CDATA[ពុកគ័រ]]></Label>
       <Description><![CDATA[ពុកគ័រ]]></Description>
     </Poker>
+    <texasmahjong>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[TEXAS MAHJONG]]></Label>
+      <Description><![CDATA[TEXAS MAHJONG]]></Description>
+    </texasmahjong>
     <ISports>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[i-កីឡា]]></Label>
@@ -103,6 +108,7 @@
     <binary><![CDATA[ល្បែងភាគហ៊ុន]]></binary>
     <poker><![CDATA[ពុកគ័រ (USD)]]></poker>
     <sbtech><![CDATA[E-កីឡា]]></sbtech>
-	<netent><![CDATA[Nuovo]]></netent>
+	  <netent><![CDATA[Nuovo]]></netent>
+    <pmahjong><![CDATA[Texas Mahjong]]></pmahjong>
   </Wallets>
 </default>

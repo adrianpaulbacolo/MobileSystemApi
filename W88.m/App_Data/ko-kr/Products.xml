@@ -16,6 +16,11 @@
       <Label><![CDATA[포커]]></Label>
       <Description><![CDATA[포커]]></Description>
     </Poker>
+    <texasmahjong>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[TEXAS MAHJONG]]></Label>
+      <Description><![CDATA[TEXAS MAHJONG]]></Description>
+    </texasmahjong>
     <ISports>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[i-스포츠]]></Label>
@@ -103,6 +108,7 @@
     <binary><![CDATA[바이너리]]></binary>
     <poker><![CDATA[포커 (USD)]]></poker>
     <sbtech><![CDATA[E-스포츠]]></sbtech>
-	<netent><![CDATA[누오보]]></netent>
+	  <netent><![CDATA[누오보]]></netent>
+    <pmahjong><![CDATA[Texas Mahjong]]></pmahjong>
   </Wallets>
 </default>

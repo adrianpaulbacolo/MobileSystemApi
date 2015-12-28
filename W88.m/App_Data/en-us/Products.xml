@@ -24,6 +24,11 @@
       <Label><![CDATA[Poker]]></Label>
       <Description><![CDATA[Poker]]></Description>
     </Poker>
+    <texasmahjong>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[TEXAS MAHJONG]]></Label>
+      <Description><![CDATA[TEXAS MAHJONG]]></Description>
+    </texasmahjong>
     <VSports-basketball>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[Basketball]]></Label>
@@ -140,6 +145,7 @@
     <binary><![CDATA[Binary]]></binary>
     <poker><![CDATA[Poker (USD)]]></poker>
     <sbtech><![CDATA[E-Sports]]></sbtech>
-	<netent><![CDATA[Nuovo]]></netent>    
+	  <netent><![CDATA[Nuovo]]></netent>
+    <pmahjong><![CDATA[Texas Mahjong]]></pmahjong>
   </Wallets>
 </default>

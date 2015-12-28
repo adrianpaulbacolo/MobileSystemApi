@@ -181,10 +181,16 @@
             <ul class="sub-menu" data-rel="poker">
                 <!--<a class="close" data-rel="close">&times;</a>-->
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("poker", commonVariables.LeftMenuXML)%></h2>
+                <li>
+                    <a class="card" data-rel="poker" rel="texasmahjong" href="texasmahjong.download.link" data-ajax="false" target="_blank">
+                        <img src="/_Static/Images/Download/W88-Mobile-ClubMassimo-en.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/texasmahjong/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
+                    </a>
+                </li>
                 <%try{%>
                 <%if(Session["responseCode"].ToString()=="1"){%>
                 <li>
-                    <a class="card" rel="PokerIOS" href='<%= Session["iosLink"].ToString()%>' data-transition="slidedown">
+                    <a class="card" data-rel="poker"  rel="PokerIOS" href='<%= Session["iosLink"].ToString()%>' data-transition="slidedown">
                         <img src="/_Static/Images/W88-Mobile-Poker-iOS.jpg" class="img-responsive">
                         <div class="title">IOS DOWNLOAD</div>
                     </a>
@@ -192,7 +198,7 @@
                 <%}%>
                 <%if(Session["responseCode"].ToString()=="2"){%>
                 <li>
-                    <a class="card" rel="PokerAndroid" href='<%= Session["androidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">
+                    <a class="card" data-rel="poker" rel="PokerAndroid" href='<%= Session["androidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">
                         <img src="/_Static/Images/W88-Mobile-Poker-Android.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("androidDownload", commonVariables.LeftMenuXML)%></div>
                     </a>
@@ -200,19 +206,37 @@
                 <%}%>
                 <%if(Session["responseCode"].ToString()=="3"){%>
                 <li>
-                    <a class="card" rel="PokerIOS" href='<%= Session["iosLink"].ToString()%>' data-transition="slidedown">
+                    <a class="card" data-rel="poker" rel="PokerIOS" href='<%= Session["iosLink"].ToString()%>' data-transition="slidedown">
                         <img src="/_Static/Images/W88-Mobile-Poker-iOS.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("iosDownload", commonVariables.LeftMenuXML)%></div>
                     </a>
                 </li>
                 <li>
-                    <a class="card" rel="PokerAndroid" href='<%= Session["androidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">
+                    <a class="card" data-rel="poker" rel="PokerAndroid" href='<%= Session["androidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">
                         <img src="/_Static/Images/W88-Mobile-Poker-Android.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("androidDownload", commonVariables.LeftMenuXML)%></div>
                     </a>
                 </li>
                 <%}%>
                 <%}catch(Exception){}%>
+            </ul>
+        </li>
+
+        <!-- Lottery -->
+        <li data-icon="false">
+            <a class="nav-keno">
+                <i class="icon-keno"></i>
+                <div class="label"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></div>
+            </a>
+            <ul class="sub-menu" data-rel="lottery">
+                <!--<a class="close" data-rel="close">&times;</a>-->
+                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></h2>
+                <li>
+                    <a class="card" rel="keno" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
+                        <img src="/_Static/Images/bnr-lottery.png" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/Keno/Label", commonVariables.ProductsXML)%></div>
+                    </a>
+                </li>
             </ul>
         </li>
 
@@ -270,23 +294,6 @@
             </ul>
         </li>
 
-    <!-- Lottery -->
-        <li data-icon="false">
-            <a class="nav-keno">
-                <i class="icon-keno"></i>
-                <div class="label"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></div>
-            </a>
-            <ul class="sub-menu" data-rel="lottery">
-                <!--<a class="close" data-rel="close">&times;</a>-->
-                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></h2>
-                <li>
-                    <a class="card" rel="keno" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                        <img src="/_Static/Images/bnr-lottery.png" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/Keno/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li>
-            </ul>
-        </li>
 
     <!-- Rewards
         <li data-icon="false">

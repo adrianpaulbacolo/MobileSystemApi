@@ -56,6 +56,24 @@
             <form runat="server">
                 <ul class="row row-bordered bg-gradient">
                     <li class="col col-50">
+                        <asp:LinkButton ID="texasmahjongBtn" runat="server" OnClick="texasmahjongBtn_Click">
+                        <div class="wallet">
+                            <label class="label"><%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%></label>
+                            <h4 class="value">
+                                <%if (Session["PMAHJONG"].ToString() != "-")
+                                  {%> 
+                                   <%=Session["PMAHJONG"].ToString()%>
+                                <%}%>
+                                <%else{%>
+                                      0.00
+                                <%}%>
+
+                            </h4>
+                            <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
+                        </div>
+                        </asp:LinkButton>
+                    </li>
+                    <li class="col col-50">
                         <asp:LinkButton ID="aSportsBtn" runat="server" OnClick="aSportsBtn_Click">
                         <div class="wallet">
                             <label class="label"><%=commonCulture.ElementValues.getResourceString("aSports", commonVariables.LeftMenuXML)%></label>

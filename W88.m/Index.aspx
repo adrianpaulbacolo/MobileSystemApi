@@ -105,6 +105,11 @@
 
             <section class="section banner-slider">
                 <div class="slide">
+                    <a rel="texasmahjong" href="texasmahjong.download.link" data-ajax="false">
+                        <img src="/_Static/Images/Download/W88-Mobile-ClubMassimo-en.jpg" alt="banner" class="img-responsive">
+                    </a>
+                </div>
+                <div class="slide">
                     <a rel="clubpalazzo" href="/_static/palazzo/casino.aspx" data-ajax="false">
                         <img src="/_Static/Images/Download/W88-Mobile-ClubPalazzo-Casino.jpg" alt="banner" class="img-responsive">
                     </a>
@@ -153,6 +158,18 @@
                     </a>
                 </li>
                 <li class="col col-33 product">
+                    <a href="#divPanel" class="tile nav-texasmahjong">
+                        <span class="icon-spade"></span>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%></h4>
+                    </a>
+                </li>
+                <li class="col col-33 product">                    
+                    <a href="Lottery.aspx?lang=<%=commonVariables.SelectedLanguage%>" class="tile" data-ajax="false" data-transition="slidedown">
+                        <span class="icon-keno"></span>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></h4>
+                    </a>
+                </li>
+                <li class="col col-33 product">
                     <a href="#divPanel" class="tile nav-poker">
                         <span class="icon-spade"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("poker", commonVariables.LeftMenuXML)%></h4>
@@ -165,12 +182,7 @@
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
-                <li class="col col-33 product">                    
-                    <a href="Lottery.aspx?lang=<%=commonVariables.SelectedLanguage%>" class="tile" data-ajax="false" data-transition="slidedown">
-                        <span class="icon-keno"></span>
-                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></h4>
-                    </a>
-                </li>
+
 
                 <!-- Profile -->
                 <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
