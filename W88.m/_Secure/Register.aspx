@@ -90,9 +90,10 @@
                         <asp:Image ID="imgCaptcha" runat="server" ImageUrl="/Captcha" CssClass="imgCaptcha" />
                         <asp:TextBox ID="txtCaptcha" runat="server" MaxLength="4" type="tel" data-mini="true" data-clear-btn="true" />
                     </li>
-                    <li class="item item-checkbox">
+                    <li class="item-checkbox item-text-wrap">
                         <label id="lblDisclaimer" runat="server" for="chkDisclaimer">I agree</label>
-                        <input type="checkbox" name="checkbox-mini-0" id="chkDisclaimer" runat="server" class="chk-disclaimer" data-theme="c">
+                        <a ID="btnTermsConditionsLink" runat="server" href="https://info.w88live.com/termofuse_en.shtml" data-ajax="false" target="_blank"></a>
+                        <input type="checkbox" name="checkbox-mini-0" id="chkDisclaimer" runat="server" class="chk-disclaimer" data-theme="c" checked visible="false"> 
                     </li>
                     <%--<div class="div-register-disclaimer">
                         <div><label id="lblDisclaimer" runat="server" for="chkDisclaimer">I agree</label></div>

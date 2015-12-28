@@ -45,19 +45,19 @@
             <ul class="sub-menu menu-link" data-rel="funds">
                 <a class="close" data-rel="close">&times;</a>
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%></h2>
-                <li>
+                <li class="title">
                     <a data-rel="dialog" rel="deposit" href="/_Secure/Login.aspx" data-transition="slidedown">
                         <!-- <img src="/_Static/Images/index-deposit.png" class="img-responsive"> -->
                         <%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%>
                     </a>
                 </li>
-                <li>
+                <li class="title">
                     <a data-rel="dialog" rel="fundtransfer" href="/_Secure/Login.aspx" data-transition="slidedown">
                         <!-- <img src="/_Static/Images/index-fundtransfer.png" class="img-responsive"> -->
                         <%=commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%>
                     </a>
                 </li>
-                <li>
+                <li class="title">
                     <a data-rel="dialog" rel="withdrawal" href="/_Secure/Login.aspx" data-transition="slidedown">
                         <!-- <img src="/_Static/Images/index-withdrawal.png" class="img-responsive"> -->
                         <%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%>
@@ -95,12 +95,12 @@
                     </a>
                 </li>
                 <!-- Toggle to hide elements -->
-                <li>
+                <!--<li>
                     <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-ajax="false" data-transition="slidedown" target="_blank">
                         <img src="/_Static/Images/bnr-vSPORTS-tennis.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports/Label", commonVariables.ProductsXML)%></div>
                     </a>
-                </li>
+                </li>-->
                 <!--<li>
                     <a class="card menu-sports" data-rel="sports" href="">
                         <img src="/_Static/Images/bnr-vSPORTS-tennis.jpg" class="img-responsive">

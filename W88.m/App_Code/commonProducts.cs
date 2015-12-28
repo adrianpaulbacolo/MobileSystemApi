@@ -390,3 +390,16 @@ public class commonClubMassimo
     }
 
 }
+
+public class commonClubWAPK
+{
+    public static string getDownloadUrl
+    {
+        get
+        {
+            string _downloadUrl = ConfigurationManager.AppSettings["ClubWAPK"];
+            return string.IsNullOrWhiteSpace(_downloadUrl) ? "" : _downloadUrl.Replace("{DOMAIN}", commonIp.DomainName);
+        }
+    }
+
+}

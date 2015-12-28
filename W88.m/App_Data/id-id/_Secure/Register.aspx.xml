@@ -1,51 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <register>
-  <lblUsername><![CDATA[Username]]></lblUsername>
-  <lblPassword><![CDATA[Password]]></lblPassword>
-  <lblEmailAddress><![CDATA[Alamat Email]]></lblEmailAddress>
-  <lblContact><![CDATA[Nomor Kontak]]></lblContact>
-  <lblCurrency><![CDATA[Mata Uang]]></lblCurrency>
-  <drpCurrencySelect><![CDATA[Select Currency]]></drpCurrencySelect>
+	<lblUsername><![CDATA[Username]]></lblUsername>
+	<lblPassword><![CDATA[Password]]></lblPassword>
+	<lblEmailAddress><![CDATA[Alamat Email]]></lblEmailAddress>
+	<lblContact><![CDATA[Nomor Kontak]]></lblContact>
+	<lblCurrency><![CDATA[Mata Uang]]></lblCurrency>
+	<drpCurrencySelect><![CDATA[Select Currency]]></drpCurrencySelect>
 
-  <lblOptionFields><![CDATA[Optional Fields]]></lblOptionFields>
-  <lblFirstName><![CDATA[Nama Depan]]></lblFirstName>
-  <lblLastName><![CDATA[Nama Belakang]]></lblLastName>
-  <lblDOB><![CDATA[Tanggal Lahir]]></lblDOB>
-  <lblAffiliateID><![CDATA[Affiliate ID]]></lblAffiliateID>
+	<lblOptionFields><![CDATA[Optional Fields]]></lblOptionFields>
+	<lblFirstName><![CDATA[Nama Depan]]></lblFirstName>
+	<lblLastName><![CDATA[Nama Belakang]]></lblLastName>
+	<lblDOB><![CDATA[Tanggal Lahir]]></lblDOB>
+	<lblAffiliateID><![CDATA[Affiliate ID]]></lblAffiliateID>
 
-  <lblCaptcha><![CDATA[Kode Validasi]]></lblCaptcha>
-  <lblDisclaimer><![CDATA[Saya Setuju Syarat dan Ketentuan dan Aturan W88.com]]></lblDisclaimer>
-  <btnSubmit><![CDATA[Kirim]]></btnSubmit>
-  <btnCancel><![CDATA[Batal]]></btnCancel>
+	<lblCaptcha><![CDATA[Kode Validasi]]></lblCaptcha>
+	<lblDisclaimer><![CDATA[By clicking the SUBMIT button, I hereby acknowledge that I am above 18 years old and have read and accepted your terms & conditions.]]></lblDisclaimer>
+	<termsConditions><![CDATA[See the Terms & Conditions here.]]></termsConditions>
+	<btnSubmit><![CDATA[Kirim]]></btnSubmit>
+	<btnCancel><![CDATA[Batal]]></btnCancel>
 
-  <Calendar>
-    <m1><![CDATA[Jan]]></m1>
-    <m2><![CDATA[Feb]]></m2>
-    <m3><![CDATA[Mar]]></m3>
-    <m4><![CDATA[Apr]]></m4>
-    <m5><![CDATA[May]]></m5>
-    <m6><![CDATA[Jun]]></m6>
-    <m7><![CDATA[Jul]]></m7>
-    <m8><![CDATA[Aug]]></m8>
-    <m9><![CDATA[Sep]]></m9>
-    <m10><![CDATA[Oct]]></m10>
-    <m11><![CDATA[Nov]]></m11>
-    <m12><![CDATA[Dec]]></m12>
-  </Calendar>
+	<Calendar>
+		<m1><![CDATA[Jan]]></m1>
+		<m2><![CDATA[Feb]]></m2>
+		<m3><![CDATA[Mar]]></m3>
+		<m4><![CDATA[Apr]]></m4>
+		<m5><![CDATA[May]]></m5>
+		<m6><![CDATA[Jun]]></m6>
+		<m7><![CDATA[Jul]]></m7>
+		<m8><![CDATA[Aug]]></m8>
+		<m9><![CDATA[Sep]]></m9>
+		<m10><![CDATA[Oct]]></m10>
+		<m11><![CDATA[Nov]]></m11>
+		<m12><![CDATA[Dec]]></m12>
+	</Calendar>
 
-  <Currency>
-    <UUS><![CDATA[(UUS) Virtual Currency]]></UUS>
-    <AUD><![CDATA[(AUD) Australian Dolar]]></AUD>
-    <EUR><![CDATA[(EUR) Euro]]></EUR>
-    <GBP><![CDATA[(GBP) Inggris Poundsterling]]></GBP>
-    <IDR><![CDATA[(IDR) Indonesia Rupiah]]></IDR>
-    <MYR><![CDATA[(MYR) Malaysian Ringgit]]></MYR>
-    <RMB><![CDATA[(RMB) China Yuan (RenMinBi)]]></RMB>
-    <THB><![CDATA[(THB) Thai Baht]]></THB>
-    <USD><![CDATA[(USD) US Dolar]]></USD>
-    <JPY><![CDATA[(JPY) Jepang Yen]]></JPY>
-    <KRW><![CDATA[(KRW) Korea Won]]></KRW>
-    <VND><![CDATA[(VND) Vietnam Dong]]></VND>
-    <INR><![CDATA[(INR) India Rupee]]></INR>
-  </Currency>
+	<Currency>
+		<UUS><![CDATA[(UUS) Virtual Currency]]></UUS>
+		<AUD><![CDATA[(AUD) Australian Dolar]]></AUD>
+		<EUR><![CDATA[(EUR) Euro]]></EUR>
+		<GBP><![CDATA[(GBP) Inggris Poundsterling]]></GBP>
+		<IDR><![CDATA[(IDR) Indonesia Rupiah]]></IDR>
+		<MYR><![CDATA[(MYR) Malaysian Ringgit]]></MYR>
+		<RMB><![CDATA[(RMB) China Yuan (RenMinBi)]]></RMB>
+		<THB><![CDATA[(THB) Thai Baht]]></THB>
+		<USD><![CDATA[(USD) US Dolar]]></USD>
+		<JPY><![CDATA[(JPY) Jepang Yen]]></JPY>
+		<KRW><![CDATA[(KRW) Korea Won]]></KRW>
+		<VND><![CDATA[(VND) Vietnam Dong]]></VND>
+		<INR><![CDATA[(INR) India Rupee]]></INR>
+	</Currency>
 </register>

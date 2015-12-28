@@ -44,6 +44,7 @@ public partial class _Secure_Register : System.Web.UI.Page
             // txtAffiliateID.Attributes.Add("PLACEHOLDER", lblAffiliateID.Text);
             // txtCaptcha.Attributes.Add("PLACEHOLDER", lblCaptcha.Text);
             lblDisclaimer.InnerText = commonCulture.ElementValues.getResourceString("lblDisclaimer", xeResources);
+            btnTermsConditionsLink.InnerText = commonCulture.ElementValues.getResourceString("termsConditions", xeResources);
 
             #region PhoneCountryCode
             System.Data.DataSet dsCountryInfo = null;
