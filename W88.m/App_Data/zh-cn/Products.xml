@@ -18,8 +18,8 @@
     </Poker>
     <texasmahjong>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[TEXAS MAHJONG]]></Label>
-      <Description><![CDATA[TEXAS MAHJONG]]></Description>
+      <Label><![CDATA[德州麻将]]></Label>
+      <Description><![CDATA[德州麻将]]></Description>
     </texasmahjong>
     <ISports>
       <Url><![CDATA[]]></Url>
@@ -109,6 +109,6 @@
     <poker><![CDATA[扑克 (USD)]]></poker>
     <sbtech><![CDATA[西方体育]]></sbtech>
     <netent><![CDATA[金蟾]]></netent>
-    <pmahjong><![CDATA[Texas Mahjong]]></pmahjong>
+    <pmahjong><![CDATA[德州麻将]]></pmahjong>
   </Wallets>
 </default>

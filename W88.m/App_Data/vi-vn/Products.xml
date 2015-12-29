@@ -18,8 +18,8 @@
     </Poker>
     <texasmahjong>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[TEXAS MAHJONG]]></Label>
-      <Description><![CDATA[TEXAS MAHJONG]]></Description>
+      <Label><![CDATA[Texas Mạt Chược]]></Label>
+      <Description><![CDATA[Texas Mạt Chược]]></Description>
     </texasmahjong>
     <ISports>
       <Url><![CDATA[]]></Url>
@@ -109,6 +109,6 @@
     <poker><![CDATA[Poker (USD)]]></poker>
     <sbtech><![CDATA[E-Thể Thao]]></sbtech>
 	  <netent><![CDATA[Nuovo]]></netent>
-    <pmahjong><![CDATA[Texas Mahjong]]></pmahjong>
+    <pmahjong><![CDATA[Texas Mạt Chược]]></pmahjong>
   </Wallets>
 </default>
