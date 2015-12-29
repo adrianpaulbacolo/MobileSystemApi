@@ -12,6 +12,9 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon-mahjong:before {
+    content: "\e90b";
+}
 .icon-spade-solid:before {
 	content: "\e909";
 }

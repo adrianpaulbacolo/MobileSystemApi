@@ -106,7 +106,7 @@
             <section class="section banner-slider">
                 <div class="slide">
                     <a rel="texasmahjong" href="texasmahjong.download.link" data-ajax="false">
-                        <img src="/_Static/Images/Download/W88-Mobile-ClubMassimo-en.jpg" alt="banner" class="img-responsive">
+                        <img src="/_Static/Images/Download/PMahjongMobile.jpg" alt="banner" class="img-responsive">
                     </a>
                 </div>
                 <div class="slide">
@@ -159,7 +159,7 @@
                 </li>
                 <li class="col col-33 product">
                     <a href="texasmahjong.download.link" class="tile nav-texasmahjong" target="_blank">
-                        <span class="icon-spade"></span>
+                        <span class="icon-mahjong"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>

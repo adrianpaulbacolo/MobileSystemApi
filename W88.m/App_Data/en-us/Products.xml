@@ -76,12 +76,12 @@
     </Keno>
     <ClubCrescendo>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Crescendo]]></Label>
-      <Description><![CDATA[Crescendo Slots]]></Description>
+      <Label><![CDATA[Club Crescendo]]></Label>
+      <Description><![CDATA[Club Crescendo Slots]]></Description>
     </ClubCrescendo>
     <ClubDivino>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Divino]]></Label>
+      <Label><![CDATA[Club Divino]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubDivino>
     <ClubW>
@@ -91,37 +91,37 @@
     </ClubW>
     <ClubBravado>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Bravado]]></Label>
+      <Label><![CDATA[Club Bravado]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubBravado>
     <ClubMassimoSlots>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Massimo HTML5]]></Label>
+      <Label><![CDATA[Club Massimo HTML5]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoSlots>
     <ClubMassimoSlots2>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Massimo Download]]></Label>
+      <Label><![CDATA[Club Massimo Download]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoSlots2>
     <ClubMassimoCasino>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Massimo]]></Label>
+      <Label><![CDATA[Club Massimo]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoCasino>
     <ClubPalazzoSlots>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Palazzo HTML5]]></Label>
+      <Label><![CDATA[Club Palazzo HTML5]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubPalazzoSlots>
     <ClubPalazzoSlots2>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Palazzo Download]]></Label>
+      <Label><![CDATA[Club Palazzo Download]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubPalazzoSlots2>
     <ClubPalazzoCasino>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Palazzo]]></Label>
+      <Label><![CDATA[Club Club Palazzo]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubPalazzoCasino>
     <Deposit>

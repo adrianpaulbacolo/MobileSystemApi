@@ -175,7 +175,7 @@
         <!-- Texas Mahjong -->
         <li data-icon="false">
             <a class="nav-pmahjong">
-                <i class="icon-keno"></i>
+                <i class="icon-mahjong"></i>
                 <div class="label"><%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%></div>
             </a>
             <ul class="sub-menu" data-rel="texasmahjong">
