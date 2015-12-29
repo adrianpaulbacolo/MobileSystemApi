@@ -163,6 +163,13 @@
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
+                <li class="col col-33 product">
+                    <%--<a href="#divPanel" class="tile nav-slots">--%>
+                    <a href="Slots.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>" class="tile" data-ajax="false" data-transition="slidedown">
+                        <span class="icon-slots"></span>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></h4>
+                    </a>
+                </li>
                 <li class="col col-33 product">                    
                     <a href="Lottery.aspx?lang=<%=commonVariables.SelectedLanguage%>" class="tile" data-ajax="false" data-transition="slidedown">
                         <span class="icon-keno"></span>
@@ -175,15 +182,6 @@
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("poker", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
-                <li class="col col-33 product">
-                    <%--<a href="#divPanel" class="tile nav-slots">--%>
-                    <a href="Slots.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>" class="tile" data-ajax="false" data-transition="slidedown">
-                        <span class="icon-slots"></span>
-                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></h4>
-                    </a>
-                </li>
-
-
                 <!-- Profile -->
                 <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
                 <li class="col col-33">

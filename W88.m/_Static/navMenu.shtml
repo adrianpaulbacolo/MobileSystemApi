@@ -189,69 +189,6 @@
                 </li>
             </ul>
         </li>
-
-        <!-- Lottery -->
-        <li data-icon="false">
-            <a class="nav-keno">
-                <i class="icon-keno"></i>
-                <div class="label"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></div>
-            </a>
-            <ul class="sub-menu" data-rel="lottery">
-                <!--<a class="close" data-rel="close">&times;</a>-->
-                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></h2>
-                <li>
-                    <a class="card" rel="keno" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                        <img src="/_Static/Images/bnr-lottery.png" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/Keno/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-    <!-- Poker -->
-        <li data-icon="false">
-            <a class="nav-poker">
-                <i class="icon-spade"></i>
-                <div class="label"><%=commonCulture.ElementValues.getResourceString("poker", commonVariables.LeftMenuXML)%></div>
-            </a>
-            <ul class="sub-menu" data-rel="poker">
-                <!--<a class="close" data-rel="close">&times;</a>-->
-                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("poker", commonVariables.LeftMenuXML)%></h2>
-                <%try{%>
-                <%if(Session["responseCode"].ToString()=="1"){%>
-                <li>
-                    <a class="card" data-rel="poker"  rel="PokerIOS" href='<%= Session["iosLink"].ToString()%>' data-transition="slidedown">
-                        <img src="/_Static/Images/W88-Mobile-Poker-iOS.jpg" class="img-responsive">
-                        <div class="title">IOS DOWNLOAD</div>
-                    </a>
-                </li>
-                <%}%>
-                <%if(Session["responseCode"].ToString()=="2"){%>
-                <li>
-                    <a class="card" data-rel="poker" rel="PokerAndroid" href='<%= Session["androidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">
-                        <img src="/_Static/Images/W88-Mobile-Poker-Android.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("androidDownload", commonVariables.LeftMenuXML)%></div>
-                    </a>
-                </li>
-                <%}%>
-                <%if(Session["responseCode"].ToString()=="3"){%>
-                <li>
-                    <a class="card" data-rel="poker" rel="PokerIOS" href='<%= Session["iosLink"].ToString()%>' data-transition="slidedown">
-                        <img src="/_Static/Images/W88-Mobile-Poker-iOS.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("iosDownload", commonVariables.LeftMenuXML)%></div>
-                    </a>
-                </li>
-                <li>
-                    <a class="card" data-rel="poker" rel="PokerAndroid" href='<%= Session["androidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">
-                        <img src="/_Static/Images/W88-Mobile-Poker-Android.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("androidDownload", commonVariables.LeftMenuXML)%></div>
-                    </a>
-                </li>
-                <%}%>
-                <%}catch(Exception){}%>
-            </ul>
-        </li>
-
         <!-- Slots -->
         <li data-icon="false">
             <a class="nav-slots">
@@ -262,11 +199,11 @@
                 <!--<a class="close" data-rel="close">&times;</a>-->
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></h2>
                 <!--<li>
-                    <a class="card" rel="clubmassimo-slots" href=" <%=commonClubMassimo.getDownloadUrl%>" data-ajax="false">
-                        <img src="/_Static/Images/bnr-clubmassimo-slots.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots2/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
-                    </a>
-                </li>-->
+                <a class="card" rel="clubmassimo-slots" href=" <%=commonClubMassimo.getDownloadUrl%>" data-ajax="false">
+                    <img src="/_Static/Images/bnr-clubmassimo-slots.jpg" class="img-responsive">
+                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots2/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
+                </a>
+            </li>-->
                 <li>
                     <a class="card" rel="clubbravado" href="/ClubBravado" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubbravado.jpg" class="img-responsive">
@@ -306,7 +243,67 @@
             </ul>
         </li>
 
+        <!-- Lottery -->
+        <li data-icon="false">
+            <a class="nav-keno">
+                <i class="icon-keno"></i>
+                <div class="label"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></div>
+            </a>
+            <ul class="sub-menu" data-rel="lottery">
+                <!--<a class="close" data-rel="close">&times;</a>-->
+                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></h2>
+                <li>
+                    <a class="card" rel="keno" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
+                        <img src="/_Static/Images/bnr-lottery.png" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/Keno/Label", commonVariables.ProductsXML)%></div>
+                    </a>
+                </li>
+            </ul>
+        </li>
 
+    <!-- Poker -->
+        <li data-icon="false">
+            <a class="nav-poker">
+                <i class="icon-spade"></i>
+                <div class="label"><%=commonCulture.ElementValues.getResourceString("poker", commonVariables.LeftMenuXML)%></div>
+            </a>
+            <ul class="sub-menu" data-rel="poker">
+                <!--<a class="close" data-rel="close">&times;</a>-->
+                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("poker", commonVariables.LeftMenuXML)%></h2>
+                <%try{%>
+                <%if(Session["responseCode"].ToString()=="1"){%>
+                <li>
+                    <a class="card" data-rel="poker"  rel="PokerIOS" href='<%= Session["iosLink"].ToString()%>' data-transition="slidedown">
+                        <img src="/_Static/Images/W88-Mobile-Poker-iOS.jpg" class="img-responsive">
+                        <div class="title">iOS Download</div>
+                    </a>
+                </li>
+                <%}%>
+                <%if(Session["responseCode"].ToString()=="2"){%>
+                <li>
+                    <a class="card" data-rel="poker" rel="PokerAndroid" href='<%= Session["androidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">
+                        <img src="/_Static/Images/W88-Mobile-Poker-Android.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("androidDownload", commonVariables.LeftMenuXML)%></div>
+                    </a>
+                </li>
+                <%}%>
+                <%if(Session["responseCode"].ToString()=="3"){%>
+                <li>
+                    <a class="card" data-rel="poker" rel="PokerIOS" href='<%= Session["iosLink"].ToString()%>' data-transition="slidedown">
+                        <img src="/_Static/Images/W88-Mobile-Poker-iOS.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("iosDownload", commonVariables.LeftMenuXML)%></div>
+                    </a>
+                </li>
+                <li>
+                    <a class="card" data-rel="poker" rel="PokerAndroid" href='<%= Session["androidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">
+                        <img src="/_Static/Images/W88-Mobile-Poker-Android.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("androidDownload", commonVariables.LeftMenuXML)%></div>
+                    </a>
+                </li>
+                <%}%>
+                <%}catch(Exception){}%>
+            </ul>
+        </li>
     <!-- Rewards
         <li data-icon="false">
             <a rel="rewards" class="nav-rewards" href="javascript:void(0);">
