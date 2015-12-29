@@ -158,7 +158,7 @@
                     </a>
                 </li>
                 <li class="col col-33 product">
-                    <a href="#divPanel" class="tile nav-texasmahjong">
+                    <a href="texasmahjong.download.link" class="tile nav-texasmahjong" target="_blank">
                         <span class="icon-spade"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%></h4>
                     </a>

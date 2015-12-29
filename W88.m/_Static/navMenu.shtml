@@ -172,6 +172,42 @@
             </ul>
         </li>
 
+        <!-- Texas Mahjong -->
+        <li data-icon="false">
+            <a class="nav-pmahjong">
+                <i class="icon-keno"></i>
+                <div class="label"><%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%></div>
+            </a>
+            <ul class="sub-menu" data-rel="texasmahjong">
+                <!--<a class="close" data-rel="close">&times;</a>-->
+                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%></h2>
+                <li>
+                    <a class="card" rel="texasmahjong" href="texasmahjong.download.link" data-rel="dialog" data-transition="slidedown">
+                        <img src="/_Static/Images/Download/W88-Mobile-ClubMassimo-en.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/texasmahjong/Label", commonVariables.ProductsXML)%></div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <!-- Lottery -->
+        <li data-icon="false">
+            <a class="nav-keno">
+                <i class="icon-keno"></i>
+                <div class="label"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></div>
+            </a>
+            <ul class="sub-menu" data-rel="lottery">
+                <!--<a class="close" data-rel="close">&times;</a>-->
+                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></h2>
+                <li>
+                    <a class="card" rel="keno" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
+                        <img src="/_Static/Images/bnr-lottery.png" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/Keno/Label", commonVariables.ProductsXML)%></div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
     <!-- Poker -->
         <li data-icon="false">
             <a class="nav-poker">
@@ -181,12 +217,6 @@
             <ul class="sub-menu" data-rel="poker">
                 <!--<a class="close" data-rel="close">&times;</a>-->
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("poker", commonVariables.LeftMenuXML)%></h2>
-                <li>
-                    <a class="card" data-rel="poker" rel="texasmahjong" href="texasmahjong.download.link" data-ajax="false" target="_blank">
-                        <img src="/_Static/Images/Download/W88-Mobile-ClubMassimo-en.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/texasmahjong/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
-                    </a>
-                </li>
                 <%try{%>
                 <%if(Session["responseCode"].ToString()=="1"){%>
                 <li>
@@ -219,24 +249,6 @@
                 </li>
                 <%}%>
                 <%}catch(Exception){}%>
-            </ul>
-        </li>
-
-        <!-- Lottery -->
-        <li data-icon="false">
-            <a class="nav-keno">
-                <i class="icon-keno"></i>
-                <div class="label"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></div>
-            </a>
-            <ul class="sub-menu" data-rel="lottery">
-                <!--<a class="close" data-rel="close">&times;</a>-->
-                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></h2>
-                <li>
-                    <a class="card" rel="keno" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                        <img src="/_Static/Images/bnr-lottery.png" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/Keno/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li>
             </ul>
         </li>
 
@@ -423,6 +435,11 @@
         $('a.nav-keno').bind('touch click', function () {
             $('.sub-menu[data-rel]').not('.sub-menu[data-rel="lottery"]').hide();
             $('.sub-menu[data-rel="lottery"]').show();
+            $('body').addClass('open-subnav');
+        });
+            $('a.nav-pmahjong').bind('touch click', function () {
+            $('.sub-menu[data-rel]').not('.sub-menu[data-rel="texasmahjong"]').hide();
+            $('.sub-menu[data-rel="texasmahjong"]').show();
             $('body').addClass('open-subnav');
         });
         $('a.nav-infos').bind('touch click', function () {
