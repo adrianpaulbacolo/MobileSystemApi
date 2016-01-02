@@ -14,7 +14,7 @@ public partial class Funds_Main : System.Web.UI.Page
 
     public void InitializeWalletBalance()
     {
-        string[] keys = { "0", "2", "7", "1", "3", "4", "6", "13", "12" };
+        string[] keys = { "0", "2", "7", "1", "3", "4", "6", "13", "12", "8" };
 
         for (int x = 0; x < keys.Length; x++)
         {
@@ -35,6 +35,7 @@ public partial class Funds_Main : System.Web.UI.Page
         public const string SBTECH = "7";
         public const string SBO = "13";
         public const string NETENT = "12";
+        public const string PMAHJONG = "8";
     }
 
 
@@ -101,6 +102,10 @@ public partial class Funds_Main : System.Web.UI.Page
         {
             Session["POKER"] = strWalletAmount;
         }
+        else if (walletId == Wallet.PMAHJONG)
+        {
+            Session["PMAHJONG"] = strWalletAmount;
+        }
     }
 
     protected void aSportsBtn_Click(object sender, EventArgs e)
@@ -139,6 +144,11 @@ public partial class Funds_Main : System.Web.UI.Page
         Response.Redirect("FundTransfer/Default.aspx");
     }
     protected void pokerBtn_Click(object sender, EventArgs e)
+    {
+        Session["Wallet"] = "8";
+        Response.Redirect("FundTransfer/Default.aspx");
+    }
+    protected void texasmahjongBtn_Click(object sender, EventArgs e)
     {
         Session["Wallet"] = "8";
         Response.Redirect("FundTransfer/Default.aspx");

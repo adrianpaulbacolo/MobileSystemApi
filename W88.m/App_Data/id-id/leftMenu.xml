@@ -39,6 +39,7 @@
 	<withrawal><![CDATA[Penarikan]]></withrawal>-->
 	<fundTransfer><![CDATA[Fund Transfer]]></fundTransfer>
 	<poker><![CDATA[Poker]]></poker>
+  <texasmahjong><![CDATA[Texas Mahjong]]></texasmahjong>
 	<fundFooter><![CDATA[*Klub W, Bravado, Apollo, Crescendo, Divino, Massimo & Virtual]]></fundFooter>
 	<cancel><![CDATA[CANCEL]]></cancel>
 	<changePassword><![CDATA[Ganti Kata Sandi]]></changePassword>
@@ -58,7 +59,7 @@
 	<clubMassimo><![CDATA[Klub Massimo]]></clubMassimo>
 	<clubMassimoMessage><![CDATA[Permainan kasino populer dengan video berkualitas tinggi dan menarik.]]></clubMassimoMessage>
 	<playNow><![CDATA[MAIN]]></playNow>
-	<androidDownload><![CDATA[ANDROID DOWNLOAD]]></androidDownload>
+	<androidDownload><![CDATA[Android Download]]></androidDownload>
 	<iosDownload><![CDATA[IOS DOWNLOAD]]></iosDownload>
 
 	<download><![CDATA[DOWNLOAD]]></download>

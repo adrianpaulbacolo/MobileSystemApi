@@ -105,6 +105,11 @@
 
             <section class="section banner-slider">
                 <div class="slide">
+                    <a rel="texasmahjong" href="https://tm.gp2play.com/TexasMahjong-captive-runtime_w88.apk" data-ajax="false">
+                        <img src="/_Static/Images/Download/PMahjongMobile_<%=commonVariables.SelectedLanguage.ToLower() %>.jpg" alt="banner" class="img-responsive">
+                    </a>
+                </div>
+                <div class="slide">
                     <a rel="clubpalazzo" href="/_static/palazzo/casino.aspx" data-ajax="false">
                         <img src="/_Static/Images/Download/W88-Mobile-ClubPalazzo-Casino.jpg" alt="banner" class="img-responsive">
                     </a>
@@ -153,9 +158,9 @@
                     </a>
                 </li>
                 <li class="col col-33 product">
-                    <a href="#divPanel" class="tile nav-poker">
-                        <span class="icon-spade"></span>
-                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("poker", commonVariables.LeftMenuXML)%></h4>
+                    <a href="https://tm.gp2play.com/TexasMahjong-captive-runtime_w88.apk" class="tile nav-texasmahjong" target="_blank">
+                        <span class="icon-mahjong"></span>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
                 <li class="col col-33 product">
@@ -171,7 +176,12 @@
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
-
+                <li class="col col-33 product">
+                    <a href="#divPanel" class="tile nav-poker">
+                        <span class="icon-spade"></span>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("poker", commonVariables.LeftMenuXML)%></h4>
+                    </a>
+                </li>
                 <!-- Profile -->
                 <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
                 <li class="col col-33">

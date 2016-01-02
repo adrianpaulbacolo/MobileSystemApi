@@ -16,6 +16,11 @@
       <Label><![CDATA[โป๊กเกอร์]]></Label>
       <Description><![CDATA[โป๊กเกอร์]]></Description>
     </Poker>
+    <texasmahjong>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[เท็กซัส มาจง]]></Label>
+      <Description><![CDATA[เท็กซัส มาจง]]></Description>
+    </texasmahjong>
     <ISports>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[i-กีฬา]]></Label>
@@ -103,6 +108,7 @@
     <binary><![CDATA[ไบนารี่]]></binary>
     <poker><![CDATA[โป๊กเกอร์ (USD)]]></poker>
     <sbtech><![CDATA[E-กีฬา]]></sbtech>
-	<netent><![CDATA[นูโอโว้]]></netent>
+	  <netent><![CDATA[นูโอโว้]]></netent>
+    <pmahjong><![CDATA[เท็กซัส มาจง]]></pmahjong>
   </Wallets>
 </default>

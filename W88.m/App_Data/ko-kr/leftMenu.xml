@@ -37,7 +37,8 @@
 	<daddypay><![CDATA[퀵 온라인]]></daddypay>
 	<withrawal><![CDATA[출금]]></withrawal>
 	<fundTransfer><![CDATA[잔액 이동]]></fundTransfer>
-	<poker><![CDATA[포커]]></poker>-->
+	<poker><![CDATA[포커]]></poker>
+  <texasmahjong><![CDATA[텍사스 마종]]></texasmahjong>
 	<aSports><![CDATA[a-스포츠]]></aSports>
 	<eSports><![CDATA[e-스포츠]]></eSports>
 	<nuovo><![CDATA[NUOVO]]></nuovo>
@@ -62,7 +63,7 @@
 	<liveCasino><![CDATA[*CLUB W]]></liveCasino>
 	<liveCasinoTitle><![CDATA[라이브 카지노]]></liveCasinoTitle>
 	<liveCasinoMessage><![CDATA[Enjoy live Casino instant cash rebate up to 0.8%. No payout limit & rollover.]]></liveCasinoMessage>
-	<clubPalazo><![CDATA[CLUB PALAZO]]></clubPalazo>
+	<clubPalazo><![CDATA[CLUB PALAZZO]]></clubPalazo>
 	<clubPalazoMessage><![CDATA[Innovative casino games with Asian & European live dealers!]]></clubPalazoMessage>
 	<clubMassimo><![CDATA[CLUB MASSIMO]]></clubMassimo>
 	<clubMassimoMessage><![CDATA[Popular live casino games with high-quality video!]]></clubMassimoMessage>

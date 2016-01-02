@@ -24,6 +24,11 @@
       <Label><![CDATA[ポーカー]]></Label>
       <Description><![CDATA[ポーカー]]></Description>
     </Poker>
+    <texasmahjong>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[テキサス マージャン]]></Label>
+      <Description><![CDATA[テキサス マージャン]]></Description>
+    </texasmahjong>
     <ISports>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[i-スポーツ]]></Label>
@@ -115,6 +120,7 @@
     <binary><![CDATA[バイナリ]]></binary>
     <poker><![CDATA[ポーカー（米ドル）]]></poker>
     <sbtech><![CDATA[E-スポーツ]]></sbtech>
-	<netent><![CDATA[ヌォーボ]]></netent>
+	  <netent><![CDATA[ヌォーボ]]></netent>
+    <pmahjong><![CDATA[テキサス マージャン]]></pmahjong>
   </Wallets>
 </default>
