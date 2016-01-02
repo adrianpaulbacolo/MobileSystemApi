@@ -105,8 +105,8 @@
 
             <section class="section banner-slider">
                 <div class="slide">
-                    <a rel="texasmahjong" href="texasmahjong.download.link" data-ajax="false">
-                        <img src="/_Static/Images/Download/PMahjongMobile.jpg" alt="banner" class="img-responsive">
+                    <a rel="texasmahjong" href="https://tm.gp2play.com/TexasMahjong-captive-runtime_w88.apk" data-ajax="false">
+                        <img src="/_Static/Images/Download/PMahjongMobile_<%=commonVariables.SelectedLanguage.ToLower() %>.jpg" alt="banner" class="img-responsive">
                     </a>
                 </div>
                 <div class="slide">
@@ -158,7 +158,7 @@
                     </a>
                 </li>
                 <li class="col col-33 product">
-                    <a href="texasmahjong.download.link" class="tile nav-texasmahjong" target="_blank">
+                    <a href="https://tm.gp2play.com/TexasMahjong-captive-runtime_w88.apk" class="tile nav-texasmahjong" target="_blank">
                         <span class="icon-mahjong"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%></h4>
                     </a>
