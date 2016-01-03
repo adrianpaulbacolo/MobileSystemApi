@@ -182,7 +182,7 @@
                 <!--<a class="close" data-rel="close">&times;</a>-->
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%></h2>
                 <li>
-                    <a class="card" rel="texasmahjong" href="https://tm.gp2play.com/TexasMahjong-captive-runtime_w88.apk" data-rel="dialog" data-transition="slidedown">
+                    <a class="card" rel="texasmahjong" href="https://tm.gp2play.com/TexasMahjong-captive-runtime_w88_1.0.apk" data-rel="dialog" data-transition="slidedown">
                         <img src="/_Static/Images/Download/bnr-texasmahjong.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/texasmahjong/Label", commonVariables.ProductsXML)%></div>
                     </a>
