@@ -150,7 +150,7 @@ public partial class Funds_Main : System.Web.UI.Page
     }
     protected void texasmahjongBtn_Click(object sender, EventArgs e)
     {
-        Session["Wallet"] = "8";
+        Session["Wallet"] = "9";
         Response.Redirect("FundTransfer/Default.aspx");
     }
 }
