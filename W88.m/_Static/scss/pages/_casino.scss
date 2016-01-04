@@ -3,20 +3,21 @@
 // -------------------------------
 
 #casino {
-    .ui-content > ul > li {
+    .ui-content > ul > li:nth-child(odd) {
         margin-bottom: 0;
         .banner-caption {
-            max-width: 70%;
+            float: right;
+            max-width: 60%;
             .ui-btn {
                 display: inline-block;
                 min-width: 130px;
                 margin: 0;
             }
         }
-        &:nth-child(2n+2) {
+        &:nth-child(even) {
             .banner-caption {
-                float: right;
-                max-width: 60%;
+                
+                max-width: 70%;
             }
         }
     }

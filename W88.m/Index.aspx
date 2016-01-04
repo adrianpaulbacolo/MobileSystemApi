@@ -110,13 +110,13 @@
                     </a>
                 </div>
                 <div class="slide">
-                    <a rel="clubpalazzo" href="/_static/palazzo/casino.aspx" data-ajax="false">
-                        <img src="/_Static/Images/Download/W88-Mobile-ClubPalazzo-Casino.jpg" alt="banner" class="img-responsive">
+                    <a rel="clbW" href="/_static/ClubW/casino.aspx" data-ajax="false">
+                        <img src="/_Static/Images/Download/W88-Mobile-ClubW-Casino.jpg" alt="banner" class="img-responsive">
                     </a>
                 </div>
                 <div class="slide">
-                    <a rel="clbW" href="/_static/ClubW/casino.aspx" data-ajax="false">
-                        <img src="/_Static/Images/Download/W88-Mobile-ClubW-Casino.jpg" alt="banner" class="img-responsive">
+                    <a rel="clubpalazzo" href="/_static/palazzo/casino.aspx" data-ajax="false">
+                        <img src="/_Static/Images/Download/W88-Mobile-ClubPalazzo-Casino.jpg" alt="banner" class="img-responsive">
                     </a>
                 </div>
                 <div class="slide">

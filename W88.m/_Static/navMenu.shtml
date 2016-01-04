@@ -152,6 +152,12 @@
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%></h2>
                 <li>
                     <a class="card" data-rel="livecasino" rel="clbW" href="/_static/ClubW/casino.aspx" data-ajax="false">
+                        <img src="/_Static/Images/bnr-clubwpremier-android.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubWPremier/Label", commonVariables.ProductsXML)%></div>
+                    </a>
+                </li>
+                <li>
+                    <a class="card" data-rel="livecasino" rel="clbW" href="/_static/ClubW/casino.aspx" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubw-android.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></div>
                     </a>

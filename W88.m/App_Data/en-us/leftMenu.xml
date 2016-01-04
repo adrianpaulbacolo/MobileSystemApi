@@ -56,7 +56,8 @@
 	<eSports><![CDATA[E-SPORTS]]></eSports>
 	<wSports><![CDATA[W-SPORTS]]></wSports>
 	<lottery><![CDATA[LOTTERY]]></lottery>
-	<liveCasino><![CDATA[*CLUB W]]></liveCasino>
+  <clubwpremier><![CDATA[CLUB W PREMIER]]></clubwpremier> 
+	<liveCasino><![CDATA[CLUB W]]></liveCasino>
 	<liveCasinoMessage><![CDATA[Enjoy live Casino instant cash rebate up to 0.8%. No payout limit & rollover.]]></liveCasinoMessage>
 	<clubMassimo><![CDATA[CLUB MASSIMO]]></clubMassimo>
 	<clubMassimoMessage><![CDATA[Popular live casino games with high-quality video!]]></clubMassimoMessage>
@@ -69,7 +70,7 @@
   <texasmahjong><![CDATA[Texas Mahjong]]></texasmahjong>
 	<fundFooter><![CDATA[*Club W, Bravado, Apollo, Crescendo, Divino & Massimo, Virtual , Lotto]]></fundFooter>
 	<androidDownload><![CDATA[Android Download]]></androidDownload>
-	<iosDownload><![CDATA[IOS DOWNLOAD]]></iosDownload>
+	<iosDownload><![CDATA[iOS DOWNLOAD]]></iosDownload>
 	<download><![CDATA[DOWNLOAD]]></download>
 	<playNow><![CDATA[PLAY NOW]]></playNow>
 
