@@ -152,7 +152,7 @@
                     </a>
                 </li>
                 <li class="col col-33 product">
-                    <a href="Casino.aspx" class="tile" data-ajax="false" data-transition="slidedown">
+                    <a href="Casino.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower() %>" class="tile" data-ajax="false" data-transition="slidedown">
                         <span class="icon-casino"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%></h4>
                     </a>
