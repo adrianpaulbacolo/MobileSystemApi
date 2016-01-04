@@ -64,6 +64,11 @@
       <Label><![CDATA[クラブW]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubW>
+    <ClubWPremier>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[クラブ W プレミア]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubWPremier>
     <ClubBravado>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[ブラバド]]></Label>
@@ -71,7 +76,7 @@
     </ClubBravado>
     <ClubMassimoSlots>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[マッシモ HTML5]]></Label>
+      <Label><![CDATA[マッシモ]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoSlots>
     <ClubMassimoSlots2>
@@ -86,7 +91,7 @@
     </ClubMassimoCasino>
     <ClubPalazzoSlots>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[パラッツオ HTML5]]></Label>
+      <Label><![CDATA[パラッツオ]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubPalazzoSlots>
     <ClubPalazzoSlots2>

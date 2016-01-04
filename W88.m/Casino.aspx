@@ -22,7 +22,17 @@
             <ul class="row row-wrap row-no-padding responsive-lg">
                 <li class="col">
                     <figure class="banner">
-                        <img src="_Static/Images/casino/casino-banner-1.png" class="img-responsive-full img-bg">
+                        <img src="_Static/Images/casino/clubwpremierbanner.jpg" class="img-responsive-full img-bg">
+                        <figcaption class="banner-caption">
+                            <h3 class="title"><%=commonCulture.ElementValues.getResourceString("clubwpremier", commonVariables.LeftMenuXML)%></h3>
+                            <P><%=commonCulture.ElementValues.getResourceString("liveCasinoMessage", commonVariables.LeftMenuXML)%></P>
+                            <a href="/_Static/ClubW/casino.aspx" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="col">
+                    <figure class="banner">
+                        <img src="_Static/Images/casino/clubwbanner.jpg" class="img-responsive-full img-bg">
                         <figcaption class="banner-caption">
                             <h3 class="title"><%=commonCulture.ElementValues.getResourceString("liveCasino", commonVariables.LeftMenuXML)%></h3>
                             <P><%=commonCulture.ElementValues.getResourceString("liveCasinoMessage", commonVariables.LeftMenuXML)%></P>
@@ -32,21 +42,21 @@
                 </li>
                 <li class="col">
                     <figure class="banner">
-                        <img src="_Static/Images/casino/casino-banner-2.png" data-rel="dialog" class="img-responsive-full img-bg">
+                        <img src="_Static/Images/casino/clubpalazzobanner.jpg" class="img-responsive-full img-bg">
                         <figcaption class="banner-caption">
                             <h3 class="title"><%=commonCulture.ElementValues.getResourceString("clubPalazo", commonVariables.LeftMenuXML)%></h3>
                             <P><%=commonCulture.ElementValues.getResourceString("clubPalazoMessage", commonVariables.LeftMenuXML)%></P>
-                            <a href="/_Static/Palazzo/casino.aspx"  data-ajax="false" data-rel="dialog" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
+                            <a href="/_Static/Palazzo/casino.aspx"  data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
                         </figcaption>
                     </figure>
                 </li>
                 <li class="col">
                     <figure class="banner">
-                        <img src="_Static/Images/casino/casino-banner-3.png" class="img-responsive-full img-bg">
+                        <img src="_Static/Images/casino/clubmassimobanner.jpg" class="img-responsive-full img-bg">
                         <figcaption class="banner-caption">
                             <h3 class="title"><%=commonCulture.ElementValues.getResourceString("clubMassimo", commonVariables.LeftMenuXML)%></h3>
                             <P><%=commonCulture.ElementValues.getResourceString("clubMassimoMessage", commonVariables.LeftMenuXML)%></P>
-                            <a href="https://livegames.cdn.gameassists.co.uk/AIR/Poria/Installer/V20021/w88/Download.html"  class="ui-btn btn-primary" target="_blank"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
+                            <a href="https://livegames.cdn.gameassists.co.uk/AIR/Poria/Installer/V20021/w88/Download.html"  data-ajax="false"  class="ui-btn btn-primary" target="_blank"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
                         </figcaption>
                     </figure>
                 </li>

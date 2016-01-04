@@ -51,7 +51,8 @@
 	<aSports><![CDATA[A-SPORTS]]></aSports>
 	<eSports><![CDATA[E-SPORTS]]></eSports>
 	<nuovo><![CDATA[NUOVO]]></nuovo>
-	<liveCasino><![CDATA[*Klub W]]></liveCasino>
+  <clubwpremier><![CDATA[KLUB W PREMIER]]></clubwpremier>
+  <liveCasino><![CDATA[Klub W]]></liveCasino>
 	<liveCasinoTitle><![CDATA[Live Kasino]]></liveCasinoTitle>
 	<liveCasinoMessage><![CDATA[Nikmati rebate instan Kasino hingga 0.8%. Tanpa batas dan tanpa rollover.]]></liveCasinoMessage>
 	<clubPalazo><![CDATA[Klub Palazzo]]></clubPalazo>
@@ -60,7 +61,7 @@
 	<clubMassimoMessage><![CDATA[Permainan kasino populer dengan video berkualitas tinggi dan menarik.]]></clubMassimoMessage>
 	<playNow><![CDATA[MAIN]]></playNow>
 	<androidDownload><![CDATA[Android Download]]></androidDownload>
-	<iosDownload><![CDATA[IOS DOWNLOAD]]></iosDownload>
+	<iosDownload><![CDATA[iOS DOWNLOAD]]></iosDownload>
 
 	<download><![CDATA[DOWNLOAD]]></download>
 

@@ -58,9 +58,14 @@
     </ClubDivino>
     <ClubW>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club W]]></Label>
+      <Label><![CDATA[คลับ W]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubW>
+    <ClubWPremier>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[คลับ W พรีเมียร์]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubWPremier>    
     <ClubBravado>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[บราวาโด้]]></Label>
@@ -68,7 +73,7 @@
     </ClubBravado>
     <ClubMassimoSlots>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[แมสซิโม HTML5]]></Label>
+      <Label><![CDATA[แมสซิโม]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoSlots>
     <ClubMassimoSlots2>
@@ -83,7 +88,7 @@
     </ClubMassimoCasino>
     <ClubPalazzoSlots>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[พาลาซโซ HTML5]]></Label>
+      <Label><![CDATA[พาลาซโซ]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubPalazzoSlots>
     <ClubPalazzoSlots2>

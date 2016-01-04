@@ -61,6 +61,11 @@
       <Label><![CDATA[Club W]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubW>
+    <ClubWPremier>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[ClubWPremier]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubWPremier>
     <ClubBravado>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[Club Bravado]]></Label>
@@ -68,27 +73,27 @@
     </ClubBravado>
     <ClubMassimoSlots>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Massimo HTML5]]></Label>
+      <Label><![CDATA[Club Massimo]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoSlots>
     <ClubMassimoSlots2>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Massimo Unduh]]></Label>
+      <Label><![CDATA[Club Massimo Download]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoSlots2>
     <ClubMassimoCasino>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Club Massimo]]></Label>
+      <Label><![CDATA[Club Massimo]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoCasino>
     <ClubPalazzoSlots>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Palazzo HTML5]]></Label>
+      <Label><![CDATA[Club Palazzo]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubPalazzoSlots>
     <ClubPalazzoSlots2>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Palazzo Unduh]]></Label>
+      <Label><![CDATA[Club Palazzo Download]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubPalazzoSlots2>
     <ClubPalazzoCasino>

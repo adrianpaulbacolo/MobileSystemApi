@@ -61,6 +61,11 @@
       <Label><![CDATA[优德俱乐部]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubW>
+    <ClubWPremier>
+      <Url><![CDATA[]]></Url>
+      <Label><![CDATA[优德俱乐部 - 卓越厅]]></Label>
+      <Description><![CDATA[]]></Description>
+    </ClubWPremier>
     <ClubBravado>
       <Url><![CDATA[]]></Url>
       <Label><![CDATA[金池]]></Label>
@@ -68,7 +73,7 @@
     </ClubBravado>
     <ClubMassimoSlots>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[金銮 HTML5]]></Label>
+      <Label><![CDATA[金銮]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubMassimoSlots>
     <ClubMassimoSlots2>
@@ -83,7 +88,7 @@
     </ClubMassimoCasino>
     <ClubPalazzoSlots>
       <Url><![CDATA[]]></Url>
-      <Label><![CDATA[金殿 HTML5]]></Label>
+      <Label><![CDATA[金殿]]></Label>
       <Description><![CDATA[]]></Description>
     </ClubPalazzoSlots>
     <ClubPalazzoSlots2>
