@@ -22,7 +22,6 @@
             </div>
         </div>
         <!-- /content -->
-        <!--#include virtual="~/_static/footer.shtml" -->
         <!--#include virtual="~/_static/navMenu.shtml" -->
     </div>
     <!-- /page -->

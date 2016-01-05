@@ -27,7 +27,6 @@
             <div id="divContainer" runat="server"></div>
         </div>
 
-        <!--#include virtual="~/_static/footer.shtml" -->
         <script type="text/javascript">
             var cache = [];
             $(function () {

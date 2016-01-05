@@ -7,6 +7,7 @@
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
     <script type="application/javascript" src="/_Static/Js/add2home.js"></script>
+    <script src="/_Static/JS/piwik.js"></script>
     <script type="text/javascript">
         var cache = [];
         $(function () {
@@ -288,7 +289,6 @@
 
         </div>
 
-        <!--#include virtual="~/_static/footer.shtml" -->
         <!--#include virtual="~/_static/navMenu.shtml" -->
 
         <script src="/_Static/Js/vendor/slick.min.js"></script>
