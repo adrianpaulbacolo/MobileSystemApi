@@ -66,7 +66,7 @@
                         <div class="col"><asp:Literal ID="lblTotalAllowed" runat="server" /></div>
                         <div class="col"><asp:Literal ID="txtTotalAllowed" runat="server" /></div>
                     </li>
-                    <li class="row">
+                    <li class="item item-input">
                         <asp:TextBox ID="amount_txt" runat="server" placeholder="amount" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
                     <li class="item item-select">
@@ -107,7 +107,7 @@
                             break;
                         case '0':
                             alert('<%=strAlertMessage%>');
-                            window.location.replace('/Deposit/Default.aspx');
+                            window.location.replace('/Deposit/DaddyPay.aspx');
                             break;
                         default:
                             break;

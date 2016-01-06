@@ -48,7 +48,7 @@
             </div>
 
             <form class="form" id="form1" runat="server" data-ajax="false">
-                <br>
+                <br />
                 <ul class="list fixed-tablet-size">
                     <li class="row">
                         <div class="col"><asp:Literal ID="lblMode" runat="server" /></div>
@@ -113,7 +113,7 @@
                             break;
                         case '0':
                             alert('<%=strAlertMessage%>');
-                            window.location.replace('/Deposit/Default.aspx');
+                            window.location.replace('/Deposit/SDPay.aspx');
                             break;
                         default:
                             break;

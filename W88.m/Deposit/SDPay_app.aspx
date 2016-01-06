@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="SDPay_app.aspx.cs" Inherits="Deposit_SDPay" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="SDPay.aspx.cs" Inherits="Deposit_SDPay" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,10 +10,7 @@
     <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
-            <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
-                <i class="icon-navicon"></i>
-            </a>
-            <h1 class="title">Wallet Transfer</h1>
+            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("sdpay", commonVariables.LeftMenuXML))%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -67,21 +64,18 @@
                     </li>
                     <li class="item item-input">
                         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" Text="from" />
-                        <asp:TextBox ID="txtDepositAmount" runat="server" placeholder="amount" type="number" step="any" min="1" data-clear-btn="true" />
+                        <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
-                    <li class="item row">
-                        <div class="col">
-                            <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" ID="btnCancel" runat="server" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
-                        </div>
+                    <li class="row">
                         <div class="col"><asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" data-corners="false" OnClientClick="javascript:postsdpay();return false;" /></div>
                     </li>
-                    <li class="item-textwrap">
+                    <li class="item-text-wrap">
                         <asp:Literal ID="lblNoticeDownload" runat="server" />
                     </li>
-                    <li class="item-textwrap">
+                    <li class="item-text-wrap">
                         <a href="http://mobile.unionpay.com/getclient?platform=android&type=securepayplugin" target="_blank"><%=commonCulture.ElementValues.getResourceString("lblAndroidDownload", xeResources)%></a>
                     </li>
-                    <li class="item-textwrap">
+                    <li class="item-text-wrap">
                         <a href="http://mobile.unionpay.com/getclient?platform=ios&type=securepayplugin" target="_blank"><%=commonCulture.ElementValues.getResourceString("lblIOSDownload", xeResources)%></a>
                     </li>
                     <asp:HiddenField runat="server" ID="_repostcheckcode" />
@@ -99,7 +93,6 @@
             </form>
         </div>
 
-        <!--#include virtual="~/_static/navMenu.shtml" -->
         <script type="text/javascript">
             $(function () {
                 window.history.forward();
@@ -122,7 +115,7 @@
                             break;
                         case '0':
                             alert('<%=strAlertMessage%>');
-                            window.location.replace('/Deposit/Default.aspx');
+                            window.location.replace('/Deposit/SDPay_app.aspx');
                             break;
                         default:
                             break;

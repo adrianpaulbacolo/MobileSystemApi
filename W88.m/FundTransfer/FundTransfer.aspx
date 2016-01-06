@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="FundTransfer.aspx.cs" Inherits="FundTransfer_Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="FundTransfer_Default" %>
 
 <!DOCTYPE html>
 <html>
@@ -6,77 +6,69 @@
     <title><%=commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML) + commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
-    <style type="text/css">
-        .page-content { max-width:700px; margin-left:auto; margin-right:auto; }
-        .button-blue {}
-        .auto-style1 {
-            width: 9px;
-        }
-    </style>
 </head>
 <body>
     <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page">
-
+        <header data-role="header" data-theme="b" data-position="fixed" id="header">
+            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%></h1>
+        </header>
         <div class="ui-content" role="main">
-            <div class="div-page-header"><span>Wallet Transfer</span></div>
-            <div class="page-content">
-                <form id="form1" runat="server" data-ajax="false">
-                    <div class="div-content-wrapper">
-                        <div runat="server" id="divBalance" data-role="collapsible" data-mini="true" data-theme="a" data-content-theme="b">
-                        </div>
-                        <div>
-                            <div class="ui-field-contain ui-hide-label">
-                                <asp:Label ID="lblTransferFrom" runat="server" AssociatedControlID="drpTransferFrom" Text="from" CssClass="ui-hidden-accessible" />
-                                <asp:DropDownList data-theme="a" ID="drpTransferFrom" runat="server" data-corners="false" />
-                            </div>
-                        </div>
-                        <%--<div><a href="javascript:void(0)" onclick="javascript:switchWallets();">switch</a></div>--%>
-                        <div>
-                            <div class="ui-field-contain ui-hide-label">
-                                <asp:Label ID="lblTransferTo" runat="server" AssociatedControlID="drpTransferTo" Text="to" CssClass="ui-hidden-accessible" />
-                                <asp:DropDownList data-theme="a" ID="drpTransferTo" runat="server" data-corners="false" />
-                            </div>
-                        </div>
-                        <div>
-                            <div class="ui-field-contain ui-hide-label">
-                                <asp:Label ID="lblTransferAmount" runat="server" AssociatedControlID="txtPromoCode" Text="amount" CssClass="ui-hidden-accessible" />
-                                <asp:TextBox ID="txtTransferAmount" runat="server" placeholder="amount" type="number" step="any" min="1" />
-                            </div>
-                        </div>
-                        <div>
-                            <asp:Literal ID="litExchangeRate" runat="server" />
-                        </div>
-                        <div id="divPromoCode" style="display: none;">
-                            <div class="ui-field-contain ui-hide-label">
-                                <asp:Label ID="lblPromoCode" runat="server" AssociatedControlID="txtPromoCode" Text="code" CssClass="ui-hidden-accessible" />
-                                <asp:TextBox ID="txtPromoCode" runat="server" placeholder="code" />
-                            </div>
-                        </div>
-                        <div><span id="litPromoDetails" /></div>
-                        <div>
-                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" OnClick="btnSubmit_Click" data-corners="false" />
-                        </div>
-                        <asp:HiddenField runat="server" ID="_repostcheckcode" />
-                    </div>
-                    <br />
-                    <div>
-                         <table style="width:100%">
-                            <tr>
-                                <td style="width:50%">
-                                    <input type="button" data-theme="b" onclick="location.href = '/Deposit/Default_app.aspx';" value="<%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%>" class="button-blue"  data-corners="false" />
-                                </td>
-                                <td style="width:50%">
-                                     <input type="button" data-theme="b" onclick="location.href = '/Withdrawal/Withrawal.aspx';" value="<%=commonCulture.ElementValues.getResourceString("withrawal", commonVariables.LeftMenuXML)%>" class="button-blue"  data-corners="false" />
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </form>
+            <div class="wallet main-wallet">
+                <label class="label"><%=commonCulture.ElementValues.getResourceString("mainWallet", commonVariables.LeftMenuXML)%></label>
+                <h2 class="value"><%=Session["Main"].ToString()%></h2>
+                <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
             </div>
+
+            <form class="form" id="form1" runat="server" data-ajax="false">
+                <ul class="list fixed-tablet-size">
+                    <li class="item" runat="server" id="divBalance" data-role="collapsible">
+                    </li>
+                    <li class="item item-select">
+                        <asp:Label ID="lblTransferFrom" runat="server" AssociatedControlID="drpTransferFrom" Text="from" />
+                        <asp:DropDownList ID="drpTransferFrom" runat="server" data-corners="false" />
+                    </li>
+                    <li class="btn-swap ion-arrow-swap">
+                        <asp:Button ID="btnSwap" runat="server" Text="Swap Wallets" OnClick="btnSwap_Click"  />
+                    </li>
+                    <%--<div><a href="javascript:void(0)" onclick="javascript:switchWallets();">switch</a></div>--%>
+                    <li class="item item-select">
+                        <asp:Label ID="lblTransferTo" runat="server" AssociatedControlID="drpTransferTo" Text="to" />
+                        <asp:DropDownList ID="drpTransferTo" runat="server" data-corners="false" />
+                    </li>
+                    <li class="item item-input">
+                        <asp:Label ID="lblTransferAmount" runat="server" AssociatedControlID="txtPromoCode" Text="amount" />
+                        <asp:TextBox ID="txtTransferAmount" runat="server" placeholder="amount" type="number" step="any" min="1" />
+                    </li>
+                    <li class="item item-input">
+                        <asp:Literal ID="litExchangeRate" runat="server" />
+                    </li>
+                    <li class="item item-input" id="divPromoCode" style="display: none;">
+                        <div class="ui-field-contain ui-hide-label">
+                            <asp:Label ID="lblPromoCode" runat="server" AssociatedControlID="txtPromoCode" Text="code" CssClass="ui-hidden-accessible" />
+                            <asp:TextBox ID="txtPromoCode" runat="server" placeholder="code" />
+                        </div>
+                    </li>
+                    <li class="item item-input">
+                        <span id="litPromoDetails" />
+                    </li>
+                    <li class="item row">
+                        <div class="col">
+                            <asp:Button ID="btnSubmit" runat="server" Text="login" OnClick="btnSubmit_Click" />
+                        </div>
+                    </li>
+                    <asp:HiddenField runat="server" ID="_repostcheckcode" />
+                </ul>
+                 <div class="row">
+                    <div class="col">
+                        <input type="button" data-theme="b" onclick="location.href = '/Deposit/Default_app.aspx';" value="<%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%>" class="button-blue"  data-corners="false" />
+                    </div>
+                    <div class="col">
+                        <input type="button" data-theme="b" onclick="location.href = '/Withdrawal/Withrawal.aspx';" value="<%=commonCulture.ElementValues.getResourceString("withrawal", commonVariables.LeftMenuXML)%>" class="button-blue"  data-corners="false" />
+                    </div>
+                </div>
+            </form>
         </div>
-        <!-- /content -->
-        <!--#include virtual="~/_static/navMenu.shtml" -->--%>
 
         <script type="text/javascript">
 
@@ -96,7 +88,7 @@
                     e.preventDefault();
                     return;
                 }
-                else if (isNaN(parseFloat($('#txtTransferAmount').val()))) {
+<%--                else if (isNaN(parseFloat($('#txtTransferAmount').val()))) {
                     alert('<%=commonCulture.ElementValues.getResourceXPathString("/FundTransfer/InputTransferAmount", xeErrors)%>');
                     e.preventDefault();
                     return;
@@ -105,7 +97,7 @@
                     alert('<%=commonCulture.ElementValues.getResourceXPathString("/FundTransfer/TransferAmountDisallowed", xeErrors)%>');
                     e.preventDefault();
                     return;
-                }
+                }--%>
                 GPINTMOBILE.ShowSplash();
             });
 
@@ -127,7 +119,7 @@
                             else { $(this).show(); }
                         }
                     });
-                   
+
                     if ($('#drpTransferFrom').val() == '6') {
                         $('#txtTransferAmount').attr('placeholder', ($('#txtTransferAmount').attr('placeholder').replace('(<%=commonVariables.GetSessionVariable("CurrencyCode")%>)', '(USD)')));
                     } else {
@@ -139,25 +131,25 @@
                 });
 
                 $('#txtPromoCode').on('input', function () {
-                   var strCode = $('#txtPromoCode').val();
-                   if (parseInt($('#drpTransferFrom').val()) == 0 && parseInt($('#drpTransferTo').val()) > 0 && strCode.length > 0) {
-                       var strWallet = $('#drpTransferTo').val();
-                       var strAmount = $('#txtTransferAmount').val();
+                    var strCode = $('#txtPromoCode').val();
+                    if (parseInt($('#drpTransferFrom').val()) == 0 && parseInt($('#drpTransferTo').val()) > 0 && strCode.length > 0) {
+                        var strWallet = $('#drpTransferTo').val();
+                        var strAmount = $('#txtTransferAmount').val();
 
-                       $.ajax({
-                           type: 'POST',
-                           url: '/AjaxHandlers/CheckPromo.ashx',
-                           data: { Wallet: strWallet, Amount: strAmount, Code: strCode },
-                           //dataType: "text/xml",
-                           success: function (xml) {
-                               var strStatusCode = $(xml).find('statusCode').text();
-                               var strBonus = $(xml).find('bonusAmount').text();
-                               var strRollover = $(xml).find('rolloverAmount').text();
-                               var strMin = $(xml).find('minTransferAmount').text();
+                        $.ajax({
+                            type: 'POST',
+                            url: '/AjaxHandlers/CheckPromo.ashx',
+                            data: { Wallet: strWallet, Amount: strAmount, Code: strCode },
+                            //dataType: "text/xml",
+                            success: function (xml) {
+                                var strStatusCode = $(xml).find('statusCode').text();
+                                var strBonus = $(xml).find('bonusAmount').text();
+                                var strRollover = $(xml).find('rolloverAmount').text();
+                                var strMin = $(xml).find('minTransferAmount').text();
 
-                               switch (strStatusCode) {
-                                   case '00':
-                                       $('#litPromoDetails').text('<%=commonCulture.ElementValues.getResourceXPathString("/FundTransfer/BonusAmount", xeErrors)%>' + strBonus);
+                                switch (strStatusCode) {
+                                    case '00':
+                                        $('#litPromoDetails').text('<%=commonCulture.ElementValues.getResourceXPathString("/FundTransfer/BonusAmount", xeErrors)%>' + strBonus);
                                        break;
                                    case '103':
                                        $('#litPromoDetails').text('<%=commonCulture.ElementValues.getResourceXPathString("/FundTransfer/RolloverNotMet", xeErrors)%>');
@@ -182,9 +174,8 @@
                 });
 
                 if ('<%=strAlertMessage%>'.length > 0) { alert('<%=strAlertMessage%>'.split('[break]').join('\n')); }
-                if ('<%=strAlertCode%>'.length > 0) { 
-                    switch('<%=strAlertCode%>')
-                    {
+                if ('<%=strAlertCode%>'.length > 0) {
+                    switch ('<%=strAlertCode%>') {
                         case "-1":
                             window.location.replace('/default.aspx');
                             break;
@@ -192,17 +183,22 @@
                 }
             });
 
-            function hBalanceToggle(obj, strShow, strHide)
-            {
+            function hBalanceToggle(obj, strShow, strHide) {
                 if ($(obj).hasClass('ui-collapsible-heading-collapsed')) {
-                    $(obj).find(".ui-btn-text").text(strHide);
+                    $(obj).find(".ui-btn").text(strHide);
+                    //var link = $(obj).find(".ui-icon-plus");
+                    //link.removeClass("ui-icon-plus");
+                    //link.addClass("ui-icon-minus");
                     getBalance();
+                } else {
+                    $(obj).find(".ui-btn").text(strShow);
+                    //var link = $(obj).find(".ui-icon-minus");
+                    //link.removeClass("ui-icon-minus");
+                    //link.addClass("ui-icon-plus");
                 }
-                else { $(obj).find(".ui-btn-text").text(strShow); }
             }
 
-            function getBalance()
-            {
+            function getBalance() {
                 $(document).ready(function () {
                     $('span[name="WalletBalance"]').each(function () {
                         var objWallet = $(this);

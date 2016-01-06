@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Pending_app.aspx.cs" Inherits="Withdrawal_Pending" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Pending.aspx.cs" Inherits="Withdrawal_Pending" %>
 
 <!DOCTYPE html>
 <html>
@@ -10,9 +10,6 @@
 <body>
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
-            <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
-                <i class="icon-navicon"></i>
-            </a>
             <h1 class="title">Pending Withdrawal</h1>
         </header>
 

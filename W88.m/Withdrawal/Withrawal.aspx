@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Withrawal.aspx.cs" Inherits="Withdrawal_Default_app" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Withdrawal_Default" %>
 
 <!DOCTYPE html>
 <html>
@@ -12,10 +12,7 @@
     <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
-            <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
-                <i class="icon-navicon"></i>
-            </a>
-            <h1 class="title">Wallet Transfer</h1>
+            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("banktransfer", commonVariables.LeftMenuXML))%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -39,7 +36,7 @@
                 <ul class="list fixed-tablet-size">
                     <li class="item item-input">
                         <asp:Label ID="lblWithdrawAmount" runat="server" AssociatedControlID="txtWithdrawAmount" Text="from" />
-                        <asp:TextBox ID="txtWithdrawAmount" runat="server" placeholder="amount" type="number" step="any" min="1" />
+                        <asp:TextBox ID="txtWithdrawAmount" runat="server" type="number" step="any" min="1" />
                     </li>
                     <li class="item item-text-wrap">
                         <div class="div-limit">
@@ -53,28 +50,28 @@
                     </li>
                     <li class="item item-input" id="divBankName" style="display:none;">
                         <asp:Label ID="lblBankName" runat="server" AssociatedControlID="txtBankName" Text="other" />
-                        <asp:TextBox ID="txtBankName" runat="server" placeholder="bankname" />
+                        <asp:TextBox ID="txtBankName" runat="server" />
                     </li>
                     <li class="item item-input" id="divBankBranch" runat="server">
                         <asp:Label ID="lblBankBranch" runat="server" AssociatedControlID="txtBankBranch" Text="other" />
-                        <asp:TextBox ID="txtBankBranch" runat="server" placeholder="bankbranch" />
+                        <asp:TextBox ID="txtBankBranch" runat="server" />
                     </li>
                     <li class="item item-input" id="divAddress" runat="server">
                         <asp:Label ID="lblAddress" runat="server" AssociatedControlID="txtAddress" Text="other" />
-                        <asp:TextBox ID="txtAddress" runat="server" placeholder="address" />
+                        <asp:TextBox ID="txtAddress" runat="server" />
                     </li>
                     <li class="item item-input">
                         <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" Text="to" />
-                        <asp:TextBox ID="txtAccountName" runat="server" placeholder="accountname" />
+                        <asp:TextBox ID="txtAccountName" runat="server" />
                     </li>
                     <li class="item item-input">
                         <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" Text="to" />
-                        <asp:TextBox ID="txtAccountNumber" runat="server" placeholder="accountnum" />
+                        <asp:TextBox ID="txtAccountNumber" runat="server" />
                     </li>
                     <% if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "myr", true) == 0) { %>
                     <li class="item item-input" style="visibility:hidden">
                         <asp:Label ID="lblMyKad" runat="server" AssociatedControlID="txtMyKad" Text="to" />
-                        <asp:TextBox ID="txtMyKad" runat="server" placeholder="mykad" />
+                        <asp:TextBox ID="txtMyKad" runat="server" />
                     </li>
                     <% } %>
                     <!--

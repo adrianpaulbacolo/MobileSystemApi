@@ -18,19 +18,12 @@
                 </div>
                 <div class="downloadmsg">
                     <span runat="server" id="spanMsg"></span>
-                    <a href="#" runat="server" rel="CW" data-ajax="false" id="sDownload"></a>
+                    <a href="<%=commonClubWAPK.getDownloadUrl %>" runat="server" rel="CW" data-ajax="false" id="sDownload"></a>
                 </div>
             </div>
         </div>
         <!-- /content -->
         <!--#include virtual="~/_static/navMenu.shtml" -->
     </div>
-    <script type="text/javascript">
-        $(function () {
-            $('a[rel="CW"]').each(function () {
-                $(this).attr('href', '//casino' + location.hostname.substring(location.hostname.indexOf('.')) + $(this).attr('href'));
-            });
-        });
-    </script>
 </body>
 </html>

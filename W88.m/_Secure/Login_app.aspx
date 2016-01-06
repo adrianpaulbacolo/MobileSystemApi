@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login_app.aspx.cs" Inherits="_Secure_Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="_Secure_Login" %>
 
 <!DOCTYPE html>
 
@@ -101,6 +101,7 @@
                         <asp:Button ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" data-corners="false" />
                     </div>
             		<asp:HiddenField runat="server" ID="ioBlackBox" Value="" />
+                    <asp:Literal ID="lblRegister" runat="server" visible="false"/>
                 </div>
             </form>
         </div>
@@ -184,6 +185,7 @@
                     success: function (xml) {
                         switch ($(xml).find('ErrorCode').text()) {
                             case "1":
+                            case "resetPassword":
                                 window.location.replace('/Deposit/Default_app.aspx');
                                 break;
                             case "22":

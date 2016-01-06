@@ -50,12 +50,13 @@
             </div>
 
             <form class="form" id="form1" runat="server" data-ajax="false">
+                <br />
                 <ul class="list fixed-tablet-size">
                     <li class="item item-input">
                         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" Text="from" />
                         <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
-                    <li class="item">
+                    <li class="item item-text-wrap">
                         <div class="div-limit">
                             <div><asp:Literal ID="lblDailyLimit" runat="server" /></div>
                             <div><asp:Literal ID="lblTotalAllowed" runat="server" /></div>

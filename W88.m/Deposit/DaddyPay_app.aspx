@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DaddyPay_app.aspx.cs" Inherits="Deposit_DaddyPay" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DaddyPay.aspx.cs" Inherits="Deposit_DaddyPay" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,10 +10,7 @@
     <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
-            <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
-                <i class="icon-navicon"></i>
-            </a>
-            <h1 class="title">Wallet Transfer</h1>
+            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("depositDaddyPay", commonVariables.LeftMenuXML)%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -76,9 +73,6 @@
                             <asp:TextBox ID="account_txt" runat="server" placeholder="Account" data-clear-btn="true" />
                     </li>
                     <li class="item row">
-                        <div class="col">
-                            <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" ID="btnCancel" runat="server" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
-                        </div>
                         <div class="col"><asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" /></div>
                     </li>
                     <asp:HiddenField runat="server" ID="_repostcheckcode" />
@@ -117,7 +111,7 @@
                             break;
                         case '0':
                             alert('<%=strAlertMessage%>');
-                            window.location.replace('/Deposit/Default.aspx');
+                            window.location.replace('/Deposit/DaddyPay_app.aspx');
                             break;
                         default:
                             break;
