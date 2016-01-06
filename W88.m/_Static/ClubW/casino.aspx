@@ -25,12 +25,5 @@
         <!-- /content -->
         <!--#include virtual="~/_static/navMenu.shtml" -->
     </div>
-    <script type="text/javascript">
-        $(function () {
-            $('a[rel="CW"]').each(function () {
-                $(this).attr('href', '//casino' + location.hostname.substring(location.hostname.indexOf('.')) + $(this).attr('href'));
-            });
-        });
-    </script>
 </body>
 </html>
