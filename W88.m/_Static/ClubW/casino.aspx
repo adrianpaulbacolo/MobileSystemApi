@@ -18,7 +18,7 @@
                 </div>
                 <div class="downloadmsg">
                     <span runat="server" id="spanMsg"></span>
-                    <a href="<%=commonClubWAPK.getDownloadUrl %>" runat="server" rel="CW" data-ajax="false" id="sDownload"></a>
+                    <a href="#" runat="server" rel="CW" data-ajax="false" id="sDownload"></a>
                 </div>
             </div>
         </div>
