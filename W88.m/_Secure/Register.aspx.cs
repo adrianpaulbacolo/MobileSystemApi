@@ -253,12 +253,6 @@ public partial class _Secure_Register : System.Web.UI.Page
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/InvalidDOB", xeErrors);
             isProcessAbort = true;
         }
-        //else if (!chkDisclaimer.Checked)
-        //{
-        //    strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/chkDisclaimer", xeErrors);
-        //    isProcessAbort = true;
-        //}
-
         else if (string.Compare(commonEncryption.encrypting(strVCode), strSessionVCode, true) != 0)
         {
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/IncorrectVCode", xeErrors);
