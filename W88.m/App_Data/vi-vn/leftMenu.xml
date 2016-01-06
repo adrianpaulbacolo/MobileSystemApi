@@ -27,8 +27,7 @@
 	<fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
 	<submitUpload><![CDATA[Tải tập tin]]></submitUpload>
 	<sports><![CDATA[Thể thao]]></sports>
-  <clubwpremier><![CDATA[CLUB W PREMIER]]></clubwpremier>
-	<livecasino><![CDATA[Casino Trực Tuyến]]></livecasino>
+  <livecasino><![CDATA[Casino Trực Tuyến]]></livecasino>
 	<slots><![CDATA[Slot]]></slots>
 	<fundmanagement><![CDATA[Quản Lý Quỹ]]></fundmanagement>
 	<customerservice><![CDATA[Customer Service]]></customerservice>
@@ -67,14 +66,16 @@
 	<changePassword><![CDATA[Đổi mật khẩu]]></changePassword>
 	<profile><![CDATA[Thông tin cá nhân]]></profile>
 
-	<liveCasino><![CDATA[*CLUB W]]></liveCasino>
+  <clubwpremier><![CDATA[CLUB W PREMIER]]></clubwpremier>
+  <clubwpremierMessage><![CDATA[Casino trực tuyến với công nghệ hàng đầu thế giới, truyền hình trực tiếp các trò chơi casino tốt nhất ]]></clubwpremierMessage>
+	<liveCasino><![CDATA[CLUB W]]></liveCasino>
 	<liveCasinoTitle><![CDATA[Casino Trực Tuyến]]></liveCasinoTitle>
-	<liveCasinoMessage><![CDATA[Casino Trực Tuyến hoàn trả ngay lên đến 0.8%. Không giới hạn & không cần cược lại]]></liveCasinoMessage>
+	<liveCasinoMessage><![CDATA[Hoàn trả ngay lên đến 0.8%. Không giới hạn & không cần cược lại]]></liveCasinoMessage>
 	<clubPalazo><![CDATA[CLUB PALAZO]]></clubPalazo>
 	<clubPalazoMessage><![CDATA[Các trò chơi casino đẳng cấp với cô gái chia bài trực tuyến Châu Á & Châu Âu!]]></clubPalazoMessage>
 	<clubMassimo><![CDATA[CLUB MASSIMO]]></clubMassimo>
 	<clubMassimoMessage><![CDATA[Casino trực tuyến phổ biến với video chất lượng cao!]]></clubMassimoMessage>
-	<playNow><![CDATA[PLAY NOW]]></playNow>
+	<playNow><![CDATA[CHƠI NGAY]]></playNow>
 
 
 	<download><![CDATA[DOWNLOAD]]></download>
