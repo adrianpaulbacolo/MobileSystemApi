@@ -16,7 +16,7 @@ public partial class _Static_ClubW_casino : System.Web.UI.Page
         spanMsg.InnerHtml = commonCulture.ElementValues.getResourceString("message", xeResources);
         sDownload.InnerText = commonCulture.ElementValues.getResourceString("downloadnow", xeResources);
 
-        sDownload.HRef = ConfigurationManager.AppSettings["ClubWAPK"];
+        sDownload.HRef = commonClubWAPK.getDownloadUrl;
     }
 
 }
