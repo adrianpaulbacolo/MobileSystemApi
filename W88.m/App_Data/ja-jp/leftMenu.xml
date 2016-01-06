@@ -24,8 +24,6 @@
 	<wingmoney><![CDATA[ウィングマネー]]></wingmoney>
 	<fullscreenMode><![CDATA[全画面モード]]></fullscreenMode>
 	<sports><![CDATA[スポーツ]]></sports>
-  <clubwpremier><![CDATA[クラブ W プレミア]]></clubwpremier>
-  <livecasino><![CDATA[クラブW]]></livecasino>
 	<slots><![CDATA[スロット]]></slots>
 	<fundmanagement><![CDATA[資金管理]]></fundmanagement>
 	<customerservice><![CDATA[カスタマーサービス]]></customerservice>
@@ -70,7 +68,10 @@
 	<football><![CDATA[フットボール]]></football>
 	<horseRacing><![CDATA[競馬]]></horseRacing>
 	<tennis><![CDATA[テニス]]></tennis>
-
+  
+  <clubwpremier><![CDATA[クラブ W プレミア]]></clubwpremier>
+  <clubwpremierMessage><![CDATA[世界最先端の技術と高品質のビデオ画質の ライブカジノ]]></clubwpremierMessage>
+  <livecasino><![CDATA[クラブW]]></livecasino>
 	<liveCasinoTitle><![CDATA[ライブカジノ]]></liveCasinoTitle>
 	<liveCasinoMessage><![CDATA[ライブカジノで最高0.8％のインスタントリベート。上限なし、ロールオーバーなし。]]></liveCasinoMessage>
 	<clubPalazoMessage><![CDATA[アジアン＆ヨーロピアンディーラーと、革新的なライブゲームをお楽しみください。]]></clubPalazoMessage>
