@@ -10,7 +10,7 @@
 <body>
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
-            <h1 class="title">Pending Withdrawal</h1>
+            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("lblHeader", xeResources)%></h1>
         </header>
 
         <div class="ui-content" role="main">
