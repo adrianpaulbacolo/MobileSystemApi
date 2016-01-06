@@ -288,7 +288,6 @@
 
         </div>
 
-        <!--#include virtual="~/_static/footer.shtml" -->
         <!--#include virtual="~/_static/navMenu.shtml" -->
 
         <script src="/_Static/Js/vendor/slick.min.js"></script>

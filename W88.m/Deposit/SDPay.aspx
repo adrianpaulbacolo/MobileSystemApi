@@ -90,7 +90,6 @@
             </form>
         </div>
 
-        <!--#include virtual="~/_static/footer.shtml" -->
         <!--#include virtual="~/_static/navMenu.shtml" -->
         <script type="text/javascript">
             $(function () {

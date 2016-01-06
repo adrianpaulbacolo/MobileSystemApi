@@ -108,7 +108,6 @@
             </form>
         </div>
         <!-- /content -->
-        <!--#include virtual="~/_static/footer.shtml" -->
         <script type="text/javascript">
 
             var strContactCountry = '';

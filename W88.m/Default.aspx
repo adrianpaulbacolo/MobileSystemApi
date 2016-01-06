@@ -24,7 +24,6 @@
             <ul id="divLanguageContainer" runat="server" class="row row-wrap row-no-padding"></ul>
         </div>
 
-        <!--#include virtual="~/_static/footer.shtml" -->
 
     </div>
     <!-- /page -->
