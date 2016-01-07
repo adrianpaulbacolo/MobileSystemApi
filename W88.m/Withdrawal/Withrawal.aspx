@@ -123,7 +123,7 @@
                             break;
                         case '0':
                             alert('<%=strAlertMessage%>');
-                            window.location.replace('/Withdrawal/Withrawal.aspx');
+                            window.location.replace('/Withdrawal/Withrawal.aspx?source=app');
                             break;
                         default:
                             break;
