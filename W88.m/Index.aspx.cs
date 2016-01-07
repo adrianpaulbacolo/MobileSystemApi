@@ -462,7 +462,8 @@ public partial class _Index : BasePage
     {
         if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
         {
-            Response.Redirect("/_Secure/Login.aspx");
+            string CurrentUrl = System.Web.HttpContext.Current.Request.Url.ToString();
+            Response.Redirect("/_Secure/Login.aspx?redirect="+CurrentUrl);
         }
         else
         {
