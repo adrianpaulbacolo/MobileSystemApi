@@ -458,4 +458,16 @@ public partial class _Index : BasePage
     {
         Response.Redirect("Casino.aspx");
     }
+    protected void ASport_Btn_Click1(object sender, EventArgs e)
+    {
+        if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+        {
+            string CurrentUrl = System.Web.HttpContext.Current.Request.Url.ToString();
+            Response.Redirect("/_Secure/Login.aspx?redirect="+CurrentUrl);
+        }
+        else
+        {
+            Response.Redirect(commonASports.getSportsbookUrl);
+        }
+    }
 }
