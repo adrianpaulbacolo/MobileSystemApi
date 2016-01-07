@@ -51,12 +51,12 @@
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
                     </a>
                 </li>
-		        <%--<li class="col col-33">
+		        <li class="col col-33">
                     <a href="<%=commonClubMassimo.getDownloadUrl%>" class="card" data-ajax="false">
-                        <img src="/_Static/Images/bnr-clubmassimo-slots.jpg" class="img-responsive">
+                        <img src="/_Static/Images/bnr-clubmassimo-slots2.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots2/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
                     </a>
-                </li> --%>
+                </li> 
                 <li class="col col-33">
                     <a href="/ClubDivino" class="card" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubdivino.jpg" class="img-responsive">
