@@ -26,8 +26,6 @@
 	<wingmoney><![CDATA[온라인]]></wingmoney>
 	<fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
 	<sports><![CDATA[스포츠]]></sports>
-  <clubwpremier><![CDATA[클럽 W 프리미어]]></clubwpremier>
-  <livecasino><![CDATA[라이브 카지노]]></livecasino>
 	<slots><![CDATA[슬롯게임]]></slots>
 	<lottery><![CDATA[복권]]></lottery>
 	<fundmanagement><![CDATA[머니$]]></fundmanagement>
@@ -61,14 +59,17 @@
 
 	<fundFooter><![CDATA[클럽 W, 브라바도, 아폴로, 크레센도, 디비노 & 마시모, 가상 스포츠, 복권]]></fundFooter>
 
-	<liveCasino><![CDATA[*CLUB W]]></liveCasino>
+  <clubwpremier><![CDATA[클럽 W 프리미어]]></clubwpremier>
+  <clubwpremierMessage><![CDATA[세계적인 클래스의 기술력과 그 무엇과도 비교할 수 없는 최고의 라이브 카지노 게임.]]></clubwpremierMessage>
+  <livecasino><![CDATA[라이브 카지노]]></livecasino>
+	<liveCasino><![CDATA[클럽 W]]></liveCasino>
 	<liveCasinoTitle><![CDATA[라이브 카지노]]></liveCasinoTitle>
-	<liveCasinoMessage><![CDATA[Enjoy live Casino instant cash rebate up to 0.8%. No payout limit & rollover.]]></liveCasinoMessage>
-	<clubPalazo><![CDATA[CLUB PALAZZO]]></clubPalazo>
-	<clubPalazoMessage><![CDATA[Innovative casino games with Asian & European live dealers!]]></clubPalazoMessage>
-	<clubMassimo><![CDATA[CLUB MASSIMO]]></clubMassimo>
-	<clubMassimoMessage><![CDATA[Popular live casino games with high-quality video!]]></clubMassimoMessage>
-	<playNow><![CDATA[PLAY NOW]]></playNow>
+	<liveCasinoMessage><![CDATA[롤링 조건과 출금 제한이 없는 최대 0.8% 의 라이브 카지노 현금 리베이트 ]]></liveCasinoMessage>
+	<clubPalazo><![CDATA[클럽 팔라쪼]]></clubPalazo>
+	<clubPalazoMessage><![CDATA[각 나라의 미녀 딜러와 함께하는 라이브 카지노 게임 ]]></clubPalazoMessage>
+	<clubMassimo><![CDATA[클럽 마시모]]></clubMassimo>
+	<clubMassimoMessage><![CDATA[인기있는 라이브 카지노와 우수한 품질의 영상! ]]></clubMassimoMessage>
+	<playNow><![CDATA[지금 시작]]></playNow>
 
 	<download><![CDATA[DOWNLOAD]]></download>
 

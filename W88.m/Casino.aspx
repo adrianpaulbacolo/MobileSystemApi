@@ -25,7 +25,7 @@
                         <img src="_Static/Images/casino/clubwpremierbanner.jpg" class="img-responsive-full img-bg">
                         <figcaption class="banner-caption">
                             <h3 class="title"><%=commonCulture.ElementValues.getResourceString("clubwpremier", commonVariables.LeftMenuXML)%></h3>
-                            <P><%=commonCulture.ElementValues.getResourceString("liveCasinoMessage", commonVariables.LeftMenuXML)%></P>
+                            <P><%=commonCulture.ElementValues.getResourceString("clubwpremierMessage", commonVariables.LeftMenuXML)%></P>
                             <a href="/_Static/ClubW/casino.aspx" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
                         </figcaption>
                     </figure>
