@@ -27,9 +27,14 @@
                     </a>
                 </li>--%>
                 <li class="col col-50">
-                    <a href="<%=commonASports.getSportsbookUrl%>" target="_blank">
+<%--                    <a href="<%=commonASports.getSportsbookUrl%>" target="_blank">
                         <img src="_Static/Images/sports/asports-<%=commonVariables.SelectedLanguageShort%>.png" alt="a-Sports" class="img-responsive">
-                    </a>
+                    </a>--%>
+                    <form runat="server">
+                    <asp:LinkButton ID="ASport_Btn" runat="server" OnClick="ASport_Btn_Click1">
+                    <img src="_Static/Images/sports/asports-<%=commonVariables.SelectedLanguageShort%>.png" alt="a-Sports" class="img-responsive">
+                    </asp:LinkButton>
+                    </form>
                 </li>
                 <li class="col col-50">
                     <a href="<%=commonESports.getSportsbookUrl%>" target="_blank">
