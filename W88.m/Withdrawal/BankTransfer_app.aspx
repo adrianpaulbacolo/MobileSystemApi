@@ -127,7 +127,7 @@
                             break;
                         case '0':
                             alert('<%=strAlertMessage%>');
-                            window.location.replace('/Withdrawal/Default.aspx');
+                            window.location.replace('/Withdrawal/Withrawal.aspx?source=app');
                             break;
                         default:
                             break;
@@ -136,11 +136,11 @@
             });
 
             $('#drpBank').change(function () {
-                $('#txtAccountNumber').attr('placeholder', '<%=commonCulture.ElementValues.getResourceString("lblAccountNumber", xeResources)%>');
                 $('#divBankName').hide();
 
-                if ($(this).val() == 'OTHER') { $('#divBankName').show(); }
-                //else if ($(this).val() == 'VIETIN') { $('#txtAccountNumber').attr('placeholder', '<%=commonCulture.ElementValues.getResourceString("lblAtmNumber", xeResources)%>'); }
+                if ($(this).val() == 'OTHER') {
+                    $('#divBankName').show();
+                }
             });
 
             $('#form1').submit(function (e) {

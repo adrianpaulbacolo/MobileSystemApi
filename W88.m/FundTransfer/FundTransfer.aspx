@@ -168,7 +168,7 @@
                 if ('<%=strAlertCode%>'.length > 0) {
                     switch ('<%=strAlertCode%>') {
                         case "-1":
-                            window.location.replace('/default.aspx');
+                            window.location.replace('/FundTransfer.aspx');
                             break;
                     }
                 }
