@@ -82,18 +82,18 @@
         <div class="ui-content" role="main">
             <form id="form1" runat="server" data-ajax="false">
                 <div class="div-content-wrapper">
-                    <div class="ui-field-contain ui-hide-label">
-                        <asp:Label ID="lblUsername" runat="server" AssociatedControlID="txtUsername" Text="username" CssClass="ui-hidden-accessible" />
+                    <div class="ui-field-contain">
+                        <asp:Label ID="lblUsername" runat="server" AssociatedControlID="txtUsername" Text="Username" Font-Size="X-Large" />
                         <asp:TextBox ID="txtUsername" runat="server" data-corners="false" autofocus="on" MaxLength="16" data-clear-btn="true" />
                     </div>
-                    <div class="ui-field-contain ui-hide-label">
-                        <asp:Label ID="lblPassword" runat="server" AssociatedControlID="txtPassword" Text="password" CssClass="ui-hidden-accessible" />
+                    <div class="ui-field-contain">
+                        <asp:Label ID="lblPassword" runat="server" AssociatedControlID="txtPassword" Text="password" Font-Size="X-Large" />
                         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" data-corners="false" MaxLength="10" data-clear-btn="true" />
                     </div>
-                    <div class="ui-field-contain ui-hide-label">
-                        <asp:Label ID="lblCaptcha" runat="server" AssociatedControlID="txtCaptcha" Text="code" CssClass="ui-hidden-accessible" />
+                    <div class="ui-field-contain">
+                        <asp:Label ID="lblCaptcha" runat="server" AssociatedControlID="txtCaptcha" Text="code" Font-Size="X-Large" />
                         <div class="ui-grid-a">
-                            <div class="ui-block-a"><asp:TextBox ID="txtCaptcha" runat="server" MaxLength="4" type="tel" data-mini="true" data-corners="false"  /></div>
+                            <div class="ui-block-a"><asp:TextBox BackColor="#ffffcc" ID="txtCaptcha" runat="server" MaxLength="4" type="tel" data-mini="true" data-corners="false" data-clear-btn="true" /></div>
                             <div class="ui-block-b"><asp:Image ID="imgCaptcha" runat="server" CssClass="imgCaptcha" /></div>
                         </div>
                     </div>
