@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Pending_app.aspx.cs" Inherits="Withdrawal_Pending" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Pending.aspx.cs" Inherits="Withdrawal_Pending" %>
 
 <!DOCTYPE html>
 <html>
@@ -10,10 +10,7 @@
 <body>
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
-            <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
-                <i class="icon-navicon"></i>
-            </a>
-            <h1 class="title">Pending Withdrawal</h1>
+            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("lblHeader", xeResources)%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -56,7 +53,7 @@
                                     //alert(html);
                                     alert('<%=commonCulture.ElementValues.getResourceXPathString("Withdrawal/CancelSuccess", xeErrors)%>'.replace('{trxId}', $(obj).attr('data-id')));
                                     $(obj).parentsUntil('tbody').fadeOut();
-                                    window.setTimeout(function () { $(obj).parentsUntil('tbody').remove(); if ($('#table-reflow tbody tr').length == 0) { window.location.replace('/Withdrawal/Withrawal.aspx'); } }, 2000);
+                                    window.setTimeout(function () { $(obj).parentsUntil('tbody').remove(); if ($('#table-reflow tbody tr').length == 0) { window.location.replace('/Withdrawal/Withrawal.aspx?source=app'); } }, 2000);
 
                                 }
                                 else {

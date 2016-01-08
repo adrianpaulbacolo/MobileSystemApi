@@ -59,14 +59,6 @@ public partial class Deposit_Default : BasePage
 
             btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
 
-            #region Placeholder
-            // txtDepositAmount.Attributes.Add("PLACEHOLDER", string.Format("{0} {1}", lblDepositAmount.Text, strCurrencyCode));
-            // txtReferenceId.Attributes.Add("PLACEHOLDER", lblReferenceId.Text);
-            // txtBankName.Attributes.Add("PLACEHOLDER", lblBankName.Text);
-            // txtAccountName.Attributes.Add("PLACEHOLDER", lblAccountName.Text);
-            // txtAccountNumber.Attributes.Add("PLACEHOLDER", lblAccountNumber.Text);
-            #endregion
-
             #region PopulateDropDownList
 
             System.Threading.Tasks.Task t1 = System.Threading.Tasks.Task.Factory.StartNew(this.InitialiseSystemBankAccounts);

@@ -35,10 +35,6 @@ public partial class _Secure_Login : System.Web.UI.Page
             lblCaptcha.Text = commonCulture.ElementValues.getResourceString("lblCaptcha", xeResources);
             btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnLogin", xeResources);
 
-            // txtUsername.Attributes.Add("PLACEHOLDER", lblUsername.Text);
-            // txtPassword.Attributes.Add("PLACEHOLDER", lblPassword.Text);
-            // txtCaptcha.Attributes.Add("PLACEHOLDER", lblCaptcha.Text);
-
             txtUsername.Focus();
 
             lblRegister.Text = commonCulture.ElementValues.getResourceString("btnRegister", xeResources);

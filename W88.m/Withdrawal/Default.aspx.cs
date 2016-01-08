@@ -48,8 +48,10 @@ public partial class Withdrawal_Default : BasePage
 
         if (arrPending != null && arrPending.Length > 0)
         {
-            Response.Redirect("/Withdrawal/Pending.aspx");
-            //if (litScript != null) { litScript.Text += "<script type='text/javascript'>window.location.replace('/Withdrawal/Pending.aspx');</script>"; }
+            if (Request.QueryString["source"] == "app")
+                Response.Redirect("/Withdrawal/Pending_app.aspx");
+            else
+                Response.Redirect("/Withdrawal/Pending.aspx");
         }
     }
 
@@ -80,17 +82,6 @@ public partial class Withdrawal_Default : BasePage
             lblAccountNumber.Text = commonCulture.ElementValues.getResourceString("lblAccountNumber", xeResources);
             lblMyKad.Text = commonCulture.ElementValues.getResourceString("lblMyKad", xeResources);
             btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
-
-            // #region Placeholder
-            // txtWithdrawAmount.Attributes.Add("PLACEHOLDER", string.Format("{0} {1}", lblWithdrawAmount.Text, strCurrencyCode));
-            // txtBankName.Attributes.Add("PLACEHOLDER", lblBankName.Text);
-            // txtBankBranch.Attributes.Add("PLACEHOLDER", lblBankBranch.Text);
-            // txtAddress.Attributes.Add("PLACEHOLDER", lblAddress.Text);
-            // txtAccountName.Attributes.Add("PLACEHOLDER", lblAccountName.Text);
-            // txtAccountNumber.Attributes.Add("PLACEHOLDER", lblAccountNumber.Text);
-            // txtMyKad.Attributes.Add("PLACEHOLDER", lblMyKad.Text);
-            // #endregion
-
 
             #region PopulateDropDownList
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="NextPay_app.aspx.cs" Inherits="Deposit_NextPay" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="NextPay.aspx.cs" Inherits="Deposit_NextPay" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,9 +10,6 @@
     <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
-            <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
-                <i class="icon-navicon"></i>
-            </a>
             <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("nextpay", commonVariables.LeftMenuXML))%></h1>
         </header>
 
@@ -80,9 +77,6 @@
                         </asp:DropDownList>
                     </li>
                     <li class="item row">
-                        <div class="col">
-                            <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" ID="btnCancel" runat="server" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
-                        </div>
                         <div class="col"><asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" /></div>
                     </li>
                     <asp:HiddenField runat="server" ID="_repostcheckcode" />
@@ -90,7 +84,7 @@
 
                 <div class="row">
                     <div class="col">
-                        <input type="button" data-theme="b" onclick="location.href = '/Withdrawal/Withrawal.aspx';" value="<%=commonCulture.ElementValues.getResourceString("withrawal", commonVariables.LeftMenuXML)%>" class="button-blue"  data-corners="false" />
+                        <input type="button" data-theme="b" onclick="location.href = '/Withdrawal/Withrawal.aspx?source=app';" value="<%=commonCulture.ElementValues.getResourceString("withrawal", commonVariables.LeftMenuXML)%>" class="button-blue"  data-corners="false" />
                     </div>
                     <div class="col">
                         <input type="button" data-theme="b" onclick="location.href = '/FundTransfer/FundTransfer.aspx';" value="<%=commonCulture.ElementValues.getResourceString("fundTransfer", commonVariables.LeftMenuXML)%>" class="button-blue"  data-corners="false" />
@@ -100,7 +94,6 @@
             </form>
         </div>
 
-        <!--#include virtual="~/_static/navMenu.shtml" -->
         <script type="text/javascript">
             $(function () {
                 window.history.forward();
@@ -122,7 +115,7 @@
                             break;
                         case '0':
                             alert('<%=strAlertMessage%>');
-                            window.location.replace('/Deposit/Default.aspx');
+                            window.location.replace('/Deposit/NextPay_app.aspx');
                             break;
                         default:
                             break;

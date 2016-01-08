@@ -81,16 +81,6 @@ public partial class BankTransfer_app : BasePage
             lblMyKad.Text = commonCulture.ElementValues.getResourceString("lblMyKad", xeResources);
             btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
 
-            // #region Placeholder
-            // txtWithdrawAmount.Attributes.Add("PLACEHOLDER", string.Format("{0} {1}", lblWithdrawAmount.Text, strCurrencyCode));
-            // txtBankName.Attributes.Add("PLACEHOLDER", lblBankName.Text);
-            // txtBankBranch.Attributes.Add("PLACEHOLDER", lblBankBranch.Text);
-            // txtAddress.Attributes.Add("PLACEHOLDER", lblAddress.Text);
-            // txtAccountName.Attributes.Add("PLACEHOLDER", lblAccountName.Text);
-            // txtAccountNumber.Attributes.Add("PLACEHOLDER", lblAccountNumber.Text);
-            // txtMyKad.Attributes.Add("PLACEHOLDER", lblMyKad.Text);
-            // #endregion
-
 
             #region PopulateDropDownList
 
