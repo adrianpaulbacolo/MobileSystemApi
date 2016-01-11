@@ -120,4 +120,10 @@ html head+body .ui-btn.ui-btn-a {
     line-height: $content-padding + 11;
     @include border-radius(50%);
     cursor: pointer;
+    &-enhanced {
+        font-size:   $content-padding * 3 - 5;
+        min-width:   $content-padding * 3;
+        min-height:  $content-padding * 3;
+        line-height: $content-padding * 3;
+    }
 }
