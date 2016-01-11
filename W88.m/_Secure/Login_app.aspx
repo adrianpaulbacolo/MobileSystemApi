@@ -84,11 +84,11 @@
                 <div class="div-content-wrapper">
                     <div class="ui-field-contain">
                         <asp:Label ID="lblUsername" runat="server" AssociatedControlID="txtUsername" Text="Username" Font-Size="X-Large" />
-                        <asp:TextBox ID="txtUsername" runat="server" data-corners="false" autofocus="on" MaxLength="16" data-clear-btn="true" />
+                        <asp:TextBox BackColor="#ffffcc" ID="txtUsername" runat="server" data-corners="false" autofocus="on" MaxLength="16" data-clear-btn="true" />
                     </div>
                     <div class="ui-field-contain">
                         <asp:Label ID="lblPassword" runat="server" AssociatedControlID="txtPassword" Text="password" Font-Size="X-Large" />
-                        <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" data-corners="false" MaxLength="10" data-clear-btn="true" />
+                        <asp:TextBox BackColor="#ffffcc" ID="txtPassword" runat="server" TextMode="Password" data-corners="false" MaxLength="10" data-clear-btn="true" />
                     </div>
                     <div class="ui-field-contain">
                         <asp:Label ID="lblCaptcha" runat="server" AssociatedControlID="txtCaptcha" Text="code" Font-Size="X-Large" />
