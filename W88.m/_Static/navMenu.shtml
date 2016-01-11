@@ -483,21 +483,21 @@
         <img src="/_Static/Images/logo-<%=commonVariables.SelectedLanguageShort%>.png" width="220" class="logo img-responsive" alt="logo">
     </h1>
     <div class="padding">
-        <div class="bg-gradient padding">
+        <div class="download-app padding">
             <h2 class="title">3 Easy Steps to Play Club Palazzo Download Version</h2>
             <ol>
                 <li>Click the Download button below.</li>
                 <li>Install by clicking Run or Save it in your local hard drive.</li>
                 <li>Login by adding "<strong>W88</strong>" prefix in front of your web username.</li>
             </ol>
-            <p>
+            <div>
                 <span>Example:</span><br>
                 <em>If your web username is "luckyplayer", then login as "<strong>W88</strong>LUCKYPLAYER".</em>
-            </p>
+            </div>
         </div>
         <div class="row row-no-padding">
             <div class="col">
-                <a href="#" data-rel="back" class="ui-btn btn-secondary">
+                <a href="#" data-rel="back" class="ui-btn btn-bordered">
                     Cancel
                 </a>
             </div>
@@ -508,10 +508,10 @@
             </div>
         </div>
     </div>
-    <p class="ui-checkbox">
+    <div class="ui-checkbox">
         <label for="noShowModal">
             <small>Do not show again</small>
         </label>
         <input type="checkbox" name="noShowModal" id="noShowModal" data-enhanced="true">
-    </p>
+    </div>
 </div>
