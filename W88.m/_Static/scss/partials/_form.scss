@@ -133,3 +133,13 @@ select {
         text-transform: none;
     }
 }
+
+.ui-mini, .ui-select, .ui-input-text
+.ui-mini .ui-input-text input,
+.ui-mini .ui-input-search input,
+.ui-input-text.ui-mini input,
+.ui-input-search.ui-mini input,
+.ui-mini textarea.ui-input-text,
+textarea.ui-mini {
+    font-size: $font-size-base + .4;
+}
