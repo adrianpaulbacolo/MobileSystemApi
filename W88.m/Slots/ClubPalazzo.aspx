@@ -39,16 +39,20 @@
                     $(this).unbind("error").attr("src", "/_Static/Images/broken-lt.gif");
                 });
 
-                var palazzoDL = Cookies().getCookie('palazzo_download')
+                var isSafari = navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1 && navigator.userAgent.indexOf('Android') == -1;
+                if (isSafari)
+                {
+                    var palazzoDL = Cookies().getCookie('palazzo_download')
 
-                if (palazzoDL == '' || palazzoDL == '0' || parseInt(palazzoDL) == 0) {
-                    $('#palazzoModal').popup();
-                    $('#palazzoModal').popup('open');
+                    if (palazzoDL == '' || palazzoDL == '0' || parseInt(palazzoDL) == 0) {
+                        $('#palazzoModal').popup();
+                        $('#palazzoModal').popup('open');
+                    }
+                    else {
+                        $('#noShowPalazzoModal').attr('checked', 'checked');
+                    }
                 }
-                else {
-                    $('#noShowPalazzoModal').attr('checked', 'checked');
-                }
-
+                
                 $('#noShowPalazzoModal').click(function () {
                     if ($('#noShowPalazzoModal').is(':checked')) {
                         Cookies().setCookie('palazzo_download', '1', 365);
