@@ -79,5 +79,6 @@ public partial class Slots_ClubPalazzo: BasePage
 
             divContainer.InnerHtml = Convert.ToString(sbGames);
         }
+
     }
 }

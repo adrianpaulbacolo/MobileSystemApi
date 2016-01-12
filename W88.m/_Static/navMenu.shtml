@@ -211,8 +211,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#palazzoDownload" class="card" data-rel="popup" data-position-to="window" data-transition="fade">
-                    <!--<a class="card" rel="clubpalazzo-slots" href="/ClubPalazzo" data-ajax="false">-->
+                    <a class="card" rel="clubpalazzo-slots" href="/ClubPalazzo" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubpalazzo-slots.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
                     </a>
@@ -476,8 +475,8 @@
     });
 </script>
 
-<div id="palazzoDownload" data-role="popup" data-overlay-theme="b" data-theme="b">
-    <a href="#" data-rel="back" class="close close-enhanced">&times;</a>
+<div id="palazzoModal" data-role="popup" data-overlay-theme="b" data-theme="b" data-history="false">
+    <a href="#" data-rel="back" class="close close-enhanced" id="palazzoModalClose">&times;</a>
     <br>
     <h1 class="title">
         <img src="/_Static/Images/logo-<%=commonVariables.SelectedLanguageShort%>.png" width="220" class="logo img-responsive" alt="logo">
@@ -503,7 +502,7 @@
             </div>
             <div class="col">
                 <button class="btn-primary">
-                    <i class="icon-android"></i> Download
+                    <i class="icon-android"></i>Download
                 </button>
             </div>
         </div>
@@ -512,6 +511,6 @@
         <label for="noShowModal">
             <small>Do not show again</small>
         </label>
-        <input type="checkbox" name="noShowModal" id="noShowModal" data-enhanced="true">
+        <input type="checkbox" name="noShowPalazzoModal" id="noShowPalazzoModal" data-enhanced="true">
     </div>
 </div>
