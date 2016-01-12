@@ -39,7 +39,7 @@
 	<withrawal><![CDATA[ถอน]]></withrawal>
 	<fundTransfer><![CDATA[ย้ายทุน]]></fundTransfer>
 	<poker><![CDATA[โป๊กเกอร์]]></poker>
-  <texasmahjong><![CDATA[เท็กซัส มาจง]]></texasmahjong>
+	<texasmahjong><![CDATA[เท็กซัส มาจง]]></texasmahjong>
 	<fundFooter><![CDATA[*คลับ W, บราวาโด้, อพอลโล, เครสเชนโด้, ดิวิโน่ & แมสซิโม่, กีฬาอนิเมชั่น, ล็อตเตอรี่]]></fundFooter>
 	<cancel><![CDATA[CANCEL]]></cancel>
 
@@ -52,9 +52,9 @@
 	<aSports><![CDATA[ a-กีฬา ]]></aSports>
 	<eSports><![CDATA[ e-SPORTS  [ แบบเอเชีย ] ]]></eSports>
 	<nuovo><![CDATA[ นูโอโว้ ]]></nuovo>
-  <clubwpremier><![CDATA[คลับ W พรีเมียร์]]></clubwpremier>
-  <clubwpremierMessage><![CDATA[สุดยอดคาสิโนสดที่นำศาสตร์แห่งศิลป์ มาผสานความเป็นหนึ่งด้วยเทคโนโลยีล้ำสมัยกับระบบ Streaming ที่ทำให้เป็นเกมส์คาสิโนที่ดีที่สุด]]></clubwpremierMessage>
-  <livecasino><![CDATA[คาสิโนสด]]></livecasino>
+	<clubwpremier><![CDATA[คลับ W พรีเมียร์]]></clubwpremier>
+	<clubwpremierMessage><![CDATA[สุดยอดคาสิโนสดที่นำศาสตร์แห่งศิลป์ มาผสานความเป็นหนึ่งด้วยเทคโนโลยีล้ำสมัยกับระบบ Streaming ที่ทำให้เป็นเกมส์คาสิโนที่ดีที่สุด]]></clubwpremierMessage>
+	<livecasino><![CDATA[คาสิโนสด]]></livecasino>
 	<liveCasino><![CDATA[คลับ W]]></liveCasino>
 	<liveCasinoTitle><![CDATA[ คาสิโนสด ]]></liveCasinoTitle>
 	<liveCasinoMessage><![CDATA[ฟินสุดๆ ไปกับคืนเงินทันทีเมื่อเล่นคาสิโน สูงสุดถึง 0.8% ไม่มีลิมิตในการจ่ายออก]]></liveCasinoMessage>
@@ -76,7 +76,7 @@
 	<download><![CDATA[DOWNLOAD]]></download>
 
 	<kenoMessage><![CDATA[Every minutes filled with fun and non-stop games. Get the excitement!]]></kenoMessage>
-	
+
 	<depositDaddyPay><![CDATA[ฝาก - ควิกออนไลน์]]></depositDaddyPay>
 
 	<history><![CDATA[History]]></history>
@@ -84,4 +84,6 @@
 	<fundtransfer><![CDATA[Fund Transfer History]]></fundtransfer>
 	<referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
 	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
+
+	<close><![CDATA[ปิด]]></close>
 </menu>

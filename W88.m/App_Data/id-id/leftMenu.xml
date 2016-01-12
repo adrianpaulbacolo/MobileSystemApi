@@ -28,7 +28,7 @@
 	<submitUpload><![CDATA[Kirim/Upload]]></submitUpload>
 	<sports><![CDATA[Sport]]></sports>
 	<livecasino><![CDATA[Live Kasino]]></livecasino>
-  <slots><![CDATA[SLOTS]]></slots>
+	<slots><![CDATA[SLOTS]]></slots>
 	<lottery><![CDATA[Lotere]]></lottery>
 	<fundmanagement><![CDATA[Pengelolaan Dana]]></fundmanagement>
 	<customerservice><![CDATA[Customer Service]]></customerservice>
@@ -39,7 +39,7 @@
 	<withrawal><![CDATA[Penarikan]]></withrawal>-->
 	<fundTransfer><![CDATA[Fund Transfer]]></fundTransfer>
 	<poker><![CDATA[Poker]]></poker>
-  <texasmahjong><![CDATA[Texas Mahjong]]></texasmahjong>
+	<texasmahjong><![CDATA[Texas Mahjong]]></texasmahjong>
 	<fundFooter><![CDATA[*Club W, Bravado, Apollo, Crescendo, Divino, Massimo & Virtual]]></fundFooter>
 	<cancel><![CDATA[CANCEL]]></cancel>
 	<changePassword><![CDATA[Ganti Kata Sandi]]></changePassword>
@@ -51,9 +51,9 @@
 	<aSports><![CDATA[A-SPORTS]]></aSports>
 	<eSports><![CDATA[E-SPORTS]]></eSports>
 	<nuovo><![CDATA[NUOVO]]></nuovo>
-  <clubwpremier><![CDATA[CLUB W PREMIER]]></clubwpremier>
-  <clubwpremierMessage><![CDATA[Live Kasino terkini dengan teknologi terdepan di dunia dan streaming terbaik di permainan kasino ]]></clubwpremierMessage>
-  <liveCasino><![CDATA[CLUB W]]></liveCasino>
+	<clubwpremier><![CDATA[CLUB W PREMIER]]></clubwpremier>
+	<clubwpremierMessage><![CDATA[Live Kasino terkini dengan teknologi terdepan di dunia dan streaming terbaik di permainan kasino ]]></clubwpremierMessage>
+	<liveCasino><![CDATA[CLUB W]]></liveCasino>
 	<liveCasinoTitle><![CDATA[Live Kasino]]></liveCasinoTitle>
 	<liveCasinoMessage><![CDATA[Nikmati instan cash rebate Live Kasino sampai dengan 0.8% tidak ada batas payout & rollover]]></liveCasinoMessage>
 	<clubPalazo><![CDATA[CLUB PALAZZO]]></clubPalazo>
@@ -82,4 +82,6 @@
 	<fundtransfer><![CDATA[Fund Transfer History]]></fundtransfer>
 	<referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
 	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
+
+	<close><![CDATA[TUTUP]]></close>
 </menu>

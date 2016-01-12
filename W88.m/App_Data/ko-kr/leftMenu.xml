@@ -37,7 +37,7 @@
 	<withrawal><![CDATA[출금]]></withrawal>
 	<fundTransfer><![CDATA[잔액 이동]]></fundTransfer>
 	<poker><![CDATA[포커]]></poker>
-  <texasmahjong><![CDATA[텍사스 마종]]></texasmahjong>
+	<texasmahjong><![CDATA[텍사스 마종]]></texasmahjong>
 	<aSports><![CDATA[a-스포츠]]></aSports>
 	<eSports><![CDATA[e-스포츠]]></eSports>
 	<nuovo><![CDATA[NUOVO]]></nuovo>
@@ -59,9 +59,9 @@
 
 	<fundFooter><![CDATA[클럽 W, 브라바도, 아폴로, 크레센도, 디비노 & 마시모, 가상 스포츠, 복권]]></fundFooter>
 
-  <clubwpremier><![CDATA[클럽 W 프리미어]]></clubwpremier>
-  <clubwpremierMessage><![CDATA[세계적인 클래스의 기술력과 그 무엇과도 비교할 수 없는 최고의 라이브 카지노 게임.]]></clubwpremierMessage>
-  <livecasino><![CDATA[라이브 카지노]]></livecasino>
+	<clubwpremier><![CDATA[클럽 W 프리미어]]></clubwpremier>
+	<clubwpremierMessage><![CDATA[세계적인 클래스의 기술력과 그 무엇과도 비교할 수 없는 최고의 라이브 카지노 게임.]]></clubwpremierMessage>
+	<livecasino><![CDATA[라이브 카지노]]></livecasino>
 	<liveCasino><![CDATA[클럽 W]]></liveCasino>
 	<liveCasinoTitle><![CDATA[라이브 카지노]]></liveCasinoTitle>
 	<liveCasinoMessage><![CDATA[롤링 조건과 출금 제한이 없는 최대 0.8% 의 라이브 카지노 현금 리베이트 ]]></liveCasinoMessage>
@@ -89,4 +89,6 @@
 	<fundtransfer><![CDATA[Fund Transfer History]]></fundtransfer>
 	<referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
 	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
+
+	<close><![CDATA[종료]]></close>
 </menu>
