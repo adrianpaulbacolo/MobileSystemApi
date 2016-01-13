@@ -194,7 +194,6 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
         string strUserAccountCode = string.Format("{0}{1}", strAccountPrefix, strUsername);
         string strExceptions = ioSettings.Values.Get("Exceptions");
 
-        List<string> lstPermission = strExceptions.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries).ToList();
         if (string.Compare(strServiceEnabled, "true", true) != 0)
         {
             return;
