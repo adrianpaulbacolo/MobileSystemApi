@@ -27,7 +27,7 @@
 	<fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
 	<submitUpload><![CDATA[Tải tập tin]]></submitUpload>
 	<sports><![CDATA[Thể thao]]></sports>
-  <livecasino><![CDATA[Casino Trực Tuyến]]></livecasino>
+	<livecasino><![CDATA[Casino Trực Tuyến]]></livecasino>
 	<slots><![CDATA[Slot]]></slots>
 	<fundmanagement><![CDATA[Quản Lý Quỹ]]></fundmanagement>
 	<customerservice><![CDATA[Customer Service]]></customerservice>
@@ -55,7 +55,7 @@
 	<lottery><![CDATA[Xổ số]]></lottery>
 	<nuovo><![CDATA[NUOVO]]></nuovo>
 	<poker><![CDATA[POKER]]></poker>
-  <texasmahjong><![CDATA[Texas Mạt Chược]]></texasmahjong>
+	<texasmahjong><![CDATA[Texas Mạt Chược]]></texasmahjong>
 	<fundFooter><![CDATA[*Club W, Bravado, Apollo, Crescendo, Divino & Massimo, Virtual , Lotto]]></fundFooter>
 	<androidDownload><![CDATA[Android Download]]></androidDownload>
 	<iosDownload><![CDATA[TẢI ANDROID]]></iosDownload>
@@ -66,8 +66,8 @@
 	<changePassword><![CDATA[Đổi mật khẩu]]></changePassword>
 	<profile><![CDATA[Thông tin cá nhân]]></profile>
 
-  <clubwpremier><![CDATA[CLUB W PREMIER]]></clubwpremier>
-  <clubwpremierMessage><![CDATA[Casino trực tuyến với công nghệ hàng đầu thế giới, truyền hình trực tiếp các trò chơi casino tốt nhất ]]></clubwpremierMessage>
+	<clubwpremier><![CDATA[CLUB W PREMIER]]></clubwpremier>
+	<clubwpremierMessage><![CDATA[Casino trực tuyến với công nghệ hàng đầu thế giới, truyền hình trực tiếp các trò chơi casino tốt nhất ]]></clubwpremierMessage>
 	<liveCasino><![CDATA[CLUB W]]></liveCasino>
 	<liveCasinoTitle><![CDATA[Casino Trực Tuyến]]></liveCasinoTitle>
 	<liveCasinoMessage><![CDATA[Hoàn trả ngay lên đến 0.8%. Không giới hạn & không cần cược lại]]></liveCasinoMessage>
@@ -89,4 +89,6 @@
 	<fundtransfer><![CDATA[Fund Transfer History]]></fundtransfer>
 	<referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
 	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
+
+	<close><![CDATA[ĐÓNG]]></close>
 </menu>

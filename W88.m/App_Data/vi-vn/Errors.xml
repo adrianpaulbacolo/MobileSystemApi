@@ -10,7 +10,7 @@
     <InvalidUsername><![CDATA[Sai Tên Đăng Nhập và/hoặc Sai Mật Khẩu]]></InvalidUsername>
     <InvalidPassword><![CDATA[Sai Tên Đăng Nhập và/hoặc Sai Mật Khẩu]]></InvalidPassword>
     <InactiveAccount>
-      <![CDATA[Vì lý do bảo mật, tài khoản của Quý Khách đã được KHÓA do nhập sai mật khẩu nhiều lần.Quý Khách vui lòng <a href="https://www.w88world.com/ContactUs.aspx">nhấp vào đây</a> để liên hệ bộ phận hỗ trợ trực tuyến để tiến hành mở khóa tài khoản và cấp lại mật khẩu mới. <br /><br /><table style="width:100%"><tr><td style="width:38%"></td><td style="width:50%"><button type="button" id="closeBtn" class="button-blue" onclick="closeModal()">ĐÓNG</button></td></tr></table>]]></InactiveAccount>    
+      <![CDATA[Vì lý do bảo mật, tài khoản của Quý Khách đã được KHÓA do nhập sai mật khẩu nhiều lần.Quý Khách vui lòng <a href="https://www.w88world.com/ContactUs.aspx">nhấp vào đây</a> để liên hệ bộ phận hỗ trợ trực tuyến để tiến hành mở khóa tài khoản và cấp lại mật khẩu mới.]]></InactiveAccount>    
     <MissingUsername><![CDATA[Vui lòng điền tên đăng nhập hợp lệ.]]></MissingUsername>
     <MissingPassword><![CDATA[Vui lòng điền mật khẩu hợp lệ .]]></MissingPassword>
   </Login>
