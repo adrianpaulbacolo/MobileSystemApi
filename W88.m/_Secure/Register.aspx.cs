@@ -130,9 +130,7 @@ public partial class _Secure_Register : System.Web.UI.Page
 
         int intOddsType = 1;
         System.DateTime dtDOB = DateTime.MinValue;
-        string strHiddenValues = hidValues.Value;
 
-        List<string> lstValues = null;
         #endregion
 
         #region populateVariables
@@ -268,7 +266,7 @@ public partial class _Secure_Register : System.Web.UI.Page
         }
 
         strErrorDetail = strAlertMessage;
-        strProcessRemark = string.Format("strAlertMessage: {0} | HiddenValues: {1}", strAlertMessage, strHiddenValues);
+        strProcessRemark = string.Format("strAlertMessage: {0}", strAlertMessage);
 
         intProcessSerialId += 1;
         commonAuditTrail.appendLog("system", strPageName, "ParameterValidation", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
@@ -277,28 +275,10 @@ public partial class _Secure_Register : System.Web.UI.Page
 
         if (!isProcessAbort)
         {
-            lstValues = strHiddenValues.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries).Select(p => p.Trim()).ToList();
-
-            if (lstValues.Count > 0)
-            {
-                if (lstValues[0] != null) { strCountryCode = lstValues[0]; }
-                //if (lstValues[1] != null) { strSignUpUrl = string.Format("m.{0}", lstValues[1]); }
-                if (lstValues[2] != null) { strIPAddress = lstValues[2]; }
-                if (lstValues[3] != null) { strPermission = lstValues[3]; }
-            }
-
             strSignUpUrl = string.Format("m.{0}", commonIp.DomainName);
             strLanguageCode = commonVariables.SelectedLanguage;
 
             if (string.IsNullOrEmpty(strIPAddress)) { strIPAddress = commonIp.UserIP; }
-
-            if (string.IsNullOrEmpty(strCountryCode) || string.Compare(strCountryCode, "-", true) == 0)
-            {
-                using (wsIP2Loc.ServiceSoapClient wsInstance = new wsIP2Loc.ServiceSoapClient())
-                {
-                    wsInstance.location(strIPAddress, ref strCountryCode, ref strPermission);
-                }
-            }
 
             switch (strCountryCode.ToUpper())
             {

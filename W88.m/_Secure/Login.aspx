@@ -88,36 +88,24 @@
                 }
                 else if ($('#txtCaptcha').val().trim().length == 0 && $('#imgCaptcha').is(':visible') == true) {
                     alert('<%=commonCulture.ElementValues.getResourceString("MissingVCode", xeErrors)%>');
-                        $('#btnSubmit').attr("disabled", false);
-                        e.preventDefault();
-                        return;
-                    }
-                    else {
-                        GPINTMOBILE.ShowSplash();
-                        $.ajax({
-                            contentType: "application/json; charset=utf-8",
-                            url: "https://ip2loc.w2script.com/IP2LOC?v=" + new Date().getTime(),
-                            dataType: "jsonp",
-                            success: function (data) {
-                                initiateLogin(data);
-                                $('#btnSubmit').attr("disabled", false);
-                                e.preventDefault();
-                                //hideSplash();
-                                return;
-                            },
-                            error: function (err) {
-                                window.location.replace('/Default.aspx');
-                                GPINTMOBILE.HideSplash();
-                            }
-                        });
-                    }
+                    $('#btnSubmit').attr("disabled", false);
+                    e.preventDefault();
+                    return;
+                }
+                else {
+                    GPINTMOBILE.ShowSplash();
+
+                    initiateLogin();
+                    $('#btnSubmit').attr("disabled", false);
+                    e.preventDefault();
+                }
                 e.preventDefault();
                 return;
             });
 
             $('#<%=imgCaptcha.ClientID%>').click(function () { $(this).attr('src', '/_Secure/Captcha.aspx'); });
 
-            function initiateLogin(postData) {
+            function initiateLogin() {
                 console.log('txt: ' + $('#txtCaptcha').val());
                 $.ajax({
                     type: "POST",
@@ -128,7 +116,7 @@
                         alert('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
                         window.location.replace('/Default.aspx');
                     },
-                    data: { txtUsername: $('#txtUsername').val(), txtPassword: $('#txtPassword').val(), txtCaptcha: $('#txtCaptcha').val(), txtIPAddress: postData.ip, txtCountry: postData.country, txtPermission: postData.permission, ioBlackBox: $('#ioBlackBox').val() },
+                    data: { txtUsername: $('#txtUsername').val(), txtPassword: $('#txtPassword').val(), txtCaptcha: $('#txtCaptcha').val(), ioBlackBox: $('#ioBlackBox').val() },
                     success: function (xml) {
                         switch ($(xml).find('ErrorCode').text()) {
                             case "1":
@@ -150,7 +138,7 @@
 
                                 break;
                             case "resetPassword":
-                                window.location.replace('/Settings/ChangePassword.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
+                                    window.location.replace('/Settings/ChangePassword.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
                                 break;
                             default:
 
@@ -181,14 +169,14 @@
             }
         </script>
         <script type="text/javascript" id="iovs_script">
-            var io_operation = 'ioBegin';
-            var io_bbout_element_id = 'ioBlackBox';
-            //var io_submit_element_id = 'btnSubmit';
-            var io_submit_form_id = 'form1';
-            var io_max_wait = 5000;
-            var io_install_flash = false;
-            var io_install_stm = false;
-            var io_exclude_stm = 12;
+	        var io_operation = 'ioBegin';
+	        var io_bbout_element_id = 'ioBlackBox';
+	        //var io_submit_element_id = 'btnSubmit';
+	        var io_submit_form_id = 'form1';
+	        var io_max_wait = 5000;
+	        var io_install_flash = false;
+	        var io_install_stm = false;
+	        var io_exclude_stm = 12;
         </script>
         <script type="text/javascript" src="//ci-mpsnare.iovation.com/snare.js"></script>
 
