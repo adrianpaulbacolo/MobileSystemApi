@@ -39,7 +39,7 @@
 	<withrawal><![CDATA[ការដកប្រាក់ចេញ]]></withrawal>
 	<fundTransfer><![CDATA[ផេ្ទរ]]></fundTransfer>
 	<poker><![CDATA[ពុកគ័រ]]></poker>
-  <texasmahjong><![CDATA[Texas Mahjong]]></texasmahjong>
+	<texasmahjong><![CDATA[Texas Mahjong]]></texasmahjong>
 	<fundFooter><![CDATA[*Club W, Bravado, Apollo, Crescendo, Divino & Massimo, Virtual , Lotto]]></fundFooter>
 	<cancel><![CDATA[បោះបង់]]></cancel>
 	<changePassword><![CDATA[CHANGE PASSWORD]]></changePassword>
@@ -51,8 +51,8 @@
 	<aSports><![CDATA[ a-កីឡា ]]></aSports>
 	<eSports><![CDATA[ e-កីឡា ]]></eSports>
 	<nuovo><![CDATA[NUOVO]]></nuovo>
-  <clubwpremier><![CDATA[CLUB W PREMIER]]></clubwpremier>
-  <clubwpremierMessage><![CDATA[កាស៊ីណូថ្មីបូកជាមួយ បច្ចេកវិទ្យាទំនើប និងការផ្សាយហ្គេមដ៏ល្អ ]]></clubwpremierMessage> 
+	<clubwpremier><![CDATA[CLUB W PREMIER]]></clubwpremier>
+	<clubwpremierMessage><![CDATA[កាស៊ីណូថ្មីបូកជាមួយ បច្ចេកវិទ្យាទំនើប និងការផ្សាយហ្គេមដ៏ល្អ ]]></clubwpremierMessage>
 	<liveCasino><![CDATA[CLUB W]]></liveCasino>
 	<liveCasinoTitle><![CDATA[ កាស៊ីណូផ្សាយផ្ទាល់ ]]></liveCasinoTitle>
 	<liveCasinoMessage><![CDATA[រីករាយជាមួយ ប្រាក់បង្វិលភ្លាមៗនៃកាស៊ីណូផ្សាយផ្ទាល់ រហូតដល់ 0.8%។ គ្មានកំណត់ គ្មានការភ្នាល់វិលជុំ! ]]></liveCasinoMessage>
@@ -82,4 +82,6 @@
 	<fundtransfer><![CDATA[Fund Transfer History]]></fundtransfer>
 	<referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
 	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
+
+	<close><![CDATA[បិទ]]></close>
 </menu>

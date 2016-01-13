@@ -59,20 +59,20 @@
 	<nuovo><![CDATA[金蟾]]></nuovo>
 	<clubPalazo><![CDATA[金殿俱乐部]]></clubPalazo>
 	<poker><![CDATA[扑克]]></poker>
-  <texasmahjong><![CDATA[德州麻将]]></texasmahjong>
+	<texasmahjong><![CDATA[德州麻将]]></texasmahjong>
 	<fundFooter><![CDATA[*优德俱乐部(真人+其他老虎机俱乐部),虚拟,乐透]]></fundFooter>
 	<androidDownload><![CDATA[安卓下载版]]></androidDownload>
 	<iosDownload><![CDATA[苹果下载版]]></iosDownload>
 	<download><![CDATA[下载]]></download>
-  
+
 	<liveCasinoTitle><![CDATA[真人娱乐城]]></liveCasinoTitle>
 	<liveCasinoMessage><![CDATA[优德真人娱乐城尊享高达0.8%现金返水，即玩即得！]]></liveCasinoMessage>
 	<clubPalazoMessage><![CDATA[亚欧美女荷官聚焦荧屏!]]></clubPalazoMessage>
 	<clubMassimoMessage><![CDATA[高清视频最爱真人娱乐城!]]></clubMassimoMessage>
 	<playNow><![CDATA[立即游戏]]></playNow>
 	<clubMassimo><![CDATA[金銮俱乐部]]></clubMassimo>
-  <clubwpremier><![CDATA[优德俱乐部 - 卓越厅]]></clubwpremier>
-  <clubwpremierMessage><![CDATA[实地真人现场，流畅视讯体验， 尊享世界豪华顶尖真人娱乐城 ]]></clubwpremierMessage>
+	<clubwpremier><![CDATA[优德俱乐部 - 卓越厅]]></clubwpremier>
+	<clubwpremierMessage><![CDATA[实地真人现场，流畅视讯体验， 尊享世界豪华顶尖真人娱乐城 ]]></clubwpremierMessage>
 	<liveCasino><![CDATA[真人娱乐城]]></liveCasino>
 	<back><![CDATA[返回]]></back>
 	<login><![CDATA[登陆]]></login>
@@ -86,4 +86,6 @@
 	<fundtransfer><![CDATA[Fund Transfer History]]></fundtransfer>
 	<referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
 	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
+
+	<close><![CDATA[关闭]]></close>
 </menu>

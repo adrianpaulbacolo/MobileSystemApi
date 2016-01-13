@@ -10,7 +10,7 @@
     <InvalidUsername><![CDATA[ชื่อผู้ใช้งาน และ พาสเวิร์ดไม่ถูกต้อง]]></InvalidUsername>
     <InvalidPassword><![CDATA[ชื่อผู้ใช้งาน และ พาสเวิร์ดไม่ถูกต้อง]]></InvalidPassword>
     <InactiveAccount>
-      <![CDATA[เนื่องจากเหตุผลด้านความปลอดภัยยูสเซอร์ของคุณได้ถูกระงับการใช้งานชั่วคราว เนื่องจากคุณทำการเข้าระบบไม่สำเร็จเกินกำหนด กรุณา <a href="https://www.w88world.com/ContactUs.aspx">คลิกที่นี่</a> เพื่อติดต่อเจ้าหน้าที่ลูกค้าสัมพันธ์ เพื่อช่วยเปิดการใช้งาน และส่งรหัสผ่านใหม่ให้คุณ <br /><br /><table style="width:100%"><tr><td style="width:38%"></td><td style="width:50%"><button type="button" id="closeBtn" class="button-blue" onclick="closeModal()">ปิด</button></td></tr></table>]]></InactiveAccount>    
+      <![CDATA[เนื่องจากเหตุผลด้านความปลอดภัยยูสเซอร์ของคุณได้ถูกระงับการใช้งานชั่วคราว เนื่องจากคุณทำการเข้าระบบไม่สำเร็จเกินกำหนด กรุณา <a href="https://www.w88world.com/ContactUs.aspx">คลิกที่นี่</a> เพื่อติดต่อเจ้าหน้าที่ลูกค้าสัมพันธ์ เพื่อช่วยเปิดการใช้งาน และส่งรหัสผ่านใหม่ให้คุณ ]]></InactiveAccount>    
     <MissingUsername><![CDATA[กรุณาใส่ชื่อล๊อกอินที่ถูกต้อง.]]></MissingUsername>
     <MissingPassword><![CDATA[กรุณาใส่พาสเวิร์ดที่ถูกต้อง.]]></MissingPassword>
   </Login>
