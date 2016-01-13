@@ -10,7 +10,7 @@
     <InvalidUsername><![CDATA[无效用户名及/或密码.]]></InvalidUsername>
     <InvalidPassword><![CDATA[无效用户名及/或密码.]]></InvalidPassword>
     <InactiveAccount>
-      <![CDATA[由于您输入多次错误的密码，为了账户安全，您的账号暂时被锁定。请您点击 <a href="{0}">这里</a> 联系7/24在线客服为您查询处理。<br /><br /><table style="width:100%"><tr><td style="width:38%"></td><td style="width:50%"><button type="button" id="closeBtn" class="button-blue" onclick="closeModal()">关闭</button></td></tr></table>]]></InactiveAccount>    
+      <![CDATA[由于您输入多次错误的密码，为了账户安全，您的账号暂时被锁定。请您点击 <a href="{0}">这里</a> 联系7/24在线客服为您查询处理。]]></InactiveAccount>    
     <MissingUsername><![CDATA[请输入用户名]]></MissingUsername>
     <MissingPassword><![CDATA[请输入密码]]></MissingPassword>
   </Login>

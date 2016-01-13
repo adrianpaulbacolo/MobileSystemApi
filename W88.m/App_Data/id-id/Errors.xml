@@ -10,7 +10,7 @@
     <InvalidUsername><![CDATA[Username dan/atau Password tidak valid]]></InvalidUsername>
     <InvalidPassword><![CDATA[Username dan/atau Password tidak valid]]></InvalidPassword>
     <InactiveAccount>
-      <![CDATA[Untuk alasan keamanan, akun Anda terblokir karena kesalahan password yang anda tuliskan beberapa kali.Silahkan <a href="https://www.w88world.com/ContactUs.aspx">klik disini</a> untuk menghubungi layanan customer service untuk pembukaan akun dan aktivasi password.<br /><br /><table style="width:100%"><tr><td style="width:38%"></td><td style="width:50%"><button type="button" id="closeBtn" class="button-blue" onclick="closeModal()">TUTUP</button></td></tr></table>]]></InactiveAccount>    
+      <![CDATA[Untuk alasan keamanan, akun Anda terblokir karena kesalahan password yang anda tuliskan beberapa kali.Silahkan <a href="https://www.w88world.com/ContactUs.aspx">klik disini</a> untuk menghubungi layanan customer service untuk pembukaan akun dan aktivasi password.]]></InactiveAccount>    
     <MissingUsername><![CDATA[Silahkan masukan Username yang valid.]]></MissingUsername>
     <MissingPassword><![CDATA[Silahkan masukan Password yang valid.]]></MissingPassword>
   </Login>

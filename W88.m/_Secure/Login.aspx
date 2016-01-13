@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
-    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
     <title><%=commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML) + commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/PreLoad.js"></script>
@@ -11,17 +11,6 @@
 <body>
     <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-close-btn="right" data-corners="false" id="login">
-        <link href="https://code.jquery.com/ui/1.10.4/themes/blitzer/jquery-ui.css" rel="stylesheet" />
-        <style type="text/css">
-            .ui-dialog-titlebar { display: none}
-            .ui-widget-content {
-                padding: 0;
-                border: none;
-                top: 0 !important;
-                left: 0 !important;
-                width: 100% !important;
-            }
-        </style>
         <header id="header" data-role="header" data-position="fixed" data-theme="b" data-tap-toggle="false">
             <a href="" role="button" data-rel="back" class="btn-clear ui-btn-left ui-btn ion-ios-arrow-back" id="aMenu" data-load-ignore-splash="true">
                 <%=commonCulture.ElementValues.getResourceString("back", commonVariables.LeftMenuXML)%>
@@ -99,39 +88,34 @@
                 }
                 else if ($('#txtCaptcha').val().trim().length == 0 && $('#imgCaptcha').is(':visible') == true) {
                     alert('<%=commonCulture.ElementValues.getResourceString("MissingVCode", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
-                    return;
-                }
-                else {
-                    GPINTMOBILE.ShowSplash();
-                    $.ajax({
-                        contentType: "application/json; charset=utf-8",
-                        url: "https://ip2loc.w2script.com/IP2LOC?v=" + new Date().getTime(),
-                        dataType: "jsonp",
-                        success: function (data) {
-                            initiateLogin(data);
-                            $('#btnSubmit').attr("disabled", false);
-                            e.preventDefault();
-                            //hideSplash();
-                            return;
-                        },
-                        error: function (err) {
-                            window.location.replace('/Default.aspx');
-                            GPINTMOBILE.HideSplash();
-                        }
-                    });
-                }
+                        $('#btnSubmit').attr("disabled", false);
+                        e.preventDefault();
+                        return;
+                    }
+                    else {
+                        GPINTMOBILE.ShowSplash();
+                        $.ajax({
+                            contentType: "application/json; charset=utf-8",
+                            url: "https://ip2loc.w2script.com/IP2LOC?v=" + new Date().getTime(),
+                            dataType: "jsonp",
+                            success: function (data) {
+                                initiateLogin(data);
+                                $('#btnSubmit').attr("disabled", false);
+                                e.preventDefault();
+                                //hideSplash();
+                                return;
+                            },
+                            error: function (err) {
+                                window.location.replace('/Default.aspx');
+                                GPINTMOBILE.HideSplash();
+                            }
+                        });
+                    }
                 e.preventDefault();
                 return;
             });
 
             $('#<%=imgCaptcha.ClientID%>').click(function () { $(this).attr('src', '/_Secure/Captcha.aspx'); });
-
-            function closeModal() {
-                var $dialog = $("#myDialog").dialog();
-                $dialog.dialog('close');
-            }
 
             function initiateLogin(postData) {
                 console.log('txt: ' + $('#txtCaptcha').val());
@@ -160,21 +144,13 @@
                             case "22":
                                 var message = $(xml).find('Message').text();
 
-                                $("#myDialogText").html(message);
-                                $("#myDialog").dialog({
-                                    autoOpen: true,
-                                    modal: true,
-                                    draggable: false,
-                                    resizable: false,
-                                    width: 'auto',
-                                    height: 'auto',
-                                    position: { my: 'center', at: 'top+360' },
-                                    show: "fade",
-                                    hide: "fade"
-                                });
+                                $("#inactiveAcctText").html(message);
+                                $("#inactiveAcctModal").popup();
+                                $("#inactiveAcctModal").popup('open');
+
                                 break;
                             case "resetPassword":
-                                    window.location.replace('/Settings/ChangePassword.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
+                                window.location.replace('/Settings/ChangePassword.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
                                 break;
                             default:
 
@@ -191,8 +167,7 @@
                                     $('#<%=txtPassword.ClientID%>').val('');
                                     GPINTMOBILE.HideSplash();
                                 }
-                                else if (counter < 3)
-                                {
+                                else if (counter < 3) {
                                     alert($(xml).find('Message').text());
                                 }
                                 break;
@@ -205,27 +180,37 @@
                 });
             }
         </script>
-	    <script type="text/javascript" id="iovs_script">
-	        var io_operation = 'ioBegin';
-	        var io_bbout_element_id = 'ioBlackBox';
-	        //var io_submit_element_id = 'btnSubmit';
-	        var io_submit_form_id = 'form1';
-	        var io_max_wait = 5000;
-	        var io_install_flash = false;
-	        var io_install_stm = false;
-	        var io_exclude_stm = 12;
-	    </script>
-	    <script type="text/javascript" src="//ci-mpsnare.iovation.com/snare.js"></script>
-        <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+        <script type="text/javascript" id="iovs_script">
+            var io_operation = 'ioBegin';
+            var io_bbout_element_id = 'ioBlackBox';
+            //var io_submit_element_id = 'btnSubmit';
+            var io_submit_form_id = 'form1';
+            var io_max_wait = 5000;
+            var io_install_flash = false;
+            var io_install_stm = false;
+            var io_exclude_stm = 12;
+        </script>
+        <script type="text/javascript" src="//ci-mpsnare.iovation.com/snare.js"></script>
 
-
-<%--        <dialog id="dialog"> This is a test message <a href= "www.google.com">test</a></dialog>--%>
-<%--            <div id="myDialog" style="z-index: 5">
-                <div id="myDialogText" style="background-color:#252525; color: #FFFFFF; border-color:gray; border-style:solid; border-width:1pt;"></div>
-            </div>--%>
-            <div id="myDialog">
-                <div id="myDialogText" ></div>
+        <div id="inactiveAcctModal" data-role="popup" data-overlay-theme="b" data-theme="b" data-history="false">
+            <a href="#" data-rel="back" class="close close-enhanced">&times;</a>
+            <br>
+            <h1 class="title">
+                <img src="/_Static/Images/logo-<%=commonVariables.SelectedLanguageShort%>.png" width="220" class="logo img-responsive" alt="logo">
+            </h1>
+            <div class="padding">
+                <div class="download-app padding">
+                    <div id="inactiveAcctText">
+                    </div>
+                </div>
             </div>
+            <div class="row row-no-padding">
+                <div class="col">
+                    <a href="#" data-rel="back" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("close", commonVariables.LeftMenuXML)%>
+                    </a>
+                </div>
+            </div>
+        </div>
 
     </div>
 </body>

@@ -10,7 +10,7 @@
     <InvalidUsername><![CDATA[無効なユーザー名および/またはパスワード。]]></InvalidUsername>
     <InvalidPassword><![CDATA[無効なユーザー名および/またはパスワード。]]></InvalidPassword>
     <InactiveAccount>
-      <![CDATA[お客様のアカウントは複数回のログイン失敗のため、セキュリティ上の理由によりブロックされました。恐れ入りますが、お客様のアカウントロックの解除およびパスワード回復のため、<a href="https://www.w88world.com/ContactUs.aspx">こちら</a>をクリックして当社のカスタマーサービスへお知らせください。<br /><br /><table style="width:100%"><tr><td style="width:38%"></td><td style="width:50%"><button type="button" id="closeBtn" class="button-blue" onclick="closeModal()">閉じる</button></td></tr></table>]]></InactiveAccount>    
+      <![CDATA[お客様のアカウントは複数回のログイン失敗のため、セキュリティ上の理由によりブロックされました。恐れ入りますが、お客様のアカウントロックの解除およびパスワード回復のため、<a href="https://www.w88world.com/ContactUs.aspx">こちら</a>をクリックして当社のカスタマーサービスへお知らせください。]]></InactiveAccount>    
     <MissingUsername><![CDATA[ユーザー名を入力してください]]></MissingUsername>
     <MissingPassword><![CDATA[パスワードを入力してください]]></MissingPassword>
   </Login>
