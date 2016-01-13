@@ -20,7 +20,7 @@ public static class commonCookie
         {
             HttpCookie cookie = new HttpCookie("s");
             cookie.Value = value;
-            if (!string.IsNullOrEmpty(commonIp.DomainName)) { cookie.Domain = commonIp.DomainName; } 
+            if (!string.IsNullOrEmpty(commonIp.DomainName)) { cookie.Domain = commonIp.DomainName; }
             HttpContext.Current.Response.Cookies.Add(cookie);
         }
     }
@@ -87,11 +87,40 @@ public static class commonCookie
         {
             HttpCookie cookie = new HttpCookie("mio");
             cookie.Value = value;
-            if (!string.IsNullOrEmpty(commonIp.DomainName)) { cookie.Domain = commonIp.DomainName; }            
+            if (!string.IsNullOrEmpty(commonIp.DomainName)) { cookie.Domain = commonIp.DomainName; }
             HttpContext.Current.Response.Cookies.Add(cookie);
         }
     }
 
+    public static string CookieAffiliateId
+    {
+        get
+        {
+            HttpCookie cookie = HttpContext.Current.Request.Cookies.Get("AffiliateId");
+            return cookie == null ? "" : cookie.Value;
+        }
+        set
+        {
+            if (!string.IsNullOrWhiteSpace(value))
+            {
+                HttpCookie cookie = HttpContext.Current.Response.Cookies["AffiliateId"];
+
+                if (cookie != null)
+                {
+                    cookie.Value = value;
+                    cookie.Expires = DateTime.Now.AddDays(365);
+                    HttpContext.Current.Response.Cookies.Set(cookie);
+                }
+                else
+                {
+                    HttpCookie affliateCookie = new HttpCookie("AffiliateId");
+                    affliateCookie.Value = value;
+                    affliateCookie.Expires = DateTime.Now.AddDays(365);
+                    HttpContext.Current.Response.Cookies.Add(affliateCookie);
+                }
+            }
+        }
+    }
 
 
     public static void ClearCookies()

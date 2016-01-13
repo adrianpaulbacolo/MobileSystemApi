@@ -54,6 +54,13 @@ public partial class _Default : System.Web.UI.Page
         }
         divLanguageContainer.InnerHtml = Convert.ToString(sbLanguageHTML);
 
-        if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("AffiliateId"))) { commonVariables.SetSessionVariable("AffiliateId", HttpContext.Current.Request.QueryString.Get("AffiliateId")); }
+        string affiliateId = HttpContext.Current.Request.QueryString.Get("AffiliateId");
+
+        if (!string.IsNullOrEmpty(affiliateId))
+        {
+            commonVariables.SetSessionVariable("AffiliateId", affiliateId);
+
+            commonCookie.CookieAffiliateId = affiliateId;
+        }
     }
 }

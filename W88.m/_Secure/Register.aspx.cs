@@ -24,8 +24,26 @@ public partial class _Secure_Register : System.Web.UI.Page
 
         if (!Page.IsPostBack)
         {
-            if (string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId"))) { if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("AffiliateId"))) { commonVariables.SetSessionVariable("AffiliateId", HttpContext.Current.Request.QueryString.Get("AffiliateId")); } }
-            strAffiliateId = string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId")) ? string.Empty : Convert.ToString(commonVariables.GetSessionVariable("AffiliateId"));
+            if (string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId")))
+            {
+                string affiliateId = HttpContext.Current.Request.QueryString.Get("AffiliateId");
+
+                if (!string.IsNullOrEmpty(affiliateId))
+                {
+                    commonVariables.SetSessionVariable("AffiliateId", affiliateId);
+
+                    commonCookie.CookieAffiliateId = affiliateId;
+                }
+            }
+
+            if (!string.IsNullOrWhiteSpace(commonCookie.CookieAffiliateId))
+            {
+                strAffiliateId = commonCookie.CookieAffiliateId;
+            }
+            else
+            {
+                strAffiliateId = string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId")) ? string.Empty : Convert.ToString(commonVariables.GetSessionVariable("AffiliateId"));
+            }
 
             lblUsername.Text = commonCulture.ElementValues.getResourceString("lblUsername", xeResources);
             lblPassword.Text = commonCulture.ElementValues.getResourceString("lblPassword", xeResources);
@@ -86,7 +104,10 @@ public partial class _Secure_Register : System.Web.UI.Page
 
             txtAffiliateID.Text = strAffiliateId;
 
-            if (!string.IsNullOrEmpty(strAffiliateId)) { txtAffiliateID.ReadOnly = true; }
+            if (!string.IsNullOrEmpty(strAffiliateId))
+            {
+                txtAffiliateID.ReadOnly = true;
+            }
         }
     }
 
