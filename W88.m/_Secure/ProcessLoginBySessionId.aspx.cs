@@ -51,7 +51,7 @@ public partial class _Secure_ProcessLoginBySessionId : System.Web.UI.Page
                 using (wsMemberMS1.memberWSSoapClient svcInstance = new wsMemberMS1.memberWSSoapClient())
                 {
                     System.Data.DataSet dsSignin = null;
-                    dsSignin = svcInstance.MemberSessionCheck(strSessionId, "");
+                    dsSignin = svcInstance.MemberSessionCheck(strSessionId, commonIp.UserIP);
 
                     if (dsSignin.Tables[0].Rows.Count > 0)
                     {
@@ -110,7 +110,7 @@ public partial class _Secure_ProcessLoginBySessionId : System.Web.UI.Page
             }
         }
 
-        strProcessRemark = string.Format("SessionId: {0} | ProcessCode: {1} | ProcessMessage: {2}", strSessionId, strProcessCode, strProcessMessage);
+        strProcessRemark = string.Format("SessionId: {0} | IPAddress: {1} | ProcessCode: {2} | ProcessMessage: {3}", strSessionId, commonIp.UserIP, strProcessCode, strProcessMessage);
 
         intProcessSerialId += 1;
         commonAuditTrail.appendLog("system", strPageName, "InitiateProcessLogin", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);

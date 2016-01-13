@@ -65,7 +65,7 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
             strPassword = commonEncryption.Encrypt(strPassword);
         }
 
-        strProcessRemark = string.Format("MemberCode: {0} | Password: {1} | VCode: {2} | SVCode: {3}", strMemberCode, strPassword, strVCode, strSessionVCode);
+        strProcessRemark = string.Format("MemberCode: {0} | Password: {1} | VCode: {2} | SVCode: {3} | IP: {4} ", strMemberCode, strPassword, strVCode, strSessionVCode, commonIp.UserIP);
 
         intProcessSerialId += 1;
         commonAuditTrail.appendLog("system", strPageName, "ParameterValidation", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
@@ -80,7 +80,7 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
                 using (wsMemberMS1.memberWSSoapClient svcInstance = new wsMemberMS1.memberWSSoapClient())
                 {
                     System.Data.DataSet dsSignin = null;
-                    dsSignin = svcInstance.MemberSignin(lngOperatorId, strMemberCode, strPassword, strSiteURL, "", strDeviceId);
+                    dsSignin = svcInstance.MemberSignin(lngOperatorId, strMemberCode, strPassword, strSiteURL, commonIp.UserIP, strDeviceId);
 
                     if (dsSignin.Tables[0].Rows.Count > 0)
                     {
@@ -120,13 +120,13 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
                                 {
                                     runIovation = true;
                                 }
-                                else if (HttpContext.Current.Request.Cookies[strMemberCode] != null && string.Compare(strLastLoginIP, "", true) != 0)
+                                else if (HttpContext.Current.Request.Cookies[strMemberCode] != null && string.Compare(strLastLoginIP, commonIp.UserIP, true) != 0)
                                 {
                                     runIovation = true;
                                 }
                                 if (runIovation)
                                 {
-                                    this.IovationSubmit(ref intProcessSerialId, strProcessId, strPageName, strMemberCode);
+                                    this.IovationSubmit(ref intProcessSerialId, strProcessId, strPageName, strMemberCode, commonIp.UserIP);
                                 }
                                 break;
                             case "21":
@@ -174,7 +174,7 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
     }
 
 
-    protected void IovationSubmit(ref int intProcessSerialId, string strProcessId, string strPageName, string strUsername)
+    protected void IovationSubmit(ref int intProcessSerialId, string strProcessId, string strPageName, string strUsername, string strIPAddress)
     {
         string strResultCode = string.Empty;
         string strResultDetail = string.Empty;
@@ -210,7 +210,7 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
                 CheckTransactionDetails ioRequest = new CheckTransactionDetails();
 
                 ioRequest.accountcode = strUserAccountCode;
-                ioRequest.enduserip = "";
+                ioRequest.enduserip = strIPAddress;
 
                 ioRequest.beginblackbox = HttpContext.Current.Request.Form.Get("ioBlackBox");
                 ioRequest.subscriberid = strSubscriberID;
