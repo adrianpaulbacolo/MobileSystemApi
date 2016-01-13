@@ -96,8 +96,8 @@
                     GPINTMOBILE.ShowSplash();
 
                     initiateLogin();
-                            $('#btnSubmit').attr("disabled", false);
-                            e.preventDefault();
+                    $('#btnSubmit').attr("disabled", false);
+                    e.preventDefault();
                 }
                 e.preventDefault();
                 return;
@@ -168,7 +168,7 @@
                 });
             }
         </script>
-	    <script type="text/javascript" id="iovs_script">
+        <script type="text/javascript" id="iovs_script">
 	        var io_operation = 'ioBegin';
 	        var io_bbout_element_id = 'ioBlackBox';
 	        //var io_submit_element_id = 'btnSubmit';
@@ -177,8 +177,8 @@
 	        var io_install_flash = false;
 	        var io_install_stm = false;
 	        var io_exclude_stm = 12;
-	    </script>
-	    <script type="text/javascript" src="//ci-mpsnare.iovation.com/snare.js"></script>
+        </script>
+        <script type="text/javascript" src="//ci-mpsnare.iovation.com/snare.js"></script>
 
         <div id="inactiveAcctModal" data-role="popup" data-overlay-theme="b" data-theme="b" data-history="false">
             <a href="#" data-rel="back" class="close close-enhanced">&times;</a>
@@ -198,7 +198,7 @@
                     </a>
                 </div>
             </div>
-            </div>
+        </div>
 
     </div>
 </body>
