@@ -1,119 +1,128 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
-  <Products>
-    <ASports>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[a-កីឡា]]></Label>
-      <Description><![CDATA[Sportsbook]]></Description>
-    </ASports>
-    <ESports>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[e-កីឡា]]></Label>
-      <Description><![CDATA[Sportsbook]]></Description>
-    </ESports>
-    <Poker>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[ពុកគ័រ]]></Label>
-      <Description><![CDATA[ពុកគ័រ]]></Description>
-    </Poker>
-    <texasmahjong>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Texas Mahjong]]></Label>
-      <Description><![CDATA[Texas Mahjong]]></Description>
-    </texasmahjong>
-    <ISports>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[i-កីឡា]]></Label>
-      <Description><![CDATA[Sportsbook]]></Description>
-    </ISports>
-    <USports>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[u-កីឡា]]></Label>
-      <Description><![CDATA[Sportsbook]]></Description>
-    </USports>
-	<VSports>
-	  <Url><![CDATA[]]></Url>
-	  <Label><![CDATA[និម្មិត]]></Label>
-	  <Description><![CDATA[v-Sports]]></Description>
-	</VSports>
-    <Lottery>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[ឆ្នោតឡូតូ]]></Label>
-      <Description><![CDATA[គីណូ & LOTTO]]></Description>
-    </Lottery>
-    <Keno>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[គីណូ]]></Label>
-      <Description><![CDATA[គីណូ & LOTTO]]></Description>
-    </Keno>
-    <ClubCrescendo>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Crescendo]]></Label>
-      <Description><![CDATA[Crescendo Slots]]></Description>
-    </ClubCrescendo>
-    <ClubDivino>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Divino]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubDivino>
-    <ClubW>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club W]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubW>
-    <ClubWPremier>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club W Premier]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubWPremier>    
-    <ClubBravado>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Bravado]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubBravado>
-    <ClubMassimoSlots>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Massimo]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubMassimoSlots>
-    <ClubMassimoSlots2>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Massimo ដោនឡូត]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubMassimoSlots2>
-    <ClubMassimoCasino>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Massimo]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubMassimoCasino>
-    <ClubPalazzoSlots>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Palazzo]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubPalazzoSlots>
-    <ClubPalazzoSlots2>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Palazzo ដោនឡូត]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubPalazzoSlots2>
-    <ClubPalazzoCasino>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Palazzo]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubPalazzoCasino>
-  </Products>
-  <Wallets>
-    <main><![CDATA[ចំបង]]></main>
-    <asports><![CDATA[A-កីឡា]]></asports>
-    <esports><![CDATA[E-កីឡា]]></esports>
-    <isports><![CDATA[I-កីឡា]]></isports>
-    <lottery><![CDATA[ឆ្នោតឡូតូ]]></lottery>
-    <casino><![CDATA[Club W, Bravado, Apollo, Crescendo, Lotto, Divino, Massimo & Virtual]]></casino>
-    <playtech><![CDATA[Palazzo]]></playtech>
-    <binary><![CDATA[ល្បែងភាគហ៊ុន]]></binary>
-    <poker><![CDATA[ពុកគ័រ (USD)]]></poker>
-    <sbtech><![CDATA[E-កីឡា]]></sbtech>
-	  <netent><![CDATA[Nuovo]]></netent>
-    <pmahjong><![CDATA[Texas Mahjong]]></pmahjong>
-  </Wallets>
+	<Products>
+		<ASports>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[a-កីឡា]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</ASports>
+		<ESports>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[e-កីឡា]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</ESports>
+		<Poker>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[ពុកគ័រ]]></Label>
+			<Description><![CDATA[ពុកគ័រ]]></Description>
+		</Poker>
+		<texasmahjong>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Texas Mahjong]]></Label>
+			<Description><![CDATA[Texas Mahjong]]></Description>
+		</texasmahjong>
+		<ISports>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[i-កីឡា]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</ISports>
+		<USports>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[u-កីឡា]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</USports>
+		<VSports>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[និម្មិត]]></Label>
+			<Description><![CDATA[v-Sports]]></Description>
+		</VSports>
+		<Lottery>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[ឆ្នោតឡូតូ]]></Label>
+			<Description><![CDATA[គីណូ & LOTTO]]></Description>
+		</Lottery>
+		<Keno>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[គីណូ]]></Label>
+			<Description><![CDATA[គីណូ & LOTTO]]></Description>
+		</Keno>
+		<ClubCrescendo>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Crescendo]]></Label>
+			<Description><![CDATA[Crescendo Slots]]></Description>
+		</ClubCrescendo>
+		<ClubDivino>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Divino]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubDivino>
+		<ClubW>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club W]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubW>
+		<ClubWPremier>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club W Premier]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubWPremier>
+		<ClubBravado>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Bravado]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubBravado>
+		<ClubMassimoSlots>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Massimo]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubMassimoSlots>
+		<ClubMassimoSlots2>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Massimo ដោនឡូត]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubMassimoSlots2>
+		<ClubMassimoCasino>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Massimo]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubMassimoCasino>
+		<ClubPalazzoSlots>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Palazzo]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubPalazzoSlots>
+		<ClubPalazzoSlots2>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Palazzo ដោនឡូត]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubPalazzoSlots2>
+		<ClubPalazzoCasino>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Palazzo]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubPalazzoCasino>
+	</Products>
+	<Wallets>
+		<main><![CDATA[ចំបង]]></main>
+		<asports><![CDATA[A-កីឡា]]></asports>
+		<esports><![CDATA[E-កីឡា]]></esports>
+		<isports><![CDATA[I-កីឡា]]></isports>
+		<lottery><![CDATA[ឆ្នោតឡូតូ]]></lottery>
+		<casino><![CDATA[Club W, Bravado, Apollo, Crescendo, Lotto, Divino, Massimo & Virtual]]></casino>
+		<playtech><![CDATA[Palazzo]]></playtech>
+		<binary><![CDATA[ល្បែងភាគហ៊ុន]]></binary>
+		<poker><![CDATA[ពុកគ័រ (USD)]]></poker>
+		<sbtech><![CDATA[E-កីឡា]]></sbtech>
+		<netent><![CDATA[Nuovo]]></netent>
+		<pmahjong><![CDATA[Texas Mahjong]]></pmahjong>
+	</Wallets>
+	<Popup>
+		<Palazzo>
+			<SafariTitle><![CDATA[ជំហ៊ានងាយៗ ក្នុងការលេងស្លតហ្គេមក្លិប Palazzo នៅលើ Safari ]]></SafariTitle>
+			<SafariSettings><![CDATA[ក្នុង Safari Settings:]]></SafariSettings>
+			<SafariBlockPopup><![CDATA[Block pop-ups: OFF]]></SafariBlockPopup>
+			<SafariDoNotTrack><![CDATA[Do Not Track: OFF]]></SafariDoNotTrack>
+			<SafariBlockCookies><![CDATA[Block Cookies: Always Allow]]></SafariBlockCookies>
+		</Palazzo>
+	</Popup>
 </default>

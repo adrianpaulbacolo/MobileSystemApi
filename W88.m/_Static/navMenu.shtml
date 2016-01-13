@@ -483,14 +483,14 @@
     </h1>
     <div class="padding">
         <div class="download-app padding">
-            <h2 class="title">Easy Steps to Play Club Palazzo Slots on Safari</h2>
+            <h2 class="title"><%=commonCulture.ElementValues.getResourceXPathString("/Popup/Palazzo/SafariTitle", commonVariables.ProductsXML)%></h2>
             <div>
-                <span>In Safari Settings:</span><br>
+                <span><%=commonCulture.ElementValues.getResourceXPathString("/Popup/Palazzo/SafariSettings", commonVariables.ProductsXML)%></span><br>
             </div>
             <ul>
-                <li>Block pop-ups: OFF</li>
-                <li>Do Not Track: OFF</li>
-                <li>Block Cookies: Always Allow</li>
+                <li><%=commonCulture.ElementValues.getResourceXPathString("/Popup/Palazzo/SafariBlockPopup", commonVariables.ProductsXML)%></li>
+                <li><%=commonCulture.ElementValues.getResourceXPathString("/Popup/Palazzo/SafariDoNotTrack", commonVariables.ProductsXML)%></li>
+                <li><%=commonCulture.ElementValues.getResourceXPathString("/Popup/Palazzo/SafariBlockCookies", commonVariables.ProductsXML)%></li>
             </ul>
         </div>
     </div>

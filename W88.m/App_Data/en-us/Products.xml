@@ -1,156 +1,165 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
-  <Products>
-    <WCINFO>
-      <Label><![CDATA[]]></Label>
-    </WCINFO>
-    <ASports>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[a-Sports]]></Label>
-      <Description><![CDATA[Sportsbook]]></Description>
-    </ASports>
-    <ESports>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[e-Sports]]></Label>
-      <Description><![CDATA[Sportsbook]]></Description>
-    </ESports>
-    <VSports>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Virtual]]></Label>
-      <Description><![CDATA[v-Sports]]></Description>
-    </VSports>
-    <Poker>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Poker]]></Label>
-      <Description><![CDATA[Poker]]></Description>
-    </Poker>
-    <texasmahjong>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Texas Mahjong]]></Label>
-      <Description><![CDATA[Texas Mahjong]]></Description>
-    </texasmahjong>
-    <VSports-basketball>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Basketball]]></Label>
-      <Description><![CDATA[Sportsbook]]></Description>
-    </VSports-basketball>
-    <VSports-tennis>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Tennis]]></Label>
-      <Description><![CDATA[Sportsbook]]></Description>
-    </VSports-tennis>
-    <VSports-horseracing>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Horse Racing]]></Label>
-      <Description><![CDATA[Sportsbook]]></Description>
-    </VSports-horseracing>
-    <VSports-football>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Football]]></Label>
-      <Description><![CDATA[Sportsbook]]></Description>
-    </VSports-football>
-    <VSports-dogracing>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Dog Racing]]></Label>
-      <Description><![CDATA[Sportsbook]]></Description>
-    </VSports-dogracing>
-    <ISports>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[i-Sports]]></Label>
-      <Description><![CDATA[Sportsbook]]></Description>
-    </ISports>
-    <USports>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[u-Sports]]></Label>
-      <Description><![CDATA[Sportsbook]]></Description>
-    </USports>
-    <Lottery>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Lottery]]></Label>
-      <Description><![CDATA[Keno & Lotto]]></Description>
-    </Lottery>
-    <Keno>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Keno]]></Label>
-      <Description><![CDATA[Keno & Lotto]]></Description>
-    </Keno>
-    <ClubCrescendo>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Crescendo]]></Label>
-      <Description><![CDATA[Club Crescendo Slots]]></Description>
-    </ClubCrescendo>
-    <ClubDivino>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Divino]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubDivino>
-    <ClubW>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club W]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubW>
-    <ClubWPremier>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club W Premier]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubWPremier>
-    <ClubBravado>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Bravado]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubBravado>
-    <ClubMassimoSlots>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Massimo]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubMassimoSlots>
-    <ClubMassimoSlots2>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Massimo Download]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubMassimoSlots2>
-    <ClubMassimoCasino>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Massimo]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubMassimoCasino>
-    <ClubPalazzoSlots>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Palazzo]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubPalazzoSlots>
-    <ClubPalazzoSlots2>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Palazzo Download]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubPalazzoSlots2>
-    <ClubPalazzoCasino>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Palazzo]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubPalazzoCasino>
-    <Deposit>
-      <Url><![CDATA[/Deposit/Default.aspx]]></Url>
-    </Deposit>
-    <Withdrawal>
-      <Url><![CDATA[/Withdrawal/Default.aspx]]></Url>
-    </Withdrawal>
-    <FundTransfer>
-      <Url><![CDATA[/FundTransfer/Default.aspx]]></Url>
-    </FundTransfer>
-  </Products>
-  <Wallets>
-    <main><![CDATA[Main]]></main>
-    <asports><![CDATA[A-Sports]]></asports>
-    <esports><![CDATA[E-Sports]]></esports>
-    <isports><![CDATA[I-Sports]]></isports>
-    <lottery><![CDATA[Lottery]]></lottery>
-    <casino><![CDATA[Club W, Bravado, Apollo, Crescendo, Lotto, Divino, Massimo & Virtual]]></casino>
-    <playtech><![CDATA[Palazzo]]></playtech>
-    <binary><![CDATA[Binary]]></binary>
-    <poker><![CDATA[Poker (USD)]]></poker>
-    <sbtech><![CDATA[E-Sports]]></sbtech>
-	  <netent><![CDATA[Nuovo]]></netent>
-    <pmahjong><![CDATA[Texas Mahjong]]></pmahjong>
-  </Wallets>
+	<Products>
+		<WCINFO>
+			<Label><![CDATA[]]></Label>
+		</WCINFO>
+		<ASports>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[a-Sports]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</ASports>
+		<ESports>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[e-Sports]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</ESports>
+		<VSports>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Virtual]]></Label>
+			<Description><![CDATA[v-Sports]]></Description>
+		</VSports>
+		<Poker>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Poker]]></Label>
+			<Description><![CDATA[Poker]]></Description>
+		</Poker>
+		<texasmahjong>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Texas Mahjong]]></Label>
+			<Description><![CDATA[Texas Mahjong]]></Description>
+		</texasmahjong>
+		<VSports-basketball>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Basketball]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-basketball>
+		<VSports-tennis>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Tennis]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-tennis>
+		<VSports-horseracing>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Horse Racing]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-horseracing>
+		<VSports-football>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Football]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-football>
+		<VSports-dogracing>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Dog Racing]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-dogracing>
+		<ISports>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[i-Sports]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</ISports>
+		<USports>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[u-Sports]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</USports>
+		<Lottery>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Lottery]]></Label>
+			<Description><![CDATA[Keno & Lotto]]></Description>
+		</Lottery>
+		<Keno>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Keno]]></Label>
+			<Description><![CDATA[Keno & Lotto]]></Description>
+		</Keno>
+		<ClubCrescendo>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Crescendo]]></Label>
+			<Description><![CDATA[Club Crescendo Slots]]></Description>
+		</ClubCrescendo>
+		<ClubDivino>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Divino]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubDivino>
+		<ClubW>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club W]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubW>
+		<ClubWPremier>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club W Premier]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubWPremier>
+		<ClubBravado>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Bravado]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubBravado>
+		<ClubMassimoSlots>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Massimo]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubMassimoSlots>
+		<ClubMassimoSlots2>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Massimo Download]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubMassimoSlots2>
+		<ClubMassimoCasino>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Massimo]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubMassimoCasino>
+		<ClubPalazzoSlots>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Palazzo]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubPalazzoSlots>
+		<ClubPalazzoSlots2>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Palazzo Download]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubPalazzoSlots2>
+		<ClubPalazzoCasino>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Palazzo]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubPalazzoCasino>
+		<Deposit>
+			<Url><![CDATA[/Deposit/Default.aspx]]></Url>
+		</Deposit>
+		<Withdrawal>
+			<Url><![CDATA[/Withdrawal/Default.aspx]]></Url>
+		</Withdrawal>
+		<FundTransfer>
+			<Url><![CDATA[/FundTransfer/Default.aspx]]></Url>
+		</FundTransfer>
+	</Products>
+	<Wallets>
+		<main><![CDATA[Main]]></main>
+		<asports><![CDATA[A-Sports]]></asports>
+		<esports><![CDATA[E-Sports]]></esports>
+		<isports><![CDATA[I-Sports]]></isports>
+		<lottery><![CDATA[Lottery]]></lottery>
+		<casino><![CDATA[Club W, Bravado, Apollo, Crescendo, Lotto, Divino, Massimo & Virtual]]></casino>
+		<playtech><![CDATA[Palazzo]]></playtech>
+		<binary><![CDATA[Binary]]></binary>
+		<poker><![CDATA[Poker (USD)]]></poker>
+		<sbtech><![CDATA[E-Sports]]></sbtech>
+		<netent><![CDATA[Nuovo]]></netent>
+		<pmahjong><![CDATA[Texas Mahjong]]></pmahjong>
+	</Wallets>
+	<Popup>
+		<Palazzo>
+			<SafariTitle><![CDATA[Easy Steps to Play Club Palazzo Slots on Safari]]></SafariTitle>
+			<SafariSettings><![CDATA[In Safari Settings:]]></SafariSettings>
+			<SafariBlockPopup><![CDATA[Block pop-ups: OFF]]></SafariBlockPopup>
+			<SafariDoNotTrack><![CDATA[Do Not Track: OFF]]></SafariDoNotTrack>
+			<SafariBlockCookies><![CDATA[Block Cookies: Always Allow]]></SafariBlockCookies>
+		</Palazzo>
+	</Popup>
 </default>

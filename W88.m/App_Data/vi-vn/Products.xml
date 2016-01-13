@@ -1,119 +1,128 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
-  <Products>
-    <ASports>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[a-Thể thao]]></Label>
-      <Description><![CDATA[Sportsbook]]></Description>
-    </ASports>
-    <ESports>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[e-Thể thao]]></Label>
-      <Description><![CDATA[Sportsbook]]></Description>
-    </ESports>
-    <Poker>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Poker]]></Label>
-      <Description><![CDATA[Poker]]></Description>
-    </Poker>
-    <texasmahjong>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Texas Mạt Chược]]></Label>
-      <Description><![CDATA[Texas Mạt Chược]]></Description>
-    </texasmahjong>
-    <ISports>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[i-Thể thao]]></Label>
-      <Description><![CDATA[Sportsbook]]></Description>
-    </ISports>
-    <USports>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[u-Thể thao]]></Label>
-      <Description><![CDATA[Sportsbook]]></Description>
-    </USports>
-	<VSports>
-		<Url><![CDATA[]]></Url>
-		<Label><![CDATA[Virtual]]></Label>
-		<Description><![CDATA[v-Sports]]></Description>
-	</VSports>
-    <Lottery>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Xổ Số]]></Label>
-      <Description><![CDATA[iLotto & Keno]]></Description>
-    </Lottery>
-    <Keno>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Keno]]></Label>
-      <Description><![CDATA[iLotto & Keno]]></Description>
-    </Keno>
-    <ClubCrescendo>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Crescendo]]></Label>
-      <Description><![CDATA[Crescendo Slots]]></Description>
-    </ClubCrescendo>
-    <ClubDivino>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Divino]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubDivino>
-    <ClubW>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club W]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubW>
-    <ClubWPremier>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club W Premier]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubWPremier>
-    <ClubBravado>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Bravado]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubBravado>
-    <ClubMassimoSlots>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Massimo]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubMassimoSlots>
-    <ClubMassimoSlots2>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Massimo Tải về]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubMassimoSlots2>
-    <ClubMassimoCasino>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Massimo]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubMassimoCasino>
-    <ClubPalazzoSlots>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Palazzo]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubPalazzoSlots>
-    <ClubPalazzoSlots2>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Palazzo Tải về]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubPalazzoSlots2>
-    <ClubPalazzoCasino>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[Club Palazzo]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubPalazzoCasino>
-  </Products>
-  <Wallets>
-    <main><![CDATA[Tài Khoản Chính]]></main>
-    <asports><![CDATA[A-Thể Thao]]></asports>
-    <esports><![CDATA[E-Thể Thao]]></esports>
-    <isports><![CDATA[I-Thể Thao]]></isports>
-    <lottery><![CDATA[Xổ Số]]></lottery>
-    <casino><![CDATA[Club W, Bravado, Apollo, Crescendo, XỔ SỐ, Divino & Massimo]]></casino>
-    <playtech><![CDATA[Palazzo]]></playtech>
-    <binary><![CDATA[Tài Chính]]></binary>
-    <poker><![CDATA[Poker (USD)]]></poker>
-    <sbtech><![CDATA[E-Thể Thao]]></sbtech>
-	  <netent><![CDATA[Nuovo]]></netent>
-    <pmahjong><![CDATA[Texas Mạt Chược]]></pmahjong>
-  </Wallets>
+	<Products>
+		<ASports>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[a-Thể thao]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</ASports>
+		<ESports>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[e-Thể thao]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</ESports>
+		<Poker>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Poker]]></Label>
+			<Description><![CDATA[Poker]]></Description>
+		</Poker>
+		<texasmahjong>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Texas Mạt Chược]]></Label>
+			<Description><![CDATA[Texas Mạt Chược]]></Description>
+		</texasmahjong>
+		<ISports>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[i-Thể thao]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</ISports>
+		<USports>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[u-Thể thao]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</USports>
+		<VSports>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Virtual]]></Label>
+			<Description><![CDATA[v-Sports]]></Description>
+		</VSports>
+		<Lottery>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Xổ Số]]></Label>
+			<Description><![CDATA[iLotto & Keno]]></Description>
+		</Lottery>
+		<Keno>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Keno]]></Label>
+			<Description><![CDATA[iLotto & Keno]]></Description>
+		</Keno>
+		<ClubCrescendo>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Crescendo]]></Label>
+			<Description><![CDATA[Crescendo Slots]]></Description>
+		</ClubCrescendo>
+		<ClubDivino>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Divino]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubDivino>
+		<ClubW>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club W]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubW>
+		<ClubWPremier>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club W Premier]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubWPremier>
+		<ClubBravado>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Bravado]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubBravado>
+		<ClubMassimoSlots>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Massimo]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubMassimoSlots>
+		<ClubMassimoSlots2>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Massimo Tải về]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubMassimoSlots2>
+		<ClubMassimoCasino>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Massimo]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubMassimoCasino>
+		<ClubPalazzoSlots>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Palazzo]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubPalazzoSlots>
+		<ClubPalazzoSlots2>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Palazzo Tải về]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubPalazzoSlots2>
+		<ClubPalazzoCasino>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Palazzo]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubPalazzoCasino>
+	</Products>
+	<Wallets>
+		<main><![CDATA[Tài Khoản Chính]]></main>
+		<asports><![CDATA[A-Thể Thao]]></asports>
+		<esports><![CDATA[E-Thể Thao]]></esports>
+		<isports><![CDATA[I-Thể Thao]]></isports>
+		<lottery><![CDATA[Xổ Số]]></lottery>
+		<casino><![CDATA[Club W, Bravado, Apollo, Crescendo, XỔ SỐ, Divino & Massimo]]></casino>
+		<playtech><![CDATA[Palazzo]]></playtech>
+		<binary><![CDATA[Tài Chính]]></binary>
+		<poker><![CDATA[Poker (USD)]]></poker>
+		<sbtech><![CDATA[E-Thể Thao]]></sbtech>
+		<netent><![CDATA[Nuovo]]></netent>
+		<pmahjong><![CDATA[Texas Mạt Chược]]></pmahjong>
+	</Wallets>
+	<Popup>
+		<Palazzo>
+			<SafariTitle><![CDATA[Các bước hướng dẫn chơi Club Plazzo Slots trên trình duyệt Safari]]></SafariTitle>
+			<SafariSettings><![CDATA[Cài đặt trong trình duyệt Safari]]></SafariSettings>
+			<SafariBlockPopup><![CDATA[Chặn cửa sổ bật lên: Tắt]]></SafariBlockPopup>
+			<SafariDoNotTrack><![CDATA[Không theo dõi: Tắt]]></SafariDoNotTrack>
+			<SafariBlockCookies><![CDATA[Chặn Cookies: Luôn cho phép]]></SafariBlockCookies>
+		</Palazzo>
+	</Popup>
 </default>
