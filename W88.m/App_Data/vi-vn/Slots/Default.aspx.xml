@@ -3,6 +3,12 @@
 
   <Category>
     <Slot Label="SLOT">
+      <xc_mobileeastwindbattleslots>
+        <Label><![CDATA[xc_mobileeastwindbattleslots]]></Label>
+        <Description><![CDATA[xc_mobileeastwindbattleslots]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobileeastwindbattleslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobileeastwindbattleslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </xc_mobileeastwindbattleslots>
       <FireCrackers>
         <Label><![CDATA[Midnight Lucky Sky Slots]]></Label>
         <Description><![CDATA[Midnight Lucky Sky Slots]]></Description>

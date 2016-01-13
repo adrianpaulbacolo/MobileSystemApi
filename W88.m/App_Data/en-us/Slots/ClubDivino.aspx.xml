@@ -2,11 +2,37 @@
 <default>
   <Category>
     <Slot3D Version="IOS" Label="Slots 3D">
-      <Slot3D19 ProductId="598">
-        <ImageName><![CDATA[The-Tipsy-Tourist-mobile]]></ImageName>
-        <Label><![CDATA[The Tipsy Tourist]]></Label>
-        <Description><![CDATA[The Tipsy Tourist]]></Description>
-      </Slot3D19>
+      <Slot3D32 ProductId="616">
+        <ImageName><![CDATA[W88-Slots-Mobile-2-Million-B.C.]]></ImageName>
+        <Label><![CDATA[2 Million BC]]></Label>
+        <Description><![CDATA[2 Million BC]]></Description>
+      </Slot3D32>
+      <Slot3D28 ProductId="620">
+        <ImageName><![CDATA[W88-Slots-Mobile-A-Christmas-Carol]]></ImageName>
+        <Label><![CDATA[A Christmas Carol]]></Label>
+        <Description><![CDATA[A Christmas Carol]]></Description>
+      </Slot3D28>
+      <Slot3D29 ProductId="531">
+        <ImageName><![CDATA[W88-Slots-Mobile-Enchanted]]></ImageName>
+        <Label><![CDATA[Enchanted]]></Label>
+        <Description><![CDATA[Enchanted]]></Description>
+      </Slot3D29>
+      <Slot3D32 ProductId="406">
+        <ImageName><![CDATA[W88-Slots-Mobile-Gladiator]]></ImageName>
+        <Label><![CDATA[Gladiator]]></Label>
+        <Description><![CDATA[Gladiator]]></Description>
+      </Slot3D32>
+      <Slot3D30 ProductId="422">
+        <ImageName><![CDATA[W88-Slots-Mobile-Lost]]></ImageName>
+        <Label><![CDATA[Lost]]></Label>
+        <Description><![CDATA[Lost]]></Description>
+      </Slot3D30>
+      <Slot3D31 ProductId="412">
+        <ImageName><![CDATA[W88-Slots-Mobile-Madder-Scientist]]></ImageName>
+        <Label><![CDATA[Madder Scientist]]></Label>
+        <Description><![CDATA[Madder Scientist]]></Description>
+      </Slot3D31>
+      
       <Slot3D1 ProductId="391">
         <ImageName><![CDATA[W88-Slots-Mobile-A-Night-In-Paris]]></ImageName>
         <Label><![CDATA[A Night In Paris]]></Label>
@@ -109,6 +135,11 @@
           <Label><![CDATA[The Slotfather]]></Label>
           <Description><![CDATA[Mobster Themed 30 Line 5 Reel Slots3 Game Non Jackpot Version]]></Description>
         </Slot3D22>
+      <Slot3D19 ProductId="598">
+        <ImageName><![CDATA[The-Tipsy-Tourist-mobile]]></ImageName>
+        <Label><![CDATA[The Tipsy Tourist]]></Label>
+        <Description><![CDATA[The Tipsy Tourist]]></Description>
+      </Slot3D19>
         <Slot3D21 ProductId="385">
           <ImageName><![CDATA[W88-Slots-Mobile-The-True-Sheriff]]></ImageName>
           <Label><![CDATA[The True Sheriff]]></Label>
@@ -165,11 +196,37 @@
       </Slots1>
     </Slots>
     <Slot3D Version="ANDROID" Label="Slots 3D">
-      <Slot3D19 ProductId="599">
-        <ImageName><![CDATA[The-Tipsy-Tourist-mobile]]></ImageName>
-        <Label><![CDATA[The Tipsy Tourist]]></Label>
-        <Description><![CDATA[The Tipsy Tourist]]></Description>
-      </Slot3D19>
+      <Slot3D32 ProductId="617">
+        <ImageName><![CDATA[W88-Slots-Mobile-2-Million-B.C.]]></ImageName>
+        <Label><![CDATA[2 Million BC]]></Label>
+        <Description><![CDATA[2 Million BC]]></Description>
+      </Slot3D32>
+      <Slot3D28 ProductId="621">
+        <ImageName><![CDATA[W88-Slots-Mobile-A-Christmas-Carol]]></ImageName>
+        <Label><![CDATA[A Christmas Carol]]></Label>
+        <Description><![CDATA[A Christmas Carol]]></Description>
+      </Slot3D28>
+      <Slot3D29 ProductId="532">
+        <ImageName><![CDATA[W88-Slots-Mobile-Enchanted]]></ImageName>
+        <Label><![CDATA[Enchanted]]></Label>
+        <Description><![CDATA[Enchanted]]></Description>
+      </Slot3D29>
+      <Slot3D32 ProductId="407">
+        <ImageName><![CDATA[W88-Slots-Mobile-Gladiator]]></ImageName>
+        <Label><![CDATA[Gladiator]]></Label>
+        <Description><![CDATA[Gladiator]]></Description>
+      </Slot3D32>
+      <Slot3D30 ProductId="423">
+        <ImageName><![CDATA[W88-Slots-Mobile-Lost]]></ImageName>
+        <Label><![CDATA[Lost]]></Label>
+        <Description><![CDATA[Lost]]></Description>
+      </Slot3D30>
+      <Slot3D31 ProductId="413">
+        <ImageName><![CDATA[W88-Slots-Mobile-Madder-Scientist]]></ImageName>
+        <Label><![CDATA[Madder Scientist]]></Label>
+        <Description><![CDATA[Madder Scientist]]></Description>
+      </Slot3D31>
+      
       <Slot3D6 ProductId="392">
         <ImageName><![CDATA[W88-Slots-Mobile-A-Night-In-Paris]]></ImageName>
         <Label><![CDATA[A Night In Paris]]></Label>
@@ -270,6 +327,11 @@
         <Label><![CDATA[The Slotfather]]></Label>
         <Description><![CDATA[Mobster Themed 30 Line 5 Reel Slots3 Game Non Jackpot Version]]></Description>
       </Slot3D3>
+      <Slot3D19 ProductId="599">
+        <ImageName><![CDATA[The-Tipsy-Tourist-mobile]]></ImageName>
+        <Label><![CDATA[The Tipsy Tourist]]></Label>
+        <Description><![CDATA[The Tipsy Tourist]]></Description>
+      </Slot3D19>
       <Slot3D15 ProductId="386">
         <ImageName><![CDATA[W88-Slots-Mobile-The-True-Sheriff]]></ImageName>
         <Label><![CDATA[The True Sheriff]]></Label>
@@ -321,11 +383,37 @@
       </Slots1>
     </Slots>
     <Slot3D Version="WP" Label="Slots 3D">
-      <Slot3D26 ProductId="600">
-        <ImageName><![CDATA[The-Tipsy-Tourist-mobile]]></ImageName>
-        <Label><![CDATA[The Tipsy Tourist]]></Label>
-        <Description><![CDATA[The Tipsy Tourist]]></Description>
-      </Slot3D26>
+      <Slot3D32 ProductId="618">
+        <ImageName><![CDATA[W88-Slots-Mobile-2-Million-B.C.]]></ImageName>
+        <Label><![CDATA[2 Million BC]]></Label>
+        <Description><![CDATA[2 Million BC]]></Description>
+      </Slot3D32>
+      <Slot3D28 ProductId="622">
+        <ImageName><![CDATA[W88-Slots-Mobile-A-Christmas-Carol]]></ImageName>
+        <Label><![CDATA[A Christmas Carol]]></Label>
+        <Description><![CDATA[A Christmas Carol]]></Description>
+      </Slot3D28>
+      <Slot3D29 ProductId="533">
+        <ImageName><![CDATA[W88-Slots-Mobile-Enchanted]]></ImageName>
+        <Label><![CDATA[Enchanted]]></Label>
+        <Description><![CDATA[Enchanted]]></Description>
+      </Slot3D29>
+      <Slot3D32 ProductId="408">
+        <ImageName><![CDATA[W88-Slots-Mobile-Gladiator]]></ImageName>
+        <Label><![CDATA[Gladiator]]></Label>
+        <Description><![CDATA[Gladiator]]></Description>
+      </Slot3D32>
+      <Slot3D30 ProductId="424">
+        <ImageName><![CDATA[W88-Slots-Mobile-Lost]]></ImageName>
+        <Label><![CDATA[Lost]]></Label>
+        <Description><![CDATA[Lost]]></Description>
+      </Slot3D30>
+      <Slot3D31 ProductId="414">
+        <ImageName><![CDATA[W88-Slots-Mobile-Madder-Scientist]]></ImageName>
+        <Label><![CDATA[Madder Scientist]]></Label>
+        <Description><![CDATA[Madder Scientist]]></Description>
+      </Slot3D31>
+      
       <Slot3D6 ProductId="392">
         <ImageName><![CDATA[W88-Slots-Mobile-A-Night-In-Paris]]></ImageName>
         <Label><![CDATA[A Night In Paris]]></Label>
@@ -426,6 +514,11 @@
         <Label><![CDATA[The Slotfather]]></Label>
         <Description><![CDATA[Mobster Themed 30 Line 5 Reel Slots3 Game Non Jackpot Version]]></Description>
       </Slot3D3>
+      <Slot3D26 ProductId="600">
+        <ImageName><![CDATA[The-Tipsy-Tourist-mobile]]></ImageName>
+        <Label><![CDATA[The Tipsy Tourist]]></Label>
+        <Description><![CDATA[The Tipsy Tourist]]></Description>
+      </Slot3D26>
       <Slot3D15 ProductId="387">
         <ImageName><![CDATA[W88-Slots-Mobile-The-True-Sheriff]]></ImageName>
         <Label><![CDATA[The True Sheriff]]></Label>
