@@ -77,11 +77,6 @@ public class commonIp
         string strCountryCode = string.Empty;
         string strType = string.Empty;
 
-        using (wsIP2Loc.ServiceSoapClient wsInstance = new wsIP2Loc.ServiceSoapClient()) 
-        {
-            wsInstance.location(commonIp.remoteIP, ref strCountryCode, ref strType);
-        }
-
         if (strBlockedCountries.IndexOf(strCountryCode) > -1) 
         {
             //System.Web.HttpContext.Current.Response.Redirect("/forbidden.html");

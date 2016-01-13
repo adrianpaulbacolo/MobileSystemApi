@@ -25,8 +25,6 @@ public partial class _Secure_ProcessLoginBySessionId : System.Web.UI.Page
         bool isSystemError = false;
 
         //string strLanguage = string.Empty;
-        string strLoginIp = string.Empty;
-        string strCountryCode = string.Empty;
         string strSessionId = string.Empty;
         string strProcessCode = string.Empty;
         string strProcessMessage = string.Empty;
@@ -35,8 +33,6 @@ public partial class _Secure_ProcessLoginBySessionId : System.Web.UI.Page
 
         #region populateVariables
         strSessionId = commonVariables.CurrentMemberSessionId;
-        strLoginIp = HttpContext.Current.Request.Form.Get("ip");
-        strCountryCode = HttpContext.Current.Request.Form.Get("country");
 
         if (string.IsNullOrEmpty(strSessionId))
         {
@@ -55,7 +51,7 @@ public partial class _Secure_ProcessLoginBySessionId : System.Web.UI.Page
                 using (wsMemberMS1.memberWSSoapClient svcInstance = new wsMemberMS1.memberWSSoapClient())
                 {
                     System.Data.DataSet dsSignin = null;
-                    dsSignin = svcInstance.MemberSessionCheck(strSessionId, strLoginIp);
+                    dsSignin = svcInstance.MemberSessionCheck(strSessionId, commonIp.UserIP);
 
                     if (dsSignin.Tables[0].Rows.Count > 0)
                     {
@@ -63,7 +59,7 @@ public partial class _Secure_ProcessLoginBySessionId : System.Web.UI.Page
                         switch (strProcessCode)
                         {
                             case "0":
-                                strProcessMessage = "Exception";
+                                strProcessMessage = commonCulture.ElementValues.getResourceString("Exception", xeErrors);
                                 break;
                             case "1":
                                 string strMemberSessionId = Convert.ToString(dsSignin.Tables[0].Rows[0]["memberSessionId"]);
@@ -88,14 +84,18 @@ public partial class _Secure_ProcessLoginBySessionId : System.Web.UI.Page
                                 commonVariables.ClearSessionVariables();
                                 commonCookie.ClearCookies();
                                 break;
+                            case "13":
+                                commonVariables.ClearSessionVariables();
+                                commonCookie.ClearCookies();
+                                break;
                             case "21":
-                                strProcessMessage = "InvalidUsername";
+                                strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/InvalidUsername", xeErrors);
                                 break;
                             case "22":
-                                strProcessMessage = "InactiveAccount";
+                                strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/InactiveAccount", xeErrors);
                                 break;
                             case "23":
-                                strProcessMessage = "InvalidPassword";
+                                strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/InvalidPassword", xeErrors);
                                 break;
                         }
                     }
@@ -110,7 +110,7 @@ public partial class _Secure_ProcessLoginBySessionId : System.Web.UI.Page
             }
         }
 
-        strProcessRemark = string.Format("SessionId: {0} | IPAddress: {1} | CountryCode: {2} | ProcessCode: {3} | ProcessMessage: {4}", strSessionId, strLoginIp, strCountryCode, strProcessCode, strProcessMessage);
+        strProcessRemark = string.Format("SessionId: {0} | IPAddress: {1} | ProcessCode: {2} | ProcessMessage: {3}", strSessionId, commonIp.UserIP, strProcessCode, strProcessMessage);
 
         intProcessSerialId += 1;
         commonAuditTrail.appendLog("system", strPageName, "InitiateProcessLogin", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
