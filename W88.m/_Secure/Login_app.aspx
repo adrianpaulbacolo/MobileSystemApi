@@ -142,22 +142,10 @@
                 }
                 else {
                     GPINTMOBILE.ShowSplash();
-                    $.ajax({
-                        contentType: "application/json; charset=utf-8",
-                        url: "https://ip2loc.w2script.com/IP2LOC?v=" + new Date().getTime(),
-                        dataType: "jsonp",
-                        success: function (data) {
-                            initiateLogin(data);
-                            $('#btnSubmit').attr("disabled", false);
-                            e.preventDefault();
-                            //hideSplash();
-                            return;
-                        },
-                        error: function (err) {
-                            window.location.replace('/Default.aspx');
-                            GPINTMOBILE.HideSplash();
-                        }
-                    });
+
+                    initiateLogin(data);
+                    $('#btnSubmit').attr("disabled", false);
+                    e.preventDefault();
                 }
                 e.preventDefault();
                 return;
