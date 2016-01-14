@@ -123,7 +123,8 @@
 			<SafariSettings><![CDATA[Settingan di Safari]]></SafariSettings>
 			<SafariBlockPopup><![CDATA[Block pop-ups: OFF]]></SafariBlockPopup>
 			<SafariDoNotTrack><![CDATA[Do Not Track: OFF]]></SafariDoNotTrack>
-			<SafariBlockCookies><![CDATA[Block Cookies: Always Allow]]></SafariBlockCookies>
+			<SafariBlockCookies><![CDATA[Block Cookies: Selalu Diijinkan]]></SafariBlockCookies>
 		</Palazzo>
+		<DoNotShow><![CDATA[Jangan tampilkan lagi]]></DoNotShow>
 	</Popup>
 </default>

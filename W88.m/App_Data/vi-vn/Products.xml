@@ -124,5 +124,6 @@
 			<SafariDoNotTrack><![CDATA[Không theo dõi: Tắt]]></SafariDoNotTrack>
 			<SafariBlockCookies><![CDATA[Chặn Cookies: Luôn cho phép]]></SafariBlockCookies>
 		</Palazzo>
+		<DoNotShow><![CDATA[Không hiển thị lại]]></DoNotShow>
 	</Popup>
 </default>

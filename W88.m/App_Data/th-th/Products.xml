@@ -124,5 +124,6 @@
 			<SafariDoNotTrack><![CDATA[ปิดการตั้งค่า Do Not Track]]></SafariDoNotTrack>
 			<SafariBlockCookies><![CDATA[อนุญาตให้ทำการ Block Cookies]]></SafariBlockCookies>
 		</Palazzo>
+		<DoNotShow><![CDATA[ไม่แสดงอีกครั้ง]]></DoNotShow>
 	</Popup>
 </default>
