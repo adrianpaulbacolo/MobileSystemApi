@@ -143,7 +143,7 @@
                 else {
                     GPINTMOBILE.ShowSplash();
 
-                    initiateLogin(data);
+                    initiateLogin();
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
                 }
@@ -158,7 +158,7 @@
                 $dialog.dialog('close');
             }
 
-            function initiateLogin(postData) {
+            function initiateLogin() {
                 console.log('txt: ' + $('#txtCaptcha').val());
                 $.ajax({
                     type: "POST",
@@ -169,7 +169,7 @@
                         alert('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
                         window.location.replace('/Default.aspx');
                     },
-                    data: { txtUsername: $('#txtUsername').val(), txtPassword: $('#txtPassword').val(), txtCaptcha: $('#txtCaptcha').val(), txtIPAddress: postData.ip, txtCountry: postData.country, txtPermission: postData.permission, ioBlackBox: $('#ioBlackBox').val() },
+                    data: { txtUsername: $('#txtUsername').val(), txtPassword: $('#txtPassword').val(), txtCaptcha: $('#txtCaptcha').val(), ioBlackBox: $('#ioBlackBox').val() },
                     success: function (xml) {
                         switch ($(xml).find('ErrorCode').text()) {
                             case "1":
