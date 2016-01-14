@@ -3,6 +3,37 @@
 
   <Category>
     <Slot3D Version="IOS" Label="Slot 3D IOS">
+      <Slot3D32 ProductId="616">
+        <ImageName><![CDATA[W88-Slots-Mobile-2-Million-B.C.]]></ImageName>
+        <Label><![CDATA[2 Million BC]]></Label>
+        <Description><![CDATA[2 Million BC]]></Description>
+      </Slot3D32>
+      <Slot3D28 ProductId="620">
+        <ImageName><![CDATA[W88-Slots-Mobile-A-Christmas-Carol]]></ImageName>
+        <Label><![CDATA[A Christmas Carol]]></Label>
+        <Description><![CDATA[A Christmas Carol]]></Description>
+      </Slot3D28>
+      <Slot3D29 ProductId="531">
+        <ImageName><![CDATA[W88-Slots-Mobile-Enchanted]]></ImageName>
+        <Label><![CDATA[Enchanted]]></Label>
+        <Description><![CDATA[Enchanted]]></Description>
+      </Slot3D29>
+      <Slot3D32 ProductId="406">
+        <ImageName><![CDATA[W88-Slots-Mobile-Gladiator]]></ImageName>
+        <Label><![CDATA[Gladiator]]></Label>
+        <Description><![CDATA[Gladiator]]></Description>
+      </Slot3D32>
+      <Slot3D30 ProductId="422">
+        <ImageName><![CDATA[W88-Slots-Mobile-Lost]]></ImageName>
+        <Label><![CDATA[Lost]]></Label>
+        <Description><![CDATA[Lost]]></Description>
+      </Slot3D30>
+      <Slot3D31 ProductId="412">
+        <ImageName><![CDATA[W88-Slots-Mobile-Madder-Scientist]]></ImageName>
+        <Label><![CDATA[Madder Scientist]]></Label>
+        <Description><![CDATA[Madder Scientist]]></Description>
+      </Slot3D31>
+      
       <!--
       <Slot3D1 ProductId="483">
         <ImageName><![CDATA[W88-Slots-Mobile-Puppy-Love]]></ImageName>
@@ -151,6 +182,36 @@
       </Slots1>
     </Slots>
     <Slot3D Version="ANDROID" Label="Slot 3D Android">
+      <Slot3D32 ProductId="617">
+        <ImageName><![CDATA[W88-Slots-Mobile-2-Million-B.C.]]></ImageName>
+        <Label><![CDATA[2 Million BC]]></Label>
+        <Description><![CDATA[2 Million BC]]></Description>
+      </Slot3D32>
+      <Slot3D28 ProductId="621">
+        <ImageName><![CDATA[W88-Slots-Mobile-A-Christmas-Carol]]></ImageName>
+        <Label><![CDATA[A Christmas Carol]]></Label>
+        <Description><![CDATA[A Christmas Carol]]></Description>
+      </Slot3D28>
+      <Slot3D29 ProductId="532">
+        <ImageName><![CDATA[W88-Slots-Mobile-Enchanted]]></ImageName>
+        <Label><![CDATA[Enchanted]]></Label>
+        <Description><![CDATA[Enchanted]]></Description>
+      </Slot3D29>
+      <Slot3D32 ProductId="407">
+        <ImageName><![CDATA[W88-Slots-Mobile-Gladiator]]></ImageName>
+        <Label><![CDATA[Gladiator]]></Label>
+        <Description><![CDATA[Gladiator]]></Description>
+      </Slot3D32>
+      <Slot3D30 ProductId="423">
+        <ImageName><![CDATA[W88-Slots-Mobile-Lost]]></ImageName>
+        <Label><![CDATA[Lost]]></Label>
+        <Description><![CDATA[Lost]]></Description>
+      </Slot3D30>
+      <Slot3D31 ProductId="413">
+        <ImageName><![CDATA[W88-Slots-Mobile-Madder-Scientist]]></ImageName>
+        <Label><![CDATA[Madder Scientist]]></Label>
+        <Description><![CDATA[Madder Scientist]]></Description>
+      </Slot3D31>
       <Slot3D1 ProductId="522">
         <ImageName><![CDATA[W88-Slots-Mobile-Pinocchio]]></ImageName>
         <Label><![CDATA[Pinocchio]]></Label>
@@ -297,6 +358,36 @@
       </Slots1>
     </Slots>
     <Slot3D Version="WP" Label="Slot 3D WP">
+      <Slot3D32 ProductId="618">
+        <ImageName><![CDATA[W88-Slots-Mobile-2-Million-B.C.]]></ImageName>
+        <Label><![CDATA[2 Million BC]]></Label>
+        <Description><![CDATA[2 Million BC]]></Description>
+      </Slot3D32>
+      <Slot3D28 ProductId="622">
+        <ImageName><![CDATA[W88-Slots-Mobile-A-Christmas-Carol]]></ImageName>
+        <Label><![CDATA[A Christmas Carol]]></Label>
+        <Description><![CDATA[A Christmas Carol]]></Description>
+      </Slot3D28>
+      <Slot3D29 ProductId="533">
+        <ImageName><![CDATA[W88-Slots-Mobile-Enchanted]]></ImageName>
+        <Label><![CDATA[Enchanted]]></Label>
+        <Description><![CDATA[Enchanted]]></Description>
+      </Slot3D29>
+      <Slot3D32 ProductId="408">
+        <ImageName><![CDATA[W88-Slots-Mobile-Gladiator]]></ImageName>
+        <Label><![CDATA[Gladiator]]></Label>
+        <Description><![CDATA[Gladiator]]></Description>
+      </Slot3D32>
+      <Slot3D30 ProductId="424">
+        <ImageName><![CDATA[W88-Slots-Mobile-Lost]]></ImageName>
+        <Label><![CDATA[Lost]]></Label>
+        <Description><![CDATA[Lost]]></Description>
+      </Slot3D30>
+      <Slot3D31 ProductId="414">
+        <ImageName><![CDATA[W88-Slots-Mobile-Madder-Scientist]]></ImageName>
+        <Label><![CDATA[Madder Scientist]]></Label>
+        <Description><![CDATA[Madder Scientist]]></Description>
+      </Slot3D31>
       <Slot3D1 ProductId="523">
       <ImageName><![CDATA[W88-Slots-Mobile-Pinocchio]]></ImageName>
       <Label><![CDATA[Pinocchio]]></Label>

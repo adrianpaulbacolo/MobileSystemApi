@@ -3,7 +3,12 @@
 
   <Category>
     <Slot Label="Slots">
-
+      <!--<xc_mobileeastwindbattleslots>
+        <Label><![CDATA[xc_mobileeastwindbattleslots]]></Label>
+        <Description><![CDATA[xc_mobileeastwindbattleslots]]></Description>
+        <PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobileeastwindbattleslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+        <PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobileeastwindbattleslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+      </xc_mobileeastwindbattleslots>-->
       <xc_mobiledoublebonusslots>
         <Label><![CDATA[xc_mobiledoublebonusslots]]></Label>
         <Description><![CDATA[xc_mobiledoublebonusslots]]></Description>
