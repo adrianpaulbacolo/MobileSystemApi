@@ -194,6 +194,7 @@
                 </li>
             </ul>
         </li>
+
         <!-- Slots -->
         <li data-icon="false">
             <a class="nav-slots">
@@ -473,3 +474,30 @@
         });
     });
 </script>
+
+<div id="palazzoModal" data-role="popup" data-overlay-theme="b" data-theme="b" data-history="false">
+    <a href="#" data-rel="back" class="close close-enhanced" id="palazzoModalClose">&times;</a>
+    <br>
+    <h1 class="title">
+        <img src="/_Static/Images/logo-<%=commonVariables.SelectedLanguageShort%>.png" width="220" class="logo img-responsive" alt="logo">
+    </h1>
+    <div class="padding">
+        <div class="download-app padding">
+            <h2 class="title"><%=commonCulture.ElementValues.getResourceXPathString("/Popup/Palazzo/SafariTitle", commonVariables.ProductsXML)%></h2>
+            <div>
+                <span><%=commonCulture.ElementValues.getResourceXPathString("/Popup/Palazzo/SafariSettings", commonVariables.ProductsXML)%></span><br>
+            </div>
+            <ul>
+                <li><%=commonCulture.ElementValues.getResourceXPathString("/Popup/Palazzo/SafariBlockPopup", commonVariables.ProductsXML)%></li>
+                <li><%=commonCulture.ElementValues.getResourceXPathString("/Popup/Palazzo/SafariDoNotTrack", commonVariables.ProductsXML)%></li>
+                <li><%=commonCulture.ElementValues.getResourceXPathString("/Popup/Palazzo/SafariBlockCookies", commonVariables.ProductsXML)%></li>
+            </ul>
+        </div>
+    </div>
+    <div class="ui-checkbox">
+        <label for="noShowModal">
+            <small>Do not show again</small>
+        </label>
+        <input type="checkbox" name="noShowPalazzoModal" id="noShowPalazzoModal" data-enhanced="true">
+    </div>
+</div>

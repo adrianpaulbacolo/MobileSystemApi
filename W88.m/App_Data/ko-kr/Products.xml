@@ -1,119 +1,128 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
-  <Products>
-    <ASports>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[a-스포츠]]></Label>
-      <Description><![CDATA[Sportsbook]]></Description>
-    </ASports>
-    <ESports>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[e-스포츠]]></Label>
-      <Description><![CDATA[Sportsbook]]></Description>
-    </ESports>
-    <Poker>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[포커]]></Label>
-      <Description><![CDATA[포커]]></Description>
-    </Poker>
-    <texasmahjong>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[텍사스 마종]]></Label>
-      <Description><![CDATA[텍사스 마종]]></Description>
-    </texasmahjong>
-    <ISports>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[i-스포츠]]></Label>
-      <Description><![CDATA[Sportsbook]]></Description>
-    </ISports>
-    <VSports>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[가상 스포츠]]></Label>
-      <Description><![CDATA[v-Sports]]></Description>
-    </VSports>
-    <USports>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[u-스포츠]]></Label>
-      <Description><![CDATA[Sportsbook]]></Description>
-    </USports>
-    <Lottery>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[복권]]></Label>
-      <Description><![CDATA[키노 & 로또]]></Description>
-    </Lottery>
-    <Keno>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[키노]]></Label>
-      <Description><![CDATA[키노 & 로또]]></Description>
-    </Keno>
-    <ClubCrescendo>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[크레센도]]></Label>
-      <Description><![CDATA[Crescendo Slots]]></Description>
-    </ClubCrescendo>
-    <ClubDivino>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[디비노]]></Label>
-      <Description><![CDATA[클럽 브라바도 3D]]></Description>
-    </ClubDivino>
-    <ClubW>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[클럽 W]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubW>
-    <ClubWPremier>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[클럽 W 프리미어]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubWPremier>
-    <ClubBravado>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[브라바도]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubBravado>
-    <ClubMassimoSlots>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[마시모]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubMassimoSlots>
-    <ClubMassimoSlots2>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[마시모 다운로드]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubMassimoSlots2>
-    <ClubMassimoCasino>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[클럽 마시모]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubMassimoCasino>
-    <ClubPalazzoSlots>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[팔라쪼]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubPalazzoSlots>
-    <ClubPalazzoSlots2>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[팔라쪼 다운로드]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubPalazzoSlots2>
-    <ClubPalazzoCasino>
-      <Url><![CDATA[]]></Url>
-      <Label><![CDATA[팔라쪼]]></Label>
-      <Description><![CDATA[]]></Description>
-    </ClubPalazzoCasino>    
-  </Products>
-  <Wallets>
-    <main><![CDATA[메인]]></main>
-    <asports><![CDATA[A-스포츠]]></asports>
-    <esports><![CDATA[E-스포츠]]></esports>
-    <isports><![CDATA[I-스포츠]]></isports>
-    <lottery><![CDATA[복권]]></lottery>
-    <casino><![CDATA[클럽 W, 브라바도, 아폴로, 크레센도, 복권, 디비노 & 마시모]]></casino>
-    <playtech><![CDATA[팔라쪼]]></playtech>
-    <binary><![CDATA[바이너리]]></binary>
-    <poker><![CDATA[포커 (USD)]]></poker>
-    <sbtech><![CDATA[E-스포츠]]></sbtech>
-	  <netent><![CDATA[누오보]]></netent>
-    <pmahjong><![CDATA[텍사스 마종]]></pmahjong>
-  </Wallets>
+	<Products>
+		<ASports>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[a-스포츠]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</ASports>
+		<ESports>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[e-스포츠]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</ESports>
+		<Poker>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[포커]]></Label>
+			<Description><![CDATA[포커]]></Description>
+		</Poker>
+		<texasmahjong>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[텍사스 마종]]></Label>
+			<Description><![CDATA[텍사스 마종]]></Description>
+		</texasmahjong>
+		<ISports>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[i-스포츠]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</ISports>
+		<VSports>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[가상 스포츠]]></Label>
+			<Description><![CDATA[v-Sports]]></Description>
+		</VSports>
+		<USports>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[u-스포츠]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</USports>
+		<Lottery>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[복권]]></Label>
+			<Description><![CDATA[키노 & 로또]]></Description>
+		</Lottery>
+		<Keno>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[키노]]></Label>
+			<Description><![CDATA[키노 & 로또]]></Description>
+		</Keno>
+		<ClubCrescendo>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[크레센도]]></Label>
+			<Description><![CDATA[Crescendo Slots]]></Description>
+		</ClubCrescendo>
+		<ClubDivino>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[디비노]]></Label>
+			<Description><![CDATA[클럽 브라바도 3D]]></Description>
+		</ClubDivino>
+		<ClubW>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[클럽 W]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubW>
+		<ClubWPremier>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[클럽 W 프리미어]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubWPremier>
+		<ClubBravado>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[브라바도]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubBravado>
+		<ClubMassimoSlots>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[마시모]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubMassimoSlots>
+		<ClubMassimoSlots2>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[마시모 다운로드]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubMassimoSlots2>
+		<ClubMassimoCasino>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[클럽 마시모]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubMassimoCasino>
+		<ClubPalazzoSlots>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[팔라쪼]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubPalazzoSlots>
+		<ClubPalazzoSlots2>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[팔라쪼 다운로드]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubPalazzoSlots2>
+		<ClubPalazzoCasino>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[팔라쪼]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubPalazzoCasino>
+	</Products>
+	<Wallets>
+		<main><![CDATA[메인]]></main>
+		<asports><![CDATA[A-스포츠]]></asports>
+		<esports><![CDATA[E-스포츠]]></esports>
+		<isports><![CDATA[I-스포츠]]></isports>
+		<lottery><![CDATA[복권]]></lottery>
+		<casino><![CDATA[클럽 W, 브라바도, 아폴로, 크레센도, 복권, 디비노 & 마시모]]></casino>
+		<playtech><![CDATA[팔라쪼]]></playtech>
+		<binary><![CDATA[바이너리]]></binary>
+		<poker><![CDATA[포커 (USD)]]></poker>
+		<sbtech><![CDATA[E-스포츠]]></sbtech>
+		<netent><![CDATA[누오보]]></netent>
+		<pmahjong><![CDATA[텍사스 마종]]></pmahjong>
+	</Wallets>
+	<Popup>
+		<Palazzo>
+			<SafariTitle><![CDATA[Safari 로 클럽 팔라쪼를 즐기는 방법]]></SafariTitle>
+			<SafariSettings><![CDATA[Safari 설정:]]></SafariSettings>
+			<SafariBlockPopup><![CDATA[팝업 차단 : OFF]]></SafariBlockPopup>
+			<SafariDoNotTrack><![CDATA[추적 안함 : OFF]]></SafariDoNotTrack>
+			<SafariBlockCookies><![CDATA[쿠키 차단 : 항상 허용]]></SafariBlockCookies>
+		</Palazzo>
+	</Popup>
 </default>
