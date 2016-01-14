@@ -40,8 +40,7 @@
                 });
 
                 var isSafari = navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1 && navigator.userAgent.indexOf('Android') == -1;
-                if (isSafari)
-                {
+                if (isSafari) {
                     var palazzoDL = Cookies().getCookie('palazzo_download')
 
                     if (palazzoDL == '' || palazzoDL == '0' || parseInt(palazzoDL) == 0) {
@@ -52,13 +51,25 @@
                         $('#noShowPalazzoModal').attr('checked', 'checked');
                     }
                 }
-                
+
                 $('#noShowPalazzoModal').click(function () {
                     if ($('#noShowPalazzoModal').is(':checked')) {
                         Cookies().setCookie('palazzo_download', '1', 365);
                     }
                     else {
                         Cookies().setCookie('palazzo_download', '0', 0);
+                    }
+                });
+
+                var isCloseByClicked = false;
+
+                $('#palazzoModalClose').click(function () {
+                    isCloseByClicked = true;
+                });
+
+                $("#palazzoModal").on("popupafterclose", function () {
+                    if (!isCloseByClicked) {
+                        $('#palazzoModal').popup('open');
                     }
                 });
 
