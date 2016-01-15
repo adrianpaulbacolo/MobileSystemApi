@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Xml.Linq;
 
@@ -65,6 +66,9 @@ public partial class Deposit_Help2Pay : BasePage
         
             System.Threading.Tasks.Task.WaitAll(t1, t2);
 
+            HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
+
+            commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "help2pay");
         }
     }
 

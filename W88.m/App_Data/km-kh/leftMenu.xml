@@ -83,5 +83,11 @@
 	<referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
 	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
 
+
 	<close><![CDATA[បិទ]]></close>
+
+  <accountId><![CDATA[Neteller គណនី]]></accountId>
+  <secureId><![CDATA[Neteller ពាក្យសម្ងាត់]]></secureId>
+  
+
 </menu>

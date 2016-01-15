@@ -84,4 +84,8 @@
 	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
 
 	<close><![CDATA[TUTUP]]></close>
+
+  <accountId><![CDATA[Neteller Rekening]]></accountId>
+  <secureId><![CDATA[Neteller Password]]></secureId>
+
 </menu>

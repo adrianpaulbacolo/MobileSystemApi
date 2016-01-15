@@ -10,15 +10,18 @@
         padding: 0;
         list-style: none;
     }
+
     .item {
         position: relative;
         overflow: hidden;
         margin-bottom: 1em;
     }
+
     label {
         font-size: 1em;
         color: $energized;
     }
+
     .ui-body-inherit {
         color: $strong-color;
         border: transparent;
@@ -26,10 +29,12 @@
         background-color: transparent;
         @include box-shadow(none);
     }
+
     .ui-input-text {
         margin: 0;
         border-bottom: 1px solid $border-input-color !important;
         background-color: transparent !important;
+
         input,
         textarea {
             padding-left: 0;
@@ -37,17 +42,25 @@
             @include placeholder($strong-color);
         }
     }
+
+    input.ui-input-number-secure[type=number] {
+        -webkit-text-security: disc;
+    }
+
     textarea {
         &.ui-input-text {
             padding-left: 0;
             color: $strong-color;
         }
     }
+
     .row > .col > .ui-btn {
         margin: 0;
     }
+
     .item-checkbox {
         margin-bottom: 0;
+
         .ui-checkbox-on,
         .ui-icon-check {
             &:after {
@@ -57,12 +70,12 @@
             }
         }
     }
-
     // forced style
     .ui-btn.ui-input-btn,
     #btnSubmit {
         @extend .btn-primary;
     }
+
     #btnSubmit {
         display: block;
         width: 100%;
@@ -72,8 +85,13 @@
     }
 }
 
-.captcha {float: right}
-.imgCaptcha {height: 35px}
+.captcha {
+    float: right;
+}
+
+.imgCaptcha {
+    height: 35px;
+}
 
 input,
 textarea,
@@ -93,40 +111,54 @@ select {
     color: $primary-color;
     text-align: center;
     font-size: 1.5em;
+
     &:before {
         @include transform(rotate(90deg));
     }
+
     .ui-input-btn {
         text-indent: -9999px;
         position: absolute;
-        top: 0; margin: 0;
-        width: 100%; height: 0;
+        top: 0;
+        margin: 0;
+        width: 100%;
+        height: 0;
         padding: 18px 0;
         @include opacity(0);
     }
-    #btnSwap {}
+
+    #btnSwap {
+    }
 }
 
 .download-app {
     // background-color: darken($primary-color, 34%);
     background-color: #111;
+
     .download-icon {
         text-align: right;
     }
+
     .download-summary {
         .title {
             margin-top: 10px;
             margin-bottom: 0;
         }
-        p {margin-bottom: 0}
+
+        p {
+            margin-bottom: 0;
+        }
     }
+
     .ion-social-android {
         font-size: 50px;
+
         &, &:before {
             line-height: 50px;
             color: #A4C639;
         }
     }
+
     .ui-btn {
         margin: 0 auto;
         padding: .75em;
@@ -134,8 +166,7 @@ select {
     }
 }
 
-.ui-mini, .ui-select, .ui-input-text
-.ui-mini .ui-input-text input,
+.ui-mini, .ui-select, .ui-input-text .ui-mini .ui-input-text input,
 .ui-mini .ui-input-search input,
 .ui-input-text.ui-mini input,
 .ui-input-search.ui-mini input,

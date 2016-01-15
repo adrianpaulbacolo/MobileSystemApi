@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Xml.XPath;
 
@@ -83,7 +84,10 @@ public partial class Deposit_Default : BasePage
 
             getMainWalletBalance("0");
 
+            HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
 
+            commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "default");
+            
         }
         string test = commonVariables.GetSessionVariable("CurrencyCode").ToString();
         if (commonVariables.GetSessionVariable("CurrencyCode").ToString() == "MYR" && drpDepositChannel.Text == "CDM")
@@ -266,7 +270,7 @@ public partial class Deposit_Default : BasePage
                     {
                         xeResponse = svcInstance.createFastDepositTransactionV1(lngOperatorId, strMemberCode, strDepositChannel, Convert.ToInt64(commonVariables.DepositMethod.FastDeposit),
                                     strCurrencyCode, Convert.ToDecimal(strDepositAmount), Convert.ToInt64(strSystemAccount), strAccountName, strAccountNumber, dtDepositDateTime,
-                                    strReferenceId, strBankCode, strBankName, strBankNameInput, Convert.ToString(commonVariables.TransactionSource.Mobile));
+                                    strReferenceId, strBankCode, strBankName, strBankNameInput, Convert.ToString(DepositServices.DepositSource.Mobile));
 
                         if (xeResponse == null)
                         {

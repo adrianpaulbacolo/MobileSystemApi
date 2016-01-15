@@ -90,5 +90,10 @@
 	<referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
 	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
 
+
 	<close><![CDATA[ĐÓNG]]></close>
+
+  <accountId><![CDATA[Neteller Tài Khoản]]></accountId>
+  <secureId><![CDATA[Neteller Mật Khẩu]]></secureId>
+
 </menu>

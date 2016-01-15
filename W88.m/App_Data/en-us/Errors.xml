@@ -132,6 +132,8 @@
     <error-7><![CDATA[Maximum daily submission count exceeded]]></error-7>
     <error-99><![CDATA[Sorry, a server error has occurred]]></error-99>
 
+	<NetellerDepositFailed><![CDATA[error create neteller deposit]]></NetellerDepositFailed> 
+
     <Exception><![CDATA[Unable to process request]]></Exception>
     <!--
     <errorAmountMinLimit><![CDATA[Amount is less than min limit]]></errorAmountMinLimit>

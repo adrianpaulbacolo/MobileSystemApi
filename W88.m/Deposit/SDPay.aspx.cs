@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 public partial class Deposit_SDPay : BasePage
@@ -62,6 +63,10 @@ public partial class Deposit_SDPay : BasePage
             System.Threading.Tasks.Task t1 = System.Threading.Tasks.Task.Factory.StartNew(this.InitialisePaymentLimits);
 
             System.Threading.Tasks.Task.WaitAll(t1);
+
+            HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
+
+            commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "sdpay");
         }
     }
 

@@ -91,5 +91,11 @@
 	<referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
 	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
 
+
 	<close><![CDATA[閉じる]]></close>
+  
+  <accountId><![CDATA[NETELLER アカウント番号]]></accountId>
+  <secureId><![CDATA[NETELLER セキュリティーコード]]></secureId>
+
+
 </menu>

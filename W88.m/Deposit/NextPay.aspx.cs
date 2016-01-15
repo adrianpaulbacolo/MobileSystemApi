@@ -8,6 +8,7 @@ using System.Net;
 using System.Text;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 public partial class Deposit_NextPay : BasePage
@@ -69,6 +70,10 @@ public partial class Deposit_NextPay : BasePage
             System.Threading.Tasks.Task t1 = System.Threading.Tasks.Task.Factory.StartNew(this.InitialisePaymentLimits);
 
             System.Threading.Tasks.Task.WaitAll(t1);
+
+            HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
+
+            commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "nextpay");
         }
     }
 

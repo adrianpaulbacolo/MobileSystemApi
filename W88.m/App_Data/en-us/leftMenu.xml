@@ -93,4 +93,8 @@
 	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
 
 	<close><![CDATA[CLOSE]]></close>
+  
+  <accountId><![CDATA[NETELLER Account ID]]></accountId>
+  <secureId><![CDATA[NETELLER Secure ID]]></secureId>
+  
 </menu>

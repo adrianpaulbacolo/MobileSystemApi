@@ -9,6 +9,7 @@ using System.Net;
 using System.Text;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 public partial class Deposit_DaddyPay : BasePage
@@ -79,20 +80,20 @@ public partial class Deposit_DaddyPay : BasePage
             System.Threading.Tasks.Task.WaitAll(t1);
 
             string value = Request.QueryString["value"].ToString();
+            HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
+
 
             if (value == "1")
             {
-                //daddyPayQR_link.Attributes.Remove("class");
-                daddyPay_link.Attributes.Add("class", "ui-btn-active");
                 account_txt.Visible = false;
                 accountName_txt.Visible = false;
+                commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "daddypay");
             }
             else if (value == "2")
             {
-                //daddyPayQR_link.Attributes.Add("class", "ui-btn-active");
-                daddyPay_link.Attributes.Remove("class");
                 account_txt.Visible = true; ;
                 accountName_txt.Visible = true;
+                commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "daddypayqr");
             }
 
             PopulateBankList();
