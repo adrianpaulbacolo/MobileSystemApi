@@ -95,6 +95,21 @@
         <script type="text/javascript">
             $(function () {
                 window.history.forward();
+
+                if ('<%=strAlertCode%>'.length > 0) {
+                    switch ('<%=strAlertCode%>') {
+                        case '-1':
+                            alert('<%=strAlertMessage%>');
+                            break;
+                        case '0':
+                            alert('<%=strAlertMessage%>');
+                            window.location.replace('/Deposit/Neteller.aspx');
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
             });
         </script>
     </div>

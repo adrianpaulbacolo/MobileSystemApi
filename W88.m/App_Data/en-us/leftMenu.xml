@@ -37,7 +37,7 @@
 	<nextpay><![CDATA[NextPay]]></nextpay>
 	<withrawal><![CDATA[Withdrawal]]></withrawal>-->
 	<fundTransfer><![CDATA[Fund Transfer]]></fundTransfer>-->
-	<neteller><![CDATA[Netteller]]></neteller>
+	<neteller><![CDATA[Neteller]]></neteller>
 	<reminder1><![CDATA[You need to be a member of W88.com to login.]]></reminder1>
 	<reminder2><![CDATA[Please create your W88 account]]></reminder2>
 	<profile><![CDATA[PROFILE]]></profile>
@@ -56,8 +56,8 @@
 	<eSports><![CDATA[E-SPORTS]]></eSports>
 	<wSports><![CDATA[W-SPORTS]]></wSports>
 	<lottery><![CDATA[LOTTERY]]></lottery>
-  <clubwpremier><![CDATA[CLUB W PREMIER]]></clubwpremier>
-  <clubwpremierMessage><![CDATA[State-of-the-art live casino fitted with world's leading technology and streaming the best casino games.]]></clubwpremierMessage>
+	<clubwpremier><![CDATA[CLUB W PREMIER]]></clubwpremier>
+	<clubwpremierMessage><![CDATA[State-of-the-art live casino fitted with world's leading technology and streaming the best casino games.]]></clubwpremierMessage>
 	<liveCasino><![CDATA[CLUB W]]></liveCasino>
 	<liveCasinoMessage><![CDATA[Enjoy live Casino instant cash rebate up to 0.8%. No payout limit & rollover.]]></liveCasinoMessage>
 	<clubMassimo><![CDATA[CLUB MASSIMO]]></clubMassimo>
@@ -68,7 +68,7 @@
 	<kenoMessage><![CDATA[Every minutes filled with fun and non-stop games. Get the excitement!]]></kenoMessage>
 	<nuovo><![CDATA[NUOVO]]></nuovo>
 	<poker><![CDATA[POKER]]></poker>
-  <texasmahjong><![CDATA[Texas Mahjong]]></texasmahjong>
+	<texasmahjong><![CDATA[Texas Mahjong]]></texasmahjong>
 	<fundFooter><![CDATA[*Club W, Bravado, Apollo, Crescendo, Divino & Massimo, Virtual , Lotto]]></fundFooter>
 	<androidDownload><![CDATA[Android Download]]></androidDownload>
 	<iosDownload><![CDATA[iOS Download]]></iosDownload>
@@ -83,7 +83,7 @@
 	<tennis><![CDATA[Tennis]]></tennis>
 
 	<kenoMessage><![CDATA[Nikmati setiap menit dengan permainan dan kesenangan tiada henti. Rasakan keseruannya!]]></kenoMessage>
-	
+
 	<depositDaddyPay><![CDATA[DEPOSIT - QUICK ONLINE]]></depositDaddyPay>
 
 	<history><![CDATA[History]]></history>
@@ -93,8 +93,8 @@
 	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
 
 	<close><![CDATA[CLOSE]]></close>
-  
-  <accountId><![CDATA[NETELLER Account ID]]></accountId>
-  <secureId><![CDATA[NETELLER Secure ID]]></secureId>
-  
+
+	<accountId><![CDATA[NETELLER Account ID]]></accountId>
+	<secureId><![CDATA[NETELLER Secure ID]]></secureId>
+
 </menu>

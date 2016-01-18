@@ -93,9 +93,9 @@
 
 
 	<close><![CDATA[閉じる]]></close>
-  
-  <accountId><![CDATA[NETELLER アカウント番号]]></accountId>
-  <secureId><![CDATA[NETELLER セキュリティーコード]]></secureId>
 
+	<neteller><![CDATA[Neteller]]></neteller>
+	<accountId><![CDATA[NETELLER アカウント番号]]></accountId>
+	<secureId><![CDATA[NETELLER セキュリティーコード]]></secureId>
 
 </menu>

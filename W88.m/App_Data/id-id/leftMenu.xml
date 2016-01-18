@@ -85,7 +85,8 @@
 
 	<close><![CDATA[TUTUP]]></close>
 
-  <accountId><![CDATA[Neteller Rekening]]></accountId>
-  <secureId><![CDATA[Neteller Password]]></secureId>
+	<neteller><![CDATA[Neteller]]></neteller>
+	<accountId><![CDATA[Neteller Rekening]]></accountId>
+	<secureId><![CDATA[Neteller Password]]></secureId>
 
 </menu>

@@ -93,8 +93,9 @@
 
 	<close><![CDATA[종료]]></close>
 
-  <accountId><![CDATA[Neteller 계정]]></accountId>
-  <secureId><![CDATA[Neteller 암호]]></secureId>
-  
+	<neteller><![CDATA[Neteller]]></neteller>
+	<accountId><![CDATA[Neteller 계정]]></accountId>
+	<secureId><![CDATA[Neteller 암호]]></secureId>
+
 
 </menu>

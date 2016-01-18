@@ -93,7 +93,8 @@
 
 	<close><![CDATA[ĐÓNG]]></close>
 
-  <accountId><![CDATA[Neteller Tài Khoản]]></accountId>
-  <secureId><![CDATA[Neteller Mật Khẩu]]></secureId>
+	<neteller><![CDATA[Neteller]]></neteller>
+	<accountId><![CDATA[Neteller Tài Khoản]]></accountId>
+	<secureId><![CDATA[Neteller Mật Khẩu]]></secureId>
 
 </menu>

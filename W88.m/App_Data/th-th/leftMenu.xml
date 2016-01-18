@@ -88,7 +88,8 @@
 
 	<close><![CDATA[ปิด]]></close>
 
-  <accountId><![CDATA[Neteller บัญชี]]></accountId>
-  <secureId><![CDATA[Neteller รหัสผ่าน]]></secureId>
+	<neteller><![CDATA[Neteller]]></neteller>
+	<accountId><![CDATA[Neteller บัญชี]]></accountId>
+	<secureId><![CDATA[Neteller รหัสผ่าน]]></secureId>
 
 </menu>

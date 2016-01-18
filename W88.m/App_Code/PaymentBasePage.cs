@@ -11,29 +11,64 @@ using System.Xml.Linq;
 /// </summary>
 public class PaymentBasePage : BasePage
 {
-    protected bool IsPageRefresh = false;
     protected XElement xeResources = null;
+    protected XElement xeErrors = null;
+    protected XElement xeResponse = null;
 
-    protected string strOperatorId = commonVariables.OperatorId;
-    protected string strMemberCode = commonVariables.GetSessionVariable("MemberCode");
-    protected string strMemberID = commonVariables.GetSessionVariable("memberId");
-    protected string strCurrencyCode = commonVariables.GetSessionVariable("CurrencyCode");
-    protected string strRiskId = commonVariables.GetSessionVariable("RiskId");
-    protected string strPaymentGroup = commonVariables.GetSessionVariable("PaymentGroup");
-    protected string strSelectedLanguage = commonVariables.SelectedLanguage;
-    protected string strSiteUrl = commonVariables.SiteUrl;
+    protected bool IsPageRefresh = false;
 
-    protected XElement xeErrors = commonVariables.ErrorsXML;
-    protected string strMethodsUnAvailable;
+    protected string strOperatorId = string.Empty;
+    protected string strMemberCode = string.Empty;
+    protected string strMemberID = string.Empty;
+    protected string strCurrencyCode = string.Empty;
+    protected string strCountryCode = string.Empty;
+    protected string strRiskId = string.Empty;
+    protected string strPaymentGroup = string.Empty;
+    protected string strSelectedLanguage = string.Empty;
+    protected string strSiteUrl = string.Empty;
 
-    protected string strMinLimit;
-    protected string strMaxLimit;
-    protected string strTotalAllowed;
-    protected string strDailyLimit;
+    protected string strMethodsUnAvailable = string.Empty;
+    protected string strMethodId = string.Empty;
+    protected string paymentMethodId = string.Empty;
 
-    protected string strMethodId;
-    protected string paymentMethodId;
+    protected string strMinLimit = string.Empty;
+    protected string strMaxLimit = string.Empty;
+    protected string strTotalAllowed = string.Empty;
+    protected string strDailyLimit = string.Empty;
 
+    protected string strResultCode = string.Empty;
+    protected string strResultDetail = string.Empty;
+    protected string strErrorCode = string.Empty;
+
+    protected string strErrorDetail = string.Empty;
+    protected int intProcessSerialId = 0;
+    protected string strProcessId = Guid.NewGuid().ToString().ToUpper();
+    
+    protected bool isSystemError = false;
+    protected bool isProcessAbort = false;
+
+    protected void InitialiseVariables(string paymentMethod)
+    {
+        strOperatorId = commonVariables.OperatorId;
+        
+        strMemberCode = commonVariables.GetSessionVariable("MemberCode");
+        strMemberID = commonVariables.GetSessionVariable("memberId");
+
+        strCurrencyCode = commonVariables.GetSessionVariable("CurrencyCode");
+        strCountryCode = commonVariables.GetSessionVariable("CountryCode");
+        
+        strRiskId = commonVariables.GetSessionVariable("RiskId");
+        
+        strPaymentGroup = commonVariables.GetSessionVariable("PaymentGroup");
+        
+        strSelectedLanguage = commonVariables.SelectedLanguage;
+        
+        strSiteUrl = commonVariables.SiteUrl;
+
+        xeErrors = commonVariables.ErrorsXML;
+
+        commonCulture.appData.getRootResource("/Deposit/" + paymentMethod, out xeResources);
+    }
 
     protected void CancelUnexpectedRePost()
     {

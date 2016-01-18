@@ -86,8 +86,9 @@
 
 	<close><![CDATA[បិទ]]></close>
 
-  <accountId><![CDATA[Neteller គណនី]]></accountId>
-  <secureId><![CDATA[Neteller ពាក្យសម្ងាត់]]></secureId>
-  
+	<neteller><![CDATA[Neteller]]></neteller>
+	<accountId><![CDATA[Neteller គណនី]]></accountId>
+	<secureId><![CDATA[Neteller ពាក្យសម្ងាត់]]></secureId>
+
 
 </menu>
