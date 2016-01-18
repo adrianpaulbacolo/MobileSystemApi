@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="NextPay.aspx.cs" Inherits="Deposit_Neteller" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Neteller.aspx.cs" Inherits="Deposit_Neteller" %>
 
 <!DOCTYPE html>
 <html>
