@@ -144,6 +144,10 @@ public partial class Deposit_Neteller : PaymentBasePage
                 strErrorDetail = ex.Message;
             }
 
+            txtDepositAmount.Text = string.Empty;
+            txtAccountId.Text = string.Empty;
+            txtSecureId.Text = string.Empty;
+
             string strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | CurrencyCode: {2} | DepositAmount: {3} | NetellerAccounttId: {4} | NetellerSecureId: {5} | MinLimit: {6} | MaxLimit: {7} | TotalAllowed: {8} | DailyLimit: {9} | Response: {10}",
                 Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, accountId, secureId, decMinLimit, decMaxLimit, decTotalAllowed, decDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
 

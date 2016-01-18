@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+  <lblTitle><![CDATA[Neteller]]></lblTitle>
+  <lblDepositAmount><![CDATA[ยอดเงินการฝาก]]></lblDepositAmount>
+  <btnSubmit><![CDATA[การฝาก]]></btnSubmit>
+  <lblTransactionId><![CDATA[หมายเลขธุรกรรม]]></lblTransactionId>
+  <lblDailyLimit><![CDATA[การจำกัดยอดเงินต่อวัน]]></lblDailyLimit>
+  <lblTotalAllowed><![CDATA[ยอดเงินที่ทำรายการได้]]></lblTotalAllowed>
+  <lblMinMaxLimit><![CDATA[การจำกัดยอดขั้นต่ำ /สูงสุด]]></lblMinMaxLimit>
+  <lblMode><![CDATA[วิธีการ]]></lblMode>
+  <txtMode><![CDATA[ออนไลน์]]></txtMode>
+  <txtProcessing><![CDATA[Your transaction is being processed]]></txtProcessing>
+  <lblAndroidDownload><![CDATA[Download Securepay Plug-in (Android)]]></lblAndroidDownload>
+  <lblIOSDownload><![CDATA[Download Securepay Plug-in (IOS)]]></lblIOSDownload>
+  <lblNoticeDownload><![CDATA[Gentle reminder: This payment method require Unionpay Securepay Plug-in to be installed on your mobile device, please click on download links below.]]></lblNoticeDownload>
+  <unlimited><![CDATA[ไม่จำกัด]]></unlimited>
+</Deposit>
