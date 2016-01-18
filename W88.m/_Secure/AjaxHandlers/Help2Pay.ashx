@@ -134,7 +134,7 @@ public class Help2Pay : IHttpHandler, System.Web.SessionState.IReadOnlySessionSt
                 return;
             }
 
-            if ((Convert.ToDecimal(dr["totalAllowed"]) < requestAmount) && Convert.ToDecimal(dr["totalAllowed"]) < 0)
+            if (Convert.ToDecimal(dr["limitDaily"]) > 0m && Convert.ToDecimal(dr["totalAllowed"]) < requestAmount)
             {
                 commonAuditTrail.appendLog("system", pageName, taskName, string.Empty, string.Empty, processDetail, string.Empty, "error", "Amount is more than total allowed", Convert.ToString(processSerialId), processId, false);
                 context.Response.Write("Total allowed exceeded");
