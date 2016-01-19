@@ -60,6 +60,11 @@ public partial class Deposit_Neteller : PaymentBasePage
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
+        if (IsPageRefresh)
+        {
+            Response.Redirect(Request.Url.AbsoluteUri);
+        }
+
         string strPageName = "Deposit.Neteller";
 
         string strDepositAmount = txtDepositAmount.Text.Trim();

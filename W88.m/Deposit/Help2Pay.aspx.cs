@@ -65,11 +65,10 @@ public partial class Deposit_Help2Pay : BasePage
             System.Threading.Tasks.Task t2 = System.Threading.Tasks.Task.Factory.StartNew(this.InitializeBank);
         
             System.Threading.Tasks.Task.WaitAll(t1, t2);
-
-            HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-
-            commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "help2pay");
         }
+
+        HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
+        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "help2pay");
     }
 
     private void CancelUnexpectedRePost()

@@ -60,6 +60,8 @@ public partial class Deposit_DaddyPay : BasePage
         commonCulture.appData.getRootResource("/Deposit/SDPay", out xeResources);
         commonCulture.appData.getRootResource("/Deposit/FastDeposit", out xeResource);
 
+        HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
+
         if (!Page.IsPostBack)
         {
             lblMode.Text = commonCulture.ElementValues.getResourceString("lblMode", xeResources);
@@ -80,9 +82,6 @@ public partial class Deposit_DaddyPay : BasePage
             System.Threading.Tasks.Task.WaitAll(t1);
 
             string value = Request.QueryString["value"].ToString();
-            HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-
-
             if (value == "1")
             {
                 account_txt.Visible = false;
@@ -126,6 +125,9 @@ public partial class Deposit_DaddyPay : BasePage
 
             //PopulateBankList();
         }
+
+        
+        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "daddypay");
     }
 
     private void CancelUnexpectedRePost()

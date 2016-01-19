@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Xml.XPath;
 
@@ -69,6 +70,9 @@ public partial class Deposit_WingMoney : BasePage
                 divDepositDateTime.Visible = false;
             }
         }
+
+        HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
+        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "wingmoney");
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)

@@ -53,6 +53,7 @@ public partial class Deposit_NextPay : BasePage
         xeErrors = commonVariables.ErrorsXML;
         commonCulture.appData.getRootResource("/Deposit/SDPay", out xeResources);
 
+
         if (!Page.IsPostBack)
         {
             lblMode.Text = commonCulture.ElementValues.getResourceString("lblMode", xeResources);
@@ -70,11 +71,10 @@ public partial class Deposit_NextPay : BasePage
             System.Threading.Tasks.Task t1 = System.Threading.Tasks.Task.Factory.StartNew(this.InitialisePaymentLimits);
 
             System.Threading.Tasks.Task.WaitAll(t1);
-
-            HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-
-            commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "nextpay");
         }
+
+        HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
+        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "nextpay");
     }
 
     private void CancelUnexpectedRePost()

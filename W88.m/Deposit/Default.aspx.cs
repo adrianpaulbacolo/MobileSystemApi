@@ -84,9 +84,7 @@ public partial class Deposit_Default : BasePage
 
             getMainWalletBalance("0");
 
-            HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-
-            commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "default");
+            
             
         }
         string test = commonVariables.GetSessionVariable("CurrencyCode").ToString();
@@ -101,6 +99,9 @@ public partial class Deposit_Default : BasePage
             lblAccountNumber.Visible = true;
 
         }
+
+        HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
+        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "default");
     }
 
     private void getMainWalletBalance(string walletId)
