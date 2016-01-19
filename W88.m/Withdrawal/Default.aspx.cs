@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Xml.XPath;
 
@@ -105,6 +106,9 @@ public partial class Withdrawal_Default : BasePage
             getMainWalletBalance("0");
 
         }
+
+        HtmlGenericControl withdrawalTabs = (HtmlGenericControl)FindControl("withdrawalTabs");
+        commonPaymentMethodFunc.getWithdrawalMethodList(strMethodsUnAvailable, withdrawalTabs, "default");
     }
 
     private void getMainWalletBalance(string walletId)

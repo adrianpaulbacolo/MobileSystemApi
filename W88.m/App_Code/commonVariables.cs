@@ -134,7 +134,8 @@ public class commonVariables
     public enum WithdrawalMethod 
     {
         BankTransfer = 210602,
-        WingMoney = 210709
+        WingMoney = 210709,
+        Neteller = 220815
     }
 
     public enum TransactionSource 

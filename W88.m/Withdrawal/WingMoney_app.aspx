@@ -23,9 +23,7 @@
             </div>
 
             <div data-role="navbar">
-                <ul>
-                    <li id="<%=string.Format("w{0}", commonVariables.WithdrawalMethod.BankTransfer)%>"><a href="/Withdrawal/BankTransfer" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("banktransfer", commonVariables.LeftMenuXML)%></a></li>
-                    <li id="<%=string.Format("w{0}", commonVariables.WithdrawalMethod.WingMoney)%>"><a href="/Withdrawal/WingMoney" data-ajax="false" class="ui-btn-active"><%=commonCulture.ElementValues.getResourceString("wingmoney", commonVariables.LeftMenuXML)%></a></li>
+                <ul id="withdrawalTabs" runat="server">
                 </ul>
             </div>
 
@@ -38,8 +36,10 @@
                     </li>
                     <li class="item item-text-wrap">
                         <div class="div-limit">
-                            <div><asp:Literal ID="lblDailyLimit" runat="server" /></div>
-                            <div><asp:Literal ID="lblTotalAllowed" runat="server" /></div>
+                            <div>
+                                <asp:Literal ID="lblDailyLimit" runat="server" /></div>
+                            <div>
+                                <asp:Literal ID="lblTotalAllowed" runat="server" /></div>
                         </div>
                     </li>
                     <li class="item item-input">
@@ -57,17 +57,18 @@
                     </li>
                     -->
                     <li class="row">
-                        <div class="col"><asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" OnClick="btnSubmit_Click" data-corners="false" /></div>
+                        <div class="col">
+                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" OnClick="btnSubmit_Click" data-corners="false" /></div>
                     </li>
                     <asp:HiddenField runat="server" ID="_repostcheckcode" />
                 </ul>
 
                 <div class="row">
                     <div class="col">
-                        <input type="button" data-theme="b" onclick="location.href = '/Deposit/Default_app.aspx';" value="<%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%>" class="button-blue"  data-corners="false" />
+                        <input type="button" data-theme="b" onclick="location.href = '/Deposit/Default_app.aspx';" value="<%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%>" class="button-blue" data-corners="false" />
                     </div>
                     <div class="col">
-                        <input type="button" data-theme="b" onclick="location.href = '/FundTransfer/FundTransfer.aspx';" value="<%=commonCulture.ElementValues.getResourceString("fundTransfer", commonVariables.LeftMenuXML)%>" class="button-blue"  data-corners="false" />
+                        <input type="button" data-theme="b" onclick="location.href = '/FundTransfer/FundTransfer.aspx';" value="<%=commonCulture.ElementValues.getResourceString("fundTransfer", commonVariables.LeftMenuXML)%>" class="button-blue" data-corners="false" />
                     </div>
                 </div>
 
@@ -76,17 +77,6 @@
         <!-- /content -->
         <script type="text/javascript">
             $(function () {
-
-                var strMethodsUnavailable = '<%=strMethodsUnAvailable%>';
-
-                if (strMethodsUnavailable.length > 0) {
-                    var arrMethodsUnavailable = strMethodsUnavailable.split('|');
-                    for (var intCount = 0 ; intCount < arrMethodsUnavailable.length; intCount++) {
-                        var strMethodId = arrMethodsUnavailable[intCount].toString();
-                        $('#w' + strMethodId + ' > a').attr('href', 'javascript:void(0)').html('&nbsp;').click(false);
-                    }
-                }
-
                 if ('<%=strAlertCode%>'.length > 0) {
                     switch ('<%=strAlertCode%>') {
                         case '-1':
@@ -109,8 +99,7 @@
                     e.preventDefault();
                     return;
                 }
-                else if (isNaN($('#txtWithdrawAmount').val()))
-                {
+                else if (isNaN($('#txtWithdrawAmount').val())) {
                     alert('<%=commonCulture.ElementValues.getResourceXPathString("Withdrawal/MissingWithdrawAmount", xeErrors)%>');
                     e.preventDefault();
                     return;
@@ -128,9 +117,9 @@
                 else if ($('#txtAccountNumber').val().length == 0) {
                     if ($('#drpBank').val() == 'VIETIN') {
                         //if ($('#txtAccountNumber').val().length != 16 || isNaN($('#txtAccountNumber').val())) {
-                            alert('<%=commonCulture.ElementValues.getResourceXPathString("Withdrawal/MissingAccountNumber", xeErrors)%>');
-                            e.preventDefault();
-                            return;
+                        alert('<%=commonCulture.ElementValues.getResourceXPathString("Withdrawal/MissingAccountNumber", xeErrors)%>');
+                        e.preventDefault();
+                        return;
                         //}
                     } else {
                         alert('<%=commonCulture.ElementValues.getResourceXPathString("Withdrawal/MissingAccountNumber", xeErrors)%>');
