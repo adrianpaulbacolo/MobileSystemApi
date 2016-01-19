@@ -18,6 +18,14 @@ public partial class Deposit_Neteller : PaymentBasePage
     protected string strAlertCode = string.Empty;
     protected string strAlertMessage = string.Empty;
 
+    private string PageName
+    {
+        get
+        {
+            return "Deposit.Neteller";
+        }
+    }
+
     protected void Page_Init(object sender, EventArgs e)
     {
         base.CheckLogin();
@@ -64,8 +72,6 @@ public partial class Deposit_Neteller : PaymentBasePage
         {
             Response.Redirect(Request.Url.AbsoluteUri);
         }
-
-        string strPageName = "Deposit.Neteller";
 
         string strDepositAmount = txtDepositAmount.Text.Trim();
         string accountId = txtAccountId.Text.Trim();
@@ -157,7 +163,7 @@ public partial class Deposit_Neteller : PaymentBasePage
                 Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, accountId, secureId, decMinLimit, decMaxLimit, decTotalAllowed, decDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
 
             intProcessSerialId += 1;
-            commonAuditTrail.appendLog("system", strPageName, "InitiateDeposit", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
+            commonAuditTrail.appendLog("system", PageName, "InitiateDeposit", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
         }
     }
 
