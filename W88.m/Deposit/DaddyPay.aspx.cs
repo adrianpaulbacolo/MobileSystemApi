@@ -86,13 +86,13 @@ public partial class Deposit_DaddyPay : BasePage
             {
                 account_txt.Visible = false;
                 accountName_txt.Visible = false;
-                commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "daddypay");
+                commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "daddypay", sender.ToString().Contains("app"));
             }
             else if (value == "2")
             {
                 account_txt.Visible = true; ;
                 accountName_txt.Visible = true;
-                commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "daddypayqr");
+                commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "daddypayqr", sender.ToString().Contains("app"));
             }
 
             PopulateBankList();
@@ -126,8 +126,8 @@ public partial class Deposit_DaddyPay : BasePage
             //PopulateBankList();
         }
 
-        
-        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "daddypay");
+
+        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "daddypay", sender.ToString().Contains("app"));
     }
 
     private void CancelUnexpectedRePost()

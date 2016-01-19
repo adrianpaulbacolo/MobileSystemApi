@@ -108,7 +108,7 @@ public partial class Withdrawal_Default : BasePage
         }
 
         HtmlGenericControl withdrawalTabs = (HtmlGenericControl)FindControl("withdrawalTabs");
-        commonPaymentMethodFunc.getWithdrawalMethodList(strMethodsUnAvailable, withdrawalTabs, "default");
+        commonPaymentMethodFunc.getWithdrawalMethodList(strMethodsUnAvailable, withdrawalTabs, "default", sender.ToString().Contains("app"));
     }
 
     private void getMainWalletBalance(string walletId)

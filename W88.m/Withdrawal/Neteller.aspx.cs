@@ -33,7 +33,7 @@ public partial class Withdrawal_Neteller : PaymentBasePage
         CancelUnexpectedRePost();
 
         HtmlGenericControl withdrawalTabs = (HtmlGenericControl)FindControl("withdrawalTabs");
-        commonPaymentMethodFunc.getWithdrawalMethodList(strMethodsUnAvailable, withdrawalTabs, "neteller");
+        commonPaymentMethodFunc.getWithdrawalMethodList(strMethodsUnAvailable, withdrawalTabs, "neteller", sender.ToString().Contains("app"));
 
         if (!Page.IsPostBack)
         {

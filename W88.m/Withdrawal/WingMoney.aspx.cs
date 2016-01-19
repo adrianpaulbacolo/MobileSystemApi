@@ -98,7 +98,7 @@ public partial class Withdrawal_WingMoney : BasePage
         }
 
         HtmlGenericControl withdrawalTabs = (HtmlGenericControl)FindControl("withdrawalTabs");
-        commonPaymentMethodFunc.getWithdrawalMethodList(strMethodsUnAvailable, withdrawalTabs, "wingmoney");
+        commonPaymentMethodFunc.getWithdrawalMethodList(strMethodsUnAvailable, withdrawalTabs, "wingmoney", sender.ToString().Contains("app"));
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)

@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 /// </summary>
 public static class commonPaymentMethodFunc
 {
-    public static void getDepositMethodList(string methodsUnAvailable, HtmlGenericControl depositTabs, string sourcePage = null)
+    public static void getDepositMethodList(string methodsUnAvailable, HtmlGenericControl depositTabs, string sourcePage, bool isApp)
     {
         var depositList = Enum.GetValues(typeof(commonVariables.DepositMethod));
 
@@ -22,12 +22,12 @@ public static class commonPaymentMethodFunc
             bool isUnavailable = methodUnavailable.Contains(paymentCode);
             if (!isUnavailable)
             {
-                setDepositMethodListLink(paymentCode, depositTabs, sourcePage);
+                setDepositMethodListLink(paymentCode, depositTabs, sourcePage, isApp);
             }
         }
     }
 
-    private static void setDepositMethodListLink(string paymentCode, HtmlGenericControl depositTabs, string sourcePage)
+    private static void setDepositMethodListLink(string paymentCode, HtmlGenericControl depositTabs, string sourcePage, bool isApp)
     {
         HtmlGenericControl anchor;
         HtmlGenericControl list;
@@ -40,7 +40,11 @@ public static class commonPaymentMethodFunc
 
                 anchor = new HtmlGenericControl("a");
 
-                anchor.Attributes.Add("href", "/Deposit/FastDeposit");
+                if (isApp)
+                    anchor.Attributes.Add("href", "/Deposit/Default_app.aspx");
+                else
+                    anchor.Attributes.Add("href", "/Deposit/Default.aspx");
+
                 anchor.Attributes.Add("class", "ui-link ui-btn");
                 anchor.InnerText = commonCulture.ElementValues.getResourceString("fastdeposit", commonVariables.LeftMenuXML);
 
@@ -59,7 +63,11 @@ public static class commonPaymentMethodFunc
 
                 anchor = new HtmlGenericControl("a");
 
-                anchor.Attributes.Add("href", "/Deposit/NextPay");
+                if (isApp)
+                    anchor.Attributes.Add("href", "/Deposit/NextPay_app.aspx");
+                else
+                    anchor.Attributes.Add("href", "/Deposit/NextPay.aspx");
+
                 anchor.Attributes.Add("class", "ui-link ui-btn");
                 anchor.InnerText = commonCulture.ElementValues.getResourceString("nextpay", commonVariables.LeftMenuXML);
 
@@ -78,7 +86,11 @@ public static class commonPaymentMethodFunc
 
                 anchor = new HtmlGenericControl("a");
 
-                anchor.Attributes.Add("href", "/Deposit/WingMoney");
+                if (isApp)
+                    anchor.Attributes.Add("href", "/Deposit/WingMoney_app.aspx");
+                else
+                    anchor.Attributes.Add("href", "/Deposit/WingMoney.aspx");
+
                 anchor.Attributes.Add("class", "ui-link ui-btn");
                 anchor.InnerText = commonCulture.ElementValues.getResourceString("wingmoney", commonVariables.LeftMenuXML);
 
@@ -98,7 +110,11 @@ public static class commonPaymentMethodFunc
 
                 anchor = new HtmlGenericControl("a");
 
-                anchor.Attributes.Add("href", "/Deposit/SDPay");
+                if (isApp)
+                    anchor.Attributes.Add("href", "/Deposit/SDPay_app.aspx");
+                else
+                    anchor.Attributes.Add("href", "/Deposit/SDPay.aspx");
+
                 anchor.Attributes.Add("class", "ui-link ui-btn");
                 anchor.InnerText = commonCulture.ElementValues.getResourceString("sdpay", commonVariables.LeftMenuXML);
 
@@ -117,7 +133,12 @@ public static class commonPaymentMethodFunc
 
                 anchor = new HtmlGenericControl("a");
 
-                anchor.Attributes.Add("href", "/Deposit/Help2Pay");
+                if (isApp)
+
+                    anchor.Attributes.Add("href", "/Deposit/Help2Pay_app.aspx");
+                else
+                    anchor.Attributes.Add("href", "/Deposit/Help2Pay.aspx");
+
                 anchor.Attributes.Add("class", "ui-link ui-btn");
                 anchor.InnerText = commonCulture.ElementValues.getResourceString("help2pay", commonVariables.LeftMenuXML);
 
@@ -136,7 +157,11 @@ public static class commonPaymentMethodFunc
 
                 anchor = new HtmlGenericControl("a");
 
-                anchor.Attributes.Add("href", "/Deposit/DaddyPay.aspx?value=1");
+                if (isApp)
+                    anchor.Attributes.Add("href", "/Deposit/DaddyPay_app.aspx?value=1");
+                else
+                    anchor.Attributes.Add("href", "/Deposit/DaddyPay.aspx?value=1");
+
                 anchor.Attributes.Add("class", "ui-link ui-btn");
                 anchor.InnerText = commonCulture.ElementValues.getResourceString("daddypay", commonVariables.LeftMenuXML);
 
@@ -155,7 +180,11 @@ public static class commonPaymentMethodFunc
 
                 anchor = new HtmlGenericControl("a");
 
-                anchor.Attributes.Add("href", "/Deposit/DaddyPay.aspx?value=2");
+                if (isApp)
+                    anchor.Attributes.Add("href", "/Deposit/DaddyPay_app.aspx?value=2");
+                else
+                    anchor.Attributes.Add("href", "/Deposit/DaddyPay.aspx?value=2");
+
                 anchor.Attributes.Add("class", "ui-link ui-btn");
                 anchor.InnerText = commonCulture.ElementValues.getResourceString("daddypayqr", commonVariables.LeftMenuXML);
 
@@ -174,7 +203,11 @@ public static class commonPaymentMethodFunc
 
                 anchor = new HtmlGenericControl("a");
 
-                anchor.Attributes.Add("href", "/Deposit/Neteller.aspx");
+                if (isApp)
+                    anchor.Attributes.Add("href", "/Deposit/Neteller_app.aspx");
+                else
+                    anchor.Attributes.Add("href", "/Deposit/Neteller.aspx");
+
                 anchor.Attributes.Add("class", "ui-link ui-btn");
                 anchor.InnerText = commonCulture.ElementValues.getResourceString("neteller", commonVariables.LeftMenuXML);
 
@@ -192,7 +225,7 @@ public static class commonPaymentMethodFunc
         }
     }
 
-    public static void getWithdrawalMethodList(string methodsUnAvailable, HtmlGenericControl withdrawalTabs, string sourcePage = null)
+    public static void getWithdrawalMethodList(string methodsUnAvailable, HtmlGenericControl withdrawalTabs, string sourcePage, bool isApp)
     {
         var depositList = Enum.GetValues(typeof(commonVariables.WithdrawalMethod));
 
@@ -204,12 +237,12 @@ public static class commonPaymentMethodFunc
             bool isUnavailable = methodUnavailable.Contains(paymentCode);
             if (!isUnavailable)
             {
-                setWithdrawalMethodListLink(paymentCode, withdrawalTabs, sourcePage);
+                setWithdrawalMethodListLink(paymentCode, withdrawalTabs, sourcePage, isApp);
             }
         }
     }
 
-    private static void setWithdrawalMethodListLink(string paymentCode, HtmlGenericControl withdrawalTabs, string sourcePage)
+    private static void setWithdrawalMethodListLink(string paymentCode, HtmlGenericControl withdrawalTabs, string sourcePage, bool isApp)
     {
         HtmlGenericControl anchor;
         HtmlGenericControl list;
@@ -222,7 +255,11 @@ public static class commonPaymentMethodFunc
 
                 anchor = new HtmlGenericControl("a");
 
-                anchor.Attributes.Add("href", "/Withdrawal/BankTransfer");
+                if (isApp)
+                    anchor.Attributes.Add("href", "/Withdrawal/BankTransfer_app.aspx");
+                else
+                    anchor.Attributes.Add("href", "/Withdrawal/Default.aspx");
+
                 anchor.Attributes.Add("class", "ui-link ui-btn");
                 anchor.InnerText = commonCulture.ElementValues.getResourceString("banktransfer", commonVariables.LeftMenuXML);
 
@@ -241,7 +278,11 @@ public static class commonPaymentMethodFunc
 
                 anchor = new HtmlGenericControl("a");
 
-                anchor.Attributes.Add("href", "/Withdrawal/WingMoney");
+                if (isApp)
+                    anchor.Attributes.Add("href", "/Withdrawal/WingMoney_app.aspx");
+                else
+                    anchor.Attributes.Add("href", "/Withdrawal/WingMoney.aspx");
+
                 anchor.Attributes.Add("class", "ui-link ui-btn");
                 anchor.InnerText = commonCulture.ElementValues.getResourceString("wingmoney", commonVariables.LeftMenuXML);
 
@@ -260,7 +301,11 @@ public static class commonPaymentMethodFunc
 
                 anchor = new HtmlGenericControl("a");
 
-                anchor.Attributes.Add("href", "/Withdrawal/Neteller.aspx");
+                if (isApp)
+                    anchor.Attributes.Add("href", "/Withdrawal/Neteller_app.aspx");
+                else
+                    anchor.Attributes.Add("href", "/Withdrawal/Neteller.aspx");
+
                 anchor.Attributes.Add("class", "ui-link ui-btn");
                 anchor.InnerText = commonCulture.ElementValues.getResourceString("neteller", commonVariables.LeftMenuXML);
 
