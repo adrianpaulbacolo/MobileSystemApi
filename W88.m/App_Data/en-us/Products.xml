@@ -161,5 +161,6 @@
 			<SafariDoNotTrack><![CDATA[Do Not Track: OFF]]></SafariDoNotTrack>
 			<SafariBlockCookies><![CDATA[Block Cookies: Always Allow]]></SafariBlockCookies>
 		</Palazzo>
+		<DoNotShow><![CDATA[Do not show again]]></DoNotShow>
 	</Popup>
 </default>
