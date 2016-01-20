@@ -22,7 +22,7 @@
             </div>
 
             <div data-role="navbar">
-                <ul id="depositTabs" runat="server">
+                <ul id="withdrawalTabs" runat="server">
                 </ul>
             </div>
 

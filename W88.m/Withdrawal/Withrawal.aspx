@@ -101,17 +101,6 @@
                 $('#txtMyKad').mask('999999-99-9999');
                 <% } %>
 
-                var strMethodsUnavailable = '<%=strMethodsUnAvailable%>';
-
-                if (strMethodsUnavailable.length > 0) {
-                    var arrMethodsUnavailable = strMethodsUnavailable.split('|');
-                    for (var intCount = 0 ; intCount < arrMethodsUnavailable.length; intCount++) {
-                        var strMethodId = arrMethodsUnavailable[intCount].toString();
-                        if (strMethodId == '<%=Convert.ToInt32(commonVariables.WithdrawalMethod.BankTransfer)%>') { document.location.assign('/Index'); }
-                        $('#w' + strMethodId + ' > a').attr('href', 'javascript:void(0)').html('&nbsp;').click(false);
-                    }
-                }
-
                 if ('<%=strAlertCode%>'.length > 0) {
                     switch ('<%=strAlertCode%>') {
                         case '-1':
