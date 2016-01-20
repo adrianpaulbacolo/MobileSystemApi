@@ -10,6 +10,7 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using svcPayDeposit;
 
 public partial class Deposit_DaddyPay : BasePage
 {
@@ -257,7 +258,7 @@ public partial class Deposit_DaddyPay : BasePage
 
                         using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
                         {
-                            xElement = client.createOnlineDepositTransaction(Convert.ToInt64(strOperatorId), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.DaddyPay), strCurrencyCode, Convert.ToDecimal(amount_txt.Text), string.Empty);
+                            xElement = client.createOnlineDepositTransactionV1(Convert.ToInt64(strOperatorId),long.Parse(strMemberId), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.DaddyPay), strCurrencyCode, Convert.ToDecimal(amount_txt.Text), DepositSource.Mobile, string.Empty);
                             client.Close();
                         }
 
@@ -273,7 +274,7 @@ public partial class Deposit_DaddyPay : BasePage
 
                         using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
                         {
-                            xElement = client.createOnlineDepositTransaction(Convert.ToInt64(strOperatorId), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.DaddyPayQR), strCurrencyCode, Convert.ToDecimal(amount_txt.Text), string.Empty);
+                            xElement = client.createOnlineDepositTransactionV1(Convert.ToInt64(strOperatorId),long.Parse(strMemberId), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.DaddyPayQR), strCurrencyCode, Convert.ToDecimal(amount_txt.Text),DepositSource.Mobile, string.Empty);
                             client.Close();
                         }
 
