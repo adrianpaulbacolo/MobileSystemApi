@@ -26,11 +26,7 @@
             </div>
 
             <div data-role="navbar">
-                <ul>
-                    <li id="<%=string.Format("w{0}", Convert.ToInt32(commonVariables.WithdrawalMethod.BankTransfer))%>"><a href="/Withdrawal/BankTransfer" data-ajax="false" class="ui-btn-active"><%=commonCulture.ElementValues.getResourceString("banktransfer", commonVariables.LeftMenuXML)%></a></li>
-                    <%if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "usd", true) == 0) { %>
-                        <li id='<%=string.Format("w{0}", Convert.ToInt32(commonVariables.WithdrawalMethod.WingMoney))%>'><a href="/Withdrawal/WingMoney" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("wingmoney", commonVariables.LeftMenuXML)%></a></li>
-                    <% } %>
+                <ul id="withdrawalTabs" runat="server">
                 </ul>
             </div>
 
@@ -43,15 +39,17 @@
                     </li>
                     <li class="item item-text-wrap">
                         <div class="div-limit">
-                            <div><asp:Literal ID="lblDailyLimit" runat="server" /></div>
-                            <div><asp:Literal ID="lblTotalAllowed" runat="server" /></div>
+                            <div>
+                                <asp:Literal ID="lblDailyLimit" runat="server" /></div>
+                            <div>
+                                <asp:Literal ID="lblTotalAllowed" runat="server" /></div>
                         </div>
                     </li>
                     <li class="item item-select">
                         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" Text="to" />
                         <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
                     </li>
-                    <li class="item item-input" id="divBankName" style="display:none;">
+                    <li class="item item-input" id="divBankName" style="display: none;">
                         <asp:Label ID="lblBankName" runat="server" AssociatedControlID="txtBankName" Text="other" />
                         <asp:TextBox ID="txtBankName" runat="server" />
                     </li>
@@ -71,7 +69,8 @@
                         <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" Text="to" />
                         <asp:TextBox ID="txtAccountNumber" runat="server" />
                     </li>
-                    <% if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "myr", true) == 0) { %>
+                    <% if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "myr", true) == 0)
+                       { %>
                     <li class="item item-input">
                         <asp:Label ID="lblMyKad" runat="server" AssociatedControlID="txtMyKad" Text="to" />
                         <asp:TextBox ID="txtMyKad" runat="server" />
@@ -87,7 +86,8 @@
                         <div class="col">
                             <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
                         </div>
-                        <div class="col"><asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" OnClick="btnSubmit_Click" /></div>
+                        <div class="col">
+                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" OnClick="btnSubmit_Click" /></div>
                     </li>
                     <asp:HiddenField runat="server" ID="_repostcheckcode" />
                 </ul>
@@ -98,20 +98,10 @@
         <script type="text/javascript">
             //$(document).ready(function () { });
             $(function () {
-                <% if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "myr", true) == 0) { %>
+                <% if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "myr", true) == 0)
+                   { %>
                 $('#txtMyKad').mask('999999-99-9999');
                 <% } %>
-
-                var strMethodsUnavailable = '<%=strMethodsUnAvailable%>';
-
-                if (strMethodsUnavailable.length > 0) {
-                    var arrMethodsUnavailable = strMethodsUnavailable.split('|');
-                    for (var intCount = 0 ; intCount < arrMethodsUnavailable.length; intCount++) {
-                        var strMethodId = arrMethodsUnavailable[intCount].toString();
-                        if (strMethodId == '<%=Convert.ToInt32(commonVariables.WithdrawalMethod.BankTransfer)%>') { document.location.assign('/Index'); }
-                        $('#w' + strMethodId + ' > a').attr('href', 'javascript:void(0)').html('&nbsp;').click(false);
-                    }
-                }
 
                 if ('<%=strAlertCode%>'.length > 0) {
                     switch ('<%=strAlertCode%>') {
@@ -143,17 +133,16 @@
                     e.preventDefault();
                     return;
                 }
-                else if (isNaN($('#txtWithdrawAmount').val()))
-                {
+                else if (isNaN($('#txtWithdrawAmount').val())) {
                     alert('<%=commonCulture.ElementValues.getResourceXPathString("Withdrawal/MissingWithdrawAmount", xeErrors)%>');
                     e.preventDefault();
                     return;
                 }
                 else if ($('#drpBank').val() == '-1') {
                     alert('<%=commonCulture.ElementValues.getResourceXPathString("Withdrawal/SelectBank", xeErrors)%>');
-                    e.preventDefault();
-                    return;
-                }
+                        e.preventDefault();
+                        return;
+                    }
                 if ($('#txtBankBranch').val().length == 0 && '<%=commonVariables.GetSessionVariable("CurrencyCode").ToUpper()%>' != 'KRW') {
                     alert('<%=commonCulture.ElementValues.getResourceXPathString("Withdrawal/MissingBankBranch", xeErrors)%>');
                     e.preventDefault();
@@ -172,9 +161,9 @@
 
                     if ($('#drpBank').val() == 'VIETIN') {
                         //if ($('#txtAccountNumber').val().length != 16 || isNaN($('#txtAccountNumber').val())) {
-                            alert('<%=commonCulture.ElementValues.getResourceXPathString("Withdrawal/InvalidAccountNumber", xeErrors)%>');
-                            e.preventDefault();
-                            return;
+                        alert('<%=commonCulture.ElementValues.getResourceXPathString("Withdrawal/InvalidAccountNumber", xeErrors)%>');
+                        e.preventDefault();
+                        return;
                         //}
                     } else {
                         alert('<%=commonCulture.ElementValues.getResourceXPathString("Withdrawal/MissingAccountNumber", xeErrors)%>');
@@ -185,10 +174,10 @@
                 else if ($('#drpBank').val() == 'OTHER') {
                     if ($('#txtBankName').val().length == 0) {
                         alert('<%=commonCulture.ElementValues.getResourceXPathString("Withdrawal/MissingBankName", xeErrors)%>');
-                        e.preventDefault();
-                        return;
+                            e.preventDefault();
+                            return;
+                        }
                     }
-                }
 
                 GPINTMOBILE.ShowSplash();
             });

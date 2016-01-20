@@ -124,5 +124,6 @@
 			<SafariDoNotTrack><![CDATA[不跟踪: 关闭]]></SafariDoNotTrack>
 			<SafariBlockCookies><![CDATA[阻止Cookie: 始终允许]]></SafariBlockCookies>
 		</Palazzo>
+		<DoNotShow><![CDATA[下次登录不在显示]]></DoNotShow>
 	</Popup>
 </default>

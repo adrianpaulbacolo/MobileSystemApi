@@ -15,6 +15,10 @@ public class PaymentBasePage : BasePage
     protected XElement xeErrors = null;
     protected XElement xeResponse = null;
 
+    protected string PageName { get; set; }
+    protected commonVariables.PaymentTransactionType PaymentType { get; set; }
+    protected string PaymentMethodId { get; set; }
+
     protected bool IsPageRefresh = false;
 
     protected string strOperatorId = string.Empty;
@@ -29,7 +33,6 @@ public class PaymentBasePage : BasePage
 
     protected string strMethodsUnAvailable = string.Empty;
     protected string strMethodId = string.Empty;
-    protected string paymentMethodId = string.Empty;
 
     protected string strMinLimit = string.Empty;
     protected string strMaxLimit = string.Empty;
@@ -43,31 +46,34 @@ public class PaymentBasePage : BasePage
     protected string strErrorDetail = string.Empty;
     protected int intProcessSerialId = 0;
     protected string strProcessId = Guid.NewGuid().ToString().ToUpper();
-    
+
     protected bool isSystemError = false;
     protected bool isProcessAbort = false;
 
-    protected void InitialiseVariables(string paymentMethod)
+    protected void InitialiseVariables()
     {
         strOperatorId = commonVariables.OperatorId;
-        
+
         strMemberCode = commonVariables.GetSessionVariable("MemberCode");
         strMemberID = commonVariables.GetSessionVariable("memberId");
 
         strCurrencyCode = commonVariables.GetSessionVariable("CurrencyCode");
         strCountryCode = commonVariables.GetSessionVariable("CountryCode");
-        
+
         strRiskId = commonVariables.GetSessionVariable("RiskId");
-        
+
         strPaymentGroup = commonVariables.GetSessionVariable("PaymentGroup");
-        
+
         strSelectedLanguage = commonVariables.SelectedLanguage;
-        
+
         strSiteUrl = commonVariables.SiteUrl;
 
         xeErrors = commonVariables.ErrorsXML;
 
-        commonCulture.appData.getRootResource("/Deposit/" + paymentMethod, out xeResources);
+        if (PaymentType == commonVariables.PaymentTransactionType.Deposit)
+            commonCulture.appData.getRootResource("/Deposit/" + PageName, out xeResources);
+        else
+            commonCulture.appData.getRootResource("/Withdrawal/" + PageName, out xeResources);
     }
 
     protected void CancelUnexpectedRePost()
@@ -102,6 +108,14 @@ public class PaymentBasePage : BasePage
 
     protected void InitialisePaymentLimits()
     {
+        if (PaymentType == commonVariables.PaymentTransactionType.Deposit)
+            InitialiseDepositPaymentLimits();
+        else
+            InitialiseWithdrawalPaymentLimits();
+    }
+
+    private void InitialiseDepositPaymentLimits()
+    {
         string strProcessCode = string.Empty;
         string strProcessText = string.Empty;
 
@@ -125,7 +139,7 @@ public class PaymentBasePage : BasePage
             }
         }
 
-        strMethodId = paymentMethodId;
+        strMethodId = PaymentMethodId;
 
         if (dtPaymentMethodLimits.Select("[methodId] = " + strMethodId).Count() > 0)
         {
@@ -140,7 +154,48 @@ public class PaymentBasePage : BasePage
         strMethodsUnAvailable = Convert.ToString(sbMethodsUnavailable).TrimEnd('|');
     }
 
-    protected void getMainWalletBalance(string walletId)
+    private void InitialiseWithdrawalPaymentLimits()
+    {
+        string strProcessCode = string.Empty;
+        string strProcessText = string.Empty;
+
+        DataTable dtPaymentMethodLimits = null;
+        DataRow drPaymentMethodLimit = null;
+
+        StringBuilder sbMethodsUnavailable = new StringBuilder();
+
+        strMethodId = "0";
+
+        using (svcPayMember.MemberClient svcInstance = new svcPayMember.MemberClient())
+        {
+            dtPaymentMethodLimits = svcInstance.getMethodLimits(strOperatorId, strMemberCode, strMethodId, Convert.ToString(Convert.ToInt32(commonVariables.PaymentTransactionType.Withdrawal)), false, out strProcessCode, out strProcessText);
+        }
+
+        foreach (commonVariables.WithdrawalMethod EnumMethod in Enum.GetValues(typeof(commonVariables.WithdrawalMethod)))
+        {
+            if (dtPaymentMethodLimits.Select("[methodId] = " + Convert.ToInt32(EnumMethod)).Count() < 1)
+            {
+                sbMethodsUnavailable.AppendFormat("{0}|", Convert.ToInt32(EnumMethod));
+            }
+        }
+
+        strMethodId = PaymentMethodId;
+
+        if (dtPaymentMethodLimits.Select("[methodId] = " + strMethodId).Count() > 0)
+        {
+            drPaymentMethodLimit = dtPaymentMethodLimits.Select("[methodId] = " + strMethodId)[0];
+
+            strMinLimit = Convert.ToDecimal(drPaymentMethodLimit["minDeposit"]).ToString(commonVariables.DecimalFormat);
+            strMaxLimit = Convert.ToDecimal(drPaymentMethodLimit["maxDeposit"]).ToString(commonVariables.DecimalFormat);
+            strTotalAllowed = Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]) <= 0 ? commonCulture.ElementValues.getResourceString("unlimited", xeResources) : Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]).ToString(commonVariables.DecimalFormat);
+            strDailyLimit = Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]) == 0 ? commonCulture.ElementValues.getResourceString("unlimited", xeResources) : Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]).ToString(commonVariables.DecimalFormat);
+        }
+
+        strMethodsUnAvailable = Convert.ToString(sbMethodsUnavailable).TrimEnd('|');
+    }
+
+
+    protected void GetMainWalletBalance(string walletId)
     {
         string strProductCurrency = string.Empty;
 
@@ -155,5 +210,27 @@ public class PaymentBasePage : BasePage
         {
             Session["MAIN"] = "0.00";
         }
+    }
+
+    protected void InitialisePendingWithdrawals()
+    {
+        string strStatusCode = string.Empty;
+        string strStatusText = string.Empty;
+
+        svcPayMember.PendingWithdrawal[] arrPending = null;
+
+        using (svcPayMember.MemberClient svcInstance = new svcPayMember.MemberClient())
+        {
+            arrPending = svcInstance.getPendingWithdrawal(Convert.ToInt64(strOperatorId), strMemberCode, out strStatusCode, out strStatusText);
+
+            if (arrPending != null && arrPending.Length > 0)
+            {
+                if (Request.QueryString["source"] == "app")
+                    Response.Redirect("/Withdrawal/Pending_app.aspx");
+                else
+                    Response.Redirect("/Withdrawal/Pending.aspx");
+            }
+        }
+
     }
 }

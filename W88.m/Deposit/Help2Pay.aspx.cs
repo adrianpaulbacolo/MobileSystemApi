@@ -68,7 +68,7 @@ public partial class Deposit_Help2Pay : BasePage
         }
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "help2pay");
+        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "help2pay", sender.ToString().Contains("app"));
     }
 
     private void CancelUnexpectedRePost()

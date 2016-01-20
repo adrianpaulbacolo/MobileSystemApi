@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Xml.XPath;
 
@@ -48,7 +49,15 @@ public partial class Withdrawal_WingMoney : BasePage
 
         if (arrPending != null && arrPending.Length > 0)
         {
-            if (litScript != null) { litScript.Text += "<script type='text/javascript'>window.location.replace('/Withdrawal/Pending.aspx');</script>"; }
+            if (litScript != null)
+            {
+                litScript.Text += "<script type='text/javascript'>window.location.replace('/Withdrawal/Pending.aspx');</script>";
+            }
+
+            if (Request.QueryString["source"] == "app")
+                Response.Redirect("/Withdrawal/Pending_app.aspx");
+            else
+                Response.Redirect("/Withdrawal/Pending.aspx");
         }
     }
 
@@ -87,6 +96,9 @@ public partial class Withdrawal_WingMoney : BasePage
 
             System.Threading.Tasks.Task.WaitAll(t1);
         }
+
+        HtmlGenericControl withdrawalTabs = (HtmlGenericControl)FindControl("withdrawalTabs");
+        commonPaymentMethodFunc.getWithdrawalMethodList(strMethodsUnAvailable, withdrawalTabs, "wingmoney", sender.ToString().Contains("app"));
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)

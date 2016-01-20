@@ -65,7 +65,7 @@
                     </li>
                     <li class="item item-select">
                         <asp:Label ID="lblDepositChannel" runat="server" AssociatedControlID="drpDepositChannel" Text="to" />
-                        <asp:DropDownList ID="drpDepositChannel" runat="server" data-corners="false" AutoPostBack="True" />
+                        <asp:DropDownList ID="drpDepositChannel" runat="server" data-corners="false" />
                     </li>
                     <li class="item item-select">
                         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" Text="to" />
@@ -73,7 +73,7 @@
                     </li>
                     <li class="item item-input" id="divBankName" style="display: none;">
                         <asp:Label ID="lblBankName" runat="server" AssociatedControlID="txtBankName" Text="other" />
-                        <asp:TextBox ID="txtBankName" runat="server" placeholder="bankname" data-clear-btn="true" />
+                        <asp:TextBox ID="txtBankName" runat="server" data-clear-btn="true" />
                     </li>
                     <li class="item item-input">
                         <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" Text="to" />

@@ -72,7 +72,7 @@ public partial class Deposit_WingMoney : BasePage
         }
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "wingmoney");
+        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "wingmoney", sender.ToString().Contains("app"));
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)

@@ -66,7 +66,7 @@ public partial class Deposit_SDPay : BasePage
         }
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "sdpay");
+        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "sdpay", sender.ToString().Contains("app"));
     }
 
     private void CancelUnexpectedRePost()

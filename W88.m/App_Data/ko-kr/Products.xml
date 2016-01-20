@@ -124,5 +124,6 @@
 			<SafariDoNotTrack><![CDATA[추적 안함 : OFF]]></SafariDoNotTrack>
 			<SafariBlockCookies><![CDATA[쿠키 차단 : 항상 허용]]></SafariBlockCookies>
 		</Palazzo>
+		<DoNotShow><![CDATA[다시보지 않기]]></DoNotShow>
 	</Popup>
 </default>
