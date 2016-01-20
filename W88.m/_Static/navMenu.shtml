@@ -496,7 +496,7 @@
     </div>
     <div class="ui-checkbox">
         <label for="noShowModal">
-            <small>Do not show again</small>
+            <small><%=commonCulture.ElementValues.getResourceXPathString("/Popup/DoNotShow", commonVariables.ProductsXML)%></small>
         </label>
         <input type="checkbox" name="noShowPalazzoModal" id="noShowPalazzoModal" data-enhanced="true">
     </div>
