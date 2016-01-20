@@ -10,6 +10,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using svcPayDeposit;
 
 public partial class Deposit_NextPay : BasePage
 {
@@ -235,7 +236,7 @@ public partial class Deposit_NextPay : BasePage
         {
             string depositAmount = txtDepositAmount.Text.Trim();
             svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient();
-            System.Xml.Linq.XElement xElement = client.createOnlineDepositTransaction(Convert.ToInt64(strOperatorId), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.NextPay), strCurrencyCode, Convert.ToDecimal(depositAmount), string.Empty);
+            System.Xml.Linq.XElement xElement = client.createOnlineDepositTransactionV1(Convert.ToInt64(strOperatorId),long.Parse(strMemberID), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.NextPay), strCurrencyCode, Convert.ToDecimal(depositAmount),DepositSource.Mobile, string.Empty);
             client.Close();
 
             if (xElement == null)
