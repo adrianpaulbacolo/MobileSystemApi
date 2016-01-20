@@ -18,13 +18,11 @@
         </header>
 
         <div class="ui-content" role="main">
-
             <div class="wallet main-wallet">
                 <label class="label"><%=commonCulture.ElementValues.getResourceString("mainWallet", commonVariables.LeftMenuXML)%></label>
                 <h2 class="value"><%=Session["Main"].ToString()%></h2>
                 <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
             </div>
-
 
             <div data-role="navbar">
                 <ul id="depositTabs" runat="server">

@@ -83,8 +83,6 @@ public partial class Deposit_Default : BasePage
             }
 
             getMainWalletBalance("0");
-
-            
             
         }
         string test = commonVariables.GetSessionVariable("CurrencyCode").ToString();

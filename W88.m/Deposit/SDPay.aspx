@@ -120,9 +120,9 @@
                     return;
                 }
 
-    var sdpayurl = '/_secure/ajaxhandlers/sdpay.ashx?v=' + new Date().getTime() + '&requestAmount=' + $('#txtDepositAmount').val();
-    var w = window.open(sdpayurl);
-}
+                var sdpayurl = '/_secure/ajaxhandlers/sdpay.ashx?v=' + new Date().getTime() + '&requestAmount=' + $('#txtDepositAmount').val();
+                var w = window.open(sdpayurl);
+            }
         </script>
     </div>
 </body>

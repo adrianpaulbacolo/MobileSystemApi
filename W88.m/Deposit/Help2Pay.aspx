@@ -123,10 +123,10 @@
                     e.preventDefault();
                     return;
                 }
-    var help2payurl = '/_secure/ajaxhandlers/help2pay.ashx?v=' + new Date().getTime() + '&requestAmount=' + $('#txtDepositAmount').val() + '&requestBank=' + $('#drpBank').val();
-    var w = window.open(help2payurl);
+                var help2payurl = '/_secure/ajaxhandlers/help2pay.ashx?v=' + new Date().getTime() + '&requestAmount=' + $('#txtDepositAmount').val() + '&requestBank=' + $('#drpBank').val();
+                var w = window.open(help2payurl);
 
-}
+            }
         </script>
     </div>
 </body>
