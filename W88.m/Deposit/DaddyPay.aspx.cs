@@ -60,7 +60,6 @@ public partial class Deposit_DaddyPay : BasePage
         commonCulture.appData.getRootResource("/Deposit/SDPay", out xeResources);
         commonCulture.appData.getRootResource("/Deposit/FastDeposit", out xeResource);
 
-        HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
 
         if (!Page.IsPostBack)
         {
@@ -86,13 +85,11 @@ public partial class Deposit_DaddyPay : BasePage
             {
                 account_txt.Visible = false;
                 accountName_txt.Visible = false;
-                commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "daddypay", sender.ToString().Contains("app"));
             }
             else if (value == "2")
             {
                 account_txt.Visible = true; ;
                 accountName_txt.Visible = true;
-                commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "daddypayqr", sender.ToString().Contains("app"));
             }
 
             PopulateBankList();
@@ -126,8 +123,16 @@ public partial class Deposit_DaddyPay : BasePage
             //PopulateBankList();
         }
 
+        HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
 
-        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "daddypay", sender.ToString().Contains("app"));
+        if (Request.QueryString["value"].ToString() == "1")
+        {
+            commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "daddypay", sender.ToString().Contains("app"));
+        }
+        else if (Request.QueryString["value"].ToString() == "2")
+        {
+            commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "daddypayqr", sender.ToString().Contains("app"));
+        }
     }
 
     private void CancelUnexpectedRePost()

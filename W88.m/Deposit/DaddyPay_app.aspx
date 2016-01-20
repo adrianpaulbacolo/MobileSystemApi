@@ -66,7 +66,6 @@
                     </li>
                     <li class="item item-select">
                         <asp:DropDownList ID="bankDropDownList" runat="server">
-                            <asp:ListItem>SELECT BANK</asp:ListItem>
                         </asp:DropDownList>
                         <asp:TextBox ID="accountName_txt" runat="server" placeholder="Account Name" data-clear-btn="true" />
                         <asp:TextBox ID="account_txt" runat="server" placeholder="Account" data-clear-btn="true" />
