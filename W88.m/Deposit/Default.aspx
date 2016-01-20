@@ -41,9 +41,11 @@
                     <li class="item item-text-wrap">
                         <div class="div-limit"></div>
                         <div>
-                            <asp:Literal ID="lblDailyLimit" runat="server" /></div>
+                            <asp:Literal ID="lblDailyLimit" runat="server" />
+                        </div>
                         <div>
-                            <asp:Literal ID="lblTotalAllowed" runat="server" /></div>
+                            <asp:Literal ID="lblTotalAllowed" runat="server" />
+                        </div>
                     </li>
                     <li class="item item-input">
                         <asp:Label ID="lblReferenceId" runat="server" AssociatedControlID="txtReferenceId" Text="from" />
@@ -56,11 +58,14 @@
                     <li class="item item-select div-fastdeposit-depositdatetime" id="divDepositDateTime" runat="server">
                         <div class="row">
                             <div class="col">
-                                <asp:DropDownList ID="drpDepositDate" runat="server" /></div>
+                                <asp:DropDownList ID="drpDepositDate" runat="server" />
+                            </div>
                             <div class="col">
-                                <asp:DropDownList ID="drpHour" runat="server" /></div>
+                                <asp:DropDownList ID="drpHour" runat="server" />
+                            </div>
                             <div class="col">
-                                <asp:DropDownList ID="drpMinute" runat="server" /></div>
+                                <asp:DropDownList ID="drpMinute" runat="server" />
+                            </div>
                         </div>
                     </li>
                     <li class="item item-select">
@@ -100,6 +105,12 @@
         <script type="text/javascript">
             $(function () {
                 window.history.forward();
+
+                if ($('#depositTabs li').length == 0){
+                    window.location.replace('/Index.aspx');
+                } else if ($('#depositTabs li.btn-primary').length == 0) {
+                    window.location.replace($('#depositTabs li').first().children().attr('href'));
+                }
 
                 if ('<%=strAlertCode%>'.length > 0) {
                     switch ('<%=strAlertCode%>') {

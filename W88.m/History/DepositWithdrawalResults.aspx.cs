@@ -40,6 +40,8 @@ public partial class History_DepositWithdrawalResults : System.Web.UI.Page
                         DataTable history = svcInstance.getDepositWithdrawalHistory(strOperatorId, strMemberCode, type,
                             status, dateFrom, dateTo, out statusCode);
 
+                        history.Rows.Cast<DataRow>().ToList().ForEach(n => n.SetField("methodCode", n["methodCode"].ToString().IndexOf("net", StringComparison.OrdinalIgnoreCase) == 0 ? "NETELLER" : n["methodCode"]));
+                        
                         GridView1.DataSource = history;
                         GridView1.PagerSettings.Mode = PagerButtons.NextPrevious;
                         GridView1.DataBind();
