@@ -103,7 +103,7 @@
                             break;
                         case '0':
                             alert('<%=strAlertMessage%>');
-                            window.location.replace('/Deposit/Neteller.aspx');
+                            window.location.replace('/Deposit/Neteller_app.aspx');
                             break;
                         default:
                             break;

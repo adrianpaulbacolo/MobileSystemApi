@@ -94,7 +94,7 @@
                             break;
                         case '0':
                             alert('<%=strAlertMessage%>');
-                            window.location.replace('/Deposit/NextPay.aspx');
+                            
                             break;
                         default:
                             break;
