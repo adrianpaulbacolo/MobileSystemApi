@@ -114,8 +114,10 @@ public partial class _Secure_Login : System.Web.UI.Page
             }
             catch (Exception ex)
             {
+                
                 strProcessCode = "0";
                 strProcessMessage = ex.Message;
+                commonAuditTrail.appendLog("system", strPageName, "CheckLoginToken", "", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
                 commonVariables.ClearSessionVariables();
                 commonCookie.ClearCookies();
             }
