@@ -59,7 +59,7 @@
                     </li>
                     <li class="row">
                         <div class="col">
-                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" data-corners="false" OnClientClick="javascript:postsdpay();return false;" /></div>
+                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" /></div>
                     </li>
                     <li class="item-text-wrap">
                         <asp:Literal ID="lblNoticeDownload" runat="server" />
@@ -88,35 +88,25 @@
         <script type="text/javascript">
             $(function () {
                 window.history.forward();
+
+                if ('<%=strAlertCode%>'.length > 0) {
+                    switch ('<%=strAlertCode%>') {
+                        case '-1':
+                            alert('<%=strAlertMessage%>');
+                            break;
+                        case '0':
+                            alert('<%=strAlertMessage%>');
+
+                            var sdpayurl = '/_secure/ajaxhandlers/sdpay.ashx?v=' + new Date().getTime() + '&requestAmount=' + $('#txtDepositAmount').val();
+                            window.open(sdpayurl);
+
+                            break;
+                        default:
+                            break;
+                    }
+                }
             });
-
-            function postsdpay() {
-                $('.div-submit').hide();
-
-                if ($('#txtDepositAmount').val().length == 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Deposit/MissingDepositAmount", xeErrors)%>');
-                    e.preventDefault();
-                    return;
-                }
-                else if (isNaN($('#txtDepositAmount').val())) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Deposit/InvalidDepositAmount", xeErrors)%>');
-                    e.preventDefault();
-                    return;
-                }
-                else if (parseFloat($('#txtDepositAmount').val()) < parseFloat('<%=strMinAmount%>')) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Deposit/AmountMinLimit", xeErrors)%>');
-                    e.preventDefault();
-                    return;
-                }
-                else if (parseFloat($('#txtDepositAmount').val()) > parseFloat('<%=strMaxAmount%>')) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Deposit/AmountMaxLimit", xeErrors)%>');
-                    e.preventDefault();
-                    return;
-                }
-
-    var sdpayurl = '/_secure/ajaxhandlers/sdpay.ashx?v=' + new Date().getTime() + '&requestAmount=' + $('#txtDepositAmount').val();
-    var w = window.open(sdpayurl);
-}
+            
         </script>
     </div>
 </body>

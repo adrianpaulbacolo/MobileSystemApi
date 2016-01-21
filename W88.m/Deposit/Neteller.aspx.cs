@@ -70,40 +70,44 @@ public partial class Deposit_Neteller : PaymentBasePage
         string memberAccount = txtAccountId.Text.Trim();
         string memberPin = txtSecureId.Text.Trim();
 
-        decimal decMinLimit = decimal.Zero;
-        decimal decMaxLimit = decimal.Zero;
-        decimal decTotalAllowed = decimal.Zero;
-        decimal decDailyLimit = decimal.Zero;
+        decimal decDepositAmount = commonValidation.isDecimal(strDepositAmount) ? Convert.ToDecimal(strDepositAmount) : 0;
+        decimal decMinLimit = Convert.ToDecimal(strMinLimit);
+        decimal decMaxLimit = Convert.ToDecimal(strMaxLimit);
 
         if (!isProcessAbort)
         {
             try
             {
-                if (Convert.ToDecimal(strDepositAmount) < Convert.ToDecimal(strMinLimit))
+                if (decDepositAmount == 0)
+                {
+                    strAlertCode = "-1";
+                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/MissingDepositAmount", xeErrors);
+                    isProcessAbort = true;
+                }
+                else if (decDepositAmount < decMinLimit)
                 {
                     strAlertCode = "-1";
                     strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/AmountMinLimit", xeErrors);
                     isProcessAbort = true;
                 }
-                else if (Convert.ToDecimal(strDepositAmount) > Convert.ToDecimal(strMaxLimit))
+                else if (decDepositAmount > decMaxLimit)
                 {
                     strAlertCode = "-1";
                     strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/AmountMaxLimit", xeErrors);
                     isProcessAbort = true;
                 }
-                else if ((strTotalAllowed != commonCulture.ElementValues.getResourceString("unlimited", xeResources)) && (Convert.ToDecimal(strDepositAmount) > Convert.ToDecimal(strTotalAllowed)) && Convert.ToDecimal(strTotalAllowed) > 0)
+                else if ((strTotalAllowed != commonCulture.ElementValues.getResourceString("unlimited", xeResources)) && (decDepositAmount > Convert.ToDecimal(strTotalAllowed)) && Convert.ToDecimal(strTotalAllowed) > 0)
                 {
                     strAlertCode = "-1";
                     strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TotalAllowedExceeded", xeErrors);
                     isProcessAbort = true;
                 }
 
-
                 if (!isProcessAbort)
                 {
-                    using (DepositServices.DepositClient client = new DepositServices.DepositClient())
+                    using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
                     {
-                        xeResponse = client.createOnlineDepositTransactionV1(Convert.ToInt64(strOperatorId), Convert.ToInt64(strMemberID), strMemberCode, Convert.ToInt64(base.PaymentMethodId), strCurrencyCode, Convert.ToDecimal(strDepositAmount), DepositServices.DepositSource.Mobile, string.Empty);
+                        xeResponse = client.createOnlineDepositTransactionV1(Convert.ToInt64(strOperatorId), Convert.ToInt64(strMemberID), strMemberCode, Convert.ToInt64(base.PaymentMethodId), strCurrencyCode, decDepositAmount, svcPayDeposit.DepositSource.Mobile, string.Empty);
 
                         if (xeResponse == null)
                         {
@@ -118,7 +122,7 @@ public partial class Deposit_Neteller : PaymentBasePage
 
                             if (isTransactionSuccessful)
                             {
-                                bool isSuccess = client.createNetellerTransaction(Convert.ToInt64(strTransferId), Convert.ToInt64(strOperatorId), Convert.ToDecimal(strDepositAmount), strCurrencyCode, Convert.ToInt64(strMemberID), strMemberCode, Convert.ToInt64(memberAccount), Convert.ToInt32(memberPin));
+                                bool isSuccess = client.createNetellerTransaction(Convert.ToInt64(strTransferId), Convert.ToInt64(strOperatorId), decDepositAmount, strCurrencyCode, Convert.ToInt64(strMemberID), strMemberCode.ToLower(), Convert.ToInt64(memberAccount), Convert.ToInt32(memberPin));
 
                                 if (isSuccess)
                                 {
@@ -153,7 +157,7 @@ public partial class Deposit_Neteller : PaymentBasePage
             txtSecureId.Text = string.Empty;
 
             string strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | CurrencyCode: {2} | DepositAmount: {3} | NetellerAccountId: {4} | MinLimit: {5} | MaxLimit: {6} | TotalAllowed: {7} | DailyLimit: {8} | Response: {9}",
-                Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, memberAccount, decMinLimit, decMaxLimit, decTotalAllowed, decDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
+                Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, memberAccount, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
 
             intProcessSerialId += 1;
             commonAuditTrail.appendLog("system", PageName, "InitiateDeposit", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);

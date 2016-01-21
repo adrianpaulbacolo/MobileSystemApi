@@ -269,7 +269,7 @@ public partial class Deposit_Default : BasePage
                     {
                         xeResponse = svcInstance.createFastDepositTransactionV1(lngOperatorId, strMemberCode, strDepositChannel, Convert.ToInt64(commonVariables.DepositMethod.FastDeposit),
                                     strCurrencyCode, Convert.ToDecimal(strDepositAmount), Convert.ToInt64(strSystemAccount), strAccountName, strAccountNumber, dtDepositDateTime,
-                                    strReferenceId, strBankCode, strBankName, strBankNameInput, Convert.ToString(DepositServices.DepositSource.Mobile));
+                                    strReferenceId, strBankCode, strBankName, strBankNameInput, Convert.ToString(svcPayDeposit.DepositSource.Mobile));
 
                         if (xeResponse == null)
                         {

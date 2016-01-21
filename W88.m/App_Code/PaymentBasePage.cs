@@ -14,7 +14,10 @@ public class PaymentBasePage : BasePage
     protected XElement xeResources = null;
     protected XElement xeErrors = null;
     protected XElement xeResponse = null;
-
+    
+    /// <summary>
+    /// XML Name to use in Translation inside the AppData
+    /// </summary>
     protected string PageName { get; set; }
     protected commonVariables.PaymentTransactionType PaymentType { get; set; }
     protected string PaymentMethodId { get; set; }

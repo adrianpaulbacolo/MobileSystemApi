@@ -85,44 +85,7 @@
                     }
                 }
             });
-
-            $('#form1').submit(function (e) {
-
-                if ($('#txtWithdrawAmount').val().length == 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Withdrawal/MissingWithdrawAmount", xeErrors)%>');
-                    e.preventDefault();
-                    return;
-                }
-                else if (isNaN($('#txtWithdrawAmount').val())) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Withdrawal/MissingWithdrawAmount", xeErrors)%>');
-                    e.preventDefault();
-                    return;
-                }
-                else if ($('#txtReferenceId').val().length == 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Deposit/MissingReferenceId", xeErrors)%>');
-                    e.preventDefault();
-                    return;
-                }
-                else if ($('#txtAccountName').val().length == 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Withdrawal/MissingAccountName", xeErrors)%>');
-                    e.preventDefault();
-                    return;
-                }
-                else if ($('#txtAccountNumber').val().length == 0) {
-                    if ($('#drpBank').val() == 'VIETIN') {
-                        //if ($('#txtAccountNumber').val().length != 16 || isNaN($('#txtAccountNumber').val())) {
-                        alert('<%=commonCulture.ElementValues.getResourceXPathString("Withdrawal/MissingAccountNumber", xeErrors)%>');
-                        e.preventDefault();
-                        return;
-                        //}
-                    } else {
-                        alert('<%=commonCulture.ElementValues.getResourceXPathString("Withdrawal/MissingAccountNumber", xeErrors)%>');
-                        e.preventDefault();
-                        return;
-                    }
-                }
-                GPINTMOBILE.ShowSplash();
-            });
+           
         </script>
     </div>
 </body>

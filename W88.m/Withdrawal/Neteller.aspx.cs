@@ -62,44 +62,48 @@ public partial class Withdrawal_Neteller : PaymentBasePage
             Response.Redirect(Request.Url.AbsoluteUri);
         }
 
-        string strAmount = txtWithdrawalAmount.Text.Trim();
+        string strWithdrawalAmount = txtWithdrawalAmount.Text.Trim();
         string memberAccount = txtAccountId.Text.Trim();
         string memberPin = string.Empty;
 
-        decimal decMinLimit = decimal.Zero;
-        decimal decMaxLimit = decimal.Zero;
-        decimal decTotalAllowed = decimal.Zero;
-        decimal decDailyLimit = decimal.Zero;
+        decimal decWithdrawalAmount = commonValidation.isDecimal(strWithdrawalAmount) ? Convert.ToDecimal(strWithdrawalAmount) : 0;
+        decimal decMinLimit = Convert.ToDecimal(strMinLimit);
+        decimal decMaxLimit = Convert.ToDecimal(strMaxLimit);
 
         if (!isProcessAbort)
         {
             try
             {
-                if (Convert.ToDecimal(strAmount) < Convert.ToDecimal(strMinLimit))
+                if (decWithdrawalAmount == 0)
+                {
+                    strAlertCode = "-1";
+                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/MissingWithdrawAmount", xeErrors);
+                    isProcessAbort = true;
+                }
+                else if (decWithdrawalAmount < decMinLimit)
                 {
                     strAlertCode = "-1";
                     strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/AmountMinLimit", xeErrors);
                     isProcessAbort = true;
                 }
-                else if (Convert.ToDecimal(strAmount) > Convert.ToDecimal(strMaxLimit))
+                else if (decWithdrawalAmount > decMaxLimit)
                 {
                     strAlertCode = "-1";
                     strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/AmountMaxLimit", xeErrors);
                     isProcessAbort = true;
                 }
-                else if ((strTotalAllowed != commonCulture.ElementValues.getResourceString("unlimited", xeResources)) && (Convert.ToDecimal(strAmount) > Convert.ToDecimal(strTotalAllowed)) && Convert.ToDecimal(strTotalAllowed) > 0)
+                else if ((strTotalAllowed != commonCulture.ElementValues.getResourceString("unlimited", xeResources)) && (decWithdrawalAmount > Convert.ToDecimal(strTotalAllowed)) && Convert.ToDecimal(strTotalAllowed) > 0)
                 {
                     strAlertCode = "-1";
                     strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TotalAllowedExceeded", xeErrors);
                     isProcessAbort = true;
                 }
 
-
                 if (!isProcessAbort)
                 {
                     using (svcPayWithdrawal.WithdrawalClient client = new svcPayWithdrawal.WithdrawalClient())
                     {
-                        xeResponse = client.createOnlineWithdrawalTransactionV1(Convert.ToInt64(strOperatorId), strMemberCode, Convert.ToInt64(this.PaymentMethodId), strCurrencyCode, Convert.ToDecimal(strAmount), svcPayWithdrawal.WithdrawalSource.Mobile, memberAccount, memberPin);
+                        xeResponse = client.createOnlineWithdrawalTransactionV1(Convert.ToInt64(strOperatorId), strMemberCode, Convert.ToInt64(this.PaymentMethodId), strCurrencyCode, decWithdrawalAmount, svcPayWithdrawal.WithdrawalSource.Mobile, memberAccount, memberPin);
                         
                         if (xeResponse == null)
                         {
@@ -138,7 +142,7 @@ public partial class Withdrawal_Neteller : PaymentBasePage
             txtAccountId.Text = string.Empty;
 
             string strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | CurrencyCode: {2} | WithdrawalAmount: {3} | NetellerAccountId: {4} | MinLimit: {5} | MaxLimit: {6} | TotalAllowed: {7} | DailyLimit: {8} | Response: {9}",
-                Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strAmount, memberAccount, decMinLimit, decMaxLimit, decTotalAllowed, decDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
+                Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strWithdrawalAmount, memberAccount, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
 
             intProcessSerialId += 1;
             commonAuditTrail.appendLog("system", PageName, "InitiateDeposit", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);

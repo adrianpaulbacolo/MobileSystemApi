@@ -106,7 +106,7 @@
 
                 if ($('#depositTabs li').length == 0){
                     window.location.replace('/Index.aspx');
-                } else if ($('#depositTabs li.btn-primary').length == 0) {
+                } else if ($('#depositTabs li a.btn-primary').length == 0) {
                     window.location.replace($('#depositTabs li').first().children().attr('href'));
                 }
 

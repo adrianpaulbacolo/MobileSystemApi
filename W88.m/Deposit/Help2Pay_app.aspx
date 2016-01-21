@@ -63,7 +63,7 @@
                     </li>
                     <li class="item row">
                         <div class="col">
-                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" data-corners="false" OnClientClick="javascript:postHelp2pay();return false;" /></div>
+                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" /></div>
                     </li>
                     <asp:HiddenField runat="server" ID="_repostcheckcode" />
                 </ul>
@@ -83,44 +83,23 @@
         <script type="text/javascript">
             $(function () {
                 window.history.forward();
+
+                if ('<%=strAlertCode%>'.length > 0) {
+                    switch ('<%=strAlertCode%>') {
+                        case '-1':
+                            alert('<%=strAlertMessage%>');
+                            break;
+                        case '0':
+                            var help2payurl = '/_secure/ajaxhandlers/help2pay.ashx?v=' + new Date().getTime() + '&requestAmount=' + $('#txtDepositAmount').val() + '&requestBank=' + $('#drpBank').val();
+                            window.open(help2payurl);
+
+                            break;
+                        default:
+                            break;
+                    }
+                }
             });
-
-
-            function postHelp2pay() {
-                $('.div-submit').hide();
-
-
-                if ($('#drpBank').val() == '-1') {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Deposit/SelectBank", xeErrors)%>');
-                    e.preventDefault();
-                    return;
-                }
-
-                if ($('#txtDepositAmount').val().length == 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Deposit/MissingDepositAmount", xeErrors)%>');
-                    e.preventDefault();
-                    return;
-                }
-                else if (isNaN($('#txtDepositAmount').val())) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Deposit/InvalidDepositAmount", xeErrors)%>');
-                    e.preventDefault();
-                    return;
-                }
-                else if (parseFloat($('#txtDepositAmount').val()) < parseFloat('<%=strMinAmount%>')) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Deposit/AmountMinLimit", xeErrors)%>');
-                    e.preventDefault();
-                    return;
-                }
-                else if (parseFloat($('#txtDepositAmount').val()) > parseFloat('<%=strMaxAmount%>')) {
-
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Deposit/AmountMaxLimit", xeErrors)%>');
-                    e.preventDefault();
-                    return;
-                }
-    var help2payurl = '/_secure/ajaxhandlers/help2pay.ashx?v=' + new Date().getTime() + '&requestAmount=' + $('#txtDepositAmount').val() + '&requestBank=' + $('#drpBank').val();
-    var w = window.open(help2payurl);
-
-}
+           
         </script>
     </div>
 </body>
