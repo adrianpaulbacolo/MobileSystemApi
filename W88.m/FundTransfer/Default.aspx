@@ -46,7 +46,7 @@
                     <li class="item item-input">
                         <asp:Literal ID="litExchangeRate" runat="server" />
                     </li>
-                    <li class="item item-input" id="divPromoCode" style="display: none;">
+                    <li class="item item-input" id="divPromoCode">
                         <div class="ui-field-contain ui-hide-label">
                             <asp:Label ID="lblPromoCode" runat="server" AssociatedControlID="txtPromoCode" Text="code" CssClass="ui-hidden-accessible" />
                             <asp:TextBox ID="txtPromoCode" runat="server" placeholder="code" />
