@@ -66,7 +66,7 @@
                     </li>
                     <li class="item item-input">
                         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" Text="from" />
-                        <asp:TextBox ID="txtDepositAmount" runat="server" placeholder="amount" type="number" step="any" min="1" data-clear-btn="true" />
+                        <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
                     <li class="item item-select">
                         <asp:DropDownList ID="bankDropDownList" runat="server">
@@ -92,6 +92,19 @@
         <script type="text/javascript">
             $(function () {
                 window.history.forward();
+
+                if ('<%=strAlertCode%>'.length > 0) {
+                    switch ('<%=strAlertCode%>') {
+                        case '-1':
+                            alert('<%=strAlertMessage%>');
+                            break;
+                        case '0':
+                            alert('<%=strAlertMessage%>');
+                            break;
+                        default:
+                            break;
+                    }
+                }
             });
         </script>
     </div>

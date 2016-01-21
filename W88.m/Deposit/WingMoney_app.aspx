@@ -106,35 +106,6 @@
                     }
                 }
             });
-
-            $('#form1').submit(function (e) {
-                if ($('#txtDepositAmount').val().length == 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Deposit/MissingDepositAmount", xeErrors)%>');
-                    e.preventDefault();
-                    return;
-                }
-                else if (isNaN($('#txtDepositAmount').val())) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Deposit/InvalidDepositAmount", xeErrors)%>');
-                    e.preventDefault();
-                    return;
-                }
-                else if ($('#txtReferenceId').val().length == 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Deposit/MissingReferenceId", xeErrors)%>');
-                    e.preventDefault();
-                    return;
-                }
-                else if ($('#txtAccountName').val().length == 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Deposit/MissingAccountName", xeErrors)%>');
-                    e.preventDefault();
-                    return;
-                }
-                else if ($('#txtAccountNumber').val().length == 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Deposit/MissingAccountNumber", xeErrors)%>');
-                        e.preventDefault();
-                        return;
-                    }
-                GPINTMOBILE.ShowSplash();
-            });
         </script>
     </div>
 </body>

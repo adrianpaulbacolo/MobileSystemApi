@@ -103,7 +103,7 @@ public static class commonPaymentMethodFunc
                 depositTabs.Controls.Add(list);
                 break;
 
-            case "120203": //commonVariables.DepositMethod.SDPay:
+            case "120223": //commonVariables.DepositMethod.SDPay:
                 list = new HtmlGenericControl("li");
                 list.ID = string.Format("d{0}", paymentCode);
 
