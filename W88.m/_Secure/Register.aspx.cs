@@ -91,7 +91,7 @@ public partial class _Secure_Register : System.Web.UI.Page
 
             lblFirstName.Text = commonCulture.ElementValues.getResourceString("lblFirstName", xeResources);
             // txtFirstName.Attributes.Add("PLACEHOLDER", lblFirstName.Text);
-            lblLastName.Text = commonCulture.ElementValues.getResourceString("lblLastName", xeResources);
+            //lblLastName.Text = commonCulture.ElementValues.getResourceString("lblLastName", xeResources);
             // txtLastName.Attributes.Add("PLACEHOLDER", lblLastName.Text);
             lblDOB.Text = commonCulture.ElementValues.getResourceString("lblDOB", xeResources);
 
@@ -163,7 +163,8 @@ public partial class _Secure_Register : System.Web.UI.Page
         strContact = txtContact.Text;
         strCurrencyCode = drpCurrency.SelectedValue;
         strFName = System.Text.RegularExpressions.Regex.Replace(txtFirstName.Text, @"\t|\n|\r|", "");
-        strLName = System.Text.RegularExpressions.Regex.Replace(txtLastName.Text, @"\t|\n|\r|", ""); ;
+        //strLName = System.Text.RegularExpressions.Regex.Replace(txtLastName.Text, @"\t|\n|\r|", ""); ;
+        strLName = string.Empty;
         strDOB = string.Format("{0}-{1}-{2}", drpYear.SelectedValue, drpMonth.SelectedValue, drpDay.SelectedValue);
         strVCode = txtCaptcha.Text;
         strSessionVCode = commonVariables.GetSessionVariable("vCode");
@@ -216,11 +217,11 @@ public partial class _Secure_Register : System.Web.UI.Page
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/MissingFName", xeErrors);
             isProcessAbort = true;
         }
-        else if (string.IsNullOrEmpty(strLName))
-        {
-            strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/MissingLName", xeErrors);
-            isProcessAbort = true;
-        }
+        //else if (string.IsNullOrEmpty(strLName))
+        //{
+        //    strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/MissingLName", xeErrors);
+        //    isProcessAbort = true;
+        //}
         else if (string.IsNullOrEmpty(strVCode))
         {
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/MissingVCode", xeErrors);
