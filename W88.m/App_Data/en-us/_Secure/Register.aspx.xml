@@ -8,7 +8,7 @@
 	<drpCurrencySelect><![CDATA[Select Currency]]></drpCurrencySelect>
 
 	<lblOptionFields><![CDATA[Optional Fields]]></lblOptionFields>
-	<lblFirstName><![CDATA[First Name]]></lblFirstName>
+	<lblFirstName><![CDATA[Full Name]]></lblFirstName>
 	<lblLastName><![CDATA[Last Name]]></lblLastName>
 	<lblDOB><![CDATA[Date Of Birth]]></lblDOB>
 	<lblAffiliateID><![CDATA[Affiliate ID]]></lblAffiliateID>

@@ -56,7 +56,7 @@ public partial class _Secure_UpdateProfile : BasePage
             strMemberId = commonVariables.GetSessionVariable("MemberId");
 
             lblFirstName.Text = commonCulture.ElementValues.getResourceString("lblFirstName", xeResources);
-            lblLastName.Text = commonCulture.ElementValues.getResourceString("lblLastName", xeResources);
+            //lblLastName.Text = commonCulture.ElementValues.getResourceString("lblLastName", xeResources);
             lblDOB.Text = commonCulture.ElementValues.getResourceString("lblDOB", xeResources);
             lblCountry.Text = commonCulture.ElementValues.getResourceString("lblCountry", xeResources);
 
@@ -129,7 +129,7 @@ public partial class _Secure_UpdateProfile : BasePage
                         txtUserName.Text = strMemberCode;
                         txtContact.Text = strContact;
                         txtFirstName.Text = strFName;
-                        txtLastName.Text = strLName;
+                        //txtLastName.Text = strLName;
                         txtDOB.Text = strDOB;
                         txtCountry.Text = strCountryCode;
                         txtCurrency.Text = commonCulture.ElementValues.getResourceXPathString("Currency/" + strCurrencyCode, xeResources);
@@ -213,7 +213,8 @@ public partial class _Secure_UpdateProfile : BasePage
         strContact = txtContact.Text;
         strPassword = txtPassword.Text;
         strFName = txtFirstName.Text;
-        strLName = txtLastName.Text;
+        //strLName = txtLastName.Text;
+        strLName = string.Empty;
         strCountryCode = txtCountry.Text;
         strDOB = txtDOB.Text;
         dtDOB = commonConversion.convertDateTime(strDOB, commonVariables.DisplayDateFormat);

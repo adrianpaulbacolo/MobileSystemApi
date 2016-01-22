@@ -4,7 +4,7 @@
   <lblEmail><![CDATA[Email Address]]></lblEmail>
   <lblContact><![CDATA[Contact Number]]></lblContact>
   <lblUsername><![CDATA[Username]]></lblUsername>
-  <lblFirstName><![CDATA[First Name]]></lblFirstName>
+  <lblFirstName><![CDATA[Full Name]]></lblFirstName>
   <lblLastName><![CDATA[Last Name]]></lblLastName>
   <lblDOB><![CDATA[Date of birth]]></lblDOB>
   <lblCountry><![CDATA[Country]]></lblCountry>
