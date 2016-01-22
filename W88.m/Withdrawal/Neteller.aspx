@@ -95,7 +95,7 @@
                             break;
                         case '0':
                             alert('<%=strAlertMessage%>');
-                            window.location.replace('/Withdrawal/Neteller.aspx');
+                            window.location.replace('/Index.aspx');
                             break;
                         default:
                             break;
