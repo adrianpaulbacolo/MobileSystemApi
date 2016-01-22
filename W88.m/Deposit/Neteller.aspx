@@ -98,7 +98,7 @@
                             break;
                         case '0':
                             alert('<%=strAlertMessage%>');
-                            window.location.replace('/Funds.aspx');
+                            window.location.replace('/FundTransfer/Default.aspx');
                             break;
                         default:
                             break;
