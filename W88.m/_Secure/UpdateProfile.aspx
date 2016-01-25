@@ -153,11 +153,11 @@
                 }
                 else if ($('#txtPassword').val().trim().length == 0) {
                     alert('<%=commonCulture.ElementValues.getResourceXPathString("UpdateProfile/MissingPassword", xeErrors)%>');
-                        $('#btnSubmit').attr("disabled", false);
-                        e.preventDefault();
-                        return;
-                    }
-                    else { $('#btnSubmit').attr("disabled", false); }
+                    $('#btnSubmit').attr("disabled", false);
+                    e.preventDefault();
+                    return;
+                }
+                else { $('#btnSubmit').attr("disabled", false); }
             });
         </script>
     </div>
