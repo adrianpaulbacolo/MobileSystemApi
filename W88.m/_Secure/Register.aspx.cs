@@ -152,7 +152,7 @@ public partial class _Secure_Register : System.Web.UI.Page
         int intOddsType = 1;
         System.DateTime dtDOB = DateTime.MinValue;
         string strHiddenValues = hidValues.Value;
-        List<string> lstValues = null;
+		List<string> lstValues = null;
         #endregion
 
         #region populateVariables
@@ -298,7 +298,7 @@ public partial class _Secure_Register : System.Web.UI.Page
         if (!isProcessAbort)
         {
             lstValues = strHiddenValues.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries).Select(p => p.Trim()).ToList();
-
+ 
             if (lstValues.Count > 0)
             {
                 if (lstValues[0] != null) { strCountryCode = lstValues[0]; }
@@ -306,12 +306,12 @@ public partial class _Secure_Register : System.Web.UI.Page
                 if (lstValues[2] != null) { strIPAddress = lstValues[2]; }
                 if (lstValues[3] != null) { strPermission = lstValues[3]; }
             }
-
+ 
             strSignUpUrl = string.Format("m.{0}", commonIp.DomainName);
             strLanguageCode = commonVariables.SelectedLanguage;
 
             if (string.IsNullOrEmpty(strIPAddress)) { strIPAddress = commonIp.UserIP; }
-
+            
             if (string.IsNullOrEmpty(strCountryCode) || string.Compare(strCountryCode, "-", true) == 0)
             {
                 using (wsIP2Loc.ServiceSoapClient wsInstance = new wsIP2Loc.ServiceSoapClient())
@@ -319,7 +319,7 @@ public partial class _Secure_Register : System.Web.UI.Page
                     wsInstance.location(strIPAddress, ref strCountryCode, ref strPermission);
                 }
             }
-
+ 
             switch (strCountryCode.ToUpper())
             {
                 case "MY":
