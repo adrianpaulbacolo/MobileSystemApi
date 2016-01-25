@@ -91,7 +91,7 @@ public partial class _Secure_Register : System.Web.UI.Page
 
             lblFirstName.Text = commonCulture.ElementValues.getResourceString("lblFirstName", xeResources);
             // txtFirstName.Attributes.Add("PLACEHOLDER", lblFirstName.Text);
-            //lblLastName.Text = commonCulture.ElementValues.getResourceString("lblLastName", xeResources);
+            lblLastName.Text = commonCulture.ElementValues.getResourceString("lblLastName", xeResources);
             // txtLastName.Attributes.Add("PLACEHOLDER", lblLastName.Text);
             lblDOB.Text = commonCulture.ElementValues.getResourceString("lblDOB", xeResources);
 
@@ -152,7 +152,7 @@ public partial class _Secure_Register : System.Web.UI.Page
         int intOddsType = 1;
         System.DateTime dtDOB = DateTime.MinValue;
         string strHiddenValues = hidValues.Value;
-		List<string> lstValues = null;
+        List<string> lstValues = null;
         #endregion
 
         #region populateVariables
@@ -163,8 +163,7 @@ public partial class _Secure_Register : System.Web.UI.Page
         strContact = txtContact.Text;
         strCurrencyCode = drpCurrency.SelectedValue;
         strFName = System.Text.RegularExpressions.Regex.Replace(txtFirstName.Text, @"\t|\n|\r|", "");
-        //strLName = System.Text.RegularExpressions.Regex.Replace(txtLastName.Text, @"\t|\n|\r|", ""); ;
-        strLName = string.Empty;
+        strLName = System.Text.RegularExpressions.Regex.Replace(txtLastName.Text, @"\t|\n|\r|", ""); ;
         strDOB = string.Format("{0}-{1}-{2}", drpYear.SelectedValue, drpMonth.SelectedValue, drpDay.SelectedValue);
         strVCode = txtCaptcha.Text;
         strSessionVCode = commonVariables.GetSessionVariable("vCode");
@@ -217,11 +216,11 @@ public partial class _Secure_Register : System.Web.UI.Page
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/MissingFName", xeErrors);
             isProcessAbort = true;
         }
-        //else if (string.IsNullOrEmpty(strLName))
-        //{
-        //    strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/MissingLName", xeErrors);
-        //    isProcessAbort = true;
-        //}
+        else if (string.IsNullOrEmpty(strLName))
+        {
+            strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/MissingLName", xeErrors);
+            isProcessAbort = true;
+        }
         else if (string.IsNullOrEmpty(strVCode))
         {
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/MissingVCode", xeErrors);
@@ -299,7 +298,7 @@ public partial class _Secure_Register : System.Web.UI.Page
         if (!isProcessAbort)
         {
             lstValues = strHiddenValues.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries).Select(p => p.Trim()).ToList();
- 
+
             if (lstValues.Count > 0)
             {
                 if (lstValues[0] != null) { strCountryCode = lstValues[0]; }
@@ -307,12 +306,12 @@ public partial class _Secure_Register : System.Web.UI.Page
                 if (lstValues[2] != null) { strIPAddress = lstValues[2]; }
                 if (lstValues[3] != null) { strPermission = lstValues[3]; }
             }
- 
+
             strSignUpUrl = string.Format("m.{0}", commonIp.DomainName);
             strLanguageCode = commonVariables.SelectedLanguage;
 
             if (string.IsNullOrEmpty(strIPAddress)) { strIPAddress = commonIp.UserIP; }
-            
+
             if (string.IsNullOrEmpty(strCountryCode) || string.Compare(strCountryCode, "-", true) == 0)
             {
                 using (wsIP2Loc.ServiceSoapClient wsInstance = new wsIP2Loc.ServiceSoapClient())
@@ -320,7 +319,7 @@ public partial class _Secure_Register : System.Web.UI.Page
                     wsInstance.location(strIPAddress, ref strCountryCode, ref strPermission);
                 }
             }
- 
+
             switch (strCountryCode.ToUpper())
             {
                 case "MY":

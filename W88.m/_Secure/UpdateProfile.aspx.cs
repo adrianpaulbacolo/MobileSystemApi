@@ -56,7 +56,7 @@ public partial class _Secure_UpdateProfile : BasePage
             strMemberId = commonVariables.GetSessionVariable("MemberId");
 
             lblFirstName.Text = commonCulture.ElementValues.getResourceString("lblFirstName", xeResources);
-            //lblLastName.Text = commonCulture.ElementValues.getResourceString("lblLastName", xeResources);
+            lblLastName.Text = commonCulture.ElementValues.getResourceString("lblLastName", xeResources);
             lblDOB.Text = commonCulture.ElementValues.getResourceString("lblDOB", xeResources);
             lblCountry.Text = commonCulture.ElementValues.getResourceString("lblCountry", xeResources);
 
@@ -129,7 +129,7 @@ public partial class _Secure_UpdateProfile : BasePage
                         txtUserName.Text = strMemberCode;
                         txtContact.Text = strContact;
                         txtFirstName.Text = strFName;
-                        //txtLastName.Text = strLName;
+                        txtLastName.Text = strLName;
                         txtDOB.Text = strDOB;
                         txtCountry.Text = strCountryCode;
                         txtCurrency.Text = commonCulture.ElementValues.getResourceXPathString("Currency/" + strCurrencyCode, xeResources);
@@ -180,7 +180,7 @@ public partial class _Secure_UpdateProfile : BasePage
         bool isSystemError = false;
 
         long lngOperatorId = 1;
-        
+
         string strEmail = string.Empty;
         string strContact = string.Empty;
         string strFName = string.Empty;
@@ -188,7 +188,7 @@ public partial class _Secure_UpdateProfile : BasePage
         string strDOB = string.Empty;
         string strCountryCode = string.Empty;
         string strCurrencyCode = string.Empty;
-        System.DateTime dtDOB = System.DateTime.MinValue;        
+        System.DateTime dtDOB = System.DateTime.MinValue;
 
         string strGender = string.Empty;
         string strLanguageCode = string.Empty;
@@ -213,8 +213,7 @@ public partial class _Secure_UpdateProfile : BasePage
         strContact = txtContact.Text;
         strPassword = txtPassword.Text;
         strFName = txtFirstName.Text;
-        //strLName = txtLastName.Text;
-        strLName = string.Empty;
+        strLName = txtLastName.Text;
         strCountryCode = txtCountry.Text;
         strDOB = txtDOB.Text;
         dtDOB = commonConversion.convertDateTime(strDOB, commonVariables.DisplayDateFormat);

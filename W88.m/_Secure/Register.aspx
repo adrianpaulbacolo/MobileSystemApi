@@ -64,10 +64,10 @@
                                 <asp:Label ID="lblFirstName" runat="server" AssociatedControlID="txtFirstName" Text="fName" />
                                 <asp:TextBox ID="txtFirstName" runat="server" data-mini="true" MaxLength="12" data-clear-btn="true" />
                             </div>
-                            <%--<div class="col">
+                            <div class="col">
                                 <asp:Label ID="lblLastName" runat="server" AssociatedControlID="txtLastName" Text="lName" />
                                 <asp:TextBox ID="txtLastName" runat="server" data-mini="true" data-clear-btn="true" />
-                            </div>--%>
+                            </div>
                         </div>
                     </li>
                     <li class="item item-icon-left item-select">
@@ -128,8 +128,7 @@
                     dataType: "jsonp",
                     success: function (data) {
                         if ($('#hidValues').val().trim().length == 0) {
-                         switch (data.country.toString().toUpperCase())
-                            {
+                            switch (data.country.toString().toUpperCase()) {
                                 case "SG":
                                     if ($('#drpCurrency option[value="UUS"]').length > 0) { $('#drpCurrency').val('UUS'); }
                                     break;
@@ -145,12 +144,12 @@
                                 case "ID":
                                     if ($('#drpCurrency option[value="IDR"]').length > 0) { $('#drpCurrency').val('IDR'); }
                                     break;
-                               case "MY":
-                                   if ($('#drpCurrency option[value="MYR"]').length > 0) { $('#drpCurrency').val('MYR'); }
-                                   break;
+                                case "MY":
+                                    if ($('#drpCurrency option[value="MYR"]').length > 0) { $('#drpCurrency').val('MYR'); }
+                                    break;
                                 case "KR":
                                     if ($('#drpCurrency option[value="KRW"]').length > 0) { $('#drpCurrency').val('KRW'); }
-                                   break;
+                                    break;
                             }
                             $('#drpCurrency').change();
 
@@ -160,20 +159,20 @@
                                 data: { CountryCode: data.country.toString().toUpperCase() },
                                 success: function (data) {
                                     strContactCountry = data;
-                                    
+
                                     if ($.trim(data).trim().length > 0) { $('#drpContactCountry').val(strContactCountry).change(); }
                                     return;
                                 },
                                 error: function (err) { }
                             });
-                       }
+                        }
 
                         $('#hidValues').val(data.country.toString().toUpperCase() + "|" + data.domainName + "|" + data.ip + "|" + (data.permission == '' ? '-' : data.permission));
 
                         return;
                     },
                     error: function (err) {
-                      //window.location.href = '/Default.aspx';
+                        //window.location.href = '/Default.aspx';
                     }
                 });
 
@@ -206,19 +205,18 @@
                 }
                 else if ($('#txtUsername').val().trim().length < 5 || $('#txtUsername').val().trim().length > 16) {
                     alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidUsername", xeErrors)%>');
-                     $('#btnSubmit').attr("disabled", false);
-                     e.preventDefault();
-                     return;
-                 }
-                 else if (!/^[a-zA-Z0-9]+$/.test($('#txtUsername').val().trim()))
-                {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidUsername", xeErrors)%>');
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
                     return;
                 }
-                else if ($('#txtUsername').val().trim().indexOf(' ') >= 0) {
+                else if (!/^[a-zA-Z0-9]+$/.test($('#txtUsername').val().trim())) {
                     alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidUsername", xeErrors)%>');
+                     $('#btnSubmit').attr("disabled", false);
+                     e.preventDefault();
+                     return;
+                 }
+                 else if ($('#txtUsername').val().trim().indexOf(' ') >= 0) {
+                     alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidUsername", xeErrors)%>');
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
                     return;
@@ -272,12 +270,12 @@
                     e.preventDefault();
                     return;
                 }
-                <%--else if ($('#txtLastName').val().trim().length == 0) {
+                else if ($('#txtLastName').val().trim().length == 0) {
                     alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/MissingLName", xeErrors)%>');
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
                     return;
-                }--%>
+                }
                 else if ($('#txtCaptcha').val().trim().length == 0) {
                     alert('<%=commonCulture.ElementValues.getResourceString("MissingVCode", xeErrors)%>');
                     $('#btnSubmit').attr("disabled", false);
@@ -305,30 +303,30 @@
                     }
                     else {
                         GPINTMOBILE.ShowSplash();
-                        
+
                         $('#btnSubmit').attr("disabled", false);
                     }
                 }
             });
 
-            function EmailValidation(value) {
-                if (value.length > 0) {
-                    var regExEmail = /^(([\w-]+\.)+[\w-]+|([a-zA-Z]{1}|[\w-]{2,}))@((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|([a-zA-Z]+[\w-]+\.)+[a-zA-Z]{2,4})$/;
-                    return regExEmail.test(value);
-                } else
-                    return false;
-            }
+function EmailValidation(value) {
+    if (value.length > 0) {
+        var regExEmail = /^(([\w-]+\.)+[\w-]+|([a-zA-Z]{1}|[\w-]{2,}))@((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|([a-zA-Z]+[\w-]+\.)+[a-zA-Z]{2,4})$/;
+        return regExEmail.test(value);
+    } else
+        return false;
+}
         </script>
 
         <script type="text/javascript" id="iovs_script">
-        	var io_operation = 'ioBegin';
-        	var io_bbout_element_id = 'ioBlackBox';
-        	//var io_submit_element_id = 'btnSubmit';
-        	var io_submit_form_id = 'form1';
-        	var io_max_wait = 5000;
-        	var io_install_flash = false;
-        	var io_install_stm = false;
-        	var io_exclude_stm = 12;
+            var io_operation = 'ioBegin';
+            var io_bbout_element_id = 'ioBlackBox';
+            //var io_submit_element_id = 'btnSubmit';
+            var io_submit_form_id = 'form1';
+            var io_max_wait = 5000;
+            var io_install_flash = false;
+            var io_install_stm = false;
+            var io_exclude_stm = 12;
         </script>
         <script type="text/javascript" src="//mpsnare.iesnare.com/snare.js"></script>
     </div>
