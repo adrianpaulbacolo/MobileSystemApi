@@ -22,18 +22,18 @@ public static class commonPaymentMethodFunc
             bool isUnavailable = methodUnavailable.Contains(paymentCode);
             if (!isUnavailable)
             {
-                setDepositMethodListLink(paymentCode, depositTabs, sourcePage, isApp);
+                setDepositMethodListLink(depositItem, depositTabs, sourcePage, isApp);
             }
         }
     }
 
-    private static void setDepositMethodListLink(string paymentCode, HtmlGenericControl depositTabs, string sourcePage, bool isApp)
+    private static void setDepositMethodListLink(commonVariables.DepositMethod paymentCode, HtmlGenericControl depositTabs, string sourcePage, bool isApp)
     {
         HtmlGenericControl anchor;
         HtmlGenericControl list;
         switch (paymentCode)
         {
-            case "110101": //commonVariables.DepositMethod.FastDeposit:
+            case commonVariables.DepositMethod.FastDeposit:
 
                 list = new HtmlGenericControl("li");
                 list.ID = string.Format("d{0}", paymentCode);
@@ -57,7 +57,7 @@ public static class commonPaymentMethodFunc
                 depositTabs.Controls.Add(list);
                 break;
 
-            case "120204": //commonVariables.DepositMethod.NextPay:
+            case commonVariables.DepositMethod.NextPay:
                 list = new HtmlGenericControl("li");
                 list.ID = string.Format("d{0}", paymentCode);
 
@@ -80,7 +80,7 @@ public static class commonPaymentMethodFunc
                 depositTabs.Controls.Add(list);
                 break;
 
-            case "110308": //commonVariables.DepositMethod.WingMoney:
+            case commonVariables.DepositMethod.WingMoney:
                 list = new HtmlGenericControl("li");
                 list.ID = string.Format("d{0}", paymentCode);
 
@@ -103,7 +103,7 @@ public static class commonPaymentMethodFunc
                 depositTabs.Controls.Add(list);
                 break;
 
-            case "120223": //commonVariables.DepositMethod.SDPay:
+            case commonVariables.DepositMethod.SDPay:
                 list = new HtmlGenericControl("li");
                 list.ID = string.Format("d{0}", paymentCode);
 
@@ -127,7 +127,7 @@ public static class commonPaymentMethodFunc
                 depositTabs.Controls.Add(list);
                 break;
 
-            case "120227": //commonVariables.DepositMethod.Help2Pay:
+            case commonVariables.DepositMethod.Help2Pay:
                 list = new HtmlGenericControl("li");
                 list.ID = string.Format("d{0}", paymentCode);
 
@@ -151,7 +151,7 @@ public static class commonPaymentMethodFunc
                 depositTabs.Controls.Add(list);
                 break;
 
-            case "120243": //commonVariables.DepositMethod.DaddyPay:
+            case commonVariables.DepositMethod.DaddyPay:
                 list = new HtmlGenericControl("li");
                 list.ID = string.Format("d{0}", paymentCode);
 
@@ -174,7 +174,7 @@ public static class commonPaymentMethodFunc
                 depositTabs.Controls.Add(list);
                 break;
 
-            case "120244": //commonVariables.DepositMethod.DaddyPayQR:
+            case commonVariables.DepositMethod.DaddyPayQR:
                 list = new HtmlGenericControl("li");
                 list.ID = string.Format("d{0}", paymentCode);
 
@@ -197,7 +197,7 @@ public static class commonPaymentMethodFunc
                 depositTabs.Controls.Add(list);
                 break;
 
-            case "120214": //commonVariables.DepositMethod.Neteller:
+            case commonVariables.DepositMethod.Neteller:
                 list = new HtmlGenericControl("li");
                 list.ID = string.Format("d{0}", paymentCode);
 
@@ -227,28 +227,28 @@ public static class commonPaymentMethodFunc
 
     public static void getWithdrawalMethodList(string methodsUnAvailable, HtmlGenericControl withdrawalTabs, string sourcePage, bool isApp)
     {
-        var depositList = Enum.GetValues(typeof(commonVariables.WithdrawalMethod));
+        var withdrawalList = Enum.GetValues(typeof(commonVariables.WithdrawalMethod));
 
         string[] methodUnavailable = methodsUnAvailable.Split('|');
-        foreach (commonVariables.WithdrawalMethod depositItem in depositList)
+        foreach (commonVariables.WithdrawalMethod withdrawalItem in withdrawalList)
         {
-            string paymentCode = Convert.ToString((int)depositItem);
+            string paymentCode = Convert.ToString((int)withdrawalItem);
 
             bool isUnavailable = methodUnavailable.Contains(paymentCode);
             if (!isUnavailable)
             {
-                setWithdrawalMethodListLink(paymentCode, withdrawalTabs, sourcePage, isApp);
+                setWithdrawalMethodListLink(withdrawalItem, withdrawalTabs, sourcePage, isApp);
             }
         }
     }
 
-    private static void setWithdrawalMethodListLink(string paymentCode, HtmlGenericControl withdrawalTabs, string sourcePage, bool isApp)
+    private static void setWithdrawalMethodListLink(commonVariables.WithdrawalMethod paymentCode, HtmlGenericControl withdrawalTabs, string sourcePage, bool isApp)
     {
         HtmlGenericControl anchor;
         HtmlGenericControl list;
         switch (paymentCode)
         {
-            case "210602": //commonVariables.WithdrawalMethod.BankTransfer:
+            case commonVariables.WithdrawalMethod.BankTransfer:
 
                 list = new HtmlGenericControl("li");
                 list.ID = string.Format("w{0}", paymentCode);
@@ -272,7 +272,7 @@ public static class commonPaymentMethodFunc
                 withdrawalTabs.Controls.Add(list);
                 break;
 
-            case "210709": //commonVariables.WithdrawalMethod.WingMoney:
+            case commonVariables.WithdrawalMethod.WingMoney:
                 list = new HtmlGenericControl("li");
                 list.ID = string.Format("w{0}", paymentCode);
 
@@ -295,7 +295,7 @@ public static class commonPaymentMethodFunc
                 withdrawalTabs.Controls.Add(list);
                 break;
 
-            case "220815": //commonVariables.WithdrawalMethod.Neteller:
+            case commonVariables.WithdrawalMethod.Neteller:
                 list = new HtmlGenericControl("li");
                 list.ID = string.Format("w{0}", paymentCode);
 
