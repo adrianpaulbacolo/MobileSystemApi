@@ -34,10 +34,10 @@
                             <div><asp:Literal ID="lblFirstName" runat="server" /></div>
                             <div><asp:Literal ID="txtFirstName" runat="server" /></div>
                         </div>
-                        <div>
+                        <%--<div>
                             <div><asp:Literal ID="lblLastName" runat="server" /></div>
                             <div><asp:Literal ID="txtLastName" runat="server" /></div>
-                        </div>
+                        </div>--%>
                         <div>
                             <div><asp:Literal ID="lblDOB" runat="server" /></div>
                             <div><asp:Literal ID="txtDOB" runat="server" /></div>

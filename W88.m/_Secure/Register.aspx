@@ -64,10 +64,10 @@
                                 <asp:Label ID="lblFirstName" runat="server" AssociatedControlID="txtFirstName" Text="fName" />
                                 <asp:TextBox ID="txtFirstName" runat="server" data-mini="true" MaxLength="12" data-clear-btn="true" />
                             </div>
-                            <div class="col">
+                            <%--<div class="col">
                                 <asp:Label ID="lblLastName" runat="server" AssociatedControlID="txtLastName" Text="lName" />
                                 <asp:TextBox ID="txtLastName" runat="server" data-mini="true" data-clear-btn="true" />
-                            </div>
+                            </div>--%>
                         </div>
                     </li>
                     <li class="item item-icon-left item-select">
@@ -272,12 +272,12 @@
                     e.preventDefault();
                     return;
                 }
-                else if ($('#txtLastName').val().trim().length == 0) {
+                <%--else if ($('#txtLastName').val().trim().length == 0) {
                     alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/MissingLName", xeErrors)%>');
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
                     return;
-                }
+                }--%>
                 else if ($('#txtCaptcha').val().trim().length == 0) {
                     alert('<%=commonCulture.ElementValues.getResourceString("MissingVCode", xeErrors)%>');
                     $('#btnSubmit').attr("disabled", false);
