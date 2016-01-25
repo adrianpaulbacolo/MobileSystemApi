@@ -459,6 +459,25 @@ public partial class _Index : BasePage
 
             }
         }
+
+        TexasMahjongDownloadLinks(responseCode);
+    }
+
+    private void TexasMahjongDownloadLinks(int responseCode)
+    {
+        if (responseCode == 1)
+        {
+            Session["tmiosLink"] = ConfigurationManager.AppSettings["TexasMahjongIOS_URL"];
+        }
+        else if (responseCode == 2)
+        {
+            Session["tmandroidLink"] = ConfigurationManager.AppSettings["TexasMahjongAndroid_URL"];
+        }
+        else if (responseCode == 3)
+        {
+            Session["tmiosLink"] = ConfigurationManager.AppSettings["TexasMahjongIOS_URL"];
+            Session["tmandroidLink"] = ConfigurationManager.AppSettings["TexasMahjongAndroid_URL"];
+        }
     }
 
     protected void LinkButton1_Click(object sender, EventArgs e)

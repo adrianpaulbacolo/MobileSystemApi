@@ -158,7 +158,7 @@
                     </a>
                 </li>
                 <li class="col col-33 product">
-                    <a href="https://tm.gp2play.com/TexasMahjong-captive-runtime_w88.apk" class="tile nav-texasmahjong" target="_blank">
+                    <a href="#divPanel" class="tile nav-pmahjong">
                         <span class="icon-mahjong"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%></h4>
                     </a>
