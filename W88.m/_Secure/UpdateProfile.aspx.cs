@@ -180,7 +180,7 @@ public partial class _Secure_UpdateProfile : BasePage
         bool isSystemError = false;
 
         long lngOperatorId = 1;
-
+        
         string strEmail = string.Empty;
         string strContact = string.Empty;
         string strFName = string.Empty;
@@ -188,7 +188,7 @@ public partial class _Secure_UpdateProfile : BasePage
         string strDOB = string.Empty;
         string strCountryCode = string.Empty;
         string strCurrencyCode = string.Empty;
-        System.DateTime dtDOB = System.DateTime.MinValue;
+        System.DateTime dtDOB = System.DateTime.MinValue;        
 
         string strGender = string.Empty;
         string strLanguageCode = string.Empty;
