@@ -96,6 +96,12 @@
             $(function () {
                 window.history.forward();
 
+                if ($('#depositTabs li').length == 0) {
+                    window.location.replace('/FundTransfer/FundTransfer.aspx');
+                } else if ($('#depositTabs li a.btn-primary').length == 0) {
+                    window.location.replace($('#depositTabs li').first().children().attr('href'));
+                }
+
                 if ('<%=strAlertCode%>'.length > 0) {
                     switch ('<%=strAlertCode%>') {
                         case '-1':
