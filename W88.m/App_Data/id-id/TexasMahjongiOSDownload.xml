@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+    <message>
+        <![CDATA[
+            <h4 class="title">5 Langkah Mudah bermain Texas Mahjong di iOS</h4>
+            <ol>
+                <li>Klik “Download Sekarang: Tombol di bawah ini</li>
+                <li>Install Texas Mahjong dengan membuka file yang telah didownload dan simpan file di perangkat anda.</li>
+                <li>Pilih ke Settings => General => Profiles & Device Management</li>
+				<li>Klik pada “XingLong Country KangXing Environmental Protection Co.,Ltd.” => Klik Trust</li>
+				<li>Pengaturan telah selesai, anda dapat bermain Texas Mahjong di perangkat iOS anda sekarang.</li>
+            </ol>
+        ]]>
+    </message>
+    <downloadnow><![CDATA[DOWNLOAD SEKARANG]]></downloadnow>
+</default>

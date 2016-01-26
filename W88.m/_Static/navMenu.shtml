@@ -189,7 +189,7 @@
                 <%try{%>
                 <%if(Session["responseCode"].ToString()=="1"){%>
                 <li>
-                    <a class="card" rel="texasmahjong" href='<%= Session["tmiosLink"].ToString()%>' data-transition="slidedown">
+                    <a class="card" rel="texasmahjong" href='/_static/TexasMahjong/download.aspx' data-ajax="false">
                         <img src="/_Static/Images/Download/TexasMahjong-iOS.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("iosDownload", commonVariables.LeftMenuXML)%></div>
                     </a>
@@ -205,7 +205,7 @@
                 <%}%>
                 <%if(Session["responseCode"].ToString()=="3"){%>
                 <li>
-                    <a class="card" rel="texasmahjong" href='<%= Session["tmiosLink"].ToString()%>' data-transition="slidedown">
+                    <a class="card" rel="texasmahjong" href='/_static/TexasMahjong/download.aspx' data-ajax="false">
                         <img src="/_Static/Images/Download/TexasMahjong-iOS.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("iosDownload", commonVariables.LeftMenuXML)%></div>
                     </a>

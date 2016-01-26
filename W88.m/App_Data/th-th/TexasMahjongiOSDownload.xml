@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+    <message>
+        <![CDATA[
+            <h4 class="title">5 วิธีง่ายๆในการเล่นเท็กซัสมาจงผ่านมือถือระบบ iOS</h4>
+            <ol>
+                <li>คลิกเลือกที่ปุ่ม “ดาวน์โหลดทันที”</li>
+                <li>จัดเก็บไฟล์เกมส์เท็กซัสมาจงลงในมือถือของคุณ</li>
+                <li>ไปที่ Settings => General => Profiles & Device Management</li>
+				<li>คลิกที่ “XingLong Country KangXing Environmental Protection Co.,Ltd.” จากนั้นคลิก Trust</li>
+				<li>การดาวน์โหลดและการตั้งค่าเสร็จสมบรูณ์ คุณสามารถเล่นเกมส์เท็กซัสมาจงจากมือถือไอโฟนเครื่องโปรดของคุณได้ทันที!!</li>
+            </ol>
+        ]]>
+    </message>
+    <downloadnow><![CDATA[ดาวน์โหลดทันที]]></downloadnow>
+</default>
