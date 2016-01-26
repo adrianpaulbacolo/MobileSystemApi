@@ -36,7 +36,7 @@ public partial class Withdrawal_Default : PaymentBasePage
         CancelUnexpectedRePost();
 
         HtmlGenericControl withdrawalTabs = (HtmlGenericControl)FindControl("withdrawalTabs");
-        commonPaymentMethodFunc.getWithdrawalMethodList(strMethodsUnAvailable, withdrawalTabs, "default", sender.ToString().Contains("app"));
+        commonPaymentMethodFunc.getWithdrawalMethodList(strMethodsUnAvailable, withdrawalTabs, "default", sender.ToString().Contains("app") || Request.QueryString["source"] == "app");
 
         if (!Page.IsPostBack)
         {

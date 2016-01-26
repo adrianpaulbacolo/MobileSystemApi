@@ -98,6 +98,13 @@
         <script type="text/javascript">
             //$(document).ready(function () { });
             $(function () {
+
+                if ($('#withdrawalTabs li').length == 0) {
+                    window.location.replace('/Index.aspx');
+                } else if ($('#withdrawalTabs li a.btn-primary').length == 0) {
+                    window.location.replace($('#withdrawalTabs li').first().children().attr('href'));
+                }
+
                 <% if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "myr", true) == 0)
                    { %>
                 $('#txtMyKad').mask('999999-99-9999');
