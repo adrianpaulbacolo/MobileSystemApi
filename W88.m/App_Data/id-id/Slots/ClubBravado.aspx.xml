@@ -215,13 +215,11 @@
         <PlayForFunURL><![CDATA[{BravadoUrl}/zodiac/?fun=1]]></PlayForFunURL>
         <IsInternal><![CDATA[true]]></IsInternal>
       </zodiac>
-      <christmasjokermobile>
-        <ImageName><![CDATA[christmasjokermobile]]></ImageName>
-      </christmasjokermobile>
-      <wizardofgemsmobile>
-        <ImageName><![CDATA[wizardofgemsmobile]]></ImageName>
-      </wizardofgemsmobile>
 
+	  <bookofdeadmobile>
+	  	<ImageName><![CDATA[bookofdeadmobile]]></ImageName>
+	  </bookofdeadmobile>
+		
       <AceofSpades>
         <ImageName><![CDATA[aceofspadesmobile]]></ImageName>
       </AceofSpades>
@@ -234,6 +232,9 @@
       <ChineseNewYear>
         <ImageName><![CDATA[chinesenewyearmobile]]></ImageName>
       </ChineseNewYear>
+      <christmasjokermobile>
+        <ImageName><![CDATA[christmasjokermobile]]></ImageName>
+      </christmasjokermobile>
       <CrazyCows>
         <ImageName><![CDATA[crazycowsmobile]]></ImageName>
       </CrazyCows>
@@ -348,6 +349,9 @@
       <wildnorthmobile>
         <ImageName><![CDATA[wildnorthmobile]]></ImageName>
       </wildnorthmobile>
+      <wizardofgemsmobile>
+        <ImageName><![CDATA[wizardofgemsmobile]]></ImageName>
+      </wizardofgemsmobile>
     </Slot>
     <CardAndTable Label="GAME KARTU &amp; MEJA">
       <AmericanRoulette>

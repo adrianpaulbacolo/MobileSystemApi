@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+  <lblTitle><![CDATA[Neteller]]></lblTitle>
+  <lblDepositAmount><![CDATA[입금금액]]></lblDepositAmount>
+  <btnSubmit><![CDATA[입금]]></btnSubmit>
+  <lblTransactionId><![CDATA[거래 ID]]></lblTransactionId>
+  <lblDailyLimit><![CDATA[일일한도]]></lblDailyLimit>
+  <lblTotalAllowed><![CDATA[전체한도]]></lblTotalAllowed>
+  <lblMinMaxLimit><![CDATA[최소/최대한도]]></lblMinMaxLimit>
+  <lblMode><![CDATA[모드]]></lblMode>
+  <txtMode><![CDATA[온라인]]></txtMode>
+  <txtProcessing><![CDATA[Your transaction is being processed]]></txtProcessing>
+  <unlimited><![CDATA[무제한]]></unlimited>
+</Deposit>

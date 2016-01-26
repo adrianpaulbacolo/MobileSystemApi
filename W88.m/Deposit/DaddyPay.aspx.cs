@@ -9,7 +9,9 @@ using System.Net;
 using System.Text;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using svcPayDeposit;
 
 public partial class Deposit_DaddyPay : BasePage
 {
@@ -59,6 +61,7 @@ public partial class Deposit_DaddyPay : BasePage
         commonCulture.appData.getRootResource("/Deposit/SDPay", out xeResources);
         commonCulture.appData.getRootResource("/Deposit/FastDeposit", out xeResource);
 
+
         if (!Page.IsPostBack)
         {
             lblMode.Text = commonCulture.ElementValues.getResourceString("lblMode", xeResources);
@@ -79,18 +82,13 @@ public partial class Deposit_DaddyPay : BasePage
             System.Threading.Tasks.Task.WaitAll(t1);
 
             string value = Request.QueryString["value"].ToString();
-
             if (value == "1")
             {
-                //daddyPayQR_link.Attributes.Remove("class");
-                daddyPay_link.Attributes.Add("class", "ui-btn-active");
                 account_txt.Visible = false;
                 accountName_txt.Visible = false;
             }
             else if (value == "2")
             {
-                //daddyPayQR_link.Attributes.Add("class", "ui-btn-active");
-                daddyPay_link.Attributes.Remove("class");
                 account_txt.Visible = true; ;
                 accountName_txt.Visible = true;
             }
@@ -124,6 +122,17 @@ public partial class Deposit_DaddyPay : BasePage
             //bankDropDownList.Items.Clear();
 
             //PopulateBankList();
+        }
+
+        HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
+
+        if (Request.QueryString["value"].ToString() == "1")
+        {
+            commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "daddypay", sender.ToString().Contains("app"));
+        }
+        else if (Request.QueryString["value"].ToString() == "2")
+        {
+            commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "daddypayqr", sender.ToString().Contains("app"));
         }
     }
 
@@ -257,7 +266,7 @@ public partial class Deposit_DaddyPay : BasePage
 
                         using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
                         {
-                            xElement = client.createOnlineDepositTransaction(Convert.ToInt64(strOperatorId), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.DaddyPay), strCurrencyCode, Convert.ToDecimal(amount_txt.Text), string.Empty);
+                            xElement = client.createOnlineDepositTransactionV1(Convert.ToInt64(strOperatorId),long.Parse(strMemberId), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.DaddyPay), strCurrencyCode, Convert.ToDecimal(amount_txt.Text), DepositSource.Mobile, string.Empty);
                             client.Close();
                         }
 
@@ -273,7 +282,7 @@ public partial class Deposit_DaddyPay : BasePage
 
                         using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
                         {
-                            xElement = client.createOnlineDepositTransaction(Convert.ToInt64(strOperatorId), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.DaddyPayQR), strCurrencyCode, Convert.ToDecimal(amount_txt.Text), string.Empty);
+                            xElement = client.createOnlineDepositTransactionV1(Convert.ToInt64(strOperatorId),long.Parse(strMemberId), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.DaddyPayQR), strCurrencyCode, Convert.ToDecimal(amount_txt.Text),DepositSource.Mobile, string.Empty);
                             client.Close();
                         }
 

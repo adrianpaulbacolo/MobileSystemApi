@@ -90,5 +90,12 @@
 	<referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
 	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
 
+
 	<close><![CDATA[종료]]></close>
+
+	<neteller><![CDATA[Neteller]]></neteller>
+	<accountId><![CDATA[Neteller 계정]]></accountId>
+	<secureId><![CDATA[Neteller 암호]]></secureId>
+
+
 </menu>

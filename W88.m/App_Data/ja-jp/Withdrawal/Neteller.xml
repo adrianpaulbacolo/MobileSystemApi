@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Withdrawal>
+	<lblTitle><![CDATA[Neteller]]></lblTitle>
+	<lblAmount><![CDATA[出金金額]]></lblAmount>
+	<btnSubmit><![CDATA[転送]]></btnSubmit>
+	<lblTransactionId><![CDATA[トランザクションID]]></lblTransactionId>
+	<lblDailyLimit><![CDATA[日々制限：]]></lblDailyLimit>
+	<lblTotalAllowed><![CDATA[合計許可：]]></lblTotalAllowed>
+	<lblMinMaxLimit><![CDATA[最小/最高リミット]]></lblMinMaxLimit>
+	<lblMode><![CDATA[モード]]></lblMode>
+	<txtMode><![CDATA[オンライン]]></txtMode>
+	<txtProcessing><![CDATA[お客様のトランザクションが処理されているので更新した上でお客様の残高をご確認くださいませ。]]></txtProcessing>
+	<unlimited><![CDATA[制限無し]]></unlimited>
+</Withdrawal>
+

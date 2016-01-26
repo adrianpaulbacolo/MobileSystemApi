@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+  <lblTitle><![CDATA[Neteller]]></lblTitle>
+  <lblDepositAmount><![CDATA[Jumlah Deposit]]></lblDepositAmount>
+  <btnSubmit><![CDATA[Kirim]]></btnSubmit>
+  <lblTransactionId><![CDATA[No. Transaksi]]></lblTransactionId>
+  <lblDailyLimit><![CDATA[Batas Perhari]]></lblDailyLimit>
+  <lblTotalAllowed><![CDATA[Jumlah yang diperbolehkan]]></lblTotalAllowed>
+  <lblMinMaxLimit><![CDATA[Batas Min/Max]]></lblMinMaxLimit>
+  <lblMode><![CDATA[Mode]]></lblMode>
+  <txtMode><![CDATA[Online]]></txtMode>
+  <txtProcessing><![CDATA[Your transaction is being processed]]></txtProcessing>
+  <unlimited><![CDATA[Tanpa Batas]]></unlimited>
+</Deposit>
