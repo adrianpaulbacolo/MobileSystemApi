@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Neteller.aspx.cs" Inherits="Deposit_Neteller" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Neteller.aspx.cs" Inherits="Withdrawal_Neteller" %>
 
 <!DOCTYPE html>
 <html>
@@ -11,10 +11,7 @@
     <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
-            <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
-                <i class="icon-navicon"></i>
-            </a>
-            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("neteller", commonVariables.LeftMenuXML))%></h1>
+            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("nextpay", commonVariables.LeftMenuXML))%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -25,7 +22,7 @@
             </div>
 
             <div data-role="navbar">
-                <ul id="depositTabs" runat="server">
+                <ul id="withdrawalTabs" runat="server">
                 </ul>
             </div>
 
@@ -65,13 +62,10 @@
                         </div>
                     </li>
                     <li class="item item-input">
-                        <asp:TextBox ID="txtDepositAmount" runat="server" placeholder="amount" type="number" step="any" min="1" data-clear-btn="true" />
+                        <asp:TextBox ID="txtWithdrawalAmount" runat="server" placeholder="amount" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
                     <li class="item item-input">
                         <asp:TextBox ID="txtAccountId" runat="server" placeholder="NETELLER Account Id" type="number" step="any" min="1" data-clear-btn="true" />
-                    </li>
-                    <li class="item item-input">
-                        <asp:TextBox ID="txtSecureId" runat="server" placeholder="NETELLER Secure Id" type="number" step="any" min="1" CssClass="ui-input-number-secure" data-clear-btn="true" />
                     </li>
                     <li class="item row">
                         <div class="col">
@@ -83,10 +77,18 @@
                     </li>
                     <asp:HiddenField runat="server" ID="_repostcheckcode" />
                 </ul>
+
+                <div class="row">
+                    <div class="col">
+                        <input type="button" data-theme="b" onclick="location.href = '/Withdrawal/Withrawal.aspx?source=app';" value="<%=commonCulture.ElementValues.getResourceString("withrawal", commonVariables.LeftMenuXML)%>" class="button-blue" data-corners="false" />
+                    </div>
+                    <div class="col">
+                        <input type="button" data-theme="b" onclick="location.href = '/FundTransfer/FundTransfer.aspx';" value="<%=commonCulture.ElementValues.getResourceString("fundTransfer", commonVariables.LeftMenuXML)%>" class="button-blue" data-corners="false" />
+                    </div>
+                </div>
             </form>
         </div>
 
-        <!--#include virtual="~/_static/navMenu.shtml" -->
         <script type="text/javascript">
             $(function () {
                 window.history.forward();
@@ -98,12 +100,13 @@
                             break;
                         case '0':
                             alert('<%=strAlertMessage%>');
-                            window.location.replace('/FundTransfer/Default.aspx');
+                            window.location.replace('/FundTransfer/FundTransfer.aspx');
                             break;
                         default:
                             break;
                     }
                 }
+
             });
         </script>
     </div>

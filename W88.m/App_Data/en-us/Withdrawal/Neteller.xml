@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Withdrawal>
+	<lblTitle><![CDATA[Neteller]]></lblTitle>
+	<lblAmount><![CDATA[Withdraw Amount]]></lblAmount>
+	<btnSubmit><![CDATA[SUBMIT]]></btnSubmit>
+	<lblTransactionId><![CDATA[Transaction ID]]></lblTransactionId>
+	<lblDailyLimit><![CDATA[Daily Limit]]></lblDailyLimit>
+	<lblTotalAllowed><![CDATA[Total Allowed]]></lblTotalAllowed>
+	<lblMinMaxLimit><![CDATA[Min/Max Limit]]></lblMinMaxLimit>
+	<lblMode><![CDATA[Mode]]></lblMode>
+	<txtMode><![CDATA[Online]]></txtMode>
+	<txtProcessing><![CDATA[Your transaction is being processed, please check your balance for updates.]]></txtProcessing>
+	<unlimited><![CDATA[Unlimited]]></unlimited>
+</Withdrawal>

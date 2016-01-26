@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Neteller.aspx.cs" Inherits="Deposit_Neteller" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Neteller.aspx.cs" Inherits="Withdrawal_Neteller" %>
 
 <!DOCTYPE html>
 <html>
@@ -14,7 +14,7 @@
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
             </a>
-            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("neteller", commonVariables.LeftMenuXML))%></h1>
+            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("neteller", commonVariables.LeftMenuXML))%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -25,7 +25,7 @@
             </div>
 
             <div data-role="navbar">
-                <ul id="depositTabs" runat="server">
+                <ul id="withdrawalTabs" runat="server">
                 </ul>
             </div>
 
@@ -65,13 +65,10 @@
                         </div>
                     </li>
                     <li class="item item-input">
-                        <asp:TextBox ID="txtDepositAmount" runat="server" placeholder="amount" type="number" step="any" min="1" data-clear-btn="true" />
+                        <asp:TextBox ID="txtWithdrawalAmount" runat="server" placeholder="amount" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
                     <li class="item item-input">
                         <asp:TextBox ID="txtAccountId" runat="server" placeholder="NETELLER Account Id" type="number" step="any" min="1" data-clear-btn="true" />
-                    </li>
-                    <li class="item item-input">
-                        <asp:TextBox ID="txtSecureId" runat="server" placeholder="NETELLER Secure Id" type="number" step="any" min="1" CssClass="ui-input-number-secure" data-clear-btn="true" />
                     </li>
                     <li class="item row">
                         <div class="col">
@@ -98,7 +95,7 @@
                             break;
                         case '0':
                             alert('<%=strAlertMessage%>');
-                            window.location.replace('/FundTransfer/Default.aspx');
+                            window.location.replace('/Index.aspx');
                             break;
                         default:
                             break;

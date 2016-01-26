@@ -23,11 +23,7 @@
             </div>
 
             <div data-role="navbar">
-                <ul>
-                    <li id="<%=string.Format("w{0}", Convert.ToInt32(commonVariables.WithdrawalMethod.BankTransfer))%>"><a href="/Withdrawal/BankTransfer_app.aspx" data-ajax="false" class="ui-btn-active"><%=commonCulture.ElementValues.getResourceString("banktransfer", commonVariables.LeftMenuXML)%></a></li>
-                    <%if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "usd", true) == 0) { %>
-                        <li id='<%=string.Format("w{0}", Convert.ToInt32(commonVariables.WithdrawalMethod.WingMoney))%>'><a href="/Withdrawal/WingMoney" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("wingmoney", commonVariables.LeftMenuXML)%></a></li>
-                    <% } %>
+                <ul id="withdrawalTabs" runat="server">
                 </ul>
             </div>
 
@@ -104,17 +100,6 @@
                 <% if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "myr", true) == 0) { %>
                 $('#txtMyKad').mask('999999-99-9999');
                 <% } %>
-
-                var strMethodsUnavailable = '<%=strMethodsUnAvailable%>';
-
-                if (strMethodsUnavailable.length > 0) {
-                    var arrMethodsUnavailable = strMethodsUnavailable.split('|');
-                    for (var intCount = 0 ; intCount < arrMethodsUnavailable.length; intCount++) {
-                        var strMethodId = arrMethodsUnavailable[intCount].toString();
-                        if (strMethodId == '<%=Convert.ToInt32(commonVariables.WithdrawalMethod.BankTransfer)%>') { document.location.assign('/Index'); }
-                        $('#w' + strMethodId + ' > a').attr('href', 'javascript:void(0)').html('&nbsp;').click(false);
-                    }
-                }
 
                 if ('<%=strAlertCode%>'.length > 0) {
                     switch ('<%=strAlertCode%>') {

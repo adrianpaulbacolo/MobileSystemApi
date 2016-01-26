@@ -87,5 +87,11 @@
 	<referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
 	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
 
+
 	<close><![CDATA[关闭]]></close>
+
+	<neteller><![CDATA[Neteller]]></neteller>
+	<accountId><![CDATA[Neteller 帐户]]></accountId>
+	<secureId><![CDATA[Neteller 密码]]></secureId>
+
 </menu>
