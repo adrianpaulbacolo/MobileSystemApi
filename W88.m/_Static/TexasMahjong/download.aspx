@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="download.aspx.cs" Inherits="_Static_Palazzo_slots" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="download.aspx.cs" Inherits="_Static_TexasMahjong_download" %>
 <!DOCTYPE html>
 <html>
 <head>

@@ -105,7 +105,7 @@
 
             <section class="section banner-slider">
                 <div class="slide">
-                    <a rel="texasmahjong" href="<%= Session["tmandroidLink"].ToString()%>" data-ajax="false">
+                    <a href="#divPanel" class="tile nav-pmahjong">
                         <img src="/_Static/Images/Download/PMahjongMobile_<%=commonVariables.SelectedLanguage.ToLower() %>.jpg" alt="banner" class="img-responsive">
                     </a>
                 </div>
