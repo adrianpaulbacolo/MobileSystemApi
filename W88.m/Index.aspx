@@ -105,7 +105,7 @@
 
             <section class="section banner-slider">
                 <div class="slide">
-                    <a href="#divPanel" class="tile nav-pmahjong">
+                    <a href="#divPanel" class="nav-pmahjong">
                         <img src="/_Static/Images/Download/PMahjongMobile_<%=commonVariables.SelectedLanguage.ToLower() %>.jpg" alt="banner" class="img-responsive">
                     </a>
                 </div>
