@@ -186,12 +186,38 @@
             <ul class="sub-menu" data-rel="texasmahjong">
                 <!--<a class="close" data-rel="close">&times;</a>-->
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%></h2>
+                <%try{%>
+                <%if(Session["responseCode"].ToString()=="1"){%>
                 <li>
-                    <a class="card" rel="texasmahjong" href="https://tm.gp2play.com/TexasMahjong-captive-runtime_w88.apk" data-rel="dialog" data-transition="slidedown">
-                        <img src="/_Static/Images/Download/bnr-texasmahjong.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/texasmahjong/Label", commonVariables.ProductsXML)%></div>
+                    <a class="card" rel="texasmahjong" href='/_static/TexasMahjong/download.aspx' data-ajax="false">
+                        <img src="/_Static/Images/Download/TexasMahjong-iOS.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("iosDownload", commonVariables.LeftMenuXML)%></div>
                     </a>
                 </li>
+                <%}%>
+                <%if(Session["responseCode"].ToString()=="2"){%>
+                <li>
+                    <a class="card" rel="texasmahjong" href='<%= Session["tmandroidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">
+                        <img src="/_Static/Images/Download/TexasMahjong-Android.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("androidDownload", commonVariables.LeftMenuXML)%></div>
+                    </a>
+                </li>
+                <%}%>
+                <%if(Session["responseCode"].ToString()=="3"){%>
+                <li>
+                    <a class="card" rel="texasmahjong" href='<%= Session["tmandroidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">
+                        <img src="/_Static/Images/Download/TexasMahjong-Android.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("androidDownload", commonVariables.LeftMenuXML)%></div>
+                    </a>
+                </li>
+                <li>
+                    <a class="card" rel="texasmahjong" href='/_static/TexasMahjong/download.aspx' data-ajax="false">
+                        <img src="/_Static/Images/Download/TexasMahjong-iOS.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("iosDownload", commonVariables.LeftMenuXML)%></div>
+                    </a>
+                </li>
+                <%}%>
+                <%}catch(Exception){}%>
             </ul>
         </li>
 
@@ -281,7 +307,7 @@
                 <li>
                     <a class="card" data-rel="poker" rel="PokerIOS" href='<%= Session["iosLink"].ToString()%>' data-transition="slidedown">
                         <img src="/_Static/Images/W88-Mobile-Poker-iOS.jpg" class="img-responsive">
-                        <div class="title">iOS Download</div>
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("iosDownload", commonVariables.LeftMenuXML)%></div>
                     </a>
                 </li>
                 <%}%>
