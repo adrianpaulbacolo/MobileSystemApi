@@ -85,22 +85,18 @@
 
                 if ('<%=strAlertCode%>'.length > 0) {
                     switch ('<%=strAlertCode%>') {
+                        case "0":
+                            window.location.replace('SDAPay2.aspx?id=' + <%=transactionId%>)
+                            break;
                         case '-1':
                             alert('<%=strAlertMessage%>');
-                            break;
-                        case '0':
-                            alert('<%=strAlertMessage%>');
-
-                            var sdpayurl = '/_secure/ajaxhandlers/sdpay.ashx?v=' + new Date().getTime() + '&requestAmount=' + $('#txtDepositAmount').val();
-                            window.open(sdpayurl);
-
                             break;
                         default:
                             break;
                     }
                 }
+
             });
-            
         </script>
     </div>
 </body>

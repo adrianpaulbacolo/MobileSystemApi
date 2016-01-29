@@ -82,7 +82,7 @@
                     </li>
                     <li class="row">
                         <div class="col">
-                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" />
+                            <asp:HyperLink ID="btnSubmit" runat="server" CssClass="ui-btn btn-primary" data-corners="false" />
                         </div>
                     </li>
                 </ul>
@@ -105,19 +105,45 @@
 
                 if ('<%=strAlertCode%>'.length > 0) {
                     switch ('<%=strAlertCode%>') {
-                        case '-1':
-                            alert('<%=strAlertMessage%>');
+                        case "0":
                             break;
-                        case '0':
-                            alert('<%=strAlertMessage%>');
-
-                            window.location.replace('/FundTransfer/Default.aspx');
-
+                        case '-1':
+                            window.location.replace('SDAPay.aspx')
                             break;
                         default:
                             break;
                     }
                 }
+
+                var intervalId = setInterval(function () {
+                    $.ajax({
+                        dataType: "json",
+                        url: "SDAPay2.aspx/CheckDeposit?strTransactionId=" + '<%=strTransactionId%>',
+                        contentType: "application/json;",
+                        type: "GET",
+                        cache: false,
+                        success: function (data) {
+                            var result = data.d;
+                            $('#txtStatus').text(": " + result);
+                            if (result.indexOf("Successful") == 0) {
+                                clearInterval(intervalId);
+                                $('#btnSubmit').hide();
+
+                                setTimeout(function () {
+                                    window.location.replace('/FundTransfer/Default.aspx');
+                                }, 2000);
+
+                            } else if (result.indexOf("Failed") == 0) {
+                                clearInterval(intervalId);
+                                $('#btnSubmit').hide();
+                            }
+                        },
+                        error: function (err) {
+                            clearInterval(intervalId);
+                        }
+                    });
+                }, 5000);
+
             });
 
         </script>
