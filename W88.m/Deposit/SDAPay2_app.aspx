@@ -82,7 +82,7 @@
                     </li>
                     <li class="row">
                         <div class="col">
-                            <asp:HyperLink ID="btnSubmit" runat="server" CssClass="ui-btn btn-primary" data-corners="false" />
+                            <asp:HyperLink ID="btnSubmit" runat="server" CssClass="ui-btn btn-primary" data-corners="false" Target="_blank"/>
                         </div>
                     </li>
                 </ul>
