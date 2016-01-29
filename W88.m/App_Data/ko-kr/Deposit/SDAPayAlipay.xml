@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+	<lblTitle><![CDATA[SDAPay]]></lblTitle>
+	<lblDepositAmount><![CDATA[입금금액]]></lblDepositAmount>
+	<btnSubmit><![CDATA[입금]]></btnSubmit>
+	<lblTransactionId><![CDATA[거래 ID]]></lblTransactionId>
+	<lblDailyLimit><![CDATA[일일한도]]></lblDailyLimit>
+	<lblTotalAllowed><![CDATA[전체한도]]></lblTotalAllowed>
+	<lblMinMaxLimit><![CDATA[최소/최대한도]]></lblMinMaxLimit>
+	<lblMode><![CDATA[모드]]></lblMode>
+	<txtMode><![CDATA[온라인]]></txtMode>
+	<txtProcessing><![CDATA[Your transaction is being processed]]></txtProcessing>
+	<unlimited><![CDATA[무제한]]></unlimited>
+
+	<lblStatus><![CDATA[상태]]></lblStatus>
+	<litStatusPending><![CDATA[대기]]></litStatusPending>
+	<lblAmount><![CDATA[금액]]></lblAmount>
+	<lblAmtNote><![CDATA[참고: 소수점을 포함한 왼쪽의 표시된 금액을 입금하여 주십시오. 은행에서 요구되는 이체 수수료는 회원님께 부가됩니다.]]></lblAmtNote>
+	<lblBankName><![CDATA[은행이름]]></lblBankName>
+	<lblBankHolderName><![CDATA[계좌명]]></lblBankHolderName>
+	<lblBankAccountNo><![CDATA[계좌번호]]></lblBankAccountNo>
+</Deposit>

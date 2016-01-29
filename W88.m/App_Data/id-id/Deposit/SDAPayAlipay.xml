@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+	<lblTitle><![CDATA[SDAPay]]></lblTitle>
+	<lblDepositAmount><![CDATA[Jumlah Deposit]]></lblDepositAmount>
+	<btnSubmit><![CDATA[Kirim]]></btnSubmit>
+	<lblTransactionId><![CDATA[No. Transaksi]]></lblTransactionId>
+	<lblDailyLimit><![CDATA[Batas Perhari]]></lblDailyLimit>
+	<lblTotalAllowed><![CDATA[Jumlah yang diperbolehkan]]></lblTotalAllowed>
+	<lblMinMaxLimit><![CDATA[Batas Min/Max]]></lblMinMaxLimit>
+	<lblMode><![CDATA[Mode]]></lblMode>
+	<txtMode><![CDATA[Online]]></txtMode>
+	<txtProcessing><![CDATA[Your transaction is being processed]]></txtProcessing>
+	<unlimited><![CDATA[Tanpa Batas]]></unlimited>
+
+	<lblStatus><![CDATA[Status]]></lblStatus>
+	<litStatusPending><![CDATA[Tertunda]]></litStatusPending>
+	<lblAmount><![CDATA[Jumlah]]></lblAmount>
+	<lblAmtNote><![CDATA[Harap Diingat: Silakan melalukan deposit dengan jumlah yang sama seperti yang ditunjukan di sebelah kiri, termasuk penulisan “desimal” titik jumlah. Biaya Bank dan “desimal” akan dikembalikan kepada Anda.]]></lblAmtNote>
+	<lblBankName><![CDATA[Nama Bank]]></lblBankName>
+	<lblBankHolderName><![CDATA[Nama Rekening]]></lblBankHolderName>
+	<lblBankAccountNo><![CDATA[Nomor Rekening]]></lblBankAccountNo>
+</Deposit>

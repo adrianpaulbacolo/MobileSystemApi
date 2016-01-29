@@ -127,6 +127,30 @@ public static class commonPaymentMethodFunc
                 depositTabs.Controls.Add(list);
                 break;
 
+            case commonVariables.DepositMethod.SDAPay:
+                list = new HtmlGenericControl("li");
+                list.ID = string.Format("d{0}", paymentCode);
+
+
+                anchor = new HtmlGenericControl("a");
+
+                if (isApp)
+                    anchor.Attributes.Add("href", "/Deposit/SDAPay_app.aspx");
+                else
+                    anchor.Attributes.Add("href", "/Deposit/SDAPay.aspx");
+
+                anchor.Attributes.Add("class", "ui-link ui-btn");
+                anchor.InnerText = commonCulture.ElementValues.getResourceString("sdapay", commonVariables.LeftMenuXML);
+
+                if (string.Compare(sourcePage, "sdapay", true) == 0)
+                {
+                    anchor.Attributes.Add("class", "btn-primary");
+                }
+
+                list.Controls.Add(anchor);
+                depositTabs.Controls.Add(list);
+                break;
+
             case commonVariables.DepositMethod.Help2Pay:
                 list = new HtmlGenericControl("li");
                 list.ID = string.Format("d{0}", paymentCode);

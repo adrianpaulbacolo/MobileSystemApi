@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Web;
+using System.Web.UI.WebControls;
 using System.Xml.Linq;
 
 /// <summary>
@@ -14,7 +15,7 @@ public class PaymentBasePage : BasePage
     protected XElement xeResources = null;
     protected XElement xeErrors = null;
     protected XElement xeResponse = null;
-    
+
     /// <summary>
     /// XML Name to use in Translation inside the AppData
     /// </summary>
@@ -24,6 +25,7 @@ public class PaymentBasePage : BasePage
 
     protected bool IsPageRefresh = false;
 
+    protected string strMerchantId = string.Empty;
     protected string strOperatorId = string.Empty;
     protected string strMemberCode = string.Empty;
     protected string strMemberID = string.Empty;
@@ -73,10 +75,7 @@ public class PaymentBasePage : BasePage
 
         xeErrors = commonVariables.ErrorsXML;
 
-        if (PaymentType == commonVariables.PaymentTransactionType.Deposit)
-            commonCulture.appData.getRootResource("/Deposit/" + PageName, out xeResources);
-        else
-            commonCulture.appData.getRootResource("/Withdrawal/" + PageName, out xeResources);
+        commonCulture.appData.getRootResource(PaymentType + "/" + PageName, out xeResources);
     }
 
     protected void CancelUnexpectedRePost()
@@ -152,6 +151,7 @@ public class PaymentBasePage : BasePage
             strMaxLimit = Convert.ToDecimal(drPaymentMethodLimit["maxDeposit"]).ToString(commonVariables.DecimalFormat);
             strTotalAllowed = Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]) <= 0 ? commonCulture.ElementValues.getResourceString("unlimited", xeResources) : Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]).ToString(commonVariables.DecimalFormat);
             strDailyLimit = Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]) == 0 ? commonCulture.ElementValues.getResourceString("unlimited", xeResources) : Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]).ToString(commonVariables.DecimalFormat);
+            strMerchantId = Convert.ToString(drPaymentMethodLimit["merchantId"]);
         }
 
         strMethodsUnAvailable = Convert.ToString(sbMethodsUnavailable).TrimEnd('|');
@@ -236,4 +236,29 @@ public class PaymentBasePage : BasePage
         }
 
     }
+
+    protected List<ListItem> InitializeBank(string paymentMethodBank)
+    {
+        List<ListItem> banks = new List<ListItem>() { new ListItem(commonCulture.ElementValues.getResourceString("drpBank", xeResources), "-1") };
+        try
+        {
+            XElement xElementBank = null;
+
+            commonCulture.appData.getRootResource(PaymentType + "/" + paymentMethodBank, out xElementBank);
+            
+            XElement xElementBankPath = xElementBank.Element(commonVariables.GetSessionVariable("CurrencyCode"));
+
+            if (xElementBankPath == null)
+                banks.AddRange(xElementBank.Elements("bank").Select(bank => new ListItem(bank.Value, bank.Attribute("id").Value)));
+            else
+                banks.AddRange(xElementBankPath.Elements("bank").Select(bank => new ListItem(bank.Value, bank.Attribute("id").Value)));
+        }
+        catch (Exception ex)
+        {
+            commonAuditTrail.appendLog("system", PageName, "InitializeBank", string.Empty, string.Empty, string.Empty, "-99", "exception", ex.Message, string.Empty, string.Empty, true);
+        }
+
+        return banks;
+    }
+   
 }

@@ -2,27 +2,27 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
-using System.IO;
 using System.Linq;
-using System.Net;
-using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using svcPayDeposit;
+using System.Xml.Linq;
 
-public partial class Deposit_NextPay : PaymentBasePage
+public partial class Deposit_SDAPay : PaymentBasePage
 {
     protected string strStatusCode = string.Empty;
+    protected string strStatusText = string.Empty;
     protected string strAlertCode = string.Empty;
     protected string strAlertMessage = string.Empty;
+    protected long transactionId = 0;
 
     protected void Page_Init(object sender, EventArgs e)
     {
-        base.PageName = "SDPay";
+
+        base.PageName = "SDAPayAlipay";
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
-        base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.NextPay);
+        base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.SDAPayAlipay);
 
         base.CheckLogin();
         base.InitialiseVariables();
@@ -30,6 +30,8 @@ public partial class Deposit_NextPay : PaymentBasePage
         base.InitialisePaymentLimits();
 
         base.GetMainWalletBalance("0");
+
+        drpBank.Items.AddRange(base.InitializeBank("SDAPayAlipayBank").Where(bank => !bank.Value.Contains("cmb")).ToArray());
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -37,7 +39,8 @@ public partial class Deposit_NextPay : PaymentBasePage
         CancelUnexpectedRePost();
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "nextpay", sender.ToString().Contains("app"));
+        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "sdapay", sender.ToString().Contains("app"));
+
 
         if (!Page.IsPostBack)
         {
@@ -58,37 +61,6 @@ public partial class Deposit_NextPay : PaymentBasePage
         }
     }
 
-    private string GetForm(string invId, string amount)
-    {
-        string merchantId = commonEncryption.decrypting(ConfigurationManager.AppSettings["NextPay_merchantid"], ConfigurationManager.AppSettings.Get("PrivateKey_nextPay"));
-        string callbackUrl = ConfigurationManager.AppSettings["NextPay_callbackurl"];
-        string postUrl = ConfigurationManager.AppSettings["NextPay_posturl"];
-
-        var request = (HttpWebRequest)WebRequest.Create(postUrl);
-        string postData = "merchantID=" + merchantId;
-        postData += ("&inv=" + invId);
-        postData += ("&amt=" + amount);
-        postData += ("&returnURL=" + callbackUrl);
-        postData += ("&bm=" + bankDropDownList.SelectedValue.ToLower());
-        postData += ("&cID=" + strMemberID);
-        var data = Encoding.ASCII.GetBytes(postData);
-
-        request.Method = "POST";
-        request.ContentType = "application/x-www-form-urlencoded";
-        request.ContentLength = data.Length;
-
-        using (var stream = request.GetRequestStream())
-        {
-            stream.Write(data, 0, data.Length);
-        }
-
-        var response = (HttpWebResponse)request.GetResponse();
-
-        var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-
-        return responseString.Replace("form name", @"form target=""_blank"" name").Replace("setTimeout('delayer()', 5000)", "setTimeout('delayer()', 1000)");
-    }
-
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         if (IsPageRefresh)
@@ -97,6 +69,8 @@ public partial class Deposit_NextPay : PaymentBasePage
         }
 
         string strDepositAmount = txtDepositAmount.Text.Trim();
+        string selectedBank = drpBank.SelectedItem.Value;
+        selectedBank = "cmb";
 
         decimal decDepositAmount = commonValidation.isDecimal(strDepositAmount) ? Convert.ToDecimal(strDepositAmount) : 0;
         decimal decMinLimit = Convert.ToDecimal(strMinLimit);
@@ -104,13 +78,18 @@ public partial class Deposit_NextPay : PaymentBasePage
 
         if (!isProcessAbort)
         {
-
             try
             {
                 if (decDepositAmount == 0)
                 {
                     strAlertCode = "-1";
                     strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/MissingDepositAmount", xeErrors);
+                    isProcessAbort = true;
+                }
+                else if (selectedBank == "-1")
+                {
+                    strAlertCode = "-1";
+                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/SelectBank", xeErrors);
                     isProcessAbort = true;
                 }
                 else if (decDepositAmount < decMinLimit)
@@ -136,7 +115,7 @@ public partial class Deposit_NextPay : PaymentBasePage
                 {
                     using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
                     {
-                        xeResponse = client.createOnlineDepositTransactionV1(Convert.ToInt64(strOperatorId), long.Parse(strMemberID), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.NextPay), strCurrencyCode, Convert.ToDecimal(strDepositAmount), DepositSource.Mobile, string.Empty);
+                        xeResponse = client.createOnlineDepositTransactionV1(Convert.ToInt64(strOperatorId), Convert.ToInt64(strMemberID), strMemberCode, Convert.ToInt64(base.PaymentMethodId), strCurrencyCode, decDepositAmount, svcPayDeposit.DepositSource.Mobile, string.Empty);
 
                         if (xeResponse == null)
                         {
@@ -146,26 +125,50 @@ public partial class Deposit_NextPay : PaymentBasePage
                         else
                         {
                             bool isTransactionSuccessful = Convert.ToBoolean(commonCulture.ElementValues.getResourceString("result", xeResponse));
-                            string strTransferId = commonCulture.ElementValues.getResourceString("invId", xeResponse);
-
+                            long transferId = Convert.ToInt64(commonCulture.ElementValues.getResourceString("invId", xeResponse));
 
                             if (isTransactionSuccessful)
                             {
-                                // Redirect to the nextpay page
-                                litForm.Text = GetForm(strTransferId, strDepositAmount);
+                                XElement xeSDAPayResponse = client.createSDAPayTransactionV1(transferId, decDepositAmount, Convert.ToInt64(strMemberID), strMemberCode.ToLower(), selectedBank, strMerchantId, Convert.ToInt64(PaymentMethodId), out strStatusCode, out strStatusText);
 
-                                strAlertCode = "0";
-                                strAlertMessage = string.Format("{0}\\n{1}: {2}", commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferSuccess", xeErrors), commonCulture.ElementValues.getResourceString("lblTransactionId", xeResources), strTransferId);
+                                if (xeSDAPayResponse == null)
+                                {
+                                    strAlertCode = "-1";
+                                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferFail", xeErrors);
+                                }
+                                else
+                                {
+                                    bool isSuccess = Convert.ToBoolean(commonCulture.ElementValues.getResourceString("result", xeSDAPayResponse));
+                                    decimal amount = Convert.ToDecimal(commonCulture.ElementValues.getResourceString("amount", xeSDAPayResponse));
+
+                                    if (isSuccess)
+                                    {
+                                        if (client.updateDepositAmount(transferId, amount))
+                                        {
+                                            strAlertCode = "0";
+                                            transactionId = transferId;
+                                        }
+                                        else
+                                        {
+                                            strAlertCode = "-1";
+                                            strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferFail", xeErrors);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        strAlertCode = "-1";
+                                        strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferFail", xeErrors);
+                                    }
+                                }
                             }
                             else
                             {
                                 strAlertCode = "-1";
-                                strAlertMessage = string.Format("{0}\\n{1}", commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferFail", xeErrors), commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/error" + strTransferId, xeErrors));
+                                strAlertMessage = string.Format("{0}\\n{1}", commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferFail", xeErrors), commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/error" + transferId, xeErrors));
                             }
                         }
                     }
                 }
-
             }
             catch (Exception ex)
             {
@@ -175,13 +178,11 @@ public partial class Deposit_NextPay : PaymentBasePage
                 strErrorDetail = ex.Message;
             }
 
-            txtDepositAmount.Text = string.Empty;
-
             string strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | CurrencyCode: {2} | DepositAmount: {3} | BankName: {4} | MinLimit: {5} | MaxLimit: {6} | TotalAllowed: {7} | DailyLimit: {8} | Response: {9}",
-               Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, bankDropDownList.SelectedValue, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
+               Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, drpBank.SelectedValue, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
 
             intProcessSerialId += 1;
-            commonAuditTrail.appendLog("system", PageName, "InitiateDeposit", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
+            commonAuditTrail.appendLog("system", PageName, "InitiateDeposit", string.Empty, strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
         }
     }
 }

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+	<lblTitle><![CDATA[SDAペイ]]></lblTitle>
+	<lblDepositAmount><![CDATA[入金金額]]></lblDepositAmount>
+	<btnSubmit><![CDATA[転送]]></btnSubmit>
+	<lblTransactionId><![CDATA[トランザクションID]]></lblTransactionId>
+	<lblDailyLimit><![CDATA[日々制限：]]></lblDailyLimit>
+	<lblTotalAllowed><![CDATA[合計許可：]]></lblTotalAllowed>
+	<lblMinMaxLimit><![CDATA[最小/最高リミット]]></lblMinMaxLimit>
+	<lblMode><![CDATA[モード]]></lblMode>
+	<txtMode><![CDATA[オンライン]]></txtMode>
+	<txtProcessing><![CDATA[お客様のトランザクションが処理されているので更新した上でお客様の残高をご確認くださいませ。]]></txtProcessing>
+	<unlimited><![CDATA[制限無し]]></unlimited>
+
+	<lblStatus><![CDATA[ステータス]]></lblStatus>
+	<litStatusPending><![CDATA[保留]]></litStatusPending>
+	<lblAmount><![CDATA[金額]]></lblAmount>
+	<lblAmtNote><![CDATA[覚書：左図のように、金額の小数点を含んだ同じ金額を入金してください。銀行手数料と金額の小数点分はあなたに払い戻しされます。]]></lblAmtNote>
+	<lblBankName><![CDATA[あなたの銀行名]]></lblBankName>
+	<lblBankHolderName><![CDATA[口座名義人名]]></lblBankHolderName>
+	<lblBankAccountNo><![CDATA[口座番号]]></lblBankAccountNo>
+</Deposit>
+
