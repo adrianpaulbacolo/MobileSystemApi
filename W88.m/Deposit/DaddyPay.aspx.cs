@@ -316,6 +316,7 @@ public partial class Deposit_DaddyPay : BasePage
                     daddyPayDomain.memo = string.Empty;
                     daddyPayDomain.note = strMemberId + strMemberCode;
                     daddyPayDomain.noteModel = "1";
+                    daddyPayDomain.terminal = "2";
 
                     byte[] responseBytes = UploadValues(daddyPayDomain);
 
@@ -376,6 +377,7 @@ public partial class Deposit_DaddyPay : BasePage
             postData["memo"] = daddyPay.memo;
             postData["note"] = daddyPay.note;
             postData["note_model"] = daddyPay.noteModel;
+            postData["terminal"] = daddyPay.terminal;
 
             using (WebClient wc = new WebClient())
             {
@@ -481,6 +483,7 @@ public class DaddyPayDomain
     public string memo { get; set; }
     public string note { get; set; }
     public string noteModel { get; set; }
+    public string terminal { get; set; }
 
     public DaddyPayDomain()
     {
@@ -497,6 +500,7 @@ public class DaddyPayDomain
         this.memo = string.Empty;
         this.note = string.Empty;
         this.noteModel = string.Empty;
+        this.terminal = string.Empty;
     }
 }
 
