@@ -46,6 +46,7 @@ public static class commonPaymentMethodFunc
                     anchor.Attributes.Add("href", "/Deposit/Default.aspx");
 
                 anchor.Attributes.Add("class", "ui-link ui-btn");
+                anchor.Attributes.Add("data-ajax", "false");
                 anchor.InnerText = commonCulture.ElementValues.getResourceString("fastdeposit", commonVariables.LeftMenuXML);
 
                 if (string.Compare(sourcePage, "default", true) == 0)
@@ -69,6 +70,7 @@ public static class commonPaymentMethodFunc
                     anchor.Attributes.Add("href", "/Deposit/NextPay.aspx");
 
                 anchor.Attributes.Add("class", "ui-link ui-btn");
+                anchor.Attributes.Add("data-ajax", "false");
                 anchor.InnerText = commonCulture.ElementValues.getResourceString("nextpay", commonVariables.LeftMenuXML);
 
                 if (string.Compare(sourcePage, "nextpay", true) == 0)
@@ -92,6 +94,7 @@ public static class commonPaymentMethodFunc
                     anchor.Attributes.Add("href", "/Deposit/WingMoney.aspx");
 
                 anchor.Attributes.Add("class", "ui-link ui-btn");
+                anchor.Attributes.Add("data-ajax", "false");
                 anchor.InnerText = commonCulture.ElementValues.getResourceString("wingmoney", commonVariables.LeftMenuXML);
 
                 if (string.Compare(sourcePage, "wingmoney", true) == 0)
@@ -116,6 +119,7 @@ public static class commonPaymentMethodFunc
                     anchor.Attributes.Add("href", "/Deposit/SDPay.aspx");
 
                 anchor.Attributes.Add("class", "ui-link ui-btn");
+                anchor.Attributes.Add("data-ajax", "false");
                 anchor.InnerText = commonCulture.ElementValues.getResourceString("sdpay", commonVariables.LeftMenuXML);
 
                 if (string.Compare(sourcePage, "sdpay", true) == 0)
@@ -140,6 +144,7 @@ public static class commonPaymentMethodFunc
                     anchor.Attributes.Add("href", "/Deposit/SDAPay.aspx");
 
                 anchor.Attributes.Add("class", "ui-link ui-btn");
+                anchor.Attributes.Add("data-ajax", "false");
                 anchor.InnerText = commonCulture.ElementValues.getResourceString("sdapay", commonVariables.LeftMenuXML);
 
                 if (string.Compare(sourcePage, "sdapay", true) == 0)
@@ -164,6 +169,7 @@ public static class commonPaymentMethodFunc
                     anchor.Attributes.Add("href", "/Deposit/Help2Pay.aspx");
 
                 anchor.Attributes.Add("class", "ui-link ui-btn");
+                anchor.Attributes.Add("data-ajax", "false");
                 anchor.InnerText = commonCulture.ElementValues.getResourceString("help2pay", commonVariables.LeftMenuXML);
 
                 if (string.Compare(sourcePage, "help2pay", true) == 0)
@@ -187,6 +193,7 @@ public static class commonPaymentMethodFunc
                     anchor.Attributes.Add("href", "/Deposit/DaddyPay.aspx?value=1");
 
                 anchor.Attributes.Add("class", "ui-link ui-btn");
+                anchor.Attributes.Add("data-ajax", "false");
                 anchor.InnerText = commonCulture.ElementValues.getResourceString("daddypay", commonVariables.LeftMenuXML);
 
                 if (string.Compare(sourcePage, "daddypay", true) == 0)
@@ -210,6 +217,7 @@ public static class commonPaymentMethodFunc
                     anchor.Attributes.Add("href", "/Deposit/DaddyPay.aspx?value=2");
 
                 anchor.Attributes.Add("class", "ui-link ui-btn");
+                anchor.Attributes.Add("data-ajax", "false");
                 anchor.InnerText = commonCulture.ElementValues.getResourceString("daddypayqr", commonVariables.LeftMenuXML);
 
                 if (string.Compare(sourcePage, "daddypayqr", true) == 0)
@@ -233,6 +241,7 @@ public static class commonPaymentMethodFunc
                     anchor.Attributes.Add("href", "/Deposit/Neteller.aspx");
 
                 anchor.Attributes.Add("class", "ui-link ui-btn");
+                anchor.Attributes.Add("data-ajax", "false");
                 anchor.InnerText = commonCulture.ElementValues.getResourceString("neteller", commonVariables.LeftMenuXML);
 
                 if (string.Compare(sourcePage, "neteller", true) == 0)
@@ -285,6 +294,7 @@ public static class commonPaymentMethodFunc
                     anchor.Attributes.Add("href", "/Withdrawal/Default.aspx");
 
                 anchor.Attributes.Add("class", "ui-link ui-btn");
+                anchor.Attributes.Add("data-ajax", "false");
                 anchor.InnerText = commonCulture.ElementValues.getResourceString("banktransfer", commonVariables.LeftMenuXML);
 
                 if (string.Compare(sourcePage, "default", true) == 0)
@@ -308,6 +318,7 @@ public static class commonPaymentMethodFunc
                     anchor.Attributes.Add("href", "/Withdrawal/WingMoney.aspx");
 
                 anchor.Attributes.Add("class", "ui-link ui-btn");
+                anchor.Attributes.Add("data-ajax", "false");
                 anchor.InnerText = commonCulture.ElementValues.getResourceString("wingmoney", commonVariables.LeftMenuXML);
 
                 if (string.Compare(sourcePage, "wingmoney", true) == 0)
@@ -331,6 +342,7 @@ public static class commonPaymentMethodFunc
                     anchor.Attributes.Add("href", "/Withdrawal/Neteller.aspx");
 
                 anchor.Attributes.Add("class", "ui-link ui-btn");
+                anchor.Attributes.Add("data-ajax", "false");
                 anchor.InnerText = commonCulture.ElementValues.getResourceString("neteller", commonVariables.LeftMenuXML);
 
                 if (string.Compare(sourcePage, "neteller", true) == 0)
