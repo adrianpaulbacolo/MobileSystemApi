@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+	<lblTitle><![CDATA[SDPay]]></lblTitle>
+	<lblDepositAmount><![CDATA[Jumlah Deposit]]></lblDepositAmount>
+	<btnSubmit><![CDATA[Kirim]]></btnSubmit>
+	<lblTransactionId><![CDATA[No. Transaksi]]></lblTransactionId>
+	<lblDailyLimit><![CDATA[Batas Perhari]]></lblDailyLimit>
+	<lblTotalAllowed><![CDATA[Jumlah yang diperbolehkan]]></lblTotalAllowed>
+	<lblMinMaxLimit><![CDATA[Batas Min/Max]]></lblMinMaxLimit>
+	<lblMode><![CDATA[Mode]]></lblMode>
+	<txtMode><![CDATA[Online]]></txtMode>
+	<txtProcessing><![CDATA[Your transaction is being processed]]></txtProcessing>
+	<drpBank><![CDATA[Bank Pilih]]></drpBank>
+	<unlimited><![CDATA[Tanpa Batas]]></unlimited>
+	<lblAccountName><![CDATA[Nama Rekening Anda]]></lblAccountName>
+	<lblAccountNumber><![CDATA[Nomor Rekening Anda]]></lblAccountNumber>
+	<wechatNickNameNA><![CDATA[Nickname not available, please choose another.]]></wechatNickNameNA>
+	<wechatPendingDeposit><![CDATA[You have pending deposit, please cancel it before submitting with a new nickname.]]></wechatPendingDeposit>
+</Deposit>
