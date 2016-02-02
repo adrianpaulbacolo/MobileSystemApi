@@ -1,9 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DaddyPay.aspx.cs" Inherits="Deposit_DaddyPay" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="SDAPay.aspx.cs" Inherits="Deposit_SDAPay" %>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("daddyPay", commonVariables.LeftMenuXML))%></title>
+    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("sdapay", commonVariables.LeftMenuXML))%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
@@ -14,7 +14,7 @@
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
             </a>
-            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("depositDaddyPay", commonVariables.LeftMenuXML)%></h1>
+            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("sdapay", commonVariables.LeftMenuXML))%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -30,7 +30,7 @@
             </div>
 
             <form class="form" id="form1" runat="server" data-ajax="false">
-                <br>
+                <br />
                 <ul class="list fixed-tablet-size">
                     <li class="row">
                         <div class="col">
@@ -65,25 +65,13 @@
                         </div>
                     </li>
                     <li class="item item-select">
-                        <asp:DropDownList ID="drpBank" runat="server" />
+                        <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
+                        <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
                     </li>
-                    <li class="item item-input" id="txtAmount">
+                    <li class="item item-input">
                         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
                         <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
-                    <li class="item item-select" id="drpAmount" style="display: none;">
-                        <asp:DropDownList ID="drpDepositAmount" runat="server" />
-                    </li>
-                    <li class="item item-input" id="accountName" runat="server">
-                        <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" />
-                        <asp:TextBox ID="txtAccountName" runat="server" data-clear-btn="true" />
-                        <asp:HiddenField ID="hfWCNickname"  runat="server" ClientIDMode="Static" />
-                    </li>
-                    <li class="item item-input" id="accountNo" runat="server">
-                        <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNo" />
-                        <asp:TextBox ID="txtAccountNo" type="number" runat="server" data-clear-btn="true" />
-                    </li>
-                    <li></li>
                     <li class="row">
                         <div class="col">
                             <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" id="btnCancel" runat="server" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
@@ -92,7 +80,6 @@
                             <asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" />
                         </div>
                     </li>
-                    <asp:HiddenField runat="server" ID="_repostcheckcode" />
                 </ul>
             </form>
         </div>
@@ -102,37 +89,17 @@
             $(function () {
                 window.history.forward();
 
-                $('#drpBank').change(function () {
-                    var bId = this.value;
-
-                    if (bId == "b40") { //WeChat
-                        $("#txtAmount").hide();
-                        $("#drpAmount").show();
-                        $("#accountNo").hide();
-
-                        populateWeChatNickName();
+                if ('<%=strAlertCode%>'.length > 0) {
+                    switch ('<%=strAlertCode%>') {
+                        case "0":
+                            window.location.replace('SDAPay2.aspx?id=' + <%=transactionId%>)
+                            break;
+                        case '-1':
+                            alert('<%=strAlertMessage%>');
+                            break;
+                        default:
+                            break;
                     }
-                    else { //QR
-                        $("#txtAmount").show();
-                        $("#drpAmount").hide();
-                        $("#accountNo").show();
-                    }
-                });
-
-                function populateWeChatNickName() {
-                    $.ajax({
-                        type: "POST",
-                        async: false,
-                        url: "DaddyPay.aspx/ProcessWeChatNickname",
-                        data: JSON.stringify({ action: "getNickname", nickname: "" }),
-                        contentType: "application/json;",
-                        dataType: "json",
-                        success: function (response) {
-                            var result = response.d;
-                            $('#txtAccountName').val(result);
-                            $('#hfWCNickname').val(result); //store original nickname if any.
-                        }
-                    })
                 }
 
             });

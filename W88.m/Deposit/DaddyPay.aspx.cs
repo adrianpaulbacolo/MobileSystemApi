@@ -12,55 +12,56 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using svcPayDeposit;
+using System.Web.Services;
+using System.Xml.Linq;
 
-public partial class Deposit_DaddyPay : BasePage
+public partial class Deposit_DaddyPay : PaymentBasePage
 {
-    protected System.Xml.Linq.XElement xeErrors = null;
-    protected System.Xml.Linq.XElement xeResources = null;
-    protected System.Xml.Linq.XElement xeResource = null;
-
-    protected string strStatusCode = string.Empty;
     protected string strAlertCode = string.Empty;
     protected string strAlertMessage = string.Empty;
-    protected string strMethodsUnAvailable = string.Empty;
 
-    private Boolean IsPageRefresh = false;
+    protected bool isDaddyPayQR = false;
 
-    private string strOperatorId = string.Empty;
-    private string strMemberCode = string.Empty;
-    private string strCurrencyCode = string.Empty;
-    private string strCountryCode = string.Empty;
-    private string strRiskId = string.Empty;
-    private string strPaymentGroup = string.Empty;
-    private string strSelectedLanguage = string.Empty;
-    private string strMemberId = string.Empty;
+    private static string weChatNickNameNotAvailable;
+    private static string weChatNickNamePendingDeposit;
+    private static string serverError;
 
-    protected string strMinAmount = string.Empty;
-    protected string strMaxAmount = string.Empty;
+    protected void Page_Init(object sender, EventArgs e)
+    {
+        base.PageName = "DaddyPay";
+        base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
 
-    System.Xml.Linq.XElement xElement;
+        if (Request.QueryString["value"].ToString() == "1")
+        {
+            base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.DaddyPay);
+        }
+        else if (Request.QueryString["value"].ToString() == "2")
+        {
+            isDaddyPayQR = true;
+            base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.DaddyPayQR);
+        }
 
-    string CurrentUrl = System.Web.HttpContext.Current.Request.Url.Host.ToString();
+        base.CheckLogin();
+        base.InitialiseVariables();
 
-    protected void Page_Init(object sender, EventArgs e) { base.CheckLogin(); }
+        base.InitialisePaymentLimits();
+
+        base.GetMainWalletBalance("0");
+
+        string bank = isDaddyPayQR ? "DaddyPayQRBank" : "DaddyPayBank";
+        drpBank.Items.AddRange(base.InitializeBank(bank).ToArray());
+
+        this.InitializeWeChatDenominations();
+    }
 
     protected void Page_Load(object sender, EventArgs e)
     {
         CancelUnexpectedRePost();
 
-        strOperatorId = commonVariables.OperatorId;
-        strMemberId = commonVariables.GetSessionVariable("MemberId");
-        strMemberCode = commonVariables.GetSessionVariable("MemberCode");
-        strCurrencyCode = commonVariables.GetSessionVariable("CurrencyCode");
-        strCountryCode = commonVariables.GetSessionVariable("CountryCode");
-        strRiskId = commonVariables.GetSessionVariable("RiskId");
-        strPaymentGroup = commonVariables.GetSessionVariable("PaymentGroup");
-        strSelectedLanguage = commonVariables.SelectedLanguage;
+        HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
 
-        xeErrors = commonVariables.ErrorsXML;
-        commonCulture.appData.getRootResource("/Deposit/SDPay", out xeResources);
-        commonCulture.appData.getRootResource("/Deposit/FastDeposit", out xeResource);
-
+        string activePage = PaymentMethodId == Convert.ToString((int)commonVariables.DepositMethod.DaddyPay) ? "daddypay" : "daddypayqr";
+        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, activePage, sender.ToString().Contains("app"));
 
         if (!Page.IsPostBack)
         {
@@ -69,252 +70,236 @@ public partial class Deposit_DaddyPay : BasePage
             lblMinMaxLimit.Text = commonCulture.ElementValues.getResourceString("lblMinMaxLimit", xeResources);
             lblDailyLimit.Text = commonCulture.ElementValues.getResourceString("lblDailyLimit", xeResources);
             lblTotalAllowed.Text = commonCulture.ElementValues.getResourceString("lblTotalAllowed", xeResources);
+            lblDepositAmount.Text = commonCulture.ElementValues.getResourceString("lblDepositAmount", xeResources);
 
-
-            bankDropDownList.Items.Insert(0, new ListItem(commonCulture.ElementValues.getResourceString("drpBank", xeResource),"-1"));
+            lblAccountName.Text = commonCulture.ElementValues.getResourceString("lblAccountName", xeResources);
+            lblAccountNumber.Text = commonCulture.ElementValues.getResourceString("lblAccountNumber", xeResources);
 
             btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
 
-            amount_txt.Attributes.Add("PLACEHOLDER", string.Format("{0} {1}", amount_txt.Text, strCurrencyCode));
-
-            System.Threading.Tasks.Task t1 = System.Threading.Tasks.Task.Factory.StartNew(this.InitialisePaymentLimits);
-
-            System.Threading.Tasks.Task.WaitAll(t1);
-
-            string value = Request.QueryString["value"].ToString();
-            if (value == "1")
-            {
-                account_txt.Visible = false;
-                accountName_txt.Visible = false;
-            }
-            else if (value == "2")
-            {
-                account_txt.Visible = true; ;
-                accountName_txt.Visible = true;
-            }
-
-            PopulateBankList();
-        }
-        else
-        {
-            string strProcessCode = string.Empty;
-            string strProcessText = string.Empty;
-            string strMethodId = string.Empty;
-            strMethodId = "0";
-            System.Data.DataTable dtPaymentMethodLimits = null;
-            System.Text.StringBuilder sbMethodsUnavailable = new System.Text.StringBuilder();
-
-            using (svcPayMember.MemberClient svcInstance = new svcPayMember.MemberClient())
-            {
-                dtPaymentMethodLimits = svcInstance.getMethodLimits(strOperatorId, strMemberCode, strMethodId, Convert.ToString(Convert.ToInt32(commonVariables.PaymentTransactionType.Deposit)), false, out strProcessCode, out strProcessText);
-            }
-
-            foreach (commonVariables.DepositMethod EnumMethod in Enum.GetValues(typeof(commonVariables.DepositMethod)))
-            {
-                if (dtPaymentMethodLimits.Select("[methodId] = " + Convert.ToInt32(EnumMethod)).Count() < 1)
-                {
-                    sbMethodsUnavailable.AppendFormat("{0}|", Convert.ToInt32(EnumMethod));
-                }
-            }
-
-            strMethodsUnAvailable = Convert.ToString(sbMethodsUnavailable).TrimEnd('|');
-
-            //bankDropDownList.Items.Clear();
-
-            //PopulateBankList();
-        }
-
-        HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-
-        if (Request.QueryString["value"].ToString() == "1")
-        {
-            commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "daddypay", sender.ToString().Contains("app"));
-        }
-        else if (Request.QueryString["value"].ToString() == "2")
-        {
-            commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "daddypayqr", sender.ToString().Contains("app"));
-        }
-    }
-
-    private void CancelUnexpectedRePost()
-    {
-        if (!IsPostBack)
-        {
-            ViewState["postids"] = System.Guid.NewGuid().ToString();
-            Session["postid"] = ViewState["postids"].ToString();
-        }
-        else
-        {
-            if (string.IsNullOrEmpty(ViewState["postids"] as string)) { IsPageRefresh = true; }
-            else
-            {
-                if (string.IsNullOrEmpty(Session["postid"] as string)) { IsPageRefresh = true; }
-                else if (ViewState["postids"].ToString() != Session["postid"].ToString()) { IsPageRefresh = true; }
-            }
-            Session["postid"] = System.Guid.NewGuid().ToString();
-            ViewState["postids"] = Session["postid"];
-        }
-    }
-
-    private void InitialisePaymentLimits()
-    {
-        string strProcessCode = string.Empty;
-        string strProcessText = string.Empty;
-        string strMinLimit = string.Empty;
-        string strMaxLimit = string.Empty;
-        string strTotalAllowed = string.Empty;
-        string strDailyLimit = string.Empty;
-        string strMethodId = string.Empty;
-
-        strOperatorId = commonVariables.OperatorId;
-
-        System.Data.DataTable dtPaymentMethodLimits = null;
-        System.Data.DataRow drPaymentMethodLimit = null;
-
-        System.Text.StringBuilder sbMethodsUnavailable = new System.Text.StringBuilder();
-
-        strMethodId = "0";
-
-        using (svcPayMember.MemberClient svcInstance = new svcPayMember.MemberClient())
-        {
-            dtPaymentMethodLimits = svcInstance.getMethodLimits(strOperatorId, strMemberCode, strMethodId, Convert.ToString(Convert.ToInt32(commonVariables.PaymentTransactionType.Deposit)), false, out strProcessCode, out strProcessText);
-        }
-
-        foreach (commonVariables.DepositMethod EnumMethod in Enum.GetValues(typeof(commonVariables.DepositMethod)))
-        {
-            if (dtPaymentMethodLimits.Select("[methodId] = " + Convert.ToInt32(EnumMethod)).Count() < 1)
-            {
-                sbMethodsUnavailable.AppendFormat("{0}|", Convert.ToInt32(EnumMethod));
-            }
-        }
-
-        string value = Request.QueryString["value"].ToString();
-
-        if (value == "1")
-        {
-            strMethodId = Convert.ToString(Convert.ToInt32(commonVariables.DepositMethod.DaddyPay));
-        }
-        else if (value == "2")
-        {
-            strMethodId = Convert.ToString(Convert.ToInt32(commonVariables.DepositMethod.DaddyPayQR));
-        }
-
-        if (dtPaymentMethodLimits.Select("[methodId] = " + strMethodId).Count() > 0)
-        {
-            drPaymentMethodLimit = dtPaymentMethodLimits.Select("[methodId] = " + strMethodId)[0];
-
-            strMinLimit = Convert.ToDecimal(drPaymentMethodLimit["minDeposit"]).ToString(commonVariables.DecimalFormat);
-            strMaxLimit = Convert.ToDecimal(drPaymentMethodLimit["maxDeposit"]).ToString(commonVariables.DecimalFormat);
-            strTotalAllowed = Convert.ToDecimal(dtPaymentMethodLimits.Rows[0]["totalAllowed"]) == 0 ? commonCulture.ElementValues.getResourceString("unlimited", xeResources) : Convert.ToDecimal(dtPaymentMethodLimits.Rows[0]["totalAllowed"]).ToString(commonVariables.DecimalFormat);
-            strDailyLimit = Convert.ToDecimal(dtPaymentMethodLimits.Rows[0]["limitDaily"]) == 0 ? commonCulture.ElementValues.getResourceString("unlimited", xeResources) : Convert.ToDecimal(dtPaymentMethodLimits.Rows[0]["limitDaily"]).ToString(commonVariables.DecimalFormat);
-            amount_txt.Text = commonCulture.ElementValues.getResourceString("lblDepositAmount", xeResources);
-
-            amount_txt.Attributes.Add("PLACEHOLDER", string.Format("{0} ({1})", amount_txt.Text, strCurrencyCode));
-
-            Session["minLimit"] = strMinLimit;
-            Session["maxLimit"] = strMaxLimit;
+            txtDepositAmount.Attributes.Add("PLACEHOLDER", string.Format("{0} ({1})", lblDepositAmount.Text, strCurrencyCode));
 
             txtMinMaxLimit.Text = string.Format(": {0} / {1}", strMinLimit, strMaxLimit);
             txtDailyLimit.Text = string.Format(": {0}", strDailyLimit);
             txtTotalAllowed.Text = string.Format(": {0}", strTotalAllowed);
+
+            accountName.Visible = isDaddyPayQR;
+            accountNo.Visible = isDaddyPayQR;
+
+            weChatNickNameNotAvailable = commonCulture.ElementValues.getResourceString("wechatNickNameNA", xeResources);
+            weChatNickNamePendingDeposit = commonCulture.ElementValues.getResourceString("wechatPendingDeposit", xeResources);
+            serverError = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/error" + "1", xeErrors);
+        }
+    }
+
+    private void InitializeWeChatDenominations()
+    {
+        drpDepositAmount.Items.Add(new ListItem("Select Amount", "0"));
+        drpDepositAmount.Items.Add(new ListItem("20", "20"));
+        drpDepositAmount.Items.Add(new ListItem("50", "50"));
+        drpDepositAmount.Items.Add(new ListItem("100", "100"));
+    }
+
+    [WebMethod]
+    public static string ProcessWeChatNickname(string action, string nickname)
+    {
+        XElement processResult;
+
+        using (svcPayMember.MemberClient client = new svcPayMember.MemberClient())
+        {
+            processResult = client.processMemberWeChatNickName(Convert.ToInt64(commonVariables.OperatorId), commonVariables.GetSessionVariable("MemberCode"), action, nickname);
         }
 
-        strMethodsUnAvailable = Convert.ToString(sbMethodsUnavailable).TrimEnd('|');
+        if (processResult.Element("error") != null)
+        {
+            string error = processResult.Element("error").Value;
+
+            if (action == "changeNickname" && error == "NA")
+            {
+                return weChatNickNameNotAvailable;
+            }
+
+            if (action == "changeNickname" && error == "PendingDeposit")
+            {
+                return weChatNickNamePendingDeposit;
+            }
+        }
+
+        if (processResult.Element("result") != null) //only for success cases will return with result element
+        {
+            return processResult.Element("result").Value;
+        }
+        else
+        {
+            return serverError;
+        }
+    }
+
+    private void ValidateWeChatNickName(string strAccountName)
+    {
+        string strWCNickname = hfWCNickname.Value;
+
+        if (!strAccountName.Equals(strWCNickname, StringComparison.OrdinalIgnoreCase))
+        {
+            string result = ProcessWeChatNickname("changeNickname", strAccountName);
+
+            if (!result.Equals("allow", StringComparison.OrdinalIgnoreCase))
+            {
+                strAlertCode = "-1";
+                strAlertMessage = result;
+                isProcessAbort = true;
+            }
+        }
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        try
+        if (IsPageRefresh)
         {
-            string value = Request.QueryString["value"].ToString();
-            strOperatorId = commonVariables.OperatorId;
+            Response.Redirect(Request.Url.AbsoluteUri);
+        }
 
-            if (!string.IsNullOrEmpty(amount_txt.Text))
+        string selectedBank = drpBank.SelectedValue;
+        string strDepositAmount = selectedBank.Equals("b40") ? drpDepositAmount.SelectedValue : txtDepositAmount.Text.Trim();
+        string strAccountName = txtAccountName.Text.Trim();
+        string strAccountNo = txtAccountNo.Text.Trim();
+
+        decimal decDepositAmount = commonValidation.isDecimal(strDepositAmount) ? Convert.ToDecimal(strDepositAmount) : 0;
+        decimal decMinLimit = Convert.ToDecimal(strMinLimit);
+        decimal decMaxLimit = Convert.ToDecimal(strMaxLimit);
+
+        if (!isProcessAbort)
+        {
+            try
             {
+                ValidateDaddyPay(isDaddyPayQR, selectedBank, decDepositAmount, decMinLimit, decMaxLimit, strAccountName, strAccountNo);
 
-                if (Convert.ToDecimal(Session["minLimit"].ToString()) > Convert.ToDecimal(amount_txt.Text))
+                ValidateWeChatNickName(strAccountName);
+
+                if (!isProcessAbort)
                 {
-                    Response.Write("<script>alert('金额小于最低限额');</script>");
+                    InitiateDeposit(selectedBank, strDepositAmount);
                 }
-                else if (Convert.ToDecimal(Session["maxLimit"].ToString()) < Convert.ToDecimal(amount_txt.Text))
+
+            }
+            catch (Exception ex)
+            {
+                strAlertCode = "-1";
+                strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/Exception", xeErrors);
+
+                strErrorDetail = ex.Message;
+            }
+
+            string strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | CurrencyCode: {2} | DepositAmount: {3} | BankName: {4} | AccountName: {5} | AccountNumber: {6} | MinLimit: {7} | MaxLimit: {8} | TotalAllowed: {9} | DailyLimit: {10} | Response: {11}",
+              Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, drpBank.SelectedValue, strAccountName, strAccountNo, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
+
+            intProcessSerialId += 1;
+            commonAuditTrail.appendLog("system", PageName, "InitiateDeposit", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
+        }
+    }
+
+    private void ValidateDaddyPay(bool isDaddyPayQR, string selectedBank, decimal decDepositAmount, decimal decMinLimit, decimal decMaxLimit, string strAccountName, string strAccountNo)
+    {
+        if (decDepositAmount == 0)
+        {
+            strAlertCode = "-1";
+            strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/MissingDepositAmount", xeErrors);
+            isProcessAbort = true;
+        }
+        else if (selectedBank == "-1")
+        {
+            strAlertCode = "-1";
+            strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/SelectBank", xeErrors);
+            isProcessAbort = true;
+        }
+        else if (decDepositAmount < decMinLimit)
+        {
+            strAlertCode = "-1";
+            strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/AmountMinLimit", xeErrors);
+            isProcessAbort = true;
+        }
+        else if (decDepositAmount > decMaxLimit)
+        {
+            strAlertCode = "-1";
+            strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/AmountMaxLimit", xeErrors);
+            isProcessAbort = true;
+        }
+        else if ((strTotalAllowed != commonCulture.ElementValues.getResourceString("unlimited", xeResources)) && (decDepositAmount > Convert.ToDecimal(strTotalAllowed)) && Convert.ToDecimal(strTotalAllowed) > 0)
+        {
+            strAlertCode = "-1";
+            strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TotalAllowedExceeded", xeErrors);
+            isProcessAbort = true;
+        }
+
+        if (isDaddyPayQR)
+        {
+            ValidateDaddyPayQR(strAccountName, strAccountNo, selectedBank);
+        }
+    }
+
+    private void ValidateDaddyPayQR(string strAccountName, string strAccountNo, string selectedBank)
+    {
+        if (string.IsNullOrEmpty(strAccountName))
+        {
+            strAlertCode = "-1";
+            strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/InvalidAccountName", xeErrors);
+            isProcessAbort = true;
+        }
+        else if (string.IsNullOrEmpty(strAccountNo) && !selectedBank.Equals("b40"))
+        {
+            strAlertCode = "-1";
+            strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/InvalidAccountNumber", xeErrors);
+            isProcessAbort = true;
+        }
+    }
+
+    private void InitiateDeposit(string selectedBank, string strDepositAmount)
+    {
+        using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
+        {
+            xeResponse = client.createOnlineDepositTransactionV1(Convert.ToInt64(strOperatorId), Convert.ToInt64(strMemberID), strMemberCode, Convert.ToInt64(base.PaymentMethodId), strCurrencyCode, Convert.ToDecimal(strDepositAmount), svcPayDeposit.DepositSource.Mobile, string.Empty);
+
+            if (xeResponse == null)
+            {
+                strAlertCode = "-1";
+                strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferFail", xeErrors);
+            }
+            else
+            {
+                bool isTransactionSuccessful = Convert.ToBoolean(commonCulture.ElementValues.getResourceString("result", xeResponse));
+                string transferId = commonCulture.ElementValues.getResourceString("invId", xeResponse);
+
+                if (isTransactionSuccessful)
                 {
-                    Response.Write("<script>alert('金额大于最高限额');</script>");
-                }
-                else if (bankDropDownList.SelectedIndex.ToString() == "0")
-                {
-                    Response.Write("<script>alert('Please select a bank');</script>");
-                }
-                else if (string.IsNullOrEmpty(accountName_txt.Text) && value == "2")
-                {
-                    Response.Write("<script>alert('Please enter account name');</script>");
-                }
-                else if (string.IsNullOrEmpty(account_txt.Text) && value == "2")
-                {
-                    Response.Write("<script>alert('Please enter account number');</script>");
-                }
-                else
-                {
+                    string config = commonEncryption.Md5Hash(commonEncryption.decrypting("03WUpD2ff5AojnGcH/VL7tzEekc0XJp4X8x7F2IWVPQLECQgWSGhNMLgMioGWCI2", ConfigurationManager.AppSettings.Get("privateKey_daddyPay")));
+
+                    strDepositAmount = Convert.ToDouble(strDepositAmount).ToString("#.00");
+                    string strMemberIDCode = strMemberID + strMemberCode;
+                    string strCurrentUrl = System.Web.HttpContext.Current.Request.Url.Host.ToString();
+
+                    StringBuilder builder = new StringBuilder();
+
+                    string depositMode = isDaddyPayQR ? "3" : "2";
+
+                    builder.AppendFormat("{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}{11}{12}", config, strMerchantId, selectedBank, strDepositAmount, transferId,
+                                         strMemberID, selectedBank, depositMode, 0, strCurrentUrl, string.Empty, strMemberIDCode, 1);
+
+                    string key = commonEncryption.Md5Hash(builder.ToString());
 
                     DaddyPayDomain daddyPayDomain = new DaddyPayDomain();
 
-                    DataTable dt = new DataTable();
-                    string statusCode, statusText;
-
-                    if (value == "1")
-                    {
-                        daddyPayDomain.depositMode = "2";
-
-                        using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
-                        {
-                            xElement = client.createOnlineDepositTransactionV1(Convert.ToInt64(strOperatorId),long.Parse(strMemberId), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.DaddyPay), strCurrencyCode, Convert.ToDecimal(amount_txt.Text), DepositSource.Mobile, string.Empty);
-                            client.Close();
-                        }
-
-                        using (svcPayMember.MemberClient client = new svcPayMember.MemberClient())
-                        {
-                            dt = client.getMethodLimits(strOperatorId, strMemberCode, Convert.ToInt32(commonVariables.DepositMethod.DaddyPay).ToString(), "1", false, out statusCode, out statusText);
-                            client.Close();
-                        }
-                    }
-                    else if (value == "2")
-                    {
-                        daddyPayDomain.depositMode = "3";
-
-                        using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
-                        {
-                            xElement = client.createOnlineDepositTransactionV1(Convert.ToInt64(strOperatorId),long.Parse(strMemberId), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.DaddyPayQR), strCurrencyCode, Convert.ToDecimal(amount_txt.Text),DepositSource.Mobile, string.Empty);
-                            client.Close();
-                        }
-
-                        using (svcPayMember.MemberClient client = new svcPayMember.MemberClient())
-                        {
-                            dt = client.getMethodLimits(strOperatorId, strMemberCode, Convert.ToInt32(commonVariables.DepositMethod.DaddyPay).ToString(), "1", false, out statusCode, out statusText);
-                            client.Close();
-                        }
-                    }
-
-                    DataRow dr = dt.Rows[0];
-
-                    string config = Md5Hash(commonEncryption.decrypting("03WUpD2ff5AojnGcH/VL7tzEekc0XJp4X8x7F2IWVPQLECQgWSGhNMLgMioGWCI2"));
-
-                    var builder = new StringBuilder();
-                    builder.AppendFormat("{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}{11}{12}", config, Convert.ToString(dr["merchantId"]), bankDropDownList.SelectedValue.ToString(), Convert.ToDouble(amount_txt.Text).ToString("#.00"), xElement.Element("invId").Value.ToString(),
-                                         strMemberId, bankDropDownList.SelectedValue.ToString(), daddyPayDomain.depositMode, 0, CurrentUrl, string.Empty, (strMemberId + strMemberCode), 1);
-
-                    string key = Md5Hash(builder.ToString());
-
-
-                    daddyPayDomain.companyId = Convert.ToString(dr["merchantId"]);
-                    daddyPayDomain.bankId = bankDropDownList.SelectedValue.ToString();
-                    daddyPayDomain.amount = Convert.ToDouble(amount_txt.Text).ToString("#.00");
-                    daddyPayDomain.companyOrderNum = xElement.Element("invId").Value.ToString();
+                    daddyPayDomain.depositMode = depositMode;
+                    daddyPayDomain.companyId = strMemberID;
+                    daddyPayDomain.bankId = drpBank.SelectedValue.ToString();
+                    daddyPayDomain.amount = strDepositAmount;
+                    daddyPayDomain.companyOrderNum = transferId;
                     daddyPayDomain.key = key;
-                    daddyPayDomain.companyUser = strMemberId;
-                    daddyPayDomain.estimatedPaymentBank = bankDropDownList.SelectedValue.ToString();
+                    daddyPayDomain.companyUser = strMemberID;
+                    daddyPayDomain.estimatedPaymentBank = selectedBank;
                     daddyPayDomain.groupId = "0";
-                    daddyPayDomain.webUrl = CurrentUrl;
+                    daddyPayDomain.webUrl = strCurrentUrl;
                     daddyPayDomain.memo = string.Empty;
-                    daddyPayDomain.note = strMemberId + strMemberCode;
+                    daddyPayDomain.note = strMemberIDCode;
                     daddyPayDomain.noteModel = "1";
                     daddyPayDomain.terminal = "2";
 
@@ -325,31 +310,14 @@ public partial class Deposit_DaddyPay : BasePage
                     var s = new System.Web.Script.Serialization.JavaScriptSerializer();
                     List<myObject> obj = s.Deserialize<List<myObject>>("[" + responseStr + "]");
 
-                    var status = obj[0].status;
-                    var break_url = obj[0].break_url;
+                    string status = obj[0].status;
+                    string break_url = obj[0].break_url;
 
-
-                    if (status == "1")
-                    {
-                        //Response.Redirect(break_url.ToString());
-                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "popup", "window.open('" + break_url.ToString() + "','_blank')", true);
-                    }
-                    else
-                    {
-                        //Response.Redirect(break_url.ToString());
-                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "popup", "window.open('" + break_url.ToString() + "','_blank')", true);
-                    }
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "popup", "window.open('" + break_url.ToString() + "','_blank')", true);
                 }
             }
-            else if (string.IsNullOrEmpty(amount_txt.Text))
-            {
-                Response.Write("<script>alert('Please enter a deposit amount');</script>");
-            }
         }
-        catch(Exception )
-        { }
     }
-
 
     public byte[] UploadValues(DaddyPayDomain daddyPayDomain)
     {
@@ -359,7 +327,7 @@ public partial class Deposit_DaddyPay : BasePage
 
         daddyPay = daddyPayDomain;
 
-        byte[] responseBytes= null;
+        byte[] responseBytes = null;
 
         try
         {
@@ -384,89 +352,14 @@ public partial class Deposit_DaddyPay : BasePage
                 responseBytes = wc.UploadValues(postUrl, "POST", postData);
             }
 
-
             return responseBytes;
         }
-        catch(Exception)
+        catch (Exception)
         {
             return responseBytes;
         }
-    }
-
-
-    public void PopulateBankList()
-    {
-        string lang = commonVariables.SelectedLanguage.ToLower();
-        string BankList = string.Empty;
-
-        if(lang == "zh-cn")
-        { 
-            BankList = ConfigurationManager.AppSettings["BankList_cn"]; 
-        }
-        else
-        { 
-            BankList = ConfigurationManager.AppSettings["BankList_en"]; 
-        }
-
-        string[] Bank = new string[100];
-        Bank = BankList.Split(',');
-
-        string flag = Request.QueryString["value"].ToString();
-
-        if (flag == "1")
-        {
-            for (int x = 0; x < Bank.Count(); x++)
-            {
-                if (Bank[x].Split('-')[1] != "ALIPAYQR" && Bank[x].Split('-')[1] != "支付宝(二维码)")
-                {
-                    bankDropDownList.Items.Add(new ListItem(Bank[x].Split('-')[1], Bank[x].Split('-')[0]));
-                }
-            }
-        }
-        else if(flag =="2")
-        {
-            bankDropDownList.Items.Add(new ListItem(Bank[2].Split('-')[1], Bank[2].Split('-')[0]));
-        }
-        
-    }
-
-
-    public string decrypt(string str)
-    {
-        string privateKey = System.Configuration.ConfigurationManager.AppSettings.Get("privateKey_daddyPay");
-        string functionReturnValue = null;
-        if (!string.IsNullOrEmpty(str))
-        {
-            encryption_manager.encryption decrypt = new encryption_manager.encryption();
-            decrypt.private_key = privateKey;
-            decrypt.message = str;
-            functionReturnValue = decrypt.decrypting();
-            decrypt = null;
-        }
-        else { functionReturnValue = string.Empty; }
-        return functionReturnValue;
-    }
-
-
-    public static string Md5Hash(string input)
-    {
-        byte[] data = null;
-        using (System.Security.Cryptography.MD5 md5Hash = System.Security.Cryptography.MD5.Create())
-        {
-            data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
-        }
-        StringBuilder sBuilder = new StringBuilder();
-
-        for (int i = 0; i < data.Length; i++)
-        {
-            sBuilder.Append(data[i].ToString("x2"));
-        }
-        return sBuilder.ToString();
     }
 }
-
-
-
 
 public class DaddyPayDomain
 {
@@ -506,19 +399,19 @@ public class DaddyPayDomain
 
 public class myObject
 {
-        public string bank_card_num { get; set; }
-        public string bank_acc_name { get; set; }
-        public string amount { get; set; }
-        public string email { get; set; }
-        public string company_order_num { get; set; }
-        public string datetime { get; set; }
-        public string note { get; set; }
-        public string mownecum_order_num { get; set; }
-        public string status { get; set; }
-        public string mode { get; set; }
-        public string issuing_bank_address { get; set; } 
-        public string break_url { get; set; }
-        public string deposit_mode { get; set; } 
-        public string collection_bank_id { get; set; }
-        public string key { get; set; }
+    public string bank_card_num { get; set; }
+    public string bank_acc_name { get; set; }
+    public string amount { get; set; }
+    public string email { get; set; }
+    public string company_order_num { get; set; }
+    public string datetime { get; set; }
+    public string note { get; set; }
+    public string mownecum_order_num { get; set; }
+    public string status { get; set; }
+    public string mode { get; set; }
+    public string issuing_bank_address { get; set; }
+    public string break_url { get; set; }
+    public string deposit_mode { get; set; }
+    public string collection_bank_id { get; set; }
+    public string key { get; set; }
 }

@@ -34,6 +34,7 @@
 	<customerservice><![CDATA[Customer Service]]></customerservice>
 	<rewards><![CDATA[ក្លឹបរង្វាន់]]></rewards>
 	<sdpay><![CDATA[Union Pay]]></sdpay>
+	<sdapay><![CDATA[Alipay Transfer]]></sdapay>
 	<help2pay><![CDATA[ប្រាក់បៀវត្សរ៍រហ័ស]]></help2pay>
 	<daddypay><![CDATA[រហ័សអនឡាញ]]></daddypay>
 	<withrawal><![CDATA[ការដកប្រាក់ចេញ]]></withrawal>

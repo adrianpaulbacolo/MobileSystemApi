@@ -1,19 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Deposit>
-	<lblTitle><![CDATA[DaddyPay]]></lblTitle>
+	<lblTitle><![CDATA[SDPay]]></lblTitle>
 	<lblDepositAmount><![CDATA[Deposit Amount]]></lblDepositAmount>
 	<btnSubmit><![CDATA[SUBMIT]]></btnSubmit>
 	<lblTransactionId><![CDATA[Transaction ID]]></lblTransactionId>
 	<lblDailyLimit><![CDATA[Daily Limit]]></lblDailyLimit>
 	<lblTotalAllowed><![CDATA[Total Allowed]]></lblTotalAllowed>
 	<lblMinMaxLimit><![CDATA[Min/Max Limit]]></lblMinMaxLimit>
+	<drpBank><![CDATA[Select Bank]]></drpBank>
 	<lblMode><![CDATA[Mode]]></lblMode>
 	<txtMode><![CDATA[Online]]></txtMode>
 	<txtProcessing><![CDATA[Your transaction is being processed, please check your balance for updates.]]></txtProcessing>
-	<drpBank><![CDATA[Select Bank]]></drpBank>
 	<unlimited><![CDATA[Unlimited]]></unlimited>
-	<lblAccountName><![CDATA[Your Account Name]]></lblAccountName>
-	<lblAccountNumber><![CDATA[Your Account Number]]></lblAccountNumber>
-	<wechatNickNameNA><![CDATA[Nickname not available, please choose another.]]></wechatNickNameNA>
-	<wechatPendingDeposit><![CDATA[You have pending deposit, please cancel it before submitting with a new nickname.]]></wechatPendingDeposit>
+
+	<lblStatus><![CDATA[Status]]></lblStatus>
+	<litStatusPending><![CDATA[Pending]]></litStatusPending>
+	<lblAmount><![CDATA[Amount]]></lblAmount>
+	<lblAmtNote><![CDATA[Gentle Reminder: Please deposit the same amount as shown on the left, including "decimal" point of amount. Bank charges and "decimal" point of amount shall be reimbursed to you.]]></lblAmtNote>
+	<lblBankName><![CDATA[Bank Name]]></lblBankName>
+	<lblBankHolderName><![CDATA[Account Name]]></lblBankHolderName>
+	<lblBankAccountNo><![CDATA[Account No]]></lblBankAccountNo>
 </Deposit>
