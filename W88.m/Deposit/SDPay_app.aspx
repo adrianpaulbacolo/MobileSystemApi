@@ -95,8 +95,6 @@
                             alert('<%=strAlertMessage%>');
                             break;
                         case '0':
-                            alert('<%=strAlertMessage%>');
-
                             var sdpayurl = '/_secure/ajaxhandlers/sdpay.ashx?v=' + new Date().getTime() + '&requestAmount=' + $('#txtDepositAmount').val();
                             window.open(sdpayurl);
 
