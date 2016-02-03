@@ -108,7 +108,7 @@ public class SDPay : IHttpHandler,System.Web.SessionState.IReadOnlySessionState 
                 return;
             }
 
-            if ((Convert.ToDecimal(dr["totalAllowed"]) < requestAmount) && (Convert.ToDecimal(dr["totalAllowed"]) > 0))
+            if (Convert.ToDecimal(dr["limitDaily"]) > 0m && Convert.ToDecimal(dr["totalAllowed"]) < requestAmount)
             {
                 commonAuditTrail.appendLog("system", pageName, taskName, string.Empty, string.Empty, processDetail, string.Empty, "error", "Amount is more than total allowed", Convert.ToString(processSerialId), processId, false);
                 context.Response.Write("金额大于总允许额度");
