@@ -62,9 +62,7 @@
                         </div>
                     </li>
                     <li class="item-text-wrap">
-                        <p>
-                            <asp:Label ID="lblIndicatorMessage" runat="server" />
-                        </p>
+                        <asp:Label ID="lblIndicatorMessage" runat="server" />
                     </li>
                     <li class="item item-select">
                         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
