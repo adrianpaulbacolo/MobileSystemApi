@@ -7,10 +7,12 @@
 	<lblDailyLimit><![CDATA[ចំនួនកំនត់ប្រចាំថ្ងៃ]]></lblDailyLimit>
 	<lblTotalAllowed><![CDATA[ចំនួនអនុញ្ញាតសរុប]]></lblTotalAllowed>
 	<lblMinMaxLimit><![CDATA[ចំនួនអប្ប/អតិ]]></lblMinMaxLimit>
+	<drpBank><![CDATA[ធនាគារ ជ្រើស]]></drpBank>
 	<lblMode><![CDATA[ប្រភេទ]]></lblMode>
 	<txtMode><![CDATA[អនឡាញ]]></txtMode>
 	<txtProcessing><![CDATA[Your transaction is being processed]]></txtProcessing>
 	<unlimited><![CDATA[គ្មានដែនកំណត់]]></unlimited>
+	<lblIndicatorMessage><![CDATA[SDAPay: យើងខ្ញុំទទួលយកគ្រប់ការផ្ទេរតាមរយៈអ៊ិនធើណេត ATM, ម៉ាស៊ីនដាក់ប្រាក់ និងតាមរយៈអ្នកទទួលប្រាក់នៅធនាគារ ឬក៏ តាមរយៈទូរស័ព្ទ ឬសារ។ ការផ្ទេរប្រាក់តាមធនាគារ សូមបំពេញព័ត៌មានអោយបានត្រឹមត្រូវ ហើយទទួលការទូទាត់តាមអនឡាញ “តាមពេលជាក់ស្តែង!”។  ការផ្ទេរប្រាក់តាមធនាគារខុសគ្នា - បើអ្នកប្រើប្រាស់តាមរយៈអនឡាញ សូមបំពេញព័ត៌មានអោយបានត្រឹមត្រូវ ហើយទទួលការទូទាត់តាមរយៈអនឡាញ “តាមពេលជាក់ស្តែង!” ផងដែរ។]]></lblIndicatorMessage>
 
 	<lblStatus><![CDATA[ស្ថានភាព]]></lblStatus>
 	<litStatusPending><![CDATA[មិនទាន់សម្រេច]]></litStatusPending>

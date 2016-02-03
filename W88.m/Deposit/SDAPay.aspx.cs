@@ -50,6 +50,7 @@ public partial class Deposit_SDAPay : PaymentBasePage
             lblDailyLimit.Text = commonCulture.ElementValues.getResourceString("lblDailyLimit", xeResources);
             lblTotalAllowed.Text = commonCulture.ElementValues.getResourceString("lblTotalAllowed", xeResources);
             lblDepositAmount.Text = commonCulture.ElementValues.getResourceString("lblDepositAmount", xeResources);
+            lblIndicatorMessage.Text = commonCulture.ElementValues.getResourceString("lblIndicatorMessage", xeResources);
 
             btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
 

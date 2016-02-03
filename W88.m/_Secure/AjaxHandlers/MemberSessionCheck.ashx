@@ -69,6 +69,7 @@ public class _Secure_AjaxHandlers_MemberSessionCheck : IHttpHandler, System.Web.
                                 strProcessMessage = "Exception";
                                 break;
                             case "1":
+                                HttpContext.Current.Session.Add("MemberName", Convert.ToString(dsSignin.Tables[0].Rows[0]["lastName"]) + Convert.ToString(dsSignin.Tables[0].Rows[0]["firstName"]));
                                 //string strMemberSessionId = Convert.ToString(dsSignin.Tables[0].Rows[0]["memberSessionId"]);
                                 //HttpContext.Current.Session.Add("MemberSessionId", Convert.ToString(dsSignin.Tables[0].Rows[0]["memberSessionId"]));
                                 //HttpContext.Current.Session.Add("MemberId", Convert.ToString(dsSignin.Tables[0].Rows[0]["memberId"]));
@@ -84,6 +85,7 @@ public class _Secure_AjaxHandlers_MemberSessionCheck : IHttpHandler, System.Web.
                                 //commonCookie.CookieS = strMemberSessionId;
                                 //commonCookie.CookieG = strMemberSessionId;
                                 //HttpContext.Current.Session.Add("LoginStatus", "success");
+                                
                                 break;
                             case "10":
                                 strProcessMessage = "NotLogin";

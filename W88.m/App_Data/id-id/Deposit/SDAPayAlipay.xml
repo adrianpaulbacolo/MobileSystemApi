@@ -7,10 +7,12 @@
 	<lblDailyLimit><![CDATA[Batas Perhari]]></lblDailyLimit>
 	<lblTotalAllowed><![CDATA[Jumlah yang diperbolehkan]]></lblTotalAllowed>
 	<lblMinMaxLimit><![CDATA[Batas Min/Max]]></lblMinMaxLimit>
+	<drpBank><![CDATA[Bank Pilih]]></drpBank>
 	<lblMode><![CDATA[Mode]]></lblMode>
 	<txtMode><![CDATA[Online]]></txtMode>
 	<txtProcessing><![CDATA[Your transaction is being processed]]></txtProcessing>
 	<unlimited><![CDATA[Tanpa Batas]]></unlimited>
+	<lblIndicatorMessage><![CDATA[SDAPay: Kami menerima transfer bank melalui internet banking, ATM, mesin setoran tunai, konter bank transfer, atau mobile/SMS banking. Transfer Intra Bank- Silakan isi informasi yang benar dan terima pembayaran online”Langsung -Real Time!”. Transfer antar Bank-Jika Anda menggunakan Super Sistem Online Banking, silakan isi informasi dengan benar terima pembayaran online juga secara “Langsung-Real Time!”]]></lblIndicatorMessage>
 
 	<lblStatus><![CDATA[Status]]></lblStatus>
 	<litStatusPending><![CDATA[Tertunda]]></litStatusPending>

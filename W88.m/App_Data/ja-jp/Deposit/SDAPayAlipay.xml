@@ -7,11 +7,13 @@
 	<lblDailyLimit><![CDATA[日々制限：]]></lblDailyLimit>
 	<lblTotalAllowed><![CDATA[合計許可：]]></lblTotalAllowed>
 	<lblMinMaxLimit><![CDATA[最小/最高リミット]]></lblMinMaxLimit>
+	<drpBank><![CDATA[銀行を選択してください]]></drpBank>
 	<lblMode><![CDATA[モード]]></lblMode>
 	<txtMode><![CDATA[オンライン]]></txtMode>
 	<txtProcessing><![CDATA[お客様のトランザクションが処理されているので更新した上でお客様の残高をご確認くださいませ。]]></txtProcessing>
 	<unlimited><![CDATA[制限無し]]></unlimited>
-
+	<lblIndicatorMessage><![CDATA[私たちは、インターネットバンキングを通しての送金、ATM、現金預入機、銀行窓口、またはモバイル/SMSバンキングからの入金を受け付けます。イントラ-銀行送金-正しい情報を入力し、オンライン支払いにて”リアルタイム”で受け取れます！　インター-銀行送金-もしあなたがスーパーオンラインバンキングシステムをご使用なら、正しい情報を入力し、こちらもオンライン支払いにて”リアルタイム”で受け取れます！]]></lblIndicatorMessage>
+	
 	<lblStatus><![CDATA[ステータス]]></lblStatus>
 	<litStatusPending><![CDATA[保留]]></litStatusPending>
 	<lblAmount><![CDATA[金額]]></lblAmount>

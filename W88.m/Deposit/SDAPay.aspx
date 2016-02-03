@@ -64,6 +64,9 @@
                             <asp:Literal ID="txtTotalAllowed" runat="server" />
                         </div>
                     </li>
+                    <li class="item-text-wrap">
+                        <asp:Label ID="lblIndicatorMessage" runat="server" />
+                    </li>
                     <li class="item item-select">
                         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
                         <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
