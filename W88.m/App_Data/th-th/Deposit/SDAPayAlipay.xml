@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+	<lblTitle><![CDATA[SDAPay]]></lblTitle>
+	<lblDepositAmount><![CDATA[ยอดเงินการฝาก]]></lblDepositAmount>
+	<btnSubmit><![CDATA[การฝาก]]></btnSubmit>
+	<lblTransactionId><![CDATA[หมายเลขธุรกรรม]]></lblTransactionId>
+	<lblDailyLimit><![CDATA[การจำกัดยอดเงินต่อวัน]]></lblDailyLimit>
+	<lblTotalAllowed><![CDATA[ยอดเงินที่ทำรายการได้]]></lblTotalAllowed>
+	<lblMinMaxLimit><![CDATA[การจำกัดยอดขั้นต่ำ /สูงสุด]]></lblMinMaxLimit>
+	<lblMode><![CDATA[วิธีการ]]></lblMode>
+	<txtMode><![CDATA[ออนไลน์]]></txtMode>
+	<txtProcessing><![CDATA[Your transaction is being processed]]></txtProcessing>
+	<lblAndroidDownload><![CDATA[Download Securepay Plug-in (Android)]]></lblAndroidDownload>
+	<lblIOSDownload><![CDATA[Download Securepay Plug-in (IOS)]]></lblIOSDownload>
+	<lblNoticeDownload><![CDATA[Gentle reminder: This payment method require Unionpay Securepay Plug-in to be installed on your mobile device, please click on download links below.]]></lblNoticeDownload>
+	<unlimited><![CDATA[ไม่จำกัด]]></unlimited>
+
+	<lblStatus><![CDATA[สถานะ]]></lblStatus>
+	<litStatusPending><![CDATA[อยู่ในระหว่างดำเนินการ]]></litStatusPending>
+	<lblAmount><![CDATA[ยอดเงินการฝาก]]></lblAmount>
+	<lblAmtNote><![CDATA[ข้อควรระวัง: กรุณาทำรายการฝากให้ตรงกับยอดที่แสดงให้คุณเห็นทางด้านซ้าย รวมถึงการกรอก”จุดทศนิยม”ให้ถูกต้องด้วย  สำหรับค่าธรรมเนียมในการทำรายการ และยอดเงินที่คุณต้องใส่”จุดทศนิยม” เพิ่มเติมนั่น ทางเราจะทำการคืนให้พร้อมกับการเครดิตยอดเงินเข้าสู่กระเป๋าหลักของคุณ ]]></lblAmtNote>
+	<lblBankName><![CDATA[ชื่อธนาคาร]]></lblBankName>
+	<lblBankHolderName><![CDATA[ชื่อบัญชี]]></lblBankHolderName>
+	<lblBankAccountNo><![CDATA[หมายเลขบัญชี]]></lblBankAccountNo>
+</Deposit>

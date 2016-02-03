@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Deposit>
-	<lblTitle><![CDATA[SDPay]]></lblTitle>
+	<lblTitle><![CDATA[SDAPay]]></lblTitle>
 	<lblDepositAmount><![CDATA[Deposit Amount]]></lblDepositAmount>
 	<btnSubmit><![CDATA[SUBMIT]]></btnSubmit>
 	<lblTransactionId><![CDATA[Transaction ID]]></lblTransactionId>

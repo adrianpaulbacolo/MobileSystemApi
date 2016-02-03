@@ -65,6 +65,7 @@ public partial class Deposit_SDAPay2 : PaymentBasePage
                 lblBankAccountNo.Text = commonCulture.ElementValues.getResourceString("lblBankAccountNo", xeResources);
 
                 btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
+                btnSubmit.NavigateUrl = ConfigurationManager.AppSettings["SDAPayAlipayBankUrl"];
 
                 GetCurrentDeposit(transactionId);
             }
@@ -79,49 +80,30 @@ public partial class Deposit_SDAPay2 : PaymentBasePage
             {
                 DataTable dt = client.getSDAPayDepositTransaction(transactionId);
 
-                if (dt == null)
+                if (dt == null || dt.Rows[0]["state"].ToString() != "0")
                 {
                     strAlertCode = "-1";
-                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferFail", xeErrors);
                 }
-
-                if (dt.Rows.Count != 1)
+                else
                 {
-                    strAlertCode = "-1";
-                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferFail", xeErrors);
+                    DataRow dr = dt.Rows[0];
+
+                    strTransactionId = dr["invId"].ToString();
+                    txtTransactionId.Text = string.Format(": {0}", dr["invId"].ToString());
+
+                    string ePrice = Convert.ToDecimal(dr["ePrice"]).ToString("N2");
+                    txtAmount.Text = string.Format(": {0}", ePrice);
+
+                    txtBankName.Text = string.Format(": {0}", base.InitializeBank("SDAPayAlipayBank").FirstOrDefault(bank => bank.Text.Contains(dr["eBank"].ToString())).Text);
+                    txtBankHolderName.Text = string.Format(": {0}", dr["eName"].ToString());
+
+                    string eBankAccount = dr["eBankAccount"].ToString();
+                    if (eBankAccount.Length == 16)
+                        eBankAccount = eBankAccount.Substring(0, 4) + " " + eBankAccount.Substring(4, 4) + " " + eBankAccount.Substring(8, 4) + " " + eBankAccount.Substring(12, 4);
+
+                    txtBankAccountNo.Text = string.Format(": {0}", eBankAccount);
+
                 }
-
-                if (dt.Rows[0]["sName"].ToString() != strMemberCode)
-                {
-                    strAlertCode = "-1";
-                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferFail", xeErrors);
-                }
-
-                if (dt.Rows[0]["state"].ToString() != "0")
-                {
-                    strAlertCode = "-1";
-                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferFail", xeErrors);
-                }
-
-                DataRow dr = dt.Rows[0];
-
-                strTransactionId = dr["invId"].ToString();
-                txtTransactionId.Text = string.Format(": {0}", dr["invId"].ToString());
-
-                string ePrice = Convert.ToDecimal(dr["ePrice"]).ToString("N2");
-                string[] arrPrice = ePrice.Split('.');
-                txtAmount.Text = string.Format(": {0}", arrPrice[0] + "." + arrPrice[1]);
-
-                txtBankName.Text = string.Format(": {0}", base.InitializeBank("SDAPayAlipayBank").FirstOrDefault(bank => bank.Text.Contains(dr["eBank"].ToString())).Text);
-                txtBankHolderName.Text = string.Format(": {0}", dr["eName"].ToString());
-
-                string eBankAccount = dr["eBankAccount"].ToString();
-                if (eBankAccount.Length == 16)
-                    eBankAccount = eBankAccount.Substring(0, 4) + " " + eBankAccount.Substring(4, 4) + " " + eBankAccount.Substring(8, 4) + " " + eBankAccount.Substring(12, 4);
-
-                txtBankAccountNo.Text = string.Format(": {0}", eBankAccount);
-
-                Session["SDAPayAlipayBankUrl"] = ConfigurationManager.AppSettings["SDAPayAlipayBankUrl"];
             }
         }
         catch (Exception ex)

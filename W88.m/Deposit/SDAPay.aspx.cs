@@ -129,7 +129,7 @@ public partial class Deposit_SDAPay : PaymentBasePage
 
                             if (isTransactionSuccessful)
                             {
-                                XElement xeSDAPayResponse = client.createSDAPayTransactionV1(transferId, decDepositAmount, Convert.ToInt64(strMemberID), strMemberCode.ToLower(), selectedBank, strMerchantId, Convert.ToInt64(PaymentMethodId), out strStatusCode, out strStatusText);
+                                XElement xeSDAPayResponse = client.createSDAPayTransactionV1(transferId, decDepositAmount, Convert.ToInt64(strMemberID), strMemberName, selectedBank, strMerchantId, Convert.ToInt64(PaymentMethodId), out strStatusCode, out strStatusText);
 
                                 if (xeSDAPayResponse == null)
                                 {
