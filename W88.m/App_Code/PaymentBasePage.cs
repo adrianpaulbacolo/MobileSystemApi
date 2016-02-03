@@ -29,6 +29,7 @@ public class PaymentBasePage : BasePage
     protected string strOperatorId = string.Empty;
     protected string strMemberCode = string.Empty;
     protected string strMemberID = string.Empty;
+    protected string strMemberName = string.Empty;
     protected string strCurrencyCode = string.Empty;
     protected string strCountryCode = string.Empty;
     protected string strRiskId = string.Empty;
@@ -60,7 +61,8 @@ public class PaymentBasePage : BasePage
         strOperatorId = commonVariables.OperatorId;
 
         strMemberCode = commonVariables.GetSessionVariable("MemberCode");
-        strMemberID = commonVariables.GetSessionVariable("memberId");
+        strMemberID = commonVariables.GetSessionVariable("MemberId");
+        strMemberName = commonVariables.GetSessionVariable("MemberName");
 
         strCurrencyCode = commonVariables.GetSessionVariable("CurrencyCode");
         strCountryCode = commonVariables.GetSessionVariable("CountryCode");
