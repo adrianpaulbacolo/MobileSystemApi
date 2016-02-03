@@ -133,7 +133,7 @@ public class SDPay : IHttpHandler,System.Web.SessionState.IReadOnlySessionState 
         {
             using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
             {
-                xElement = client.createOnlineDepositTransaction(Convert.ToInt64(strOperatorId), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.SDPay), strCurrencyCode, requestAmount, string.Empty);
+                xElement = client.createOnlineDepositTransactionV1(Convert.ToInt64(strOperatorId), Convert.ToInt64(strMemberId), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.SDPay), strCurrencyCode, requestAmount, svcPayDeposit.DepositSource.Mobile, string.Empty);
                 client.Close();
             }
 
