@@ -7,13 +7,12 @@
 	<lblDailyLimit><![CDATA[การจำกัดยอดเงินต่อวัน]]></lblDailyLimit>
 	<lblTotalAllowed><![CDATA[ยอดเงินที่ทำรายการได้]]></lblTotalAllowed>
 	<lblMinMaxLimit><![CDATA[การจำกัดยอดขั้นต่ำ /สูงสุด]]></lblMinMaxLimit>
+	<drpBank><![CDATA[ธนาคาร กรุณาเลือก]]></drpBank>
 	<lblMode><![CDATA[วิธีการ]]></lblMode>
 	<txtMode><![CDATA[ออนไลน์]]></txtMode>
 	<txtProcessing><![CDATA[Your transaction is being processed]]></txtProcessing>
-	<lblAndroidDownload><![CDATA[Download Securepay Plug-in (Android)]]></lblAndroidDownload>
-	<lblIOSDownload><![CDATA[Download Securepay Plug-in (IOS)]]></lblIOSDownload>
-	<lblNoticeDownload><![CDATA[Gentle reminder: This payment method require Unionpay Securepay Plug-in to be installed on your mobile device, please click on download links below.]]></lblNoticeDownload>
 	<unlimited><![CDATA[ไม่จำกัด]]></unlimited>
+	<lblIndicatorMessage><![CDATA[SDAPay : เราให้บริการการโอนเงินผ่านระบบอิเตอร์เน็ทแบงกิ้ง,ตู้เอทีเอ็ม,เครื่องรับฝากเงินสดอัตโนมัติ,ฝากผ่านเคาร์เตอร์ธนาคารหรือการฝากเงินผ่านโทรศัพท์มือถือ สำหรับการโอนเงินระหว่างธนาคารเดียวกัน – หากคุณกรอกข้อมูลที่ถูกต้องและครบถ้วนในระหว่างการทำรายการ ยอดเงินของคุณที่ทำการฝากจะได้รับการปรับยอดทันที ! การโอนเงินต่างธนาคาร – ถ้าคุณใช้ การโอนเงินโดยระบบอินเตอร์เน็ทแบงกิ้ง ใส่ข้อมูลที่ถูกต้องและครบถ้วนในระหว่างการทำรายการ ยอดเงินของคุณที่ทำการฝากจะได้รับการปรับยอดทันที ! เช่นกัน]]></lblIndicatorMessage>
 
 	<lblStatus><![CDATA[สถานะ]]></lblStatus>
 	<litStatusPending><![CDATA[อยู่ในระหว่างดำเนินการ]]></litStatusPending>

@@ -7,11 +7,13 @@
 	<lblDailyLimit><![CDATA[Giới Hạn Trong Ngày]]></lblDailyLimit>
 	<lblTotalAllowed><![CDATA[Tổng Số Cho Phép]]></lblTotalAllowed>
 	<lblMinMaxLimit><![CDATA[Giới Hạn Min/Max]]></lblMinMaxLimit>
+	<drpBank><![CDATA[Ngân Hàng Lựa Chọn]]></drpBank>
 	<lblMode><![CDATA[Phương thức]]></lblMode>
 	<txtMode><![CDATA[Trực Tuyến]]></txtMode>
 	<txtProcessing><![CDATA[Your transaction is being processed]]></txtProcessing>
 	<unlimited><![CDATA[Không giới hạn]]></unlimited>
-
+	<lblIndicatorMessage><![CDATA[SDAPay: Chúng tôi chấp nhận chuyển khoản ngân hàng qua internet banking, ATM, máy gửi tiền tự động, tại quầy ngân hàng, hoặc dịch vụ ngân hàng trên di động/tin nhắn. Chuyển khoản trong cùng hệ thống ngân hàng - Điền vào thông tin chi tiết và nhận thanh toán trực tuyến “ngay tức khắc”. Chuyển khoản khác hệ thống ngân hàng – Nếu quý khách dụng Hệ Thống Ngân Hàng Trực Tuyến, điền vào thông tin chi tiết và nhận thanh toán trực tuyến “ngay tức khắc”]]></lblIndicatorMessage>
+	
 	<lblStatus><![CDATA[Trạng Thái]]></lblStatus>
 	<litStatusPending><![CDATA[Chờ Thanh Toán]]></litStatusPending>
 	<lblAmount><![CDATA[Số Tiền Gửi]]></lblAmount>

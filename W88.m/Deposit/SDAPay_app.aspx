@@ -31,27 +31,38 @@
                 <ul class="list fixed-tablet-size">
                     <li class="row">
                         <div class="col">
-                            <asp:Literal ID="lblMode" runat="server" /></div>
+                            <asp:Literal ID="lblMode" runat="server" />
+                        </div>
                         <div class="col">
-                            <asp:Literal ID="txtMode" runat="server" /></div>
+                            <asp:Literal ID="txtMode" runat="server" />
+                        </div>
                     </li>
                     <li class="row">
                         <div class="col">
-                            <asp:Literal ID="lblMinMaxLimit" runat="server" /></div>
+                            <asp:Literal ID="lblMinMaxLimit" runat="server" />
+                        </div>
                         <div class="col">
-                            <asp:Literal ID="txtMinMaxLimit" runat="server" /></div>
+                            <asp:Literal ID="txtMinMaxLimit" runat="server" />
+                        </div>
                     </li>
                     <li class="row">
                         <div class="col">
-                            <asp:Literal ID="lblDailyLimit" runat="server" /></div>
+                            <asp:Literal ID="lblDailyLimit" runat="server" />
+                        </div>
                         <div class="col">
-                            <asp:Literal ID="txtDailyLimit" runat="server" /></div>
+                            <asp:Literal ID="txtDailyLimit" runat="server" />
+                        </div>
                     </li>
                     <li class="row">
                         <div class="col">
-                            <asp:Literal ID="lblTotalAllowed" runat="server" /></div>
+                            <asp:Literal ID="lblTotalAllowed" runat="server" />
+                        </div>
                         <div class="col">
-                            <asp:Literal ID="txtTotalAllowed" runat="server" /></div>
+                            <asp:Literal ID="txtTotalAllowed" runat="server" />
+                        </div>
+                    </li>
+                    <li class="item-text-wrap">
+                        <asp:Label ID="lblIndicatorMessage" runat="server" />
                     </li>
                     <li class="item item-select">
                         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
@@ -63,7 +74,8 @@
                     </li>
                     <li class="row">
                         <div class="col">
-                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" /></div>
+                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" />
+                        </div>
                     </li>
                 </ul>
 

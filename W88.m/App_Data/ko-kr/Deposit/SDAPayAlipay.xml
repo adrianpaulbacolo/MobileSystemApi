@@ -7,11 +7,13 @@
 	<lblDailyLimit><![CDATA[일일한도]]></lblDailyLimit>
 	<lblTotalAllowed><![CDATA[전체한도]]></lblTotalAllowed>
 	<lblMinMaxLimit><![CDATA[최소/최대한도]]></lblMinMaxLimit>
+	<drpBank><![CDATA[은행 선택]]></drpBank>
 	<lblMode><![CDATA[모드]]></lblMode>
 	<txtMode><![CDATA[온라인]]></txtMode>
 	<txtProcessing><![CDATA[Your transaction is being processed]]></txtProcessing>
 	<unlimited><![CDATA[무제한]]></unlimited>
-
+	<lblIndicatorMessage><![CDATA[SDAPay : 인터넷 뱅킹, ATM, 은행 이체, 모바일/SMS 뱅킹이 있습니다. 같은 은행으로 이체하실 경우,  해당되는 정보를 기입 한 후, 온라인에서 실시간으로 금액을 받을수 있습니다. 다른 은행으로 이체 하실 경우, 슈퍼 온라인 뱅킹 시스템을 사용하셔서, 해당되는 정보를 기입 한후, 또한 온라인에서 실시간으로 금액을 받을수 있습니다.]]></lblIndicatorMessage>
+	
 	<lblStatus><![CDATA[상태]]></lblStatus>
 	<litStatusPending><![CDATA[대기]]></litStatusPending>
 	<lblAmount><![CDATA[금액]]></lblAmount>

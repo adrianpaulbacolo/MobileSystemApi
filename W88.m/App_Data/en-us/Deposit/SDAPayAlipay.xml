@@ -12,6 +12,7 @@
 	<txtMode><![CDATA[Online]]></txtMode>
 	<txtProcessing><![CDATA[Your transaction is being processed, please check your balance for updates.]]></txtProcessing>
 	<unlimited><![CDATA[Unlimited]]></unlimited>
+	<lblIndicatorMessage><![CDATA[SDAPay: We accept bank transfers via internet banking, ATM, cash deposit machine, over the counter, or mobile/SMS banking. Intra-bank Transfer - Fill in the correct information and receive payments online "in real-time!". Inter-bank transfer - If you are using Super Online Banking System, fill in the correct information and receive payments online "in real-time!" too.]]></lblIndicatorMessage>
 
 	<lblStatus><![CDATA[Status]]></lblStatus>
 	<litStatusPending><![CDATA[Pending]]></litStatusPending>

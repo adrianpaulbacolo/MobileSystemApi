@@ -131,7 +131,7 @@ public static class commonPaymentMethodFunc
                 depositTabs.Controls.Add(list);
                 break;
 
-            case commonVariables.DepositMethod.SDAPay:
+            case commonVariables.DepositMethod.SDAPayAlipay:
                 list = new HtmlGenericControl("li");
                 list.ID = string.Format("d{0}", paymentCode);
 
