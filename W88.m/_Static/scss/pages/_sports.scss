@@ -2,4 +2,24 @@
 // Sports
 // -------------------------------
 
-#sports {}
+#sports {
+    .ui-content > ul > li {
+        &:nth-child(odd) {
+            margin-bottom: 0;
+            .banner-caption {
+                float: right;
+                max-width: 60%;
+            }
+        }
+        &:nth-child(even) {
+            .banner-caption {
+                max-width: 70%;
+            }
+        }
+        .ui-btn {
+            display: inline-block;
+            min-width: 130px;
+            margin: 0;
+        }
+    }
+}
