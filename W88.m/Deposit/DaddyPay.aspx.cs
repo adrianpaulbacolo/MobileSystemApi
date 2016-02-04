@@ -329,35 +329,28 @@ public partial class Deposit_DaddyPay : PaymentBasePage
 
         byte[] responseBytes = null;
 
-        try
-        {
-            NameValueCollection postData = new NameValueCollection();
-            postData["company_id"] = daddyPay.companyId;
-            postData["bank_id"] = daddyPay.bankId;
-            postData["amount"] = daddyPay.amount;
-            postData["company_order_num"] = daddyPay.companyOrderNum;
-            postData["company_user"] = daddyPay.companyUser;
-            postData["key"] = daddyPay.key;
-            postData["estimated_payment_bank"] = daddyPay.estimatedPaymentBank;
-            postData["deposit_mode"] = daddyPay.depositMode;
-            postData["group_id"] = daddyPay.groupId;
-            postData["web_url"] = daddyPay.webUrl;
-            postData["memo"] = daddyPay.memo;
-            postData["note"] = daddyPay.note;
-            postData["note_model"] = daddyPay.noteModel;
-            postData["terminal"] = daddyPay.terminal;
+        NameValueCollection postData = new NameValueCollection();
+        postData["company_id"] = daddyPay.companyId;
+        postData["bank_id"] = daddyPay.bankId;
+        postData["amount"] = daddyPay.amount;
+        postData["company_order_num"] = daddyPay.companyOrderNum;
+        postData["company_user"] = daddyPay.companyUser;
+        postData["key"] = daddyPay.key;
+        postData["estimated_payment_bank"] = daddyPay.estimatedPaymentBank;
+        postData["deposit_mode"] = daddyPay.depositMode;
+        postData["group_id"] = daddyPay.groupId;
+        postData["web_url"] = daddyPay.webUrl;
+        postData["memo"] = daddyPay.memo;
+        postData["note"] = daddyPay.note;
+        postData["note_model"] = daddyPay.noteModel;
+        postData["terminal"] = daddyPay.terminal;
 
-            using (WebClient wc = new WebClient())
-            {
-                responseBytes = wc.UploadValues(postUrl, "POST", postData);
-            }
-
-            return responseBytes;
-        }
-        catch (Exception)
+        using (WebClient wc = new WebClient())
         {
-            return responseBytes;
+            responseBytes = wc.UploadValues(postUrl, "POST", postData);
         }
+
+        return responseBytes;
     }
 }
 

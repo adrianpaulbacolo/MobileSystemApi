@@ -104,6 +104,18 @@
             $(function () {
                 window.history.forward();
 
+                if ('<%=strAlertCode%>'.length > 0) {
+                    switch ('<%=strAlertCode%>') {
+                        case '-1':
+                            alert('<%=strAlertMessage%>');
+                            break;
+                        case '0':
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
                 $('#drpBank').change(function () {
                     var bId = this.value;
 
