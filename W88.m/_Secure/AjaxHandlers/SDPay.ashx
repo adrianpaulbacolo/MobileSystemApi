@@ -108,7 +108,7 @@ public class SDPay : IHttpHandler,System.Web.SessionState.IReadOnlySessionState 
                 return;
             }
 
-            if ((Convert.ToDecimal(dr["totalAllowed"]) < requestAmount) && (Convert.ToDecimal(dr["totalAllowed"]) > 0))
+            if (Convert.ToDecimal(dr["limitDaily"]) > 0m && Convert.ToDecimal(dr["totalAllowed"]) < requestAmount)
             {
                 commonAuditTrail.appendLog("system", pageName, taskName, string.Empty, string.Empty, processDetail, string.Empty, "error", "Amount is more than total allowed", Convert.ToString(processSerialId), processId, false);
                 context.Response.Write("金额大于总允许额度");
@@ -133,7 +133,7 @@ public class SDPay : IHttpHandler,System.Web.SessionState.IReadOnlySessionState 
         {
             using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
             {
-                xElement = client.createOnlineDepositTransaction(Convert.ToInt64(strOperatorId), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.SDPay), strCurrencyCode, requestAmount, string.Empty);
+                xElement = client.createOnlineDepositTransactionV1(Convert.ToInt64(strOperatorId), Convert.ToInt64(strMemberId), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.SDPay), strCurrencyCode, requestAmount, svcPayDeposit.DepositSource.Mobile, string.Empty);
                 client.Close();
             }
 
