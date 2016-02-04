@@ -215,9 +215,10 @@
         <IsInternal><![CDATA[true]]></IsInternal>
       </zodiac>
 
-	  <bookofdeadmobile>
-		<ImageName><![CDATA[bookofdeadmobile]]></ImageName>
-	  </bookofdeadmobile>
+	  <sambacarnivalmobile>
+	  	<ImageName><![CDATA[sambacarnivalmobile]]></ImageName>
+	  </sambacarnivalmobile>
+		
 		
       <AceofSpades>
         <ImageName><![CDATA[aceofspadesmobile]]></ImageName>
@@ -228,6 +229,9 @@
       <BellofFortune>
         <ImageName><![CDATA[belloffortunemobile]]></ImageName>
       </BellofFortune>
+	  <bookofdeadmobile>
+		<ImageName><![CDATA[bookofdeadmobile]]></ImageName>
+	  </bookofdeadmobile>
       <ChineseNewYear>
         <ImageName><![CDATA[chinesenewyearmobile]]></ImageName>
       </ChineseNewYear>

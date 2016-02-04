@@ -150,13 +150,21 @@ casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePla
     </CardAndTable>
     <Slot Label="Slots">
 
-      <GoldenEra>
-        <Label><![CDATA[GoldenEra]]></Label>
-        <Description><![CDATA[GoldenEra]]></Description>
-        <ImageName><![CDATA[GoldenEra]]></ImageName>
-        <PlayForRealURL><![CDATA[{RealUrl}/GoldenEra/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{FunUrl}/GoldenEra/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
-      </GoldenEra>
+	  <bikiniParty>
+	  	<Label><![CDATA[bikiniParty]]></Label>
+	  	<Description><![CDATA[bikiniParty]]></Description>
+	  	<ImageName><![CDATA[bikiniParty]]></ImageName>
+	  	<PlayForRealURL><![CDATA[{RealUrl}/bikiniParty/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+	  	<PlayForFunURL><![CDATA[{FunUrl}/bikiniParty/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+	  </bikiniParty>
+
+	  <dragonDance>
+	  	<Label><![CDATA[dragonDance]]></Label>
+	  	<Description><![CDATA[dragonDance]]></Description>
+	  	<ImageName><![CDATA[dragonDance]]></ImageName>
+	  	<PlayForRealURL><![CDATA[{RealUrl}/dragonDance/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+	  	<PlayForFunURL><![CDATA[{FunUrl}/dragonDance/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+	  </dragonDance>
 
       <ageOfDiscovery>
         <Label><![CDATA[ageOfDiscovery]]></Label>
@@ -271,6 +279,13 @@ casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePla
         <PlayForFunURL><![CDATA[{FunUrl}/fishParty/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
       </fishParty>
 
+      <GoldenEra>
+      	<Label><![CDATA[GoldenEra]]></Label>
+      	<Description><![CDATA[GoldenEra]]></Description>
+      	<ImageName><![CDATA[GoldenEra]]></ImageName>
+      	<PlayForRealURL><![CDATA[{RealUrl}/GoldenEra/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+      	<PlayForFunURL><![CDATA[{FunUrl}/GoldenEra/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+      </GoldenEra>
 
       <harveys>
         <Label><![CDATA[harveys]]></Label>
