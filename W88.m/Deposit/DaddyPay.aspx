@@ -77,7 +77,7 @@
                     <li class="item item-input" id="accountName" runat="server">
                         <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" />
                         <asp:TextBox ID="txtAccountName" runat="server" data-clear-btn="true" />
-                        <asp:HiddenField ID="hfWCNickname"  runat="server" ClientIDMode="Static" />
+                        <asp:HiddenField ID="hfWCNickname" runat="server" ClientIDMode="Static" />
                     </li>
                     <li class="item item-input" id="accountNo" runat="server">
                         <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNo" />
@@ -106,6 +106,7 @@
                     switch ('<%=strAlertCode%>') {
                         case '-1':
                             alert('<%=strAlertMessage%>');
+                            tooglePaymentMethod($('#drpBank').val());
                             break;
                         case '0':
                             break;
@@ -117,6 +118,10 @@
                 $('#drpBank').change(function () {
                     var bId = this.value;
 
+                    tooglePaymentMethod(bId);
+                });
+
+                function tooglePaymentMethod(bId) {
                     if (bId == "b40") { //WeChat
                         $("#txtAmount").hide();
                         $("#drpAmount").show();
@@ -129,7 +134,7 @@
                         $("#drpAmount").hide();
                         $("#accountNo").show();
                     }
-                });
+                }
 
                 function populateWeChatNickName() {
                     $.ajax({

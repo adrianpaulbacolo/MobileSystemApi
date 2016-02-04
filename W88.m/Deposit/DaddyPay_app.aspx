@@ -108,6 +108,7 @@
                     switch ('<%=strAlertCode%>') {
                         case '-1':
                             alert('<%=strAlertMessage%>');
+                            tooglePaymentMethod($('#drpBank').val());
                             break;
                         case '0':
                             break;
@@ -119,6 +120,10 @@
                 $('#drpBank').change(function () {
                     var bId = this.value;
 
+                    tooglePaymentMethod(bId)
+                });
+
+                function tooglePaymentMethod(bId) {
                     if (bId == "b40") { //WeChat
                         $("#txtAmount").hide();
                         $("#drpAmount").show();
@@ -131,7 +136,7 @@
                         $("#drpAmount").hide();
                         $("#accountNo").show();
                     }
-                });
+                }
 
                 function populateWeChatNickName() {
                     $.ajax({
