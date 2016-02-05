@@ -69,8 +69,13 @@
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubCrescendo/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
+                 <li class="col col-33">
+                    <a href="/ClubGallardo" class="card" data-ajax="false">
+                        <img src="/_Static/Images/bnr-clubcrescendo.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubGallardo/Label", commonVariables.ProductsXML)%></div>
+                    </a>
+                </li>
             </ul>
-
         </div>
 
         <!--#include virtual="~/_static/navMenu.shtml" -->

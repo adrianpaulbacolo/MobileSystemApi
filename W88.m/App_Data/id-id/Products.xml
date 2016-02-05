@@ -101,6 +101,11 @@
 			<Label><![CDATA[Club Palazzo]]></Label>
 			<Description><![CDATA[]]></Description>
 		</ClubPalazzoCasino>
+		<ClubGallardo>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Gallardo]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubGallardo>
 	</Products>
 	<Wallets>
 		<main><![CDATA[Utama]]></main>

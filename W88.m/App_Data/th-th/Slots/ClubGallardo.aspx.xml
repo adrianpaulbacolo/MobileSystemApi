@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<default>
+	<Category>
+		<Slot Label="สล็อต">
+			<AbsoluteSuperReels ProductId="896500">
+				<ImageName><![CDATA[W88-Slots-Absolute-Super-Reels]]></ImageName>
+			</AbsoluteSuperReels>
+			<AliceAdventure ProductId="896504">
+				<ImageName><![CDATA[W88-Slots-Alice-Adventure]]></ImageName>
+			</AliceAdventure>
+			<AstroMagic ProductId="906544">
+				<ImageName><![CDATA[W88-Slots-Astro-Magic]]></ImageName>
+			</AstroMagic>
+			<BasicInstinct ProductId="896507">
+				<ImageName><![CDATA[W88-Slots-Basic-Instinct]]></ImageName>
+			</BasicInstinct>
+			<BeverlyHills90210 ProductId="896523">
+				<ImageName><![CDATA[W88-Slots-Beverly-Hills-90210]]></ImageName>
+			</BeverlyHills90210>
+			<Bewitched ProductId="906517">
+				<ImageName><![CDATA[W88-Slots-Bewitched]]></ImageName>
+			</Bewitched>
+			<DiamondWild ProductId="896508">
+				<ImageName><![CDATA[W88-Slots-Diamond-Wild]]></ImageName>
+			</DiamondWild>
+			<HappyBirds ProductId="896525">
+				<ImageName><![CDATA[W88-Slots-Happy-Birds]]></ImageName>
+			</HappyBirds>
+			<HeavyMetalWarriors ProductId="896529">
+				<ImageName><![CDATA[W88-Slots-Heavy-Metal-Warriors]]></ImageName>
+			</HeavyMetalWarriors>
+			<Illusions2 ProductId="896505">
+				<ImageName><![CDATA[W88-Slots-Illusions-2]]></ImageName>
+			</Illusions2>
+			<JackpotRango ProductId="896502">
+				<ImageName><![CDATA[W88-Slots-Jackpot-Rango]]></ImageName>
+			</JackpotRango>
+			<Kobushi ProductId="896509">
+				<ImageName><![CDATA[W88-Slots-Kobushi]]></ImageName>
+			</Kobushi>
+			<MillionCents ProductId="896512">
+				<ImageName><![CDATA[W88-Slots-Million-Cents]]></ImageName>
+			</MillionCents>
+			<MonaLisaJewels ProductId="906520">
+				<ImageName><![CDATA[W88-Slots-Mona-Lisa-Jewels]]></ImageName>
+			</MonaLisaJewels>
+			<NachoLibre ProductId="896535">
+				<ImageName><![CDATA[W88-Slots-Nacho-Libre]]></ImageName>
+			</NachoLibre>
+			<NinjaChef ProductId="896503">
+				<ImageName><![CDATA[W88-Slots-Ninja-Chef]]></ImageName>
+			</NinjaChef>
+			<Platoon ProductId="896510">
+				<ImageName><![CDATA[W88-Slots-Platoon]]></ImageName>
+			</Platoon>
+			<Rambo ProductId="896511">
+				<ImageName><![CDATA[W88-Slots-Rambo]]></ImageName>
+			</Rambo>
+			<RedDragonWild ProductId="896514">
+				<ImageName><![CDATA[W88-Slots-Red-Dragon-Wild]]></ImageName>
+			</RedDragonWild>
+			<RoyalCash ProductId="896530">
+				<ImageName><![CDATA[W88-Slots-Royal-Cash]]></ImageName>
+			</RoyalCash>
+			<ShaolinSpin ProductId="896539">
+				<ImageName><![CDATA[W88-Slots-Shaolin-Spin]]></ImageName>
+			</ShaolinSpin>
+			<SpookyFamily ProductId="896526">
+				<ImageName><![CDATA[W88-Slots-Spooky-Family]]></ImageName>
+			</SpookyFamily>
+			<SuperFastHotHot ProductId="896516">
+				<ImageName><![CDATA[W88-Slots-Super-Fast-Hot-Hot]]></ImageName>
+			</SuperFastHotHot>
+			<SuperLadyLuck ProductId="906518">
+				<ImageName><![CDATA[W88-Slots-Super-Lady-Luck]]></ImageName>
+			</SuperLadyLuck>
+			<SuperLuckyReels ProductId="896501">
+				<ImageName><![CDATA[W88-Slots-Super-Lucky-Reels]]></ImageName>
+			</SuperLuckyReels>
+			<SuperMultitimesProgressive ProductId="896515">
+				<ImageName><![CDATA[W88-Slots-Super-Multitimes-Progressive]]></ImageName>
+			</SuperMultitimesProgressive>
+			<TheLoveGuru ProductId="896531">
+				<ImageName><![CDATA[W88-Slots-The-Love-Guru]]></ImageName>
+			</TheLoveGuru>
+			<UltimateSuperReels ProductId="896513">
+				<ImageName><![CDATA[W88-Slots-Ultimate-Super-Reels]]></ImageName>
+			</UltimateSuperReels>
+		</Slot>
+		<CardAndTable Label="การ์ด เกมส์โต๊ะ">
+			<Blackjack ProductId="896522">
+				<ImageName><![CDATA[]]></ImageName>
+			</Blackjack>
+			<EuropeanRoulette ProductId="896521">
+				<ImageName><![CDATA[]]></ImageName>
+			</EuropeanRoulette>
+		</CardAndTable>
+		<VideoPoker Label="วีดีโอโป๊กเกอร์">
+			<JokerPoker ProductId="896506">
+				<ImageName><![CDATA[]]></ImageName>
+			</JokerPoker>
+		</VideoPoker>
+	</Category>
+</default>

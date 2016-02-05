@@ -101,6 +101,11 @@
 			<Label><![CDATA[팔라쪼]]></Label>
 			<Description><![CDATA[]]></Description>
 		</ClubPalazzoCasino>
+		<ClubGallardo>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Gallardo]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubGallardo>
 	</Products>
 	<Wallets>
 		<main><![CDATA[메인]]></main>
