@@ -71,7 +71,7 @@
                 </li>
                  <li class="col col-33">
                     <a href="/ClubGallardo" class="card" data-ajax="false">
-                        <img src="/_Static/Images/bnr-clubcrescendo.jpg" class="img-responsive">
+                        <img src="/_Static/Images/bnr-clubgallardo.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubGallardo/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
