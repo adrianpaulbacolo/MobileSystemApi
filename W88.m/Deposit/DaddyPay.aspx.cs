@@ -289,7 +289,7 @@ public partial class Deposit_DaddyPay : PaymentBasePage
                     DaddyPayDomain daddyPayDomain = new DaddyPayDomain();
 
                     daddyPayDomain.depositMode = depositMode;
-                    daddyPayDomain.companyId = strMemberID;
+                    daddyPayDomain.companyId = strMerchantId;
                     daddyPayDomain.bankId = drpBank.SelectedValue.ToString();
                     daddyPayDomain.amount = strDepositAmount;
                     daddyPayDomain.companyOrderNum = transferId;
