@@ -271,7 +271,7 @@ public partial class Deposit_DaddyPay : PaymentBasePage
 
                 if (isTransactionSuccessful)
                 {
-                    string config = commonEncryption.Md5Hash(commonEncryption.decrypting("03WUpD2ff5AojnGcH/VL7tzEekc0XJp4X8x7F2IWVPQLECQgWSGhNMLgMioGWCI2", ConfigurationManager.AppSettings.Get("privateKey_daddyPay")));
+                    string config = commonEncryption.Md5Hash(commonEncryption.decrypting("03WUpD2ff5AojnGcH/VL7tzEekc0XJp4X8x7F2IWVPQLECQgWSGhNMLgMioGWCI2"));
 
                     strDepositAmount = Convert.ToDouble(strDepositAmount).ToString("#.00");
                     string strMemberIDCode = strMemberID + strMemberCode;
