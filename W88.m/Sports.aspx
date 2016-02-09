@@ -19,48 +19,27 @@
         </header>
 
         <div class="ui-content" role="main" id="sports">
-
-            <ul class="row row-wrap bg-gradient">
-<%--                <li class="col col-50">
-                    <a href="">
-                        <img src="_Static/Images/sports/wsports-<%=commonVariables.SelectedLanguageShort%>.png" alt="a-Sports" class="img-responsive">
-                    </a>
-                </li>--%>
-                <li class="col col-50">
-<%--                    <a href="<%=commonASports.getSportsbookUrl%>" target="_blank">
-                        <img src="_Static/Images/sports/asports-<%=commonVariables.SelectedLanguageShort%>.png" alt="a-Sports" class="img-responsive">
-                    </a>--%>
-                    <form runat="server">
-                    <asp:LinkButton ID="ASport_Btn" runat="server" OnClick="ASport_Btn_Click1">
-                    <img src="_Static/Images/sports/asports-<%=commonVariables.SelectedLanguageShort%>.png" alt="a-Sports" class="img-responsive">
-                    </asp:LinkButton>
-                    </form>
+            <ul class="row banner-lists banner-odd-even">
+                <li class="col">
+                    <figure class="banner">
+                        <img src="_Static/Images/sports/a-sports-banner.jpg" class="img-responsive img-bg">
+                        <figcaption class="banner-caption">
+                            <h3 class="title">a-SPORTS</h3>
+                            <P>Well known Asian view Sports Betting available here!</P>
+                            <a href=">" class="ui-btn btn-primary" target="_blank">Play Now</a>
+                        </figcaption>
+                    </figure>
                 </li>
-                <li class="col col-50">
-                    <a href="<%=commonESports.getSportsbookUrl%>" target="_blank">
-                        <img src="_Static/Images/sports/esports-<%=commonVariables.SelectedLanguageShort%>.png" alt="a-Sports" class="img-responsive">
-                    </a>
+                <li class="col">
+                    <figure class="banner">
+                        <img src="_Static/Images/sports/e-sports-banner.jpg" class="img-responsive img-bg">
+                        <figcaption class="banner-caption">
+                            <h3 class="title">e-SPORTS</h3>
+                            <P>Well known European & Asian view Sports Betting available here!</P>
+                            <a href=">" class="ui-btn btn-primary" target="_blank">Play Now</a>
+                        </figcaption>
+                    </figure>
                 </li>
-                <%--<li class="col col-50">
-                    <a href="/V-Sports.aspx" data-ajax="false" target="_blank">
-                        <img src="_Static/Images/vsports_<%=commonVariables.SelectedLanguageShort%>.png" alt="a-Sports" class="img-responsive">
-                    </a>
-                </li>--%>
-<%--                <li class="col col-50">
-                    <a href="">
-                        <img src="_Static/Images/sports/isports-<%=commonVariables.SelectedLanguageShort%>.png" alt="a-Sports" class="img-responsive">
-                    </a>
-                </li>--%>
-                <!-- <li class="col col-50">
-                    <a href="">
-                        <img src="_Static/Images/sports/xsports-<%=commonVariables.SelectedLanguageShort%>.png" alt="a-Sports" class="img-responsive">
-                    </a>
-                </li> -->
-<%--                <li class="col col-50">
-                    <a href="">
-                        <img src="_Static/Images/sports/fantasyepl-<%=commonVariables.SelectedLanguageShort%>.png" alt="a-Sports" class="img-responsive">
-                    </a>
-                </li>--%>
             </ul>
         </div>
 
