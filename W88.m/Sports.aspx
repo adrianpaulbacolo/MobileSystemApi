@@ -19,10 +19,10 @@
         </header>
 
         <div class="ui-content" role="main" >
-            <ul class="row row-wrap row-no-padding responsive-lg">
+            <ul class="row banner-lists banner-odd-even">
                 <li class="col">
                     <figure class="banner">
-                        <img src="_Static/Images/sports/aSports-LongBanner.jpg" class="img-responsive-full img-bg">
+                        <img src="_Static/Images/sports/a-sports-banner.jpg" class="img-responsive img-bg">
                         <figcaption class="banner-caption">
                             <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ASports/Label", commonVariables.ProductsXML)%></h3>
                             <p><%=commonCulture.ElementValues.getResourceXPathString("Products/ASports/Description", commonVariables.ProductsXML)%></p>
@@ -32,7 +32,7 @@
                 </li>
                 <li class="col">
                     <figure class="banner">
-                        <img src="_Static/Images/sports/eSports-LongBanner.jpg" class="img-responsive-full img-bg">
+                        <img src="_Static/Images/sports/e-sports-banner.jpg" class="img-responsive img-bg">
                         <figcaption class="banner-caption">
                             <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></h3>
                             <p><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Description", commonVariables.ProductsXML)%></p>
