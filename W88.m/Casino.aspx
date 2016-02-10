@@ -19,10 +19,10 @@
         </header>
 
         <div class="ui-content" role="main">
-            <ul class="row row-wrap row-no-padding responsive-lg">
+            <ul class="row banner-lists banner-odd-even">
                 <li class="col">
                     <figure class="banner">
-                        <img src="_Static/Images/casino/clubwpremierbanner.jpg" class="img-responsive-full img-bg">
+                        <img src="_Static/Images/casino/clubwpremierbanner.jpg" class="img-responsive img-bg">
                         <figcaption class="banner-caption">
                             <h3 class="title"><%=commonCulture.ElementValues.getResourceString("clubwpremier", commonVariables.LeftMenuXML)%></h3>
                             <P><%=commonCulture.ElementValues.getResourceString("clubwpremierMessage", commonVariables.LeftMenuXML)%></P>
@@ -32,7 +32,7 @@
                 </li>
                 <li class="col">
                     <figure class="banner">
-                        <img src="_Static/Images/casino/clubwbanner.jpg" class="img-responsive-full img-bg">
+                        <img src="_Static/Images/casino/clubwbanner.jpg" class="img-responsive img-bg">
                         <figcaption class="banner-caption">
                             <h3 class="title"><%=commonCulture.ElementValues.getResourceString("liveCasino", commonVariables.LeftMenuXML)%></h3>
                             <P><%=commonCulture.ElementValues.getResourceString("liveCasinoMessage", commonVariables.LeftMenuXML)%></P>
@@ -42,7 +42,7 @@
                 </li>
                 <li class="col">
                     <figure class="banner">
-                        <img src="_Static/Images/casino/clubpalazzobanner.jpg" class="img-responsive-full img-bg">
+                        <img src="_Static/Images/casino/clubpalazzobanner.jpg" class="img-responsive img-bg">
                         <figcaption class="banner-caption">
                             <h3 class="title"><%=commonCulture.ElementValues.getResourceString("clubPalazo", commonVariables.LeftMenuXML)%></h3>
                             <P><%=commonCulture.ElementValues.getResourceString("clubPalazoMessage", commonVariables.LeftMenuXML)%></P>
@@ -52,11 +52,12 @@
                 </li>
                 <li class="col">
                     <figure class="banner">
-                        <img src="_Static/Images/casino/clubmassimobanner.jpg" class="img-responsive-full img-bg">
+                        <img src="_Static/Images/casino/clubmassimobanner.jpg" class="img-responsive img-bg">
                         <figcaption class="banner-caption">
                             <h3 class="title"><%=commonCulture.ElementValues.getResourceString("clubMassimo", commonVariables.LeftMenuXML)%></h3>
                             <P><%=commonCulture.ElementValues.getResourceString("clubMassimoMessage", commonVariables.LeftMenuXML)%></P>
                             <a href="https://livegames.cdn.gameassists.co.uk/AIR/Poria/Installer/V20021/w88/Download.html"  data-ajax="false"  class="ui-btn btn-primary" target="_blank"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
+                            <p>&nbsp;</p>
                         </figcaption>
                     </figure>
                 </li>

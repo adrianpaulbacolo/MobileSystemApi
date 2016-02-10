@@ -2,9 +2,42 @@
 // Banner
 // -------------------------------
 
+.banner-lists {
+    @extend .row-wrap;
+    @extend .row-no-padding;
+    color: #eee;
+    max-width: 640px;
+    margin: 0 auto;
+    .col {
+        width: 100%;
+        @include flex(none);
+    }
+}
+
+.banner-odd-even > li {
+    &:nth-child(odd) {
+        margin-bottom: 0;
+        .banner-caption {
+            float: right;
+            max-width: 60%;
+        }
+    }
+    &:nth-child(even) {
+        .banner-caption {
+            max-width: 70%;
+        }
+    }
+    .ui-btn {
+        display: inline-block;
+        min-width: 130px;
+        margin: 0;
+    }
+}
+
 .banner {
-    background-color: darken($base-background-color, 8%);
+    background-color: darken($base-background-color, 8%); // #0b0b0b
     position: relative;
+    overflow: hidden;
     .img-bg {
         position: absolute;
     }
@@ -146,5 +179,35 @@ $slick-opacity-not-active: 0.5 !default;
                 @include opacity($slick-opacity-default);
             }
         }
+    }
+}
+
+//
+// Media Query
+// -------------------------------
+
+.banner-lists {
+    @media (min-width: 0) {
+        .banner .img-bg {
+            height: 100%;
+            max-width: none;
+        }
+    }
+    @media (min-width: 356px) {
+        .banner .img-bg {
+            height: auto;
+            max-width: 100%;
+        }
+    }
+    @media (min-width: $grid-responsive-sm-break) { // 567px
+        .banner {
+            height: 285px;
+        }
+    }
+    @media (min-width: $grid-responsive-md-break) { // 767px
+        // ...
+    }
+    @media (min-width: $grid-responsive-lg-break) { // 1023px
+        // ...
     }
 }

@@ -10,7 +10,7 @@
 </head>
 <body>
     <!--#include virtual="~/_static/splash.shtml" -->
-    <div data-role="page" data-theme="b" data-ajax="false">
+    <div data-role="page" id="sports">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
@@ -18,49 +18,28 @@
             <h1 class="title"><%=commonCulture.ElementValues.getResourceString("sports", commonVariables.LeftMenuXML)%></h1>
         </header>
 
-        <div class="ui-content" role="main" id="sports">
-
-            <ul class="row row-wrap bg-gradient">
-<%--                <li class="col col-50">
-                    <a href="">
-                        <img src="_Static/Images/sports/wsports-<%=commonVariables.SelectedLanguageShort%>.png" alt="a-Sports" class="img-responsive">
-                    </a>
-                </li>--%>
-                <li class="col col-50">
-<%--                    <a href="<%=commonASports.getSportsbookUrl%>" target="_blank">
-                        <img src="_Static/Images/sports/asports-<%=commonVariables.SelectedLanguageShort%>.png" alt="a-Sports" class="img-responsive">
-                    </a>--%>
-                    <form runat="server">
-                    <asp:LinkButton ID="ASport_Btn" runat="server" OnClick="ASport_Btn_Click1">
-                    <img src="_Static/Images/sports/asports-<%=commonVariables.SelectedLanguageShort%>.png" alt="a-Sports" class="img-responsive">
-                    </asp:LinkButton>
-                    </form>
+        <div class="ui-content" role="main" >
+            <ul class="row banner-lists banner-odd-even">
+                <li class="col">
+                    <figure class="banner">
+                        <img src="_Static/Images/sports/a-sports-banner.jpg" class="img-responsive img-bg">
+                        <figcaption class="banner-caption">
+                            <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ASports/Label", commonVariables.ProductsXML)%></h3>
+                            <p><%=commonCulture.ElementValues.getResourceXPathString("Products/ASports/Description", commonVariables.ProductsXML)%></p>
+                            <a href="<%=(string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) ? "_Secure/Login" : commonASports.getSportsbookUrl)%>" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
+                        </figcaption>
+                    </figure>
                 </li>
-                <li class="col col-50">
-                    <a href="<%=commonESports.getSportsbookUrl%>" target="_blank">
-                        <img src="_Static/Images/sports/esports-<%=commonVariables.SelectedLanguageShort%>.png" alt="a-Sports" class="img-responsive">
-                    </a>
+                <li class="col">
+                    <figure class="banner">
+                        <img src="_Static/Images/sports/e-sports-banner.jpg" class="img-responsive img-bg">
+                        <figcaption class="banner-caption">
+                            <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></h3>
+                            <p><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Description", commonVariables.ProductsXML)%></p>
+                            <a href="<%=(string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) ? "_Secure/Login" : commonESports.getSportsbookUrl)%>" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
+                        </figcaption>
+                    </figure>
                 </li>
-                <%--<li class="col col-50">
-                    <a href="/V-Sports.aspx" data-ajax="false" target="_blank">
-                        <img src="_Static/Images/vsports_<%=commonVariables.SelectedLanguageShort%>.png" alt="a-Sports" class="img-responsive">
-                    </a>
-                </li>--%>
-<%--                <li class="col col-50">
-                    <a href="">
-                        <img src="_Static/Images/sports/isports-<%=commonVariables.SelectedLanguageShort%>.png" alt="a-Sports" class="img-responsive">
-                    </a>
-                </li>--%>
-                <!-- <li class="col col-50">
-                    <a href="">
-                        <img src="_Static/Images/sports/xsports-<%=commonVariables.SelectedLanguageShort%>.png" alt="a-Sports" class="img-responsive">
-                    </a>
-                </li> -->
-<%--                <li class="col col-50">
-                    <a href="">
-                        <img src="_Static/Images/sports/fantasyepl-<%=commonVariables.SelectedLanguageShort%>.png" alt="a-Sports" class="img-responsive">
-                    </a>
-                </li>--%>
             </ul>
         </div>
 

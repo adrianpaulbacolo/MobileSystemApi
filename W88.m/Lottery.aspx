@@ -19,10 +19,10 @@
         </header>
 
         <div class="ui-content" role="main">
-            <ul class="row row-wrap row-no-padding responsive-lg">
+            <ul class="row banner-lists banner-odd-even">
                 <li class="col">
                     <figure class="banner">
-                        <img src="_Static/Images/lottery/02.png" class="img-responsive-full img-bg">
+                        <img src="_Static/Images/lottery/keno-banner.jpg" class="img-responsive img-bg">
                         <figcaption class="banner-caption">
                             <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/Keno/Label", commonVariables.ProductsXML)%></h3>
                             <P><%=commonCulture.ElementValues.getResourceString("kenoMessage", commonVariables.LeftMenuXML)%></P>
