@@ -89,15 +89,15 @@
 		</Slot>
 		<CardAndTable Label="ហ្គេមបៀរ ហ្គេមតុ">
 			<Blackjack ProductId="896522">
-				<ImageName><![CDATA[]]></ImageName>
+				<ImageName><![CDATA[W88-Slots-Mobile-Blackjack]]></ImageName>
 			</Blackjack>
 			<EuropeanRoulette ProductId="896521">
-				<ImageName><![CDATA[]]></ImageName>
+				<ImageName><![CDATA[W88-Slots-Mobile-European-Roulette]]></ImageName>
 			</EuropeanRoulette>
 		</CardAndTable>
 		<VideoPoker Label="វីដេអូប៉ូកកឺ">
 			<JokerPoker ProductId="896506">
-				<ImageName><![CDATA[]]></ImageName>
+				<ImageName><![CDATA[W88-Slots-Mobile-Joker-Poker]]></ImageName>
 			</JokerPoker>
 		</VideoPoker>
 	</Category>

@@ -71,9 +71,9 @@
 			<SuperFastHotHot ProductId="896516">
 				<ImageName><![CDATA[W88-Slots-Mobile-Super-Fast-Hot-Hot]]></ImageName>
 			</SuperFastHotHot>
-			<SuperLadyLuck ProductId="906518">
+			<!--<SuperLadyLuck ProductId="906518">
 				<ImageName><![CDATA[W88-Slots-Mobile-Super-Lady-Luck]]></ImageName>
-			</SuperLadyLuck>
+			</SuperLadyLuck>-->
 			<SuperLuckyReels ProductId="896501">
 				<ImageName><![CDATA[W88-Slots-Mobile-Super-Lucky-Reels]]></ImageName>
 			</SuperLuckyReels>
@@ -89,15 +89,15 @@
 		</Slot>
 		<CardAndTable Label="卡牌桌面游戏">
 			<Blackjack ProductId="896522">
-				<ImageName><![CDATA[]]></ImageName>
+				<ImageName><![CDATA[W88-Slots-Mobile-Blackjack]]></ImageName>
 			</Blackjack>
 			<EuropeanRoulette ProductId="896521">
-				<ImageName><![CDATA[]]></ImageName>
+				<ImageName><![CDATA[W88-Slots-Mobile-European-Roulette]]></ImageName>
 			</EuropeanRoulette>
 		</CardAndTable>
 		<VideoPoker Label="视频扑克">
 			<JokerPoker ProductId="896506">
-				<ImageName><![CDATA[]]></ImageName>
+				<ImageName><![CDATA[W88-Slots-Mobile-Joker-Poker]]></ImageName>
 			</JokerPoker>
 		</VideoPoker>
 	</Category>

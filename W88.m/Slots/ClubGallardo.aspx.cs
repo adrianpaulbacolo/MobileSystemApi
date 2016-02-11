@@ -56,6 +56,7 @@ public partial class Slots_ClubGallardo : BasePage
 
             string currencyCode = commonVariables.GetSessionVariable("CurrencyCode");
             string currCode = string.IsNullOrWhiteSpace(currencyCode) || currencyCode.Equals("rmb", StringComparison.OrdinalIgnoreCase) ? "CNY" : currencyCode;
+            string lobbyUrl = System.Web.HttpContext.Current.Request.Url.ToString();
 
             foreach (XElement xeCategory in xeCategories.Elements())
             {
@@ -72,11 +73,11 @@ public partial class Slots_ClubGallardo : BasePage
                     if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                         sbGames.AppendFormat("<a class='btn-primary' target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubGallardo") + "' data-rel='dialog' data-transition='slidedown'>");
                     else
-                        sbGames.AppendFormat("<a href='{0}' target='_blank'>", commonClubGallardo.getRealUrl.Replace("{GAME}", Convert.ToString(strGameId)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
+                        sbGames.AppendFormat("<a href='{0}' target='_blank'>", commonClubGallardo.getRealUrl.Replace("{GAME}", Convert.ToString(strGameId)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId).Replace("{LOBBYURL}", lobbyUrl));
 
                     sbGames.Append("<i class='icon-play_arrow'></i></a>");
 
-                    sbGames.AppendFormat("<a class='btn-secondary' target='_blank' href='{0}'><i class='icon-fullscreen'></i></a></div>", commonClubGallardo.getFunUrl.Replace("{GAME}", Convert.ToString(strGameId)).Replace("{LANG}", strLanguageCode).Replace("{CURCODE}", currCode));
+                    sbGames.AppendFormat("<a class='btn-secondary' target='_blank' href='{0}'><i class='icon-fullscreen'></i></a></div>", commonClubGallardo.getFunUrl.Replace("{GAME}", Convert.ToString(strGameId)).Replace("{LANG}", strLanguageCode).Replace("{CURCODE}", currCode).Replace("{LOBBYURL}", lobbyUrl));
                     
                     sbGames.Append("</li>");
                 }

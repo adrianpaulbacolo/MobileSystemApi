@@ -89,15 +89,15 @@
 		</Slot>
 		<CardAndTable Label="GAME KARTU &amp; MEJA">
 			<Blackjack ProductId="896522">
-				<ImageName><![CDATA[]]></ImageName>
+				<ImageName><![CDATA[W88-Slots-Mobile-Blackjack]]></ImageName>
 			</Blackjack>
 			<EuropeanRoulette ProductId="896521">
-				<ImageName><![CDATA[]]></ImageName>
+				<ImageName><![CDATA[W88-Slots-Mobile-European-Roulette]]></ImageName>
 			</EuropeanRoulette>
 		</CardAndTable>
 		<VideoPoker Label="VIDEO POKER">
 			<JokerPoker ProductId="896506">
-				<ImageName><![CDATA[]]></ImageName>
+				<ImageName><![CDATA[W88-Slots-Mobile-Joker-Poker]]></ImageName>
 			</JokerPoker>
 		</VideoPoker>
 	</Category>
