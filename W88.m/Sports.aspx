@@ -40,6 +40,11 @@
                         </figcaption>
                     </figure>
                 </li>
+                 <li class="col">
+                    <a href="/V-Sports.aspx" data-ajax="false" target="_blank">
+                        <img src="_Static/Images/sports/bnr-vSports.jpg" class="img-responsive img-bg">
+                    </a>
+                </li>
             </ul>
         </div>
 
