@@ -16,4 +16,11 @@
 	<lblAccountNumber><![CDATA[หมายเลขบัญชี]]></lblAccountNumber>
 	<wechatNickNameNA><![CDATA[Nickname not available, please choose another.]]></wechatNickNameNA>
 	<wechatPendingDeposit><![CDATA[You have pending deposit, please cancel it before submitting with a new nickname.]]></wechatPendingDeposit>
+
+	<denoms>
+		<denom id="0"><![CDATA[กรุณาเลือก]]></denom>
+		<denom id="10"><![CDATA[10]]></denom>
+		<denom id="10"><![CDATA[50]]></denom>
+		<denom id="10"><![CDATA[100]]></denom>
+	</denoms>
 </Deposit>

@@ -16,4 +16,11 @@
 	<lblAccountNumber><![CDATA[存款银行账号]]></lblAccountNumber>
 	<wechatNickNameNA><![CDATA[昵称不可用，请选择其他]]></wechatNickNameNA>
 	<wechatPendingDeposit><![CDATA[请取消待定存款，然后与新昵称重新提交]]></wechatPendingDeposit>
+
+	<denoms>
+		<denom id="0"><![CDATA[选择]]></denom>
+		<denom id="10"><![CDATA[10]]></denom>
+		<denom id="10"><![CDATA[50]]></denom>
+		<denom id="10"><![CDATA[100]]></denom>
+	</denoms>
 </Deposit>

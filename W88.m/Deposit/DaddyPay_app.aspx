@@ -124,7 +124,9 @@
                 });
 
                 function tooglePaymentMethod(bId) {
-                    if (bId == "b40") { //WeChat
+                    $("#txtAccountName").val('');
+
+                    if (bId == "40") { //WeChat
                         $("#txtAmount").hide();
                         $("#drpAmount").show();
                         $("#accountNo").hide();

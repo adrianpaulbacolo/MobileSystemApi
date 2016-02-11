@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <banks>
-	<bank id="b2"><![CDATA[CMB]]></bank>
-	<bank id="b3"><![CDATA[CCB]]></bank>
+	<bank id="2"><![CDATA[CMB]]></bank>
+	<bank id="3"><![CDATA[CCB]]></bank>
 </banks>
