@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<default>
+	<Category>
+		<Slot Label="ស្លត">
+			<AbsoluteSuperReels ProductId="896500">
+				<ImageName><![CDATA[W88-Slots-Mobile-Absolute-Super-Reels]]></ImageName>
+			</AbsoluteSuperReels>
+			<AliceAdventure ProductId="896504">
+				<ImageName><![CDATA[W88-Slots-Mobile-Alice-Adventure]]></ImageName>
+			</AliceAdventure>
+			<AstroMagic ProductId="906544">
+				<ImageName><![CDATA[W88-Slots-Mobile-Astro-Magic]]></ImageName>
+			</AstroMagic>
+			<BasicInstinct ProductId="896507">
+				<ImageName><![CDATA[W88-Slots-Mobile-Basic-Instinct]]></ImageName>
+			</BasicInstinct>
+			<BeverlyHills90210 ProductId="896523">
+				<ImageName><![CDATA[W88-Slots-Mobile-Beverly-Hills-90210]]></ImageName>
+			</BeverlyHills90210>
+			<Bewitched ProductId="906517">
+				<ImageName><![CDATA[W88-Slots-Mobile-Bewitched]]></ImageName>
+			</Bewitched>
+			<DiamondWild ProductId="896508">
+				<ImageName><![CDATA[W88-Slots-Mobile-Diamond-Wild]]></ImageName>
+			</DiamondWild>
+			<HappyBirds ProductId="896525">
+				<ImageName><![CDATA[W88-Slots-Mobile-Happy-Birds]]></ImageName>
+			</HappyBirds>
+			<HeavyMetalWarriors ProductId="896529">
+				<ImageName><![CDATA[W88-Slots-Mobile-Heavy-Metal-Warriors]]></ImageName>
+			</HeavyMetalWarriors>
+			<Illusions2 ProductId="896505">
+				<ImageName><![CDATA[W88-Slots-Mobile-Illusions-2]]></ImageName>
+			</Illusions2>
+			<JackpotRango ProductId="896502">
+				<ImageName><![CDATA[W88-Slots-Mobile-Jackpot-Rango]]></ImageName>
+			</JackpotRango>
+			<Kobushi ProductId="896509">
+				<ImageName><![CDATA[W88-Slots-Mobile-Kobushi]]></ImageName>
+			</Kobushi>
+			<MillionCents ProductId="896512">
+				<ImageName><![CDATA[W88-Slots-Mobile-Million-Cents]]></ImageName>
+			</MillionCents>
+			<MonaLisaJewels ProductId="906520">
+				<ImageName><![CDATA[W88-Slots-Mobile-Mona-Lisa-Jewels]]></ImageName>
+			</MonaLisaJewels>
+			<NachoLibre ProductId="896535">
+				<ImageName><![CDATA[W88-Slots-Mobile-Nacho-Libre]]></ImageName>
+			</NachoLibre>
+			<NinjaChef ProductId="896503">
+				<ImageName><![CDATA[W88-Slots-Mobile-Ninja-Chef]]></ImageName>
+			</NinjaChef>
+			<Platoon ProductId="896510">
+				<ImageName><![CDATA[W88-Slots-Mobile-Platoon]]></ImageName>
+			</Platoon>
+			<Rambo ProductId="896511">
+				<ImageName><![CDATA[W88-Slots-Mobile-Rambo]]></ImageName>
+			</Rambo>
+			<RedDragonWild ProductId="896514">
+				<ImageName><![CDATA[W88-Slots-Mobile-Red-Dragon-Wild]]></ImageName>
+			</RedDragonWild>
+			<RoyalCash ProductId="896530">
+				<ImageName><![CDATA[W88-Slots-Mobile-Royal-Cash]]></ImageName>
+			</RoyalCash>
+			<ShaolinSpin ProductId="896539">
+				<ImageName><![CDATA[W88-Slots-Mobile-Shaolin-Spin]]></ImageName>
+			</ShaolinSpin>
+			<SpookyFamily ProductId="896526">
+				<ImageName><![CDATA[W88-Slots-Mobile-Spooky-Family]]></ImageName>
+			</SpookyFamily>
+			<SuperFastHotHot ProductId="896516">
+				<ImageName><![CDATA[W88-Slots-Mobile-Super-Fast-Hot-Hot]]></ImageName>
+			</SuperFastHotHot>
+			<SuperLadyLuck ProductId="906518">
+				<ImageName><![CDATA[W88-Slots-Mobile-Super-Lady-Luck]]></ImageName>
+			</SuperLadyLuck>
+			<SuperLuckyReels ProductId="896501">
+				<ImageName><![CDATA[W88-Slots-Mobile-Super-Lucky-Reels]]></ImageName>
+			</SuperLuckyReels>
+			<SuperMultitimesProgressive ProductId="896515">
+				<ImageName><![CDATA[W88-Slots-Mobile-Super-Multitimes-Progressive]]></ImageName>
+			</SuperMultitimesProgressive>
+			<TheLoveGuru ProductId="896531">
+				<ImageName><![CDATA[W88-Slots-Mobile-The-Love-Guru]]></ImageName>
+			</TheLoveGuru>
+			<UltimateSuperReels ProductId="896513">
+				<ImageName><![CDATA[W88-Slots-Mobile-Ultimate-Super-Reels]]></ImageName>
+			</UltimateSuperReels>
+		</Slot>
+		<CardAndTable Label="ហ្គេមបៀរ ហ្គេមតុ">
+			<Blackjack ProductId="896522">
+				<ImageName><![CDATA[W88-Slots-Mobile-Blackjack]]></ImageName>
+			</Blackjack>
+			<EuropeanRoulette ProductId="896521">
+				<ImageName><![CDATA[W88-Slots-Mobile-European-Roulette]]></ImageName>
+			</EuropeanRoulette>
+		</CardAndTable>
+		<VideoPoker Label="វីដេអូប៉ូកកឺ">
+			<JokerPoker ProductId="896506">
+				<ImageName><![CDATA[W88-Slots-Mobile-Joker-Poker]]></ImageName>
+			</JokerPoker>
+		</VideoPoker>
+	</Category>
+</default>
