@@ -22,7 +22,7 @@
 
             <ul class="row row-wrap bg-gradient">
                 <li class="col col-33">
-                    <a href="/_Secure/Login.aspx" class="card" data-rel="sports" rel="vsportsBasketball">
+                    <a href="/_Secure/Login.aspx" class="card" data-rel="sports" rel="vsportsBasketball" target="_blank">
                         <img src="/_Static/Images/sports/bnr-vSports-Basketball.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("basketball", commonVariables.LeftMenuXML)%></div>
                     </a>
@@ -34,7 +34,7 @@
                     </a>
                 </li>--%>
                 <li class="col col-33">
-                    <a href="/_Secure/Login.aspx" class="card" data-rel="sports" rel="vsportsFootBall">
+                    <a href="/_Secure/Login.aspx" class="card" data-rel="sports" rel="vsportsFootBall" target="_blank">
                         <img src="_Static/Images/sports/bnr-vSports-soccer.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("football", commonVariables.LeftMenuXML)%></div>
                     </a>
