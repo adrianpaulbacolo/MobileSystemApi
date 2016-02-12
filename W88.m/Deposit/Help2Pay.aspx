@@ -96,15 +96,7 @@
                             alert('<%=strAlertMessage%>');
                             break;
                         case '0':
-
-                            var depositAmount = $('#txtDepositAmount').val();
-
-                            if ('<%= HttpContext.Current.Session["CurrencyCode"] %>' == "VND")
-                            {
-                                depositAmount = depositAmount * 1000;
-                            }
-
-                            var help2payurl = '/_secure/ajaxhandlers/help2pay.ashx?v=' + new Date().getTime() + '&requestAmount=' + depositAmount + '&requestBank=' + $('#drpBank').val();
+                            var help2payurl = '/_secure/ajaxhandlers/help2pay.ashx?v=' + new Date().getTime() + '&requestAmount=' + $('#txtDepositAmount').val() + '&requestBank=' + $('#drpBank').val();
                             window.open(help2payurl);
 
                             break;
