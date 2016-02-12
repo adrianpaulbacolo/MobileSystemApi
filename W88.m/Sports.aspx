@@ -41,9 +41,14 @@
                     </figure>
                 </li>
                  <li class="col">
-                    <a href="/V-Sports.aspx" data-ajax="false" target="_blank">
-                        <img src="_Static/Images/sports/bnr-vSports.jpg" class="img-responsive img-bg">
-                    </a>
+                     <figure class="banner">
+                        <img src="_Static/Images/sports/v-sports-banner.jpg" class="img-responsive img-bg">
+                        <figcaption class="banner-caption">
+                            <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports/Label", commonVariables.ProductsXML)%></h3>
+                            <p><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports/Description", commonVariables.ProductsXML)%></p>
+                            <a href="/V-Sports.aspx" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
+                        </figcaption>
+                    </figure>
                 </li>
             </ul>
         </div>
