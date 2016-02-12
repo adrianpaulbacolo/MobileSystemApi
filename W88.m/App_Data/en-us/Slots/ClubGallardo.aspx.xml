@@ -234,11 +234,84 @@
 			<EuropeanRoulette ProductId="896521">
 				<ImageName><![CDATA[W88-Slots-Mobile-European-Roulette]]></ImageName>
 			</EuropeanRoulette>
+			
+			<AmericanRoulette>
+				<ImageName><![CDATA[americanroulettemobile]]></ImageName>
+			</AmericanRoulette>
+			<BeatMe>
+				<ImageName><![CDATA[beatmemobile]]></ImageName>
+			</BeatMe>
+			<BlackJackMH>
+				<ImageName><![CDATA[blackjackmhmobile]]></ImageName>
+			</BlackJackMH>
+			<CasinoHoldem>
+				<ImageName><![CDATA[casinoholdemmobile]]></ImageName>
+			</CasinoHoldem>
+			<CasinoStudPoker>
+				<ImageName><![CDATA[casinostudpokermobile]]></ImageName>
+			</CasinoStudPoker>
+			<DoubleExposureBlackJackMH>
+				<ImageName><![CDATA[doubleexposureblackjackmhmobile]]></ImageName>
+			</DoubleExposureBlackJackMH>
+			<EuropeanBlackJackMH>
+				<ImageName><![CDATA[europeanblackjackmhmobile]]></ImageName>
+			</EuropeanBlackJackMH>
+			<EuropeanRoulette>
+				<ImageName><![CDATA[europeanroulettemobile]]></ImageName>
+			</EuropeanRoulette>
+			<MiniBaccarat>
+				<ImageName><![CDATA[minibaccaratmobile]]></ImageName>
+			</MiniBaccarat>
+			<PaiGowPoker>
+				<ImageName><![CDATA[paigowpokermobile]]></ImageName>
+			</PaiGowPoker>
+			<SingleDeckBlackJackMH>
+				<ImageName><![CDATA[singledeckblackjackmhmobile]]></ImageName>
+			</SingleDeckBlackJackMH>
 		</CardAndTable>
 		<VideoPoker Label="Video Poker">
 			<JokerPoker ProductId="896506">
 				<ImageName><![CDATA[W88-Slots-Mobile-Joker-Poker]]></ImageName>
 			</JokerPoker>
+			
+			<DeucesWildMH>
+				<ImageName><![CDATA[deuceswildmobile]]></ImageName>
+			</DeucesWildMH>
+			<JackpotPokerMH>
+				<ImageName><![CDATA[jackpotpokermobile]]></ImageName>
+			</JackpotPokerMH>
+			<JacksorBetterMH>
+				<ImageName><![CDATA[jacksorbettermobile]]></ImageName>
+			</JacksorBetterMH>
+			<JokerPokerMH>
+				<ImageName><![CDATA[jokerpokermobile]]></ImageName>
+			</JokerPokerMH>
+			<DeucesAndJokerMH>
+				<ImageName><![CDATA[deucesandjokermobile]]></ImageName>
+			</DeucesAndJokerMH>
+			<DoubleBonusMH>
+				<ImageName><![CDATA[doublebonusmobile]]></ImageName>
+			</DoubleBonusMH>
+			<KingsOrBetterMH>
+				<ImageName><![CDATA[kingsorbettermobile]]></ImageName>
+			</KingsOrBetterMH>
+			<TensOrBetterMH>
+				<ImageName><![CDATA[tensorbettermobile]]></ImageName>
+			</TensOrBetterMH>
 		</VideoPoker>
+		<Others Label="Others">
+			<Keno>
+				<ImageName><![CDATA[kenomobile]]></ImageName>
+			</Keno>
+			<TripleChanceHiLo>
+				<ImageName><![CDATA[triplechancehilomobile]]></ImageName>
+			</TripleChanceHiLo>
+			<HoleinOne>
+				<ImageName><![CDATA[holeinonemobile]]></ImageName>
+			</HoleinOne>
+			<ScratchAhoy>
+				<ImageName><![CDATA[scratchahoymobile]]></ImageName>
+			</ScratchAhoy>
+		</Others>
 	</Category>
 </default>
