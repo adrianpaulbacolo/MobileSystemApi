@@ -94,10 +94,12 @@ public partial class Deposit_DaddyPay : PaymentBasePage
 
     private void InitializeWeChatDenominations()
     {
-        drpDepositAmount.Items.Add(new ListItem("Select Amount", "0"));
-        drpDepositAmount.Items.Add(new ListItem("20", "20"));
-        drpDepositAmount.Items.Add(new ListItem("50", "50"));
-        drpDepositAmount.Items.Add(new ListItem("100", "100"));
+        List<ListItem> denoms = new List<ListItem>();
+        XElement denom = xeResources.Element("denoms");
+
+        denoms.AddRange(denom.Elements("denom").Select(x => new ListItem(x.Value, x.Attribute("id").Value)));
+
+        drpDepositAmount.Items.AddRange(denoms.ToArray());
     }
 
     [WebMethod]
@@ -160,7 +162,7 @@ public partial class Deposit_DaddyPay : PaymentBasePage
         }
 
         string selectedBank = drpBank.SelectedValue;
-        string strDepositAmount = selectedBank.Equals("b40") ? drpDepositAmount.SelectedValue : txtDepositAmount.Text.Trim();
+        string strDepositAmount = selectedBank.Equals("40") ? drpDepositAmount.SelectedValue : txtDepositAmount.Text.Trim();
         string strAccountName = txtAccountName.Text.Trim();
         string strAccountNo = txtAccountNo.Text.Trim();
 
@@ -245,7 +247,7 @@ public partial class Deposit_DaddyPay : PaymentBasePage
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/InvalidAccountName", xeErrors);
             isProcessAbort = true;
         }
-        else if (string.IsNullOrEmpty(strAccountNo) && !selectedBank.Equals("b40"))
+        else if (string.IsNullOrEmpty(strAccountNo) && !selectedBank.Equals("40"))
         {
             strAlertCode = "-1";
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/InvalidAccountNumber", xeErrors);
@@ -271,7 +273,7 @@ public partial class Deposit_DaddyPay : PaymentBasePage
 
                 if (isTransactionSuccessful)
                 {
-                    string config = commonEncryption.Md5Hash(commonEncryption.decrypting("03WUpD2ff5AojnGcH/VL7tzEekc0XJp4X8x7F2IWVPQLECQgWSGhNMLgMioGWCI2"));
+                    string config = commonEncryption.Md5Hash(commonEncryption.decrypting(ConfigurationManager.AppSettings["privateKey_daddyPay"]));
 
                     strDepositAmount = Convert.ToDouble(strDepositAmount).ToString("#.00");
                     string strMemberIDCode = strMemberID + strMemberCode;
@@ -313,7 +315,16 @@ public partial class Deposit_DaddyPay : PaymentBasePage
                     string status = obj[0].status;
                     string break_url = obj[0].break_url;
 
-                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "popup", "window.open('" + break_url.ToString() + "','_blank')", true);
+                    if (status.Equals("1") && !string.IsNullOrWhiteSpace(break_url))
+                    {
+                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "popup", "window.open('" + break_url.ToString() + "','_blank')", true);
+                    }
+                    else
+                    {
+                        strAlertCode = "-1";
+                        strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/Exception", xeErrors);
+                        strErrorDetail = obj[0].error_msg;
+                    }
                 }
             }
         }
@@ -407,4 +418,5 @@ public class myObject
     public string deposit_mode { get; set; }
     public string collection_bank_id { get; set; }
     public string key { get; set; }
+    public string error_msg { get; set; }
 }
