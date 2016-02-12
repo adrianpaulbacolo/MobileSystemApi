@@ -19,8 +19,8 @@
 
 	<denoms>
 		<denom id="0"><![CDATA[กรุณาเลือก]]></denom>
-		<denom id="10"><![CDATA[10]]></denom>
-		<denom id="10"><![CDATA[50]]></denom>
-		<denom id="10"><![CDATA[100]]></denom>
+		<denom id="20"><![CDATA[20]]></denom>
+		<denom id="50"><![CDATA[50]]></denom>
+		<denom id="100"><![CDATA[100]]></denom>
 	</denoms>
 </Deposit>
