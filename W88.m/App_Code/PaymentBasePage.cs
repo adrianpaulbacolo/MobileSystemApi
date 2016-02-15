@@ -12,11 +12,16 @@ using System.Xml.Linq;
 /// </summary>
 public class PaymentBasePage : BasePage
 {
+    #region Properties
+
+    #region XElements
     protected XElement xeResources = null;
-    protected XElement xeDefaultResources = null;
+    private XElement xeDefaultResources = null;
     protected XElement xeErrors = null;
     protected XElement xeResponse = null;
+    #endregion
 
+    #region Common
     /// <summary>
     /// XML Name to use in Translation inside the AppData
     /// </summary>
@@ -56,6 +61,30 @@ public class PaymentBasePage : BasePage
 
     protected bool isSystemError = false;
     protected bool isProcessAbort = false;
+    #endregion
+
+    #region Labels
+
+    protected string lblMode = string.Empty;
+    protected string txtMode = string.Empty;
+    protected string lblMinMaxLimit = string.Empty;
+    protected string lblDailyLimit = string.Empty;
+    protected string lblTotalAllowed = string.Empty;
+    protected string lblDepositAmount = string.Empty;
+    protected string btnSubmit = string.Empty;
+    protected string btnCancel = string.Empty;
+    /// <summary>
+    /// Placeholder
+    /// </summary>
+    protected string txtDepositAmount = string.Empty;
+    protected string txtMinMaxLimit  = string.Empty;
+    protected string txtDailyLimit = string.Empty;
+    protected string txtTotalAllowed = string.Empty;
+    private string drpBank = string.Empty;
+
+    #endregion
+
+    #endregion
 
     protected void InitialiseVariables()
     {
@@ -81,6 +110,29 @@ public class PaymentBasePage : BasePage
         commonCulture.appData.getRootResource(PaymentType + "/Default.aspx", out xeDefaultResources);
 
         commonCulture.appData.getRootResource(PaymentType + "/" + PageName, out xeResources);
+
+        InitialiseLabels(xeDefaultResources);
+    }
+
+    private void InitialiseLabels(XElement xeDefaultResources)
+    {
+        lblMode = commonCulture.ElementValues.getResourceString("lblMode", xeDefaultResources);
+        txtMode = string.Format(": {0}", commonCulture.ElementValues.getResourceString("txtMode", xeDefaultResources));
+        lblMinMaxLimit = commonCulture.ElementValues.getResourceString("lblMinMaxLimit", xeDefaultResources);
+        lblDailyLimit = commonCulture.ElementValues.getResourceString("lblDailyLimit", xeDefaultResources);
+        lblTotalAllowed = commonCulture.ElementValues.getResourceString("lblTotalAllowed", xeDefaultResources);
+        lblDepositAmount = commonCulture.ElementValues.getResourceString("lblDepositAmount", xeDefaultResources);
+
+        btnSubmit = commonCulture.ElementValues.getResourceString("btnSubmit", xeDefaultResources);
+        btnCancel = commonCulture.ElementValues.getResourceString("btnCancel", xeDefaultResources);
+
+        txtDepositAmount = string.Format("{0} ({1})", lblDepositAmount, strCurrencyCode);
+
+        txtMinMaxLimit = string.Format(": {0} / {1}", strMinLimit, strMaxLimit);
+        txtDailyLimit = string.Format(": {0}", strDailyLimit);
+        txtTotalAllowed = string.Format(": {0}", strTotalAllowed);
+
+        drpBank = commonCulture.ElementValues.getResourceString("drpBank", xeDefaultResources);
     }
 
     protected void CancelUnexpectedRePost()
@@ -244,13 +296,13 @@ public class PaymentBasePage : BasePage
 
     protected List<ListItem> InitializeBank(string paymentMethodBank)
     {
-        List<ListItem> banks = new List<ListItem>() { new ListItem(commonCulture.ElementValues.getResourceString("drpBank", xeResources), "-1") };
+        List<ListItem> banks = new List<ListItem>() { new ListItem(drpBank, "-1") };
         try
         {
             XElement xElementBank = null;
 
             commonCulture.appData.getRootResource(PaymentType + "/" + paymentMethodBank, out xElementBank);
-            
+
             XElement xElementBankPath = xElementBank.Element(commonVariables.GetSessionVariable("CurrencyCode"));
 
             if (xElementBankPath == null)
@@ -265,5 +317,4 @@ public class PaymentBasePage : BasePage
 
         return banks;
     }
-   
 }

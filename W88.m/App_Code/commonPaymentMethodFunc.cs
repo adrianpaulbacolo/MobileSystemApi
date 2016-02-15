@@ -254,6 +254,30 @@ public static class commonPaymentMethodFunc
                 depositTabs.Controls.Add(list);
                 break;
 
+            case commonVariables.DepositMethod.ShengPay:
+                list = new HtmlGenericControl("li");
+                list.ID = string.Format("d{0}", paymentCode);
+
+                anchor = new HtmlGenericControl("a");
+
+                if (isApp)
+                    anchor.Attributes.Add("href", "/Deposit/ShengPay_app.aspx");
+                else
+                    anchor.Attributes.Add("href", "/Deposit/ShengPay.aspx");
+
+                anchor.Attributes.Add("class", "ui-link ui-btn");
+                anchor.Attributes.Add("data-ajax", "false");
+                anchor.InnerText = commonCulture.ElementValues.getResourceString("shengpay", commonVariables.LeftMenuXML);
+
+                if (string.Compare(sourcePage, "shengpay", true) == 0)
+                {
+                    anchor.Attributes.Add("class", "btn-primary");
+                }
+
+                list.Controls.Add(anchor);
+                depositTabs.Controls.Add(list);
+                break;
+
             default:
                 break;
         }

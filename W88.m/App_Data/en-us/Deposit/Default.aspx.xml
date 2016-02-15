@@ -1,25 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Deposit>
+	<lblMode><![CDATA[Mode]]></lblMode>
+	<txtMode><![CDATA[Online]]></txtMode>
+	<lblMinMaxLimit><![CDATA[Min/Max Limit]]></lblMinMaxLimit>
+	<lblDailyLimit><![CDATA[Daily Limit: ]]></lblDailyLimit>
+	<lblTotalAllowed><![CDATA[Total Allowed: ]]></lblTotalAllowed>
 	<lblDepositAmount><![CDATA[Deposit Amount]]></lblDepositAmount>
+	<unlimited><![CDATA[Unlimited]]></unlimited>
+	
+	<lblTransactionId><![CDATA[Transaction ID]]></lblTransactionId>
 	<lblReferenceId><![CDATA[Reference ID]]></lblReferenceId>
+	
 	<lblSystemAccount><![CDATA[System Account]]></lblSystemAccount>
 	<drpSystemAccount><![CDATA[Select System Account]]></drpSystemAccount>
+	
 	<drpDepositDateTime><![CDATA[Deposit Date/Time]]></drpDepositDateTime>
+	
 	<lblDepositChannel><![CDATA[Deposit Channel]]></lblDepositChannel>
 	<drpDepositChannel><![CDATA[Select Deposit Channel]]></drpDepositChannel>
+	
 	<lblBank><![CDATA[Bank]]></lblBank>
 	<drpBank><![CDATA[Select Bank]]></drpBank>
 	<lblBankName><![CDATA[Your Bank Name]]></lblBankName>
 	<drpOtherBank><![CDATA[Other Bank]]></drpOtherBank>
 	<lblAccountName><![CDATA[Your Account Name]]></lblAccountName>
 	<lblAccountNumber><![CDATA[Your Account Number]]></lblAccountNumber>
-	<btnSubmit><![CDATA[SUBMIT]]></btnSubmit>
-	<lblTransactionId><![CDATA[Transaction ID]]></lblTransactionId>
-	<lblDailyLimit><![CDATA[Daily Limit: ]]></lblDailyLimit>
-	<lblTotalAllowed><![CDATA[Total Allowed: ]]></lblTotalAllowed>
-	<unlimited><![CDATA[Unlimited]]></unlimited>
-
+	
 	<btnCancel><![CDATA[CANCEL]]></btnCancel>
 	<btnSubmit><![CDATA[SUBMIT]]></btnSubmit>
-
 </Deposit>
