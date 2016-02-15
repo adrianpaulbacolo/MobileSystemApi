@@ -1,13 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <PaymentMethods>
-  <d110101><![CDATA[Fast Deposit]]></d110101>
-  <d120203><![CDATA[SDA Pay]]></d120203>
-  <d120204><![CDATA[Next Pay]]></d120204>
-  <d120206><![CDATA[Online Deposit]]></d120206>
-  <d120207><![CDATA[Online Deposit]]></d120207>
-  <d110308><![CDATA[Wing Money]]></d110308>
-  <w210602><![CDATA[Bank Transfer]]></w210602>
-  <w210709><![CDATA[Wing Money]]></w210709>
-  <online><![CDATA[Online]]></online>
-  <offline><![CDATA[Offline]]></offline>
+	<d110101><![CDATA[Fast Deposit]]></d110101>
+	<d110308><![CDATA[Wing Money]]></d110308>
+	<d120203><![CDATA[SDA Pay]]></d120203>
+	<d120204><![CDATA[Next Pay]]></d120204>
+	<d120206><![CDATA[Online Deposit]]></d120206>
+	<d120207><![CDATA[Online Deposit]]></d120207>
+	<d120214><![CDATA[Neteller]]></d120214>
+	<d120223><![CDATA[Union Pay]]></d120223>
+	<d120227><![CDATA[Quick Pay]]></d120227>
+	<d120243><![CDATA[Quick Online]]></d120243>
+	<d120244><![CDATA[QR Code Payment]]></d120244>
+	<d120254><![CDATA[Alipay Transfer]]></d120254>
+
+	<w210602><![CDATA[Bank Transfer]]></w210602>
+	<w210709><![CDATA[Wing Money]]></w210709>
+	<w220815><![CDATA[Neteller]]></w220815>
+
+	<online><![CDATA[Online]]></online>
+	<offline><![CDATA[Offline]]></offline>
 </PaymentMethods>

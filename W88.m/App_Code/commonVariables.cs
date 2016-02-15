@@ -8,7 +8,24 @@ public class commonVariables
 {
     private static System.Text.RegularExpressions.Regex rxDomains_CN = new System.Text.RegularExpressions.Regex(commonVariables.ChinaDomain);
     public static System.Xml.Linq.XElement LeftMenuXML { get { if (System.Web.HttpContext.Current.Cache.Get("leftMenuXML_" + commonVariables.SelectedLanguage) != null) { return System.Web.HttpContext.Current.Cache.Get("leftMenuXML_" + commonVariables.SelectedLanguage) as System.Xml.Linq.XElement; } else { System.Xml.Linq.XElement xcMenu = commonCulture.appData.getRootResource("/leftMenu"); System.Web.HttpContext.Current.Cache.Add("leftMenuXML_" + commonVariables.SelectedLanguage, xcMenu, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.AboveNormal, null); return xcMenu; } } }
-    public static System.Xml.Linq.XElement ProductsXML { get { if (System.Web.HttpContext.Current.Cache.Get("ProductsXML_" + commonVariables.SelectedLanguage) != null) { return System.Web.HttpContext.Current.Cache.Get("ProductsXML_" + commonVariables.SelectedLanguage) as System.Xml.Linq.XElement; } else { System.Xml.Linq.XElement xcMenu = commonCulture.appData.getRootResource("/Products"); System.Web.HttpContext.Current.Cache.Add("ProductsXML_" + commonVariables.SelectedLanguage, xcMenu, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.AboveNormal, null); return xcMenu; } } }
+    public static System.Xml.Linq.XElement ProductsXML
+    {
+        get
+        {
+            if (System.Web.HttpContext.Current.Cache.Get("ProductsXML_" + commonVariables.SelectedLanguage) != null)
+            {
+                return System.Web.HttpContext.Current.Cache.Get("ProductsXML_" + commonVariables.SelectedLanguage) as System.Xml.Linq.XElement;
+            }
+            else
+            {
+                System.Xml.Linq.XElement xcMenu = commonCulture.appData.getRootResource("/Products");
+                System.Web.HttpContext.Current.Cache.Add("ProductsXML_" + commonVariables.SelectedLanguage, xcMenu, null,
+                    System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.AboveNormal, null);
+                return xcMenu;
+            }
+        }
+    }
+
     public static System.Xml.Linq.XElement ContactUsXML { get { if (System.Web.HttpContext.Current.Cache.Get("ContactUsXML_" + commonVariables.SelectedLanguage) != null) { return System.Web.HttpContext.Current.Cache.Get("ContactUsXML_" + commonVariables.SelectedLanguage) as System.Xml.Linq.XElement; } else { System.Xml.Linq.XElement xcMenu = commonCulture.appData.getRootResource("/ContactUs.aspx"); System.Web.HttpContext.Current.Cache.Add("ContactUsXML_" + commonVariables.SelectedLanguage, xcMenu, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.AboveNormal, null); return xcMenu; } } }
 
     public static System.Xml.Linq.XElement ErrorsXML { get { if (System.Web.HttpContext.Current.Cache.Get("errorsXML_" + commonVariables.SelectedLanguage) != null) { return System.Web.HttpContext.Current.Cache.Get("errorsXML_" + commonVariables.SelectedLanguage) as System.Xml.Linq.XElement; } else { System.Xml.Linq.XElement xcErrors = commonCulture.appData.getRootResource("/Errors"); System.Web.HttpContext.Current.Cache.Add("errorsXML_" + commonVariables.SelectedLanguage, xcErrors, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.AboveNormal, null); return xcErrors; } } }
@@ -34,29 +51,33 @@ public class commonVariables
         }
     }
 
-    public static string SelectedLanguageShort { get { 
-        switch (commonVariables.SelectedLanguage.ToLower()) 
+    public static string SelectedLanguageShort
+    {
+        get
         {
-            case "en-us":
-                return "en";
-            case "id-id":
-                return "id";
-            case "km-kh":
-                return "kh";
-            case "ko-kr":
-                return "kr";
-            case "th-th":
-                return "th";
-            case "vi-vn":
-                return "vn";
-            case "zh-cn":
-                return "cn";
-            case "ja-jp":
-                return "jp";
-            default:
-                return "en";
-        } 
-    } }
+            switch (commonVariables.SelectedLanguage.ToLower())
+            {
+                case "en-us":
+                    return "en";
+                case "id-id":
+                    return "id";
+                case "km-kh":
+                    return "kh";
+                case "ko-kr":
+                    return "kr";
+                case "th-th":
+                    return "th";
+                case "vi-vn":
+                    return "vn";
+                case "zh-cn":
+                    return "cn";
+                case "ja-jp":
+                    return "jp";
+                default:
+                    return "en";
+            }
+        }
+    }
 
     public static string CurrentMemberSessionId { get { return string.IsNullOrEmpty(System.Web.HttpContext.Current.Session["MemberSessionId"] as string) ? (!string.IsNullOrEmpty(commonCookie.CookieS) ? commonCookie.CookieS : "") : Convert.ToString(System.Web.HttpContext.Current.Session["MemberSessionId"]); } }
 
@@ -76,11 +97,11 @@ public class commonVariables
         }
     }
 
-    public static string GetSessionVariable(string key) 
+    public static string GetSessionVariable(string key)
     { return string.IsNullOrEmpty(HttpContext.Current.Session[key] as string) ? "" : Convert.ToString(HttpContext.Current.Session[key]); }
     public static void SetSessionVariable(string key, string value) { HttpContext.Current.Session.Add(key, value); }
 
-    public static void ClearSessionVariables() 
+    public static void ClearSessionVariables()
     {
         string strLanguage = string.Empty;
         string strVCode = string.Empty;
@@ -132,19 +153,19 @@ public class commonVariables
         SDAPayAlipay = 120254
     }
 
-    public enum WithdrawalMethod 
+    public enum WithdrawalMethod
     {
         BankTransfer = 210602,
         WingMoney = 210709,
         Neteller = 220815
     }
 
-    public enum TransactionSource 
-    { 
+    public enum TransactionSource
+    {
         Mobile
     }
 
-    public enum PaymentTransactionType 
+    public enum PaymentTransactionType
     {
         Deposit = 1,
         Withdrawal = 2

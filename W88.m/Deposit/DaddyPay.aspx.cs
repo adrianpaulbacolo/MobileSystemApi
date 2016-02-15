@@ -89,28 +89,28 @@ public partial class Deposit_DaddyPay : PaymentBasePage
             weChatNickNameNotAvailable = commonCulture.ElementValues.getResourceString("wechatNickNameNA", xeResources);
             weChatNickNamePendingDeposit = commonCulture.ElementValues.getResourceString("wechatPendingDeposit", xeResources);
             serverError = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/error" + "1", xeErrors);
-        }
-    }
+            }
+            }
 
     private void InitializeWeChatDenominations()
-    {
+        {
         List<ListItem> denoms = new List<ListItem>();
         XElement denom = xeResources.Element("denoms");
 
         denoms.AddRange(denom.Elements("denom").Select(x => new ListItem(x.Value, x.Attribute("id").Value)));
 
         drpDepositAmount.Items.AddRange(denoms.ToArray());
-    }
+            }
 
     [WebMethod]
     public static string ProcessWeChatNickname(string action, string nickname)
-    {
+            {
         XElement processResult;
 
         using (svcPayMember.MemberClient client = new svcPayMember.MemberClient())
-        {
+                {
             processResult = client.processMemberWeChatNickName(Convert.ToInt64(commonVariables.OperatorId), commonVariables.GetSessionVariable("MemberCode"), action, nickname);
-        }
+                }
 
         if (processResult.Element("error") != null)
         {
@@ -119,23 +119,23 @@ public partial class Deposit_DaddyPay : PaymentBasePage
             if (action == "changeNickname" && error == "NA")
             {
                 return weChatNickNameNotAvailable;
-            }
+        }
 
             if (action == "changeNickname" && error == "PendingDeposit")
-            {
+        {
                 return weChatNickNamePendingDeposit;
-            }
+        }
         }
 
         if (processResult.Element("result") != null) //only for success cases will return with result element
-        {
+    {
             return processResult.Element("result").Value;
         }
         else
         {
             return serverError;
+            }
         }
-    }
 
     private void ValidateWeChatNickName(string strAccountName)
     {
@@ -146,20 +146,20 @@ public partial class Deposit_DaddyPay : PaymentBasePage
             string result = ProcessWeChatNickname("changeNickname", strAccountName);
 
             if (!result.Equals("allow", StringComparison.OrdinalIgnoreCase))
-            {
+        {
                 strAlertCode = "-1";
                 strAlertMessage = result;
                 isProcessAbort = true;
-            }
+        }
         }
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
-    {
-        if (IsPageRefresh)
         {
+        if (IsPageRefresh)
+            {
             Response.Redirect(Request.Url.AbsoluteUri);
-        }
+            }
 
         string selectedBank = drpBank.SelectedValue;
         string strDepositAmount = selectedBank.Equals("40") ? drpDepositAmount.SelectedValue : txtDepositAmount.Text.Trim();
@@ -173,7 +173,7 @@ public partial class Deposit_DaddyPay : PaymentBasePage
         if (!isProcessAbort)
         {
             try
-            {
+        {
                 ValidateDaddyPay(isDaddyPayQR, selectedBank, decDepositAmount, decMinLimit, decMaxLimit, strAccountName, strAccountNo);
 
                 ValidateWeChatNickName(strAccountName);
@@ -181,11 +181,11 @@ public partial class Deposit_DaddyPay : PaymentBasePage
                 if (!isProcessAbort)
                 {
                     InitiateDeposit(selectedBank, strDepositAmount);
-                }
+        }
 
             }
             catch (Exception ex)
-            {
+        {
                 strAlertCode = "-1";
                 strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/Exception", xeErrors);
 
@@ -201,85 +201,90 @@ public partial class Deposit_DaddyPay : PaymentBasePage
     }
 
     private void ValidateDaddyPay(bool isDaddyPayQR, string selectedBank, decimal decDepositAmount, decimal decMinLimit, decimal decMaxLimit, string strAccountName, string strAccountNo)
-    {
+            {
         if (decDepositAmount == 0)
-        {
+                {
             strAlertCode = "-1";
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/MissingDepositAmount", xeErrors);
             isProcessAbort = true;
-        }
+                }
         else if (selectedBank == "-1")
-        {
+                {
             strAlertCode = "-1";
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/SelectBank", xeErrors);
             isProcessAbort = true;
-        }
+                }
         else if (decDepositAmount < decMinLimit)
-        {
+                {
             strAlertCode = "-1";
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/AmountMinLimit", xeErrors);
             isProcessAbort = true;
-        }
+                }
         else if (decDepositAmount > decMaxLimit)
-        {
+                {
             strAlertCode = "-1";
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/AmountMaxLimit", xeErrors);
             isProcessAbort = true;
-        }
+                }
         else if ((strTotalAllowed != commonCulture.ElementValues.getResourceString("unlimited", xeResources)) && (decDepositAmount > Convert.ToDecimal(strTotalAllowed)) && Convert.ToDecimal(strTotalAllowed) > 0)
-        {
+                {
             strAlertCode = "-1";
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TotalAllowedExceeded", xeErrors);
             isProcessAbort = true;
-        }
+                }
 
         if (isDaddyPayQR)
-        {
+                {
             ValidateDaddyPayQR(strAccountName, strAccountNo, selectedBank);
         }
     }
 
     private void ValidateDaddyPayQR(string strAccountName, string strAccountNo, string selectedBank)
-    {
+                    {
         if (string.IsNullOrEmpty(strAccountName))
-        {
+                        {
             strAlertCode = "-1";
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/InvalidAccountName", xeErrors);
             isProcessAbort = true;
-        }
+                        }
         else if (string.IsNullOrEmpty(strAccountNo) && !selectedBank.Equals("40"))
-        {
+                        {
             strAlertCode = "-1";
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/InvalidAccountNumber", xeErrors);
             isProcessAbort = true;
-        }
-    }
+                        }
+                    }
 
     private void InitiateDeposit(string selectedBank, string strDepositAmount)
     {
         using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
-        {
+                    {
             xeResponse = client.createOnlineDepositTransactionV1(Convert.ToInt64(strOperatorId), Convert.ToInt64(strMemberID), strMemberCode, Convert.ToInt64(base.PaymentMethodId), strCurrencyCode, Convert.ToDecimal(strDepositAmount), svcPayDeposit.DepositSource.Mobile, string.Empty);
 
             if (xeResponse == null)
-            {
+                        {
                 strAlertCode = "-1";
                 strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferFail", xeErrors);
-            }
+                        }
             else
             {
                 bool isTransactionSuccessful = Convert.ToBoolean(commonCulture.ElementValues.getResourceString("result", xeResponse));
                 string transferId = commonCulture.ElementValues.getResourceString("invId", xeResponse);
 
                 if (isTransactionSuccessful)
-                {
+                        {
                     string config = commonEncryption.Md5Hash(commonEncryption.decrypting(ConfigurationManager.AppSettings["privateKey_daddyPay"]));
 
                     strDepositAmount = Convert.ToDouble(strDepositAmount).ToString("#.00");
                     string strMemberIDCode = strMemberID + strMemberCode;
                     string strCurrentUrl = System.Web.HttpContext.Current.Request.Url.Host.ToString();
 
+<<<<<<< Updated upstream
+                    DataRow dr = dt.Rows[0];
+=======
+
                     StringBuilder builder = new StringBuilder();
+>>>>>>> Stashed changes
 
                     string depositMode = isDaddyPayQR ? "3" : "2";
 
@@ -312,6 +317,7 @@ public partial class Deposit_DaddyPay : PaymentBasePage
                     var s = new System.Web.Script.Serialization.JavaScriptSerializer();
                     List<myObject> obj = s.Deserialize<List<myObject>>("[" + responseStr + "]");
 
+
                     string status = obj[0].status;
                     string break_url = obj[0].break_url;
 
@@ -324,8 +330,11 @@ public partial class Deposit_DaddyPay : PaymentBasePage
                         strAlertCode = "-1";
                         strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/Exception", xeErrors);
                         strErrorDetail = obj[0].error_msg;
-                    }
                 }
+            }
+            else if (string.IsNullOrEmpty(amount_txt.Text))
+            {
+                Response.Write("<script>alert('Please enter a deposit amount');</script>");
             }
         }
     }
@@ -340,30 +349,30 @@ public partial class Deposit_DaddyPay : PaymentBasePage
 
         byte[] responseBytes = null;
 
-        NameValueCollection postData = new NameValueCollection();
-        postData["company_id"] = daddyPay.companyId;
-        postData["bank_id"] = daddyPay.bankId;
-        postData["amount"] = daddyPay.amount;
-        postData["company_order_num"] = daddyPay.companyOrderNum;
-        postData["company_user"] = daddyPay.companyUser;
-        postData["key"] = daddyPay.key;
-        postData["estimated_payment_bank"] = daddyPay.estimatedPaymentBank;
-        postData["deposit_mode"] = daddyPay.depositMode;
-        postData["group_id"] = daddyPay.groupId;
-        postData["web_url"] = daddyPay.webUrl;
-        postData["memo"] = daddyPay.memo;
-        postData["note"] = daddyPay.note;
-        postData["note_model"] = daddyPay.noteModel;
-        postData["terminal"] = daddyPay.terminal;
+            NameValueCollection postData = new NameValueCollection();
+            postData["company_id"] = daddyPay.companyId;
+            postData["bank_id"] = daddyPay.bankId;
+            postData["amount"] = daddyPay.amount;
+            postData["company_order_num"] = daddyPay.companyOrderNum;
+            postData["company_user"] = daddyPay.companyUser;
+            postData["key"] = daddyPay.key;
+            postData["estimated_payment_bank"] = daddyPay.estimatedPaymentBank;
+            postData["deposit_mode"] = daddyPay.depositMode;
+            postData["group_id"] = daddyPay.groupId;
+            postData["web_url"] = daddyPay.webUrl;
+            postData["memo"] = daddyPay.memo;
+            postData["note"] = daddyPay.note;
+            postData["note_model"] = daddyPay.noteModel;
+            postData["terminal"] = daddyPay.terminal;
 
-        using (WebClient wc = new WebClient())
-        {
-            responseBytes = wc.UploadValues(postUrl, "POST", postData);
+            using (WebClient wc = new WebClient())
+            {
+                responseBytes = wc.UploadValues(postUrl, "POST", postData);
+            }
+
+            return responseBytes;
         }
-
-        return responseBytes;
     }
-}
 
 public class DaddyPayDomain
 {
@@ -403,20 +412,20 @@ public class DaddyPayDomain
 
 public class myObject
 {
-    public string bank_card_num { get; set; }
-    public string bank_acc_name { get; set; }
-    public string amount { get; set; }
-    public string email { get; set; }
-    public string company_order_num { get; set; }
-    public string datetime { get; set; }
-    public string note { get; set; }
-    public string mownecum_order_num { get; set; }
-    public string status { get; set; }
-    public string mode { get; set; }
-    public string issuing_bank_address { get; set; }
-    public string break_url { get; set; }
-    public string deposit_mode { get; set; }
-    public string collection_bank_id { get; set; }
-    public string key { get; set; }
+        public string bank_card_num { get; set; }
+        public string bank_acc_name { get; set; }
+        public string amount { get; set; }
+        public string email { get; set; }
+        public string company_order_num { get; set; }
+        public string datetime { get; set; }
+        public string note { get; set; }
+        public string mownecum_order_num { get; set; }
+        public string status { get; set; }
+        public string mode { get; set; }
+        public string issuing_bank_address { get; set; } 
+        public string break_url { get; set; }
+        public string deposit_mode { get; set; } 
+        public string collection_bank_id { get; set; }
+        public string key { get; set; }
     public string error_msg { get; set; }
 }

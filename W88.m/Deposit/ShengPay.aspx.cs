@@ -16,9 +16,9 @@ public partial class Deposit_Help2Pay : PaymentBasePage
 
     protected void Page_Init(object sender, EventArgs e)
     {
-        base.PageName = "Help2Pay";
+        base.PageName = "ShengPay";
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
-        base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.Help2Pay);
+        base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.ShengPay);
 
         base.CheckLogin();
         base.InitialiseVariables();
@@ -27,7 +27,7 @@ public partial class Deposit_Help2Pay : PaymentBasePage
 
         base.GetMainWalletBalance("0");
 
-        this.InitializeBank();
+        drpBank.Items.AddRange(base.InitializeBank("ShengPayBank").ToArray());
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -35,48 +35,30 @@ public partial class Deposit_Help2Pay : PaymentBasePage
         CancelUnexpectedRePost();
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "help2pay", sender.ToString().Contains("app"));
+        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "shengpay", sender.ToString().Contains("app"));
 
         if (!Page.IsPostBack)
         {
-            lblMode.Text = commonCulture.ElementValues.getResourceString("lblMode", xeResources);
-            txtMode.Text = string.Format(": {0}", commonCulture.ElementValues.getResourceString("txtMode", xeResources));
-            lblMinMaxLimit.Text = commonCulture.ElementValues.getResourceString("lblMinMaxLimit", xeResources);
-            lblDailyLimit.Text = commonCulture.ElementValues.getResourceString("lblDailyLimit", xeResources);
-            lblTotalAllowed.Text = commonCulture.ElementValues.getResourceString("lblTotalAllowed", xeResources);
-            lblDepositAmount.Text = commonCulture.ElementValues.getResourceString("lblDepositAmount", xeResources);
-
-            btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
-
-            txtDepositAmount.Attributes.Add("PLACEHOLDER", string.Format("{0} ({1})", lblDepositAmount.Text, strCurrencyCode));
-
-            txtMinMaxLimit.Text = string.Format(": {0} / {1}", strMinLimit, strMaxLimit);
-            txtDailyLimit.Text = string.Format(": {0}", strDailyLimit);
-            txtTotalAllowed.Text = string.Format(": {0}", strTotalAllowed);
+            this.InitializeLabels();
         }
     }
-    private void InitializeBank()
-    {
-        try
-        {
-            XElement xElementBank = null;
 
-            commonCulture.appData.getRootResource("/Deposit/Help2PayBank", out xElementBank);
+    private void InitializeLabels(){
+        lblMode.Text = base.lblMode;
+        txtMode.Text = base.txtMode;
+        lblMinMaxLimit.Text = base.lblMinMaxLimit;
+        lblDailyLimit.Text = base.lblDailyLimit;
+        lblTotalAllowed.Text = base.lblTotalAllowed;
+        lblDepositAmount.Text = base.lblDepositAmount;
 
-            XElement xElementBankPath = xElementBank.Element(strCurrencyCode);
-            var banks = from bank in xElementBankPath.Elements("bank") select new { value = bank.Attribute("id").Value, text = bank.Value };
+        btnSubmit.Text = base.btnSubmit;
+        btnCancel.InnerText = base.btnCancel;
 
-            drpBank.Items.Insert(0, new ListItem(commonCulture.ElementValues.getResourceString("drpBank", xeResources), "-1"));
+        txtDepositAmount.Attributes.Add("PLACEHOLDER", base.txtDepositAmount);
 
-            foreach (var b in banks)
-            {
-                drpBank.Items.Add(new ListItem(b.text, b.value));
-            }
-        }
-        catch (Exception ex)
-        {
-            commonAuditTrail.appendLog("system", "help2pay", "InitializeBank", string.Empty, string.Empty, string.Empty, "-99", "exception", ex.Message, string.Empty, string.Empty, true);
-        }
+        txtMinMaxLimit.Text = base.txtMinMaxLimit;
+        txtDailyLimit.Text = base.txtDailyLimit;
+        txtTotalAllowed.Text = base.txtTotalAllowed;
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)

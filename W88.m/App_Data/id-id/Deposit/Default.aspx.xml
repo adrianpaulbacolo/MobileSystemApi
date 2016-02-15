@@ -19,38 +19,4 @@
   <lblDailyLimit><![CDATA[Batas Perhari: ]]></lblDailyLimit>
   <lblTotalAllowed><![CDATA[Jumlah yang diperbolehkan: ]]></lblTotalAllowed>
   <unlimited><![CDATA[Tanpa Batas]]></unlimited>
-  
-
-  <DepositChannel>
-    <ATM><![CDATA[ATM]]></ATM>
-    <iBanking><![CDATA[iBanking]]></iBanking>
-    <mBanking><![CDATA[mBanking]]></mBanking>
-    <cBanking><![CDATA[cBanking]]></cBanking>
-    <CDM><![CDATA[CDM]]></CDM>
-  </DepositChannel>
-
-  <BankNameNative>
-    <ZH-CN_RMB />
-    <VI-VN_VND />
-    <TH-TH_THB />
-    <ID-ID_IDR />
-    <KM-KH_USD />
-    <KO-KR_KRW />
-    <JA-JP_JPY />
-  </BankNameNative>
-  
-  <Calendar>
-    <m1><![CDATA[Jan]]></m1>
-    <m2><![CDATA[Feb]]></m2>
-    <m3><![CDATA[Mar]]></m3>
-    <m4><![CDATA[Apr]]></m4>
-    <m5><![CDATA[May]]></m5>
-    <m6><![CDATA[Jun]]></m6>
-    <m7><![CDATA[Jul]]></m7>
-    <m8><![CDATA[Aug]]></m8>
-    <m9><![CDATA[Sep]]></m9>
-    <m10><![CDATA[Oct]]></m10>
-    <m11><![CDATA[Nov]]></m11>
-    <m12><![CDATA[Dec]]></m12>
-  </Calendar>
 </Deposit>

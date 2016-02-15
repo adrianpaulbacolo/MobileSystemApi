@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<banks>
+	<bank id="ICBC" ><![CDATA[ICBC <span style="color:#FF0000;font-weight:bold;">(*)</span>]]></bank>
+	<bank id="CMB"><![CDATA[CMB]]></bank>
+	<bank id="CCB"><![CDATA[CCB]]></bank>
+	<bank id="BOC"><![CDATA[BOC]]></bank>
+	<bank id="ABC"><![CDATA[ABC]]></bank>
+	<!--<bank id="SHRCB"><![CDATA[SHRCB]]></bank>-->
+	<bank id="BCCB"><![CDATA[BCCB]]></bank>
+	<!--<bank id="CBHB"><![CDATA[CBHB]]></bank>-->
+	<!--<bank id="BJRCB"><![CDATA[BJRCB]]></bank>-->
+	<!--<bank id="NJCB"><![CDATA[NJCB]]></bank>-->
+	<bank id="SPDB"><![CDATA[SPDB]]></bank>
+	<!--<bank id="CEB"><![CDATA[CEB]]></bank>-->
+	<bank id="COMM"><![CDATA[COMM]]></bank>
+	<bank id="HKBEA"><![CDATA[HKBEA]]></bank>
+	<bank id="CMBC"><![CDATA[CMBC]]></bank>
+	<bank id="NBCB"><![CDATA[NBCB]]></bank>
+	<!--<bank id="SDB"><![CDATA[SDB]]></bank>-->
+	<!--<bank id="HZB"><![CDATA[HZB]]></bank>-->
+	<bank id="GDB"><![CDATA[GDB]]></bank>
+	<bank id="SZPAB"><![CDATA[SZPAB]]></bank>
+	<bank id="CITIC"><![CDATA[CITIC <span style="color:#FF0000;font-weight:bold;">(*)</span>]]></bank>
+	<!--<bank id="HSB"><![CDATA[HSB]]></bank>-->
+	<bank id="HXB"><![CDATA[HXB]]></bank>
+	<!--<bank id="CZB"><![CDATA[CZB]]></bank>-->
+	<bank id="CIB"><![CDATA[CIB]]></bank>
+	<bank id="BOS"><![CDATA[BOS]]></bank>
+	<!--<bank id="GZCB"><![CDATA[GZCB]]></bank>-->
+	<bank id="PSBC"><![CDATA[PSBC]]></bank>
+	<!--<bank id="UPOP"><![CDATA[UPOP]]></bank>-->
+</banks>

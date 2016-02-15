@@ -47,6 +47,7 @@ public static class commonPaymentMethodFunc
 
                 anchor.Attributes.Add("class", "ui-link ui-btn");
                 anchor.Attributes.Add("data-ajax", "false");
+                commonCulture.ElementValues.getResourceXPathString("Products/ASports/Label", commonVariables.ProductsXML);
                 anchor.InnerText = commonCulture.ElementValues.getResourceString("fastdeposit", commonVariables.LeftMenuXML);
 
                 if (string.Compare(sourcePage, "default", true) == 0)

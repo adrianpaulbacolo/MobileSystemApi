@@ -211,6 +211,10 @@ public class Help2Pay : IHttpHandler, System.Web.SessionState.IReadOnlySessionSt
             string transferMethod = "auto";
             DateTime currentDate = DateTime.Now;
 
+            if (currency.Equals("VND"))
+            {
+                amount = (requestAmount * 1000m).ToString("#.00");
+            }
 
             System.Text.StringBuilder sbHashString = new System.Text.StringBuilder();
             sbHashString.Append(merchantAccount);

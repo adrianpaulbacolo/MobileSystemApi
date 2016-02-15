@@ -13,6 +13,7 @@ using System.Xml.Linq;
 public class PaymentBasePage : BasePage
 {
     protected XElement xeResources = null;
+    protected XElement xeDefaultResources = null;
     protected XElement xeErrors = null;
     protected XElement xeResponse = null;
 
@@ -76,6 +77,8 @@ public class PaymentBasePage : BasePage
         strSiteUrl = commonVariables.SiteUrl;
 
         xeErrors = commonVariables.ErrorsXML;
+
+        commonCulture.appData.getRootResource(PaymentType + "/Default.aspx", out xeDefaultResources);
 
         commonCulture.appData.getRootResource(PaymentType + "/" + PageName, out xeResources);
     }
