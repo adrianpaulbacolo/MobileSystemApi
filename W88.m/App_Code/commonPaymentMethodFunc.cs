@@ -31,24 +31,19 @@ public static class commonPaymentMethodFunc
     {
         HtmlGenericControl anchor;
         HtmlGenericControl list;
+
         switch (paymentCode)
         {
             case commonVariables.DepositMethod.FastDeposit:
 
-                list = new HtmlGenericControl("li");
-                list.ID = string.Format("d{0}", paymentCode);
+                list = CreateMethodListControl(paymentCode);
 
-                anchor = new HtmlGenericControl("a");
+                anchor = CreateMethodLinkControl(list.ID.ToString());
 
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/Default_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/Default.aspx");
-
-                anchor.Attributes.Add("class", "ui-link ui-btn");
-                anchor.Attributes.Add("data-ajax", "false");
-                commonCulture.ElementValues.getResourceXPathString("Products/ASports/Label", commonVariables.ProductsXML);
-                anchor.InnerText = commonCulture.ElementValues.getResourceString("fastdeposit", commonVariables.LeftMenuXML);
 
                 if (string.Compare(sourcePage, "default", true) == 0)
                 {
@@ -60,19 +55,14 @@ public static class commonPaymentMethodFunc
                 break;
 
             case commonVariables.DepositMethod.NextPay:
-                list = new HtmlGenericControl("li");
-                list.ID = string.Format("d{0}", paymentCode);
+                list = CreateMethodListControl(paymentCode);
 
-                anchor = new HtmlGenericControl("a");
+                anchor = CreateMethodLinkControl(list.ID.ToString());
 
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/NextPay_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/NextPay.aspx");
-
-                anchor.Attributes.Add("class", "ui-link ui-btn");
-                anchor.Attributes.Add("data-ajax", "false");
-                anchor.InnerText = commonCulture.ElementValues.getResourceString("nextpay", commonVariables.LeftMenuXML);
 
                 if (string.Compare(sourcePage, "nextpay", true) == 0)
                 {
@@ -84,19 +74,14 @@ public static class commonPaymentMethodFunc
                 break;
 
             case commonVariables.DepositMethod.WingMoney:
-                list = new HtmlGenericControl("li");
-                list.ID = string.Format("d{0}", paymentCode);
+                list = CreateMethodListControl(paymentCode);
 
-                anchor = new HtmlGenericControl("a");
+                anchor = CreateMethodLinkControl(list.ID.ToString());
 
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/WingMoney_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/WingMoney.aspx");
-
-                anchor.Attributes.Add("class", "ui-link ui-btn");
-                anchor.Attributes.Add("data-ajax", "false");
-                anchor.InnerText = commonCulture.ElementValues.getResourceString("wingmoney", commonVariables.LeftMenuXML);
 
                 if (string.Compare(sourcePage, "wingmoney", true) == 0)
                 {
@@ -108,20 +93,14 @@ public static class commonPaymentMethodFunc
                 break;
 
             case commonVariables.DepositMethod.SDPay:
-                list = new HtmlGenericControl("li");
-                list.ID = string.Format("d{0}", paymentCode);
+                list = CreateMethodListControl(paymentCode);
 
-
-                anchor = new HtmlGenericControl("a");
+                anchor = CreateMethodLinkControl(list.ID.ToString());
 
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/SDPay_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/SDPay.aspx");
-
-                anchor.Attributes.Add("class", "ui-link ui-btn");
-                anchor.Attributes.Add("data-ajax", "false");
-                anchor.InnerText = commonCulture.ElementValues.getResourceString("sdpay", commonVariables.LeftMenuXML);
 
                 if (string.Compare(sourcePage, "sdpay", true) == 0)
                 {
@@ -133,20 +112,14 @@ public static class commonPaymentMethodFunc
                 break;
 
             case commonVariables.DepositMethod.SDAPayAlipay:
-                list = new HtmlGenericControl("li");
-                list.ID = string.Format("d{0}", paymentCode);
+                list = CreateMethodListControl(paymentCode);
 
-
-                anchor = new HtmlGenericControl("a");
+                anchor = CreateMethodLinkControl(list.ID.ToString());
 
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/SDAPay_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/SDAPay.aspx");
-
-                anchor.Attributes.Add("class", "ui-link ui-btn");
-                anchor.Attributes.Add("data-ajax", "false");
-                anchor.InnerText = commonCulture.ElementValues.getResourceString("sdapay", commonVariables.LeftMenuXML);
 
                 if (string.Compare(sourcePage, "sdapay", true) == 0)
                 {
@@ -158,20 +131,15 @@ public static class commonPaymentMethodFunc
                 break;
 
             case commonVariables.DepositMethod.Help2Pay:
-                list = new HtmlGenericControl("li");
-                list.ID = string.Format("d{0}", paymentCode);
+                list = CreateMethodListControl(paymentCode);
 
-                anchor = new HtmlGenericControl("a");
+                anchor = CreateMethodLinkControl(list.ID.ToString());
 
                 if (isApp)
 
                     anchor.Attributes.Add("href", "/Deposit/Help2Pay_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/Help2Pay.aspx");
-
-                anchor.Attributes.Add("class", "ui-link ui-btn");
-                anchor.Attributes.Add("data-ajax", "false");
-                anchor.InnerText = commonCulture.ElementValues.getResourceString("help2pay", commonVariables.LeftMenuXML);
 
                 if (string.Compare(sourcePage, "help2pay", true) == 0)
                 {
@@ -183,19 +151,14 @@ public static class commonPaymentMethodFunc
                 break;
 
             case commonVariables.DepositMethod.DaddyPay:
-                list = new HtmlGenericControl("li");
-                list.ID = string.Format("d{0}", paymentCode);
+                list = CreateMethodListControl(paymentCode);
 
-                anchor = new HtmlGenericControl("a");
+                anchor = CreateMethodLinkControl(list.ID.ToString());
 
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/DaddyPay_app.aspx?value=1");
                 else
                     anchor.Attributes.Add("href", "/Deposit/DaddyPay.aspx?value=1");
-
-                anchor.Attributes.Add("class", "ui-link ui-btn");
-                anchor.Attributes.Add("data-ajax", "false");
-                anchor.InnerText = commonCulture.ElementValues.getResourceString("daddypay", commonVariables.LeftMenuXML);
 
                 if (string.Compare(sourcePage, "daddypay", true) == 0)
                 {
@@ -207,19 +170,15 @@ public static class commonPaymentMethodFunc
                 break;
 
             case commonVariables.DepositMethod.DaddyPayQR:
-                list = new HtmlGenericControl("li");
-                list.ID = string.Format("d{0}", paymentCode);
 
-                anchor = new HtmlGenericControl("a");
+                list = CreateMethodListControl(paymentCode);
+
+                anchor = CreateMethodLinkControl(list.ID.ToString());
 
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/DaddyPay_app.aspx?value=2");
                 else
                     anchor.Attributes.Add("href", "/Deposit/DaddyPay.aspx?value=2");
-
-                anchor.Attributes.Add("class", "ui-link ui-btn");
-                anchor.Attributes.Add("data-ajax", "false");
-                anchor.InnerText = commonCulture.ElementValues.getResourceString("daddypayqr", commonVariables.LeftMenuXML);
 
                 if (string.Compare(sourcePage, "daddypayqr", true) == 0)
                 {
@@ -231,19 +190,14 @@ public static class commonPaymentMethodFunc
                 break;
 
             case commonVariables.DepositMethod.Neteller:
-                list = new HtmlGenericControl("li");
-                list.ID = string.Format("d{0}", paymentCode);
+                list = CreateMethodListControl(paymentCode);
 
-                anchor = new HtmlGenericControl("a");
+                anchor = CreateMethodLinkControl(list.ID.ToString());
 
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/Neteller_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/Neteller.aspx");
-
-                anchor.Attributes.Add("class", "ui-link ui-btn");
-                anchor.Attributes.Add("data-ajax", "false");
-                anchor.InnerText = commonCulture.ElementValues.getResourceString("neteller", commonVariables.LeftMenuXML);
 
                 if (string.Compare(sourcePage, "neteller", true) == 0)
                 {
@@ -254,22 +208,17 @@ public static class commonPaymentMethodFunc
                 depositTabs.Controls.Add(list);
                 break;
 
-            case commonVariables.DepositMethod.ShengPay:
-                list = new HtmlGenericControl("li");
-                list.ID = string.Format("d{0}", paymentCode);
+            case commonVariables.DepositMethod.ECPSS:
+                list = CreateMethodListControl(paymentCode);
 
-                anchor = new HtmlGenericControl("a");
+                anchor = CreateMethodLinkControl(list.ID.ToString());
 
                 if (isApp)
-                    anchor.Attributes.Add("href", "/Deposit/ShengPay_app.aspx");
+                    anchor.Attributes.Add("href", "/Deposit/ECPSS_app.aspx");
                 else
-                    anchor.Attributes.Add("href", "/Deposit/ShengPay.aspx");
+                    anchor.Attributes.Add("href", "/Deposit/ECPSS.aspx");
 
-                anchor.Attributes.Add("class", "ui-link ui-btn");
-                anchor.Attributes.Add("data-ajax", "false");
-                anchor.InnerText = commonCulture.ElementValues.getResourceString("shengpay", commonVariables.LeftMenuXML);
-
-                if (string.Compare(sourcePage, "shengpay", true) == 0)
+                if (string.Compare(sourcePage, "ecpss", true) == 0)
                 {
                     anchor.Attributes.Add("class", "btn-primary");
                 }
@@ -281,6 +230,32 @@ public static class commonPaymentMethodFunc
             default:
                 break;
         }
+    }
+
+    private static HtmlGenericControl CreateMethodListControl(commonVariables.DepositMethod paymentCode)
+    {
+        HtmlGenericControl list = new HtmlGenericControl("li");
+        list.ID = string.Format("d{0}", paymentCode);
+
+        return list;
+    }
+
+    private static HtmlGenericControl CreateMethodListControl(commonVariables.WithdrawalMethod paymentCode)
+    {
+        HtmlGenericControl list = new HtmlGenericControl("li");
+        list.ID = string.Format("w{0}", paymentCode);
+
+        return list;
+    }
+
+    private static HtmlGenericControl CreateMethodLinkControl(string paymentId)
+    {
+        HtmlGenericControl anchor = new HtmlGenericControl("a");
+        anchor.Attributes.Add("class", "ui-link ui-btn");
+        anchor.Attributes.Add("data-ajax", "false");
+        anchor.InnerText = commonCulture.ElementValues.getResourceString(paymentId, commonVariables.PaymentMethodsXML);
+
+        return anchor;
     }
 
     public static void getWithdrawalMethodList(string methodsUnAvailable, HtmlGenericControl withdrawalTabs, string sourcePage, bool isApp)
@@ -308,19 +283,14 @@ public static class commonPaymentMethodFunc
         {
             case commonVariables.WithdrawalMethod.BankTransfer:
 
-                list = new HtmlGenericControl("li");
-                list.ID = string.Format("w{0}", paymentCode);
+                list = CreateMethodListControl(paymentCode);
 
-                anchor = new HtmlGenericControl("a");
+                anchor = CreateMethodLinkControl(list.ID.ToString());
 
                 if (isApp)
                     anchor.Attributes.Add("href", "/Withdrawal/BankTransfer_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Withdrawal/Default.aspx");
-
-                anchor.Attributes.Add("class", "ui-link ui-btn");
-                anchor.Attributes.Add("data-ajax", "false");
-                anchor.InnerText = commonCulture.ElementValues.getResourceString("banktransfer", commonVariables.LeftMenuXML);
 
                 if (string.Compare(sourcePage, "default", true) == 0)
                 {
@@ -332,19 +302,14 @@ public static class commonPaymentMethodFunc
                 break;
 
             case commonVariables.WithdrawalMethod.WingMoney:
-                list = new HtmlGenericControl("li");
-                list.ID = string.Format("w{0}", paymentCode);
+                list = CreateMethodListControl(paymentCode);
 
-                anchor = new HtmlGenericControl("a");
+                anchor = CreateMethodLinkControl(list.ID.ToString());
 
                 if (isApp)
                     anchor.Attributes.Add("href", "/Withdrawal/WingMoney_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Withdrawal/WingMoney.aspx");
-
-                anchor.Attributes.Add("class", "ui-link ui-btn");
-                anchor.Attributes.Add("data-ajax", "false");
-                anchor.InnerText = commonCulture.ElementValues.getResourceString("wingmoney", commonVariables.LeftMenuXML);
 
                 if (string.Compare(sourcePage, "wingmoney", true) == 0)
                 {
@@ -356,19 +321,13 @@ public static class commonPaymentMethodFunc
                 break;
 
             case commonVariables.WithdrawalMethod.Neteller:
-                list = new HtmlGenericControl("li");
-                list.ID = string.Format("w{0}", paymentCode);
+                list = CreateMethodListControl(paymentCode);
 
-                anchor = new HtmlGenericControl("a");
-
+                anchor = CreateMethodLinkControl(list.ID.ToString());
                 if (isApp)
                     anchor.Attributes.Add("href", "/Withdrawal/Neteller_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Withdrawal/Neteller.aspx");
-
-                anchor.Attributes.Add("class", "ui-link ui-btn");
-                anchor.Attributes.Add("data-ajax", "false");
-                anchor.InnerText = commonCulture.ElementValues.getResourceString("neteller", commonVariables.LeftMenuXML);
 
                 if (string.Compare(sourcePage, "neteller", true) == 0)
                 {

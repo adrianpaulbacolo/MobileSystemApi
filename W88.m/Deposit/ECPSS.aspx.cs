@@ -1,6 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Configuration;
+using System.Data;
 using System.Linq;
+using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
@@ -8,17 +13,17 @@ using System.Web.UI.WebControls;
 using System.Xml.Linq;
 
 
-public partial class Deposit_Help2Pay : PaymentBasePage
+public partial class Deposit_ECPSS : PaymentBasePage
 {
-    protected string strStatusCode = string.Empty;
     protected string strAlertCode = string.Empty;
     protected string strAlertMessage = string.Empty;
+    protected string strRedirectUrl = string.Empty;
 
     protected void Page_Init(object sender, EventArgs e)
     {
-        base.PageName = "ShengPay";
+        base.PageName = "ECPSS";
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
-        base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.ShengPay);
+        base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.ECPSS);
 
         base.CheckLogin();
         base.InitialiseVariables();
@@ -27,7 +32,7 @@ public partial class Deposit_Help2Pay : PaymentBasePage
 
         base.GetMainWalletBalance("0");
 
-        drpBank.Items.AddRange(base.InitializeBank("ShengPayBank").ToArray());
+        drpBank.Items.AddRange(base.InitializeBank("ECPSSBank").ToArray());
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -35,21 +40,26 @@ public partial class Deposit_Help2Pay : PaymentBasePage
         CancelUnexpectedRePost();
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "shengpay", sender.ToString().Contains("app"));
+        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "ecpss", sender.ToString().Contains("app"));
 
         if (!Page.IsPostBack)
         {
             this.InitializeLabels();
+
+            this.GetDummyURL();
         }
     }
 
-    private void InitializeLabels(){
+    private void InitializeLabels()
+    {
         lblMode.Text = base.lblMode;
         txtMode.Text = base.txtMode;
         lblMinMaxLimit.Text = base.lblMinMaxLimit;
         lblDailyLimit.Text = base.lblDailyLimit;
         lblTotalAllowed.Text = base.lblTotalAllowed;
         lblDepositAmount.Text = base.lblDepositAmount;
+        lblMessage.Text = base.lblMessage;
+        lblBank.Text = base.lblBank;
 
         btnSubmit.Text = base.btnSubmit;
         btnCancel.InnerText = base.btnCancel;
@@ -61,6 +71,16 @@ public partial class Deposit_Help2Pay : PaymentBasePage
         txtTotalAllowed.Text = base.txtTotalAllowed;
     }
 
+    private void GetDummyURL()
+    {
+        using (wsDummy.dummyWSSoapClient client = new wsDummy.dummyWSSoapClient())
+        {
+            DataSet result = client.DummyURLs(Convert.ToInt64(strOperatorId), Convert.ToInt64(base.PaymentMethodId), Convert.ToString(HttpContext.Current.Session["PaymentGroup"]));
+
+            this.strRedirectUrl = result.Tables[0].Rows.Count == 0 ? string.Empty : Convert.ToString(result.Tables[0].Rows[0]["redirectUrl"]);
+        }
+    }
+
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         if (IsPageRefresh)
@@ -70,14 +90,13 @@ public partial class Deposit_Help2Pay : PaymentBasePage
 
         string strDepositAmount = txtDepositAmount.Text.Trim();
         string selectedBank = drpBank.SelectedItem.Value;
-
+        
         decimal decDepositAmount = commonValidation.isDecimal(strDepositAmount) ? Convert.ToDecimal(strDepositAmount) : 0;
         decimal decMinLimit = Convert.ToDecimal(strMinLimit);
         decimal decMaxLimit = Convert.ToDecimal(strMaxLimit);
 
         if (!isProcessAbort)
         {
-
             try
             {
                 if (decDepositAmount == 0)
@@ -92,7 +111,7 @@ public partial class Deposit_Help2Pay : PaymentBasePage
                     strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/SelectBank", xeErrors);
                     isProcessAbort = true;
                 }
-                if (decDepositAmount < decMinLimit)
+                else if (decDepositAmount < decMinLimit)
                 {
                     strAlertCode = "-1";
                     strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/AmountMinLimit", xeErrors);
@@ -113,7 +132,31 @@ public partial class Deposit_Help2Pay : PaymentBasePage
 
                 if (!isProcessAbort)
                 {
-                    strAlertCode = "0";
+                    using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
+                    {
+                        xeResponse = client.createOnlineDepositTransactionV1(Convert.ToInt64(strOperatorId), Convert.ToInt64(strMemberID), strMemberCode, Convert.ToInt64(base.PaymentMethodId), strCurrencyCode, decDepositAmount, svcPayDeposit.DepositSource.Mobile, string.Empty);
+
+                        if (xeResponse == null)
+                        {
+                            strAlertCode = "-1";
+                            strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferFail", xeErrors);
+                        }
+                        else
+                        {
+                            bool isTransactionSuccessful = Convert.ToBoolean(commonCulture.ElementValues.getResourceString("result", xeResponse));
+                            string strTransferId = commonCulture.ElementValues.getResourceString("invId", xeResponse);
+
+                            if (isTransactionSuccessful)
+                            {
+                                strAlertCode = "0";
+                            }
+                            else
+                            {
+                                strAlertCode = "-1";
+                                strAlertMessage = string.Format("{0}\\n{1}", commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferFail", xeErrors), commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/error" + strTransferId, xeErrors));
+                            }
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -128,7 +171,7 @@ public partial class Deposit_Help2Pay : PaymentBasePage
                Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, drpBank.SelectedValue, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
 
             intProcessSerialId += 1;
-            commonAuditTrail.appendLog("system", PageName, "InitiateDeposit", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
+            commonAuditTrail.appendLog("system", PageName, "InitiateDeposit", string.Empty, strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
         }
     }
 }

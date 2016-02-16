@@ -46,6 +46,7 @@ public class PaymentBasePage : BasePage
     protected string strMethodsUnAvailable = string.Empty;
     protected string strMethodId = string.Empty;
 
+    protected string strMode = string.Empty;
     protected string strMinLimit = string.Empty;
     protected string strMaxLimit = string.Empty;
     protected string strTotalAllowed = string.Empty;
@@ -77,10 +78,12 @@ public class PaymentBasePage : BasePage
     /// Placeholder
     /// </summary>
     protected string txtDepositAmount = string.Empty;
-    protected string txtMinMaxLimit  = string.Empty;
+    protected string txtMinMaxLimit = string.Empty;
     protected string txtDailyLimit = string.Empty;
     protected string txtTotalAllowed = string.Empty;
+    protected string lblBank = string.Empty;
     private string drpBank = string.Empty;
+    protected string lblMessage = string.Empty;
 
     #endregion
 
@@ -110,29 +113,30 @@ public class PaymentBasePage : BasePage
         commonCulture.appData.getRootResource(PaymentType + "/Default.aspx", out xeDefaultResources);
 
         commonCulture.appData.getRootResource(PaymentType + "/" + PageName, out xeResources);
-
-        InitialiseLabels(xeDefaultResources);
     }
 
-    private void InitialiseLabels(XElement xeDefaultResources)
+    protected void InitialiseLabels()
     {
         lblMode = commonCulture.ElementValues.getResourceString("lblMode", xeDefaultResources);
-        txtMode = string.Format(": {0}", commonCulture.ElementValues.getResourceString("txtMode", xeDefaultResources));
         lblMinMaxLimit = commonCulture.ElementValues.getResourceString("lblMinMaxLimit", xeDefaultResources);
         lblDailyLimit = commonCulture.ElementValues.getResourceString("lblDailyLimit", xeDefaultResources);
         lblTotalAllowed = commonCulture.ElementValues.getResourceString("lblTotalAllowed", xeDefaultResources);
         lblDepositAmount = commonCulture.ElementValues.getResourceString("lblDepositAmount", xeDefaultResources);
-
+        lblBank = commonCulture.ElementValues.getResourceString("lblBank", xeDefaultResources);
         btnSubmit = commonCulture.ElementValues.getResourceString("btnSubmit", xeDefaultResources);
         btnCancel = commonCulture.ElementValues.getResourceString("btnCancel", xeDefaultResources);
 
-        txtDepositAmount = string.Format("{0} ({1})", lblDepositAmount, strCurrencyCode);
+        strMode = strMode.Equals("offline", StringComparison.OrdinalIgnoreCase) ? commonCulture.ElementValues.getResourceString("offline", xeDefaultResources) : commonCulture.ElementValues.getResourceString("online", xeDefaultResources);
 
+        txtDepositAmount = string.Format("{0} ({1})", lblDepositAmount, strCurrencyCode);
+        txtMode = string.Format(": {0}", strMode);
         txtMinMaxLimit = string.Format(": {0} / {1}", strMinLimit, strMaxLimit);
         txtDailyLimit = string.Format(": {0}", strDailyLimit);
         txtTotalAllowed = string.Format(": {0}", strTotalAllowed);
 
         drpBank = commonCulture.ElementValues.getResourceString("drpBank", xeDefaultResources);
+
+        lblMessage = commonCulture.ElementValues.getResourceString("browserNotice", xeDefaultResources);
     }
 
     protected void CancelUnexpectedRePost()
@@ -171,6 +175,8 @@ public class PaymentBasePage : BasePage
             InitialiseDepositPaymentLimits();
         else
             InitialiseWithdrawalPaymentLimits();
+
+        InitialiseLabels();
     }
 
     private void InitialiseDepositPaymentLimits()
@@ -209,6 +215,7 @@ public class PaymentBasePage : BasePage
             strTotalAllowed = Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]) <= 0 ? commonCulture.ElementValues.getResourceString("unlimited", xeResources) : Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]).ToString(commonVariables.DecimalFormat);
             strDailyLimit = Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]) == 0 ? commonCulture.ElementValues.getResourceString("unlimited", xeResources) : Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]).ToString(commonVariables.DecimalFormat);
             strMerchantId = Convert.ToString(drPaymentMethodLimit["merchantId"]);
+            strMode = Convert.ToString(drPaymentMethodLimit["paymentMode"]);
         }
 
         strMethodsUnAvailable = Convert.ToString(sbMethodsUnavailable).TrimEnd('|');
@@ -306,7 +313,11 @@ public class PaymentBasePage : BasePage
             XElement xElementBankPath = xElementBank.Element(commonVariables.GetSessionVariable("CurrencyCode"));
 
             if (xElementBankPath == null)
+            {
                 banks.AddRange(xElementBank.Elements("bank").Select(bank => new ListItem(bank.Value, bank.Attribute("id").Value)));
+
+                lblMessage = lblMessage.Replace("{BANK}", string.Join(", ", banks.Where(b => b.Text.Contains("*")).Select(b => b.Value)));
+            }
             else
                 banks.AddRange(xElementBankPath.Elements("bank").Select(bank => new ListItem(bank.Value, bank.Attribute("id").Value)));
         }

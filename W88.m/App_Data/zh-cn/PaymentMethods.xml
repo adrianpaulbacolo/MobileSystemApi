@@ -1,22 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <PaymentMethods>
-	<d110101><![CDATA[银行汇款]]></d110101>
-	<d110308><![CDATA[Wing Money]]></d110308>
-	<d120203><![CDATA[闪易存]]></d120203>
-	<d120204><![CDATA[Next Pay]]></d120204>
-	<d120206><![CDATA[直易存]]></d120206>
-	<d120207><![CDATA[直易存]]></d120207>
-	<d120214><![CDATA[Neteller]]></d120214>
-	<d120223><![CDATA[银联支付]]></d120223>
-	<d120227><![CDATA[快速支付]]></d120227>
-	<d120243><![CDATA[快捷支付]]></d120243>
-	<d120244><![CDATA[QR Code Payment]]></d120244>
-	<d120254><![CDATA[支付宝]]></d120254>
-	
-	<w210602><![CDATA[银行汇款]]></w210602>
-	<w210709><![CDATA[Wing Money]]></w210709>
-	<w220815><![CDATA[Neteller]]></w220815>
+	<dFastDeposit><![CDATA[银行汇款]]></dFastDeposit>
+	<dWingMoney><![CDATA[Wing Money]]></dWingMoney>
+	<dSDAPay><![CDATA[闪易存]]></dSDAPay>
+	<dNextPay><![CDATA[Next Pay]]></dNextPay>
+	<dBill99><![CDATA[直易存]]></dBill99>
+	<dIPS><![CDATA[直易存]]></dIPS>
+	<dNeteller><![CDATA[Neteller]]></dNeteller>
+	<dECPSS><![CDATA[第三方在线支付B]]></dECPSS>
+	<dSDPay><![CDATA[银联支付]]></dSDPay>
+	<dHelp2Pay><![CDATA[快速支付]]></dHelp2Pay>
+	<dDaddyPay><![CDATA[快捷支付]]></dDaddyPay>
+	<dDaddyPayQR><![CDATA[QR Code Payment]]></dDaddyPayQR>
+	<dSDAPayAlipay><![CDATA[支付宝]]></dSDAPayAlipay>
 
-	<online><![CDATA[在线]]></online>
-	<offline><![CDATA[线下]]></offline>
+	<wBankTransfer><![CDATA[银行汇款]]></wBankTransfer>
+	<wWingMoney><![CDATA[Wing Money]]></wWingMoney>
+	<wNeteller><![CDATA[Neteller]]></wNeteller>
 </PaymentMethods>

@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Deposit>
 	<lblMode><![CDATA[Mode]]></lblMode>
-	<txtMode><![CDATA[Online]]></txtMode>
+	<online><![CDATA[Online]]></online>
+	<offline><![CDATA[Offline]]></offline>
 	<lblMinMaxLimit><![CDATA[Min/Max Limit]]></lblMinMaxLimit>
 	<lblDailyLimit><![CDATA[Daily Limit: ]]></lblDailyLimit>
 	<lblTotalAllowed><![CDATA[Total Allowed: ]]></lblTotalAllowed>
@@ -23,9 +24,12 @@
 	<drpBank><![CDATA[Select Bank]]></drpBank>
 	<lblBankName><![CDATA[Your Bank Name]]></lblBankName>
 	<drpOtherBank><![CDATA[Other Bank]]></drpOtherBank>
+	
 	<lblAccountName><![CDATA[Your Account Name]]></lblAccountName>
 	<lblAccountNumber><![CDATA[Your Account Number]]></lblAccountNumber>
 	
 	<btnCancel><![CDATA[CANCEL]]></btnCancel>
 	<btnSubmit><![CDATA[SUBMIT]]></btnSubmit>
+
+	<browserNotice><![CDATA[<span>Gentle reminder: <b>{BANK}</b> do not support chrome & firefox</span>]]></browserNotice>
 </Deposit>

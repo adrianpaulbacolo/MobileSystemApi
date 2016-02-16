@@ -1,55 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Deposit>
-  <lblTitle><![CDATA[最速の入金]]></lblTitle>
-  <lblDepositAmount><![CDATA[入金金額]]></lblDepositAmount>
-  <lblReferenceId><![CDATA[レファレンスID]]></lblReferenceId>
-  <lblSystemAccount><![CDATA[システムアカウント]]></lblSystemAccount>
-  <drpSystemAccount><![CDATA[システムアカウントを選択してください]]></drpSystemAccount>
-  <drpDepositDateTime><![CDATA[入金日付/時間]]></drpDepositDateTime>
-  <lblDepositChannel><![CDATA[入金キャンセル]]></lblDepositChannel>
-  <drpDepositChannel><![CDATA[キャンセルする入金を選択してください]]></drpDepositChannel>
-  <lblBank><![CDATA[銀行]]></lblBank>
-  <drpBank><![CDATA[銀行を選択してください]]></drpBank>
-  <lblBankName><![CDATA[お客様の銀行名]]></lblBankName>
-  <drpOtherBank><![CDATA[その他銀行]]></drpOtherBank>
-  <lblAccountName><![CDATA[お客様アカウント名]]></lblAccountName>
-  <lblAccountNumber><![CDATA[お客様アカウント番号]]></lblAccountNumber>
-  <btnSubmit><![CDATA[転送]]></btnSubmit>
-  <lblTransactionId><![CDATA[トランザクションID]]></lblTransactionId>
-  <lblDailyLimit><![CDATA[日々制限：]]></lblDailyLimit>
-  <lblTotalAllowed><![CDATA[合計許可：]]></lblTotalAllowed>
-  <unlimited><![CDATA[制限無し]]></unlimited>
-  
-  <DepositChannel>
-    <ATM><![CDATA[ATM]]></ATM>
-    <iBanking><![CDATA[Iバンキング]]></iBanking>
-    <mBanking><![CDATA[Mバンキング]]></mBanking>
-    <cBanking><![CDATA[Cバンキング]]></cBanking>
-    <CDM><![CDATA[CDM]]></CDM>
-  </DepositChannel>
+	<lblMode><![CDATA[モード]]></lblMode>
+	<online><![CDATA[オンライン]]></online>
+	<offline><![CDATA[オフライン]]></offline>
+	<lblMinMaxLimit><![CDATA[最小/最高リミット]]></lblMinMaxLimit>
+	<lblDailyLimit><![CDATA[日々制限：]]></lblDailyLimit>
+	<lblTotalAllowed><![CDATA[合計許可：]]></lblTotalAllowed>
+	<lblDepositAmount><![CDATA[入金金額]]></lblDepositAmount>
+	<unlimited><![CDATA[制限無し]]></unlimited>
+	
+	<lblTransactionId><![CDATA[トランザクションID]]></lblTransactionId>
+	<lblReferenceId><![CDATA[レファレンスID]]></lblReferenceId>
+	
+	<lblSystemAccount><![CDATA[システムアカウント]]></lblSystemAccount>
+	<drpSystemAccount><![CDATA[システムアカウントを選択してください]]></drpSystemAccount>
+	
+	<drpDepositDateTime><![CDATA[入金日付/時間]]></drpDepositDateTime>
+	
+	<lblDepositChannel><![CDATA[入金キャンセル]]></lblDepositChannel>
+	<drpDepositChannel><![CDATA[キャンセルする入金を選択してください]]></drpDepositChannel>
+	
+	<lblBank><![CDATA[銀行]]></lblBank>
+	<drpBank><![CDATA[銀行を選択してください]]></drpBank>
+	<lblBankName><![CDATA[お客様の銀行名]]></lblBankName>
+	<drpOtherBank><![CDATA[その他銀行]]></drpOtherBank>
+	
+	<lblAccountName><![CDATA[お客様アカウント名]]></lblAccountName>
+	<lblAccountNumber><![CDATA[お客様アカウント番号]]></lblAccountNumber>
 
-  <BankNameNative>
-    <ZH-CN_RMB />
-    <VI-VN_VND />
-    <TH-TH_THB />
-    <ID-ID_IDR />
-    <KM-KH_USD />
-    <KO-KR_KRW />
-    <JA-JP_JPY />
-  </BankNameNative>
+	<btnCancel><![CDATA[キャンセル]]></btnCancel>
+	<btnSubmit><![CDATA[転送]]></btnSubmit>
 
-  <Calendar>
-    <m1><![CDATA[１月]]></m1>
-    <m2><![CDATA[２月]]></m2>
-    <m3><![CDATA[３月]]></m3>
-    <m4><![CDATA[４月]]></m4>
-    <m5><![CDATA[５月]]></m5>
-    <m6><![CDATA[６月]]></m6>
-    <m7><![CDATA[７月]]></m7>
-    <m8><![CDATA[８月]]></m8>
-    <m9><![CDATA[９月]]></m9>
-    <m10><![CDATA[１０月]]></m10>
-    <m11><![CDATA[１１月]]></m11>
-    <m12><![CDATA[１２月]]></m12>
-  </Calendar>
+	<browserNotice><![CDATA[<span>覚書: <b>{BANK}</b> クロームとファイアフォックスはサポートしていません</span>]]></browserNotice>
 </Deposit>

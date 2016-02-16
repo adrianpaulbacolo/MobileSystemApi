@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<banks>
+	<bank id="ICBC"><![CDATA[ICBC (*)]]></bank>
+	<bank id="ABC"><![CDATA[ABC]]></bank>
+	<bank id="BOCSH"><![CDATA[BOCSH]]></bank>
+	<bank id="CCB"><![CDATA[CCB]]></bank>
+	<bank id="CMB"><![CDATA[CMB]]></bank>
+	<bank id="SPDB"><![CDATA[SPDB]]></bank>
+	<bank id="GDB"><![CDATA[GDB]]></bank>
+	<bank id="BOCOM"><![CDATA[BOCOM]]></bank>
+	<!--<bank id="PSBC"><![CDATA[PSBC]]></bank>-->
+	<bank id="CNCB"><![CDATA[CNCB (*)]]></bank>
+	<bank id="CMBC"><![CDATA[CMBC]]></bank>
+	<!--<bank id="CEB"><![CDATA[CEB]]></bank>-->
+	<bank id="HXB"><![CDATA[HXB]]></bank>
+	<bank id="CIB"><![CDATA[CIB]]></bank>
+	<bank id="BOS"><![CDATA[BOS]]></bank>
+	<!--<bank id="SRCB"><![CDATA[SRCB]]></bank>-->
+	<bank id="PAB"><![CDATA[PAB]]></bank>
+	<bank id="BCCB"><![CDATA[BCCB]]></bank>
+	<!--<bank id="BOC"><![CDATA[BOC]]></bank>-->
+	<!--<bank id="NOCARD"><![CDATA[NOCARD]]></bank>-->
+	<!--<bank id="UNIONPAY"><![CDATA[UNIONPAY]]></bank>-->
+</banks>

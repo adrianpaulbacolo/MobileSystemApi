@@ -1,22 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <PaymentMethods>
-	<d110101><![CDATA[ផ្ទេរប្រាក់តាមធនាគារ]]></d110101>
-	<d110308><![CDATA[Wing Money]]></d110308>
-	<d120203><![CDATA[SDA Pay]]></d120203>
-	<d120204><![CDATA[Next Pay]]></d120204>
-	<d120206><![CDATA[Online Deposit]]></d120206>
-	<d120207><![CDATA[Online Deposit]]></d120207>
-	<d120214><![CDATA[Neteller]]></d120214>
-	<d120223><![CDATA[Union Pay]]></d120223>
-	<d120227><![CDATA[ប្រាក់បៀវត្សរ៍រហ័ស]]></d120227>
-	<d120243><![CDATA[រហ័សអនឡាញ]]></d120243>
-	<d120244><![CDATA[QR Code Payment]]></d120244>
-	<d120254><![CDATA[Alipay Transfer]]></d120254>
+	<dFastDeposit><![CDATA[ផ្ទេរប្រាក់តាមធនាគារ]]></dFastDeposit>
+	<dWingMoney><![CDATA[Wing Money]]></dWingMoney>
+	<dSDAPay><![CDATA[SDA Pay]]></dSDAPay>
+	<dNextPay><![CDATA[Next Pay]]></dNextPay>
+	<dBill99><![CDATA[Online Deposit]]></dBill99>
+	<dIPS><![CDATA[Online Deposit]]></dIPS>
+	<dNeteller><![CDATA[Neteller]]></dNeteller>
+	<dECPSS><![CDATA[រហ័សអនឡាញ]]></dECPSS>
+	<dSDPay><![CDATA[Union Pay]]></dSDPay>
+	<dHelp2Pay><![CDATA[ប្រាក់បៀវត្សរ៍រហ័ស]]></dHelp2Pay>
+	<dDaddyPay><![CDATA[រហ័សអនឡាញ]]></dDaddyPay>
+	<dDaddyPayQR><![CDATA[QR Code Payment]]></dDaddyPayQR>
+	<dSDAPayAlipay><![CDATA[Alipay Transfer]]></dSDAPayAlipay>
 
-	<w210602><![CDATA[ផ្ទេរប្រាក់តាមធនាគារ]]></w210602>
-	<w210709><![CDATA[Wing Money]]></w210709>
-	<w220815><![CDATA[Neteller]]></w220815>
-
-	<online><![CDATA[អនឡាញ]]></online>
-	<offline><![CDATA[មិនអនឡាញ]]></offline>
+	<wBankTransfer><![CDATA[ផ្ទេរប្រាក់តាមធនាគារ]]></wBankTransfer>
+	<wWingMoney><![CDATA[Wing Money]]></wWingMoney>
+	<wNeteller><![CDATA[Neteller]]></wNeteller>
 </PaymentMethods>
