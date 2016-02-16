@@ -66,24 +66,21 @@ public class PaymentBasePage : BasePage
 
     #region Labels
 
-    protected string lblMode = string.Empty;
-    protected string txtMode = string.Empty;
-    protected string lblMinMaxLimit = string.Empty;
-    protected string lblDailyLimit = string.Empty;
-    protected string lblTotalAllowed = string.Empty;
-    protected string lblDepositAmount = string.Empty;
-    protected string btnSubmit = string.Empty;
-    protected string btnCancel = string.Empty;
-    /// <summary>
-    /// Placeholder
-    /// </summary>
-    protected string txtDepositAmount = string.Empty;
-    protected string txtMinMaxLimit = string.Empty;
-    protected string txtDailyLimit = string.Empty;
-    protected string txtTotalAllowed = string.Empty;
-    protected string lblBank = string.Empty;
+    protected string strlblMode = string.Empty;
+    protected string strtxtMode = string.Empty;
+    protected string strlblMinMaxLimit = string.Empty;
+    protected string strlblDailyLimit = string.Empty;
+    protected string strlblTotalAllowed = string.Empty;
+    protected string strlblDepositAmount = string.Empty;
+    protected string strbtnSubmit = string.Empty;
+    protected string strbtnCancel = string.Empty;
+    protected string strtxtDepositAmount = string.Empty;
+    protected string strtxtMinMaxLimit = string.Empty;
+    protected string strtxtDailyLimit = string.Empty;
+    protected string strtxtTotalAllowed = string.Empty;
+    protected string strlblBank = string.Empty;
     private string drpBank = string.Empty;
-    protected string lblMessage = string.Empty;
+    protected string strlblMessage = string.Empty;
 
     #endregion
 
@@ -117,26 +114,26 @@ public class PaymentBasePage : BasePage
 
     protected void InitialiseLabels()
     {
-        lblMode = commonCulture.ElementValues.getResourceString("lblMode", xeDefaultResources);
-        lblMinMaxLimit = commonCulture.ElementValues.getResourceString("lblMinMaxLimit", xeDefaultResources);
-        lblDailyLimit = commonCulture.ElementValues.getResourceString("lblDailyLimit", xeDefaultResources);
-        lblTotalAllowed = commonCulture.ElementValues.getResourceString("lblTotalAllowed", xeDefaultResources);
-        lblDepositAmount = commonCulture.ElementValues.getResourceString("lblDepositAmount", xeDefaultResources);
-        lblBank = commonCulture.ElementValues.getResourceString("lblBank", xeDefaultResources);
-        btnSubmit = commonCulture.ElementValues.getResourceString("btnSubmit", xeDefaultResources);
-        btnCancel = commonCulture.ElementValues.getResourceString("btnCancel", xeDefaultResources);
+        strlblMode = commonCulture.ElementValues.getResourceString("lblMode", xeDefaultResources);
+        strlblMinMaxLimit = commonCulture.ElementValues.getResourceString("lblMinMaxLimit", xeDefaultResources);
+        strlblDailyLimit = commonCulture.ElementValues.getResourceString("lblDailyLimit", xeDefaultResources);
+        strlblTotalAllowed = commonCulture.ElementValues.getResourceString("lblTotalAllowed", xeDefaultResources);
+        strlblDepositAmount = commonCulture.ElementValues.getResourceString("lblDepositAmount", xeDefaultResources);
+        strlblBank = commonCulture.ElementValues.getResourceString("lblBank", xeDefaultResources);
+        strbtnSubmit = commonCulture.ElementValues.getResourceString("btnSubmit", xeDefaultResources);
+        strbtnCancel = commonCulture.ElementValues.getResourceString("btnCancel", xeDefaultResources);
 
         strMode = strMode.Equals("offline", StringComparison.OrdinalIgnoreCase) ? commonCulture.ElementValues.getResourceString("offline", xeDefaultResources) : commonCulture.ElementValues.getResourceString("online", xeDefaultResources);
 
-        txtDepositAmount = string.Format("{0} ({1})", lblDepositAmount, strCurrencyCode);
-        txtMode = string.Format(": {0}", strMode);
-        txtMinMaxLimit = string.Format(": {0} / {1}", strMinLimit, strMaxLimit);
-        txtDailyLimit = string.Format(": {0}", strDailyLimit);
-        txtTotalAllowed = string.Format(": {0}", strTotalAllowed);
+        strtxtDepositAmount = string.Format("{0} ({1})", strlblDepositAmount, strCurrencyCode);
+        strtxtMode = string.Format(": {0}", strMode);
+        strtxtMinMaxLimit = string.Format(": {0} / {1}", strMinLimit, strMaxLimit);
+        strtxtDailyLimit = string.Format(": {0}", strDailyLimit);
+        strtxtTotalAllowed = string.Format(": {0}", strTotalAllowed);
 
         drpBank = commonCulture.ElementValues.getResourceString("drpBank", xeDefaultResources);
 
-        lblMessage = commonCulture.ElementValues.getResourceString("browserNotice", xeDefaultResources);
+        strlblMessage = commonCulture.ElementValues.getResourceString("browserNotice", xeDefaultResources);
     }
 
     protected void CancelUnexpectedRePost()
@@ -316,7 +313,7 @@ public class PaymentBasePage : BasePage
             {
                 banks.AddRange(xElementBank.Elements("bank").Select(bank => new ListItem(bank.Value, bank.Attribute("id").Value)));
 
-                lblMessage = lblMessage.Replace("{BANK}", string.Join(", ", banks.Where(b => b.Text.Contains("*")).Select(b => b.Value)));
+                strlblMessage = strlblMessage.Replace("{BANK}", string.Join(", ", banks.Where(b => b.Text.Contains("*")).Select(b => b.Value)));
             }
             else
                 banks.AddRange(xElementBankPath.Elements("bank").Select(bank => new ListItem(bank.Value, bank.Attribute("id").Value)));

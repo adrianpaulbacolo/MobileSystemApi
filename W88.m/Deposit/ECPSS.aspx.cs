@@ -52,23 +52,22 @@ public partial class Deposit_ECPSS : PaymentBasePage
 
     private void InitializeLabels()
     {
-        lblMode.Text = base.lblMode;
-        txtMode.Text = base.txtMode;
-        lblMinMaxLimit.Text = base.lblMinMaxLimit;
-        lblDailyLimit.Text = base.lblDailyLimit;
-        lblTotalAllowed.Text = base.lblTotalAllowed;
-        lblDepositAmount.Text = base.lblDepositAmount;
-        lblMessage.Text = base.lblMessage;
-        lblBank.Text = base.lblBank;
+        lblMode.Text = base.strlblMode;
+        txtMode.Text = base.strtxtMode;
+        lblMinMaxLimit.Text = base.strlblMinMaxLimit;
+        lblDailyLimit.Text = base.strlblDailyLimit;
+        lblTotalAllowed.Text = base.strlblTotalAllowed;
+        lblDepositAmount.Text = base.strlblDepositAmount;
+        lblMessage.Text = base.strlblMessage;
+        lblBank.Text = base.strlblBank;
 
-        btnSubmit.Text = base.btnSubmit;
-        btnCancel.InnerText = base.btnCancel;
+        btnSubmit.Text = base.strbtnSubmit;
 
-        txtDepositAmount.Attributes.Add("PLACEHOLDER", base.txtDepositAmount);
+        txtDepositAmount.Attributes.Add("PLACEHOLDER", base.strtxtDepositAmount);
 
-        txtMinMaxLimit.Text = base.txtMinMaxLimit;
-        txtDailyLimit.Text = base.txtDailyLimit;
-        txtTotalAllowed.Text = base.txtTotalAllowed;
+        txtMinMaxLimit.Text = base.strtxtMinMaxLimit;
+        txtDailyLimit.Text = base.strtxtDailyLimit;
+        txtTotalAllowed.Text = base.strtxtTotalAllowed;
     }
 
     private void GetDummyURL()
