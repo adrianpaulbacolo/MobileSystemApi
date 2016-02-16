@@ -89,7 +89,7 @@ public partial class Deposit_ECPSS : PaymentBasePage
 
         string strDepositAmount = txtDepositAmount.Text.Trim();
         string selectedBank = drpBank.SelectedItem.Value;
-        
+
         decimal decDepositAmount = commonValidation.isDecimal(strDepositAmount) ? Convert.ToDecimal(strDepositAmount) : 0;
         decimal decMinLimit = Convert.ToDecimal(strMinLimit);
         decimal decMaxLimit = Convert.ToDecimal(strMaxLimit);
@@ -131,31 +131,7 @@ public partial class Deposit_ECPSS : PaymentBasePage
 
                 if (!isProcessAbort)
                 {
-                    using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
-                    {
-                        xeResponse = client.createOnlineDepositTransactionV1(Convert.ToInt64(strOperatorId), Convert.ToInt64(strMemberID), strMemberCode, Convert.ToInt64(base.PaymentMethodId), strCurrencyCode, decDepositAmount, svcPayDeposit.DepositSource.Mobile, string.Empty);
-
-                        if (xeResponse == null)
-                        {
-                            strAlertCode = "-1";
-                            strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferFail", xeErrors);
-                        }
-                        else
-                        {
-                            bool isTransactionSuccessful = Convert.ToBoolean(commonCulture.ElementValues.getResourceString("result", xeResponse));
-                            string strTransferId = commonCulture.ElementValues.getResourceString("invId", xeResponse);
-
-                            if (isTransactionSuccessful)
-                            {
-                                strAlertCode = "0";
-                            }
-                            else
-                            {
-                                strAlertCode = "-1";
-                                strAlertMessage = string.Format("{0}\\n{1}", commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferFail", xeErrors), commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/error" + strTransferId, xeErrors));
-                            }
-                        }
-                    }
+                    strAlertCode = "0";
                 }
             }
             catch (Exception ex)
