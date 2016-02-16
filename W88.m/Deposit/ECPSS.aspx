@@ -99,13 +99,11 @@
                             break;
 
                         case '0':
-                            alert('<%=strAlertMessage%>');
-
-                            var cookie = '<%=HttpUtility.UrlEncode(commonEncryption.encrypting(commonCookie.CookieS))%>';
-                            var remote_ip = '<%=HttpUtility.UrlEncode(commonEncryption.encrypting(commonIp.remoteIP))%>';
+                            var cookie = '<%=HttpUtility.UrlEncode(commonEncryption.encrypting(HttpUtility.UrlEncode(commonCookie.CookieS),ConfigurationManager.AppSettings["PaymentPrivateKey"]))%>';
+                            var remote_ip = '<%=HttpUtility.UrlEncode(commonEncryption.encrypting(commonIp.remoteIP,ConfigurationManager.AppSettings["PaymentPrivateKey"]))%>';
                             var domain = '<%=strRedirectUrl%>';
 
-                            var url = domain + "api/ECPSSHandler.ashx?requestAmount=" + $("#txtDepositAmount").val() + "&bankCode=" + $("#ddlBank").val() + "&cookie=" + cookie + "&ip=" + remote_ip;
+                            var url = domain + "api/ECPSSHandler.ashx?requestAmount=" + $("#txtDepositAmount").val() + "&bankCode=" + $("#drpBank").val() + "&cookie=" + cookie + "&ip=" + remote_ip;
 
                             window.open(url);
 

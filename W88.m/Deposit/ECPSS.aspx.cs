@@ -33,6 +33,8 @@ public partial class Deposit_ECPSS : PaymentBasePage
         base.GetMainWalletBalance("0");
 
         drpBank.Items.AddRange(base.InitializeBank("ECPSSBank").ToArray());
+
+        this.GetDummyURL();
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -45,8 +47,6 @@ public partial class Deposit_ECPSS : PaymentBasePage
         if (!Page.IsPostBack)
         {
             this.InitializeLabels();
-
-            this.GetDummyURL();
         }
     }
 
