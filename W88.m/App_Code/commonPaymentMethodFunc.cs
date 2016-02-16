@@ -38,17 +38,12 @@ public static class commonPaymentMethodFunc
 
                 list = CreateMethodListControl(paymentCode);
 
-                anchor = CreateMethodLinkControl(list.ID.ToString());
+                anchor = CreateMethodLinkControl(list.ID.ToString(), paymentCode.ToString(), sourcePage);
 
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/Default_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/Default.aspx");
-
-                if (string.Compare(sourcePage, "default", true) == 0)
-                {
-                    anchor.Attributes.Add("class", "btn-primary");
-                }
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
@@ -57,17 +52,12 @@ public static class commonPaymentMethodFunc
             case commonVariables.DepositMethod.NextPay:
                 list = CreateMethodListControl(paymentCode);
 
-                anchor = CreateMethodLinkControl(list.ID.ToString());
+                anchor = CreateMethodLinkControl(list.ID.ToString(), paymentCode.ToString(), sourcePage);
 
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/NextPay_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/NextPay.aspx");
-
-                if (string.Compare(sourcePage, "nextpay", true) == 0)
-                {
-                    anchor.Attributes.Add("class", "btn-primary");
-                }
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
@@ -76,17 +66,12 @@ public static class commonPaymentMethodFunc
             case commonVariables.DepositMethod.WingMoney:
                 list = CreateMethodListControl(paymentCode);
 
-                anchor = CreateMethodLinkControl(list.ID.ToString());
+                anchor = CreateMethodLinkControl(list.ID.ToString(), paymentCode.ToString(), sourcePage);
 
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/WingMoney_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/WingMoney.aspx");
-
-                if (string.Compare(sourcePage, "wingmoney", true) == 0)
-                {
-                    anchor.Attributes.Add("class", "btn-primary");
-                }
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
@@ -95,17 +80,12 @@ public static class commonPaymentMethodFunc
             case commonVariables.DepositMethod.SDPay:
                 list = CreateMethodListControl(paymentCode);
 
-                anchor = CreateMethodLinkControl(list.ID.ToString());
+                anchor = CreateMethodLinkControl(list.ID.ToString(), paymentCode.ToString(), sourcePage);
 
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/SDPay_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/SDPay.aspx");
-
-                if (string.Compare(sourcePage, "sdpay", true) == 0)
-                {
-                    anchor.Attributes.Add("class", "btn-primary");
-                }
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
@@ -114,17 +94,12 @@ public static class commonPaymentMethodFunc
             case commonVariables.DepositMethod.SDAPayAlipay:
                 list = CreateMethodListControl(paymentCode);
 
-                anchor = CreateMethodLinkControl(list.ID.ToString());
+                anchor = CreateMethodLinkControl(list.ID.ToString(), paymentCode.ToString(), sourcePage);
 
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/SDAPay_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/SDAPay.aspx");
-
-                if (string.Compare(sourcePage, "sdapay", true) == 0)
-                {
-                    anchor.Attributes.Add("class", "btn-primary");
-                }
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
@@ -133,18 +108,13 @@ public static class commonPaymentMethodFunc
             case commonVariables.DepositMethod.Help2Pay:
                 list = CreateMethodListControl(paymentCode);
 
-                anchor = CreateMethodLinkControl(list.ID.ToString());
+                anchor = CreateMethodLinkControl(list.ID.ToString(), paymentCode.ToString(), sourcePage);
 
                 if (isApp)
 
                     anchor.Attributes.Add("href", "/Deposit/Help2Pay_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/Help2Pay.aspx");
-
-                if (string.Compare(sourcePage, "help2pay", true) == 0)
-                {
-                    anchor.Attributes.Add("class", "btn-primary");
-                }
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
@@ -153,17 +123,12 @@ public static class commonPaymentMethodFunc
             case commonVariables.DepositMethod.DaddyPay:
                 list = CreateMethodListControl(paymentCode);
 
-                anchor = CreateMethodLinkControl(list.ID.ToString());
+                anchor = CreateMethodLinkControl(list.ID.ToString(), paymentCode.ToString(), sourcePage);
 
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/DaddyPay_app.aspx?value=1");
                 else
                     anchor.Attributes.Add("href", "/Deposit/DaddyPay.aspx?value=1");
-
-                if (string.Compare(sourcePage, "daddypay", true) == 0)
-                {
-                    anchor.Attributes.Add("class", "btn-primary");
-                }
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
@@ -173,17 +138,12 @@ public static class commonPaymentMethodFunc
 
                 list = CreateMethodListControl(paymentCode);
 
-                anchor = CreateMethodLinkControl(list.ID.ToString());
+                anchor = CreateMethodLinkControl(list.ID.ToString(), paymentCode.ToString(), sourcePage);
 
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/DaddyPay_app.aspx?value=2");
                 else
                     anchor.Attributes.Add("href", "/Deposit/DaddyPay.aspx?value=2");
-
-                if (string.Compare(sourcePage, "daddypayqr", true) == 0)
-                {
-                    anchor.Attributes.Add("class", "btn-primary");
-                }
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
@@ -192,17 +152,12 @@ public static class commonPaymentMethodFunc
             case commonVariables.DepositMethod.Neteller:
                 list = CreateMethodListControl(paymentCode);
 
-                anchor = CreateMethodLinkControl(list.ID.ToString());
+                anchor = CreateMethodLinkControl(list.ID.ToString(), paymentCode.ToString(), sourcePage);
 
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/Neteller_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/Neteller.aspx");
-
-                if (string.Compare(sourcePage, "neteller", true) == 0)
-                {
-                    anchor.Attributes.Add("class", "btn-primary");
-                }
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
@@ -211,17 +166,12 @@ public static class commonPaymentMethodFunc
             case commonVariables.DepositMethod.ECPSS:
                 list = CreateMethodListControl(paymentCode);
 
-                anchor = CreateMethodLinkControl(list.ID.ToString());
+                anchor = CreateMethodLinkControl(list.ID.ToString(), paymentCode.ToString(), sourcePage);
 
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/ECPSS_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/ECPSS.aspx");
-
-                if (string.Compare(sourcePage, "ecpss", true) == 0)
-                {
-                    anchor.Attributes.Add("class", "btn-primary");
-                }
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
@@ -248,12 +198,17 @@ public static class commonPaymentMethodFunc
         return list;
     }
 
-    private static HtmlGenericControl CreateMethodLinkControl(string paymentId)
+    private static HtmlGenericControl CreateMethodLinkControl(string paymentId, string paymentCode, string sourcePage)
     {
         HtmlGenericControl anchor = new HtmlGenericControl("a");
         anchor.Attributes.Add("class", "ui-link ui-btn");
         anchor.Attributes.Add("data-ajax", "false");
         anchor.InnerText = commonCulture.ElementValues.getResourceString(paymentId, commonVariables.PaymentMethodsXML);
+
+        if (string.Compare(sourcePage, paymentCode, true) == 0)
+        {
+            anchor.Attributes.Add("class", "btn-primary");
+        }
 
         return anchor;
     }
@@ -285,17 +240,12 @@ public static class commonPaymentMethodFunc
 
                 list = CreateMethodListControl(paymentCode);
 
-                anchor = CreateMethodLinkControl(list.ID.ToString());
+                anchor = CreateMethodLinkControl(list.ID.ToString(), paymentCode.ToString(), sourcePage);
 
                 if (isApp)
                     anchor.Attributes.Add("href", "/Withdrawal/BankTransfer_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Withdrawal/Default.aspx");
-
-                if (string.Compare(sourcePage, "default", true) == 0)
-                {
-                    anchor.Attributes.Add("class", "btn-primary");
-                }
 
                 list.Controls.Add(anchor);
                 withdrawalTabs.Controls.Add(list);
@@ -304,17 +254,12 @@ public static class commonPaymentMethodFunc
             case commonVariables.WithdrawalMethod.WingMoney:
                 list = CreateMethodListControl(paymentCode);
 
-                anchor = CreateMethodLinkControl(list.ID.ToString());
+                anchor = CreateMethodLinkControl(list.ID.ToString(), paymentCode.ToString(), sourcePage);
 
                 if (isApp)
                     anchor.Attributes.Add("href", "/Withdrawal/WingMoney_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Withdrawal/WingMoney.aspx");
-
-                if (string.Compare(sourcePage, "wingmoney", true) == 0)
-                {
-                    anchor.Attributes.Add("class", "btn-primary");
-                }
 
                 list.Controls.Add(anchor);
                 withdrawalTabs.Controls.Add(list);
@@ -323,16 +268,11 @@ public static class commonPaymentMethodFunc
             case commonVariables.WithdrawalMethod.Neteller:
                 list = CreateMethodListControl(paymentCode);
 
-                anchor = CreateMethodLinkControl(list.ID.ToString());
+                anchor = CreateMethodLinkControl(list.ID.ToString(), paymentCode.ToString(), sourcePage);
                 if (isApp)
                     anchor.Attributes.Add("href", "/Withdrawal/Neteller_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Withdrawal/Neteller.aspx");
-
-                if (string.Compare(sourcePage, "neteller", true) == 0)
-                {
-                    anchor.Attributes.Add("class", "btn-primary");
-                }
 
                 list.Controls.Add(anchor);
                 withdrawalTabs.Controls.Add(list);

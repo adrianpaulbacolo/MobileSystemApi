@@ -58,10 +58,9 @@ public partial class Deposit_DaddyPay : PaymentBasePage
     {
         CancelUnexpectedRePost();
 
+        base.PageName = isDaddyPayQR ? base.PageName + "QR" : base.PageName;
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-
-        string activePage = PaymentMethodId == Convert.ToString((int)commonVariables.DepositMethod.DaddyPay) ? "daddypay" : "daddypayqr";
-        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, activePage, sender.ToString().Contains("app"));
+        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"));
 
         if (!Page.IsPostBack)
         {

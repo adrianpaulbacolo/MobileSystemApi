@@ -99,7 +99,7 @@ public partial class Deposit_Default : BasePage
         }
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "default", sender.ToString().Contains("app"));
+        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "FastDeposit", sender.ToString().Contains("app"));
     }
 
     private void getMainWalletBalance(string walletId)
