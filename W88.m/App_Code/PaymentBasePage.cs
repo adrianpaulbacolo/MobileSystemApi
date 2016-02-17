@@ -79,8 +79,10 @@ public class PaymentBasePage : BasePage
     protected string strtxtDailyLimit = string.Empty;
     protected string strtxtTotalAllowed = string.Empty;
     protected string strlblBank = string.Empty;
-    private string drpBank = string.Empty;
     protected string strlblMessage = string.Empty;
+    protected string strlblTransactionId = string.Empty;
+    protected string strUnlimited = string.Empty;
+    private string drpBank = string.Empty;
 
     #endregion
 
@@ -110,6 +112,8 @@ public class PaymentBasePage : BasePage
         commonCulture.appData.getRootResource(PaymentType + "/Default.aspx", out xeDefaultResources);
 
         commonCulture.appData.getRootResource(PaymentType + "/" + PageName, out xeResources);
+
+        strUnlimited = commonCulture.ElementValues.getResourceString("unlimited", xeDefaultResources);
     }
 
     protected void InitialiseLabels()
@@ -119,6 +123,7 @@ public class PaymentBasePage : BasePage
         strlblDailyLimit = commonCulture.ElementValues.getResourceString("lblDailyLimit", xeDefaultResources);
         strlblTotalAllowed = commonCulture.ElementValues.getResourceString("lblTotalAllowed", xeDefaultResources);
         strlblDepositAmount = commonCulture.ElementValues.getResourceString("lblDepositAmount", xeDefaultResources);
+        strlblTransactionId = commonCulture.ElementValues.getResourceString("lblTransactionId", xeDefaultResources);
         strlblBank = commonCulture.ElementValues.getResourceString("lblBank", xeDefaultResources);
         strbtnSubmit = commonCulture.ElementValues.getResourceString("btnSubmit", xeDefaultResources);
         strbtnCancel = commonCulture.ElementValues.getResourceString("btnCancel", xeDefaultResources);
@@ -209,8 +214,8 @@ public class PaymentBasePage : BasePage
 
             strMinLimit = Convert.ToDecimal(drPaymentMethodLimit["minDeposit"]).ToString(commonVariables.DecimalFormat);
             strMaxLimit = Convert.ToDecimal(drPaymentMethodLimit["maxDeposit"]).ToString(commonVariables.DecimalFormat);
-            strTotalAllowed = Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]) <= 0 ? commonCulture.ElementValues.getResourceString("unlimited", xeResources) : Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]).ToString(commonVariables.DecimalFormat);
-            strDailyLimit = Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]) == 0 ? commonCulture.ElementValues.getResourceString("unlimited", xeResources) : Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]).ToString(commonVariables.DecimalFormat);
+            strTotalAllowed = Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]) <= 0 ? strUnlimited : Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]).ToString(commonVariables.DecimalFormat);
+            strDailyLimit = Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]) == 0 ? strUnlimited : Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]).ToString(commonVariables.DecimalFormat);
             strMerchantId = Convert.ToString(drPaymentMethodLimit["merchantId"]);
             strMode = Convert.ToString(drPaymentMethodLimit["paymentMode"]);
         }
@@ -251,8 +256,8 @@ public class PaymentBasePage : BasePage
 
             strMinLimit = Convert.ToDecimal(drPaymentMethodLimit["minDeposit"]).ToString(commonVariables.DecimalFormat);
             strMaxLimit = Convert.ToDecimal(drPaymentMethodLimit["maxDeposit"]).ToString(commonVariables.DecimalFormat);
-            strTotalAllowed = Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]) <= 0 ? commonCulture.ElementValues.getResourceString("unlimited", xeResources) : Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]).ToString(commonVariables.DecimalFormat);
-            strDailyLimit = Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]) == 0 ? commonCulture.ElementValues.getResourceString("unlimited", xeResources) : Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]).ToString(commonVariables.DecimalFormat);
+            strTotalAllowed = Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]) <= 0 ? strUnlimited : Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]).ToString(commonVariables.DecimalFormat);
+            strDailyLimit = Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]) == 0 ? strUnlimited : Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]).ToString(commonVariables.DecimalFormat);
         }
 
         strMethodsUnAvailable = Convert.ToString(sbMethodsUnavailable).TrimEnd('|');
