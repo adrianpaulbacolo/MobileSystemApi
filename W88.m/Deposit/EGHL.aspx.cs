@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Configuration;
 using System.Data;
 using System.IO;
@@ -10,19 +11,20 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using svcPayDeposit;
+using System.Xml.Linq;
 
-public partial class Deposit_NextPay : PaymentBasePage
+
+public partial class Deposit_EGHL : PaymentBasePage
 {
-    protected string strStatusCode = string.Empty;
     protected string strAlertCode = string.Empty;
     protected string strAlertMessage = string.Empty;
+    protected string strResponse = string.Empty;
 
     protected void Page_Init(object sender, EventArgs e)
     {
-        base.PageName = "SDPay";
+        base.PageName = "EGHL";
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
-        base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.NextPay);
+        base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.EGHL);
 
         base.CheckLogin();
         base.InitialiseVariables();
@@ -37,56 +39,30 @@ public partial class Deposit_NextPay : PaymentBasePage
         CancelUnexpectedRePost();
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"));
+        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "eghl", sender.ToString().Contains("app"));
 
         if (!Page.IsPostBack)
         {
-            lblMode.Text = commonCulture.ElementValues.getResourceString("lblMode", xeResources);
-            txtMode.Text = string.Format(": {0}", commonCulture.ElementValues.getResourceString("txtMode", xeResources));
-            lblMinMaxLimit.Text = commonCulture.ElementValues.getResourceString("lblMinMaxLimit", xeResources);
-            lblDailyLimit.Text = commonCulture.ElementValues.getResourceString("lblDailyLimit", xeResources);
-            lblTotalAllowed.Text = commonCulture.ElementValues.getResourceString("lblTotalAllowed", xeResources);
-            lblDepositAmount.Text = commonCulture.ElementValues.getResourceString("lblDepositAmount", xeResources);
-
-            btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
-
-            txtDepositAmount.Attributes.Add("PLACEHOLDER", string.Format("{0} ({1})", lblDepositAmount.Text, strCurrencyCode));
-
-            txtMinMaxLimit.Text = string.Format(": {0} / {1}", strMinLimit, strMaxLimit);
-            txtDailyLimit.Text = string.Format(": {0}", strDailyLimit);
-            txtTotalAllowed.Text = string.Format(": {0}", strTotalAllowed);
+            this.InitializeLabels();
         }
     }
 
-    private string GetForm(string invId, string amount)
+    private void InitializeLabels()
     {
-        string merchantId = commonEncryption.decrypting(ConfigurationManager.AppSettings["NextPay_merchantid"], ConfigurationManager.AppSettings.Get("PrivateKey_nextPay"));
-        string callbackUrl = ConfigurationManager.AppSettings["NextPay_callbackurl"];
-        string postUrl = ConfigurationManager.AppSettings["NextPay_posturl"];
+        lblMode.Text = base.strlblMode;
+        txtMode.Text = base.strtxtMode;
+        lblMinMaxLimit.Text = base.strlblMinMaxLimit;
+        lblDailyLimit.Text = base.strlblDailyLimit;
+        lblTotalAllowed.Text = base.strlblTotalAllowed;
+        lblDepositAmount.Text = base.strlblDepositAmount;
 
-        var request = (HttpWebRequest)WebRequest.Create(postUrl);
-        string postData = "merchantID=" + merchantId;
-        postData += ("&inv=" + invId);
-        postData += ("&amt=" + amount);
-        postData += ("&returnURL=" + callbackUrl);
-        postData += ("&bm=" + bankDropDownList.SelectedValue.ToLower());
-        postData += ("&cID=" + strMemberID);
-        var data = Encoding.ASCII.GetBytes(postData);
+        btnSubmit.Text = base.strbtnSubmit;
 
-        request.Method = "POST";
-        request.ContentType = "application/x-www-form-urlencoded";
-        request.ContentLength = data.Length;
+        txtDepositAmount.Attributes.Add("PLACEHOLDER", base.strtxtDepositAmount);
 
-        using (var stream = request.GetRequestStream())
-        {
-            stream.Write(data, 0, data.Length);
-        }
-
-        var response = (HttpWebResponse)request.GetResponse();
-
-        var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-
-        return responseString.Replace("form name", @"form target=""_blank"" name").Replace("setTimeout('delayer()', 5000)", "setTimeout('delayer()', 1000)");
+        txtMinMaxLimit.Text = base.strtxtMinMaxLimit;
+        txtDailyLimit.Text = base.strtxtDailyLimit;
+        txtTotalAllowed.Text = base.strtxtTotalAllowed;
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
@@ -104,7 +80,6 @@ public partial class Deposit_NextPay : PaymentBasePage
 
         if (!isProcessAbort)
         {
-
             try
             {
                 if (decDepositAmount == 0)
@@ -125,7 +100,7 @@ public partial class Deposit_NextPay : PaymentBasePage
                     strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/AmountMaxLimit", xeErrors);
                     isProcessAbort = true;
                 }
-                else if ((strTotalAllowed != commonCulture.ElementValues.getResourceString("unlimited", xeResources)) && (decDepositAmount > Convert.ToDecimal(strTotalAllowed)) && Convert.ToDecimal(strTotalAllowed) > 0)
+                else if ((strTotalAllowed != strUnlimited) && (decDepositAmount > Convert.ToDecimal(strTotalAllowed)) && Convert.ToDecimal(strTotalAllowed) > 0)
                 {
                     strAlertCode = "-1";
                     strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TotalAllowedExceeded", xeErrors);
@@ -136,7 +111,7 @@ public partial class Deposit_NextPay : PaymentBasePage
                 {
                     using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
                     {
-                        xeResponse = client.createOnlineDepositTransactionV1(Convert.ToInt64(strOperatorId), long.Parse(strMemberID), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.NextPay), strCurrencyCode, Convert.ToDecimal(strDepositAmount), DepositSource.Mobile, string.Empty);
+                        xeResponse = client.createOnlineDepositTransactionV2(Convert.ToInt64(strOperatorId), strMemberCode, Convert.ToInt64(base.PaymentMethodId), strMerchantId, strCurrencyCode, decDepositAmount, string.Empty);
 
                         if (xeResponse == null)
                         {
@@ -148,14 +123,12 @@ public partial class Deposit_NextPay : PaymentBasePage
                             bool isTransactionSuccessful = Convert.ToBoolean(commonCulture.ElementValues.getResourceString("result", xeResponse));
                             string strTransferId = commonCulture.ElementValues.getResourceString("invId", xeResponse);
 
-
                             if (isTransactionSuccessful)
                             {
-                                // Redirect to the nextpay page
-                                litForm.Text = GetForm(strTransferId, strDepositAmount);
-
                                 strAlertCode = "0";
                                 strAlertMessage = string.Format("{0}\\n{1}: {2}", commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferSuccess", xeErrors), strlblTransactionId, strTransferId);
+
+                                strResponse = GetForm(strTransferId, decDepositAmount.ToString("#.00"));
                             }
                             else
                             {
@@ -165,7 +138,6 @@ public partial class Deposit_NextPay : PaymentBasePage
                         }
                     }
                 }
-
             }
             catch (Exception ex)
             {
@@ -175,13 +147,36 @@ public partial class Deposit_NextPay : PaymentBasePage
                 strErrorDetail = ex.Message;
             }
 
-            txtDepositAmount.Text = string.Empty;
-
-            string strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | CurrencyCode: {2} | DepositAmount: {3} | BankName: {4} | MinLimit: {5} | MaxLimit: {6} | TotalAllowed: {7} | DailyLimit: {8} | Response: {9}",
-               Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, bankDropDownList.SelectedValue, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
+            string strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | CurrencyCode: {2} | DepositAmount: {3} | MinLimit: {4} | MaxLimit: {5} | TotalAllowed: {6} | DailyLimit: {7} | Response: {8}",
+               Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
 
             intProcessSerialId += 1;
-            commonAuditTrail.appendLog("system", PageName, "InitiateDeposit", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
+            commonAuditTrail.appendLog("system", PageName, "InitiateDeposit", string.Empty, strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
         }
+    }
+
+    private string GetForm(string invId, string amount)
+    {
+        string postUrl = ConfigurationManager.AppSettings["EGHL_posturl"];
+
+        var request = (HttpWebRequest)WebRequest.Create(postUrl);
+        string postData = "merID=" + strMerchantId;
+        postData += ("&e-inv=" + invId);
+        postData += ("&amt=" + amount);
+        postData += ("&p_Name=" + base.PageName);
+        var data = Encoding.ASCII.GetBytes(postData);
+
+        request.Method = "POST";
+        request.ContentType = "application/x-www-form-urlencoded";
+        request.ContentLength = data.Length;
+
+        using (var stream = request.GetRequestStream())
+        {
+            stream.Write(data, 0, data.Length);
+        }
+
+        var response = (HttpWebResponse)request.GetResponse();
+
+        return response.ResponseUri.AbsoluteUri;
     }
 }
