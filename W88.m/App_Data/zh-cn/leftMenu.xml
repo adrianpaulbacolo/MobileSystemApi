@@ -38,13 +38,6 @@
 	<withrawal><![CDATA[提款]]></withrawal>
 	<fundTransfer><![CDATA[转账]]></fundTransfer>
 	<cancel><![CDATA[取消]]></cancel>
-	<virtual><![CDATA[虚拟体育]]></virtual>
-	<basketball><![CDATA[篮球]]></basketball>
-	<dogRacing><![CDATA[赛狗]]></dogRacing>
-	<football><![CDATA[足球]]></football>
-	<horseRacing><![CDATA[赛马]]></horseRacing>
-	<tennis><![CDATA[网球]]></tennis>
-
 
 	<mainWallet><![CDATA[中心钱包]]></mainWallet>
 	<rewardsClub><![CDATA[奖励积分]]></rewardsClub>
