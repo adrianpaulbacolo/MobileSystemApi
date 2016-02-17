@@ -35,7 +35,33 @@
 			<Url><![CDATA[]]></Url>
 			<Label><![CDATA[និម្មិត]]></Label>
 			<Description><![CDATA[ការភ្នាល់ដែលមានពិន្ទុខ្ពស់ជាញឹកញាប់, ទិន្នន័យនេះនឹងមាននៅក្នុងស្ថិតិលីកជាក់ស្តែង។]]></Description>
+			<Notice><![CDATA[*** មិនតំរូវអោយប្រើតាមកម្មវិធី IE និង FF ទេ ***]]></Notice>
 		</VSports>
+		<VSports-basketball>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Basketball]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-basketball>
+		<VSports-tennis>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Tennis]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-tennis>
+		<VSports-horseracing>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Horse Racing]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-horseracing>
+		<VSports-football>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Football]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-football>
+		<VSports-dogracing>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Dog Racing]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-dogracing>
 		<Lottery>
 			<Url><![CDATA[]]></Url>
 			<Label><![CDATA[ឆ្នោតឡូតូ]]></Label>

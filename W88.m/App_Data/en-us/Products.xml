@@ -18,6 +18,7 @@
 			<Url><![CDATA[]]></Url>
 			<Label><![CDATA[v-Sports]]></Label>
 			<Description><![CDATA[High Betting Frequency with Live Scores, Statistics as in Real Soccer Leagues]]></Description>
+			<Notice><![CDATA[*** Not supported on IE and FF browsers ***]]></Notice>
 		</VSports>
 		<Poker>
 			<Url><![CDATA[]]></Url>
