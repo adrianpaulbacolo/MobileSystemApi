@@ -44,5 +44,16 @@
         <id-id><![CDATA[242]]></id-id>
       </Language>
     </ESports>
+	  <VSports>
+		  <Language>
+			  <en-us><![CDATA[en]]></en-us>
+			  <zh-cn><![CDATA[zh]]></zh-cn>
+			  <ko-kr><![CDATA[ko]]></ko-kr>
+			  <ja-jp><![CDATA[ja]]></ja-jp>
+			  <th-th><![CDATA[th]]></th-th>
+			  <vi-vn><![CDATA[vi]]></vi-vn>
+			  <id-id><![CDATA[id]]></id-id>
+		  </Language>
+	  </VSports>
   </W88>  
 </default>
