@@ -14,7 +14,7 @@
 	</THB>
 	<VND>
 		<bank id="TCB"><![CDATA[Techcombank]]></bank>
-		<!--<bank id="SACOM"><![CDATA[Sacombank]]></bank>-->
+		<bank id="SACOM"><![CDATA[Sacombank]]></bank>
 		<bank id="VCB"><![CDATA[Vietcombank]]></bank>
 		<bank id="ACB"><![CDATA[Asia Commercial Bank]]></bank>
 	</VND>
