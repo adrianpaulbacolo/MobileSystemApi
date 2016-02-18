@@ -28,9 +28,35 @@
 		</ISports>
 		<VSports>
 			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[Virtual]]></Label>
-			<Description><![CDATA[Sportsbook]]></Description>
+			<Label><![CDATA[v-Sport]]></Label>
+			<Description><![CDATA[Semua event olahraga didasarkan pada statistik sesungguhnya, seperti layaknya taruhan pada pertandingan yang asli 24/7.]]></Description>
+			<Notice><![CDATA[*** Tidak didukung pada IE dan FF Browser ***]]></Notice>
 		</VSports>
+		<VSports-basketball>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Bola Basket]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-basketball>
+		<VSports-tennis>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Tenis]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-tennis>
+		<VSports-horseracing>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Balap Kuda]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-horseracing>
+		<VSports-football>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Sepak Bola]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-football>
+		<VSports-dogracing>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Balap Anjing]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-dogracing>
 		<USports>
 			<Url><![CDATA[]]></Url>
 			<Label><![CDATA[u-Sport]]></Label>

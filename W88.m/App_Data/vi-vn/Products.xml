@@ -33,9 +33,35 @@
 		</USports>
 		<VSports>
 			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[Virtual]]></Label>
-			<Description><![CDATA[v-Sports]]></Description>
+			<Label><![CDATA[v-Thể Thao]]></Label>
+			<Description><![CDATA[Với tỷ số trực tiếp và nhiều trận đấu, thống kế như các giải đấu thật sự]]></Description>
+			<Notice><![CDATA[*** Chưa hỗ trợ trên trình duyệt IE và FF ***]]></Notice>
 		</VSports>
+		<VSports-basketball>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Bóng Rổ]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-basketball>
+		<VSports-tennis>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Quần Vợt]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-tennis>
+		<VSports-horseracing>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Đua Ngựa]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-horseracing>
+		<VSports-football>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Bóng Đá]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-football>
+		<VSports-dogracing>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Đua Chó]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-dogracing>
 		<Lottery>
 			<Url><![CDATA[]]></Url>
 			<Label><![CDATA[Xổ Số]]></Label>

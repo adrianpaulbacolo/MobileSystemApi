@@ -39,14 +39,6 @@
 	<fundTransfer><![CDATA[Chuyển Quỹ]]></fundTransfer>
 	<cancel><![CDATA[Hủy]]></cancel>
 
-	<virtual><![CDATA[Thể Thao ảo]]></virtual>
-	<basketball><![CDATA[Bóng rổ]]></basketball>
-	<dogRacing><![CDATA[Đua chó]]></dogRacing>
-	<football><![CDATA[Bóng đá]]></football>
-	<horseRacing><![CDATA[Đua ngựa]]></horseRacing>
-	<tennis><![CDATA[Quần vợt]]></tennis>
-
-
 	<mainWallet><![CDATA[Tài khoản chính]]></mainWallet>
 	<funds><![CDATA[Quỹ]]></funds>
 	<aSports><![CDATA[a- Thể Thao]]></aSports>
