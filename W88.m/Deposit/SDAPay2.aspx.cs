@@ -94,7 +94,7 @@ public partial class Deposit_SDAPay2 : PaymentBasePage
                     string ePrice = Convert.ToDecimal(dr["ePrice"]).ToString("N2");
                     txtAmount.Text = string.Format(": {0}", ePrice);
 
-                    txtBankName.Text = string.Format(": {0}", base.InitializeBank("SDAPayAlipayBank").FirstOrDefault(bank => bank.Text.Contains(dr["eBank"].ToString())).Text);
+                    txtBankName.Text = string.Format(": {0}", base.InitializeBank("SDAPayAlipayBank").FirstOrDefault(bank => bank.Value.Equals(dr["eBank"].ToString(), StringComparison.OrdinalIgnoreCase)).Text);
                     txtBankHolderName.Text = string.Format(": {0}", dr["eName"].ToString());
 
                     string eBankAccount = dr["eBankAccount"].ToString();

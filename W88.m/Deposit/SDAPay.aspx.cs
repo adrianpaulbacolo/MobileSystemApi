@@ -59,6 +59,8 @@ public partial class Deposit_SDAPay : PaymentBasePage
             txtMinMaxLimit.Text = string.Format(": {0} / {1}", strMinLimit, strMaxLimit);
             txtDailyLimit.Text = string.Format(": {0}", strDailyLimit);
             txtTotalAllowed.Text = string.Format(": {0}", strTotalAllowed);
+
+            drpBank.SelectedValue = "alipay";
         }
     }
 
