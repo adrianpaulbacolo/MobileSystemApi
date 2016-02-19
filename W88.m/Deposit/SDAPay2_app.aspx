@@ -108,6 +108,8 @@
                         case "0":
                             break;
                         case '-1':
+                            alert('<%=strAlertMessage%>');
+
                             window.location.replace('SDAPay.aspx')
                             break;
                         default:
