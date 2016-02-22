@@ -78,7 +78,7 @@ public partial class Slots_ClubGallardo : BasePage
 
                     if (xeGame.Attribute("ProductId") == null)
                     {
-                        strGameId = xeGame.Name.ToString();
+                        strGameId = xeGame.Name.ToString().ToLower();
                         isPnG = true;
                     }
                     else
@@ -95,7 +95,7 @@ public partial class Slots_ClubGallardo : BasePage
                         if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                             sbGames.AppendFormat("<a class='btn-primary' target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubGallardo") + "' data-rel='dialog' data-transition='slidedown'>");
                         else
-                            sbGames.AppendFormat("<a href='{0}'>", commonClubBravado.getThirdPartyRealUrl.Replace("{GAME}", Convert.ToString(strGameId)).Replace("{LANG}", newstrLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
+                            sbGames.AppendFormat("<a href='{0}' target='_blank'>", commonClubBravado.getThirdPartyRealUrl.Replace("{GAME}", Convert.ToString(strGameId)).Replace("{LANG}", newstrLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
 
                         sbGames.Append("<i class='icon-play_arrow'></i></a>");
                         sbGames.AppendFormat("<a class='btn-secondary' href='{0}' target='_blank'><i class='icon-fullscreen'></i></a></div>", commonClubBravado.getThirdPartyFunUrl.Replace("{GAME}", commonCulture.ElementValues.getResourceString("ImageName", xeGame)).Replace("{LANG}", newstrLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
