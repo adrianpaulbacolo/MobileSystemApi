@@ -1,13 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <PaymentMethods>
-  <d110101><![CDATA[Gửi Tiền Nhanh]]></d110101>
-  <d120203><![CDATA[SDAPay]]></d120203>
-  <d120204><![CDATA[NextPay]]></d120204>
-  <d120206><![CDATA[Online Deposit]]></d120206>
-  <d120207><![CDATA[Online Deposit]]></d120207>
-  <d110308><![CDATA[Wing Money]]></d110308>
-  <w210602><![CDATA[Chuyển Khoản Ngân Hàng]]></w210602>
-  <w210709><![CDATA[Wing Money]]></w210709>
-  <online><![CDATA[Trực Tuyến]]></online>
-  <offline><![CDATA[Offline]]></offline>
+	<dFastDeposit><![CDATA[Gửi Tiền Nhanh]]></dFastDeposit>
+	<dWingMoney><![CDATA[Wing Money]]></dWingMoney>
+	<dSDAPay><![CDATA[SDA Pay]]></dSDAPay>
+	<dNextPay><![CDATA[Next Pay]]></dNextPay>
+	<dBill99><![CDATA[Online Deposit]]></dBill99>
+	<dIPS><![CDATA[Online Deposit]]></dIPS>
+	<dNeteller><![CDATA[Neteller]]></dNeteller>
+	<dECPSS><![CDATA[Trực Tuyến Nhanh]]></dECPSS>
+	<dSDPay><![CDATA[Union Pay]]></dSDPay>
+	<dHelp2Pay><![CDATA[Thanh Toán Nhanh]]></dHelp2Pay>
+	<dDaddyPay><![CDATA[Trực Tuyến Nhanh]]></dDaddyPay>
+	<dDaddyPayQR><![CDATA[QR Code Payment]]></dDaddyPayQR>
+	<dSDAPayAlipay><![CDATA[Alipay Transfer]]></dSDAPayAlipay>
+
+	<wBankTransfer><![CDATA[Chuyển Khoản Ngân Hàng]]></wBankTransfer>
+	<wWingMoney><![CDATA[Wing Money]]></wWingMoney>
+	<wNeteller><![CDATA[Neteller]]></wNeteller>
 </PaymentMethods>
