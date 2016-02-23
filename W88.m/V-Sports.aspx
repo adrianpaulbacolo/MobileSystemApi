@@ -21,12 +21,12 @@
         <div class="ui-content" role="main" id="sports">
 
             <ul class="row row-wrap bg-gradient">
-                <%--<li class="col col-33">
+                <li class="col col-33">
                     <a href="/_Secure/Login.aspx" class="card" data-rel="sports" rel="vsportsBasketball" target="_blank">
                         <img src="/_Static/Images/sports/bnr-vSports-Basketball.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-basketball/Label", commonVariables.ProductsXML)%></div>
                     </a>
-                </li>--%>
+                </li>
                 <%--<li class="col col-33">
                     <a href="/_Secure/Login.aspx" class="card" data-rel="sports" rel="vsportsDogRacing">
                         <img src="_Static/Images/bnr-vSPORTS-dogracing.jpg" alt="a-Sports" class="img-responsive">
