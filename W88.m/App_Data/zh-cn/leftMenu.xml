@@ -37,13 +37,6 @@
 	<withrawal><![CDATA[提款]]></withrawal>
 	<fundTransfer><![CDATA[转账]]></fundTransfer>
 	<cancel><![CDATA[取消]]></cancel>
-	<virtual><![CDATA[虚拟体育]]></virtual>
-	<basketball><![CDATA[篮球]]></basketball>
-	<dogRacing><![CDATA[赛狗]]></dogRacing>
-	<football><![CDATA[足球]]></football>
-	<horseRacing><![CDATA[赛马]]></horseRacing>
-	<tennis><![CDATA[网球]]></tennis>
-
 
 	<mainWallet><![CDATA[中心钱包]]></mainWallet>
 	<rewardsClub><![CDATA[奖励积分]]></rewardsClub>
@@ -78,7 +71,7 @@
 	<back><![CDATA[返回]]></back>
 	<login><![CDATA[登陆]]></login>
 
-	<kenoMessage><![CDATA[Every minutes filled with fun and non-stop games. Get the excitement!]]></kenoMessage>
+	<kenoMessage><![CDATA[无尽的欢乐就在每3-5分钟。开始真钱游戏，大家赶紧来赢取奖金吧。]]></kenoMessage>
 
 	<depositDaddyPay><![CDATA[存款 - 快捷支付]]></depositDaddyPay>
 

@@ -4,12 +4,12 @@
 		<ASports>
 			<Url><![CDATA[]]></Url>
 			<Label><![CDATA[东方体育]]></Label>
-			<Description><![CDATA[体育博彩]]></Description>
+			<Description><![CDATA[最佳亚洲视角体育投注现已登陆！]]></Description>
 		</ASports>
 		<ESports>
 			<Url><![CDATA[]]></Url>
 			<Label><![CDATA[西方体育]]></Label>
-			<Description><![CDATA[Sportsbook]]></Description>
+			<Description><![CDATA[最佳亚欧混合视角体育投注现已登陆！]]></Description>
 		</ESports>
 		<Poker>
 			<Url><![CDATA[]]></Url>
@@ -34,8 +34,34 @@
 		<VSports>
 			<Url><![CDATA[]]></Url>
 			<Label><![CDATA[虚拟体育]]></Label>
-			<Description><![CDATA[v-Sports]]></Description>
+			<Description><![CDATA[基于全真实数据，高频体育投注全天24小时无间隙！]]></Description>
+			<Notice><![CDATA[*** 不支持IE浏览器和火狐浏览器 ***]]></Notice>
 		</VSports>
+		<VSports-basketball>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[篮球]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-basketball>
+		<VSports-tennis>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[网球]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-tennis>
+		<VSports-horseracing>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[赛马]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-horseracing>
+		<VSports-football>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[足球]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-football>
+		<VSports-dogracing>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[赛狗]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-dogracing>
 		<Lottery>
 			<Url><![CDATA[]]></Url>
 			<Label><![CDATA[乐透]]></Label>

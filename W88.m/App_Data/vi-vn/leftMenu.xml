@@ -26,7 +26,7 @@
 	<wingmoney><![CDATA[Wing Money]]></wingmoney>
 	<fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
 	<submitUpload><![CDATA[Tải tập tin]]></submitUpload>
-	<sports><![CDATA[Thể thao]]></sports>
+	<sports><![CDATA[Thể Thao]]></sports>
 	<livecasino><![CDATA[Casino Trực Tuyến]]></livecasino>
 	<slots><![CDATA[Slot]]></slots>
 	<fundmanagement><![CDATA[Quản Lý Quỹ]]></fundmanagement>
@@ -39,14 +39,6 @@
 	<withrawal><![CDATA[Rút Tiền]]></withrawal>
 	<fundTransfer><![CDATA[Chuyển Quỹ]]></fundTransfer>
 	<cancel><![CDATA[Hủy]]></cancel>
-
-	<virtual><![CDATA[Thể Thao ảo]]></virtual>
-	<basketball><![CDATA[Bóng rổ]]></basketball>
-	<dogRacing><![CDATA[Đua chó]]></dogRacing>
-	<football><![CDATA[Bóng đá]]></football>
-	<horseRacing><![CDATA[Đua ngựa]]></horseRacing>
-	<tennis><![CDATA[Quần vợt]]></tennis>
-
 
 	<mainWallet><![CDATA[Tài khoản chính]]></mainWallet>
 	<funds><![CDATA[Quỹ]]></funds>
@@ -81,7 +73,7 @@
 
 	<download><![CDATA[DOWNLOAD]]></download>
 
-	<kenoMessage><![CDATA[Hồi hộp, hào hứng trên từng giây và chơi không ngừng. Tham gia ngay ]]></kenoMessage>
+	<kenoMessage><![CDATA[Niềm vui nối tiếp niềm vui cứ mỗi 3-5 phút khi tham gia chơi thật, Tham gia đặt cược và giành ]]></kenoMessage>
 
 	<depositDaddyPay><![CDATA[Gửi Tiền - Trực Tuyến Nhanh]]></depositDaddyPay>
 
