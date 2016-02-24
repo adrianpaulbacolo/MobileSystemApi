@@ -35,7 +35,6 @@ public static class commonPaymentMethodFunc
         switch (paymentCode)
         {
             case commonVariables.DepositMethod.FastDeposit:
-
                 list = CreateMethodListControl(paymentCode);
 
                 anchor = CreateMethodLinkControl(list.ID.ToString(), paymentCode.ToString(), sourcePage);
@@ -91,6 +90,20 @@ public static class commonPaymentMethodFunc
                 depositTabs.Controls.Add(list);
                 break;
 
+            case commonVariables.DepositMethod.SDAPayAlipay:
+                list = CreateMethodListControl(paymentCode);
+
+                anchor = CreateMethodLinkControl(list.ID.ToString(), paymentCode.ToString(), sourcePage);
+
+                if (isApp)
+                    anchor.Attributes.Add("href", "/Deposit/SDAPay_app.aspx");
+                else
+                    anchor.Attributes.Add("href", "/Deposit/SDAPay.aspx");
+
+                list.Controls.Add(anchor);
+                depositTabs.Controls.Add(list);
+                break;
+
             case commonVariables.DepositMethod.Help2Pay:
                 list = CreateMethodListControl(paymentCode);
 
@@ -119,20 +132,19 @@ public static class commonPaymentMethodFunc
                 depositTabs.Controls.Add(list);
                 break;
 
-            case commonVariables.DepositMethod.DaddyPayQR:
+            //case commonVariables.DepositMethod.DaddyPayQR:
+            //    list = CreateMethodListControl(paymentCode);
 
-                list = CreateMethodListControl(paymentCode);
+            //    anchor = CreateMethodLinkControl(list.ID.ToString(), paymentCode.ToString(), sourcePage);
 
-                anchor = CreateMethodLinkControl(list.ID.ToString(), paymentCode.ToString(), sourcePage);
+            //    if (isApp)
+            //        anchor.Attributes.Add("href", "/Deposit/DaddyPay_app.aspx?value=2");
+            //    else
+            //        anchor.Attributes.Add("href", "/Deposit/DaddyPay.aspx?value=2");
 
-                if (isApp)
-                    anchor.Attributes.Add("href", "/Deposit/DaddyPay_app.aspx?value=2");
-                else
-                    anchor.Attributes.Add("href", "/Deposit/DaddyPay.aspx?value=2");
-
-                list.Controls.Add(anchor);
-                depositTabs.Controls.Add(list);
-                break;
+            //    list.Controls.Add(anchor);
+            //    depositTabs.Controls.Add(list);
+            //    break;
 
             case commonVariables.DepositMethod.Neteller:
                 list = CreateMethodListControl(paymentCode);

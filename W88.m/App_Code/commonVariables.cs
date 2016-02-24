@@ -144,7 +144,8 @@ public class commonVariables
         Help2Pay = 120227,
         DaddyPay = 120243,
         DaddyPayQR = 120244,
-        Neteller = 120214
+        Neteller = 120214,
+        SDAPayAlipay = 120254
     }
 
     public enum WithdrawalMethod 

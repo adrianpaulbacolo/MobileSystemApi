@@ -33,6 +33,7 @@
 	<customerservice><![CDATA[Customer Service]]></customerservice>
 	<rewards><![CDATA[Câu Lạc Bộ Điểm Thưởng]]></rewards>
 	<sdpay><![CDATA[Union Pay]]></sdpay>
+	<sdapay><![CDATA[Alipay Transfer]]></sdapay>
 	<help2pay><![CDATA[Thanh Toán Nhanh]]></help2pay>
 	<daddypay><![CDATA[Trực Tuyến Nhanh]]></daddypay>
 	<withrawal><![CDATA[Rút Tiền]]></withrawal>
@@ -89,4 +90,5 @@
 	<accountId><![CDATA[Neteller Tài Khoản]]></accountId>
 	<secureId><![CDATA[Neteller Mật Khẩu]]></secureId>
 
+	<copy><![CDATA[Copy]]></copy>
 </menu>

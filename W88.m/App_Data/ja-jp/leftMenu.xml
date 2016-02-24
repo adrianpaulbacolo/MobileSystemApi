@@ -29,6 +29,7 @@
 	<customerservice><![CDATA[カスタマーサービス]]></customerservice>
 	<rewards><![CDATA[リワードクラブ]]></rewards>
 	<sdpay><![CDATA[Union Pay]]></sdpay>
+	<sdapay><![CDATA[Alipay Transfer]]></sdapay>
 	<help2pay><![CDATA[クイックオ ペイ]]></help2pay>
 	<daddypay><![CDATA[クイックオンライン]]></daddypay>
 	<withrawal><![CDATA[出金]]></withrawal>
@@ -90,4 +91,5 @@
 	<accountId><![CDATA[NETELLER アカウント番号]]></accountId>
 	<secureId><![CDATA[NETELLER セキュリティーコード]]></secureId>
 
+	<copy><![CDATA[Copy]]></copy>
 </menu>

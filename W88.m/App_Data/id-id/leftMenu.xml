@@ -34,6 +34,7 @@
 	<customerservice><![CDATA[Customer Service]]></customerservice>
 	<rewards><![CDATA[Klub Reward]]></rewards>
 	<sdpay><![CDATA[Union Pay]]></sdpay>
+	<sdapay><![CDATA[Alipay Transfer]]></sdapay>
 	<help2pay><![CDATA[Quick Pay]]></help2pay>
 	<daddypay><![CDATA[Quick Online]]></daddypay>
 	<withrawal><![CDATA[Penarikan]]></withrawal>-->
@@ -82,4 +83,5 @@
 	<accountId><![CDATA[Neteller Rekening]]></accountId>
 	<secureId><![CDATA[Neteller Password]]></secureId>
 
+	<copy><![CDATA[Copy]]></copy>
 </menu>

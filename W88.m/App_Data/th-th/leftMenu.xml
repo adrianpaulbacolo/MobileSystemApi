@@ -33,6 +33,7 @@
 	<customerservice><![CDATA[Customer Service]]></customerservice>
 	<rewards><![CDATA[คลับสะสมแต้ม]]></rewards>
 	<sdpay><![CDATA[Union Pay]]></sdpay>
+	<sdapay><![CDATA[Alipay Transfer]]></sdapay>
 	<help2pay><![CDATA[จ่ายเงินด่วน]]></help2pay>
 	<nextpay><![CDATA[ควิกออนไลน์]]></nextpay>
 	<daddypay><![CDATA[ควิกออนไลน์]]></daddypay>
@@ -85,4 +86,5 @@
 	<accountId><![CDATA[Neteller บัญชี]]></accountId>
 	<secureId><![CDATA[Neteller รหัสผ่าน]]></secureId>
 
+	<copy><![CDATA[Copy]]></copy>
 </menu>

@@ -32,6 +32,7 @@
 	<customerservice><![CDATA[Customer Service]]></customerservice>
 	<rewards><![CDATA[리워드클럽]]></rewards>
 	<sdpay><![CDATA[Union Pay]]></sdpay>
+	<sdapay><![CDATA[Alipay Transfer]]></sdapay>
 	<help2pay><![CDATA[퀵 지불]]></help2pay>
 	<daddypay><![CDATA[퀵 온라인]]></daddypay>
 	<withrawal><![CDATA[출금]]></withrawal>
@@ -90,5 +91,5 @@
 	<accountId><![CDATA[Neteller 계정]]></accountId>
 	<secureId><![CDATA[Neteller 암호]]></secureId>
 
-
+	<copy><![CDATA[Copy]]></copy>
 </menu>
