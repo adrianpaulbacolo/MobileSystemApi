@@ -99,4 +99,5 @@
 	<accountId><![CDATA[NETELLER アカウント番号]]></accountId>
 	<secureId><![CDATA[NETELLER セキュリティーコード]]></secureId>
 
+	<copy><![CDATA[Copy]]></copy>
 </menu>

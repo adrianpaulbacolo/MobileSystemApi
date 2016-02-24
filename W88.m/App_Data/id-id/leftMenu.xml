@@ -90,4 +90,5 @@
 	<accountId><![CDATA[Neteller Rekening]]></accountId>
 	<secureId><![CDATA[Neteller Password]]></secureId>
 
+	<copy><![CDATA[Copy]]></copy>
 </menu>
