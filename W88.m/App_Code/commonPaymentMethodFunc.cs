@@ -35,7 +35,6 @@ public static class commonPaymentMethodFunc
         switch (paymentCode)
         {
             case commonVariables.DepositMethod.FastDeposit:
-
                 list = CreateMethodListControl(paymentCode);
 
                 anchor = CreateMethodLinkControl(list.ID.ToString(), paymentCode.ToString(), sourcePage);
@@ -92,24 +91,14 @@ public static class commonPaymentMethodFunc
                 break;
 
             case commonVariables.DepositMethod.SDAPayAlipay:
-                list = new HtmlGenericControl("li");
-                list.ID = string.Format("d{0}", paymentCode);
+                list = CreateMethodListControl(paymentCode);
 
-
-                anchor = new HtmlGenericControl("a");
+                anchor = CreateMethodLinkControl(list.ID.ToString(), paymentCode.ToString(), sourcePage);
 
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/SDAPay_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/SDAPay.aspx");
-
-                anchor.Attributes.Add("class", "ui-link ui-btn");
-                anchor.InnerText = commonCulture.ElementValues.getResourceString("sdapay", commonVariables.LeftMenuXML);
-
-                if (string.Compare(sourcePage, "sdapay", true) == 0)
-                {
-                    anchor.Attributes.Add("class", "btn-primary");
-                }
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
@@ -144,7 +133,6 @@ public static class commonPaymentMethodFunc
                 break;
 
             case commonVariables.DepositMethod.DaddyPayQR:
-
                 list = CreateMethodListControl(paymentCode);
 
                 anchor = CreateMethodLinkControl(list.ID.ToString(), paymentCode.ToString(), sourcePage);
