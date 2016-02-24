@@ -20,7 +20,7 @@ public class PaymentBasePage : BasePage
     protected XElement xeErrors = null;
     protected XElement xeResponse = null;
     #endregion
-    
+
     #region Common
     /// <summary>
     /// XML Name to use in Translation inside the AppData
@@ -231,14 +231,14 @@ public class PaymentBasePage : BasePage
 
         if (!string.IsNullOrWhiteSpace(PaymentMethodId))
         {
-        strMethodId = PaymentMethodId;
+            strMethodId = PaymentMethodId;
 
-        if (dtPaymentMethodLimits.Select("[methodId] = " + strMethodId).Count() > 0)
-        {
-            drPaymentMethodLimit = dtPaymentMethodLimits.Select("[methodId] = " + strMethodId)[0];
+            if (dtPaymentMethodLimits.Select("[methodId] = " + strMethodId).Count() > 0)
+            {
+                drPaymentMethodLimit = dtPaymentMethodLimits.Select("[methodId] = " + strMethodId)[0];
 
-            strMinLimit = Convert.ToDecimal(drPaymentMethodLimit["minDeposit"]).ToString(commonVariables.DecimalFormat);
-            strMaxLimit = Convert.ToDecimal(drPaymentMethodLimit["maxDeposit"]).ToString(commonVariables.DecimalFormat);
+                strMinLimit = Convert.ToDecimal(drPaymentMethodLimit["minDeposit"]).ToString(commonVariables.DecimalFormat);
+                strMaxLimit = Convert.ToDecimal(drPaymentMethodLimit["maxDeposit"]).ToString(commonVariables.DecimalFormat);
                 strTotalAllowed = Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]) <= 0 ? strUnlimited : Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]).ToString(commonVariables.DecimalFormat);
                 strDailyLimit = Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]) == 0 ? strUnlimited : Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]).ToString(commonVariables.DecimalFormat);
                 strMerchantId = Convert.ToString(drPaymentMethodLimit["merchantId"]);
@@ -377,9 +377,9 @@ public class PaymentBasePage : BasePage
         status.IsProcessAbort = true;
 
         return status;
-        }
-
     }
+
+}
 
 public class CommonStatus
 {
