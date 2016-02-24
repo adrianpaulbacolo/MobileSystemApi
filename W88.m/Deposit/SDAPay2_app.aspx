@@ -69,7 +69,8 @@
                             <asp:Literal ID="lblBankHolderName" runat="server" />
                         </div>
                         <div class="col">
-                            <asp:Literal ID="txtBankHolderName" runat="server" />
+                            <asp:Label ID="txtBankHolderName" runat="server" />
+                            <a href="#" id="copyAccountName">Copy</a>
                         </div>
                     </li>
                     <li class="row">
@@ -77,7 +78,8 @@
                             <asp:Literal ID="lblBankAccountNo" runat="server" />
                         </div>
                         <div class="col">
-                            <asp:Literal ID="txtBankAccountNo" runat="server" />
+                            <asp:Label ID="txtBankAccountNo" runat="server" /> 
+                            <a href="#" id="copyAccountNo">Copy</a>
                         </div>
                     </li>
                     <li class="row">
@@ -115,6 +117,30 @@
                         default:
                             break;
                     }
+                }
+
+                $('#copyAccountName').on('click', function () {
+                    var accountName = $("#txtBankHolderName").text().slice(2);
+                    copyToClipboard(accountName)
+                });
+
+                $('#copyAccountNo').on('click', function () {
+                    var accountNo = $("#txtBankAccountNo").text().slice(2);
+                    copyToClipboard(accountNo)
+                });
+
+
+                function copyToClipboard(text) {
+                    var input = document.createElement('textarea', { "permissions": ["clipboardWrite"] });
+                    document.body.appendChild(input);
+                    input.value = text;
+                    input.focus();
+                    input.select();
+
+                    var s = document.execCommand('copy', false, null);
+                    alert(s == true ? "Copied" : "Unable to Copy");
+
+                    input.remove();
                 }
 
                 var intervalId = setInterval(function () {
