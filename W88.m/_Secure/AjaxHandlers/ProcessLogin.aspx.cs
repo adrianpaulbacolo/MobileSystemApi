@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -55,7 +56,7 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
         #region parametersValidation
         if (string.IsNullOrEmpty(strMemberCode)) { strProcessCode = "-1"; strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/MissingUsername", xeErrors); isProcessAbort = true; }
         else if (string.IsNullOrEmpty(strPassword)) { strProcessCode = "-1"; strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/MissingPassword", xeErrors); isProcessAbort = true; }
-        else if (string.IsNullOrEmpty(strVCode) && Session["ctr"]!=null) { strProcessCode = "-1"; strProcessMessage = commonCulture.ElementValues.getResourceString("MissingVCode", xeErrors); isProcessAbort = false; }
+        else if (string.IsNullOrEmpty(strVCode) && Session["ctr"] != null) { strProcessCode = "-1"; strProcessMessage = commonCulture.ElementValues.getResourceString("MissingVCode", xeErrors); isProcessAbort = false; }
         else if (commonValidation.isInjection(strMemberCode)) { strProcessCode = "-1"; strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/InvalidUsername", xeErrors); isProcessAbort = true; }
         else if (commonValidation.isInjection(strPassword)) { strProcessCode = "-1"; strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/InvalidPassword", xeErrors); isProcessAbort = true; }
         else if (commonValidation.isInjection(strVCode) && Session["ctr"] != null) { strProcessCode = "-1"; strProcessMessage = commonCulture.ElementValues.getResourceString("IncorrectVCode", xeErrors); isProcessAbort = true; }
@@ -128,6 +129,23 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
                                 {
                                     this.IovationSubmit(ref intProcessSerialId, strProcessId, strPageName, strMemberCode, commonIp.UserIP);
                                 }
+
+                                DataSet dsMember = svcInstance.MemberSessionCheck(commonVariables.CurrentMemberSessionId, commonIp.UserIP);
+
+                                if (dsMember.Tables[0].Rows.Count > 0)
+                                {
+                                    strProcessCode = Convert.ToString(dsSignin.Tables[0].Rows[0]["RETURN_VALUE"]);
+                                    switch (strProcessCode)
+                                    {
+                                        case "0":
+                                            strProcessMessage = commonCulture.ElementValues.getResourceString("Exception", xeErrors); ;
+                                            break;
+                                        case "1":
+                                            HttpContext.Current.Session.Add("MemberName", Convert.ToString(dsMember.Tables[0].Rows[0]["lastName"]) + Convert.ToString(dsMember.Tables[0].Rows[0]["firstName"]));
+                                            break;
+                                    }
+                                }
+
                                 break;
                             case "21":
                                 strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/InvalidUsername", xeErrors);

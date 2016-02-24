@@ -17,7 +17,7 @@
 	<lblStatus><![CDATA[状态]]></lblStatus>
 	<litStatusPending><![CDATA[处理中]]></litStatusPending>
 	<lblAmount><![CDATA[存款金额]]></lblAmount>
-	<lblAmtNote><![CDATA[<span style="color:red;font-size:16px;">温馨提示：</span>为了即时到账！请您在支付宝中提交“转账至银行卡”时，填写左侧显示的转账金额，<span style="color:#2A8FBD;font-size:16px;font-weight:bold;">包括小数点后面的金额</span>，谢谢。]]></lblAmtNote>
+	<lblAmtNote><![CDATA[<a href="http://www.w88info.com/cn/?p=9173" target="_blank" style="text-decoration:underline;font-size: 18px;color:red;">支付宝绑定姓名必须和您在本网站注册姓名一致，否则不予办理！</a>]]></lblAmtNote>
 	<lblBankName><![CDATA[银行名]]></lblBankName>
 	<lblBankHolderName><![CDATA[账户名]]></lblBankHolderName>
 	<lblBankAccountNo><![CDATA[银行账号]]></lblBankAccountNo>

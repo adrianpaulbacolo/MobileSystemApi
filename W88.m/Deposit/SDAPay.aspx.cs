@@ -31,7 +31,7 @@ public partial class Deposit_SDAPay : PaymentBasePage
 
         base.GetMainWalletBalance("0");
 
-        drpBank.Items.AddRange(base.InitializeBank("SDAPayAlipayBank").Where(bank => !bank.Value.Contains("cmb")).ToArray());
+        drpBank.Items.AddRange(base.InitializeBank("SDAPayAlipayBank").Where(bank => bank.Value.Equals("alipay", StringComparison.OrdinalIgnoreCase)).ToArray());
     }
 
     protected void Page_Load(object sender, EventArgs e)
