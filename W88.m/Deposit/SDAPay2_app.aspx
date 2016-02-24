@@ -70,7 +70,7 @@
                         </div>
                         <div class="col">
                             <asp:Label ID="txtBankHolderName" runat="server" />
-                            <a href="#" id="copyAccountName"><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
+                            <a href="#" id="copyAccountName" hidden><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </li>
                     <li class="row">
@@ -79,7 +79,7 @@
                         </div>
                         <div class="col">
                             <asp:Label ID="txtBankAccountNo" runat="server" /> 
-                            <a href="#" id="copyAccountNo"><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
+                            <a href="#" id="copyAccountNo" hidden><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </li>
                     <li class="row">
