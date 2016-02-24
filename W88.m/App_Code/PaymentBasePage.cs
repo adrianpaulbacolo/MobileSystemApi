@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Web;
+using System.Web.UI.WebControls;
 using System.Xml.Linq;
 
 /// <summary>
@@ -11,10 +12,16 @@ using System.Xml.Linq;
 /// </summary>
 public class PaymentBasePage : BasePage
 {
+    #region Properties
+
+    #region XElements
     protected XElement xeResources = null;
+    private XElement xeDefaultResources = null;
     protected XElement xeErrors = null;
     protected XElement xeResponse = null;
-    
+    #endregion
+
+    #region Common
     /// <summary>
     /// XML Name to use in Translation inside the AppData
     /// </summary>
@@ -24,9 +31,11 @@ public class PaymentBasePage : BasePage
 
     protected bool IsPageRefresh = false;
 
+    protected string strMerchantId = string.Empty;
     protected string strOperatorId = string.Empty;
     protected string strMemberCode = string.Empty;
     protected string strMemberID = string.Empty;
+    protected string strMemberName = string.Empty;
     protected string strCurrencyCode = string.Empty;
     protected string strCountryCode = string.Empty;
     protected string strRiskId = string.Empty;
@@ -37,6 +46,7 @@ public class PaymentBasePage : BasePage
     protected string strMethodsUnAvailable = string.Empty;
     protected string strMethodId = string.Empty;
 
+    protected string strMode = string.Empty;
     protected string strMinLimit = string.Empty;
     protected string strMaxLimit = string.Empty;
     protected string strTotalAllowed = string.Empty;
@@ -52,13 +62,53 @@ public class PaymentBasePage : BasePage
 
     protected bool isSystemError = false;
     protected bool isProcessAbort = false;
+    #endregion
+
+    #region Labels
+
+    protected string strlblMode = string.Empty;
+    protected string strtxtMode = string.Empty;
+
+    protected string strlblMinMaxLimit = string.Empty;
+    protected string strtxtMinMaxLimit = string.Empty;
+
+    protected string strlblDailyLimit = string.Empty;
+    protected string strtxtDailyLimit = string.Empty;
+
+    protected string strlblTotalAllowed = string.Empty;
+    protected string strtxtTotalAllowed = string.Empty;
+
+    protected string strlblDepositAmount = string.Empty;
+    protected string strtxtDepositAmount = string.Empty;
+
+    protected string strbtnSubmit = string.Empty;
+    protected string strbtnCancel = string.Empty;
+
+    protected string strlblBank = string.Empty;
+    protected string strlblBankName = string.Empty;
+    protected string drpBank = string.Empty;
+    protected string drpOtherBank = string.Empty;
+
+    protected string strlblTransactionId = string.Empty;
+
+    protected string strUnlimited = string.Empty;
+
+    protected string strlblMessage = string.Empty;
+
+    protected string strlblAccountName = string.Empty;
+    protected string strlblAccountNumber = string.Empty;
+
+    #endregion
+
+    #endregion
 
     protected void InitialiseVariables()
     {
         strOperatorId = commonVariables.OperatorId;
 
         strMemberCode = commonVariables.GetSessionVariable("MemberCode");
-        strMemberID = commonVariables.GetSessionVariable("memberId");
+        strMemberID = commonVariables.GetSessionVariable("MemberId");
+        strMemberName = commonVariables.GetSessionVariable("MemberName");
 
         strCurrencyCode = commonVariables.GetSessionVariable("CurrencyCode");
         strCountryCode = commonVariables.GetSessionVariable("CountryCode");
@@ -73,10 +123,45 @@ public class PaymentBasePage : BasePage
 
         xeErrors = commonVariables.ErrorsXML;
 
-        if (PaymentType == commonVariables.PaymentTransactionType.Deposit)
-            commonCulture.appData.getRootResource("/Deposit/" + PageName, out xeResources);
-        else
-            commonCulture.appData.getRootResource("/Withdrawal/" + PageName, out xeResources);
+        commonCulture.appData.getRootResource(PaymentType + "/Default.aspx", out xeDefaultResources);
+
+        commonCulture.appData.getRootResource(PaymentType + "/" + PageName, out xeResources);
+
+        strUnlimited = commonCulture.ElementValues.getResourceString("unlimited", xeDefaultResources);
+    }
+
+    protected void InitialiseLabels()
+    {
+        strlblMode = commonCulture.ElementValues.getResourceString("lblMode", xeDefaultResources);
+        strMode = strMode.Equals("offline", StringComparison.OrdinalIgnoreCase) ? commonCulture.ElementValues.getResourceString("offline", xeDefaultResources) : commonCulture.ElementValues.getResourceString("online", xeDefaultResources);
+        strtxtMode = string.Format(": {0}", strMode);
+
+        strlblMinMaxLimit = commonCulture.ElementValues.getResourceString("lblMinMaxLimit", xeDefaultResources);
+        strtxtMinMaxLimit = string.Format(": {0} / {1}", strMinLimit, strMaxLimit);
+
+        strlblDailyLimit = commonCulture.ElementValues.getResourceString("lblDailyLimit", xeDefaultResources);
+        strtxtDailyLimit = string.Format(": {0}", strDailyLimit);
+
+        strlblTotalAllowed = commonCulture.ElementValues.getResourceString("lblTotalAllowed", xeDefaultResources);
+        strtxtTotalAllowed = string.Format(": {0}", strTotalAllowed);
+
+        strlblDepositAmount = commonCulture.ElementValues.getResourceString("lblDepositAmount", xeDefaultResources);
+        strtxtDepositAmount = string.Format("{0} ({1})", strlblDepositAmount, strCurrencyCode);
+
+        strlblTransactionId = commonCulture.ElementValues.getResourceString("lblTransactionId", xeDefaultResources);
+
+        strbtnSubmit = commonCulture.ElementValues.getResourceString("btnSubmit", xeDefaultResources);
+        strbtnCancel = commonCulture.ElementValues.getResourceString("btnCancel", xeDefaultResources);
+
+        strlblBank = commonCulture.ElementValues.getResourceString("lblBank", xeDefaultResources);
+        strlblBankName = commonCulture.ElementValues.getResourceString("lblBankName", xeDefaultResources);
+        drpBank = commonCulture.ElementValues.getResourceString("drpBank", xeDefaultResources);
+        drpOtherBank = commonCulture.ElementValues.getResourceString("drpOtherBank", xeDefaultResources);
+
+        strlblAccountName = commonCulture.ElementValues.getResourceString("lblAccountName", xeDefaultResources);
+        strlblAccountNumber = commonCulture.ElementValues.getResourceString("lblAccountNumber", xeDefaultResources);
+
+        strlblMessage = commonCulture.ElementValues.getResourceString("browserNotice", xeDefaultResources);
     }
 
     protected void CancelUnexpectedRePost()
@@ -115,6 +200,8 @@ public class PaymentBasePage : BasePage
             InitialiseDepositPaymentLimits();
         else
             InitialiseWithdrawalPaymentLimits();
+
+        InitialiseLabels();
     }
 
     private void InitialiseDepositPaymentLimits()
@@ -142,16 +229,21 @@ public class PaymentBasePage : BasePage
             }
         }
 
-        strMethodId = PaymentMethodId;
-
-        if (dtPaymentMethodLimits.Select("[methodId] = " + strMethodId).Count() > 0)
+        if (!string.IsNullOrWhiteSpace(PaymentMethodId))
         {
-            drPaymentMethodLimit = dtPaymentMethodLimits.Select("[methodId] = " + strMethodId)[0];
+            strMethodId = PaymentMethodId;
 
-            strMinLimit = Convert.ToDecimal(drPaymentMethodLimit["minDeposit"]).ToString(commonVariables.DecimalFormat);
-            strMaxLimit = Convert.ToDecimal(drPaymentMethodLimit["maxDeposit"]).ToString(commonVariables.DecimalFormat);
-            strTotalAllowed = Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]) <= 0 ? commonCulture.ElementValues.getResourceString("unlimited", xeResources) : Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]).ToString(commonVariables.DecimalFormat);
-            strDailyLimit = Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]) == 0 ? commonCulture.ElementValues.getResourceString("unlimited", xeResources) : Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]).ToString(commonVariables.DecimalFormat);
+            if (dtPaymentMethodLimits.Select("[methodId] = " + strMethodId).Count() > 0)
+            {
+                drPaymentMethodLimit = dtPaymentMethodLimits.Select("[methodId] = " + strMethodId)[0];
+
+                strMinLimit = Convert.ToDecimal(drPaymentMethodLimit["minDeposit"]).ToString(commonVariables.DecimalFormat);
+                strMaxLimit = Convert.ToDecimal(drPaymentMethodLimit["maxDeposit"]).ToString(commonVariables.DecimalFormat);
+                strTotalAllowed = Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]) <= 0 ? strUnlimited : Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]).ToString(commonVariables.DecimalFormat);
+                strDailyLimit = Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]) == 0 ? strUnlimited : Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]).ToString(commonVariables.DecimalFormat);
+                strMerchantId = Convert.ToString(drPaymentMethodLimit["merchantId"]);
+                strMode = Convert.ToString(drPaymentMethodLimit["paymentMode"]);
+            }
         }
 
         strMethodsUnAvailable = Convert.ToString(sbMethodsUnavailable).TrimEnd('|');
@@ -190,8 +282,8 @@ public class PaymentBasePage : BasePage
 
             strMinLimit = Convert.ToDecimal(drPaymentMethodLimit["minDeposit"]).ToString(commonVariables.DecimalFormat);
             strMaxLimit = Convert.ToDecimal(drPaymentMethodLimit["maxDeposit"]).ToString(commonVariables.DecimalFormat);
-            strTotalAllowed = Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]) <= 0 ? commonCulture.ElementValues.getResourceString("unlimited", xeResources) : Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]).ToString(commonVariables.DecimalFormat);
-            strDailyLimit = Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]) == 0 ? commonCulture.ElementValues.getResourceString("unlimited", xeResources) : Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]).ToString(commonVariables.DecimalFormat);
+            strTotalAllowed = Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]) <= 0 ? strUnlimited : Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]).ToString(commonVariables.DecimalFormat);
+            strDailyLimit = Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]) == 0 ? strUnlimited : Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]).ToString(commonVariables.DecimalFormat);
         }
 
         strMethodsUnAvailable = Convert.ToString(sbMethodsUnavailable).TrimEnd('|');
@@ -236,4 +328,62 @@ public class PaymentBasePage : BasePage
         }
 
     }
+
+    protected List<ListItem> InitializeBank(string paymentMethodBank)
+    {
+        List<ListItem> banks = new List<ListItem>() { new ListItem(drpBank, "-1") };
+        try
+        {
+            XElement xElementBank = null;
+
+            commonCulture.appData.getRootResource(PaymentType + "/" + paymentMethodBank, out xElementBank);
+
+            XElement xElementBankPath = xElementBank.Element(commonVariables.GetSessionVariable("CurrencyCode"));
+
+            if (xElementBankPath == null)
+            {
+                banks.AddRange(xElementBank.Elements("bank").Select(bank => new ListItem(bank.Value, bank.Attribute("id").Value)));
+
+                strlblMessage = strlblMessage.Replace("{BANK}", string.Join(", ", banks.Where(b => b.Text.Contains("*")).Select(b => b.Value)));
+            }
+            else
+                banks.AddRange(xElementBankPath.Elements("bank").Select(bank => new ListItem(bank.Value, bank.Attribute("id").Value)));
+        }
+        catch (Exception ex)
+        {
+            commonAuditTrail.appendLog("system", PageName, "InitializeBank", string.Empty, string.Empty, string.Empty, "-99", "exception", ex.Message, string.Empty, string.Empty, true);
+        }
+
+        return banks;
+    }
+
+    protected CommonStatus GetErrors(string elementPath)
+    {
+        CommonStatus status = new CommonStatus();
+
+        status.AlertCode = "-1";
+        status.AlertMessage = commonCulture.ElementValues.getResourceXPathString(PaymentType.ToString() + elementPath, xeErrors);
+        status.IsProcessAbort = true;
+
+        return status;
+    }
+
+    protected CommonStatus GetErrors(string elementPath, string strTransferId, string elementPath2)
+    {
+        CommonStatus status = new CommonStatus();
+
+        status.AlertCode = "-1";
+        status.AlertMessage = string.Format("{0}\\n{1}", commonCulture.ElementValues.getResourceXPathString(PaymentType.ToString() + elementPath, xeErrors), commonCulture.ElementValues.getResourceXPathString(PaymentType.ToString() + "/error" + strTransferId, xeErrors));
+        status.IsProcessAbort = true;
+
+        return status;
+    }
+
+}
+
+public class CommonStatus
+{
+    public string AlertCode { get; set; }
+    public bool IsProcessAbort { get; set; }
+    public string AlertMessage { get; set; }
 }
