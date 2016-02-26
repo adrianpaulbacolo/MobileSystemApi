@@ -78,36 +78,30 @@ public partial class Deposit_EGHL : PaymentBasePage
         decimal decMinLimit = Convert.ToDecimal(strMinLimit);
         decimal decMaxLimit = Convert.ToDecimal(strMaxLimit);
 
-        if (!isProcessAbort)
+        CommonStatus status = new CommonStatus();
+
+        if (!status.IsProcessAbort)
         {
             try
             {
                 if (decDepositAmount == 0)
                 {
-                    strAlertCode = "-1";
-                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/MissingDepositAmount", xeErrors);
-                    isProcessAbort = true;
+                    status = base.GetErrors("/MissingDepositAmount");
                 }
                 else if (decDepositAmount < decMinLimit)
                 {
-                    strAlertCode = "-1";
-                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/AmountMinLimit", xeErrors);
-                    isProcessAbort = true;
+                    status = base.GetErrors("/AmountMinLimit");
                 }
                 else if (decDepositAmount > decMaxLimit)
                 {
-                    strAlertCode = "-1";
-                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/AmountMaxLimit", xeErrors);
-                    isProcessAbort = true;
+                    status = base.GetErrors("/AmountMaxLimit");
                 }
                 else if ((strTotalAllowed != strUnlimited) && (decDepositAmount > Convert.ToDecimal(strTotalAllowed)) && Convert.ToDecimal(strTotalAllowed) > 0)
                 {
-                    strAlertCode = "-1";
-                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TotalAllowedExceeded", xeErrors);
-                    isProcessAbort = true;
+                    status = base.GetErrors("/TotalAllowedExceeded");
                 }
 
-                if (!isProcessAbort)
+                if (!status.IsProcessAbort)
                 {
                     using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
                     {
@@ -115,8 +109,7 @@ public partial class Deposit_EGHL : PaymentBasePage
 
                         if (xeResponse == null)
                         {
-                            strAlertCode = "-1";
-                            strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferFail", xeErrors);
+                            status = base.GetErrors("/TransferFail");
                         }
                         else
                         {
@@ -125,15 +118,14 @@ public partial class Deposit_EGHL : PaymentBasePage
 
                             if (isTransactionSuccessful)
                             {
-                                strAlertCode = "0";
-                                strAlertMessage = string.Format("{0}\\n{1}: {2}", commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferSuccess", xeErrors), strlblTransactionId, strTransferId);
+                                status.AlertCode = "0";
+                                status.AlertMessage = string.Format("{0}\\n{1}: {2}", commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferSuccess", xeErrors), strlblTransactionId, strTransferId);
 
                                 strResponse = GetForm(strTransferId, decDepositAmount.ToString("#.00"));
                             }
                             else
                             {
-                                strAlertCode = "-1";
-                                strAlertMessage = string.Format("{0}\\n{1}", commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferFail", xeErrors), commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/error" + strTransferId, xeErrors));
+                                status = GetErrors("/TransferFail", strTransferId, "/error");
                             }
                         }
                     }
@@ -141,11 +133,13 @@ public partial class Deposit_EGHL : PaymentBasePage
             }
             catch (Exception ex)
             {
-                strAlertCode = "-1";
-                strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/Exception", xeErrors);
+                status = base.GetErrors("/Exception");
 
                 strErrorDetail = ex.Message;
             }
+
+            strAlertCode = status.AlertCode;
+            strAlertMessage = status.AlertMessage;
 
             string strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | CurrencyCode: {2} | DepositAmount: {3} | MinLimit: {4} | MaxLimit: {5} | TotalAllowed: {6} | DailyLimit: {7} | Response: {8}",
                Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
