@@ -34,8 +34,34 @@
 		<VSports>
 			<Url><![CDATA[]]></Url>
 			<Label><![CDATA[กีฬาอนิเมชั่น]]></Label>
-			<Description><![CDATA[v-Sports]]></Description>
+			<Description><![CDATA[เดิมพันทุก 4.5 นาที มากกว่า 2,400 การแข่งขันต่อวัน ตลอด 24 ชม]]></Description>
+			<Notice><![CDATA[*** ไม่สามารถใช้งานกับเบราเซอร์ IE และ FF ***]]></Notice>
 		</VSports>
+		<VSports-basketball>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[บาสเก็ตบอล]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-basketball>
+		<VSports-tennis>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[เทนนิส]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-tennis>
+		<VSports-horseracing>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[ม้าแข่ง]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-horseracing>
+		<VSports-football>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[ฟุตบอล]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-football>
+		<VSports-dogracing>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[แข่งขันสุนัข]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-dogracing>
 		<Lottery>
 			<Url><![CDATA[]]></Url>
 			<Label><![CDATA[ล็อตเตอรี่]]></Label>

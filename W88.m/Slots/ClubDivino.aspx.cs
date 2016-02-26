@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
 
 public partial class Slots_ClubDivino : BasePage
 {
@@ -20,9 +22,9 @@ public partial class Slots_ClubDivino : BasePage
 
         if (!Page.IsPostBack)
         {
-            System.Text.StringBuilder sbGames = new System.Text.StringBuilder();
+            StringBuilder sbGames = new StringBuilder();
 
-            System.Xml.Linq.XElement xeCategories = xeResources.Element("Category");
+            XElement xeCategories = xeResources.Element("Category");
 
             switch (commonVariables.SelectedLanguage)
             {
@@ -35,13 +37,19 @@ public partial class Slots_ClubDivino : BasePage
                     break;
             }
 
-            foreach (System.Xml.Linq.XElement xeCategory in xeCategories.Elements())
+            foreach (XElement xeCategory in xeCategories.Elements())
             {
                 sbGames.AppendFormat("<div data-role='collapsible' data-collapsed='false' data-theme='b' data-content-theme='a' data-mini='true' type='{1}'><h4>{0}</h4>", xeCategory.Attribute("Label").Value, xeCategory.Attribute("Version").Value);
 
                 sbGames.AppendFormat("<div id='div{0}_{1}' class='div-product'><div><ul>", xeCategory.Name, xeCategory.Attribute("Version").Value);
 
-                foreach (System.Xml.Linq.XElement xeGame in xeCategory.Elements())
+                List<XElement> topgames = xeCategory.Elements().Where(m => m.Attribute("Top") != null).OrderBy(f => f.Attribute("Top").Value).ToList();
+
+                IEnumerable<XElement> sortedGame = xeCategory.Elements().Where(m => m.Attribute("Top") == null).OrderBy(game => game.Element("Label").Value.ToString());
+
+                topgames.AddRange(sortedGame);
+
+                foreach (XElement xeGame in topgames)
                 {
                     strGameId = (xeGame.Attribute("ProductId") == null ? "" : xeGame.Attribute("ProductId").Value);
 
