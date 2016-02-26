@@ -19,10 +19,10 @@ public partial class Deposit_Default : PaymentBasePage
         base.InitialisePaymentLimits();
 
         base.GetMainWalletBalance("0");
-            }
+    }
 
     protected void Page_Load(object sender, EventArgs e)
-        {
+    {
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
         commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"));
     }
