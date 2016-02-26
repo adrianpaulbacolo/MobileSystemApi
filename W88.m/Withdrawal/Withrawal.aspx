@@ -65,7 +65,7 @@
                         <asp:TextBox ID="txtAccountNumber" runat="server" />
                     </li>
                     <% if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "myr", true) == 0) { %>
-                    <li class="item item-input" style="visibility:hidden">
+                    <li class="item item-input">
                         <asp:Label ID="lblMyKad" runat="server" AssociatedControlID="txtMyKad" Text="to" />
                         <asp:TextBox ID="txtMyKad" runat="server" />
                     </li>

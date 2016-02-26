@@ -17,7 +17,8 @@
 		<VSports>
 			<Url><![CDATA[]]></Url>
 			<Label><![CDATA[バーチャル]]></Label>
-			<Description><![CDATA[v-Sports]]></Description>
+			<Description><![CDATA[実際のサッカーリーグのスコアやデータに基づいて、短時間で沢山のマッチにベットできます。]]></Description>
+			<Notice><![CDATA[*** インターネットエクスプローラー、ファイアーフォックスブラウザには対応しておりません。***]]></Notice>
 		</VSports>
 		<Poker>
 			<Url><![CDATA[]]></Url>
@@ -29,6 +30,31 @@
 			<Label><![CDATA[テキサス マージャン]]></Label>
 			<Description><![CDATA[テキサス マージャン]]></Description>
 		</texasmahjong>
+		<VSports-basketball>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[バスケットボール]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-basketball>
+		<VSports-tennis>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[テニス]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-tennis>
+		<VSports-horseracing>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[競馬]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-horseracing>
+		<VSports-football>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[フットボール]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-football>
+		<VSports-dogracing>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[ドッグレーシング]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-dogracing>
 		<ISports>
 			<Url><![CDATA[]]></Url>
 			<Label><![CDATA[i-スポーツ]]></Label>

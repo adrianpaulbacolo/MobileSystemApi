@@ -26,26 +26,19 @@
 	<wingmoney><![CDATA[Wing Money]]></wingmoney>
 	<fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
 	<submitUpload><![CDATA[Tải tập tin]]></submitUpload>
-	<sports><![CDATA[Thể thao]]></sports>
+	<sports><![CDATA[Thể Thao]]></sports>
 	<livecasino><![CDATA[Casino Trực Tuyến]]></livecasino>
 	<slots><![CDATA[Slot]]></slots>
 	<fundmanagement><![CDATA[Quản Lý Quỹ]]></fundmanagement>
 	<customerservice><![CDATA[Customer Service]]></customerservice>
 	<rewards><![CDATA[Câu Lạc Bộ Điểm Thưởng]]></rewards>
 	<sdpay><![CDATA[Union Pay]]></sdpay>
+	<sdapay><![CDATA[Alipay Transfer]]></sdapay>
 	<help2pay><![CDATA[Thanh Toán Nhanh]]></help2pay>
 	<daddypay><![CDATA[Trực Tuyến Nhanh]]></daddypay>
 	<withrawal><![CDATA[Rút Tiền]]></withrawal>
 	<fundTransfer><![CDATA[Chuyển Quỹ]]></fundTransfer>
 	<cancel><![CDATA[Hủy]]></cancel>
-
-	<virtual><![CDATA[Thể Thao ảo]]></virtual>
-	<basketball><![CDATA[Bóng rổ]]></basketball>
-	<dogRacing><![CDATA[Đua chó]]></dogRacing>
-	<football><![CDATA[Bóng đá]]></football>
-	<horseRacing><![CDATA[Đua ngựa]]></horseRacing>
-	<tennis><![CDATA[Quần vợt]]></tennis>
-
 
 	<mainWallet><![CDATA[Tài khoản chính]]></mainWallet>
 	<funds><![CDATA[Quỹ]]></funds>
@@ -97,4 +90,5 @@
 	<accountId><![CDATA[Neteller Tài Khoản]]></accountId>
 	<secureId><![CDATA[Neteller Mật Khẩu]]></secureId>
 
+	<copy><![CDATA[Copy]]></copy>
 </menu>

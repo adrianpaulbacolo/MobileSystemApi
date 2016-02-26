@@ -10,8 +10,24 @@ public class commonVariables
     public static System.Xml.Linq.XElement LeftMenuXML { get { if (System.Web.HttpContext.Current.Cache.Get("leftMenuXML_" + commonVariables.SelectedLanguage) != null) { return System.Web.HttpContext.Current.Cache.Get("leftMenuXML_" + commonVariables.SelectedLanguage) as System.Xml.Linq.XElement; } else { System.Xml.Linq.XElement xcMenu = commonCulture.appData.getRootResource("/leftMenu"); System.Web.HttpContext.Current.Cache.Add("leftMenuXML_" + commonVariables.SelectedLanguage, xcMenu, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.AboveNormal, null); return xcMenu; } } }
     public static System.Xml.Linq.XElement ProductsXML { get { if (System.Web.HttpContext.Current.Cache.Get("ProductsXML_" + commonVariables.SelectedLanguage) != null) { return System.Web.HttpContext.Current.Cache.Get("ProductsXML_" + commonVariables.SelectedLanguage) as System.Xml.Linq.XElement; } else { System.Xml.Linq.XElement xcMenu = commonCulture.appData.getRootResource("/Products"); System.Web.HttpContext.Current.Cache.Add("ProductsXML_" + commonVariables.SelectedLanguage, xcMenu, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.AboveNormal, null); return xcMenu; } } }
     public static System.Xml.Linq.XElement ContactUsXML { get { if (System.Web.HttpContext.Current.Cache.Get("ContactUsXML_" + commonVariables.SelectedLanguage) != null) { return System.Web.HttpContext.Current.Cache.Get("ContactUsXML_" + commonVariables.SelectedLanguage) as System.Xml.Linq.XElement; } else { System.Xml.Linq.XElement xcMenu = commonCulture.appData.getRootResource("/ContactUs.aspx"); System.Web.HttpContext.Current.Cache.Add("ContactUsXML_" + commonVariables.SelectedLanguage, xcMenu, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.AboveNormal, null); return xcMenu; } } }
-
     public static System.Xml.Linq.XElement ErrorsXML { get { if (System.Web.HttpContext.Current.Cache.Get("errorsXML_" + commonVariables.SelectedLanguage) != null) { return System.Web.HttpContext.Current.Cache.Get("errorsXML_" + commonVariables.SelectedLanguage) as System.Xml.Linq.XElement; } else { System.Xml.Linq.XElement xcErrors = commonCulture.appData.getRootResource("/Errors"); System.Web.HttpContext.Current.Cache.Add("errorsXML_" + commonVariables.SelectedLanguage, xcErrors, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.AboveNormal, null); return xcErrors; } } }
+    public static System.Xml.Linq.XElement PaymentMethodsXML
+    {
+        get
+        {
+            if (System.Web.HttpContext.Current.Cache.Get("ProductsXML_" + commonVariables.SelectedLanguage) != null)
+            {
+                return System.Web.HttpContext.Current.Cache.Get("PaymentMethodsXML_" + commonVariables.SelectedLanguage) as System.Xml.Linq.XElement;
+            }
+            else
+            {
+                System.Xml.Linq.XElement xcMenu = commonCulture.appData.getRootResource("/PaymentMethods");
+                System.Web.HttpContext.Current.Cache.Add("PaymentMethodsXML_" + commonVariables.SelectedLanguage, xcMenu, null,
+                    System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.AboveNormal, null);
+                return xcMenu;
+            }
+        }
+    }
     public static string SiteUrl { get { return System.Web.HttpContext.Current.Request.ServerVariables["SERVER_NAME"]; } }
 
     public static string DisplayDateFormat { get { return System.Configuration.ConfigurationManager.AppSettings.Get("DisplayDateFormat"); } }
@@ -128,7 +144,8 @@ public class commonVariables
         Help2Pay = 120227,
         DaddyPay = 120243,
         DaddyPayQR = 120244,
-        Neteller = 120214
+        Neteller = 120214,
+        SDAPayAlipay = 120254
     }
 
     public enum WithdrawalMethod 

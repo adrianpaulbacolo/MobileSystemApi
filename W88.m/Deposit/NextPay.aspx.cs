@@ -60,7 +60,7 @@ public partial class Deposit_NextPay : PaymentBasePage
 
     private string GetForm(string invId, string amount)
     {
-        string merchantId = decrypting(ConfigurationManager.AppSettings["NextPay_merchantid"]);
+        string merchantId = commonEncryption.decrypting(ConfigurationManager.AppSettings["NextPay_merchantid"], ConfigurationManager.AppSettings.Get("PrivateKey_nextPay"));
         string callbackUrl = ConfigurationManager.AppSettings["NextPay_callbackurl"];
         string postUrl = ConfigurationManager.AppSettings["NextPay_posturl"];
 
@@ -87,22 +87,6 @@ public partial class Deposit_NextPay : PaymentBasePage
         var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
 
         return responseString.Replace("form name", @"form target=""_blank"" name").Replace("setTimeout('delayer()', 5000)", "setTimeout('delayer()', 1000)");
-    }
-
-    public static string decrypting(string str)
-    {
-        string privateKey = System.Configuration.ConfigurationManager.AppSettings.Get("PrivateKey_nextPay");
-        string functionReturnValue = null;
-        if (!string.IsNullOrEmpty(str))
-        {
-            encryption_manager.encryption decrypt = new encryption_manager.encryption();
-            decrypt.private_key = privateKey;
-            decrypt.message = str;
-            functionReturnValue = decrypt.decrypting();
-            decrypt = null;
-        }
-        else { functionReturnValue = string.Empty; }
-        return functionReturnValue;
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)

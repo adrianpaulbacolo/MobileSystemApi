@@ -16,7 +16,6 @@ public partial class Deposit_Help2Pay : PaymentBasePage
 
     protected void Page_Init(object sender, EventArgs e)
     {
-
         base.PageName = "Help2Pay";
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.Help2Pay);
@@ -36,7 +35,7 @@ public partial class Deposit_Help2Pay : PaymentBasePage
         CancelUnexpectedRePost();
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "help2pay", sender.ToString().Contains("app"));
+        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"));
 
         if (!Page.IsPostBack)
         {
@@ -64,7 +63,7 @@ public partial class Deposit_Help2Pay : PaymentBasePage
 
             commonCulture.appData.getRootResource("/Deposit/Help2PayBank", out xElementBank);
 
-            XElement xElementBankPath = xElementBank.Element(commonVariables.GetSessionVariable("CurrencyCode"));
+            XElement xElementBankPath = xElementBank.Element(strCurrencyCode);
             var banks = from bank in xElementBankPath.Elements("bank") select new { value = bank.Attribute("id").Value, text = bank.Value };
 
             drpBank.Items.Insert(0, new ListItem(commonCulture.ElementValues.getResourceString("drpBank", xeResources), "-1"));
