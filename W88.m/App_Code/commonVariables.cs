@@ -50,29 +50,33 @@ public class commonVariables
         }
     }
 
-    public static string SelectedLanguageShort { get { 
-        switch (commonVariables.SelectedLanguage.ToLower()) 
+    public static string SelectedLanguageShort
+    {
+        get
         {
-            case "en-us":
-                return "en";
-            case "id-id":
-                return "id";
-            case "km-kh":
-                return "kh";
-            case "ko-kr":
-                return "kr";
-            case "th-th":
-                return "th";
-            case "vi-vn":
-                return "vn";
-            case "zh-cn":
-                return "cn";
-            case "ja-jp":
-                return "jp";
-            default:
-                return "en";
-        } 
-    } }
+            switch (commonVariables.SelectedLanguage.ToLower())
+            {
+                case "en-us":
+                    return "en";
+                case "id-id":
+                    return "id";
+                case "km-kh":
+                    return "kh";
+                case "ko-kr":
+                    return "kr";
+                case "th-th":
+                    return "th";
+                case "vi-vn":
+                    return "vn";
+                case "zh-cn":
+                    return "cn";
+                case "ja-jp":
+                    return "jp";
+                default:
+                    return "en";
+            }
+        }
+    }
 
     public static string CurrentMemberSessionId { get { return string.IsNullOrEmpty(System.Web.HttpContext.Current.Session["MemberSessionId"] as string) ? (!string.IsNullOrEmpty(commonCookie.CookieS) ? commonCookie.CookieS : "") : Convert.ToString(System.Web.HttpContext.Current.Session["MemberSessionId"]); } }
 
@@ -92,11 +96,11 @@ public class commonVariables
         }
     }
 
-    public static string GetSessionVariable(string key) 
+    public static string GetSessionVariable(string key)
     { return string.IsNullOrEmpty(HttpContext.Current.Session[key] as string) ? "" : Convert.ToString(HttpContext.Current.Session[key]); }
     public static void SetSessionVariable(string key, string value) { HttpContext.Current.Session.Add(key, value); }
 
-    public static void ClearSessionVariables() 
+    public static void ClearSessionVariables()
     {
         string strLanguage = string.Empty;
         string strVCode = string.Empty;
@@ -146,22 +150,23 @@ public class commonVariables
         DaddyPayQR = 120244,
         Neteller = 120214,
         SDAPayAlipay = 120254,
+        ECPSS = 120218,
         EGHL = 120265
     }
 
-    public enum WithdrawalMethod 
+    public enum WithdrawalMethod
     {
         BankTransfer = 210602,
         WingMoney = 210709,
         Neteller = 220815
     }
 
-    public enum TransactionSource 
-    { 
+    public enum TransactionSource
+    {
         Mobile
     }
 
-    public enum PaymentTransactionType 
+    public enum PaymentTransactionType
     {
         Deposit = 1,
         Withdrawal = 2

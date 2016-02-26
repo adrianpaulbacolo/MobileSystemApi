@@ -94,53 +94,47 @@ public partial class Deposit_ECPSS : PaymentBasePage
         decimal decMinLimit = Convert.ToDecimal(strMinLimit);
         decimal decMaxLimit = Convert.ToDecimal(strMaxLimit);
 
-        if (!isProcessAbort)
+        CommonStatus status = new CommonStatus();
+
+        if (!status.IsProcessAbort)
         {
             try
             {
                 if (decDepositAmount == 0)
                 {
-                    strAlertCode = "-1";
-                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/MissingDepositAmount", xeErrors);
-                    isProcessAbort = true;
+                    status = base.GetErrors("/MissingDepositAmount");
                 }
                 else if (selectedBank == "-1")
                 {
-                    strAlertCode = "-1";
-                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/SelectBank", xeErrors);
-                    isProcessAbort = true;
+                    status = base.GetErrors("/SelectBank");
                 }
                 else if (decDepositAmount < decMinLimit)
                 {
-                    strAlertCode = "-1";
-                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/AmountMinLimit", xeErrors);
-                    isProcessAbort = true;
+                    status = base.GetErrors("/AmountMinLimit");
                 }
                 else if (decDepositAmount > decMaxLimit)
                 {
-                    strAlertCode = "-1";
-                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/AmountMaxLimit", xeErrors);
-                    isProcessAbort = true;
+                    status = base.GetErrors("/AmountMaxLimit");
                 }
                 else if ((strTotalAllowed != strUnlimited) && (decDepositAmount > Convert.ToDecimal(strTotalAllowed)) && Convert.ToDecimal(strTotalAllowed) > 0)
                 {
-                    strAlertCode = "-1";
-                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TotalAllowedExceeded", xeErrors);
-                    isProcessAbort = true;
+                    status = base.GetErrors("/TotalAllowedExceeded");
                 }
 
                 if (!isProcessAbort)
                 {
-                    strAlertCode = "0";
+                    status.AlertCode = "0";
                 }
             }
             catch (Exception ex)
             {
-                strAlertCode = "-1";
-                strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/Exception", xeErrors);
+                status = base.GetErrors("/Exception");
 
                 strErrorDetail = ex.Message;
             }
+
+            strAlertCode = status.AlertCode;
+            strAlertMessage = status.AlertMessage;
 
             string strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | CurrencyCode: {2} | DepositAmount: {3} | BankName: {4} | MinLimit: {5} | MaxLimit: {6} | TotalAllowed: {7} | DailyLimit: {8} | Response: {9}",
                Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, drpBank.SelectedValue, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
