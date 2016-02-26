@@ -6,30 +6,21 @@
 	<lblMinMaxLimit><![CDATA[Giới Hạn Min/Max]]></lblMinMaxLimit>
 	<lblDailyLimit><![CDATA[Giới Hạn Trong Ngày: ]]></lblDailyLimit>
 	<lblTotalAllowed><![CDATA[Tổng Số Cho Phép: ]]></lblTotalAllowed>
-	<lblDepositAmount><![CDATA[Số Tiền Gửi]]></lblDepositAmount>
+  <lblDepositAmount><![CDATA[Số Tiền Gửi]]></lblDepositAmount>
 	<unlimited><![CDATA[Không giới hạn]]></unlimited>
 
 	<lblTransactionId><![CDATA[Mã Số Giao Dịch]]></lblTransactionId>
-	<lblReferenceId><![CDATA[Số Tham Chiếu]]></lblReferenceId>
 
-	<lblSystemAccount><![CDATA[Hệ Thống Tài Khoản]]></lblSystemAccount>
-	<drpSystemAccount><![CDATA[Hệ Thống Tài Khoản Lựa Chọn]]></drpSystemAccount>
+  <lblBank><![CDATA[Ngân Hàng]]></lblBank>
+  <drpBank><![CDATA[Ngân Hàng Lựa Chọn]]></drpBank>
+  <lblBankName><![CDATA[Tên Ngân Hàng]]></lblBankName>
+  <drpOtherBank><![CDATA[Ngân Hàng Khác]]></drpOtherBank>
 
-	<drpDepositDateTime><![CDATA[Ngày/ Giờ Gửi Tiền]]></drpDepositDateTime>
-
-	<lblDepositChannel><![CDATA[Phương Thức Gửi Tiền]]></lblDepositChannel>
-	<drpDepositChannel><![CDATA[Phương Thức Gửi Tiền Lựa Chọn]]></drpDepositChannel>
-
-	<lblBank><![CDATA[Ngân Hàng]]></lblBank>
-	<drpBank><![CDATA[Ngân Hàng Lựa Chọn]]></drpBank>
-	<lblBankName><![CDATA[Tên Ngân Hàng]]></lblBankName>
-	<drpOtherBank><![CDATA[Ngân Hàng Khác]]></drpOtherBank>
-
-	<lblAccountName><![CDATA[Tên Tài Khoản Ngân Hàng]]></lblAccountName>
-	<lblAccountNumber><![CDATA[Số Tài Khoản Ngân Hàng]]></lblAccountNumber>
+  <lblAccountName><![CDATA[Tên Tài Khoản Ngân Hàng]]></lblAccountName>
+  <lblAccountNumber><![CDATA[Số Tài Khoản Ngân Hàng]]></lblAccountNumber>
 
 	<btnCancel><![CDATA[Hủy]]></btnCancel>
-	<btnSubmit><![CDATA[GỬI TIỀN]]></btnSubmit>
+  <btnSubmit><![CDATA[GỬI TIỀN]]></btnSubmit>
 
 	<browserNotice><![CDATA[<span>Gentle reminder: <b>{BANK}</b> do not support chrome & firefox</span>]]></browserNotice>
 </Deposit>

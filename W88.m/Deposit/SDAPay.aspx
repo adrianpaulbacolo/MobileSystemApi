@@ -67,7 +67,7 @@
                     <li class="item-text-wrap">
                         <asp:Label ID="lblIndicatorMessage" runat="server" />
                     </li>
-                    <li class="item item-select">
+                    <li class="item item-select" hidden>
                         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
                         <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
                     </li>
@@ -77,7 +77,7 @@
                     </li>
                     <li class="row">
                         <div class="col">
-                            <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" id="btnCancel" runat="server" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
+                            <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" id="btnCancel" runat="server" data-ajax="false"><%=base.strbtnCancel%></a>
                         </div>
                         <div class="col">
                             <asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" />

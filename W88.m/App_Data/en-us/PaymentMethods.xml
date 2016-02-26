@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PaymentMethods>
-	<dFastDeposit><![CDATA[Fast Deposit]]></dFastDeposit>
+	<dFastDeposit><![CDATA[Bank Transfer]]></dFastDeposit>
 	<dWingMoney><![CDATA[Wing Money]]></dWingMoney>
 	<dSDAPay><![CDATA[SDA Pay]]></dSDAPay>
 	<dNextPay><![CDATA[Next Pay]]></dNextPay>
@@ -14,7 +14,7 @@
 	<dDaddyPayQR><![CDATA[QR Code Payment]]></dDaddyPayQR>
 	<dSDAPayAlipay><![CDATA[Alipay Transfer]]></dSDAPayAlipay>
 	<dEGHL><![CDATA[Quick Online]]></dEGHL>
-
+	
 	<wBankTransfer><![CDATA[Bank Transfer]]></wBankTransfer>
 	<wWingMoney><![CDATA[Wing Money]]></wWingMoney>
 	<wNeteller><![CDATA[Neteller]]></wNeteller>

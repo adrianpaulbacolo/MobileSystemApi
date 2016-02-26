@@ -64,7 +64,7 @@
                     <li class="item-text-wrap">
                         <asp:Label ID="lblIndicatorMessage" runat="server" />
                     </li>
-                    <li class="item item-select">
+                    <li class="item item-select" hidden>
                         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
                         <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
                     </li>

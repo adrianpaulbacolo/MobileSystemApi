@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <PaymentMethods>
-	<dFastDeposit><![CDATA[Fast Deposit]]></dFastDeposit>
+	<dFastDeposit><![CDATA[Bank Transfer]]></dFastDeposit>
 	<dWingMoney><![CDATA[Wing Money]]></dWingMoney>
 	<dSDAPay><![CDATA[SDA Pay]]></dSDAPay>
 	<dNextPay><![CDATA[Next Pay]]></dNextPay>

@@ -76,13 +76,6 @@
 	<download><![CDATA[DOWNLOAD]]></download>
 	<playNow><![CDATA[PLAY NOW]]></playNow>
 
-	<virtual><![CDATA[Virtual]]></virtual>
-	<basketball><![CDATA[Basketball]]></basketball>
-	<dogRacing><![CDATA[Dog Racing]]></dogRacing>
-	<football><![CDATA[Football]]></football>
-	<horseRacing><![CDATA[Horse Racing]]></horseRacing>
-	<tennis><![CDATA[Tennis]]></tennis>
-
 	<depositDaddyPay><![CDATA[DEPOSIT - QUICK ONLINE]]></depositDaddyPay>
 
 	<history><![CDATA[History]]></history>
@@ -96,4 +89,5 @@
 	<accountId><![CDATA[NETELLER Account ID]]></accountId>
 	<secureId><![CDATA[NETELLER Secure ID]]></secureId>
 
+	<copy><![CDATA[Copy]]></copy>
 </menu>

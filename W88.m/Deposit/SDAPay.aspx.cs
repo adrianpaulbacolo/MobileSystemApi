@@ -31,7 +31,7 @@ public partial class Deposit_SDAPay : PaymentBasePage
 
         base.GetMainWalletBalance("0");
 
-        drpBank.Items.AddRange(base.InitializeBank("SDAPayAlipayBank").Where(bank => !bank.Value.Contains("cmb")).ToArray());
+        drpBank.Items.AddRange(base.InitializeBank("SDAPayAlipayBank").Where(bank => bank.Value.Equals("alipay", StringComparison.OrdinalIgnoreCase)).ToArray());
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -59,6 +59,8 @@ public partial class Deposit_SDAPay : PaymentBasePage
             txtMinMaxLimit.Text = string.Format(": {0} / {1}", strMinLimit, strMaxLimit);
             txtDailyLimit.Text = string.Format(": {0}", strDailyLimit);
             txtTotalAllowed.Text = string.Format(": {0}", strTotalAllowed);
+
+            drpBank.SelectedValue = "alipay";
         }
     }
 
