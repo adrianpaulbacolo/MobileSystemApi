@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<banks>
+	<bank id="alipay"><![CDATA[Alipay]]></bank>
+	<bank id="cmb"><![CDATA[CMB]]></bank>
+</banks>

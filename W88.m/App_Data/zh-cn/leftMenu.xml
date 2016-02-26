@@ -31,18 +31,12 @@
 	<customerservice><![CDATA[顾客服务]]></customerservice>
 	<rewards><![CDATA[奖励俱乐部]]></rewards>
 	<sdpay><![CDATA[银联支付]]></sdpay>
+	<sdapay><![CDATA[支付宝]]></sdapay>
 	<help2pay><![CDATA[快速支付]]></help2pay>
 	<daddypay><![CDATA[快捷支付]]></daddypay>
 	<withrawal><![CDATA[提款]]></withrawal>
 	<fundTransfer><![CDATA[转账]]></fundTransfer>
 	<cancel><![CDATA[取消]]></cancel>
-	<virtual><![CDATA[虚拟体育]]></virtual>
-	<basketball><![CDATA[篮球]]></basketball>
-	<dogRacing><![CDATA[赛狗]]></dogRacing>
-	<football><![CDATA[足球]]></football>
-	<horseRacing><![CDATA[赛马]]></horseRacing>
-	<tennis><![CDATA[网球]]></tennis>
-
 
 	<mainWallet><![CDATA[中心钱包]]></mainWallet>
 	<rewardsClub><![CDATA[奖励积分]]></rewardsClub>
@@ -94,4 +88,5 @@
 	<accountId><![CDATA[Neteller 帐户]]></accountId>
 	<secureId><![CDATA[Neteller 密码]]></secureId>
 
+	<copy><![CDATA[复制]]></copy>
 </menu>

@@ -83,14 +83,20 @@
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("sports", commonVariables.LeftMenuXML)%></h2>
                 <li>
                     <a class="card" data-rel="sports" rel="asports" href="/_Secure/Login.aspx?redirect=<%=System.Web.HttpContext.Current.Request.Url.ToString()%>" data-rel="dialog" data-transition="slidedown" target="_blank">
-                        <img src="/_Static/Images/bnr-asports.jpg" class="img-responsive">
+                        <img src="/_Static/Images/sports/bnr-asports.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ASports/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
                 <li>
                     <a class="card" data-rel="sports" rel="esports" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown" target="_blank">
-                        <img src="/_Static/Images/bnr-esports.jpg" class="img-responsive">
+                        <img src="/_Static/Images/sports/bnr-esports.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></div>
+                    </a>
+                </li>
+                <li>
+                    <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-rel="dialog" data-transition="slidedown">
+                        <img src="_Static/Images/sports/bnr-vSports.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
                 <!-- Toggle to hide elements -->
@@ -107,7 +113,7 @@
                     </a>
                 </li>-->
                 <!-- Hide elements -->
-                <li class="menu-sports-sub hide">
+                <!--<li class="menu-sports-sub hide">
                     <a class="card" data-rel="sports" rel="vsportsBasketball" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
                         <img src="/_Static/Images/bnr-vSPORTS-basketball.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-basketball/Label", commonVariables.ProductsXML)%></div>
@@ -136,7 +142,7 @@
                         <img src="/_Static/Images/bnr-vSPORTS-dogracing.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-dogracing/Label", commonVariables.ProductsXML)%></div>
                     </a>
-                </li>
+                </li>-->
             </ul>
         </li>
 

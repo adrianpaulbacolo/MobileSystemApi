@@ -1,57 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Deposit>
-  <lblTitle><![CDATA[Fast Deposit]]></lblTitle>
-  <lblDepositAmount><![CDATA[Deposit Amount]]></lblDepositAmount>
-  <lblReferenceId><![CDATA[Reference ID]]></lblReferenceId>
-  <lblSystemAccount><![CDATA[System Account]]></lblSystemAccount>
-  <drpSystemAccount><![CDATA[Select System Account]]></drpSystemAccount>
-  <drpDepositDateTime><![CDATA[Deposit Date/Time]]></drpDepositDateTime>
-  <lblDepositChannel><![CDATA[Deposit Channel]]></lblDepositChannel>
-  <drpDepositChannel><![CDATA[Select Deposit Channel]]></drpDepositChannel>
-  <lblBank><![CDATA[Bank]]></lblBank>
-  <drpBank><![CDATA[Select Bank]]></drpBank>
-  <lblBankName><![CDATA[Your Bank Name]]></lblBankName>
-  <drpOtherBank><![CDATA[Other Bank]]></drpOtherBank>
-  <lblAccountName><![CDATA[Your Account Name]]></lblAccountName>
-  <lblAccountNumber><![CDATA[Your Account Number]]></lblAccountNumber>
-  <btnSubmit><![CDATA[SUBMIT]]></btnSubmit>
-  <lblTransactionId><![CDATA[Transaction ID]]></lblTransactionId>
-  <lblDailyLimit><![CDATA[Daily Limit: ]]></lblDailyLimit>
-  <lblTotalAllowed><![CDATA[Total Allowed: ]]></lblTotalAllowed>
-  <unlimited><![CDATA[Unlimited]]></unlimited>
-  
-  <DepositChannel>
-    <ATM><![CDATA[ATM]]></ATM>
-    <iBanking><![CDATA[iBanking]]></iBanking>
-    <mBanking><![CDATA[mBanking]]></mBanking>
-    <cBanking><![CDATA[cBanking]]></cBanking>
-    <CDM><![CDATA[CDM]]></CDM>
-  </DepositChannel>
+	<lblMode><![CDATA[Mode]]></lblMode>
+	<online><![CDATA[Online]]></online>
+	<offline><![CDATA[Offline]]></offline>
+	<lblMinMaxLimit><![CDATA[Min/Max Limit]]></lblMinMaxLimit>
+	<lblDailyLimit><![CDATA[Daily Limit: ]]></lblDailyLimit>
+	<lblTotalAllowed><![CDATA[Total Allowed: ]]></lblTotalAllowed>
+	<lblDepositAmount><![CDATA[Deposit Amount]]></lblDepositAmount>
+	<unlimited><![CDATA[Unlimited]]></unlimited>
+	
+	<lblTransactionId><![CDATA[Transaction ID]]></lblTransactionId>
+	
+	<lblBank><![CDATA[Bank]]></lblBank>
+	<drpBank><![CDATA[Select Bank]]></drpBank>
+	<lblBankName><![CDATA[Your Bank Name]]></lblBankName>
+	<drpOtherBank><![CDATA[Other Bank]]></drpOtherBank>
+	
+	<lblAccountName><![CDATA[Your Account Name]]></lblAccountName>
+	<lblAccountNumber><![CDATA[Your Account Number]]></lblAccountNumber>
+	
+	<btnCancel><![CDATA[CANCEL]]></btnCancel>
+	<btnSubmit><![CDATA[SUBMIT]]></btnSubmit>
 
-  <BankNameNative>
-    <ZH-CN_RMB />
-    <VI-VN_VND />
-    <TH-TH_THB />
-    <ID-ID_IDR />
-    <KM-KH_USD />
-    <KO-KR_KRW />
-    <JA-JP_JPY />
-  </BankNameNative>
-  
-  <Calendar>
-    <m1><![CDATA[Jan]]></m1>
-    <m2><![CDATA[Feb]]></m2>
-    <m3><![CDATA[Mar]]></m3>
-    <m4><![CDATA[Apr]]></m4>
-    <m5><![CDATA[May]]></m5>
-    <m6><![CDATA[Jun]]></m6>
-    <m7><![CDATA[Jul]]></m7>
-    <m8><![CDATA[Aug]]></m8>
-    <m9><![CDATA[Sep]]></m9>
-    <m10><![CDATA[Oct]]></m10>
-    <m11><![CDATA[Nov]]></m11>
-    <m12><![CDATA[Dec]]></m12>
-  </Calendar>
-
-  
+	<browserNotice><![CDATA[<span>Gentle reminder: <b>{BANK}</b> do not support chrome & firefox</span>]]></browserNotice>
 </Deposit>

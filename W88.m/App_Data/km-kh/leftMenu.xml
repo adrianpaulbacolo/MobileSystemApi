@@ -34,6 +34,7 @@
 	<customerservice><![CDATA[Customer Service]]></customerservice>
 	<rewards><![CDATA[ក្លឹបរង្វាន់]]></rewards>
 	<sdpay><![CDATA[Union Pay]]></sdpay>
+	<sdapay><![CDATA[Alipay Transfer]]></sdapay>
 	<help2pay><![CDATA[ប្រាក់បៀវត្សរ៍រហ័ស]]></help2pay>
 	<daddypay><![CDATA[រហ័សអនឡាញ]]></daddypay>
 	<withrawal><![CDATA[ការដកប្រាក់ចេញ]]></withrawal>
@@ -64,13 +65,6 @@
 	<androidDownload><![CDATA[ ពុកគ័រ ]]></androidDownload>
 	<iosDownload><![CDATA[ ពុកគ័រ ]]></iosDownload>
 
-	<virtual><![CDATA[Virtual]]></virtual>
-	<basketball><![CDATA[Basketball]]></basketball>
-	<dogRacing><![CDATA[Dog Racing]]></dogRacing>
-	<football><![CDATA[Football]]></football>
-	<horseRacing><![CDATA[Horse Racing]]></horseRacing>
-	<tennis><![CDATA[Tennis]]></tennis>
-
 	<download><![CDATA[DOWNLOAD]]></download>
 
 	<kenoMessage><![CDATA[ករាយ និង រំភើបឥតឈប់ឈរ រៀងរាល់ 3 ទៅ 5 នាទីម្តង លេងទឹកប្រាក់ពិត ជ្រើសរើស ការភ្នាល់ និងឈ្នះទឹកប្រាក់]]></kenoMessage>
@@ -90,5 +84,5 @@
 	<accountId><![CDATA[Neteller គណនី]]></accountId>
 	<secureId><![CDATA[Neteller ពាក្យសម្ងាត់]]></secureId>
 
-
+	<copy><![CDATA[Copy]]></copy>
 </menu>
