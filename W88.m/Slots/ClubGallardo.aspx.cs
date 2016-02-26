@@ -6,11 +6,12 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Xml.Linq;
+using System.Text;
 
 public partial class Slots_ClubGallardo : BasePage
 {
-    protected System.Xml.Linq.XElement xeErrors = null;
-    private System.Xml.Linq.XElement xeResources = null;
+    protected XElement xeErrors = null;
+    private XElement xeResources = null;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -21,9 +22,9 @@ public partial class Slots_ClubGallardo : BasePage
 
         if (!Page.IsPostBack)
         {
-            System.Text.StringBuilder sbGames = new System.Text.StringBuilder();
+            StringBuilder sbGames = new StringBuilder();
 
-            System.Xml.Linq.XElement xeCategories = xeResources.Element("Category");
+            XElement xeCategories = xeResources.Element("Category");
 
             switch (commonVariables.SelectedLanguage)
             {
@@ -58,7 +59,9 @@ public partial class Slots_ClubGallardo : BasePage
             string currCode = string.IsNullOrWhiteSpace(currencyCode) || currencyCode.Equals("rmb", StringComparison.OrdinalIgnoreCase) ? "CNY" : currencyCode;
             string lobbyUrl = System.Web.HttpContext.Current.Request.Url.ToString();
 
+            string[] notSupport = xeResources.Element("iSoftBetNotSupportedCurrency").Elements().Select(d => d.Name.ToString()).ToArray();
 
+            bool isISoftBetNotSupported = notSupport.Contains(currencyCode);
 
             foreach (XElement xeCategory in xeCategories.Elements())
             {
@@ -74,43 +77,46 @@ public partial class Slots_ClubGallardo : BasePage
 
                 foreach (XElement xeGame in topgames)
                 {
-                    bool isPnG = false;
+                    string notSupCurr = (xeGame.Attribute("NotSupportedCurrency") != null) ? xeGame.Attribute("NotSupportedCurrency").Value : "";
 
-                    if (xeGame.Attribute("ProductId") == null)
+                    string[] currNotSupp = notSupCurr.Split(',');
+
+                    bool isGameNotSupported = currNotSupp.Contains(currencyCode);
+
+                    if (!isGameNotSupported)
                     {
-                        strGameId = xeGame.Name.ToString().ToLower();
-                        isPnG = true;
-                    }
-                    else
-                    {
-                        strGameId = xeGame.Attribute("ProductId").Value;
-                    }
+                        if (xeGame.Attribute("ProductId") == null)
+                        {
+                            strGameId = xeGame.Name.ToString().ToLower();
 
-                    sbGames.AppendFormat("<li rel='{0}.jpg' class='bkg-game'><div class='div-links'>", commonCulture.ElementValues.getResourceString("ImageName", xeGame));
+                            sbGames.AppendFormat("<li rel='{0}.jpg' class='bkg-game'><div class='div-links'>", commonCulture.ElementValues.getResourceString("ImageName", xeGame));
 
-                    if (isPnG)
-                    {
-                        string newstrLanguageCode = (strLanguageCode == "chs") ? "zh_CN" : "en_GB";
+                            string newstrLanguageCode = (strLanguageCode == "chs") ? "zh_CN" : "en_GB";
 
-                        if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-                            sbGames.AppendFormat("<a class='btn-primary' target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubGallardo") + "' data-rel='dialog' data-transition='slidedown'>");
-                        else
-                            sbGames.AppendFormat("<a href='{0}' target='_blank'>", commonClubBravado.getThirdPartyRealUrl.Replace("{GAME}", Convert.ToString(strGameId)).Replace("{LANG}", newstrLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
+                            if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+                                sbGames.AppendFormat("<a class='btn-primary' target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubGallardo") + "' data-rel='dialog' data-transition='slidedown'>");
+                            else
+                                sbGames.AppendFormat("<a href='{0}' target='_blank'>", commonClubBravado.getThirdPartyRealUrl.Replace("{GAME}", Convert.ToString(strGameId)).Replace("{LANG}", newstrLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
 
-                        sbGames.Append("<i class='icon-play_arrow'></i></a>");
-                        sbGames.AppendFormat("<a class='btn-secondary' href='{0}' target='_blank'><i class='icon-fullscreen'></i></a></div>", commonClubBravado.getThirdPartyFunUrl.Replace("{GAME}", commonCulture.ElementValues.getResourceString("ImageName", xeGame)).Replace("{LANG}", newstrLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
+                            sbGames.Append("<i class='icon-play_arrow'></i></a>");
+                            sbGames.AppendFormat("<a class='btn-secondary' href='{0}' target='_blank'><i class='icon-fullscreen'></i></a></div>", commonClubBravado.getThirdPartyFunUrl.Replace("{GAME}", commonCulture.ElementValues.getResourceString("ImageName", xeGame)).Replace("{LANG}", newstrLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
 
-                    }
-                    else
-                    {
-                        if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-                            sbGames.AppendFormat("<a class='btn-primary' target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubGallardo") + "' data-rel='dialog' data-transition='slidedown'>");
-                        else
-                            sbGames.AppendFormat("<a href='{0}' target='_blank'>", commonClubGallardo.getRealUrl.Replace("{GAME}", Convert.ToString(strGameId)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId).Replace("{LOBBYURL}", lobbyUrl));
+                        }
+                        else if (!isISoftBetNotSupported)
+                        {
+                            strGameId = xeGame.Attribute("ProductId").Value;
 
-                        sbGames.Append("<i class='icon-play_arrow'></i></a>");
+                            sbGames.AppendFormat("<li rel='{0}.jpg' class='bkg-game'><div class='div-links'>", commonCulture.ElementValues.getResourceString("ImageName", xeGame));
 
-                        sbGames.AppendFormat("<a class='btn-secondary' target='_blank' href='{0}'><i class='icon-fullscreen'></i></a></div>", commonClubGallardo.getFunUrl.Replace("{GAME}", Convert.ToString(strGameId)).Replace("{LANG}", strLanguageCode).Replace("{CURCODE}", currCode).Replace("{LOBBYURL}", lobbyUrl));
+                            if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+                                sbGames.AppendFormat("<a class='btn-primary' target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubGallardo") + "' data-rel='dialog' data-transition='slidedown'>");
+                            else
+                                sbGames.AppendFormat("<a href='{0}' target='_blank'>", commonClubGallardo.getRealUrl.Replace("{GAME}", Convert.ToString(strGameId)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId).Replace("{LOBBYURL}", lobbyUrl));
+
+                            sbGames.Append("<i class='icon-play_arrow'></i></a>");
+
+                            sbGames.AppendFormat("<a class='btn-secondary' target='_blank' href='{0}'><i class='icon-fullscreen'></i></a></div>", commonClubGallardo.getFunUrl.Replace("{GAME}", Convert.ToString(strGameId)).Replace("{LANG}", strLanguageCode).Replace("{CURCODE}", currCode).Replace("{LOBBYURL}", lobbyUrl));
+                        }
                     }
 
                     sbGames.Append("</li>");
