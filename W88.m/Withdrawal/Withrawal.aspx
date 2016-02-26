@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("banktransfer", commonVariables.LeftMenuXML))%></title>
+    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("wBankTransfer", commonVariables.PaymentMethodsXML))%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
     <script type="text/javascript" src="/_Static/JS/jquery.mask.min.js"></script>
@@ -12,7 +12,7 @@
     <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
-            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("banktransfer", commonVariables.LeftMenuXML))%></h1>
+            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("wBankTransfer", commonVariables.PaymentMethodsXML))%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -64,12 +64,12 @@
                         <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" Text="to" />
                         <asp:TextBox ID="txtAccountNumber" runat="server" />
                     </li>
-                    <% if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "myr", true) == 0) { %>
+                <%--    <% if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "myr", true) == 0) { %>
                     <li class="item item-input">
                         <asp:Label ID="lblMyKad" runat="server" AssociatedControlID="txtMyKad" Text="to" />
                         <asp:TextBox ID="txtMyKad" runat="server" />
                     </li>
-                    <% } %>
+                    <% } %>--%>
                     <!--
                     <li class="item item-input">
                         <asp:Label ID="lblMobile" runat="server" AssociatedControlID="txtMobile" Text="to" />
