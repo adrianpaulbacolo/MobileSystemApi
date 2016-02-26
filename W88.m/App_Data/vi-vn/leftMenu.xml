@@ -91,4 +91,5 @@
 	<accountId><![CDATA[Neteller Tài Khoản]]></accountId>
 	<secureId><![CDATA[Neteller Mật Khẩu]]></secureId>
 
+	<copy><![CDATA[Copy]]></copy>
 </menu>

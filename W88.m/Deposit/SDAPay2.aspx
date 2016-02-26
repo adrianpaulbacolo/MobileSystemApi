@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("sdapay", commonVariables.LeftMenuXML))%></title>
+    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dSDAPayAlipay", commonVariables.PaymentMethodsXML))%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
@@ -14,7 +14,7 @@
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
             </a>
-            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("sdapay", commonVariables.LeftMenuXML))%></h1>
+            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dSDAPayAlipay", commonVariables.PaymentMethodsXML))%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -75,7 +75,8 @@
                             <asp:Literal ID="lblBankHolderName" runat="server" />
                         </div>
                         <div class="col">
-                            <asp:Literal ID="txtBankHolderName" runat="server" />
+                            <asp:Label ID="txtBankHolderName" runat="server" />
+                            <a href="#" id="copyAccountName" hidden><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </li>
                     <li class="row">
@@ -83,7 +84,8 @@
                             <asp:Literal ID="lblBankAccountNo" runat="server" />
                         </div>
                         <div class="col">
-                            <asp:Literal ID="txtBankAccountNo" runat="server" />
+                            <asp:Label ID="txtBankAccountNo" runat="server" /> 
+                            <a href="#" id="copyAccountNo" hidden><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </li>
                     <li class="row">
@@ -108,11 +110,38 @@
                         case "0":
                             break;
                         case '-1':
+                            alert('<%=strAlertMessage%>');
+
                             window.location.replace('SDAPay.aspx')
                             break;
                         default:
                             break;
                     }
+                }
+
+                $('#copyAccountName').on('click', function () {
+                    var accountName = $("#txtBankHolderName").text().slice(2);
+                    copyToClipboard(accountName)
+                });
+
+                $('#copyAccountNo').on('click', function () {
+                    var accountNo = $("#txtBankAccountNo").text().slice(2);
+                    copyToClipboard(accountNo)
+                });
+
+
+                function copyToClipboard(text)
+                {
+                    var input = document.createElement('textarea', { "permissions": ["clipboardWrite"] });
+                    document.body.appendChild(input);
+                    input.value = text;
+                    input.focus();
+                    input.select();
+
+                    var s = document.execCommand('copy', false, null);
+                    alert(s == true ? "Copied" : "Unable to Copy");
+
+                    input.remove();
                 }
 
                 var intervalId = setInterval(function () {

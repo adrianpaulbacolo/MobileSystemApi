@@ -87,4 +87,5 @@
 	<accountId><![CDATA[Neteller บัญชี]]></accountId>
 	<secureId><![CDATA[Neteller รหัสผ่าน]]></secureId>
 
+	<copy><![CDATA[Copy]]></copy>
 </menu>

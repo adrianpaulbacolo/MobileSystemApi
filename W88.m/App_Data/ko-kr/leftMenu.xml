@@ -92,5 +92,5 @@
 	<accountId><![CDATA[Neteller 계정]]></accountId>
 	<secureId><![CDATA[Neteller 암호]]></secureId>
 
-
+	<copy><![CDATA[Copy]]></copy>
 </menu>

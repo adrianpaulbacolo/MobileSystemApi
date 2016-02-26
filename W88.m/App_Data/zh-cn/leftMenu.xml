@@ -89,4 +89,5 @@
 	<accountId><![CDATA[Neteller 帐户]]></accountId>
 	<secureId><![CDATA[Neteller 密码]]></secureId>
 
+	<copy><![CDATA[复制]]></copy>
 </menu>

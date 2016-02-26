@@ -34,7 +34,7 @@ public partial class Withdrawal_WingMoney : PaymentBasePage
         CancelUnexpectedRePost();
 
         HtmlGenericControl withdrawalTabs = (HtmlGenericControl)FindControl("withdrawalTabs");
-        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, withdrawalTabs, base.PageName, sender.ToString().Contains("app"));
+        commonPaymentMethodFunc.getWithdrawalMethodList(strMethodsUnAvailable, withdrawalTabs, base.PageName, sender.ToString().Contains("app"));
 
         if (!Page.IsPostBack)
         {

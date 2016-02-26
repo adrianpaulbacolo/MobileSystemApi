@@ -89,4 +89,5 @@
 	<accountId><![CDATA[NETELLER Account ID]]></accountId>
 	<secureId><![CDATA[NETELLER Secure ID]]></secureId>
 
+	<copy><![CDATA[Copy]]></copy>
 </menu>

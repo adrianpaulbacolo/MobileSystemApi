@@ -6,30 +6,21 @@
 	<lblMinMaxLimit><![CDATA[Batas Min/Max]]></lblMinMaxLimit>
 	<lblDailyLimit><![CDATA[Batas Perhari: ]]></lblDailyLimit>
 	<lblTotalAllowed><![CDATA[Jumlah yang diperbolehkan: ]]></lblTotalAllowed>
-	<lblDepositAmount><![CDATA[Jumlah Deposit]]></lblDepositAmount>
+  <lblDepositAmount><![CDATA[Jumlah Deposit]]></lblDepositAmount>
 	<unlimited><![CDATA[Tanpa Batas]]></unlimited>
 	
 	<lblTransactionId><![CDATA[No. Transaksi]]></lblTransactionId>
-	<lblReferenceId><![CDATA[No. Referensi]]></lblReferenceId>
 	
-	<lblSystemAccount><![CDATA[Sistem Account]]></lblSystemAccount>
-	<drpSystemAccount><![CDATA[Sistem Account Pilih]]></drpSystemAccount>
+  <lblBank><![CDATA[Bank]]></lblBank>
+  <drpBank><![CDATA[Bank Pilih]]></drpBank>
+  <lblBankName><![CDATA[Nama Bank]]></lblBankName>
+  <drpOtherBank><![CDATA[Bank Lain]]></drpOtherBank>
 	
-	<drpDepositDateTime><![CDATA[Tanggal/Waktu Deposit]]></drpDepositDateTime>
-	
-	<lblDepositChannel><![CDATA[Deposit Channel]]></lblDepositChannel>
-	<drpDepositChannel><![CDATA[Deposit Channel Pilih]]></drpDepositChannel>
-	
-	<lblBank><![CDATA[Bank]]></lblBank>
-	<drpBank><![CDATA[Bank Pilih]]></drpBank>
-	<lblBankName><![CDATA[Nama Bank]]></lblBankName>
-	<drpOtherBank><![CDATA[Bank Lain]]></drpOtherBank>
-	
-	<lblAccountName><![CDATA[Nama Rekening Anda]]></lblAccountName>
-	<lblAccountNumber><![CDATA[Nomor Rekening Anda]]></lblAccountNumber>
+  <lblAccountName><![CDATA[Nama Rekening Anda]]></lblAccountName>
+  <lblAccountNumber><![CDATA[Nomor Rekening Anda]]></lblAccountNumber>
 
-	<btnSubmit><![CDATA[Kirim]]></btnSubmit>
+  <btnSubmit><![CDATA[Kirim]]></btnSubmit>
 	<btnCancel><![CDATA[CANCEL]]></btnCancel>
-
+  
 	<browserNotice><![CDATA[<span>Gentle reminder: <b>{BANK}</b> do not support chrome & firefox</span>]]></browserNotice>
 </Deposit>
