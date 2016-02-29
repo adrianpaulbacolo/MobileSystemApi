@@ -6,7 +6,7 @@
 	<login><![CDATA[เข้าสู่ระบบ]]></login>
 	<register><![CDATA[สมัครสมาชิก]]></register>
 	<cashier><![CDATA[การเงิน]]></cashier>
-	<deposit><![CDATA[ฝาก]]></deposit>
+	<deposit><![CDATA[Deposit]]></deposit>
 	<transfer><![CDATA[ย้ายเงิน]]></transfer>
 	<withdrawal><![CDATA[ถอน]]></withdrawal>
 	<freebets><![CDATA[Claims]]></freebets>
