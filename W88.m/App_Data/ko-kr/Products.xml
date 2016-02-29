@@ -139,10 +139,11 @@
 		<esports><![CDATA[E-스포츠]]></esports>
 		<isports><![CDATA[I-스포츠]]></isports>
 		<lottery><![CDATA[복권]]></lottery>
-		<casino><![CDATA[클럽 W, 브라바도, 아폴로, 크레센도, 복권, 디비노 & 마시모]]></casino>
-		<playtech><![CDATA[팔라쪼]]></playtech>
+		<casino><![CDATA[클럽 W, 브라바도, 아폴로, 디비노, 마시모, 갈라도, 가상 스포츠,  복권]]></casino>
+		<liveCasino><![CDATA[클럽 W]]></liveCasino>
+		<playtech><![CDATA[클럽 팔라쪼]]></playtech>
 		<binary><![CDATA[바이너리]]></binary>
-		<poker><![CDATA[포커 (USD)]]></poker>
+		<poker><![CDATA[포커]]></poker>
 		<sbtech><![CDATA[E-스포츠]]></sbtech>
 		<netent><![CDATA[누오보]]></netent>
 		<pmahjong><![CDATA[텍사스 마종]]></pmahjong>
