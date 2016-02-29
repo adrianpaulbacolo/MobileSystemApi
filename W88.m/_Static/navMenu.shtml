@@ -278,12 +278,12 @@
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubDivino/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
-                <li>
+                <!--<li>
                     <a class="card" rel="clubcrescendo" href="/ClubCrescendo" data-ajax="false">
                         <img src="_Static/Images/bnr-clubcrescendo.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubCrescendo/Label", commonVariables.ProductsXML)%></div>
                     </a>
-                </li>
+                </li>-->
             </ul>
         </li>
 
