@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
+using System.Xml.Linq;
+using System.Text;
 
 public partial class Slots_ClubBravado : BasePage
 {
@@ -20,9 +22,9 @@ public partial class Slots_ClubBravado : BasePage
 
         if (!Page.IsPostBack)
         {
-            System.Text.StringBuilder sbGames = new System.Text.StringBuilder();
+            StringBuilder sbGames = new StringBuilder();
 
-            System.Xml.Linq.XElement xeCategories = xeResources.Element("Category");
+            XElement xeCategories = xeResources.Element("Category");
 
             switch (commonVariables.SelectedLanguage)
             {
@@ -41,7 +43,13 @@ public partial class Slots_ClubBravado : BasePage
 
                 sbGames.AppendFormat("<div id='div{0}' class='div-product'><div><ul>", xeCategory.Name);
 
-                foreach (System.Xml.Linq.XElement xeGame in xeCategory.Elements())
+                List<XElement> topgames = xeCategory.Elements().Where(m => m.Attribute("Top") != null).OrderBy(f => f.Attribute("Top").Value).ToList();
+
+                IEnumerable<XElement> sortedGame = xeCategory.Elements().Where(m => m.Attribute("Top") == null).OrderBy(game => game.Name.ToString());
+
+                topgames.AddRange(sortedGame);
+
+                foreach (XElement xeGame in topgames)
                 {
                     strGameId = (xeGame.Attribute("ProductId") == null ? "" : xeGame.Attribute("ProductId").Value);
                     sbGames.AppendFormat("<li rel='{0}.jpg' class='bkg-game'><div class='div-links'>", commonCulture.ElementValues.getResourceString("ImageName", xeGame));
@@ -83,7 +91,7 @@ public partial class Slots_ClubBravado : BasePage
                     }
                     else
                     {
-                     string newstrLanguageCode = (strLanguageCode == "zh") ? "zh_CN" : "en_GB";
+                        string newstrLanguageCode = (strLanguageCode == "zh") ? "zh_CN" : "en_GB";
 
 
                         if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))

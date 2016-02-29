@@ -3,6 +3,14 @@
 
   <Category>
     <Slot Label="SLOT">
+		<godofgamblers Top="1">
+			<ImageName><![CDATA[godofgamblers]]></ImageName>
+			<PlayForRealURL><![CDATA[{BaravadoUrl}/godofgamblers/?fun=0]]></PlayForRealURL>
+			<PlayForFunURL><![CDATA[{BaravadoUrl}?/godofgamblers/?fun=1]]></PlayForFunURL>
+			<IsInternal><![CDATA[true]]></IsInternal>
+			<SlotType><![CDATA[RSLOT]]></SlotType>
+		</godofgamblers>
+		
       <desertoasis>
         <ImageName><![CDATA[desertoasis]]></ImageName>
         <PlayForRealURL><![CDATA[{BaravadoUrl}/desertoasis/?fun=0]]></PlayForRealURL>

@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <default>
+	<iSoftBetNotSupportedCurrency>
+		<VND />
+		<IDR />
+	</iSoftBetNotSupportedCurrency>
 	<Category>
 		<Slot Label="スロット">
 			<AbsoluteSuperReels ProductId="896500">
@@ -71,7 +75,7 @@
 			<SuperFastHotHot ProductId="896516">
 				<ImageName><![CDATA[W88-Slots-Mobile-Super-Fast-Hot-Hot]]></ImageName>
 			</SuperFastHotHot>
-			<SuperLadyLuck ProductId="906518">
+			<SuperLadyLuck ProductId="906518" NotSupportedCurrency="RMB">
 				<ImageName><![CDATA[W88-Slots-Mobile-Super-Lady-Luck]]></ImageName>
 			</SuperLadyLuck>
 			<SuperLuckyReels ProductId="896501">
