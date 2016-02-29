@@ -394,7 +394,8 @@ public class commonClubMassimo
 
     public static string getDownloadUrl
     {
-        get { 
+        get
+        {
             string _downloadUrl = ConfigurationManager.AppSettings["ClubMassimoDL"];
             return string.IsNullOrWhiteSpace(_downloadUrl) ? "" : _downloadUrl;
         }
@@ -413,4 +414,26 @@ public class commonClubWAPK
         }
     }
 
+}
+
+public class commonClubGallardo
+{
+    public static string getFunUrl
+    {
+        get
+        {
+            customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
+            string strUrl = opSettings.Values.Get("ClubGallardoFunUrl");
+            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName);
+        }
+    }
+    public static string getRealUrl
+    {
+        get
+        {
+            customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
+            string strUrl = opSettings.Values.Get("ClubGallardoRealUrl");
+            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName);
+        }
+    }
 }

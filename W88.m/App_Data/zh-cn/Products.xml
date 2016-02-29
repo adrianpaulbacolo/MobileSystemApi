@@ -127,6 +127,11 @@
 			<Label><![CDATA[金殿]]></Label>
 			<Description><![CDATA[]]></Description>
 		</ClubPalazzoCasino>
+		<ClubGallardo>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[金樽俱乐部]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubGallardo>
 	</Products>
 	<Wallets>
 		<main><![CDATA[中心钱包]]></main>
@@ -135,9 +140,10 @@
 		<isports><![CDATA[爱体育]]></isports>
 		<lottery><![CDATA[乐透]]></lottery>
 		<casino><![CDATA[优德俱乐部(真人+其他老虎机俱乐部),乐透]]></casino>
+		<liveCasino><![CDATA[真人娱乐城]]></liveCasino>
 		<playtech><![CDATA[金殿(PT真人+老虎机)]]></playtech>
 		<binary><![CDATA[金融]]></binary>
-		<poker><![CDATA[扑克 (USD)]]></poker>
+		<poker><![CDATA[扑克]]></poker>
 		<sbtech><![CDATA[西方体育]]></sbtech>
 		<netent><![CDATA[金蟾]]></netent>
 		<pmahjong><![CDATA[德州麻将]]></pmahjong>
