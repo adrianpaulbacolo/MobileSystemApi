@@ -32,6 +32,7 @@
                 $("img").error(function () {
                     $(this).unbind("error").attr("src", "/_Static/Images/broken-lt.gif");
                 });
+
             });
         </script>
         <!--#include virtual="~/_static/navMenu.shtml" -->
