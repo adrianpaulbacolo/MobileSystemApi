@@ -69,13 +69,13 @@
                         <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" Text="to" />
                         <asp:TextBox ID="txtAccountNumber" runat="server" />
                     </li>
-                    <% if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "myr", true) == 0)
+                   <%-- <% if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "myr", true) == 0)
                        { %>
                     <li class="item item-input">
                         <asp:Label ID="lblMyKad" runat="server" AssociatedControlID="txtMyKad" Text="to" />
                         <asp:TextBox ID="txtMyKad" runat="server" />
                     </li>
-                    <% } %>
+                    <% } %>--%>
                     <!--
                     <li class="item item-input">
                         <asp:Label ID="lblMobile" runat="server" AssociatedControlID="txtMobile" Text="to" />

@@ -149,7 +149,14 @@ casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePla
       </EuropeanRoulette>
     </CardAndTable>
     <Slot Label="Slots">
-
+		<AliceinWonderslots>
+			<Label><![CDATA[AliceinWonderslots]]></Label>
+			<Description><![CDATA[AliceinWonderslots]]></Description>
+			<ImageName><![CDATA[W88-Slots-Mobile-Alice-in-Wonderslots]]></ImageName>
+			<PlayForRealURL><![CDATA[https://redirector3.valueactive.eu/Casino/Default.aspx?authToken={token}&serverid=3710&applicationID=7217&ModuleID=19041&ClientID=10001&ProductID=13&ul=en&gameID=alice_c_mob&siteID=TNG]]></PlayForRealURL>
+			<PlayForFunURL><![CDATA[https://redirector3.valueactive.eu/Casino/Default.aspx?serverid=1866&applicationid=7217&ModuleID=19041&ClientID=10001&ProductID=13&ul=en&gameID=alice_c_mob&playmode=demo]]></PlayForFunURL>
+		</AliceinWonderslots>
+		
 	  <bikiniParty>
 	  	<Label><![CDATA[bikiniParty]]></Label>
 	  	<Description><![CDATA[bikiniParty]]></Description>

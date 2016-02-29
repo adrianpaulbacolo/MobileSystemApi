@@ -240,7 +240,7 @@ public static class commonPaymentMethodFunc
                 anchor = CreateMethodLinkControl(list.ID.ToString(), paymentCode.ToString(), sourcePage);
 
                 if (isApp)
-                    anchor.Attributes.Add("href", "/Withdrawal/BankTransfer_app.aspx");
+                    anchor.Attributes.Add("href", "/Withdrawal/Withrawal.aspx?source=app");
                 else
                     anchor.Attributes.Add("href", "/Withdrawal/Default.aspx");
 
