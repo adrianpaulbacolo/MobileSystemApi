@@ -121,7 +121,7 @@ public partial class Deposit_ECPSS : PaymentBasePage
                     status = base.GetErrors("/TotalAllowedExceeded");
                 }
 
-                if (!isProcessAbort)
+                if (!status.IsProcessAbort)
                 {
                     status.AlertCode = "0";
                 }
