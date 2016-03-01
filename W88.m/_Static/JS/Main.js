@@ -13,6 +13,8 @@
             }
         });
     }, 5000);
+
+    redirectToHttps();
 });
 
 if ($("#divBalance").hasClass("open")) { $("#divBalance").addClass("close"); } else { if ($("#divBalance").hasClass("open")) { $("#divBalance").addClass("close"); } }
@@ -52,8 +54,7 @@ document.addEventListener('keydown', function(e) {
 }, false);
 */
 
-function Cookies()
-{
+function Cookies() {
     var setCookie = function (cname, cvalue, expiryDays) {
         var date = new Date();
         date.setTime(date.getTime() + (expiryDays * 24 * 60 * 60 * 1000));
@@ -61,7 +62,7 @@ function Cookies()
         document.cookie = cname + "=" + cvalue + ";" + expires;
     };
 
-    var getCookie = function(cname) {
+    var getCookie = function (cname) {
         var name = cname + "=";
         var cookies = document.cookie.split(';');
         for (var i = 0; i < cookies.length; i++) {
@@ -82,3 +83,15 @@ function Cookies()
     };
 
 }
+
+function redirectToHttps() {
+    var protocol = window.location.protocol;
+    var httpURL = window.location.hostname + window.location.pathname;
+
+    if (protocol == "http:") {
+        var httpsURL = "https://" + httpURL;
+
+        window.location = httpsURL;
+    }
+}
+
