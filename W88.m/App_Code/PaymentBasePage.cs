@@ -218,7 +218,7 @@ public class PaymentBasePage : BasePage
 
         using (svcPayMember.MemberClient svcInstance = new svcPayMember.MemberClient())
         {
-            dtPaymentMethodLimits = svcInstance.getMethodLimits(strOperatorId, strMemberCode, strMethodId, Convert.ToString(Convert.ToInt32(commonVariables.PaymentTransactionType.Deposit)), false, out strProcessCode, out strProcessText);
+            dtPaymentMethodLimits = svcInstance.getMethodLimits_Mobile(strOperatorId, strMemberCode, strMethodId, Convert.ToString(Convert.ToInt32(commonVariables.PaymentTransactionType.Deposit)), false, out strProcessCode, out strProcessText);
         }
 
         foreach (commonVariables.DepositMethod EnumMethod in Enum.GetValues(typeof(commonVariables.DepositMethod)))
