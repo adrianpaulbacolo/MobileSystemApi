@@ -179,6 +179,16 @@
 				<Label><![CDATA[Weekend in Vegas]]></Label>
 				<Description><![CDATA[Weekend in Vegas]]></Description>
 			</Slot3D27>
+			<Slot3D28 IOSId="610" AndroidId="611" WPId="612">
+				<ImageName><![CDATA[TheGlamLife]]></ImageName>
+				<Label><![CDATA[The Glam Life]]></Label>
+				<Description><![CDATA[The Glam Life]]></Description>
+			</Slot3D28>
+			<Slot3D29 IOSId="604" AndroidId="605" WPId="606">
+				<ImageName><![CDATA[AlkemorsTower]]></ImageName>
+				<Label><![CDATA[Alkemor's Tower]]></Label>
+				<Description><![CDATA[Alkemor's Tower]]></Description>
+			</Slot3D29>
 		</Slot3D>
 		<Slots IOSName="IOS" AndroidName="ANDROID" WPName="WP" Label="ស្លត">
 			<Slots1 IOSId="263" AndroidId="268" WPId="355">
@@ -187,14 +197,20 @@
 				<Description><![CDATA[Traditional 3 Reel 1 Line Slot Game]]></Description>
 			</Slots1>
 
+			<MayaWheelOfLuck>
+				<Label><![CDATA[mayawheelofluckslots]]></Label>
+				<Description><![CDATA[xc_mobilemayawheelofluckslots]]></Description>
+				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilemayawheelofluckslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilemayawheelofluckslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+			</MayaWheelOfLuck>
 			<xc_mobileeastwindbattleslots>
-				<Label><![CDATA[xc_mobileeastwindbattleslots]]></Label>
+				<Label><![CDATA[eastwindbattleslots]]></Label>
 				<Description><![CDATA[xc_mobileeastwindbattleslots]]></Description>
 				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobileeastwindbattleslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
 				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobileeastwindbattleslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
 			</xc_mobileeastwindbattleslots>
 			<xc_mobiledoublebonusslots>
-				<Label><![CDATA[xc_mobiledoublebonusslots]]></Label>
+				<Label><![CDATA[doublebonusslots]]></Label>
 				<Description><![CDATA[xc_mobiledoublebonusslots]]></Description>
 				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobiledoublebonusslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
 				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobiledoublebonusslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
