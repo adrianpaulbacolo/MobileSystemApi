@@ -14,6 +14,7 @@
         });
     }, 5000);
 
+    // Comment out to run in LOCAL or UAT
     redirectToHttps();
 });
 
