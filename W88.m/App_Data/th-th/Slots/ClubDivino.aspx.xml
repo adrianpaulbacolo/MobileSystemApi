@@ -2,379 +2,389 @@
 <default>
 	<Category>
 		<Slot3D IOSName="IOS" AndroidName="ANDROID" WPName="WP" Label="สล็อต 3D">
-			<Slot3D28 IOSId="638" AndroidId="639" WPId="640" Top="1">
-				<ImageName><![CDATA[W88-Slots-Mobile-4-Seasons]]></ImageName>
-				<Label><![CDATA[4 Seasons]]></Label>
-				<Description><![CDATA[4 Seasons]]></Description>
-			</Slot3D28>
-			<Slot3D29 IOSId="627" AndroidId="628" WPId="629" Top="2">
-				<ImageName><![CDATA[W88-Slots-Mobile-Barbary-Coast]]></ImageName>
-				<Label><![CDATA[Barbary Coast]]></Label>
-				<Description><![CDATA[Barbary Coast]]></Description>
-			</Slot3D29>
-			
-			<Slot3D32 IOSId="616" AndroidId="617" WPId="618" Top="3">
-				<ImageName><![CDATA[W88-Slots-Mobile-2-Million-B.C.]]></ImageName>
-				<Label><![CDATA[2 Million BC]]></Label>
-				<Description><![CDATA[2 Million BC]]></Description>
-			</Slot3D32>
-			<Slot3D28 IOSId="620" AndroidId="621" WPId="622">
-				<ImageName><![CDATA[W88-Slots-Mobile-A-Christmas-Carol]]></ImageName>
-				<Label><![CDATA[A Christmas Carol]]></Label>
-				<Description><![CDATA[A Christmas Carol]]></Description>
-			</Slot3D28>
-			<Slot3D29 IOSId="531" AndroidId="532" WPId="533">
-				<ImageName><![CDATA[W88-Slots-Mobile-Enchanted]]></ImageName>
-				<Label><![CDATA[Enchanted]]></Label>
-				<Description><![CDATA[Enchanted]]></Description>
-			</Slot3D29>
-			<Slot3D32 IOSId="406" AndroidId="407" WPId="408">
-				<ImageName><![CDATA[W88-Slots-Mobile-Gladiator]]></ImageName>
-				<Label><![CDATA[Gladiator]]></Label>
-				<Description><![CDATA[Gladiator]]></Description>
-			</Slot3D32>
-			<Slot3D30 IOSId="422" AndroidId="423" WPId="424">
-				<ImageName><![CDATA[W88-Slots-Mobile-Lost]]></ImageName>
-				<Label><![CDATA[Lost]]></Label>
-				<Description><![CDATA[Lost]]></Description>
-			</Slot3D30>
-			<Slot3D31 IOSId="412" AndroidId="413" WPId="414">
-				<ImageName><![CDATA[W88-Slots-Mobile-Madder-Scientist]]></ImageName>
-				<Label><![CDATA[Madder Scientist]]></Label>
-				<Description><![CDATA[Madder Scientist]]></Description>
-			</Slot3D31>
-			<Slot3D1 IOSId="391" AndroidId="392" WPId="392">
-				<ImageName><![CDATA[W88-Slots-Mobile-A-Night-In-Paris]]></ImageName>
-				<Label><![CDATA[A Night In Paris]]></Label>
-				<Description><![CDATA[Cat Burglar Themed 30 Line 5 Reel Slots3 Game]]></Description>
-			</Slot3D1>
-			<Slot3D2 IOSId="306" AndroidId="307" WPId="364">
-				<ImageName><![CDATA[W88-Slots-Mobile-After-Night-Falls]]></ImageName>
-				<Label><![CDATA[After Night Falls]]></Label>
-				<Description><![CDATA[Cops and Robbers themed 30 Line 5 Reel Slots3 Game]]></Description>
-			</Slot3D2>
-			<Slot3D3 IOSId="312" AndroidId="315" WPId="361">
-				<ImageName><![CDATA[W88-Slots-Mobile-At-The-Copa]]></ImageName>
-				<Label><![CDATA[At The Copa]]></Label>
-				<Description><![CDATA[Salsa Dancing Themed 30 Line 5 Reel Slots3 Game with 3 Progressive Jackpots]]></Description>
-			</Slot3D3>
-			<Slot3D4 IOSId="607" AndroidId="608" WPId="609">
-				<ImageName><![CDATA[W88-Slots-Mobile-At-the-Movies]]></ImageName>
-				<Label><![CDATA[At the Movies]]></Label>
-				<Description><![CDATA[At the Movies]]></Description>
-			</Slot3D4>
-			<Slot3D5 IOSId="324" AndroidId="325" WPId="369">
-				<ImageName><![CDATA[W88-Slots-Mobile-Boomanji]]></ImageName>
-				<Label><![CDATA[Boomanji]]></Label>
-				<Description><![CDATA[Fast Paced Fireworks themed 10 line 5 reel Slots3 Game Note: Has a cloned version called Gemscapades that's 7RED exclusive, it's the same exact game.]]></Description>
-			</Slot3D5>
-			<Slot3D6 IOSId="549" AndroidId="550" WPId="551">
-				<ImageName><![CDATA[W88-Slots-Mobile-Event-Horizon]]></ImageName>
-				<Label><![CDATA[Event Horizon]]></Label>
-				<Description><![CDATA[Event Horizon]]></Description>
-			</Slot3D6>
-			<Slot3D11 IOSId="513" AndroidId="514" WPId="515">
-				<ImageName><![CDATA[W88-Slots-Mobile-Fruit-Zen]]></ImageName>
-				<Label><![CDATA[Fruit Zen]]></Label>
-				<Description><![CDATA[Fruit Zen]]></Description>
-			</Slot3D11>
-			<Slot3D7 IOSId="428" AndroidId="430" WPId="432">
-				<ImageName><![CDATA[W88-Slots-Mobile-Good-Girl-Bad-Girl]]></ImageName>
-				<Label><![CDATA[Good Girl Bad Girl]]></Label>
-				<Description><![CDATA[30 reels]]></Description>
-			</Slot3D7>
-			<Slot3D8 IOSId="342" AndroidId="343" WPId="353">
-				<ImageName><![CDATA[W88-Slots-Mobile-Greedy-Goblins]]></ImageName>
-				<Label><![CDATA[Greedy Goblins]]></Label>
-				<Description><![CDATA[Fantasy Themed 30 Line 5 Reel Slots 3 Game. Sequel to "Once Upon A Time"]]></Description>
-			</Slot3D8>
-			<Slot3D9 IOSId="479" AndroidId="480" WPId="481">
-				<ImageName><![CDATA[W88-Slots-Mobile-Gypsy-Rose]]></ImageName>
-				<Label><![CDATA[Gypsy Rose]]></Label>
-				<Description><![CDATA[Gypsy Rose]]></Description>
-			</Slot3D9>
-			<Slot3D10 IOSId="468" AndroidId="469" WPId="470">
-				<ImageName><![CDATA[W88-Slots-Mobile-Heist]]></ImageName>
-				<Label><![CDATA[Heist]]></Label>
-				<Description><![CDATA[Heist]]></Description>
-			</Slot3D10>
-			<Slot3D12 IOSId="451" AndroidId="452" WPId="453">
-				<ImageName><![CDATA[W88-Slots-Mobile-More-Gold-Diggin]]></ImageName>
-				<Label><![CDATA[More Gold Diggin]]></Label>
-				<Description><![CDATA[More Gold Diggin]]></Description>
-			</Slot3D12>
-			<Slot3D13 IOSId="269" AndroidId="270" WPId="362">
-				<ImageName><![CDATA[W88-Slots-Mobile-Mr.-Vegas]]></ImageName>
-				<Label><![CDATA[Mr. Vegas]]></Label>
-				<Description><![CDATA[Las Vegas themed 30 Line 5 Reel Slots3 Game with Progressive Jackpot]]></Description>
-			</Slot3D13>
-			<Slot3D15 IOSId="521" AndroidId="522" WPId="523">
-				<ImageName><![CDATA[W88-Slots-Mobile-Pinocchio]]></ImageName>
-				<Label><![CDATA[Pinocchio]]></Label>
-				<Description><![CDATA[Pinocchio]]></Description>
-			</Slot3D15>
-			<Slot3D14 IOSId="" AndroidId="484" WPId="485">
-				<!--IOSId="483"-->
-				<ImageName><![CDATA[W88-Slots-Mobile-Puppy-Love]]></ImageName>
-				<Label><![CDATA[Puppy Love]]></Label>
-				<Description><![CDATA[Cute/Puppy themed 20 line 5 reel slot game]]></Description>
-			</Slot3D14>
-			<Slot3D16 IOSId="318" AndroidId="319" WPId="368">
-				<ImageName><![CDATA[W88-Slots-Mobile-Rooks-Revenge]]></ImageName>
-				<Label><![CDATA[Rook's Revenge]]></Label>
-				<Description><![CDATA['25 Line 5 Reel Cascading Reel Slots3 Game]]></Description>
-			</Slot3D16>
-			<Slot3D17 IOSId="303" AndroidId="304" WPId="373">
-				<ImageName><![CDATA[W88-Slots-Mobile-Safari-Sam]]></ImageName>
-				<Label><![CDATA[Safari Sam]]></Label>
-				<Description><![CDATA[Safari Themed 30 Line 5 Reel Slots3 Game]]></Description>
-			</Slot3D17>
-			<Slot3D18 IOSId="494" AndroidId="495" WPId="496">
-				<ImageName><![CDATA[W88-Slots-Mobile-Sugar-Pop]]></ImageName>
-				<Label><![CDATA[Sugar Pop]]></Label>
-				<Description><![CDATA[Sugar Pop]]></Description>
-			</Slot3D18>
-			<Slot3D20 IOSId="462" AndroidId="463" WPId="464">
-				<ImageName><![CDATA[W88-Slots-Mobile-Curious-Machine]]></ImageName>
-				<Label><![CDATA[The Curious Machine]]></Label>
-				<Description><![CDATA[The Curious Machine]]></Description>
-			</Slot3D20>
-			<Slot3D22 IOSId="345" AndroidId="346" WPId="376">
-				<ImageName><![CDATA[W88-Slots-Mobile-The-Slotfather]]></ImageName>
-				<Label><![CDATA[The Slotfather]]></Label>
-				<Description><![CDATA[Mobster Themed 30 Line 5 Reel Slots3 Game Non Jackpot Version]]></Description>
-			</Slot3D22>
-			<Slot3D19 IOSId="598" AndroidId="599" WPId="600">
-				<ImageName><![CDATA[The-Tipsy-Tourist-mobile]]></ImageName>
-				<Label><![CDATA[The Tipsy Tourist]]></Label>
-				<Description><![CDATA[The Tipsy Tourist]]></Description>
-			</Slot3D19>
-			<Slot3D21 IOSId="385" AndroidId="386" WPId="387">
-				<ImageName><![CDATA[W88-Slots-Mobile-The-True-Sheriff]]></ImageName>
-				<Label><![CDATA[The True Sheriff]]></Label>
-				<Description><![CDATA[5 Reel 30 Line 3D Slot Game with Sheriff/Cowboy Theme]]></Description>
-			</Slot3D21>
-			<Slot3D23 IOSId="291" AndroidId="292" WPId="356">
-				<ImageName><![CDATA[W88-Slots-Mobile-Three-Wishes]]></ImageName>
-				<Label><![CDATA[Three Wishes]]></Label>
-				<Description><![CDATA[Genie/Arabian themed 30 Line 5 Reel Slots3 Game]]></Description>
-			</Slot3D23>
-			<Slot3D24 IOSId="396" AndroidId="397" WPId="398">
-				<ImageName><![CDATA[W88-Slots-Mobile-True-Illusions]]></ImageName>
-				<Label><![CDATA[True Illusions]]></Label>
-				<Description><![CDATA[Magician themed 30 Line 5 Reel Slots3 Game]]></Description>
-			</Slot3D24>
-			<Slot3D25 IOSId="472" AndroidId="473" WPId="474">
-				<ImageName><![CDATA[W88-Slots-Mobile-Tycoons]]></ImageName>
-				<Label><![CDATA[Tycoons]]></Label>
-				<Description><![CDATA[Billionaire Themed 30 Line 5 Reel Slots3 Game with Progressive Jackpot]]></Description>
-			</Slot3D25>
-			<Slot3D26 IOSId="320" AndroidId="321" WPId="365">
-				<ImageName><![CDATA[W88-Slots-Mobile-Under-The-Bed]]></ImageName>
-				<Label><![CDATA[Under the Bed]]></Label>
-				<Description><![CDATA[Monsters and Children themed 30 line 5 reel Slots 3 Game]]></Description>
-			</Slot3D26>
-			<Slot3D27 IOSId="591" AndroidId="592" WPId="593">
-				<ImageName><![CDATA[W88-Slots-Mobile-Weekend-in-Vegas]]></ImageName>
-				<Label><![CDATA[Weekend in Vegas]]></Label>
-				<Description><![CDATA[Weekend in Vegas]]></Description>
-			</Slot3D27>
-			<Slot3D28 IOSId="610" AndroidId="611" WPId="612">
-				<ImageName><![CDATA[TheGlamLife]]></ImageName>
-				<Label><![CDATA[The Glam Life]]></Label>
-				<Description><![CDATA[The Glam Life]]></Description>
-			</Slot3D28>
-			<Slot3D29 IOSId="604" AndroidId="605" WPId="606">
-				<ImageName><![CDATA[AlkemorsTower]]></ImageName>
-				<Label><![CDATA[Alkemor's Tower]]></Label>
-				<Description><![CDATA[Alkemor's Tower]]></Description>
-			</Slot3D29>
+			<Betsoft>
+				<Slot3D28 IOSId="638" AndroidId="639" WPId="640" Top="1">
+					<ImageName><![CDATA[W88-Slots-Mobile-4-Seasons]]></ImageName>
+					<Label><![CDATA[4 Seasons]]></Label>
+					<Description><![CDATA[4 Seasons]]></Description>
+				</Slot3D28>
+				<Slot3D29 IOSId="627" AndroidId="628" WPId="629" Top="2">
+					<ImageName><![CDATA[W88-Slots-Mobile-Barbary-Coast]]></ImageName>
+					<Label><![CDATA[Barbary Coast]]></Label>
+					<Description><![CDATA[Barbary Coast]]></Description>
+				</Slot3D29>
+				<Slot3D32 IOSId="616" AndroidId="617" WPId="618" Top="3">
+					<ImageName><![CDATA[W88-Slots-Mobile-2-Million-B.C.]]></ImageName>
+					<Label><![CDATA[2 Million BC]]></Label>
+					<Description><![CDATA[2 Million BC]]></Description>
+				</Slot3D32>
+				<Slot3D28 IOSId="620" AndroidId="621" WPId="622">
+					<ImageName><![CDATA[W88-Slots-Mobile-A-Christmas-Carol]]></ImageName>
+					<Label><![CDATA[A Christmas Carol]]></Label>
+					<Description><![CDATA[A Christmas Carol]]></Description>
+				</Slot3D28>
+				<Slot3D29 IOSId="531" AndroidId="532" WPId="533">
+					<ImageName><![CDATA[W88-Slots-Mobile-Enchanted]]></ImageName>
+					<Label><![CDATA[Enchanted]]></Label>
+					<Description><![CDATA[Enchanted]]></Description>
+				</Slot3D29>
+				<Slot3D32 IOSId="406" AndroidId="407" WPId="408">
+					<ImageName><![CDATA[W88-Slots-Mobile-Gladiator]]></ImageName>
+					<Label><![CDATA[Gladiator]]></Label>
+					<Description><![CDATA[Gladiator]]></Description>
+				</Slot3D32>
+				<Slot3D30 IOSId="422" AndroidId="423" WPId="424">
+					<ImageName><![CDATA[W88-Slots-Mobile-Lost]]></ImageName>
+					<Label><![CDATA[Lost]]></Label>
+					<Description><![CDATA[Lost]]></Description>
+				</Slot3D30>
+				<Slot3D31 IOSId="412" AndroidId="413" WPId="414">
+					<ImageName><![CDATA[W88-Slots-Mobile-Madder-Scientist]]></ImageName>
+					<Label><![CDATA[Madder Scientist]]></Label>
+					<Description><![CDATA[Madder Scientist]]></Description>
+				</Slot3D31>
+				<Slot3D1 IOSId="391" AndroidId="392" WPId="392">
+					<ImageName><![CDATA[W88-Slots-Mobile-A-Night-In-Paris]]></ImageName>
+					<Label><![CDATA[A Night In Paris]]></Label>
+					<Description><![CDATA[Cat Burglar Themed 30 Line 5 Reel Slots3 Game]]></Description>
+				</Slot3D1>
+				<Slot3D2 IOSId="306" AndroidId="307" WPId="364">
+					<ImageName><![CDATA[W88-Slots-Mobile-After-Night-Falls]]></ImageName>
+					<Label><![CDATA[After Night Falls]]></Label>
+					<Description><![CDATA[Cops and Robbers themed 30 Line 5 Reel Slots3 Game]]></Description>
+				</Slot3D2>
+				<Slot3D3 IOSId="312" AndroidId="315" WPId="361">
+					<ImageName><![CDATA[W88-Slots-Mobile-At-The-Copa]]></ImageName>
+					<Label><![CDATA[At The Copa]]></Label>
+					<Description><![CDATA[Salsa Dancing Themed 30 Line 5 Reel Slots3 Game with 3 Progressive Jackpots]]></Description>
+				</Slot3D3>
+				<Slot3D4 IOSId="607" AndroidId="608" WPId="609">
+					<ImageName><![CDATA[W88-Slots-Mobile-At-the-Movies]]></ImageName>
+					<Label><![CDATA[At the Movies]]></Label>
+					<Description><![CDATA[At the Movies]]></Description>
+				</Slot3D4>
+				<Slot3D5 IOSId="324" AndroidId="325" WPId="369">
+					<ImageName><![CDATA[W88-Slots-Mobile-Boomanji]]></ImageName>
+					<Label><![CDATA[Boomanji]]></Label>
+					<Description><![CDATA[Fast Paced Fireworks themed 10 line 5 reel Slots3 Game Note: Has a cloned version called Gemscapades that's 7RED exclusive, it's the same exact game.]]></Description>
+				</Slot3D5>
+				<Slot3D6 IOSId="549" AndroidId="550" WPId="551">
+					<ImageName><![CDATA[W88-Slots-Mobile-Event-Horizon]]></ImageName>
+					<Label><![CDATA[Event Horizon]]></Label>
+					<Description><![CDATA[Event Horizon]]></Description>
+				</Slot3D6>
+				<Slot3D11 IOSId="513" AndroidId="514" WPId="515">
+					<ImageName><![CDATA[W88-Slots-Mobile-Fruit-Zen]]></ImageName>
+					<Label><![CDATA[Fruit Zen]]></Label>
+					<Description><![CDATA[Fruit Zen]]></Description>
+				</Slot3D11>
+				<Slot3D7 IOSId="428" AndroidId="430" WPId="432">
+					<ImageName><![CDATA[W88-Slots-Mobile-Good-Girl-Bad-Girl]]></ImageName>
+					<Label><![CDATA[Good Girl Bad Girl]]></Label>
+					<Description><![CDATA[30 reels]]></Description>
+				</Slot3D7>
+				<Slot3D8 IOSId="342" AndroidId="343" WPId="353">
+					<ImageName><![CDATA[W88-Slots-Mobile-Greedy-Goblins]]></ImageName>
+					<Label><![CDATA[Greedy Goblins]]></Label>
+					<Description><![CDATA[Fantasy Themed 30 Line 5 Reel Slots 3 Game. Sequel to "Once Upon A Time"]]></Description>
+				</Slot3D8>
+				<Slot3D9 IOSId="479" AndroidId="480" WPId="481">
+					<ImageName><![CDATA[W88-Slots-Mobile-Gypsy-Rose]]></ImageName>
+					<Label><![CDATA[Gypsy Rose]]></Label>
+					<Description><![CDATA[Gypsy Rose]]></Description>
+				</Slot3D9>
+				<Slot3D10 IOSId="468" AndroidId="469" WPId="470">
+					<ImageName><![CDATA[W88-Slots-Mobile-Heist]]></ImageName>
+					<Label><![CDATA[Heist]]></Label>
+					<Description><![CDATA[Heist]]></Description>
+				</Slot3D10>
+				<Slot3D12 IOSId="451" AndroidId="452" WPId="453">
+					<ImageName><![CDATA[W88-Slots-Mobile-More-Gold-Diggin]]></ImageName>
+					<Label><![CDATA[More Gold Diggin]]></Label>
+					<Description><![CDATA[More Gold Diggin]]></Description>
+				</Slot3D12>
+				<Slot3D13 IOSId="269" AndroidId="270" WPId="362">
+					<ImageName><![CDATA[W88-Slots-Mobile-Mr.-Vegas]]></ImageName>
+					<Label><![CDATA[Mr. Vegas]]></Label>
+					<Description><![CDATA[Las Vegas themed 30 Line 5 Reel Slots3 Game with Progressive Jackpot]]></Description>
+				</Slot3D13>
+				<Slot3D15 IOSId="521" AndroidId="522" WPId="523">
+					<ImageName><![CDATA[W88-Slots-Mobile-Pinocchio]]></ImageName>
+					<Label><![CDATA[Pinocchio]]></Label>
+					<Description><![CDATA[Pinocchio]]></Description>
+				</Slot3D15>
+				<Slot3D14 IOSId="" AndroidId="484" WPId="485">
+					<!--IOSId="483"-->
+					<ImageName><![CDATA[W88-Slots-Mobile-Puppy-Love]]></ImageName>
+					<Label><![CDATA[Puppy Love]]></Label>
+					<Description><![CDATA[Cute/Puppy themed 20 line 5 reel slot game]]></Description>
+				</Slot3D14>
+				<Slot3D16 IOSId="318" AndroidId="319" WPId="368">
+					<ImageName><![CDATA[W88-Slots-Mobile-Rooks-Revenge]]></ImageName>
+					<Label><![CDATA[Rook's Revenge]]></Label>
+					<Description><![CDATA['25 Line 5 Reel Cascading Reel Slots3 Game]]></Description>
+				</Slot3D16>
+				<Slot3D17 IOSId="303" AndroidId="304" WPId="373">
+					<ImageName><![CDATA[W88-Slots-Mobile-Safari-Sam]]></ImageName>
+					<Label><![CDATA[Safari Sam]]></Label>
+					<Description><![CDATA[Safari Themed 30 Line 5 Reel Slots3 Game]]></Description>
+				</Slot3D17>
+				<Slot3D18 IOSId="494" AndroidId="495" WPId="496">
+					<ImageName><![CDATA[W88-Slots-Mobile-Sugar-Pop]]></ImageName>
+					<Label><![CDATA[Sugar Pop]]></Label>
+					<Description><![CDATA[Sugar Pop]]></Description>
+				</Slot3D18>
+				<Slot3D20 IOSId="462" AndroidId="463" WPId="464">
+					<ImageName><![CDATA[W88-Slots-Mobile-Curious-Machine]]></ImageName>
+					<Label><![CDATA[The Curious Machine]]></Label>
+					<Description><![CDATA[The Curious Machine]]></Description>
+				</Slot3D20>
+				<Slot3D22 IOSId="345" AndroidId="346" WPId="376">
+					<ImageName><![CDATA[W88-Slots-Mobile-The-Slotfather]]></ImageName>
+					<Label><![CDATA[The Slotfather]]></Label>
+					<Description><![CDATA[Mobster Themed 30 Line 5 Reel Slots3 Game Non Jackpot Version]]></Description>
+				</Slot3D22>
+				<Slot3D19 IOSId="598" AndroidId="599" WPId="600">
+					<ImageName><![CDATA[The-Tipsy-Tourist-mobile]]></ImageName>
+					<Label><![CDATA[The Tipsy Tourist]]></Label>
+					<Description><![CDATA[The Tipsy Tourist]]></Description>
+				</Slot3D19>
+				<Slot3D21 IOSId="385" AndroidId="386" WPId="387">
+					<ImageName><![CDATA[W88-Slots-Mobile-The-True-Sheriff]]></ImageName>
+					<Label><![CDATA[The True Sheriff]]></Label>
+					<Description><![CDATA[5 Reel 30 Line 3D Slot Game with Sheriff/Cowboy Theme]]></Description>
+				</Slot3D21>
+				<Slot3D23 IOSId="291" AndroidId="292" WPId="356">
+					<ImageName><![CDATA[W88-Slots-Mobile-Three-Wishes]]></ImageName>
+					<Label><![CDATA[Three Wishes]]></Label>
+					<Description><![CDATA[Genie/Arabian themed 30 Line 5 Reel Slots3 Game]]></Description>
+				</Slot3D23>
+				<Slot3D24 IOSId="396" AndroidId="397" WPId="398">
+					<ImageName><![CDATA[W88-Slots-Mobile-True-Illusions]]></ImageName>
+					<Label><![CDATA[True Illusions]]></Label>
+					<Description><![CDATA[Magician themed 30 Line 5 Reel Slots3 Game]]></Description>
+				</Slot3D24>
+				<Slot3D25 IOSId="472" AndroidId="473" WPId="474">
+					<ImageName><![CDATA[W88-Slots-Mobile-Tycoons]]></ImageName>
+					<Label><![CDATA[Tycoons]]></Label>
+					<Description><![CDATA[Billionaire Themed 30 Line 5 Reel Slots3 Game with Progressive Jackpot]]></Description>
+				</Slot3D25>
+				<Slot3D26 IOSId="320" AndroidId="321" WPId="365">
+					<ImageName><![CDATA[W88-Slots-Mobile-Under-The-Bed]]></ImageName>
+					<Label><![CDATA[Under the Bed]]></Label>
+					<Description><![CDATA[Monsters and Children themed 30 line 5 reel Slots 3 Game]]></Description>
+				</Slot3D26>
+				<Slot3D27 IOSId="591" AndroidId="592" WPId="593">
+					<ImageName><![CDATA[W88-Slots-Mobile-Weekend-in-Vegas]]></ImageName>
+					<Label><![CDATA[Weekend in Vegas]]></Label>
+					<Description><![CDATA[Weekend in Vegas]]></Description>
+				</Slot3D27>
+				<Slot3D28 IOSId="610" AndroidId="611" WPId="612">
+					<ImageName><![CDATA[TheGlamLife]]></ImageName>
+					<Label><![CDATA[The Glam Life]]></Label>
+					<Description><![CDATA[The Glam Life]]></Description>
+				</Slot3D28>
+				<Slot3D29 IOSId="604" AndroidId="605" WPId="606">
+					<ImageName><![CDATA[AlkemorsTower]]></ImageName>
+					<Label><![CDATA[Alkemor's Tower]]></Label>
+					<Description><![CDATA[Alkemor's Tower]]></Description>
+				</Slot3D29>
+			</Betsoft>
 		</Slot3D>
 		<Slots IOSName="IOS" AndroidName="ANDROID" WPName="WP" Label="สล็อต">
-			<Slots1 IOSId="263" AndroidId="268" WPId="355">
-				<ImageName><![CDATA[W88-Slots-Mobile-Lucky7]]></ImageName>
-				<Label><![CDATA[Lucky7]]></Label>
-				<Description><![CDATA[Traditional 3 Reel 1 Line Slot Game]]></Description>
-			</Slots1>
+			<Betsoft>
+				<Slots1 IOSId="263" AndroidId="268" WPId="355">
+					<ImageName><![CDATA[W88-Slots-Mobile-Lucky7]]></ImageName>
+					<Label><![CDATA[Lucky7]]></Label>
+					<Description><![CDATA[Traditional 3 Reel 1 Line Slot Game]]></Description>
+				</Slots1>
+			</Betsoft>
 
-			<MayaWheelOfLuck>
-				<Label><![CDATA[mayawheelofluckslots]]></Label>
-				<Description><![CDATA[xc_mobilemayawheelofluckslots]]></Description>
-				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilemayawheelofluckslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilemayawheelofluckslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			</MayaWheelOfLuck>
-			<xc_mobileeastwindbattleslots>
-				<Label><![CDATA[eastwindbattleslots]]></Label>
-				<Description><![CDATA[xc_mobileeastwindbattleslots]]></Description>
-				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobileeastwindbattleslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobileeastwindbattleslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			</xc_mobileeastwindbattleslots>
-			<xc_mobiledoublebonusslots>
-				<Label><![CDATA[doublebonusslots]]></Label>
-				<Description><![CDATA[xc_mobiledoublebonusslots]]></Description>
-				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobiledoublebonusslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobiledoublebonusslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			</xc_mobiledoublebonusslots>
-			<AtlantisDive>
-				<Label><![CDATA[AtlantisDive]]></Label>
-				<Description><![CDATA[AtlantisDive]]></Description>
-				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_atlantisdiveslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_atlantisdiveslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			</AtlantisDive>
-			<ChinaMegaWild>
-				<Label><![CDATA[ChinaMegaWild]]></Label>
-				<Description><![CDATA[ChinaMegaWild]]></Description>
-				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_wildchinaslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_wildchinaslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			</ChinaMegaWild>
-			<FreakyFruits>
-				<Label><![CDATA[FreakyFruits]]></Label>
-				<Description><![CDATA[FreakyFruits]]></Description>
-				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_freakyfruitsslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_freakyfruitsslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			</FreakyFruits>
-			<HouseOfScare>
-				<Label><![CDATA[HouseOfScare]]></Label>
-				<Description><![CDATA[HouseOfScare]]></Description>
-				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilehouseofscareslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilehouseofscareslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			</HouseOfScare>
-			<KaraokeStar>
-				<Label><![CDATA[Karaoke Star]]></Label>
-				<Description><![CDATA[Karaoke Star]]></Description>
-				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilekaraokeslots&mode=real&ticket={token}&language=EN&merch_id=CVN2]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilekaraokeslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			</KaraokeStar>
-			<MagicPot>
-				<Label><![CDATA[Magic Pot]]></Label>
-				<Description><![CDATA[Magic Pot]]></Description>
-				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilemagicpotslots&mode=real&ticket={token}&language=EN&merch_id=CVN2]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilemagicpotslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			</MagicPot>
-			<FireCrackers>
-				<Label><![CDATA[Midnight Lucky Sky Slots]]></Label>
-				<Description><![CDATA[Midnight Lucky Sky Slots]]></Description>
-				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilefirecrackerslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilefirecrackerslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			</FireCrackers>
-			<NonStopParty>
-				<Label><![CDATA[Non-Stop Party]]></Label>
-				<Description><![CDATA[Non-Stop Party]]></Description>
-				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilenonstoppartyslots&mode=real&ticket={token}&language=EN&merch_id=CVN2]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilenonstoppartyslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			</NonStopParty>
-			<PartyNight>
-				<Label><![CDATA[PartyNight]]></Label>
-				<Description><![CDATA[PartyNight]]></Description>
-				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_partynightslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_partynightslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			</PartyNight>
-			<SummerDream>
-				<Label><![CDATA[SummerDream]]></Label>
-				<Description><![CDATA[SummerDream]]></Description>
-				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_summerdreamslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_summerdreamslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			</SummerDream>
+			<CTXM>
+				<xc_mobileeastwindbattleslots Top="1">
+					<Label><![CDATA[eastwindbattleslots]]></Label>
+					<Description><![CDATA[xc_mobileeastwindbattleslots]]></Description>
+					<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobileeastwindbattleslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+					<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobileeastwindbattleslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+				</xc_mobileeastwindbattleslots>
+				<MayaWheelOfLuck>
+					<Label><![CDATA[mayawheelofluckslots]]></Label>
+					<Description><![CDATA[xc_mobilemayawheelofluckslots]]></Description>
+					<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilemayawheelofluckslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+					<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilemayawheelofluckslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+				</MayaWheelOfLuck>
+				<xc_mobiledoublebonusslots>
+					<Label><![CDATA[doublebonusslots]]></Label>
+					<Description><![CDATA[xc_mobiledoublebonusslots]]></Description>
+					<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobiledoublebonusslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+					<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobiledoublebonusslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+				</xc_mobiledoublebonusslots>
+				<AtlantisDive>
+					<Label><![CDATA[AtlantisDive]]></Label>
+					<Description><![CDATA[AtlantisDive]]></Description>
+					<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_atlantisdiveslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+					<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_atlantisdiveslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+				</AtlantisDive>
+				<ChinaMegaWild>
+					<Label><![CDATA[ChinaMegaWild]]></Label>
+					<Description><![CDATA[ChinaMegaWild]]></Description>
+					<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_wildchinaslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+					<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_wildchinaslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+				</ChinaMegaWild>
+				<FreakyFruits>
+					<Label><![CDATA[FreakyFruits]]></Label>
+					<Description><![CDATA[FreakyFruits]]></Description>
+					<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_freakyfruitsslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+					<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_freakyfruitsslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+				</FreakyFruits>
+				<HouseOfScare>
+					<Label><![CDATA[HouseOfScare]]></Label>
+					<Description><![CDATA[HouseOfScare]]></Description>
+					<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilehouseofscareslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+					<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilehouseofscareslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+				</HouseOfScare>
+				<KaraokeStar>
+					<Label><![CDATA[Karaoke Star]]></Label>
+					<Description><![CDATA[Karaoke Star]]></Description>
+					<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilekaraokeslots&mode=real&ticket={token}&language=EN&merch_id=CVN2]]></PlayForRealURL>
+					<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilekaraokeslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+				</KaraokeStar>
+				<MagicPot>
+					<Label><![CDATA[Magic Pot]]></Label>
+					<Description><![CDATA[Magic Pot]]></Description>
+					<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilemagicpotslots&mode=real&ticket={token}&language=EN&merch_id=CVN2]]></PlayForRealURL>
+					<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilemagicpotslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+				</MagicPot>
+				<FireCrackers>
+					<Label><![CDATA[Midnight Lucky Sky Slots]]></Label>
+					<Description><![CDATA[Midnight Lucky Sky Slots]]></Description>
+					<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilefirecrackerslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+					<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilefirecrackerslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+				</FireCrackers>
+				<NonStopParty>
+					<Label><![CDATA[Non-Stop Party]]></Label>
+					<Description><![CDATA[Non-Stop Party]]></Description>
+					<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilenonstoppartyslots&mode=real&ticket={token}&language=EN&merch_id=CVN2]]></PlayForRealURL>
+					<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilenonstoppartyslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+				</NonStopParty>
+				<PartyNight>
+					<Label><![CDATA[PartyNight]]></Label>
+					<Description><![CDATA[PartyNight]]></Description>
+					<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_partynightslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+					<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_partynightslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+				</PartyNight>
+				<SummerDream>
+					<Label><![CDATA[SummerDream]]></Label>
+					<Description><![CDATA[SummerDream]]></Description>
+					<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_summerdreamslots&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+					<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_summerdreamslots&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+				</SummerDream>
+			</CTXM>
 		</Slots>
 		<TableCard IOSName="IOS" AndroidName="ANDROID" WPName="WP" Label="เกมส์โต๊ะ &amp; การ์ด">
-			<TableCard1 IOSId="271" AndroidId="272" WPId="366">
-				<ImageName><![CDATA[W88-Slots-Mobile-American-Blackjack]]></ImageName>
-				<Label><![CDATA[American Blackjack]]></Label>
-				<Description><![CDATA[Single Deck Blackjack with no sidebet]]></Description>
-			</TableCard1>
-			<TableCard2 IOSId="275" AndroidId="276" WPId="371">
-				<ImageName><![CDATA[W88-Slots-Mobile-European-Roulette]]></ImageName>
-				<Label><![CDATA[European Roulette]]></Label>
-				<Description><![CDATA[European (Single Zero) Roulette with Hamburg rules]]></Description>
-			</TableCard2>
+			<Betsoft>
+				<TableCard1 IOSId="271" AndroidId="272" WPId="366">
+					<ImageName><![CDATA[W88-Slots-Mobile-American-Blackjack]]></ImageName>
+					<Label><![CDATA[American Blackjack]]></Label>
+					<Description><![CDATA[Single Deck Blackjack with no sidebet]]></Description>
+				</TableCard1>
+				<TableCard2 IOSId="275" AndroidId="276" WPId="371">
+					<ImageName><![CDATA[W88-Slots-Mobile-European-Roulette]]></ImageName>
+					<Label><![CDATA[European Roulette]]></Label>
+					<Description><![CDATA[European (Single Zero) Roulette with Hamburg rules]]></Description>
+				</TableCard2>
+			</Betsoft>
 
-			<Baccarat>
-				<Label><![CDATA[Baccarat]]></Label>
-				<Description><![CDATA[Baccarat]]></Description>
-				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_baccarat&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_baccarat&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			</Baccarat>
-			<BlackJack>
-				<Label><![CDATA[BlackJack]]></Label>
-				<Description><![CDATA[BlackJack]]></Description>
-				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_blackjack&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_blackjack&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			</BlackJack>
-			<BlackJackFaceUp>
-				<Label><![CDATA[BlackJackFaceUp]]></Label>
-				<Description><![CDATA[BlackJackFaceUp]]></Description>
-				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_blackjack_faceup&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_blackjack_faceup&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			</BlackJackFaceUp>
-			<BlackJackPerfectPairs>
-				<Label><![CDATA[BlackJackPerfectPairs]]></Label>
-				<Description><![CDATA[BlackJackPerfectPairs]]></Description>
-				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilebj_perfectpairs&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilebj_perfectpairs&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			</BlackJackPerfectPairs>
-			<BlackJackPontoon>
-				<Label><![CDATA[BlackJackPontoon]]></Label>
-				<Description><![CDATA[BlackJackPontoon]]></Description>
-				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_blackjack_pontoon&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_blackjack_pontoon&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			</BlackJackPontoon>
-			<BlackJackS>
-				<Label><![CDATA[BlackJackSpanish]]></Label>
-				<Description><![CDATA[BlackJackSpanish]]></Description>
-				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_blackjack_s&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_blackjack_s&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			</BlackJackS>
-			<BlackJackSpanish>
-				<Label><![CDATA[Summer Dream]]></Label>
-				<Description><![CDATA[Summer Dreaming]]></Description>
-				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_blackjack_spanish&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_blackjack_spanish&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			</BlackJackSpanish>
-			<!--<HoldEm>
+			<CTXM>
+				<Baccarat>
+					<Label><![CDATA[Baccarat]]></Label>
+					<Description><![CDATA[Baccarat]]></Description>
+					<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_baccarat&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+					<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_baccarat&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+				</Baccarat>
+				<BlackJack>
+					<Label><![CDATA[BlackJack]]></Label>
+					<Description><![CDATA[BlackJack]]></Description>
+					<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_blackjack&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+					<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_blackjack&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+				</BlackJack>
+				<BlackJackFaceUp>
+					<Label><![CDATA[BlackJackFaceUp]]></Label>
+					<Description><![CDATA[BlackJackFaceUp]]></Description>
+					<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_blackjack_faceup&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+					<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_blackjack_faceup&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+				</BlackJackFaceUp>
+				<BlackJackPerfectPairs>
+					<Label><![CDATA[BlackJackPerfectPairs]]></Label>
+					<Description><![CDATA[BlackJackPerfectPairs]]></Description>
+					<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilebj_perfectpairs&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+					<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilebj_perfectpairs&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+				</BlackJackPerfectPairs>
+				<BlackJackPontoon>
+					<Label><![CDATA[BlackJackPontoon]]></Label>
+					<Description><![CDATA[BlackJackPontoon]]></Description>
+					<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_blackjack_pontoon&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+					<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_blackjack_pontoon&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+				</BlackJackPontoon>
+				<BlackJackS>
+					<Label><![CDATA[BlackJackSpanish]]></Label>
+					<Description><![CDATA[BlackJackSpanish]]></Description>
+					<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_blackjack_s&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+					<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_blackjack_s&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+				</BlackJackS>
+				<BlackJackSpanish>
+					<Label><![CDATA[Summer Dream]]></Label>
+					<Description><![CDATA[Summer Dreaming]]></Description>
+					<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_blackjack_spanish&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+					<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_blackjack_spanish&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+				</BlackJackSpanish>
+				<!--<HoldEm>
 				<Label><![CDATA[HoldEm]]></Label>
 				<Description><![CDATA[HoldEm]]></Description>
 				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_hold_em&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
 				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_hold_em&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			  </HoldEm>-->
-			<VIPBaccaratMH>
-				<Label><![CDATA[Mobile VIP Baccarat (Multi-Hand)]]></Label>
-				<Description><![CDATA[Mobile VIP Baccarat (Multi-Hand)]]></Description>
-				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilemhbaccarat&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilemhbaccarat&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			</VIPBaccaratMH>
-
-			<AmericanRoulette>
-				<Label><![CDATA[AmericanRoulette]]></Label>
-				<Description><![CDATA[AmericanRoulette]]></Description>
-				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_americanroulette&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_americanroulette&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			</AmericanRoulette>
-			<EuropeanRoulette>
-				<Label><![CDATA[EuropeanRoulette]]></Label>
-				<Description><![CDATA[EuropeanRoulette]]></Description>
-				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_euroulette&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_euroulette&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			</EuropeanRoulette>
+			    </HoldEm>-->
+				<VIPBaccaratMH>
+					<Label><![CDATA[Mobile VIP Baccarat (Multi-Hand)]]></Label>
+					<Description><![CDATA[Mobile VIP Baccarat (Multi-Hand)]]></Description>
+					<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilemhbaccarat&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+					<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilemhbaccarat&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+				</VIPBaccaratMH>
+				<AmericanRoulette>
+					<Label><![CDATA[AmericanRoulette]]></Label>
+					<Description><![CDATA[AmericanRoulette]]></Description>
+					<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_americanroulette&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+					<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_americanroulette&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+				</AmericanRoulette>
+				<EuropeanRoulette>
+					<Label><![CDATA[EuropeanRoulette]]></Label>
+					<Description><![CDATA[EuropeanRoulette]]></Description>
+					<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_euroulette&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+					<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_euroulette&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+				</EuropeanRoulette>
+			</CTXM>
 		</TableCard>
 		<VideoPoker IOSName="IOS" AndroidName="ANDROID" WPName="WP" Label="วีดีโอโป๊กเกอร์">
-			<DeucesWild4L>
-				<Label><![CDATA[DeucesWild4L]]></Label>
-				<Description><![CDATA[DeucesWild4L]]></Description>
-				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_deuceswild4l&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_deuceswild4l&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			</DeucesWild4L>
-			<JokerWild4L>
-				<Label><![CDATA[Joker Wild]]></Label>
-				<Description><![CDATA[Joker Wild]]></Description>
-				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilejokerwild4l&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilejokerwild4l&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			</JokerWild4L>
-			<JacksOrBetter4L>
-				<Label><![CDATA[JacksOrBetter4L]]></Label>
-				<Description><![CDATA[JacksOrBetter4L]]></Description>
-				<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilejacksorbetter4l&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilejacksorbetter4l&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
-			</JacksOrBetter4L>
+			<CTXM>
+				<DeucesWild4L>
+					<Label><![CDATA[DeucesWild4L]]></Label>
+					<Description><![CDATA[DeucesWild4L]]></Description>
+					<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_deuceswild4l&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+					<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_deuceswild4l&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+				</DeucesWild4L>
+				<JokerWild4L>
+					<Label><![CDATA[Joker Wild]]></Label>
+					<Description><![CDATA[Joker Wild]]></Description>
+					<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilejokerwild4l&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+					<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilejokerwild4l&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+				</JokerWild4L>
+				<JacksOrBetter4L>
+					<Label><![CDATA[JacksOrBetter4L]]></Label>
+					<Description><![CDATA[JacksOrBetter4L]]></Description>
+					<PlayForRealURL><![CDATA[{SlotsUrl}?code=xc_mobilejacksorbetter4l&mode=real&language=EN&merch_id=CVN2&ticket={token}]]></PlayForRealURL>
+					<PlayForFunURL><![CDATA[{SlotsUrl}?code=xc_mobilejacksorbetter4l&mode=fun&language=EN&merch_id=CVN2&ticket={token}]]></PlayForFunURL>
+				</JacksOrBetter4L>
+			</CTXM>
 		</VideoPoker>
 	</Category>
 </default>

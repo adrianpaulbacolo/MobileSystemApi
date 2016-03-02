@@ -52,13 +52,28 @@ public partial class Slots_ClubDivino : BasePage
                 sbWP.Append(divHeader);
                 sbWP.AppendFormat("type='{1}'><h4>{2}</h4><div id='div{0}_{1}' class='div-product'><div><ul>", xeCategory.Name, xeCategory.Attribute("WPName").Value, xeCategory.Attribute("Label").Value);
 
-                List<XElement> topgames = xeCategory.Elements().Where(m => m.Attribute("Top") != null).OrderBy(f => f.Attribute("Top").Value).ToList();
+                List<XElement> combinedGames = new List<XElement>();
 
-                IEnumerable<XElement> sortedGame = xeCategory.Elements().Where(m => m.Attribute("Top") == null).OrderBy(game => game.Element("Label").Value.ToString());
+                XElement Betsoft = xeCategory.Element("Betsoft");
+                if (Betsoft != null && Betsoft.HasElements)
+                {
+                    List<XElement> topBetSoft = Betsoft.Elements().Where(m => m.Attribute("Top") != null).OrderBy(f => f.Attribute("Top").Value).ToList();
+                    IEnumerable<XElement> sortedBetsoft = Betsoft.Elements().Where(m => m.Attribute("Top") == null).OrderBy(game => game.Element("Label").Value.ToString());
+                    topBetSoft.AddRange(sortedBetsoft);
+                    combinedGames.AddRange(topBetSoft);
+                }
 
-                topgames.AddRange(sortedGame);
+                XElement ctxm = xeCategory.Element("CTXM");
+                if (ctxm != null && ctxm.HasElements)
+                {
+                    List<XElement> topCtxm = ctxm.Elements().Where(m => m.Attribute("Top") != null).OrderBy(f => f.Attribute("Top").Value).ToList();
+                    IEnumerable<XElement> sortedCtxm = ctxm.Elements().Where(m => m.Attribute("Top") == null).OrderBy(game => game.Element("Label").Value.ToString());
 
-                foreach (XElement xeGame in topgames)
+                    topCtxm.AddRange(sortedCtxm);
+                    combinedGames.AddRange(topCtxm);
+                }
+
+                foreach (XElement xeGame in combinedGames)
                 {
                     bool isCrescendo = false;
 
