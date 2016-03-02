@@ -122,10 +122,10 @@ public partial class Slots_ClubDivino : BasePage
     }
 
     private StringBuilder CreateDivinoGames(XElement xeGame, string strGameId, string strLanguageCode, Uri myUri)
-                {
+    {
         StringBuilder sbGames = new StringBuilder();
 
-                    sbGames.AppendFormat("<li rel='{0}.jpg' class='bkg-game'><div class='div-links'>", commonCulture.ElementValues.getResourceString("ImageName", xeGame));
+        sbGames.AppendFormat("<li rel='{0}.jpg' class='bkg-game'><div class='div-links'>", commonCulture.ElementValues.getResourceString("ImageName", xeGame));
 
         if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
         {
@@ -136,12 +136,12 @@ public partial class Slots_ClubDivino : BasePage
             sbGames.AppendFormat("<a href='{0}' target='_blank'>", commonClubDivino.getRealUrl.Replace("{GAMEID}", strGameId).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId).Replace("{HOMEURL}", myUri.Host).Replace("{CASHIERURL}", myUri.Host));
         }
 
-                    sbGames.Append("<i class='icon-play_arrow'></i></a>");
-                    sbGames.AppendFormat("<a class='btn-secondary' target='_blank' href='{0}'><i class='icon-fullscreen'></i></a></div>", commonClubDivino.getFunUrl.Replace("{GAMEID}", strGameId).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId).Replace("{HOMEURL}", myUri.Host).Replace("{CASHIERURL}", myUri.Host));
-                    sbGames.Append("</li>");
+        sbGames.Append("<i class='icon-play_arrow'></i></a>");
+        sbGames.AppendFormat("<a class='btn-secondary' target='_blank' href='{0}'><i class='icon-fullscreen'></i></a></div>", commonClubDivino.getFunUrl.Replace("{GAMEID}", strGameId).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId).Replace("{HOMEURL}", myUri.Host).Replace("{CASHIERURL}", myUri.Host));
+        sbGames.Append("</li>");
 
         return sbGames;
-                }
+    }
 
     private StringBuilder CreateCrescendoGames(XElement xeGame, string strGameId)
     {
@@ -156,14 +156,11 @@ public partial class Slots_ClubDivino : BasePage
         else
         {
             sbGames.AppendFormat("<a href='{0}' target='_blank'>", commonCulture.ElementValues.getResourceString("PlayForRealURL", xeGame).Replace("{SlotsUrl}", commonClubCrescendo.getSlotsUrl).Replace("{token}", commonVariables.CurrentMemberSessionId));
-            }
+        }
 
         sbGames.Append("<i class='icon-play_arrow'></i></a>");
         sbGames.AppendFormat("<a class='btn-secondary' target='_blank' href='{0}' data-ajax='false'><i class='icon-fullscreen'></i></a></div>", commonCulture.ElementValues.getResourceString("PlayForFunURL", xeGame).Replace("{SlotsUrl}", commonClubCrescendo.getSlotsUrl).Replace("{token}", commonVariables.CurrentMemberSessionId));
         sbGames.Append("</li>");
         return sbGames;
     }
-
-
-
 }
