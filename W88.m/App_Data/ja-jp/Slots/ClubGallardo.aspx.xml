@@ -5,7 +5,7 @@
 		<IDR />
 	</iSoftBetNotSupportedCurrency>
 	<Category>
-		<Slot Label="スロット">
+		<Slot Label="スロット">	
 			<AbsoluteSuperReels ProductId="896500">
 				<ImageName><![CDATA[W88-Slots-Mobile-Absolute-Super-Reels]]></ImageName>
 			</AbsoluteSuperReels>
@@ -91,10 +91,13 @@
 				<ImageName><![CDATA[W88-Slots-Mobile-Ultimate-Super-Reels]]></ImageName>
 			</UltimateSuperReels>
 
+			<cloudquestmobile  Top="1">
+				<ImageName><![CDATA[W88-Slots-Mobile-Cloud-Quest]]></ImageName>
+			</cloudquestmobile >
+			
 			<sambacarnivalmobile>
 				<ImageName><![CDATA[sambacarnivalmobile]]></ImageName>
 			</sambacarnivalmobile>
-
 			<AceofSpades>
 				<ImageName><![CDATA[aceofspadesmobile]]></ImageName>
 			</AceofSpades>
