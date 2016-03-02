@@ -83,7 +83,7 @@ public partial class Slots_ClubGallardo : BasePage
 
                     bool isGameNotSupported = currNotSupp.Contains(currencyCode);
 
-                    if (!isGameNotSupported)
+                    if (!isGameNotSupported || string.IsNullOrWhiteSpace(currencyCode))
                     {
                         if (xeGame.Attribute("ProductId") == null)
                         {
