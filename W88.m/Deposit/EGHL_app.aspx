@@ -96,8 +96,6 @@
 
                         case '0':
                             alert('<%=strAlertMessage%>');
-
-                            window.open('<%=strResponse%>')
                             break;
                         default:
                             break;
@@ -107,5 +105,6 @@
 
         </script>
     </div>
+    <asp:Literal ID="litForm" runat="server"></asp:Literal>
 </body>
 </html>
