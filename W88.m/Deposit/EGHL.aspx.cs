@@ -121,7 +121,7 @@ public partial class Deposit_EGHL : PaymentBasePage
                                 status.AlertCode = "0";
                                 status.AlertMessage = string.Format("{0}\\n{1}: {2}", commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferSuccess", xeErrors), strlblTransactionId, strTransferId);
 
-                                strResponse = GetForm(strTransferId, decDepositAmount.ToString("#.00"));
+                                litForm.Text = GetForm(strTransferId, decDepositAmount.ToString("#.00"));
                             }
                             else
                             {
@@ -152,12 +152,16 @@ public partial class Deposit_EGHL : PaymentBasePage
     private string GetForm(string invId, string amount)
     {
         string postUrl = ConfigurationManager.AppSettings["EGHL_posturl"];
+        string email = strMemberID + "@qq.com";
 
         var request = (HttpWebRequest)WebRequest.Create(postUrl);
+        
         string postData = "merID=" + strMerchantId;
         postData += ("&e-inv=" + invId);
         postData += ("&amt=" + amount);
         postData += ("&p_Name=" + base.PageName);
+        postData += ("&c_Email=" + email);
+
         var data = Encoding.ASCII.GetBytes(postData);
 
         request.Method = "POST";
@@ -171,6 +175,8 @@ public partial class Deposit_EGHL : PaymentBasePage
 
         var response = (HttpWebResponse)request.GetResponse();
 
-        return response.ResponseUri.AbsoluteUri;
+        var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+
+        return responseString.Replace("form name", @"form target=""_blank"" name").Replace("setTimeout('delayer()', 5000)", "setTimeout('delayer()', 1000)");
     }
 }
