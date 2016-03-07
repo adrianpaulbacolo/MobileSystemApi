@@ -59,23 +59,40 @@ public partial class Slots_ClubGallardo : BasePage
             string currCode = string.IsNullOrWhiteSpace(currencyCode) || currencyCode.Equals("rmb", StringComparison.OrdinalIgnoreCase) ? "CNY" : currencyCode;
             string lobbyUrl = System.Web.HttpContext.Current.Request.Url.ToString();
 
-            string[] notSupport = xeResources.Element("iSoftBetNotSupportedCurrency").Elements().Select(d => d.Name.ToString()).ToArray();
-
-            bool isISoftBetNotSupported = notSupport.Contains(currencyCode);
-
             foreach (XElement xeCategory in xeCategories.Elements())
             {
+                List<XElement> combinedGames = new List<XElement>();
+
+                XElement PNG = xeCategory.Element("PNG");
+                if (PNG != null && PNG.HasElements)
+                {
+                    List<XElement> topPNG = PNG.Elements().Where(m => m.Attribute("Top") != null).OrderBy(f => f.Attribute("Top").Value).ToList();
+                    IEnumerable<XElement> sortedPNG = PNG.Elements().Where(m => m.Attribute("Top") == null).OrderBy(game => game.Name.ToString());
+                    topPNG.AddRange(sortedPNG);
+                    combinedGames.AddRange(topPNG);
+                }
+
+                XElement iSoftBet = xeCategory.Element("iSoftBet");
+                bool isISoftBetNotSupported = false;
+                if (iSoftBet != null && iSoftBet.HasElements)
+                {
+                    List<XElement> topiSoftBet = iSoftBet.Elements().Where(m => m.Attribute("Top") != null).OrderBy(f => f.Attribute("Top").Value).ToList();
+                    IEnumerable<XElement> sortediSoftBet = iSoftBet.Elements().Where(m => m.Attribute("Top") == null).OrderBy(game => game.Name.ToString());
+
+                    topiSoftBet.AddRange(sortediSoftBet);
+                    combinedGames.AddRange(topiSoftBet);
+
+                    string iSoftBetNotSuppCurr = iSoftBet != null && iSoftBet.HasAttributes ? iSoftBet.Attribute("NotSupportedCurrency").Value : "";
+
+                    string[] iSoftBetNotSupp = iSoftBetNotSuppCurr.Split(',');
+                    isISoftBetNotSupported = iSoftBetNotSupp.Contains(currencyCode);
+                }
+
                 sbGames.AppendFormat("<div data-role='collapsible' data-collapsed='false' data-theme='b' data-content-theme='a' data-mini='true'><h4>{0}</h4>", xeCategory.Attribute("Label").Value);
 
                 sbGames.AppendFormat("<div id='div{0}' class='div-product'><div><ul>", xeCategory.Name);
 
-                List<XElement> topgames = xeCategory.Elements().Where(m => m.Attribute("Top") != null).OrderBy(f => f.Attribute("Top").Value).ToList();
-
-                IEnumerable<XElement> sortedGame = xeCategory.Elements().Where(m => m.Attribute("Top") == null).OrderBy(game => game.Name.ToString());
-
-                topgames.AddRange(sortedGame);
-
-                foreach (XElement xeGame in topgames)
+                foreach (XElement xeGame in combinedGames)
                 {
                     string notSupCurr = (xeGame.Attribute("NotSupportedCurrency") != null) ? xeGame.Attribute("NotSupportedCurrency").Value : "";
 
@@ -83,7 +100,7 @@ public partial class Slots_ClubGallardo : BasePage
 
                     bool isGameNotSupported = currNotSupp.Contains(currencyCode);
 
-                    if (!isGameNotSupported)
+                    if (!isGameNotSupported || string.IsNullOrWhiteSpace(currencyCode))
                     {
                         if (xeGame.Attribute("ProductId") == null)
                         {
