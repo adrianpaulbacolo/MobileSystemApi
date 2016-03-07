@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <PaymentMethods>
-	<dFastDeposit><![CDATA[ถอนเงินด่วน]]></dFastDeposit>
+	<dFastDeposit><![CDATA[ฝากเงินด่วน]]></dFastDeposit>
 	<dWingMoney><![CDATA[Wing Money]]></dWingMoney>
 	<dSDAPay><![CDATA[SDA Pay]]></dSDAPay>
-	<dNextPay><![CDATA[ควิกออนไลน์]]></dNextPay>
+	<dNextPay><![CDATA[Next Pay]]></dNextPay>
 	<dBill99><![CDATA[Online Deposit]]></dBill99>
 	<dIPS><![CDATA[Online Deposit]]></dIPS>
 	<dNeteller><![CDATA[Neteller]]></dNeteller>
 	<dECPSS><![CDATA[ควิกออนไลน์]]></dECPSS>
 	<dSDPay><![CDATA[Union Pay]]></dSDPay>
-	<dHelp2Pay><![CDATA[จ่ายเงินด่วน]]></dHelp2Pay>
+	<dHelp2Pay><![CDATA[Quick Pay]]></dHelp2Pay>
 	<dDaddyPay><![CDATA[ควิกออนไลน์]]></dDaddyPay>
 	<dDaddyPayQR><![CDATA[QR Code Payment]]></dDaddyPayQR>
 	<dSDAPayAlipay><![CDATA[Alipay Transfer]]></dSDAPayAlipay>
