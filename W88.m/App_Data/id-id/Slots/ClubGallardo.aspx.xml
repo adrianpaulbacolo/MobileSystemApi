@@ -1,321 +1,330 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <default>
-	<iSoftBetNotSupportedCurrency>
-		<VND />
-		<IDR />
-	</iSoftBetNotSupportedCurrency>
 	<Category>
 		<Slot Label="SLOT">
-			<AbsoluteSuperReels ProductId="896500">
-				<ImageName><![CDATA[W88-Slots-Mobile-Absolute-Super-Reels]]></ImageName>
-			</AbsoluteSuperReels>
-			<AliceAdventure ProductId="896504">
-				<ImageName><![CDATA[W88-Slots-Mobile-Alice-Adventure]]></ImageName>
-			</AliceAdventure>
-			<AstroMagic ProductId="906544">
-				<ImageName><![CDATA[W88-Slots-Mobile-Astro-Magic]]></ImageName>
-			</AstroMagic>
-			<BasicInstinct ProductId="896507">
-				<ImageName><![CDATA[W88-Slots-Mobile-Basic-Instinct]]></ImageName>
-			</BasicInstinct>
-			<BeverlyHills90210 ProductId="896523">
-				<ImageName><![CDATA[W88-Slots-Mobile-Beverly-Hills-90210]]></ImageName>
-			</BeverlyHills90210>
-			<Bewitched ProductId="906517">
-				<ImageName><![CDATA[W88-Slots-Mobile-Bewitched]]></ImageName>
-			</Bewitched>
-			<DiamondWild ProductId="896508">
-				<ImageName><![CDATA[W88-Slots-Mobile-Diamond-Wild]]></ImageName>
-			</DiamondWild>
-			<HappyBirds ProductId="896525">
-				<ImageName><![CDATA[W88-Slots-Mobile-Happy-Birds]]></ImageName>
-			</HappyBirds>
-			<HeavyMetalWarriors ProductId="896529">
-				<ImageName><![CDATA[W88-Slots-Mobile-Heavy-Metal-Warriors]]></ImageName>
-			</HeavyMetalWarriors>
-			<Illusions2 ProductId="896505">
-				<ImageName><![CDATA[W88-Slots-Mobile-Illusions-2]]></ImageName>
-			</Illusions2>
-			<JackpotRango ProductId="896502">
-				<ImageName><![CDATA[W88-Slots-Mobile-Jackpot-Rango]]></ImageName>
-			</JackpotRango>
-			<Kobushi ProductId="896509">
-				<ImageName><![CDATA[W88-Slots-Mobile-Kobushi]]></ImageName>
-			</Kobushi>
-			<MillionCents ProductId="896512">
-				<ImageName><![CDATA[W88-Slots-Mobile-Million-Cents]]></ImageName>
-			</MillionCents>
-			<MonaLisaJewels ProductId="906520">
-				<ImageName><![CDATA[W88-Slots-Mobile-Mona-Lisa-Jewels]]></ImageName>
-			</MonaLisaJewels>
-			<NachoLibre ProductId="896535">
-				<ImageName><![CDATA[W88-Slots-Mobile-Nacho-Libre]]></ImageName>
-			</NachoLibre>
-			<NinjaChef ProductId="896503">
-				<ImageName><![CDATA[W88-Slots-Mobile-Ninja-Chef]]></ImageName>
-			</NinjaChef>
-			<Platoon ProductId="896510">
-				<ImageName><![CDATA[W88-Slots-Mobile-Platoon]]></ImageName>
-			</Platoon>
-			<Rambo ProductId="896511">
-				<ImageName><![CDATA[W88-Slots-Mobile-Rambo]]></ImageName>
-			</Rambo>
-			<RedDragonWild ProductId="896514">
-				<ImageName><![CDATA[W88-Slots-Mobile-Red-Dragon-Wild]]></ImageName>
-			</RedDragonWild>
-			<RoyalCash ProductId="896530">
-				<ImageName><![CDATA[W88-Slots-Mobile-Royal-Cash]]></ImageName>
-			</RoyalCash>
-			<ShaolinSpin ProductId="896539">
-				<ImageName><![CDATA[W88-Slots-Mobile-Shaolin-Spin]]></ImageName>
-			</ShaolinSpin>
-			<SpookyFamily ProductId="896526">
-				<ImageName><![CDATA[W88-Slots-Mobile-Spooky-Family]]></ImageName>
-			</SpookyFamily>
-			<SuperFastHotHot ProductId="896516">
-				<ImageName><![CDATA[W88-Slots-Mobile-Super-Fast-Hot-Hot]]></ImageName>
-			</SuperFastHotHot>
-			<SuperLadyLuck ProductId="906518" NotSupportedCurrency="RMB">
-				<ImageName><![CDATA[W88-Slots-Mobile-Super-Lady-Luck]]></ImageName>
-			</SuperLadyLuck>
-			<SuperLuckyReels ProductId="896501" >
-				<ImageName><![CDATA[W88-Slots-Mobile-Super-Lucky-Reels]]></ImageName>
-			</SuperLuckyReels>
-			<SuperMultitimesProgressive ProductId="896515">
-				<ImageName><![CDATA[W88-Slots-Mobile-Super-Multitimes-Progressive]]></ImageName>
-			</SuperMultitimesProgressive>
-			<TheLoveGuru ProductId="896531">
-				<ImageName><![CDATA[W88-Slots-Mobile-The-Love-Guru]]></ImageName>
-			</TheLoveGuru>
-			<UltimateSuperReels ProductId="896513">
-				<ImageName><![CDATA[W88-Slots-Mobile-Ultimate-Super-Reels]]></ImageName>
-			</UltimateSuperReels>
+			<iSoftBet NotSupportedCurrency="VND,IDR">
+				<AbsoluteSuperReels ProductId="896500">
+					<ImageName><![CDATA[W88-Slots-Mobile-Absolute-Super-Reels]]></ImageName>
+				</AbsoluteSuperReels>
+				<AliceAdventure ProductId="896504">
+					<ImageName><![CDATA[W88-Slots-Mobile-Alice-Adventure]]></ImageName>
+				</AliceAdventure>
+				<AstroMagic ProductId="906544">
+					<ImageName><![CDATA[W88-Slots-Mobile-Astro-Magic]]></ImageName>
+				</AstroMagic>
+				<BasicInstinct ProductId="896507">
+					<ImageName><![CDATA[W88-Slots-Mobile-Basic-Instinct]]></ImageName>
+				</BasicInstinct>
+				<BeverlyHills90210 ProductId="896523">
+					<ImageName><![CDATA[W88-Slots-Mobile-Beverly-Hills-90210]]></ImageName>
+				</BeverlyHills90210>
+				<Bewitched ProductId="906517">
+					<ImageName><![CDATA[W88-Slots-Mobile-Bewitched]]></ImageName>
+				</Bewitched>
+				<DiamondWild ProductId="896508">
+					<ImageName><![CDATA[W88-Slots-Mobile-Diamond-Wild]]></ImageName>
+				</DiamondWild>
+				<HappyBirds ProductId="896525">
+					<ImageName><![CDATA[W88-Slots-Mobile-Happy-Birds]]></ImageName>
+				</HappyBirds>
+				<HeavyMetalWarriors ProductId="896529">
+					<ImageName><![CDATA[W88-Slots-Mobile-Heavy-Metal-Warriors]]></ImageName>
+				</HeavyMetalWarriors>
+				<Illusions2 ProductId="896505">
+					<ImageName><![CDATA[W88-Slots-Mobile-Illusions-2]]></ImageName>
+				</Illusions2>
+				<JackpotRango ProductId="896502">
+					<ImageName><![CDATA[W88-Slots-Mobile-Jackpot-Rango]]></ImageName>
+				</JackpotRango>
+				<Kobushi ProductId="896509">
+					<ImageName><![CDATA[W88-Slots-Mobile-Kobushi]]></ImageName>
+				</Kobushi>
+				<MillionCents ProductId="896512">
+					<ImageName><![CDATA[W88-Slots-Mobile-Million-Cents]]></ImageName>
+				</MillionCents>
+				<MonaLisaJewels ProductId="906520">
+					<ImageName><![CDATA[W88-Slots-Mobile-Mona-Lisa-Jewels]]></ImageName>
+				</MonaLisaJewels>
+				<NachoLibre ProductId="896535">
+					<ImageName><![CDATA[W88-Slots-Mobile-Nacho-Libre]]></ImageName>
+				</NachoLibre>
+				<NinjaChef ProductId="896503">
+					<ImageName><![CDATA[W88-Slots-Mobile-Ninja-Chef]]></ImageName>
+				</NinjaChef>
+				<Platoon ProductId="896510">
+					<ImageName><![CDATA[W88-Slots-Mobile-Platoon]]></ImageName>
+				</Platoon>
+				<Rambo ProductId="896511">
+					<ImageName><![CDATA[W88-Slots-Mobile-Rambo]]></ImageName>
+				</Rambo>
+				<RedDragonWild ProductId="896514">
+					<ImageName><![CDATA[W88-Slots-Mobile-Red-Dragon-Wild]]></ImageName>
+				</RedDragonWild>
+				<RoyalCash ProductId="896530">
+					<ImageName><![CDATA[W88-Slots-Mobile-Royal-Cash]]></ImageName>
+				</RoyalCash>
+				<ShaolinSpin ProductId="896539">
+					<ImageName><![CDATA[W88-Slots-Mobile-Shaolin-Spin]]></ImageName>
+				</ShaolinSpin>
+				<SpookyFamily ProductId="896526">
+					<ImageName><![CDATA[W88-Slots-Mobile-Spooky-Family]]></ImageName>
+				</SpookyFamily>
+				<SuperFastHotHot ProductId="896516">
+					<ImageName><![CDATA[W88-Slots-Mobile-Super-Fast-Hot-Hot]]></ImageName>
+				</SuperFastHotHot>
+				<SuperLadyLuck ProductId="906518" NotSupportedCurrency="RMB">
+					<ImageName><![CDATA[W88-Slots-Mobile-Super-Lady-Luck]]></ImageName>
+				</SuperLadyLuck>
+				<SuperLuckyReels ProductId="896501" >
+					<ImageName><![CDATA[W88-Slots-Mobile-Super-Lucky-Reels]]></ImageName>
+				</SuperLuckyReels>
+				<SuperMultitimesProgressive ProductId="896515">
+					<ImageName><![CDATA[W88-Slots-Mobile-Super-Multitimes-Progressive]]></ImageName>
+				</SuperMultitimesProgressive>
+				<TheLoveGuru ProductId="896531">
+					<ImageName><![CDATA[W88-Slots-Mobile-The-Love-Guru]]></ImageName>
+				</TheLoveGuru>
+				<UltimateSuperReels ProductId="896513">
+					<ImageName><![CDATA[W88-Slots-Mobile-Ultimate-Super-Reels]]></ImageName>
+				</UltimateSuperReels>
+			</iSoftBet>
 
-			<sambacarnivalmobile>
-				<ImageName><![CDATA[sambacarnivalmobile]]></ImageName>
-			</sambacarnivalmobile>
-
-			<AceofSpades>
-				<ImageName><![CDATA[aceofspadesmobile]]></ImageName>
-			</AceofSpades>
-			<AztecIdols>
-				<ImageName><![CDATA[aztecidolsmobile]]></ImageName>
-			</AztecIdols>
-			<BellofFortune>
-				<ImageName><![CDATA[belloffortunemobile]]></ImageName>
-			</BellofFortune>
-			<bookofdeadmobile>
-				<ImageName><![CDATA[bookofdeadmobile]]></ImageName>
-			</bookofdeadmobile>
-			<ChineseNewYear>
-				<ImageName><![CDATA[chinesenewyearmobile]]></ImageName>
-			</ChineseNewYear>
-			<christmasjokermobile>
-				<ImageName><![CDATA[christmasjokermobile]]></ImageName>
-			</christmasjokermobile>
-			<CrazyCows>
-				<ImageName><![CDATA[crazycowsmobile]]></ImageName>
-			</CrazyCows>
-			<DragonShip>
-				<ImageName><![CDATA[dragonshipmobile]]></ImageName>
-			</DragonShip>
-			<eastereggsmobile>
-				<ImageName><![CDATA[eastereggsmobile]]></ImageName>
-			</eastereggsmobile>
-			<EnchantedCrystals>
-				<ImageName><![CDATA[enchantedcrystalsmobile]]></ImageName>
-			</EnchantedCrystals>
-			<EnchantedMeadow>
-				<ImageName><![CDATA[enchantedmeadowmobile]]></ImageName>
-			</EnchantedMeadow>
-			<Energoonz>
-				<ImageName><![CDATA[energoonzmobile]]></ImageName>
-			</Energoonz>
-			<eyeofthekrakenmobile>
-				<ImageName><![CDATA[eyeofthekrakenmobile]]></ImageName>
-			</eyeofthekrakenmobile>
-			<FortuneTeller>
-				<ImageName><![CDATA[fortunetellermobile]]></ImageName>
-			</FortuneTeller>
-			<GEMiX>
-				<ImageName><![CDATA[gemixmobile]]></ImageName>
-			</GEMiX>
-			<GiftShop>
-				<ImageName><![CDATA[giftshopmobile]]></ImageName>
-			</GiftShop>
-			<goldenlegendmobile>
-				<ImageName><![CDATA[goldenlegendmobile]]></ImageName>
-			</goldenlegendmobile>
-			<GoldTrophy2>
-				<ImageName><![CDATA[goldtrophy2mobile]]></ImageName>
-			</GoldTrophy2>
-			<GoldenGoal>
-				<ImageName><![CDATA[goldengoalmobile]]></ImageName>
-			</GoldenGoal>
-			<GoldenTicket>
-				<ImageName><![CDATA[goldenticketmobile]]></ImageName>
-			</GoldenTicket>
-			<happyhalloweenmobile>
-				<ImageName><![CDATA[happyhalloweenmobile]]></ImageName>
-			</happyhalloweenmobile>
-			<IrishGold>
-				<ImageName><![CDATA[irishgoldmobile]]></ImageName>
-			</IrishGold>
-			<JewelBox>
-				<ImageName><![CDATA[jewelboxmobile]]></ImageName>
-			</JewelBox>
-			<JollyRoger>
-				<ImageName><![CDATA[jollyrogermobile]]></ImageName>
-			</JollyRoger>
-			<LadyofFortune>
-				<ImageName><![CDATA[ladyoffortunemobile]]></ImageName>
-			</LadyofFortune>
-			<LeprechaungoesEgypt>
-				<ImageName><![CDATA[leprechaungoesegyptmobile]]></ImageName>
-			</LeprechaungoesEgypt>
-			<LuckyDiamonds>
-				<ImageName><![CDATA[luckydiamondsmobile]]></ImageName>
-			</LuckyDiamonds>
-			<MerryXmas>
-				<ImageName><![CDATA[merryxmasmobile]]></ImageName>
-			</MerryXmas>
-			<MysteryJoker>
-				<ImageName><![CDATA[mysteryjokermobile]]></ImageName>
-			</MysteryJoker>
-			<Myth>
-				<ImageName><![CDATA[mythmobile]]></ImageName>
-			</Myth>
-			<NinjaFruits>
-				<ImageName><![CDATA[ninjafruitsmobile]]></ImageName>
-			</NinjaFruits>
-			<PearlLagoon>
-				<ImageName><![CDATA[pearllagoonmobile]]></ImageName>
-			</PearlLagoon>
-			<PearlsofIndia>
-				<ImageName><![CDATA[pearlsofindiamobile]]></ImageName>
-			</PearlsofIndia>
-			<PhotoSafari>
-				<ImageName><![CDATA[photosafarimobile]]></ImageName>
-			</PhotoSafari>
-			<pimpedmobile>
-				<ImageName><![CDATA[pimpedmobile]]></ImageName>
-			</pimpedmobile>
-			<ragetorichesmobile>
-				<ImageName><![CDATA[ragetorichesmobile]]></ImageName>
-			</ragetorichesmobile>
-			<RichesofRA>
-				<ImageName><![CDATA[richesoframobile]]></ImageName>
-			</RichesofRA>
-			<SpaceRace>
-				<ImageName><![CDATA[spaceracemobile]]></ImageName>
-			</SpaceRace>
-			<SpeedCash>
-				<ImageName><![CDATA[speedcashmobile]]></ImageName>
-			</SpeedCash>
-			<WildBlood>
-				<ImageName><![CDATA[wildbloodmobile]]></ImageName>
-			</WildBlood>
-			<WildMelon>
-				<ImageName><![CDATA[wildmelonmobile]]></ImageName>
-			</WildMelon>
-			<MasqueradeMobile>
-				<ImageName><![CDATA[masquerademobile]]></ImageName>
-			</MasqueradeMobile>
-			<towerquestmobile>
-				<ImageName><![CDATA[towerquestmobile]]></ImageName>
-			</towerquestmobile>
-			<wildnorthmobile>
-				<ImageName><![CDATA[wildnorthmobile]]></ImageName>
-			</wildnorthmobile>
-			<wizardofgemsmobile>
-				<ImageName><![CDATA[wizardofgemsmobile]]></ImageName>
-			</wizardofgemsmobile>
+			<PNG>
+				<sambacarnivalmobile>
+					<ImageName><![CDATA[sambacarnivalmobile]]></ImageName>
+				</sambacarnivalmobile>
+				<AceofSpades>
+					<ImageName><![CDATA[aceofspadesmobile]]></ImageName>
+				</AceofSpades>
+				<AztecIdols>
+					<ImageName><![CDATA[aztecidolsmobile]]></ImageName>
+				</AztecIdols>
+				<BellofFortune>
+					<ImageName><![CDATA[belloffortunemobile]]></ImageName>
+				</BellofFortune>
+				<bookofdeadmobile>
+					<ImageName><![CDATA[bookofdeadmobile]]></ImageName>
+				</bookofdeadmobile>
+				<ChineseNewYear>
+					<ImageName><![CDATA[chinesenewyearmobile]]></ImageName>
+				</ChineseNewYear>
+				<christmasjokermobile>
+					<ImageName><![CDATA[christmasjokermobile]]></ImageName>
+				</christmasjokermobile>
+				<CrazyCows>
+					<ImageName><![CDATA[crazycowsmobile]]></ImageName>
+				</CrazyCows>
+				<DragonShip>
+					<ImageName><![CDATA[dragonshipmobile]]></ImageName>
+				</DragonShip>
+				<eastereggsmobile>
+					<ImageName><![CDATA[eastereggsmobile]]></ImageName>
+				</eastereggsmobile>
+				<EnchantedCrystals>
+					<ImageName><![CDATA[enchantedcrystalsmobile]]></ImageName>
+				</EnchantedCrystals>
+				<EnchantedMeadow>
+					<ImageName><![CDATA[enchantedmeadowmobile]]></ImageName>
+				</EnchantedMeadow>
+				<Energoonz>
+					<ImageName><![CDATA[energoonzmobile]]></ImageName>
+				</Energoonz>
+				<eyeofthekrakenmobile>
+					<ImageName><![CDATA[eyeofthekrakenmobile]]></ImageName>
+				</eyeofthekrakenmobile>
+				<FortuneTeller>
+					<ImageName><![CDATA[fortunetellermobile]]></ImageName>
+				</FortuneTeller>
+				<GEMiX>
+					<ImageName><![CDATA[gemixmobile]]></ImageName>
+				</GEMiX>
+				<GiftShop>
+					<ImageName><![CDATA[giftshopmobile]]></ImageName>
+				</GiftShop>
+				<goldenlegendmobile>
+					<ImageName><![CDATA[goldenlegendmobile]]></ImageName>
+				</goldenlegendmobile>
+				<GoldTrophy2>
+					<ImageName><![CDATA[goldtrophy2mobile]]></ImageName>
+				</GoldTrophy2>
+				<GoldenGoal>
+					<ImageName><![CDATA[goldengoalmobile]]></ImageName>
+				</GoldenGoal>
+				<GoldenTicket>
+					<ImageName><![CDATA[goldenticketmobile]]></ImageName>
+				</GoldenTicket>
+				<happyhalloweenmobile>
+					<ImageName><![CDATA[happyhalloweenmobile]]></ImageName>
+				</happyhalloweenmobile>
+				<IrishGold>
+					<ImageName><![CDATA[irishgoldmobile]]></ImageName>
+				</IrishGold>
+				<JewelBox>
+					<ImageName><![CDATA[jewelboxmobile]]></ImageName>
+				</JewelBox>
+				<JollyRoger>
+					<ImageName><![CDATA[jollyrogermobile]]></ImageName>
+				</JollyRoger>
+				<LadyofFortune>
+					<ImageName><![CDATA[ladyoffortunemobile]]></ImageName>
+				</LadyofFortune>
+				<LeprechaungoesEgypt>
+					<ImageName><![CDATA[leprechaungoesegyptmobile]]></ImageName>
+				</LeprechaungoesEgypt>
+				<LuckyDiamonds>
+					<ImageName><![CDATA[luckydiamondsmobile]]></ImageName>
+				</LuckyDiamonds>
+				<MerryXmas>
+					<ImageName><![CDATA[merryxmasmobile]]></ImageName>
+				</MerryXmas>
+				<MysteryJoker>
+					<ImageName><![CDATA[mysteryjokermobile]]></ImageName>
+				</MysteryJoker>
+				<Myth>
+					<ImageName><![CDATA[mythmobile]]></ImageName>
+				</Myth>
+				<NinjaFruits>
+					<ImageName><![CDATA[ninjafruitsmobile]]></ImageName>
+				</NinjaFruits>
+				<PearlLagoon>
+					<ImageName><![CDATA[pearllagoonmobile]]></ImageName>
+				</PearlLagoon>
+				<PearlsofIndia>
+					<ImageName><![CDATA[pearlsofindiamobile]]></ImageName>
+				</PearlsofIndia>
+				<PhotoSafari>
+					<ImageName><![CDATA[photosafarimobile]]></ImageName>
+				</PhotoSafari>
+				<pimpedmobile>
+					<ImageName><![CDATA[pimpedmobile]]></ImageName>
+				</pimpedmobile>
+				<ragetorichesmobile>
+					<ImageName><![CDATA[ragetorichesmobile]]></ImageName>
+				</ragetorichesmobile>
+				<RichesofRA>
+					<ImageName><![CDATA[richesoframobile]]></ImageName>
+				</RichesofRA>
+				<SpaceRace>
+					<ImageName><![CDATA[spaceracemobile]]></ImageName>
+				</SpaceRace>
+				<SpeedCash>
+					<ImageName><![CDATA[speedcashmobile]]></ImageName>
+				</SpeedCash>
+				<WildBlood>
+					<ImageName><![CDATA[wildbloodmobile]]></ImageName>
+				</WildBlood>
+				<WildMelon>
+					<ImageName><![CDATA[wildmelonmobile]]></ImageName>
+				</WildMelon>
+				<MasqueradeMobile>
+					<ImageName><![CDATA[masquerademobile]]></ImageName>
+				</MasqueradeMobile>
+				<towerquestmobile>
+					<ImageName><![CDATA[towerquestmobile]]></ImageName>
+				</towerquestmobile>
+				<wildnorthmobile>
+					<ImageName><![CDATA[wildnorthmobile]]></ImageName>
+				</wildnorthmobile>
+				<wizardofgemsmobile>
+					<ImageName><![CDATA[wizardofgemsmobile]]></ImageName>
+				</wizardofgemsmobile>
+			</PNG>
 		</Slot>
 		<CardAndTable Label="GAME KARTU &amp; MEJA">
-			<Blackjack ProductId="896522">
-				<ImageName><![CDATA[W88-Slots-Mobile-Blackjack]]></ImageName>
-			</Blackjack>
-			<EuropeanRoulette ProductId="896521">
-				<ImageName><![CDATA[W88-Slots-Mobile-European-Roulette]]></ImageName>
-			</EuropeanRoulette>
-			
-			<AmericanRoulette>
-				<ImageName><![CDATA[americanroulettemobile]]></ImageName>
-			</AmericanRoulette>
-			<BeatMe>
-				<ImageName><![CDATA[beatmemobile]]></ImageName>
-			</BeatMe>
-			<BlackJackMH>
-				<ImageName><![CDATA[blackjackmhmobile]]></ImageName>
-			</BlackJackMH>
-			<CasinoHoldem>
-				<ImageName><![CDATA[casinoholdemmobile]]></ImageName>
-			</CasinoHoldem>
-			<CasinoStudPoker>
-				<ImageName><![CDATA[casinostudpokermobile]]></ImageName>
-			</CasinoStudPoker>
-			<DoubleExposureBlackJackMH>
-				<ImageName><![CDATA[doubleexposureblackjackmhmobile]]></ImageName>
-			</DoubleExposureBlackJackMH>
-			<EuropeanBlackJackMH>
-				<ImageName><![CDATA[europeanblackjackmhmobile]]></ImageName>
-			</EuropeanBlackJackMH>
-			<EuropeanRoulette>
-				<ImageName><![CDATA[europeanroulettemobile]]></ImageName>
-			</EuropeanRoulette>
-			<MiniBaccarat>
-				<ImageName><![CDATA[minibaccaratmobile]]></ImageName>
-			</MiniBaccarat>
-			<PaiGowPoker>
-				<ImageName><![CDATA[paigowpokermobile]]></ImageName>
-			</PaiGowPoker>
-			<SingleDeckBlackJackMH>
-				<ImageName><![CDATA[singledeckblackjackmhmobile]]></ImageName>
-			</SingleDeckBlackJackMH>
+			<iSoftBet>
+				<Blackjack ProductId="896522">
+					<ImageName><![CDATA[W88-Slots-Mobile-Blackjack]]></ImageName>
+				</Blackjack>
+				<EuropeanRoulette ProductId="896521">
+					<ImageName><![CDATA[W88-Slots-Mobile-European-Roulette]]></ImageName>
+				</EuropeanRoulette>
+			</iSoftBet>
+
+			<PNG>
+				<AmericanRoulette>
+					<ImageName><![CDATA[americanroulettemobile]]></ImageName>
+				</AmericanRoulette>
+				<BeatMe>
+					<ImageName><![CDATA[beatmemobile]]></ImageName>
+				</BeatMe>
+				<BlackJackMH>
+					<ImageName><![CDATA[blackjackmhmobile]]></ImageName>
+				</BlackJackMH>
+				<CasinoHoldem>
+					<ImageName><![CDATA[casinoholdemmobile]]></ImageName>
+				</CasinoHoldem>
+				<CasinoStudPoker>
+					<ImageName><![CDATA[casinostudpokermobile]]></ImageName>
+				</CasinoStudPoker>
+				<DoubleExposureBlackJackMH>
+					<ImageName><![CDATA[doubleexposureblackjackmhmobile]]></ImageName>
+				</DoubleExposureBlackJackMH>
+				<EuropeanBlackJackMH>
+					<ImageName><![CDATA[europeanblackjackmhmobile]]></ImageName>
+				</EuropeanBlackJackMH>
+				<EuropeanRoulette>
+					<ImageName><![CDATA[europeanroulettemobile]]></ImageName>
+				</EuropeanRoulette>
+				<MiniBaccarat>
+					<ImageName><![CDATA[minibaccaratmobile]]></ImageName>
+				</MiniBaccarat>
+				<PaiGowPoker>
+					<ImageName><![CDATA[paigowpokermobile]]></ImageName>
+				</PaiGowPoker>
+				<SingleDeckBlackJackMH>
+					<ImageName><![CDATA[singledeckblackjackmhmobile]]></ImageName>
+				</SingleDeckBlackJackMH>
+			</PNG>
 		</CardAndTable>
 		<VideoPoker Label="VIDEO POKER">
-			<JokerPoker ProductId="896506">
-				<ImageName><![CDATA[W88-Slots-Mobile-Joker-Poker]]></ImageName>
-			</JokerPoker>
+			<iSoftBet>
+				<JokerPoker ProductId="896506">
+					<ImageName><![CDATA[W88-Slots-Mobile-Joker-Poker]]></ImageName>
+				</JokerPoker>
+			</iSoftBet>
 
-			<DeucesWildMH>
-				<ImageName><![CDATA[deuceswildmobile]]></ImageName>
-			</DeucesWildMH>
-			<JackpotPokerMH>
-				<ImageName><![CDATA[jackpotpokermobile]]></ImageName>
-			</JackpotPokerMH>
-			<JacksorBetterMH>
-				<ImageName><![CDATA[jacksorbettermobile]]></ImageName>
-			</JacksorBetterMH>
-			<JokerPokerMH>
-				<ImageName><![CDATA[jokerpokermobile]]></ImageName>
-			</JokerPokerMH>
-			<DeucesAndJokerMH>
-				<ImageName><![CDATA[deucesandjokermobile]]></ImageName>
-			</DeucesAndJokerMH>
-			<DoubleBonusMH>
-				<ImageName><![CDATA[doublebonusmobile]]></ImageName>
-			</DoubleBonusMH>
-			<KingsOrBetterMH>
-				<ImageName><![CDATA[kingsorbettermobile]]></ImageName>
-			</KingsOrBetterMH>
-			<TensOrBetterMH>
-				<ImageName><![CDATA[tensorbettermobile]]></ImageName>
-			</TensOrBetterMH>
+			<PNG>
+				<DeucesWildMH>
+					<ImageName><![CDATA[deuceswildmobile]]></ImageName>
+				</DeucesWildMH>
+				<JackpotPokerMH>
+					<ImageName><![CDATA[jackpotpokermobile]]></ImageName>
+				</JackpotPokerMH>
+				<JacksorBetterMH>
+					<ImageName><![CDATA[jacksorbettermobile]]></ImageName>
+				</JacksorBetterMH>
+				<JokerPokerMH>
+					<ImageName><![CDATA[jokerpokermobile]]></ImageName>
+				</JokerPokerMH>
+				<DeucesAndJokerMH>
+					<ImageName><![CDATA[deucesandjokermobile]]></ImageName>
+				</DeucesAndJokerMH>
+				<DoubleBonusMH>
+					<ImageName><![CDATA[doublebonusmobile]]></ImageName>
+				</DoubleBonusMH>
+				<KingsOrBetterMH>
+					<ImageName><![CDATA[kingsorbettermobile]]></ImageName>
+				</KingsOrBetterMH>
+				<TensOrBetterMH>
+					<ImageName><![CDATA[tensorbettermobile]]></ImageName>
+				</TensOrBetterMH>
+			</PNG>
 		</VideoPoker>
 		<Others Label="LAINNYA">
-			<Keno>
-				<ImageName><![CDATA[kenomobile]]></ImageName>
-			</Keno>
-			<TripleChanceHiLo>
-				<ImageName><![CDATA[triplechancehilomobile]]></ImageName>
-			</TripleChanceHiLo>
-			<HoleinOne>
-				<ImageName><![CDATA[holeinonemobile]]></ImageName>
-			</HoleinOne>
-			<ScratchAhoy>
-				<ImageName><![CDATA[scratchahoymobile]]></ImageName>
-			</ScratchAhoy>
+			<PNG>
+				<Keno>
+					<ImageName><![CDATA[kenomobile]]></ImageName>
+				</Keno>
+				<TripleChanceHiLo>
+					<ImageName><![CDATA[triplechancehilomobile]]></ImageName>
+				</TripleChanceHiLo>
+				<HoleinOne>
+					<ImageName><![CDATA[holeinonemobile]]></ImageName>
+				</HoleinOne>
+				<ScratchAhoy>
+					<ImageName><![CDATA[scratchahoymobile]]></ImageName>
+				</ScratchAhoy>
+			</PNG>
 		</Others>
 	</Category>
 </default>
