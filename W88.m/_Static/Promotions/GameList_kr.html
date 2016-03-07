@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Game List</title>
+<title>Slot Games Exclusion List</title>
 <style type="text/css">
 body {
 	font-family: Tahoma, Arial, Helvetica, sans-serif; font-size:11px; color:#808080;
@@ -14,7 +14,7 @@ body {
 a.button {
 	display:inline-block;	
 	background: #333;
-	width: 120px;
+	width: 104px;
 	height:22px;
 	line-height:22px;
 	color:#fff;
@@ -41,10 +41,6 @@ body.white a.button {
 body.white  a.button:hover, body.white  a.button.selected {
 	background: #ddd;
 }
-
-	table {
-		width: 240px;
-	}
 </style>
 <script src="/_static/_script/combined.js"></script>
 <script>
@@ -57,6 +53,10 @@ body.white  a.button:hover, body.white  a.button.selected {
 	$(function () {
 		$("table").hide();
 		$("table:first").show();
+		
+		if(getParameterByName("slot")){
+			changeTable(getParameterByName("slot"));
+		}
 	});
 	function changeTable(tableName) {
 		$("a").removeClass("selected");
@@ -64,199 +64,2740 @@ body.white  a.button:hover, body.white  a.button.selected {
 		$("table").hide();
 		$("table#" + tableName).show();
 	}
+	function getParameterByName(name) {
+	name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+	var regexS = "[\\?&]" + name + "=([^&#]*)";
+	var regex = new RegExp(regexS);
+	var results = regex.exec(window.location.search);
+	if (results == null)
+		return "";
+	else
+		return decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+	
+	
 </script>
 </head>
 <body>
-<div style="text-align:center;">
-		<a href="javascript:changeTable('Divino')" class="button selected" id="btn_Divino">클럽 디비노</a><a href="javascript:changeTable('Crescendo')" class="button" id="btn_Crescendo">클럽 크레센도</a>
-</div>
-<table border="0" align="center" cellpadding="5" cellspacing="1" id="Divino">
+	<div style="text-align:center;">
+		<a href="javascript:changeTable('NUOVO')" class="button selected" id="btn_NUOVO" style="width:97px;">클럽 누오보</a><a href="javascript:changeTable('PALAZZO')" class="button" id="btn_PALAZZO">클럽 팔라쪼</a><a href="javascript:changeTable('MASSIMO')" class="button" id="btn_MASSIMO">클럽 마시모</a><a href="javascript:changeTable('BRAVADO')" class="button" id="btn_BRAVADO">클럽 브라바도</a><a href="javascript:changeTable('APOLLO')" class="button" id="btn_APOLLO">클럽 아폴로</a><a href="javascript:changeTable('DIVINO')" class="button" id="btn_DIVINO">클럽 디비노</a><!--<a href="javascript:changeTable('CRESCENDO')" class="button" id="btn_CRESCENDO">클럽 크레센도</a>-->
+	</div>
+<table border="0" align="center" cellpadding="5" cellspacing="1" id="NUOVO">
   <tr class="rowHeader">
-    <td align="center"><strong>게임 이름</strong></td>
+    <td width="301" align="center"><strong>게임 이름</strong></td>
+    <td width="301" align="center"><strong>카테고리</strong></td>
   </tr>
   <tr class="row1">
-    <td>21 Burn    Blackjack</td>
+    <td align="center">Champion of the Track</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Baccarat</td>
+    <td align="center">Vault Assault</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Deuces Wild</td>
+    <td align="center">Bingo</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>European Blackjack</td>
+    <td align="center">Bonus Keno</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Five Draw Poker</td>
+    <td align="center">Tribble</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Joker Poker</td>
+    <td align="center">Tribble Knockout</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Multihand All American</td>
+    <td align="center">Marbles</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Multihand Deuces Wild</td>
+    <td align="center">Live Automatic French Roulette</td>
+    <td align="center">Live Dealers</td>
   </tr>
   <tr class="row1">
-    <td>Multihand Double Jackpot</td>
+    <td align="center">Live Automatic French Roulette with La Partage</td>
+    <td align="center">Live Dealers</td>
   </tr>
   <tr class="row1">
-    <td>Multihand Jacks or Better</td>
+    <td align="center">Live Automatic Roulette</td>
+    <td align="center">Live Dealers</td>
   </tr>
   <tr class="row1">
-    <td>Multihand Joker Poker</td>
+    <td align="center">Live Automatic Roulette with La Partage</td>
+    <td align="center">Live Dealers</td>
   </tr>
   <tr class="row1">
-    <td>Oasis Poker</td>
+    <td align="center">Live French Roulette</td>
+    <td align="center">Live Dealers</td>
   </tr>
   <tr class="row1">
-    <td>Pirate 21</td>
+    <td align="center">Live French Roulette with La Partage</td>
+    <td align="center">Live Dealers</td>
   </tr>
   <tr class="row1">
-    <td>Pontoon</td>
+    <td align="center">Live Roulette</td>
+    <td align="center">Live Dealers</td>
   </tr>
   <tr class="row1">
-    <td>Pyramid Joker Poker</td>
+    <td align="center">Live Roulette with La Partage</td>
+    <td align="center">Live Dealers</td>
   </tr>
   <tr class="row1">
-    <td>Single Deck Blackjack</td>
+    <td align="center">7 Gold Scratch</td>
+    <td align="center">Scratch</td>
   </tr>
   <tr class="row1">
-    <td>Super 7</td>
+    <td align="center">Ace</td>
+    <td align="center">Scratch</td>
   </tr>
   <tr class="row1">
-    <td>Three Card Rummy</td>
-  </tr>
- <tr class="rowHeader">
-    <td align="center">모바일</td>
+    <td align="center">Lucky Double</td>
+    <td align="center">Scratch</td>
   </tr>
   <tr class="row1">
-    <td>Mobile American Blackjack (Android)</td>
+    <td align="center">Beetle Frenzy</td>
+    <td align="center">Slots</td>
   </tr>
   <tr class="row1">
-    <td>Mobile American Blackjack (IOS)</td>
+    <td align="center">Cash Bomb</td>
+    <td align="center">Slots</td>
   </tr>
   <tr class="row1">
-    <td>Mobile American Blackjack (WIN)</td>
+    <td align="center">Fishy Fortune</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Fortuna</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Fortune Teller</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Fruit Shop</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Fruit Shop Touch</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Gold Rush Flash</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Hot City</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Icy Wonders</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jackpot 6000</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Lucky 8 Line</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Max Win</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mega Joker</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mystery at the Mansion</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Neon Staxx</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pirates Gold</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Safari Madness</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Secrets of Horus</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Super Lucky Frog</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Super Nudge 6000</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Tales of Krakow</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">The Lost Pyramid</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Thrill Spin</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Tiki wonders</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Treasure Hunt</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Triple Wins</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Triple Wins Jackpot</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Triple Wins Star Ticket</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Baccarat Professional Series High Limit</td>
+    <td align="center">Table & Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Baccarat Professional Series Low Limit</td>
+    <td align="center">Table & Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Baccarat Professional Series Standard Limit</td>
+    <td align="center">Table & Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Black Jack Professional Series Low Limit</td>
+    <td align="center">Table & Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Black Jack Professional SeriesHigh Limit</td>
+    <td align="center">Table & Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Black Jack Professional SeriesStandard Limit</td>
+    <td align="center">Table & Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack</td>
+    <td align="center">Table & Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack ClassicHigh Limit</td>
+    <td align="center">Table & Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack ClassicLow Limit</td>
+    <td align="center">Table & Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack ClassicStandard Limit</td>
+    <td align="center">Table & Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack Touch</td>
+    <td align="center">Table & Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Double Exposure Blackjack Professional SeriesHigh Limit</td>
+    <td align="center">Table & Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Double Exposure Blackjack Professional SeriesLow Limit</td>
+    <td align="center">Table & Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Double Exposure Blackjack Professional SeriesStandard Limit</td>
+    <td align="center">Table & Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">French RouletteHigh Limit</td>
+    <td align="center">Table & Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">French RouletteLow Limit</td>
+    <td align="center">Table & Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">French RouletteStandard Limit</td>
+    <td align="center">Table & Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">European Roulette</td>
+    <td align="center">Table & Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Roulette AdvancedHigh Limit</td>
+    <td align="center">Table & Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Roulette AdvancedLow Limit</td>
+    <td align="center">Table & Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Roulette AdvancedStandard Limit</td>
+    <td align="center">Table & Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Roulette Touch</td>
+    <td align="center">Table & Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Single Deck Blackjack Professional SeriesHigh Limit</td>
+    <td align="center">Table & Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Single Deck Blackjack Professional SeriesLow Limit</td>
+    <td align="center">Table & Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Single Deck Blackjack Professional SeriesStandard Limit</td>
+    <td align="center">Table & Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">The French Roulette</td>
+    <td align="center">Table & Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">All American1 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">All American10 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">All American100 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">All American25 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">All American5 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">All American50 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Caribbean Stud Poker</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Caribbean Stud Professional SeriesHigh Limit</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Caribbean Stud Professional SeriesLow Limit</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Caribbean Stud Professional SeriesStandard Limit</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Casino Holdem</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Deuces Wild Video Poker1 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Deuces Wild Video Poker10 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Deuces Wild Video Poker25 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Deuces Wild Video Poker50 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Deuces Wild1 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Deuces Wild10 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Deuces Wild100 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Deuces Wild25 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Deuces Wild5 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Deuces Wild50 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jacks or Better Video Poker1 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jacks or Better Video Poker10 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jacks or Better Video Poker5 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jacks or Better1 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jacks or Better10 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jacks or Better100 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jacks or Better25 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jacks or Better5 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jacks or Better50 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Joker Wild1 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Joker Wild10 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Joker Wild100 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Joker Wild25 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Joker Wild5 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Joker Wild50 Hand</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Oasis Poker Professional SeriesHigh Limit</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Oasis Poker Professional SeriesLow Limit</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Oasis Poker Professional SeriesStandard Limit</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pontoon Professional SeriesHigh Limit</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pontoon Professional SeriesLow Limit</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pontoon Professional SeriesStandard Limit</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Punto Banco Professional SeriesHigh Limit</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Punto Banco Professional SeriesLow Limit</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Punto Banco Professional SeriesStandard Limit</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Red Dog Progressive</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">TXS Holdem Professional SeriesHigh Limit</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">TXS Holdem Professional SeriesLow Limit</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">TXS Holdem Professional SeriesStandard Limit</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini BlackjackHigh Limit</td>
+    <td align="center">Mini Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini BlackjackLow Limit</td>
+    <td align="center">Mini Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini BlackjackStandard Limit</td>
+    <td align="center">Mini Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Goooooal</td>
+    <td align="center">Mini Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini RouletteLow Limit</td>
+    <td align="center">Mini Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini RouletteStandard Limit</td>
+    <td align="center">Mini Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Spell</td>
+    <td align="center">Mini Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Starburst Mini</td>
+    <td align="center">Mini Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Tribble Mini</td>
+    <td align="center">Mini Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Bubbles</td>
+    <td align="center">Others</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Golden Derby</td>
+    <td align="center">Others</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Hall of Fame</td>
+    <td align="center">Others</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Magic Love</td>
+    <td align="center">Others</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Reel Steal</td>
+    <td align="center">Others</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Shoot 4 Gold</td>
+    <td align="center">Others</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Vikings Treasure</td>
+    <td align="center">Others</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Zodiac</td>
+    <td align="center">Others</td>
   </tr>
 </table>
-<table border="0" align="center" cellpadding="5" cellspacing="1" id="Crescendo">
+<table border="0" align="center" cellpadding="5" cellspacing="1" id="PALAZZO">
   <tr class="rowHeader">
-    <td align="center"><strong>게임 이름</strong></td>
+    <td width="301" align="center"><strong>게임 이름</strong></td>
+    <td width="301" align="center"><strong>카테고리</strong></td>
   </tr>
   <tr class="row1">
-    <td>Baccarat</td>
+    <td align="center">Around    the World</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>BlackJack</td>
+    <td align="center">Bonus Bowling</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>BlackJack Classic</td>
+    <td align="center">Cash Blox</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>BlackJack Progressive</td>
+    <td align="center">Darts</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>BlackJack Surrender</td>
+    <td align="center">Derby Day</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>BlackJack Surrender Classic</td>
+    <td align="center">Dice Twister</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Blackjack Switch</td>
+    <td align="center">Final Score</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Deuces Wild 10-Line</td>
+    <td align="center">Fixed Odds Slot</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Deuces Wild 25-Line</td>
+    <td align="center">Frankie's Fantastic 7</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Deuces Wild 4-Line</td>
+    <td align="center">Genie's HiLo</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Deuces Wild 50-Line</td>
+    <td align="center">Genie's HiLo Jackpot</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>DeucesWild</td>
+    <td align="center">Heads or Tails</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Jacks or Better 10-Line</td>
+    <td align="center">Hold'em Showdown</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Jacks or Better 25-Line</td>
+    <td align="center">Jackpot Darts</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Jacks or Better 4-Line</td>
+    <td align="center">Keno</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Jacks or Better 50-Line</td>
+    <td align="center">Medusa's Gaze</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>JacksOrBetter</td>
+    <td align="center">Mega Ball</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Joker Wild 10-Line</td>
+    <td align="center">Mini Roulette</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Joker Wild 25-Line</td>
+    <td align="center">Penalty Shoot Out</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Joker Wild 4-Line</td>
+    <td align="center">Pinball Roulette</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Joker Wild 50-Line</td>
+    <td align="center">Pop Bingo</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>JokerWild</td>
+    <td align="center">Rock Paper Scissors</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Oasis Poker</td>
+    <td align="center">Rollercoaster Dice</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Pai Gow    Poker</td>
+    <td align="center">Spin a Win</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Perfect Pairs Blackjack</td>
+    <td align="center">Wheel of Light</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Pontoon</td>
+    <td align="center">King Derby</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Russian Poker</td>
+    <td align="center">Monkey Thunderbolt</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Spanish BlackJack</td>
-  </tr>
-   <tr class="rowHeader">
-    <td align="center">모바일</td>
-  </tr>
- <tr class="row1">
-    <td>Mobile Baccarat</td>
+    <td align="center">Keno Xperiment</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Mobile BlackJack</td>
+    <td align="center">Knockout</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Mobile BlackJack Surrender</td>
+    <td align="center">Keno Fortune</td>
+    <td align="center">Arcade</td>
   </tr>
   <tr class="row1">
-    <td>Mobile Deuces Wild 4-Line</td>
+    <td align="center">7 Seat Baccarat Live</td>
+    <td align="center">Live Dealers</td>
   </tr>
   <tr class="row1">
-    <td>Mobile Perfect Pairs Blackjack</td>
+    <td align="center">Blackjack Live</td>
+    <td align="center">Live Dealers</td>
   </tr>
   <tr class="row1">
-    <td>Mobile Pontoon</td>
+    <td align="center">Casino Hold'em Live</td>
+    <td align="center">Live Dealers</td>
   </tr>
   <tr class="row1">
-    <td>Mobile    Spanish Blackjack</td>
+    <td align="center">Exclusive Roulette</td>
+    <td align="center">Live Dealers</td>
   </tr>
-
+  <tr class="row1">
+    <td align="center">French Roulette Live</td>
+    <td align="center">Live Dealers</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">In Running Baccarat Live</td>
+    <td align="center">Live Dealers</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Baccarat Live</td>
+    <td align="center">Live Dealers</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Progressive Baccarat Live</td>
+    <td align="center">Live Dealers</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Roulette Live</td>
+    <td align="center">Live Dealers</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Sic Bo Live</td>
+    <td align="center">Live Dealers</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Unlimited Blackjack Live</td>
+    <td align="center">Live Dealers</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">VIP Baccarat Live</td>
+    <td align="center">Live Dealers</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">3 Clowns Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">A Night Out Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Avengers Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Beetle Bingo Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blade Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Captain America Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Classic Slots Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Dolphin Cash Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Easter Surprise Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Elektra    Scratch </td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Fantastic Four Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Football Mania Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Ghost Rider    Scratch </td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Gladiator Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Irish Luck Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Iron Man 2 Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Kong    Scratch </td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Lotto Madness Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Love Match Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pharaoh's Kingdom Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Rocky    Scratch </td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Roulette Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Santa Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">The Incredible Hulk Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">The Six    Million Dollar Man Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Thor Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Top Trump Celeb Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Top Trump Legend Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Winners Club Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Iron Man 3 Scratch</td>
+    <td align="center">Scratch</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">21 Duel Blackjack</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">3D Roulette</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">American Blackjack</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">American Roulette</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Baccarat</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack Peek</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack Pontoon</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack Pro (Single-Deck Blackjack)</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack Super 21</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack Surrender</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack Switch</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack UK</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Caribbean Stud Poker</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Casino Hold 'Em</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Casino Wars</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Craps</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">European Roulette</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">French Roulette</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Half Double Blackjack</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Marvel Roulette</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Multi Wheel Roulette</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pai Gow Poker</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Perfect Blackjack</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Premium American Roulette</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Premium European Roulette</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Premium French Roulette</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Premium Roulette Pro</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Progressive Blackjack</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Red Dog Poker</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Roulette Pro</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Sic Bo</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Spanish Pontoon</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Stravaganza</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Tequila Poker</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Three Card Poker</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Video Roulette</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Wild Viking</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">3D Roulette Premium</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Lucky Blackjack</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Progressive Baccarat</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack Multiplayer</td>
+    <td align="center">Multi-player Table & Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack Surrender Multiplayer</td>
+    <td align="center">Multi-player Table & Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">European Roulette Multiplayer</td>
+    <td align="center">Multi-player Table & Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">French Roulette Multiplayer</td>
+    <td align="center">Multi-player Table & Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">2 Ways    Royal</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Aces and Faces</td>
+    <td align="center">Video    Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Aces and Faces 4-Line</td>
+    <td align="center">Video    Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Aces and Faces 25-Line</td>
+    <td align="center">Video    Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">All American</td>
+    <td align="center">Video    Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Deuces Wild</td>
+    <td align="center">Video    Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Deuces Wild 4-Line</td>
+    <td align="center">Video    Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jacks or Better</td>
+    <td align="center">Video    Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jacks or Better 4-Line</td>
+    <td align="center">Video    Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jacks or Better 10-Line</td>
+    <td align="center">Video    Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jacks or Better 50-Line</td>
+    <td align="center">Video    Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jacks or Better Multi Hand</td>
+    <td align="center">Video    Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Joker Poker</td>
+    <td align="center">Video    Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mega Jacks</td>
+    <td align="center">Video    Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Tens or Better</td>
+    <td align="center">Video    Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pick &lsquo;em Poker</td>
+    <td align="center">Video    Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack Mini</td>
+    <td align="center">Mini    Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Roulette Mini</td>
+    <td align="center">Mini    Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Goblins Cave</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Triple Profits</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Ocean Princess</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Tropic Reels</td>
+    <td align="center">Slots</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Ugga Bugga</td>
+    <td align="center">Slots</td>
+  </tr>
+</table>
+<table border="0" align="center" cellpadding="5" cellspacing="1" id="MASSIMO">
+  <tr class="rowHeader">
+    <td width="301" align="center"><strong>게임 이름</strong></td>
+    <td width="301" align="center"><strong>카테고리</strong></td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile Jacks    Or Better</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile    Aces And Eights</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile Aces    And Faces</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile Deuces    Wild</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile Double    Double Bonus</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile Bonus    Deuces Wild</td>
+    <td align="center">Card &amp; Table    Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile    European Blackjack Gold</td>
+    <td align="center">Card &amp; Table    Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile    European Roulette</td>
+    <td align="center">Card &amp; Table    Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Multi Wheel    Roulette Gold</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Multi-Hand    Premier Blackjack Gold</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Premier Roulette Diamond Edition</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Spanish 21 Blackjack Gold</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+   <tr class="row1">
+    <td align="center">Baccarat Gold</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Live Dealer Roulette (Gold)</td>
+    <td align="center">Live Dealer</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Live Dealer    Multi Player Roulette (Gold)</td>
+    <td align="center">Live    Dealer</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Live Dealer    Multi Player Blackjack (Gold)</td>
+    <td align="center">Live    Dealer</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Live Dealer    Multi Player Baccarat (Gold)</td>
+    <td align="center">Live    Dealer</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Live Dealer    Bonus Live Baccarat (Gold)</td>
+    <td align="center">Live    Dealer</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Live Dealer    Roulette (Diamond)</td>
+    <td align="center">Live    Dealer</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Live Dealer    Multi Player Roulette (Diamond)</td>
+    <td align="center">Live    Dealer</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Live Dealer    Multi Player Blackjack (Diamond)</td>
+    <td align="center">Live    Dealer</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Live Dealer    Multi Player Baccarat (Diamond)</td>
+    <td align="center">Live    Dealer</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Live Dealer    Bonus Live Baccarat (Diamond)</td>
+    <td align="center">Live    Dealer</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Live Dealer Roulette (Android)</td>
+    <td align="center">Live    Dealer</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Live Dealer Baccarat (Android)</td>
+    <td align="center">Live    Dealer</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Live Dealer    Multi Player Blackjack (Android)</td>
+    <td align="center">Live    Dealer</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Live Dealer    Multi Player Roulette (Android)</td>
+    <td align="center">Live    Dealer</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Live Dealer    Multi Player Baccarat (Android)</td>
+    <td align="center">Live    Dealer</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Live Dealer Roulette (Android) Playboy</td>
+    <td align="center">Live    Dealer</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Live Dealer    Multi Player Roulette (Android) Playboy</td>
+    <td align="center">Live    Dealer</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Live Dealer Baccarat (Android) Playboy</td>
+    <td align="center">Live    Dealer</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Live Dealer    Multi Player Baccarat (Android) Playboy</td>
+    <td align="center">Live    Dealer</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Live Dealer    Multi Player Blackjack (Android) Playboy</td>
+    <td align="center">Live    Dealer</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Max Damage and    The Alien Attack</td>
+    <td align="center">Others</td>
+  </tr>
+</table>
+<table border="0" align="center" cellpadding="5" cellspacing="1" id="BRAVADO">
+  <tr class="rowHeader">
+    <td width="301" align="center"><strong>게임 이름</strong></td>
+    <td width="301" align="center"><strong>카테고리</strong></td>
+  </tr>
+  
+  <tr class="row1">
+    <td align="center">Beat Me</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">BlackJack MH</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Casino Hold'em</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Double Exposure BlackJack MH</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">English Roulette</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">European BlackJack MH</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">European Roulette</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">French Roulette</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Baccarat</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pai Gow Poker</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Single Deck BlackJack MH</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile American Roulette</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile Casino Stud Poker</td>
+    <td align="center">Table &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Deuces &amp; Joker MH</td>
+    <td align="center">3D Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Deuces Wild MH</td>
+    <td align="center">3D Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Double Bonus MH</td>
+    <td align="center">3D Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jackpot Poker MH</td>
+    <td align="center">3D Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jacks or Better MH</td>
+    <td align="center">3D Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Joker Poker MH</td>
+    <td align="center">3D Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Kings or Better MH</td>
+    <td align="center">3D Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Tens or Better MH</td>
+    <td align="center">3D Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Captain Jacks or Better</td>
+    <td align="center">3D Video Pokers</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Triple    Chance HiLo</td>
+    <td align="center">Others (Hi-Lo)</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Hole in One</td>
+    <td align="center">Others (Scratch)</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Scratch Ahoy</td>
+    <td align="center">Others (Scratch)</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile Keno</td>
+    <td align="center">Others</td>
+  </tr>
+</table>
+<table border="0" align="center" cellpadding="5" cellspacing="1" id="APOLLO">
+  <tr class="rowHeader">
+    <td width="301" align="center"><strong>게임 이름</strong></td>
+    <td width="301" align="center"><strong>카테고리</strong></td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Hi-Lo</td>
+    <td align="center">Others</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Card Sharks</td>
+    <td align="center">Others</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mad Matterhorn</td>
+    <td align="center">Others</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Hi-Lo Game    Show</td>
+    <td align="center">Others</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Bonus Hi-Lo</td>
+    <td align="center">Others</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Golden Bonanza    Keno</td>
+    <td align="center">Others</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Darts</td>
+    <td align="center">Others</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pinball    Roulette</td>
+    <td align="center">Others</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mega Bingo    Keno</td>
+    <td align="center">Others</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Diving for    Dollars!</td>
+    <td align="center">Others    (Scratch Cards)</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Candy Island</td>
+    <td align="center">Others    (Scratch Cards)</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Magic Money</td>
+    <td align="center">Others    (Scratch Cards)</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Go Bananas!</td>
+    <td align="center">Others    (Scratch Cards)</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Hot Streak!</td>
+    <td align="center">Others    (Scratch Cards)</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Casino Stud    Poker</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Craps</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Roulette</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Baccarat</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pai Gow Poker</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">European    Roulette</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Lucky 7    Blackjack</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Three Card    Poker</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Casino War</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">European    Blackjack</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Red Dog</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Single Deck    Blackjack</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Common Draw    Roulette</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Hold'em    Showdown</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack    Stand or Bust</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Hi-Lo Dealer</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">No Commission    Baccarat</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Perfect Pairs    Blackjack</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+ 
+  <tr class="row1">
+    <td align="center">Texas Hold 'Em    Bonus</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Caribbean Stud    Poker</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Ultimate Texas    Hold'em</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Sidebet    Blackjack</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jacks or    Better</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Deuces Wild</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Joker Poker</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">All American</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Play4 Jacks or    Better</td>
+    <td align="center">Video    Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Play4 Deuces    Wild</td>
+    <td align="center">Video    Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Play4 Joker    Poker</td>
+    <td align="center">Video    Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Play4 All    American</td>
+    <td align="center">Video    Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Challenge    Poker</td>
+    <td align="center">Video    Poker</td>
+  </tr>
 </table>
 
-
-
+<table border="0" align="center" cellpadding="5" cellspacing="1" id="DIVINO">
+  <tr class="rowHeader">
+    <td width="301" align="center"><strong>게임 이름</strong></td>
+    <td width="301" align="center"><strong>카테고리</strong></td>
+  </tr>
+  <tr class="row1">
+    <td align="center">21    Burn Blackjack</td>
+    <td align="center">Table    &amp; Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">American    Blackjack</td>
+    <td align="center">Table &amp;    Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">American    Roulette</td>
+    <td align="center">Table &amp;    Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Baccarat</td>
+    <td align="center">Table &amp;    Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Caribbean    Poker</td>
+    <td align="center">Table &amp;    Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Common    Draw Roulette</td>
+    <td align="center">Table &amp;    Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Draw    High Low</td>
+    <td align="center">Table &amp;    Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">European    Blackjack</td>
+    <td align="center">Table &amp;    Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">European    Roulette</td>
+    <td align="center">Table &amp;    Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Oasis    Poker</td>
+    <td align="center">Table &amp;    Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pai    Gow</td>
+    <td align="center">Table &amp;    Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pirate    21</td>
+    <td align="center">Table &amp;    Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Poker3    Heads Up Hold'em or Fold'em</td>
+    <td align="center">Table &amp;    Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pontoon</td>
+    <td align="center">Table &amp;    Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Red    Dog</td>
+    <td align="center">Table &amp;    Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Single    Deck Blackjack</td>
+    <td align="center">Table &amp;    Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Super    7</td>
+    <td align="center">Table &amp;    Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Three    Card Rummy</td>
+    <td align="center">Table &amp;    Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Top    Card Trumps (Casino War)</td>
+    <td align="center">Table &amp;    Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Triple    Edge Poker (Three Card Poker)</td>
+    <td align="center">Table &amp;    Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Zoom    Roulette</td>
+    <td align="center">Table &amp;    Cards</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">All    American Video Poker</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Back    in Time</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Bonus    Poker</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Deuces    Wild</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Double    Bonus Poker</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Five    Draw Poker</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Joker    Poker</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Multihand    Double Jackpot</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Multihand    All American</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Multihand    Bonus Deluxe</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Multihand    Bonus Poker</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Multihand    Deuces Wild</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Multihand    Double Bonus</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Multihand    Jacks or Better</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Multihand    Joker Poker</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pyramid    All American</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pyramid    Bonus Deluxe</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pyramid    Bonus Poker</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pyramid    Deuces Wild</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pyramid    Double Bonus</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pyramid    Double Jackpot</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pyramid    Jacks or Better</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pyramid    Joker Poker</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Instant    Keno</td>
+    <td align="center">Other</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Klub    Keno</td>
+    <td align="center">Other</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Krazy    Keno</td>
+    <td align="center">Other</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Skratcherz</td>
+    <td align="center">Other</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Traditional    Keno</td>
+    <td align="center">Other</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Virtual    Racebook 3D</td>
+    <td align="center">Other</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Basebull    Scratch </td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Bingo Scratch</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Cubana-Tropicana    Scratch</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Easter Feast    Scratch</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Football Cup    Scratch</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Formula    Scratch </td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Freaky    Thimbles </td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Gangsters'    Loot </td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Gold    999.9 </td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jour Del    Amour Scratch</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Keno</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Magic Pot    Scratch</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Monsters    Scratch </td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Moonapolis </td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Soccer    Scratch </td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Sparkle    Ladies </td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Teddy    Scratch </td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Black and    White</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Bonus Cards</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Derby</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Greyhounds</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Hockey    Potshot</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Instant Lotto</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jackpot7</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Lucky Wheel</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pokerbet</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pokerchoice</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Rollup</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Soccer Shot</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Baccarat</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack    Classic</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack    Faceup</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack    Progressive</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack    Surrender</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack    Surrender Classic</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack    Switch</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Card Wars</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Caribbean    Poker </td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Casino    Hold'em</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Face Up 21    Blackjack</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Face Up 21    Blackjack Classic</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Let 'Em Ride</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Oasis Poker</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pai Gow Poker</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Perfect Pairs    Blackjack</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Poker Three</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pontoon</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Russian Poker</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Spanish    Blackjack</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">American    Roulette</td>
+    <td align="center">Table Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Craps</td>
+    <td align="center">Table Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">European    Roulette</td>
+    <td align="center">Table Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Roulette 3D</td>
+    <td align="center">Table Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Roulette Pro</td>
+    <td align="center">Table Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Sic Bo</td>
+    <td align="center">Table Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Coliseum    Poker</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Coliseum    Poker 10-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Coliseum    Poker 25-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Coliseum    Poker 4-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Coliseum    Poker 50-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Deuces Wild</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Deuces Wild    10-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Deuces Wild    25-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Deuces Wild    4-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Deuces Wild    50-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Face the Ace</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Face the Ace    10-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Face the Ace    25-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Face the Ace    4-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Face the Ace    50-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Five Aces</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jacks or    Better</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jacks or    Better 10-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jacks or    Better 25-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jacks or    Better 4-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jacks or    Better 50-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Joker Wild</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Joker Wild    10-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Joker Wild    25-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Joker Wild    4-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Joker Wild    50-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Shockwave    Poker</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Bingo    Scratch</td>
+    <td align="center">Mini Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Lucky    Wheel</td>
+    <td align="center">Mini Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Baccarat</td>
+    <td align="center">Mini Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini    Blackjack</td>
+    <td align="center">Mini Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini    Blackjack Progressive</td>
+    <td align="center">Mini Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini    Blackjack Surrender</td>
+    <td align="center">Mini Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Casino    Hold'em</td>
+    <td align="center">Mini Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Face Up    21 Blackjack</td>
+    <td align="center">Mini Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Pai Gow    Poker</td>
+    <td align="center">Mini Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Perfect    Pairs Blackjack</td>
+    <td align="center">Mini Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Pontoon</td>
+    <td align="center">Mini Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Spanish    Blackjack</td>
+    <td align="center">Mini Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini European    Roulette</td>
+    <td align="center">Mini Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Coliseum    Poker</td>
+    <td align="center">Mini Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Deuces    Wild </td>
+    <td align="center">Mini Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Face the    Ace</td>
+    <td align="center">Mini Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Five    Aces</td>
+    <td align="center">Mini Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Jacks or    Better </td>
+    <td align="center">Mini Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Joker    Wild</td>
+    <td align="center">Mini Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile    Baccarat</td>
+    <td align="center">Mobile Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile    Blackjack</td>
+    <td align="center">Mobile Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile    Blackjack Surrender</td>
+    <td align="center">Mobile Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile Casino    Hold'em</td>
+    <td align="center">Mobile Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile Face    Up 21 Blackjack</td>
+    <td align="center">Mobile Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile    Perfect Pairs Blackjack</td>
+    <td align="center">Mobile Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile    Pontoon</td>
+    <td align="center">Mobile Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile    Spanish Blackjack</td>
+    <td align="center">Mobile Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile Multi Hand Baccarat</td>
+    <td align="center">Mobile Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile    American Roulette</td>
+    <td align="center">Mobile Table Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile    European Roulette</td>
+    <td align="center">Mobile Table Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile Deuces    Wild 4-Line</td>
+    <td align="center">Mobile Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile Joker Wild</td>
+    <td align="center">Mobile Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile Jacks or Better</td>
+    <td align="center">Mobile Video Poker</td>
+  </tr>
+</table>
+<!--<table border="0" align="center" cellpadding="5" cellspacing="1" id="CRESCENDO">
+  <tr class="rowHeader">
+    <td width="301" align="center"><strong>게임 이름</strong></td>
+    <td width="301" align="center"><strong>카테고리</strong></td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Basebull    Scratch </td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Bingo Scratch</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Cubana-Tropicana    Scratch</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Easter Feast    Scratch</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Football Cup    Scratch</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Formula    Scratch </td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Freaky    Thimbles </td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Gangsters'    Loot </td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Gold    999.9 </td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jour Del    Amour Scratch</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Keno</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Magic Pot    Scratch</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Monsters    Scratch </td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Moonapolis </td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Soccer    Scratch </td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Sparkle    Ladies </td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Teddy    Scratch </td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Black and    White</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Bonus Cards</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Derby</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Greyhounds</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Hockey    Potshot</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Instant Lotto</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jackpot7</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Lucky Wheel</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pokerbet</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pokerchoice</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Rollup</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Soccer Shot</td>
+    <td align="center">Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Baccarat</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack    Classic</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack    Faceup</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack    Progressive</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack    Surrender</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack    Surrender Classic</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Blackjack    Switch</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Card Wars</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Caribbean    Poker </td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Casino    Hold'em</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Face Up 21    Blackjack</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Face Up 21    Blackjack Classic</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Let 'Em Ride</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Oasis Poker</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pai Gow Poker</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Perfect Pairs    Blackjack</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Poker Three</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Pontoon</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Russian Poker</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Spanish    Blackjack</td>
+    <td align="center">Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">American    Roulette</td>
+    <td align="center">Table Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Craps</td>
+    <td align="center">Table Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">European    Roulette</td>
+    <td align="center">Table Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Roulette 3D</td>
+    <td align="center">Table Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Roulette Pro</td>
+    <td align="center">Table Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Sic Bo</td>
+    <td align="center">Table Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Coliseum    Poker</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Coliseum    Poker 10-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Coliseum    Poker 25-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Coliseum    Poker 4-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Coliseum    Poker 50-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Deuces Wild</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Deuces Wild    10-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Deuces Wild    25-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Deuces Wild    4-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Deuces Wild    50-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Face the Ace</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Face the Ace    10-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Face the Ace    25-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Face the Ace    4-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Face the Ace    50-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Five Aces</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jacks or    Better</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jacks or    Better 10-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jacks or    Better 25-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jacks or    Better 4-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Jacks or    Better 50-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Joker Wild</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Joker Wild    10-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Joker Wild    25-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Joker Wild    4-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Joker Wild    50-Line</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Shockwave    Poker</td>
+    <td align="center">Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Bingo    Scratch</td>
+    <td align="center">Mini Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Lucky    Wheel</td>
+    <td align="center">Mini Arcade</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Baccarat</td>
+    <td align="center">Mini Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini    Blackjack</td>
+    <td align="center">Mini Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini    Blackjack Progressive</td>
+    <td align="center">Mini Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini    Blackjack Surrender</td>
+    <td align="center">Mini Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Casino    Hold'em</td>
+    <td align="center">Mini Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Face Up    21 Blackjack</td>
+    <td align="center">Mini Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Pai Gow    Poker</td>
+    <td align="center">Mini Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Perfect    Pairs Blackjack</td>
+    <td align="center">Mini Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Pontoon</td>
+    <td align="center">Mini Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Spanish    Blackjack</td>
+    <td align="center">Mini Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini European    Roulette</td>
+    <td align="center">Mini Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Coliseum    Poker</td>
+    <td align="center">Mini Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Deuces    Wild </td>
+    <td align="center">Mini Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Face the    Ace</td>
+    <td align="center">Mini Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Five    Aces</td>
+    <td align="center">Mini Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Jacks or    Better </td>
+    <td align="center">Mini Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mini Joker    Wild</td>
+    <td align="center">Mini Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile    Baccarat</td>
+    <td align="center">Mobile Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile    Blackjack</td>
+    <td align="center">Mobile Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile    Blackjack Surrender</td>
+    <td align="center">Mobile Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile Casino    Hold'em</td>
+    <td align="center">Mobile Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile Face    Up 21 Blackjack</td>
+    <td align="center">Mobile Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile    Perfect Pairs Blackjack</td>
+    <td align="center">Mobile Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile    Pontoon</td>
+    <td align="center">Mobile Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile    Spanish Blackjack</td>
+    <td align="center">Mobile Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile Multi Hand Baccarat</td>
+    <td align="center">Mobile Card Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile    American Roulette</td>
+    <td align="center">Mobile Table Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile    European Roulette</td>
+    <td align="center">Mobile Table Games</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile Deuces    Wild 4-Line</td>
+    <td align="center">Mobile Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile Joker Wild</td>
+    <td align="center">Mobile Video Poker</td>
+  </tr>
+  <tr class="row1">
+    <td align="center">Mobile Jacks or Better</td>
+    <td align="center">Mobile Video Poker</td>
+  </tr>
+</table>-->
 </body>
 </html>
