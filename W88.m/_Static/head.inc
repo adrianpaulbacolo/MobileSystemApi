@@ -13,4 +13,3 @@
 <script src="/_Static/JS/Mobile/iscroll.js"></script>
 <script src="/_Static/JS/GPINT.js"></script>
 <script src="/_Static/JS/piwik.js"></script>
-<script src="/_Static/JS/radar.js"></script>
