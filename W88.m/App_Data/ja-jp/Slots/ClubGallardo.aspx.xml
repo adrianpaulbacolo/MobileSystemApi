@@ -1,11 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <default>
-	<iSoftBetNotSupportedCurrency>
-		<VND />
-		<IDR />
-	</iSoftBetNotSupportedCurrency>
 	<Category>
-		<Slot Label="スロット">	
+		<Slot Label="スロット">
+			<iSoftBet NotSupportedCurrency="VND,IDR">
 			<AbsoluteSuperReels ProductId="896500">
 				<ImageName><![CDATA[W88-Slots-Mobile-Absolute-Super-Reels]]></ImageName>
 			</AbsoluteSuperReels>
@@ -90,7 +87,9 @@
 			<UltimateSuperReels ProductId="896513">
 				<ImageName><![CDATA[W88-Slots-Mobile-Ultimate-Super-Reels]]></ImageName>
 			</UltimateSuperReels>
+			</iSoftBet>
 
+			<PNG>
 			<cloudquestmobile  Top="1">
 				<ImageName><![CDATA[W88-Slots-Mobile-Cloud-Quest]]></ImageName>
 			</cloudquestmobile >
@@ -233,15 +232,19 @@
 			<wizardofgemsmobile>
 				<ImageName><![CDATA[wizardofgemsmobile]]></ImageName>
 			</wizardofgemsmobile>
+			</PNG>
 		</Slot>
 		<CardAndTable Label="テーブルゲーム">
+			<iSoftBet>
 			<Blackjack ProductId="896522">
 				<ImageName><![CDATA[W88-Slots-Mobile-Blackjack]]></ImageName>
 			</Blackjack>
 			<EuropeanRoulette ProductId="896521">
 				<ImageName><![CDATA[W88-Slots-Mobile-European-Roulette]]></ImageName>
 			</EuropeanRoulette>
+			</iSoftBet>
 
+			<PNG>
 			<AmericanRoulette>
 				<ImageName><![CDATA[americanroulettemobile]]></ImageName>
 			</AmericanRoulette>
@@ -275,12 +278,16 @@
 			<SingleDeckBlackJackMH>
 				<ImageName><![CDATA[singledeckblackjackmhmobile]]></ImageName>
 			</SingleDeckBlackJackMH>
+			</PNG>
 		</CardAndTable>
 		<VideoPoker Label="ビデオポーカー">
+			<iSoftBet>
 			<JokerPoker ProductId="896506">
 				<ImageName><![CDATA[W88-Slots-Mobile-Joker-Poker]]></ImageName>
 			</JokerPoker>
+			</iSoftBet>
 
+			<PNG>
 			<DeucesWildMH>
 				<ImageName><![CDATA[deuceswildmobile]]></ImageName>
 			</DeucesWildMH>
@@ -305,8 +312,10 @@
 			<TensOrBetterMH>
 				<ImageName><![CDATA[tensorbettermobile]]></ImageName>
 			</TensOrBetterMH>
+			</PNG>
 		</VideoPoker>
 		<Others Label="その他">
+			<PNG>
 			<Keno>
 				<ImageName><![CDATA[kenomobile]]></ImageName>
 			</Keno>
@@ -319,6 +328,7 @@
 			<ScratchAhoy>
 				<ImageName><![CDATA[scratchahoymobile]]></ImageName>
 			</ScratchAhoy>
+			</PNG>
 		</Others>
 	</Category>
 </default>
