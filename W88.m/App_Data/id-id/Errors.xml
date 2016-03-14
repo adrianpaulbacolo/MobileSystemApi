@@ -83,6 +83,11 @@
     <MissingAccountName><![CDATA[Harap masukan nama pemilik rekening Anda]]></MissingAccountName>
     <MissingAccountNumber><![CDATA[Harap masukan nomor rekening Bank Anda]]></MissingAccountNumber>
     <MissingBankName><![CDATA[Harap masukan nama Bank]]></MissingBankName>
+	<MissingCardName><![CDATA[Please enter your card name]]></MissingCardName>
+	<MissingCardNo><![CDATA[Please enter your card number]]></MissingCardNo>
+	<MissingCCV><![CDATA[Please enter your security code]]></MissingCCV>
+	<MissingCardType><![CDATA[Please enter your card type]]></MissingCardType>
+	<MissingCardExpiry><![CDATA[Please enter your card expiry]]></MissingCardExpiry>
     <SelectSystemAccount><![CDATA[Please select a system account]]></SelectSystemAccount>
     <SelectDepositChannel><![CDATA[Silahkan memilih cara deposit]]></SelectDepositChannel>
     <SelectBank><![CDATA[Harap masukan nama Bank]]></SelectBank>

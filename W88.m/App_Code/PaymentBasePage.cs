@@ -86,8 +86,8 @@ public class PaymentBasePage : BasePage
 
     protected string strlblBank = string.Empty;
     protected string strlblBankName = string.Empty;
-    protected string drpBank = string.Empty;
-    protected string drpOtherBank = string.Empty;
+    protected string strdrpBank = string.Empty;
+    protected string strdrpOtherBank = string.Empty;
 
     protected string strlblTransactionId = string.Empty;
 
@@ -155,8 +155,8 @@ public class PaymentBasePage : BasePage
 
         strlblBank = commonCulture.ElementValues.getResourceString("lblBank", xeDefaultResources);
         strlblBankName = commonCulture.ElementValues.getResourceString("lblBankName", xeDefaultResources);
-        drpBank = commonCulture.ElementValues.getResourceString("drpBank", xeDefaultResources);
-        drpOtherBank = commonCulture.ElementValues.getResourceString("drpOtherBank", xeDefaultResources);
+        strdrpBank = commonCulture.ElementValues.getResourceString("drpBank", xeDefaultResources);
+        strdrpOtherBank = commonCulture.ElementValues.getResourceString("drpOtherBank", xeDefaultResources);
 
         strlblAccountName = commonCulture.ElementValues.getResourceString("lblAccountName", xeDefaultResources);
         strlblAccountNumber = commonCulture.ElementValues.getResourceString("lblAccountNumber", xeDefaultResources);
@@ -331,7 +331,7 @@ public class PaymentBasePage : BasePage
 
     protected List<ListItem> InitializeBank(string paymentMethodBank)
     {
-        List<ListItem> banks = new List<ListItem>() { new ListItem(drpBank, "-1") };
+        List<ListItem> banks = new List<ListItem>() { new ListItem(strdrpBank, "-1") };
         try
         {
             XElement xElementBank = null;

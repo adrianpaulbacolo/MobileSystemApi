@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Security.Cryptography;
 
 public class commonEncryption
 {
@@ -284,5 +285,18 @@ public class commonEncryption
 
         // Return the hexadecimal string. 
         return sBuilder.ToString();
+    }
+
+    public static string GetSHA256Hash(string input)
+    {
+        SHA256 sha = SHA256Managed.Create();
+        byte[] hashData = sha.ComputeHash(Encoding.UTF8.GetBytes(input));
+        StringBuilder output = new StringBuilder();
+        for (int i = 0; i < hashData.Length; i++)
+        {
+            output.Append(hashData[i].ToString("x2"));
+        }
+
+        return output.ToString();
     }
 }

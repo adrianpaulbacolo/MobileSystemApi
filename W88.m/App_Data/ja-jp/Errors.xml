@@ -110,6 +110,11 @@
     <MissingAccountName><![CDATA[あなたの口座名を入力してください。]]></MissingAccountName>
     <MissingAccountNumber><![CDATA[あなたの口座番号を入力してください]]></MissingAccountNumber>
     <MissingBankName><![CDATA[あなたの他の銀行名を入力してください。]]></MissingBankName>
+	<MissingCardName><![CDATA[Please enter your card name]]></MissingCardName>
+	<MissingCardNo><![CDATA[Please enter your card number]]></MissingCardNo>
+	<MissingCCV><![CDATA[Please enter your security code]]></MissingCCV>
+	<MissingCardType><![CDATA[Please enter your card type]]></MissingCardType>
+	<MissingCardExpiry><![CDATA[Please enter your card expiry]]></MissingCardExpiry>
     <SelectSystemAccount><![CDATA[システムアカウントを選択してください]]></SelectSystemAccount>
     <SelectDepositChannel><![CDATA[入金チャンネルを選択してください]]></SelectDepositChannel>
     <SelectBank><![CDATA[銀行を選択してください]]></SelectBank>

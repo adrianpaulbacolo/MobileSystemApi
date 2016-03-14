@@ -137,8 +137,8 @@ public partial class Deposit_FastDesposit : PaymentBasePage
         drpBank.DataValueField = "bankCode";
         drpBank.DataBind();
 
-        drpBank.Items.Insert(0, new ListItem(base.drpBank, "-1"));
-        drpBank.Items.Add(new ListItem(base.drpOtherBank, "OTHER"));
+        drpBank.Items.Insert(0, new ListItem(base.strdrpBank, "-1"));
+        drpBank.Items.Add(new ListItem(base.strdrpOtherBank, "OTHER"));
     }
 
     private void InitialiseDepositChannel()

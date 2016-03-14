@@ -83,6 +83,11 @@
     <MissingAccountName><![CDATA[은행 계좌 이름을 입력 하세요]]></MissingAccountName>
     <MissingAccountNumber><![CDATA[은행 계좌 번호를 입력 하세요]]></MissingAccountNumber>
     <MissingBankName><![CDATA[은행 이름을 입력 하세요]]></MissingBankName>
+	<MissingCardName><![CDATA[Please enter your card name]]></MissingCardName>
+	<MissingCardNo><![CDATA[Please enter your card number]]></MissingCardNo>
+	<MissingCCV><![CDATA[Please enter your security code]]></MissingCCV>
+	<MissingCardType><![CDATA[Please enter your card type]]></MissingCardType>
+	<MissingCardExpiry><![CDATA[Please enter your card expiry]]></MissingCardExpiry>
     <SelectSystemAccount><![CDATA[Please select a system account]]></SelectSystemAccount>
     <SelectDepositChannel><![CDATA[Please select a deposit channel]]></SelectDepositChannel>
     <SelectBank><![CDATA[은행 이름을 입력 하세요]]></SelectBank>

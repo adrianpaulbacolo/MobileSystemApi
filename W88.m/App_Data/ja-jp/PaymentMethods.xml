@@ -13,6 +13,7 @@
 	<dDaddyPay><![CDATA[クイックオンライン]]></dDaddyPay>
 	<dDaddyPayQR><![CDATA[QR Code Payment]]></dDaddyPayQR>
 	<dSDAPayAlipay><![CDATA[Alipay Transfer]]></dSDAPayAlipay>
+	<dAllDebit><![CDATA[クレジットカード]]></dAllDebit>
 
 	<wBankTransfer><![CDATA[銀行振込み]]></wBankTransfer>
 	<wWingMoney><![CDATA[ウィングマネー]]></wWingMoney>

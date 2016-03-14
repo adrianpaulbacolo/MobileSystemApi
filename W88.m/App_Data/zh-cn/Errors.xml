@@ -83,6 +83,11 @@
     <MissingAccountName><![CDATA[请输入账户名]]></MissingAccountName>
     <MissingAccountNumber><![CDATA[请输入账户号码]]></MissingAccountNumber>
     <MissingBankName><![CDATA[请输入银行名]]></MissingBankName>
+	<MissingCardName><![CDATA[Please enter your card name]]></MissingCardName>
+	<MissingCardNo><![CDATA[Please enter your card number]]></MissingCardNo>
+	<MissingCCV><![CDATA[Please enter your security code]]></MissingCCV>
+	<MissingCardType><![CDATA[Please enter your card type]]></MissingCardType>
+	<MissingCardExpiry><![CDATA[Please enter your card expiry]]></MissingCardExpiry>
     <SelectSystemAccount><![CDATA[请选择系统账号]]></SelectSystemAccount>
     <SelectDepositChannel><![CDATA[请选择存款渠道]]></SelectDepositChannel>
     <SelectBank><![CDATA[请选择银行]]></SelectBank>

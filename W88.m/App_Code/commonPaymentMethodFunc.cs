@@ -160,6 +160,20 @@ public static class commonPaymentMethodFunc
                 depositTabs.Controls.Add(list);
                 break;
 
+            case commonVariables.DepositMethod.AllDebit:
+                list = CreateMethodListControl(paymentCode);
+
+                anchor = CreateMethodLinkControl(list.ID.ToString(), paymentCode.ToString(), sourcePage);
+
+                if (isApp)
+                    anchor.Attributes.Add("href", "/Deposit/AllDebit_app.aspx");
+                else
+                    anchor.Attributes.Add("href", "/Deposit/AllDebit.aspx");
+
+                list.Controls.Add(anchor);
+                depositTabs.Controls.Add(list);
+                break;
+
             default:
                 break;
         }
