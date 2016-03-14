@@ -90,6 +90,10 @@
 			</iSoftBet>
 
 			<PNG>
+				<cloudquestmobile ProductId="100300" Top="1">
+					<ImageName><![CDATA[W88-Slots-Mobile-Cloud-Quest]]></ImageName>
+				</cloudquestmobile>
+
 				<sambacarnivalmobile>
 					<ImageName><![CDATA[sambacarnivalmobile]]></ImageName>
 				</sambacarnivalmobile>
