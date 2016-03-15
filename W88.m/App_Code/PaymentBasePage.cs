@@ -280,8 +280,8 @@ public class PaymentBasePage : BasePage
         {
             drPaymentMethodLimit = dtPaymentMethodLimits.Select("[methodId] = " + strMethodId)[0];
 
-            strMinLimit = Convert.ToDecimal(drPaymentMethodLimit["minDeposit"]).ToString(commonVariables.DecimalFormat);
-            strMaxLimit = Convert.ToDecimal(drPaymentMethodLimit["maxDeposit"]).ToString(commonVariables.DecimalFormat);
+            strMinLimit = Convert.ToDecimal(drPaymentMethodLimit["minWithdrawal"]).ToString(commonVariables.DecimalFormat);
+            strMaxLimit = Convert.ToDecimal(drPaymentMethodLimit["maxWithdrawal"]).ToString(commonVariables.DecimalFormat);
             strTotalAllowed = Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]) <= 0 ? strUnlimited : Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]).ToString(commonVariables.DecimalFormat);
             strDailyLimit = Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]) == 0 ? strUnlimited : Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]).ToString(commonVariables.DecimalFormat);
         }
