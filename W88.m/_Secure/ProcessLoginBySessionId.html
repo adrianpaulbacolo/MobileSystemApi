@@ -16,10 +16,10 @@
                 if (data == '0') {
                     window.location.href = '/Expire';
                 } else {
-                    if (Cookies().getCookie('is_app') == '0') {
-                        window.location.href = '/Index.aspx' + ((lang == '') ? '' : lang);
-                    } else {
+                    if (Cookies().getCookie('is_app') == '1') {
                         window.location.href = '/FundTransfer/FundTransfer.aspx' + ((lang == '') ? '' : lang);
+                    } else {
+                        window.location.href = '/Index.aspx' + ((lang == '') ? '' : lang);
                     }
                 }
             });
