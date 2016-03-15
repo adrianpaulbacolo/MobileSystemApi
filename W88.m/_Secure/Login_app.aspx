@@ -174,9 +174,9 @@
                     success: function (xml) {
                         switch ($(xml).find('ErrorCode').text()) {
                             case "1":
-                                Cookies().setCookie('is_app', '1', 365);
                             case "resetPassword":
                                 window.location.replace('/Deposit/Default_app.aspx');
+                                Cookies().setCookie('is_app', '1', 365);
                                 break;
                             case "22":
                                 var message = $(xml).find('Message').text();
