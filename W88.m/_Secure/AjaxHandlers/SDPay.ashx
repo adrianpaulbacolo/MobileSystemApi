@@ -74,7 +74,7 @@ public class SDPay : IHttpHandler,System.Web.SessionState.IReadOnlySessionState 
 
             using (svcPayMember.MemberClient client = new svcPayMember.MemberClient())
             {
-                dt = client.getMethodLimits(strOperatorId, strMemberCode, Convert.ToInt32(commonVariables.DepositMethod.SDPay).ToString(), "1", false, out statusCode, out statusText);
+                dt = client.getMethodLimits_Mobile(strOperatorId, strMemberCode, Convert.ToInt32(commonVariables.DepositMethod.SDPay).ToString(), "1", false, out statusCode, out statusText);
                 client.Close();
             }
 

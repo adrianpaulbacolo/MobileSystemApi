@@ -90,7 +90,7 @@ public partial class Deposit_AllDebit : PaymentBasePage
     {
         for (int i = 1; i <= 12; i++)
         {
-            ddlExpiryMonth.Items.Add(new ListItem(i.ToString("00"), i.ToString()));
+            ddlExpiryMonth.Items.Add(new ListItem(i.ToString("00"), i.ToString("00")));
         }
         ddlExpiryMonth.Items.Insert(0, new ListItem(commonCulture.ElementValues.getResourceString("ddlMonthDefaultText", xeResources), "-1"));
 
@@ -101,6 +101,7 @@ public partial class Deposit_AllDebit : PaymentBasePage
         }
         ddlExpiryYear.Items.Insert(0, new ListItem(commonCulture.ElementValues.getResourceString("ddlYearDefaultText", xeResources), "-1"));
     }
+
     private void InitializeMemberAccount()
     {
         DataTable dtMemberAccount;
@@ -236,7 +237,7 @@ public partial class Deposit_AllDebit : PaymentBasePage
                 {
                     using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
                     {
-                        xeResponse = client.createCreditCardTransaction(Convert.ToInt64(strOperatorId), long.Parse(strMemberID), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.NextPay), strMerchantId, strCurrencyCode, decDepositAmount, DepositSource.Mobile,
+                        xeResponse = client.createCreditCardTransaction(Convert.ToInt64(strOperatorId), long.Parse(strMemberID), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.AllDebit), strMerchantId, strCurrencyCode, decDepositAmount, DepositSource.Mobile,
                                         strCardName, strCardNo, selectedCardType, selectedMonth, selectedYear, strCCV, strIssuingBank);
 
                         if (xeResponse == null)
@@ -336,6 +337,7 @@ public partial class Deposit_AllDebit : PaymentBasePage
             gatewayNo = "20751004";
         }
 
+        strMerchantId = ConfigurationManager.AppSettings["AllDebit_merchantid"];
         var builder = new StringBuilder();
         builder.AppendFormat("{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}{11}{12}", strMerchantId, gatewayNo, strTransferId, strCurrencyCode, strDepositAmount, strMemberID, strMemberID, strCardNo, selectedYear, selectedMonth, strCCV, email, signKey);
 

@@ -100,7 +100,7 @@ public class Help2Pay : IHttpHandler, System.Web.SessionState.IReadOnlySessionSt
 
             using (svcPayMember.MemberClient client = new svcPayMember.MemberClient())
             {
-                dt = client.getMethodLimits(strOperatorId, strMemberCode, Convert.ToInt32(commonVariables.DepositMethod.Help2Pay).ToString(), "1", false, out statusCode, out statusText);
+                dt = client.getMethodLimits_Mobile(strOperatorId, strMemberCode, Convert.ToInt32(commonVariables.DepositMethod.Help2Pay).ToString(), "1", false, out statusCode, out statusText);
                 client.Close();
             }
 

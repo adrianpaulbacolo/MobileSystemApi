@@ -106,7 +106,7 @@ public partial class Deposit_DaddyPay : BasePage
 
             using (svcPayMember.MemberClient svcInstance = new svcPayMember.MemberClient())
             {
-                dtPaymentMethodLimits = svcInstance.getMethodLimits(strOperatorId, strMemberCode, strMethodId, Convert.ToString(Convert.ToInt32(commonVariables.PaymentTransactionType.Deposit)), false, out strProcessCode, out strProcessText);
+                dtPaymentMethodLimits = svcInstance.getMethodLimits_Mobile(strOperatorId, strMemberCode, strMethodId, Convert.ToString(Convert.ToInt32(commonVariables.PaymentTransactionType.Deposit)), false, out strProcessCode, out strProcessText);
             }
 
             foreach (commonVariables.DepositMethod EnumMethod in Enum.GetValues(typeof(commonVariables.DepositMethod)))
@@ -177,7 +177,7 @@ public partial class Deposit_DaddyPay : BasePage
 
         using (svcPayMember.MemberClient svcInstance = new svcPayMember.MemberClient())
         {
-            dtPaymentMethodLimits = svcInstance.getMethodLimits(strOperatorId, strMemberCode, strMethodId, Convert.ToString(Convert.ToInt32(commonVariables.PaymentTransactionType.Deposit)), false, out strProcessCode, out strProcessText);
+            dtPaymentMethodLimits = svcInstance.getMethodLimits_Mobile(strOperatorId, strMemberCode, strMethodId, Convert.ToString(Convert.ToInt32(commonVariables.PaymentTransactionType.Deposit)), false, out strProcessCode, out strProcessText);
         }
 
         foreach (commonVariables.DepositMethod EnumMethod in Enum.GetValues(typeof(commonVariables.DepositMethod)))
@@ -272,7 +272,7 @@ public partial class Deposit_DaddyPay : BasePage
 
                         using (svcPayMember.MemberClient client = new svcPayMember.MemberClient())
                         {
-                            dt = client.getMethodLimits(strOperatorId, strMemberCode, Convert.ToInt32(commonVariables.DepositMethod.DaddyPay).ToString(), "1", false, out statusCode, out statusText);
+                            dt = client.getMethodLimits_Mobile(strOperatorId, strMemberCode, Convert.ToInt32(commonVariables.DepositMethod.DaddyPay).ToString(), "1", false, out statusCode, out statusText);
                             client.Close();
                         }
                     }
@@ -288,7 +288,7 @@ public partial class Deposit_DaddyPay : BasePage
 
                         using (svcPayMember.MemberClient client = new svcPayMember.MemberClient())
                         {
-                            dt = client.getMethodLimits(strOperatorId, strMemberCode, Convert.ToInt32(commonVariables.DepositMethod.DaddyPay).ToString(), "1", false, out statusCode, out statusText);
+                            dt = client.getMethodLimits_Mobile(strOperatorId, strMemberCode, Convert.ToInt32(commonVariables.DepositMethod.DaddyPay).ToString(), "1", false, out statusCode, out statusText);
                             client.Close();
                         }
                     }
