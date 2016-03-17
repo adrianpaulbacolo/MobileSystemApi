@@ -3,6 +3,10 @@
 	<Category>
 		<Slot Label="ស្លត">
 			<iSoftBet NotSupportedCurrency="VND,IDR">
+				<MegaBoy ProductId="896550" Top="1">
+					<ImageName><![CDATA[Mega-Boy-mobile]]></ImageName>
+				</MegaBoy>
+				
 				<AbsoluteSuperReels ProductId="896500">
 					<ImageName><![CDATA[W88-Slots-Mobile-Absolute-Super-Reels]]></ImageName>
 				</AbsoluteSuperReels>
