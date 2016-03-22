@@ -3,6 +3,7 @@
 <head>
     <title></title>
     <script type="text/javascript" src="/_Static/JS/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/_Static/Js/Main.js"></script>
     <script type="text/javascript">
         window.onload = function () {
             var lang = '';
@@ -13,9 +14,13 @@
 
             $.post("/_secure/ProcessLoginBySessionId.aspx").done(function (data) {
                 if (data == '0') {
-                    window.location.href = '/Expire'
+                    window.location.href = '/Expire';
                 } else {
-                    window.location.href = '/Index.aspx' + ((lang == '') ? '' : lang)
+                    if (Cookies().getCookie('is_app') == '1') {
+                        window.location.href = '/FundTransfer/FundTransfer.aspx' + ((lang == '') ? '' : lang);
+                    } else {
+                        window.location.href = '/Index.aspx' + ((lang == '') ? '' : lang);
+                    }
                 }
             });
         }
