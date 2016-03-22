@@ -289,7 +289,6 @@ public class PaymentBasePage : BasePage
         strMethodsUnAvailable = Convert.ToString(sbMethodsUnavailable).TrimEnd('|');
     }
 
-
     protected void GetMainWalletBalance(string walletId)
     {
         string strProductCurrency = string.Empty;
@@ -378,7 +377,6 @@ public class PaymentBasePage : BasePage
 
         return status;
     }
-
 }
 
 public class CommonStatus

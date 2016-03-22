@@ -128,11 +128,11 @@ public partial class Deposit_DaddyPay : BasePage
 
         if (Request.QueryString["value"].ToString() == "1")
         {
-            commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "daddypay", sender.ToString().Contains("app"));
+            commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, "daddypay", sender.ToString().Contains("app"));
         }
         else if (Request.QueryString["value"].ToString() == "2")
         {
-            commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "daddypayqr", sender.ToString().Contains("app"));
+            commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, "daddypayqr", sender.ToString().Contains("app"));
         }
     }
 
