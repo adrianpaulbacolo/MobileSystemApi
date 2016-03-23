@@ -69,8 +69,8 @@
                     <li class="item item-select">
                         <asp:Label ID="lblCardType" runat="server" AssociatedControlID="ddlCardType" />
                         <asp:DropDownList ID="ddlCardType" runat="server">
-                            <asp:ListItem Value="VISA">VISA</asp:ListItem>
-                            <asp:ListItem Value="MASTER">MASTER</asp:ListItem>
+                            <asp:ListItem Value="20751003">VISA</asp:ListItem>
+                            <asp:ListItem Value="20751004">MASTER</asp:ListItem>
                         </asp:DropDownList>
                     </li>
                     <li class="item item-input">
@@ -79,7 +79,7 @@
                     </li>
                     <li class="item item-input">
                         <asp:Label ID="lblCardNo" runat="server" AssociatedControlID="txtCardNo" />
-                        <asp:TextBox ID="txtCardNo" runat="server"/>
+                        <asp:TextBox ID="txtCardNo" runat="server" />
                     </li>
                     <li class="item item-select">
                         <asp:Label ID="lblExpiry" runat="server" AssociatedControlID="ddlExpiryMonth" />
@@ -94,16 +94,13 @@
                     </li>
                     <li class="item item-input">
                         <asp:Label ID="lblSecurityCode" runat="server" AssociatedControlID="txtSecurityCode" />
-                        <asp:TextBox ID="txtSecurityCode" runat="server"/>
-                        <a href="#"  class="tooltip"><%=strCCVHelp%>
-                            <span>
-                                <img style="float: right;" src="/_Static/Images/CVV-back.jpg" />
-                            </span>
-                        </a>
+                        <asp:TextBox ID="txtSecurityCode" runat="server" />
+                        <a href="#" id="ccvHelp"><%=strCCVHelp%></a>
                     </li>
                     <li class="item row">
                         <div class="col">
-                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" /></div>
+                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" OnClientClick="window.document.forms[0].target='_blank';" />
+                        </div>
                     </li>
                     <asp:HiddenField runat="server" ID="_repostcheckcode" />
                 </ul>
@@ -131,7 +128,7 @@
                             break;
                         case '0':
                             alert('<%=strAlertMessage%>');
-                            
+
                             break;
                         default:
                             break;
@@ -140,11 +137,28 @@
 
                 $('#txtCardNo').mask('9999-9999-9999-9999');
                 $('#txtSecurityCode').mask('999');
+
+                $('#ccvHelp').on('click', function () {
+                    $('#ccvModal').popup();
+                    $('#ccvModal').popup('open');
+                })
             });
         </script>
     </div>
 
-    <asp:Literal ID="litForm" runat="server"></asp:Literal>
+    <div id="ccvModal" data-role="popup" data-overlay-theme="b" data-theme="b" data-history="false">
+        <a href="#" data-rel="back" class="close close-enhanced">&times;</a>
+        <br>
+        <h1 class="title">
+            <img src="/_Static/Images/logo-<%=commonVariables.SelectedLanguageShort%>.png" width="220" class="logo img-responsive" alt="logo">
+        </h1>
+        <div class="padding">
+            <div class="download-app padding">
+                <span>
+                    <img src="/_Static/Images/CVV-back.jpg" class="img-responsive" /></span>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

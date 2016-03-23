@@ -134,37 +134,6 @@ public partial class Deposit_AllDebit : PaymentBasePage
         }
     }
 
-    private string GetForm(string invId, string amount)
-    {
-        string merchantId = commonEncryption.decrypting(ConfigurationManager.AppSettings["NextPay_merchantid"], ConfigurationManager.AppSettings.Get("PrivateKey_nextPay"));
-        string callbackUrl = ConfigurationManager.AppSettings["NextPay_callbackurl"];
-        string postUrl = ConfigurationManager.AppSettings["NextPay_posturl"];
-
-        var request = (HttpWebRequest)WebRequest.Create(postUrl);
-        string postData = "merchantID=" + merchantId;
-        postData += ("&inv=" + invId);
-        postData += ("&amt=" + amount);
-        postData += ("&returnURL=" + callbackUrl);
-        // postData += ("&bm=" + bankDropDownList.SelectedValue.ToLower());
-        postData += ("&cID=" + strMemberID);
-        var data = Encoding.ASCII.GetBytes(postData);
-
-        request.Method = "POST";
-        request.ContentType = "application/x-www-form-urlencoded";
-        request.ContentLength = data.Length;
-
-        using (var stream = request.GetRequestStream())
-        {
-            stream.Write(data, 0, data.Length);
-        }
-
-        var response = (HttpWebResponse)request.GetResponse();
-
-        var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-
-        return responseString.Replace("form name", @"form target=""_blank"" name").Replace("setTimeout('delayer()', 5000)", "setTimeout('delayer()', 1000)");
-    }
-
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         if (IsPageRefresh)
@@ -178,9 +147,11 @@ public partial class Deposit_AllDebit : PaymentBasePage
         string strCCV = txtSecurityCode.Text;
         string strIssuingBank = "OTHER";
 
-        string selectedCardType = ddlCardType.SelectedItem.Value;
+        string selectedCardTypeText = ddlCardType.SelectedItem.Text;
+        string selectedCardTypeValue = ddlCardType.SelectedItem.Value;
         string selectedMonth = ddlExpiryMonth.SelectedItem.Value;
         string selectedYear = ddlExpiryYear.SelectedItem.Value;
+
 
         decimal decDepositAmount = commonValidation.isDecimal(strDepositAmount) ? Convert.ToDecimal(strDepositAmount) : 0;
         decimal decMinLimit = Convert.ToDecimal(strMinLimit);
@@ -212,7 +183,7 @@ public partial class Deposit_AllDebit : PaymentBasePage
                 {
                     status = base.GetErrors("/MissingCCV");
                 }
-                else if (selectedCardType == "-1")
+                else if (selectedCardTypeValue == "-1")
                 {
                     status = base.GetErrors("/MissingCardType");
                 }
@@ -238,7 +209,7 @@ public partial class Deposit_AllDebit : PaymentBasePage
                     using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
                     {
                         xeResponse = client.createCreditCardTransaction(Convert.ToInt64(strOperatorId), long.Parse(strMemberID), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.AllDebit), strMerchantId, strCurrencyCode, decDepositAmount, DepositSource.Mobile,
-                                        strCardName, strCardNo, selectedCardType, selectedMonth, selectedYear, strCCV, strIssuingBank);
+                                        strCardName, strCardNo, selectedCardTypeText, selectedMonth, selectedYear, strCCV, strIssuingBank);
 
                         if (xeResponse == null)
                         {
@@ -252,50 +223,10 @@ public partial class Deposit_AllDebit : PaymentBasePage
 
                             if (isTransactionSuccessful)
                             {
-                                string signKey = string.Empty;
-                                string gatewayNo = string.Empty;
-                                string email = "pgwsw88@gmail.com";
-
-                                string signInfo = PopulateRequestParams(strDepositAmount, strCardNo, strCCV, selectedCardType, selectedMonth, selectedYear, status, strTransferId, ref signKey, ref gatewayNo, email);
-
-                                string response = CallVendor(strDepositAmount, strCardNo, strCCV, strIssuingBank, selectedMonth, selectedYear, strTransferId, gatewayNo, email, signInfo);
-
-                                //TODO:
-
-                                string postUrl = ConfigurationManager.AppSettings["AllDebit_callbackURL"];
-
-                                byte[] responseBytes = null;
-
-                                try
-                                {
-                                    NameValueCollection postData = new NameValueCollection();
-                                    //postData["merNo"] = merNo;
-                                    //postData["gatewayNo"] = gatewayNo;
-                                    //postData["tradeNo"] = tradeNo;
-                                    //postData["orderNo"] = orderNo;
-                                    //postData["orderCurrency"] = orderCurrency;
-                                    //postData["orderAmount"] = orderAmount;
-                                    //postData["orderStatus"] = orderStatus;
-                                    //postData["orderInfo"] = orderInfo;
-                                    //postData["signInfo"] = signInfo;
-                                    //postData["remark"] = remark;
-
-                                    using (WebClient wc = new WebClient())
-                                    {
-                                        responseBytes = wc.UploadValues(postUrl, "POST", postData);
-                                    }
-
-                                }
-                                catch (Exception)
-                                {
-                                }
-
-                                intProcessSerialId += 1;
-                                commonAuditTrail.appendLog("system", base.PageName, "InitiateDeposit", string.Empty, string.Empty, "CallExternalServer", string.Empty, "ok", string.Empty, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
-
-
                                 status.AlertCode = "0";
-                                status.AlertMessage = string.Format("{0}\\n{1}: {2}", commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferSuccess", xeErrors), commonCulture.ElementValues.getResourceString("lblTransactionId", xeResources), strTransferId);
+                                status.AlertMessage = string.Format("{0}\\n{1}: {2}", commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferSuccess", xeErrors), strlblTransactionId, strTransferId);
+
+                                CallVendor(strDepositAmount, strCardNo, strCCV, strIssuingBank, selectedMonth, selectedYear, strTransferId, selectedCardTypeValue);
                             }
                             else
                             {
@@ -324,35 +255,22 @@ public partial class Deposit_AllDebit : PaymentBasePage
         }
     }
 
-    private string PopulateRequestParams(string strDepositAmount, string strCardNo, string strCCV, string selectedCardType, string selectedMonth, string selectedYear, CommonStatus status, string strTransferId, ref string signKey, ref string gatewayNo, string email)
+    private void CallVendor(string strDepositAmount, string strCardNo, string strCCV, string strIssuingBank, string selectedMonth, string selectedYear, string strTransferId, string gatewayNo)
     {
-        if (selectedCardType.Equals("VISA", StringComparison.OrdinalIgnoreCase))
-        {
-            signKey = commonEncryption.decrypting(ConfigurationManager.AppSettings["AllDebit_Visa"]);
-            gatewayNo = "20751003";
-        }
-        else if (selectedCardType.Equals("MASTER", StringComparison.OrdinalIgnoreCase))
-        {
-            signKey = commonEncryption.decrypting(ConfigurationManager.AppSettings["AllDebit_Master"]);
-            gatewayNo = "20751004";
-        }
+        string signKey = GetMerchantKey(gatewayNo);
+        string email = "pgwsw88@gmail.com";
 
         strMerchantId = ConfigurationManager.AppSettings["AllDebit_merchantid"];
+
         var builder = new StringBuilder();
         builder.AppendFormat("{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}{11}{12}", strMerchantId, gatewayNo, strTransferId, strCurrencyCode, strDepositAmount, strMemberID, strMemberID, strCardNo, selectedYear, selectedMonth, strCCV, email, signKey);
 
         string signInfo = commonEncryption.GetSHA256Hash(builder.ToString()).ToUpper();
 
-        intProcessSerialId += 1;
-        commonAuditTrail.appendLog("system", base.PageName, "InitiateDeposit ", string.Empty, string.Empty, "PopulateRequestParams", string.Empty, "ok", "SHA256Hash: " + signInfo + "|Builder: " + builder.ToString(), Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
-
-        return signInfo;
-    }
-
-    private string CallVendor(string strDepositAmount, string strCardNo, string strCCV, string strIssuingBank, string selectedMonth, string selectedYear, string strTransferId, string gatewayNo, string email, string signInfo)
-    {
         string postUrl = ConfigurationManager.AppSettings["AllDebit_posturl"];
-        //string callbackUrl = "AllDebit.aspx/CheckDeposit";
+        var requestUrl = HttpContext.Current.Request.Url;
+
+        string callbackUrl = requestUrl.Scheme + "://" + requestUrl.Host + "/_Secure/AjaxHandlers/AllDebitCallback.ashx";
 
         string phone = "NA";
         string country = "NA";
@@ -362,48 +280,57 @@ public partial class Deposit_AllDebit : PaymentBasePage
         string zip = "NA";
         string csid = string.Empty;
 
-        var request = (HttpWebRequest)WebRequest.Create(postUrl);
-        string postData = "merNo=" + strMerchantId;
-        postData += ("&gatewayNo=" + gatewayNo);
-        postData += ("&orderNo=" + strTransferId);
-        postData += ("&orderCurrency=" + strCurrencyCode);
-        postData += ("&orderAmount=" + strDepositAmount);
-        //postData += ("&returnURL=" + callbackUrl);
-        postData += ("&cardNo=" + strCardNo);
-        postData += ("&cardExpireMonth=" + selectedMonth);
-        postData += ("&cardExpireYear=" + selectedYear);
-        postData += ("&cardSecurityCode=" + strCCV);
-        postData += ("&issuingBank=" + strIssuingBank);
-        postData += ("&firstName=" + strMemberID);
-        postData += ("&lastName=" + strMemberID);
-        postData += ("&email=" + email);
-        postData += ("&phone=" + phone);
-        postData += ("&country=" + country);
-        postData += ("&state=" + state);
-        postData += ("&city=" + city);
-        postData += ("&address=" + address);
-        postData += ("&zip=" + zip);
-        postData += ("&signInfo=" + signInfo);
-        postData += ("&csid=" + csid);
+        var sb = new StringBuilder();
+        sb.Append(@"<form id=""theForm"" name=""theForm"" target=""_self"" method=""post"" action='" + postUrl + "'>");
+        sb.Append(@"<input type=""hidden"" id=""merNo"" name=""merNo"" value='" + strMerchantId + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""gatewayNo"" name=""gatewayNo"" value='" + gatewayNo + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""orderNo"" name=""orderNo"" value='" + strTransferId + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""orderCurrency"" name=""orderCurrency"" value='" + strCurrencyCode + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""orderAmount"" name=""orderAmount"" value='" + strDepositAmount + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""returnUrl"" name=""returnUrl"" value='" + callbackUrl + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""cardNo"" name=""cardNo"" value='" + strCardNo + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""cardExpireMonth"" name=""cardExpireMonth"" value='" + selectedMonth + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""cardExpireYear"" name=""cardExpireYear"" value='" + selectedYear + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""cardSecurityCode"" name=""cardSecurityCode"" value='" + strCCV + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""issuingBank"" name=""issuingBank"" value='" + strIssuingBank + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""firstName"" name=""firstName"" value='" + strMemberID + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""lastName"" name=""lastName"" value='" + strMemberID + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""email"" name=""email"" value='" + email + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""phone"" name=""phone"" value='" + phone + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""country"" name=""country"" value='" + country + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""state"" name=""state"" value='" + state + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""city"" name=""city"" value='" + city + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""address"" name=""address"" value='" + address + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""zip"" name=""zip"" value='" + zip + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""signInfo"" name=""signInfo"" value='" + signInfo + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""csid"" name=""csid"" value='" + csid + "'/>");
+        sb.Append(@"</form>");
 
-        var data = Encoding.ASCII.GetBytes(postData);
+        Response.Write(sb.ToString());
 
-        request.Method = "POST";
-        request.ContentType = "application/x-www-form-urlencoded";
-        request.ContentLength = data.Length;
+        var sb1 = new StringBuilder();
+        sb1.Append(@"<script type='text/javascript'>");
+        sb1.Append(@"var ctlForm = document.forms.namedItem('theForm');");
+        sb1.Append(@"ctlForm.submit();");
+        sb1.Append(@"</script>");
 
-        using (var stream = request.GetRequestStream())
+        Response.Write(sb1.ToString());
+    }
+
+    private static string GetMerchantKey(string gatewayNo)
+    {
+        string appSettings = string.Empty;
+
+        if (gatewayNo.Equals("20751003"))
         {
-            stream.Write(data, 0, data.Length);
+            appSettings = "AllDebit_Visa";
+        }
+        else if (gatewayNo.Equals("20751004"))
+        {
+            appSettings = "AllDebit_Master";
         }
 
-        var response = (HttpWebResponse)request.GetResponse();
-
-        var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-
-        intProcessSerialId += 1;
-        commonAuditTrail.appendLog("system", base.PageName, "InitiateDeposit ", string.Empty, string.Empty, "CallVendor", string.Empty, "ok", "|Response: " + responseString.ToString(), Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
-
-        return responseString.Replace("form name", @"form target=""_blank"" name").Replace("setTimeout('delayer()', 5000)", "setTimeout('delayer()', 1000)");
+        return commonEncryption.decrypting(ConfigurationManager.AppSettings[appSettings]);
     }
+
 }
