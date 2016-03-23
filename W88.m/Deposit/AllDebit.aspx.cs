@@ -159,100 +159,97 @@ public partial class Deposit_AllDebit : PaymentBasePage
 
         CommonStatus status = new CommonStatus();
 
-        if (!status.IsProcessAbort)
+        try
         {
-            try
+            if (decDepositAmount == 0)
             {
-                if (decDepositAmount == 0)
-                {
-                    status = base.GetErrors("/MissingDepositAmount");
-                }
-                else if (decDepositAmount <= 0)
-                {
-                    status = base.GetErrors("/InvalidDepositAmount");
-                }
-                else if (string.IsNullOrEmpty(strCardName))
-                {
-                    status = base.GetErrors("/MissingCardName");
-                }
-                else if (string.IsNullOrEmpty(strCardNo))
-                {
-                    status = base.GetErrors("/MissingCardNo");
-                }
-                else if (string.IsNullOrEmpty(strCCV))
-                {
-                    status = base.GetErrors("/MissingCCV");
-                }
-                else if (selectedCardTypeValue == "-1")
-                {
-                    status = base.GetErrors("/MissingCardType");
-                }
-                else if (selectedMonth == "-1" || selectedYear == "-1")
-                {
-                    status = base.GetErrors("/MissingCardExpiry");
-                }
-                else if (decDepositAmount < decMinLimit)
-                {
-                    status = base.GetErrors("/AmountMinLimit");
-                }
-                else if (decDepositAmount > decMaxLimit)
-                {
-                    status = base.GetErrors("/AmountMaxLimit");
-                }
-                else if ((strTotalAllowed != strUnlimited) && (decDepositAmount > Convert.ToDecimal(strTotalAllowed)) && Convert.ToDecimal(strTotalAllowed) > 0)
-                {
-                    status = base.GetErrors("/TotalAllowedExceeded");
-                }
+                status = base.GetErrors("/MissingDepositAmount");
+            }
+            else if (decDepositAmount <= 0)
+            {
+                status = base.GetErrors("/InvalidDepositAmount");
+            }
+            else if (string.IsNullOrEmpty(strCardName))
+            {
+                status = base.GetErrors("/MissingCardName");
+            }
+            else if (string.IsNullOrEmpty(strCardNo))
+            {
+                status = base.GetErrors("/MissingCardNo");
+            }
+            else if (string.IsNullOrEmpty(strCCV))
+            {
+                status = base.GetErrors("/MissingCCV");
+            }
+            else if (selectedCardTypeValue == "-1")
+            {
+                status = base.GetErrors("/MissingCardType");
+            }
+            else if (selectedMonth == "-1" || selectedYear == "-1")
+            {
+                status = base.GetErrors("/MissingCardExpiry");
+            }
+            else if (decDepositAmount < decMinLimit)
+            {
+                status = base.GetErrors("/AmountMinLimit");
+            }
+            else if (decDepositAmount > decMaxLimit)
+            {
+                status = base.GetErrors("/AmountMaxLimit");
+            }
+            else if ((strTotalAllowed != strUnlimited) && (decDepositAmount > Convert.ToDecimal(strTotalAllowed)) && Convert.ToDecimal(strTotalAllowed) > 0)
+            {
+                status = base.GetErrors("/TotalAllowedExceeded");
+            }
 
-                if (!status.IsProcessAbort)
+            if (!status.IsProcessAbort)
+            {
+                using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
                 {
-                    using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
+                    xeResponse = client.createCreditCardTransaction(Convert.ToInt64(strOperatorId), long.Parse(strMemberID), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.AllDebit), strMerchantId, strCurrencyCode, decDepositAmount, DepositSource.Mobile,
+                                    strCardName, strCardNo, selectedCardTypeText, selectedMonth, selectedYear, strCCV, strIssuingBank);
+
+                    if (xeResponse == null)
                     {
-                        xeResponse = client.createCreditCardTransaction(Convert.ToInt64(strOperatorId), long.Parse(strMemberID), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.AllDebit), strMerchantId, strCurrencyCode, decDepositAmount, DepositSource.Mobile,
-                                        strCardName, strCardNo, selectedCardTypeText, selectedMonth, selectedYear, strCCV, strIssuingBank);
+                        status = base.GetErrors("/TransferFail");
+                    }
+                    else
+                    {
+                        bool isTransactionSuccessful = Convert.ToBoolean(commonCulture.ElementValues.getResourceString("result", xeResponse));
+                        string strTransferId = commonCulture.ElementValues.getResourceString("invId", xeResponse);
 
-                        if (xeResponse == null)
+
+                        if (isTransactionSuccessful)
                         {
-                            status = base.GetErrors("/TransferFail");
+                            status.AlertCode = "0";
+                            status.AlertMessage = string.Format("{0}\\n{1}: {2}", commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferSuccess", xeErrors), strlblTransactionId, strTransferId);
+
+                            CallVendor(strDepositAmount, strCardNo, strCCV, strIssuingBank, selectedMonth, selectedYear, strTransferId, selectedCardTypeValue);
                         }
                         else
                         {
-                            bool isTransactionSuccessful = Convert.ToBoolean(commonCulture.ElementValues.getResourceString("result", xeResponse));
-                            string strTransferId = commonCulture.ElementValues.getResourceString("invId", xeResponse);
-
-
-                            if (isTransactionSuccessful)
-                            {
-                                status.AlertCode = "0";
-                                status.AlertMessage = string.Format("{0}\\n{1}: {2}", commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferSuccess", xeErrors), strlblTransactionId, strTransferId);
-
-                                CallVendor(strDepositAmount, strCardNo, strCCV, strIssuingBank, selectedMonth, selectedYear, strTransferId, selectedCardTypeValue);
-                            }
-                            else
-                            {
-                                status = GetErrors("/TransferFail", strTransferId, "/error");
-                            }
+                            status = GetErrors("/TransferFail", strTransferId, "/error");
                         }
                     }
                 }
-
-            }
-            catch (Exception ex)
-            {
-                status = base.GetErrors("/Exception");
-
-                strErrorDetail = ex.Message;
             }
 
-            strAlertCode = status.AlertCode;
-            strAlertMessage = status.AlertMessage;
-
-            string strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | CurrencyCode: {2} | DepositAmount: {3} | BankName: {4} |  MinLimit: {5} | MaxLimit: {6} | TotalAllowed: {7} | DailyLimit: {8} | Response: {9}",
-               Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, strIssuingBank, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
-
-            intProcessSerialId += 1;
-            commonAuditTrail.appendLog("system", base.PageName, "InitiateDeposit", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
         }
+        catch (Exception ex)
+        {
+            status = base.GetErrors("/Exception");
+
+            strErrorDetail = ex.Message;
+        }
+
+        strAlertCode = status.AlertCode;
+        strAlertMessage = status.AlertMessage;
+
+        string strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | CurrencyCode: {2} | DepositAmount: {3} | BankName: {4} |  MinLimit: {5} | MaxLimit: {6} | TotalAllowed: {7} | DailyLimit: {8} | Response: {9}",
+           Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, strIssuingBank, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
+
+        intProcessSerialId += 1;
+        commonAuditTrail.appendLog("system", base.PageName, "InitiateDeposit", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
     }
 
     private void CallVendor(string strDepositAmount, string strCardNo, string strCCV, string strIssuingBank, string selectedMonth, string selectedYear, string strTransferId, string gatewayNo)
