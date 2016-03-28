@@ -36,7 +36,7 @@ public partial class Withdrawal_Default : PaymentBasePage
         CancelUnexpectedRePost();
 
         HtmlGenericControl withdrawalTabs = (HtmlGenericControl)FindControl("withdrawalTabs");
-        commonPaymentMethodFunc.getWithdrawalMethodList(strMethodsUnAvailable, withdrawalTabs, "default", sender.ToString().Contains("app") || Request.QueryString["source"] == "app");
+        commonPaymentMethodFunc.getWithdrawalMethodList(strMethodsUnAvailable, withdrawalTabs, base.PageName, sender.ToString().Contains("app") || Request.QueryString["source"] == "app");
 
         if (!Page.IsPostBack)
         {
@@ -48,7 +48,7 @@ public partial class Withdrawal_Default : PaymentBasePage
             lblAddress.Text = commonCulture.ElementValues.getResourceString("lblAddress", xeResources);
             lblAccountName.Text = commonCulture.ElementValues.getResourceString("lblAccountName", xeResources);
             lblAccountNumber.Text = commonCulture.ElementValues.getResourceString("lblAccountNumber", xeResources);
-            lblMyKad.Text = commonCulture.ElementValues.getResourceString("lblMyKad", xeResources);
+            //lblMyKad.Text = commonCulture.ElementValues.getResourceString("lblMyKad", xeResources);
             btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
 
             drpBank.Items.Insert(0, new ListItem(commonCulture.ElementValues.getResourceString("drpBank", xeResources), "-1"));
@@ -81,7 +81,7 @@ public partial class Withdrawal_Default : PaymentBasePage
         string strBankBranch = txtBankBranch.Text;
         string strAccountName = txtAccountName.Text;
         string strAccountNumber = txtAccountNumber.Text;
-        string strMyKad = txtMyKad.Text;
+        string strMyKad = string.Empty; //txtMyKad.Text;
 
         decimal decWithdrawalAmount = commonValidation.isDecimal(strWithdrawalAmount) ? Convert.ToDecimal(strWithdrawalAmount) : 0;
         decimal decMinLimit = Convert.ToDecimal(strMinLimit);
@@ -92,22 +92,22 @@ public partial class Withdrawal_Default : PaymentBasePage
         {
             try
             {
-                if (string.Compare(strCurrencyCode, "myr", true) == 0)
-                {
-                    if (string.IsNullOrEmpty(strMyKad))
-                    {
-                        strAlertCode = "-1";
-                        strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/MissingMyKad", xeErrors);
-                        isProcessAbort = true;
-                    }
-                    else if (commonValidation.isInjection(strMyKad))
-                    {
-                        strAlertCode = "-1";
-                        strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/InvalidMyKad", xeErrors);
-                        isProcessAbort = true;
-                    }
-                }
-                else if (decWithdrawalAmount == 0)
+                //if (string.Compare(strCurrencyCode, "myr", true) == 0)
+                //{
+                //    if (string.IsNullOrEmpty(strMyKad))
+                //    {
+                //        strAlertCode = "-1";
+                //        strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/MissingMyKad", xeErrors);
+                //        isProcessAbort = true;
+                //    }
+                //    else if (commonValidation.isInjection(strMyKad))
+                //    {
+                //        strAlertCode = "-1";
+                //        strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/InvalidMyKad", xeErrors);
+                //        isProcessAbort = true;
+                //    }
+                //} else
+                if (decWithdrawalAmount == 0)
                 {
                     strAlertCode = "-1";
                     strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/MissingWithdrawalAmount", xeErrors);

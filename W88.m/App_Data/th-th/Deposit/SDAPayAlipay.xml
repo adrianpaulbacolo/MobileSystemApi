@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+	<lblTitle><![CDATA[SDAPay]]></lblTitle>
+	<lblDepositAmount><![CDATA[ยอดเงินการฝาก]]></lblDepositAmount>
+	<btnSubmit><![CDATA[การฝาก]]></btnSubmit>
+	<lblTransactionId><![CDATA[หมายเลขธุรกรรม]]></lblTransactionId>
+	<lblDailyLimit><![CDATA[การจำกัดยอดเงินต่อวัน]]></lblDailyLimit>
+	<lblTotalAllowed><![CDATA[ยอดเงินที่ทำรายการได้]]></lblTotalAllowed>
+	<lblMinMaxLimit><![CDATA[การจำกัดยอดขั้นต่ำ /สูงสุด]]></lblMinMaxLimit>
+	<drpBank><![CDATA[ธนาคาร กรุณาเลือก]]></drpBank>
+	<lblMode><![CDATA[วิธีการ]]></lblMode>
+	<txtMode><![CDATA[ออนไลน์]]></txtMode>
+	<txtProcessing><![CDATA[Your transaction is being processed]]></txtProcessing>
+	<unlimited><![CDATA[ไม่จำกัด]]></unlimited>
+	<lblIndicatorMessage><![CDATA[SDAPay : เราให้บริการการโอนเงินผ่านระบบอิเตอร์เน็ทแบงกิ้ง,ตู้เอทีเอ็ม,เครื่องรับฝากเงินสดอัตโนมัติ,ฝากผ่านเคาร์เตอร์ธนาคารหรือการฝากเงินผ่านโทรศัพท์มือถือ สำหรับการโอนเงินระหว่างธนาคารเดียวกัน – หากคุณกรอกข้อมูลที่ถูกต้องและครบถ้วนในระหว่างการทำรายการ ยอดเงินของคุณที่ทำการฝากจะได้รับการปรับยอดทันที ! การโอนเงินต่างธนาคาร – ถ้าคุณใช้ การโอนเงินโดยระบบอินเตอร์เน็ทแบงกิ้ง ใส่ข้อมูลที่ถูกต้องและครบถ้วนในระหว่างการทำรายการ ยอดเงินของคุณที่ทำการฝากจะได้รับการปรับยอดทันที ! เช่นกัน]]></lblIndicatorMessage>
+
+	<lblStatus><![CDATA[สถานะ]]></lblStatus>
+	<litStatusPending><![CDATA[อยู่ในระหว่างดำเนินการ]]></litStatusPending>
+	<lblAmount><![CDATA[ยอดเงินการฝาก]]></lblAmount>
+	<lblAmtNote><![CDATA[ข้อควรระวัง: กรุณาทำรายการฝากให้ตรงกับยอดที่แสดงให้คุณเห็นทางด้านซ้าย รวมถึงการกรอก”จุดทศนิยม”ให้ถูกต้องด้วย  สำหรับค่าธรรมเนียมในการทำรายการ และยอดเงินที่คุณต้องใส่”จุดทศนิยม” เพิ่มเติมนั่น ทางเราจะทำการคืนให้พร้อมกับการเครดิตยอดเงินเข้าสู่กระเป๋าหลักของคุณ ]]></lblAmtNote>
+	<lblBankName><![CDATA[ชื่อธนาคาร]]></lblBankName>
+	<lblBankHolderName><![CDATA[ชื่อบัญชี]]></lblBankHolderName>
+	<lblBankAccountNo><![CDATA[หมายเลขบัญชี]]></lblBankAccountNo>
+</Deposit>

@@ -34,13 +34,14 @@
 	<customerservice><![CDATA[Customer Service]]></customerservice>
 	<rewards><![CDATA[Klub Reward]]></rewards>
 	<sdpay><![CDATA[Union Pay]]></sdpay>
+	<sdapay><![CDATA[Alipay Transfer]]></sdapay>
 	<help2pay><![CDATA[Quick Pay]]></help2pay>
 	<daddypay><![CDATA[Quick Online]]></daddypay>
 	<withrawal><![CDATA[Penarikan]]></withrawal>-->
 	<fundTransfer><![CDATA[Fund Transfer]]></fundTransfer>
 	<poker><![CDATA[Poker]]></poker>
 	<texasmahjong><![CDATA[Texas Mahjong]]></texasmahjong>
-	<fundFooter><![CDATA[*Club W, Bravado, Apollo, Crescendo, Divino, Massimo & Virtual]]></fundFooter>
+	<fundFooter><![CDATA[*Club W, Bravado, Apollo, Crescendo, Divino, Massimo, Gallardo, Virtual, Lotto]]></fundFooter>
 	<cancel><![CDATA[CANCEL]]></cancel>
 	<changePassword><![CDATA[Ganti Kata Sandi]]></changePassword>
 	<profile><![CDATA[PROFIL]]></profile>
@@ -61,17 +62,10 @@
 	<clubMassimo><![CDATA[CLUB MASSIMO]]></clubMassimo>
 	<clubMassimoMessage><![CDATA[Game popular live kasino dengan video berkualitas tinggi!]]></clubMassimoMessage>
 	<playNow><![CDATA[MAIN SEKARANG]]></playNow>
-	<androidDownload><![CDATA[Android Download]]></androidDownload>
-	<iosDownload><![CDATA[iOS Download]]></iosDownload>
+	<androidDownload><![CDATA[Android <br/> Download]]></androidDownload>
+	<iosDownload><![CDATA[iOS <br/> Download]]></iosDownload>
 
 	<download><![CDATA[DOWNLOAD]]></download>
-
-	<virtual><![CDATA[Virtual]]></virtual>
-	<basketball><![CDATA[Bola Basket]]></basketball>
-	<dogRacing><![CDATA[Balap Anjing]]></dogRacing>
-	<football><![CDATA[Sepak Bola]]></football>
-	<horseRacing><![CDATA[Balap Kuda]]></horseRacing>
-	<tennis><![CDATA[Tenis]]></tennis>
 
 	<kenoMessage><![CDATA[Non-Stop FUN setiap 3-5 menit. Play Real, pasang taruhan & menangkan]]></kenoMessage>
 
@@ -89,4 +83,5 @@
 	<accountId><![CDATA[Neteller Rekening]]></accountId>
 	<secureId><![CDATA[Neteller Password]]></secureId>
 
+	<copy><![CDATA[Copy]]></copy>
 </menu>

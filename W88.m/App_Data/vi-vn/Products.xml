@@ -3,12 +3,12 @@
 	<Products>
 		<ASports>
 			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[a-Thể thao]]></Label>
+			<Label><![CDATA[a-Thể Thao]]></Label>
 			<Description><![CDATA[Cược Châu Á phổ biến Cược Thể Thao tại đây!]]></Description>
 		</ASports>
 		<ESports>
 			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[e-Thể thao]]></Label>
+			<Label><![CDATA[e-Thể Thao]]></Label>
 			<Description><![CDATA[Cược Châu Âu và Châu Á phổ biến Cược Thể Thao tại đây!]]></Description>
 		</ESports>
 		<Poker>
@@ -23,19 +23,45 @@
 		</texasmahjong>
 		<ISports>
 			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[i-Thể thao]]></Label>
+			<Label><![CDATA[i-Thể Thao]]></Label>
 			<Description><![CDATA[Sportsbook]]></Description>
 		</ISports>
 		<USports>
 			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[u-Thể thao]]></Label>
+			<Label><![CDATA[u-Thể Thao]]></Label>
 			<Description><![CDATA[Sportsbook]]></Description>
 		</USports>
 		<VSports>
 			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[Virtual]]></Label>
-			<Description><![CDATA[v-Sports]]></Description>
+			<Label><![CDATA[v-Thể Thao]]></Label>
+			<Description><![CDATA[Với tỷ số trực tiếp và nhiều trận đấu, thống kế như các giải đấu thật sự]]></Description>
+			<Notice><![CDATA[*** Chưa hỗ trợ trên trình duyệt IE và FF ***]]></Notice>
 		</VSports>
+		<VSports-basketball>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Bóng Rổ]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-basketball>
+		<VSports-tennis>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Quần Vợt]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-tennis>
+		<VSports-horseracing>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Đua Ngựa]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-horseracing>
+		<VSports-football>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Bóng Đá]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-football>
+		<VSports-dogracing>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Đua Chó]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-dogracing>
 		<Lottery>
 			<Url><![CDATA[]]></Url>
 			<Label><![CDATA[Xổ Số]]></Label>
@@ -101,6 +127,11 @@
 			<Label><![CDATA[Club Palazzo]]></Label>
 			<Description><![CDATA[]]></Description>
 		</ClubPalazzoCasino>
+		<ClubGallardo>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Gallardo]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubGallardo>
 	</Products>
 	<Wallets>
 		<main><![CDATA[Tài Khoản Chính]]></main>
@@ -108,10 +139,11 @@
 		<esports><![CDATA[E-Thể Thao]]></esports>
 		<isports><![CDATA[I-Thể Thao]]></isports>
 		<lottery><![CDATA[Xổ Số]]></lottery>
-		<casino><![CDATA[Club W, Bravado, Apollo, Crescendo, XỔ SỐ, Divino & Massimo]]></casino>
-		<playtech><![CDATA[Palazzo]]></playtech>
+		<casino><![CDATA[Club W, Bravado, Apollo, Divino, Massimo, Gallardo, Virtual, Lotto]]></casino>
+		<liveCasino><![CDATA[Club W]]></liveCasino>
+		<playtech><![CDATA[Club Palazzo]]></playtech>
 		<binary><![CDATA[Tài Chính]]></binary>
-		<poker><![CDATA[Poker (USD)]]></poker>
+		<poker><![CDATA[Poker]]></poker>
 		<sbtech><![CDATA[E-Thể Thao]]></sbtech>
 		<netent><![CDATA[Nuovo]]></netent>
 		<pmahjong><![CDATA[Texas Mạt Chược]]></pmahjong>

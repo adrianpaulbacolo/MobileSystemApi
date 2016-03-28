@@ -34,8 +34,34 @@
 		<VSports>
 			<Url><![CDATA[]]></Url>
 			<Label><![CDATA[กีฬาอนิเมชั่น]]></Label>
-			<Description><![CDATA[v-Sports]]></Description>
+			<Description><![CDATA[เดิมพันทุก 4.5 นาที มากกว่า 2,400 การแข่งขันต่อวัน ตลอด 24 ชม]]></Description>
+			<Notice><![CDATA[*** ไม่สามารถใช้งานกับเบราเซอร์ IE และ FF ***]]></Notice>
 		</VSports>
+		<VSports-basketball>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[บาสเก็ตบอล]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-basketball>
+		<VSports-tennis>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[เทนนิส]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-tennis>
+		<VSports-horseracing>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[ม้าแข่ง]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-horseracing>
+		<VSports-football>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[ฟุตบอล]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-football>
+		<VSports-dogracing>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[แข่งขันสุนัข]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-dogracing>
 		<Lottery>
 			<Url><![CDATA[]]></Url>
 			<Label><![CDATA[ล็อตเตอรี่]]></Label>
@@ -101,6 +127,11 @@
 			<Label><![CDATA[พาลาซโซ]]></Label>
 			<Description><![CDATA[]]></Description>
 		</ClubPalazzoCasino>
+		<ClubGallardo>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[คลับเกลลาโด้]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubGallardo>
 	</Products>
 	<Wallets>
 		<main><![CDATA[กระเป๋าหลัก]]></main>
@@ -108,10 +139,11 @@
 		<esports><![CDATA[E-กีฬา]]></esports>
 		<isports><![CDATA[I-กีฬา]]></isports>
 		<lottery><![CDATA[ล็อตเตอรี่]]></lottery>
-		<casino><![CDATA[คลับ W, บราวาโด้, อพอลโล, เครสเชนโด้, ล็อตเตอรี่, ดิวิโน่ & แมสซิโม่]]></casino>
+		<casino><![CDATA[คลับ W, บราวาโด้, อพอลโล, ดิวิโน่, แมสซิโม่, เกลลาโด้, กีฬาอนิเมชั่น, ล็อตเตอรี่]]></casino>
+		<liveCasino><![CDATA[คลับ W]]></liveCasino>
 		<playtech><![CDATA[พาลาซโซ]]></playtech>
 		<binary><![CDATA[ไบนารี่]]></binary>
-		<poker><![CDATA[โป๊กเกอร์ (USD)]]></poker>
+		<poker><![CDATA[โป๊กเกอร์]]></poker>
 		<sbtech><![CDATA[E-กีฬา]]></sbtech>
 		<netent><![CDATA[นูโอโว้]]></netent>
 		<pmahjong><![CDATA[เท็กซัส มาจง]]></pmahjong>

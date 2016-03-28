@@ -9,6 +9,7 @@
     <title><%=commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML) + commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/PreLoad.js"></script>
+    <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 
 </head>
 <body>
@@ -175,6 +176,7 @@
                             case "1":
                             case "resetPassword":
                                 window.location.replace('/Deposit/Default_app.aspx');
+                                Cookies().setCookie('is_app', '1', 365);
                                 break;
                             case "22":
                                 var message = $(xml).find('Message').text();

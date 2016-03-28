@@ -31,6 +31,7 @@
 	<customerservice><![CDATA[Customer Service]]></customerservice>
 	<rewards><![CDATA[Rewards]]></rewards>
 	<sdpay><![CDATA[Union Pay]]></sdpay>
+	<sdapay><![CDATA[Alipay Transfer]]></sdapay>
 	<help2pay><![CDATA[Quick Pay]]></help2pay>
 	<daddypay><![CDATA[Quick Online]]></daddypay>
 	<daddypayqr><![CDATA[QR Code Payment]]></daddypayqr>
@@ -69,18 +70,11 @@
 	<nuovo><![CDATA[NUOVO]]></nuovo>
 	<poker><![CDATA[POKER]]></poker>
 	<texasmahjong><![CDATA[Texas Mahjong]]></texasmahjong>
-	<fundFooter><![CDATA[*Club W, Bravado, Apollo, Crescendo, Divino & Massimo, Virtual , Lotto]]></fundFooter>
-	<androidDownload><![CDATA[Android Download]]></androidDownload>
-	<iosDownload><![CDATA[iOS Download]]></iosDownload>
+	<fundFooter><![CDATA[*Club W, Bravado, Apollo, Crescendo, Divino, Massimo, Gallardo, Virtual, Lotto]]></fundFooter>
+	<androidDownload><![CDATA[Android <br/> Download]]></androidDownload>
+	<iosDownload><![CDATA[iOS <br/> Download]]></iosDownload>
 	<download><![CDATA[DOWNLOAD]]></download>
 	<playNow><![CDATA[PLAY NOW]]></playNow>
-
-	<virtual><![CDATA[Virtual]]></virtual>
-	<basketball><![CDATA[Basketball]]></basketball>
-	<dogRacing><![CDATA[Dog Racing]]></dogRacing>
-	<football><![CDATA[Football]]></football>
-	<horseRacing><![CDATA[Horse Racing]]></horseRacing>
-	<tennis><![CDATA[Tennis]]></tennis>
 
 	<depositDaddyPay><![CDATA[DEPOSIT - QUICK ONLINE]]></depositDaddyPay>
 
@@ -95,4 +89,5 @@
 	<accountId><![CDATA[NETELLER Account ID]]></accountId>
 	<secureId><![CDATA[NETELLER Secure ID]]></secureId>
 
+	<copy><![CDATA[Copy]]></copy>
 </menu>

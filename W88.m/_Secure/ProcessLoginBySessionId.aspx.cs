@@ -66,6 +66,7 @@ public partial class _Secure_ProcessLoginBySessionId : System.Web.UI.Page
                                 HttpContext.Current.Session.Add("MemberSessionId", Convert.ToString(dsSignin.Tables[0].Rows[0]["memberSessionId"]));
                                 HttpContext.Current.Session.Add("MemberId", Convert.ToString(dsSignin.Tables[0].Rows[0]["memberId"]));
                                 HttpContext.Current.Session.Add("MemberCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["memberCode"]));
+                                HttpContext.Current.Session.Add("MemberName", Convert.ToString(dsSignin.Tables[0].Rows[0]["lastName"]) + Convert.ToString(dsSignin.Tables[0].Rows[0]["firstName"]));
                                 HttpContext.Current.Session.Add("CountryCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["countryCode"]));
                                 HttpContext.Current.Session.Add("CurrencyCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["currencyCode"]));
                                 HttpContext.Current.Session.Add("LanguageCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["languageCode"]));

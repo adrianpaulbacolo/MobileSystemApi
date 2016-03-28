@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+	<lblTitle><![CDATA[SDAPay]]></lblTitle>
+	<lblDepositAmount><![CDATA[Deposit Amount]]></lblDepositAmount>
+	<btnSubmit><![CDATA[SUBMIT]]></btnSubmit>
+	<lblTransactionId><![CDATA[Transaction ID]]></lblTransactionId>
+	<lblDailyLimit><![CDATA[Daily Limit]]></lblDailyLimit>
+	<lblTotalAllowed><![CDATA[Total Allowed]]></lblTotalAllowed>
+	<lblMinMaxLimit><![CDATA[Min/Max Limit]]></lblMinMaxLimit>
+	<drpBank><![CDATA[Select Bank]]></drpBank>
+	<lblMode><![CDATA[Mode]]></lblMode>
+	<txtMode><![CDATA[Online]]></txtMode>
+	<txtProcessing><![CDATA[Your transaction is being processed, please check your balance for updates.]]></txtProcessing>
+	<unlimited><![CDATA[Unlimited]]></unlimited>
+	<lblIndicatorMessage><![CDATA[SDAPay: We accept bank transfers via internet banking, ATM, cash deposit machine, over the counter, or mobile/SMS banking. Intra-bank Transfer - Fill in the correct information and receive payments online "in real-time!". Inter-bank transfer - If you are using Super Online Banking System, fill in the correct information and receive payments online "in real-time!" too.]]></lblIndicatorMessage>
+
+	<lblStatus><![CDATA[Status]]></lblStatus>
+	<litStatusPending><![CDATA[Pending]]></litStatusPending>
+	<lblAmount><![CDATA[Amount]]></lblAmount>
+	<lblAmtNote><![CDATA[Gentle Reminder: Please deposit the same amount as shown on the left, including "decimal" point of amount. Bank charges and "decimal" point of amount shall be reimbursed to you.]]></lblAmtNote>
+	<lblBankName><![CDATA[Bank Name]]></lblBankName>
+	<lblBankHolderName><![CDATA[Account Name]]></lblBankHolderName>
+	<lblBankAccountNo><![CDATA[Account No]]></lblBankAccountNo>
+</Deposit>

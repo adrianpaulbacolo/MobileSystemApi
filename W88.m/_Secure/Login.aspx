@@ -7,6 +7,7 @@
     <title><%=commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML) + commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/PreLoad.js"></script>
+    <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
 <body>
     <!--#include virtual="~/_static/splash.shtml" -->
@@ -128,6 +129,8 @@
                                         window.location.replace('<%=strRedirect%>');
                                         break;
                                 }
+
+                                Cookies().setCookie('is_app', '0', 0);
                                 break;
                             case "22":
                                 var message = $(xml).find('Message').text();
