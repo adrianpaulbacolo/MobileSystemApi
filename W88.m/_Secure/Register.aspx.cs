@@ -27,8 +27,6 @@ public partial class _Secure_Register : System.Web.UI.Page
         commonCulture.appData.getLocalResource(out xeResources);
         customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
 
-       
-
         if (!Page.IsPostBack)
         {
             if (string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId")))
