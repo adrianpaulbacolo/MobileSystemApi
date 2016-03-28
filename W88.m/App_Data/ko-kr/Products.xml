@@ -4,12 +4,12 @@
 		<ASports>
 			<Url><![CDATA[]]></Url>
 			<Label><![CDATA[a-스포츠]]></Label>
-			<Description><![CDATA[Sportsbook]]></Description>
+			<Description><![CDATA[유명한 아시안뷰 스포츠 베팅이 이제 이곳에서 가능합니다!]]></Description>
 		</ASports>
 		<ESports>
 			<Url><![CDATA[]]></Url>
 			<Label><![CDATA[e-스포츠]]></Label>
-			<Description><![CDATA[Sportsbook]]></Description>
+			<Description><![CDATA[잘알려진 유러피안 & 아시안뷰 스포츠 베팅이 이제 이곳에서 가능합니다!]]></Description>
 		</ESports>
 		<Poker>
 			<Url><![CDATA[]]></Url>
@@ -29,8 +29,34 @@
 		<VSports>
 			<Url><![CDATA[]]></Url>
 			<Label><![CDATA[가상 스포츠]]></Label>
-			<Description><![CDATA[v-Sports]]></Description>
+			<Description><![CDATA[라이브 스코어와 함께 즐기는 빠른 베팅, 실제 경기의 통계로 진행되는 진짜 같은 경기!]]></Description>
+			<Notice><![CDATA[*** 인터넷 익스플로러 (IE) 와 파이어 폭스 브라우저는 호환되지 않습니다. ***]]></Notice>
 		</VSports>
+		<VSports-basketball>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Basketball]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-basketball>
+		<VSports-tennis>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Tennis]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-tennis>
+		<VSports-horseracing>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Horse Racing]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-horseracing>
+		<VSports-football>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Football]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-football>
+		<VSports-dogracing>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Dog Racing]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-dogracing>
 		<USports>
 			<Url><![CDATA[]]></Url>
 			<Label><![CDATA[u-스포츠]]></Label>
@@ -101,6 +127,11 @@
 			<Label><![CDATA[팔라쪼]]></Label>
 			<Description><![CDATA[]]></Description>
 		</ClubPalazzoCasino>
+		<ClubGallardo>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[가야르도]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubGallardo>
 	</Products>
 	<Wallets>
 		<main><![CDATA[메인]]></main>
@@ -108,10 +139,11 @@
 		<esports><![CDATA[E-스포츠]]></esports>
 		<isports><![CDATA[I-스포츠]]></isports>
 		<lottery><![CDATA[복권]]></lottery>
-		<casino><![CDATA[클럽 W, 브라바도, 아폴로, 크레센도, 복권, 디비노 & 마시모]]></casino>
-		<playtech><![CDATA[팔라쪼]]></playtech>
+		<casino><![CDATA[클럽 W, 브라바도, 아폴로, 디비노, 마시모, 갈라도, 가상 스포츠,  복권]]></casino>
+		<liveCasino><![CDATA[클럽 W]]></liveCasino>
+		<playtech><![CDATA[클럽 팔라쪼]]></playtech>
 		<binary><![CDATA[바이너리]]></binary>
-		<poker><![CDATA[포커 (USD)]]></poker>
+		<poker><![CDATA[포커]]></poker>
 		<sbtech><![CDATA[E-스포츠]]></sbtech>
 		<netent><![CDATA[누오보]]></netent>
 		<pmahjong><![CDATA[텍사스 마종]]></pmahjong>

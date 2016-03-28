@@ -173,7 +173,7 @@ public class commonVSports
         {
             customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
             string strUrl = opSettings.Values.Get("VSportsUrl-Basketball");
-            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName).Replace("{LANG}", commonESports.getSportsLanguageId(commonVariables.SelectedLanguage)).Replace("{TOKEN}", commonVariables.GetSessionVariable("MemberSessionId"));
+            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName).Replace("{LANG}", commonVSports.getLanguageCode(commonVariables.SelectedLanguage)).Replace("{TOKEN}", commonVariables.GetSessionVariable("MemberSessionId"));
         }
     }
     public static string getSportsbookUrlTennis
@@ -200,7 +200,7 @@ public class commonVSports
         {
             customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
             string strUrl = opSettings.Values.Get("VSportsUrl-Football");
-            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName).Replace("{LANG}", commonESports.getSportsLanguageId(commonVariables.SelectedLanguage)).Replace("{TOKEN}", commonVariables.GetSessionVariable("MemberSessionId"));
+            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName).Replace("{LANG}", commonVSports.getLanguageCode(commonVariables.SelectedLanguage)).Replace("{TOKEN}", commonVariables.GetSessionVariable("MemberSessionId"));
         }
     }
     public static string getSportsbookUrlDogRacing
@@ -233,6 +233,17 @@ public class commonVSports
             strLanguage = commonCulture.ElementValues.getResourceXPathName(commonVariables.OperatorCode + "/ESports/Language", SportsLanguageId, xeLanguage);
         }
         return string.IsNullOrEmpty(strLanguage) ? "en-us" : strLanguage;
+    }
+    public static string getLanguageCode(string selectedLanguage)
+    {
+        string strLanguage = string.Empty;
+
+        if (!string.IsNullOrEmpty(selectedLanguage))
+        {
+            System.Xml.Linq.XElement xeLanguage = commonCulture.appData.getRootResource("SportsLanguage");
+            strLanguage = commonCulture.ElementValues.getResourceXPathString(commonVariables.OperatorCode + "/VSports/Language/" + selectedLanguage, xeLanguage);
+        }
+        return string.IsNullOrEmpty(strLanguage) ? "en" : strLanguage;
     }
     public static System.Collections.Specialized.NameValueCollection Values { get { return System.Configuration.ConfigurationManager.GetSection("ProductGroupSettings/" + commonVariables.OperatorCode + "/oneworks") as System.Collections.Specialized.NameValueCollection; } }
 }
@@ -387,7 +398,8 @@ public class commonClubMassimo
 
     public static string getDownloadUrl
     {
-        get { 
+        get
+        {
             string _downloadUrl = ConfigurationManager.AppSettings["ClubMassimoDL"];
             return string.IsNullOrWhiteSpace(_downloadUrl) ? "" : _downloadUrl;
         }
@@ -406,4 +418,26 @@ public class commonClubWAPK
         }
     }
 
+}
+
+public class commonClubGallardo
+{
+    public static string getFunUrl
+    {
+        get
+        {
+            customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
+            string strUrl = opSettings.Values.Get("ClubGallardoFunUrl");
+            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName);
+        }
+    }
+    public static string getRealUrl
+    {
+        get
+        {
+            customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
+            string strUrl = opSettings.Values.Get("ClubGallardoRealUrl");
+            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName);
+        }
+    }
 }

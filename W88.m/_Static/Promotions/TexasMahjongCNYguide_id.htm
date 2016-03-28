@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Texas Mahjong Guide on how to join the Grand Finals.</title>
+<style type="text/css">
+body {
+	font-family: Tahoma, Arial, Helvetica, sans-serif; font-size:11px; color:#808080;
+	background:#1f1f1f;
+}
+.rowHeader	{background:#404040;font-weight:bold;}
+.row1		{background:#333333;}
+.row2		{background:#333333;}
+a.button {
+	display:inline-block;	
+	background: #333;
+	width: 104px;
+	height:22px;
+	line-height:22px;
+	color:#fff;
+	font-weight: bold;
+	text-decoration: none;
+	margin-left: 1px;
+}
+
+a.button:hover, a.button.selected {
+	background: #404040;
+}
+
+body.white {
+	background:#eee;color:#404040;
+}
+body.white .rowHeader	{background:#ddd;}
+body.white .row1		{background:#fff;}
+body.white .row2		{background:#fff;}
+body.white a.button {
+	background: #fff;
+	color:#404040;
+}
+
+body.white  a.button:hover, body.white  a.button.selected {
+	background: #ddd;
+}
+.paragraph{
+    font-size: 15px;
+}
+.paragraph ul li, ol{
+    font-size: 14px;
+    line-height:21px; 
+}
+
+</style>
+<script src="/_static/_script/combined.js"></script>
+<script>
+	$(function () {
+		if ($.cookie("color")) {
+			$("body").addClass($.cookie("color"));
+		}
+	});
+
+	$(function () {
+		$("table").hide();
+		$("table:first").show();
+		
+		if(getParameterByName("slot")){
+			changeTable(getParameterByName("slot"));
+		}
+	});
+	function changeTable(tableName) {
+		$("a").removeClass("selected");
+		$("a#btn_" + tableName).addClass("selected");
+		$("table").hide();
+		$("table#" + tableName).show();
+	}
+	function getParameterByName(name) {
+	name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+	var regexS = "[\\?&]" + name + "=([^&#]*)";
+	var regex = new RegExp(regexS);
+	var results = regex.exec(window.location.search);
+	if (results == null)
+		return "";
+	else
+		return decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+	
+	
+</script>
+</head>
+<body>
+<div class="paragraph">
+  <div class="promotion_title dinpro">
+   <strong>TEXAS MAHJONG GUIDE ON HOW TO JOIN THE GRAND FINALS</strong>
+  </div><br />
+   <div class="promotion_content">
+      Part 1 (GPI Grand Final - Shootout)
+   </div>
+    <p>After qualifying for the GPI Grand Finals through the following methods:
+        <ul style="list-style-type:disc">
+          <li>Being amongst the Top 12 players in our weekly GPI Finals tournament.</li>
+          <li>Managed to achieve amongst the Top 4 players in our limited Re-Entry tournament</li>
+        </ul>
+    </p>
+    <p>You’ll be granted a special GPI CNY Grand Final Shootout Ticket that looks something like this.</p>
+        <img src="/_static/promotions/img/W88-Promotions-TMGuide-1.jpg?20160210" />
+    <p>After receiving the ticket, the player will be required to check which group are they are allocated to via the ticket name and description. If the ticket name is too long the player can always click in the gap between the ticket name and the expiration rate so that they’ll be able to identify which group, they belong to.</p>
+    <p>After knowing which group you belong to, head on over to the Sit & Go and select the table you are allocated to. Once again if you’re unable to see the full title of the table, click in-between the “Game” and “Buy in” tab and drag it until you are fully able to see the room name.</p>
+        <img src="/_static/promotions/img/W88-Promotions-TMGuide-2.jpg" /><br />
+ 
+    <div class="promotion_content">
+      Part 2 (GPI Grand Final Heads Up Bounty)
+   </div>
+    <p>Each Winner of each Group from the GPI Grand Final Shootout will have to wait in the game lobby after their game for the Moderators to do the seeding for the winners to determine each player’s first opponent in the Heads Up Bounty.</p>
+    <p>Once the seeding has been completed players will be given tickets to enter their respective room.<br />
+       The room that each player is allocated will have their Nickname as well as their Country on the room lobby and their opponent’s information as well.<br />
+       Heads Up Bounty is a Single Elimination format whereby after each player is eliminated they are out of the game however winners will get to carryon and face the victor from another table until there is 1 player left standing, therefore at the end of each match, the player is recommended to stay in the lobby and await each announcement at the end of each match to find who their next matchup they’ll be up against.
+    </p>
+     <img src="/_static/promotions/img/W88-Promotions-TMGuide-3.jpg" />
+    <p>Again, if you’re unable to see the full title of the table, click in-between the “Game” and “Buy in” tab and drag it until you are fully able to see the room name.</p>
+ </div>
+
+
+</body>
+</html>

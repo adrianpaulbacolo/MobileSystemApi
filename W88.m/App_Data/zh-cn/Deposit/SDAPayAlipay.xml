@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+	<lblTitle><![CDATA[银联]]></lblTitle>
+	<lblDepositAmount><![CDATA[存款金额]]></lblDepositAmount>
+	<btnSubmit><![CDATA[确认提交存款]]></btnSubmit>
+	<lblTransactionId><![CDATA[交易号码]]></lblTransactionId>
+	<lblDailyLimit><![CDATA[每日限额]]></lblDailyLimit>
+	<lblTotalAllowed><![CDATA[允许的总额]]></lblTotalAllowed>
+	<lblMinMaxLimit><![CDATA[最低/最高限额]]></lblMinMaxLimit>
+	<drpBank><![CDATA[银行选择]]></drpBank>
+	<lblMode><![CDATA[方式]]></lblMode>
+	<txtMode><![CDATA[在线]]></txtMode>
+	<txtProcessing><![CDATA[交易提交当中]]></txtProcessing>
+	<unlimited><![CDATA[无限]]></unlimited>
+	<lblIndicatorMessage><![CDATA[请您使用支付宝中的“转到银行卡”功能进行存款，更多详情请点击<a href="http://www.w88info.com/cn/?p=9173" target="_blank" style="text-decoration:underline;font-size: 22px;">这里</a>]]></lblIndicatorMessage>
+	
+	<lblStatus><![CDATA[状态]]></lblStatus>
+	<litStatusPending><![CDATA[处理中]]></litStatusPending>
+	<lblAmount><![CDATA[存款金额]]></lblAmount>
+	<lblAmtNote><![CDATA[<a href="http://www.w88info.com/cn/?p=9173" target="_blank" style="text-decoration:underline;font-size: 18px;color:red;">支付宝绑定姓名必须和您在本网站注册姓名一致，否则不予办理！</a>]]></lblAmtNote>
+	<lblBankName><![CDATA[银行名]]></lblBankName>
+	<lblBankHolderName><![CDATA[账户名]]></lblBankHolderName>
+	<lblBankAccountNo><![CDATA[银行账号]]></lblBankAccountNo>
+</Deposit>

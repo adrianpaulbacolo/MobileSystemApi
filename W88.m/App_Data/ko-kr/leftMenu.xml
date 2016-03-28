@@ -32,6 +32,7 @@
 	<customerservice><![CDATA[Customer Service]]></customerservice>
 	<rewards><![CDATA[리워드클럽]]></rewards>
 	<sdpay><![CDATA[Union Pay]]></sdpay>
+	<sdapay><![CDATA[Alipay Transfer]]></sdapay>
 	<help2pay><![CDATA[퀵 지불]]></help2pay>
 	<daddypay><![CDATA[퀵 온라인]]></daddypay>
 	<withrawal><![CDATA[출금]]></withrawal>
@@ -54,10 +55,10 @@
 	<changePassword><![CDATA[비밀번호 변경]]></changePassword>
 
 
-	<androidDownload><![CDATA[안드로이드 다운로드]]></androidDownload>
-	<iosDownload><![CDATA[IOS 다운로드]]></iosDownload>
+	<androidDownload><![CDATA[안드로이드 <br/> 다운로드]]></androidDownload>
+	<iosDownload><![CDATA[iOS <br/> 다운로드]]></iosDownload>
 
-	<fundFooter><![CDATA[클럽 W, 브라바도, 아폴로, 크레센도, 디비노 & 마시모, 가상 스포츠, 복권]]></fundFooter>
+	<fundFooter><![CDATA[클럽 W, 브라바도, 아폴로, 크레센도, 디비노, 마시모, 갈라도, 가상 스포츠,  복권]]></fundFooter>
 
 	<clubwpremier><![CDATA[클럽 W 프리미어]]></clubwpremier>
 	<clubwpremierMessage><![CDATA[세계적인 클래스의 기술력과 그 무엇과도 비교할 수 없는 최고의 라이브 카지노 게임.]]></clubwpremierMessage>
@@ -73,14 +74,7 @@
 
 	<download><![CDATA[DOWNLOAD]]></download>
 
-	<virtual><![CDATA[Virtual]]></virtual>
-	<basketball><![CDATA[Basketball]]></basketball>
-	<dogRacing><![CDATA[Dog Racing]]></dogRacing>
-	<football><![CDATA[Football]]></football>
-	<horseRacing><![CDATA[Horse Racing]]></horseRacing>
-	<tennis><![CDATA[Tennis]]></tennis>
-
-	<kenoMessage><![CDATA[Every minutes filled with fun and non-stop games. Get the excitement!]]></kenoMessage>
+	<kenoMessage><![CDATA[끊이지 않는 재미와 흥분을 드립니다.매 3~5분 간격으로 이루어지는 실시간 베팅과 추첨!]]></kenoMessage>
 
 	<depositDaddyPay><![CDATA[입금 - 퀵 온라인]]></depositDaddyPay>
 
@@ -97,5 +91,5 @@
 	<accountId><![CDATA[Neteller 계정]]></accountId>
 	<secureId><![CDATA[Neteller 암호]]></secureId>
 
-
+	<copy><![CDATA[Copy]]></copy>
 </menu>

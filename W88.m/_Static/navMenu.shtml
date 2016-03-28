@@ -83,14 +83,20 @@
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("sports", commonVariables.LeftMenuXML)%></h2>
                 <li>
                     <a class="card" data-rel="sports" rel="asports" href="/_Secure/Login.aspx?redirect=<%=System.Web.HttpContext.Current.Request.Url.ToString()%>" data-rel="dialog" data-transition="slidedown" target="_blank">
-                        <img src="/_Static/Images/bnr-asports.jpg" class="img-responsive">
+                        <img src="/_Static/Images/sports/bnr-asports.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ASports/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
                 <li>
                     <a class="card" data-rel="sports" rel="esports" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown" target="_blank">
-                        <img src="/_Static/Images/bnr-esports.jpg" class="img-responsive">
+                        <img src="/_Static/Images/sports/bnr-esports.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></div>
+                    </a>
+                </li>
+                <li>
+                    <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-rel="dialog" data-transition="slidedown">
+                        <img src="_Static/Images/sports/bnr-vSports.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
                 <!-- Toggle to hide elements -->
@@ -107,7 +113,7 @@
                     </a>
                 </li>-->
                 <!-- Hide elements -->
-                <li class="menu-sports-sub hide">
+                <!--<li class="menu-sports-sub hide">
                     <a class="card" data-rel="sports" rel="vsportsBasketball" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
                         <img src="/_Static/Images/bnr-vSPORTS-basketball.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-basketball/Label", commonVariables.ProductsXML)%></div>
@@ -136,7 +142,7 @@
                         <img src="/_Static/Images/bnr-vSPORTS-dogracing.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-dogracing/Label", commonVariables.ProductsXML)%></div>
                     </a>
-                </li>
+                </li>-->
             </ul>
         </li>
 
@@ -186,12 +192,38 @@
             <ul class="sub-menu" data-rel="texasmahjong">
                 <!--<a class="close" data-rel="close">&times;</a>-->
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%></h2>
+                <%try{%>
+                <%if(Session["responseCode"].ToString()=="1"){%>
                 <li>
-                    <a class="card" rel="texasmahjong" href="https://tm.gp2play.com/TexasMahjong-captive-runtime_w88.apk" data-rel="dialog" data-transition="slidedown">
-                        <img src="/_Static/Images/Download/bnr-texasmahjong.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/texasmahjong/Label", commonVariables.ProductsXML)%></div>
+                    <a class="card" rel="texasmahjong" href='/_static/TexasMahjong/download.aspx' data-ajax="false">
+                        <img src="/_Static/Images/Download/TexasMahjong-iOS.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("iosDownload", commonVariables.LeftMenuXML)%></div>
                     </a>
                 </li>
+                <%}%>
+                <%if(Session["responseCode"].ToString()=="2"){%>
+                <li>
+                    <a class="card" rel="texasmahjong" href='<%= Session["tmandroidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">
+                        <img src="/_Static/Images/Download/TexasMahjong-Android.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("androidDownload", commonVariables.LeftMenuXML)%></div>
+                    </a>
+                </li>
+                <%}%>
+                <%if(Session["responseCode"].ToString()=="3"){%>
+                <li>
+                    <a class="card" rel="texasmahjong" href='<%= Session["tmandroidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">
+                        <img src="/_Static/Images/Download/TexasMahjong-Android.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("androidDownload", commonVariables.LeftMenuXML)%></div>
+                    </a>
+                </li>
+                <li>
+                    <a class="card" rel="texasmahjong" href='/_static/TexasMahjong/download.aspx' data-ajax="false">
+                        <img src="/_Static/Images/Download/TexasMahjong-iOS.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("iosDownload", commonVariables.LeftMenuXML)%></div>
+                    </a>
+                </li>
+                <%}%>
+                <%}catch(Exception){}%>
             </ul>
         </li>
 
@@ -235,17 +267,23 @@
                     </a>
                 </li>
                 <li>
+                    <a class="card" rel="clubgallardo" href="/ClubGallardo" data-ajax="false">
+                        <img src="_Static/Images/bnr-clubgallardo.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubGallardo/Label", commonVariables.ProductsXML)%></div>
+                    </a>
+                </li>
+                <li>
                     <a class="card" rel="clubdivino" href="/ClubDivino" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubdivino.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubDivino/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
-                <li>
+                <!--<li>
                     <a class="card" rel="clubcrescendo" href="/ClubCrescendo" data-ajax="false">
                         <img src="_Static/Images/bnr-clubcrescendo.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubCrescendo/Label", commonVariables.ProductsXML)%></div>
                     </a>
-                </li>
+                </li>-->
             </ul>
         </li>
 
@@ -281,7 +319,7 @@
                 <li>
                     <a class="card" data-rel="poker" rel="PokerIOS" href='<%= Session["iosLink"].ToString()%>' data-transition="slidedown">
                         <img src="/_Static/Images/W88-Mobile-Poker-iOS.jpg" class="img-responsive">
-                        <div class="title">iOS Download</div>
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("iosDownload", commonVariables.LeftMenuXML)%></div>
                     </a>
                 </li>
                 <%}%>

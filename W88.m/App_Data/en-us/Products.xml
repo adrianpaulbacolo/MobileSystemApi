@@ -7,17 +7,18 @@
 		<ASports>
 			<Url><![CDATA[]]></Url>
 			<Label><![CDATA[a-Sports]]></Label>
-			<Description><![CDATA[Sportsbook]]></Description>
+			<Description><![CDATA[Well known Asian view Sports Betting available here!]]></Description>
 		</ASports>
 		<ESports>
 			<Url><![CDATA[]]></Url>
 			<Label><![CDATA[e-Sports]]></Label>
-			<Description><![CDATA[Sportsbook]]></Description>
+			<Description><![CDATA[Well known European & Asian view Sports Betting available here]]></Description>
 		</ESports>
 		<VSports>
 			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[Virtual]]></Label>
-			<Description><![CDATA[v-Sports]]></Description>
+			<Label><![CDATA[v-Sports]]></Label>
+			<Description><![CDATA[High Betting Frequency with Live Scores, Statistics as in Real Soccer Leagues]]></Description>
+			<Notice><![CDATA[*** Not supported on IE and FF browsers ***]]></Notice>
 		</VSports>
 		<Poker>
 			<Url><![CDATA[]]></Url>
@@ -129,6 +130,11 @@
 			<Label><![CDATA[Club Palazzo]]></Label>
 			<Description><![CDATA[]]></Description>
 		</ClubPalazzoCasino>
+		<ClubGallardo>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Gallardo]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubGallardo>
 		<Deposit>
 			<Url><![CDATA[/Deposit/Default.aspx]]></Url>
 		</Deposit>
@@ -140,15 +146,16 @@
 		</FundTransfer>
 	</Products>
 	<Wallets>
-		<main><![CDATA[Main]]></main>
+		<main><![CDATA[Main Wallet]]></main>
 		<asports><![CDATA[A-Sports]]></asports>
 		<esports><![CDATA[E-Sports]]></esports>
 		<isports><![CDATA[I-Sports]]></isports>
 		<lottery><![CDATA[Lottery]]></lottery>
-		<casino><![CDATA[Club W, Bravado, Apollo, Crescendo, Lotto, Divino, Massimo & Virtual]]></casino>
-		<playtech><![CDATA[Palazzo]]></playtech>
+		<casino><![CDATA[Club W, Bravado, Apollo, Divino, Massimo, Gallardo, Virtual, Lotto]]></casino>
+		<liveCasino><![CDATA[Club W]]></liveCasino>
+		<playtech><![CDATA[Club Palazzo]]></playtech>
 		<binary><![CDATA[Binary]]></binary>
-		<poker><![CDATA[Poker (USD)]]></poker>
+		<poker><![CDATA[Poker]]></poker>
 		<sbtech><![CDATA[E-Sports]]></sbtech>
 		<netent><![CDATA[Nuovo]]></netent>
 		<pmahjong><![CDATA[Texas Mahjong]]></pmahjong>

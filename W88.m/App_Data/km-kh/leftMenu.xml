@@ -34,13 +34,14 @@
 	<customerservice><![CDATA[Customer Service]]></customerservice>
 	<rewards><![CDATA[ក្លឹបរង្វាន់]]></rewards>
 	<sdpay><![CDATA[Union Pay]]></sdpay>
+	<sdapay><![CDATA[Alipay Transfer]]></sdapay>
 	<help2pay><![CDATA[ប្រាក់បៀវត្សរ៍រហ័ស]]></help2pay>
 	<daddypay><![CDATA[រហ័សអនឡាញ]]></daddypay>
 	<withrawal><![CDATA[ការដកប្រាក់ចេញ]]></withrawal>
 	<fundTransfer><![CDATA[ផេ្ទរ]]></fundTransfer>
 	<poker><![CDATA[ពុកគ័រ]]></poker>
 	<texasmahjong><![CDATA[Texas Mahjong]]></texasmahjong>
-	<fundFooter><![CDATA[*Club W, Bravado, Apollo, Crescendo, Divino & Massimo, Virtual , Lotto]]></fundFooter>
+	<fundFooter><![CDATA[*Club W, Bravado, Apollo, Crescendo, Divino, Massimo, Gallardo, Virtual, Lotto]]></fundFooter>
 	<cancel><![CDATA[បោះបង់]]></cancel>
 	<changePassword><![CDATA[CHANGE PASSWORD]]></changePassword>
 	<profile><![CDATA[PROFILE]]></profile>
@@ -61,19 +62,12 @@
 	<clubMassimo><![CDATA[CLUB MASSIMO]]></clubMassimo>
 	<clubMassimoMessage><![CDATA[កាស៊ីណូផ្សាយផ្ទាល់ដ៏មានប្រជាប្រិយភាព ជាមួយវីដេអូគុណភាពខ្ពស់! ]]></clubMassimoMessage>
 	<playNow><![CDATA[លេងឥឡូវនេះ]]></playNow>
-	<androidDownload><![CDATA[ ពុកគ័រ ]]></androidDownload>
-	<iosDownload><![CDATA[ ពុកគ័រ ]]></iosDownload>
-
-	<virtual><![CDATA[Virtual]]></virtual>
-	<basketball><![CDATA[Basketball]]></basketball>
-	<dogRacing><![CDATA[Dog Racing]]></dogRacing>
-	<football><![CDATA[Football]]></football>
-	<horseRacing><![CDATA[Horse Racing]]></horseRacing>
-	<tennis><![CDATA[Tennis]]></tennis>
+	<androidDownload><![CDATA[ដោនឡូត <br/> Android]]></androidDownload>
+	<iosDownload><![CDATA[ដោនឡូត <br/> iOS]]></iosDownload>
 
 	<download><![CDATA[DOWNLOAD]]></download>
 
-	<kenoMessage><![CDATA[Every minutes filled with fun and non-stop games. Get the excitement!]]></kenoMessage>
+	<kenoMessage><![CDATA[ករាយ និង រំភើបឥតឈប់ឈរ រៀងរាល់ 3 ទៅ 5 នាទីម្តង លេងទឹកប្រាក់ពិត ជ្រើសរើស ការភ្នាល់ និងឈ្នះទឹកប្រាក់]]></kenoMessage>
 
 	<depositDaddyPay><![CDATA[ប្រាក់កក់ - រហ័សអនឡាញ]]></depositDaddyPay>
 
@@ -90,5 +84,5 @@
 	<accountId><![CDATA[Neteller គណនី]]></accountId>
 	<secureId><![CDATA[Neteller ពាក្យសម្ងាត់]]></secureId>
 
-
+	<copy><![CDATA[Copy]]></copy>
 </menu>

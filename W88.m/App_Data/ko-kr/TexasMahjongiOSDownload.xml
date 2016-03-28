@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+    <message>
+        <![CDATA[
+            <h4 class="title">iOS 텍사스 마종 플레이하는 5가지 방법 </h4>
+            <ol>
+                <li>‘다운로드’ 버튼을 클릭하여 설치 파일 다운로드하기/li>
+                <li>텍사스 마종 설치 파일 저장 후 실행하기</li>
+                <li>설정 -> 일반 -> 프로필 & 디바이스 관리</li>
+				<li>“XingLong Country KangXing Environmental Protection Co.,Ltd.” => Trust 클릭</li>
+				<li>텍사스 마종 설치가 종료되었습니다. iOS 디바이스로 텍사스 마종 이용이 가능합니다</li>
+            </ol>
+        ]]>
+    </message>
+    <downloadnow><![CDATA[지금 다운로드]]></downloadnow>
+</default>

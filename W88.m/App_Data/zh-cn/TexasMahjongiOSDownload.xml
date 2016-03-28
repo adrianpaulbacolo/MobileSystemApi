@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+    <message>
+        <![CDATA[
+            <h4 class="title">轻松5步即可使用IOS苹果手机畅玩德州麻将</h4>
+              <ol>
+                <li>点击下方的下载按钮</li>
+                <li>下载成功后在手机中保存此文件并进行安装</li>
+                <li>进入手机中的设置=>通用=>设备管理</li>
+				<li>点击“XingLong Country KangXing Environmental Protection Co.,Ltd.”信任此应用</li>
+				<li>已设置成功，您即可开始德州麻将游戏</li>
+            </ol>
+        ]]>
+    </message>
+    <downloadnow><![CDATA[立即下载]]></downloadnow>
+</default>

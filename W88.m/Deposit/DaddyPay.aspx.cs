@@ -293,50 +293,59 @@ public partial class Deposit_DaddyPay : BasePage
                         }
                     }
 
-                    DataRow dr = dt.Rows[0];
-
-                    string config = Md5Hash(commonEncryption.decrypting("03WUpD2ff5AojnGcH/VL7tzEekc0XJp4X8x7F2IWVPQLECQgWSGhNMLgMioGWCI2"));
-
-                    var builder = new StringBuilder();
-                    builder.AppendFormat("{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}{11}{12}", config, Convert.ToString(dr["merchantId"]), bankDropDownList.SelectedValue.ToString(), Convert.ToDouble(amount_txt.Text).ToString("#.00"), xElement.Element("invId").Value.ToString(),
-                                         strMemberId, bankDropDownList.SelectedValue.ToString(), daddyPayDomain.depositMode, 0, CurrentUrl, string.Empty, (strMemberId + strMemberCode), 1);
-
-                    string key = Md5Hash(builder.ToString());
-
-
-                    daddyPayDomain.companyId = Convert.ToString(dr["merchantId"]);
-                    daddyPayDomain.bankId = bankDropDownList.SelectedValue.ToString();
-                    daddyPayDomain.amount = Convert.ToDouble(amount_txt.Text).ToString("#.00");
-                    daddyPayDomain.companyOrderNum = xElement.Element("invId").Value.ToString();
-                    daddyPayDomain.key = key;
-                    daddyPayDomain.companyUser = strMemberId;
-                    daddyPayDomain.estimatedPaymentBank = bankDropDownList.SelectedValue.ToString();
-                    daddyPayDomain.groupId = "0";
-                    daddyPayDomain.webUrl = CurrentUrl;
-                    daddyPayDomain.memo = string.Empty;
-                    daddyPayDomain.note = strMemberId + strMemberCode;
-                    daddyPayDomain.noteModel = "1";
-
-                    byte[] responseBytes = UploadValues(daddyPayDomain);
-
-                    string responseStr = Encoding.UTF8.GetString(responseBytes);
-
-                    var s = new System.Web.Script.Serialization.JavaScriptSerializer();
-                    List<myObject> obj = s.Deserialize<List<myObject>>("[" + responseStr + "]");
-
-                    var status = obj[0].status;
-                    var break_url = obj[0].break_url;
-
-
-                    if (status == "1")
+                    if (xElement != null)
                     {
-                        //Response.Redirect(break_url.ToString());
-                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "popup", "window.open('" + break_url.ToString() + "','_blank')", true);
-                    }
-                    else
-                    {
-                        //Response.Redirect(break_url.ToString());
-                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "popup", "window.open('" + break_url.ToString() + "','_blank')", true);
+                        bool isDepositSuccessful = Convert.ToBoolean(commonCulture.ElementValues.getResourceString("result", xElement));
+
+                        if (isDepositSuccessful)
+                        {
+                            DataRow dr = dt.Rows[0];
+
+                            string config = Md5Hash(commonEncryption.decrypting("03WUpD2ff5AojnGcH/VL7tzEekc0XJp4X8x7F2IWVPQLECQgWSGhNMLgMioGWCI2"));
+
+                            var builder = new StringBuilder();
+                            builder.AppendFormat("{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}{11}{12}", config, Convert.ToString(dr["merchantId"]), bankDropDownList.SelectedValue.ToString(), Convert.ToDouble(amount_txt.Text).ToString("#.00"), xElement.Element("invId").Value.ToString(),
+                                                 strMemberId, bankDropDownList.SelectedValue.ToString(), daddyPayDomain.depositMode, 0, CurrentUrl, string.Empty, (strMemberId + strMemberCode), 1);
+
+                            string key = Md5Hash(builder.ToString());
+
+
+                            daddyPayDomain.companyId = Convert.ToString(dr["merchantId"]);
+                            daddyPayDomain.bankId = bankDropDownList.SelectedValue.ToString();
+                            daddyPayDomain.amount = Convert.ToDouble(amount_txt.Text).ToString("#.00");
+                            daddyPayDomain.companyOrderNum = xElement.Element("invId").Value.ToString();
+                            daddyPayDomain.key = key;
+                            daddyPayDomain.companyUser = strMemberId;
+                            daddyPayDomain.estimatedPaymentBank = bankDropDownList.SelectedValue.ToString();
+                            daddyPayDomain.groupId = "0";
+                            daddyPayDomain.webUrl = CurrentUrl;
+                            daddyPayDomain.memo = string.Empty;
+                            daddyPayDomain.note = strMemberId + strMemberCode;
+                            daddyPayDomain.noteModel = "1";
+                            daddyPayDomain.terminal = "2";
+
+                            byte[] responseBytes = UploadValues(daddyPayDomain);
+
+                            string responseStr = Encoding.UTF8.GetString(responseBytes);
+
+                            var s = new System.Web.Script.Serialization.JavaScriptSerializer();
+                            List<myObject> obj = s.Deserialize<List<myObject>>("[" + responseStr + "]");
+
+                            var status = obj[0].status;
+                            var break_url = obj[0].break_url;
+
+
+                            if (status == "1")
+                            {
+                                //Response.Redirect(break_url.ToString());
+                                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "popup", "window.open('" + break_url.ToString() + "','_blank')", true);
+                            }
+                            else
+                            {
+                                //Response.Redirect(break_url.ToString());
+                                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "popup", "window.open('" + break_url.ToString() + "','_blank')", true);
+                            }
+                        }
                     }
                 }
             }
@@ -376,6 +385,7 @@ public partial class Deposit_DaddyPay : BasePage
             postData["memo"] = daddyPay.memo;
             postData["note"] = daddyPay.note;
             postData["note_model"] = daddyPay.noteModel;
+            postData["terminal"] = daddyPay.terminal;
 
             using (WebClient wc = new WebClient())
             {
@@ -481,6 +491,7 @@ public class DaddyPayDomain
     public string memo { get; set; }
     public string note { get; set; }
     public string noteModel { get; set; }
+    public string terminal { get; set; }
 
     public DaddyPayDomain()
     {
@@ -497,6 +508,7 @@ public class DaddyPayDomain
         this.memo = string.Empty;
         this.note = string.Empty;
         this.noteModel = string.Empty;
+        this.terminal = string.Empty;
     }
 }
 
