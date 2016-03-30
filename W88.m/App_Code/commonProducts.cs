@@ -302,8 +302,11 @@ public class commonClubBravado
         {
             customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
             string strUrl = opSettings.Values.Get("ClubBravadoRealUrl");
-            //return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName);
-            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{ORIGIN}", commonIp.DomainName);
+
+            var token = commonCookie.CookieS;
+            var paramString = "&s=" + token;
+
+            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName) + paramString;  
         }
     }
 
@@ -323,8 +326,12 @@ public class commonClubBravado
         {
             customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
             string strUrl = opSettings.Values.Get("ClubBravadoRealUrl_MR");
-            //return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName);
-            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{ORIGIN}", commonIp.DomainName);
+
+            var token = commonCookie.CookieS;  
+            var paramString = "&s=" + token;
+
+            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName)+ paramString;  
+
         }
     }
 
