@@ -292,7 +292,8 @@ public class commonClubBravado
         {
             customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
             string strUrl = opSettings.Values.Get("ClubBravadoFunUrl");
-            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName);
+            //return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName);
+            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{ORIGIN}", commonIp.DomainName);
         }
     }
     public static string getRealUrl
@@ -301,7 +302,8 @@ public class commonClubBravado
         {
             customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
             string strUrl = opSettings.Values.Get("ClubBravadoRealUrl");
-            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName);
+            //return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName);
+            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{ORIGIN}", commonIp.DomainName);
         }
     }
 
@@ -311,7 +313,8 @@ public class commonClubBravado
         {
             customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
             string strUrl = opSettings.Values.Get("ClubBravadoFunUrl_MR");
-            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName);
+            //return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName);
+            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{ORIGIN}", commonIp.DomainName);
         }
     }
     public static string getRealUrl_mrslot
@@ -320,7 +323,8 @@ public class commonClubBravado
         {
             customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
             string strUrl = opSettings.Values.Get("ClubBravadoRealUrl_MR");
-            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName);
+            //return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName);
+            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{ORIGIN}", commonIp.DomainName);
         }
     }
 
