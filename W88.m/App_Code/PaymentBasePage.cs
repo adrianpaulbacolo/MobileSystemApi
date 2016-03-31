@@ -223,7 +223,7 @@ public class PaymentBasePage : BasePage
 
         foreach (commonVariables.DepositMethod EnumMethod in Enum.GetValues(typeof(commonVariables.DepositMethod)))
         {
-            if (dtPaymentMethodLimits.Rows.Count > 0 && dtPaymentMethodLimits.Select("[methodId] = " + Convert.ToInt32(EnumMethod)).Count() < 1)
+            if (dtPaymentMethodLimits.Select("[methodId] = " + Convert.ToInt32(EnumMethod)).Count() < 1)
             {
                 sbMethodsUnavailable.AppendFormat("{0}|", Convert.ToInt32(EnumMethod));
             }
@@ -233,7 +233,7 @@ public class PaymentBasePage : BasePage
         {
             strMethodId = PaymentMethodId;
 
-            if (dtPaymentMethodLimits.Rows.Count > 0 && dtPaymentMethodLimits.Select("[methodId] = " + strMethodId).Count() > 0)
+            if (dtPaymentMethodLimits.Select("[methodId] = " + strMethodId).Count() > 0)
             {
                 drPaymentMethodLimit = dtPaymentMethodLimits.Select("[methodId] = " + strMethodId)[0];
 
@@ -268,7 +268,7 @@ public class PaymentBasePage : BasePage
 
         foreach (commonVariables.WithdrawalMethod EnumMethod in Enum.GetValues(typeof(commonVariables.WithdrawalMethod)))
         {
-            if (dtPaymentMethodLimits.Rows.Count > 0 && dtPaymentMethodLimits.Select("[methodId] = " + Convert.ToInt32(EnumMethod)).Count() < 1)
+            if (dtPaymentMethodLimits.Select("[methodId] = " + Convert.ToInt32(EnumMethod)).Count() < 1)
             {
                 sbMethodsUnavailable.AppendFormat("{0}|", Convert.ToInt32(EnumMethod));
             }
@@ -278,7 +278,7 @@ public class PaymentBasePage : BasePage
         {
             strMethodId = PaymentMethodId;
 
-            if (dtPaymentMethodLimits.Rows.Count > 0 && dtPaymentMethodLimits.Select("[methodId] = " + strMethodId).Count() > 0)
+            if (dtPaymentMethodLimits.Select("[methodId] = " + strMethodId).Count() > 0)
             {
                 drPaymentMethodLimit = dtPaymentMethodLimits.Select("[methodId] = " + strMethodId)[0];
 
