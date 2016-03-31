@@ -32,7 +32,7 @@ public partial class Deposit_SDPay : PaymentBasePage
         CancelUnexpectedRePost();
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "sdpay", sender.ToString().Contains("app"));
+        commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, "sdpay", sender.ToString().Contains("app"));
 
         if (!Page.IsPostBack)
         {

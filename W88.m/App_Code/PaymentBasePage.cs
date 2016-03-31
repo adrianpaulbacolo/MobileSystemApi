@@ -218,7 +218,7 @@ public class PaymentBasePage : BasePage
 
         using (svcPayMember.MemberClient svcInstance = new svcPayMember.MemberClient())
         {
-            dtPaymentMethodLimits = svcInstance.getMethodLimits(strOperatorId, strMemberCode, strMethodId, Convert.ToString(Convert.ToInt32(commonVariables.PaymentTransactionType.Deposit)), false, out strProcessCode, out strProcessText);
+            dtPaymentMethodLimits = svcInstance.getMethodLimits_Mobile(strOperatorId, strMemberCode, strMethodId, Convert.ToString(Convert.ToInt32(commonVariables.PaymentTransactionType.Deposit)), false, out strProcessCode, out strProcessText);
         }
 
         foreach (commonVariables.DepositMethod EnumMethod in Enum.GetValues(typeof(commonVariables.DepositMethod)))
@@ -274,21 +274,23 @@ public class PaymentBasePage : BasePage
             }
         }
 
-        strMethodId = PaymentMethodId;
-
-        if (dtPaymentMethodLimits.Select("[methodId] = " + strMethodId).Count() > 0)
+        if (!string.IsNullOrWhiteSpace(PaymentMethodId))
         {
-            drPaymentMethodLimit = dtPaymentMethodLimits.Select("[methodId] = " + strMethodId)[0];
+            strMethodId = PaymentMethodId;
 
-            strMinLimit = Convert.ToDecimal(drPaymentMethodLimit["minDeposit"]).ToString(commonVariables.DecimalFormat);
-            strMaxLimit = Convert.ToDecimal(drPaymentMethodLimit["maxDeposit"]).ToString(commonVariables.DecimalFormat);
-            strTotalAllowed = Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]) <= 0 ? strUnlimited : Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]).ToString(commonVariables.DecimalFormat);
-            strDailyLimit = Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]) == 0 ? strUnlimited : Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]).ToString(commonVariables.DecimalFormat);
+            if (dtPaymentMethodLimits.Select("[methodId] = " + strMethodId).Count() > 0)
+            {
+                drPaymentMethodLimit = dtPaymentMethodLimits.Select("[methodId] = " + strMethodId)[0];
+
+                strMinLimit = Convert.ToDecimal(drPaymentMethodLimit["minWithdrawal"]).ToString(commonVariables.DecimalFormat);
+                strMaxLimit = Convert.ToDecimal(drPaymentMethodLimit["maxWithdrawal"]).ToString(commonVariables.DecimalFormat);
+                strTotalAllowed = Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]) <= 0 ? strUnlimited : Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]).ToString(commonVariables.DecimalFormat);
+                strDailyLimit = Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]) == 0 ? strUnlimited : Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]).ToString(commonVariables.DecimalFormat);
+            }
         }
 
         strMethodsUnAvailable = Convert.ToString(sbMethodsUnavailable).TrimEnd('|');
     }
-
 
     protected void GetMainWalletBalance(string walletId)
     {
@@ -378,7 +380,6 @@ public class PaymentBasePage : BasePage
 
         return status;
     }
-
 }
 
 public class CommonStatus
