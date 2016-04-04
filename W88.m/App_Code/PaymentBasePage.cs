@@ -231,19 +231,19 @@ public class PaymentBasePage : BasePage
 
         if (!string.IsNullOrWhiteSpace(PaymentMethodId))
         {
-        strMethodId = PaymentMethodId;
+            strMethodId = PaymentMethodId;
 
-        if (dtPaymentMethodLimits.Select("[methodId] = " + strMethodId).Count() > 0)
-        {
-            drPaymentMethodLimit = dtPaymentMethodLimits.Select("[methodId] = " + strMethodId)[0];
+            if (dtPaymentMethodLimits.Select("[methodId] = " + strMethodId).Count() > 0)
+            {
+                drPaymentMethodLimit = dtPaymentMethodLimits.Select("[methodId] = " + strMethodId)[0];
 
-            strMinLimit = Convert.ToDecimal(drPaymentMethodLimit["minDeposit"]).ToString(commonVariables.DecimalFormat);
-            strMaxLimit = Convert.ToDecimal(drPaymentMethodLimit["maxDeposit"]).ToString(commonVariables.DecimalFormat);
+                strMinLimit = Convert.ToDecimal(drPaymentMethodLimit["minDeposit"]).ToString(commonVariables.DecimalFormat);
+                strMaxLimit = Convert.ToDecimal(drPaymentMethodLimit["maxDeposit"]).ToString(commonVariables.DecimalFormat);
                 strTotalAllowed = Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]) <= 0 ? strUnlimited : Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]).ToString(commonVariables.DecimalFormat);
                 strDailyLimit = Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]) == 0 ? strUnlimited : Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]).ToString(commonVariables.DecimalFormat);
-            strMerchantId = Convert.ToString(drPaymentMethodLimit["merchantId"]);
+                strMerchantId = Convert.ToString(drPaymentMethodLimit["merchantId"]);
                 strMode = Convert.ToString(drPaymentMethodLimit["paymentMode"]);
-        }
+            }
         }
 
         strMethodsUnAvailable = Convert.ToString(sbMethodsUnavailable).TrimEnd('|');
@@ -339,7 +339,7 @@ public class PaymentBasePage : BasePage
             XElement xElementBank = null;
 
             commonCulture.appData.getRootResource(PaymentType + "/" + paymentMethodBank, out xElementBank);
-            
+
             XElement xElementBankPath = xElementBank.Element(commonVariables.GetSessionVariable("CurrencyCode"));
 
             if (xElementBankPath == null)
