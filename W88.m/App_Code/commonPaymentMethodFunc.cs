@@ -163,7 +163,7 @@ public static class commonPaymentMethodFunc
             case commonVariables.DepositMethod.ECPSS:
                 list = CreateMethodListControl(paymentCode);
 
-                anchor = CreateMethodLinkControl(list.ID.ToString(), paymentCode.ToString(), sourcePage);
+                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage);
 
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/ECPSS_app.aspx");
