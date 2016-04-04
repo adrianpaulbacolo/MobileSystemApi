@@ -4,6 +4,6 @@
   <lblPassword><![CDATA[비밀 번호]]></lblPassword>
   <lblCaptcha><![CDATA[보안 코드]]></lblCaptcha>
   <btnLogin><![CDATA[로그인]]></btnLogin>  
-  <btnRegister><![CDATA[W88.com에 로그인 하시려면 먼저 회원가입을 하셔야 합니다. <a href='/_Secure/Register.aspx' data-ajax='false'>지금 가입</a>]]></btnRegister>
+  <btnRegister><![CDATA[W88.com에 로그인 하시려면 먼저 회원가입을 하셔야 합니다. <a href='/_Secure/Register.aspx' data-ajax='false' target='_blank'>지금 가입</a>]]></btnRegister>
   <lblRegister><![CDATA[W88.com에 로그인 하시려면 먼저 회원가입을 하셔야 합니다. 여기를 클릭하셔서 간단한 무료 회원가입을 지금 하세요! ]]></lblRegister>
 </default>

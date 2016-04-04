@@ -4,6 +4,6 @@
   <lblPassword><![CDATA[Password]]></lblPassword>
   <lblCaptcha><![CDATA[Kode Validasi]]></lblCaptcha>
   <btnLogin><![CDATA[LOGIN]]></btnLogin>
-  <btnRegister><![CDATA[Anda harus member dari W88.com untuk bisa login. Belum menjadi member? <a href='/_Secure/Register.aspx' data-ajax='false'>Bergabung</a>]]></btnRegister>
+  <btnRegister><![CDATA[Anda harus member dari W88.com untuk bisa login. Belum menjadi member? <a href='/_Secure/Register.aspx' data-ajax='false' target='_blank'>Bergabung</a>]]></btnRegister>
   <lblRegister><![CDATA[Anda harus member dari W88.com untuk bisa login. Belum menjadi member? Silakan kunjungi website kami www.w88.com untuk membuka account.]]></lblRegister>
 </default>

@@ -38,7 +38,7 @@
                         <asp:TextBox ID="txtCaptcha" runat="server" MaxLength="4" type="tel" data-mini="true" data-corners="false" />
                     </li>
                     <li class="item row">
-                        <div class="col">
+                        <div class="col cancel">
                             <a href="" role="button" data-rel="back" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
                         </div>
                         <div class="col">
@@ -53,6 +53,11 @@
             </form>
         </div>
         <script type="text/javascript">
+
+            if ('<%=isSlotRedirect%>' === 'True') {
+                $('#aMenu').attr('class', 'hide');
+                $('.cancel').attr('class', 'hide');
+            }
 
             var counter = 0;
             $('#<%=imgCaptcha.ClientID%>').attr('class', 'hide');
@@ -89,17 +94,17 @@
                 }
                 else if ($('#txtCaptcha').val().trim().length == 0 && $('#imgCaptcha').is(':visible') == true) {
                     alert('<%=commonCulture.ElementValues.getResourceString("MissingVCode", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
-                    return;
-                }
-                else {
-                    GPINTMOBILE.ShowSplash();
+                        $('#btnSubmit').attr("disabled", false);
+                        e.preventDefault();
+                        return;
+                    }
+                    else {
+                        GPINTMOBILE.ShowSplash();
 
-                    initiateLogin();
-                    $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
-                }
+                        initiateLogin();
+                        $('#btnSubmit').attr("disabled", false);
+                        e.preventDefault();
+                    }
                 e.preventDefault();
                 return;
             });
@@ -121,13 +126,18 @@
                     success: function (xml) {
                         switch ($(xml).find('ErrorCode').text()) {
                             case "1":
-                                switch ('<%=strRedirect%>') {
-                                    case 'mlotto':
-                                        window.location.replace('<%=commonLottery.getKenoUrl%>');
-                                        break;
-                                    default:
-                                        window.location.replace('<%=strRedirect%>');
-                                        break;
+                                if ('<%=strRedirect%>' !== '') {
+
+                                    switch ('<%=strRedirect%>') {
+                                        case 'mlotto':
+                                            window.location.replace('<%=commonLottery.getKenoUrl%>');
+                                            break;
+                                        default:
+                                            window.location.replace('<%=strRedirect%>');
+                                            break;
+                                    }
+                                } else {
+                                    window.location.reload();
                                 }
 
                                 Cookies().setCookie('is_app', '0', 0);
@@ -141,7 +151,7 @@
 
                                 break;
                             case "resetPassword":
-                                    window.location.replace('/Settings/ChangePassword.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
+                                window.location.replace('/Settings/ChangePassword.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
                                 break;
                             default:
 
@@ -150,19 +160,19 @@
                                 if (counter >= 3) {
                                     $(".capt").removeClass("hide");
                                     $('#<%=imgCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
-                                    $('#<%=lblCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
-                                    $('#<%=txtCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
-                                    alert($(xml).find('Message').text());
-                                    $('#<%=imgCaptcha.ClientID%>').attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime());
-                                    $('#<%=txtCaptcha.ClientID%>').val('');
-                                    $('#<%=txtPassword.ClientID%>').val('');
-                                    GPINTMOBILE.HideSplash();
-                                }
-                                else if (counter < 3) {
-                                    alert($(xml).find('Message').text());
-                                }
-                                break;
-                        }
+                                $('#<%=lblCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
+                                $('#<%=txtCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
+                                alert($(xml).find('Message').text());
+                                $('#<%=imgCaptcha.ClientID%>').attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime());
+                                $('#<%=txtCaptcha.ClientID%>').val('');
+                                $('#<%=txtPassword.ClientID%>').val('');
+                                GPINTMOBILE.HideSplash();
+                            }
+                            else if (counter < 3) {
+                                alert($(xml).find('Message').text());
+                            }
+                            break;
+                    }
                     },
                     error: function (err) {
                         alert('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
@@ -170,16 +180,17 @@
                     }
                 });
             }
+
         </script>
         <script type="text/javascript" id="iovs_script">
-	        var io_operation = 'ioBegin';
-	        var io_bbout_element_id = 'ioBlackBox';
-	        //var io_submit_element_id = 'btnSubmit';
-	        var io_submit_form_id = 'form1';
-	        var io_max_wait = 5000;
-	        var io_install_flash = false;
-	        var io_install_stm = false;
-	        var io_exclude_stm = 12;
+            var io_operation = 'ioBegin';
+            var io_bbout_element_id = 'ioBlackBox';
+            //var io_submit_element_id = 'btnSubmit';
+            var io_submit_form_id = 'form1';
+            var io_max_wait = 5000;
+            var io_install_flash = false;
+            var io_install_stm = false;
+            var io_exclude_stm = 12;
         </script>
         <script type="text/javascript" src="//ci-mpsnare.iovation.com/snare.js"></script>
 
