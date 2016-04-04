@@ -43,7 +43,7 @@ public class commonEncryption
         return functionReturnValue;
     }
 
-    internal static string encrypting(string str, string privateKey)
+    public static string encrypting(string str, string privateKey)
     {
         string functionReturnValue = null;
         if (!string.IsNullOrEmpty(str))

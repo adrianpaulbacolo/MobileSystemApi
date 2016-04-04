@@ -37,7 +37,8 @@
 	<sdapay><![CDATA[Alipay Transfer]]></sdapay>
 	<help2pay><![CDATA[Quick Pay]]></help2pay>
 	<daddypay><![CDATA[Quick Online]]></daddypay>
-	<withrawal><![CDATA[Penarikan]]></withrawal>-->
+	<daddypayqr><![CDATA[QR Code Payment]]></daddypayqr>
+	<withrawal><![CDATA[Penarikan]]></withrawal>
 	<fundTransfer><![CDATA[Fund Transfer]]></fundTransfer>
 	<poker><![CDATA[Poker]]></poker>
 	<texasmahjong><![CDATA[Texas Mahjong]]></texasmahjong>

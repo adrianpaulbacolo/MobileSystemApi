@@ -36,6 +36,7 @@
 	<sdapay><![CDATA[Alipay Transfer]]></sdapay>
 	<help2pay><![CDATA[Thanh Toán Nhanh]]></help2pay>
 	<daddypay><![CDATA[Trực Tuyến Nhanh]]></daddypay>
+	<daddypayqr><![CDATA[QR Code Payment]]></daddypayqr>
 	<withrawal><![CDATA[Rút Tiền]]></withrawal>
 	<fundTransfer><![CDATA[Chuyển Quỹ]]></fundTransfer>
 	<cancel><![CDATA[Hủy]]></cancel>

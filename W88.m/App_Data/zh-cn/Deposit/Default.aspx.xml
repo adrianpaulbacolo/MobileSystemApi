@@ -8,14 +8,14 @@
 	<lblTotalAllowed><![CDATA[允许的总额: ]]></lblTotalAllowed>
 	<lblDepositAmount><![CDATA[存款金额]]></lblDepositAmount>
 	<unlimited><![CDATA[无限]]></unlimited>
-	
+
 	<lblTransactionId><![CDATA[交易号码]]></lblTransactionId>
 
 	<lblBank><![CDATA[银行]]></lblBank>
 	<drpBank><![CDATA[银行选择]]></drpBank>
 	<lblBankName><![CDATA[银行名]]></lblBankName>
 	<drpOtherBank><![CDATA[其他银行]]></drpOtherBank>
-	
+
 	<lblAccountName><![CDATA[账户姓名]]></lblAccountName>
 	<lblAccountNumber><![CDATA[存款银行账号]]></lblAccountNumber>
 

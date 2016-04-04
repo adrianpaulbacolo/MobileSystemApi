@@ -32,6 +32,7 @@
 	<sdapay><![CDATA[Alipay Transfer]]></sdapay>
 	<help2pay><![CDATA[クイックオ ペイ]]></help2pay>
 	<daddypay><![CDATA[クイックオンライン]]></daddypay>
+	<daddypayqr><![CDATA[QR Code Payment]]></daddypayqr>
 	<withrawal><![CDATA[出金]]></withrawal>
 	<fundTransfer><![CDATA[送金]]></fundTransfer>
 	<deposit><![CDATA[入金]]></deposit>

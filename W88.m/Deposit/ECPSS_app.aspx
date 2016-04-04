@@ -1,9 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DaddyPay.aspx.cs" Inherits="Deposit_DaddyPay" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ECPSS.aspx.cs" Inherits="Deposit_ECPSS" %>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("sdpay", commonVariables.LeftMenuXML))%></title>
+    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dECPSS", commonVariables.PaymentMethodsXML))%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
@@ -11,7 +11,7 @@
     <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
-            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("depositDaddyPay", commonVariables.LeftMenuXML)%></h1>
+            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dECPSS", commonVariables.PaymentMethodsXML))%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -61,14 +61,16 @@
                             <asp:Literal ID="txtTotalAllowed" runat="server" />
                         </div>
                     </li>
+                    <li class="item item-select">
+                        <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank"/>
+                        <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
+                    </li>
                     <li class="item item-input">
-                        <asp:TextBox ID="amount_txt" runat="server" placeholder="amount" type="number" step="any" min="1" data-clear-btn="true" />
+                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
+                        <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
                     <li class="item item-select">
-                        <asp:DropDownList ID="bankDropDownList" runat="server">
-                        </asp:DropDownList>
-                        <asp:TextBox ID="accountName_txt" runat="server" placeholder="Account Name" data-clear-btn="true" />
-                        <asp:TextBox ID="account_txt" runat="server" placeholder="Account" data-clear-btn="true" />
+                        <asp:Label ID="lblMessage" runat="server" ForeColor="Red" />
                     </li>
                     <li class="item row">
                         <div class="col">
@@ -88,11 +90,32 @@
 
             </form>
         </div>
-        <!-- /content -->
+
         <script type="text/javascript">
             $(function () {
                 window.history.forward();
+
+                if ('<%=strAlertCode%>'.length > 0) {
+                    switch ('<%=strAlertCode%>') {
+                        case '-1':
+                            alert('<%=strAlertMessage%>');
+                            break;
+                        case '0':
+                            var cookie = '<%=HttpUtility.UrlEncode(commonEncryption.encrypting(HttpUtility.UrlEncode(commonCookie.CookieS),ConfigurationManager.AppSettings["PaymentPrivateKey"]))%>';
+                            var remote_ip = '<%=HttpUtility.UrlEncode(commonEncryption.encrypting(commonIp.remoteIP,ConfigurationManager.AppSettings["PaymentPrivateKey"]))%>';
+                            var domain = '<%=strRedirectUrl%>';
+
+                            var url = domain + "api/ECPSSHandler.ashx?requestAmount=" + $("#txtDepositAmount").val() + "&bankCode=" + $("#drpBank").val() + "&cookie=" + cookie + "&ip=" + remote_ip;
+
+                            window.open(url);
+
+                            break;
+                        default:
+                            break;
+                    }
+                }
             });
+
         </script>
     </div>
 </body>

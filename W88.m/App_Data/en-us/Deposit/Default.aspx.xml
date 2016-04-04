@@ -8,17 +8,17 @@
 	<lblTotalAllowed><![CDATA[Total Allowed: ]]></lblTotalAllowed>
 	<lblDepositAmount><![CDATA[Deposit Amount]]></lblDepositAmount>
 	<unlimited><![CDATA[Unlimited]]></unlimited>
-	
+
 	<lblTransactionId><![CDATA[Transaction ID]]></lblTransactionId>
-	
+
 	<lblBank><![CDATA[Bank]]></lblBank>
 	<drpBank><![CDATA[Select Bank]]></drpBank>
 	<lblBankName><![CDATA[Your Bank Name]]></lblBankName>
 	<drpOtherBank><![CDATA[Other Bank]]></drpOtherBank>
-	
+
 	<lblAccountName><![CDATA[Your Account Name]]></lblAccountName>
 	<lblAccountNumber><![CDATA[Your Account Number]]></lblAccountNumber>
-	
+
 	<btnCancel><![CDATA[CANCEL]]></btnCancel>
 	<btnSubmit><![CDATA[SUBMIT]]></btnSubmit>
 

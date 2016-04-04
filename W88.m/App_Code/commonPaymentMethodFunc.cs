@@ -160,6 +160,20 @@ public static class commonPaymentMethodFunc
                 depositTabs.Controls.Add(list);
                 break;
 
+            case commonVariables.DepositMethod.ECPSS:
+                list = CreateMethodListControl(paymentCode);
+
+                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage);
+
+                if (isApp)
+                    anchor.Attributes.Add("href", "/Deposit/ECPSS_app.aspx");
+                else
+                    anchor.Attributes.Add("href", "/Deposit/ECPSS.aspx");
+
+                list.Controls.Add(anchor);
+                depositTabs.Controls.Add(list);
+                break;
+
             default:
                 break;
         }

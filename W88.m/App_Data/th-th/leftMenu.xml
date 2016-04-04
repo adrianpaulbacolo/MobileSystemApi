@@ -37,6 +37,7 @@
 	<help2pay><![CDATA[จ่ายเงินด่วน]]></help2pay>
 	<nextpay><![CDATA[ควิกออนไลน์]]></nextpay>
 	<daddypay><![CDATA[ควิกออนไลน์]]></daddypay>
+	<daddypayqr><![CDATA[QR Code Payment]]></daddypayqr>
 	<withrawal><![CDATA[ถอน]]></withrawal>
 	<fundTransfer><![CDATA[ย้ายทุน]]></fundTransfer>
 	<poker><![CDATA[โป๊กเกอร์]]></poker>

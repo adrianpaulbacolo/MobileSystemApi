@@ -37,6 +37,7 @@
 	<sdapay><![CDATA[Alipay Transfer]]></sdapay>
 	<help2pay><![CDATA[ប្រាក់បៀវត្សរ៍រហ័ស]]></help2pay>
 	<daddypay><![CDATA[រហ័សអនឡាញ]]></daddypay>
+	<daddypayqr><![CDATA[QR Code Payment]]></daddypayqr>
 	<withrawal><![CDATA[ការដកប្រាក់ចេញ]]></withrawal>
 	<fundTransfer><![CDATA[ផេ្ទរ]]></fundTransfer>
 	<poker><![CDATA[ពុកគ័រ]]></poker>
