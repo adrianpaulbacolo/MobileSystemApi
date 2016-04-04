@@ -37,7 +37,8 @@
 	<sdapay><![CDATA[Alipay Transfer]]></sdapay>
 	<help2pay><![CDATA[Quick Pay]]></help2pay>
 	<daddypay><![CDATA[Quick Online]]></daddypay>
-	<withrawal><![CDATA[Penarikan]]></withrawal>-->
+	<daddypayqr><![CDATA[QR Code Payment]]></daddypayqr>
+	<withrawal><![CDATA[Penarikan]]></withrawal>
 	<fundTransfer><![CDATA[Fund Transfer]]></fundTransfer>
 	<poker><![CDATA[Poker]]></poker>
 	<texasmahjong><![CDATA[Texas Mahjong]]></texasmahjong>
@@ -62,8 +63,8 @@
 	<clubMassimo><![CDATA[CLUB MASSIMO]]></clubMassimo>
 	<clubMassimoMessage><![CDATA[Game popular live kasino dengan video berkualitas tinggi!]]></clubMassimoMessage>
 	<playNow><![CDATA[MAIN SEKARANG]]></playNow>
-	<androidDownload><![CDATA[Android Download]]></androidDownload>
-	<iosDownload><![CDATA[iOS Download]]></iosDownload>
+	<androidDownload><![CDATA[Android <br/> Download]]></androidDownload>
+	<iosDownload><![CDATA[iOS <br/> Download]]></iosDownload>
 
 	<download><![CDATA[DOWNLOAD]]></download>
 

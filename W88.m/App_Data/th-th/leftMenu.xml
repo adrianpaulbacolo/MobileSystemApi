@@ -37,6 +37,7 @@
 	<help2pay><![CDATA[จ่ายเงินด่วน]]></help2pay>
 	<nextpay><![CDATA[ควิกออนไลน์]]></nextpay>
 	<daddypay><![CDATA[ควิกออนไลน์]]></daddypay>
+	<daddypayqr><![CDATA[QR Code Payment]]></daddypayqr>
 	<withrawal><![CDATA[ถอน]]></withrawal>
 	<fundTransfer><![CDATA[ย้ายทุน]]></fundTransfer>
 	<poker><![CDATA[โป๊กเกอร์]]></poker>
@@ -64,8 +65,8 @@
 	<clubMassimo><![CDATA[คลับแมสซิโม]]></clubMassimo>
 	<clubMassimoMessage><![CDATA[คาสิโนที่ได้รับความนิยมมากที่สุด พร้อมการถ่ายทอดสดที่ดีที่สุด! ]]></clubMassimoMessage>
 	<playNow><![CDATA[เล่นทันที]]></playNow>
-	<androidDownload><![CDATA[ โป๊กเกอร์ ]]></androidDownload>
-	<iosDownload><![CDATA[ โป๊กเกอร์ ]]></iosDownload>
+	<androidDownload><![CDATA[ดาวน์โหลด <br/> แอนดรอยด์]]></androidDownload>
+	<iosDownload><![CDATA[ดาวน์โหลด <br/> iOS]]></iosDownload>
 
 	<download><![CDATA[DOWNLOAD]]></download>
 

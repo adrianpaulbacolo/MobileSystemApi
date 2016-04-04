@@ -36,6 +36,7 @@
 	<sdapay><![CDATA[Alipay Transfer]]></sdapay>
 	<help2pay><![CDATA[Thanh Toán Nhanh]]></help2pay>
 	<daddypay><![CDATA[Trực Tuyến Nhanh]]></daddypay>
+	<daddypayqr><![CDATA[QR Code Payment]]></daddypayqr>
 	<withrawal><![CDATA[Rút Tiền]]></withrawal>
 	<fundTransfer><![CDATA[Chuyển Quỹ]]></fundTransfer>
 	<cancel><![CDATA[Hủy]]></cancel>
@@ -50,8 +51,8 @@
 	<poker><![CDATA[POKER]]></poker>
 	<texasmahjong><![CDATA[Texas Mạt Chược]]></texasmahjong>
 	<fundFooter><![CDATA[*Club W, Bravado, Apollo, Crescendo, Divino, Massimo, Gallardo, Virtual, Lotto]]></fundFooter>
-	<androidDownload><![CDATA[Android Download]]></androidDownload>
-	<iosDownload><![CDATA[TẢI ANDROID]]></iosDownload>
+	<androidDownload><![CDATA[Tải <br/> Android]]></androidDownload>
+	<iosDownload><![CDATA[Tải <br/> iOS]]></iosDownload>
 
 
 	<rewardsClub><![CDATA[Điểm thưởng]]></rewardsClub>

@@ -16,7 +16,7 @@
         //$(window).resize(function () { $('.div-promo-row > a > div:last-child > div').css({ maxWidth: ($(window).width() - 100) + 'px' }); });
         function timerV2(pid, start_date, end_date) { if (new Date('<%=System.DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') < new Date(start_date) || new Date('<%=System.DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') > new Date(end_date)) { $('div#' + pid).hide(); } }
         function getPromos() {
-            $.get('/_Static/Promotions/promotions.' + lang + '<%=(string.Compare(commonVariables.GetSessionVariable("CountryCode"), "my", true) == 0 ? ".my" : "")%>.htm', function (html) { })
+            $.get('/AjaxHandlers/Promotion.ashx', function (html) { })
             .done(function (data) {
                 data = data.replace(/<img src=/g, '<img rel=');
                 data = data.replace('[domain]', '.'+ location.hostname.split('.').slice(-2).join('.'));

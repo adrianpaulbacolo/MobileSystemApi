@@ -8,14 +8,14 @@
 	<lblTotalAllowed><![CDATA[Jumlah yang diperbolehkan: ]]></lblTotalAllowed>
 	<lblDepositAmount><![CDATA[Jumlah Deposit]]></lblDepositAmount>
 	<unlimited><![CDATA[Tanpa Batas]]></unlimited>
-	
+
 	<lblTransactionId><![CDATA[No. Transaksi]]></lblTransactionId>
-	
+
 	<lblBank><![CDATA[Bank]]></lblBank>
 	<drpBank><![CDATA[Bank Pilih]]></drpBank>
 	<lblBankName><![CDATA[Nama Bank]]></lblBankName>
 	<drpOtherBank><![CDATA[Bank Lain]]></drpOtherBank>
-	
+
 	<lblAccountName><![CDATA[Nama Rekening Anda]]></lblAccountName>
 	<lblAccountNumber><![CDATA[Nomor Rekening Anda]]></lblAccountNumber>
 

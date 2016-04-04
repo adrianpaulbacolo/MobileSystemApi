@@ -50,7 +50,10 @@ public class commonVariables
         }
     }
 
-    public static string SelectedLanguageShort { get { 
+    public static string SelectedLanguageShort
+    {
+        get
+        {
         switch (commonVariables.SelectedLanguage.ToLower()) 
         {
             case "en-us":
@@ -72,7 +75,8 @@ public class commonVariables
             default:
                 return "en";
         } 
-    } }
+        }
+    }
 
     public static string CurrentMemberSessionId { get { return string.IsNullOrEmpty(System.Web.HttpContext.Current.Session["MemberSessionId"] as string) ? (!string.IsNullOrEmpty(commonCookie.CookieS) ? commonCookie.CookieS : "") : Convert.ToString(System.Web.HttpContext.Current.Session["MemberSessionId"]); } }
 
@@ -146,6 +150,7 @@ public class commonVariables
         DaddyPayQR = 120244,
         Neteller = 120214,
         SDAPayAlipay = 120254,
+        ECPSS = 120218,
         AllDebit = 120236
     }
 
