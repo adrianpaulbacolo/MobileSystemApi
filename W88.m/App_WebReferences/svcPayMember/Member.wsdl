@@ -69,6 +69,12 @@
   <wsdl:message name="IMember_getMethodLimits_OutputMessage">
     <wsdl:part name="parameters" element="tns:getMethodLimitsResponse" />
   </wsdl:message>
+  <wsdl:message name="IMember_getMethodLimits_Mobile_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMethodLimits_Mobile" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getMethodLimits_Mobile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMethodLimits_MobileResponse" />
+  </wsdl:message>
   <wsdl:message name="IMember_getBankAccounts_InputMessage">
     <wsdl:part name="parameters" element="tns:getBankAccounts" />
   </wsdl:message>
@@ -386,6 +392,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/getMethodLimits" message="tns:IMember_getMethodLimits_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMember/getMethodLimitsResponse" message="tns:IMember_getMethodLimits_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="getMethodLimits_Mobile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/getMethodLimits_Mobile" message="tns:IMember_getMethodLimits_Mobile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/getMethodLimits_MobileResponse" message="tns:IMember_getMethodLimits_Mobile_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="getBankAccounts">
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/getBankAccounts" message="tns:IMember_getBankAccounts_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMember/getBankAccountsResponse" message="tns:IMember_getBankAccounts_OutputMessage" />
@@ -656,6 +666,15 @@
     </wsdl:operation>
     <wsdl:operation name="getMethodLimits">
       <soap:operation soapAction="http://tempuri.org/IMember/getMethodLimits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMethodLimits_Mobile">
+      <soap:operation soapAction="http://tempuri.org/IMember/getMethodLimits_Mobile" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

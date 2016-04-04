@@ -3,6 +3,10 @@
 	<Category>
 		<Slot Label="Slots">
 			<iSoftBet NotSupportedCurrency="VND,IDR">
+				<MegaBoy ProductId="896550" Top="1">
+					<ImageName><![CDATA[Mega-Boy-mobile]]></ImageName>
+				</MegaBoy>
+				
 				<AbsoluteSuperReels ProductId="896500">
 					<ImageName><![CDATA[W88-Slots-Mobile-Absolute-Super-Reels]]></ImageName>
 				</AbsoluteSuperReels>
@@ -88,8 +92,12 @@
 					<ImageName><![CDATA[W88-Slots-Mobile-Ultimate-Super-Reels]]></ImageName>
 				</UltimateSuperReels>
 			</iSoftBet>
-			
+
 			<PNG>
+				<cloudquestmobile  Top="1">
+					<ImageName><![CDATA[W88-Slots-Mobile-Cloud-Quest]]></ImageName>
+				</cloudquestmobile >
+
 				<sambacarnivalmobile>
 					<ImageName><![CDATA[sambacarnivalmobile]]></ImageName>
 				</sambacarnivalmobile>
@@ -239,7 +247,7 @@
 					<ImageName><![CDATA[W88-Slots-Mobile-European-Roulette]]></ImageName>
 				</EuropeanRoulette>
 			</iSoftBet>
-			
+
 			<PNG>
 				<AmericanRoulette>
 					<ImageName><![CDATA[americanroulettemobile]]></ImageName>

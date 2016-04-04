@@ -3,6 +3,10 @@
 	<Category>
 		<Slot Label="老虎机">
 			<iSoftBet NotSupportedCurrency="VND,IDR">
+				<MegaBoy ProductId="896550" Top="1">
+					<ImageName><![CDATA[Mega-Boy-mobile]]></ImageName>
+				</MegaBoy>
+				
 				<AbsoluteSuperReels ProductId="896500">
 					<ImageName><![CDATA[W88-Slots-Mobile-Absolute-Super-Reels]]></ImageName>
 				</AbsoluteSuperReels>
@@ -90,10 +94,13 @@
 			</iSoftBet>
 
 			<PNG>
+				<cloudquestmobile  Top="1">
+					<ImageName><![CDATA[W88-Slots-Mobile-Cloud-Quest]]></ImageName>
+				</cloudquestmobile >
+
 				<sambacarnivalmobile>
 					<ImageName><![CDATA[sambacarnivalmobile]]></ImageName>
 				</sambacarnivalmobile>
-
 				<AceofSpades>
 					<ImageName><![CDATA[aceofspadesmobile]]></ImageName>
 				</AceofSpades>
