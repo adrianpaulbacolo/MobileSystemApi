@@ -63,7 +63,7 @@ public partial class Deposit_ECPSS : PaymentBasePage
 
         btnSubmit.Text = base.strbtnSubmit;
 
-        txtDepositAmount.Attributes.Add("PLACEHOLDER", base.strtxtDepositAmount);
+        txtDepositAmount.Attributes.Add("PLACEHOLDER", base.strtxtAmount);
 
         txtMinMaxLimit.Text = base.strtxtMinMaxLimit;
         txtDailyLimit.Text = base.strtxtDailyLimit;
