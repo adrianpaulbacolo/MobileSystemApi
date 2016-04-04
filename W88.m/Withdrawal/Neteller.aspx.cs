@@ -14,7 +14,7 @@ public partial class Withdrawal_Neteller : PaymentBasePage
 
     protected void Page_Init(object sender, EventArgs e)
     {
-        base.PageName = "Neteller";
+        base.PageName = Convert.ToString(commonVariables.WithdrawalMethod.Neteller);
         base.PaymentType = commonVariables.PaymentTransactionType.Withdrawal;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.WithdrawalMethod.Neteller);
 
@@ -25,10 +25,10 @@ public partial class Withdrawal_Neteller : PaymentBasePage
 
         base.GetMainWalletBalance("0");
 
-        base.InitialisePendingWithdrawals();
+        base.InitialisePendingWithdrawals(sender.ToString().Contains("app"));
     }
 
-    protected void Page_Load(object sender, EventArgs e)
+    protected void Page_Load(object sender, EventArgs e)  
     {
         CancelUnexpectedRePost();
 

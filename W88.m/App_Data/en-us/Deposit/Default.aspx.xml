@@ -6,7 +6,7 @@
 	<lblMinMaxLimit><![CDATA[Min/Max Limit]]></lblMinMaxLimit>
 	<lblDailyLimit><![CDATA[Daily Limit: ]]></lblDailyLimit>
 	<lblTotalAllowed><![CDATA[Total Allowed: ]]></lblTotalAllowed>
-	<lblDepositAmount><![CDATA[Deposit Amount]]></lblDepositAmount>
+	<lblAmount><![CDATA[Deposit Amount]]></lblAmount>
 	<unlimited><![CDATA[Unlimited]]></unlimited>
 
 	<lblTransactionId><![CDATA[Transaction ID]]></lblTransactionId>

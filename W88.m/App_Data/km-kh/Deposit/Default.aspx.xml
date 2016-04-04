@@ -6,7 +6,7 @@
 	<lblMinMaxLimit><![CDATA[ចំនួនអប្ប/អតិ]]></lblMinMaxLimit>
 	<lblDailyLimit><![CDATA[ចំនួនកំនត់ប្រចាំថ្ងៃ: ]]></lblDailyLimit>
 	<lblTotalAllowed><![CDATA[ចំនួនអនុញ្ញាតសរុប: ]]></lblTotalAllowed>
-	<lblDepositAmount><![CDATA[ចំនួនប្រាក់ដាក់]]></lblDepositAmount>
+	<lblAmount><![CDATA[ចំនួនប្រាក់ដាក់]]></lblAmount>
 	<unlimited><![CDATA[គ្មានដែនកំណត់]]></unlimited>
 
 	<lblTransactionId><![CDATA[លេខប្រតិបត្តិការ]]></lblTransactionId>

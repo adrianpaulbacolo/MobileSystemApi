@@ -26,6 +26,7 @@
 
             <div data-role="navbar">
                 <ul id="depositTabs" runat="server">
+                    <li />
                 </ul>
             </div>
 
@@ -41,10 +42,12 @@
             $(function () {
                 window.history.forward();
 
-                if ($('#depositTabs li').length == 0) {
-                    window.location.replace('/Index.aspx');
-                } else if ($('#depositTabs li a.btn-primary').length == 0) {
-                    window.location.replace($('#depositTabs li').first().children().attr('href'));
+                $('#depositTabs li').first().remove();
+
+                if ($('#depositTabs li a.btn-primary').length == 0) {
+                    if ($('#depositTabs li').first().children().attr('href') != undefined) {
+                        window.location.replace($('#depositTabs li').first().children().attr('href'));
+                    }
                 }
             });
         </script>
