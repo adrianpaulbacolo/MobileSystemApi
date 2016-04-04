@@ -57,7 +57,7 @@ public partial class Deposit_ECPSS : PaymentBasePage
         lblMinMaxLimit.Text = base.strlblMinMaxLimit;
         lblDailyLimit.Text = base.strlblDailyLimit;
         lblTotalAllowed.Text = base.strlblTotalAllowed;
-        lblDepositAmount.Text = base.strlblDepositAmount;
+        lblDepositAmount.Text = base.strlblAmount;
         lblMessage.Text = base.strlblMessage;
         lblBank.Text = base.strlblBank;
 
