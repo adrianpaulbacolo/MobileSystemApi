@@ -96,51 +96,48 @@ public partial class Deposit_ECPSS : PaymentBasePage
 
         CommonStatus status = new CommonStatus();
 
-        if (!status.IsProcessAbort)
+        try
         {
-            try
+            if (decDepositAmount == 0)
             {
-                if (decDepositAmount == 0)
-                {
-                    status = base.GetErrors("/MissingDepositAmount");
-                }
-                else if (selectedBank == "-1")
-                {
-                    status = base.GetErrors("/SelectBank");
-                }
-                else if (decDepositAmount < decMinLimit)
-                {
-                    status = base.GetErrors("/AmountMinLimit");
-                }
-                else if (decDepositAmount > decMaxLimit)
-                {
-                    status = base.GetErrors("/AmountMaxLimit");
-                }
-                else if ((strTotalAllowed != commonCulture.ElementValues.getResourceString("unlimited", xeResources)) && (decDepositAmount > Convert.ToDecimal(strTotalAllowed)) && Convert.ToDecimal(strTotalAllowed) > 0)
-                {
-                    status = base.GetErrors("/TotalAllowedExceeded");
-                }
-
-                if (!status.IsProcessAbort)
-                {
-                    status.AlertCode = "0";
-                }
+                status = base.GetErrors("/MissingDepositAmount");
             }
-            catch (Exception ex)
+            else if (selectedBank == "-1")
             {
-                status = base.GetErrors("/Exception");
-
-                strErrorDetail = ex.Message;
+                status = base.GetErrors("/SelectBank");
+            }
+            else if (decDepositAmount < decMinLimit)
+            {
+                status = base.GetErrors("/AmountMinLimit");
+            }
+            else if (decDepositAmount > decMaxLimit)
+            {
+                status = base.GetErrors("/AmountMaxLimit");
+            }
+            else if ((strTotalAllowed != strUnlimited) && (decDepositAmount > Convert.ToDecimal(strTotalAllowed)) && Convert.ToDecimal(strTotalAllowed) > 0)
+            {
+                status = base.GetErrors("/TotalAllowedExceeded");
             }
 
-            strAlertCode = status.AlertCode;
-            strAlertMessage = status.AlertMessage;
-
-            string strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | CurrencyCode: {2} | DepositAmount: {3} | BankName: {4} | MinLimit: {5} | MaxLimit: {6} | TotalAllowed: {7} | DailyLimit: {8} | Response: {9}",
-               Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, drpBank.SelectedValue, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
-
-            intProcessSerialId += 1;
-            commonAuditTrail.appendLog("system", PageName, "InitiateDeposit", string.Empty, strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
+            if (!status.IsProcessAbort)
+            {
+                status.AlertCode = "0";
+            }
         }
+        catch (Exception ex)
+        {
+            status = base.GetErrors("/Exception");
+
+            strErrorDetail = ex.Message;
+        }
+
+        strAlertCode = status.AlertCode;
+        strAlertMessage = status.AlertMessage;
+
+        string strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | CurrencyCode: {2} | DepositAmount: {3} | BankName: {4} | MinLimit: {5} | MaxLimit: {6} | TotalAllowed: {7} | DailyLimit: {8} | Response: {9}",
+           Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, drpBank.SelectedValue, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
+
+        intProcessSerialId += 1;
+        commonAuditTrail.appendLog("system", base.PageName, "InitiateDeposit", string.Empty, strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
     }
 }
