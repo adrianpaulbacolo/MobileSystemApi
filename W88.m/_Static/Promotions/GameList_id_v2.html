@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Game List</title>
+<style type="text/css">
+body {
+	font-family: Tahoma, Arial, Helvetica, sans-serif; font-size:11px; color:#808080;
+	background:#1f1f1f;
+}
+.rowHeader	{background:#404040;font-weight:bold;}
+.row1		{background:#333333;}
+.row2		{background:#333333;}
+a.button {
+	display:inline-block;	
+	background: #333;
+	width: 239px;
+	height:22px;
+	line-height:22px;
+	color:#fff;
+	font-weight: bold;
+	text-decoration: none;
+	margin-left: 1px;
+}
+
+a.button:hover, a.button.selected {
+	background: #404040;
+}
+
+body.white {
+	background:#eee;color:#404040;
+}
+body.white .rowHeader	{background:#ddd;}
+body.white .row1		{background:#fff;}
+body.white .row2		{background:#fff;}
+body.white a.button {
+	background: #fff;
+	color:#404040;
+}
+
+body.white  a.button:hover, body.white  a.button.selected {
+	background: #ddd;
+}
+
+	table {
+		width: 240px;
+	}
+</style>
+<script src="/_static/_script/combined.js"></script>
+<script>
+	$(function () {
+		if ($.cookie("color")) {
+			$("body").addClass($.cookie("color"));
+		}
+	});
+
+	$(function () {
+		$("table").hide();
+		$("table:first").show();
+	});
+	function changeTable(tableName) {
+		$("a").removeClass("selected");
+		$("a#btn_" + tableName).addClass("selected");
+		$("table").hide();
+		$("table#" + tableName).show();
+	}
+</script>
+</head>
+<body>
+<div style="text-align:center;">
+		<a href="javascript:changeTable('Palazzo')" class="button selected" id="btn_Palazzo">Palazzo</a>
+</div>
+<table border="0" align="center" cellpadding="5" cellspacing="1" id="Palazzo">
+  <tr class="rowHeader">
+    <td align="center"><strong>Nama Game</strong></td>
+  </tr>
+  <tr class="row1">
+    <td>Goblins Cave</td>
+  </tr>
+  <tr class="row1">
+    <td>Triple Profits</td>
+  </tr>
+  <tr class="row1">
+    <td>Ocean Princess</td>
+  </tr>
+  <tr class="row1">
+    <td>Tropic Reels</td>
+  </tr>
+  <tr class="row1">
+    <td>Ugga Bugga</td>
+  </tr>
+  
+</table>
+
+
+
+
+</body>
+</html>

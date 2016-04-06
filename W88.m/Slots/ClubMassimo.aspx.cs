@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
 
 public partial class Slots_ClubMassimo : BasePage
 {
@@ -17,11 +19,10 @@ public partial class Slots_ClubMassimo : BasePage
 
         if (!Page.IsPostBack)
         {
-            System.Text.StringBuilder sbGames = new System.Text.StringBuilder();
+            StringBuilder sbGames = new StringBuilder();
 
-            System.Xml.Linq.XElement xeCategories = xeResources.Element("Category");
+            XElement xeCategories = xeResources.Element("Category");
 
-            bool collapsed = false;
 
             foreach (System.Xml.Linq.XElement xeCategory in xeCategories.Elements())
             {
@@ -29,9 +30,14 @@ public partial class Slots_ClubMassimo : BasePage
 
                 sbGames.AppendFormat("<div id='div{0}' class='div-product'><div><ul>", xeCategory.Name);
 
-                foreach (System.Xml.Linq.XElement xeGame in xeCategory.Elements())
-                {
+                List<XElement> topgames = xeCategory.Elements().Where(m => m.Attribute("Top") != null).OrderBy(f => f.Attribute("Top").Value).ToList();
 
+                IEnumerable<XElement> sortedGame = xeCategory.Elements().Where(m => m.Attribute("Top") == null).OrderBy(game => game.Name.ToString());
+
+                topgames.AddRange(sortedGame);
+
+                foreach (XElement xeGame in topgames)
+                {
                     sbGames.AppendFormat("<li rel='{0}.jpg' class='bkg-game'><div class='div-links'>", commonCulture.ElementValues.getResourceString("ImageName", xeGame));
 
                     //{RealUrl}/cashapillar/en?casinoID=5053&loginType=VanguardSessionToken&isRGI=true&bankingURL={cashier}&authToken={token}&lobbyURL={lobby}
@@ -46,7 +52,6 @@ public partial class Slots_ClubMassimo : BasePage
                 }
 
                 sbGames.Append("</ul></div></div></div>");
-                collapsed = true;
             }
 
             divContainer.InnerHtml = Convert.ToString(sbGames);

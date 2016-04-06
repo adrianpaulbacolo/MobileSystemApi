@@ -15,7 +15,7 @@ public partial class Deposit_SDPay : PaymentBasePage
     protected void Page_Init(object sender, EventArgs e)
     {
 
-        base.PageName = "SDPay";
+        base.PageName = Convert.ToString(commonVariables.DepositMethod.SDPay);
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.SDPay);
 
@@ -32,7 +32,7 @@ public partial class Deposit_SDPay : PaymentBasePage
         CancelUnexpectedRePost();
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"));
+        commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"));
 
         if (!Page.IsPostBack)
         {

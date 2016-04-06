@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <banks>
-	<bank id="ICBC" ><![CDATA[ICBC <span style="color:#FF0000;font-weight:bold;">(*)</span>]]></bank>
+	<bank id="ICBC" ><![CDATA[ICBC (*)]]></bank>
 	<bank id="ABC"><![CDATA[ABC]]></bank>
 	<bank id="BOCSH"><![CDATA[BOCSH]]></bank>
 	<bank id="CCB"><![CDATA[CCB]]></bank>
@@ -9,7 +9,7 @@
 	<bank id="GDB"><![CDATA[GDB]]></bank>
 	<bank id="BOCOM"><![CDATA[BOCOM]]></bank>
 	<!--<bank id="PSBC"><![CDATA[PSBC]]></bank>-->
-	<bank id="CNCB"><![CDATA[CNCB <span style="color:#FF0000;font-weight:bold;">(*)</span>]]></bank>
+	<bank id="CNCB"><![CDATA[CNCB (*)]]></bank>
 	<bank id="CMBC"><![CDATA[CMBC]]></bank>
 	<!--<bank id="CEB"><![CDATA[CEB]]></bank>-->
 	<bank id="HXB"><![CDATA[HXB]]></bank>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b0199703-af7d-4b20-9c28-9e1b6697f44c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="14e72a4e-868e-4f6a-a2a4-71d211bae3ce" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,13 +22,13 @@
     <MetadataSource Address="http://paymentservices.aqzbouat.com/Member.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Member.xsd" MetadataType="Schema" ID="66b73cf8-2fb0-4bb0-9d24-0c35c4260784" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/Member.svc?xsd=xsd4" />
-    <MetadataFile FileName="Member.wsdl" MetadataType="Wsdl" ID="c800ca40-0a40-4f41-9479-dfad051ac121" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/Member.svc?wsdl" />
-    <MetadataFile FileName="Member1.xsd" MetadataType="Schema" ID="925ad014-24f6-4ca2-b1df-e639480a6b05" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/Member.svc?xsd=xsd0" />
-    <MetadataFile FileName="Member.disco" MetadataType="Disco" ID="48091fcf-f2c6-492b-a100-fed2135ff96f" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/Member.svc?disco" />
-    <MetadataFile FileName="Member2.xsd" MetadataType="Schema" ID="eda99e51-038f-4324-9122-4e7a5f57a61a" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/Member.svc?xsd=xsd1" />
-    <MetadataFile FileName="Member3.xsd" MetadataType="Schema" ID="c5146cb9-c261-41b9-ab9a-61933b3f3d77" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/Member.svc?xsd=xsd3" />
-    <MetadataFile FileName="Member4.xsd" MetadataType="Schema" ID="8581cb47-1a75-447a-8c03-db586fd41ab8" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/Member.svc?xsd=xsd2" />
+    <MetadataFile FileName="Member.xsd" MetadataType="Schema" ID="02360f9b-d1a2-4b47-afa3-acf08388e88e" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/Member.svc?xsd=xsd4" />
+    <MetadataFile FileName="Member.wsdl" MetadataType="Wsdl" ID="3bb7d834-12a5-4e01-b96e-38dff523357b" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/Member.svc?wsdl" />
+    <MetadataFile FileName="Member1.xsd" MetadataType="Schema" ID="ebf02253-f8e3-40b1-9c31-c5e04514e332" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/Member.svc?xsd=xsd0" />
+    <MetadataFile FileName="Member.disco" MetadataType="Disco" ID="81818311-b2ac-4df1-b4c2-4e251c8b9ba9" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/Member.svc?disco" />
+    <MetadataFile FileName="Member2.xsd" MetadataType="Schema" ID="04063dd7-f18e-4a18-b975-51dc2eeb7cfa" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/Member.svc?xsd=xsd1" />
+    <MetadataFile FileName="Member3.xsd" MetadataType="Schema" ID="6f7f45c4-847e-4b9b-a9bc-c4fc7e17e67f" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/Member.svc?xsd=xsd3" />
+    <MetadataFile FileName="Member4.xsd" MetadataType="Schema" ID="6df765ef-ed1d-4410-8be5-b9b495be2e7c" SourceId="1" SourceUrl="http://paymentservices.aqzbouat.com/Member.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

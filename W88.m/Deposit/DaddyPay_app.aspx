@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dDaddyPay", commonVariables.PaymentMethodsXML))%></title>
+    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("daddyPay", commonVariables.LeftMenuXML))%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
@@ -11,7 +11,7 @@
     <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
-            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dDaddyPay", commonVariables.PaymentMethodsXML))%></h1>
+            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("depositDaddyPay", commonVariables.LeftMenuXML)%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -61,24 +61,14 @@
                             <asp:Literal ID="txtTotalAllowed" runat="server" />
                         </div>
                     </li>
-                         <li class="item item-select">
-                        <asp:DropDownList ID="drpBank" runat="server" />
+                    <li class="item item-input">
+                        <asp:TextBox ID="amount_txt" runat="server" placeholder="amount" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
-                    <li class="item item-input" id="txtAmount">
-                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
-                        <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
-                    </li>
-                    <li class="item item-select" id="drpAmount" style="display: none;">
-                        <asp:DropDownList ID="drpDepositAmount" runat="server" />
-                    </li>
-                    <li class="item item-input" id="accountName" runat="server">
-                        <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" />
-                        <asp:TextBox ID="txtAccountName" runat="server" data-clear-btn="true" />
-                        <asp:HiddenField ID="hfWCNickname"  runat="server" ClientIDMode="Static" />
-                    </li>
-                    <li class="item item-input" id="accountNo" runat="server">
-                        <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNo" />
-                        <asp:TextBox ID="txtAccountNo" type="number" runat="server" data-clear-btn="true" />
+                    <li class="item item-select">
+                        <asp:DropDownList ID="bankDropDownList" runat="server">
+                        </asp:DropDownList>
+                        <asp:TextBox ID="accountName_txt" runat="server" placeholder="Account Name" data-clear-btn="true" />
+                        <asp:TextBox ID="account_txt" runat="server" placeholder="Account" data-clear-btn="true" />
                     </li>
                     <li class="item row">
                         <div class="col">
@@ -103,59 +93,6 @@
         <script type="text/javascript">
             $(function () {
                 window.history.forward();
-
-                if ('<%=strAlertCode%>'.length > 0) {
-                    switch ('<%=strAlertCode%>') {
-                        case '-1':
-                            alert('<%=strAlertMessage%>');
-                            tooglePaymentMethod($('#drpBank').val());
-                            break;
-                        case '0':
-                            break;
-                        default:
-                            break;
-                    }
-                }
-
-                $('#drpBank').change(function () {
-                    var bId = this.value;
-
-                    tooglePaymentMethod(bId)
-                });
-
-                function tooglePaymentMethod(bId) {
-                    $("#txtAccountName").val('');
-
-                    if (bId == "40") { //WeChat
-                        $("#txtAmount").hide();
-                        $("#drpAmount").show();
-                        $("#accountNo").hide();
-
-                        populateWeChatNickName();
-                    }
-                    else { //QR
-                        $("#txtAmount").show();
-                        $("#drpAmount").hide();
-                        $("#accountNo").show();
-                    }
-                }
-
-                function populateWeChatNickName() {
-                    $.ajax({
-                        type: "POST",
-                        async: false,
-                        url: "DaddyPay.aspx/ProcessWeChatNickname",
-                        data: JSON.stringify({ action: "getNickname", nickname: "" }),
-                        contentType: "application/json;",
-                        dataType: "json",
-                        success: function (response) {
-                            var result = response.d;
-                            $('#txtAccountName').val(result);
-                            $('#hfWCNickname').val(result); //store original nickname if any.
-                        }
-                    })
-                }
-
             });
         </script>
     </div>

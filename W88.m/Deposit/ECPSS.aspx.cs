@@ -21,7 +21,7 @@ public partial class Deposit_ECPSS : PaymentBasePage
 
     protected void Page_Init(object sender, EventArgs e)
     {
-        base.PageName = "ECPSS";
+        base.PageName = Convert.ToString(commonVariables.DepositMethod.ECPSS);
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.ECPSS);
 
@@ -42,7 +42,7 @@ public partial class Deposit_ECPSS : PaymentBasePage
         CancelUnexpectedRePost();
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"));
+        commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"));
 
         if (!Page.IsPostBack)
         {
@@ -96,8 +96,6 @@ public partial class Deposit_ECPSS : PaymentBasePage
 
         CommonStatus status = new CommonStatus();
 
-        if (!status.IsProcessAbort)
-        {
             try
             {
                 if (decDepositAmount == 0)
@@ -116,12 +114,12 @@ public partial class Deposit_ECPSS : PaymentBasePage
                 {
                     status = base.GetErrors("/AmountMaxLimit");
                 }
-                else if ((strTotalAllowed != strUnlimited) && (decDepositAmount > Convert.ToDecimal(strTotalAllowed)) && Convert.ToDecimal(strTotalAllowed) > 0)
+            else if ((strTotalAllowed != strUnlimited) && (decDepositAmount > Convert.ToDecimal(strTotalAllowed)) && Convert.ToDecimal(strTotalAllowed) > 0)
                 {
                     status = base.GetErrors("/TotalAllowedExceeded");
                 }
 
-                if (!status.IsProcessAbort)
+            if (!status.IsProcessAbort)
                 {
                     status.AlertCode = "0";
                 }
@@ -140,7 +138,6 @@ public partial class Deposit_ECPSS : PaymentBasePage
                Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, drpBank.SelectedValue, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
 
             intProcessSerialId += 1;
-            commonAuditTrail.appendLog("system", PageName, "InitiateDeposit", string.Empty, strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
-        }
+        commonAuditTrail.appendLog("system", base.PageName, "InitiateDeposit", string.Empty, strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
     }
 }
