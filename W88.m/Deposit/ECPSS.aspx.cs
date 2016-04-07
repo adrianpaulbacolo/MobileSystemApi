@@ -74,7 +74,7 @@ public partial class Deposit_ECPSS : PaymentBasePage
     {
         using (wsDummy.dummyWSSoapClient client = new wsDummy.dummyWSSoapClient())
         {
-            DataSet result = client.DummyURLs(Convert.ToInt64(strOperatorId), Convert.ToInt64(base.PaymentMethodId), Convert.ToString(HttpContext.Current.Session["PaymentGroup"]));
+            DataSet result = client.DummyURLs_Mobile(Convert.ToInt64(strOperatorId), Convert.ToInt64(base.PaymentMethodId), Convert.ToString(HttpContext.Current.Session["PaymentGroup"]));
 
             this.strRedirectUrl = result.Tables[0].Rows.Count == 0 ? string.Empty : Convert.ToString(result.Tables[0].Rows[0]["redirectUrl"]);
         }
