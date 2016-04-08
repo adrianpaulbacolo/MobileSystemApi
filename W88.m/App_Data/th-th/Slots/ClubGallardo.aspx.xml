@@ -76,9 +76,9 @@
 				<SuperFastHotHot ProductId="896516">
 					<ImageName><![CDATA[W88-Slots-Mobile-Super-Fast-Hot-Hot]]></ImageName>
 				</SuperFastHotHot>
-				<SuperLadyLuck ProductId="906518" NotSupportedCurrency="RMB">
+				<!--<SuperLadyLuck ProductId="906518" NotSupportedCurrency="RMB">
 					<ImageName><![CDATA[W88-Slots-Mobile-Super-Lady-Luck]]></ImageName>
-				</SuperLadyLuck>
+				</SuperLadyLuck>-->
 				<SuperLuckyReels ProductId="896501">
 					<ImageName><![CDATA[W88-Slots-Mobile-Super-Lucky-Reels]]></ImageName>
 				</SuperLuckyReels>
