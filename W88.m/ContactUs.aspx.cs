@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class _ContactUs : BaseBeforeLogin
+public partial class _ContactUs : BasePage
 {
     protected System.Xml.Linq.XElement xeResources = null;
 
