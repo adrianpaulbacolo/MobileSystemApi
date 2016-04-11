@@ -254,7 +254,7 @@
                 <!-- Zalo -->
                 <% if (commonVariables.SelectedLanguage.Equals("vi-vn", StringComparison.OrdinalIgnoreCase)) { %>
                 <li class="col col-33">
-                    <a href="Funds.aspx" class="tile" data-ajax="false" data-transition="slidedown">
+                    <a href="zalo://639989602209" class="tile" data-ajax="false" data-transition="slidedown">
                         <span class="icon-zalo"></span>
                         <h4 class="title">Zalo</h4>
                     </a>
