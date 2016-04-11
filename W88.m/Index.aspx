@@ -250,6 +250,17 @@
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
+
+                <!-- Zalo -->
+                <% if (commonVariables.SelectedLanguage.Equals("vi-vn", StringComparison.OrdinalIgnoreCase)) { %>
+                <li class="col col-33">
+                    <a href="Funds.aspx" class="tile" data-ajax="false" data-transition="slidedown">
+                        <span class="icon-zalo"></span>
+                        <h4 class="title">Zalo</h4>
+                    </a>
+                </li>
+                <% } %>
+
             </ul>
 
             <!-- <ul class="hide">
