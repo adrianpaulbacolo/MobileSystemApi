@@ -102,6 +102,10 @@ public class PaymentBasePage : BasePage
 
     #endregion
 
+    protected override void OnPreInit(EventArgs e)
+    {
+        this.isPublic = false;
+    }
     protected void InitialiseVariables()
     {
         strOperatorId = commonVariables.OperatorId;

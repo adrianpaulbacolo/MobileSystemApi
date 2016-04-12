@@ -133,6 +133,8 @@ public static class commonCookie
         System.Web.HttpContext.Current.Response.Cookies["g"].Domain = commonIp.DomainName;
         System.Web.HttpContext.Current.Response.Cookies["g"].Value = "";
         System.Web.HttpContext.Current.Response.Cookies["g"].Expires = DateTime.Now.AddYears(-1);
+
+
         /*
         foreach (string strCookieName in HttpContext.Current.Request.Cookies.AllKeys) 
         {

@@ -54,13 +54,33 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
         #endregion
 
         #region parametersValidation
-        if (string.IsNullOrEmpty(strMemberCode)) { strProcessCode = "-1"; strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/MissingUsername", xeErrors); isProcessAbort = true; }
-        else if (string.IsNullOrEmpty(strPassword)) { strProcessCode = "-1"; strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/MissingPassword", xeErrors); isProcessAbort = true; }
-        else if (string.IsNullOrEmpty(strVCode) && Session["ctr"] != null) { strProcessCode = "-1"; strProcessMessage = commonCulture.ElementValues.getResourceString("MissingVCode", xeErrors); isProcessAbort = false; }
-        else if (commonValidation.isInjection(strMemberCode)) { strProcessCode = "-1"; strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/InvalidUsername", xeErrors); isProcessAbort = true; }
-        else if (commonValidation.isInjection(strPassword)) { strProcessCode = "-1"; strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/InvalidPassword", xeErrors); isProcessAbort = true; }
-        else if (commonValidation.isInjection(strVCode) && Session["ctr"] != null) { strProcessCode = "-1"; strProcessMessage = commonCulture.ElementValues.getResourceString("IncorrectVCode", xeErrors); isProcessAbort = true; }
-        //else if (string.Compare(commonEncryption.encrypting(strVCode), strSessionVCode, true) != 0) { strProcessCode = "-1"; strProcessMessage = commonCulture.ElementValues.getResourceString("IncorrectVCode", xeErrors); isProcessAbort = true; }
+        if (string.IsNullOrEmpty(strMemberCode)) { 
+            strProcessCode = "-1"; 
+            strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/MissingUsername", xeErrors); 
+            isProcessAbort = true; }
+        else if (string.IsNullOrEmpty(strPassword)) { 
+            strProcessCode = "-1"; 
+            strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/MissingPassword", xeErrors); 
+            isProcessAbort = true; 
+        }
+        else if (string.IsNullOrEmpty(strVCode) && Session["ctr"] != null) { 
+            strProcessCode = "-1"; 
+            strProcessMessage = commonCulture.ElementValues.getResourceString("MissingVCode", xeErrors); 
+            isProcessAbort = false; 
+        }
+        else if (commonValidation.isInjection(strMemberCode)) { 
+            strProcessCode = "-1"; 
+            strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/InvalidUsername", xeErrors); 
+            isProcessAbort = true; 
+        }
+        else if (commonValidation.isInjection(strPassword)) { 
+            strProcessCode = "-1"; 
+            strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/InvalidPassword", xeErrors); 
+            isProcessAbort = true; }
+        else if (commonValidation.isInjection(strVCode) && Session["ctr"] != null) { 
+            strProcessCode = "-1"; 
+            strProcessMessage = commonCulture.ElementValues.getResourceString("IncorrectVCode", xeErrors); 
+            isProcessAbort = true; }
         else
         {
             strPassword = commonEncryption.Encrypt(strPassword);
@@ -107,7 +127,6 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
                                 commonCookie.CookieS = strMemberSessionId;
                                 commonCookie.CookieG = strMemberSessionId;
                                 commonCookie.CookiePalazzo = strPassword;
-                                HttpContext.Current.Session.Add("LoginStatus", "success");
 
                                 bool isResetPassword = Convert.ToBoolean(string.IsNullOrWhiteSpace(Session["ResetPassword"] as string) ? 0 : Session["ResetPassword"]);
 
