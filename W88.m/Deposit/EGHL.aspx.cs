@@ -22,7 +22,7 @@ public partial class Deposit_EGHL : PaymentBasePage
 
     protected void Page_Init(object sender, EventArgs e)
     {
-        base.PageName = "EGHL";
+        base.PageName = Convert.ToString(commonVariables.DepositMethod.EGHL);
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.EGHL);
 
@@ -39,7 +39,7 @@ public partial class Deposit_EGHL : PaymentBasePage
         CancelUnexpectedRePost();
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-        commonPaymentMethodFunc.getDepositMethodList(strMethodsUnAvailable, depositTabs, "eghl", sender.ToString().Contains("app"));
+        commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"));
 
         if (!Page.IsPostBack)
         {
@@ -80,73 +80,70 @@ public partial class Deposit_EGHL : PaymentBasePage
 
         CommonStatus status = new CommonStatus();
 
-        if (!status.IsProcessAbort)
+        try
         {
-            try
+            if (decDepositAmount == 0)
             {
-                if (decDepositAmount == 0)
-                {
-                    status = base.GetErrors("/MissingDepositAmount");
-                }
-                else if (decDepositAmount < decMinLimit)
-                {
-                    status = base.GetErrors("/AmountMinLimit");
-                }
-                else if (decDepositAmount > decMaxLimit)
-                {
-                    status = base.GetErrors("/AmountMaxLimit");
-                }
-                else if ((strTotalAllowed != strUnlimited) && (decDepositAmount > Convert.ToDecimal(strTotalAllowed)) && Convert.ToDecimal(strTotalAllowed) > 0)
-                {
-                    status = base.GetErrors("/TotalAllowedExceeded");
-                }
+                status = base.GetErrors("/MissingDepositAmount");
+            }
+            else if (decDepositAmount < decMinLimit)
+            {
+                status = base.GetErrors("/AmountMinLimit");
+            }
+            else if (decDepositAmount > decMaxLimit)
+            {
+                status = base.GetErrors("/AmountMaxLimit");
+            }
+            else if ((strTotalAllowed != strUnlimited) && (decDepositAmount > Convert.ToDecimal(strTotalAllowed)) && Convert.ToDecimal(strTotalAllowed) > 0)
+            {
+                status = base.GetErrors("/TotalAllowedExceeded");
+            }
 
-                if (!status.IsProcessAbort)
+            if (!status.IsProcessAbort)
+            {
+                using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
                 {
-                    using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
+                    xeResponse = client.createOnlineDepositTransactionV3(Convert.ToInt64(strOperatorId), strMemberCode, Convert.ToInt64(base.PaymentMethodId), strMerchantId, strCurrencyCode, decDepositAmount, svcPayDeposit.DepositSource.Mobile, string.Empty, string.Empty);
+
+                    if (xeResponse == null)
                     {
-                        xeResponse = client.createOnlineDepositTransactionV2(Convert.ToInt64(strOperatorId), strMemberCode, Convert.ToInt64(base.PaymentMethodId), strMerchantId, strCurrencyCode, decDepositAmount, string.Empty);
+                        status = base.GetErrors("/TransferFail");
+                    }
+                    else
+                    {
+                        bool isTransactionSuccessful = Convert.ToBoolean(commonCulture.ElementValues.getResourceString("result", xeResponse));
+                        string strTransferId = commonCulture.ElementValues.getResourceString("invId", xeResponse);
 
-                        if (xeResponse == null)
+                        if (isTransactionSuccessful)
                         {
-                            status = base.GetErrors("/TransferFail");
+                            status.AlertCode = "0";
+                            status.AlertMessage = string.Format("{0}\\n{1}: {2}", commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferSuccess", xeErrors), strlblTransactionId, strTransferId);
+
+                            litForm.Text = GetForm(strTransferId, decDepositAmount.ToString("#.00"));
                         }
                         else
                         {
-                            bool isTransactionSuccessful = Convert.ToBoolean(commonCulture.ElementValues.getResourceString("result", xeResponse));
-                            string strTransferId = commonCulture.ElementValues.getResourceString("invId", xeResponse);
-
-                            if (isTransactionSuccessful)
-                            {
-                                status.AlertCode = "0";
-                                status.AlertMessage = string.Format("{0}\\n{1}: {2}", commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferSuccess", xeErrors), strlblTransactionId, strTransferId);
-
-                                litForm.Text = GetForm(strTransferId, decDepositAmount.ToString("#.00"));
-                            }
-                            else
-                            {
-                                status = GetErrors("/TransferFail", strTransferId, "/error");
-                            }
+                            status = GetErrors("/TransferFail", strTransferId, "/error");
                         }
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                status = base.GetErrors("/Exception");
-
-                strErrorDetail = ex.Message;
-            }
-
-            strAlertCode = status.AlertCode;
-            strAlertMessage = status.AlertMessage;
-
-            string strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | CurrencyCode: {2} | DepositAmount: {3} | MinLimit: {4} | MaxLimit: {5} | TotalAllowed: {6} | DailyLimit: {7} | Response: {8}",
-               Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
-
-            intProcessSerialId += 1;
-            commonAuditTrail.appendLog("system", PageName, "InitiateDeposit", string.Empty, strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
         }
+        catch (Exception ex)
+        {
+            status = base.GetErrors("/Exception");
+
+            strErrorDetail = ex.Message;
+        }
+
+        strAlertCode = status.AlertCode;
+        strAlertMessage = status.AlertMessage;
+
+        string strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | CurrencyCode: {2} | DepositAmount: {3} | MinLimit: {4} | MaxLimit: {5} | TotalAllowed: {6} | DailyLimit: {7} | Response: {8}",
+           Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
+
+        intProcessSerialId += 1;
+        commonAuditTrail.appendLog("system", PageName, "InitiateDeposit", string.Empty, strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
     }
 
     private string GetForm(string invId, string amount)
@@ -155,7 +152,7 @@ public partial class Deposit_EGHL : PaymentBasePage
         string email = strMemberID + "@qq.com";
 
         var request = (HttpWebRequest)WebRequest.Create(postUrl);
-        
+
         string postData = "merID=" + strMerchantId;
         postData += ("&e-inv=" + invId);
         postData += ("&amt=" + amount);
