@@ -81,7 +81,7 @@ public class AllDebitCallback : IHttpHandler, IRequiresSessionState
         if (signInfo != generatedSign)
         {
             commonAuditTrail.appendLog("system", pageName, taskName, string.Empty, string.Empty, processDetail, string.Empty, "error", "Source SHA256:" + signInfo + "|Generated SHA256:" + generatedSign, Convert.ToString(processSerialId), processId, false);
-            context.Response.Write(commonCulture.ElementValues.getResourceString("Deposit/TransferFail", commonVariables.ErrorsXML));
+            context.Response.Write(commonCulture.ElementValues.getResourceXPathString("Deposit/TransferFail", commonVariables.ErrorsXML));
             return;
         }
 
@@ -121,7 +121,7 @@ public class AllDebitCallback : IHttpHandler, IRequiresSessionState
         catch (Exception ex)
         {
             commonAuditTrail.appendLog("system", pageName, taskName, string.Empty, string.Empty, processDetail, string.Empty, "-99", "Message: " + ex.Message + "|Stacktrace: " + ex.StackTrace, Convert.ToString(processSerialId), processId, true);
-            context.Response.Write(commonCulture.ElementValues.getResourceString("Deposit/Exception", commonVariables.ErrorsXML));
+            context.Response.Write(commonCulture.ElementValues.getResourceXPathString("Deposit/Exception", commonVariables.ErrorsXML));
             return;
         }
         #endregion
@@ -133,7 +133,7 @@ public class AllDebitCallback : IHttpHandler, IRequiresSessionState
         if (responseBytes.Length == 0)
         {
             commonAuditTrail.appendLog("system", pageName, taskName, string.Empty, string.Empty, processDetail, string.Empty, "error", "response is empty", Convert.ToString(processSerialId), processId, false);
-            context.Response.Write(commonCulture.ElementValues.getResourceString("Deposit/TransferFail", commonVariables.ErrorsXML));
+            context.Response.Write(commonCulture.ElementValues.getResourceXPathString("Deposit/TransferFail", commonVariables.ErrorsXML));
             return;
         }
 
@@ -142,15 +142,15 @@ public class AllDebitCallback : IHttpHandler, IRequiresSessionState
 
         if (responseStr != "OK")
         {
-            context.Response.Write(commonCulture.ElementValues.getResourceString("Deposit/TransferFail", commonVariables.ErrorsXML));
+            context.Response.Write(commonCulture.ElementValues.getResourceXPathString("Deposit/TransferFail", commonVariables.ErrorsXML));
             return;
         }
         else
         {
             if (orderStatus == "1")
-                context.Response.Write(commonCulture.ElementValues.getResourceString("Deposit/TransferSuccess", commonVariables.ErrorsXML));
+                context.Response.Write(commonCulture.ElementValues.getResourceXPathString("Deposit/TransferSuccess", commonVariables.ErrorsXML));
             else
-                context.Response.Write(commonCulture.ElementValues.getResourceString("Deposit/Exception", commonVariables.ErrorsXML));
+                context.Response.Write(commonCulture.ElementValues.getResourceXPathString("Deposit/Exception", commonVariables.ErrorsXML));
         }
         #endregion
     }
