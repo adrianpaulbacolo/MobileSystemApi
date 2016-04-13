@@ -15,7 +15,7 @@ public class commonVariables
     {
         get
         {
-            if (System.Web.HttpContext.Current.Cache.Get("ProductsXML_" + commonVariables.SelectedLanguage) != null)
+            if (System.Web.HttpContext.Current.Cache.Get("PaymentMethodsXML_" + commonVariables.SelectedLanguage) != null)
             {
                 return System.Web.HttpContext.Current.Cache.Get("PaymentMethodsXML_" + commonVariables.SelectedLanguage) as System.Xml.Linq.XElement;
             }

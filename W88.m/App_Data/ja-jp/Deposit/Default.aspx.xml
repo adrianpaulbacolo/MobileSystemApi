@@ -22,5 +22,7 @@
 	<btnCancel><![CDATA[キャンセル]]></btnCancel>
 	<btnSubmit><![CDATA[転送]]></btnSubmit>
 
+	<lblThankYou><![CDATA[ありがとうございました。]]></lblThankYou>
+	
 	<browserNotice><![CDATA[<span>覚書: <b>{BANK}</b> クロームとファイアフォックスはサポートしていません</span>]]></browserNotice>
 </Deposit>

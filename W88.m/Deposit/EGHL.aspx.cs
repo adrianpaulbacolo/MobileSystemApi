@@ -54,11 +54,11 @@ public partial class Deposit_EGHL : PaymentBasePage
         lblMinMaxLimit.Text = base.strlblMinMaxLimit;
         lblDailyLimit.Text = base.strlblDailyLimit;
         lblTotalAllowed.Text = base.strlblTotalAllowed;
-        lblDepositAmount.Text = base.strlblDepositAmount;
+        lblDepositAmount.Text = base.strlblAmount;
 
         btnSubmit.Text = base.strbtnSubmit;
 
-        txtDepositAmount.Attributes.Add("PLACEHOLDER", base.strtxtDepositAmount);
+        txtDepositAmount.Attributes.Add("PLACEHOLDER", base.strtxtAmount);
 
         txtMinMaxLimit.Text = base.strtxtMinMaxLimit;
         txtDailyLimit.Text = base.strtxtDailyLimit;
@@ -151,6 +151,9 @@ public partial class Deposit_EGHL : PaymentBasePage
         string postUrl = ConfigurationManager.AppSettings["EGHL_posturl"];
         string email = strMemberID + "@qq.com";
 
+        var requestUrl = HttpContext.Current.Request.Url;
+        string callbackUrl = requestUrl.Scheme + "://" + requestUrl.Host + base.ThankYouPage;
+
         var request = (HttpWebRequest)WebRequest.Create(postUrl);
 
         string postData = "merID=" + strMerchantId;
@@ -158,7 +161,8 @@ public partial class Deposit_EGHL : PaymentBasePage
         postData += ("&amt=" + amount);
         postData += ("&p_Name=" + base.PageName);
         postData += ("&c_Email=" + email);
-
+        postData += ("&respURL=" + callbackUrl);
+        
         var data = Encoding.ASCII.GetBytes(postData);
 
         request.Method = "POST";

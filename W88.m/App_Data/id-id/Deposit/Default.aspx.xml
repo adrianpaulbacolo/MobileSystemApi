@@ -20,7 +20,9 @@
 	<lblAccountNumber><![CDATA[Nomor Rekening Anda]]></lblAccountNumber>
 
 	<btnSubmit><![CDATA[Kirim]]></btnSubmit>
-	<btnCancel><![CDATA[CANCEL]]></btnCancel>
+	<btnCancel><![CDATA[Batal]]></btnCancel>
+
+	<lblThankYou><![CDATA[Terima Kasih]]></lblThankYou>
 
 	<browserNotice><![CDATA[<span>Gentle reminder: <b>{BANK}</b> do not support chrome & firefox</span>]]></browserNotice>
 </Deposit>
