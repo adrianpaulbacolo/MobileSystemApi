@@ -327,7 +327,7 @@ public partial class Deposit_AllDebit : PaymentBasePage
             appSettings = "AllDebit_Master";
         }
 
-        return commonEncryption.decrypting(ConfigurationManager.AppSettings[appSettings]);
+        return commonEncryption.decrypting(ConfigurationManager.AppSettings[appSettings], ConfigurationManager.AppSettings.Get("PaymentPrivateKey"));
     }
 
 }

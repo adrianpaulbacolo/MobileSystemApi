@@ -57,11 +57,11 @@ public class AllDebitCallback : IHttpHandler, IRequiresSessionState
 
         if (gatewayNo.Equals("20751003"))
         {
-            signKey = commonEncryption.decrypting(ConfigurationManager.AppSettings["AllDebit_Visa"]);
+            signKey = commonEncryption.decrypting(ConfigurationManager.AppSettings["AllDebit_Visa"], ConfigurationManager.AppSettings.Get("PaymentPrivateKey"));
         }
         else if (gatewayNo.Equals("20751004"))
         {
-            signKey = commonEncryption.decrypting(ConfigurationManager.AppSettings["AllDebit_Master"]);
+            signKey = commonEncryption.decrypting(ConfigurationManager.AppSettings["AllDebit_Master"], ConfigurationManager.AppSettings.Get("PaymentPrivateKey"));
         }
 
         commonAuditTrail.appendLog("system", pageName, taskName, string.Empty, string.Empty, processDetail, string.Empty, "ok", "signKey:" + signKey, Convert.ToString(processSerialId), processId, false);
