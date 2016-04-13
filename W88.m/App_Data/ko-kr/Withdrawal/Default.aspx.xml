@@ -1,31 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Deposit>
-  <lblTitle><![CDATA[은행송금]]></lblTitle>
-  <lblAmount><![CDATA[출금금액]]></lblAmount>  
-  <lblBank><![CDATA[은행]]></lblBank>
-  <drpBank><![CDATA[은행 선택]]></drpBank>
-  <lblBankName><![CDATA[은행명]]></lblBankName>
-  <drpOtherBank><![CDATA[다른 은행]]></drpOtherBank>
-  <lblBankBranch><![CDATA[지점]]></lblBankBranch>
-  <lblAddress><![CDATA[주소]]></lblAddress>
-  <lblAccountName><![CDATA[계좌명]]></lblAccountName>
-  <lblAccountNumber><![CDATA[계좌번호]]></lblAccountNumber>
-  <lblMyKad><![CDATA[MyKad]]></lblMyKad>
-  <lblMobileNumber><![CDATA[핸드폰]]></lblMobileNumber>
-  <lblMobileNotify><![CDATA[핸드폰으로 알람]]></lblMobileNotify>
-  <btnSubmit><![CDATA[확인]]></btnSubmit>
-  <lblTransactionId><![CDATA[거래 ID]]></lblTransactionId>
-  <lblDailyLimit><![CDATA[일일한도: ]]></lblDailyLimit>
-  <lblTotalAllowed><![CDATA[전체한도: ]]></lblTotalAllowed>
-  <lblAtmNumber><![CDATA[회원 ATM 카드 번호]]></lblAtmNumber>
+<Withdrawal>
+	<lblMode><![CDATA[모드]]></lblMode>
+	<online><![CDATA[온라인]]></online>
+	<offline><![CDATA[오프라인]]></offline>
+	<lblMinMaxLimit><![CDATA[최소/최대한도]]></lblMinMaxLimit>
+	<lblDailyLimit><![CDATA[일일한도: ]]></lblDailyLimit>
+	<lblTotalAllowed><![CDATA[전체한도: ]]></lblTotalAllowed>
+	<lblAmount><![CDATA[출금금액]]></lblAmount>
+	<unlimited><![CDATA[무제한]]></unlimited>
 
-  <BankNameNative>
-    <ZH-CN_RMB />
-    <VI-VN_VND />
-    <TH-TH_THB />
-    <ID-ID_IDR />
-    <KM-KH_USD />
-    <KO-KR_KRW />
-    <JA-JP_JPY />
-  </BankNameNative>
-</Deposit>
+	<lblTransactionId><![CDATA[거래 ID]]></lblTransactionId>
+
+	<lblBank><![CDATA[은행]]></lblBank>
+	<drpBank><![CDATA[은행 선택]]></drpBank>
+	<lblBankName><![CDATA[은행이름]]></lblBankName>
+	<drpOtherBank><![CDATA[다른은행]]></drpOtherBank>
+
+	<lblAccountName><![CDATA[계좌명]]></lblAccountName>
+	<lblAccountNumber><![CDATA[계좌번호]]></lblAccountNumber>
+
+	<btnCancel><![CDATA[취소]]></btnCancel>
+	<btnSubmit><![CDATA[입금]]></btnSubmit>
+</Withdrawal>

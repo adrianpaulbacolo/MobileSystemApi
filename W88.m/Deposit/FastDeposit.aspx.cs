@@ -74,13 +74,14 @@ public partial class Deposit_FastDesposit : PaymentBasePage
         lblTotalAllowed.Text = base.strlblTotalAllowed;
         txtTotalAllowed.Text = base.strtxtTotalAllowed;
 
-        lblDepositAmount.Text = base.strlblDepositAmount;
-        txtDepositAmount.Attributes.Add("PLACEHOLDER", base.strtxtDepositAmount);
+        lblDepositAmount.Text = base.strlblAmount;
+        txtDepositAmount.Attributes.Add("PLACEHOLDER", base.strtxtAmount);
 
         lblAccountName.Text = base.strlblAccountName;
         lblAccountNumber.Text = base.strlblAccountNumber;
 
         lblBank.Text = base.strlblBank;
+        lblBankName.Text = base.strlblBankName;
 
         btnSubmit.Text = base.strbtnSubmit;
 
@@ -137,8 +138,8 @@ public partial class Deposit_FastDesposit : PaymentBasePage
         drpBank.DataValueField = "bankCode";
         drpBank.DataBind();
 
-        drpBank.Items.Insert(0, new ListItem(base.drpBank, "-1"));
-        drpBank.Items.Add(new ListItem(base.drpOtherBank, "OTHER"));
+        drpBank.Items.Insert(0, new ListItem(base.strdrpBank, "-1"));
+        drpBank.Items.Add(new ListItem(base.strdrpOtherBank, "OTHER"));
     }
 
     private void InitialiseDepositChannel()
