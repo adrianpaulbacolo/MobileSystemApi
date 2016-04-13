@@ -65,11 +65,11 @@
                         </div>
                     </li>
                     <li class="item item-input">
-                        <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" Text="to" />
+                        <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" />
                         <asp:TextBox ID="txtAccountName" runat="server" data-clear-btn="true" />
                     </li>
                     <li class="item item-input">
-                        <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" Text="to" />
+                        <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" />
                         <asp:TextBox ID="txtAccountNumber" runat="server" data-clear-btn="true" />
                     </li>
                     <li class="item row">
@@ -77,10 +77,9 @@
                             <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" id="btnCancel" runat="server" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
                         </div>
                         <div class="col">
-                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" OnClick="btnSubmit_Click" />
+                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" OnClick="btnSubmit_Click" />
                         </div>
                     </li>
-                    <asp:HiddenField runat="server" ID="_repostcheckcode" />
                 </ul>
             </form>
         </div>

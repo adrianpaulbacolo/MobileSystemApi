@@ -65,7 +65,7 @@
                         </div>
                     </li>
                     <li class="item item-input">
-                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" Text="from" />
+                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
                         <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
                     <li class="row">
@@ -73,7 +73,7 @@
                             <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" id="btnCancel" runat="server" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
                         </div>
                         <div class="col">
-                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" />
+                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" />
                         </div>
                     </li>
                     <li class="item-text-wrap">
@@ -85,7 +85,6 @@
                     <li class="item-text-wrap">
                         <a href="http://mobile.unionpay.com/getclient?platform=ios&type=securepayplugin" target="_blank"><%=commonCulture.ElementValues.getResourceString("lblIOSDownload", xeResources)%></a>
                     </li>
-                    <asp:HiddenField runat="server" ID="_repostcheckcode" />
                 </ul>
             </form>
         </div>

@@ -51,7 +51,7 @@ public partial class Deposit_Neteller : PaymentBasePage
 
             txtAccountId.Attributes.Add("PLACEHOLDER", string.Format("{0}", commonCulture.ElementValues.getResourceString("accountId", commonVariables.LeftMenuXML)));
             txtSecureId.Attributes.Add("PLACEHOLDER", string.Format("{0}", commonCulture.ElementValues.getResourceString("secureId", commonVariables.LeftMenuXML)));
-            txtDepositAmount.Attributes.Add("PLACEHOLDER", string.Format("{0} ({1})", commonCulture.ElementValues.getResourceString("lblDepositAmount", xeResources), strCurrencyCode));
+            txtDepositAmount.Attributes.Add("PLACEHOLDER", string.Format("{0} ({1})", commonCulture.ElementValues.getResourceString("lblAmount", xeResources), strCurrencyCode));
 
             txtMinMaxLimit.Text = string.Format(": {0} / {1}", strMinLimit, strMaxLimit);
             txtDailyLimit.Text = string.Format(": {0}", strDailyLimit);

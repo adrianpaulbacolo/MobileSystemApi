@@ -159,6 +159,29 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="DummyURLs_Mobile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="methodId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentGroup" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DummyURLs_MobileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DummyURLs_MobileResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="DummySiteStatusByPaymentGroup">
         <s:complexType>
           <s:sequence>
@@ -226,6 +249,12 @@
   <wsdl:message name="DummyURLsSoapOut">
     <wsdl:part name="parameters" element="tns:DummyURLsResponse" />
   </wsdl:message>
+  <wsdl:message name="DummyURLs_MobileSoapIn">
+    <wsdl:part name="parameters" element="tns:DummyURLs_Mobile" />
+  </wsdl:message>
+  <wsdl:message name="DummyURLs_MobileSoapOut">
+    <wsdl:part name="parameters" element="tns:DummyURLs_MobileResponse" />
+  </wsdl:message>
   <wsdl:message name="DummySiteStatusByPaymentGroupSoapIn">
     <wsdl:part name="parameters" element="tns:DummySiteStatusByPaymentGroup" />
   </wsdl:message>
@@ -267,6 +296,11 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">DummyURLs</wsdl:documentation>
       <wsdl:input message="tns:DummyURLsSoapIn" />
       <wsdl:output message="tns:DummyURLsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DummyURLs_Mobile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">DummyURLs_Mobile</wsdl:documentation>
+      <wsdl:input message="tns:DummyURLs_MobileSoapIn" />
+      <wsdl:output message="tns:DummyURLs_MobileSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="DummySiteStatusByPaymentGroup">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">DummySiteStatus&lt;br&gt;</wsdl:documentation>
@@ -332,6 +366,15 @@
     </wsdl:operation>
     <wsdl:operation name="DummyURLs">
       <soap:operation soapAction="http://tempuri.org/DummyURLs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DummyURLs_Mobile">
+      <soap:operation soapAction="http://tempuri.org/DummyURLs_Mobile" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -407,6 +450,15 @@
     </wsdl:operation>
     <wsdl:operation name="DummyURLs">
       <soap12:operation soapAction="http://tempuri.org/DummyURLs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DummyURLs_Mobile">
+      <soap12:operation soapAction="http://tempuri.org/DummyURLs_Mobile" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

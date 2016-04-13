@@ -25,7 +25,6 @@
                 <ul class="list fixed-tablet-size">
                     <li class="item item-input">
                         <asp:Literal ID="litPending" runat="server"></asp:Literal>
-                        <asp:HiddenField runat="server" ID="_repostcheckcode" />
                         <br />
                         <input type="button" onclick="location.href = '/Deposit/Default_app.aspx';" value="Back" class="button-blue"  data-corners="false" />
                     </li>
