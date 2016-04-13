@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <banks>
-	<bank id="ICBC" ><![CDATA[工商银行 <span style="color:#FF0000;font-weight:bold;">(*)</span>]]></bank>
+	<bank id="ICBC" ><![CDATA[工商银行 (*)]]></bank>
 	<bank id="ABC"><![CDATA[农业银行]]></bank>
 	<bank id="BOCSH"><![CDATA[中国银行]]></bank>
 	<bank id="CCB"><![CDATA[建设银行]]></bank>
@@ -9,7 +9,7 @@
 	<bank id="GDB"><![CDATA[广发银行]]></bank>
 	<bank id="BOCOM"><![CDATA[交通银行]]></bank>
 	<!--<bank id="PSBC"><![CDATA[邮政储蓄银行]]></bank>-->
-	<bank id="CNCB"><![CDATA[中信银行 <span style="color:#FF0000;font-weight:bold;">(*)</span>]]></bank>
+	<bank id="CNCB"><![CDATA[中信银行 (*)]]></bank>
 	<bank id="CMBC"><![CDATA[民生银行]]></bank>
 	<bank id="CEB"><![CDATA[光大银行]]></bank>
 	<bank id="HXB"><![CDATA[华夏银行]]></bank>

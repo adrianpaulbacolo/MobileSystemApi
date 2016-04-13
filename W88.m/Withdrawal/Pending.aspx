@@ -29,7 +29,6 @@
                 <ul class="list fixed-tablet-size">
                     <li class="item item-input">
                         <asp:Literal ID="litPending" runat="server"></asp:Literal>
-                        <asp:HiddenField runat="server" ID="_repostcheckcode" />
                     </li>
                 </ul>
             </form>

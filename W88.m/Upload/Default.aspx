@@ -46,7 +46,6 @@
                             <asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="upload" data-corners="false" OnClick="btnSubmit_Click" />
                         </div>
                     </li>
-                    <asp:HiddenField runat="server" ID="_repostcheckcode" />
                 </ul>
             </form>
         </div>

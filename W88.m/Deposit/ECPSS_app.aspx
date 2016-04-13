@@ -105,7 +105,7 @@
                             var remote_ip = '<%=HttpUtility.UrlEncode(commonEncryption.encrypting(commonIp.remoteIP,ConfigurationManager.AppSettings["PaymentPrivateKey"]))%>';
                             var domain = '<%=strRedirectUrl%>';
 
-                            var url = domain + "api/ECPSSHandler.ashx?requestAmount=" + $("#txtDepositAmount").val() + "&bankCode=" + $("#drpBank").val() + "&cookie=" + cookie + "&ip=" + remote_ip;
+                            var url = domain + "api/ECPSSHandler.ashx?requestAmount=" + $("#txtDepositAmount").val() + "&bankCode=" + $("#drpBank").val() + "&cookie=" + cookie + "&ip=" + remote_ip + "&isMobile=true";
 
                             window.open(url);
 

@@ -207,7 +207,7 @@ public partial class Deposit_DaddyPay : BasePage
             strMaxLimit = Convert.ToDecimal(drPaymentMethodLimit["maxDeposit"]).ToString(commonVariables.DecimalFormat);
             strTotalAllowed = Convert.ToDecimal(dtPaymentMethodLimits.Rows[0]["totalAllowed"]) == 0 ? commonCulture.ElementValues.getResourceString("unlimited", xeResources) : Convert.ToDecimal(dtPaymentMethodLimits.Rows[0]["totalAllowed"]).ToString(commonVariables.DecimalFormat);
             strDailyLimit = Convert.ToDecimal(dtPaymentMethodLimits.Rows[0]["limitDaily"]) == 0 ? commonCulture.ElementValues.getResourceString("unlimited", xeResources) : Convert.ToDecimal(dtPaymentMethodLimits.Rows[0]["limitDaily"]).ToString(commonVariables.DecimalFormat);
-            amount_txt.Text = commonCulture.ElementValues.getResourceString("lblDepositAmount", xeResources);
+            amount_txt.Text = commonCulture.ElementValues.getResourceString("lblAmount", xeResources);
 
             amount_txt.Attributes.Add("PLACEHOLDER", string.Format("{0} ({1})", amount_txt.Text, strCurrencyCode));
 

@@ -74,13 +74,14 @@ public partial class Deposit_FastDesposit : PaymentBasePage
         lblTotalAllowed.Text = base.strlblTotalAllowed;
         txtTotalAllowed.Text = base.strtxtTotalAllowed;
 
-        lblDepositAmount.Text = base.strlblDepositAmount;
-        txtDepositAmount.Attributes.Add("PLACEHOLDER", base.strtxtDepositAmount);
+        lblDepositAmount.Text = base.strlblAmount;
+        txtDepositAmount.Attributes.Add("PLACEHOLDER", base.strtxtAmount);
 
         lblAccountName.Text = base.strlblAccountName;
         lblAccountNumber.Text = base.strlblAccountNumber;
 
         lblBank.Text = base.strlblBank;
+        lblBankName.Text = base.strlblBankName;
 
         btnSubmit.Text = base.strbtnSubmit;
 

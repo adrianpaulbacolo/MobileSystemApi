@@ -78,8 +78,8 @@ public class PaymentBasePage : BasePage
     protected string strlblTotalAllowed = string.Empty;
     protected string strtxtTotalAllowed = string.Empty;
 
-    protected string strlblDepositAmount = string.Empty;
-    protected string strtxtDepositAmount = string.Empty;
+    protected string strlblAmount = string.Empty;
+    protected string strtxtAmount = string.Empty;
 
     protected string strbtnSubmit = string.Empty;
     protected string strbtnCancel = string.Empty;
@@ -145,8 +145,8 @@ public class PaymentBasePage : BasePage
         strlblTotalAllowed = commonCulture.ElementValues.getResourceString("lblTotalAllowed", xeDefaultResources);
         strtxtTotalAllowed = string.Format(": {0}", strTotalAllowed);
 
-        strlblDepositAmount = commonCulture.ElementValues.getResourceString("lblDepositAmount", xeDefaultResources);
-        strtxtDepositAmount = string.Format("{0} ({1})", strlblDepositAmount, strCurrencyCode);
+        strlblAmount = commonCulture.ElementValues.getResourceString("lblAmount", xeDefaultResources);
+        strtxtAmount = string.Format("{0} ({1})", strlblAmount, strCurrencyCode);
 
         strlblTransactionId = commonCulture.ElementValues.getResourceString("lblTransactionId", xeDefaultResources);
 
@@ -263,7 +263,7 @@ public class PaymentBasePage : BasePage
 
         using (svcPayMember.MemberClient svcInstance = new svcPayMember.MemberClient())
         {
-            dtPaymentMethodLimits = svcInstance.getMethodLimits(strOperatorId, strMemberCode, strMethodId, Convert.ToString(Convert.ToInt32(commonVariables.PaymentTransactionType.Withdrawal)), false, out strProcessCode, out strProcessText);
+            dtPaymentMethodLimits = svcInstance.getMethodLimits_Mobile(strOperatorId, strMemberCode, strMethodId, Convert.ToString(Convert.ToInt32(commonVariables.PaymentTransactionType.Withdrawal)), false, out strProcessCode, out strProcessText);
         }
 
         foreach (commonVariables.WithdrawalMethod EnumMethod in Enum.GetValues(typeof(commonVariables.WithdrawalMethod)))
@@ -286,6 +286,8 @@ public class PaymentBasePage : BasePage
                 strMaxLimit = Convert.ToDecimal(drPaymentMethodLimit["maxWithdrawal"]).ToString(commonVariables.DecimalFormat);
                 strTotalAllowed = Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]) <= 0 ? strUnlimited : Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]).ToString(commonVariables.DecimalFormat);
                 strDailyLimit = Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]) == 0 ? strUnlimited : Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]).ToString(commonVariables.DecimalFormat);
+                strMerchantId = Convert.ToString(drPaymentMethodLimit["merchantId"]);
+                strMode = Convert.ToString(drPaymentMethodLimit["paymentMode"]);
             }
         }
 
@@ -309,7 +311,7 @@ public class PaymentBasePage : BasePage
         }
     }
 
-    protected void InitialisePendingWithdrawals()
+    protected void InitialisePendingWithdrawals(bool isApp)
     {
         string strStatusCode = string.Empty;
         string strStatusText = string.Empty;
@@ -322,7 +324,7 @@ public class PaymentBasePage : BasePage
 
             if (arrPending != null && arrPending.Length > 0)
             {
-                if (Request.QueryString["source"] == "app")
+                if (isApp)
                     Response.Redirect("/Withdrawal/Pending_app.aspx");
                 else
                     Response.Redirect("/Withdrawal/Pending.aspx");

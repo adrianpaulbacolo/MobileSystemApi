@@ -54,17 +54,16 @@
                     </li>
                     <li class="item row">
                         <div class="col">
-                            <asp:Button ID="btnSubmit" runat="server" Text="login" OnClick="btnSubmit_Click" />
+                            <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" />
                         </div>
                     </li>
-                    <asp:HiddenField runat="server" ID="_repostcheckcode" />
                 </ul>
                  <div class="row">
                     <div class="col">
                         <input type="button" data-theme="b" onclick="location.href = '/Deposit/Default_app.aspx';" value="<%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%>" class="button-blue"  data-corners="false" />
                     </div>
                     <div class="col">
-                        <input type="button" data-theme="b" onclick="location.href = '/Withdrawal/Withrawal.aspx?source=app';" value="<%=commonCulture.ElementValues.getResourceString("withrawal", commonVariables.LeftMenuXML)%>" class="button-blue"  data-corners="false" />
+                        <input type="button" data-theme="b" onclick="location.href = '/Withdrawal/Default_app.aspx';" value="<%=commonCulture.ElementValues.getResourceString("withrawal", commonVariables.LeftMenuXML)%>" class="button-blue"  data-corners="false" />
                     </div>
                 </div>
             </form>

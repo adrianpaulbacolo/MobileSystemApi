@@ -31,7 +31,7 @@
                 <br />
                 <ul class="list fixed-tablet-size">
                     <li class="item item-input">
-                        <asp:Label ID="lblWithdrawAmount" runat="server" AssociatedControlID="txtWithdrawAmount" Text="from" />
+                        <asp:Label ID="lblWithdrawAmount" runat="server" AssociatedControlID="txtWithdrawAmount" />
                         <asp:TextBox ID="txtWithdrawAmount" runat="server" type="number" step="any" min="1" />
                     </li>
                     <li class="item item-text-wrap">
@@ -43,11 +43,11 @@
                         </div>
                     </li>
                     <li class="item item-input">
-                        <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" Text="to" />
+                        <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" />
                         <asp:TextBox ID="txtAccountName" runat="server" />
                     </li>
                     <li class="item item-input">
-                        <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" Text="to" />
+                        <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" />
                         <asp:TextBox ID="txtAccountNumber" runat="server" />
                     </li>
                     <!--
@@ -58,9 +58,8 @@
                     -->
                     <li class="row">
                         <div class="col">
-                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" OnClick="btnSubmit_Click" data-corners="false" /></div>
+                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" OnClick="btnSubmit_Click" data-corners="false" /></div>
                     </li>
-                    <asp:HiddenField runat="server" ID="_repostcheckcode" />
                 </ul>
 
                 <div class="row">
