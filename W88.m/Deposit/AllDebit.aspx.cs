@@ -69,8 +69,8 @@ public partial class Deposit_AllDebit : PaymentBasePage
         lblTotalAllowed.Text = base.strlblTotalAllowed;
         txtTotalAllowed.Text = base.strtxtTotalAllowed;
 
-        lblDepositAmount.Text = base.strlblDepositAmount;
-        txtDepositAmount.Attributes.Add("PLACEHOLDER", base.strtxtDepositAmount);
+        lblDepositAmount.Text = base.strlblAmount;
+        txtDepositAmount.Attributes.Add("PLACEHOLDER", base.strtxtAmount);
 
         btnSubmit.Text = base.strbtnSubmit;
 
