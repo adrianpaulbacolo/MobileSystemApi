@@ -105,7 +105,7 @@
                             <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" id="btnCancel" runat="server" data-ajax="false"><%=base.strbtnCancel%></a>
                         </div>
                         <div class="col">
-                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" OnClientClick="window.document.forms[0].target='_blank';" />
+                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" />
                         </div>
                     </li>
 
@@ -142,6 +142,8 @@
             });
         </script>
     </div>
+
+    <asp:Literal ID="litForm" runat="server"></asp:Literal>
 
     <div id="ccvModal" data-role="popup" data-overlay-theme="b" data-theme="b" data-history="false">
         <a href="#" data-rel="back" class="close close-enhanced">&times;</a>

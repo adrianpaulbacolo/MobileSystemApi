@@ -224,7 +224,7 @@ public partial class Deposit_AllDebit : PaymentBasePage
                             status.AlertCode = "0";
                             status.AlertMessage = string.Format("{0}\\n{1}: {2}", commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferSuccess", xeErrors), strlblTransactionId, strTransferId);
 
-                            CallVendor(strDepositAmount, strCardNo, strCCV, strIssuingBank, selectedMonth, selectedYear, strTransferId, selectedCardTypeValue);
+                            litForm.Text = CallVendor(strDepositAmount, strCardNo, strCCV, strIssuingBank, selectedMonth, selectedYear, strTransferId, selectedCardTypeValue);
                         }
                         else
                         {
@@ -252,7 +252,7 @@ public partial class Deposit_AllDebit : PaymentBasePage
         commonAuditTrail.appendLog("system", base.PageName, "InitiateDeposit", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
     }
 
-    private void CallVendor(string strDepositAmount, string strCardNo, string strCCV, string strIssuingBank, string selectedMonth, string selectedYear, string strTransferId, string gatewayNo)
+    private string CallVendor(string strDepositAmount, string strCardNo, string strCCV, string strIssuingBank, string selectedMonth, string selectedYear, string strTransferId, string gatewayNo)
     {
         string signKey = GetMerchantKey(gatewayNo);
         string email = "pgwsw88@gmail.com";
@@ -277,41 +277,45 @@ public partial class Deposit_AllDebit : PaymentBasePage
         string zip = "NA";
         string csid = string.Empty;
 
-        var sb = new StringBuilder();
-        sb.Append(@"<form id=""theForm"" name=""theForm"" target=""_self"" method=""post"" action='" + postUrl + "'>");
-        sb.Append(@"<input type=""hidden"" id=""merNo"" name=""merNo"" value='" + strMerchantId + "'/>");
-        sb.Append(@"<input type=""hidden"" id=""gatewayNo"" name=""gatewayNo"" value='" + gatewayNo + "'/>");
-        sb.Append(@"<input type=""hidden"" id=""orderNo"" name=""orderNo"" value='" + strTransferId + "'/>");
-        sb.Append(@"<input type=""hidden"" id=""orderCurrency"" name=""orderCurrency"" value='" + strCurrencyCode + "'/>");
-        sb.Append(@"<input type=""hidden"" id=""orderAmount"" name=""orderAmount"" value='" + strDepositAmount + "'/>");
-        sb.Append(@"<input type=""hidden"" id=""returnUrl"" name=""returnUrl"" value='" + callbackUrl + "'/>");
-        sb.Append(@"<input type=""hidden"" id=""cardNo"" name=""cardNo"" value='" + strCardNo + "'/>");
-        sb.Append(@"<input type=""hidden"" id=""cardExpireMonth"" name=""cardExpireMonth"" value='" + selectedMonth + "'/>");
-        sb.Append(@"<input type=""hidden"" id=""cardExpireYear"" name=""cardExpireYear"" value='" + selectedYear + "'/>");
-        sb.Append(@"<input type=""hidden"" id=""cardSecurityCode"" name=""cardSecurityCode"" value='" + strCCV + "'/>");
-        sb.Append(@"<input type=""hidden"" id=""issuingBank"" name=""issuingBank"" value='" + strIssuingBank + "'/>");
-        sb.Append(@"<input type=""hidden"" id=""firstName"" name=""firstName"" value='" + strMemberID + "'/>");
-        sb.Append(@"<input type=""hidden"" id=""lastName"" name=""lastName"" value='" + strMemberID + "'/>");
-        sb.Append(@"<input type=""hidden"" id=""email"" name=""email"" value='" + email + "'/>");
-        sb.Append(@"<input type=""hidden"" id=""phone"" name=""phone"" value='" + phone + "'/>");
-        sb.Append(@"<input type=""hidden"" id=""country"" name=""country"" value='" + country + "'/>");
-        sb.Append(@"<input type=""hidden"" id=""state"" name=""state"" value='" + state + "'/>");
-        sb.Append(@"<input type=""hidden"" id=""city"" name=""city"" value='" + city + "'/>");
-        sb.Append(@"<input type=""hidden"" id=""address"" name=""address"" value='" + address + "'/>");
-        sb.Append(@"<input type=""hidden"" id=""zip"" name=""zip"" value='" + zip + "'/>");
-        sb.Append(@"<input type=""hidden"" id=""signInfo"" name=""signInfo"" value='" + signInfo + "'/>");
-        sb.Append(@"<input type=""hidden"" id=""csid"" name=""csid"" value='" + csid + "'/>");
-        sb.Append(@"</form>");
+        var request = (HttpWebRequest)WebRequest.Create(postUrl);
+        string postData = "merNo=" + strMerchantId;
+        postData += ("&gatewayNo=" + gatewayNo);
+        postData += ("&orderNo=" + strTransferId);
+        postData += ("&orderCurrency=" + strCurrencyCode);
+        postData += ("&orderAmount=" + strDepositAmount);
+        postData += ("&returnUrl=" + callbackUrl);
+        postData += ("&cardNo=" + strCardNo);
+        postData += ("&cardExpireMonth=" + selectedMonth);
+        postData += ("&cardExpireYear=" + selectedYear);
+        postData += ("&cardSecurityCode=" + strCCV);
+        postData += ("&issuingBank=" + strIssuingBank);
+        postData += ("&firstName=" + strMemberID);
+        postData += ("&lastName=" + strMemberID);
+        postData += ("&email=" + email);
+        postData += ("&phone=" + phone);
+        postData += ("&country=" + country);
+        postData += ("&state=" + state);
+        postData += ("&address=" + address);
+        postData += ("&zip=" + zip);
+        postData += ("&signInfo=" + signInfo);
+        postData += ("&csid=" + csid);
 
-        Response.Write(sb.ToString());
+        var data = Encoding.ASCII.GetBytes(postData);
 
-        var sb1 = new StringBuilder();
-        sb1.Append(@"<script type='text/javascript'>");
-        sb1.Append(@"var ctlForm = document.forms.namedItem('theForm');");
-        sb1.Append(@"ctlForm.submit();");
-        sb1.Append(@"</script>");
+        request.Method = "POST";
+        request.ContentType = "application/x-www-form-urlencoded";
+        request.ContentLength = data.Length;
 
-        Response.Write(sb1.ToString());
+        using (var stream = request.GetRequestStream())
+        {
+            stream.Write(data, 0, data.Length);
+        }
+
+        var response = (HttpWebResponse)request.GetResponse();
+
+        var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+
+       return responseString.Replace("form ", @"form target=""_blank"" ").Replace("setTimeout('delayer()', 5000)", "setTimeout('delayer()', 1000)");
     }
 
     private static string GetMerchantKey(string gatewayNo)
