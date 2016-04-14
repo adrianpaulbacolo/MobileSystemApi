@@ -165,11 +165,11 @@
 				<SlotType><![CDATA[RSLOT]]></SlotType>
 			</monkeyking>
 			<!--<Ninetailedninja>
-        <ImageName><![CDATA[ninetailedninja]]></ImageName>
-        <PlayForRealURL><![CDATA[{BravadoUrl}/ninetailedninja/?fun=0]]></PlayForRealURL>
-        <PlayForFunURL><![CDATA[{BravadoUrl}/ninetailedninja/?fun=1]]></PlayForFunURL>
-        <IsInternal><![CDATA[true]]></IsInternal>
-      </Ninetailedninja>-->
+				<ImageName><![CDATA[ninetailedninja]]></ImageName>
+				<PlayForRealURL><![CDATA[{BravadoUrl}/ninetailedninja/?fun=0]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{BravadoUrl}/ninetailedninja/?fun=1]]></PlayForFunURL>
+				<IsInternal><![CDATA[true]]></IsInternal>
+			</Ninetailedninja>-->
 			<Panda>
 				<ImageName><![CDATA[panda]]></ImageName>
 				<PlayForRealURL><![CDATA[{BravadoUrl}/panda/?fun=0]]></PlayForRealURL>
