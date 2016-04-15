@@ -134,21 +134,5 @@ public static class commonCookie
         System.Web.HttpContext.Current.Response.Cookies["g"].Value = "";
         System.Web.HttpContext.Current.Response.Cookies["g"].Expires = DateTime.Now.AddYears(-1);
 
-
-        /*
-        foreach (string strCookieName in HttpContext.Current.Request.Cookies.AllKeys) 
-        {
-            //respCookie.Domain = commonIp.domainName;
-            //respCookie.Value = string.Empty;
-            //respCookie.Expires = System.DateTime.Now.AddYears(-1);
-            //System.web
-            if (System.Web.HttpContext.Current.Request.Cookies[strCookieName] != null)
-            {
-                HttpCookie myCookie = new HttpCookie(strCookieName);
-                myCookie.Expires = DateTime.Now.AddDays(-1d);
-                System.Web.HttpContext.Current.Response.Cookies.Add(myCookie);
-            }
-        }
-        */
     }
 }
