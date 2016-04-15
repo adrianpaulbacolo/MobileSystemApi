@@ -57,9 +57,11 @@ public partial class Slots_ClubPalazzo: BasePage
                         if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                             sbGames.AppendFormat("<a class='btn-primary' target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubBravado") + "' data-rel='dialog' data-transition='slidedown'>");
                         else
-                            sbGames.AppendFormat("<a href=\"javascript:load_palazzo_link('{0}','{1}','{2}')\" target='_blank'>", commonCulture.ElementValues.getResourceString("Type", xeGame), commonCulture.ElementValues.getResourceString("ImageName", xeGame), "real");
-                            //sbGames.AppendFormat("<a href='{0}'>", commonClubBravado.getRealUrl.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
-
+                            sbGames.AppendFormat(
+                                "<a href=\"/Slots/ClubPalazzoLauncher.aspx?type={0}&name={1}&mode={2}\" target='_blank'>", 
+                                commonCulture.ElementValues.getResourceString("Type", xeGame), 
+                                commonCulture.ElementValues.getResourceString("ImageName", xeGame), 
+                                "real");
                         sbGames.Append("<i class='icon-play_arrow'></i></a>");
                     }
                     
