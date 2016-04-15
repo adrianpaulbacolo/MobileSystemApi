@@ -6,7 +6,7 @@
 	<lblMinMaxLimit><![CDATA[Giới Hạn Min/Max]]></lblMinMaxLimit>
 	<lblDailyLimit><![CDATA[Giới Hạn Trong Ngày: ]]></lblDailyLimit>
 	<lblTotalAllowed><![CDATA[Tổng Số Cho Phép: ]]></lblTotalAllowed>
-	<lblDepositAmount><![CDATA[Số Tiền Gửi]]></lblDepositAmount>
+	<lblAmount><![CDATA[Số Tiền Gửi]]></lblAmount>
 	<unlimited><![CDATA[Không giới hạn]]></unlimited>
 
 	<lblTransactionId><![CDATA[Mã Số Giao Dịch]]></lblTransactionId>

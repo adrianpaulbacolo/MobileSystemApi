@@ -42,7 +42,7 @@ public partial class Deposit_WingMoney : PaymentBasePage
         {
             strTitle = commonCulture.ElementValues.getResourceString("lblTitle", xeResources);
 
-            lblDepositAmount.Text = commonCulture.ElementValues.getResourceString("lblDepositAmount", xeResources);
+            lblDepositAmount.Text = commonCulture.ElementValues.getResourceString("lblAmount", xeResources);
             lblReferenceId.Text = commonCulture.ElementValues.getResourceString("lblReferenceId", xeResources);
             lblAccountName.Text = commonCulture.ElementValues.getResourceString("lblAccountName", xeResources);
             lblAccountNumber.Text = commonCulture.ElementValues.getResourceString("lblAccountNumber", xeResources);

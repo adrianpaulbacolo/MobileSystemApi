@@ -60,10 +60,9 @@
                             <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
                         </div>
                         <div class="col">
-                            <asp:Button ID="btnSubmit" runat="server" Text="login" OnClick="btnSubmit_Click" />
+                            <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" />
                         </div>
                     </li>
-                    <asp:HiddenField runat="server" ID="_repostcheckcode" />
                 </ul>
             </form>
         </div>
