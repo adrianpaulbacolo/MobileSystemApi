@@ -21,12 +21,8 @@
         }, 10000);
     }
 
-    function stopSessionCheck() {
-        console.log('test');
-    }
-
     // Comment out to run in LOCAL or UAT
-    //redirectToHttps();
+    redirectToHttps();
 });
 
 if ($("#divBalance").hasClass("open")) { $("#divBalance").addClass("close"); } else { if ($("#divBalance").hasClass("open")) { $("#divBalance").addClass("close"); } }
