@@ -22,7 +22,9 @@
     }
 
     // Comment out to run in LOCAL or UAT
-    redirectToHttps();
+    if (!document.URL.indexOf("localhost") || !document.URL.indexOf("uat")) {
+        redirectToHttps();
+    }
 });
 
 if ($("#divBalance").hasClass("open")) { $("#divBalance").addClass("close"); } else { if ($("#divBalance").hasClass("open")) { $("#divBalance").addClass("close"); } }
