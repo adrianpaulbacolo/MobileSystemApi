@@ -6,7 +6,7 @@
 	<lblMinMaxLimit><![CDATA[Batas Min/Max]]></lblMinMaxLimit>
 	<lblDailyLimit><![CDATA[Batas Perhari: ]]></lblDailyLimit>
 	<lblTotalAllowed><![CDATA[Jumlah yang diperbolehkan: ]]></lblTotalAllowed>
-	<lblDepositAmount><![CDATA[Jumlah Deposit]]></lblDepositAmount>
+	<lblAmount><![CDATA[Jumlah Deposit]]></lblAmount>
 	<unlimited><![CDATA[Tanpa Batas]]></unlimited>
 
 	<lblTransactionId><![CDATA[No. Transaksi]]></lblTransactionId>

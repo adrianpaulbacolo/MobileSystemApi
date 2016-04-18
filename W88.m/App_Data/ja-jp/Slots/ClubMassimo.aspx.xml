@@ -67,21 +67,28 @@
 			</vegasStripBlackjackGold>
 		</CardAndTable>
 		<Slot Label="スロット">
-			<sunTide Top="1">
+			<barBarBlackSheep5Reel Top="1">
+				<Label><![CDATA[barBarBlackSheep5Reel]]></Label>
+				<Description><![CDATA[barBarBlackSheep5Reel]]></Description>
+				<ImageName><![CDATA[W88-Slots-Mobile-Bar-Bar-Black-Sheep]]></ImageName>
+				<PlayForRealURL><![CDATA[{RealUrl}/barBarBlackSheep5Reel/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{FunUrl}/barBarBlackSheep5Reel/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+			</barBarBlackSheep5Reel>
+
+			<sunTide>
 				<Label><![CDATA[sunTide]]></Label>
 				<Description><![CDATA[SunTide]]></Description>
 				<ImageName><![CDATA[SunTide-mobile]]></ImageName>
 				<PlayForRealURL><![CDATA[{RealUrl}/sunTide/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
 				<PlayForFunURL><![CDATA[{FunUrl}/sunTide/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
 			</sunTide>
-			<wildOrient Top="2">
+			<wildOrient>
 				<Label><![CDATA[wildOrient]]></Label>
 				<Description><![CDATA[WildOrient]]></Description>
 				<ImageName><![CDATA[Wild-Orient-mobile]]></ImageName>
 				<PlayForRealURL><![CDATA[{RealUrl}/wildOrient/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
 				<PlayForFunURL><![CDATA[{FunUrl}/wildOrient/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
 			</wildOrient>
-
 			<AdventurePalace>
 				<Description><![CDATA[AdventurePalace]]></Description>
 				<ImageName><![CDATA[W88-Slots-Mobile-Adventure-Palace]]></ImageName>

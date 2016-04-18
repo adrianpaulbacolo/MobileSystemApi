@@ -6,7 +6,7 @@
 	<lblMinMaxLimit><![CDATA[최소/최대한도]]></lblMinMaxLimit>
 	<lblDailyLimit><![CDATA[일일한도: ]]></lblDailyLimit>
 	<lblTotalAllowed><![CDATA[전체한도: ]]></lblTotalAllowed>
-	<lblDepositAmount><![CDATA[입금 금액]]></lblDepositAmount>
+	<lblAmount><![CDATA[입금 금액]]></lblAmount>
 	<unlimited><![CDATA[무제한]]></unlimited>
 
 	<lblTransactionId><![CDATA[거래 ID]]></lblTransactionId>

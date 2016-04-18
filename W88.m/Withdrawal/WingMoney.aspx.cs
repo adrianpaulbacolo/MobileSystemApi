@@ -15,7 +15,7 @@ public partial class Withdrawal_WingMoney : PaymentBasePage
 
     protected void Page_Init(object sender, EventArgs e)
     {
-        base.PageName = "WingMoney";
+        base.PageName = Convert.ToString(commonVariables.WithdrawalMethod.WingMoney);
         base.PaymentType = commonVariables.PaymentTransactionType.Withdrawal;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.WithdrawalMethod.WingMoney);
 
@@ -26,7 +26,7 @@ public partial class Withdrawal_WingMoney : PaymentBasePage
 
         base.GetMainWalletBalance("0");
 
-        base.InitialisePendingWithdrawals();
+        base.InitialisePendingWithdrawals(sender.ToString().Contains("app"));
     }
 
     protected void Page_Load(object sender, EventArgs e)

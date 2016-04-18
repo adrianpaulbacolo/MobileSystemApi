@@ -6,7 +6,7 @@
 	<lblMinMaxLimit><![CDATA[การจำกัดยอดขั้นต่ำ /สูงสุด]]></lblMinMaxLimit>
 	<lblDailyLimit><![CDATA[การจำกัดยอดเงินต่อวัน: ]]></lblDailyLimit>
 	<lblTotalAllowed><![CDATA[ยอดเงินที่ทำรายการได้: ]]></lblTotalAllowed>
-	<lblDepositAmount><![CDATA[ยอดเงินการฝาก]]></lblDepositAmount>
+	<lblAmount><![CDATA[ยอดเงินการฝาก]]></lblAmount>
 	<unlimited><![CDATA[ไม่จำกัด]]></unlimited>
 
 	<lblTransactionId><![CDATA[หมายเลขธุรกรรม]]></lblTransactionId>
