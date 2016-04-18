@@ -171,7 +171,7 @@
                       {%>
                     <a href="zalo://639989602209" class="tile" data-ajax="false" data-transition="slidedown">
                         <span class="icon-zalo"></span>
-                        <h4 class="title">Zalo</h4>
+                        <h4 class="title">(+63) 9989602209</h4>
                     </a>
                     <%}
                       else if (DetectMobileDevice() == 2)
