@@ -296,19 +296,7 @@ public class PaymentBasePage : BasePage
 
     protected void GetMainWalletBalance(string walletId)
     {
-        string strProductCurrency = string.Empty;
-
-        if (!string.IsNullOrEmpty(strMemberCode) && !string.IsNullOrEmpty(strOperatorId))
-        {
-            using (svcPayMember.MemberClient svcInstance = new svcPayMember.MemberClient())
-            {
-                Session["MAIN"] = svcInstance.getWalletBalance(strOperatorId, strSiteUrl, strMemberCode, walletId, out strProductCurrency);
-            }
-        }
-        else
-        {
-            Session["MAIN"] = "0.00";
-        }
+        commonPaymentMethodFunc.GetWalletBalance(Convert.ToInt32(walletId));
     }
 
     protected void InitialisePendingWithdrawals(bool isApp)

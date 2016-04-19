@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<History>
+    <history><![CDATA[履歴]]></history>
+    <depositwithdrawal><![CDATA[入金/出金]]></depositwithdrawal>
+    <fundtransfer><![CDATA[送金]]></fundtransfer>
+    <referralbonus><![CDATA[紹介ボーナス]]></referralbonus>
+    <promotionclaim><![CDATA[プロモーションクレーム]]></promotionclaim>
+
+    <lblDateFrom><![CDATA[開始日]]></lblDateFrom>
+    <lblDateTo><![CDATA[終了日]]></lblDateTo>
+    <lblType><![CDATA[タイプ]]></lblType>
+    <lblStatus><![CDATA[ステータス]]></lblStatus>
+
+    <type id="0"><![CDATA[全部]]></type>
+    <type id="1"><![CDATA[入金]]></type>
+    <type id="2"><![CDATA[入金]]></type>
+
+    <status id="ALL"><![CDATA[全部]]></status>
+    <status id="SUCCESSFUL"><![CDATA[成功]]></status>
+    <status id="PENDING"><![CDATA[保留中]]></status>
+    <status id="FAILED"><![CDATA[失敗]]></status>
+    <status id="REJECTED"><![CDATA[拒否された]]></status>
+
+    <dateTime><![CDATA[日付/時刻]]></dateTime>
+    <transId><![CDATA[トランザクションID]]></transId>
+    <paymentMethod><![CDATA[支払方法]]></paymentMethod>
+    <submittedAmt><![CDATA[提出金額]]></submittedAmt>
+    <receivedAmt><![CDATA[受付金額]]></receivedAmt>
+    <from><![CDATA[から]]></from>
+    <to><![CDATA[へ]]></to>
+    <source><![CDATA[ソース]]></source>
+    <amount><![CDATA[金額]]></amount>
+    <subjectCode><![CDATA[タイトルコード]]></subjectCode>
+    <norecords><![CDATA[レコードが見当たりません!]]></norecords>
+
+    <ftStatus id="-1"><![CDATA[全部]]></ftStatus>
+    <ftStatus id="0"><![CDATA[保留中]]></ftStatus>
+    <ftStatus id="1"><![CDATA[成功]]></ftStatus>
+    <ftStatus id="2"><![CDATA[失敗]]></ftStatus>
+    <ftStatus id="3"><![CDATA[拒否された]]></ftStatus>
+
+    <totalInvitees><![CDATA[招待の合計]]></totalInvitees>
+    <totalRegistered><![CDATA[登録の合計]]></totalRegistered>
+    <totalSuccessReferral><![CDATA[紹介成功の合計]]></totalSuccessReferral>
+    <totalReferralBonus><![CDATA[紹介ボーナス（[cur])]]></totalReferralBonus>
+
+    <btnSubmit><![CDATA[送信]]></btnSubmit>
+</History>
