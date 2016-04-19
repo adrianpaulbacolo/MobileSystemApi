@@ -62,6 +62,12 @@
                         <%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%>
                     </a>
                 </li>
+                <li class="title">
+                    <a data-rel="dialog" rel="history" href="/_Secure/Login.aspx" data-transition="slidedown">
+                        <!-- <img src="/_Static/Images/index-withdrawal.png" class="img-responsive"> -->
+                        <%=commonCulture.ElementValues.getResourceString("history", commonVariables.HistoryXML)%>
+                    </a>
+                </li>
                 <!--<li>
                     <a href="/History" role="button" data-ajax="false">
                         History
@@ -410,6 +416,9 @@
             });
             $('a[rel="withdrawal"]').each(function () {
                 $(this).removeAttr('data-rel').removeAttr('data-transition').attr('data-ajax', 'false').attr('href', '/Withdrawal');
+            });
+            $('a[rel="history"]').each(function () {
+                $(this).removeAttr('data-rel').removeAttr('data-transition').attr('data-ajax', 'false').attr('href', '/History');
             });
             $('a[rel="asports"]').each(function () {
                 $(this).removeAttr('data-rel').removeAttr('data-transition').attr('data-ajax', 'false').attr('href', '<%=(string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) ? "_Secure/Login" : commonASports.getSportsbookUrl)%>');
