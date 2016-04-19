@@ -1,124 +1,82 @@
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
-public partial class _Profile_Default : System.Web.UI.Page 
+namespace Profile
 {
-
-    protected void Page_Load(object sender, EventArgs e)
+    public partial class ProfileDefault : BasePage 
     {
-        InitializeWalletBalance();
-    }
 
-    public void InitializeWalletBalance()
-    {
-        string[] keys = { "0"};
-
-        for (int x = 0; x < keys.Length; x++)
+        protected void Page_Load(object sender, EventArgs e)
         {
-            getWalletBalance(keys[x]);
+            if (Page.IsPostBack) return;
+
+            SetTitle(commonCulture.ElementValues.getResourceString("profile", commonVariables.LeftMenuXML));
+            InitializeWalletBalance();
         }
-    }
 
-
-
-    private class Wallet
-    {
-        public const string MAIN = "0";
-    }
-
-
-
-    public void getWalletBalance(string walletId)
-    {
-        string strOperatorId = commonVariables.OperatorId;
-        string strMemberCode = string.Empty;
-        string strSiteUrl = commonVariables.SiteUrl;
-
-        string processCode = string.Empty;
-        string processText = string.Empty;
-
-        string strWalletId = string.Empty;
-        string strWalletAmount = string.Empty;
-        string strProductCurrency = string.Empty;
-
-        strWalletId = walletId;
-
-        strMemberCode = commonVariables.GetSessionVariable("MemberCode");
-
-        if (!string.IsNullOrEmpty(strMemberCode) && !string.IsNullOrEmpty(strOperatorId))
+        public void InitializeWalletBalance()
         {
-            using (svcPayMember.MemberClient svcInstance = new svcPayMember.MemberClient())
+            var wallet = commonPaymentMethodFunc.GetWallets().Where(x => x.Key.Equals(0)).ToList();
+            var wId = wallet.Where(x => x.Key.Equals(0)).Select(type => type.Key).ToList()[0];
+            commonPaymentMethodFunc.GetWalletBalance(wId);
+        }
+
+        public static int getCurrentPoints()
+        {
+            int total = 0;
+            int claim = 0;
+            int current = 0;
+            int cart = 0;
+
+            try
             {
-                strWalletAmount = svcInstance.getWalletBalance(strOperatorId, strSiteUrl, strMemberCode, strWalletId, out strProductCurrency);
-            }
-        }
-        else { strWalletAmount = "0"; }
 
-        if (walletId == Wallet.MAIN)
-        {
-            Session["MAIN"] = strWalletAmount;
-        }
-    }
-
-
-    public static int getCurrentPoints()
-    {
-        int total = 0;
-        int claim = 0;
-        int current = 0;
-        int cart = 0;
-
-        try
-        {
-
-            if (!string.IsNullOrEmpty((string)HttpContext.Current.Session["MemberId"]))
-            {
-                using (RewardsServices.RewardsServicesClient sClient = new RewardsServices.RewardsServicesClient())
+                if (!string.IsNullOrEmpty((string)HttpContext.Current.Session["MemberId"]))
                 {
-                    string strMemberCode = string.IsNullOrEmpty(System.Web.HttpContext.Current.Session["MemberCode"] as string) ? string.Empty : Convert.ToString(System.Web.HttpContext.Current.Session["MemberCode"]);
-
-                    System.Data.DataSet ds = sClient.getRedemptionDetail(commonVariables.OperatorId, strMemberCode);
-
-                    if (ds.Tables.Count > 0)
+                    using (RewardsServices.RewardsServicesClient sClient = new RewardsServices.RewardsServicesClient())
                     {
-                        if (ds.Tables[0].Rows.Count > 0)
+                        string strMemberCode = string.IsNullOrEmpty(System.Web.HttpContext.Current.Session["MemberCode"] as string) ? string.Empty : Convert.ToString(System.Web.HttpContext.Current.Session["MemberCode"]);
+
+                        System.Data.DataSet ds = sClient.getRedemptionDetail(commonVariables.OperatorId, strMemberCode);
+
+                        if (ds.Tables.Count > 0)
                         {
-                            total = int.Parse(ds.Tables[0].Rows[0][0].ToString());
-
-                            if (ds.Tables[1].Rows.Count > 0)
+                            if (ds.Tables[0].Rows.Count > 0)
                             {
-                                claim = int.Parse(ds.Tables[1].Rows[0][0].ToString());
+                                total = int.Parse(ds.Tables[0].Rows[0][0].ToString());
+
+                                if (ds.Tables[1].Rows.Count > 0)
+                                {
+                                    claim = int.Parse(ds.Tables[1].Rows[0][0].ToString());
+                                }
+
+                                if (ds.Tables[2].Rows.Count > 0)
+                                {
+                                    cart = int.Parse(ds.Tables[2].Rows[0][0].ToString());
+                                }
+                                claim = claim + cart;
                             }
 
-                            if (ds.Tables[2].Rows.Count > 0)
-                            {
-                                cart = int.Parse(ds.Tables[2].Rows[0][0].ToString());
-                            }
-                            claim = claim + cart;
                         }
+                        current = total - claim;
+
+                        HttpContext.Current.Session["pointsBalance"] = current;
+
+                        return current;
 
                     }
-                    current = total - claim;
-
-                    HttpContext.Current.Session["pointsBalance"] = current;
-
-                    return current;
-
+                }
+                else
+                {
+                    return 0;
                 }
             }
-            else
+            catch (Exception ex)
             {
+                //throw;
                 return 0;
             }
-        }
-        catch (Exception ex)
-        {
-            //throw;
-            return 0;
         }
     }
 }

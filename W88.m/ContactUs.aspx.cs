@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class _ContactUs : BaseBeforeLogin
+public partial class _ContactUs : BasePage
 {
     protected System.Xml.Linq.XElement xeResources = null;
 
@@ -14,6 +14,7 @@ public partial class _ContactUs : BaseBeforeLogin
         System.Web.UI.WebControls.Literal litScript = (System.Web.UI.WebControls.Literal)Page.FindControl("litScript");
         //commonCulture.appData.getLocalResource(out xeResources);
         commonCulture.appData.getRootResource("ContactUs.aspx", out xeResources);
+        SetTitle(commonCulture.ElementValues.getResourceString("contactUs", commonVariables.LeftMenuXML));
 
         if (!Page.IsPostBack)
         {

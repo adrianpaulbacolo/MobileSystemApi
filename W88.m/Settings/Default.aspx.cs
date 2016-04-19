@@ -1,10 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+﻿using System;
 
-public partial class _Settings_Default : System.Web.UI.Page {
+namespace Settings
+{
+    public partial class SettingsDefault : BasePage
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Page.IsPostBack) return;
 
+            SetTitle("Settings");
+
+        }
+    }
 }
