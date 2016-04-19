@@ -11,6 +11,7 @@
                 responseType: "json",
                 success: function (data) {
                     if (data.code != "1") {
+                        if (typeof data.message != "undefined") alert(data.message);
                         clearInterval(sessionPoll);
                         window.location.replace("/Logout");
                     }
@@ -19,11 +20,6 @@
                 }
             });
         }, 10000);
-    }
-
-    // Comment out to run in LOCAL or UAT
-    if (!document.URL.indexOf("localhost") || !document.URL.indexOf("uat")) {
-        redirectToHttps();
     }
 });
 
