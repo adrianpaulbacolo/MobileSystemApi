@@ -1,0 +1,28 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Slots.master.cs" Inherits="MasterPages_Slots" %>
+
+<%@ Register TagPrefix="uc1" TagName="HeaderLogo" Src="~/UserControls/HeaderLogo.ascx" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <title></title>
+    <!--#include virtual="~/_static/head.inc" -->
+    <script type="text/javascript" src="/_Static/Js/Main.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <!--Slots Master-->
+    <div data-role="page" data-theme="b" data-ajax="false" id="slots">
+
+        <uc1:HeaderLogo runat="server" ID="HeaderLogo" />
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+
+        <!--#include virtual="~/_static/navMenu.shtml" -->
+
+        <asp:ContentPlaceHolder ID="ScriptsPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+
+    </div>
+</body>
+</html>
