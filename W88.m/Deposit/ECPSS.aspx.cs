@@ -122,6 +122,11 @@ public partial class Deposit_ECPSS : PaymentBasePage
             if (!status.IsProcessAbort)
             {
                 status.AlertCode = "0";
+
+                if (string.IsNullOrWhiteSpace(strRedirectUrl))
+                {
+                    this.GetDummyURL();
+                }
             }
         }
         catch (Exception ex)

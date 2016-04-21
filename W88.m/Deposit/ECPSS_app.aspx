@@ -105,9 +105,12 @@
                             var remote_ip = '<%=HttpUtility.UrlEncode(commonEncryption.encrypting(commonIp.remoteIP,ConfigurationManager.AppSettings["PaymentPrivateKey"]))%>';
                             var domain = '<%=strRedirectUrl%>';
 
-                            var url = domain + "api/ECPSSHandler.ashx?requestAmount=" + $("#txtDepositAmount").val() + "&bankCode=" + $("#drpBank").val() + "&cookie=" + cookie + "&ip=" + remote_ip + "&isMobile=true";
-
-                            window.open(url);
+                            if (domain != '') {
+                                var url = domain + "api/ECPSSHandler.ashx?requestAmount=" + $("#txtDepositAmount").val() + "&bankCode=" + $("#drpBank").val() + "&cookie=" + cookie + "&ip=" + remote_ip + "&isMobile=true";
+                                window.open(url);
+                            } else {
+                                alert('<%=commonCulture.ElementValues.getResourceXPathString("CustomerService", commonVariables.ErrorsXML)%>');
+                            }
 
                             break;
                         default:
