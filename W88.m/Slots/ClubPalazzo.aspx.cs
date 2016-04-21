@@ -55,7 +55,7 @@ public partial class Slots_ClubPalazzo: BasePage
                     if (commonCulture.ElementValues.getResourceString("PlayForReal", xeGame) == "true")
                     { 
                         if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-                            sbGames.AppendFormat("<a class='btn-primary' target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubBravado") + "' data-rel='dialog' data-transition='slidedown'>");
+                            sbGames.AppendFormat("<a class='btn-primary' target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubPalazzo") + "' data-rel='dialog' data-transition='slidedown'>");
                         else
                             sbGames.AppendFormat(
                                 "<a href=\"/Slots/ClubPalazzoLauncher.aspx?type={0}&name={1}&mode={2}\" target='_blank'>", 
