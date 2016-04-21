@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 using System.Xml;
 using System.Configuration;
 
-public partial class LiveChat_Default : System.Web.UI.Page
+public partial class LiveChat_Default : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {

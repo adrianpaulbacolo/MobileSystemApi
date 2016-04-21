@@ -13,3 +13,7 @@
 <script src="/_Static/JS/Mobile/iscroll.js"></script>
 <script src="/_Static/JS/GPINT.js"></script>
 <script src="/_Static/JS/piwik.js"></script>
+<script type="text/javascript">
+  window.User = {};
+    window.User.hasSession = <%= (!String.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) ? 1 : 0 %>;
+  </script>

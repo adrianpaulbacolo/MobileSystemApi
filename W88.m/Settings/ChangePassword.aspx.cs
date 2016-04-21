@@ -6,8 +6,10 @@ public partial class _Change_Password : BasePage
     protected System.Xml.Linq.XElement xeErrors = null;
     protected string strAlertCode = string.Empty;
     protected string strAlertMessage = string.Empty;
-
-    protected void Page_Init(object sender, EventArgs e) { base.CheckLogin(); }
+    protected override void OnPreInit(EventArgs e)
+    {
+        this.isPublic = false;
+    }
 
     protected void Page_Load(object sender, EventArgs e)
     {

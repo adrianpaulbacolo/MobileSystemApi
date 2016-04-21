@@ -5,9 +5,12 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class _Profile_Default : System.Web.UI.Page 
+public partial class _Profile_Default : BasePage 
 {
-
+    protected override void OnPreInit(EventArgs e)
+    {
+        this.isPublic = false;
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
         InitializeWalletBalance();

@@ -179,6 +179,7 @@
                                 Cookies().setCookie('is_app', '1', 365);
                                 break;
                             case "22":
+                                GPINTMOBILE.HideSplash();
                                 var message = $(xml).find('Message').text();
 
                                 $("#myDialogText").html(message);

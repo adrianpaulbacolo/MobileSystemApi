@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
-public partial class _Lang : System.Web.UI.Page
+public partial class _Lang : BasePage
 {
     protected string strAlertMessage = string.Empty;
     protected System.Xml.Linq.XElement xeErrors = null;
