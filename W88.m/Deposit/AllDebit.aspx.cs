@@ -295,6 +295,7 @@ public partial class Deposit_AllDebit : PaymentBasePage
         postData += ("&phone=" + phone);
         postData += ("&country=" + country);
         postData += ("&state=" + state);
+        postData += ("&city=" + city);
         postData += ("&address=" + address);
         postData += ("&zip=" + zip);
         postData += ("&signInfo=" + signInfo);
