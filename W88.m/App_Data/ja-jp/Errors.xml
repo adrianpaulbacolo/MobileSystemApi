@@ -136,26 +136,6 @@
 		<error-99><![CDATA[申し訳ありませんが、サーバーエラーが発生しました]]></error-99>
 
 		<Exception><![CDATA[リクエストを処理できません]]></Exception>
-		<!--
-    <errorAmountMinLimit><![CDATA[金額が、最低額に達していません]]></errorAmountMinLimit>
-    <errorAmountMaxLimit><![CDATA[金額が、最大限度を超えています]]></errorAmountMaxLimit>
-    <errorAmountTotalAllowed><![CDATA[金額が、許可されている合計を超えています]]></errorAmountTotalAllowed>
-    <exceptionCreateTransaction><![CDATA[リクエストを処理できません]]></exceptionCreateTransaction>
-    <errorMaxLength><![CDATA[- {0}は最大の長さを超えています]]></errorMaxLength>
-    <errorInput><![CDATA[有効な{0}を入力してください]]></errorInput>
-    <errorSelect><![CDATA[有効な{0}を選択してください]]></errorSelect>
-    <errorSelectFile><![CDATA[最大サイズの2Mバイトで、有効な画像ファイルを選択してください]]></errorSelectFile>
-    <errorDateRange><![CDATA[有効な入金の日付/時刻を、72時間で選択してください]]></errorDateRange>
-    <errorSelectTitle><![CDATA[必須項目]]></errorSelectTitle>
-    <errorPositiveNumberTitle><![CDATA[無効な金額]]></errorPositiveNumberTitle>
-    <errorAlphaNumericTitle><![CDATA[英数字のみ]]></errorAlphaNumericTitle>
-    <errorDateRangeTitle><![CDATA[日付範囲のエラー]]></errorDateRangeTitle>
-    <errorMinLimitTitle><![CDATA[最低限度に達していません]]></errorMinLimitTitle>
-    <errorMaxLimitTitle><![CDATA[最大限度を超えています]]></errorMaxLimitTitle>
-    <errorTotalAllowedTitle><![CDATA[許可された合計額を超えています]]></errorTotalAllowedTitle>
-    <okButton><![CDATA[オーケー]]></okButton>
-    <cancelButton><![CDATA[キャンセル]]></cancelButton>
-    -->
 	</Deposit>
 
 	<Withdrawal>
@@ -196,4 +176,26 @@
 
 		<Exception><![CDATA[リクエストを処理できません]]></Exception>
 	</Withdrawal>
+  <StatusCode>
+    <e400><![CDATA[400]]></e400>
+    <e403><![CDATA[403]]></e403>
+    <e404><![CDATA[404]]></e404>
+    <e408><![CDATA[408]]></e408>
+    <e500><![CDATA[500]]></e500>
+    <e502><![CDATA[502]]></e502>
+  </StatusCode>
+  <HttpError>
+    <e400><![CDATA[リクエストの文法が間違っているため、サーバで解釈することができませんでした。]]></e400>
+    <e400title><![CDATA[要求の形式が正しくありません]]></e400title>
+    <e403><![CDATA[ジもしくはディレクトリを表示することはできません。]]></e403>
+    <e403title><![CDATA[禁止－このペ]]></e403title>
+    <e404><![CDATA[恐れ入りますがお客様のリクエストされたページは見つかりませんでした。]]></e404>
+    <e404title><![CDATA[ページが見つかりません]]></e404title>
+    <e408><![CDATA[サーバは、リクエスト待機中にタイムアウトしました。]]></e408>
+    <e408title><![CDATA[要求タイムアウト]]></e408title>
+    <e500><![CDATA[あなたのリクエストの処理中にエラーが発生しました。再度お試しいただくかカスタマーサポートへご連絡ください。]]></e500>
+    <e500title><![CDATA[内部サーバーエラー]]></e500title>
+    <e502><![CDATA[ゲートウェイまたはプロキシとして動作しているときにWebサーバーが無効な応答を受信しました。]]></e502>
+    <e502title><![CDATA[不正なゲートウェイ]]></e502title>
+  </HttpError>
 </default>
