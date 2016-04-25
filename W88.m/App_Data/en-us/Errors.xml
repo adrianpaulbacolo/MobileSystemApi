@@ -3,7 +3,7 @@
 	<Exception><![CDATA[Unknown error, please try again.]]></Exception>
 	<IncorrectVCode><![CDATA[Please enter the 4-Digit Validation Code.]]></IncorrectVCode>
 	<MissingVCode><![CDATA[Please enter the 4-Digit Validation Code.]]></MissingVCode>
-	<SessionExpired><![CDATA[Sorry, your session has expired.\nPlease log in again.]]></SessionExpired>
+	<SessionExpired><![CDATA[Sorry, your session has expired. Please log in again.]]></SessionExpired>
 	<ServerError><![CDATA[Sorry, a server error has occurred]]></ServerError>
 	<CustomerService><![CDATA[Please contact our Customer Service for assistance.]]></CustomerService>
 
