@@ -44,6 +44,10 @@ public class AllDebitCallback : IHttpHandler, IRequiresSessionState
         string parameters = ip + "|" + merNo + "|" + gatewayNo + "|" + tradeNo + "|" + orderNo + "|" + orderCurrency + "|" + orderAmount + "|" + orderStatus + "|" +
             orderInfo + "|" + signInfo + "|" + remark;
 
+        processSerialId++;
+        processDetail = "log parameters";
+
+        commonAuditTrail.appendLog("system", pageName, taskName, string.Empty, string.Empty, processDetail, string.Empty, "ok", parameters, Convert.ToString(processSerialId), processId, false);
         #endregion
 
         #region get gateway settings from xml
