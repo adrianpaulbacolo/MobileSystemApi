@@ -22,6 +22,9 @@ public class BasePage : System.Web.UI.Page
 
     protected override void OnLoad(EventArgs e)
     {
+
+        UserSession.checkSession();
+
         string strLanguage = HttpContext.Current.Request.QueryString.Get("lang");
 
         if (!string.IsNullOrEmpty(strLanguage)) { 
