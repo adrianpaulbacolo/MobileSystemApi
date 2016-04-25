@@ -4,6 +4,9 @@
     var sessionPoll;
 
     function checkSession() {
+        var intervalMin = 3000; // 3 secs
+        var sessionInterval = (typeof window.User != "undefined" && parseInt(window.User.sessionInterval) > intervalMin) ? parseInt(window.User.sessionInterval) : intervalMin;
+
         sessionPoll = window.setInterval(function () {
             $.ajax({
                 contentType: "application/json; charset=utf-8",
@@ -19,7 +22,7 @@
                 error: function (err) {
                 }
             });
-        }, 10000);
+        }, sessionInterval);
     }
 });
 

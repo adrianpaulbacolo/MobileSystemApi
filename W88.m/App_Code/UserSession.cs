@@ -57,9 +57,8 @@ public class UserSession
 
     public static bool IsLoggedIn()
     {
-        var hasMemberCode = !string.IsNullOrEmpty(commonVariables.GetSessionVariable("MemberCode"));
         var isLoggedIn = !string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId);
-        return hasMemberCode && isLoggedIn;
+        return isLoggedIn;
     }
 
     public static string GetSessionCode()
