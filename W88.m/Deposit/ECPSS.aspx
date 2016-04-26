@@ -73,7 +73,7 @@
                         <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
                     <li class="item item-select">
-                        <asp:Label ID="lblMessage" runat="server"/>
+                        <asp:Label ID="lblMessage" runat="server" />
                     </li>
                     <li class="item row">
                         <div class="col">
@@ -103,9 +103,12 @@
                             var remote_ip = '<%=HttpUtility.UrlEncode(commonEncryption.encrypting(commonIp.remoteIP,ConfigurationManager.AppSettings["PaymentPrivateKey"]))%>';
                             var domain = '<%=strRedirectUrl%>';
 
-                            var url = domain + "api/ECPSSHandler.ashx?requestAmount=" + $("#txtDepositAmount").val() + "&bankCode=" + $("#drpBank").val() + "&cookie=" + cookie + "&ip=" + remote_ip + "&isMobile=true";
-
-                            window.open(url);
+                            if (domain != '') {
+                                var url = domain + "api/ECPSSHandler.ashx?requestAmount=" + $("#txtDepositAmount").val() + "&bankCode=" + $("#drpBank").val() + "&cookie=" + cookie + "&ip=" + remote_ip + "&isMobile=true";
+                                window.open(url);
+                            } else {
+                                alert('<%=commonCulture.ElementValues.getResourceXPathString("CustomerService", commonVariables.ErrorsXML)%>');
+                            }
 
                             break;
                         default:

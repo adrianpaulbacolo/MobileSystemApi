@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class _Promotions : System.Web.UI.Page
+public partial class _Promotions : BasePage
 {
     protected System.Xml.Linq.XElement xeErrors = null;
     protected System.Xml.Linq.XElement xeResources = null;
