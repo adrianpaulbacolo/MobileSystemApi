@@ -67,7 +67,7 @@
 
             </ul>
         </li>
-        
+        <% } %>
 
         <!-- Sports -->
         <li data-icon="false">
