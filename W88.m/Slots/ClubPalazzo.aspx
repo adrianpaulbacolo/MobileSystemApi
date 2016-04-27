@@ -24,48 +24,8 @@
             var cache = [];
             $(function () {
 
-                $('.div-product').each(function () { var scrollObj = new IScroll('#' + $(this).attr('id'), { eventPassthrough: true, scrollX: true, scrollY: false, preventDefault: false, speedRatioX: 9000 }); cache.push(scrollObj); });
-                $('.bkg-game').each(function () {
-                    var $this = $(this);
-                    $this.prepend('<img src="/_Static/Images/ClubPalazzo/' + $this.attr('rel') + '" class="img-responsive-full">')
-                });
-                $("img").error(function () {
-                    $(this).unbind("error").attr("src", "/_Static/Images/broken-lt.gif");
-                });
-
-                var isSafari = navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1 && navigator.userAgent.indexOf('Android') == -1;
-                if (isSafari) {
-                    var palazzoDL = Cookies().getCookie('palazzo_download')
-
-                    if (palazzoDL == '' || palazzoDL == '0' || parseInt(palazzoDL) == 0) {
-                        $('#palazzoModal').popup();
-                        $('#palazzoModal').popup('open');
-                    }
-                    else {
-                        $('#noShowPalazzoModal').attr('checked', 'checked');
-                    }
-                }
-
-                $('#noShowPalazzoModal').click(function () {
-                    if ($('#noShowPalazzoModal').is(':checked')) {
-                        Cookies().setCookie('palazzo_download', '1', 365);
-                    }
-                    else {
-                        Cookies().setCookie('palazzo_download', '0', 0);
-                    }
-                });
-
-                var isCloseByClicked = false;
-
-                $('#palazzoModalClose').click(function () {
-                    isCloseByClicked = true;
-                });
-
-                $("#palazzoModal").on("popupafterclose", function () {
-                    if (!isCloseByClicked) {
-                        $('#palazzoModal').popup('open');
-                    }
-                });
+                w88Mobile.Slots.club = "ClubPalazzo";
+                w88Mobile.Slots.initPalazzo();
 
             });
         </script>
