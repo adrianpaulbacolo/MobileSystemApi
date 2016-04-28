@@ -158,8 +158,8 @@
     <e502><![CDATA[502]]></e502>
   </StatusCode>
   <HttpError>
-    <e400><![CDATA[Permintaan tidak dapat dipahami oleh server karena sintaks cacat]]></e400>
-    <e400title><![CDATA[Permintaan yang buruk]]></e400title>
+    <e400><![CDATA[Permintaan tidak bisa dimengerti oleh server.]]></e400>
+    <e400title><![CDATA[Bad Request]]></e400title>
     <e403><![CDATA[Anda tidak diijinkan untuk mengakses halaman ini.]]></e403>
     <e403title><![CDATA[Forbidden]]></e403title>
     <e404><![CDATA[Maaf, tapi halaman Anda mencoba untuk melihat tidak ada.]]></e404>
@@ -168,7 +168,7 @@
     <e408title><![CDATA[Permintaan Timeout]]></e408title>
     <e500><![CDATA[Terjadi kesalahan saat memperoses permintaan Anda. Silahkan mencoba kembali atau hubungi Customer Service]]></e500>
     <e500title><![CDATA[Kesalahan server dari dalam]]></e500title>
-    <e502><![CDATA[Web server menerima respon tidak valid sementara bertindak sebagai gateway atau proxy.]]></e502>
+    <e502><![CDATA[Web server menerima respon tidak valid saat bertindak sebagai gateway.]]></e502>
     <e502title><![CDATA[Bad Gateway]]></e502title>
   </HttpError>
 </default>

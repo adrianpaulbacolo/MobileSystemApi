@@ -186,7 +186,7 @@
     <e502><![CDATA[502]]></e502>
   </StatusCode>
   <HttpError>
-    <e400><![CDATA[The request could not be understood by the server due to malformed syntax.]]></e400>
+    <e400><![CDATA[The request could not be understood by the server.]]></e400>
     <e400title><![CDATA[Bad request]]></e400title>
     <e403><![CDATA[You are not authorised to view this web page or directory.]]></e403>
     <e403title><![CDATA[Forbidden]]></e403title>
@@ -196,7 +196,7 @@
     <e408title><![CDATA[Request Timeout]]></e408title>
     <e500><![CDATA[We encountered an error when processing your request. Please try again or contact customer support.]]></e500>
     <e500title><![CDATA[Internal Server Error]]></e500title>
-    <e502><![CDATA[Web server received an invalid response while acting as a gateway or proxy.]]></e502>
+    <e502><![CDATA[Web server received an invalid response while acting as a gateway.]]></e502>
     <e502title><![CDATA[Bad Gateway]]></e502title>
   </HttpError>
 </default>
