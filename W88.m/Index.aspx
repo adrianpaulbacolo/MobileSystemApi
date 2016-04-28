@@ -221,6 +221,27 @@
                 </div>
             <%}%>
 
+            <%if(DetectMobileDevice() == 1 && string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)){%>
+                <div class="download-app">
+                    <div class="row">
+                        <div class="col col-25 download-icon">
+                            <span class="ion-social-apple"></span>
+                        </div>
+                        <div class="col col-75 download-summary">
+                            <h5 class="title">W88 iOS Download</h5>
+                            <p>Sports, Live Casino, Slots in 1 App</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a href="javascript:hideDownload();" role="button" class="ui-btn btn-bordered">No Thanks</a>
+                        </div>
+                        <div class="col">
+                            <a href="/_Static/Downloads/w88.aspx" class="ui-btn btn-primary">Download Now</a>
+                        </div>
+                    </div>
+                </div>
+            <%}%>
         </div>
 
         <!--#include virtual="~/_static/navMenu.shtml" -->
