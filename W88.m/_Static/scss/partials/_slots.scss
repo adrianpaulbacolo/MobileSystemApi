@@ -79,11 +79,13 @@
 
             @extend .play-card;
 
-            div:first-child{
+             > div:first-child{
                 padding: 5px;
                 border-radius: 10px;
                 background-color: $white;
                 padding-bottom: 1px;
+                min-height: 119px;
+                height: 119px;
             }
 
     }
@@ -103,6 +105,7 @@
                 left: inherit; right: 0;
             }
         }
+
     }
 
     // New Design (ref. Google Play)
@@ -117,6 +120,7 @@
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
             max-height: 83px;
+            height: 83px;
         }
     }
     .div-links {
@@ -124,9 +128,6 @@
             color: $primary-color !important;
             background-color: transparent !important;
             padding: .35em;
-            // &:first-child, &:last-child {
-            //     border-top: 1px solid rgba(0,0,0,.1);
-            // }
             &:first-child {
                 padding-right: 0;
             }
