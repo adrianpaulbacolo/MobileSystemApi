@@ -16,7 +16,7 @@
                 </div>
                 <div class="downloadmsg">
                     <span runat="server" id="spanMsg"></span>
-                    <a href="#" id="sDownload" class="ui-btn btn-primary" runat="server" data-ajax="false"></a>
+                    <a href="#" id="sDownload" class="ui-btn btn-primary" runat="server"></a>
                 </div>
             </div>
         </div>
