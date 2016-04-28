@@ -199,7 +199,7 @@
                 </li>
             </ul> -->
 
-           <%if(DetectMobileDevice() == 2 && string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)){%>
+           <%if(DetectMobileDevice() == 2){%>
                 <div class="download-app">
                     <div class="row">
                         <div class="col col-25 download-icon">
@@ -221,7 +221,7 @@
                 </div>
             <%}%>
 
-            <%if(DetectMobileDevice() == 1 && string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)){%>
+            <%if(DetectMobileDevice() == 1){%>
                 <div class="download-app">
                     <div class="row">
                         <div class="col col-25 download-icon">
