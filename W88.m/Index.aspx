@@ -36,6 +36,13 @@
                         <img src="/_Static/Images/Download/W88-Mobile-ClubPalazzo-Slots.jpg" alt="banner" class="img-responsive">
                     </a>
                 </div>
+                <%if (DetectMobileDevice() == 1) {%>
+                <div class="slide">
+                    <a class="slide" href="/_Static/Downloads/w88.aspx">
+                        <img src="_Static/Images/Download/Bnr-ClubW88-iOS.jpg" alt="banner" class="img-responsive">
+                    </a>
+                </div>
+                <%}%>
             </section>
 
         <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) {
