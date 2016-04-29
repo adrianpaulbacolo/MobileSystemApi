@@ -10,7 +10,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class _Secure_Login : System.Web.UI.Page
+public partial class _Secure_Login : BasePage
 {
     protected System.Xml.Linq.XElement xeErrors = null;
     protected string strRedirect = string.Empty;
@@ -121,6 +121,20 @@ public partial class _Secure_Login : System.Web.UI.Page
             }
 
             Response.Redirect("/Deposit/Default_app.aspx");
+        }
+        else
+        {
+            if (UserSession.IsLoggedIn())
+            {
+                if (sender.ToString().Contains("app"))
+                {
+                    Response.Redirect("/Deposit/Default_app.aspx");
+                }
+                else
+                {
+                    Response.Redirect("/Index");
+                }
+            }
         }
 
         if (string.IsNullOrEmpty(Request.QueryString.Get("redirect"))) { strRedirect = "/Index.aspx?lang=" + commonVariables.SelectedLanguage; }
