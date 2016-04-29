@@ -55,7 +55,7 @@ public partial class _Secure_Login : BasePage
             {
                 var cipherKey = commonEncryption.Decrypt(ConfigurationManager.AppSettings.Get("PrivateKeyToken"));
                 strSessionId = commonEncryption.decryptToken(Request.QueryString.Get("token"), cipherKey);
-                commonVariables.SetSessionVariable("CurrentMemberSessionId", strSessionId);
+                commonVariables.SetSessionVariable("MemberSessionId", strSessionId);
 
                 var loginCode = UserSession.checkSession();
 
