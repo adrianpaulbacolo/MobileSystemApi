@@ -61,9 +61,7 @@ public partial class _Secure_Login : BasePage
 
                 if (loginCode != "1")
                 {
-                    commonVariables.ClearSessionVariables();
-                    commonCookie.ClearCookies();
-                    Response.Redirect("/_Secure/Login_app.aspx");
+                    UserSession.ClearSession();
                 }
                 else
                 {
@@ -72,7 +70,7 @@ public partial class _Secure_Login : BasePage
             }
             catch (Exception ex)
             {
-                Response.Redirect("/Deposit/Default_app.aspx");
+                UserSession.ClearSession();
             }
 
         }
