@@ -35,13 +35,6 @@ public partial class _Secure_Register : System.Web.UI.Page
 
             if (!string.IsNullOrEmpty(affiliateId))
             {
-                int affiliate;
-                if (!int.TryParse(affiliateId, out affiliate))
-                {
-                    strAlertCode = "0";
-                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/InvalidAffliateId", xeErrors);
-                    return;
-                }
                 commonVariables.SetSessionVariable("AffiliateId", affiliateId);
                 commonCookie.CookieAffiliateId = affiliateId;
             }
@@ -284,11 +277,6 @@ public partial class _Secure_Register : System.Web.UI.Page
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/InvalidDOB", xeErrors);
             isProcessAbort = true;
         }
-        else if (!int.TryParse(strAffiliateId, out affiliateId))
-        {
-            strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/InvalidAffliateId", xeErrors);
-            isProcessAbort = true;
-        }
         else if (string.Compare(commonEncryption.encrypting(strVCode), strSessionVCode, true) != 0)
         {
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/IncorrectVCode", xeErrors);
@@ -370,8 +358,26 @@ public partial class _Secure_Register : System.Web.UI.Page
             string strCity = strCountryCode;
             string strPostal = "000000";
             string strGender = "M";
-            int intAffiliateId = string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId")) ? (string.IsNullOrEmpty(strAffiliateId) ? 0 : Convert.ToInt32(strAffiliateId)) : Convert.ToInt32(commonVariables.GetSessionVariable("AffiliateId"));
-            string strReferBy = string.Empty;
+            //int intAffiliateId = string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId")) ? (string.IsNullOrEmpty(strAffiliateId) ? 0 : Convert.ToInt32(strAffiliateId)) : Convert.ToInt32(commonVariables.GetSessionVariable("AffiliateId"));
+            string AffiliateId;
+            if (string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId")))
+            {
+                AffiliateId = (string.IsNullOrEmpty(strAffiliateId) ? "0" : strAffiliateId);
+            }
+            else 
+                AffiliateId = commonVariables.GetSessionVariable("AffiliateId");
+
+            int intAffiliateId;
+            try
+            {
+                int.TryParse(AffiliateId, out intAffiliateId);
+            }
+            catch
+            {
+                intAffiliateId = 0;
+            }
+
+            var strReferBy = string.Empty;
             string strDeviceId = "Mobile";
 
             System.Data.DataSet dsRegister = null;
