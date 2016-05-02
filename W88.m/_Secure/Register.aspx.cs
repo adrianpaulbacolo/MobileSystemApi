@@ -163,6 +163,7 @@ public partial class _Secure_Register : System.Web.UI.Page
         System.DateTime dtDOB = DateTime.MinValue;
         string strHiddenValues = hidValues.Value;
         List<string> lstValues = null;
+        int affiliateId;
         #endregion
 
         #region populateVariables
@@ -281,6 +282,11 @@ public partial class _Secure_Register : System.Web.UI.Page
         else if (!DateTime.TryParse(strDOB, out dtDOB))
         {
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/InvalidDOB", xeErrors);
+            isProcessAbort = true;
+        }
+        else if (!int.TryParse(strAffiliateId, out affiliateId))
+        {
+            strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/InvalidAffliateId", xeErrors);
             isProcessAbort = true;
         }
         else if (string.Compare(commonEncryption.encrypting(strVCode), strSessionVCode, true) != 0)
