@@ -41,7 +41,6 @@
 		<InvalidLName><![CDATA[กรุณาใส่นามสกุล]]></InvalidLName>
 		<InvalidDOB><![CDATA[วันเดือนปีเกิด]]></InvalidDOB>
 		<InvalidVCode><![CDATA[รหัสตรวจสอบไม่ถูกต้อง.]]></InvalidVCode>
-        <InvalidAffliateId><![CDATA[Invalid affiliate ID]]></InvalidAffliateId>
 		<chkDisclaimer><![CDATA[กรุณาทำความเข้าใจและตกลงกับเงื่อนไขและข้อกำหนดก่อนไปต่อ]]></chkDisclaimer>
 		<!--<chkDisclaimer><![CDATA[Bets may only be placed by those who are aged 18 or over. We may undertake a search with third party for the purpose of verifying thatyou are 18 or over, W88 reserves the right to ask for the proof of age. Customer accounts may be suspended and funds withheld untill satisfactory proof of age is provided.]]></chkDisclaimer>-->
 	</Register>

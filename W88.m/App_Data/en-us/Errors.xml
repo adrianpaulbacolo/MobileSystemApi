@@ -39,7 +39,6 @@
 		<InvalidLName><![CDATA[Invalid last name]]></InvalidLName>
 		<InvalidDOB><![CDATA[Invalid Date of Birth]]></InvalidDOB>
 		<InvalidVCode><![CDATA[Invalid verfication code]]></InvalidVCode>
-        <InvalidAffliateId><![CDATA[Invalid affiliate ID]]></InvalidAffliateId>
 		<chkDisclaimer><![CDATA[You have to agree with our Terms & Conditions & Privacy Policy in order to proceed.]]></chkDisclaimer>
 		<!--<chkDisclaimer><![CDATA[Bets may only be placed by those who are aged 18 or over. We may undertake a search with third party for the purpose of verifying thatyou are 18 or over, W88 reserves the right to ask for the proof of age. Customer accounts may be suspended and funds withheld untill satisfactory proof of age is provided.]]></chkDisclaimer>-->
 	</Register>

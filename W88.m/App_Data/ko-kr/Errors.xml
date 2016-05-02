@@ -41,7 +41,6 @@
 		<InvalidLName><![CDATA[성을 입력 하세요]]></InvalidLName>
 		<InvalidDOB><![CDATA[생년월일을 선택 하세요]]></InvalidDOB>
 		<InvalidVCode><![CDATA[성을 입력 하세요]]></InvalidVCode>
-        <InvalidAffliateId><![CDATA[Invalid affiliate ID]]></InvalidAffliateId>
 		<chkDisclaimer><![CDATA[처리 하기 전에 다시한번 조건과 계약에 동의 하세요.]]></chkDisclaimer>
 		<!--<chkDisclaimer><![CDATA[Bets may only be placed by those who are aged 18 or over. We may undertake a search with third party for the purpose of verifying thatyou are 18 or over, W88 reserves the right to ask for the proof of age. Customer accounts may be suspended and funds withheld untill satisfactory proof of age is provided.]]></chkDisclaimer>-->
 	</Register>

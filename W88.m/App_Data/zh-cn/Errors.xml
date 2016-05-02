@@ -41,7 +41,6 @@
 		<InvalidLName><![CDATA[请输入您的姓]]></InvalidLName>
 		<InvalidDOB><![CDATA[请选择有效的出生日期]]></InvalidDOB>
 		<InvalidVCode><![CDATA[无效验证码]]></InvalidVCode>
-        <InvalidAffliateId><![CDATA[Invalid affiliate ID]]></InvalidAffliateId>
 		<chkDisclaimer><![CDATA[请检查，并同意继续之前的条款和条件。]]></chkDisclaimer>
 		<!--<chkDisclaimer><![CDATA[我们仅接受超过法定年龄18岁的会员进行投注。我们有权通过第三方核实您的年龄是否已超过18周岁，我们也有权要求您出示相关证明。会员账户可能会被暂时冻结，直至您的年龄被有效核实。]]></chkDisclaimer>-->
 	</Register>
