@@ -35,8 +35,8 @@ public partial class _Secure_Register : System.Web.UI.Page
 
             if (!string.IsNullOrEmpty(affiliateId))
             {
-                long affiliate;
-                if (!Int64.TryParse(affiliateId, out affiliate))
+                int affiliate;
+                if (!int.TryParse(affiliateId, out affiliate))
                 {
                     strAlertCode = "0";
                     strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/InvalidAffliateId", xeErrors);
