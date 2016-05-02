@@ -56,4 +56,45 @@ public static class commonCountry
         }
         return ISportURL;
     }
+
+    public class AkamaiKeys
+    {
+        public const string HTTP_X_AKAMAI_EDGESCAPE = "HTTP_X_AKAMAI_EDGESCAPE";
+        public const string HTTP_CF_IPCOUNTRY = "HTTP_CF_IPCOUNTRY";
+        public const string HTTP_GEO_COUNTRY = "HTTP_GEO_COUNTRY";
+        public const string COUNTRY_DOMAIN_CN = "country_domain_cn";
+        public const string COUNTRY_DOMAIN_VN = "country_domain_vn";
+        public const string COUNTRY_DOMAIN_TH = "country_domain_th";
+        public const string COUNTRY_DOMAIN_ID = "country_domain_id";
+        public const string COUNTRY_DOMAIN_MY = "country_domain_my";
+        public const string COUNTRY_DOMAIN_KR = "country_domain_kr";
+        public const string COUNTRY_DOMAIN_JP = "country_domain_jp";
+        public const string COUNTRY_DOMAIN_KH = "country_domain_kh";
+    }
+
+    public static string GetLanguageByCountry(string CountryCode)
+    {
+        switch (CountryCode.ToLower())
+        {
+            case "us":
+                return "en-us";
+            case "id":
+                return "id-id";
+            case "kh":
+                return "km-kh";
+            case "kr":
+                return "ko-kr";
+            case "th":
+                return "th-th";
+            case "vn":
+                return "vi-vn";
+            case "cn":
+                return "zh-cn";
+            case "jp":
+                return "ja-jp";
+            default:
+                return "en-us";
+        }
+    }
+
 }

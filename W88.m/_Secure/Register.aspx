@@ -117,65 +117,74 @@
         <script type="text/javascript">
 
             var strContactCountry = '';
+            var CDNCountry = '<%= (!String.IsNullOrEmpty(CDNCountryCode)) ? CDNCountryCode : "" %>';
+
+            function setCurrency(country) {
+                switch (country.toString().toUpperCase()) {
+                    case "SG":
+                        if ($('#drpCurrency option[value="UUS"]').length > 0) { $('#drpCurrency').val('UUS'); }
+                        break;
+                    case 'CN':
+                        if ($('#drpCurrency option[value="RMB"]').length > 0) { $('#drpCurrency').val('RMB'); }
+                        break;
+                    case "TH":
+                        if ($('#drpCurrency option[value="THB"]').length > 0) { $('#drpCurrency').val('THB'); }
+                        break;
+                    case "VN":
+                        if ($('#drpCurrency option[value="VND"]').length > 0) { $('#drpCurrency').val('VND'); }
+                        break;
+                    case "ID":
+                        if ($('#drpCurrency option[value="IDR"]').length > 0) { $('#drpCurrency').val('IDR'); }
+                        break;
+                    case "MY":
+                        if ($('#drpCurrency option[value="MYR"]').length > 0) { $('#drpCurrency').val('MYR'); }
+                        break;
+                    case "KR":
+                        if ($('#drpCurrency option[value="KRW"]').length > 0) { $('#drpCurrency').val('KRW'); }
+                        break;
+                }
+                $('#drpCurrency').change();
+            }
 
             $(function () {
                 $("#drpContact").attr("disabled", "disabled").off('click');
                 $("#drpDOB").attr("disabled", "disabled").off('click');
+                if(CDNCountry.length > 0){
+                    setCurrency(CDNCountry);
+                    $('#hidValues').val(CDNCountry + "|||");
+                }else{
+                    $.ajax({
+                        contentType: "application/json; charset=utf-8",
+                        url: "https://ip2loc.w2script.com/IP2LOC?v=" + new Date().getTime(),
+                        dataType: "jsonp",
+                        success: function (data) {
+                            if ($('#hidValues').val().trim().length == 0) {
+                                setCurrency(data.country);
 
-                $.ajax({
-                    contentType: "application/json; charset=utf-8",
-                    url: "https://ip2loc.w2script.com/IP2LOC?v=" + new Date().getTime(),
-                    dataType: "jsonp",
-                    success: function (data) {
-                        if ($('#hidValues').val().trim().length == 0) {
-                         switch (data.country.toString().toUpperCase())
-                            {
-                                case "SG":
-                                    if ($('#drpCurrency option[value="UUS"]').length > 0) { $('#drpCurrency').val('UUS'); }
-                                    break;
-                                case 'CN':
-                                    if ($('#drpCurrency option[value="RMB"]').length > 0) { $('#drpCurrency').val('RMB'); }
-                                    break;
-                                case "TH":
-                                    if ($('#drpCurrency option[value="THB"]').length > 0) { $('#drpCurrency').val('THB'); }
-                                    break;
-                                case "VN":
-                                    if ($('#drpCurrency option[value="VND"]').length > 0) { $('#drpCurrency').val('VND'); }
-                                    break;
-                                case "ID":
-                                    if ($('#drpCurrency option[value="IDR"]').length > 0) { $('#drpCurrency').val('IDR'); }
-                                    break;
-                               case "MY":
-                                   if ($('#drpCurrency option[value="MYR"]').length > 0) { $('#drpCurrency').val('MYR'); }
-                                   break;
-                                case "KR":
-                                    if ($('#drpCurrency option[value="KRW"]').length > 0) { $('#drpCurrency').val('KRW'); }
-                                   break;
-                            }
-                            $('#drpCurrency').change();
-
-                            $.ajax({
-                                type: "POST",
-                                url: "/AjaxHandlers/GetCountryInfo.ashx",
-                                data: { CountryCode: data.country.toString().toUpperCase() },
-                                success: function (data) {
-                                    strContactCountry = data;
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/AjaxHandlers/GetCountryInfo.ashx",
+                                    data: { CountryCode: data.country.toString().toUpperCase() },
+                                    success: function (data) {
+                                        strContactCountry = data;
                                     
-                                    if ($.trim(data).trim().length > 0) { $('#drpContactCountry').val(strContactCountry).change(); }
-                                    return;
-                                },
-                                error: function (err) { }
-                            });
-                       }
+                                        if ($.trim(data).trim().length > 0) { $('#drpContactCountry').val(strContactCountry).change(); }
+                                        return;
+                                    },
+                                    error: function (err) { }
+                                });
+                            }
 
-                        $('#hidValues').val(data.country.toString().toUpperCase() + "|" + data.domainName + "|" + data.ip + "|" + (data.permission == '' ? '-' : data.permission));
+                            $('#hidValues').val(data.country.toString().toUpperCase() + "|" + data.domainName + "|" + data.ip + "|" + (data.permission == '' ? '-' : data.permission));
 
-                        return;
-                    },
-                    error: function (err) {
-                      //window.location.href = '/Default.aspx';
-                    }
-                });
+                            return;
+                        },
+                        error: function (err) {
+                            //window.location.href = '/Default.aspx';
+                        }
+                    });
+
+                }
 
                 if ('<%=strAlertCode%>'.length > 0) {
                     switch ('<%=strAlertCode%>') {

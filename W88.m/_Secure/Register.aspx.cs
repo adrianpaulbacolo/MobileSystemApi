@@ -5,13 +5,20 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class _Secure_Register : System.Web.UI.Page
+public partial class _Secure_Register : BasePage
 {
     protected System.Xml.Linq.XElement xeErrors = null;
     protected string strAlertCode = string.Empty;
     protected string strAlertMessage = string.Empty;
+    public string CDNCountryCode = string.Empty;
 
-    protected void Page_Init(object sender, EventArgs e) { if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { Response.Redirect("/Index"); } }
+    protected void Page_Init(object sender, EventArgs e) { 
+        if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { Response.Redirect("/Index"); }
+
+        // check for country code
+        checkCDN();
+        CDNCountryCode = GetCountryCode(getCDNValue(), getCDNKey());
+    }
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -60,12 +67,6 @@ public partial class _Secure_Register : System.Web.UI.Page
             btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
             btnCancel.InnerText = commonCulture.ElementValues.getResourceString("btnCancel", xeResources);
 
-            // txtUsername.Attributes.Add("PLACEHOLDER", lblUsername.Text);
-            // txtPassword.Attributes.Add("PLACEHOLDER", lblPassword.Text);
-            // txtEmail.Attributes.Add("PLACEHOLDER", lblEmail.Text);
-            // txtContact.Attributes.Add("PLACEHOLDER", lblContact.Text);
-            // txtAffiliateID.Attributes.Add("PLACEHOLDER", lblAffiliateID.Text);
-            // txtCaptcha.Attributes.Add("PLACEHOLDER", lblCaptcha.Text);
             lblDisclaimer.InnerText = commonCulture.ElementValues.getResourceString("lblDisclaimer", xeResources);
             btnTermsConditionsLink.InnerText = commonCulture.ElementValues.getResourceString("termsConditions", xeResources);
 
@@ -307,7 +308,6 @@ public partial class _Secure_Register : System.Web.UI.Page
             if (lstValues.Count > 0)
             {
                 if (lstValues[0] != null) { strCountryCode = lstValues[0]; }
-                //if (lstValues[1] != null) { strSignUpUrl = string.Format("m.{0}", lstValues[1]); }
                 if (lstValues[2] != null) { strIPAddress = lstValues[2]; }
                 if (lstValues[3] != null) { strPermission = lstValues[3]; }
             }
@@ -319,9 +319,14 @@ public partial class _Secure_Register : System.Web.UI.Page
 
             if (string.IsNullOrEmpty(strCountryCode) || string.Compare(strCountryCode, "-", true) == 0)
             {
-                using (wsIP2Loc.ServiceSoapClient wsInstance = new wsIP2Loc.ServiceSoapClient())
+                if (!string.IsNullOrEmpty(CDNCountryCode))
                 {
-                    wsInstance.location(strIPAddress, ref strCountryCode, ref strPermission);
+                    strCountryCode = CDNCountryCode;
+                }else{
+                    using (wsIP2Loc.ServiceSoapClient wsInstance = new wsIP2Loc.ServiceSoapClient())
+                    {
+                        wsInstance.location(strIPAddress, ref strCountryCode, ref strPermission);
+                    }
                 }
             }
 
