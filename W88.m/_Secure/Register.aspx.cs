@@ -25,94 +25,99 @@ public partial class _Secure_Register : System.Web.UI.Page
         xeErrors = commonVariables.ErrorsXML;
         System.Xml.Linq.XElement xeResources = null;
         commonCulture.appData.getLocalResource(out xeResources);
-        customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
+        var opSettings = new customConfig.OperatorSettings("W88");
 
-        if (!Page.IsPostBack)
+        if (Page.IsPostBack) return;
+
+        if (string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId")))
         {
-            if (string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId")))
-            {
-                string affiliateId = HttpContext.Current.Request.QueryString.Get("AffiliateId");
+            var affiliateId = HttpContext.Current.Request.QueryString.Get("AffiliateId");
 
-                if (!string.IsNullOrEmpty(affiliateId))
+            if (!string.IsNullOrEmpty(affiliateId))
+            {
+                long affiliate;
+                if (!Int64.TryParse(affiliateId, out affiliate))
                 {
-                    commonVariables.SetSessionVariable("AffiliateId", affiliateId);
-
-                    commonCookie.CookieAffiliateId = affiliateId;
+                    strAlertCode = "0";
+                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/InvalidAffliateId", xeErrors);
+                    return;
                 }
+                commonVariables.SetSessionVariable("AffiliateId", affiliateId);
+                commonCookie.CookieAffiliateId = affiliateId;
             }
+        }
 
-            if (!string.IsNullOrWhiteSpace(commonCookie.CookieAffiliateId))
+        if (!string.IsNullOrWhiteSpace(commonCookie.CookieAffiliateId))
+        {
+            strAffiliateId = commonCookie.CookieAffiliateId;
+        }
+        else
+        {
+            strAffiliateId = string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId")) ? string.Empty : Convert.ToString(commonVariables.GetSessionVariable("AffiliateId"));
+        }
+
+        lblUsername.Text = commonCulture.ElementValues.getResourceString("lblUsername", xeResources);
+        lblPassword.Text = commonCulture.ElementValues.getResourceString("lblPassword", xeResources);
+        lblEmail.Text = commonCulture.ElementValues.getResourceString("lblEmailAddress", xeResources);
+        lblContact.Text = commonCulture.ElementValues.getResourceString("lblContact", xeResources);
+        lblCurrency.Text = commonCulture.ElementValues.getResourceString("lblCurrency", xeResources);
+        lblAffiliateID.Text = commonCulture.ElementValues.getResourceString("lblAffiliateID", xeResources);
+        lblCaptcha.Text = commonCulture.ElementValues.getResourceString("lblCaptcha", xeResources);
+        btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
+        btnCancel.InnerText = commonCulture.ElementValues.getResourceString("btnCancel", xeResources);
+
+        // txtUsername.Attributes.Add("PLACEHOLDER", lblUsername.Text);
+        // txtPassword.Attributes.Add("PLACEHOLDER", lblPassword.Text);
+        // txtEmail.Attributes.Add("PLACEHOLDER", lblEmail.Text);
+        // txtContact.Attributes.Add("PLACEHOLDER", lblContact.Text);
+        // txtAffiliateID.Attributes.Add("PLACEHOLDER", lblAffiliateID.Text);
+        // txtCaptcha.Attributes.Add("PLACEHOLDER", lblCaptcha.Text);
+        lblDisclaimer.InnerText = commonCulture.ElementValues.getResourceString("lblDisclaimer", xeResources);
+        btnTermsConditionsLink.InnerText = commonCulture.ElementValues.getResourceString("termsConditions", xeResources);
+
+        #region PhoneCountryCode
+        System.Data.DataSet dsCountryInfo = null;
+
+        using (wsMemberMS1.memberWSSoapClient wsInstance = new wsMemberMS1.memberWSSoapClient())
+        {
+            dsCountryInfo = wsInstance.GetCountryInfo(Convert.ToInt64(strOperatorId));
+
+            foreach (System.Data.DataRow drPhoneCountryCode in dsCountryInfo.Tables[0].Select("", "countryPhoneCode ASC"))
             {
-                strAffiliateId = commonCookie.CookieAffiliateId;
+                drpContactCountry.Items.Add(new ListItem(string.Format("+ {0}", Convert.ToString(drPhoneCountryCode["countryPhoneCode"])), Convert.ToString(drPhoneCountryCode["countryPhoneCode"])));
             }
-            else
-            {
-                strAffiliateId = string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId")) ? string.Empty : Convert.ToString(commonVariables.GetSessionVariable("AffiliateId"));
-            }
+        }
+        #endregion
 
-            lblUsername.Text = commonCulture.ElementValues.getResourceString("lblUsername", xeResources);
-            lblPassword.Text = commonCulture.ElementValues.getResourceString("lblPassword", xeResources);
-            lblEmail.Text = commonCulture.ElementValues.getResourceString("lblEmailAddress", xeResources);
-            lblContact.Text = commonCulture.ElementValues.getResourceString("lblContact", xeResources);
-            lblCurrency.Text = commonCulture.ElementValues.getResourceString("lblCurrency", xeResources);
-            lblAffiliateID.Text = commonCulture.ElementValues.getResourceString("lblAffiliateID", xeResources);
-            lblCaptcha.Text = commonCulture.ElementValues.getResourceString("lblCaptcha", xeResources);
-            btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
-            btnCancel.InnerText = commonCulture.ElementValues.getResourceString("btnCancel", xeResources);
+        #region Currencies
+        string arrStrCurrencies = opSettings.Values.Get("Currencies");
+        List<string> lstCurrencies = arrStrCurrencies.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries).Select(p => p.Trim()).ToList();
 
-            // txtUsername.Attributes.Add("PLACEHOLDER", lblUsername.Text);
-            // txtPassword.Attributes.Add("PLACEHOLDER", lblPassword.Text);
-            // txtEmail.Attributes.Add("PLACEHOLDER", lblEmail.Text);
-            // txtContact.Attributes.Add("PLACEHOLDER", lblContact.Text);
-            // txtAffiliateID.Attributes.Add("PLACEHOLDER", lblAffiliateID.Text);
-            // txtCaptcha.Attributes.Add("PLACEHOLDER", lblCaptcha.Text);
-            lblDisclaimer.InnerText = commonCulture.ElementValues.getResourceString("lblDisclaimer", xeResources);
-            btnTermsConditionsLink.InnerText = commonCulture.ElementValues.getResourceString("termsConditions", xeResources);
+        drpCurrency.Items.Insert(0, new ListItem(commonCulture.ElementValues.getResourceString("drpCurrencySelect", xeResources), "-1"));
+        foreach (string currency in lstCurrencies)
+        {
+            drpCurrency.Items.Add(new ListItem(commonCulture.ElementValues.getResourceXPathString("Currency/" + currency, xeResources), currency));
+        }
+        #endregion
 
-            #region PhoneCountryCode
-            System.Data.DataSet dsCountryInfo = null;
+        lblFirstName.Text = commonCulture.ElementValues.getResourceString("lblFirstName", xeResources);
+        // txtFirstName.Attributes.Add("PLACEHOLDER", lblFirstName.Text);
+        lblLastName.Text = commonCulture.ElementValues.getResourceString("lblLastName", xeResources);
+        // txtLastName.Attributes.Add("PLACEHOLDER", lblLastName.Text);
+        lblDOB.Text = commonCulture.ElementValues.getResourceString("lblDOB", xeResources);
 
-            using (wsMemberMS1.memberWSSoapClient wsInstance = new wsMemberMS1.memberWSSoapClient())
-            {
-                dsCountryInfo = wsInstance.GetCountryInfo(Convert.ToInt64(strOperatorId));
+        //drpDOB.Items.Add(new ListItem(commonCulture.ElementValues.getResourceString("lblDOB", xeResources), string.Empty, true));
 
-                foreach (System.Data.DataRow drPhoneCountryCode in dsCountryInfo.Tables[0].Select("", "countryPhoneCode ASC"))
-                {
-                    drpContactCountry.Items.Add(new ListItem(string.Format("+ {0}", Convert.ToString(drPhoneCountryCode["countryPhoneCode"])), Convert.ToString(drPhoneCountryCode["countryPhoneCode"])));
-                }
-            }
-            #endregion
+        int intDay = 0;
+        foreach (int vintDay in new int[31]) { intDay++; drpDay.Items.Add(new ListItem((intDay).ToString("0#"), Convert.ToString(intDay))); }
+        foreach (System.Xml.Linq.XElement xeMonth in xeResources.Element("Calendar").Elements()) { drpMonth.Items.Add(new ListItem(xeMonth.Value, Convert.ToString(xeMonth.Name).Replace("m", ""))); }
+        for (int intYear = System.DateTime.Now.Year - 18; intYear >= System.DateTime.Now.Year - 99; intYear--) { drpYear.Items.Add(new ListItem(Convert.ToString(intYear))); }
 
-            #region Currencies
-            string arrStrCurrencies = opSettings.Values.Get("Currencies");
-            List<string> lstCurrencies = arrStrCurrencies.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries).Select(p => p.Trim()).ToList();
+        txtAffiliateID.Text = strAffiliateId;
 
-            drpCurrency.Items.Insert(0, new ListItem(commonCulture.ElementValues.getResourceString("drpCurrencySelect", xeResources), "-1"));
-            foreach (string currency in lstCurrencies)
-            {
-                drpCurrency.Items.Add(new ListItem(commonCulture.ElementValues.getResourceXPathString("Currency/" + currency, xeResources), currency));
-            }
-            #endregion
-
-            lblFirstName.Text = commonCulture.ElementValues.getResourceString("lblFirstName", xeResources);
-            // txtFirstName.Attributes.Add("PLACEHOLDER", lblFirstName.Text);
-            lblLastName.Text = commonCulture.ElementValues.getResourceString("lblLastName", xeResources);
-            // txtLastName.Attributes.Add("PLACEHOLDER", lblLastName.Text);
-            lblDOB.Text = commonCulture.ElementValues.getResourceString("lblDOB", xeResources);
-
-            //drpDOB.Items.Add(new ListItem(commonCulture.ElementValues.getResourceString("lblDOB", xeResources), string.Empty, true));
-
-            int intDay = 0;
-            foreach (int vintDay in new int[31]) { intDay++; drpDay.Items.Add(new ListItem((intDay).ToString("0#"), Convert.ToString(intDay))); }
-            foreach (System.Xml.Linq.XElement xeMonth in xeResources.Element("Calendar").Elements()) { drpMonth.Items.Add(new ListItem(xeMonth.Value, Convert.ToString(xeMonth.Name).Replace("m", ""))); }
-            for (int intYear = System.DateTime.Now.Year - 18; intYear >= System.DateTime.Now.Year - 99; intYear--) { drpYear.Items.Add(new ListItem(Convert.ToString(intYear))); }
-
-            txtAffiliateID.Text = strAffiliateId;
-
-            if (!string.IsNullOrEmpty(strAffiliateId))
-            {
-                txtAffiliateID.ReadOnly = true;
-            }
+        if (!string.IsNullOrEmpty(strAffiliateId))
+        {
+            txtAffiliateID.ReadOnly = true;
         }
     }
 
