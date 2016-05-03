@@ -9,8 +9,6 @@ public class BasePage : System.Web.UI.Page
     public Boolean isLoggedIn;
     public Boolean isPublic = true;
     public PageHeaders headers = new PageHeaders();
-    protected string CDN_Value = string.Empty;
-    protected string CDN_Key = string.Empty;
 
     protected override void OnPreInit(EventArgs e)
     {

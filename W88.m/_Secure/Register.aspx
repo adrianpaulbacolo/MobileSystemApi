@@ -190,7 +190,7 @@
 
                 }
 
-                var responseMsg = = '<%=strAlertMessage%>';
+                var responseMsg = '<%=strAlertMessage%>';
                 if ('<%=strAlertCode%>' != "1" && responseMsg.length > 0) {
                    alert(responseMsg);
                 }
