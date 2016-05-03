@@ -300,13 +300,13 @@ public partial class _Secure_Register : BasePage
 
         if (!isProcessAbort)
         {
-            lstValues = strHiddenValues.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries).Select(p => p.Trim()).ToList();
+            lstValues = strHiddenValues.Split(new char[] { '|' }).Select(p => p.Trim()).ToList();
 
             if (lstValues.Count > 0)
             {
                 if (lstValues[0] != null) { strCountryCode = lstValues[0]; }
-                if (lstValues[2] != null) { strIPAddress = lstValues[2]; }
-                if (lstValues[3] != null) { strPermission = lstValues[3]; }
+                if (lstValues.Count > 2) { strIPAddress = lstValues[2]; }
+                if (lstValues.Count > 3) { strPermission = lstValues[3]; }
             }
 
             strSignUpUrl = string.Format("m.{0}", commonIp.DomainName);

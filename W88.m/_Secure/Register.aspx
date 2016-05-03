@@ -117,7 +117,7 @@
         <script type="text/javascript">
 
             var strContactCountry = '';
-            var CDNCountry = '<%= (!String.IsNullOrEmpty(headers.cdn)) ? headers.cdn : "" %>';
+            var CDNCountry = '<%= (!String.IsNullOrEmpty(CDNCountryCode)) ? CDNCountryCode : "" %>';
             var domain = '<%= (!String.IsNullOrEmpty(headers.host)) ? headers.host : "" %>';
 
             function setCurrency(country) {
@@ -155,7 +155,7 @@
                 $("#drpContact").attr("disabled", "disabled").off('click');
                 $("#drpDOB").attr("disabled", "disabled").off('click');
                 if (CDNCountry.length > 0 && setCurrency(CDNCountry)) {
-                    $('#hidValues').val(CDNCountry + "|" + domain + "||");
+                    $('#hidValues').val(CDNCountry + "|" + domain + "|" + <%= String.IsNullOrEmpty(headers.ip) ? headers.ip : commonIp.UserIP %> + "|-");
                 }else{
                     $.ajax({
                         contentType: "application/json; charset=utf-8",
