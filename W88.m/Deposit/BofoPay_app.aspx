@@ -96,7 +96,6 @@
                         case '0':
                             alert('<%=strAlertMessage%>');
 
-                            window.open('<%=strRedirectUrl%>');
                             break;
                         default:
                             break;

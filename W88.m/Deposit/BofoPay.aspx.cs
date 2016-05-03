@@ -120,9 +120,7 @@ public partial class Deposit_BofoPay : PaymentBasePage
                             status.AlertCode = "0";
                             status.AlertMessage = string.Format("{0}\\n{1}: {2}", commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferSuccess", xeErrors), strlblTransactionId, strTransferId);
 
-                            //litForm.Text = CallVendor(strTransferId, decDepositAmount);
-
-                            strRedirectUrl = CallVendor(strTransferId, decDepositAmount);
+                            litForm.Text = CallVendor(strTransferId, decDepositAmount);
                         }
                         else
                         {
@@ -178,41 +176,38 @@ public partial class Deposit_BofoPay : PaymentBasePage
 
         string postUrl = ConfigurationManager.AppSettings["BofoPay_postUrl"];
 
-        var request = (HttpWebRequest)WebRequest.Create(postUrl);
-        string postData = "MemberID=" + strMerchantId;
-        postData += ("&TerminalID=" + terminalID);
-        postData += ("&InterfaceVersion=" + interfaceVersion);
-        postData += ("&KeyType=" + keyType);
-        postData += ("&PayID=" + payID);
-        postData += ("&TradeDate=" + tradeDate);
-        postData += ("&TransID=" + strTransferId);
-        postData += ("&OrderMoney=" + orderMoney); //deposit amount
-        postData += ("&ProductName=" + productName);
-        postData += ("&Amount=" + amount); //quantity
-        postData += ("&Username=" + userName);
-        postData += ("&AdditionalInfo=" + additionalInfo);
-        postData += ("&PageUrl=" + pageUrl);
-        postData += ("&ReturnUrl=" + returnUrl);
-        postData += ("&Signature=" + signInfo);
-        postData += ("&NoticeType=" + noticeType);
+        var sb = new StringBuilder();
+        sb.Append(@"<form id=""theForm"" name=""theForm"" target=""_blank"" method=""post"" action='" + postUrl + "'>");
+        sb.Append(@"<input type=""hidden"" id=""MemberID"" name=""MemberID"" value='" + strMerchantId + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""TerminalID"" name=""TerminalID"" value='" + terminalID + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""InterfaceVersion"" name=""InterfaceVersion"" value='" + interfaceVersion + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""KeyType"" name=""KeyType"" value='" + keyType + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""PayID"" name=""PayID"" value='" + payID + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""TradeDate"" name=""TradeDate"" value='" + tradeDate + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""TransID"" name=""TransID"" value='" + strTransferId + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""OrderMoney"" name=""OrderMoney"" value='" + orderMoney + "'/>"); //deposit amount
+        sb.Append(@"<input type=""hidden"" id=""ProductName"" name=""ProductName"" value='" + productName + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""Amount"" name=""Amount"" value='" + amount + "'/>"); //quantity
+        sb.Append(@"<input type=""hidden"" id=""Username"" name=""Username"" value='" + userName + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""AdditionalInfo"" name=""AdditionalInfo"" value='" + additionalInfo + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""PageUrl"" name=""PageUrl"" value='" + pageUrl + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""ReturnUrl"" name=""ReturnUrl"" value='" + returnUrl + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""Signature"" name=""Signature"" value='" + signInfo + "'/>");
+        sb.Append(@"<input type=""hidden"" id=""NoticeType"" name=""NoticeType"" value='" + noticeType + "'/>");
+        sb.Append(@"</form>");
 
-        var data = Encoding.ASCII.GetBytes(postData);
+        intProcessSerialId += 1;
+        commonAuditTrail.appendLog("system", base.PageName, "CallVendor", string.Empty, string.Empty, string.Empty, string.Empty, "ok", sb.ToString(), Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
 
-        request.Method = "POST";
-        request.ContentType = "application/x-www-form-urlencoded";
-        request.ContentLength = data.Length;
+        var sb1 = new StringBuilder();
+        sb1.Append(@"<script type='text/javascript'>");
+        sb1.Append(@"var ctlForm = document.forms.namedItem('theForm');");
+        sb1.Append(@"ctlForm.submit();");
+        sb1.Append(@"</script>");
 
-        using (var stream = request.GetRequestStream())
-        {
-            stream.Write(data, 0, data.Length);
-        }
+        intProcessSerialId += 1;
+        commonAuditTrail.appendLog("system", base.PageName, "CallVendor", string.Empty, string.Empty, string.Empty, string.Empty, "ok", sb1.ToString(), Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
 
-        var response = (HttpWebResponse)request.GetResponse();
-
-        return response.ResponseUri.ToString();
-
-        //var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-
-        //return responseString.Replace("form ", @"form target=""_blank"" ").Replace("setTimeout('delayer()', 5000)", "setTimeout('delayer()', 1000)");
+        return sb.ToString() + sb1.ToString();
     }
 }
