@@ -65,28 +65,17 @@ public partial class _Secure_Login : BasePage
                 }
                 else
                 {
-                    Response.Redirect("/Deposit/Default_app.aspx");
+                    Response.Redirect("/Deposit/Default_app.aspx", false);
                 }
             }
             catch (Exception ex)
             {
                 UserSession.ClearSession();
             }
-
         }
         else
         {
-            if (UserSession.IsLoggedIn())
-            {
-                if (sender.ToString().Contains("app"))
-                {
-                    Response.Redirect("/Deposit/Default_app.aspx");
-                }
-                else
-                {
-                    Response.Redirect("/Index");
-                }
-            }
+            UserSession.ClearSession();
         }
 
         if (string.IsNullOrEmpty(Request.QueryString.Get("redirect"))) { strRedirect = "/Index.aspx?lang=" + commonVariables.SelectedLanguage; }
