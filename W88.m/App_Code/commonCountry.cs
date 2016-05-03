@@ -57,11 +57,13 @@ public static class commonCountry
         return ISportURL;
     }
 
-    public class AkamaiKeys
+    public class HeaderKeys
     {
         public const string HTTP_X_AKAMAI_EDGESCAPE = "HTTP_X_AKAMAI_EDGESCAPE";
         public const string HTTP_CF_IPCOUNTRY = "HTTP_CF_IPCOUNTRY";
         public const string HTTP_GEO_COUNTRY = "HTTP_GEO_COUNTRY";
+        public const string TRUE_CLIENT_IP = "TRUE_CLIENT_IP";
+        public const string HOST = "HOST";
         public const string COUNTRY_DOMAIN_CN = "country_domain_cn";
         public const string COUNTRY_DOMAIN_VN = "country_domain_vn";
         public const string COUNTRY_DOMAIN_TH = "country_domain_th";

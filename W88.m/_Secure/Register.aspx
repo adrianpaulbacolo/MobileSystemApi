@@ -117,7 +117,8 @@
         <script type="text/javascript">
 
             var strContactCountry = '';
-            var CDNCountry = '<%= (!String.IsNullOrEmpty(CDNCountryCode)) ? CDNCountryCode : "" %>';
+            var CDNCountry = '<%= (!String.IsNullOrEmpty(headers.cdn)) ? headers.cdn : "" %>';
+            var domain = '<%= (!String.IsNullOrEmpty(headers.host)) ? headers.host : "" %>';
 
             function setCurrency(country) {
                 switch (country.toString().toUpperCase()) {
@@ -142,16 +143,19 @@
                     case "KR":
                         if ($('#drpCurrency option[value="KRW"]').length > 0) { $('#drpCurrency').val('KRW'); }
                         break;
+                    default:
+                        return false;
+                        break;
                 }
                 $('#drpCurrency').change();
+                return true;
             }
 
             $(function () {
                 $("#drpContact").attr("disabled", "disabled").off('click');
                 $("#drpDOB").attr("disabled", "disabled").off('click');
-                if(CDNCountry.length > 0){
-                    setCurrency(CDNCountry);
-                    $('#hidValues').val(CDNCountry + "|||");
+                if (CDNCountry.length > 0 && setCurrency(CDNCountry)) {
+                    $('#hidValues').val(CDNCountry + "|" + domain + "||");
                 }else{
                     $.ajax({
                         contentType: "application/json; charset=utf-8",
@@ -186,21 +190,9 @@
 
                 }
 
-                if ('<%=strAlertCode%>'.length > 0) {
-                    switch ('<%=strAlertCode%>') {
-                        case '-1':
-                            alert('<%=strAlertMessage%>');
-                            break;
-                        case '0':
-                            alert('<%=strAlertMessage%>');
-                            break;
-                        case '1':
-                            alert('<%=strAlertMessage%>');
-                            window.location.replace('/Index.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
-                            break;
-                        default:
-                            break;
-                    }
+                var responseMsg = = '<%=strAlertMessage%>';
+                if ('<%=strAlertCode%>' != "1" && responseMsg.length > 0) {
+                   alert(responseMsg);
                 }
             });
 
@@ -306,17 +298,8 @@
                     return;
                 }
                 else {
-                    if (strContact.length < 6 || strContact.length > 12) {
-                        alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidContact", xeErrors)%>');
-                        $('#btnSubmit').attr("disabled", false);
-                        e.preventDefault();
-                        return;
-                    }
-                    else {
-                        GPINTMOBILE.ShowSplash();
-                        
-                        $('#btnSubmit').attr("disabled", false);
-                    }
+                    GPINTMOBILE.ShowSplash();
+                    $('#btnSubmit').attr("disabled", false);
                 }
             });
 
