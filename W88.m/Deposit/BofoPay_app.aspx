@@ -105,5 +105,7 @@
 
         </script>
     </div>
+
+    <asp:Literal ID="litForm" runat="server"></asp:Literal>
 </body>
 </html>
