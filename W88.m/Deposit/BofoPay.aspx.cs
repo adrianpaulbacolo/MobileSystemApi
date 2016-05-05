@@ -32,8 +32,6 @@ public partial class Deposit_BofoPay : PaymentBasePage
         base.InitialisePaymentLimits();
 
         base.GetMainWalletBalance("0");
-
-        drpBank.Items.AddRange(base.InitializeBank("BofoPayBank").ToArray());
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -57,7 +55,6 @@ public partial class Deposit_BofoPay : PaymentBasePage
         lblDailyLimit.Text = base.strlblDailyLimit;
         lblTotalAllowed.Text = base.strlblTotalAllowed;
         lblDepositAmount.Text = base.strlblAmount;
-        lblBank.Text = base.strlblBank;
 
         btnSubmit.Text = base.strbtnSubmit;
 
@@ -76,7 +73,6 @@ public partial class Deposit_BofoPay : PaymentBasePage
         }
 
         string strDepositAmount = txtDepositAmount.Text.Trim();
-        string selectedBank = drpBank.SelectedItem.Value;
 
         decimal decDepositAmount = commonValidation.isDecimal(strDepositAmount) ? Convert.ToDecimal(strDepositAmount) : 0;
         decimal decMinLimit = Convert.ToDecimal(strMinLimit);
@@ -89,10 +85,6 @@ public partial class Deposit_BofoPay : PaymentBasePage
             if (decDepositAmount == 0)
             {
                 status = base.GetErrors("/MissingDepositAmount");
-            }
-            else if (selectedBank == "-1")
-            {
-                status = base.GetErrors("/SelectBank");
             }
             else if (decDepositAmount < decMinLimit)
             {
@@ -127,7 +119,7 @@ public partial class Deposit_BofoPay : PaymentBasePage
                             status.AlertCode = "0";
                             status.AlertMessage = string.Format("{0}\\n{1}: {2}", commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferSuccess", xeErrors), strlblTransactionId, strTransferId);
 
-                            litForm.Text = CallVendor(strTransferId, decDepositAmount, selectedBank);
+                            litForm.Text = CallVendor(strTransferId, decDepositAmount);
                         }
                         else
                         {
@@ -147,19 +139,19 @@ public partial class Deposit_BofoPay : PaymentBasePage
         strAlertCode = status.AlertCode;
         strAlertMessage = status.AlertMessage;
 
-        string strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | CurrencyCode: {2} | DepositAmount: {3} | BankName: {4} | MinLimit: {5} | MaxLimit: {6} | TotalAllowed: {7} | DailyLimit: {8} | Response: {9}",
-           Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, selectedBank, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
+        string strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | CurrencyCode: {2} | DepositAmount: {3} | MinLimit: {4} | MaxLimit: {5} | TotalAllowed: {6} | DailyLimit: {7} | Response: {8}",
+           Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
 
         intProcessSerialId += 1;
         commonAuditTrail.appendLog("system", base.PageName, "InitiateDeposit", string.Empty, strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
     }
 
 
-    private string CallVendor(string strTransferId, decimal decDepositAmount, string bankId)
+    private string CallVendor(string strTransferId, decimal decDepositAmount)
     {
         string[] infoArray = base.GetPaymentGatewayMerchantSetting(commonVariables.DepositMethod.BofoPay).Split('|');
 
-        string payID = bankId;//bank selection
+        string payID = "all"; //Product Features
         string tradeDate = DateTime.Now.ToString("yyyyMMddHHmmss");
         string orderMoney = (decDepositAmount * 100).ToString();
         string productName = "mobile";

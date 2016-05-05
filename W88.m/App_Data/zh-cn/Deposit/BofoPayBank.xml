@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<banks>
-	<bank id="4020001" ><![CDATA[招商银行]]></bank>
-	<bank id="4020003"><![CDATA[建设银行]]></bank>
-	<bank id="4020020"><![CDATA[交通银行]]></bank>
-	<bank id="4020026"><![CDATA[中国银行]]></bank>
-	<bank id="4020080"><![CDATA[银联在线]]></bank>
-</banks>
