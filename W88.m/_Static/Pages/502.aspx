@@ -162,16 +162,21 @@
 <body>
 
     <section class="container main">
-    	<img class="logo" src="/_Static/Images/errors/w-logo.png">
+    	<a href="/Index.aspx"><img class="logo" src="/_Static/Images/errors/w-logo.png"></a>
         <h1><%=commonCulture.ElementValues.getResourceXPathString("StatusCode/e502", commonVariables.ErrorsXML)%></h1>
         <h3><%=commonCulture.ElementValues.getResourceXPathString("HttpError/e502title", commonVariables.ErrorsXML)%></h3>
         <p><%=commonCulture.ElementValues.getResourceXPathString("HttpError/e502", commonVariables.ErrorsXML)%></p>
     </section>
 
     <footer class="container footer">
-        <ul>
-            <li><a href="https://server.iad.liveperson.net/hc/88942816/?cmd=file&amp;file=visitorWantsToChat&amp;site=88942816&amp;SV!skill=English&amp;leInsId=88942816527642465&amp;skId=1&amp;leEngId=88942816_29aeab82-a5fc-4de7-b801-c6a87c638106&amp;leEngTypeId=8&amp;leEngName=LiveHelp_default&amp;leRepAvState=3&amp;SESSIONVAR!visitor_profile=English" onclick="window.open(&#39;https://server.iad.liveperson.net/hc/88942816/?cmd=file&amp;file=visitorWantsToChat&amp;site=88942816&amp;SV!skill=English&amp;leInsId=88942816527642465&amp;skId=1&amp;leEngId=88942816_29aeab82-a5fc-4de7-b801-c6a87c638106&amp;leEngTypeId=8&amp;leEngName=LiveHelp_default&amp;leRepAvState=3&amp;SESSIONVAR!visitor_profile=English&#39;, &#39;popup&#39;, &#39;width=517,height=465&#39;); return false">Contact Support</a></li>
+        <ul style="padding-bottom: 5px;">
+            <li class="f-menu">
+                <a href="/Index.aspx"><%=commonCulture.ElementValues.getResourceString("home", commonVariables.LeftMenuXML)%></a>
+            </li>
             <li class="divider"> | </li>
+            <li class="f-menu"><a href="https://server.iad.liveperson.net/hc/88942816/?cmd=file&amp;file=visitorWantsToChat&amp;site=88942816&amp;SV!skill=English&amp;leInsId=88942816527642465&amp;skId=1&amp;leEngId=88942816_29aeab82-a5fc-4de7-b801-c6a87c638106&amp;leEngTypeId=8&amp;leEngName=LiveHelp_default&amp;leRepAvState=3&amp;SESSIONVAR!visitor_profile=English" onclick="window.open(&#39;https://server.iad.liveperson.net/hc/88942816/?cmd=file&amp;file=visitorWantsToChat&amp;site=88942816&amp;SV!skill=English&amp;leInsId=88942816527642465&amp;skId=1&amp;leEngId=88942816_29aeab82-a5fc-4de7-b801-c6a87c638106&amp;leEngTypeId=8&amp;leEngName=LiveHelp_default&amp;leRepAvState=3&amp;SESSIONVAR!visitor_profile=English&#39;, &#39;popup&#39;, &#39;width=517,height=465&#39;); return false"><%=commonCulture.ElementValues.getResourceString("helpCenter", commonVariables.LeftMenuXML)%></a></li>
+        </ul>
+        <ul>
             <li>© 2015 <a href="https://www.w88live.com/">W88</a>. All rights reserved.</li>
         </ul>
     </footer>
