@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<banks>
+	<bank id="4020001" ><![CDATA[China Merchants Bank]]></bank>
+	<bank id="4020003"><![CDATA[Construction Bank]]></bank>
+	<bank id="4020020"><![CDATA[Bank of Communications]]></bank>
+	<bank id="4020026"><![CDATA[Bank of China]]></bank>
+	<bank id="4020080"><![CDATA[Other Banks]]></bank>
+</banks>

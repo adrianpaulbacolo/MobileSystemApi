@@ -32,6 +32,8 @@ public class PaymentBasePage : BasePage
 
     protected bool IsPageRefresh = false;
 
+    protected string ThankYouPage = "/Deposit/ThankYou.aspx";
+
     protected string strMerchantId = string.Empty;
     protected string strOperatorId = string.Empty;
     protected string strMemberCode = string.Empty;

@@ -33,6 +33,7 @@ public partial class Deposit_BofoPay : PaymentBasePage
 
         base.GetMainWalletBalance("0");
 
+        drpBank.Items.AddRange(base.InitializeBank("BofoPayBank").ToArray());
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -56,6 +57,7 @@ public partial class Deposit_BofoPay : PaymentBasePage
         lblDailyLimit.Text = base.strlblDailyLimit;
         lblTotalAllowed.Text = base.strlblTotalAllowed;
         lblDepositAmount.Text = base.strlblAmount;
+        lblBank.Text = base.strlblBank;
 
         btnSubmit.Text = base.strbtnSubmit;
 
@@ -74,6 +76,7 @@ public partial class Deposit_BofoPay : PaymentBasePage
         }
 
         string strDepositAmount = txtDepositAmount.Text.Trim();
+        string selectedBank = drpBank.SelectedItem.Value;
 
         decimal decDepositAmount = commonValidation.isDecimal(strDepositAmount) ? Convert.ToDecimal(strDepositAmount) : 0;
         decimal decMinLimit = Convert.ToDecimal(strMinLimit);
@@ -86,6 +89,10 @@ public partial class Deposit_BofoPay : PaymentBasePage
             if (decDepositAmount == 0)
             {
                 status = base.GetErrors("/MissingDepositAmount");
+            }
+            else if (selectedBank == "-1")
+            {
+                status = base.GetErrors("/SelectBank");
             }
             else if (decDepositAmount < decMinLimit)
             {
@@ -120,7 +127,7 @@ public partial class Deposit_BofoPay : PaymentBasePage
                             status.AlertCode = "0";
                             status.AlertMessage = string.Format("{0}\\n{1}: {2}", commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferSuccess", xeErrors), strlblTransactionId, strTransferId);
 
-                            litForm.Text = CallVendor(strTransferId, decDepositAmount);
+                            litForm.Text = CallVendor(strTransferId, decDepositAmount, selectedBank);
                         }
                         else
                         {
@@ -140,28 +147,30 @@ public partial class Deposit_BofoPay : PaymentBasePage
         strAlertCode = status.AlertCode;
         strAlertMessage = status.AlertMessage;
 
-        string strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | CurrencyCode: {2} | DepositAmount: {3} | MinLimit: {4} | MaxLimit: {5} | TotalAllowed: {6} | DailyLimit: {7} | Response: {8}",
-           Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
+        string strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | CurrencyCode: {2} | DepositAmount: {3} | BankName: {4} | MinLimit: {5} | MaxLimit: {6} | TotalAllowed: {7} | DailyLimit: {8} | Response: {9}",
+           Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, selectedBank, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
 
         intProcessSerialId += 1;
         commonAuditTrail.appendLog("system", base.PageName, "InitiateDeposit", string.Empty, strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
     }
 
 
-    private string CallVendor(string strTransferId, decimal decDepositAmount)
+    private string CallVendor(string strTransferId, decimal decDepositAmount, string bankId)
     {
         string[] infoArray = base.GetPaymentGatewayMerchantSetting(commonVariables.DepositMethod.BofoPay).Split('|');
 
-        string payID = string.Empty; //will direct to Bofo payment page to make bank selection
+        string payID = bankId;//bank selection
         string tradeDate = DateTime.Now.ToString("yyyyMMddHHmmss");
         string orderMoney = (decDepositAmount * 100).ToString();
-        string productName = string.Empty;
+        string productName = "mobile";
         string amount = "1"; //quantity
         string userName = string.Empty;
         string additionalInfo = string.Empty;
-        string pageUrl = string.Empty;
+
+        var requestUrl = HttpContext.Current.Request.Url;
+        string pageUrl = requestUrl.Scheme + "://" + requestUrl.Host + base.ThankYouPage; ;
         string returnUrl = ConfigurationManager.AppSettings["BofoPay_serverreturnurl"]; //server to receive response from Baofo
-        string noticeType = "0"; //0 - no redirection to pageUrl after successful payment, 1 - redirect to pageUrl after payment
+        string noticeType = "1"; //0 - no redirection to pageUrl after successful payment, 1 - redirect to pageUrl after payment
 
 
         string md5Key = infoArray[0];
@@ -170,7 +179,7 @@ public partial class Deposit_BofoPay : PaymentBasePage
         string keyType = "1"; //1 - MD5
 
         var builder = new StringBuilder();
-        builder.AppendFormat("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}", strMemberID, payID, tradeDate, strTransferId, orderMoney, pageUrl, returnUrl, noticeType, md5Key);
+        builder.AppendFormat("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}", strMerchantId, payID, tradeDate, strTransferId, orderMoney, pageUrl, returnUrl, noticeType, md5Key);
 
         string signInfo = commonEncryption.GetMd5Hash(builder.ToString()).ToUpper();
 
