@@ -87,7 +87,9 @@
                     e.preventDefault();
                     return;
                 }
-
+                setTimeout(function () {
+                    $('#btnSubmit').prop("disabled", true);
+                }, 0);
                 GPINTMOBILE.ShowSplash();
             });
 
@@ -163,13 +165,12 @@
                    } else { $('#litPromoDetails').text(''); }
                 });
 
-                if ('<%=strAlertMessage%>'.length > 0) { alert('<%=strAlertMessage%>'.split('[break]').join('\n')); }
-                if ('<%=strAlertCode%>'.length > 0) {
-                    switch ('<%=strAlertCode%>') {
-                        case "-1":
-                            window.location.replace('/FundTransfer.aspx');
-                            break;
-                    }
+                var responseCode = '<%=strAlertCode%>';
+                var responseMsg = '<%=strAlertMessage%>';
+
+                if (responseMsg.length > 0) { alert(responseMsg.split('[break]').join('\n')); }
+                if (responseCode == "-1") {
+                    window.location.replace('/FundTransfer.aspx');
                 }
             });
 
