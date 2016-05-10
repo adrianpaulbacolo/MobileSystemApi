@@ -75,6 +75,14 @@
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubCrescendo/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>--%>
+                 <%if(Session["responseCode"].ToString()=="1"){%>
+                 <li class="col col-33">
+                     <a class="card" href="/_Static/Downloads/w88.aspx">
+                        <img src="/_Static/Images/Download/ClubW88-iOS.jpg" class="img-responsive">
+                        <div class="title">Club W88 iOS Download</div>
+                    </a>
+                </li>
+                <%}%>
             </ul>
         </div>
 
