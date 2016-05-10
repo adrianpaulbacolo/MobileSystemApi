@@ -72,14 +72,20 @@
 
         <!--#include virtual="~/_static/navMenu.shtml" -->
         <script type="text/javascript">
+            $('#form1').submit(function (e) {
+                window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
+            });
             $(function () {
-                if ('<%=strAlertCode%>'.length > 0) {
-                    switch ('<%=strAlertCode%>') {
+
+                var responseCode = '<%=strAlertCode%>';
+                var responseMsg = '<%=strAlertMessage%>';
+                if (responseCode.length > 0) {
+                    switch (responseCode) {
                         case '-1':
-                            alert('<%=strAlertMessage%>');
+                            alert(responseMsg);
                             break;
                         case '0':
-                            alert('<%=strAlertMessage%>');
+                            alert(responseMsg);
                             window.location.replace('/Withdrawal/WingMoney');
                             break;
                         default:
@@ -87,7 +93,6 @@
                     }
                 }
             });
-
         </script>
     </div>
 </body>

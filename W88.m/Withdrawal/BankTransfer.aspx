@@ -93,19 +93,6 @@
                         <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" />
                         <asp:TextBox ID="txtAccountNumber" runat="server" />
                     </li>
-                    <%-- <% if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "myr", true) == 0)
-                       { %>
-                    <li class="item item-input">
-                        <asp:Label ID="lblMyKad" runat="server" AssociatedControlID="txtMyKad" Text="to" />
-                        <asp:TextBox ID="txtMyKad" runat="server" />
-                    </li>
-                    <% } %>--%>
-                    <!--
-                    <li class="item item-input">
-                        <asp:Label ID="lblMobile" runat="server" AssociatedControlID="txtMobile" Text="to" />
-                        <asp:TextBox ID="txtMobile" runat="server" />
-                    </li>
-                    -->
                     <li class="item row">
                         <div class="col">
                             <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" data-ajax="false"><%=base.strbtnCancel%></a>
@@ -120,7 +107,9 @@
 
         <!--#include virtual="~/_static/navMenu.shtml" -->
         <script type="text/javascript">
-            //$(document).ready(function () { });
+            $('#form1').submit(function (e) {
+                window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
+            });
             $(function () {
                 window.history.forward();
 
@@ -129,17 +118,16 @@
                 $('#txtMyKad').mask('999999-99-9999');
                 <% } %>
 
-                if ('<%=strAlertCode%>'.length > 0) {
-                    switch ('<%=strAlertCode%>') {
+                var responseCode = '<%=strAlertCode%>';
+                var responseMsg = '<%=strAlertMessage%>';
+                if (responseCode.length > 0) {
+                    switch (responseCode) {
                         case '-1':
-                            alert('<%=strAlertMessage%>');
-
+                            alert(responseMsg);
                             toogleBank($('#drpBank').val());
-
                             break;
                         case '0':
-                            alert('<%=strAlertMessage%>');
-
+                            alert(responseMsg);
                             window.location.replace('/Withdrawal/Default.aspx');
                             break;
                         default:

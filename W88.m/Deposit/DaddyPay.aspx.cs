@@ -46,8 +46,6 @@ public partial class Deposit_DaddyPay : BasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        CancelUnexpectedRePost();
-
         strOperatorId = commonVariables.OperatorId;
         strMemberId = commonVariables.GetSessionVariable("MemberId");
         strMemberCode = commonVariables.GetSessionVariable("MemberCode");
@@ -119,9 +117,6 @@ public partial class Deposit_DaddyPay : BasePage
 
             strMethodsUnAvailable = Convert.ToString(sbMethodsUnavailable).TrimEnd('|');
 
-            //bankDropDownList.Items.Clear();
-
-            //PopulateBankList();
         }
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
@@ -133,26 +128,6 @@ public partial class Deposit_DaddyPay : BasePage
         else if (Request.QueryString["value"].ToString() == "2")
         {
             commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, "daddypayqr", sender.ToString().Contains("app"));
-        }
-    }
-
-    private void CancelUnexpectedRePost()
-    {
-        if (!IsPostBack)
-        {
-            ViewState["postids"] = System.Guid.NewGuid().ToString();
-            Session["postid"] = ViewState["postids"].ToString();
-        }
-        else
-        {
-            if (string.IsNullOrEmpty(ViewState["postids"] as string)) { IsPageRefresh = true; }
-            else
-            {
-                if (string.IsNullOrEmpty(Session["postid"] as string)) { IsPageRefresh = true; }
-                else if (ViewState["postids"].ToString() != Session["postid"].ToString()) { IsPageRefresh = true; }
-            }
-            Session["postid"] = System.Guid.NewGuid().ToString();
-            ViewState["postids"] = Session["postid"];
         }
     }
 
