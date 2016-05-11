@@ -67,13 +67,13 @@
 			</vegasStripBlackjackGold>
 		</CardAndTable>
 		<Slot Label="老虎机">
-			<winSumTimSum Top="1">
+			<winSumDimSum Top="1">
 				<Label><![CDATA[winSumDimSum]]></Label>
 				<Description><![CDATA[winSumDimSum]]></Description>
 				<ImageName><![CDATA[W88-Slots-Mobile-Win-Sum-Dim-Sum]]></ImageName>
-				<PlayForRealURL><![CDATA[{RealUrl}/winSumTimSum/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{FunUrl}/winSumTimSum/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
-			</winSumTimSum>
+				<PlayForRealURL><![CDATA[{RealUrl}/winSumDimSum/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{FunUrl}/winSumDimSum/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+			</winSumDimSum>
 
 			<barBarBlackSheep5Reel>
 				<Label><![CDATA[barBarBlackSheep5Reel]]></Label>
