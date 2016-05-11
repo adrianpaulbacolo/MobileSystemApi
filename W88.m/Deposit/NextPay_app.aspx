@@ -91,17 +91,8 @@
 
                 var responseCode = '<%=strAlertCode%>';
                 var responseMsg = '<%=strAlertMessage%>';
-                if (responseCode.length > 0) {
-                    switch (responseCode) {
-                        case '-1':
-                            alert(responseMsg);
-                            break;
-                        case '0':
-                            alert(responseMsg);
-                            break;
-                        default:
-                            break;
-                    }
+                if (responseCode.length > 0 && responseMsg.length > 0) {
+                    alert(responseMsg);
                 }
             });
         </script>
