@@ -15,7 +15,7 @@ public class UserSession
         commonCookie.ClearCookies(); 
     }
 
-    public static void checkSession()
+    public static string checkSession()
     {
         if(!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)){
             try
@@ -46,13 +46,15 @@ public class UserSession
                             commonCookie.CookieG = commonVariables.CurrentMemberSessionId;
 
                         }
+                        return strProcessCode;
                     }
 
                 }
             }catch(Exception ex){
-                //do nothing
+                return "0";
             }
         }
+        return "10";
     }
 
     public static bool IsLoggedIn()
