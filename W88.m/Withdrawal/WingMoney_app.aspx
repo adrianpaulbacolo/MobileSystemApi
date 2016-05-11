@@ -75,10 +75,6 @@
         </div>
         <!-- /content -->
         <script type="text/javascript">
-
-            $('#form1').submit(function (e) {
-                window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
-            });
             $(function () {
                 var responseCode = '<%=strAlertCode%>';
                 var responseMsg = '<%=strAlertMessage%>';
