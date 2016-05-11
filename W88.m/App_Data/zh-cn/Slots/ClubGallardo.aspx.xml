@@ -6,7 +6,7 @@
 				<MegaBoy ProductId="896550" Top="1">
 					<ImageName><![CDATA[Mega-Boy-mobile]]></ImageName>
 				</MegaBoy>
-				
+
 				<AbsoluteSuperReels ProductId="896500">
 					<ImageName><![CDATA[W88-Slots-Mobile-Absolute-Super-Reels]]></ImageName>
 				</AbsoluteSuperReels>
@@ -94,13 +94,16 @@
 			</iSoftBet>
 
 			<PNG>
-                <goldencaravanmobile  Top="1">
-                    <ImageName><![CDATA[W88-Slots-Mobile-Golden-Caravan]]></ImageName>
-                </goldencaravanmobile>
-                <sailsofgoldmobile Top="2">
-                    <ImageName><![CDATA[W88-Slots-Mobile-Sails-of-Gold]]></ImageName>
-                </sailsofgoldmobile>
-                
+				<moneywheelmobile  Top="1">
+					<ImageName><![CDATA[W88-Slots-Mobile-Money-Wheel]]></ImageName>
+				</moneywheelmobile>
+
+				<goldencaravanmobile>
+					<ImageName><![CDATA[W88-Slots-Mobile-Golden-Caravan]]></ImageName>
+				</goldencaravanmobile>
+				<sailsofgoldmobile>
+					<ImageName><![CDATA[W88-Slots-Mobile-Sails-of-Gold]]></ImageName>
+				</sailsofgoldmobile>
 				<cloudquestmobile>
 					<ImageName><![CDATA[W88-Slots-Mobile-Cloud-Quest]]></ImageName>
 				</cloudquestmobile >
