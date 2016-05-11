@@ -117,6 +117,7 @@ public partial class Slots_ClubGallardo : BasePage
 
                             sbGames.Append("<i class='icon-play_arrow'></i></a>");
                             sbGames.AppendFormat("<a class='btn-secondary' href='{0}' target='_blank'><i class='icon-fullscreen'></i></a></div>", commonClubBravado.getThirdPartyFunUrl.Replace("{GAME}", Convert.ToString(strGameId)).Replace("{LANG}", newstrLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
+                            sbGames.Append("</div></li>");
 
                         }
                         else if (!isISoftBetNotSupported)
@@ -133,10 +134,9 @@ public partial class Slots_ClubGallardo : BasePage
                             sbGames.Append("<i class='icon-play_arrow'></i></a>");
 
                             sbGames.AppendFormat("<a class='btn-secondary' target='_blank' href='{0}'><i class='icon-fullscreen'></i></a></div>", commonClubGallardo.getFunUrl.Replace("{GAME}", Convert.ToString(strGameId)).Replace("{LANG}", strLanguageCode).Replace("{CURCODE}", currCode).Replace("{LOBBYURL}", lobbyUrl));
+                            sbGames.Append("</div></li>");
                         }
                     }
-
-                    sbGames.Append("</div></li>");
                 }
 
                 sbGames.Append("</ul></div></div></div>");
