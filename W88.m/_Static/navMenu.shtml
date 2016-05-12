@@ -93,56 +93,20 @@
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
-                <li>
-                    <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-rel="dialog" data-transition="slidedown">
+                <!-- <li>
+                    <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-rel="dialog" data-transition="slidedown" data-ajax="false">
                         <img src="_Static/Images/sports/bnr-vSports.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports/Label", commonVariables.ProductsXML)%></div>
                     </a>
-                </li>
-                <!-- Toggle to hide elements -->
-                <!--<li>
-                    <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-ajax="false" data-transition="slidedown" target="_blank">
-                        <img src="/_Static/Images/bnr-vSPORTS-tennis.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li>-->
-                <!--<li>
-                    <a class="card menu-sports" data-rel="sports" href="">
-                        <img src="/_Static/Images/bnr-vSPORTS-tennis.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li>-->
-                <!-- Hide elements -->
-                <!--<li class="menu-sports-sub hide">
-                    <a class="card" data-rel="sports" rel="vsportsBasketball" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                        <img src="/_Static/Images/bnr-vSPORTS-basketball.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-basketball/Label", commonVariables.ProductsXML)%></div>
+                </li> -->
+                <%if(Session["responseCode"].ToString()=="1"){%>
+                <li>
+                    <a class="card" href="/_Static/Downloads/w88.aspx">
+                        <img src="/_Static/Images/Download/ClubW88-iOS.jpg" class="img-responsive">
+                        <div class="title">Club W88 iOS Download</div>
                     </a>
                 </li>
-                <li class="menu-sports-sub hide">
-                    <a class="card" data-rel="sports" rel="vsportsTennis" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                        <img src="/_Static/Images/bnr-vSPORTS-tennis.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-tennis/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li>
-                <li class="menu-sports-sub hide">
-                    <a class="card" data-rel="sports" rel="vsportsHorseRacing" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                        <img src="/_Static/Images/bnr-vSPORTS-horseracing.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-horseracing/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li>
-                <li class="menu-sports-sub hide">
-                    <a class="card" data-rel="sports" rel="vsportsFootBall" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                        <img src="/_Static/Images/bnr-vSPORTS-football.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-football/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li>
-                <li class="menu-sports-sub hide">
-                    <a class="card" data-rel="sports" rel="vsportsDogRacing" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                        <img src="/_Static/Images/bnr-vSPORTS-dogracing.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-dogracing/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li>-->
+                <%}%>
             </ul>
         </li>
 
@@ -284,6 +248,14 @@
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubCrescendo/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>-->
+                <%if(Session["responseCode"].ToString()=="1"){%>
+                <li>
+                    <a class="card" href="/_Static/Downloads/w88.aspx" data-ajax="false">
+                        <img src="/_Static/Images/Download/ClubW88-iOS.jpg" class="img-responsive">
+                        <div class="title">Club W88 iOS Download</div>
+                    </a>
+                </li>
+                <% } %>
             </ul>
         </li>
 
