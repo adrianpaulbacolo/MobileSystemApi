@@ -4,21 +4,21 @@ namespace Settings
 {
     public partial class SettingsChangePassword : BasePage
     {
-
-        protected System.Xml.Linq.XElement xeErrors = null;
-        protected string strAlertCode = string.Empty;
-        protected string strAlertMessage = string.Empty;
+    
+    protected System.Xml.Linq.XElement xeErrors = null;
+    protected string strAlertCode = string.Empty;
+    protected string strAlertMessage = string.Empty;
 
         protected void Page_Init(object sender, EventArgs e)
         {
             base.CheckLogin();
         }
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            xeErrors = commonVariables.ErrorsXML;
-            System.Xml.Linq.XElement xeResources = null;
-            commonCulture.appData.getRootResource("/_Secure/UpdatePassword", out xeResources);
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        xeErrors = commonVariables.ErrorsXML;
+        System.Xml.Linq.XElement xeResources = null;
+        commonCulture.appData.getRootResource("/_Secure/UpdatePassword", out xeResources);
 
             if (Page.IsPostBack) return;
             lblPassword.Text = commonCulture.ElementValues.getResourceString("lblPassword", xeResources);
@@ -30,9 +30,9 @@ namespace Settings
             SetTitle(commonCulture.ElementValues.getResourceString("changePassword", commonVariables.LeftMenuXML));
         }
 
-        protected void btnSubmit_Click(object sender, EventArgs e)
-        {
-            #region Variable Initialization
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        #region Variable Initialization
 
             int intProcessSerialId = 0;
             string strProcessId = Guid.NewGuid().ToString().ToUpper();
@@ -59,83 +59,83 @@ namespace Settings
 
             int intResult = int.MinValue;
 
-            #endregion
+        #endregion
 
-            #region populateVariables
+        #region populateVariables
 
-            strAlertCode = "-1";
+        strAlertCode = "-1";
 
-            strMemberMS1Id = commonVariables.GetSessionVariable("MemberId");
-            strPassword = txtPassword.Text;
-            strPasswordNew = txtPasswordNew.Text;
-            strPasswordConfirm = txtPasswordConfirm.Text;
+        strMemberMS1Id = commonVariables.GetSessionVariable("MemberId");
+        strPassword = txtPassword.Text;
+        strPasswordNew = txtPasswordNew.Text;
+        strPasswordConfirm = txtPasswordConfirm.Text;
 
-            #endregion
+        #endregion
 
-            #region parametersValidation
+        #region parametersValidation
 
-            if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-            {
-                strAlertMessage = commonCulture.ElementValues.getResourceString("SessionExpired", xeErrors);
-                isProcessAbort = true;
-            }
-            else if (string.IsNullOrEmpty(strPassword))
-            {
+        if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+        {
+            strAlertMessage = commonCulture.ElementValues.getResourceString("SessionExpired", xeErrors);
+            isProcessAbort = true;
+        }
+        else if (string.IsNullOrEmpty(strPassword))
+        {
                 strAlertMessage = commonCulture.ElementValues.getResourceXPathString("UpdatePassword/MissingPassword",
                     xeErrors);
-                isProcessAbort = true;
-            }
-            else if (string.IsNullOrEmpty(strPasswordNew))
-            {
+            isProcessAbort = true;
+        }
+        else if (string.IsNullOrEmpty(strPasswordNew))
+        {
                 strAlertMessage = commonCulture.ElementValues.getResourceXPathString(
                     "UpdatePassword/MissingPasswordNew", xeErrors);
-                isProcessAbort = true;
-            }
-            else if (string.IsNullOrEmpty(strPasswordConfirm))
-            {
+            isProcessAbort = true;
+        }
+        else if (string.IsNullOrEmpty(strPasswordConfirm))
+        {
                 strAlertMessage =
                     commonCulture.ElementValues.getResourceXPathString("UpdatePassword/MissingPasswordConfirm", xeErrors);
-                isProcessAbort = true;
-            }
-            else if (commonValidation.isInjection(strPassword))
-            {
+            isProcessAbort = true;
+        }
+        else if (commonValidation.isInjection(strPassword))
+        {
                 strAlertMessage = commonCulture.ElementValues.getResourceXPathString("UpdatePassword/InvalidPassword",
                     xeErrors);
-                isProcessAbort = true;
-            }
-            else if (commonValidation.isInjection(strPasswordNew))
-            {
+            isProcessAbort = true;
+        }
+        else if (commonValidation.isInjection(strPasswordNew))
+        {
                 strAlertMessage = commonCulture.ElementValues.getResourceXPathString("UpdatePassword/InvalidPassword",
                     xeErrors);
-                isProcessAbort = true;
-            }
-            else if (commonValidation.isInjection(strPasswordConfirm))
-            {
+            isProcessAbort = true;
+        }
+        else if (commonValidation.isInjection(strPasswordConfirm))
+        {
                 strAlertMessage = commonCulture.ElementValues.getResourceXPathString("UpdatePassword/InvalidPassword",
                     xeErrors);
-                isProcessAbort = true;
-            }
-            else if (string.Compare(strPasswordNew, strPasswordConfirm, true) != 0)
-            {
+            isProcessAbort = true;
+        }
+        else if (string.Compare(strPasswordNew, strPasswordConfirm, true) != 0)
+        {
                 strAlertMessage = commonCulture.ElementValues.getResourceXPathString(
                     "UpdatePassword/UnmatchedPassword", xeErrors);
-                isProcessAbort = true;
-            }
+            isProcessAbort = true;
+        }
 
-            else
+        else
+        {
+            strPasswordEncrypted = commonEncryption.Encrypt(strPassword);
+            strPasswordNewEncrypted = commonEncryption.Encrypt(strPasswordNew);
+        }
+
+        #endregion
+
+        if (!isProcessAbort)
+        {
+            try
             {
-                strPasswordEncrypted = commonEncryption.Encrypt(strPassword);
-                strPasswordNewEncrypted = commonEncryption.Encrypt(strPasswordNew);
-            }
-
-            #endregion
-
-            if (!isProcessAbort)
-            {
-                try
+                using (wsMemberMS1.memberWSSoapClient wsInstance = new wsMemberMS1.memberWSSoapClient())
                 {
-                    using (wsMemberMS1.memberWSSoapClient wsInstance = new wsMemberMS1.memberWSSoapClient())
-                    {
                         intResult = wsInstance.MemberChangePassword(Convert.ToInt64(strMemberMS1Id),
                             strPasswordEncrypted, strPasswordNewEncrypted);
 
@@ -145,7 +145,7 @@ namespace Settings
                                 lngOperatorId, strMemberMS1Id, strPasswordEncrypted, strPasswordNewEncrypted,
                                 commonIp.remoteIP, commonIp.forwardedIP, commonIp.requesterIP);
 
-                        intProcessSerialId += 1;
+                    intProcessSerialId += 1;
                         commonAuditTrail.appendLog("system", strPageName, "UpdatePassword", "DataBaseManager.DLL",
                             strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark,
                             Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
@@ -153,30 +153,30 @@ namespace Settings
                 }
                 catch (Exception)
                 {
-                }
+            }
 
-                switch (intResult)
-                {
-                    case 1: // success
-                        strAlertCode = "1";
+            switch (intResult)
+            {
+                case 1: // success
+                    strAlertCode = "1";
                         strAlertMessage = commonCulture.ElementValues.getResourceXPathString("UpdatePassword/Success",
                             xeErrors);
-                        break;
-                    case 10: // invalid password
+                    break;
+                case 10: // invalid password
                         strAlertMessage =
                             commonCulture.ElementValues.getResourceXPathString("UpdatePassword/InvalidPassword",
                                 xeErrors);
-                        break;
-                    case 11: // wrong password
+                    break;
+                case 11: // wrong password
                         strAlertMessage =
                             commonCulture.ElementValues.getResourceXPathString("UpdatePassword/IncorrectPassword",
                                 xeErrors);
-                        break;
-                    default: // general error
-                        strAlertMessage = commonCulture.ElementValues.getResourceString("Exception", xeErrors);
-                        break;
-                }
+                    break;
+                default: // general error
+                    strAlertMessage = commonCulture.ElementValues.getResourceString("Exception", xeErrors);
+                    break;
             }
         }
     }
+}
 }

@@ -71,6 +71,7 @@
         <script type="text/javascript">
 
             $('#form1').submit(function (e) {
+
                 if ($('#drpTransferFrom').val() == '-1') {
                     alert('<%=commonCulture.ElementValues.getResourceXPathString("/FundTransfer/SelectTransferFrom", xeErrors)%>');
                     e.preventDefault();
@@ -86,16 +87,9 @@
                     e.preventDefault();
                     return;
                 }
-<%--                else if (isNaN(parseFloat($('#txtTransferAmount').val()))) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("/FundTransfer/InputTransferAmount", xeErrors)%>');
-                    e.preventDefault();
-                    return;
-                }
-                else if (parseFloat($('#txtTransferAmount').val()) < 1) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("/FundTransfer/TransferAmountDisallowed", xeErrors)%>');
-                    e.preventDefault();
-                    return;
-                }--%>
+                setTimeout(function () {
+                    $('#btnSubmit').prop("disabled", true);
+                }, 0);
                 GPINTMOBILE.ShowSplash();
             });
 
@@ -171,29 +165,21 @@
                    } else { $('#litPromoDetails').text(''); }
                 });
 
-                if ('<%=strAlertMessage%>'.length > 0) { alert('<%=strAlertMessage%>'.split('[break]').join('\n')); }
-                if ('<%=strAlertCode%>'.length > 0) {
-                    switch('<%=strAlertCode%>')
-                    {
-                        case "-1":
-                            window.location.replace('/default.aspx');
-                            break;
-                    }
+                var responseCode = '<%=strAlertCode%>';
+                var responseMsg = '<%=strAlertMessage%>';
+
+                if (responseMsg.length > 0) { alert(responseMsg.split('[break]').join('\n')); }
+                if (responseCode == "-1") {
+                    window.location.replace('/default.aspx');
                 }
             });
 
             function hBalanceToggle(obj, strShow, strHide) {
                 if ($(obj).hasClass('ui-collapsible-heading-collapsed')) {
                     $(obj).find(".ui-btn").text(strHide);
-                    //var link = $(obj).find(".ui-icon-plus");
-                    //link.removeClass("ui-icon-plus");
-                    //link.addClass("ui-icon-minus");
                     getBalance();
                 } else {
                     $(obj).find(".ui-btn").text(strShow);
-                    //var link = $(obj).find(".ui-icon-minus");
-                    //link.removeClass("ui-icon-minus");
-                    //link.addClass("ui-icon-plus");
                 }
             }
 

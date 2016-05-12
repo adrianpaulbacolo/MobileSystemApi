@@ -51,8 +51,11 @@
                                     //alert(html);
                                     alert('<%=commonCulture.ElementValues.getResourceXPathString("Withdrawal/CancelSuccess", xeErrors)%>'.replace('{trxId}', $(obj).attr('data-id')));
                                     $(obj).parentsUntil('tbody').fadeOut();
-                                    window.setTimeout(function () { $(obj).parentsUntil('tbody').remove(); if ($('#table-reflow tbody tr').length == 0) { window.location.replace('/Withdrawal/Withrawal.aspx?source=app'); } }, 2000);
-
+                                    window.setTimeout(function () {
+                                        $(obj).parentsUntil('tbody').remove(); if ($('#table-reflow tbody tr').length == 0) {
+                                            window.location.replace('/Withdrawal/Default_app.aspx');
+                                        }
+                                    }, 2000);
                                 }
                                 else {
                                     switch (html)

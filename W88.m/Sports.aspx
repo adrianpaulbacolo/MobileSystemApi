@@ -25,7 +25,7 @@
                         </figcaption>
                     </figure>
                 </li>
-                 <li class="col">
+                <!-- <li class="col">
                      <figure class="banner">
                         <img src="_Static/Images/sports/v-sports-banner.jpg" class="img-responsive img-bg">
                         <figcaption class="banner-caption">
@@ -34,7 +34,7 @@
                             <a href="/V-Sports.aspx" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
                         </figcaption>
                     </figure>
-                </li>
+                </li> -->
             </ul>
         </div>
 </asp:Content>

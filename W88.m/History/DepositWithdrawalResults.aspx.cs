@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class History_DepositWithdrawalResults : System.Web.UI.Page
+public partial class History_DepositWithdrawalResults : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {

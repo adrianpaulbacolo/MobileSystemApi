@@ -19,7 +19,7 @@ public partial class Promotions : BasePage
 
         if (string.IsNullOrEmpty(affiliateId)) return;
 
-        commonVariables.SetSessionVariable("AffiliateId", affiliateId);
-        commonCookie.CookieAffiliateId = affiliateId;
+            commonVariables.SetSessionVariable("AffiliateId", affiliateId);
+            commonCookie.CookieAffiliateId = affiliateId;
+        }
     }
-}

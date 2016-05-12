@@ -160,6 +160,7 @@
                                 }
                                 else if (counter < 3) {
                                     alert($(xml).find('Message').text());
+                                    GPINTMOBILE.HideSplash();
                                 }
                                 break;
                         }

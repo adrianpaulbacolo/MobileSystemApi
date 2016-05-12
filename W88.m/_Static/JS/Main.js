@@ -1,21 +1,29 @@
 ﻿$(window).load(function () {
     GPINTMOBILE.HideSplash();
-    window.setInterval(function () {
+    if(typeof window.User != "undefined" && window.User.hasSession) checkSession();
+    var sessionPoll;
+
+    function checkSession() {
+        var intervalMin = 10000; // 10 secs
+        var sessionInterval = (typeof window.User != "undefined" && parseInt(window.User.sessionInterval) > intervalMin) ? parseInt(window.User.sessionInterval) : intervalMin;
+
+        sessionPoll = window.setInterval(function () {
         $.ajax({
             contentType: "application/json; charset=utf-8",
             url: "/_secure/AjaxHandlers/MemberSessionCheck.ashx",
-            /*dataType: "jsonp",*/
+                responseType: "json",
             success: function (data) {
-                if (data != "1" && data != "-1") { window.location.replace("/Expire"); }
+                    if (data.code != "1") {
+                        if (typeof data.message != "undefined") alert(data.message);
+                        clearInterval(sessionPoll);
+                        window.location.replace("/Logout");
+                    }
             },
             error: function (err) {
-                //console.log(err);
             }
         });
-    }, 5000);
-
-    // Comment out to run in LOCAL or UAT
-    //redirectToHttps();
+        }, sessionInterval);
+    }
 });
 
 if ($("#divBalance").hasClass("open")) { $("#divBalance").addClass("close"); } else { if ($("#divBalance").hasClass("open")) { $("#divBalance").addClass("close"); } }
@@ -44,16 +52,7 @@ function toggleFullScreen() {
             document.webkitCancelFullScreen();
         }
     }
-}
-
-// keydown event handler
-/*
-document.addEventListener('keydown', function(e) {
-  if (e.keyCode == 13 || e.keyCode == 70) { // F or Enter key
-    toggleFullScreen();
   }
-}, false);
-*/
 
 function Cookies() {
     var setCookie = function (cname, cvalue, expiryDays) {
