@@ -1,15 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Promotions.aspx.cs" Inherits="_Promotions" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Site.master" AutoEventWireup="true" CodeFile="Promotions.aspx.cs" Inherits="Promotions" %>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title><%=commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML) + commonCulture.ElementValues.getResourceString("promotions", commonVariables.LeftMenuXML)%></title>
-    <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/Js/Main.js"></script>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script type="text/javascript">
         var lang = '<%=(string.IsNullOrEmpty(commonVariables.SelectedLanguage) ? "en-us" : commonVariables.SelectedLanguage)%>';
         if (lang == '') { lang = 'en-us'; }
-        $(function() {
+        $(function () {
             getPromos();
         });
 
@@ -19,7 +14,7 @@
             $.get('/AjaxHandlers/Promotion.ashx', function (html) { })
             .done(function (data) {
                 data = data.replace(/<img src=/g, '<img rel=');
-                data = data.replace('[domain]', '.'+ location.hostname.split('.').slice(-2).join('.'));
+                data = data.replace('[domain]', '.' + location.hostname.split('.').slice(-2).join('.'));
                 var listObj = $("#divPromotions").append('<ul class="row row-no-padding row-wrap"></ul>').find('ul');
                 var promo_length = $(data).find('.promotion_group').length;
                 $(data).find('.promotion_group').each(function (index) {
@@ -29,9 +24,9 @@
                     var strPromoDetail = ($(this).find('div.promotion_detail').html().substr(0, 4) == '<br>' ? $(this).find('div.promotion_detail').html().substring(4) : $(this).find('div.promotion_detail').html()).replace(/<img rel=/g, '<img src=');
                     var objImage = $(this).find('img')[0];
                     var strImageSrc = null;
-                    if (objImage != null) { 
-                        if (/\/promotions\/img\/W88(-vip)?-Promotion(s)*-/i.test($(objImage).attr('rel'))) { 
-                            strImageSrc = $(objImage).attr('rel').replace(/-small/i, '-big'); 
+                    if (objImage != null) {
+                        if (/\/promotions\/img\/W88(-vip)?-Promotion(s)*-/i.test($(objImage).attr('rel'))) {
+                            strImageSrc = $(objImage).attr('rel').replace(/-small/i, '-big');
                         }
                     }
 
@@ -213,7 +208,7 @@
                                 break;
 
 
-                         }
+                        }
                         $(divPromoClaimData).append($(divRadio).append(taPromoRadio).append(taPromoLabel));
                     });
 
@@ -258,36 +253,22 @@
 
                         default: // error
                             alert('<%=commonCulture.ElementValues.getResourceString("ServerError", xeErrors)%>');
-                                $obj.hide();
-                                break;
-                        }
+                            $obj.hide();
+                            break;
+                    }
                 },
                 error: function (data) { },
                 complete: function (data) { PromoCancelClaim($obj); }
             });
-            }
+        }
     </script>
-</head>
-<body>
-    <!--#include virtual="~/_static/splash.shtml" -->
-    <div id="divMain" data-role="page" data-theme="b" data-ajax="false">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
-        <header id="header" data-role="header" data-position="fixed" data-theme="b" data-tap-toggle="false">
-            <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" role="button" id="aMenu" data-load-ignore-splash="true">
-                <i class="icon-navicon"></i>
-            </a>
-            <h1 class="title">
-                <%=commonCulture.ElementValues.getResourceString("promotions", commonVariables.LeftMenuXML)%>
-            </h1>
-        </header>
-
-        <div class="ui-content" role="main">
-            <img id="promoLoader" src="/_Static/Css/images/ajax-loader.gif" style="display: none;" />
-            <div id="divPromotions" class="fixed-tablet-size"></div>
-        </div>
-
-        <!-- /content -->
-        <!--#include virtual="~/_static/navMenu.shtml" -->
+    <div class="ui-content" role="main">
+        <img id="promoLoader" src="/_Static/Css/images/ajax-loader.gif" style="display: none;" />
+        <div id="divPromotions" class="fixed-tablet-size"></div>
     </div>
-</body>
-</html>
+
+</asp:Content>
+

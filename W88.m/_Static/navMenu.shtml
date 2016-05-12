@@ -93,12 +93,12 @@
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
-                <li>
-                    <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-rel="dialog" data-transition="slidedown">
+                <!-- <li>
+                    <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-rel="dialog" data-transition="slidedown" data-ajax="false">
                         <img src="_Static/Images/sports/bnr-vSports.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports/Label", commonVariables.ProductsXML)%></div>
                     </a>
-                </li>
+                </li> -->
                 <%if(Session["responseCode"].ToString()=="1"){%>
                 <li>
                     <a class="card" href="/_Static/Downloads/w88.aspx">
@@ -232,7 +232,7 @@
                 </li>
                 <li>
                     <a class="card" rel="clubgallardo" href="/ClubGallardo" data-ajax="false">
-                        <img src="_Static/Images/bnr-clubgallardo.jpg" class="img-responsive">
+                        <img src="/_Static/Images/bnr-clubgallardo.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubGallardo/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>

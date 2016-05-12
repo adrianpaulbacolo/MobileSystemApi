@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_History_Default" %>
 
+<%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,9 +26,7 @@
             <div class="row row-no-padding">
                 <div class="col">
                     <div class="wallet main-wallet">
-                        <label class="label"><%=commonCulture.ElementValues.getResourceString("mainWallet", commonVariables.LeftMenuXML)%></label>
-                        <h2 class="value"><%=Session["Main"].ToString()%></h2>
-                        <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
+                        <uc:Wallet ID="uMainWallet" runat="server" />
                     </div>
                 </div>
             </div>
