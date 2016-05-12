@@ -107,7 +107,7 @@ public partial class Slots_ClubGallardo : BasePage
                     {
                         strGameId = xeGame.Name.ToString().ToLower();
 
-                        sbGames.AppendFormat("<li rel='{0}.jpg' class='bkg-game'><div class='div-links'>", commonCulture.ElementValues.getResourceString("ImageName", xeGame));
+                        sbGames.AppendFormat("<li class='bkg-game'><div rel='{0}.jpg'><div class='div-links'>", commonCulture.ElementValues.getResourceString("ImageName", xeGame));
 
                         string newstrLanguageCode = (strLanguageCode == "chs") ? "zh_CN" : "en_GB";
 
@@ -118,13 +118,14 @@ public partial class Slots_ClubGallardo : BasePage
 
                         sbGames.Append("<i class='icon-play_arrow'></i></a>");
                         sbGames.AppendFormat("<a class='btn-secondary' href='{0}' target='_blank'><i class='icon-fullscreen'></i></a></div>", commonClubBravado.getThirdPartyFunUrl.Replace("{GAME}", Convert.ToString(strGameId)).Replace("{LANG}", newstrLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
+                        sbGames.Append("</div></li>");
 
                     }
                     else if (!isISoftBetNotSupported)
                     {
                         strGameId = xeGame.Attribute("ProductId").Value;
 
-                        sbGames.AppendFormat("<li rel='{0}.jpg' class='bkg-game'><div class='div-links'>", commonCulture.ElementValues.getResourceString("ImageName", xeGame));
+                        sbGames.AppendFormat("<li class='bkg-game'><div rel='{0}.jpg'><div class='div-links'>", commonCulture.ElementValues.getResourceString("ImageName", xeGame));
 
                         if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                             sbGames.AppendFormat("<a class='btn-primary' target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubGallardo") + "' data-rel='dialog' data-transition='slidedown'>");
@@ -134,6 +135,7 @@ public partial class Slots_ClubGallardo : BasePage
                         sbGames.Append("<i class='icon-play_arrow'></i></a>");
 
                         sbGames.AppendFormat("<a class='btn-secondary' target='_blank' href='{0}'><i class='icon-fullscreen'></i></a></div>", commonClubGallardo.getFunUrl.Replace("{GAME}", Convert.ToString(strGameId)).Replace("{LANG}", strLanguageCode).Replace("{CURCODE}", currCode).Replace("{LOBBYURL}", lobbyUrl));
+                        sbGames.Append("</div></li>");
                     }
                 }
 

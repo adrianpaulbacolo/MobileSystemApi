@@ -125,7 +125,7 @@ public partial class Slots_ClubDivino : BasePage
     {
         StringBuilder sbGames = new StringBuilder();
 
-        sbGames.AppendFormat("<li rel='{0}.jpg' class='bkg-game'><div class='div-links'>", commonCulture.ElementValues.getResourceString("ImageName", xeGame));
+        sbGames.AppendFormat("<li class='bkg-game'><div rel='{0}.jpg'><div class='div-links'>", commonCulture.ElementValues.getResourceString("ImageName", xeGame));
 
         if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
         {
@@ -138,7 +138,7 @@ public partial class Slots_ClubDivino : BasePage
 
         sbGames.Append("<i class='icon-play_arrow'></i></a>");
         sbGames.AppendFormat("<a class='btn-secondary' target='_blank' href='{0}'><i class='icon-fullscreen'></i></a></div>", commonClubDivino.getFunUrl.Replace("{GAMEID}", strGameId).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId).Replace("{HOMEURL}", myUri.Host).Replace("{CASHIERURL}", myUri.Host));
-        sbGames.Append("</li>");
+        sbGames.Append("</div></li>");
 
         return sbGames;
     }
@@ -147,7 +147,7 @@ public partial class Slots_ClubDivino : BasePage
     {
         StringBuilder sbGames = new StringBuilder();
 
-        sbGames.AppendFormat("<li rel='{0}.jpg' class='bkg-game'><div class='div-links'>", strGameId);
+        sbGames.AppendFormat("<li class='bkg-game'><div rel='{0}.jpg'><div class='div-links'>", strGameId);
 
         if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
         {
@@ -160,7 +160,7 @@ public partial class Slots_ClubDivino : BasePage
 
         sbGames.Append("<i class='icon-play_arrow'></i></a>");
         sbGames.AppendFormat("<a class='btn-secondary' target='_blank' href='{0}' data-ajax='false'><i class='icon-fullscreen'></i></a></div>", commonCulture.ElementValues.getResourceString("PlayForFunURL", xeGame).Replace("{SlotsUrl}", commonClubCrescendo.getSlotsUrl).Replace("{token}", commonVariables.CurrentMemberSessionId));
-        sbGames.Append("</li>");
+        sbGames.Append("</div></li>");
         return sbGames;
     }
 }
