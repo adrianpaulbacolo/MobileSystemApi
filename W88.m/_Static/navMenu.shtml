@@ -46,28 +46,25 @@
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%></h2>
                 <li class="title">
                     <a data-rel="dialog" rel="deposit" href="/_Secure/Login.aspx" data-transition="slidedown">
-                        <!-- <img src="/_Static/Images/index-deposit.png" class="img-responsive"> -->
                         <%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%>
                     </a>
                 </li>
                 <li class="title">
                     <a data-rel="dialog" rel="fundtransfer" href="/_Secure/Login.aspx" data-transition="slidedown">
-                        <!-- <img src="/_Static/Images/index-fundtransfer.png" class="img-responsive"> -->
                         <%=commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%>
                     </a>
                 </li>
                 <li class="title">
                     <a data-rel="dialog" rel="withdrawal" href="/_Secure/Login.aspx" data-transition="slidedown">
-                        <!-- <img src="/_Static/Images/index-withdrawal.png" class="img-responsive"> -->
                         <%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%>
                     </a>
                 </li>
-                <!--<li>
-                    <a href="/History" role="button" data-ajax="false">
-                        History
+                <li class="title">
+                    <a data-rel="dialog" rel="history" href="/_Secure/Login.aspx" data-transition="slidedown">
+                        <%=commonCulture.ElementValues.getResourceString("history", commonVariables.HistoryXML)%>
                     </a>
-                </li>-->
-                <!-- <li data-icon="false"><a id="aMnuClaim" runat="server"><%=commonCulture.ElementValues.getResourceString("claims", commonVariables.LeftMenuXML)%></a></li> -->
+                </li>
+
             </ul>
         </li>
         <% } %>
@@ -382,6 +379,9 @@
             });
             $('a[rel="withdrawal"]').each(function () {
                 $(this).removeAttr('data-rel').removeAttr('data-transition').attr('data-ajax', 'false').attr('href', '/Withdrawal');
+            });
+            $('a[rel="history"]').each(function () {
+                $(this).removeAttr('data-rel').removeAttr('data-transition').attr('data-ajax', 'false').attr('href', '/History');
             });
             $('a[rel="asports"]').each(function () {
                 $(this).removeAttr('data-rel').removeAttr('data-transition').attr('data-ajax', 'false').attr('href', '<%=(string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) ? "_Secure/Login" : commonASports.getSportsbookUrl)%>');

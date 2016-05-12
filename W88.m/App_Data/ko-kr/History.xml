@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<History>
+    <history><![CDATA[기록]]></history>
+    <depositwithdrawal><![CDATA[입금/ 출금]]></depositwithdrawal>
+    <fundtransfer><![CDATA[송금]]></fundtransfer>
+    <referralbonus><![CDATA[추천 보너스]]></referralbonus>
+    <promotionclaim><![CDATA[이벤트 요청]]></promotionclaim>
+
+    <lblDateFrom><![CDATA[시작일]]></lblDateFrom>
+    <lblDateTo><![CDATA[마감일]]></lblDateTo>
+    <lblType><![CDATA[종류]]></lblType>
+    <lblStatus><![CDATA[상태]]></lblStatus>
+
+    <type id="0"><![CDATA[전부]]></type>
+    <type id="1"><![CDATA[입금]]></type>
+    <type id="2"><![CDATA[출금]]></type>
+
+    <status id="ALL"><![CDATA[전부]]></status>
+    <status id="SUCCESSFUL"><![CDATA[완료]]></status>
+    <status id="PENDING"><![CDATA[대기]]></status>
+    <status id="FAILED"><![CDATA[실패]]></status>
+    <status id="REJECTED"><![CDATA[거부]]></status>
+
+    <dateTime><![CDATA[날짜/시간]]></dateTime>
+    <transId><![CDATA[거래 아이디]]></transId>
+    <paymentMethod><![CDATA[결제 방법]]></paymentMethod>
+    <submittedAmt><![CDATA[보낸 금액]]></submittedAmt>
+    <receivedAmt><![CDATA[받은 금액]]></receivedAmt>
+    <from><![CDATA[발신]]></from>
+    <to><![CDATA[수신]]></to>
+    <source><![CDATA[출처]]></source>
+    <amount><![CDATA[금액]]></amount>
+    <subjectCode><![CDATA[서브젝트 코드]]></subjectCode>
+    <norecords><![CDATA[기록을 찾을 수 없습니다!]]></norecords>
+
+    <ftStatus id="-1"><![CDATA[전부]]></ftStatus>
+    <ftStatus id="0"><![CDATA[대기]]></ftStatus>
+    <ftStatus id="1"><![CDATA[완료]]></ftStatus>
+    <ftStatus id="2"><![CDATA[실패]]></ftStatus>
+    <ftStatus id="3"><![CDATA[거부]]></ftStatus>
+
+    <totalInvitees><![CDATA[총 초대]]></totalInvitees>
+    <totalRegistered><![CDATA[총 등록]]></totalRegistered>
+    <totalSuccessReferral><![CDATA[총 성공한 추천]]></totalSuccessReferral>
+    <totalReferralBonus><![CDATA[총 추천 보너스([cur])]]></totalReferralBonus>
+
+    <btnSubmit><![CDATA[제출]]></btnSubmit>
+</History>
