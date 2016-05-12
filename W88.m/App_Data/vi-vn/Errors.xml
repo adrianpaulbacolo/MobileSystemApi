@@ -3,7 +3,7 @@
 	<Exception><![CDATA[Đã xảy ra lỗi không xác định. Vui lòng thử lại lần nữa]]></Exception>
 	<IncorrectVCode><![CDATA[Mã xác nhận sai]]></IncorrectVCode>
 	<MissingVCode><![CDATA[Mã xác nhận sai]]></MissingVCode>
-	<SessionExpired><![CDATA[Sorry, your session has expired.\nPlease log in again.]]></SessionExpired>
+	<SessionExpired><![CDATA[Rất tiếc. Phiên của Quý Khách đã hết hạn. Vui lòng đăng nhập lại.]]></SessionExpired>
 	<ServerError><![CDATA[Xin lỗi, đã xảy ra lỗi ở máy chủ]]></ServerError>
 	<CustomerService><![CDATA[Vui lòng liên hệ Bô Phận Chăm Sóc Khách Hàng]]></CustomerService>
 
@@ -149,4 +149,26 @@
 
 		<Exception><![CDATA[Không thể thực hiện yêu cầu]]></Exception>
 	</Withdrawal>
+  <StatusCode>
+    <e400><![CDATA[400]]></e400>
+    <e403><![CDATA[403]]></e403>
+    <e404><![CDATA[404]]></e404>
+    <e408><![CDATA[408]]></e408>
+    <e500><![CDATA[500]]></e500>
+    <e502><![CDATA[502]]></e502>
+  </StatusCode>
+  <HttpError>
+    <e400><![CDATA[Máy chủ không thể thực hiện yêu cầu]]></e400>
+    <e400title><![CDATA[Bad Request]]></e400title>
+    <e403><![CDATA[Quý Khách không thể truy cập trang web hoặc thư mục này.]]></e403>
+    <e403title><![CDATA[Lỗi truy cập]]></e403title>
+    <e404><![CDATA[Xin lỗi , nhưng trang bạn đang cố gắng để xem không tồn tại.]]></e404>
+    <e404title><![CDATA[Không tìm thấy trang]]></e404title>
+    <e408><![CDATA[Các máy chủ timed out chờ yêu cầu .]]></e408>
+    <e408title><![CDATA[Hết thời gian yêu cầu]]></e408title>
+    <e500><![CDATA[Xảy ra lỗi khi xử lý yêu cầu của Quý Khách. Vui lòng thử lại hoặc liên hệ với bộ phận hỗ trợ trực tuyến.]]></e500>
+    <e500title><![CDATA[Lỗi kết nối]]></e500title>
+    <e502><![CDATA[Máy chủ nhận được một phản ứng không hợp lệ.]]></e502>
+    <e502title><![CDATA[Bad Gateway]]></e502title>
+  </HttpError>
 </default>
