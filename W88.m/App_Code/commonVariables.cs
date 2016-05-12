@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 
@@ -23,6 +24,23 @@ public class commonVariables
             {
                 System.Xml.Linq.XElement xcMenu = commonCulture.appData.getRootResource("/PaymentMethods");
                 System.Web.HttpContext.Current.Cache.Add("PaymentMethodsXML_" + commonVariables.SelectedLanguage, xcMenu, null,
+                    System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.AboveNormal, null);
+                return xcMenu;
+            }
+        }
+    }
+    public static System.Xml.Linq.XElement HistoryXML
+    {
+        get
+        {
+            if (System.Web.HttpContext.Current.Cache.Get("HistoryXML_" + commonVariables.SelectedLanguage) != null)
+            {
+                return System.Web.HttpContext.Current.Cache.Get("HistoryXML_" + commonVariables.SelectedLanguage) as System.Xml.Linq.XElement;
+            }
+            else
+            {
+                System.Xml.Linq.XElement xcMenu = commonCulture.appData.getRootResource("/History");
+                System.Web.HttpContext.Current.Cache.Add("HistoryXML_" + commonVariables.SelectedLanguage, xcMenu, null,
                     System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.AboveNormal, null);
                 return xcMenu;
             }
@@ -177,4 +195,6 @@ public class commonVariables
             return System.Configuration.ConfigurationManager.AppSettings.Get("CN_domain");
         }
     }
+
+    
 }

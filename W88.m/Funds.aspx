@@ -40,7 +40,7 @@
                         <li><a href="/Deposit/Default.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%></a></li>
                         <li><a href="/FundTransfer/Default.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%></a></li>
                         <li><a href="/Withdrawal/Default.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%></a></li>
-                        <li><a href="/History" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("history", commonVariables.LeftMenuXML)%></a></li>
+                        <li><a href="/History" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("history", commonVariables.HistoryXML)%></a></li>
                     </ul>
                 </div>
                 <!-- <div id="deposit">

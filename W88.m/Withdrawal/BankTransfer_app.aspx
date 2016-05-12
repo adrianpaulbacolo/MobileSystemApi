@@ -121,6 +121,9 @@
         </div>
 
         <script type="text/javascript">
+            $('#form1').submit(function (e) {
+                window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
+            });
             $(function () {
                 window.history.forward();
 
@@ -129,17 +132,17 @@
                 $('#txtMyKad').mask('999999-99-9999');
                 <% } %>
 
-                if ('<%=strAlertCode%>'.length > 0) {
-                    switch ('<%=strAlertCode%>') {
+                var responseCode = '<%=strAlertCode%>';
+                var responseMsg = '<%=strAlertMessage%>';
+                if (responseCode.length > 0) {
+                    switch (responseCode) {
                         case '-1':
-                            alert('<%=strAlertMessage%>');
-
+                            alert(responseMsg);
                             toogleBank($('#drpBank').val());
-
                             break;
                         case '0':
-                            alert('<%=strAlertMessage%>');
-                            window.location.replace('/Withdrawal/Default_app.aspx');
+                            alert(responseMsg);
+                            window.location.replace('/Withdrawal/Default.aspx');
                             break;
                         default:
                             break;
