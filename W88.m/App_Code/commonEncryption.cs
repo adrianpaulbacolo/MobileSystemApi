@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 
 public class commonEncryption
@@ -284,5 +286,36 @@ public class commonEncryption
 
         // Return the hexadecimal string. 
         return sBuilder.ToString();
+    }
+
+    public static string decryptToken(string cipherString, string cipherKey)
+    {
+        byte[] keyArray;
+        //get the byte code of the string
+
+        byte[] toEncryptArray = Convert.FromBase64String(cipherString);
+
+        System.Configuration.AppSettingsReader settingsReader = new AppSettingsReader();
+
+        //if hashing was not implemented get the byte code of the key
+        keyArray = UTF8Encoding.UTF8.GetBytes(cipherKey);
+
+        TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
+        //set the secret key for the tripleDES algorithm
+        tdes.Key = keyArray;
+        //mode of operation. there are other 4 modes.
+        //We choose ECB(Electronic code Book)
+
+        tdes.Mode = CipherMode.ECB;
+        //padding mode(if any extra byte added)
+        tdes.Padding = PaddingMode.PKCS7;
+
+        ICryptoTransform cTransform = tdes.CreateDecryptor();
+        byte[] resultArray = cTransform.TransformFinalBlock
+                (toEncryptArray, 0, toEncryptArray.Length);
+        //Release resources held by TripleDes Encryptor
+        tdes.Clear();
+        //return the Clear decrypted TEXT
+        return UTF8Encoding.UTF8.GetString(resultArray);
     }
 }

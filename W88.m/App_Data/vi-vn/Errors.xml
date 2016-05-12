@@ -1,150 +1,174 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
-  <Exception><![CDATA[Đã xảy ra lỗi không xác định. Vui lòng thử lại lần nữa]]></Exception>
-  <IncorrectVCode><![CDATA[Mã xác nhận sai]]></IncorrectVCode>
-  <MissingVCode><![CDATA[Mã xác nhận sai]]></MissingVCode>
-  <SessionExpired><![CDATA[Sorry, your session has expired.\nPlease log in again.]]></SessionExpired>
-  <ServerError><![CDATA[Xin lỗi, đã xảy ra lỗi ở máy chủ]]></ServerError>
-  
-  <Login>
-    <InvalidUsername><![CDATA[Sai Tên Đăng Nhập và/hoặc Sai Mật Khẩu]]></InvalidUsername>
-    <InvalidPassword><![CDATA[Sai Tên Đăng Nhập và/hoặc Sai Mật Khẩu]]></InvalidPassword>
-    <InactiveAccount>
-      <![CDATA[Vì lý do bảo mật, tài khoản của Quý Khách đã được KHÓA do nhập sai mật khẩu nhiều lần.Quý Khách vui lòng <a href="https://www.w88world.com/ContactUs.aspx">nhấp vào đây</a> để liên hệ bộ phận hỗ trợ trực tuyến để tiến hành mở khóa tài khoản và cấp lại mật khẩu mới.]]></InactiveAccount>    
-    <MissingUsername><![CDATA[Vui lòng điền tên đăng nhập hợp lệ.]]></MissingUsername>
-    <MissingPassword><![CDATA[Vui lòng điền mật khẩu hợp lệ .]]></MissingPassword>
-  </Login>
+	<Exception><![CDATA[Đã xảy ra lỗi không xác định. Vui lòng thử lại lần nữa]]></Exception>
+	<IncorrectVCode><![CDATA[Mã xác nhận sai]]></IncorrectVCode>
+	<MissingVCode><![CDATA[Mã xác nhận sai]]></MissingVCode>
+	<SessionExpired><![CDATA[Rất tiếc. Phiên của Quý Khách đã hết hạn. Vui lòng đăng nhập lại.]]></SessionExpired>
+	<ServerError><![CDATA[Xin lỗi, đã xảy ra lỗi ở máy chủ]]></ServerError>
+	<CustomerService><![CDATA[Vui lòng liên hệ Bô Phận Chăm Sóc Khách Hàng]]></CustomerService>
 
-  <Register>
-    <Success><![CDATA[Chào mừng đến với W88, và cám ơn quý khách đã mở tài khoản. \nTài khoản của quý khách đã được kích hoạt, Quý Khách có thể đăng nhập và cược tại W88.com hoặc phiên bản di động m.w88.com.]]></Success>
-    <DuplicateUsername><![CDATA[Tên Đăng Nhập này đã được đăng ký, vui lòng chọn Tên Đăng Nhập khác]]></DuplicateUsername>
-    <DuplicateEmail><![CDATA[Email này đã được đăng ký. Vui lòng chọn email khác]]></DuplicateEmail>
-	<DuplicateContact><![CDATA[Số điện thoại đã sử dụng. Vui lòng nhập số điện thoại của Quý khách]]></DuplicateContact>
-    <IncorrectVCode><![CDATA[Mã xác nhận sai]]></IncorrectVCode>
+	<Login>
+		<InvalidUsername><![CDATA[Sai Tên Đăng Nhập và/hoặc Sai Mật Khẩu]]></InvalidUsername>
+		<InvalidPassword><![CDATA[Sai Tên Đăng Nhập và/hoặc Sai Mật Khẩu]]></InvalidPassword>
+		<InactiveAccount>
+			<![CDATA[Vì lý do bảo mật, tài khoản của Quý Khách đã được KHÓA do nhập sai mật khẩu nhiều lần.Quý Khách vui lòng <a href="https://www.w88world.com/ContactUs.aspx">nhấp vào đây</a> để liên hệ bộ phận hỗ trợ trực tuyến để tiến hành mở khóa tài khoản và cấp lại mật khẩu mới.]]>
+		</InactiveAccount>
+		<MissingUsername><![CDATA[Vui lòng điền tên đăng nhập hợp lệ.]]></MissingUsername>
+		<MissingPassword><![CDATA[Vui lòng điền mật khẩu hợp lệ .]]></MissingPassword>
+	</Login>
 
-    <MissingUsername><![CDATA[Vui lòng điền tên đăng nhập hợp lệ.]]></MissingUsername>
-    <MissingPassword><![CDATA[Vui lòng điền mật khẩu hợp lệ .]]></MissingPassword>
-    <MissingEmail><![CDATA[Vui lòng nhập địa chỉ Email hợp lệ]]></MissingEmail>
-    <MissingContact><![CDATA[Vui lòng nhập số điện thoại hợp lệ]]></MissingContact>
-    <MissingCurrency><![CDATA[Vui lòng lựa chọn tiền tệ.]]></MissingCurrency>
-    <MissingFName><![CDATA[Vui lòng nhập Tên Và Tên Đệm của bạn]]></MissingFName>
-    <MissingLName><![CDATA[Vui lòng nhập Họ của bạn]]></MissingLName>
-    <MissingVCode><![CDATA[Mã xác nhận sai]]></MissingVCode>
+	<Register>
+		<Success><![CDATA[Chào mừng đến với W88, và cám ơn quý khách đã mở tài khoản. \nTài khoản của quý khách đã được kích hoạt, Quý Khách có thể đăng nhập và cược tại W88.com hoặc phiên bản di động m.w88.com.]]></Success>
+		<DuplicateUsername><![CDATA[Tên Đăng Nhập này đã được đăng ký, vui lòng chọn Tên Đăng Nhập khác]]></DuplicateUsername>
+		<DuplicateEmail><![CDATA[Email này đã được đăng ký. Vui lòng chọn email khác]]></DuplicateEmail>
+		<DuplicateContact><![CDATA[Số điện thoại đã sử dụng. Vui lòng nhập số điện thoại của Quý khách]]></DuplicateContact>
+		<IncorrectVCode><![CDATA[Mã xác nhận sai]]></IncorrectVCode>
 
-    <InvalidUsername><![CDATA[Sai Tên Đăng Nhập và/hoặc Sai Mật Khẩu]]></InvalidUsername>
-    <InvalidPassword><![CDATA[Sai Tên Đăng Nhập và/hoặc Sai Mật Khẩu]]></InvalidPassword>
-    <InvalidEmail><![CDATA[Vui lòng nhập địa chỉ Email hợp lệ]]></InvalidEmail>
-    <InvalidContact><![CDATA[Vui lòng nhập số điện thoại hợp lệ]]></InvalidContact>
-    <InvalidFName><![CDATA[Vui lòng nhập Tên Và Tên Đệm của bạn]]></InvalidFName>
-    <InvalidLName><![CDATA[Vui lòng nhập Họ của bạn]]></InvalidLName>
-    <InvalidDOB><![CDATA[Vui lòng nhập ngày sinh hợp lệ]]></InvalidDOB>
-    <InvalidVCode><![CDATA[Mã xác nhận sai]]></InvalidVCode>
-    <chkDisclaimer><![CDATA[Vui lòng kiểm tra và đồng ý với tất cả các điều kiện và điều khoản tham gia trước khi tiến hành hoàn tất.]]></chkDisclaimer>
-    <!--<chkDisclaimer><![CDATA[Bets may only be placed by those who are aged 18 or over. We may undertake a search with third party for the purpose of verifying thatyou are 18 or over, W88 reserves the right to ask for the proof of age. Customer accounts may be suspended and funds withheld untill satisfactory proof of age is provided.]]></chkDisclaimer>-->
-  </Register>
+		<MissingUsername><![CDATA[Vui lòng điền tên đăng nhập hợp lệ.]]></MissingUsername>
+		<MissingPassword><![CDATA[Vui lòng điền mật khẩu hợp lệ .]]></MissingPassword>
+		<MissingEmail><![CDATA[Vui lòng nhập địa chỉ Email hợp lệ]]></MissingEmail>
+		<MissingContact><![CDATA[Vui lòng nhập số điện thoại hợp lệ]]></MissingContact>
+		<MissingCurrency><![CDATA[Vui lòng lựa chọn tiền tệ.]]></MissingCurrency>
+		<MissingFName><![CDATA[Vui lòng nhập Tên Và Tên Đệm của bạn]]></MissingFName>
+		<MissingLName><![CDATA[Vui lòng nhập Họ của bạn]]></MissingLName>
+		<MissingVCode><![CDATA[Mã xác nhận sai]]></MissingVCode>
 
-  <FundTransfer>
-    <SelectTransferFrom><![CDATA[Vui lòng lựa chọn tài khoản muốn chuyển quỹ từ]]></SelectTransferFrom>
-    <SelectTransferTo><![CDATA[Vui lòng lựa chọn tài khoản muốn chuyển quỹ dến]]></SelectTransferTo>
-    <InputTransferAmount><![CDATA[Vui lòng nhập số tiền quý khách muốn chuyển]]></InputTransferAmount>
-    <TransferSuccess><![CDATA[Lệnh giao dịch của quý khách đã thực hiện thành công]]></TransferSuccess>
-    <BalanceBeforeAfter><![CDATA[\nWallet From: {walletFrom}\nWallet To: {walletTo}]]></BalanceBeforeAfter>    
-    <TransferFailed><![CDATA[Yêu cầu chuyển quỹ của quý khách thất bại]]></TransferFailed>
-    <TransferDeclined><![CDATA[Yêu cầu chuyển quỹ của quý khách bị trừ chối]]></TransferDeclined>
-    <UnderMaintenance><![CDATA[Sản phẩm hiện tại đang được bảo trì, xin vui lòng thử lại sau]]></UnderMaintenance>
-    <InvalidFundTransfer><![CDATA[Chuyển khoản không hợp lệ]]></InvalidFundTransfer>
-    <SessionExpired><![CDATA[Xin lỗi, đã xảy ra lỗi ở máy chủ]]></SessionExpired>
-    <InsufficientFunds><![CDATA[do không đủ số dư]]></InsufficientFunds>
-    <MinTransferNotMet><![CDATA[Xin lỗi, quý khách không đủ số dư tối thiểu để chuyển quỹ]]></MinTransferNotMet>
-    <TransferAmountDisallowed><![CDATA[Xin lỗi, số dư chuyển quỹ không được phép]]></TransferAmountDisallowed>
-    <ERR01><![CDATA[- ERR01: Failure to complete transaction]]></ERR01>
-    <USDDeposited><![CDATA[ Đã gửi tiền.]]></USDDeposited>
-    <RolloverNotMet><![CDATA[Xin lỗi, quý khách chưa đáp ứng đủ số tiền cược yêu cầu]]></RolloverNotMet>
-    <RolloverAmountNeeded><![CDATA[Số dư cần trải qua cược: ]]></RolloverAmountNeeded>
-    <TransferAmountAllowed><![CDATA[Số dư chuyển quỹ được phép: ]]></TransferAmountAllowed>
-    <BonusAmount><![CDATA[Số Tiền Khuyến Mãi: ]]></BonusAmount>
-  </FundTransfer>
-  <Promotion>
-    <InvalidPromo><![CDATA[Mã Khuyến Mãi Không Chính Xác]]></InvalidPromo>
-    <PromoAlreadyClaimed><![CDATA[Khuyến mãi đã được sử dụng.]]></PromoAlreadyClaimed>
-    <PromoGroupAlreadyClaimed><![CDATA[Xin lỗi, quý khách đã nhận khuyến mãi]]></PromoGroupAlreadyClaimed>
+		<InvalidUsername><![CDATA[Sai Tên Đăng Nhập và/hoặc Sai Mật Khẩu]]></InvalidUsername>
+		<InvalidPassword><![CDATA[Sai Tên Đăng Nhập và/hoặc Sai Mật Khẩu]]></InvalidPassword>
+		<InvalidEmail><![CDATA[Vui lòng nhập địa chỉ Email hợp lệ]]></InvalidEmail>
+		<InvalidContact><![CDATA[Vui lòng nhập số điện thoại hợp lệ]]></InvalidContact>
+		<InvalidFName><![CDATA[Vui lòng nhập Tên Và Tên Đệm của bạn]]></InvalidFName>
+		<InvalidLName><![CDATA[Vui lòng nhập Họ của bạn]]></InvalidLName>
+		<InvalidDOB><![CDATA[Vui lòng nhập ngày sinh hợp lệ]]></InvalidDOB>
+		<InvalidVCode><![CDATA[Mã xác nhận sai]]></InvalidVCode>
+		<chkDisclaimer><![CDATA[Vui lòng kiểm tra và đồng ý với tất cả các điều kiện và điều khoản tham gia trước khi tiến hành hoàn tất.]]></chkDisclaimer>
+		<!--<chkDisclaimer><![CDATA[Bets may only be placed by those who are aged 18 or over. We may undertake a search with third party for the purpose of verifying thatyou are 18 or over, W88 reserves the right to ask for the proof of age. Customer accounts may be suspended and funds withheld untill satisfactory proof of age is provided.]]></chkDisclaimer>-->
+	</Register>
 
-    <RegisterSuccess><![CDATA[Xin chúc mừng! Quý khách đã xác nhận thành công. Xin cám ơn]]></RegisterSuccess>
-    <VipOnly><![CDATA[Khuyến mãi ĐỘC ĐÁO & Đặc Biệt Chỉ dành cho Thành Viên VIP.\n~Hãy Cảm Nhận Sự Khác Biệt của Câu Lạc Bộ VIP~]]></VipOnly>
-    <SubmitOnce><![CDATA[Chỉ được xác nhận một lần duy nhất ]]></SubmitOnce>
-  </Promotion>
+	<FundTransfer>
+		<SelectTransferFrom><![CDATA[Vui lòng lựa chọn tài khoản muốn chuyển quỹ từ]]></SelectTransferFrom>
+		<SelectTransferTo><![CDATA[Vui lòng lựa chọn tài khoản muốn chuyển quỹ dến]]></SelectTransferTo>
+		<InputTransferAmount><![CDATA[Vui lòng nhập số tiền quý khách muốn chuyển]]></InputTransferAmount>
+		<TransferSuccess><![CDATA[Lệnh giao dịch của quý khách đã thực hiện thành công]]></TransferSuccess>
+		<BalanceBeforeAfter><![CDATA[\nWallet From: {walletFrom}\nWallet To: {walletTo}]]></BalanceBeforeAfter>
+		<TransferFailed><![CDATA[Yêu cầu chuyển quỹ của quý khách thất bại]]></TransferFailed>
+		<TransferDeclined><![CDATA[Yêu cầu chuyển quỹ của quý khách bị trừ chối]]></TransferDeclined>
+		<UnderMaintenance><![CDATA[Sản phẩm hiện tại đang được bảo trì, xin vui lòng thử lại sau]]></UnderMaintenance>
+		<InvalidFundTransfer><![CDATA[Chuyển khoản không hợp lệ]]></InvalidFundTransfer>
+		<SessionExpired><![CDATA[Xin lỗi, đã xảy ra lỗi ở máy chủ]]></SessionExpired>
+		<InsufficientFunds><![CDATA[do không đủ số dư]]></InsufficientFunds>
+		<MinTransferNotMet><![CDATA[Xin lỗi, quý khách không đủ số dư tối thiểu để chuyển quỹ]]></MinTransferNotMet>
+		<TransferAmountDisallowed><![CDATA[Xin lỗi, số dư chuyển quỹ không được phép]]></TransferAmountDisallowed>
+		<ERR01><![CDATA[- ERR01: Failure to complete transaction]]></ERR01>
+		<USDDeposited><![CDATA[ Đã gửi tiền.]]></USDDeposited>
+		<RolloverNotMet><![CDATA[Xin lỗi, quý khách chưa đáp ứng đủ số tiền cược yêu cầu]]></RolloverNotMet>
+		<RolloverAmountNeeded><![CDATA[Số dư cần trải qua cược: ]]></RolloverAmountNeeded>
+		<TransferAmountAllowed><![CDATA[Số dư chuyển quỹ được phép: ]]></TransferAmountAllowed>
+		<BonusAmount><![CDATA[Số Tiền Khuyến Mãi: ]]></BonusAmount>
+	</FundTransfer>
+	<Promotion>
+		<InvalidPromo><![CDATA[Mã Khuyến Mãi Không Chính Xác]]></InvalidPromo>
+		<PromoAlreadyClaimed><![CDATA[Khuyến mãi đã được sử dụng.]]></PromoAlreadyClaimed>
+		<PromoGroupAlreadyClaimed><![CDATA[Xin lỗi, quý khách đã nhận khuyến mãi]]></PromoGroupAlreadyClaimed>
 
-  <Deposit>
-    <TransferSuccess><![CDATA[Yêu cầu của quý khách đã thực hiện thành công]]></TransferSuccess>    
-    <TransferFail><![CDATA[Yêu cầu xác nhận không thành công]]></TransferFail>
-    
-    <MissingDepositAmount><![CDATA[Số tiền chuyển quỹ không đạt yêu cầu tối thiểu]]></MissingDepositAmount>
-    <MissingReferenceId><![CDATA[Vui lòng điền mã giới thiệu hợp lệ]]></MissingReferenceId>
-    <MissingAccountName><![CDATA[Xin vui lòng điền tên tài khoản cá nhân]]></MissingAccountName>
-    <MissingAccountNumber><![CDATA[Xin vui lòng điền số tài khoản cá nhân]]></MissingAccountNumber>
-    <MissingBankName><![CDATA[Xin vui lòng điền tên ngân hàng]]></MissingBankName>
-    <SelectSystemAccount><![CDATA[Vui lòng nhập Hệ Thống Tài Khoản]]></SelectSystemAccount>
-    <SelectDepositChannel><![CDATA[Vui lòng lựa chọn phương thức gửi tiền thích hợp]]></SelectDepositChannel>
-    <SelectBank><![CDATA[Xin vui lòng điền tên ngân hàng]]></SelectBank>
-    <InvalidDepositAmount><![CDATA[Số tiền chuyển quỹ không đạt yêu cầu tối thiểu]]></InvalidDepositAmount>
-    <InvalidReferenceId><![CDATA[Vui lòng điền mã giới thiệu hợp lệ]]></InvalidReferenceId>
-    <InvalidBankName><![CDATA[Xin vui lòng điền tên ngân hàng]]></InvalidBankName>
-    <InvalidAccountName><![CDATA[Xin vui lòng điền tên tài khoản cá nhân]]></InvalidAccountName>
-    <InvalidAccountNumber><![CDATA[Xin vui lòng điền số tài khoản cá nhân]]></InvalidAccountNumber>
-    <InvalidDateTime><![CDATA[Xin vui lòng nhập ngày/giờ hợp lệ]]></InvalidDateTime>
+		<RegisterSuccess><![CDATA[Xin chúc mừng! Quý khách đã xác nhận thành công. Xin cám ơn]]></RegisterSuccess>
+		<VipOnly><![CDATA[Khuyến mãi ĐỘC ĐÁO & Đặc Biệt Chỉ dành cho Thành Viên VIP.\n~Hãy Cảm Nhận Sự Khác Biệt của Câu Lạc Bộ VIP~]]></VipOnly>
+		<SubmitOnce><![CDATA[Chỉ được xác nhận một lần duy nhất ]]></SubmitOnce>
+	</Promotion>
 
-    <TotalAllowedExceeded><![CDATA[Số tiền nhiều hơn tổng số tiền cho phép]]></TotalAllowedExceeded>
-    <AmountMinLimit><![CDATA[Số tiền thấp hơn yêu cầu tối thiểu]]></AmountMinLimit>
-    <AmountMaxLimit><![CDATA[Số tiền vượt quá yêu cầu tối đa]]></AmountMaxLimit>
+	<Deposit>
+		<TransferSuccess><![CDATA[Yêu cầu của quý khách đã thực hiện thành công]]></TransferSuccess>
+		<TransferFail><![CDATA[Yêu cầu xác nhận không thành công]]></TransferFail>
 
-    <error-1><![CDATA[Xin lỗi, đã xảy ra lỗi ở máy chủ]]></error-1>
-    <error-2><![CDATA[Không thể thực hiện gửi tiền]]></error-2>
-    <error-3><![CDATA[Phương thức gửi tiền không chính xác]]></error-3>
-    <error-4><![CDATA[Vượt quá giới hạn tối đa]]></error-4>
-    <error-5><![CDATA[Chưa đạt đủ giới hạn tối thiểu]]></error-5>
-    <error-6><![CDATA[Vượt quá giới hạn Tối Đa cho phép trong ngày]]></error-6>
-    <error-7><![CDATA[Vượt quá giới hạn số lần xác nhận Tối Đa trong ngày]]></error-7>
-    <error-99><![CDATA[Xin lỗi, đã xảy ra lỗi ở máy chủ]]></error-99>
+		<MissingDepositAmount><![CDATA[Số tiền chuyển quỹ không đạt yêu cầu tối thiểu]]></MissingDepositAmount>
+		<MissingReferenceId><![CDATA[Vui lòng điền mã giới thiệu hợp lệ]]></MissingReferenceId>
+		<MissingAccountName><![CDATA[Xin vui lòng điền tên tài khoản cá nhân]]></MissingAccountName>
+		<MissingAccountNumber><![CDATA[Xin vui lòng điền số tài khoản cá nhân]]></MissingAccountNumber>
+		<MissingBankName><![CDATA[Xin vui lòng điền tên ngân hàng]]></MissingBankName>
+		<SelectSystemAccount><![CDATA[Vui lòng nhập Hệ Thống Tài Khoản]]></SelectSystemAccount>
+		<SelectDepositChannel><![CDATA[Vui lòng lựa chọn phương thức gửi tiền thích hợp]]></SelectDepositChannel>
+		<SelectBank><![CDATA[Xin vui lòng điền tên ngân hàng]]></SelectBank>
+		<InvalidDepositAmount><![CDATA[Số tiền chuyển quỹ không đạt yêu cầu tối thiểu]]></InvalidDepositAmount>
+		<InvalidReferenceId><![CDATA[Vui lòng điền mã giới thiệu hợp lệ]]></InvalidReferenceId>
+		<InvalidBankName><![CDATA[Xin vui lòng điền tên ngân hàng]]></InvalidBankName>
+		<InvalidAccountName><![CDATA[Xin vui lòng điền tên tài khoản cá nhân]]></InvalidAccountName>
+		<InvalidAccountNumber><![CDATA[Xin vui lòng điền số tài khoản cá nhân]]></InvalidAccountNumber>
+		<InvalidDateTime><![CDATA[Xin vui lòng nhập ngày/giờ hợp lệ]]></InvalidDateTime>
 
-    <Exception><![CDATA[Không thể thực hiện yêu cầu]]></Exception>
-  </Deposit>
+		<TotalAllowedExceeded><![CDATA[Số tiền nhiều hơn tổng số tiền cho phép]]></TotalAllowedExceeded>
+		<AmountMinLimit><![CDATA[Số tiền thấp hơn yêu cầu tối thiểu]]></AmountMinLimit>
+		<AmountMaxLimit><![CDATA[Số tiền vượt quá yêu cầu tối đa]]></AmountMaxLimit>
 
-  <Withdrawal>
-    <TransferSuccess><![CDATA[Yêu cầu của quý khách đã thực hiện thành công]]></TransferSuccess>
-    <TransferFail><![CDATA[Yêu cầu xác nhận không thành công]]></TransferFail>
+		<error-1><![CDATA[Xin lỗi, đã xảy ra lỗi ở máy chủ]]></error-1>
+		<error-2><![CDATA[Không thể thực hiện gửi tiền]]></error-2>
+		<error-3><![CDATA[Phương thức gửi tiền không chính xác]]></error-3>
+		<error-4><![CDATA[Vượt quá giới hạn tối đa]]></error-4>
+		<error-5><![CDATA[Chưa đạt đủ giới hạn tối thiểu]]></error-5>
+		<error-6><![CDATA[Vượt quá giới hạn Tối Đa cho phép trong ngày]]></error-6>
+		<error-7><![CDATA[Vượt quá giới hạn số lần xác nhận Tối Đa trong ngày]]></error-7>
+		<error-99><![CDATA[Xin lỗi, đã xảy ra lỗi ở máy chủ]]></error-99>
 
-    <MissingWithdrawAmount><![CDATA[Số tiền chuyển quỹ không đạt yêu cầu tối thiểu]]></MissingWithdrawAmount>
-    <MissingAccountName><![CDATA[Xin vui lòng điền tên tài khoản cá nhân]]></MissingAccountName>
-    <MissingAccountNumber><![CDATA[Xin vui lòng điền số tài khoản cá nhân]]></MissingAccountNumber>
-    <MissingBankName><![CDATA[Xin vui lòng điền tên ngân hàng]]></MissingBankName>
-    <MissingBankBranch><![CDATA[Vui lòng điền tên chi nhánh ngân hàng]]></MissingBankBranch>
-    <MissingBankAddress><![CDATA[Vui lòng điền địa chỉ ngân hàng nơi bạn mở tài khoản]]></MissingBankAddress>
-    <MissingMyKad><![CDATA[MyKad không chính xác]]></MissingMyKad>
-    <SelectBank><![CDATA[Xin vui lòng điền tên ngân hàng]]></SelectBank>
-    <InvalidWithdrawAmount><![CDATA[Số tiền chuyển quỹ không đạt yêu cầu tối thiểu]]></InvalidWithdrawAmount>
-    <InvalidBankName><![CDATA[Xin vui lòng điền tên ngân hàng]]></InvalidBankName>
-    <InvalidBankBranch><![CDATA[Vui lòng điền tên chi nhánh ngân hàng]]></InvalidBankBranch>
-    <InvalidBankAddress><![CDATA[Vui lòng điền địa chỉ ngân hàng nơi bạn mở tài khoản]]></InvalidBankAddress>
-    <InvalidAccountName><![CDATA[Xin vui lòng điền tên tài khoản cá nhân]]></InvalidAccountName>
-    <InvalidAccountNumber><![CDATA[Xin vui lòng điền số tài khoản cá nhân]]></InvalidAccountNumber>
-    <InvalidMyKad><![CDATA[MyKad không chính xác]]></InvalidMyKad>
-    <InvalidAtmNumber><![CDATA[Số thẻ ATM không chính xác]]></InvalidAtmNumber>
+		<Exception><![CDATA[Không thể thực hiện yêu cầu]]></Exception>
+	</Deposit>
 
-    <TotalAllowedExceeded><![CDATA[Số tiền nhiều hơn tổng số tiền cho phép]]></TotalAllowedExceeded>
-    <AmountMinLimit><![CDATA[Số tiền thấp hơn yêu cầu tối thiểu]]></AmountMinLimit>
-    <AmountMaxLimit><![CDATA[Số tiền vượt quá yêu cầu tối đa]]></AmountMaxLimit>
+	<Withdrawal>
+		<TransferSuccess><![CDATA[Yêu cầu của quý khách đã thực hiện thành công]]></TransferSuccess>
+		<TransferFail><![CDATA[Yêu cầu xác nhận không thành công]]></TransferFail>
 
-    <error-1><![CDATA[Xin lỗi, đã xảy ra lỗi ở máy chủ]]></error-1>
-    <error-2><![CDATA[Không thể thực hiện rút tiền]]></error-2>
-    <error-3><![CDATA[Tiền tệ không chính xác]]></error-3>
-    <error-4><![CDATA[Phương thức rút tiền không chính xác]]></error-4>
-    <error-5><![CDATA[Vượt quá giới hạn Tối Thiểu/ Tối Đa]]></error-5>
-    <error-6><![CDATA[Vượt quá giới hạn Tối Đa cho phép trong ngày]]></error-6>
-    <error-7><![CDATA[Vượt quá giới hạn số lần xác nhận Tối Đa trong ngày]]></error-7>
-    <error-99><![CDATA[Xin lỗi, đã xảy ra lỗi ở máy chủ]]></error-99>
+		<MissingWithdrawAmount><![CDATA[Số tiền chuyển quỹ không đạt yêu cầu tối thiểu]]></MissingWithdrawAmount>
+		<MissingAccountName><![CDATA[Xin vui lòng điền tên tài khoản cá nhân]]></MissingAccountName>
+		<MissingAccountNumber><![CDATA[Xin vui lòng điền số tài khoản cá nhân]]></MissingAccountNumber>
+		<MissingBankName><![CDATA[Xin vui lòng điền tên ngân hàng]]></MissingBankName>
+		<MissingBankBranch><![CDATA[Vui lòng điền tên chi nhánh ngân hàng]]></MissingBankBranch>
+		<MissingBankAddress><![CDATA[Vui lòng điền địa chỉ ngân hàng nơi bạn mở tài khoản]]></MissingBankAddress>
+		<MissingMyKad><![CDATA[MyKad không chính xác]]></MissingMyKad>
+		<SelectBank><![CDATA[Xin vui lòng điền tên ngân hàng]]></SelectBank>
+		<InvalidWithdrawAmount><![CDATA[Số tiền chuyển quỹ không đạt yêu cầu tối thiểu]]></InvalidWithdrawAmount>
+		<InvalidBankName><![CDATA[Xin vui lòng điền tên ngân hàng]]></InvalidBankName>
+		<InvalidBankBranch><![CDATA[Vui lòng điền tên chi nhánh ngân hàng]]></InvalidBankBranch>
+		<InvalidBankAddress><![CDATA[Vui lòng điền địa chỉ ngân hàng nơi bạn mở tài khoản]]></InvalidBankAddress>
+		<InvalidAccountName><![CDATA[Xin vui lòng điền tên tài khoản cá nhân]]></InvalidAccountName>
+		<InvalidAccountNumber><![CDATA[Xin vui lòng điền số tài khoản cá nhân]]></InvalidAccountNumber>
+		<InvalidMyKad><![CDATA[MyKad không chính xác]]></InvalidMyKad>
+		<InvalidAtmNumber><![CDATA[Số thẻ ATM không chính xác]]></InvalidAtmNumber>
 
-    <CancelSuccess><![CDATA[Lệnh hủy rút tiền đã được thực hiện thành công \nMã Số Giao Dịch: {trxId}]]></CancelSuccess>
+		<TotalAllowedExceeded><![CDATA[Số tiền nhiều hơn tổng số tiền cho phép]]></TotalAllowedExceeded>
+		<AmountMinLimit><![CDATA[Số tiền thấp hơn yêu cầu tối thiểu]]></AmountMinLimit>
+		<AmountMaxLimit><![CDATA[Số tiền vượt quá yêu cầu tối đa]]></AmountMaxLimit>
 
-    <Exception><![CDATA[Không thể thực hiện yêu cầu]]></Exception>
-  </Withdrawal>
+		<error-1><![CDATA[Xin lỗi, đã xảy ra lỗi ở máy chủ]]></error-1>
+		<error-2><![CDATA[Không thể thực hiện rút tiền]]></error-2>
+		<error-3><![CDATA[Tiền tệ không chính xác]]></error-3>
+		<error-4><![CDATA[Phương thức rút tiền không chính xác]]></error-4>
+		<error-5><![CDATA[Vượt quá giới hạn Tối Thiểu/ Tối Đa]]></error-5>
+		<error-6><![CDATA[Vượt quá giới hạn Tối Đa cho phép trong ngày]]></error-6>
+		<error-7><![CDATA[Vượt quá giới hạn số lần xác nhận Tối Đa trong ngày]]></error-7>
+		<error-99><![CDATA[Xin lỗi, đã xảy ra lỗi ở máy chủ]]></error-99>
+
+		<CancelSuccess><![CDATA[Lệnh hủy rút tiền đã được thực hiện thành công \nMã Số Giao Dịch: {trxId}]]></CancelSuccess>
+
+		<Exception><![CDATA[Không thể thực hiện yêu cầu]]></Exception>
+	</Withdrawal>
+  <StatusCode>
+    <e400><![CDATA[400]]></e400>
+    <e403><![CDATA[403]]></e403>
+    <e404><![CDATA[404]]></e404>
+    <e408><![CDATA[408]]></e408>
+    <e500><![CDATA[500]]></e500>
+    <e502><![CDATA[502]]></e502>
+  </StatusCode>
+  <HttpError>
+    <e400><![CDATA[Máy chủ không thể thực hiện yêu cầu]]></e400>
+    <e400title><![CDATA[Bad Request]]></e400title>
+    <e403><![CDATA[Quý Khách không thể truy cập trang web hoặc thư mục này.]]></e403>
+    <e403title><![CDATA[Lỗi truy cập]]></e403title>
+    <e404><![CDATA[Xin lỗi , nhưng trang bạn đang cố gắng để xem không tồn tại.]]></e404>
+    <e404title><![CDATA[Không tìm thấy trang]]></e404title>
+    <e408><![CDATA[Các máy chủ timed out chờ yêu cầu .]]></e408>
+    <e408title><![CDATA[Hết thời gian yêu cầu]]></e408title>
+    <e500><![CDATA[Xảy ra lỗi khi xử lý yêu cầu của Quý Khách. Vui lòng thử lại hoặc liên hệ với bộ phận hỗ trợ trực tuyến.]]></e500>
+    <e500title><![CDATA[Lỗi kết nối]]></e500title>
+    <e502><![CDATA[Máy chủ nhận được một phản ứng không hợp lệ.]]></e502>
+    <e502title><![CDATA[Bad Gateway]]></e502title>
+  </HttpError>
 </default>

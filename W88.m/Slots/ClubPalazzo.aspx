@@ -1,31 +1,19 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ClubPalazzo.aspx.cs" Inherits="Slots_ClubPalazzo" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Slots.master" AutoEventWireup="true" CodeFile="ClubPalazzo.aspx.cs" Inherits="Slots_ClubPalazzo" %>
 
-<!DOCTYPE html>
-<html>
-<head runat="server">
-    <title><%=commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML) + commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML)%></title>
-    <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/Js/Main.js"></script>
-
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script type="text/javascript">
         function load_palazzo_link(type, name, mode) {
             palazzo_window = window.open("/Slots/ClubPalazzoLauncher.aspx?type=" + type + "&name=" + name + "&mode=" + mode, 'Palazzo');
         }
     </script>
-</head>
-<body>
-    <!--#include virtual="~/_static/splash.shtml" -->
-    <div data-role="page" data-theme="b" id="slots">
-        <header data-role="header" data-theme="b" data-position="fixed" id="header">
-            <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" role="button" id="aMenu" data-load-ignore-splash="true">
-                <i class="icon-navicon"></i>
-            </a>
-            <h1 class="title"><%=commonCulture.ElementValues.getResourceXPathString("/Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML)%></h1>
-        </header>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
         <div class="ui-content" role="main">
             <div id="divContainer" runat="server"></div>
         </div>
 
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder" runat="Server">
         <script type="text/javascript">
             var cache = [];
             $(function () {
@@ -75,8 +63,5 @@
 
             });
         </script>
-        <!--#include virtual="~/_static/navMenu.shtml" -->
+</asp:Content>
 
-    </div>
-</body>
-</html>

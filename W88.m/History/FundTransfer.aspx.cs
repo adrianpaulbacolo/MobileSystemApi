@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class History_FundTransfer : System.Web.UI.Page
+public partial class History_FundTransfer: BasePage
 {
     ICollection<KeyValuePair<int, string>> _wallet;
 
@@ -18,7 +18,7 @@ public partial class History_FundTransfer : System.Web.UI.Page
         Initialize();
     }
     private void Initialize()
-    {
+        {
         lblDateFrom.Text = commonCulture.ElementValues.getResourceString("lblDateFrom", commonVariables.HistoryXML);
         lblDateTo.Text = commonCulture.ElementValues.getResourceString("lblDateTo", commonVariables.HistoryXML);
         lblStatus.Text = commonCulture.ElementValues.getResourceString("lblStatus", commonVariables.HistoryXML);

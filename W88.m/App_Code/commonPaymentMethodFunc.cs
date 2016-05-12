@@ -13,6 +13,7 @@ using svcPayMember;
 /// </summary>
 public static class commonPaymentMethodFunc
 {
+
     public static void GetWalletBalance(int walletId)
     {
         var memberCode = commonVariables.GetSessionVariable("MemberCode");
@@ -21,7 +22,7 @@ public static class commonPaymentMethodFunc
         using (var svcInstance = new MemberClient())
         {
             string strProductCurrency;
-            var value = svcInstance.getWalletBalance(commonVariables.OperatorId, commonVariables.SiteUrl, memberCode, Convert.ToString(walletId), out strProductCurrency);
+            var value   = svcInstance.getWalletBalance(commonVariables.OperatorId, commonVariables.SiteUrl, memberCode, Convert.ToString(walletId), out strProductCurrency);
             HttpContext.Current.Session["Main"] = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", value);
         }
     }
@@ -43,6 +44,7 @@ public static class commonPaymentMethodFunc
 
         return wallet;
     }
+
 
     public static void GetDepositMethodList(string methodsUnAvailable, HtmlGenericControl depositTabs, string sourcePage, bool isApp)
     {

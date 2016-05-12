@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class History_FundTransferResults : System.Web.UI.Page
+public partial class History_FundTransferResults : BasePage
 {
 
     ICollection<KeyValuePair<int, string>> _wallet;

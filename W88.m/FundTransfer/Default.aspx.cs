@@ -23,8 +23,6 @@ public partial class FundTransfer_Default : BasePage
         System.Xml.Linq.XElement xeResources = null;
         System.Text.StringBuilder sbWallets = null;
 
-        CancelUnexpectedRePost();
-
         xeErrors = commonVariables.ErrorsXML;
         xeResources = commonCulture.appData.getRootResource("/Cashier");
         commonCulture.appData.getRootResource("/FundTransfer/CurrencySettings", out xeFTCurrencySettings);
@@ -76,7 +74,6 @@ public partial class FundTransfer_Default : BasePage
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        if (IsPageRefresh) { Response.Redirect(Request.Url.AbsoluteUri); }
 
         #region initialiseVariables
         int intProcessSerialId = 0;
@@ -201,6 +198,8 @@ public partial class FundTransfer_Default : BasePage
                 strResultDetail = ex.Message;
             }
 
+            strAlertCode = strStatusCode;
+
             switch (strStatusCode)
             {
                 case "00":
@@ -299,26 +298,6 @@ public partial class FundTransfer_Default : BasePage
         #endregion
     }
 
-    private void CancelUnexpectedRePost()
-    {
-        if (!IsPostBack)
-        {
-            ViewState["postids"] = System.Guid.NewGuid().ToString();
-            Session["postid"] = ViewState["postids"].ToString();
-        }
-        else
-        {
-            if (string.IsNullOrEmpty(ViewState["postids"] as string)) { IsPageRefresh = true; }
-            else
-            {
-                if (string.IsNullOrEmpty(Session["postid"] as string)) { IsPageRefresh = true; }
-                else if (ViewState["postids"].ToString() != Session["postid"].ToString()) { IsPageRefresh = true; }
-            }
-            Session["postid"] = System.Guid.NewGuid().ToString();
-            ViewState["postids"] = Session["postid"];
-            //System.Web.HttpContext.Current.Request.RawUrl
-        }
-    }
     protected void btnSwap_Click(object sender, EventArgs e)
     {
         string from = drpTransferFrom.Text;

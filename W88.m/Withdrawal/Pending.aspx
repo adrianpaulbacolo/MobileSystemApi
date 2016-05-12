@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Pending.aspx.cs" Inherits="Withdrawal_Pending" %>
+<%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
 <!DOCTYPE html>
 <html>
@@ -19,9 +20,7 @@
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <label class="label"><%=commonCulture.ElementValues.getResourceString("mainWallet", commonVariables.LeftMenuXML)%></label>
-                <h2 class="value"><%=Session["Main"].ToString()%></h2>
-                <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
+                <uc:Wallet id="uMainWallet" runat="server" />
             </div>
 
             <form class="form" id="form1" runat="server" data-ajax="false">
@@ -55,7 +54,11 @@
                                     //alert(html);
                                     alert('<%=commonCulture.ElementValues.getResourceXPathString("Withdrawal/CancelSuccess", xeErrors)%>'.replace('{trxId}', $(obj).attr('data-id')));
                                     $(obj).parentsUntil('tbody').fadeOut();
-                                    window.setTimeout(function () { $(obj).parentsUntil('tbody').remove(); if ($('#table-reflow tbody tr').length == 0) { window.location.replace('/Withdrawal/Default.aspx'); } }, 2000);
+                                    window.setTimeout(function () {
+                                        $(obj).parentsUntil('tbody').remove(); if ($('#table-reflow tbody tr').length == 0) {
+                                            window.location.replace('/Withdrawal/Default.aspx');
+                                        }
+                                    }, 2000);
 
                                 }
                                 else {

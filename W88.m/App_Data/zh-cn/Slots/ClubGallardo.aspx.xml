@@ -94,10 +94,16 @@
 			</iSoftBet>
 
 			<PNG>
-				<cloudquestmobile  Top="1">
+                <goldencaravanmobile  Top="1">
+                    <ImageName><![CDATA[W88-Slots-Mobile-Golden-Caravan]]></ImageName>
+                </goldencaravanmobile>
+                <sailsofgoldmobile Top="2">
+                    <ImageName><![CDATA[W88-Slots-Mobile-Sails-of-Gold]]></ImageName>
+                </sailsofgoldmobile>
+                
+				<cloudquestmobile>
 					<ImageName><![CDATA[W88-Slots-Mobile-Cloud-Quest]]></ImageName>
 				</cloudquestmobile >
-
 				<sambacarnivalmobile>
 					<ImageName><![CDATA[sambacarnivalmobile]]></ImageName>
 				</sambacarnivalmobile>

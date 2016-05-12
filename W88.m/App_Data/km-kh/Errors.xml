@@ -1,150 +1,174 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
-  <Exception><![CDATA[ប្រព័ន្ធរអាក់រអួល, ព្យាយាមម្តងទៀត]]></Exception>
-  <IncorrectVCode><![CDATA[ការចូលទៅកាន់គណនីបរាជ័យ លេខកូដបញ្ចាក់មិនត្រឹមត្រូវ]]></IncorrectVCode>
-  <MissingVCode><![CDATA[ការចូលទៅកាន់គណនីបរាជ័យ លេខកូដបញ្ចាក់មិនត្រឹមត្រូវ]]></MissingVCode>
-  <SessionExpired><![CDATA[ប្រព័ន្ធរអាក់រអួល, ព្យាយាមម្តងទៀត]]></SessionExpired>
-  <ServerError><![CDATA[សូមអភ័យទោស បណ្តាញមានភាពរអាក់រអួល]]></ServerError>
-  
-  <Login>
-    <InvalidUsername><![CDATA[ខុសឈ្មោះគណនី/ឬខុសលេខសំងាត់]]></InvalidUsername>
-    <InvalidPassword><![CDATA[ខុសឈ្មោះគណនី/ឬខុសលេខសំងាត់]]></InvalidPassword>
-    <InactiveAccount>
-      <![CDATA[ដើម្បីសុវត្ថិភាព គណនីរបស់អ្នកត្រូវបានផ្អាក។ សូម <a href="https://www.w88world.com/ContactUs.aspx">ចុចទីនេះ</a> ដើម្បីជំនួយ។ ]]></InactiveAccount>    
-    <MissingUsername><![CDATA[ប្រអប់សំរាប់បញ្ចូល ឈ្មោះប្រើប្រាស់ នៅទទេរ សូមបំពេញអោយបានត្រឹមត្រូវ]]></MissingUsername>
-    <MissingPassword><![CDATA[ប្រអប់សំរាប់បញ្ចូល លេខសម្ងាត់ នៅទទេរ សូមបំពេញអោយបានត្រឹមត្រូវ]]></MissingPassword>
-  </Login>
+	<Exception><![CDATA[ប្រព័ន្ធរអាក់រអួល, ព្យាយាមម្តងទៀត]]></Exception>
+	<IncorrectVCode><![CDATA[ការចូលទៅកាន់គណនីបរាជ័យ លេខកូដបញ្ចាក់មិនត្រឹមត្រូវ]]></IncorrectVCode>
+	<MissingVCode><![CDATA[ការចូលទៅកាន់គណនីបរាជ័យ លេខកូដបញ្ចាក់មិនត្រឹមត្រូវ]]></MissingVCode>
+	<SessionExpired><![CDATA[ប្រព័ន្ធរអាក់រអួល, ព្យាយាមម្តងទៀត]]></SessionExpired>
+	<ServerError><![CDATA[សូមអភ័យទោស បណ្តាញមានភាពរអាក់រអួល]]></ServerError>
+	<CustomerService><![CDATA[សូមទំនាក់ទំនងសេវាបំរើអតិថិជន។]]></CustomerService>
 
-  <Register>
-    <Success><![CDATA[ស្វាគមន៌មកកាន់វេបសាយ W88 ហើយសូមអរគុណដែលបានបើកគណនី \nគណនីរបស់លោកអ្នក ពេលនេះគឺរួចរាល់ក្នុងការចូលនឹងលេងក្នុងវេបសាយ W88.com និងតាមទូរស័ព្ទ m.w88.com]]></Success>
-    <DuplicateUsername><![CDATA[ឈ្មោះគណនីត្រូវបានប្រើប្រាស់រួចហើយ. សូមវាយបញ្ចូលឈ្មោះគណនីថ្មី]]></DuplicateUsername>
-    <DuplicateEmail><![CDATA[អ៊ីម៉ែលត្រូវបានប្រើប្រាស់រួចហើយ. សូមវាយបញ្ចូលអ៊ីម៉ែលថ្មី]]></DuplicateEmail>
-	<DuplicateContact><![CDATA[លេខទំនាក់ទំនងត្រូវបានប្រើប្រាស់រួច សូមវាយបញ្ចូលលេខទំនាក់ទំនងរបស់លោកអ្នក]]></DuplicateContact>
-    <IncorrectVCode><![CDATA[ការចូលទៅកាន់គណនីបរាជ័យ លេខកូដបញ្ចាក់មិនត្រឹមត្រូវ]]></IncorrectVCode>
+	<Login>
+		<InvalidUsername><![CDATA[ខុសឈ្មោះគណនី/ឬខុសលេខសំងាត់]]></InvalidUsername>
+		<InvalidPassword><![CDATA[ខុសឈ្មោះគណនី/ឬខុសលេខសំងាត់]]></InvalidPassword>
+		<InactiveAccount>
+			<![CDATA[ដើម្បីសុវត្ថិភាព គណនីរបស់អ្នកត្រូវបានផ្អាក។ សូម <a href="https://www.w88world.com/ContactUs.aspx">ចុចទីនេះ</a> ដើម្បីជំនួយ។ ]]>
+		</InactiveAccount>
+		<MissingUsername><![CDATA[ប្រអប់សំរាប់បញ្ចូល ឈ្មោះប្រើប្រាស់ នៅទទេរ សូមបំពេញអោយបានត្រឹមត្រូវ]]></MissingUsername>
+		<MissingPassword><![CDATA[ប្រអប់សំរាប់បញ្ចូល លេខសម្ងាត់ នៅទទេរ សូមបំពេញអោយបានត្រឹមត្រូវ]]></MissingPassword>
+	</Login>
 
-    <MissingUsername><![CDATA[ប្រអប់សំរាប់បញ្ចូល ឈ្មោះប្រើប្រាស់ នៅទទេរ សូមបំពេញអោយបានត្រឹមត្រូវ]]></MissingUsername>
-    <MissingPassword><![CDATA[ប្រអប់សំរាប់បញ្ចូល លេខសម្ងាត់ នៅទទេរ សូមបំពេញអោយបានត្រឹមត្រូវ]]></MissingPassword>
-    <MissingEmail><![CDATA[Please enter your email]]></MissingEmail>
-    <MissingContact><![CDATA[Please enter your contact number]]></MissingContact>
-    <MissingCurrency><![CDATA[សូមរើសយករូបិយប័ណ្ណ]]></MissingCurrency>
-    <MissingFName><![CDATA[Please enter your first name]]></MissingFName>
-    <MissingLName><![CDATA[Please enter your last name]]></MissingLName>
-    <MissingVCode><![CDATA[Please enter verification code]]></MissingVCode>
+	<Register>
+		<Success><![CDATA[ស្វាគមន៌មកកាន់វេបសាយ W88 ហើយសូមអរគុណដែលបានបើកគណនី \nគណនីរបស់លោកអ្នក ពេលនេះគឺរួចរាល់ក្នុងការចូលនឹងលេងក្នុងវេបសាយ W88.com និងតាមទូរស័ព្ទ m.w88.com]]></Success>
+		<DuplicateUsername><![CDATA[ឈ្មោះគណនីត្រូវបានប្រើប្រាស់រួចហើយ. សូមវាយបញ្ចូលឈ្មោះគណនីថ្មី]]></DuplicateUsername>
+		<DuplicateEmail><![CDATA[អ៊ីម៉ែលត្រូវបានប្រើប្រាស់រួចហើយ. សូមវាយបញ្ចូលអ៊ីម៉ែលថ្មី]]></DuplicateEmail>
+		<DuplicateContact><![CDATA[លេខទំនាក់ទំនងត្រូវបានប្រើប្រាស់រួច សូមវាយបញ្ចូលលេខទំនាក់ទំនងរបស់លោកអ្នក]]></DuplicateContact>
+		<IncorrectVCode><![CDATA[ការចូលទៅកាន់គណនីបរាជ័យ លេខកូដបញ្ចាក់មិនត្រឹមត្រូវ]]></IncorrectVCode>
 
-    <InvalidUsername><![CDATA[ខុសឈ្មោះគណនី/ឬខុសលេខសំងាត់]]></InvalidUsername>
-    <InvalidPassword><![CDATA[ខុសឈ្មោះគណនី/ឬខុសលេខសំងាត់]]></InvalidPassword>
-    <InvalidEmail><![CDATA[Invalid email]]></InvalidEmail>
-    <InvalidContact><![CDATA[Invalid contact number]]></InvalidContact>
-    <InvalidFName><![CDATA[Invalid first name]]></InvalidFName>
-    <InvalidLName><![CDATA[Invalid last name]]></InvalidLName>
-    <InvalidDOB><![CDATA[Invalid Date of Birth]]></InvalidDOB>
-    <InvalidVCode><![CDATA[ការចូលទៅកាន់គណនីបរាជ័យ លេខកូដបញ្ចាក់មិនត្រឹមត្រូវ]]></InvalidVCode>
-    <chkDisclaimer><![CDATA[You have to agree with our Terms & Conditions & Privacy Policy in order to proceed.]]></chkDisclaimer>
-    <!--<chkDisclaimer><![CDATA[Bets may only be placed by those who are aged 18 or over. We may undertake a search with third party for the purpose of verifying thatyou are 18 or over, W88 reserves the right to ask for the proof of age. Customer accounts may be suspended and funds withheld untill satisfactory proof of age is provided.]]></chkDisclaimer>-->
-  </Register>
+		<MissingUsername><![CDATA[ប្រអប់សំរាប់បញ្ចូល ឈ្មោះប្រើប្រាស់ នៅទទេរ សូមបំពេញអោយបានត្រឹមត្រូវ]]></MissingUsername>
+		<MissingPassword><![CDATA[ប្រអប់សំរាប់បញ្ចូល លេខសម្ងាត់ នៅទទេរ សូមបំពេញអោយបានត្រឹមត្រូវ]]></MissingPassword>
+		<MissingEmail><![CDATA[Please enter your email]]></MissingEmail>
+		<MissingContact><![CDATA[Please enter your contact number]]></MissingContact>
+		<MissingCurrency><![CDATA[សូមរើសយករូបិយប័ណ្ណ]]></MissingCurrency>
+		<MissingFName><![CDATA[Please enter your first name]]></MissingFName>
+		<MissingLName><![CDATA[Please enter your last name]]></MissingLName>
+		<MissingVCode><![CDATA[Please enter verification code]]></MissingVCode>
 
-  <FundTransfer>
-    <SelectTransferFrom><![CDATA[សូមរើសយកប្រអប់ប្រាក់សំរាប់ការផ្ទេរពី។]]></SelectTransferFrom>
-    <SelectTransferTo><![CDATA[សូមរើសយកប្រអប់ប្រាក់សំរាប់ការផ្ទេរទៅ។]]></SelectTransferTo>
-    <InputTransferAmount><![CDATA[សូមបញ្ចូលចំនួនដែលអ្នកចង់ផ្ទេរ។]]></InputTransferAmount>
-    <TransferSuccess><![CDATA[ប្រតិបត្តិការបានជោគជ័យ។]]></TransferSuccess>
-    <BalanceBeforeAfter><![CDATA[\nWallet From: {walletFrom}\nWallet To: {walletTo}]]></BalanceBeforeAfter>    
-    <TransferFailed><![CDATA[សំនើរការផ្ទេរមិនបានជោគជ័យ។]]></TransferFailed>
-    <TransferDeclined><![CDATA[សំនើរការផ្ទេរត្រូវបានច្រានចោល។]]></TransferDeclined>
-    <UnderMaintenance><![CDATA[ផលិតផលកំពុងត្រូវបានកែលំអរ សូមព្យាយាមម្តងទៀតនៅពេលក្រោយ។]]></UnderMaintenance>
-    <InvalidFundTransfer><![CDATA[ការផ្ទេរមិនត្រឹមត្រូវ]]></InvalidFundTransfer>
-    <SessionExpired><![CDATA[សូមអភ័យទោស បណ្តាញមានភាពរអាក់រអួល]]></SessionExpired>
-    <InsufficientFunds><![CDATA[សំនើរការផ្ទេរត្រូវបានច្រានចោលដោយសារទឹកប្រាក់មិនគ្រប់គ្រាន់។]]></InsufficientFunds>
-    <MinTransferNotMet><![CDATA[សូមអភ័យទោស ចំនួនផ្ទេរមិនគ្រប់គ្រាន់តាមចំនួនអប្បបរមា។]]></MinTransferNotMet>
-    <TransferAmountDisallowed><![CDATA[សូមអភ័យទោស ចំនួនផ្ទេរមិនត្រូវបានអនុញ្ញាត។]]></TransferAmountDisallowed>
-    <ERR01><![CDATA[- ERR01: Failure to complete transaction]]></ERR01>
-    <USDDeposited><![CDATA[ has been deposited.]]></USDDeposited>
-    <RolloverNotMet><![CDATA[សូមអភ័យទោស អ្នកមិនទាន់បានបំពេញល័ក្ខខ័ណ្ឌការភ្នាល់វិលជុំទេ។]]></RolloverNotMet>
-    <RolloverAmountNeeded><![CDATA[ចំនួនវិលជុំដែលនៅសល់: ]]></RolloverAmountNeeded>
-    <TransferAmountAllowed><![CDATA[ចំនួនផ្ទេរត្រូវបានអនុញ្ញាត: ]]></TransferAmountAllowed>
-    <BonusAmount><![CDATA[ចំនួនប្រាក់បន្ថែម: ]]></BonusAmount>
-  </FundTransfer>
-  <Promotion>
-    <InvalidPromo><![CDATA[កូដកម្មវិធីមិនត្រឹមត្រូវ]]></InvalidPromo>
-    <PromoAlreadyClaimed><![CDATA[កម្មវិធីនេះត្រូវបានទាមទាររួចហើយ។]]></PromoAlreadyClaimed>
-    <PromoGroupAlreadyClaimed><![CDATA[សូមអភ័យទោស អ្នកបានទាមទារក្នុងក្រុមនេះរួចម្តងហើយ។]]></PromoGroupAlreadyClaimed>
+		<InvalidUsername><![CDATA[ខុសឈ្មោះគណនី/ឬខុសលេខសំងាត់]]></InvalidUsername>
+		<InvalidPassword><![CDATA[ខុសឈ្មោះគណនី/ឬខុសលេខសំងាត់]]></InvalidPassword>
+		<InvalidEmail><![CDATA[Invalid email]]></InvalidEmail>
+		<InvalidContact><![CDATA[Invalid contact number]]></InvalidContact>
+		<InvalidFName><![CDATA[Invalid first name]]></InvalidFName>
+		<InvalidLName><![CDATA[Invalid last name]]></InvalidLName>
+		<InvalidDOB><![CDATA[Invalid Date of Birth]]></InvalidDOB>
+		<InvalidVCode><![CDATA[ការចូលទៅកាន់គណនីបរាជ័យ លេខកូដបញ្ចាក់មិនត្រឹមត្រូវ]]></InvalidVCode>
+		<chkDisclaimer><![CDATA[You have to agree with our Terms & Conditions & Privacy Policy in order to proceed.]]></chkDisclaimer>
+		<!--<chkDisclaimer><![CDATA[Bets may only be placed by those who are aged 18 or over. We may undertake a search with third party for the purpose of verifying thatyou are 18 or over, W88 reserves the right to ask for the proof of age. Customer accounts may be suspended and funds withheld untill satisfactory proof of age is provided.]]></chkDisclaimer>-->
+	</Register>
 
-    <RegisterSuccess><![CDATA[ជ័យយោ! អ្នកបានបញ្ជូនដោយជោគជ័យ។ សូមអរគុណ។]]></RegisterSuccess>
-    <VipOnly><![CDATA[ជំរើសកម្មវិធីនេះគឺពិសេសសំរាប់តែអតិថិជនVIPប៉ុណ្ណោះ\n~សាកល្បងពីភាពខុសគ្នាសំរាប់ក្លាយជាផ្នែកមួយនៃក្លឹបកិត្យានុភាព~]]></VipOnly>
-    <SubmitOnce><![CDATA[អនុញ្ញាតអោយតែម្តងគត់។]]></SubmitOnce>
-  </Promotion>
+	<FundTransfer>
+		<SelectTransferFrom><![CDATA[សូមរើសយកប្រអប់ប្រាក់សំរាប់ការផ្ទេរពី។]]></SelectTransferFrom>
+		<SelectTransferTo><![CDATA[សូមរើសយកប្រអប់ប្រាក់សំរាប់ការផ្ទេរទៅ។]]></SelectTransferTo>
+		<InputTransferAmount><![CDATA[សូមបញ្ចូលចំនួនដែលអ្នកចង់ផ្ទេរ។]]></InputTransferAmount>
+		<TransferSuccess><![CDATA[ប្រតិបត្តិការបានជោគជ័យ។]]></TransferSuccess>
+		<BalanceBeforeAfter><![CDATA[\nWallet From: {walletFrom}\nWallet To: {walletTo}]]></BalanceBeforeAfter>
+		<TransferFailed><![CDATA[សំនើរការផ្ទេរមិនបានជោគជ័យ។]]></TransferFailed>
+		<TransferDeclined><![CDATA[សំនើរការផ្ទេរត្រូវបានច្រានចោល។]]></TransferDeclined>
+		<UnderMaintenance><![CDATA[ផលិតផលកំពុងត្រូវបានកែលំអរ សូមព្យាយាមម្តងទៀតនៅពេលក្រោយ។]]></UnderMaintenance>
+		<InvalidFundTransfer><![CDATA[ការផ្ទេរមិនត្រឹមត្រូវ]]></InvalidFundTransfer>
+		<SessionExpired><![CDATA[សូមអភ័យទោស បណ្តាញមានភាពរអាក់រអួល]]></SessionExpired>
+		<InsufficientFunds><![CDATA[សំនើរការផ្ទេរត្រូវបានច្រានចោលដោយសារទឹកប្រាក់មិនគ្រប់គ្រាន់។]]></InsufficientFunds>
+		<MinTransferNotMet><![CDATA[សូមអភ័យទោស ចំនួនផ្ទេរមិនគ្រប់គ្រាន់តាមចំនួនអប្បបរមា។]]></MinTransferNotMet>
+		<TransferAmountDisallowed><![CDATA[សូមអភ័យទោស ចំនួនផ្ទេរមិនត្រូវបានអនុញ្ញាត។]]></TransferAmountDisallowed>
+		<ERR01><![CDATA[- ERR01: Failure to complete transaction]]></ERR01>
+		<USDDeposited><![CDATA[ has been deposited.]]></USDDeposited>
+		<RolloverNotMet><![CDATA[សូមអភ័យទោស អ្នកមិនទាន់បានបំពេញល័ក្ខខ័ណ្ឌការភ្នាល់វិលជុំទេ។]]></RolloverNotMet>
+		<RolloverAmountNeeded><![CDATA[ចំនួនវិលជុំដែលនៅសល់: ]]></RolloverAmountNeeded>
+		<TransferAmountAllowed><![CDATA[ចំនួនផ្ទេរត្រូវបានអនុញ្ញាត: ]]></TransferAmountAllowed>
+		<BonusAmount><![CDATA[ចំនួនប្រាក់បន្ថែម: ]]></BonusAmount>
+	</FundTransfer>
+	<Promotion>
+		<InvalidPromo><![CDATA[កូដកម្មវិធីមិនត្រឹមត្រូវ]]></InvalidPromo>
+		<PromoAlreadyClaimed><![CDATA[កម្មវិធីនេះត្រូវបានទាមទាររួចហើយ។]]></PromoAlreadyClaimed>
+		<PromoGroupAlreadyClaimed><![CDATA[សូមអភ័យទោស អ្នកបានទាមទារក្នុងក្រុមនេះរួចម្តងហើយ។]]></PromoGroupAlreadyClaimed>
 
-  <Deposit>
-    <TransferSuccess><![CDATA[សំនើររបស់អ្នកត្រូវបានបញ្ជូនដោយជោគជ័យ]]></TransferSuccess>    
-    <TransferFail><![CDATA[សំនើរការបញ្ជូនត្រូវបានបរាជ័យ]]></TransferFail>
-    
-    <MissingDepositAmount><![CDATA[Please enter a deposit amount]]></MissingDepositAmount>
-    <MissingReferenceId><![CDATA[Please enter a Reference ID]]></MissingReferenceId>
-    <MissingAccountName><![CDATA[Please enter your account name]]></MissingAccountName>
-    <MissingAccountNumber><![CDATA[Please enter your account number]]></MissingAccountNumber>
-    <MissingBankName><![CDATA[Please enter your other bank name]]></MissingBankName>
-    <SelectSystemAccount><![CDATA[ពត៌មានធនាគាមិនត្រឹមត្រូវ]]></SelectSystemAccount>
-    <SelectDepositChannel><![CDATA[Please select a deposit channel]]></SelectDepositChannel>
-    <SelectBank><![CDATA[Please select a bank]]></SelectBank>
-    <InvalidDepositAmount><![CDATA[Invalid deposit amount]]></InvalidDepositAmount>
-    <InvalidReferenceId><![CDATA[Invalid reference ID]]></InvalidReferenceId>
-    <InvalidBankName><![CDATA[Invalid bank name]]></InvalidBankName>
-    <InvalidAccountName><![CDATA[Invalid account name]]></InvalidAccountName>
-    <InvalidAccountNumber><![CDATA[Invalid account number]]></InvalidAccountNumber>
-    <InvalidDateTime><![CDATA[Invalid Date/Time]]></InvalidDateTime>
+		<RegisterSuccess><![CDATA[ជ័យយោ! អ្នកបានបញ្ជូនដោយជោគជ័យ។ សូមអរគុណ។]]></RegisterSuccess>
+		<VipOnly><![CDATA[ជំរើសកម្មវិធីនេះគឺពិសេសសំរាប់តែអតិថិជនVIPប៉ុណ្ណោះ\n~សាកល្បងពីភាពខុសគ្នាសំរាប់ក្លាយជាផ្នែកមួយនៃក្លឹបកិត្យានុភាព~]]></VipOnly>
+		<SubmitOnce><![CDATA[អនុញ្ញាតអោយតែម្តងគត់។]]></SubmitOnce>
+	</Promotion>
 
-    <TotalAllowedExceeded><![CDATA[ចំនួនច្រើនជាងចំនួនអនុញ្ញាតសរុប]]></TotalAllowedExceeded>
-    <AmountMinLimit><![CDATA[ចំនួនតិចជាងចំនួនអប្បបរមា]]></AmountMinLimit>
-    <AmountMaxLimit><![CDATA[ចំនួនច្រើនជាងចំនួនអប្បបរមា]]></AmountMaxLimit>
+	<Deposit>
+		<TransferSuccess><![CDATA[សំនើររបស់អ្នកត្រូវបានបញ្ជូនដោយជោគជ័យ]]></TransferSuccess>
+		<TransferFail><![CDATA[សំនើរការបញ្ជូនត្រូវបានបរាជ័យ]]></TransferFail>
 
-    <error-1><![CDATA[សូមអភ័យទោស បណ្តាញមានភាពរអាក់រអួល]]></error-1>
-    <error-2><![CDATA[ការដាក់ប្រាក់មិនត្រូវបានអនុញ្ញាត]]></error-2>
-    <error-3><![CDATA[មធ្យោបាយដាក់ប្រាក់មិនត្រឹមត្រូវ]]></error-3>
-    <error-4><![CDATA[លើសចំនួនកំនត់អតិបរមា]]></error-4>
-    <error-5><![CDATA[មិនគ្រប់ចំនួនកំនត់អប្បបរមា]]></error-5>
-    <error-6><![CDATA[លើសចំនួនអតិបរមាប្រចាំថ្ងៃ]]></error-6>
-    <error-7><![CDATA[លើសចំនួនបញ្ជូនជាអតិបរមា]]></error-7>
-    <error-99><![CDATA[សូមអភ័យទោស បណ្តាញមានភាពរអាក់រអួល]]></error-99>
+		<MissingDepositAmount><![CDATA[Please enter a deposit amount]]></MissingDepositAmount>
+		<MissingReferenceId><![CDATA[Please enter a Reference ID]]></MissingReferenceId>
+		<MissingAccountName><![CDATA[Please enter your account name]]></MissingAccountName>
+		<MissingAccountNumber><![CDATA[Please enter your account number]]></MissingAccountNumber>
+		<MissingBankName><![CDATA[Please enter your other bank name]]></MissingBankName>
+		<SelectSystemAccount><![CDATA[ពត៌មានធនាគាមិនត្រឹមត្រូវ]]></SelectSystemAccount>
+		<SelectDepositChannel><![CDATA[Please select a deposit channel]]></SelectDepositChannel>
+		<SelectBank><![CDATA[Please select a bank]]></SelectBank>
+		<InvalidDepositAmount><![CDATA[Invalid deposit amount]]></InvalidDepositAmount>
+		<InvalidReferenceId><![CDATA[Invalid reference ID]]></InvalidReferenceId>
+		<InvalidBankName><![CDATA[Invalid bank name]]></InvalidBankName>
+		<InvalidAccountName><![CDATA[Invalid account name]]></InvalidAccountName>
+		<InvalidAccountNumber><![CDATA[Invalid account number]]></InvalidAccountNumber>
+		<InvalidDateTime><![CDATA[Invalid Date/Time]]></InvalidDateTime>
 
-    <Exception><![CDATA[មិនអាចប្រតិបត្តិតាមសំនើរ]]></Exception>
-  </Deposit>
+		<TotalAllowedExceeded><![CDATA[ចំនួនច្រើនជាងចំនួនអនុញ្ញាតសរុប]]></TotalAllowedExceeded>
+		<AmountMinLimit><![CDATA[ចំនួនតិចជាងចំនួនអប្បបរមា]]></AmountMinLimit>
+		<AmountMaxLimit><![CDATA[ចំនួនច្រើនជាងចំនួនអប្បបរមា]]></AmountMaxLimit>
 
-  <Withdrawal>
-    <TransferSuccess><![CDATA[សំនើររបស់អ្នកត្រូវបានបញ្ជូនដោយជោគជ័យ]]></TransferSuccess>
-    <TransferFail><![CDATA[សំនើរការបញ្ជូនត្រូវបានបរាជ័យ]]></TransferFail>
+		<error-1><![CDATA[សូមអភ័យទោស បណ្តាញមានភាពរអាក់រអួល]]></error-1>
+		<error-2><![CDATA[ការដាក់ប្រាក់មិនត្រូវបានអនុញ្ញាត]]></error-2>
+		<error-3><![CDATA[មធ្យោបាយដាក់ប្រាក់មិនត្រឹមត្រូវ]]></error-3>
+		<error-4><![CDATA[លើសចំនួនកំនត់អតិបរមា]]></error-4>
+		<error-5><![CDATA[មិនគ្រប់ចំនួនកំនត់អប្បបរមា]]></error-5>
+		<error-6><![CDATA[លើសចំនួនអតិបរមាប្រចាំថ្ងៃ]]></error-6>
+		<error-7><![CDATA[លើសចំនួនបញ្ជូនជាអតិបរមា]]></error-7>
+		<error-99><![CDATA[សូមអភ័យទោស បណ្តាញមានភាពរអាក់រអួល]]></error-99>
 
-    <MissingWithdrawAmount><![CDATA[Please enter a withdrawal amount]]></MissingWithdrawAmount>
-    <MissingAccountName><![CDATA[Please enter your account name]]></MissingAccountName>
-    <MissingAccountNumber><![CDATA[Please enter your account number]]></MissingAccountNumber>
-    <MissingBankName><![CDATA[Please enter your other bank name]]></MissingBankName>
-    <MissingBankBranch><![CDATA[សូមបញ្ចូលសាខាធនាគា]]></MissingBankBranch>
-    <MissingBankAddress><![CDATA[សូមបញ្ចូលអស័យដ្ឋានធនាគា]]></MissingBankAddress>
-    <MissingMyKad><![CDATA[សូមបញ្ចូល MYKAD]]></MissingMyKad>
-    <SelectBank><![CDATA[Please select a bank]]></SelectBank>
-    <InvalidWithdrawAmount><![CDATA[Invalid withdraw amount]]></InvalidWithdrawAmount>
-    <InvalidBankName><![CDATA[Invalid bank name]]></InvalidBankName>
-    <InvalidBankBranch><![CDATA[Invalid bank branch]]></InvalidBankBranch>
-    <InvalidBankAddress><![CDATA[Invalid bank address]]></InvalidBankAddress>
-    <InvalidAccountName><![CDATA[Invalid account name]]></InvalidAccountName>
-    <InvalidAccountNumber><![CDATA[Invalid account number]]></InvalidAccountNumber>
-    <InvalidMyKad><![CDATA[MyKad មិនត្រឹមត្រូវ]]></InvalidMyKad>
-    <InvalidAtmNumber><![CDATA[លេខកាត ATM មិនត្រឹមត្រូវ]]></InvalidAtmNumber>
+		<Exception><![CDATA[មិនអាចប្រតិបត្តិតាមសំនើរ]]></Exception>
+	</Deposit>
 
-    <TotalAllowedExceeded><![CDATA[ចំនួនច្រើនជាងចំនួនអនុញ្ញាតសរុប]]></TotalAllowedExceeded>
-    <AmountMinLimit><![CDATA[ចំនួនតិចជាងចំនួនអប្បបរមា]]></AmountMinLimit>
-    <AmountMaxLimit><![CDATA[ចំនួនច្រើនជាងចំនួនអប្បបរមា]]></AmountMaxLimit>
+	<Withdrawal>
+		<TransferSuccess><![CDATA[សំនើររបស់អ្នកត្រូវបានបញ្ជូនដោយជោគជ័យ]]></TransferSuccess>
+		<TransferFail><![CDATA[សំនើរការបញ្ជូនត្រូវបានបរាជ័យ]]></TransferFail>
 
-    <error-1><![CDATA[សូមអភ័យទោស បណ្តាញមានភាពរអាក់រអួល]]></error-1>
-    <error-2><![CDATA[ការដាក់ប្រាក់មិនត្រូវបានអនុញ្ញាត]]></error-2>
-    <error-3><![CDATA[មធ្យោបាយដាក់ប្រាក់មិនត្រឹមត្រូវ]]></error-3>
-    <error-4><![CDATA[លើសចំនួនកំនត់អតិបរមា]]></error-4>
-    <error-5><![CDATA[មិនគ្រប់ចំនួនកំនត់អប្បបរមា]]></error-5>
-    <error-6><![CDATA[លើសចំនួនអតិបរមាប្រចាំថ្ងៃ]]></error-6>
-    <error-7><![CDATA[លើសចំនួនបញ្ជូនជាអតិបរមា]]></error-7>
-    <error-99><![CDATA[សូមអភ័យទោស បណ្តាញមានភាពរអាក់រអួល]]></error-99>
+		<MissingWithdrawAmount><![CDATA[Please enter a withdrawal amount]]></MissingWithdrawAmount>
+		<MissingAccountName><![CDATA[Please enter your account name]]></MissingAccountName>
+		<MissingAccountNumber><![CDATA[Please enter your account number]]></MissingAccountNumber>
+		<MissingBankName><![CDATA[Please enter your other bank name]]></MissingBankName>
+		<MissingBankBranch><![CDATA[សូមបញ្ចូលសាខាធនាគា]]></MissingBankBranch>
+		<MissingBankAddress><![CDATA[សូមបញ្ចូលអស័យដ្ឋានធនាគា]]></MissingBankAddress>
+		<MissingMyKad><![CDATA[សូមបញ្ចូល MYKAD]]></MissingMyKad>
+		<SelectBank><![CDATA[Please select a bank]]></SelectBank>
+		<InvalidWithdrawAmount><![CDATA[Invalid withdraw amount]]></InvalidWithdrawAmount>
+		<InvalidBankName><![CDATA[Invalid bank name]]></InvalidBankName>
+		<InvalidBankBranch><![CDATA[Invalid bank branch]]></InvalidBankBranch>
+		<InvalidBankAddress><![CDATA[Invalid bank address]]></InvalidBankAddress>
+		<InvalidAccountName><![CDATA[Invalid account name]]></InvalidAccountName>
+		<InvalidAccountNumber><![CDATA[Invalid account number]]></InvalidAccountNumber>
+		<InvalidMyKad><![CDATA[MyKad មិនត្រឹមត្រូវ]]></InvalidMyKad>
+		<InvalidAtmNumber><![CDATA[លេខកាត ATM មិនត្រឹមត្រូវ]]></InvalidAtmNumber>
 
-    <CancelSuccess><![CDATA[ការលុបចោលការដកប្រាក់ត្រូវបានបញ្ជូនដោយជោគជ័យ \nលេខប្រតិបត្តិការ: {trxId}]]></CancelSuccess>
+		<TotalAllowedExceeded><![CDATA[ចំនួនច្រើនជាងចំនួនអនុញ្ញាតសរុប]]></TotalAllowedExceeded>
+		<AmountMinLimit><![CDATA[ចំនួនតិចជាងចំនួនអប្បបរមា]]></AmountMinLimit>
+		<AmountMaxLimit><![CDATA[ចំនួនច្រើនជាងចំនួនអប្បបរមា]]></AmountMaxLimit>
 
-    <Exception><![CDATA[មិនអាចប្រតិបត្តិតាមសំនើរ]]></Exception>
-  </Withdrawal>
+		<error-1><![CDATA[សូមអភ័យទោស បណ្តាញមានភាពរអាក់រអួល]]></error-1>
+		<error-2><![CDATA[ការដាក់ប្រាក់មិនត្រូវបានអនុញ្ញាត]]></error-2>
+		<error-3><![CDATA[មធ្យោបាយដាក់ប្រាក់មិនត្រឹមត្រូវ]]></error-3>
+		<error-4><![CDATA[លើសចំនួនកំនត់អតិបរមា]]></error-4>
+		<error-5><![CDATA[មិនគ្រប់ចំនួនកំនត់អប្បបរមា]]></error-5>
+		<error-6><![CDATA[លើសចំនួនអតិបរមាប្រចាំថ្ងៃ]]></error-6>
+		<error-7><![CDATA[លើសចំនួនបញ្ជូនជាអតិបរមា]]></error-7>
+		<error-99><![CDATA[សូមអភ័យទោស បណ្តាញមានភាពរអាក់រអួល]]></error-99>
+
+		<CancelSuccess><![CDATA[ការលុបចោលការដកប្រាក់ត្រូវបានបញ្ជូនដោយជោគជ័យ \nលេខប្រតិបត្តិការ: {trxId}]]></CancelSuccess>
+
+		<Exception><![CDATA[មិនអាចប្រតិបត្តិតាមសំនើរ]]></Exception>
+	</Withdrawal>
+  <StatusCode>
+    <e400><![CDATA[400]]></e400>
+    <e403><![CDATA[403]]></e403>
+    <e404><![CDATA[404]]></e404>
+    <e408><![CDATA[408]]></e408>
+    <e500><![CDATA[500]]></e500>
+    <e502><![CDATA[502]]></e502>
+  </StatusCode>
+  <HttpError>
+    <e400><![CDATA[សំណើនេះ មិនអាច ត្រូវបានយល់ ដោយម៉ាស៊ីនបម្រើ ដោយសារតែ វាក្យសម្ព័ន្ធ មិនត្រឹមត្រូវ។]]></e400>
+    <e400title><![CDATA[សំណើ មិនល្អ]]></e400title>
+    <e403><![CDATA[អ្នកមិនត្រូវបានអនុញ្ញាតអោយបើកទំព័រនេះទេ។]]></e403>
+    <e403title><![CDATA[Forbidden]]></e403title>
+    <e404><![CDATA[សូមអភ័យទោស មិនមានទំព័រដែលលោកអ្នកកំពុងស្វែងរកទេ។]]></e404>
+    <e404title><![CDATA[Page Not Found]]></e404title>
+    <e408><![CDATA[ម៉ាស៊ីនបម្រើបាន អស់ពេល រង់ចាំ សំណើនេះ។]]></e408>
+    <e408title><![CDATA[អស់ពេល ស្នើសុំ]]></e408title>
+    <e500><![CDATA[យើងខ្ញុំកំពុងជួបបញ្ហារអាក់រអួលពេលធ្វើប្រតិបត្តិការជូនអ្នក។ សូមព្យាយាមម្តងទៀត ឬទំនាក់ទំនងសេវាបំរើអតិថិជន។]]></e500>
+    <e500title><![CDATA[កំហុសក្នុងការ ម៉ាស៊ីនបម្រើ ផ្ទៃក្នុង]]></e500title>
+    <e502><![CDATA[ម៉ាស៊ីនបម្រើ បណ្តាញដែល ទទួលបាន ការឆ្លើយតបមិនត្រឹមត្រូវ ខណៈដែល ដើរតួជា ផ្លូវចេញចូល ឬប្រូកស៊ី ។]]></e502>
+    <e502title><![CDATA[មិនល្អ ផ្លូវចេញចូល]]></e502title>
+  </HttpError>
 </default>

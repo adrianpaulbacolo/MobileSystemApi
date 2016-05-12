@@ -2,10 +2,9 @@
 
 <!DOCTYPE html>
 
-
 <html>
 <head runat="server">
-    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
     <title><%=commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML) + commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/PreLoad.js"></script>
@@ -17,69 +16,69 @@
     <div data-role="page" data-close-btn="right" data-corners="false">
         <!--#include virtual="~/_static/logoOnly.inc" -->
         <link href="https://code.jquery.com/ui/1.10.4/themes/blitzer/jquery-ui.css" rel="stylesheet" />
-        <style type="text/css">.div-nav-header { background-position: center center; } .div-content-wrapper { margin: .5em; } </style> 
         <style type="text/css">
-
-@media screen and (min-width: 100%)
-{
-
-.center-me { 
-  top:50%;
-  left: 50%;
-  transform: translate3d(-50%,-50%, 0);
-  position: fixed;
-}
-}
-            .ui-dialog
-		{
-			height: 200px;
-			top: 0px;
-		}
-	
-            .ui-widget-content
-            {
-	            color: #808080;
-	            border: 1px solid #808080;  
+            .div-nav-header {
+                background-position: center center;
             }
 
-            .ui-dialog-titlebar
-            {
+            .div-content-wrapper {
+                margin: .5em;
+            }
+        </style>
+        <style type="text/css">
+            @media screen and (min-width: 100%) {
+
+                .center-me {
+                    top: 50%;
+                    left: 50%;
+                    transform: translate3d(-50%,-50%, 0);
+                    position: fixed;
+                }
+            }
+
+            .ui-dialog {
+                height: 200px;
+                top: 0px;
+            }
+
+            .ui-widget-content {
+                color: #808080;
+                border: 1px solid #808080;
+            }
+
+            .ui-dialog-titlebar {
                 display: none;
             }
-	       .ui-dialog-content
-            {
- 		      height: 250px;
+
+            .ui-dialog-content {
+                height: 250px;
             }
 
-            .ui-widget-overlay
-            {
+            .ui-widget-overlay {
                 background: black;
             }
 
-            #myDialogText
-            {
+            #myDialogText {
                 font-family: 'Tahoma';
                 -webkit-font-smoothing: antialiased;
                 font-size: medium;
                 font-weight: normal;
-                text-shadow: none;                
+                text-shadow: none;
             }
 
-            #myDialogText a
-            {
-                color: #2A8FBD;
-            }
+                #myDialogText a {
+                    color: #2A8FBD;
+                }
 
-            #myDialogText a:hover
-            {
-                color: #2A8FBD;
-            }
+                    #myDialogText a:hover {
+                        color: #2A8FBD;
+                    }
 
-            .ui-corner-all
-            {
+            .ui-corner-all {
                 border-radius: 0px;
             }
-        </style> 
+        </style>
+
         <div class="ui-content" role="main">
             <form id="form1" runat="server" data-ajax="false">
                 <div class="div-content-wrapper">
@@ -94,19 +93,24 @@
                     <div class="ui-field-contain">
                         <asp:Label ID="lblCaptcha" runat="server" AssociatedControlID="txtCaptcha" Text="code" Font-Size="X-Large" />
                         <div class="ui-grid-a">
-                            <div class="ui-block-a"><asp:TextBox BackColor="#ffffcc" ID="txtCaptcha" runat="server" MaxLength="4" type="tel" data-mini="true" data-corners="false" data-clear-btn="true" /></div>
-                            <div class="ui-block-b"><asp:Image ID="imgCaptcha" runat="server" CssClass="imgCaptcha" /></div>
+                            <div class="ui-block-b">
+                                <asp:Image ID="imgCaptcha" runat="server" CssClass="imgCaptcha" /></div>
+                        </div>
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <asp:TextBox BackColor="#ffffcc" ID="txtCaptcha" runat="server" MaxLength="4" type="tel" data-mini="true" data-corners="false" data-clear-btn="true" /></div>
                         </div>
                     </div>
                     <div>
                         <asp:Button ID="btnSubmit" runat="server" Text="login" CssClass="button-blue" data-corners="false" />
                     </div>
-            		<asp:HiddenField runat="server" ID="ioBlackBox" Value="" />
-                    <asp:Literal ID="lblRegister" runat="server" visible="false"/>
+                    <asp:HiddenField runat="server" ID="ioBlackBox" Value="" />
+                    <asp:Literal ID="lblRegister" runat="server" Visible="false" />
                 </div>
             </form>
         </div>
-        <script type="text/javascript">   
+
+        <script type="text/javascript">
             $(function () { $('#<%=imgCaptcha.ClientID%>').attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime()); });
 
             $('#form1').submit(function (e) {
@@ -137,22 +141,22 @@
                 }
                 else if ($('#txtCaptcha').val().trim().length == 0) {
                     alert('<%=commonCulture.ElementValues.getResourceString("MissingVCode", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
-                    return;
-                }
-                else {
-                    GPINTMOBILE.ShowSplash();
+                        $('#btnSubmit').attr("disabled", false);
+                        e.preventDefault();
+                        return;
+                    }
+                    else {
+                        GPINTMOBILE.ShowSplash();
 
-                    initiateLogin();
-                    $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
-                }
+                        initiateLogin();
+                        $('#btnSubmit').attr("disabled", false);
+                        e.preventDefault();
+                    }
                 e.preventDefault();
                 return;
             });
 
-            $('#<%=imgCaptcha.ClientID%>').click(function () { $(this).attr('src', '/_Secure/Captcha.aspx'); });
+            $('#<%=imgCaptcha.ClientID%>').click(function() { $(this).attr('src', '/_Secure/Captcha.aspx'); });
 
             function closeModal() {
                 var $dialog = $("#myDialog").dialog();
@@ -179,6 +183,7 @@
                                 Cookies().setCookie('is_app', '1', 365);
                                 break;
                             case "22":
+                                GPINTMOBILE.HideSplash();
                                 var message = $(xml).find('Message').text();
 
                                 $("#myDialogText").html(message);
@@ -191,11 +196,11 @@
                                     height: 155,
                                     position: { my: 'center', at: 'top+360' },
                                     show: "fade",
-                                    hide: "fade"                                    
+                                    hide: "fade"
                                 });
                                 break;
                             default:
-                                
+
                                 alert($(xml).find('Message').text());
                                 $('#<%=imgCaptcha.ClientID%>').attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime());
                                 $('#<%=txtCaptcha.ClientID%>').val('');
@@ -211,27 +216,22 @@
                 });
             }
         </script>
-	    <script type="text/javascript" id="iovs_script">
-	        var io_operation = 'ioBegin';
-	        var io_bbout_element_id = 'ioBlackBox';
-	        //var io_submit_element_id = 'btnSubmit';
-	        var io_submit_form_id = 'form1';
-	        var io_max_wait = 5000;
-	        var io_install_flash = false;
-	        var io_install_stm = false;
-	        var io_exclude_stm = 12;
-	    </script>
-	    <script type="text/javascript" src="//ci-mpsnare.iovation.com/snare.js"></script>
-        <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-        
 
-<%--        <dialog id="dialog"> This is a test message <a href= "www.google.com">test</a></dialog>--%>
-<%--            <div id="myDialog" style="z-index: 5">
-                <div id="myDialogText" style="background-color:#252525; color: #FFFFFF; border-color:gray; border-style:solid; border-width:1pt;"></div>         
-            </div>--%>
-            <div id="myDialog">
-                <div id="myDialogText" ></div>         
-            </div>
+        <script type="text/javascript" id="iovs_script">
+            var io_operation = 'ioBegin';
+            var io_bbout_element_id = 'ioBlackBox';
+            var io_submit_form_id = 'form1';
+            var io_max_wait = 5000;
+            var io_install_flash = false;
+            var io_install_stm = false;
+            var io_exclude_stm = 12;
+        </script>
+        <script type="text/javascript" src="//ci-mpsnare.iovation.com/snare.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
+        <div id="myDialog">
+            <div id="myDialogText"></div>
+        </div>
 
     </div>
 </body>

@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'icomoon';
-    src:    url('fonts/icomoon.eot?rwdpnv');
-    src:    url('fonts/icomoon.eot?rwdpnv#iefix') format('embedded-opentype'),
-        url('fonts/icomoon.ttf?rwdpnv') format('truetype'),
-        url('fonts/icomoon.woff?rwdpnv') format('woff'),
-        url('fonts/icomoon.svg?rwdpnv#icomoon') format('svg');
+    src:    url('fonts/icomoon.eot?1sbwrr');
+    src:    url('fonts/icomoon.eot?1sbwrr#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?1sbwrr') format('truetype'),
+        url('fonts/icomoon.woff?1sbwrr') format('woff'),
+        url('fonts/icomoon.svg?1sbwrr#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -24,6 +24,9 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-zalo:before {
+    content: "\e90c";
+}
 .icon-mahjong:before {
     content: "\e90b";
 }

@@ -1,170 +1,174 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
-  <Exception><![CDATA[为止错误，请重试。]]></Exception>
-  <IncorrectVCode><![CDATA[无效验证码]]></IncorrectVCode>
-  <MissingVCode><![CDATA[请输入验证码]]></MissingVCode>
-  <SessionExpired><![CDATA[多重登录，请在跳转后重新登录。]]></SessionExpired>
-  <ServerError><![CDATA[抱歉，服务器出现错误。]]></ServerError>
-  
-  <Login>
-    <InvalidUsername><![CDATA[无效用户名及/或密码.]]></InvalidUsername>
-    <InvalidPassword><![CDATA[无效用户名及/或密码.]]></InvalidPassword>
-    <InactiveAccount>
-      <![CDATA[由于您输入多次错误的密码，为了账户安全，您的账号暂时被锁定。请您点击 <a href="{0}">这里</a> 联系7/24在线客服为您查询处理。]]></InactiveAccount>    
-    <MissingUsername><![CDATA[请输入用户名]]></MissingUsername>
-    <MissingPassword><![CDATA[请输入密码]]></MissingPassword>
-  </Login>
+	<Exception><![CDATA[为止错误，请重试。]]></Exception>
+	<IncorrectVCode><![CDATA[无效验证码]]></IncorrectVCode>
+	<MissingVCode><![CDATA[请输入验证码]]></MissingVCode>
+	<SessionExpired><![CDATA[多重登录，请在跳转后重新登录。]]></SessionExpired>
+	<ServerError><![CDATA[抱歉，服务器出现错误。]]></ServerError>
+	<CustomerService><![CDATA[请您联系在线客服获取帮助，谢谢]]></CustomerService>
 
-  <Register>
-    <Success><![CDATA[欢迎来到W88，感谢您成为我们的会员。\n您的账号已经可以登录W88.com网页版本和m.w88.com手机版本进行游戏。]]></Success>
-    <DuplicateUsername><![CDATA[此用户名已被注册。请尝试输入新的用户名。]]></DuplicateUsername>
-    <DuplicateEmail><![CDATA[此电子邮箱已被注册。请尝试输入新的电邮地址。]]></DuplicateEmail>
-	<DuplicateContact><![CDATA[电话号码已被占用。请输入您的电话号码。]]></DuplicateContact>
-    <IncorrectVCode><![CDATA[错误的验证码]]></IncorrectVCode>
+	<Login>
+		<InvalidUsername><![CDATA[无效用户名及/或密码.]]></InvalidUsername>
+		<InvalidPassword><![CDATA[无效用户名及/或密码.]]></InvalidPassword>
+		<InactiveAccount>
+			<![CDATA[由于您输入多次错误的密码，为了账户安全，您的账号暂时被锁定。请您点击 <a href="{0}">这里</a> 联系7/24在线客服为您查询处理。]]>
+		</InactiveAccount>
+		<MissingUsername><![CDATA[请输入用户名]]></MissingUsername>
+		<MissingPassword><![CDATA[请输入密码]]></MissingPassword>
+	</Login>
 
-    <MissingUsername><![CDATA[请输入有效的用户名]]></MissingUsername>
-    <MissingPassword><![CDATA[请输入有效的密码]]></MissingPassword>
-    <MissingEmail><![CDATA[请输入有效的邮箱]]></MissingEmail>
-    <MissingContact><![CDATA[请输入有效的联系电话]]></MissingContact>
-    <MissingCurrency><![CDATA[请选择您的首选货币。]]></MissingCurrency>
-    <MissingFName><![CDATA[请输入您的名]]></MissingFName>
-    <MissingLName><![CDATA[请输入您的姓]]></MissingLName>
-    <MissingVCode><![CDATA[请输入验证码]]></MissingVCode>
+	<Register>
+		<Success><![CDATA[欢迎来到W88，感谢您成为我们的会员。\n您的账号已经可以登录W88.com网页版本和m.w88.com手机版本进行游戏。]]></Success>
+		<DuplicateUsername><![CDATA[此用户名已被注册。请尝试输入新的用户名。]]></DuplicateUsername>
+		<DuplicateEmail><![CDATA[此电子邮箱已被注册。请尝试输入新的电邮地址。]]></DuplicateEmail>
+		<DuplicateContact><![CDATA[电话号码已被占用。请输入您的电话号码。]]></DuplicateContact>
+		<IncorrectVCode><![CDATA[错误的验证码]]></IncorrectVCode>
 
-    <InvalidUsername><![CDATA[请输入有效的用户名]]></InvalidUsername>
-    <InvalidPassword><![CDATA[请输入有效的密码]]></InvalidPassword>
-    <InvalidEmail><![CDATA[请输入有效的邮箱]]></InvalidEmail>
-    <InvalidContact><![CDATA[请输入有效的联系电话]]></InvalidContact>
-    <InvalidFName><![CDATA[请输入您的名]]></InvalidFName>
-    <InvalidLName><![CDATA[请输入您的姓]]></InvalidLName>
-    <InvalidDOB><![CDATA[请选择有效的出生日期]]></InvalidDOB>
-    <InvalidVCode><![CDATA[无效验证码]]></InvalidVCode>
-    <chkDisclaimer><![CDATA[请检查，并同意继续之前的条款和条件。]]></chkDisclaimer>
-    <!--<chkDisclaimer><![CDATA[我们仅接受超过法定年龄18岁的会员进行投注。我们有权通过第三方核实您的年龄是否已超过18周岁，我们也有权要求您出示相关证明。会员账户可能会被暂时冻结，直至您的年龄被有效核实。]]></chkDisclaimer>-->
-  </Register>
+		<MissingUsername><![CDATA[请输入有效的用户名]]></MissingUsername>
+		<MissingPassword><![CDATA[请输入有效的密码]]></MissingPassword>
+		<MissingEmail><![CDATA[请输入有效的邮箱]]></MissingEmail>
+		<MissingContact><![CDATA[请输入有效的联系电话]]></MissingContact>
+		<MissingCurrency><![CDATA[请选择您的首选货币。]]></MissingCurrency>
+		<MissingFName><![CDATA[请输入您的名]]></MissingFName>
+		<MissingLName><![CDATA[请输入您的姓]]></MissingLName>
+		<MissingVCode><![CDATA[请输入验证码]]></MissingVCode>
 
-  <FundTransfer>
-    <SelectTransferFrom><![CDATA[请选择一个钱包转出资金。]]></SelectTransferFrom>
-    <SelectTransferTo><![CDATA[请选择一个钱包转入资金。]]></SelectTransferTo>
-    <InputTransferAmount><![CDATA[请输入一个转账金额。]]></InputTransferAmount>
-    <TransferSuccess><![CDATA[您的交易已被成功办理]]></TransferSuccess>
-    <BalanceBeforeAfter><![CDATA[\n转出钱包: {walletFrom}\n转入钱包: {walletTo}]]></BalanceBeforeAfter>    
-    <TransferFailed><![CDATA[您的转账申请失败。]]></TransferFailed>
-    <TransferDeclined><![CDATA[您的转账申请已被拒绝。]]></TransferDeclined>
-    <UnderMaintenance><![CDATA[产品正处于维护中，请稍后再试。]]></UnderMaintenance>
-    <InvalidFundTransfer><![CDATA[无效的转账]]></InvalidFundTransfer>
-    <SessionExpired><![CDATA[抱歉，服务器出现错误。]]></SessionExpired>
-    <InsufficientFunds><![CDATA[由于账户资金不足，您的转账申请已被拒绝。]]></InsufficientFunds>
-    <MinTransferNotMet><![CDATA[抱歉，您还未达到最低转账金额。]]></MinTransferNotMet>
-    <TransferAmountDisallowed><![CDATA[抱歉，转账金额超出允许范围。]]></TransferAmountDisallowed>
-    <ERR01><![CDATA[- ERR01: Failure to complete transaction]]></ERR01>
-    <USDDeposited><![CDATA[ 已经存款.]]></USDDeposited>
-    <RolloverNotMet><![CDATA[抱歉，您还未达到流水要求。]]></RolloverNotMet>
-    <RolloverAmountNeeded><![CDATA[流水要求: ]]></RolloverAmountNeeded>
-    <TransferAmountAllowed><![CDATA[允许的转账金额: ]]></TransferAmountAllowed>
-    <BonusAmount><![CDATA[红利金额: ]]></BonusAmount>
-  </FundTransfer>
-  <Promotion>
-    <InvalidPromo><![CDATA[无效的申请代码。]]></InvalidPromo>
-    <PromoAlreadyClaimed><![CDATA[代码已被使用。]]></PromoAlreadyClaimed>
-    <PromoGroupAlreadyClaimed><![CDATA[抱歉，您已申请过红利。]]></PromoGroupAlreadyClaimed>
+		<InvalidUsername><![CDATA[请输入有效的用户名]]></InvalidUsername>
+		<InvalidPassword><![CDATA[请输入有效的密码]]></InvalidPassword>
+		<InvalidEmail><![CDATA[请输入有效的邮箱]]></InvalidEmail>
+		<InvalidContact><![CDATA[请输入有效的联系电话]]></InvalidContact>
+		<InvalidFName><![CDATA[请输入您的名]]></InvalidFName>
+		<InvalidLName><![CDATA[请输入您的姓]]></InvalidLName>
+		<InvalidDOB><![CDATA[请选择有效的出生日期]]></InvalidDOB>
+		<InvalidVCode><![CDATA[无效验证码]]></InvalidVCode>
+		<chkDisclaimer><![CDATA[请检查，并同意继续之前的条款和条件。]]></chkDisclaimer>
+		<!--<chkDisclaimer><![CDATA[我们仅接受超过法定年龄18岁的会员进行投注。我们有权通过第三方核实您的年龄是否已超过18周岁，我们也有权要求您出示相关证明。会员账户可能会被暂时冻结，直至您的年龄被有效核实。]]></chkDisclaimer>-->
+	</Register>
 
-    <RegisterSuccess><![CDATA[恭喜！您已成功提交申请。谢谢。]]></RegisterSuccess>
-    <VipOnly><![CDATA[此优惠仅限于VIP客户。\n~感受不一样的至尊俱乐部~]]></VipOnly>
-    <SubmitOnce><![CDATA[只允许提交一次。]]></SubmitOnce>
-  </Promotion>
+	<FundTransfer>
+		<SelectTransferFrom><![CDATA[请选择一个钱包转出资金。]]></SelectTransferFrom>
+		<SelectTransferTo><![CDATA[请选择一个钱包转入资金。]]></SelectTransferTo>
+		<InputTransferAmount><![CDATA[请输入一个转账金额。]]></InputTransferAmount>
+		<TransferSuccess><![CDATA[您的交易已被成功办理]]></TransferSuccess>
+		<BalanceBeforeAfter><![CDATA[\n转出钱包: {walletFrom}\n转入钱包: {walletTo}]]></BalanceBeforeAfter>
+		<TransferFailed><![CDATA[您的转账申请失败。]]></TransferFailed>
+		<TransferDeclined><![CDATA[您的转账申请已被拒绝。]]></TransferDeclined>
+		<UnderMaintenance><![CDATA[产品正处于维护中，请稍后再试。]]></UnderMaintenance>
+		<InvalidFundTransfer><![CDATA[无效的转账]]></InvalidFundTransfer>
+		<SessionExpired><![CDATA[抱歉，服务器出现错误。]]></SessionExpired>
+		<InsufficientFunds><![CDATA[由于账户资金不足，您的转账申请已被拒绝。]]></InsufficientFunds>
+		<MinTransferNotMet><![CDATA[抱歉，您还未达到最低转账金额。]]></MinTransferNotMet>
+		<TransferAmountDisallowed><![CDATA[抱歉，转账金额超出允许范围。]]></TransferAmountDisallowed>
+		<ERR01><![CDATA[- ERR01: Failure to complete transaction]]></ERR01>
+		<USDDeposited><![CDATA[ 已经存款.]]></USDDeposited>
+		<RolloverNotMet><![CDATA[抱歉，您还未达到流水要求。]]></RolloverNotMet>
+		<RolloverAmountNeeded><![CDATA[流水要求: ]]></RolloverAmountNeeded>
+		<TransferAmountAllowed><![CDATA[允许的转账金额: ]]></TransferAmountAllowed>
+		<BonusAmount><![CDATA[红利金额: ]]></BonusAmount>
+	</FundTransfer>
+	<Promotion>
+		<InvalidPromo><![CDATA[无效的申请代码。]]></InvalidPromo>
+		<PromoAlreadyClaimed><![CDATA[代码已被使用。]]></PromoAlreadyClaimed>
+		<PromoGroupAlreadyClaimed><![CDATA[抱歉，您已申请过红利。]]></PromoGroupAlreadyClaimed>
 
-  <Deposit>
-    <TransferSuccess><![CDATA[您的交易申请已被成功提交。]]></TransferSuccess>    
-    <TransferFail><![CDATA[提交申请失败]]></TransferFail>
-    
-    <MissingDepositAmount><![CDATA[请输入存款金额]]></MissingDepositAmount>
-    <MissingReferenceId><![CDATA[请输入流水单号]]></MissingReferenceId>
-    <MissingAccountName><![CDATA[请输入账户名]]></MissingAccountName>
-    <MissingAccountNumber><![CDATA[请输入账户号码]]></MissingAccountNumber>
-    <MissingBankName><![CDATA[请输入银行名]]></MissingBankName>
-    <SelectSystemAccount><![CDATA[请选择系统账号]]></SelectSystemAccount>
-    <SelectDepositChannel><![CDATA[请选择存款渠道]]></SelectDepositChannel>
-    <SelectBank><![CDATA[请选择银行]]></SelectBank>
-    <InvalidDepositAmount><![CDATA[无效的存款金额]]></InvalidDepositAmount>
-    <InvalidReferenceId><![CDATA[无效的流水单号]]></InvalidReferenceId>
-    <InvalidBankName><![CDATA[无效的银行名]]></InvalidBankName>
-    <InvalidAccountName><![CDATA[无效的账户名]]></InvalidAccountName>
-    <InvalidAccountNumber><![CDATA[无效的账户号码]]></InvalidAccountNumber>
-    <InvalidDateTime><![CDATA[请输入有效的日期]]></InvalidDateTime>
+		<RegisterSuccess><![CDATA[恭喜！您已成功提交申请。谢谢。]]></RegisterSuccess>
+		<VipOnly><![CDATA[此优惠仅限于VIP客户。\n~感受不一样的至尊俱乐部~]]></VipOnly>
+		<SubmitOnce><![CDATA[只允许提交一次。]]></SubmitOnce>
+	</Promotion>
 
-    <TotalAllowedExceeded><![CDATA[金额大于总允许额度]]></TotalAllowedExceeded>
-    <AmountMinLimit><![CDATA[金额小于最低限额]]></AmountMinLimit>
-    <AmountMaxLimit><![CDATA[金额大于最高限额]]></AmountMaxLimit>
+	<Deposit>
+		<TransferSuccess><![CDATA[您的交易申请已被成功提交。]]></TransferSuccess>
+		<TransferFail><![CDATA[提交申请失败]]></TransferFail>
 
-    <error-1><![CDATA[抱歉，服务器出现错误]]></error-1>
-    <error-2><![CDATA[存款不被受理]]></error-2>
-    <error-3><![CDATA[无效的存款方式]]></error-3>
-    <error-4><![CDATA[超过最高限额]]></error-4>
-    <error-5><![CDATA[未达到最低限额]]></error-5>
-    <error-6><![CDATA[超过每日最大限额]]></error-6>
-    <error-7><![CDATA[超过每日最大提交次数]]></error-7>
-    <error-99><![CDATA[抱歉，服务器出现错误]]></error-99>
+		<MissingDepositAmount><![CDATA[请输入存款金额]]></MissingDepositAmount>
+		<MissingReferenceId><![CDATA[请输入流水单号]]></MissingReferenceId>
+		<MissingAccountName><![CDATA[请输入账户名]]></MissingAccountName>
+		<MissingAccountNumber><![CDATA[请输入账户号码]]></MissingAccountNumber>
+		<MissingBankName><![CDATA[请输入银行名]]></MissingBankName>
+		<SelectSystemAccount><![CDATA[请选择系统账号]]></SelectSystemAccount>
+		<SelectDepositChannel><![CDATA[请选择存款渠道]]></SelectDepositChannel>
+		<SelectBank><![CDATA[请选择银行]]></SelectBank>
+		<InvalidDepositAmount><![CDATA[无效的存款金额]]></InvalidDepositAmount>
+		<InvalidReferenceId><![CDATA[无效的流水单号]]></InvalidReferenceId>
+		<InvalidBankName><![CDATA[无效的银行名]]></InvalidBankName>
+		<InvalidAccountName><![CDATA[无效的账户名]]></InvalidAccountName>
+		<InvalidAccountNumber><![CDATA[无效的账户号码]]></InvalidAccountNumber>
+		<InvalidDateTime><![CDATA[请输入有效的日期]]></InvalidDateTime>
 
-    <Exception><![CDATA[无法处理您的交易申请]]></Exception>
-    <!--
-    <errorAmountMinLimit><![CDATA[Amount is less than min limit]]></errorAmountMinLimit>
-    <errorAmountMaxLimit><![CDATA[Amount is more than max limit]]></errorAmountMaxLimit>
-    <errorAmountTotalAllowed><![CDATA[Amount is more than total allowed]]></errorAmountTotalAllowed>
-    <exceptionCreateTransaction><![CDATA[Unable to process request]]></exceptionCreateTransaction>
-    <errorMaxLength><![CDATA[- Maximum length exceeded for {0}]]></errorMaxLength>
-    <errorInput><![CDATA[Please enter a valid {0}]]></errorInput>
-    <errorSelect><![CDATA[Please select a valid {0}]]></errorSelect>
-    <errorSelectFile><![CDATA[Please select a valid image file with max size 2Mb]]></errorSelectFile>
-    <errorDateRange><![CDATA[Please select a valid Deposit Date/Time with more/less than 72 hours]]></errorDateRange>
-    <errorSelectTitle><![CDATA[Required field]]></errorSelectTitle>
-    <errorPositiveNumberTitle><![CDATA[Invalid amount]]></errorPositiveNumberTitle>
-    <errorAlphaNumericTitle><![CDATA[Alphanumeric only]]></errorAlphaNumericTitle>
-    <errorDateRangeTitle><![CDATA[Date range error]]></errorDateRangeTitle>
-    <errorMinLimitTitle><![CDATA[Min limit not reached]]></errorMinLimitTitle>
-    <errorMaxLimitTitle><![CDATA[Max limit exceeded]]></errorMaxLimitTitle>
-    <errorTotalAllowedTitle><![CDATA[Total allowed exceeded]]></errorTotalAllowedTitle>
-    <okButton><![CDATA[OK]]></okButton>
-    <cancelButton><![CDATA[CANCEL]]></cancelButton>
-    -->
-  </Deposit>
+		<TotalAllowedExceeded><![CDATA[金额大于总允许额度]]></TotalAllowedExceeded>
+		<AmountMinLimit><![CDATA[金额小于最低限额]]></AmountMinLimit>
+		<AmountMaxLimit><![CDATA[金额大于最高限额]]></AmountMaxLimit>
 
-  <Withdrawal>
-    <TransferSuccess><![CDATA[您的交易申请已被成功提交。]]></TransferSuccess>
-    <TransferFail><![CDATA[提交申请失败]]></TransferFail>
+		<error-1><![CDATA[抱歉，服务器出现错误]]></error-1>
+		<error-2><![CDATA[存款不被受理]]></error-2>
+		<error-3><![CDATA[无效的存款方式]]></error-3>
+		<error-4><![CDATA[超过最高限额]]></error-4>
+		<error-5><![CDATA[未达到最低限额]]></error-5>
+		<error-6><![CDATA[超过每日最大限额]]></error-6>
+		<error-7><![CDATA[超过每日最大提交次数]]></error-7>
+		<error-99><![CDATA[抱歉，服务器出现错误]]></error-99>
 
-    <MissingWithdrawAmount><![CDATA[请输入提款金额]]></MissingWithdrawAmount>
-    <MissingAccountName><![CDATA[请输入账户名]]></MissingAccountName>
-    <MissingAccountNumber><![CDATA[请输入账户号码]]></MissingAccountNumber>
-    <MissingBankName><![CDATA[请输入银行名]]></MissingBankName>
-    <MissingBankBranch><![CDATA[请输入银行/分行信息]]></MissingBankBranch>
-    <MissingBankAddress><![CDATA[请输入地址]]></MissingBankAddress>
-    <MissingMyKad><![CDATA[请输入 MyKad ID]]></MissingMyKad>
-    <SelectBank><![CDATA[请选择银行]]></SelectBank>
-    <InvalidWithdrawAmount><![CDATA[无效的提款金额]]></InvalidWithdrawAmount>
-    <InvalidBankName><![CDATA[无效的银行名]]></InvalidBankName>
-    <InvalidBankBranch><![CDATA[无效的银行/分行信息]]></InvalidBankBranch>
-    <InvalidBankAddress><![CDATA[无效的地址]]></InvalidBankAddress>
-    <InvalidAccountName><![CDATA[无效的账户名]]></InvalidAccountName>
-    <InvalidAccountNumber><![CDATA[无效的账户号码]]></InvalidAccountNumber>
-    <InvalidMyKad><![CDATA[无效的 MyKad]]></InvalidMyKad>
-    <InvalidAtmNumber><![CDATA[无效的ATM卡号]]></InvalidAtmNumber>
+		<Exception><![CDATA[无法处理您的交易申请]]></Exception>
+	</Deposit>
 
-    <TotalAllowedExceeded><![CDATA[金额大于总允许额度]]></TotalAllowedExceeded>
-    <AmountMinLimit><![CDATA[金额小于最低限额]]></AmountMinLimit>
-    <AmountMaxLimit><![CDATA[金额大于最高限额]]></AmountMaxLimit>
+	<Withdrawal>
+		<TransferSuccess><![CDATA[您的交易申请已被成功提交。]]></TransferSuccess>
+		<TransferFail><![CDATA[提交申请失败]]></TransferFail>
 
-    <error-1><![CDATA[抱歉，服务器出现错误]]></error-1>
-    <error-2><![CDATA[存款不被受理]]></error-2>
-    <error-3><![CDATA[无效的货币]]></error-3>
-    <error-4><![CDATA[无效的存款方式]]></error-4>
-    <error-5><![CDATA[最低/最高存款限制]]></error-5>
-    <error-6><![CDATA[超过每日最大限额]]></error-6>
-    <error-7><![CDATA[超过每日最大提交次数]]></error-7>
-    <error-99><![CDATA[抱歉，服务器出现错误]]></error-99>
+		<MissingWithdrawAmount><![CDATA[请输入提款金额]]></MissingWithdrawAmount>
+		<MissingAccountName><![CDATA[请输入账户名]]></MissingAccountName>
+		<MissingAccountNumber><![CDATA[请输入账户号码]]></MissingAccountNumber>
+		<MissingBankName><![CDATA[请输入银行名]]></MissingBankName>
+		<MissingBankBranch><![CDATA[请输入银行/分行信息]]></MissingBankBranch>
+		<MissingBankAddress><![CDATA[请输入地址]]></MissingBankAddress>
+		<MissingMyKad><![CDATA[请输入 MyKad ID]]></MissingMyKad>
+		<SelectBank><![CDATA[请选择银行]]></SelectBank>
+		<InvalidWithdrawAmount><![CDATA[无效的提款金额]]></InvalidWithdrawAmount>
+		<InvalidBankName><![CDATA[无效的银行名]]></InvalidBankName>
+		<InvalidBankBranch><![CDATA[无效的银行/分行信息]]></InvalidBankBranch>
+		<InvalidBankAddress><![CDATA[无效的地址]]></InvalidBankAddress>
+		<InvalidAccountName><![CDATA[无效的账户名]]></InvalidAccountName>
+		<InvalidAccountNumber><![CDATA[无效的账户号码]]></InvalidAccountNumber>
+		<InvalidMyKad><![CDATA[无效的 MyKad]]></InvalidMyKad>
+		<InvalidAtmNumber><![CDATA[无效的ATM卡号]]></InvalidAtmNumber>
 
-    <CancelSuccess><![CDATA[您的取消提款申请已被成功提交 \n交易号码: {trxId}]]></CancelSuccess>
+		<TotalAllowedExceeded><![CDATA[金额大于总允许额度]]></TotalAllowedExceeded>
+		<AmountMinLimit><![CDATA[金额小于最低限额]]></AmountMinLimit>
+		<AmountMaxLimit><![CDATA[金额大于最高限额]]></AmountMaxLimit>
 
-    <Exception><![CDATA[无法处理您的交易申请]]></Exception>
-  </Withdrawal>
+		<error-1><![CDATA[抱歉，服务器出现错误]]></error-1>
+		<error-2><![CDATA[存款不被受理]]></error-2>
+		<error-3><![CDATA[无效的货币]]></error-3>
+		<error-4><![CDATA[无效的存款方式]]></error-4>
+		<error-5><![CDATA[最低/最高存款限制]]></error-5>
+		<error-6><![CDATA[超过每日最大限额]]></error-6>
+		<error-7><![CDATA[超过每日最大提交次数]]></error-7>
+		<error-99><![CDATA[抱歉，服务器出现错误]]></error-99>
+
+		<CancelSuccess><![CDATA[您的取消提款申请已被成功提交 \n交易号码: {trxId}]]></CancelSuccess>
+
+		<Exception><![CDATA[无法处理您的交易申请]]></Exception>
+	</Withdrawal>
+  <StatusCode>
+    <e400><![CDATA[400]]></e400>
+    <e403><![CDATA[403]]></e403>
+    <e404><![CDATA[404]]></e404>
+    <e408><![CDATA[408]]></e408>
+    <e500><![CDATA[500]]></e500>
+    <e502><![CDATA[502]]></e502>
+  </StatusCode>
+  <HttpError>
+    <e400><![CDATA[服务器无法读取该请求。]]></e400>
+    <e400title><![CDATA[错误请求]]></e400title>
+    <e403><![CDATA[非常抱歉，您没有获得授权访问该网页。]]></e403>
+    <e403title><![CDATA[禁止访问]]></e403title>
+    <e404><![CDATA[发生错误。请联系我们的客服团队获得更多详情。]]></e404>
+    <e404title><![CDATA[找不到网页]]></e404title>
+    <e408><![CDATA[服务器超时等待的请求。]]></e408>
+    <e408title><![CDATA[请求超时]]></e408title>
+    <e500><![CDATA[发生错误，请重新尝试或联系在线客服。]]></e500>
+    <e500title><![CDATA[服务器连接错误]]></e500title>
+    <e502><![CDATA[服务器的网关收到无效响应。]]></e502>
+    <e502title><![CDATA[错误网关]]></e502title>
+  </HttpError>
 </default>

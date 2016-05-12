@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="FundTransfer_Default" %>
+<%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
 <!DOCTYPE html>
 <html>
@@ -15,9 +16,7 @@
         </header>
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <label class="label"><%=commonCulture.ElementValues.getResourceString("mainWallet", commonVariables.LeftMenuXML)%></label>
-                <h2 class="value"><%=Session["Main"].ToString()%></h2>
-                <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
+                <uc:Wallet id="uMainWallet" runat="server" />
             </div>
 
             <form class="form" id="form1" runat="server" data-ajax="false">
@@ -87,7 +86,9 @@
                     e.preventDefault();
                     return;
                 }
-
+                setTimeout(function () {
+                    $('#btnSubmit').prop("disabled", true);
+                }, 0);
                 GPINTMOBILE.ShowSplash();
             });
 
@@ -163,13 +164,12 @@
                    } else { $('#litPromoDetails').text(''); }
                 });
 
-                if ('<%=strAlertMessage%>'.length > 0) { alert('<%=strAlertMessage%>'.split('[break]').join('\n')); }
-                if ('<%=strAlertCode%>'.length > 0) {
-                    switch ('<%=strAlertCode%>') {
-                        case "-1":
-                            window.location.replace('/FundTransfer.aspx');
-                            break;
-                    }
+                var responseCode = '<%=strAlertCode%>';
+                var responseMsg = '<%=strAlertMessage%>';
+
+                if (responseMsg.length > 0) { alert(responseMsg.split('[break]').join('\n')); }
+                if (responseCode == "-1") {
+                    window.location.replace('/FundTransfer.aspx');
                 }
             });
 

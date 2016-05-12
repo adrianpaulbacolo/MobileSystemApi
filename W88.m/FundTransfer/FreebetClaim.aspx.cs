@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class FundTransfer_FreebetClaim : System.Web.UI.Page
+public partial class FundTransfer_FreebetClaim : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
