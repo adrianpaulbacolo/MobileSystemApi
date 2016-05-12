@@ -31,14 +31,14 @@ public partial class Slots_Default : BasePage
 
             foreach (System.Xml.Linq.XElement xeGame in xeCategory.Elements())
             {
-                sbGames.AppendFormat("<li rel='{0}-{1}.jpg' class='bkg-game'><div class='div-links'>", xeCategory.Name, xeGame.Name);
+                sbGames.AppendFormat("<li class='bkg-game'><div rel='{0}-{1}.jpg'><div class='div-links'>", xeCategory.Name, xeGame.Name);
 
                 if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { sbGames.AppendFormat("<a class='btn-primary' target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubCrescendo") + "' data-rel='dialog' data-transition='slidedown'>"); }
                 else { sbGames.AppendFormat("<a href='{0}' target='_blank'>", commonCulture.ElementValues.getResourceString("PlayForRealURL", xeGame).Replace("{SlotsUrl}", commonClubCrescendo.getSlotsUrl).Replace("{token}", commonVariables.CurrentMemberSessionId)); }
 
                 sbGames.Append("<i class='icon-play_arrow'></i></a>");
                 sbGames.AppendFormat("<a class='btn-secondary' target='_blank' href='{0}' data-ajax='false'><i class='icon-fullscreen'></i></a></div>", commonCulture.ElementValues.getResourceString("PlayForFunURL", xeGame).Replace("{SlotsUrl}", commonClubCrescendo.getSlotsUrl).Replace("{token}", commonVariables.CurrentMemberSessionId));
-                sbGames.Append("</li>");
+                sbGames.Append("</div></li>");
             }
 
             sbGames.Append("</ul></div></div></div>");
