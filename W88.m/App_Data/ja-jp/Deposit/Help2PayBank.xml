@@ -16,9 +16,9 @@
 		<bank id="TCB"><![CDATA[Techcombank]]></bank>
 		<bank id="SACOM"><![CDATA[Sacombank]]></bank>
 		<bank id="VCB"><![CDATA[Vietcombank]]></bank>
-		<bank id="ACB"><![CDATA[Asia Commercial Bank]]></bank>
-		<bank id="DAB"><![CDATA[DongA Bank]]></bank>
-		<bank id="VTB"><![CDATA[Vietin Bank]]></bank>
-		<bank id="BIDV"><![CDATA[Bank for Investment and Development of Vietnam]]></bank>
+		<bank id="ACB"><![CDATA[ACB]]></bank>
+		<bank id="DAB"><![CDATA[Đông Á]]></bank>
+		<bank id="VTB"><![CDATA[Vietinbank]]></bank>
+		<bank id="BIDV"><![CDATA[BIDV]]></bank>
 	</VND>
 </banks>
