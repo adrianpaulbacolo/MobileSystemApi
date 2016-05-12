@@ -75,14 +75,16 @@
         <!-- /content -->
         <script type="text/javascript">
             $(function () {
-                if ('<%=strAlertCode%>'.length > 0) {
-                    switch ('<%=strAlertCode%>') {
+                var responseCode = '<%=strAlertCode%>';
+                var responseMsg = '<%=strAlertMessage%>';
+                if (responseCode.length > 0) {
+                    switch (responseCode) {
                         case '-1':
-                            alert('<%=strAlertMessage%>');
+                            alert(responseMsg);
                             break;
                         case '0':
-                            alert('<%=strAlertMessage%>');
-                            window.location.replace('/Withdrawal/WingMoney_app.aspx');
+                            alert(responseMsg);
+                            window.location.replace('/Withdrawal/WingMoney');
                             break;
                         default:
                             break;
@@ -114,16 +116,16 @@
                 }
                 else if ($('#txtAccountNumber').val().length == 0) {
                     if ($('#drpBank').val() == 'VIETIN') {
-                        //if ($('#txtAccountNumber').val().length != 16 || isNaN($('#txtAccountNumber').val())) {
                         alert('<%=commonCulture.ElementValues.getResourceXPathString("Withdrawal/MissingAccountNumber", xeErrors)%>');
                         e.preventDefault();
                         return;
-                        //}
                     } else {
                         alert('<%=commonCulture.ElementValues.getResourceXPathString("Withdrawal/MissingAccountNumber", xeErrors)%>');
                         e.preventDefault();
                         return;
                     }
+                } else {
+                    window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
                 }
                 GPINTMOBILE.ShowSplash();
             });

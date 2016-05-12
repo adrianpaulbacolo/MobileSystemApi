@@ -36,7 +36,6 @@ public partial class Deposit_SDAPay : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        CancelUnexpectedRePost();
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
         commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"));
@@ -66,10 +65,6 @@ public partial class Deposit_SDAPay : PaymentBasePage
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        if (IsPageRefresh)
-        {
-            Response.Redirect(Request.Url.AbsoluteUri);
-        }
 
         string strDepositAmount = txtDepositAmount.Text.Trim();
         string selectedBank = drpBank.SelectedItem.Value;
