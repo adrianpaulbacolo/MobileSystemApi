@@ -3,7 +3,7 @@
 
     <Category>
 
-        <Slots Label="Slots" zh-cn=""  ko-kr="" ja-jp="" >
+        <Slots Label="Slots" zh-cn="老虎机"  ko-kr="슬롯" ja-jp="スロット" km-kh="ស្លត" th-th="สล็อต">
             <OGS-1can2can>
                 <ImageName><![CDATA[W88-Slots-Mobile-1-Can-2-Can]]></ImageName>
                 <Label><![CDATA[1 Can 2 Can]]></Label>
@@ -286,7 +286,7 @@
             </OGS-witchpickings>
         </Slots>
 
-        <ScratchCard Label="Scratch Card" zh-cn=""  ko-kr="" ja-jp="">
+        <ScratchCard Label="Scratch Cards" zh-cn=""  ko-kr="" ja-jp="">
             <OGS-scratchbigfoot>
                 <ImageName><![CDATA[W88-Slots-Mobile-Scratch-Big-Foot]]></ImageName>
                 <Label><![CDATA[Scratch Big Foot]]></Label>
