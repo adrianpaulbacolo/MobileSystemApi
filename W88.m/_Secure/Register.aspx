@@ -228,12 +228,12 @@
                 }
                 else if ($('#txtUsername').val().trim().indexOf(' ') >= 0) {
                     alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidUsername", xeErrors)%>');
-                     $('#btnSubmit').attr("disabled", false);
-                     e.preventDefault();
-                     return;
-                 }
-                 else if ($('#txtPassword').val().trim().length < 8 || $('#txtPassword').val().trim().length > 10) {
-                     alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidPassword", xeErrors)%>');
+                    $('#btnSubmit').attr("disabled", false);
+                    e.preventDefault();
+                    return;
+                }
+                else if ($('#txtPassword').val().trim().length < 8 || $('#txtPassword').val().trim().length > 10) {
+                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidPassword", xeErrors)%>');
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
                     return;
@@ -275,7 +275,7 @@
                     e.preventDefault();
                     return;
                 }
-              <%--  else if ($('#txtFirstName').val().trim().length == 0) {
+                <%--else if ($('#txtFirstName').val().trim().length == 0) {
                     alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/MissingFName", xeErrors)%>');
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
@@ -307,14 +307,14 @@
                 }
                 else if (!EmailValidation($('#txtEmail').val())) {
                     alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidEmail", xeErrors)%>');
-                        $('#btnSubmit').attr("disabled", false);
-                        e.preventDefault();
-                        return;
-                    }
-                    else {
-                        GPINTMOBILE.ShowSplash();
-                        $('#btnSubmit').attr("disabled", false);
-                    }
+                    $('#btnSubmit').attr("disabled", false);
+                    e.preventDefault();
+                    return;
+                }
+                else {
+                    GPINTMOBILE.ShowSplash();
+                    $('#btnSubmit').attr("disabled", false);
+                }
             });
 
             function EmailValidation(value) {
