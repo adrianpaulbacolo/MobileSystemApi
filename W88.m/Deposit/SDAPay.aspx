@@ -89,22 +89,26 @@
 
         <!--#include virtual="~/_static/navMenu.shtml" -->
         <script type="text/javascript">
+            $('#form1').submit(function (e) {
+                window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
+            });
             $(function () {
                 window.history.forward();
 
-                if ('<%=strAlertCode%>'.length > 0) {
-                    switch ('<%=strAlertCode%>') {
-                        case "0":
-                            window.location.replace('SDAPay2.aspx?id=' + <%=transactionId%>)
-                            break;
+                var responseCode = '<%=strAlertCode%>';
+                var responseMsg = '<%=strAlertMessage%>';
+                if (responseCode.length > 0) {
+                    switch (responseCode) {
                         case '-1':
-                            alert('<%=strAlertMessage%>');
+                            alert(responseMsg);
+                            break;
+                        case '0':
+                            window.location.replace('SDAPay2.aspx?id=' + <%=transactionId%>)
                             break;
                         default:
                             break;
                     }
                 }
-
             });
         </script>
     </div>

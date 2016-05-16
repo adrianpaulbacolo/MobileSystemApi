@@ -92,6 +92,9 @@
         </div>
 
         <script type="text/javascript">
+            $('#form1').submit(function (e) {
+                window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
+            });
             $(function () {
                 window.history.forward();
 
@@ -101,13 +104,15 @@
                     window.location.replace($('#depositTabs li').first().children().attr('href'));
                 }
 
-                if ('<%=strAlertCode%>'.length > 0) {
-                    switch ('<%=strAlertCode%>') {
+                var responseCode = '<%=strAlertCode%>';
+                var responseMsg = '<%=strAlertMessage%>';
+                if (responseCode.length > 0) {
+                    switch (responseCode) {
                         case '-1':
-                            alert('<%=strAlertMessage%>');
+                            alert(responseMsg);
                             break;
                         case '0':
-                            alert('<%=strAlertMessage%>');
+                            alert(responseMsg);
                             window.location.replace('/FundTransfer/FundTransfer.aspx');
                             break;
                         default:
