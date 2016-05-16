@@ -5,7 +5,7 @@
 
 <html>
 <head>
-    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("depositwithdrawal", commonVariables.HistoryXML))%></title>
+    <title><%=commonCulture.ElementValues.getResourceString("depositwithdrawal", commonVariables.LeftMenuXML)%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
@@ -16,7 +16,7 @@
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
             </a>
-            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("history", commonVariables.HistoryXML), commonCulture.ElementValues.getResourceString("depositwithdrawal", commonVariables.HistoryXML))%></h1>
+            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("depositwithdrawal", commonVariables.LeftMenuXML)%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -25,21 +25,15 @@
                 <uc:Wallet id="uMainWallet" runat="server" />
             </div>
 
-            <form class="form" id="form1" runat="server" data-ajax="false">
-                <ul class="list fixed-tablet-size">
-                    <asp:GridView ID="GridView1" runat="server" 
-                        CssClass="gridHistory table table-striped"
+            <div class="row row-no-padding">
+                    <form id="form1" runat="server" class="table-responsive ">
+                        <asp:GridView ID="GridView1" runat="server" CssClass="gridHistory table table-striped"
                             AutoGenerateColumns="False"
                             AllowSorting="false"
                             GridLines="None"
                             CellSpacing="1"
-                        AllowPaging="True" PageSize="10" 
-                        ShowHeaderWhenEmpty="true"  
-                        EmptyDataRowStyle-HorizontalAlign="Center" 
-                        EmptyDataRowStyle-ForeColor="#dab867"
-                        OnPageIndexChanging="GridView1_PageIndexChanging" 
-                        OnRowDataBound="GridView1_RowDataBound" 
-                        DataKeyNames="paymenttype,methodid,status">
+                            AllowPaging="True" PageSize="10" OnPageIndexChanging="GridView1_PageIndexChanging"
+                            ShowHeaderWhenEmpty="true" EmptyDataText="No Records Found" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataRowStyle-ForeColor="#dab867">
                             <FooterStyle ForeColor="#dab867"></FooterStyle>
                             <PagerStyle ForeColor="#dab867" HorizontalAlign="Right"></PagerStyle>
                             <HeaderStyle ForeColor="#dab867"></HeaderStyle>
@@ -53,44 +47,43 @@
                                         <%# Container.DataItemIndex + 1 %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                            <asp:BoundField DataField="requestDate" SortExpression="requestDate">
+                                <asp:BoundField HeaderText="DATE/TIME" DataField="requestDate" SortExpression="requestDate">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                            <asp:BoundField
+                                <asp:BoundField HeaderText="REF. NO."
                                     DataField="invId" SortExpression="invId">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                            <asp:BoundField
+                                <asp:BoundField HeaderText="PAYMENT METHOD"
                                     DataField="methodCode" SortExpression="methodCode">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                            <asp:BoundField
+                                <asp:BoundField HeaderText="TYPE"
                                     DataField="paymentType" SortExpression="paymentType">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                            <asp:BoundField
+                                <asp:BoundField HeaderText="SUBMITTED AMT"
                                     DataField="requestAmount" SortExpression="requestAmount">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                            <asp:BoundField
+                                <asp:BoundField HeaderText="RECEIVED AMT"
                                     DataField="transAmount" SortExpression="transAmount">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                            <asp:BoundField
+                                <asp:BoundField HeaderText="STATUS"
                                     DataField="status" SortExpression="status">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                             </Columns>
                             <SelectedRowStyle BackColor="#9471DE"></SelectedRowStyle>
                         </asp:GridView>
-
-                    <li class="item row">
+                    </form>
+            </div>
+            <div class="row row-no-padding">
                 <div class="col">
                     <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
                 </div>
-                    </li>
-                </ul>
-            </form>
+            </div>
         </div>
         <!-- /content -->
         <!--#include virtual="~/_static/navMenu.shtml" -->
