@@ -1,161 +1,166 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
-	<Products>
-		<ASports>
-			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[a-កីឡា]]></Label>
-			<Description><![CDATA[ផ្ទាំងសំរាប់មើលជាលក្ខណៈអាស៊ីដ៏ល្បី ការភ្នាល់កីឡាមាននៅទីនេះ!]]></Description>
-		</ASports>
-		<ESports>
-			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[e-កីឡា]]></Label>
-			<Description><![CDATA[ផ្ទាំងសំរាប់មើលជាលក្ខណៈអាស៊ី & អ៊ឺរ៉ុបដ៏ល្បី ការភ្នាល់កីឡាមាននៅទីនេះ!]]></Description>
-		</ESports>
-		<Poker>
-			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[ពុកគ័រ]]></Label>
-			<Description><![CDATA[ពុកគ័រ]]></Description>
-		</Poker>
-		<texasmahjong>
-			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[Texas Mahjong]]></Label>
-			<Description><![CDATA[Texas Mahjong]]></Description>
-		</texasmahjong>
-		<ISports>
-			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[i-កីឡា]]></Label>
-			<Description><![CDATA[Sportsbook]]></Description>
-		</ISports>
-		<USports>
-			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[u-កីឡា]]></Label>
-			<Description><![CDATA[Sportsbook]]></Description>
-		</USports>
-		<VSports>
-			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[និម្មិត]]></Label>
-			<Description><![CDATA[ការភ្នាល់ដែលមានពិន្ទុខ្ពស់ជាញឹកញាប់, ទិន្នន័យនេះនឹងមាននៅក្នុងស្ថិតិលីកជាក់ស្តែង។]]></Description>
-			<Notice><![CDATA[*** មិនតំរូវអោយប្រើតាមកម្មវិធី IE និង FF ទេ ***]]></Notice>
-		</VSports>
-		<VSports-basketball>
-			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[Basketball]]></Label>
-			<Description><![CDATA[Sportsbook]]></Description>
-		</VSports-basketball>
-		<VSports-tennis>
-			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[Tennis]]></Label>
-			<Description><![CDATA[Sportsbook]]></Description>
-		</VSports-tennis>
-		<VSports-horseracing>
-			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[Horse Racing]]></Label>
-			<Description><![CDATA[Sportsbook]]></Description>
-		</VSports-horseracing>
-		<VSports-football>
-			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[Football]]></Label>
-			<Description><![CDATA[Sportsbook]]></Description>
-		</VSports-football>
-		<VSports-dogracing>
-			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[Dog Racing]]></Label>
-			<Description><![CDATA[Sportsbook]]></Description>
-		</VSports-dogracing>
-		<Lottery>
-			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[ឆ្នោតឡូតូ]]></Label>
-			<Description><![CDATA[គីណូ & LOTTO]]></Description>
-		</Lottery>
-		<Keno>
-			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[គីណូ]]></Label>
-			<Description><![CDATA[គីណូ & LOTTO]]></Description>
-		</Keno>
-		<ClubCrescendo>
-			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[Club Crescendo]]></Label>
-			<Description><![CDATA[Crescendo Slots]]></Description>
-		</ClubCrescendo>
-		<ClubDivino>
-			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[Club Divino]]></Label>
-			<Description><![CDATA[]]></Description>
-		</ClubDivino>
-		<ClubW>
-			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[Club W]]></Label>
-			<Description><![CDATA[]]></Description>
-		</ClubW>
-		<ClubWPremier>
-			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[Club W Premier]]></Label>
-			<Description><![CDATA[]]></Description>
-		</ClubWPremier>
-		<ClubBravado>
-			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[Club Bravado]]></Label>
-			<Description><![CDATA[]]></Description>
-		</ClubBravado>
-		<ClubMassimoSlots>
-			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[Club Massimo]]></Label>
-			<Description><![CDATA[]]></Description>
-		</ClubMassimoSlots>
-		<ClubMassimoSlots2>
-			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[Club Massimo ដោនឡូត]]></Label>
-			<Description><![CDATA[]]></Description>
-		</ClubMassimoSlots2>
-		<ClubMassimoCasino>
-			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[Club Massimo]]></Label>
-			<Description><![CDATA[]]></Description>
-		</ClubMassimoCasino>
-		<ClubPalazzoSlots>
-			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[Club Palazzo]]></Label>
-			<Description><![CDATA[]]></Description>
-		</ClubPalazzoSlots>
-		<ClubPalazzoSlots2>
-			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[Club Palazzo ដោនឡូត]]></Label>
-			<Description><![CDATA[]]></Description>
-		</ClubPalazzoSlots2>
-		<ClubPalazzoCasino>
-			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[Club Palazzo]]></Label>
-			<Description><![CDATA[]]></Description>
-		</ClubPalazzoCasino>
-		<ClubGallardo>
-			<Url><![CDATA[]]></Url>
-			<Label><![CDATA[Club Gallardo]]></Label>
-			<Description><![CDATA[]]></Description>
-		</ClubGallardo>
-	</Products>
-	<Wallets>
-		<main><![CDATA[ចំបង]]></main>
-		<asports><![CDATA[A-កីឡា]]></asports>
-		<esports><![CDATA[E-កីឡា]]></esports>
-		<isports><![CDATA[I-កីឡា]]></isports>
-		<lottery><![CDATA[ឆ្នោតឡូតូ]]></lottery>
-		<casino><![CDATA[Club W, Bravado, Apollo, Divino, Massimo, Gallardo, Virtual, Lotto]]></casino>
-		<liveCasino><![CDATA[Club W]]></liveCasino>
-		<playtech><![CDATA[Club Palazzo]]></playtech>
-		<binary><![CDATA[ល្បែងភាគហ៊ុន]]></binary>
-		<poker><![CDATA[ពុកគ័រ]]></poker>
-		<sbtech><![CDATA[E-កីឡា]]></sbtech>
-		<netent><![CDATA[Nuovo]]></netent>
-		<pmahjong><![CDATA[Texas Mahjong]]></pmahjong>
-	</Wallets>
-	<Popup>
-		<Palazzo>
-			<SafariTitle><![CDATA[ជំហ៊ានងាយៗ ក្នុងការលេងស្លតហ្គេមក្លិប Palazzo នៅលើ Safari ]]></SafariTitle>
-			<SafariSettings><![CDATA[ក្នុង Safari Settings:]]></SafariSettings>
-			<SafariBlockPopup><![CDATA[Block pop-ups: OFF]]></SafariBlockPopup>
-			<SafariDoNotTrack><![CDATA[Do Not Track: OFF]]></SafariDoNotTrack>
-			<SafariBlockCookies><![CDATA[Block Cookies: Always Allow]]></SafariBlockCookies>
-		</Palazzo>
-		<DoNotShow><![CDATA[Do not show again]]></DoNotShow>
-	</Popup>
+    <Products>
+        <ASports>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[a-កីឡា]]></Label>
+            <Description><![CDATA[ផ្ទាំងសំរាប់មើលជាលក្ខណៈអាស៊ីដ៏ល្បី ការភ្នាល់កីឡាមាននៅទីនេះ!]]></Description>
+        </ASports>
+        <ESports>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[e-កីឡា]]></Label>
+            <Description><![CDATA[ផ្ទាំងសំរាប់មើលជាលក្ខណៈអាស៊ី & អ៊ឺរ៉ុបដ៏ល្បី ការភ្នាល់កីឡាមាននៅទីនេះ!]]></Description>
+        </ESports>
+        <Poker>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[ពុកគ័រ]]></Label>
+            <Description><![CDATA[ពុកគ័រ]]></Description>
+        </Poker>
+        <texasmahjong>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[Texas Mahjong]]></Label>
+            <Description><![CDATA[Texas Mahjong]]></Description>
+        </texasmahjong>
+        <ISports>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[i-កីឡា]]></Label>
+            <Description><![CDATA[Sportsbook]]></Description>
+        </ISports>
+        <USports>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[u-កីឡា]]></Label>
+            <Description><![CDATA[Sportsbook]]></Description>
+        </USports>
+        <VSports>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[និម្មិត]]></Label>
+            <Description><![CDATA[ការភ្នាល់ដែលមានពិន្ទុខ្ពស់ជាញឹកញាប់, ទិន្នន័យនេះនឹងមាននៅក្នុងស្ថិតិលីកជាក់ស្តែង។]]></Description>
+            <Notice><![CDATA[*** មិនតំរូវអោយប្រើតាមកម្មវិធី IE និង FF ទេ ***]]></Notice>
+        </VSports>
+        <VSports-basketball>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[Basketball]]></Label>
+            <Description><![CDATA[Sportsbook]]></Description>
+        </VSports-basketball>
+        <VSports-tennis>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[Tennis]]></Label>
+            <Description><![CDATA[Sportsbook]]></Description>
+        </VSports-tennis>
+        <VSports-horseracing>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[Horse Racing]]></Label>
+            <Description><![CDATA[Sportsbook]]></Description>
+        </VSports-horseracing>
+        <VSports-football>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[Football]]></Label>
+            <Description><![CDATA[Sportsbook]]></Description>
+        </VSports-football>
+        <VSports-dogracing>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[Dog Racing]]></Label>
+            <Description><![CDATA[Sportsbook]]></Description>
+        </VSports-dogracing>
+        <Lottery>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[ឆ្នោតឡូតូ]]></Label>
+            <Description><![CDATA[គីណូ & LOTTO]]></Description>
+        </Lottery>
+        <Keno>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[គីណូ]]></Label>
+            <Description><![CDATA[គីណូ & LOTTO]]></Description>
+        </Keno>
+        <ClubCrescendo>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[Club Crescendo]]></Label>
+            <Description><![CDATA[Crescendo Slots]]></Description>
+        </ClubCrescendo>
+        <ClubDivino>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[Club Divino]]></Label>
+            <Description><![CDATA[]]></Description>
+        </ClubDivino>
+        <ClubW>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[Club W]]></Label>
+            <Description><![CDATA[]]></Description>
+        </ClubW>
+        <ClubWPremier>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[Club W Premier]]></Label>
+            <Description><![CDATA[]]></Description>
+        </ClubWPremier>
+        <ClubBravado>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[Club Bravado]]></Label>
+            <Description><![CDATA[]]></Description>
+        </ClubBravado>
+        <ClubMassimoSlots>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[Club Massimo]]></Label>
+            <Description><![CDATA[]]></Description>
+        </ClubMassimoSlots>
+        <ClubMassimoSlots2>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[Club Massimo ដោនឡូត]]></Label>
+            <Description><![CDATA[]]></Description>
+        </ClubMassimoSlots2>
+        <ClubMassimoCasino>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[Club Massimo]]></Label>
+            <Description><![CDATA[]]></Description>
+        </ClubMassimoCasino>
+        <ClubPalazzoSlots>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[Club Palazzo]]></Label>
+            <Description><![CDATA[]]></Description>
+        </ClubPalazzoSlots>
+        <ClubPalazzoSlots2>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[Club Palazzo ដោនឡូត]]></Label>
+            <Description><![CDATA[]]></Description>
+        </ClubPalazzoSlots2>
+        <ClubPalazzoCasino>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[Club Palazzo]]></Label>
+            <Description><![CDATA[]]></Description>
+        </ClubPalazzoCasino>
+        <ClubGallardo>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[Club Gallardo]]></Label>
+            <Description><![CDATA[]]></Description>
+        </ClubGallardo>
+        <ClubApollo>
+            <Url><![CDATA[]]></Url>
+            <Label><![CDATA[Club Apollo]]></Label>
+            <Description><![CDATA[]]></Description>
+        </ClubApollo>
+    </Products>
+    <Wallets>
+        <main><![CDATA[ចំបង]]></main>
+        <asports><![CDATA[A-កីឡា]]></asports>
+        <esports><![CDATA[E-កីឡា]]></esports>
+        <isports><![CDATA[I-កីឡា]]></isports>
+        <lottery><![CDATA[ឆ្នោតឡូតូ]]></lottery>
+        <casino><![CDATA[Club W, Bravado, Apollo, Divino, Massimo, Gallardo, Virtual, Lotto]]></casino>
+        <liveCasino><![CDATA[Club W]]></liveCasino>
+        <playtech><![CDATA[Club Palazzo]]></playtech>
+        <binary><![CDATA[ល្បែងភាគហ៊ុន]]></binary>
+        <poker><![CDATA[ពុកគ័រ]]></poker>
+        <sbtech><![CDATA[E-កីឡា]]></sbtech>
+        <netent><![CDATA[Nuovo]]></netent>
+        <pmahjong><![CDATA[Texas Mahjong]]></pmahjong>
+    </Wallets>
+    <Popup>
+        <Palazzo>
+            <SafariTitle><![CDATA[ជំហ៊ានងាយៗ ក្នុងការលេងស្លតហ្គេមក្លិប Palazzo នៅលើ Safari ]]></SafariTitle>
+            <SafariSettings><![CDATA[ក្នុង Safari Settings:]]></SafariSettings>
+            <SafariBlockPopup><![CDATA[Block pop-ups: OFF]]></SafariBlockPopup>
+            <SafariDoNotTrack><![CDATA[Do Not Track: OFF]]></SafariDoNotTrack>
+            <SafariBlockCookies><![CDATA[Block Cookies: Always Allow]]></SafariBlockCookies>
+        </Palazzo>
+        <DoNotShow><![CDATA[Do not show again]]></DoNotShow>
+    </Popup>
 </default>

@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+
+    <Category>
+
+        <Slots Label="Slots" zh-cn=""  ko-kr="" ja-jp="" >
+            <OGS-1can2can>
+                <ImageName><![CDATA[W88-Slots-Mobile-1-Can-2-Can]]></ImageName>
+                <Label><![CDATA[1 Can 2 Can]]></Label>
+            </OGS-1can2can>
+            <OGS-1429unchartedseas>
+                <ImageName><![CDATA[W88-Slots-Mobile-1429-Uncharted-Seas]]></ImageName>
+                <Label><![CDATA[1429 Uncharted Seas]]></Label>
+            </OGS-1429unchartedseas>
+            <OGS-300shields>
+                <ImageName><![CDATA[W88-Slots-Mobile-300-Shields]]></ImageName>
+                <Label><![CDATA[300 Shields]]></Label>
+            </OGS-300shields>
+            <OGS-adragonstory>
+                <ImageName><![CDATA[W88-Slots-Mobile-A-Dragons-Story]]></ImageName>
+                <Label><![CDATA[A Dragon's Story]]></Label>
+            </OGS-adragonstory>
+            <OGS-awhileonthenile>
+                <ImageName><![CDATA[W88-Slots-Mobile-A-While-on-the-Nile]]></ImageName>
+                <Label><![CDATA[A While on the Nile]]></Label>
+            </OGS-awhileonthenile>
+            <OGS-arcader>
+                <ImageName><![CDATA[W88-Slots-Mobile-Arcader]]></ImageName>
+                <Label><![CDATA[Arcader]]></Label>
+            </OGS-arcader>
+            <QS-bigbadwolf>
+                <ImageName><![CDATA[W88-Slots-Mobile-Big-Bad-Wolf]]></ImageName>
+                <Label><![CDATA[Big Bad Wolf]]></Label>
+            </QS-bigbadwolf>
+            <OGS-bingobillions>
+                <ImageName><![CDATA[W88-Slots-Mobile-Bingo-Billions!]]></ImageName>
+                <Label><![CDATA[Bingo Billions!]]></Label>
+            </OGS-bingobillions>
+            <OGS-birdsonawire>
+                <ImageName><![CDATA[W88-Slots-Mobile-Birds-on-a-Wire]]></ImageName>
+                <Label><![CDATA[Birds On A Wire]]></Label>
+            </OGS-birdsonawire>
+            <OGS-bloopers>
+                <ImageName><![CDATA[W88-Slots-Mobile-Bloopers]]></ImageName>
+                <Label><![CDATA[Bloopers]]></Label>
+            </OGS-bloopers>
+            <OGS-cashstampede>
+                <ImageName><![CDATA[W88-Slots-Mobile-Cash-Stampede]]></ImageName>
+                <Label><![CDATA[Cash Stampede]]></Label>
+            </OGS-cashstampede>
+            <OGS-casinomeister>
+                <ImageName><![CDATA[W88-Slots-Mobile-Casinomeister]]></ImageName>
+                <Label><![CDATA[Casinomeister]]></Label>
+            </OGS-casinomeister>
+            <QS-crystalqueen>
+                <ImageName><![CDATA[W88-Slots-Mobile-Crystal-Queen]]></ImageName>
+                <Label><![CDATA[Crystal Queen]]></Label>
+            </QS-crystalqueen>
+            <OGS-diamondtower>
+                <ImageName><![CDATA[W88-Slots-Mobile-Diamond-Tower]]></ImageName>
+                <Label><![CDATA[Diamond Tower]]></Label>
+            </OGS-diamondtower>
+            <OGS-drloveonvacation>
+                <ImageName><![CDATA[W88-Slots-Mobile-Doctor-Love-on-Vacation]]></ImageName>
+                <Label><![CDATA[Doctor Love on Vacation]]></Label>
+            </OGS-drloveonvacation>
+            <OGS-doubleplaysuperbet>
+                <ImageName><![CDATA[W88-Slots-Mobile-DoublePlay-SuperBet]]></ImageName>
+                <Label><![CDATA[DoublePlay SuperBet]]></Label>
+            </OGS-doubleplaysuperbet>
+            <OGS-dragonborn>
+                <ImageName><![CDATA[W88-Slots-Mobile-Dragon-Born]]></ImageName>
+                <Label><![CDATA[Dragon Born]]></Label>
+            </OGS-dragonborn>
+            <OGS-dragondrop>
+                <ImageName><![CDATA[W88-Slots-Mobile-Dragon-Drop]]></ImageName>
+                <Label><![CDATA[Dragon Drop]]></Label>
+            </OGS-dragondrop>
+            <OGS-easterndragon>
+                <ImageName><![CDATA[W88-Slots-Mobile-Eastern-Dragon]]></ImageName>
+                <Label><![CDATA[Eastern Dragon]]></Label>
+            </OGS-easterndragon>
+            <OGS-easyslider>
+                <ImageName><![CDATA[W88-Slots-Mobile-Easy-Slider]]></ImageName>
+                <Label><![CDATA[Easy Slider]]></Label>
+            </OGS-easyslider>
+            <OGS-emperorsgarden>
+                <ImageName><![CDATA[W88-Slots-Mobile-Emperors-Garden]]></ImageName>
+                <Label><![CDATA[Emperor's Garden]]></Label>
+            </OGS-emperorsgarden>
+            <OGS-esqueletoexplosivo>
+                <ImageName><![CDATA[W88-Slots-Mobile-Esqueleto-Explosivo]]></ImageName>
+                <Label><![CDATA[Esqueleto Explosivo]]></Label>
+            </OGS-esqueletoexplosivo>
+            <OGS-extracash>
+                <ImageName><![CDATA[W88-Slots-Mobile-Extra-Cash!!]]></ImageName>
+                <Label><![CDATA[Extra Cash!!]]></Label>
+            </OGS-extracash>
+            <QS-firestorm>
+                <ImageName><![CDATA[W88-Slots-Mobile-Firestorm]]></ImageName>
+                <Label><![CDATA[Firestorm]]></Label>
+            </QS-firestorm>
+            <OGS-flux>
+                <ImageName><![CDATA[W88-Slots-Mobile-Flux]]></ImageName>
+                <Label><![CDATA[Flux]]></Label>
+            </OGS-flux>
+            <OGS-fortunesoftheamazon>
+                <ImageName><![CDATA[W88-Slots-Mobile-Fortunes-of-the-Amazons]]></ImageName>
+                <Label><![CDATA[Fortunes of the Amazon]]></Label>
+            </OGS-fortunesoftheamazon>
+            <OGS-foxinwins>
+                <ImageName><![CDATA[W88-Slots-Mobile-Foxin-Wins]]></ImageName>
+                <Label><![CDATA[Foxin' Wins]]></Label>
+            </OGS-foxinwins>
+            <OGS-foxinwinsagain>
+                <ImageName><![CDATA[W88-Slots-Mobile-Foxin-Wins-Again]]></ImageName>
+                <Label><![CDATA[Foxin' Wins Again]]></Label>
+            </OGS-foxinwinsagain>
+            <OGS-fruitwarp>
+                <ImageName><![CDATA[W88-Slots-Mobile-Fruit-Warp]]></ImageName>
+                <Label><![CDATA[Fruit Warp]]></Label>
+            </OGS-fruitwarp>
+            <QS-geniestouch>
+                <ImageName><![CDATA[W88-Slots-Mobile-Genies-Touch]]></ImageName>
+                <Label><![CDATA[Genie’s Touch]]></Label>
+            </QS-geniestouch>
+            <OGS-gorillagowild>
+                <ImageName><![CDATA[W88-Slots-Mobile-Gorilla-Go-Wild]]></ImageName>
+                <Label><![CDATA[Gorilla Go Wild]]></Label>
+            </OGS-gorillagowild>
+            <QS-illuminous>
+                <ImageName><![CDATA[W88-Slots-Mobile-Illuminous]]></ImageName>
+                <Label><![CDATA[Illuminous]]></Label>
+            </QS-illuminous>
+            <OGS-irisheyes2>
+                <ImageName><![CDATA[W88-Slots-Mobile-Irish-Eyes-2]]></ImageName>
+                <Label><![CDATA[Irish Eyes 2]]></Label>
+            </OGS-irisheyes2>
+            <OGS-jacksbeanstalk>
+                <ImageName><![CDATA[W88-Slots-Mobile-Jacks-Beanstalk]]></ImageName>
+                <Label><![CDATA[Jack's Beanstalk]]></Label>
+            </OGS-jacksbeanstalk>
+            <OGS-jackpotjester50k>
+                <ImageName><![CDATA[W88-Slots-Mobile-Jackpot-Jester-50,000]]></ImageName>
+                <Label><![CDATA[Jackpot Jester 50,000]]></Label>
+            </OGS-jackpotjester50k>
+            <OGS-jackpotjesterwildnudge>
+                <ImageName><![CDATA[W88-Slots-Mobile-Jackpot-Jester-Wild-Nudge]]></ImageName>
+                <Label><![CDATA[Jackpot Jester Wild Nudge]]></Label>
+            </OGS-jackpotjesterwildnudge>
+            <QS-jewelblast>
+                <ImageName><![CDATA[W88-Slots-Mobile-Jewel-Blast]]></ImageName>
+                <Label><![CDATA[Jewel Blast]]></Label>
+            </QS-jewelblast>
+            <OGS-jokerjester>
+                <ImageName><![CDATA[W88-Slots-Mobile-Joker-Jester]]></ImageName>
+                <Label><![CDATA[Joker Jester]]></Label>
+            </OGS-jokerjester>
+            <OGS-jukepot>
+                <ImageName><![CDATA[W88-Slots-Mobile-Jukepot]]></ImageName>
+                <Label><![CDATA[Jukepot]]></Label>
+            </OGS-jukepot>
+            <QS-kingcolossus>
+                <ImageName><![CDATA[W88-Slots-Mobile-King-Colossus]]></ImageName>
+                <Label><![CDATA[King Colossus]]></Label>
+            </QS-kingcolossus>
+            <OGS-leonidas>
+                <ImageName><![CDATA[W88-Slots-Mobile-Leonidas]]></ImageName>
+                <Label><![CDATA[Leonidas]]></Label>
+            </OGS-leonidas>
+            <OGS-magicious>
+                <ImageName><![CDATA[W88-Slots-Mobile-Magicious]]></ImageName>
+                <Label><![CDATA[Magicious]]></Label>
+            </OGS-magicious>
+            <OGS-medusaii>
+                <ImageName><![CDATA[W88-Slots-Mobile-Medusa-II]]></ImageName>
+                <Label><![CDATA[Medusa II]]></Label>
+            </OGS-medusaii>
+            <OGS-merlinsmagicrespins>
+                <ImageName><![CDATA[W88-Slots-Mobile-Merlins-Magic-Respins]]></ImageName>
+                <Label><![CDATA[Merlin's Magic Respins]]></Label>
+            </OGS-merlinsmagicrespins>
+            <OGS-merlinsmagicrespinschristmas>
+                <ImageName><![CDATA[W88-Slots-Mobile-Merlins-Magic-Respins-Christmas]]></ImageName>
+                <Label><![CDATA[Merlin's Magic Respins Christmas]]></Label>
+            </OGS-merlinsmagicrespinschristmas>
+            <OGS-missmidas>
+                <ImageName><![CDATA[W88-Slots-Mobile-Miss-Midas]]></ImageName>
+                <Label><![CDATA[Miss Midas]]></Label>
+            </OGS-missmidas>
+            <OGS-moontemple>
+                <ImageName><![CDATA[W88-Slots-Mobile-Moon-Temple]]></ImageName>
+                <Label><![CDATA[Moon Temple]]></Label>
+            </OGS-moontemple>
+            <OGS-moremonkeys>
+                <ImageName><![CDATA[W88-Slots-Mobile-More-Monkeys]]></ImageName>
+                <Label><![CDATA[More Monkeys]]></Label>
+            </OGS-moremonkeys>
+            <OGS-oilmania>
+                <ImageName><![CDATA[W88-Slots-Mobile-Oil-Mania]]></ImageName>
+                <Label><![CDATA[Oil Mania]]></Label>
+            </OGS-oilmania>
+            <OGS-owleyes>
+                <ImageName><![CDATA[W88-Slots-Mobile-Owl-Eyes]]></ImageName>
+                <Label><![CDATA[Owl Eyes]]></Label>
+            </OGS-owleyes>
+            <OGS-pandamania>
+                <ImageName><![CDATA[W88-Slots-Mobile-Pandamania]]></ImageName>
+                <Label><![CDATA[Pandamania]]></Label>
+            </OGS-pandamania>
+            <OGS-pizzaprize>
+                <ImageName><![CDATA[W88-Slots-Mobile-Pizza-Prize]]></ImageName>
+                <Label><![CDATA[Pizza Prize]]></Label>
+            </OGS-pizzaprize>
+            <OGS-potioncommotion>
+                <ImageName><![CDATA[W88-Slots-Mobile-Potion-Commotion]]></ImageName>
+                <Label><![CDATA[Potion Commotion]]></Label>
+            </OGS-potioncommotion>
+            <QS-razortooth>
+                <ImageName><![CDATA[W88-Slots-Mobile-Razortooth]]></ImageName>
+                <Label><![CDATA[Razortooth]]></Label>
+            </QS-razortooth>
+            <QS-secondstrike>
+                <ImageName><![CDATA[W88-Slots-Mobile-Second-Strike]]></ImageName>
+                <Label><![CDATA[Second Strike]]></Label>
+            </QS-secondstrike>
+            <QS-sinbad>
+                <ImageName><![CDATA[W88-Slots-Mobile-Sevens-High]]></ImageName>
+                <Label><![CDATA[Sevens High]]></Label>
+            </QS-sinbad>
+            <QS-sugartrail>
+                <ImageName><![CDATA[W88-Slots-Mobile-Sinbad]]></ImageName>
+                <Label><![CDATA[Sinbad]]></Label>
+            </QS-sugartrail>
+            <OGS-spanisheyes>
+                <ImageName><![CDATA[W88-Slots-Mobile-Spanish-Eyes]]></ImageName>
+                <Label><![CDATA[Spanish Eyes]]></Label>
+            </OGS-spanisheyes>
+            <OGS-spinsorceress>
+                <ImageName><![CDATA[W88-Slots-Mobile-Spin-Sorceress]]></ImageName>
+                <Label><![CDATA[Spin Sorceress]]></Label>
+            </OGS-spinsorceress>
+            <OGS-starmania>
+                <ImageName><![CDATA[W88-Slots-Mobile-Starmania]]></ImageName>
+                <Label><![CDATA[Starmania]]></Label>
+            </OGS-starmania>
+            <OGS-supersafari>
+                <ImageName><![CDATA[W88-Slots-Mobile-Super-Safari]]></ImageName>
+                <Label><![CDATA[Super Safari]]></Label>
+            </OGS-supersafari>
+            <OGS-supersafari>
+                <ImageName><![CDATA[W88-Slots-Mobile-Teddy-Bears-Picnic]]></ImageName>
+                <Label><![CDATA[Teddy Bear's Picnic]]></Label>
+            </OGS-supersafari>
+            <OGS-thecodfather>
+                <ImageName><![CDATA[W88-Slots-Mobile-The-Codfather]]></ImageName>
+                <Label><![CDATA[The Codfather]]></Label>
+            </OGS-thecodfather>
+            <OGS-thespinlab>
+                <ImageName><![CDATA[W88-Slots-Mobile-The-Spin-Lab]]></ImageName>
+                <Label><![CDATA[The Spin Lab]]></Label>
+            </OGS-thespinlab>
+            <QS-thewhildchase>
+                <ImageName><![CDATA[W88-Slots-Mobile-The-Wild-Chase]]></ImageName>
+                <Label><![CDATA[The Wild Chase]]></Label>
+            </QS-thewhildchase>
+            <OGS-tokitime>
+                <ImageName><![CDATA[W88-Slots-Mobile-Toki-Time]]></ImageName>
+                <Label><![CDATA[Toki Time]]></Label>
+            </OGS-tokitime>
+            <QS-treasureisland>
+                <ImageName><![CDATA[W88-Slots-Mobile-Treasure-Island]]></ImageName>
+                <Label><![CDATA[Treasure Island]]></Label>
+            </QS-treasureisland>
+            <OGS-wildwest>
+                <ImageName><![CDATA[W88-Slots-Mobile-Wild-West]]></ImageName>
+                <Label><![CDATA[Wild West]]></Label>
+            </OGS-wildwest>
+            <OGS-wildcatcanyon>
+                <ImageName><![CDATA[W88-Slots-Mobile-Wildcat-Canyon]]></ImageName>
+                <Label><![CDATA[Wildcat Canyon]]></Label>
+            </OGS-wildcatcanyon>
+            <OGS-witchpickings>
+                <ImageName><![CDATA[W88-Slots-Mobile-Witch-Pickings]]></ImageName>
+                <Label><![CDATA[Witch Pickings]]></Label>
+            </OGS-witchpickings>
+        </Slots>
+
+        <ScratchCard Label="Scratch Card" zh-cn=""  ko-kr="" ja-jp="">
+            <OGS-scratchbigfoot>
+                <ImageName><![CDATA[W88-Slots-Mobile-Scratch-Big-Foot]]></ImageName>
+                <Label><![CDATA[Scratch Big Foot]]></Label>
+            </OGS-scratchbigfoot>
+            <OGS-scracthcallofthecolosseum>
+                <ImageName><![CDATA[W88-Slots-Mobile-Scratch-Call-of-the-Colosseum]]></ImageName>
+                <Label><![CDATA[Scratch Call of the Colosseum]]></Label>
+            </OGS-scracthcallofthecolosseum>
+            <OGS-scratchdrlove>
+                <ImageName><![CDATA[W88-Slots-Mobile-Scratch-Doctor-Love]]></ImageName>
+                <Label><![CDATA[Scratch Doctor Love]]></Label>
+            </OGS-scratchdrlove>
+            <OGS-scratchdrloveonvacation>
+                <ImageName><![CDATA[W88-Slots-Mobile-Scratch-Doctor-Love-on-Vacation]]></ImageName>
+                <Label><![CDATA[Scratch Doctor Love On Vacation]]></Label>
+            </OGS-scratchdrloveonvacation>
+            <OGS-scratchemperorsgarden>
+                <ImageName><![CDATA[W88-Slots-Mobile-Scratch-Emperors-Garden]]></ImageName>
+                <Label><![CDATA[Scratch Emperor's Garden ]]></Label>
+            </OGS-scratchemperorsgarden>
+            <OGS-scratchfoxinwins>
+                <ImageName><![CDATA[W88-Slots-Mobile-Scratch-Foxin-Wins]]></ImageName>
+                <Label><![CDATA[Scratch Foxin' Wins]]></Label>
+            </OGS-scratchfoxinwins>
+            <OGS-scratchgeniewild>
+                <ImageName><![CDATA[W88-Slots-Mobile-Scratch-Genie-Wild]]></ImageName>
+                <Label><![CDATA[Scratch Genie Wild]]></Label>
+            </OGS-scratchgeniewild>
+            <OGS-scratchgorillagowild>
+                <ImageName><![CDATA[W88-Slots-Mobile-Scratch-Gorilla-Go-Wild]]></ImageName>
+                <Label><![CDATA[Scratch Gorilla Go Wild]]></Label>
+            </OGS-scratchgorillagowild>
+            <OGS-scratchirisheyes>
+                <ImageName><![CDATA[W88-Slots-Mobile-Scratch-Irish-Eyes]]></ImageName>
+                <Label><![CDATA[Scratch Irish Eyes]]></Label>
+            </OGS-scratchirisheyes>
+            <OGS-scratchirisheyes2>
+                <ImageName><![CDATA[W88-Slots-Mobile-Scratch-Irish-Eyes-2]]></ImageName>
+                <Label><![CDATA[Scratch Irish Eyes 2]]></Label>
+            </OGS-scratchirisheyes2>
+            <OGS-scratchmedusa>
+                <ImageName><![CDATA[W88-Slots-Mobile-Scratch-Medusa]]></ImageName>
+                <Label><![CDATA[Scratch Medusa]]></Label>
+            </OGS-scratchmedusa>
+            <OGS-scratchmerlinsmillions>
+                <ImageName><![CDATA[W88-Slots-Mobile-Scratch-Merlins-Millions]]></ImageName>
+                <Label><![CDATA[Scratch Merlin's Millions]]></Label>
+            </OGS-scratchmerlinsmillions>
+            <OGS-scratchoilmania>
+                <ImageName><![CDATA[W88-Slots-Mobile-Scratch-Oil-Mania]]></ImageName>
+                <Label><![CDATA[Scratch Oil Mania]]></Label>
+            </OGS-scratchoilmania>
+            <OGS-scratchpandamania>
+                <ImageName><![CDATA[W88-Slots-Mobile-Scratch-Pandamania]]></ImageName>
+                <Label><![CDATA[Scratch Pandamania]]></Label>
+            </OGS-scratchpandamania>
+            <OGS-scratchramessesriches>
+                <ImageName><![CDATA[W88-Slots-Mobile-Scratch-Ramesses-Riches]]></ImageName>
+                <Label><![CDATA[Scratch Ramesses Riches]]></Label>
+            </OGS-scratchramessesriches>
+            <OGS-scratchthecodfather>
+                <ImageName><![CDATA[W88-Slots-Mobile-Scratch-The-Codfather]]></ImageName>
+                <Label><![CDATA[Scratch The Codfather]]></Label>
+            </OGS-scratchthecodfather>
+            <OGS-scratchthesnakecharmer>
+                <ImageName><![CDATA[W88-Slots-Mobile-Scratch-The-Snake-Charmer]]></ImageName>
+                <Label><![CDATA[Scratch The Snake Charmer]]></Label>
+            </OGS-scratchthesnakecharmer>
+            <OGS-scratchvolcanoeruption>
+                <ImageName><![CDATA[W88-Slots-Mobile-Scratch-Volcano-Eruption]]></ImageName>
+                <Label><![CDATA[Scratch Volcano Eruption]]></Label>
+            </OGS-scratchvolcanoeruption>
+
+        </ScratchCard>
+
+
+    </Category>
+</default>

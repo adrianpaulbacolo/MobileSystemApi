@@ -3,72 +3,79 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-        <div class="ui-content" role="main" id="sports">
+    <div class="ui-content" role="main" id="sports">
 
-            <ul class="row row-wrap bg-gradient">
-                <li class="col col-33">
-                    <a href="/ClubBravado" class="card" data-ajax="false">
-                        <img src="/_Static/Images/bnr-clubbravado.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubBravado/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li>
-                <%--<li class="col col-33">
+        <ul class="row row-wrap bg-gradient">
+            <li class="col col-33">
+                <a href="/ClubBravado" class="card" data-ajax="false">
+                    <img src="/_Static/Images/bnr-clubbravado.jpg" class="img-responsive">
+                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubBravado/Label", commonVariables.ProductsXML)%></div>
+                </a>
+            </li>
+            <%--<li class="col col-33">
                     <a href="/ClubPalazzo" class="card" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubpalazzo-slots.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%> 2</div>
                     </a>
                 </li>--%>
-                <li class="col col-33">
-                    <a href="/ClubPalazzo" class="card" data-ajax="false">
-                        <img src="/_Static/Images/bnr-clubpalazzo-slots.jpg?" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
-                    </a>
-                </li>
-                <li class="col col-33">
-                    <a href="/_static/palazzo/slots.aspx" class="card" data-ajax="false">
-                        <img src="/_Static/Images/bnr-clubpalazzo-slots2.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots2/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
-                    </a>
-                </li>
-                <li class="col col-33">
-                    <a href="/ClubMassimo" class="card" data-ajax="false">
-                        <img src="/_Static/Images/bnr-clubmassimo-slots.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
-                    </a>
-                </li>
-                <li class="col col-33">
-                    <a href="<%=commonClubMassimo.getDownloadUrl%>" class="card" data-ajax="false">
-                        <img src="/_Static/Images/bnr-clubmassimo-slots2.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots2/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
-                    </a>
-                </li>
-                <li class="col col-33">
-                    <a href="/ClubGallardo" class="card" data-ajax="false">
-                        <img src="/_Static/Images/bnr-clubgallardo.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubGallardo/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li>
-                <li class="col col-33">
-                    <a href="/ClubDivino" class="card" data-ajax="false">
-                        <img src="/_Static/Images/bnr-clubdivino.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubDivino/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li>
-              <%--  <li class="col col-33">
+            <li class="col col-33">
+                <a href="/ClubPalazzo" class="card" data-ajax="false">
+                    <img src="/_Static/Images/bnr-clubpalazzo-slots.jpg?" class="img-responsive">
+                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
+                </a>
+            </li>
+            <li class="col col-33">
+                <a href="/_static/palazzo/slots.aspx" class="card" data-ajax="false">
+                    <img src="/_Static/Images/bnr-clubpalazzo-slots2.jpg" class="img-responsive">
+                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots2/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
+                </a>
+            </li>
+            <li class="col col-33">
+                <a href="/ClubMassimo" class="card" data-ajax="false">
+                    <img src="/_Static/Images/bnr-clubmassimo-slots.jpg" class="img-responsive">
+                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
+                </a>
+            </li>
+            <li class="col col-33">
+                <a href="<%=commonClubMassimo.getDownloadUrl%>" class="card" data-ajax="false">
+                    <img src="/_Static/Images/bnr-clubmassimo-slots2.jpg" class="img-responsive">
+                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots2/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
+                </a>
+            </li>
+            <li class="col col-33">
+                <a href="/ClubGallardo" class="card" data-ajax="false">
+                    <img src="/_Static/Images/bnr-clubgallardo.jpg" class="img-responsive">
+                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubGallardo/Label", commonVariables.ProductsXML)%></div>
+                </a>
+            </li>
+            <li class="col col-33">
+                <a href="/ClubApollo" class="card" data-ajax="false">
+                    <img src="/_Static/Images/bnr-clubapollo.jpg" class="img-responsive">
+                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubApollo/Label", commonVariables.ProductsXML)%></div>
+                </a>
+            </li>
+            <li class="col col-33">
+                <a href="/ClubDivino" class="card" data-ajax="false">
+                    <img src="/_Static/Images/bnr-clubdivino.jpg" class="img-responsive">
+                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubDivino/Label", commonVariables.ProductsXML)%></div>
+                </a>
+            </li>
+            <%--  <li class="col col-33">
                     <a href="/ClubCrescendo" class="card" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubcrescendo.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubCrescendo/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>--%>
-                 <%if(Session["responseCode"].ToString()=="1"){%>
-                 <li class="col col-33">
-                     <a class="card" href="/_Static/Downloads/w88.aspx">
-                        <img src="/_Static/Images/Download/ClubW88-iOS.jpg" class="img-responsive">
-                        <div class="title">Club W88 iOS Download</div>
-                    </a>
-                </li>
-                <%}%>
-            </ul>
-        </div>
+            <%if (Session["responseCode"].ToString() == "1")
+              {%>
+            <li class="col col-33">
+                <a class="card" href="/_Static/Downloads/w88.aspx">
+                    <img src="/_Static/Images/Download/ClubW88-iOS.jpg" class="img-responsive">
+                    <div class="title">Club W88 iOS Download</div>
+                </a>
+            </li>
+            <%}%>
+        </ul>
+    </div>
 </asp:Content>
 

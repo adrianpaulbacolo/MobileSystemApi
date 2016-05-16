@@ -234,6 +234,12 @@
                     </a>
                 </li>
                 <li>
+                    <a class="card" rel="clubdivino" href="/ClubApollo" data-ajax="false">
+                        <img src="/_Static/Images/bnr-clubapollo.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubApollo/Label", commonVariables.ProductsXML)%></div>
+                    </a>
+                </li>
+                <li>
                     <a class="card" rel="clubdivino" href="/ClubDivino" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubdivino.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubDivino/Label", commonVariables.ProductsXML)%></div>
