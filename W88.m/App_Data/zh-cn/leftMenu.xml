@@ -1,86 +1,93 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <menu>
-    <brand><![CDATA[优德 W88.com - ]]></brand>
-    <closeMenu><![CDATA[关闭菜单]]></closeMenu>
-    <home><![CDATA[主页]]></home>
-    <register><![CDATA[加入]]></register>
-    <cashier><![CDATA[出纳台]]></cashier>
-    <deposit><![CDATA[存款]]></deposit>
-    <transfer><![CDATA[转账]]></transfer>
-    <withdrawal><![CDATA[提款]]></withdrawal>
-    <freebets><![CDATA[Claims]]></freebets>
-    <misc><![CDATA[其他]]></misc>
-    <liveHelp><![CDATA[在线客服]]></liveHelp>
-    <contactUs><![CDATA[联系我们]]></contactUs>
-    <helpCenter><![CDATA[帮助中心]]></helpCenter>
-    <language><![CDATA[语言]]></language>
-    <logout><![CDATA[登出]]></logout>
-    <products><![CDATA[产品]]></products>
-    <desktopsite><![CDATA[桌面版网站]]></desktopsite>
-    <joinnow><![CDATA[注册账号]]></joinnow>
-    <promotions><![CDATA[优惠]]></promotions>
-    <updateProfile><![CDATA[Update Profile]]></updateProfile>
-    <fastdeposit><![CDATA[银行汇款]]></fastdeposit>
-    <banktransfer><![CDATA[银行汇款]]></banktransfer>
-    <wingmoney><![CDATA[Wing Money]]></wingmoney>
-    <fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
-    <sports><![CDATA[体育]]></sports>
-    <livecasino><![CDATA[真人娱乐城]]></livecasino>
-    <slots><![CDATA[老虎机]]></slots>
-    <fundmanagement><![CDATA[资金管理]]></fundmanagement>
-    <customerservice><![CDATA[顾客服务]]></customerservice>
-    <rewards><![CDATA[奖励俱乐部]]></rewards>
-    <sdpay><![CDATA[银联支付]]></sdpay>
-    <sdapay><![CDATA[支付宝]]></sdapay>
-    <help2pay><![CDATA[快速支付]]></help2pay>
-    <daddypay><![CDATA[快捷支付]]></daddypay>
-    <daddypayqr><![CDATA[QR Code Payment]]></daddypayqr>
-    <withrawal><![CDATA[提款]]></withrawal>
-    <fundTransfer><![CDATA[转账]]></fundTransfer>
-    <cancel><![CDATA[取消]]></cancel>
+	<brand><![CDATA[优德 W88.com - ]]></brand>
+	<closeMenu><![CDATA[关闭菜单]]></closeMenu>
+	<home><![CDATA[主页]]></home>
+	<register><![CDATA[加入]]></register>
+	<cashier><![CDATA[出纳台]]></cashier>
+	<deposit><![CDATA[存款]]></deposit>
+	<transfer><![CDATA[转账]]></transfer>
+	<withdrawal><![CDATA[提款]]></withdrawal>
+	<freebets><![CDATA[Claims]]></freebets>
+	<misc><![CDATA[其他]]></misc>
+	<liveHelp><![CDATA[在线客服]]></liveHelp>
+	<contactUs><![CDATA[联系我们]]></contactUs>
+	<helpCenter><![CDATA[帮助中心]]></helpCenter>
+	<language><![CDATA[语言]]></language>
+	<logout><![CDATA[登出]]></logout>
+	<products><![CDATA[产品]]></products>
+	<desktopsite><![CDATA[桌面版网站]]></desktopsite>
+	<joinnow><![CDATA[注册账号]]></joinnow>
+	<promotions><![CDATA[优惠]]></promotions>
+	<updateProfile><![CDATA[Update Profile]]></updateProfile>
+	<fastdeposit><![CDATA[银行汇款]]></fastdeposit>
+	<banktransfer><![CDATA[银行汇款]]></banktransfer>
+	<wingmoney><![CDATA[Wing Money]]></wingmoney>
+	<fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
+	<sports><![CDATA[体育]]></sports>
+	<livecasino><![CDATA[真人娱乐城]]></livecasino>
+	<slots><![CDATA[老虎机]]></slots>
+	<fundmanagement><![CDATA[资金管理]]></fundmanagement>
+	<customerservice><![CDATA[顾客服务]]></customerservice>
+	<rewards><![CDATA[奖励俱乐部]]></rewards>
+	<sdpay><![CDATA[银联支付]]></sdpay>
+	<sdapay><![CDATA[支付宝]]></sdapay>
+	<help2pay><![CDATA[快速支付]]></help2pay>
+	<daddypay><![CDATA[快捷支付]]></daddypay>
+	<daddypayqr><![CDATA[QR Code Payment]]></daddypayqr>
+	<withrawal><![CDATA[提款]]></withrawal>
+	<fundTransfer><![CDATA[转账]]></fundTransfer>
+	<cancel><![CDATA[取消]]></cancel>
 
-    <mainWallet><![CDATA[中心钱包]]></mainWallet>
-    <rewardsClub><![CDATA[奖励积分]]></rewardsClub>
-    <points><![CDATA[积分个数]]></points>
-    <submitUpload><![CDATA[上传]]></submitUpload>
-    <changePassword><![CDATA[更改密码]]></changePassword>
-    <profile><![CDATA[个人资料]]></profile>
+	<mainWallet><![CDATA[中心钱包]]></mainWallet>
+	<rewardsClub><![CDATA[奖励积分]]></rewardsClub>
+	<points><![CDATA[积分个数]]></points>
+	<submitUpload><![CDATA[上传]]></submitUpload>
+	<changePassword><![CDATA[更改密码]]></changePassword>
+	<profile><![CDATA[个人资料]]></profile>
 
-    <funds><![CDATA[资金管理]]></funds>
-    <aSports><![CDATA[东方体育]]></aSports>
-    <eSports><![CDATA[西方体育]]></eSports>
-    <wSports><![CDATA[优德体育]]></wSports>
-    <lottery><![CDATA[乐透]]></lottery>
-    <nuovo><![CDATA[金蟾]]></nuovo>
-    <clubPalazo><![CDATA[金殿俱乐部]]></clubPalazo>
-    <poker><![CDATA[扑克]]></poker>
-    <texasmahjong><![CDATA[德州麻将]]></texasmahjong>
-    <fundFooter><![CDATA[*优德俱乐部(真人+其他老虎机俱乐部),虚拟,乐透]]></fundFooter>
-    <androidDownload><![CDATA[安卓版下载]]></androidDownload>
-    <iosDownload><![CDATA[iOS版下载]]></iosDownload>
-    <download><![CDATA[下载]]></download>
+	<funds><![CDATA[资金管理]]></funds>
+	<aSports><![CDATA[东方体育]]></aSports>
+	<eSports><![CDATA[西方体育]]></eSports>
+	<wSports><![CDATA[优德体育]]></wSports>
+	<lottery><![CDATA[乐透]]></lottery>
+	<nuovo><![CDATA[金蟾]]></nuovo>
+	<clubPalazo><![CDATA[金殿俱乐部]]></clubPalazo>
+	<poker><![CDATA[扑克]]></poker>
+	<texasmahjong><![CDATA[德州麻将]]></texasmahjong>
+	<fundFooter><![CDATA[*优德俱乐部(真人+其他老虎机俱乐部),虚拟,乐透]]></fundFooter>
+	<androidDownload><![CDATA[安卓版下载]]></androidDownload>
+	<iosDownload><![CDATA[iOS版下载]]></iosDownload>
+	<download><![CDATA[下载]]></download>
 
-    <liveCasinoTitle><![CDATA[真人娱乐城]]></liveCasinoTitle>
-    <liveCasinoMessage><![CDATA[优德真人娱乐城尊享高达0.8%现金返水，即玩即得！]]></liveCasinoMessage>
-    <clubPalazoMessage><![CDATA[亚欧美女荷官聚焦荧屏!]]></clubPalazoMessage>
-    <clubMassimoMessage><![CDATA[高清视频最爱真人娱乐城!]]></clubMassimoMessage>
-    <playNow><![CDATA[立即游戏]]></playNow>
-    <clubMassimo><![CDATA[金銮俱乐部]]></clubMassimo>
-    <clubwpremier><![CDATA[优德俱乐部 - 卓越厅]]></clubwpremier>
-    <clubwpremierMessage><![CDATA[实地真人现场，流畅视讯体验， 尊享世界豪华顶尖真人娱乐城 ]]></clubwpremierMessage>
-    <liveCasino><![CDATA[真人娱乐城]]></liveCasino>
-    <back><![CDATA[返回]]></back>
-    <login><![CDATA[登陆]]></login>
+	<liveCasinoTitle><![CDATA[真人娱乐城]]></liveCasinoTitle>
+	<liveCasinoMessage><![CDATA[优德真人娱乐城尊享高达0.8%现金返水，即玩即得！]]></liveCasinoMessage>
+	<clubPalazoMessage><![CDATA[亚欧美女荷官聚焦荧屏!]]></clubPalazoMessage>
+	<clubMassimoMessage><![CDATA[高清视频最爱真人娱乐城!]]></clubMassimoMessage>
+	<playNow><![CDATA[立即游戏]]></playNow>
+	<clubMassimo><![CDATA[金銮俱乐部]]></clubMassimo>
+	<clubwpremier><![CDATA[优德俱乐部 - 卓越厅]]></clubwpremier>
+	<clubwpremierMessage><![CDATA[实地真人现场，流畅视讯体验， 尊享世界豪华顶尖真人娱乐城 ]]></clubwpremierMessage>
+	<liveCasino><![CDATA[真人娱乐城]]></liveCasino>
+	<back><![CDATA[返回]]></back>
+	<login><![CDATA[登陆]]></login>
 
-    <kenoMessage><![CDATA[无尽的欢乐就在每3-5分钟。开始真钱游戏，大家赶紧来赢取奖金吧。]]></kenoMessage>
+	<kenoMessage><![CDATA[无尽的欢乐就在每3-5分钟。开始真钱游戏，大家赶紧来赢取奖金吧。]]></kenoMessage>
 
-    <depositDaddyPay><![CDATA[存款 - 快捷支付]]></depositDaddyPay>
+	<depositDaddyPay><![CDATA[存款 - 快捷支付]]></depositDaddyPay>
 
-    <close><![CDATA[关闭]]></close>
+	<history><![CDATA[History]]></history>
+	<depositwithdrawal><![CDATA[Deposit / Withdrawal History]]></depositwithdrawal>
+	<fundtransfer><![CDATA[Fund Transfer History]]></fundtransfer>
+	<referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
+	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
 
-    <neteller><![CDATA[Neteller]]></neteller>
-    <accountId><![CDATA[Neteller 帐户]]></accountId>
-    <secureId><![CDATA[Neteller 密码]]></secureId>
 
-    <copy><![CDATA[复制]]></copy>
+	<close><![CDATA[关闭]]></close>
+
+	<neteller><![CDATA[Neteller]]></neteller>
+	<accountId><![CDATA[Neteller 帐户]]></accountId>
+	<secureId><![CDATA[Neteller 密码]]></secureId>
+
+	<copy><![CDATA[复制]]></copy>
 </menu>

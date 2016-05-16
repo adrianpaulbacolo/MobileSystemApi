@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DepositWithdrawal>
+	<lblDateFrom><![CDATA[START DATE]]></lblDateFrom>
+	<lblDateTo><![CDATA[END DATE]]></lblDateTo>
+	<lblType><![CDATA[TYPE]]></lblType>
+	<lblStatus><![CDATA[STATUS]]></lblStatus>
+</DepositWithdrawal>
