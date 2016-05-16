@@ -4,8 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
 
-public partial class Slots_ClubPalazzo : BasePage
+public partial class Slots_ClubPalazzo: BasePage
 {
     protected System.Xml.Linq.XElement xeErrors = null;
     private System.Xml.Linq.XElement xeResources = null;
@@ -17,9 +18,8 @@ public partial class Slots_ClubPalazzo : BasePage
 
         commonCulture.appData.getRootResource("/Slots/ClubPalazzo.aspx", out xeResources);
 
-        if (Page.IsPostBack) return;
-
-        SetTitle(commonCulture.ElementValues.getResourceXPathString("/Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML));
+        if (!Page.IsPostBack)
+        {
             System.Text.StringBuilder sbGames = new System.Text.StringBuilder();
 
             System.Xml.Linq.XElement xeCategories = xeResources.Element("Category");
@@ -82,3 +82,4 @@ public partial class Slots_ClubPalazzo : BasePage
             divContainer.InnerHtml = Convert.ToString(sbGames);
         }
     }
+}

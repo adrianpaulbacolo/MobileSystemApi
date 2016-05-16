@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="PromotionClaimResults.aspx.cs" Inherits="History_PromotionClaimResults" %>
-<%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
 <!DOCTYPE html>
 
@@ -22,7 +21,9 @@
         <div class="ui-content" role="main">
 
             <div class="wallet main-wallet">
-                <uc:Wallet id="uMainWallet" runat="server" />
+                <label class="label">Main Wallet</label>
+                <h2 class="value"><%=Session["Main"].ToString()%></h2>
+                <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
             </div>
 
             <div class="row row-no-padding">

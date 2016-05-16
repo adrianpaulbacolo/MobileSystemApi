@@ -1,51 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using svcPayMember;
 
 /// <summary>
 /// common functionalities of payment/deposit method
 /// </summary>
 public static class commonPaymentMethodFunc
 {
-
-    public static void GetWalletBalance(int walletId)
-    {
-        var memberCode = commonVariables.GetSessionVariable("MemberCode");
-        if (string.IsNullOrEmpty(memberCode) || string.IsNullOrEmpty(commonVariables.OperatorId)) HttpContext.Current.Session["Main"] = 0;
-
-        using (var svcInstance = new MemberClient())
-        {
-            string strProductCurrency;
-            var value   = svcInstance.getWalletBalance(commonVariables.OperatorId, commonVariables.SiteUrl, memberCode, Convert.ToString(walletId), out strProductCurrency);
-            HttpContext.Current.Session["Main"] = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", value);
-        }
-    }
-
-    public static ICollection<KeyValuePair<int, string>> GetWallets()
-    {
-        var selection = new customConfig.OperatorSettings("W88").Values.Get("Products").Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries).Select(p => p.Trim()).ToList();
-        ICollection<KeyValuePair<int, string>> wallet = new Dictionary<int, string>();
-
-        foreach (var product in selection)
-        {
-            var strProduct = product.Trim();
-            var val = Convert.ToString(commonCulture.ElementValues.getResourceXPathString("Wallets/" + strProduct, commonVariables.ProductsXML));
-            var key = ConfigurationManager.GetSection("WalletGroupSettings/" + strProduct) as customConfig.WalletVariables;
-
-            if (key != null)
-                wallet.Add(new KeyValuePair<int, string>(Convert.ToInt32(key.walletId), Convert.ToString(val)));
-        }
-
-        return wallet;
-    }
-
-
     public static void GetDepositMethodList(string methodsUnAvailable, HtmlGenericControl depositTabs, string sourcePage, bool isApp)
     {
         var depositList = Enum.GetValues(typeof(commonVariables.DepositMethod));

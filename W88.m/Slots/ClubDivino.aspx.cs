@@ -20,105 +20,105 @@ public partial class Slots_ClubDivino : BasePage
 
         commonCulture.appData.getRootResource("/Slots/ClubDivino.aspx", out xeResources);
 
-        if (Page.IsPostBack) return;
-
-        SetTitle(commonCulture.ElementValues.getResourceXPathString("/Products/ClubDivino/Label", commonVariables.ProductsXML));
-        XElement xeCategories = xeResources.Element("Category");
-
-        switch (commonVariables.SelectedLanguage)
+        if (!Page.IsPostBack)
         {
-            case "zh-cn":
-                strLanguageCode = "zh";
-                break;
+            XElement xeCategories = xeResources.Element("Category");
 
-            default:
-                strLanguageCode = "en";
-                break;
+            switch (commonVariables.SelectedLanguage)
+            {
+                case "zh-cn":
+                    strLanguageCode = "zh";
+                    break;
+
+                default:
+                    strLanguageCode = "en";
+                    break;
+            }
+
+            StringBuilder sbiOS = new StringBuilder();
+            StringBuilder sbAndroid = new StringBuilder();
+            StringBuilder sbWP = new StringBuilder();
+
+            foreach (XElement xeCategory in xeCategories.Elements())
+            {
+                string divHeader = "<div data-role='collapsible' data-collapsed='false' data-theme='b' data-content-theme='a' data-mini='true' ";
+
+                sbiOS.Append(divHeader);
+                sbiOS.AppendFormat("type='{1}'><h4>{2}</h4><div id='div{0}_{1}' class='div-product'><div><ul>", xeCategory.Name, xeCategory.Attribute("IOSName").Value, xeCategory.Attribute("Label").Value);
+
+                sbAndroid.Append(divHeader);
+                sbAndroid.AppendFormat("type='{1}'><h4>{2}</h4><div id='div{0}_{1}' class='div-product'><div><ul>", xeCategory.Name, xeCategory.Attribute("AndroidName").Value, xeCategory.Attribute("Label").Value);
+
+                sbWP.Append(divHeader);
+                sbWP.AppendFormat("type='{1}'><h4>{2}</h4><div id='div{0}_{1}' class='div-product'><div><ul>", xeCategory.Name, xeCategory.Attribute("WPName").Value, xeCategory.Attribute("Label").Value);
+
+                List<XElement> combinedGames = new List<XElement>();
+
+                XElement Betsoft = xeCategory.Element("Betsoft");
+                if (Betsoft != null && Betsoft.HasElements)
+                {
+                    List<XElement> topBetSoft = Betsoft.Elements().Where(m => m.Attribute("Top") != null).OrderBy(f => f.Attribute("Top").Value).ToList();
+                    IEnumerable<XElement> sortedBetsoft = Betsoft.Elements().Where(m => m.Attribute("Top") == null).OrderBy(game => game.Element("Label").Value.ToString());
+                    topBetSoft.AddRange(sortedBetsoft);
+                    combinedGames.AddRange(topBetSoft);
+                }
+
+                XElement ctxm = xeCategory.Element("CTXM");
+                if (ctxm != null && ctxm.HasElements)
+                {
+                    List<XElement> topCtxm = ctxm.Elements().Where(m => m.Attribute("Top") != null).OrderBy(f => f.Attribute("Top").Value).ToList();
+                    IEnumerable<XElement> sortedCtxm = ctxm.Elements().Where(m => m.Attribute("Top") == null).OrderBy(game => game.Element("Label").Value.ToString());
+
+                    topCtxm.AddRange(sortedCtxm);
+                    combinedGames.AddRange(topCtxm);
+                }
+
+                foreach (XElement xeGame in combinedGames)
+                {
+                    bool isCrescendo = false;
+
+                    if (xeGame.Attribute("IOSId") == null && xeGame.Attribute("AndroidId") == null && xeGame.Attribute("WPId") == null)
+                    {
+                        strGameId = xeGame.Name.ToString();
+                        isCrescendo = true;
+                    }
+
+                    string iOSID = (xeGame.Attribute("IOSId") == null ? "" : xeGame.Attribute("IOSId").Value);
+                    string andrID = (xeGame.Attribute("AndroidId") == null ? "" : xeGame.Attribute("AndroidId").Value);
+                    string wpID = (xeGame.Attribute("WPId") == null ? "" : xeGame.Attribute("WPId").Value);
+
+                    if (isCrescendo)
+                    {
+                        sbiOS.Append(CreateCrescendoGames(xeGame, strGameId));
+
+                        sbAndroid.Append(CreateCrescendoGames(xeGame, strGameId));
+
+                        sbWP.Append(CreateCrescendoGames(xeGame, strGameId));
+                    }
+                    else
+                    {
+                        if (!string.IsNullOrWhiteSpace(iOSID))
+                            sbiOS.Append(CreateDivinoGames(xeGame, iOSID, strLanguageCode, myUri));
+
+                        if (!string.IsNullOrWhiteSpace(andrID))
+                            sbAndroid.Append(CreateDivinoGames(xeGame, andrID, strLanguageCode, myUri));
+
+                        if (!string.IsNullOrWhiteSpace(wpID))
+                            sbWP.Append(CreateDivinoGames(xeGame, wpID, strLanguageCode, myUri));
+                    }
+
+                }
+
+                sbiOS.Append("</ul></div></div></div>");
+
+                sbAndroid.Append("</ul></div></div></div>");
+
+                sbWP.Append("</ul></div></div></div>");
+            }
+
+
+            divContainer.InnerHtml = Convert.ToString(sbiOS) + Convert.ToString(sbAndroid) + Convert.ToString(sbWP);
         }
-
-        StringBuilder sbiOS = new StringBuilder();
-        StringBuilder sbAndroid = new StringBuilder();
-        StringBuilder sbWP = new StringBuilder();
-
-        foreach (XElement xeCategory in xeCategories.Elements())
-        {
-            string divHeader = "<div data-role='collapsible' data-collapsed='false' data-theme='b' data-content-theme='a' data-mini='true' ";
-
-            sbiOS.Append(divHeader);
-            sbiOS.AppendFormat("type='{1}'><h4>{2}</h4><div id='div{0}_{1}' class='div-product'><div><ul>", xeCategory.Name, xeCategory.Attribute("IOSName").Value, xeCategory.Attribute("Label").Value);
-
-            sbAndroid.Append(divHeader);
-            sbAndroid.AppendFormat("type='{1}'><h4>{2}</h4><div id='div{0}_{1}' class='div-product'><div><ul>", xeCategory.Name, xeCategory.Attribute("AndroidName").Value, xeCategory.Attribute("Label").Value);
-
-            sbWP.Append(divHeader);
-            sbWP.AppendFormat("type='{1}'><h4>{2}</h4><div id='div{0}_{1}' class='div-product'><div><ul>", xeCategory.Name, xeCategory.Attribute("WPName").Value, xeCategory.Attribute("Label").Value);
-
-            List<XElement> combinedGames = new List<XElement>();
-
-            XElement Betsoft = xeCategory.Element("Betsoft");
-            if (Betsoft != null && Betsoft.HasElements)
-            {
-                List<XElement> topBetSoft = Betsoft.Elements().Where(m => m.Attribute("Top") != null).OrderBy(f => f.Attribute("Top").Value).ToList();
-                IEnumerable<XElement> sortedBetsoft = Betsoft.Elements().Where(m => m.Attribute("Top") == null).OrderBy(game => game.Element("Label").Value.ToString());
-                topBetSoft.AddRange(sortedBetsoft);
-                combinedGames.AddRange(topBetSoft);
-            }
-
-            XElement ctxm = xeCategory.Element("CTXM");
-            if (ctxm != null && ctxm.HasElements)
-            {
-                List<XElement> topCtxm = ctxm.Elements().Where(m => m.Attribute("Top") != null).OrderBy(f => f.Attribute("Top").Value).ToList();
-                IEnumerable<XElement> sortedCtxm = ctxm.Elements().Where(m => m.Attribute("Top") == null).OrderBy(game => game.Element("Label").Value.ToString());
-
-                topCtxm.AddRange(sortedCtxm);
-                combinedGames.AddRange(topCtxm);
-            }
-
-            foreach (XElement xeGame in combinedGames)
-            {
-                bool isCrescendo = false;
-
-                if (xeGame.Attribute("IOSId") == null && xeGame.Attribute("AndroidId") == null && xeGame.Attribute("WPId") == null)
-                {
-                    strGameId = xeGame.Name.ToString();
-                    isCrescendo = true;
-                }
-
-                string iOSID = (xeGame.Attribute("IOSId") == null ? "" : xeGame.Attribute("IOSId").Value);
-                string andrID = (xeGame.Attribute("AndroidId") == null ? "" : xeGame.Attribute("AndroidId").Value);
-                string wpID = (xeGame.Attribute("WPId") == null ? "" : xeGame.Attribute("WPId").Value);
-
-                if (isCrescendo)
-                {
-                    sbiOS.Append(CreateCrescendoGames(xeGame, strGameId));
-
-                    sbAndroid.Append(CreateCrescendoGames(xeGame, strGameId));
-
-                    sbWP.Append(CreateCrescendoGames(xeGame, strGameId));
-                }
-                else
-                {
-                    if (!string.IsNullOrWhiteSpace(iOSID))
-                        sbiOS.Append(CreateDivinoGames(xeGame, iOSID, strLanguageCode, myUri));
-
-                    if (!string.IsNullOrWhiteSpace(andrID))
-                        sbAndroid.Append(CreateDivinoGames(xeGame, andrID, strLanguageCode, myUri));
-
-                    if (!string.IsNullOrWhiteSpace(wpID))
-                        sbWP.Append(CreateDivinoGames(xeGame, wpID, strLanguageCode, myUri));
-                }
-
-            }
-
-            sbiOS.Append("</ul></div></div></div>");
-
-            sbAndroid.Append("</ul></div></div></div>");
-
-            sbWP.Append("</ul></div></div></div>");
-        }
-
-
-        divContainer.InnerHtml = Convert.ToString(sbiOS) + Convert.ToString(sbAndroid) + Convert.ToString(sbWP);
     }
 
     private StringBuilder CreateDivinoGames(XElement xeGame, string strGameId, string strLanguageCode, Uri myUri)
