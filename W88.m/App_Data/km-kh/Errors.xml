@@ -31,6 +31,7 @@
 		<MissingCurrency><![CDATA[សូមរើសយករូបិយប័ណ្ណ]]></MissingCurrency>
 		<MissingFName><![CDATA[Please enter your first name]]></MissingFName>
 		<MissingLName><![CDATA[Please enter your last name]]></MissingLName>
+		<MissingName><![CDATA[សូមបញ្ចូលឈ្មោះពេញរបស់អ្នក។]]></MissingName>
 		<MissingVCode><![CDATA[Please enter verification code]]></MissingVCode>
 
 		<InvalidUsername><![CDATA[ខុសឈ្មោះគណនី/ឬខុសលេខសំងាត់]]></InvalidUsername>

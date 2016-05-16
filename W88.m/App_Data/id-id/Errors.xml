@@ -31,6 +31,7 @@
 		<MissingCurrency><![CDATA[Silahkan pilih mata uang anda]]></MissingCurrency>
 		<MissingFName><![CDATA[Silahkan masukkan Nama Depan dan Nama Tengah anda]]></MissingFName>
 		<MissingLName><![CDATA[Silahkan masukkan Nama Belakang anda]]></MissingLName>
+		<MissingName><![CDATA[Silahkan tulis Nama lengkap Anda]]></MissingName>
 		<MissingVCode><![CDATA[Silahkan masukan 4-Digit kode Validasi.]]></MissingVCode>
 
 		<InvalidUsername><![CDATA[Username dan/atau Password tidak valid]]></InvalidUsername>

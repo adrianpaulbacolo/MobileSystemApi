@@ -31,6 +31,7 @@
 		<MissingCurrency><![CDATA[请选择您的首选货币。]]></MissingCurrency>
 		<MissingFName><![CDATA[请输入您的名]]></MissingFName>
 		<MissingLName><![CDATA[请输入您的姓]]></MissingLName>
+		<MissingName><![CDATA[请输入您的名字全称]]></MissingName>
 		<MissingVCode><![CDATA[请输入验证码]]></MissingVCode>
 
 		<InvalidUsername><![CDATA[请输入有效的用户名]]></InvalidUsername>

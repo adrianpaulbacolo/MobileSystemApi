@@ -29,6 +29,7 @@
 		<MissingCurrency><![CDATA[Please select your preferred currency]]></MissingCurrency>
 		<MissingFName><![CDATA[Please enter your first name]]></MissingFName>
 		<MissingLName><![CDATA[Please enter your last name]]></MissingLName>
+		<MissingName><![CDATA[Please enter your full name]]></MissingName>
 		<MissingVCode><![CDATA[Please enter verification code]]></MissingVCode>
 
 		<InvalidUsername><![CDATA[Invalid Username and/or Password.]]></InvalidUsername>

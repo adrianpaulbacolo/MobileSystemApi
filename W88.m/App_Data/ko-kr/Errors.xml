@@ -31,6 +31,7 @@
 		<MissingCurrency><![CDATA[고객님께서 사용하실 통화를 선택해주십시오.]]></MissingCurrency>
 		<MissingFName><![CDATA[이름을 입력하세요]]></MissingFName>
 		<MissingLName><![CDATA[성을 입력 하세요]]></MissingLName>
+		<MissingName><![CDATA[성함을 바르게 입력해 주시기 바랍니다]]></MissingName>
 		<MissingVCode><![CDATA[보안문자 오류]]></MissingVCode>
 
 		<InvalidUsername><![CDATA[일치하지 않는 아이디/ 비밀번호 입니다.]]></InvalidUsername>

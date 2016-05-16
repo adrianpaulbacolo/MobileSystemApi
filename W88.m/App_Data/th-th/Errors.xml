@@ -31,6 +31,7 @@
 		<MissingCurrency><![CDATA[กรุณาเลือกสกุลเงินที่ท่านต้องการ]]></MissingCurrency>
 		<MissingFName><![CDATA[กรุณาใส่ชื่อจริง]]></MissingFName>
 		<MissingLName><![CDATA[กรุณาใส่นามสกุล]]></MissingLName>
+		<MissingName><![CDATA[คุณจะต้องทำการกรอกชื่อ]]></MissingName>
 		<MissingVCode><![CDATA[กรุณาใส่รหัสตรวจสอบ 4 หลัก.]]></MissingVCode>
 
 		<InvalidUsername><![CDATA[ชื่อผู้ใช้งาน และ พาสเวิร์ดไม่ถูกต้อง]]></InvalidUsername>

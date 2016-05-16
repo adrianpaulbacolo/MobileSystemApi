@@ -10,6 +10,8 @@
 	<lblOptionFields><![CDATA[Optional Fields]]></lblOptionFields>
 	<lblFirstName><![CDATA[Nama Depan]]></lblFirstName>
 	<lblLastName><![CDATA[Nama Belakang]]></lblLastName>
+	<lblName><![CDATA[Nama Lengkap]]></lblName>
+	<lblNote><![CDATA[Transaksi deposit dan penarikan melalui Bank hanya bisa diproses jika nama pada registrasi sama dengan nama pada rekenng Bank Anda.]]></lblNote>
 	<lblDOB><![CDATA[Tanggal Lahir]]></lblDOB>
 	<lblAffiliateID><![CDATA[Affiliate ID]]></lblAffiliateID>
 

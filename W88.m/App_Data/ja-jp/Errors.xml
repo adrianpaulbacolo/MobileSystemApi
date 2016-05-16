@@ -31,6 +31,7 @@
 		<MissingCurrency><![CDATA[お好みの通貨を選択してください]]></MissingCurrency>
 		<MissingFName><![CDATA[あなたの名を入力してください]]></MissingFName>
 		<MissingLName><![CDATA[あなたの姓を入力してください]]></MissingLName>
+		<MissingName><![CDATA[フルネームを入力してください]]></MissingName>
 		<MissingVCode><![CDATA[確認コードを入力してください]]></MissingVCode>
 
 		<InvalidUsername><![CDATA[無効なユーザー名および/またはパスワード。]]></InvalidUsername>

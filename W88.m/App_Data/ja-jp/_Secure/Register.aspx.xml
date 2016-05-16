@@ -10,6 +10,8 @@
 	<lblOptionFields><![CDATA[オプションフィールド]]></lblOptionFields>
 	<lblFirstName><![CDATA[名]]></lblFirstName>
 	<lblLastName><![CDATA[姓]]></lblLastName>
+	<lblName><![CDATA[氏名]]></lblName>
+	<lblNote><![CDATA[カード取引および小切手、銀行送金nなどは口座名義と一致した場合のみお手続き可能です]]></lblNote>
 	<lblDOB><![CDATA[生年月日]]></lblDOB>
 	<lblAffiliateID><![CDATA[アフィリエイトＩＤ]]></lblAffiliateID>
 
