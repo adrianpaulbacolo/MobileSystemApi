@@ -1,185 +1,127 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><%=commonCulture.ElementValues.getResourceXPathString("HttpError/e404title", commonVariables.ErrorsXML)%></title>
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link href="/_Static/Css/style.css" rel="stylesheet" type="text/css">
-
-    <style type="text/css">
-        /* -- Din Pro */
-        @font-face {
-            font-family: 'dinpro';
-            src: url('/_static/fonts/din-pro-reg/din-regular-webfont.eot');
-            src: url('/_static/fonts/din-pro-reg/din-regular-webfont.eot?#iefix') format('embedded-opentype'),
-                 url('/_static/fonts/din-pro-reg/din-regular-webfont.woff') format('woff'),
-                 url('/_static/fonts/din-pro-reg/din-regular-webfont.ttf') format('truetype'),
-                 url('/_static/fonts/din-pro-reg/din-regular-webfont.svg#dinregular') format('svg');
-            font-weight: normal;
-            font-style: normal;
-        }
-        ::-moz-selection {
-            color: #fff;
-            text-shadow: none;
-            background: #FBC02D;
-        }
-        ::selection {
-            color: #fff;
-            text-shadow: none;
-            background: #FBC02D;
-        }
-        :-ms-input-placeholder {color:#666;}
-        ::-moz-placeholder {color:#666;opacity:1}
-        ::-webkit-input-placeholder {color:#666;}
-
-        * {
-            line-height: 1.2;
-            margin: 0;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-        }
-        html {
-            font: 16px "Helvetica Neue", Helvetica, Arial, sans-serif;
-            text-align: center;
-            color: #848080;
-            display: table;
-            width: 100%;
-            height: 100%;
-        }
-        body {
-            display: table-cell;
-            vertical-align: middle;
-            margin: 2em auto;
-            color: #848080;
-            background: #000 url(/_Static/Images/errors/404-bg.jpg) center 35% no-repeat;
-        }
-        h1, h2, h3, h4, h5, h6, button {
-            font-family: 'dinpro', "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-weight: 200;
-            color: #ffffff;
-        }
-        h1 {
-            font-size: 6.25rem; /* 100px */
-        }
-        h3 {
-            font-size: 1.5rem; /* 25px */
-            color: rgba(255,255,255,.6);
-        }
-        a {
-            color: #2a8fbd;;
-            text-decoration: none;
-            -webkit-transition: .3s ease;
-            -moz-transition: .3s ease;
-            transition: .3s ease;
-        }
-        p {
-            font-size: .9375rem; /* 15px */
-            margin: 0 auto;
-            width: 300px;
-        }
-        .logo {
-            width: 100%;
-            max-width: 398px;
-            margin-bottom: 3.125rem; // 50px
-        }
-        .footer {
-            margin: 5em auto 1em;
-            padding-top: 1em;
-            border-top: 1px solid rgba(255,255,255,.1);
-            max-width: 500px;
-            font-size: 85%;
-            color: rgba(255,255,255,.2)
-        }
-        .footer ul {
-            padding: 0;
-            margin: 0;
-            list-style: none;
-            text-align: center;
-        }
-        .footer li {
-            display: inline-block;
-            padding: 0 5px;
-        }
-        .footer a {
-            color: rgba(255,255,255,.2);
-        }
-        .footer a:hover {
-            color: rgba(255,255,255,.5);
-        }
-        .footer span {
-            margin: auto 1rem;
-        }
-
-        /* Extra large screen / wide desktop */
-        @media (max-width: 1200px) {
-            .logo {
-                margin-bottom: 1.25rem; // 20px
-            }
-        }
-
-        /* Large screen / desktop */
-        @media (max-width: 992px) {
-        }
-
-        /* Medium screen / tablet */
-        @media (max-width: 768px) {
-            body {
-                vertical-align: middle;
-                background-size: 200%;
-            }
-            .footer {
-                margin: 1rem auto;
-            }
-        }
-
-        /* Small screen / phone */
-        @media (max-width: 544px) {
-            body, p, .footer {
-                width: 95%;
-            }
-            h1 {
-                font-size: 4.6875rem; /* 75px */
-            }
-            .logo {
-                width: 50%;
-                margin: 0 auto;
-                display: block;
-            }
-            .footer li {
-                padding: 5px;
-                display: block;
-            }
-            .footer .divider {
-                display: none;
-            }
-        }
-    </style>
-
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Page Not Found</title>
+<style type="text/css">
+html body {
+    color: #808080;
+	font-size:11px;
+	font-family:Tahoma, Geneva, sans-serif;
+	background-color: #1f1f1f;
+	height:100%;
+	}
+.header {	
+	font-family: DINPro-Regular;
+	font-size:25px;
+	color:#FFF;
+	}
+a:link {
+	text-decoration:none;
+	color:#2a8fbd;
+	}
+a:visited  {
+	text-decoration:none;	
+	color:#2a8fbd;
+	}
+a:hover {color:#38c0ff}
+  
+  </style>
 </head>
+
 <body>
+ 
+<table width="550" cellspacing="0" cellpadding="0" style="border:1px solid #404040; margin:0px auto; margin-top:20px" bgcolor="#252525" align="center">
+  <tr>
+    <td style="padding:20px;">
 
-    <section class="container main">
-    	<a href="/Index.aspx"><img class="logo" src="/_Static/Images/errors/w-logo.png"></a>
-        <h1><%=commonCulture.ElementValues.getResourceXPathString("StatusCode/e404", commonVariables.ErrorsXML)%></h1>
-        <h3><%=commonCulture.ElementValues.getResourceXPathString("HttpError/e404title", commonVariables.ErrorsXML)%></h3>
-        <p><%=commonCulture.ElementValues.getResourceXPathString("HttpError/e404", commonVariables.ErrorsXML)%></p>
-    </section>
+<!---->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="header">PAGE NOT FOUND</td>
+  </tr>
+  <tr>
+    <td height="20"></td>
+  </tr>
+  <tr>
+    <td bgcolor="#404040" height="1"></td>
+  </tr>
+  <tr>
+    <td height="20"></td>
+  </tr>
+  <tr>
+    <td>This may happen if you have entered site url incorrectly or this page does not exit anymore. <br />
+You can click on icons below to get back to our website.
+<br /><br />
+可能您输入了错误的网址或者该网页已经不存在。<br />
+您可以点击以下图标回到我们的网站。
+<br /><br />
+นี้อาจเกิดขึ้นถ้าคุณได้ป้อน URL ของเว็บไซต์ไม่ถูกต้องหรือหน้านี้ไม่ออกอีกต่อไป<br />
+คุณสามารถคลิกที่ไอคอนด้านล่างเพื่อกลับไปที่เว็บไซต์ของเรา
+<br /><br />
+Quý khách đã nhập vào địa chỉ url không chính xác hoặc trang web này đã không còn tồn tại. <br />
+Quý khách có thể nhấp vào các biểu tượng bên dưới để quay trở lại trang web của chúng tôi.
+<br /><br />
+Ini dapat terjadi ketika anda memasukkan alamat situs yang salah atau halaman ini tidak ada lagi.<br />
+Anda dapat mengklik pada icon-icon dibawah ini untuk kembali ke situs kami.
+<br /><br />
+នេះអាចបណ្តាលមកពីអ្នកវាយបញ្ចូលអាស័យដ្ឋានវេបសាយមិនត្រឹមត្រូវ ឬទំព័រនេះមិនមានទៀតទេ។
+</td>
+  </tr>
+  <tr>
+    <td height="30"></td>
+  </tr>
+  <tr>
+    <td>
+    
+<!---->     
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr align="center">
+    <td><a href="http://www.w88.com"><img src="/_static/img/icon_home_off.png" alt="" onmouseover=" this.src='/_static/img/icon_home_on.png'" onmouseout="this.src='/_static/img/icon_home_off.png'" 
+style="cursor:pointer;"></a></td>
+    <td><a href="http://www.w88.com/Sports/"><img src="/_static/img/icon_sports_off.png" alt="" onmouseover=" this.src='/_static/img/icon_sports_on.png'" onmouseout="this.src='/_static/img/icon_sports_off.png'" 
+style="cursor:pointer;"></a></td>
+    <td><a href="http://www.w88.com/Casino/"><img src="/_static/img/icon_livecasino_off.png" alt="" onmouseover=" this.src='/_static/img/icon_livecasino_on.png'" onmouseout="this.src='/_static/img/icon_livecasino_off.png'" 
+style="cursor:pointer;"></a></td>
+    <td><a href="http://www.w88.com/Lottery/"><img src="/_static/img/icon_kenolottery_off.png" alt="" onmouseover=" this.src='/_static/img/icon_kenolottery_on.png'" onmouseout="this.src='/_static/img/icon_kenolottery_off.png'" 
+style="cursor:pointer;"></a></td>
+    <td><a href="http://www.w88.com/Games/"><img src="/_static/img/icon_games_off.png" alt="" onmouseover=" this.src='/_static/img/icon_games_on.png'" onmouseout="this.src='/_static/img/icon_games_off.png'" 
+style="cursor:pointer;"></a></td>
+   <!-- <td><a href="http://www.google.com"><img src="img/icon_financial_off.png" alt="Poker" onmouseover=" this.src='img/icon_financial_on.png'" onmouseout="this.src='img/icon_financial_off.png'" 
+style="cursor:pointer;"></a></td>
+<td><a href="http://www.google.com"><img src="img/icon_poker_off.png" alt="" onmouseover=" this.src='img/icon_poker_on.png'" onmouseout="this.src='img/icon_poker_off.png'" 
+style="cursor:pointer;"></a></td>-->
 
-    <footer class="container footer">
-        <ul style="padding-bottom: 5px;">
-            <li class="f-menu">
-                <a href="/Index.aspx"><%=commonCulture.ElementValues.getResourceString("home", commonVariables.LeftMenuXML)%></a>
-            </li>
-            <li class="divider"> | </li>
-            <li class="f-menu"><a href="https://server.iad.liveperson.net/hc/88942816/?cmd=file&amp;file=visitorWantsToChat&amp;site=88942816&amp;SV!skill=English&amp;leInsId=88942816527642465&amp;skId=1&amp;leEngId=88942816_29aeab82-a5fc-4de7-b801-c6a87c638106&amp;leEngTypeId=8&amp;leEngName=LiveHelp_default&amp;leRepAvState=3&amp;SESSIONVAR!visitor_profile=English" onclick="window.open(&#39;https://server.iad.liveperson.net/hc/88942816/?cmd=file&amp;file=visitorWantsToChat&amp;site=88942816&amp;SV!skill=English&amp;leInsId=88942816527642465&amp;skId=1&amp;leEngId=88942816_29aeab82-a5fc-4de7-b801-c6a87c638106&amp;leEngTypeId=8&amp;leEngName=LiveHelp_default&amp;leRepAvState=3&amp;SESSIONVAR!visitor_profile=English&#39;, &#39;popup&#39;, &#39;width=517,height=465&#39;); return false"><%=commonCulture.ElementValues.getResourceString("helpCenter", commonVariables.LeftMenuXML)%></a></li>
-        </ul>
-        <ul>
-            <li>© 2015 <a href="https://www.w88live.com/">W88</a>. All rights reserved.</li>
-        </ul>
-    </footer>
+  </tr>
+</table>
+<!---->    
+    
+    </td>
+  </tr>
+  <tr>
+    <td height="30"></td>
+  </tr>
+<!--  <tr>
+    <td>Thank you. 谢谢！ขอบคุณ Chân thành cảm ơn. Terima Kasih</td>
+  </tr>-->
+  <tr>
+    <td>Thank you.</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><img src="/_static/img/logo_w88.png" /></td>
+  </tr>
+</table>
+
+<!----> 
+
+    
+</td></tr></table>
+
+
+
 
 </body>
 </html>

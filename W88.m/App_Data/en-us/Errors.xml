@@ -136,6 +136,26 @@
 		<NetellerDepositFailed><![CDATA[error create neteller deposit]]></NetellerDepositFailed>
 
 		<Exception><![CDATA[Unable to process request]]></Exception>
+		<!--
+    <errorAmountMinLimit><![CDATA[Amount is less than min limit]]></errorAmountMinLimit>
+    <errorAmountMaxLimit><![CDATA[Amount is more than max limit]]></errorAmountMaxLimit>
+    <errorAmountTotalAllowed><![CDATA[Amount is more than total allowed]]></errorAmountTotalAllowed>
+    <exceptionCreateTransaction><![CDATA[Unable to process request]]></exceptionCreateTransaction>
+    <errorMaxLength><![CDATA[- Maximum length exceeded for {0}]]></errorMaxLength>
+    <errorInput><![CDATA[Please enter a valid {0}]]></errorInput>
+    <errorSelect><![CDATA[Please select a valid {0}]]></errorSelect>
+    <errorSelectFile><![CDATA[Please select a valid image file with max size 2Mb]]></errorSelectFile>
+    <errorDateRange><![CDATA[Please select a valid Deposit Date/Time with  than 72 hours]]></errorDateRange>
+    <errorSelectTitle><![CDATA[Required field]]></errorSelectTitle>
+    <errorPositiveNumberTitle><![CDATA[Invalid amount]]></errorPositiveNumberTitle>
+    <errorAlphaNumericTitle><![CDATA[Alphanumeric only]]></errorAlphaNumericTitle>
+    <errorDateRangeTitle><![CDATA[Date range error]]></errorDateRangeTitle>
+    <errorMinLimitTitle><![CDATA[Min limit not reached]]></errorMinLimitTitle>
+    <errorMaxLimitTitle><![CDATA[Max limit exceeded]]></errorMaxLimitTitle>
+    <errorTotalAllowedTitle><![CDATA[Total allowed exceeded]]></errorTotalAllowedTitle>
+    <okButton><![CDATA[OK]]></okButton>
+    <cancelButton><![CDATA[CANCEL]]></cancelButton>
+    -->
 	</Deposit>
 
 	<Withdrawal>
@@ -177,26 +197,4 @@
 
 		<Exception><![CDATA[Unable to process request]]></Exception>
 	</Withdrawal>
-  <StatusCode>
-    <e400><![CDATA[400]]></e400>
-    <e403><![CDATA[403]]></e403>
-    <e404><![CDATA[404]]></e404>
-    <e408><![CDATA[408]]></e408>
-    <e500><![CDATA[500]]></e500>
-    <e502><![CDATA[502]]></e502>
-  </StatusCode>
-  <HttpError>
-    <e400><![CDATA[The request could not be understood by the server.]]></e400>
-    <e400title><![CDATA[Bad request]]></e400title>
-    <e403><![CDATA[You are not authorised to view this web page or directory.]]></e403>
-    <e403title><![CDATA[Forbidden]]></e403title>
-    <e404><![CDATA[Sorry, but the page you were trying to view does not exist.]]></e404>
-    <e404title><![CDATA[Page Not Found]]></e404title>
-    <e408><![CDATA[The server timed out waiting for the request.]]></e408>
-    <e408title><![CDATA[Request Timeout]]></e408title>
-    <e500><![CDATA[We encountered an error when processing your request. Please try again or contact customer support.]]></e500>
-    <e500title><![CDATA[Internal Server Error]]></e500title>
-    <e502><![CDATA[Web server received an invalid response while acting as a gateway.]]></e502>
-    <e502title><![CDATA[Bad Gateway]]></e502title>
-  </HttpError>
 </default>
