@@ -19,5 +19,4 @@
   window.User.hasSession = <%= (!String.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) ? 1 : 0 %>;
   window.User.sessionInterval = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("sessionInterval") %>';
 </script>
-<script type="text/javascript" src="/_Static/JS/modules/formValidator.js"></script>
-<script type="text/javascript" src="/_Static/Js/modules/slots.js"></script>
+<script src="/_Static/JS/modules/formValidator.js"></script>

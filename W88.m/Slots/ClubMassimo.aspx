@@ -11,11 +11,18 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder" runat="Server">
     <script type="text/javascript">
+        var cache = [];
         $(function () {
-            w88Mobile.Slots.club = "ClubMassimo";
-            w88Mobile.Slots.init();
-            w88Mobile.Slots.filterDisplay();
+            // $('.bkg-game').each(function () { var $this = $(this); $this.css('background-image', "url('/_Static/Images/ClubMassimo/" + $this.attr('rel') + "')"); });
+            $('.div-product').each(function () { var scrollObj = new IScroll('#' + $(this).attr('id'), { eventPassthrough: true, scrollX: true, scrollY: false, preventDefault: false, speedRatioX: 9000 }); cache.push(scrollObj); });
+            $('.bkg-game').each(function () {
+                var $this = $(this);
+                $this.prepend('<img src="/_Static/Images/ClubMassimo/' + $this.attr('rel') + '" class="img-responsive-full">')
+            });
+            $("img").error(function () {
+                $(this).unbind("error").attr("src", "/_Static/Images/broken-lt.gif");
+            });
         });
-    </script>
+        </script>
 </asp:Content>
 
