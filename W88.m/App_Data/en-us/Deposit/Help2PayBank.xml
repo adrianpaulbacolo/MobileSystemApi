@@ -1,23 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <banks>
-	<MYR>
-		<bank id="MBB"><![CDATA[Maybank]]></bank>
-		<bank id="PBB"><![CDATA[Public Bank]]></bank>
-		<bank id="CIMB"><![CDATA[CIMB]]></bank>
-		<bank id="HLB"><![CDATA[Hong Leong Bank]]></bank>
-	</MYR>
-	<THB>
-		<bank id="KKR"><![CDATA[Karsikorn Bank (K-Bank)]]></bank>
-		<bank id="BBL"><![CDATA[Bangkok Bank]]></bank>
-		<bank id="SCB"><![CDATA[Siam Commercial Bank]]></bank>
-		<bank id="KTB"><![CDATA[Krung Thai Bank]]></bank>
-	</THB>
-	<VND>
-		<bank id="TCB"><![CDATA[Techcombank]]></bank>
-		<bank id="SACOM"><![CDATA[Sacombank]]></bank>
-		<bank id="VCB"><![CDATA[Vietcombank]]></bank>
-		<bank id="ACB"><![CDATA[Asia Commercial Bank]]></bank>
-		<bank id="DAB"><![CDATA[DongA Bank]]></bank>
-		<bank id="VTB"><![CDATA[Vietin Bank]]></bank>
-	</VND>
+    <MYR>
+        <bank id="MBB"><![CDATA[Maybank]]></bank>
+        <bank id="PBB"><![CDATA[Public Bank]]></bank>
+        <bank id="CIMB"><![CDATA[CIMB]]></bank>
+        <bank id="HLB"><![CDATA[Hong Leong Bank]]></bank>
+    </MYR>
+    <THB>
+        <bank id="KKR"><![CDATA[Karsikorn Bank (K-Bank)]]></bank>
+        <bank id="BBL"><![CDATA[Bangkok Bank]]></bank>
+        <bank id="SCB"><![CDATA[Siam Commercial Bank]]></bank>
+        <bank id="KTB"><![CDATA[Krung Thai Bank]]></bank>
+    </THB>
+    <VND>
+        <bank id="TCB"><![CDATA[Techcombank]]></bank>
+        <bank id="SACOM"><![CDATA[Sacombank]]></bank>
+        <bank id="VCB"><![CDATA[Vietcombank]]></bank>
+        <bank id="ACB"><![CDATA[Asia Commercial Bank]]></bank>
+        <bank id="DAB"><![CDATA[DongA Bank]]></bank>
+        <bank id="VTB"><![CDATA[Vietin Bank]]></bank>
+        <bank id="BIDV"><![CDATA[Bank for Investment and Development of Vietnam]]></bank>
+    </VND>
+    <IDR>
+        <bank id="BCA"><![CDATA[Bank Central Asia]]></bank>
+        <bank id="BNI"><![CDATA[Bank Negara Indonesia]]></bank>
+        <bank id="BRI"><![CDATA[Bank Rakyat Indonesia]]></bank>
+        <bank id="MDR"><![CDATA[Mandiri Bank]]></bank>
+    </IDR>
 </banks>

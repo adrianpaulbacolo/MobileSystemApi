@@ -19,5 +19,12 @@
 		<bank id="ACB"><![CDATA[Asia Commercial Bank]]></bank>
 		<bank id="DAB"><![CDATA[DongA Bank]]></bank>
 		<bank id="VTB"><![CDATA[Vietin Bank]]></bank>
-	</VND>
+        <bank id="BIDV"><![CDATA[Bank for Investment and Development of Vietnam]]></bank>
+    </VND>
+    <IDR>
+        <bank id="BCA"><![CDATA[Bank Central Asia]]></bank>
+        <bank id="BNI"><![CDATA[Bank Negara Indonesia]]></bank>
+        <bank id="BRI"><![CDATA[Bank Rakyat Indonesia]]></bank>
+        <bank id="MDR"><![CDATA[Mandiri Bank]]></bank>
+    </IDR>
 </banks>
