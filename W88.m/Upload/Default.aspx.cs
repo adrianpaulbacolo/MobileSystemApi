@@ -17,27 +17,26 @@ public partial class Upload_Default : BasePage
     {
         commonCulture.appData.getLocalResource(out xeResources);
 
-        if (Page.IsPostBack) return;
+        if (!Page.IsPostBack)
+        {
+            lblUsername.Text = commonCulture.ElementValues.getResourceString("lblUsername", xeResources);
+            txtUsername.Text = commonVariables.GetSessionVariable("MemberCode");
 
-        SetTitle(commonCulture.ElementValues.getResourceString("submitUpload", commonVariables.LeftMenuXML));
+            lblCurrency.Text = commonCulture.ElementValues.getResourceString("lblCurrency", xeResources);
+            txtCurrency.Text = commonVariables.GetSessionVariable("CurrencyCode");
 
-        lblUsername.Text = commonCulture.ElementValues.getResourceString("lblUsername", xeResources);
-        txtUsername.Text = commonVariables.GetSessionVariable("MemberCode");
+            lblRemarks.Text = commonCulture.ElementValues.getResourceString("lblRemarks", xeResources);
 
-        lblCurrency.Text = commonCulture.ElementValues.getResourceString("lblCurrency", xeResources);
-        txtCurrency.Text = commonVariables.GetSessionVariable("CurrencyCode");
+            lblFileUpload.Text = commonCulture.ElementValues.getResourceString("lblFileUpload", xeResources);            
 
-        lblRemarks.Text = commonCulture.ElementValues.getResourceString("lblRemarks", xeResources);
+            btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
 
-        lblFileUpload.Text = commonCulture.ElementValues.getResourceString("lblFileUpload", xeResources);
-
-        btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
-
-        lblSuccess.Text = commonCulture.ElementValues.getResourceString("Success", xeResources);
-        lblSuccess.Visible = false;
+            lblSuccess.Text = commonCulture.ElementValues.getResourceString("Success", xeResources);
+            lblSuccess.Visible = false;
+        }
     }
 
-    protected void btnSubmit_Click(object sender, EventArgs e)
+    protected void btnSubmit_Click(object sender, EventArgs e) 
     {
         string strSMTPHost = System.Configuration.ConfigurationManager.AppSettings.Get("SMTPHOST");
         string strEmailFrom = "fileupload-mobile@w88.com";
@@ -78,7 +77,7 @@ public partial class Upload_Default : BasePage
                             message.To.Add("banking@w88.com");
                             message.To.Add("doc@w88.com");
 
-                            switch (strCurrency.ToLower())
+                            switch (strCurrency.ToLower()) 
                             {
                                 case "myr":
                                     message.CC.Add("CS_English@aquozsolutions.com");
@@ -140,11 +139,10 @@ public partial class Upload_Default : BasePage
                 strAlertMessage = commonCulture.ElementValues.getResourceString("InvalidFileType", xeResources);
             }
         }
-        else
-        {
+        else 
+        { 
             strAlertCode = "01";
             strAlertMessage = commonCulture.ElementValues.getResourceString("MissingAttachment", xeResources);
         }
     }
-
 }

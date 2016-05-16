@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 public class BasePage : System.Web.UI.Page
 {
@@ -40,7 +38,7 @@ public class BasePage : System.Web.UI.Page
             if (!UserSession.IsLoggedIn())
             {
                 Response.Redirect("/Index");
-        }
+            }
         }
 
         System.Web.UI.WebControls.Literal litScript = (System.Web.UI.WebControls.Literal)Page.FindControl("litScript");
@@ -49,7 +47,7 @@ public class BasePage : System.Web.UI.Page
     }
 
     protected bool CheckLogin()
-        {
+    {
         if (UserSession.IsLoggedIn())
         {
             return true;
@@ -58,12 +56,12 @@ public class BasePage : System.Web.UI.Page
     }
 
     public string getCDNValue()
-        {
+    {
         return this.headers.cdn;
-        }
+    }
 
     public string getCDNKey()
-        {
+    {
         return this.headers.key;
     }
 
@@ -93,7 +91,7 @@ public class BasePage : System.Web.UI.Page
         }
 
         if (!string.IsNullOrEmpty(this.GetValue<string>(Request.ServerVariables[commonCountry.HeaderKeys.TRUE_CLIENT_IP])))
-            {
+        {
             this.headers.ip = Request.ServerVariables[commonCountry.HeaderKeys.TRUE_CLIENT_IP].ToString();
         }
     }
@@ -111,13 +109,13 @@ public class BasePage : System.Web.UI.Page
         if (obj == DBNull.Value || obj == null)
         {
             return default(T);
-            }
+        }
 
         return (T)Convert.ChangeType(obj, typeof(T));
     }
 
     public string GetCountryCode(string CDN_Value, string key)
-            {
+    {
         string CountryCode = string.Empty;
 
         if (key == commonCountry.HeaderKeys.HTTP_X_AKAMAI_EDGESCAPE)
@@ -129,7 +127,7 @@ public class BasePage : System.Web.UI.Page
         if (key == commonCountry.HeaderKeys.HTTP_CF_IPCOUNTRY)
         {
             CountryCode = CDN_Value;
-            }
+        }
         if (key == commonCountry.HeaderKeys.HTTP_GEO_COUNTRY)
         {
             CountryCode = CDN_Value;
@@ -185,58 +183,4 @@ public class BasePage : System.Web.UI.Page
         return Language;
     }
 
-    protected void SetTitle(string s)
-    {
-        if (Master == null) return;
-
-        EnableLogoOnPage();
-
-        var header = (UserControl)Master.FindControl("HeaderLogo");
-        var title = (Literal)header.FindControl("ltrTitle");
-        
-        if (title == null) return;
-
-        title.Text = HttpUtility.HtmlEncode(s);
-        title.Visible = true;
-    }
-
-    protected void EnableLogoOnPage(bool cancel = false, bool back = false, bool logo = false)
-    {
-        if (Master == null) return;
-
-        //var header = (UserControl)Master.FindControl("HeaderOnText");
-        //header.Visible = false;
-
-        var header = (UserControl)Master.FindControl("HeaderLogo");
-
-        if (header == null) return;
-        
-        if (cancel)
-        {
-            var cancelButton = (HyperLink)header.FindControl("cancel");
-            cancelButton.Visible = true;
-            
-        }
-
-        if (back)
-        {
-            var backButton = (HyperLink)header.FindControl("aMenu");
-            backButton.Visible = true;
-        }
-
-        if (logo)
-        {
-            var text = (Literal)header.FindControl("ltrTitle");
-            text.Visible = false;
-            var img = (Panel)header.FindControl("logo");
-            img.Visible = true;
-        }
-        else
-        {
-            var text = (Literal)header.FindControl("ltrTitle");
-            text.Visible = true;
-            var img = (Panel)header.FindControl("logo");
-            img.Visible = false;
-        }
-    }
 }

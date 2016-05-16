@@ -14,7 +14,6 @@ public partial class _ContactUs : BasePage
         System.Web.UI.WebControls.Literal litScript = (System.Web.UI.WebControls.Literal)Page.FindControl("litScript");
         //commonCulture.appData.getLocalResource(out xeResources);
         commonCulture.appData.getRootResource("ContactUs.aspx", out xeResources);
-        SetTitle(commonCulture.ElementValues.getResourceString("contactUs", commonVariables.LeftMenuXML));
 
         if (!Page.IsPostBack)
         {

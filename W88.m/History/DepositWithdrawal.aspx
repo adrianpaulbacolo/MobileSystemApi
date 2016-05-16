@@ -1,7 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DepositWithdrawal.aspx.cs" Inherits="History_DepositWithdrawal" %>
 
-<%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
-
 <!DOCTYPE html>
 
 <html>
@@ -21,9 +19,11 @@
         </header>
 
         <div class="ui-content" role="main">
-
+            
             <div class="wallet main-wallet">
-                <uc:Wallet ID="uMainWallet" runat="server" />
+                <label class="label">Main Wallet</label>
+                <h2 class="value"><%=Session["Main"].ToString()%></h2>
+                <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
             </div>
 
             <form class="form" id="form1" runat="server" data-ajax="false">
@@ -31,7 +31,7 @@
                 <ul class="list fixed-tablet-size">
                     <li class="item item-select">
                         <asp:Label ID="lblDateFrom" runat="server" AssociatedControlID="txtDateFrom" Text="" />
-                        <asp:TextBox ID="txtDateFrom" type="date" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtDateFrom"  type="date" runat="server"></asp:TextBox>
                     </li>
                     <li class="item item-select">
                         <asp:Label ID="lblDateTo" runat="server" Text="" />
@@ -39,7 +39,7 @@
                     </li>
                     <li class="item item-select">
                         <asp:Label ID="lblType" runat="server" AssociatedControlID="ddlType" Text="" />
-                        <asp:DropDownList ID="ddlType" runat="server" data-corners="false">
+                        <asp:DropDownList ID="ddlType" runat="server" data-corners="false" >
                             <asp:ListItem Text="ALL" Value="0" />
                             <asp:ListItem Text="DEPOSIT" Value="1" />
                             <asp:ListItem Text="WITHDRAWAL" Value="2" />
@@ -48,7 +48,7 @@
                     <li class="item item-select">
                         <asp:Label ID="lblStatus" runat="server" AssociatedControlID="ddlStatus" Text="" />
                         <asp:DropDownList ID="ddlStatus" runat="server" data-corners="false">
-                            <asp:ListItem Text="ALL" Value="ALL" />
+                             <asp:ListItem Text="ALL" Value="ALL" />
                             <asp:ListItem Text="SUCCESSFUL" Value="SUCCESSFUL" />
                             <asp:ListItem Text="PENDING" Value="PENDING" />
                             <asp:ListItem Text="FAILED" Value="FAILED" />
@@ -56,7 +56,7 @@
                     </li>
                     <li class="item row">
                         <div class="col">
-                            <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" id="btnCancel" runat="server" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
+                            <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" ID="btnCancel" runat="server" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
                         </div>
                         <div class="col">
                             <asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="Submit" CssClass="button-blue" OnClick="btnSubmit_Click" />
