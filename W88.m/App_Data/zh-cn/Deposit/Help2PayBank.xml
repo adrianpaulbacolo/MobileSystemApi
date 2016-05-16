@@ -19,6 +19,5 @@
 		<bank id="ACB"><![CDATA[Asia Commercial Bank]]></bank>
 		<bank id="DAB"><![CDATA[DongA Bank]]></bank>
 		<bank id="VTB"><![CDATA[Vietin Bank]]></bank>
-		<bank id="BIDV"><![CDATA[Bank for Investment and Development of Vietnam]]></bank>
 	</VND>
 </banks>
