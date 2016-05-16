@@ -17,4 +17,6 @@
 	<wBankTransfer><![CDATA[은행송금]]></wBankTransfer>
 	<wWingMoney><![CDATA[온라인]]></wWingMoney>
 	<wNeteller><![CDATA[Neteller]]></wNeteller>
+
+	<paymentNotice><![CDATA[<span>There are no available Payment Gateways configured for your account. Please contact  <a href="/LiveChat/Default.aspx" target="_blank">Customer Support </a> for assistance.</span>]]></paymentNotice>
 </PaymentMethods>

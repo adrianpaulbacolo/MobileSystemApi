@@ -31,6 +31,12 @@
                 <br />
                 <br />
                 <br />
+                <ul class="list fixed-tablet-size">
+                    <li class="row">
+                        <div class="col" id="paymentNote">
+                        </div>
+                    </li>
+                </ul>
             </form>
 
         </div>
@@ -44,6 +50,8 @@
                 if ($('#depositTabs li a.btn-primary').length == 0) {
                     if ($('#depositTabs li').first().children().attr('href') != undefined) {
                         window.location.replace($('#depositTabs li').first().children().attr('href'));
+                    } else {
+                        $('#paymentNote').append('<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>');
                     }
                 }
             });

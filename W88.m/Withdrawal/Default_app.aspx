@@ -32,6 +32,12 @@
                 <br />
                 <br />
                 <br />
+                <ul class="list fixed-tablet-size">
+                    <li class="row">
+                        <div class="col" id="paymentNote">
+                        </div>
+                    </li>
+                </ul>
             </form>
         </div>
 
@@ -43,6 +49,8 @@
                 if ($('#withdrawalTabs li a.btn-primary').length == 0) {
                     if ($('#withdrawalTabs li').first().children().attr('href') != undefined) {
                         window.location.replace($('#withdrawalTabs li').first().children().attr('href'));
+                    } else {
+                        $('#paymentNote').append('<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>');
                     }
                 }
             });
