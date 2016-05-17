@@ -18,5 +18,5 @@
 	<wWingMoney><![CDATA[온라인]]></wWingMoney>
 	<wNeteller><![CDATA[Neteller]]></wNeteller>
 
-	<paymentNotice><![CDATA[<span>There are no available Payment Gateways configured for your account. Please contact  <a href="/LiveChat/Default.aspx" target="_blank">Customer Support </a> for assistance.</span>]]></paymentNotice>
+	<paymentNotice><![CDATA[<span>해당 계정에 이용 가능한 입출금 서비스가 없습니다 <a href="/LiveChat/Default.aspx" target="_blank">고객센터로</a> 문의 주시기 바랍니다</span>]]></paymentNotice>
 </PaymentMethods>
