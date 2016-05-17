@@ -31,6 +31,7 @@
 		<MissingCurrency><![CDATA[请选择您的首选货币。]]></MissingCurrency>
 		<MissingFName><![CDATA[请输入您的名]]></MissingFName>
 		<MissingLName><![CDATA[请输入您的姓]]></MissingLName>
+		<MissingName><![CDATA[请输入您的名字全称]]></MissingName>
 		<MissingVCode><![CDATA[请输入验证码]]></MissingVCode>
 
 		<InvalidUsername><![CDATA[请输入有效的用户名]]></InvalidUsername>
@@ -109,26 +110,6 @@
 		<error-99><![CDATA[抱歉，服务器出现错误]]></error-99>
 
 		<Exception><![CDATA[无法处理您的交易申请]]></Exception>
-		<!--
-    <errorAmountMinLimit><![CDATA[Amount is less than min limit]]></errorAmountMinLimit>
-    <errorAmountMaxLimit><![CDATA[Amount is more than max limit]]></errorAmountMaxLimit>
-    <errorAmountTotalAllowed><![CDATA[Amount is more than total allowed]]></errorAmountTotalAllowed>
-    <exceptionCreateTransaction><![CDATA[Unable to process request]]></exceptionCreateTransaction>
-    <errorMaxLength><![CDATA[- Maximum length exceeded for {0}]]></errorMaxLength>
-    <errorInput><![CDATA[Please enter a valid {0}]]></errorInput>
-    <errorSelect><![CDATA[Please select a valid {0}]]></errorSelect>
-    <errorSelectFile><![CDATA[Please select a valid image file with max size 2Mb]]></errorSelectFile>
-    <errorDateRange><![CDATA[Please select a valid Deposit Date/Time with more/less than 72 hours]]></errorDateRange>
-    <errorSelectTitle><![CDATA[Required field]]></errorSelectTitle>
-    <errorPositiveNumberTitle><![CDATA[Invalid amount]]></errorPositiveNumberTitle>
-    <errorAlphaNumericTitle><![CDATA[Alphanumeric only]]></errorAlphaNumericTitle>
-    <errorDateRangeTitle><![CDATA[Date range error]]></errorDateRangeTitle>
-    <errorMinLimitTitle><![CDATA[Min limit not reached]]></errorMinLimitTitle>
-    <errorMaxLimitTitle><![CDATA[Max limit exceeded]]></errorMaxLimitTitle>
-    <errorTotalAllowedTitle><![CDATA[Total allowed exceeded]]></errorTotalAllowedTitle>
-    <okButton><![CDATA[OK]]></okButton>
-    <cancelButton><![CDATA[CANCEL]]></cancelButton>
-    -->
 	</Deposit>
 
 	<Withdrawal>

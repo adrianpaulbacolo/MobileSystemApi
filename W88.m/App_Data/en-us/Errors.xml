@@ -29,6 +29,7 @@
 		<MissingCurrency><![CDATA[Please select your preferred currency]]></MissingCurrency>
 		<MissingFName><![CDATA[Please enter your first name]]></MissingFName>
 		<MissingLName><![CDATA[Please enter your last name]]></MissingLName>
+		<MissingName><![CDATA[Please enter your full name]]></MissingName>
 		<MissingVCode><![CDATA[Please enter verification code]]></MissingVCode>
 
 		<InvalidUsername><![CDATA[Invalid Username and/or Password.]]></InvalidUsername>
@@ -136,26 +137,6 @@
 		<NetellerDepositFailed><![CDATA[error create neteller deposit]]></NetellerDepositFailed>
 
 		<Exception><![CDATA[Unable to process request]]></Exception>
-		<!--
-    <errorAmountMinLimit><![CDATA[Amount is less than min limit]]></errorAmountMinLimit>
-    <errorAmountMaxLimit><![CDATA[Amount is more than max limit]]></errorAmountMaxLimit>
-    <errorAmountTotalAllowed><![CDATA[Amount is more than total allowed]]></errorAmountTotalAllowed>
-    <exceptionCreateTransaction><![CDATA[Unable to process request]]></exceptionCreateTransaction>
-    <errorMaxLength><![CDATA[- Maximum length exceeded for {0}]]></errorMaxLength>
-    <errorInput><![CDATA[Please enter a valid {0}]]></errorInput>
-    <errorSelect><![CDATA[Please select a valid {0}]]></errorSelect>
-    <errorSelectFile><![CDATA[Please select a valid image file with max size 2Mb]]></errorSelectFile>
-    <errorDateRange><![CDATA[Please select a valid Deposit Date/Time with  than 72 hours]]></errorDateRange>
-    <errorSelectTitle><![CDATA[Required field]]></errorSelectTitle>
-    <errorPositiveNumberTitle><![CDATA[Invalid amount]]></errorPositiveNumberTitle>
-    <errorAlphaNumericTitle><![CDATA[Alphanumeric only]]></errorAlphaNumericTitle>
-    <errorDateRangeTitle><![CDATA[Date range error]]></errorDateRangeTitle>
-    <errorMinLimitTitle><![CDATA[Min limit not reached]]></errorMinLimitTitle>
-    <errorMaxLimitTitle><![CDATA[Max limit exceeded]]></errorMaxLimitTitle>
-    <errorTotalAllowedTitle><![CDATA[Total allowed exceeded]]></errorTotalAllowedTitle>
-    <okButton><![CDATA[OK]]></okButton>
-    <cancelButton><![CDATA[CANCEL]]></cancelButton>
-    -->
 	</Deposit>
 
 	<Withdrawal>

@@ -31,6 +31,7 @@
 		<MissingCurrency><![CDATA[Vui lòng lựa chọn tiền tệ.]]></MissingCurrency>
 		<MissingFName><![CDATA[Vui lòng nhập Tên Và Tên Đệm của bạn]]></MissingFName>
 		<MissingLName><![CDATA[Vui lòng nhập Họ của bạn]]></MissingLName>
+		<MissingName><![CDATA[Vui lòng điền đầy đủ họ tên]]></MissingName>
 		<MissingVCode><![CDATA[Mã xác nhận sai]]></MissingVCode>
 
 		<InvalidUsername><![CDATA[Sai Tên Đăng Nhập và/hoặc Sai Mật Khẩu]]></InvalidUsername>
