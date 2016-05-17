@@ -64,47 +64,47 @@
             $('#form1').submit(function (e) {
                 $('#btnSubmit').attr("disabled", true);
                 if ($('#txtUsername').val().trim().length == 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Login/MissingUsername", xeErrors)%>');
+                    w88Mobile.Growl.start('<%=commonCulture.ElementValues.getResourceXPathString("Login/MissingUsername", xeErrors)%>');
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
                     return;
                 }
                 else if (!/^[a-zA-Z0-9]+$/.test($('#txtUsername').val().trim())) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Login/InvalidUsername", xeErrors)%>');
+                    w88Mobile.Growl.start('<%=commonCulture.ElementValues.getResourceXPathString("Login/InvalidUsername", xeErrors)%>');
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
                     return;
                 }
                 else if ($('#txtUsername').val().trim().indexOf(' ') >= 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Login/InvalidUsername", xeErrors)%>');
+                    w88Mobile.Growl.start('<%=commonCulture.ElementValues.getResourceXPathString("Login/InvalidUsername", xeErrors)%>');
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
                     return;
                 }
                 else if ($('#txtPassword').val().trim().length == 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Login/MissingPassword", xeErrors)%>');
+                    w88Mobile.Growl.start('<%=commonCulture.ElementValues.getResourceXPathString("Login/MissingPassword", xeErrors)%>');
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
                     return;
                 }
                 else if ($('#txtCaptcha').val().trim().length == 0 && $('#imgCaptcha').is(':visible') == true) {
-                    alert('<%=commonCulture.ElementValues.getResourceString("MissingVCode", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
-                    return;
-                }
-                else {
-                    GPINTMOBILE.ShowSplash();
+                    w88Mobile.Growl.start('<%=commonCulture.ElementValues.getResourceString("MissingVCode", xeErrors)%>');
+                        $('#btnSubmit').attr("disabled", false);
+                        e.preventDefault();
+                        return;
+                    }
+                    else {
+                        GPINTMOBILE.ShowSplash();
 
-                    initiateLogin();
-                    $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
-                }
+                        initiateLogin();
+                        $('#btnSubmit').attr("disabled", false);
+                        e.preventDefault();
+                    }
                 e.preventDefault();
                 return;
             });
 
-            $('#<%=imgCaptcha.ClientID%>').click(function () { $(this).attr('src', '/_Secure/Captcha.aspx'); });
+$('#<%=imgCaptcha.ClientID%>').click(function () { $(this).attr('src', '/_Secure/Captcha.aspx'); });
 
             function initiateLogin() {
                 console.log('txt: ' + $('#txtCaptcha').val());
@@ -114,7 +114,7 @@
                     beforeSend: function () { GPINTMOBILE.ShowSplash(); },
                     timeout: function () {
                         $('#<%=btnSubmit.ClientID%>').prop('disabled', false);
-                        alert('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
+                        w88Mobile.Growl.start('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
                         window.location.replace('/Default.aspx');
                     },
                     data: { txtUsername: $('#txtUsername').val(), txtPassword: $('#txtPassword').val(), txtCaptcha: $('#txtCaptcha').val(), ioBlackBox: $('#ioBlackBox').val() },
@@ -141,46 +141,45 @@
 
                                 break;
                             case "resetPassword":
-                                    window.location.replace('/Settings/ChangePassword.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
+                                window.location.replace('/Settings/ChangePassword.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
                                 break;
                             default:
 
                                 counter += 1;
+                                $("#alertmsg").html($(xml).find('Message').text());
 
                                 if (counter >= 3) {
                                     $(".capt").removeClass("hide");
                                     $('#<%=imgCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
                                     $('#<%=lblCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
                                     $('#<%=txtCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
-                                    alert($(xml).find('Message').text());
                                     $('#<%=imgCaptcha.ClientID%>').attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime());
                                     $('#<%=txtCaptcha.ClientID%>').val('');
                                     $('#<%=txtPassword.ClientID%>').val('');
                                     GPINTMOBILE.HideSplash();
                                 }
                                 else if (counter < 3) {
-                                    alert($(xml).find('Message').text());
                                     GPINTMOBILE.HideSplash();
                                 }
+                                w88Mobile.Growl.start($(xml).find('Message').text());
                                 break;
                         }
                     },
                     error: function (err) {
-                        alert('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
+                        w88Mobile.Growl.start('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
                         window.location.replace('<%=strRedirect%>');
                     }
                 });
             }
         </script>
         <script type="text/javascript" id="iovs_script">
-	        var io_operation = 'ioBegin';
-	        var io_bbout_element_id = 'ioBlackBox';
-	        //var io_submit_element_id = 'btnSubmit';
-	        var io_submit_form_id = 'form1';
-	        var io_max_wait = 5000;
-	        var io_install_flash = false;
-	        var io_install_stm = false;
-	        var io_exclude_stm = 12;
+            var io_operation = 'ioBegin';
+            var io_bbout_element_id = 'ioBlackBox';
+            var io_submit_form_id = 'form1';
+            var io_max_wait = 5000;
+            var io_install_flash = false;
+            var io_install_stm = false;
+            var io_exclude_stm = 12;
         </script>
         <script type="text/javascript" src="//ci-mpsnare.iovation.com/snare.js"></script>
 
