@@ -74,7 +74,7 @@
 
                 <div class="row">
                     <div class="col">
-                        <input type="button" data-theme="b" onclick="location.href = '/Withdrawal/Withrawal.aspx?source=app';" value="<%=commonCulture.ElementValues.getResourceString("withrawal", commonVariables.LeftMenuXML)%>" class="button-blue" data-corners="false" />
+                        <input type="button" data-theme="b" onclick="location.href = '/Withdrawal/Default_app.aspx';" value="<%=commonCulture.ElementValues.getResourceString("withrawal", commonVariables.LeftMenuXML)%>" class="button-blue" data-corners="false" />
                     </div>
                     <div class="col">
                         <input type="button" data-theme="b" onclick="location.href = '/FundTransfer/FundTransfer.aspx';" value="<%=commonCulture.ElementValues.getResourceString("fundTransfer", commonVariables.LeftMenuXML)%>" class="button-blue" data-corners="false" />
@@ -85,21 +85,16 @@
         </div>
 
         <script type="text/javascript">
+            $('#form1').submit(function (e) {
+                window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
+            });
             $(function () {
                 window.history.forward();
 
-                if ('<%=strAlertCode%>'.length > 0) {
-                    switch ('<%=strAlertCode%>') {
-                        case '-1':
-                            alert('<%=strAlertMessage%>');
-                            break;
-                        case '0':
-                            alert('<%=strAlertMessage%>');
-
-                            break;
-                        default:
-                            break;
-                    }
+                var responseCode = '<%=strAlertCode%>';
+                var responseMsg = '<%=strAlertMessage%>';
+                if (responseCode.length > 0 && responseMsg.length > 0) {
+                    alert(responseMsg);
                 }
             });
 
