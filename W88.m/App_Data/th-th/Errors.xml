@@ -31,6 +31,7 @@
 		<MissingCurrency><![CDATA[กรุณาเลือกสกุลเงินที่ท่านต้องการ]]></MissingCurrency>
 		<MissingFName><![CDATA[กรุณาใส่ชื่อจริง]]></MissingFName>
 		<MissingLName><![CDATA[กรุณาใส่นามสกุล]]></MissingLName>
+		<MissingName><![CDATA[คุณจะต้องทำการกรอกชื่อ]]></MissingName>
 		<MissingVCode><![CDATA[กรุณาใส่รหัสตรวจสอบ 4 หลัก.]]></MissingVCode>
 
 		<InvalidUsername><![CDATA[ชื่อผู้ใช้งาน และ พาสเวิร์ดไม่ถูกต้อง]]></InvalidUsername>
@@ -110,26 +111,6 @@
 		<error-99><![CDATA[ขออภัยค่ะ ขณะนี้ระบบขัดข้อง]]></error-99>
 
 		<Exception><![CDATA[ไม่สามารถดำเนินการตามคำขอได้]]></Exception>
-		<!--
-    <errorAmountMinLimit><![CDATA[Amount is less than min limit]]></errorAmountMinLimit>
-    <errorAmountMaxLimit><![CDATA[Amount is more than max limit]]></errorAmountMaxLimit>
-    <errorAmountTotalAllowed><![CDATA[Amount is more than total allowed]]></errorAmountTotalAllowed>
-    <exceptionCreateTransaction><![CDATA[Unable to process request]]></exceptionCreateTransaction>
-    <errorMaxLength><![CDATA[- Maximum length exceeded for {0}]]></errorMaxLength>
-    <errorInput><![CDATA[Please enter a valid {0}]]></errorInput>
-    <errorSelect><![CDATA[Please select a valid {0}]]></errorSelect>
-    <errorSelectFile><![CDATA[Please select a valid image file with max size 2Mb]]></errorSelectFile>
-    <errorDateRange><![CDATA[Please select a valid Deposit Date/Time with more/less than 72 hours]]></errorDateRange>
-    <errorSelectTitle><![CDATA[Required field]]></errorSelectTitle>
-    <errorPositiveNumberTitle><![CDATA[Invalid amount]]></errorPositiveNumberTitle>
-    <errorAlphaNumericTitle><![CDATA[Alphanumeric only]]></errorAlphaNumericTitle>
-    <errorDateRangeTitle><![CDATA[Date range error]]></errorDateRangeTitle>
-    <errorMinLimitTitle><![CDATA[Min limit not reached]]></errorMinLimitTitle>
-    <errorMaxLimitTitle><![CDATA[Max limit exceeded]]></errorMaxLimitTitle>
-    <errorTotalAllowedTitle><![CDATA[Total allowed exceeded]]></errorTotalAllowedTitle>
-    <okButton><![CDATA[OK]]></okButton>
-    <cancelButton><![CDATA[CANCEL]]></cancelButton>
-    -->
 	</Deposit>
 
 	<Withdrawal>
@@ -170,4 +151,27 @@
 
 		<Exception><![CDATA[ไม่สามารถดำเนินการตามคำขอได้]]></Exception>
 	</Withdrawal>
+	
+	<StatusCode>
+		<e400><![CDATA[400]]></e400>
+		<e403><![CDATA[403]]></e403>
+		<e404><![CDATA[404]]></e404>
+		<e408><![CDATA[408]]></e408>
+		<e500><![CDATA[500]]></e500>
+		<e502><![CDATA[502]]></e502>
+	</StatusCode>
+	<HttpError>
+		<e400><![CDATA[เซิร์ฟเวอร์ไม่สามารถตอบสนองต่อคำสั่ง]]></e400>
+		<e400title><![CDATA[เกตเวย์ไม่เหมาะสม]]></e400title>
+		<e403><![CDATA[ท่านไม่ได้รับอนุญาตให้เข้าใช้งานในหน้านี้]]></e403>
+		<e403title><![CDATA[หน้านี้ไม่ได้รับอนุญาตให้เข้าใช้งาน]]></e403title>
+		<e404><![CDATA[ขออภัย หน้าเว็บที่คุณ กำลังพยายามที่จะ ดู ไม่ได้อยู่]]></e404>
+		<e404title><![CDATA[ไม่พบหน้านี้]]></e404title>
+		<e408><![CDATA[เซิร์ฟเวอร์ หมดเวลา การรอคอย สำหรับการร้องขอ]]></e408>
+		<e408title><![CDATA[หมดเวลาการร้องขอ]]></e408title>
+		<e500><![CDATA[ตรวจพบปัญหาระหว่างการขอดำเนินการของท่าน กรุณาลองอีกครั้ง หรือติดต่อเจ้าหน้าที่ลูกค้าสัมพันธ์]]></e500>
+		<e500title><![CDATA[ระบบเซิร์ฟเวอร์มีปัญหา]]></e500title>
+		<e502><![CDATA[เซิร์ฟเวอร์ของเว็บได้รับการตอบสนองที่ไม่ถูกต้องขณะทำหน้าที่เป็นเกตเวย์]]></e502>
+		<e502title><![CDATA[เกตเวย์ไม่เหมาะสม]]></e502title>
+	</HttpError>
 </default>

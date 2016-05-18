@@ -10,6 +10,8 @@
 	<lblOptionFields><![CDATA[Optional Fields]]></lblOptionFields>
 	<lblFirstName><![CDATA[ឈ្មោះ]]></lblFirstName>
 	<lblLastName><![CDATA[នាមត្រកូល]]></lblLastName>
+	<lblName><![CDATA[ឈ្មោះពេញ]]></lblName>
+	<lblNote><![CDATA[រាល់ប្រតិបត្តិការពាក់ព័ន្ធនឹងកាត សែក និងការផ្ទេរតាមធនាគារគឺនឹងអាចអនុញ្ញាត លុះត្រាណាតែឈ្មោះត្រឹមត្រូវ និងដូចគ្នា។]]></lblNote>
 	<lblDOB><![CDATA[ថ្ងៃខែឆ្នាំកំណើត]]></lblDOB>
 	<lblAffiliateID><![CDATA[Affiliate ID]]></lblAffiliateID>
 

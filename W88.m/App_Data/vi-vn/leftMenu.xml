@@ -78,13 +78,6 @@
 
 	<depositDaddyPay><![CDATA[Gửi Tiền - Trực Tuyến Nhanh]]></depositDaddyPay>
 
-	<history><![CDATA[History]]></history>
-	<depositwithdrawal><![CDATA[Deposit / Withdrawal History]]></depositwithdrawal>
-	<fundtransfer><![CDATA[Fund Transfer History]]></fundtransfer>
-	<referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
-	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
-
-
 	<close><![CDATA[ĐÓNG]]></close>
 
 	<neteller><![CDATA[Neteller]]></neteller>
