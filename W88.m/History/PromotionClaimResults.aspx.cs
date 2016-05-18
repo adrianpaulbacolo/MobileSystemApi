@@ -23,11 +23,6 @@ public partial class History_PromotionClaimResults : BasePage
                 //Other Params
                 var strOperatorId = int.Parse(commonVariables.OperatorId);
                 var strMemberId = long.Parse(commonVariables.GetSessionVariable("MemberId"));
-                //if((dateTo-dateFrom).TotalDays > 90)
-                //{
-                //    dateTo = dateFrom.AddDays(90);
-                //}
-
 
                 try
                 {
@@ -38,6 +33,10 @@ public partial class History_PromotionClaimResults : BasePage
 
                         GridView1.DataSource = history;
                         GridView1.PagerSettings.Mode = PagerButtons.NextPrevious;
+                        GridView1.EmptyDataText = commonCulture.ElementValues.getResourceXPathString("norecords", commonVariables.HistoryXML);
+                        GridView1.Columns[1].HeaderText = commonCulture.ElementValues.getResourceXPathString("dateTime", commonVariables.HistoryXML);
+                        GridView1.Columns[2].HeaderText = commonCulture.ElementValues.getResourceXPathString("subjectCode", commonVariables.HistoryXML);
+
                         GridView1.DataBind();
                     }
                 }

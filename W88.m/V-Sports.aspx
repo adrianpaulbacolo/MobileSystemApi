@@ -14,25 +14,25 @@
             </li>
             <%--<li class="col col-33">
                     <a href="/_Secure/Login.aspx" class="card" data-rel="sports" rel="vsportsDogRacing">
-                        <img src="/_Static/Images/bnr-vSPORTS-dogracing.jpg" alt="a-Sports" class="img-responsive">
+                        <img src="_Static/Images/bnr-vSPORTS-dogracing.jpg" alt="a-Sports" class="img-responsive">
                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-dogracing/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>--%>
             <li class="col col-33">
                 <a href="/_Secure/Login.aspx" class="card" data-rel="sports" rel="vsportsFootBall" target="_blank">
-                    <img src="/_Static/Images/sports/bnr-vSports-soccer.jpg" class="img-responsive">
+                    <img src="_Static/Images/sports/bnr-vSports-soccer.jpg" class="img-responsive">
                     <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-football/Label", commonVariables.ProductsXML)%></div>
                 </a>
             </li>
             <%--<li class="col col-33">
                     <a href="/_Secure/Login.aspx" class="card" data-rel="sports" rel="vsportsHorseRacing">
-                        <img src="/_Static/Images/bnr-vSPORTS-horseracing.jpg" alt="a-Sports" class="img-responsive">
+                        <img src="_Static/Images/bnr-vSPORTS-horseracing.jpg" alt="a-Sports" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-horseracing/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>--%>
             <%--<li class="col col-33">
                     <a href="/_Secure/Login.aspx" class="card" data-rel="sports" rel="vsportsTennis">
-                        <img src="/_Static/Images/bnr-vSPORTS-tennis.jpg" alt="a-Sports" class="img-responsive">
+                        <img src="_Static/Images/bnr-vSPORTS-tennis.jpg" alt="a-Sports" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-tennis/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>--%>
