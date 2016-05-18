@@ -232,7 +232,7 @@
                 </li>
                 <li>
                     <a class="card" rel="clubgallardo" href="/ClubGallardo" data-ajax="false">
-                        <img src="_Static/Images/bnr-clubgallardo.jpg" class="img-responsive">
+                        <img src="/_Static/Images/bnr-clubgallardo.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubGallardo/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
