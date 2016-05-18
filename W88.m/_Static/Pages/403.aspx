@@ -4,7 +4,7 @@
 <meta>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><%=commonCulture.ElementValues.getResourceXPathString("HttpError/e404title", commonVariables.ErrorsXML)%></title>
+    <title><%=commonCulture.ElementValues.getResourceXPathString("HttpError/e403title", commonVariables.ErrorsXML)%></title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link href="/_Static/Css/style.css" rel="stylesheet" type="text/css">
 
@@ -163,9 +163,9 @@
 
     <section class="container main">
     	<a href="/Index.aspx"><img class="logo" src="/_Static/Images/errors/w-logo.png"></a>
-        <h1><%=commonCulture.ElementValues.getResourceXPathString("StatusCode/e404", commonVariables.ErrorsXML)%></h1>
-        <h3><%=commonCulture.ElementValues.getResourceXPathString("HttpError/e404title", commonVariables.ErrorsXML)%></h3>
-        <p><%=commonCulture.ElementValues.getResourceXPathString("HttpError/e404", commonVariables.ErrorsXML)%></p>
+        <h1><%=commonCulture.ElementValues.getResourceXPathString("StatusCode/e403", commonVariables.ErrorsXML)%></h1>
+        <h3><%=commonCulture.ElementValues.getResourceXPathString("HttpError/e403title", commonVariables.ErrorsXML)%></h3>
+        <p><%=commonCulture.ElementValues.getResourceXPathString("HttpError/e403", commonVariables.ErrorsXML)%></p>
     </section>
 
     <footer class="container footer">
