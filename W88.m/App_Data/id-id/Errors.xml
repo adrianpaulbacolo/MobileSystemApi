@@ -150,26 +150,27 @@
 
 		<Exception><![CDATA[Tidak dapat memproses permintaan]]></Exception>
 	</Withdrawal>
-  <StatusCode>
-    <e400><![CDATA[400]]></e400>
-    <e403><![CDATA[403]]></e403>
-    <e404><![CDATA[404]]></e404>
-    <e408><![CDATA[408]]></e408>
-    <e500><![CDATA[500]]></e500>
-    <e502><![CDATA[502]]></e502>
-  </StatusCode>
-  <HttpError>
-    <e400><![CDATA[Permintaan tidak bisa dimengerti oleh server.]]></e400>
-    <e400title><![CDATA[Bad Request]]></e400title>
-    <e403><![CDATA[Anda tidak diijinkan untuk mengakses halaman ini.]]></e403>
-    <e403title><![CDATA[Forbidden]]></e403title>
-    <e404><![CDATA[Maaf, tapi halaman Anda mencoba untuk melihat tidak ada.]]></e404>
-    <e404title><![CDATA[Halaman tidak ditemukan]]></e404title>
-    <e408><![CDATA[server timed out menunggu permintaan .]]></e408>
-    <e408title><![CDATA[Permintaan Timeout]]></e408title>
-    <e500><![CDATA[Terjadi kesalahan saat memperoses permintaan Anda. Silahkan mencoba kembali atau hubungi Customer Service]]></e500>
-    <e500title><![CDATA[Kesalahan server dari dalam]]></e500title>
-    <e502><![CDATA[Web server menerima respon tidak valid saat bertindak sebagai gateway.]]></e502>
-    <e502title><![CDATA[Bad Gateway]]></e502title>
-  </HttpError>
+	
+	<StatusCode>
+		<e400><![CDATA[400]]></e400>
+		<e403><![CDATA[403]]></e403>
+		<e404><![CDATA[404]]></e404>
+		<e408><![CDATA[408]]></e408>
+		<e500><![CDATA[500]]></e500>
+		<e502><![CDATA[502]]></e502>
+	</StatusCode>
+	<HttpError>
+		<e400><![CDATA[Permintaan tidak bisa dimengerti oleh server.]]></e400>
+		<e400title><![CDATA[Bad Request]]></e400title>
+		<e403><![CDATA[Anda tidak diijinkan untuk mengakses halaman ini.]]></e403>
+		<e403title><![CDATA[Forbidden]]></e403title>
+		<e404><![CDATA[Maaf, tapi halaman Anda mencoba untuk melihat tidak ada.]]></e404>
+		<e404title><![CDATA[Halaman tidak ditemukan]]></e404title>
+		<e408><![CDATA[server timed out menunggu permintaan .]]></e408>
+		<e408title><![CDATA[Permintaan Timeout]]></e408title>
+		<e500><![CDATA[Terjadi kesalahan saat memperoses permintaan Anda. Silahkan mencoba kembali atau hubungi Customer Service]]></e500>
+		<e500title><![CDATA[Kesalahan server dari dalam]]></e500title>
+		<e502><![CDATA[Web server menerima respon tidak valid saat bertindak sebagai gateway.]]></e502>
+		<e502title><![CDATA[Bad Gateway]]></e502title>
+	</HttpError>
 </default>

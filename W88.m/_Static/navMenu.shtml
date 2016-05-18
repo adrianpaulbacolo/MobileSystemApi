@@ -95,7 +95,7 @@
                 </li>
                 <!-- <li>
                     <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-rel="dialog" data-transition="slidedown" data-ajax="false">
-                        <img src="_Static/Images/sports/bnr-vSports.jpg" class="img-responsive">
+                        <img src="/_Static/Images/sports/bnr-vSports.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li> -->
@@ -244,7 +244,7 @@
                 </li>
                 <!--<li>
                     <a class="card" rel="clubcrescendo" href="/ClubCrescendo" data-ajax="false">
-                        <img src="_Static/Images/bnr-clubcrescendo.jpg" class="img-responsive">
+                        <img src="/_Static/Images/bnr-clubcrescendo.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubCrescendo/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>-->
