@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<History>
+	<history><![CDATA[ประวัติ]]></history>
+	<depositwithdrawal><![CDATA[ฝาก / ถอน]]></depositwithdrawal>
+	<fundtransfer><![CDATA[ย้ายเงิน]]></fundtransfer>
+	<referralbonus><![CDATA[โบนัสชวนเพื่อน]]></referralbonus>
+	<promotionclaim><![CDATA[การขอรับโปรโมชั่น]]></promotionclaim>
+
+	<lblDateFrom><![CDATA[วันเริ่มต้น]]></lblDateFrom>
+	<lblDateTo><![CDATA[วันสุดท้าย]]></lblDateTo>
+	<lblType><![CDATA[ประเภท]]></lblType>
+	<lblStatus><![CDATA[สถานะ]]></lblStatus>
+
+	<type id="0"><![CDATA[ทั้งหมด]]></type>
+	<type id="1"><![CDATA[ฝาก]]></type>
+	<type id="2"><![CDATA[ถอน]]></type>
+
+	<status id="ALL"><![CDATA[ทั้งหมด]]></status>
+	<status id="SUCCESSFUL"><![CDATA[สำเร็จ]]></status>
+	<status id="PENDING"><![CDATA[อยู่ในระหว่างดำเนินการ]]></status>
+	<status id="FAILED"><![CDATA[ล้มเหลว]]></status>
+	<status id="REJECTED"><![CDATA[ไม่สำเร็จ]]></status>
+
+	<dateTime><![CDATA[วัน/เวลา]]></dateTime>
+	<transId><![CDATA[หมายเลขธุรกรรม]]></transId>
+	<paymentMethod><![CDATA[การเงิน ประเภท]]></paymentMethod>
+	<submittedAmt><![CDATA[ยืนยันแล้ว Amt]]></submittedAmt>
+	<receivedAmt><![CDATA[ได้รับแล้ว Amt]]></receivedAmt>
+	<from><![CDATA[จาก]]></from>
+	<to><![CDATA[ถึง]]></to>
+	<source><![CDATA[แหล่งที่มา]]></source>
+	<amount><![CDATA[จำนวน]]></amount>
+	<subjectCode><![CDATA[รหัสหัวข้อ]]></subjectCode>
+	<norecords><![CDATA[ไม่พบข้อมูล!]]></norecords>
+
+	<ftStatus id="-1"><![CDATA[ทั้งหมด]]></ftStatus>
+	<ftStatus id="0"><![CDATA[อยู่ในระหว่างดำเนินการ]]></ftStatus>
+	<ftStatus id="1"><![CDATA[สำเร็จ]]></ftStatus>
+	<ftStatus id="2"><![CDATA[ล้มเหลว]]></ftStatus>
+	<ftStatus id="3"><![CDATA[ไม่สำเร็จ]]></ftStatus>
+
+	<totalInvitees><![CDATA[ยอดรวมเพื่อนที่ถูกชวน]]></totalInvitees>
+	<totalRegistered><![CDATA[ยอดรวมผู้สมัครสมาชิก]]></totalRegistered>
+	<totalSuccessReferral><![CDATA[ยอดรวมเพื่อนที่ชวนสำเร็จ]]></totalSuccessReferral>
+	<totalReferralBonus><![CDATA[ยอดรวมโบนัสชวนเพื่อน ([cur])]]></totalReferralBonus>
+
+	<btnSubmit><![CDATA[ยืนยัน]]></btnSubmit>
+</History>

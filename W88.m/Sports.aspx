@@ -7,7 +7,7 @@
             <ul class="row banner-lists banner-odd-even">
                 <li class="col">
                     <figure class="banner">
-                        <img src="/_Static/Images/sports/a-sports-banner.jpg" class="img-responsive img-bg">
+                        <img src="_Static/Images/sports/a-sports-banner.jpg" class="img-responsive img-bg">
                         <figcaption class="banner-caption">
                             <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ASports/Label", commonVariables.ProductsXML)%></h3>
                             <p><%=commonCulture.ElementValues.getResourceXPathString("Products/ASports/Description", commonVariables.ProductsXML)%></p>
@@ -17,7 +17,7 @@
                 </li>
                 <li class="col">
                     <figure class="banner">
-                        <img src="/_Static/Images/sports/e-sports-banner.jpg" class="img-responsive img-bg">
+                        <img src="_Static/Images/sports/e-sports-banner.jpg" class="img-responsive img-bg">
                         <figcaption class="banner-caption">
                             <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></h3>
                             <p><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Description", commonVariables.ProductsXML)%></p>
@@ -27,7 +27,7 @@
                 </li>
                 <!-- <li class="col">
                      <figure class="banner">
-                        <img src="/_Static/Images/sports/v-sports-banner.jpg" class="img-responsive img-bg">
+                        <img src="_Static/Images/sports/v-sports-banner.jpg" class="img-responsive img-bg">
                         <figcaption class="banner-caption">
                             <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports/Label", commonVariables.ProductsXML)%></h3>
                             <p><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports/Description", commonVariables.ProductsXML)%></p>
