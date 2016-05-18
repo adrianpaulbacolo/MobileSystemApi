@@ -20,6 +20,7 @@ public partial class History_DepositWithdrawal : BasePage
             lblType.Text = commonCulture.ElementValues.getResourceString("lblType", xeResources);
         }
     }
+
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         var dateFrom = txtDateFrom.Text + " 00:00";
