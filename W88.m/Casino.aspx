@@ -8,7 +8,7 @@
         <ul class="row banner-lists banner-odd-even">
             <li class="col">
                 <figure class="banner">
-                    <img src="_Static/Images/casino/clubwpremierbanner.jpg" class="img-responsive img-bg">
+                    <img src="/_Static/Images/casino/clubwpremierbanner.jpg" class="img-responsive img-bg">
                     <figcaption class="banner-caption">
                         <h3 class="title"><%=commonCulture.ElementValues.getResourceString("clubwpremier", commonVariables.LeftMenuXML)%></h3>
                         <p><%=commonCulture.ElementValues.getResourceString("clubwpremierMessage", commonVariables.LeftMenuXML)%></p>
@@ -18,7 +18,7 @@
             </li>
             <li class="col">
                 <figure class="banner">
-                    <img src="_Static/Images/casino/clubwbanner.jpg" class="img-responsive img-bg">
+                    <img src="/_Static/Images/casino/clubwbanner.jpg" class="img-responsive img-bg">
                     <figcaption class="banner-caption">
                         <h3 class="title"><%=commonCulture.ElementValues.getResourceString("liveCasino", commonVariables.LeftMenuXML)%></h3>
                         <p><%=commonCulture.ElementValues.getResourceString("liveCasinoMessage", commonVariables.LeftMenuXML)%></p>
@@ -28,7 +28,7 @@
             </li>
             <li class="col">
                 <figure class="banner">
-                    <img src="_Static/Images/casino/clubpalazzobanner.jpg" class="img-responsive img-bg">
+                    <img src="/_Static/Images/casino/clubpalazzobanner.jpg" class="img-responsive img-bg">
                     <figcaption class="banner-caption">
                         <h3 class="title"><%=commonCulture.ElementValues.getResourceString("clubPalazo", commonVariables.LeftMenuXML)%></h3>
                         <p><%=commonCulture.ElementValues.getResourceString("clubPalazoMessage", commonVariables.LeftMenuXML)%></p>
@@ -38,7 +38,7 @@
             </li>
             <li class="col">
                 <figure class="banner">
-                    <img src="_Static/Images/casino/clubmassimobanner.jpg" class="img-responsive img-bg">
+                    <img src="/_Static/Images/casino/clubmassimobanner.jpg" class="img-responsive img-bg">
                     <figcaption class="banner-caption">
                         <h3 class="title"><%=commonCulture.ElementValues.getResourceString("clubMassimo", commonVariables.LeftMenuXML)%></h3>
                         <p><%=commonCulture.ElementValues.getResourceString("clubMassimoMessage", commonVariables.LeftMenuXML)%></p>

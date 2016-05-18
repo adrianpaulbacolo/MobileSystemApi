@@ -150,26 +150,27 @@
 
 		<Exception><![CDATA[无法处理您的交易申请]]></Exception>
 	</Withdrawal>
-  <StatusCode>
-    <e400><![CDATA[400]]></e400>
-    <e403><![CDATA[403]]></e403>
-    <e404><![CDATA[404]]></e404>
-    <e408><![CDATA[408]]></e408>
-    <e500><![CDATA[500]]></e500>
-    <e502><![CDATA[502]]></e502>
-  </StatusCode>
-  <HttpError>
-    <e400><![CDATA[服务器无法读取该请求。]]></e400>
-    <e400title><![CDATA[错误请求]]></e400title>
-    <e403><![CDATA[非常抱歉，您没有获得授权访问该网页。]]></e403>
-    <e403title><![CDATA[禁止访问]]></e403title>
-    <e404><![CDATA[发生错误。请联系我们的客服团队获得更多详情。]]></e404>
-    <e404title><![CDATA[找不到网页]]></e404title>
-    <e408><![CDATA[服务器超时等待的请求。]]></e408>
-    <e408title><![CDATA[请求超时]]></e408title>
-    <e500><![CDATA[发生错误，请重新尝试或联系在线客服。]]></e500>
-    <e500title><![CDATA[服务器连接错误]]></e500title>
-    <e502><![CDATA[服务器的网关收到无效响应。]]></e502>
-    <e502title><![CDATA[错误网关]]></e502title>
-  </HttpError>
+
+	<StatusCode>
+		<e400><![CDATA[400]]></e400>
+		<e403><![CDATA[403]]></e403>
+		<e404><![CDATA[404]]></e404>
+		<e408><![CDATA[408]]></e408>
+		<e500><![CDATA[500]]></e500>
+		<e502><![CDATA[502]]></e502>
+	</StatusCode>
+	<HttpError>
+		<e400><![CDATA[服务器无法读取该请求。]]></e400>
+		<e400title><![CDATA[错误请求]]></e400title>
+		<e403><![CDATA[非常抱歉，您没有获得授权访问该网页。]]></e403>
+		<e403title><![CDATA[禁止访问]]></e403title>
+		<e404><![CDATA[发生错误。请联系我们的客服团队获得更多详情。]]></e404>
+		<e404title><![CDATA[找不到网页]]></e404title>
+		<e408><![CDATA[服务器超时等待的请求。]]></e408>
+		<e408title><![CDATA[请求超时]]></e408title>
+		<e500><![CDATA[发生错误，请重新尝试或联系在线客服。]]></e500>
+		<e500title><![CDATA[服务器连接错误]]></e500title>
+		<e502><![CDATA[服务器的网关收到无效响应。]]></e502>
+		<e502title><![CDATA[错误网关]]></e502title>
+	</HttpError>
 </default>
