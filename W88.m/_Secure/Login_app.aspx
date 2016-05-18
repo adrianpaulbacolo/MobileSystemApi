@@ -168,14 +168,22 @@
                 $.ajax({
                     type: "POST",
                     url: '/_Secure/Login',
-                    beforeSend: function () { GPINTMOBILE.ShowSplash(); },
+                    beforeSend: function () {
+                        GPINTMOBILE.ShowSplash();
+                    },
                     timeout: function () {
                         $('#<%=btnSubmit.ClientID%>').prop('disabled', false);
                         alert('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
                         window.location.replace('/Default.aspx');
                     },
-                    data: { txtUsername: $('#txtUsername').val(), txtPassword: $('#txtPassword').val(), txtCaptcha: $('#txtCaptcha').val(), ioBlackBox: $('#ioBlackBox').val() },
+                    data: {
+                        txtUsername: $('#txtUsername').val(),
+                        txtPassword: $('#txtPassword').val(),
+                        txtCaptcha: $('#txtCaptcha').val(),
+                        ioBlackBox: $('#ioBlackBox').val()
+                    },
                     success: function (xml) {
+                        GPINTMOBILE.HideSplash();
                         switch ($(xml).find('ErrorCode').text()) {
                             case "1":
                             case "resetPassword":
@@ -183,9 +191,7 @@
                                 Cookies().setCookie('is_app', '1', 365);
                                 break;
                             case "22":
-                                GPINTMOBILE.HideSplash();
                                 var message = $(xml).find('Message').text();
-
                                 $("#myDialogText").html(message);
                                 $("#myDialog").dialog({
                                     autoOpen: true,
@@ -205,12 +211,12 @@
                                 $('#<%=imgCaptcha.ClientID%>').attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime());
                                 $('#<%=txtCaptcha.ClientID%>').val('');
                                 $('#<%=txtPassword.ClientID%>').val('');
-                                GPINTMOBILE.HideSplash();
                                 break;
                         }
                     },
                     error: function (err) {
                         alert('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
+                        GPINTMOBILE.HideSplash();
                         window.location.replace('<%=strRedirect%>');
                     }
                 });
