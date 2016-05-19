@@ -63,48 +63,46 @@
 
             $('#form1').submit(function (e) {
                 $('#btnSubmit').attr("disabled", true);
-                if ($('#txtUsername').val().trim().length == 0) {
-                    w88Mobile.Growl.start('<%=commonCulture.ElementValues.getResourceXPathString("Login/MissingUsername", xeErrors)%>');
+                var username = _.trim($('#txtUsername').val()),
+                    password = _.trim($('#txtPassword').val());
+                if (_.isEmpty(username)) {
+                    window.w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceXPathString("Login/MissingUsername", xeErrors)%>');
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
                     return;
+                }else{
+                    if (!/^[a-zA-Z0-9]+$/.test(username) || username.indexOf(' ') >= 0) {
+                        window.w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceXPathString("Login/InvalidUsername", xeErrors)%>');
+                        $('#btnSubmit').attr("disabled", false);
+                        e.preventDefault();
+                        return;
+                    }
                 }
-                else if (!/^[a-zA-Z0-9]+$/.test($('#txtUsername').val().trim())) {
-                    w88Mobile.Growl.start('<%=commonCulture.ElementValues.getResourceXPathString("Login/InvalidUsername", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
-                    return;
-                }
-                else if ($('#txtUsername').val().trim().indexOf(' ') >= 0) {
-                    w88Mobile.Growl.start('<%=commonCulture.ElementValues.getResourceXPathString("Login/InvalidUsername", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
-                    return;
-                }
-                else if ($('#txtPassword').val().trim().length == 0) {
-                    w88Mobile.Growl.start('<%=commonCulture.ElementValues.getResourceXPathString("Login/MissingPassword", xeErrors)%>');
+
+                if (password.length == 0) {
+                    window.w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceXPathString("Login/MissingPassword", xeErrors)%>');
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
                     return;
                 }
                 else if ($('#txtCaptcha').val().trim().length == 0 && $('#imgCaptcha').is(':visible') == true) {
-                    w88Mobile.Growl.start('<%=commonCulture.ElementValues.getResourceString("MissingVCode", xeErrors)%>');
-                        $('#btnSubmit').attr("disabled", false);
-                        e.preventDefault();
-                        return;
-                    }
-                    else {
-                        GPINTMOBILE.ShowSplash();
+                    window.w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceString("MissingVCode", xeErrors)%>');
+                    $('#btnSubmit').attr("disabled", false);
+                    e.preventDefault();
+                    return;
+                }
+                else {
+                    GPINTMOBILE.ShowSplash();
 
-                        initiateLogin();
-                        $('#btnSubmit').attr("disabled", false);
-                        e.preventDefault();
-                    }
+                    initiateLogin();
+                    $('#btnSubmit').attr("disabled", false);
+                    e.preventDefault();
+                }
                 e.preventDefault();
                 return;
             });
 
-$('#<%=imgCaptcha.ClientID%>').click(function () { $(this).attr('src', '/_Secure/Captcha.aspx'); });
+            $('#<%=imgCaptcha.ClientID%>').click(function () { $(this).attr('src', '/_Secure/Captcha.aspx'); });
 
             function initiateLogin() {
                 console.log('txt: ' + $('#txtCaptcha').val());
@@ -114,7 +112,7 @@ $('#<%=imgCaptcha.ClientID%>').click(function () { $(this).attr('src', '/_Secure
                     beforeSend: function () { GPINTMOBILE.ShowSplash(); },
                     timeout: function () {
                         $('#<%=btnSubmit.ClientID%>').prop('disabled', false);
-                        w88Mobile.Growl.start('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
+                        window.w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
                         window.location.replace('/Default.aspx');
                     },
                     data: { txtUsername: $('#txtUsername').val(), txtPassword: $('#txtPassword').val(), txtCaptcha: $('#txtCaptcha').val(), ioBlackBox: $('#ioBlackBox').val() },
@@ -141,32 +139,32 @@ $('#<%=imgCaptcha.ClientID%>').click(function () { $(this).attr('src', '/_Secure
 
                                 break;
                             case "resetPassword":
-                                window.location.replace('/Settings/ChangePassword.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
+                                    window.location.replace('/Settings/ChangePassword.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
                                 break;
                             default:
 
                                 counter += 1;
-                                $("#alertmsg").html($(xml).find('Message').text());
 
                                 if (counter >= 3) {
                                     $(".capt").removeClass("hide");
                                     $('#<%=imgCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
                                     $('#<%=lblCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
                                     $('#<%=txtCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
+                                    window.w88Mobile.Growl.shout($(xml).find('Message').text());
                                     $('#<%=imgCaptcha.ClientID%>').attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime());
                                     $('#<%=txtCaptcha.ClientID%>').val('');
                                     $('#<%=txtPassword.ClientID%>').val('');
                                     GPINTMOBILE.HideSplash();
                                 }
                                 else if (counter < 3) {
+                                    window.w88Mobile.Growl.shout($(xml).find('Message').text());
                                     GPINTMOBILE.HideSplash();
                                 }
-                                w88Mobile.Growl.start($(xml).find('Message').text());
                                 break;
                         }
                     },
                     error: function (err) {
-                        w88Mobile.Growl.start('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
+                        window.w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
                         window.location.replace('<%=strRedirect%>');
                     }
                 });

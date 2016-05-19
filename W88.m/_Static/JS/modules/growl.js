@@ -1,43 +1,43 @@
 ﻿function Notification() {
     var Notification = {
         options: {
-            hasButtons: false
+            hasButtons: false,
+            lang: 'en',
+            close: 'x'
         },
         init: function (msg) {
-
             var self = this;
-            $('[data-remodal-id=modal]').remove();
-            $('body').append(self.template);
-            $('#growl-msg').html(msg);
-
-            if (self.hasButtons) {
-                $('[data-remodal-id=modal]').append(self.toolBars);
+            if (self.modal == null) {
+                $('body').append(self.getTemplate());
+                self.modal = $('#PopUpModal');
             }
-            self.modal = $('[data-remodal-id=modal]').remodal({
-                hashTracking: false,
-                closeOnOutsideClick: false
-            });
+            $("#ModalMessage").html(msg);
+            self.modal.popup();
         },
-        start: function (msg) {
+        shout: function (msg) {
             this.init(msg);
-            this.open();
+            this.modal.popup('open');
         },
-        open: function () {
-            this.modal.open();
+        getTemplate: function () {
+            var self = this;
+            var template = '<div id="PopUpModal" data-role="popup" data-overlay-theme="b" data-theme="b" data-history="false">' +
+            '<a href="#" data-rel="back" class="close close-enhanced">&times;</a>' + '<br>' + '<h1 class="title">' +
+            '<img src="/_Static/Images/logo-' + self.options.lang + '.png" width="220" class="logo img-responsive" alt="logo">' +
+            '</h1>' + '<div class="padding">' +
+            '<div id="ModalMessage" class="download-app padding">' +
+            '</div>' +
+            '</div>' +
+            '<div class="row row-no-padding">' +
+            '<div class="col">' +
+            '<a href="#" data-rel="back" class="ui-btn btn-primary">' + self.options.close + '</a>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '</div>';
+
+            return template;
         },
-        close: function () {
-            this.modal.close();
-        },
-        destroy: function () {
-            this.modal.destroy();
-        },
-        template: '<div data-remodal-id="modal">' +
-            '<button data-remodal-action="close" class="remodal-close"></button>' +
-            '<p id="growl-msg"></p>' +
-            '</div>',
-        toolBars: '<br /><button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>' +
-            ' <button data-remodal-action="confirm" class="remodal-confirm">OK</button>',
-        modal: {}
+        modal: null
     }
 
     return Notification;
