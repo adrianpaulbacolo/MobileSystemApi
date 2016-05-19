@@ -22,7 +22,7 @@ public static class commonPaymentMethodFunc
         using (var svcInstance = new MemberClient())
         {
             string strProductCurrency;
-            var value   = svcInstance.getWalletBalance(commonVariables.OperatorId, commonVariables.SiteUrl, memberCode, Convert.ToString(walletId), out strProductCurrency);
+            var value = svcInstance.getWalletBalance(commonVariables.OperatorId, commonVariables.SiteUrl, memberCode, Convert.ToString(walletId), out strProductCurrency);
             HttpContext.Current.Session["Main"] = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", value);
         }
     }
@@ -219,6 +219,20 @@ public static class commonPaymentMethodFunc
                     anchor.Attributes.Add("href", "/Deposit/BofoPay_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/BofoPay.aspx");
+
+                list.Controls.Add(anchor);
+                depositTabs.Controls.Add(list);
+                break;
+
+            case commonVariables.DepositMethod.AllDebit:
+                list = CreateMethodListControl(paymentCode);
+
+                anchor = CreateMethodLinkControl(list.ID.ToString(), paymentCode.ToString(), sourcePage);
+
+                if (isApp)
+                    anchor.Attributes.Add("href", "/Deposit/AllDebit_app.aspx");
+                else
+                    anchor.Attributes.Add("href", "/Deposit/AllDebit.aspx");
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);

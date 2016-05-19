@@ -172,7 +172,8 @@ public class commonVariables
         Neteller = 120214,
         SDAPayAlipay = 120254,
         ECPSS = 120218,
-        BofoPay = 120231
+        BofoPay = 120231,
+        AllDebit = 120236
     }
 
     public enum WithdrawalMethod
@@ -200,5 +201,5 @@ public class commonVariables
         }
     }
 
-    
+
 }

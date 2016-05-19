@@ -86,6 +86,11 @@
 		<MissingAccountName><![CDATA[Please enter your account name]]></MissingAccountName>
 		<MissingAccountNumber><![CDATA[Please enter your account number]]></MissingAccountNumber>
 		<MissingBankName><![CDATA[Please enter your other bank name]]></MissingBankName>
+		<MissingCardName><![CDATA[Please enter your card name]]></MissingCardName>
+		<MissingCardNo><![CDATA[Please enter your card number]]></MissingCardNo>
+		<MissingCCV><![CDATA[Please enter your security code]]></MissingCCV>
+		<MissingCardType><![CDATA[Please enter your card type]]></MissingCardType>
+		<MissingCardExpiry><![CDATA[Please enter your card expiry]]></MissingCardExpiry>
 		<SelectSystemAccount><![CDATA[ពត៌មានធនាគាមិនត្រឹមត្រូវ]]></SelectSystemAccount>
 		<SelectDepositChannel><![CDATA[Please select a deposit channel]]></SelectDepositChannel>
 		<SelectBank><![CDATA[Please select a bank]]></SelectBank>
@@ -150,7 +155,7 @@
 
 		<Exception><![CDATA[មិនអាចប្រតិបត្តិតាមសំនើរ]]></Exception>
 	</Withdrawal>
-	
+
 	<StatusCode>
 		<e400><![CDATA[400]]></e400>
 		<e403><![CDATA[403]]></e403>
