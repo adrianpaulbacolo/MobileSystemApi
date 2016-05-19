@@ -113,7 +113,7 @@
                     switch (responseCode) {
                         case '-1':
                             alert(responseMsg);
-                            window.location.replace('SDAPay.aspx')
+                            window.location.replace('SDAPay.aspx');
                             break;
                         case '0':
                             break;

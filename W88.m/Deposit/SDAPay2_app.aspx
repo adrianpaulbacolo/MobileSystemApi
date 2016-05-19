@@ -113,7 +113,7 @@
                     switch (responseCode) {
                         case '-1':
                             alert(responseMsg);
-                            window.location.replace('SDAPay.aspx')
+                            window.location.replace('SDAPay_app.aspx');
                             break;
                         case '0':
                             break;
@@ -161,7 +161,7 @@
                                 $('#btnSubmit').hide();
 
                                 setTimeout(function () {
-                                    window.location.replace('/FundTransfer/Default.aspx');
+                                    window.location.replace('/FundTransfer/FundTransfer.aspx');
                                 }, 2000);
 
                             } else if (result.indexOf("Failed") == 0) {

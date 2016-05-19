@@ -102,7 +102,7 @@
                             break;
                         case '0':
                             alert(responseMsg);
-                            window.location.replace('/Deposit/WingMoney.aspx');
+                            window.location.replace('/Deposit/WingMoney_app.aspx');
                             break;
                         default:
                             break;

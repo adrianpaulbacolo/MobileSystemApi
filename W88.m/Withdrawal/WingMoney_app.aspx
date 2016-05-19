@@ -84,7 +84,7 @@
                             break;
                         case '0':
                             alert(responseMsg);
-                            window.location.replace('/Withdrawal/WingMoney');
+                            window.location.replace('/Withdrawal/Default_app.aspx');
                             break;
                         default:
                             break;
