@@ -103,7 +103,7 @@
                             break;
                         case '0':
                             alert(responseMsg);
-                            window.location.replace('/Index.aspx');
+                            window.location.replace('/Withdrawal/Default_app.aspx');
                             break;
                         default:
                             break;

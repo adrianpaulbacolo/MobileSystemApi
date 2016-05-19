@@ -105,7 +105,7 @@
                             alert(responseMsg);
                             break;
                         case '0':
-                            window.location.replace('SDAPay2.aspx?id=' + <%=transactionId%>)
+                            window.location.replace('SDAPay2_app.aspx?id=' + <%=transactionId%>);
                             break;
                         default:
                             break;
