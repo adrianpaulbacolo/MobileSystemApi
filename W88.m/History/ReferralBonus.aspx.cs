@@ -7,17 +7,21 @@ using System.Web.UI.WebControls;
 
 public partial class History_ReferralBonus : BasePage
 {
-    private System.Xml.Linq.XElement xeResources = null;
     protected void Page_Load(object sender, EventArgs e)
     {
-        commonCulture.appData.getRootResource("/History/DepositWithdrawal", out xeResources);
-
         if (!Page.IsPostBack)
         {
-            lblDateFrom.Text = commonCulture.ElementValues.getResourceString("lblDateFrom", xeResources);
-            lblDateTo.Text = commonCulture.ElementValues.getResourceString("lblDateTo", xeResources);
+            this.Initialize();
         }
     }
+    private void Initialize()
+    {
+        lblDateFrom.Text = commonCulture.ElementValues.getResourceString("lblDateFrom", commonVariables.HistoryXML);
+        lblDateTo.Text = commonCulture.ElementValues.getResourceString("lblDateTo", commonVariables.HistoryXML);
+
+        btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", commonVariables.HistoryXML);
+    }
+
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         var dateFrom = txtDateFrom.Text + " 00:00";

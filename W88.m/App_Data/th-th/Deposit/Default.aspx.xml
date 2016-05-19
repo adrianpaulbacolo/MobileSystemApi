@@ -22,5 +22,7 @@
 	<btnCancel><![CDATA[ยกเลิก]]></btnCancel>
 	<btnSubmit><![CDATA[การฝาก]]></btnSubmit>
 
+	<lblThankYou><![CDATA[ขอขอบคุณคุณ]]></lblThankYou>
+	
 	<browserNotice><![CDATA[<span>Gentle reminder: <b>{BANK}</b> do not support chrome & firefox</span>]]></browserNotice>
 </Deposit>

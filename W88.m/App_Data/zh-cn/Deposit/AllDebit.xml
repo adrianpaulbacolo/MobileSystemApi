@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+	<lblCardType><![CDATA[卡的类型]]></lblCardType>
+	<ddlCardType><![CDATA[选择卡的类型]]></ddlCardType>
+	
+	<lblCardName><![CDATA[持卡人姓名]]></lblCardName>
+	
+	<lblCardNo><![CDATA[卡号]]></lblCardNo>
+	
+	<lblExpiry><![CDATA[有效日期]]></lblExpiry>
+	<ddlMonthDefaultText><![CDATA[月]]></ddlMonthDefaultText>
+	<ddlYearDefaultText><![CDATA[年]]></ddlYearDefaultText>
+	
+	<lblSecurityCode><![CDATA[验证码]]></lblSecurityCode>
+	<securityCodeHelp><![CDATA[三位安全码在哪里？]]></securityCodeHelp>
+</Deposit>

@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Neteller.aspx.cs" Inherits="Withdrawal_Neteller" %>
+<%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
 <!DOCTYPE html>
 <html>
@@ -16,9 +17,7 @@
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <label class="label"><%=commonCulture.ElementValues.getResourceString("mainWallet", commonVariables.LeftMenuXML)%></label>
-                <h2 class="value"><%=Session["Main"].ToString()%></h2>
-                <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
+                <uc:Wallet id="uMainWallet" runat="server" />
             </div>
 
             <div data-role="navbar">

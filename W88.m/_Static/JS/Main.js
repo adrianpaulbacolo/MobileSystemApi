@@ -1,6 +1,6 @@
 ﻿$(window).load(function () {
     GPINTMOBILE.HideSplash();
-    if(typeof window.User != "undefined" && window.User.hasSession) checkSession();
+    if (typeof window.User != "undefined" && window.User.hasSession) checkSession();
     var sessionPoll;
 
     function checkSession() {
@@ -25,12 +25,6 @@
         }, sessionInterval);
     }
 });
-
-if ($("#divBalance").hasClass("open")) { $("#divBalance").addClass("close"); } else { if ($("#divBalance").hasClass("open")) { $("#divBalance").addClass("close"); } }
-
-// mozfullscreenerror event handler
-function errorHandler() { /*alert('mozfullscreenerror');*/ }
-//document.documentElement.addEventListener('mozfullscreenerror', errorHandler, false);
 
 // toggle full screen
 function toggleFullScreen() {

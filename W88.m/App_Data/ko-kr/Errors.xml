@@ -86,6 +86,11 @@
 		<MissingAccountName><![CDATA[은행 계좌 이름을 입력 하세요]]></MissingAccountName>
 		<MissingAccountNumber><![CDATA[은행 계좌 번호를 입력 하세요]]></MissingAccountNumber>
 		<MissingBankName><![CDATA[은행 이름을 입력 하세요]]></MissingBankName>
+		<MissingCardName><![CDATA[Please enter your card name]]></MissingCardName>
+		<MissingCardNo><![CDATA[Please enter your card number]]></MissingCardNo>
+		<MissingCCV><![CDATA[Please enter your security code]]></MissingCCV>
+		<MissingCardType><![CDATA[Please enter your card type]]></MissingCardType>
+		<MissingCardExpiry><![CDATA[Please enter your card expiry]]></MissingCardExpiry>
 		<SelectSystemAccount><![CDATA[Please select a system account]]></SelectSystemAccount>
 		<SelectDepositChannel><![CDATA[Please select a deposit channel]]></SelectDepositChannel>
 		<SelectBank><![CDATA[은행 이름을 입력 하세요]]></SelectBank>
@@ -150,4 +155,27 @@
 
 		<Exception><![CDATA[요청을 처리할수 없습니다]]></Exception>
 	</Withdrawal>
+
+	<StatusCode>
+		<e400><![CDATA[400]]></e400>
+		<e403><![CDATA[403]]></e403>
+		<e404><![CDATA[404]]></e404>
+		<e408><![CDATA[408]]></e408>
+		<e500><![CDATA[500]]></e500>
+		<e502><![CDATA[502]]></e502>
+	</StatusCode>
+	<HttpError>
+		<e400><![CDATA[요청하신 내용이 서버에 받아들여지지 않습니다.]]></e400>
+		<e400title><![CDATA[Bad Request]]></e400title>
+		<e403><![CDATA[요청하신 웹페이지 및 디렉토리를 볼 수 있는 권한이 없습니다.]]></e403>
+		<e403title><![CDATA[접속 금지]]></e403title>
+		<e404><![CDATA[죄송 하지만 페이지 가 존재하지 않습니다 확인 하고있었습니다.]]></e404>
+		<e404title><![CDATA[페이지를 찾을 수 없습니다]]></e404title>
+		<e408><![CDATA[서버가 요청 을 기다리는 동안 제한 시간을 초과했습니다 .]]></e408>
+		<e408title><![CDATA[요청 시간 초과]]></e408title>
+		<e500><![CDATA[요청사항을 처리하는 도중, 에러가 발생했습니다. 다시 시도해주시거나 고객상담센터에 문의해주시기 바립니다.]]></e500>
+		<e500title><![CDATA[서버 에러]]></e500title>
+		<e502><![CDATA[게이트웨이를 연결하던 중 유효하지 않은 웹서버를 수신했습니다.]]></e502>
+		<e502title><![CDATA[Bad Gateway]]></e502title>
+	</HttpError>
 </default>
