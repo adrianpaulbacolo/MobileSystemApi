@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,8 @@ public class PaymentBasePage : BasePage
     protected string PaymentMethodId { get; set; }
 
     protected bool IsPageRefresh = false;
+
+    protected string ThankYouPage = "/Deposit/ThankYou.aspx";
 
     protected string strMerchantId = string.Empty;
     protected string strOperatorId = string.Empty;
@@ -351,6 +354,51 @@ public class PaymentBasePage : BasePage
         }
 
         return banks;
+    }
+
+    protected string GetPaymentGatewayMerchantSetting(commonVariables.DepositMethod paymentMethod)
+    {
+        string key = string.Empty;
+
+        try
+        {
+            string paymentKey = ConfigurationManager.AppSettings["PaymentPrivateKey"];
+
+            IEnumerable<XElement> result;
+            string mapLoc = HttpContext.Current.Request.MapPath("~/App_Data/_PaymentGateway/" + PageName + ".xml");
+            XElement root = XElement.Load(mapLoc);
+
+            if (string.IsNullOrWhiteSpace(strMerchantId))
+            {
+                result = root.Elements("account").Take(1);
+            }
+            else
+            {
+                result = from el in root.Elements("account")
+                         where (string)el.Element("merchantId") == strMerchantId
+                         select el;
+            }
+
+            foreach (XElement el in result)
+            {
+                switch (paymentMethod)
+                {
+                    case commonVariables.DepositMethod.BofoPay:
+                        key = commonEncryption.decrypting(el.Element("key").Value, paymentKey) + "|" + commonEncryption.decrypting(el.Element("terminalId").Value, paymentKey);
+                        break;
+
+                    default:
+                        key = commonEncryption.decrypting(el.Element("key").Value, paymentKey);
+                        break;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            commonAuditTrail.appendLog("system", PageName, "GetPaymentGatewayMerchantSetting", string.Empty, string.Empty, string.Empty, string.Empty, "Exception", "Message:" + ex.Message + "|StackTrace: " + ex.StackTrace, string.Empty, string.Empty, true);
+        }
+
+        return key;
     }
 
     protected CommonStatus GetErrors(string elementPath)

@@ -213,7 +213,7 @@ public class commonEncryption
 
     #endregion
 
-    static string GetMd5Hash(string input)
+    public static string GetMd5Hash(string input)
     {
         byte[] data = null;
         // Convert the input string to a byte array and compute the hash. 
@@ -263,31 +263,6 @@ public class commonEncryption
         return decryptedData;
     }
 
-
-    public static string Md5Hash(string input)
-    {
-        byte[] data = null;
-        // Convert the input string to a byte array and compute the hash. 
-        using (System.Security.Cryptography.MD5 md5Hash = System.Security.Cryptography.MD5.Create())
-        {
-            data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
-        }
-
-        // Create a new Stringbuilder to collect the bytes 
-        // and create a string.
-        StringBuilder sBuilder = new StringBuilder();
-
-        // Loop through each byte of the hashed data  
-        // and format each one as a hexadecimal string. 
-        for (int i = 0; i < data.Length; i++)
-        {
-            sBuilder.Append(data[i].ToString("x2"));
-        }
-
-        // Return the hexadecimal string. 
-        return sBuilder.ToString();
-    }
-
     public static string decryptToken(string cipherString, string cipherKey)
     {
         byte[] keyArray;
@@ -318,4 +293,5 @@ public class commonEncryption
         //return the Clear decrypted TEXT
         return UTF8Encoding.UTF8.GetString(resultArray);
     }
+
 }
