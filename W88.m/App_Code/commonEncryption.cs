@@ -292,10 +292,6 @@ public class commonEncryption
         tdes.Clear();
         //return the Clear decrypted TEXT
         return UTF8Encoding.UTF8.GetString(resultArray);
-        }
-
-        // Return the hexadecimal string. 
-        return sBuilder.ToString();
     }
 
     public static string GetSHA256Hash(string input)
