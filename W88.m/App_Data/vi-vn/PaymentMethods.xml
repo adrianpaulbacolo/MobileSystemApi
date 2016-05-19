@@ -14,8 +14,10 @@
 	<dDaddyPayQR><![CDATA[QR Code Payment]]></dDaddyPayQR>
 	<dSDAPayAlipay><![CDATA[Alipay Transfer]]></dSDAPayAlipay>
 	<dBofoPay><![CDATA[BofoPay]]></dBofoPay>
+	<dAllDebit><![CDATA[Thẻ Tín Dụng]]></dAllDebit>
 
 	<wBankTransfer><![CDATA[Chuyển Khoản Ngân Hàng]]></wBankTransfer>
 	<wWingMoney><![CDATA[Wing Money]]></wWingMoney>
 	<wNeteller><![CDATA[Neteller]]></wNeteller>
+
 </PaymentMethods>

@@ -26,12 +26,6 @@
     }
 });
 
-if ($("#divBalance").hasClass("open")) { $("#divBalance").addClass("close"); } else { if ($("#divBalance").hasClass("open")) { $("#divBalance").addClass("close"); } }
-
-// mozfullscreenerror event handler
-function errorHandler() { /*alert('mozfullscreenerror');*/ }
-//document.documentElement.addEventListener('mozfullscreenerror', errorHandler, false);
-
 // toggle full screen
 function toggleFullScreen() {
     if (!document.fullscreenElement &&    // alternative standard method

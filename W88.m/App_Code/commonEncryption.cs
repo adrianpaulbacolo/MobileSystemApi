@@ -294,4 +294,16 @@ public class commonEncryption
         return UTF8Encoding.UTF8.GetString(resultArray);
     }
 
+    public static string GetSHA256Hash(string input)
+    {
+        SHA256 sha = SHA256Managed.Create();
+        byte[] hashData = sha.ComputeHash(Encoding.UTF8.GetBytes(input));
+        StringBuilder output = new StringBuilder();
+        for (int i = 0; i < hashData.Length; i++)
+        {
+            output.Append(hashData[i].ToString("x2"));
+        }
+
+        return output.ToString();
+    }
 }

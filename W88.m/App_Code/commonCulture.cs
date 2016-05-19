@@ -906,7 +906,8 @@ namespace commonCulture
         #endregion
     }
 
-    public static class ElementValues {
+    public static class ElementValues
+    {
         public static string getResourceString(string elementName, System.Xml.Linq.XElement xElement)
         {
             try { return Convert.ToString(xElement.Elements(elementName).SingleOrDefault().Value); }
@@ -946,6 +947,6 @@ namespace commonCulture
             }
             catch (Exception) { return string.Empty; }
         }
-        
+
     }
 }
