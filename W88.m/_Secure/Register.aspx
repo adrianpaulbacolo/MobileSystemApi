@@ -37,12 +37,12 @@
                     </li>
                     <li class="item item-icon-left item-input">
                         <i class="icon icon-mail"></i>
-                        <asp:Label ID="lblEmail" runat="server" AssociatedControlID="txtEmail" Text="email" />
+                        <asp:Label ID="lblEmail" runat="server" AssociatedControlID="txtEmail" />
                         <asp:TextBox ID="txtEmail" runat="server" data-mini="true" type="email" data-clear-btn="true" />
                     </li>
                     <li class="item item-icon-left item-select">
                         <i class="icon icon-phone"></i>
-                        <asp:Label ID="lblContact" runat="server" AssociatedControlID="txtContact" Text="email" />
+                        <asp:Label ID="lblContact" runat="server" AssociatedControlID="txtContact" />
                         <div class="row">
                             <div class="col col-25">
                                 <asp:DropDownList ID="drpContactCountry" runat="server" data-icon="false" data-mini="true" />
@@ -54,25 +54,34 @@
                     </li>
                     <li class="item item-icon-left item-select">
                         <i class="icon icon-currency"></i>
-                        <asp:Label ID="lblCurrency" runat="server" AssociatedControlID="drpCurrency" Text="currency" />
+                        <asp:Label ID="lblCurrency" runat="server" AssociatedControlID="drpCurrency" />
                         <asp:DropDownList ID="drpCurrency" runat="server" data-mini="true" />
                     </li>
                     <li class="item item-icon-left item-input">
                         <i class="icon icon-profile"></i>
                         <div class="row">
-                            <div class="col">
-                                <asp:Label ID="lblFirstName" runat="server" AssociatedControlID="txtFirstName" Text="fName" />
+                            <%-- <div class="col">
+                                <asp:Label ID="lblFirstName" runat="server" AssociatedControlID="txtFirstName" />
                                 <asp:TextBox ID="txtFirstName" runat="server" data-mini="true" MaxLength="12" data-clear-btn="true" />
                             </div>
                             <div class="col">
-                                <asp:Label ID="lblLastName" runat="server" AssociatedControlID="txtLastName" Text="lName" />
+                                <asp:Label ID="lblLastName" runat="server" AssociatedControlID="txtLastName" />
                                 <asp:TextBox ID="txtLastName" runat="server" data-mini="true" data-clear-btn="true" />
+                            </div>--%>
+                            <div class="col">
+                                <asp:Label ID="lblName" runat="server" AssociatedControlID="txtName" />
+                                <asp:TextBox ID="txtName" runat="server" data-mini="true" MaxLength="50" data-clear-btn="true" />
                             </div>
+                        </div>
+                    </li>
+                    <li class="item item-icon-left">
+                        <div class="row item-text-wrap">
+                            <asp:Label ID="lblNote" runat="server" />
                         </div>
                     </li>
                     <li class="item item-icon-left item-select">
                         <i class="icon icon-event"></i>
-                        <asp:Label ID="lblDOB" runat="server" AssociatedControlID="drpDay" Text="DOB" />
+                        <asp:Label ID="lblDOB" runat="server" AssociatedControlID="drpDay" />
                         <div class="row">
                             <div class="col">
                                 <asp:DropDownList ID="drpDay" runat="server" />
@@ -87,7 +96,7 @@
                     </li>
                     <li class="item item-icon-left item-input">
                         <i class="icon icon-referral-bonus"></i>
-                        <asp:Label ID="lblAffiliateID" runat="server" AssociatedControlID="txtAffiliateID" Text="email" />
+                        <asp:Label ID="lblAffiliateID" runat="server" AssociatedControlID="txtAffiliateID" />
                         <asp:TextBox ID="txtAffiliateID" runat="server" data-mini="true" type="number" />
                     </li>
                     <li class="item item-icon-left item-input">
@@ -109,7 +118,7 @@
                         </div>
                     </li>
                 </ul>
-                <asp:HiddenField id="hidValues" runat="server" />
+                <asp:HiddenField ID="hidValues" runat="server" />
                 <asp:HiddenField runat="server" ID="ioBlackBox" Value="" />
             </form>
         </div>
@@ -117,81 +126,82 @@
         <script type="text/javascript">
 
             var strContactCountry = '';
+            var CDNCountry = '<%= (!String.IsNullOrEmpty(CDNCountryCode)) ? CDNCountryCode : "" %>';
+            var domain = '<%= (!String.IsNullOrEmpty(headers.host)) ? headers.host : "" %>';
+
+            function setCurrency(country) {
+                switch (country.toString().toUpperCase()) {
+                    case "SG":
+                        if ($('#drpCurrency option[value="UUS"]').length > 0) { $('#drpCurrency').val('UUS'); }
+                        break;
+                    case 'CN':
+                        if ($('#drpCurrency option[value="RMB"]').length > 0) { $('#drpCurrency').val('RMB'); }
+                        break;
+                    case "TH":
+                        if ($('#drpCurrency option[value="THB"]').length > 0) { $('#drpCurrency').val('THB'); }
+                        break;
+                    case "VN":
+                        if ($('#drpCurrency option[value="VND"]').length > 0) { $('#drpCurrency').val('VND'); }
+                        break;
+                    case "ID":
+                        if ($('#drpCurrency option[value="IDR"]').length > 0) { $('#drpCurrency').val('IDR'); }
+                        break;
+                    case "MY":
+                        if ($('#drpCurrency option[value="MYR"]').length > 0) { $('#drpCurrency').val('MYR'); }
+                        break;
+                    case "KR":
+                        if ($('#drpCurrency option[value="KRW"]').length > 0) { $('#drpCurrency').val('KRW'); }
+                        break;
+                    default:
+                        return false;
+                        break;
+                }
+                $('#drpCurrency').change();
+                return true;
+            }
 
             $(function () {
                 $("#drpContact").attr("disabled", "disabled").off('click');
                 $("#drpDOB").attr("disabled", "disabled").off('click');
+                if (CDNCountry.length > 0 && setCurrency(CDNCountry)) {
+                    $('#hidValues').val(CDNCountry + "|" + domain + "|" + "<%= !String.IsNullOrEmpty(headers.ip) ? headers.ip : commonIp.UserIP %>" + "|-");
+                } else {
+                    $.ajax({
+                        contentType: "application/json; charset=utf-8",
+                        url: "https://ip2loc.w2script.com/IP2LOC?v=" + new Date().getTime(),
+                        dataType: "jsonp",
+                        success: function (data) {
+                            if ($('#hidValues').val().trim().length == 0) {
+                                setCurrency(data.country);
 
-                $.ajax({
-                    contentType: "application/json; charset=utf-8",
-                    url: "https://ip2loc.w2script.com/IP2LOC?v=" + new Date().getTime(),
-                    dataType: "jsonp",
-                    success: function (data) {
-                        if ($('#hidValues').val().trim().length == 0) {
-                         switch (data.country.toString().toUpperCase())
-                            {
-                                case "SG":
-                                    if ($('#drpCurrency option[value="UUS"]').length > 0) { $('#drpCurrency').val('UUS'); }
-                                    break;
-                                case 'CN':
-                                    if ($('#drpCurrency option[value="RMB"]').length > 0) { $('#drpCurrency').val('RMB'); }
-                                    break;
-                                case "TH":
-                                    if ($('#drpCurrency option[value="THB"]').length > 0) { $('#drpCurrency').val('THB'); }
-                                    break;
-                                case "VN":
-                                    if ($('#drpCurrency option[value="VND"]').length > 0) { $('#drpCurrency').val('VND'); }
-                                    break;
-                                case "ID":
-                                    if ($('#drpCurrency option[value="IDR"]').length > 0) { $('#drpCurrency').val('IDR'); }
-                                    break;
-                               case "MY":
-                                   if ($('#drpCurrency option[value="MYR"]').length > 0) { $('#drpCurrency').val('MYR'); }
-                                   break;
-                                case "KR":
-                                    if ($('#drpCurrency option[value="KRW"]').length > 0) { $('#drpCurrency').val('KRW'); }
-                                   break;
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/AjaxHandlers/GetCountryInfo.ashx",
+                                    data: { CountryCode: data.country.toString().toUpperCase() },
+                                    success: function (data) {
+                                        strContactCountry = data;
+
+                                        if ($.trim(data).trim().length > 0) { $('#drpContactCountry').val(strContactCountry).change(); }
+                                        return;
+                                    },
+                                    error: function (err) { }
+                                });
                             }
-                            $('#drpCurrency').change();
 
-                            $.ajax({
-                                type: "POST",
-                                url: "/AjaxHandlers/GetCountryInfo.ashx",
-                                data: { CountryCode: data.country.toString().toUpperCase() },
-                                success: function (data) {
-                                    strContactCountry = data;
-                                    
-                                    if ($.trim(data).trim().length > 0) { $('#drpContactCountry').val(strContactCountry).change(); }
-                                    return;
-                                },
-                                error: function (err) { }
-                            });
-                       }
+                            $('#hidValues').val(data.country.toString().toUpperCase() + "|" + data.domainName + "|" + data.ip + "|" + (data.permission == '' ? '-' : data.permission));
 
-                        $('#hidValues').val(data.country.toString().toUpperCase() + "|" + data.domainName + "|" + data.ip + "|" + (data.permission == '' ? '-' : data.permission));
+                            return;
+                        },
+                        error: function (err) {
+                            //window.location.href = '/Default.aspx';
+                        }
+                    });
 
-                        return;
-                    },
-                    error: function (err) {
-                      //window.location.href = '/Default.aspx';
-                    }
-                });
+                }
 
-                if ('<%=strAlertCode%>'.length > 0) {
-                    switch ('<%=strAlertCode%>') {
-                        case '-1':
-                            alert('<%=strAlertMessage%>');
-                            break;
-                        case '0':
-                            alert('<%=strAlertMessage%>');
-                            break;
-                        case '1':
-                            alert('<%=strAlertMessage%>');
-                            window.location.replace('/Index.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
-                            break;
-                        default:
-                            break;
-                    }
+                var responseMsg = '<%=strAlertMessage%>';
+                if ('<%=strAlertCode%>' != "1" && responseMsg.length > 0) {
+                    alert(responseMsg);
                 }
             });
 
@@ -206,12 +216,11 @@
                 }
                 else if ($('#txtUsername').val().trim().length < 5 || $('#txtUsername').val().trim().length > 16) {
                     alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidUsername", xeErrors)%>');
-                     $('#btnSubmit').attr("disabled", false);
-                     e.preventDefault();
-                     return;
-                 }
-                 else if (!/^[a-zA-Z0-9]+$/.test($('#txtUsername').val().trim()))
-                {
+                    $('#btnSubmit').attr("disabled", false);
+                    e.preventDefault();
+                    return;
+                }
+                else if (!/^[a-zA-Z0-9]+$/.test($('#txtUsername').val().trim())) {
                     alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidUsername", xeErrors)%>');
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
@@ -266,7 +275,7 @@
                     e.preventDefault();
                     return;
                 }
-                else if ($('#txtFirstName').val().trim().length == 0) {
+                <%--else if ($('#txtFirstName').val().trim().length == 0) {
                     alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/MissingFName", xeErrors)%>');
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
@@ -274,6 +283,12 @@
                 }
                 else if ($('#txtLastName').val().trim().length == 0) {
                     alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/MissingLName", xeErrors)%>');
+                    $('#btnSubmit').attr("disabled", false);
+                    e.preventDefault();
+                    return;
+                }--%>
+                else if ($('#txtName').val().trim().length == 0) {
+                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/MissingName", xeErrors)%>');
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
                     return;
@@ -297,17 +312,8 @@
                     return;
                 }
                 else {
-                    if (strContact.length < 6 || strContact.length > 12) {
-                        alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidContact", xeErrors)%>');
-                        $('#btnSubmit').attr("disabled", false);
-                        e.preventDefault();
-                        return;
-                    }
-                    else {
-                        GPINTMOBILE.ShowSplash();
-                        
-                        $('#btnSubmit').attr("disabled", false);
-                    }
+                    GPINTMOBILE.ShowSplash();
+                    $('#btnSubmit').attr("disabled", false);
                 }
             });
 
@@ -321,14 +327,14 @@
         </script>
 
         <script type="text/javascript" id="iovs_script">
-        	var io_operation = 'ioBegin';
-        	var io_bbout_element_id = 'ioBlackBox';
-        	//var io_submit_element_id = 'btnSubmit';
-        	var io_submit_form_id = 'form1';
-        	var io_max_wait = 5000;
-        	var io_install_flash = false;
-        	var io_install_stm = false;
-        	var io_exclude_stm = 12;
+               var io_operation = 'ioBegin';
+               var io_bbout_element_id = 'ioBlackBox';
+               //var io_submit_element_id = 'btnSubmit';
+               var io_submit_form_id = 'form1';
+               var io_max_wait = 5000;
+               var io_install_flash = false;
+               var io_install_stm = false;
+               var io_exclude_stm = 12;
         </script>
         <script type="text/javascript" src="//mpsnare.iesnare.com/snare.js"></script>
     </div>

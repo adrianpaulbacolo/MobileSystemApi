@@ -159,6 +159,15 @@ select {
         }
     }
 
+    .ion-social-apple {
+        font-size: 50px;
+
+        &, &:before {
+            line-height: 50px;
+            color: #999999;
+        }
+    }
+
     .ui-btn {
         margin: 0 auto;
         padding: .75em;

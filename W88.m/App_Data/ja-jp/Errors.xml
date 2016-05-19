@@ -1,202 +1,208 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
-  <Exception><![CDATA[原因不明のエラー、もう一度試してください。]]></Exception>
-  <IncorrectVCode><![CDATA[4桁の確認コードを入力してください。]]></IncorrectVCode>
-  <MissingVCode><![CDATA[4桁の確認コードを入力してください。]]></MissingVCode>
-  <SessionExpired><![CDATA[申し訳ありませんが、あなたのセッションの有効期限が切れました。再度ログインしてください。]]></SessionExpired>
-  <ServerError><![CDATA[申し訳ありませんが、サーバーエラーが発生しました]]></ServerError>
-  
-  <Login>
-    <InvalidUsername><![CDATA[無効なユーザー名および/またはパスワード。]]></InvalidUsername>
-    <InvalidPassword><![CDATA[無効なユーザー名および/またはパスワード。]]></InvalidPassword>
-    <InactiveAccount>
-      <![CDATA[お客様のアカウントは複数回のログイン失敗のため、セキュリティ上の理由によりブロックされました。恐れ入りますが、お客様のアカウントロックの解除およびパスワード回復のため、<a href="https://www.w88world.com/ContactUs.aspx">こちら</a>をクリックして当社のカスタマーサービスへお知らせください。]]></InactiveAccount>    
-    <MissingUsername><![CDATA[ユーザー名を入力してください]]></MissingUsername>
-    <MissingPassword><![CDATA[パスワードを入力してください]]></MissingPassword>
-  </Login>
+	<Exception><![CDATA[原因不明のエラー、もう一度試してください。]]></Exception>
+	<IncorrectVCode><![CDATA[4桁の確認コードを入力してください。]]></IncorrectVCode>
+	<MissingVCode><![CDATA[4桁の確認コードを入力してください。]]></MissingVCode>
+	<SessionExpired><![CDATA[申し訳ありませんが、あなたのセッションの有効期限が切れました。再度ログインしてください。]]></SessionExpired>
+	<ServerError><![CDATA[申し訳ありませんが、サーバーエラーが発生しました]]></ServerError>
+	<CustomerService><![CDATA[Please contact our Customer Service for assistance.]]></CustomerService>
 
-  <Register>
-    <Success><![CDATA[W88へようこそ、アカウントをお作りいただき誠にありがとうございます。あなたが、W88.comおよびモバイルのm.w88.comでログインし、プレイするための準備が出来ました。]]></Success>
-    <DuplicateUsername><![CDATA[ユーザー名は、すでに登録されています。新しいユーザー名を入力してください。]]></DuplicateUsername>
-    <DuplicateEmail><![CDATA[Eメールアドレスはすでに登録されています。新しいメールアドレスを入力してください。]]></DuplicateEmail>
-	<DuplicateContact><![CDATA[お問い合わせ番号が既に使用されています。あなたの連絡先番号を入力してください。]]></DuplicateContact>
-    <IncorrectVCode><![CDATA[確認コードが正しくありません]]></IncorrectVCode>
+	<Login>
+		<InvalidUsername><![CDATA[無効なユーザー名および/またはパスワード。]]></InvalidUsername>
+		<InvalidPassword><![CDATA[無効なユーザー名および/またはパスワード。]]></InvalidPassword>
+		<InactiveAccount>
+			<![CDATA[お客様のアカウントは複数回のログイン失敗のため、セキュリティ上の理由によりブロックされました。恐れ入りますが、お客様のアカウントロックの解除およびパスワード回復のため、<a href="https://www.w88world.com/ContactUs.aspx">こちら</a>をクリックして当社のカスタマーサービスへお知らせください。]]>
+		</InactiveAccount>
+		<MissingUsername><![CDATA[ユーザー名を入力してください]]></MissingUsername>
+		<MissingPassword><![CDATA[パスワードを入力してください]]></MissingPassword>
+	</Login>
 
-    <MissingUsername><![CDATA[ユーザー名を入力してください]]></MissingUsername>
-    <MissingPassword><![CDATA[パスワードを入力してください]]></MissingPassword>
-    <MissingEmail><![CDATA[Eメールアドレスを入力してください]]></MissingEmail>
-    <MissingContact><![CDATA[あなたの連絡先番号を入力してください。\例えば、+ 86-111111（最大12文字）]]></MissingContact>
-    <MissingCurrency><![CDATA[お好みの通貨を選択してください]]></MissingCurrency>
-    <MissingFName><![CDATA[あなたの名を入力してください]]></MissingFName>
-    <MissingLName><![CDATA[あなたの姓を入力してください]]></MissingLName>
-    <MissingVCode><![CDATA[確認コードを入力してください]]></MissingVCode>
-    
-    <InvalidUsername><![CDATA[無効なユーザー名および/またはパスワード。]]></InvalidUsername>
-    <InvalidPassword><![CDATA[無効なユーザー名および/またはパスワード。]]></InvalidPassword>
-    <InvalidEmail><![CDATA[無効なEメールアドレス]]></InvalidEmail>
-    <InvalidContact><![CDATA[無効な連絡先番号]]></InvalidContact>    
-    <InvalidFName><![CDATA[無効な名]]></InvalidFName>
-    <InvalidLName><![CDATA[無効な姓]]></InvalidLName>
-    <InvalidDOB><![CDATA[無効な誕生日]]></InvalidDOB>
-    <InvalidVCode><![CDATA[確認コードが正しくありません]]></InvalidVCode>
-    <chkDisclaimer><![CDATA[続行するには、我々の利用規約およびプライバシーポリシーに同意する必要があります。]]></chkDisclaimer>
-    <!--<chkDisclaimer><![CDATA[賭けは、あなたが18歳以上である必要があります。我々は、あなたが18歳以上であることを検証する目的で第三者と検索を行い、年齢の証明を求める権利を留保します。顧客のアカウントは、満足な証拠が提供されるまでは、一時停止し資金が留保されることがあります。]]></chkDisclaimer>-->
-  </Register>
+	<Register>
+		<Success><![CDATA[W88へようこそ、アカウントをお作りいただき誠にありがとうございます。あなたが、W88.comおよびモバイルのm.w88.comでログインし、プレイするための準備が出来ました。]]></Success>
+		<DuplicateUsername><![CDATA[ユーザー名は、すでに登録されています。新しいユーザー名を入力してください。]]></DuplicateUsername>
+		<DuplicateEmail><![CDATA[Eメールアドレスはすでに登録されています。新しいメールアドレスを入力してください。]]></DuplicateEmail>
+		<DuplicateContact><![CDATA[お問い合わせ番号が既に使用されています。あなたの連絡先番号を入力してください。]]></DuplicateContact>
+		<IncorrectVCode><![CDATA[確認コードが正しくありません]]></IncorrectVCode>
 
-  <UpdateProfile>
-    <Success><![CDATA[プロフィールが更新されました！]]></Success>
-    <MissingAddress><![CDATA[あなたの住所を入力してください]]></MissingAddress>
-    <MissingCity><![CDATA[あんたの都市を入力してください]]></MissingCity>
-    <MissingPostal><![CDATA[郵便番号を入力してください]]></MissingPostal>
-    <MissingSecurityQuestion><![CDATA[セキュリティの質問を選択してください]]></MissingSecurityQuestion>
-    <MissingSecurityAnswer><![CDATA[セキュリティの答えを入力してください]]></MissingSecurityAnswer>
-    <MissingPassword><![CDATA[パスワードを入力してください]]></MissingPassword>
+		<MissingUsername><![CDATA[ユーザー名を入力してください]]></MissingUsername>
+		<MissingPassword><![CDATA[パスワードを入力してください]]></MissingPassword>
+		<MissingEmail><![CDATA[Eメールアドレスを入力してください]]></MissingEmail>
+		<MissingContact><![CDATA[あなたの連絡先番号を入力してください。\例えば、+ 86-111111（最大12文字）]]></MissingContact>
+		<MissingCurrency><![CDATA[お好みの通貨を選択してください]]></MissingCurrency>
+		<MissingFName><![CDATA[あなたの名を入力してください]]></MissingFName>
+		<MissingLName><![CDATA[あなたの姓を入力してください]]></MissingLName>
+		<MissingName><![CDATA[フルネームを入力してください]]></MissingName>
+		<MissingVCode><![CDATA[確認コードを入力してください]]></MissingVCode>
 
-    <InvalidAddress><![CDATA[無効な住所]]></InvalidAddress>
-    <InvalidCity><![CDATA[無効な都市]]></InvalidCity>
-    <InvalidPostal><![CDATA[無効な郵便番号]]></InvalidPostal>
-    <InvalidSecurityAnswer><![CDATA[無効なセキュリティの答え]]></InvalidSecurityAnswer>
-    <IncorrectPassword><![CDATA[正しいパスワードを入力してください]]></IncorrectPassword>
-  </UpdateProfile>
+		<InvalidUsername><![CDATA[無効なユーザー名および/またはパスワード。]]></InvalidUsername>
+		<InvalidPassword><![CDATA[無効なユーザー名および/またはパスワード。]]></InvalidPassword>
+		<InvalidEmail><![CDATA[無効なEメールアドレス]]></InvalidEmail>
+		<InvalidContact><![CDATA[無効な連絡先番号]]></InvalidContact>
+		<InvalidFName><![CDATA[無効な名]]></InvalidFName>
+		<InvalidLName><![CDATA[無効な姓]]></InvalidLName>
+		<InvalidDOB><![CDATA[無効な誕生日]]></InvalidDOB>
+		<InvalidVCode><![CDATA[確認コードが正しくありません]]></InvalidVCode>
+		<chkDisclaimer><![CDATA[続行するには、我々の利用規約およびプライバシーポリシーに同意する必要があります。]]></chkDisclaimer>
+		<!--<chkDisclaimer><![CDATA[賭けは、あなたが18歳以上である必要があります。我々は、あなたが18歳以上であることを検証する目的で第三者と検索を行い、年齢の証明を求める権利を留保します。顧客のアカウントは、満足な証拠が提供されるまでは、一時停止し資金が留保されることがあります。]]></chkDisclaimer>-->
+	</Register>
 
-  <UpdatePassword>
-    <Success><![CDATA[パスワードの変更！]]></Success>
-    <MissingPassword><![CDATA[パスワードを入力してください]]></MissingPassword>
-    <MissingPasswordNew><![CDATA[新しいパスワードを入力してください]]></MissingPasswordNew>
-    <MissingPasswordConfirm><![CDATA[新しいパスワードを確認してください]]></MissingPasswordConfirm>
+	<UpdateProfile>
+		<Success><![CDATA[プロフィールが更新されました！]]></Success>
+		<MissingAddress><![CDATA[あなたの住所を入力してください]]></MissingAddress>
+		<MissingCity><![CDATA[あんたの都市を入力してください]]></MissingCity>
+		<MissingPostal><![CDATA[郵便番号を入力してください]]></MissingPostal>
+		<MissingSecurityQuestion><![CDATA[セキュリティの質問を選択してください]]></MissingSecurityQuestion>
+		<MissingSecurityAnswer><![CDATA[セキュリティの答えを入力してください]]></MissingSecurityAnswer>
+		<MissingPassword><![CDATA[パスワードを入力してください]]></MissingPassword>
 
-    <InvalidPassword><![CDATA[無効なパスワード]]></InvalidPassword>
-    <IncorrectPassword><![CDATA[新しいパスワードを入力してください]]></IncorrectPassword>
-    <UnmatchedPassword><![CDATA[パスワードが一致しません]]></UnmatchedPassword>
-  </UpdatePassword>
-  
-  <FundTransfer>
-    <SelectTransferFrom><![CDATA[から転送するウォレットを選択してください。]]></SelectTransferFrom>
-    <SelectTransferTo><![CDATA[へ転送するウォレットを選択してください。]]></SelectTransferTo>
-    <InputTransferAmount><![CDATA[ご希望の転送金額を入力してください。]]></InputTransferAmount>
-    <TransferSuccess><![CDATA[あなたのトランザクションは成功しました]]></TransferSuccess>
-    <BalanceBeforeAfter><![CDATA[\ウォレットから：{からウォレット} \ウォレットへ：{へウォレット}]]></BalanceBeforeAfter>    
-    <TransferFailed><![CDATA[あなたの転送は失敗しました。]]></TransferFailed>
-    <TransferDeclined><![CDATA[あなたの転送リクエストは、デクラインされました。]]></TransferDeclined>
-    <UnderMaintenance><![CDATA[製品は、現時点ではメンテナンス中です。後ほど再度お試しください。]]></UnderMaintenance>
-    <InvalidFundTransfer><![CDATA[無効な送金]]></InvalidFundTransfer>
-    <SessionExpired><![CDATA[申し訳ありませんが、サーバーエラーが発生しました]]></SessionExpired>
-    <InsufficientFunds><![CDATA[あなたの転送リクエストは、資金不足のためデクラインされました。]]></InsufficientFunds>
-    <MinTransferNotMet><![CDATA[申し訳ございませんが、最低の送金額に達していません]]></MinTransferNotMet>
-    <TransferAmountDisallowed><![CDATA[申し訳ありませんが、振込金額は許可されていません。]]></TransferAmountDisallowed>
-    <ERR01><![CDATA[- ERR01: トランザクションの完了に失敗]]></ERR01>
-    <USDDeposited><![CDATA[ 入金されている]]></USDDeposited>
-    <RolloverNotMet><![CDATA[申し訳ありませんが、あなたのロールオーバー額に達していません。]]></RolloverNotMet>
-    <RolloverAmountNeeded><![CDATA[必要とされるロールオーバー額：]]></RolloverAmountNeeded>
-    <TransferAmountAllowed><![CDATA[許可される金額：]]></TransferAmountAllowed>
-    <BonusAmount><![CDATA[ボーナス額：]]></BonusAmount>
-  </FundTransfer>
-  <Promotion>
-    <InvalidPromo><![CDATA[無効なプロモーションコード]]></InvalidPromo>
-    <PromoAlreadyClaimed><![CDATA[プロモは既に主張されています。]]></PromoAlreadyClaimed>
-    <PromoGroupAlreadyClaimed><![CDATA[申し訳ありませんが、あなたはすでにボーナスグループで主張しています。]]></PromoGroupAlreadyClaimed>
+		<InvalidAddress><![CDATA[無効な住所]]></InvalidAddress>
+		<InvalidCity><![CDATA[無効な都市]]></InvalidCity>
+		<InvalidPostal><![CDATA[無効な郵便番号]]></InvalidPostal>
+		<InvalidSecurityAnswer><![CDATA[無効なセキュリティの答え]]></InvalidSecurityAnswer>
+		<IncorrectPassword><![CDATA[正しいパスワードを入力してください]]></IncorrectPassword>
+	</UpdateProfile>
 
-    <RegisterSuccess><![CDATA[ブラボー！あなたの申請が成功しました。ありがとう。]]></RegisterSuccess>
-    <VipOnly><![CDATA[こちらのプロモーションは、VIPメンバーのみ対象となります。\〜プレステージクラブの一部であることの違いを感じてください〜]]></VipOnly>
-    <SubmitOnce><![CDATA[一度だけ提出することができます。]]></SubmitOnce>
-  </Promotion>
+	<UpdatePassword>
+		<Success><![CDATA[パスワードの変更！]]></Success>
+		<MissingPassword><![CDATA[パスワードを入力してください]]></MissingPassword>
+		<MissingPasswordNew><![CDATA[新しいパスワードを入力してください]]></MissingPasswordNew>
+		<MissingPasswordConfirm><![CDATA[新しいパスワードを確認してください]]></MissingPasswordConfirm>
 
-  <Deposit>
-    <TransferSuccess><![CDATA[あなたのリクエストは、正常に送信されました。]]></TransferSuccess>    
-    <TransferFail><![CDATA[リクエストの提出に失敗しました]]></TransferFail>
-    
-    <MissingDepositAmount><![CDATA[入金額を入力してください]]></MissingDepositAmount>
-    <MissingReferenceId><![CDATA[参照IDを入力してください]]></MissingReferenceId>
-    <MissingAccountName><![CDATA[あなたの口座名を入力してください。]]></MissingAccountName>
-    <MissingAccountNumber><![CDATA[あなたの口座番号を入力してください]]></MissingAccountNumber>
-    <MissingBankName><![CDATA[あなたの他の銀行名を入力してください。]]></MissingBankName>
-	<MissingCardName><![CDATA[Please enter your card name]]></MissingCardName>
-	<MissingCardNo><![CDATA[Please enter your card number]]></MissingCardNo>
-	<MissingCCV><![CDATA[Please enter your security code]]></MissingCCV>
-	<MissingCardType><![CDATA[Please enter your card type]]></MissingCardType>
-	<MissingCardExpiry><![CDATA[Please enter your card expiry]]></MissingCardExpiry>
-    <SelectSystemAccount><![CDATA[システムアカウントを選択してください]]></SelectSystemAccount>
-    <SelectDepositChannel><![CDATA[入金チャンネルを選択してください]]></SelectDepositChannel>
-    <SelectBank><![CDATA[銀行を選択してください]]></SelectBank>
-    <InvalidDepositAmount><![CDATA[無効な入金額]]></InvalidDepositAmount>
-    <InvalidReferenceId><![CDATA[無効な参照ID]]></InvalidReferenceId>
-    <InvalidBankName><![CDATA[無効な銀行名]]></InvalidBankName>
-    <InvalidAccountName><![CDATA[無効な口座名]]></InvalidAccountName>
-    <InvalidAccountNumber><![CDATA[無効な口座番号]]></InvalidAccountNumber>
-    <InvalidDateTime><![CDATA[無効な日付/時刻]]></InvalidDateTime>
+		<InvalidPassword><![CDATA[無効なパスワード]]></InvalidPassword>
+		<IncorrectPassword><![CDATA[新しいパスワードを入力してください]]></IncorrectPassword>
+		<UnmatchedPassword><![CDATA[パスワードが一致しません]]></UnmatchedPassword>
+	</UpdatePassword>
 
-    <TotalAllowedExceeded><![CDATA[金額が、許可されている合計を超えています]]></TotalAllowedExceeded>
-    <AmountMinLimit><![CDATA[金額が、最低額に達していません]]></AmountMinLimit>
-    <AmountMaxLimit><![CDATA[金額が、最大限度を超えています]]></AmountMaxLimit>
+	<FundTransfer>
+		<SelectTransferFrom><![CDATA[から転送するウォレットを選択してください。]]></SelectTransferFrom>
+		<SelectTransferTo><![CDATA[へ転送するウォレットを選択してください。]]></SelectTransferTo>
+		<InputTransferAmount><![CDATA[ご希望の転送金額を入力してください。]]></InputTransferAmount>
+		<TransferSuccess><![CDATA[あなたのトランザクションは成功しました]]></TransferSuccess>
+		<BalanceBeforeAfter><![CDATA[\ウォレットから：{からウォレット} \ウォレットへ：{へウォレット}]]></BalanceBeforeAfter>
+		<TransferFailed><![CDATA[あなたの転送は失敗しました。]]></TransferFailed>
+		<TransferDeclined><![CDATA[あなたの転送リクエストは、デクラインされました。]]></TransferDeclined>
+		<UnderMaintenance><![CDATA[製品は、現時点ではメンテナンス中です。後ほど再度お試しください。]]></UnderMaintenance>
+		<InvalidFundTransfer><![CDATA[無効な送金]]></InvalidFundTransfer>
+		<SessionExpired><![CDATA[申し訳ありませんが、サーバーエラーが発生しました]]></SessionExpired>
+		<InsufficientFunds><![CDATA[あなたの転送リクエストは、資金不足のためデクラインされました。]]></InsufficientFunds>
+		<MinTransferNotMet><![CDATA[申し訳ございませんが、最低の送金額に達していません]]></MinTransferNotMet>
+		<TransferAmountDisallowed><![CDATA[申し訳ありませんが、振込金額は許可されていません。]]></TransferAmountDisallowed>
+		<ERR01><![CDATA[- ERR01: トランザクションの完了に失敗]]></ERR01>
+		<USDDeposited><![CDATA[ 入金されている]]></USDDeposited>
+		<RolloverNotMet><![CDATA[申し訳ありませんが、あなたのロールオーバー額に達していません。]]></RolloverNotMet>
+		<RolloverAmountNeeded><![CDATA[必要とされるロールオーバー額：]]></RolloverAmountNeeded>
+		<TransferAmountAllowed><![CDATA[許可される金額：]]></TransferAmountAllowed>
+		<BonusAmount><![CDATA[ボーナス額：]]></BonusAmount>
+	</FundTransfer>
+	<Promotion>
+		<InvalidPromo><![CDATA[無効なプロモーションコード]]></InvalidPromo>
+		<PromoAlreadyClaimed><![CDATA[プロモは既に主張されています。]]></PromoAlreadyClaimed>
+		<PromoGroupAlreadyClaimed><![CDATA[申し訳ありませんが、あなたはすでにボーナスグループで主張しています。]]></PromoGroupAlreadyClaimed>
 
-    <error-1><![CDATA[申し訳ありませんが、サーバーエラーが発生しました]]></error-1>
-    <error-2><![CDATA[入金が許可されませんでした]]></error-2>
-    <error-3><![CDATA[無効な入金方法]]></error-3>
-    <error-4><![CDATA[最大限度を超えています]]></error-4>
-    <error-5><![CDATA[最低限度に達していません]]></error-5>
-    <error-6><![CDATA[毎日の最大限度を越えています]]></error-6>
-    <error-7><![CDATA[毎日の最大の申請数を越えています]]></error-7>
-    <error-99><![CDATA[申し訳ありませんが、サーバーエラーが発生しました]]></error-99>
+		<RegisterSuccess><![CDATA[ブラボー！あなたの申請が成功しました。ありがとう。]]></RegisterSuccess>
+		<VipOnly><![CDATA[こちらのプロモーションは、VIPメンバーのみ対象となります。\〜プレステージクラブの一部であることの違いを感じてください〜]]></VipOnly>
+		<SubmitOnce><![CDATA[一度だけ提出することができます。]]></SubmitOnce>
+	</Promotion>
 
-    <Exception><![CDATA[リクエストを処理できません]]></Exception>
-    <!--
-    <errorAmountMinLimit><![CDATA[金額が、最低額に達していません]]></errorAmountMinLimit>
-    <errorAmountMaxLimit><![CDATA[金額が、最大限度を超えています]]></errorAmountMaxLimit>
-    <errorAmountTotalAllowed><![CDATA[金額が、許可されている合計を超えています]]></errorAmountTotalAllowed>
-    <exceptionCreateTransaction><![CDATA[リクエストを処理できません]]></exceptionCreateTransaction>
-    <errorMaxLength><![CDATA[- {0}は最大の長さを超えています]]></errorMaxLength>
-    <errorInput><![CDATA[有効な{0}を入力してください]]></errorInput>
-    <errorSelect><![CDATA[有効な{0}を選択してください]]></errorSelect>
-    <errorSelectFile><![CDATA[最大サイズの2Mバイトで、有効な画像ファイルを選択してください]]></errorSelectFile>
-    <errorDateRange><![CDATA[有効な入金の日付/時刻を、72時間で選択してください]]></errorDateRange>
-    <errorSelectTitle><![CDATA[必須項目]]></errorSelectTitle>
-    <errorPositiveNumberTitle><![CDATA[無効な金額]]></errorPositiveNumberTitle>
-    <errorAlphaNumericTitle><![CDATA[英数字のみ]]></errorAlphaNumericTitle>
-    <errorDateRangeTitle><![CDATA[日付範囲のエラー]]></errorDateRangeTitle>
-    <errorMinLimitTitle><![CDATA[最低限度に達していません]]></errorMinLimitTitle>
-    <errorMaxLimitTitle><![CDATA[最大限度を超えています]]></errorMaxLimitTitle>
-    <errorTotalAllowedTitle><![CDATA[許可された合計額を超えています]]></errorTotalAllowedTitle>
-    <okButton><![CDATA[オーケー]]></okButton>
-    <cancelButton><![CDATA[キャンセル]]></cancelButton>
-    -->
-  </Deposit>
+	<Deposit>
+		<TransferSuccess><![CDATA[あなたのリクエストは、正常に送信されました。]]></TransferSuccess>
+		<TransferFail><![CDATA[リクエストの提出に失敗しました]]></TransferFail>
 
-  <Withdrawal>
-    <TransferSuccess><![CDATA[あなたのリクエストは、正常に送信されました。]]></TransferSuccess>
-    <TransferFail><![CDATA[リクエストの提出に失敗しました]]></TransferFail>
-    
-    <MissingWithdrawAmount><![CDATA[出金額を入力してください]]></MissingWithdrawAmount>
-    <MissingAccountName><![CDATA[口座名を入力してください]]></MissingAccountName>
-    <MissingAccountNumber><![CDATA[口座番号を入力してください]]></MissingAccountNumber>
-    <MissingBankName><![CDATA[あなたの他の銀行名を入力してください。]]></MissingBankName>
-    <MissingBankBranch><![CDATA[支店名を入力してください]]></MissingBankBranch>
-    <MissingBankAddress><![CDATA[銀行の住所を入力してください]]></MissingBankAddress>
-    <MissingMyKad><![CDATA[あなたのMyKad IDを入力してください]]></MissingMyKad>
-    <SelectBank><![CDATA[銀行を選択してください]]></SelectBank>
-    <InvalidWithdrawAmount><![CDATA[無効な銀行名です]]></InvalidWithdrawAmount>
-    <InvalidBankName><![CDATA[無効な出金額です]]></InvalidBankName>
-    <InvalidBankBranch><![CDATA[無効な銀行名です]]></InvalidBankBranch>
-    <InvalidBankAddress><![CDATA[無効な銀行の支店です]]></InvalidBankAddress>
-    <InvalidAccountName><![CDATA[無効なアカウント名です]]></InvalidAccountName>
-    <InvalidAccountNumber><![CDATA[無効な口座番号です]]></InvalidAccountNumber>
-    <InvalidMyKad><![CDATA[無効なMyKad]]></InvalidMyKad>
-    <InvalidAtmNumber><![CDATA[無効なATMカード番号です]]></InvalidAtmNumber>
+		<MissingDepositAmount><![CDATA[入金額を入力してください]]></MissingDepositAmount>
+		<MissingReferenceId><![CDATA[参照IDを入力してください]]></MissingReferenceId>
+		<MissingAccountName><![CDATA[あなたの口座名を入力してください。]]></MissingAccountName>
+		<MissingAccountNumber><![CDATA[あなたの口座番号を入力してください]]></MissingAccountNumber>
+		<MissingBankName><![CDATA[あなたの他の銀行名を入力してください。]]></MissingBankName>
+		<MissingCardName><![CDATA[Please enter your card name]]></MissingCardName>
+		<MissingCardNo><![CDATA[Please enter your card number]]></MissingCardNo>
+		<MissingCCV><![CDATA[Please enter your security code]]></MissingCCV>
+		<MissingCardType><![CDATA[Please enter your card type]]></MissingCardType>
+		<MissingCardExpiry><![CDATA[Please enter your card expiry]]></MissingCardExpiry>
+		<SelectSystemAccount><![CDATA[システムアカウントを選択してください]]></SelectSystemAccount>
+		<SelectDepositChannel><![CDATA[入金チャンネルを選択してください]]></SelectDepositChannel>
+		<SelectBank><![CDATA[銀行を選択してください]]></SelectBank>
+		<InvalidDepositAmount><![CDATA[無効な入金額]]></InvalidDepositAmount>
+		<InvalidReferenceId><![CDATA[無効な参照ID]]></InvalidReferenceId>
+		<InvalidBankName><![CDATA[無効な銀行名]]></InvalidBankName>
+		<InvalidAccountName><![CDATA[無効な口座名]]></InvalidAccountName>
+		<InvalidAccountNumber><![CDATA[無効な口座番号]]></InvalidAccountNumber>
+		<InvalidDateTime><![CDATA[無効な日付/時刻]]></InvalidDateTime>
 
-    <TotalAllowedExceeded><![CDATA[トータル額を上回っています]]></TotalAllowedExceeded>
-    <AmountMinLimit><![CDATA[最少額より下回ってます]]></AmountMinLimit>
-    <AmountMaxLimit><![CDATA[最大額を超えてます]]></AmountMaxLimit>
+		<TotalAllowedExceeded><![CDATA[金額が、許可されている合計を超えています]]></TotalAllowedExceeded>
+		<AmountMinLimit><![CDATA[金額が、最低額に達していません]]></AmountMinLimit>
+		<AmountMaxLimit><![CDATA[金額が、最大限度を超えています]]></AmountMaxLimit>
 
-    <error-1><![CDATA[申し訳ありませんが、サーバーエラーが発生しました]]></error-1>
-    <error-2><![CDATA[出金許可されていません。]]></error-2>
-    <error-3><![CDATA[無効な通貨です]]></error-3>
-    <error-4><![CDATA[無効な出金方法です]]></error-4>
-    <error-5><![CDATA[最小/最高制限を上回りました]]></error-5>
-    <error-6><![CDATA[最大日制限を上回りました]]></error-6>
-    <error-7><![CDATA[最大日提出カウントが上回りました]]></error-7>
-    <error-99><![CDATA[申し訳ありませんが、サーバーエラーが発生しました]]></error-99>
+		<error-1><![CDATA[申し訳ありませんが、サーバーエラーが発生しました]]></error-1>
+		<error-2><![CDATA[入金が許可されませんでした]]></error-2>
+		<error-3><![CDATA[無効な入金方法]]></error-3>
+		<error-4><![CDATA[最大限度を超えています]]></error-4>
+		<error-5><![CDATA[最低限度に達していません]]></error-5>
+		<error-6><![CDATA[毎日の最大限度を越えています]]></error-6>
+		<error-7><![CDATA[毎日の最大の申請数を越えています]]></error-7>
+		<error-99><![CDATA[申し訳ありませんが、サーバーエラーが発生しました]]></error-99>
 
-    <CancelSuccess><![CDATA[お客様の出金のキャンセルが正常に送信されました。トランザクションIDは｛｝]]></CancelSuccess>
+		<Exception><![CDATA[リクエストを処理できません]]></Exception>
+	</Deposit>
 
-    <Exception><![CDATA[リクエストを処理できません]]></Exception>
-  </Withdrawal>
+	<Withdrawal>
+		<TransferSuccess><![CDATA[あなたのリクエストは、正常に送信されました。]]></TransferSuccess>
+		<TransferFail><![CDATA[リクエストの提出に失敗しました]]></TransferFail>
+
+		<MissingWithdrawAmount><![CDATA[出金額を入力してください]]></MissingWithdrawAmount>
+		<MissingAccountName><![CDATA[口座名を入力してください]]></MissingAccountName>
+		<MissingAccountNumber><![CDATA[口座番号を入力してください]]></MissingAccountNumber>
+		<MissingBankName><![CDATA[あなたの他の銀行名を入力してください。]]></MissingBankName>
+		<MissingBankBranch><![CDATA[支店名を入力してください]]></MissingBankBranch>
+		<MissingBankAddress><![CDATA[銀行の住所を入力してください]]></MissingBankAddress>
+		<MissingMyKad><![CDATA[あなたのMyKad IDを入力してください]]></MissingMyKad>
+		<SelectBank><![CDATA[銀行を選択してください]]></SelectBank>
+		<InvalidWithdrawAmount><![CDATA[無効な銀行名です]]></InvalidWithdrawAmount>
+		<InvalidBankName><![CDATA[無効な出金額です]]></InvalidBankName>
+		<InvalidBankBranch><![CDATA[無効な銀行名です]]></InvalidBankBranch>
+		<InvalidBankAddress><![CDATA[無効な銀行の支店です]]></InvalidBankAddress>
+		<InvalidAccountName><![CDATA[無効なアカウント名です]]></InvalidAccountName>
+		<InvalidAccountNumber><![CDATA[無効な口座番号です]]></InvalidAccountNumber>
+		<InvalidMyKad><![CDATA[無効なMyKad]]></InvalidMyKad>
+		<InvalidAtmNumber><![CDATA[無効なATMカード番号です]]></InvalidAtmNumber>
+
+		<TotalAllowedExceeded><![CDATA[トータル額を上回っています]]></TotalAllowedExceeded>
+		<AmountMinLimit><![CDATA[最少額より下回ってます]]></AmountMinLimit>
+		<AmountMaxLimit><![CDATA[最大額を超えてます]]></AmountMaxLimit>
+
+		<error-1><![CDATA[申し訳ありませんが、サーバーエラーが発生しました]]></error-1>
+		<error-2><![CDATA[出金許可されていません。]]></error-2>
+		<error-3><![CDATA[無効な通貨です]]></error-3>
+		<error-4><![CDATA[無効な出金方法です]]></error-4>
+		<error-5><![CDATA[最小/最高制限を上回りました]]></error-5>
+		<error-6><![CDATA[最大日制限を上回りました]]></error-6>
+		<error-7><![CDATA[最大日提出カウントが上回りました]]></error-7>
+		<error-99><![CDATA[申し訳ありませんが、サーバーエラーが発生しました]]></error-99>
+
+		<CancelSuccess><![CDATA[お客様の出金のキャンセルが正常に送信されました。トランザクションIDは｛｝]]></CancelSuccess>
+
+		<Exception><![CDATA[リクエストを処理できません]]></Exception>
+	</Withdrawal>
+
+	<StatusCode>
+		<e400><![CDATA[400]]></e400>
+		<e403><![CDATA[403]]></e403>
+		<e404><![CDATA[404]]></e404>
+		<e408><![CDATA[408]]></e408>
+		<e500><![CDATA[500]]></e500>
+		<e502><![CDATA[502]]></e502>
+	</StatusCode>
+	<HttpError>
+		<e400><![CDATA[サーバーがこの要求を理解することができませんでした。]]></e400>
+		<e400title><![CDATA[不正な要求]]></e400title>
+		<e403><![CDATA[ジもしくはディレクトリを表示することはできません。]]></e403>
+		<e403title><![CDATA[禁止－このペ]]></e403title>
+		<e404><![CDATA[恐れ入りますがお客様のリクエストされたページは見つかりませんでした。]]></e404>
+		<e404title><![CDATA[ページが見つかりません]]></e404title>
+		<e408><![CDATA[サーバは、リクエスト待機中にタイムアウトしました。]]></e408>
+		<e408title><![CDATA[要求タイムアウト]]></e408title>
+		<e500><![CDATA[あなたのリクエストの処理中にエラーが発生しました。再度お試しいただくかカスタマーサポートへご連絡ください。]]></e500>
+		<e500title><![CDATA[内部サーバーエラー]]></e500title>
+		<e502><![CDATA[ゲートウェイとして作動しているときに、ウェブサーバーが無効な応答を受信しました。]]></e502>
+		<e502title><![CDATA[不正なゲートウェイ]]></e502title>
+	</HttpError>
 </default>

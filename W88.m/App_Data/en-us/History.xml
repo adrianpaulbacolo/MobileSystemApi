@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<History>
+	<history><![CDATA[History]]></history>
+	<depositwithdrawal><![CDATA[Deposit / Withdrawal]]></depositwithdrawal>
+	<fundtransfer><![CDATA[Fund Transfer]]></fundtransfer>
+	<referralbonus><![CDATA[Referral Bonus]]></referralbonus>
+	<promotionclaim><![CDATA[Promotion Claim]]></promotionclaim>
+
+	<lblDateFrom><![CDATA[Start Date]]></lblDateFrom>
+	<lblDateTo><![CDATA[End Date]]></lblDateTo>
+	<lblType><![CDATA[Type]]></lblType>
+	<lblStatus><![CDATA[Status]]></lblStatus>
+
+	<type id="0"><![CDATA[All]]></type>
+	<type id="1"><![CDATA[Deposit]]></type>
+	<type id="2"><![CDATA[Withdrawal]]></type>
+
+	<status id="ALL"><![CDATA[All]]></status>
+	<status id="SUCCESSFUL"><![CDATA[Successful]]></status>
+	<status id="PENDING"><![CDATA[Pending]]></status>
+	<status id="FAILED"><![CDATA[Failed]]></status>
+	<status id="REJECTED"><![CDATA[Rejected]]></status>
+
+	<dateTime><![CDATA[Date / Time]]></dateTime>
+	<transId><![CDATA[Transaction ID]]></transId>
+	<paymentMethod><![CDATA[Payment Method]]></paymentMethod>
+	<submittedAmt><![CDATA[Submitted Amount]]></submittedAmt>
+	<receivedAmt><![CDATA[Received Amount]]></receivedAmt>
+	<from><![CDATA[From]]></from>
+	<to><![CDATA[To]]></to>
+	<source><![CDATA[Source]]></source>
+	<amount><![CDATA[Amount]]></amount>
+	<subjectCode><![CDATA[Subject Code]]></subjectCode>
+	<norecords><![CDATA[No Records Found]]></norecords>
+
+	<ftStatus id="-1"><![CDATA[All]]></ftStatus>
+	<ftStatus id="0"><![CDATA[Pending]]></ftStatus>
+	<ftStatus id="1"><![CDATA[Succesful]]></ftStatus>
+	<ftStatus id="2"><![CDATA[Failed]]></ftStatus>
+	<ftStatus id="3"><![CDATA[Declined]]></ftStatus>
+
+	<totalInvitees><![CDATA[Total Invitees]]></totalInvitees>
+	<totalRegistered><![CDATA[Total Registered]]></totalRegistered>
+	<totalSuccessReferral><![CDATA[Total Successful Referrals]]></totalSuccessReferral>
+	<totalReferralBonus><![CDATA[Total Referral Bonus ([cur])]]></totalReferralBonus>
+
+	<btnSubmit><![CDATA[SUBMIT]]></btnSubmit>
+</History>

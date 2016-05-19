@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="WingMoney.aspx.cs" Inherits="Withdrawal_WingMoney" %>
+<%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
 <!DOCTYPE html>
 <html>
@@ -17,9 +18,7 @@
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <label class="label"><%=commonCulture.ElementValues.getResourceString("mainWallet", commonVariables.LeftMenuXML)%></label>
-                <h2 class="value"><%=Session["Main"].ToString()%></h2>
-                <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
+               <uc:Wallet id="uMainWallet" runat="server" />
             </div>
 
             <div data-role="navbar">
@@ -76,14 +75,16 @@
         <!-- /content -->
         <script type="text/javascript">
             $(function () {
-                if ('<%=strAlertCode%>'.length > 0) {
-                    switch ('<%=strAlertCode%>') {
+                var responseCode = '<%=strAlertCode%>';
+                var responseMsg = '<%=strAlertMessage%>';
+                if (responseCode.length > 0) {
+                    switch (responseCode) {
                         case '-1':
-                            alert('<%=strAlertMessage%>');
+                            alert(responseMsg);
                             break;
                         case '0':
-                            alert('<%=strAlertMessage%>');
-                            window.location.replace('/Withdrawal/WingMoney_app.aspx');
+                            alert(responseMsg);
+                            window.location.replace('/Withdrawal/WingMoney');
                             break;
                         default:
                             break;
@@ -115,16 +116,16 @@
                 }
                 else if ($('#txtAccountNumber').val().length == 0) {
                     if ($('#drpBank').val() == 'VIETIN') {
-                        //if ($('#txtAccountNumber').val().length != 16 || isNaN($('#txtAccountNumber').val())) {
                         alert('<%=commonCulture.ElementValues.getResourceXPathString("Withdrawal/MissingAccountNumber", xeErrors)%>');
                         e.preventDefault();
                         return;
-                        //}
                     } else {
                         alert('<%=commonCulture.ElementValues.getResourceXPathString("Withdrawal/MissingAccountNumber", xeErrors)%>');
                         e.preventDefault();
                         return;
                     }
+                } else {
+                    window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
                 }
                 GPINTMOBILE.ShowSplash();
             });

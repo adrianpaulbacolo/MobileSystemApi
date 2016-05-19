@@ -13,9 +13,11 @@
 	<dDaddyPay><![CDATA[ควิกออนไลน์]]></dDaddyPay>
 	<dDaddyPayQR><![CDATA[QR Code Payment]]></dDaddyPayQR>
 	<dSDAPayAlipay><![CDATA[Alipay Transfer]]></dSDAPayAlipay>
+	<dBofoPay><![CDATA[BofoPay]]></dBofoPay>
 	<dAllDebit><![CDATA[บัตรเครดิต]]></dAllDebit>
 
 	<wBankTransfer><![CDATA[ถอนเงินด่วน]]></wBankTransfer>
 	<wWingMoney><![CDATA[Wing Money]]></wWingMoney>
 	<wNeteller><![CDATA[Neteller]]></wNeteller>
+
 </PaymentMethods>

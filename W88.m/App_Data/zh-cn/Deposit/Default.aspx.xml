@@ -22,5 +22,7 @@
 	<btnCancel><![CDATA[取消]]></btnCancel>
 	<btnSubmit><![CDATA[确认提交存款]]></btnSubmit>
 
+	<lblThankYou><![CDATA[谢谢]]></lblThankYou>
+
 	<browserNotice><![CDATA[为了更好兼容性和浏览体验，建议您使用IE或谷歌浏览器，带*的银行不支持谷歌和火狐浏览器。]]></browserNotice>
 </Deposit>
