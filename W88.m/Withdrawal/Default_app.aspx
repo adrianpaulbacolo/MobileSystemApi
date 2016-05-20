@@ -24,20 +24,18 @@
 
             <div data-role="navbar">
                 <ul id="withdrawalTabs" runat="server">
-                     <li />
+                    <li />
                 </ul>
             </div>
 
-              <form class="form" id="form1" runat="server" data-ajax="false">
-                <br />
-                <br />
-                <br />
-                <ul class="list fixed-tablet-size">
-                    <li class="row">
-                        <div class="col" id="paymentNote">
-                        </div>
-                    </li>
-                </ul>
+            <form class="form" id="form1" runat="server" data-ajax="false">
+                <div class="empty-state">
+                    <div class="empty-state-icon">
+                        <i class="ion ion-alert"></i>
+                    </div>
+                    <p id="paymentNote">
+                    </p>
+                </div>
             </form>
         </div>
 

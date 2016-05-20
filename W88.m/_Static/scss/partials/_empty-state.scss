@@ -1,0 +1,29 @@
+.empty-state {
+    text-align: center;
+    padding-top: 10%;
+    padding-bottom: 10%;
+
+    .empty-state-icon {
+        background-color: desaturate(darken($primaryOff-color,10%), 30%);
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 2em;
+        display: table;
+        @include border-radius(50%);
+
+        i {
+            color: darken($base-color, 10%);
+            font-size: 3em;
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+
+    p {
+        color: darken($base-color, 20%);
+        width: 80%;
+        max-width: 480px;
+        display: block;
+        margin: 0 auto;
+    }
+}
