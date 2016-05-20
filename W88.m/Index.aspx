@@ -10,7 +10,6 @@
     <script type="text/javascript" src="/_Static/Js/radar.js"></script>
 </head>
 <body>
-    <!--#include virtual="~/_static/splash.shtml" -->
     <div id="divMain" data-role="page" data-theme="b" data-ajax="false">
         <!--#include virtual="~/_static/header.shtml" -->
         <div class="ui-content" role="main">

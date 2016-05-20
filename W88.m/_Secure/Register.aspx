@@ -8,7 +8,6 @@
     <script type="text/javascript" src="/_Static/Js/PreLoad.js"></script>
 </head>
 <body>
-    <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" id="register">
 
         <header id="header" data-role="header" data-position="fixed" data-theme="b" data-tap-toggle="false">

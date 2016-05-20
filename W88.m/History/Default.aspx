@@ -11,7 +11,6 @@
     <script type="application/javascript" src="/_Static/Js/add2home.js"></script>
 </head>
 <body>
-    <!--#include virtual="~/_static/splash.shtml" -->
     <div id="divMain" data-role="page" data-theme="b" data-ajax="false">
 
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
