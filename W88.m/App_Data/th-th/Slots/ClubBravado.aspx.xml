@@ -3,20 +3,26 @@
 
 	<Category>
 		<Slot Label="สล็อต">
-			<godofgamblers Top="1">
+            <qixi Top="1">
+                <ImageName><![CDATA[qixi]]></ImageName>
+                <PlayForRealURL><![CDATA[{BaravadoUrl}/qixi/?fun=0]]></PlayForRealURL>
+                <PlayForFunURL><![CDATA[{BaravadoUrl}?/qixi/?fun=1]]></PlayForFunURL>
+                <IsInternal><![CDATA[true]]></IsInternal>
+                <SlotType><![CDATA[RSLOT]]></SlotType>
+            </qixi>
+            <godofgamblers>
 				<ImageName><![CDATA[godofgamblers]]></ImageName>
 				<PlayForRealURL><![CDATA[{BaravadoUrl}/godofgamblers/?fun=0]]></PlayForRealURL>
 				<PlayForFunURL><![CDATA[{BaravadoUrl}?/godofgamblers/?fun=1]]></PlayForFunURL>
 				<IsInternal><![CDATA[true]]></IsInternal>
 				<SlotType><![CDATA[RSLOT]]></SlotType>
 			</godofgamblers>
-			<Soccer Top="2">
+			<Soccer>
 				<ImageName><![CDATA[soccer]]></ImageName>
 				<PlayForRealURL><![CDATA[{BravadoUrl}/Soccer/?fun=0]]></PlayForRealURL>
 				<PlayForFunURL><![CDATA[{BravadoUrl}/Soccer/?fun=1]]></PlayForFunURL>
 				<IsInternal><![CDATA[true]]></IsInternal>
 			</Soccer>
-
 			<desertoasis>
 				<ImageName><![CDATA[desertoasis]]></ImageName>
 				<PlayForRealURL><![CDATA[{BaravadoUrl}/desertoasis/?fun=0]]></PlayForRealURL>
