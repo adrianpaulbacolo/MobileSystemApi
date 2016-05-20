@@ -21,10 +21,7 @@
                 <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
             </div>
 
-            <div data-role="navbar">
-                <ul id="depositTabs" runat="server">
-                    <li />
-                </ul>
+            <div data-role="navbar" id="depositTabs" runat="server">
             </div>
 
             <form class="form" id="form1" runat="server" data-ajax="false">
@@ -38,8 +35,6 @@
         <script type="text/javascript">
             $(function () {
                 window.history.forward();
-
-                $('#depositTabs li').first().remove();
 
                 if ($('#depositTabs li a.btn-primary').length == 0) {
                     if ($('#depositTabs li').first().children().attr('href') != undefined) {
