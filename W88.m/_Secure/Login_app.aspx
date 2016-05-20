@@ -183,7 +183,6 @@
                         ioBlackBox: $('#ioBlackBox').val()
                     },
                     success: function (xml) {
-                        GPINTMOBILE.HideSplash();
                         switch ($(xml).find('ErrorCode').text()) {
                             case "1":
                             case "resetPassword":
@@ -191,6 +190,7 @@
                                 Cookies().setCookie('is_app', '1', 365);
                                 break;
                             case "22":
+                                GPINTMOBILE.HideSplash();
                                 var message = $(xml).find('Message').text();
                                 $("#myDialogText").html(message);
                                 $("#myDialog").dialog({
@@ -206,7 +206,7 @@
                                 });
                                 break;
                             default:
-
+                                GPINTMOBILE.HideSplash();
                                 alert($(xml).find('Message').text());
                                 $('#<%=imgCaptcha.ClientID%>').attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime());
                                 $('#<%=txtCaptcha.ClientID%>').val('');
