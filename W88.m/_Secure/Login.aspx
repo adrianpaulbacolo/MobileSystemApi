@@ -10,7 +10,6 @@
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
 <body>
-    <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-close-btn="right" data-corners="false" id="login">
         <header id="header" data-role="header" data-position="fixed" data-theme="b" data-tap-toggle="false">
             <a href="" role="button" data-rel="back" class="btn-clear ui-btn-left ui-btn ion-ios-arrow-back" id="aMenu" data-load-ignore-splash="true">
