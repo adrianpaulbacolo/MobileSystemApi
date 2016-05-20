@@ -13,6 +13,8 @@
 	<dDaddyPay><![CDATA[រហ័សអនឡាញ]]></dDaddyPay>
 	<dDaddyPayQR><![CDATA[QR Code Payment]]></dDaddyPayQR>
 	<dSDAPayAlipay><![CDATA[Alipay Transfer]]></dSDAPayAlipay>
+	<dBofoPay><![CDATA[BofoPay]]></dBofoPay>
+	<dAllDebit><![CDATA[កាតឥណទាន]]></dAllDebit>
 
 	<wBankTransfer><![CDATA[ផ្ទេរប្រាក់តាមធនាគារ]]></wBankTransfer>
 	<wWingMoney><![CDATA[Wing Money]]></wWingMoney>

@@ -79,13 +79,6 @@
 
 	<depositDaddyPay><![CDATA[입금 - 퀵 온라인]]></depositDaddyPay>
 
-	<history><![CDATA[History]]></history>
-	<depositwithdrawal><![CDATA[Deposit / Withdrawal History]]></depositwithdrawal>
-	<fundtransfer><![CDATA[Fund Transfer History]]></fundtransfer>
-	<referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
-	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
-
-
 	<close><![CDATA[종료]]></close>
 
 	<neteller><![CDATA[Neteller]]></neteller>

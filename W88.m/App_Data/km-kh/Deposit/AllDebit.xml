@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+	<lblCardType><![CDATA[ប្រភេទកាត]]></lblCardType>
+	<ddlCardType><![CDATA[ជ្រើសប្រភេទកាត]]></ddlCardType>
+	
+	<lblCardName><![CDATA[ឈ្មោះម្ចាស់កាត]]></lblCardName>
+	
+	<lblCardNo><![CDATA[លេខកាត]]></lblCardNo>
+	
+	<lblExpiry><![CDATA[កាតផុតកំណត់]]></lblExpiry>
+	<ddlMonthDefaultText><![CDATA[ខែ]]></ddlMonthDefaultText>
+	<ddlYearDefaultText><![CDATA[ឆ្នាំ]]></ddlYearDefaultText>
+	
+	<lblSecurityCode><![CDATA[កូដសុវត្ថិភាព]]></lblSecurityCode>
+	<securityCodeHelp><![CDATA[តើរកលេខកូដសំងាត់នៅឯណា?]]></securityCodeHelp>
+</Deposit>

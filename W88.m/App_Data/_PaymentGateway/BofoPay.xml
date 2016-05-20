@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- BofoPay -->
+<accounts>
+	<account>
+		<merchantId><![CDATA[424864]]></merchantId>
+		<terminalId><![CDATA[xpOOKDJMo7ivos+GL1j4Ig==]]></terminalId>
+		<!-- 22927 -->
+		<key><![CDATA[h9ULGnTwTycEyAGG/cONxmSEc1havkaYS7Zaf6p7bKkc6LhReY9iuqZEtYSYMd72KgOY4nRTFJ667PWBP3GxRQ==]]></key>
+		<!-- 62ykjnq7vlqn3tgu -->
+	</account>
+	<account>
+		<merchantId><![CDATA[424862]]></merchantId>
+		<terminalId><![CDATA[xpOOKDJMo7jpor2ZzsHWww==]]></terminalId>
+		<!-- 22926 -->
+		<key><![CDATA[wnG8744epZYP4rvCycXhb7G3rVEMaXua282jMVoyVI5ipxFbmp1HYA9O5ZXnQmalejLmbYtep7X+O5jm+rRzww==]]></key>
+		<!-- bhz4aeu8axlt77v6 -->
+	</account>
+	<account>
+		<merchantId><![CDATA[424871]]></merchantId>
+		<terminalId><![CDATA[xpOOKDJMo7jHW0WjIDOOVg==]]></terminalId>
+		<!-- 22928 -->
+		<key><![CDATA[vslEPCoZBAU/q/mxScPXvYY2BaA0mNn5JkCqFbcbnvJdQQz/IJ/r5pKkJ5Pt1wuGtO/9PhxkuzhG8sTfFFYFHQ==]]></key>
+		<!-- lbdxxl5vqhbz5wbz -->
+	</account>
+	<account>
+		<merchantId><![CDATA[425131]]></merchantId>
+		<terminalId><![CDATA[xpOOKDJMo7gl3Ea2jRpK/Q==]]></terminalId>
+		<!-- 22976 -->
+		<key><![CDATA[S3Cd/KWbIXcKdaqfA4nu5F7L5qwAHo3MOiW4T975U/7Y8mTA8q4eOYcm0irlCcbQMu+QqKqzHDX3/auKWP0lDQ==]]></key>
+		<!-- 9a368uugbf2ytj7h -->
+	</account>
+	<account>
+		<merchantId><![CDATA[425130]]></merchantId>
+		<terminalId><![CDATA[xpOOKDJMo7htomU99WPePw==]]></terminalId>
+		<!-- 22975 -->
+		<key><![CDATA[Oo8ZcRlqze+u2t4h8vpRAZlq3GoYXRfoCI0hTP84Th29Je+pyWJs1IgMmCAKZBrcrTl90QWIQOyjKoTktvp5MA==]]></key>
+		<!-- zkjlyq7y533c8lgd -->
+	</account>
+	<account>
+		<merchantId><![CDATA[437396]]></merchantId>
+		<terminalId><![CDATA[q4UZCjGRQ+6u5JlAVffmRw==]]></terminalId>
+		<!-- 23967 -->
+		<key><![CDATA[1yKxgcw8BbbVYPFaxXozfmOzawt4UjJEjv1ft5nxYyzO4k2EWJiAw78VM+OWznWqRjp4l7tLXMqFHeUU48no7g==]]></key>
+		<!-- a9dcvjfdar657env -->
+	</account>
+	<account>
+		<merchantId><![CDATA[437400]]></merchantId>
+		<terminalId><![CDATA[q4UZCjGRQ+5rvK+OccVQ8A==]]></terminalId>
+		<!-- 23968 -->
+		<key><![CDATA[9boKHWwblXGG2i8LAb0QoiNuRRRBmUhWBkQxRGSW7rrkVcX6J5wT1SvRBpnPUjC1iZTe1udQmHlzWHY4s3q3Ug==]]></key>
+		<!-- bbc3khaxfhfm98mx -->
+	</account>
+	<account>
+		<merchantId><![CDATA[437413]]></merchantId>
+		<terminalId><![CDATA[q4UZCjGRQ+4sBEfAMyJd7w==]]></terminalId>
+		<!-- 23969 -->
+		<key><![CDATA[SeriQ4Lfm47gKmzqwKGGzGkrwKEXd05hDJzbIiVfKkp9lXqfVV03lsgtUvhnMnw++gaOzm2kxedyIqEqU/DoGg==]]></key>
+		<!-- 2xqxskmwfwnzhrc6 -->
+	</account>
+	<account>
+		<merchantId><![CDATA[511002]]></merchantId>
+		<terminalId><![CDATA[a0Zmopef4gBZW9WnO9m6ug==]]></terminalId>
+		<!-- 25091 -->
+		<key><![CDATA[O/Xc5TL4fOEvo1IAbRiqpOrXgFpmjiFKe3l0FZRRxOxfjh/I3eOYaeoHOMyvaquOnVhr+jBs2B0PnEM0PQeONQ==]]></key>
+		<!-- l438rd9laettlk3w -->
+	</account>
+	<account>
+		<merchantId><![CDATA[655387]]></merchantId>
+		<terminalId><![CDATA[rIHPLuYRSbvuiDbxdU7cqQ==]]></terminalId>
+		<!-- 27584 -->
+		<key><![CDATA[11gSArP5geaoDPDjg1nW3Jj+vRvmysXHcjvTFARSqe7PHZUK4ObpFwH2RviLClwwIO5gCiHiBaaDC1DfGGKh1A==]]></key>
+		<!-- 7w242st8ul7yj9zs -->
+	</account>
+	<account>
+		<merchantId><![CDATA[655418]]></merchantId>
+		<terminalId><![CDATA[rIHPLuYRSbsu6mgpNkWWlw==]]></terminalId>
+		<!-- 27586 -->
+		<key><![CDATA[mrfr+KiG1jEcifrh+nFdUXLP9zxSRdmGQ5V5M8hduOAjzjd9gpGMuExeY/Jwk4UrwoYBKiZySaqo9CAuoTNwdw==]]></key>
+		<!-- bnf23ky8bj43cnmv -->
+	</account>
+	<account>
+		<merchantId><![CDATA[655426]]></merchantId>
+		<terminalId><![CDATA[rIHPLuYRSbuzlnf2Bf5hMA==]]></terminalId>
+		<!-- 27587 -->
+		<key><![CDATA[XfU4KN5m3Cwi22yrcympZDHLw0EWKmml/mLKecQHzQBsvI485LpRN8wCJgqQZ1di3ZgZ2vErRPClj1tDfj7Pig==]]></key>
+		<!-- au633ahnb4ke3dew -->
+	</account>
+	<account>
+		<merchantId><![CDATA[655460]]></merchantId>
+		<terminalId><![CDATA[rIHPLuYRSbt3r77s7ukzvQ==]]></terminalId>
+		<!-- 27589 -->
+		<key><![CDATA[crobZGpG8TQ3Y14RNRQLDJLyObR1NZ8xK+W7XW2UmECiTdn38eICRDDUTrWt5Uo0O/B2L9yYeYdv8P5mN0AavQ==]]></key>
+		<!-- rmc5hh4bw778hthm -->
+	</account>
+	<account>
+		<merchantId><![CDATA[655464]]></merchantId>
+		<terminalId><![CDATA[rIHPLuYRSbv3JVD7LkN7kA==]]></terminalId>
+		<!-- 27590 -->
+		<key><![CDATA[FaoghAgMI22xicKtqVi5nkvC8H/ddv+larmZWHtTg5OabXvbTMcPoY7XawZ2S8BD/sdCFQfLPZUsO8Sm/yETHQ==]]></key>
+		<!-- q94rfvm7fg6tf4s7 -->
+	</account>
+	<account>
+		<merchantId><![CDATA[742055]]></merchantId>
+		<terminalId><![CDATA[GrfFv5Jb0lFJp4txIpQ8Hw==]]></terminalId>
+		<!-- 28506-->
+		<key><![CDATA[/P6uFSP9M6NGCTJa9fanF9IlknBDqRqArZM1hnqD0gmDh2G786eRjDNNPx5rsTn32hEyzhind4BOZcFVaZcMWg==]]></key>
+		<!-- qk6khesuy9ckzpml -->
+	</account>
+</accounts>
