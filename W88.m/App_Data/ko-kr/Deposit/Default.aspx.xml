@@ -22,5 +22,7 @@
 	<btnCancel><![CDATA[취소]]></btnCancel>
 	<btnSubmit><![CDATA[입금]]></btnSubmit>
 
+	<lblThankYou><![CDATA[감사합니다]]></lblThankYou>
+
 	<browserNotice><![CDATA[<span>Gentle reminder: <b>{BANK}</b> do not support chrome & firefox</span>]]></browserNotice>
 </Deposit>

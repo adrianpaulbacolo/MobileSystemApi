@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+	<lblCardType><![CDATA[カード名称]]></lblCardType>
+	<ddlCardType><![CDATA[選択 カード名称]]></ddlCardType>
+	
+	<lblCardName><![CDATA[カード保持者氏名]]></lblCardName>
+	
+	<lblCardNo><![CDATA[カード番号]]></lblCardNo>
+	
+	<lblExpiry><![CDATA[カード有効期限]]></lblExpiry>
+	<ddlMonthDefaultText><![CDATA[月]]></ddlMonthDefaultText>
+	<ddlYearDefaultText><![CDATA[年]]></ddlYearDefaultText>
+	
+	<lblSecurityCode><![CDATA[セキュリティコード]]></lblSecurityCode>
+	<securityCodeHelp><![CDATA[セキュリティコードはどこで見つけられますか？]]></securityCodeHelp>
+</Deposit>

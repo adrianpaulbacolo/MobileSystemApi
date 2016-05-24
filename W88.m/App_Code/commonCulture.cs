@@ -8,6 +8,7 @@ using System.Xml;
 using System.Web;
 using System.Xml.XPath;
 using System.Linq;
+using System.Xml.Linq;
 
 namespace commonCulture
 {
@@ -905,7 +906,8 @@ namespace commonCulture
         #endregion
     }
 
-    public static class ElementValues {
+    public static class ElementValues
+    {
         public static string getResourceString(string elementName, System.Xml.Linq.XElement xElement)
         {
             try { return Convert.ToString(xElement.Elements(elementName).SingleOrDefault().Value); }
@@ -926,10 +928,25 @@ namespace commonCulture
             try { return Convert.ToString(xElement.Elements(elementName).SingleOrDefault().Attribute(attributeName).Value); }
             catch (Exception) { return string.Empty; }
         }
-        public static string getResourceXPathAttribute(string elementXPath, string attributeName, System.Xml.Linq.XElement xElement)
+        public static string GetResourceXPathAttribute(string elementXPath, string attributeName, System.Xml.Linq.XElement xElement)
         {
             try { return Convert.ToString(xElement.XPathSelectElement(elementXPath).Attribute(attributeName).Value); }
             catch (Exception) { return string.Empty; }
         }
+        public static string GetResourceXPathAttribute(string elementName, string attributeName, string attributeValue, XElement xElement)
+        {
+            try
+            {
+                var list = xElement.Elements(elementName);
+                foreach (var el in list.Where(el => string.Equals(el.Attribute(attributeName).Name.ToString(), attributeName, StringComparison.CurrentCultureIgnoreCase) && string.Equals(el.Attribute(attributeName).Value, attributeValue, StringComparison.CurrentCultureIgnoreCase)))
+                {
+                    return el.Value;
+                }
+
+                return string.Empty;
+            }
+            catch (Exception) { return string.Empty; }
+        }
+
     }
 }

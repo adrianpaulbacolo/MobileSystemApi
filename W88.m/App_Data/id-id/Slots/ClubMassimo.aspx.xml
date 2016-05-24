@@ -639,8 +639,8 @@
 				<Description><![CDATA[TwistedCircus]]></Description>
 				<ImageName><![CDATA[W88-Slots-Mobile-Twisted-Circus]]></ImageName>
 				<Label><![CDATA[TwistedCircus]]></Label>
-				<PlayForFunURL><![CDATA[{FunUrl}/twistedCircus/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
-				<PlayForRealURL><![CDATA[{RealUrl}/twistedCircus/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{FunUrl}/theTwistedCircus/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+				<PlayForRealURL><![CDATA[{RealUrl}/theTwistedCircus/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
 			</TwistedCircus>
 			<Voila>
 				<Description><![CDATA[Voila]]></Description>

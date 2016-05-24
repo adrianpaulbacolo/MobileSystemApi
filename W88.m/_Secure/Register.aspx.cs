@@ -12,7 +12,8 @@ public partial class _Secure_Register : BasePage
     protected string strAlertMessage = string.Empty;
     public string CDNCountryCode = string.Empty;
 
-    protected void Page_Init(object sender, EventArgs e) { 
+    protected void Page_Init(object sender, EventArgs e)
+    {
         if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { Response.Redirect("/Index"); }
 
         // check for country code
@@ -95,8 +96,10 @@ public partial class _Secure_Register : BasePage
             }
             #endregion
 
-            lblFirstName.Text = commonCulture.ElementValues.getResourceString("lblFirstName", xeResources);
-            lblLastName.Text = commonCulture.ElementValues.getResourceString("lblLastName", xeResources);
+            //lblFirstName.Text = commonCulture.ElementValues.getResourceString("lblFirstName", xeResources);
+            //lblLastName.Text = commonCulture.ElementValues.getResourceString("lblLastName", xeResources);
+            lblName.Text = commonCulture.ElementValues.getResourceString("lblName", xeResources);
+            lblNote.Text = commonCulture.ElementValues.getResourceString("lblNote", xeResources);
             lblDOB.Text = commonCulture.ElementValues.getResourceString("lblDOB", xeResources);
 
 
@@ -165,8 +168,9 @@ public partial class _Secure_Register : BasePage
         strEmail = txtEmail.Text;
         strContact = txtContact.Text;
         strCurrencyCode = drpCurrency.SelectedValue;
-        strFName = System.Text.RegularExpressions.Regex.Replace(txtFirstName.Text, @"\t|\n|\r|", "");
-        strLName = System.Text.RegularExpressions.Regex.Replace(txtLastName.Text, @"\t|\n|\r|", ""); ;
+        // This changes is for the combined name on frontend only but on the BO everything will be saved in firstname
+        strFName = System.Text.RegularExpressions.Regex.Replace(txtName.Text, @"\t|\n|\r|", "");
+        strLName = string.Empty; //System.Text.RegularExpressions.Regex.Replace(txtLastName.Text, @"\t|\n|\r|", "");
         strDOB = string.Format("{0}-{1}-{2}", drpYear.SelectedValue, drpMonth.SelectedValue, drpDay.SelectedValue);
         strVCode = txtCaptcha.Text;
         strSessionVCode = commonVariables.GetSessionVariable("vCode");
@@ -214,14 +218,20 @@ public partial class _Secure_Register : BasePage
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/MissingCurrency", xeErrors);
             isProcessAbort = true;
         }
+        //else if (string.IsNullOrEmpty(strFName))
+        //{
+        //    strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/MissingFName", xeErrors);
+        //    isProcessAbort = true;
+        //}
+        //else if (string.IsNullOrEmpty(strLName))
+        //{
+        //    strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/MissingLName", xeErrors);
+        //    isProcessAbort = true;
+        //}
         else if (string.IsNullOrEmpty(strFName))
         {
-            strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/MissingFName", xeErrors);
-            isProcessAbort = true;
-        }
-        else if (string.IsNullOrEmpty(strLName))
-        {
-            strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/MissingLName", xeErrors);
+            // This changes is for the combined name on frontend only but on the BO everything will be saved in firstname
+            strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/MissingName", xeErrors);
             isProcessAbort = true;
         }
         else if (string.IsNullOrEmpty(strVCode))
@@ -312,8 +322,9 @@ public partial class _Secure_Register : BasePage
             strSignUpUrl = string.Format("m.{0}", commonIp.DomainName);
             strLanguageCode = commonVariables.SelectedLanguage;
 
-            if (string.IsNullOrEmpty(strIPAddress)) { 
-                strIPAddress = commonIp.UserIP; 
+            if (string.IsNullOrEmpty(strIPAddress))
+            {
+                strIPAddress = commonIp.UserIP;
             }
 
             if (string.IsNullOrEmpty(strCountryCode) || string.Compare(strCountryCode, "-", true) == 0)
@@ -321,7 +332,9 @@ public partial class _Secure_Register : BasePage
                 if (!string.IsNullOrEmpty(CDNCountryCode))
                 {
                     strCountryCode = CDNCountryCode;
-                }else{
+                }
+                else
+                {
                     using (wsIP2Loc.ServiceSoapClient wsInstance = new wsIP2Loc.ServiceSoapClient())
                     {
                         wsInstance.location(strIPAddress, ref strCountryCode, ref strPermission);

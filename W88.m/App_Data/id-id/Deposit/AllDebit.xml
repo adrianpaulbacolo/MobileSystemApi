@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+	<lblCardType><![CDATA[Tipe Kartu]]></lblCardType>
+	<ddlCardType><![CDATA[Pilih Tipe Kartu]]></ddlCardType>
+	
+	<lblCardName><![CDATA[Nama Pemegang Kartu]]></lblCardName>
+	
+	<lblCardNo><![CDATA[Nomor Kartu]]></lblCardNo>
+	
+	<lblExpiry><![CDATA[Tanggal kadaluarsa Kartu]]></lblExpiry>
+	<ddlMonthDefaultText><![CDATA[Bulan]]></ddlMonthDefaultText>
+	<ddlYearDefaultText><![CDATA[Tahun]]></ddlYearDefaultText>
+	
+	<lblSecurityCode><![CDATA[Kode Keamanan]]></lblSecurityCode>
+	<securityCodeHelp><![CDATA[Dimana anda bisa melihat "Security Code"?]]></securityCodeHelp>
+</Deposit>
