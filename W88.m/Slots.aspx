@@ -13,12 +13,6 @@
                     <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubBravado/Label", commonVariables.ProductsXML)%></div>
                 </a>
             </li>
-            <%--<li class="col col-33">
-                    <a href="/ClubPalazzo" class="card" data-ajax="false">
-                        <img src="/_Static/Images/bnr-clubpalazzo-slots.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%> 2</div>
-                    </a>
-                </li>--%>
             <li class="col col-33">
                 <a href="/ClubPalazzo" class="card" data-ajax="false">
                     <img src="/_Static/Images/bnr-clubpalazzo-slots.jpg?" class="img-responsive">
@@ -49,24 +43,15 @@
                     <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubGallardo/Label", commonVariables.ProductsXML)%></div>
                 </a>
             </li>
-            <li class="col col-33">
-                <a href="/ClubApollo" class="card" data-ajax="false">
-                    <img src="/_Static/Images/bnr-clubapollo.jpg" class="img-responsive">
-                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubApollo/Label", commonVariables.ProductsXML)%></div>
-                </a>
-            </li>
+            
+            <asp:Literal ID="ltlApollo" runat="server"></asp:Literal>
+            
             <li class="col col-33">
                 <a href="/ClubDivino" class="card" data-ajax="false">
                     <img src="/_Static/Images/bnr-clubdivino.jpg" class="img-responsive">
                     <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubDivino/Label", commonVariables.ProductsXML)%></div>
                 </a>
             </li>
-            <%--  <li class="col col-33">
-                    <a href="/ClubCrescendo" class="card" data-ajax="false">
-                        <img src="/_Static/Images/bnr-clubcrescendo.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubCrescendo/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li>--%>
             <%if (Session["responseCode"].ToString() == "1")
               {%>
             <li class="col col-33">

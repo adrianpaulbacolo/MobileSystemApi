@@ -28,10 +28,10 @@
                 <ImageName><![CDATA[W88-Slots-Mobile-Arcader]]></ImageName>
                 <Label><![CDATA[Arcader]]></Label>
             </OGS-arcader>
-            <QS-bigbadwolf>
+            <!--<QS-bigbadwolf>
                 <ImageName><![CDATA[W88-Slots-Mobile-Big-Bad-Wolf]]></ImageName>
                 <Label><![CDATA[Big Bad Wolf]]></Label>
-            </QS-bigbadwolf>
+            </QS-bigbadwolf> -->
             <OGS-bingobillions>
                 <ImageName><![CDATA[W88-Slots-Mobile-Bingo-Billions!]]></ImageName>
                 <Label><![CDATA[Bingo Billions!]]></Label>
@@ -52,10 +52,10 @@
                 <ImageName><![CDATA[W88-Slots-Mobile-Casinomeister]]></ImageName>
                 <Label><![CDATA[Casinomeister]]></Label>
             </OGS-casinomeister>
-            <QS-crystalqueen>
+           <!-- <QS-crystalqueen>
                 <ImageName><![CDATA[W88-Slots-Mobile-Crystal-Queen]]></ImageName>
                 <Label><![CDATA[Crystal Queen]]></Label>
-            </QS-crystalqueen>
+            </QS-crystalqueen> -->
             <OGS-diamondtower>
                 <ImageName><![CDATA[W88-Slots-Mobile-Diamond-Tower]]></ImageName>
                 <Label><![CDATA[Diamond Tower]]></Label>
@@ -96,10 +96,10 @@
                 <ImageName><![CDATA[W88-Slots-Mobile-Extra-Cash!!]]></ImageName>
                 <Label><![CDATA[Extra Cash!!]]></Label>
             </OGS-extracash>
-            <QS-firestorm>
+            <!--<QS-firestorm>
                 <ImageName><![CDATA[W88-Slots-Mobile-Firestorm]]></ImageName>
                 <Label><![CDATA[Firestorm]]></Label>
-            </QS-firestorm>
+            </QS-firestorm> -->
             <OGS-flux>
                 <ImageName><![CDATA[W88-Slots-Mobile-Flux]]></ImageName>
                 <Label><![CDATA[Flux]]></Label>
@@ -120,18 +120,18 @@
                 <ImageName><![CDATA[W88-Slots-Mobile-Fruit-Warp]]></ImageName>
                 <Label><![CDATA[Fruit Warp]]></Label>
             </OGS-fruitwarp>
-            <QS-geniestouch>
+            <!--<QS-geniestouch>
                 <ImageName><![CDATA[W88-Slots-Mobile-Genies-Touch]]></ImageName>
                 <Label><![CDATA[Genie’s Touch]]></Label>
-            </QS-geniestouch>
+            </QS-geniestouch>-->
             <OGS-gorillagowild>
                 <ImageName><![CDATA[W88-Slots-Mobile-Gorilla-Go-Wild]]></ImageName>
                 <Label><![CDATA[Gorilla Go Wild]]></Label>
             </OGS-gorillagowild>
-            <QS-illuminous>
+            <!--<QS-illuminous>
                 <ImageName><![CDATA[W88-Slots-Mobile-Illuminous]]></ImageName>
                 <Label><![CDATA[Illuminous]]></Label>
-            </QS-illuminous>
+            </QS-illuminous>-->
             <OGS-irisheyes2>
                 <ImageName><![CDATA[W88-Slots-Mobile-Irish-Eyes-2]]></ImageName>
                 <Label><![CDATA[Irish Eyes 2]]></Label>
@@ -148,10 +148,10 @@
                 <ImageName><![CDATA[W88-Slots-Mobile-Jackpot-Jester-Wild-Nudge]]></ImageName>
                 <Label><![CDATA[Jackpot Jester Wild Nudge]]></Label>
             </OGS-jackpotjesterwildnudge>
-            <QS-jewelblast>
+            <!--<QS-jewelblast>
                 <ImageName><![CDATA[W88-Slots-Mobile-Jewel-Blast]]></ImageName>
                 <Label><![CDATA[Jewel Blast]]></Label>
-            </QS-jewelblast>
+            </QS-jewelblast>-->
             <OGS-jokerjester>
                 <ImageName><![CDATA[W88-Slots-Mobile-Joker-Jester]]></ImageName>
                 <Label><![CDATA[Joker Jester]]></Label>
@@ -160,10 +160,10 @@
                 <ImageName><![CDATA[W88-Slots-Mobile-Jukepot]]></ImageName>
                 <Label><![CDATA[Jukepot]]></Label>
             </OGS-jukepot>
-            <QS-kingcolossus>
+            <!--<QS-kingcolossus>
                 <ImageName><![CDATA[W88-Slots-Mobile-King-Colossus]]></ImageName>
                 <Label><![CDATA[King Colossus]]></Label>
-            </QS-kingcolossus>
+            </QS-kingcolossus>-->
             <OGS-leonidas>
                 <ImageName><![CDATA[W88-Slots-Mobile-Leonidas]]></ImageName>
                 <Label><![CDATA[Leonidas]]></Label>
@@ -216,22 +216,22 @@
                 <ImageName><![CDATA[W88-Slots-Mobile-Potion-Commotion]]></ImageName>
                 <Label><![CDATA[Potion Commotion]]></Label>
             </OGS-potioncommotion>
-            <QS-razortooth>
+            <!--<QS-razortooth>
                 <ImageName><![CDATA[W88-Slots-Mobile-Razortooth]]></ImageName>
                 <Label><![CDATA[Razortooth]]></Label>
-            </QS-razortooth>
-            <QS-secondstrike>
+            </QS-razortooth>-->
+            <!--<QS-secondstrike>
                 <ImageName><![CDATA[W88-Slots-Mobile-Second-Strike]]></ImageName>
                 <Label><![CDATA[Second Strike]]></Label>
-            </QS-secondstrike>
-            <QS-sinbad>
+            </QS-secondstrike>-->
+            <!--<QS-sinbad>
                 <ImageName><![CDATA[W88-Slots-Mobile-Sevens-High]]></ImageName>
                 <Label><![CDATA[Sevens High]]></Label>
-            </QS-sinbad>
-            <QS-sugartrail>
+            </QS-sinbad>-->
+            <!--<QS-sugartrail>
                 <ImageName><![CDATA[W88-Slots-Mobile-Sinbad]]></ImageName>
                 <Label><![CDATA[Sinbad]]></Label>
-            </QS-sugartrail>
+            </QS-sugartrail>-->
             <OGS-spanisheyes>
                 <ImageName><![CDATA[W88-Slots-Mobile-Spanish-Eyes]]></ImageName>
                 <Label><![CDATA[Spanish Eyes]]></Label>
@@ -260,18 +260,18 @@
                 <ImageName><![CDATA[W88-Slots-Mobile-The-Spin-Lab]]></ImageName>
                 <Label><![CDATA[The Spin Lab]]></Label>
             </OGS-thespinlab>
-            <QS-thewhildchase>
+            <!--<QS-thewhildchase>
                 <ImageName><![CDATA[W88-Slots-Mobile-The-Wild-Chase]]></ImageName>
                 <Label><![CDATA[The Wild Chase]]></Label>
-            </QS-thewhildchase>
+            </QS-thewhildchase>-->
             <OGS-tokitime>
                 <ImageName><![CDATA[W88-Slots-Mobile-Toki-Time]]></ImageName>
                 <Label><![CDATA[Toki Time]]></Label>
             </OGS-tokitime>
-            <QS-treasureisland>
+            <!--<QS-treasureisland>
                 <ImageName><![CDATA[W88-Slots-Mobile-Treasure-Island]]></ImageName>
                 <Label><![CDATA[Treasure Island]]></Label>
-            </QS-treasureisland>
+            </QS-treasureisland>-->
             <OGS-wildwest>
                 <ImageName><![CDATA[W88-Slots-Mobile-Wild-West]]></ImageName>
                 <Label><![CDATA[Wild West]]></Label>
