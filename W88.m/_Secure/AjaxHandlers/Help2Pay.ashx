@@ -35,23 +35,20 @@ public class Help2Pay : IHttpHandler, System.Web.SessionState.IReadOnlySessionSt
         string strMemberCode = commonVariables.GetSessionVariable("MemberCode");
         string strCurrencyCode = commonVariables.GetSessionVariable("CurrencyCode");
 
-        string parameters = strMemberCode + "|" + strAmount + "|" + bankCode;
+        string parameters = string.Format("{0} | {1} | {2} | {3} | {4} | {5} ", strOperatorId, strMemberId, strMemberCode, strCurrencyCode, requestAmount, bankCode);
         #endregion
 
         #region log parameters
         processSerialId++;
         processDetail = "log parameters";
 
+        commonAuditTrail.appendLog("system", pageName, taskName, string.Empty, string.Empty, processDetail, string.Empty, "ok", parameters, Convert.ToString(processSerialId), processId, false);
+        
         #endregion
 
         #region parameter validation
         processSerialId++;
         processDetail = "parameter validation";
-
-        //already check with javascript
-
-
-        commonAuditTrail.appendLog("system", pageName, taskName, string.Empty, string.Empty, processDetail, string.Empty, "ok", parameters, Convert.ToString(processSerialId), processId, false);
 
         bool bankFound = false;
 
