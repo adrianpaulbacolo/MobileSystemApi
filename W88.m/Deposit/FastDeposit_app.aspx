@@ -19,9 +19,7 @@
                 <uc:Wallet id="uMainWallet" runat="server" />
             </div>
 
-            <div data-role="navbar">
-                <ul id="depositTabs" runat="server">
-                </ul>
+            <div data-role="navbar" id="depositTabs" runat="server">
             </div>
 
             <form class="form" id="form1" runat="server" data-ajax="false">
@@ -124,19 +122,22 @@
         </div>
 
         <script type="text/javascript">
+            $('#form1').submit(function (e) {
+                window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
+            });
             $(function () {
                 window.history.forward();
+                var responseCode = '<%=strAlertCode%>';
+                var responseMsg = '<%=strAlertMessage%>';
 
-                if ('<%=strAlertCode%>'.length > 0) {
-                    switch ('<%=strAlertCode%>') {
+                if (responseCode.length > 0) {
+                    switch (responseCode) {
                         case '-1':
-                            alert('<%=strAlertMessage%>');
-
+                            alert(responseMsg);
                             toogleBank($('#drpBank').val());
-
                             break;
                         case '0':
-                            alert('<%=strAlertMessage%>');
+                            alert(responseMsg);
                             window.location.replace('/FundTransfer/FundTransfer.aspx');
                             break;
                         default:

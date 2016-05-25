@@ -19,9 +19,7 @@
                 <uc:Wallet id="uMainWallet" runat="server" />
             </div>
 
-            <div data-role="navbar">
-                <ul id="depositTabs" runat="server">
-                </ul>
+            <div data-role="navbar" id="depositTabs" runat="server">
             </div>
 
             <form class="form" id="form1" runat="server" data-ajax="false">
@@ -95,12 +93,6 @@
             });
             $(function () {
                 window.history.forward();
-
-                if ($('#depositTabs li').length == 0) {
-                    window.location.replace('/FundTransfer/FundTransfer.aspx');
-                } else if ($('#depositTabs li a.btn-primary').length == 0) {
-                    window.location.replace($('#depositTabs li').first().children().attr('href'));
-                }
 
                 var responseCode = '<%=strAlertCode%>';
                 var responseMsg = '<%=strAlertMessage%>';
