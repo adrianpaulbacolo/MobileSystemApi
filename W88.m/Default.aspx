@@ -10,7 +10,6 @@
     <script type="application/javascript" src="/_Static/Js/checkManifest.js"></script>
 </head>
 <body id="language">
-    <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="b" data-ajax="false">
 
         <header id="header" data-role="header" data-position="fixed" data-tap-toggle="false">

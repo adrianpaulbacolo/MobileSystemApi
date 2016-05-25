@@ -13,8 +13,11 @@
 	<dDaddyPay><![CDATA[快捷支付]]></dDaddyPay>
 	<dDaddyPayQR><![CDATA[QR Code Payment]]></dDaddyPayQR>
 	<dSDAPayAlipay><![CDATA[支付宝]]></dSDAPayAlipay>
+	<dBofoPay><![CDATA[快捷支付]]></dBofoPay>
+	<dAllDebit><![CDATA[信用卡]]></dAllDebit>
 
 	<wBankTransfer><![CDATA[银行汇款]]></wBankTransfer>
 	<wWingMoney><![CDATA[Wing Money]]></wWingMoney>
 	<wNeteller><![CDATA[Neteller]]></wNeteller>
+
 </PaymentMethods>

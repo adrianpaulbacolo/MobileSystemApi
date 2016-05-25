@@ -33,7 +33,6 @@ public partial class Withdrawal_BankTransfer : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        CancelUnexpectedRePost();
 
         HtmlGenericControl withdrawalTabs = (HtmlGenericControl)FindControl("withdrawalTabs");
         commonPaymentMethodFunc.GetWithdrawalMethodList(strMethodsUnAvailable, withdrawalTabs, base.PageName, sender.ToString().Contains("app"));
@@ -81,10 +80,6 @@ public partial class Withdrawal_BankTransfer : PaymentBasePage
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        if (IsPageRefresh)
-        {
-            Response.Redirect(Request.Url.AbsoluteUri);
-        }
 
         string strWithdrawalAmount = txtWithdrawAmount.Text.Trim();
         string strBankCode = drpBank.SelectedValue;

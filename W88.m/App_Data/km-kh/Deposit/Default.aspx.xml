@@ -22,5 +22,7 @@
 	<btnCancel><![CDATA[បោះបង់]]></btnCancel>
 	<btnSubmit><![CDATA[ស្នើសុំ]]></btnSubmit>
 
+	<lblThankYou><![CDATA[សូមអរគុណអ្នក]]></lblThankYou>
+
 	<browserNotice><![CDATA[<span>Gentle reminder: <b>{BANK}</b> do not support chrome & firefox</span>]]></browserNotice>
 </Deposit>

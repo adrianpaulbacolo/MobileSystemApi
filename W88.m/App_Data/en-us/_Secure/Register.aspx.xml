@@ -10,6 +10,8 @@
 	<lblOptionFields><![CDATA[Optional Fields]]></lblOptionFields>
 	<lblFirstName><![CDATA[First Name]]></lblFirstName>
 	<lblLastName><![CDATA[Last Name]]></lblLastName>
+	<lblName><![CDATA[Full Name]]></lblName>
+	<lblNote><![CDATA[Card transactions, cheques and bank wires can only processed if the name matches that of the account holder.]]></lblNote>
 	<lblDOB><![CDATA[Date Of Birth]]></lblDOB>
 	<lblAffiliateID><![CDATA[Affiliate ID]]></lblAffiliateID>
 

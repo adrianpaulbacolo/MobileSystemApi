@@ -10,7 +10,6 @@
     <script type="text/javascript" src="/_Static/Js/radar.js"></script>
 </head>
 <body>
-    <!--#include virtual="~/_static/splash.shtml" -->
     <div id="divMain" data-role="page" data-theme="b" data-ajax="false">
         <!--#include virtual="~/_static/header.shtml" -->
         <div class="ui-content" role="main">
@@ -39,7 +38,7 @@
                 <%if (DetectMobileDevice() == 1) {%>
                 <div class="slide">
                     <a class="slide" href="/_Static/Downloads/w88.aspx">
-                        <img src="_Static/Images/Download/Bnr-ClubW88-iOS.jpg" alt="banner" class="img-responsive">
+                        <img src="/_Static/Images/Download/Bnr-ClubW88-iOS.jpg" alt="banner" class="img-responsive">
                     </a>
                 </div>
                 <%}%>

@@ -46,28 +46,25 @@
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%></h2>
                 <li class="title">
                     <a data-rel="dialog" rel="deposit" href="/_Secure/Login.aspx" data-transition="slidedown">
-                        <!-- <img src="/_Static/Images/index-deposit.png" class="img-responsive"> -->
                         <%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%>
                     </a>
                 </li>
                 <li class="title">
                     <a data-rel="dialog" rel="fundtransfer" href="/_Secure/Login.aspx" data-transition="slidedown">
-                        <!-- <img src="/_Static/Images/index-fundtransfer.png" class="img-responsive"> -->
                         <%=commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%>
                     </a>
                 </li>
                 <li class="title">
                     <a data-rel="dialog" rel="withdrawal" href="/_Secure/Login.aspx" data-transition="slidedown">
-                        <!-- <img src="/_Static/Images/index-withdrawal.png" class="img-responsive"> -->
                         <%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%>
                     </a>
                 </li>
-                <!--<li>
-                    <a href="/History" role="button" data-ajax="false">
-                        History
+                <li class="title">
+                    <a data-rel="dialog" rel="history" href="/_Secure/Login.aspx" data-transition="slidedown">
+                        <%=commonCulture.ElementValues.getResourceString("history", commonVariables.HistoryXML)%>
                     </a>
-                </li>-->
-                <!-- <li data-icon="false"><a id="aMnuClaim" runat="server"><%=commonCulture.ElementValues.getResourceString("claims", commonVariables.LeftMenuXML)%></a></li> -->
+                </li>
+
             </ul>
         </li>
         <% } %>
@@ -93,20 +90,12 @@
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
-                <li>
-                    <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-rel="dialog" data-transition="slidedown">
+                <!-- <li>
+                    <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-rel="dialog" data-transition="slidedown" data-ajax="false">
                         <img src="_Static/Images/sports/bnr-vSports.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports/Label", commonVariables.ProductsXML)%></div>
                     </a>
-                </li>
-                <%if(Session["responseCode"].ToString()=="1"){%>
-                <li>
-                    <a class="card" href="/_Static/Downloads/w88.aspx">
-                        <img src="_Static/Images/Download/ClubW88-iOS.jpg" class="img-responsive">
-                        <div class="title">W88 iOS</div>
-                    </a>
-                </li>
-                <%}%>
+                </li> -->
             </ul>
         </li>
 
@@ -232,7 +221,7 @@
                 </li>
                 <li>
                     <a class="card" rel="clubgallardo" href="/ClubGallardo" data-ajax="false">
-                        <img src="_Static/Images/bnr-clubgallardo.jpg" class="img-responsive">
+                        <img src="/_Static/Images/bnr-clubgallardo.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubGallardo/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
@@ -248,14 +237,6 @@
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubCrescendo/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>-->
-                <%if(Session["responseCode"].ToString()=="1"){%>
-                <li>
-                    <a class="card" href="/_Static/Downloads/w88.aspx" data-ajax="false">
-                        <img src="_Static/Images/Download/ClubW88-iOS.jpg" class="img-responsive">
-                        <div class="title">W88 iOS</div>
-                    </a>
-                </li>
-                <% } %>
             </ul>
         </li>
 
@@ -382,6 +363,9 @@
             });
             $('a[rel="withdrawal"]').each(function () {
                 $(this).removeAttr('data-rel').removeAttr('data-transition').attr('data-ajax', 'false').attr('href', '/Withdrawal');
+            });
+            $('a[rel="history"]').each(function () {
+                $(this).removeAttr('data-rel').removeAttr('data-transition').attr('data-ajax', 'false').attr('href', '/History');
             });
             $('a[rel="asports"]').each(function () {
                 $(this).removeAttr('data-rel').removeAttr('data-transition').attr('data-ajax', 'false').attr('href', '<%=(string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) ? "_Secure/Login" : commonASports.getSportsbookUrl)%>');
