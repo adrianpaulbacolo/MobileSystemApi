@@ -71,8 +71,8 @@
 				<Label><![CDATA[winSumDimSum]]></Label>
 				<Description><![CDATA[winSumDimSum]]></Description>
 				<ImageName><![CDATA[W88-Slots-Mobile-Win-Sum-Dim-Sum]]></ImageName>
-				<PlayForRealURL><![CDATA[{RealUrl}/winSumDimSum/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{FunUrl}/winSumDimSum/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+				<PlayForRealURL><![CDATA[{RealUrl}/winSumDimSum/ko?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{FunUrl}/winSumDimSum/ko?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
 			</winSumDimSum>
 
 			<barBarBlackSheep5Reel>
