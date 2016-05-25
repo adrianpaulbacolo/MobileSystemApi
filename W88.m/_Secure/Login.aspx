@@ -62,32 +62,30 @@
 
             $('#form1').submit(function (e) {
                 $('#btnSubmit').attr("disabled", true);
-                if ($('#txtUsername').val().trim().length == 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Login/MissingUsername", xeErrors)%>');
+                var username = _.trim($('#txtUsername').val()),
+                    password = _.trim($('#txtPassword').val());
+                if (_.isEmpty(username)) {
+                    window.w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceXPathString("Login/MissingUsername", xeErrors)%>');
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
                     return;
+                }else{
+                    if (!/^[a-zA-Z0-9]+$/.test(username) || username.indexOf(' ') >= 0) {
+                        window.w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceXPathString("Login/InvalidUsername", xeErrors)%>');
+                        $('#btnSubmit').attr("disabled", false);
+                        e.preventDefault();
+                        return;
+                    }
                 }
-                else if (!/^[a-zA-Z0-9]+$/.test($('#txtUsername').val().trim())) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Login/InvalidUsername", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
-                    return;
-                }
-                else if ($('#txtUsername').val().trim().indexOf(' ') >= 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Login/InvalidUsername", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
-                    return;
-                }
-                else if ($('#txtPassword').val().trim().length == 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Login/MissingPassword", xeErrors)%>');
+
+                if (password.length == 0) {
+                    window.w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceXPathString("Login/MissingPassword", xeErrors)%>');
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
                     return;
                 }
                 else if ($('#txtCaptcha').val().trim().length == 0 && $('#imgCaptcha').is(':visible') == true) {
-                    alert('<%=commonCulture.ElementValues.getResourceString("MissingVCode", xeErrors)%>');
+                    window.w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceString("MissingVCode", xeErrors)%>');
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
                     return;
@@ -113,7 +111,7 @@
                     beforeSend: function () { GPINTMOBILE.ShowSplash(); },
                     timeout: function () {
                         $('#<%=btnSubmit.ClientID%>').prop('disabled', false);
-                        alert('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
+                        window.w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
                         window.location.replace('/Default.aspx');
                     },
                     data: { txtUsername: $('#txtUsername').val(), txtPassword: $('#txtPassword').val(), txtCaptcha: $('#txtCaptcha').val(), ioBlackBox: $('#ioBlackBox').val() },
@@ -151,35 +149,34 @@
                                     $('#<%=imgCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
                                     $('#<%=lblCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
                                     $('#<%=txtCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
-                                    alert($(xml).find('Message').text());
+                                    window.w88Mobile.Growl.shout($(xml).find('Message').text());
                                     $('#<%=imgCaptcha.ClientID%>').attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime());
                                     $('#<%=txtCaptcha.ClientID%>').val('');
                                     $('#<%=txtPassword.ClientID%>').val('');
                                     GPINTMOBILE.HideSplash();
                                 }
                                 else if (counter < 3) {
-                                    alert($(xml).find('Message').text());
+                                    window.w88Mobile.Growl.shout($(xml).find('Message').text());
                                     GPINTMOBILE.HideSplash();
                                 }
                                 break;
                         }
                     },
                     error: function (err) {
-                        alert('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
+                        window.w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
                         window.location.replace('<%=strRedirect%>');
                     }
                 });
             }
         </script>
         <script type="text/javascript" id="iovs_script">
-	        var io_operation = 'ioBegin';
-	        var io_bbout_element_id = 'ioBlackBox';
-	        //var io_submit_element_id = 'btnSubmit';
-	        var io_submit_form_id = 'form1';
-	        var io_max_wait = 5000;
-	        var io_install_flash = false;
-	        var io_install_stm = false;
-	        var io_exclude_stm = 12;
+            var io_operation = 'ioBegin';
+            var io_bbout_element_id = 'ioBlackBox';
+            var io_submit_form_id = 'form1';
+            var io_max_wait = 5000;
+            var io_install_flash = false;
+            var io_install_stm = false;
+            var io_exclude_stm = 12;
         </script>
         <script type="text/javascript" src="//ci-mpsnare.iovation.com/snare.js"></script>
 
