@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="SDAPay.aspx.cs" Inherits="Deposit_SDAPay" %>
+<%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
 <!DOCTYPE html>
 <html>
@@ -8,7 +9,6 @@
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
 <body>
-    <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
             <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dSDAPayAlipay", commonVariables.PaymentMethodsXML))%></h1>
@@ -16,9 +16,7 @@
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <label class="label"><%=commonCulture.ElementValues.getResourceString("mainWallet", commonVariables.LeftMenuXML)%></label>
-                <h2 class="value"><%=Session["Main"].ToString()%></h2>
-                <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
+                <uc:Wallet id="uMainWallet" runat="server" />
             </div>
 
             <div data-role="navbar">
@@ -92,22 +90,26 @@
         </div>
 
         <script type="text/javascript">
+            $('#form1').submit(function (e) {
+                window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
+            });
             $(function () {
                 window.history.forward();
 
-                if ('<%=strAlertCode%>'.length > 0) {
-                    switch ('<%=strAlertCode%>') {
-                        case "0":
-                            window.location.replace('SDAPay2.aspx?id=' + <%=transactionId%>)
-                            break;
+                var responseCode = '<%=strAlertCode%>';
+                var responseMsg = '<%=strAlertMessage%>';
+                if (responseCode.length > 0) {
+                    switch (responseCode) {
                         case '-1':
-                            alert('<%=strAlertMessage%>');
+                            alert(responseMsg);
+                            break;
+                        case '0':
+                            window.location.replace('SDAPay2_app.aspx?id=' + <%=transactionId%>);
                             break;
                         default:
                             break;
                     }
                 }
-
             });
         </script>
     </div>

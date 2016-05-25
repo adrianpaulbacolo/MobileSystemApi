@@ -31,6 +31,7 @@
 		<MissingCurrency><![CDATA[Silahkan pilih mata uang anda]]></MissingCurrency>
 		<MissingFName><![CDATA[Silahkan masukkan Nama Depan dan Nama Tengah anda]]></MissingFName>
 		<MissingLName><![CDATA[Silahkan masukkan Nama Belakang anda]]></MissingLName>
+		<MissingName><![CDATA[Silahkan tulis Nama lengkap Anda]]></MissingName>
 		<MissingVCode><![CDATA[Silahkan masukan 4-Digit kode Validasi.]]></MissingVCode>
 
 		<InvalidUsername><![CDATA[Username dan/atau Password tidak valid]]></InvalidUsername>
@@ -85,6 +86,11 @@
 		<MissingAccountName><![CDATA[Harap masukan nama pemilik rekening Anda]]></MissingAccountName>
 		<MissingAccountNumber><![CDATA[Harap masukan nomor rekening Bank Anda]]></MissingAccountNumber>
 		<MissingBankName><![CDATA[Harap masukan nama Bank]]></MissingBankName>
+		<MissingCardName><![CDATA[Please enter your card name]]></MissingCardName>
+		<MissingCardNo><![CDATA[Please enter your card number]]></MissingCardNo>
+		<MissingCCV><![CDATA[Please enter your security code]]></MissingCCV>
+		<MissingCardType><![CDATA[Please enter your card type]]></MissingCardType>
+		<MissingCardExpiry><![CDATA[Please enter your card expiry]]></MissingCardExpiry>
 		<SelectSystemAccount><![CDATA[Please select a system account]]></SelectSystemAccount>
 		<SelectDepositChannel><![CDATA[Silahkan memilih cara deposit]]></SelectDepositChannel>
 		<SelectBank><![CDATA[Harap masukan nama Bank]]></SelectBank>
@@ -149,4 +155,27 @@
 
 		<Exception><![CDATA[Tidak dapat memproses permintaan]]></Exception>
 	</Withdrawal>
+
+	<StatusCode>
+		<e400><![CDATA[400]]></e400>
+		<e403><![CDATA[403]]></e403>
+		<e404><![CDATA[404]]></e404>
+		<e408><![CDATA[408]]></e408>
+		<e500><![CDATA[500]]></e500>
+		<e502><![CDATA[502]]></e502>
+	</StatusCode>
+	<HttpError>
+		<e400><![CDATA[Permintaan tidak bisa dimengerti oleh server.]]></e400>
+		<e400title><![CDATA[Bad Request]]></e400title>
+		<e403><![CDATA[Anda tidak diijinkan untuk mengakses halaman ini.]]></e403>
+		<e403title><![CDATA[Forbidden]]></e403title>
+		<e404><![CDATA[Maaf, tapi halaman Anda mencoba untuk melihat tidak ada.]]></e404>
+		<e404title><![CDATA[Halaman tidak ditemukan]]></e404title>
+		<e408><![CDATA[server timed out menunggu permintaan .]]></e408>
+		<e408title><![CDATA[Permintaan Timeout]]></e408title>
+		<e500><![CDATA[Terjadi kesalahan saat memperoses permintaan Anda. Silahkan mencoba kembali atau hubungi Customer Service]]></e500>
+		<e500title><![CDATA[Kesalahan server dari dalam]]></e500title>
+		<e502><![CDATA[Web server menerima respon tidak valid saat bertindak sebagai gateway.]]></e502>
+		<e502title><![CDATA[Bad Gateway]]></e502title>
+	</HttpError>
 </default>

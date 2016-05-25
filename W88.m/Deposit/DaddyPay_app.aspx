@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DaddyPay.aspx.cs" Inherits="Deposit_DaddyPay" %>
+<%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
 <!DOCTYPE html>
 <html>
@@ -8,7 +9,6 @@
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
 <body>
-    <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
             <h1 class="title"><%=commonCulture.ElementValues.getResourceString("depositDaddyPay", commonVariables.LeftMenuXML)%></h1>
@@ -16,9 +16,7 @@
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <label class="label"><%=commonCulture.ElementValues.getResourceString("mainWallet", commonVariables.LeftMenuXML)%></label>
-                <h2 class="value"><%=Session["Main"].ToString()%></h2>
-                <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
+                <uc:Wallet id="uMainWallet" runat="server" />
             </div>
 
             <div data-role="navbar">
@@ -90,6 +88,9 @@
         </div>
         <!-- /content -->
         <script type="text/javascript">
+            $('#form1').submit(function (e) {
+                window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
+            });
             $(function () {
                 window.history.forward();
             });

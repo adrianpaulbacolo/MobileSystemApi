@@ -12,7 +12,6 @@
 
 </head>
 <body>
-    <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-close-btn="right" data-corners="false">
         <!--#include virtual="~/_static/logoOnly.inc" -->
         <link href="https://code.jquery.com/ui/1.10.4/themes/blitzer/jquery-ui.css" rel="stylesheet" />

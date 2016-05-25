@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="WingMoney.aspx.cs" Inherits="Withdrawal_WingMoney" %>
+<%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
 <!DOCTYPE html>
 <html>
@@ -9,7 +10,6 @@
     <script type="text/javascript" src="/_Static/JS/jquery.mask.min.js"></script>
 </head>
 <body>
-    <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
             <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("wingmoney", commonVariables.LeftMenuXML))%></h1>
@@ -17,9 +17,7 @@
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <label class="label"><%=commonCulture.ElementValues.getResourceString("mainWallet", commonVariables.LeftMenuXML)%></label>
-                <h2 class="value"><%=Session["Main"].ToString()%></h2>
-                <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
+               <uc:Wallet id="uMainWallet" runat="server" />
             </div>
 
             <div data-role="navbar">
@@ -76,14 +74,16 @@
         <!-- /content -->
         <script type="text/javascript">
             $(function () {
-                if ('<%=strAlertCode%>'.length > 0) {
-                    switch ('<%=strAlertCode%>') {
+                var responseCode = '<%=strAlertCode%>';
+                var responseMsg = '<%=strAlertMessage%>';
+                if (responseCode.length > 0) {
+                    switch (responseCode) {
                         case '-1':
-                            alert('<%=strAlertMessage%>');
+                            alert(responseMsg);
                             break;
                         case '0':
-                            alert('<%=strAlertMessage%>');
-                            window.location.replace('/Withdrawal/WingMoney_app.aspx');
+                            alert(responseMsg);
+                            window.location.replace('/Withdrawal/Default_app.aspx');
                             break;
                         default:
                             break;
@@ -115,16 +115,16 @@
                 }
                 else if ($('#txtAccountNumber').val().length == 0) {
                     if ($('#drpBank').val() == 'VIETIN') {
-                        //if ($('#txtAccountNumber').val().length != 16 || isNaN($('#txtAccountNumber').val())) {
                         alert('<%=commonCulture.ElementValues.getResourceXPathString("Withdrawal/MissingAccountNumber", xeErrors)%>');
                         e.preventDefault();
                         return;
-                        //}
                     } else {
                         alert('<%=commonCulture.ElementValues.getResourceXPathString("Withdrawal/MissingAccountNumber", xeErrors)%>');
                         e.preventDefault();
                         return;
                     }
+                } else {
+                    window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
                 }
                 GPINTMOBILE.ShowSplash();
             });

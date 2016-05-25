@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="BankTransfer.aspx.cs" Inherits="Withdrawal_BankTransfer" %>
+<%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
 <!DOCTYPE html>
 <html>
@@ -9,7 +10,6 @@
     <script type="text/javascript" src="/_Static/JS/jquery.mask.min.js"></script>
 </head>
 <body>
-    <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
@@ -20,9 +20,7 @@
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <label class="label"><%=commonCulture.ElementValues.getResourceString("mainWallet", commonVariables.LeftMenuXML)%></label>
-                <h2 class="value"><%=Session["Main"].ToString()%></h2>
-                <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
+                 <uc:Wallet id="uMainWallet" runat="server" />
             </div>
 
             <div data-role="navbar">
@@ -93,19 +91,6 @@
                         <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" />
                         <asp:TextBox ID="txtAccountNumber" runat="server" />
                     </li>
-                    <%-- <% if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "myr", true) == 0)
-                       { %>
-                    <li class="item item-input">
-                        <asp:Label ID="lblMyKad" runat="server" AssociatedControlID="txtMyKad" Text="to" />
-                        <asp:TextBox ID="txtMyKad" runat="server" />
-                    </li>
-                    <% } %>--%>
-                    <!--
-                    <li class="item item-input">
-                        <asp:Label ID="lblMobile" runat="server" AssociatedControlID="txtMobile" Text="to" />
-                        <asp:TextBox ID="txtMobile" runat="server" />
-                    </li>
-                    -->
                     <li class="item row">
                         <div class="col">
                             <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" data-ajax="false"><%=base.strbtnCancel%></a>
@@ -120,7 +105,9 @@
 
         <!--#include virtual="~/_static/navMenu.shtml" -->
         <script type="text/javascript">
-            //$(document).ready(function () { });
+            $('#form1').submit(function (e) {
+                window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
+            });
             $(function () {
                 window.history.forward();
 
@@ -129,17 +116,16 @@
                 $('#txtMyKad').mask('999999-99-9999');
                 <% } %>
 
-                if ('<%=strAlertCode%>'.length > 0) {
-                    switch ('<%=strAlertCode%>') {
+                var responseCode = '<%=strAlertCode%>';
+                var responseMsg = '<%=strAlertMessage%>';
+                if (responseCode.length > 0) {
+                    switch (responseCode) {
                         case '-1':
-                            alert('<%=strAlertMessage%>');
-
+                            alert(responseMsg);
                             toogleBank($('#drpBank').val());
-
                             break;
                         case '0':
-                            alert('<%=strAlertMessage%>');
-
+                            alert(responseMsg);
                             window.location.replace('/Withdrawal/Default.aspx');
                             break;
                         default:
