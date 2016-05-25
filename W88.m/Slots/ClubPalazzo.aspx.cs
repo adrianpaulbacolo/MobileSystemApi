@@ -4,9 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Configuration;
 
-public partial class Slots_ClubPalazzo: BasePage
+public partial class Slots_ClubPalazzo : BasePage
 {
     protected System.Xml.Linq.XElement xeErrors = null;
     private System.Xml.Linq.XElement xeResources = null;
@@ -18,8 +17,9 @@ public partial class Slots_ClubPalazzo: BasePage
 
         commonCulture.appData.getRootResource("/Slots/ClubPalazzo.aspx", out xeResources);
 
-        if (!Page.IsPostBack)
-        {
+        if (Page.IsPostBack) return;
+
+        SetTitle(commonCulture.ElementValues.getResourceXPathString("/Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML));
             System.Text.StringBuilder sbGames = new System.Text.StringBuilder();
 
             System.Xml.Linq.XElement xeCategories = xeResources.Element("Category");
@@ -49,7 +49,7 @@ public partial class Slots_ClubPalazzo: BasePage
                 foreach (System.Xml.Linq.XElement xeGame in xeCategory.Elements())
                 {
                     strGameId = (xeGame.Attribute("ProductId") == null ? "" : xeGame.Attribute("ProductId").Value);
-                    sbGames.AppendFormat("<li rel='{0}.png' class='bkg-game'><div class='div-links'>", commonCulture.ElementValues.getResourceString("ImageName", xeGame));
+                    sbGames.AppendFormat("<li class='bkg-game'><div rel='{0}.png'><div class='div-links'>", commonCulture.ElementValues.getResourceString("ImageName", xeGame));
 
                     //Real URL
                     if (commonCulture.ElementValues.getResourceString("PlayForReal", xeGame) == "true")
@@ -64,22 +64,13 @@ public partial class Slots_ClubPalazzo: BasePage
                                 "real");
                         sbGames.Append("<i class='icon-play_arrow'></i></a>");
                     }
-                    
-                    ////Fun URL
-                    //if (commonCulture.ElementValues.getResourceString("PlayForFun", xeGame) == "true")
-                    //{
-                    //    //sbGames.AppendFormat("<a class='btn-secondary' href='{0}'><i class='icon-fullscreen'></i></a></div>", commonClubBravado.getFunUrl.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
-                    //    sbGames.AppendFormat("<a class='btn-secondary' href=\"javascript:load_palazzo_link('{0}','{1}','{2}')\"><i class='icon-fullscreen'></i></a></div>", commonCulture.ElementValues.getResourceString("Type", xeGame), commonCulture.ElementValues.getResourceString("ImageName", xeGame), "fun");
-                    //}
 
-                    sbGames.Append("</li>");
+                    sbGames.Append("</div></li>");
                 }
 
                 sbGames.Append("</ul></div></div></div>");
-                //collapsed = true;
             }
 
             divContainer.InnerHtml = Convert.ToString(sbGames);
         }
     }
-}

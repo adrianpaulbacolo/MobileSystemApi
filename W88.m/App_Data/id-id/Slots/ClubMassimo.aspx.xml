@@ -67,14 +67,21 @@
 			</vegasStripBlackjackGold>
 		</CardAndTable>
 		<Slot Label="Slots">
-			<barBarBlackSheep5Reel Top="1">
+			<winSumDimSum Top="1">
+				<Label><![CDATA[winSumDimSum]]></Label>
+				<Description><![CDATA[winSumDimSum]]></Description>
+				<ImageName><![CDATA[W88-Slots-Mobile-Win-Sum-Dim-Sum]]></ImageName>
+				<PlayForRealURL><![CDATA[{RealUrl}/winSumDimSum/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{FunUrl}/winSumDimSum/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+			</winSumDimSum>
+
+			<barBarBlackSheep5Reel>
 				<Label><![CDATA[barBarBlackSheep5Reel]]></Label>
 				<Description><![CDATA[barBarBlackSheep5Reel]]></Description>
 				<ImageName><![CDATA[W88-Slots-Mobile-Bar-Bar-Black-Sheep]]></ImageName>
 				<PlayForRealURL><![CDATA[{RealUrl}/barBarBlackSheep5Reel/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
 				<PlayForFunURL><![CDATA[{FunUrl}/barBarBlackSheep5Reel/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
 			</barBarBlackSheep5Reel>
-
 			<sunTide>
 				<Label><![CDATA[sunTide]]></Label>
 				<Description><![CDATA[SunTide]]></Description>
@@ -93,15 +100,15 @@
 				<Description><![CDATA[AdventurePalace]]></Description>
 				<ImageName><![CDATA[W88-Slots-Mobile-Adventure-Palace]]></ImageName>
 				<Label><![CDATA[AdventurePalace]]></Label>
-				<PlayForFunURL><![CDATA[{FunUrl}/adventurePalace/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
-				<PlayForRealURL><![CDATA[{RealUrl}/adventurePalace/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{FunUrl}/adventurePalace/id?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+				<PlayForRealURL><![CDATA[{RealUrl}/adventurePalace/id?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
 			</AdventurePalace>
 			<AgentJaneBlonde>
 				<Description><![CDATA[AgentJaneBlonde]]></Description>
 				<ImageName><![CDATA[W88-Slots-Mobile-Agent-Jane-Blonde]]></ImageName>
 				<Label><![CDATA[AgentJaneBlonde]]></Label>
-				<PlayForFunURL><![CDATA[{FunUrl}/agentJaneBlonde/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
-				<PlayForRealURL><![CDATA[{RealUrl}/agentJaneBlonde/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{FunUrl}/agentJaneBlonde/id?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+				<PlayForRealURL><![CDATA[{RealUrl}/agentJaneBlonde/id?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
 			</AgentJaneBlonde>
 			<ageOfDiscovery>
 				<Description><![CDATA[ageOfDiscovery]]></Description>
@@ -114,8 +121,8 @@
 				<Description><![CDATA[AlaskanFishing]]></Description>
 				<ImageName><![CDATA[W88-Slots-Mobile-Alaskan-Fishing]]></ImageName>
 				<Label><![CDATA[AlaskanFishing]]></Label>
-				<PlayForFunURL><![CDATA[{FunUrl}/alaskanFishing/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
-				<PlayForRealURL><![CDATA[{RealUrl}/alaskanFishing/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{FunUrl}/alaskanFishing/id?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+				<PlayForRealURL><![CDATA[{RealUrl}/alaskanFishing/id?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
 			</AlaskanFishing>
 			<AliceinWonderslots>
 				<Description><![CDATA[AliceinWonderslots]]></Description>
@@ -142,8 +149,8 @@
 				<Description><![CDATA[Avalon]]></Description>
 				<ImageName><![CDATA[W88-Slots-Mobile-Avalon]]></ImageName>
 				<Label><![CDATA[Avalon]]></Label>
-				<PlayForFunURL><![CDATA[{FunUrl}/avalon/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
-				<PlayForRealURL><![CDATA[{RealUrl}/avalon/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{FunUrl}/avalon/id?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+				<PlayForRealURL><![CDATA[{RealUrl}/avalon/id?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
 			</Avalon>
 			<barsNStripes>
 				<Description><![CDATA[barsNStripes]]></Description>
@@ -163,8 +170,8 @@
 				<Description><![CDATA[bigKahuna]]></Description>
 				<ImageName><![CDATA[bigKahuna]]></ImageName>
 				<Label><![CDATA[bigKahuna]]></Label>
-				<PlayForFunURL><![CDATA[{FunUrl}/bigKahuna/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
-				<PlayForRealURL><![CDATA[{RealUrl}/bigKahuna/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{FunUrl}/bigKahuna/id?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+				<PlayForRealURL><![CDATA[{RealUrl}/bigKahuna/id?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
 			</bigKahuna>
 			<BigTop>
 				<Description><![CDATA[BigTop]]></Description>
@@ -191,8 +198,8 @@
 				<Description><![CDATA[breakAway]]></Description>
 				<ImageName><![CDATA[breakAway]]></ImageName>
 				<Label><![CDATA[breakAway]]></Label>
-				<PlayForFunURL><![CDATA[{FunUrl}/breakAway/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
-				<PlayForRealURL><![CDATA[{RealUrl}/breakAway/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{FunUrl}/breakAway/id?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+				<PlayForRealURL><![CDATA[{RealUrl}/breakAway/id?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
 			</breakAway>
 			<BreakdaBank>
 				<Description><![CDATA[BreakdaBank]]></Description>
@@ -212,29 +219,29 @@
 				<Description><![CDATA[BurningDesire]]></Description>
 				<ImageName><![CDATA[W88-Slots-Mobile-Burning-Desire]]></ImageName>
 				<Label><![CDATA[BurningDesire]]></Label>
-				<PlayForFunURL><![CDATA[{FunUrl}/burningDesire/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
-				<PlayForRealURL><![CDATA[{RealUrl}/burningDesire/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{FunUrl}/burningDesire/id?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+				<PlayForRealURL><![CDATA[{RealUrl}/burningDesire/id?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
 			</BurningDesire>
 			<bushTelegraph>
 				<Description><![CDATA[bushTelegraph]]></Description>
 				<ImageName><![CDATA[bushTelegraph]]></ImageName>
 				<Label><![CDATA[bushTelegraph]]></Label>
-				<PlayForFunURL><![CDATA[{FunUrl}/bushTelegraph/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
-				<PlayForRealURL><![CDATA[{RealUrl}/bushTelegraph/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{FunUrl}/bushTelegraph/id?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+				<PlayForRealURL><![CDATA[{RealUrl}/bushTelegraph/id?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
 			</bushTelegraph>
 			<Carnaval>
 				<Description><![CDATA[Carnaval]]></Description>
 				<ImageName><![CDATA[W88-Slots-Mobile-Carnaval]]></ImageName>
 				<Label><![CDATA[Carnaval]]></Label>
-				<PlayForFunURL><![CDATA[{FunUrl}/carnaval/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
-				<PlayForRealURL><![CDATA[{RealUrl}/carnaval/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{FunUrl}/carnaval/id?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+				<PlayForRealURL><![CDATA[{RealUrl}/carnaval/id?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
 			</Carnaval>
 			<Cashapillar>
 				<Description><![CDATA[Cashapillar]]></Description>
 				<ImageName><![CDATA[W88-Slots-Mobile-Cashapillar]]></ImageName>
 				<Label><![CDATA[Cashapillar]]></Label>
-				<PlayForFunURL><![CDATA[{FunUrl}/cashapillar/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
-				<PlayForRealURL><![CDATA[{RealUrl}/cashapillar/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{FunUrl}/cashapillar/id?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+				<PlayForRealURL><![CDATA[{RealUrl}/cashapillar/id?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
 			</Cashapillar>
 			<!--<CashSplash>
 		        <Label><![CDATA[CashSplash]]></Label>
@@ -247,15 +254,15 @@
 				<Description><![CDATA[cashVille]]></Description>
 				<ImageName><![CDATA[cashVille]]></ImageName>
 				<Label><![CDATA[cashVille]]></Label>
-				<PlayForFunURL><![CDATA[{FunUrl}/cashVille/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
-				<PlayForRealURL><![CDATA[{RealUrl}/cashVille/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{FunUrl}/cashVille/id?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+				<PlayForRealURL><![CDATA[{RealUrl}/cashVille/id?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
 			</cashVille>
 			<CentreCourt>
 				<Description><![CDATA[CentreCourt]]></Description>
 				<ImageName><![CDATA[W88-Slots-Mobile-Centre-Court]]></ImageName>
 				<Label><![CDATA[CentreCourt]]></Label>
-				<PlayForFunURL><![CDATA[{FunUrl}/centreCourt/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
-				<PlayForRealURL><![CDATA[{RealUrl}/centreCourt/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{FunUrl}/centreCourt/id?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+				<PlayForRealURL><![CDATA[{RealUrl}/centreCourt/id?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
 			</CentreCourt>
 			<coolWolf>
 				<Description><![CDATA[coolWolf]]></Description>
@@ -282,8 +289,8 @@
 				<Description><![CDATA[DecktheHalls]]></Description>
 				<ImageName><![CDATA[W88-Slots-Mobile-Deck-the-Halls]]></ImageName>
 				<Label><![CDATA[DecktheHalls]]></Label>
-				<PlayForFunURL><![CDATA[{FunUrl}/deckTheHalls/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
-				<PlayForRealURL><![CDATA[{RealUrl}/deckTheHalls/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{FunUrl}/deckTheHalls/id?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+				<PlayForRealURL><![CDATA[{RealUrl}/deckTheHalls/id?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
 			</DecktheHalls>
 			<dragonDance>
 				<Description><![CDATA[dragonDance]]></Description>
@@ -310,8 +317,8 @@
 				<Description><![CDATA[5ReelDrive]]></Description>
 				<ImageName><![CDATA[W88-Slots-Mobile-5-Reel-Drive]]></ImageName>
 				<Label><![CDATA[5ReelDrive]]></Label>
-				<PlayForFunURL><![CDATA[{FunUrl}/5ReelDrive/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
-				<PlayForRealURL><![CDATA[{RealUrl}/5ReelDrive/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{FunUrl}/5ReelDrive/id?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+				<PlayForRealURL><![CDATA[{RealUrl}/5ReelDrive/id?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
 			</FiveReelDrive>
 			<FootballStar>
 				<Description><![CDATA[FootballStar]]></Description>
@@ -352,8 +359,8 @@
 				<Description><![CDATA[Hitman]]></Description>
 				<ImageName><![CDATA[W88-Slots-Mobile-Hitman]]></ImageName>
 				<Label><![CDATA[Hitman]]></Label>
-				<PlayForFunURL><![CDATA[{FunUrl}/hitman/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
-				<PlayForRealURL><![CDATA[{RealUrl}/hitman/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{FunUrl}/hitman/id?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+				<PlayForRealURL><![CDATA[{RealUrl}/hitman/id?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
 			</Hitman>
 			<isis>
 				<Description><![CDATA[isis]]></Description>
@@ -450,8 +457,8 @@
 				<Description><![CDATA[MermaidsMillions]]></Description>
 				<ImageName><![CDATA[W88-Slots-Mobile-Mermaids-Millions]]></ImageName>
 				<Label><![CDATA[MermaidsMillions]]></Label>
-				<PlayForFunURL><![CDATA[{FunUrl}/mermaidsMillions/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
-				<PlayForRealURL><![CDATA[{RealUrl}/mermaidsMillions/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{FunUrl}/mermaidsMillions/id?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+				<PlayForRealURL><![CDATA[{RealUrl}/mermaidsMillions/id?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
 			</MermaidsMillions>
 			<mysticDreams>
 				<Description><![CDATA[mysticDreams]]></Description>
@@ -604,8 +611,8 @@
 				<Description><![CDATA[ThunderstruckII]]></Description>
 				<ImageName><![CDATA[W88-Slots-Mobile-Thunderstruck-II]]></ImageName>
 				<Label><![CDATA[ThunderstruckII]]></Label>
-				<PlayForFunURL><![CDATA[{FunUrl}/thunderstruckII/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
-				<PlayForRealURL><![CDATA[{RealUrl}/thunderstruckII/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{FunUrl}/thunderstruckII/id?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+				<PlayForRealURL><![CDATA[{RealUrl}/thunderstruckII/id?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
 			</ThunderstruckII>
 			<TigersEye>
 				<Description><![CDATA[TigersEye]]></Description>
@@ -618,8 +625,8 @@
 				<Description><![CDATA[TombRaider]]></Description>
 				<ImageName><![CDATA[W88-Slots-Mobile-Tomb-Raider]]></ImageName>
 				<Label><![CDATA[TombRaider]]></Label>
-				<PlayForFunURL><![CDATA[{FunUrl}/tombRaider/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
-				<PlayForRealURL><![CDATA[{RealUrl}/tombRaider/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{FunUrl}/tombRaider/id?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+				<PlayForRealURL><![CDATA[{RealUrl}/tombRaider/id?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
 			</TombRaider>
 			<!--<TreasureNile>
 			    <Label><![CDATA[TreasureNile]]></Label>
@@ -639,8 +646,8 @@
 				<Description><![CDATA[TwistedCircus]]></Description>
 				<ImageName><![CDATA[W88-Slots-Mobile-Twisted-Circus]]></ImageName>
 				<Label><![CDATA[TwistedCircus]]></Label>
-				<PlayForFunURL><![CDATA[{FunUrl}/twistedCircus/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
-				<PlayForRealURL><![CDATA[{RealUrl}/twistedCircus/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{FunUrl}/theTwistedCircus/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+				<PlayForRealURL><![CDATA[{RealUrl}/theTwistedCircus/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
 			</TwistedCircus>
 			<Voila>
 				<Description><![CDATA[Voila]]></Description>
@@ -690,8 +697,8 @@
 				<Label><![CDATA[JacksorBetter]]></Label>
 				<Description><![CDATA[JacksorBetter]]></Description>
 				<ImageName><![CDATA[W88-Slots-Mobile-Jacks-or-Better]]></ImageName>
-				<PlayForRealURL><![CDATA[{RealUrl}/jacksOrBetter/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
-				<PlayForFunURL><![CDATA[{FunUrl}/jacksOrBetter/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+				<PlayForRealURL><![CDATA[{RealUrl}/jacksOrBetter/id?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+				<PlayForFunURL><![CDATA[{FunUrl}/jacksOrBetter/id?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
 			</JacksorBetter>
 		</VideoPoker>
 	</Category>
