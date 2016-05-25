@@ -29,32 +29,12 @@ public partial class _Secure_Login : BasePage
         System.Xml.Linq.XElement xeResources = null;
         commonCulture.appData.getLocalResource(out xeResources);
 
-        #region initialiseVariables
-        int intProcessSerialId = 0;
-        string strProcessId = Guid.NewGuid().ToString().ToUpper();
-        string strPageName = "ProcessLoginBySessionId";
-
-        string strResultCode = string.Empty;
-        string strResultDetail = string.Empty;
-        string strErrorCode = string.Empty;
-        string strErrorDetail = string.Empty;
-        string strProcessRemark = string.Empty;
-        bool isProcessAbort = false;
-        bool isSystemError = false;
-
-        //string strLanguage = string.Empty;
-        string strSessionId = string.Empty;
-        string strProcessCode = string.Empty;
-        string strProcessMessage = string.Empty;
-
-        #endregion
-
         if (!string.IsNullOrEmpty(Request.QueryString.Get("token")))
         {
             try
             {
                 var cipherKey = commonEncryption.Decrypt(ConfigurationManager.AppSettings.Get("PrivateKeyToken"));
-                strSessionId = commonEncryption.decryptToken(Request.QueryString.Get("token"), cipherKey);
+                string strSessionId = commonEncryption.decryptToken(Request.QueryString.Get("token"), cipherKey);
                 commonVariables.SetSessionVariable("MemberSessionId", strSessionId);
 
                 var loginCode = UserSession.checkSession();
