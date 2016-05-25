@@ -23,9 +23,13 @@
             </div>
 
             <form class="form" id="form1" runat="server" data-ajax="false">
-                <br />
-                <br />
-                <br />
+                <div class="empty-state">
+                    <div class="empty-state-icon">
+                        <i class="ion ion-alert"></i>
+                    </div>
+                    <p id="paymentNote">
+                    </p>
+                </div>
             </form>
 
         </div>
@@ -37,6 +41,8 @@
                 if ($('#depositTabs li a.btn-primary').length == 0) {
                     if ($('#depositTabs li').first().children().attr('href') != undefined) {
                         window.location.replace($('#depositTabs li').first().children().attr('href'));
+                    } else {
+                        $('#paymentNote').append('<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>');
                     }
                 }
             });

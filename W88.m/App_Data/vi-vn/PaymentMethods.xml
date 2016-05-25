@@ -20,4 +20,5 @@
 	<wWingMoney><![CDATA[Wing Money]]></wWingMoney>
 	<wNeteller><![CDATA[Neteller]]></wNeteller>
 
+	<paymentNotice><![CDATA[<span>Hiện cấu hình Cổng thanh toán tài khoản của Quý Khách đang xảy ra lỗi. Vui lòng liên hệ bộ phận <a href="/LiveChat/Default.aspx" target="_blank">Hỗ trợ trực tuyến</a> để biết thêm chi tiết.</span>]]></paymentNotice>
 </PaymentMethods>

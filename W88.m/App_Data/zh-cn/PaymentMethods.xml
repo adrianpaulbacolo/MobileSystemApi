@@ -20,4 +20,5 @@
 	<wWingMoney><![CDATA[Wing Money]]></wWingMoney>
 	<wNeteller><![CDATA[Neteller]]></wNeteller>
 
+	<paymentNotice><![CDATA[<span>非常抱歉，暂无可用的支付方式，请联系 <a href="/LiveChat/Default.aspx" target="_blank">在线客服</a> 获取帮助</span>]]></paymentNotice>
 </PaymentMethods>

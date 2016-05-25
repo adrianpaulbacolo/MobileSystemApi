@@ -20,4 +20,5 @@
 	<wWingMoney><![CDATA[ウィングマネー]]></wWingMoney>
 	<wNeteller><![CDATA[Neteller]]></wNeteller>
 
+	<paymentNotice><![CDATA[<span>あなたのアカウントへ設定されたペイメントゲートウェイはご利用ができません <a href="/LiveChat/Default.aspx" target="_blank">カスタマーサポート</a>へお問い合わせください</span>]]></paymentNotice>
 </PaymentMethods>
