@@ -13,7 +13,7 @@
 	<dDaddyPay><![CDATA[퀵 온라인]]></dDaddyPay>
 	<dDaddyPayQR><![CDATA[QR Code Payment]]></dDaddyPayQR>
 	<dSDAPayAlipay><![CDATA[Alipay Transfer]]></dSDAPayAlipay>
-	<dBofoPay><![CDATA[BofoPay]]></dBofoPay>
+	<dBofoPay><![CDATA[퀵 지불]]></dBofoPay>
 	<dAllDebit><![CDATA[신용카드]]></dAllDebit>
 
 	<wBankTransfer><![CDATA[은행송금]]></wBankTransfer>
