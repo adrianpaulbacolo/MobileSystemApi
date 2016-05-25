@@ -208,7 +208,7 @@ public class Help2Pay : IHttpHandler, System.Web.SessionState.IReadOnlySessionSt
             string transferMethod = "auto";
             DateTime currentDate = DateTime.Now;
 
-            if (currency.Equals("VND"))
+            if (currency.Equals("VND") || currency.Equals("IDR"))
             {
                 amount = (requestAmount * 1000m).ToString("#.00");
             }
