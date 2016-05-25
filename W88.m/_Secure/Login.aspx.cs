@@ -39,7 +39,7 @@ public partial class _Secure_Login : BasePage
 
                 var loginCode = UserSession.checkSession();
 
-                if (loginCode != "1")
+                if (loginCode != 1)
                 {
                     UserSession.ClearSession();
                 }

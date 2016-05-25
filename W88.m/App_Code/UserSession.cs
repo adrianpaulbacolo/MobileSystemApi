@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data;
+using Helpers;
 
 /// <summary>
 /// Summary description for UserSession
@@ -15,46 +16,12 @@ public class UserSession
         commonCookie.ClearCookies(); 
     }
 
-    public static string checkSession()
+    public static int checkSession()
     {
         if(!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)){
-            try
-            {
-                using (wsMemberMS1.memberWSSoapClient svcInstance = new wsMemberMS1.memberWSSoapClient())
-                {
-                    System.Data.DataSet dsSignin = null;
-                    dsSignin = svcInstance.MemberSessionCheck(commonVariables.CurrentMemberSessionId, commonIp.UserIP);
-
-                    if (dsSignin.Tables[0].Rows.Count > 0)
-                    {
-                        var strProcessCode = Convert.ToString(dsSignin.Tables[0].Rows[0]["RETURN_VALUE"]);
-                        if (strProcessCode == "1")
-                        {
-                            // re-assign user session variable
-                            HttpContext.Current.Session.Add("MemberSessionId", Convert.ToString(dsSignin.Tables[0].Rows[0]["memberSessionId"]));
-                            HttpContext.Current.Session.Add("MemberId", Convert.ToString(dsSignin.Tables[0].Rows[0]["memberId"]));
-                            HttpContext.Current.Session.Add("MemberCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["memberCode"]));
-                            HttpContext.Current.Session.Add("CountryCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["countryCode"]));
-                            HttpContext.Current.Session.Add("CurrencyCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["currencyCode"]));
-                            HttpContext.Current.Session.Add("LanguageCode", Convert.ToString(dsSignin.Tables[0].Rows[0]["languageCode"]));
-                            HttpContext.Current.Session.Add("RiskId", Convert.ToString(dsSignin.Tables[0].Rows[0]["riskId"]));
-                            HttpContext.Current.Session.Add("PaymentGroup", Convert.ToString(dsSignin.Tables[0].Rows[0]["paymentGroup"]));
-                            HttpContext.Current.Session.Add("PartialSignup", Convert.ToString(dsSignin.Tables[0].Rows[0]["partialSignup"]));
-                            HttpContext.Current.Session.Add("ResetPassword", Convert.ToString(dsSignin.Tables[0].Rows[0]["resetPassword"]));
-
-                            commonCookie.CookieS = commonVariables.CurrentMemberSessionId;
-                            commonCookie.CookieG = commonVariables.CurrentMemberSessionId;
-
-                        }
-                        return strProcessCode;
-                    }
-
-                }
-            }catch(Exception ex){
-                return "0";
-            }
+            return new Members().CheckMemberSession();
         }
-        return "10";
+        return 10;
     }
 
     public static bool IsLoggedIn()
