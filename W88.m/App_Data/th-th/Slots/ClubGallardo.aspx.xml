@@ -3,10 +3,13 @@
 	<Category>
 		<Slot Label="สล็อต">
 			<iSoftBet NotSupportedCurrency="VND,IDR">
-				<MegaBoy ProductId="896550" Top="1">
+				<NeonReels ProductId="896552" Top="1">
+					<ImageName><![CDATA[W88-Slots-Mobile-Neon-Reels]]></ImageName>
+				</NeonReels>
+
+				<MegaBoy ProductId="896550">
 					<ImageName><![CDATA[Mega-Boy-mobile]]></ImageName>
 				</MegaBoy>
-				
 				<AbsoluteSuperReels ProductId="896500">
 					<ImageName><![CDATA[W88-Slots-Mobile-Absolute-Super-Reels]]></ImageName>
 				</AbsoluteSuperReels>
