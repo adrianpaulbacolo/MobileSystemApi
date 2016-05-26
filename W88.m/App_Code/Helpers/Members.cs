@@ -42,7 +42,7 @@ namespace Helpers
             commonVariables.SetSessionVariable("MemberId", dTable.Rows[0]["memberId"].ToString());
             commonVariables.SetSessionVariable("MemberCode", dTable.Rows[0]["memberCode"].ToString());
             commonVariables.SetSessionVariable("CountryCode", dTable.Rows[0]["countryCode"].ToString());
-            commonVariables.SetSessionVariable("CurrencyCode", dTable.Rows[0]["currency"].ToString());
+            commonVariables.SetSessionVariable("CurrencyCode", dTable.Rows[0]["currencyCode"].ToString());
             commonVariables.SetSessionVariable("LanguageCode", dTable.Rows[0]["languageCode"].ToString());
             commonVariables.SetSessionVariable("RiskId", dTable.Rows[0]["riskId"].ToString());
             commonVariables.SetSessionVariable("PaymentGroup", dTable.Rows[0]["paymentGroup"].ToString());
