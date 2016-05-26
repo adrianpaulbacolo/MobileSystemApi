@@ -25,14 +25,6 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
         bool isProcessAbort = false;
         bool isSystemError = false;
 
-        long lngOperatorId = long.MinValue;
-        string strMemberCode = string.Empty;
-        string strPassword = string.Empty;
-        string strSiteURL = string.Empty;
-        string strDeviceId = string.Empty;
-
-        string strVCode = string.Empty;
-        string strSessionVCode = string.Empty;
         string strProcessCode = string.Empty;
         string strProcessMessage = string.Empty;
         string strLastLoginIP = string.Empty;
@@ -44,13 +36,13 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
         #endregion
 
         #region populateVariables
-        lngOperatorId = long.Parse(commonVariables.OperatorId);
-        strMemberCode = Request.Form.Get("txtUsername");
-        strPassword = Request.Form.Get("txtPassword");
-        strSiteURL = commonVariables.SiteUrl;
-        strDeviceId = HttpContext.Current.Request.UserAgent;
-        strVCode = Request.Form.Get("txtCaptcha");
-        strSessionVCode = commonVariables.GetSessionVariable("vCode");
+        var lngOperatorId = long.Parse(commonVariables.OperatorId);
+        var strMemberCode = Request.Form.Get("txtUsername");
+        var strPassword = Request.Form.Get("txtPassword");
+        var strSiteURL = commonVariables.SiteUrl;
+        var strDeviceId = HttpContext.Current.Request.UserAgent;
+        var strVCode = Request.Form.Get("txtCaptcha");
+        var strSessionVCode = commonEncryption.decrypting(commonVariables.GetSessionVariable("vCode"));
         #endregion
 
         #region parametersValidation
@@ -63,24 +55,38 @@ public partial class _Secure_AjaxHandlers_ProcessLogin : System.Web.UI.Page, Sys
             strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/MissingPassword", xeErrors); 
             isProcessAbort = true; 
         }
-        else if (string.IsNullOrEmpty(strVCode) && Session["ctr"] != null) { 
-            strProcessCode = "-1"; 
-            strProcessMessage = commonCulture.ElementValues.getResourceString("MissingVCode", xeErrors); 
-            isProcessAbort = false; 
-        }
         else if (commonValidation.isInjection(strMemberCode)) { 
             strProcessCode = "-1"; 
             strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/InvalidUsername", xeErrors); 
             isProcessAbort = true; 
         }
-        else if (commonValidation.isInjection(strPassword)) { 
-            strProcessCode = "-1"; 
-            strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/InvalidPassword", xeErrors); 
-            isProcessAbort = true; }
-        else if (commonValidation.isInjection(strVCode) && Session["ctr"] != null) { 
-            strProcessCode = "-1"; 
-            strProcessMessage = commonCulture.ElementValues.getResourceString("IncorrectVCode", xeErrors); 
-            isProcessAbort = true; }
+        else if (commonValidation.isInjection(strPassword))
+        {
+            strProcessCode = "-1";
+            strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Login/InvalidPassword", xeErrors);
+            isProcessAbort = true;
+        }
+        else if (!string.IsNullOrEmpty(strVCode) && !string.IsNullOrEmpty(strSessionVCode))
+        {
+            if (string.IsNullOrEmpty(strVCode))
+            {
+                strProcessCode = "-1";
+                strProcessMessage = commonCulture.ElementValues.getResourceString("MissingVCode", xeErrors);
+                isProcessAbort = true;
+            }
+            else if (commonValidation.isInjection(strVCode))
+            {
+                strProcessCode = "-1";
+                strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Register/InvalidVCode", xeErrors);
+                isProcessAbort = true;
+            }
+            if (strVCode != strSessionVCode)
+            {
+                strProcessCode = "-1";
+                strProcessMessage = commonCulture.ElementValues.getResourceXPathString("Register/IncorrectVCode", xeErrors);
+                isProcessAbort = true;
+            }
+        }
         else
         {
             strPassword = commonEncryption.Encrypt(strPassword);
