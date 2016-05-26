@@ -5,12 +5,34 @@ var GPINTMOBILE;
 function GPInt() { $('.a-footer-popup').each(function () { $(this).next().hide(); }); }
 GPInt.prototype.LoadPopupMenu = function (obj) { $('.a-footer-popup').next().hide(); $(obj).next().slideToggle(80); FOOTERLANGMENUSCROLL.refresh(); };
 GPInt.prototype.ShowSplash = function () {
-    $('#divMain').parent().append($('<div />', { style: '', class: 'loader' }).append($('<div />', { style: '' }).append($('<img />', { src: '/_Static/Images/logo_w88.png', style: '' })).append($('<img />', { src: '/_Static/Css/images/ajax-loader.gif', style: '' }))));
-    if (document.getElementById('divPanel')) { if (document.getElementById('divPanel') != null) { document.getElementById('divPanel').style.zIndex = -1; } } window.setTimeout(function () { this.GPINTMOBILE.HideSplash(); }, 10000);
+    $('body').append(
+        $('<div />', {
+            style: '',
+            class: 'loader',
+            id: 'divSplashContainer'
+        })
+        .append(
+            $('<div />', { style: '' })
+            .append($('<img />', { src: '/_Static/Images/logo_w88a.png', style: '' }))
+            .append($('<div />', { class: 'spinner' })
+                .append($('<div />', { class: 'rect1' })).append("&nbsp;")
+                .append($('<div />', { class: 'rect2' })).append("&nbsp;")
+                .append($('<div />', { class: 'rect3' })).append("&nbsp;")
+                .append($('<div />', { class: 'rect4' })).append("&nbsp;")
+                )
+            )
+        );
+    if (document.getElementById('divPanel')) {
+        if (document.getElementById('divPanel') != null) {
+            document.getElementById('divPanel').style.zIndex = -1;
+        }
+    }
+    window.setTimeout(function () {
+        this.GPINTMOBILE.HideSplash();
+    }, 10000);
 }
 GPInt.prototype.HideSplash = function () {
-    window.setTimeout(function () { $('#divMain').parent().find('div.loader').remove(); }, 1000);
-    //document.getElementById('divSplashContainer').className += " hideSplash"; window.setTimeout(function () { document.getElementById('divSplashContainer').style.zIndex = -1; }, 1000);
+    window.setTimeout(function () { $('body').find('div#divSplashContainer').remove(); }, 1000);
 }
 /*GAMEPLAYINT END*/
 

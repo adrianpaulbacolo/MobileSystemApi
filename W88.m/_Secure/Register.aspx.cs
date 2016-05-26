@@ -33,18 +33,17 @@ public partial class _Secure_Register : BasePage
         xeErrors = commonVariables.ErrorsXML;
         System.Xml.Linq.XElement xeResources = null;
         commonCulture.appData.getLocalResource(out xeResources);
-        customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
+        var opSettings = new customConfig.OperatorSettings("W88");
 
-        if (!Page.IsPostBack)
-        {
+        if (Page.IsPostBack) return;
+
             if (string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId")))
             {
-                string affiliateId = HttpContext.Current.Request.QueryString.Get("AffiliateId");
+            var affiliateId = HttpContext.Current.Request.QueryString.Get("AffiliateId");
 
                 if (!string.IsNullOrEmpty(affiliateId))
                 {
                     commonVariables.SetSessionVariable("AffiliateId", affiliateId);
-
                     commonCookie.CookieAffiliateId = affiliateId;
                 }
             }
@@ -115,7 +114,6 @@ public partial class _Secure_Register : BasePage
                 txtAffiliateID.ReadOnly = true;
             }
         }
-    }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
@@ -159,6 +157,7 @@ public partial class _Secure_Register : BasePage
         System.DateTime dtDOB = DateTime.MinValue;
         string strHiddenValues = hidValues.Value;
         List<string> lstValues = null;
+        int affiliateId;
         #endregion
 
         #region populateVariables
@@ -335,11 +334,11 @@ public partial class _Secure_Register : BasePage
                 }
                 else
                 {
-                    using (wsIP2Loc.ServiceSoapClient wsInstance = new wsIP2Loc.ServiceSoapClient())
-                    {
-                        wsInstance.location(strIPAddress, ref strCountryCode, ref strPermission);
-                    }
+                using (wsIP2Loc.ServiceSoapClient wsInstance = new wsIP2Loc.ServiceSoapClient())
+                {
+                    wsInstance.location(strIPAddress, ref strCountryCode, ref strPermission);
                 }
+            }
             }
 
             switch (strCountryCode.ToUpper())
@@ -376,8 +375,26 @@ public partial class _Secure_Register : BasePage
             string strCity = strCountryCode;
             string strPostal = "000000";
             string strGender = "M";
-            int intAffiliateId = string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId")) ? (string.IsNullOrEmpty(strAffiliateId) ? 0 : Convert.ToInt32(strAffiliateId)) : Convert.ToInt32(commonVariables.GetSessionVariable("AffiliateId"));
-            string strReferBy = string.Empty;
+            //int intAffiliateId = string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId")) ? (string.IsNullOrEmpty(strAffiliateId) ? 0 : Convert.ToInt32(strAffiliateId)) : Convert.ToInt32(commonVariables.GetSessionVariable("AffiliateId"));
+            string AffiliateId;
+            if (string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId")))
+            {
+                AffiliateId = (string.IsNullOrEmpty(strAffiliateId) ? "0" : strAffiliateId);
+            }
+            else 
+                AffiliateId = commonVariables.GetSessionVariable("AffiliateId");
+
+            int intAffiliateId;
+            try
+            {
+                int.TryParse(AffiliateId, out intAffiliateId);
+            }
+            catch
+            {
+                intAffiliateId = 0;
+            }
+
+            var strReferBy = string.Empty;
             string strDeviceId = "Mobile";
 
             System.Data.DataSet dsRegister = null;

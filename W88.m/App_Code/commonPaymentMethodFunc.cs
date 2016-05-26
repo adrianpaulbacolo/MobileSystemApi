@@ -51,6 +51,10 @@ public static class commonPaymentMethodFunc
         var depositList = Enum.GetValues(typeof(commonVariables.DepositMethod));
 
         string[] methodUnavailable = methodsUnAvailable.Split('|');
+
+        bool hasMethod = false;
+
+        HtmlGenericControl depositTabsList = new HtmlGenericControl("ul");
         foreach (commonVariables.DepositMethod depositItem in depositList)
         {
             string paymentCode = Convert.ToString((int)depositItem);
@@ -58,9 +62,13 @@ public static class commonPaymentMethodFunc
             bool isUnavailable = methodUnavailable.Contains(paymentCode);
             if (!isUnavailable)
             {
-                SetDepositMethodListLink(depositItem, depositTabs, sourcePage, isApp);
+                hasMethod = true;
+                SetDepositMethodListLink(depositItem, depositTabsList, sourcePage, isApp);
             }
         }
+
+        if(hasMethod) depositTabs.Controls.Add(depositTabsList);
+
     }
 
     private static void SetDepositMethodListLink(commonVariables.DepositMethod paymentCode, HtmlGenericControl depositTabs, string sourcePage, bool isApp)

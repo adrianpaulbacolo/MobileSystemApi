@@ -1,5 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="_Secure_Login" %>
 
+
+
+
 <!DOCTYPE html>
 <html>
 <head runat="server">
@@ -52,73 +55,79 @@
             </form>
         </div>
         <script type="text/javascript">
+            $(function () { $('#<%=imgCaptcha.ClientID%>').attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime()); });
+            $('#<%=imgCaptcha.ClientID%>').click(function () { $(this).attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime()); });
 
             var counter = 0;
             $('#<%=imgCaptcha.ClientID%>').attr('class', 'hide');
             $('#<%=lblCaptcha.ClientID%>').attr('class', 'hide');
             $('#<%=txtCaptcha.ClientID%>').attr('class', 'hide');
 
-            $(function () { $('#<%=imgCaptcha.ClientID%>').attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime()); });
+            $(document).ready(function () {
+                $('#<%=btnSubmit.ClientID%>').click(function(e) {
+                    var message = ('<ul>');
+                    $('#btnSubmit').attr("disabled", true);
+                    var username = _.trim($('#txtUsername').val()),
+                        password = _.trim($('#txtPassword').val());
 
-            $('#form1').submit(function (e) {
-                $('#btnSubmit').attr("disabled", true);
-                if ($('#txtUsername').val().trim().length == 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Login/MissingUsername", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
-                    return;
-                }
-                else if (!/^[a-zA-Z0-9]+$/.test($('#txtUsername').val().trim())) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Login/InvalidUsername", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
-                    return;
-                }
-                else if ($('#txtUsername').val().trim().indexOf(' ') >= 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Login/InvalidUsername", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
-                    return;
-                }
-                else if ($('#txtPassword').val().trim().length == 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Login/MissingPassword", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
-                    return;
-                }
-                else if ($('#txtCaptcha').val().trim().length == 0 && $('#imgCaptcha').is(':visible') == true) {
-                    alert('<%=commonCulture.ElementValues.getResourceString("MissingVCode", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
-                    return;
-                }
-                else {
-                    GPINTMOBILE.ShowSplash();
+                    var hasError = false;
 
-                    initiateLogin();
-                    $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
-                }
-                e.preventDefault();
-                return;
+                    if (_.isEmpty(username)) {
+                        message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Login/MissingUsername", xeErrors)%></li>');
+                        hasError = true;
+                        e.preventDefault();
+                    } else {
+                        if (!/^[a-zA-Z0-9]+$/.test(username) || username.indexOf(' ') >= 0) {
+                            message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Login/InvalidUsername", xeErrors)%></li>');
+                            hasError = true;
+                            e.preventDefault();
+                        }
+                    }
+                    if (password.length == 0) {
+                        message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Login/MissingPassword", xeErrors)%></li>');
+                        hasError = true;
+                        e.preventDefault();
+                    }
+
+                    if (counter >= 3) {
+                        if ($('#txtCaptcha').val().trim().length == 0) {
+                            message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/MissingVCode", xeErrors)%></li>');
+                            hasError = true;
+                            e.preventDefault();
+                        }
+                    }
+
+                    if (hasError) {
+                        message += ('</ul>');
+                        $('#btnSubmit').attr("disabled", false);
+                        window.w88Mobile.Growl.shout(message);
+                        return;
+                    } else {
+                        e.preventDefault();
+                        initiateLogin();
+
+                    }
+                });
             });
 
-            $('#<%=imgCaptcha.ClientID%>').click(function () { $(this).attr('src', '/_Secure/Captcha.aspx'); });
-
             function initiateLogin() {
-                console.log('txt: ' + $('#txtCaptcha').val());
+                var udata = { Username: $('#txtUsername').val(), Password: $('#txtPassword').val(), Captcha: $('#txtCaptcha').val(), ioBlackBox: $('#ioBlackBox').val() };
                 $.ajax({
-                    type: "POST",
-                    url: '/_Secure/Login',
+                    type: 'POST',
+                    contentType: "application/json",
+                    url: '/_Secure/AjaxHandlers/Login.ashx',
                     beforeSend: function () { GPINTMOBILE.ShowSplash(); },
                     timeout: function () {
                         $('#<%=btnSubmit.ClientID%>').prop('disabled', false);
-                        alert('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
+                        window.w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
                         window.location.replace('/Default.aspx');
                     },
-                    data: { txtUsername: $('#txtUsername').val(), txtPassword: $('#txtPassword').val(), txtCaptcha: $('#txtCaptcha').val(), ioBlackBox: $('#ioBlackBox').val() },
+                    data: JSON.stringify(udata),
                     success: function (xml) {
-                        switch ($(xml).find('ErrorCode').text()) {
+
+                        var message = xml.Message;
+
+                        switch (xml.Code) {
                             case "1":
                                 switch ('<%=strRedirect%>') {
                                     case 'mlotto':
@@ -132,12 +141,9 @@
                                 Cookies().setCookie('is_app', '0', 0);
                                 break;
                             case "22":
-                                var message = $(xml).find('Message').text();
 
-                                $("#inactiveAcctText").html(message);
-                                $("#inactiveAcctModal").popup();
-                                $("#inactiveAcctModal").popup('open');
-
+                                $('#btnSubmit').attr("disabled", false);
+                                window.w88Mobile.Growl.shout('<div>' + message + '</div>');
                                 break;
                             case "resetPassword":
                                     window.location.replace('/Settings/ChangePassword.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
@@ -151,57 +157,27 @@
                                     $('#<%=imgCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
                                     $('#<%=lblCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
                                     $('#<%=txtCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
-                                    alert($(xml).find('Message').text());
                                     $('#<%=imgCaptcha.ClientID%>').attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime());
                                     $('#<%=txtCaptcha.ClientID%>').val('');
                                     $('#<%=txtPassword.ClientID%>').val('');
-                                    GPINTMOBILE.HideSplash();
                                 }
-                                else if (counter < 3) {
-                                    alert($(xml).find('Message').text());
-                                    GPINTMOBILE.HideSplash();
-                                }
+
+                                $('#btnSubmit').attr("disabled", false);
+                                GPINTMOBILE.HideSplash();
+                                window.w88Mobile.Growl.shout('<div>' + message + '</div>');
                                 break;
                         }
                     },
                     error: function (err) {
-                        alert('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
+                        window.w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
                         window.location.replace('<%=strRedirect%>');
                     }
                 });
             }
         </script>
-        <script type="text/javascript" id="iovs_script">
-	        var io_operation = 'ioBegin';
-	        var io_bbout_element_id = 'ioBlackBox';
-	        //var io_submit_element_id = 'btnSubmit';
-	        var io_submit_form_id = 'form1';
-	        var io_max_wait = 5000;
-	        var io_install_flash = false;
-	        var io_install_stm = false;
-	        var io_exclude_stm = 12;
-        </script>
-        <script type="text/javascript" src="//ci-mpsnare.iovation.com/snare.js"></script>
 
-        <div id="inactiveAcctModal" data-role="popup" data-overlay-theme="b" data-theme="b" data-history="false">
-            <a href="#" data-rel="back" class="close close-enhanced">&times;</a>
-            <br>
-            <h1 class="title">
-                <img src="/_Static/Images/logo-<%=commonVariables.SelectedLanguageShort%>.png" width="220" class="logo img-responsive" alt="logo">
-            </h1>
-            <div class="padding">
-                <div class="download-app padding">
-                    <div id="inactiveAcctText">
-                    </div>
-                </div>
-            </div>
-            <div class="row row-no-padding">
-                <div class="col">
-                    <a href="#" data-rel="back" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("close", commonVariables.LeftMenuXML)%>
-                    </a>
-                </div>
-            </div>
-        </div>
+        <script type="text/javascript" id="iovs_script" src="../_Static/JS/ioBlackBox.js"></script>
+        <script type="text/javascript" src="//ci-mpsnare.iovation.com/snare.js"></script>
 
     </div>
 </body>
