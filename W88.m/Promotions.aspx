@@ -206,6 +206,15 @@
                             case 'ilotto':
                                 taPromoLabel.text('<%=commonCulture.ElementValues.getResourceXPathString("/Products/Lottery/Label", commonVariables.ProductsXML)%> - ' + code);
                                 break;
+                            case 'gallardo':
+                                taPromoLabel.text('<%=commonCulture.ElementValues.getResourceXPathString("/Products/ClubGallardo/Label", commonVariables.ProductsXML)%> - ' + code);
+                                break;
+                            case 'nuovo':
+                                taPromoLabel.text('<%=commonCulture.ElementValues.getResourceXPathString("/Products/ClubNuovo/Label", commonVariables.ProductsXML)%> - ' + code);
+                                break;
+                            case 'apollo':
+                                taPromoLabel.text('<%=commonCulture.ElementValues.getResourceXPathString("/Products/ClubApollo/Label", commonVariables.ProductsXML)%> - ' + code);
+                                break;
 
 
                         }
