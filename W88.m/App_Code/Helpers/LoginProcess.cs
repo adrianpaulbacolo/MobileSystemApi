@@ -35,7 +35,7 @@ public class LoginProcess
 
                 CheckIovation(Convert.ToString(dTable.Rows[0]["lastLoginIP"]), ref serialId, processId);
 
-                process.Message = CheckMemberSession(Convert.ToInt16(process.Code));
+                process.Message = string.Empty;
                 break;
             case "21":
                 process.Message = commonCulture.ElementValues.getResourceXPathString("Login/InvalidUsername", _loginInfo.XeErrors);
@@ -127,7 +127,7 @@ public class LoginProcess
 
     private bool IsResetPassword()
     {
-        return Convert.ToBoolean(string.IsNullOrWhiteSpace(HttpContext.Current.Session["ResetPassword"] as string) ? 0 : HttpContext.Current.Session["ResetPassword"]);
+        return Convert.ToBoolean((HttpContext.Current.Session["ResetPassword"] == null) ? 0 : HttpContext.Current.Session["ResetPassword"]);
     }
 
     private string CheckMemberSession(int signInreturnValue)
