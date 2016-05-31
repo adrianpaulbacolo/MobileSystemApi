@@ -171,7 +171,7 @@ public partial class Deposit_BofoPay : PaymentBasePage
         string postUrl = ConfigurationManager.AppSettings["BofoPay_postUrl"];
 
         var sb = new StringBuilder();
-        sb.Append(@"<form id=""theForm"" name=""theForm"" target=""my-iframe"" method=""post"" action='" + postUrl + "'>");
+        sb.Append(@"<form id=""theForm"" name=""theForm"" target=""bofoFrame"" method=""post"" action='" + postUrl + "'>");
         sb.Append(@"<input type=""hidden"" id=""MemberID"" name=""MemberID"" value='" + strMerchantId + "'/>");
         sb.Append(@"<input type=""hidden"" id=""TerminalID"" name=""TerminalID"" value='" + terminalID + "'/>");
         sb.Append(@"<input type=""hidden"" id=""InterfaceVersion"" name=""InterfaceVersion"" value='" + interfaceVersion + "'/>");
@@ -193,15 +193,8 @@ public partial class Deposit_BofoPay : PaymentBasePage
         intProcessSerialId += 1;
         commonAuditTrail.appendLog("system", base.PageName, "CallVendor", string.Empty, string.Empty, string.Empty, string.Empty, "ok", sb.ToString(), Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
 
-        var sb1 = new StringBuilder();
-        sb1.Append(@"<script type='text/javascript'>");
-        sb1.Append(@"var ctlForm = document.forms.namedItem('theForm');");
-        sb1.Append(@"ctlForm.submit();");
-        sb1.Append(@"</script>");
-
         intProcessSerialId += 1;
-        commonAuditTrail.appendLog("system", base.PageName, "CallVendor", string.Empty, string.Empty, string.Empty, string.Empty, "ok", sb1.ToString(), Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
 
-        return sb.ToString() + sb1.ToString();
+        return sb.ToString();
     }
 }
