@@ -81,6 +81,25 @@ public partial class _Secure_Register : BasePage
                 {
                     drpContactCountry.Items.Add(new ListItem(string.Format("+ {0}", Convert.ToString(drPhoneCountryCode["countryPhoneCode"])), Convert.ToString(drPhoneCountryCode["countryPhoneCode"])));
                 }
+
+                if (!string.IsNullOrEmpty(CDNCountryCode))
+                {
+                    System.Data.DataRow[] countrySearchResult = dsCountryInfo.Tables[0].Select("countryCode='" + CDNCountryCode + "'");
+                    if (countrySearchResult.Any())
+                        drpContactCountry.SelectedValue = countrySearchResult[0]["countryPhoneCode"].ToString();
+                }
+                else if (!string.IsNullOrEmpty(commonVariables.GetSessionVariable("countryCode")))
+                {
+                    System.Data.DataRow[] countrySearchResult = dsCountryInfo.Tables[0].Select("countryCode='" + commonVariables.GetSessionVariable("countryCode") + "'");
+                    if (countrySearchResult.Any())
+                        drpContactCountry.SelectedValue = countrySearchResult[0]["countryPhoneCode"].ToString();
+                }
+                else
+                {
+                    System.Data.DataRow[] countrySearchResult = dsCountryInfo.Tables[0].Select("countryCode='" + commonVariables.SelectedLanguageShort + "'");
+                    if (countrySearchResult.Any())
+                        drpContactCountry.SelectedValue = countrySearchResult[0]["countryPhoneCode"].ToString();
+                }
             }
             #endregion
 
@@ -113,6 +132,8 @@ public partial class _Secure_Register : BasePage
             {
                 txtAffiliateID.ReadOnly = true;
             }
+
+           
         }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
