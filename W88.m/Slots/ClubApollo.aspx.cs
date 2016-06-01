@@ -21,9 +21,10 @@ public partial class Slots_ClubApollo : BasePage
 
         if (Page.IsPostBack) return;
 
-        _selectedLanguage = commonVariables.SelectedLanguage;
+        var lang = commonVariables.SelectedLanguage.Split(new char[] {'-'}, StringSplitOptions.RemoveEmptyEntries);
+        _selectedLanguage = string.Format("{0}_{1}", lang[0], lang[1].ToUpper());
         SetTitle(commonCulture.ElementValues.getResourceXPathString("/Products/ClubApollo/Label", commonVariables.ProductsXML));
-        StringBuilder sbGames = new StringBuilder();
+        var sbGames = new StringBuilder();
 
         XElement xeCategories = xeResources.Element("Category");
 
@@ -47,15 +48,15 @@ public partial class Slots_ClubApollo : BasePage
 
                 if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) 
                 { 
-                    sbGames.AppendFormat("<a class='btn-primary' target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubApollo") + "' data-rel='dialog' data-transition='slidedown'>"); 
+                    sbGames.AppendFormat("<a class='btn-primary' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubApollo") + "' data-rel='dialog' data-transition='slidedown'>"); 
                 }
                 else 
                 {
-                    sbGames.AppendFormat("<a href='{0}' target='_blank'>",  CommonClubApollo.GetRealUrl.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", _selectedLanguage).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId)).Replace("{LOBBYURL}", commonIp.DomainName + "/ClubApollo").Replace("{cashier}", commonIp.DomainName + "/fundtransfer"); 
+                    sbGames.AppendFormat("<a href='{0}' target='_blank'>", CommonClubApollo.GetRealUrl.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", _selectedLanguage).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId)).Replace("{LOBBYURL}", HttpContext.Current.Request.Url.AbsoluteUri).Replace("{cashier}", HttpContext.Current.Request.Url.Authority + "/fundtransfer"); 
                 }
 
                 sbGames.Append("<i class='icon-play_arrow'></i></a>");
-                sbGames.AppendFormat("<a class='btn-secondary' target='_blank' href='{0}' data-ajax='false'><i class='icon-fullscreen'></i></a></div>", CommonClubApollo.GetFunUrl.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", _selectedLanguage).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId)).Replace("{CURCODE}", GetCurrencyByLanguage()).Replace("{LOBBYURL}", commonIp.DomainName + "/ClubApollo");
+                sbGames.AppendFormat("<a class='btn-secondary' target='_blank' href='{0}' data-ajax='false'><i class='icon-fullscreen'></i></a></div>", CommonClubApollo.GetFunUrl.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", _selectedLanguage).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId)).Replace("{CURCODE}", GetCurrencyByLanguage()).Replace("{LOBBYURL}", HttpContext.Current.Request.Url.AbsoluteUri);
                 sbGames.Append("</div></li>");
             }
 
@@ -121,8 +122,7 @@ public partial class Slots_ClubApollo : BasePage
 
     private void CheckSupportedCurrency()
     {
-        var currency = commonVariables.GetSessionVariable("CurrencyCode");
-        if (currency.Contains("KRW") || currency.Contains("VND") || currency.Contains("IDR"))
+        if (commonVariables.GetSessionVariable("clubapollo") == "0")
         {
             Response.Redirect("~/Slots.aspx", true);
         }

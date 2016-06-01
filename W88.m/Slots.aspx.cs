@@ -14,10 +14,9 @@ public partial class Slots : BasePage
 
     private void CheckSupportedCurrency()
     {
-        var currency = commonVariables.GetSessionVariable("CurrencyCode");
-        if (!currency.Contains("KRW") && !currency.Contains("VND") && !currency.Contains("IDR"))
+        if (commonVariables.GetSessionVariable("clubapollo") == "1")
         {
-            RenderApollo();
+            RenderApollo();   
         }
     }
 

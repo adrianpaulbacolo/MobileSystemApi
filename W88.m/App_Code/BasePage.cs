@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Helpers;
 
 public class BasePage : System.Web.UI.Page
 {
@@ -44,8 +45,8 @@ public class BasePage : System.Web.UI.Page
             }
         }
 
-        System.Web.UI.WebControls.Literal litScript = (System.Web.UI.WebControls.Literal)Page.FindControl("litScript");
-        if (litScript != null) { }
+        BusinessRules.SetRules();
+
         base.OnLoad(e);
     }
 

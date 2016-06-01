@@ -52,7 +52,7 @@
                     <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubDivino/Label", commonVariables.ProductsXML)%></div>
                 </a>
             </li>
-            <%if (Session["responseCode"].ToString() == "1")
+            <%if (commonVariables.GetSessionVariable("responseCode") == "1")
               {%>
             <li class="col col-33">
                 <a class="card" href="/_Static/Downloads/w88.aspx">

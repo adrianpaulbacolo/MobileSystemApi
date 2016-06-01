@@ -40,10 +40,10 @@
                 <ImageName><![CDATA[W88-Slots-Mobile-Birds-on-a-Wire]]></ImageName>
                 <Label><![CDATA[Birds On A Wire]]></Label>
             </OGS-birdsonawire>
-            <OGS-bloopers>
+            <!--<OGS-bloopers>
                 <ImageName><![CDATA[W88-Slots-Mobile-Bloopers]]></ImageName>
                 <Label><![CDATA[Bloopers]]></Label>
-            </OGS-bloopers>
+            </OGS-bloopers>-->
             <OGS-cashstampede>
                 <ImageName><![CDATA[W88-Slots-Mobile-Cash-Stampede]]></ImageName>
                 <Label><![CDATA[Cash Stampede]]></Label>
