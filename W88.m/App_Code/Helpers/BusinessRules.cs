@@ -1,6 +1,4 @@
-﻿using w88Mobile;
-
-namespace Helpers
+﻿namespace Helpers
 {
     /// <summary>
     /// Summary description for BusinessRules
@@ -15,7 +13,7 @@ namespace Helpers
 
         private static void CheckClubApollo()
         {
-            var currency = commonVariables.GetSessionVariable(MemberInfo.CurrencyCode);
+            var currency = commonVariables.GetSessionVariable("CurrencyCode");
             if (currency.Contains("KRW") || currency.Contains("VND") || currency.Contains("IDR"))
                 commonVariables.SetSessionVariable("clubapollo", "0");
             else

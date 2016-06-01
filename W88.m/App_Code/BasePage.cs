@@ -143,11 +143,7 @@ public class BasePage : System.Web.UI.Page
     {
         string Language = string.Empty;
 
-        if (!string.IsNullOrWhiteSpace(commonVariables.SelectedLanguage))
-        {
-            Language = commonVariables.SelectedLanguage;
-        }
-        else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_CN].Contains(Domain))
+        if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_CN].Contains(Domain))
         {
             Language = "zh-cn";
         }
@@ -178,6 +174,10 @@ public class BasePage : System.Web.UI.Page
         else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_KH].Contains(Domain))
         {
             Language = "km-kh";
+        }
+        else if (!string.IsNullOrWhiteSpace(commonVariables.SelectedLanguage))
+        {
+            Language = commonVariables.SelectedLanguage;
         }
         else
         {

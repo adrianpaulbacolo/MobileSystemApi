@@ -21,7 +21,11 @@
                     if (index == promo_length - 1) { return; }
                     var strPromoTitle = $(this).find('div.promotion_title').text();
                     var strPromoContent = $(this).find('div.promotion_content').text();
-                    var strPromoDetail = ($(this).find('div.promotion_detail').html().substr(0, 4) == '<br>' ? $(this).find('div.promotion_detail').html().substring(4) : $(this).find('div.promotion_detail').html()).replace(/<img rel=/g, '<img src=');
+                    var promoDetailHtml = $(this).find('div.promotion_detail').html();
+                    var strPromoDetail;
+                    if (promoDetailHtml != undefined) {
+                        strPromoDetail = promoDetailHtml.substr(0, 4) == '<br>' ? promoDetailHtml.substring(4) : promoDetailHtml.replace(/<img rel=/g, '<img src=');
+                    }
                     var objImage = $(this).find('img')[0];
                     var strImageSrc = null;
                     if (objImage != null) {
