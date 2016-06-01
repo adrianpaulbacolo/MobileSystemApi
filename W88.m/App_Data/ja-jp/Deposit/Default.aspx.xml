@@ -6,21 +6,23 @@
 	<lblMinMaxLimit><![CDATA[最小/最高リミット]]></lblMinMaxLimit>
 	<lblDailyLimit><![CDATA[日々制限：]]></lblDailyLimit>
 	<lblTotalAllowed><![CDATA[合計許可：]]></lblTotalAllowed>
-	<lblDepositAmount><![CDATA[入金金額]]></lblDepositAmount>
+	<lblAmount><![CDATA[入金金額]]></lblAmount>
 	<unlimited><![CDATA[制限無し]]></unlimited>
-	
+
 	<lblTransactionId><![CDATA[トランザクションID]]></lblTransactionId>
-	
+
 	<lblBank><![CDATA[銀行]]></lblBank>
 	<drpBank><![CDATA[銀行を選択してください]]></drpBank>
 	<lblBankName><![CDATA[お客様の銀行名]]></lblBankName>
 	<drpOtherBank><![CDATA[その他銀行]]></drpOtherBank>
-	
+
 	<lblAccountName><![CDATA[お客様アカウント名]]></lblAccountName>
 	<lblAccountNumber><![CDATA[お客様アカウント番号]]></lblAccountNumber>
 
 	<btnCancel><![CDATA[キャンセル]]></btnCancel>
 	<btnSubmit><![CDATA[転送]]></btnSubmit>
+
+	<lblThankYou><![CDATA[ありがとうございました]]></lblThankYou>
 
 	<browserNotice><![CDATA[<span>覚書: <b>{BANK}</b> クロームとファイアフォックスはサポートしていません</span>]]></browserNotice>
 </Deposit>

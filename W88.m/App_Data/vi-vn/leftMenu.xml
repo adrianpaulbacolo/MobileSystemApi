@@ -36,6 +36,7 @@
 	<sdapay><![CDATA[Alipay Transfer]]></sdapay>
 	<help2pay><![CDATA[Thanh Toán Nhanh]]></help2pay>
 	<daddypay><![CDATA[Trực Tuyến Nhanh]]></daddypay>
+	<daddypayqr><![CDATA[QR Code Payment]]></daddypayqr>
 	<withrawal><![CDATA[Rút Tiền]]></withrawal>
 	<fundTransfer><![CDATA[Chuyển Quỹ]]></fundTransfer>
 	<cancel><![CDATA[Hủy]]></cancel>
@@ -76,13 +77,6 @@
 	<kenoMessage><![CDATA[Niềm vui nối tiếp niềm vui cứ mỗi 3-5 phút khi tham gia chơi thật, Tham gia đặt cược và giành ]]></kenoMessage>
 
 	<depositDaddyPay><![CDATA[Gửi Tiền - Trực Tuyến Nhanh]]></depositDaddyPay>
-
-	<history><![CDATA[History]]></history>
-	<depositwithdrawal><![CDATA[Deposit / Withdrawal History]]></depositwithdrawal>
-	<fundtransfer><![CDATA[Fund Transfer History]]></fundtransfer>
-	<referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
-	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
-
 
 	<close><![CDATA[ĐÓNG]]></close>
 

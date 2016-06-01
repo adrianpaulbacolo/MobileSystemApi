@@ -1,18 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
-public partial class _Static_Palazzo_slots : System.Web.UI.Page
+namespace _Static.Palazzo
 {
-    protected void Page_Load(object sender, EventArgs e)
+    public partial class StaticPalazzoSlots : BasePage
     {
-        System.Xml.Linq.XElement xeResources = null;
-        commonCulture.appData.getRootResource("/ClubPalazzoDownload", out xeResources);
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Page.IsPostBack) return;
 
-        spanMsg.InnerHtml = commonCulture.ElementValues.getResourceString("message", xeResources);
-        sDownload.InnerText = commonCulture.ElementValues.getResourceString("downloadnow", xeResources);
+            System.Xml.Linq.XElement xeResources;
+            commonCulture.appData.getRootResource("/ClubPalazzoDownload", out xeResources);
+
+            spanMsg.InnerHtml = commonCulture.ElementValues.getResourceString("message", xeResources);
+            sDownload.InnerText = commonCulture.ElementValues.getResourceString("downloadnow", xeResources);
+
+            EnableLogoOnPage(false, false, true);
+        }
     }
 }

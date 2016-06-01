@@ -34,7 +34,6 @@ public partial class Deposit_Neteller : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        CancelUnexpectedRePost();
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
         commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"));
@@ -51,7 +50,7 @@ public partial class Deposit_Neteller : PaymentBasePage
 
             txtAccountId.Attributes.Add("PLACEHOLDER", string.Format("{0}", commonCulture.ElementValues.getResourceString("accountId", commonVariables.LeftMenuXML)));
             txtSecureId.Attributes.Add("PLACEHOLDER", string.Format("{0}", commonCulture.ElementValues.getResourceString("secureId", commonVariables.LeftMenuXML)));
-            txtDepositAmount.Attributes.Add("PLACEHOLDER", string.Format("{0} ({1})", commonCulture.ElementValues.getResourceString("lblDepositAmount", xeResources), strCurrencyCode));
+            txtDepositAmount.Attributes.Add("PLACEHOLDER", string.Format("{0} ({1})", commonCulture.ElementValues.getResourceString("lblAmount", xeResources), strCurrencyCode));
 
             txtMinMaxLimit.Text = string.Format(": {0} / {1}", strMinLimit, strMaxLimit);
             txtDailyLimit.Text = string.Format(": {0}", strDailyLimit);
@@ -61,10 +60,6 @@ public partial class Deposit_Neteller : PaymentBasePage
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        if (IsPageRefresh)
-        {
-            Response.Redirect(Request.Url.AbsoluteUri);
-        }
 
         string strDepositAmount = txtDepositAmount.Text.Trim();
         string memberAccount = txtAccountId.Text.Trim();

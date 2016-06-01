@@ -32,6 +32,7 @@
 	<sdapay><![CDATA[Alipay Transfer]]></sdapay>
 	<help2pay><![CDATA[クイックオ ペイ]]></help2pay>
 	<daddypay><![CDATA[クイックオンライン]]></daddypay>
+	<daddypayqr><![CDATA[QR Code Payment]]></daddypayqr>
 	<withrawal><![CDATA[出金]]></withrawal>
 	<fundTransfer><![CDATA[送金]]></fundTransfer>
 	<deposit><![CDATA[入金]]></deposit>
@@ -77,13 +78,6 @@
 	<kenoMessage><![CDATA[3-5分ごとにノンストップの楽しみと興奮。実際にプレイして、賭けて勝ってください！]]></kenoMessage>
 
 	<depositDaddyPay><![CDATA[入金 - クイックオンライン]]></depositDaddyPay>
-
-	<history><![CDATA[History]]></history>
-	<depositwithdrawal><![CDATA[Deposit / Withdrawal History]]></depositwithdrawal>
-	<fundtransfer><![CDATA[Fund Transfer History]]></fundtransfer>
-	<referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
-	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
-
 
 	<close><![CDATA[閉じる]]></close>
 

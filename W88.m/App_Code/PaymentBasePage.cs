@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,8 @@ public class PaymentBasePage : BasePage
     protected string PaymentMethodId { get; set; }
 
     protected bool IsPageRefresh = false;
+
+    protected string ThankYouPage = "/Deposit/ThankYou.aspx";
 
     protected string strMerchantId = string.Empty;
     protected string strOperatorId = string.Empty;
@@ -78,16 +81,16 @@ public class PaymentBasePage : BasePage
     protected string strlblTotalAllowed = string.Empty;
     protected string strtxtTotalAllowed = string.Empty;
 
-    protected string strlblDepositAmount = string.Empty;
-    protected string strtxtDepositAmount = string.Empty;
+    protected string strlblAmount = string.Empty;
+    protected string strtxtAmount = string.Empty;
 
     protected string strbtnSubmit = string.Empty;
     protected string strbtnCancel = string.Empty;
 
     protected string strlblBank = string.Empty;
     protected string strlblBankName = string.Empty;
-    protected string drpBank = string.Empty;
-    protected string drpOtherBank = string.Empty;
+    protected string strdrpBank = string.Empty;
+    protected string strdrpOtherBank = string.Empty;
 
     protected string strlblTransactionId = string.Empty;
 
@@ -102,6 +105,10 @@ public class PaymentBasePage : BasePage
 
     #endregion
 
+    protected override void OnPreInit(EventArgs e)
+    {
+        this.isPublic = false;
+    }
     protected void InitialiseVariables()
     {
         strOperatorId = commonVariables.OperatorId;
@@ -145,8 +152,8 @@ public class PaymentBasePage : BasePage
         strlblTotalAllowed = commonCulture.ElementValues.getResourceString("lblTotalAllowed", xeDefaultResources);
         strtxtTotalAllowed = string.Format(": {0}", strTotalAllowed);
 
-        strlblDepositAmount = commonCulture.ElementValues.getResourceString("lblDepositAmount", xeDefaultResources);
-        strtxtDepositAmount = string.Format("{0} ({1})", strlblDepositAmount, strCurrencyCode);
+        strlblAmount = commonCulture.ElementValues.getResourceString("lblAmount", xeDefaultResources);
+        strtxtAmount = string.Format("{0} ({1})", strlblAmount, strCurrencyCode);
 
         strlblTransactionId = commonCulture.ElementValues.getResourceString("lblTransactionId", xeDefaultResources);
 
@@ -155,8 +162,8 @@ public class PaymentBasePage : BasePage
 
         strlblBank = commonCulture.ElementValues.getResourceString("lblBank", xeDefaultResources);
         strlblBankName = commonCulture.ElementValues.getResourceString("lblBankName", xeDefaultResources);
-        drpBank = commonCulture.ElementValues.getResourceString("drpBank", xeDefaultResources);
-        drpOtherBank = commonCulture.ElementValues.getResourceString("drpOtherBank", xeDefaultResources);
+        strdrpBank = commonCulture.ElementValues.getResourceString("drpBank", xeDefaultResources);
+        strdrpOtherBank = commonCulture.ElementValues.getResourceString("drpOtherBank", xeDefaultResources);
 
         strlblAccountName = commonCulture.ElementValues.getResourceString("lblAccountName", xeDefaultResources);
         strlblAccountNumber = commonCulture.ElementValues.getResourceString("lblAccountNumber", xeDefaultResources);
@@ -263,7 +270,7 @@ public class PaymentBasePage : BasePage
 
         using (svcPayMember.MemberClient svcInstance = new svcPayMember.MemberClient())
         {
-            dtPaymentMethodLimits = svcInstance.getMethodLimits(strOperatorId, strMemberCode, strMethodId, Convert.ToString(Convert.ToInt32(commonVariables.PaymentTransactionType.Withdrawal)), false, out strProcessCode, out strProcessText);
+            dtPaymentMethodLimits = svcInstance.getMethodLimits_Mobile(strOperatorId, strMemberCode, strMethodId, Convert.ToString(Convert.ToInt32(commonVariables.PaymentTransactionType.Withdrawal)), false, out strProcessCode, out strProcessText);
         }
 
         foreach (commonVariables.WithdrawalMethod EnumMethod in Enum.GetValues(typeof(commonVariables.WithdrawalMethod)))
@@ -286,6 +293,8 @@ public class PaymentBasePage : BasePage
                 strMaxLimit = Convert.ToDecimal(drPaymentMethodLimit["maxWithdrawal"]).ToString(commonVariables.DecimalFormat);
                 strTotalAllowed = Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]) <= 0 ? strUnlimited : Convert.ToDecimal(drPaymentMethodLimit["totalAllowed"]).ToString(commonVariables.DecimalFormat);
                 strDailyLimit = Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]) == 0 ? strUnlimited : Convert.ToDecimal(drPaymentMethodLimit["limitDaily"]).ToString(commonVariables.DecimalFormat);
+                strMerchantId = Convert.ToString(drPaymentMethodLimit["merchantId"]);
+                strMode = Convert.ToString(drPaymentMethodLimit["paymentMode"]);
             }
         }
 
@@ -294,22 +303,10 @@ public class PaymentBasePage : BasePage
 
     protected void GetMainWalletBalance(string walletId)
     {
-        string strProductCurrency = string.Empty;
-
-        if (!string.IsNullOrEmpty(strMemberCode) && !string.IsNullOrEmpty(strOperatorId))
-        {
-            using (svcPayMember.MemberClient svcInstance = new svcPayMember.MemberClient())
-            {
-                Session["MAIN"] = svcInstance.getWalletBalance(strOperatorId, strSiteUrl, strMemberCode, walletId, out strProductCurrency);
-            }
-        }
-        else
-        {
-            Session["MAIN"] = "0.00";
-        }
+        commonPaymentMethodFunc.GetWalletBalance(Convert.ToInt32(walletId));
     }
 
-    protected void InitialisePendingWithdrawals()
+    protected void InitialisePendingWithdrawals(bool isApp)
     {
         string strStatusCode = string.Empty;
         string strStatusText = string.Empty;
@@ -322,7 +319,7 @@ public class PaymentBasePage : BasePage
 
             if (arrPending != null && arrPending.Length > 0)
             {
-                if (Request.QueryString["source"] == "app")
+                if (isApp)
                     Response.Redirect("/Withdrawal/Pending_app.aspx");
                 else
                     Response.Redirect("/Withdrawal/Pending.aspx");
@@ -333,7 +330,7 @@ public class PaymentBasePage : BasePage
 
     protected List<ListItem> InitializeBank(string paymentMethodBank)
     {
-        List<ListItem> banks = new List<ListItem>() { new ListItem(drpBank, "-1") };
+        List<ListItem> banks = new List<ListItem>() { new ListItem(strdrpBank, "-1") };
         try
         {
             XElement xElementBank = null;
@@ -357,6 +354,51 @@ public class PaymentBasePage : BasePage
         }
 
         return banks;
+    }
+
+    protected string GetPaymentGatewayMerchantSetting(commonVariables.DepositMethod paymentMethod)
+    {
+        string key = string.Empty;
+
+        try
+        {
+            string paymentKey = ConfigurationManager.AppSettings["PaymentPrivateKey"];
+
+            IEnumerable<XElement> result;
+            string mapLoc = HttpContext.Current.Request.MapPath("~/App_Data/_PaymentGateway/" + PageName + ".xml");
+            XElement root = XElement.Load(mapLoc);
+
+            if (string.IsNullOrWhiteSpace(strMerchantId))
+            {
+                result = root.Elements("account").Take(1);
+            }
+            else
+            {
+                result = from el in root.Elements("account")
+                         where (string)el.Element("merchantId") == strMerchantId
+                         select el;
+            }
+
+            foreach (XElement el in result)
+            {
+                switch (paymentMethod)
+                {
+                    case commonVariables.DepositMethod.BofoPay:
+                        key = commonEncryption.decrypting(el.Element("key").Value, paymentKey) + "|" + commonEncryption.decrypting(el.Element("terminalId").Value, paymentKey);
+                        break;
+
+                    default:
+                        key = commonEncryption.decrypting(el.Element("key").Value, paymentKey);
+                        break;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            commonAuditTrail.appendLog("system", PageName, "GetPaymentGatewayMerchantSetting", string.Empty, string.Empty, string.Empty, string.Empty, "Exception", "Message:" + ex.Message + "|StackTrace: " + ex.StackTrace, string.Empty, string.Empty, true);
+        }
+
+        return key;
     }
 
     protected CommonStatus GetErrors(string elementPath)

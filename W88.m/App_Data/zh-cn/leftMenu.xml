@@ -34,6 +34,7 @@
 	<sdapay><![CDATA[支付宝]]></sdapay>
 	<help2pay><![CDATA[快速支付]]></help2pay>
 	<daddypay><![CDATA[快捷支付]]></daddypay>
+	<daddypayqr><![CDATA[QR Code Payment]]></daddypayqr>
 	<withrawal><![CDATA[提款]]></withrawal>
 	<fundTransfer><![CDATA[转账]]></fundTransfer>
 	<cancel><![CDATA[取消]]></cancel>
@@ -74,13 +75,6 @@
 	<kenoMessage><![CDATA[无尽的欢乐就在每3-5分钟。开始真钱游戏，大家赶紧来赢取奖金吧。]]></kenoMessage>
 
 	<depositDaddyPay><![CDATA[存款 - 快捷支付]]></depositDaddyPay>
-
-	<history><![CDATA[History]]></history>
-	<depositwithdrawal><![CDATA[Deposit / Withdrawal History]]></depositwithdrawal>
-	<fundtransfer><![CDATA[Fund Transfer History]]></fundtransfer>
-	<referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
-	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
-
 
 	<close><![CDATA[关闭]]></close>
 

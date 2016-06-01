@@ -37,6 +37,7 @@
 	<help2pay><![CDATA[จ่ายเงินด่วน]]></help2pay>
 	<nextpay><![CDATA[ควิกออนไลน์]]></nextpay>
 	<daddypay><![CDATA[ควิกออนไลน์]]></daddypay>
+	<daddypayqr><![CDATA[QR Code Payment]]></daddypayqr>
 	<withrawal><![CDATA[ถอน]]></withrawal>
 	<fundTransfer><![CDATA[ย้ายทุน]]></fundTransfer>
 	<poker><![CDATA[โป๊กเกอร์]]></poker>
@@ -72,13 +73,6 @@
 	<kenoMessage><![CDATA[ความสนุกที่ไม่หยุด&พบกับ ความตื่นเต้น ในทุกๆ 3-5 นาที เล่นจริง, เลือกเดิมพันแล้วคุณจะเป็นผู้ชนะ]]></kenoMessage>
 
 	<depositDaddyPay><![CDATA[ฝาก - ควิกออนไลน์]]></depositDaddyPay>
-
-	<history><![CDATA[History]]></history>
-	<depositwithdrawal><![CDATA[Deposit / Withdrawal History]]></depositwithdrawal>
-	<fundtransfer><![CDATA[Fund Transfer History]]></fundtransfer>
-	<referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
-	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
-
 
 	<close><![CDATA[ปิด]]></close>
 

@@ -15,7 +15,7 @@ public partial class Deposit_SDPay : PaymentBasePage
     protected void Page_Init(object sender, EventArgs e)
     {
 
-        base.PageName = "SDPay";
+        base.PageName = Convert.ToString(commonVariables.DepositMethod.SDPay);
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.SDPay);
 
@@ -29,10 +29,9 @@ public partial class Deposit_SDPay : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        CancelUnexpectedRePost();
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-        commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, "sdpay", sender.ToString().Contains("app"));
+        commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"));
 
         if (!Page.IsPostBack)
         {
@@ -41,7 +40,7 @@ public partial class Deposit_SDPay : PaymentBasePage
             lblMinMaxLimit.Text = commonCulture.ElementValues.getResourceString("lblMinMaxLimit", xeResources);
             lblDailyLimit.Text = commonCulture.ElementValues.getResourceString("lblDailyLimit", xeResources);
             lblTotalAllowed.Text = commonCulture.ElementValues.getResourceString("lblTotalAllowed", xeResources);
-            lblDepositAmount.Text = commonCulture.ElementValues.getResourceString("lblDepositAmount", xeResources);
+            lblDepositAmount.Text = commonCulture.ElementValues.getResourceString("lblAmount", xeResources);
             lblNoticeDownload.Text = commonCulture.ElementValues.getResourceString("lblNoticeDownload", xeResources);
 
             btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
@@ -56,10 +55,6 @@ public partial class Deposit_SDPay : PaymentBasePage
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        if (IsPageRefresh)
-        {
-            Response.Redirect(Request.Url.AbsoluteUri);
-        }
 
         string strDepositAmount = txtDepositAmount.Text.Trim();
 

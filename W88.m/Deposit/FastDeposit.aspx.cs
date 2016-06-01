@@ -33,7 +33,6 @@ public partial class Deposit_FastDesposit : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        CancelUnexpectedRePost();
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
         commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"));
@@ -74,13 +73,14 @@ public partial class Deposit_FastDesposit : PaymentBasePage
         lblTotalAllowed.Text = base.strlblTotalAllowed;
         txtTotalAllowed.Text = base.strtxtTotalAllowed;
 
-        lblDepositAmount.Text = base.strlblDepositAmount;
-        txtDepositAmount.Attributes.Add("PLACEHOLDER", base.strtxtDepositAmount);
+        lblDepositAmount.Text = base.strlblAmount;
+        txtDepositAmount.Attributes.Add("PLACEHOLDER", base.strtxtAmount);
 
         lblAccountName.Text = base.strlblAccountName;
         lblAccountNumber.Text = base.strlblAccountNumber;
 
         lblBank.Text = base.strlblBank;
+        lblBankName.Text = base.strlblBankName;
 
         btnSubmit.Text = base.strbtnSubmit;
 
@@ -137,8 +137,8 @@ public partial class Deposit_FastDesposit : PaymentBasePage
         drpBank.DataValueField = "bankCode";
         drpBank.DataBind();
 
-        drpBank.Items.Insert(0, new ListItem(base.drpBank, "-1"));
-        drpBank.Items.Add(new ListItem(base.drpOtherBank, "OTHER"));
+        drpBank.Items.Insert(0, new ListItem(base.strdrpBank, "-1"));
+        drpBank.Items.Add(new ListItem(base.strdrpOtherBank, "OTHER"));
     }
 
     private void InitialiseDepositChannel()
@@ -174,14 +174,9 @@ public partial class Deposit_FastDesposit : PaymentBasePage
         }
         #endregion
     }
-
+     
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        if (IsPageRefresh)
-        {
-            Response.Redirect(Request.Url.AbsoluteUri);
-        }
-
         string strSystemAccount = drpSystemAccount.SelectedItem.Value;
         string strDepositChannel = drpDepositChannel.SelectedItem.Value;
 

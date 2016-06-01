@@ -6,21 +6,23 @@
 	<lblMinMaxLimit><![CDATA[최소/최대한도]]></lblMinMaxLimit>
 	<lblDailyLimit><![CDATA[일일한도: ]]></lblDailyLimit>
 	<lblTotalAllowed><![CDATA[전체한도: ]]></lblTotalAllowed>
-	<lblDepositAmount><![CDATA[입금 금액]]></lblDepositAmount>
+	<lblAmount><![CDATA[입금 금액]]></lblAmount>
 	<unlimited><![CDATA[무제한]]></unlimited>
-	
+
 	<lblTransactionId><![CDATA[거래 ID]]></lblTransactionId>
-	
+
 	<lblBank><![CDATA[은행]]></lblBank>
 	<drpBank><![CDATA[은행 선택]]></drpBank>
 	<lblBankName><![CDATA[은행이름]]></lblBankName>
 	<drpOtherBank><![CDATA[다른은행]]></drpOtherBank>
-	
+
 	<lblAccountName><![CDATA[계좌명]]></lblAccountName>
 	<lblAccountNumber><![CDATA[계좌번호]]></lblAccountNumber>
 
 	<btnCancel><![CDATA[취소]]></btnCancel>
 	<btnSubmit><![CDATA[입금]]></btnSubmit>
+
+	<lblThankYou><![CDATA[감사합니다]]></lblThankYou>
 
 	<browserNotice><![CDATA[<span>Gentle reminder: <b>{BANK}</b> do not support chrome & firefox</span>]]></browserNotice>
 </Deposit>

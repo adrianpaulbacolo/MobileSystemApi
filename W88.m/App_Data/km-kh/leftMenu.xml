@@ -37,6 +37,7 @@
 	<sdapay><![CDATA[Alipay Transfer]]></sdapay>
 	<help2pay><![CDATA[ប្រាក់បៀវត្សរ៍រហ័ស]]></help2pay>
 	<daddypay><![CDATA[រហ័សអនឡាញ]]></daddypay>
+	<daddypayqr><![CDATA[QR Code Payment]]></daddypayqr>
 	<withrawal><![CDATA[ការដកប្រាក់ចេញ]]></withrawal>
 	<fundTransfer><![CDATA[ផេ្ទរ]]></fundTransfer>
 	<poker><![CDATA[ពុកគ័រ]]></poker>
@@ -70,13 +71,6 @@
 	<kenoMessage><![CDATA[ករាយ និង រំភើបឥតឈប់ឈរ រៀងរាល់ 3 ទៅ 5 នាទីម្តង លេងទឹកប្រាក់ពិត ជ្រើសរើស ការភ្នាល់ និងឈ្នះទឹកប្រាក់]]></kenoMessage>
 
 	<depositDaddyPay><![CDATA[ប្រាក់កក់ - រហ័សអនឡាញ]]></depositDaddyPay>
-
-	<history><![CDATA[History]]></history>
-	<depositwithdrawal><![CDATA[Deposit / Withdrawal History]]></depositwithdrawal>
-	<fundtransfer><![CDATA[Fund Transfer History]]></fundtransfer>
-	<referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
-	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
-
 
 	<close><![CDATA[បិទ]]></close>
 

@@ -9,7 +9,6 @@
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
 <body>
-    <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="b" data-ajax="false">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
@@ -40,18 +39,9 @@
                         <li><a href="/Deposit/Default.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%></a></li>
                         <li><a href="/FundTransfer/Default.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%></a></li>
                         <li><a href="/Withdrawal/Default.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%></a></li>
-                        <li><a href="/History" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("history", commonVariables.LeftMenuXML)%></a></li>
+                        <li><a href="/History" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("history", commonVariables.HistoryXML)%></a></li>
                     </ul>
                 </div>
-                <!-- <div id="deposit">
-                    <%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%>
-                </div>
-                <div id="transfer">
-                    <%=commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%>
-                </div>
-                <div id="withdrawal">
-                    <%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%>
-                </div> -->
             </div>
             <form runat="server">
                 <ul class="row row-bordered bg-gradient">

@@ -33,7 +33,6 @@ public partial class Deposit_WingMoney : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        CancelUnexpectedRePost();
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
         commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"));
@@ -42,7 +41,7 @@ public partial class Deposit_WingMoney : PaymentBasePage
         {
             strTitle = commonCulture.ElementValues.getResourceString("lblTitle", xeResources);
 
-            lblDepositAmount.Text = commonCulture.ElementValues.getResourceString("lblDepositAmount", xeResources);
+            lblDepositAmount.Text = commonCulture.ElementValues.getResourceString("lblAmount", xeResources);
             lblReferenceId.Text = commonCulture.ElementValues.getResourceString("lblReferenceId", xeResources);
             lblAccountName.Text = commonCulture.ElementValues.getResourceString("lblAccountName", xeResources);
             lblAccountNumber.Text = commonCulture.ElementValues.getResourceString("lblAccountNumber", xeResources);
@@ -62,10 +61,6 @@ public partial class Deposit_WingMoney : PaymentBasePage
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        if (IsPageRefresh)
-        {
-            Response.Redirect(Request.Url.AbsoluteUri);
-        }
 
         DateTime dtDepositDateTime = DateTime.MinValue;
 

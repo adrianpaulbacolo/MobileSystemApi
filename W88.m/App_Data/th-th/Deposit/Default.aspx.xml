@@ -4,23 +4,25 @@
 	<online><![CDATA[ออนไลน์]]></online>
 	<offline><![CDATA[ออฟไลน์]]></offline>
 	<lblMinMaxLimit><![CDATA[การจำกัดยอดขั้นต่ำ /สูงสุด]]></lblMinMaxLimit>
-	<lblDailyLimit><![CDATA[การจำกัดยอดเงินต่อวัน: ]]></lblDailyLimit> 
+	<lblDailyLimit><![CDATA[การจำกัดยอดเงินต่อวัน: ]]></lblDailyLimit>
 	<lblTotalAllowed><![CDATA[ยอดเงินที่ทำรายการได้: ]]></lblTotalAllowed>
-	<lblDepositAmount><![CDATA[ยอดเงินการฝาก]]></lblDepositAmount>
+	<lblAmount><![CDATA[ยอดเงินการฝาก]]></lblAmount>
 	<unlimited><![CDATA[ไม่จำกัด]]></unlimited>
-	
+
 	<lblTransactionId><![CDATA[หมายเลขธุรกรรม]]></lblTransactionId>
-	
+
 	<lblBank><![CDATA[ธนาคาร]]></lblBank>
 	<drpBank><![CDATA[ธนาคาร กรุณาเลือก]]></drpBank>
 	<lblBankName><![CDATA[ชื่อธนาคาร]]></lblBankName>
 	<drpOtherBank><![CDATA[ธนาคารอื่นๆ]]></drpOtherBank>
-	
+
 	<lblAccountName><![CDATA[ชื่อบัญชี]]></lblAccountName>
 	<lblAccountNumber><![CDATA[หมายเลขบัญชี]]></lblAccountNumber>
 
 	<btnCancel><![CDATA[ยกเลิก]]></btnCancel>
 	<btnSubmit><![CDATA[การฝาก]]></btnSubmit>
 
+	<lblThankYou><![CDATA[ขอขอบคุณคุณ]]></lblThankYou>
+	
 	<browserNotice><![CDATA[<span>Gentle reminder: <b>{BANK}</b> do not support chrome & firefox</span>]]></browserNotice>
 </Deposit>

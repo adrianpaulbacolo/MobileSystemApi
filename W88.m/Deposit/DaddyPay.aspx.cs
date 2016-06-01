@@ -46,8 +46,6 @@ public partial class Deposit_DaddyPay : BasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        CancelUnexpectedRePost();
-
         strOperatorId = commonVariables.OperatorId;
         strMemberId = commonVariables.GetSessionVariable("MemberId");
         strMemberCode = commonVariables.GetSessionVariable("MemberCode");
@@ -71,7 +69,7 @@ public partial class Deposit_DaddyPay : BasePage
             lblTotalAllowed.Text = commonCulture.ElementValues.getResourceString("lblTotalAllowed", xeResources);
 
 
-            bankDropDownList.Items.Insert(0, new ListItem(commonCulture.ElementValues.getResourceString("drpBank", xeResource),"-1"));
+            bankDropDownList.Items.Insert(0, new ListItem(commonCulture.ElementValues.getResourceString("drpBank", xeResource), "-1"));
 
             btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
 
@@ -119,9 +117,6 @@ public partial class Deposit_DaddyPay : BasePage
 
             strMethodsUnAvailable = Convert.ToString(sbMethodsUnavailable).TrimEnd('|');
 
-            //bankDropDownList.Items.Clear();
-
-            //PopulateBankList();
         }
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
@@ -133,26 +128,6 @@ public partial class Deposit_DaddyPay : BasePage
         else if (Request.QueryString["value"].ToString() == "2")
         {
             commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, "daddypayqr", sender.ToString().Contains("app"));
-        }
-    }
-
-    private void CancelUnexpectedRePost()
-    {
-        if (!IsPostBack)
-        {
-            ViewState["postids"] = System.Guid.NewGuid().ToString();
-            Session["postid"] = ViewState["postids"].ToString();
-        }
-        else
-        {
-            if (string.IsNullOrEmpty(ViewState["postids"] as string)) { IsPageRefresh = true; }
-            else
-            {
-                if (string.IsNullOrEmpty(Session["postid"] as string)) { IsPageRefresh = true; }
-                else if (ViewState["postids"].ToString() != Session["postid"].ToString()) { IsPageRefresh = true; }
-            }
-            Session["postid"] = System.Guid.NewGuid().ToString();
-            ViewState["postids"] = Session["postid"];
         }
     }
 
@@ -207,7 +182,7 @@ public partial class Deposit_DaddyPay : BasePage
             strMaxLimit = Convert.ToDecimal(drPaymentMethodLimit["maxDeposit"]).ToString(commonVariables.DecimalFormat);
             strTotalAllowed = Convert.ToDecimal(dtPaymentMethodLimits.Rows[0]["totalAllowed"]) == 0 ? commonCulture.ElementValues.getResourceString("unlimited", xeResources) : Convert.ToDecimal(dtPaymentMethodLimits.Rows[0]["totalAllowed"]).ToString(commonVariables.DecimalFormat);
             strDailyLimit = Convert.ToDecimal(dtPaymentMethodLimits.Rows[0]["limitDaily"]) == 0 ? commonCulture.ElementValues.getResourceString("unlimited", xeResources) : Convert.ToDecimal(dtPaymentMethodLimits.Rows[0]["limitDaily"]).ToString(commonVariables.DecimalFormat);
-            amount_txt.Text = commonCulture.ElementValues.getResourceString("lblDepositAmount", xeResources);
+            amount_txt.Text = commonCulture.ElementValues.getResourceString("lblAmount", xeResources);
 
             amount_txt.Attributes.Add("PLACEHOLDER", string.Format("{0} ({1})", amount_txt.Text, strCurrencyCode));
 
@@ -266,7 +241,7 @@ public partial class Deposit_DaddyPay : BasePage
 
                         using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
                         {
-                            xElement = client.createOnlineDepositTransactionV1(Convert.ToInt64(strOperatorId),long.Parse(strMemberId), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.DaddyPay), strCurrencyCode, Convert.ToDecimal(amount_txt.Text), DepositSource.Mobile, string.Empty);
+                            xElement = client.createOnlineDepositTransactionV1(Convert.ToInt64(strOperatorId), long.Parse(strMemberId), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.DaddyPay), strCurrencyCode, Convert.ToDecimal(amount_txt.Text), DepositSource.Mobile, string.Empty);
                             client.Close();
                         }
 
@@ -282,7 +257,7 @@ public partial class Deposit_DaddyPay : BasePage
 
                         using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
                         {
-                            xElement = client.createOnlineDepositTransactionV1(Convert.ToInt64(strOperatorId),long.Parse(strMemberId), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.DaddyPayQR), strCurrencyCode, Convert.ToDecimal(amount_txt.Text),DepositSource.Mobile, string.Empty);
+                            xElement = client.createOnlineDepositTransactionV1(Convert.ToInt64(strOperatorId), long.Parse(strMemberId), strMemberCode, Convert.ToInt64(commonVariables.DepositMethod.DaddyPayQR), strCurrencyCode, Convert.ToDecimal(amount_txt.Text), DepositSource.Mobile, string.Empty);
                             client.Close();
                         }
 
@@ -354,7 +329,7 @@ public partial class Deposit_DaddyPay : BasePage
                 Response.Write("<script>alert('Please enter a deposit amount');</script>");
             }
         }
-        catch(Exception )
+        catch (Exception)
         { }
     }
 
@@ -367,7 +342,7 @@ public partial class Deposit_DaddyPay : BasePage
 
         daddyPay = daddyPayDomain;
 
-        byte[] responseBytes= null;
+        byte[] responseBytes = null;
 
         try
         {
@@ -395,7 +370,7 @@ public partial class Deposit_DaddyPay : BasePage
 
             return responseBytes;
         }
-        catch(Exception)
+        catch (Exception)
         {
             return responseBytes;
         }
@@ -407,13 +382,13 @@ public partial class Deposit_DaddyPay : BasePage
         string lang = commonVariables.SelectedLanguage.ToLower();
         string BankList = string.Empty;
 
-        if(lang == "zh-cn")
-        { 
-            BankList = ConfigurationManager.AppSettings["BankList_cn"]; 
+        if (lang == "zh-cn")
+        {
+            BankList = ConfigurationManager.AppSettings["BankList_cn"];
         }
         else
-        { 
-            BankList = ConfigurationManager.AppSettings["BankList_en"]; 
+        {
+            BankList = ConfigurationManager.AppSettings["BankList_en"];
         }
 
         string[] Bank = new string[100];
@@ -431,11 +406,11 @@ public partial class Deposit_DaddyPay : BasePage
                 }
             }
         }
-        else if(flag =="2")
+        else if (flag == "2")
         {
             bankDropDownList.Items.Add(new ListItem(Bank[2].Split('-')[1], Bank[2].Split('-')[0]));
         }
-        
+
     }
 
 
@@ -514,19 +489,19 @@ public class DaddyPayDomain
 
 public class myObject
 {
-        public string bank_card_num { get; set; }
-        public string bank_acc_name { get; set; }
-        public string amount { get; set; }
-        public string email { get; set; }
-        public string company_order_num { get; set; }
-        public string datetime { get; set; }
-        public string note { get; set; }
-        public string mownecum_order_num { get; set; }
-        public string status { get; set; }
-        public string mode { get; set; }
-        public string issuing_bank_address { get; set; } 
-        public string break_url { get; set; }
-        public string deposit_mode { get; set; } 
-        public string collection_bank_id { get; set; }
-        public string key { get; set; }
+    public string bank_card_num { get; set; }
+    public string bank_acc_name { get; set; }
+    public string amount { get; set; }
+    public string email { get; set; }
+    public string company_order_num { get; set; }
+    public string datetime { get; set; }
+    public string note { get; set; }
+    public string mownecum_order_num { get; set; }
+    public string status { get; set; }
+    public string mode { get; set; }
+    public string issuing_bank_address { get; set; }
+    public string break_url { get; set; }
+    public string deposit_mode { get; set; }
+    public string collection_bank_id { get; set; }
+    public string key { get; set; }
 }

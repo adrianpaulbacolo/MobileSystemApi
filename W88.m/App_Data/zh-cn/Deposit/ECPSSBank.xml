@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<banks>
+	<bank id="ICBC" ><![CDATA[工商银行 (*)]]></bank>
+	<bank id="ABC"><![CDATA[农业银行]]></bank>
+	<bank id="BOCSH"><![CDATA[中国银行]]></bank>
+	<bank id="CCB"><![CDATA[建设银行]]></bank>
+	<bank id="CMB"><![CDATA[招商银行]]></bank>
+	<bank id="SPDB"><![CDATA[浦发银行]]></bank>
+	<bank id="GDB"><![CDATA[广发银行]]></bank>
+	<bank id="BOCOM"><![CDATA[交通银行]]></bank>
+	<!--<bank id="PSBC"><![CDATA[邮政储蓄银行]]></bank>-->
+	<bank id="CNCB"><![CDATA[中信银行 (*)]]></bank>
+	<bank id="CMBC"><![CDATA[民生银行]]></bank>
+	<bank id="CEB"><![CDATA[光大银行]]></bank>
+	<bank id="HXB"><![CDATA[华夏银行]]></bank>
+	<bank id="CIB"><![CDATA[兴业银行]]></bank>
+	<bank id="BOS"><![CDATA[上海银行]]></bank>
+	<bank id="SRCB"><![CDATA[上海农商]]></bank>
+	<bank id="PAB"><![CDATA[平安银行]]></bank>
+	<bank id="BCCB"><![CDATA[北京银行]]></bank>
+	<!--<bank id="BOC"><![CDATA[中行(大额)]]></bank>-->
+	<!--<bank id="NOCARD"><![CDATA[银联无卡支付]]></bank>-->
+	<!--<bank id="UNIONPAY"><![CDATA[银联选择银行页面]]></bank>-->
+</banks>

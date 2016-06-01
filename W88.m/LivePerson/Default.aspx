@@ -11,7 +11,6 @@
     <link type="text/css" href="/_Static/Css/LP.css" rel="stylesheet" />
 </head>
 <body>
-    <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="b">
         <!--#include virtual="~/_static/header.shtml" -->
         <div class="ui-content" role="main">

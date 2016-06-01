@@ -14,7 +14,7 @@ public partial class Withdrawal_Neteller : PaymentBasePage
 
     protected void Page_Init(object sender, EventArgs e)
     {
-        base.PageName = "Neteller";
+        base.PageName = Convert.ToString(commonVariables.WithdrawalMethod.Neteller);
         base.PaymentType = commonVariables.PaymentTransactionType.Withdrawal;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.WithdrawalMethod.Neteller);
 
@@ -25,12 +25,11 @@ public partial class Withdrawal_Neteller : PaymentBasePage
 
         base.GetMainWalletBalance("0");
 
-        base.InitialisePendingWithdrawals();
+        base.InitialisePendingWithdrawals(sender.ToString().Contains("app"));
     }
 
-    protected void Page_Load(object sender, EventArgs e)
+    protected void Page_Load(object sender, EventArgs e)  
     {
-        CancelUnexpectedRePost();
 
         HtmlGenericControl withdrawalTabs = (HtmlGenericControl)FindControl("withdrawalTabs");
         commonPaymentMethodFunc.GetWithdrawalMethodList(strMethodsUnAvailable, withdrawalTabs, base.PageName, sender.ToString().Contains("app"));
@@ -57,10 +56,6 @@ public partial class Withdrawal_Neteller : PaymentBasePage
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        if (IsPageRefresh)
-        {
-            Response.Redirect(Request.Url.AbsoluteUri);
-        }
 
         string strWithdrawalAmount = txtWithdrawalAmount.Text.Trim();
         string memberAccount = txtAccountId.Text.Trim();
@@ -119,7 +114,7 @@ public partial class Withdrawal_Neteller : PaymentBasePage
                             if (isTransactionSuccessful)
                             {
                                 strAlertCode = "0";
-                                strAlertMessage = string.Format("{0}\\n{1}: {2}", commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferSuccess", xeErrors), commonCulture.ElementValues.getResourceString("lblTransactionId", xeResources), strTransferId);
+                                strAlertMessage = string.Format("{0}\\n{1}: {2}", commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferSuccess", xeErrors), strlblTransactionId, strTransferId);
                             }
                             else
                             {

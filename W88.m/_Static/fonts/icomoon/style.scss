@@ -12,6 +12,9 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-zalo:before {
+    content: "\e90c";
+}
 .icon-mahjong:before {
     content: "\e90b";
 }
