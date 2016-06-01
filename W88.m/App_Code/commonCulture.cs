@@ -918,7 +918,8 @@ namespace commonCulture
         #endregion
     }
 
-    public static class ElementValues {
+    public static class ElementValues
+    {
         public static string getResourceString(string elementName, System.Xml.Linq.XElement xElement)
         {
             try { return Convert.ToString(xElement.Elements(elementName).SingleOrDefault().Value); }
@@ -949,7 +950,7 @@ namespace commonCulture
             try
             {
                 var list = xElement.Elements(elementName);
-                foreach (var el in list.Where(el => String.Equals(el.Attribute(attributeName).Name.ToString(), attributeName, StringComparison.CurrentCultureIgnoreCase) && String.Equals(el.Attribute(attributeName).Value, attributeValue, StringComparison.CurrentCultureIgnoreCase)))
+                foreach (var el in list.Where(el => string.Equals(el.Attribute(attributeName).Name.ToString(), attributeName, StringComparison.CurrentCultureIgnoreCase) && string.Equals(el.Attribute(attributeName).Value, attributeValue, StringComparison.CurrentCultureIgnoreCase)))
                 {
                     return el.Value;
                 }
@@ -958,6 +959,6 @@ namespace commonCulture
             }
             catch (Exception) { return string.Empty; }
         }
-        
+
     }
 }

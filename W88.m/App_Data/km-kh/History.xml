@@ -1,48 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <History>
-    <history><![CDATA[ប្រវត្តិ]]></history>
-    <depositwithdrawal><![CDATA[ដាក់ប្រាក់/ដកប្រាក់]]></depositwithdrawal>
-    <fundtransfer><![CDATA[ផ្ទេរ]]></fundtransfer>
-    <referralbonus><![CDATA[រង្វាន់បន្ថែមនៃការណែនាំ]]></referralbonus>
-    <promotionclaim><![CDATA[ការទាមទារកម្មវិធី]]></promotionclaim>
+	<history><![CDATA[ប្រវត្តិ]]></history>
+	<depositwithdrawal><![CDATA[ដាក់ប្រាក់/ដកប្រាក់]]></depositwithdrawal>
+	<fundtransfer><![CDATA[ផ្ទេរ]]></fundtransfer>
+	<referralbonus><![CDATA[រង្វាន់បន្ថែមនៃការណែនាំ]]></referralbonus>
+	<promotionclaim><![CDATA[ការទាមទារកម្មវិធី]]></promotionclaim>
 
-    <lblDateFrom><![CDATA[កាលបរិច្ឆេទផ្តើម]]></lblDateFrom>
-    <lblDateTo><![CDATA[កាលបរិច្ឆេទបញ្ចប់]]></lblDateTo>
-    <lblType><![CDATA[ប្រភេទ]]></lblType>
-    <lblStatus><![CDATA[ស្ថានភាព]]></lblStatus>
+	<lblDateFrom><![CDATA[កាលបរិច្ឆេទផ្តើម]]></lblDateFrom>
+	<lblDateTo><![CDATA[កាលបរិច្ឆេទបញ្ចប់]]></lblDateTo>
+	<lblType><![CDATA[ប្រភេទ]]></lblType>
+	<lblStatus><![CDATA[ស្ថានភាព]]></lblStatus>
 
-    <type id="0"><![CDATA[ទាំងអស់]]></type>
-    <type id="1"><![CDATA[ដាក់ប្រាក់]]></type>
-    <type id="2"><![CDATA[ដកប្រាក់]]></type>
+	<type id="0"><![CDATA[ទាំងអស់]]></type>
+	<type id="1"><![CDATA[ដាក់ប្រាក់]]></type>
+	<type id="2"><![CDATA[ដកប្រាក់]]></type>
 
-    <status id="ALL"><![CDATA[ទាំងអស់]]></status>
-    <status id="SUCCESSFUL"><![CDATA[ជោគជ័យ]]></status>
-    <status id="PENDING"><![CDATA[មិនទាន់សម្រេច]]></status>
-    <status id="FAILED"><![CDATA[បរាជ័យ]]></status>
-    <status id="REJECTED"><![CDATA[ការច្រានចោល]]></status>
+	<status id="ALL"><![CDATA[ទាំងអស់]]></status>
+	<status id="SUCCESSFUL"><![CDATA[ជោគជ័យ]]></status>
+	<status id="PENDING"><![CDATA[មិនទាន់សម្រេច]]></status>
+	<status id="FAILED"><![CDATA[បរាជ័យ]]></status>
+	<status id="REJECTED"><![CDATA[ការច្រានចោល]]></status>
 
-    <dateTime><![CDATA[កាលបិច្ឆេទ /ម៉ោង]]></dateTime>
-    <transId><![CDATA[លេខប្រតិបត្តិការ]]></transId>
-    <paymentMethod><![CDATA[ការបង់ប្រាក់]]></paymentMethod>
-    <submittedAmt><![CDATA[បានបញ្ជូន Amt]]></submittedAmt>
-    <receivedAmt><![CDATA[បានទទួល Amt]]></receivedAmt>
-    <from><![CDATA[មិនទាន់សម្រេច]]></from>
-    <to><![CDATA[ទៅកាន់]]></to>
-    <source><![CDATA[ប្រភព]]></source>
-    <amount><![CDATA[Amount]]></amount>
-    <subjectCode><![CDATA[កូដប្រធានបទ]]></subjectCode>
-    <norecords><![CDATA[មិនមានកំណត់ត្រា]]></norecords>
+	<dateTime><![CDATA[កាលបិច្ឆេទ /ម៉ោង]]></dateTime>
+	<transId><![CDATA[លេខប្រតិបត្តិការ]]></transId>
+	<paymentMethod><![CDATA[ការបង់ប្រាក់]]></paymentMethod>
+	<submittedAmt><![CDATA[បានបញ្ជូន Amt]]></submittedAmt>
+	<receivedAmt><![CDATA[បានទទួល Amt]]></receivedAmt>
+	<from><![CDATA[មិនទាន់សម្រេច]]></from>
+	<to><![CDATA[ទៅកាន់]]></to>
+	<source><![CDATA[ប្រភព]]></source>
+	<amount><![CDATA[Amount]]></amount>
+	<subjectCode><![CDATA[កូដប្រធានបទ]]></subjectCode>
+	<norecords><![CDATA[មិនមានកំណត់ត្រា]]></norecords>
 
-    <ftStatus id="-1"><![CDATA[ទាំងអស់]]></ftStatus>
-    <ftStatus id="0"><![CDATA[មិនទាន់សម្រេច]]></ftStatus>
-    <ftStatus id="1"><![CDATA[ជោគជ័យ]]></ftStatus>
-    <ftStatus id="2"><![CDATA[បរាជ័យ]]></ftStatus>
-    <ftStatus id="3"><![CDATA[ការច្រានចោល]]></ftStatus>
+	<ftStatus id="-1"><![CDATA[ទាំងអស់]]></ftStatus>
+	<ftStatus id="0"><![CDATA[មិនទាន់សម្រេច]]></ftStatus>
+	<ftStatus id="1"><![CDATA[ជោគជ័យ]]></ftStatus>
+	<ftStatus id="2"><![CDATA[បរាជ័យ]]></ftStatus>
+	<ftStatus id="3"><![CDATA[ការច្រានចោល]]></ftStatus>
 
-    <totalInvitees><![CDATA[ចំនួនអញ្ជើញសរុប]]></totalInvitees>
-    <totalRegistered><![CDATA[ចំនួនចុះឈ្មោះសរុប]]></totalRegistered>
-    <totalSuccessReferral><![CDATA[ចំនួនណែនាំសរុប]]></totalSuccessReferral>
-    <totalReferralBonus><![CDATA[រង្វាន់បន្ថែមសរុបនៃការណែនាំ ([cur])]]></totalReferralBonus>
+	<totalInvitees><![CDATA[ចំនួនអញ្ជើញសរុប]]></totalInvitees>
+	<totalRegistered><![CDATA[ចំនួនចុះឈ្មោះសរុប]]></totalRegistered>
+	<totalSuccessReferral><![CDATA[ចំនួនណែនាំសរុប]]></totalSuccessReferral>
+	<totalReferralBonus><![CDATA[រង្វាន់បន្ថែមសរុបនៃការណែនាំ ([cur])]]></totalReferralBonus>
 
-    <btnSubmit><![CDATA[ស្នើសុំ]]></btnSubmit>
+	<btnSubmit><![CDATA[ស្នើសុំ]]></btnSubmit>
 </History>

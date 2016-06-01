@@ -13,8 +13,12 @@
 	<dDaddyPay><![CDATA[Quick Online]]></dDaddyPay>
 	<dDaddyPayQR><![CDATA[QR Code Payment]]></dDaddyPayQR>
 	<dSDAPayAlipay><![CDATA[Alipay Transfer]]></dSDAPayAlipay>
+	<dBofoPay><![CDATA[Quick Pay]]></dBofoPay>
+	<dAllDebit><![CDATA[Kartu Kredit]]></dAllDebit>
 
 	<wBankTransfer><![CDATA[Bank Transfer]]></wBankTransfer>
 	<wWingMoney><![CDATA[Wing Money]]></wWingMoney>
 	<wNeteller><![CDATA[Neteller]]></wNeteller>
+
+	<paymentNotice><![CDATA[<span>Pilihan metode pembayaran belum tersedia di account Anda. Silahkan hubungi <a href="/LiveChat/Default.aspx" target="_blank">Customer Service</a> untuk bantuan lebih lanjut.</span>]]></paymentNotice>
 </PaymentMethods>

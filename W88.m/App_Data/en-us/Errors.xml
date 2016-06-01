@@ -29,6 +29,7 @@
 		<MissingCurrency><![CDATA[Please select your preferred currency]]></MissingCurrency>
 		<MissingFName><![CDATA[Please enter your first name]]></MissingFName>
 		<MissingLName><![CDATA[Please enter your last name]]></MissingLName>
+		<MissingName><![CDATA[Please enter your full name]]></MissingName>
 		<MissingVCode><![CDATA[Please enter verification code]]></MissingVCode>
 
 		<InvalidUsername><![CDATA[Invalid Username and/or Password.]]></InvalidUsername>
@@ -110,6 +111,11 @@
 		<MissingAccountName><![CDATA[Please enter your account name]]></MissingAccountName>
 		<MissingAccountNumber><![CDATA[Please enter your account number]]></MissingAccountNumber>
 		<MissingBankName><![CDATA[Please enter your other bank name]]></MissingBankName>
+		<MissingCardName><![CDATA[Please enter your card name]]></MissingCardName>
+		<MissingCardNo><![CDATA[Please enter your card number]]></MissingCardNo>
+		<MissingCCV><![CDATA[Please enter your security code]]></MissingCCV>
+		<MissingCardType><![CDATA[Please enter your card type]]></MissingCardType>
+		<MissingCardExpiry><![CDATA[Please enter your card expiry]]></MissingCardExpiry>
 		<SelectSystemAccount><![CDATA[Please select a system account]]></SelectSystemAccount>
 		<SelectDepositChannel><![CDATA[Please select a deposit channel]]></SelectDepositChannel>
 		<SelectBank><![CDATA[Please select a bank]]></SelectBank>
@@ -177,26 +183,27 @@
 
 		<Exception><![CDATA[Unable to process request]]></Exception>
 	</Withdrawal>
-  <StatusCode>
-    <e400><![CDATA[400]]></e400>
-    <e403><![CDATA[403]]></e403>
-    <e404><![CDATA[404]]></e404>
-    <e408><![CDATA[408]]></e408>
-    <e500><![CDATA[500]]></e500>
-    <e502><![CDATA[502]]></e502>
-  </StatusCode>
-  <HttpError>
-    <e400><![CDATA[The request could not be understood by the server.]]></e400>
-    <e400title><![CDATA[Bad request]]></e400title>
-    <e403><![CDATA[You are not authorised to view this web page or directory.]]></e403>
-    <e403title><![CDATA[Forbidden]]></e403title>
-    <e404><![CDATA[Sorry, but the page you were trying to view does not exist.]]></e404>
-    <e404title><![CDATA[Page Not Found]]></e404title>
-    <e408><![CDATA[The server timed out waiting for the request.]]></e408>
-    <e408title><![CDATA[Request Timeout]]></e408title>
-    <e500><![CDATA[We encountered an error when processing your request. Please try again or contact customer support.]]></e500>
-    <e500title><![CDATA[Internal Server Error]]></e500title>
-    <e502><![CDATA[Web server received an invalid response while acting as a gateway.]]></e502>
-    <e502title><![CDATA[Bad Gateway]]></e502title>
-  </HttpError>
+
+	<StatusCode>
+		<e400><![CDATA[400]]></e400>
+		<e403><![CDATA[403]]></e403>
+		<e404><![CDATA[404]]></e404>
+		<e408><![CDATA[408]]></e408>
+		<e500><![CDATA[500]]></e500>
+		<e502><![CDATA[502]]></e502>
+	</StatusCode>
+	<HttpError>
+		<e400><![CDATA[The request could not be understood by the server.]]></e400>
+		<e400title><![CDATA[Bad request]]></e400title>
+		<e403><![CDATA[You are not authorised to view this web page or directory.]]></e403>
+		<e403title><![CDATA[Forbidden]]></e403title>
+		<e404><![CDATA[Sorry, but the page you were trying to view does not exist.]]></e404>
+		<e404title><![CDATA[Page Not Found]]></e404title>
+		<e408><![CDATA[The server timed out waiting for the request.]]></e408>
+		<e408title><![CDATA[Request Timeout]]></e408title>
+		<e500><![CDATA[We encountered an error when processing your request. Please try again or contact customer support.]]></e500>
+		<e500title><![CDATA[Internal Server Error]]></e500title>
+		<e502><![CDATA[Web server received an invalid response while acting as a gateway.]]></e502>
+		<e502title><![CDATA[Bad Gateway]]></e502title>
+	</HttpError>
 </default>

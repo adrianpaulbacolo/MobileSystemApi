@@ -13,8 +13,12 @@
 	<dDaddyPay><![CDATA[ควิกออนไลน์]]></dDaddyPay>
 	<dDaddyPayQR><![CDATA[QR Code Payment]]></dDaddyPayQR>
 	<dSDAPayAlipay><![CDATA[Alipay Transfer]]></dSDAPayAlipay>
+	<dBofoPay><![CDATA[Quick Pay]]></dBofoPay>
+	<dAllDebit><![CDATA[บัตรเครดิต]]></dAllDebit>
 
 	<wBankTransfer><![CDATA[ถอนเงินด่วน]]></wBankTransfer>
 	<wWingMoney><![CDATA[Wing Money]]></wWingMoney>
 	<wNeteller><![CDATA[Neteller]]></wNeteller>
+
+	<paymentNotice><![CDATA[<span>ช่องทางการเงินที่คุณเลือกไม่เปิดให้ใช้งานแล้ว กรุณาติดต่อ<a href="/LiveChat/Default.aspx" target="_blank">เจ้าหน้าที่ลูกค้าสัมพันธ์</a>เพื่อขอความช่วยเหลือเพิ่มเติม</span>]]></paymentNotice>
 </PaymentMethods>

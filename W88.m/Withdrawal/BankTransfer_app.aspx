@@ -10,7 +10,6 @@
     <script type="text/javascript" src="/_Static/JS/jquery.mask.min.js"></script>
 </head>
 <body>
-    <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
             <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("wBankTransfer", commonVariables.PaymentMethodsXML))%></h1>
@@ -142,7 +141,7 @@
                             break;
                         case '0':
                             alert(responseMsg);
-                            window.location.replace('/Withdrawal/Default.aspx');
+                            window.location.replace('/Withdrawal/Default_app.aspx');
                             break;
                         default:
                             break;

@@ -9,7 +9,6 @@
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
 <body>
-    <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
             <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("nextpay", commonVariables.LeftMenuXML))%></h1>
@@ -20,9 +19,7 @@
                 <uc:Wallet id="uMainWallet" runat="server" />
             </div>
 
-            <div data-role="navbar">
-                <ul id="depositTabs" runat="server">
-                </ul>
+            <div data-role="navbar" id="depositTabs" runat="server">
             </div>
 
             <form class="form" id="form1" runat="server" data-ajax="false">

@@ -7,7 +7,7 @@
         <ul class="row banner-lists banner-odd-even">
             <li class="col">
                 <figure class="banner">
-                    <img src="_Static/Images/lottery/keno-banner.jpg" class="img-responsive img-bg">
+                    <img src="/_Static/Images/lottery/keno-banner.jpg" class="img-responsive img-bg">
                     <figcaption class="banner-caption">
                         <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/Keno/Label", commonVariables.ProductsXML)%></h3>
                         <p><%=commonCulture.ElementValues.getResourceString("kenoMessage", commonVariables.LeftMenuXML)%></p>

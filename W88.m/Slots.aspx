@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Site.master" AutoEventWireup="true" CodeFile="Slots.aspx.cs" Inherits="Slots" %>
-<%@OutputCache Duration="21600" VaryByParam="none" Location="Client" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
@@ -52,15 +51,6 @@
                     <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubDivino/Label", commonVariables.ProductsXML)%></div>
                 </a>
             </li>
-            <%if (commonVariables.GetSessionVariable("responseCode") == "1")
-              {%>
-            <li class="col col-33">
-                <a class="card" href="/_Static/Downloads/w88.aspx">
-                    <img src="/_Static/Images/Download/ClubW88-iOS.jpg" class="img-responsive">
-                    <div class="title">Club W88 iOS Download</div>
-                </a>
-            </li>
-            <%}%>
         </ul>
     </div>
 </asp:Content>

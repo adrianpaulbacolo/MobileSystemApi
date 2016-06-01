@@ -1,6 +1,6 @@
 ﻿$(window).load(function () {
     GPINTMOBILE.HideSplash();
-    if(typeof window.User != "undefined" && window.User.hasSession) checkSession();
+    if (typeof window.User != "undefined" && window.User.hasSession) checkSession();
     var sessionPoll;
 
     function checkSession() {
@@ -8,29 +8,23 @@
         var sessionInterval = (typeof window.User != "undefined" && parseInt(window.User.sessionInterval) > intervalMin) ? parseInt(window.User.sessionInterval) : intervalMin;
 
         sessionPoll = window.setInterval(function () {
-        $.ajax({
-            contentType: "application/json; charset=utf-8",
-            url: "/_secure/AjaxHandlers/MemberSessionCheck.ashx",
+            $.ajax({
+                contentType: "application/json; charset=utf-8",
+                url: "/_secure/AjaxHandlers/MemberSessionCheck.ashx",
                 responseType: "json",
-            success: function (data) {
+                success: function (data) {
                     if (data.code != "1") {
                         if (typeof data.message != "undefined") alert(data.message);
                         clearInterval(sessionPoll);
                         window.location.replace("/Logout");
                     }
-            },
-            error: function (err) {
-            }
-        });
+                },
+                error: function (err) {
+                }
+            });
         }, sessionInterval);
     }
 });
-
-if ($("#divBalance").hasClass("open")) { $("#divBalance").addClass("close"); } else { if ($("#divBalance").hasClass("open")) { $("#divBalance").addClass("close"); } }
-
-// mozfullscreenerror event handler
-function errorHandler() { /*alert('mozfullscreenerror');*/ }
-//document.documentElement.addEventListener('mozfullscreenerror', errorHandler, false);
 
 // toggle full screen
 function toggleFullScreen() {
@@ -52,7 +46,7 @@ function toggleFullScreen() {
             document.webkitCancelFullScreen();
         }
     }
-  }
+}
 
 function Cookies() {
     var setCookie = function (cname, cvalue, expiryDays) {

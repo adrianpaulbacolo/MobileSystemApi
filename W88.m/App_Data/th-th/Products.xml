@@ -1,166 +1,171 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
-    <Products>
-        <ASports>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[a-กีฬา]]></Label>
-            <Description><![CDATA[หน้ากีฬาแบบเอเชียนแฮนดิแคปที่คุณคุ้นเคย เปิดให้เดิมพันกีฬาได้หลากหลายรูปแบบแล้ววันนี้]]></Description>
-        </ASports>
-        <ESports>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[e-กีฬา]]></Label>
-            <Description><![CDATA[หน้ากีฬาแบบใหม่ แบบยุโรป & แบบเอเชีย เปิดให้เดิมพันกีฬาได้หลากหลายรูปแบบแล้ววันนี้]]></Description>
-        </ESports>
-        <Poker>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[โป๊กเกอร์]]></Label>
-            <Description><![CDATA[โป๊กเกอร์]]></Description>
-        </Poker>
-        <texasmahjong>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[เท็กซัส มาจง]]></Label>
-            <Description><![CDATA[เท็กซัส มาจง]]></Description>
-        </texasmahjong>
-        <ISports>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[i-กีฬา]]></Label>
-            <Description><![CDATA[Sportsbook]]></Description>
-        </ISports>
-        <USports>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[u-กีฬา]]></Label>
-            <Description><![CDATA[Sportsbook]]></Description>
-        </USports>
-        <VSports>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[กีฬาอนิเมชั่น]]></Label>
-            <Description><![CDATA[เดิมพันทุก 4.5 นาที มากกว่า 2,400 การแข่งขันต่อวัน ตลอด 24 ชม]]></Description>
-            <Notice><![CDATA[*** ไม่สามารถใช้งานกับเบราเซอร์ IE และ FF ***]]></Notice>
-        </VSports>
-        <VSports-basketball>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[บาสเก็ตบอล]]></Label>
-            <Description><![CDATA[Sportsbook]]></Description>
-        </VSports-basketball>
-        <VSports-tennis>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[เทนนิส]]></Label>
-            <Description><![CDATA[Sportsbook]]></Description>
-        </VSports-tennis>
-        <VSports-horseracing>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[ม้าแข่ง]]></Label>
-            <Description><![CDATA[Sportsbook]]></Description>
-        </VSports-horseracing>
-        <VSports-football>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[ฟุตบอล]]></Label>
-            <Description><![CDATA[Sportsbook]]></Description>
-        </VSports-football>
-        <VSports-dogracing>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[แข่งขันสุนัข]]></Label>
-            <Description><![CDATA[Sportsbook]]></Description>
-        </VSports-dogracing>
-        <Lottery>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[ล็อตเตอรี่]]></Label>
-            <Description><![CDATA[คีโน & ล็อตโต้]]></Description>
-        </Lottery>
-        <Keno>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[คีโน]]></Label>
-            <Description><![CDATA[คีโน & ล็อตโต้]]></Description>
-        </Keno>
-        <ClubCrescendo>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[เครสเซนโด้]]></Label>
-            <Description><![CDATA[Crescendo Slots]]></Description>
-        </ClubCrescendo>
-        <ClubDivino>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[ดิวิโน่]]></Label>
-            <Description><![CDATA[คลับบราวาโด้ 3D]]></Description>
-        </ClubDivino>
-        <ClubW>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[คลับ W]]></Label>
-            <Description><![CDATA[]]></Description>
-        </ClubW>
-        <ClubWPremier>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[คลับ W พรีเมียร์]]></Label>
-            <Description><![CDATA[]]></Description>
-        </ClubWPremier>
-        <ClubBravado>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[บราวาโด้]]></Label>
-            <Description><![CDATA[]]></Description>
-        </ClubBravado>
-        <ClubMassimoSlots>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[แมสซิโม]]></Label>
-            <Description><![CDATA[]]></Description>
-        </ClubMassimoSlots>
-        <ClubMassimoSlots2>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[แมสซิโม ดาวน์โหลด]]></Label>
-            <Description><![CDATA[]]></Description>
-        </ClubMassimoSlots2>
-        <ClubMassimoCasino>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[แมสซิโม]]></Label>
-            <Description><![CDATA[]]></Description>
-        </ClubMassimoCasino>
-        <ClubPalazzoSlots>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[พาลาซโซ]]></Label>
-            <Description><![CDATA[]]></Description>
-        </ClubPalazzoSlots>
-        <ClubPalazzoSlots2>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[พาลาซโซ ดาวน์โหลด]]></Label>
-            <Description><![CDATA[]]></Description>
-        </ClubPalazzoSlots2>
-        <ClubPalazzoCasino>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[พาลาซโซ]]></Label>
-            <Description><![CDATA[]]></Description>
-        </ClubPalazzoCasino>
-        <ClubGallardo>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[คลับเกลลาโด้]]></Label>
-            <Description><![CDATA[]]></Description>
-        </ClubGallardo>
-        <ClubApollo>
-            <Url><![CDATA[]]></Url>
-            <Label><![CDATA[คลับอพอลโล]]></Label>
-            <Description><![CDATA[]]></Description>
-        </ClubApollo>
-    </Products>
-    <Wallets>
-        <main><![CDATA[กระเป๋าหลัก]]></main>
-        <asports><![CDATA[A-กีฬา]]></asports>
-        <esports><![CDATA[E-กีฬา]]></esports>
-        <isports><![CDATA[I-กีฬา]]></isports>
-        <lottery><![CDATA[ล็อตเตอรี่]]></lottery>
-        <casino><![CDATA[คลับ W, บราวาโด้, อพอลโล, ดิวิโน่, แมสซิโม่, เกลลาโด้, กีฬาอนิเมชั่น, ล็อตเตอรี่]]></casino>
-        <liveCasino><![CDATA[คลับ W]]></liveCasino>
-        <playtech><![CDATA[พาลาซโซ]]></playtech>
-        <binary><![CDATA[ไบนารี่]]></binary>
-        <poker><![CDATA[โป๊กเกอร์]]></poker>
-        <sbtech><![CDATA[E-กีฬา]]></sbtech>
-        <netent><![CDATA[นูโอโว้]]></netent>
-        <pmahjong><![CDATA[เท็กซัส มาจง]]></pmahjong>
-    </Wallets>
-    <Popup>
-        <Palazzo>
-            <SafariTitle><![CDATA[ขั้นตอนง่ายๆในการเล่นคลับพาลาซโซผ่าน Safari]]></SafariTitle>
-            <SafariSettings><![CDATA[การตั้งค่าผ่าน ]]></SafariSettings>
-            <SafariBlockPopup><![CDATA[ปิดการตั้งค่า Block pop-ups]]></SafariBlockPopup>
-            <SafariDoNotTrack><![CDATA[ปิดการตั้งค่า Do Not Track]]></SafariDoNotTrack>
-            <SafariBlockCookies><![CDATA[อนุญาตให้ทำการ Block Cookies]]></SafariBlockCookies>
-        </Palazzo>
-        <DoNotShow><![CDATA[ไม่แสดงอีกครั้ง]]></DoNotShow>
-    </Popup>
+	<Products>
+		<ASports>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[a-กีฬา]]></Label>
+			<Description><![CDATA[หน้ากีฬาแบบเอเชียนแฮนดิแคปที่คุณคุ้นเคย เปิดให้เดิมพันกีฬาได้หลากหลายรูปแบบแล้ววันนี้]]></Description>
+		</ASports>
+		<ESports>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[e-กีฬา]]></Label>
+			<Description><![CDATA[หน้ากีฬาแบบใหม่ แบบยุโรป & แบบเอเชีย เปิดให้เดิมพันกีฬาได้หลากหลายรูปแบบแล้ววันนี้]]></Description>
+		</ESports>
+		<Poker>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[โป๊กเกอร์]]></Label>
+			<Description><![CDATA[โป๊กเกอร์]]></Description>
+		</Poker>
+		<texasmahjong>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[เท็กซัส มาจง]]></Label>
+			<Description><![CDATA[เท็กซัส มาจง]]></Description>
+		</texasmahjong>
+		<ISports>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[i-กีฬา]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</ISports>
+		<USports>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[u-กีฬา]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</USports>
+		<VSports>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[กีฬาอนิเมชั่น]]></Label>
+			<Description><![CDATA[เดิมพันทุก 4.5 นาที มากกว่า 2,400 การแข่งขันต่อวัน ตลอด 24 ชม]]></Description>
+			<Notice><![CDATA[*** ไม่สามารถใช้งานกับเบราเซอร์ IE และ FF ***]]></Notice>
+		</VSports>
+		<VSports-basketball>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[บาสเก็ตบอล]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-basketball>
+		<VSports-tennis>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[เทนนิส]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-tennis>
+		<VSports-horseracing>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[ม้าแข่ง]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-horseracing>
+		<VSports-football>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[ฟุตบอล]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-football>
+		<VSports-dogracing>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[แข่งขันสุนัข]]></Label>
+			<Description><![CDATA[Sportsbook]]></Description>
+		</VSports-dogracing>
+		<Lottery>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[ล็อตเตอรี่]]></Label>
+			<Description><![CDATA[คีโน & ล็อตโต้]]></Description>
+		</Lottery>
+		<Keno>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[คีโน]]></Label>
+			<Description><![CDATA[คีโน & ล็อตโต้]]></Description>
+		</Keno>
+		<ClubCrescendo>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[เครสเซนโด้]]></Label>
+			<Description><![CDATA[Crescendo Slots]]></Description>
+		</ClubCrescendo>
+		<ClubDivino>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[ดิวิโน่]]></Label>
+			<Description><![CDATA[คลับบราวาโด้ 3D]]></Description>
+		</ClubDivino>
+		<ClubW>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[คลับ W]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubW>
+		<ClubWPremier>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[คลับ W พรีเมียร์]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubWPremier>
+		<ClubBravado>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[บราวาโด้]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubBravado>
+		<ClubMassimoSlots>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[แมสซิโม]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubMassimoSlots>
+		<ClubMassimoSlots2>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[แมสซิโม ดาวน์โหลด]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubMassimoSlots2>
+		<ClubMassimoCasino>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[แมสซิโม]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubMassimoCasino>
+		<ClubPalazzoSlots>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[พาลาซโซ]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubPalazzoSlots>
+		<ClubPalazzoSlots2>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[พาลาซโซ ดาวน์โหลด]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubPalazzoSlots2>
+		<ClubPalazzoCasino>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[พาลาซโซ]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubPalazzoCasino>
+		<ClubGallardo>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[คลับเกลลาโด้]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubGallardo>
+		<ClubApollo>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[คลับอพอลโล]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubApollo>
+		<ClubNuovo>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[คลับนูโอโว้]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubNuovo>
+	</Products>
+	<Wallets>
+		<main><![CDATA[กระเป๋าหลัก]]></main>
+		<asports><![CDATA[A-กีฬา]]></asports>
+		<esports><![CDATA[E-กีฬา]]></esports>
+		<isports><![CDATA[I-กีฬา]]></isports>
+		<lottery><![CDATA[ล็อตเตอรี่]]></lottery>
+		<casino><![CDATA[คลับ W, บราวาโด้, อพอลโล, ดิวิโน่, แมสซิโม่, เกลลาโด้, กีฬาอนิเมชั่น, ล็อตเตอรี่]]></casino>
+		<liveCasino><![CDATA[คลับ W]]></liveCasino>
+		<playtech><![CDATA[พาลาซโซ]]></playtech>
+		<binary><![CDATA[ไบนารี่]]></binary>
+		<poker><![CDATA[โป๊กเกอร์]]></poker>
+		<sbtech><![CDATA[E-กีฬา]]></sbtech>
+		<netent><![CDATA[นูโอโว้]]></netent>
+		<pmahjong><![CDATA[เท็กซัส มาจง]]></pmahjong>
+	</Wallets>
+	<Popup>
+		<Palazzo>
+			<SafariTitle><![CDATA[ขั้นตอนง่ายๆในการเล่นคลับพาลาซโซผ่าน Safari]]></SafariTitle>
+			<SafariSettings><![CDATA[การตั้งค่าผ่าน ]]></SafariSettings>
+			<SafariBlockPopup><![CDATA[ปิดการตั้งค่า Block pop-ups]]></SafariBlockPopup>
+			<SafariDoNotTrack><![CDATA[ปิดการตั้งค่า Do Not Track]]></SafariDoNotTrack>
+			<SafariBlockCookies><![CDATA[อนุญาตให้ทำการ Block Cookies]]></SafariBlockCookies>
+		</Palazzo>
+		<DoNotShow><![CDATA[ไม่แสดงอีกครั้ง]]></DoNotShow>
+	</Popup>
 </default>

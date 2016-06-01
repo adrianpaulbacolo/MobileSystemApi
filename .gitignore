@@ -3,3 +3,6 @@
 .DS_Store
 *.suo
 *.db
+style.css
+style.css.map
+style.min.css

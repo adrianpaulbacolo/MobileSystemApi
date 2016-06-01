@@ -10,7 +10,6 @@
     <script type="text/javascript" src="/_Static/JS/jquery.mask.min.js"></script>
 </head>
 <body>
-    <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
@@ -31,9 +30,13 @@
             </div>
 
             <form class="form" id="form1" runat="server" data-ajax="false">
-                <br />
-                <br />
-                <br />
+                <div class="empty-state">
+                    <div class="empty-state-icon">
+                        <i class="ion ion-alert"></i>
+                    </div>
+                    <p id="paymentNote">
+                    </p>
+                </div>
             </form>
         </div>
 
@@ -47,6 +50,8 @@
                 if ($('#withdrawalTabs li a.btn-primary').length == 0) {
                     if ($('#withdrawalTabs li').first().children().attr('href') != undefined) {
                         window.location.replace($('#withdrawalTabs li').first().children().attr('href'));
+                    } else {
+                        $('#paymentNote').append('<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>');
                     }
                 }
             });

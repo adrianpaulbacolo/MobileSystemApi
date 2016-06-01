@@ -10,6 +10,8 @@
 	<lblOptionFields><![CDATA[Optional Fields]]></lblOptionFields>
 	<lblFirstName><![CDATA[이름( 성 제외)]]></lblFirstName>
 	<lblLastName><![CDATA[성(이름 제외)]]></lblLastName>
+	<lblName><![CDATA[이름]]></lblName>
+	<lblNote><![CDATA[기재된 성함이 실제 예금주 성명과 동일한 경우에만 입출금 이용이 가능하십니다]]></lblNote>
 	<lblDOB><![CDATA[생년월일]]></lblDOB>
 	<lblAffiliateID><![CDATA[파트너 코드]]></lblAffiliateID>
 

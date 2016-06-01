@@ -1,89 +1,89 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <menu>
-    <brand><![CDATA[W88.com - ]]></brand>
-    <closeMenu><![CDATA[メニューを閉じる]]></closeMenu>
-    <home><![CDATA[ホーム]]></home>
-    <login><![CDATA[ログイン]]></login>
-    <register><![CDATA[登録]]></register>
-    <cashier><![CDATA[キャッシャー]]></cashier>
-    <transfer><![CDATA[送金]]></transfer>
-    <withdrawal><![CDATA[出金]]></withdrawal>
-    <freebets><![CDATA[フリーベット]]></freebets>
-    <misc><![CDATA[その他]]></misc>
-    <liveHelp><![CDATA[ライブチャット]]></liveHelp>
-    <helpCenter><![CDATA[ヘルプセンター]]></helpCenter>
-    <language><![CDATA[言語]]></language>
-    <logout><![CDATA[ログアウト]]></logout>
-    <products><![CDATA[製品]]></products>
-    <desktopsite><![CDATA[デスクトップサイト]]></desktopsite>
-    <joinnow><![CDATA[登録]]></joinnow>
-    <promotions><![CDATA[プロモーション]]></promotions>
-    <updateProfile><![CDATA[プロファイルの更新]]></updateProfile>
-    <fastdeposit><![CDATA[銀行振込み]]></fastdeposit>
-    <banktransfer><![CDATA[銀行振込み]]></banktransfer>
-    <wingmoney><![CDATA[ウィングマネー]]></wingmoney>
-    <fullscreenMode><![CDATA[全画面モード]]></fullscreenMode>
-    <sports><![CDATA[スポーツ]]></sports>
-    <slots><![CDATA[スロット]]></slots>
-    <fundmanagement><![CDATA[資金管理]]></fundmanagement>
-    <customerservice><![CDATA[カスタマーサービス]]></customerservice>
-    <rewards><![CDATA[リワードクラブ]]></rewards>
-    <sdpay><![CDATA[Union Pay]]></sdpay>
-    <sdapay><![CDATA[Alipay Transfer]]></sdapay>
-    <help2pay><![CDATA[クイックオ ペイ]]></help2pay>
-    <daddypay><![CDATA[クイックオンライン]]></daddypay>
-    <daddypayqr><![CDATA[QR Code Payment]]></daddypayqr>
-    <withrawal><![CDATA[出金]]></withrawal>
-    <fundTransfer><![CDATA[送金]]></fundTransfer>
-    <deposit><![CDATA[入金]]></deposit>
-    <reminder1><![CDATA[あなたは、ログインするのにW88.comの会員である必要があります。]]></reminder1>
-    <reminder2><![CDATA[W88.comの口座を作ってください。]]></reminder2>
-    <cancel><![CDATA[キャンセル]]></cancel>
-    <profile><![CDATA[プロフィール]]></profile>
+	<brand><![CDATA[W88.com - ]]></brand>
+	<closeMenu><![CDATA[メニューを閉じる]]></closeMenu>
+	<home><![CDATA[ホーム]]></home>
+	<login><![CDATA[ログイン]]></login>
+	<register><![CDATA[登録]]></register>
+	<cashier><![CDATA[キャッシャー]]></cashier>
+	<transfer><![CDATA[送金]]></transfer>
+	<withdrawal><![CDATA[出金]]></withdrawal>
+	<freebets><![CDATA[フリーベット]]></freebets>
+	<misc><![CDATA[その他]]></misc>
+	<liveHelp><![CDATA[ライブチャット]]></liveHelp>
+	<helpCenter><![CDATA[ヘルプセンター]]></helpCenter>
+	<language><![CDATA[言語]]></language>
+	<logout><![CDATA[ログアウト]]></logout>
+	<products><![CDATA[製品]]></products>
+	<desktopsite><![CDATA[デスクトップサイト]]></desktopsite>
+	<joinnow><![CDATA[登録]]></joinnow>
+	<promotions><![CDATA[プロモーション]]></promotions>
+	<updateProfile><![CDATA[プロファイルの更新]]></updateProfile>
+	<fastdeposit><![CDATA[銀行振込み]]></fastdeposit>
+	<banktransfer><![CDATA[銀行振込み]]></banktransfer>
+	<wingmoney><![CDATA[ウィングマネー]]></wingmoney>
+	<fullscreenMode><![CDATA[全画面モード]]></fullscreenMode>
+	<sports><![CDATA[スポーツ]]></sports>
+	<slots><![CDATA[スロット]]></slots>
+	<fundmanagement><![CDATA[資金管理]]></fundmanagement>
+	<customerservice><![CDATA[カスタマーサービス]]></customerservice>
+	<rewards><![CDATA[リワードクラブ]]></rewards>
+	<sdpay><![CDATA[Union Pay]]></sdpay>
+	<sdapay><![CDATA[Alipay Transfer]]></sdapay>
+	<help2pay><![CDATA[クイックオ ペイ]]></help2pay>
+	<daddypay><![CDATA[クイックオンライン]]></daddypay>
+	<daddypayqr><![CDATA[QR Code Payment]]></daddypayqr>
+	<withrawal><![CDATA[出金]]></withrawal>
+	<fundTransfer><![CDATA[送金]]></fundTransfer>
+	<deposit><![CDATA[入金]]></deposit>
+	<reminder1><![CDATA[あなたは、ログインするのにW88.comの会員である必要があります。]]></reminder1>
+	<reminder2><![CDATA[W88.comの口座を作ってください。]]></reminder2>
+	<cancel><![CDATA[キャンセル]]></cancel>
+	<profile><![CDATA[プロフィール]]></profile>
 
-    <mainWallet><![CDATA[メインウォレット]]></mainWallet>
-    <rewardsClub><![CDATA[リワードクラブ]]></rewardsClub>
-    <points><![CDATA[ポイント]]></points>
-    <submitUpload><![CDATA[ファイルの送信]]></submitUpload>
-    <changePassword><![CDATA[パスワードの変更]]></changePassword>
-    <contactUs><![CDATA[連絡先]]></contactUs>
+	<mainWallet><![CDATA[メインウォレット]]></mainWallet>
+	<rewardsClub><![CDATA[リワードクラブ]]></rewardsClub>
+	<points><![CDATA[ポイント]]></points>
+	<submitUpload><![CDATA[ファイルの送信]]></submitUpload>
+	<changePassword><![CDATA[パスワードの変更]]></changePassword>
+	<contactUs><![CDATA[連絡先]]></contactUs>
 
 
-    <funds><![CDATA[資金管理]]></funds>
-    <aSports><![CDATA[A-スポーツ]]></aSports>
-    <eSports><![CDATA[E-スポーツ]]></eSports>
-    <wSports><![CDATA[W-スポーツ]]></wSports>
-    <lottery><![CDATA[ロト]]></lottery>
-    <liveCasino><![CDATA[クラブW]]></liveCasino>
-    <nuovo><![CDATA[クラブヌォーヴォ]]></nuovo>
-    <clubPalazo><![CDATA[クラブパラッツォ]]></clubPalazo>
-    <poker><![CDATA[ポーカー]]></poker>
-    <texasmahjong><![CDATA[テキサス マージャン]]></texasmahjong>
-    <fundFooter><![CDATA[*クラブW、ブラバド、アポロ、クレセンド、ディビノ、マッシモ、ガヤルド、バーチャル、ロト]]></fundFooter>
-    <androidDownload><![CDATA[アンドロイド <br/> ダウンロード]]></androidDownload>
-    <iosDownload><![CDATA[iOS版 <br/> ダウンロード]]></iosDownload>
+	<funds><![CDATA[資金管理]]></funds>
+	<aSports><![CDATA[A-スポーツ]]></aSports>
+	<eSports><![CDATA[E-スポーツ]]></eSports>
+	<wSports><![CDATA[W-スポーツ]]></wSports>
+	<lottery><![CDATA[ロト]]></lottery>
+	<liveCasino><![CDATA[クラブW]]></liveCasino>
+	<nuovo><![CDATA[クラブヌォーヴォ]]></nuovo>
+	<clubPalazo><![CDATA[クラブパラッツォ]]></clubPalazo>
+	<poker><![CDATA[ポーカー]]></poker>
+	<texasmahjong><![CDATA[テキサス マージャン]]></texasmahjong>
+	<fundFooter><![CDATA[*クラブW、ブラバド、アポロ、クレセンド、ディビノ、マッシモ、ガヤルド、バーチャル、ロト]]></fundFooter>
+	<androidDownload><![CDATA[アンドロイド <br/> ダウンロード]]></androidDownload>
+	<iosDownload><![CDATA[iOS版 <br/> ダウンロード]]></iosDownload>
 
-    <clubwpremier><![CDATA[クラブ W プレミア]]></clubwpremier>
-    <clubwpremierMessage><![CDATA[世界最先端の技術と高品質のビデオ画質の ライブカジノ]]></clubwpremierMessage>
-    <livecasino><![CDATA[クラブW]]></livecasino>
-    <liveCasinoTitle><![CDATA[ライブカジノ]]></liveCasinoTitle>
-    <liveCasinoMessage><![CDATA[ライブカジノで最高0.8％のインスタントリベート。上限なし、ロールオーバーなし。]]></liveCasinoMessage>
-    <clubPalazoMessage><![CDATA[アジアン＆ヨーロピアンディーラーと、革新的なライブゲームをお楽しみください。]]></clubPalazoMessage>
-    <clubMassimo><![CDATA[クラブマッシモ]]></clubMassimo>
-    <clubMassimoMessage><![CDATA[ハイクォリティビデオで、お馴染みのカジノゲームをお楽しみください。]]></clubMassimoMessage>
-    <playNow><![CDATA[今すぐプレイ]]></playNow>
+	<clubwpremier><![CDATA[クラブ W プレミア]]></clubwpremier>
+	<clubwpremierMessage><![CDATA[世界最先端の技術と高品質のビデオ画質の ライブカジノ]]></clubwpremierMessage>
+	<livecasino><![CDATA[クラブW]]></livecasino>
+	<liveCasinoTitle><![CDATA[ライブカジノ]]></liveCasinoTitle>
+	<liveCasinoMessage><![CDATA[ライブカジノで最高0.8％のインスタントリベート。上限なし、ロールオーバーなし。]]></liveCasinoMessage>
+	<clubPalazoMessage><![CDATA[アジアン＆ヨーロピアンディーラーと、革新的なライブゲームをお楽しみください。]]></clubPalazoMessage>
+	<clubMassimo><![CDATA[クラブマッシモ]]></clubMassimo>
+	<clubMassimoMessage><![CDATA[ハイクォリティビデオで、お馴染みのカジノゲームをお楽しみください。]]></clubMassimoMessage>
+	<playNow><![CDATA[今すぐプレイ]]></playNow>
 
-    <download><![CDATA[DOWNLOAD]]></download>
+	<download><![CDATA[DOWNLOAD]]></download>
 
-    <kenoMessage><![CDATA[3-5分ごとにノンストップの楽しみと興奮。実際にプレイして、賭けて勝ってください！]]></kenoMessage>
+	<kenoMessage><![CDATA[3-5分ごとにノンストップの楽しみと興奮。実際にプレイして、賭けて勝ってください！]]></kenoMessage>
 
-    <depositDaddyPay><![CDATA[入金 - クイックオンライン]]></depositDaddyPay>
+	<depositDaddyPay><![CDATA[入金 - クイックオンライン]]></depositDaddyPay>
 
-    <close><![CDATA[閉じる]]></close>
+	<close><![CDATA[閉じる]]></close>
 
-    <neteller><![CDATA[Neteller]]></neteller>
-    <accountId><![CDATA[NETELLER アカウント番号]]></accountId>
-    <secureId><![CDATA[NETELLER セキュリティーコード]]></secureId>
+	<neteller><![CDATA[Neteller]]></neteller>
+	<accountId><![CDATA[NETELLER アカウント番号]]></accountId>
+	<secureId><![CDATA[NETELLER セキュリティーコード]]></secureId>
 
-    <copy><![CDATA[Copy]]></copy>
+	<copy><![CDATA[Copy]]></copy>
 </menu>

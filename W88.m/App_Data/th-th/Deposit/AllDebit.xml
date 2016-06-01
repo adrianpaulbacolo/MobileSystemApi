@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+	<lblCardType><![CDATA[ชนิดของบัตร]]></lblCardType>
+	<ddlCardType><![CDATA[กรุณาเลือกชนิดของบัตร]]></ddlCardType>
+	
+	<lblCardName><![CDATA[ชื่อผู้ถือบัตรเครดิต]]></lblCardName>
+	
+	<lblCardNo><![CDATA[หมายเลขบัตร]]></lblCardNo>
+	
+	<lblExpiry><![CDATA[วันหมดอายุของบัตร]]></lblExpiry>
+	<ddlMonthDefaultText><![CDATA[เดือน]]></ddlMonthDefaultText>
+	<ddlYearDefaultText><![CDATA[ปี]]></ddlYearDefaultText>
+	
+	<lblSecurityCode><![CDATA[รหัสความปลอดภัย]]></lblSecurityCode>
+	<securityCodeHelp><![CDATA[หารหัสความปลอดภัยได้อย่างไร?]]></securityCodeHelp>
+</Deposit>

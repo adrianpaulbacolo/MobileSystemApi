@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Slots.master" AutoEventWireup="true" CodeFile="ClubApollo.aspx.cs" Inherits="Slots_ClubApollo" %>
-<%@OutputCache Duration="21600" VaryByParam="none" Location="Client" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>

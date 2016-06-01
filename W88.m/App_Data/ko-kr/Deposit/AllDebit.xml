@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+	<lblCardType><![CDATA[카드 종류]]></lblCardType>
+	<ddlCardType><![CDATA[선택 카드 종류]]></ddlCardType>
+	
+	<lblCardName><![CDATA[카드 성명]]></lblCardName>
+	
+	<lblCardNo><![CDATA[카드 번호]]></lblCardNo>
+	
+	<lblExpiry><![CDATA[카드 유효기간]]></lblExpiry>
+	<ddlMonthDefaultText><![CDATA[달]]></ddlMonthDefaultText>
+	<ddlYearDefaultText><![CDATA[년도]]></ddlYearDefaultText>
+	
+	<lblSecurityCode><![CDATA[비밀번호]]></lblSecurityCode>
+	<securityCodeHelp><![CDATA[보안코드를 어디서 찾나요?]]></securityCodeHelp>
+</Deposit>

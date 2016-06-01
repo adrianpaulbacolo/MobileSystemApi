@@ -13,8 +13,12 @@
 	<dDaddyPay><![CDATA[快捷支付]]></dDaddyPay>
 	<dDaddyPayQR><![CDATA[QR Code Payment]]></dDaddyPayQR>
 	<dSDAPayAlipay><![CDATA[支付宝]]></dSDAPayAlipay>
+	<dBofoPay><![CDATA[快捷支付]]></dBofoPay>
+	<dAllDebit><![CDATA[信用卡]]></dAllDebit>
 
 	<wBankTransfer><![CDATA[银行汇款]]></wBankTransfer>
 	<wWingMoney><![CDATA[Wing Money]]></wWingMoney>
 	<wNeteller><![CDATA[Neteller]]></wNeteller>
+
+	<paymentNotice><![CDATA[<span>非常抱歉，暂无可用的支付方式，请联系 <a href="/LiveChat/Default.aspx" target="_blank">在线客服</a> 获取帮助</span>]]></paymentNotice>
 </PaymentMethods>

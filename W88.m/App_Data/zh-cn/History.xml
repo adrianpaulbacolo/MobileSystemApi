@@ -1,48 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <History>
-    <history><![CDATA[历史]]></history>
-    <depositwithdrawal><![CDATA[存款/ 提款]]></depositwithdrawal>
-    <fundtransfer><![CDATA[转账]]></fundtransfer>
-    <referralbonus><![CDATA[推荐人红利]]></referralbonus>
-    <promotionclaim><![CDATA[优惠申请]]></promotionclaim>
+	<history><![CDATA[历史]]></history>
+	<depositwithdrawal><![CDATA[存款/ 提款]]></depositwithdrawal>
+	<fundtransfer><![CDATA[转账]]></fundtransfer>
+	<referralbonus><![CDATA[推荐人红利]]></referralbonus>
+	<promotionclaim><![CDATA[优惠申请]]></promotionclaim>
 
-    <lblDateFrom><![CDATA[开始时间]]></lblDateFrom>
-    <lblDateTo><![CDATA[结束时间]]></lblDateTo>
-    <lblType><![CDATA[类型]]></lblType>
-    <lblStatus><![CDATA[状态]]></lblStatus>
+	<lblDateFrom><![CDATA[开始时间]]></lblDateFrom>
+	<lblDateTo><![CDATA[结束时间]]></lblDateTo>
+	<lblType><![CDATA[类型]]></lblType>
+	<lblStatus><![CDATA[状态]]></lblStatus>
 
-    <type id="0"><![CDATA[全部]]></type>
-    <type id="1"><![CDATA[存款]]></type>
-    <type id="2"><![CDATA[提款]]></type>
+	<type id="0"><![CDATA[全部]]></type>
+	<type id="1"><![CDATA[存款]]></type>
+	<type id="2"><![CDATA[提款]]></type>
 
-    <status id="ALL"><![CDATA[全部]]></status>
-    <status id="SUCCESSFUL"><![CDATA[成功]]></status>
-    <status id="PENDING"><![CDATA[处理中]]></status>
-    <status id="FAILED"><![CDATA[失败]]></status>
-    <status id="REJECTED"><![CDATA[拒绝]]></status>
+	<status id="ALL"><![CDATA[全部]]></status>
+	<status id="SUCCESSFUL"><![CDATA[成功]]></status>
+	<status id="PENDING"><![CDATA[处理中]]></status>
+	<status id="FAILED"><![CDATA[失败]]></status>
+	<status id="REJECTED"><![CDATA[拒绝]]></status>
 
-    <dateTime><![CDATA[日期/时间]]></dateTime>
-    <transId><![CDATA[交易单号]]></transId>
-    <paymentMethod><![CDATA[支付方式]]></paymentMethod>
-    <submittedAmt><![CDATA[提交金额]]></submittedAmt>
-    <receivedAmt><![CDATA[收到金额]]></receivedAmt>
-    <from><![CDATA[资金来源]]></from>
-    <to><![CDATA[资金去处]]></to>
-    <source><![CDATA[来源]]></source>
-    <amount><![CDATA[金额]]></amount>
-    <subjectCode><![CDATA[项目代码]]></subjectCode>
-    <norecords><![CDATA[未找到记录！]]></norecords>
+	<dateTime><![CDATA[日期/时间]]></dateTime>
+	<transId><![CDATA[交易单号]]></transId>
+	<paymentMethod><![CDATA[支付方式]]></paymentMethod>
+	<submittedAmt><![CDATA[提交金额]]></submittedAmt>
+	<receivedAmt><![CDATA[收到金额]]></receivedAmt>
+	<from><![CDATA[资金来源]]></from>
+	<to><![CDATA[资金去处]]></to>
+	<source><![CDATA[来源]]></source>
+	<amount><![CDATA[金额]]></amount>
+	<subjectCode><![CDATA[项目代码]]></subjectCode>
+	<norecords><![CDATA[未找到记录！]]></norecords>
 
-    <ftStatus id="-1"><![CDATA[全部]]></ftStatus>
-    <ftStatus id="0"><![CDATA[处理中]]></ftStatus>
-    <ftStatus id="1"><![CDATA[成功]]></ftStatus>
-    <ftStatus id="2"><![CDATA[失败]]></ftStatus>
-    <ftStatus id="3"><![CDATA[拒绝]]></ftStatus>
+	<ftStatus id="-1"><![CDATA[全部]]></ftStatus>
+	<ftStatus id="0"><![CDATA[处理中]]></ftStatus>
+	<ftStatus id="1"><![CDATA[成功]]></ftStatus>
+	<ftStatus id="2"><![CDATA[失败]]></ftStatus>
+	<ftStatus id="3"><![CDATA[拒绝]]></ftStatus>
 
-    <totalInvitees><![CDATA[被邀请总数]]></totalInvitees>
-    <totalRegistered><![CDATA[注册总数]]></totalRegistered>
-    <totalSuccessReferral><![CDATA[成功推荐总数]]></totalSuccessReferral>
-    <totalReferralBonus><![CDATA[推荐人红利总额 ([cur])]]></totalReferralBonus>
+	<totalInvitees><![CDATA[被邀请总数]]></totalInvitees>
+	<totalRegistered><![CDATA[注册总数]]></totalRegistered>
+	<totalSuccessReferral><![CDATA[成功推荐总数]]></totalSuccessReferral>
+	<totalReferralBonus><![CDATA[推荐人红利总额 ([cur])]]></totalReferralBonus>
 
-    <btnSubmit><![CDATA[提交]]></btnSubmit>
+	<btnSubmit><![CDATA[提交]]></btnSubmit>
 </History>

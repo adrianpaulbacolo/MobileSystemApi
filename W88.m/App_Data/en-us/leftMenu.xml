@@ -1,87 +1,87 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <menu>
-    <brand><![CDATA[W88.com - ]]></brand>
-    <closeMenu><![CDATA[Close Menu]]></closeMenu>
-    <home><![CDATA[Home]]></home>
-    <login><![CDATA[Login]]></login>
-    <register><![CDATA[Registration]]></register>
-    <cashier><![CDATA[Cashier]]></cashier>
-    <deposit><![CDATA[Deposit]]></deposit>
-    <transfer><![CDATA[Transfer]]></transfer>
-    <withdrawal><![CDATA[Withdrawal]]></withdrawal>
-    <freebets><![CDATA[Freebet]]></freebets>
-    <misc><![CDATA[Misc]]></misc>
-    <liveHelp><![CDATA[Live Chat]]></liveHelp>
-    <helpCenter><![CDATA[Help Center]]></helpCenter>
-    <language><![CDATA[Language]]></language>
-    <logout><![CDATA[Logout]]></logout>
-    <products><![CDATA[Products]]></products>
-    <desktopsite><![CDATA[Desktop Site]]></desktopsite>
-    <joinnow><![CDATA[Join]]></joinnow>
-    <promotions><![CDATA[Promotions]]></promotions>
-    <updateProfile><![CDATA[Update Profile]]></updateProfile>
-    <fastdeposit><![CDATA[Bank Transfer]]></fastdeposit>
-    <banktransfer><![CDATA[Bank Transfer]]></banktransfer>
-    <wingmoney><![CDATA[Wing Money]]></wingmoney>
-    <fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
-    <sports><![CDATA[Sports]]></sports>
-    <livecasino><![CDATA[Live Casino]]></livecasino>
-    <slots><![CDATA[Slots]]></slots>
-    <fundmanagement><![CDATA[Funds]]></fundmanagement>
-    <customerservice><![CDATA[Customer Service]]></customerservice>
-    <rewards><![CDATA[Rewards]]></rewards>
-    <sdpay><![CDATA[Union Pay]]></sdpay>
-    <sdapay><![CDATA[Alipay Transfer]]></sdapay>
-    <help2pay><![CDATA[Quick Pay]]></help2pay>
-    <daddypay><![CDATA[Quick Online]]></daddypay>
-    <daddypayqr><![CDATA[QR Code Payment]]></daddypayqr>
-    <nextpay><![CDATA[NextPay]]></nextpay>
-    <withrawal><![CDATA[Withdrawal]]></withrawal>-->
-    <fundTransfer><![CDATA[Fund Transfer]]></fundTransfer>-->
-    <neteller><![CDATA[Neteller]]></neteller>
-    <reminder1><![CDATA[You need to be a member of W88.com to login.]]></reminder1>
-    <reminder2><![CDATA[Please create your W88 account]]></reminder2>
-    <profile><![CDATA[PROFILE]]></profile>
-    <cancel><![CDATA[CANCEL]]></cancel>
-    <back><![CDATA[BACK]]></back>
+	<brand><![CDATA[W88.com - ]]></brand>
+	<closeMenu><![CDATA[Close Menu]]></closeMenu>
+	<home><![CDATA[Home]]></home>
+	<login><![CDATA[Login]]></login>
+	<register><![CDATA[Registration]]></register>
+	<cashier><![CDATA[Cashier]]></cashier>
+	<deposit><![CDATA[Deposit]]></deposit>
+	<transfer><![CDATA[Transfer]]></transfer>
+	<withdrawal><![CDATA[Withdrawal]]></withdrawal>
+	<freebets><![CDATA[Freebet]]></freebets>
+	<misc><![CDATA[Misc]]></misc>
+	<liveHelp><![CDATA[Live Chat]]></liveHelp>
+	<helpCenter><![CDATA[Help Center]]></helpCenter>
+	<language><![CDATA[Language]]></language>
+	<logout><![CDATA[Logout]]></logout>
+	<products><![CDATA[Products]]></products>
+	<desktopsite><![CDATA[Desktop Site]]></desktopsite>
+	<joinnow><![CDATA[Join]]></joinnow>
+	<promotions><![CDATA[Promotions]]></promotions>
+	<updateProfile><![CDATA[Update Profile]]></updateProfile>
+	<fastdeposit><![CDATA[Bank Transfer]]></fastdeposit>
+	<banktransfer><![CDATA[Bank Transfer]]></banktransfer>
+	<wingmoney><![CDATA[Wing Money]]></wingmoney>
+	<fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
+	<sports><![CDATA[Sports]]></sports>
+	<livecasino><![CDATA[Live Casino]]></livecasino>
+	<slots><![CDATA[Slots]]></slots>
+	<fundmanagement><![CDATA[Funds]]></fundmanagement>
+	<customerservice><![CDATA[Customer Service]]></customerservice>
+	<rewards><![CDATA[Rewards]]></rewards>
+	<sdpay><![CDATA[Union Pay]]></sdpay>
+	<sdapay><![CDATA[Alipay Transfer]]></sdapay>
+	<help2pay><![CDATA[Quick Pay]]></help2pay>
+	<daddypay><![CDATA[Quick Online]]></daddypay>
+	<daddypayqr><![CDATA[QR Code Payment]]></daddypayqr>
+	<nextpay><![CDATA[NextPay]]></nextpay>
+	<withrawal><![CDATA[Withdrawal]]></withrawal>-->
+	<fundTransfer><![CDATA[Fund Transfer]]></fundTransfer>-->
+	<neteller><![CDATA[Neteller]]></neteller>
+	<reminder1><![CDATA[You need to be a member of W88.com to login.]]></reminder1>
+	<reminder2><![CDATA[Please create your W88 account]]></reminder2>
+	<profile><![CDATA[PROFILE]]></profile>
+	<cancel><![CDATA[CANCEL]]></cancel>
+	<back><![CDATA[BACK]]></back>
 
-    <mainWallet><![CDATA[MAIN WALLET]]></mainWallet>
-    <rewardsClub><![CDATA[REWARDS CLUB]]></rewardsClub>
-    <points><![CDATA[Points]]></points>
-    <submitUpload><![CDATA[SUBMIT/UPLOAD]]></submitUpload>
-    <changePassword><![CDATA[CHANGE PASSWORD]]></changePassword>
-    <contactUs><![CDATA[CONTACT US]]></contactUs>
+	<mainWallet><![CDATA[MAIN WALLET]]></mainWallet>
+	<rewardsClub><![CDATA[REWARDS CLUB]]></rewardsClub>
+	<points><![CDATA[Points]]></points>
+	<submitUpload><![CDATA[SUBMIT/UPLOAD]]></submitUpload>
+	<changePassword><![CDATA[CHANGE PASSWORD]]></changePassword>
+	<contactUs><![CDATA[CONTACT US]]></contactUs>
 
-    <funds><![CDATA[Funds]]></funds>
-    <aSports><![CDATA[A-SPORTS]]></aSports>
-    <eSports><![CDATA[E-SPORTS]]></eSports>
-    <wSports><![CDATA[W-SPORTS]]></wSports>
-    <lottery><![CDATA[LOTTERY]]></lottery>
-    <clubwpremier><![CDATA[CLUB W PREMIER]]></clubwpremier>
-    <clubwpremierMessage><![CDATA[State-of-the-art live casino fitted with world's leading technology and streaming the best casino games.]]></clubwpremierMessage>
-    <liveCasino><![CDATA[CLUB W]]></liveCasino>
-    <liveCasinoMessage><![CDATA[Enjoy live Casino instant cash rebate up to 0.8%. No payout limit & rollover.]]></liveCasinoMessage>
-    <clubMassimo><![CDATA[CLUB MASSIMO]]></clubMassimo>
-    <clubMassimoMessage><![CDATA[Popular live casino games with high-quality video!]]></clubMassimoMessage>
-    <clubPalazo><![CDATA[CLUB PALAZZO]]></clubPalazo>
-    <clubPalazoMessage><![CDATA[Innovative casino games with Asian & European live dealers!]]></clubPalazoMessage>
-    <liveCasinoTitle><![CDATA[Live Casino]]></liveCasinoTitle>
-    <kenoMessage><![CDATA[Non stop fun & excitement at every 3-5 minutes.Play for real, pick your bet & win it!]]></kenoMessage>
-    <nuovo><![CDATA[NUOVO]]></nuovo>
-    <poker><![CDATA[POKER]]></poker>
-    <texasmahjong><![CDATA[Texas Mahjong]]></texasmahjong>
-    <fundFooter><![CDATA[*Club W, Bravado, Apollo, Crescendo, Divino, Massimo, Gallardo, Virtual, Lotto]]></fundFooter>
-    <androidDownload><![CDATA[Android <br/> Download]]></androidDownload>
-    <iosDownload><![CDATA[iOS <br/> Download]]></iosDownload>
-    <download><![CDATA[DOWNLOAD]]></download>
-    <playNow><![CDATA[PLAY NOW]]></playNow>
+	<funds><![CDATA[Funds]]></funds>
+	<aSports><![CDATA[A-SPORTS]]></aSports>
+	<eSports><![CDATA[E-SPORTS]]></eSports>
+	<wSports><![CDATA[W-SPORTS]]></wSports>
+	<lottery><![CDATA[LOTTERY]]></lottery>
+	<clubwpremier><![CDATA[CLUB W PREMIER]]></clubwpremier>
+	<clubwpremierMessage><![CDATA[State-of-the-art live casino fitted with world's leading technology and streaming the best casino games.]]></clubwpremierMessage>
+	<liveCasino><![CDATA[CLUB W]]></liveCasino>
+	<liveCasinoMessage><![CDATA[Enjoy live Casino instant cash rebate up to 0.8%. No payout limit & rollover.]]></liveCasinoMessage>
+	<clubMassimo><![CDATA[CLUB MASSIMO]]></clubMassimo>
+	<clubMassimoMessage><![CDATA[Popular live casino games with high-quality video!]]></clubMassimoMessage>
+	<clubPalazo><![CDATA[CLUB PALAZZO]]></clubPalazo>
+	<clubPalazoMessage><![CDATA[Innovative casino games with Asian & European live dealers!]]></clubPalazoMessage>
+	<liveCasinoTitle><![CDATA[Live Casino]]></liveCasinoTitle>
+	<kenoMessage><![CDATA[Non stop fun & excitement at every 3-5 minutes.Play for real, pick your bet & win it!]]></kenoMessage>
+	<nuovo><![CDATA[NUOVO]]></nuovo>
+	<poker><![CDATA[POKER]]></poker>
+	<texasmahjong><![CDATA[Texas Mahjong]]></texasmahjong>
+	<fundFooter><![CDATA[*Club W, Bravado, Apollo, Crescendo, Divino, Massimo, Gallardo, Virtual, Lotto]]></fundFooter>
+	<androidDownload><![CDATA[Android <br/> Download]]></androidDownload>
+	<iosDownload><![CDATA[iOS <br/> Download]]></iosDownload>
+	<download><![CDATA[DOWNLOAD]]></download>
+	<playNow><![CDATA[PLAY NOW]]></playNow>
 
-    <depositDaddyPay><![CDATA[DEPOSIT - QUICK ONLINE]]></depositDaddyPay>
+	<depositDaddyPay><![CDATA[DEPOSIT - QUICK ONLINE]]></depositDaddyPay>
 
-    <close><![CDATA[CLOSE]]></close>
+	<close><![CDATA[CLOSE]]></close>
 
-    <accountId><![CDATA[NETELLER Account ID]]></accountId>
-    <secureId><![CDATA[NETELLER Secure ID]]></secureId>
+	<accountId><![CDATA[NETELLER Account ID]]></accountId>
+	<secureId><![CDATA[NETELLER Secure ID]]></secureId>
 
-    <copy><![CDATA[Copy]]></copy>
+	<copy><![CDATA[Copy]]></copy>
 </menu>
