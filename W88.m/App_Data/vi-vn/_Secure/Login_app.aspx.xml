@@ -4,6 +4,6 @@
   <lblPassword><![CDATA[Mật Khẩu]]></lblPassword>
   <lblCaptcha><![CDATA[Mã Xác Nhận]]></lblCaptcha>
   <btnLogin><![CDATA[ĐĂNG NHẬP]]></btnLogin>  
-  <btnRegister><![CDATA[Để đăng nhập, quý khách cần phải là thành viên của W88.com. Nếu chưa là thành viên? <a href='/_Secure/Register.aspx' data-ajax='false' target='_blank'>Đăng Ký Ngay</a>]]></btnRegister>
+  <btnRegister><![CDATA[Để đăng nhập, quý khách cần phải là thành viên của W88.com. Nếu chưa là thành viên? <a href='/_Secure/Register.aspx' data-ajax='false'>Đăng Ký Ngay</a>]]></btnRegister>
   <lblRegister><![CDATA[Để đăng nhập, quý khách cần phải là thành viên của W88.com. Nếu chưa là thành viên? Vui lòng đăng ký tài khoản tại website www.w88.com]]></lblRegister>
 </default>
