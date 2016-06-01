@@ -21,8 +21,8 @@ public partial class Slots_ClubApollo : BasePage
 
         if (Page.IsPostBack) return;
 
-        var lang = commonVariables.SelectedLanguage.Split(new char[] {'-'}, StringSplitOptions.RemoveEmptyEntries);
-        _selectedLanguage = string.Format("{0}_{1}", lang[0], lang[1].ToUpper());
+       _selectedLanguage = SetLanguageSupport();
+
         SetTitle(commonCulture.ElementValues.getResourceXPathString("/Products/ClubApollo/Label", commonVariables.ProductsXML));
         var sbGames = new StringBuilder();
 
@@ -66,7 +66,7 @@ public partial class Slots_ClubApollo : BasePage
         divContainer.InnerHtml = Convert.ToString(sbGames);
     }
 
-    private static string GetCurrencyByLanguage()
+    private string GetCurrencyByLanguage()
     {
         string currency;
         switch (commonVariables.SelectedLanguage)
@@ -74,9 +74,9 @@ public partial class Slots_ClubApollo : BasePage
             case "zh-cn":
                 currency = "CNY";
                 break;
-            case "ko-kr":
-                currency = "KRW";
-                break;
+            //case "ko-kr": //temporary commented these lines as it is not yet supported.
+            //    currency = "KRW";
+            //    break;
             case "ja-jp":
                 currency = "JPY";
                 break;
@@ -94,6 +94,22 @@ public partial class Slots_ClubApollo : BasePage
         }
 
         return currency;
+    }
+
+    private string SetLanguageSupport()
+    {
+        var lang = commonVariables.SelectedLanguage.Split(new char[] {'-'}, StringSplitOptions.RemoveEmptyEntries);
+        var splitLang = string.Format("{0}_{1}", lang[0], lang[1].ToUpper());
+
+        string supportedLang = null;
+        switch (splitLang)
+        {
+            case "ko_KR":
+                supportedLang = "en_US";
+                break;
+        }
+
+        return supportedLang ?? splitLang;
     }
 
     private string GetHeadTranslation(XElement element)
