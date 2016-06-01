@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -37,17 +38,28 @@ public partial class _Secure_Login : System.Web.UI.Page
                     try
                     {
                         var link = new Uri(Server.UrlDecode(Request.QueryString["url"]));
-                        System.Collections.Specialized.NameValueCollection nvc = HttpUtility.ParseQueryString(link.Query);
+                        NameValueCollection nvc = HttpUtility.ParseQueryString(link.Query);
 
                         var tokenArray = new string[] { "token", "s" };
+                        bool isEmpty = true;
 
                         foreach (var item in tokenArray)
                         {
-                            if (nvc.AllKeys.Contains(item))
+                            if (!string.IsNullOrEmpty(nvc[item]))
                             {
-                                nvc.Remove(item);
-                                nvc.Add(item, commonVariables.CurrentMemberSessionId);
+                                isEmpty = false;
+
+                                if (nvc.AllKeys.Contains(item))
+                                {
+                                    nvc.Remove(item);
+                                    nvc.Add(item, commonVariables.CurrentMemberSessionId);
+                                }
                             }
+                        }
+
+                        if (isEmpty)
+                        {
+                            nvc.Add("s", commonVariables.CurrentMemberSessionId);
                         }
 
                         var domainArray = new string[] { "domainlink", "domain" };
