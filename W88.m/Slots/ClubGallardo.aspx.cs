@@ -64,15 +64,6 @@ public partial class Slots_ClubGallardo : BasePage
         {
             List<XElement> combinedGames = new List<XElement>();
 
-            XElement PNG = xeCategory.Element("PNG");
-            if (PNG != null && PNG.HasElements)
-            {
-                List<XElement> topPNG = PNG.Elements().Where(m => m.Attribute("Top") != null).OrderBy(f => f.Attribute("Top").Value).ToList();
-                IEnumerable<XElement> sortedPNG = PNG.Elements().Where(m => m.Attribute("Top") == null).OrderBy(game => game.Name.ToString());
-                topPNG.AddRange(sortedPNG);
-                combinedGames.AddRange(topPNG);
-            }
-
             XElement iSoftBet = xeCategory.Element("iSoftBet");
             bool isISoftBetNotSupported = false;
             if (iSoftBet != null && iSoftBet.HasElements)
@@ -87,6 +78,15 @@ public partial class Slots_ClubGallardo : BasePage
 
                 string[] iSoftBetNotSupp = iSoftBetNotSuppCurr.Split(',');
                 isISoftBetNotSupported = iSoftBetNotSupp.Contains(currencyCode);
+            }
+
+            XElement PNG = xeCategory.Element("PNG");
+            if (PNG != null && PNG.HasElements)
+            {
+                List<XElement> topPNG = PNG.Elements().Where(m => m.Attribute("Top") != null).OrderBy(f => f.Attribute("Top").Value).ToList();
+                IEnumerable<XElement> sortedPNG = PNG.Elements().Where(m => m.Attribute("Top") == null).OrderBy(game => game.Name.ToString());
+                topPNG.AddRange(sortedPNG);
+                combinedGames.AddRange(topPNG);
             }
 
             sbGames.AppendFormat("<div data-role='collapsible' data-collapsed='false' data-theme='b' data-content-theme='a' data-mini='true'><h4>{0}</h4>", xeCategory.Attribute("Label").Value);
