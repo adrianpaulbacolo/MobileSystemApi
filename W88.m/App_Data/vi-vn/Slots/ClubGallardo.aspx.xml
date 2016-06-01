@@ -3,7 +3,10 @@
 	<Category>
 		<Slot Label="Slots">
 			<iSoftBet NotSupportedCurrency="VND,IDR">
-				<NeonReels ProductId="896552" Top="1">
+				<CloudTales ProductId="896551" Top="1">
+					<ImageName><![CDATA[W88-Slots-Mobile-Cloud-Tales]]></ImageName>
+				</CloudTales>
+				<NeonReels ProductId="896552" Top="2">
 					<ImageName><![CDATA[W88-Slots-Mobile-Neon-Reels]]></ImageName>
 				</NeonReels>
 
