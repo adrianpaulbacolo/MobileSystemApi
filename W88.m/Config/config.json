@@ -1,0 +1,6 @@
+{
+  "loginURL":"//m.[%%DOMAINLINK%%]/_Secure/Login.aspx?s=",
+  "homeURL":"//m.[%%DOMAINLINK%%]/Index.aspx?s=",
+  "fundsURL":"//m.[%%DOMAINLINK%%]/Funds.aspx?s=",
+  "lobbyURL":"//m.[%%DOMAINLINK%%]/ClubBravado?s="
+}
