@@ -853,6 +853,8 @@ namespace commonCulture
                 if (System.IO.File.Exists(xmlFilePath)) { xElement = System.Xml.Linq.XElement.Load(xmlFilePath); }
             }
         }
+
+
         public static System.Xml.Linq.XElement getRootResource(string fileName)
         {
             System.Xml.Linq.XElement xElement = null;
@@ -885,6 +887,16 @@ namespace commonCulture
                 if (System.IO.File.Exists(xmlFilePath)) { xmlDocument = new System.Xml.XmlDocument(); xmlDocument.Load(xmlFilePath); }
             }
         }
+
+        public static void GetRootResourceNonLanguage(string fileName, out System.Xml.Linq.XElement xElement)
+        {
+            xElement = null;
+            string xmlFilePath = string.Empty;
+
+            xmlFilePath = System.Web.HttpContext.Current.Server.MapPath(@"~/App_Data/" + fileName + ".xml");
+            if (System.IO.File.Exists(xmlFilePath)) { xElement = System.Xml.Linq.XElement.Load(xmlFilePath); }
+        }
+
         #endregion
 
         #region rootResourceJsonDocument

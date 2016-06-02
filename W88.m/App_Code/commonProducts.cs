@@ -448,3 +448,25 @@ public class commonClubGallardo
         }
     }
 }
+
+public class CommonClubApollo
+{
+    public static string GetFunUrl
+    {
+        get
+        {
+            var opSettings = new customConfig.OperatorSettings("W88");
+            string strUrl = opSettings.Values.Get("ClubApolloFunUrl");
+            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName);
+        }
+    }
+    public static string GetRealUrl
+    {
+        get
+        {
+            var opSettings = new customConfig.OperatorSettings("W88");
+            string strUrl = opSettings.Values.Get("ClubApolloRealUrl");
+            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName);
+        }
+    }
+}

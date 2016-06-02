@@ -146,7 +146,7 @@
                 <!--<a class="close" data-rel="close">&times;</a>-->
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%></h2>
                 <%try{%>
-                <%if(Session["responseCode"].ToString()=="1"){%>
+                <%if(commonVariables.GetSessionVariable("responseCode")=="1"){%>
                 <li>
                     <a class="card" rel="texasmahjong" href='/_static/TexasMahjong/download.aspx' data-ajax="false">
                         <img src="/_Static/Images/Download/TexasMahjong-iOS.jpg" class="img-responsive">
@@ -154,7 +154,7 @@
                     </a>
                 </li>
                 <%}%>
-                <%if(Session["responseCode"].ToString()=="2"){%>
+                <%if(commonVariables.GetSessionVariable("responseCode")=="2"){%>
                 <li>
                     <a class="card" rel="texasmahjong" href='<%= Session["tmandroidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">
                         <img src="/_Static/Images/Download/TexasMahjong-Android.jpg" class="img-responsive">
@@ -162,7 +162,7 @@
                     </a>
                 </li>
                 <%}%>
-                <%if(Session["responseCode"].ToString()=="3"){%>
+                <%if(commonVariables.GetSessionVariable("responseCode")=="3"){%>
                 <li>
                     <a class="card" rel="texasmahjong" href='<%= Session["tmandroidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">
                         <img src="/_Static/Images/Download/TexasMahjong-Android.jpg" class="img-responsive">
@@ -225,6 +225,14 @@
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubGallardo/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
+                <% if( commonVariables.GetSessionVariable("clubapollo") == "1" ) {%>
+                <li>
+                    <a class="card" rel="clubdivino" href="/ClubApollo" data-ajax="false">
+                        <img src="/_Static/Images/bnr-clubapollo.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubApollo/Label", commonVariables.ProductsXML)%></div>
+                    </a>
+                </li>
+                <% } %>
                 <li>
                     <a class="card" rel="clubdivino" href="/ClubDivino" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubdivino.jpg" class="img-responsive">
@@ -268,7 +276,7 @@
                 <!--<a class="close" data-rel="close">&times;</a>-->
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("poker", commonVariables.LeftMenuXML)%></h2>
                 <%try{%>
-                <%if(Session["responseCode"].ToString()=="1"){%>
+                <%if(commonVariables.GetSessionVariable("responseCode")=="1"){%>
                 <li>
                     <a class="card" data-rel="poker" rel="PokerIOS" href='<%= Session["iosLink"].ToString()%>' data-transition="slidedown">
                         <img src="/_Static/Images/W88-Mobile-Poker-iOS.jpg" class="img-responsive">
@@ -276,7 +284,7 @@
                     </a>
                 </li>
                 <%}%>
-                <%if(Session["responseCode"].ToString()=="2"){%>
+                <%if(commonVariables.GetSessionVariable("responseCode")=="2"){%>
                 <li>
                     <a class="card" data-rel="poker" rel="PokerAndroid" href='<%= Session["androidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">
                         <img src="/_Static/Images/W88-Mobile-Poker-Android.jpg" class="img-responsive">
@@ -284,7 +292,7 @@
                     </a>
                 </li>
                 <%}%>
-                <%if(Session["responseCode"].ToString()=="3"){%>
+                <%if(commonVariables.GetSessionVariable("responseCode")=="3"){%>
                 <li>
                     <a class="card" data-rel="poker" rel="PokerIOS" href='<%= Session["iosLink"].ToString()%>' data-transition="slidedown">
                         <img src="/_Static/Images/W88-Mobile-Poker-iOS.jpg" class="img-responsive">
