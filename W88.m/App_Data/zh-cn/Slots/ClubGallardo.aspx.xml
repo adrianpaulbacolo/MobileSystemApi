@@ -100,7 +100,10 @@
 			</iSoftBet>
 
 			<PNG>
-				<moneywheelmobile  Top="1">
+				<fruitbonanzamobile Top="1">
+					<ImageName><![CDATA[W88-Slots-Mobile-Money-Wheel]]></ImageName>
+				</fruitbonanzamobile>			
+				<moneywheelmobile>
 					<ImageName><![CDATA[W88-Slots-Mobile-Money-Wheel]]></ImageName>
 				</moneywheelmobile>
 
