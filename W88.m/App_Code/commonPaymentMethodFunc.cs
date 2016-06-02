@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Activities.Validation;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Globalization;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
@@ -24,6 +26,27 @@ public static class commonPaymentMethodFunc
             string strProductCurrency;
             var value = svcInstance.getWalletBalance(commonVariables.OperatorId, commonVariables.SiteUrl, memberCode, Convert.ToString(walletId), out strProductCurrency);
             HttpContext.Current.Session["Main"] = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", value);
+        }
+    }
+
+    public static Task<getWalletBalanceResponse> GetWalletBalanceAsync(int walletId)
+    {
+        var memberCode = commonVariables.GetSessionVariable("MemberCode");
+        if (string.IsNullOrEmpty(memberCode) || string.IsNullOrEmpty(commonVariables.OperatorId)) HttpContext.Current.Session["Main"] = 0;
+
+        using (var svcInstance = new MemberClient())
+        {
+            var request = new getWalletBalanceRequest(commonVariables.OperatorId, commonVariables.SiteUrl, memberCode, Convert.ToString(walletId));
+            return svcInstance.getWalletBalanceAsync(request);
+        }
+    }
+
+    public static Task<string> GetWalletBalancesAsync()
+    {
+        using (var svcInstance = new MemberClient())
+        {
+            var memberCode = commonVariables.GetSessionVariable(w88Mobile.MemberInfo.MemberCode);
+            return svcInstance.getBalancesAsync(commonVariables.OperatorId, commonVariables.SiteUrl, memberCode);
         }
     }
 

@@ -13,6 +13,9 @@ GPInt.prototype.HideSplash = function () {
     //document.getElementById('divSplashContainer').className += " hideSplash"; window.setTimeout(function () { document.getElementById('divSplashContainer').style.zIndex = -1; }, 1000);
 }
 /*GAMEPLAYINT END*/
+GPInt.prototype.GetLoaderScafold = function() {
+    return '<div class="spinner-generic"><div class="rect1"></div>&nbsp;<div class="rect2"></div>&nbsp;<div class="rect3"></div>&nbsp;<div class="rect4"></div>&nbsp;<div class="rect5"></div>&nbsp;</div>';
+};
 
 $(window).load(function () { GPINTMOBILE = new GPInt() });
 
@@ -27,3 +30,4 @@ $(function () {
 });
 function locationAssign(obj) { if (typeof c == "string") { window.location.assign(obj); } else { window.location.assign($(obj).attr('data-url')); } }
 function locationReplace(obj) { if (typeof c == "string") { window.location.replace(obj); } else { window.location.replace($(obj).attr('data-url')); } }
+

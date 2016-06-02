@@ -21,3 +21,4 @@
 </script>
 <script type="text/javascript" src="/_Static/JS/modules/formValidator.js"></script>
 <script type="text/javascript" src="/_Static/Js/modules/slots.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/wallets.js"></script>
