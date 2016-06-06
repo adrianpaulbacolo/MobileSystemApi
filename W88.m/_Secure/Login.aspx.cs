@@ -58,78 +58,81 @@ public partial class _Secure_Login : BasePage
         }
         else
         {
-            UserSession.ClearSession();
-        }
-
-        if (string.IsNullOrEmpty(Request.QueryString.Get("redirect")))
-        {
-            if (!string.IsNullOrEmpty(Request.QueryString["url"]))
+            if (string.IsNullOrEmpty(Request.QueryString.Get("redirect")))
             {
-                isSlotRedirect = true;
-
-                if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+                if (!string.IsNullOrEmpty(Request.QueryString["url"]))
                 {
-                    try
+                    isSlotRedirect = true;
+
+                    if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                     {
-                        var link = new Uri(Server.UrlDecode(Request.QueryString["url"]));
-                        NameValueCollection nvc = HttpUtility.ParseQueryString(link.Query);
-
-                        var tokenArray = new string[] { "token", "s" };
-                        bool isEmpty = true;
-
-                        foreach (var item in tokenArray)
+                        try
                         {
-                            if (!string.IsNullOrEmpty(nvc[item]))
-                            {
-                                isEmpty = false;
+                            var link = new Uri(Server.UrlDecode(Request.QueryString["url"]));
+                            NameValueCollection nvc = HttpUtility.ParseQueryString(link.Query);
 
+                            var tokenArray = new string[] { "token", "s" };
+                            bool isEmpty = true;
+
+                            foreach (var item in tokenArray)
+                            {
+                                if (!string.IsNullOrEmpty(nvc[item]))
+                                {
+                                    isEmpty = false;
+
+                                    if (nvc.AllKeys.Contains(item))
+                                    {
+                                        nvc.Remove(item);
+                                        nvc.Add(item, commonVariables.CurrentMemberSessionId);
+                                    }
+                                }
+                            }
+
+                            if (isEmpty)
+                            {
+                                nvc.Add("s", commonVariables.CurrentMemberSessionId);
+                            }
+
+                            var domainArray = new string[] { "domainlink", "domain" };
+
+                            foreach (var item in domainArray)
+                            {
                                 if (nvc.AllKeys.Contains(item))
                                 {
                                     nvc.Remove(item);
-                                    nvc.Add(item, commonVariables.CurrentMemberSessionId);
+                                    nvc.Add(item, (commonIp.DomainName).Trim(new char[] { '.' }));
                                 }
                             }
-                        }
-
-                        if (isEmpty)
-                        {
-                            nvc.Add("s", commonVariables.CurrentMemberSessionId);
-                        }
-
-                        var domainArray = new string[] { "domainlink", "domain" };
-
-                        foreach (var item in domainArray)
-                        {
-                            if (nvc.AllKeys.Contains(item))
+                            if (link.Query.Length > 0)
                             {
-                                nvc.Remove(item);
-                                nvc.Add(item, (commonIp.DomainName).Trim(new char[] { '.' }));
+                                link = new Uri(link.ToString().Replace(link.Query, ""));
                             }
+
+                            Response.Redirect(link.ToString() + "?" + nvc.ToString(), false);
+                            Response.End();
                         }
-                        if (link.Query.Length > 0)
+                        catch (Exception ex)
                         {
-                            link = new Uri(link.ToString().Replace(link.Query, ""));
+                            throw;
                         }
 
-                        Response.Redirect(link.ToString() + "?" + nvc.ToString(), false);
-                        Response.End();
+                        Response.Redirect("/", true);
                     }
-                    catch (Exception ex)
-                    {
-                        throw;
-                    }
-
-                    Response.Redirect("/", true);
+                }
+                else
+                {
+                    strRedirect = "/Index.aspx?lang=" + commonVariables.SelectedLanguage;
                 }
             }
             else
             {
-                strRedirect = "/Index.aspx?lang=" + commonVariables.SelectedLanguage;
+                strRedirect = Request.QueryString.Get("redirect");
+
+                if (string.IsNullOrWhiteSpace(strRedirect))
+                {
+                    UserSession.ClearSession();
+                }
             }
-        }
-        else
-        {
-            strRedirect = Request.QueryString.Get("redirect");
         }
 
         if (!Page.IsPostBack)
