@@ -1,8 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="_Secure_Login" %>
 
-
-
-
 <!DOCTYPE html>
 <html>
 <head runat="server">
@@ -40,7 +37,7 @@
                         <asp:TextBox ID="txtCaptcha" runat="server" MaxLength="4" type="tel" data-mini="true" data-corners="false" />
                     </li>
                     <li class="item row">
-                        <div class="col">
+                        <div class="col cancel">
                             <a href="" role="button" data-rel="back" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
                         </div>
                         <div class="col">
@@ -58,13 +55,18 @@
             $(function () { $('#<%=imgCaptcha.ClientID%>').attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime()); });
             $('#<%=imgCaptcha.ClientID%>').click(function () { $(this).attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime()); });
 
+            if ('<%=isSlotRedirect%>' === 'True') {
+                $('#aMenu').attr('class', 'hide');
+                $('.cancel').attr('class', 'hide');
+            }
+
             var counter = 0;
             $('#<%=imgCaptcha.ClientID%>').attr('class', 'hide');
             $('#<%=lblCaptcha.ClientID%>').attr('class', 'hide');
             $('#<%=txtCaptcha.ClientID%>').attr('class', 'hide');
 
             $(document).ready(function () {
-                $('#<%=btnSubmit.ClientID%>').click(function(e) {
+                $('#<%=btnSubmit.ClientID%>').click(function (e) {
                     var message = ('<ul>');
                     $('#btnSubmit').attr("disabled", true);
                     var username = _.trim($('#txtUsername').val()),
@@ -129,27 +131,32 @@
 
                         switch (xml.Code) {
                             case "1":
-                                switch ('<%=strRedirect%>') {
-                                    case 'mlotto':
-                                        window.location.replace('<%=commonLottery.getKenoUrl%>');
-                                        break;
-                                    default:
-                                        window.location.replace('<%=strRedirect%>');
-                                        break;
+                                if ('<%=strRedirect%>' !== '') {
+                                    switch ('<%=strRedirect%>') {
+                                        case 'mlotto':
+                                            window.location.replace('<%=commonLottery.getKenoUrl%>');
+                                            break;
+                                        default:
+                                            window.location.replace('<%=strRedirect%>');
+                                            break;
+                                    }
+                                } else {
+                                    window.location.reload();
                                 }
 
                                 Cookies().setCookie('is_app', '0', 0);
                                 break;
-                            case "22":
 
+                            case "22":
                                 $('#btnSubmit').attr("disabled", false);
                                 window.w88Mobile.Growl.shout('<div>' + message + '</div>');
                                 break;
-                            case "resetPassword":
-                                    window.location.replace('/Settings/ChangePassword.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
-                                break;
-                            default:
 
+                            case "resetPassword":
+                                window.location.replace('/Settings/ChangePassword.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
+                                break;
+
+                            default:
                                 counter += 1;
 
                                 if (counter >= 3) {
@@ -165,8 +172,8 @@
                                 $('#btnSubmit').attr("disabled", false);
                                 GPINTMOBILE.HideSplash();
                                 window.w88Mobile.Growl.shout('<div>' + message + '</div>');
-                                break;
-                        }
+                            break;
+                    }
                     },
                     error: function (err) {
                         window.w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
@@ -174,6 +181,7 @@
                     }
                 });
             }
+
         </script>
 
         <script type="text/javascript" id="iovs_script" src="../_Static/JS/ioBlackBox.js"></script>
