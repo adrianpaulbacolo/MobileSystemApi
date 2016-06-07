@@ -4,6 +4,22 @@
     <Category>
 
         <Slots Label="Slots" zh-cn="老虎机"  ko-kr="슬롯" ja-jp="スロット" km-kh="ស្លត" th-th="สล็อต">
+			<OGS-kingkong Top="1">
+                <ImageName><![CDATA[W88-Slots-Mobile-King-Kong]]></ImageName>
+                <Label><![CDATA[KING KONG]]></Label>
+            </OGS-kingkong>
+			<OGS-robinhoodprinceoftweets Top="2">
+                <ImageName><![CDATA[W88-Slots-Mobile-Robin-Hood-The-Prince-of-Tweets]]></ImageName>
+                <Label><![CDATA[ROBIN HOOD - THE PRINCE OF TWEETS]]></Label>
+            </OGS-robinhoodprinceoftweets>			
+			<OGS-therift Top="3">
+                <ImageName><![CDATA[W88-Slots-Mobile-The-Rift]]></ImageName>
+                <Label><![CDATA[THE RIFT]]></Label>
+            </OGS-therift>
+			<OGS-wolfpackpays Top="4">
+                <ImageName><![CDATA[W88-Slots-Mobile-Wolfpack-Pays]]></ImageName>
+                <Label><![CDATA[WOLFPACK PAYS]]></Label>
+            </OGS-wolfpackpays>			
             <OGS-1can2can>
                 <ImageName><![CDATA[W88-Slots-Mobile-1-Can-2-Can]]></ImageName>
                 <Label><![CDATA[1 Can 2 Can]]></Label>
