@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using System.Xml.Linq;
 using Factories.Slots;
 using Factories.Slots.Handlers;
+using Models;
 
 public partial class Slots_ClubBravado : BasePage
 {
@@ -30,25 +31,31 @@ public partial class Slots_ClubBravado : BasePage
 
             sbGames.AppendFormat("<div id='div{0}' class='div-product'><div><ul>", category.Title);
 
-            foreach (var game in category.Games)
-            {
-                sbGames.AppendFormat("<li class='bkg-game'><div rel='{0}.jpg'><div class='div-links'>", game.Image);
+            AddGames(sbGames, category.New);
 
-                if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-                    sbGames.AppendFormat("<a class='btn-primary' target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubBravado") + "' data-rel='dialog' data-transition='slidedown'>");
-                else
-                    sbGames.AppendFormat("<a href='{0}' target='_blank'>", game.RealUrl);
-
-                sbGames.Append("<i class='icon-play_arrow'></i></a>");
-                sbGames.AppendFormat("<a class='btn-secondary' target='_blank' href='{0}'><i class='icon-fullscreen'></i></a></div>", game.FunUrl);
-
-                sbGames.Append("</div></li>");
-            }
+            AddGames(sbGames, category.Current);
 
             sbGames.Append("</ul></div></div></div>");
-            //collapsed = true;
         }
 
         divContainer.InnerHtml = Convert.ToString(sbGames);
+    }
+
+    private void AddGames(StringBuilder sbGames, List<GameInfo> games)
+    {
+        foreach (var game in games)
+        {
+            sbGames.AppendFormat("<li class='bkg-game'><div rel='{0}.jpg'><div class='div-links'>", game.Image);
+
+            if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+                sbGames.AppendFormat("<a class='btn-primary' target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubBravado") + "' data-rel='dialog' data-transition='slidedown'>");
+            else
+                sbGames.AppendFormat("<a href='{0}' target='_blank'>", game.RealUrl);
+
+            sbGames.Append("<i class='icon-play_arrow'></i></a>");
+            sbGames.AppendFormat("<a class='btn-secondary' target='_blank' href='{0}'><i class='icon-fullscreen'></i></a></div>", game.FunUrl);
+
+            sbGames.Append("</div></li>");
+        }
     }
 }

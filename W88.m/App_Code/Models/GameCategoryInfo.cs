@@ -5,9 +5,10 @@ using System.Web;
 
 namespace Models
 {
-    public class CategoryInfo
+    public class GameCategoryInfo
     {
         public string Title { get; set; }
-        public List<GameInfo> Games { get; set; }
+        public List<GameInfo> New { get; set; }
+        public List<GameInfo> Current { get; set; }
     }
 }

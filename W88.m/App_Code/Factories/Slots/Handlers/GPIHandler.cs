@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,20 +9,20 @@ namespace Factories.Slots.Handlers
 {
     public class GPIHandler : GameLoaderBase
     {
-        private string realUrl;
-        private string funUrl;
-        private string realUrl_rslot;
-        private string funUrl_rslot;
+        private string fun;
+        private string real;
+        private string rSlotFun;
+        private string rSlotReal;
 
         private string memberSessionId;
 
         public GPIHandler(string token)
             : base(GameProvider.GPI)
         {
-            realUrl = commonClubBravado.getRealUrl;
-            funUrl = commonClubBravado.getFunUrl;
-            realUrl_rslot = commonClubBravado.getRealUrl_mrslot;
-            funUrl_rslot = commonClubBravado.getFunUrl_mrslot;
+            fun = GameSettings.GPIFun;
+            real = GameSettings.GPIReal;
+            rSlotFun = GameSettings.GPIRSlotFun;
+            rSlotReal = GameSettings.GPIRSlotReal;
 
             memberSessionId = token;
         }
@@ -48,14 +49,15 @@ namespace Factories.Slots.Handlers
             bool isRSlot = element.Attribute("Type") != null && element.Attribute("Type").Value.Equals("rslot", StringComparison.OrdinalIgnoreCase) ? true : false;
 
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
+
             string url;
             if (isRSlot)
             {
-                url = realUrl_rslot.Replace("{GAME}", gameName).Replace("{LANG}", langCode).Replace("{TOKEN}", memberSessionId);
+                url = rSlotReal.Replace("{GAME}", gameName).Replace("{LANG}", langCode).Replace("{TOKEN}", memberSessionId);
             }
             else
             {
-                url = realUrl.Replace("{GAME}", gameName).Replace("{LANG}", langCode).Replace("{TOKEN}", memberSessionId);
+                url = real.Replace("{GAME}", gameName).Replace("{LANG}", langCode).Replace("{TOKEN}", memberSessionId);
             }
 
             return url;
@@ -66,14 +68,15 @@ namespace Factories.Slots.Handlers
             bool isRSlot = element.Attribute("Type") != null && element.Attribute("Type").Value.Equals("rslot", StringComparison.OrdinalIgnoreCase) ? true : false;
 
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
+
             string url;
             if (isRSlot)
             {
-                url = funUrl_rslot.Replace("{GAME}", gameName).Replace("{LANG}", langCode).Replace("{TOKEN}", memberSessionId);
+                url = rSlotFun.Replace("{GAME}", gameName).Replace("{LANG}", langCode).Replace("{TOKEN}", memberSessionId);
             }
             else
             {
-                url = funUrl.Replace("{GAME}", gameName).Replace("{LANG}", langCode).Replace("{TOKEN}", memberSessionId);
+                url = fun.Replace("{GAME}", gameName).Replace("{LANG}", langCode).Replace("{TOKEN}", memberSessionId);
             }
 
             return url;

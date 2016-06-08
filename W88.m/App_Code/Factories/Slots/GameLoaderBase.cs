@@ -31,16 +31,16 @@ namespace Factories.Slots
 
         protected abstract string CreateFunUrl(XElement element);
 
-        public List<CategoryInfo> Process()
+        public List<GameCategoryInfo> Process()
         {
             string currencyCode = commonVariables.GetSessionVariable("CurrencyCode");
-           
+
             return LoadCategory(currencyCode);
         }
 
-        private List<CategoryInfo> LoadCategory(string currencyCode)
+        private List<GameCategoryInfo> LoadCategory(string currencyCode)
         {
-            var categories = new List<CategoryInfo>();
+            var gameCategories = new List<GameCategoryInfo>();
 
             foreach (XElement xeCategory in xeResources.Elements())
             {
@@ -48,40 +48,43 @@ namespace Factories.Slots
 
                 if (IsCurrNotSupported(currencyCode, xeCategory)) continue;
 
-                var category = new CategoryInfo();
+                var gameCategory = new GameCategoryInfo();
 
-                category.Title = GetHeadTranslation(xeCategory);
+                gameCategory.Title = GetHeadTranslation(xeCategory);
 
-                List<XElement> topgames = xeCategory.Elements().Where(m => m.Attribute("Top") != null).OrderBy(f => f.Attribute("Top").Value).ToList();
+                List<XElement> newGames = xeCategory.Element("New").Elements().OrderBy(game => game.Element("Title").Value).ToList();
+                gameCategory.New = AddGamesPerCategory(currencyCode, newGames);
 
-                IEnumerable<XElement> sortedGame = xeCategory.Elements().Where(m => m.Attribute("Top") == null).OrderBy(game => game.Element("Title").Value);
+                List<XElement> currentGames = xeCategory.Element("Current").Elements().OrderBy(game => game.Element("Title").Value).ToList();
+                gameCategory.Current = AddGamesPerCategory(currencyCode, currentGames);
 
-                topgames.AddRange(sortedGame);
-
-                var games = new List<GameInfo>();
-
-                foreach (XElement xeGame in topgames)
-                {
-                    if (IsLangNotSupported(xeGame)) continue;
-
-                    if (IsCurrNotSupported(currencyCode, xeGame)) continue;
-
-                    var game = new GameInfo();
-
-                    game.Title = commonCulture.ElementValues.getResourceString("Title", xeGame);
-                    game.Image = commonCulture.ElementValues.getResourceString("Image", xeGame);
-                    game.RealUrl = CreateRealUrl(xeGame);
-                    game.FunUrl = CreateFunUrl(xeGame);
-
-                    games.Add(game);
-                }
-
-                category.Games = games;
-
-                categories.Add(category);
+                gameCategories.Add(gameCategory);
             }
-            
-            return categories;
+
+            return gameCategories;
+        }
+
+        private List<GameInfo> AddGamesPerCategory(string currencyCode, List<XElement> xeGames)
+        {
+            var games = new List<GameInfo>();
+
+            foreach (XElement xeGame in xeGames)
+            {
+                if (IsLangNotSupported(xeGame)) continue;
+
+                if (IsCurrNotSupported(currencyCode, xeGame)) continue;
+
+                var game = new GameInfo();
+
+                game.Title = commonCulture.ElementValues.getResourceString("Title", xeGame);
+                game.Image = commonCulture.ElementValues.getResourceString("Image", xeGame);
+                game.RealUrl = CreateRealUrl(xeGame);
+                game.FunUrl = CreateFunUrl(xeGame);
+
+                games.Add(game);
+            }
+
+            return games;
         }
 
         private string GetHeadTranslation(XElement element)
