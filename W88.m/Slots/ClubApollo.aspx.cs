@@ -36,8 +36,8 @@ public partial class Slots_ClubApollo : BasePage
 
             sbGames.AppendFormat("<div id='div{0}' class='div-product'><div><ul>", xeCategory.Name);
 
-            List<XElement> topgames = xeCategory.Elements().Where(m => m.Attribute("Top") != null).OrderBy(f => f.Attribute("Top").Value).ToList();
-
+            List<XElement> topgames = xeCategory.Elements().Where(m => m.Attribute("Top") != null).OrderBy(f => f.Value).ToList();
+            
             IEnumerable<XElement> sortedGame = xeCategory.Elements().Where(m => m.Attribute("Top") == null).OrderBy(game => game.Name.ToString());
 
             topgames.AddRange(sortedGame);
