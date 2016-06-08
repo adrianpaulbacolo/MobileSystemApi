@@ -52,10 +52,12 @@ namespace Factories.Slots
 
                 gameCategory.Title = GetHeadTranslation(xeCategory);
 
-                List<XElement> newGames = xeCategory.Element("New").Elements().OrderBy(game => game.Element("Title").Value).ToList();
+                List<XElement> newGames = xeCategory.Elements().Where(cat => cat.Attribute("Category") != null && cat.Attribute("Category").Value.Equals("new", StringComparison.OrdinalIgnoreCase))
+                                                                .OrderBy(game => game.Element("Title").Value).ToList();
+
                 gameCategory.New = AddGamesPerCategory(currencyCode, newGames);
 
-                List<XElement> currentGames = xeCategory.Element("Current").Elements().OrderBy(game => game.Element("Title").Value).ToList();
+                List<XElement> currentGames = xeCategory.Elements().Where(cat => cat.Attribute("Category") == null ).OrderBy(game => game.Element("Title").Value).ToList();
                 gameCategory.Current = AddGamesPerCategory(currencyCode, currentGames);
 
                 gameCategories.Add(gameCategory);
