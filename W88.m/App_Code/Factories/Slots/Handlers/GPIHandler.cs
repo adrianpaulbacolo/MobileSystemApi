@@ -7,6 +7,9 @@ using System.Xml.Linq;
 
 namespace Factories.Slots.Handlers
 {
+    /// <summary>
+    /// This is the handler for Gameplay Interactive (GPI)
+    /// </summary>
     public class GPIHandler : GameLoaderBase
     {
         private string fun;
