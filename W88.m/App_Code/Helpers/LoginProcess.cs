@@ -91,16 +91,12 @@ public class LoginProcess
                 msg.Message = commonCulture.ElementValues.getResourceXPathString("Register/InvalidVCode", _loginInfo.XeErrors);
                 msg.IsAbort = true;
             }
-            if (_loginInfo.Captcha != _loginInfo.SessionCaptcha)
+            if (_loginInfo.Captcha != commonEncryption.decrypting(_loginInfo.SessionCaptcha))
             {
                 msg.Code = "-1";
                 msg.Message = commonCulture.ElementValues.getResourceXPathString("Register/IncorrectVCode", _loginInfo.XeErrors);
                 msg.IsAbort = true;
             }
-        }
-        else
-        {
-            _loginInfo.Password = commonEncryption.Encrypt(_loginInfo.Password);
         }
 
         return msg;
