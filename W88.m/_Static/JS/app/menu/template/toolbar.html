@@ -1,0 +1,15 @@
+﻿<ons-toolbar id="header">
+    <div class="left btn-clear">
+        <ons-toolbar-button ng-click="toolbarMenu.toggleMenu()">
+            <i class="icon-navicon"></i>
+        </ons-toolbar-button>
+    </div>
+    <div class="center">
+        <h1 ng-if="toolbarTitle != ''" class="title">
+            {{toolbarTitle}}
+        </h1>
+        <h1 ng-if="toolbarTitle == ''" class="title">
+            <img src="/_Static/Images/logo-en.png" class="logo" alt="logo">
+        </h1>
+    </div>
+</ons-toolbar>
