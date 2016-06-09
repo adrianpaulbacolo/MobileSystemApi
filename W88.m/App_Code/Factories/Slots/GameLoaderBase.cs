@@ -27,9 +27,9 @@ namespace Factories.Slots
             return commonVariables.SelectedLanguage;
         }
 
-        protected abstract string CreateRealUrl(XElement element);
-
         protected abstract string CreateFunUrl(XElement element);
+
+        protected abstract string CreateRealUrl(XElement element);
 
         public List<GameCategoryInfo> Process()
         {
