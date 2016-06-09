@@ -54,6 +54,7 @@
         routes.Add(rtError408);
         routes.Add(rtError500);
         routes.Add(rtError502);
+        routes.MapPageRoute("v2Route", "v2/{*value}", "~/Indexv2.aspx", false);
     }
 
     void Application_End(object sender, EventArgs e)
