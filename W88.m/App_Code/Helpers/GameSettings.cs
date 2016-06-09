@@ -14,9 +14,9 @@ namespace Helpers
                 var settings = new customConfig.OperatorSettings("W88");
                 if (settings == null) return "";
 
-                string url = settings.Values.Get("ClubBravadoFunUrl");
+                string url = settings.Values.Get("GPIFunUrl");
 
-                return string.IsNullOrEmpty(url) ? "" : url.Replace("{ORIGIN}", commonIp.DomainName);
+                return string.IsNullOrEmpty(url) ? "" : url.Replace("{DOMAIN}", commonIp.DomainName);
             }
         }
 
@@ -27,41 +27,11 @@ namespace Helpers
                 var settings = new customConfig.OperatorSettings("W88");
                 if (settings == null) return "";
 
-                string url = settings.Values.Get("ClubBravadoRealUrl");
+                string url = settings.Values.Get("GPIRealUrl");
 
-                var paramString = "&s=" + commonVariables.CurrentMemberSessionId;
-
-                return string.IsNullOrEmpty(url) ? "" : url.Replace("{DOMAIN}", commonIp.DomainName) + paramString;
+                return string.IsNullOrEmpty(url) ? "" : url.Replace("{DOMAIN}", commonIp.DomainName);
             }
         }
 
-        public static string GPIRSlotFun
-        {
-            get
-            {
-                var settings = new customConfig.OperatorSettings("W88");
-                if (settings == null) return "";
-
-                string url = settings.Values.Get("ClubBravadoFunUrl_MR");
-
-                return string.IsNullOrEmpty(url) ? "" : url.Replace("{ORIGIN}", commonIp.DomainName);
-            }
-        }
-
-        public static string GPIRSlotReal
-        {
-            get
-            {
-                var settings = new customConfig.OperatorSettings("W88");
-                if (settings == null) return "";
-
-                string url = settings.Values.Get("ClubBravadoRealUrl_MR");
-
-                var paramString = "&s=" + commonVariables.CurrentMemberSessionId;
-
-                return string.IsNullOrEmpty(url) ? "" : url.Replace("{DOMAIN}", commonIp.DomainName) + paramString;
-
-            }
-        }
     }
 }
