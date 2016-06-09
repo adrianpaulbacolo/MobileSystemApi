@@ -33,5 +33,31 @@ namespace Helpers
             }
         }
 
+        public static string MGSFun
+        {
+            get
+            {
+                var settings = new customConfig.OperatorSettings("W88");
+                if (settings == null) return "";
+
+                string url = settings.Values.Get("MGSFunUrl");
+
+                return string.IsNullOrEmpty(url) ? "" : url.Replace("{DOMAIN}", commonIp.DomainName);
+            }
+        }
+
+        public static string MGSReal
+        {
+            get
+            {
+                var settings = new customConfig.OperatorSettings("W88");
+                if (settings == null) return "";
+
+                string url = settings.Values.Get("MGSRealUrl");
+
+                return string.IsNullOrEmpty(url) ? "" : url.Replace("{DOMAIN}", commonIp.DomainName);
+            }
+        }
+
     }
 }
