@@ -14,8 +14,8 @@ namespace Factories.Slots.Handlers
     {
         private string fun;
         private string real;
-        private string rSlotFun;
-        private string rSlotReal;
+        private const string mrSlot = "mrslots";
+        private const string mSlot = "mslots";
 
         private string memberSessionId;
 
@@ -24,8 +24,6 @@ namespace Factories.Slots.Handlers
         {
             fun = GameSettings.GPIFun;
             real = GameSettings.GPIReal;
-            rSlotFun = GameSettings.GPIRSlotFun;
-            rSlotReal = GameSettings.GPIRSlotReal;
 
             memberSessionId = token;
         }
@@ -47,42 +45,26 @@ namespace Factories.Slots.Handlers
             return languageCode;
         }
 
-        protected override string CreateRealUrl(XElement element)
-        {
-            bool isRSlot = element.Attribute("Type") != null && element.Attribute("Type").Value.Equals("rslot", StringComparison.OrdinalIgnoreCase) ? true : false;
-
-            string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
-
-            string url;
-            if (isRSlot)
-            {
-                url = rSlotReal.Replace("{GAME}", gameName).Replace("{LANG}", langCode).Replace("{TOKEN}", memberSessionId);
-            }
-            else
-            {
-                url = real.Replace("{GAME}", gameName).Replace("{LANG}", langCode).Replace("{TOKEN}", memberSessionId);
-            }
-
-            return url;
-        }
-
         protected override string CreateFunUrl(XElement element)
         {
             bool isRSlot = element.Attribute("Type") != null && element.Attribute("Type").Value.Equals("rslot", StringComparison.OrdinalIgnoreCase) ? true : false;
 
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
 
-            string url;
-            if (isRSlot)
-            {
-                url = rSlotFun.Replace("{GAME}", gameName).Replace("{LANG}", langCode).Replace("{TOKEN}", memberSessionId);
-            }
-            else
-            {
-                url = fun.Replace("{GAME}", gameName).Replace("{LANG}", langCode).Replace("{TOKEN}", memberSessionId);
-            }
+            string slotType = isRSlot ? mrSlot : mSlot;
 
-            return url;
+            return fun.Replace("{TYPE}", slotType).Replace("{GAME}", gameName).Replace("{LANG}", langCode);
+        }
+
+        protected override string CreateRealUrl(XElement element)
+        {
+            bool isRSlot = element.Attribute("Type") != null && element.Attribute("Type").Value.Equals("rslot", StringComparison.OrdinalIgnoreCase) ? true : false;
+
+            string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
+
+            string slotType = isRSlot ? mrSlot : mSlot;
+
+            return real.Replace("{TYPE}", slotType).Replace("{GAME}", gameName).Replace("{LANG}", langCode).Replace("{TOKEN}", memberSessionId);
         }
     }
 }
