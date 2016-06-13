@@ -321,7 +321,7 @@ public partial class _Secure_Register : BasePage
         }
 
         strErrorDetail = strAlertMessage;
-        strProcessRemark = string.Format("strAlertMessage: {0} | HiddenValues: {1}", strAlertMessage, strHiddenValues);
+        strProcessRemark = string.Format("strAlertMessage: {0} | HiddenValues: {1} | VCode: {2} | SessionVode: {3} ", strAlertMessage, strHiddenValues, commonEncryption.encrypting(strVCode), strSessionVCode);
 
         intProcessSerialId += 1;
         commonAuditTrail.appendLog("system", strPageName, "ParameterValidation", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
