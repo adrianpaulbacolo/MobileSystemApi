@@ -16,11 +16,6 @@
 
             <section class="section banner-slider">
                 <div class="slide">
-                    <a href="/Promotions#CLOUDTALES" data-ajax="false">
-                        <img src="/_Static/Images/Download/W88-Mobile-CloudTales.jpg" alt="banner" class="img-responsive">
-                    </a>
-                </div>
-                <div class="slide">
                     <a href="#divPanel" class="nav-pmahjong">
                         <img src="/_Static/Images/Download/W88-Mobile-TexasMahjong.jpg" alt="banner" class="img-responsive">
                     </a>
