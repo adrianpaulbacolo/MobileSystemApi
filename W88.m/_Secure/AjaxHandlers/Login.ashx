@@ -37,7 +37,8 @@ public class Login : IHttpHandler, System.Web.SessionState.IReadOnlySessionState
             {
                 try
                 {
-                    var dsSignin = svcInstance.MemberSignin(loginInfo.OperatorId, loginInfo.Username, commonEncryption.Encrypt(loginInfo.Password), loginInfo.SiteUrl, commonIp.UserIP, loginInfo.DeviceId);
+                    loginInfo.Password = commonEncryption.Encrypt(loginInfo.Password);
+                    var dsSignin = svcInstance.MemberSignin(loginInfo.OperatorId, loginInfo.Username, loginInfo.Password, loginInfo.SiteUrl, commonIp.UserIP, loginInfo.DeviceId);
                     
                     if (dsSignin.Tables[0].Rows.Count > 0)
                     {
