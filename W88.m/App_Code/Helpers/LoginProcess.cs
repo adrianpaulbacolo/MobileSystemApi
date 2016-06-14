@@ -88,16 +88,19 @@ public class LoginProcess
             else if (commonValidation.isInjection(_loginInfo.Captcha))
             {
                 msg.Code = "-1";
-                msg.Message = commonCulture.ElementValues.getResourceXPathString("Register/InvalidVCode", _loginInfo.XeErrors);
+                msg.Message = commonCulture.ElementValues.getResourceXPathString("Register/InvalidVCode",
+                    _loginInfo.XeErrors);
                 msg.IsAbort = true;
             }
             if (_loginInfo.Captcha != commonEncryption.decrypting(_loginInfo.SessionCaptcha))
             {
                 msg.Code = "-1";
-                msg.Message = commonCulture.ElementValues.getResourceXPathString("Register/IncorrectVCode", _loginInfo.XeErrors);
+                msg.Message = commonCulture.ElementValues.getResourceXPathString("Register/IncorrectVCode",
+                    _loginInfo.XeErrors);
                 msg.IsAbort = true;
             }
         }
+        
 
         return msg;
     }
