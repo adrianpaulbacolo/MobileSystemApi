@@ -79,6 +79,10 @@
 		<BalanceBeforeAfter><![CDATA[\nWallet From: {walletFrom}\nWallet To: {walletTo}]]></BalanceBeforeAfter>
 		<TransferFailed><![CDATA[Your transfer request has failed.]]></TransferFailed>
 		<TransferDeclined><![CDATA[Your transfer request has been declined.]]></TransferDeclined>
+    <FundOutLimit><![CDATA[Wallet has exceeded Fund Out limit for the day.]]></FundOutLimit>
+    <FundInLimit><![CDATA[Wallet has exceeded Fund In limit for the day.]]></FundInLimit>
+    <FundOutLimitReq><![CDATA[Wallet daily total Fund Out will exceed the Fund Out limit for the day.]]></FundOutLimitReq>
+    <FundInLimitReq><![CDATA[Wallet daily total Fund In will exceed the Fund In limit for the day.]]></FundInLimitReq>
 		<UnderMaintenance><![CDATA[Product is under maintenance at the moment. Please try again later.]]></UnderMaintenance>
 		<InvalidFundTransfer><![CDATA[Invalid fund transfer]]></InvalidFundTransfer>
 		<SessionExpired><![CDATA[Sorry, a server error has occurred]]></SessionExpired>
