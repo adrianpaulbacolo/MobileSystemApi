@@ -46,7 +46,7 @@ public partial class Slots_ClubPalazzo: BasePage
                     
                 javascriptLogin = string.Format("var result = iapiLogin(\"{0}\", \"{1}\" , 1, \"{2}\");",
                     userName,
-                    commonEncryption.Decrypt(System.Web.HttpContext.Current.Request.Cookies["palazzo"].Value),
+                    commonEncryption.Decrypt(commonCookie.CookiePalazzo),
                     strLanguageCode);
 
                 javascriptToken = string.Format("iapiRequestTemporaryToken(1, '427', 'GamePlay');");
