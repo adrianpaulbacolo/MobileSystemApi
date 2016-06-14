@@ -30,19 +30,7 @@ namespace Factories.Slots.Handlers
 
         protected override string SetLanguageCode()
         {
-            string languageCode;
-            switch (commonVariables.SelectedLanguage)
-            {
-                case "zh-cn":
-                    languageCode = "zh";
-                    break;
-
-                default:
-                    languageCode = "en";
-                    break;
-            }
-
-            return languageCode;
+            return commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase) ? "zh" : "en";
         }
 
         protected override string CreateFunUrl(XElement element)

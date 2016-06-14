@@ -109,14 +109,6 @@ namespace Factories.Slots
             return headerText;
         }
 
-        private bool IsLangNotSupported(XElement element)
-        {
-            string langNotSupp = element.Attribute("NotSupportedLanguage") != null ? element.Attribute("NotSupportedLanguage").Value : "";
-            string[] languages = langNotSupp.Split(',');
-
-            return languages.Contains(commonVariables.SelectedLanguage);
-        }
-
         private bool IsCurrNotSupported(string currencyCode, XElement element)
         {
             if (string.IsNullOrWhiteSpace(currencyCode))
