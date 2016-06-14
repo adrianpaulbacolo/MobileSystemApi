@@ -41,7 +41,7 @@ namespace Factories.Slots.Handlers
 
             string slotType = isRSlot ? mrSlot : mSlot;
 
-            return fun.Replace("{TYPE}", slotType).Replace("{GAME}", gameName).Replace("{LANG}", langCode);
+            return fun.Replace("{TYPE}", slotType).Replace("{GAME}", gameName).Replace("{LANG}", base.langCode);
         }
 
         protected override string CreateRealUrl(XElement element)
@@ -52,7 +52,7 @@ namespace Factories.Slots.Handlers
 
             string slotType = isRSlot ? mrSlot : mSlot;
 
-            return real.Replace("{TYPE}", slotType).Replace("{GAME}", gameName).Replace("{LANG}", langCode).Replace("{TOKEN}", memberSessionId);
+            return real.Replace("{TYPE}", slotType).Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{TOKEN}", memberSessionId);
         }
     }
 }

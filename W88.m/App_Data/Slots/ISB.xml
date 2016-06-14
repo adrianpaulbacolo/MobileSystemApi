@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Category>
+	<Slot en-us="Slots" zh-cn="老虎机"  ko-kr="슬롯" ja-jp="スロット" km-kh="ស្លត" th-th="สล็อต" NotSupportedCurrency="VND,IDR">
+		<Game Id="896551" Category="New">
+			<Image><![CDATA[W88-Slots-Mobile-Cloud-Tales]]></Image>
+			<Title><![CDATA[Cloud Tales]]></Title>
+		</Game>
+		<Game Id="896552" Category="New">
+			<Image><![CDATA[W88-Slots-Mobile-Neon-Reels]]></Image>
+			<Title><![CDATA[Neon Reels]]></Title>
+		</Game>
+		<Game Id="896500">
+			<Image><![CDATA[W88-Slots-Mobile-Absolute-Super-Reels]]></Image>
+			<Title><![CDATA[Absolute Super Reels]]></Title>
+		</Game>
+		<Game Id="896504">
+			<Image><![CDATA[W88-Slots-Mobile-Alice-Adventure]]></Image>
+			<Title><![CDATA[Alice Adventure]]></Title>
+		</Game>
+		<Game Id="906544">
+			<Image><![CDATA[W88-Slots-Mobile-Astro-Magic]]></Image>
+			<Title><![CDATA[Astro Magic]]></Title>
+		</Game>
+		<Game Id="896507">
+			<Image><![CDATA[W88-Slots-Mobile-Basic-Instinct]]></Image>
+			<Title><![CDATA[Basic Instinct]]></Title>
+		</Game>
+		<Game Id="896523">
+			<Image><![CDATA[W88-Slots-Mobile-Beverly-Hills-90210]]></Image>
+			<Title><![CDATA[Beverly Hills 90210]]></Title>
+		</Game>
+		<Game Id="906517">
+			<Image><![CDATA[W88-Slots-Mobile-Bewitched]]></Image>
+			<Title><![CDATA[Bewitched]]></Title>
+		</Game>
+		<Game Id="896508">
+			<Image><![CDATA[W88-Slots-Mobile-Diamond-Wild]]></Image>
+			<Title><![CDATA[Diamond Wild]]></Title>
+		</Game>
+		<Game Id="896525">
+			<Image><![CDATA[W88-Slots-Mobile-Happy-Birds]]></Image>
+			<Title><![CDATA[Happy Birds]]></Title>
+		</Game>
+		<Game Id="896529">
+			<Image><![CDATA[W88-Slots-Mobile-Heavy-Metal-Warriors]]></Image>
+			<Title><![CDATA[Heavy Metal Warriors]]></Title>
+		</Game>
+		<Game Id="896505">
+			<Image><![CDATA[W88-Slots-Mobile-Illusions-2]]></Image>
+			<Title><![CDATA[Illusions 2]]></Title>
+		</Game>
+		<Game Id="896502">
+			<Image><![CDATA[W88-Slots-Mobile-Jackpot-Rango]]></Image>
+			<Title><![CDATA[Jackpot Rango]]></Title>
+		</Game>
+		<Game Id="896509">
+			<Image><![CDATA[W88-Slots-Mobile-Kobushi]]></Image>
+			<Title><![CDATA[Kobushi]]></Title>
+		</Game>
+		<Game Id="896550">
+			<Image><![CDATA[Mega-Boy-mobile]]></Image>`
+			<Title><![CDATA[Mega Boy]]></Title>
+		</Game>
+		<Game Id="896512">
+			<Image><![CDATA[W88-Slots-Mobile-Million-Cents]]></Image>
+			<Title><![CDATA[Million Cents]]></Title>
+		</Game>
+		<Game Id="906520">
+			<Image><![CDATA[W88-Slots-Mobile-Mona-Lisa-Jewels]]></Image>
+			<Title><![CDATA[Mona Lisa Jewels]]></Title>
+		</Game>
+		<Game Id="896535">
+			<Image><![CDATA[W88-Slots-Mobile-Nacho-Libre]]></Image>
+			<Title><![CDATA[Nacho Libre]]></Title>
+		</Game>
+		<Game Id="896503">
+			<Image><![CDATA[W88-Slots-Mobile-Ninja-Chef]]></Image>
+			<Title><![CDATA[Ninja Chef]]></Title>
+		</Game>
+		<Game Id="896510">
+			<Image><![CDATA[W88-Slots-Mobile-Platoon]]></Image>
+			<Title><![CDATA[Platoon]]></Title>
+		</Game>
+		<Game Id="896511">
+			<Image><![CDATA[W88-Slots-Mobile-Rambo]]></Image>
+			<Title><![CDATA[Rambo]]></Title>
+		</Game>
+		<Game Id="896514">
+			<Image><![CDATA[W88-Slots-Mobile-Red-Dragon-Wild]]></Image>
+			<Title><![CDATA[Red Dragon Wild]]></Title>
+		</Game>
+		<Game Id="896530">
+			<Image><![CDATA[W88-Slots-Mobile-Royal-Cash]]></Image>
+			<Title><![CDATA[Royal Cash]]></Title>
+		</Game>
+		<Game Id="896539">
+			<Image><![CDATA[W88-Slots-Mobile-Shaolin-Spin]]></Image>
+			<Title><![CDATA[Shaolin Spin]]></Title>
+		</Game>
+		<Game Id="896526">
+			<Image><![CDATA[W88-Slots-Mobile-Spooky-Family]]></Image>
+			<Title><![CDATA[Spooky Family]]></Title>
+		</Game>
+		<Game Id="896516">
+			<Image><![CDATA[W88-Slots-Mobile-Super-Fast-Hot-Hot]]></Image>
+			<Title><![CDATA[Super Fast Hot Hot]]></Title>
+		</Game>
+		<Game Id="896501">
+			<Image><![CDATA[W88-Slots-Mobile-Super-Lucky-Reels]]></Image>
+			<Title><![CDATA[Super Lucky Reels]]></Title>
+		</Game>
+		<Game Id="896515">
+			<Image><![CDATA[W88-Slots-Mobile-Super-Multitimes-Progressive]]></Image>
+			<Title><![CDATA[Super Multitimes Progressive]]></Title>
+		</Game>
+		<Game Id="896531">
+			<Image><![CDATA[W88-Slots-Mobile-The-Love-Guru]]></Image>
+			<Title><![CDATA[The Love Guru]]></Title>
+		</Game>
+		<Game Id="896513">
+			<Image><![CDATA[W88-Slots-Mobile-Ultimate-Super-Reels]]></Image>
+			<Title><![CDATA[Ultimate Super Reels]]></Title>
+		</Game>
+	</Slot>
+	<TableCard en-us="Table &amp; Cards Games" zh-cn="卡牌桌面游戏" ko-kr="카드게임 테이블 게임" ja-jp="テーブルゲーム" km-kh="ហ្គេមតុ &amp; ហ្គេមបៀរ" th-th="การ์ด เกมส์โต๊ะ" id-id="Game Kartu &amp; Meja" vi-vn="Trò Chơi Bài &amp; Trò Chơi Bàn">
+		<Game Id="896522">
+			<Image><![CDATA[W88-Slots-Mobile-Blackjack]]></Image>
+			<Title><![CDATA[BlackJack]]></Title>
+		</Game>
+		<Game Id="896521">
+			<Image><![CDATA[W88-Slots-Mobile-European-Roulette]]></Image>
+			<Title><![CDATA[European Roulette]]></Title>
+		</Game>
+	</TableCard>
+	<VideoPoker en-us="Video Poker"  zh-cn="视频扑克"  ko-kr="비디오 포커" ja-jp="ビデオポーカー" km-kh="វីដេអូប៉ូកកឺ" th-th="วีดีโอโป๊กเกอร์">
+		<Game Id="896506">
+			<Image><![CDATA[W88-Slots-Mobile-Joker-Poker]]></Image>
+			<Title><![CDATA[Joker Poker]]></Title>
+		</Game>
+	</VideoPoker>
+</Category>

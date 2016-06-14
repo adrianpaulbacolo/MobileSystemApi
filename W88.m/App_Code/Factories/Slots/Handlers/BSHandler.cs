@@ -51,7 +51,7 @@ namespace Factories.Slots.Handlers
             if (GameDevice.WP == device)
                 gameName = element.Attribute("WPId") != null ? element.Attribute("WPId").Value : "";
 
-            return fun.Replace("{GAME}", gameName).Replace("{LANG}", langCode).Replace("{LOBBY}", lobbyPage);
+            return fun.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{LOBBY}", lobbyPage);
         }
 
         protected override string CreateRealUrl(XElement element)
@@ -66,7 +66,7 @@ namespace Factories.Slots.Handlers
             if (GameDevice.WP == device)
                 gameName = element.Attribute("WPId") != null ? element.Attribute("WPId").Value : "";
 
-            return real.Replace("{GAME}", gameName).Replace("{LANG}", langCode).Replace("{TOKEN}", memberSessionId).Replace("{CASHIER}", cashierPage).Replace("{LOBBY}", lobbyPage);
+            return real.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{TOKEN}", memberSessionId).Replace("{CASHIER}", cashierPage).Replace("{LOBBY}", lobbyPage);
         }
     }
 }

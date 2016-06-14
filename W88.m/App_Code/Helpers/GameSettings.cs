@@ -163,5 +163,31 @@ namespace Helpers
             }
         }
 
+        public static string QTFun
+        {
+            get
+            {
+                var settings = new customConfig.OperatorSettings("W88");
+                if (settings == null) return "";
+
+                string url = settings.Values.Get("QTFunUrl");
+
+                return string.IsNullOrEmpty(url) ? "" : url.Replace("{DOMAIN}", commonIp.DomainName);
+            }
+        }
+
+        public static string QTReal
+        {
+            get
+            {
+                var settings = new customConfig.OperatorSettings("W88");
+                if (settings == null) return "";
+
+                string url = settings.Values.Get("QTRealUrl");
+
+                return string.IsNullOrEmpty(url) ? "" : url.Replace("{DOMAIN}", commonIp.DomainName);
+            }
+        }
+
     }
 }

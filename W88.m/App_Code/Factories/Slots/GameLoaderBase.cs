@@ -128,7 +128,7 @@ namespace Factories.Slots
         MGS,
         PNG,
         ISB,
-        QTECH,
+        QT,
         BS,
         CTXM
     }

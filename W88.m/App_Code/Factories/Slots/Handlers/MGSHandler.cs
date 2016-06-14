@@ -76,9 +76,9 @@ namespace Factories.Slots.Handlers
             {
                 string[] languagesCodes = element.Attribute("LanguageCode").Value.Split(',');
 
-                bool isLangSupp = languagesCodes.Contains(langCode, StringComparer.OrdinalIgnoreCase);
+                bool isLangSupp = languagesCodes.Contains(base.langCode, StringComparer.OrdinalIgnoreCase);
 
-                lang = isLangSupp ? langCode : "en";
+                lang = isLangSupp ? base.langCode : "en";
             }
 
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
@@ -96,9 +96,9 @@ namespace Factories.Slots.Handlers
             {
                 string[] languagesCodes = element.Attribute("LanguageCode").Value.Split(',');
 
-                bool isLangSupp = languagesCodes.Contains(langCode, StringComparer.OrdinalIgnoreCase);
+                bool isLangSupp = languagesCodes.Contains(base.langCode, StringComparer.OrdinalIgnoreCase);
 
-                lang = isLangSupp ? langCode : "en";
+                lang = isLangSupp ? base.langCode : "en";
             }
 
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
