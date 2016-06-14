@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Category>
-	<TableCard en-us="Table &amp; Cards Games" zh-cn="卡牌桌面游戏" ko-kr="카드게임 테이블 게임" ja-jp="テーブルゲーム" km-kh="ហ្គេមបៀរ ហ្គេមតុ" th-th="การ์ด เกมส์โต๊ะ" id-id="Game Kartu &amp; Meja" vi-vn="Trò Chơi Bài &amp; Trò Chơi Bàn">
+	<TableCard en-us="Table &amp; Cards Games" zh-cn="卡牌桌面游戏" ko-kr="카드게임 테이블 게임" ja-jp="テーブルゲーム" km-kh="ហ្គេមតុ &amp; ហ្គេមបៀរ" th-th="การ์ด เกมส์โต๊ะ" id-id="Game Kartu &amp; Meja" vi-vn="Trò Chơi Bài &amp; Trò Chơi Bàn">
 		<Game Id="americanRouletteGold">
 			<Image><![CDATA[americanRouletteGold]]></Image>
 			<Title><![CDATA[American Roulette Gold Series]]></Title>

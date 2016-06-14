@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Slots.master" AutoEventWireup="true" CodeFile="ClubDivino.aspx.cs" Inherits="Slots_ClubDivino" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Slots.master" AutoEventWireup="true" CodeFile="ClubDivino2.aspx.cs" Inherits="Slots_ClubDivino2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
@@ -14,6 +14,7 @@
         $(function () {
             w88Mobile.Slots.club = "ClubDivino";
             w88Mobile.Slots.init();
+            w88Mobile.Slots.filterDisplay();
         });
     </script>
 
