@@ -20,10 +20,10 @@
                 <ImageName><![CDATA[W88-Slots-Mobile-Doctor-Love]]></ImageName>
                 <Label><![CDATA[DOCTOR LOVE]]></Label>
             </OGS-doctorlove>
-            <OGS-dolphinreef Top="5">
+            <!--<OGS-dolphinreef Top="5">
                 <ImageName><![CDATA[W88-Slots-Mobile-Dolphin-Reef]]></ImageName>
                 <Label><![CDATA[DOLPHIN REEF]]></Label>
-            </OGS-dolphinreef>
+            </OGS-dolphinreef>-->
             <OGS-geniewild Top="6">
                 <ImageName><![CDATA[W88-Slots-Mobile-Genie-Wild]]></ImageName>
                 <Label><![CDATA[GENIE WILD]]></Label>
