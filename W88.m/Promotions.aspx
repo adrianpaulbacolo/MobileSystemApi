@@ -5,14 +5,21 @@
         var lang = '<%=(string.IsNullOrEmpty(commonVariables.SelectedLanguage) ? "en-us" : commonVariables.SelectedLanguage)%>';
         if (lang == '') { lang = 'en-us'; }
         $(function () {
+            $(window).hashchange(function () {
+                hashOpen();
+            });
+            $(window).hashchange();
             getPromos();
         });
 
-        //$(window).resize(function () { $('.div-promo-row > a > div:last-child > div').css({ maxWidth: ($(window).width() - 100) + 'px' }); });
         function timerV2(pid, start_date, end_date) { if (new Date('<%=System.DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') < new Date(start_date) || new Date('<%=System.DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') > new Date(end_date)) { $('div#' + pid).hide(); } }
         function getPromos() {
             $.get('/AjaxHandlers/Promotion.ashx', function (html) { })
             .done(function (data) {
+                var hash = '';
+                if (location.hash != '') {
+                    hash = location.hash;
+                }
                 data = data.replace(/<img src=/g, '<img rel=');
                 data = data.replace('[domain]', '.' + location.hostname.split('.').slice(-2).join('.'));
                 var listObj = $("#divPromotions").append('<ul class="row row-no-padding row-wrap"></ul>').find('ul');
@@ -21,7 +28,11 @@
                     if (index == promo_length - 1) { return; }
                     var strPromoTitle = $(this).find('div.promotion_title').text();
                     var strPromoContent = $(this).find('div.promotion_content').text();
-                    var strPromoDetail = ($(this).find('div.promotion_detail').html().substr(0, 4) == '<br>' ? $(this).find('div.promotion_detail').html().substring(4) : $(this).find('div.promotion_detail').html()).replace(/<img rel=/g, '<img src=');
+                    var promoDetailHtml = $(this).find('div.promotion_detail').html();
+                    var strPromoDetail;
+                    if (promoDetailHtml != undefined) {
+                        strPromoDetail = promoDetailHtml.substr(0, 4) == '<br>' ? promoDetailHtml.substring(4) : promoDetailHtml.replace(/<img rel=/g, '<img src=');
+                    }
                     var objImage = $(this).find('img')[0];
                     var strImageSrc = null;
                     if (objImage != null) {
@@ -94,23 +105,32 @@
 
                     var divSecond = $('<div />', { class: 'div-promo-second', id: 'div-promo-second' }).append(divJoinButton).append(hrefPromo.append(divPromoTitle));
 
-                    //listObj.append($(liPromo).append($(divPromoWrapper).append($(hrefPromo).append($(divPromoImg).append(imgPromo)).append($('<div />', {}).append(divPromoTitle).append(divPromoContent))).append(divJoinButton)).append(divPromoDetail));
-                    //listObj.append($(liPromo).append($(divPromoWrapper).append($(divPromoImg).append(imgPromo)).append($(hrefPromo).append(divPromoTitle)).append(divJoinButton)).append(divPromoDetail));
                     listObj.append($(liPromo).append($(divPromoWrapper).append($(divPromoImg).append(imgPromo)).append(divSecond)).append(divPromoDetail));
-                    //$('.div-promo-row > a > div:last-child > div').css({ maxWidth: ($(window).width() - 200) + 'px' });
                     $(this).find('script').each(function () { $.globalEval(this.text || this.textContent || this.innerHTML || ''); });
 
                 });
-                if (location.hash != '') {
-                    $(location.hash).next().slideToggle();
-                    var divObj = $(location.hash).find('div')[1];
-                    if ($(divObj).css('background-image').indexOf('arrow-up') > 0) { $(divObj).css('background-image', "url('/_Static/Images/arrow-down.png')"); }
-                    else { $(divObj).css('background-image', "url('/_Static/Images/arrow-up.png')"); }
-                }
+                hashOpen();
             })
-            .always(function (data) { $('#promoLoader').hide(); });
+            .always(function (data) {
+                $('#promoLoader').hide();
+            });
         }
 
+        function hashOpen() {
+            if (location.hash != '') {
+                $(location.hash).next().slideToggle();
+                var divObj = $(location.hash).find('div')[1];
+                if (divObj == undefined) return;
+                if ($(divObj).css('background-image').indexOf('arrow-up') > 0) { $(divObj).css('background-image', "url('/_Static/Images/arrow-down.png')"); }
+                else { $(divObj).css('background-image', "url('/_Static/Images/arrow-up.png')"); }
+
+                setTimeout(function () {
+                    var yPos = $(location.hash).get(0).offsetTop - 45;
+                    if (yPos < 0) yPos = 0;
+                    $.mobile.silentScroll(yPos);
+                }, 800);
+            }
+        }
 
         function OpenPromoDetails(obj) {
             var selected_promo_id = $(obj).parent().parent().attr('id');
@@ -205,6 +225,15 @@
                                 break;
                             case 'ilotto':
                                 taPromoLabel.text('<%=commonCulture.ElementValues.getResourceXPathString("/Products/Lottery/Label", commonVariables.ProductsXML)%> - ' + code);
+                                break;
+                            case 'gallardo':
+                                taPromoLabel.text('<%=commonCulture.ElementValues.getResourceXPathString("/Products/ClubGallardo/Label", commonVariables.ProductsXML)%> - ' + code);
+                                break;
+                            case 'nuovo':
+                                taPromoLabel.text('<%=commonCulture.ElementValues.getResourceXPathString("/Products/ClubNuovo/Label", commonVariables.ProductsXML)%> - ' + code);
+                                break;
+                            case 'apollo':
+                                taPromoLabel.text('<%=commonCulture.ElementValues.getResourceXPathString("/Products/ClubApollo/Label", commonVariables.ProductsXML)%> - ' + code);
                                 break;
 
 

@@ -33,18 +33,17 @@ public partial class _Secure_Register : BasePage
         xeErrors = commonVariables.ErrorsXML;
         System.Xml.Linq.XElement xeResources = null;
         commonCulture.appData.getLocalResource(out xeResources);
-        customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
+        var opSettings = new customConfig.OperatorSettings("W88");
 
-        if (!Page.IsPostBack)
-        {
+        if (Page.IsPostBack) return;
+
             if (string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId")))
             {
-                string affiliateId = HttpContext.Current.Request.QueryString.Get("AffiliateId");
+            var affiliateId = HttpContext.Current.Request.QueryString.Get("AffiliateId");
 
                 if (!string.IsNullOrEmpty(affiliateId))
                 {
                     commonVariables.SetSessionVariable("AffiliateId", affiliateId);
-
                     commonCookie.CookieAffiliateId = affiliateId;
                 }
             }
@@ -82,6 +81,25 @@ public partial class _Secure_Register : BasePage
                 {
                     drpContactCountry.Items.Add(new ListItem(string.Format("+ {0}", Convert.ToString(drPhoneCountryCode["countryPhoneCode"])), Convert.ToString(drPhoneCountryCode["countryPhoneCode"])));
                 }
+
+                if (!string.IsNullOrEmpty(CDNCountryCode))
+                {
+                    System.Data.DataRow[] countrySearchResult = dsCountryInfo.Tables[0].Select("countryCode='" + CDNCountryCode + "'");
+                    if (countrySearchResult.Any())
+                        drpContactCountry.SelectedValue = countrySearchResult[0]["countryPhoneCode"].ToString();
+                }
+                else if (!string.IsNullOrEmpty(commonVariables.GetSessionVariable("countryCode")))
+                {
+                    System.Data.DataRow[] countrySearchResult = dsCountryInfo.Tables[0].Select("countryCode='" + commonVariables.GetSessionVariable("countryCode") + "'");
+                    if (countrySearchResult.Any())
+                        drpContactCountry.SelectedValue = countrySearchResult[0]["countryPhoneCode"].ToString();
+                }
+                else
+                {
+                    System.Data.DataRow[] countrySearchResult = dsCountryInfo.Tables[0].Select("countryCode='" + commonVariables.SelectedLanguageShort + "'");
+                    if (countrySearchResult.Any())
+                        drpContactCountry.SelectedValue = countrySearchResult[0]["countryPhoneCode"].ToString();
+                }
             }
             #endregion
 
@@ -114,8 +132,9 @@ public partial class _Secure_Register : BasePage
             {
                 txtAffiliateID.ReadOnly = true;
             }
+
+           
         }
-    }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
@@ -159,6 +178,7 @@ public partial class _Secure_Register : BasePage
         System.DateTime dtDOB = DateTime.MinValue;
         string strHiddenValues = hidValues.Value;
         List<string> lstValues = null;
+        int affiliateId;
         #endregion
 
         #region populateVariables
@@ -301,7 +321,7 @@ public partial class _Secure_Register : BasePage
         }
 
         strErrorDetail = strAlertMessage;
-        strProcessRemark = string.Format("strAlertMessage: {0} | HiddenValues: {1}", strAlertMessage, strHiddenValues);
+        strProcessRemark = string.Format("strAlertMessage: {0} | HiddenValues: {1} | VCode: {2} | SessionVode: {3} ", strAlertMessage, strHiddenValues, commonEncryption.encrypting(strVCode), strSessionVCode);
 
         intProcessSerialId += 1;
         commonAuditTrail.appendLog("system", strPageName, "ParameterValidation", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
@@ -335,11 +355,11 @@ public partial class _Secure_Register : BasePage
                 }
                 else
                 {
-                    using (wsIP2Loc.ServiceSoapClient wsInstance = new wsIP2Loc.ServiceSoapClient())
-                    {
-                        wsInstance.location(strIPAddress, ref strCountryCode, ref strPermission);
-                    }
+                using (wsIP2Loc.ServiceSoapClient wsInstance = new wsIP2Loc.ServiceSoapClient())
+                {
+                    wsInstance.location(strIPAddress, ref strCountryCode, ref strPermission);
                 }
+            }
             }
 
             switch (strCountryCode.ToUpper())
@@ -376,8 +396,26 @@ public partial class _Secure_Register : BasePage
             string strCity = strCountryCode;
             string strPostal = "000000";
             string strGender = "M";
-            int intAffiliateId = string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId")) ? (string.IsNullOrEmpty(strAffiliateId) ? 0 : Convert.ToInt32(strAffiliateId)) : Convert.ToInt32(commonVariables.GetSessionVariable("AffiliateId"));
-            string strReferBy = string.Empty;
+            //int intAffiliateId = string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId")) ? (string.IsNullOrEmpty(strAffiliateId) ? 0 : Convert.ToInt32(strAffiliateId)) : Convert.ToInt32(commonVariables.GetSessionVariable("AffiliateId"));
+            string AffiliateId;
+            if (string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId")))
+            {
+                AffiliateId = (string.IsNullOrEmpty(strAffiliateId) ? "0" : strAffiliateId);
+            }
+            else 
+                AffiliateId = commonVariables.GetSessionVariable("AffiliateId");
+
+            int intAffiliateId;
+            try
+            {
+                int.TryParse(AffiliateId, out intAffiliateId);
+            }
+            catch
+            {
+                intAffiliateId = 0;
+            }
+
+            var strReferBy = string.Empty;
             string strDeviceId = "Mobile";
 
             System.Data.DataSet dsRegister = null;

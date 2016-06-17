@@ -21,4 +21,10 @@
 		<bank id="VTB"><![CDATA[Vietinbank]]></bank>
 		<bank id="BIDV"><![CDATA[BIDV]]></bank>
 	</VND>
+    <IDR>
+        <bank id="BCA"><![CDATA[Bank Central Asia]]></bank>
+        <bank id="BNI"><![CDATA[Bank Negara Indonesia]]></bank>
+        <bank id="BRI"><![CDATA[Bank Rakyat Indonesia]]></bank>
+        <bank id="MDR"><![CDATA[Mandiri Bank]]></bank>
+    </IDR>
 </banks>

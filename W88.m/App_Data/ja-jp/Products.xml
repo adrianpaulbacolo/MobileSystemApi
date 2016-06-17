@@ -135,15 +135,16 @@
 			<Label><![CDATA[クラブ ガヤルド]]></Label>
 			<Description><![CDATA[]]></Description>
 		</ClubGallardo>
-		<Deposit>
-			<Url><![CDATA[/Deposit/Default.aspx]]></Url>
-		</Deposit>
-		<Withdrawal>
-			<Url><![CDATA[/Withdrawal/Default.aspx]]></Url>
-		</Withdrawal>
-		<FundTransfer>
-			<Url><![CDATA[/FundTransfer/Default.aspx]]></Url>
-		</FundTransfer>
+		<ClubApollo>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[クラブアポロ]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubApollo>
+		<ClubNuovo>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[クラブヌォーボ]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubNuovo>
 	</Products>
 	<Wallets>
 		<main><![CDATA[メイン]]></main>
