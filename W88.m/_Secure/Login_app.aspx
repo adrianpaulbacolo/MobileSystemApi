@@ -170,8 +170,6 @@
             }
         </script>
 
-        <script type="text/javascript" id="iovs_script" src="../_Static/JS/ioBlackBox.js"></script>
-        <script type="text/javascript" src="//ci-mpsnare.iovation.com/snare.js"></script>
         <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 
     </div>
