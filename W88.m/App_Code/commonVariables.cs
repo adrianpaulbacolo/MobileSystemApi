@@ -99,7 +99,13 @@ public class commonVariables
         }
     }
 
-    public static string CurrentMemberSessionId { get { return string.IsNullOrEmpty(System.Web.HttpContext.Current.Session["MemberSessionId"] as string) ? (!string.IsNullOrEmpty(commonCookie.CookieS) ? commonCookie.CookieS : "") : Convert.ToString(System.Web.HttpContext.Current.Session["MemberSessionId"]); } }
+    public static string CurrentMemberSessionId
+    {
+        get
+        {
+            return (!string.IsNullOrEmpty(commonCookie.CookieS)) ? commonCookie.CookieS : "";
+        }
+    }
 
     public static string OperatorId
     {
