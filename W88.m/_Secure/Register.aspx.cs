@@ -467,7 +467,7 @@ public partial class _Secure_Register : BasePage
                             strResultDetail = "OK:MemberRegistrationNew";
 
                             #region IOVATION
-                            this.IovationSubmit(ref intProcessSerialId, strProcessId, strPageName, strMemberCode, strIPAddress, strPermission);
+                            //this.IovationSubmit(ref intProcessSerialId, strProcessId, strPageName, strMemberCode, strIPAddress, strPermission);
                             #endregion
                             break;
 
