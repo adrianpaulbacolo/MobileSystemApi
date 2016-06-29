@@ -42,13 +42,13 @@
                         <i class="icon ion-ios-arrow-right"></i>
                     </a>
                 </li>
-                <li class="item item-icon-left item-icon-right item-border-btm">
+                <%--<li class="item item-icon-left item-icon-right item-border-btm">
                     <a href="/History/ReferralBonus.aspx" data-ajax="false">
                         <i class="icon icon-referral-bonus"></i>
                             <h4 class="title"><%=commonCulture.ElementValues.getResourceString("referralbonus", commonVariables.HistoryXML)%></h4>
                         <i class="icon ion-ios-arrow-right"></i>
                     </a>
-                </li>
+                </li>--%>
                 <li class="item item-icon-left item-icon-right item-border-btm">
                     <a href="/History/PromotionClaim.aspx" data-ajax="false">
                         <i class="icon icon-promo"></i>
