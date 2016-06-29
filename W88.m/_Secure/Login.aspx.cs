@@ -133,11 +133,6 @@ public partial class _Secure_Login : BasePage
             else
             {
                 strRedirect = Request.QueryString.Get("redirect");
-
-                if (string.IsNullOrWhiteSpace(strRedirect))
-                {
-                    UserSession.ClearSession();
-                }
             }
         }
 
