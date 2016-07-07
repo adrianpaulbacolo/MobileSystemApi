@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ReferralBonusResults.aspx.cs" Inherits="History_ReferralBonusResults" %>
+
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
 <!DOCTYPE html>
@@ -21,7 +22,7 @@
         <div class="ui-content" role="main">
 
             <div class="wallet main-wallet">
-                 <uc:Wallet id="uMainWallet" runat="server" />
+                <uc:Wallet id="uMainWallet" runat="server" />
             </div>
 
             <form class="form" id="form1" runat="server" data-ajax="false">
@@ -57,56 +58,56 @@
                         </div>
                         <div class="col">
                             <asp:Label ID="lblTotalReferralBonus" runat="server"></asp:Label>
-            </div>
-                    </li>
-
-                    <br />
-                    <asp:GridView ID="GridView1" runat="server" CssClass="gridHistory table table-striped"
-                          AutoGenerateColumns="False"
-                            AllowSorting="false"
-                            GridLines="None"
-                            CellSpacing="1"
-                        AllowPaging="True" PageSize="10" 
-                        OnPageIndexChanging="GridView1_PageIndexChanging" 
-                        ShowHeaderWhenEmpty="true" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataRowStyle-ForeColor="#dab867" 
-                        OnRowDataBound="GridView1_RowDataBound"
-                        DataKeyNames="status" >
-                            <FooterStyle ForeColor="#dab867"></FooterStyle>
-                        <PagerStyle ForeColor="#dab867" HorizontalAlign="Right"></PagerStyle>
-                            <HeaderStyle ForeColor="#dab867" Font-Bold="True"></HeaderStyle>
-                            <Columns>
-                                <asp:TemplateField HeaderText="#">
-                                    <ItemStyle HorizontalAlign="Center" />
-                                  <ItemTemplate>
-                                    <%# Container.DataItemIndex + 1 %>
-                                  </ItemTemplate>
-                                </asp:TemplateField>
-                            <asp:BoundField DataField="requestDate" SortExpression="requestDate">
-                                     <ItemStyle HorizontalAlign="Center" />
-                                </asp:BoundField>
-                            <asp:BoundField
-                                  DataField="invId" SortExpression="invId">
-                                     <ItemStyle HorizontalAlign="Center" />
-                                </asp:BoundField>
-                            <asp:BoundField
-                                  DataField="requestAmount" SortExpression="requestAmount">
-                                     <ItemStyle HorizontalAlign="Center" />
-                                </asp:BoundField>
-                            <asp:BoundField
-                                  DataField="status" SortExpression="status">
-                                     <ItemStyle HorizontalAlign="Center" />
-                                </asp:BoundField>
-                            </Columns>
-                            <SelectedRowStyle BackColor="#9471DE"></SelectedRowStyle>
-                        </asp:GridView>
-
-                    <li class="item row">
-                <div class="col">
-                    <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
-                </div>
+                        </div>
                     </li>
                 </ul>
+                <br />
+                <div style="overflow: scroll;">
+                    <asp:GridView ID="GridView1" runat="server" CssClass="gridHistory table table-striped"
+                        AutoGenerateColumns="False"
+                        AllowSorting="false"
+                        GridLines="None"
+                        CellSpacing="1"
+                        AllowPaging="True" PageSize="10"
+                        OnPageIndexChanging="GridView1_PageIndexChanging"
+                        ShowHeaderWhenEmpty="true" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataRowStyle-ForeColor="#dab867"
+                        OnRowDataBound="GridView1_RowDataBound"
+                        DataKeyNames="status">
+                        <FooterStyle ForeColor="#dab867"></FooterStyle>
+                        <PagerStyle ForeColor="#dab867" HorizontalAlign="Right"></PagerStyle>
+                        <HeaderStyle ForeColor="#dab867" Font-Bold="True"></HeaderStyle>
+                        <Columns>
+                            <asp:TemplateField HeaderText="#">
+                                <ItemStyle HorizontalAlign="Center" />
+                                <ItemTemplate>
+                                    <%# Container.DataItemIndex + 1 %>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:BoundField DataField="requestDate" SortExpression="requestDate">
+                                <ItemStyle HorizontalAlign="Center" />
+                            </asp:BoundField>
+                            <asp:BoundField
+                                DataField="invId" SortExpression="invId">
+                                <ItemStyle HorizontalAlign="Center" />
+                            </asp:BoundField>
+                            <asp:BoundField
+                                DataField="requestAmount" SortExpression="requestAmount">
+                                <ItemStyle HorizontalAlign="Center" />
+                            </asp:BoundField>
+                            <asp:BoundField
+                                DataField="status" SortExpression="status">
+                                <ItemStyle HorizontalAlign="Center" />
+                            </asp:BoundField>
+                        </Columns>
+                        <SelectedRowStyle BackColor="#9471DE"></SelectedRowStyle>
+                    </asp:GridView>
+                </div>
             </form>
+            <div class="item row">
+                <div class="col">
+                    <a href="/History" role="button" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
+                </div>
+            </div>
         </div>
         <!-- /content -->
         <!--#include virtual="~/_static/navMenu.shtml" -->
