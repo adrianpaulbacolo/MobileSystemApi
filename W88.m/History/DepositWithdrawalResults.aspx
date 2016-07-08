@@ -87,7 +87,7 @@
             </form>
             <div class="item row">
                 <div class="col">
-                    <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
+                    <a href="/History" role="button" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
                 </div>
             </div>
         </div>
