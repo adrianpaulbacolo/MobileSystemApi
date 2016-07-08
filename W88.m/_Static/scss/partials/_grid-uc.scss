@@ -6,6 +6,14 @@
 		flex: 0 1 auto !important;
 		height: 112px;
 	}
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
 }
 
 .row-dashboard{
