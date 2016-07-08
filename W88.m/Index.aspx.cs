@@ -45,8 +45,6 @@ public partial class _Index : BasePage
     {
         System.Web.UI.WebControls.Literal litScript = (System.Web.UI.WebControls.Literal)Page.FindControl("litScript");
 
-        if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("lang"))) { commonVariables.SelectedLanguage = HttpContext.Current.Request.QueryString.Get("lang"); }
-
         xeErrors = commonVariables.ErrorsXML;
 
         System.Xml.Linq.XElement xeResources = null;

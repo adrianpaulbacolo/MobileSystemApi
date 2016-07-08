@@ -35,6 +35,7 @@ public class BasePage : System.Web.UI.Page
         if (!string.IsNullOrEmpty(strLanguage))
         {
             commonVariables.SelectedLanguage = strLanguage;
+            Response.Redirect(Request.Url.LocalPath);
         }
 
         if (!this.isPublic)
