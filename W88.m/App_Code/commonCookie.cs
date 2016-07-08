@@ -19,9 +19,23 @@ public static class commonCookie
         set
         {
             HttpCookie cookie = new HttpCookie("s");
+
             cookie.Value = value;
-            if (!string.IsNullOrEmpty(commonIp.DomainName)) { cookie.Domain = commonIp.DomainName; }
-            HttpContext.Current.Response.Cookies.Add(cookie);
+            cookie.Expires = DateTime.Now.AddDays(1);
+
+            if (!string.IsNullOrEmpty(commonIp.DomainName))
+            {
+                cookie.Domain = commonIp.DomainName;
+            }
+
+            if (cookie != null)
+            {
+                HttpContext.Current.Response.Cookies.Set(cookie);
+            }
+            else
+            {
+                HttpContext.Current.Response.Cookies.Add(cookie);
+            }
         }
     }
 
@@ -38,9 +52,23 @@ public static class commonCookie
         set
         {
             HttpCookie cookie = new HttpCookie("g");
+
             cookie.Value = value;
-            if (!string.IsNullOrEmpty(commonIp.DomainName)) { cookie.Domain = commonIp.DomainName; }
-            HttpContext.Current.Response.Cookies.Add(cookie);
+            cookie.Expires = DateTime.Now.AddDays(1);
+
+            if (!string.IsNullOrEmpty(commonIp.DomainName))
+            {
+                cookie.Domain = commonIp.DomainName;
+            }
+
+            if (cookie != null)
+            {
+                HttpContext.Current.Response.Cookies.Set(cookie);
+            }
+            else
+            {
+                HttpContext.Current.Response.Cookies.Add(cookie);
+            }
         }
     }
 
@@ -127,12 +155,26 @@ public static class commonCookie
     {
         commonVariables.ClearSessionVariables();
 
-        System.Web.HttpContext.Current.Response.Cookies["s"].Domain = commonIp.DomainName;
-        System.Web.HttpContext.Current.Response.Cookies["s"].Value = "";
-        System.Web.HttpContext.Current.Response.Cookies["s"].Expires = DateTime.Now.AddYears(-1);
-        System.Web.HttpContext.Current.Response.Cookies["g"].Domain = commonIp.DomainName;
-        System.Web.HttpContext.Current.Response.Cookies["g"].Value = "";
-        System.Web.HttpContext.Current.Response.Cookies["g"].Expires = DateTime.Now.AddYears(-1);
+        HttpCookie s = HttpContext.Current.Request.Cookies["s"];
+        HttpContext.Current.Response.Cookies.Remove("s");
 
+        if (s != null)
+        {
+            s.Expires = DateTime.Now.AddYears(-1);
+            s.Value = null;
+            s.Domain = commonIp.DomainName;
+            HttpContext.Current.Response.SetCookie(s);
+        }
+
+        HttpCookie g = HttpContext.Current.Request.Cookies["g"];
+        HttpContext.Current.Response.Cookies.Remove("g");
+
+        if (g != null)
+        {
+            g.Expires = DateTime.Now.AddYears(-1);
+            g.Value = null;
+            g.Domain = commonIp.DomainName;
+            HttpContext.Current.Response.SetCookie(g);
+        }
     }
 }
