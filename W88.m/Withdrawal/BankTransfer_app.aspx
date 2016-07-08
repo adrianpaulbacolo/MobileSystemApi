@@ -126,6 +126,10 @@
             $(function () {
                 window.history.forward();
 
+                if ($('#withdrawalTabs li').length == 0) {
+                    window.location.reload();
+                }
+
                 <% if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "myr", true) == 0)
                    { %>
                 $('#txtMyKad').mask('999999-99-9999');
