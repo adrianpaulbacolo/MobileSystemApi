@@ -59,15 +59,23 @@ public class commonVariables
     {
         get
         {
-            var defaultLang = rxDomains_CN.IsMatch(HttpContext.Current.Request.ServerVariables["SERVER_NAME"]) ? "zh-cn" : "en-us";
-
-            return string.IsNullOrEmpty(System.Web.HttpContext.Current.Session["SelectedLanguage"] as string) ?
-                (!string.IsNullOrEmpty(commonCookie.CookieLanguage) ? commonCookie.CookieLanguage : defaultLang) :
-                Convert.ToString(System.Web.HttpContext.Current.Session["SelectedLanguage"]);
+            if (!string.IsNullOrEmpty(commonCookie.CookieLanguage))
+            {
+                return commonCookie.CookieLanguage;
+            }
+            else if (!string.IsNullOrWhiteSpace(System.Web.HttpContext.Current.Session["SelectedLanguage"] as string))
+            {
+                return Convert.ToString(System.Web.HttpContext.Current.Session["SelectedLanguage"]);
+            }
+            else
+            {
+                return rxDomains_CN.IsMatch(HttpContext.Current.Request.ServerVariables["SERVER_NAME"]) ? "zh-cn" : "en-us";
+            }
         }
         set
         {
-            commonCookie.CookieLanguage = value; commonVariables.SetSessionVariable("SelectedLanguage", value);
+            commonCookie.CookieLanguage = value; 
+            commonVariables.SetSessionVariable("SelectedLanguage", value);
         }
     }
 
@@ -99,7 +107,13 @@ public class commonVariables
         }
     }
 
-    public static string CurrentMemberSessionId { get { return string.IsNullOrEmpty(System.Web.HttpContext.Current.Session["MemberSessionId"] as string) ? (!string.IsNullOrEmpty(commonCookie.CookieS) ? commonCookie.CookieS : "") : Convert.ToString(System.Web.HttpContext.Current.Session["MemberSessionId"]); } }
+    public static string CurrentMemberSessionId
+    {
+        get
+        {
+            return (!string.IsNullOrEmpty(commonCookie.CookieS)) ? commonCookie.CookieS : "";
+        }
+    }
 
     public static string OperatorId
     {

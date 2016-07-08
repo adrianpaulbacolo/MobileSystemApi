@@ -18,6 +18,8 @@ public partial class _Index : BasePage
         string CDN_Value = getCDNValue();
         string key = getCDNKey();
 
+        if (!string.IsNullOrWhiteSpace(commonVariables.SelectedLanguage)) return;
+
         if (!string.IsNullOrEmpty(CDN_Value) && !string.IsNullOrEmpty(key))
         {
             commonVariables.SelectedLanguage = commonCountry.GetLanguageByCountry(GetCountryCode(CDN_Value, key));
@@ -37,7 +39,6 @@ public partial class _Index : BasePage
             }
 
         }
-
     }
 
     protected void Page_Load(object sender, EventArgs e)
