@@ -1,0 +1,20 @@
+.row-uc{
+	flex-wrap: nowrap !important;
+	display: block;
+	.col{
+		display: block;
+		flex: 0 1 auto !important;
+		height: 112px;
+	}
+}
+
+.row-dashboard{
+	.col{
+		float: left;
+		height: 112px;
+	}
+}
+
+.banner-lists .col {
+    height: auto;
+}
