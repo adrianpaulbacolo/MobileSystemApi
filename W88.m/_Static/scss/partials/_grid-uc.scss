@@ -4,7 +4,6 @@
 	.col{
 		display: block;
 		flex: 0 1 auto !important;
-		height: 112px;
 	}
 	&:before,
 	&:after {
@@ -25,4 +24,8 @@
 
 .banner-lists .col {
     height: auto;
+}
+#sports .col{
+	height: auto;
+	float:left;
 }
