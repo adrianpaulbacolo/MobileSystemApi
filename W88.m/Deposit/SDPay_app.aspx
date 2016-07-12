@@ -87,6 +87,10 @@
             $(function () {
                 window.history.forward();
 
+                if ($('#depositTabs li').length == 0) {
+                    window.location.reload();
+                }
+
                 var responseCode = '<%=strAlertCode%>';
                 var responseMsg = '<%=strAlertMessage%>';
                 if (responseCode.length > 0) {

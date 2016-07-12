@@ -91,6 +91,11 @@
             });
             $(function () {
                 window.history.forward();
+
+                if ($('#depositTabs li').length == 0) {
+                    window.location.reload();
+                }
+
             });
         </script>
     </div>
