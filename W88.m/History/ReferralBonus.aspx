@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ReferralBonus.aspx.cs" Inherits="History_ReferralBonus" %>
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
+<%@ Register Src="~/UserControls/AppFooterMenu.ascx" TagPrefix="uc" TagName="AppFooterMenu" %>
+
 
 <!DOCTYPE html>
 
@@ -36,13 +38,16 @@
                         <asp:TextBox ID="txtDateTo" type="date" runat="server"></asp:TextBox>
                     </li>
                     <li class="item row">
-                        <div class="col">
+                        <div class="col" id="NonAppMenu">
                             <a href="/History" role="button" class="ui-btn btn-bordered" ID="btnCancel" runat="server" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
                         </div>
                         <div class="col">
                             <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" OnClick="btnSubmit_Click" />
                         </div>
                     </li>
+                    
+                    <uc:AppFooterMenu runat="server" ID="AppFooterMenu" />
+
                 </ul>
             </form>
         </div>

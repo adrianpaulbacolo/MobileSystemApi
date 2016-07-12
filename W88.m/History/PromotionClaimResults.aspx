@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="PromotionClaimResults.aspx.cs" Inherits="History_PromotionClaimResults" %>
 
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
+<%@ Register Src="~/UserControls/AppFooterMenu.ascx" TagPrefix="uc" TagName="AppFooterMenu" %>
+
 
 <!DOCTYPE html>
 
@@ -64,7 +66,10 @@
                     </asp:GridView>
                 </div>
             </form>
-            <div class="item row">
+            
+            <uc:AppFooterMenu runat="server" ID="AppFooterMenu" />
+            
+            <div class="item row" id="NonAppMenu">
                 <div class="col">
                     <a href="/History" role="button" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
                 </div>

@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="WingMoney.aspx.cs" Inherits="Deposit_WingMoney" %>
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
+<%@ Register TagPrefix="uc" TagName="AppFooterMenu" Src="~/UserControls/AppFooterMenu.ascx" %>
 
 <!DOCTYPE html>
 <html>
@@ -71,14 +72,7 @@
                     </li>
                 </ul>
 
-                <div class="row">
-                    <div class="col">
-                        <input type="button" data-theme="b" onclick="location.href = '/Withdrawal/Default_app.aspx';" value="<%=commonCulture.ElementValues.getResourceString("withrawal", commonVariables.LeftMenuXML)%>" class="button-blue" data-corners="false" />
-                    </div>
-                    <div class="col">
-                        <input type="button" data-theme="b" onclick="location.href = '/FundTransfer/FundTransfer.aspx';" value="<%=commonCulture.ElementValues.getResourceString("fundTransfer", commonVariables.LeftMenuXML)%>" class="button-blue" data-corners="false" />
-                    </div>
-                </div>
+                <uc:AppFooterMenu runat="server" ID="AppFooterMenu" />
 
             </form>
         </div>

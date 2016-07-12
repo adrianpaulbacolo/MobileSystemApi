@@ -32,10 +32,12 @@ public partial class _Secure_Login : BasePage
         XElement xeResources = null;
         commonCulture.appData.getLocalResource(out xeResources);
 
+        commonCookie.CookieIsApp = null;
         if (!string.IsNullOrEmpty(Request.QueryString.Get("token")))
         {
             try
             {
+                commonCookie.CookieIsApp = "1";
                 var cipherKey = commonEncryption.Decrypt(ConfigurationManager.AppSettings.Get("PrivateKeyToken"));
                 string strSessionId = commonEncryption.decryptToken(Request.QueryString.Get("token"), cipherKey);
                 commonVariables.SetSessionVariable("MemberSessionId", strSessionId);

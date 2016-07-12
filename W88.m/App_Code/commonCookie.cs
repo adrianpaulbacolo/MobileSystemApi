@@ -149,6 +149,35 @@ public static class commonCookie
             }
         }
     }
+    public static string CookieIsApp
+    {
+        get
+        {
+            HttpCookie cookie = HttpContext.Current.Request.Cookies.Get("IsApp");
+            return cookie == null ? "" : cookie.Value;
+        }
+        set
+        {
+            if (value != null)
+            {
+                HttpCookie cookie = new HttpCookie("IsApp");
+                cookie.Value = value;
+                if (!string.IsNullOrEmpty(commonIp.DomainName)) { cookie.Domain = commonIp.DomainName; }
+                HttpContext.Current.Response.Cookies.Set(cookie);    
+            }
+            else
+            {
+                var httpCookie = HttpContext.Current.Request.Cookies["IsApp"];
+                if (httpCookie != null)
+                {
+                    HttpCookie cookie = new HttpCookie("IsApp");
+                    cookie.Value = "";
+                    cookie.Expires = DateTime.Now.AddYears(-1);
+                    HttpContext.Current.Response.Cookies.Add(cookie);   
+                }
+            }
+        }
+    }
 
 
     public static void ClearCookies()
