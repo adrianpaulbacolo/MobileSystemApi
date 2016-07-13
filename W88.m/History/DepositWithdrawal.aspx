@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DepositWithdrawal.aspx.cs" Inherits="History_DepositWithdrawal" %>
 
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
+<%@ Register Src="~/UserControls/AppFooterMenu.ascx" TagPrefix="uc" TagName="AppFooterMenu" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -43,14 +45,16 @@
                         <asp:Label ID="lblStatus" runat="server" AssociatedControlID="ddlStatus" />
                         <asp:DropDownList ID="ddlStatus" runat="server" data-corners="false" />
                     </li>
-                    <li class="item row">
-                        <div class="col">
+                    <li class="item row" >
+                        <div class="col" id="NonAppMenu">
                             <a href="/History" role="button" class="ui-btn btn-bordered" id="btnCancel" runat="server" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
                         </div>
                         <div class="col">
                             <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" OnClick="btnSubmit_Click" />
                         </div>
                     </li>
+                    
+                    <uc:AppFooterMenu runat="server" ID="AppFooterMenu" />
                 </ul>
             </form>
         </div>

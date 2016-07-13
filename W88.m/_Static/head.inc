@@ -30,3 +30,4 @@
     w88Mobile.Growl.options.close = '<%=commonCulture.ElementValues.getResourceString("close", commonVariables.LeftMenuXML)%>';
   }
 </script>
+<script type="text/javascript" src="/_Static/JS/modules/hideMenu.js"></script>

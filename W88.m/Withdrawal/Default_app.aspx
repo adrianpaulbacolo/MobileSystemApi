@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Withdrawal_Default" %>
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
+<%@ Register TagPrefix="uc" TagName="AppFooterMenu" Src="~/UserControls/AppFooterMenu.ascx" %>
 
 <!DOCTYPE html>
 <html>
@@ -34,6 +35,9 @@
                     <p id="paymentNote">
                     </p>
                 </div>
+                
+                <uc:AppFooterMenu runat="server" id="AppFooterMenu" />
+
             </form>
         </div>
 

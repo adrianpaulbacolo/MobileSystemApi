@@ -1,5 +1,12 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="BofoPay.aspx.cs" Inherits="Deposit_BofoPay" %>
 
+<%@ Register Src="~/UserControls/MainWalletBalance.ascx" TagPrefix="uc1" TagName="MainWalletBalance" %>
+<%@ Register Src="~/UserControls/AppFooterMenu.ascx" TagPrefix="uc1" TagName="AppFooterMenu" %>
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,9 +22,7 @@
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <label class="label"><%=commonCulture.ElementValues.getResourceString("mainWallet", commonVariables.LeftMenuXML)%></label>
-                <h2 class="value"><%=Session["Main"].ToString()%></h2>
-                <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
+                <uc1:MainWalletBalance runat="server" ID="MainWalletBalance" />
             </div>
 
             <div data-role="navbar">
@@ -71,14 +76,7 @@
                     </li>
                 </ul>
 
-                <div class="row">
-                    <div class="col">
-                        <input type="button" data-theme="b" onclick="location.href = '/Withdrawal/Default_app.aspx';" value="<%=commonCulture.ElementValues.getResourceString("withrawal", commonVariables.LeftMenuXML)%>" class="button-blue" data-corners="false" />
-                    </div>
-                    <div class="col">
-                        <input type="button" data-theme="b" onclick="location.href = '/FundTransfer/FundTransfer.aspx';" value="<%=commonCulture.ElementValues.getResourceString("fundTransfer", commonVariables.LeftMenuXML)%>" class="button-blue" data-corners="false" />
-                    </div>
-                </div>
+                <uc1:AppFooterMenu runat="server" id="AppFooterMenu" />
 
             </form>
         </div>

@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Neteller.aspx.cs" Inherits="Deposit_Neteller" %>
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
+<%@ Register TagPrefix="uc" TagName="AppFooterMenu" Src="~/UserControls/AppFooterMenu.ascx" %>
 
 <!DOCTYPE html>
 <html>
@@ -68,22 +69,13 @@
                     </li>
                     <li class="item row">
                         <div class="col">
-                            <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" id="btnCancel" runat="server" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
-                        </div>
-                        <div class="col">
                             <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" />
                         </div>
                     </li>
                 </ul>
 
-                <div class="row">
-                    <div class="col">
-                        <input type="button" data-theme="b" onclick="location.href = '/Withdrawal/Default_app.aspx';" value="<%=commonCulture.ElementValues.getResourceString("withrawal", commonVariables.LeftMenuXML)%>" class="button-blue" data-corners="false" />
-                    </div>
-                    <div class="col">
-                        <input type="button" data-theme="b" onclick="location.href = '/FundTransfer/FundTransfer.aspx';" value="<%=commonCulture.ElementValues.getResourceString("fundTransfer", commonVariables.LeftMenuXML)%>" class="button-blue" data-corners="false" />
-                    </div>
-                </div>
+                <uc:AppFooterMenu runat="server" ID="AppFooterMenu" />
+
             </form>
         </div>
 
@@ -107,7 +99,7 @@
                             break;
                         case '0':
                             alert(responseMsg);
-                            window.location.replace('/FundTransfer/FundTransfer.aspx');
+                            window.location.replace('/FundTransfer/Default_app.aspx');
                             break;
                         default:
                             break;

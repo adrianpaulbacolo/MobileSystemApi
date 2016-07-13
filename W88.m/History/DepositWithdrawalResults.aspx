@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DepositWithdrawalResults.aspx.cs" Inherits="History_DepositWithdrawalResults" %>
 
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
+<%@ Register TagPrefix="uc" TagName="AppFooterMenu" Src="~/UserControls/AppFooterMenu.ascx" %>
 
 <!DOCTYPE html>
 
@@ -84,12 +85,15 @@
                         <SelectedRowStyle BackColor="#9471DE"></SelectedRowStyle>
                     </asp:GridView>
                 </div>
-            </form>
-            <div class="item row">
-                <div class="col">
-                    <a href="/History" role="button" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
+                
+                <uc:AppFooterMenu runat="server" ID="AppFooterMenu" />
+           
+                <div class="item row" id="NonAppMenu">
+                    <div class="col">
+                        <a href="/History" role="button" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
+                    </div>
                 </div>
-            </div>
+           </form>
         </div>
         <!-- /content -->
         <!--#include virtual="~/_static/navMenu.shtml" -->
