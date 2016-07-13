@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="ui-content" role="main" >
-            <ul class="row banner-lists banner-odd-even">
+            <ul class="row banner-lists banner-odd-even row-uc">
                 <li class="col">
                     <figure class="banner">
                         <img src="_Static/Images/sports/a-sports-banner.jpg" class="img-responsive img-bg">

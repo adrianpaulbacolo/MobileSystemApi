@@ -8842,6 +8842,29 @@ sub {
   .tiles > .col:nth-of-type(odd), .nav-menu .sub-menu .tiles > li:nth-of-type(odd) {
     background-color: #292a2a; }
 
+.row-uc {
+  flex-wrap: nowrap !important;
+  display: block; }
+  .row-uc .col, .row-uc .nav-menu .sub-menu li, .nav-menu .sub-menu .row-uc li {
+    display: block;
+    flex: 0 1 auto !important; }
+  .row-uc:before, .row-uc:after {
+    content: " ";
+    display: table; }
+  .row-uc:after {
+    clear: both; }
+
+.row-dashboard .col, .row-dashboard .nav-menu .sub-menu li, .nav-menu .sub-menu .row-dashboard li {
+  float: left;
+  height: 112px; }
+
+.banner-lists .col, .banner-lists .nav-menu .sub-menu li, .nav-menu .sub-menu .banner-lists li {
+  height: auto; }
+
+#sports .col, #sports .nav-menu .sub-menu li, .nav-menu .sub-menu #sports li {
+  height: auto;
+  float: left; }
+
 [class^="ui-icon-"]:after, [class*=" ui-icon-"]:after,
 [class^="ui-btn-icon-"]:after, [class*=" ui-btn-icon-"]:after {
   font: 1.5em "ionicons";
@@ -11043,7 +11066,9 @@ figure {
   min-width: 100px; }
 #divPromotions .div-promo-img {
   max-height: 250px;
-  overflow: hidden; }
+  overflow: hidden;
+  padding-bottom: 20.8%;
+  height: 0; }
   #divPromotions .div-promo-img > img {
     display: block;
     max-width: 100%;
@@ -11164,3 +11189,5 @@ figure {
     max-width: 767px;
     margin-left: auto;
     margin-right: auto; } }
+
+/*# sourceMappingURL=style.css.map */

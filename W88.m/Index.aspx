@@ -49,7 +49,7 @@
         <% } %>
 
 
-            <ul class="row row-bordered bg-gradient">
+            <ul class="row row-bordered bg-gradient row-uc row-dashboard">
 
                 <li class="col col-33 product">
                     <a href="Sports.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower() %>" class="tile" data-ajax="false" data-transition="slidedown">

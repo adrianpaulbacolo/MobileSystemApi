@@ -1,0 +1,31 @@
+.row-uc{
+	flex-wrap: nowrap !important;
+	display: block;
+	.col{
+		display: block;
+		flex: 0 1 auto !important;
+	}
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+.row-dashboard{
+	.col{
+		float: left;
+		height: 112px;
+	}
+}
+
+.banner-lists .col {
+    height: auto;
+}
+#sports .col{
+	height: auto;
+	float:left;
+}
