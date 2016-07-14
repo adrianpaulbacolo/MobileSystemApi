@@ -292,12 +292,12 @@
                     e.preventDefault();
                     return;
                 }
-                else if ($('#txtCaptcha').val().trim().length == 0) {
+                <%--else if ($('#txtCaptcha').val().trim().length == 0) {
                     alert('<%=commonCulture.ElementValues.getResourceString("MissingVCode", xeErrors)%>');
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
                     return;
-                }
+                }--%>
                 else if ($('#drpCurrency').val() == '-1') {
                     alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/MissingCurrency", xeErrors)%>');
                     $('#btnSubmit').attr("disabled", false);
