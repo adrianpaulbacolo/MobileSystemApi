@@ -57,8 +57,8 @@ public partial class Withdrawal_WingMoney : PaymentBasePage
         string strAccountNumber = txtAccountNumber.Text;
 
         decimal decWithdrawalAmount = commonValidation.isDecimal(strWithdrawalAmount) ? Convert.ToDecimal(strWithdrawalAmount) : 0;
-        decimal decMinLimit = Convert.ToDecimal(strMinLimit);
-        decimal decMaxLimit = Convert.ToDecimal(strMaxLimit);
+        decimal decMinLimit = commonValidation.isDecimal(strMinLimit) ? Convert.ToDecimal(strMinLimit) : 0;
+        decimal decMaxLimit = commonValidation.isDecimal(strMaxLimit) ? Convert.ToDecimal(strMaxLimit) : 0;
 
         #region initialiseWithdrawal
         if (!isProcessAbort)
