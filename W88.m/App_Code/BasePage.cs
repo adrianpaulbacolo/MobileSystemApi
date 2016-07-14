@@ -35,6 +35,7 @@ public class BasePage : System.Web.UI.Page
         if (!string.IsNullOrEmpty(strLanguage))
         {
             commonVariables.SelectedLanguage = strLanguage;
+
             var queryString = HttpUtility.ParseQueryString(Request.Url.Query);
             queryString.Remove("lang");
 
