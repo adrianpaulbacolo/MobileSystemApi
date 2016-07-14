@@ -31,3 +31,4 @@
   }
 </script>
 <script type="text/javascript" src="/_Static/JS/modules/hideMenu.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/fundtransfer.js"></script>

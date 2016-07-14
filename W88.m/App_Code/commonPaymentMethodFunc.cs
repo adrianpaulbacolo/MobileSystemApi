@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Globalization;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
@@ -24,6 +25,15 @@ public static class commonPaymentMethodFunc
             string strProductCurrency;
             var value = svcInstance.getWalletBalance(commonVariables.OperatorId, commonVariables.SiteUrl, memberCode, Convert.ToString(walletId), out strProductCurrency);
             HttpContext.Current.Session["Main"] = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", value);
+        }
+    }
+
+    public static Task<string> GetWalletBalancesAsync()
+    {
+        using (var svcInstance = new MemberClient())
+        {
+            var memberCode = commonVariables.GetSessionVariable("MemberCode");
+            return svcInstance.getBalancesAsync(commonVariables.OperatorId, commonVariables.SiteUrl, memberCode);
         }
     }
 
