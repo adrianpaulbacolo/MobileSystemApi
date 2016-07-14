@@ -18,7 +18,7 @@ public partial class _Index : BasePage
         string CDN_Value = getCDNValue();
         string key = getCDNKey();
 
-        if (!string.IsNullOrWhiteSpace(commonVariables.SelectedLanguage)) return;
+        if (!string.IsNullOrWhiteSpace(commonCookie.CookieLanguage)) return;
 
         if (!string.IsNullOrEmpty(CDN_Value) && !string.IsNullOrEmpty(key))
         {
