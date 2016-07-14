@@ -98,12 +98,12 @@
                         <asp:Label ID="lblAffiliateID" runat="server" AssociatedControlID="txtAffiliateID" />
                         <asp:TextBox ID="txtAffiliateID" runat="server" data-mini="true" type="number" />
                     </li>
-                    <li class="item item-icon-left item-input">
+                   <%-- <li class="item item-icon-left item-input">
                         <i class="icon icon-security"></i>
                         <asp:Label ID="lblCaptcha" runat="server" AssociatedControlID="txtCaptcha" Text="code" />
                         <asp:Image ID="imgCaptcha" runat="server" ImageUrl="/Captcha" CssClass="imgCaptcha" />
                         <asp:TextBox ID="txtCaptcha" runat="server" MaxLength="4" type="tel" data-mini="true" data-clear-btn="true" />
-                    </li>
+                    </li>--%>
                     <li class="item-checkbox item-text-wrap">
                         <label id="lblDisclaimer" runat="server">I agree</label>
                         <a id="btnTermsConditionsLink" runat="server" href="https://info.w88live.com/termofuse_en.shtml" data-ajax="false" target="_blank"></a>
