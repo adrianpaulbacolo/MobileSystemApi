@@ -10,7 +10,7 @@
             </div>
             <div class="downloadmsg">
                 <span runat="server" id="spanMsg"></span>
-                <a href="#" runat="server" rel="CW" data-ajax="false" id="sDownload"></a>
+                <a href="#" runat="server" target="_blank" rel="CW" data-ajax="false" id="sDownload"></a>
             </div>
         </div>
     </div>
