@@ -83,4 +83,9 @@
 	<secureId><![CDATA[Neteller 密码]]></secureId>
 
 	<copy><![CDATA[复制]]></copy>
+
+    <w88Android><![CDATA[W88安卓客户端]]></w88Android>
+    <w88AndroidDesc><![CDATA[体育，真人娱乐城，老虎机，快乐彩四合一]]></w88AndroidDesc>
+    <NoThanks><![CDATA[暂不下载]]></NoThanks>
+    <DownloadNow><![CDATA[立即下载]]></DownloadNow>
 </menu>
