@@ -63,7 +63,7 @@ public partial class _Secure_Register : BasePage
             lblContact.Text = commonCulture.ElementValues.getResourceString("lblContact", xeResources);
             lblCurrency.Text = commonCulture.ElementValues.getResourceString("lblCurrency", xeResources);
             lblAffiliateID.Text = commonCulture.ElementValues.getResourceString("lblAffiliateID", xeResources);
-            lblCaptcha.Text = commonCulture.ElementValues.getResourceString("lblCaptcha", xeResources);
+            //blCaptcha.Text = commonCulture.ElementValues.getResourceString("lblCaptcha", xeResources);
             btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
             btnCancel.InnerText = commonCulture.ElementValues.getResourceString("btnCancel", xeResources);
 
@@ -168,8 +168,6 @@ public partial class _Secure_Register : BasePage
         string strLanguageCode = string.Empty;
         string strIPAddress = string.Empty;
         string strSignUpUrl = string.Empty;
-        string strVCode = string.Empty;
-        string strSessionVCode = string.Empty;
         string strPermission = string.Empty;
         string strContactNumber = string.Empty;
         string strAffiliateId = string.Empty;
@@ -192,8 +190,6 @@ public partial class _Secure_Register : BasePage
         strFName = System.Text.RegularExpressions.Regex.Replace(txtName.Text, @"\t|\n|\r|", "");
         strLName = string.Empty; //System.Text.RegularExpressions.Regex.Replace(txtLastName.Text, @"\t|\n|\r|", "");
         strDOB = string.Format("{0}-{1}-{2}", drpYear.SelectedValue, drpMonth.SelectedValue, drpDay.SelectedValue);
-        strVCode = txtCaptcha.Text;
-        strSessionVCode = commonVariables.GetSessionVariable("vCode");
         strAlertCode = "-1";
         strContactNumber = string.Format("{0}-{1}", drpContactCountry.SelectedValue, strContact);
         strAffiliateId = txtAffiliateID.Text;
@@ -205,8 +201,6 @@ public partial class _Secure_Register : BasePage
 
         strResultCode = "11";
         strResultDetail = "Error:ParameterValidation";
-
-        txtCaptcha.Text = string.Empty;
 
         if (string.IsNullOrEmpty(strMemberCode))
         {
@@ -254,12 +248,6 @@ public partial class _Secure_Register : BasePage
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/MissingName", xeErrors);
             isProcessAbort = true;
         }
-        else if (string.IsNullOrEmpty(strVCode))
-        {
-            strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/MissingVCode", xeErrors);
-            isProcessAbort = true;
-        }
-
         else if (commonValidation.isInjection(strMemberCode) || strMemberCode.IndexOf(' ') >= 0 || !commonValidation.isAlphanumeric(strMemberCode) || strMemberCode.Length < 5 || strMemberCode.Length > 16)
         {
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/InvalidUsername", xeErrors);
@@ -295,20 +283,9 @@ public partial class _Secure_Register : BasePage
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/InvalidLName", xeErrors);
             isProcessAbort = true;
         }
-        else if (commonValidation.isInjection(strVCode))
-        {
-            strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/InvalidVCode", xeErrors);
-            isProcessAbort = true;
-        }
-
         else if (!DateTime.TryParse(strDOB, out dtDOB))
         {
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/InvalidDOB", xeErrors);
-            isProcessAbort = true;
-        }
-        else if (string.Compare(commonEncryption.encrypting(strVCode), strSessionVCode, true) != 0)
-        {
-            strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/IncorrectVCode", xeErrors);
             isProcessAbort = true;
         }
         else
@@ -321,7 +298,7 @@ public partial class _Secure_Register : BasePage
         }
 
         strErrorDetail = strAlertMessage;
-        strProcessRemark = string.Format("strAlertMessage: {0} | HiddenValues: {1} | VCode: {2} | SessionVode: {3} ", strAlertMessage, strHiddenValues, commonEncryption.encrypting(strVCode), strSessionVCode);
+        strProcessRemark = string.Format("strAlertMessage: {0} | HiddenValues: {1} ", strAlertMessage, strHiddenValues);
 
         intProcessSerialId += 1;
         commonAuditTrail.appendLog("system", strPageName, "ParameterValidation", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
@@ -467,7 +444,7 @@ public partial class _Secure_Register : BasePage
                             strResultDetail = "OK:MemberRegistrationNew";
 
                             #region IOVATION
-                            this.IovationSubmit(ref intProcessSerialId, strProcessId, strPageName, strMemberCode, strIPAddress, strPermission);
+                            //this.IovationSubmit(ref intProcessSerialId, strProcessId, strPageName, strMemberCode, strIPAddress, strPermission);
                             #endregion
                             break;
 

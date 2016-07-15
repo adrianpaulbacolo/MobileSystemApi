@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="FundTransfer.aspx.cs" Inherits="History_FundTransfer" %>
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
+<%@ Register Src="~/UserControls/AppFooterMenu.ascx" TagPrefix="uc" TagName="AppFooterMenu" %>
+
 
 <!DOCTYPE html>
 
@@ -44,13 +46,16 @@
                         <asp:DropDownList ID="ddlStatus" runat="server" data-corners="false" />
                     </li>
                     <li class="item row">
-                        <div class="col">
-                            <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" id="btnCancel" runat="server" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
+                        <div class="col" id="NonAppMenu">
+                            <a href="/History" role="button" class="ui-btn btn-bordered" id="btnCancel" runat="server" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
                         </div>
                         <div class="col">
                             <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" OnClick="btnSubmit_Click" />
                         </div>
                     </li>
+                    
+                    <uc:AppFooterMenu runat="server" ID="AppFooterMenu" />
+
                 </ul>
             </form>
         </div>

@@ -85,17 +85,17 @@
                     </a>
                 </li>
                 <li>
-                    <a class="card" data-rel="sports" rel="esports" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown" target="_blank">
+                    <a class="card" data-rel="sports" rel="esports" href="/_Secure/Login.aspx" data-transition="slidedown" target="_blank">
                         <img src="/_Static/Images/sports/bnr-esports.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
-                <!-- <li>
-                    <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-rel="dialog" data-transition="slidedown" data-ajax="false">
+                 <li>
+                    <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-transition="slidedown" data-ajax="false">
                         <img src="_Static/Images/sports/bnr-vSports.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports/Label", commonVariables.ProductsXML)%></div>
                     </a>
-                </li> -->
+                </li> 
             </ul>
         </li>
 

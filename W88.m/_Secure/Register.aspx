@@ -98,12 +98,12 @@
                         <asp:Label ID="lblAffiliateID" runat="server" AssociatedControlID="txtAffiliateID" />
                         <asp:TextBox ID="txtAffiliateID" runat="server" data-mini="true" type="number" />
                     </li>
-                    <li class="item item-icon-left item-input">
+                   <%-- <li class="item item-icon-left item-input">
                         <i class="icon icon-security"></i>
                         <asp:Label ID="lblCaptcha" runat="server" AssociatedControlID="txtCaptcha" Text="code" />
                         <asp:Image ID="imgCaptcha" runat="server" ImageUrl="/Captcha" CssClass="imgCaptcha" />
                         <asp:TextBox ID="txtCaptcha" runat="server" MaxLength="4" type="tel" data-mini="true" data-clear-btn="true" />
-                    </li>
+                    </li>--%>
                     <li class="item-checkbox item-text-wrap">
                         <label id="lblDisclaimer" runat="server">I agree</label>
                         <a id="btnTermsConditionsLink" runat="server" href="https://info.w88live.com/termofuse_en.shtml" data-ajax="false" target="_blank"></a>
@@ -292,12 +292,12 @@
                     e.preventDefault();
                     return;
                 }
-                else if ($('#txtCaptcha').val().trim().length == 0) {
+                <%--else if ($('#txtCaptcha').val().trim().length == 0) {
                     alert('<%=commonCulture.ElementValues.getResourceString("MissingVCode", xeErrors)%>');
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
                     return;
-                }
+                }--%>
                 else if ($('#drpCurrency').val() == '-1') {
                     alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/MissingCurrency", xeErrors)%>');
                     $('#btnSubmit').attr("disabled", false);
@@ -325,17 +325,6 @@
             }
         </script>
 
-        <script type="text/javascript" id="iovs_script">
-               var io_operation = 'ioBegin';
-               var io_bbout_element_id = 'ioBlackBox';
-               //var io_submit_element_id = 'btnSubmit';
-               var io_submit_form_id = 'form1';
-               var io_max_wait = 5000;
-               var io_install_flash = false;
-               var io_install_stm = false;
-               var io_exclude_stm = 12;
-        </script>
-        <script type="text/javascript" src="//mpsnare.iesnare.com/snare.js"></script>
     </div>
     <!-- /page -->
 </body>

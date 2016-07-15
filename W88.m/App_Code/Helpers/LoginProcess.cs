@@ -33,7 +33,7 @@ public class LoginProcess
                     process.Code = "resetPassword";
                 }
 
-                CheckIovation(Convert.ToString(dTable.Rows[0]["lastLoginIP"]), ref serialId, processId);
+                //CheckIovation(Convert.ToString(dTable.Rows[0]["lastLoginIP"]), ref serialId, processId);
 
                 process.Message = string.Empty;
                 break;

@@ -89,7 +89,7 @@
 }
 
 .spinner .rect1 {
-        }
+}
 
 .spinner .rect2 {
   -webkit-animation-delay: -1.1s;
@@ -133,7 +133,7 @@
     transform: scaleY(1.0);
     -webkit-transform: scaleY(1.0);
     background-color: #d3dee3;
-    }
+  }
 }
 
 
@@ -145,6 +145,25 @@
   font-size: 10px;
   display: inline-block;
     }
+
+.spinner-generic > div {
+  background-color: #01374d;
+  height: 100%;
+  width: 3px;
+  display: inline-block;
+  
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner-generic {
+  margin: auto;
+  width: 30px;
+  height: 20px;
+  text-align: center;
+  font-size: 10px;
+  display: inline-block;
+}
 
 .spinner-generic > div {
   background-color: #01374d;
@@ -200,3 +219,4 @@
     background-color: #d3dee3;
   }
 }
+

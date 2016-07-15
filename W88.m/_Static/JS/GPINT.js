@@ -35,7 +35,7 @@ GPInt.prototype.HideSplash = function () {
     window.setTimeout(function () { $('body').find('div#divSplashContainer').remove(); }, 1000);
 }
 /*GAMEPLAYINT END*/
-GPInt.prototype.GetLoaderScafold = function() {
+GPInt.prototype.GetLoaderScafold = function () {
     return '<div class="spinner-generic"><div class="rect1"></div>&nbsp;<div class="rect2"></div>&nbsp;<div class="rect3"></div>&nbsp;<div class="rect4"></div>&nbsp;<div class="rect5"></div>&nbsp;</div>';
 };
 

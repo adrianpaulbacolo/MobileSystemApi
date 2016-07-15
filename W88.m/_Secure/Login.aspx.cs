@@ -32,15 +32,16 @@ public partial class _Secure_Login : BasePage
         XElement xeResources = null;
         commonCulture.appData.getLocalResource(out xeResources);
 
+        commonCookie.CookieIsApp = null;
         if (!string.IsNullOrEmpty(Request.QueryString.Get("token")))
         {
             try
             {
+                commonCookie.CookieIsApp = "1";
                 var cipherKey = commonEncryption.Decrypt(ConfigurationManager.AppSettings.Get("PrivateKeyToken"));
                 string strSessionId = commonEncryption.decryptToken(Request.QueryString.Get("token"), cipherKey);
-                commonVariables.SetSessionVariable("MemberSessionId", strSessionId);
 
-                var loginCode = UserSession.checkSession();
+                var loginCode = UserSession.checkSession(strSessionId);
 
                 if (loginCode != 1)
                 {
@@ -48,7 +49,14 @@ public partial class _Secure_Login : BasePage
                 }
                 else
                 {
-                    Response.Redirect("/Deposit/Default_app.aspx", false);
+                    if (!string.IsNullOrEmpty(Request.QueryString.Get("redirect")))
+                    {
+                        Response.Redirect(Request.QueryString.Get("redirect"), false);
+                    }
+                    else
+                    {
+                        Response.Redirect("/Deposit/Default_app.aspx", false);
+                    }
                 }
             }
             catch (Exception ex)
@@ -127,11 +135,6 @@ public partial class _Secure_Login : BasePage
             else
             {
                 strRedirect = Request.QueryString.Get("redirect");
-
-                if (string.IsNullOrWhiteSpace(strRedirect))
-                {
-                    UserSession.ClearSession();
-                }
             }
         }
 
