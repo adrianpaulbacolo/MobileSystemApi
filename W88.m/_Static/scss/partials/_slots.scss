@@ -71,72 +71,48 @@
             padding: 0;
         }
     }
-    // Card
-    .bkg-game {
 
-        @extend .play-card;
-
-        > div:first-child {
-            padding: 5px;
-            border-radius: 10px;
-            background-color: $white;
-            padding-bottom: 1px;
-            min-height: 119px;
-            height: 119px;
-        }
-    }
-
-    .div-links {
-        width: 100%;
-        height: 30px;
-        bottom: 0;
-        background-color: $white;
-
-        a {
-            color: $strong-color;
-            background-color: $primary-color;
-            width: 50%;
-            position: absolute;
-            left: 0;
-            padding: .45em;
-
-            &:last-child {
-                left: inherit;
-                right: 0;
-            }
-        }
-    }
-    // New Design (ref. Google Play)
     .bkg-game {
         width: 100px;
-        @include border-radius(10px);
-        border-radius: 10px;
-        padding: 5px 0;
-        margin: 0;
         background-color: transparent;
-
+        font-size: 1em;
+        text-align: center;
+        position: relative;
+        display: inline-block;
+        min-height: auto;
+        @include box-shadow(none);
+        > div{
+            padding: 5px;
+            @include border-radius(8px);
+            background-color: $white;
+            padding-bottom: 1px;
+            @include box-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
         img {
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+            @include border-radius(6px 6px 0 0 );
             max-height: 83px;
             height: 83px;
         }
     }
 
     .div-links {
+        width: 100%;
+        background-color: $white;
+        display: table;
         a {
+            padding: 0.5em 0;
             font: 11px $primary-font;
+            color: $strong-color;
+            background-color: $primary-color;
+            width: 50%;
             text-transform: uppercase;
             color: $primary-color !important;
             background-color: transparent !important;
-            padding: .75em;
-
+            display: table-cell;
             &:first-child {
-                padding-right: 0;
             }
 
             &:last-child {
-                padding-left: 0;
                 border-left: 1px solid rgba(0,0,0,.1);
             }
         }
