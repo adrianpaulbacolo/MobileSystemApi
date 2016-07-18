@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
 	<Products>
+        <Play><![CDATA[游戏]]></Play>
+        <Try><![CDATA[试玩]]></Try>
 		<ASports>
 			<Url><![CDATA[]]></Url>
 			<Label><![CDATA[东方体育]]></Label>
