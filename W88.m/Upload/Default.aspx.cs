@@ -30,6 +30,7 @@ public partial class Upload_Default : BasePage
         lblRemarks.Text = commonCulture.ElementValues.getResourceString("lblRemarks", xeResources);
 
         lblFileUpload.Text = commonCulture.ElementValues.getResourceString("lblFileUpload", xeResources);
+        HfUploadLabel.Value = commonCulture.ElementValues.getResourceString("lblFileUploadText", xeResources);
 
         btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
 

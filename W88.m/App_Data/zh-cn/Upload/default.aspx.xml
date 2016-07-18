@@ -4,6 +4,7 @@
   <lblCurrency><![CDATA[货币: ]]></lblCurrency>
   <lblRemarks><![CDATA[备注或提交用途: ]]></lblRemarks>
   <lblFileUpload><![CDATA[文件(最大3MB): ]]></lblFileUpload>
+  <lblFileUploadText><![CDATA[选择文件]]></lblFileUploadText>
   <btnSubmit><![CDATA[交提]]></btnSubmit>
   <Success><![CDATA[感谢您提交,您的提交账号是[SubmissionID]。如果您有任何疑问,请提交账号给我们的客服]]></Success>
   <MissingAttachment><![CDATA[请附上文件]]></MissingAttachment>

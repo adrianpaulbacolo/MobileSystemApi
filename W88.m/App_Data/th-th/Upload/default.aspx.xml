@@ -4,6 +4,7 @@
   <lblCurrency><![CDATA[สกุลเงิน: ]]></lblCurrency>
   <lblRemarks><![CDATA[หมายเหตุ หรือ ระบุวัตถุประสงค์: ]]></lblRemarks>
   <lblFileUpload><![CDATA[ไฟล์ (สุงสุด 3MB): ]]></lblFileUpload>
+  <lblFileUploadText><![CDATA[Choose File]]></lblFileUploadText>  
   <btnSubmit><![CDATA[ยื่นรายการ]]></btnSubmit>
   <Success><![CDATA[ขอบคุณสำหรับการทำรายการฝาก-ถอน เลขที่รายการของท่านคือ[SubmissionID] หากสมาชิกต้องการสอบถามเพิ่มเติม นำหมายเลขรายการของท่านมาสอบถามได้ที่ ฝ่ายบริการลูกค้าค่ะ]]></Success>
   <MissingAttachment><![CDATA[กรุณาแนบไฟล์.]]></MissingAttachment>

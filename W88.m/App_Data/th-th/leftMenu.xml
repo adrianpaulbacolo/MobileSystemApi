@@ -6,7 +6,7 @@
 	<login><![CDATA[เข้าสู่ระบบ]]></login>
 	<register><![CDATA[สมัครสมาชิก]]></register>
 	<cashier><![CDATA[การเงิน]]></cashier>
-	<deposit><![CDATA[Deposit]]></deposit>
+	<deposit><![CDATA[ฝาก]]></deposit>
 	<transfer><![CDATA[ย้ายเงิน]]></transfer>
 	<withdrawal><![CDATA[ถอน]]></withdrawal>
 	<freebets><![CDATA[Claims]]></freebets>
@@ -43,7 +43,7 @@
 	<poker><![CDATA[โป๊กเกอร์]]></poker>
 	<texasmahjong><![CDATA[เท็กซัส มาจง]]></texasmahjong>
 	<fundFooter><![CDATA[*คลับ W, บราวาโด้, อพอลโล, เครสเชนโด้, ดิวิโน่, แมสซิโม่, เกลลาโด้, กีฬาอนิเมชั่น, ล็อตเตอรี่]]></fundFooter>
-	<cancel><![CDATA[CANCEL]]></cancel>
+    	<cancel><![CDATA[ยกเลิก]]></cancel>
 
 	<changePassword><![CDATA[CHANGE PASSWORD]]></changePassword>
 	<profile><![CDATA[PROFILE]]></profile>
@@ -81,4 +81,9 @@
 	<secureId><![CDATA[Neteller รหัสผ่าน]]></secureId>
 
 	<copy><![CDATA[Copy]]></copy>
+
+    <w88Android><![CDATA[W88 Android Download]]></w88Android>
+    <w88AndroidDesc><![CDATA[Sports, Live Casino, Slots in 1 App]]></w88AndroidDesc>
+    <NoThanks><![CDATA[No Thanks]]></NoThanks>
+    <DownloadNow><![CDATA[Download Now]]></DownloadNow>
 </menu>
