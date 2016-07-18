@@ -1,42 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Site.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Upload_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <style type="text/css">
-      div.custom_file_upload {
-          width: 50px;
-          height: 20px;
-          margin: 10px 0;
-      }
-      div.file_upload {
-          width: 120px;
-          height: 24px;
-          background: #7abcff;
-          position: absolute;
-          overflow: hidden;
-          cursor: pointer;
-          border-radius: 5px;
-          font-weight: bold;
-          color: #FFF;
-          text-align: center;
-          padding-top: 8px;
-      }
-      div.file_upload:before {
-          content: attr(data-attr);
-          position: absolute;
-          left: 0;
-          right: 0;
-          text-align: center;
-          cursor: pointer;
-      }
-      div.file_upload input {
-          position: relative;
-          height: 30px;
-          width: 250px;
-          display: inline;
-          cursor: pointer;
-          opacity: 0;
-      }
-      </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="ui-content" role="main">
@@ -56,14 +20,13 @@
                         <asp:Literal ID="txtCurrency" runat="server" />
                     </p>
                 </li>
-                <li class="item item-input">
+                <li class="item-text-wrap">
                     <asp:Label ID="lblFileUpload" runat="server" />
-                    <div class="custom_file_upload">
-                        <div class="file_upload">
-                            <asp:FileUpload ID="fuFileUpload" runat="server" AllowMultiple="false" onchange="getUplFile()" />
-                        </div>
+                    <div class="file-upload">
+                         <span class="file-upload-btn"><span class="icon icon-submit"></span><%=commonCulture.ElementValues.getResourceString("lblFileUploadText", xeResources) %></span>
+                         <span class="file-upload-filename"><div  id="txtupl"><%=commonCulture.ElementValues.getResourceString("lblNoFileChosen", xeResources) %></div></span>
+                         <asp:FileUpload ID="fuFileUpload" runat="server" AllowMultiple="false" onchange="getUplFile()" />
                     </div>
-                   <div  id="txtupl" ></div>
                 </li>
                 <li class="item item-textarea">
                     <asp:Label ID="lblRemarks" runat="server" />
@@ -88,18 +51,12 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder" runat="Server">
 
     <script type="text/javascript">
-        
         function getUplFile() {
             var filename = $('#<%=fuFileUpload.ClientID%>').val();
             $('#txtupl').html(filename.replace("C:\\fakepath\\", ""));
         }
 
-        $(document).ready(function () {
-            $('.file_upload').attr('data-attr', $('#<%=HfUploadLabel.ClientID%>').val());  
-        });
-
         $(function () {
-            
             $('.div-content-wrapper > div:first-child').hide();
             var code = '<%=strAlertCode%>';
             var message = '<%=strAlertMessage%>';

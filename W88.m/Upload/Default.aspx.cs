@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 public partial class Upload_Default : BasePage
 {
-    private System.Xml.Linq.XElement xeResources = null;
+    protected System.Xml.Linq.XElement xeResources = null;
     protected string strAlertCode = string.Empty;
     protected string strAlertMessage = string.Empty;
 
@@ -30,7 +30,6 @@ public partial class Upload_Default : BasePage
         lblRemarks.Text = commonCulture.ElementValues.getResourceString("lblRemarks", xeResources);
 
         lblFileUpload.Text = commonCulture.ElementValues.getResourceString("lblFileUpload", xeResources);
-        HfUploadLabel.Value = commonCulture.ElementValues.getResourceString("lblFileUploadText", xeResources);
 
         btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
 
