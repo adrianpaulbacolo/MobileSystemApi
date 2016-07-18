@@ -5,6 +5,7 @@ using System.Web;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using System.Web.Script.Serialization;
 
 public static class commonFunctions
 {
@@ -659,5 +660,12 @@ public static class commonFunctions
         alphaNumeric,
         numeric,
         alpha
+    }
+
+    public static T Deserialize<T>(string context)
+    {
+        var jsonData = context;
+        var obj = new JavaScriptSerializer().Deserialize<T>(jsonData);
+        return obj;
     }
 }

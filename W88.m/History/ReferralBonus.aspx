@@ -1,50 +1,53 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ReferralBonus.aspx.cs" Inherits="History_ReferralBonus" %>
+<%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
+<%@ Register Src="~/UserControls/AppFooterMenu.ascx" TagPrefix="uc" TagName="AppFooterMenu" %>
+
 
 <!DOCTYPE html>
 
 <html>
 <head>
-    <title><%=commonCulture.ElementValues.getResourceString("referralbonus", commonVariables.LeftMenuXML)%></title>
+    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("referralbonus", commonVariables.HistoryXML))%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
 <body>
-    <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
             </a>
-            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("referralbonus", commonVariables.LeftMenuXML)%></h1>
+            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("history", commonVariables.HistoryXML), commonCulture.ElementValues.getResourceString("referralbonus", commonVariables.HistoryXML))%></h1>
         </header>
 
         <div class="ui-content" role="main">
             
             <div class="wallet main-wallet">
-                <label class="label">Main Wallet</label>
-                <h2 class="value"><%=Session["Main"].ToString()%></h2>
-                <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
+                <uc:Wallet id="uMainWallet" runat="server" />
             </div>
 
             <form class="form" id="form1" runat="server" data-ajax="false">
                 <p>&nbsp;</p>
                 <ul class="list fixed-tablet-size">
                     <li class="item item-select">
-                        <asp:Label ID="lblDateFrom" runat="server" AssociatedControlID="txtDateFrom" Text="" />
+                        <asp:Label ID="lblDateFrom" runat="server" AssociatedControlID="txtDateFrom" />
                         <asp:TextBox ID="txtDateFrom"  type="date" runat="server"></asp:TextBox>
                     </li>
                     <li class="item item-select">
-                        <asp:Label ID="lblDateTo" runat="server" Text="" />
+                        <asp:Label ID="lblDateTo" runat="server" AssociatedControlID="txtDateTo" />
                         <asp:TextBox ID="txtDateTo" type="date" runat="server"></asp:TextBox>
                     </li>
                     <li class="item row">
-                        <div class="col">
-                            <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" ID="btnCancel" runat="server" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
+                        <div class="col" id="NonAppMenu">
+                            <a href="/History" role="button" class="ui-btn btn-bordered" ID="btnCancel" runat="server" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
                         </div>
                         <div class="col">
-                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" Text="Submit" CssClass="button-blue" OnClick="btnSubmit_Click" />
+                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" OnClick="btnSubmit_Click" />
                         </div>
                     </li>
+                    
+                    <uc:AppFooterMenu runat="server" ID="AppFooterMenu" />
+
                 </ul>
             </form>
         </div>
@@ -74,13 +77,13 @@
 
             $('#form1').submit(function (e) {
                 if ($('#<%= txtDateTo.ClientID %>').val().length == 0) {
-                    alert('Please Select a valid End Date');
+                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Deposit/InvalidDateTime", commonVariables.ErrorsXML)%>');
                     e.preventDefault();
                     return;
                 }
 
                 if ($('#<%= txtDateFrom.ClientID %>').val().length == 0) {
-                    alert('Please Select a valid Start Date');
+                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Deposit/InvalidDateTime", commonVariables.ErrorsXML)%>');
                     e.preventDefault();
                     return;
                 }

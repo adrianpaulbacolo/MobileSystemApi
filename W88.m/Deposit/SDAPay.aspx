@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="SDAPay.aspx.cs" Inherits="Deposit_SDAPay" %>
+<%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
 <!DOCTYPE html>
 <html>
@@ -8,7 +9,6 @@
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
 <body>
-    <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
@@ -19,14 +19,10 @@
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <label class="label"><%=commonCulture.ElementValues.getResourceString("mainWallet", commonVariables.LeftMenuXML)%></label>
-                <h2 class="value"><%=Session["Main"].ToString()%></h2>
-                <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
+                <uc:Wallet id="uMainWallet" runat="server" />
             </div>
 
-            <div data-role="navbar">
-                <ul id="depositTabs" runat="server">
-                </ul>
+            <div data-role="navbar" id="depositTabs" runat="server">
             </div>
 
             <form class="form" id="form1" runat="server" data-ajax="false">
@@ -89,22 +85,30 @@
 
         <!--#include virtual="~/_static/navMenu.shtml" -->
         <script type="text/javascript">
+            $('#form1').submit(function (e) {
+                window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
+            });
             $(function () {
                 window.history.forward();
 
-                if ('<%=strAlertCode%>'.length > 0) {
-                    switch ('<%=strAlertCode%>') {
-                        case "0":
-                            window.location.replace('SDAPay2.aspx?id=' + <%=transactionId%>)
-                            break;
+                if ($('#depositTabs li').length == 0) {
+                    window.location.reload();
+                }
+
+                var responseCode = '<%=strAlertCode%>';
+                var responseMsg = '<%=strAlertMessage%>';
+                if (responseCode.length > 0) {
+                    switch (responseCode) {
                         case '-1':
-                            alert('<%=strAlertMessage%>');
+                            alert(responseMsg);
+                            break;
+                        case '0':
+                            window.location.replace('SDAPay2.aspx?id=' + <%=transactionId%>)
                             break;
                         default:
                             break;
                     }
                 }
-
             });
         </script>
     </div>

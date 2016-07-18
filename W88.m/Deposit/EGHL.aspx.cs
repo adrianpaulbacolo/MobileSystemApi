@@ -119,7 +119,7 @@ public partial class Deposit_EGHL : PaymentBasePage
                             status.AlertCode = "0";
                             status.AlertMessage = string.Format("{0}\\n{1}: {2}", commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferSuccess", xeErrors), strlblTransactionId, strTransferId);
 
-                            litForm.Text = GetForm(strTransferId, decDepositAmount.ToString("#.00"));
+                            litForm.Text = GetForm(strTransferId, decDepositAmount);
                         }
                         else
                         {
@@ -146,10 +146,12 @@ public partial class Deposit_EGHL : PaymentBasePage
         commonAuditTrail.appendLog("system", PageName, "InitiateDeposit", string.Empty, strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
     }
 
-    private string GetForm(string invId, string amount)
+    private string GetForm(string invId, decimal amount)
     {
         string postUrl = ConfigurationManager.AppSettings["EGHL_posturl"];
-        string email = strMemberID + "@qq.com";
+
+        string amt = strCurrencyCode.Equals("IDR") ? (amount * 1000).ToString("#.00") : amount.ToString("#.00");
+        string email = (strCurrencyCode.Equals("IDR") ? "GVV" + invId.Substring(invId.Length - 4) : strMemberID) + "@qq.com";
 
         var requestUrl = HttpContext.Current.Request.Url;
         string callbackUrl = requestUrl.Scheme + "://" + requestUrl.Host + base.ThankYouPage;
@@ -158,11 +160,11 @@ public partial class Deposit_EGHL : PaymentBasePage
 
         string postData = "merID=" + strMerchantId;
         postData += ("&e-inv=" + invId);
-        postData += ("&amt=" + amount);
+        postData += ("&amt=" + amt);
         postData += ("&p_Name=" + base.PageName);
         postData += ("&c_Email=" + email);
         postData += ("&respURL=" + callbackUrl);
-        
+
         var data = Encoding.ASCII.GetBytes(postData);
 
         request.Method = "POST";

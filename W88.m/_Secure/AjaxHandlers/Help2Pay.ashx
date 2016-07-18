@@ -35,23 +35,20 @@ public class Help2Pay : IHttpHandler, System.Web.SessionState.IReadOnlySessionSt
         string strMemberCode = commonVariables.GetSessionVariable("MemberCode");
         string strCurrencyCode = commonVariables.GetSessionVariable("CurrencyCode");
 
-        string parameters = strMemberCode + "|" + strAmount + "|" + bankCode;
+        string parameters = string.Format("{0} | {1} | {2} | {3} | {4} | {5} ", strOperatorId, strMemberId, strMemberCode, strCurrencyCode, requestAmount, bankCode);
         #endregion
 
         #region log parameters
         processSerialId++;
         processDetail = "log parameters";
 
+        commonAuditTrail.appendLog("system", pageName, taskName, string.Empty, string.Empty, processDetail, string.Empty, "ok", parameters, Convert.ToString(processSerialId), processId, false);
+        
         #endregion
 
         #region parameter validation
         processSerialId++;
         processDetail = "parameter validation";
-
-        //already check with javascript
-
-
-        commonAuditTrail.appendLog("system", pageName, taskName, string.Empty, string.Empty, processDetail, string.Empty, "ok", parameters, Convert.ToString(processSerialId), processId, false);
 
         bool bankFound = false;
 
@@ -199,7 +196,10 @@ public class Help2Pay : IHttpHandler, System.Web.SessionState.IReadOnlySessionSt
             string payment_encryption_key = System.Configuration.ConfigurationManager.AppSettings.Get("PaymentPrivateKey");
             string merchantAccount = commonEncryption.decrypting(opSettings.Values.Get("Help2Pay_merchantaccount"), payment_encryption_key);
             string merchantKey = commonEncryption.decrypting(opSettings.Values.Get("Help2Pay_key"), payment_encryption_key);
-            string frontReturnUrl = opSettings.Values.Get("Help2Pay_frontreturnurl");
+
+            var requestUrl = HttpContext.Current.Request.Url;
+            string frontReturnUrl = requestUrl.Scheme + "://" + requestUrl.Host + "/Index";
+            
             string serverReturnUrl = opSettings.Values.Get("Help2Pay_serverreturnurl");
             string postUrl = opSettings.Values.Get("Help2Pay_posturl");
             string username = strMemberId;
@@ -211,7 +211,7 @@ public class Help2Pay : IHttpHandler, System.Web.SessionState.IReadOnlySessionSt
             string transferMethod = "auto";
             DateTime currentDate = DateTime.Now;
 
-            if (currency.Equals("VND"))
+            if (currency.Equals("VND") || currency.Equals("IDR"))
             {
                 amount = (requestAmount * 1000m).ToString("#.00");
             }

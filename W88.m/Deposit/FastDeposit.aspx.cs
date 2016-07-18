@@ -33,7 +33,6 @@ public partial class Deposit_FastDesposit : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        CancelUnexpectedRePost();
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
         commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"));
@@ -175,14 +174,9 @@ public partial class Deposit_FastDesposit : PaymentBasePage
         }
         #endregion
     }
-
+     
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        if (IsPageRefresh)
-        {
-            Response.Redirect(Request.Url.AbsoluteUri);
-        }
-
         string strSystemAccount = drpSystemAccount.SelectedItem.Value;
         string strDepositChannel = drpDepositChannel.SelectedItem.Value;
 
@@ -201,8 +195,8 @@ public partial class Deposit_FastDesposit : PaymentBasePage
         DateTime dtDepositDateTime = string.Compare(strCurrencyCode, "krw", true) == 0 ? DateTime.Now : DateTime.MinValue;
 
         decimal decDepositAmount = commonValidation.isDecimal(strDepositAmount) ? Convert.ToDecimal(strDepositAmount) : 0;
-        decimal decMinLimit = Convert.ToDecimal(strMinLimit);
-        decimal decMaxLimit = Convert.ToDecimal(strMaxLimit);
+        decimal decMinLimit = commonValidation.isDecimal(strMinLimit) ? Convert.ToDecimal(strMinLimit) : 0;
+        decimal decMaxLimit = commonValidation.isDecimal(strMaxLimit) ? Convert.ToDecimal(strMaxLimit) : 0;
 
         CommonStatus status = new CommonStatus();
 

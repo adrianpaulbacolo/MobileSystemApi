@@ -46,28 +46,25 @@
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%></h2>
                 <li class="title">
                     <a data-rel="dialog" rel="deposit" href="/_Secure/Login.aspx" data-transition="slidedown">
-                        <!-- <img src="/_Static/Images/index-deposit.png" class="img-responsive"> -->
                         <%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%>
                     </a>
                 </li>
                 <li class="title">
                     <a data-rel="dialog" rel="fundtransfer" href="/_Secure/Login.aspx" data-transition="slidedown">
-                        <!-- <img src="/_Static/Images/index-fundtransfer.png" class="img-responsive"> -->
                         <%=commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%>
                     </a>
                 </li>
                 <li class="title">
                     <a data-rel="dialog" rel="withdrawal" href="/_Secure/Login.aspx" data-transition="slidedown">
-                        <!-- <img src="/_Static/Images/index-withdrawal.png" class="img-responsive"> -->
                         <%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%>
                     </a>
                 </li>
-                <!--<li>
-                    <a href="/History" role="button" data-ajax="false">
-                        History
+                <li class="title">
+                    <a data-rel="dialog" rel="history" href="/_Secure/Login.aspx" data-transition="slidedown">
+                        <%=commonCulture.ElementValues.getResourceString("history", commonVariables.HistoryXML)%>
                     </a>
-                </li>-->
-                <!-- <li data-icon="false"><a id="aMnuClaim" runat="server"><%=commonCulture.ElementValues.getResourceString("claims", commonVariables.LeftMenuXML)%></a></li> -->
+                </li>
+
             </ul>
         </li>
         <% } %>
@@ -88,61 +85,17 @@
                     </a>
                 </li>
                 <li>
-                    <a class="card" data-rel="sports" rel="esports" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown" target="_blank">
+                    <a class="card" data-rel="sports" rel="esports" href="/_Secure/Login.aspx" data-transition="slidedown" target="_blank">
                         <img src="/_Static/Images/sports/bnr-esports.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
-                <li>
-                    <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-rel="dialog" data-transition="slidedown">
+                 <li>
+                    <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-transition="slidedown" data-ajax="false">
                         <img src="_Static/Images/sports/bnr-vSports.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports/Label", commonVariables.ProductsXML)%></div>
                     </a>
-                </li>
-                <!-- Toggle to hide elements -->
-                <!--<li>
-                    <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-ajax="false" data-transition="slidedown" target="_blank">
-                        <img src="/_Static/Images/bnr-vSPORTS-tennis.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li>-->
-                <!--<li>
-                    <a class="card menu-sports" data-rel="sports" href="">
-                        <img src="/_Static/Images/bnr-vSPORTS-tennis.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li>-->
-                <!-- Hide elements -->
-                <!--<li class="menu-sports-sub hide">
-                    <a class="card" data-rel="sports" rel="vsportsBasketball" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                        <img src="/_Static/Images/bnr-vSPORTS-basketball.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-basketball/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li>
-                <li class="menu-sports-sub hide">
-                    <a class="card" data-rel="sports" rel="vsportsTennis" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                        <img src="/_Static/Images/bnr-vSPORTS-tennis.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-tennis/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li>
-                <li class="menu-sports-sub hide">
-                    <a class="card" data-rel="sports" rel="vsportsHorseRacing" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                        <img src="/_Static/Images/bnr-vSPORTS-horseracing.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-horseracing/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li>
-                <li class="menu-sports-sub hide">
-                    <a class="card" data-rel="sports" rel="vsportsFootBall" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                        <img src="/_Static/Images/bnr-vSPORTS-football.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-football/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li>
-                <li class="menu-sports-sub hide">
-                    <a class="card" data-rel="sports" rel="vsportsDogRacing" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-                        <img src="/_Static/Images/bnr-vSPORTS-dogracing.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports-dogracing/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li>-->
+                </li> 
             </ul>
         </li>
 
@@ -193,7 +146,7 @@
                 <!--<a class="close" data-rel="close">&times;</a>-->
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%></h2>
                 <%try{%>
-                <%if(Session["responseCode"].ToString()=="1"){%>
+                <%if(commonVariables.GetSessionVariable("responseCode")=="1"){%>
                 <li>
                     <a class="card" rel="texasmahjong" href='/_static/TexasMahjong/download.aspx' data-ajax="false">
                         <img src="/_Static/Images/Download/TexasMahjong-iOS.jpg" class="img-responsive">
@@ -201,7 +154,7 @@
                     </a>
                 </li>
                 <%}%>
-                <%if(Session["responseCode"].ToString()=="2"){%>
+                <%if(commonVariables.GetSessionVariable("responseCode")=="2"){%>
                 <li>
                     <a class="card" rel="texasmahjong" href='<%= Session["tmandroidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">
                         <img src="/_Static/Images/Download/TexasMahjong-Android.jpg" class="img-responsive">
@@ -209,7 +162,7 @@
                     </a>
                 </li>
                 <%}%>
-                <%if(Session["responseCode"].ToString()=="3"){%>
+                <%if(commonVariables.GetSessionVariable("responseCode")=="3"){%>
                 <li>
                     <a class="card" rel="texasmahjong" href='<%= Session["tmandroidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">
                         <img src="/_Static/Images/Download/TexasMahjong-Android.jpg" class="img-responsive">
@@ -268,10 +221,18 @@
                 </li>
                 <li>
                     <a class="card" rel="clubgallardo" href="/ClubGallardo" data-ajax="false">
-                        <img src="_Static/Images/bnr-clubgallardo.jpg" class="img-responsive">
+                        <img src="/_Static/Images/bnr-clubgallardo.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubGallardo/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
+                <% if( commonVariables.GetSessionVariable("clubapollo") == "1" ) {%>
+                <li>
+                    <a class="card" rel="clubdivino" href="/ClubApollo" data-ajax="false">
+                        <img src="/_Static/Images/bnr-clubapollo.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubApollo/Label", commonVariables.ProductsXML)%></div>
+                    </a>
+                </li>
+                <% } %>
                 <li>
                     <a class="card" rel="clubdivino" href="/ClubDivino" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubdivino.jpg" class="img-responsive">
@@ -315,7 +276,7 @@
                 <!--<a class="close" data-rel="close">&times;</a>-->
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("poker", commonVariables.LeftMenuXML)%></h2>
                 <%try{%>
-                <%if(Session["responseCode"].ToString()=="1"){%>
+                <%if(commonVariables.GetSessionVariable("responseCode")=="1"){%>
                 <li>
                     <a class="card" data-rel="poker" rel="PokerIOS" href='<%= Session["iosLink"].ToString()%>' data-transition="slidedown">
                         <img src="/_Static/Images/W88-Mobile-Poker-iOS.jpg" class="img-responsive">
@@ -323,7 +284,7 @@
                     </a>
                 </li>
                 <%}%>
-                <%if(Session["responseCode"].ToString()=="2"){%>
+                <%if(commonVariables.GetSessionVariable("responseCode")=="2"){%>
                 <li>
                     <a class="card" data-rel="poker" rel="PokerAndroid" href='<%= Session["androidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">
                         <img src="/_Static/Images/W88-Mobile-Poker-Android.jpg" class="img-responsive">
@@ -331,7 +292,7 @@
                     </a>
                 </li>
                 <%}%>
-                <%if(Session["responseCode"].ToString()=="3"){%>
+                <%if(commonVariables.GetSessionVariable("responseCode")=="3"){%>
                 <li>
                     <a class="card" data-rel="poker" rel="PokerIOS" href='<%= Session["iosLink"].ToString()%>' data-transition="slidedown">
                         <img src="/_Static/Images/W88-Mobile-Poker-iOS.jpg" class="img-responsive">
@@ -410,6 +371,9 @@
             });
             $('a[rel="withdrawal"]').each(function () {
                 $(this).removeAttr('data-rel').removeAttr('data-transition').attr('data-ajax', 'false').attr('href', '/Withdrawal');
+            });
+            $('a[rel="history"]').each(function () {
+                $(this).removeAttr('data-rel').removeAttr('data-transition').attr('data-ajax', 'false').attr('href', '/History');
             });
             $('a[rel="asports"]').each(function () {
                 $(this).removeAttr('data-rel').removeAttr('data-transition').attr('data-ajax', 'false').attr('href', '<%=(string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) ? "_Secure/Login" : commonASports.getSportsbookUrl)%>');

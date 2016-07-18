@@ -132,6 +132,16 @@
 			<Label><![CDATA[Club Gallardo]]></Label>
 			<Description><![CDATA[]]></Description>
 		</ClubGallardo>
+		<ClubApollo>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Apollo]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubApollo>
+		<ClubNuovo>
+			<Url><![CDATA[]]></Url>
+			<Label><![CDATA[Club Nuovo]]></Label>
+			<Description><![CDATA[]]></Description>
+		</ClubNuovo>
 	</Products>
 	<Wallets>
 		<main><![CDATA[Tài Khoản Chính]]></main>

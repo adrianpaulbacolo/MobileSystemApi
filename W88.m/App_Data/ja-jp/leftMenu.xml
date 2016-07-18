@@ -79,18 +79,18 @@
 
 	<depositDaddyPay><![CDATA[入金 - クイックオンライン]]></depositDaddyPay>
 
-	<history><![CDATA[History]]></history>
-	<depositwithdrawal><![CDATA[Deposit / Withdrawal History]]></depositwithdrawal>
-	<fundtransfer><![CDATA[Fund Transfer History]]></fundtransfer>
-	<referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
-	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
-
-
 	<close><![CDATA[閉じる]]></close>
 
 	<neteller><![CDATA[Neteller]]></neteller>
 	<accountId><![CDATA[NETELLER アカウント番号]]></accountId>
 	<secureId><![CDATA[NETELLER セキュリティーコード]]></secureId>
 
-	<copy><![CDATA[Copy]]></copy>
+    <copy><![CDATA[Copy]]></copy>
+
+    <PromoBanner>
+        <item>
+            <imageSrc><![CDATA[Mobile-Home-Rio2016-JP.jpg]]></imageSrc>
+            <url><![CDATA[/Sports.aspx]]></url>
+        </item>
+    </PromoBanner>
 </menu>

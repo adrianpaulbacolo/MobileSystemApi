@@ -43,7 +43,7 @@
 	<poker><![CDATA[Poker]]></poker>
 	<texasmahjong><![CDATA[Texas Mahjong]]></texasmahjong>
 	<fundFooter><![CDATA[*Club W, Bravado, Apollo, Crescendo, Divino, Massimo, Gallardo, Virtual, Lotto]]></fundFooter>
-	<cancel><![CDATA[CANCEL]]></cancel>
+	<cancel><![CDATA[BATAL]]></cancel>
 	<changePassword><![CDATA[Ganti Kata Sandi]]></changePassword>
 	<profile><![CDATA[PROFIL]]></profile>
 	<mainWallet><![CDATA[Dompet Utama]]></mainWallet>
@@ -72,17 +72,18 @@
 
 	<depositDaddyPay><![CDATA[DEPOSIT - QUICK ONLINE]]></depositDaddyPay>
 
-	<history><![CDATA[History]]></history>
-	<depositwithdrawal><![CDATA[Deposit / Withdrawal History]]></depositwithdrawal>
-	<fundtransfer><![CDATA[Fund Transfer History]]></fundtransfer>
-	<referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
-	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
-
 	<close><![CDATA[TUTUP]]></close>
 
 	<neteller><![CDATA[Neteller]]></neteller>
 	<accountId><![CDATA[Neteller Rekening]]></accountId>
 	<secureId><![CDATA[Neteller Password]]></secureId>
 
-	<copy><![CDATA[Copy]]></copy>
+    <copy><![CDATA[Copy]]></copy>
+
+    <PromoBanner>
+        <item>
+            <imageSrc><![CDATA[Mobile-Home-Rio2016-ID.jpg]]></imageSrc>
+            <url><![CDATA[/Sports.aspx]]></url>
+        </item>
+    </PromoBanner>
 </menu>

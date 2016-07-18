@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+	<lblCardType><![CDATA[Card Type]]></lblCardType>
+	<ddlCardType><![CDATA[Select Card Type]]></ddlCardType>
+	
+	<lblCardName><![CDATA[Cardholder's Name]]></lblCardName>
+	
+	<lblCardNo><![CDATA[Card Number]]></lblCardNo>
+	
+	<lblExpiry><![CDATA[Card Expiry]]></lblExpiry>
+	<ddlMonthDefaultText><![CDATA[Month]]></ddlMonthDefaultText>
+	<ddlYearDefaultText><![CDATA[Year]]></ddlYearDefaultText>
+	
+	<lblSecurityCode><![CDATA[Security Code]]></lblSecurityCode>
+	<securityCodeHelp><![CDATA[Where to find Security Code?]]></securityCodeHelp>
+	
+	
+</Deposit>

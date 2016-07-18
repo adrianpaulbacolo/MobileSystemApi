@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deposit>
+	<lblCardType><![CDATA[Loại thẻ]]></lblCardType>
+	<ddlCardType><![CDATA[Lựa Chọn Loại thẻ]]></ddlCardType>
+	
+	<lblCardName><![CDATA[Họ tên chủ thẻ]]></lblCardName>
+	
+	<lblCardNo><![CDATA[Số thẻ]]></lblCardNo>
+	
+	<lblExpiry><![CDATA[Hạn sử dụng thẻ]]></lblExpiry>
+	<ddlMonthDefaultText><![CDATA[Tháng]]></ddlMonthDefaultText>
+	<ddlYearDefaultText><![CDATA[Năm]]></ddlYearDefaultText>
+	
+	<lblSecurityCode><![CDATA[Mã bảo mật]]></lblSecurityCode>
+	<securityCodeHelp><![CDATA[Làm cách nào để tìm Mã an ninh trên thẻ tín dụng?]]></securityCodeHelp>
+</Deposit>

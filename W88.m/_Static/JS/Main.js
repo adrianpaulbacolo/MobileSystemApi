@@ -1,29 +1,30 @@
 ﻿$(window).load(function () {
     GPINTMOBILE.HideSplash();
-    window.setInterval(function () {
-        $.ajax({
-            contentType: "application/json; charset=utf-8",
-            url: "/_secure/AjaxHandlers/MemberSessionCheck.ashx",
-            /*dataType: "jsonp",*/
-            success: function (data) {
-                if (data != "1" && data != "-1") { window.location.replace("/Expire"); }
-            },
-            error: function (err) {
-                //console.log(err);
-            }
-        });
-    }, 5000);
+    if (typeof window.User != "undefined" && window.User.hasSession) checkSession();
+    var sessionPoll;
 
-    if (!document.URL.indexOf("localhost") || !document.URL.indexOf("uat")) {
-        redirectToHttps();
+    function checkSession() {
+        var intervalMin = 10000; // 10 secs
+        var sessionInterval = (typeof window.User != "undefined" && parseInt(window.User.sessionInterval) > intervalMin) ? parseInt(window.User.sessionInterval) : intervalMin;
+
+        sessionPoll = window.setInterval(function () {
+            $.ajax({
+                contentType: "application/json; charset=utf-8",
+                url: "/_secure/AjaxHandlers/MemberSessionCheck.ashx",
+                responseType: "json",
+                success: function (data) {
+                    if (data.code != "1") {
+                        if (typeof data.message != "undefined") alert(data.message);
+                        clearInterval(sessionPoll);
+                        window.location.replace("/Logout");
+                    }
+                },
+                error: function (err) {
+                }
+            });
+        }, sessionInterval);
     }
 });
-
-if ($("#divBalance").hasClass("open")) { $("#divBalance").addClass("close"); } else { if ($("#divBalance").hasClass("open")) { $("#divBalance").addClass("close"); } }
-
-// mozfullscreenerror event handler
-function errorHandler() { /*alert('mozfullscreenerror');*/ }
-//document.documentElement.addEventListener('mozfullscreenerror', errorHandler, false);
 
 // toggle full screen
 function toggleFullScreen() {
@@ -47,21 +48,12 @@ function toggleFullScreen() {
     }
 }
 
-// keydown event handler
-/*
-document.addEventListener('keydown', function(e) {
-  if (e.keyCode == 13 || e.keyCode == 70) { // F or Enter key
-    toggleFullScreen();
-  }
-}, false);
-*/
-
 function Cookies() {
     var setCookie = function (cname, cvalue, expiryDays) {
         var date = new Date();
         date.setTime(date.getTime() + (expiryDays * 24 * 60 * 60 * 1000));
         var expires = "expires=" + date.toUTCString();
-        document.cookie = cname + "=" + cvalue + ";" + expires;
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     };
 
     var getCookie = function (cname) {

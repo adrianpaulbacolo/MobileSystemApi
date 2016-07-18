@@ -39,7 +39,6 @@ public partial class Deposit_ECPSS : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        CancelUnexpectedRePost();
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
         commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"));
@@ -82,62 +81,62 @@ public partial class Deposit_ECPSS : PaymentBasePage
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        if (IsPageRefresh)
-        {
-            Response.Redirect(Request.Url.AbsoluteUri);
-        }
-
         string strDepositAmount = txtDepositAmount.Text.Trim();
         string selectedBank = drpBank.SelectedItem.Value;
 
         decimal decDepositAmount = commonValidation.isDecimal(strDepositAmount) ? Convert.ToDecimal(strDepositAmount) : 0;
-        decimal decMinLimit = Convert.ToDecimal(strMinLimit);
-        decimal decMaxLimit = Convert.ToDecimal(strMaxLimit);
+        decimal decMinLimit = commonValidation.isDecimal(strMinLimit) ? Convert.ToDecimal(strMinLimit) : 0;
+        decimal decMaxLimit = commonValidation.isDecimal(strMaxLimit) ? Convert.ToDecimal(strMaxLimit) : 0;
 
         CommonStatus status = new CommonStatus();
 
-            try
+        try
+        {
+            if (decDepositAmount == 0)
             {
-                if (decDepositAmount == 0)
-                {
-                    status = base.GetErrors("/MissingDepositAmount");
-                }
-                else if (selectedBank == "-1")
-                {
-                    status = base.GetErrors("/SelectBank");
-                }
-                else if (decDepositAmount < decMinLimit)
-                {
-                    status = base.GetErrors("/AmountMinLimit");
-                }
-                else if (decDepositAmount > decMaxLimit)
-                {
-                    status = base.GetErrors("/AmountMaxLimit");
-                }
+                status = base.GetErrors("/MissingDepositAmount");
+            }
+            else if (selectedBank == "-1")
+            {
+                status = base.GetErrors("/SelectBank");
+            }
+            else if (decDepositAmount < decMinLimit)
+            {
+                status = base.GetErrors("/AmountMinLimit");
+            }
+            else if (decDepositAmount > decMaxLimit)
+            {
+                status = base.GetErrors("/AmountMaxLimit");
+            }
             else if ((strTotalAllowed != strUnlimited) && (decDepositAmount > Convert.ToDecimal(strTotalAllowed)) && Convert.ToDecimal(strTotalAllowed) > 0)
-                {
-                    status = base.GetErrors("/TotalAllowedExceeded");
-                }
+            {
+                status = base.GetErrors("/TotalAllowedExceeded");
+            }
 
             if (!status.IsProcessAbort)
+            {
+                status.AlertCode = "0";
+
+                if (string.IsNullOrWhiteSpace(strRedirectUrl))
                 {
-                    status.AlertCode = "0";
+                    this.GetDummyURL();
                 }
             }
-            catch (Exception ex)
-            {
-                status = base.GetErrors("/Exception");
+        }
+        catch (Exception ex)
+        {
+            status = base.GetErrors("/Exception");
 
-                strErrorDetail = ex.Message;
-            }
+            strErrorDetail = ex.Message;
+        }
 
-            strAlertCode = status.AlertCode;
-            strAlertMessage = status.AlertMessage;
+        strAlertCode = status.AlertCode;
+        strAlertMessage = status.AlertMessage;
 
-            string strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | CurrencyCode: {2} | DepositAmount: {3} | BankName: {4} | MinLimit: {5} | MaxLimit: {6} | TotalAllowed: {7} | DailyLimit: {8} | Response: {9}",
-               Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, drpBank.SelectedValue, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
+        string strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | CurrencyCode: {2} | DepositAmount: {3} | BankName: {4} | MinLimit: {5} | MaxLimit: {6} | TotalAllowed: {7} | DailyLimit: {8} | Response: {9}",
+           Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, selectedBank, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
 
-            intProcessSerialId += 1;
+        intProcessSerialId += 1;
         commonAuditTrail.appendLog("system", base.PageName, "InitiateDeposit", string.Empty, strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
     }
 }

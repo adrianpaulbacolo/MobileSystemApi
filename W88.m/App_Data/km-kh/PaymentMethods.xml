@@ -13,9 +13,13 @@
 	<dDaddyPay><![CDATA[រហ័សអនឡាញ]]></dDaddyPay>
 	<dDaddyPayQR><![CDATA[QR Code Payment]]></dDaddyPayQR>
 	<dSDAPayAlipay><![CDATA[Alipay Transfer]]></dSDAPayAlipay>
+	<dBofoPay><![CDATA[ប្រាក់បៀវត្សរ៍រហ័ស]]></dBofoPay>
+	<dAllDebit><![CDATA[កាតឥណទាន]]></dAllDebit>
 	<dEGHL><![CDATA[រហ័សអនឡាញ]]></dEGHL>
 
 	<wBankTransfer><![CDATA[ផ្ទេរប្រាក់តាមធនាគារ]]></wBankTransfer>
 	<wWingMoney><![CDATA[Wing Money]]></wWingMoney>
 	<wNeteller><![CDATA[Neteller]]></wNeteller>
+
+	<paymentNotice><![CDATA[<span>មិនមានមធ្យោបាយដាក់ប្រាក់សំរាប់គណនីលោកអ្នកនោះទេ។ សូមទំនាក់ទំនង<a href="/LiveChat/Default.aspx" target="_blank">សេវាបំរើអតិថិជន</a>សំរាប់ជំនួយ។</span>]]></paymentNotice>
 </PaymentMethods>

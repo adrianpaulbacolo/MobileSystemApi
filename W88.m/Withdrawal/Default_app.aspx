@@ -1,4 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Withdrawal_Default" %>
+<%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
+<%@ Register TagPrefix="uc" TagName="AppFooterMenu" Src="~/UserControls/AppFooterMenu.ascx" %>
 
 <!DOCTYPE html>
 <html>
@@ -9,7 +11,6 @@
     <script type="text/javascript" src="/_Static/JS/jquery.mask.min.js"></script>
 </head>
 <body>
-    <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
             <h1 class="title"><%=string.Format("{0}", commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML))%></h1>
@@ -17,21 +18,26 @@
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <label class="label"><%=commonCulture.ElementValues.getResourceString("mainWallet", commonVariables.LeftMenuXML)%></label>
-                <h2 class="value"><%=Session["Main"].ToString()%></h2>
-                <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
+                <uc:Wallet id="uMainWallet" runat="server" />
             </div>
 
             <div data-role="navbar">
                 <ul id="withdrawalTabs" runat="server">
-                     <li />
+                    <li />
                 </ul>
             </div>
 
-              <form class="form" id="form1" runat="server" data-ajax="false">
-                <br />
-                <br />
-                <br />
+            <form class="form" id="form1" runat="server" data-ajax="false">
+                <div class="empty-state">
+                    <div class="empty-state-icon">
+                        <i class="ion ion-alert"></i>
+                    </div>
+                    <p id="paymentNote">
+                    </p>
+                </div>
+                
+                <uc:AppFooterMenu runat="server" id="AppFooterMenu" />
+
             </form>
         </div>
 
@@ -43,6 +49,8 @@
                 if ($('#withdrawalTabs li a.btn-primary').length == 0) {
                     if ($('#withdrawalTabs li').first().children().attr('href') != undefined) {
                         window.location.replace($('#withdrawalTabs li').first().children().attr('href'));
+                    } else {
+                        $('#paymentNote').append('<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>');
                     }
                 }
             });

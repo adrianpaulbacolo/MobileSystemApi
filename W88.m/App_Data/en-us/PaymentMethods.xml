@@ -13,9 +13,12 @@
 	<dDaddyPay><![CDATA[Quick Online]]></dDaddyPay>
 	<dDaddyPayQR><![CDATA[QR Code Payment]]></dDaddyPayQR>
 	<dSDAPayAlipay><![CDATA[Alipay Transfer]]></dSDAPayAlipay>
-	<dEGHL><![CDATA[Quick Online]]></dEGHL>
-	
+	<dBofoPay><![CDATA[Quick Pay]]></dBofoPay>
+	<dAllDebit><![CDATA[Credit Card]]></dAllDebit>
+
 	<wBankTransfer><![CDATA[Bank Transfer]]></wBankTransfer>
 	<wWingMoney><![CDATA[Wing Money]]></wWingMoney>
 	<wNeteller><![CDATA[Neteller]]></wNeteller>
+
+	<paymentNotice><![CDATA[<span>There are no available Payment Gateways configured for your account. Please contact <a href="/LiveChat/Default.aspx" target="_blank">Customer Support</a> for assistance.</span>]]></paymentNotice>
 </PaymentMethods>

@@ -1,150 +1,181 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
-  <Exception><![CDATA[Error tak dikenal, silahkan coba lagi.]]></Exception>
-  <IncorrectVCode><![CDATA[Silahkan masukan 4-Digit kode Validasi.]]></IncorrectVCode>
-  <MissingVCode><![CDATA[Silahkan masukan 4-Digit kode Validasi.]]></MissingVCode>
-  <SessionExpired><![CDATA[Error tak dikenal, silahkan coba lagi.]]></SessionExpired>
-  <ServerError><![CDATA[Maaf, telah terjadi error di server.]]></ServerError>
-  
-  <Login>
-    <InvalidUsername><![CDATA[Username dan/atau Password tidak valid]]></InvalidUsername>
-    <InvalidPassword><![CDATA[Username dan/atau Password tidak valid]]></InvalidPassword>
-    <InactiveAccount>
-      <![CDATA[Untuk alasan keamanan, akun Anda terblokir karena kesalahan password yang anda tuliskan beberapa kali.Silahkan <a href="https://www.w88world.com/ContactUs.aspx">klik disini</a> untuk menghubungi layanan customer service untuk pembukaan akun dan aktivasi password.]]></InactiveAccount>    
-    <MissingUsername><![CDATA[Silahkan masukan Username yang valid.]]></MissingUsername>
-    <MissingPassword><![CDATA[Silahkan masukan Password yang valid.]]></MissingPassword>
-  </Login>
+	<Exception><![CDATA[Error tak dikenal, silahkan coba lagi.]]></Exception>
+	<IncorrectVCode><![CDATA[Silahkan masukan 4-Digit kode Validasi.]]></IncorrectVCode>
+	<MissingVCode><![CDATA[Silahkan masukan 4-Digit kode Validasi.]]></MissingVCode>
+	<SessionExpired><![CDATA[Error tak dikenal, silahkan coba lagi.]]></SessionExpired>
+	<ServerError><![CDATA[Maaf, telah terjadi error di server.]]></ServerError>
+	<CustomerService><![CDATA[Please contact our Customer Service for assistance.]]></CustomerService>
 
-  <Register>
-    <Success><![CDATA[Selamat datang di W88 dan terima kasih telah bergabung dengan kami.\nAccount anda saat ini sudah aktif, silahkan login dan mulai bermain di W88.com atau akses melalui ponsel di m.w88.com]]></Success>
-    <DuplicateUsername><![CDATA[Username telah terdaftar. Silahkan masukkan Username baru.]]></DuplicateUsername>
-    <DuplicateEmail><![CDATA[Alamat email telah terdaftar. Silahkan masukkan alamat email baru.]]></DuplicateEmail>
-	<DuplicateContact><![CDATA[Nomor kontak yang digunakan. Masukkan nomor kontak Anda.]]></DuplicateContact>
-    <IncorrectVCode><![CDATA[Silahkan masukan 4-Digit kode Validasi.]]></IncorrectVCode>
+	<Login>
+		<InvalidUsername><![CDATA[Username dan/atau Password tidak valid]]></InvalidUsername>
+		<InvalidPassword><![CDATA[Username dan/atau Password tidak valid]]></InvalidPassword>
+		<InactiveAccount>
+			<![CDATA[Untuk alasan keamanan, akun Anda terblokir karena kesalahan password yang anda tuliskan beberapa kali.Silahkan <a href="https://www.w88world.com/ContactUs.aspx">klik disini</a> untuk menghubungi layanan customer service untuk pembukaan akun dan aktivasi password.]]>
+		</InactiveAccount>
+		<MissingUsername><![CDATA[Silahkan masukan Username yang valid.]]></MissingUsername>
+		<MissingPassword><![CDATA[Silahkan masukan Password yang valid.]]></MissingPassword>
+	</Login>
 
-    <MissingUsername><![CDATA[Silahkan masukan Username yang valid.]]></MissingUsername>
-    <MissingPassword><![CDATA[Silahkan masukkan Alamat Email yang valid]]></MissingPassword>
-    <MissingEmail><![CDATA[Silahkan masukkan Alamat Email yang valid]]></MissingEmail>
-    <MissingContact><![CDATA[Silahkan masukkan Nomor Kontak]]></MissingContact>
-    <MissingCurrency><![CDATA[Silahkan pilih mata uang anda]]></MissingCurrency>
-    <MissingFName><![CDATA[Silahkan masukkan Nama Depan dan Nama Tengah anda]]></MissingFName>
-    <MissingLName><![CDATA[Silahkan masukkan Nama Belakang anda]]></MissingLName>
-    <MissingVCode><![CDATA[Silahkan masukan 4-Digit kode Validasi.]]></MissingVCode>
+	<Register>
+		<Success><![CDATA[Selamat datang di W88 dan terima kasih telah bergabung dengan kami.\nAccount anda saat ini sudah aktif, silahkan login dan mulai bermain di W88.com atau akses melalui ponsel di m.w88.com]]></Success>
+		<DuplicateUsername><![CDATA[Username telah terdaftar. Silahkan masukkan Username baru.]]></DuplicateUsername>
+		<DuplicateEmail><![CDATA[Alamat email telah terdaftar. Silahkan masukkan alamat email baru.]]></DuplicateEmail>
+		<DuplicateContact><![CDATA[Nomor kontak yang digunakan. Masukkan nomor kontak Anda.]]></DuplicateContact>
+		<IncorrectVCode><![CDATA[Silahkan masukan 4-Digit kode Validasi.]]></IncorrectVCode>
 
-    <InvalidUsername><![CDATA[Username dan/atau Password tidak valid]]></InvalidUsername>
-    <InvalidPassword><![CDATA[Username dan/atau Password tidak valid]]></InvalidPassword>
-    <InvalidEmail><![CDATA[Silahkan masukkan Alamat Email yang valid]]></InvalidEmail>
-    <InvalidContact><![CDATA[Silahkan masukkan Nomor Kontak]]></InvalidContact>
-    <InvalidFName><![CDATA[Silahkan masukkan Nama Depan dan Nama Tengah anda]]></InvalidFName>
-    <InvalidLName><![CDATA[Silahkan masukkan Nama Belakang anda]]></InvalidLName>
-    <InvalidDOB><![CDATA[Silahkan pilih Tanggal Lahir yang valid]]></InvalidDOB>
-    <InvalidVCode><![CDATA[Silahkan masukan 4-Digit kode Validasi.]]></InvalidVCode>
-    <chkDisclaimer><![CDATA[Silahkan periksa dan setujui Syarat & Ketentuan sebelum memproses.]]></chkDisclaimer>
-    <!--<chkDisclaimer><![CDATA[Bets may only be placed by those who are aged 18 or over. We may undertake a search with third party for the purpose of verifying thatyou are 18 or over, W88 reserves the right to ask for the proof of age. Customer accounts may be suspended and funds withheld untill satisfactory proof of age is provided.]]></chkDisclaimer>-->
-  </Register>
+		<MissingUsername><![CDATA[Silahkan masukan Username yang valid.]]></MissingUsername>
+		<MissingPassword><![CDATA[Silahkan masukkan Alamat Email yang valid]]></MissingPassword>
+		<MissingEmail><![CDATA[Silahkan masukkan Alamat Email yang valid]]></MissingEmail>
+		<MissingContact><![CDATA[Silahkan masukkan Nomor Kontak]]></MissingContact>
+		<MissingCurrency><![CDATA[Silahkan pilih mata uang anda]]></MissingCurrency>
+		<MissingFName><![CDATA[Silahkan masukkan Nama Depan dan Nama Tengah anda]]></MissingFName>
+		<MissingLName><![CDATA[Silahkan masukkan Nama Belakang anda]]></MissingLName>
+		<MissingName><![CDATA[Silahkan tulis Nama lengkap Anda]]></MissingName>
+		<MissingVCode><![CDATA[Silahkan masukan 4-Digit kode Validasi.]]></MissingVCode>
 
-  <FundTransfer>
-    <SelectTransferFrom><![CDATA[Silahkan pilih dompet asal untuk mentransfer.]]></SelectTransferFrom>
-    <SelectTransferTo><![CDATA[Silahkan pilih dompet tujuan transfer.]]></SelectTransferTo>
-    <InputTransferAmount><![CDATA[Silahkan masukkan jumlah transfer yang diinginkan.]]></InputTransferAmount>
-    <TransferSuccess><![CDATA[Transaksi anda berhasil.]]></TransferSuccess>
-    <BalanceBeforeAfter><![CDATA[\nWallet From: {walletFrom}\nWallet To: {walletTo}]]></BalanceBeforeAfter>    
-    <TransferFailed><![CDATA[Permintaan transfer anda gagal.]]></TransferFailed>
-    <TransferDeclined><![CDATA[Permintaan transfer anda ditolak.]]></TransferDeclined>
-    <UnderMaintenance><![CDATA[Produk sedang dalam maintenance saat ini, silahkan coba beberapa saat lagi.]]></UnderMaintenance>
-    <InvalidFundTransfer><![CDATA[Transfer dana tidak valid]]></InvalidFundTransfer>
-    <SessionExpired><![CDATA[Maaf, telah terjadi error di server.]]></SessionExpired>
-    <InsufficientFunds><![CDATA[Permintaan transfer anda ditolak karena saldo tidak mencukupi.]]></InsufficientFunds>
-    <MinTransferNotMet><![CDATA[Maaf, anda belum memenuhi batas minimum jumlah transfer.]]></MinTransferNotMet>
-    <TransferAmountDisallowed><![CDATA[Maaf, jumlah transfer tidak diijinkan.]]></TransferAmountDisallowed>
-    <ERR01><![CDATA[- ERR01: Failure to complete transaction]]></ERR01>
-    <USDDeposited><![CDATA[ Deposit Berhasil.]]></USDDeposited>
-    <RolloverNotMet><![CDATA[Maaf, anda belum memenuhi jumlah rollover.]]></RolloverNotMet>
-    <RolloverAmountNeeded><![CDATA[Jumlah rollover yang dibutuhkan: ]]></RolloverAmountNeeded>
-    <TransferAmountAllowed><![CDATA[Jumlah transfer yang diijinkan: ]]></TransferAmountAllowed>
-    <BonusAmount><![CDATA[Jumlah Bonus: ]]></BonusAmount>
-  </FundTransfer>
-  <Promotion>
-    <InvalidPromo><![CDATA[Kode promo tidak valid]]></InvalidPromo>
-    <PromoAlreadyClaimed><![CDATA[Promo telah diklaim.]]></PromoAlreadyClaimed>
-    <PromoGroupAlreadyClaimed><![CDATA[Maaf, anda sudah mengklaim grup bonus ini.]]></PromoGroupAlreadyClaimed>
-  
-    <RegisterSuccess><![CDATA[Bravo! Pengajuan anda berhasil. Terima kasih.]]></RegisterSuccess>
-    <VipOnly><![CDATA[Pilihan Promosi ini EKSKLUSIF hanya untuk Anggota VIP.\n~Rasakan perbedaannya dengan menjadi bagian dari VIP Prestige Club~]]></VipOnly>
-    <SubmitOnce><![CDATA[Hanya dibolehkan untuk mengirim sekali.]]></SubmitOnce>
-  </Promotion>
+		<InvalidUsername><![CDATA[Username dan/atau Password tidak valid]]></InvalidUsername>
+		<InvalidPassword><![CDATA[Username dan/atau Password tidak valid]]></InvalidPassword>
+		<InvalidEmail><![CDATA[Silahkan masukkan Alamat Email yang valid]]></InvalidEmail>
+		<InvalidContact><![CDATA[Silahkan masukkan Nomor Kontak]]></InvalidContact>
+		<InvalidFName><![CDATA[Silahkan masukkan Nama Depan dan Nama Tengah anda]]></InvalidFName>
+		<InvalidLName><![CDATA[Silahkan masukkan Nama Belakang anda]]></InvalidLName>
+		<InvalidDOB><![CDATA[Silahkan pilih Tanggal Lahir yang valid]]></InvalidDOB>
+		<InvalidVCode><![CDATA[Silahkan masukan 4-Digit kode Validasi.]]></InvalidVCode>
+		<chkDisclaimer><![CDATA[Silahkan periksa dan setujui Syarat & Ketentuan sebelum memproses.]]></chkDisclaimer>
+		<!--<chkDisclaimer><![CDATA[Bets may only be placed by those who are aged 18 or over. We may undertake a search with third party for the purpose of verifying thatyou are 18 or over, W88 reserves the right to ask for the proof of age. Customer accounts may be suspended and funds withheld untill satisfactory proof of age is provided.]]></chkDisclaimer>-->
+	</Register>
 
-  <Deposit>
-    <TransferSuccess><![CDATA[Permintaan anda telah terkirim dengan sukses]]></TransferSuccess>    
-    <TransferFail><![CDATA[Pengajuan permintaan gagal]]></TransferFail>
-    
-    <MissingDepositAmount><![CDATA[Jumlah pemindahan dana minimal tidak tercapai]]></MissingDepositAmount>
-    <MissingReferenceId><![CDATA[Harap masukan nomor referensi yang berlaku]]></MissingReferenceId>
-    <MissingAccountName><![CDATA[Harap masukan nama pemilik rekening Anda]]></MissingAccountName>
-    <MissingAccountNumber><![CDATA[Harap masukan nomor rekening Bank Anda]]></MissingAccountNumber>
-    <MissingBankName><![CDATA[Harap masukan nama Bank]]></MissingBankName>
-    <SelectSystemAccount><![CDATA[Please select a system account]]></SelectSystemAccount>
-    <SelectDepositChannel><![CDATA[Silahkan memilih cara deposit]]></SelectDepositChannel>
-    <SelectBank><![CDATA[Harap masukan nama Bank]]></SelectBank>
-    <InvalidDepositAmount><![CDATA[Jumlah pemindahan dana minimal tidak tercapai]]></InvalidDepositAmount>
-    <InvalidReferenceId><![CDATA[Harap masukan nomor referensi yang berlaku]]></InvalidReferenceId>
-    <InvalidBankName><![CDATA[Harap masukan nama Bank]]></InvalidBankName>
-    <InvalidAccountName><![CDATA[Harap masukan nama pemilik rekening]]></InvalidAccountName>
-    <InvalidAccountNumber><![CDATA[Harap masukan nomor rekening Bank Anda]]></InvalidAccountNumber>
-    <InvalidDateTime><![CDATA[Harap masukkan data tanggal/waktu yang valid]]></InvalidDateTime>
+	<FundTransfer>
+		<SelectTransferFrom><![CDATA[Silahkan pilih dompet asal untuk mentransfer.]]></SelectTransferFrom>
+		<SelectTransferTo><![CDATA[Silahkan pilih dompet tujuan transfer.]]></SelectTransferTo>
+		<InputTransferAmount><![CDATA[Silahkan masukkan jumlah transfer yang diinginkan.]]></InputTransferAmount>
+		<TransferSuccess><![CDATA[Transaksi anda berhasil.]]></TransferSuccess>
+		<BalanceBeforeAfter><![CDATA[\nWallet From: {walletFrom}\nWallet To: {walletTo}]]></BalanceBeforeAfter>
+		<TransferFailed><![CDATA[Permintaan transfer anda gagal.]]></TransferFailed>
+		<TransferDeclined><![CDATA[Permintaan transfer anda ditolak.]]></TransferDeclined>
+		<UnderMaintenance><![CDATA[Produk sedang dalam maintenance saat ini, silahkan coba beberapa saat lagi.]]></UnderMaintenance>
+		<InvalidFundTransfer><![CDATA[Transfer dana tidak valid]]></InvalidFundTransfer>
+		<SessionExpired><![CDATA[Maaf, telah terjadi error di server.]]></SessionExpired>
+		<InsufficientFunds><![CDATA[Permintaan transfer anda ditolak karena saldo tidak mencukupi.]]></InsufficientFunds>
+		<MinTransferNotMet><![CDATA[Maaf, anda belum memenuhi batas minimum jumlah transfer.]]></MinTransferNotMet>
+		<TransferAmountDisallowed><![CDATA[Maaf, jumlah transfer tidak diijinkan.]]></TransferAmountDisallowed>
+		<ERR01><![CDATA[- ERR01: Failure to complete transaction]]></ERR01>
+		<USDDeposited><![CDATA[ Deposit Berhasil.]]></USDDeposited>
+		<RolloverNotMet><![CDATA[Maaf, anda belum memenuhi jumlah rollover.]]></RolloverNotMet>
+		<RolloverAmountNeeded><![CDATA[Jumlah rollover yang dibutuhkan: ]]></RolloverAmountNeeded>
+		<TransferAmountAllowed><![CDATA[Jumlah transfer yang diijinkan: ]]></TransferAmountAllowed>
+		<BonusAmount><![CDATA[Jumlah Bonus: ]]></BonusAmount>
+	</FundTransfer>
+	<Promotion>
+		<InvalidPromo><![CDATA[Kode promo tidak valid]]></InvalidPromo>
+		<PromoAlreadyClaimed><![CDATA[Promo telah diklaim.]]></PromoAlreadyClaimed>
+		<PromoGroupAlreadyClaimed><![CDATA[Maaf, anda sudah mengklaim grup bonus ini.]]></PromoGroupAlreadyClaimed>
 
-    <TotalAllowedExceeded><![CDATA[Jumlah melebihi total yang diperbolehkan]]></TotalAllowedExceeded>
-    <AmountMinLimit><![CDATA[Jumlah belum mencapai batas minimum]]></AmountMinLimit>
-    <AmountMaxLimit><![CDATA[Jumlah melebihi batas maksimum]]></AmountMaxLimit>
+		<RegisterSuccess><![CDATA[Bravo! Pengajuan anda berhasil. Terima kasih.]]></RegisterSuccess>
+		<VipOnly><![CDATA[Pilihan Promosi ini EKSKLUSIF hanya untuk Anggota VIP.\n~Rasakan perbedaannya dengan menjadi bagian dari VIP Prestige Club~]]></VipOnly>
+		<SubmitOnce><![CDATA[Hanya dibolehkan untuk mengirim sekali.]]></SubmitOnce>
+	</Promotion>
 
-    <error-1><![CDATA[Maaf, telah terjadi kesalahan pada server]]></error-1>
-    <error-2><![CDATA[Deposit tidak diperbolehkan]]></error-2>
-    <error-3><![CDATA[Metode Deposit salah]]></error-3>
-    <error-4><![CDATA[Melebihi batas maksimum]]></error-4>
-    <error-5><![CDATA[Batas minimum tidak dicapai]]></error-5>
-    <error-6><![CDATA[Melebihi batas yang diperbolehkan]]></error-6>
-    <error-7><![CDATA[Melebihi jumlah pengajuan harian Maksimum]]></error-7>
-    <error-99><![CDATA[Maaf, telah terjadi kesalahan pada server]]></error-99>
+	<Deposit>
+		<TransferSuccess><![CDATA[Permintaan anda telah terkirim dengan sukses]]></TransferSuccess>
+		<TransferFail><![CDATA[Pengajuan permintaan gagal]]></TransferFail>
 
-    <Exception><![CDATA[Tidak dapat memproses permintaan]]></Exception>
-  </Deposit>
+		<MissingDepositAmount><![CDATA[Jumlah pemindahan dana minimal tidak tercapai]]></MissingDepositAmount>
+		<MissingReferenceId><![CDATA[Harap masukan nomor referensi yang berlaku]]></MissingReferenceId>
+		<MissingAccountName><![CDATA[Harap masukan nama pemilik rekening Anda]]></MissingAccountName>
+		<MissingAccountNumber><![CDATA[Harap masukan nomor rekening Bank Anda]]></MissingAccountNumber>
+		<MissingBankName><![CDATA[Harap masukan nama Bank]]></MissingBankName>
+		<MissingCardName><![CDATA[Please enter your card name]]></MissingCardName>
+		<MissingCardNo><![CDATA[Please enter your card number]]></MissingCardNo>
+		<MissingCCV><![CDATA[Please enter your security code]]></MissingCCV>
+		<MissingCardType><![CDATA[Please enter your card type]]></MissingCardType>
+		<MissingCardExpiry><![CDATA[Please enter your card expiry]]></MissingCardExpiry>
+		<SelectSystemAccount><![CDATA[Please select a system account]]></SelectSystemAccount>
+		<SelectDepositChannel><![CDATA[Silahkan memilih cara deposit]]></SelectDepositChannel>
+		<SelectBank><![CDATA[Harap masukan nama Bank]]></SelectBank>
+		<InvalidDepositAmount><![CDATA[Jumlah pemindahan dana minimal tidak tercapai]]></InvalidDepositAmount>
+		<InvalidReferenceId><![CDATA[Harap masukan nomor referensi yang berlaku]]></InvalidReferenceId>
+		<InvalidBankName><![CDATA[Harap masukan nama Bank]]></InvalidBankName>
+		<InvalidAccountName><![CDATA[Harap masukan nama pemilik rekening]]></InvalidAccountName>
+		<InvalidAccountNumber><![CDATA[Harap masukan nomor rekening Bank Anda]]></InvalidAccountNumber>
+		<InvalidDateTime><![CDATA[Harap masukkan data tanggal/waktu yang valid]]></InvalidDateTime>
 
-  <Withdrawal>
-    <TransferSuccess><![CDATA[Permintaan anda telah terkirim dengan sukses]]></TransferSuccess>
-    <TransferFail><![CDATA[Pengajuan permintaan gagal]]></TransferFail>
+		<TotalAllowedExceeded><![CDATA[Jumlah melebihi total yang diperbolehkan]]></TotalAllowedExceeded>
+		<AmountMinLimit><![CDATA[Jumlah belum mencapai batas minimum]]></AmountMinLimit>
+		<AmountMaxLimit><![CDATA[Jumlah melebihi batas maksimum]]></AmountMaxLimit>
 
-    <MissingWithdrawAmount><![CDATA[Jumlah pemindahan dana minimal tidak tercapai]]></MissingWithdrawAmount>
-    <MissingAccountName><![CDATA[Harap masukan nama pemilik rekening Anda]]></MissingAccountName>
-    <MissingAccountNumber><![CDATA[Harap masukan nomor rekening Bank Anda]]></MissingAccountNumber>
-    <MissingBankName><![CDATA[Harap masukan nama Bank]]></MissingBankName>
-    <MissingBankBranch><![CDATA[Silakan masukan cabang bank]]></MissingBankBranch>
-    <MissingBankAddress><![CDATA[Silakan masukan alamat bank]]></MissingBankAddress>
-    <MissingMyKad><![CDATA[Silakan masukkan MYKAD Anda]]></MissingMyKad>
-    <SelectBank><![CDATA[Harap masukan nama Bank]]></SelectBank>
-    <InvalidWithdrawAmount><![CDATA[Jumlah pemindahan dana minimal tidak tercapai]]></InvalidWithdrawAmount>
-    <InvalidBankName><![CDATA[Harap masukan nama Bank]]></InvalidBankName>
-    <InvalidBankBranch><![CDATA[Silakan masukan cabang bank]]></InvalidBankBranch>
-    <InvalidBankAddress><![CDATA[Silakan masukan alamat bank]]></InvalidBankAddress>
-    <InvalidAccountName><![CDATA[Harap masukan nama pemilik rekening]]></InvalidAccountName>
-    <InvalidAccountNumber><![CDATA[Harap masukan nomor rekening Bank Anda]]></InvalidAccountNumber>
-    <InvalidMyKad><![CDATA[Silakan masukkan MYKAD Anda]]></InvalidMyKad>
-    <InvalidAtmNumber><![CDATA[Nomor Kartu ATM salah]]></InvalidAtmNumber>
+		<error-1><![CDATA[Maaf, telah terjadi kesalahan pada server]]></error-1>
+		<error-2><![CDATA[Deposit tidak diperbolehkan]]></error-2>
+		<error-3><![CDATA[Metode Deposit salah]]></error-3>
+		<error-4><![CDATA[Melebihi batas maksimum]]></error-4>
+		<error-5><![CDATA[Batas minimum tidak dicapai]]></error-5>
+		<error-6><![CDATA[Melebihi batas yang diperbolehkan]]></error-6>
+		<error-7><![CDATA[Melebihi jumlah pengajuan harian Maksimum]]></error-7>
+		<error-99><![CDATA[Maaf, telah terjadi kesalahan pada server]]></error-99>
 
-    <TotalAllowedExceeded><![CDATA[Jumlah melebihi total yang diperbolehkan]]></TotalAllowedExceeded>
-    <AmountMinLimit><![CDATA[Jumlah belum mencapai batas minimum]]></AmountMinLimit>
-    <AmountMaxLimit><![CDATA[Jumlah melebihi batas maksimum]]></AmountMaxLimit>
+		<Exception><![CDATA[Tidak dapat memproses permintaan]]></Exception>
+	</Deposit>
 
-    <error-1><![CDATA[Maaf, telah terjadi kesalahan pada server]]></error-1>
-    <error-2><![CDATA[Deposit tidak diperbolehkan]]></error-2>
-    <error-3><![CDATA[Metode Deposit salah]]></error-3>
-    <error-4><![CDATA[Melebihi batas maksimum]]></error-4>
-    <error-5><![CDATA[Batas minimum tidak dicapai]]></error-5>
-    <error-6><![CDATA[Melebihi batas yang diperbolehkan]]></error-6>
-    <error-7><![CDATA[Melebihi jumlah pengajuan harian Maksimum]]></error-7>
-    <error-99><![CDATA[Maaf, telah terjadi kesalahan pada server]]></error-99>
+	<Withdrawal>
+		<TransferSuccess><![CDATA[Permintaan anda telah terkirim dengan sukses]]></TransferSuccess>
+		<TransferFail><![CDATA[Pengajuan permintaan gagal]]></TransferFail>
 
-    <CancelSuccess><![CDATA[Pembatalan penarikan anda telah terkirim dengan sukses.\nNo. Transaksi: {trxId}]]></CancelSuccess>
+		<MissingWithdrawAmount><![CDATA[Jumlah pemindahan dana minimal tidak tercapai]]></MissingWithdrawAmount>
+		<MissingAccountName><![CDATA[Harap masukan nama pemilik rekening Anda]]></MissingAccountName>
+		<MissingAccountNumber><![CDATA[Harap masukan nomor rekening Bank Anda]]></MissingAccountNumber>
+		<MissingBankName><![CDATA[Harap masukan nama Bank]]></MissingBankName>
+		<MissingBankBranch><![CDATA[Silakan masukan cabang bank]]></MissingBankBranch>
+		<MissingBankAddress><![CDATA[Silakan masukan alamat bank]]></MissingBankAddress>
+		<MissingMyKad><![CDATA[Silakan masukkan MYKAD Anda]]></MissingMyKad>
+		<SelectBank><![CDATA[Harap masukan nama Bank]]></SelectBank>
+		<InvalidWithdrawAmount><![CDATA[Jumlah pemindahan dana minimal tidak tercapai]]></InvalidWithdrawAmount>
+		<InvalidBankName><![CDATA[Harap masukan nama Bank]]></InvalidBankName>
+		<InvalidBankBranch><![CDATA[Silakan masukan cabang bank]]></InvalidBankBranch>
+		<InvalidBankAddress><![CDATA[Silakan masukan alamat bank]]></InvalidBankAddress>
+		<InvalidAccountName><![CDATA[Harap masukan nama pemilik rekening]]></InvalidAccountName>
+		<InvalidAccountNumber><![CDATA[Harap masukan nomor rekening Bank Anda]]></InvalidAccountNumber>
+		<InvalidMyKad><![CDATA[Silakan masukkan MYKAD Anda]]></InvalidMyKad>
+		<InvalidAtmNumber><![CDATA[Nomor Kartu ATM salah]]></InvalidAtmNumber>
 
-    <Exception><![CDATA[Tidak dapat memproses permintaan]]></Exception>
-  </Withdrawal>
+		<TotalAllowedExceeded><![CDATA[Jumlah melebihi total yang diperbolehkan]]></TotalAllowedExceeded>
+		<AmountMinLimit><![CDATA[Jumlah belum mencapai batas minimum]]></AmountMinLimit>
+		<AmountMaxLimit><![CDATA[Jumlah melebihi batas maksimum]]></AmountMaxLimit>
+
+		<error-1><![CDATA[Maaf, telah terjadi kesalahan pada server]]></error-1>
+		<error-2><![CDATA[Deposit tidak diperbolehkan]]></error-2>
+		<error-3><![CDATA[Metode Deposit salah]]></error-3>
+		<error-4><![CDATA[Melebihi batas maksimum]]></error-4>
+		<error-5><![CDATA[Batas minimum tidak dicapai]]></error-5>
+		<error-6><![CDATA[Melebihi batas yang diperbolehkan]]></error-6>
+		<error-7><![CDATA[Melebihi jumlah pengajuan harian Maksimum]]></error-7>
+		<error-99><![CDATA[Maaf, telah terjadi kesalahan pada server]]></error-99>
+
+		<CancelSuccess><![CDATA[Pembatalan penarikan anda telah terkirim dengan sukses.\nNo. Transaksi: {trxId}]]></CancelSuccess>
+
+		<Exception><![CDATA[Tidak dapat memproses permintaan]]></Exception>
+	</Withdrawal>
+
+	<StatusCode>
+		<e400><![CDATA[400]]></e400>
+		<e403><![CDATA[403]]></e403>
+		<e404><![CDATA[404]]></e404>
+		<e408><![CDATA[408]]></e408>
+		<e500><![CDATA[500]]></e500>
+		<e502><![CDATA[502]]></e502>
+	</StatusCode>
+	<HttpError>
+		<e400><![CDATA[Permintaan tidak bisa dimengerti oleh server.]]></e400>
+		<e400title><![CDATA[Bad Request]]></e400title>
+		<e403><![CDATA[Anda tidak diijinkan untuk mengakses halaman ini.]]></e403>
+		<e403title><![CDATA[Forbidden]]></e403title>
+		<e404><![CDATA[Maaf, tapi halaman Anda mencoba untuk melihat tidak ada.]]></e404>
+		<e404title><![CDATA[Halaman tidak ditemukan]]></e404title>
+		<e408><![CDATA[server timed out menunggu permintaan .]]></e408>
+		<e408title><![CDATA[Permintaan Timeout]]></e408title>
+		<e500><![CDATA[Terjadi kesalahan saat memperoses permintaan Anda. Silahkan mencoba kembali atau hubungi Customer Service]]></e500>
+		<e500title><![CDATA[Kesalahan server dari dalam]]></e500title>
+		<e502><![CDATA[Web server menerima respon tidak valid saat bertindak sebagai gateway.]]></e502>
+		<e502title><![CDATA[Bad Gateway]]></e502title>
+	</HttpError>
 </default>

@@ -76,18 +76,18 @@
 
 	<depositDaddyPay><![CDATA[存款 - 快捷支付]]></depositDaddyPay>
 
-	<history><![CDATA[History]]></history>
-	<depositwithdrawal><![CDATA[Deposit / Withdrawal History]]></depositwithdrawal>
-	<fundtransfer><![CDATA[Fund Transfer History]]></fundtransfer>
-	<referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
-	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
-
-
 	<close><![CDATA[关闭]]></close>
 
 	<neteller><![CDATA[Neteller]]></neteller>
 	<accountId><![CDATA[Neteller 帐户]]></accountId>
 	<secureId><![CDATA[Neteller 密码]]></secureId>
 
-	<copy><![CDATA[复制]]></copy>
+    <copy><![CDATA[复制]]></copy>
+
+    <PromoBanner>
+        <item>
+            <imageSrc><![CDATA[Mobile-Home-Rio2016-CN.jpg]]></imageSrc>
+            <url><![CDATA[/Sports.aspx]]></url>
+        </item>
+    </PromoBanner>
 </menu>

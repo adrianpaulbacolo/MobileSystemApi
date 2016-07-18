@@ -79,18 +79,18 @@
 
 	<depositDaddyPay><![CDATA[입금 - 퀵 온라인]]></depositDaddyPay>
 
-	<history><![CDATA[History]]></history>
-	<depositwithdrawal><![CDATA[Deposit / Withdrawal History]]></depositwithdrawal>
-	<fundtransfer><![CDATA[Fund Transfer History]]></fundtransfer>
-	<referralbonus><![CDATA[Referral Bonus History]]></referralbonus>
-	<promotionclaim><![CDATA[Promotion Claim History]]></promotionclaim>
-
-
 	<close><![CDATA[종료]]></close>
 
 	<neteller><![CDATA[Neteller]]></neteller>
 	<accountId><![CDATA[Neteller 계정]]></accountId>
 	<secureId><![CDATA[Neteller 암호]]></secureId>
 
-	<copy><![CDATA[Copy]]></copy>
+    <copy><![CDATA[Copy]]></copy>
+
+    <PromoBanner>
+        <item>
+            <imageSrc><![CDATA[Mobile-Home-Rio2016-KR.jpg]]></imageSrc>
+            <url><![CDATA[/Sports.aspx]]></url>
+        </item>
+    </PromoBanner>
 </menu>

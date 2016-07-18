@@ -23,6 +23,6 @@
 	<btnSubmit><![CDATA[SUBMIT]]></btnSubmit>
 
 	<lblThankYou><![CDATA[Thank You]]></lblThankYou>
-	
+
 	<browserNotice><![CDATA[<span>Gentle reminder: <b>{BANK}</b> do not support chrome & firefox</span>]]></browserNotice>
 </Deposit>

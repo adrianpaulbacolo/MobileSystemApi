@@ -5,13 +5,21 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class _Secure_Register : System.Web.UI.Page
+public partial class _Secure_Register : BasePage
 {
     protected System.Xml.Linq.XElement xeErrors = null;
     protected string strAlertCode = string.Empty;
     protected string strAlertMessage = string.Empty;
+    public string CDNCountryCode = string.Empty;
 
-    protected void Page_Init(object sender, EventArgs e) { if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { Response.Redirect("/Index"); } }
+    protected void Page_Init(object sender, EventArgs e)
+    {
+        if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { Response.Redirect("/Index"); }
+
+        // check for country code
+        checkCDN();
+        CDNCountryCode = GetCountryCode(headers.cdn, headers.key);
+    }
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -25,18 +33,17 @@ public partial class _Secure_Register : System.Web.UI.Page
         xeErrors = commonVariables.ErrorsXML;
         System.Xml.Linq.XElement xeResources = null;
         commonCulture.appData.getLocalResource(out xeResources);
-        customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
+        var opSettings = new customConfig.OperatorSettings("W88");
 
-        if (!Page.IsPostBack)
-        {
+        if (Page.IsPostBack) return;
+
             if (string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId")))
             {
-                string affiliateId = HttpContext.Current.Request.QueryString.Get("AffiliateId");
+            var affiliateId = HttpContext.Current.Request.QueryString.Get("AffiliateId");
 
                 if (!string.IsNullOrEmpty(affiliateId))
                 {
                     commonVariables.SetSessionVariable("AffiliateId", affiliateId);
-
                     commonCookie.CookieAffiliateId = affiliateId;
                 }
             }
@@ -56,16 +63,10 @@ public partial class _Secure_Register : System.Web.UI.Page
             lblContact.Text = commonCulture.ElementValues.getResourceString("lblContact", xeResources);
             lblCurrency.Text = commonCulture.ElementValues.getResourceString("lblCurrency", xeResources);
             lblAffiliateID.Text = commonCulture.ElementValues.getResourceString("lblAffiliateID", xeResources);
-            lblCaptcha.Text = commonCulture.ElementValues.getResourceString("lblCaptcha", xeResources);
+            //blCaptcha.Text = commonCulture.ElementValues.getResourceString("lblCaptcha", xeResources);
             btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
             btnCancel.InnerText = commonCulture.ElementValues.getResourceString("btnCancel", xeResources);
 
-            // txtUsername.Attributes.Add("PLACEHOLDER", lblUsername.Text);
-            // txtPassword.Attributes.Add("PLACEHOLDER", lblPassword.Text);
-            // txtEmail.Attributes.Add("PLACEHOLDER", lblEmail.Text);
-            // txtContact.Attributes.Add("PLACEHOLDER", lblContact.Text);
-            // txtAffiliateID.Attributes.Add("PLACEHOLDER", lblAffiliateID.Text);
-            // txtCaptcha.Attributes.Add("PLACEHOLDER", lblCaptcha.Text);
             lblDisclaimer.InnerText = commonCulture.ElementValues.getResourceString("lblDisclaimer", xeResources);
             btnTermsConditionsLink.InnerText = commonCulture.ElementValues.getResourceString("termsConditions", xeResources);
 
@@ -79,6 +80,25 @@ public partial class _Secure_Register : System.Web.UI.Page
                 foreach (System.Data.DataRow drPhoneCountryCode in dsCountryInfo.Tables[0].Select("", "countryPhoneCode ASC"))
                 {
                     drpContactCountry.Items.Add(new ListItem(string.Format("+ {0}", Convert.ToString(drPhoneCountryCode["countryPhoneCode"])), Convert.ToString(drPhoneCountryCode["countryPhoneCode"])));
+                }
+
+                if (!string.IsNullOrEmpty(CDNCountryCode))
+                {
+                    System.Data.DataRow[] countrySearchResult = dsCountryInfo.Tables[0].Select("countryCode='" + CDNCountryCode + "'");
+                    if (countrySearchResult.Any())
+                        drpContactCountry.SelectedValue = countrySearchResult[0]["countryPhoneCode"].ToString();
+                }
+                else if (!string.IsNullOrEmpty(commonVariables.GetSessionVariable("countryCode")))
+                {
+                    System.Data.DataRow[] countrySearchResult = dsCountryInfo.Tables[0].Select("countryCode='" + commonVariables.GetSessionVariable("countryCode") + "'");
+                    if (countrySearchResult.Any())
+                        drpContactCountry.SelectedValue = countrySearchResult[0]["countryPhoneCode"].ToString();
+                }
+                else
+                {
+                    System.Data.DataRow[] countrySearchResult = dsCountryInfo.Tables[0].Select("countryCode='" + commonVariables.SelectedLanguageShort + "'");
+                    if (countrySearchResult.Any())
+                        drpContactCountry.SelectedValue = countrySearchResult[0]["countryPhoneCode"].ToString();
                 }
             }
             #endregion
@@ -94,13 +114,12 @@ public partial class _Secure_Register : System.Web.UI.Page
             }
             #endregion
 
-            lblFirstName.Text = commonCulture.ElementValues.getResourceString("lblFirstName", xeResources);
-            // txtFirstName.Attributes.Add("PLACEHOLDER", lblFirstName.Text);
-            lblLastName.Text = commonCulture.ElementValues.getResourceString("lblLastName", xeResources);
-            // txtLastName.Attributes.Add("PLACEHOLDER", lblLastName.Text);
+            //lblFirstName.Text = commonCulture.ElementValues.getResourceString("lblFirstName", xeResources);
+            //lblLastName.Text = commonCulture.ElementValues.getResourceString("lblLastName", xeResources);
+            lblName.Text = commonCulture.ElementValues.getResourceString("lblName", xeResources);
+            lblNote.Text = commonCulture.ElementValues.getResourceString("lblNote", xeResources);
             lblDOB.Text = commonCulture.ElementValues.getResourceString("lblDOB", xeResources);
 
-            //drpDOB.Items.Add(new ListItem(commonCulture.ElementValues.getResourceString("lblDOB", xeResources), string.Empty, true));
 
             int intDay = 0;
             foreach (int vintDay in new int[31]) { intDay++; drpDay.Items.Add(new ListItem((intDay).ToString("0#"), Convert.ToString(intDay))); }
@@ -113,8 +132,9 @@ public partial class _Secure_Register : System.Web.UI.Page
             {
                 txtAffiliateID.ReadOnly = true;
             }
+
+           
         }
-    }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
@@ -148,8 +168,6 @@ public partial class _Secure_Register : System.Web.UI.Page
         string strLanguageCode = string.Empty;
         string strIPAddress = string.Empty;
         string strSignUpUrl = string.Empty;
-        string strVCode = string.Empty;
-        string strSessionVCode = string.Empty;
         string strPermission = string.Empty;
         string strContactNumber = string.Empty;
         string strAffiliateId = string.Empty;
@@ -158,6 +176,7 @@ public partial class _Secure_Register : System.Web.UI.Page
         System.DateTime dtDOB = DateTime.MinValue;
         string strHiddenValues = hidValues.Value;
         List<string> lstValues = null;
+        int affiliateId;
         #endregion
 
         #region populateVariables
@@ -167,11 +186,10 @@ public partial class _Secure_Register : System.Web.UI.Page
         strEmail = txtEmail.Text;
         strContact = txtContact.Text;
         strCurrencyCode = drpCurrency.SelectedValue;
-        strFName = System.Text.RegularExpressions.Regex.Replace(txtFirstName.Text, @"\t|\n|\r|", "");
-        strLName = System.Text.RegularExpressions.Regex.Replace(txtLastName.Text, @"\t|\n|\r|", ""); ;
+        // This changes is for the combined name on frontend only but on the BO everything will be saved in firstname
+        strFName = System.Text.RegularExpressions.Regex.Replace(txtName.Text, @"\t|\n|\r|", "");
+        strLName = string.Empty; //System.Text.RegularExpressions.Regex.Replace(txtLastName.Text, @"\t|\n|\r|", "");
         strDOB = string.Format("{0}-{1}-{2}", drpYear.SelectedValue, drpMonth.SelectedValue, drpDay.SelectedValue);
-        strVCode = txtCaptcha.Text;
-        strSessionVCode = commonVariables.GetSessionVariable("vCode");
         strAlertCode = "-1";
         strContactNumber = string.Format("{0}-{1}", drpContactCountry.SelectedValue, strContact);
         strAffiliateId = txtAffiliateID.Text;
@@ -183,8 +201,6 @@ public partial class _Secure_Register : System.Web.UI.Page
 
         strResultCode = "11";
         strResultDetail = "Error:ParameterValidation";
-
-        txtCaptcha.Text = string.Empty;
 
         if (string.IsNullOrEmpty(strMemberCode))
         {
@@ -216,22 +232,22 @@ public partial class _Secure_Register : System.Web.UI.Page
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/MissingCurrency", xeErrors);
             isProcessAbort = true;
         }
+        //else if (string.IsNullOrEmpty(strFName))
+        //{
+        //    strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/MissingFName", xeErrors);
+        //    isProcessAbort = true;
+        //}
+        //else if (string.IsNullOrEmpty(strLName))
+        //{
+        //    strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/MissingLName", xeErrors);
+        //    isProcessAbort = true;
+        //}
         else if (string.IsNullOrEmpty(strFName))
         {
-            strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/MissingFName", xeErrors);
+            // This changes is for the combined name on frontend only but on the BO everything will be saved in firstname
+            strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/MissingName", xeErrors);
             isProcessAbort = true;
         }
-        else if (string.IsNullOrEmpty(strLName))
-        {
-            strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/MissingLName", xeErrors);
-            isProcessAbort = true;
-        }
-        else if (string.IsNullOrEmpty(strVCode))
-        {
-            strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/MissingVCode", xeErrors);
-            isProcessAbort = true;
-        }
-
         else if (commonValidation.isInjection(strMemberCode) || strMemberCode.IndexOf(' ') >= 0 || !commonValidation.isAlphanumeric(strMemberCode) || strMemberCode.Length < 5 || strMemberCode.Length > 16)
         {
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/InvalidUsername", xeErrors);
@@ -267,20 +283,9 @@ public partial class _Secure_Register : System.Web.UI.Page
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/InvalidLName", xeErrors);
             isProcessAbort = true;
         }
-        else if (commonValidation.isInjection(strVCode))
-        {
-            strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/InvalidVCode", xeErrors);
-            isProcessAbort = true;
-        }
-
         else if (!DateTime.TryParse(strDOB, out dtDOB))
         {
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/InvalidDOB", xeErrors);
-            isProcessAbort = true;
-        }
-        else if (string.Compare(commonEncryption.encrypting(strVCode), strSessionVCode, true) != 0)
-        {
-            strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/IncorrectVCode", xeErrors);
             isProcessAbort = true;
         }
         else
@@ -293,7 +298,7 @@ public partial class _Secure_Register : System.Web.UI.Page
         }
 
         strErrorDetail = strAlertMessage;
-        strProcessRemark = string.Format("strAlertMessage: {0} | HiddenValues: {1}", strAlertMessage, strHiddenValues);
+        strProcessRemark = string.Format("strAlertMessage: {0} | HiddenValues: {1} ", strAlertMessage, strHiddenValues);
 
         intProcessSerialId += 1;
         commonAuditTrail.appendLog("system", strPageName, "ParameterValidation", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
@@ -302,27 +307,36 @@ public partial class _Secure_Register : System.Web.UI.Page
 
         if (!isProcessAbort)
         {
-            lstValues = strHiddenValues.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries).Select(p => p.Trim()).ToList();
+            lstValues = strHiddenValues.Split(new char[] { '|' }).Select(p => p.Trim()).ToList();
 
             if (lstValues.Count > 0)
             {
                 if (lstValues[0] != null) { strCountryCode = lstValues[0]; }
-                //if (lstValues[1] != null) { strSignUpUrl = string.Format("m.{0}", lstValues[1]); }
-                if (lstValues[2] != null) { strIPAddress = lstValues[2]; }
-                if (lstValues[3] != null) { strPermission = lstValues[3]; }
+                if (lstValues.Count > 2) { strIPAddress = lstValues[2]; }
+                if (lstValues.Count > 3) { strPermission = lstValues[3]; }
             }
 
             strSignUpUrl = string.Format("m.{0}", commonIp.DomainName);
             strLanguageCode = commonVariables.SelectedLanguage;
 
-            if (string.IsNullOrEmpty(strIPAddress)) { strIPAddress = commonIp.UserIP; }
+            if (string.IsNullOrEmpty(strIPAddress))
+            {
+                strIPAddress = commonIp.UserIP;
+            }
 
             if (string.IsNullOrEmpty(strCountryCode) || string.Compare(strCountryCode, "-", true) == 0)
             {
+                if (!string.IsNullOrEmpty(CDNCountryCode))
+                {
+                    strCountryCode = CDNCountryCode;
+                }
+                else
+                {
                 using (wsIP2Loc.ServiceSoapClient wsInstance = new wsIP2Loc.ServiceSoapClient())
                 {
                     wsInstance.location(strIPAddress, ref strCountryCode, ref strPermission);
                 }
+            }
             }
 
             switch (strCountryCode.ToUpper())
@@ -359,8 +373,26 @@ public partial class _Secure_Register : System.Web.UI.Page
             string strCity = strCountryCode;
             string strPostal = "000000";
             string strGender = "M";
-            int intAffiliateId = string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId")) ? (string.IsNullOrEmpty(strAffiliateId) ? 0 : Convert.ToInt32(strAffiliateId)) : Convert.ToInt32(commonVariables.GetSessionVariable("AffiliateId"));
-            string strReferBy = string.Empty;
+            //int intAffiliateId = string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId")) ? (string.IsNullOrEmpty(strAffiliateId) ? 0 : Convert.ToInt32(strAffiliateId)) : Convert.ToInt32(commonVariables.GetSessionVariable("AffiliateId"));
+            string AffiliateId;
+            if (string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId")))
+            {
+                AffiliateId = (string.IsNullOrEmpty(strAffiliateId) ? "0" : strAffiliateId);
+            }
+            else 
+                AffiliateId = commonVariables.GetSessionVariable("AffiliateId");
+
+            int intAffiliateId;
+            try
+            {
+                int.TryParse(AffiliateId, out intAffiliateId);
+            }
+            catch
+            {
+                intAffiliateId = 0;
+            }
+
+            var strReferBy = string.Empty;
             string strDeviceId = "Mobile";
 
             System.Data.DataSet dsRegister = null;
@@ -391,7 +423,7 @@ public partial class _Secure_Register : System.Web.UI.Page
                             break;
 
                         case "1":
-                            strAlertCode = "1";
+                            strAlertCode = strProcessCode;
                             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/Success", xeErrors);
                             string strMemberSessionId = Convert.ToString(dsRegister.Tables[0].Rows[0]["memberSessionId"]);
                             HttpContext.Current.Session.Add("MemberSessionId", Convert.ToString(dsRegister.Tables[0].Rows[0]["memberSessionId"]));
@@ -401,7 +433,6 @@ public partial class _Secure_Register : System.Web.UI.Page
                             HttpContext.Current.Session.Add("CurrencyCode", Convert.ToString(dsRegister.Tables[0].Rows[0]["currency"]));
                             HttpContext.Current.Session.Add("LanguageCode", Convert.ToString(dsRegister.Tables[0].Rows[0]["languageCode"]));
                             HttpContext.Current.Session.Add("RiskId", Convert.ToString(dsRegister.Tables[0].Rows[0]["riskId"]));
-                            //HttpContext.Current.Session.Add("PaymentGroup", "A"); //Convert.ToString(dsSignin.Tables[0].Rows[0]["paymentGroup"]));
                             HttpContext.Current.Session.Add("PartialSignup", Convert.ToString(dsRegister.Tables[0].Rows[0]["partialSignup"]));
                             HttpContext.Current.Session.Add("ResetPassword", Convert.ToString(dsRegister.Tables[0].Rows[0]["resetPassword"]));
 
@@ -413,7 +444,7 @@ public partial class _Secure_Register : System.Web.UI.Page
                             strResultDetail = "OK:MemberRegistrationNew";
 
                             #region IOVATION
-                            this.IovationSubmit(ref intProcessSerialId, strProcessId, strPageName, strMemberCode, strIPAddress, strPermission);
+                            //this.IovationSubmit(ref intProcessSerialId, strProcessId, strPageName, strMemberCode, strIPAddress, strPermission);
                             #endregion
                             break;
 
@@ -438,6 +469,10 @@ public partial class _Secure_Register : System.Web.UI.Page
 
                 intProcessSerialId += 1;
                 commonAuditTrail.appendLog("system", strPageName, "MemberRegistrationNew", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
+                if (strAlertCode == "1")
+                {
+                    Response.Redirect("/Index.aspx?lang=" + commonVariables.SelectedLanguage.ToLower(), false);
+                }
             }
         }
     }

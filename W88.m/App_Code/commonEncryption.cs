@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 
 public class commonEncryption
@@ -211,7 +213,7 @@ public class commonEncryption
 
     #endregion
 
-    static string GetMd5Hash(string input)
+    public static string GetMd5Hash(string input)
     {
         byte[] data = null;
         // Convert the input string to a byte array and compute the hash. 
@@ -261,28 +263,47 @@ public class commonEncryption
         return decryptedData;
     }
 
-
-    public static string Md5Hash(string input)
+    public static string decryptToken(string cipherString, string cipherKey)
     {
-        byte[] data = null;
-        // Convert the input string to a byte array and compute the hash. 
-        using (System.Security.Cryptography.MD5 md5Hash = System.Security.Cryptography.MD5.Create())
+        byte[] keyArray;
+        //get the byte code of the string
+
+        byte[] toEncryptArray = Convert.FromBase64String(cipherString);
+
+        System.Configuration.AppSettingsReader settingsReader = new AppSettingsReader();
+
+        //if hashing was not implemented get the byte code of the key
+        keyArray = UTF8Encoding.UTF8.GetBytes(cipherKey);
+
+        TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
+        //set the secret key for the tripleDES algorithm
+        tdes.Key = keyArray;
+        //mode of operation. there are other 4 modes.
+        //We choose ECB(Electronic code Book)
+
+        tdes.Mode = CipherMode.ECB;
+        //padding mode(if any extra byte added)
+        tdes.Padding = PaddingMode.PKCS7;
+
+        ICryptoTransform cTransform = tdes.CreateDecryptor();
+        byte[] resultArray = cTransform.TransformFinalBlock
+                (toEncryptArray, 0, toEncryptArray.Length);
+        //Release resources held by TripleDes Encryptor
+        tdes.Clear();
+        //return the Clear decrypted TEXT
+        return UTF8Encoding.UTF8.GetString(resultArray);
+    }
+
+    public static string GetSHA256Hash(string input)
+    {
+        SHA256 sha = SHA256Managed.Create();
+        byte[] hashData = sha.ComputeHash(Encoding.UTF8.GetBytes(input));
+        StringBuilder output = new StringBuilder();
+        for (int i = 0; i < hashData.Length; i++)
         {
-            data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+            output.Append(hashData[i].ToString("x2"));
         }
 
-        // Create a new Stringbuilder to collect the bytes 
-        // and create a string.
-        StringBuilder sBuilder = new StringBuilder();
-
-        // Loop through each byte of the hashed data  
-        // and format each one as a hexadecimal string. 
-        for (int i = 0; i < data.Length; i++)
-        {
-            sBuilder.Append(data[i].ToString("x2"));
-        }
-
-        // Return the hexadecimal string. 
-        return sBuilder.ToString();
+        return output.ToString();
     }
 }
