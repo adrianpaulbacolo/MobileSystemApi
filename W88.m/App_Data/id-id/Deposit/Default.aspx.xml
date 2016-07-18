@@ -24,7 +24,5 @@
 
 	<lblThankYou><![CDATA[Terima Kasih]]></lblThankYou>
 
-	<lblThankYou><![CDATA[Terima Kasih]]></lblThankYou>
-
 	<browserNotice><![CDATA[<span>Gentle reminder: <b>{BANK}</b> do not support chrome & firefox</span>]]></browserNotice>
 </Deposit>

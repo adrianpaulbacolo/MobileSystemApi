@@ -32,12 +32,12 @@ public partial class Deposit_EGHL : PaymentBasePage
         base.InitialisePaymentLimits();
 
         base.GetMainWalletBalance("0");
+
+        drpBank.Items.AddRange(base.InitializeBank("EGHLBank").ToArray());
     }
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        CancelUnexpectedRePost();
-
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
         commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"));
 
@@ -55,6 +55,8 @@ public partial class Deposit_EGHL : PaymentBasePage
         lblDailyLimit.Text = base.strlblDailyLimit;
         lblTotalAllowed.Text = base.strlblTotalAllowed;
         lblDepositAmount.Text = base.strlblAmount;
+        lblBank.Text = base.strlblBank;
+        lblMessage.Text = commonCulture.ElementValues.getResourceString("bankNotice", xeResources);
 
         btnSubmit.Text = base.strbtnSubmit;
 
@@ -67,12 +69,8 @@ public partial class Deposit_EGHL : PaymentBasePage
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        if (IsPageRefresh)
-        {
-            Response.Redirect(Request.Url.AbsoluteUri);
-        }
-
         string strDepositAmount = txtDepositAmount.Text.Trim();
+        string selectedBank = drpBank.SelectedItem.Value != "-1" ? drpBank.SelectedItem.Value : string.Empty;
 
         decimal decDepositAmount = commonValidation.isDecimal(strDepositAmount) ? Convert.ToDecimal(strDepositAmount) : 0;
         decimal decMinLimit = Convert.ToDecimal(strMinLimit);
@@ -103,7 +101,7 @@ public partial class Deposit_EGHL : PaymentBasePage
             {
                 using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
                 {
-                    xeResponse = client.createOnlineDepositTransactionV3(Convert.ToInt64(strOperatorId), strMemberCode, Convert.ToInt64(base.PaymentMethodId), strMerchantId, strCurrencyCode, decDepositAmount, svcPayDeposit.DepositSource.Mobile, string.Empty, string.Empty);
+                    xeResponse = client.createOnlineDepositTransactionV3(Convert.ToInt64(strOperatorId), strMemberCode, Convert.ToInt64(base.PaymentMethodId), strMerchantId, strCurrencyCode, decDepositAmount, svcPayDeposit.DepositSource.Mobile, selectedBank, string.Empty);
 
                     if (xeResponse == null)
                     {

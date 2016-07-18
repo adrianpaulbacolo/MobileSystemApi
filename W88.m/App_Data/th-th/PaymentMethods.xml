@@ -15,7 +15,6 @@
 	<dSDAPayAlipay><![CDATA[Alipay Transfer]]></dSDAPayAlipay>
 	<dBofoPay><![CDATA[Quick Pay]]></dBofoPay>
 	<dAllDebit><![CDATA[บัตรเครดิต]]></dAllDebit>
-
 	<dEGHL><![CDATA[ควิกออนไลน์]]></dEGHL>
 	
 	<wBankTransfer><![CDATA[ถอนเงินด่วน]]></wBankTransfer>

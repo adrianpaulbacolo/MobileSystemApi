@@ -8,7 +8,6 @@
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
 <body>
-    <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
@@ -64,9 +63,16 @@
                             <asp:Literal ID="txtTotalAllowed" runat="server" />
                         </div>
                     </li>
+                    <li class="item item-select idrBank">
+                        <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
+                        <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
+                    </li>
                     <li class="item item-input">
                         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
                         <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+                    </li>
+                    <li class="item-text-wrap idrBank">
+                        <asp:Label ID="lblMessage" runat="server" ForeColor="Red" />
                     </li>
                     <li class="item row">
                         <div class="col">
@@ -84,6 +90,13 @@
         <script type="text/javascript">
             $(function () {
                 window.history.forward();
+
+                if ('<%=commonVariables.GetSessionVariable("CurrencyCode")%>' == "MYR") {
+                    $('.idrBank').show();
+                }
+                else {
+                    $('.idrBank').hide();
+                }
 
                 if ('<%=strAlertCode%>'.length > 0) {
                     switch ('<%=strAlertCode%>') {
