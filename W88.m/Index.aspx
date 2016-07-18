@@ -15,6 +15,7 @@
         <div class="ui-content" role="main">
 
             <section class="section banner-slider">
+                <%=getPromoBanner() %>
                 <div class="slide">
                     <a href="/Promotions#SHAOLINSPIN" data-ajax="false">
                         <img src="/_Static/Images/Download/Mobile-Home-ShaolinSpin-<%=commonVariables.SelectedLanguageShort%>.jpg" alt="banner" class="img-responsive">

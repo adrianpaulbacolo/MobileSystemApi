@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="ui-content" role="main" id="sports">
 
-        <ul class="row row-wrap row-uc bg-gradient">
+        <ul class="row row-uc row-wrap bg-gradient">
             <li class="col col-33">
                 <a href="/ClubBravado" class="card" data-ajax="false">
                     <img src="/_Static/Images/bnr-clubbravado.jpg" class="img-responsive">

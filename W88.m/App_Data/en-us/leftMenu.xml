@@ -83,5 +83,11 @@
 	<accountId><![CDATA[NETELLER Account ID]]></accountId>
 	<secureId><![CDATA[NETELLER Secure ID]]></secureId>
 
-	<copy><![CDATA[Copy]]></copy>
+    <copy><![CDATA[Copy]]></copy>
+    <PromoBanner>
+        <item>
+            <imageSrc><![CDATA[Mobile-Home-Rio2016-EN.jpg]]></imageSrc>
+            <url><![CDATA[/Sports.aspx]]></url>
+        </item>
+    </PromoBanner>
 </menu>
