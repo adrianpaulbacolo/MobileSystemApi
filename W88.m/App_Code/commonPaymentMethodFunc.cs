@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using Helpers;
 using svcPayMember;
 
 /// <summary>
@@ -28,28 +29,43 @@ public static class commonPaymentMethodFunc
         }
     }
 
+    public static Task<getWalletBalanceResponse> GetWalletBalanceAsync(int walletId)
+    {
+        var member = new Members();
+        var info = member.MemberData();
+        var memberCode = commonVariables.GetSessionVariable(w88Mobile.MemberInfo.MemberCode);
+
+        var mCode = string.IsNullOrWhiteSpace(memberCode) ? info.MemberCode : memberCode;
+        if (string.IsNullOrEmpty(mCode) || string.IsNullOrEmpty(commonVariables.OperatorId)) HttpContext.Current.Session["Main"] = 0;
+
+        using (var svcInstance = new MemberClient())
+        {
+            var request = new getWalletBalanceRequest(commonVariables.OperatorId, commonVariables.SiteUrl, mCode, Convert.ToString(walletId));
+            return svcInstance.getWalletBalanceAsync(request);
+        }
+    }
+
     public static Task<string> GetWalletBalancesAsync()
     {
         using (var svcInstance = new MemberClient())
         {
+            var member = new Members();
+            var info = member.MemberData();
             var memberCode = commonVariables.GetSessionVariable("MemberCode");
-            return svcInstance.getBalancesAsync(commonVariables.OperatorId, commonVariables.SiteUrl, memberCode);
+            var mCode = string.IsNullOrWhiteSpace(memberCode) ? info.MemberCode : memberCode;
+            return svcInstance.getBalancesAsync(commonVariables.OperatorId, commonVariables.SiteUrl, mCode);
         }
     }
 
     public static ICollection<KeyValuePair<int, string>> GetWallets()
     {
-        var selection = new customConfig.OperatorSettings("W88").Values.Get("Products").Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries).Select(p => p.Trim()).ToList();
         ICollection<KeyValuePair<int, string>> wallet = new Dictionary<int, string>();
+        var obj = new Wallets();
 
-        foreach (var product in selection)
+        foreach (var info in obj.WalletInfo.OrderBy(x=>x.SelectOrder))
         {
-            var strProduct = product.Trim();
-            var val = Convert.ToString(commonCulture.ElementValues.getResourceXPathString("Wallets/" + strProduct, commonVariables.ProductsXML));
-            var key = ConfigurationManager.GetSection("WalletGroupSettings/" + strProduct) as customConfig.WalletVariables;
-
-            if (key != null)
-                wallet.Add(new KeyValuePair<int, string>(Convert.ToInt32(key.walletId), Convert.ToString(val)));
+            var selectName = string.IsNullOrWhiteSpace(info.SelectName) ? info.Name : info.SelectName;
+            wallet.Add(new KeyValuePair<int, string>(Convert.ToInt32(info.Id), selectName));
         }
 
         return wallet;

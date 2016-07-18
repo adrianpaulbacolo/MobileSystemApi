@@ -182,26 +182,9 @@
                 }
             }
 
-            //function getBalance()
-            //{
-            //    $(document).ready(function () {
-            //        $('span[name="WalletBalance"]').each(function () {
-            //            var objWallet = $(this);
-            //            var strWallet = objWallet.attr('id');
-            //            $.ajax({
-            //                type: "POST",
-            //                url: '/AjaxHandlers/GetBalance.ashx',
-            //                data: { Wallet: strWallet },
-            //                success: function (html) {
-            //                    objWallet.text(html);
-            //                }
-            //            });
-            //        });
-            //    });
-            //}
             function getBalance() {
-                $(document).ready(function() {
-                    window.w88Mobile.Wallets.getWallets();
+                $(document).ready(function () {
+                    window.w88Mobile.FTWallets.getWallets();
                 });
             }
 
