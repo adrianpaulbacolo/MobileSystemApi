@@ -4,6 +4,8 @@
 	.col{
 		display: block;
 		flex: 0 1 auto !important;
+		float: left;
+		height: auto;
 	}
 	&:before,
 	&:after {
@@ -17,15 +19,19 @@
 
 .row-dashboard{
 	.col{
-		float: left;
 		height: 112px;
 	}
 }
 
-.banner-lists .col {
-    height: auto;
-}
-#sports .col{
-	height: auto;
-	float:left;
+#sports{
+	.card {
+	    max-width: 250px;
+	    margin: 0 auto;
+	    display: block;
+	    float: none;
+	    text-align: center;
+	    .title{
+			height: 40px;
+		}
+	}
 }

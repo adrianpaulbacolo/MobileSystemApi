@@ -7,12 +7,12 @@
 	<register><![CDATA[회원가입]]></register>
 	<cashier><![CDATA[캐쉬어]]></cashier>
 	<deposit><![CDATA[입금]]></deposit>
-	<transfer><![CDATA[잔액 이동]]></transfer>
+	<transfer><![CDATA[자금 이체]]></transfer>
 	<withdrawal><![CDATA[출금]]></withdrawal>
 	<freebets><![CDATA[무료머니]]></freebets>
 	<misc><![CDATA[Misc]]></misc>
 	<liveHelp><![CDATA[라이브 채팅]]></liveHelp>
-	<contactUs><![CDATA[고객센터]]></contactUs>
+	<contactUs><![CDATA[연락처]]></contactUs>
 	<helpCenter><![CDATA[고객 센터]]></helpCenter>
 	<language><![CDATA[언어]]></language>
 	<logout><![CDATA[로그아웃]]></logout>
@@ -73,7 +73,7 @@
 	<clubMassimoMessage><![CDATA[인기있는 라이브 카지노와 우수한 품질의 영상! ]]></clubMassimoMessage>
 	<playNow><![CDATA[지금 시작]]></playNow>
 
-	<download><![CDATA[다운로드]]></download>
+	<download><![CDATA[DOWNLOAD]]></download>
 
 	<kenoMessage><![CDATA[끊이지 않는 재미와 흥분을 드립니다.매 3~5분 간격으로 이루어지는 실시간 베팅과 추첨!]]></kenoMessage>
 
@@ -85,10 +85,12 @@
 	<accountId><![CDATA[Neteller 계정]]></accountId>
 	<secureId><![CDATA[Neteller 암호]]></secureId>
 
-	<copy><![CDATA[Copy]]></copy>
+    <copy><![CDATA[Copy]]></copy>
 
-    <w88Android><![CDATA[W88 Android Download]]></w88Android>
-    <w88AndroidDesc><![CDATA[Sports, Live Casino, Slots in 1 App]]></w88AndroidDesc>
-    <NoThanks><![CDATA[No Thanks]]></NoThanks>
-    <DownloadNow><![CDATA[Download Now]]></DownloadNow>
+    <PromoBanner>
+        <item>
+            <imageSrc><![CDATA[Mobile-Home-Rio2016-KR.jpg]]></imageSrc>
+            <url><![CDATA[/Sports.aspx]]></url>
+        </item>
+    </PromoBanner>
 </menu>

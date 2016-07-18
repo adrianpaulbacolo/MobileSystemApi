@@ -84,10 +84,12 @@
 	<accountId><![CDATA[Neteller Tài Khoản]]></accountId>
 	<secureId><![CDATA[Neteller Mật Khẩu]]></secureId>
 
-	<copy><![CDATA[Copy]]></copy>
+    <copy><![CDATA[Copy]]></copy>
 
-    <w88Android><![CDATA[W88 Android Download]]></w88Android>
-    <w88AndroidDesc><![CDATA[Sports, Live Casino, Slots in 1 App]]></w88AndroidDesc>
-    <NoThanks><![CDATA[No Thanks]]></NoThanks>
-    <DownloadNow><![CDATA[Download Now]]></DownloadNow>
+    <PromoBanner>
+        <item>
+            <imageSrc><![CDATA[Mobile-Home-Rio2016-VN.jpg]]></imageSrc>
+            <url><![CDATA[/Sports.aspx]]></url>
+        </item>
+    </PromoBanner>
 </menu>

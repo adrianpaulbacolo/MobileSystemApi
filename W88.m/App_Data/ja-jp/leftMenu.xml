@@ -85,10 +85,12 @@
 	<accountId><![CDATA[NETELLER アカウント番号]]></accountId>
 	<secureId><![CDATA[NETELLER セキュリティーコード]]></secureId>
 
-	<copy><![CDATA[Copy]]></copy>
+    <copy><![CDATA[Copy]]></copy>
 
-    <w88Android><![CDATA[W88 Android Download]]></w88Android>
-    <w88AndroidDesc><![CDATA[Sports, Live Casino, Slots in 1 App]]></w88AndroidDesc>
-    <NoThanks><![CDATA[No Thanks]]></NoThanks>
-    <DownloadNow><![CDATA[Download Now]]></DownloadNow>
+    <PromoBanner>
+        <item>
+            <imageSrc><![CDATA[Mobile-Home-Rio2016-JP.jpg]]></imageSrc>
+            <url><![CDATA[/Sports.aspx]]></url>
+        </item>
+    </PromoBanner>
 </menu>
