@@ -89,6 +89,8 @@ public partial class Deposit_FastDesposit : PaymentBasePage
         lblDepositChannel.Text = commonCulture.ElementValues.getResourceString("lblDepositChannel", xeResources);
 
         lblSystemAccount.Text = commonCulture.ElementValues.getResourceString("lblSystemAccount", xeResources);
+
+        lblDepositDateTime.Text = commonCulture.ElementValues.getResourceString("drpDepositDateTime", xeResources);
     }
 
     private void InitialiseSystemBankAccounts()
@@ -157,7 +159,7 @@ public partial class Deposit_FastDesposit : PaymentBasePage
     {
         #region DepositDateTime
 
-        drpDepositDate.Items.Add(new ListItem(commonCulture.ElementValues.getResourceString("drpDepositDateTime", xeResources), string.Empty));
+        drpDepositDate.Items.Add(new ListItem(commonCulture.ElementValues.getResourceString("lblDepositDateIndicator", xeResources), string.Empty));
 
         for (System.DateTime dtDepositDateTime = System.DateTime.Today.AddHours(-72); dtDepositDateTime < System.DateTime.Today.AddHours(72); dtDepositDateTime = dtDepositDateTime.AddHours(24))
         {
