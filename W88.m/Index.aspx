@@ -14,13 +14,8 @@
         <!--#include virtual="~/_static/header.shtml" -->
         <div class="ui-content" role="main">
 
-            <section class="section banner-slider">
+                        <section class="section banner-slider">
                 <%=getPromoBanner() %>
-                <div class="slide">
-                    <a href="/Promotions#SHAOLINSPIN" data-ajax="false">
-                        <img src="/_Static/Images/Download/Mobile-Home-ShaolinSpin-<%=commonVariables.SelectedLanguageShort%>.jpg" alt="banner" class="img-responsive">
-                    </a>
-                </div>
                 <div class="slide">
                     <a href="#divPanel" class="nav-pmahjong">
                         <img src="/_Static/Images/Download/W88-Mobile-TexasMahjong.jpg" alt="banner" class="img-responsive">
@@ -31,9 +26,7 @@
                         <img src="/_Static/Images/Download/W88-Mobile-ClubW-Casino.jpg" alt="banner" class="img-responsive">
                     </a>
                 </div>
-            </section>
-
-        <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) {
+            </section>        <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) {
             var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
             <div class="row row-no-padding action-btn">
                 <div class="col">

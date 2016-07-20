@@ -129,6 +129,13 @@
 
                         var message = xml.Message;
 
+
+                        if (xml.Code == undefined)
+                        {
+                            initiateLogin();
+			    return;
+                        }
+
                         switch (xml.Code) {
                             case "1":
                             case "resetPassword":
@@ -143,7 +150,7 @@
 
                             default:
                                 counter += 1;
-                                console.log(counter);
+                                console.log(xml.Code);
 
                                 if (counter >= 3) {
                                     $(".capt").removeClass("hide");

@@ -35,4 +35,4 @@
     return FTWallets;
 }
 
-window.w88Mobile.Wallets = Wallets();
+window.w88Mobile.FTWallets = FTWallets();
