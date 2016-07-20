@@ -55,7 +55,7 @@ public partial class _Secure_Login : BasePage
                     }
                     else
                     {
-                        Response.Redirect("/Deposit/Default_app.aspx", false);
+                        Response.Redirect("/Funds.aspx", false);
                     }
                 }
             }

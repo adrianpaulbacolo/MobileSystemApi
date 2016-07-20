@@ -12,7 +12,6 @@ public partial class Funds : BasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
         if (Page.IsPostBack) return;
 
         SetTitle(commonCulture.ElementValues.getResourceString("funds", commonVariables.LeftMenuXML));
