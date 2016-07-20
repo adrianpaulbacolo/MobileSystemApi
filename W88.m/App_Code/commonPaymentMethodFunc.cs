@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using Helpers;
 using svcPayMember;
 
 /// <summary>
@@ -31,22 +32,30 @@ public static class commonPaymentMethodFunc
 
     public static Task<getWalletBalanceResponse> GetWalletBalanceAsync(int walletId)
     {
+        var member = new Members();
+        var info = member.MemberData();
         var memberCode = commonVariables.GetSessionVariable("MemberCode");
-        if (string.IsNullOrEmpty(memberCode) || string.IsNullOrEmpty(commonVariables.OperatorId)) HttpContext.Current.Session["Main"] = 0;
+
+        var mCode = string.IsNullOrWhiteSpace(memberCode) ? info.MemberCode : memberCode;
+        if (string.IsNullOrEmpty(mCode) || string.IsNullOrEmpty(commonVariables.OperatorId)) HttpContext.Current.Session["Main"] = 0;
 
         using (var svcInstance = new MemberClient())
         {
-            var request = new getWalletBalanceRequest(commonVariables.OperatorId, commonVariables.SiteUrl, memberCode, Convert.ToString(walletId));
+            var request = new getWalletBalanceRequest(commonVariables.OperatorId, commonVariables.SiteUrl, mCode, Convert.ToString(walletId));
             return svcInstance.getWalletBalanceAsync(request);
         }
     }
+
 
     public static Task<string> GetWalletBalancesAsync()
     {
         using (var svcInstance = new MemberClient())
         {
+            var member = new Members();
+            var info = member.MemberData();
             var memberCode = commonVariables.GetSessionVariable("MemberCode");
-            return svcInstance.getBalancesAsync(commonVariables.OperatorId, commonVariables.SiteUrl, memberCode);
+            var mCode = string.IsNullOrWhiteSpace(memberCode) ? info.MemberCode : memberCode;
+            return svcInstance.getBalancesAsync(commonVariables.OperatorId, commonVariables.SiteUrl, mCode);
         }
     }
 
