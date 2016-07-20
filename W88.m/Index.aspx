@@ -210,7 +210,7 @@
                             <a href="javascript:hideDownload();" role="button" class="ui-btn btn-bordered">No Thanks</a>
                         </div>
                         <div class="col">
-                            <a href="<%=commonClubWAPK.getDownloadUrl %>" class="ui-btn btn-primary">Download Now</a>
+                            <a href="<%=commonClubWAPK.getDownloadUrl %>" target="_blank" class="ui-btn btn-primary">Download Now</a>
                         </div>
                     </div>
                 </div>

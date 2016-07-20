@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Activities.Validation;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Globalization;
@@ -33,7 +34,7 @@ public static class commonPaymentMethodFunc
     {
         var member = new Members();
         var info = member.MemberData();
-        var memberCode = commonVariables.GetSessionVariable(w88Mobile.MemberInfo.MemberCode);
+        var memberCode = commonVariables.GetSessionVariable("MemberCode");
 
         var mCode = string.IsNullOrWhiteSpace(memberCode) ? info.MemberCode : memberCode;
         if (string.IsNullOrEmpty(mCode) || string.IsNullOrEmpty(commonVariables.OperatorId)) HttpContext.Current.Session["Main"] = 0;

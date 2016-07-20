@@ -15,23 +15,35 @@
 }
 
 .banner-odd-even > li {
+    .banner-caption{
+        max-width: 50%;
+        h3{
+            font-size: 1.429em;
+        }
+        p{
+            font-size: 1em;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical; 
+            overflow: hidden;
+        }
+    }
     &:nth-child(odd) {
         margin-bottom: 0;
         .banner-caption {
             float: right;
-            max-width: 60%;
             text-align: right;
         }
     }
     &:nth-child(even) {
         .banner-caption {
-            max-width: 70%;
+
         }
     }
     .ui-btn {
+        max-width: 210px;
         display: inline-block;
-        min-width: 130px;
-        margin: 0;
+        width: 100%;
     }
 }
 
@@ -39,8 +51,11 @@
     background-color: darken($base-background-color, 8%); // #0b0b0b
     position: relative;
     overflow: hidden;
+    height: 0;
+    padding-bottom: 50%;
     .img-bg {
         position: absolute;
+        width: 100%;
     }
     .banner-caption {
         position: relative;
@@ -51,6 +66,42 @@
         color: $brand-color;
         font-size: 2rem;
         margin-top: 1rem;
+    }
+}
+
+
+@media all and (min-width: 768px) {
+    .banner .banner-caption{
+        margin-top: 7%;
+    }
+    .banner-odd-even > li {
+        .banner-caption{
+            h3{
+                font-size: 1.714em;
+            }
+            p{
+                font-size: 1.143em;
+            }
+        }
+    }
+}
+
+
+@media all and (max-width: $screen-xs) {
+    .banner-odd-even > li {
+        .banner-caption{
+            h3{
+                font-size: 1.286em;
+            }
+            p{
+                font-size: 0.857em;
+                margin-bottom: 5px;
+            }
+        }
+        .ui-btn {
+            padding-top: 8px !important;
+            padding-bottom: 8px !important;
+        }
     }
 }
 
@@ -183,32 +234,3 @@ $slick-opacity-not-active: 0.5 !default;
     }
 }
 
-//
-// Media Query
-// -------------------------------
-
-.banner-lists {
-    @media (min-width: 0) {
-        .banner .img-bg {
-            height: 100%;
-            max-width: none;
-        }
-    }
-    @media (min-width: 356px) {
-        .banner .img-bg {
-            height: auto;
-            max-width: 100%;
-        }
-    }
-    @media (min-width: $grid-responsive-sm-break) { // 567px
-        .banner {
-            height: 285px;
-        }
-    }
-    @media (min-width: $grid-responsive-md-break) { // 767px
-        // ...
-    }
-    @media (min-width: $grid-responsive-lg-break) { // 1023px
-        // ...
-    }
-}

@@ -188,6 +188,12 @@
                 });
             }
 
+            $(document).ready(function () {
+                if (sessionStorage.selectedWalletId != 'undefined' || sessionStorage.selectedWalletId != null) {
+                    $('#drpTransferTo').val(sessionStorage.selectedWalletId).change();
+                    sessionStorage.removeItem('selectedWalletId');
+                }
+            });
         </script>
     </div>
 </body>
