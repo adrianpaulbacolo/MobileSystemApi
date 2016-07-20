@@ -98,6 +98,11 @@
 
                 window.history.forward();
 
+                if (sessionStorage.selectedWalletId != 'undefined' || sessionStorage.selectedWalletId != null) {
+                    $('#drpTransferTo').val(sessionStorage.selectedWalletId).change();
+                    sessionStorage.removeItem('selectedWalletId');
+                }
+
                 $('#drpTransferFrom').change(function () {
 
                     $('#drpTransferTo option').each(function () {
