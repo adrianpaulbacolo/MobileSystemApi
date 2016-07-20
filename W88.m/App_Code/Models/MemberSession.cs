@@ -17,5 +17,4 @@ namespace Models
             public string MemberCode = string.Empty;
         }
     }
-
 }

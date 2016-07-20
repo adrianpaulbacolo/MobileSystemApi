@@ -46,6 +46,7 @@ public static class commonPaymentMethodFunc
         }
     }
 
+
     public static Task<string> GetWalletBalancesAsync()
     {
         using (var svcInstance = new MemberClient())

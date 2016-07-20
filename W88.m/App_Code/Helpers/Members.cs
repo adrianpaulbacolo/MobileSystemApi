@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Models;
+using System;
  using System.Data;
  using System.Web;
 using System.Web.Script.Serialization;
 using System.Web.Security;
-using Models;
 
 namespace Helpers
 {
@@ -55,7 +55,7 @@ namespace Helpers
             commonVariables.SetSessionVariable("ResetPassword", dTable.Rows[0]["resetPassword"].ToString());
 
             if (dTable.Columns["Lastname"] != null)
-                commonVariables.SetSessionVariable("MemberName", Convert.ToString(dTable.Rows[0]["Lastname"]) + Convert.ToString(dTable.Rows[0]["Firstname"]));
+            commonVariables.SetSessionVariable("MemberName", Convert.ToString(dTable.Rows[0]["Lastname"]) + Convert.ToString(dTable.Rows[0]["Firstname"]));
 
             commonCookie.CookieS = Convert.ToString(memberSessionId);
             commonCookie.CookieG = Convert.ToString(memberSessionId);
