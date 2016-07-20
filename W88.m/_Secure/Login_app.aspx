@@ -133,7 +133,7 @@
                             case "1":
                             case "resetPassword":
                                 Cookies().setCookie('IsApp', '1', 1);
-                                window.location.replace('/Deposit/Default_app.aspx');
+                                window.location.replace('/Funds.aspx');
                                 break;
                             case "22":
                                 GPINTMOBILE.HideSplash();

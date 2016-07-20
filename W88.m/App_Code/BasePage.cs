@@ -247,4 +247,8 @@ public class BasePage : System.Web.UI.Page
             img.Visible = false;
         }
     }
+
+    public string getAppSuffix(){
+        return (commonCookie.CookieIsApp == "1") ? "_app" : "";
+    }
 }

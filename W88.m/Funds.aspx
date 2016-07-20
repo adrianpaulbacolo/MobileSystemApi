@@ -11,13 +11,12 @@
             <uc:Wallet ID="uMainWallet" runat="server" />
             <a href="#" id="refesh" class="reload ion-ios-refresh-empty"></a>
         </div>
-
         <div id="tabs">
             <div data-role="navbar">
                 <ul>
-                    <li><a href="/Deposit/Default.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%></a></li>
-                    <li><a href="/FundTransfer/Default.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%></a></li>
-                    <li><a href="/Withdrawal/Default.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%></a></li>
+                    <li><a href="/Deposit/Default<%=getAppSuffix() %>.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%></a></li>
+                    <li><a href="/FundTransfer/Default<%=getAppSuffix() %>.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%></a></li>
+                    <li><a href="/Withdrawal/Default<%=getAppSuffix() %>.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%></a></li>
                     <li><a href="/History" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("history", commonVariables.HistoryXML)%></a></li>
                 </ul>
             </div>
@@ -55,7 +54,7 @@
             });
 
             function redirecToFundTransfer() {
-                window.location = 'FundTransfer/Default.aspx';
+                window.location = 'FundTransfer/Default<%=getAppSuffix()%>.aspx';
             }
         });
     </script>
