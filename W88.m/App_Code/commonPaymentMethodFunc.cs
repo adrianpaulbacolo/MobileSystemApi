@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Activities.Validation;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Globalization;
@@ -25,6 +26,18 @@ public static class commonPaymentMethodFunc
             string strProductCurrency;
             var value = svcInstance.getWalletBalance(commonVariables.OperatorId, commonVariables.SiteUrl, memberCode, Convert.ToString(walletId), out strProductCurrency);
             HttpContext.Current.Session["Main"] = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", value);
+        }
+    }
+
+    public static Task<getWalletBalanceResponse> GetWalletBalanceAsync(int walletId)
+    {
+        var memberCode = commonVariables.GetSessionVariable("MemberCode");
+        if (string.IsNullOrEmpty(memberCode) || string.IsNullOrEmpty(commonVariables.OperatorId)) HttpContext.Current.Session["Main"] = 0;
+
+        using (var svcInstance = new MemberClient())
+        {
+            var request = new getWalletBalanceRequest(commonVariables.OperatorId, commonVariables.SiteUrl, memberCode, Convert.ToString(walletId));
+            return svcInstance.getWalletBalanceAsync(request);
         }
     }
 

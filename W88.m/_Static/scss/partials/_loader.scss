@@ -41,31 +41,6 @@
     to   {@include transform(rotate(360deg))}
 }
 
-// @include keyframes(loader-pulsar) {
-//   0% {
-//     @include transform(rotate(0deg));
-//     @include opacity(0);
-//   }
-//   20% {
-//     @include transform(rotate(360deg));
-//   }
-//   40% {
-//     @include transform(rotate(740deg));
-//     @include opacity(1);
-//   }
-//   60% {
-//     @include transform(rotate(1120deg));
-//     @include opacity(1);
-//   }
-//   80% {
-//     @include transform(rotate(1440deg));
-//   }
-//   100% {
-//     @include transform(rotate(1800deg));
-//     @include opacity(0);
-//   }
-// }
-
 .loader {
     background-color: $black;
     z-index: 9999;
@@ -159,6 +134,26 @@
     -webkit-transform: scaleY(1.0);
     background-color: #d3dee3;
   }
+}
+
+
+.spinner-generic {
+  margin: auto;
+  width: 30px;
+  height: 20px;
+  text-align: center;
+  font-size: 10px;
+  display: inline-block;
+    }
+
+.spinner-generic > div {
+  background-color: #01374d;
+  height: 100%;
+  width: 3px;
+  display: inline-block;
+  
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
 }
 
 .spinner-generic {
