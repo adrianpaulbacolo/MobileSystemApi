@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
 	<Products>
+        <Play><![CDATA[プレイ]]></Play>
+        <Try><![CDATA[トライ]]></Try>
 		<WCINFO>
 			<Label><![CDATA[]]></Label>
 		</WCINFO>
