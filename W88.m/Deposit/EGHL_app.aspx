@@ -1,26 +1,28 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ECPSS.aspx.cs" Inherits="Deposit_ECPSS" %>
-<%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
-<%@ Register TagPrefix="uc" TagName="AppFooterMenu" Src="~/UserControls/AppFooterMenu.ascx" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EGHL.aspx.cs" Inherits="Deposit_EGHL" %>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dECPSS", commonVariables.PaymentMethodsXML))%></title>
+    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dEGHL", commonVariables.PaymentMethodsXML))%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
 <body>
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
-            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dECPSS", commonVariables.PaymentMethodsXML))%></h1>
+            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dEGHL", commonVariables.PaymentMethodsXML))%></h1>
         </header>
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <uc:Wallet id="uMainWallet" runat="server" />
+                <label class="label"><%=commonCulture.ElementValues.getResourceString("mainWallet", commonVariables.LeftMenuXML)%></label>
+                <h2 class="value"><%=Session["Main"].ToString()%></h2>
+                <small class="currency"><%=commonVariables.GetSessionVariable("CurrencyCode")%></small>
             </div>
 
-            <div data-role="navbar" id="depositTabs" runat="server">
+            <div data-role="navbar">
+                <ul id="depositTabs" runat="server">
+                </ul>
             </div>
 
             <form class="form" id="form1" runat="server" data-ajax="false">
@@ -58,16 +60,16 @@
                             <asp:Literal ID="txtTotalAllowed" runat="server" />
                         </div>
                     </li>
-                    <li class="item item-select">
-                        <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank"/>
+                    <li class="item item-select idrBank">
+                        <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
                         <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
                     </li>
                     <li class="item item-input">
                         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
                         <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
-                    <li class="item item-select">
-                        <asp:Label ID="lblMessage" runat="server" />
+                    <li class="item-text-wrap idrBank">
+                        <asp:Label ID="lblMessage" runat="server" ForeColor="Red" />
                     </li>
                     <li class="item row">
                         <div class="col">
@@ -76,41 +78,37 @@
                     </li>
                 </ul>
 
-                <uc:AppFooterMenu runat="server" ID="AppFooterMenu" />
+                <div class="row">
+                    <div class="col">
+                        <input type="button" data-theme="b" onclick="location.href = '/Withdrawal/Withrawal.aspx?source=app';" value="<%=commonCulture.ElementValues.getResourceString("withrawal", commonVariables.LeftMenuXML)%>" class="button-blue" data-corners="false" />
+                    </div>
+                    <div class="col">
+                        <input type="button" data-theme="b" onclick="location.href = '/FundTransfer/FundTransfer.aspx';" value="<%=commonCulture.ElementValues.getResourceString("fundTransfer", commonVariables.LeftMenuXML)%>" class="button-blue" data-corners="false" />
+                    </div>
+                </div>
 
             </form>
         </div>
 
         <script type="text/javascript">
-            $('#form1').submit(function (e) {
-                window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
-            });
             $(function () {
                 window.history.forward();
 
-                if ($('#depositTabs li').length == 0) {
-                    window.location.reload();
+                if ('<%=commonVariables.GetSessionVariable("CurrencyCode")%>' == "MYR") {
+                    $('.idrBank').show();
+                }
+                else {
+                    $('.idrBank').hide();
                 }
 
-                var responseCode = '<%=strAlertCode%>';
-                var responseMsg = '<%=strAlertMessage%>';
-                if (responseCode.length > 0) {
-                    switch (responseCode) {
+                if ('<%=strAlertCode%>'.length > 0) {
+                    switch ('<%=strAlertCode%>') {
                         case '-1':
-                            alert(responseMsg);
+                            alert('<%=strAlertMessage%>');
                             break;
+
                         case '0':
-                            var cookie = '<%=HttpUtility.UrlEncode(commonEncryption.encrypting(HttpUtility.UrlEncode(commonCookie.CookieS),ConfigurationManager.AppSettings["PaymentPrivateKey"]))%>';
-                            var remote_ip = '<%=HttpUtility.UrlEncode(commonEncryption.encrypting(commonIp.remoteIP,ConfigurationManager.AppSettings["PaymentPrivateKey"]))%>';
-                            var domain = '<%=strRedirectUrl%>';
-
-                            if (domain != '') {
-                                var url = domain + "api/ECPSSHandler.ashx?requestAmount=" + $("#txtDepositAmount").val() + "&bankCode=" + $("#drpBank").val() + "&cookie=" + cookie + "&ip=" + remote_ip + "&isMobile=true";
-                                window.open(url);
-                            } else {
-                                alert('<%=commonCulture.ElementValues.getResourceXPathString("CustomerService", commonVariables.ErrorsXML)%>');
-                            }
-
+                            alert('<%=strAlertMessage%>');
                             break;
                         default:
                             break;
@@ -120,5 +118,6 @@
 
         </script>
     </div>
+    <asp:Literal ID="litForm" runat="server"></asp:Literal>
 </body>
 </html>
