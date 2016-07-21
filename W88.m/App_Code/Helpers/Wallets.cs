@@ -32,7 +32,9 @@ namespace Helpers
                 {
                     Id = Convert.ToInt16(element.Attribute("id").Value),
                     OrderBy = Convert.ToInt16(element.Attribute("orderBy").Value),
-                    SelectOrder = Convert.ToInt16(element.Attribute("selectOrder").Value)
+                    SelectOrder = Convert.ToInt16(element.Attribute("selectOrder").Value),
+                    Restriction = element.Attribute("CurrRestriction").Value,
+                    AllowOnly = element.Attribute("CurrAllowOnly").Value
                 };
 
                 foreach (var v in element.Elements("lang").Select(x => x.Element(commonVariables.SelectedLanguageShort)))
@@ -46,12 +48,16 @@ namespace Helpers
                 }
 
                 var curr = commonVariables.GetSessionVariable("CurrencyCode");
-                if (curr.ToLower() != "rmb")
+
+                if (!string.IsNullOrWhiteSpace(item.AllowOnly))
                 {
-                    if (item.Id != 16)
-                    {
+                    if (item.AllowOnly.Contains(curr))
                         WalletInfo.Add(item);
-                    }
+                }
+                else if (!string.IsNullOrWhiteSpace(item.Restriction))
+                {
+                    if (!item.Restriction.Contains(curr))
+                        WalletInfo.Add(item);
                 }
                 else
                 {
