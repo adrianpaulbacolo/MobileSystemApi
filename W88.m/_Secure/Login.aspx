@@ -129,6 +129,11 @@
 
                         var message = xml.Message;
 
+                        if (xml.Code == undefined) {
+                            initiateLogin();
+                            return;
+                        }
+
                         switch (xml.Code) {
                             case "1":
                                 if ('<%=strRedirect%>' !== '') {

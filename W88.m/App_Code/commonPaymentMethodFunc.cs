@@ -61,17 +61,13 @@ public static class commonPaymentMethodFunc
 
     public static ICollection<KeyValuePair<int, string>> GetWallets()
     {
-        var selection = new customConfig.OperatorSettings("W88").Values.Get("Products").Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries).Select(p => p.Trim()).ToList();
         ICollection<KeyValuePair<int, string>> wallet = new Dictionary<int, string>();
+        var obj = new Wallets();
 
-        foreach (var product in selection)
+        foreach (var info in obj.WalletInfo.OrderBy(x=>x.SelectOrder))
         {
-            var strProduct = product.Trim();
-            var val = Convert.ToString(commonCulture.ElementValues.getResourceXPathString("Wallets/" + strProduct, commonVariables.ProductsXML));
-            var key = ConfigurationManager.GetSection("WalletGroupSettings/" + strProduct) as customConfig.WalletVariables;
-
-            if (key != null)
-                wallet.Add(new KeyValuePair<int, string>(Convert.ToInt32(key.walletId), Convert.ToString(val)));
+            var selectName = string.IsNullOrWhiteSpace(info.SelectName) ? info.Name : info.SelectName;
+            wallet.Add(new KeyValuePair<int, string>(Convert.ToInt32(info.Id), selectName));
         }
 
         return wallet;

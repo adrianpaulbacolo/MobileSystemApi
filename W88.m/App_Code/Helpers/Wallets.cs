@@ -25,29 +25,35 @@ namespace Helpers
             XElement xeResources;
             commonCulture.appData.GetRootResourceNonLanguage("/Shared/Wallets", out xeResources);
 
-            var walletList = xeResources.Elements("Wallets").Elements().Where(m => m.Attribute("enable").Value == "true").ToList().OrderBy(x => (int)x.Attribute("orderBy"));
+            var walletList = xeResources.Elements(commonVariables.OperatorCode).Elements("Wallets").Elements().Where(m => m.Attribute("enable").Value == "true").ToList().OrderBy(x => (int)x.Attribute("orderBy"));
             foreach (var element in walletList)
             {
                 var item = new WalletInfo
                 {
                     Id = Convert.ToInt16(element.Attribute("id").Value),
-                    OrderBy = Convert.ToInt16(element.Attribute("orderBy").Value)
+                    OrderBy = Convert.ToInt16(element.Attribute("orderBy").Value),
+                    SelectOrder = Convert.ToInt16(element.Attribute("selectOrder").Value)
                 };
 
                 foreach (var v in element.Elements("lang").Select(x => x.Element(commonVariables.SelectedLanguageShort)))
                 {
                     item.Name = Convert.ToString(v.Value);
                 }
-                
+
+                foreach (var v in element.Elements("selection").Select(x => x.Element(commonVariables.SelectedLanguageShort)))
+                {
+                    item.SelectName = Convert.ToString(v.Value);
+                }
+
                 WalletInfo.Add(item);
             }
 
-            var note = xeResources.Elements("FundsPageNote").Select(x => x.Element(commonVariables.SelectedLanguageShort));
+            var note = xeResources.Elements(commonVariables.OperatorCode).Elements("FundsPageNote").Select(x => x.Element(commonVariables.SelectedLanguageShort));
             foreach (var item in note)
             {
                 FundsPageNote = Convert.ToString(item.Value);
             }
-           
+
         }
     }
 }

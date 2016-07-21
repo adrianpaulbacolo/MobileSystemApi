@@ -23,7 +23,9 @@ public class Login : IHttpHandler, System.Web.SessionState.IReadOnlySessionState
         var processId = Guid.NewGuid().ToString().ToUpper();
         var loginHelper = new LoginProcess(loginInfo);
         var process = loginHelper.ValidateData();
-
+        
+        loginInfo.Password = commonEncryption.Encrypt(loginInfo.Password);
+        
         var processRemark = string.Format("MemberCode: {0} | Password: {1} | VCode: {2} | SVCode: {3} | IP: {4} ",
             loginInfo.Username, loginInfo.Password, loginInfo.Captcha, loginInfo.SessionCaptcha, commonIp.UserIP);
         
@@ -37,7 +39,6 @@ public class Login : IHttpHandler, System.Web.SessionState.IReadOnlySessionState
             {
                 try
                 {
-                    loginInfo.Password = commonEncryption.Encrypt(loginInfo.Password);
                     var dsSignin = svcInstance.MemberSignin(loginInfo.OperatorId, loginInfo.Username, loginInfo.Password, loginInfo.SiteUrl, commonIp.UserIP, loginInfo.DeviceId);
                     
                     if (dsSignin.Tables[0].Rows.Count > 0)

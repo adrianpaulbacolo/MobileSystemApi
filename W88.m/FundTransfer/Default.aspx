@@ -184,7 +184,7 @@
 
             function getBalance() {
                 $(document).ready(function () {
-                    window.w88Mobile.Wallets.getWallets();
+                    window.w88Mobile.FTWallets.getWallets();
                 });
             }
 

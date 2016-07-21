@@ -16,5 +16,9 @@ namespace Models
         public int OrderBy { get; set; }
 
         public string Note{ get; set; }
+
+        public int SelectOrder { get; set; }
+
+        public string SelectName { get; set; }
     }
 }
