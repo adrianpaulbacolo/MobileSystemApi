@@ -202,6 +202,9 @@ public partial class FundTransfer_Default : BasePage
 
             switch (strStatusCode)
             {
+                case "-60":
+                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString("FundTransfer/TransferFailed", xeErrors);
+                    break;
                 case "00":
                     string strPokerAddOn = string.Empty;
 
@@ -247,6 +250,18 @@ public partial class FundTransfer_Default : BasePage
                     break;
                 case "55": // "Transfer Declined - Funds refunded"
                     strAlertMessage = commonCulture.ElementValues.getResourceXPathString("ServerError", xeErrors);
+                    break;
+                case "62":
+                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString("FundTransfer/FundOutLimit", xeErrors);
+                    break;
+                case "63":
+                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString("FundTransfer/FundInLimit", xeErrors);
+                    break;
+                case "64":
+                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString("FundTransfer/FundOutLimitReq", xeErrors);
+                    break;
+                case "65":
+                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString("FundTransfer/FundInLimitReq", xeErrors);
                     break;
                 case "70":
                     strAlertMessage = commonCulture.ElementValues.getResourceXPathString("FundTransfer/TransferFailed", xeErrors) + "[break]" + commonCulture.ElementValues.getResourceXPathString("ServerError", xeErrors);

@@ -2,33 +2,25 @@
 // Slots
 // -------------------------------
 
-// Icons
-.icon-play_arrow,
-.icon-fullscreen {
-    font-family: $ionicons-font;
-}
-.icon-play_arrow:after {
-    content: '\f215'; // ion-play
-}
-.icon-fullscreen:after {
-    content: '\f25e'; // ion-arrow-expand
-}
-
 #slots {
     .ui-icon-minus:after {
         content: '\f3d3'; // ion-ios-arrow-right
         right: $content-padding/2;
         font-size: 1.2em;
     }
+
     .ui-content {
         @include bg-gradient();
         overflow-x: visible;
     }
+
     .ui-collapsible {
         margin-bottom: .5em;
+
         &:first-child {
             margin-top: .5em;
         }
+
         &-heading {
             .ui-btn {
                 color: $energized;
@@ -38,8 +30,10 @@
                 padding: .5em;
             }
         }
+
         &-collapsed {
             margin: 0;
+
             .ui-btn {
                 color: $strong-color;
                 font-size: 1em !important;
@@ -47,6 +41,7 @@
                 padding: 1em;
             }
         }
+
         &-content {
             border: none;
             background-color: transparent !important;
@@ -59,6 +54,7 @@
         position: relative;
         z-index: 1;
         -ms-touch-action: none;
+
         > div:first-child {
             z-index: 1;
             -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -67,81 +63,58 @@
             @include text-size-adjust(none);
             @include user-select(none);
         }
+
         ul {
             width: 100%;
             list-style: none;
-            margin: 0; padding: 0;
+            margin: 0;
+            padding: 0;
         }
     }
 
-    // Card
-    .bkg-game {
-
-            @extend .play-card;
-
-             > div:first-child{
-                padding: 5px;
-                border-radius: 10px;
-                background-color: $white;
-                padding-bottom: 1px;
-                min-height: 119px;
-                height: 119px;
-            }
-
-    }
-    .div-links {
-        width: 100%;
-        height: 30px;
-        bottom: 0;
-        background-color: $white;
-        a {
-            color: $strong-color;
-            background-color: $primary-color;
-            width: 50%;
-            position: absolute;
-            left: 0; 
-            padding: .45em;
-            &:last-child {
-                left: inherit; right: 0;
-            }
-        }
-
-    }
-
-    // New Design (ref. Google Play)
     .bkg-game {
         width: 100px;
-        @include border-radius(10px);
-        border-radius: 10px;
-        padding: 5px 0;
-        margin: 0;
         background-color: transparent;
-        img{
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+        font-size: 1em;
+        text-align: center;
+        position: relative;
+        display: inline-block;
+        min-height: auto;
+        @include box-shadow(none);
+        > div{
+            padding: 5px;
+            @include border-radius(8px);
+            background-color: $white;
+            padding-bottom: 1px;
+            @include box-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+        img {
+            @include border-radius(6px 6px 0 0 );
             max-height: 83px;
             height: 83px;
         }
     }
+
     .div-links {
+        width: 100%;
+        background-color: $white;
+        display: table;
         a {
+            padding: 0.5em 0;
+            font: 11px $primary-font;
+            color: $strong-color;
+            background-color: $primary-color;
+            width: 50%;
+            text-transform: uppercase;
             color: $primary-color !important;
             background-color: transparent !important;
-            padding: .35em;
+            display: table-cell;
             &:first-child {
-                padding-right: 0;
             }
+
             &:last-child {
-                padding-left: 0;
                 border-left: 1px solid rgba(0,0,0,.1);
             }
         }
     }
-    .icon-play_arrow,
-    .icon-fullscreen {
-        font: 11px $primary-font;
-        text-transform: uppercase;
-    }
-    .icon-play_arrow:after {content: 'Play'}
-    .icon-fullscreen:after {content: 'Try'}
 }

@@ -51,6 +51,7 @@
 
                 $('.bkg-game').css('margin-left', space / 2);
                 $('.bkg-game').css('margin-right', space / 2);
+                $('.bkg-game').css('margin-bottom', space);
         },
         initPalazzo: function () {
             self = this;

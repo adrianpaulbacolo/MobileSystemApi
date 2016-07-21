@@ -71,7 +71,7 @@
             
             <div class="item row" id="NonAppMenu">
                 <div class="col">
-                    <a href="/History" role="button" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
+                    <a href="/History" role="button" class="ui-btn btn-bordered" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
                 </div>
             </div>
         </div>
