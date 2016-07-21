@@ -129,11 +129,9 @@
 
                         var message = xml.Message;
 
-
-                        if (xml.Code == undefined)
-                        {
+                        if (xml.Code == undefined) {
                             initiateLogin();
-			    return;
+                            return;
                         }
 
                         switch (xml.Code) {
