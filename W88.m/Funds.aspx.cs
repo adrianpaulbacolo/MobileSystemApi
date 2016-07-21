@@ -28,12 +28,16 @@ public partial class Funds : BasePage
 
         foreach (var info in obj.WalletInfo.Where(info => info.Id != 0))
         {
+            var curr = commonVariables.GetSessionVariable("CurrencyCode");
+            if (info.Id == 6)
+                curr = "USD";
+
             builder.Append("<li class='col col-50'>");
             builder.Append(string.Format("<a class='fundsType' walletid='{0}' href='#'>", info.Id));
             builder.Append("<div class='wallet'>");
             builder.Append(string.Format("<label class='label'>{0}</label>", info.Name));
             builder.Append(string.Format("<h4 class='value' id='{0}'></h4>", info.Id));
-            builder.Append(string.Format("<small class='currency'>{0}</small>", commonVariables.GetSessionVariable("CurrencyCode")));
+            builder.Append(string.Format("<small class='currency'>{0}</small>", curr));
             builder.Append("</div></a></li>");
         }
 
