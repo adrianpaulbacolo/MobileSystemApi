@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 public partial class Upload_Default : BasePage
 {
-    private System.Xml.Linq.XElement xeResources = null;
+    protected System.Xml.Linq.XElement xeResources = null;
     protected string strAlertCode = string.Empty;
     protected string strAlertMessage = string.Empty;
 

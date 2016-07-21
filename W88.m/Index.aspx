@@ -194,16 +194,16 @@
                             <span class="ion-social-android"></span>
                         </div>
                         <div class="col col-75 download-summary">
-                            <h5 class="title">W88 Android Download</h5>
-                            <p>Sports, Live Casino, Slots in 1 App</p>
+                            <h5 class="title"><%=commonCulture.ElementValues.getResourceString("w88Android", commonVariables.LeftMenuXML)%></h5>
+                            <p><%=commonCulture.ElementValues.getResourceString("w88AndroidDesc", commonVariables.LeftMenuXML)%></p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <a href="javascript:hideDownload();" role="button" class="ui-btn btn-bordered">No Thanks</a>
+                            <a href="javascript:hideDownload();" role="button" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("NoThanks", commonVariables.LeftMenuXML)%></a>
                         </div>
                         <div class="col">
-                            <a href="<%=commonClubWAPK.getDownloadUrl %>" target="_blank" class="ui-btn btn-primary">Download Now</a>
+                            <a href="<%=commonClubWAPK.getDownloadUrl %>"  target="_blank" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("DownloadNow", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </div>
                 </div>

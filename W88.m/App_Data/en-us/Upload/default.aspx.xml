@@ -4,6 +4,7 @@
   <lblCurrency><![CDATA[Currency: ]]></lblCurrency>
   <lblRemarks><![CDATA[Remarks or Submission Purpose: ]]></lblRemarks>
   <lblFileUpload><![CDATA[File (Max 3MB): ]]></lblFileUpload>
+  <lblFileUploadText><![CDATA[Choose File]]></lblFileUploadText>
   <btnSubmit><![CDATA[Submit]]></btnSubmit>
   <Success><![CDATA[Thank you for your submission. Your submission ID is [SubmissionID]. If you have any further enquiries, please quote this submission ID to our customer service officer.]]></Success>
   <MissingAttachment><![CDATA[Please attach file.]]></MissingAttachment>
