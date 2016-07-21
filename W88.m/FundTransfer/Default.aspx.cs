@@ -39,7 +39,7 @@ public partial class FundTransfer_Default : BasePage
             var strProduct = pair.Value.Trim();
             if (string.Compare(commonCulture.ElementValues.GetResourceXPathAttribute("Currencies/" + strCurrencyCode + "/" + strProduct.ToUpper(), "disabledfundout", xeFTCurrencySettings), "true", true) != 0)
             {
-                drpTransferFrom.Items.Add(new ListItem(pair.Value, Convert.ToString(pair.Key)));
+                    drpTransferFrom.Items.Add(new ListItem(pair.Value, Convert.ToString(pair.Key)));
             }
 
             if (string.Compare(commonCulture.ElementValues.GetResourceXPathAttribute("Currencies/" + strCurrencyCode + "/" + strProduct.ToUpper(), "disabledfundin", xeFTCurrencySettings), "true", true) != 0)

@@ -45,7 +45,19 @@ namespace Helpers
                     item.SelectName = Convert.ToString(v.Value);
                 }
 
-                WalletInfo.Add(item);
+                var curr = commonVariables.GetSessionVariable("CurrencyCode");
+                if (curr.ToLower() != "rmb")
+                {
+                    if (item.Id != 16)
+                    {
+                        WalletInfo.Add(item);
+                    }
+                }
+                else
+                {
+                    WalletInfo.Add(item);
+                }
+                    
             }
 
             var note = xeResources.Elements(commonVariables.OperatorCode).Elements("FundsPageNote").Select(x => x.Element(commonVariables.SelectedLanguageShort));
