@@ -85,5 +85,12 @@
 	<accountId><![CDATA[Neteller 계정]]></accountId>
 	<secureId><![CDATA[Neteller 암호]]></secureId>
 
-	<copy><![CDATA[Copy]]></copy>
+    <copy><![CDATA[Copy]]></copy>
+
+    <PromoBanner>
+        <item>
+            <imageSrc><![CDATA[Mobile-Home-Rio2016-KR.jpg]]></imageSrc>
+            <url><![CDATA[/Sports.aspx]]></url>
+        </item>
+    </PromoBanner>
 </menu>

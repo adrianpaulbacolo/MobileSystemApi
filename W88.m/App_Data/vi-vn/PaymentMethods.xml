@@ -15,6 +15,7 @@
 	<dSDAPayAlipay><![CDATA[Alipay Transfer]]></dSDAPayAlipay>
 	<dBofoPay><![CDATA[Thanh Toán Nhanh]]></dBofoPay>
 	<dAllDebit><![CDATA[Thẻ Tín Dụng]]></dAllDebit>
+	<dEGHL><![CDATA[Trực Tuyến Nhanh]]></dEGHL>
 
 	<wBankTransfer><![CDATA[Chuyển Khoản Ngân Hàng]]></wBankTransfer>
 	<wWingMoney><![CDATA[Wing Money]]></wWingMoney>

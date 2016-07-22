@@ -4,6 +4,7 @@
   <lblCurrency><![CDATA[Mata Uang: ]]></lblCurrency>
   <lblRemarks><![CDATA[Keterangan atau Tujuan Submission: ]]></lblRemarks>
   <lblFileUpload><![CDATA[File (Max 3MB): ]]></lblFileUpload>
+  <lblFileUploadText><![CDATA[Choose File]]></lblFileUploadText>
   <btnSubmit><![CDATA[Kirim]]></btnSubmit>
   <Success><![CDATA[Terima kasih atas permohonan anda. Untuk permohonan ID anda adalah [SubmissionID]. Jika anda masih memiliki pertanyaan lebih lanjut, silahkan anda menyertakan ID anda ini ke bagian Customer Service kami pak.]]></Success>
   <MissingAttachment><![CDATA[Lampiran File.]]></MissingAttachment>

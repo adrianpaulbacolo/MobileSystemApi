@@ -35,6 +35,12 @@ public class BasePage : System.Web.UI.Page
         if (!string.IsNullOrEmpty(strLanguage))
         {
             commonVariables.SelectedLanguage = strLanguage;
+
+            var queryString = HttpUtility.ParseQueryString(Request.Url.Query);
+            queryString.Remove("lang");
+
+            string redirectPath = queryString.Count > 0 ? string.Format("{0}?{1}", Request.Url.LocalPath, queryString) : Request.Url.LocalPath;
+            Response.Redirect(redirectPath);
         }
 
         if (!this.isPublic)
@@ -240,5 +246,9 @@ public class BasePage : System.Web.UI.Page
             var img = (Panel)header.FindControl("logo");
             img.Visible = false;
         }
+    }
+
+    public string getAppSuffix(){
+        return (commonCookie.CookieIsApp == "1") ? "_app" : "";
     }
 }

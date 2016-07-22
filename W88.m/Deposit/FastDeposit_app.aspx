@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="FastDeposit.aspx.cs" Inherits="Deposit_FastDesposit" %>
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
+<%@ Register TagPrefix="uc" TagName="AppFooterMenu" Src="~/UserControls/AppFooterMenu.ascx" %>
 
 <!DOCTYPE html>
 <html>
@@ -71,6 +72,9 @@
                     </li>
                     <li class="item item-select div-fastdeposit-depositdatetime" id="divDepositDateTime" runat="server">
                         <div class="row">
+                            <asp:Label ID="lblDepositDateTime" runat="server" AssociatedControlID="drpDepositDate" Text="Deposit Date/Time" />
+                        </div>
+                        <div class="row">
                             <div class="col">
                                 <asp:DropDownList ID="drpDepositDate" runat="server" />
                             </div>
@@ -109,14 +113,7 @@
                     </li>
                 </ul>
 
-                <div class="row">
-                    <div class="col">
-                        <input type="button" data-theme="b" onclick="location.href = '/Withdrawal/Default_app.aspx';" value="<%=commonCulture.ElementValues.getResourceString("withrawal", commonVariables.LeftMenuXML)%>" class="button-blue" data-corners="false" />
-                    </div>
-                    <div class="col">
-                        <input type="button" data-theme="b" onclick="location.href = '/FundTransfer/FundTransfer.aspx';" value="<%=commonCulture.ElementValues.getResourceString("fundTransfer", commonVariables.LeftMenuXML)%>" class="button-blue" data-corners="false" />
-                    </div>
-                </div>
+                <uc:AppFooterMenu runat="server" ID="AppFooterMenu" />
 
             </form>
         </div>
@@ -127,6 +124,11 @@
             });
             $(function () {
                 window.history.forward();
+
+                if ($('#depositTabs li').length == 0) {
+                    window.location.reload();
+                }
+
                 var responseCode = '<%=strAlertCode%>';
                 var responseMsg = '<%=strAlertMessage%>';
 
@@ -138,7 +140,7 @@
                             break;
                         case '0':
                             alert(responseMsg);
-                            window.location.replace('/FundTransfer/FundTransfer.aspx');
+                            window.location.replace('/FundTransfer/Default_app.aspx');
                             break;
                         default:
                             break;

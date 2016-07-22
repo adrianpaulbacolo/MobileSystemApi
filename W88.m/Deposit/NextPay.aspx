@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("nextpay", commonVariables.LeftMenuXML))%></title>
+    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dNextPay", commonVariables.PaymentMethodsXML))%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
@@ -14,7 +14,7 @@
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
             </a>
-            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("nextpay", commonVariables.LeftMenuXML))%></h1>
+            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dNextPay", commonVariables.PaymentMethodsXML))%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -90,6 +90,10 @@
             });
             $(function () {
                 window.history.forward();
+
+                if ($('#depositTabs li').length == 0) {
+                    window.location.reload();
+                }
 
                 var responseCode = '<%=strAlertCode%>';
                 var responseMsg = '<%=strAlertMessage%>';

@@ -108,6 +108,7 @@ public class PaymentBasePage : BasePage
     protected override void OnPreInit(EventArgs e)
     {
         this.isPublic = false;
+        UserSession.checkSession();
     }
     protected void InitialiseVariables()
     {

@@ -53,7 +53,7 @@ function Cookies() {
         var date = new Date();
         date.setTime(date.getTime() + (expiryDays * 24 * 60 * 60 * 1000));
         var expires = "expires=" + date.toUTCString();
-        document.cookie = cname + "=" + cvalue + ";" + expires;
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     };
 
     var getCookie = function (cname) {
