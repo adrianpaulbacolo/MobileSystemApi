@@ -364,7 +364,16 @@ public class commonLottery
         {
             customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
             string strUrl = opSettings.Values.Get("KenoUrl");
-            return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName);
+            var domain = HttpContext.Current.Request.Url.Host;
+            var domainFullSplit = domain.Split('.');
+            var domainHost = domainFullSplit.Length <= 2 ? domain : domainFullSplit[domainFullSplit.Length - 2] + "." + domainFullSplit[domainFullSplit.Length - 1];
+
+            var language = commonCookie.CookieLanguage;
+            var token = commonCookie.CookieS;
+            var paramString = "?vendor=W88&s=" + token + "&domainlink=" + domainHost + "&domain=" + domainHost + "&lang=" + language + "&game=keno";
+            //Change URL to GPI - Get From Config
+            //return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName);
+            return string.IsNullOrEmpty(strUrl) ? "" : strUrl + paramString;
         }
     }
 }
