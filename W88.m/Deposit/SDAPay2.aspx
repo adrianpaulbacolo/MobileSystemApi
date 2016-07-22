@@ -50,6 +50,7 @@
                         </div>
                         <div class="col">
                             <asp:Literal ID="txtAmount" runat="server" />
+                            <a href="#" id="copyAmount"><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </li>
                     <li class="row">
@@ -72,7 +73,7 @@
                         </div>
                         <div class="col">
                             <asp:Label ID="txtBankHolderName" runat="server" />
-                            <a href="#" id="copyAccountName" hidden><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
+                            <a href="#" id="copyAccountName"><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </li>
                     <li class="row">
@@ -81,7 +82,7 @@
                         </div>
                         <div class="col">
                             <asp:Label ID="txtBankAccountNo" runat="server" /> 
-                            <a href="#" id="copyAccountNo" hidden><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
+                            <a href="#" id="copyAccountNo"><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </li>
                     <li class="row">
@@ -123,16 +124,20 @@
                     }
                 }
 
+                $('#copyAmount').on('click', function () {
+                    var amount = $("#txtAmount").val();
+                    copyToClipboard(amount)
+                });
+
                 $('#copyAccountName').on('click', function () {
-                    var accountName = $("#txtBankHolderName").text().slice(2);
+                    var accountName = $("#txtBankHolderName").text().slice(2); //this will removed the ":"
                     copyToClipboard(accountName)
                 });
 
                 $('#copyAccountNo').on('click', function () {
-                    var accountNo = $("#txtBankAccountNo").text().slice(2);
+                    var accountNo = $("#txtBankAccountNo").text().slice(2); //this will removed the ":"
                     copyToClipboard(accountNo)
                 });
-
 
                 function copyToClipboard(text)
                 {
