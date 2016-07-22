@@ -49,7 +49,7 @@
                             <asp:Literal ID="lblAmount" runat="server" />
                         </div>
                         <div class="col">
-                            <asp:Literal ID="txtAmount" runat="server" />
+                            <asp:Label ID="txtAmount" runat="server" />
                             <a href="#" id="copyAmount"><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </li>
@@ -125,17 +125,17 @@
                 }
 
                 $('#copyAmount').on('click', function () {
-                    var amount = $("#txtAmount").val();
+                    var amount = $("#txtAmount").text().slice(2); //this will removed the ": "
                     copyToClipboard(amount)
                 });
 
                 $('#copyAccountName').on('click', function () {
-                    var accountName = $("#txtBankHolderName").text().slice(2); //this will removed the ":"
+                    var accountName = $("#txtBankHolderName").text().slice(2); //this will removed the ": "
                     copyToClipboard(accountName)
                 });
 
                 $('#copyAccountNo').on('click', function () {
-                    var accountNo = $("#txtBankAccountNo").text().slice(2); //this will removed the ":"
+                    var accountNo = $("#txtBankAccountNo").text().slice(2); //this will removed the ": "
                     copyToClipboard(accountNo)
                 });
 

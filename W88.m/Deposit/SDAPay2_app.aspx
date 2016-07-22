@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="SDAPay2.aspx.cs" Inherits="Deposit_SDAPay2" %>
+
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 <%@ Register TagPrefix="uc" TagName="AppFooterMenu" Src="~/UserControls/AppFooterMenu.ascx" %>
 
@@ -47,10 +48,14 @@
                             <asp:Literal ID="lblAmount" runat="server" />
                         </div>
                         <div class="col">
-                            <asp:Literal ID="txtAmount" runat="server" />
+                            <asp:Label ID="txtAmount" runat="server" />
+                            <a href="#" id="copyAmount"><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
                         </div>
+                    </li>
+                    <li class="row">
                         <div class="col">
-                            <asp:Label ID="lblAmountNote" runat="server" />
+                            <h5 style="font-style: italic">
+                                <asp:Label ID="lblAmountNote" runat="server" /></h5>
                         </div>
                     </li>
                     <li class="row">
@@ -75,13 +80,13 @@
                             <asp:Literal ID="lblBankAccountNo" runat="server" />
                         </div>
                         <div class="col">
-                            <asp:Label ID="txtBankAccountNo" runat="server" /> 
+                            <asp:Label ID="txtBankAccountNo" runat="server" />
                             <a href="#" id="copyAccountNo" hidden><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </li>
                     <li class="row">
                         <div class="col">
-                            <asp:HyperLink ID="btnSubmit" runat="server" CssClass="ui-btn btn-primary" data-corners="false" Target="_blank"/>
+                            <asp:HyperLink ID="btnSubmit" runat="server" CssClass="ui-btn btn-primary" data-corners="false" Target="_blank" />
                         </div>
                     </li>
                 </ul>
@@ -117,16 +122,20 @@
                     }
                 }
 
+                $('#copyAmount').on('click', function () {
+                    var amount = $("#txtAmount").text().slice(2); //this will removed the ": "
+                    copyToClipboard(amount)
+                });
+
                 $('#copyAccountName').on('click', function () {
-                    var accountName = $("#txtBankHolderName").text().slice(2);
+                    var accountName = $("#txtBankHolderName").text().slice(2); //this will removed the ": "
                     copyToClipboard(accountName)
                 });
 
                 $('#copyAccountNo').on('click', function () {
-                    var accountNo = $("#txtBankAccountNo").text().slice(2);
+                    var accountNo = $("#txtBankAccountNo").text().slice(2); //this will removed the ": "
                     copyToClipboard(accountNo)
                 });
-
 
                 function copyToClipboard(text) {
                     var input = document.createElement('textarea', { "permissions": ["clipboardWrite"] });
