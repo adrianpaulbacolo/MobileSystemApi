@@ -29,8 +29,8 @@ public partial class Funds : BasePage
         foreach (var info in obj.WalletInfo.Where(info => info.Id != 0))
         {
             var curr = commonVariables.GetSessionVariable("CurrencyCode");
-            if (info.Id == 6)
-                curr = "USD";
+            if (!string.IsNullOrWhiteSpace(info.CurrencyLabel))
+                curr = info.CurrencyLabel;
 
             builder.Append("<li class='col col-50'>");
             builder.Append(string.Format("<a class='fundsType' walletid='{0}' href='#'>", info.Id));

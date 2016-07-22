@@ -24,5 +24,7 @@ namespace Models
         public string Restriction { get; set; }
 
         public string AllowOnly { get; set; }
+
+        public string CurrencyLabel { get; set; }
     }
 }
