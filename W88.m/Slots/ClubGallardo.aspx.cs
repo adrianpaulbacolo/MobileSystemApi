@@ -77,7 +77,7 @@ public partial class Slots_ClubGallardo : BasePage
                 string iSoftBetNotSuppCurr = iSoftBet != null && iSoftBet.HasAttributes ? iSoftBet.Attribute("NotSupportedCurrency").Value : "";
 
                 string[] iSoftBetNotSupp = iSoftBetNotSuppCurr.Split(',');
-                isISoftBetNotSupported = iSoftBetNotSupp.Contains(currencyCode);
+                isISoftBetNotSupported = string.IsNullOrWhiteSpace(currencyCode) ? false : iSoftBetNotSupp.Contains(currencyCode);
             }
 
             XElement PNG = xeCategory.Element("PNG");
@@ -99,9 +99,9 @@ public partial class Slots_ClubGallardo : BasePage
 
                 string[] currNotSupp = notSupCurr.Split(',');
 
-                bool isGameNotSupported = currNotSupp.Contains(currencyCode);
+                bool isGameNotSupported = string.IsNullOrWhiteSpace(currencyCode) ? false : currNotSupp.Contains(currencyCode);
 
-                if (!isGameNotSupported || string.IsNullOrWhiteSpace(currencyCode))
+                if (!isGameNotSupported)
                 {
                     if (xeGame.Attribute("ProductId") == null)
                     {
@@ -117,10 +117,10 @@ public partial class Slots_ClubGallardo : BasePage
                             sbGames.AppendFormat("<a href='{0}' target='_blank'>", commonClubBravado.getThirdPartyRealUrl.Replace("{GAME}", Convert.ToString(strGameId)).Replace("{LANG}", newstrLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
 
                         sbGames.AppendFormat("{0}</a>", commonCulture.ElementValues.getResourceXPathString("/Products/Play", commonVariables.ProductsXML));
-                        sbGames.AppendFormat("<a href='{1}' target='_blank' data-ajax='false'>{0}</a></div>", commonCulture.ElementValues.getResourceXPathString("/Products/Try", commonVariables.ProductsXML), 
+                        sbGames.AppendFormat("<a href='{1}' target='_blank' data-ajax='false'>{0}</a></div>", commonCulture.ElementValues.getResourceXPathString("/Products/Try", commonVariables.ProductsXML),
                             commonClubBravado.getThirdPartyFunUrl.Replace(
-                            "{GAME}", 
-                            Convert.ToString(strGameId)).Replace("{LANG}", 
+                            "{GAME}",
+                            Convert.ToString(strGameId)).Replace("{LANG}",
                             newstrLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId)
                             );
 
