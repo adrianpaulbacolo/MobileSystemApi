@@ -101,6 +101,10 @@
                     $('.idrBank').hide();
                 }
 
+                if ($('#dEGHL a').length != 0) {
+                    $('#dEGHL a').text("<%=strPageTitle%>")
+                }
+
                 if ('<%=strAlertCode%>'.length > 0) {
                     switch ('<%=strAlertCode%>') {
                         case '-1':
