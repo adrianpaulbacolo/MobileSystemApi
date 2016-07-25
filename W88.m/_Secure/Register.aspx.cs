@@ -63,12 +63,12 @@ public partial class _Secure_Register : BasePage
             lblContact.Text = commonCulture.ElementValues.getResourceString("lblContact", xeResources);
             lblCurrency.Text = commonCulture.ElementValues.getResourceString("lblCurrency", xeResources);
             lblAffiliateID.Text = commonCulture.ElementValues.getResourceString("lblAffiliateID", xeResources);
-            //blCaptcha.Text = commonCulture.ElementValues.getResourceString("lblCaptcha", xeResources);
             btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
             btnCancel.InnerText = commonCulture.ElementValues.getResourceString("btnCancel", xeResources);
 
             lblDisclaimer.InnerText = commonCulture.ElementValues.getResourceString("lblDisclaimer", xeResources);
             btnTermsConditionsLink.InnerText = commonCulture.ElementValues.getResourceString("termsConditions", xeResources);
+            btnTermsConditionsLink.HRef = commonCulture.ElementValues.getResourceString("termsConditionsUrl", xeResources);
 
             #region PhoneCountryCode
             System.Data.DataSet dsCountryInfo = null;
