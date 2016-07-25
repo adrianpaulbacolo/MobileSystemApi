@@ -184,6 +184,17 @@ public static class commonCookie
     {
         commonVariables.ClearSessionVariables();
 
+        HttpCookie isApp = HttpContext.Current.Request.Cookies["IsApp"];
+        HttpContext.Current.Response.Cookies.Remove("IsApp");
+
+        if (isApp != null)
+        {
+            isApp.Expires = DateTime.Now.AddYears(-1);
+            isApp.Value = null;
+            isApp.Domain = commonIp.DomainName;
+            HttpContext.Current.Response.SetCookie(isApp);
+        }
+
         HttpCookie s = HttpContext.Current.Request.Cookies["s"];
         HttpContext.Current.Response.Cookies.Remove("s");
 

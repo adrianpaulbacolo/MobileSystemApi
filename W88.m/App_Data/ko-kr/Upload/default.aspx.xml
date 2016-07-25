@@ -4,6 +4,7 @@
   <lblCurrency><![CDATA[통화: ]]></lblCurrency>
   <lblRemarks><![CDATA[의견 / 신청 사유: ]]></lblRemarks>
   <lblFileUpload><![CDATA[파일 (최대 3MB): ]]></lblFileUpload>
+  <lblFileUploadText><![CDATA[Choose File]]></lblFileUploadText>
   <btnSubmit><![CDATA[제출]]></btnSubmit>
   <Success><![CDATA[성공적으로 접수되었습니다. 접수번호는 [SubmissionID]이며 재문의시, 상담원에게 접수번호를 알려주세요. 감사합니다.]]></Success>
   <MissingAttachment><![CDATA[파일을 첨부해 주세요..]]></MissingAttachment>

@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<default>
+    <W88>
+        <Wallets>
+            <wallet id="0" orderBy="9" selectOrder="1" name="main" enable="true" CurrAllowOnly="" CurrRestriction="">
+                <lang>
+                    <en><![CDATA[Main Wallet]]></en>
+                    <id><![CDATA[Utama]]></id>
+                    <jp><![CDATA[メイン]]></jp>
+                    <kh><![CDATA[ចំបង]]></kh>
+                    <kr><![CDATA[메인]]></kr>
+                    <th><![CDATA[กระเป๋าหลัก]]></th>
+                    <vn><![CDATA[Tài Khoản Chính]]></vn>
+                    <cn><![CDATA[中心钱包]]></cn>
+                </lang>
+            </wallet>
+            <wallet id="1" orderBy="4" selectOrder="7" name="lottery" enable="true" CurrAllowOnly="" CurrRestriction="">
+                <lang>
+                    <en><![CDATA[Lottery]]></en>
+                    <id><![CDATA[Lotere]]></id>
+                    <jp><![CDATA[ロト]]></jp>
+                    <kh><![CDATA[ឆ្នោតឡូតូ]]></kh>
+                    <kr><![CDATA[복권]]></kr>
+                    <th><![CDATA[ล็อตเตอรี่]]></th>
+                    <vn><![CDATA[Xổ Số]]></vn>
+                    <cn><![CDATA[乐透]]></cn>
+                </lang>
+            </wallet>
+            <wallet id="2" orderBy="2" selectOrder="2" name="asports" enable="true" CurrAllowOnly="" CurrRestriction="">
+                <lang>
+                    <en><![CDATA[A-Sports]]></en>
+                    <id><![CDATA[A-SPORT]]></id>
+                    <jp><![CDATA[A-スポーツ]]></jp>
+                    <kh><![CDATA[A-កីឡា]]></kh>
+                    <kr><![CDATA[A-스포츠]]></kr>
+                    <th><![CDATA[A-กีฬา]]></th>
+                    <vn><![CDATA[A-Thể Thao]]></vn>
+                    <cn><![CDATA[东方体育]]></cn>
+                </lang>
+            </wallet>
+            <wallet id="3" orderBy="5" selectOrder="5" name="casino" enable="true" CurrAllowOnly="" CurrRestriction="">
+                <lang>
+                    <en><![CDATA[Club W]]></en>
+                    <id><![CDATA[Club W]]></id>
+                    <jp><![CDATA[クラブW]]></jp>
+                    <kh><![CDATA[Club W]]></kh>
+                    <kr><![CDATA[클럽 W]]></kr>
+                    <th><![CDATA[คลับ W]]></th>
+                    <vn><![CDATA[Club W]]></vn>
+                    <cn><![CDATA[真人娱乐城]]></cn>
+                </lang>
+                <selection>
+                    <en><![CDATA[Club W Premier, Apollo, Bravado, Divino, Gallardo, Massimo, Virtual & Lottery]]></en>
+                    <id><![CDATA[Club W Premier, Apollo, Bravado, Divino, Gallardo, Massimo, Virtual & Lotere]]></id>
+                    <jp><![CDATA[クラブ W プレミア、 アポロ、 ブラバド、 ディビノ、 ガヤルド、 マッシモ、 バーチャル & ロト]]></jp>
+                    <kh><![CDATA[Club W Premier, Apollo, Bravado, Divino, Gallardo, Massimo, និមិត្ត & ឆ្នោតឡូតូ]]></kh>
+                    <kr><![CDATA[클럽 W 프리미어, 아폴로, 브라바도, 디비노, 가야르도, 마시모, 가상 & 복권]]></kr>
+                    <th><![CDATA[คลับW พรีเมียร์, คลับอพอลโล, คลับบราวาโด้, คลับดิวิโน่, คลับเกลลาโด้, คลับแมสซิโม, กีฬาอนิเมชั่น & ล็อตเตอรี่]]></th>
+                    <vn><![CDATA[Club W Premier, Apollo, Bravado, Divino, Gallardo, Massimo, Virtual & Xổ Số]]></vn>
+                    <cn><![CDATA[优德俱乐部(真人+其他老虎机俱乐部), 虚拟 & 大乐透]]></cn>
+                </selection>
+            </wallet>
+            <wallet id="4" orderBy="7" selectOrder="6" name="playtech" enable="true" CurrAllowOnly="" CurrRestriction="">
+                <lang>
+                    <en><![CDATA[Club Palazzo]]></en>
+                    <id><![CDATA[Club Palazzo]]></id>
+                    <jp><![CDATA[パラッツオ]]></jp>
+                    <kh><![CDATA[Club Palazzo]]></kh>
+                    <kr><![CDATA[클럽 팔라쪼]]></kr>
+                    <th><![CDATA[พาลาซโซ]]></th>
+                    <vn><![CDATA[Club Palazzo]]></vn>
+                    <cn><![CDATA[金殿(PT真人+老虎机)]]></cn>
+                </lang>
+            </wallet>
+            <wallet id="12" orderBy="6" selectOrder="3" name="netent" enable="true" CurrAllowOnly="" CurrRestriction="IDR,KRW,VND">
+                <lang>
+                    <en><![CDATA[Nuovo]]></en>
+                    <id><![CDATA[Nuovo]]></id>
+                    <jp><![CDATA[ヌォーボ]]></jp>
+                    <kh><![CDATA[Nuovo]]></kh>
+                    <kr><![CDATA[누오보]]></kr>
+                    <th><![CDATA[นูโอโว้]]></th>
+                    <vn><![CDATA[Nuovo]]></vn>
+                    <cn><![CDATA[金蟾]]></cn>
+                </lang>
+            </wallet>
+            <wallet id="7" orderBy="3" selectOrder="4" name="sbtech" enable="true" CurrAllowOnly="" CurrRestriction="">
+                <lang>
+                    <en><![CDATA[E-Sports]]></en>
+                    <id><![CDATA[E-SPORT]]></id>
+                    <jp><![CDATA[E-スポーツ]]></jp>
+                    <kh><![CDATA[E-កីឡា]]></kh>
+                    <kr><![CDATA[E-스포츠]]></kr>
+                    <th><![CDATA[E-กีฬา]]></th>
+                    <vn><![CDATA[E-Thể Thao]]></vn>
+                    <cn><![CDATA[西方体育]]></cn>
+
+                </lang>
+            </wallet>
+            <wallet id="6" orderBy="8" selectOrder="8" name="poker" enable="true" CurrAllowOnly="" CurrRestriction="">
+                <lang>
+                    <en><![CDATA[Poker]]></en>
+                    <id><![CDATA[Poker]]></id>
+                    <jp><![CDATA[ポーカー（米ドル）]]></jp>
+                    <kh><![CDATA[ពុកគ័រ]]></kh>
+                    <kr><![CDATA[포커]]></kr>
+                    <th><![CDATA[โป๊กเกอร์]]></th>
+                    <vn><![CDATA[Poker]]></vn>
+                    <cn><![CDATA[扑克]]></cn>
+                </lang>
+            </wallet>
+            <wallet id="8" orderBy="1" selectOrder="9" name="pmahjong" enable="true" CurrAllowOnly="" CurrRestriction="">
+                <lang>
+                    <en><![CDATA[Texas Mahjong]]></en>
+                    <id><![CDATA[Texas Mahjong]]></id>
+                    <jp><![CDATA[テキサス マージャン]]></jp>
+                    <kh><![CDATA[Texas Mahjong]]></kh>
+                    <kr><![CDATA[텍사스 마종]]></kr>
+                    <th><![CDATA[เท็กซัส มาจง]]></th>
+                    <vn><![CDATA[Texas Mạt Chược]]></vn>
+                    <cn><![CDATA[德州麻将]]></cn>
+                </lang>
+            </wallet>
+            <wallet id="16" orderBy="10" selectOrder="10" name="Fishing" enable="true" CurrAllowOnly="RMB" CurrRestriction="">
+                <lang>
+                    <en><![CDATA[Fishing]]></en>
+                    <id><![CDATA[Fishing]]></id>
+                    <jp><![CDATA[フィッシング]]></jp>
+                    <kh><![CDATA[Fishing]]></kh>
+                    <kr><![CDATA[낚시]]></kr>
+                    <th><![CDATA[Fishing]]></th>
+                    <vn><![CDATA[Bắn Cá]]></vn>
+                    <cn><![CDATA[捕鱼]]></cn>
+                </lang>
+            </wallet>
+
+        </Wallets>
+
+        <FundsPageNote>
+            <en><![CDATA[Club W Premier, Apollo, Bravado, Divino, Gallardo, Massimo, Virtual & Lottery]]></en>
+            <id><![CDATA[Club W Premier, Apollo, Bravado, Divino, Gallardo, Massimo, Virtual & Lotere]]></id>
+            <jp><![CDATA[クラブ W プレミア、 アポロ、 ブラバド、 ディビノ、 ガヤルド、 マッシモ、 バーチャル & ロト]]></jp>
+            <kh><![CDATA[Club W Premier, Apollo, Bravado, Divino, Gallardo, Massimo, និមិត្ត & ឆ្នោតឡូតូ]]></kh>
+            <kr><![CDATA[클럽 W 프리미어, 아폴로, 브라바도, 디비노, 가야르도, 마시모, 가상 & 복권]]></kr>
+            <th><![CDATA[คลับW พรีเมียร์, คลับอพอลโล, คลับบราวาโด้, คลับดิวิโน่, คลับเกลลาโด้, คลับแมสซิโม, กีฬาอนิเมชั่น & ล็อตเตอรี่]]></th>
+            <vn><![CDATA[Club W Premier, Apollo, Bravado, Divino, Gallardo, Massimo, Virtual & Xổ Số]]></vn>
+            <cn><![CDATA[优德俱乐部(真人+其他老虎机俱乐部), 虚拟 & 大乐透]]></cn>
+        </FundsPageNote>
+        
+    </W88>
+    
+</default>

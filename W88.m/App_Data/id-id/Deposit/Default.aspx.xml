@@ -20,7 +20,7 @@
 	<lblAccountNumber><![CDATA[Nomor Rekening Anda]]></lblAccountNumber>
 
 	<btnSubmit><![CDATA[Kirim]]></btnSubmit>
-	<btnCancel><![CDATA[CANCEL]]></btnCancel>
+	<btnCancel><![CDATA[Batal]]></btnCancel>
 
 	<lblThankYou><![CDATA[Terima Kasih]]></lblThankYou>
 

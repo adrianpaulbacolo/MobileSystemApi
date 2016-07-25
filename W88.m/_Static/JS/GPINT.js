@@ -52,3 +52,4 @@ $(function () {
 });
 function locationAssign(obj) { if (typeof c == "string") { window.location.assign(obj); } else { window.location.assign($(obj).attr('data-url')); } }
 function locationReplace(obj) { if (typeof c == "string") { window.location.replace(obj); } else { window.location.replace($(obj).attr('data-url')); } }
+

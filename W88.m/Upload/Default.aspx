@@ -20,9 +20,13 @@
                         <asp:Literal ID="txtCurrency" runat="server" />
                     </p>
                 </li>
-                <li class="item item-input">
+                <li class="item-text-wrap">
                     <asp:Label ID="lblFileUpload" runat="server" />
-                    <asp:FileUpload ID="fuFileUpload" runat="server" AllowMultiple="false" />
+                    <div class="file-upload">
+                         <span class="file-upload-btn"><span class="icon icon-submit"></span><%=commonCulture.ElementValues.getResourceString("lblFileUploadText", xeResources) %></span>
+                         <span class="file-upload-filename"><div  id="txtupl"><%=commonCulture.ElementValues.getResourceString("lblNoFileChosen", xeResources) %></div></span>
+                         <asp:FileUpload ID="fuFileUpload" runat="server" AllowMultiple="false" onchange="getUplFile()" />
+                    </div>
                 </li>
                 <li class="item item-textarea">
                     <asp:Label ID="lblRemarks" runat="server" />
@@ -37,31 +41,37 @@
                     </div>
                 </li>
             </ul>
+               <asp:HiddenField ID="HfUploadLabel" runat="server" />
         </form>
     </div>
 
-
+ 
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder" runat="Server">
 
     <script type="text/javascript">
+        function getUplFile() {
+            var filename = $('#<%=fuFileUpload.ClientID%>').val();
+            $('#txtupl').html(filename.replace("C:\\fakepath\\", ""));
+        }
+
         $(function () {
             $('.div-content-wrapper > div:first-child').hide();
             var code = '<%=strAlertCode%>';
-                var message = '<%=strAlertMessage%>';
+            var message = '<%=strAlertMessage%>';
 
-                switch (code) {
-                    case "00":
-                        $('.div-content-wrapper > div:nth-child(n+1)').hide();
-                        $('.div-content-wrapper > div:first-child').show();
-                        break;
+            switch (code) {
+            case "00":
+                $('.div-content-wrapper > div:nth-child(n+1)').hide();
+                $('.div-content-wrapper > div:first-child').show();
+                break;
 
-                    case "01":
-                        alert(message);
-                        break;
-                }
-            });
-        </script>
+            case "01":
+                alert(message);
+                break;
+            }
+        });
+    </script>
 
 </asp:Content>

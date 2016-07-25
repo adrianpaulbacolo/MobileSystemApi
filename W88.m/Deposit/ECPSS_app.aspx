@@ -67,7 +67,7 @@
                         <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
                     <li class="item item-select">
-                        <asp:Label ID="lblMessage" runat="server" ForeColor="Red" />
+                        <asp:Label ID="lblMessage" runat="server" />
                     </li>
                     <li class="item row">
                         <div class="col">

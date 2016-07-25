@@ -129,11 +129,16 @@
 
                         var message = xml.Message;
 
+                        if (xml.Code == undefined) {
+                            initiateLogin();
+                            return;
+                        }
+
                         switch (xml.Code) {
                             case "1":
                             case "resetPassword":
                                 Cookies().setCookie('IsApp', '1', 1);
-                                window.location.replace('/Deposit/Default_app.aspx');
+                                window.location.replace('/Funds.aspx');
                                 break;
                             case "22":
                                 GPINTMOBILE.HideSplash();
@@ -143,7 +148,7 @@
 
                             default:
                                 counter += 1;
-                                console.log(counter);
+                                console.log(xml.Code);
 
                                 if (counter >= 3) {
                                     $(".capt").removeClass("hide");

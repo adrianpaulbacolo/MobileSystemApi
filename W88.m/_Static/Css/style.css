@@ -9244,6 +9244,48 @@ select:-webkit-autofill {
 textarea.ui-mini {
   font-size: 1.8rem; }
 
+.file-upload {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  position: relative;
+  background-color: #0f3445; }
+  .file-upload .file-upload-btn {
+    color: #d1d3d4;
+    background-color: #1c6080;
+    padding: 10px;
+    display: inline-block; }
+  .file-upload .file-upload-filename {
+    color: #616668;
+    margin-left: 5px;
+    width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    position: relative;
+    top: 4px; }
+  .file-upload > div {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+    filter: alpha(opacity=0); }
+  .file-upload input[type="file"] {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    opacity: 0;
+    filter: alpha(opacity=0); }
+
 .ui-page-theme-b .ui-btn, .ui-page-theme-b .gridHistory.table tr:last-child[align="right"] .ui-link, .gridHistory.table tr:last-child[align="right"] .ui-page-theme-b .ui-link, .ui-page-theme-b #sDownload,
 html .ui-bar-b .ui-btn,
 html .ui-bar-b .gridHistory.table tr:last-child[align="right"] .ui-link,
@@ -9844,7 +9886,7 @@ html head + body .ui-btn-a#sDownload {
     display: block;
     color: #a6a6a6; }
 
-.play-card, #slots .bkg-game {
+.play-card {
   width: 94px;
   min-height: 120px;
   font-size: 1em;
@@ -10204,16 +10246,6 @@ html head + body .ui-btn-a#sDownload {
     padding-top: 40px !important; }
     .nav-menu .sub-menu .close {
       display: inline-block; } }
-.icon-play_arrow,
-.icon-fullscreen {
-  font-family: "ionicons"; }
-
-.icon-play_arrow:after {
-  content: '\f215'; }
-
-.icon-fullscreen:after {
-  content: '\f25e'; }
-
 #slots .ui-icon-minus:after {
   content: '\f3d3';
   right: 5px;
@@ -10272,60 +10304,49 @@ html head + body .ui-btn-a#sDownload {
     list-style: none;
     margin: 0;
     padding: 0; }
-#slots .bkg-game > div:first-child {
-  padding: 5px;
-  border-radius: 10px;
-  background-color: #ffffff;
-  padding-bottom: 1px;
-  min-height: 119px;
-  height: 119px; }
+#slots .bkg-game {
+  width: 100px;
+  background-color: transparent;
+  font-size: 1em;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  min-height: auto;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+  #slots .bkg-game > div {
+    padding: 5px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    padding-bottom: 1px;
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); }
+  #slots .bkg-game img {
+    -webkit-border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+    -ms-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+    max-height: 83px;
+    height: 83px; }
 #slots .div-links {
   width: 100%;
-  height: 30px;
-  bottom: 0;
-  background-color: #ffffff; }
+  background-color: #ffffff;
+  display: table; }
   #slots .div-links a {
+    padding: 0.5em 0;
+    font: 11px "dinpro", sans-serif;
     color: #ffffff;
     background-color: #2a8fbd;
     width: 50%;
-    position: absolute;
-    left: 0;
-    padding: .45em; }
+    text-transform: uppercase;
+    color: #2a8fbd !important;
+    background-color: transparent !important;
+    display: table-cell; }
     #slots .div-links a:last-child {
-      left: inherit;
-      right: 0; }
-#slots .bkg-game {
-  width: 100px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  border-radius: 10px;
-  border-radius: 10px;
-  padding: 5px 0;
-  margin: 0;
-  background-color: transparent; }
-  #slots .bkg-game img {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    max-height: 83px;
-    height: 83px; }
-#slots .div-links a {
-  color: #2a8fbd !important;
-  background-color: transparent !important;
-  padding: .35em; }
-  #slots .div-links a:first-child {
-    padding-right: 0; }
-  #slots .div-links a:last-child {
-    padding-left: 0;
-    border-left: 1px solid rgba(0, 0, 0, 0.1); }
-#slots .icon-play_arrow,
-#slots .icon-fullscreen {
-  font: 11px "dinpro", sans-serif;
-  text-transform: uppercase; }
-#slots .icon-play_arrow:after {
-  content: 'Play'; }
-#slots .icon-fullscreen:after {
-  content: 'Try'; }
+      border-left: 1px solid rgba(0, 0, 0, 0.1); }
 
 #header {
   text-align: center;
@@ -10394,7 +10415,8 @@ html head + body .ui-btn-a#sDownload {
   margin-bottom: 0; }
   .banner-odd-even > li:nth-child(odd) .banner-caption {
     float: right;
-    max-width: 60%; }
+    max-width: 60%;
+    text-align: right; }
 .banner-odd-even > li:nth-child(even) .banner-caption {
   max-width: 70%; }
 .banner-odd-even > li .ui-btn, .banner-odd-even > li .gridHistory.table tr:last-child[align="right"] .ui-link, .gridHistory.table tr:last-child[align="right"] .banner-odd-even > li .ui-link, .banner-odd-even > li #sDownload {

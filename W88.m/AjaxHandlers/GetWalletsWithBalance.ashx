@@ -19,30 +19,20 @@ public class GetWalletsWithBalance : IHttpHandler, System.Web.SessionState.IRead
         if (!context.Request.ContentType.Contains("json")) return;
         
         var serializer = new JavaScriptSerializer();
-        var memberCode = commonVariables.GetSessionVariable("MemberCode");
-        string result;
-        
-        if (!string.IsNullOrWhiteSpace(memberCode))
-        {
             var balances = commonPaymentMethodFunc.GetWalletBalancesAsync();
             var xe = XElement.Parse(balances.Result);
             var balanceSection = xe.Elements("balance");
 
             foreach (var pair in balanceSection)
             {
-                var value = (pair.Value == "*" || pair.Value == "-") ? "00.00" : string.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", Convert.ToDecimal(pair.Value));
+            var value = (pair.Value == "*" || pair.Value == "-")
+                ? "00.00"
+                : string.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", Convert.ToDecimal(pair.Value));
                 _balance.Add(new KeyValuePair<int, string>(Convert.ToInt16(pair.Attribute("id").Value), value));
             }
 
-            result = serializer.Serialize(_balance);
-        }
-        else
-        {
-            result = "-1";
-        }
-      
         context.Response.ContentType = "text/json";
-        context.Response.Write(result);
+        context.Response.Write(serializer.Serialize(_balance));
     }
  
     public bool IsReusable {

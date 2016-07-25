@@ -40,7 +40,7 @@ public partial class Slots_ClubApollo : BasePage
             sbGames.AppendFormat("<div id='div{0}' class='div-product'><div><ul>", xeCategory.Name);
 
             List<XElement> topgames = xeCategory.Elements().Where(m => m.Attribute("Top") != null).OrderBy(f => f.Value).ToList();
-
+            
             IEnumerable<XElement> sortedGame = xeCategory.Elements().Where(m => m.Attribute("Top") == null).OrderBy(game => game.Name.ToString());
 
             topgames.AddRange(sortedGame);
@@ -94,17 +94,17 @@ public partial class Slots_ClubApollo : BasePage
                     }
                 }
 
-                if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-                {
-                    sbGames.AppendFormat("<a class='btn-primary' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubApollo") + "' data-rel='dialog' data-transition='slidedown'>");
+                if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) 
+                { 
+                    sbGames.AppendFormat("<a href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubApollo") + "' data-rel='dialog' data-transition='slidedown'>"); 
                 }
-                else
+                else 
                 {
                     sbGames.AppendFormat("<a href='{0}' target='_blank'>", CommonClubApollo.GetRealUrl.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", setLanguage).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId)).Replace("{LOBBYURL}", HttpContext.Current.Request.Url.AbsoluteUri).Replace("{cashier}", HttpContext.Current.Request.Url.Authority + "/fundtransfer");
                 }
 
-                sbGames.Append("<i class='icon-play_arrow'></i></a>");
-                sbGames.AppendFormat("<a class='btn-secondary' target='_blank' href='{0}' data-ajax='false'><i class='icon-fullscreen'></i></a></div>", CommonClubApollo.GetFunUrl.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", setLanguage).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId)).Replace("{CURCODE}", currency).Replace("{LOBBYURL}", HttpContext.Current.Request.Url.AbsoluteUri);
+                sbGames.AppendFormat("{0}</a>", commonCulture.ElementValues.getResourceXPathString("/Products/Play", commonVariables.ProductsXML));
+                sbGames.AppendFormat("<a target='_blank' href='{1}' data-ajax='false'>{0}</a></div>", commonCulture.ElementValues.getResourceXPathString("/Products/Try", commonVariables.ProductsXML), CommonClubApollo.GetFunUrl.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", setLanguage).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId)).Replace("{CURCODE}", currency).Replace("{LOBBYURL}", HttpContext.Current.Request.Url.AbsoluteUri);
                 sbGames.Append("</div></li>");
             }
 
@@ -160,7 +160,7 @@ public partial class Slots_ClubApollo : BasePage
         {
             if (element.Attribute(lang) != null && element.Attribute(lang).Value.Length > 0)
             {
-                headerText = element.Attribute(lang).Value;
+                headerText = element.Attribute(lang).Value;    
             }
             else
             {

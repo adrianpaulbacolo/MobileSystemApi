@@ -1,12 +1,12 @@
-﻿function Wallets() {
+﻿function FTWallets() {
 
-    var Wallets = {
+    var FTWallets = {
         getWallets: function () {
-            return GetWallets();
+            return getWallets();
         }
     };
 
-    function GetWallets() {
+    function getWallets() {
 
         var loader = GPInt.prototype.GetLoaderScafold();
 
@@ -32,7 +32,7 @@
         });
     }
 
-    return Wallets;
+    return FTWallets;
 }
 
-window.w88Mobile.Wallets = Wallets();
+window.w88Mobile.FTWallets = FTWallets();

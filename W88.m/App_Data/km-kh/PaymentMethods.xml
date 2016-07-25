@@ -15,6 +15,7 @@
 	<dSDAPayAlipay><![CDATA[Alipay Transfer]]></dSDAPayAlipay>
 	<dBofoPay><![CDATA[ប្រាក់បៀវត្សរ៍រហ័ស]]></dBofoPay>
 	<dAllDebit><![CDATA[កាតឥណទាន]]></dAllDebit>
+	<dEGHL><![CDATA[រហ័សអនឡាញ]]></dEGHL>
 
 	<wBankTransfer><![CDATA[ផ្ទេរប្រាក់តាមធនាគារ]]></wBankTransfer>
 	<wWingMoney><![CDATA[Wing Money]]></wWingMoney>

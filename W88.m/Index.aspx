@@ -14,13 +14,8 @@
         <!--#include virtual="~/_static/header.shtml" -->
         <div class="ui-content" role="main">
 
-            <section class="section banner-slider">
+                        <section class="section banner-slider">
                 <%=getPromoBanner() %>
-                <div class="slide">
-                    <a href="/Promotions#SHAOLINSPIN" data-ajax="false">
-                        <img src="/_Static/Images/Download/Mobile-Home-ShaolinSpin-<%=commonVariables.SelectedLanguageShort%>.jpg" alt="banner" class="img-responsive">
-                    </a>
-                </div>
                 <div class="slide">
                     <a href="#divPanel" class="nav-pmahjong">
                         <img src="/_Static/Images/Download/W88-Mobile-TexasMahjong.jpg" alt="banner" class="img-responsive">
@@ -31,9 +26,7 @@
                         <img src="/_Static/Images/Download/W88-Mobile-ClubW-Casino.jpg" alt="banner" class="img-responsive">
                     </a>
                 </div>
-            </section>
-
-        <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) {
+            </section>        <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) {
             var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
             <div class="row row-no-padding action-btn">
                 <div class="col">
@@ -201,16 +194,16 @@
                             <span class="ion-social-android"></span>
                         </div>
                         <div class="col col-75 download-summary">
-                            <h5 class="title">W88 Android Download</h5>
-                            <p>Sports, Live Casino, Slots in 1 App</p>
+                            <h5 class="title"><%=commonCulture.ElementValues.getResourceString("w88Android", commonVariables.LeftMenuXML)%></h5>
+                            <p><%=commonCulture.ElementValues.getResourceString("w88AndroidDesc", commonVariables.LeftMenuXML)%></p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <a href="javascript:hideDownload();" role="button" class="ui-btn btn-bordered">No Thanks</a>
+                            <a href="javascript:hideDownload();" role="button" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("NoThanks", commonVariables.LeftMenuXML)%></a>
                         </div>
                         <div class="col">
-                            <a href="<%=commonClubWAPK.getDownloadUrl %>" class="ui-btn btn-primary">Download Now</a>
+                            <a href="<%=commonClubWAPK.getDownloadUrl %>"  target="_blank" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("DownloadNow", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </div>
                 </div>

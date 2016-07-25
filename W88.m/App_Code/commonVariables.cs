@@ -187,7 +187,8 @@ public class commonVariables
         SDAPayAlipay = 120254,
         ECPSS = 120218,
         BofoPay = 120231,
-        AllDebit = 120236
+        AllDebit = 120236,
+        EGHL = 120265
     }
 
     public enum WithdrawalMethod
