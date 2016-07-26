@@ -20,5 +20,11 @@ namespace Models
         public int SelectOrder { get; set; }
 
         public string SelectName { get; set; }
+
+        public string Restriction { get; set; }
+
+        public string AllowOnly { get; set; }
+
+        public string CurrencyLabel { get; set; }
     }
 }

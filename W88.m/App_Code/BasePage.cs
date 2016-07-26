@@ -32,6 +32,31 @@ public class BasePage : System.Web.UI.Page
 
         string strLanguage = HttpContext.Current.Request.QueryString.Get("lang");
 
+        switch (strLanguage)
+        {
+            case "id":
+                strLanguage = "id-id";
+                break;
+            case "jp":
+                strLanguage = "ja-jp";
+                break;
+            case "kh":
+                strLanguage = "km-kh";
+                break;
+            case "kr":
+                strLanguage = "ko-kr";
+                break;
+            case "th":
+                strLanguage = "th-th";
+                break;
+            case "vn":
+                strLanguage = "vi-vn";
+                break;
+            case "cn":
+                strLanguage = "zh-cn";
+                break;
+        }
+
         if (!string.IsNullOrEmpty(strLanguage))
         {
             commonVariables.SelectedLanguage = strLanguage;

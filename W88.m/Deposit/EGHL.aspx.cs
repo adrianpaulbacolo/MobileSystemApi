@@ -19,6 +19,7 @@ public partial class Deposit_EGHL : PaymentBasePage
     protected string strAlertCode = string.Empty;
     protected string strAlertMessage = string.Empty;
     protected string strResponse = string.Empty;
+    protected string strPageTitle = string.Empty;
 
     protected void Page_Init(object sender, EventArgs e)
     {
@@ -38,8 +39,10 @@ public partial class Deposit_EGHL : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        strPageTitle = strCurrencyCode.Equals("IDR", StringComparison.OrdinalIgnoreCase) ? "ATM Online" : commonCulture.ElementValues.getResourceString("dEGHL", commonVariables.PaymentMethodsXML);
+
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-        commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"));
+        commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"), base.strCurrencyCode);
 
         if (!Page.IsPostBack)
         {
