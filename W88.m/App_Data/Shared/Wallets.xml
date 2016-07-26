@@ -2,7 +2,7 @@
 <default>
     <W88>
         <Wallets>
-            <wallet id="0" orderBy="9" selectOrder="1" name="main" enable="true" CurrAllowOnly="" CurrRestriction="">
+            <wallet id="0" orderBy="9" selectOrder="1" name="main" enable="true" CurrStaticLabel="" CurrAllowOnly="" CurrRestriction="">
                 <lang>
                     <en><![CDATA[Main Wallet]]></en>
                     <id><![CDATA[Utama]]></id>
@@ -14,7 +14,7 @@
                     <cn><![CDATA[中心钱包]]></cn>
                 </lang>
             </wallet>
-            <wallet id="1" orderBy="4" selectOrder="7" name="lottery" enable="true" CurrAllowOnly="" CurrRestriction="">
+            <wallet id="1" orderBy="4" selectOrder="7" name="lottery" enable="true" CurrStaticLabel="" CurrAllowOnly="" CurrRestriction="">
                 <lang>
                     <en><![CDATA[Lottery]]></en>
                     <id><![CDATA[Lotere]]></id>
@@ -26,7 +26,7 @@
                     <cn><![CDATA[乐透]]></cn>
                 </lang>
             </wallet>
-            <wallet id="2" orderBy="2" selectOrder="2" name="asports" enable="true" CurrAllowOnly="" CurrRestriction="">
+            <wallet id="2" orderBy="2" selectOrder="2" name="asports" enable="true" CurrStaticLabel="" CurrAllowOnly="" CurrRestriction="">
                 <lang>
                     <en><![CDATA[A-Sports]]></en>
                     <id><![CDATA[A-SPORT]]></id>
@@ -38,7 +38,7 @@
                     <cn><![CDATA[东方体育]]></cn>
                 </lang>
             </wallet>
-            <wallet id="3" orderBy="5" selectOrder="5" name="casino" enable="true" CurrAllowOnly="" CurrRestriction="">
+            <wallet id="3" orderBy="5" selectOrder="5" name="casino" enable="true" CurrStaticLabel="" CurrAllowOnly="" CurrRestriction="">
                 <lang>
                     <en><![CDATA[Club W]]></en>
                     <id><![CDATA[Club W]]></id>
@@ -60,7 +60,7 @@
                     <cn><![CDATA[优德俱乐部(真人+其他老虎机俱乐部), 虚拟 & 大乐透]]></cn>
                 </selection>
             </wallet>
-            <wallet id="4" orderBy="7" selectOrder="6" name="playtech" enable="true" CurrAllowOnly="" CurrRestriction="">
+            <wallet id="4" orderBy="7" selectOrder="6" name="playtech" enable="true" CurrStaticLabel="" CurrAllowOnly="" CurrRestriction="">
                 <lang>
                     <en><![CDATA[Club Palazzo]]></en>
                     <id><![CDATA[Club Palazzo]]></id>
@@ -72,7 +72,7 @@
                     <cn><![CDATA[金殿(PT真人+老虎机)]]></cn>
                 </lang>
             </wallet>
-            <wallet id="12" orderBy="6" selectOrder="3" name="netent" enable="true" CurrAllowOnly="" CurrRestriction="IDR,KRW,VND">
+            <wallet id="12" orderBy="6" selectOrder="3" name="netent" enable="true" CurrStaticLabel="" CurrAllowOnly="" CurrRestriction="IDR,KRW,VND">
                 <lang>
                     <en><![CDATA[Nuovo]]></en>
                     <id><![CDATA[Nuovo]]></id>
@@ -84,7 +84,7 @@
                     <cn><![CDATA[金蟾]]></cn>
                 </lang>
             </wallet>
-            <wallet id="7" orderBy="3" selectOrder="4" name="sbtech" enable="true" CurrAllowOnly="" CurrRestriction="">
+            <wallet id="7" orderBy="3" selectOrder="4" name="sbtech" enable="true" CurrStaticLabel="" CurrAllowOnly="" CurrRestriction="">
                 <lang>
                     <en><![CDATA[E-Sports]]></en>
                     <id><![CDATA[E-SPORT]]></id>
@@ -97,7 +97,7 @@
 
                 </lang>
             </wallet>
-            <wallet id="6" orderBy="8" selectOrder="8" name="poker" enable="true" CurrAllowOnly="" CurrRestriction="">
+            <wallet id="6" orderBy="8" selectOrder="8" name="poker" enable="true" CurrStaticLabel="USD" CurrAllowOnly="" CurrRestriction="">
                 <lang>
                     <en><![CDATA[Poker]]></en>
                     <id><![CDATA[Poker]]></id>
@@ -108,8 +108,18 @@
                     <vn><![CDATA[Poker]]></vn>
                     <cn><![CDATA[扑克]]></cn>
                 </lang>
+                <selection>
+                    <en><![CDATA[Poker (USD)]]></en>
+                    <id><![CDATA[Poker (USD)]]></id>
+                    <jp><![CDATA[ポーカー（米ドル）]]></jp>
+                    <kh><![CDATA[ពុកគ័រ (USD)]]></kh>
+                    <kr><![CDATA[포커 (USD)]]></kr>
+                    <th><![CDATA[โป๊กเกอร์ (USD)]]></th>
+                    <vn><![CDATA[Poker (USD)]]></vn>
+                    <cn><![CDATA[扑克 (USD)]]></cn>
+                </selection>
             </wallet>
-            <wallet id="8" orderBy="1" selectOrder="9" name="pmahjong" enable="true" CurrAllowOnly="" CurrRestriction="">
+            <wallet id="8" orderBy="1" selectOrder="9" name="pmahjong" enable="true" CurrStaticLabel="" CurrAllowOnly="" CurrRestriction="">
                 <lang>
                     <en><![CDATA[Texas Mahjong]]></en>
                     <id><![CDATA[Texas Mahjong]]></id>
@@ -121,7 +131,7 @@
                     <cn><![CDATA[德州麻将]]></cn>
                 </lang>
             </wallet>
-            <wallet id="16" orderBy="10" selectOrder="10" name="Fishing" enable="true" CurrAllowOnly="RMB" CurrRestriction="">
+            <wallet id="16" orderBy="10" selectOrder="10" name="Fishing" enable="true" CurrStaticLabel="" CurrAllowOnly="RMB" CurrRestriction="">
                 <lang>
                     <en><![CDATA[Fishing]]></en>
                     <id><![CDATA[Fishing]]></id>
