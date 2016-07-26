@@ -33,8 +33,9 @@ namespace Helpers
                     Id = Convert.ToInt16(element.Attribute("id").Value),
                     OrderBy = Convert.ToInt16(element.Attribute("orderBy").Value),
                     SelectOrder = Convert.ToInt16(element.Attribute("selectOrder").Value),
-                    Restriction = element.Attribute("CurrRestriction").Value,
-                    AllowOnly = element.Attribute("CurrAllowOnly").Value
+                    Restriction = element.Attribute("CurrRestriction").Value.ToUpper(),
+                    AllowOnly = element.Attribute("CurrAllowOnly").Value.ToUpper(),
+                    CurrencyLabel = element.Attribute("CurrStaticLabel").Value.ToUpper()
                 };
 
                 foreach (var v in element.Elements("lang").Select(x => x.Element(commonVariables.SelectedLanguageShort)))
