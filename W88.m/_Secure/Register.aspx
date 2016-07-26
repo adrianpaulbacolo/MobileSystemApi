@@ -106,7 +106,7 @@
                     </li>--%>
                     <li class="item-checkbox item-text-wrap">
                         <label id="lblDisclaimer" runat="server">I agree</label>
-                        <a id="btnTermsConditionsLink" runat="server" href="https://info.w88live.com/termofuse_en.shtml" data-ajax="false" target="_blank"></a>
+                        <a id="btnTermsConditionsLink" runat="server" href="" data-ajax="false" target="_blank"></a>
                     </li>
                     <li class="item row">
                         <div class="col">

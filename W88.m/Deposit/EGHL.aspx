@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dEGHL", commonVariables.PaymentMethodsXML))%></title>
+    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), strPageTitle)%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
@@ -13,7 +13,7 @@
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
             </a>
-            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dEGHL", commonVariables.PaymentMethodsXML))%></h1>
+            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), strPageTitle)%></h1>
         </header>
 
         <div class="ui-content" role="main">
