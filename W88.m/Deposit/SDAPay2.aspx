@@ -151,7 +151,7 @@
                     input.select();
 
                     var s = document.execCommand('copy', false, null);
-                    alert(s == true ? "Copied" : "Unable to Copy");
+                    alert(s == true ? "<%=commonCulture.ElementValues.getResourceString("copied", commonVariables.LeftMenuXML)%>" : "Unable to Copy");
 
                     input.remove();
                 }
