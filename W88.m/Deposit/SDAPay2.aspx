@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="SDAPay2.aspx.cs" Inherits="Deposit_SDAPay2" %>
+
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
 <!DOCTYPE html>
@@ -19,7 +20,7 @@
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <uc:Wallet id="uMainWallet" runat="server" />
+                <uc:Wallet ID="uMainWallet" runat="server" />
             </div>
 
             <div data-role="navbar" id="depositTabs" runat="server">
@@ -29,15 +30,15 @@
                 <br />
                 <ul class="list fixed-tablet-size">
                     <li class="row">
-                        <div class="col">
+                        <div class="col col-40">
                             <asp:Literal ID="lblStatus" runat="server" />
                         </div>
                         <div class="col">
-                            <asp:Label ID="txtStatus" runat="server" />
+                            <asp:Literal ID="txtStatus" runat="server" />
                         </div>
                     </li>
                     <li class="row">
-                        <div class="col">
+                        <div class="col col-40">
                             <asp:Literal ID="lblTransactionId" runat="server" />
                         </div>
                         <div class="col">
@@ -45,12 +46,14 @@
                         </div>
                     </li>
                     <li class="row">
-                        <div class="col">
+                        <div class="col col-40">
                             <asp:Literal ID="lblAmount" runat="server" />
                         </div>
-                        <div class="col">
+                        <div class="col col-40">
                             <asp:Label ID="txtAmount" runat="server" />
-                            <a href="#" id="copyAmount"><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
+                        </div>
+                        <div class="col col-20">
+                            <a href="#" class="ui-btn btn-small btn-bordered" id="copyAmount" hidden><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </li>
                     <li class="row">
@@ -60,7 +63,7 @@
                         </div>
                     </li>
                     <li class="row">
-                        <div class="col">
+                        <div class="col col-40">
                             <asp:Literal ID="lblBankName" runat="server" />
                         </div>
                         <div class="col">
@@ -68,29 +71,30 @@
                         </div>
                     </li>
                     <li class="row">
-                        <div class="col">
+                        <div class="col col-40">
                             <asp:Literal ID="lblBankHolderName" runat="server" />
                         </div>
-                        <div class="col">
+                        <div class="col col-40">
                             <asp:Label ID="txtBankHolderName" runat="server" />
-                            <a href="#" id="copyAccountName"><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
+                        </div>
+                        <div class="col col-20">
+                            <a href="#" class="ui-btn btn-small btn-bordered" id="copyAccountName" hidden><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </li>
                     <li class="row">
-                        <div class="col">
+                        <div class="col col-40">
                             <asp:Literal ID="lblBankAccountNo" runat="server" />
                         </div>
-                        <div class="col">
-                            <asp:Label ID="txtBankAccountNo" runat="server" /> 
-                            <a href="#" id="copyAccountNo"><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
+                        <div class="col col-40">
+                            <asp:Label ID="txtBankAccountNo" runat="server" />
+                        </div>
+                        <div class="col col-20">
+                            <a href="#" class="ui-btn btn-small btn-bordered" id="copyAccountNo" hidden><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </li>
                     <li class="row">
                         <div class="col">
-                            <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" id="btnCancel" runat="server" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
-                        </div>
-                        <div class="col">
-                            <asp:HyperLink ID="btnSubmit" runat="server" CssClass="ui-btn btn-primary" data-corners="false" Target="_blank"/>
+                            <asp:HyperLink ID="btnSubmit" runat="server" CssClass="ui-btn btn-primary" data-corners="false" Target="_blank" />
                         </div>
                     </li>
                 </ul>
@@ -139,8 +143,7 @@
                     copyToClipboard(accountNo)
                 });
 
-                function copyToClipboard(text)
-                {
+                function copyToClipboard(text) {
                     var input = document.createElement('textarea', { "permissions": ["clipboardWrite"] });
                     document.body.appendChild(input);
                     input.value = text;

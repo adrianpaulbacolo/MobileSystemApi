@@ -18,7 +18,7 @@
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <uc:Wallet id="uMainWallet" runat="server" />
+                <uc:Wallet ID="uMainWallet" runat="server" />
             </div>
 
             <div data-role="navbar" id="depositTabs" runat="server">
@@ -47,9 +47,11 @@
                         <div class="col col-40">
                             <asp:Literal ID="lblAmount" runat="server" />
                         </div>
-                        <div class="col">
+                        <div class="col col-40">
                             <asp:Label ID="txtAmount" runat="server" />
-                            <a href="#" id="copyAmount"><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
+                        </div>
+                        <div class="col col-20">
+                            <a href="#" class="ui-btn btn-small btn-bordered" id="copyAmount" hidden><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </li>
                     <li class="row">
@@ -82,7 +84,7 @@
                             <asp:Literal ID="lblBankAccountNo" runat="server" />
                         </div>
                         <div class="col col-40">
-                            <asp:Label ID="txtBankAccountNo" runat="server" /> 
+                            <asp:Label ID="txtBankAccountNo" runat="server" />
                         </div>
                         <div class="col col-20">
                             <a href="#" class="ui-btn btn-small btn-bordered" id="copyAccountNo" hidden><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
