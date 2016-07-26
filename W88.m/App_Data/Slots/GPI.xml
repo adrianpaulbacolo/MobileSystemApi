@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Category>
+    <Slot en-us="Slots" zh-cn="老虎机"  ko-kr="슬롯" ja-jp="スロット" km-kh="ស្លត" th-th="สล็อต">
+        <Game Type="RSLOT" Id="sevenbrothers" Category="New" LanguageCode="cn,vn,th,kr,kh,jp,id">
+            <Image><![CDATA[sevenbrothers]]></Image>
+            <Title><![CDATA[7 Brothers]]></Title>
+        </Game>
+        <Game Type="RSLOT" Id="sevenwonders" Category="New" LanguageCode="cn,vn,th,kr,kh,jp,id">
+            <Image><![CDATA[sevenwonders]]></Image>
+            <Title><![CDATA[7 Wonders]]></Title>
+        </Game>
+        <Game Type="RSLOT" Id="fortunekoi" Category="New" LanguageCode="cn,vn,th,kr,kh,jp,id">
+            <Image><![CDATA[fortunekoi]]></Image>
+            <Title><![CDATA[Fortune Koi]]></Title>
+        </Game>
+        <Game Type="RSLOT" Id="ladyluck" Category="New" LanguageCode="cn,vn,th,kr,kh,jp,id">
+            <Image><![CDATA[ladyluck]]></Image>
+            <Title><![CDATA[Lady Luck]]></Title>
+        </Game>
+        <Game Type="RSLOT" Id="zeus" Category="New" LanguageCode="cn,vn,th,kr,kh,jp,id">
+            <Image><![CDATA[zeus]]></Image>
+            <Title><![CDATA[Zeus King of Gods]]></Title>
+        </Game>
+        <Game Id="Soccer">
+            <Image><![CDATA[soccer]]></Image>
+            <Title><![CDATA[2014 Soccer Slot]]></Title>
+        </Game>
+        <Game Type="RSLOT" Id="baseball">
+            <Image><![CDATA[baseball]]></Image>
+            <Title><![CDATA[Baseball]]></Title>
+        </Game>
+        <Game Type="RSLOT" Id="bikinibeach">
+            <Image><![CDATA[bikinibeach]]></Image>
+            <Title><![CDATA[Bikini Beach]]></Title>
+        </Game>
+        <Game Type="RSLOT" Id="boxing">
+            <Image><![CDATA[boxing]]></Image>
+            <Title><![CDATA[Boxing]]></Title>
+        </Game>
+        <Game Id="candylicious">
+            <Image><![CDATA[candylicious]]></Image>
+            <Title><![CDATA[Candylicious]]></Title>
+        </Game>
+        <Game Type="RSLOT" Id="deepblue" LanguageCode="cn,vn,th,kr,kh,jp,id">
+            <Image><![CDATA[deepblue]]></Image>
+            <Title><![CDATA[Deep Blue]]></Title>
+        </Game>
+        <Game Type="RSLOT" Id="desertoasis">
+            <Image><![CDATA[desertoasis]]></Image>
+            <Title><![CDATA[Desert Oasis]]></Title>
+        </Game>
+        <Game Type="RSLOT" Id="dimsumlicious">
+            <Image><![CDATA[dimsumlicious]]></Image>
+            <Title><![CDATA[Dimsumlicious]]></Title>
+        </Game>
+        <Game Type="RSLOT" Id="fortunecat">
+            <Image><![CDATA[fortunecat]]></Image>
+            <Title><![CDATA[Fortune Cat]]></Title>
+        </Game>
+        <Game Id="fourbeauties">
+            <Image><![CDATA[fourbeauties]]></Image>
+            <Title><![CDATA[Four Beauties]]></Title>
+        </Game>
+        <Game Id="freedomfighter">
+            <Image><![CDATA[freedomfighter]]></Image>
+            <Title><![CDATA[Freedom Fighter]]></Title>
+        </Game>
+        <Game Type="RSLOT" Id="fruitilicious">
+            <Image><![CDATA[fruitilicious]]></Image>
+            <Title><![CDATA[Fruitilicious]]></Title>
+        </Game>
+        <Game Type="RSLOT" Id="godoffortune">
+            <Image><![CDATA[godoffortune]]></Image>
+            <Title><![CDATA[God of Fortune]]></Title>
+        </Game>
+        <Game Type="RSLOT" Id="godofgamblers" LanguageCode="cn,vn,th,kr,kh,jp,id">
+            <Image><![CDATA[godofgamblers]]></Image>
+            <Title><![CDATA[God of Gamblers]]></Title>
+        </Game>
+        <Game Type="RSLOT" Id="goldeneggs">
+            <Image><![CDATA[goldeneggs]]></Image>
+            <Title><![CDATA[Golden Eggs]]></Title>
+        </Game>
+        <Game Id="golftour">
+            <Image><![CDATA[golftour]]></Image>
+            <Title><![CDATA[Golf Tour]]></Title>
+        </Game>
+        <Game Id="klassik">
+            <Image><![CDATA[klassik]]></Image>
+            <Title><![CDATA[Klassik]]></Title>
+        </Game>
+        <Game Type="RSLOT" Id="lanternfestival">
+            <Image><![CDATA[lanternfestival]]></Image>
+            <Title><![CDATA[Lantern Festival]]></Title>
+        </Game>
+        <Game Type="RSLOT" Id="legendofnezha">
+            <Image><![CDATA[legendofnezha]]></Image>
+            <Title><![CDATA[Legend of Nezha]]></Title>
+        </Game>
+        <Game Id="littlemonsters">
+            <Image><![CDATA[littlemonsters]]></Image>
+            <Title><![CDATA[Little Monsters]]></Title>
+        </Game>
+        <Game Type="RSLOT" Id="mafia">
+            <Image><![CDATA[mafia]]></Image>
+            <Title><![CDATA[Mafia]]></Title>
+        </Game>
+        <Game Type="RSLOT" Id="monkeyking">
+            <Image><![CDATA[monkeyking]]></Image>
+            <Title><![CDATA[Monkey King]]></Title>
+        </Game>
+        <Game Id="panda">
+            <Image><![CDATA[panda]]></Image>
+            <Title><![CDATA[Panda]]></Title>
+        </Game>
+        <Game Type="RSLOT" Id="pharaoh">
+            <Image><![CDATA[pharaoh]]></Image>
+            <Title><![CDATA[Pharaoh]]></Title>
+        </Game>
+        <Game Id="piratestreasure">
+            <Image><![CDATA[piratestreasure]]></Image>
+            <Title><![CDATA[Pirates Treasure]]></Title>
+        </Game>
+        <Game Type="RSLOT" Id="qixi">
+            <Image><![CDATA[qixi]]></Image>
+            <Title><![CDATA[Qixi]]></Title>
+        </Game>
+        <Game Type="RSLOT" Id="queenbee">
+            <Image><![CDATA[queenbee]]></Image>
+            <Title><![CDATA[QueenBee]]></Title>
+        </Game>
+        <Game Id="sherlock">
+            <Image><![CDATA[sherlock]]></Image>
+            <Title><![CDATA[Sherlock]]></Title>
+        </Game>
+        <Game Id="threekingdoms">
+            <Image><![CDATA[threekingdoms]]></Image>
+            <Title><![CDATA[Three Kingdoms]]></Title>
+        </Game>
+        <Game Type="RSLOT" Id="romanempire">
+            <Image><![CDATA[romanempire]]></Image>
+            <Title><![CDATA[Roman Empire]]></Title>
+        </Game>
+        <Game Id="trickortreat">
+            <Image><![CDATA[trickortreat]]></Image>
+            <Title><![CDATA[Trick or Treat]]></Title>
+        </Game>
+        <Game Type="RSLOT" Id="worldofwarlords">
+            <Image><![CDATA[worldofwarlords]]></Image>
+            <Title><![CDATA[World of Warlords]]></Title>
+        </Game>
+        <Game Id="zodiac">
+            <Image><![CDATA[zodiac]]></Image>
+            <Title><![CDATA[Zodiac]]></Title>
+        </Game>
+    </Slot>
+</Category>
