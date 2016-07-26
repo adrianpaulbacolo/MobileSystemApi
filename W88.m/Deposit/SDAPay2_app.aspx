@@ -27,7 +27,7 @@
                 <br />
                 <ul class="list fixed-tablet-size">
                     <li class="row">
-                        <div class="col">
+                        <div class="col col-40">
                             <asp:Literal ID="lblStatus" runat="server" />
                         </div>
                         <div class="col">
@@ -35,7 +35,7 @@
                         </div>
                     </li>
                     <li class="row">
-                        <div class="col">
+                        <div class="col col-40">
                             <asp:Literal ID="lblTransactionId" runat="server" />
                         </div>
                         <div class="col">
@@ -43,18 +43,20 @@
                         </div>
                     </li>
                     <li class="row">
-                        <div class="col">
+                        <div class="col col-40">
                             <asp:Literal ID="lblAmount" runat="server" />
                         </div>
                         <div class="col">
                             <asp:Literal ID="txtAmount" runat="server" />
                         </div>
+                    </li>
+                    <li class="row">
                         <div class="col">
                             <asp:Label ID="lblAmountNote" runat="server" />
                         </div>
                     </li>
                     <li class="row">
-                        <div class="col">
+                        <div class="col col-40">
                             <asp:Literal ID="lblBankName" runat="server" />
                         </div>
                         <div class="col">
@@ -62,21 +64,25 @@
                         </div>
                     </li>
                     <li class="row">
-                        <div class="col">
+                        <div class="col col-40">
                             <asp:Literal ID="lblBankHolderName" runat="server" />
                         </div>
-                        <div class="col">
+                        <div class="col col-40">
                             <asp:Label ID="txtBankHolderName" runat="server" />
-                            <a href="#" id="copyAccountName" hidden><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
+                        </div>
+                        <div class="col col-20">
+                            <a href="#" class="ui-btn btn-small btn-bordered" id="copyAccountName" hidden><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </li>
                     <li class="row">
-                        <div class="col">
+                        <div class="col col-40">
                             <asp:Literal ID="lblBankAccountNo" runat="server" />
                         </div>
-                        <div class="col">
+                        <div class="col col-40">
                             <asp:Label ID="txtBankAccountNo" runat="server" /> 
-                            <a href="#" id="copyAccountNo" hidden><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
+                        </div>
+                        <div class="col col-20">
+                            <a href="#" class="ui-btn btn-small btn-bordered" id="copyAccountNo" hidden><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </li>
                     <li class="row">
