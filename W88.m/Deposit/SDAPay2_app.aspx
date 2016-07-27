@@ -47,11 +47,11 @@
                         <div class="col col-40">
                             <asp:Literal ID="lblAmount" runat="server" />
                         </div>
-                        <div class="col col-40">
+                        <div class="col">
                             <asp:Label ID="txtAmount" runat="server" />
                         </div>
                         <div class="col col-20">
-                            <a href="#" class="ui-btn btn-small btn-bordered" id="copyAmount" hidden><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
+                            <a href="#" class="ui-btn btn-small btn-bordered" id="copyAmount"><span class="icon ion-ios-copy-outline"></span><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </li>
                     <li class="row">
@@ -72,22 +72,22 @@
                         <div class="col col-40">
                             <asp:Literal ID="lblBankHolderName" runat="server" />
                         </div>
-                        <div class="col col-40">
+                        <div class="col">
                             <asp:Label ID="txtBankHolderName" runat="server" />
                         </div>
                         <div class="col col-20">
-                            <a href="#" class="ui-btn btn-small btn-bordered" id="copyAccountName" hidden><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
+                            <a href="#" class="ui-btn btn-small btn-bordered" id="copyAccountName"><span class="icon ion-ios-copy-outline"></span><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </li>
                     <li class="row">
                         <div class="col col-40">
                             <asp:Literal ID="lblBankAccountNo" runat="server" />
                         </div>
-                        <div class="col col-40">
+                        <div class="col">
                             <asp:Label ID="txtBankAccountNo" runat="server" />
                         </div>
                         <div class="col col-20">
-                            <a href="#" class="ui-btn btn-small btn-bordered" id="copyAccountNo" hidden><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
+                            <a href="#" class="ui-btn btn-small btn-bordered" id="copyAccountNo"><span class="icon ion-ios-copy-outline"></span><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </li>
                     <li class="row">
@@ -128,6 +128,17 @@
                     }
                 }
 
+                (function (a) { (jQuery.browser = jQuery.browser || {}).android = /android|(android|bb\d+|meego).+mobile/i.test(a) })(navigator.userAgent || navigator.vendor || window.opera);
+                (function (a) { (jQuery.browser = jQuery.browser || {}).wp = /iemobile|windows (ce|phone)/i.test(a) })(navigator.userAgent || navigator.vendor || window.opera);
+                (function (a) { (jQuery.browser = jQuery.browser || {}).ios = /ip(hone|od|ad)/i.test(a) })(navigator.userAgent || navigator.vendor || window.opera);
+
+                if ($.browser.ios) {
+                    $(".col-20").hide();
+                }
+                else {
+                    $(".col-20").show();
+                }
+
                 $('#copyAmount').on('click', function () {
                     var amount = $("#txtAmount").text().slice(2); //this will removed the ": "
                     copyToClipboard(amount)
@@ -151,7 +162,7 @@
                     input.select();
 
                     var s = document.execCommand('copy', false, null);
-                    alert(s == true ? "Copied" : "Unable to Copy");
+                    alert(s == true ? "<%=commonCulture.ElementValues.getResourceString("copied", commonVariables.LeftMenuXML)%>" : "Unable to Copy");
 
                     input.remove();
                 }
