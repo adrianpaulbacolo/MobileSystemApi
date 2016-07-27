@@ -195,7 +195,7 @@
                         </div>
                         <div class="col col-75 download-summary">
                             <h5 class="title"><%=commonCulture.ElementValues.getResourceString("w88Android", commonVariables.LeftMenuXML)%></h5>
-                            <p><%=commonCulture.ElementValues.getResourceString("w88AndroidDesc", commonVariables.LeftMenuXML)%></p>
+                            <span><%=commonCulture.ElementValues.getResourceString("w88AndroidDesc", commonVariables.LeftMenuXML)%></span>
                         </div>
                     </div>
                     <div class="row">
