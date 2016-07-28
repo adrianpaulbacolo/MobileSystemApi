@@ -74,6 +74,9 @@
                     </li>
                     <li class="item item-select div-fastdeposit-depositdatetime" id="divDepositDateTime" runat="server">
                         <div class="row">
+                            <asp:Label ID="lblDepositDateTime" runat="server" AssociatedControlID="drpDepositDate" Text="Deposit Date/Time" />
+                        </div>
+                        <div class="row">
                             <div class="col">
                                 <asp:DropDownList ID="drpDepositDate" runat="server" />
                             </div>
@@ -126,6 +129,10 @@
 
             $(function () {
                 window.history.forward();
+
+                if ($('#depositTabs li').length == 0) {
+                    window.location.reload();
+                }
 
                 var responseCode = '<%=strAlertCode%>';
                 var responseMsg = '<%=strAlertMessage%>';

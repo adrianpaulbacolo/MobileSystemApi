@@ -22,7 +22,7 @@
                 }
                 data = data.replace(/<img src=/g, '<img rel=');
                 data = data.replace('[domain]', '.' + location.hostname.split('.').slice(-2).join('.'));
-                var listObj = $("#divPromotions").append('<ul class="row row-no-padding row-wrap"></ul>').find('ul');
+                var listObj = $("#divPromotions").append('<ul class="row row-uc row-no-padding row-wrap"></ul>').find('ul');
                 var promo_length = $(data).find('.promotion_group').length;
                 $(data).find('.promotion_group').each(function (index) {
                     if (index == promo_length - 1) { return; }
@@ -41,7 +41,7 @@
                         }
                     }
 
-                    var liPromo = $('<li class="col col-50" />');
+                    var liPromo = $('<li class="col" />');
                     var divPromoWrapper = $('<div />', { id: $(this).attr('id'), class: index % 2 == 0 ? 'div-promo-row' : 'div-promo-row' });
                     var divPromoImg = $('<div />', { class: 'div-promo-img' });
 

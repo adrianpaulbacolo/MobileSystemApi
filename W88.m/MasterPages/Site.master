@@ -6,7 +6,7 @@
 <html>
 <head runat="server">
     <meta charset="utf-8" />
-    <title></title>
+    <title><%=Page.Title %></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
     <script type="application/javascript" src="/_Static/Js/add2home.js"></script>
@@ -19,7 +19,9 @@
 
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
 
+        <% if(commonCookie.CookieIsApp != "1"){ %>
         <!--#include virtual="~/_static/navMenu.shtml" -->
+        <% } %>
 
         <asp:ContentPlaceHolder ID="ScriptsPlaceHolder" runat="server"></asp:ContentPlaceHolder>
 

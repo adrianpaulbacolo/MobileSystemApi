@@ -13,13 +13,15 @@ public class UserSession
     public static void ClearSession()
     {
         commonVariables.ClearSessionVariables();
-        commonCookie.ClearCookies(); 
+        commonCookie.ClearCookies();
     }
 
-    public static int checkSession()
+    public static int checkSession(string memberSessionId = null)
     {
-        if(!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)){
-            return new Members().CheckMemberSession();
+        var id = memberSessionId ?? commonVariables.CurrentMemberSessionId;
+        if (!string.IsNullOrEmpty(id))
+        {
+            return new Members().CheckMemberSession(id);
         }
         return 10;
     }
@@ -33,7 +35,8 @@ public class UserSession
     public static string GetSessionCode()
     {
         var strProcessCode = "10";
-        if(!IsLoggedIn()){
+        if (!IsLoggedIn())
+        {
             return strProcessCode;
         }
         System.Data.DataSet dsSignin = null;

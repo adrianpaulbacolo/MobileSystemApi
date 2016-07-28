@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="FundTransfer_Default" %>
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
+<%@ Register Src="~/UserControls/AppFooterMenu.ascx" TagPrefix="uc" TagName="AppFooterMenu" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -56,14 +58,9 @@
                         </div>
                     </li>
                 </ul>
-                 <div class="row">
-                    <div class="col">
-                        <input type="button" data-theme="b" onclick="location.href = '/Deposit/Default_app.aspx';" value="<%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%>" class="button-blue"  data-corners="false" />
-                    </div>
-                    <div class="col">
-                        <input type="button" data-theme="b" onclick="location.href = '/Withdrawal/Default_app.aspx';" value="<%=commonCulture.ElementValues.getResourceString("withrawal", commonVariables.LeftMenuXML)%>" class="button-blue"  data-corners="false" />
-                    </div>
-                </div>
+
+                <uc:AppFooterMenu runat="server" ID="AppFooterMenu" />
+                
             </form>
         </div>
 
@@ -100,6 +97,11 @@
             $(function () {
 
                 window.history.forward();
+
+                if (sessionStorage.selectedWalletId != 'undefined' || sessionStorage.selectedWalletId != null) {
+                    $('#drpTransferTo').val(sessionStorage.selectedWalletId).change();
+                    sessionStorage.removeItem('selectedWalletId');
+                }
 
                 $('#drpTransferFrom').change(function () {
 
@@ -168,7 +170,7 @@
 
                 if (responseMsg.length > 0) { alert(responseMsg.split('[break]').join('\n')); }
                 if (responseCode == "-1") {
-                    window.location.replace('/FundTransfer.aspx');
+                    window.location.replace('/Default_app.aspx');
                 }
             });
 
@@ -183,18 +185,7 @@
 
             function getBalance() {
                 $(document).ready(function () {
-                    $('span[name="WalletBalance"]').each(function () {
-                        var objWallet = $(this);
-                        var strWallet = objWallet.attr('id');
-                        $.ajax({
-                            type: "POST",
-                            url: '/AjaxHandlers/GetBalance.ashx',
-                            data: { Wallet: strWallet },
-                            success: function (html) {
-                                objWallet.text(html);
-                            }
-                        });
-                    });
+                    window.w88Mobile.FTWallets.getWallets();
                 });
             }
         </script>

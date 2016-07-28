@@ -4,6 +4,7 @@
   <lblCurrency><![CDATA[通貨: ]]></lblCurrency>
   <lblRemarks><![CDATA[備考または提出目的: ]]></lblRemarks>
   <lblFileUpload><![CDATA[ファイル（最大3MB): ]]></lblFileUpload>
+  <lblFileUploadText><![CDATA[Choose File]]></lblFileUploadText>  
   <btnSubmit><![CDATA[送信]]></btnSubmit>
   <Success><![CDATA[ご提出いただき誠にありがとうございます。お客様の提出IDは「SubmissionID」になります。以上の点につきましてご質問がある場合は、我々当社のカスタマーサポートに提出IDを引用の上ご連絡くださいませ。]]></Success>
   <MissingAttachment><![CDATA[ファイルを添付してください。]]></MissingAttachment>

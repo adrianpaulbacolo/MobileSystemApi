@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <default>
 	<Products>
+        <Play><![CDATA[Main]]></Play>
+        <Try><![CDATA[Coba]]></Try>
 		<ASports>
 			<Url><![CDATA[]]></Url>
 			<Label><![CDATA[a-Sport]]></Label>

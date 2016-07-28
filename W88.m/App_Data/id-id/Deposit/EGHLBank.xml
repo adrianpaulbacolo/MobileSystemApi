@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<banks>
+	<bank id="AFFIN"><![CDATA[AFFIN]]></bank>
+	<bank id="AllianceOnline"><![CDATA[AllianceOnline]]></bank>
+	<bank id="AmBank"><![CDATA[AmBank]]></bank>
+	<bank id="Bank Islam"><![CDATA[Bank Islam]]></bank>
+	<bank id="iRakyat"><![CDATA[iRakyat]]></bank>
+	<bank id="Bank Muamalat"><![CDATA[Bank Muamalat]]></bank>
+	<bank id="HongLeong Connect"><![CDATA[HongLeong Connect]]></bank>
+	<bank id="MayBank2U"><![CDATA[MayBank2U]]></bank>
+	<bank id="PBe"><![CDATA[PBe]]></bank>
+	<bank id="RHBNow"><![CDATA[RHBNow]]></bank>
+	<bank id="UOB"><![CDATA[UOB]]></bank>
+</banks>

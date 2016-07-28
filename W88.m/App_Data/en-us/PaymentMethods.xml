@@ -15,7 +15,8 @@
 	<dSDAPayAlipay><![CDATA[Alipay Transfer]]></dSDAPayAlipay>
 	<dBofoPay><![CDATA[Quick Pay]]></dBofoPay>
 	<dAllDebit><![CDATA[Credit Card]]></dAllDebit>
-
+    <dEGHL><![CDATA[Quick Online]]></dEGHL>
+    
 	<wBankTransfer><![CDATA[Bank Transfer]]></wBankTransfer>
 	<wWingMoney><![CDATA[Wing Money]]></wWingMoney>
 	<wNeteller><![CDATA[Neteller]]></wNeteller>

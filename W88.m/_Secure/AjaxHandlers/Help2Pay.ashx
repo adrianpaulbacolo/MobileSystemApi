@@ -196,7 +196,10 @@ public class Help2Pay : IHttpHandler, System.Web.SessionState.IReadOnlySessionSt
             string payment_encryption_key = System.Configuration.ConfigurationManager.AppSettings.Get("PaymentPrivateKey");
             string merchantAccount = commonEncryption.decrypting(opSettings.Values.Get("Help2Pay_merchantaccount"), payment_encryption_key);
             string merchantKey = commonEncryption.decrypting(opSettings.Values.Get("Help2Pay_key"), payment_encryption_key);
-            string frontReturnUrl = opSettings.Values.Get("Help2Pay_frontreturnurl");
+
+            var requestUrl = HttpContext.Current.Request.Url;
+            string frontReturnUrl = requestUrl.Scheme + "://" + requestUrl.Host + "/Index";
+            
             string serverReturnUrl = opSettings.Values.Get("Help2Pay_serverreturnurl");
             string postUrl = opSettings.Values.Get("Help2Pay_posturl");
             string username = strMemberId;

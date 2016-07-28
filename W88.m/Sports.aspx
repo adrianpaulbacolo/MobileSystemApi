@@ -4,10 +4,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="ui-content" role="main" >
-            <ul class="row banner-lists banner-odd-even">
+            <ul class="row banner-lists banner-odd-even row-uc">
                 <li class="col">
                     <figure class="banner">
-                        <img src="_Static/Images/sports/a-sports-banner.jpg" class="img-responsive img-bg">
+                        <img src="_Static/Images/sports/aSports-Rio16.jpg" class="img-responsive img-bg">
                         <figcaption class="banner-caption">
                             <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ASports/Label", commonVariables.ProductsXML)%></h3>
                             <p><%=commonCulture.ElementValues.getResourceXPathString("Products/ASports/Description", commonVariables.ProductsXML)%></p>
@@ -17,7 +17,7 @@
                 </li>
                 <li class="col">
                     <figure class="banner">
-                        <img src="_Static/Images/sports/e-sports-banner.jpg" class="img-responsive img-bg">
+                        <img src="_Static/Images/sports/eSports-Rio16.jpg" class="img-responsive img-bg">
                         <figcaption class="banner-caption">
                             <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></h3>
                             <p><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Description", commonVariables.ProductsXML)%></p>
@@ -25,7 +25,7 @@
                         </figcaption>
                     </figure>
                 </li>
-                <!-- <li class="col">
+                 <li class="col">
                      <figure class="banner">
                         <img src="_Static/Images/sports/v-sports-banner.jpg" class="img-responsive img-bg">
                         <figcaption class="banner-caption">
@@ -34,7 +34,7 @@
                             <a href="/V-Sports.aspx" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
                         </figcaption>
                     </figure>
-                </li> -->
+                </li> 
             </ul>
         </div>
 </asp:Content>

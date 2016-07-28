@@ -47,12 +47,12 @@ public partial class Slots_ClubBravado : BasePage
             sbGames.AppendFormat("<li class='bkg-game'><div rel='{0}.jpg'><div class='div-links'>", game.Image);
 
             if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-                sbGames.AppendFormat("<a class='btn-primary' target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubBravado") + "' data-rel='dialog' data-transition='slidedown' data-ajax='false'>");
+                sbGames.AppendFormat("<a target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubBravado") + "' data-rel='dialog' data-transition='slidedown' data-ajax='false'>");
             else
                 sbGames.AppendFormat("<a href='{0}' target='_blank' data-ajax='false'>", game.RealUrl);
 
-            sbGames.Append("<i class='icon-play_arrow'></i></a>");
-            sbGames.AppendFormat("<a class='btn-secondary' target='_blank' href='{0}' data-ajax='false'><i class='icon-fullscreen'></i></a></div>", game.FunUrl);
+            sbGames.AppendFormat("{0}</a>", commonCulture.ElementValues.getResourceXPathString("/Products/Play", commonVariables.ProductsXML));
+            sbGames.AppendFormat("<a target='_blank' href='{1}'>{0}</a></div>", commonCulture.ElementValues.getResourceXPathString("/Products/Try", commonVariables.ProductsXML), game.FunUrl);
 
             sbGames.Append("</div></li>");
         }
