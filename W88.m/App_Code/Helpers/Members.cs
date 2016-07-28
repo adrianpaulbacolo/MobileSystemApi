@@ -43,11 +43,12 @@ namespace Helpers
             MemberData(dTable);
 
             var memberSessionId = dTable.Rows[0]["memberSessionId"];
+            var currencyCode = dTable.Columns["currencyCode"] != null ? dTable.Rows[0]["currencyCode"].ToString() : dTable.Rows[0]["currency"].ToString();
             commonVariables.SetSessionVariable("MemberSessionId", memberSessionId.ToString());
             commonVariables.SetSessionVariable("MemberId", dTable.Rows[0]["memberId"].ToString());
             commonVariables.SetSessionVariable("MemberCode", dTable.Rows[0]["memberCode"].ToString());
             commonVariables.SetSessionVariable("CountryCode", dTable.Rows[0]["countryCode"].ToString());
-            commonVariables.SetSessionVariable("CurrencyCode", dTable.Columns["currencyCode"] != null ? dTable.Rows[0]["currencyCode"].ToString() : dTable.Rows[0]["currency"].ToString());
+            commonVariables.SetSessionVariable("CurrencyCode", currencyCode);
             commonVariables.SetSessionVariable("LanguageCode", dTable.Rows[0]["languageCode"].ToString());
             commonVariables.SetSessionVariable("RiskId", dTable.Rows[0]["riskId"].ToString());
             commonVariables.SetSessionVariable("PaymentGroup", dTable.Rows[0]["paymentGroup"].ToString());
@@ -59,6 +60,7 @@ namespace Helpers
 
             commonCookie.CookieS = Convert.ToString(memberSessionId);
             commonCookie.CookieG = Convert.ToString(memberSessionId);
+            commonCookie.CookieCurrency = currencyCode;
 
             if (password != null)
                 commonCookie.CookiePalazzo = password;
