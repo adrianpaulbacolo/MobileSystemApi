@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="SDAPay2.aspx.cs" Inherits="Deposit_SDAPay2" %>
+
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
 <!DOCTYPE html>
@@ -19,7 +20,7 @@
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <uc:Wallet id="uMainWallet" runat="server" />
+                <uc:Wallet ID="uMainWallet" runat="server" />
             </div>
 
             <div data-role="navbar" id="depositTabs" runat="server">
@@ -29,15 +30,15 @@
                 <br />
                 <ul class="list fixed-tablet-size">
                     <li class="row">
-                        <div class="col">
+                        <div class="col col-40">
                             <asp:Literal ID="lblStatus" runat="server" />
                         </div>
                         <div class="col">
-                            <asp:Label ID="txtStatus" runat="server" />
+                            <asp:Literal ID="txtStatus" runat="server" />
                         </div>
                     </li>
                     <li class="row">
-                        <div class="col">
+                        <div class="col col-40">
                             <asp:Literal ID="lblTransactionId" runat="server" />
                         </div>
                         <div class="col">
@@ -45,11 +46,14 @@
                         </div>
                     </li>
                     <li class="row">
-                        <div class="col">
+                        <div class="col col-40">
                             <asp:Literal ID="lblAmount" runat="server" />
                         </div>
                         <div class="col">
-                            <asp:Literal ID="txtAmount" runat="server" />
+                            <asp:Label ID="txtAmount" runat="server" />
+                        </div>
+                        <div class="col col-20">
+                            <a href="#" class="ui-btn btn-small btn-bordered" id="copyAmount"><span class="icon ion-ios-copy-outline"></span> <%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </li>
                     <li class="row">
@@ -59,7 +63,7 @@
                         </div>
                     </li>
                     <li class="row">
-                        <div class="col">
+                        <div class="col col-40">
                             <asp:Literal ID="lblBankName" runat="server" />
                         </div>
                         <div class="col">
@@ -67,29 +71,30 @@
                         </div>
                     </li>
                     <li class="row">
-                        <div class="col">
+                        <div class="col col-40">
                             <asp:Literal ID="lblBankHolderName" runat="server" />
                         </div>
                         <div class="col">
                             <asp:Label ID="txtBankHolderName" runat="server" />
-                            <a href="#" id="copyAccountName" hidden><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
+                        </div>
+                        <div class="col col-20">
+                            <a href="#" class="ui-btn btn-small btn-bordered" id="copyAccountName"><span class="icon ion-ios-copy-outline"></span> <%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </li>
                     <li class="row">
-                        <div class="col">
+                        <div class="col col-40">
                             <asp:Literal ID="lblBankAccountNo" runat="server" />
                         </div>
                         <div class="col">
-                            <asp:Label ID="txtBankAccountNo" runat="server" /> 
-                            <a href="#" id="copyAccountNo" hidden><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
+                            <asp:Label ID="txtBankAccountNo" runat="server" style="text-indent: -10px; display: inline-block; padding-left: 10px;" />
+                        </div>
+                        <div class="col col-20">
+                            <a href="#" class="ui-btn btn-small btn-bordered" id="copyAccountNo"><span class="icon ion-ios-copy-outline"></span> <%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </li>
                     <li class="row">
                         <div class="col">
-                            <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" id="btnCancel" runat="server" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
-                        </div>
-                        <div class="col">
-                            <asp:HyperLink ID="btnSubmit" runat="server" CssClass="ui-btn btn-primary" data-corners="false" Target="_blank"/>
+                            <asp:HyperLink ID="btnSubmit" runat="server" CssClass="ui-btn btn-primary" data-corners="false" Target="_blank" />
                         </div>
                     </li>
                 </ul>
@@ -123,19 +128,31 @@
                     }
                 }
 
+                (function (a) { (jQuery.browser = jQuery.browser || {}).ios = /ip(hone|od|ad)/i.test(a) })(navigator.userAgent || navigator.vendor || window.opera);
+
+                if ($.browser.ios) {
+                    $(".col-20").hide();
+                }
+                else {
+                    $(".col-20").show();
+                }
+
+                $('#copyAmount').on('click', function () {
+                    var amount = $("#txtAmount").text().slice(2); //this will removed the ": "
+                    copyToClipboard(amount)
+                });
+
                 $('#copyAccountName').on('click', function () {
-                    var accountName = $("#txtBankHolderName").text().slice(2);
+                    var accountName = $("#txtBankHolderName").text().slice(2); //this will removed the ": "
                     copyToClipboard(accountName)
                 });
 
                 $('#copyAccountNo').on('click', function () {
-                    var accountNo = $("#txtBankAccountNo").text().slice(2);
+                    var accountNo = $("#txtBankAccountNo").text().slice(2); //this will removed the ": "
                     copyToClipboard(accountNo)
                 });
 
-
-                function copyToClipboard(text)
-                {
+                function copyToClipboard(text) {
                     var input = document.createElement('textarea', { "permissions": ["clipboardWrite"] });
                     document.body.appendChild(input);
                     input.value = text;
@@ -143,7 +160,7 @@
                     input.select();
 
                     var s = document.execCommand('copy', false, null);
-                    alert(s == true ? "Copied" : "Unable to Copy");
+                    alert(s == true ? "<%=commonCulture.ElementValues.getResourceString("copied", commonVariables.LeftMenuXML)%>" : "Unable to Copy");
 
                     input.remove();
                 }
