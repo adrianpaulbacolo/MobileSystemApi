@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Category>
+    <TableCard en-us="Table &amp; Cards Games" zh-cn="卡牌桌面游戏" ko-kr="카드게임 테이블 게임" ja-jp="テーブルゲーム" km-kh="ហ្គេមបៀរ ហ្គេមតុ" th-th="การ์ด เกมส์โต๊ะ" id-id="Game Kartu &amp; Meja" vi-vn="Trò Chơi Bài &amp; Trò Chơi Bàn">
+        <Game Id="americanRouletteGold" LanguageCode="ja">
+            <Image><![CDATA[americanRouletteGold]]></Image>
+            <Title><![CDATA[American Roulette Gold Series]]></Title>
+        </Game>
+        <Game Id="atlanticCityBlackjackGold" LanguageCode="ja">
+            <Image><![CDATA[atlanticCityBlackjackGold]]></Image>
+            <Title ><![CDATA[Atlantic City BlackJack Gold Series]]></Title>
+        </Game>
+        <Game Id="bonusDeucesWild" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Bonus-Deuces-Wild]]></Image>
+            <Title><![CDATA[Bonus Deuces Wild Poker]]></Title>
+        </Game>
+        <Game Id="classicBlackjackGold" LanguageCode="ja">
+            <Image><![CDATA[classicBlackjackGold]]></Image>
+            <Title><![CDATA[Classic BlackJack Gold Series]]></Title>
+        </Game>
+        <Game Id="europeanBlackjackGold" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-European-Blackjack-Gold]]></Image>
+            <Title><![CDATA[European BlackJack Gold Series]]></Title>
+        </Game>
+        <Game Id="europeanRoulette" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-European-Roulette]]></Image>
+            <Title><![CDATA[European Roulette Gold Series]]></Title>
+        </Game>
+        <Game Id="vegasDowntownBlackjackGold" LanguageCode="ja">
+            <Image><![CDATA[vegasDowntownBlackjackGold]]></Image>
+            <Title><![CDATA[Vegas Downtown BlackJack Gold Series]]></Title>
+        </Game>
+        <Game Id="vegasSingleDeckBlackjackGold" LanguageCode="ja">
+            <Image><![CDATA[vegasSingleDeckBlackjackGold]]></Image>
+            <Title><![CDATA[Vegas SingleDeck BlackJack Gold Series]]></Title>
+        </Game>
+        <Game Id="vegasStripBlackjackGold">
+            <Image><![CDATA[vegasStripBlackjackGold]]></Image>
+            <Title><![CDATA[Vegas Strip BlackJack Gold Series]]></Title>
+        </Game>
+    </TableCard>
+    <Slot en-us="Slots" zh-cn="老虎机"  ko-kr="슬롯" ja-jp="スロット" km-kh="ស្លត" th-th="สล็อต">
+        <Game Id="reelSpinner" Category="New" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Reel-Spinner-mobile]]></Image>
+            <Title><![CDATA[Reel Spinner]]></Title>
+        </Game>
+        <Game Id="basketballStar" LanguageCode="zh-cn,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Basketball-Star]]></Image>
+            <Title><![CDATA[Basketball Star]]></Title>
+        </Game>
+        <Game Id="bridesmaids" LanguageCode="ja">
+            <Image><![CDATA[W88-Slots-Mobile-Bridesmaids]]></Image>
+            <Title><![CDATA[Bridesmaids]]></Title>
+        </Game>
+        <Game Id="goldenEra" LanguageCode="ja">
+            <Image><![CDATA[W88-Slots-Mobile-Golden-Era]]></Image>
+            <Title><![CDATA[Golden Era]]></Title>
+        </Game>
+        <Game Id="prettyKitty" LanguageCode="ja">
+            <Image><![CDATA[W88-Slots-Mobile-Pretty-Kitty]]></Image>
+            <Title><![CDATA[Pretty-Kitty]]></Title>
+        </Game>
+        <Game Id="shoot">
+            <Image><![CDATA[W88-Slots-Mobile-Shoot]]></Image>
+            <Title><![CDATA[Shoot]]></Title>
+        </Game>
+        <Game Id="soManyMonsters" LanguageCode="zh-cn,ja">
+            <Image><![CDATA[W88-Slots-Mobile-So-Many-Monsters]]></Image>
+            <Title><![CDATA[So Many Monsters]]></Title>
+        </Game>
+        <Game Id="soMuchCandy" LanguageCode="zh-cn,ja">
+            <Image><![CDATA[W88-Slots-Mobile-So-Much-Candy]]></Image>
+            <Title><![CDATA[So Much Candy]]></Title>
+        </Game>
+        <Game Id="soMuchSushi" LanguageCode="zh-cn,ja">
+            <Image><![CDATA[W88-Slots-Mobile-So-Much-Sushi]]></Image>
+            <Title><![CDATA[So Much Sushi]]></Title>
+        </Game>
+        <Game Id="UntamedGiantPanda" LanguageCode="zh-cn">
+            <Image><![CDATA[W88-Slots-Mobile-Untamed-Giant-Panda]]></Image>
+            <Title><![CDATA[Untamed Giant Panda]]></Title>
+        </Game>
+        <Game Id="winSumDimSum" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Win-Sum-Dim-Sum]]></Image>
+            <Title><![CDATA[WinSum DimSum]]></Title>
+        </Game>
+        <Game Id="5ReelDrive" LanguageCode="zh-cn,vi,th,ko,ja,id">
+            <Image><![CDATA[W88-Slots-Mobile-5-Reel-Drive]]></Image>
+            <Title><![CDATA[5 Reel Drive]]></Title>
+        </Game>
+        <Game Id="adventurePalace" LanguageCode="zh-cn,vi,th,ko,ja,id">
+            <Image><![CDATA[W88-Slots-Mobile-Adventure-Palace]]></Image>
+            <Title><![CDATA[Adventure Palace]]></Title>
+        </Game>
+        <Game Id="agentJaneBlonde" LanguageCode="zh-cn,vi,th,ko,ja,id">
+            <Image><![CDATA[W88-Slots-Mobile-Agent-Jane-Blonde]]></Image>
+            <Title><![CDATA[Agent Jane Blonde]]></Title>
+        </Game>
+        <Game Id="ageOfDiscovery" LanguageCode="ja">
+            <Image><![CDATA[ageOfDiscovery]]></Image>
+            <Title><![CDATA[Age of Discovery]]></Title>
+        </Game>
+        <Game Id="alaskanFishing" LanguageCode="zh-cn,th,ko,ja,id">
+            <Image><![CDATA[W88-Slots-Mobile-Alaskan-Fishing]]></Image>
+            <Title><![CDATA[Alaskan Fishing]]></Title>
+        </Game>
+        <Game Id="aliceinWonderslots">
+            <Image><![CDATA[W88-Slots-Mobile-Alice-in-Wonderslots]]></Image>
+            <Title><![CDATA[Alice in Wonderslots]]></Title>
+            <Fun><![CDATA[https://redirector3.valueactive.eu/Casino/Default.aspx?serverid=1866&applicationid=7217&ModuleID=19041&ClientID=10001&ProductID=13&ul=zh&gameID=alice_c_mob&playmode=demo]]></Fun>
+            <Real><![CDATA[https://redirector3.valueactive.eu/Casino/Default.aspx?authToken={TOKEN}&serverid=3710&applicationID=7217&ModuleID=19041&ClientID=10001&ProductID=13&ul=zh&gameID=alice_c_mob&siteID=TNG]]></Real>
+        </Game>
+        <Game Id="ariana" LanguageCode="zh-cn,vi,ko,ja">
+            <Image><![CDATA[ariana]]></Image>
+            <Title><![CDATA[Ariana]]></Title>
+        </Game>
+        <Game Id="asianBeauty">
+            <Image><![CDATA[asianBeauty]]></Image>
+            <Title><![CDATA[Asian Beauty]]></Title>
+        </Game>
+        <Game Id="avalon" LanguageCode="zh-cn,vi,th,ko,ja,id">
+            <Image><![CDATA[W88-Slots-Mobile-Avalon]]></Image>
+            <Title><![CDATA[Avalon]]></Title>
+        </Game>
+        <Game Id="barBarBlackSheep5Reel" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Bar-Bar-Black-Sheep]]></Image>
+            <Title><![CDATA[BarBar Black Sheep]]></Title>
+        </Game>
+        <Game Id="barsNStripes">
+            <Image><![CDATA[barsNStripes]]></Image>
+            <Title><![CDATA[Bars & Stripes]]></Title>
+        </Game>
+        <Game Id="beachBabes" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Beach-Babes]]></Image>
+            <Title><![CDATA[Beach Babes]]></Title>
+        </Game>
+        <Game Id="bigKahuna" LanguageCode="zh-cn,vi,th,ko,ja,id">
+            <Image><![CDATA[bigKahuna]]></Image>
+            <Title><![CDATA[Big Kahuna]]></Title>
+        </Game>
+        <Game Id="bigTop" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Big-Top]]></Image>
+            <Title><![CDATA[Big Top]]></Title>
+        </Game>
+        <Game Id="bikiniParty" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[bikiniParty]]></Image>
+            <Title><![CDATA[Bikini Party]]></Title>
+        </Game>
+        <Game Id="boogieMonsters" LanguageCode="ja">
+            <Image><![CDATA[boogieMonsters]]></Image>
+            <Title><![CDATA[Boogie Monsters]]></Title>
+        </Game>
+        <Game Id="breakAway" LanguageCode="vi,th,ja,id">
+            <Image><![CDATA[breakAway]]></Image>
+            <Title><![CDATA[Break Away]]></Title>
+        </Game>
+        <Game Id="breakDaBank" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Break-da-Bank]]></Image>
+            <Title><![CDATA[Break da Bank]]></Title>
+        </Game>
+        <Game Id="breakDaBankAgain" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Break-da-Bank-Again]]></Image>
+            <Title><![CDATA[Break da Bank Again]]></Title>
+        </Game>
+        <Game Id="burningDesire" LanguageCode="zh-cn,vi,th,ko,ja,id">
+            <Image><![CDATA[W88-Slots-Mobile-Burning-Desire]]></Image>
+            <Title><![CDATA[Burning Desire]]></Title>
+        </Game>
+        <Game Id="bushTelegraph" LanguageCode="zh-cn,vi,th,ko,ja,id">
+            <Image><![CDATA[bushTelegraph]]></Image>
+            <Title><![CDATA[Bush Telegraph]]></Title>
+        </Game>
+        <Game Id="carnaval" LanguageCode="zh-cn,vi,th,ko,ja,id">
+            <Image><![CDATA[W88-Slots-Mobile-Carnaval]]></Image>
+            <Title><![CDATA[Carnaval]]></Title>
+        </Game>
+        <Game Id="cashapillar" LanguageCode="zh-cn,vi,th,ko,ja,id">
+            <Image><![CDATA[W88-Slots-Mobile-Cashapillar]]></Image>
+            <Title><![CDATA[Cashapillar]]></Title>
+        </Game>
+        <Game Id="cashVille" LanguageCode="vi,th,ja,id">
+            <Image><![CDATA[cashVille]]></Image>
+            <Title><![CDATA[CashVille]]></Title>
+        </Game>
+        <Game Id="centreCourt" LanguageCode="zh-cn,vi,th,ko,ja,id">
+            <Image><![CDATA[W88-Slots-Mobile-Centre-Court]]></Image>
+            <Title><![CDATA[Centre Court]]></Title>
+        </Game>
+        <Game Id="coolWolf" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[coolWolf]]></Image>
+            <Title><![CDATA[Cool Wolf]]></Title>
+        </Game>
+        <Game Id="couchPotato" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Couch-Potato]]></Image>
+            <Title><![CDATA[Couch Potato]]></Title>
+        </Game>
+        <Game Id="cricketStar" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[cricketStar]]></Image>
+            <Title><![CDATA[Cricket Star]]></Title>
+        </Game>
+        <Game Id="deckTheHalls" LanguageCode="zh-cn,vi,th,ko,ja,id">
+            <Image><![CDATA[W88-Slots-Mobile-Deck-the-Halls]]></Image>
+            <Title><![CDATA[Deck the Halls]]></Title>
+        </Game>
+        <Game Id="dragonDance" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[dragonDance]]></Image>
+            <Title><![CDATA[Dragon Dance]]></Title>
+        </Game>
+        <Game Id="eaglesWings" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Eagle-Wings]]></Image>
+            <Title><![CDATA[Eagles Wings]]></Title>
+        </Game>
+        <Game Id="fishParty" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[fishParty]]></Image>
+            <Title><![CDATA[Fish Party]]></Title>
+        </Game>
+        <Game Id="footballStar" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Football-Star]]></Image>
+            <Title><![CDATA[FootBall Star]]></Title>
+        </Game>
+        <Game Id="halloweenies" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Halloweenies]]></Image>
+            <Title><![CDATA[Halloweenies]]></Title>
+        </Game>
+        <Game Id="happyHolidays" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[happyHolidays]]></Image>
+            <Title><![CDATA[Happy Holidays]]></Title>
+        </Game>
+        <Game Id="harveys" LanguageCode="ja">
+            <Image><![CDATA[harveys]]></Image>
+            <Title><![CDATA[Harveys]]></Title>
+        </Game>
+        <Game Id="highSociety" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-High-Society]]></Image>
+            <Title><![CDATA[HighSociety]]></Title>
+        </Game>
+        <Game Id="hitman" LanguageCode="zh-cn,vi,th,ko,ja,id">
+            <Image><![CDATA[W88-Slots-Mobile-Hitman]]></Image>
+            <Title><![CDATA[Hitman]]></Title>
+        </Game>
+        <Game Id="isis" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[isis]]></Image>
+            <Title><![CDATA[Isis]]></Title>
+        </Game>
+        <Game Id="kathmandu" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[kathmandu]]></Image>
+            <Title><![CDATA[Kathmandu]]></Title>
+        </Game>
+        <Game Id="kingsOfCash" LanguageCode="ko">
+            <Image><![CDATA[kingsOfCash]]></Image>
+            <Title><![CDATA[Kings of Cash]]></Title>
+        </Game>
+        <Game Id="ladiesNite" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Ladies-Nite]]></Image>
+            <Title><![CDATA[Ladies Nite]]></Title>
+        </Game>
+        <Game Id="lionsPride" LanguageCode="zh-cn,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Lions-Pride]]></Image>
+            <Title><![CDATA[LionsPride]]></Title>
+        </Game>
+        <Game Id="liquidGold" LanguageCode="ja">
+            <Image><![CDATA[liquidGold]]></Image>
+            <Title><![CDATA[Liquid Gold]]></Title>
+        </Game>
+        <Game Id="loaded" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Loaded]]></Image>
+            <Title><![CDATA[Loaded]]></Title>
+        </Game>
+        <Game Id="luckyKoi" LanguageCode="zh-cn,ja">
+            <Image><![CDATA[luckyKoi]]></Image>
+            <Title><![CDATA[Lucky Koi]]></Title>
+        </Game>
+        <Game Id="luckyLeprechaun" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[luckyLeprechaun]]></Image>
+            <Title><![CDATA[Lucky Leprechaun]]></Title>
+        </Game>
+        <Game Id="madHatters" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Mad-Hatters]]></Image>
+            <Title><![CDATA[Mad Hatters]]></Title>
+        </Game>
+        <Game Id="mayanPrincess" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Mayan-Princess]]></Image>
+            <Title><![CDATA[mayanPrincess]]></Title>
+        </Game>
+        <Game Id="mermaidsMillions" LanguageCode="zh-cn,vi,th,ko,ja,id">
+            <Image><![CDATA[W88-Slots-Mobile-Mermaids-Millions]]></Image>
+            <Title><![CDATA[Mermaids Millions]]></Title>
+        </Game>
+        <Game Id="mysticDreams" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[mysticDreams]]></Image>
+            <Title><![CDATA[Mystic Dreams]]></Title>
+        </Game>
+        <Game Id="partyIsland">
+            <Image><![CDATA[partyIsland]]></Image>
+            <Title><![CDATA[Party Island]]></Title>
+        </Game>
+        <Game Id="purePlatinum" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Pure-Platinum]]></Image>
+            <Title><![CDATA[Pure Platinum]]></Title>
+        </Game>
+        <Game Id="reelThunder" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Reel-Thunder]]></Image>
+            <Title><![CDATA[Reel Thunder]]></Title>
+        </Game>
+        <Game Id="rhymingReelsGeorgiePorgie" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[rhymingReelsGeorgiePorgie]]></Image>
+            <Title><![CDATA[Rhyming Reels Georgie Porgie]]></Title>
+        </Game>
+        <Game Id="rivieraRiches" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[rivieraRiches]]></Image>
+            <Title><![CDATA[Riviera Riches]]></Title>
+        </Game>
+        <Game Id="rugbyStar" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[rugbyStar]]></Image>
+            <Title><![CDATA[Rugby Star]]></Title>
+        </Game>
+        <Game Id="santaPaws" LanguageCode="ja">
+            <Image><![CDATA[santaPaws]]></Image>
+            <Title><![CDATA[Santa Paws]]></Title>
+        </Game>
+        <Game Id="secretAdmirer" LanguageCode="zh-cn,ja">
+            <Image><![CDATA[secretAdmirer]]></Image>
+            <Title><![CDATA[Secret Admirer]]></Title>
+        </Game>
+        <Game Id="silverFang" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[silverFang]]></Image>
+            <Title><![CDATA[Silver Fang]]></Title>
+        </Game>
+        <Game Id="springBreak" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Spring-Break]]></Image>
+            <Title><![CDATA[Spring Break]]></Title>
+        </Game>
+        <Game Id="starlightKiss" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Starlight-Kiss]]></Image>
+            <Title><![CDATA[Starlight Kiss]]></Title>
+        </Game>
+        <Game Id="stashOfTheTitans" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Stash-of-the-Titans]]></Image>
+            <Title><![CDATA[Stash of the Titans]]></Title>
+        </Game>
+        <Game Id="sterlingSilver" LanguageCode="ja">
+            <Image><![CDATA[sterlingSilver]]></Image>
+            <Title><![CDATA[Sterling Silver]]></Title>
+        </Game>
+        <Game Id="summerHoliday" LanguageCode="ja">
+            <Image><![CDATA[summerHoliday]]></Image>
+            <Title><![CDATA[Summer Holiday]]></Title>
+        </Game>
+        <Game Id="summertime" LanguageCode="zh-cn,ko">
+            <Image><![CDATA[summertime]]></Image>
+            <Title><![CDATA[Summertime]]></Title>
+        </Game>
+        <Game Id="sunTide" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[SunTide-mobile]]></Image>
+            <Title><![CDATA[SunTide]]></Title>
+        </Game>
+        <Game Id="supeItUp">
+            <Image><![CDATA[supeItUp]]></Image>
+            <Title><![CDATA[Supe it up]]></Title>
+        </Game>
+        <Game Id="sureWin" LanguageCode="ja">
+            <Image><![CDATA[sureWin]]></Image>
+            <Title><![CDATA[Sure Win]]></Title>
+        </Game>
+        <Game Id="tallyHo" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Tally-Ho]]></Image>
+            <Title><![CDATA[Tally Ho]]></Title>
+        </Game>
+        <Game Id="theGrandJourney">
+            <Image><![CDATA[theGrandJourney]]></Image>
+            <Title><![CDATA[The Grand Journey]]></Title>
+        </Game>
+        <Game Id="thunderstruck" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Thunderstruck]]></Image>
+            <Title><![CDATA[Thunderstruck]]></Title>
+        </Game>
+        <Game Id="thunderstruckII" LanguageCode="zh-cn,vi,th,ko,ja,id">
+            <Image><![CDATA[W88-Slots-Mobile-Thunderstruck-II]]></Image>
+            <Title><![CDATA[Thunderstruck II]]></Title>
+        </Game>
+        <Game Id="tigersEye" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Tigers-Eye]]></Image>
+            <Title><![CDATA[Tigers Eye]]></Title>
+        </Game>
+        <Game Id="tombRaider" LanguageCode="zh-cn,vi,th,ko,ja,id">
+            <Image><![CDATA[W88-Slots-Mobile-Tomb-Raider]]></Image>
+            <Title><![CDATA[Tomb Raider]]></Title>
+        </Game>
+        <Game Id="treasurePalace" LanguageCode="ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Treasure-Palace]]></Image>
+            <Title><![CDATA[Treasure Palace]]></Title>
+        </Game>
+        <Game Id="theTwistedCircus" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Twisted-Circus]]></Image>
+            <Title><![CDATA[The Twisted Circus]]></Title>
+        </Game>
+        <Game Id="voila" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Voila]]></Image>
+            <Title><![CDATA[Voila]]></Title>
+        </Game>
+        <Game Id="WhataHoot" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-What-a-Hoot]]></Image>
+            <Title><![CDATA[What a Hoot]]></Title>
+        </Game>
+        <Game Id="wildOrient" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[Wild-Orient-mobile]]></Image>
+            <Title><![CDATA[Wild Orient]]></Title>
+        </Game>
+    </Slot>
+    <VideoPoker en-us="Video Poker"  zh-cn="视频扑克"  ko-kr="비디오 포커" ja-jp="ビデオポーカー" km-kh="វីដេអូប៉ូកកឺ" th-th="วีดีโอโป๊กเกอร์">
+        <Game Id="acesAndEights" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Aces-And-Eights]]></Image>
+            <Title><![CDATA[Aces & Eights Poker]]></Title>
+        </Game>
+        <Game Id="acesAndFaces" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Aces-And-Faces]]></Image>
+            <Title><![CDATA[Aces & Faces Poker]]></Title>
+        </Game>
+        <Game Id="deucesWild" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Deuces-Wild]]></Image>
+            <Title><![CDATA[Deuces Wild Poker]]></Title>
+        </Game>
+        <Game Id="doubleDoubleBonus" LanguageCode="zh-cn,ko,ja">
+            <Image><![CDATA[W88-Slots-Mobile-Double-Double-Bonus]]></Image>
+            <Title><![CDATA[Double Double Bonus Poker]]></Title>
+        </Game>
+        <Game Id="jacksOrBetter" LanguageCode="zh-cn,vi,th,ko,ja,id">
+            <Image><![CDATA[W88-Slots-Mobile-Jacks-or-Better]]></Image>
+            <Title><![CDATA[Jacks or Better Poker]]></Title>
+        </Game>
+    </VideoPoker>
+</Category>
