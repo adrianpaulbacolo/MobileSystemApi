@@ -354,7 +354,7 @@ public partial class _Index : BasePage
                 var imageSrc = promo.Element("imageSrc").Value;
                 var url = promo.Element("url").Value;
                 slider += "<div class=\"slide\">" +
-                            "<a href=\"" + url + "\" class=\"nav-pmahjong\">" +
+                            "<a href=\"" + url + "\" data-ajax=\"false\">" +
                                 "<img src=\"/_Static/Images/promo-banner/" + imageSrc + "\" alt=\"banner\" class=\"img-responsive\"> " +
                             "</a>" +
                         "</div>";
