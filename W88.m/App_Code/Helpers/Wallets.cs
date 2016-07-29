@@ -48,7 +48,7 @@ namespace Helpers
                     item.SelectName = Convert.ToString(v.Value);
                 }
 
-                var curr = commonVariables.GetSessionVariable("CurrencyCode");
+                var curr = commonCookie.CookieCurrency;
 
                 if (!string.IsNullOrWhiteSpace(item.AllowOnly))
                 {

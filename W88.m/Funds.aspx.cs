@@ -28,7 +28,7 @@ public partial class Funds : BasePage
 
         foreach (var info in obj.WalletInfo.Where(info => info.Id != 0))
         {
-            var curr = commonVariables.GetSessionVariable("CurrencyCode");
+            var curr = commonCookie.CookieCurrency;
             if (!string.IsNullOrWhiteSpace(info.CurrencyLabel))
                 curr = info.CurrencyLabel;
 
