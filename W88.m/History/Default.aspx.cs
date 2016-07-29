@@ -11,6 +11,5 @@ public partial class History_Default : PaymentBasePage
     {
         base.InitialiseVariables();
 
-        base.GetMainWalletBalance("0");
     }
 }

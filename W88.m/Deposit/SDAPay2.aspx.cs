@@ -31,8 +31,6 @@ public partial class Deposit_SDAPay2 : PaymentBasePage
 
         base.InitialisePaymentLimits();
 
-        base.GetMainWalletBalance("0");
-
     }
 
     protected void Page_Load(object sender, EventArgs e)

@@ -24,8 +24,6 @@ public partial class Withdrawal_BankTransfer : PaymentBasePage
 
         base.InitialisePaymentLimits();
 
-        base.GetMainWalletBalance("0");
-
         base.InitialisePendingWithdrawals(sender.ToString().Contains("app"));
 
         this.InitialiseMemberBank();

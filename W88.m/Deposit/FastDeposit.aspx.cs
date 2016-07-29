@@ -23,8 +23,6 @@ public partial class Deposit_FastDesposit : PaymentBasePage
 
         base.InitialisePaymentLimits();
 
-        base.GetMainWalletBalance("0");
-
         this.InitialiseSystemBankAccounts();
         this.InitialiseMemberBank();
         this.InitialiseDepositChannel();

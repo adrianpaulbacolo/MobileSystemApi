@@ -25,8 +25,6 @@ public partial class Deposit_Help2Pay : PaymentBasePage
 
         base.InitialisePaymentLimits();
 
-        base.GetMainWalletBalance("0");
-
         this.InitializeBank();
     }
 

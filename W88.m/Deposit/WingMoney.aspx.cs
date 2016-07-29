@@ -26,8 +26,6 @@ public partial class Deposit_WingMoney : PaymentBasePage
 
         base.InitialisePaymentLimits();
 
-        base.GetMainWalletBalance("0");
-
         this.InitialiseDepositDateTime();
     }
 
