@@ -7,6 +7,7 @@ using System.Text;
 using System.Web;
 using System.Web.UI.WebControls;
 using System.Xml.Linq;
+using Helpers;
 
 /// <summary>
 /// Summary description for PaymentBasePage
@@ -110,15 +111,24 @@ public class PaymentBasePage : BasePage
         this.isPublic = false;
         UserSession.checkSession();
     }
+
+    protected override void OnPreLoad(EventArgs e)
+    {
+        base.OnPreLoad(e);
+
+        InitialiseVariables();
+        InitialisePaymentLimits();
+        GetMainWalletBalance("0");
+    }
     protected void InitialiseVariables()
     {
         strOperatorId = commonVariables.OperatorId;
 
-        strMemberCode = commonVariables.GetSessionVariable("MemberCode");
-        strMemberID = commonVariables.GetSessionVariable("MemberId");
+        strMemberCode = base.userInfo.MemberCode;
+        strMemberID = base.userInfo.MemberId;
         strMemberName = commonVariables.GetSessionVariable("MemberName");
 
-        strCurrencyCode = commonVariables.GetSessionVariable("CurrencyCode");
+        strCurrencyCode = commonCookie.CookieCurrency;
         strCountryCode = commonVariables.GetSessionVariable("CountryCode");
 
         strRiskId = commonVariables.GetSessionVariable("RiskId");

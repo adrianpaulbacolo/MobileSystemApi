@@ -11,16 +11,7 @@ public partial class Deposit_Default : PaymentBasePage
 {
     protected void Page_Init(object sender, EventArgs e)
     {
-        UserSession.checkSession();
-
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
-
-        base.CheckLogin();
-        base.InitialiseVariables();
-
-        base.InitialisePaymentLimits();
-
-        base.GetMainWalletBalance("0");
     }
 
     protected void Page_Load(object sender, EventArgs e)

@@ -20,18 +20,11 @@ public partial class Deposit_Help2Pay : PaymentBasePage
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.Help2Pay);
 
-        base.CheckLogin();
-        base.InitialiseVariables();
-
-        base.InitialisePaymentLimits();
-
-        base.GetMainWalletBalance("0");
-
-        this.InitializeBank();
     }
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        this.InitializeBank();
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
         commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"), base.strCurrencyCode);

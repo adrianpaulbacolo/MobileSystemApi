@@ -2,6 +2,7 @@
 
 using System;
 using System.Web;
+using Helpers;
 
 public class SDPay : IHttpHandler,System.Web.SessionState.IReadOnlySessionState {
     
@@ -19,15 +20,18 @@ public class SDPay : IHttpHandler,System.Web.SessionState.IReadOnlySessionState 
         decimal requestAmount = 0m;
         long invId = 0;
 
+        var user = new Members();
+        var userInfo = user.MemberData();
+
         //string memberId = (string)HttpContext.Current.Session["user_MemberID"];
         //string memberCode = (string)HttpContext.Current.Session["user_MemberCode"];
         //string memberCurrency = (string)HttpContext.Current.Session["user_Currency"];
         string strAmount = context.Request.Params["requestAmount"];
 
         string strOperatorId = commonVariables.OperatorId;
-        string strMemberId = commonVariables.GetSessionVariable("MemberId");
-        string strMemberCode = commonVariables.GetSessionVariable("MemberCode");
-        string strCurrencyCode = commonVariables.GetSessionVariable("CurrencyCode");
+        string strMemberId = userInfo.MemberId;
+        string strMemberCode = userInfo.MemberCode;
+        string strCurrencyCode = commonCookie.CookieCurrency;
         
         string parameters = strMemberCode + "|" + strAmount;
         #endregion

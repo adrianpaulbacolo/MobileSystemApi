@@ -47,9 +47,9 @@ public partial class Deposit_DaddyPay : BasePage
     protected void Page_Load(object sender, EventArgs e)
     {
         strOperatorId = commonVariables.OperatorId;
-        strMemberId = commonVariables.GetSessionVariable("MemberId");
-        strMemberCode = commonVariables.GetSessionVariable("MemberCode");
-        strCurrencyCode = commonVariables.GetSessionVariable("CurrencyCode");
+        strMemberId = base.userInfo.MemberId;
+        strMemberCode = base.userInfo.MemberCode;
+        strCurrencyCode = commonCookie.CookieCurrency;
         strCountryCode = commonVariables.GetSessionVariable("CountryCode");
         strRiskId = commonVariables.GetSessionVariable("RiskId");
         strPaymentGroup = commonVariables.GetSessionVariable("PaymentGroup");

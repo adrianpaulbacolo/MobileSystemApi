@@ -28,20 +28,13 @@ public partial class Deposit_AllDebit : PaymentBasePage
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.AllDebit);
 
-        base.CheckLogin();
-        base.InitialiseVariables();
-
-        base.InitialisePaymentLimits();
-
-        base.GetMainWalletBalance("0");
-
-        this.InitializeExpiryMonthYear();
-
-        ddlCardType.Items.Insert(0, new ListItem(commonCulture.ElementValues.getResourceString("ddlCardType", xeResources), "-1"));
     }
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        this.InitializeExpiryMonthYear();
+        ddlCardType.Items.Insert(0, new ListItem(commonCulture.ElementValues.getResourceString("ddlCardType", xeResources), "-1"));
+
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
         commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"), base.strCurrencyCode);
 

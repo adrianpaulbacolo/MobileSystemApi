@@ -23,13 +23,6 @@ public partial class Deposit_Neteller : PaymentBasePage
         base.PageName = "Neteller";
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.Neteller);
-
-        base.CheckLogin();
-        base.InitialiseVariables();
-
-        base.InitialisePaymentLimits();
-
-        base.GetMainWalletBalance("0");
     }
 
     protected void Page_Load(object sender, EventArgs e)

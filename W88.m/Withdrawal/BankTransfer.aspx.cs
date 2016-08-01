@@ -18,21 +18,13 @@ public partial class Withdrawal_BankTransfer : PaymentBasePage
         base.PageName = Convert.ToString(commonVariables.WithdrawalMethod.BankTransfer);
         base.PaymentType = commonVariables.PaymentTransactionType.Withdrawal;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.WithdrawalMethod.BankTransfer);
-
-        base.CheckLogin();
-        base.InitialiseVariables();
-
-        base.InitialisePaymentLimits();
-
-        base.GetMainWalletBalance("0");
-
-        base.InitialisePendingWithdrawals(sender.ToString().Contains("app"));
-
-        this.InitialiseMemberBank();
     }
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        base.InitialisePendingWithdrawals(sender.ToString().Contains("app"));
+
+        this.InitialiseMemberBank();
 
         HtmlGenericControl withdrawalTabs = (HtmlGenericControl)FindControl("withdrawalTabs");
         commonPaymentMethodFunc.GetWithdrawalMethodList(strMethodsUnAvailable, withdrawalTabs, base.PageName, sender.ToString().Contains("app"));

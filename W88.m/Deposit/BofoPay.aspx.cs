@@ -25,13 +25,6 @@ public partial class Deposit_BofoPay : PaymentBasePage
         base.PageName = Convert.ToString(commonVariables.DepositMethod.BofoPay);
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.BofoPay);
-
-        base.CheckLogin();
-        base.InitialiseVariables();
-
-        base.InitialisePaymentLimits();
-
-        base.GetMainWalletBalance("0");
     }
 
     protected void Page_Load(object sender, EventArgs e)

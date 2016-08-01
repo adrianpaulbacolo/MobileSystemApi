@@ -5,13 +5,10 @@ using Helpers;
 
 public partial class Funds : BasePage
 {
-    protected void Page_Init(object sender, EventArgs e)
-    {
-        BuildUiFunds();
-    }
-
     protected void Page_Load(object sender, EventArgs e)
     {
+        BuildUiFunds();
+
         if (Page.IsPostBack) return;
 
         SetTitle(commonCulture.ElementValues.getResourceString("funds", commonVariables.LeftMenuXML));

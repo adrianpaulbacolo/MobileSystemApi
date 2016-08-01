@@ -18,13 +18,6 @@ public partial class Withdrawal_Neteller : PaymentBasePage
         base.PaymentType = commonVariables.PaymentTransactionType.Withdrawal;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.WithdrawalMethod.Neteller);
 
-        base.CheckLogin();
-        base.InitialiseVariables();
-
-        base.InitialisePaymentLimits();
-
-        base.GetMainWalletBalance("0");
-
         base.InitialisePendingWithdrawals(sender.ToString().Contains("app"));
     }
 

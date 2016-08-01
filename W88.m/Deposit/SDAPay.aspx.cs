@@ -24,18 +24,11 @@ public partial class Deposit_SDAPay : PaymentBasePage
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.SDAPayAlipay);
 
-        base.CheckLogin();
-        base.InitialiseVariables();
-
-        base.InitialisePaymentLimits();
-
-        base.GetMainWalletBalance("0");
-
-        drpBank.Items.AddRange(base.InitializeBank("SDAPayAlipayBank").Where(bank => bank.Value.Equals("alipay", StringComparison.OrdinalIgnoreCase)).ToArray());
     }
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        drpBank.Items.AddRange(base.InitializeBank("SDAPayAlipayBank").Where(bank => bank.Value.Equals("alipay", StringComparison.OrdinalIgnoreCase)).ToArray());
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
         commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"), base.strCurrencyCode);

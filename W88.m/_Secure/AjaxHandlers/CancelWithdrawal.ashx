@@ -2,6 +2,7 @@
 
 using System;
 using System.Web;
+using Helpers;
 
 public class _Secure_AjaxHandlers_CancelWithdrawal : IHttpHandler, System.Web.SessionState.IReadOnlySessionState
 {    
@@ -16,9 +17,11 @@ public class _Secure_AjaxHandlers_CancelWithdrawal : IHttpHandler, System.Web.Se
         string strReturnValue = string.Empty;
        
         bool WithdrawalCancelled = false;
-        
+
+        var user = new Members();
+        var userInfo = user.MemberData();
         strOperatorId = commonVariables.OperatorId;
-        strMemberCode = commonVariables.GetSessionVariable("MemberCode");
+        strMemberCode = userInfo.MemberCode;
         strPayMethodId = context.Request.Form.Get("MethodId");
         strInvId = context.Request.Form.Get("TrxId");
         

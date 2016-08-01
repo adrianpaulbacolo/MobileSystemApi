@@ -21,18 +21,11 @@ public partial class Deposit_WingMoney : PaymentBasePage
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.WingMoney);
 
-        base.CheckLogin();
-        base.InitialiseVariables();
-
-        base.InitialisePaymentLimits();
-
-        base.GetMainWalletBalance("0");
-
-        this.InitialiseDepositDateTime();
     }
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        this.InitialiseDepositDateTime();
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
         commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"), base.strCurrencyCode);

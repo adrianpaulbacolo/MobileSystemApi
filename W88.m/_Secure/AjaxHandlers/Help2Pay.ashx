@@ -5,6 +5,7 @@ using System.Web;
 using System.Xml.Linq;
 using System.Linq;
 using System.Data;
+using Helpers;
 
 public class Help2Pay : IHttpHandler, System.Web.SessionState.IReadOnlySessionState
 {
@@ -25,15 +26,18 @@ public class Help2Pay : IHttpHandler, System.Web.SessionState.IReadOnlySessionSt
         decimal requestAmount = 0m;
         long invId = 0;
 
+        var user = new Members();
+        var userInfo = user.MemberData();
+
         //    string memberId = (string)HttpContext.Current.Session["user_MemberID"];
         //    string memberCode = (string)HttpContext.Current.Session["user_MemberCode"];
         //    string memberCurrency = (string)HttpContext.Current.Session["user_Currency"];
         string strAmount = context.Request.Params["requestAmount"];
         string bankCode = context.Request.Params["requestBank"];
         string strOperatorId = commonVariables.OperatorId;
-        string strMemberId = commonVariables.GetSessionVariable("MemberId");
-        string strMemberCode = commonVariables.GetSessionVariable("MemberCode");
-        string strCurrencyCode = commonVariables.GetSessionVariable("CurrencyCode");
+        string strMemberId = userInfo.MemberId;
+        string strMemberCode = userInfo.MemberCode; ;
+        string strCurrencyCode = commonCookie.CookieCurrency;
 
         string parameters = string.Format("{0} | {1} | {2} | {3} | {4} | {5} ", strOperatorId, strMemberId, strMemberCode, strCurrencyCode, requestAmount, bankCode);
         #endregion
@@ -56,7 +60,7 @@ public class Help2Pay : IHttpHandler, System.Web.SessionState.IReadOnlySessionSt
         {
             XElement xElementBank = null;
             commonCulture.appData.getRootResource("/Deposit/Help2PayBank", out xElementBank);
-            XElement xElementBankPath = xElementBank.Element(commonVariables.GetSessionVariable("CurrencyCode"));
+            XElement xElementBankPath = xElementBank.Element(commonCookie.CookieCurrency);
             var banks = from bank in xElementBankPath.Elements("bank") select new { value = bank.Attribute("id").Value, text = bank.Value };
 
             foreach (var b in banks)
