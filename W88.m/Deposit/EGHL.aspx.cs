@@ -152,7 +152,8 @@ public partial class Deposit_EGHL : PaymentBasePage
         string postUrl = ConfigurationManager.AppSettings["EGHL_posturl"];
 
         string amt = strCurrencyCode.Equals("IDR") ? (amount * 1000).ToString("#.00") : amount.ToString("#.00");
-        string email = (strCurrencyCode.Equals("IDR") ? "GVV" + invId.Substring(invId.Length - 4) : strMemberID) + "@qq.com";
+        //string email = (strCurrencyCode.Equals("IDR") ? "GVV" + invId.Substring(invId.Length - 4) : strMemberID) + "@qq.com";
+        string email = (strCurrencyCode.Equals("IDR") ? "GVV" + base.strMemberCode : strMemberID) + "@qq.com";
 
         var requestUrl = HttpContext.Current.Request.Url;
         string callbackUrl = requestUrl.Scheme + "://" + requestUrl.Host + base.ThankYouPage;
