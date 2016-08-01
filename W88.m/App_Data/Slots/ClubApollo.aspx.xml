@@ -4,19 +4,104 @@
     <Category>
 
         <Slots Label="Slots" zh-cn="老虎机"  ko-kr="슬롯" ja-jp="スロット" km-kh="ស្លត" th-th="สล็อต">
-			<OGS-kingkong Top="1">
+            <OGS-bigfoot Top="1">
+                <ImageName><![CDATA[W88-Slots-Mobile-Big-Foot]]></ImageName>
+                <Label><![CDATA[BIG FOOT]]></Label>
+            </OGS-bigfoot>
+            <OGS-callofthecolosseum Top="2">
+                <ImageName><![CDATA[W88-Slots-Mobile-Call-of-the-Colosseum]]></ImageName>
+                <Label><![CDATA[CALL OF THE COLOSSEUM]]></Label>
+            </OGS-callofthecolosseum>
+            <OGS-cherryblossoms Top="3">
+                <ImageName><![CDATA[W88-Slots-Mobile-Cherry-Blossoms]]></ImageName>
+                <Label><![CDATA[CHERRY BLOSSOMS]]></Label>
+            </OGS-cherryblossoms>
+            <OGS-doctorlove Top="4">
+                <ImageName><![CDATA[W88-Slots-Mobile-Doctor-Love]]></ImageName>
+                <Label><![CDATA[DOCTOR LOVE]]></Label>
+            </OGS-doctorlove>
+            <!--<OGS-dolphinreef Top="5">
+                <ImageName><![CDATA[W88-Slots-Mobile-Dolphin-Reef]]></ImageName>
+                <Label><![CDATA[DOLPHIN REEF]]></Label>
+            </OGS-dolphinreef>-->
+            <OGS-geniewild Top="6">
+                <ImageName><![CDATA[W88-Slots-Mobile-Genie-Wild]]></ImageName>
+                <Label><![CDATA[GENIE WILD]]></Label>
+            </OGS-geniewild>
+            <OGS-irisheyes Top="7">
+                <ImageName><![CDATA[W88-Slots-Mobile-Irish-Eyes]]></ImageName>
+                <Label><![CDATA[IRISH EYES]]></Label>
+            </OGS-irisheyes>
+            <OGS-madmadmonkey Top="8">
+                <ImageName><![CDATA[W88-Slots-Mobile-Mad-Mad-Monkey]]></ImageName>
+                <Label><![CDATA[MAD MAD MONKEY]]></Label>
+            </OGS-madmadmonkey>
+            <OGS-medusa Top="9">
+                <ImageName><![CDATA[W88-Slots-Mobile-Medusa]]></ImageName>
+                <Label><![CDATA[MEDUSA]]></Label>
+            </OGS-medusa>
+            <OGS-merlinsmillionssuperbet Top="10">
+                <ImageName><![CDATA[W88-Slots-Mobile-Merlins-Millions]]></ImageName>
+                <Label><![CDATA[MERLIN’S MILLIONS SUPERBET]]></Label>
+            </OGS-merlinsmillionssuperbet>
+            <OGS-ramessesriches Top="11">
+                <ImageName><![CDATA[W88-Slots-Mobile-Ramesses-Riches]]></ImageName>
+                <Label><![CDATA[RAMESSES RICHES]]></Label>
+            </OGS-ramessesriches>
+            <OGS-thesnakecharmer Top="12">
+                <ImageName><![CDATA[W88-Slots-Mobile-The-Snake-Charmer]]></ImageName>
+                <Label><![CDATA[THE SNAKE CHARMER]]></Label>
+            </OGS-thesnakecharmer>
+            <OGS-titanstorm Top="13">
+                <ImageName><![CDATA[W88-Slots-Mobile-Titan-Storm]]></ImageName>
+                <Label><![CDATA[TITAN STORM]]></Label>
+            </OGS-titanstorm>
+            <OGS-unicornlegend Top="14">
+                <ImageName><![CDATA[W88-Slots-Mobile-Unicorn-Legend]]></ImageName>
+                <Label><![CDATA[UNICORN LEGEND]]></Label>
+            </OGS-unicornlegend>
+            <OGS-venetianrose Top="15">
+                <ImageName><![CDATA[W88-Slots-Mobile-Venetian-Rose]]></ImageName>
+                <Label><![CDATA[VENETIAN ROSE]]></Label>
+            </OGS-venetianrose>
+            <OGS-volcanoeruption Top="16">
+                <ImageName><![CDATA[W88-Slots-Mobile-Volcano-Eruption]]></ImageName>
+                <Label><![CDATA[VOLCANO ERUPTION]]></Label>
+            </OGS-volcanoeruption>
+            <OGS-barsandbells Top="17">
+                <ImageName><![CDATA[W88-Slots-Mobile-Bars-n-Bells]]></ImageName>
+                <Label><![CDATA[BARS AND BELLS]]></Label>
+            </OGS-barsandbells>
+            <OGS-chilligold Top="18">
+                <ImageName><![CDATA[W88-Slots-Mobile-Chilli-Gold]]></ImageName>
+                <Label><![CDATA[CHILLI GOLD]]></Label>
+            </OGS-chilligold>
+            <OGS-frogsnflies Top="19">
+                <ImageName><![CDATA[W88-Slots-Mobile-Frogs-n-Flies]]></ImageName>
+                <Label><![CDATA[FROGS N FLIES]]></Label>
+            </OGS-frogsnflies>
+            <OGS-losttemple Top="20">
+                <ImageName><![CDATA[W88-Slots-Mobile-Lost-Temple]]></ImageName>
+                <Label><![CDATA[LOST TEMPLE]]></Label>
+            </OGS-losttemple>
+            <OGS-serengetidiamonds Top="21">
+                <ImageName><![CDATA[W88-Slots-Mobile-Serengeti-Diamonds]]></ImageName>
+                <Label><![CDATA[SERENGETI DIAMONDS]]></Label>
+            </OGS-serengetidiamonds>
+
+            <OGS-kingkong>
                 <ImageName><![CDATA[W88-Slots-Mobile-King-Kong]]></ImageName>
                 <Label><![CDATA[KING KONG]]></Label>
             </OGS-kingkong>
-			<OGS-robinhoodprinceoftweets Top="2">
+			<OGS-robinhoodprinceoftweets>
                 <ImageName><![CDATA[W88-Slots-Mobile-Robin-Hood-The-Prince-of-Tweets]]></ImageName>
                 <Label><![CDATA[ROBIN HOOD - THE PRINCE OF TWEETS]]></Label>
             </OGS-robinhoodprinceoftweets>			
-			<OGS-therift Top="3">
+			<OGS-therift>
                 <ImageName><![CDATA[W88-Slots-Mobile-The-Rift]]></ImageName>
                 <Label><![CDATA[THE RIFT]]></Label>
             </OGS-therift>
-			<OGS-wolfpackpays Top="4">
+			<OGS-wolfpackpays>
                 <ImageName><![CDATA[W88-Slots-Mobile-Wolfpack-Pays]]></ImageName>
                 <Label><![CDATA[WOLFPACK PAYS]]></Label>
             </OGS-wolfpackpays>			

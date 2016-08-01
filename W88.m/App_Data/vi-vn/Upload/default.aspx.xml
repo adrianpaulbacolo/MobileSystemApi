@@ -4,6 +4,7 @@
   <lblCurrency><![CDATA[Tiền Tệ: ]]></lblCurrency>
   <lblRemarks><![CDATA[Ghi chú hay Mục đích xác nhận: ]]></lblRemarks>
   <lblFileUpload><![CDATA[Tập tin (Max 3MB): ]]></lblFileUpload>
+  <lblFileUploadText><![CDATA[Choose File]]></lblFileUploadText>
   <btnSubmit><![CDATA[Xác nhận]]></btnSubmit>
   <Success><![CDATA[Cám ơn Quý khách đã đăng ký. Mã ID đăng ký của Quý khách là [SubmissionID]. Nếu có bất kỳ thắc mắc nào, vui lòng liên hệ hỗ trợ trực tuyến và cung cấp mã số đăng ký của Quý khách.]]></Success>
   <MissingAttachment><![CDATA[Vui lòng đính kèm tập tin.]]></MissingAttachment>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -13,27 +14,27 @@ public partial class _Default : BasePage
     protected void Page_Load(object sender, EventArgs e)
     {
         xeErrors = commonVariables.ErrorsXML;
-        bool login = false;
 
-        string strSelectedLanguage = string.Empty;
-
-        strSelectedLanguage = commonVariables.SelectedLanguage;
+        string strSelectedLanguage = commonVariables.SelectedLanguage;
 
         #region Logout
         if (string.Compare(Convert.ToString(this.RouteData.DataTokens["logout"]), "true", true) == 0) { 
-            login = true;
             UserSession.ClearSession();
+            FormsAuthentication.SignOut();
+            Session.Abandon();
             Response.Redirect(string.Format("/Index?Lang={0}", strSelectedLanguage)); 
         }
         if (string.Compare(Convert.ToString(this.RouteData.DataTokens["expire"]), "true", true) == 0) {
-            login = true;
             UserSession.ClearSession();
+            FormsAuthentication.SignOut();
+            Session.Abandon();
             strAlertMessage = commonCulture.ElementValues.getResourceString("SessionExpired", xeErrors); 
             Response.Redirect(string.Format("/Index?Lang={0}", strSelectedLanguage)); 
         }
         if (string.Compare(Convert.ToString(this.RouteData.DataTokens["invalid"]), "true", true) == 0) {
-            login = true;
             UserSession.ClearSession();
+            FormsAuthentication.SignOut();
+            Session.Abandon();
             strAlertMessage = commonCulture.ElementValues.getResourceString("SessionExpired", xeErrors); 
             Response.Redirect(string.Format("/Index?Lang={0}", strSelectedLanguage)); 
         }

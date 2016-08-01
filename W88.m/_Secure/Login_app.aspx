@@ -129,11 +129,16 @@
 
                         var message = xml.Message;
 
+                        if (xml.Code == undefined) {
+                            initiateLogin();
+                            return;
+                        }
+
                         switch (xml.Code) {
                             case "1":
                             case "resetPassword":
-                                window.location.replace('/Deposit/Default_app.aspx');
-                                Cookies().setCookie('is_app', '1', 365);
+                                Cookies().setCookie('IsApp', '1', 1);
+                                window.location.replace('/Funds.aspx');
                                 break;
                             case "22":
                                 GPINTMOBILE.HideSplash();
@@ -143,7 +148,7 @@
 
                             default:
                                 counter += 1;
-                                console.log(counter);
+                                console.log(xml.Code);
 
                                 if (counter >= 3) {
                                     $(".capt").removeClass("hide");
@@ -170,8 +175,6 @@
             }
         </script>
 
-        <script type="text/javascript" id="iovs_script" src="../_Static/JS/ioBlackBox.js"></script>
-        <script type="text/javascript" src="//ci-mpsnare.iovation.com/snare.js"></script>
         <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 
     </div>

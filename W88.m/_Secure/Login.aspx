@@ -129,6 +129,11 @@
 
                         var message = xml.Message;
 
+                        if (xml.Code == undefined) {
+                            initiateLogin();
+                            return;
+                        }
+
                         switch (xml.Code) {
                             case "1":
                                 if ('<%=strRedirect%>' !== '') {
@@ -183,9 +188,6 @@
             }
 
         </script>
-
-        <script type="text/javascript" id="iovs_script" src="../_Static/JS/ioBlackBox.js"></script>
-        <script type="text/javascript" src="//ci-mpsnare.iovation.com/snare.js"></script>
 
     </div>
 </body>

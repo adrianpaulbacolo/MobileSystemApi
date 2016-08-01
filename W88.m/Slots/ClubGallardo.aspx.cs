@@ -77,7 +77,7 @@ public partial class Slots_ClubGallardo : BasePage
                 string iSoftBetNotSuppCurr = iSoftBet != null && iSoftBet.HasAttributes ? iSoftBet.Attribute("NotSupportedCurrency").Value : "";
 
                 string[] iSoftBetNotSupp = iSoftBetNotSuppCurr.Split(',');
-                isISoftBetNotSupported = iSoftBetNotSupp.Contains(currencyCode);
+                isISoftBetNotSupported = string.IsNullOrWhiteSpace(currencyCode) ? false : iSoftBetNotSupp.Contains(currencyCode);
             }
 
             XElement PNG = xeCategory.Element("PNG");
@@ -99,9 +99,9 @@ public partial class Slots_ClubGallardo : BasePage
 
                 string[] currNotSupp = notSupCurr.Split(',');
 
-                bool isGameNotSupported = currNotSupp.Contains(currencyCode);
+                bool isGameNotSupported = string.IsNullOrWhiteSpace(currencyCode) ? false : currNotSupp.Contains(currencyCode);
 
-                if (!isGameNotSupported || string.IsNullOrWhiteSpace(currencyCode))
+                if (!isGameNotSupported)
                 {
                     if (xeGame.Attribute("ProductId") == null)
                     {
@@ -112,12 +112,18 @@ public partial class Slots_ClubGallardo : BasePage
                         string newstrLanguageCode = (strLanguageCode == "chs") ? "zh_CN" : "en_GB";
 
                         if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-                            sbGames.AppendFormat("<a class='btn-primary' target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubGallardo") + "' data-rel='dialog' data-transition='slidedown'>");
+                            sbGames.AppendFormat("<a target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubGallardo") + "' data-rel='dialog' data-transition='slidedown'>");
                         else
                             sbGames.AppendFormat("<a href='{0}' target='_blank'>", commonClubBravado.getThirdPartyRealUrl.Replace("{GAME}", Convert.ToString(strGameId)).Replace("{LANG}", newstrLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
 
-                        sbGames.Append("<i class='icon-play_arrow'></i></a>");
-                        sbGames.AppendFormat("<a class='btn-secondary' href='{0}' target='_blank'><i class='icon-fullscreen'></i></a></div>", commonClubBravado.getThirdPartyFunUrl.Replace("{GAME}", Convert.ToString(strGameId)).Replace("{LANG}", newstrLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId));
+                        sbGames.AppendFormat("{0}</a>", commonCulture.ElementValues.getResourceXPathString("/Products/Play", commonVariables.ProductsXML));
+                        sbGames.AppendFormat("<a href='{1}' target='_blank' data-ajax='false'>{0}</a></div>", commonCulture.ElementValues.getResourceXPathString("/Products/Try", commonVariables.ProductsXML),
+                            commonClubBravado.getThirdPartyFunUrl.Replace(
+                            "{GAME}",
+                            Convert.ToString(strGameId)).Replace("{LANG}",
+                            newstrLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId)
+                            );
+
                         sbGames.Append("</div></li>");
 
                     }
@@ -132,9 +138,10 @@ public partial class Slots_ClubGallardo : BasePage
                         else
                             sbGames.AppendFormat("<a href='{0}' target='_blank'>", commonClubGallardo.getRealUrl.Replace("{GAME}", Convert.ToString(strGameId)).Replace("{LANG}", strLanguageCode).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId).Replace("{LOBBYURL}", lobbyUrl));
 
-                        sbGames.Append("<i class='icon-play_arrow'></i></a>");
+                        sbGames.AppendFormat("{0}</a>", commonCulture.ElementValues.getResourceXPathString("/Products/Play", commonVariables.ProductsXML));
 
-                        sbGames.AppendFormat("<a class='btn-secondary' target='_blank' href='{0}'><i class='icon-fullscreen'></i></a></div>", commonClubGallardo.getFunUrl.Replace("{GAME}", Convert.ToString(strGameId)).Replace("{LANG}", strLanguageCode).Replace("{CURCODE}", currCode).Replace("{LOBBYURL}", lobbyUrl));
+                        sbGames.AppendFormat("<a target='_blank' href='{1}' data-ajax='false'>{0}</a></div>", commonCulture.ElementValues.getResourceXPathString("/Products/Try", commonVariables.ProductsXML), commonClubGallardo.getFunUrl.Replace("{GAME}", Convert.ToString(strGameId)).Replace("{LANG}", strLanguageCode).Replace("{CURCODE}", currCode).Replace("{LOBBYURL}", lobbyUrl));
+
                         sbGames.Append("</div></li>");
                     }
                 }

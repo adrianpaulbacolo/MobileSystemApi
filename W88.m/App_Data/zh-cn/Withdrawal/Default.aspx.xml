@@ -17,8 +17,8 @@
 	<drpOtherBank><![CDATA[其他银行]]></drpOtherBank>
 
 	<lblAccountName><![CDATA[账户姓名]]></lblAccountName>
-	<lblAccountNumber><![CDATA[存款银行账号]]></lblAccountNumber>
+	<lblAccountNumber><![CDATA[银行卡号]]></lblAccountNumber>
 
 	<btnCancel><![CDATA[取消]]></btnCancel>
-	<btnSubmit><![CDATA[确认提交存款]]></btnSubmit>
+	<btnSubmit><![CDATA[提交]]></btnSubmit>
 </Withdrawal>  

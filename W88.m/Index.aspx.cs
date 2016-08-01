@@ -18,6 +18,8 @@ public partial class _Index : BasePage
         string CDN_Value = getCDNValue();
         string key = getCDNKey();
 
+        if (!string.IsNullOrWhiteSpace(commonCookie.CookieLanguage)) return;
+
         if (!string.IsNullOrEmpty(CDN_Value) && !string.IsNullOrEmpty(key))
         {
             commonVariables.SelectedLanguage = commonCountry.GetLanguageByCountry(GetCountryCode(CDN_Value, key));
@@ -37,14 +39,11 @@ public partial class _Index : BasePage
             }
 
         }
-
     }
 
     protected void Page_Load(object sender, EventArgs e)
     {
         System.Web.UI.WebControls.Literal litScript = (System.Web.UI.WebControls.Literal)Page.FindControl("litScript");
-
-        if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("lang"))) { commonVariables.SelectedLanguage = HttpContext.Current.Request.QueryString.Get("lang"); }
 
         xeErrors = commonVariables.ErrorsXML;
 
@@ -340,5 +339,30 @@ public partial class _Index : BasePage
         {
             Response.Redirect(commonASports.getSportsbookUrl);
         }
+    }
+
+    public string getPromoBanner()
+    {
+        var slider = string.Empty;
+        try
+        {
+            System.Xml.Linq.XElement promoResource;
+            commonCulture.appData.getRootResource("leftMenu", out promoResource);
+            IEnumerable<System.Xml.Linq.XElement> promoNode = promoResource.Element("PromoBanner").Elements();
+            foreach (System.Xml.Linq.XElement promo in promoNode)
+            {
+                var imageSrc = promo.Element("imageSrc").Value;
+                var url = promo.Element("url").Value;
+                slider += "<div class=\"slide\">" +
+                            "<a href=\"" + url + "\" data-ajax=\"false\">" +
+                                "<img src=\"/_Static/Images/promo-banner/" + imageSrc + "\" alt=\"banner\" class=\"img-responsive\"> " +
+                            "</a>" +
+                        "</div>";
+            }
+        }
+        catch (Exception ex)
+        {
+        }
+        return slider;
     }
 }

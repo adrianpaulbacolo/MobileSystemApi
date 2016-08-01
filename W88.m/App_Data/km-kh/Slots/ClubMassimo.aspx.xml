@@ -67,14 +67,28 @@
 		  </vegasStripBlackjackGold>
 	  </CardAndTable>
 	  <Slot Label="ស្លត">
-		  <winSumDimSum Top="1">
+          <prettyKitty Top="1">
+              <Label><![CDATA[prettyKitty]]></Label>
+              <Description><![CDATA[prettyKitty]]></Description>
+              <ImageName><![CDATA[W88-Slots-Mobile-Pretty-Kitty]]></ImageName>
+              <PlayForRealURL><![CDATA[{RealUrl}/prettyKitty/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+              <PlayForFunURL><![CDATA[{FunUrl}/prettyKitty/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+          </prettyKitty>
+          <shoot Top="2">
+              <Label><![CDATA[shoot]]></Label>
+              <Description><![CDATA[shoot]]></Description>
+              <ImageName><![CDATA[W88-Slots-Mobile-Shoot]]></ImageName>
+              <PlayForRealURL><![CDATA[{RealUrl}/shoot/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
+              <PlayForFunURL><![CDATA[{FunUrl}/shoot/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
+          </shoot>
+
+          <winSumDimSum>
 			  <Label><![CDATA[winSumDimSum]]></Label>
 			  <Description><![CDATA[winSumDimSum]]></Description>
 			  <ImageName><![CDATA[W88-Slots-Mobile-Win-Sum-Dim-Sum]]></ImageName>
 			  <PlayForRealURL><![CDATA[{RealUrl}/winSumDimSum/en?casinoID=3710&loginType=VanguardSessionToken&isRGI=true&bankingURL=http://{cashier}&authToken={token}&lobbyURL=http://{lobby}]]></PlayForRealURL>
 			  <PlayForFunURL><![CDATA[{FunUrl}/winSumDimSum/en?casinoID=2712&loginType=VanguardSessionToken&isRGI=true&authToken=&isPracticePlay=true&bankingURL=&lobbyURL=http://{lobby}]]></PlayForFunURL>
 		  </winSumDimSum>
-
 		  <barBarBlackSheep5Reel>
 			  <Label><![CDATA[barBarBlackSheep5Reel]]></Label>
 			  <Description><![CDATA[barBarBlackSheep5Reel]]></Description>

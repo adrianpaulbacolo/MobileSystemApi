@@ -19,9 +19,23 @@ public static class commonCookie
         set
         {
             HttpCookie cookie = new HttpCookie("s");
+
             cookie.Value = value;
-            if (!string.IsNullOrEmpty(commonIp.DomainName)) { cookie.Domain = commonIp.DomainName; }
-            HttpContext.Current.Response.Cookies.Add(cookie);
+            cookie.Expires = DateTime.Now.AddDays(1);
+
+            if (!string.IsNullOrEmpty(commonIp.DomainName))
+            {
+                cookie.Domain = commonIp.DomainName;
+            }
+
+            if (cookie != null)
+            {
+                HttpContext.Current.Response.Cookies.Set(cookie);
+            }
+            else
+            {
+                HttpContext.Current.Response.Cookies.Add(cookie);
+            }
         }
     }
 
@@ -38,9 +52,23 @@ public static class commonCookie
         set
         {
             HttpCookie cookie = new HttpCookie("g");
+
             cookie.Value = value;
-            if (!string.IsNullOrEmpty(commonIp.DomainName)) { cookie.Domain = commonIp.DomainName; }
-            HttpContext.Current.Response.Cookies.Add(cookie);
+            cookie.Expires = DateTime.Now.AddDays(1);
+
+            if (!string.IsNullOrEmpty(commonIp.DomainName))
+            {
+                cookie.Domain = commonIp.DomainName;
+            }
+
+            if (cookie != null)
+            {
+                HttpContext.Current.Response.Cookies.Set(cookie);
+            }
+            else
+            {
+                HttpContext.Current.Response.Cookies.Add(cookie);
+            }
         }
     }
 
@@ -121,18 +149,112 @@ public static class commonCookie
             }
         }
     }
+    public static string CookieIsApp
+    {
+        get
+        {
+            HttpCookie cookie = HttpContext.Current.Request.Cookies.Get("IsApp");
+            return cookie == null ? "" : cookie.Value;
+        }
+        set
+        {
+            if (value != null)
+            {
+                HttpCookie cookie = new HttpCookie("IsApp");
+                cookie.Value = value;
+                if (!string.IsNullOrEmpty(commonIp.DomainName)) { cookie.Domain = commonIp.DomainName; }
+                HttpContext.Current.Response.Cookies.Set(cookie);    
+            }
+            else
+            {
+                var httpCookie = HttpContext.Current.Request.Cookies["IsApp"];
+                if (httpCookie != null)
+                {
+                    HttpCookie cookie = new HttpCookie("IsApp");
+                    cookie.Value = "";
+                    cookie.Expires = DateTime.Now.AddYears(-1);
+                    HttpContext.Current.Response.Cookies.Add(cookie);   
+                }
+            }
+        }
+    }
+
+    public static string CookieCurrency
+    {
+        get
+        {
+            HttpCookie cookie = HttpContext.Current.Request.Cookies.Get("currencyCode");
+            return cookie == null ? "" : cookie.Value;
+        }
+        set
+        {
+            if (value != null)
+            {
+                HttpCookie cookie = new HttpCookie("currencyCode");
+                cookie.Value = value;
+                if (!string.IsNullOrEmpty(commonIp.DomainName)) { cookie.Domain = commonIp.DomainName; }
+                HttpContext.Current.Response.Cookies.Set(cookie);
+            }
+            else
+            {
+                var httpCookie = HttpContext.Current.Request.Cookies["currencyCode"];
+                if (httpCookie != null)
+                {
+                    HttpCookie cookie = new HttpCookie("currencyCode");
+                    cookie.Value = "";
+                    cookie.Expires = DateTime.Now.AddYears(-1);
+                    HttpContext.Current.Response.Cookies.Add(cookie);
+                }
+            }
+        }
+    }
 
 
     public static void ClearCookies()
     {
         commonVariables.ClearSessionVariables();
 
-        System.Web.HttpContext.Current.Response.Cookies["s"].Domain = commonIp.DomainName;
-        System.Web.HttpContext.Current.Response.Cookies["s"].Value = "";
-        System.Web.HttpContext.Current.Response.Cookies["s"].Expires = DateTime.Now.AddYears(-1);
-        System.Web.HttpContext.Current.Response.Cookies["g"].Domain = commonIp.DomainName;
-        System.Web.HttpContext.Current.Response.Cookies["g"].Value = "";
-        System.Web.HttpContext.Current.Response.Cookies["g"].Expires = DateTime.Now.AddYears(-1);
+        HttpCookie isApp = HttpContext.Current.Request.Cookies["IsApp"];
+        HttpContext.Current.Response.Cookies.Remove("IsApp");
 
+        if (isApp != null)
+        {
+            isApp.Expires = DateTime.Now.AddYears(-1);
+            isApp.Value = null;
+            isApp.Domain = commonIp.DomainName;
+            HttpContext.Current.Response.SetCookie(isApp);
+        }
+
+        HttpCookie currencyCode = HttpContext.Current.Request.Cookies["currencyCode"];
+        HttpContext.Current.Response.Cookies.Remove("currencyCode");
+        if (currencyCode != null)
+        {
+            currencyCode.Expires = DateTime.Now.AddYears(-1);
+            currencyCode.Value = null;
+            currencyCode.Domain = commonIp.DomainName;
+            HttpContext.Current.Response.SetCookie(currencyCode);
+        }
+
+        HttpCookie s = HttpContext.Current.Request.Cookies["s"];
+        HttpContext.Current.Response.Cookies.Remove("s");
+
+        if (s != null)
+        {
+            s.Expires = DateTime.Now.AddYears(-1);
+            s.Value = null;
+            s.Domain = commonIp.DomainName;
+            HttpContext.Current.Response.SetCookie(s);
+        }
+
+        HttpCookie g = HttpContext.Current.Request.Cookies["g"];
+        HttpContext.Current.Response.Cookies.Remove("g");
+
+        if (g != null)
+        {
+            g.Expires = DateTime.Now.AddYears(-1);
+            g.Value = null;
+            g.Domain = commonIp.DomainName;
+            HttpContext.Current.Response.SetCookie(g);
+        }
     }
 }
