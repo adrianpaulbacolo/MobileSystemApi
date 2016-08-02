@@ -14,7 +14,6 @@
         $(function () {
             w88Mobile.Slots.club = "ClubDivino";
             w88Mobile.Slots.init();
-            w88Mobile.Slots.filterDisplay();
         });
     </script>
 
