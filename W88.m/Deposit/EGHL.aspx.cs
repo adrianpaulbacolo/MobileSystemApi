@@ -32,8 +32,6 @@ public partial class Deposit_EGHL : PaymentBasePage
 
         base.InitialisePaymentLimits();
 
-        base.GetMainWalletBalance("0");
-
         drpBank.Items.AddRange(base.InitializeBank("EGHLBank").ToArray());
     }
 

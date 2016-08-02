@@ -19,8 +19,6 @@ public partial class Withdrawal_Default : PaymentBasePage
         base.InitialiseVariables();
 
         base.InitialisePaymentLimits();
-
-        base.GetMainWalletBalance("0");
     }
 
     protected void Page_Load(object sender, EventArgs e)

@@ -30,8 +30,6 @@ public partial class Deposit_ECPSS : PaymentBasePage
 
         base.InitialisePaymentLimits();
 
-        base.GetMainWalletBalance("0");
-
         drpBank.Items.AddRange(base.InitializeBank("ECPSSBank").ToArray());
 
         this.GetDummyURL();

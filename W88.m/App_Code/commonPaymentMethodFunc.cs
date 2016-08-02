@@ -17,31 +17,20 @@ using svcPayMember;
 public static class commonPaymentMethodFunc
 {
 
-    public static void GetWalletBalance(int walletId)
-    {
-        var memberCode = commonVariables.GetSessionVariable("MemberCode");
-        if (string.IsNullOrEmpty(memberCode) || string.IsNullOrEmpty(commonVariables.OperatorId)) HttpContext.Current.Session["Main"] = 0;
-
-        using (var svcInstance = new MemberClient())
-        {
-            string strProductCurrency;
-            var value = svcInstance.getWalletBalance(commonVariables.OperatorId, commonVariables.SiteUrl, memberCode, Convert.ToString(walletId), out strProductCurrency);
-            HttpContext.Current.Session["Main"] = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", value);
-        }
-    }
-
     public static Task<getWalletBalanceResponse> GetWalletBalanceAsync(int walletId)
     {
-        var member = new Members();
-        var info = member.MemberData();
-        var memberCode = commonVariables.GetSessionVariable("MemberCode");
-
-        var mCode = string.IsNullOrWhiteSpace(memberCode) ? info.MemberCode : memberCode;
-        if (string.IsNullOrEmpty(mCode) || string.IsNullOrEmpty(commonVariables.OperatorId)) HttpContext.Current.Session["Main"] = 0;
-
         using (var svcInstance = new MemberClient())
         {
-            var request = new getWalletBalanceRequest(commonVariables.OperatorId, commonVariables.SiteUrl, mCode, Convert.ToString(walletId));
+            var member = new Members();
+            var info = member.MemberData();
+
+            if (string.IsNullOrWhiteSpace(info.MemberCode))
+            {
+                member.CheckMemberSession(info.CurrentSessionId);
+                info = member.MemberData();
+            }
+
+            var request = new getWalletBalanceRequest(commonVariables.OperatorId, commonVariables.SiteUrl, info.MemberCode, Convert.ToString(walletId));
             return svcInstance.getWalletBalanceAsync(request);
         }
     }
@@ -53,9 +42,14 @@ public static class commonPaymentMethodFunc
         {
             var member = new Members();
             var info = member.MemberData();
-            var memberCode = commonVariables.GetSessionVariable("MemberCode");
-            var mCode = string.IsNullOrWhiteSpace(memberCode) ? info.MemberCode : memberCode;
-            return svcInstance.getBalancesAsync(commonVariables.OperatorId, commonVariables.SiteUrl, mCode);
+
+            if (string.IsNullOrWhiteSpace(info.MemberCode))
+            {
+                member.CheckMemberSession(info.CurrentSessionId);
+                info = member.MemberData();
+            }
+
+            return svcInstance.getBalancesAsync(commonVariables.OperatorId, commonVariables.SiteUrl, info.MemberCode);
         }
     }
 

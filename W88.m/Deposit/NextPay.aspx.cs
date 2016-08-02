@@ -29,7 +29,6 @@ public partial class Deposit_NextPay : PaymentBasePage
 
         base.InitialisePaymentLimits();
 
-        base.GetMainWalletBalance("0");
     }
 
     protected void Page_Load(object sender, EventArgs e)

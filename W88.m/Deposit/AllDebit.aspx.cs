@@ -33,8 +33,6 @@ public partial class Deposit_AllDebit : PaymentBasePage
 
         base.InitialisePaymentLimits();
 
-        base.GetMainWalletBalance("0");
-
         this.InitializeExpiryMonthYear();
 
         ddlCardType.Items.Insert(0, new ListItem(commonCulture.ElementValues.getResourceString("ddlCardType", xeResources), "-1"));
