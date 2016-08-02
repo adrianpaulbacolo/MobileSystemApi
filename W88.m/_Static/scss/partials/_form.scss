@@ -175,6 +175,20 @@ select {
     }
 }
 
+#ModalMessage {
+    color: #e2e2e2;
+    text-align: center;
+}
+
+#ModalMessage ul {
+    text-align: left;
+    padding-left: 19px;
+}
+
+#ModalMessage ul li {
+    margin-bottom: 6px;
+}
+
 .ui-mini, .ui-select, .ui-input-text .ui-mini .ui-input-text input,
 .ui-mini .ui-input-search input,
 .ui-input-text.ui-mini input,
@@ -184,18 +198,20 @@ textarea.ui-mini {
     font-size: $font-size-base + .4;
 }
 
-.file-upload{
+.file-upload {
     margin-top: 10px;
     margin-bottom: 15px;
     position: relative;
     background-color: darken($primaryOff-color, 14%);
-    .file-upload-btn{
+
+    .file-upload-btn {
         color: $secondary-color;
         background-color: $primaryOff-color;
         padding: 10px;
         display: inline-block;
     }
-    .file-upload-filename{
+
+    .file-upload-filename {
         color: darken($secondary-color, 43%);
         margin-left: 5px;
         width: 50%;
@@ -206,7 +222,8 @@ textarea.ui-mini {
         position: relative;
         top: 4px;
     }
-    > div{
+
+    > div {
         width: 100%;
         height: 100%;
         top: 0;
@@ -218,7 +235,8 @@ textarea.ui-mini {
         opacity: 0;
         filter: alpha(opacity=0);
     }
-    input[type="file"]{
+
+    input[type="file"] {
         width: 100%;
         height: 100%;
         top: 0;
