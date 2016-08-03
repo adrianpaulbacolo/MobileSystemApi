@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class FundTransfer_Default : BasePage
+public partial class FundTransfer_Default : PaymentBasePage
 {
     protected System.Xml.Linq.XElement xeErrors = null;
 
@@ -14,9 +14,7 @@ public partial class FundTransfer_Default : BasePage
     protected string strAlertMessage = string.Empty;
 
     private Boolean IsPageRefresh = false;
-
-    protected void Page_Init(object sender, EventArgs e) { base.CheckLogin(); }
-
+    
     protected void Page_Load(object sender, EventArgs e)
     {
         System.Xml.Linq.XElement xeFTCurrencySettings = null;
@@ -60,8 +58,6 @@ public partial class FundTransfer_Default : BasePage
         lblTransferFrom.Text = commonCulture.ElementValues.getResourceString("lblTransferFrom", xeResources);
         lblTransferTo.Text = commonCulture.ElementValues.getResourceString("lblTransferTo", xeResources);
         divBalance.InnerHtml += Convert.ToString(sbWallets);
-
-        commonPaymentMethodFunc.GetWalletBalance(0);
 
         try
         {
@@ -309,7 +305,6 @@ public partial class FundTransfer_Default : BasePage
             commonAuditTrail.appendLog("system", strPageName, "InitiateFundTransfer", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
         }
 
-        commonPaymentMethodFunc.GetWalletBalance(0);
         #endregion
     }
 

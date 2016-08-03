@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Category>
+    <Slot3d en-us="Slots 3D" zh-cn="老虎机 3D"  ko-kr="슬롯 3D" ja-jp="スロット 3D" km-kh="ស្លត 3D" th-th="สล็อต 3D">
+        <Game IOSId="669" AndroidId="672" WPId="675" Category="New">
+            <Image><![CDATA[W88-Slots-Mobile-Charms-Clovers]]></Image>
+            <Title><![CDATA[Charms Clovers]]></Title>
+        </Game>
+        <Game IOSId="623" AndroidId="624" WPId="625" Category="New">
+            <Image><![CDATA[W88-Slots-Mobile-Viking-Age]]></Image>
+            <Title><![CDATA[Viking Age]]></Title>
+        </Game>
+        <Game IOSId="616" AndroidId="617" WPId="618">
+            <Image><![CDATA[W88-Slots-Mobile-2-Million-B.C.]]></Image>
+            <Title><![CDATA[2 Million BC]]></Title>
+        </Game>
+        <Game IOSId="638" AndroidId="639" WPId="640">
+            <Image><![CDATA[W88-Slots-Mobile-4-Seasons]]></Image>
+            <Title><![CDATA[4 Seasons]]></Title>
+        </Game>
+        <Game IOSId="620" AndroidId="621" WPId="622">
+            <Image><![CDATA[W88-Slots-Mobile-A-Christmas-Carol]]></Image>
+            <Title><![CDATA[A Christmas Carol]]></Title>
+        </Game>
+        <Game IOSId="391" AndroidId="392" WPId="392">
+            <Image><![CDATA[W88-Slots-Mobile-A-Night-In-Paris]]></Image>
+            <Title><![CDATA[A Night In Paris]]></Title>
+        </Game>
+        <Game IOSId="306" AndroidId="307" WPId="364">
+            <Image><![CDATA[W88-Slots-Mobile-After-Night-Falls]]></Image>
+            <Title><![CDATA[After Night Falls]]></Title>
+        </Game>
+        <Game IOSId="604" AndroidId="605" WPId="606">
+            <Image><![CDATA[AlkemorsTower]]></Image>
+            <Title><![CDATA[Alkemor's Tower]]></Title>
+        </Game>
+        <Game IOSId="312" AndroidId="315" WPId="361">
+            <Image><![CDATA[W88-Slots-Mobile-At-The-Copa]]></Image>
+            <Title><![CDATA[At The Copa]]></Title>
+        </Game>
+        <Game IOSId="607" AndroidId="608" WPId="609">
+            <Image><![CDATA[W88-Slots-Mobile-At-the-Movies]]></Image>
+            <Title><![CDATA[At The Movies]]></Title>
+        </Game>
+        <Game IOSId="627" AndroidId="628" WPId="629">
+            <Image><![CDATA[W88-Slots-Mobile-Barbary-Coast]]></Image>
+            <Title><![CDATA[Barbary Coast]]></Title>
+        </Game>
+        <Game IOSId="655" AndroidId="656" WPId="657">
+            <Image><![CDATA[W88-Slots-Mobile-Birds]]></Image>
+            <Title><![CDATA[Birds]]></Title>
+        </Game>
+        <Game IOSId="324" AndroidId="325" WPId="369">
+            <Image><![CDATA[W88-Slots-Mobile-Boomanji]]></Image>
+            <Title><![CDATA[Boomanji]]></Title>
+        </Game>
+        <Game IOSId="549" AndroidId="550" WPId="551">
+            <Image><![CDATA[W88-Slots-Mobile-Event-Horizon]]></Image>
+            <Title><![CDATA[Event Horizon]]></Title>
+        </Game>
+        <Game IOSId="531" AndroidId="532" WPId="533">
+            <Image><![CDATA[W88-Slots-Mobile-Enchanted]]></Image>
+            <Title><![CDATA[Enchanted]]></Title>
+        </Game>
+        <Game IOSId="648" AndroidId="649" WPId="650">
+            <Image><![CDATA[W88-Slots-Mobile-Frankenslots-Monster]]></Image>
+            <Title><![CDATA[Frankenslot's Monster]]></Title>
+        </Game>
+        <Game IOSId="513" AndroidId="514" WPId="515">
+            <Image><![CDATA[W88-Slots-Mobile-Fruit-Zen]]></Image>
+            <Title><![CDATA[Fruit Zen]]></Title>
+        </Game>
+        <Game IOSId="406" AndroidId="407" WPId="408">
+            <Image><![CDATA[W88-Slots-Mobile-Gladiator]]></Image>
+            <Title><![CDATA[Gladiator]]></Title>
+        </Game>
+        <Game IOSId="428" AndroidId="430" WPId="432">
+            <Image><![CDATA[W88-Slots-Mobile-Good-Girl-Bad-Girl]]></Image>
+            <Title><![CDATA[Good Girl Bad Girl]]></Title>
+        </Game>
+        <Game IOSId="342" AndroidId="343" WPId="353">
+            <Image><![CDATA[W88-Slots-Mobile-Greedy-Goblins]]></Image>
+            <Title><![CDATA[Greedy Goblins]]></Title>
+        </Game>
+        <Game IOSId="479" AndroidId="480" WPId="481">
+            <Image><![CDATA[W88-Slots-Mobile-Gypsy-Rose]]></Image>
+            <Title><![CDATA[Gypsy Rose]]></Title>
+        </Game>
+        <Game IOSId="468" AndroidId="469" WPId="470">
+            <Image><![CDATA[W88-Slots-Mobile-Heist]]></Image>
+            <Title><![CDATA[Heist]]></Title>
+        </Game>
+        <Game IOSId="644" AndroidId="645" WPId="646">
+            <Image><![CDATA[W88-Slots-Mobile-House-of-Fun]]></Image>
+            <Title><![CDATA[House of Fun]]></Title>
+        </Game>
+        <Game IOSId="422" AndroidId="423" WPId="424">
+            <Image><![CDATA[W88-Slots-Mobile-Lost]]></Image>
+            <Title><![CDATA[Lost]]></Title>
+        </Game>
+        <Game IOSId="412" AndroidId="413" WPId="414">
+            <Image><![CDATA[W88-Slots-Mobile-Madder-Scientist]]></Image>
+            <Title><![CDATA[Madder Scientist]]></Title>
+        </Game>
+        <Game IOSId="451" AndroidId="452" WPId="453">
+            <Image><![CDATA[W88-Slots-Mobile-More-Gold-Diggin]]></Image>
+            <Title><![CDATA[More Gold Diggin]]></Title>
+        </Game>
+        <Game IOSId="269" AndroidId="270" WPId="362">
+            <Image><![CDATA[W88-Slots-Mobile-Mr.-Vegas]]></Image>
+            <Title><![CDATA[Mr. Vegas]]></Title>
+        </Game>
+        <Game IOSId="521" AndroidId="522" WPId="523">
+            <Image><![CDATA[W88-Slots-Mobile-Pinocchio]]></Image>
+            <Title><![CDATA[Pinocchio]]></Title>
+        </Game>
+        <Game IOSId="" AndroidId="484" WPId="485">
+            <!--IOSId="483"-->
+            <Image><![CDATA[W88-Slots-Mobile-Puppy-Love]]></Image>
+            <Title><![CDATA[Puppy Love]]></Title>
+        </Game>
+        <Game IOSId="318" AndroidId="319" WPId="368">
+            <Image><![CDATA[W88-Slots-Mobile-Rooks-Revenge]]></Image>
+            <Title><![CDATA[Rook's Revenge]]></Title>
+        </Game>
+        <Game IOSId="303" AndroidId="304" WPId="373">
+            <Image><![CDATA[W88-Slots-Mobile-Safari-Sam]]></Image>
+            <Title><![CDATA[Safari Sam]]></Title>
+        </Game>
+        <Game IOSId="494" AndroidId="495" WPId="496">
+            <Image><![CDATA[W88-Slots-Mobile-Sugar-Pop]]></Image>
+            <Title><![CDATA[Sugar Pop]]></Title>
+        </Game>
+        <Game IOSId="462" AndroidId="463" WPId="464">
+            <Image><![CDATA[W88-Slots-Mobile-Curious-Machine]]></Image>
+            <Title><![CDATA[The Curious Machine]]></Title>
+        </Game>
+        <Game IOSId="641" AndroidId="642" WPId="643">
+            <Image><![CDATA[W88-Slots-Mobile-The-Exterminator]]></Image>
+            <Title><![CDATA[The Exterminator]]></Title>
+        </Game>
+        <Game IOSId="610" AndroidId="611" WPId="612">
+            <Image><![CDATA[TheGlamLife]]></Image>
+            <Title><![CDATA[The Glam Life]]></Title>
+        </Game>
+        <Game IOSId="345" AndroidId="346" WPId="376">
+            <Image><![CDATA[W88-Slots-Mobile-The-Slotfather]]></Image>
+            <Title><![CDATA[The Slotfather]]></Title>
+        </Game>
+        <Game IOSId="598" AndroidId="599" WPId="600">
+            <Image><![CDATA[The-Tipsy-Tourist-mobile]]></Image>
+            <Title><![CDATA[The Tipsy Tourist]]></Title>
+        </Game>
+        <Game IOSId="385" AndroidId="386" WPId="387">
+            <Image><![CDATA[W88-Slots-Mobile-The-True-Sheriff]]></Image>
+            <Title><![CDATA[The True Sheriff]]></Title>
+        </Game>
+        <Game IOSId="291" AndroidId="292" WPId="356">
+            <Image><![CDATA[W88-Slots-Mobile-Three-Wishes]]></Image>
+            <Title><![CDATA[Three Wishes]]></Title>
+        </Game>
+        <Game IOSId="396" AndroidId="397" WPId="398">
+            <Image><![CDATA[W88-Slots-Mobile-True-Illusions]]></Image>
+            <Title><![CDATA[True Illusions]]></Title>
+        </Game>
+        <Game IOSId="472" AndroidId="473" WPId="474">
+            <Image><![CDATA[W88-Slots-Mobile-Tycoons]]></Image>
+            <Title><![CDATA[Tycoons]]></Title>
+        </Game>
+        <Game IOSId="320" AndroidId="321" WPId="365">
+            <Image><![CDATA[W88-Slots-Mobile-Under-The-Bed]]></Image>
+            <Title><![CDATA[Under the Bed]]></Title>
+        </Game>
+        <Game IOSId="591" AndroidId="592" WPId="593">
+            <Image><![CDATA[W88-Slots-Mobile-Weekend-in-Vegas]]></Image>
+            <Title><![CDATA[Weekend in Vegas]]></Title>
+        </Game>
+    </Slot3d>
+    <Slot en-us="Slots" zh-cn="老虎机"  ko-kr="슬롯" ja-jp="スロット" km-kh="ស្លត" th-th="สล็อต">
+        <Game IOSId="263" AndroidId="268" WPId="355">
+            <Image><![CDATA[W88-Slots-Mobile-Lucky7]]></Image>
+            <Title><![CDATA[Lucky 7]]></Title>
+        </Game>
+    </Slot>
+    <TableCard en-us="Table &amp; Cards Games" zh-cn="卡牌桌面游戏" ko-kr="카드게임 테이블 게임" ja-jp="テーブルゲーム" km-kh="ហ្គេមតុ &amp; ហ្គេមបៀរ" th-th="การ์ด เกมส์โต๊ะ" id-id="Game Kartu &amp; Meja" vi-vn="Trò Chơi Bài &amp; Trò Chơi Bàn">
+        <Game IOSId="271" AndroidId="272" WPId="366">
+            <Image><![CDATA[W88-Slots-Mobile-American-Blackjack]]></Image>
+            <Title><![CDATA[American Blackjack]]></Title>
+        </Game>
+        <Game IOSId="275" AndroidId="276" WPId="371">
+            <Image><![CDATA[W88-Slots-Mobile-European-Roulette]]></Image>
+            <Title><![CDATA[European Roulette]]></Title>
+        </Game>
+    </TableCard>
+</Category>

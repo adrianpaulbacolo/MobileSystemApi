@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text;
 using Helpers;
 
-public partial class Funds : BasePage
+public partial class Funds : PaymentBasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {

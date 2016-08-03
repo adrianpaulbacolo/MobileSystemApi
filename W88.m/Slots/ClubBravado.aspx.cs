@@ -18,7 +18,7 @@ public partial class Slots_ClubBravado : BasePage
 
         SetTitle(commonCulture.ElementValues.getResourceXPathString("/Products/ClubBravado/Label", commonVariables.ProductsXML));
 
-        GPIHandler handler = new GPIHandler(commonVariables.CurrentMemberSessionId);
+        var handler = new GPIHandler(commonVariables.CurrentMemberSessionId);
 
         var gpiCategory = handler.Process();
 

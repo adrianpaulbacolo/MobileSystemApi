@@ -43,7 +43,13 @@
             window.w88Mobile.Wallets.getWallets();
 
             $("#refesh").click(function () {
-                window.w88Mobile.Wallets.getMain();
+                $("#mainwallet").html(loader);
+                var fetch = window.w88Mobile.Wallets.getMain().done();
+
+                fetch.done(function (data) {
+                    $("#mainwallet").html(data);
+                });
+
                 window.w88Mobile.Wallets.getWallets();
             });
 

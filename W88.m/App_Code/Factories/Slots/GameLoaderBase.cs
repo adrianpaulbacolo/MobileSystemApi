@@ -15,7 +15,7 @@ namespace Factories.Slots
 
         public GameLoaderBase(GameProvider gameProvider)
         {
-            gameProvider = gameProvider;
+            this.gameProvider = gameProvider;
 
             langCode = SetLanguageCode();
 
@@ -44,8 +44,6 @@ namespace Factories.Slots
 
             foreach (XElement xeCategory in xeResources.Elements())
             {
-                if (IsLangNotSupported(xeCategory)) continue;
-
                 if (IsCurrNotSupported(currencyCode, xeCategory)) continue;
 
                 var gameCategory = new GameCategoryInfo();
@@ -57,7 +55,7 @@ namespace Factories.Slots
 
                 gameCategory.New = AddGamesPerCategory(currencyCode, newGames);
 
-                List<XElement> currentGames = xeCategory.Elements().Where(cat => cat.Attribute("Category") == null ).OrderBy(game => game.Element("Title").Value).ToList();
+                List<XElement> currentGames = xeCategory.Elements().Where(cat => cat.Attribute("Category") == null).OrderBy(game => game.Element("Title").Value).ToList();
                 gameCategory.Current = AddGamesPerCategory(currencyCode, currentGames);
 
                 gameCategories.Add(gameCategory);
@@ -72,8 +70,6 @@ namespace Factories.Slots
 
             foreach (XElement xeGame in xeGames)
             {
-                if (IsLangNotSupported(xeGame)) continue;
-
                 if (IsCurrNotSupported(currencyCode, xeGame)) continue;
 
                 var game = new GameInfo();
@@ -143,5 +139,12 @@ namespace Factories.Slots
         QTECH,
         BS,
         CTXM
+    }
+
+    public enum GameDevice
+    {
+        IOS,
+        ANDROID,
+        WP
     }
 }
