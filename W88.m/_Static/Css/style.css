@@ -8842,6 +8842,32 @@ sub {
   .tiles > .col:nth-of-type(odd), .nav-menu .sub-menu .tiles > li:nth-of-type(odd) {
     background-color: #292a2a; }
 
+.row-uc {
+  flex-wrap: nowrap !important;
+  display: block; }
+  .row-uc .col, .row-uc .nav-menu .sub-menu li, .nav-menu .sub-menu .row-uc li {
+    display: block;
+    flex: 0 1 auto !important;
+    float: left;
+    height: auto; }
+  .row-uc:before, .row-uc:after {
+    content: " ";
+    display: table; }
+  .row-uc:after {
+    clear: both; }
+
+.row-dashboard .col, .row-dashboard .nav-menu .sub-menu li, .nav-menu .sub-menu .row-dashboard li {
+  height: 112px; }
+
+#sports .card {
+  max-width: 250px;
+  margin: 0 auto;
+  display: block;
+  float: none;
+  text-align: center; }
+  #sports .card .title {
+    height: 40px; }
+
 [class^="ui-icon-"]:after, [class*=" ui-icon-"]:after,
 [class^="ui-btn-icon-"]:after, [class*=" ui-btn-icon-"]:after {
   font: 1.5em "ionicons";
@@ -9217,6 +9243,48 @@ select:-webkit-autofill {
 .ui-mini textarea.ui-input-text,
 textarea.ui-mini {
   font-size: 1.8rem; }
+
+.file-upload {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  position: relative;
+  background-color: #0f3445; }
+  .file-upload .file-upload-btn {
+    color: #d1d3d4;
+    background-color: #1c6080;
+    padding: 10px;
+    display: inline-block; }
+  .file-upload .file-upload-filename {
+    color: #616668;
+    margin-left: 5px;
+    width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    position: relative;
+    top: 4px; }
+  .file-upload > div {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+    filter: alpha(opacity=0); }
+  .file-upload input[type="file"] {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    opacity: 0;
+    filter: alpha(opacity=0); }
 
 .ui-page-theme-b .ui-btn, .ui-page-theme-b .gridHistory.table tr:last-child[align="right"] .ui-link, .gridHistory.table tr:last-child[align="right"] .ui-page-theme-b .ui-link, .ui-page-theme-b #sDownload,
 html .ui-bar-b .ui-btn,
@@ -9818,7 +9886,7 @@ html head + body .ui-btn-a#sDownload {
     display: block;
     color: #a6a6a6; }
 
-.play-card, #slots .bkg-game {
+.play-card {
   width: 94px;
   min-height: 120px;
   font-size: 1em;
@@ -10007,6 +10075,53 @@ html head + body .ui-btn-a#sDownload {
     transform: scaleY(1);
     -webkit-transform: scaleY(1);
     background-color: #d3dee3; } }
+.spinner-generic {
+  margin: auto;
+  width: 30px;
+  height: 20px;
+  text-align: center;
+  font-size: 10px;
+  display: inline-block; }
+
+.spinner-generic > div {
+  background-color: #01374d;
+  height: 100%;
+  width: 3px;
+  display: inline-block;
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out; }
+
+.spinner-generic .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+  background-color: #01374d; }
+
+.spinner-generic .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s; }
+
+.spinner-generic .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s; }
+
+.spinner-generic .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s; }
+
+@-webkit-keyframes sk-stretchdelay {
+  0%, 40%, 100% {
+    -webkit-transform: scaleY(0.4); }
+  20% {
+    -webkit-transform: scaleY(1); } }
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+    background-color: #01374d; }
+  20% {
+    transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+    background-color: #d3dee3; } }
 #divPanel {
   background: #023144;
   background: -webkit-linear-gradient(legacy-direction(to bottom), #023144 0, #1f1f1f 100%);
@@ -10131,16 +10246,6 @@ html head + body .ui-btn-a#sDownload {
     padding-top: 40px !important; }
     .nav-menu .sub-menu .close {
       display: inline-block; } }
-.icon-play_arrow,
-.icon-fullscreen {
-  font-family: "ionicons"; }
-
-.icon-play_arrow:after {
-  content: '\f215'; }
-
-.icon-fullscreen:after {
-  content: '\f25e'; }
-
 #slots .ui-icon-minus:after {
   content: '\f3d3';
   right: 5px;
@@ -10199,60 +10304,49 @@ html head + body .ui-btn-a#sDownload {
     list-style: none;
     margin: 0;
     padding: 0; }
-#slots .bkg-game > div:first-child {
-  padding: 5px;
-  border-radius: 10px;
-  background-color: #ffffff;
-  padding-bottom: 1px;
-  min-height: 119px;
-  height: 119px; }
+#slots .bkg-game {
+  width: 100px;
+  background-color: transparent;
+  font-size: 1em;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  min-height: auto;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+  #slots .bkg-game > div {
+    padding: 5px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    padding-bottom: 1px;
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); }
+  #slots .bkg-game img {
+    -webkit-border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+    -ms-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+    max-height: 83px;
+    height: 83px; }
 #slots .div-links {
   width: 100%;
-  height: 30px;
-  bottom: 0;
-  background-color: #ffffff; }
+  background-color: #ffffff;
+  display: table; }
   #slots .div-links a {
+    padding: 0.5em 0;
+    font: 11px "dinpro", sans-serif;
     color: #ffffff;
     background-color: #2a8fbd;
     width: 50%;
-    position: absolute;
-    left: 0;
-    padding: .45em; }
+    text-transform: uppercase;
+    color: #2a8fbd !important;
+    background-color: transparent !important;
+    display: table-cell; }
     #slots .div-links a:last-child {
-      left: inherit;
-      right: 0; }
-#slots .bkg-game {
-  width: 100px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  border-radius: 10px;
-  border-radius: 10px;
-  padding: 5px 0;
-  margin: 0;
-  background-color: transparent; }
-  #slots .bkg-game img {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    max-height: 83px;
-    height: 83px; }
-#slots .div-links a {
-  color: #2a8fbd !important;
-  background-color: transparent !important;
-  padding: .35em; }
-  #slots .div-links a:first-child {
-    padding-right: 0; }
-  #slots .div-links a:last-child {
-    padding-left: 0;
-    border-left: 1px solid rgba(0, 0, 0, 0.1); }
-#slots .icon-play_arrow,
-#slots .icon-fullscreen {
-  font: 11px "dinpro", sans-serif;
-  text-transform: uppercase; }
-#slots .icon-play_arrow:after {
-  content: 'Play'; }
-#slots .icon-fullscreen:after {
-  content: 'Try'; }
+      border-left: 1px solid rgba(0, 0, 0, 0.1); }
 
 #header {
   text-align: center;
@@ -10321,7 +10415,8 @@ html head + body .ui-btn-a#sDownload {
   margin-bottom: 0; }
   .banner-odd-even > li:nth-child(odd) .banner-caption {
     float: right;
-    max-width: 60%; }
+    max-width: 60%;
+    text-align: right; }
 .banner-odd-even > li:nth-child(even) .banner-caption {
   max-width: 70%; }
 .banner-odd-even > li .ui-btn, .banner-odd-even > li .gridHistory.table tr:last-child[align="right"] .ui-link, .gridHistory.table tr:last-child[align="right"] .banner-odd-even > li .ui-link, .banner-odd-even > li #sDownload {
@@ -11043,7 +11138,9 @@ figure {
   min-width: 100px; }
 #divPromotions .div-promo-img {
   max-height: 250px;
-  overflow: hidden; }
+  overflow: hidden;
+  padding-bottom: 20.8%;
+  height: 0; }
   #divPromotions .div-promo-img > img {
     display: block;
     max-width: 100%;
@@ -11164,3 +11261,5 @@ figure {
     max-width: 767px;
     margin-left: auto;
     margin-right: auto; } }
+
+/*# sourceMappingURL=style.css.map */

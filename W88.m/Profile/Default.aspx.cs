@@ -4,7 +4,7 @@ using System.Web;
 
 namespace Profile
 {
-    public partial class ProfileDefault : BasePage 
+    public partial class ProfileDefault : PaymentBasePage 
     {
 
     protected void Page_Load(object sender, EventArgs e)
@@ -12,14 +12,6 @@ namespace Profile
             if (Page.IsPostBack) return;
 
             SetTitle(commonCulture.ElementValues.getResourceString("profile", commonVariables.LeftMenuXML));
-        InitializeWalletBalance();
-    }
-
-    public void InitializeWalletBalance()
-    {
-            var wallet = commonPaymentMethodFunc.GetWallets().Where(x => x.Key.Equals(0)).ToList();
-            var wId = wallet.Where(x => x.Key.Equals(0)).Select(type => type.Key).ToList()[0];
-            commonPaymentMethodFunc.GetWalletBalance(wId);
     }
 
     public static int getCurrentPoints()

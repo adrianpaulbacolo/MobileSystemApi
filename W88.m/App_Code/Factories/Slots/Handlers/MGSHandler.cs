@@ -1,4 +1,4 @@
-﻿using Helpers;
+﻿﻿using Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,15 +71,7 @@ namespace Factories.Slots.Handlers
 
         protected override string CreateFunUrl(XElement element)
         {
-            string lang = "en";
-            if (element.Attribute("LanguageCode") != null)
-            {
-                string[] languagesCodes = element.Attribute("LanguageCode").Value.Split(',');
-
-                bool isLangSupp = languagesCodes.Contains(base.langCode, StringComparer.OrdinalIgnoreCase);
-
-                lang = isLangSupp ? base.langCode : "en";
-            }
+            string lang = GetGameLanguage(element);
 
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
 
@@ -91,15 +83,7 @@ namespace Factories.Slots.Handlers
 
         protected override string CreateRealUrl(XElement element)
         {
-            string lang = "en";
-            if (element.Attribute("LanguageCode") != null)
-            {
-                string[] languagesCodes = element.Attribute("LanguageCode").Value.Split(',');
-
-                bool isLangSupp = languagesCodes.Contains(base.langCode, StringComparer.OrdinalIgnoreCase);
-
-                lang = isLangSupp ? base.langCode : "en";
-            }
+            string lang = GetGameLanguage(element);
 
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
 
@@ -107,6 +91,22 @@ namespace Factories.Slots.Handlers
             realUrl = element.Element("Real") != null ? element.Element("Real").Value : real;
 
             return real.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{TOKEN}", memberSessionId).Replace("{CASHIER}", cashierPage).Replace("{LOBBY}", lobbyPage);
+        }
+
+        private string GetGameLanguage(XElement element)
+        {
+            if (element.Attribute("LanguageCode") != null)
+            {
+                string[] languagesCodes = element.Attribute("LanguageCode").Value.Split(',');
+
+                bool isLangSupp = languagesCodes.Contains(langCode, StringComparer.OrdinalIgnoreCase);
+
+                return isLangSupp ? langCode : "en";
+            }
+            else
+            {
+                return "en";
+            }
         }
     }
 }

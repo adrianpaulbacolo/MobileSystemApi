@@ -15,6 +15,7 @@
 	<dSDAPayAlipay><![CDATA[Alipay Transfer]]></dSDAPayAlipay>
 	<dBofoPay><![CDATA[퀵 지불]]></dBofoPay>
 	<dAllDebit><![CDATA[신용카드]]></dAllDebit>
+	<dEGHL><![CDATA[퀵 온라인]]></dEGHL>
 
 	<wBankTransfer><![CDATA[은행송금]]></wBankTransfer>
 	<wWingMoney><![CDATA[온라인]]></wWingMoney>

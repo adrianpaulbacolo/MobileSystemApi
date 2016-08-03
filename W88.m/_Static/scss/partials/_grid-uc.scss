@@ -1,0 +1,37 @@
+.row-uc{
+	flex-wrap: nowrap !important;
+	display: block;
+	.col{
+		display: block;
+		flex: 0 1 auto !important;
+		float: left;
+		height: auto;
+	}
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+.row-dashboard{
+	.col{
+		height: 112px;
+	}
+}
+
+#sports{
+	.card {
+	    max-width: 250px;
+	    margin: 0 auto;
+	    display: block;
+	    float: none;
+	    text-align: center;
+	    .title{
+			height: 40px;
+		}
+	}
+}

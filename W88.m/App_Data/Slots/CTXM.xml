@@ -1,113 +1,117 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Category>
-	<Slot en-us="Slots" zh-cn="老虎机"  ko-kr="슬롯" ja-jp="スロット" km-kh="ស្លត" th-th="สล็อต">
-		<Game Id="xc_mobileeastwindbattleslots" Category="New">
-			<Image><![CDATA[xc_mobileeastwindbattleslots]]></Image>
-			<Title><![CDATA[East Wind Battle]]></Title>
-		</Game>
-		<Game Id="xc_atlantisdiveslots">
-			<Image><![CDATA[AtlantisDive]]></Image>
-			<Title><![CDATA[Atlantis Dive Slots]]></Title>
-		</Game>
-		<Game Id="xc_wildchinaslots">
-			<Image><![CDATA[ChinaMegaWild]]></Image>
-			<Title><![CDATA[China MegaWild Slots]]></Title>
-		</Game>
-		<Game Id="xc_mobiledoublebonusslots">
-			<Image><![CDATA[xc_mobiledoublebonusslots]]></Image>
-			<Title><![CDATA[Double Bonus Slots]]></Title>
-		</Game>
-		<Game Id="xc_freakyfruitsslots">
-			<Image><![CDATA[FreakyFruits]]></Image>
-			<Title><![CDATA[Freaky Fruits]]></Title>
-		</Game>
-		<Game Id="xc_mobilehouseofscareslots">
-			<Image><![CDATA[HouseOfScare]]></Image>
-			<Title><![CDATA[House of Scare]]></Title>
-		</Game>
-		<Game Id="xc_mobilekaraokeslots">
-			<Image><![CDATA[KaraokeStar]]></Image>
-			<Title><![CDATA[Karaoke Star]]></Title>
-		</Game>
-		<Game Id="xc_mobilemagicpotslots">
-			<Image><![CDATA[MagicPot]]></Image>
-			<Title><![CDATA[Magic Pot]]></Title>
-		</Game>
-		<Game Id="xc_mobilemayawheelofluckslots">
-			<Image><![CDATA[MayaWheelOfLuck]]></Image>
-			<Title><![CDATA[Maya Wheel of Luck]]></Title>
-		</Game>
-		<Game Id="xc_mobilefirecrackerslots">
-			<Image><![CDATA[FireCrackers]]></Image>
-			<Title><![CDATA[Midnight Lucky Sky]]></Title>
-		</Game>
-		<Game Id="xc_mobilenonstoppartyslots">
-			<Image><![CDATA[NonStopParty]]></Image>
-			<Title><![CDATA[Non-Stop Party]]></Title>
-		</Game>
-		<Game Id="xc_partynightslots">
-			<Image><![CDATA[PartyNight]]></Image>
-			<Title><![CDATA[Party Night Slots]]></Title>
-		</Game>
-		<Game Id="xc_summerdreamslots">
-			<Image><![CDATA[SummerDream]]></Image>
-			<Title><![CDATA[Summer Dream]]></Title>
-		</Game>
-	</Slot>
-	<TableCard en-us="Table &amp; Cards Games" zh-cn="卡牌桌面游戏" ko-kr="카드게임 테이블 게임" ja-jp="テーブルゲーム" km-kh="ហ្គេមតុ &amp; ហ្គេមបៀរ" th-th="การ์ด เกมส์โต๊ะ" id-id="Game Kartu &amp; Meja" vi-vn="Trò Chơi Bài &amp; Trò Chơi Bàn">
-		<Game Id="xc_americanroulette">
-			<Image><![CDATA[AmericanRoulette]]></Image>
-			<Title><![CDATA[American Roulette]]></Title>
-		</Game>
-		<Game Id="xc_baccarat">
-			<Image><![CDATA[Baccarat]]></Image>
-			<Title><![CDATA[Baccarat]]></Title>
-		</Game>
-		<Game Id="xc_blackjack">
-			<Image><![CDATA[BlackJack]]></Image>
-			<Title><![CDATA[BlackJack]]></Title>
-		</Game>
-		<Game Id="xc_blackjack_s">
-			<Image><![CDATA[BlackJackS]]></Image>
-			<Title><![CDATA[BlackJack Surrender]]></Title>
-		</Game>
-		<Game Id="xc_euroulette">
-			<Image><![CDATA[EuropeanRoulette]]></Image>
-			<Title><![CDATA[European Roulette]]></Title>
-		</Game>
-		<Game Id="xc_blackjack_faceup">
-			<Image><![CDATA[BlackJackFaceUp]]></Image>
-			<Title><![CDATA[Face Up 21 BlackJack]]></Title>
-		</Game>
-		<Game Id="xc_mobilebj_perfectpairs">
-			<Image><![CDATA[BlackJackPerfectPairs]]></Image>
-			<Title><![CDATA[Perfect Pairs BlackJack]]></Title>
-		</Game>
-		<Game Id="xc_blackjack_pontoon">
-			<Image><![CDATA[BlackJackPontoon]]></Image>
-			<Title><![CDATA[Pontoon]]></Title>
-		</Game>
-		<Game Id="xc_blackjack_spanish">
-			<Image><![CDATA[BlackJackSpanish]]></Image>
-			<Title><![CDATA[Spanish BlackJack]]></Title>
-		</Game>
-		<Game Id="xc_mobilemhbaccarat">
-			<Image><![CDATA[VIPBaccaratMH]]></Image>
-			<Title><![CDATA[VIP Multihand Baccarat]]></Title>
-		</Game>
-	</TableCard>
-	<VideoPoker en-us="Video Poker"  zh-cn="视频扑克"  ko-kr="비디오 포커" ja-jp="ビデオポーカー" km-kh="វីដេអូប៉ូកកឺ" th-th="วีดีโอโป๊กเกอร์">
-		<Game Id="xc_deuceswild4l">
-			<Image><![CDATA[DeucesWild4L]]></Image>
-			<Title><![CDATA[Deuces Wild 4 Lines]]></Title>
-		</Game>
-		<Game Id="xc_mobilejacksorbetter4l">
-			<Image><![CDATA[JacksOrBetter4L]]></Image>
-			<Title><![CDATA[Jacks or Better 4 Lines]]></Title>
-		</Game>
-		<Game Id="xc_mobilejokerwild4l">
-			<Image><![CDATA[JokerWild4L]]></Image>
-			<Title><![CDATA[Joker Wild 4 Lines]]></Title>
-		</Game>
-	</VideoPoker>
+    <Slot en-us="Slots" zh-cn="老虎机"  ko-kr="슬롯" ja-jp="スロット" km-kh="ស្លត" th-th="สล็อต">
+        <Game Id="xc_mobilemagicofozslots" Category="New">
+            <Image><![CDATA[xc_mobilemagicofozslots]]></Image>
+            <Title><![CDATA[Magic of Oz]]></Title>
+        </Game>
+        <Game Id="xc_mobileeastwindbattleslots">
+            <Image><![CDATA[xc_mobileeastwindbattleslots]]></Image>
+            <Title><![CDATA[East Wind Battle]]></Title>
+        </Game>
+        <Game Id="xc_atlantisdiveslots">
+            <Image><![CDATA[AtlantisDive]]></Image>
+            <Title><![CDATA[Atlantis Dive Slots]]></Title>
+        </Game>
+        <Game Id="xc_wildchinaslots">
+            <Image><![CDATA[ChinaMegaWild]]></Image>
+            <Title><![CDATA[China MegaWild Slots]]></Title>
+        </Game>
+        <Game Id="xc_mobiledoublebonusslots">
+            <Image><![CDATA[xc_mobiledoublebonusslots]]></Image>
+            <Title><![CDATA[Double Bonus Slots]]></Title>
+        </Game>
+        <Game Id="xc_freakyfruitsslots">
+            <Image><![CDATA[FreakyFruits]]></Image>
+            <Title><![CDATA[Freaky Fruits]]></Title>
+        </Game>
+        <Game Id="xc_mobilehouseofscareslots">
+            <Image><![CDATA[HouseOfScare]]></Image>
+            <Title><![CDATA[House of Scare]]></Title>
+        </Game>
+        <Game Id="xc_mobilekaraokeslots">
+            <Image><![CDATA[KaraokeStar]]></Image>
+            <Title><![CDATA[Karaoke Star]]></Title>
+        </Game>
+        <Game Id="xc_mobilemagicpotslots">
+            <Image><![CDATA[MagicPot]]></Image>
+            <Title><![CDATA[Magic Pot]]></Title>
+        </Game>
+        <Game Id="xc_mobilemayawheelofluckslots">
+            <Image><![CDATA[MayaWheelOfLuck]]></Image>
+            <Title><![CDATA[Maya Wheel of Luck]]></Title>
+        </Game>
+        <Game Id="xc_mobilefirecrackerslots">
+            <Image><![CDATA[FireCrackers]]></Image>
+            <Title><![CDATA[Midnight Lucky Sky]]></Title>
+        </Game>
+        <Game Id="xc_mobilenonstoppartyslots">
+            <Image><![CDATA[NonStopParty]]></Image>
+            <Title><![CDATA[Non-Stop Party]]></Title>
+        </Game>
+        <Game Id="xc_partynightslots">
+            <Image><![CDATA[PartyNight]]></Image>
+            <Title><![CDATA[Party Night Slots]]></Title>
+        </Game>
+        <Game Id="xc_summerdreamslots">
+            <Image><![CDATA[SummerDream]]></Image>
+            <Title><![CDATA[Summer Dream]]></Title>
+        </Game>
+    </Slot>
+    <TableCard en-us="Table &amp; Cards Games" zh-cn="卡牌桌面游戏" ko-kr="카드게임 테이블 게임" ja-jp="テーブルゲーム" km-kh="ហ្គេមតុ &amp; ហ្គេមបៀរ" th-th="การ์ด เกมส์โต๊ะ" id-id="Game Kartu &amp; Meja" vi-vn="Trò Chơi Bài &amp; Trò Chơi Bàn">
+        <Game Id="xc_americanroulette">
+            <Image><![CDATA[AmericanRoulette]]></Image>
+            <Title><![CDATA[American Roulette]]></Title>
+        </Game>
+        <Game Id="xc_baccarat">
+            <Image><![CDATA[Baccarat]]></Image>
+            <Title><![CDATA[Baccarat]]></Title>
+        </Game>
+        <Game Id="xc_blackjack">
+            <Image><![CDATA[BlackJack]]></Image>
+            <Title><![CDATA[BlackJack]]></Title>
+        </Game>
+        <Game Id="xc_blackjack_s">
+            <Image><![CDATA[BlackJackS]]></Image>
+            <Title><![CDATA[BlackJack Surrender]]></Title>
+        </Game>
+        <Game Id="xc_euroulette">
+            <Image><![CDATA[EuropeanRoulette]]></Image>
+            <Title><![CDATA[European Roulette]]></Title>
+        </Game>
+        <Game Id="xc_blackjack_faceup">
+            <Image><![CDATA[BlackJackFaceUp]]></Image>
+            <Title><![CDATA[Face Up 21 BlackJack]]></Title>
+        </Game>
+        <Game Id="xc_mobilebj_perfectpairs">
+            <Image><![CDATA[BlackJackPerfectPairs]]></Image>
+            <Title><![CDATA[Perfect Pairs BlackJack]]></Title>
+        </Game>
+        <Game Id="xc_blackjack_pontoon">
+            <Image><![CDATA[BlackJackPontoon]]></Image>
+            <Title><![CDATA[Pontoon]]></Title>
+        </Game>
+        <Game Id="xc_blackjack_spanish">
+            <Image><![CDATA[BlackJackSpanish]]></Image>
+            <Title><![CDATA[Spanish BlackJack]]></Title>
+        </Game>
+        <Game Id="xc_mobilemhbaccarat">
+            <Image><![CDATA[VIPBaccaratMH]]></Image>
+            <Title><![CDATA[VIP Multihand Baccarat]]></Title>
+        </Game>
+    </TableCard>
+    <VideoPoker en-us="Video Poker"  zh-cn="视频扑克"  ko-kr="비디오 포커" ja-jp="ビデオポーカー" km-kh="វីដេអូប៉ូកកឺ" th-th="วีดีโอโป๊กเกอร์">
+        <Game Id="xc_deuceswild4l">
+            <Image><![CDATA[DeucesWild4L]]></Image>
+            <Title><![CDATA[Deuces Wild 4 Lines]]></Title>
+        </Game>
+        <Game Id="xc_mobilejacksorbetter4l">
+            <Image><![CDATA[JacksOrBetter4L]]></Image>
+            <Title><![CDATA[Jacks or Better 4 Lines]]></Title>
+        </Game>
+        <Game Id="xc_mobilejokerwild4l">
+            <Image><![CDATA[JokerWild4L]]></Image>
+            <Title><![CDATA[Joker Wild 4 Lines]]></Title>
+        </Game>
+    </VideoPoker>
 </Category>

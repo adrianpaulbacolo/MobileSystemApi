@@ -1,5 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="PromotionClaimResults.aspx.cs" Inherits="History_PromotionClaimResults" %>
+
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
+<%@ Register Src="~/UserControls/AppFooterMenu.ascx" TagPrefix="uc" TagName="AppFooterMenu" %>
+
 
 <!DOCTYPE html>
 
@@ -26,16 +29,17 @@
             </div>
 
             <form class="form" id="form1" runat="server">
+                <div style="overflow: scroll;">
                     <asp:GridView ID="GridView1" runat="server" CssClass="gridHistory table table-striped"
                         AutoGenerateColumns="False"
                         AllowSorting="false"
                         GridLines="None"
                         CellSpacing="1"
-                    AllowPaging="True" PageSize="10" 
-                    OnPageIndexChanging="GridView1_PageIndexChanging"
-                    ShowHeaderWhenEmpty="true"  
-                    EmptyDataRowStyle-HorizontalAlign="Center" 
-                    EmptyDataRowStyle-ForeColor="#dab867">
+                        AllowPaging="True" PageSize="10"
+                        OnPageIndexChanging="GridView1_PageIndexChanging"
+                        ShowHeaderWhenEmpty="true"
+                        EmptyDataRowStyle-HorizontalAlign="Center"
+                        EmptyDataRowStyle-ForeColor="#dab867">
                         <FooterStyle ForeColor="#dab867"></FooterStyle>
                         <PagerStyle ForeColor="#dab867" HorizontalAlign="Right"></PagerStyle>
                         <HeaderStyle ForeColor="#dab867" Font-Bold="True"></HeaderStyle>
@@ -49,10 +53,10 @@
                                     <%# Container.DataItemIndex + 1 %>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                        <asp:BoundField DataField="submissionDate" SortExpression="submissionDate">
+                            <asp:BoundField DataField="submissionDate" SortExpression="submissionDate">
                                 <ItemStyle HorizontalAlign="Center" />
                             </asp:BoundField>
-                        <asp:BoundField
+                            <asp:BoundField
                                 DataField="subjectCode" SortExpression="subjectCode">
                                 <ItemStyle HorizontalAlign="Center" />
                             </asp:BoundField>
@@ -60,10 +64,14 @@
                         </Columns>
                         <SelectedRowStyle BackColor="#9471DE"></SelectedRowStyle>
                     </asp:GridView>
-                </form>
-            <div class="item row">
+                </div>
+            </form>
+            
+            <uc:AppFooterMenu runat="server" ID="AppFooterMenu" />
+            
+            <div class="item row" id="NonAppMenu">
                 <div class="col">
-                    <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
+                    <a href="/History" role="button" class="ui-btn btn-bordered" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
                 </div>
             </div>
         </div>

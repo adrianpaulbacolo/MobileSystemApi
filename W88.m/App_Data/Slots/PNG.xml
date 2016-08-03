@@ -1,307 +1,315 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Category>
-	<Slot en-us="Slots" zh-cn="老虎机" ko-kr="슬롯" ja-jp="スロット" km-kh="ស្លត" th-th="สล็อต" NotSupportedCurrency="VND,IDR">
-		<Game Id="fruitbonanzamobile" Category="New">
-			<Image><![CDATA[W88-Slots-Mobile-Fruit-Bonanza]]></Image>
-			<Title><![CDATA[Fruit Bonanza]]></Title>
-		</Game>
-		<Game Id="aceofspadesmobile">
-			<Image><![CDATA[aceofspadesmobile]]></Image>
-			<Title><![CDATA[Ace of Spades]]></Title>
-		</Game>
-		<Game Id="aztecidolsmobile">
-			<Image><![CDATA[aztecidolsmobile]]></Image>
-			<Title><![CDATA[Aztec Idols]]></Title>
-		</Game>
-		<Game Id="belloffortunemobile">
-			<Image><![CDATA[belloffortunemobile]]></Image>
-			<Title><![CDATA[Bell of Fortune]]></Title>
-		</Game>
-		<Game Id="bookofdeadmobile">
-			<Image><![CDATA[bookofdeadmobile]]></Image>
-			<Title><![CDATA[Book of Dead]]></Title>
-		</Game>
-		<Game Id="chinesenewyearmobile">
-			<Image><![CDATA[chinesenewyearmobile]]></Image>
-			<Title><![CDATA[Chinese New Year]]></Title>
-		</Game>
-		<Game Id="cloudquestmobile">
-			<Image><![CDATA[W88-Slots-Mobile-Cloud-Quest]]></Image>
-			<Title><![CDATA[Cloud Quest]]></Title>
-		</Game >
-		<Game Id="crazycowsmobile">
-			<Image><![CDATA[crazycowsmobile]]></Image>
-			<Title><![CDATA[Crazy Cows]]></Title>
-		</Game>
-		<Game Id="dragonshipmobile">
-			<Image><![CDATA[dragonshipmobile]]></Image>
-			<Title><![CDATA[Dragon Ship]]></Title>
-		</Game>
-		<Game Id="eastereggsmobile">
-			<Image><![CDATA[eastereggsmobile]]></Image>
-			<Title><![CDATA[Easter Eggs]]></Title>
-		</Game>
-		<Game Id="enchantedcrystalsmobile">
-			<Image><![CDATA[enchantedcrystalsmobile]]></Image>
-			<Title><![CDATA[Enchanted Crystal]]></Title>
-		</Game>
-		<Game Id="enchantedmeadowmobile">
-			<Image><![CDATA[enchantedmeadowmobile]]></Image>
-			<Title><![CDATA[Enchanted Meadow]]></Title>
-		</Game>
-		<Game Id="energoonzmobile">
-			<Image><![CDATA[energoonzmobile]]></Image>
-			<Title><![CDATA[Energoonz]]></Title>
-		</Game>
-		<Game Id="eyeofthekrakenmobile">
-			<Image><![CDATA[eyeofthekrakenmobile]]></Image>
-			<Title><![CDATA[Eye of the Kraken]]></Title>
-		</Game>
-		<Game Id="fortunetellermobile">
-			<Image><![CDATA[fortunetellermobile]]></Image>
-			<Title><![CDATA[Fortune Teller]]></Title>
-		</Game>
-		<Game Id="gemixmobile">
-			<Image><![CDATA[gemixmobile]]></Image>
-			<Title><![CDATA[Gemix]]></Title>
-		</Game>
-		<Game Id="giftshopmobile">
-			<Image><![CDATA[giftshopmobile]]></Image>
-			<Title><![CDATA[Gift Shop]]></Title>
-		</Game>
-		<Game Id="goldencaravanmobile">
-			<Image><![CDATA[W88-Slots-Mobile-Golden-Caravan]]></Image>
-			<Title><![CDATA[Golden Caravan]]></Title>
-		</Game>
-		<Game Id="goldenlegendmobile">
-			<Image><![CDATA[goldenlegendmobile]]></Image>
-			<Title><![CDATA[Golden Legend]]></Title>
-		</Game>
-		<Game Id="goldengoalmobile">
-			<Image><![CDATA[goldengoalmobile]]></Image>
-			<Title><![CDATA[Golden Goal]]></Title>
-		</Game>
-		<Game Id="goldenticketmobile">
-			<Image><![CDATA[goldenticketmobile]]></Image>
-			<Title><![CDATA[Golden Ticket]]></Title>
-		</Game>
-		<Game Id="goldtrophy2mobile">
-			<Image><![CDATA[goldtrophy2mobile]]></Image>
-			<Title><![CDATA[Gold Trophy 2]]></Title>
-		</Game>
-		<Game Id="happyhalloweenmobile">
-			<Image><![CDATA[happyhalloweenmobile]]></Image>
-			<Title><![CDATA[Happy Halloween]]></Title>
-		</Game>
-		<Game Id="irishgoldmobile">
-			<Image><![CDATA[irishgoldmobile]]></Image>
-			<Title><![CDATA[Irish Gold]]></Title>
-		</Game>
-		<Game Id="jewelboxmobile">
-			<Image><![CDATA[jewelboxmobile]]></Image>
-			<Title><![CDATA[Jewel Box]]></Title>
-		</Game>
-		<Game Id="jollyrogermobile">
-			<Image><![CDATA[jollyrogermobile]]></Image>
-			<Title><![CDATA[Jolly Roger]]></Title>
-		</Game>
-		<Game Id="ladyoffortunemobile">
-			<Image><![CDATA[ladyoffortunemobile]]></Image>
-			<Title><![CDATA[Lady of Fortune]]></Title>
-		</Game>
-		<Game Id="leprechaungoesegyptmobile">
-			<Image><![CDATA[leprechaungoesegyptmobile]]></Image>
-			<Title><![CDATA[Leprechaun]]></Title>
-		</Game>
-		<Game Id="luckydiamondsmobile">
-			<Image><![CDATA[luckydiamondsmobile]]></Image>
-			<Title><![CDATA[Lucky Diamond]]></Title>
-		</Game>
-		<Game Id="masquerademobile">
-			<Image><![CDATA[masquerademobile]]></Image>
-			<Title><![CDATA[Masquerade]]></Title>
-		</Game>
-		<Game Id="merryxmasmobile">
-			<Image><![CDATA[merryxmasmobile]]></Image>
-			<Title><![CDATA[Merry Xmas]]></Title>
-		</Game>
-		<Game Id="moneywheelmobile">
-			<Image><![CDATA[W88-Slots-Mobile-Money-Wheel]]></Image>
-			<Title><![CDATA[Money Wheel]]></Title>
-		</Game>
-		<Game Id="mysteryjokermobile">
-			<Image><![CDATA[mysteryjokermobile]]></Image>
-			<Title><![CDATA[Mystery Joker]]></Title>
-		</Game>
-		<Game Id="mythmobile">
-			<Image><![CDATA[mythmobile]]></Image>
-			<Title><![CDATA[Myth]]></Title>
-		</Game>
-		<Game Id="ninjafruitsmobile">
-			<Image><![CDATA[ninjafruitsmobile]]></Image>
-			<Title><![CDATA[Ninja Fruits]]></Title>
-		</Game>
-		<Game Id="pearllagoonmobile">
-			<Image><![CDATA[pearllagoonmobile]]></Image>
-			<Title><![CDATA[Pearl Lagoon]]></Title>
-		</Game>
-		<Game Id="pearlsofindiamobile">
-			<Image><![CDATA[pearlsofindiamobile]]></Image>
-			<Title><![CDATA[pearl of India]]></Title>
-		</Game>
-		<Game Id="photosafarimobile">
-			<Image><![CDATA[photosafarimobile]]></Image>
-			<Title><![CDATA[Photo Safari]]></Title>
-		</Game>
-		<Game Id="pimpedmobile">
-			<Image><![CDATA[pimpedmobile]]></Image>
-			<Title><![CDATA[Pimped]]></Title>
-		</Game>
-		<Game Id="ragetorichesmobile">
-			<Image><![CDATA[ragetorichesmobile]]></Image>
-			<Title><![CDATA[Rage to Riches]]></Title>
-		</Game>
-		<Game Id="richesoframobile">
-			<Image><![CDATA[richesoframobile]]></Image>
-			<Title><![CDATA[Riched of Ra]]></Title>
-		</Game>
-		<Game Id="sailsofgoldmobile">
-			<Image><![CDATA[W88-Slots-Mobile-Sails-of-Gold]]></Image>
-			<Title><![CDATA[Sails of God]]></Title>
-		</Game>
-		<Game Id="sambacarnivalmobile">
-			<Image><![CDATA[sambacarnivalmobile]]></Image>
-			<Title><![CDATA[Samba Carnival]]></Title>
-		</Game>
-		<Game Id="spaceracemobile">
-			<Image><![CDATA[spaceracemobile]]></Image>
-			<Title><![CDATA[Space Race]]></Title>
-		</Game>
-		<Game Id="speedcashmobile">
-			<Image><![CDATA[speedcashmobile]]></Image>
-			<Title><![CDATA[Speed Cash]]></Title>
-		</Game>
-		<Game Id="towerquestmobile">
-			<Image><![CDATA[towerquestmobile]]></Image>
-			<Title><![CDATA[Tower Quest]]></Title>
-		</Game>
-		<Game Id="wildbloodmobile">
-			<Image><![CDATA[wildbloodmobile]]></Image>
-			<Title><![CDATA[Wild Blood]]></Title>
-		</Game>
-		<Game Id="wildmelonmobile">
-			<Image><![CDATA[wildmelonmobile]]></Image>
-			<Title><![CDATA[Wild Melon]]></Title>
-		</Game>
-		<Game Id="wildnorthmobile">
-			<Image><![CDATA[wildnorthmobile]]></Image>
-			<Title><![CDATA[Wild North]]></Title>
-		</Game>
-		<Game Id="wizardofgemsmobile">
-			<Image><![CDATA[wizardofgemsmobile]]></Image>
-			<Title><![CDATA[Wizard of Gems]]></Title>
-		</Game>
-		<Game Id="christmasjokermobile">
-			<Image><![CDATA[christmasjokermobile]]></Image>
-			<Title><![CDATA[Xmas Joker]]></Title>
-		</Game>
-	</Slot>
-	<TableCard en-us="Table &amp; Cards Games" zh-cn="卡牌桌面游戏" ko-kr="카드게임 테이블 게임" ja-jp="テーブルゲーム" km-kh="ហ្គេមតុ &amp; ហ្គេមបៀរ" th-th="การ์ด เกมส์โต๊ะ" id-id="Game Kartu &amp; Meja" vi-vn="Trò Chơi Bài &amp; Trò Chơi Bàn">
-		<Game Id="americanroulettemobile">
-			<Image><![CDATA[americanroulettemobile]]></Image>
-			<Title><![CDATA[American Roulette]]></Title>
-		</Game>
-		<Game Id="">
-			<Image><![CDATA[beatmemobile]]></Image>
-			<Title><![CDATA[Beat Me]]></Title>
-		</Game>
-		<Game Id="blackjackmhmobile">
-			<Image><![CDATA[blackjackmhmobile]]></Image>
-			<Title><![CDATA[BlackJack MH]]></Title>
-		</Game>
-		<Game Id="casinoholdemmobile">
-			<Image><![CDATA[casinoholdemmobile]]></Image>
-			<Title><![CDATA[Casino Holdem]]></Title>
-		</Game>
-		<Game Id="casinostudpokermobile">
-			<Image><![CDATA[casinostudpokermobile]]></Image>
-			<Title><![CDATA[Casino Stud Poker]]></Title>
-		</Game>
-		<Game Id="doubleexposureblackjackmhmobile">
-			<Image><![CDATA[doubleexposureblackjackmhmobile]]></Image>
-			<Title><![CDATA[Double Exposure BlackJack MH]]></Title>
-		</Game>
-		<Game Id="europeanblackjackmhmobile">
-			<Image><![CDATA[europeanblackjackmhmobile]]></Image>
-			<Title><![CDATA[European BlackJack MH]]></Title>
-		</Game>
-		<Game Id="europeanroulettemobile">
-			<Image><![CDATA[europeanroulettemobile]]></Image>
-			<Title><![CDATA[European Roulette]]></Title>
-		</Game>
-		<Game Id="minibaccaratmobile">
-			<Image><![CDATA[minibaccaratmobile]]></Image>
-			<Title><![CDATA[Mini Baccarat]]></Title>
-		</Game>
-		<Game Id="paigowpokermobile">
-			<Image><![CDATA[paigowpokermobile]]></Image>
-			<Title><![CDATA[Pai Gow Poker]]></Title>
-		</Game>
-		<Game Id="singledeckblackjackmhmobile">
-			<Image><![CDATA[singledeckblackjackmhmobile]]></Image>
-			<Title><![CDATA[Single Deck BlackJack MH]]></Title>
-		</Game>
-	</TableCard>
-	<VideoPoker en-us="Video Poker" zh-cn="视频扑克" ko-kr="비디오 포커" ja-jp="ビデオポーカー" km-kh="វីដេអូប៉ូកកឺ" th-th="วีดีโอโป๊กเกอร์">
-		<Game Id="tensorbettermobile">
-			<Image><![CDATA[tensorbettermobile]]></Image>
-			<Title><![CDATA[10's or Better]]></Title>
-		</Game>
-		<Game Id="deucesandjokermobile">
-			<Image><![CDATA[deucesandjokermobile]]></Image>
-			<Title><![CDATA[Deuces and Joker]]></Title>
-		</Game>
-		<Game Id="deuceswildmobile">
-			<Image><![CDATA[deuceswildmobile]]></Image>
-			<Title><![CDATA[Deuces Wild]]></Title>
-		</Game>
-		<Game Id="doublebonusmobile">
-			<Image><![CDATA[doublebonusmobile]]></Image>
-			<Title><![CDATA[Double Bonus]]></Title>
-		</Game>
-		<Game Id="jackpotpokermobile">
-			<Image><![CDATA[jackpotpokermobile]]></Image>
-			<Title><![CDATA[Jackpot Poker]]></Title>
-		</Game>
-		<Game Id="jacksorbettermobile">
-			<Image><![CDATA[jacksorbettermobile]]></Image>
-			<Title><![CDATA[Jacks or Better]]></Title>
-		</Game>
-		<Game Id="jokerpokermobile">
-			<Image><![CDATA[jokerpokermobile]]></Image>
-			<Title><![CDATA[Joker Poker]]></Title>
-		</Game>
-		<Game Id="kingsorbettermobile">
-			<Image><![CDATA[kingsorbettermobile]]></Image>
-			<Title><![CDATA[Kings or Better]]></Title>
-		</Game>
-	</VideoPoker>
-	<Others en-us="Others" zh-cn="其他" ko-kr="다른" ja-jp="その他" km-kh="ផ្សេងទៀត" th-th="อื่น ๆ" id-id="Lainnya" vi-vn="Khác">
-		<Game Id="holeinonemobile">
-			<Image><![CDATA[holeinonemobile]]></Image>
-			<Title><![CDATA[Hole in One]]></Title>
-		</Game>
-		<Game Id="kenomobile">
-			<Image><![CDATA[kenomobile]]></Image>
-			<Title><![CDATA[Keno]]></Title>
-		</Game>
-		<Game Id="scratchahoymobile">
-			<Image><![CDATA[scratchahoymobile]]></Image>
-			<Title><![CDATA[Scratch Ahoy]]></Title>
-		</Game>
-		<Game Id="triplechancehilomobile">
-			<Image><![CDATA[triplechancehilomobile]]></Image>
-			<Title><![CDATA[Triple Chance Hi-Lo]]></Title>
-		</Game>
-	</Others>
+    <Slot en-us="Slots" zh-cn="老虎机" ko-kr="슬롯" ja-jp="スロット" km-kh="ស្លត" th-th="สล็อต">
+        <Game Id="grimmuertomobile" Category="New">
+            <Image><![CDATA[W88-Slots-Mobile-Grim-Muerto-mobile]]></Image>
+            <Title><![CDATA[Grim Muerto]]></Title>
+        </Game>
+        <Game Id="firejokermobile">
+            <Image><![CDATA[W88-Slots-Mobile-Fire-Joker]]></Image>
+            <Title><![CDATA[Fire Joker]]></Title>
+        </Game>
+        <Game Id="fruitbonanzamobile">
+            <Image><![CDATA[W88-Slots-Mobile-Fruit-Bonanza]]></Image>
+            <Title><![CDATA[Fruit Bonanza]]></Title>
+        </Game>
+        <Game Id="aceofspadesmobile">
+            <Image><![CDATA[aceofspadesmobile]]></Image>
+            <Title><![CDATA[Ace of Spades]]></Title>
+        </Game>
+        <Game Id="aztecidolsmobile">
+            <Image><![CDATA[aztecidolsmobile]]></Image>
+            <Title><![CDATA[Aztec Idols]]></Title>
+        </Game>
+        <Game Id="belloffortunemobile">
+            <Image><![CDATA[belloffortunemobile]]></Image>
+            <Title><![CDATA[Bell of Fortune]]></Title>
+        </Game>
+        <Game Id="bookofdeadmobile">
+            <Image><![CDATA[bookofdeadmobile]]></Image>
+            <Title><![CDATA[Book of Dead]]></Title>
+        </Game>
+        <Game Id="chinesenewyearmobile">
+            <Image><![CDATA[chinesenewyearmobile]]></Image>
+            <Title><![CDATA[Chinese New Year]]></Title>
+        </Game>
+        <Game Id="cloudquestmobile">
+            <Image><![CDATA[W88-Slots-Mobile-Cloud-Quest]]></Image>
+            <Title><![CDATA[Cloud Quest]]></Title>
+        </Game >
+        <Game Id="crazycowsmobile">
+            <Image><![CDATA[crazycowsmobile]]></Image>
+            <Title><![CDATA[Crazy Cows]]></Title>
+        </Game>
+        <Game Id="dragonshipmobile">
+            <Image><![CDATA[dragonshipmobile]]></Image>
+            <Title><![CDATA[Dragon Ship]]></Title>
+        </Game>
+        <Game Id="eastereggsmobile">
+            <Image><![CDATA[eastereggsmobile]]></Image>
+            <Title><![CDATA[Easter Eggs]]></Title>
+        </Game>
+        <Game Id="enchantedcrystalsmobile">
+            <Image><![CDATA[enchantedcrystalsmobile]]></Image>
+            <Title><![CDATA[Enchanted Crystal]]></Title>
+        </Game>
+        <Game Id="enchantedmeadowmobile">
+            <Image><![CDATA[enchantedmeadowmobile]]></Image>
+            <Title><![CDATA[Enchanted Meadow]]></Title>
+        </Game>
+        <Game Id="energoonzmobile">
+            <Image><![CDATA[energoonzmobile]]></Image>
+            <Title><![CDATA[Energoonz]]></Title>
+        </Game>
+        <Game Id="eyeofthekrakenmobile">
+            <Image><![CDATA[eyeofthekrakenmobile]]></Image>
+            <Title><![CDATA[Eye of the Kraken]]></Title>
+        </Game>
+        <Game Id="fortunetellermobile">
+            <Image><![CDATA[fortunetellermobile]]></Image>
+            <Title><![CDATA[Fortune Teller]]></Title>
+        </Game>
+        <Game Id="gemixmobile">
+            <Image><![CDATA[gemixmobile]]></Image>
+            <Title><![CDATA[Gemix]]></Title>
+        </Game>
+        <Game Id="giftshopmobile">
+            <Image><![CDATA[giftshopmobile]]></Image>
+            <Title><![CDATA[Gift Shop]]></Title>
+        </Game>
+        <Game Id="goldencaravanmobile">
+            <Image><![CDATA[W88-Slots-Mobile-Golden-Caravan]]></Image>
+            <Title><![CDATA[Golden Caravan]]></Title>
+        </Game>
+        <Game Id="goldenlegendmobile">
+            <Image><![CDATA[goldenlegendmobile]]></Image>
+            <Title><![CDATA[Golden Legend]]></Title>
+        </Game>
+        <Game Id="goldengoalmobile">
+            <Image><![CDATA[goldengoalmobile]]></Image>
+            <Title><![CDATA[Golden Goal]]></Title>
+        </Game>
+        <Game Id="goldenticketmobile">
+            <Image><![CDATA[goldenticketmobile]]></Image>
+            <Title><![CDATA[Golden Ticket]]></Title>
+        </Game>
+        <Game Id="goldtrophy2mobile">
+            <Image><![CDATA[goldtrophy2mobile]]></Image>
+            <Title><![CDATA[Gold Trophy 2]]></Title>
+        </Game>
+        <Game Id="happyhalloweenmobile">
+            <Image><![CDATA[happyhalloweenmobile]]></Image>
+            <Title><![CDATA[Happy Halloween]]></Title>
+        </Game>
+        <Game Id="irishgoldmobile">
+            <Image><![CDATA[irishgoldmobile]]></Image>
+            <Title><![CDATA[Irish Gold]]></Title>
+        </Game>
+        <Game Id="jewelboxmobile">
+            <Image><![CDATA[jewelboxmobile]]></Image>
+            <Title><![CDATA[Jewel Box]]></Title>
+        </Game>
+        <Game Id="jollyrogermobile">
+            <Image><![CDATA[jollyrogermobile]]></Image>
+            <Title><![CDATA[Jolly Roger]]></Title>
+        </Game>
+        <Game Id="ladyoffortunemobile">
+            <Image><![CDATA[ladyoffortunemobile]]></Image>
+            <Title><![CDATA[Lady of Fortune]]></Title>
+        </Game>
+        <Game Id="leprechaungoesegyptmobile">
+            <Image><![CDATA[leprechaungoesegyptmobile]]></Image>
+            <Title><![CDATA[Leprechaun]]></Title>
+        </Game>
+        <Game Id="luckydiamondsmobile">
+            <Image><![CDATA[luckydiamondsmobile]]></Image>
+            <Title><![CDATA[Lucky Diamond]]></Title>
+        </Game>
+        <Game Id="masquerademobile">
+            <Image><![CDATA[masquerademobile]]></Image>
+            <Title><![CDATA[Masquerade]]></Title>
+        </Game>
+        <Game Id="merryxmasmobile">
+            <Image><![CDATA[merryxmasmobile]]></Image>
+            <Title><![CDATA[Merry Xmas]]></Title>
+        </Game>
+        <Game Id="moneywheelmobile">
+            <Image><![CDATA[W88-Slots-Mobile-Money-Wheel]]></Image>
+            <Title><![CDATA[Money Wheel]]></Title>
+        </Game>
+        <Game Id="mysteryjokermobile">
+            <Image><![CDATA[mysteryjokermobile]]></Image>
+            <Title><![CDATA[Mystery Joker]]></Title>
+        </Game>
+        <Game Id="mythmobile">
+            <Image><![CDATA[mythmobile]]></Image>
+            <Title><![CDATA[Myth]]></Title>
+        </Game>
+        <Game Id="ninjafruitsmobile">
+            <Image><![CDATA[ninjafruitsmobile]]></Image>
+            <Title><![CDATA[Ninja Fruits]]></Title>
+        </Game>
+        <Game Id="pearllagoonmobile">
+            <Image><![CDATA[pearllagoonmobile]]></Image>
+            <Title><![CDATA[Pearl Lagoon]]></Title>
+        </Game>
+        <Game Id="pearlsofindiamobile">
+            <Image><![CDATA[pearlsofindiamobile]]></Image>
+            <Title><![CDATA[pearl of India]]></Title>
+        </Game>
+        <Game Id="photosafarimobile">
+            <Image><![CDATA[photosafarimobile]]></Image>
+            <Title><![CDATA[Photo Safari]]></Title>
+        </Game>
+        <Game Id="pimpedmobile">
+            <Image><![CDATA[pimpedmobile]]></Image>
+            <Title><![CDATA[Pimped]]></Title>
+        </Game>
+        <Game Id="ragetorichesmobile">
+            <Image><![CDATA[ragetorichesmobile]]></Image>
+            <Title><![CDATA[Rage to Riches]]></Title>
+        </Game>
+        <Game Id="richesoframobile">
+            <Image><![CDATA[richesoframobile]]></Image>
+            <Title><![CDATA[Riched of Ra]]></Title>
+        </Game>
+        <Game Id="sailsofgoldmobile">
+            <Image><![CDATA[W88-Slots-Mobile-Sails-of-Gold]]></Image>
+            <Title><![CDATA[Sails of God]]></Title>
+        </Game>
+        <Game Id="sambacarnivalmobile">
+            <Image><![CDATA[sambacarnivalmobile]]></Image>
+            <Title><![CDATA[Samba Carnival]]></Title>
+        </Game>
+        <Game Id="spaceracemobile">
+            <Image><![CDATA[spaceracemobile]]></Image>
+            <Title><![CDATA[Space Race]]></Title>
+        </Game>
+        <Game Id="speedcashmobile">
+            <Image><![CDATA[speedcashmobile]]></Image>
+            <Title><![CDATA[Speed Cash]]></Title>
+        </Game>
+        <Game Id="towerquestmobile">
+            <Image><![CDATA[towerquestmobile]]></Image>
+            <Title><![CDATA[Tower Quest]]></Title>
+        </Game>
+        <Game Id="wildbloodmobile">
+            <Image><![CDATA[wildbloodmobile]]></Image>
+            <Title><![CDATA[Wild Blood]]></Title>
+        </Game>
+        <Game Id="wildmelonmobile">
+            <Image><![CDATA[wildmelonmobile]]></Image>
+            <Title><![CDATA[Wild Melon]]></Title>
+        </Game>
+        <Game Id="wildnorthmobile">
+            <Image><![CDATA[wildnorthmobile]]></Image>
+            <Title><![CDATA[Wild North]]></Title>
+        </Game>
+        <Game Id="wizardofgemsmobile">
+            <Image><![CDATA[wizardofgemsmobile]]></Image>
+            <Title><![CDATA[Wizard of Gems]]></Title>
+        </Game>
+        <Game Id="christmasjokermobile">
+            <Image><![CDATA[christmasjokermobile]]></Image>
+            <Title><![CDATA[Xmas Joker]]></Title>
+        </Game>
+    </Slot>
+    <TableCard en-us="Table &amp; Cards Games" zh-cn="卡牌桌面游戏" ko-kr="카드게임 테이블 게임" ja-jp="テーブルゲーム" km-kh="ហ្គេមតុ &amp; ហ្គេមបៀរ" th-th="การ์ด เกมส์โต๊ะ" id-id="Game Kartu &amp; Meja" vi-vn="Trò Chơi Bài &amp; Trò Chơi Bàn">
+        <Game Id="americanroulettemobile">
+            <Image><![CDATA[americanroulettemobile]]></Image>
+            <Title><![CDATA[American Roulette]]></Title>
+        </Game>
+        <Game Id="">
+            <Image><![CDATA[beatmemobile]]></Image>
+            <Title><![CDATA[Beat Me]]></Title>
+        </Game>
+        <Game Id="blackjackmhmobile">
+            <Image><![CDATA[blackjackmhmobile]]></Image>
+            <Title><![CDATA[BlackJack MH]]></Title>
+        </Game>
+        <Game Id="casinoholdemmobile">
+            <Image><![CDATA[casinoholdemmobile]]></Image>
+            <Title><![CDATA[Casino Holdem]]></Title>
+        </Game>
+        <Game Id="casinostudpokermobile">
+            <Image><![CDATA[casinostudpokermobile]]></Image>
+            <Title><![CDATA[Casino Stud Poker]]></Title>
+        </Game>
+        <Game Id="doubleexposureblackjackmhmobile">
+            <Image><![CDATA[doubleexposureblackjackmhmobile]]></Image>
+            <Title><![CDATA[Double Exposure BlackJack MH]]></Title>
+        </Game>
+        <Game Id="europeanblackjackmhmobile">
+            <Image><![CDATA[europeanblackjackmhmobile]]></Image>
+            <Title><![CDATA[European BlackJack MH]]></Title>
+        </Game>
+        <Game Id="europeanroulettemobile">
+            <Image><![CDATA[europeanroulettemobile]]></Image>
+            <Title><![CDATA[European Roulette]]></Title>
+        </Game>
+        <Game Id="minibaccaratmobile">
+            <Image><![CDATA[minibaccaratmobile]]></Image>
+            <Title><![CDATA[Mini Baccarat]]></Title>
+        </Game>
+        <Game Id="paigowpokermobile">
+            <Image><![CDATA[paigowpokermobile]]></Image>
+            <Title><![CDATA[Pai Gow Poker]]></Title>
+        </Game>
+        <Game Id="singledeckblackjackmhmobile">
+            <Image><![CDATA[singledeckblackjackmhmobile]]></Image>
+            <Title><![CDATA[Single Deck BlackJack MH]]></Title>
+        </Game>
+    </TableCard>
+    <VideoPoker en-us="Video Poker" zh-cn="视频扑克" ko-kr="비디오 포커" ja-jp="ビデオポーカー" km-kh="វីដេអូប៉ូកកឺ" th-th="วีดีโอโป๊กเกอร์">
+        <Game Id="tensorbettermobile">
+            <Image><![CDATA[tensorbettermobile]]></Image>
+            <Title><![CDATA[10's or Better]]></Title>
+        </Game>
+        <Game Id="deucesandjokermobile">
+            <Image><![CDATA[deucesandjokermobile]]></Image>
+            <Title><![CDATA[Deuces and Joker]]></Title>
+        </Game>
+        <Game Id="deuceswildmobile">
+            <Image><![CDATA[deuceswildmobile]]></Image>
+            <Title><![CDATA[Deuces Wild]]></Title>
+        </Game>
+        <Game Id="doublebonusmobile">
+            <Image><![CDATA[doublebonusmobile]]></Image>
+            <Title><![CDATA[Double Bonus]]></Title>
+        </Game>
+        <Game Id="jackpotpokermobile">
+            <Image><![CDATA[jackpotpokermobile]]></Image>
+            <Title><![CDATA[Jackpot Poker]]></Title>
+        </Game>
+        <Game Id="jacksorbettermobile">
+            <Image><![CDATA[jacksorbettermobile]]></Image>
+            <Title><![CDATA[Jacks or Better]]></Title>
+        </Game>
+        <Game Id="jokerpokermobile">
+            <Image><![CDATA[jokerpokermobile]]></Image>
+            <Title><![CDATA[Joker Poker]]></Title>
+        </Game>
+        <Game Id="kingsorbettermobile">
+            <Image><![CDATA[kingsorbettermobile]]></Image>
+            <Title><![CDATA[Kings or Better]]></Title>
+        </Game>
+    </VideoPoker>
+    <Others en-us="Others" zh-cn="其他" ko-kr="다른" ja-jp="その他" km-kh="ផ្សេងទៀត" th-th="อื่น ๆ" id-id="Lainnya" vi-vn="Khác">
+        <Game Id="holeinonemobile">
+            <Image><![CDATA[holeinonemobile]]></Image>
+            <Title><![CDATA[Hole in One]]></Title>
+        </Game>
+        <Game Id="kenomobile">
+            <Image><![CDATA[kenomobile]]></Image>
+            <Title><![CDATA[Keno]]></Title>
+        </Game>
+        <Game Id="scratchahoymobile">
+            <Image><![CDATA[scratchahoymobile]]></Image>
+            <Title><![CDATA[Scratch Ahoy]]></Title>
+        </Game>
+        <Game Id="triplechancehilomobile">
+            <Image><![CDATA[triplechancehilomobile]]></Image>
+            <Title><![CDATA[Triple Chance Hi-Lo]]></Title>
+        </Game>
+    </Others>
 </Category>

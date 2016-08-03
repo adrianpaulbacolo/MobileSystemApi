@@ -29,14 +29,13 @@ public partial class Deposit_NextPay : PaymentBasePage
 
         base.InitialisePaymentLimits();
 
-        base.GetMainWalletBalance("0");
     }
 
     protected void Page_Load(object sender, EventArgs e)
     {
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-        commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, "nextpay", sender.ToString().Contains("app"));
+        commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, "nextpay", sender.ToString().Contains("app"), base.strCurrencyCode);
 
         if (!Page.IsPostBack)
         {
@@ -94,8 +93,8 @@ public partial class Deposit_NextPay : PaymentBasePage
         string strDepositAmount = txtDepositAmount.Text.Trim();
 
         decimal decDepositAmount = commonValidation.isDecimal(strDepositAmount) ? Convert.ToDecimal(strDepositAmount) : 0;
-        decimal decMinLimit = Convert.ToDecimal(strMinLimit);
-        decimal decMaxLimit = Convert.ToDecimal(strMaxLimit);
+        decimal decMinLimit = commonValidation.isDecimal(strMinLimit) ? Convert.ToDecimal(strMinLimit) : 0;
+        decimal decMaxLimit = commonValidation.isDecimal(strMaxLimit) ? Convert.ToDecimal(strMaxLimit) : 0;
 
         if (!isProcessAbort)
         {
@@ -150,7 +149,7 @@ public partial class Deposit_NextPay : PaymentBasePage
                                 litForm.Text = GetForm(strTransferId, strDepositAmount);
 
                                 strAlertCode = "0";
-                                strAlertMessage = string.Format("{0}\\n{1}: {2}", commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferSuccess", xeErrors), commonCulture.ElementValues.getResourceString("lblTransactionId", xeResources), strTransferId);
+                                strAlertMessage = string.Format("{0}\\n{1}: {2}", commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferSuccess", xeErrors), strlblTransactionId, strTransferId);
                             }
                             else
                             {

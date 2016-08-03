@@ -32,9 +32,40 @@ public class BasePage : System.Web.UI.Page
 
         string strLanguage = HttpContext.Current.Request.QueryString.Get("lang");
 
+        switch (strLanguage)
+        {
+            case "id":
+                strLanguage = "id-id";
+                break;
+            case "jp":
+                strLanguage = "ja-jp";
+                break;
+            case "kh":
+                strLanguage = "km-kh";
+                break;
+            case "kr":
+                strLanguage = "ko-kr";
+                break;
+            case "th":
+                strLanguage = "th-th";
+                break;
+            case "vn":
+                strLanguage = "vi-vn";
+                break;
+            case "cn":
+                strLanguage = "zh-cn";
+                break;
+        }
+
         if (!string.IsNullOrEmpty(strLanguage))
         {
             commonVariables.SelectedLanguage = strLanguage;
+
+            var queryString = HttpUtility.ParseQueryString(Request.Url.Query);
+            queryString.Remove("lang");
+
+            string redirectPath = queryString.Count > 0 ? string.Format("{0}?{1}", Request.Url.LocalPath, queryString) : Request.Url.LocalPath;
+            Response.Redirect(redirectPath);
         }
 
         if (!this.isPublic)
@@ -240,5 +271,9 @@ public class BasePage : System.Web.UI.Page
             var img = (Panel)header.FindControl("logo");
             img.Visible = false;
         }
+    }
+
+    public string getAppSuffix(){
+        return (commonCookie.CookieIsApp == "1") ? "_app" : "";
     }
 }

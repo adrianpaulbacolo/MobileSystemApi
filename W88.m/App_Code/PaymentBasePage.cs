@@ -108,6 +108,7 @@ public class PaymentBasePage : BasePage
     protected override void OnPreInit(EventArgs e)
     {
         this.isPublic = false;
+        UserSession.checkSession();
     }
     protected void InitialiseVariables()
     {
@@ -299,11 +300,6 @@ public class PaymentBasePage : BasePage
         }
 
         strMethodsUnAvailable = Convert.ToString(sbMethodsUnavailable).TrimEnd('|');
-    }
-
-    protected void GetMainWalletBalance(string walletId)
-    {
-        commonPaymentMethodFunc.GetWalletBalance(Convert.ToInt32(walletId));
     }
 
     protected void InitialisePendingWithdrawals(bool isApp)

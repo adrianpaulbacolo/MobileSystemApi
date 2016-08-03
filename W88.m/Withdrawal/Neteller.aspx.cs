@@ -23,8 +23,6 @@ public partial class Withdrawal_Neteller : PaymentBasePage
 
         base.InitialisePaymentLimits();
 
-        base.GetMainWalletBalance("0");
-
         base.InitialisePendingWithdrawals(sender.ToString().Contains("app"));
     }
 
@@ -62,8 +60,8 @@ public partial class Withdrawal_Neteller : PaymentBasePage
         string memberPin = string.Empty;
 
         decimal decWithdrawalAmount = commonValidation.isDecimal(strWithdrawalAmount) ? Convert.ToDecimal(strWithdrawalAmount) : 0;
-        decimal decMinLimit = Convert.ToDecimal(strMinLimit);
-        decimal decMaxLimit = Convert.ToDecimal(strMaxLimit);
+        decimal decMinLimit = commonValidation.isDecimal(strMinLimit) ? Convert.ToDecimal(strMinLimit) : 0;
+        decimal decMaxLimit = commonValidation.isDecimal(strMaxLimit) ? Convert.ToDecimal(strMaxLimit) : 0;
 
         if (!isProcessAbort)
         {

@@ -182,23 +182,18 @@
                 }
             }
 
-            function getBalance()
-            {
+            function getBalance() {
                 $(document).ready(function () {
-                    $('span[name="WalletBalance"]').each(function () {
-                        var objWallet = $(this);
-                        var strWallet = objWallet.attr('id');
-                        $.ajax({
-                            type: "POST",
-                            url: '/AjaxHandlers/GetBalance.ashx',
-                            data: { Wallet: strWallet },
-                            success: function (html) {
-                                objWallet.text(html);
-                            }
-                        });
-                    });
+                    window.w88Mobile.FTWallets.getWallets();
                 });
             }
+
+            $(document).ready(function () {
+                if (sessionStorage.selectedWalletId != 'undefined' || sessionStorage.selectedWalletId != null) {
+                    $('#drpTransferTo').val(sessionStorage.selectedWalletId).change();
+                    sessionStorage.removeItem('selectedWalletId');
+                }
+            });
         </script>
     </div>
 </body>

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class FundTransfer_Default : BasePage
+public partial class FundTransfer_Default : PaymentBasePage
 {
     protected System.Xml.Linq.XElement xeErrors = null;
 
@@ -14,9 +14,7 @@ public partial class FundTransfer_Default : BasePage
     protected string strAlertMessage = string.Empty;
 
     private Boolean IsPageRefresh = false;
-
-    protected void Page_Init(object sender, EventArgs e) { base.CheckLogin(); }
-
+    
     protected void Page_Load(object sender, EventArgs e)
     {
         System.Xml.Linq.XElement xeFTCurrencySettings = null;
@@ -39,7 +37,7 @@ public partial class FundTransfer_Default : BasePage
             var strProduct = pair.Value.Trim();
             if (string.Compare(commonCulture.ElementValues.GetResourceXPathAttribute("Currencies/" + strCurrencyCode + "/" + strProduct.ToUpper(), "disabledfundout", xeFTCurrencySettings), "true", true) != 0)
             {
-                drpTransferFrom.Items.Add(new ListItem(pair.Value, Convert.ToString(pair.Key)));
+                    drpTransferFrom.Items.Add(new ListItem(pair.Value, Convert.ToString(pair.Key)));
             }
 
             if (string.Compare(commonCulture.ElementValues.GetResourceXPathAttribute("Currencies/" + strCurrencyCode + "/" + strProduct.ToUpper(), "disabledfundin", xeFTCurrencySettings), "true", true) != 0)
@@ -60,8 +58,6 @@ public partial class FundTransfer_Default : BasePage
         lblTransferFrom.Text = commonCulture.ElementValues.getResourceString("lblTransferFrom", xeResources);
         lblTransferTo.Text = commonCulture.ElementValues.getResourceString("lblTransferTo", xeResources);
         divBalance.InnerHtml += Convert.ToString(sbWallets);
-
-        commonPaymentMethodFunc.GetWalletBalance(0);
 
         try
         {
@@ -202,6 +198,9 @@ public partial class FundTransfer_Default : BasePage
 
             switch (strStatusCode)
             {
+                case "-60":
+                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString("FundTransfer/TransferFailed", xeErrors);
+                    break;
                 case "00":
                     string strPokerAddOn = string.Empty;
 
@@ -247,6 +246,18 @@ public partial class FundTransfer_Default : BasePage
                     break;
                 case "55": // "Transfer Declined - Funds refunded"
                     strAlertMessage = commonCulture.ElementValues.getResourceXPathString("ServerError", xeErrors);
+                    break;
+                case "62":
+                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString("FundTransfer/FundOutLimit", xeErrors);
+                    break;
+                case "63":
+                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString("FundTransfer/FundInLimit", xeErrors);
+                    break;
+                case "64":
+                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString("FundTransfer/FundOutLimitReq", xeErrors);
+                    break;
+                case "65":
+                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString("FundTransfer/FundInLimitReq", xeErrors);
                     break;
                 case "70":
                     strAlertMessage = commonCulture.ElementValues.getResourceXPathString("FundTransfer/TransferFailed", xeErrors) + "[break]" + commonCulture.ElementValues.getResourceXPathString("ServerError", xeErrors);
@@ -294,7 +305,6 @@ public partial class FundTransfer_Default : BasePage
             commonAuditTrail.appendLog("system", strPageName, "InitiateFundTransfer", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
         }
 
-        commonPaymentMethodFunc.GetWalletBalance(0);
         #endregion
     }
 

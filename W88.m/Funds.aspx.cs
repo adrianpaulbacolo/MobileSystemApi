@@ -1,160 +1,49 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Text;
+using Helpers;
 
-public partial class Funds_Main : BasePage
+public partial class Funds : PaymentBasePage
 {
-    protected override void OnPreInit(EventArgs e)
+    protected void Page_Init(object sender, EventArgs e)
     {
-        this.isPublic = false;
+        BuildUiFunds();
     }
+
     protected void Page_Load(object sender, EventArgs e)
     {
-        InitializeWalletBalance();
+        if (Page.IsPostBack) return;
+
+        SetTitle(commonCulture.ElementValues.getResourceString("funds", commonVariables.LeftMenuXML));
     }
 
-    public void InitializeWalletBalance()
-    {
-        string[] keys = { "0", "2", "7", "1", "3", "4", "6", "13", "12", "8" };
+    private void BuildUiFunds()
+    { 
+        var obj = new Wallets();
 
-        for (int x = 0; x < keys.Length; x++)
+        if (!obj.WalletInfo.Any()) return;
+
+        var builder = new StringBuilder();
+        builder.Append("<ul class='row row-bordered bg-gradient'>");
+
+        foreach (var info in obj.WalletInfo.Where(info => info.Id != 0))
         {
-            getWalletBalance(keys[x]);
+            var curr = commonCookie.CookieCurrency;
+            if (!string.IsNullOrWhiteSpace(info.CurrencyLabel))
+                curr = info.CurrencyLabel;
+
+            builder.Append("<li class='col col-50'>");
+            builder.Append(string.Format("<a class='fundsType' walletid='{0}' href='#'>", info.Id));
+            builder.Append("<div class='wallet'>");
+            builder.Append(string.Format("<label class='label'>{0}</label>", info.Name));
+            builder.Append(string.Format("<h4 class='value' id='{0}'></h4>", info.Id));
+            builder.Append(string.Format("<small class='currency'>{0}</small>", curr));
+            builder.Append("</div></a></li>");
         }
-    }
 
+        builder.Append("</ul>");
+        ltlFunds.Text = builder.ToString();
+        ltlNote.Text = obj.FundsPageNote;
 
-
-    private class Wallet
-    {
-        public const string MAIN = "0";
-        public const string ASPORTS = "2";
-        public const string LOTTERY = "1";
-        public const string CASINO = "3";
-        public const string PLAYTECH = "4";
-        public const string POKER = "6";
-        public const string SBTECH = "7";
-        public const string SBO = "13";
-        public const string NETENT = "12";
-        public const string PMAHJONG = "8";
-    }
-
-
-
-    public void getWalletBalance(string walletId)
-    {
-        string strOperatorId = commonVariables.OperatorId;
-        string strMemberCode = string.Empty;
-        string strSiteUrl = commonVariables.SiteUrl;
-
-        string processCode = string.Empty;
-        string processText = string.Empty;
-
-        string strWalletId = string.Empty;
-        string strWalletAmount = string.Empty;
-        string strProductCurrency = string.Empty;
-
-        strWalletId = walletId;
-
-        strMemberCode = commonVariables.GetSessionVariable("MemberCode");
-
-        if (!string.IsNullOrEmpty(strMemberCode) && !string.IsNullOrEmpty(strOperatorId))
-        {
-            using (svcPayMember.MemberClient svcInstance = new svcPayMember.MemberClient())
-            {
-                strWalletAmount = svcInstance.getWalletBalance(strOperatorId, strSiteUrl, strMemberCode, strWalletId, out strProductCurrency);
-            }
-        }
-        else { strWalletAmount = "0"; }
-
-        if (walletId == Wallet.MAIN)
-        {
-            Session["MAIN"] = strWalletAmount;
-        }
-        if (walletId == Wallet.ASPORTS)
-        {
-            Session["ASPORTS"] = strWalletAmount;
-        }
-        else if (walletId == Wallet.SBO)
-        {
-            Session["SBO"] = strWalletAmount;
-        }
-        else if (walletId == Wallet.CASINO)
-        {
-            Session["CASINO"] = strWalletAmount;
-        }
-        else if (walletId == Wallet.PLAYTECH)
-        {
-            Session["PLAYTECH"] = strWalletAmount;
-        }
-        else if (walletId == Wallet.SBTECH)
-        {
-            Session["SBTECH"] = strWalletAmount;
-        }
-        else if (walletId == Wallet.LOTTERY)
-        {
-            Session["LOTTERY"] = strWalletAmount;
-        }
-        else if (walletId == Wallet.NETENT)
-        {
-            Session["NETENT"] = strWalletAmount;
-        }
-        else if (walletId == Wallet.POKER)
-        {
-            Session["POKER"] = strWalletAmount;
-        }
-        else if (walletId == Wallet.PMAHJONG)
-        {
-            Session["PMAHJONG"] = strWalletAmount;
-        }
-    }
-
-    protected void aSportsBtn_Click(object sender, EventArgs e)
-    {
-        Session["Wallet"] = "2";
-        Response.Redirect("FundTransfer/Default.aspx");
-    }
-    protected void eSportsBtn_Click(object sender, EventArgs e)
-    {
-        Session["Wallet"] = "4";
-        Response.Redirect("FundTransfer/Default.aspx");
-    }
-    protected void wSportsBtn_Click(object sender, EventArgs e)
-    {
-        Session["Wallet"] = "3";
-        Response.Redirect("FundTransfer/Default.aspx");
-    }
-    protected void lotteryBtn_Click(object sender, EventArgs e)
-    {
-        Session["Wallet"] = "7";
-        Response.Redirect("FundTransfer/Default.aspx");
-    }
-    protected void casinoBtn_Click(object sender, EventArgs e)
-    {
-        Session["Wallet"] = "5";
-        Response.Redirect("FundTransfer/Default.aspx");
-    }
-    protected void nuovoBtn_Click(object sender, EventArgs e)
-    {
-        Session["Wallet"] = "0";
-        Response.Redirect("FundTransfer/Default.aspx");
-    }
-    protected void clubPalazzoBtn_Click(object sender, EventArgs e)
-    {
-        Session["Wallet"] = "6";
-        Response.Redirect("FundTransfer/Default.aspx");
-    }
-    protected void pokerBtn_Click(object sender, EventArgs e)
-    {
-        Session["Wallet"] = "8";
-        Response.Redirect("FundTransfer/Default.aspx");
-    }
-    protected void texasmahjongBtn_Click(object sender, EventArgs e)
-    {
-        Session["Wallet"] = "9";
-        Response.Redirect("FundTransfer/Default.aspx");
     }
 }
