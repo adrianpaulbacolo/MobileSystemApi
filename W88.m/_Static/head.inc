@@ -11,6 +11,7 @@
 <script src="/_Static/JS/Mobile/jquery-1.11.3.min.js"></script>
 <script src="/_Static/JS/Mobile/jquery.mobile-1.4.5.min.js"></script>
 <script src="/_Static/JS/vendor/lodash.js"></script>
+<script src="/_Static/JS/vendor/moment.min.js"></script>
 <script src="/_Static/JS/Mobile/iscroll.js"></script>
 <script src="/_Static/JS/GPINT.js"></script>
 <script src="/_Static/JS/piwik.js"></script>

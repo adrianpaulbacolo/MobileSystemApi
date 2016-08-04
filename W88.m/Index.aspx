@@ -26,6 +26,17 @@
                         <img src="/_Static/Images/Download/W88-Mobile-ClubW-Casino.jpg" alt="banner" class="img-responsive">
                     </a>
                 </div>
+                <%
+                  var promoUrl = (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) ? "/_Secure/Login.aspx?redirect=" + Uri.EscapeDataString("/Slots/SlotPromo.aspx") : "/Slots/SlotPromo.aspx";
+                %>
+                <div class="slide">
+                    <a rel="clbW" href="<%=promoUrl %>" data-ajax="false">
+                        <div class="slide-title">
+                            <h2><%=commonCulture.ElementValues.getResourceString("Title", commonVariables.PromotionsXML)%></h2>
+                        </div>
+                        <img src="/_Static/Images/W88-Mobile-Daily-Slot-Promo.jpg" alt="banner" class="img-responsive">
+                    </a>
+                </div>
             </section>        <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) {
             var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
             <div class="row row-no-padding action-btn">
@@ -216,9 +227,17 @@
         <script src="/_Static/Js/vendor/slick.min.js"></script>
         <script>
             // Slick - Slider Banner
-            $(document).ready(function(){
+            $(document).ready(function () {
                 $('.banner-slider').slick({
-                    dots: true
+                    dots: true,
+                    responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            arrows: false
+                        }
+                    }
+                    ]
                 });
             });
 

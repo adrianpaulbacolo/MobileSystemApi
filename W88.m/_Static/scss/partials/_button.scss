@@ -54,6 +54,16 @@ html head + body .ui-btn.ui-btn-b:visited {
         background-color: darken($primary-color, 10%) !important;
     }
 }
+
+.btn-gray {
+    font-weight: 400 !important;
+    color: darken($strong-color, 8%) !important;
+    background-color: $bgColor-02 !important;
+    &:active, &:hover, &:focus {
+        background-color: lighten($bgColor-02, 15%) !important;
+    }
+}
+
 .btn-secondary {
     font-weight: 600 !important;
     color: $primary-color !important;
