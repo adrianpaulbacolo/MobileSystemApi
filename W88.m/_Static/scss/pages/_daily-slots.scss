@@ -1,0 +1,158 @@
+﻿.daily-slots {
+    .daily-slots-banner {
+        img {
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    .daily-slots-content {
+        padding: 15px;
+
+        .daily-slots-content-header {
+            text-align: center;
+
+            h4 {
+                color: $primary-color;
+                text-transform: uppercase;
+                font-family: $primary-font;
+                font-weight: 700;
+            }
+
+            p {
+                font-family: $primary-font;
+            }
+        }
+
+        .ui-btn {
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-family: $primary-font;
+        }
+
+        .btn-gray.active-btn {
+            background-color: lighten($bgColor-02, 20%) !important;
+        }
+
+        .daily-slots-claim {
+            .daily-slots-claim-game {
+                text-align: center;
+                margin-bottom: 15px;
+
+                img {
+                    display: inline-block;
+                    vertical-align: top;
+                }
+
+                span {
+                    font-size: 16px;
+                    display: inline-block;
+                    vertical-align: top;
+                    font-weight: 700;
+                    color: $white;
+                }
+            }
+
+            table {
+                border: none;
+                width: 100%;
+                margin: 0 auto;
+                max-width: 768px;
+
+                tr {
+                    td:first-child {
+                        background-color: $bgColor-03;
+                        text-align: right;
+                        font-weight: 700;
+                    }
+
+                    td {
+                        background-color: $bgColor-04;
+                        border: 1px solid $bgColor-02;
+                        padding: 5px;
+                    }
+                }
+            }
+        }
+
+        .daily-slots-promo {
+            .daily-slots-promo-nav {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                display: table;
+                width: 100%;
+
+                li {
+                    display: table-cell;
+                    width: 25%;
+                    padding-left: 1px;
+                    padding-right: 1px;
+
+                    button {
+                        font-family: $primary-font;
+                        font-size: 0.929em !important;
+                        background-color: lighten($bgColor-02, 15%);
+                        word-break: break-word;
+                        white-space: normal;
+                        padding-left: 5px;
+                        padding-right: 5px;
+                        min-height: 65px;
+                        vertical-align: top;
+                        display: inline-block;
+
+                        &:active, &:hover, &:focus, &.active {
+                            color: $white;
+                            background-color: $primary-color;
+                        }
+                    }
+                }
+            }
+
+            .daily-slots-promo-games {
+                > p {
+                    font-family: $primary-font;
+                    text-align: center;
+                }
+
+                .daily-game-action {
+                    span {
+                        font-family: $primary-font;
+                        font-size: 0.857em;
+                        color: $bgColor-03;
+                        font-weight: 700;
+                        display: block;
+                        padding: 8px 0;
+                    }
+
+                    a {
+                        font-family: $primary-font;
+                        font-size: 0.857em;
+                        padding: 8px 0;
+                        display: block;
+                        text-transform: uppercase;
+                        font-weight: 700;
+                    }
+                }
+
+                .bkg-game.daily-active {
+                    > div:first-child {
+                        background-color: $primary-color !important;
+                    }
+
+                    .daily-game-action {
+                        span,
+                        a {
+                            color: $white;
+                        }
+                    }
+                }
+
+                .bkg-game.daily-inactive {
+                    opacity: 0.2;
+                }
+            }
+        }
+    }
+}
