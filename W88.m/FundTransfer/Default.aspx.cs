@@ -153,7 +153,7 @@ public partial class FundTransfer_Default : PaymentBasePage
         }
         else if (string.IsNullOrEmpty(strTransferAmount))
         {
-            strAlertMessage = commonCulture.ElementValues.getResourceXPathString("/FundTransfer/SessionExpired", xeErrors);
+            strAlertMessage = commonCulture.ElementValues.getResourceXPathString("/FundTransfer/InputTransferAmount", xeErrors);
             isProcessAbort = true;
         }
         else if (commonValidation.isInjection(strTransferAmount))

@@ -72,17 +72,22 @@
             $('#form1').submit(function (e) {
 
                 if ($('#drpTransferFrom').val() == '-1') {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("/FundTransfer/SelectTransferFrom", xeErrors)%>');
+                    window.w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceXPathString("/FundTransfer/SelectTransferFrom", xeErrors)%>');
                     e.preventDefault();
                     return;
                 }
                 else if ($('#drpTransferTo').val() == '-1') {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("/FundTransfer/SelectTransferTo", xeErrors)%>');
+                    window.w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceXPathString("/FundTransfer/SelectTransferTo", xeErrors)%>');
                     e.preventDefault();
                     return;
                 }
                 else if ($('#drpTransferFrom').val() == $('#drpTransferTo').val()) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("/FundTransfer/InvalidFundTransfer", xeErrors)%>');
+                    window.w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceXPathString("/FundTransfer/InvalidFundTransfer", xeErrors)%>');
+                    e.preventDefault();
+                    return;
+                }
+                else if ($('#txtTransferAmount').val().trim().length == 0) {
+                    window.w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceXPathString("/FundTransfer/InputTransferAmount", xeErrors)%>');
                     e.preventDefault();
                     return;
                 }
