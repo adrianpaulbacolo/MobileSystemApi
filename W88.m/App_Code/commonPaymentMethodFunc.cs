@@ -19,17 +19,10 @@ public static class commonPaymentMethodFunc
 
     public static Task<getWalletBalanceResponse> GetWalletBalanceAsync(int walletId)
     {
-        var member = new Members();
-        var info = member.MemberData();
-        if (string.IsNullOrEmpty(info.MemberCode) || string.IsNullOrEmpty(commonVariables.OperatorId)) HttpContext.Current.Session["Main"] = 0;
-
         using (var svcInstance = new MemberClient())
         {
-            string strProductCurrency;
-            var value = svcInstance.getWalletBalance(commonVariables.OperatorId, commonVariables.SiteUrl, memberCode, Convert.ToString(walletId), out strProductCurrency);
-            HttpContext.Current.Session["Main"] = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", value);
-        }
-    }
+            var member = new Members();
+            var info = member.MemberData();
 
             if (string.IsNullOrWhiteSpace(info.MemberCode))
             {
