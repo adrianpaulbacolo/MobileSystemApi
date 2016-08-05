@@ -28,7 +28,6 @@ public partial class Deposit_ECPSS : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        drpBank.Items.AddRange(base.InitializeBank("ECPSSBank").ToArray());
         this.GetDummyURL();
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
@@ -36,6 +35,7 @@ public partial class Deposit_ECPSS : PaymentBasePage
 
         if (!Page.IsPostBack)
         {
+            drpBank.Items.AddRange(base.InitializeBank("ECPSSBank").ToArray());
             this.InitializeLabels();
         }
     }

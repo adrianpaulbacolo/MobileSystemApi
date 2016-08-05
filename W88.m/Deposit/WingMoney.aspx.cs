@@ -25,13 +25,13 @@ public partial class Deposit_WingMoney : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        this.InitialiseDepositDateTime();
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
         commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"), base.strCurrencyCode);
 
         if (!Page.IsPostBack)
         {
+            this.InitialiseDepositDateTime();
             strTitle = commonCulture.ElementValues.getResourceString("lblTitle", xeResources);
 
             lblDepositAmount.Text = commonCulture.ElementValues.getResourceString("lblAmount", xeResources);

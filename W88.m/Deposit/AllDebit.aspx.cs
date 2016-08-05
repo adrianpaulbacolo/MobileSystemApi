@@ -32,7 +32,6 @@ public partial class Deposit_AllDebit : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        this.InitializeExpiryMonthYear();
         ddlCardType.Items.Insert(0, new ListItem(commonCulture.ElementValues.getResourceString("ddlCardType", xeResources), "-1"));
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
@@ -40,6 +39,7 @@ public partial class Deposit_AllDebit : PaymentBasePage
 
         if (!Page.IsPostBack)
         {
+            this.InitializeExpiryMonthYear();
             this.InitializeLabels();
 
             this.InitializeMemberAccount();

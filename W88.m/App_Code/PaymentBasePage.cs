@@ -118,7 +118,6 @@ public class PaymentBasePage : BasePage
 
         InitialiseVariables();
         InitialisePaymentLimits();
-        GetMainWalletBalance("0");
     }
     protected void InitialiseVariables()
     {

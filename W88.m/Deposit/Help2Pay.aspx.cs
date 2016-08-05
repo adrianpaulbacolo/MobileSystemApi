@@ -24,13 +24,13 @@ public partial class Deposit_Help2Pay : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        this.InitializeBank();
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
         commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"), base.strCurrencyCode);
 
         if (!Page.IsPostBack)
         {
+            this.InitializeBank();
             lblMode.Text = commonCulture.ElementValues.getResourceString("lblMode", xeResources);
             txtMode.Text = string.Format(": {0}", commonCulture.ElementValues.getResourceString("txtMode", xeResources));
             lblMinMaxLimit.Text = commonCulture.ElementValues.getResourceString("lblMinMaxLimit", xeResources);

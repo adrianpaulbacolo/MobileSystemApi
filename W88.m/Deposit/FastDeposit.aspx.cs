@@ -22,10 +22,13 @@ public partial class Deposit_FastDesposit : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        this.InitialiseSystemBankAccounts();
-        this.InitialiseMemberBank();
-        this.InitialiseDepositChannel();
-        this.InitialiseDepositDateTime();
+        if (!Page.IsPostBack)
+        {
+            this.InitialiseSystemBankAccounts();
+            this.InitialiseMemberBank();
+            this.InitialiseDepositChannel();
+            this.InitialiseDepositDateTime();
+        }
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
         commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"), base.strCurrencyCode);

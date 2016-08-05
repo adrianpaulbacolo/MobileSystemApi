@@ -22,10 +22,11 @@ public partial class Withdrawal_BankTransfer : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        base.InitialisePendingWithdrawals(sender.ToString().Contains("app"));
-
-        this.InitialiseMemberBank();
-
+        if (!Page.IsPostBack)
+        {
+            base.InitialisePendingWithdrawals(sender.ToString().Contains("app"));
+            this.InitialiseMemberBank();
+        }
         HtmlGenericControl withdrawalTabs = (HtmlGenericControl)FindControl("withdrawalTabs");
         commonPaymentMethodFunc.GetWithdrawalMethodList(strMethodsUnAvailable, withdrawalTabs, base.PageName, sender.ToString().Contains("app"));
 
