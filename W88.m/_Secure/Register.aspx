@@ -216,31 +216,33 @@
                     hasError = true;
                     e.preventDefault();
                 }
-                if ($('#txtUsername').val().trim().length < 5 || $('#txtUsername').val().trim().length > 16) {
+                else if ($('#txtUsername').val().trim().length < 5 || $('#txtUsername').val().trim().length > 16) {
                     message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidUsername", xeErrors)%></li>');
                     hasError = true;
                     e.preventDefault();
                 }
-                if (!/^[a-zA-Z0-9]+$/.test($('#txtUsername').val().trim())) {
+                else if (!/^[a-zA-Z0-9]+$/.test($('#txtUsername').val().trim())) {
                     message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidUsername", xeErrors)%></li>');
                     hasError = true;
                     e.preventDefault();
                 }
-                if ($('#txtUsername').val().trim().indexOf(' ') >= 0) {
+                else if ($('#txtUsername').val().trim().indexOf(' ') >= 0) {
                     message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidUsername", xeErrors)%></li>');
                     hasError = true;
                     e.preventDefault();
                 }
+
                 if ($('#txtPassword').val().trim().length < 8 || $('#txtPassword').val().trim().length > 10) {
                     message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidPassword", xeErrors)%></li>');
                     hasError = true;
                     e.preventDefault();
                 }
-                if ($('#txtPassword').val().trim().indexOf(' ') >= 0) {
+                else if ($('#txtPassword').val().trim().indexOf(' ') >= 0) {
                     message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidPassword", xeErrors)%></li>');
                     hasError = true;
                     e.preventDefault();
                 }
+
                 if ($('#txtEmail').val().trim().length == 0) {
                     message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/MissingEmail", xeErrors)%></li>');
                     hasError = true;
@@ -251,12 +253,18 @@
                     hasError = true;
                     e.preventDefault();
                 }
+                else if (!EmailValidation($('#txtEmail').val())) {
+                    message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidEmail", xeErrors)%></li>');
+                    hasError = true;
+                    e.preventDefault();
+                }
+
                 if ($('#txtContact').val().trim().length == 0) {
                     message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidContact", xeErrors)%></li>');
                     hasError = true;
                     e.preventDefault();
                 }
-                if ($('#txtContact').val().trim().indexOf(' ') >= 0) {
+                else if ($('#txtContact').val().trim().indexOf(' ') >= 0) {
                     message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidContact", xeErrors)%></li>');
                     hasError = true;
                     e.preventDefault();
@@ -267,26 +275,25 @@
                     hasError = true;
                     e.preventDefault();
                 }
+
                 if ($('#txtName').val().trim().length == 0) {
                     message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/MissingName", xeErrors)%></li>');
                     hasError = true;
                     e.preventDefault();
                 }
+
                 if (!CheckDob()) {
                     message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/Required18", xeErrors)%></li>');
                     hasError = true;
                     e.preventDefault();
                 }
+
                 if ($('#drpCurrency').val() == '-1') {
                     message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/MissingCurrency", xeErrors)%></li>');
                     hasError = true;
                     e.preventDefault();
                 }
-                if (!EmailValidation($('#txtEmail').val())) {
-                    message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidEmail", xeErrors)%></li>');
-                    hasError = true;
-                    e.preventDefault();
-                }
+                
 
                 if (hasError) {
                     message += ('</ul>');
