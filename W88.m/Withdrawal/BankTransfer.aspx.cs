@@ -60,7 +60,6 @@ public partial class Withdrawal_BankTransfer : PaymentBasePage
                 }
                 else
                 {
-                    lblAccountName.Text = lastName;
                     switch (commonCookie.CookieCurrency)
                     {
                         case "RMB":
