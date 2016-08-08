@@ -41,6 +41,7 @@
     <InvalidFName><![CDATA[Vui lòng nhập Tên Và Tên Đệm của bạn]]></InvalidFName>
     <InvalidLName><![CDATA[Vui lòng nhập Họ của bạn]]></InvalidLName>
     <InvalidDOB><![CDATA[Vui lòng nhập ngày sinh hợp lệ]]></InvalidDOB>
+    <Required18><![CDATA[Quý khách cần trên 18 tuổi theo độ tuổi được pháp luật cho phép]]></Required18>
     <InvalidVCode><![CDATA[Mã xác nhận sai]]></InvalidVCode>
     <chkDisclaimer><![CDATA[Vui lòng kiểm tra và đồng ý với tất cả các điều kiện và điều khoản tham gia trước khi tiến hành hoàn tất.]]></chkDisclaimer>
     <!--<chkDisclaimer><![CDATA[Bets may only be placed by those who are aged 18 or over. We may undertake a search with third party for the purpose of verifying thatyou are 18 or over, W88 reserves the right to ask for the proof of age. Customer accounts may be suspended and funds withheld untill satisfactory proof of age is provided.]]></chkDisclaimer>-->

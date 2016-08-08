@@ -288,6 +288,11 @@ public partial class _Secure_Register : BasePage
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/InvalidDOB", xeErrors);
             isProcessAbort = true;
         }
+        else if (!CheckOver18(Convert.ToDateTime(strDOB)))
+        {
+            strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/Required18", xeErrors);
+            isProcessAbort = true;
+        }
         else
         {
             strResultCode = "00";
@@ -550,5 +555,16 @@ public partial class _Secure_Register : BasePage
 
         intProcessSerialId += 1;
         commonAuditTrail.appendLog("system", strPageName, "Iovation", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
+    }
+
+    private bool CheckOver18(DateTime dob)
+    {
+        DateTime now = DateTime.Today;
+        int age = now.Year - dob.Year;
+
+        if (now.Month < dob.Month || (now.Month == dob.Month && now.Day < dob.Day))
+            age--;
+
+        return age >= 18;
     }
 }
