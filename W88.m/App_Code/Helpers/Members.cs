@@ -14,6 +14,21 @@ namespace Helpers
     {
         public int CheckMemberSession(string memberSessionId = null, string password = null)
         {
+            var memberInfo = FetchMemberData(memberSessionId, password);
+            if (memberInfo.Rows.Count > 0)
+            {
+                SetSessions(memberInfo, password);
+                return Convert.ToInt32(memberInfo.Rows[0]["RETURN_VALUE"]);
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        public DataTable FetchMemberData(string memberSessionId = null, string password = null)
+        {
+            var response = new DataTable();
             try
             {
                 using (var svcInstance = new wsMemberMS1.memberWSSoapClient())
@@ -25,16 +40,16 @@ namespace Helpers
                     {
                         if (dsMember.Tables[0].Rows.Count > 0)
                         {
-                            SetSessions(dsMember.Tables[0], password);
+                            response = dsMember.Tables[0];
                         }
                     }
 
-                    return dsMember == null ? 0 : Convert.ToInt32(dsMember.Tables[0].Rows[0]["RETURN_VALUE"]);
+                    return response;
                 }
             }
             catch (Exception)
             {
-                return 0;
+                return response;
             }
         }
 
