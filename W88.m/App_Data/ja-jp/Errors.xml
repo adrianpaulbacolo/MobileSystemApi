@@ -41,6 +41,7 @@
     <InvalidFName><![CDATA[無効な名]]></InvalidFName>
     <InvalidLName><![CDATA[無効な姓]]></InvalidLName>
     <InvalidDOB><![CDATA[無効な誕生日]]></InvalidDOB>
+    <Required18><![CDATA[あなたは18歳以上でなければなりません]]></Required18>
     <InvalidVCode><![CDATA[確認コードが正しくありません]]></InvalidVCode>
     <chkDisclaimer><![CDATA[続行するには、我々の利用規約およびプライバシーポリシーに同意する必要があります。]]></chkDisclaimer>
     <!--<chkDisclaimer><![CDATA[賭けは、あなたが18歳以上である必要があります。我々は、あなたが18歳以上であることを検証する目的で第三者と検索を行い、年齢の証明を求める権利を留保します。顧客のアカウントは、満足な証拠が提供されるまでは、一時停止し資金が留保されることがあります。]]></chkDisclaimer>-->

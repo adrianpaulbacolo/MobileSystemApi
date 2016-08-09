@@ -200,117 +200,107 @@
 
                 var responseMsg = '<%=strAlertMessage%>';
                 if ('<%=strAlertCode%>' != "1" && responseMsg.length > 0) {
-                    alert(responseMsg);
+                    window.w88Mobile.Growl.shout(responseMsg);
                 }
             });
 
             $('#imgCaptcha').click(function () { $(this).attr('src', '/Captcha'); });
 
             $('#form1').submit(function (e) {
+
+                var message = ('<ul>');
+                var hasError = false;
+
                 if ($('#txtUsername').val().trim().length == 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/MissingUsername", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
+                    message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/MissingUsername", xeErrors)%></li>');
+                    hasError = true;
                     e.preventDefault();
-                    return;
                 }
                 else if ($('#txtUsername').val().trim().length < 5 || $('#txtUsername').val().trim().length > 16) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidUsername", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
+                    message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidUsername", xeErrors)%></li>');
+                    hasError = true;
                     e.preventDefault();
-                    return;
                 }
                 else if (!/^[a-zA-Z0-9]+$/.test($('#txtUsername').val().trim())) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidUsername", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
+                    message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidUsername", xeErrors)%></li>');
+                    hasError = true;
                     e.preventDefault();
-                    return;
                 }
                 else if ($('#txtUsername').val().trim().indexOf(' ') >= 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidUsername", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
+                    message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidUsername", xeErrors)%></li>');
+                    hasError = true;
                     e.preventDefault();
-                    return;
                 }
-                else if ($('#txtPassword').val().trim().length < 8 || $('#txtPassword').val().trim().length > 10) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidPassword", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
+
+                if ($('#txtPassword').val().trim().length < 8 || $('#txtPassword').val().trim().length > 10) {
+                    message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidPassword", xeErrors)%></li>');
+                    hasError = true;
                     e.preventDefault();
-                    return;
                 }
                 else if ($('#txtPassword').val().trim().indexOf(' ') >= 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidPassword", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
+                    message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidPassword", xeErrors)%></li>');
+                    hasError = true;
                     e.preventDefault();
-                    return;
                 }
-                else if ($('#txtEmail').val().trim().length == 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/MissingEmail", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
+
+                if ($('#txtEmail').val().trim().length == 0) {
+                    message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/MissingEmail", xeErrors)%></li>');
+                    hasError = true;
                     e.preventDefault();
-                    return;
                 }
                 else if ($('#txtEmail').val().trim().indexOf(' ') >= 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidEmail", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
+                    message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidEmail", xeErrors)%></li>');
+                    hasError = true;
                     e.preventDefault();
-                    return;
                 }
-                else if ($('#txtContact').val().trim().length == 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidContact", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
+                else if (!EmailValidation($('#txtEmail').val())) {
+                    message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidEmail", xeErrors)%></li>');
+                    hasError = true;
                     e.preventDefault();
-                    return;
+                }
+
+                if ($('#txtContact').val().trim().length == 0) {
+                    message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidContact", xeErrors)%></li>');
+                    hasError = true;
+                    e.preventDefault();
                 }
                 else if ($('#txtContact').val().trim().indexOf(' ') >= 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidContact", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
+                    message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidContact", xeErrors)%></li>');
+                    hasError = true;
                     e.preventDefault();
-                    return;
                 }
                 else if (!$('#txtContact').val().trim().match('([0-9]{6,12})$')) {
                     //else if (isNaN($('#txtContact').val())) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidContact", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
+                    message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidContact", xeErrors)%></li>');
+                    hasError = true;
                     e.preventDefault();
-                    return;
                 }
-                <%--else if ($('#txtFirstName').val().trim().length == 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/MissingFName", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
+
+                if ($('#txtName').val().trim().length == 0) {
+                    message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/MissingName", xeErrors)%></li>');
+                    hasError = true;
                     e.preventDefault();
-                    return;
                 }
-                else if ($('#txtLastName').val().trim().length == 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/MissingLName", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
+
+                if (!CheckDob()) {
+                    message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/Required18", xeErrors)%></li>');
+                    hasError = true;
                     e.preventDefault();
-                    return;
-                }--%>
-                else if ($('#txtName').val().trim().length == 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/MissingName", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
-                    return;
                 }
-                <%--else if ($('#txtCaptcha').val().trim().length == 0) {
-                    alert('<%=commonCulture.ElementValues.getResourceString("MissingVCode", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
+
+                if ($('#drpCurrency').val() == '-1') {
+                    message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/MissingCurrency", xeErrors)%></li>');
+                    hasError = true;
                     e.preventDefault();
-                    return;
-                }--%>
-                else if ($('#drpCurrency').val() == '-1') {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/MissingCurrency", xeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
-                    return;
                 }
-                else if (!EmailValidation($('#txtEmail').val())) {
-                    alert('<%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidEmail", xeErrors)%>');
+                
+
+                if (hasError) {
+                    message += ('</ul>');
                     $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
+                    window.w88Mobile.Growl.shout(message);
                     return;
-                }
-                else {
+                } else {
                     GPINTMOBILE.ShowSplash();
                     $('#btnSubmit').attr("disabled", false);
                 }
@@ -323,6 +313,31 @@
                 } else
                     return false;
             }
+
+            function CheckDob() {
+                try {
+                    var item = new Date($("#<%=drpYear.ClientID%>").val() + "-" + pad($("#<%=drpMonth.ClientID%>").val(), 2) + "-" + pad($("#<%=drpDay.ClientID%>").val(), 2));
+                    var today = new Date();
+                    
+                    $("#<%=drpYear.ClientID%>").val(item.getFullYear());
+                    $("#<%=drpMonth.ClientID%>").val(item.getMonth() + 1);
+                    $("#<%=drpDay.ClientID%>").val(item.getDate());
+
+                    if ((today - item) / 1000 / 3600 / 24 / 365 < 18)
+                        return false;
+                    else
+                        return true;
+                } catch (e) {
+                    return false;
+                }
+            }
+
+            function pad(num, size) {
+                var s = num + "";
+                while (s.length < size) s = "0" + s;
+                return s;
+            }
+
         </script>
 
     </div>
