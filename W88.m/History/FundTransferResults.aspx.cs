@@ -17,7 +17,7 @@ public partial class History_FundTransferResults : BasePage
         if (!string.IsNullOrEmpty(Request["dateFrom"]) && !string.IsNullOrEmpty(Request["dateTo"]) &&
             !string.IsNullOrEmpty(Request["status"]) && !string.IsNullOrEmpty(Request["type"]) &&
             !string.IsNullOrEmpty(commonVariables.OperatorId) &&
-            !string.IsNullOrEmpty(commonVariables.GetSessionVariable("MemberCode")))
+            !string.IsNullOrEmpty(base.userInfo.MemberCode))
         {
 
             _wallet = commonPaymentMethodFunc.GetWallets();
@@ -34,7 +34,7 @@ public partial class History_FundTransferResults : BasePage
                 {
                     //Other Params
                     var strOperatorId = int.Parse(commonVariables.OperatorId);
-                    var strMemberCode = commonVariables.GetSessionVariable("MemberCode");
+                    var strMemberCode = base.userInfo.MemberCode;
                     string statusCode;
                     var history = svcInstance.getFundTransferHistory(strOperatorId, strMemberCode, type, status, dateFrom, dateTo, out statusCode);
 

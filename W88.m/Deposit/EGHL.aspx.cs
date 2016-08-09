@@ -27,16 +27,11 @@ public partial class Deposit_EGHL : PaymentBasePage
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.EGHL);
 
-        base.CheckLogin();
-        base.InitialiseVariables();
-
-        base.InitialisePaymentLimits();
-
-        drpBank.Items.AddRange(base.InitializeBank("EGHLBank").ToArray());
     }
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        drpBank.Items.AddRange(base.InitializeBank("EGHLBank").ToArray());
         strPageTitle = strCurrencyCode.Equals("IDR", StringComparison.OrdinalIgnoreCase) ? "ATM Online" : commonCulture.ElementValues.getResourceString("dEGHL", commonVariables.PaymentMethodsXML);
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");

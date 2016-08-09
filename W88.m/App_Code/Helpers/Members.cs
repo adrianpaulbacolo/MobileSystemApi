@@ -100,6 +100,22 @@ namespace Helpers
                 }
             }
 
+            //@todo will remove soon if session dependency is no more
+            if (string.IsNullOrEmpty(userData.CurrentSessionId))
+            {
+                userData.CurrentSessionId = commonVariables.GetSessionVariable("MemberSessionId");
+            }
+
+            if (string.IsNullOrEmpty(userData.MemberCode))
+            {
+                userData.MemberCode = commonVariables.GetSessionVariable("MemberCode");
+            }
+
+            if (string.IsNullOrEmpty(userData.MemberId))
+            {
+                userData.MemberId = commonVariables.GetSessionVariable("MemberId");
+            }
+
             return userData;
         }
     }

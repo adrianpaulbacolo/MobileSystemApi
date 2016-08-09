@@ -44,10 +44,10 @@ public partial class LiveChat_Default : BasePage
                 string redirectLink = string.Empty;
 
 
-                if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+                if (!string.IsNullOrEmpty(base.userInfo.CurrentSessionId))
                 {
-                    strMemberId = commonVariables.GetSessionVariable("MemberId");
-                    strMemberCode = commonVariables.GetSessionVariable("MemberCode");
+                    strMemberId = base.userInfo.MemberId;
+                    strMemberCode = base.userInfo.MemberCode;
                     riskId = commonVariables.GetSessionVariable("RiskId");
 
                     if (riskId.Length >= 3)

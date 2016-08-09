@@ -24,25 +24,18 @@ public partial class Deposit_ECPSS : PaymentBasePage
         base.PageName = Convert.ToString(commonVariables.DepositMethod.ECPSS);
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.ECPSS);
-
-        base.CheckLogin();
-        base.InitialiseVariables();
-
-        base.InitialisePaymentLimits();
-
-        drpBank.Items.AddRange(base.InitializeBank("ECPSSBank").ToArray());
-
-        this.GetDummyURL();
     }
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        this.GetDummyURL();
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
         commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"), base.strCurrencyCode);
 
         if (!Page.IsPostBack)
         {
+            drpBank.Items.AddRange(base.InitializeBank("ECPSSBank").ToArray());
             this.InitializeLabels();
         }
     }

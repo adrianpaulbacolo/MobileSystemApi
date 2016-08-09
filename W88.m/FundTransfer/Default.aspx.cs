@@ -114,9 +114,9 @@ public partial class FundTransfer_Default : PaymentBasePage
 
         strOperatorId = commonVariables.OperatorId;
         strSiteCode = commonVariables.SiteUrl.ToLower();
-        strMemberCode = commonVariables.GetSessionVariable("MemberCode");
-        strCurrencyCode = commonVariables.GetSessionVariable("CurrencyCode");
-        strSessionToken = commonVariables.GetSessionVariable("MemberSessionId");
+        strMemberCode = base.userInfo.MemberCode;
+        strCurrencyCode = commonCookie.CookieCurrency;
+        strSessionToken = base.userInfo.CurrentSessionId;
         #endregion
 
         #region parametersValidation
