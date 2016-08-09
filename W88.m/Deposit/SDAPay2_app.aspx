@@ -84,7 +84,7 @@
                             <asp:Literal ID="lblBankAccountNo" runat="server" />
                         </div>
                         <div class="col">
-                            <asp:Label ID="txtBankAccountNo" runat="server" style="text-indent: -10px; display: inline-block; padding-left: 10px;"/>
+                            <asp:Label ID="txtBankAccountNo" runat="server" class="with-colon"/>
                         </div>
                         <div class="col col-20">
                             <a href="#" class="ui-btn btn-small btn-bordered" id="copyAccountNo"><span class="icon ion-ios-copy-outline"></span> <%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
