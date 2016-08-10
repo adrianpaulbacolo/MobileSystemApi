@@ -34,7 +34,7 @@ public partial class LivePerson_Default : BasePage
             btnReqChat.InnerText = commonCulture.ElementValues.getResourceString("btnReqChat", xeResources);
             btnEndChat.InnerText = commonCulture.ElementValues.getResourceString("btnEndChat", xeResources);
             //LPVariables.SessionId = '" + System.Guid.NewGuid().ToString().ToUpper() + "';
-            if (litScript != null) { litScript.Text += "<script type='text/javascript'> $(function () { LPVariables.LPNumber = '" + strLPNumber + "'; LPVariables.AppKey = '" + commonEncryption.decrypting(strAppKey) + "'; LPVariables.Skill = '" + strSkill + "'; LPVariables.VisitorName = '" + commonVariables.GetSessionVariable("MemberCode") + "'; LPVariables.SessionId = '" + System.Guid.NewGuid().ToString().ToUpper() + "'; " + Convert.ToString(sbJSDictionary) + " });</script>"; }
+            if (litScript != null) { litScript.Text += "<script type='text/javascript'> $(function () { LPVariables.LPNumber = '" + strLPNumber + "'; LPVariables.AppKey = '" + commonEncryption.decrypting(strAppKey) + "'; LPVariables.Skill = '" + strSkill + "'; LPVariables.VisitorName = '" + base.userInfo.MemberCode + "'; LPVariables.SessionId = '" + System.Guid.NewGuid().ToString().ToUpper() + "'; " + Convert.ToString(sbJSDictionary) + " });</script>"; }
         }
     }
 }

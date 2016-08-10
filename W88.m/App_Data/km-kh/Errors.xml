@@ -41,6 +41,7 @@
     <InvalidFName><![CDATA[Invalid first name]]></InvalidFName>
     <InvalidLName><![CDATA[Invalid last name]]></InvalidLName>
     <InvalidDOB><![CDATA[Invalid Date of Birth]]></InvalidDOB>
+    <Required18><![CDATA[អ្នកត្រូវតែមានអាយុលើសពី18]]></Required18>
     <InvalidVCode><![CDATA[ការចូលទៅកាន់គណនីបរាជ័យ លេខកូដបញ្ចាក់មិនត្រឹមត្រូវ]]></InvalidVCode>
     <chkDisclaimer><![CDATA[You have to agree with our Terms & Conditions & Privacy Policy in order to proceed.]]></chkDisclaimer>
     <!--<chkDisclaimer><![CDATA[Bets may only be placed by those who are aged 18 or over. We may undertake a search with third party for the purpose of verifying thatyou are 18 or over, W88 reserves the right to ask for the proof of age. Customer accounts may be suspended and funds withheld untill satisfactory proof of age is provided.]]></chkDisclaimer>-->

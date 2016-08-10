@@ -23,12 +23,6 @@ public partial class Deposit_NextPay : PaymentBasePage
         base.PageName = "SDPay";
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.NextPay);
-
-        base.CheckLogin();
-        base.InitialiseVariables();
-
-        base.InitialisePaymentLimits();
-
     }
 
     protected void Page_Load(object sender, EventArgs e)
