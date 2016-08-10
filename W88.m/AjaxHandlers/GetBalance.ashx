@@ -2,6 +2,7 @@
 
 using System;
 using System.Web;
+using Helpers;
 
 public class AjaxHandlers_ASHX_GetBalance : IHttpHandler, System.Web.SessionState.IReadOnlySessionState
 {
@@ -18,11 +19,14 @@ public class AjaxHandlers_ASHX_GetBalance : IHttpHandler, System.Web.SessionStat
         string strWalletAmount = string.Empty;
         string strProductCurrency = string.Empty;
 
+        var user = new Members();
+        var userInfo = user.MemberData();
+
         System.Text.StringBuilder sbWalletBalance = new System.Text.StringBuilder();
 
         strWalletId = context.Request.Form.Get("Wallet");
         //if (!string.IsNullOrEmpty(System.Web.HttpContext.Current.Session["MemberCode"] as string)) { strMemberCode = Convert.ToString(System.Web.HttpContext.Current.Session["MemberCode"]); }
-        strMemberCode = commonVariables.GetSessionVariable("MemberCode");
+        strMemberCode = userInfo.MemberCode;
         #region productWalletBalance
 
         if (!string.IsNullOrEmpty(strMemberCode) && !string.IsNullOrEmpty(strOperatorId))

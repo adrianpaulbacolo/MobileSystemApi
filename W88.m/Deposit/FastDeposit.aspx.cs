@@ -18,19 +18,17 @@ public partial class Deposit_FastDesposit : PaymentBasePage
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.FastDeposit);
 
-        base.CheckLogin();
-        base.InitialiseVariables();
-
-        base.InitialisePaymentLimits();
-
-        this.InitialiseSystemBankAccounts();
-        this.InitialiseMemberBank();
-        this.InitialiseDepositChannel();
-        this.InitialiseDepositDateTime();
     }
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!Page.IsPostBack)
+        {
+            this.InitialiseSystemBankAccounts();
+            this.InitialiseMemberBank();
+            this.InitialiseDepositChannel();
+            this.InitialiseDepositDateTime();
+        }
 
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
         commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"), base.strCurrencyCode);

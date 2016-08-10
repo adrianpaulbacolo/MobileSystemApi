@@ -22,7 +22,7 @@ html .ui-body-b .ui-body-inherit,
 html body .ui-group-theme-b .ui-body-inherit,
 html .ui-panel-page-container-b,
 .ui-page-theme-b .ui-panel-wrapper {
-    background-color: $base-background-color;
+    background-color: $bgColor-02;
     border-color: $border-color;
     color: $base-color;
     text-shadow: none;
@@ -198,4 +198,10 @@ figure {
 
 #drpContactCountry-button > span{
     overflow: visible !important;
+}
+
+.with-colon{
+    text-indent: -8px; 
+    display: inline-block; 
+    padding-left: 8px;
 }

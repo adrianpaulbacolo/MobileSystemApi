@@ -25,12 +25,6 @@ public partial class Deposit_SDAPay2 : PaymentBasePage
         base.PageName = "SDAPayAlipay";
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.SDAPayAlipay);
-
-        base.CheckLogin();
-        base.InitialiseVariables();
-
-        base.InitialisePaymentLimits();
-
     }
 
     protected void Page_Load(object sender, EventArgs e)

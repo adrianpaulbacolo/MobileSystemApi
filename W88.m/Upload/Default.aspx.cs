@@ -22,10 +22,10 @@ public partial class Upload_Default : BasePage
         SetTitle(commonCulture.ElementValues.getResourceString("submitUpload", commonVariables.LeftMenuXML));
 
         lblUsername.Text = commonCulture.ElementValues.getResourceString("lblUsername", xeResources);
-        txtUsername.Text = commonVariables.GetSessionVariable("MemberCode");
+        txtUsername.Text = base.userInfo.MemberCode;
 
         lblCurrency.Text = commonCulture.ElementValues.getResourceString("lblCurrency", xeResources);
-        txtCurrency.Text = commonVariables.GetSessionVariable("CurrencyCode");
+        txtCurrency.Text = commonCookie.CookieCurrency;
 
         lblRemarks.Text = commonCulture.ElementValues.getResourceString("lblRemarks", xeResources);
 
@@ -41,9 +41,9 @@ public partial class Upload_Default : BasePage
     {
         string strSMTPHost = System.Configuration.ConfigurationManager.AppSettings.Get("SMTPHOST");
         string strEmailFrom = "fileupload-mobile@w88.com";
-        string strUsername = commonVariables.GetSessionVariable("MemberCode");
+        string strUsername = base.userInfo.MemberCode;
         string strRemarks = txtRemarks.Text;
-        string strCurrency = commonVariables.GetSessionVariable("CurrencyCode");
+        string strCurrency = commonCookie.CookieCurrency;
         string strSubmissionID = System.DateTime.Now.ToString("hhmmssddMMyy");
         //string strUploadRecipients = System.Configuration.ConfigurationManager.AppSettings.Get("UploadRecipients");
         int fileSize = fuFileUpload.PostedFile.ContentLength;
