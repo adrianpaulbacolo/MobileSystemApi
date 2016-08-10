@@ -22,7 +22,7 @@ public partial class Withdrawal_WingMoney : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        base.InitialisePendingWithdrawals(sender.ToString().Contains("app"));
+        if (!Page.IsPostBack) base.InitialisePendingWithdrawals(sender.ToString().Contains("app"));
 
         HtmlGenericControl withdrawalTabs = (HtmlGenericControl)FindControl("withdrawalTabs");
         commonPaymentMethodFunc.GetWithdrawalMethodList(strMethodsUnAvailable, withdrawalTabs, base.PageName, sender.ToString().Contains("app"));
