@@ -479,3 +479,40 @@ public class CommonClubApollo
         }
     }
 }
+
+public class commonProduct
+{
+    public static string GetWallet(string productCode)
+    {
+        switch(productCode){
+            case "playtech":
+                return productWallet.palazzo;
+            case "vanguard":
+                return productWallet.massimo;
+            case "slot":
+                return productWallet.bravado;
+            case "png":
+                return productWallet.gallardo;
+            case "ags":
+                return productWallet.apollo;
+            case "betsoft":
+                return productWallet.divino;
+            case "netent":
+                return productWallet.nuovo;
+            default:
+                return productCode;
+        }
+    }
+}
+
+public sealed class productWallet
+{
+    private productWallet() {}
+    public static readonly string divino = "Club Divino";
+    public static readonly string apollo = "Club Apollo";
+    public static readonly string palazzo = "Club Palazzo";
+    public static readonly string gallardo = "Club Gallardo";
+    public static readonly string bravado = "Club Bravado";
+    public static readonly string massimo = "Club Massimo";
+    public static readonly string nuovo = "Club Nuovo";
+}

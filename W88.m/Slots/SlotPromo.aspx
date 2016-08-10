@@ -119,12 +119,12 @@
 
         var submitClaim = function (promo) {
 
-        if(!_.isEmpty(promo.info)){
-            if (promo.info.svc_error_code != 0 && promo.info.svc_error != "") {
-                switch (promo.info.svc_error_code) {
-                    case -1:
-                        if (promo.info.total_stake < 1) {
-                            w88Mobile.Growl.shout("<%=commonCulture.ElementValues.getResourceXPathString("StakeAndBonus/Error90", commonVariables.PromotionsXML) %>");
+            if (!_.isEmpty(promo.info)) {
+                if (promo.info.svc_error_code != 0 && promo.info.svc_error != "") {
+                    switch (promo.info.svc_error_code) {
+                        case -1:
+                            if (promo.info.total_stake < 1) {
+                                w88Mobile.Growl.shout("<%=commonCulture.ElementValues.getResourceXPathString("StakeAndBonus/Error90", commonVariables.PromotionsXML) %>");
                         } else {
                             w88Mobile.Growl.shout(promo.info.message);
                         }
@@ -137,7 +137,6 @@
             }
         }
 
-
             $.ajax({
                 url: "SlotPromo.aspx/claimPromo",
                 data: JSON.stringify({ id: promo.id, club: promo.game.club }),
@@ -146,37 +145,45 @@
                 contentType: "application/json; charset=utf-8",
                 beforeSend: function () {
                     $(".daily-slots-claim").prepend(loader);
+                    $("button[class*='claim-submit']").prop('disabled', true);
                 },
                 success: function (mydata) {
                     var claim = JSON.parse(mydata.d);
-                    $(".daily-slots-claim div.spinner-generic").remove();
                     if (claim.status != 0) {
                         w88Mobile.Growl.shout(claim.hidden_message);
                     } else {
                         w88Mobile.Growl.shout(claim.hidden_message);
                         currentPromoClaim = {};
+                        showClaimInfo();
                     }
+                },
+                complete: function () {
+                    $(".daily-slots-claim div.spinner-generic").remove();
+                    $("button[class*='claim-submit']").prop('disabled', false);
                 }
             });
         }
 
-        var setPromo = function (promo) {
-            activePromoClaim = promo;
-            $(".daily-slots-claim").html("");
-            var claimGame = $("<div>", { class: "daily-slots-claim-game" })
-                .append($("<img>", { src: promo.game.image_link, alt: promo.game.name })).append(" ")
-                .append($("<span>").html(promo.endDate))
-            $(".daily-slots-claim").append(claimGame);
-            var claimDesc = $("<table>")
-                .append($("<tr>")
-                    .append($("<td>").html("<%=commonCulture.ElementValues.getResourceString("Slot", commonVariables.PromotionsXML)%>:"))
+    var setPromo = function (promo) {
+        activePromoClaim = promo;
+        $(".daily-slots-claim").html("");
+        var claimGame = $("<div>", { class: "daily-slots-claim-game" })
+            .append($("<img>", { src: promo.game.image_link, alt: promo.game.name })).append(" ")
+            .append($("<span>").html(promo.endDate))
+        $(".daily-slots-claim").append(claimGame);
+        var claimDesc = $("<table>")
+            .append($("<tr>")
+                .append($("<td>").html("<%=commonCulture.ElementValues.getResourceString("Slot", commonVariables.PromotionsXML)%>:"))
                     .append($("<td>").html(promo.game.name)))
                 .append($("<tr>")
                     .append($("<td>").html("<%=commonCulture.ElementValues.getResourceString("Instruction", commonVariables.PromotionsXML)%>:"))
                     .append($("<td>").html(promo.instructions)))
                 .append($("<tr>")
                     .append($("<td>").html("<%=commonCulture.ElementValues.getResourceString("Bonus", commonVariables.PromotionsXML)%>:"))
-                    .append($("<td>").html(formatAmount(promo.game.minBonus))));
+                    .append($("<td>").html(formatAmount(promo.game.minBonus))))
+                .append($("<tr>")
+                        .append($("<td>").html("<%=commonCulture.ElementValues.getResourceString("SlotClub", commonVariables.PromotionsXML)%>:"))
+                        .append($("<td>").html(promo.game.clubName)));
             $(".daily-slots-claim").append(claimDesc);
 
             if (!_.isEmpty(promo.info)) {
@@ -188,43 +195,40 @@
                         .append($("<td>").html(formatAmount(promo.info.bonus_amount))))
                 .append($("<tr>")
                         .append($("<td>").html("<%=commonCulture.ElementValues.getResourceString("RollOver", commonVariables.PromotionsXML)%>:"))
-                        .append($("<td>").html(formatAmount(promo.info.rollover_amount))))
-                .append($("<tr>")
-                        .append($("<td>").html("<%=commonCulture.ElementValues.getResourceString("SlotClub", commonVariables.PromotionsXML)%>:"))
-                        .append($("<td>").html(promo.game.club)));
-                }
+                        .append($("<td>").html(formatAmount(promo.info.rollover_amount))));
+            }
 
             if (promo.status == -1) {
-                var claimButton = $("<button>", { class: "ui-btn btn-primary", type: "button" })
+                var claimButton = $("<button>", { class: "ui-btn btn-primary claim-submit-button", type: "button" })
                     .html("<%=commonCulture.ElementValues.getResourceString("ClaimNow", commonVariables.PromotionsXML)%>");
-                    claimButton.on("click", function () {
-                        if (window.User.hasSession != 1)
-                            window.open("/_Secure/Login.aspx?redirect=" + encodeURI("Slots/SlotPromo.aspx"));
-                        else submitClaim(activePromoClaim);
-                    })
-                    $(".daily-slots-claim").append(claimButton);
+                claimButton.on("click", function () {
+                    if (window.User.hasSession != 1)
+                        window.open("/_Secure/Login.aspx?redirect=" + encodeURI("Slots/SlotPromo.aspx"));
+                    else submitClaim(activePromoClaim);
+                })
+                $(".daily-slots-claim").append(claimButton);
 
-                } else if (promo.status == 1) {
+            } else if (promo.status == 1) {
 
-                    var playButton = $("<button>", { class: "ui-btn btn-primary", type: "button" })
-                        .html("<%=commonCulture.ElementValues.getResourceString("PlayNow", commonVariables.PromotionsXML)%>");
-                    playButton.on("click", function () {
-                        var cUrl = window.location.hostname;
-                        window.open(activePromoClaim.game.game_link);
-                    })
-                    $(".daily-slots-claim").append(playButton);
-                }
+                var playButton = $("<button>", { class: "ui-btn btn-primary", type: "button" })
+                    .html("<%=commonCulture.ElementValues.getResourceString("PlayNow", commonVariables.PromotionsXML)%>");
+                        playButton.on("click", function () {
+                            var cUrl = window.location.hostname;
+                            window.open(activePromoClaim.game.game_link);
+                        })
+                        $(".daily-slots-claim").append(playButton);
+                    }
         }
 
-        function fetchPromo(week) {
+            function fetchPromo(week) {
 
-            var curDay = moment().day();
-            var monday = moment().add(week, "week");
-            if (curDay > 1) {
-                monday = moment(monday).add(1 - curDay, "day");
-            }
-            var sunday = moment(monday).add(6, "day");
-            var weekLabel = "<%=commonCulture.ElementValues.getResourceString("WeeklyLabel", commonVariables.PromotionsXML)%>";
+                var curDay = moment().day();
+                var monday = moment().add(week, "week");
+                if (curDay > 1) {
+                    monday = moment(monday).add(1 - curDay, "day");
+                }
+                var sunday = moment(monday).add(6, "day");
+                var weekLabel = "<%=commonCulture.ElementValues.getResourceString("WeeklyLabel", commonVariables.PromotionsXML)%>";
             weekLabel = weekLabel.replace("{from}", monday.format("DD/MM/YYYY")).replace("{to}", sunday.format("DD/MM/YYYY"));
             $("#weekly-label").html(weekLabel);
 

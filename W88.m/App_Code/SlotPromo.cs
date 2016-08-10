@@ -48,7 +48,7 @@ public class SlotPromo
 
     public List<SlotPromoItem> getPromo(DateTime start, DateTime end)
     {
-        var riskId = commonVariables.GetSessionVariable("RiskId");
+        var riskId = userInfo.RiskId;
         if (string.IsNullOrEmpty(riskId)) riskId = "N";
 
         var promoList = new List<SlotPromoItem>();
@@ -284,6 +284,7 @@ public class SlotPromo
         }
         game.name = promoGame.HtmlGameCode.ToString();
         game.club = gameClub;
+        game.clubName = commonProduct.GetWallet(game.club);
 
         return game;
     }
@@ -354,7 +355,7 @@ public class SlotPromo
         var promoClaim = new claim();
 
 
-        var riskId = commonVariables.GetSessionVariable("RiskId") ?? "N";
+        var riskId = userInfo.RiskId ?? "N";
         var memberCode = (string)userInfo.MemberCode;
 
         var values = createBaseContent();
@@ -473,6 +474,7 @@ public class SlotPromo
         public string name { get; set; }
         public string club { get; set; }
         public string minBonus { get; set; }
+        public string clubName { get; set; }
         //public string user_currency { get; set; }
         //public string selected_currency { get; set; }
         //public string disabled_currency { get; set; }

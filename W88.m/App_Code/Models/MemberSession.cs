@@ -15,6 +15,8 @@ namespace Models
             public string MemberId = string.Empty;
 
             public string MemberCode = string.Empty;
+
+            public string RiskId = string.Empty;
         }
     }
 }
