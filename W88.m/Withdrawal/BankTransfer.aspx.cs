@@ -42,8 +42,7 @@ public partial class Withdrawal_BankTransfer : PaymentBasePage
             this.InitializeLabels();
             // bank account name pre defined value
             var user = new Members();
-            var userInfo = user.MemberData();
-            var userData = user.FetchMemberData(userInfo.CurrentSessionId);
+            var userData = user.FetchMemberData(base.userInfo.CurrentSessionId);
             if (userData.Rows.Count > 0 && userData.Columns["Firstname"] != null)
             {
                 txtAccountName.ReadOnly = true;
