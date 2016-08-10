@@ -17,8 +17,18 @@ namespace Helpers
             var memberInfo = FetchMemberData(memberSessionId, password);
             if (memberInfo.Rows.Count > 0)
             {
-                SetSessions(memberInfo, password);
-                return Convert.ToInt32(memberInfo.Rows[0]["RETURN_VALUE"]);
+                try
+                {
+                    var loginCode = Convert.ToInt32(memberInfo.Rows[0]["RETURN_VALUE"]);
+
+                    if(loginCode == 1) SetSessions(memberInfo, password);
+
+                    return loginCode;
+                }
+                catch (Exception)
+                {
+                    return 0;
+                }
             }
             else
             {
