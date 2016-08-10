@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Xml.XPath;
+using Helpers;
 
 public partial class Withdrawal_BankTransfer : PaymentBasePage
 {
@@ -39,6 +40,43 @@ public partial class Withdrawal_BankTransfer : PaymentBasePage
         if (!Page.IsPostBack)
         {
             this.InitializeLabels();
+            // bank account name pre defined value
+            var user = new Members();
+            var userData = user.FetchMemberData(base.userInfo.CurrentSessionId);
+            if (userData.Rows.Count > 0 && userData.Columns["Firstname"] != null)
+            {
+                txtAccountName.ReadOnly = true;
+                var firstName = Convert.ToString(userData.Rows[0]["FirstName"]);
+                var lastName = Convert.ToString(userData.Rows[0]["Lastname"]);
+                if (string.IsNullOrWhiteSpace(lastName))
+                {
+                    txtAccountName.Text = firstName;
+                }
+                else
+                {
+                    switch (commonCookie.CookieCurrency)
+                    {
+                        case "RMB":
+                        case "KRW":
+                            txtAccountName.Text = lastName + firstName;
+                            break;
+                        case "VND":
+                        case "JPY":
+                            txtAccountName.Text = lastName + " " + firstName;
+                            break;
+                        case "USD":
+                        case "MYR":
+                        case "IDR":
+                            txtAccountName.Text = firstName + " " + lastName;
+                            break;
+                        default:
+                            txtAccountName.ReadOnly = false;
+                            break;
+                    }
+
+                }
+
+            }
         }
     }
 
@@ -216,7 +254,7 @@ public partial class Withdrawal_BankTransfer : PaymentBasePage
 
         intProcessSerialId += 1;
         commonAuditTrail.appendLog("system", PageName, "InitiateWithdrawal", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
-        
+
         #endregion
     }
 
