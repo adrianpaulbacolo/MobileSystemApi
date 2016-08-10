@@ -19,8 +19,11 @@ namespace Helpers
             {
                 try
                 {
-                    SetSessions(memberInfo, password);
-                    return Convert.ToInt32(memberInfo.Rows[0]["RETURN_VALUE"]);
+                    var loginCode = Convert.ToInt32(memberInfo.Rows[0]["RETURN_VALUE"]);
+
+                    if(loginCode == 1) SetSessions(memberInfo, password);
+
+                    return loginCode;
                 }
                 catch (Exception)
                 {
