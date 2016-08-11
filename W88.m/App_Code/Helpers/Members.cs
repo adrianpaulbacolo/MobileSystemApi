@@ -53,7 +53,6 @@ namespace Helpers
                             response = dsMember.Tables[0];
                         }
                     }
-
                     return response;
                 }
             }
@@ -61,6 +60,7 @@ namespace Helpers
             {
                 return response;
             }
+
         }
 
         private void SetSessions(DataTable dTable, string password)
@@ -97,7 +97,8 @@ namespace Helpers
             {
                 CurrentSessionId = dTable.Rows[0]["memberSessionId"].ToString(),
                 MemberId = dTable.Rows[0]["memberId"].ToString(),
-                MemberCode = dTable.Rows[0]["memberCode"].ToString()
+                MemberCode = dTable.Rows[0]["memberCode"].ToString(),
+                RiskId = dTable.Rows[0]["riskId"].ToString()
             };
 
             var serializer = new JavaScriptSerializer();
@@ -139,6 +140,11 @@ namespace Helpers
             if (string.IsNullOrEmpty(userData.MemberId))
             {
                 userData.MemberId = commonVariables.GetSessionVariable("MemberId");
+            }
+
+            if (string.IsNullOrEmpty(userData.RiskId))
+            {
+                userData.RiskId = commonVariables.GetSessionVariable("RiskId");
             }
 
             return userData;
