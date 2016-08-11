@@ -1,0 +1,242 @@
+.spinner {
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 0.714em;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+}
+
+.spinner > div {
+  background-color: #01374d;
+  height: 100%;
+  width: 4px;
+  display: inline-block;
+  
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+  background-color: $brand-default;
+}
+
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+  0%, 40%, 100% { 
+    -webkit-transform: scaleY(0.4) ;
+  
+  }  
+  20% { 
+    -webkit-transform: scaleY(1.0) 
+  }
+  
+}
+
+@keyframes sk-stretchdelay {
+
+  0%, 40%, 100% { 
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  background-color: #01374d;
+  }
+
+  20% { 
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+    background-color: #d3dee3;
+  }
+}
+
+.form-box{
+  margin-top: 30px;
+}
+
+.help-block{
+  color: $help-block-color;
+  font-size: 0.857em;
+}
+
+.form-group.form-group-line{
+  label{
+    color: $form-label-color;
+    font-size: 0.857em;
+    margin-bottom: 0;
+    font-weight:normal;
+    pointer-events:none;
+  }
+  .form-control{
+    color: $form-input-text-color;
+    font-size: 1.143em;
+    padding: 4px 0;
+    height: 35px;
+    border:none;
+    background-color: transparent;
+    border-bottom:1px solid $form-input-border-color;
+    @include border-radius(0);
+    @include box-shadow(none);
+    > option{
+        color: $white;
+        background-color: $gray-darker;
+    }
+    &:focus{
+      outline:none;
+      @include box-shadow(none);
+    }
+  }
+}
+
+.form-group-placeholder{
+  position: relative;
+  label{
+    color: $form-label2-color;
+    font-size: 0.857em;
+    margin-bottom: 0;
+    font-weight:normal;
+    pointer-events:none;
+    top: 11px;
+    position: absolute;
+  }
+  .form-control{
+    color: $form-input-text-color;
+    font-size: 1.143em;
+    padding: 8px 0 8px 30px;
+    border:none;
+    background-color: transparent;
+    border-bottom:1px solid $form-input-border-color;
+    @include border-radius(0);
+    @include box-shadow(none);
+    > option{
+        color: $white;
+        background-color: $gray-darker;
+    }
+    &:focus{
+      outline:none;
+      @include box-shadow(none);
+    }
+  }
+}
+
+.page-title{
+  margin-bottom: 15px;
+  h3{
+    color: $page-title-header-color;
+    font-size: 1.286em;
+    margin-top: 0;
+    margin-bottom: 0;
+    a{
+      margin-left: 10px;
+      color: $page-title-help-color;
+    }
+  }
+  p{
+    font-size: 0.786em;
+    line-height: 1.429em;
+    color: $page-title-text-color;
+    max-width: 90%;
+    margin: 0 auto 10px;
+    display: block;
+  }
+}
+
+.table-container,
+.form-container{
+  padding-top: 16px;
+}
+
+.wallet-box{
+  text-align: center;
+  margin: -16px -8px 16px;
+  padding: 8px;
+  background: darken($body-bg, 2%);
+  h4{
+    font-size: 1em;
+    font-weight: normal;
+    line-height: 1.429em;
+    color: $text-color;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  p{
+    font-size: 1.286em;
+    line-height: 1.071em;
+    color: $brand-alt;
+    margin-bottom: 0;
+  }
+  span{
+    font-size: 0.857em;
+    line-height: 1.818em;
+    color: darken($text-color, 40%);
+    display: block;
+  }
+}
+
+.table{
+  >thead>tr>th,
+  >thead>tr>td,
+  >tbody>tr>th,
+  >tbody>tr>td,
+  >tfoot>tr>th,
+  >tfoot>tr>td {
+    color: $text-alt;
+    padding: 16px 0;
+    vertical-align: middle;
+    border-top: 1px solid desaturate(lighten($body-bg, 5%), 40%);
+  }
+  .table-entry-type{
+    color: $text-alt;
+    font-size: 1.143em;
+    line-height: 1.286em;
+    display: block;
+  }
+  .table-date{
+    font-size: 0.857em;
+    color: darken($text-alt, 40%);
+    line-height: 1.818em;
+    display: block;
+  }
+  .table-status{
+    @extend .table-date;
+    font-weight: 700;
+    display: inline;
+  }
+}
+
+.language-box{
+  text-align: center;
+  a{
+    margin-bottom: 15px;
+    display: block;
+  }
+  img{
+    width: 60%;
+    max-width: 150px;
+    margin: 0 auto 5px;
+    display: block;
+  }
+  span{
+    color: $text-alt;
+    font-size: 0.786em;
+    display: inline-block;
+  }
+}

@@ -1,0 +1,174 @@
+.header{
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	position: fixed;
+	height: 44px;
+	width: 100%;
+	@include box-shadow(0 2px 4px 0 rgba(0,0,0,0.3));
+	.header-container{
+		text-align: center;
+		background-color: $header-bg-color;
+		z-index: 5;
+		position: relative;
+	}
+	.header-buttons{
+		z-index: 20;
+		position: relative;
+		.dropdown > a,
+		> a{
+			height: 44px;
+			padding: 6px 10px;
+			display: block;
+		}
+		
+		.header-currency,
+		.header-chat,
+		.header-menu{
+			color: $header-buttons-color;
+			font-size: 1.714em;
+			line-height: 1;
+			margin: 0;
+			border: none;
+			background-color: transparent;
+			.icon{
+				line-height: 1.357em;
+			}
+		}
+		.header-currency{
+			> span{
+				font-size: 0.571em;
+			}
+		}
+		.more-btn{
+			color: $header-buttons-color;
+			border-left: 1px solid $header-border-color;
+		}
+		.dropdown-menu{
+			background-color: $header-dropdown-bg;
+			border-color: $header-dropdown-bg;
+			margin: 0;
+			> li{
+				border-bottom: 1px solid $header-dropdown-border;
+				> a{
+					padding: 10px 20px;
+					color: $header-dropdown-color;
+					&:focus,
+					&:hover{
+						color: $header-dropdown-hover-color;
+						background-color: $header-dropdown-hover-bg;
+					}
+				}
+				&:last-child{
+					border-bottom: none;
+				}
+			}
+		}
+	}
+	.header-logo{
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 10;
+		position: absolute;
+		h1{
+			color: $header-title-color;
+			font-family: $dinpro;
+			font-size: 1.143em;
+			line-height: 1.143em;
+			text-transform: capitalize;
+			margin: 0;
+			padding: 12px 0;
+			display: inline-block;
+			img{
+				max-height: 1.143em;
+				display: inline-block;
+				bottom: 2px;
+				position: relative;
+			}
+		}
+	}
+	.header-nav{
+		background-color: $header-nav-bg;
+		max-width: 100%;
+		overflow: auto;
+		width: 100%;
+		max-height: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 0;
+		position: fixed;
+		@include box-shadow(0 2px 4px 0 rgba(0,0,0,0.75));
+		.header-menu-user{
+			padding: 44px 0 0 0;
+			background-color: $user-info-bg;
+			.media-body{
+				padding: 16px 0 15px 16px;
+				p{
+					color: $user-info-wallet;
+					margin-bottom: 3px;
+					line-height: 1em;
+				}
+				h4{
+					color: $user-info-name;
+					font-size: 1.429em;
+					font-weight: 700;
+					margin-top: 0px;
+					margin-bottom: 0px;
+				}
+			}
+			.media-right{
+				.btn{
+					padding: 16px;
+					font-size: 2em;
+				}
+			}
+		}
+		.header-menu-logged-in{
+			padding-top: 16px;
+			padding-bottom: 16px;
+			border-bottom: 1px solid $user-menu-border;
+			.btn{
+				color: $user-menu-label;
+				font-weight: normal;
+				text-transform: none;
+				span{
+					color: $user-menu-icon;
+					font-size: 2.286em;
+					display: block;
+				}
+			}
+		}
+		ul.header-menu-logged-out{
+			margin: 0;
+			padding: 16px 0;
+			list-style: none;
+			li{
+				margin: 0;
+				display: block;
+				&:last-child{
+					border-bottom: none;
+				}
+				a{
+					font-size: 1.143em;
+					font-family: $dinpro;
+					color: $generic-menu-color;
+					text-align: left;
+					padding: 10px 10px;
+					display: block;
+					.icon{
+						font-size: 1.429em;
+					}
+					&:focus,
+					&:hover{
+						color: lighten($generic-menu-color,5%);
+					}
+				}
+			}
+		}
+	}
+}

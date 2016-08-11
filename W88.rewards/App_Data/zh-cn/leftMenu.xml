@@ -18,4 +18,5 @@
   <products><![CDATA[产品]]></products>
   <desktopsite><![CDATA[桌面版网站]]></desktopsite>
   <fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
+  <close><![CDATA[关闭]]></close>
 </menu>

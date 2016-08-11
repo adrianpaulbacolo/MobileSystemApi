@@ -1,0 +1,10 @@
+.login{
+	.no-account{
+		margin: 16px auto 32px;
+		max-width: 90%;
+		p{
+			font-size: 0.857em;
+			color: darken($white, 40%);
+		}
+	}
+}

@@ -1,10 +1,36 @@
-﻿<div data-role="header" data-position="fixed" data-theme="b" data-tap-toggle="false" class="div-nav-header">
-<div><a href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true"><img src="/_Static/Images/icon-menu.png" /></a></div>
-<% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
-<div><a class="ui-btn ui-gray" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-         <%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></a></div>
-    <% } else { %>
-   <div> <a class="ui-btn ui-gray" href="/Catalogue/Cart.aspx" data-ajax="false" style="display: none">Cart</a></div>
-<!--<style type="text/css">.div-nav-header { background-position: center center !important; }</style>-->
-<% } %>
+﻿<div data-role="header" data-tap-toggle="false">
+    <header class="header">
+        <div class="header-container">
+            <div class="header-buttons clearfix">
+                <a href="#" data-ajax="false" data-rel="back" class="pull-left header-menu"><span class="icon icon-back"></span></a>
+                <div class="dropdown pull-right">
+                    <a href="#" class="dropdown-toggle more-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="More">
+                        <li><a href="/Catalogue/Default.aspx"><%=commonCulture.ElementValues.getResourceString("catalogue", commonVariables.LeftMenuXML)%></a></li>                                                
+                        <li><a href="/Lang.aspx"><%=commonCulture.ElementValues.getResourceString("language", commonVariables.LeftMenuXML)%></a></li>
+                        <li><a href="/_Static/Info/Terms.aspx?lang=<%=commonVariables.SelectedLanguage%>"><%=commonCulture.ElementValues.getResourceString("terms", commonVariables.LeftMenuXML)%></a></li>
+                        <li><a href="/_Static/Info/About.aspx?lang=<%=commonVariables.SelectedLanguage%>"><%=commonCulture.ElementValues.getResourceString("about", commonVariables.LeftMenuXML)%></a></li>
+                        <li><a href="/_Static/Info/FAQ.aspx?lang=<%=commonVariables.SelectedLanguage%>"><%=commonCulture.ElementValues.getResourceString("faq", commonVariables.LeftMenuXML)%></a></li>
+                        <li><a href="/_Static/Info/Levels.aspx?lang=<%=commonVariables.SelectedLanguage%>"><%=commonCulture.ElementValues.getResourceString("levels", commonVariables.LeftMenuXML)%></a></li>
+                        
+                        <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+                        <li><a data-ajax="false" data-transition="slidedown" href="/_Secure/Login.aspx?lang=<%=commonVariables.SelectedLanguage%>"><%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></a></li>
+                        <% } else { %>
+                        <li><a href="/Logout"><%=commonCulture.ElementValues.getResourceString("logout", commonVariables.LeftMenuXML)%></a></li>
+                        <% } %>
+                    </ul>
+                </div>
+                <a href="/LiveChat/Default.aspx" target="_blank" class="pull-right header-chat"><span class="icon icon-chat"></span></a>
+            </div>
+            <div class="header-logo">
+                <h1>
+                    <img src="/_Static/Images/logo-<%=commonVariables.SelectedLanguageShort%>.png" class="logo" alt="logo">
+                </h1>
+            </div>
+        </div>
+    </header>
 </div>

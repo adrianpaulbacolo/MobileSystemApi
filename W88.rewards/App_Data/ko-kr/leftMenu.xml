@@ -17,4 +17,5 @@
   <logout><![CDATA[로그 아웃]]></logout>
   <desktopsite><![CDATA[PC버전]]></desktopsite>
   <fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
+  <close><![CDATA[종료]]></close>
 </menu>

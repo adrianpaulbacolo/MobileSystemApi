@@ -5,18 +5,38 @@
 <meta name="mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="apple-mobile-web-app-title" content="W88" />
-<link type="text/css" rel="stylesheet" href="/_Static/Css/Mobile/jquery.mobile-1.4.2.min.css" />
-<script type="text/javascript" src="/_Static/JS/Mobile/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="/_Static/JS/Mobile/jquery.mobile-1.4.2.min.js"></script>
-<script type="text/javascript" src="/_Static/JS/Mobile/iscroll.js"></script>
-<script type="text/javascript" src="/_Static/JS/GPINT.js"></script>
-<link type="text/css" rel="stylesheet" href="/_Static/Css/Main.css" />
+<link rel="stylesheet" href="/_Static/Css/Mobile/jquery.mobile-1.4.5.min.css" />
+<link rel="stylesheet" href="/_Static/Css/base.css" />
+<link rel="stylesheet" href="/_Static/Css/styles.css" />      
 <link rel="apple-touch-icon" href="/_Static/Images/icon_76.png"/>
 <link rel="apple-touch-startup-image" href="/_Static/Images/icon_120.png" />
+<script src="/_Static/JS/Mobile/jquery-1.11.3.min.js"></script>
+<script src="/_Static/JS/GPINT.js"></script>
+<script src="/_Static/JS/Main.js"></script>
+<script src="/_Static/JS/Mobile/jquery.mobile-1.4.5.min.js"></script>
+<script src="/_Static/JS/vendor/lodash.js"></script>
+<script src="/_Static/JS/Mobile/iscroll.js"></script>
+<script src="/_Static/JS/piwik.js"></script>
+<script src="/_Static/JS/bootstrap.min.js"></script>
+<script src="/_Static/JS/vendor/slick.min.js"></script>
+<script type="text/javascript">
+  window.w88Mobile = {};
+  window.User = {};
+  window.User.hasSession = <%= (!String.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) ? 1 : 0 %>;
+  window.User.sessionInterval = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("sessionInterval") %>';
+</script>
+<script type="text/javascript" src="/_Static/JS/modules/growl.js"></script>
+<script type="text/javascript">
+  // set initial values for notification
+  if(!_.isUndefined(w88Mobile.Growl)){
+  w88Mobile.Growl.options.lang = '<%=commonVariables.SelectedLanguageShort%>';
+  w88Mobile.Growl.options.close = '<%=commonCulture.ElementValues.getResourceString("close", commonVariables.LeftMenuXML)%>';
+  }
+</script>
 <% if (string.Compare(commonVariables.SelectedLanguage, "th-th", true) == 0) { %>
-<link type="text/css" rel="stylesheet" href="/_Static/Css/th-th.css" />
+<link rel="stylesheet" href="/_Static/Css/th-th.css" />
 <% } else if (string.Compare(commonVariables.SelectedLanguage, "km-kh", true) == 0) { %>
-<link type="text/css" rel="stylesheet" href="/_Static/Css/th-th.css" />
+<link rel="stylesheet" href="/_Static/Css/th-th.css" />
 <% } else if (string.Compare(commonVariables.SelectedLanguage, "zh-cn", true) == 0) { %>
-<link type="text/css" rel="stylesheet" href="/_Static/Css/zh-cn.css" />
+<link rel="stylesheet" href="/_Static/Css/zh-cn.css" />
 <% } %>
