@@ -1,6 +1,6 @@
 ﻿<meta charset="utf-8" />
 <meta http-equiv="Content-type" content="text/html;charset=utf-8" />
-<meta name="viewport" id="viewport" content="minimal-ui, width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no, target-densityDpi=device-dpi" />
+
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -31,6 +31,7 @@
     w88Mobile.Growl.options.close = '<%=commonCulture.ElementValues.getResourceString("close", commonVariables.LeftMenuXML)%>';
   }
 </script>
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0" />
 <script type="text/javascript" src="/_Static/JS/modules/hideMenu.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/fundtransfer.js"></script>
 <script type="text/javascript" src="/_Static/Js/modules/slots.js"></script>
