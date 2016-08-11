@@ -449,18 +449,15 @@ public class SlotPromo
             commonVariables.PromotionsXML);
         if (string.IsNullOrEmpty(info.message)) info.message = info.svc_error;
 
-        if (stakeInfo.ErrorCode == 1 || stakeInfo.ErrorCode == 0)
-        {
-            info.total_stake = response.TotalStake;
-            info.bonus_amount = response.ClaimAmount;
-            info.rollover_amount = response.RolloverAmount;
-            info.total_win_lost = response.TotalStake;
+        info.total_stake = response.TotalStake;
+        info.bonus_amount = response.ClaimAmount;
+        info.rollover_amount = response.RolloverAmount;
+        info.total_win_lost = response.TotalStake;
 
-            if (response.SlotPromoSetup != null)
-            {
-                info.rollover = response.SlotPromoSetup.Rollover;
-                info.min_amount = response.SlotPromoSetup.Stake;
-            }
+        if (response.SlotPromoSetup != null)
+        {
+            info.rollover = response.SlotPromoSetup.Rollover;
+            info.min_amount = response.SlotPromoSetup.Stake;
         }
 
 
