@@ -50,6 +50,12 @@ public class AjaxHandlers_ASHX_RegisterPromo : IHttpHandler, System.Web.SessionS
             case "apollo":
                 strComment = "ags";
                 break;
+            case "gallardo":
+                strComment = "png";
+                break;
+            case "nuovo":
+                strComment = "netent";
+                break;
             case "casino":
             case "ilotto":
             case "keno":

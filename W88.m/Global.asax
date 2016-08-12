@@ -70,9 +70,9 @@
     void Session_Start(object sender, EventArgs e)
     {
         // Code that runs when a new session is started
-        if ((HttpContext.Current.Request.IsSecureConnection.Equals(false)
-            && HttpContext.Current.Request.IsLocal.Equals(false))
-            || System.Configuration.ConfigurationManager.AppSettings.Get("httpsOnly").Equals("1"))
+        bool isSsl = HttpContext.Current.Request.IsSecureConnection.Equals(true);
+        bool isHttpsOnly = System.Configuration.ConfigurationManager.AppSettings.Get("httpsOnly").Equals("1");
+        if (isHttpsOnly && !isSsl)
         {
             Response.Redirect("https://" + Request.ServerVariables["HTTP_HOST"] + HttpContext.Current.Request.RawUrl);
         }
