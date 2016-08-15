@@ -5,10 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Xml.Linq;
 
 public partial class Slots_ClubDivino : BasePage
 {
@@ -26,7 +23,10 @@ public partial class Slots_ClubDivino : BasePage
         var cxHandler = new CTXMHandler(commonVariables.CurrentMemberSessionId);
         var cxCategory = cxHandler.Process();
 
-        var divino = bsCategory.Union(cxCategory).GroupBy(x => x.Title);
+        var uc8Handler = new UC8Handler(commonVariables.CurrentMemberSessionId);
+        var uc8Category = uc8Handler.Process();
+
+        var divino = bsCategory.Union(cxCategory).Union(uc8Category).GroupBy(x => x.Title);
 
         foreach (var group in divino)
         {
