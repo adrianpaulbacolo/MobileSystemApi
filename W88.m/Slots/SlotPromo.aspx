@@ -41,6 +41,14 @@
                     </div>
                 </div>
             </div>
+            <div class="daily-slots-claim-terms">
+                <%
+                    var terms = commonCulture.ElementValues.getResourceString("Terms", commonVariables.PromotionsXML);
+                    var promolink = String.Format("<a href=\"{0}\">{1}</a>", "#", commonCulture.ElementValues.getResourceString("PromoLink", commonVariables.PromotionsXML));
+                    terms = terms.Replace("{promolink}", promolink);
+                %>
+                <%=terms %>
+            </div>
         </div>
     </div>
 
@@ -49,6 +57,18 @@
         .daily-slots-claim .spinner-generic {
             margin-left: 45%;
         }
+
+        .daily-slots-claim-terms {
+            padding-top: 15px;
+        }
+
+            .daily-slots-claim-terms ol {
+                padding-left: 15px;
+            }
+
+                .daily-slots-claim-terms ol li {
+                    padding-bottom: 5px;
+                }
     </style>
 
     <script type="text/javascript">
@@ -184,11 +204,11 @@
                 .append($("<tr>")
                         .append($("<td>").html("<%=commonCulture.ElementValues.getResourceString("SlotClub", commonVariables.PromotionsXML)%>:"))
                         .append($("<td>").html(promo.game.clubName)));
-            $(".daily-slots-claim").append(claimDesc);
+        $(".daily-slots-claim").append(claimDesc);
 
-            if (!_.isEmpty(promo.info)) {
-                claimDesc.append($("<tr>")
-                        .append($("<td>").html("<%=commonCulture.ElementValues.getResourceString("WinLose", commonVariables.PromotionsXML)%>:"))
+        if (!_.isEmpty(promo.info)) {
+            claimDesc.append($("<tr>")
+                    .append($("<td>").html("<%=commonCulture.ElementValues.getResourceString("WinLose", commonVariables.PromotionsXML)%>:"))
                         .append($("<td>").html(formatAmount(promo.info.total_win_lost))))
                 .append($("<tr>")
                         .append($("<td>").html("<%=commonCulture.ElementValues.getResourceString("ClaimAmount", commonVariables.PromotionsXML)%>:"))
@@ -198,9 +218,9 @@
                         .append($("<td>").html(formatAmount(promo.info.rollover_amount))));
             }
 
-            if (promo.status == -1) {
-                var claimButton = $("<button>", { class: "ui-btn btn-primary claim-submit-button", type: "button" })
-                    .html("<%=commonCulture.ElementValues.getResourceString("ClaimNow", commonVariables.PromotionsXML)%>");
+        if (promo.status == -1) {
+            var claimButton = $("<button>", { class: "ui-btn btn-primary claim-submit-button", type: "button" })
+                .html("<%=commonCulture.ElementValues.getResourceString("ClaimNow", commonVariables.PromotionsXML)%>");
                 claimButton.on("click", function () {
                     if (window.User.hasSession != 1)
                         window.open("/_Secure/Login.aspx?redirect=" + encodeURI("Slots/SlotPromo.aspx"));
@@ -212,56 +232,56 @@
 
                 var playButton = $("<button>", { class: "ui-btn btn-primary", type: "button" })
                     .html("<%=commonCulture.ElementValues.getResourceString("PlayNow", commonVariables.PromotionsXML)%>");
-                        playButton.on("click", function () {
-                            var cUrl = window.location.hostname;
-                            window.open(activePromoClaim.game.game_link);
-                        })
-                        $(".daily-slots-claim").append(playButton);
+                    playButton.on("click", function () {
+                        var cUrl = window.location.hostname;
+                        window.open(activePromoClaim.game.game_link);
+                    })
+                    $(".daily-slots-claim").append(playButton);
+                }
+    }
+
+        function fetchPromo(week) {
+
+            var curDay = moment().day();
+            var monday = moment().add(week, "week");
+            if (curDay > 1) {
+                monday = moment(monday).add(1 - curDay, "day");
+            }
+            var sunday = moment(monday).add(6, "day");
+            var weekLabel = "<%=commonCulture.ElementValues.getResourceString("WeeklyLabel", commonVariables.PromotionsXML)%>";
+                weekLabel = weekLabel.replace("{from}", monday.format("DD/MM/YYYY")).replace("{to}", sunday.format("DD/MM/YYYY"));
+                $("#weekly-label").html(weekLabel);
+
+                _.forEach($(".daily-slots-promo-nav > li"), function (nav) {
+                    var childNav = $(nav).children(":first");
+                    if ($(nav).attr("data-week") != week) {
+                        childNav.removeClass("active");
+                    } else {
+                        if (!childNav.hasClass("active")) childNav.addClass("active");
                     }
-        }
-
-            function fetchPromo(week) {
-
-                var curDay = moment().day();
-                var monday = moment().add(week, "week");
-                if (curDay > 1) {
-                    monday = moment(monday).add(1 - curDay, "day");
-                }
-                var sunday = moment(monday).add(6, "day");
-                var weekLabel = "<%=commonCulture.ElementValues.getResourceString("WeeklyLabel", commonVariables.PromotionsXML)%>";
-            weekLabel = weekLabel.replace("{from}", monday.format("DD/MM/YYYY")).replace("{to}", sunday.format("DD/MM/YYYY"));
-            $("#weekly-label").html(weekLabel);
-
-            _.forEach($(".daily-slots-promo-nav > li"), function (nav) {
-                var childNav = $(nav).children(":first");
-                if ($(nav).attr("data-week") != week) {
-                    childNav.removeClass("active");
-                } else {
-                    if (!childNav.hasClass("active")) childNav.addClass("active");
-                }
-            });
-            $.ajax({
-                url: "SlotPromo.aspx/getWeeklyPromo",
-                data: { week: week },
-                type: "GET",
-                dataType: "json",
-                contentType: "application/json; charset=utf-8",
-                beforeSend: function () {
-                    $("#promo-list").html(loader);
-                },
-                success: function (mydata) {
-                    $("#promo-list").children().remove();
-                    var promoList = JSON.parse(mydata.d);
-                    _.forEach(promoList, function (promo) {
-                        if (_.isEmpty(promo.game) || _.isEmpty(promo.game.name)) return;
-                        promo.endDate = moment(promo.start).format("MM/DD/YYYY");
-                        var state = "";
-                        var claimText = "";
-                        switch (promo.status) {
-                            case -1:
-                                //inactive for other state
-                                state = "daily-active";
-                                claimText = "<%=commonCulture.ElementValues.getResourceString("ClaimNow", commonVariables.PromotionsXML)%>";
+                });
+                $.ajax({
+                    url: "SlotPromo.aspx/getWeeklyPromo",
+                    data: { week: week },
+                    type: "GET",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    beforeSend: function () {
+                        $("#promo-list").html(loader);
+                    },
+                    success: function (mydata) {
+                        $("#promo-list").children().remove();
+                        var promoList = JSON.parse(mydata.d);
+                        _.forEach(promoList, function (promo) {
+                            if (_.isEmpty(promo.game) || _.isEmpty(promo.game.name)) return;
+                            promo.endDate = moment(promo.start).format("MM/DD/YYYY");
+                            var state = "";
+                            var claimText = "";
+                            switch (promo.status) {
+                                case -1:
+                                    //inactive for other state
+                                    state = "daily-active";
+                                    claimText = "<%=commonCulture.ElementValues.getResourceString("ClaimNow", commonVariables.PromotionsXML)%>";
                                 break;
                             case 0:
                             case 1:
