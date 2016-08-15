@@ -24,8 +24,8 @@ namespace Factories.Slots.Handlers
         public MGSHandler(string token, string lobby, string cashier)
             : base(GameProvider.MGS)
         {
-            fun = GameSettings.MGSFun;
-            real = GameSettings.MGSReal;
+            fun = GameSettings.GetGameUrl(GameProvider.MGS, GameLinkSetting.Fun);
+            real = GameSettings.GetGameUrl(GameProvider.MGS, GameLinkSetting.Real);
 
             memberSessionId = token;
             lobbyPage = lobby;
