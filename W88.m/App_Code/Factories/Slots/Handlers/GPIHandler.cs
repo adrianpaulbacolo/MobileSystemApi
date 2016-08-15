@@ -22,8 +22,8 @@ namespace Factories.Slots.Handlers
         public GPIHandler(string token)
             : base(GameProvider.GPI)
         {
-            fun = GameSettings.GPIFun;
-            real = GameSettings.GPIReal;
+            fun = GameSettings.GetGameUrl(GameProvider.GPI, GameLinkSetting.Fun);
+            real = GameSettings.GetGameUrl(GameProvider.GPI, GameLinkSetting.Real);
 
             memberSessionId = token;
         }

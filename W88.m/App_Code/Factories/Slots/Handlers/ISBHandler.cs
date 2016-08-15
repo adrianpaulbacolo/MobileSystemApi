@@ -24,8 +24,8 @@ namespace Factories.Slots.Handlers
         public ISBHandler(string token, string lobby, string currency)
             : base(GameProvider.ISB)
         {
-            fun = GameSettings.ISBFun;
-            real = GameSettings.ISBReal;
+            fun = GameSettings.GetGameUrl(GameProvider.ISB, GameLinkSetting.Fun);
+            real = GameSettings.GetGameUrl(GameProvider.ISB, GameLinkSetting.Real);
 
             memberSessionId = token;
             lobbyPage = lobby;
