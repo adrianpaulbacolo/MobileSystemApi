@@ -25,8 +25,8 @@ namespace Factories.Slots.Handlers
         public BSHandler(string token, string lobby, string cashier, GameDevice gameDevice)
             : base(GameProvider.BS)
         {
-            fun = GameSettings.BSFun;
-            real = GameSettings.BSReal;
+            fun = GameSettings.GetGameUrl(GameProvider.BS, GameLinkSetting.Fun);
+            real = GameSettings.GetGameUrl(GameProvider.BS, GameLinkSetting.Real);
 
             memberSessionId = token;
             lobbyPage = lobby;

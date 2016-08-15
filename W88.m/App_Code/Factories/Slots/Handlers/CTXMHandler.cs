@@ -20,8 +20,8 @@ namespace Factories.Slots.Handlers
         public CTXMHandler(string token)
             : base(GameProvider.CTXM)
         {
-            fun = GameSettings.CTXMFun;
-            real = GameSettings.CTXMReal;
+            fun = GameSettings.GetGameUrl(GameProvider.CTXM, GameLinkSetting.Fun);
+            real = GameSettings.GetGameUrl(GameProvider.CTXM, GameLinkSetting.Real);
 
             memberSessionId = token;
         }

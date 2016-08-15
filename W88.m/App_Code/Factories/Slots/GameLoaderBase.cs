@@ -121,17 +121,23 @@ namespace Factories.Slots
         }
     }
 
-    public enum GameProvider
-    {
-        GPI,
-        PT,
-        MGS,
-        PNG,
-        ISB,
-        QT,
-        BS,
-        CTXM
-    }
+     public enum GameLinkSetting
+     {
+         Fun, Real
+     }
+
+     public enum GameProvider
+     {
+         GPI,
+         PT,
+         MGS,
+         PNG,
+         ISB,
+         QT,
+         BS,
+         CTXM,
+         UC8
+     }
 
     public enum GameDevice
     {

@@ -2,192 +2,92 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Factories.Slots;
 
 namespace Helpers
 {
     public class GameSettings
     {
-        public static string GPIFun
+        private static readonly customConfig.OperatorSettings Settings =
+            new customConfig.OperatorSettings(commonVariables.OperatorCode);
+
+        public static string GetGameUrl(GameProvider provider, GameLinkSetting linkType)
         {
-            get
+
+            var url = string.Empty;
+
+            switch (provider)
             {
-                var settings = new customConfig.OperatorSettings("W88");
-                if (settings == null) return "";
+                case GameProvider.BS:
+                    if (linkType == GameLinkSetting.Fun)
+                        url = Settings.Values.Get("BSFunUrl");
+                    else if (linkType == GameLinkSetting.Real)
+                        url = Settings.Values.Get("BSRealUrl");
+                    break;
 
-                string url = settings.Values.Get("GPIFunUrl");
+                case GameProvider.CTXM:
+                    if (linkType == GameLinkSetting.Fun)
+                        url = Settings.Values.Get("CTXMFunUrl");
+                    else if (linkType == GameLinkSetting.Real)
+                        url = Settings.Values.Get("CTXMRealUrl");
+                    break;
 
-                return string.IsNullOrEmpty(url) ? "" : url.Replace("{DOMAIN}", commonIp.DomainName);
+                case GameProvider.GPI:
+                    if (linkType == GameLinkSetting.Fun)
+                        url = Settings.Values.Get("GPIFunUrl");
+                    else if (linkType == GameLinkSetting.Real)
+                        url = Settings.Values.Get("GPIRealUrl");
+                    break;
+
+                case GameProvider.ISB:
+                    if (linkType == GameLinkSetting.Fun)
+                        url = Settings.Values.Get("ISBFunUrl");
+                    else if (linkType == GameLinkSetting.Real)
+                        url = Settings.Values.Get("ISBRealUrl");
+                    break;
+
+                case GameProvider.MGS:
+                    if (linkType == GameLinkSetting.Fun)
+                        url = Settings.Values.Get("MGSFunUrl");
+                    else if (linkType == GameLinkSetting.Real)
+                        url = Settings.Values.Get("MGSRealUrl");
+                    break;
+
+                case GameProvider.PNG:
+                    if (linkType == GameLinkSetting.Fun)
+                        url = Settings.Values.Get("PNGFunUrl");
+                    else if (linkType == GameLinkSetting.Real)
+                        url = Settings.Values.Get("PNGRealUrl");
+                    break;
+
+                case GameProvider.PT:
+                    if (linkType == GameLinkSetting.Fun)
+                        url = Settings.Values.Get("PTFunUrl");
+                    else if (linkType == GameLinkSetting.Real)
+                        url = Settings.Values.Get("PTRealUrl");
+                    break;
+
+                case GameProvider.QT:
+                    if (linkType == GameLinkSetting.Fun)
+                        url = Settings.Values.Get("QTFunUrl");
+                    else if (linkType == GameLinkSetting.Real)
+                        url = Settings.Values.Get("QTRealUrl");
+                    break;
+
+                case GameProvider.UC8:
+                    if (linkType == GameLinkSetting.Fun)
+                        url = Settings.Values.Get("UC8FunUrl");
+                    else if (linkType == GameLinkSetting.Real)
+                        url = Settings.Values.Get("UC8RealUrl");
+                    break;
+
+                default:
+                    url = "";
+                    break;
             }
+
+            return string.IsNullOrEmpty(url) ? "" : url.Replace("{DOMAIN}", commonIp.DomainName);
+
         }
-
-        public static string GPIReal
-        {
-            get
-            {
-                var settings = new customConfig.OperatorSettings("W88");
-                if (settings == null) return "";
-
-                string url = settings.Values.Get("GPIRealUrl");
-
-                return string.IsNullOrEmpty(url) ? "" : url.Replace("{DOMAIN}", commonIp.DomainName);
-            }
-        }
-
-        public static string MGSFun
-        {
-            get
-            {
-                var settings = new customConfig.OperatorSettings("W88");
-                if (settings == null) return "";
-
-                string url = settings.Values.Get("MGSFunUrl");
-
-                return string.IsNullOrEmpty(url) ? "" : url.Replace("{DOMAIN}", commonIp.DomainName);
-            }
-        }
-
-        public static string MGSReal
-        {
-            get
-            {
-                var settings = new customConfig.OperatorSettings("W88");
-                if (settings == null) return "";
-
-                string url = settings.Values.Get("MGSRealUrl");
-
-                return string.IsNullOrEmpty(url) ? "" : url.Replace("{DOMAIN}", commonIp.DomainName);
-            }
-        }
-
-        public static string BSFun
-        {
-            get
-            {
-                var settings = new customConfig.OperatorSettings("W88");
-                if (settings == null) return "";
-
-                string url = settings.Values.Get("BSFunUrl");
-
-                return string.IsNullOrEmpty(url) ? "" : url.Replace("{DOMAIN}", commonIp.DomainName);
-            }
-        }
-
-        public static string BSReal
-        {
-            get
-            {
-                var settings = new customConfig.OperatorSettings("W88");
-                if (settings == null) return "";
-
-                string url = settings.Values.Get("BSRealUrl");
-
-                return string.IsNullOrEmpty(url) ? "" : url.Replace("{DOMAIN}", commonIp.DomainName);
-            }
-        }
-
-        public static string CTXMFun
-        {
-            get
-            {
-                var settings = new customConfig.OperatorSettings("W88");
-                if (settings == null) return "";
-
-                string url = settings.Values.Get("CTXMFunUrl");
-
-                return string.IsNullOrEmpty(url) ? "" : url.Replace("{DOMAIN}", commonIp.DomainName);
-            }
-        }
-
-        public static string CTXMReal
-        {
-            get
-            {
-                var settings = new customConfig.OperatorSettings("W88");
-                if (settings == null) return "";
-
-                string url = settings.Values.Get("CTXMRealUrl");
-
-                return string.IsNullOrEmpty(url) ? "" : url.Replace("{DOMAIN}", commonIp.DomainName);
-            }
-        }
-
-        public static string ISBFun
-        {
-            get
-            {
-                var settings = new customConfig.OperatorSettings("W88");
-                if (settings == null) return "";
-
-                string url = settings.Values.Get("ISBFunUrl");
-
-                return string.IsNullOrEmpty(url) ? "" : url.Replace("{DOMAIN}", commonIp.DomainName);
-            }
-        }
-
-        public static string ISBReal
-        {
-            get
-            {
-                var settings = new customConfig.OperatorSettings("W88");
-                if (settings == null) return "";
-
-                string url = settings.Values.Get("ISBRealUrl");
-
-                return string.IsNullOrEmpty(url) ? "" : url.Replace("{DOMAIN}", commonIp.DomainName);
-            }
-        }
-
-        public static string PNGFun
-        {
-            get
-            {
-                var settings = new customConfig.OperatorSettings("W88");
-                if (settings == null) return "";
-
-                string url = settings.Values.Get("PNGFunUrl");
-
-                return string.IsNullOrEmpty(url) ? "" : url.Replace("{DOMAIN}", commonIp.DomainName);
-            }
-        }
-
-        public static string PNGReal
-        {
-            get
-            {
-                var settings = new customConfig.OperatorSettings("W88");
-                if (settings == null) return "";
-
-                string url = settings.Values.Get("PNGRealUrl");
-
-                return string.IsNullOrEmpty(url) ? "" : url.Replace("{DOMAIN}", commonIp.DomainName);
-            }
-        }
-
-        public static string QTFun
-        {
-            get
-            {
-                var settings = new customConfig.OperatorSettings("W88");
-                if (settings == null) return "";
-
-                string url = settings.Values.Get("QTFunUrl");
-
-                return string.IsNullOrEmpty(url) ? "" : url.Replace("{DOMAIN}", commonIp.DomainName);
-            }
-        }
-
-        public static string QTReal
-        {
-            get
-            {
-                var settings = new customConfig.OperatorSettings("W88");
-                if (settings == null) return "";
-
-                string url = settings.Values.Get("QTRealUrl");
-
-                return string.IsNullOrEmpty(url) ? "" : url.Replace("{DOMAIN}", commonIp.DomainName);
-            }
-        }
-
     }
 }
