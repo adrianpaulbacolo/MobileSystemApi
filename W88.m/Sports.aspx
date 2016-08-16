@@ -34,7 +34,17 @@
                             <a href="/V-Sports.aspx" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
                         </figcaption>
                     </figure>
-                </li> 
+                </li>
+                 <li class="col">
+                     <figure class="banner">
+                        <img src="_Static/Images/sports/ClubW88-iOS-banner.jpg" class="img-responsive img-bg">
+                        <figcaption class="banner-caption">
+                            <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Label", commonVariables.ProductsXML)%></h3>
+                            <p><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Description", commonVariables.ProductsXML)%></p>
+                            <a href="/_Static/Downloads/w88.aspx" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
+                        </figcaption>
+                    </figure>
+                </li>  
             </ul>
         </div>
 </asp:Content>

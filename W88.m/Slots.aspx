@@ -42,13 +42,19 @@
                     <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubGallardo/Label", commonVariables.ProductsXML)%></div>
                 </a>
             </li>
-            
+
             <asp:Literal ID="ltlApollo" runat="server"></asp:Literal>
-            
+
             <li class="col col-33">
                 <a href="/ClubDivino" class="card" data-ajax="false">
                     <img src="/_Static/Images/bnr-clubdivino.jpg" class="img-responsive">
                     <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubDivino/Label", commonVariables.ProductsXML)%></div>
+                </a>
+            </li>
+            <li class="col col-33">
+                <a class="card" href="/_Static/Downloads/w88.aspx" data-ajax="false">
+                    <img src="/_Static/Images/sports/bnr-clubW88-iOS.jpg" class="img-responsive">
+                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Label", commonVariables.ProductsXML)%></div>
                 </a>
             </li>
         </ul>
