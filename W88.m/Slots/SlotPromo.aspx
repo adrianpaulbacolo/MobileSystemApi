@@ -54,6 +54,9 @@
     </div>
 
     <style>
+        div.daily-slots-claim-terms ol li span{
+            text-transform: uppercase;
+        }
         #promo-list .spinner-generic,
         .daily-slots-claim .spinner-generic {
             margin-left: 45%;

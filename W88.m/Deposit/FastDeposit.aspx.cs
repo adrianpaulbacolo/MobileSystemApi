@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
@@ -87,6 +88,16 @@ public partial class Deposit_FastDesposit : PaymentBasePage
         lblSystemAccount.Text = commonCulture.ElementValues.getResourceString("lblSystemAccount", xeResources);
 
         lblDepositDateTime.Text = commonCulture.ElementValues.getResourceString("drpDepositDateTime", xeResources);
+
+        if (commonVariables.SelectedLanguageShort.ToLower() == "vn")
+        {
+            var sbNote = new StringBuilder();
+            sbNote.Append("<li class='row'><div class='col'>");
+            sbNote.Append(string.Format("<p style='color:#ff0000'>{0}</p>", commonCulture.ElementValues.getResourceString("Note", xeResources)));
+            sbNote.Append("</div></li>");
+            ltlNote.Text = sbNote.ToString();
+        }
+
     }
 
     private void InitialiseSystemBankAccounts()
