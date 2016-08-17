@@ -82,7 +82,8 @@ public class BasePage : System.Web.UI.Page
         {
             if (!UserSession.IsLoggedIn())
             {
-                Response.Redirect("/Index");
+                var redirectUrl = string.Format("/_Secure/Login.aspx?redirect={0}", Uri.EscapeDataString(Request.Url.PathAndQuery));
+                Response.Redirect(redirectUrl);
             }
         }
 
