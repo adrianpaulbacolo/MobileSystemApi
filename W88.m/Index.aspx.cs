@@ -353,14 +353,30 @@ public partial class _Index : BasePage
             {
                 var imageSrc = promo.Element("imageSrc").Value;
                 var url = promo.Element("url").Value;
+                var mainText = promo.Element("title").Value;
+                var descText = promo.Element("description").Value;
+                var linkClass = promo.Element("class").Value;
+                var content = "";
+                var description = "";
+
+                if (!string.IsNullOrWhiteSpace(descText)) description = "<p>" + descText + "</p>";
+                if (!string.IsNullOrWhiteSpace(mainText)) content = "<div class=\"slide-title\"><h2>" + mainText + "</h2>" + description + "</div>";
+
+                var bannerText = "";
+                if (!string.IsNullOrWhiteSpace(content) || !string.IsNullOrWhiteSpace(content))
+                {
+                    bannerText = "<div class=\"slide_content\"><div class=\"textarea\">" + content + description + "</div></div>";
+                }
+
                 slider += "<div class=\"slide\">" +
-                            "<a href=\"" + url + "\" data-ajax=\"false\">" +
+                            "<a href=\"" + url + "\" data-ajax=\"false\" class=\"" + linkClass + "\">" +
+                            content +
                                 "<img src=\"/_Static/Images/promo-banner/" + imageSrc + "\" alt=\"banner\" class=\"img-responsive\"> " +
                             "</a>" +
                         "</div>";
             }
         }
-        catch (Exception ex)
+        catch (Exception)
         {
         }
         return slider;
