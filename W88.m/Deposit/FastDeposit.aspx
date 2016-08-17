@@ -108,6 +108,9 @@
                         <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" />
                         <asp:TextBox ID="txtAccountNumber" runat="server" data-clear-btn="true" />
                     </li>
+                
+                    <asp:Literal ID="ltlNote" runat="server"></asp:Literal>
+
                     <li class="item row">
                         <div class="col">
                             <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" id="btnCancel" runat="server" data-ajax="false"><%=base.strbtnCancel%></a>
