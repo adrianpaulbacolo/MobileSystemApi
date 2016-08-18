@@ -79,6 +79,12 @@
                 <!--<a class="close" data-rel="close">&times;</a>-->
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("sports", commonVariables.LeftMenuXML)%></h2>
                 <li>
+                    <a class="card" data-rel="sports" rel="vsports" href="/_Static/Downloads/w88.aspx" data-transition="slidedown" data-ajax="false">
+                        <img src="/_Static/Images/sports/bnr-clubW88-iOS.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Label", commonVariables.ProductsXML)%></div>
+                    </a>
+                </li> 
+                <li>
                     <a class="card" data-rel="sports" rel="asports" href="/_Secure/Login.aspx?redirect=<%=System.Web.HttpContext.Current.Request.Url.ToString()%>" data-rel="dialog" data-transition="slidedown" target="_blank">
                         <img src="/_Static/Images/sports/bnr-asports.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ASports/Label", commonVariables.ProductsXML)%></div>
@@ -94,12 +100,6 @@
                     <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-transition="slidedown" data-ajax="false">
                         <img src="/_Static/Images/sports/bnr-vSports.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li> 
-                <li>
-                    <a class="card" data-rel="sports" rel="vsports" href="/_Static/Downloads/w88.aspx" data-transition="slidedown" data-ajax="false">
-                        <img src="/_Static/Images/sports/bnr-clubW88-iOS.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li> 
             </ul>
@@ -196,6 +196,12 @@
                 <!--<a class="close" data-rel="close">&times;</a>-->
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></h2>
                 <li>
+                    <a class="card" data-rel="sports" rel="vsports" href="/_Static/Downloads/w88.aspx" data-transition="slidedown" data-ajax="false">
+                        <img src="/_Static/Images/sports/bnr-clubW88-iOS.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Label", commonVariables.ProductsXML)%></div>
+                    </a>
+                </li> 
+                <li>
                     <a class="card" rel="clubbravado" href="/ClubBravado" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubbravado.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubBravado/Label", commonVariables.ProductsXML)%></div>
@@ -245,12 +251,6 @@
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubDivino/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
-                <li>
-                    <a class="card" data-rel="sports" rel="vsports" href="/_Static/Downloads/w88.aspx" data-transition="slidedown" data-ajax="false">
-                        <img src="/_Static/Images/sports/bnr-clubW88-iOS.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li> 
                 <!--<li>
                     <a class="card" rel="clubcrescendo" href="/ClubCrescendo" data-ajax="false">
                         <img src="_Static/Images/bnr-clubcrescendo.jpg" class="img-responsive">
