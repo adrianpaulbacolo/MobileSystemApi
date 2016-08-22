@@ -15,16 +15,14 @@ namespace Factories.Slots.Handlers
         private string fun;
         private string real;
         private string lobbyPage;
-        private string cashierPage;
         private string memberSessionId;
 
-        public UC8Handler(string token, string lobby, string cashier) : base(GameProvider.UC8)
+        public UC8Handler(string token, string lobby ) : base(GameProvider.UC8)
         {
             fun = GameSettings.GetGameUrl(GameProvider.UC8, GameLinkSetting.Fun);
             real = GameSettings.GetGameUrl(GameProvider.UC8, GameLinkSetting.Real);
 
             memberSessionId = token;
-            cashierPage = cashier;
             lobbyPage = lobby;
         }
 
@@ -58,7 +56,7 @@ namespace Factories.Slots.Handlers
         {
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
 
-            return real.Replace("{GAME}", gameName).Replace("{TOKEN}", memberSessionId).Replace("{LANG}", base.langCode).Replace("{LOBBY}", lobbyPage).Replace("{CASHIER}", cashierPage);
+            return real.Replace("{GAME}", gameName).Replace("{TOKEN}", memberSessionId).Replace("{LANG}", base.langCode).Replace("{LOBBY}", lobbyPage);
         }
     }
 }
