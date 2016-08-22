@@ -83,7 +83,7 @@
                         <img src="/_Static/Images/sports/bnr-clubW88-iOS.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Label", commonVariables.ProductsXML)%></div>
                     </a>
-                </li> 
+                </li>
                 <li>
                     <a class="card" data-rel="sports" rel="asports" href="/_Secure/Login.aspx?redirect=<%=System.Web.HttpContext.Current.Request.Url.ToString()%>" data-rel="dialog" data-transition="slidedown" target="_blank">
                         <img src="/_Static/Images/sports/bnr-asports.jpg" class="img-responsive">
@@ -200,7 +200,7 @@
                         <img src="/_Static/Images/sports/bnr-clubW88-iOS.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Label", commonVariables.ProductsXML)%></div>
                     </a>
-                </li> 
+                </li>
                 <li>
                     <a class="card" rel="clubbravado" href="/ClubBravado" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubbravado.jpg" class="img-responsive">
