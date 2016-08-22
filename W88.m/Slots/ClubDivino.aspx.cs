@@ -23,7 +23,7 @@ public partial class Slots_ClubDivino : BasePage
         var cxHandler = new CTXMHandler(commonVariables.CurrentMemberSessionId);
         var cxCategory = cxHandler.Process();
 
-        var uc8Handler = new UC8Handler(commonVariables.CurrentMemberSessionId, "ClubDivino");
+        var uc8Handler = new UC8Handler(commonVariables.CurrentMemberSessionId, "ClubDivino", "FundTransfer");
         var uc8Category = uc8Handler.Process();
 
         var divino = bsCategory.Union(cxCategory).Union(uc8Category).GroupBy(x => x.Title);
