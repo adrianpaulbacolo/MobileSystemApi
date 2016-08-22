@@ -208,18 +208,6 @@
                     </a>
                 </li>
                 <li>
-                    <a class="card" rel="clubpalazzo-slots" href="/ClubPalazzo" data-ajax="false">
-                        <img src="/_Static/Images/bnr-clubpalazzo-slots.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
-                    </a>
-                </li>
-                <li>
-                    <a class="card" rel="clubpalazzo-slots" href="/_static/palazzo/slots.aspx" data-ajax="false">
-                        <img src="/_Static/Images/bnr-clubpalazzo-slots2.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots2/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
-                    </a>
-                </li>
-                <li>
                     <a class="card" rel="clubmassimo-slots" href="/ClubMassimo" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubmassimo-slots.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
@@ -229,6 +217,18 @@
                     <a class="card" rel="clubmassimo-slots" href=" <%=commonClubMassimo.getDownloadUrl%>" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubmassimo-slots2.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots2/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
+                    </a>
+                </li>
+                <li>
+                    <a class="card" rel="clubpalazzo-slots" href="/ClubPalazzo" data-ajax="false">
+                        <img src="/_Static/Images/bnr-clubpalazzo-slots.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
+                    </a>
+                </li>
+                <li>
+                    <a class="card" rel="clubpalazzo-slots" href="/_static/palazzo/slots.aspx" data-ajax="false">
+                        <img src="/_Static/Images/bnr-clubpalazzo-slots2.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots2/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
                     </a>
                 </li>
                 <li>
