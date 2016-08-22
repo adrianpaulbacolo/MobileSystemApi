@@ -44,7 +44,7 @@
                             <a href="/_Static/Downloads/w88.aspx" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
                         </figcaption>
                     </figure>
-                </li>  
+                </li>
             </ul>
         </div>
 </asp:Content>
