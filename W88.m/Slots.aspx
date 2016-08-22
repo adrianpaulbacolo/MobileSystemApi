@@ -7,21 +7,15 @@
 
         <ul class="row row-uc row-wrap bg-gradient">
             <li class="col col-33">
+                <a class="card" href="/_Static/Downloads/w88.aspx" data-ajax="false">
+                    <img src="/_Static/Images/sports/bnr-clubW88-iOS.jpg" class="img-responsive">
+                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Label", commonVariables.ProductsXML)%></div>
+                </a>
+            </li>
+            <li class="col col-33">
                 <a href="/ClubBravado" class="card" data-ajax="false">
                     <img src="/_Static/Images/bnr-clubbravado.jpg" class="img-responsive">
                     <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubBravado/Label", commonVariables.ProductsXML)%></div>
-                </a>
-            </li>
-            <li class="col col-33">
-                <a href="/ClubPalazzo" class="card" data-ajax="false">
-                    <img src="/_Static/Images/bnr-clubpalazzo-slots.jpg?" class="img-responsive">
-                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
-                </a>
-            </li>
-            <li class="col col-33">
-                <a href="/_static/palazzo/slots.aspx" class="card" data-ajax="false">
-                    <img src="/_Static/Images/bnr-clubpalazzo-slots2.jpg" class="img-responsive">
-                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots2/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
                 </a>
             </li>
             <li class="col col-33">
@@ -37,6 +31,18 @@
                 </a>
             </li>
             <li class="col col-33">
+                <a href="/ClubPalazzo" class="card" data-ajax="false">
+                    <img src="/_Static/Images/bnr-clubpalazzo-slots.jpg?" class="img-responsive">
+                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
+                </a>
+            </li>
+            <li class="col col-33">
+                <a href="/_static/palazzo/slots.aspx" class="card" data-ajax="false">
+                    <img src="/_Static/Images/bnr-clubpalazzo-slots2.jpg" class="img-responsive">
+                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots2/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
+                </a>
+            </li>
+            <li class="col col-33">
                 <a href="/ClubGallardo" class="card" data-ajax="false">
                     <img src="/_Static/Images/bnr-clubgallardo.jpg" class="img-responsive">
                     <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubGallardo/Label", commonVariables.ProductsXML)%></div>
@@ -49,12 +55,6 @@
                 <a href="/ClubDivino" class="card" data-ajax="false">
                     <img src="/_Static/Images/bnr-clubdivino.jpg" class="img-responsive">
                     <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubDivino/Label", commonVariables.ProductsXML)%></div>
-                </a>
-            </li>
-            <li class="col col-33">
-                <a class="card" href="/_Static/Downloads/w88.aspx" data-ajax="false">
-                    <img src="/_Static/Images/sports/bnr-clubW88-iOS.jpg" class="img-responsive">
-                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Label", commonVariables.ProductsXML)%></div>
                 </a>
             </li>
         </ul>
