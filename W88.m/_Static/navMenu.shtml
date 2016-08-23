@@ -12,7 +12,7 @@
         <% if (!string.IsNullOrEmpty(commonVariables.SelectedLanguage)) { var language = commonVariables.SelectedLanguage; %>
         <li data-icon="false">
             <a id="aMnuHome" href="/Index.aspx?lang=<%=language%>" data-ajax="false">
-                <i class="icon-home"><%=deviceId%></i>
+                <i class="icon-home"></i>
                 <div class="label"><%=commonCulture.ElementValues.getResourceString("home", commonVariables.LeftMenuXML)%></div>
             </a>
         </li>
