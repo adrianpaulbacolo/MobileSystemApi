@@ -68,7 +68,7 @@ public partial class _Index : BasePage
             commonCookie.CookieAffiliateId = affiliateId;
         }
 
-        DetectDownloadLinks(DetectMobileDevice());
+        DetectDownloadLinks(commonFunctions.getMobileDevice(Request));
     }
 
     public int DetectMobileDevice()

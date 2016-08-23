@@ -1,4 +1,5 @@
-﻿<div data-role="panel" id="divPanel">
+﻿<% var deviceId = commonFunctions.getMobileDevice(Request); %>
+<div data-role="panel" id="divPanel">
     <ul data-role="listview" class="nav-menu">
 
         <!-- Close Menu -->
@@ -11,7 +12,7 @@
         <% if (!string.IsNullOrEmpty(commonVariables.SelectedLanguage)) { var language = commonVariables.SelectedLanguage; %>
         <li data-icon="false">
             <a id="aMnuHome" href="/Index.aspx?lang=<%=language%>" data-ajax="false">
-                <i class="icon-home"></i>
+                <i class="icon-home"><%=deviceId%></i>
                 <div class="label"><%=commonCulture.ElementValues.getResourceString("home", commonVariables.LeftMenuXML)%></div>
             </a>
         </li>
@@ -151,8 +152,10 @@
             <ul class="sub-menu" data-rel="texasmahjong">
                 <!--<a class="close" data-rel="close">&times;</a>-->
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%></h2>
-                <%try{%>
-                <%if(commonVariables.GetSessionVariable("responseCode")=="1"){%>
+                <%
+                try{
+                %>
+                <%if(deviceId==1){%>
                 <li>
                     <a class="card" rel="texasmahjong" href='/_static/TexasMahjong/download.aspx' data-ajax="false">
                         <img src="/_Static/Images/Download/TexasMahjong-iOS.jpg" class="img-responsive">
@@ -160,7 +163,7 @@
                     </a>
                 </li>
                 <%}%>
-                <%if(commonVariables.GetSessionVariable("responseCode")=="2"){%>
+                <%if(deviceId==2){%>
                 <li>
                     <a class="card" rel="texasmahjong" href='<%= Session["tmandroidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">
                         <img src="/_Static/Images/Download/TexasMahjong-Android.jpg" class="img-responsive">
@@ -168,7 +171,7 @@
                     </a>
                 </li>
                 <%}%>
-                <%if(commonVariables.GetSessionVariable("responseCode")=="3"){%>
+                <%if(deviceId==3){%>
                 <li>
                     <a class="card" rel="texasmahjong" href='<%= Session["tmandroidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">
                         <img src="/_Static/Images/Download/TexasMahjong-Android.jpg" class="img-responsive">
@@ -288,7 +291,7 @@
                 <!--<a class="close" data-rel="close">&times;</a>-->
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("poker", commonVariables.LeftMenuXML)%></h2>
                 <%try{%>
-                <%if(commonVariables.GetSessionVariable("responseCode")=="1"){%>
+                <%if(deviceId==1){%>
                 <li>
                     <a class="card" data-rel="poker" rel="PokerIOS" href='<%= Session["iosLink"].ToString()%>' data-transition="slidedown">
                         <img src="/_Static/Images/W88-Mobile-Poker-iOS.jpg" class="img-responsive">
@@ -296,7 +299,7 @@
                     </a>
                 </li>
                 <%}%>
-                <%if(commonVariables.GetSessionVariable("responseCode")=="2"){%>
+                <%if(deviceId==1){%>
                 <li>
                     <a class="card" data-rel="poker" rel="PokerAndroid" href='<%= Session["androidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">
                         <img src="/_Static/Images/W88-Mobile-Poker-Android.jpg" class="img-responsive">
@@ -304,7 +307,7 @@
                     </a>
                 </li>
                 <%}%>
-                <%if(commonVariables.GetSessionVariable("responseCode")=="3"){%>
+                <%if(deviceId==3){%>
                 <li>
                     <a class="card" data-rel="poker" rel="PokerIOS" href='<%= Session["iosLink"].ToString()%>' data-transition="slidedown">
                         <img src="/_Static/Images/W88-Mobile-Poker-iOS.jpg" class="img-responsive">

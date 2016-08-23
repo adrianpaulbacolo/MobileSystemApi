@@ -668,4 +668,28 @@ public static class commonFunctions
         var obj = new JavaScriptSerializer().Deserialize<T>(jsonData);
         return obj;
     }
+
+    public static int getMobileDevice(HttpRequest Request)
+    {
+        string strUserAgent = Request.UserAgent.ToString().ToLower();
+
+        int responseCode = 0;
+
+        if (strUserAgent != null)
+        {
+            if (strUserAgent.Contains("mac"))
+            {
+                responseCode = 1;
+            }
+            else if (strUserAgent.Contains("android"))
+            {
+                responseCode = 2;
+            }
+            else
+            {
+                responseCode = 3;
+            }
+        }
+        return responseCode;
+    }
 }
