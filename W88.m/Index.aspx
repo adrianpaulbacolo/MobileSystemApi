@@ -22,16 +22,16 @@
                     </a>
                 </div>
                 <%
-                  //var promoUrl = (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) ? "/_Secure/Login.aspx?redirect=" + Uri.EscapeDataString("/Slots/SlotPromo.aspx") : "/Slots/SlotPromo.aspx";
+                  var promoUrl = (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) ? "/_Secure/Login.aspx?redirect=" + Uri.EscapeDataString("/Slots/SlotPromo.aspx") : "/Slots/SlotPromo.aspx";
                 %>
-                <%--<div class="slide">
+                <div class="slide">
                     <a rel="clbW" href="<%=promoUrl %>" data-ajax="false">
                         <div class="slide-title">
                             <h2><%=commonCulture.ElementValues.getResourceString("Title", commonVariables.PromotionsXML)%></h2>
                         </div>
                         <img src="/_Static/Images/W88-Mobile-Daily-Slot-Promo.jpg" alt="banner" class="img-responsive">
                     </a>
-                </div>--%>
+                </div>
             </section>        <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) {
             var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
             <div class="row row-no-padding action-btn">

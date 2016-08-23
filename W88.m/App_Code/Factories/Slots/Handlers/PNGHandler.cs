@@ -22,8 +22,8 @@ namespace Factories.Slots.Handlers
         public PNGHandler(string token, string lobby)
             : base(GameProvider.PNG)
         {
-            fun = GameSettings.PNGFun;
-            real = GameSettings.PNGReal;
+            fun = GameSettings.GetGameUrl(GameProvider.PNG, GameLinkSetting.Fun);
+            real = GameSettings.GetGameUrl(GameProvider.PNG, GameLinkSetting.Real);
 
             memberSessionId = token;
             lobbyPage = lobby;
