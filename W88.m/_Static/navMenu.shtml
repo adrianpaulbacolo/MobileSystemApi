@@ -299,7 +299,7 @@
                     </a>
                 </li>
                 <%}%>
-                <%if(deviceId==1){%>
+                <%if(deviceId==2){%>
                 <li>
                     <a class="card" data-rel="poker" rel="PokerAndroid" href='<%= Session["androidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">
                         <img src="/_Static/Images/W88-Mobile-Poker-Android.jpg" class="img-responsive">
