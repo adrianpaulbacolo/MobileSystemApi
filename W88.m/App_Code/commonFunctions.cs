@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Web.Script.Serialization;
+using System.Configuration;
 
 public static class commonFunctions
 {
@@ -692,4 +693,49 @@ public static class commonFunctions
         }
         return responseCode;
     }
+
+
+    public static string getPokerDownloadLinks(int deviceId)
+    {
+        var shortLang = commonVariables.SelectedLanguageShort;
+        var urlKey = string.Empty;
+        switch (deviceId)
+        {
+            case 1:
+                urlKey = "Poker_IOSURL_";
+                break;
+            case 2:
+            default:
+                urlKey = "Poker_AndroidURL_";
+                break;
+        }
+
+        switch (commonVariables.SelectedLanguage)
+        {
+            case "ja-jp":
+                urlKey += commonCountry.GetCountryByLanguage("ja-jp").ToUpper();
+                break;
+            case "id-id":
+                urlKey += commonCountry.GetCountryByLanguage("id-id").ToUpper();
+                break;
+            case "zh-cn":
+                urlKey += commonCountry.GetCountryByLanguage("zh-cn").ToUpper();
+                break;
+            case "en-us":
+            case "km-kh":
+            case "ko-kr":
+            case "th-th":
+            case "vi-vn":
+            default:
+                urlKey += commonCountry.GetCountryByLanguage("en-us").ToUpper();
+                break;
+        }
+        return ConfigurationManager.AppSettings[urlKey];
+    }
+
+    public static string getTexasMahjongDownloadLinks()
+    {
+        return ConfigurationManager.AppSettings["TexasMahjongAndroid_URL"];
+    }
+
 }

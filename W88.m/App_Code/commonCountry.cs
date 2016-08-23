@@ -98,5 +98,29 @@ public static class commonCountry
                 return "en-us";
         }
     }
+    public static string GetCountryByLanguage(string lang)
+    {
+        switch (lang)
+        {
+            case "en-us":
+                return "en";
+            case "id-id":
+                return "id";
+            case "km-kh":
+                return "kh";
+            case "ko-kr":
+                return "kr";
+            case "th-th":
+                return "th";
+            case "vi-vn":
+                return "vn";
+            case "zh-cn":
+                return "cn";
+            case "ja-jp":
+                return "jp";
+            default:
+                return "en";
+        }
+    }
 
 }

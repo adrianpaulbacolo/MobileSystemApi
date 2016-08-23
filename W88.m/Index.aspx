@@ -180,19 +180,6 @@
 
             </ul>
 
-            <!-- <ul class="hide">
-                <li class="li-pokerIOS" runat="server" id ="pokerIOS_link">
-                    <a rel="PokerIOS" href="#" data-ajax="false" target="_blank" runat="server" id ="pokerIOS">
-                        <div><%=commonCulture.ElementValues.getResourceXPathString("Products/Poker/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li>
-                <li class="li-pokerAndroid" runat="server" id ="pokerAndroid_link" >
-                    <a rel="PokerAndroid" href="#" data-ajax="false" target="_blank" runat="server" id ="pokerAndroid">
-                        <div><%=commonCulture.ElementValues.getResourceXPathString("Products/Poker/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li>
-            </ul> -->
-
            <%if(mobileDeviceId == 2){%>
                 <div class="download-app">
                     <div class="row">
