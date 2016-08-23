@@ -14,25 +14,15 @@
         <!--#include virtual="~/_static/header.shtml" -->
         <div class="ui-content" role="main">
 
-                        <section class="section banner-slider">
+            <section class="section banner-slider">
                 <%=getPromoBanner() %>
                 <div class="slide">
                     <a rel="clbW" href="/_static/ClubW/casino.aspx" data-ajax="false">
                         <img src="/_Static/Images/Download/W88-Mobile-ClubW-Casino.jpg" alt="banner" class="img-responsive">
                     </a>
                 </div>
-                <%
-                  var promoUrl = (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) ? "/_Secure/Login.aspx?redirect=" + Uri.EscapeDataString("/Slots/SlotPromo.aspx") : "/Slots/SlotPromo.aspx";
-                %>
-                <div class="slide">
-                    <a rel="clbW" href="<%=promoUrl %>" data-ajax="false">
-                        <div class="slide-title">
-                            <h2><%=commonCulture.ElementValues.getResourceString("Title", commonVariables.PromotionsXML)%></h2>
-                        </div>
-                        <img src="/_Static/Images/W88-Mobile-Daily-Slot-Promo.jpg" alt="banner" class="img-responsive">
-                    </a>
-                </div>
-            </section>        <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) {
+            </section>
+            <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) {
             var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
             <div class="row row-no-padding action-btn">
                 <div class="col">

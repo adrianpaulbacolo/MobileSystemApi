@@ -358,6 +358,16 @@ public partial class _Index : BasePage
                 var linkClass = promo.Element("class").Value;
                 var content = "";
                 var description = "";
+                if (!string.IsNullOrEmpty(commonCookie.CookieCurrency) && promo.HasAttributes && promo.Attribute("currency") != null)
+                {
+                    var currencies = promo.Attribute("currency").Value;
+                    if (!string.IsNullOrEmpty(currencies))
+                    {
+                        var currenciesArr = currencies.ToString().Split(',');
+                        var test = Array.Find(currenciesArr, element => element.StartsWith(commonCookie.CookieCurrency, StringComparison.Ordinal));
+                        if (string.IsNullOrEmpty(test)) continue;
+                    }
+                }
 
                 if (!string.IsNullOrWhiteSpace(descText)) description = "<p>" + descText + "</p>";
                 if (!string.IsNullOrWhiteSpace(mainText)) content = "<div class=\"slide-title\"><h2>" + mainText + "</h2>" + description + "</div>";
