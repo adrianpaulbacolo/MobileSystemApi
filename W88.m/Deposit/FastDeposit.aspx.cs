@@ -89,7 +89,7 @@ public partial class Deposit_FastDesposit : PaymentBasePage
 
         lblDepositDateTime.Text = commonCulture.ElementValues.getResourceString("drpDepositDateTime", xeResources);
 
-        if (commonVariables.SelectedLanguageShort.ToLower() == "vn" || commonCookie.CookieCurrency.ToLower() == "vnd")
+        if (commonVariables.SelectedLanguageShort.ToLower() == "vn" && commonCookie.CookieCurrency.ToLower() == "vnd")
         {
             var sbNote = new StringBuilder();
             sbNote.Append("<li class='row'><div class='col'>");
