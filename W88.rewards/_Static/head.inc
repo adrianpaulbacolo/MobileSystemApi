@@ -33,10 +33,3 @@
   w88Mobile.Growl.options.close = '<%=commonCulture.ElementValues.getResourceString("close", commonVariables.LeftMenuXML)%>';
   }
 </script>
-<% if (string.Compare(commonVariables.SelectedLanguage, "th-th", true) == 0) { %>
-<link rel="stylesheet" href="/_Static/Css/th-th.css" />
-<% } else if (string.Compare(commonVariables.SelectedLanguage, "km-kh", true) == 0) { %>
-<link rel="stylesheet" href="/_Static/Css/th-th.css" />
-<% } else if (string.Compare(commonVariables.SelectedLanguage, "zh-cn", true) == 0) { %>
-<link rel="stylesheet" href="/_Static/Css/zh-cn.css" />
-<% } %>
