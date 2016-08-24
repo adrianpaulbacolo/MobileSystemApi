@@ -90,7 +90,7 @@ namespace Factories.Slots.Handlers
             string realUrl = "";
             realUrl = element.Element("Real") != null ? element.Element("Real").Value : real;
 
-            return real.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{TOKEN}", memberSessionId).Replace("{CASHIER}", cashierPage).Replace("{LOBBY}", lobbyPage);
+            return realUrl.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{TOKEN}", memberSessionId).Replace("{CASHIER}", cashierPage).Replace("{LOBBY}", lobbyPage);
         }
 
         private string GetGameLanguage(XElement element)
