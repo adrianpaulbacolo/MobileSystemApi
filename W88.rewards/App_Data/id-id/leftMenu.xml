@@ -17,5 +17,5 @@
   <logout><![CDATA[Logout]]></logout>
   <desktopsite><![CDATA[Situs Desktop]]></desktopsite>
   <fullscreenMode><![CDATA[FullScreen Mode]]></fullscreenMode>
-  <close><![CDATA[TUTUP]]></close>
+  
 </menu>

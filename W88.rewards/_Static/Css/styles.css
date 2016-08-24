@@ -639,7 +639,7 @@ p {
   .catalog-box .catalog-details {
     padding: 15px; }
     .catalog-box .catalog-details h4 {
-      margin-top: 0;
+      margin-top: 10px;
       color: #cccccc;
       font-size: 1em;
       height: 2.143em;
