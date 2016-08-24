@@ -11,6 +11,13 @@
             $(window).hashchange();
             getPromos();
         });
+        // temporarily restrict promo
+        var restrictedPromos = {};
+        restrictedPromos.DAILYSLOTS = {
+            allowed: ["RMB"]
+        };
+        var currentCCode = '<%= commonCookie.CookieCurrency%>';
+
 
         function timerV2(pid, start_date, end_date) { if (new Date('<%=System.DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') < new Date(start_date) || new Date('<%=System.DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') > new Date(end_date)) { $('div#' + pid).hide(); } }
         function getPromos() {
@@ -26,6 +33,14 @@
                 var promo_length = $(data).find('.promotion_group').length;
                 $(data).find('.promotion_group').each(function (index) {
                     if (index == promo_length - 1) { return; }
+                    var currentPromoId = $(this).attr('id');
+                    if (!_.isUndefined(restrictedPromos[currentPromoId])) {
+                        if (!_.isUndefined(restrictedPromos[currentPromoId].allowed)) {
+                            if (_.isEmpty(currentCCode) || _.indexOf(restrictedPromos[currentPromoId].allowed, currentCCode) == -1) {
+                                return;
+                            }
+                        }
+                    }
                     var strPromoTitle = $(this).find('div.promotion_title').text();
                     var strPromoContent = $(this).find('div.promotion_content').text();
                     var promoDetailHtml = $(this).find('div.promotion_detail').html();

@@ -26,7 +26,7 @@ public partial class Withdrawal_Pending : BasePage
         svcPayMember.PendingWithdrawal[] arrPendingTrx = null;
 
         strOperatorId = commonVariables.OperatorId;
-        strMemberCode = commonVariables.GetSessionVariable("MemberCode");
+        strMemberCode = base.userInfo.MemberCode;;
 
         if (!Page.IsPostBack)
         {

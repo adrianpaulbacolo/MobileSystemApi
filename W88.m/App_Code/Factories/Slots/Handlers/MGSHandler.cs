@@ -24,8 +24,8 @@ namespace Factories.Slots.Handlers
         public MGSHandler(string token, string lobby, string cashier)
             : base(GameProvider.MGS)
         {
-            fun = GameSettings.MGSFun;
-            real = GameSettings.MGSReal;
+            fun = GameSettings.GetGameUrl(GameProvider.MGS, GameLinkSetting.Fun);
+            real = GameSettings.GetGameUrl(GameProvider.MGS, GameLinkSetting.Real);
 
             memberSessionId = token;
             lobbyPage = lobby;
@@ -90,7 +90,7 @@ namespace Factories.Slots.Handlers
             string realUrl = "";
             realUrl = element.Element("Real") != null ? element.Element("Real").Value : real;
 
-            return real.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{TOKEN}", memberSessionId).Replace("{CASHIER}", cashierPage).Replace("{LOBBY}", lobbyPage);
+            return realUrl.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{TOKEN}", memberSessionId).Replace("{CASHIER}", cashierPage).Replace("{LOBBY}", lobbyPage);
         }
 
         private string GetGameLanguage(XElement element)

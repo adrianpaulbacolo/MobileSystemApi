@@ -11,14 +11,7 @@ public partial class Withdrawal_Default : PaymentBasePage
 {
     protected void Page_Init(object sender, EventArgs e)
     {
-        UserSession.checkSession();
-
         base.PaymentType = commonVariables.PaymentTransactionType.Withdrawal;
-
-        base.CheckLogin();
-        base.InitialiseVariables();
-
-        base.InitialisePaymentLimits();
     }
 
     protected void Page_Load(object sender, EventArgs e)

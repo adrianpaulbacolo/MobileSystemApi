@@ -2,6 +2,7 @@
 
 using System;
 using System.Web;
+using Helpers;
 
 public class AjaxHandlers_ASHX_CheckPromo : IHttpHandler, System.Web.SessionState.IReadOnlySessionState
 {
@@ -15,9 +16,12 @@ public class AjaxHandlers_ASHX_CheckPromo : IHttpHandler, System.Web.SessionStat
         string strTransferAmount = string.Empty;
         string strPromoCode = string.Empty;
 
+        var user = new Members();
+        var userInfo = user.MemberData();
+
         strWalletId = context.Request.Params.Get("Wallet");
         strOperatorId = commonVariables.OperatorId;
-        strMemberCode = commonVariables.GetSessionVariable("MemberCode");
+        strMemberCode = userInfo.MemberCode;
         strTransferAmount = context.Request.Params.Get("Amount");
         strPromoCode = context.Request.Params.Get("Code");
 

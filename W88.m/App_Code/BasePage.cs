@@ -6,12 +6,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Helpers;
+using Models;
 
 public class BasePage : System.Web.UI.Page
 {
     public Boolean isLoggedIn;
     public Boolean isPublic = true;
     public PageHeaders headers = new PageHeaders();
+    public MemberSession.UserSessionInfo userInfo = new MemberSession.UserSessionInfo();
 
     protected override void OnPreInit(EventArgs e)
     {
@@ -26,9 +28,17 @@ public class BasePage : System.Web.UI.Page
         base.OnPreInit(e);
     }
 
+    protected override void OnPreLoad(EventArgs e)
+    {
+        base.OnPreLoad(e);
+
+        UserSession.checkSession();
+        var user = new Members();
+        userInfo = user.MemberData();
+    }
+
     protected override void OnLoad(EventArgs e)
     {
-        UserSession.checkSession();
 
         string strLanguage = HttpContext.Current.Request.QueryString.Get("lang");
 
@@ -72,7 +82,8 @@ public class BasePage : System.Web.UI.Page
         {
             if (!UserSession.IsLoggedIn())
             {
-                Response.Redirect("/Index");
+                var redirectUrl = string.Format("/_Secure/Login.aspx?redirect={0}", Uri.EscapeDataString(Request.Url.PathAndQuery));
+                Response.Redirect(redirectUrl);
             }
         }
 

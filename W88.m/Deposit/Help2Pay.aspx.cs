@@ -20,12 +20,6 @@ public partial class Deposit_Help2Pay : PaymentBasePage
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.Help2Pay);
 
-        base.CheckLogin();
-        base.InitialiseVariables();
-
-        base.InitialisePaymentLimits();
-
-        this.InitializeBank();
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -36,6 +30,7 @@ public partial class Deposit_Help2Pay : PaymentBasePage
 
         if (!Page.IsPostBack)
         {
+            this.InitializeBank();
             lblMode.Text = commonCulture.ElementValues.getResourceString("lblMode", xeResources);
             txtMode.Text = string.Format(": {0}", commonCulture.ElementValues.getResourceString("txtMode", xeResources));
             lblMinMaxLimit.Text = commonCulture.ElementValues.getResourceString("lblMinMaxLimit", xeResources);

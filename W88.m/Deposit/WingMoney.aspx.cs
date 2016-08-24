@@ -21,12 +21,6 @@ public partial class Deposit_WingMoney : PaymentBasePage
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.WingMoney);
 
-        base.CheckLogin();
-        base.InitialiseVariables();
-
-        base.InitialisePaymentLimits();
-
-        this.InitialiseDepositDateTime();
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -37,6 +31,7 @@ public partial class Deposit_WingMoney : PaymentBasePage
 
         if (!Page.IsPostBack)
         {
+            this.InitialiseDepositDateTime();
             strTitle = commonCulture.ElementValues.getResourceString("lblTitle", xeResources);
 
             lblDepositAmount.Text = commonCulture.ElementValues.getResourceString("lblAmount", xeResources);

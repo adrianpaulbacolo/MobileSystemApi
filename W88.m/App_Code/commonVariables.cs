@@ -49,6 +49,23 @@ public class commonVariables
             }
         }
     }
+    public static XElement PromotionsXML
+    {
+        get
+        {
+            if (HttpContext.Current.Cache.Get("PromotionsXML_" + commonVariables.SelectedLanguage) != null)
+            {
+                return HttpContext.Current.Cache.Get("PromotionsXML_" + commonVariables.SelectedLanguage) as XElement;
+            }
+            else
+            {
+                XElement xcMenu = commonCulture.appData.getRootResource("/Promotions");
+                HttpContext.Current.Cache.Add("PromotionsXML_" + commonVariables.SelectedLanguage, xcMenu, null, Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), CacheItemPriority.AboveNormal, null);
+                return xcMenu;
+            }
+        }
+    }
+
     public static string SiteUrl { get { return HttpContext.Current.Request.ServerVariables["SERVER_NAME"]; } }
 
     public static string DisplayDateFormat { get { return ConfigurationManager.AppSettings.Get("DisplayDateFormat"); } }

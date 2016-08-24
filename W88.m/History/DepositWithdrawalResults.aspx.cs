@@ -14,7 +14,7 @@ public partial class History_DepositWithdrawalResults : BasePage
         if (!string.IsNullOrEmpty(Request["dateFrom"]) && !string.IsNullOrEmpty(Request["dateTo"]) &&
             !string.IsNullOrEmpty(Request["status"]) && !string.IsNullOrEmpty(Request["type"]) &&
             !string.IsNullOrEmpty(commonVariables.OperatorId) &&
-            !string.IsNullOrEmpty(commonVariables.GetSessionVariable("MemberCode")))
+            !string.IsNullOrEmpty(base.userInfo.MemberCode))
         {
             //Request Params
             var dateFrom = DateTime.Parse(Request["dateFrom"].ToString());
@@ -28,7 +28,7 @@ public partial class History_DepositWithdrawalResults : BasePage
                 {
                     //Other Params
                     var strOperatorId = int.Parse(commonVariables.OperatorId);
-                    var strMemberCode = commonVariables.GetSessionVariable("MemberCode");
+                    var strMemberCode = base.userInfo.MemberCode;
 
                     string statusCode;
                     var history = svcInstance.getDepositWithdrawalHistory(strOperatorId, strMemberCode, type, status, dateFrom, dateTo, out statusCode);

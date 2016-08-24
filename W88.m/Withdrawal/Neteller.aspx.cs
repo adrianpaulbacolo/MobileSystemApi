@@ -17,17 +17,11 @@ public partial class Withdrawal_Neteller : PaymentBasePage
         base.PageName = Convert.ToString(commonVariables.WithdrawalMethod.Neteller);
         base.PaymentType = commonVariables.PaymentTransactionType.Withdrawal;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.WithdrawalMethod.Neteller);
-
-        base.CheckLogin();
-        base.InitialiseVariables();
-
-        base.InitialisePaymentLimits();
-
-        base.InitialisePendingWithdrawals(sender.ToString().Contains("app"));
     }
 
     protected void Page_Load(object sender, EventArgs e)  
     {
+        if (!Page.IsPostBack) base.InitialisePendingWithdrawals(sender.ToString().Contains("app"));
 
         HtmlGenericControl withdrawalTabs = (HtmlGenericControl)FindControl("withdrawalTabs");
         commonPaymentMethodFunc.GetWithdrawalMethodList(strMethodsUnAvailable, withdrawalTabs, base.PageName, sender.ToString().Contains("app"));
