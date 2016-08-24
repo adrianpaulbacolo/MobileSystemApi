@@ -4,59 +4,64 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-
-    <div class="daily-slots">
-        <div class="daily-slots-banner">
-            <img src="/_Static/Images/W88-Mobile-Daily-Slot-Promo.jpg" alt="Daily Slot Title Here">
-        </div>
-        <div class="daily-slots-content">
-            <div class="daily-slots-content-header">
-                <h4>
-                    <asp:Literal ID="mainLabel" runat="server" /></h4>
-                <p>
-                    <asp:Literal ID="description" runat="server" />
-                </p>
+    <div class="ui-content">
+        <div class="daily-slots">
+            <div class="daily-slots-banner">
+                <img src="/_Static/Images/W88-Mobile-Daily-Slot-Promo.jpg" alt="Daily Slot Title Here">
             </div>
-            <button type="button" class="ui-btn btn-gray active-btn" onclick="claimPrizeToggle()"><%=commonCulture.ElementValues.getResourceString("ClaimPrize", commonVariables.PromotionsXML)%></button>
-            <div class="daily-slots-claim">
-            </div>
-            <button type="button" class="ui-btn btn-gray" onclick="claimToggle(0)"><%=commonCulture.ElementValues.getResourceString("ShowSlots", commonVariables.PromotionsXML)%></button>
-            <div class="daily-slots-promo">
-                <ul class="daily-slots-promo-nav">
-                    <li data-week="-2">
-                        <button onclick="fetchPromo(-2)"><%=commonCulture.ElementValues.getResourceString("Last2Week", commonVariables.PromotionsXML)%></button></li>
-                    <li data-week="-1">
-                        <button onclick="fetchPromo(-1)"><%=commonCulture.ElementValues.getResourceString("LastWeek", commonVariables.PromotionsXML)%></button></li>
-                    <li data-week="0">
-                        <button onclick="fetchPromo(0)"><%=commonCulture.ElementValues.getResourceString("CurrentWeek", commonVariables.PromotionsXML)%></button></li>
-                    <li data-week="1">
-                        <button onclick="fetchPromo(1)"><%=commonCulture.ElementValues.getResourceString("NextWeek", commonVariables.PromotionsXML)%></button></li>
-                </ul>
-                <div class="daily-slots-promo-games" id="slots">
-                    <p id="weekly-label"></p>
-                    <div class="div-product">
-                        <ul id="promo-list">
-                        </ul>
+            <div class="daily-slots-content">
+                <div class="daily-slots-content-header">
+                    <h4>
+                        <asp:Literal ID="mainLabel" runat="server" /></h4>
+                    <p>
+                        <asp:Literal ID="description" runat="server" />
+                    </p>
+                </div>
+                <button type="button" class="ui-btn btn-gray active-btn" onclick="claimPrizeToggle()"><%=commonCulture.ElementValues.getResourceString("ClaimPrize", commonVariables.PromotionsXML)%></button>
+                <div class="daily-slots-claim">
+                </div>
+                <button type="button" class="ui-btn btn-gray" onclick="claimToggle(0)"><%=commonCulture.ElementValues.getResourceString("ShowSlots", commonVariables.PromotionsXML)%></button>
+                <div class="daily-slots-promo">
+                    <ul class="daily-slots-promo-nav">
+                        <li data-week="-2">
+                            <button onclick="fetchPromo(-2)"><%=commonCulture.ElementValues.getResourceString("Last2Week", commonVariables.PromotionsXML)%></button></li>
+                        <li data-week="-1">
+                            <button onclick="fetchPromo(-1)"><%=commonCulture.ElementValues.getResourceString("LastWeek", commonVariables.PromotionsXML)%></button></li>
+                        <li data-week="0">
+                            <button onclick="fetchPromo(0)"><%=commonCulture.ElementValues.getResourceString("CurrentWeek", commonVariables.PromotionsXML)%></button></li>
+                        <li data-week="1">
+                            <button onclick="fetchPromo(1)"><%=commonCulture.ElementValues.getResourceString("NextWeek", commonVariables.PromotionsXML)%></button></li>
+                    </ul>
+                    <div class="daily-slots-promo-games" id="slots">
+                        <p id="weekly-label"></p>
+                        <div class="div-product">
+                            <ul id="promo-list">
+                            </ul>
 
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="daily-slots-claim-terms">
-                <%
-                    var terms = commonCulture.ElementValues.getResourceString("Terms", commonVariables.PromotionsXML);
-                    var promolink = String.Format("<a href=\"{0}\">{1}</a>", "#", commonCulture.ElementValues.getResourceString("PromoLink", commonVariables.PromotionsXML));
-                    terms = terms.Replace("{promolink}", promolink);
-                    terms = terms.Replace("{dailyslottext}", commonCulture.ElementValues.getResourceString("ShowSlots", commonVariables.PromotionsXML));
-                %>
-                <%=terms %>
+                <div class="daily-slots-claim-terms">
+                    <%
+                        var terms = commonCulture.ElementValues.getResourceString("Terms", commonVariables.PromotionsXML);
+                        var promolink = String.Format("<a data-ajax=\"false\" href=\"{0}\">{1}</a>", "/Promotions#DAILYSLOTS", commonCulture.ElementValues.getResourceString("PromoLink", commonVariables.PromotionsXML));
+                        terms = terms.Replace("{promolink}", promolink);
+                        terms = terms.Replace("{dailyslottext}", commonCulture.ElementValues.getResourceString("ShowSlots", commonVariables.PromotionsXML));
+                    %>
+                    <%=terms %>
+                </div>
             </div>
         </div>
     </div>
 
     <style>
-        div.daily-slots-claim-terms ol li span{
+        div.daily-slots{
+            background-color:#252525;
+        }
+        div.daily-slots-claim-terms ol li span {
             text-transform: uppercase;
         }
+
         #promo-list .spinner-generic,
         .daily-slots-claim .spinner-generic {
             margin-left: 45%;
@@ -220,22 +225,22 @@
                 .append($("<tr>")
                         .append($("<td>").html("<%=commonCulture.ElementValues.getResourceString("RollOver", commonVariables.PromotionsXML)%>:"))
                         .append($("<td>").html(formatAmount(promo.info.rollover_amount))));
-            }
+        }
 
         if (promo.status == -1) {
             var claimButton = $("<button>", { class: "ui-btn btn-primary claim-submit-button", type: "button" })
                 .html("<%=commonCulture.ElementValues.getResourceString("ClaimNow", commonVariables.PromotionsXML)%>");
-                claimButton.on("click", function () {
-                    if (window.User.hasSession != 1)
-                        window.open("/_Secure/Login.aspx?redirect=" + encodeURI("Slots/SlotPromo.aspx"));
-                    else submitClaim(activePromoClaim);
-                })
-                $(".daily-slots-claim").append(claimButton);
+            claimButton.on("click", function () {
+                if (window.User.hasSession != 1)
+                    window.open("/_Secure/Login.aspx?redirect=" + encodeURI("Slots/SlotPromo.aspx"));
+                else submitClaim(activePromoClaim);
+            })
+            $(".daily-slots-claim").append(claimButton);
 
-            } else if (promo.status == 1) {
+        } else if (promo.status == 1) {
 
-                var playButton = $("<button>", { class: "ui-btn btn-primary", type: "button" })
-                    .html("<%=commonCulture.ElementValues.getResourceString("PlayNow", commonVariables.PromotionsXML)%>");
+            var playButton = $("<button>", { class: "ui-btn btn-primary", type: "button" })
+                .html("<%=commonCulture.ElementValues.getResourceString("PlayNow", commonVariables.PromotionsXML)%>");
                     playButton.on("click", function () {
                         var cUrl = window.location.hostname;
                         window.open(activePromoClaim.game.game_link);
@@ -253,59 +258,59 @@
             }
             var sunday = moment(monday).add(6, "day");
             var weekLabel = "<%=commonCulture.ElementValues.getResourceString("WeeklyLabel", commonVariables.PromotionsXML)%>";
-                weekLabel = weekLabel.replace("{from}", monday.format("DD/MM/YYYY")).replace("{to}", sunday.format("DD/MM/YYYY"));
-                $("#weekly-label").html(weekLabel);
+            weekLabel = weekLabel.replace("{from}", monday.format("DD/MM/YYYY")).replace("{to}", sunday.format("DD/MM/YYYY"));
+            $("#weekly-label").html(weekLabel);
 
-                _.forEach($(".daily-slots-promo-nav > li"), function (nav) {
-                    var childNav = $(nav).children(":first");
-                    if ($(nav).attr("data-week") != week) {
-                        childNav.removeClass("active");
-                    } else {
-                        if (!childNav.hasClass("active")) childNav.addClass("active");
-                    }
-                });
-                $.ajax({
-                    url: "SlotPromo.aspx/getWeeklyPromo",
-                    data: { week: week },
-                    type: "GET",
-                    dataType: "json",
-                    contentType: "application/json; charset=utf-8",
-                    beforeSend: function () {
-                        $("#promo-list").html(loader);
-                    },
-                    success: function (mydata) {
-                        $("#promo-list").children().remove();
-                        var promoList = JSON.parse(mydata.d);
-                        _.forEach(promoList, function (promo) {
-                            if (_.isEmpty(promo.game) || _.isEmpty(promo.game.name)) return;
-                            promo.endDate = moment(promo.start).format("MM/DD/YYYY");
-                            var state = "";
-                            var claimText = "";
-                            switch (promo.status) {
-                                case -1:
-                                    //inactive for other state
-                                    state = "daily-active";
-                                    claimText = "<%=commonCulture.ElementValues.getResourceString("ClaimNow", commonVariables.PromotionsXML)%>";
-                                break;
-                            case 0:
-                            case 1:
-                                claimText = promo.endDate;
-                                break;
-                        }
-                        var gameItem = $("<li>", { class: "bkg-game " + state })
-                        .append($("<div>", { rel: promo.game.name })
-                            .append($("<img>", { src: promo.game.image_link, class: "img-responsive-full" }))
-                            .append($("<div>", { class: "daily-game-action" })
-                                .append($("<span>", {}).html(claimText))));
-                        gameItem.on("click", function () {
-                            claimPromo(promo);
-                        });
-                        $("#promo-list").append(gameItem).append(" ");
-                    });
+            _.forEach($(".daily-slots-promo-nav > li"), function (nav) {
+                var childNav = $(nav).children(":first");
+                if ($(nav).attr("data-week") != week) {
+                    childNav.removeClass("active");
+                } else {
+                    if (!childNav.hasClass("active")) childNav.addClass("active");
                 }
             });
+            $.ajax({
+                url: "SlotPromo.aspx/getWeeklyPromo",
+                data: { week: week },
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                beforeSend: function () {
+                    $("#promo-list").html(loader);
+                },
+                success: function (mydata) {
+                    $("#promo-list").children().remove();
+                    var promoList = JSON.parse(mydata.d);
+                    _.forEach(promoList, function (promo) {
+                        if (_.isEmpty(promo.game) || _.isEmpty(promo.game.name)) return;
+                        promo.endDate = moment(promo.start).format("MM/DD/YYYY");
+                        var state = "";
+                        var claimText = "";
+                        switch (promo.status) {
+                            case -1:
+                                //inactive for other state
+                                state = "daily-active";
+                                claimText = "<%=commonCulture.ElementValues.getResourceString("ClaimNow", commonVariables.PromotionsXML)%>";
+                                    break;
+                                case 0:
+                                case 1:
+                                    claimText = promo.endDate;
+                                    break;
+                            }
+                            var gameItem = $("<li>", { class: "bkg-game " + state })
+                            .append($("<div>", { rel: promo.game.name })
+                                .append($("<img>", { src: promo.game.image_link, class: "img-responsive-full" }))
+                                .append($("<div>", { class: "daily-game-action" })
+                                    .append($("<span>", {}).html(claimText))));
+                            gameItem.on("click", function () {
+                                claimPromo(promo);
+                            });
+                            $("#promo-list").append(gameItem).append(" ");
+                        });
+                    }
+                });
 
-        }
+            }
 
     </script>
 </asp:Content>
