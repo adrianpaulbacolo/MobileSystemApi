@@ -44,7 +44,7 @@
                 <div class="daily-slots-claim-terms">
                     <%
                         var terms = commonCulture.ElementValues.getResourceString("Terms", commonVariables.PromotionsXML);
-                        var promolink = String.Format("<a href=\"{0}\">{1}</a>", "#", commonCulture.ElementValues.getResourceString("PromoLink", commonVariables.PromotionsXML));
+                        var promolink = String.Format("<a data-ajax=\"false\" href=\"{0}\">{1}</a>", "/Promotions#DAILYSLOTS", commonCulture.ElementValues.getResourceString("PromoLink", commonVariables.PromotionsXML));
                         terms = terms.Replace("{promolink}", promolink);
                         terms = terms.Replace("{dailyslottext}", commonCulture.ElementValues.getResourceString("ShowSlots", commonVariables.PromotionsXML));
                     %>
