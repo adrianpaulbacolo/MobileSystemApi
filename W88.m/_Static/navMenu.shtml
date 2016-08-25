@@ -321,6 +321,12 @@
                 <%}catch(Exception){}%>
             </ul>
         </li>
+        <li data-icon="false">
+            <a class="nav-promotions" href="/Promotions" data-ajax="false">
+                <i class="icon-promo"></i>
+                <div class="label"><%=commonCulture.ElementValues.getResourceString("promotions", commonVariables.LeftMenuXML)%></div>
+            </a>
+        </li>
         <!-- Rewards
             <li data-icon="false">
                 <a rel="rewards" class="nav-rewards" href="javascript:void(0);">
