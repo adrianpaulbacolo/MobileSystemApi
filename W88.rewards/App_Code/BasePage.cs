@@ -1,13 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Configuration;
 using System.Web;
+using System.Web.UI;
 
-public class BasePage : System.Web.UI.Page
+public class BasePage : Page
 {
+    public Boolean isLoggedIn;
+    public Boolean isPublic = true;
+    public PageHeaders headers = new PageHeaders();
+
     protected override void OnPreInit(EventArgs e)
     {
-        if (string.Compare(System.Configuration.ConfigurationManager.AppSettings.Get("ClearWebCache"), "true", true) == 0)
+        if (string.Compare(ConfigurationManager.AppSettings.Get("ClearWebCache"), "true", true) == 0)
         {
             foreach (System.Collections.DictionaryEntry deCache in System.Web.HttpContext.Current.Cache)
             {
@@ -20,113 +24,153 @@ public class BasePage : System.Web.UI.Page
 
     protected override void OnLoad(EventArgs e)
     {
-        string strMemberSessionId = string.Empty;
+        UserSession.checkSession();
 
-        strMemberSessionId = commonVariables.CurrentMemberSessionId;
-
-        if (string.IsNullOrEmpty(commonVariables.GetSessionVariable("LoginStatus")) && !string.IsNullOrEmpty(strMemberSessionId))
+        if (!isPublic)
         {
-            string strLanguage = HttpContext.Current.Request.QueryString.Get("lang");
-
-            if (!string.IsNullOrEmpty(strLanguage)) { commonVariables.SelectedLanguage = strLanguage; }
-            Response.Redirect("/_Secure/ProcessLoginBySessionId.html" + (!string.IsNullOrEmpty(strLanguage) ? "?lang=" + strLanguage : ""), true);
-        }
-        else if (string.IsNullOrEmpty(strMemberSessionId) && string.Compare(commonVariables.GetSessionVariable("LoginStatus"), "success", true) == 0)
-        {
-            //Response.Redirect("/Expire", true);
-            Response.Write("<script type='text/javascript'>window.location.replace('/Expire');</script>");
-        }
-        else if (string.IsNullOrEmpty(strMemberSessionId))
-        {
-            //Response.Redirect("/Default.aspx", true);
-            //Response.Write("<script type='text/javascript'>window.location.replace('/Expire');</script>");
-        }
-        else
-        {
-            #region InitialiseLinks
-
-            #region leftMenu
-            //System.Web.UI.HtmlControls.HtmlAnchor aMnuSports = base.FindControl("aMnuSports") as System.Web.UI.HtmlControls.HtmlAnchor;
-            //System.Web.UI.HtmlControls.HtmlAnchor aMnuLottery = base.FindControl("aMnuLottery") as System.Web.UI.HtmlControls.HtmlAnchor;
-            //System.Web.UI.HtmlControls.HtmlAnchor aMnuSlots = base.FindControl("aMnuSlots") as System.Web.UI.HtmlControls.HtmlAnchor;
-            //System.Web.UI.HtmlControls.HtmlAnchor aMnuLiveCasino = base.FindControl("aMnuLiveCasino") as System.Web.UI.HtmlControls.HtmlAnchor;
-
-            //System.Web.UI.HtmlControls.HtmlAnchor aMnuDeposit = base.FindControl("aMnuDeposit") as System.Web.UI.HtmlControls.HtmlAnchor;
-            //System.Web.UI.HtmlControls.HtmlAnchor aMnuTransfer = base.FindControl("aMnuTransfer") as System.Web.UI.HtmlControls.HtmlAnchor;
-            //System.Web.UI.HtmlControls.HtmlAnchor aMnuWithdrawal = base.FindControl("aMnuWithdrawal") as System.Web.UI.HtmlControls.HtmlAnchor;
-            #endregion
-
-            #region indexPage
-            //System.Web.UI.HtmlControls.HtmlAnchor aSports = base.FindControl("aSports") as System.Web.UI.HtmlControls.HtmlAnchor;
-            //System.Web.UI.HtmlControls.HtmlAnchor aLottery = base.FindControl("aLottery") as System.Web.UI.HtmlControls.HtmlAnchor;
-            //System.Web.UI.HtmlControls.HtmlAnchor aSlots = base.FindControl("aSlots") as System.Web.UI.HtmlControls.HtmlAnchor;
-            //System.Web.UI.HtmlControls.HtmlAnchor aLiveCasino = base.FindControl("aLiveCasino") as System.Web.UI.HtmlControls.HtmlAnchor;
-
-            //System.Web.UI.HtmlControls.HtmlAnchor aDeposit = base.FindControl("aDeposit") as System.Web.UI.HtmlControls.HtmlAnchor;
-            //System.Web.UI.HtmlControls.HtmlAnchor aTransfer = base.FindControl("aTransfer") as System.Web.UI.HtmlControls.HtmlAnchor;
-            //System.Web.UI.HtmlControls.HtmlAnchor aWithdrawal = base.FindControl("aWithdrawal") as System.Web.UI.HtmlControls.HtmlAnchor;
-            #endregion
-
-            #region productLinks
-            if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+            if (!UserSession.IsLoggedIn())
             {
-                //if (aMnuSports != null) { aMnuSports.HRef = commonCulture.ElementValues.getResourceXPathString("Products/Sports/Url", commonVariables.ProductsXML).Replace("{SportsbookUrl}", commonSports.getSportsbookUrl).Replace("{language}", commonSports.getSportsLanguageId(commonVariables.SelectedLanguage)).Replace("{token}", commonVariables.GetSessionVariable("MemberSessionId")); aMnuSports.Attributes.Remove("data-rel"); }
-                //if (aMnuLottery != null) { aMnuLottery.HRef = commonCulture.ElementValues.getResourceXPathString("Products/Lottery/Url", commonVariables.ProductsXML).Replace("{KenoUrl}", commonLottery.getKenoUrl).Replace("{language}", commonVariables.SelectedLanguage); aMnuLottery.Attributes.Remove("data-rel"); }
-                //if (aMnuSlots != null) { aMnuSlots.HRef = commonCulture.ElementValues.getResourceXPathString("Products/Slots/Url", commonVariables.ProductsXML); }
-                //if (aMnuLiveCasino != null) { aMnuLiveCasino.HRef = commonCulture.ElementValues.getResourceXPathString("Products/LiveCasino/Url", commonVariables.ProductsXML); }
-
-                //if (aMnuDeposit != null) { aMnuDeposit.HRef = commonCulture.ElementValues.getResourceXPathString("Products/Deposit/Url", commonVariables.ProductsXML); aMnuDeposit.Attributes.Remove("data-rel"); aMnuDeposit.Attributes.Add("data-ajax", "false"); }
-                //if (aMnuTransfer != null) { aMnuTransfer.HRef = commonCulture.ElementValues.getResourceXPathString("Products/FundTransfer/Url", commonVariables.ProductsXML); aMnuTransfer.Attributes.Remove("data-rel"); aMnuTransfer.Attributes.Add("data-ajax", "false"); }
-                //if (aMnuWithdrawal != null) { aMnuWithdrawal.HRef = commonCulture.ElementValues.getResourceXPathString("Products/Withdrawal/Url", commonVariables.ProductsXML); aMnuWithdrawal.Attributes.Remove("data-rel"); aMnuWithdrawal.Attributes.Add("data-ajax", "false"); }
-
-                //if (aSports != null) { aSports.HRef = commonCulture.ElementValues.getResourceXPathString("Products/Sports/Url", commonVariables.ProductsXML).Replace("{SportsbookUrl}", commonSports.getSportsbookUrl).Replace("{language}", commonSports.getSportsLanguageId(commonVariables.SelectedLanguage)).Replace("{token}", commonVariables.GetSessionVariable("MemberSessionId")); aSports.Attributes.Remove("data-rel"); }
-                //if (aLottery != null) { aLottery.HRef = commonCulture.ElementValues.getResourceXPathString("Products/Lottery/Url", commonVariables.ProductsXML).Replace("{KenoUrl}", commonLottery.getKenoUrl).Replace("{language}", commonVariables.SelectedLanguage); aLottery.Attributes.Remove("data-rel"); }
-                //if (aSlots != null) { aSlots.HRef = commonCulture.ElementValues.getResourceXPathString("Products/Slots/Url", commonVariables.ProductsXML); }
-                //if (aLiveCasino != null) { aLiveCasino.HRef = commonCulture.ElementValues.getResourceXPathString("Products/LiveCasino/Url", commonVariables.ProductsXML); }
-
-                //if (aDeposit != null) { aDeposit.HRef = commonCulture.ElementValues.getResourceXPathString("Products/Deposit/Url", commonVariables.ProductsXML); aDeposit.Attributes.Remove("data-rel"); aDeposit.Attributes.Add("data-ajax", "false"); }
-                //if (aTransfer != null) { aTransfer.HRef = commonCulture.ElementValues.getResourceXPathString("Products/FundTransfer/Url", commonVariables.ProductsXML); aTransfer.Attributes.Remove("data-rel"); aTransfer.Attributes.Add("data-ajax", "false"); }
-                //if (aWithdrawal != null) { aWithdrawal.HRef = commonCulture.ElementValues.getResourceXPathString("Products/Withdrawal/Url", commonVariables.ProductsXML); aWithdrawal.Attributes.Remove("data-rel"); aWithdrawal.Attributes.Add("data-ajax", "false"); }
+                Response.Redirect("/Index.aspx");
             }
-
-            //if (aMnuSports != null) { aMnuSports.InnerText = commonCulture.ElementValues.getResourceXPathString("Products/Sports/Label", commonVariables.LeftMenuXML); }
-            //if (aMnuLottery != null) { aMnuLottery.InnerText = commonCulture.ElementValues.getResourceXPathString("Products/Lottery/Label", commonVariables.LeftMenuXML); }
-            //if (aMnuSlots != null) { aMnuSlots.InnerText = commonCulture.ElementValues.getResourceXPathString("Products/Slots/Label", commonVariables.LeftMenuXML); }
-            //if (aMnuLiveCasino != null) { aMnuLiveCasino.InnerText = commonCulture.ElementValues.getResourceXPathString("Products/LiveCasino/Label", commonVariables.LeftMenuXML); }        
-            #endregion
-
-            if (!Page.IsPostBack)
-            {
-                //aSkype.HRef = commonCulture.ElementValues.getResourceString("lnkSkype", xeResources);
-                //aEmail.HRef = commonCulture.ElementValues.getResourceString("lnkEmail", xeResources);
-                //aBanking.HRef = commonCulture.ElementValues.getResourceString("lnkBanking", xeResources);
-                //aPhone.HRef = commonCulture.ElementValues.getResourceString("lnkPhone", xeResources);
-
-                //if (string.IsNullOrEmpty(commonCulture.ElementValues.getResourceString("lnkPhone", xeResources))) 
-                //{
-                //    liPhone.Visible = false;
-                //}
-            }
-
-            #endregion
         }
 
-        System.Web.UI.WebControls.Literal litScript = (System.Web.UI.WebControls.Literal)Page.FindControl("litScript");
-        if (litScript != null) { }
         base.OnLoad(e);
     }
 
     protected bool CheckLogin()
     {
-        string strMemberSessionId = string.Empty;
-
-        strMemberSessionId = commonVariables.CurrentMemberSessionId;
-
-        if (string.IsNullOrEmpty(strMemberSessionId))
+        if (UserSession.IsLoggedIn())
         {
-            base.Context.Response.Redirect("/Invalid");
+            return true;
+        }
+        return false;
+    }
+
+    public string GetCdnValue()
+    {
+        return headers.cdn;
+    }
+
+    public string GetCdnKey()
+    {
+        return headers.key;
+    }
+
+    public void CheckCdn()
+    {
+        if (!string.IsNullOrEmpty(GetValue<string>(Request.ServerVariables[commonCountry.HeaderKeys.HTTP_X_AKAMAI_EDGESCAPE])))
+        {
+            headers.cdn = Request.ServerVariables[commonCountry.HeaderKeys.HTTP_X_AKAMAI_EDGESCAPE];
+            headers.key = commonCountry.HeaderKeys.HTTP_X_AKAMAI_EDGESCAPE;
         }
 
-        return string.IsNullOrEmpty(strMemberSessionId);
+        if (!string.IsNullOrEmpty(GetValue<string>(Request.ServerVariables[commonCountry.HeaderKeys.HTTP_CF_IPCOUNTRY])))
+        {
+            headers.cdn = Request.ServerVariables[commonCountry.HeaderKeys.HTTP_CF_IPCOUNTRY];
+            headers.key = commonCountry.HeaderKeys.HTTP_CF_IPCOUNTRY;
+        }
+
+        if (!string.IsNullOrEmpty(GetValue<string>(Request.ServerVariables[commonCountry.HeaderKeys.HTTP_GEO_COUNTRY])))
+        {
+            headers.cdn = Request.ServerVariables[commonCountry.HeaderKeys.HTTP_GEO_COUNTRY];
+            headers.key = commonCountry.HeaderKeys.HTTP_GEO_COUNTRY;
+        }
+
+        if (!string.IsNullOrEmpty(GetValue<string>(Request.ServerVariables[commonCountry.HeaderKeys.HOST])))
+        {
+            headers.host = Request.ServerVariables[commonCountry.HeaderKeys.HOST];
+        }
+
+        if (!string.IsNullOrEmpty(GetValue<string>(Request.ServerVariables[commonCountry.HeaderKeys.TRUE_CLIENT_IP])))
+        {
+            headers.ip = Request.ServerVariables[commonCountry.HeaderKeys.TRUE_CLIENT_IP];
+        }
+    }
+
+    public class PageHeaders
+    {
+        public string host;
+        public string ip;
+        public string cdn;
+        public string key;
+    }
+
+    public T GetValue<T>(object obj)
+    {
+        if (obj == DBNull.Value || obj == null)
+        {
+            return default(T);
+        }
+
+        return (T)Convert.ChangeType(obj, typeof(T));
+    }
+
+    public string GetCountryCode(string CDN_Value, string key)
+    {
+        string CountryCode = string.Empty;
+
+        if (key == commonCountry.HeaderKeys.HTTP_X_AKAMAI_EDGESCAPE)
+        {
+            string[] Values = new string[100];
+            Values = CDN_Value.Split(',');
+            CountryCode = Values[1].Split('=')[1];
+        }
+        if (key == commonCountry.HeaderKeys.HTTP_CF_IPCOUNTRY)
+        {
+            CountryCode = CDN_Value;
+        }
+        if (key == commonCountry.HeaderKeys.HTTP_GEO_COUNTRY)
+        {
+            CountryCode = CDN_Value;
+        }
+        return CountryCode;
+    }
+
+    public string GetLanguageByDomain(string domain)
+    {
+        string language;
+
+        if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_CN].Contains(domain))
+        {
+            language = "zh-cn";
+        }
+        else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_VN].Contains(domain))
+        {
+            language = "vi-vn";
+        }
+        else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_TH].Contains(domain))
+        {
+            language = "th-th";
+        }
+        else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_ID].Contains(domain))
+        {
+            language = "id-id";
+        }
+        else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_MY].Contains(domain))
+        {
+            language = "en-us";
+        }
+        else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_KR].Contains(domain))
+        {
+            language = "ko-kr";
+        }
+        else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_JP].Contains(domain))
+        {
+            language = "ja-jp";
+        }
+        else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_KH].Contains(domain))
+        {
+            language = "km-kh";
+        }
+        else if (!string.IsNullOrWhiteSpace(commonVariables.SelectedLanguage))
+        {
+            language = commonVariables.SelectedLanguage;
+        }
+        else
+        {
+            language = "en-us";
+        }
+
+        return language;
     }
 }

@@ -1,79 +1,92 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Configuration;
 using System.Web;
 
 
 public class commonVariables
 {
-   private static System.Text.RegularExpressions.Regex rxDomains_CN = new System.Text.RegularExpressions.Regex(commonVariables.ChinaDomain);
-    public static System.Xml.Linq.XElement LeftMenuXML { get { if (System.Web.HttpContext.Current.Cache.Get("leftMenuXML_" + commonVariables.SelectedLanguage) != null) { return System.Web.HttpContext.Current.Cache.Get("leftMenuXML_" + commonVariables.SelectedLanguage) as System.Xml.Linq.XElement; } else { System.Xml.Linq.XElement xcMenu = commonCulture.appData.getRootResource("/leftMenu"); System.Web.HttpContext.Current.Cache.Add("leftMenuXML_" + commonVariables.SelectedLanguage, xcMenu, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.AboveNormal, null); return xcMenu; } } }
-    public static System.Xml.Linq.XElement ProductsXML { get { if (System.Web.HttpContext.Current.Cache.Get("ProductsXML_" + commonVariables.SelectedLanguage) != null) { return System.Web.HttpContext.Current.Cache.Get("ProductsXML_" + commonVariables.SelectedLanguage) as System.Xml.Linq.XElement; } else { System.Xml.Linq.XElement xcMenu = commonCulture.appData.getRootResource("/Products"); System.Web.HttpContext.Current.Cache.Add("ProductsXML_" + commonVariables.SelectedLanguage, xcMenu, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.AboveNormal, null); return xcMenu; } } }
-    public static System.Xml.Linq.XElement ContactUsXML { get { if (System.Web.HttpContext.Current.Cache.Get("ContactUsXML_" + commonVariables.SelectedLanguage) != null) { return System.Web.HttpContext.Current.Cache.Get("ContactUsXML_" + commonVariables.SelectedLanguage) as System.Xml.Linq.XElement; } else { System.Xml.Linq.XElement xcMenu = commonCulture.appData.getRootResource("/ContactUs.aspx"); System.Web.HttpContext.Current.Cache.Add("ContactUsXML_" + commonVariables.SelectedLanguage, xcMenu, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.AboveNormal, null); return xcMenu; } } }
-
-    //public static System.Xml.Linq.XElement LeftMenuXML { get { return commonCulture.appData.getRootResource("/leftMenu"); } }
-    //public static System.Xml.Linq.XElement ProductsXML { get { return commonCulture.appData.getRootResource("/Products"); } }
+    private static System.Text.RegularExpressions.Regex rxDomains_CN = new System.Text.RegularExpressions.Regex(ChinaDomain);
+    public static System.Xml.Linq.XElement LeftMenuXML { get { if (HttpContext.Current.Cache.Get("leftMenuXML_" + SelectedLanguage) != null) { return HttpContext.Current.Cache.Get("leftMenuXML_" + SelectedLanguage) as System.Xml.Linq.XElement; } else { System.Xml.Linq.XElement xcMenu = commonCulture.appData.getRootResource("/leftMenu"); HttpContext.Current.Cache.Add("leftMenuXML_" + SelectedLanguage, xcMenu, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.AboveNormal, null); return xcMenu; } } }
+    public static System.Xml.Linq.XElement ProductsXML { get { if (HttpContext.Current.Cache.Get("ProductsXML_" + SelectedLanguage) != null) { return HttpContext.Current.Cache.Get("ProductsXML_" + SelectedLanguage) as System.Xml.Linq.XElement; } else { System.Xml.Linq.XElement xcMenu = commonCulture.appData.getRootResource("/Products"); HttpContext.Current.Cache.Add("ProductsXML_" + SelectedLanguage, xcMenu, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.AboveNormal, null); return xcMenu; } } }
+    public static System.Xml.Linq.XElement ContactUsXML { get { if (HttpContext.Current.Cache.Get("ContactUsXML_" + SelectedLanguage) != null) { return HttpContext.Current.Cache.Get("ContactUsXML_" + SelectedLanguage) as System.Xml.Linq.XElement; } else { System.Xml.Linq.XElement xcMenu = commonCulture.appData.getRootResource("/ContactUs.aspx"); HttpContext.Current.Cache.Add("ContactUsXML_" + SelectedLanguage, xcMenu, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.AboveNormal, null); return xcMenu; } } }
 
     public static System.Xml.Linq.XElement ErrorsXML {
         get {
-            if (System.Web.HttpContext.Current.Cache.Get("errorsXML_" + commonVariables.SelectedLanguage) != null)
-            { return System.Web.HttpContext.Current.Cache.Get("errorsXML_" + commonVariables.SelectedLanguage) as System.Xml.Linq.XElement; } 
+            if (HttpContext.Current.Cache.Get("errorsXML_" + SelectedLanguage) != null)
+            { return HttpContext.Current.Cache.Get("errorsXML_" + SelectedLanguage) as System.Xml.Linq.XElement; } 
             else { System.Xml.Linq.XElement xcErrors = commonCulture.appData.getRootResource("/Errors"); 
-                System.Web.HttpContext.Current.Cache.Add("errorsXML_" + commonVariables.SelectedLanguage, xcErrors, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.AboveNormal, null);
+                HttpContext.Current.Cache.Add("errorsXML_" + SelectedLanguage, xcErrors, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 15, 0), System.Web.Caching.CacheItemPriority.AboveNormal, null);
                 return xcErrors; } } }
-    public static string SiteUrl { get { return System.Web.HttpContext.Current.Request.ServerVariables["SERVER_NAME"]; } }
 
-    public static string DisplayDateFormat { get { return System.Configuration.ConfigurationManager.AppSettings.Get("DisplayDateFormat"); } }
-    public static string DisplayDateTimeFormat { get { return System.Configuration.ConfigurationManager.AppSettings.Get("DisplayDateTimeFormat"); } }
-    public static string DateTimeFormat { get { return System.Configuration.ConfigurationManager.AppSettings.Get("DateTimeFormat"); } }
-    public static string DecimalFormat { get { return System.Configuration.ConfigurationManager.AppSettings.Get("DecimalFormat"); } }
-    public static string SelectedLanguage { 
-        get 
+    public static string SiteUrl { get { return HttpContext.Current.Request.ServerVariables["SERVER_NAME"]; } }
+    public static string DisplayDateFormat { get { return ConfigurationManager.AppSettings.Get("DisplayDateFormat"); } }
+    public static string DisplayDateTimeFormat { get { return ConfigurationManager.AppSettings.Get("DisplayDateTimeFormat"); } }
+    public static string DateTimeFormat { get { return ConfigurationManager.AppSettings.Get("DateTimeFormat"); } }
+    public static string DecimalFormat { get { return ConfigurationManager.AppSettings.Get("DecimalFormat"); } }
+    public static string SelectedLanguage
+    {
+        get
         {
-            var defaultLang = rxDomains_CN.IsMatch(System.Web.HttpContext.Current.Request.ServerVariables["SERVER_NAME"]) ? "zh-cn" : "en-us";
-
-        return string.IsNullOrEmpty(System.Web.HttpContext.Current.Session["SelectedLanguage"] as string) ?
-            (!string.IsNullOrEmpty(commonCookie.CookieLanguage) ? commonCookie.CookieLanguage : defaultLang) : 
-            Convert.ToString(System.Web.HttpContext.Current.Session["SelectedLanguage"]); 
-        } 
-        set 
-        { 
-            commonCookie.CookieLanguage = value; commonVariables.SetSessionVariable("SelectedLanguage", value); 
-        } 
+            if (!string.IsNullOrEmpty(commonCookie.CookieLanguage))
+            {
+                return commonCookie.CookieLanguage;
+            }
+            if (!string.IsNullOrWhiteSpace(HttpContext.Current.Session["SelectedLanguage"] as string))
+            {
+                return Convert.ToString(HttpContext.Current.Session["SelectedLanguage"]);
+            }
+            return rxDomains_CN.IsMatch(HttpContext.Current.Request.ServerVariables["SERVER_NAME"]) ? "zh-cn" : "en-us";            
+        }
+        set
+        {
+            commonCookie.CookieLanguage = value;
+            SetSessionVariable("SelectedLanguage", value);
+        }
     }
-    public static string SelectedLanguageShort { get { 
-        switch (commonVariables.SelectedLanguage.ToLower()) 
+
+    public static string SelectedLanguageShort
+    {
+        get
         {
-            case "en-us":
-                return "en";
-            case "id-id":
-                return "id";
-            case "km-kh":
-                return "kh";
-            case "ko-kr":
-                return "kr";
-            case "th-th":
-                return "th";
-            case "vi-vn":
-                return "vn";
-            case "zh-cn":
-                return "cn";
-            case "ja-jp":
-                return "jp";
-            default:
-                return "en";
-        } 
-    } }
+            switch (SelectedLanguage.ToLower())
+            {
+                case "en-us":
+                    return "en";
+                case "id-id":
+                    return "id";
+                case "km-kh":
+                    return "kh";
+                case "ko-kr":
+                    return "kr";
+                case "th-th":
+                    return "th";
+                case "vi-vn":
+                    return "vn";
+                case "zh-cn":
+                    return "cn";
+                case "ja-jp":
+                    return "jp";
+                default:
+                    return "en";
+            }
+        }
+    }
 
-    public static string VIPCategoryId { get { return System.Configuration.ConfigurationManager.AppSettings.Get("vipCategoryId"); } }
+    public static string VIPCategoryId { get { return ConfigurationManager.AppSettings.Get("vipCategoryId"); } }
 
-    public static string CurrentMemberSessionId { get { return string.IsNullOrEmpty(System.Web.HttpContext.Current.Session["MemberSessionId"] as string) ? (!string.IsNullOrEmpty(commonCookie.CookieS) ? commonCookie.CookieS : "") : Convert.ToString(System.Web.HttpContext.Current.Session["MemberSessionId"]); } }
+    public static string CurrentMemberSessionId
+    {
+        get
+        {
+            return (!string.IsNullOrEmpty(commonCookie.CookieS)) ? commonCookie.CookieS : "";
+        }
+    }
 
     public static string OperatorId
     {
         get
         {
-            customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings(System.Configuration.ConfigurationManager.AppSettings.Get("Operator"));
+            customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings(ConfigurationManager.AppSettings.Get("Operator"));
             return opSettings.Values.Get("OperatorId");
         }
     }
@@ -81,26 +94,27 @@ public class commonVariables
     {
         get
         {
-            return System.Configuration.ConfigurationManager.AppSettings.Get("Operator");
+            return ConfigurationManager.AppSettings.Get("Operator");
         }
     }
 
-    public static string GetSessionVariable(string key) { return string.IsNullOrEmpty(HttpContext.Current.Session[key] as string) ? "" : Convert.ToString(HttpContext.Current.Session[key]); }
+    public static string GetSessionVariable(string key)
+    { return string.IsNullOrEmpty(HttpContext.Current.Session[key] as string) ? "" : Convert.ToString(HttpContext.Current.Session[key]); }
     public static void SetSessionVariable(string key, string value) { HttpContext.Current.Session.Add(key, value); }
 
-    public static void ClearSessionVariables() 
+    public static void ClearSessionVariables()
     {
         string strLanguage = string.Empty;
         string strVCode = string.Empty;
 
-        strLanguage = commonVariables.SelectedLanguage;
-        strVCode = commonVariables.GetSessionVariable("vCode");
+        strLanguage = SelectedLanguage;
+        strVCode = GetSessionVariable("vCode");
 
-        System.Web.HttpContext.Current.Session.Clear();
-        System.Web.HttpContext.Current.Session.Abandon();
+        HttpContext.Current.Session.Clear();
+        HttpContext.Current.Session.Abandon();
 
-        commonVariables.SelectedLanguage = strLanguage;
-        commonVariables.SetSessionVariable("vCode", strVCode);
+        SelectedLanguage = strLanguage;
+        SetSessionVariable("vCode", strVCode);
     }
 
     internal enum TransferWallet
@@ -155,7 +169,7 @@ public class commonVariables
     {
         get
         {
-            return System.Configuration.ConfigurationManager.AppSettings.Get("CN_domain");
+            return ConfigurationManager.AppSettings.Get("CN_domain");
         }
     }
 }
