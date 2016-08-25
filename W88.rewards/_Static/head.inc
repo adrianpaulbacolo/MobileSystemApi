@@ -1,10 +1,10 @@
 ﻿<meta charset="utf-8" />
 <meta http-equiv="Content-type" content="text/html;charset=utf-8"/>
-<meta name="viewport" id="viewport" content="minimal-ui, width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no,target-densityDpi=device-dpi" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="apple-mobile-web-app-title" content="W88" />
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="/_Static/Css/Mobile/jquery.mobile-1.4.5.min.css" />
 <link rel="stylesheet" href="/_Static/Css/base.css" />
 <link rel="stylesheet" href="/_Static/Css/styles.css" />      
