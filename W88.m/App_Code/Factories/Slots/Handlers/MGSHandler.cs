@@ -76,7 +76,17 @@ namespace Factories.Slots.Handlers
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
 
             string funUrl = "";
-            funUrl = element.Element("Fun") != null ? element.Element("Fun").Value : fun;
+
+            if (element.Element("Fun") != null)
+            {
+                funUrl = element.Element("Fun").Value;
+
+                lang = SetSpecialUrlLanguageCode();
+            }
+            else
+            {
+                funUrl = fun;
+            }
 
             return funUrl.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{LOBBY}", lobbyPage);
         }
@@ -88,7 +98,17 @@ namespace Factories.Slots.Handlers
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
 
             string realUrl = "";
-            realUrl = element.Element("Real") != null ? element.Element("Real").Value : real;
+
+            if (element.Element("Real") != null)
+            {
+                realUrl = element.Element("Real").Value;
+
+                lang = SetSpecialUrlLanguageCode();
+            }
+            else
+            {
+                realUrl = real;
+            }
 
             return realUrl.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{TOKEN}", memberSessionId).Replace("{CASHIER}", cashierPage).Replace("{LOBBY}", lobbyPage);
         }
@@ -107,6 +127,11 @@ namespace Factories.Slots.Handlers
             {
                 return "en";
             }
+        }
+
+        private string SetSpecialUrlLanguageCode()
+        {
+            return commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase) ? "zh" : "en";
         }
     }
 }
