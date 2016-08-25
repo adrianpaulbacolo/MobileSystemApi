@@ -86,6 +86,12 @@
                         }
                         else {
 
+                            var dailySlot = $(this).find('.promo_join_btn[type="mobile"]');
+                            if ($(dailySlot).length > 0) {
+                                var hrefApply = $('<a />', { class: 'ui-btn btn-primary', 'data-transition': 'flip', href: dailySlot.attr('href') }).text($(dailySlot).text());
+                                $(divJoinButton).append(hrefApply);
+                            }
+
                             var objCode = $(this).find('.promo_join_btn[href^="/promotions/promo_claim.aspx?code="]');
                             if ($(objCode).length > 0) {
                                 var strCode = $(objCode).attr('href').replace(/\/promotions\/promo_claim.aspx\?code=/, '');
