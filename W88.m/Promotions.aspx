@@ -14,7 +14,8 @@
         // temporarily restrict promo
         var restrictedPromos = {};
         restrictedPromos.DAILYSLOTS = {
-            allowed: ["RMB"]
+            allowed: ["RMB"],
+            langAllowed: ["zh-cn"]
         };
         var currentCCode = '<%= commonCookie.CookieCurrency%>';
 
@@ -35,9 +36,15 @@
                     if (index == promo_length - 1) { return; }
                     var currentPromoId = $(this).attr('id');
                     if (!_.isUndefined(restrictedPromos[currentPromoId])) {
-                        if (!_.isUndefined(restrictedPromos[currentPromoId].allowed)) {
-                            if (_.isEmpty(currentCCode) || _.indexOf(restrictedPromos[currentPromoId].allowed, currentCCode) == -1) {
+                        if (_.isEmpty(currentCCode)) {
+                            if (_.indexOf(restrictedPromos[currentPromoId].langAllowed, lang) == -1) {
                                 return;
+                            }
+                        } else {
+                            if (!_.isUndefined(restrictedPromos[currentPromoId].allowed)) {
+                                if (_.indexOf(restrictedPromos[currentPromoId].allowed, currentCCode) == -1) {
+                                    return;
+                                }
                             }
                         }
                     }
