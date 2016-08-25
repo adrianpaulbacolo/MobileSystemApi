@@ -358,7 +358,11 @@ public partial class _Index : BasePage
                 var linkClass = promo.Element("class").Value;
                 var content = "";
                 var description = "";
-                if (promo.HasAttributes && promo.Attribute("currency") != null)
+
+                var hasCurrency = (promo.HasAttributes && promo.Attribute("currency") != null);
+                var isPublic = (promo.HasAttributes && promo.Attribute("public") != null);
+
+                if (hasCurrency && !string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                 {
                     var currencies = promo.Attribute("currency").Value;
                     if (!string.IsNullOrEmpty(currencies))
@@ -367,6 +371,15 @@ public partial class _Index : BasePage
                         var currenciesArr = currencies.ToString().Split(',');
                         var test = Array.Find(currenciesArr, element => element.StartsWith(commonCookie.CookieCurrency, StringComparison.Ordinal));
                         if (string.IsNullOrEmpty(test)) continue;
+                    }
+                }
+                if (isPublic && string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+                {
+                    var publicAttr = promo.Attribute("public").Value;
+                    if(!string.IsNullOrEmpty(publicAttr)){
+                        if(publicAttr != "1"){
+                            continue;
+                        }
                     }
                 }
 

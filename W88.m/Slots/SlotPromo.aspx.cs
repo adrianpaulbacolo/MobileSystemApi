@@ -22,6 +22,11 @@ public partial class Slots_SlotPromo : BasePage
     protected void Page_Load(object sender, EventArgs e)
     {
 
+        if (commonCookie.CookieCurrency != "RMB")
+        {
+            Response.Redirect("/Index");
+        }
+
         if (Page.IsPostBack) return;
 
         SetTitle(commonCulture.ElementValues.getResourceString("Title", commonVariables.PromotionsXML));
