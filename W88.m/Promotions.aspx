@@ -67,7 +67,7 @@
                     var divPromoWrapper = $('<div />', { id: $(this).attr('id'), class: index % 2 == 0 ? 'div-promo-row' : 'div-promo-row' });
                     var divPromoImg = $('<div />', { class: 'div-promo-img' });
 
-                    var imgPromo = $('<img />', { src: strImageSrc });
+                    var imgPromo = $('<img />', { src: strImageSrc, onclick: "javascript:OpenPromoDetails(this);" });
                     var hrefPromo = $('<a />', { href: "javascript:void(0)", onclick: "javascript:OpenPromoDetails(this);" });
 
                     var divJoinButton = $('<div />', { class: 'div-promo-join' });
