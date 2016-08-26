@@ -43,7 +43,7 @@
 
                 <li class="col col-33 product">
                     <a href="Sports.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower() %>" class="tile" data-ajax="false" data-transition="slidedown">
-                        <span class="icon-sports"></span>
+                        <span class="icon-soccer"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("sports", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
@@ -134,15 +134,15 @@
                 <%}%>
 
                 <li class="col col-33">
-                    <a href="/Lang.aspx" class="tile" role="button" data-transition="slideup">
-                        <span class="icon- ion-ios-world-outline"></span>
-                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("language", commonVariables.LeftMenuXML)%></h4>
-                    </a>
-                </li>
-                <li class="col col-33">
                     <a href="/LiveChat/Default.aspx" class="tile" role="button" runat="server" data-ajax="false" target="_blank">
                         <span class="icon-chat"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%></h4>
+                    </a>
+                </li>
+                <li class="col col-33">
+                    <a href="/Lang.aspx" class="tile" role="button" data-transition="slideup">
+                        <span class="icon- ion-ios-world-outline"></span>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("language", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
 
