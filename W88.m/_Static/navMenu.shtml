@@ -72,7 +72,7 @@
         <!-- Sports -->
         <li data-icon="false">
             <a class="nav-sports">
-                <i class="icon-sports"></i>
+                <i class="icon-soccer"></i>
                 <div class="label"><%=commonCulture.ElementValues.getResourceString("sports", commonVariables.LeftMenuXML)%></div>
             </a>
             <ul class="sub-menu" data-rel="sports">
@@ -321,12 +321,15 @@
                 <%}catch(Exception){}%>
             </ul>
         </li>
+
+        <!-- Promotions -->
         <li data-icon="false">
             <a class="nav-promotions" href="/Promotions" data-ajax="false">
                 <i class="icon-promo"></i>
                 <div class="label"><%=commonCulture.ElementValues.getResourceString("promotions", commonVariables.LeftMenuXML)%></div>
             </a>
         </li>
+
         <!-- Rewards
             <li data-icon="false">
                 <a rel="rewards" class="nav-rewards" href="javascript:void(0);">
