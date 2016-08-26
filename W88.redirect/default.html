@@ -168,7 +168,6 @@
                     clearInterval(animate);
                     var strURL = '//m' + data.domainName + '/Index';
                     strURL += '?lang=' + strLang + '&country=' + data.country + (location.href.indexOf('?') > 0 ? '&' + location.href.substring(location.href.indexOf('?') + 1) : '');
-                    localStorage.setItem('country', data.country);
 
                     if (document.referrer.toLowerCase().indexOf('//w88.com') > 0 || document.referrer.toLowerCase().indexOf('//www.w88.com') > 0 || !jQuery.browser.mobile) {
                         $('#divProgressbar').hide(); $('#divChooseDevice').show();
