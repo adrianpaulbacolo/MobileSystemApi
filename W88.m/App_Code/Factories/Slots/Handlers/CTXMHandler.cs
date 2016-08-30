@@ -30,14 +30,33 @@ namespace Factories.Slots.Handlers
         {
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
 
-            return fun.Replace("{GAME}", gameName);
+            string funUrl = "";
+            if (IsElementExists("Fun", element, out funUrl))
+            {
+                fun = funUrl;
+            }
+
+            string lang = SetSpecialUrlLanguageCode();
+            return fun.Replace("{GAME}", gameName).Replace("{DOMAIN}", commonIp.DomainName).Replace("{LANG}", lang);
         }
 
         protected override string CreateRealUrl(XElement element)
         {
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
 
-            return real.Replace("{GAME}", gameName).Replace("{TOKEN}", memberSessionId);
+            string realUrl = "";
+            if (IsElementExists("Real", element, out realUrl))
+            {
+                real = realUrl;
+            }
+
+            string lang = SetSpecialUrlLanguageCode();
+            return real.Replace("{GAME}", gameName).Replace("{DOMAIN}", commonIp.DomainName).Replace("{LANG}", lang).Replace("{TOKEN}", memberSessionId);
+        }
+
+        private string SetSpecialUrlLanguageCode()
+        {
+            return commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase) ? "zh" : "en";
         }
     }
 }
