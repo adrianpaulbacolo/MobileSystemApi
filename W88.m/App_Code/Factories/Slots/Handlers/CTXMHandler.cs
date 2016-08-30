@@ -30,28 +30,22 @@ namespace Factories.Slots.Handlers
         {
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
 
-            string funUrl = "";
-            if (IsElementExists("Fun", element, out funUrl))
-            {
-                fun = funUrl;
-            }
+            string url = "";
+            string funUrl = IsElementExists("Fun", element, out url) ? url : fun;
 
             string lang = SetSpecialUrlLanguageCode();
-            return fun.Replace("{GAME}", gameName).Replace("{DOMAIN}", commonIp.DomainName).Replace("{LANG}", lang);
+            return funUrl.Replace("{GAME}", gameName).Replace("{DOMAIN}", commonIp.DomainName).Replace("{LANG}", lang);
         }
 
         protected override string CreateRealUrl(XElement element)
         {
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
 
-            string realUrl = "";
-            if (IsElementExists("Real", element, out realUrl))
-            {
-                real = realUrl;
-            }
+            string url = "";
+            string realUrl = IsElementExists("Real", element, out url) ? url : real;
 
             string lang = SetSpecialUrlLanguageCode();
-            return real.Replace("{GAME}", gameName).Replace("{DOMAIN}", commonIp.DomainName).Replace("{LANG}", lang).Replace("{TOKEN}", memberSessionId);
+            return realUrl.Replace("{GAME}", gameName).Replace("{DOMAIN}", commonIp.DomainName).Replace("{LANG}", lang).Replace("{TOKEN}", memberSessionId);
         }
 
         private string SetSpecialUrlLanguageCode()
