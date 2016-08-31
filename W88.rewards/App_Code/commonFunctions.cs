@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web;
-using System.Web.Script.Serialization;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 
 public static class commonFunctions
 {
@@ -406,7 +410,89 @@ public static class commonFunctions
             }
         }
     }
+    /*public static void generateCaptcha(HttpContext context, int length, randomType type, int width, int height, System.Drawing.Color top_color, System.Drawing.Color bottom_color, System.Drawing.Color text_color)
+    {
+        System.Drawing.Drawing2D.HatchBrush hatchBrush = null;
 
+        string embedded_string = commonFunctions.generateRandom(length, type);
+
+        commonVariables.SetSessionVariable("vCode", commonEncryption.encrypting(embedded_string));
+
+        char[] char_array = null;
+
+        char_array = new char[embedded_string.Length + embedded_string.Length];
+
+        for (int int_count = 0; int_count < embedded_string.Length; int_count++)
+        {
+            char_array[int_count + int_count] = embedded_string[int_count];
+            char_array[int_count + int_count + 1] = " "[0];
+        }
+
+        //Captcha String
+        System.Drawing.FontFamily fontFamily = new System.Drawing.FontFamily("Comic Sans MS");
+        // -  Generate Random
+        //int randomsize = 5;
+        Random random = new Random(DateTime.Now.Millisecond);
+
+        // Create a new 32-bit bitmap image.
+        using (System.Drawing.Bitmap bitmap = new System.Drawing.Bitmap(width, height, System.Drawing.Imaging.PixelFormat.Format32bppArgb))
+        {
+            // Create a graphics object for drawing.
+            using (System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(bitmap))
+            {
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighSpeed;
+                System.Drawing.Rectangle rect = new System.Drawing.Rectangle(0, 0, width, height);
+
+                // Fill in the background.
+                using (hatchBrush = new System.Drawing.Drawing2D.HatchBrush(System.Drawing.Drawing2D.HatchStyle.DiagonalCross, top_color, bottom_color))
+                {
+                    g.FillRectangle(hatchBrush, rect);
+
+                    // Set up the text font.
+                    System.Drawing.SizeF size = default(System.Drawing.SizeF);
+                    float fontSize = rect.Height + 25;
+                    System.Drawing.Font font = null;
+                    System.Drawing.StringFormat format = new System.Drawing.StringFormat();
+                    format.Alignment = System.Drawing.StringAlignment.Center;
+                    format.LineAlignment = System.Drawing.StringAlignment.Center;
+
+                    // Adjust the font size until the text fits within the image.
+                    do
+                    {
+                        fontSize -= 5;
+                        font = new System.Drawing.Font(fontFamily, fontSize, System.Drawing.FontStyle.Bold);
+                        size = g.MeasureString(new string(char_array), font, new System.Drawing.SizeF(width, height), format);
+                    } while (size.Width > rect.Width);
+
+                    // Create a path using the text and warp it randomly.
+                    System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
+                    path.AddString(new string(char_array), font.FontFamily, Convert.ToInt32(font.Style), font.Size, rect, format);
+
+                    float v = 6f;
+                    System.Drawing.PointF[] points = {
+                                                         new System.Drawing.PointF(random.Next(rect.Width) / v, random.Next(rect.Height) / v),
+                                                         new System.Drawing.PointF(rect.Width - random.Next(rect.Width) / v, random.Next(rect.Height) / v),
+                                                         new System.Drawing.PointF(random.Next(rect.Width) / v, rect.Height - random.Next(rect.Height) / v),
+                                                         new System.Drawing.PointF(rect.Width - random.Next(rect.Width) / v, rect.Height - random.Next(rect.Height) / v)
+                                                     };
+                    System.Drawing.Drawing2D.Matrix matrix = new System.Drawing.Drawing2D.Matrix();
+                    matrix.Translate(0f, 0f);
+                    path.Warp(points, rect, matrix, System.Drawing.Drawing2D.WarpMode.Perspective, 0f);
+
+                    // Draw the text.
+                    using (hatchBrush = new System.Drawing.Drawing2D.HatchBrush(System.Drawing.Drawing2D.HatchStyle.ForwardDiagonal, text_color, text_color))
+                    {
+                        g.FillPath(hatchBrush, path);
+                    }
+
+                    font.Dispose();
+                }
+            }
+
+            context.Response.ContentType = "image/png";
+            bitmap.Save(context.Response.OutputStream, System.Drawing.Imaging.ImageFormat.Png);
+        }
+    }*/
     public static string generateCaptcha(HttpContext context, int length, randomType type, int width, int height, System.Drawing.Color top_color, System.Drawing.Color bottom_color, System.Drawing.Color text_color)
     {
         System.Drawing.Drawing2D.HatchBrush hatchBrush = null;
@@ -573,12 +659,5 @@ public static class commonFunctions
         alphaNumeric,
         numeric,
         alpha
-    }
-
-    public static T Deserialize<T>(string context)
-    {
-        var jsonData = context;
-        var obj = new JavaScriptSerializer().Deserialize<T>(jsonData);
-        return obj;
     }
 }
