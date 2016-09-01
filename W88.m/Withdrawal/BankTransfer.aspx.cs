@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Services;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Xml.XPath;
 using Helpers;
+using Newtonsoft.Json;
+using svcPayMember;
 
 public partial class Withdrawal_BankTransfer : PaymentBasePage
 {
@@ -77,6 +82,20 @@ public partial class Withdrawal_BankTransfer : PaymentBasePage
                 }
 
             }
+
+            if (commonCookie.CookieCurrency != null && commonCookie.CookieCurrency.ToLower() == "vnd")
+            {
+                drpSecondaryBank.Items.Clear();
+                MemberSecondaryBank[] banks = commonPaymentMethodFunc.GetSecondaryBanks();
+
+                if (commonVariables.SelectedLanguageShort.ToLower() == "vn" && commonCookie.CookieCurrency.ToLower() == "vnd")
+                    commonFunctions.BindDropDownList(drpSecondaryBank, banks, "bankNameNative", "bankId", true, strdrpBank);
+                else
+                    commonFunctions.BindDropDownList(drpSecondaryBank, banks, "bankName", "bankId", true, strdrpBank);
+
+                drpSecondaryBank.Items.Insert(drpSecondaryBank.Items.Count, new ListItem(strdrpOtherBank, "OTHER"));
+            }
+
         }
     }
 
@@ -103,6 +122,9 @@ public partial class Withdrawal_BankTransfer : PaymentBasePage
         lblBank.Text = base.strlblBank;
         lblBankName.Text = base.strlblBankName;
         lblBankBranch.Text = commonCulture.ElementValues.getResourceString("lblBankBranch", xeResources);
+        lblSecondBank.Text = strdrpOtherBank;
+        lblBankLocation.Text = commonCulture.ElementValues.getResourceString("lblLocation", xeResources);
+        lblBranch.Text = commonCulture.ElementValues.getResourceString("lblBankBranch", xeResources);
 
         lblAddress.Text = commonCulture.ElementValues.getResourceString("lblAddress", xeResources);
 
@@ -125,6 +147,10 @@ public partial class Withdrawal_BankTransfer : PaymentBasePage
         decimal decWithdrawalAmount = commonValidation.isDecimal(strWithdrawalAmount) ? Convert.ToDecimal(strWithdrawalAmount) : 0;
         decimal decMinLimit = commonValidation.isDecimal(strMinLimit) ? Convert.ToDecimal(strMinLimit) : 0;
         decimal decMaxLimit = commonValidation.isDecimal(strMaxLimit) ? Convert.ToDecimal(strMaxLimit) : 0;
+
+        bool useV2 = false;
+        long BankLocationId = 0;
+        long BankBranchId = 0;
 
         #region initialiseWithdrawal
 
@@ -171,30 +197,6 @@ public partial class Withdrawal_BankTransfer : PaymentBasePage
             {
                 status = base.GetErrors("/SelectBank");
             }
-            else if (string.Compare(drpBank.SelectedValue, "OTHER", true) == 0 && string.IsNullOrEmpty(strBankNameInput))
-            {
-                status = base.GetErrors("/MissingBankName");
-            }
-            else if (commonValidation.isInjection(strBankNameInput))
-            {
-                status = base.GetErrors("/InvalidBankName");
-            }
-            else if (string.IsNullOrEmpty(strBankBranch) && string.Compare(strCurrencyCode, "krw", true) != 0)
-            {
-                status = base.GetErrors("/MissingBankBranch");
-            }
-            else if (commonValidation.isInjection(strBankBranch))
-            {
-                status = base.GetErrors("/InvalidBankBranch");
-            }
-            else if (string.IsNullOrEmpty(strBankAddress) && string.Compare(strCurrencyCode, "krw", true) != 0)
-            {
-                status = base.GetErrors("/MissingBankAddress");
-            }
-            else if (commonValidation.isInjection(strBankAddress))
-            {
-                status = base.GetErrors("/InvalidBankAddress");
-            }
             else if (decWithdrawalAmount < decMinLimit)
             {
                 status = base.GetErrors("/AmountMinLimit");
@@ -208,14 +210,92 @@ public partial class Withdrawal_BankTransfer : PaymentBasePage
                 status = base.GetErrors("/TotalAllowedExceeded");
             }
 
+            var otherBankCode = drpSecondaryBank.SelectedItem != null ? drpSecondaryBank.SelectedItem.Value : "";
+            if (strBankCode == "OTHER")
+            {
+                if (commonCookie.CookieCurrency.ToLower() == "vnd")
+                {
+                    if (otherBankCode == "-1")
+                    {
+                        status = base.GetErrors("/MissingSelectBankName");
+                    }
+                    else if (!commonValidation.isNumeric(hfBLId.Value) || commonValidation.isInjection(hfBLId.Value))
+                    {
+                             
+                    }
+                    else if (hfBLId.Value == "-1")
+                    {
+                        status = base.GetErrors("/MissingSelectBankLocation");
+                    }
+                    else if (hfBBId.Value == "-1")
+                    {
+                        status = base.GetErrors("/MissingSelectBankBranch");
+                    }
+                    else if (!commonValidation.isNumeric(hfBBId.Value) || commonValidation.isInjection(hfBBId.Value))
+                    {
+                        status = base.GetErrors("/InvalidBankBranch");
+                    }
+                }
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(strBankBranch) && string.Compare(strCurrencyCode, "krw", true) != 0)
+                {
+                    status = base.GetErrors("/MissingBankBranch");
+                }
+                else if (commonValidation.isInjection(strBankBranch))
+                {
+                    status = base.GetErrors("/InvalidBankBranch");
+                }
+                else if (string.IsNullOrEmpty(strBankAddress) && string.Compare(strCurrencyCode, "krw", true) != 0)
+                {
+                    status = base.GetErrors("/MissingBankAddress");
+                }
+                else if (commonValidation.isInjection(strBankAddress))
+                {
+                    status = base.GetErrors("/InvalidBankAddress");
+                }
+                else if (string.Compare(drpBank.SelectedValue, "OTHER", true) == 0 && string.IsNullOrEmpty(strBankNameInput))
+                {
+                    status = base.GetErrors("/MissingBankName");
+                }
+                else if (commonValidation.isInjection(strBankNameInput))
+                {
+                    status = base.GetErrors("/InvalidBankName");
+                }
+            }
+
             if (!status.IsProcessAbort)
             {
-                using (svcPayWithdrawal.WithdrawalClient svcInstance = new svcPayWithdrawal.WithdrawalClient())
+                if (commonCookie.CookieCurrency.ToLower() == "vnd" && !drpSecondaryBank.SelectedItem.Value.Equals("-1") && !drpSecondaryBank.SelectedItem.Value.Equals("OTHER"))
                 {
-                    xeResponse = svcInstance.createBankTransferTransactionV1(Convert.ToInt64(strOperatorId), strMemberCode, Convert.ToInt64(commonVariables.WithdrawalMethod.BankTransfer),
-                                    strCurrencyCode, decWithdrawalAmount, strAccountName, strAccountNumber, strBankAddress, strBankBranch, strBankCode, strBankName, strBankNameInput,
-                                    strMyKad, string.Empty, false, Convert.ToString(commonVariables.TransactionSource.Mobile));
+                    strBankCode = drpSecondaryBank.SelectedValue;
+                    strBankName = drpSecondaryBank.SelectedItem.Text;
+                    strBankNameInput = drpSecondaryBank.SelectedItem.Text;
+                    BankLocationId = Convert.ToInt64(hfBLId.Value);
+                    BankBranchId = Convert.ToInt64(hfBBId.Value);
+                    useV2 = true;
+                }
 
+                using (var svcInstance = new svcPayWithdrawal.WithdrawalClient())
+                {
+                    if (useV2)
+                    {
+                        xeResponse = svcInstance.createBankTransferTransactionV2(Convert.ToInt64(strOperatorId),
+                            strMemberCode, Convert.ToInt64(commonVariables.WithdrawalMethod.BankTransfer),
+                            strCurrencyCode, decWithdrawalAmount, strAccountName, strAccountNumber, BankLocationId,
+                            BankBranchId, strBankCode, strBankName, strBankNameInput, strMyKad, string.Empty, false,
+                            Convert.ToString(commonVariables.TransactionSource.Mobile));
+                    }
+                    else
+                    {
+                        xeResponse = svcInstance.createBankTransferTransactionV1(Convert.ToInt64(strOperatorId),
+                            strMemberCode, Convert.ToInt64(commonVariables.WithdrawalMethod.BankTransfer),
+                            strCurrencyCode, decWithdrawalAmount, strAccountName, strAccountNumber, strBankAddress,
+                            strBankBranch, strBankCode, strBankName, strBankNameInput,
+                            strMyKad, string.Empty, false, Convert.ToString(commonVariables.TransactionSource.Mobile));
+                    }
+                    
                     if (xeResponse == null)
                     {
                         status = base.GetErrors("/TransferFail");
@@ -249,8 +329,8 @@ public partial class Withdrawal_BankTransfer : PaymentBasePage
         strAlertCode = status.AlertCode;
         strAlertMessage = status.AlertMessage;
 
-        string strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | CurrencyCode: {2} | WithdrawAmount: {3} | AccountName: {4} | AccountNumber: {5} | BankAddress: {6} | BankBranch: {7} | BankCode: {8} | BankName: {9} | BankNameInput: {10} | MyKad: {11} | Mobile: {12} | MinLimit: {13} | MaxLimit: {14} | TotalAllowed: {15} | DailyLimit: {16} | Response: {17}",
-                                Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strWithdrawalAmount, strAccountName, strAccountNumber, strBankAddress, strBankBranch, strBankCode, strBankName, strBankNameInput, strMyKad, string.Empty, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
+        string strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | CurrencyCode: {2} | WithdrawAmount: {3} | AccountName: {4} | AccountNumber: {5} | BankAddress: {6} | BankBranch: {7} | BankCode: {8} | BankName: {9} | BankNameInput: {10} | BankLocationId: {11} | BankBranchId: {12} | MyKad: {13} | Mobile: {14} | MinLimit: {15} | MaxLimit: {16} | TotalAllowed: {17} | DailyLimit: {18} | Response: {19}",
+                                Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strWithdrawalAmount, strAccountName, strAccountNumber, strBankAddress, strBankBranch, strBankCode, strBankName, strBankNameInput, BankLocationId, BankBranchId, strMyKad, string.Empty, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
 
         intProcessSerialId += 1;
         commonAuditTrail.appendLog("system", PageName, "InitiateWithdrawal", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
@@ -260,13 +340,11 @@ public partial class Withdrawal_BankTransfer : PaymentBasePage
 
     private void InitialiseMemberBank()
     {
-        string strProcessCode = string.Empty;
-        string strProcessText = string.Empty;
+        MemberBank[] ArrMB = null;
 
-        svcPayMember.MemberBank[] ArrMB = null;
-
-        using (svcPayMember.MemberClient svcInstance = new svcPayMember.MemberClient())
+        using (var svcInstance = new MemberClient())
         {
+            string strProcessCode, strProcessText;
             ArrMB = svcInstance.getBankAccounts(Convert.ToInt64(strOperatorId), strCurrencyCode, strCountryCode, out strProcessCode, out strProcessText);
         }
 
@@ -286,4 +364,53 @@ public partial class Withdrawal_BankTransfer : PaymentBasePage
         drpBank.Items.Insert(0, new ListItem(base.strdrpBank, "-1"));
         drpBank.Items.Add(new ListItem(base.strdrpOtherBank, "OTHER"));
     }
+
+    [WebMethod]
+    public static string GetBankLocation(string bankId)
+    {
+        var list = new List<object>();
+        try
+        {
+            using (var client = new MemberClient())
+            {
+                string statusCode, statusText;
+                var bankLocations = client.getBankLocations(Convert.ToInt64(bankId), out statusCode, out statusText);
+                foreach (DataRow row in bankLocations.Rows)
+                {
+                    list.Add(new { name = row["description"], value = row["bankLocationId"], });
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            commonAuditTrail.appendLog("system", "Payment_BankTransfer", "GetBankLocation", string.Empty, string.Empty, string.Empty, "-99", "exception", ex.Message, string.Empty, string.Empty, true);
+        }
+        return JsonConvert.SerializeObject(list);
+    }
+
+    [WebMethod]
+    public static string GetBankBranch(string bankId, string bankLocationId)
+    {
+        var list = new List<object>();
+        try
+        {
+
+            using (var client = new MemberClient())
+            {
+                string statusCode, statusText;
+                var bankBranches = client.getBankBranches(Convert.ToInt64(bankId), Convert.ToInt64(bankLocationId), out statusCode, out statusText);
+                foreach (DataRow row in bankBranches.Rows)
+                {
+                    list.Add(new { name = row["description"], value = row["bankBranchId"], });
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            commonAuditTrail.appendLog("system", "Payment_BankTransfer", "GetBankBranch", string.Empty, string.Empty, string.Empty, "-99", "exception", ex.Message, string.Empty, string.Empty, true);
+        }
+        return JsonConvert.SerializeObject(list);
+    }
+
+  
 }

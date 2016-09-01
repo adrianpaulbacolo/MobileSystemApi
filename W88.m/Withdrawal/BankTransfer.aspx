@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="BankTransfer.aspx.cs" Inherits="Withdrawal_BankTransfer" %>
+
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
 <!DOCTYPE html>
@@ -20,13 +21,15 @@
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                 <uc:Wallet id="uMainWallet" runat="server" />
+                <uc:Wallet ID="uMainWallet" runat="server" />
             </div>
 
             <div data-role="navbar">
                 <ul id="withdrawalTabs" runat="server">
                 </ul>
             </div>
+
+
 
             <form class="form" id="form1" runat="server" data-ajax="false">
                 <br />
@@ -67,10 +70,28 @@
                         <asp:Label ID="lblWithdrawAmount" runat="server" AssociatedControlID="txtWithdrawAmount" Text="from" />
                         <asp:TextBox ID="txtWithdrawAmount" runat="server" type="number" step="any" min="1" />
                     </li>
+
                     <li class="item item-select">
                         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
                         <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
                     </li>
+
+                    <li class="item item-select" id="divOtherBank" runat="server" style="display: none;">
+                        <asp:Label ID="lblSecondBank" runat="server" AssociatedControlID="drpSecondaryBank" />
+                        <asp:DropDownList ID="drpSecondaryBank" runat="server" data-corners="false">
+                        </asp:DropDownList>
+                    </li>
+                    <li class="item item-select" id="divBankLocation" runat="server" style="display: none;">
+                        <asp:Label ID="lblBankLocation" runat="server" AssociatedControlID="txtBankName" />
+                        <select id="drpBankLocation"></select>
+                    </li>
+                    <li class="item item-select" id="divBankNameSelection" runat="server" style="display: none;">
+                        <asp:Label ID="lblBranch" runat="server" AssociatedControlID="txtBankName" />
+                        <select id="drpBankBranchList"></select>
+                    </li>
+                    <asp:HiddenField ID="hfBLId" runat="server" />
+                    <asp:HiddenField ID="hfBBId" runat="server" />
+
                     <li class="item item-input" id="divBankName" style="display: none;">
                         <asp:Label ID="lblBankName" runat="server" AssociatedControlID="txtBankName" />
                         <asp:TextBox ID="txtBankName" runat="server" />
@@ -101,10 +122,14 @@
                     </li>
                 </ul>
             </form>
+
         </div>
 
         <!--#include virtual="~/_static/navMenu.shtml" -->
         <script type="text/javascript">
+
+            var selectName = '<%=lblSelect%>';
+
             $('#form1').submit(function (e) {
                 window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
             });
@@ -115,7 +140,7 @@
                     window.location.reload();
                 }
 
-                <% if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "myr", true) == 0)
+                <% if (string.Compare(commonCookie.CookieCurrency, "myr", true) == 0)
                    { %>
                 $('#txtMyKad').mask('999999-99-9999');
                 <% } %>
@@ -126,30 +151,47 @@
                     switch (responseCode) {
                         case '-1':
                             alert(responseMsg);
-                            toogleBank($('#drpBank').val());
-                            break;
-                        case '0':
-                            alert(responseMsg);
-                            window.location.replace('/Withdrawal/Default.aspx');
-                            break;
-                        default:
-                            break;
-                    }
+                            window.w88Mobile.BankTransfer.ToogleBank($('#drpBank').val(), '<%= commonCookie.CookieCurrency.ToLower() %>');
+                        break;
+                    case '0':
+                        alert(responseMsg);
+                        window.location.replace('/Withdrawal/Default.aspx');
+                        break;
+                    default:
+                        break;
                 }
-            });
+            }
 
+                if ($('#<%=hfBLId.ClientID%>').val().length > 0 && $('#<%=hfBBId.ClientID%>').val().length > 0) {
+                    var blId = $('#<%=hfBLId.ClientID%>').val();
+                    var bbId = $('#<%=hfBBId.ClientID%>').val();
+                    window.w88Mobile.BankTransfer.ReloadValues(selectName, blId, bbId);
+                }
+
+            });
 
             $('#drpBank').change(function () {
-                toogleBank(this.value);
+                window.w88Mobile.BankTransfer.ToogleBank(this.value, '<%= commonCookie.CookieCurrency.ToLower() %>');
             });
 
+            $('#drpSecondaryBank').change(function () {
+                window.w88Mobile.BankTransfer.ToogleSecondaryBank(this.value, selectName, $('#<%=hfBLId.ClientID%>').val());
+            });
 
-            function toogleBank(bankId) {
-                if (bankId == "OTHER") {
-                    $('#divBankName').show();
+            $('#drpBankLocation').change(function () {
+                toogleLocation(this.value);
+            });
+
+            $('#drpBankBranchList').change(function () {
+                if (this.value != '-1') {
+                    $('#<%=hfBBId.ClientID%>').val(this.value);
                 }
-                else {
-                    $('#divBankName').hide();
+            });
+
+            function toogleLocation(id) {
+                if (id != '-1') {
+                    $('#<%=hfBLId.ClientID%>').val(id);
+                    window.w88Mobile.BankTransfer.LoadBankBranch(selectName, $('#<%=hfBLId.ClientID%>').val(), $('#<%=hfBBId.ClientID%>').val());
                 }
             }
 

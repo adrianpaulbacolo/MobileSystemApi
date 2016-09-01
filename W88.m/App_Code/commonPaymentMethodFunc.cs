@@ -17,6 +17,16 @@ using svcPayMember;
 public static class commonPaymentMethodFunc
 {
 
+    public static MemberSecondaryBank[] GetSecondaryBanks()
+    {
+        using (var client = new MemberClient())
+        {
+            string statusCode, statusText;
+            return client.getSecondaryBankAccounts(Convert.ToInt64(commonVariables.OperatorId), commonCookie.CookieCurrency, "vn", out statusCode, out statusText);
+
+        }
+    }
+
     public static Task<getWalletBalanceResponse> GetWalletBalanceAsync(int walletId)
     {
         using (var svcInstance = new MemberClient())

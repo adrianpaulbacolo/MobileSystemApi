@@ -6,9 +6,32 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Web.Script.Serialization;
+using System.Web.UI.WebControls;
 
 public static class commonFunctions
 {
+    public static void BindDropDownList(DropDownList dropDownList, object[] dataSource, string dataTextField, string dataTextValue, bool insertDefault, string defaultText)
+    {
+        dropDownList.DataSource = dataSource;
+        dropDownList.DataTextField = dataTextField;
+        dropDownList.DataValueField = dataTextValue;
+        dropDownList.DataBind();
+
+        if (insertDefault)
+            dropDownList.Items.Insert(0, new ListItem(defaultText, "-1"));
+    }
+
+    public static void BindDropDownList(DropDownList dropDownList, System.Data.DataTable dataSource, string dataTextField, string dataTextValue, bool insertDefault, string defaultText)
+    {
+        dropDownList.DataSource = dataSource;
+        dropDownList.DataTextField = dataTextField;
+        dropDownList.DataValueField = dataTextValue;
+        dropDownList.DataBind();
+
+        if (insertDefault)
+            dropDownList.Items.Insert(0, new ListItem(defaultText, "-1"));
+    }
+
     public static void cssInclude(string cssPath, System.Web.UI.Page page)
     {
         using (System.Web.UI.HtmlControls.HtmlGenericControl css = new System.Web.UI.HtmlControls.HtmlGenericControl())
