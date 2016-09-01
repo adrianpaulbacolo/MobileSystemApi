@@ -208,16 +208,16 @@
                             <span class="ion-social-apple"></span>
                         </div>
                         <div class="col col-75 download-summary">
-                            <h5 class="title">W88 iOS Download</h5>
-                            <p>Sports, Live Casino, Slots in 1 App</p>
+                            <h5 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Label", commonVariables.ProductsXML)%></h5>
+                            <p><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Description", commonVariables.ProductsXML)%></p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <a href="javascript:hideDownload();" role="button" class="ui-btn btn-bordered">No Thanks</a>
+                            <a href="javascript:hideDownload();" role="button" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("NoThanks", commonVariables.LeftMenuXML)%></a>
                         </div>
                         <div class="col">
-                            <a href="/_Static/Downloads/w88.aspx" class="ui-btn btn-primary">Download Now</a>
+                            <a href="/_Static/Downloads/w88.aspx" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("DownloadNow", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </div>
                 </div>
