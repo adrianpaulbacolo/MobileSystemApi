@@ -40,8 +40,9 @@
             } else {
                 $('#divBankName').show();
             }
-        } else if (bankId == "-1") {
+        } else {
             $('#divBankBranch').show();
+            $('#divAddress').show();
             $('#divOtherBank').hide();
             $('#divBankLocation').hide();
             $('#divBankNameSelection').hide();
