@@ -18,6 +18,16 @@ public partial class Withdrawal_BankTransfer : PaymentBasePage
     protected string strStatusCode = string.Empty;
     protected string strAlertCode = string.Empty;
     protected string strAlertMessage = string.Empty;
+    private Dictionary<string, string> SecondaryBankCode
+    {
+        get
+        {
+            if (ViewState["SecondaryBankCode"] != null)
+                return (Dictionary<string, string>)(ViewState["SecondaryBankCode"]);
+            else
+                return null;
+        }
+    }
 
     protected void Page_Init(object sender, EventArgs e)
     {
@@ -86,13 +96,15 @@ public partial class Withdrawal_BankTransfer : PaymentBasePage
             if (commonCookie.CookieCurrency != null && commonCookie.CookieCurrency.ToLower() == "vnd")
             {
                 drpSecondaryBank.Items.Clear();
-                MemberSecondaryBank[] banks = commonPaymentMethodFunc.GetSecondaryBanks();
+                MemberSecondaryBank[] memberSecondaryBanks = commonPaymentMethodFunc.GetSecondaryBanks();
 
                 if (commonVariables.SelectedLanguageShort.ToLower() == "vn" && commonCookie.CookieCurrency.ToLower() == "vnd")
-                    commonFunctions.BindDropDownList(drpSecondaryBank, banks, "bankNameNative", "bankId", true, strdrpBank);
+                    commonFunctions.BindDropDownList(drpSecondaryBank, memberSecondaryBanks, "bankNameNative", "bankId", true, strdrpBank);
                 else
-                    commonFunctions.BindDropDownList(drpSecondaryBank, banks, "bankName", "bankId", true, strdrpBank);
+                    commonFunctions.BindDropDownList(drpSecondaryBank, memberSecondaryBanks, "bankName", "bankId", true, strdrpBank);
 
+                if (memberSecondaryBanks != null)
+                    ViewState["SecondaryBankCode"] = memberSecondaryBanks.ToDictionary(data => data.bankId.ToString(), data => data.bankCode);
                 drpSecondaryBank.Items.Insert(drpSecondaryBank.Items.Count, new ListItem(strdrpOtherBank, "OTHER"));
             }
 
@@ -269,7 +281,7 @@ public partial class Withdrawal_BankTransfer : PaymentBasePage
             {
                 if (commonCookie.CookieCurrency.ToLower() == "vnd" && !drpSecondaryBank.SelectedItem.Value.Equals("-1") && !drpSecondaryBank.SelectedItem.Value.Equals("OTHER"))
                 {
-                    strBankCode = drpSecondaryBank.SelectedValue;
+                    strBankCode = SecondaryBankCode[drpSecondaryBank.SelectedItem.Value];
                     strBankName = drpSecondaryBank.SelectedItem.Text;
                     strBankNameInput = drpSecondaryBank.SelectedItem.Text;
                     BankLocationId = Convert.ToInt64(hfBLId.Value);
@@ -284,7 +296,7 @@ public partial class Withdrawal_BankTransfer : PaymentBasePage
                         xeResponse = svcInstance.createBankTransferTransactionV2(Convert.ToInt64(strOperatorId),
                             strMemberCode, Convert.ToInt64(commonVariables.WithdrawalMethod.BankTransfer),
                             strCurrencyCode, decWithdrawalAmount, strAccountName, strAccountNumber, BankLocationId,
-                            BankBranchId, strBankCode, strBankName, strBankNameInput, strMyKad, string.Empty, false,
+                            BankBranchId, strBankCode, strBankName, strBankNameInput, string.Empty, string.Empty, false,
                             Convert.ToString(commonVariables.TransactionSource.Mobile));
                     }
                     else
