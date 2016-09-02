@@ -14,13 +14,15 @@
             });
             $('a[id*="play-now"]').each(function () {
                 var self = $(this);
-                self.on("click", function () { 
+                self.on("click", function () {
+                    if (_.isUndefined(_paq)) return;
                     _paq.push(["trackGoal", playGoalId]);
                 });
             });
             $('a[id*="try-now"]').each(function () {
                 var self = $(this);
                 self.on("click", function () { 
+                    if (_.isUndefined(_paq)) return;
                     _paq.push(["trackGoal", tryGoalId]);
                 });
             });
