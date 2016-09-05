@@ -88,7 +88,6 @@ public class PaymentBasePage : BasePage
     protected string strbtnSubmit = string.Empty;
     protected string strbtnCancel = string.Empty;
 
-    protected string lblSelect = string.Empty;
     protected string strlblBank = string.Empty;
     protected string strlblBankName = string.Empty;
     protected string strdrpBank = string.Empty;
@@ -171,7 +170,6 @@ public class PaymentBasePage : BasePage
         strbtnSubmit = commonCulture.ElementValues.getResourceString("btnSubmit", xeDefaultResources);
         strbtnCancel = commonCulture.ElementValues.getResourceString("btnCancel", xeDefaultResources);
 
-        lblSelect = commonCulture.ElementValues.getResourceString("lblSelect", xeDefaultResources);
         strlblBank = commonCulture.ElementValues.getResourceString("lblBank", xeDefaultResources);
         strlblBankName = commonCulture.ElementValues.getResourceString("lblBankName", xeDefaultResources);
         strdrpBank = commonCulture.ElementValues.getResourceString("drpBank", xeDefaultResources);

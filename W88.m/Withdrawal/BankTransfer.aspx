@@ -29,8 +29,6 @@
                 </ul>
             </div>
 
-
-
             <form class="form" id="form1" runat="server" data-ajax="false">
                 <br />
                 <ul class="list fixed-tablet-size">
@@ -83,17 +81,14 @@
                     </li>
                     <li class="item item-select" id="divBankLocation" runat="server" style="display: none;">
                         <asp:Label ID="lblBankLocation" runat="server" AssociatedControlID="txtBankName" />
-                        <span id="loader1"></span>    
+                        <span id="loader1" class="select-loader"></span>
                         <select id="drpBankLocation"></select>
                     </li>
                     <li class="item item-select" id="divBankNameSelection" runat="server" style="display: none;">
                         <asp:Label ID="lblBranch" runat="server" AssociatedControlID="txtBankName" />
-                        <span id="loader2"></span> 
+                        <span id="loader2" class="select-loader"></span>
                         <select id="drpBankBranchList"></select>
                     </li>
-                    <asp:HiddenField ID="hfBLId" runat="server" />
-                    <asp:HiddenField ID="hfBBId" runat="server" />
-
                     <li class="item item-input" id="divBankName" style="display: none;">
                         <asp:Label ID="lblBankName" runat="server" AssociatedControlID="txtBankName" />
                         <asp:TextBox ID="txtBankName" runat="server" />
@@ -123,13 +118,17 @@
                         </div>
                     </li>
                 </ul>
+
+
+                <asp:HiddenField ID="hfBLId" runat="server" ClientIDMode="Static" />
+                <asp:HiddenField ID="hfBBId" runat="server" ClientIDMode="Static" />
             </form>
-
         </div>
-
+        
+        <!--#include virtual="~/_static/navMenu.shtml" -->
         <script type="text/javascript">
 
-            var selectName = '<%=lblSelect%>';
+            var selectName = '<%=strdrpBank%>';
 
             $('#form1').submit(function (e) {
                 window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
@@ -152,21 +151,26 @@
                     switch (responseCode) {
                         case '-1':
                             alert(responseMsg);
-                            window.w88Mobile.BankTransfer.ToogleBank($('#drpBank').val(), '<%= commonCookie.CookieCurrency.ToLower() %>');
-                        break;
-                    case '0':
-                        alert(responseMsg);
-                        window.location.replace('/Withdrawal/Default.aspx');
-                        break;
-                    default:
-                        break;
+                            window.w88Mobile.BankTransfer.ToogleBank($('#drpBank').val(), '<%= commonCookie.CookieCurrency.ToLower() %>', selectName);
+                            break;
+                        case '0':
+                            alert(responseMsg);
+                            window.location.replace('/Withdrawal/Default.aspx');
+                            break;
+                        default:
+                            break;
+                    }
                 }
-            }
 
-                if ($('#<%=hfBLId.ClientID%>').val().length > 0 && $('#<%=hfBBId.ClientID%>').val().length > 0) {
-                    var blId = $('#<%=hfBLId.ClientID%>').val();
-                    var bbId = $('#<%=hfBBId.ClientID%>').val();
-                    window.w88Mobile.BankTransfer.ReloadValues(selectName, blId, bbId);
+                if (sessionStorage.getItem("hfBLId") != null || sessionStorage.getItem("hfBBId") != null) {
+
+                    if ($('#drpBank').val() != "-1") {
+                        var blId = $('#<%=hfBLId.ClientID%>').val();
+                        var bbId = $('#<%=hfBBId.ClientID%>').val();
+                        window.w88Mobile.BankTransfer.ReloadValues(selectName, blId, bbId);
+                        sessionStorage.removeItem("hfBLId");
+                        sessionStorage.removeItem("hfBBId");
+                    }
                 }
 
             });
@@ -174,25 +178,35 @@
             $('#drpBank').change(function () {
                 $('#<%=hfBLId.ClientID%>').val('');
                 $('#<%=hfBBId.ClientID%>').val('');
-                window.w88Mobile.BankTransfer.ToogleBank(this.value, '<%= commonCookie.CookieCurrency.ToLower() %>');
+                sessionStorage.removeItem("hfBLId");
+                sessionStorage.removeItem("hfBBId");
+                window.w88Mobile.BankTransfer.ToogleBank(this.value, '<%= commonCookie.CookieCurrency.ToLower() %>', selectName);
             });
 
             $('#drpSecondaryBank').change(function () {
                 $('#<%=hfBLId.ClientID%>').val('');
                 $('#<%=hfBBId.ClientID%>').val('');
+                sessionStorage.removeItem("hfBLId");
+                sessionStorage.removeItem("hfBBId");
                 window.w88Mobile.BankTransfer.ToogleSecondaryBank(this.value, selectName, $('#<%=hfBLId.ClientID%>').val());
             });
 
             $('#drpBankLocation').change(function () {
                 if (this.value != '-1') {
+                    
                     $('#<%=hfBBId.ClientID%>').val('');
+                    sessionStorage.removeItem("hfBBId");
+
                     $('#<%=hfBLId.ClientID%>').val(this.value);
-                    window.w88Mobile.BankTransfer.ToogleBankBranch($('#drpSecondaryBank').val(), selectName, $('#<%=hfBLId.ClientID%>').val(), $('#<%=hfBBId.ClientID%>').val());
+                    sessionStorage.setItem("hfBLId", this.value);
+                    
+                    window.w88Mobile.BankTransfer.ToogleBankBranch(selectName, $('#<%=hfBLId.ClientID%>').val(), $('#<%=hfBBId.ClientID%>').val());
                 }
             });
 
             $('#drpBankBranchList').change(function () {
                 if (this.value != '-1') {
+                    sessionStorage.setItem("hfBBId", this.value);
                     $('#<%=hfBBId.ClientID%>').val(this.value);
                 }
             });
