@@ -3,12 +3,28 @@
         club: 'ClubBravado',
         init: function () {
             var self = this;
+            var playGoalId = 19;
+            var tryGoalId = 20;
             $('.bkg-game > div').each(function () {
                 var $this = $(this);
                 $this.prepend('<img src="/_Static/Images/' + self.club + '/' + $this.attr('rel') + '" class="img-responsive-full">')
             });
             $("img").error(function () {
                 $(this).unbind("error").attr("src", "/_Static/Images/broken-lt.gif");
+            });
+            $('a[id*="play-now"]').each(function () {
+                var self = $(this);
+                self.on("click", function () {
+                    if (_.isUndefined(_paq)) return;
+                    _paq.push(["trackGoal", playGoalId]);
+                });
+            });
+            $('a[id*="try-now"]').each(function () {
+                var self = $(this);
+                self.on("click", function () { 
+                    if (_.isUndefined(_paq)) return;
+                    _paq.push(["trackGoal", tryGoalId]);
+                });
             });
             self.reCalcSpaces();
         },
