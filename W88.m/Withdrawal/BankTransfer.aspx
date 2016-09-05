@@ -67,7 +67,7 @@
                         </div>
                     </li>
                     <li class="item item-input">
-                        <asp:Label ID="lblWithdrawAmount" runat="server" AssociatedControlID="txtWithdrawAmount" Text="from" />
+                        <asp:Label ID="lblWithdrawAmount" runat="server" AssociatedControlID="txtWithdrawAmount" />
                         <asp:TextBox ID="txtWithdrawAmount" runat="server" type="number" step="any" min="1" />
                     </li>
 
@@ -83,10 +83,12 @@
                     </li>
                     <li class="item item-select" id="divBankLocation" runat="server" style="display: none;">
                         <asp:Label ID="lblBankLocation" runat="server" AssociatedControlID="txtBankName" />
+                        <span id="loader1"></span>    
                         <select id="drpBankLocation"></select>
                     </li>
                     <li class="item item-select" id="divBankNameSelection" runat="server" style="display: none;">
                         <asp:Label ID="lblBranch" runat="server" AssociatedControlID="txtBankName" />
+                        <span id="loader2"></span> 
                         <select id="drpBankBranchList"></select>
                     </li>
                     <asp:HiddenField ID="hfBLId" runat="server" />
@@ -125,7 +127,6 @@
 
         </div>
 
-        <!--#include virtual="~/_static/navMenu.shtml" -->
         <script type="text/javascript">
 
             var selectName = '<%=lblSelect%>';
@@ -171,15 +172,23 @@
             });
 
             $('#drpBank').change(function () {
+                $('#<%=hfBLId.ClientID%>').val('');
+                $('#<%=hfBBId.ClientID%>').val('');
                 window.w88Mobile.BankTransfer.ToogleBank(this.value, '<%= commonCookie.CookieCurrency.ToLower() %>');
             });
 
             $('#drpSecondaryBank').change(function () {
+                $('#<%=hfBLId.ClientID%>').val('');
+                $('#<%=hfBBId.ClientID%>').val('');
                 window.w88Mobile.BankTransfer.ToogleSecondaryBank(this.value, selectName, $('#<%=hfBLId.ClientID%>').val());
             });
 
             $('#drpBankLocation').change(function () {
-                toogleLocation(this.value);
+                if (this.value != '-1') {
+                    $('#<%=hfBBId.ClientID%>').val('');
+                    $('#<%=hfBLId.ClientID%>').val(this.value);
+                    window.w88Mobile.BankTransfer.ToogleBankBranch($('#drpSecondaryBank').val(), selectName, $('#<%=hfBLId.ClientID%>').val(), $('#<%=hfBBId.ClientID%>').val());
+                }
             });
 
             $('#drpBankBranchList').change(function () {
@@ -187,13 +196,6 @@
                     $('#<%=hfBBId.ClientID%>').val(this.value);
                 }
             });
-
-            function toogleLocation(id) {
-                if (id != '-1') {
-                    $('#<%=hfBLId.ClientID%>').val(id);
-                    window.w88Mobile.BankTransfer.LoadBankBranch(selectName, $('#<%=hfBLId.ClientID%>').val(), $('#<%=hfBBId.ClientID%>').val());
-                }
-            }
 
         </script>
     </div>
