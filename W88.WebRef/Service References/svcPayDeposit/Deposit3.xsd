@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Services.DataContracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Services.DataContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="YingBaoAliPayCallbackResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EyPalTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Partner" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PayAmount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PayType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="YingBaoAliPayCallbackResponse" nillable="true" type="tns:YingBaoAliPayCallbackResponse" />
+  <xs:complexType name="HeePayCallbackResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Agent_Bill_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Agent_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JNet_Bill_No" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pay_Amt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pay_Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pay_Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HeePayCallbackResponse" nillable="true" type="tns:HeePayCallbackResponse" />
+  <xs:complexType name="DPWeChatCallbackResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bank_Seq_No" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extra_Return_Param" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Interface_Version" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Merchant_Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Notify_Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Notify_Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Order_Amount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Order_No" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Order_Time" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sign_Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Trade_No" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Trade_Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Trade_Time" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DPWeChatCallbackResponse" nillable="true" type="tns:DPWeChatCallbackResponse" />
+  <xs:complexType name="TongHuiPayCallbackResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Merchant_Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Notify_Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Order_Amount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Order_No" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Order_Time" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Return_Params" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Trade_No" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Trade_Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Trade_Time" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TongHuiPayCallbackResponse" nillable="true" type="tns:TongHuiPayCallbackResponse" />
+  <xs:complexType name="PayPaidCallbackResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Bank" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EncryptText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Merchant_Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferenceID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResponseMsg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResponseTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PayPaidCallbackResponse" nillable="true" type="tns:PayPaidCallbackResponse" />
+  <xs:complexType name="TenalipayAlipayCallbackResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Datetime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MemberID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Reserved1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Reserved2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Reserved3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReturnCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TenalipayAlipayCallbackResponse" nillable="true" type="tns:TenalipayAlipayCallbackResponse" />
+  <xs:complexType name="YingBaoWeChatCallbackResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EyPalTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Partner" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PayAmount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PayType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="YingBaoWeChatCallbackResponse" nillable="true" type="tns:YingBaoWeChatCallbackResponse" />
+  <xs:complexType name="ThousandPayCallbackResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Attach" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EkaOrderId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EkaTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Msg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ThousandPayCallbackResponse" nillable="true" type="tns:ThousandPayCallbackResponse" />
+  <xs:complexType name="ShanDongAliPayCallbackResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Trade_no" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Trade_status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="body" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="buyer_email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="buyer_id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="discount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="gmt_create" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="gmt_payment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="is_total_fee_adjust" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="notify_id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="notify_time" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="notify_type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="out_trade_no" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="payment_type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="price" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="quantity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="seller_email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="seller_id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sign" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sign_type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="subject" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="total_fee" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="use_coupon" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShanDongAliPayCallbackResponse" nillable="true" type="tns:ShanDongAliPayCallbackResponse" />
+  <xs:complexType name="RfuPayWeChatCallbackResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BankBillNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EncodeType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Goods" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderAmount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PartyId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SignMD5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Succ" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TradeNo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RfuPayWeChatCallbackResponse" nillable="true" type="tns:RfuPayWeChatCallbackResponse" />
+</xs:schema>

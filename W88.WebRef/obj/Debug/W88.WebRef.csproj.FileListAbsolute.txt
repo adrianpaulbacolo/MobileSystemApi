@@ -1,0 +1,12 @@
+C:\MainRepo\MobileSystem\W88.WebRef\bin\Debug\W88.WebRef.dll.config
+C:\MainRepo\MobileSystem\W88.WebRef\bin\Debug\W88.WebRef.dll
+C:\MainRepo\MobileSystem\W88.WebRef\bin\Debug\W88.WebRef.pdb
+C:\MainRepo\MobileSystem\W88.WebRef\obj\Debug\W88.WebRef.csprojResolveAssemblyReference.cache
+C:\MainRepo\MobileSystem\W88.WebRef\obj\Debug\W88.WebRef.dll
+C:\MainRepo\MobileSystem\W88.WebRef\obj\Debug\W88.WebRef.pdb
+C:\Projects\MobileSystem\W88.WebRef\bin\Debug\W88.WebRef.dll.config
+C:\Projects\MobileSystem\W88.WebRef\bin\Debug\W88.WebRef.dll
+C:\Projects\MobileSystem\W88.WebRef\bin\Debug\W88.WebRef.pdb
+C:\Projects\MobileSystem\W88.WebRef\obj\Debug\W88.WebRef.csprojResolveAssemblyReference.cache
+C:\Projects\MobileSystem\W88.WebRef\obj\Debug\W88.WebRef.dll
+C:\Projects\MobileSystem\W88.WebRef\obj\Debug\W88.WebRef.pdb

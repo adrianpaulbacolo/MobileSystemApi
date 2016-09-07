@@ -1,0 +1,154 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Xml.Linq;
+using W88.BusinessLogic.Games.Handlers;
+using W88.BusinessLogic.Games.Models;
+using W88.BusinessLogic.Shared.Helpers;
+
+namespace W88.BusinessLogic.Games.Factories
+{
+    public abstract class GameLoaderBase
+    {
+        protected string langCode;
+        private GameProvider gameProvider { get; set; }
+        private XElement xeResources = null;
+        private string gamePath;
+        private string fileType;
+
+        public GameLoaderBase(GameProvider gameProvider)
+        {
+            this.gameProvider = gameProvider;
+            this.gamePath = GameSettings.GamePath;
+            // Note: temporary only, if all games goes to v2, then file path will be in xml(probably)
+            this.fileType = this.gameProvider == GameProvider.PT ? ".png" : ".jpg";
+
+            langCode = SetLanguageCode();
+
+            xeResources = CultureHelpers.AppData.GetRootResourceNonLanguage("/Slots/" + gameProvider);
+        }
+
+        protected virtual string SetLanguageCode()
+        {
+            return LanguageHelpers.SelectedLanguage;
+        }
+
+        protected abstract string CreateFunUrl(XElement element);
+
+        protected abstract string CreateRealUrl(XElement element);
+
+        public List<GameCategoryInfo> Process(string currencyCode)
+        {
+            return LoadCategory(currencyCode);
+        }
+
+        private List<GameCategoryInfo> LoadCategory(string currencyCode)
+        {
+            var gameCategories = new List<GameCategoryInfo>();
+
+            foreach (XElement xeCategory in xeResources.Elements())
+            {
+                if (IsCurrNotSupported(currencyCode, xeCategory)) continue;
+
+                var gameCategory = new GameCategoryInfo();
+
+                gameCategory.Title = GetHeadTranslation(xeCategory);
+
+                List<XElement> newGames = xeCategory.Elements().Where(cat => cat.Attribute("Category") != null && cat.Attribute("Category").Value.Equals("new", StringComparison.OrdinalIgnoreCase))
+                                                                .OrderBy(game => game.Element("Title").Value).ToList();
+
+                gameCategory.New = AddGamesPerCategory(currencyCode, newGames);
+
+                List<XElement> currentGames = xeCategory.Elements().Where(cat => cat.Attribute("Category") == null).OrderBy(game => game.Element("Title").Value).ToList();
+                gameCategory.Current = AddGamesPerCategory(currencyCode, currentGames);
+
+                gameCategories.Add(gameCategory);
+            }
+
+            return gameCategories;
+        }
+
+        private List<GameInfo> AddGamesPerCategory(string currencyCode, List<XElement> xeGames)
+        {
+            var games = new List<GameInfo>();
+
+            foreach (XElement xeGame in xeGames)
+            {
+                if (IsCurrNotSupported(currencyCode, xeGame)) continue;
+
+                var game = new GameInfo();
+
+                game.Title = CultureHelpers.ElementValues.GetResourceString("Title", xeGame);
+                game.Image = CultureHelpers.ElementValues.GetResourceString("Image", xeGame);
+                game.ImagePath = this.gamePath + game.Image + this.fileType;
+                game.RealUrl = CreateRealUrl(xeGame);
+                game.FunUrl = CreateFunUrl(xeGame);
+
+                games.Add(game);
+            }
+
+            return games;
+        }
+
+        private string GetHeadTranslation(XElement element)
+        {
+            string headerText;
+            var lang = LanguageHelpers.SelectedLanguage;
+
+            if (string.IsNullOrEmpty(lang))
+            {
+                headerText = element.Attribute("en-us").Value;
+            }
+            else
+            {
+                if (element.Attribute(lang) != null && element.Attribute(lang).Value.Length > 0)
+                {
+                    headerText = element.Attribute(lang).Value;
+                }
+                else
+                {
+                    headerText = element.Attribute("en-us").Value;
+                }
+            }
+
+            return headerText;
+        }
+
+        private bool IsCurrNotSupported(string currencyCode, XElement element)
+        {
+            if (string.IsNullOrWhiteSpace(currencyCode))
+                return false;
+
+            string currNotSupp = element.Attribute("NotSupportedCurrency") != null ? element.Attribute("NotSupportedCurrency").Value : "";
+            string[] currencies = currNotSupp.Split(',');
+
+            return currencies.Contains(currencyCode);
+        }
+    }
+
+    public enum GameLinkSetting
+    {
+        Fun, Real
+    }
+
+     public enum GameProvider
+     {
+         GPI,
+         PT,
+         MGS,
+         PNG,
+         ISB,
+         QT,
+         BS,
+         CTXM,
+         UC8
+     }
+
+    public enum GameDevice
+    {
+        IOS,
+        ANDROID,
+        WP
+    }
+}

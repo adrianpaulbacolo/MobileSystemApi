@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="DummySignin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="dummySiteURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loginIP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentGroupPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DummySigninResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DummySigninResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DummySignout">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="memberId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DummySignoutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DummySignoutResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DummySessionCheck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dummySiteURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loginIP" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DummySessionCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DummySessionCheckResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DummySiteStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dummySiteURL" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="memberId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DummySiteStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DummySiteStatusResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DummySigninAuto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="dummySiteURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loginIP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberSessionId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DummySigninAutoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DummySigninAutoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DummyRedirectURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="dummySiteURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentGroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentGroupPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DummyRedirectURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DummyRedirectURLResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DummyURLs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="methodId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentGroup" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DummyURLsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DummyURLsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DummyURLs_Mobile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="methodId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentGroup" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DummyURLs_MobileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DummyURLs_MobileResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DummySiteStatusByPaymentGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dummySiteURL" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="operatorId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentGroup" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DummySiteStatusByPaymentGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DummySiteStatusByPaymentGroupResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="DummySigninSoapIn">
+    <wsdl:part name="parameters" element="tns:DummySignin" />
+  </wsdl:message>
+  <wsdl:message name="DummySigninSoapOut">
+    <wsdl:part name="parameters" element="tns:DummySigninResponse" />
+  </wsdl:message>
+  <wsdl:message name="DummySignoutSoapIn">
+    <wsdl:part name="parameters" element="tns:DummySignout" />
+  </wsdl:message>
+  <wsdl:message name="DummySignoutSoapOut">
+    <wsdl:part name="parameters" element="tns:DummySignoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="DummySessionCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:DummySessionCheck" />
+  </wsdl:message>
+  <wsdl:message name="DummySessionCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:DummySessionCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="DummySiteStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:DummySiteStatus" />
+  </wsdl:message>
+  <wsdl:message name="DummySiteStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:DummySiteStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="DummySigninAutoSoapIn">
+    <wsdl:part name="parameters" element="tns:DummySigninAuto" />
+  </wsdl:message>
+  <wsdl:message name="DummySigninAutoSoapOut">
+    <wsdl:part name="parameters" element="tns:DummySigninAutoResponse" />
+  </wsdl:message>
+  <wsdl:message name="DummyRedirectURLSoapIn">
+    <wsdl:part name="parameters" element="tns:DummyRedirectURL" />
+  </wsdl:message>
+  <wsdl:message name="DummyRedirectURLSoapOut">
+    <wsdl:part name="parameters" element="tns:DummyRedirectURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="DummyURLsSoapIn">
+    <wsdl:part name="parameters" element="tns:DummyURLs" />
+  </wsdl:message>
+  <wsdl:message name="DummyURLsSoapOut">
+    <wsdl:part name="parameters" element="tns:DummyURLsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DummyURLs_MobileSoapIn">
+    <wsdl:part name="parameters" element="tns:DummyURLs_Mobile" />
+  </wsdl:message>
+  <wsdl:message name="DummyURLs_MobileSoapOut">
+    <wsdl:part name="parameters" element="tns:DummyURLs_MobileResponse" />
+  </wsdl:message>
+  <wsdl:message name="DummySiteStatusByPaymentGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:DummySiteStatusByPaymentGroup" />
+  </wsdl:message>
+  <wsdl:message name="DummySiteStatusByPaymentGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:DummySiteStatusByPaymentGroupResponse" />
+  </wsdl:message>
+  <wsdl:portType name="dummyWSSoap">
+    <wsdl:operation name="DummySignin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">DummySignin : Process Code Description&lt;br&gt;1 = Login Successful&lt;br&gt;21 = Member Code does not exist.&lt;br&gt;22 = Member is not active.&lt;br&gt;23 = Member password is wrong.&lt;br&gt;24 = Dummy Site is not active.&lt;br&gt;25 = Dummy Site Payment Group Password is wrong.&lt;br&gt;0 = Error occur.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:DummySigninSoapIn" />
+      <wsdl:output message="tns:DummySigninSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DummySignout">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">DummySignout : Process Code Description&lt;br&gt;1 = Logout Successful&lt;br&gt;0 = Error occur.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:DummySignoutSoapIn" />
+      <wsdl:output message="tns:DummySignoutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DummySessionCheck">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">DummySessionCheck : Process Code Description&lt;br&gt;1 = Member is login&lt;br&gt;10 = Member is not login&lt;br&gt;13 = Member is login at another session. (Multiple Login)&lt;br&gt;0 = Error occur.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:DummySessionCheckSoapIn" />
+      <wsdl:output message="tns:DummySessionCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DummySiteStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">DummySiteStatus&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:DummySiteStatusSoapIn" />
+      <wsdl:output message="tns:DummySiteStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DummySigninAuto">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">DummySigninAuto : Process Code Description&lt;br&gt;1 = Login Successful&lt;br&gt;21 = Member Code does not exist.&lt;br&gt;22 = Member is not active.&lt;br&gt;23 = Member password is wrong.&lt;br&gt;24 = Dummy Site is not active.&lt;br&gt;30 = Session Expired.&lt;br&gt;0 = Error occur.&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:DummySigninAutoSoapIn" />
+      <wsdl:output message="tns:DummySigninAutoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DummyRedirectURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">DummyRedirectURL</wsdl:documentation>
+      <wsdl:input message="tns:DummyRedirectURLSoapIn" />
+      <wsdl:output message="tns:DummyRedirectURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DummyURLs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">DummyURLs</wsdl:documentation>
+      <wsdl:input message="tns:DummyURLsSoapIn" />
+      <wsdl:output message="tns:DummyURLsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DummyURLs_Mobile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">DummyURLs_Mobile</wsdl:documentation>
+      <wsdl:input message="tns:DummyURLs_MobileSoapIn" />
+      <wsdl:output message="tns:DummyURLs_MobileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DummySiteStatusByPaymentGroup">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">DummySiteStatus&lt;br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:DummySiteStatusByPaymentGroupSoapIn" />
+      <wsdl:output message="tns:DummySiteStatusByPaymentGroupSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="dummyWSSoap" type="tns:dummyWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DummySignin">
+      <soap:operation soapAction="http://tempuri.org/DummySignin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DummySignout">
+      <soap:operation soapAction="http://tempuri.org/DummySignout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DummySessionCheck">
+      <soap:operation soapAction="http://tempuri.org/DummySessionCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DummySiteStatus">
+      <soap:operation soapAction="http://tempuri.org/DummySiteStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DummySigninAuto">
+      <soap:operation soapAction="http://tempuri.org/DummySigninAuto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DummyRedirectURL">
+      <soap:operation soapAction="http://tempuri.org/DummyRedirectURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DummyURLs">
+      <soap:operation soapAction="http://tempuri.org/DummyURLs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DummyURLs_Mobile">
+      <soap:operation soapAction="http://tempuri.org/DummyURLs_Mobile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DummySiteStatusByPaymentGroup">
+      <soap:operation soapAction="http://tempuri.org/DummySiteStatusByPaymentGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="dummyWSSoap12" type="tns:dummyWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DummySignin">
+      <soap12:operation soapAction="http://tempuri.org/DummySignin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DummySignout">
+      <soap12:operation soapAction="http://tempuri.org/DummySignout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DummySessionCheck">
+      <soap12:operation soapAction="http://tempuri.org/DummySessionCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DummySiteStatus">
+      <soap12:operation soapAction="http://tempuri.org/DummySiteStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DummySigninAuto">
+      <soap12:operation soapAction="http://tempuri.org/DummySigninAuto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DummyRedirectURL">
+      <soap12:operation soapAction="http://tempuri.org/DummyRedirectURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DummyURLs">
+      <soap12:operation soapAction="http://tempuri.org/DummyURLs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DummyURLs_Mobile">
+      <soap12:operation soapAction="http://tempuri.org/DummyURLs_Mobile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DummySiteStatusByPaymentGroup">
+      <soap12:operation soapAction="http://tempuri.org/DummySiteStatusByPaymentGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="dummyWS">
+    <wsdl:port name="dummyWSSoap" binding="tns:dummyWSSoap">
+      <soap:address location="http://ws.aqzbouat.com/dummyWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="dummyWSSoap12" binding="tns:dummyWSSoap12">
+      <soap12:address location="http://ws.aqzbouat.com/dummyWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

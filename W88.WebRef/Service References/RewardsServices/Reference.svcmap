@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1df7d3f3-afe8-4e8e-a4dc-3a3eabcaaf11" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://rewardsservices.aqzbouat.com/RewardsServices.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="RewardsServices.xsd" MetadataType="Schema" ID="d62d1e16-b264-44bf-8f5d-a3830be4f817" SourceId="1" SourceUrl="http://rewardsservices.aqzbouat.com/RewardsServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="RewardsServices.wsdl" MetadataType="Wsdl" ID="40eff747-f318-4279-8e6a-64ac628632b6" SourceId="1" SourceUrl="http://rewardsservices.aqzbouat.com/RewardsServices.svc?wsdl" />
+    <MetadataFile FileName="RewardsServices1.xsd" MetadataType="Schema" ID="363e2c24-113d-45e5-b766-4ad45cd1a981" SourceId="1" SourceUrl="http://rewardsservices.aqzbouat.com/RewardsServices.svc?xsd=xsd3" />
+    <MetadataFile FileName="RewardsServices2.xsd" MetadataType="Schema" ID="55fd71b5-8532-4759-9013-0e01edae4263" SourceId="1" SourceUrl="http://rewardsservices.aqzbouat.com/RewardsServices.svc?xsd=xsd4" />
+    <MetadataFile FileName="RewardsServices3.xsd" MetadataType="Schema" ID="3c15b1f1-28c5-4973-ab37-1754a256ed6a" SourceId="1" SourceUrl="http://rewardsservices.aqzbouat.com/RewardsServices.svc?xsd=xsd0" />
+    <MetadataFile FileName="RewardsServices4.xsd" MetadataType="Schema" ID="80801381-c975-4ec2-a532-20747ffdc5ca" SourceId="1" SourceUrl="http://rewardsservices.aqzbouat.com/RewardsServices.svc?xsd=xsd6" />
+    <MetadataFile FileName="RewardsServices.disco" MetadataType="Disco" ID="7578864d-aed5-4719-a4e7-191a43ae610a" SourceId="1" SourceUrl="http://rewardsservices.aqzbouat.com/RewardsServices.svc?disco" />
+    <MetadataFile FileName="RewardsServices5.xsd" MetadataType="Schema" ID="ecc2a89f-005e-47dc-8fd5-53c42eb5453d" SourceId="1" SourceUrl="http://rewardsservices.aqzbouat.com/RewardsServices.svc?xsd=xsd5" />
+    <MetadataFile FileName="RewardsServices6.xsd" MetadataType="Schema" ID="71e3623f-7a16-4f70-85ee-a1770dedd14d" SourceId="1" SourceUrl="http://rewardsservices.aqzbouat.com/RewardsServices.svc?xsd=xsd2" />
+    <MetadataFile FileName="RewardsServices7.xsd" MetadataType="Schema" ID="16b5cace-dc82-4298-ae18-16f5170f0445" SourceId="1" SourceUrl="http://rewardsservices.aqzbouat.com/RewardsServices.svc?xsd=xsd7" />
+    <MetadataFile FileName="RewardsServices8.xsd" MetadataType="Schema" ID="b651aedf-cc14-435e-886d-18658167d66b" SourceId="1" SourceUrl="http://rewardsservices.aqzbouat.com/RewardsServices.svc?xsd=xsd8" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
