@@ -16,20 +16,26 @@ public partial class Slots_ClubMassimo : BasePage
         SetTitle(commonCulture.ElementValues.getResourceXPathString("/Products/ClubMassimoSlots/Label", commonVariables.ProductsXML));
 
         var handler = new MGSHandler(commonVariables.CurrentMemberSessionId, "ClubMassimo", "FundTransfer");
-
         var mgsCategory = handler.Process();
 
-        StringBuilder sbGames = new StringBuilder();
+        var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
+        var gpiCategory = gpiHandler.Process();
 
-        foreach (var category in mgsCategory)
+        var games = mgsCategory.Union(gpiCategory).GroupBy(x => x.Title);
+
+        var sbGames = new StringBuilder();
+        foreach (var category in games)
         {
-            sbGames.AppendFormat("<div data-role='collapsible' data-collapsed='false' data-theme='b' data-content-theme='a' data-mini='true'><h4>{0}</h4>", category.Title);
+            sbGames.AppendFormat("<div data-role='collapsible' data-collapsed='false' data-theme='b' data-content-theme='a' data-mini='true'><h4>{0}</h4>", category.Key);
 
-            sbGames.AppendFormat("<div id='div{0}' class='div-product'><div><ul>", category.Title);
+            sbGames.AppendFormat("<div id='div{0}' class='div-product'><div><ul>", category.Key);
 
-            AddGames(sbGames, category.New);
+            foreach (var item in category)
+            {
+                AddGames(sbGames, item.New);
 
-            AddGames(sbGames, category.Current);
+                AddGames(sbGames, item.Current);
+            }
 
             sbGames.Append("</ul></div></div></div>");
         }
