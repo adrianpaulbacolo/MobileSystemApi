@@ -16,11 +16,11 @@
 
             <section class="section banner-slider">
                 <%=getPromoBanner() %>
-                <div class="slide">
+                <!--<div class="slide">
                     <a rel="clbW" href="/_static/ClubW/casino.aspx" data-ajax="false">
                         <img src="/_Static/Images/Download/W88-Mobile-ClubW-Casino.jpg" alt="banner" class="img-responsive">
                     </a>
-                </div>
+                </div>-->
             </section>
             <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) {
             var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
