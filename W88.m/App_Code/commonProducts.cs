@@ -486,33 +486,21 @@ public class commonProduct
     {
         switch(productCode){
             case "playtech":
-                return productWallet.palazzo;
+                return commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML);
             case "vanguard":
-                return productWallet.massimo;
+                return commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML);
             case "slot":
-                return productWallet.bravado;
+                return commonCulture.ElementValues.getResourceXPathString("Products/ClubBravado/Label", commonVariables.ProductsXML);
             case "png":
-                return productWallet.gallardo;
+                return commonCulture.ElementValues.getResourceXPathString("Products/ClubGallardo/Label", commonVariables.ProductsXML);
             case "ags":
-                return productWallet.apollo;
+                return commonCulture.ElementValues.getResourceXPathString("Products/ClubApollo/Label", commonVariables.ProductsXML);
             case "betsoft":
-                return productWallet.divino;
+                return commonCulture.ElementValues.getResourceXPathString("Products/ClubDivino/Label", commonVariables.ProductsXML);
             case "netent":
-                return productWallet.nuovo;
+                return commonCulture.ElementValues.getResourceXPathString("Products/ClubNuovo/Label", commonVariables.ProductsXML);
             default:
                 return productCode;
         }
     }
-}
-
-public sealed class productWallet
-{
-    private productWallet() {}
-    public static readonly string divino = "Club Divino";
-    public static readonly string apollo = "Club Apollo";
-    public static readonly string palazzo = "Club Palazzo";
-    public static readonly string gallardo = "Club Gallardo";
-    public static readonly string bravado = "Club Bravado";
-    public static readonly string massimo = "Club Massimo";
-    public static readonly string nuovo = "Club Nuovo";
 }
