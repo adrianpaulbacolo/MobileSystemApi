@@ -58,4 +58,14 @@ public class UserSession
         }
         return strProcessCode;
     }
+
+    public static string MemberCode
+    {
+        get
+        {
+            var member = new Members();
+            var info = member.MemberData();
+            return info.MemberCode;
+        }
+    }
 }
