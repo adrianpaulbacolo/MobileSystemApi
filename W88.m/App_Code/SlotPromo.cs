@@ -192,7 +192,7 @@ public class SlotPromo
         {
             case "slot":
                 game.game_link = xmlGame.RealUrl;
-                game.image_link = "/_Static/Images/ClubBravado/"
+                game.image_link = "/_Static/Images/Games/"
                     + xmlGame.Image + ".jpg";
                 break;
             case "ags":
