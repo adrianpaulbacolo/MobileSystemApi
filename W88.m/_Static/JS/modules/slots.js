@@ -7,7 +7,7 @@
             var tryGoalId = 20;
             $('.bkg-game > div').each(function () {
                 var $this = $(this);
-                $this.prepend('<img src="/_Static/Images/' + self.club + '/' + $this.attr('rel') + '" class="img-responsive-full">')
+                $this.prepend('<img src="/_Static/Images/Games/' + $this.attr('rel') + '" class="img-responsive-full">')
             });
             $("img").error(function () {
                 $(this).unbind("error").attr("src", "/_Static/Images/broken-lt.gif");
@@ -106,6 +106,34 @@
                     $('#palazzoModal').popup('open');
                 }
             });
+        },
+        launchPalazzo: function (isReal, userName, password, langCode, link) {
+
+            iapiSetClientPlatform("mobile&deliveryPlatform=HTML5");
+            var result = iapiLogin(userName, password, langCode);
+            iapiSetCallout('Login', calloutLogin);
+
+            //CALLOUT----------------------------------------------
+            function calloutLogin(response) {
+                if (response.errorCode) {
+                    alert("Login failed. " + response.playerMessage + " Error code: " + response.errorCode);
+                }
+                else {
+                    iapiRequestTemporaryToken(isReal, '427', 'GamePlay');
+                    iapiSetCallout('GetTemporaryAuthenticationToken', calloutGetTemporaryAuthenticationToken);
+                }
+            }
+
+            function calloutGetTemporaryAuthenticationToken(response) {
+                if (response.errorCode) {
+                    alert("Token failed. " + response.playerMessage + " Error code: " + response.errorCode);
+                }
+                else {
+                    var realUrl = link.replace("{TOKEN}", response.sessionToken.sessionToken);
+
+                    window.open(realUrl, '_blank');
+                }
+            }
         }
     }
 
