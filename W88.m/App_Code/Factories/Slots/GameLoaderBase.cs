@@ -67,17 +67,20 @@ namespace Factories.Slots
         private List<GameInfo> AddGamesPerCategory(string currencyCode, List<XElement> xeGames)
         {
             var games = new List<GameInfo>();
+            var lang = commonVariables.SelectedLanguage;
 
             foreach (XElement xeGame in xeGames)
             {
                 if (IsCurrNotSupported(currencyCode, xeGame)) continue;
 
                 var game = new GameInfo();
+                var translatedTitle = commonCulture.ElementValues.getResourceXPathString("i18n/" + lang, xeGame);
 
-                game.Title = commonCulture.ElementValues.getResourceString("Title", xeGame);
+                game.Title = (!string.IsNullOrEmpty(translatedTitle)) ? translatedTitle : commonCulture.ElementValues.getResourceString("Title", xeGame);
                 game.Image = commonCulture.ElementValues.getResourceString("Image", xeGame);
                 game.RealUrl = CreateRealUrl(xeGame);
                 game.FunUrl = CreateFunUrl(xeGame);
+                game.Id = xeGame.Attribute("Id").Value;
 
                 games.Add(game);
             }

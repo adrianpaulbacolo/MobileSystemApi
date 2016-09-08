@@ -14,6 +14,7 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using Models;
 using Helpers;
+using Factories.Slots.Handlers;
 
 /// <summary>
 /// Summary description for SlotPromo
@@ -190,47 +191,9 @@ public class SlotPromo
         switch (gameClub)
         {
             case "slot":
-                if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-                {
-                    var slotType = string.Empty;
-                    switch (commonVariables.SelectedLanguage)
-                    {
-                        case "zh-cn":
-                            lang = "zh";
-                            break;
-                        default:
-                            lang = "en";
-                            break;
-                    }
-
-                    if (commonCulture.ElementValues.getResourceString("SlotType", xmlGame) != "")
-                    {
-                        slotType = Convert.ToString(commonCulture.ElementValues.getResourceString("SlotType", xmlGame));
-                    }
-                    if (slotType == "RSLOT")
-                    {
-                        game.game_link = commonClubBravado.getRealUrl_mrslot
-                            .Replace("{GAME}", Convert.ToString(xmlGame.Name))
-                            .Replace("{LANG}", lang)
-                            .Replace("{TOKEN}", commonVariables.CurrentMemberSessionId);
-                    }
-                    else
-                    {
-                        game.game_link = commonClubBravado.getRealUrl
-                            .Replace("{GAME}", Convert.ToString(xmlGame.Name))
-                            .Replace("{LANG}", lang)
-                            .Replace("{TOKEN}", commonVariables.CurrentMemberSessionId);
-                    }
-
-                }
-                else
-                {
-                    game.game_link = "/_Secure/Login.aspx?redirect=" + Uri.EscapeDataString("/ClubBravado");
-
-                }
-
+                game.game_link = xmlGame.RealUrl;
                 game.image_link = "/_Static/Images/ClubBravado/"
-                    + commonCulture.ElementValues.getResourceString("ImageName", xmlGame) + ".jpg";
+                    + xmlGame.Image + ".jpg";
                 break;
             case "ags":
                 if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
@@ -243,105 +206,65 @@ public class SlotPromo
                 break;
             case "ctxm":
             case "betsoft":
-                if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-                {
-                    Uri myUri = new Uri(System.Web.HttpContext.Current.Request.Url.ToString());
-                    game.game_link = commonClubDivino.getRealUrl.Replace("{GAMEID}", gameCode)
-                        .Replace("{LANG}", lang)
-                        .Replace("{TOKEN}", commonVariables.CurrentMemberSessionId)
-                        .Replace("{HOMEURL}", myUri.Host)
-                        .Replace("{CASHIERURL}", myUri.Host);
-                }
-                var gameName = (gameClub == "betsoft")
-                    ? commonCulture.ElementValues.getResourceString("ImageName", xmlGame)
-                    : xmlGame.Name;
-                game.image_link = "/_Static/Images/ClubDivino/"
-                    + gameName + ".jpg";
                 break;
             case "png":
             case "isoftbet":
-                if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-                {
-                    game.game_link = commonClubBravado.getThirdPartyRealUrl.Replace("{GAME}", Convert.ToString(gameCode))
-                        .Replace("{LANG}", lang)
-                        .Replace("{TOKEN}", commonVariables.CurrentMemberSessionId);
-                }
                 break;
             case "vanguard":
-                if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-                {
-                    game.game_link = commonCulture.ElementValues.getResourceString("PlayForFunURL", xmlGame)
-                        .Replace("{FunUrl}", commonClubMassimo.getFunUrl)
-                        .Replace("{token}", commonVariables.CurrentMemberSessionId);
-                }
                 break;
             case "playtech":
-                //commonCulture.appData.getRootResource("/Slots/ClubPalazzo.aspx", out xeResources);
-                //matchedGame = xeResources.Element("Category").Element(gameCode);
                 break;
             default:
                 break;
         }
-        game.name = promoGame.HtmlGameCode.ToString();
+        game.Id = promoGame.HtmlGameCode.ToString();
         game.club = gameClub;
         game.clubName = commonProduct.GetWallet(game.club);
+        game.name = xmlGame.Title;
 
         return game;
     }
 
-    public XElement findGame(JsonSlotGamePromoListing promoGame)
+    public GameInfo findGame(JsonSlotGamePromoListing promoGame)
     {
         var gameClub = promoGame.ProductCode;
         var gameCode = promoGame.HtmlGameId;
         var gameTitle = promoGame.GameTitle;
-        XElement matchedGame = null;
+        var matchedGame = new GameInfo();
         switch (gameClub)
         {
             case "slot":
-                commonCulture.appData.getRootResource("/Slots/ClubBravado.aspx", out xeResources);
-                IEnumerable<XElement> m = xeResources.Element("Category").Element("Slot").Elements();
-                matchedGame = m.Where(x => String.Equals(x.Name.ToString(), gameCode, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
+
+                var handler = new GPIHandler(commonVariables.CurrentMemberSessionId);
+
+                var gpiCategory = handler.Process();
+
+                foreach (var category in gpiCategory)
+                {
+                    matchedGame = category.New.Find(x => x.Id == gameCode);
+                    if (matchedGame != null) break;
+                    matchedGame = category.Current.Find(x => x.Id == gameCode);
+                    if (matchedGame != null) break;
+                }
                 break;
             case "ags":
                 commonCulture.appData.GetRootResourceNonLanguage("/Slots/ClubApollo.aspx", out xeResources);
                 IEnumerable<XElement> apollo = xeResources.Element("Category").Element("Slots").Elements();
-                matchedGame = apollo.Where(x => gameCode.ToLower().IndexOf(x.Name.ToString()) != -1).FirstOrDefault();
                 break;
             case "ctxm":
             case "betsoft":
                 // return for now
                 commonCulture.appData.getRootResource("/Slots/ClubDivino.aspx", out xeResources);
-                foreach (XElement gamesList in xeResources.Element("Category").Elements())
-                {
-                    XElement slotList = null;
-                    if (gameClub == "betsoft")
-                    {
-                        slotList = gamesList.Element("Betsoft");
-                        if (slotList == null) continue;
-                        matchedGame = slotList.Elements().Where(
-                            x => x.Attributes().Where(a => a.Value == gameCode).FirstOrDefault() != null).FirstOrDefault();
-                    }
-                    else
-                    {
-                        slotList = gamesList.Element("CTXM");
-                        if (slotList == null) continue;
-                        matchedGame = slotList.Elements().Where(x => x.Attributes().Where(a => a.Value.Contains(gameCode)) != null).FirstOrDefault();
-                    }
-                    if (matchedGame != null) break;
-                }
                 break;
             case "png":
             case "isoftbet":
                 commonCulture.appData.getRootResource("/Slots/ClubGallardo.aspx", out xeResources);
-                matchedGame = xeResources.Element("Category").Element(gameCode);
                 break;
             case "vanguard":
                 commonCulture.appData.getRootResource("/Slots/ClubMassimo.aspx", out xeResources);
-                matchedGame = xeResources.Element("Category").Element(gameCode);
                 break;
             case "playtech":
                 commonCulture.appData.getRootResource("/Slots/ClubPalazzo.aspx", out xeResources);
-                matchedGame = xeResources.Element("Category").Element(gameCode);
                 break;
             default:
                 break;
@@ -469,6 +392,7 @@ public class SlotPromo
         public string game_link { get; set; }
         public string image_link { get; set; }
         public string name { get; set; }
+        public string Id { get; set; }
         public string club { get; set; }
         public string minBonus { get; set; }
         public string clubName { get; set; }

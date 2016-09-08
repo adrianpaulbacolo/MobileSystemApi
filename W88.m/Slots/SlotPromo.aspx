@@ -282,7 +282,7 @@
                     $("#promo-list").children().remove();
                     var promoList = JSON.parse(mydata.d);
                     _.forEach(promoList, function (promo) {
-                        if (_.isEmpty(promo.game) || _.isEmpty(promo.game.name)) return;
+                        if (_.isEmpty(promo.game) || _.isEmpty(promo.game.Id)) return;
                         promo.endDate = moment(promo.start).format("MM/DD/YYYY");
                         var state = "";
                         var claimText = "";
@@ -298,7 +298,7 @@
                                     break;
                             }
                             var gameItem = $("<li>", { class: "bkg-game " + state })
-                            .append($("<div>", { rel: promo.game.name })
+                            .append($("<div>", { rel: promo.game.Id })
                                 .append($("<img>", { src: promo.game.image_link, class: "img-responsive-full" }))
                                 .append($("<div>", { class: "daily-game-action" })
                                     .append($("<span>", {}).html(claimText))));
