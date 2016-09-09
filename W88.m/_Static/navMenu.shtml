@@ -333,6 +333,13 @@
             </a>
         </li>
 
+        <li data-icon="false">
+            <a id="icon-desktop-sidebar"  data-ajax="false">
+                <i class="icon-desktop"></i>
+                <div class="label">Desktop</div>
+            </a>
+        </li>
+
         <!-- Rewards
             <li data-icon="false">
                 <a rel="rewards" class="nav-rewards" href="javascript:void(0);">
@@ -386,6 +393,10 @@
 </div><!-- /panel -->
 <script type="text/javascript">
     $(function () {
+
+        var url = '<%=commonIp.DomainName %>' + '.com?nomobile=true';
+        $("#icon-desktop-sidebar").attr('href', url);
+
         if ('<%=commonVariables.CurrentMemberSessionId%>'.trim().length > 0) {
             $('a[rel="deposit"]').each(function () {
                 $(this).removeAttr('data-rel').removeAttr('data-transition').attr('data-ajax', 'false').attr('href', '/Deposit');

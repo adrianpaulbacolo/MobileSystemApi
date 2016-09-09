@@ -168,8 +168,16 @@
                 </li>
                 <% } %>
 
-            </ul>
+                
+                <li class="col col-33">
+                    <a href="#" id="icon-desktop" class="tile" role="button" >
+                        <span class="icon-desktop"></span>
+                        <h4 class="title">Desktop Version</h4>
+                    </a>
+                </li>
 
+            </ul>
+            
            <%if(mobileDeviceId == 2){%>
                 <div class="download-app">
                     <div class="row">
@@ -232,6 +240,9 @@
                     }
                     ]
                 });
+
+                var url = 'https://' + '<%=commonIp.DomainName %>' + '?nomobile=true';
+                $("#icon-desktop").attr('href', url);
             });
 
             function hideDownload() {
