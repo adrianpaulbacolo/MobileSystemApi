@@ -336,7 +336,7 @@
         <li data-icon="false">
             <a id="icon-desktop-sidebar"  data-ajax="false">
                 <i class="icon-desktop"></i>
-                <div class="label">Desktop</div>
+                <div class="label"><%=commonCulture.ElementValues.getResourceString("desktopIconSide", commonVariables.LeftMenuXML)%></div>
             </a>
         </li>
 

@@ -172,7 +172,7 @@
                 <li class="col col-33">
                     <a href="#" id="icon-desktop" class="tile" role="button" >
                         <span class="icon-desktop"></span>
-                        <h4 class="title">Desktop Version</h4>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("desktopIcon", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
 
