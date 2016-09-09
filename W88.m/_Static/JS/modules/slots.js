@@ -3,8 +3,6 @@
         club: 'ClubBravado',
         init: function () {
             var self = this;
-            var playGoalId = 19;
-            var tryGoalId = 20;
             $('.bkg-game > div').each(function () {
                 var $this = $(this);
                 $this.prepend('<img src="/_Static/Images/Games/' + $this.attr('rel') + '" class="img-responsive-full">')
@@ -12,19 +10,13 @@
             $("img").error(function () {
                 $(this).unbind("error").attr("src", "/_Static/Images/broken-lt.gif");
             });
-            $('a[id*="play-now"]').each(function () {
+            $('li.slot-GPI').find('a[class*="track-play-now"]').each(function () {
                 var self = $(this);
-                self.on("click", function () {
-                    if (_.isUndefined(_paq)) return;
-                    _paq.push(["trackGoal", playGoalId]);
-                });
+                self.on("click", w88Mobile.PiwikManager.trackPlayNow);
             });
-            $('a[id*="try-now"]').each(function () {
+            $('li.slot-GPI').find('a[class*="track-try-now"]').each(function () {
                 var self = $(this);
-                self.on("click", function () { 
-                    if (_.isUndefined(_paq)) return;
-                    _paq.push(["trackGoal", tryGoalId]);
-                });
+                self.on("click", w88Mobile.PiwikManager.trackTryNow);
             });
             self.reCalcSpaces();
         },

@@ -1,4 +1,5 @@
-﻿using Factories.Slots.Handlers;
+﻿using Factories.Slots;
+using Factories.Slots.Handlers;
 using Models;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ public partial class Slots_ClubMassimo : BasePage
         var mgsCategory = handler.Process();
 
         var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
-        var gpiCategory = gpiHandler.Process();
+        var gpiCategory = gpiHandler.Process(GameProvider.GPI.ToString());
 
         var games = mgsCategory.Union(gpiCategory).GroupBy(x => x.Title);
 
@@ -32,9 +33,9 @@ public partial class Slots_ClubMassimo : BasePage
 
             foreach (var item in category)
             {
-                AddGames(sbGames, item.New);
+                AddGames(sbGames, item.New, item.Provider);
 
-                AddGames(sbGames, item.Current);
+                AddGames(sbGames, item.Current, item.Provider);
             }
 
             sbGames.Append("</ul></div></div></div>");
@@ -43,19 +44,21 @@ public partial class Slots_ClubMassimo : BasePage
         divContainer.InnerHtml = Convert.ToString(sbGames);
     }
 
-    private void AddGames(StringBuilder sbGames, List<GameInfo> games)
+    private void AddGames(StringBuilder sbGames, List<GameInfo> games, string provider)
     {
+        var providerClass = string.Empty;
+        if (!string.IsNullOrEmpty(provider)) providerClass = "slot-" + provider; 
         foreach (var game in games)
         {
-            sbGames.AppendFormat("<li class='bkg-game'><div rel='{0}.jpg'><div class='div-links'>", game.Image);
+            sbGames.AppendFormat("<li class='bkg-game {1}'><div rel='{0}.jpg'><div class='div-links'>", game.Image, providerClass);
 
             if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                 sbGames.AppendFormat("<a target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubMassimo") + "' data-rel='dialog' data-transition='slidedown' data-ajax='false'>");
             else
-                sbGames.AppendFormat("<a href='{0}' target='_blank' data-ajax='false'>", game.RealUrl);
+                sbGames.AppendFormat("<a class=\"track-play-now\" href='{0}' target='_blank' data-ajax='false'>", game.RealUrl);
 
             sbGames.AppendFormat("{0}</a>", commonCulture.ElementValues.getResourceXPathString("/Products/Play", commonVariables.ProductsXML));
-            sbGames.AppendFormat("<a target='_blank' href='{1}'>{0}</a></div>", commonCulture.ElementValues.getResourceXPathString("/Products/Try", commonVariables.ProductsXML), game.FunUrl);
+            sbGames.AppendFormat("<a class=\"track-try-now\" data-ajax='false' target='_blank' href='{1}'>{0}</a></div>", commonCulture.ElementValues.getResourceXPathString("/Products/Try", commonVariables.ProductsXML), game.FunUrl);
 
             sbGames.Append("</div></li>");
         }
