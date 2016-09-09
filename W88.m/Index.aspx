@@ -170,7 +170,7 @@
 
                 
                 <li class="col col-33">
-                    <a href="#" id="icon-desktop" class="tile" role="button" >
+                    <a href="#" id="icon-desktop" class="tile" role="button" data-ajax="false">
                         <span class="icon-desktop"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("desktopIcon", commonVariables.LeftMenuXML)%></h4>
                     </a>
@@ -241,7 +241,7 @@
                     ]
                 });
 
-                var url = 'https://' + '<%=commonIp.DomainName %>' + '?nomobile=true';
+                var url = 'https://www.' + '<%=commonIp.DomainName %>' + '?nomobile=true';
                 $("#icon-desktop").attr('href', url);
             });
 

@@ -334,7 +334,7 @@
         </li>
 
         <li data-icon="false">
-            <a id="icon-desktop-sidebar"  data-ajax="false">
+            <a id="icon-desktop-sidebar" href="#"  data-ajax="false">
                 <i class="icon-desktop"></i>
                 <div class="label"><%=commonCulture.ElementValues.getResourceString("desktopIconSide", commonVariables.LeftMenuXML)%></div>
             </a>
@@ -394,7 +394,7 @@
 <script type="text/javascript">
     $(function () {
 
-        var url = '<%=commonIp.DomainName %>' + '.com?nomobile=true';
+	var url = 'https://www.' + '<%=commonIp.DomainName %>' + '?nomobile=true';
         $("#icon-desktop-sidebar").attr('href', url);
 
         if ('<%=commonVariables.CurrentMemberSessionId%>'.trim().length > 0) {
