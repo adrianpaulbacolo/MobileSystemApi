@@ -333,7 +333,7 @@
         <li data-icon="false">
             <a class="nav-fish" href="https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/LuckyFishing.apk" data-ajax="false">
                 <i class="icon-fish"></i>
-                <div class="label">深海捕鱼</div>
+                <div class="label"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
             </a>
         </li>
         <% }
@@ -343,7 +343,7 @@
         <li data-icon="false">
             <a class="nav-fish" href="https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/LuckyFishing.apk" data-ajax="false">
                 <i class="icon-fish"></i>
-                <div class="label">深海捕鱼</div>
+                <div class="label"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
             </a>
         </li>
         <% } %>
