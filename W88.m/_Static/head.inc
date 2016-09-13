@@ -36,7 +36,7 @@
 <script type="text/javascript" src="/_Static/JS/modules/fundtransfer.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/piwikManager.js"></script>
 <script type="text/javascript">
-    w88Mobile.PiwikManager.setUserId('<%=UserSession.MemberCode %>');
+    w88Mobile.PiwikManager.setUserId('<%=UserSession.MemberId %>');
 </script>
 <script type="text/javascript" src="/_Static/Js/modules/slots.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/wallets.js"></script>

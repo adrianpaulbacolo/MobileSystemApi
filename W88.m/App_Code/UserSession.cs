@@ -68,4 +68,14 @@ public class UserSession
             return info.MemberCode;
         }
     }
+
+    public static string MemberId
+    {
+        get
+        {
+            var member = new Members();
+            var info = member.MemberData();
+            return info.MemberId;
+        }
+    }
 }
