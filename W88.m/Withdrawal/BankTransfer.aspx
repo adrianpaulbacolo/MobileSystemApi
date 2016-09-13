@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="BankTransfer.aspx.cs" Inherits="Withdrawal_BankTransfer" %>
+
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
 <!DOCTYPE html>
@@ -20,7 +21,7 @@
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                 <uc:Wallet id="uMainWallet" runat="server" />
+                <uc:Wallet ID="uMainWallet" runat="server" />
             </div>
 
             <div data-role="navbar">
@@ -64,12 +65,29 @@
                         </div>
                     </li>
                     <li class="item item-input">
-                        <asp:Label ID="lblWithdrawAmount" runat="server" AssociatedControlID="txtWithdrawAmount" Text="from" />
+                        <asp:Label ID="lblWithdrawAmount" runat="server" AssociatedControlID="txtWithdrawAmount" />
                         <asp:TextBox ID="txtWithdrawAmount" runat="server" type="number" step="any" min="1" />
                     </li>
+
                     <li class="item item-select">
                         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
                         <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
+                    </li>
+
+                    <li class="item item-select" id="divOtherBank" runat="server" style="display: none;">
+                        <asp:Label ID="lblSecondBank" runat="server" AssociatedControlID="drpSecondaryBank" />
+                        <asp:DropDownList ID="drpSecondaryBank" runat="server" data-corners="false">
+                        </asp:DropDownList>
+                    </li>
+                    <li class="item item-select" id="divBankLocation" runat="server" style="display: none;">
+                        <asp:Label ID="lblBankLocation" runat="server" AssociatedControlID="txtBankName" />
+                        <span id="loader1" class="select-loader"></span>
+                        <select id="drpBankLocation"></select>
+                    </li>
+                    <li class="item item-select" id="divBankNameSelection" runat="server" style="display: none;">
+                        <asp:Label ID="lblBranch" runat="server" AssociatedControlID="txtBankName" />
+                        <span id="loader2" class="select-loader"></span>
+                        <select id="drpBankBranchList"></select>
                     </li>
                     <li class="item item-input" id="divBankName" style="display: none;">
                         <asp:Label ID="lblBankName" runat="server" AssociatedControlID="txtBankName" />
@@ -100,11 +118,18 @@
                         </div>
                     </li>
                 </ul>
+
+
+                <asp:HiddenField ID="hfBLId" runat="server" ClientIDMode="Static" />
+                <asp:HiddenField ID="hfBBId" runat="server" ClientIDMode="Static" />
             </form>
         </div>
-
+        
         <!--#include virtual="~/_static/navMenu.shtml" -->
         <script type="text/javascript">
+
+            var selectName = '<%=strdrpBank%>';
+
             $('#form1').submit(function (e) {
                 window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
             });
@@ -115,7 +140,7 @@
                     window.location.reload();
                 }
 
-                <% if (string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "myr", true) == 0)
+                <% if (string.Compare(commonCookie.CookieCurrency, "myr", true) == 0)
                    { %>
                 $('#txtMyKad').mask('999999-99-9999');
                 <% } %>
@@ -126,7 +151,7 @@
                     switch (responseCode) {
                         case '-1':
                             alert(responseMsg);
-                            toogleBank($('#drpBank').val());
+                            window.w88Mobile.BankTransfer.ToogleBank($('#drpBank').val(), '<%= commonCookie.CookieCurrency.ToLower() %>', selectName);
                             break;
                         case '0':
                             alert(responseMsg);
@@ -136,22 +161,55 @@
                             break;
                     }
                 }
-            });
 
+                if (sessionStorage.getItem("hfBLId") != null || sessionStorage.getItem("hfBBId") != null) {
+
+                    if ($('#drpBank').val() != "-1") {
+                        var blId = $('#<%=hfBLId.ClientID%>').val();
+                        var bbId = $('#<%=hfBBId.ClientID%>').val();
+                        window.w88Mobile.BankTransfer.ReloadValues(selectName, blId, bbId);
+                        sessionStorage.removeItem("hfBLId");
+                        sessionStorage.removeItem("hfBBId");
+                    }
+                }
+
+            });
 
             $('#drpBank').change(function () {
-                toogleBank(this.value);
+                $('#<%=hfBLId.ClientID%>').val('');
+                $('#<%=hfBBId.ClientID%>').val('');
+                sessionStorage.removeItem("hfBLId");
+                sessionStorage.removeItem("hfBBId");
+                window.w88Mobile.BankTransfer.ToogleBank(this.value, '<%= commonCookie.CookieCurrency.ToLower() %>', selectName);
             });
 
+            $('#drpSecondaryBank').change(function () {
+                $('#<%=hfBLId.ClientID%>').val('');
+                $('#<%=hfBBId.ClientID%>').val('');
+                sessionStorage.removeItem("hfBLId");
+                sessionStorage.removeItem("hfBBId");
+                window.w88Mobile.BankTransfer.ToogleSecondaryBank(this.value, selectName, $('#<%=hfBLId.ClientID%>').val());
+            });
 
-            function toogleBank(bankId) {
-                if (bankId == "OTHER") {
-                    $('#divBankName').show();
+            $('#drpBankLocation').change(function () {
+                if (this.value != '-1') {
+                    
+                    $('#<%=hfBBId.ClientID%>').val('');
+                    sessionStorage.removeItem("hfBBId");
+
+                    $('#<%=hfBLId.ClientID%>').val(this.value);
+                    sessionStorage.setItem("hfBLId", this.value);
+                    
+                    window.w88Mobile.BankTransfer.ToogleBankBranch(selectName, $('#<%=hfBLId.ClientID%>').val(), $('#<%=hfBBId.ClientID%>').val());
                 }
-                else {
-                    $('#divBankName').hide();
+            });
+
+            $('#drpBankBranchList').change(function () {
+                if (this.value != '-1') {
+                    sessionStorage.setItem("hfBBId", this.value);
+                    $('#<%=hfBBId.ClientID%>').val(this.value);
                 }
-            }
+            });
 
         </script>
     </div>
