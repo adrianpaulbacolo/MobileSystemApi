@@ -42,14 +42,7 @@ namespace Factories.Slots.Handlers
         protected override string CreateFunUrl(XElement element)
         {
             string gameName = "";
-            if (GameDevice.IOS == device)
-                gameName = element.Attribute("IOSId") != null ? element.Attribute("IOSId").Value : "";
-
-            if (GameDevice.ANDROID == device)
-                gameName = element.Attribute("AndroidId") != null ? element.Attribute("AndroidId").Value : "";
-
-            if (GameDevice.WP == device)
-                gameName = element.Attribute("WPId") != null ? element.Attribute("WPId").Value : "";
+            gameName = GetGameId(element);
 
             return fun.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{LOBBY}", lobbyPage);
         }
@@ -57,16 +50,21 @@ namespace Factories.Slots.Handlers
         protected override string CreateRealUrl(XElement element)
         {
             string gameName = "";
-            if (GameDevice.IOS == device)
-                gameName = element.Attribute("IOSId") != null ? element.Attribute("IOSId").Value : "";
-
-            if (GameDevice.ANDROID == device)
-                gameName = element.Attribute("AndroidId") != null ? element.Attribute("AndroidId").Value : "";
-
-            if (GameDevice.WP == device)
-                gameName = element.Attribute("WPId") != null ? element.Attribute("WPId").Value : "";
+            gameName = GetGameId(element);
 
             return real.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{TOKEN}", memberSessionId).Replace("{CASHIER}", cashierPage).Replace("{LOBBY}", lobbyPage);
+        }
+        protected override string GetGameId(XElement xeGame)
+        {
+            switch (device)
+            {
+                case GameDevice.ANDROID:
+                    return xeGame.Attribute("AndroidId") != null ? xeGame.Attribute("AndroidId").Value : "";
+                case GameDevice.IOS:
+                    return xeGame.Attribute("IOSId") != null ? xeGame.Attribute("IOSId").Value : "";
+                default:
+                    return xeGame.Attribute("WPId") != null ? xeGame.Attribute("WPId").Value : "";
+            }
         }
     }
 }

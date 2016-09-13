@@ -27,6 +27,11 @@ namespace Factories.Slots
             return commonVariables.SelectedLanguage;
         }
 
+        protected virtual string GetGameId(XElement xeGame)
+        {
+            return xeGame.Attribute("Id").Value;
+        }
+
         protected abstract string CreateFunUrl(XElement element);
 
         protected abstract string CreateRealUrl(XElement element);
@@ -80,7 +85,7 @@ namespace Factories.Slots
                 game.Image = commonCulture.ElementValues.getResourceString("Image", xeGame);
                 game.RealUrl = CreateRealUrl(xeGame);
                 game.FunUrl = CreateFunUrl(xeGame);
-                game.Id = xeGame.Attribute("Id").Value;
+                game.Id = GetGameId(xeGame);
 
                 games.Add(game);
             }
