@@ -25,7 +25,10 @@ public partial class Slots_ClubGallardo : BasePage
         var pngHandler = new PNGHandler(commonVariables.CurrentMemberSessionId, "ClubGallardo");
         var pngCategory = pngHandler.Process();
 
-        var gallardo = isbCategory.Union(pngCategory).GroupBy(x => x.Title);
+        var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
+        var gpiCategory = gpiHandler.Process();
+
+        var gallardo = isbCategory.Union(pngCategory).Union(gpiCategory).GroupBy(x => x.Title);
 
         foreach (var category in gallardo)
         {

@@ -49,10 +49,10 @@ public partial class Slots_ClubBravado : BasePage
             if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                 sbGames.AppendFormat("<a target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubBravado") + "' data-rel='dialog' data-transition='slidedown' data-ajax='false'>");
             else
-                sbGames.AppendFormat("<a href='{0}' target='_blank' data-ajax='false'>", game.RealUrl);
+                sbGames.AppendFormat("<a id=\"play-now\" href='{0}' target='_blank' data-ajax='false'>", game.RealUrl);
 
             sbGames.AppendFormat("{0}</a>", commonCulture.ElementValues.getResourceXPathString("/Products/Play", commonVariables.ProductsXML));
-            sbGames.AppendFormat("<a target='_blank' href='{1}'>{0}</a></div>", commonCulture.ElementValues.getResourceXPathString("/Products/Try", commonVariables.ProductsXML), game.FunUrl);
+            sbGames.AppendFormat("<a id=\"try-now\" target='_blank' href='{1}'>{0}</a></div>", commonCulture.ElementValues.getResourceXPathString("/Products/Try", commonVariables.ProductsXML), game.FunUrl);
 
             sbGames.Append("</div></li>");
         }

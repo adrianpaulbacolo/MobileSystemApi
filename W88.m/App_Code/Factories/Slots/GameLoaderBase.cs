@@ -31,14 +31,14 @@ namespace Factories.Slots
 
         protected abstract string CreateRealUrl(XElement element);
 
-        public List<GameCategoryInfo> Process()
+        public List<GameCategoryInfo> Process(string providerKey = null)
         {
             string currencyCode = commonVariables.GetSessionVariable("CurrencyCode");
 
-            return LoadCategory(currencyCode);
+            return LoadCategory(currencyCode, providerKey);
         }
 
-        private List<GameCategoryInfo> LoadCategory(string currencyCode)
+        private List<GameCategoryInfo> LoadCategory(string currencyCode, string providerKey = null)
         {
             var gameCategories = new List<GameCategoryInfo>();
 
@@ -46,9 +46,11 @@ namespace Factories.Slots
             {
                 if (IsCurrNotSupported(currencyCode, xeCategory)) continue;
 
-                var gameCategory = new GameCategoryInfo();
-
-                gameCategory.Title = GetHeadTranslation(xeCategory);
+                var gameCategory = new GameCategoryInfo
+                {
+                    Provider = providerKey,
+                    Title = GetHeadTranslation(xeCategory)
+                };
 
                 List<XElement> newGames = xeCategory.Elements().Where(cat => cat.Attribute("Category") != null && cat.Attribute("Category").Value.Equals("new", StringComparison.OrdinalIgnoreCase))
                                                                 .OrderBy(game => game.Element("Title").Value).ToList();

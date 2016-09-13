@@ -88,7 +88,7 @@ namespace Factories.Slots.Handlers
                 funUrl = fun;
             }
 
-            return funUrl.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{LOBBY}", lobbyPage);
+            return funUrl.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{LOBBY}", lobbyPage).Replace("{CASHIER}", cashierPage);
         }
 
         protected override string CreateRealUrl(XElement element)

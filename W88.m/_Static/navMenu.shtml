@@ -1,4 +1,5 @@
-﻿<div data-role="panel" id="divPanel">
+﻿<% var deviceId = commonFunctions.getMobileDevice(Request); %>
+<div data-role="panel" id="divPanel">
     <ul data-role="listview" class="nav-menu">
 
         <!-- Close Menu -->
@@ -151,8 +152,10 @@
             <ul class="sub-menu" data-rel="texasmahjong">
                 <!--<a class="close" data-rel="close">&times;</a>-->
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%></h2>
-                <%try{%>
-                <%if(commonVariables.GetSessionVariable("responseCode")=="1"){%>
+                <%
+                try{
+                %>
+                <%if(deviceId==1){%>
                 <li>
                     <a class="card" rel="texasmahjong" href='/_static/TexasMahjong/download.aspx' data-ajax="false">
                         <img src="/_Static/Images/Download/TexasMahjong-iOS.jpg" class="img-responsive">
@@ -160,17 +163,17 @@
                     </a>
                 </li>
                 <%}%>
-                <%if(commonVariables.GetSessionVariable("responseCode")=="2"){%>
+                <%if(deviceId==2){%>
                 <li>
-                    <a class="card" rel="texasmahjong" href='<%= Session["tmandroidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">
+                    <a class="card" rel="texasmahjong" href='<%= commonFunctions.getTexasMahjongDownloadLinks()%>' data-rel="dialog" data-transition="slidedown">
                         <img src="/_Static/Images/Download/TexasMahjong-Android.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("androidDownload", commonVariables.LeftMenuXML)%></div>
                     </a>
                 </li>
                 <%}%>
-                <%if(commonVariables.GetSessionVariable("responseCode")=="3"){%>
+                <%if(deviceId==3){%>
                 <li>
-                    <a class="card" rel="texasmahjong" href='<%= Session["tmandroidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">
+                    <a class="card" rel="texasmahjong" href='<%= commonFunctions.getTexasMahjongDownloadLinks()%>' data-rel="dialog" data-transition="slidedown">
                         <img src="/_Static/Images/Download/TexasMahjong-Android.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("androidDownload", commonVariables.LeftMenuXML)%></div>
                     </a>
@@ -288,31 +291,31 @@
                 <!--<a class="close" data-rel="close">&times;</a>-->
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("poker", commonVariables.LeftMenuXML)%></h2>
                 <%try{%>
-                <%if(commonVariables.GetSessionVariable("responseCode")=="1"){%>
+                <%if(deviceId==1){%>
                 <li>
-                    <a class="card" data-rel="poker" rel="PokerIOS" href='<%= Session["iosLink"].ToString()%>' data-transition="slidedown">
+                    <a class="card" data-rel="poker" rel="PokerIOS" href='<%= commonFunctions.getPokerDownloadLinks(deviceId)%>' data-transition="slidedown">
                         <img src="/_Static/Images/W88-Mobile-Poker-iOS.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("iosDownload", commonVariables.LeftMenuXML)%></div>
                     </a>
                 </li>
                 <%}%>
-                <%if(commonVariables.GetSessionVariable("responseCode")=="2"){%>
+                <%if(deviceId==2){%>
                 <li>
-                    <a class="card" data-rel="poker" rel="PokerAndroid" href='<%= Session["androidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">
+                    <a class="card" data-rel="poker" rel="PokerAndroid" href='<%= commonFunctions.getPokerDownloadLinks(deviceId)%>' data-rel="dialog" data-transition="slidedown">
                         <img src="/_Static/Images/W88-Mobile-Poker-Android.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("androidDownload", commonVariables.LeftMenuXML)%></div>
                     </a>
                 </li>
                 <%}%>
-                <%if(commonVariables.GetSessionVariable("responseCode")=="3"){%>
+                <%if(deviceId==3){%>
                 <li>
-                    <a class="card" data-rel="poker" rel="PokerIOS" href='<%= Session["iosLink"].ToString()%>' data-transition="slidedown">
+                    <a class="card" data-rel="poker" rel="PokerIOS" href='<%= commonFunctions.getPokerDownloadLinks(1)%>' data-transition="slidedown">
                         <img src="/_Static/Images/W88-Mobile-Poker-iOS.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("iosDownload", commonVariables.LeftMenuXML)%></div>
                     </a>
                 </li>
                 <li>
-                    <a class="card" data-rel="poker" rel="PokerAndroid" href='<%= Session["androidLink"].ToString()%>' data-rel="dialog" data-transition="slidedown">
+                    <a class="card" data-rel="poker" rel="PokerAndroid" href='<%= commonFunctions.getPokerDownloadLinks(2)%>' data-rel="dialog" data-transition="slidedown">
                         <img src="/_Static/Images/W88-Mobile-Poker-Android.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("androidDownload", commonVariables.LeftMenuXML)%></div>
                     </a>
@@ -327,6 +330,13 @@
             <a class="nav-promotions" href="/Promotions" data-ajax="false">
                 <i class="icon-promo"></i>
                 <div class="label"><%=commonCulture.ElementValues.getResourceString("promotions", commonVariables.LeftMenuXML)%></div>
+            </a>
+        </li>
+
+        <li data-icon="false">
+            <a id="icon-desktop-sidebar" href="#"  data-ajax="false">
+                <i class="icon-desktop"></i>
+                <div class="label"><%=commonCulture.ElementValues.getResourceString("desktopIconSide", commonVariables.LeftMenuXML)%></div>
             </a>
         </li>
 
@@ -383,6 +393,10 @@
 </div><!-- /panel -->
 <script type="text/javascript">
     $(function () {
+
+	var url = 'https://www.' + '<%=commonIp.DomainName %>' + '?nomobile=true';
+        $("#icon-desktop-sidebar").attr('href', url);
+
         if ('<%=commonVariables.CurrentMemberSessionId%>'.trim().length > 0) {
             $('a[rel="deposit"]').each(function () {
                 $(this).removeAttr('data-rel').removeAttr('data-transition').attr('data-ajax', 'false').attr('href', '/Deposit');

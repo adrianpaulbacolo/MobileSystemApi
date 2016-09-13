@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Index.aspx.cs" Inherits="_Index" %>
-
+<% var mobileDeviceId = commonFunctions.getMobileDevice(Request); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,11 +16,11 @@
 
             <section class="section banner-slider">
                 <%=getPromoBanner() %>
-                <div class="slide">
+                <!--<div class="slide">
                     <a rel="clbW" href="/_static/ClubW/casino.aspx" data-ajax="false">
                         <img src="/_Static/Images/Download/W88-Mobile-ClubW-Casino.jpg" alt="banner" class="img-responsive">
                     </a>
-                </div>
+                </div>-->
             </section>
             <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) {
             var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
@@ -124,7 +124,7 @@
                     </a>
                 </li>--%>
 
-                <%if(DetectMobileDevice() == 2){%>
+                <%if(mobileDeviceId == 2){%>
                 <li class="col col-33">
                     <a href="/_Static/ClubW/casino.aspx" id="downloadButton" runat="server" class="tile notify" data-ajax="false">
                         <span class="icon- ion-ios-download-outline"></span>
@@ -151,14 +151,14 @@
                    { %>
                 <li class="col col-33">
 
-                    <%if (DetectMobileDevice() == 1)
+                    <%if (mobileDeviceId == 1)
                       {%>
                     <a href="zalo://639989602209" class="tile" data-ajax="false" data-transition="slidedown">
                         <span class="icon-zalo"></span>
                         <h4 class="title">(+63) 9989602209</h4>
                     </a>
                     <%}
-                      else if (DetectMobileDevice() == 2)
+                      else if (mobileDeviceId == 2)
                       {%>
                     <a href="http://zaloapp.com/qr/p/tkz0l05n8qu5" class="tile" data-ajax="false" data-transition="slidedown">
                         <span class="icon-zalo"></span>
@@ -168,22 +168,17 @@
                 </li>
                 <% } %>
 
+                
+                <li class="col col-33">
+                    <a href="#" id="icon-desktop" class="tile" role="button" data-ajax="false">
+                        <span class="icon-desktop"></span>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("desktopIcon", commonVariables.LeftMenuXML)%></h4>
+                    </a>
+                </li>
+
             </ul>
-
-            <!-- <ul class="hide">
-                <li class="li-pokerIOS" runat="server" id ="pokerIOS_link">
-                    <a rel="PokerIOS" href="#" data-ajax="false" target="_blank" runat="server" id ="pokerIOS">
-                        <div><%=commonCulture.ElementValues.getResourceXPathString("Products/Poker/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li>
-                <li class="li-pokerAndroid" runat="server" id ="pokerAndroid_link" >
-                    <a rel="PokerAndroid" href="#" data-ajax="false" target="_blank" runat="server" id ="pokerAndroid">
-                        <div><%=commonCulture.ElementValues.getResourceXPathString("Products/Poker/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li>
-            </ul> -->
-
-           <%if(DetectMobileDevice() == 2){%>
+            
+           <%if(mobileDeviceId == 2){%>
                 <div class="download-app">
                     <div class="row">
                         <div class="col col-25 download-icon">
@@ -200,6 +195,27 @@
                         </div>
                         <div class="col">
                             <a href="<%=commonClubWAPK.getDownloadUrl %>"  target="_blank" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("DownloadNow", commonVariables.LeftMenuXML)%></a>
+                        </div>
+                    </div>
+                </div>
+            <%}%>
+            <%if(mobileDeviceId == 1){%>
+                <div class="download-app">
+                    <div class="row">
+                        <div class="col col-25 download-icon">
+                            <span class="ion-social-apple"></span>
+                        </div>
+                        <div class="col col-75 download-summary">
+                            <h5 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Label", commonVariables.ProductsXML)%></h5>
+                            <p><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Description", commonVariables.ProductsXML)%></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a href="javascript:hideDownload();" role="button" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("NoThanks", commonVariables.LeftMenuXML)%></a>
+                        </div>
+                        <div class="col">
+                            <a href="/_Static/Downloads/w88.aspx" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("DownloadNow", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </div>
                 </div>
@@ -224,6 +240,9 @@
                     }
                     ]
                 });
+
+                var url = 'https://www.' + '<%=commonIp.DomainName %>' + '?nomobile=true';
+                $("#icon-desktop").attr('href', url);
             });
 
             function hideDownload() {
