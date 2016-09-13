@@ -325,6 +325,29 @@
             </ul>
         </li>
 
+        <!-- Fishing Game -->
+        <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency))
+        {
+        if (commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase))
+        { %>
+        <li data-icon="false">
+            <a class="nav-fish" href="https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/LuckyFishing.apk" data-ajax="false">
+                <i class="icon-fish"></i>
+                <div class="label"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
+            </a>
+        </li>
+        <% }
+        }
+        else if (commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))
+        { %>
+        <li data-icon="false">
+            <a class="nav-fish" href="https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/LuckyFishing.apk" data-ajax="false">
+                <i class="icon-fish"></i>
+                <div class="label"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
+            </a>
+        </li>
+        <% } %>
+
         <!-- Promotions -->
         <li data-icon="false">
             <a class="nav-promotions" href="/Promotions" data-ajax="false">
