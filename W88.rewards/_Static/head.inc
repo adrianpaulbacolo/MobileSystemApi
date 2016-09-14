@@ -11,25 +11,20 @@
 <link rel="apple-touch-startup-image" href="/_Static/Images/icon_120.png" />
 <script src="/_Static/JS/Mobile/jquery-1.11.3.min.js"></script>
 <script src="/_Static/JS/GPINT.js"></script>
-<script src="/_Static/JS/Main.js"></script>
 <script src="/_Static/JS/Mobile/jquery.mobile-1.4.5.min.js"></script>
 <script src="/_Static/JS/vendor/lodash.js"></script>
 <script src="/_Static/JS/Mobile/iscroll.js"></script>
 <script src="/_Static/JS/piwik.js"></script>
 <script src="/_Static/JS/bootstrap.min.js"></script>
 <script src="/_Static/JS/vendor/slick.min.js"></script>
-<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0" />
-<script type="text/javascript">
-  window.w88Mobile = {};
-  window.User = {};
-  window.User.hasSession = <%= (!String.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) ? 1 : 0 %>;
-  window.User.sessionInterval = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("sessionInterval") %>';
-</script>
 <script type="text/javascript" src="/_Static/JS/modules/growl.js"></script>
 <script type="text/javascript">
-  // set initial values for notification
-  if(!_.isUndefined(w88Mobile.Growl)){
-  w88Mobile.Growl.options.lang = '<%=commonVariables.SelectedLanguageShort%>';
-  w88Mobile.Growl.options.close = '<%=commonCulture.ElementValues.getResourceString("close", commonVariables.LeftMenuXML)%>';
-  }
+    // set initial values for notification
+    if(w88Mobile.Growl) {
+        w88Mobile.Growl.options.lang = '<%=W88.BusinessLogic.Shared.Helpers.LanguageHelpers.SelectedLanguageShort%>';
+        w88Mobile.Growl.options.close = '<%=W88.BusinessLogic.Shared.Helpers.CultureHelpers.ElementValues.GetResourceString("close", W88.BusinessLogic.Shared.Helpers.CultureHelpers.AppData.GetRootResource("leftMenu"))%>';
+    }
+    var sessionInterval = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("sessionInterval") %>';
 </script>
+<script src="/_Static/JS/Main.js"></script>
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0" />
