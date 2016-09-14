@@ -172,3 +172,8 @@
 		}
 	}
 }
+
+div.dropdown ul>li#headerLoginButton, 
+div.dropdown ul>li#headerLogoutButton {
+    display: none;
+}
