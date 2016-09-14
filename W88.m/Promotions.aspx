@@ -125,6 +125,19 @@
                                         }
                                     });
                                 }
+
+                                var objCode = $(this).find('.promo_join_btn[href^="/promotions/promo_apply_v4.aspx?promoid="]');
+                                if ($(objCode).length > 0) {
+                                    $obj = $(objCode).attr('href');
+                                    var strCode = $obj.substring($obj.indexOf('=') + 1);
+
+                                    var hrefClaim = $('<a />', { class: 'ui-btn btn-primary', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNowMatch(this, \'' + strCode + '\',  \'' + lang + '\')' }).text($(objCode).text());
+
+                                    if ('<%=commonVariables.GetSessionVariable("RiskId")%>'.search(/vip(b|p|g|d)/i) > -1) {
+                                        $(divJoinButton).append(hrefClaim);
+                                    }
+                                }
+
                             }
                         }
                     }
@@ -185,41 +198,41 @@
 
                     var divPromoClaimButtons = $('<div />');
                     var hrefClaim = $('<a />', { class: 'ui-btn btn-primary', onclick: 'javascript:PromoClaim(this)' }).text('<%=commonCulture.ElementValues.getResourceString("btnSubmit", xeResources)%>');
-                    var hrefClaimCancel = $('<a />', { class: 'ui-btn btn-secondary', onclick: 'javascript:PromoCancelClaim(this)' }).text('<%=commonCulture.ElementValues.getResourceString("btnCancel", xeResources)%>');
+                        var hrefClaimCancel = $('<a />', { class: 'ui-btn btn-secondary', onclick: 'javascript:PromoCancelClaim(this)' }).text('<%=commonCulture.ElementValues.getResourceString("btnCancel", xeResources)%>');
 
-                    $(divPromoClaimButtons).append(hrefClaim).append(hrefClaimCancel)
-                    $(divPromoClaimData).append(taPromoClaim).append(divPromoClaimButtons);
-                    $(divPromoClaimWrapper).append(divCode).append(divPromoClaimData);
-                    $(obj).parent().append(divPromoClaimWrapper);
-                }
-                else {
-                    var arrCodes = [];
-                    var arrProducts = [];
+                        $(divPromoClaimButtons).append(hrefClaim).append(hrefClaimCancel)
+                        $(divPromoClaimData).append(taPromoClaim).append(divPromoClaimButtons);
+                        $(divPromoClaimWrapper).append(divCode).append(divPromoClaimData);
+                        $(obj).parent().append(divPromoClaimWrapper);
+                    }
+                    else {
+                        var arrCodes = [];
+                        var arrProducts = [];
 
-                    arrCodes = code.split(',');
-                    arrProducts = products.split(',');
+                        arrCodes = code.split(',');
+                        arrProducts = products.split(',');
 
-                    var divCode = $('<div />', { class: 'div-claim-promo-header' }).text('<%=commonCulture.ElementValues.getResourceString("lblMultipleRebateCode", xeResources)%>');
+                        var divCode = $('<div />', { class: 'div-claim-promo-header' }).text('<%=commonCulture.ElementValues.getResourceString("lblMultipleRebateCode", xeResources)%>');
                     var divPromoClaimWrapper = $('<div />', { class: 'div-claim-promo' });
                     var divPromoClaimData = $('<div />', { class: 'div-claim-promo-data' });
-                    //var taPromoClaim = $('<textarea />');
+                        //var taPromoClaim = $('<textarea />');
 
                     var divPromoClaimButtons = $('<div />');
 
                     var hrefClaim = $('<a />', { class: 'ui-btn btn-primary', onclick: 'javascript:PromoClaim(this)' }).text('<%=commonCulture.ElementValues.getResourceString("btnSubmit", xeResources)%>');
                     var hrefClaimCancel = $('<a />', { class: 'ui-btn btn-secondary', onclick: 'javascript:PromoCancelClaim(this)' }).text('<%=commonCulture.ElementValues.getResourceString("btnCancel", xeResources)%>');
 
-                    $(divPromoClaimButtons).append(hrefClaim).append(hrefClaimCancel)
+                        $(divPromoClaimButtons).append(hrefClaim).append(hrefClaimCancel)
 
-                    $.each(arrProducts, function (index, value) {
-                        var code = arrCodes.length > 1 ? arrCodes[index] : arrCodes[0];
-                        var divRadio = $('<div />', { class: 'div-promo-radio' });
-                        var taPromoRadio = $('<input />', { type: 'radio', name: 'comment', value: code + '|' + arrProducts[index], id: 'rad' + code });
-                        var taPromoLabel = $('<label />', { for: 'rad' + code }).text(value + ' - ' + code);
+                        $.each(arrProducts, function (index, value) {
+                            var code = arrCodes.length > 1 ? arrCodes[index] : arrCodes[0];
+                            var divRadio = $('<div />', { class: 'div-promo-radio' });
+                            var taPromoRadio = $('<input />', { type: 'radio', name: 'comment', value: code + '|' + arrProducts[index], id: 'rad' + code });
+                            var taPromoLabel = $('<label />', { for: 'rad' + code }).text(value + ' - ' + code);
 
-                        switch (arrProducts[index]) {
-                            case 'asports':
-                                taPromoLabel.text('<%=commonCulture.ElementValues.getResourceXPathString("/Products/ASports/Label", commonVariables.ProductsXML)%> - ' + code);
+                            switch (arrProducts[index]) {
+                                case 'asports':
+                                    taPromoLabel.text('<%=commonCulture.ElementValues.getResourceXPathString("/Products/ASports/Label", commonVariables.ProductsXML)%> - ' + code);
                                 break;
                             case 'esports':
                                 taPromoLabel.text('<%=commonCulture.ElementValues.getResourceXPathString("/Products/ESports/Label", commonVariables.ProductsXML)%> - ' + code);
@@ -318,6 +331,49 @@
                 complete: function (data) { PromoCancelClaim($obj); }
             });
         }
+
+        function PromoClaimNowMatch(obj, code, lang) {
+            if ('<%=commonVariables.CurrentMemberSessionId%>'.trim() == '') {
+                location.assign('_Secure/Register.aspx');
+            } else {
+                $(obj).hide();
+
+                $.get('/_Static/Promotions/' + code + '.' + lang + '.xml', function (xml) {
+                    var team = {
+                        team_msg: $(xml).find('team_msg').text(),
+                        score_msg: $(xml).find('score_msg').text(),
+                        score_checking: $(xml).find('score_checking').text().trim(),
+                        score_msg: $(xml).find('score_msg').text(),
+                        team_setting: $(xml).find('team_setting team').map(function () {
+                            return $(this).text();
+                        }).get().join()
+                    };
+
+                    //$.each(team_setting, function (index, value) {
+
+
+                    //});
+
+                 <%--   var divCode = $('<div />', { class: 'div-claim-promo-header' }).text(code);
+                    var divPromoClaimWrapper = $('<div />', { class: 'div-claim-promo' });
+                    var divPromoClaimData = $('<div />', { class: 'div-claim-promo-data' });
+                    var taPromoClaim = $('<textarea />');
+
+                    var divPromoClaimButtons = $('<div />');
+                    var hrefClaim = $('<a />', { class: 'ui-btn btn-primary', onclick: 'javascript:PromoClaim(this)' }).text('<%=commonCulture.ElementValues.getResourceString("btnSubmit", xeResources)%>');
+                    var hrefClaimCancel = $('<a />', { class: 'ui-btn btn-secondary', onclick: 'javascript:PromoCancelClaim(this)' }).text('<%=commonCulture.ElementValues.getResourceString("btnCancel", xeResources)%>');
+
+                    $(divPromoClaimButtons).append(hrefClaim).append(hrefClaimCancel)
+                    $(divPromoClaimData).append(taPromoClaim).append(taPromoClaim).append(taPromoClaim).append(taPromoClaim).append(taPromoClaim).append(taPromoClaim).append(divPromoClaimButtons);
+                    $(divPromoClaimWrapper).append(divCode).append(divPromoClaimData);
+                    $(obj).parent().append(divPromoClaimWrapper);--%>
+
+
+                    $(obj).parent().append($('#template-promo'));
+                });
+
+            }
+        }
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -327,5 +383,19 @@
         <div id="divPromotions" class="fixed-tablet-size"></div>
     </div>
 
+    <div class="div-claim-promo" id="template-promo">
+        <div class="div-claim-promo-header">EPL2016W06</div>
+        <div class="div-claim-promo-data">
+            <textarea></textarea>
+            <div>
+                <a class="ui-btn btn-primary" onclick="javascript:PromoClaim(this)">Kirim</a>
+                <a class="ui-btn btn-secondary" onclick="javascript:PromoCancelClaim(this)">Batal</a>
+            </div>
+        </div>
+    </div>
+
 </asp:Content>
+
+
+
 
