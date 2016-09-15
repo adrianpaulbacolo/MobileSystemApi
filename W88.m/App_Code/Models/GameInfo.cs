@@ -11,5 +11,7 @@ namespace Models
         public string Image { get; set; }
         public string FunUrl { get; set; }
         public string RealUrl { get; set; }
+        public string Name { get; set; }
+        public string Id { get; set; }
     }
 }
