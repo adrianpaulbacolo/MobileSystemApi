@@ -376,17 +376,57 @@
         }
     </script>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
     <div class="ui-content" role="main">
         <img id="promoLoader" src="/_Static/Css/images/ajax-loader.gif" style="display: none;" />
         <div id="divPromotions" class="fixed-tablet-size"></div>
     </div>
-
     <div class="div-claim-promo" id="template-promo">
         <div class="div-claim-promo-header">EPL2016W06</div>
         <div class="div-claim-promo-data">
-            <textarea></textarea>
+            <div class="promo-match">
+                <div class="row row-uc row-no-padding">
+                    <div class="col col-20">
+                        <label>Match: </label>
+                    </div>
+                    <div class="col col-80">
+                        <div class="col col-40">
+                            <p>ARSENAL</p>
+                        </div>
+                        <div class="col col-20">
+                            <small>vs</small>
+                        </div>
+                        <div class="col col-40">
+                            <p>CHEALSEA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="promo-match">
+                <div class="row row-uc row-no-padding">
+                    <div class="col col-20">
+                        <label>Skor:</label>
+                    </div>
+                    <div class="col col-80">
+                        <div class="col col-40">
+                            <input type="text" name="" id="">
+                        </div>
+                        <div class="col col-40 col-offset-20">
+                            <input type="text" name="" id="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="promo-match">
+                <label>Pencentak Goal Pertama:</label>
+                <input type="text" name="" id="">
+            </div>
+            <div class="promo-match">
+                <label>Pencentak Goal Pertama:</label>
+                <input type="text" name="" id="">
+            </div>
             <div>
                 <a class="ui-btn btn-primary" onclick="javascript:PromoClaim(this)">Kirim</a>
                 <a class="ui-btn btn-secondary" onclick="javascript:PromoCancelClaim(this)">Batal</a>
