@@ -149,6 +149,29 @@ public static class commonCookie
             }
         }
     }
+
+    public static string CookieReferralId
+    {
+        get
+        {
+            HttpCookie cookie = HttpContext.Current.Request.Cookies.Get("ReferralId");
+            return cookie == null ? "" : cookie.Value;
+        }
+        set
+        {
+            if (!string.IsNullOrWhiteSpace(value))
+            {
+                HttpCookie cookie = HttpContext.Current.Request.Cookies.Get("ReferralId");
+                // if existing cookie is present, don't override
+                if (cookie == null || string.IsNullOrEmpty(cookie.Value))
+                {
+                    HttpCookie affliateCookie = new HttpCookie("ReferralId");
+                    affliateCookie.Value = value;
+                    HttpContext.Current.Response.Cookies.Add(affliateCookie);
+                }
+            }
+        }
+    }
     public static string CookieIsApp
     {
         get

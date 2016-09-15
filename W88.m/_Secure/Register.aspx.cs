@@ -37,6 +37,11 @@ public partial class _Secure_Register : BasePage
 
         if (Page.IsPostBack) return;
 
+        if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("referid")))
+        {
+            commonCookie.CookieReferralId = HttpContext.Current.Request.QueryString.Get("referid");
+        }
+
             if (string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId")))
             {
             var affiliateId = HttpContext.Current.Request.QueryString.Get("AffiliateId");
@@ -397,7 +402,7 @@ public partial class _Secure_Register : BasePage
                 intAffiliateId = 0;
             }
 
-            var strReferBy = string.Empty;
+            var strReferBy = commonCookie.CookieReferralId;
             string strDeviceId = "Mobile";
 
             System.Data.DataSet dsRegister = null;
