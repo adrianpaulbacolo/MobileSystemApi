@@ -27,7 +27,8 @@ public partial class Slots_ClubDivino : BasePage
         var uc8Category = uc8Handler.Process();
 
         var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
-        var gpiCategory = gpiHandler.Process(GameProvider.GPI.ToString());
+        var gpiCategory = gpiHandler.Process(true);
+        cxCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, cxCategory[0].Current);
 
         var divino = bsCategory.Union(cxCategory).Union(uc8Category).Union(gpiCategory).GroupBy(x => x.Title);
 
@@ -47,20 +48,21 @@ public partial class Slots_ClubDivino : BasePage
 
         foreach (var item in category)
         {
-            AddGames(sbGames, item.New, item.Provider);
+            AddGames(sbGames, item.New);
 
-            AddGames(sbGames, item.Current, item.Provider);
+            AddGames(sbGames, item.Current);
         }
 
         sbGames.Append("</ul></div></div></div>");
     }
 
-    private void AddGames(StringBuilder sbGames, List<GameInfo> games, string provider)
+    private void AddGames(StringBuilder sbGames, List<GameInfo> games)
     {
-        var providerClass = string.Empty;
-        if (!string.IsNullOrEmpty(provider)) providerClass = "slot-" + provider; 
         foreach (var game in games)
         {
+            var providerClass = string.Empty;
+            if (!string.IsNullOrEmpty(game.Provider.ToString())) providerClass = "slot-" + game.Provider; 
+
             sbGames.AppendFormat("<li class='bkg-game {1}'><div rel='{0}.jpg'><div class='div-links'>", game.Image, providerClass);
 
             if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))

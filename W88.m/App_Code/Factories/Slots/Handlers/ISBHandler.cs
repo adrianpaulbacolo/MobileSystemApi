@@ -27,6 +27,7 @@ namespace Factories.Slots.Handlers
             fun = GameSettings.GetGameUrl(GameProvider.ISB, GameLinkSetting.Fun);
             real = GameSettings.GetGameUrl(GameProvider.ISB, GameLinkSetting.Real);
 
+            GameProvider = GameProvider.ISB;
             memberSessionId = token;
             lobbyPage = lobby;
             currencyCode = currency;

@@ -25,6 +25,7 @@ namespace Factories.Slots.Handlers
             fun = GameSettings.GetGameUrl(GameProvider.GPI, GameLinkSetting.Fun);
             real = GameSettings.GetGameUrl(GameProvider.GPI, GameLinkSetting.Real);
 
+            GameProvider = GameProvider.GPI;
             memberSessionId = token;
         }
 

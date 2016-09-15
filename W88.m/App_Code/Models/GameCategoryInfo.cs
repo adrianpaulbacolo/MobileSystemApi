@@ -8,10 +8,12 @@ namespace Models
     public class GameCategoryInfo
     {
         public string Title { get; set; }
-     
+
+        public List<GameInfo> InjectedGames { get; set; }
+
         public List<GameInfo> New { get; set; }
+
         public List<GameInfo> Current { get; set; }
 
-        public string Provider { get; set; }
     }
 }

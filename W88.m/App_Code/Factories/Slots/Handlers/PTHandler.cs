@@ -35,7 +35,7 @@ namespace Factories.Slots.Handlers
             fun = GameSettings.GetGameUrl(GameProvider.PT, GameLinkSetting.Fun);
             real = GameSettings.GetGameUrl(GameProvider.PT, GameLinkSetting.Real);
 
-
+            GameProvider = GameProvider.PT;
             user = prefix + username.ToUpper();
             lobbyPage = lobby;
             supportPage = support;

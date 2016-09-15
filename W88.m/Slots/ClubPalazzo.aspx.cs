@@ -20,13 +20,13 @@ public partial class Slots_ClubPalazzo : BasePage
 
         SetTitle(commonCulture.ElementValues.getResourceXPathString("/Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML));
 
-        var member = new Members();
-        var info = member.MemberData();
+        var info = new Members().MemberData();
         var handler = new PTHandler(info.MemberCode, "ClubPalazzo", "LiveChat/Default.aspx", "Logout");
         var ptCategory = handler.Process();
 
         var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
-        var gpiCategory = gpiHandler.Process(GameProvider.GPI.ToString());
+        var gpiCategory = gpiHandler.Process(true);
+        ptCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, ptCategory[0].Current);
 
         var games = ptCategory.Union(gpiCategory).GroupBy(x => x.Title);
 
@@ -39,19 +39,10 @@ public partial class Slots_ClubPalazzo : BasePage
             
             foreach (var item in category)
             {
-                if (item.Provider != null)
-                {
-                    AddGames(sbGames, item.New, item.Provider);
-                    AddGames(sbGames, item.Current, item.Provider);    
-                }
-                else
-                {
                     AddGames(sbGames, item.New, handler.user, handler.languageCode);
                     AddGames(sbGames, item.Current, handler.user, handler.languageCode);    
                 }
                 
-            }
-
             sbGames.Append("</ul></div></div></div>");
         }
 
@@ -62,38 +53,34 @@ public partial class Slots_ClubPalazzo : BasePage
     {
         foreach (var game in games)
         {
-            sbGames.AppendFormat("<li class='bkg-game'><div rel='{0}.png'><div class='div-links'>", game.Image);
+            if (game.Provider == GameProvider.GPI)
+            {
+                var providerClass = string.Empty;
+                if (!string.IsNullOrEmpty(game.Provider.ToString())) providerClass = "slot-" + game.Provider; 
 
-            if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-                sbGames.AppendFormat("<a class='btn-primary' target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubPalazzo") + "' data-rel='dialog' data-transition='slidedown' data-ajax='false'>");
+                sbGames.AppendFormat("<li class='bkg-game {1}'><div rel='{0}.jpg'><div class='div-links'>", game.Image, providerClass);
+
+                if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+                    sbGames.AppendFormat("<a target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubBravado") + "' data-rel='dialog' data-transition='slidedown' data-ajax='false'>");
+                else
+                    sbGames.AppendFormat("{0}</a>", commonCulture.ElementValues.getResourceXPathString("/Products/Play", commonVariables.ProductsXML));
+                
+                sbGames.AppendFormat("<a class=\"track-try-now\" target='_blank' href='{1}'>{0}</a></div>", commonCulture.ElementValues.getResourceXPathString("/Products/Try", commonVariables.ProductsXML), game.FunUrl);
+            }
             else
-                sbGames.AppendFormat("<a href='#' onclick='javascript:w88Mobile.Slots.launchPalazzo(1, \"{0}\", \"{1}\", \"{2}\", \"{3}\")' target='_blank' data-ajax='false'>",
-                    userName, commonEncryption.Decrypt(commonCookie.CookiePalazzo), langCode, game.RealUrl);
+            {
+                sbGames.AppendFormat("<li class='bkg-game'><div rel='{0}.png'><div class='div-links'>", game.Image);
 
-            sbGames.AppendFormat("{0}</a>", commonCulture.ElementValues.getResourceXPathString("/Products/Play", commonVariables.ProductsXML));
-            //sbGames.AppendFormat("<a class='btn-secondary' target='_blank' href='{0}' data-ajax='false'><i class='icon-fullscreen'></i></a></div>", game.FunUrl);
+                if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+                    sbGames.AppendFormat("<a class='btn-primary' target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubPalazzo") + "' data-rel='dialog' data-transition='slidedown' data-ajax='false'>");
+                else
+                    sbGames.AppendFormat("<a href='#' onclick='javascript:w88Mobile.Slots.launchPalazzo(1, \"{0}\", \"{1}\", \"{2}\", \"{3}\")' target='_blank' data-ajax='false'>",userName, commonEncryption.Decrypt(commonCookie.CookiePalazzo), langCode, game.RealUrl);
+
+                sbGames.AppendFormat("{0}</a>",commonCulture.ElementValues.getResourceXPathString("/Products/Play", commonVariables.ProductsXML));
+            }
 
             sbGames.Append("</div></li>");
-        }
-    }
 
-    private void AddGames(StringBuilder sbGames, List<GameInfo> games, string provider)
-    {
-        var providerClass = string.Empty;
-        if (!string.IsNullOrEmpty(provider)) providerClass = "slot-" + provider; 
-        foreach (var game in games)
-        {
-            sbGames.AppendFormat("<li class='bkg-game {1}'><div rel='{0}.jpg'><div class='div-links'>", game.Image, providerClass);
-
-            if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-                sbGames.AppendFormat("<a target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubMassimo") + "' data-rel='dialog' data-transition='slidedown' data-ajax='false'>");
-            else
-                sbGames.AppendFormat("<a class=\"track-play-now\" href='{0}' target='_blank' data-ajax='false'>", game.RealUrl);
-
-            sbGames.AppendFormat("{0}</a>", commonCulture.ElementValues.getResourceXPathString("/Products/Play", commonVariables.ProductsXML));
-            sbGames.AppendFormat("<a class=\"track-try-now\" target='_blank' href='{1}'>{0}</a></div>", commonCulture.ElementValues.getResourceXPathString("/Products/Try", commonVariables.ProductsXML), game.FunUrl);
-
-            sbGames.Append("</div></li>");
         }
     }
 }

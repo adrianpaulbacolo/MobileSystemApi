@@ -27,6 +27,7 @@ namespace Factories.Slots.Handlers
             fun = GameSettings.GetGameUrl(GameProvider.MGS, GameLinkSetting.Fun);
             real = GameSettings.GetGameUrl(GameProvider.MGS, GameLinkSetting.Real);
 
+            GameProvider = GameProvider.MGS;
             memberSessionId = token;
             lobbyPage = lobby;
             cashierPage = cashier;
