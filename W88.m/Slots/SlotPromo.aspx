@@ -280,7 +280,11 @@
                 },
                 success: function (mydata) {
                     $("#promo-list").children().remove();
-                    var promoList = JSON.parse(mydata.d);
+                    var response = JSON.parse(mydata.d);
+                    var promoList = response.promoList;
+
+                    if (!_.isEmpty(response.message)) w88Mobile.Growl.shout(response.message);
+
                     _.forEach(promoList, function (promo) {
                         if (_.isEmpty(promo.game) || _.isEmpty(promo.game.Id)) return;
                         promo.endDate = moment(promo.start).format("MM/DD/YYYY");

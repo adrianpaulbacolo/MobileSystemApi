@@ -47,12 +47,13 @@ public class SlotPromo
         return values;
     }
 
-    public List<SlotPromoItem> getPromo(DateTime start, DateTime end)
+    public fetchPromoResponse getPromo(DateTime start, DateTime end)
     {
         var riskId = userInfo.RiskId;
         if (string.IsNullOrEmpty(riskId)) riskId = "N";
 
-        var promoList = new List<SlotPromoItem>();
+        var promoResponse = new fetchPromoResponse();
+        promoResponse.promoList = new List<SlotPromoItem>();
 
         var values = createBaseContent();
         values.Add("RiskCategoryId", riskId);
@@ -71,11 +72,18 @@ public class SlotPromo
         {
             foreach (JsonPromoSettings promo in response.detail)
             {
-                promoList.Add(createSlot(promo));
+                promoResponse.promoList.Add(createSlot(promo));
             }
 
         }
-        return promoList.OrderBy(x => x.start).ToList();
+        else
+        {
+            promoResponse.message = commonCulture.ElementValues.getResourceXPathString(
+                    "EligibleSlots/ErrorDefault",
+                    commonVariables.PromotionsXML);
+        }
+        promoResponse.promoList.OrderBy(x => x.start).ToList();
+        return promoResponse;
     }
 
     private string getCurrency()
@@ -299,42 +307,35 @@ public class SlotPromo
         Models.Info claimInfo = response.info;
         promoClaim.status = claimInfo.ErrorCode;
 
-        switch (response.ClaimStatus)
+        switch (response.info.ErrorCode)
         {
-
-            case SlotPromoClaimStatus.AutoApproved:
-                promoClaim.message = "Auto Approved";
-                promoClaim.hidden_message = promoClaim.message;
+            case -1:
+            case -2:
+            case 1:
+            case 10:
+            case 100:
+                promoClaim.hidden_message = promoClaim.message = commonCulture.ElementValues.getResourceXPathString(
+                    "PromoClaim/ErrorDefault",
+                    commonVariables.PromotionsXML);
                 break;
-            case SlotPromoClaimStatus.ForApproval:
-                promoClaim.message = "for Approval";
-                promoClaim.hidden_message = claimInfo.Message;
-                break;
-            case SlotPromoClaimStatus.Pending:
-                promoClaim.message = "Pending";
-                promoClaim.hidden_message = claimInfo.Message;
+            case 0:
+                promoClaim.hidden_message = promoClaim.message = commonCulture.ElementValues.getResourceXPathString(
+                    "PromoClaim/Success",
+                    commonVariables.PromotionsXML);
                 break;
             default:
-                switch (response.info.ErrorCode)
+                promoClaim.hidden_message = promoClaim.message = commonCulture.ElementValues.getResourceXPathString(
+                    "PromoClaim/Error" + Convert.ToString(response.info.ErrorCode),
+                    commonVariables.PromotionsXML);
+                if (string.IsNullOrEmpty(promoClaim.message))
                 {
-                    case 20:
-                        promoClaim.message = promoClaim.hidden_message = claimInfo.Message;
-                        break;
-                    case 21:
-                        promoClaim.message = promoClaim.hidden_message = claimInfo.Message;
-                        break;
-
-                    case 90:
-                        promoClaim.message = promoClaim.hidden_message = claimInfo.Message;
-                        break;
-                    default:
-                        promoClaim.message = promoClaim.hidden_message = string.Format("{0}: {1}", claimInfo.ErrorCode, claimInfo.Message);
-                        break;
+                    promoClaim.message = commonCulture.ElementValues.getResourceXPathString(
+                        "PromoClaim/ErrorDefault",
+                        commonVariables.PromotionsXML);
+                    promoClaim.hidden_message = string.Format("{0}: {1}", claimInfo.ErrorCode, claimInfo.Message);
                 }
                 break;
         }
-
-
 
         return promoClaim;
     }
@@ -370,7 +371,29 @@ public class SlotPromo
         info.message = commonCulture.ElementValues.getResourceXPathString(
             "StakeAndBonus/Error" + errorString,
             commonVariables.PromotionsXML);
-        if (string.IsNullOrEmpty(info.message)) info.message = info.svc_error;
+
+        switch (stakeInfo.ErrorCode)
+        {
+            case -1:
+            case -2:
+            case 1:
+            case 10:
+                info.message = commonCulture.ElementValues.getResourceXPathString(
+                    "StakeAndBonus/ErrorDefault",
+                    commonVariables.PromotionsXML);
+                break;
+            default:
+                info.message = commonCulture.ElementValues.getResourceXPathString(
+                    "StakeAndBonus/Error" + Convert.ToString(response.info.ErrorCode),
+                    commonVariables.PromotionsXML);
+                if (string.IsNullOrEmpty(info.message))
+                {
+                    info.message = commonCulture.ElementValues.getResourceXPathString(
+                        "StakeAndBonus/ErrorDefault",
+                        commonVariables.PromotionsXML);
+                }
+                break;
+        }
 
         info.total_stake = response.TotalStake;
         info.bonus_amount = response.ClaimAmount;
@@ -433,5 +456,10 @@ public class SlotPromo
         public int status { get; set; }
         public string message { get; set; }
         public string hidden_message { get; set; }
+    }
+    public class fetchPromoResponse
+    {
+        public List<SlotPromoItem> promoList { get; set; }
+        public string message { get; set; }
     }
 }
