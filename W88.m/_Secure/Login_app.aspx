@@ -51,6 +51,8 @@
 
                 <asp:HiddenField runat="server" ID="ioBlackBox" Value="" />
                 <asp:Literal ID="lblRegister" runat="server" Visible="false" />
+                <br />
+                <a href="ForgotPassword.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("forgotpassword", commonVariables.LeftMenuXML)%></a>
             </form>
         </div>
 
