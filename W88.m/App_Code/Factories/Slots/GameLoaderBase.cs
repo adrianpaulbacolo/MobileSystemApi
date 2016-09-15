@@ -121,6 +121,15 @@ namespace Factories.Slots
 
             return currencies.Contains(currencyCode);
         }
+
+        protected bool IsElementExists(string attribute, XElement element, out string url)
+        {
+            url = string.Empty;
+            if (element.Element(attribute) == null) return false;
+
+            url = element.Element(attribute).Value;
+            return true;
+        }
     }
 
      public enum GameLinkSetting
