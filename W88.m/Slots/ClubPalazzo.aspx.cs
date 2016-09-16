@@ -41,8 +41,8 @@ public partial class Slots_ClubPalazzo : BasePage
             {
                 if (item.Provider != null)
                 {
-                    AddGames(sbGames, item.New);
-                    AddGames(sbGames, item.Current);    
+                    AddGames(sbGames, item.New, item.Provider);
+                    AddGames(sbGames, item.Current, item.Provider);    
                 }
                 else
                 {
@@ -77,19 +77,21 @@ public partial class Slots_ClubPalazzo : BasePage
         }
     }
 
-    private void AddGames(StringBuilder sbGames, List<GameInfo> games)
+    private void AddGames(StringBuilder sbGames, List<GameInfo> games, string provider)
     {
+        var providerClass = string.Empty;
+        if (!string.IsNullOrEmpty(provider)) providerClass = "slot-" + provider; 
         foreach (var game in games)
         {
-            sbGames.AppendFormat("<li class='bkg-game'><div rel='{0}.jpg'><div class='div-links'>", game.Image);
+            sbGames.AppendFormat("<li class='bkg-game {1}'><div rel='{0}.jpg'><div class='div-links'>", game.Image, providerClass);
 
             if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                 sbGames.AppendFormat("<a target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubMassimo") + "' data-rel='dialog' data-transition='slidedown' data-ajax='false'>");
             else
-                sbGames.AppendFormat("<a href='{0}' target='_blank' data-ajax='false'>", game.RealUrl);
+                sbGames.AppendFormat("<a class=\"track-play-now\" href='{0}' target='_blank' data-ajax='false'>", game.RealUrl);
 
             sbGames.AppendFormat("{0}</a>", commonCulture.ElementValues.getResourceXPathString("/Products/Play", commonVariables.ProductsXML));
-            sbGames.AppendFormat("<a target='_blank' href='{1}'>{0}</a></div>", commonCulture.ElementValues.getResourceXPathString("/Products/Try", commonVariables.ProductsXML), game.FunUrl);
+            sbGames.AppendFormat("<a class=\"track-try-now\" target='_blank' href='{1}'>{0}</a></div>", commonCulture.ElementValues.getResourceXPathString("/Products/Try", commonVariables.ProductsXML), game.FunUrl);
 
             sbGames.Append("</div></li>");
         }

@@ -16,24 +16,28 @@
 <script src="/_Static/JS/GPINT.js"></script>
 <script src="/_Static/JS/piwik.js"></script>
 <script type="text/javascript">
-  window.w88Mobile = {};
-  window.User = {};
-  window.User.hasSession = <%= (!String.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) ? 1 : 0 %>;
-  window.User.sessionInterval = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("sessionInterval") %>';
+    window.w88Mobile = {};
+    window.User = {};
+    window.User.hasSession = <%= (!String.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) ? 1 : 0 %>;
+    window.User.sessionInterval = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("sessionInterval") %>';
 </script>
 <script type="text/javascript" src="/_Static/Js/modules/slots.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/formValidator.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/growl.js"></script>
 <script type="text/javascript">
-  // set initial values for notification
-  if(!_.isUndefined(w88Mobile.Growl)){
+    // set initial values for notification
+    if(!_.isUndefined(w88Mobile.Growl)){
     w88Mobile.Growl.options.lang = '<%=commonVariables.SelectedLanguageShort%>';
     w88Mobile.Growl.options.close = '<%=commonCulture.ElementValues.getResourceString("close", commonVariables.LeftMenuXML)%>';
-  }
+    }
 </script>
 <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0" />
 <script type="text/javascript" src="/_Static/JS/modules/hideMenu.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/fundtransfer.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/piwikManager.js"></script>
+<script type="text/javascript">
+    w88Mobile.PiwikManager.setUserId('<%=UserSession.MemberId %>');
+</script>
 <script type="text/javascript" src="/_Static/Js/modules/slots.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/wallets.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/bankTransfer.js"></script>
