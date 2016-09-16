@@ -15,10 +15,10 @@ public class AjaxHandlers_ASHX_Promotion : IHttpHandler, System.Web.SessionState
         {
             countryCode = ".my";
         }
-        else if ((string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "aud", true) == 0) && commonVariables.SelectedLanguage == "en-us")
-        {
-            countryCode = ".au";
-        }
+        //else if ((string.Compare(commonVariables.GetSessionVariable("CurrencyCode"), "aud", true) == 0) && commonVariables.SelectedLanguage == "en-us")
+        //{
+        //    countryCode = ".au";
+        //}
 
         string selectedLanguage = commonVariables.SelectedLanguage + countryCode;
 
