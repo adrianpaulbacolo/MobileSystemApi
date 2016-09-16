@@ -1,61 +1,56 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Xml.Linq;
+using W88.BusinessLogic.Shared.Helpers;
 
-public partial class _Secure_Login : System.Web.UI.Page
+public partial class _Secure_Login : BasePage
 {
-    protected System.Xml.Linq.XElement xeErrors = null;
-    protected string strRedirect = string.Empty;
+    protected XElement XeErrors = null;
+    protected XElement LeftMenu = null;
+    protected string RedirectUri = string.Empty;
 
-    protected void Page_Init(object sender, EventArgs e) 
+    protected void Page_Init(object sender, EventArgs e)
     {
-        string strLanguage = string.Empty;
-
-        strLanguage = Request.QueryString.Get("lang");
-        
-        commonVariables.SelectedLanguage = string.IsNullOrEmpty(strLanguage) ? (string.IsNullOrEmpty(commonVariables.SelectedLanguage) ? "en-us" : commonVariables.SelectedLanguage) : strLanguage;
-    }
-
-    protected void Page_Load(object sender, EventArgs e)
-    {   
-        xeErrors = commonVariables.ErrorsXML;
-        System.Xml.Linq.XElement xeResources = null;
-        commonCulture.appData.getLocalResource(out xeResources);
-
-        if (string.IsNullOrEmpty(Request.QueryString.Get("redirect")))
+        string language = Request.QueryString.Get("lang");
+        LanguageHelpers.SelectedLanguage = string.IsNullOrEmpty(language) ? 
+            (string.IsNullOrEmpty(LanguageHelpers.SelectedLanguage) ? "en-us" : LanguageHelpers.SelectedLanguage) 
+            : language;
+        if (HasSession)
         {
-            strRedirect = "/Index.aspx";
+            btnSubmit.Visible = false;
         }
         else
         {
-            strRedirect = Request.QueryString.Get("redirect");
-            if (strRedirect == "/Catalogue" && !(string.IsNullOrEmpty(Request.QueryString.Get("categoryId"))))
-                strRedirect = (string.Format("/Catalogue?categoryId={0}&sortBy={1}", Request.QueryString.Get("categoryId"),Request.QueryString.Get("sortBy")));
-            else if (strRedirect == "Redeem" && !(string.IsNullOrEmpty(Request.QueryString.Get("productId"))) )
-                strRedirect = (string.Format("/Catalogue/Redeem.aspx?productId={0}", Request.QueryString.Get("productId")));         
-        
+            btnSubmit.Visible = true;
         }
-                
+    }
 
+    protected void Page_Load(object sender, EventArgs e)
+    {
         if (!Page.IsPostBack)
         {
-            lblUsername.Text = commonCulture.ElementValues.getResourceString("lblUsername", xeResources);
-            lblPassword.Text = commonCulture.ElementValues.getResourceString("lblPassword", xeResources);
-            lblCaptcha.Text = commonCulture.ElementValues.getResourceString("lblCaptcha", xeResources);
-            btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnLogin", xeResources);
+            XeErrors = CultureHelpers.AppData.GetRootResource("Errors");
+            LeftMenu = CultureHelpers.AppData.GetRootResource("leftMenu");
 
-            txtUsername.Attributes.Add("PLACEHOLDER", lblUsername.Text);
-            txtPassword.Attributes.Add("PLACEHOLDER", lblPassword.Text);
-            txtCaptcha.Attributes.Add("PLACEHOLDER", lblCaptcha.Text);
+            try
+            {
+                RedirectUri = "/Index.aspx?lang=" + LanguageHelpers.SelectedLanguage;
+                if (HasSession)
+                {
+                    Response.Redirect(RedirectUri);                                   
+                }
+            }
+            catch (Exception ex)
+            {
 
+            }
+
+            XElement xeLogin = CultureHelpers.AppData.GetRootResource(@"_Secure/Login.aspx");
+            lblUsername.Text = CultureHelpers.ElementValues.GetResourceString("lblUsername", xeLogin);
+            lblPassword.Text = CultureHelpers.ElementValues.GetResourceString("lblPassword", xeLogin);
+            lblCaptcha.Text = CultureHelpers.ElementValues.GetResourceString("lblCaptcha", xeLogin);
+            btnSubmit.Text = CultureHelpers.ElementValues.GetResourceString("btnLogin", xeLogin);
             txtUsername.Focus();
-
-            lblRegister.Text = commonCulture.ElementValues.getResourceString("btnRegister", xeResources);
-
+            lblRegister.Text = CultureHelpers.ElementValues.GetResourceString("lblRegister", xeLogin);
         }
-      
     }
 }

@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Web;
-using System.Web.UI;
 using System.Xml.Linq;
 using W88.BusinessLogic.Shared.Helpers;
 using W88.Utilities;
 
-public partial class _Default : Page
+public partial class _Default : BasePage
 {
     protected string AlertMessage = string.Empty;
     protected XElement XeErrors = null;
@@ -21,6 +20,7 @@ public partial class _Default : Page
         if (string.Compare(Convert.ToString(RouteData.DataTokens["logout"]), "true", true) == 0) 
         {
             // Do logout logic here
+            Response.Redirect("/Default.aspx", true);
         }
         if (string.Compare(Convert.ToString(RouteData.DataTokens["expire"]), "true", true) == 0)
         {
@@ -34,6 +34,10 @@ public partial class _Default : Page
 
         if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("AffiliateId"))) { Common.SetSessionVariable("AffiliateId", HttpContext.Current.Request.QueryString.Get("AffiliateId")); }
 
+        if (HasSession)
+        {
+            Response.Redirect("/Index.apsx?lang=" + LanguageHelpers.SelectedLanguage, true);
+        }
         if (string.IsNullOrEmpty(selectedLanguage))
         {
             Response.Redirect("/Lang.aspx", true);
