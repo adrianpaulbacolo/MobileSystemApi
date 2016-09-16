@@ -132,10 +132,7 @@
                                     var strCode = $obj.substring($obj.indexOf('=') + 1);
 
                                     var hrefClaim = $('<a />', { class: 'ui-btn btn-primary', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNowMatch(this, \'' + strCode + '\',  \'' + lang + '\')' }).text($(objCode).text());
-
-                                    if ('<%=commonVariables.GetSessionVariable("RiskId")%>'.search(/vip(b|p|g|d)/i) > -1) {
-                                        $(divJoinButton).append(hrefClaim);
-                                    }
+                                    $(divJoinButton).append(hrefClaim);
                                 }
 
                             }
