@@ -61,13 +61,14 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder" Runat="Server">
     
     <script>
-        var firstStep = false;
+        var firstStep = true;
+        var reqSeq = false;
 
         $(function() {
             if ('<%=AlertCode%>'.length > 0) {
                 switch ('<%=AlertCode%>') {
                     case '1':
-                        w88Mobile.Growl.shout('<%=AlertMessage%>');
+                        alert('<%=AlertMessage%>');
                         window.location.replace('/Index.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
                         break;
                     default:
@@ -84,7 +85,14 @@
             $('#<%=btnStep1.ClientID%>').click(function (e) {
                 e.preventDefault();
                 if ($("#<%=txtUsername.ClientID%>").val().length > 0 && $("#<%=txtEmail.ClientID%>").val().length > 0) {
-                    check();
+                    if (firstStep) {
+                        check();
+                    } else {
+                        if (ValidateStep1()) {
+                            $('.step1').hide();
+                            $('.step2').show();
+                        }
+                    }
                 } else {
                     ValidateStep1();
                 }
@@ -92,25 +100,22 @@
 
             $('#<%=btnSubmit.ClientID%>').click(function (e) {
 
-                var s1, s2;
-                s1 = ValidateStep1();
+                if (!ValidateStep1()) {
+                    return false;
+                }
 
                 if (firstStep == false) {
-
-                    if (s1) {
-                        return true;
-                    } else return false;
-                } else {
-                    s1 = ValidateStep1();
-                    s2 = ValidateStep2();
-
-                    if (s1 && s2) {
-                        return true;
-                    } else {
-                        e.preventDefault();
-                        return false;
+                    if (reqSeq) {
+                        if (ValidateStep2()) {
+                            return true;
+                        } else {
+                            e.preventDefault();
+                            return false;
+                        }
                     }
                 }
+
+                return true;
             });
 
         });
@@ -126,24 +131,25 @@
                 success: function (msg) {
                     console.log(msg);
 
-                    switch (msg.d) {
-                    case 2:
+                    if (msg.d == 2) {
                         $('.step1').hide();
                         $('.step2').show();
-                        firstStep = true;
-                        break;
-                    case 1:
                         firstStep = false;
-                        $('#<%=btnStep1.ClientID%>').click();
-                        break;
-                    case 10:
-                    case 11:
+                        reqSeq = true;
+                        $('#<%=drpSecurityQuestion.ClientID%>').val("0").change();
+                        $("#<%=txtSecurityAnswer.ClientID%>").text = '';
+                    }
+                    else if (msg.d == 1) {
+                        firstStep = false;
+                        reqSeq = false;
+                        $('#<%=drpSecurityQuestion.ClientID%>').val("0").change();
+                        $('#<%=btnSubmit.ClientID%>').click();
+                    }
+                    else if (msg.d == 10 || msg.d == 11) {
                         w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceXPathString("ForgotPassword/NotExist", XeErrors)%>');
-                        break;
-
-                    default:
+                    }
+                    else {
                         w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceXPathString("ForgotPassword/Other", XeErrors)%>');
-                        break;
                     }
                 }
             });
