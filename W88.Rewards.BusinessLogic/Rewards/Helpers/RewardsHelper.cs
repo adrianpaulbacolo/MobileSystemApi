@@ -14,15 +14,17 @@ namespace W88.Rewards.BusinessLogic.Rewards.Helpers
     /// </summary>
     public class RewardsHelper : BaseHelper
     {
+        protected RewardsServicesClient Client = new RewardsServicesClient();
+
         public DataSet GetCatalogueSet(MemberSession memberSession)
         {
-            using (RewardsServicesClient client = new RewardsServicesClient())
+            try
             {
                 var countryCode = memberSession == null ? "0" : memberSession.CountryCode;
                 var currencyCode = memberSession == null ? "0" : memberSession.CurrencyCode;
                 var riskId = memberSession == null ? "0" : memberSession.RiskId;
 
-                DataSet dataSet = client.getCatalogueSearch(
+                var dataSet = Client.getCatalogueSearch(
                     OperatorId.ToString(CultureInfo.InvariantCulture)
                     , LanguageHelpers.SelectedLanguage
                     , countryCode
@@ -52,7 +54,7 @@ namespace W88.Rewards.BusinessLogic.Rewards.Helpers
                         dataRow["redemptionValidity"] += ",";
                         if (!dataRow["redemptionValidity"].ToString().ToUpper().Equals("ALL,"))
                         {
-                            if (((string)dataRow["redemptionValidity"]).Contains(memberSession.RiskId.ToUpper() + ","))
+                            if (((string) dataRow["redemptionValidity"]).Contains(riskId.ToUpper() + ","))
                             {
                                 dataRow["redemptionValidity"] = "0";
                             }
@@ -73,6 +75,22 @@ namespace W88.Rewards.BusinessLogic.Rewards.Helpers
                 }
                 return dataSet;
             }
+            catch (Exception exception)
+            {
+                return null;
+            }
+        }
+
+        public string GetCategoryName(string categoryCode)
+        {
+            try
+            {
+                return Client.getCategoryName(categoryCode, LanguageHelpers.SelectedLanguage);               
+            }
+            catch (Exception ex)
+            {
+                return string.Empty;
+            }
         }
 
         public int GetPointLevel(string memberId)
@@ -82,13 +100,9 @@ namespace W88.Rewards.BusinessLogic.Rewards.Helpers
                 if (string.IsNullOrEmpty(memberId))
                 {
                     return 0;
-                }
-
-                using (RewardsServicesClient sClient = new RewardsServicesClient())
-                {
-                    string pointLevel = sClient.getMemberPointLevelFE(memberId);
-                    return int.Parse(pointLevel);
-                }
+                }           
+                var pointLevel = Client.getMemberPointLevelFE(memberId);
+                return int.Parse(pointLevel);               
             }
             catch (Exception)
             {
