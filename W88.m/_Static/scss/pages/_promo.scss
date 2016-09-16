@@ -3,8 +3,8 @@
 // -------------------------------
 
 #divPromotions {
-    .col {
-        margin: 0 auto 10px;;
+    li {
+        margin: 0 auto 10px;
         min-width: 100%;
         background-color: lighten($base-background-color, 3%);
         @include box-shadow( 0 2px 2px rgba(0,0,0,0.15));
