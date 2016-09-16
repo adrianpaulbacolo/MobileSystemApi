@@ -125,20 +125,25 @@
                 contentType: "application/json; charset=utf-8",
                 success: function (msg) {
                     console.log(msg);
-                    if (msg.d == 2) {
+
+                    switch (msg.d) {
+                    case 2:
                         $('.step1').hide();
                         $('.step2').show();
                         firstStep = true;
-                    }
-                    else if (msg.d == 1) {
+                        break;
+                    case 1:
                         firstStep = false;
                         $('#<%=btnStep1.ClientID%>').click();
-                    }
-                    else if (msg == 10 || msg == 11) {
+                        break;
+                    case 10:
+                    case 11:
                         w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceXPathString("ForgotPassword/NotExist", XeErrors)%>');
-                    }
-                    else {
+                        break;
+
+                    default:
                         w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceXPathString("ForgotPassword/Other", XeErrors)%>');
+                        break;
                     }
                 }
             });
