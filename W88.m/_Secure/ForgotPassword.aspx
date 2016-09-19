@@ -39,12 +39,17 @@
                             <asp:Label ID="lblSecurityAnswer" runat="server" AssociatedControlID="txtSecurityAnswer" Text="Security Answer" />
                         </div>
                         <div>
-                            <asp:TextBox ID="txtSecurityAnswer" runat="server" />
+                            <asp:TextBox ID="txtSecurityAnswer" runat="server" data-corners="false" data-clear-btn="true" />
                         </div>
                     </li>
                     <li class="item row">
                         <div class="col">
-                            <a href="" role="button" data-rel="back" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
+                            <% if (commonCookie.CookieIsApp.Length > 0)
+                               { %>
+                                <a href="Login_app.aspx" role="button" class="ui-btn btn-bordered" data-ajax="false"><%= commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML) %></a>
+                            <% } else { %>
+                                <a href="Login.aspx" role="button" class="ui-btn btn-bordered" data-ajax="false"><%= commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML) %></a>
+                            <% } %>
                         </div>
                         <div class="col step1">
                             <asp:Button ID="btnStep1" runat="server" Text="submit" data-corners="false" CausesValidation="False" />
@@ -68,6 +73,7 @@
             if ('<%=AlertCode%>'.length > 0) {
                 switch ('<%=AlertCode%>') {
                     case '1':
+                        sessionStorage.removeItem("mp");
                         alert('<%=AlertMessage%>');
                         window.location.replace('/Index.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
                         break;
@@ -75,6 +81,19 @@
                         w88Mobile.Growl.shout('<%=AlertMessage%>');
                         break;
                 }
+            }
+
+            if ($("#<%=txtUsername.ClientID%>").val().length <= 0) {
+                firstStep = true;
+                reqSeq = false;
+                $('.step1').show();
+                $('.step2').hide();
+            }
+            else if (sessionStorage.getItem("mp") == 2) {
+                $('.step1').hide();
+                $('.step2').show();
+                firstStep = false;
+                reqSeq = true;
             }
 
         });
@@ -138,6 +157,7 @@
                         reqSeq = true;
                         $('#<%=drpSecurityQuestion.ClientID%>').val("0").change();
                         $("#<%=txtSecurityAnswer.ClientID%>").text = '';
+                        sessionStorage.setItem("mp", msg.d);
                     }
                     else if (msg.d == 1) {
                         firstStep = false;

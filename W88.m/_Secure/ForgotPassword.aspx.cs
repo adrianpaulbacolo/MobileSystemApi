@@ -37,6 +37,8 @@ public partial class _Secure_ForgotPassword : BasePage
     private void SetQuestions()
     {
         commonCulture.appData.getRootResource("/_Secure/UpdateProfile", out XeResources);
+        lblSecurityQuestion.Text = commonCulture.ElementValues.getResourceString("lblSecurityQuestion", XeResources);
+
         string securityQuestion = null;
         foreach (System.Xml.Linq.XElement xeSq in XeResources.Element("drpSecurityQuestion").Elements())
         {
