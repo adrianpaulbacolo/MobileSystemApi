@@ -36,7 +36,7 @@ public partial class _Default : BasePage
 
         if (HasSession)
         {
-            Response.Redirect("/Index.apsx?lang=" + LanguageHelpers.SelectedLanguage, true);
+            Response.Redirect("/Index.aspx?lang=" + LanguageHelpers.SelectedLanguage, true);
         }
         if (string.IsNullOrEmpty(selectedLanguage))
         {
