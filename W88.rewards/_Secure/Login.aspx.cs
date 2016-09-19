@@ -14,14 +14,7 @@ public partial class _Secure_Login : BasePage
         LanguageHelpers.SelectedLanguage = string.IsNullOrEmpty(language) ? 
             (string.IsNullOrEmpty(LanguageHelpers.SelectedLanguage) ? "en-us" : LanguageHelpers.SelectedLanguage) 
             : language;
-        if (HasSession)
-        {
-            btnSubmit.Visible = false;
-        }
-        else
-        {
-            btnSubmit.Visible = true;
-        }
+        btnSubmit.Visible = !HasSession;
     }
 
     protected void Page_Load(object sender, EventArgs e)

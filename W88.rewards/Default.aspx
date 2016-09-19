@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" Async="true" %> 
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %> 
 <%@ Import Namespace="W88.BusinessLogic.Shared.Helpers" %>
 
 <!DOCTYPE html>
@@ -39,7 +39,7 @@
                         </a>
                     </div>
                     <div class="btn-group" role="group">
-                        <a class="btn" href="/Catalogue/Default.aspx">
+                        <a class="btn" href="/Catalogue?categoryId=0&sortBy=2">
                             <span class="icon icon-catalog"></span><%=CultureHelpers.ElementValues.GetResourceString("catalogue", LeftMenu)%>
                         </a>
                     </div>
