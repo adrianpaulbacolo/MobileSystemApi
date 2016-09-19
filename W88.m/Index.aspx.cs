@@ -13,32 +13,6 @@ public partial class _Index : BasePage
     protected void Page_Init(object sender, EventArgs e)
     {
         string priorityVIP = commonVariables.GetSessionVariable("PriorityVIP");
-
-        checkCDN();
-        string CDN_Value = getCDNValue();
-        string key = getCDNKey();
-
-        if (!string.IsNullOrWhiteSpace(commonCookie.CookieLanguage)) return;
-
-        if (!string.IsNullOrEmpty(CDN_Value) && !string.IsNullOrEmpty(key))
-        {
-            commonVariables.SelectedLanguage = commonCountry.GetLanguageByCountry(GetCountryCode(CDN_Value, key));
-        }
-        else
-        {
-            Uri myUri = new Uri(System.Web.HttpContext.Current.Request.Url.ToString());
-            string[] host = myUri.Host.Split('.');
-
-            if (host.Count() > 1)
-            {
-                commonVariables.SelectedLanguage = GetLanguageByDomain("." + host[1] + "." + host[2]);
-            }
-            else
-            {
-                commonVariables.SelectedLanguage = GetLanguageByDomain("default");
-            }
-
-        }
     }
 
     protected void Page_Load(object sender, EventArgs e)
