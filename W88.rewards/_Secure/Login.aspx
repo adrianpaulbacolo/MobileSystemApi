@@ -31,7 +31,6 @@
                         <div class="text-center no-account">
                             <asp:Literal ID="lblRegister" runat="server" />
                         </div>
-                        <asp:HiddenField runat="server" ID="ioBlackBox" Value="" />
                     </div>
                 </div>
             </div>
