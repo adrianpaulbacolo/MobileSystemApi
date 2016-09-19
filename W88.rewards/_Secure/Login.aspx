@@ -104,8 +104,7 @@
                         Username: $('#txtUsername').val(),
                         Password: $('#txtPassword').val()
                     },
-                    Captcha: $('#txtCaptcha').val(),
-                    ioBlackBox: $('#ioBlackBox').val()
+                    Captcha: $('#txtCaptcha').val()
                 }),
                 success: function (response) {
                     if (!response || response.ResponseCode == undefined) {
@@ -162,15 +161,5 @@
             window.w88Mobile.Growl.shout('<div>' + message + '</div>');
         }
     </script>
-    <script type="text/javascript" id="iovs_script">
-        var io_operation = 'ioBegin',
-            io_bbout_element_id = 'ioBlackBox',
-            io_submit_form_id = 'form1',
-            io_max_wait = 5000,
-            io_install_flash = false,
-            io_install_stm = false,
-            io_exclude_stm = 12;
-    </script>
-    <script type="text/javascript" src="//ci-mpsnare.iovation.com/snare.js"></script>
 </body>
 </html>
