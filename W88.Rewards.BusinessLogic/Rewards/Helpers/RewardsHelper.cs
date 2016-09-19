@@ -93,6 +93,21 @@ namespace W88.Rewards.BusinessLogic.Rewards.Helpers
             }
         }
 
+        public int GetMemberPointLevelDiscount(MemberSession memberSession)
+        {
+            try
+            {
+                return Client.getMemberPointLevelDiscount(
+                    OperatorId.ToString(CultureInfo.InvariantCulture), 
+                    memberSession.CurrencyCode, 
+                    GetPointLevel(memberSession.MemberId).ToString(CultureInfo.InvariantCulture));
+            }
+            catch (Exception exception)
+            {
+                return 0;
+            }
+        }
+
         public int GetPointLevel(string memberId)
         {
             try
@@ -107,6 +122,44 @@ namespace W88.Rewards.BusinessLogic.Rewards.Helpers
             catch (Exception)
             {
                 return 0;
+            }
+        }
+
+        public DataSet GetProductSearch(MemberSession memberSession, 
+            string categoryId, 
+            int pointsFrom, 
+            int pointsTo, 
+            string searchText,
+            string sortBy,
+            string pageSize,
+            string numberOfPages)
+        {
+            try
+            {
+                var countryCode = memberSession == null ? "0" : memberSession.CountryCode;
+                var currencyCode = memberSession == null ? "0" : memberSession.CurrencyCode;
+                var riskId = memberSession == null ? "0" : memberSession.RiskId;
+
+                var dataSet = Client.getProductSearch(
+                    OperatorId.ToString(CultureInfo.InvariantCulture), 
+                    categoryId, 
+                    LanguageHelpers.SelectedLanguage, 
+                    pointsFrom, 
+                    pointsTo, 
+                    searchText,
+                    countryCode, 
+                    currencyCode, 
+                    riskId, 
+                    DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), 
+                    sortBy, 
+                    pageSize, 
+                    numberOfPages);
+
+                return dataSet;
+            }
+            catch (Exception exception)
+            {
+                return null;
             }
         }
     }

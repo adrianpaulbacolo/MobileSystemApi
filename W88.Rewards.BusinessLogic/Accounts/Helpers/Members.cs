@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Data;
-using System.Threading.Tasks;
+using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Shared.Models;
-using W88.Rewards.BusinessLogic.Accounts.Models;
 using W88.Utilities.Extensions;
 using W88.Utilities.Geo;
+using MemberSession = W88.Rewards.BusinessLogic.Accounts.Models.MemberSession;
 
 namespace W88.Rewards.BusinessLogic.Accounts.Helpers
 {
@@ -30,11 +30,39 @@ namespace W88.Rewards.BusinessLogic.Accounts.Helpers
             return memberSession;
         }
 
-        public async Task<ProcessCode> MembersSessionCheck(string token)
+        public UserSessionInfo GetMemberInfo(string token)
+        {
+            using (var sessionCheck = new WebRef.wsMemberMS1.memberWSSoapClient())
+            {
+                var dsMemberCheck = sessionCheck.MemberSessionCheck(token, new IpHelper().User);
+
+                var userInfo = new UserSessionInfo();
+                if (dsMemberCheck.Tables.Count <= 0) return userInfo;
+
+                if (dsMemberCheck.Tables[0].Columns[Constants.VarNames.MemberCode] != null)
+                {
+                    userInfo.MemberCode = dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.MemberCode].ToString();
+                    userInfo.CurrencyCode = dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.CurrencyCode].ToString();
+                    userInfo.CurrentSessionId = dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.MemberSessionId].ToString();
+                    userInfo.Token = userInfo.CurrentSessionId;
+                    userInfo.MemberId = Convert.ToInt64(dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.MemberId]);
+                    userInfo.CountryCode = dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.CountryCode].ToString();
+                    userInfo.PaymentGroup = dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.PaymentGroup].ToString();
+                    userInfo.MemberName = dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.Lastname].ToString() + dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.Firstname].ToString();
+                }
+
+                userInfo.Status.ReturnValue = Convert.ToInt32(dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.ReturnValue]);
+                userInfo.Status.ReturnMessage = GetSessionCheckMsg(userInfo.Status.ReturnValue);
+
+                return userInfo;
+            }
+        }
+
+        public ProcessCode MembersSessionCheck(string token)
         {
             using (var svcInstance = new W88.WebRef.wsMemberMS1.memberWSSoapClient())
             {
-                var dsMemberCheck = await svcInstance.MemberSessionCheckAsync(token, new IpHelper().User);
+                var dsMemberCheck = svcInstance.MemberSessionCheck(token, new IpHelper().User);
 
                 var process = new ProcessCode
                 {
