@@ -51,7 +51,7 @@ $(window).load(function () {
 $(document).on('pagecontainerbeforeshow', function (event, ui) {
     toggleLoginButton();
     var baseUri = [event.target.baseURI];
-    if (_.some(baseUri, _.method('match', /Login/i)) || _.some(baseUri, _.method('match', /Default/i))) {
+    if (_.some(baseUri, _.method('match', /Login/i))) {
         if (window.user && window.user.Token) {
             loadPage('/Index.aspx', null, 'slide');
         }
