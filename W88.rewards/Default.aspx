@@ -39,7 +39,7 @@
                         </a>
                     </div>
                     <div class="btn-group" role="group">
-                        <a class="btn" href="/Catalogue/Default.aspx">
+                        <a class="btn" href="/Catalogue?categoryId=0&sortBy=2">
                             <span class="icon icon-catalog"></span><%=CultureHelpers.ElementValues.GetResourceString("catalogue", LeftMenu)%>
                         </a>
                     </div>

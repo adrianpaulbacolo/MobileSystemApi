@@ -2,7 +2,7 @@
     <header class="header">
         <div class="header-container">
             <div class="header-buttons clearfix">
-                <a href="#" data-ajax="false" data-rel="back" class="pull-left header-menu"><span class="icon icon-back"></span></a>
+                <a id="backButton" href="#" data-rel="back" class="pull-left header-menu"><span class="icon icon-back"></span></a>
                 <div class="dropdown pull-right">
                     <a href="#" class="dropdown-toggle more-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         <span></span>
@@ -16,7 +16,7 @@
                         <li><a href="/_Static/Info/About.aspx?lang=<%=W88.BusinessLogic.Shared.Helpers.LanguageHelpers.SelectedLanguage%>"><%=W88.BusinessLogic.Shared.Helpers.CultureHelpers.ElementValues.GetResourceString("about", W88.BusinessLogic.Shared.Helpers.CultureHelpers.AppData.GetRootResource("leftMenu"))%></a></li>
                         <li><a href="/_Static/Info/FAQ.aspx?lang=<%=W88.BusinessLogic.Shared.Helpers.LanguageHelpers.SelectedLanguage%>"><%=W88.BusinessLogic.Shared.Helpers.CultureHelpers.ElementValues.GetResourceString("faq", W88.BusinessLogic.Shared.Helpers.CultureHelpers.AppData.GetRootResource("leftMenu"))%></a></li>
                         <li><a href="/_Static/Info/Levels.aspx?lang=<%=W88.BusinessLogic.Shared.Helpers.LanguageHelpers.SelectedLanguage%>"><%=W88.BusinessLogic.Shared.Helpers.CultureHelpers.ElementValues.GetResourceString("levels", W88.BusinessLogic.Shared.Helpers.CultureHelpers.AppData.GetRootResource("leftMenu"))%></a></li>                                             
-                        <li id="headerLoginButton"><a data-ajax="false" data-transition="slidedown" href="/_Secure/Login.aspx?lang=<%=W88.BusinessLogic.Shared.Helpers.LanguageHelpers.SelectedLanguage%>"><%=W88.BusinessLogic.Shared.Helpers.CultureHelpers.ElementValues.GetResourceString("login", W88.BusinessLogic.Shared.Helpers.CultureHelpers.AppData.GetRootResource("leftMenu"))%></a></li>
+                        <li id="headerLoginButton"><a data-ajax="false" href="/_Secure/Login.aspx?lang=<%=W88.BusinessLogic.Shared.Helpers.LanguageHelpers.SelectedLanguage%>"><%=W88.BusinessLogic.Shared.Helpers.CultureHelpers.ElementValues.GetResourceString("login", W88.BusinessLogic.Shared.Helpers.CultureHelpers.AppData.GetRootResource("leftMenu"))%></a></li>
                         <li id="headerLogoutButton"><a href="javascript: logout();"><%=W88.BusinessLogic.Shared.Helpers.CultureHelpers.ElementValues.GetResourceString("logout", W88.BusinessLogic.Shared.Helpers.CultureHelpers.AppData.GetRootResource("leftMenu"))%></a></li>
                     </ul>
                 </div>
