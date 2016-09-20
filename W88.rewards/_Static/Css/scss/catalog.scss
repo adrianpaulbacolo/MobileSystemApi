@@ -141,10 +141,14 @@ div.row>span#lblnodata {
 }
 
 .tag-label {
-    color: #e41717;
-    font-size: 14px;
+    color: #fff;
+    font-size: 10px;
     right: 22px;
     position: absolute;
+    background-color: #e41717;
+    width: 33px;
+    text-align: center;
+    height: 14px;
 }
 
 .tag-label h4 {
