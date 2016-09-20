@@ -2,6 +2,7 @@
 using System.Data;
 using System.Globalization;
 using W88.BusinessLogic.Accounts.Models;
+using W88.BusinessLogic.Base.Helpers;
 using W88.BusinessLogic.Shared.Models;
 using W88.Utilities.Extensions;
 using W88.Utilities.Geo;
@@ -9,7 +10,7 @@ using MemberSession = W88.Rewards.BusinessLogic.Accounts.Models.MemberSession;
 
 namespace W88.Rewards.BusinessLogic.Accounts.Helpers
 {
-    public class Members : W88.BusinessLogic.Accounts.Helpers.Members
+    public class Members : BaseHelper
     {
         public MemberSession GetData(DataTable dTable)
         {
