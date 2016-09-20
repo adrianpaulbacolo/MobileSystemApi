@@ -144,7 +144,7 @@ public partial class Default : BasePage
                     dataRow["redemptionValidity"] += ",";
                     if (dataRow["redemptionValidity"].ToString().ToUpper() != "ALL,")
                     {
-                        if (((string) dataRow["redemptionValidity"]).Contains(MemberSession.RiskId.ToUpper() + ","))
+                        if (!((string) dataRow["redemptionValidity"]).Contains(MemberSession.RiskId.ToUpper() + ","))
                         {
                             dataRow["redemptionValidity"] = "0";
                         }

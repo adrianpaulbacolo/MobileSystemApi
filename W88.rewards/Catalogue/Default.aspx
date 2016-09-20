@@ -30,10 +30,10 @@
                         </GroupTemplate>
                         <ItemTemplate>
                             <div class="col-xs-6 col-sm-3">
-                                <div id="detailsButton<%#DataBinder.Eval(Container.DataItem,"productId")%>" class="catalog-box">
+                                <div id="detailsButton_<%#DataBinder.Eval(Container.DataItem,"productId")%>" class="catalog-box">
                                     <script>
                                         $(function () {
-                                            $('#detailsButton<%#DataBinder.Eval(Container.DataItem,"productId")%>').on('click', function () {
+                                            $('#detailsButton_<%#DataBinder.Eval(Container.DataItem,"productId")%>').on('click', function () {
                                                 loadPage('/Catalogue/Detail.aspx', { id: '<%#DataBinder.Eval(Container.DataItem,"productId")%>' }, 'slide');
                                             });
                                         });
@@ -67,12 +67,12 @@
                             <script>
                                 $(function() {
                                     if (_.endsWith(window.location.href, 'categoryId=<%#DataBinder.Eval(Container.DataItem,"categoryId")%>&sortBy=2')) {
-                                        if (!$('#category<%#DataBinder.Eval(Container.DataItem,"categoryId")%>').hasClass('active')) 
-                                            $('#category<%#DataBinder.Eval(Container.DataItem,"categoryId")%>').addClass('active');                                       
+                                        if (!$('#category_<%#DataBinder.Eval(Container.DataItem,"categoryId")%>').hasClass('active')) 
+                                            $('#category_<%#DataBinder.Eval(Container.DataItem,"categoryId")%>').addClass('active');                                       
                                     }
                                 });
                             </script>
-                            <a id="category<%#DataBinder.Eval(Container.DataItem,"categoryId")%>" class="btn" data-ajax="false" href="/Catalogue?categoryId=<%#DataBinder.Eval(Container.DataItem,"categoryId")%>&sortBy=2">
+                            <a id="category_<%#DataBinder.Eval(Container.DataItem,"categoryId")%>" class="btn" data-ajax="false" href="/Catalogue?categoryId=<%#DataBinder.Eval(Container.DataItem,"categoryId")%>&sortBy=2">
                                 <%#DataBinder.Eval(Container.DataItem,"categoryName")%>
                             </a>
                         </div>
