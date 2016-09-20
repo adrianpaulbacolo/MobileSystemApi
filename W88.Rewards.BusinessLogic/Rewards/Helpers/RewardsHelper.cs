@@ -2,10 +2,11 @@
 using System.Configuration;
 using System.Data;
 using System.Globalization;
+using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Base.Helpers;
 using W88.BusinessLogic.Shared.Helpers;
-using W88.Rewards.BusinessLogic.Accounts.Models;
 using W88.WebRef.RewardsServices;
+using MemberSession = W88.Rewards.BusinessLogic.Accounts.Models.MemberSession;
 
 namespace W88.Rewards.BusinessLogic.Rewards.Helpers
 {
@@ -15,6 +16,21 @@ namespace W88.Rewards.BusinessLogic.Rewards.Helpers
     public class RewardsHelper : BaseHelper
     {
         protected RewardsServicesClient Client = new RewardsServicesClient();
+
+        public int CheckRedemptionLimitForVipCategory(string memberCode, string vipCategoryId)
+        {
+            try
+            {
+                return Client.CheckRedemptionLimitForVIPCategory(
+                    base.OperatorId.ToString(CultureInfo.InvariantCulture), 
+                    memberCode,
+                    vipCategoryId);
+            }
+            catch (Exception exception)
+            {
+                return 0;
+            }
+        }
 
         public DataSet GetCatalogueSet(MemberSession memberSession)
         {
@@ -54,7 +70,7 @@ namespace W88.Rewards.BusinessLogic.Rewards.Helpers
                         dataRow["redemptionValidity"] += ",";
                         if (!dataRow["redemptionValidity"].ToString().ToUpper().Equals("ALL,"))
                         {
-                            if (((string) dataRow["redemptionValidity"]).Contains(riskId.ToUpper() + ","))
+                            if (!((string) dataRow["redemptionValidity"]).Contains(riskId.ToUpper() + ","))
                             {
                                 dataRow["redemptionValidity"] = "0";
                             }
@@ -122,6 +138,28 @@ namespace W88.Rewards.BusinessLogic.Rewards.Helpers
             catch (Exception)
             {
                 return 0;
+            }
+        }
+
+        public DataSet GetProductDetails(MemberSession memberSession, string productId)
+        {
+            try
+            {
+                var countryCode = memberSession == null ? "0" : memberSession.CountryCode;
+                var currencyCode = memberSession == null ? "0" : memberSession.CurrencyCode;
+                var riskId = memberSession == null ? "0" : memberSession.RiskId;
+                var dataSet = Client.getProductDetail(
+                    productId, 
+                    LanguageHelpers.SelectedLanguage, 
+                    riskId, 
+                    countryCode,
+                    currencyCode, 
+                    riskId);
+                return dataSet;
+            }
+            catch (Exception exception)
+            {
+                return null;
             }
         }
 

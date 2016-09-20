@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Globalization;
 using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Shared.Models;
 using W88.Utilities.Extensions;
@@ -55,6 +56,37 @@ namespace W88.Rewards.BusinessLogic.Accounts.Helpers
                 userInfo.Status.ReturnMessage = GetSessionCheckMsg(userInfo.Status.ReturnValue);
 
                 return userInfo;
+            }
+        }
+
+        public decimal GetRewardsPoints(UserSessionInfo userInfo)
+        {
+            using (var svc = new WebRef.RewardsServices.RewardsServicesClient())
+            {
+                var total = 0;
+                var claim = 0;
+                var cart = 0;
+
+                var ds = svc.getRedemptionDetail(base.OperatorId.ToString(CultureInfo.InvariantCulture), userInfo.MemberCode);
+
+                if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    total = Convert.ToInt32(ds.Tables[0].Rows[0][0]);
+
+                    if (ds.Tables[1].Rows.Count > 0)
+                    {
+                        claim = int.Parse(ds.Tables[1].Rows[0][0].ToString());
+                    }
+
+                    if (ds.Tables[2].Rows.Count > 0)
+                    {
+                        cart = int.Parse(ds.Tables[2].Rows[0][0].ToString());
+                    }
+
+                    claim = claim + cart;
+                }
+
+                return total - claim;
             }
         }
 

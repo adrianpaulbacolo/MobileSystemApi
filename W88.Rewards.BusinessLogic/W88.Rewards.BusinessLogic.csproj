@@ -81,6 +81,8 @@
     <Compile Include="Accounts\Helpers\Members.cs" />
     <Compile Include="Rewards\Helpers\RewardsHelper.cs" />
     <Compile Include="Rewards\Models\MemberRewardsInfo.cs" />
+    <Compile Include="Rewards\Models\ProductDetails.cs" />
+    <Compile Include="Shared\Helpers\CookieHelpers.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -89,7 +91,6 @@
   <ItemGroup>
     <Folder Include="Accounts\Api\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Shared\Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\W88.BusinessLogic\W88.BusinessLogic.csproj">
