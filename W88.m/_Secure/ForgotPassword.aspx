@@ -44,12 +44,7 @@
                     </li>
                     <li class="item row">
                         <div class="col">
-                            <% if (commonCookie.CookieIsApp.Length > 0)
-                               { %>
-                                <a href="Login_app.aspx" role="button" class="ui-btn btn-bordered" data-ajax="false"><%= commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML) %></a>
-                            <% } else { %>
-                                <a href="Login.aspx" role="button" class="ui-btn btn-bordered" data-ajax="false"><%= commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML) %></a>
-                            <% } %>
+                            <a href="/Index.aspx" role="button" class="ui-btn btn-bordered" data-ajax="false"><%= commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML) %></a>
                         </div>
                         <div class="col step1">
                             <asp:Button ID="btnStep1" runat="server" Text="submit" data-corners="false" CausesValidation="False" />
