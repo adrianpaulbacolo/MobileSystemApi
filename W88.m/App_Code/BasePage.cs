@@ -34,27 +34,30 @@ public class BasePage : System.Web.UI.Page
         string CDN_Value = getCDNValue();
         string key = getCDNKey();
 
-        if (!string.IsNullOrWhiteSpace(commonCookie.CookieLanguage)) return;
-
-        if (!string.IsNullOrEmpty(CDN_Value) && !string.IsNullOrEmpty(key))
+        if (string.IsNullOrWhiteSpace(commonCookie.CookieLanguage))
         {
-            commonVariables.SelectedLanguage = commonCountry.GetLanguageByCountry(GetCountryCode(CDN_Value, key));
-        }
-        else
-        {
-            Uri myUri = new Uri(System.Web.HttpContext.Current.Request.Url.ToString());
-            string[] host = myUri.Host.Split('.');
-
-            if (host.Count() > 1)
+            if (!string.IsNullOrEmpty(CDN_Value) && !string.IsNullOrEmpty(key))
             {
-                commonVariables.SelectedLanguage = GetLanguageByDomain("." + host[1] + "." + host[2]);
+                commonVariables.SelectedLanguage = commonCountry.GetLanguageByCountry(GetCountryCode(CDN_Value, key));
             }
             else
             {
-                commonVariables.SelectedLanguage = GetLanguageByDomain("default");
-            }
+                Uri myUri = new Uri(System.Web.HttpContext.Current.Request.Url.ToString());
+                string[] host = myUri.Host.Split('.');
 
+                if (host.Count() > 1)
+                {
+                    commonVariables.SelectedLanguage = GetLanguageByDomain("." + host[1] + "." + host[2]);
+                }
+                else
+                {
+                    commonVariables.SelectedLanguage = GetLanguageByDomain("default");
+                }
+
+            }
         }
+
+        base.OnInit(e);
     }
 
     protected override void OnPreLoad(EventArgs e)
@@ -313,7 +316,8 @@ public class BasePage : System.Web.UI.Page
         }
     }
 
-    public string getAppSuffix(){
+    public string getAppSuffix()
+    {
         return (commonCookie.CookieIsApp == "1") ? "_app" : "";
     }
 }
