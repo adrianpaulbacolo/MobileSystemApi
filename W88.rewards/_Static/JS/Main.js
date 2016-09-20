@@ -1,54 +1,4 @@
-﻿var User = function User() {
-    this.Balance = null;
-    this.CountryCode = null;
-    this.CurrencyCode = null;
-    this.FirstName = null;
-    this.LanguageCode = null;
-    this.MemberId = null;
-    this.ResetPassword = false;
-    this.PartialSignup = null;
-    this.Token = null;
-};
-
-User.prototype.convertToJsonString = function() {
-    return JSON.stringify(this);
-};
-
-User.prototype.createUser = function(user) {
-    var obj = JSON.parse(user);
-    this.CurrencyCode = _.isEmpty(obj.CurrencyCode) ? null : obj.CurrencyCode;
-    this.LanguageCode = _.isEmpty(obj.LanguageCode) ? null : obj.LanguageCode;
-    this.MemberId = _.isEmpty(obj.MemberId) ? null : obj.MemberId;
-    this.ResetPassword = _.isEmpty(obj.ResetPassword) ? false : obj.ResetPassword;
-    this.Token = _.isEmpty(obj.Token) ? null : obj.Token;
-    return this;
-};
-
-User.prototype.save = function () {
-    if (_.isEmpty(this)) return;
-    var user = this.convertToJsonString();
-    try {
-        window.localStorage.setItem('user', user);
-    } catch (e) {
-        Cookies().setCookie('user', user, 30);
-    }
-};
-
-User.prototype.hasSession = function() {
-    return !_.isEmpty(this.Token);
-};
-
-User.prototype.setProperties = function (data) {
-    if (_.isEmpty(data)) return;
-    this.CurrencyCode = data.CurrencyCode || null;
-    this.LanguageCode = data.LanguageCode || null;
-    this.MemberId = data.MemberId || null;
-    this.ResetPassword = data.ResetPassword || false;
-    this.Token = data.Token || null;
-    return this;
-};
-
-// Set window.user property
+﻿// Set window.user property
 setUser();
 
 $(window).load(function () {
@@ -85,44 +35,82 @@ $(window).load(function () {
     if (window.user && window.user.hasSession())
         checkSession();
 
-    $(".navbar-toggle").on("click", function () {
-        $(this).toggleClass("active");
+    $('.navbar-toggle').on('click', function () {
+        $(this).toggleClass('active');
     });
 });
+
+(function (send) {
+    XMLHttpRequest.prototype.send = function (data) {
+        if (window.user && window.user.Token)
+            this.setRequestHeader('token', window.user.Token);
+        send.call(this, data);
+    };
+})(XMLHttpRequest.prototype.send);
+
+$(document).on('pagecontainerbeforeshow', function (event, ui) {
+    toggleLoginButton();
+    var baseUri = [event.target.baseURI];
+    if (_.some(baseUri, _.method('match', /Login/i)) || _.some(baseUri, _.method('match', /Default/i))) {
+        if (window.user && window.user.Token) {
+            loadPage('/Index.aspx', null, 'slide');
+        }
+    }
+
+    if ($.mobile) {
+        if ($.mobile.navigate.history.stack.length === 0)
+            $('#backButton').hide();
+        else
+            $('#backButton').show();
+    }
+
+    if (GPINTMOBILE)
+        GPINTMOBILE.HideSplash();
+});
+
+$(document).on('pagecontainershow', function (event, ui) {
+
+});
+
+$(document).on('pagecontainerbeforechange', function (event, ui) {
+
+});
+
+$(document).on('pagecontainerbeforeload', function (event, ui) {
+
+});
+
+function loadPage(uri, params, transition) {
+    $(':mobile-pagecontainer').pagecontainer('change', uri, { data: params, reload: true, transition: transition });
+}
 
 function logout() {
     setUser();
     if (_.isEmpty(window.user)) return;
     $.ajax({
         url: '/api/user/logout',
-        type: 'GET',
         contentType: 'text/html',
         async: true,
         data: 'MemberId=' + window.user.MemberId,
+        beforeSend: function() {
+            $.mobile.loading('show');
+        },
         success: function (response) {
             switch (response.ResponseCode) {
                 case 1:
                     clear();
                     break;
                 default:
+                    $.mobile.loading('hide');
                     window.w88Mobile.Growl.shout(response.ResponseMessage);
                     break;
             }
         },
         error: function (response) {
+            $.mobile.loading('hide');
             window.w88Mobile.Growl.shout(response.ResponseMessage);
         }
     });
-}
-
-function setUser() {
-    try {
-        var storedObject = window.localStorage.getItem('user');
-        window.user = _.isEmpty(storedObject) ? new User() : (new User()).createUser(storedObject);
-    } catch (e) {
-        var cookieObject = Cookies().getCookie('user');
-        window.user = _.isEmpty(cookieObject) ? new User() : (new User()).createUser(cookieObject);
-    }
 }
 
 function clear() {
@@ -133,7 +121,8 @@ function clear() {
         Cookies().setCookie('user', null, -1);
     }
     window.user = null;
-    window.location.href = '/Default.aspx';
+    $.mobile.loading('hide');
+    window.location.href = '/Logout';
 }
 
 function Cookies() {
@@ -165,7 +154,51 @@ function Cookies() {
     };
 }
 
-if ($('#divBalance').hasClass('open')) { $('#divBalance').addClass('close'); } else { if ($('#divBalance').hasClass('open')) { $('#divBalance').addClass('close'); } }
+function setUser() {
+    try {
+        var storedObject = window.localStorage.getItem('user');
+        window.user = _.isEmpty(storedObject) ? new User() : (new User()).createUser(storedObject);
+    } catch (e) {
+        var cookieObject = Cookies().getCookie('user');
+        window.user = _.isEmpty(cookieObject) ? new User() : (new User()).createUser(cookieObject);
+    }
+}
+
+function toggleLoginButton() {
+    var headerLoginButton = $('div.dropdown ul>li#headerLoginButton'),
+        headerLogoutButton = $('div.dropdown ul>li#headerLogoutButton'),
+        loginFooterButton = $('div.btn-group a#loginFooterButton'),
+        logoutFooterButton = $('div.btn-group a#logoutFooterButton'),
+        submitButton = $('#btnSubmit');
+
+    if (headerLoginButton && headerLogoutButton) {
+        if (window.user && window.user.hasSession()) {
+            headerLoginButton.hide();
+            headerLogoutButton.show();
+        } else {
+            headerLogoutButton.hide();
+            headerLoginButton.show();
+        }
+    }
+
+    if (loginFooterButton && logoutFooterButton) {
+        if (window.user && window.user.hasSession()) {
+            loginFooterButton.hide();
+            logoutFooterButton.show();
+        } else {
+            logoutFooterButton.hide();
+            loginFooterButton.show();
+        }
+    }
+
+    if (submitButton) {
+        if (window.user && window.user.hasSession()) {
+            $('#btnSubmit').hide();
+        } else {
+            $('#btnSubmit').show();
+        }
+    }
+}
 
 // toggle full screen
 function toggleFullScreen() {
@@ -188,3 +221,5 @@ function toggleFullScreen() {
         }
     }
 }
+
+if ($('#divBalance').hasClass('open')) { $('#divBalance').addClass('close'); } else { if ($('#divBalance').hasClass('open')) { $('#divBalance').addClass('close'); } }

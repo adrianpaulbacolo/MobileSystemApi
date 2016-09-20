@@ -26,5 +26,6 @@
     }
     var sessionInterval = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("sessionInterval") %>';
 </script>
+<script src="/_Static/JS/modules/User.js"></script>
 <script src="/_Static/JS/Main.js"></script>
 <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0" />
