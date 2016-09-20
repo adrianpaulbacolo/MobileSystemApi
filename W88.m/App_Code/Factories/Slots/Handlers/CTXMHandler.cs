@@ -23,6 +23,7 @@ namespace Factories.Slots.Handlers
             fun = GameSettings.GetGameUrl(GameProvider.CTXM, GameLinkSetting.Fun);
             real = GameSettings.GetGameUrl(GameProvider.CTXM, GameLinkSetting.Real);
 
+            GameProvider = GameProvider.CTXM;
             memberSessionId = token;
         }
 

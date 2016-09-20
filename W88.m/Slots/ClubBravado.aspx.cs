@@ -20,7 +20,7 @@ public partial class Slots_ClubBravado : BasePage
 
         var handler = new GPIHandler(commonVariables.CurrentMemberSessionId);
 
-        var gpiCategory = handler.Process(GameProvider.GPI.ToString());
+        var gpiCategory = handler.Process();
 
         StringBuilder sbGames = new StringBuilder();
 
@@ -30,9 +30,9 @@ public partial class Slots_ClubBravado : BasePage
 
             sbGames.AppendFormat("<div id='div{0}' class='div-product'><div><ul>", category.Title);
 
-            AddGames(sbGames, category.New, category.Provider);
+            AddGames(sbGames, category.New);
 
-            AddGames(sbGames, category.Current, category.Provider);
+            AddGames(sbGames, category.Current);
 
             sbGames.Append("</ul></div></div></div>");
         }
@@ -40,12 +40,13 @@ public partial class Slots_ClubBravado : BasePage
         divContainer.InnerHtml = Convert.ToString(sbGames);
     }
 
-    private void AddGames(StringBuilder sbGames, List<GameInfo> games, string provider)
+    private void AddGames(StringBuilder sbGames, List<GameInfo> games)
     {
-        var providerClass = string.Empty;
-        if (!string.IsNullOrEmpty(provider)) providerClass = "slot-" + provider;
         foreach (var game in games)
         {
+            var providerClass = string.Empty;
+            if (!string.IsNullOrEmpty(game.Provider.ToString())) providerClass = "slot-" + game.Provider; 
+
             sbGames.AppendFormat("<li class='bkg-game {1}'><div rel='{0}.jpg'><div class='div-links'>", game.Image, providerClass);
 
             if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))

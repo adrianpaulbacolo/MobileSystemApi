@@ -18,8 +18,6 @@ public partial class Slots_ClubGallardo : BasePage
 
         SetTitle(commonCulture.ElementValues.getResourceXPathString("/Products/ClubGallardo/Label", commonVariables.ProductsXML));
 
-        StringBuilder sbGames = new StringBuilder();
-
         var isbHandler = new ISBHandler(commonVariables.CurrentMemberSessionId, "ClubGallardo", commonVariables.GetSessionVariable("CurrencyCode"));
         var isbCategory = isbHandler.Process();
 
@@ -27,10 +25,12 @@ public partial class Slots_ClubGallardo : BasePage
         var pngCategory = pngHandler.Process();
 
         var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
-        var gpiCategory = gpiHandler.Process(GameProvider.GPI.ToString());
+        var gpiCategory = gpiHandler.Process(true);
+        isbCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, isbCategory[0].Current);
 
         var gallardo = isbCategory.Union(pngCategory).Union(gpiCategory).GroupBy(x => x.Title);
 
+        StringBuilder sbGames = new StringBuilder();
         foreach (var category in gallardo)
         {
             sbGames.AppendFormat("<div data-role='collapsible' data-collapsed='false' data-theme='b' data-content-theme='a' data-mini='true'><h4>{0}</h4>", category.Key);
@@ -39,9 +39,9 @@ public partial class Slots_ClubGallardo : BasePage
 
             foreach (var item in category)
             {
-                AddGames(sbGames, item.New, item.Provider);
+                AddGames(sbGames, item.New);
 
-                AddGames(sbGames, item.Current, item.Provider);
+                AddGames(sbGames, item.Current);
             }
 
             sbGames.Append("</ul></div></div></div>");
@@ -50,12 +50,13 @@ public partial class Slots_ClubGallardo : BasePage
         divContainer.InnerHtml = Convert.ToString(sbGames);
     }
 
-    private void AddGames(StringBuilder sbGames, List<GameInfo> games, string provider)
+    private void AddGames(StringBuilder sbGames, List<GameInfo> games)
     {
-        var providerClass = string.Empty;
-        if (!string.IsNullOrEmpty(provider)) providerClass = "slot-" + provider; 
         foreach (var game in games)
         {
+            var providerClass = string.Empty;
+            if (!string.IsNullOrEmpty(game.Provider.ToString())) providerClass = "slot-" + game.Provider; 
+
             sbGames.AppendFormat("<li class='bkg-game {1}'><div rel='{0}.jpg'><div class='div-links'>", game.Image, providerClass);
 
             if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))

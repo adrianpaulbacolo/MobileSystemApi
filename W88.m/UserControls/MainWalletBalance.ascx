@@ -9,7 +9,7 @@
 <script type="text/javascript">
     var loader = GPInt.prototype.GetLoaderScafold();
 
-    $(function () {
+    $(document).ready(function() {
         $("#mainwallet").html(loader);
         GetMainBalance();
     });

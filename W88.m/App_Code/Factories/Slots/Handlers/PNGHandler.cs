@@ -25,6 +25,7 @@ namespace Factories.Slots.Handlers
             fun = GameSettings.GetGameUrl(GameProvider.PNG, GameLinkSetting.Fun);
             real = GameSettings.GetGameUrl(GameProvider.PNG, GameLinkSetting.Real);
 
+            GameProvider = GameProvider.PNG;
             memberSessionId = token;
             lobbyPage = lobby;
         }
