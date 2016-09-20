@@ -102,7 +102,7 @@
         launchPalazzo: function (isReal, userName, password, langCode, link) {
 
             iapiSetClientPlatform("mobile&deliveryPlatform=HTML5");
-            var result = iapiLogin(userName, password, langCode);
+            var result = iapiLogin(userName, password, isReal, langCode);
             iapiSetCallout('Login', calloutLogin);
 
             //CALLOUT----------------------------------------------
