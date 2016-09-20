@@ -36,6 +36,9 @@
                                             $('#detailsButton_<%#DataBinder.Eval(Container.DataItem,"productId")%>').on('click', function () {
                                                 loadPage('/Catalogue/Detail.aspx', { id: '<%#DataBinder.Eval(Container.DataItem,"productId")%>' }, 'slide');
                                             });
+                                            var labelTag = $('#labelTag_<%#DataBinder.Eval(Container.DataItem,"productId")%>');
+                                            if (_.isEmpty(labelTag.html().trim()))
+                                                labelTag.removeClass('tag-label');
                                         });
                                     </script>
                                     <div class="catalog-image">
@@ -46,7 +49,7 @@
                                         <small>
                                             <span class="points" style="<%#(DataBinder.Eval(Container, "DataItem.discountPoints").ToString() != "") ? "text-decoration:line-through;": "text-decoration:none;" %>"><%# String.Format("{0:#,###,##0.##}",DataBinder.Eval(Container.DataItem,"pointsRequired"))%> <%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_points").ToString()%></span>
                                             <span class="newpoints" style="<%#(DataBinder.Eval(Container, "DataItem.discountPoints").ToString() != "") ? "visibility:visible;": "visibility:hidden;" %>"><%# String.Format("{0:#,###,##0.##}",DataBinder.Eval(Container.DataItem,"discountPoints"))%> <%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_points").ToString()%></span>   
-                                            <span class="tag-label">
+                                            <span id="labelTag_<%#DataBinder.Eval(Container.DataItem,"productId")%>" class="tag-label">
                                                 <%#(DataBinder.Eval(Container.DataItem, "productIcon").ToString()=="2") ? HttpContext.GetLocalResourceObject(LocalResx, "lbl_hot") : ""%>
                                                 <%#(DataBinder.Eval(Container.DataItem, "productIcon").ToString()=="3") ? HttpContext.GetLocalResourceObject(LocalResx, "lbl_new") : ""%>                                 
                                             </span>                                                 
