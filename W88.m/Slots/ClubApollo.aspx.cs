@@ -29,7 +29,7 @@ public partial class Slots_ClubApollo : BasePage
         var handler = new QTHandler(commonVariables.CurrentMemberSessionId, "ClubApollo");
         var qtCategory = handler.Process();
 
-        var ppHandler = new PPHandler(commonVariables.CurrentMemberSessionId, "ClubDivino", "FundTransfer");
+        var ppHandler = new PPHandler(commonVariables.CurrentMemberSessionId, "ClubApollo", "FundTransfer");
         var ppCategory = ppHandler.Process(true);
 
         var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
