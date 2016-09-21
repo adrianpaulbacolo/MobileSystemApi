@@ -14,7 +14,7 @@
             });
 
             $("img").error(function () {
-                $(this).unbind("error").attr("src", "/_Static/Images/broken-lt.gif");
+                $(this).unbind("error").attr("src", "/_Static/Images/missing-image.jpg");
             });
 
             $('#gameLoginUrl').attr('href', '/_Secure/Login.aspx?redirect=' + encodeURIComponent('\/' + w88Mobile.Slots.club));

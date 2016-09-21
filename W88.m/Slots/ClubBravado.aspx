@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
-    <div class="ui-content" role="main">
+    <div class="ui-content slots-v2" role="main">
         <div id="divContainer" runat="server"></div>
     </div>
 </asp:Content>
