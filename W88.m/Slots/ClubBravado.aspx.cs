@@ -28,13 +28,13 @@ public partial class Slots_ClubBravado : BasePage
         {
             sbGames.AppendFormat("<div data-role='collapsible' data-collapsed='false' data-theme='b' data-content-theme='a' data-mini='true'><h4>{0}</h4>", category.Title);
 
-            sbGames.AppendFormat("<div id='div{0}' class='div-product'><div><ul>", category.Title);
+            sbGames.AppendFormat("<div id='div{0}' class='box'><div class='game-card-box'>", category.Title);
 
             AddGames(sbGames, category.New);
 
             AddGames(sbGames, category.Current);
 
-            sbGames.Append("</ul></div></div></div>");
+            sbGames.Append("</div></div></div>");
         }
 
         divContainer.InnerHtml = Convert.ToString(sbGames);
@@ -47,17 +47,7 @@ public partial class Slots_ClubBravado : BasePage
             var providerClass = string.Empty;
             if (!string.IsNullOrEmpty(game.Provider.ToString())) providerClass = "slot-" + game.Provider; 
 
-            sbGames.AppendFormat("<li class='bkg-game {1}'><div rel='{0}.jpg'><div class='div-links'>", game.Image, providerClass);
-
-            if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-                sbGames.AppendFormat("<a target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubBravado") + "' data-rel='dialog' data-transition='slidedown' data-ajax='false'>");
-            else
-                sbGames.AppendFormat("<a class=\"track-play-now\" href='{0}' target='_blank' data-ajax='false'>", game.RealUrl);
-
-            sbGames.AppendFormat("{0}</a>", commonCulture.ElementValues.getResourceXPathString("/Products/Play", commonVariables.ProductsXML));
-            sbGames.AppendFormat("<a class=\"track-try-now\" target='_blank' href='{1}'>{0}</a></div>", commonCulture.ElementValues.getResourceXPathString("/Products/Try", commonVariables.ProductsXML), game.FunUrl);
-
-            sbGames.Append("</div></li>");
+            sbGames.AppendFormat("<a href='#' class='game-card {0}' onclick='javascript:w88Mobile.Slots.showGameModal(\"{3}.jpg\", \"{1}\", \"{2}\")'><div rel='{3}.jpg'></div></a>", providerClass, game.RealUrl, game.FunUrl, game.Image);
         }
     }
 }

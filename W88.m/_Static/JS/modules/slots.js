@@ -7,6 +7,10 @@
                 var $this = $(this);
                 $this.prepend('<img src="/_Static/Images/Games/' + $this.attr('rel') + '" class="img-responsive-full">')
             });
+            $('.game-card > div').each(function () {
+                var $this = $(this);
+                $this.prepend('<img src="/_Static/Images/Games/' + $this.attr('rel') + '" class="img-responsive-full">')
+            });
             $("img").error(function () {
                 $(this).unbind("error").attr("src", "/_Static/Images/broken-lt.gif");
             });
@@ -18,6 +22,10 @@
                 var self = $(this);
                 self.on("click", w88Mobile.PiwikManager.trackTryNow);
             });
+
+            $('#gameLoginUrl').attr('href', '/_Secure/Login.aspx?redirect=' + encodeURIComponent('\/' + w88Mobile.Slots.club));
+            $('#gameRegisterUrl').attr('href', '/_Secure/Register.aspx?redirect=' + encodeURIComponent('\/' + w88Mobile.Slots.club));
+
             self.reCalcSpaces();
         },
         filterDisplay: function () {
@@ -126,6 +134,18 @@
                     window.open(realUrl, '_blank');
                 }
             }
+        },
+        showGameModal: function (img, real, fun) {
+
+            $('#gameImage').attr('src', '/_Static/Images/Games/' + img);
+
+            $('#gameFunUrl').attr('href', fun);
+            $('#gameRealUrl').attr('href', real);
+
+            $('#gameModal').popup();
+            $('#gameModal').popup('open');
+
+
         }
     }
 
