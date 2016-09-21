@@ -75,7 +75,7 @@ public partial class Catalogue_Detail : CatalogueBasePage
                 }
                 else
                 {
-                    if (!HasSession && dataRow["productType"].ToString() != "1")
+                    if (HasSession && dataRow["productType"].ToString() != "1")
                     {
                         //grab member point level
                         var pointLevelDiscount = RewardsHelper.GetMemberPointLevelDiscount(MemberSession);
