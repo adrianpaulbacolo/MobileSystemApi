@@ -3,7 +3,7 @@
 // -------------------------------
 
 #divPromotions {
-    li {
+    li.col {
         margin: 0 auto 10px;
         min-width: 100%;
         background-color: lighten($base-background-color, 3%);
