@@ -2,72 +2,20 @@
 using System.Data;
 using System.Text;
 using System.Web;
-using System.Xml.Linq;
-using W88.BusinessLogic.Shared.Helpers;
-using W88.Rewards.BusinessLogic.Rewards.Helpers;
 
-public partial class Default : BasePage
+public partial class Default : CatalogueBasePage
 {
-    protected XElement LeftMenu = null;
-    protected XElement XeErrors = null;
-    protected string LocalResx = "~/default.{0}.aspx";
-    private RewardsHelper rewardsHelper = new RewardsHelper();
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        var headerResx = "~/rewards.header.{0}.aspx";
-        LeftMenu = CultureHelpers.AppData.GetRootResource("leftMenu");
-        XeErrors = CultureHelpers.AppData.GetRootResource("Errors");
-
-        var language = HttpContext.Current.Request.QueryString["lang"];
-        if (!string.IsNullOrEmpty(language))
-        {
-            LocalResx = string.Format(LocalResx, language);
-            headerResx = string.Format(headerResx, language);
-            LanguageHelpers.SelectedLanguage = language;
-        }
-        else
-        {
-            LocalResx = string.Format(LocalResx, LanguageHelpers.SelectedLanguage);
-            headerResx = string.Format(headerResx, LanguageHelpers.SelectedLanguage);
-        }
-
-        #region labels
-        if (HasSession && UserSessionInfo != null)
-        {
-            if (string.IsNullOrEmpty(MemberSession.FirstName))
-            {
-                usernameLabel.Visible = false;
-            }
-            else
-            {
-                usernameLabel.InnerText = UserSessionInfo.MemberCode;
-            }
-            var pointsLabelText = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_points");
-            var stringBuilder = new StringBuilder();
-
-            stringBuilder.Append(pointsLabelText)
-                .Append(": ")
-                .Append(MemberRewardsInfo != null ? Convert.ToString(MemberRewardsInfo.CurrentPoints) : "0");
-            pointsLabel.InnerText = stringBuilder.ToString();
-
-            var pointLevelLabelText = (string)HttpContext.GetLocalResourceObject(headerResx, "lbl_point_level");
-            stringBuilder = new StringBuilder();
-            stringBuilder.Append(pointLevelLabelText)
-                .Append(" ")
-                .Append(MemberRewardsInfo != null ? Convert.ToString(MemberRewardsInfo.CurrentPointLevel) : "0");
-            pointLevelLabel.InnerText = stringBuilder.ToString();
-            divLevel.Visible = true;
-        }
-        #endregion
-
+        SetLabels();
         SetCatalogueList();
         GetProducts();
     }
 
     private void SetCatalogueList()
     {
-        var catalogueSet = rewardsHelper.GetCatalogueSet(MemberSession);
+        var catalogueSet = RewardsHelper.GetCatalogueSet(MemberSession);
         CategoryListView.DataSource = catalogueSet.Tables[0];
         var dataTable = (DataTable)CategoryListView.DataSource;
         DataRow dataRowAll = dataTable.NewRow();
@@ -93,7 +41,7 @@ public partial class Default : BasePage
             var pointLevelDiscount = 0;
             var totalCount = 0;
 
-            var dataSet = rewardsHelper.GetProductSearch(
+            var dataSet = RewardsHelper.GetProductSearch(
                 MemberSession, 
                 categoryId, 
                 pointsFrom, 
@@ -112,7 +60,7 @@ public partial class Default : BasePage
 
             if (HasSession)
             {
-                pointLevelDiscount = rewardsHelper.GetMemberPointLevelDiscount(MemberSession);
+                pointLevelDiscount = RewardsHelper.GetMemberPointLevelDiscount(MemberSession);
             }
 
             if (!dataSet.Tables[0].Columns.Contains("redemptionValidity"))
@@ -184,6 +132,40 @@ public partial class Default : BasePage
             lblnodata.Text = HttpContext.GetLocalResourceObject(LocalResx, "lbl_noRedemption").ToString();
             lblnodata.Visible = true;
         }
+    }
+
+    protected override void SetLabels()
+    {
+        #region labels
+        if (!HasSession && UserSessionInfo == null)
+        {
+            return;
+        }
+
+        if (string.IsNullOrEmpty(MemberSession.FirstName))
+        {
+            usernameLabel.Visible = false;
+        }
+        else
+        {
+            usernameLabel.InnerText = UserSessionInfo.MemberCode;
+        }
+        var pointsLabelText = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_points");
+        var stringBuilder = new StringBuilder();
+
+        stringBuilder.Append(pointsLabelText)
+            .Append(": ")
+            .Append(MemberRewardsInfo != null ? Convert.ToString(MemberRewardsInfo.CurrentPoints) : "0");
+        pointsLabel.InnerText = stringBuilder.ToString();
+
+        var pointLevelLabelText = (string)HttpContext.GetLocalResourceObject(HeaderResx, "lbl_point_level");
+        stringBuilder = new StringBuilder();
+        stringBuilder.Append(pointLevelLabelText)
+            .Append(" ")
+            .Append(MemberRewardsInfo != null ? Convert.ToString(MemberRewardsInfo.CurrentPointLevel) : "0");
+        pointLevelLabel.InnerText = stringBuilder.ToString();
+        divLevel.Visible = true;
+        #endregion
     }
 }
 
