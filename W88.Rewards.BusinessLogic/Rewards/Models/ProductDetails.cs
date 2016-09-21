@@ -14,6 +14,8 @@ namespace W88.Rewards.BusinessLogic.Rewards.Models
 
         public string CurrencyCode = string.Empty;
 
+        public string PointsBefore = string.Empty;
+
         public string PointsRequired = string.Empty;
 
         public string PointsLevelDiscount = string.Empty;
