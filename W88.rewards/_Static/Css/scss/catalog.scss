@@ -131,3 +131,26 @@
 		color: darken($text-alt,25%);
 	}
 }
+
+div.row>span#lblnodata {
+    margin: 0 auto;
+    position: absolute;
+    top: 200px;
+    width: 344px;
+    text-align: center;
+}
+
+.tag-label {
+    color: #fff;
+    font-size: 10px;
+    right: 22px;
+    position: absolute;
+    background-color: #e41717;
+    width: 33px;
+    text-align: center;
+    height: 14px;
+}
+
+.tag-label h4 {
+    font-size: 14px;
+}
