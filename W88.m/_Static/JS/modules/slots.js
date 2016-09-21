@@ -7,20 +7,14 @@
                 var $this = $(this);
                 $this.prepend('<img src="/_Static/Images/Games/' + $this.attr('rel') + '" class="img-responsive-full">')
             });
+
             $('.game-card > div').each(function () {
                 var $this = $(this);
                 $this.prepend('<img src="/_Static/Images/Games/' + $this.attr('rel') + '" class="img-responsive-full">')
             });
+
             $("img").error(function () {
                 $(this).unbind("error").attr("src", "/_Static/Images/broken-lt.gif");
-            });
-            $('li.slot-GPI').find('a[class*="track-play-now"]').each(function () {
-                var self = $(this);
-                self.on("click", w88Mobile.PiwikManager.trackPlayNow);
-            });
-            $('li.slot-GPI').find('a[class*="track-try-now"]').each(function () {
-                var self = $(this);
-                self.on("click", w88Mobile.PiwikManager.trackTryNow);
             });
 
             $('#gameLoginUrl').attr('href', '/_Secure/Login.aspx?redirect=' + encodeURIComponent('\/' + w88Mobile.Slots.club));
@@ -144,8 +138,6 @@
 
             $('#gameModal').popup();
             $('#gameModal').popup('open');
-
-
         }
     }
 
