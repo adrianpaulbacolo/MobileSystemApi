@@ -6,11 +6,6 @@
 <head>
     <title><%=CultureHelpers.ElementValues.GetResourceString("brand", LeftMenu) + CultureHelpers.ElementValues.GetResourceString("rewards", LeftMenu)%></title>
     <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/Js/PreLoad.js"></script>
-    <link type="text/css" rel="stylesheet" href="/_Static/Css/Language.css" />
-    <link rel="stylesheet" href="/_Static/Css/add2home.css">
-    <script type="application/javascript" src="/_Static/Js/add2home.js"></script>
-    <script type="application/javascript" src="/_Static/Js/checkManifest.js"></script>
 </head>
 <body>
     <div data-role="page" data-theme="b" data-ajax="false">
@@ -39,7 +34,7 @@
                         </a>
                     </div>
                     <div class="btn-group" role="group">
-                        <a class="btn" href="/Catalogue?categoryId=0&sortBy=2">
+                        <a data-ajax="false" class="btn" href="/Catalogue?categoryId=0&sortBy=2">
                             <span class="icon icon-catalog"></span><%=CultureHelpers.ElementValues.GetResourceString("catalogue", LeftMenu)%>
                         </a>
                     </div>

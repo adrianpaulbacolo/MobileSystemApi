@@ -33,7 +33,7 @@ public class BasePage : Page
         base.OnLoad(e);
     }
 
-    protected async void CheckSession()
+    protected void CheckSession()
     {
         try
         {
@@ -49,10 +49,11 @@ public class BasePage : Page
 
             if (string.IsNullOrEmpty(token)) return;
             var memberHelper = new Members();
-            var processCode = await memberHelper.MembersSessionCheck(token);
+            var processCode = memberHelper.MembersSessionCheck(token);
             HasSession = processCode.Code == 1;
+            if (!HasSession) return;
             MemberSession = processCode.Data;
-            UserSessionInfo = await memberHelper.GetMemberInfo(token);
+            UserSessionInfo = memberHelper.GetMemberInfo(token);
             SetMemberRewardsInfo();
         }
         catch (Exception exception)
@@ -61,11 +62,11 @@ public class BasePage : Page
         }
     }
 
-    protected async void SetMemberRewardsInfo()
+    protected void SetMemberRewardsInfo()
     {
         if (MemberSession == null || UserSessionInfo == null) return;
         MemberRewardsInfo = new MemberRewardsInfo();
-        MemberRewardsInfo.CurrentPoints = await (new Members()).GetRewardsPoints(UserSessionInfo);
+        MemberRewardsInfo.CurrentPoints = (new Members()).GetRewardsPoints(UserSessionInfo);
         MemberRewardsInfo.CurrentPointLevel = (new RewardsHelper()).GetPointLevel(MemberSession.MemberId);
     }
 }
