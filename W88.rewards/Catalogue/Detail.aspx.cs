@@ -1,244 +1,253 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.Services;
 using System.Data;
-using System.Diagnostics;
+using System.Web;
 using System.Text;
+using W88.Rewards.BusinessLogic.Rewards.Models;
+using W88.Rewards.BusinessLogic.Shared.Helpers;
+using W88.Utilities.Log.Helpers;
 
-public partial class Catalogue_Detail : BasePage
+public partial class Catalogue_Detail : CatalogueBasePage
 {
-    public string localResx = "~/default.{0}.aspx";
-    protected string strRedirect = string.Empty;
-    protected bool validredemption = false;
-    protected bool redemption_success_limit_reached = false;
-    protected bool redemption_processing_limit_reached = false;
-    protected string vipOnly = "";
-    protected string Errormsg = "";
-
-
-
-    protected void Page_Init(object sender, EventArgs e)
-    {
-
-
-    }
+    protected string RedirectUri = "/Catalogue/Detail.aspx";
+    protected bool IsValidRedemption = false;
+    protected bool IsRedemptionLimitReached = false;
+    protected bool IsProcessingLimitReached = false;
+    protected string VipOnly = string.Empty;
+    protected string Errormsg = string.Empty;
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        localResx = string.Format("~/default.{0}.aspx", commonVariables.SelectedLanguage);
-        vipOnly = HttpContext.GetLocalResourceObject(localResx, "lbl_redeem_vip").ToString();
+        SetLabels();
+        SetProductDetails();     
+    }
+
+    private void SetProductDetails()
+    {
+        try
+        {
+            var riskId = MemberSession == null ? "" : MemberSession.RiskId;
+            var productId = HttpContext.Current.Request.QueryString.Get("id");
+            var productDetails = new ProductDetails();
+            
+            productDetails.ProductId = productId;
+
+            RedirectUri = !HasSession
+                ? string.Format("/_Secure/Login.aspx?redirect=/Catalogue/Redeem&productId={0}", productId)
+                : string.Format("/Catalogue/Redeem.aspx?productId={0}", productId);
+
+            var detailsSet = RewardsHelper.GetProductDetails(MemberSession, productId);
+            if (detailsSet.Tables.Count == 0 || detailsSet.Tables[0].Rows.Count == 0)
+            {
+                return;
+            }
+
+            foreach (DataRow dataRow in detailsSet.Tables[0].Rows)
+            {
+                productDetails.ProductType = dataRow["productType"].ToString();
+                productDetails.AmountLimit = dataRow["amountLimit"].ToString();
+                productDetails.CategoryId = dataRow["categoryId"].ToString();
+                productDetails.CurrencyCode = dataRow["currencyValidity"].ToString();
+                productDetails.CountryCode = dataRow["countryValidity"].ToString();
+
+                dataRow["pointsRequired"] = Convert.ToInt32(dataRow["pointsRequired"].ToString().Replace(" ", string.Empty));
+
+                if (!detailsSet.Tables[0].Columns.Contains("pointsLeveldiscount"))
+                {
+                    detailsSet.Tables[0].Columns.Add("pointsLeveldiscount");
+                    dataRow["pointsLeveldiscount"] = 0;
+                }
+
+                if (!detailsSet.Tables[0].Columns.Contains("pointsRequired2"))
+                {
+                    detailsSet.Tables[0].Columns.Add("pointsRequired2");
+                    dataRow["pointsRequired2"] = dataRow["pointsRequired"];
+                }
+
+                if (!detailsSet.Tables[0].Columns.Contains("discountPercentage"))
+                {
+                    detailsSet.Tables[0].Columns.Add("discountPercentage");
+                    dataRow["discountPercentage"] = 0;
+                }
+
+                if (dataRow["discountPoints"] != DBNull.Value)
+                {
+                    productDetails.PointsRequired = dataRow["discountPoints"].ToString();
+                }
+                else
+                {
+                    if (HasSession && dataRow["productType"].ToString() != "1")
+                    {
+                        //grab member point level
+                        var pointLevelDiscount = RewardsHelper.GetMemberPointLevelDiscount(MemberSession);
+                        var percentage = Convert.ToDouble(pointLevelDiscount)/100;
+                        var normalPoint = int.Parse(dataRow["pointsRequired"].ToString());
+                        var points = Math.Floor(normalPoint*(1 - percentage));
+                        var pointAfterLevelDiscount = Convert.ToInt32(points);
+
+                        dataRow["pointsRequired"] = pointAfterLevelDiscount;
+                        dataRow["pointsLeveldiscount"] = pointAfterLevelDiscount;
+                        dataRow["discountPercentage"] = pointLevelDiscount;
+
+                        productDetails.PointsRequired = dataRow["pointsRequired"].ToString();
+                        productDetails.PointsLevelDiscount = dataRow["pointsLeveldiscount"].ToString();
+                    }
+                    else
+                    {
+                        productDetails.PointsRequired = dataRow["pointsRequired"].ToString();
+                    }
+                }
+
+                dataRow["imageName"] =
+                    Convert.ToString(
+                        System.Configuration.ConfigurationManager.AppSettings.Get("ImagesDirectoryPath") +
+                        "Product/" + dataRow["imageName"]);
+
+                if (!string.IsNullOrEmpty(riskId))
+                {
+                    //valid category
+                    dataRow["redemptionValidityCat"] += ",";
+                    if (dataRow["redemptionValidityCat"].ToString().ToUpper() != "ALL,")
+                    {
+                        if (!((string) dataRow["redemptionValidityCat"]).Contains(riskId + ","))
+                        {
+                            dataRow["redemptionValidityCat"] = "0";
+                        }
+                        else
+                        {
+                            dataRow["redemptionValidityCat"] = "1";
+                        }
+                    }
+                    else
+                    {
+                        dataRow["redemptionValidityCat"] = "1";
+                    }
+
+                    dataRow["redemptionValidity"] += ",";
+                    if (dataRow["redemptionValidity"].ToString().ToUpper() != "ALL,")
+                    {
+                        if (!((string) dataRow["redemptionValidity"]).Contains(riskId + ","))
+                        {
+                            dataRow["redemptionValidity"] = "0";
+                        }
+                        else
+                        {
+                            dataRow["redemptionValidity"] = "1";
+                        }
+                    }
+                    else
+                    {
+                        dataRow["redemptionValidity"] = "1";
+                    }
+                }
+                else
+                {
+                    dataRow["redemptionValidity"] += "0";
+                    dataRow["redemptionValidityCat"] += "0";
+                }
+
+                productDetails.RedemptionValidity = dataRow["redemptionValidity"].ToString();
+                productDetails.RedemptionValidityCategory = dataRow["redemptionValidityCat"].ToString();
+
+                if (productDetails.RedemptionValidity == "1" && productDetails.RedemptionValidityCategory == "1")
+                {
+                    IsValidRedemption = true;
+                    var vipCategoryId = System.Configuration.ConfigurationManager.AppSettings.Get("vipCategoryId");
+                    if (productDetails.CategoryId.Equals(vipCategoryId))
+                    {
+                        var redemptionLimitResult = RewardsHelper.CheckRedemptionLimitForVipCategory(UserSessionInfo.MemberCode, vipCategoryId);
+
+                        switch (redemptionLimitResult)
+                        {
+                            case 0:
+                                Errormsg = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_redemption_success_limit_reached");
+                                IsRedemptionLimitReached = true;
+                                IsValidRedemption = false;
+                                break;
+                            case 1:
+                                Errormsg = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_redemption_processing_limit_reached");
+                                IsProcessingLimitReached = true;
+                                IsValidRedemption = false;
+                                break;
+                        }
+                    }
+                }
+
+                // Set product details
+                productDetails.ImageUrl = dataRow["imageName"].ToString();
+                imgPic.ImageUrl = productDetails.ImageUrl;
+                productDetails.DiscountPoints = dataRow["discountPoints"] == null ? string.Empty : dataRow["discountPoints"].ToString();
+
+                if (!string.IsNullOrEmpty(productDetails.DiscountPoints) &&
+                    int.Parse(productDetails.DiscountPoints) != 0)
+                {
+                    lblPointCenter.Text = string.Format("{0:#,###,##0.##}", productDetails.DiscountPoints) + " " + 
+                        HttpContext.GetLocalResourceObject(LocalResx, "lbl_points");
+                }
+                else
+                {
+                    lblPointCenter.Text = string.Format("{0:#,###,##0.##}", productDetails.PointsRequired) + " " + 
+                        HttpContext.GetLocalResourceObject(LocalResx, "lbl_points");
+                }
+
+                productDetails.ProductCategoryName = dataRow["categoryName"].ToString();
+                productDetails.ProductName = dataRow["productName"].ToString();
+                lblName.Text = productDetails.ProductName;
+                productDetails.ProductDescription = dataRow["productDescription"].ToString();
+                lblDescription.Text = productDetails.ProductDescription;
+                if (!string.IsNullOrEmpty(dataRow["deliveryPeriod"].ToString()))
+                {
+                    productDetails.DeliveryPeriod = dataRow["deliveryPeriod"].ToString();
+                    lblDelivery.Text = HttpContext.GetLocalResourceObject(LocalResx, "lbl_delivery_period") + productDetails.DeliveryPeriod;
+                }
+            }
+            // Set product cookie
+            CookieHelpers.ProductCookie = productDetails;
+        }
+        catch (Exception exception)
+        {
+            var memberCode = UserSessionInfo == null ? string.Empty : UserSessionInfo.MemberCode;
+            AuditTrail.AppendLog(memberCode, "/Catalogue/Detail.aspx", "RedeemProduct", "Catalogue", string.Empty, string.Empty, string.Empty, exception.Message, (new Guid()).ToString(), string.Empty, string.Empty, true);
+        }
+    }
+
+    protected override void SetLabels()
+    {
+        VipOnly = HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem_vip").ToString();
+
+        #region labels
+        if (!HasSession && UserSessionInfo == null)
+        {
+            return;
+        }
+
+        if (string.IsNullOrEmpty(MemberSession.FirstName))
+        {
+            usernameLabel.Visible = false;
+        }
+        else
+        {
+            usernameLabel.InnerText = UserSessionInfo.MemberCode;
+        }
+        var pointsLabelText = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_points");
+        var stringBuilder = new StringBuilder();
+
+        stringBuilder.Append(pointsLabelText)
+            .Append(": ")
+            .Append(MemberRewardsInfo != null ? Convert.ToString(MemberRewardsInfo.CurrentPoints) : "0");
+        pointsLabel.InnerText = stringBuilder.ToString();
+
+        var pointLevelLabelText = (string)HttpContext.GetLocalResourceObject(HeaderResx, "lbl_point_level");
+        stringBuilder = new StringBuilder();
+        stringBuilder.Append(pointLevelLabelText)
+            .Append(" ")
+            .Append(MemberRewardsInfo != null ? Convert.ToString(MemberRewardsInfo.CurrentPointLevel) : "0");
+        pointLevelLabel.InnerText = stringBuilder.ToString();
+        divLevel.Visible = true;
+        #endregion
 
         if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("id")))
         {
             lblDescription.Text = HttpContext.Current.Request.QueryString.Get("id");
         }
-
-        string userMemberId = string.IsNullOrEmpty((string)Session["MemberId"]) ? "" : (string)Session["MemberId"];
-        string strMemberCode = string.IsNullOrEmpty((string)Session["MemberCode"]) ? "" : (string)Session["MemberCode"];
-        string countryCode = string.IsNullOrEmpty((string)Session["CountryCode"]) ? "0" : (string)Session["CountryCode"];
-        string currencyCode = string.IsNullOrEmpty((string)Session["CurrencyCode"]) ? "0" : (string)Session["CurrencyCode"];
-        string riskId = string.IsNullOrEmpty((string)Session["RiskId"]) ? "0" : (string)Session["RiskId"];
-        string productID = HttpContext.Current.Request.QueryString.Get("id");
-        System.Web.HttpContext.Current.Session["productId"] = productID;
-        string selectedKey1 = hiddenproductitd.Value;
-        string selectedKey3 = hiddenproductitd.ToString();
-        string selectedKey2 = Request.Form[hiddenproductitd.Value];
-
-
-        try
-        {
-
-            if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-                strRedirect = string.Format("/Catalogue/Redeem.aspx?productId={0}", productID);
-            else
-                strRedirect = string.Format("/_Secure/Login.aspx?redirect=Redeem&productid={0}", productID);
-
-
-            using (RewardsServices.RewardsServicesClient sClient = new RewardsServices.RewardsServicesClient())
-            {
-                System.Data.DataSet ds = sClient.getProductDetail(productID, commonVariables.SelectedLanguage, riskId);
-
-                if (ds.Tables.Count > 0)
-                {
-                    if (ds.Tables[0].Rows.Count > 0)
-                    {
-                        foreach (System.Data.DataRow dr in ds.Tables[0].Rows)
-                        {
-                            System.Web.HttpContext.Current.Session["productType"] = dr["productType"].ToString();
-                            System.Web.HttpContext.Current.Session["amountLimit"] = dr["amountLimit"];
-                            System.Web.HttpContext.Current.Session["categoryId"] = dr["categoryId"].ToString();
-                            System.Web.HttpContext.Current.Session["categoryIdReload"] = dr["categoryId"].ToString();
-                            System.Web.HttpContext.Current.Session["currencyValidity"] = currencyCode;
-
-                            dr["pointsRequired"] =
-                                Convert.ToInt32(dr["pointsRequired"].ToString().Replace(" ", string.Empty));
-
-                            if (!ds.Tables[0].Columns.Contains("pointsLeveldiscount"))
-                            {
-                                ds.Tables[0].Columns.Add("pointsLeveldiscount");
-                                dr["pointsLeveldiscount"] = 0;
-                            }
-
-                            if (!ds.Tables[0].Columns.Contains("pointsRequired2"))
-                            {
-                                ds.Tables[0].Columns.Add("pointsRequired2");
-                                dr["pointsRequired2"] = dr["pointsRequired"];
-                            }
-
-                            if (!ds.Tables[0].Columns.Contains("discountPercentage"))
-                            {
-                                ds.Tables[0].Columns.Add("discountPercentage");
-                                dr["discountPercentage"] = 0;
-                            }
-
-                            if (dr["discountPoints"] != DBNull.Value)
-                            {
-                                System.Web.HttpContext.Current.Session["pointsRequired"] = dr["discountPoints"];
-                            }
-                            else
-                            {
-                                if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) &&
-                                    dr["productType"].ToString() != "1")
-                                {
-                                    //grap member point level
-                                    string pointLevel = sClient.getMemberPointLevelFE(userMemberId);
-                                    int pointLevelDiscount = sClient.getMemberPointLevelDiscount(
-                                        commonVariables.OperatorId, currencyCode, pointLevel);
-
-                                    double percentage = Convert.ToDouble(pointLevelDiscount) / 100;
-                                    int normalPoint = int.Parse(dr["pointsRequired"].ToString());
-
-                                    double points = Math.Floor(normalPoint * (1 - percentage));
-                                    int pointAfterLevelDiscount = Convert.ToInt32(points);
-
-                                    dr["pointsRequired"] = pointAfterLevelDiscount;
-                                    dr["pointsLeveldiscount"] = pointAfterLevelDiscount;
-                                    dr["discountPercentage"] = pointLevelDiscount;
-
-                                    System.Web.HttpContext.Current.Session["pointsRequired"] = dr["pointsRequired"];
-                                    System.Web.HttpContext.Current.Session["pointsLeveldiscount"] = dr["pointsRequired"];
-                                }
-                                else
-                                    System.Web.HttpContext.Current.Session["pointsRequired"] = dr["pointsRequired"];
-                            }
-
-                            dr["currencyValidity"] = currencyCode;
-                            dr["imageName"] =
-                                Convert.ToString(
-                                    System.Configuration.ConfigurationManager.AppSettings.Get("ImagesDirectoryPath") +
-                                    "Product/" + dr["imageName"]);
-
-
-                            if (!string.IsNullOrEmpty(riskId))//
-                            {
-                                //valid category
-                                dr["redemptionValidityCat"] += ",";
-                                if (dr["redemptionValidityCat"].ToString().ToUpper() != "ALL,")
-                                {
-                                    if (((string)dr["redemptionValidityCat"]).IndexOf(riskId + ",") < 0)
-                                        dr["redemptionValidityCat"] = "0";
-                                    else
-                                        dr["redemptionValidityCat"] = "1";
-                                }
-                                else
-                                    dr["redemptionValidityCat"] = "1";
-
-
-                                dr["redemptionValidity"] += ",";
-                                if (dr["redemptionValidity"].ToString().ToUpper() != "ALL,")
-                                {
-                                    if (((string)dr["redemptionValidity"]).IndexOf(riskId + ",") < 0)
-                                        dr["redemptionValidity"] = "0";
-                                    else
-                                        dr["redemptionValidity"] = "1";
-                                }
-                                else
-                                    dr["redemptionValidity"] = "1";
-                            }
-                            else
-                            {
-                                dr["redemptionValidity"] += "0";
-                                dr["redemptionValidityCat"] += "0";
-                            }
-
-
-                            if (dr["redemptionValidity"].ToString() == "1" && dr["redemptionValidityCat"].ToString() == "1")
-                            {
-                                validredemption = true;
-                                //alicia
-                                if (dr["categoryId"].ToString() == commonVariables.VIPCategoryId.ToString())
-                                {
-                                    var redemptionLimitResult = sClient.CheckRedemptionLimitForVIPCategory(commonVariables.OperatorId, strMemberCode, commonVariables.VIPCategoryId.ToString());
-
-                                    //exists success item
-                                    if (redemptionLimitResult == 0)
-                                    {
-                                        Errormsg = (string)System.Web.HttpContext.GetLocalResourceObject(localResx, "lbl_redemption_success_limit_reached");
-                                        redemption_success_limit_reached = true;
-                                        validredemption = false;
-                                       
-                                    }
-                                    else if (redemptionLimitResult == 1) // exists pending/processing item
-                                    {
-                                        Errormsg = (string)System.Web.HttpContext.GetLocalResourceObject(localResx, "lbl_redemption_processing_limit_reached");
-                                        redemption_processing_limit_reached = true;
-                                        validredemption = false;
-                                      
-                                    }
-                                }
-                            }
-
-
-                            imgPic.ImageUrl = dr["imageName"].ToString();
-
-                            if (!string.IsNullOrEmpty(dr["discountPoints"].ToString()) && int.Parse(dr["discountPoints"].ToString()) != 0)
-                                lblPointCenter.Text = String.Format("{0:#,###,##0.##}", dr["discountPoints"].ToString()) + " " + HttpContext.GetLocalResourceObject(localResx, "lbl_points").ToString();
-                            else
-                                lblPointCenter.Text = String.Format("{0:#,###,##0.##}", dr["pointsRequired"].ToString()) + " " + HttpContext.GetLocalResourceObject(localResx, "lbl_points").ToString();
-
-
-                            lblName.Text = dr["productName"].ToString();
-
-                            lblDescription.Text = "<p>" + (dr["productDescription"].ToString()) + "</p>";
-
-                            if (!string.IsNullOrEmpty(dr["deliveryPeriod"].ToString()))
-                            {
-                                lblDelivery.Text = "<p>" + HttpContext.GetLocalResourceObject(localResx, "lbl_delivery_period").ToString() + ": " + (dr["deliveryPeriod"].ToString()) + "</p>";
-                            }
-
-                        }
-
-                    }
-                }
-
-
-            }
-        }
-        catch (Exception ex)
-        {
-            Guid newerrorid = new Guid();
-            commonAuditTrail.appendLog("system", "Catalogue/Detail.aspx", "Page_Load", "Detail.aspx", "", "Page_Load", "", ex.Message + " stacktrace: " + ex.StackTrace, "" + "" + "" + "", "", newerrorid.ToString(), false);
-        }
-
-
-    }
-
-
-    protected void btnSubmit_Click(object sender, EventArgs e)
-    {
-        //string strRedirect = "";
-
-
-        //if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-        //    strRedirect = string.Format("/Catalogue/Redeem.aspx?productId={0}", hiddenproductitd.Value);
-        //else
-        //    strRedirect = string.Format("/_Secure/Login.aspx?redirect=/Redeem&productid={0}", hiddenproductitd.Value);
-
-        //Response.Redirect(strRedirect);
-
     }
 }

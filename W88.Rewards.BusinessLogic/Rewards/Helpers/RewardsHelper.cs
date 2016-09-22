@@ -2,14 +2,15 @@
 using System.Configuration;
 using System.Data;
 using System.Globalization;
-using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Base.Helpers;
 using W88.BusinessLogic.Shared.Helpers;
+using W88.Rewards.BusinessLogic.Rewards.Models;
 using W88.WebRef.RewardsServices;
 using MemberSession = W88.Rewards.BusinessLogic.Accounts.Models.MemberSession;
 
 namespace W88.Rewards.BusinessLogic.Rewards.Helpers
 {
+
     /// <summary>
     /// Summary description for RewardsHelper
     /// </summary>
@@ -21,8 +22,7 @@ namespace W88.Rewards.BusinessLogic.Rewards.Helpers
         {
             try
             {
-                return Client.CheckRedemptionLimitForVIPCategory(
-                    base.OperatorId.ToString(CultureInfo.InvariantCulture), 
+                return Client.CheckRedemptionLimitForVIPCategory(OperatorId.ToString(CultureInfo.InvariantCulture), 
                     memberCode,
                     vipCategoryId);
             }
@@ -121,6 +121,35 @@ namespace W88.Rewards.BusinessLogic.Rewards.Helpers
             catch (Exception exception)
             {
                 return 0;
+            }
+        }
+
+        public MemberRedemptionDetails GetMemberRedemptionDetails(string memberCode)
+        {
+            try
+            {
+                var dataSet = Client.getMemberRedemptionDetail(OperatorId.ToString(CultureInfo.InvariantCulture), memberCode);
+                if (dataSet.Tables.Count == 0 || dataSet.Tables[0].Rows.Count == 0)
+                {
+                    return null;
+                }
+                var dataRow = dataSet.Tables[0].Rows[0];
+                var redemptionDetails = new MemberRedemptionDetails();
+                redemptionDetails.FullName = dataRow["firstName"] + " " + dataRow["lastName"];
+                redemptionDetails.Address = dataRow["address"].ToString();
+                redemptionDetails.Postal = dataRow["postal"].ToString();
+                redemptionDetails.City = dataRow["city"].ToString();
+                redemptionDetails.CountryCode = dataRow["countryCode"].ToString();
+                redemptionDetails.Mobile = dataRow["mobile"].ToString();
+                if (dataSet.Tables.Count > 1)
+                {
+                    redemptionDetails.PointsBefore = dataSet.Tables[1].Rows[0]["pointsBefore"].ToString();
+                }
+                return redemptionDetails;
+            }
+            catch (Exception exception)
+            {
+                return null;
             }
         }
 
