@@ -51,7 +51,7 @@ namespace Factories.Slots.Handlers
 
             var lang = langCode.Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
             string[] languagesCodes = element.Attribute("LanguageCode").Value.Split(',');
-            bool isLangSupp = languagesCodes.Contains(langCode, StringComparer.OrdinalIgnoreCase);
+            bool isLangSupp = languagesCodes.Contains(lang[0], StringComparer.OrdinalIgnoreCase);
             return isLangSupp ? lang[0] : "en";
         }
     }
