@@ -48,6 +48,17 @@
                             }
                         }
                     }
+
+                    var hostName = window.location.host;
+                    var firstDot = hostName.indexOf('.') + 1;
+                    domain = hostName.substr(firstDot, hostName.length - firstDot);
+
+                    $(this).find('.promotion_detail a').each(function (index, item) {
+                        if (_.includes(item.href.toLowerCase(), 'leaderboard')) {
+                            item.href = window.location.protocol + '//www.' + domain + item.pathname + item.search;
+                        }
+                    });
+
                     var strPromoTitle = $(this).find('div.promotion_title').text();
                     var strPromoContent = $(this).find('div.promotion_content').text();
                     var promoDetailHtml = $(this).find('div.promotion_detail').html();
