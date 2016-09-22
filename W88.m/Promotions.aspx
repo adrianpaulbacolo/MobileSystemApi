@@ -48,6 +48,15 @@
                             }
                         }
                     }
+
+                    if (_.isEqual(currentPromoId, 'SUPERFLIP')) {
+                        var hostName = window.location.host;
+                        var firstDot = hostName.indexOf('.') + 1
+                        domain = hostName.substr(firstDot, hostName.length - firstDot);
+
+                        $(this).find('div.paragraph ol li a').attr('href', 'https://www.' + domain + '/slots/playngo/tournament/LeaderBoard.aspx?name=Super%20Flip%20Tournament%2001')
+                    }
+
                     var strPromoTitle = $(this).find('div.promotion_title').text();
                     var strPromoContent = $(this).find('div.promotion_content').text();
                     var promoDetailHtml = $(this).find('div.promotion_detail').html();
