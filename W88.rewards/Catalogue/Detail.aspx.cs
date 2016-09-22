@@ -189,6 +189,7 @@ public partial class Catalogue_Detail : CatalogueBasePage
                         HttpContext.GetLocalResourceObject(LocalResx, "lbl_points");
                 }
 
+                productDetails.ProductCategoryName = dataRow["categoryName"].ToString();
                 productDetails.ProductName = dataRow["productName"].ToString();
                 lblName.Text = productDetails.ProductName;
                 productDetails.ProductDescription = dataRow["productDescription"].ToString();

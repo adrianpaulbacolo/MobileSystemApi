@@ -24,7 +24,7 @@ namespace W88.Rewards.BusinessLogic.Rewards.Models
 
         public string PointsRequired = string.Empty;
 
-        public string ProductCategory = string.Empty;
+        public string ProductCategoryName = string.Empty;
 
         public string ProductDescription = string.Empty;
 
