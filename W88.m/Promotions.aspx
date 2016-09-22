@@ -49,15 +49,15 @@
                         }
                     }
 
-                    if (_.isEqual(currentPromoId, 'SUPERFLIP')) {
-                        var hostName = window.location.host;
-                        var firstDot = hostName.indexOf('.') + 1
-                        domain = hostName.substr(firstDot, hostName.length - firstDot);
+                    var hostName = window.location.host;
+                    var firstDot = hostName.indexOf('.') + 1
+                    domain = hostName.substr(firstDot, hostName.length - firstDot);
 
-                        var link = $(this).find('div.paragraph ol li a').attr('href');
-
-                        $(this).find('div.paragraph ol li a').attr('href', window.location.protocol + '//www.' + domain + link)
-                    }
+                    $(this).find('.promotion_detail a').each(function (index, item) {
+                        if (_.includes(item.href.toLowerCase(), 'leaderboard')) {
+                            item.href = window.location.protocol + '//www.' + domain + item.pathname + item.search;
+                        }
+                    });
 
                     var strPromoTitle = $(this).find('div.promotion_title').text();
                     var strPromoContent = $(this).find('div.promotion_content').text();
