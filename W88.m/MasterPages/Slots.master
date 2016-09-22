@@ -53,8 +53,8 @@
         <div id="gameModal" data-role="popup" data-overlay-theme="b" data-theme="b" data-history="false">
             <a href="#" data-rel="back" class="close close-enhanced">&times;</a>
             <div class="padding">
-                <div class="download-app padding">
-                    <img id="gameImage" src="" class="game-card img-responsive-full">
+                <div class="download-app padding slot-modal">
+                    <img id="gameImage" src="" class="img-responsive-full">
 
                     <div class="row">
                         <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>

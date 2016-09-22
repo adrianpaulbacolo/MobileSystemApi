@@ -56,10 +56,36 @@
 	}
 }
 
+.slot-modal{
+    img{
+        @extend .game-card;
+        width: 88px !important;
+        margin: 2em auto;
+        display: block;
+        float: none;
+    }
+     .ui-btn{
+        text-transform: uppercase;
+    }
+}
+
 @media (min-width: 414px) {
     .game-card {
         width: 22%;
     }
+}
+
+
+@media (max-width: 480px) {
+    .slot-modal{
+        .row{
+            display: block;
+        }
+        .ui-btn{
+            margin: 0;
+        }
+    }
+
 }
 
 @media (min-width: 560px) {
