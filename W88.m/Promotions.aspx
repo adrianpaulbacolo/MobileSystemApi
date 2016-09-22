@@ -50,7 +50,7 @@
                     }
 
                     var hostName = window.location.host;
-                    var firstDot = hostName.indexOf('.') + 1
+                    var firstDot = hostName.indexOf('.') + 1;
                     domain = hostName.substr(firstDot, hostName.length - firstDot);
 
                     $(this).find('.promotion_detail a').each(function (index, item) {
