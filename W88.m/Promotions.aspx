@@ -54,7 +54,9 @@
                         var firstDot = hostName.indexOf('.') + 1
                         domain = hostName.substr(firstDot, hostName.length - firstDot);
 
-                        $(this).find('div.paragraph ol li a').attr('href', 'https://www.' + domain + '/slots/playngo/tournament/LeaderBoard.aspx?name=Super%20Flip%20Tournament%2001')
+                        var link = $(this).find('div.paragraph ol li a').attr('href');
+
+                        $(this).find('div.paragraph ol li a').attr('href', window.location.protocol + '//www.' + domain + link)
                     }
 
                     var strPromoTitle = $(this).find('div.promotion_title').text();
