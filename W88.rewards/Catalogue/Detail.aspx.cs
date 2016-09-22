@@ -18,14 +18,13 @@ public partial class Catalogue_Detail : CatalogueBasePage
     protected void Page_Load(object sender, EventArgs e)
     {
         SetLabels();
-        GetProductDetails();     
+        SetProductDetails();     
     }
 
-    private void GetProductDetails()
+    private void SetProductDetails()
     {
         try
         {
-            var currencyCode = MemberSession == null ? "" : MemberSession.CurrencyCode;
             var riskId = MemberSession == null ? "" : MemberSession.RiskId;
             var productId = HttpContext.Current.Request.QueryString.Get("id");
             var productDetails = new ProductDetails();
@@ -47,7 +46,8 @@ public partial class Catalogue_Detail : CatalogueBasePage
                 productDetails.ProductType = dataRow["productType"].ToString();
                 productDetails.AmountLimit = dataRow["amountLimit"].ToString();
                 productDetails.CategoryId = dataRow["categoryId"].ToString();
-                productDetails.CurrencyCode = currencyCode;
+                productDetails.CurrencyCode = dataRow["currencyValidity"].ToString();
+                productDetails.CountryCode = dataRow["countryValidity"].ToString();
 
                 dataRow["pointsRequired"] = Convert.ToInt32(dataRow["pointsRequired"].ToString().Replace(" ", string.Empty));
 
@@ -89,7 +89,7 @@ public partial class Catalogue_Detail : CatalogueBasePage
                         dataRow["discountPercentage"] = pointLevelDiscount;
 
                         productDetails.PointsRequired = dataRow["pointsRequired"].ToString();
-                        productDetails.PointsLevelDiscount = dataRow["pointsRequired"].ToString();
+                        productDetails.PointsLevelDiscount = dataRow["pointsLeveldiscount"].ToString();
                     }
                     else
                     {
@@ -97,7 +97,6 @@ public partial class Catalogue_Detail : CatalogueBasePage
                     }
                 }
 
-                dataRow["currencyValidity"] = currencyCode;
                 dataRow["imageName"] =
                     Convert.ToString(
                         System.Configuration.ConfigurationManager.AppSettings.Get("ImagesDirectoryPath") +
@@ -146,11 +145,14 @@ public partial class Catalogue_Detail : CatalogueBasePage
                     dataRow["redemptionValidityCat"] += "0";
                 }
 
-                if (dataRow["redemptionValidity"].ToString() == "1" && dataRow["redemptionValidityCat"].ToString() == "1")
+                productDetails.RedemptionValidity = dataRow["redemptionValidity"].ToString();
+                productDetails.RedemptionValidityCategory = dataRow["redemptionValidityCat"].ToString();
+
+                if (productDetails.RedemptionValidity == "1" && productDetails.RedemptionValidityCategory == "1")
                 {
                     IsValidRedemption = true;
-                    var vipCategoryId = System.Configuration.ConfigurationManager.AppSettings.Get("vipCategoryId");                    
-                    if (dataRow["categoryId"].ToString().Equals(vipCategoryId))
+                    var vipCategoryId = System.Configuration.ConfigurationManager.AppSettings.Get("vipCategoryId");
+                    if (productDetails.CategoryId.Equals(vipCategoryId))
                     {
                         var redemptionLimitResult = RewardsHelper.CheckRedemptionLimitForVipCategory(UserSessionInfo.MemberCode, vipCategoryId);
 
@@ -170,26 +172,32 @@ public partial class Catalogue_Detail : CatalogueBasePage
                     }
                 }
 
+                // Set product details
+                productDetails.ImageUrl = dataRow["imageName"].ToString();
+                imgPic.ImageUrl = productDetails.ImageUrl;
+                productDetails.DiscountPoints = dataRow["discountPoints"] == null ? string.Empty : dataRow["discountPoints"].ToString();
 
-                imgPic.ImageUrl = dataRow["imageName"].ToString();
-
-                if (!string.IsNullOrEmpty(dataRow["discountPoints"].ToString()) &&
-                    int.Parse(dataRow["discountPoints"].ToString()) != 0)
+                if (!string.IsNullOrEmpty(productDetails.DiscountPoints) &&
+                    int.Parse(productDetails.DiscountPoints) != 0)
                 {
-                    lblPointCenter.Text = String.Format("{0:#,###,##0.##}", dataRow["discountPoints"]) + " " + 
+                    lblPointCenter.Text = string.Format("{0:#,###,##0.##}", productDetails.DiscountPoints) + " " + 
                         HttpContext.GetLocalResourceObject(LocalResx, "lbl_points");
                 }
                 else
                 {
-                    lblPointCenter.Text = String.Format("{0:#,###,##0.##}", dataRow["pointsRequired"]) + " " + 
+                    lblPointCenter.Text = string.Format("{0:#,###,##0.##}", productDetails.PointsRequired) + " " + 
                         HttpContext.GetLocalResourceObject(LocalResx, "lbl_points");
                 }
 
-                lblName.Text = dataRow["productName"].ToString();
-                lblDescription.Text = dataRow["productDescription"].ToString();
+                productDetails.ProductCategoryName = dataRow["categoryName"].ToString();
+                productDetails.ProductName = dataRow["productName"].ToString();
+                lblName.Text = productDetails.ProductName;
+                productDetails.ProductDescription = dataRow["productDescription"].ToString();
+                lblDescription.Text = productDetails.ProductDescription;
                 if (!string.IsNullOrEmpty(dataRow["deliveryPeriod"].ToString()))
                 {
-                    lblDelivery.Text = HttpContext.GetLocalResourceObject(LocalResx, "lbl_delivery_period") + (dataRow["deliveryPeriod"].ToString());
+                    productDetails.DeliveryPeriod = dataRow["deliveryPeriod"].ToString();
+                    lblDelivery.Text = HttpContext.GetLocalResourceObject(LocalResx, "lbl_delivery_period") + productDetails.DeliveryPeriod;
                 }
             }
             // Set product cookie
