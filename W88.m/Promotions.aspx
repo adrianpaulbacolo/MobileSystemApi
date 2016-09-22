@@ -55,7 +55,7 @@
 
                     $(this).find('.promotion_detail a').each(function (index, item) {
                         if (_.includes(item.href.toLowerCase(), 'leaderboard')) {
-                            item.href = window.location.protocol + '//www.' + domain + item.pathname + item.search;
+                            item.href = window.location.protocol + '//www.' + domain + item.pathname + item.search + '?nomobile=true';
                         }
                     });
 
