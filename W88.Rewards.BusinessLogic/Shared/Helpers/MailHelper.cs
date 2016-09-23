@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Globalization;
-using System.Linq;
 using System.Text;
 using System.Web;
 using W88.BusinessLogic.Base.Helpers;
@@ -16,74 +15,67 @@ namespace W88.Rewards.BusinessLogic.Shared.Helpers
         public void SendMail(string memberCode, string redemptionId)
         {
             var recipientAddress = string.Empty;
-            var senderAddress = System.Configuration.ConfigurationManager.AppSettings.Get("email_from");
-            var senderName = System.Configuration.ConfigurationManager.AppSettings.Get("senderName");
-            var bccAddress = System.Configuration.ConfigurationManager.AppSettings.Get("email_bcc");
-            var smtpAlternative = System.Configuration.ConfigurationManager.AppSettings.Get("smtpAlternative");
+            var senderAddress = ConfigurationManager.AppSettings.Get("email_from");
+            var senderName = ConfigurationManager.AppSettings.Get("senderName");
+            var bccAddress = ConfigurationManager.AppSettings.Get("email_bcc");
+            var smtpAlternative = ConfigurationManager.AppSettings.Get("smtpAlternative");
             var isAlternative = false;
             var localResxMail = "~/redemption_mail.{0}.aspx";
             var language = string.Empty;
 
-            using (RewardsServicesClient sClientMember = new RewardsServicesClient())
+            using (var sClientMember = new RewardsServicesClient())
             {
-                System.Data.DataSet ds = sClientMember.getMemberInfo(base.OperatorId.ToString(CultureInfo.InvariantCulture), memberCode);
+                var dataSet = sClientMember.getMemberInfo(OperatorId.ToString(CultureInfo.InvariantCulture), memberCode);
 
-                foreach (DataRow dr in ds.Tables[0].Rows)
+                foreach (DataRow dataRow in dataSet.Tables[0].Rows)
                 {
-                    recipientAddress = dr["email"].ToString();
-                    language = dr["languageCode"].ToString();
+                    recipientAddress = dataRow["email"].ToString();
+                    language = dataRow["languageCode"].ToString();
                 }
             }
 
-            try
-            {
-                System.Net.Mail.SmtpClient smtpClient = new System.Net.Mail.SmtpClient();
-                System.Net.NetworkCredential credentials = new System.Net.NetworkCredential();
+            var smtpClient = new System.Net.Mail.SmtpClient();
+            var credentials = new System.Net.NetworkCredential();
 
-                using (System.Net.Mail.MailMessage message = new System.Net.Mail.MailMessage(senderAddress, recipientAddress))
+            using (var message = new System.Net.Mail.MailMessage(senderAddress, recipientAddress))
+            {
+                string[] splitChar = { "|" };
+                string[] results = smtpAlternative.Split(splitChar, StringSplitOptions.None);
+                    
+                foreach (var r in results)
                 {
-                    string[] results;
-                    string[] splitChar = { "|" };
-                    results = smtpAlternative.Split(splitChar, StringSplitOptions.None);
-
-                    foreach (var r in results)
+                    var mail = r;
+                    if (recipientAddress.Contains(mail))
                     {
-                        var mail = r;
-                        if (recipientAddress.Contains(mail))
-                        {
-                            isAlternative = true;
-                            break;
-                        }
+                        isAlternative = true;
+                        break;
                     }
-
-                    if (isAlternative)
-                    {
-                        smtpClient.Port = 25;
-                        smtpClient.Host = "retail.smtp.com";
-
-                        credentials.UserName = "dev@w88.com";
-                        credentials.Password = "2NDbr0isFAT!";
-
-                        smtpClient.UseDefaultCredentials = false;
-                        smtpClient.Credentials = credentials;
-                    }
-                    else
-                    {
-                        message.Bcc.Add(new System.Net.Mail.MailAddress(bccAddress));
-                    }
-
-                    localResxMail = string.Format(localResxMail, string.IsNullOrEmpty(language) ? LanguageHelpers.SelectedLanguage : language);
-                    message.From = new System.Net.Mail.MailAddress(senderAddress, senderName);
-                    message.BodyEncoding = Encoding.UTF8;
-                    message.IsBodyHtml = true;
-                    message.Subject = (string)System.Web.HttpContext.GetLocalResourceObject(localResxMail, "lbl_subject");
-                    message.Body = string.Format((string)System.Web.HttpContext.GetLocalResourceObject(localResxMail, "lbl_body"), memberCode.Trim(), redemptionId);
-                    smtpClient.Send(message);
                 }
-            }
-            catch (Exception)
-            {
-                throw;
+
+                if (isAlternative)
+                {
+                    smtpClient.Port = int.Parse(ConfigurationManager.AppSettings.Get("mail_port"));
+                    smtpClient.Host = ConfigurationManager.AppSettings.Get("mail_host");
+                    credentials.UserName = ConfigurationManager.AppSettings.Get("mail_username");
+                    credentials.Password = ConfigurationManager.AppSettings.Get("mail_password");
+
+                    smtpClient.UseDefaultCredentials = false;
+                    smtpClient.Credentials = credentials;
+                }
+                else
+                {
+                    message.Bcc.Add(new System.Net.Mail.MailAddress(bccAddress));
+                }
+
+                localResxMail = string.Format(localResxMail, string.IsNullOrEmpty(language) ? LanguageHelpers.SelectedLanguage : language);
+                var subject = HttpContext.GetLocalResourceObject(localResxMail, "lbl_subject") == null ? string.Empty : (string)HttpContext.GetLocalResourceObject(localResxMail, "lbl_subject");
+                var body = HttpContext.GetLocalResourceObject(localResxMail, "lbl_body") == null ? string.Empty : string.Format((string)HttpContext.GetLocalResourceObject(localResxMail, "lbl_body"), memberCode.Trim(), redemptionId);           
+                message.From = new System.Net.Mail.MailAddress(senderAddress, senderName);
+                message.BodyEncoding = Encoding.UTF8;
+                message.IsBodyHtml = true;
+                message.Subject = subject;
+                message.Body = body;
+                smtpClient.Send(message);
             }
         }
     }

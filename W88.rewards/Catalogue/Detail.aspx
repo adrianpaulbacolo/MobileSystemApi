@@ -9,60 +9,76 @@
 <body>
     <div data-role="page" data-theme="b">
         <!--#include virtual="~/_static/header.shtml" -->
-        <div class="main-content has-footer" role="main">
-            <div id="divLevel" class="wallet-box" runat="server" visible="False">
-                <h4 id="usernameLabel" runat="server"></h4>
-                <p id="pointsLabel" runat="server"></p>                
-                <span id="pointLevelLabel" runat="server"></span>
-            </div>    
-            <form id="form2" runat="server" data-ajax="false">
+        <form id="form1" runat="server">
+            <div class="main-content has-footer" role="main">
+                <div id="divLevel" class="wallet-box" runat="server" visible="False">
+                    <h4 id="usernameLabel" runat="server"></h4>
+                    <p id="pointsLabel" runat="server"></p>                
+                    <span id="pointLevelLabel" runat="server"></span>
+                </div>    
                 <div class="container">
                     <div class="catalog-detail-box">
-                        <div class="catalog-detail-image">
+                        <a href="#" class="catalog-detail-image">
                             <asp:Image ID="imgPic" runat="server" />
-                        </div>
+                        </a>
                         <div class="catalog-details">
-                            <asp:Label ID="lblPointCenter" runat="server" />
-                            <asp:Label ID="lblName" runat="server" Visible="false" />                         
+                            <h4><asp:Label ID="lblPointCenter" runat="server" /></h4>
+                            <p><asp:Label ID="lblName" runat="server" Visible="false" /></p>                       
                         </div>
                     </div>     
                     <div class="catalog-information">
                         <strong><%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_product_desc").ToString() %></strong>
                         <p><asp:Label ID="lblDescription" runat="server" /></p>
-                        <p><asp:Label ID="lblCurrency" runat="server" /></p>
-                        <p><asp:Label ID="lblDelivery" runat="server" /></p>
+                        <div id="CurrencyDiv" runat="server" class="ui-field-contain ui-hide-label" visible="false">
+                            <div>
+                                <div>
+                                    <asp:Label ID="lbcurr" runat="server" Text="" data-mini="true" />
+                                </div>
+                                <div>
+                                    <asp:Label ID="lblCurrency" runat="server" data-mini="true" />
+                                </div>
+                            </div>
+                        </div>
+                        <div id="DeliveryDiv" class="ui-field-contain ui-hide-label" runat="server" visible="false">
+                            <div>
+                                <div>
+                                    <asp:Label ID="lbperiod" runat="server" Text="" data-mini="true" />
+                                </div>
+                                <div>
+                                    <asp:Label ID="lblDelivery" runat="server" data-mini="true" />
+                                </div>
+                            </div>
+                        </div>
                     </div>                  
                 </div>
-                <asp:HiddenField ID="hiddenproductitd" runat="server" />
-            </form>
-        </div>
-        <div class="footer">
-            <% if (HasSession)
-                {
-                    if (IsValidRedemption)
-                    {  %>
-                        <a data-role="button" class="btn btn-block btn-primary" href='<%= RedirectUri %>'><%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem").ToString() %></a>
-                <%  }
-                    else if (IsRedemptionLimitReached)
-                    { %>
-                        <a data-role="button" class="btn btn-block btn-primary" href='#' onclick="Error();"><%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem").ToString() %></a>
-                <%  }
-                    else if (IsProcessingLimitReached)
-                    { %>
-                        <a data-role="button" class="btn btn-block btn-primary" href='#' onclick="Error();"><%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem").ToString() %></a>
-                <%  }
+            </div>
+            <div class="footer">
+                <% if (HasSession)
+                    {
+                        if (IsValidRedemption)
+                        {  %>
+                            <input type="button" id="validButton" class="btn btn-block btn-primary" value="<%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem").ToString() %>" />
+                    <%  }
+                        else if (IsRedemptionLimitReached)
+                        { %>
+                            <input type="button" id="limitButton" class="btn btn-block btn-primary" value="<%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem").ToString() %>" />
+                    <%  }
+                        else if (IsProcessingLimitReached)
+                        { %>
+                            <input type="button" id="processingButton" class="btn btn-block btn-primary" value="<%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem").ToString() %>" />
+                    <%  }
+                        else
+                        { %>
+                            <input type="button" id="vipOnlyButton" class="btn btn-block btn-primary" value="<%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem").ToString() %>" />
+                    <%  }
+                    }
                     else
-                    { %>
-                        <a data-role="button" class="btn btn-block btn-primary" href='#' onclick="VIPOnly();"><%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem").ToString() %></a>
-                <%  }
-                }
-                else
-                {%>
-                    <a data-role="button" data-ajax="false" class="btn btn-block btn-primary" href='<%= RedirectUri %>'>
-                        <%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem").ToString() %>
-                    </a>
-            <%  }%>
-        </div>
+                    {%>
+                        <input type="button" id="noSessionButton" class="btn btn-block btn-primary" value="<%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem").ToString() %>" />
+                <%  }%>
+            </div>
+            <asp:HiddenField ID="hiddenproductitd" runat="server" />
+        </form>
         <script type="text/javascript">
             function VIPOnly() {
                 window.w88Mobile.Growl.shout('<%= VipOnly %>');
@@ -70,6 +86,21 @@
             function Error() {
                 window.w88Mobile.Growl.shout('<%= Errormsg %>');
             }
+            $('#validButton').on('click', function () {
+                window.location.href = '<%= RedirectUri %>';
+            });
+            $('#limitButton').on('click', function () {
+                Error();
+            });
+            $('#processingButton').on('click', function () {
+                Error();
+            });
+            $('#vipOnlyButton').on('click', function () {
+                VIPOnly();
+            });
+            $('#noSessionButton').on('click', function () {
+                window.location.href = '<%= RedirectUri %>';
+            });
         </script>
     </div>
 </body>
