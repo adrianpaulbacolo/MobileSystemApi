@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data;
 using System.Globalization;
 using System.Text;
@@ -14,10 +15,10 @@ namespace W88.Rewards.BusinessLogic.Shared.Helpers
         public void SendMail(string memberCode, string redemptionId)
         {
             var recipientAddress = string.Empty;
-            var senderAddress = System.Configuration.ConfigurationManager.AppSettings.Get("email_from");
-            var senderName = System.Configuration.ConfigurationManager.AppSettings.Get("senderName");
-            var bccAddress = System.Configuration.ConfigurationManager.AppSettings.Get("email_bcc");
-            var smtpAlternative = System.Configuration.ConfigurationManager.AppSettings.Get("smtpAlternative");
+            var senderAddress = ConfigurationManager.AppSettings.Get("email_from");
+            var senderName = ConfigurationManager.AppSettings.Get("senderName");
+            var bccAddress = ConfigurationManager.AppSettings.Get("email_bcc");
+            var smtpAlternative = ConfigurationManager.AppSettings.Get("smtpAlternative");
             var isAlternative = false;
             var localResxMail = "~/redemption_mail.{0}.aspx";
             var language = string.Empty;
@@ -53,11 +54,10 @@ namespace W88.Rewards.BusinessLogic.Shared.Helpers
 
                 if (isAlternative)
                 {
-                    smtpClient.Port = 25;
-                    smtpClient.Host = "retail.smtp.com";
-
-                    credentials.UserName = "dev@w88.com";
-                    credentials.Password = "2NDbr0isFAT!";
+                    smtpClient.Port = int.Parse(ConfigurationManager.AppSettings.Get("mail_port"));
+                    smtpClient.Host = ConfigurationManager.AppSettings.Get("mail_host");
+                    credentials.UserName = ConfigurationManager.AppSettings.Get("mail_username");
+                    credentials.Password = ConfigurationManager.AppSettings.Get("mail_password");
 
                     smtpClient.UseDefaultCredentials = false;
                     smtpClient.Credentials = credentials;
