@@ -55,7 +55,7 @@ public partial class _Default : BasePage
             {
                 cookie.Expires = DateTime.Now.AddDays(-1);
                 cookie.Value = string.Empty;
-                HttpContext.Current.Response.Cookies.Add(cookie);
+                HttpContext.Current.Response.Cookies.Set(cookie);
             }
         }
     }
