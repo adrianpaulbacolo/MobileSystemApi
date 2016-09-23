@@ -32,8 +32,8 @@ public partial class Catalogue_Detail : CatalogueBasePage
             productDetails.ProductId = productId;
 
             RedirectUri = !HasSession
-                ? string.Format("/_Secure/Login.aspx?redirect=/Catalogue/Redeem&productId={0}", productId)
-                : string.Format("/Catalogue/Redeem.aspx?productId={0}", productId);
+                ? string.Format(@"/_Secure/Login.aspx?redirect=/Catalogue/Redeem.aspx&productId={0}", productId)
+                : string.Format(@"/Catalogue/Redeem.aspx?productId={0}", productId);
 
             var detailsSet = RewardsHelper.GetProductDetails(MemberSession, productId);
             if (detailsSet.Tables.Count == 0 || detailsSet.Tables[0].Rows.Count == 0)
@@ -48,6 +48,12 @@ public partial class Catalogue_Detail : CatalogueBasePage
                 productDetails.CategoryId = dataRow["categoryId"].ToString();
                 productDetails.CurrencyCode = dataRow["currencyValidity"].ToString();
                 productDetails.CountryCode = dataRow["countryValidity"].ToString();
+
+                if (!string.IsNullOrEmpty(productDetails.CurrencyCode))
+                {
+                    lblCurrency.Text = productDetails.CurrencyCode;
+                    CurrencyDiv.Visible = true;
+                }
 
                 dataRow["pointsRequired"] = Convert.ToInt32(dataRow["pointsRequired"].ToString().Replace(" ", string.Empty));
 
@@ -197,9 +203,11 @@ public partial class Catalogue_Detail : CatalogueBasePage
                 if (!string.IsNullOrEmpty(dataRow["deliveryPeriod"].ToString()))
                 {
                     productDetails.DeliveryPeriod = dataRow["deliveryPeriod"].ToString();
-                    lblDelivery.Text = HttpContext.GetLocalResourceObject(LocalResx, "lbl_delivery_period") + productDetails.DeliveryPeriod;
+                    lblDelivery.Text = productDetails.DeliveryPeriod;
+                    DeliveryDiv.Visible = true;
                 }
             }
+
             // Set product cookie
             CookieHelpers.ProductCookie = productDetails;
         }
@@ -249,5 +257,9 @@ public partial class Catalogue_Detail : CatalogueBasePage
         {
             lblDescription.Text = HttpContext.Current.Request.QueryString.Get("id");
         }
+
+        const string colon = ":";
+        lbcurr.Text = HttpContext.GetLocalResourceObject(LocalResx, "lbl_currency") + colon;
+        lbperiod.Text = HttpContext.GetLocalResourceObject(LocalResx, "lbl_delivery_period") + colon;
     }
 }

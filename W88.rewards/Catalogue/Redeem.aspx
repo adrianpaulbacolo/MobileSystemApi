@@ -98,7 +98,7 @@
                         </div>
                         <br />
                         <div id="RecipientDiv" runat="server">
-                            <h4><%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_receipient").ToString() %>: </h4>
+                            <h4><%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_recipient").ToString() %>: </h4>
                             <div class="ui-field-contain ui-hide-label">
                                 <asp:TextBox ID="tbRName" runat="server" MaxLength="50" type="Text" data-mini="true" placeholder="Recipient Name" />
                                 <asp:Label ID="Label4" CssClass="validator" runat="server" Text="*" data-mini="true" />
@@ -165,7 +165,7 @@
         });
 
         function showMessage(alertCode, message) {
-            if (_.isEmpty(alertCode)) {
+            if (_.isEmpty(alertCode) || _.isEmpty(message)) {
                 return;
             }
 

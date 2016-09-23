@@ -20,6 +20,7 @@ public partial class _Default : BasePage
         if (string.Compare(Convert.ToString(RouteData.DataTokens["logout"]), "true", true) == 0) 
         {
             // Do logout logic here
+            ClearCookies();
             Response.Redirect("/Default.aspx", true);
         }
         if (string.Compare(Convert.ToString(RouteData.DataTokens["expire"]), "true", true) == 0)
@@ -41,6 +42,21 @@ public partial class _Default : BasePage
         if (string.IsNullOrEmpty(selectedLanguage))
         {
             Response.Redirect("/Lang.aspx", true);
+        }
+    }
+
+    private void ClearCookies()
+    {
+        var keys = HttpContext.Current.Request.Cookies.AllKeys;
+        foreach (var key in keys)
+        {
+            var cookie = HttpContext.Current.Request.Cookies[key];
+            if (cookie != null)
+            {
+                cookie.Expires = DateTime.Now.AddDays(-1);
+                cookie.Value = string.Empty;
+                HttpContext.Current.Response.Cookies.Add(cookie);
+            }
         }
     }
 }
