@@ -41,19 +41,21 @@
     border-radius: 8px;
     -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-
-    img {
-        -webkit-border-radius: 6px;
-        border-radius: 6px;
-        max-width: 100%;
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        display: block;
+    > div{
+        height: 0;
+        padding-bottom: 100%;
+        overflow: hidden;
+        background: url('/_Static/Images/missing-image.jpg') no-repeat center center ;
+        background-size: 100%;
+        @include border-radius(6px);
+        img {
+            max-width: 100%;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            display: block;
+        }
     }
-    img[src*="broken-lt.gif"] {
-	    display: none;
-	}
 }
 
 .slot-modal{
