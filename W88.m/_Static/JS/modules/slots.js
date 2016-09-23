@@ -52,16 +52,16 @@
             var parent = $('.bkg-game').parent().width();
             var box = $('.bkg-game').width();
 
-                var columns = Math.floor(parent / box);
+            var columns = Math.floor(parent / box);
 
-                var space = (parent - (box * columns)) / columns;
-                if (space == 0) {
-                    space = (parent - (box * columns)) / columns;
-                }
+            var space = (parent - (box * columns)) / columns;
+            if (space == 0) {
+                space = (parent - (box * columns)) / columns;
+            }
 
-                $('.bkg-game').css('margin-left', space / 2);
-                $('.bkg-game').css('margin-right', space / 2);
-                $('.bkg-game').css('margin-bottom', space);
+            $('.bkg-game').css('margin-left', space / 2);
+            $('.bkg-game').css('margin-right', space / 2);
+            $('.bkg-game').css('margin-bottom', space);
         },
         initPalazzo: function () {
             self = this;
@@ -138,6 +138,12 @@
 
             $('#gameModal').popup();
             $('#gameModal').popup('open');
+        },
+        closeGameModal: function () {
+
+            $('#gameImage').attr('src', '/_Static/Images/Games/missing-image.jpg');
+
+            $('#gameModal').popup('close');
         }
     }
 

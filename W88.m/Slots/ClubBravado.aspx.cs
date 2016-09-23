@@ -26,15 +26,13 @@ public partial class Slots_ClubBravado : BasePage
 
         foreach (var category in gpiCategory)
         {
-            sbGames.AppendFormat("<div data-role='collapsible' data-collapsed='false' data-theme='b' data-content-theme='a' data-mini='true'><h4>{0}</h4>", category.Title);
-
             sbGames.AppendFormat("<div id='div{0}' class='box'><div class='game-card-box'>", category.Title);
 
             AddGames(sbGames, category.New);
 
             AddGames(sbGames, category.Current);
 
-            sbGames.Append("</div></div></div>");
+            sbGames.Append("</div></div>");
         }
 
         divContainer.InnerHtml = Convert.ToString(sbGames);

@@ -51,19 +51,23 @@
         </div>
 
         <div id="gameModal" data-role="popup" data-overlay-theme="b" data-theme="b" data-history="false">
-            <a href="#" data-rel="back" class="close close-enhanced">&times;</a>
+            <a href="#" onclick="w88Mobile.Slots.closeGameModal()" class="close close-enhanced">&times;</a>
             <div class="padding">
                 <div class="download-app padding slot-modal">
                     <img id="gameImage" src="" class="img-responsive-full">
 
                     <div class="row">
+                         <div class="col">
+                            <a id="gameFunUrl" href="#" onclick="w88Mobile.PiwikManager.trackTryNow()" class="ui-btn btn-secondary" role="button" data-ajax="false" target="_blank">
+                                <%=commonCulture.ElementValues.getResourceXPathString("/Products/Try", commonVariables.ProductsXML)%></a>
+                        </div>
                         <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
                         <div class="col">
-                            <a id="gameRegisterUrl" href="#" class="ui-btn btn-secondary" role="button" data-ajax="false">
+                            <a id="gameRegisterUrl" href="#" class="ui-btn btn-primary" role="button" data-ajax="false">
                                 <%=commonCulture.ElementValues.getResourceString("joinnow", commonVariables.LeftMenuXML)%></a>
                         </div>
                         <div class="col">
-                            <a id="gameLoginUrl" href="#" class="ui-btn btn-primary" role="button" data-ajax="false">
+                            <a id="gameLoginUrl" href="#" class="ui-btn btn-dark" role="button" data-ajax="false">
                                 <%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></a>
                         </div>
                         <%} else {%>
@@ -72,10 +76,6 @@
                                 <%=commonCulture.ElementValues.getResourceXPathString("/Products/Play", commonVariables.ProductsXML)%></a>
                         </div>
                         <%}%>
-                        <div class="col">
-                            <a id="gameFunUrl" href="#" onclick="w88Mobile.PiwikManager.trackTryNow()" class="ui-btn btn-secondary" role="button" data-ajax="false" target="_blank">
-                                <%=commonCulture.ElementValues.getResourceXPathString("/Products/Try", commonVariables.ProductsXML)%></a>
-                        </div>
                     </div>
                 </div>
             </div>
