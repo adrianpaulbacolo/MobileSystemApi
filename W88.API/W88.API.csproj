@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DD02E348-824F-43DC-9802-3DD450765667}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>W88.API</RootNamespace>
+    <AssemblyName>W88.API</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BannerController.cs" />
+    <Compile Include="Controllers\Base\BaseController.cs" />
+    <Compile Include="Controllers\Base\BaseCorsPolicy.cs" />
+    <Compile Include="Controllers\ContentsController.cs" />
+    <Compile Include="Controllers\FundsController.cs" />
+    <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\i18n\contents\messages.en-us.json" />
+    <Content Include="App_Data\i18n\contents\messages.id-id.json" />
+    <Content Include="App_Data\i18n\contents\messages.ja-jp.json" />
+    <Content Include="App_Data\i18n\contents\messages.km-kh.json" />
+    <Content Include="App_Data\i18n\contents\messages.ko-kr.json" />
+    <Content Include="App_Data\i18n\contents\messages.th-th.json" />
+    <Content Include="App_Data\i18n\contents\messages.vi-vn.json" />
+    <Content Include="App_Data\i18n\contents\messages.zh-cn.json" />
+    <Content Include="App_Data\i18n\contents\translations.en-us.json" />
+    <Content Include="App_Data\i18n\contents\translations.id-id.json" />
+    <Content Include="App_Data\i18n\contents\translations.ja-jp.json" />
+    <Content Include="App_Data\i18n\contents\translations.km-kh.json" />
+    <Content Include="App_Data\i18n\contents\translations.ko-kr.json" />
+    <Content Include="App_Data\i18n\contents\translations.th-th.json" />
+    <Content Include="App_Data\i18n\contents\translations.vi-vn.json" />
+    <Content Include="App_Data\i18n\contents\translations.zh-cn.json" />
+    <Content Include="App_Data\i18n\history\status.en-us.json" />
+    <Content Include="App_Data\i18n\history\status.id-id.json" />
+    <Content Include="App_Data\i18n\history\status.ja-jp.json" />
+    <Content Include="App_Data\i18n\history\status.km-kh.json" />
+    <Content Include="App_Data\i18n\history\status.ko-kr.json" />
+    <Content Include="App_Data\i18n\history\status.th-th.json" />
+    <Content Include="App_Data\i18n\history\status.vi-vn.json" />
+    <Content Include="App_Data\i18n\history\status.zh-cn.json" />
+    <Content Include="App_Data\i18n\payments\banks\banks.en-us.json" />
+    <Content Include="App_Data\i18n\payments\banks\banks.id-id.json" />
+    <Content Include="App_Data\i18n\payments\banks\banks.ja-jp.json" />
+    <Content Include="App_Data\i18n\payments\banks\banks.km-kh.json" />
+    <Content Include="App_Data\i18n\payments\banks\banks.ko-kr.json" />
+    <Content Include="App_Data\i18n\payments\banks\banks.th-th.json" />
+    <Content Include="App_Data\i18n\payments\banks\banks.vi-vn.json" />
+    <Content Include="App_Data\i18n\payments\banks\banks.zh-cn.json" />
+    <Content Include="App_Data\i18n\payments\banks\cardType.json" />
+    <Content Include="App_Data\i18n\payments\depositchannel\depositchannel.en-us.json" />
+    <Content Include="App_Data\i18n\payments\depositchannel\depositchannel.id-id.json" />
+    <Content Include="App_Data\i18n\payments\depositchannel\depositchannel.ja-jp.json" />
+    <Content Include="App_Data\i18n\payments\depositchannel\depositchannel.km-kh.json" />
+    <Content Include="App_Data\i18n\payments\depositchannel\depositchannel.ko-kr.json" />
+    <Content Include="App_Data\i18n\payments\depositchannel\depositchannel.th-th.json" />
+    <Content Include="App_Data\i18n\payments\depositchannel\depositchannel.vi-vn.json" />
+    <Content Include="App_Data\i18n\payments\depositchannel\depositchannel.zh-cn.json" />
+    <Content Include="App_Data\i18n\shared\MerchantAccounts.json" />
+    <Content Include="App_Data\i18n\shared\PaymentSettings.json" />
+    <Content Include="App_Data\i18n\shared\Wallets.json" />
+    <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\w88.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\W88.BusinessLogic\W88.BusinessLogic.csproj">
+      <Project>{9630328c-f86d-404b-9834-4758704315bf}</Project>
+      <Name>W88.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\W88.Utilities\W88.Utilities.csproj">
+      <Project>{f7fd60dc-7e75-4d23-a18e-ec0502b965ed}</Project>
+      <Name>W88.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\W88.WebRef\W88.WebRef.csproj">
+      <Project>{19bb7e2e-ef5a-41c7-bfea-5e65ba70370c}</Project>
+      <Name>W88.WebRef</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>16473</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:2769/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
