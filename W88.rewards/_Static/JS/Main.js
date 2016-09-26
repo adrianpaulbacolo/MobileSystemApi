@@ -19,7 +19,7 @@ $(window).load(function () {
                 data: JSON.stringify(window.user),
                 success: function (data) {
                     if (data.Code !== 1) {
-                        if (!_.isEmpty(data.message)) w88Mobile.Growl.shout(data.message);
+                        if (typeof data.message != "undefined") w88Mobile.Growl.shout(data.message);
                         clearInterval(sessionPoll);
                         setTimeout(function() {
                             logout();
@@ -102,7 +102,6 @@ function logout() {
                     break;
                 default:
                     $.mobile.loading('hide');
-                    if (_.isEmpty(response.ResponseMessage)) return;
                     window.w88Mobile.Growl.shout(response.ResponseMessage);
                     break;
             }
@@ -118,12 +117,8 @@ function clear() {
     try {
         window.localStorage.clear();
         Cookies().setCookie('user', null, -1);
-        Cookies().setCookie('product', null, -1);
-        Cookies().setCookie('language', null, -1);
     } catch (e) {
         Cookies().setCookie('user', null, -1);
-        Cookies().setCookie('product', null, -1);
-        Cookies().setCookie('language', null, -1);
     }
     window.user = null;
     $.mobile.loading('hide');
@@ -134,10 +129,8 @@ function Cookies() {
     var setCookie = function (cname, cvalue, expiryDays) {
         var date = new Date();
         date.setTime(date.getTime() + (expiryDays * 24 * 60 * 60 * 1000));
-        var expires = 'expires=' + date.toUTCString(),
-            splitHost = window.location.host.split('.'),
-            domain = splitHost.length > 2 ? (splitHost[1] + '.' + splitHost[2]) : (splitHost[0] + '.' + splitHost[1]);
-        document.cookie = cname + '=' + cvalue + ';expires=' + expires + ';domain=' + domain + ';path=/';
+        var expires = 'expires=' + date.toUTCString();
+        document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
     };
 
     var getCookie = function (cname) {

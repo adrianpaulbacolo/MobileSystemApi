@@ -14,7 +14,7 @@ namespace W88.Rewards.BusinessLogic.Shared.Helpers
             get
             {
                 var cookie = HttpContext.Current.Request.Cookies.Get("product");
-                return cookie == null ? null : (string.IsNullOrEmpty(cookie.Value) ? null : Common.DeserializeObject<ProductDetails>(cookie.Value));
+                return cookie == null ? null : Common.DeserializeObject<ProductDetails>(cookie.Value);
             }
             set
             {

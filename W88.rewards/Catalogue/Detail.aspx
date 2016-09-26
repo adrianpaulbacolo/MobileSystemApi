@@ -81,14 +81,10 @@
         </form>
         <script type="text/javascript">
             function VIPOnly() {
-                var message = '<%= VipOnly %>';
-                if (_.isEmpty(message)) return;
-                window.w88Mobile.Growl.shout(message);
+                window.w88Mobile.Growl.shout('<%= VipOnly %>');
             }
             function Error() {
-                var message = '<%= Errormsg %>';
-                if (_.isEmpty(message)) return;
-                window.w88Mobile.Growl.shout(message);
+                window.w88Mobile.Growl.shout('<%= Errormsg %>');
             }
             $('#validButton').on('click', function () {
                 window.location.href = '<%= RedirectUri %>';
