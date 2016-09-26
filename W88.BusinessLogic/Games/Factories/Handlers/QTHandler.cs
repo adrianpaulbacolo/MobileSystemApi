@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
+using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Games.Handlers;
 using W88.BusinessLogic.Shared.Helpers;
 
@@ -19,45 +20,34 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
         private string lobbyPage;
 
         private string memberSessionId;
+        private UserSessionInfo userInfo;
 
-        public QTHandler(string token, string lobby)
+        public QTHandler(UserSessionInfo user, string lobby)
             : base(GameProvider.QT)
         {
             fun = GameSettings.GetGameUrl(GameProvider.QT, GameLinkSetting.Fun);
             real = GameSettings.GetGameUrl(GameProvider.QT, GameLinkSetting.Real);
 
-            memberSessionId = token;
+            memberSessionId = user.Token;
             lobbyPage = lobby;
-        }
+            userInfo = user;
 
-        protected override string SetLanguageCode()
-        {
-            var lang = LanguageHelpers.SelectedLanguage.Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
-            var splitLang = string.Format("{0}_{1}", lang[0], lang[1].ToUpper());
-
-            string supportedLang = null;
-            switch (splitLang)
-            {
-                case "ko_KR":
-                    supportedLang = "en_US";
-                    break;
-            }
-
-            return supportedLang ?? splitLang;
         }
 
         protected override string CreateFunUrl(XElement element)
         {
+            string lang = GetGameLanguage(element);
             string gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
 
-            return fun.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{CURRENCY}", GetCurrencyByLanguage()).Replace("{LOBBY}", lobbyPage);
+            return fun.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{CURRENCY}", GetCurrencyByLanguage()).Replace("{LOBBY}", lobbyPage);
         }
 
         protected override string CreateRealUrl(XElement element)
         {
+            string lang = GetGameLanguage(element);
             string gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
 
-            return real.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{TOKEN}", memberSessionId).Replace("{LOBBY}", lobbyPage);
+            return real.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{TOKEN}", memberSessionId).Replace("{LOBBY}", lobbyPage);
         }
 
         private string GetCurrencyByLanguage()
@@ -68,9 +58,6 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
                 case "zh-cn":
                     currency = "CNY";
                     break;
-                //case "ko-kr": //temporary commented these lines as it is not yet supported.
-                //    currency = "KRW";
-                //    break;
                 case "ja-jp":
                     currency = "JPY";
                     break;
@@ -79,15 +66,28 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
                     break;
             }
 
-            if (HttpContext.Current.Session["LanguageCode"] != null && HttpContext.Current.Session["CurrencyCode"] != null)
+            if (!string.IsNullOrEmpty(userInfo.LanguageCode) && string.IsNullOrEmpty(userInfo.CurrencyCode))
             {
-                if ((string)HttpContext.Current.Session["LanguageCode"] == "en-us" && ((string)HttpContext.Current.Session["CurrencyCode"] == "MY"))
+                if (userInfo.LanguageCode == "en-us" && ((string)userInfo.CurrencyCode == "MY"))
                 {
                     currency = "MYR";
                 }
             }
 
             return currency;
+        }
+
+        private string GetGameLanguage(XElement element)
+        {
+            if (string.IsNullOrWhiteSpace(CultureHelpers.ElementValues.GetResourceXPathAttribute("LanguageCode", element))) return "en_US";
+
+            var lang = langCode.Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
+                
+            string[] languagesCodes = CultureHelpers.ElementValues.GetResourceXPathAttribute("LanguageCode", element).Split(',');
+
+            bool isLangSupp = languagesCodes.Contains(langCode, StringComparer.OrdinalIgnoreCase);
+
+            return isLangSupp ? string.Format("{0}_{1}", lang[0], lang[1].ToUpper()) : "en_US";
         }
     }
 }

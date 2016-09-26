@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace W88.BusinessLogic.Base.Models
 {
-    internal class DataResponse
+    public class DataResponse
     {
         public dynamic ResponseData { get; set; }
 

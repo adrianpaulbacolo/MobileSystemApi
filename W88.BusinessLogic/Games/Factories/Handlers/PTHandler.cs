@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
+using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Games.Handlers;
 using W88.BusinessLogic.Shared.Helpers;
 
@@ -29,14 +30,14 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
         private string supportPage;
         private string logoutPage;
 
-        public PTHandler(string username, string lobby, string support, string logout)
+        public PTHandler(UserSessionInfo userObj, string lobby, string support, string logout)
             : base(GameProvider.PT)
         {
+            prefix = GameSettings.PTAcctPrefix;
             fun = GameSettings.GetGameUrl(GameProvider.PT, GameLinkSetting.Fun);
             real = GameSettings.GetGameUrl(GameProvider.PT, GameLinkSetting.Real);
-            prefix = GameSettings.PTAcctPrefix;
 
-            user = prefix + username.ToUpper();
+            user = prefix + userObj.MemberCode.ToUpper();
             lobbyPage = lobby;
             supportPage = support;
             logoutPage = logout;
