@@ -160,6 +160,62 @@ namespace W88.BusinessLogic.Shared.Helpers
             return currencies;
         }
 
+        public List<LOV> GetCurrencies(out string selectedCurrency)
+        {
+            var currencies = new List<LOV>();
+
+            var currencySettings = GetCurrencySettings();
+
+            var currencyList = base.GetListOfValues<LOV>("shared/Currencies", "Currency", false);
+
+            foreach (var item in currencySettings)
+            {
+                currencies.Add(currencyList.FirstOrDefault(c => c.Value == item));
+            }
+
+            var countryCode = GetCountryInfo();
+
+            switch (countryCode.Country.ToUpper())
+            {
+                case "AU":
+                    selectedCurrency = "AUD";
+                    break;
+                case "SG":
+                    selectedCurrency = "UUS";
+                    break;
+                case "CN":
+                    selectedCurrency = "RMB";
+                    break;
+                case "TH":
+                    selectedCurrency = "THB";
+                    break;
+                case "VN":
+                    selectedCurrency = "VND";
+                    break;
+                case "ID":
+                    selectedCurrency = "IDR";
+                    break;
+                case "MY":
+                    selectedCurrency = "MYR";
+                    break;
+                case "KR":
+                    selectedCurrency = "KRW";
+                    break;
+                case "JP":
+                    selectedCurrency = "JPY";
+                    break;
+                default:
+                    selectedCurrency = "";
+                    break;
+            }
+
+            string currency = selectedCurrency;
+
+            selectedCurrency = currencies.FirstOrDefault(x => x.Value == currency) != null ? selectedCurrency : "";
+
+            return currencies;
+        }
+
         public List<LOV> GetBanksList(int methodId, string currencyCode)
         {
             if (methodId == 120227)

@@ -1,0 +1,74 @@
+﻿{
+    "PaymentTransactionType": [
+        {
+            "Text": "Deposit",
+            "Value": "1"
+        },
+        {
+            "Text": "Widrawal",
+            "Value": "1"
+        }
+    ],
+    "PaymentType": [
+        {
+            "Text": "All",
+            "Value": "0"
+        },
+        {
+            "Text": "Deposit",
+            "Value": "1"
+        },
+        {
+            "Text": "Withdrawal",
+            "Value": "2"
+        }
+    ],
+    "Status": [
+        {
+            "Text": "All",
+            "Value": "All"
+        },
+        {
+            "Text": "Successful",
+            "Value": "Successful"
+        },
+        {
+            "Text": "Pending",
+            "Value": "Pending"
+        },
+        {
+            "Text": "Failed",
+            "Value": "Failed"
+        },
+        {
+            "Text": "Rejected",
+            "Value": "Rejected"
+        }
+    ],
+    "FT_Status": [
+        {
+            "Text": "All",
+            "Value": "-1"
+        },
+        {
+            "Text": "Pending",
+            "Value": "0"
+        },
+        {
+            "Text": "Successful",
+            "Value": "1"
+        },
+        {
+            "Text": "Failed",
+            "Value": "2"
+        },
+        {
+            "Text": "Declined",
+            "Value": "3"
+        },
+        {
+            "Text": "Refunded",
+            "Value": "4"
+        }
+    ]
+}

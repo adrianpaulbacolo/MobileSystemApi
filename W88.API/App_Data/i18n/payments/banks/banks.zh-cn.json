@@ -1,0 +1,270 @@
+﻿{
+    "120218": [ //ECPSS
+        {
+            "Value": "ICBC",
+            "Text": "工商银行 (*)"
+        },
+        {
+            "Value": "ABC",
+            "Text": "农业银行"
+        },
+        {
+            "Value": "BOCSH",
+            "Text": "中国银行"
+        },
+        {
+            "Value": "CCB",
+            "Text": "建设银行"
+        },
+        {
+            "Value": "CMB",
+            "Text": "招商银行"
+        },
+        {
+            "Value": "SPDB",
+            "Text": "浦发银行"
+        },
+        {
+            "Value": "GDB",
+            "Text": "广发银行"
+        },
+        {
+            "Value": "BOCOM",
+            "Text": "交通银行"
+        },
+        {
+            "Value": "CNCB",
+            "Text": "中信银行 (*)"
+        },
+        {
+            "Value": "CMBC",
+            "Text": "民生银行"
+        },
+        {
+            "Value": "CEB",
+            "Text": "光大银行"
+        },
+        {
+            "Value": "HXB",
+            "Text": "华夏银行"
+        },
+        {
+            "Value": "CIB",
+            "Text": "兴业银行"
+        },
+        {
+            "Value": "BOS",
+            "Text": "上海银行"
+        },
+        {
+            "Value": "SRCB",
+            "Text": "上海农商"
+        },
+        {
+            "Value": "PAB",
+            "Text": "平安银行"
+        },
+        {
+            "Value": "BCCB",
+            "Text": "北京银行"
+        }
+    ],
+
+    "120227": [ // Help2Pay
+        {
+            "Currency": "MYR",
+            "Banks": [
+                {
+                    "Value": "MBB",
+                    "Text": "Maybank"
+                },
+                {
+                    "Value": "PBB",
+                    "Text": "Public Bank"
+                },
+                {
+                    "Value": "CIMB",
+                    "Text": "CIMB"
+                },
+                {
+                    "Value": "HLB",
+                    "Text": "Hong Leong Bank"
+                }
+            ]
+        },
+        {
+            "Currency": "THB",
+            "Banks": [
+                {
+                    "Value": "KKR",
+                    "Text": "Karsikorn Bank (K-Bank)"
+                },
+                {
+                    "Value": "BBL",
+                    "Text": "Bangkok Bank"
+                },
+                {
+                    "Value": "SCB",
+                    "Text": "Siam Commercial Bank"
+                },
+                {
+                    "Value": "KTB",
+                    "Text": "Krung Thai Bank"
+                }
+            ]
+        },
+        {
+            "Currency": "VND",
+            "Banks": [
+                {
+                    "Value": "TCB",
+                    "Text": "Techcombank"
+                },
+                {
+                    "Value": "SACOM",
+                    "Text": "Sacombank"
+                },
+                {
+                    "Value": "VCB",
+                    "Text": "Vietcombank"
+                },
+                {
+                    "Value": "ACB",
+                    "Text": "ACB"
+                },
+                {
+                    "Value": "DAB",
+                    "Text": "Đông Á"
+                },
+                {
+                    "Value": "VTB",
+                    "Text": "Vietinbank"
+                },
+                {
+                    "Value": "BIDV",
+                    "Text": "BIDV"
+                }
+            ]
+        },
+        {
+            "Currency": "IDR",
+            "Banks": [
+                {
+                    "Value": "BCA",
+                    "Text": "Bank Central Asia"
+                },
+                {
+                    "Value": "BNI",
+                    "Text": "Bank Negara Indonesia"
+                },
+                {
+                    "Value": "BRI",
+                    "Text": "Bank Rakyat Indonesia"
+                },
+                {
+                    "Value": "MDR",
+                    "Text": "Mandiri Bank"
+                }
+            ]
+        }
+    ],
+
+    "120254": [ // SDAPayAlipay
+        {
+            "Value": "Alipay",
+            "Text": "支付宝"
+        },
+        {
+            "Value": "CMB",
+            "Text": "招商银行"
+        }
+    ],
+
+    "120265": [ // EGHL
+        {
+            "Value": "AFFIN",
+            "Text": "AFFIN"
+        },
+        {
+            "Value": "AllianceOnline",
+            "Text": "AllianceOnline"
+        },
+        {
+            "Value": "AmBank",
+            "Text": "AmBank"
+        },
+        {
+            "Value": "Bank Islam",
+            "Text": "Bank Islam"
+        },
+        {
+            "Value": "iRakyat",
+            "Text": "iRakyat"
+        },
+        {
+            "Value": "Bank Muamalat",
+            "Text": "Bank Muamalat"
+        },
+        {
+            "Value": "HongLeong Connect",
+            "Text": "HongLeong Connect"
+        },
+        {
+            "Value": "MayBank2U",
+            "Text": "MayBank2U"
+        },
+        {
+            "Value": "PBe",
+            "Text": "PBe"
+        },
+        {
+            "Value": "RHBNow",
+            "Text": "RHBNow"
+        },
+        {
+            "Value": "UOB",
+            "Text": "UOB"
+        }
+    ],
+
+    "120243": [ // DaddyPay
+        {
+            "Value": "2",
+            "Text": "招商银行"
+        },
+        {
+            "Value": "3",
+            "Text": "中国建设银行"
+        }
+    ],
+
+    "120244": [ // DaddyPayQR
+        {
+            "Value": "2",
+            "Text": "招商银行"
+        },
+        {
+            "Value": "3",
+            "Text": "中国建设银行"
+        },
+        {
+            "Value": "30",
+            "Text": "支付宝(二维码)"
+        }
+    ],
+
+    "120204": [ // NextPay
+        {
+            "Value": "SCB",
+            "Text": "Siam Commercial Bank"
+        },
+        {
+            "Value": "BAY",
+            "Text": "Bank Of Ayudaha"
+        },
+        {
+            "Value": "KTB",
+            "Text": "Krungthai"
+        }
+    ]
+}

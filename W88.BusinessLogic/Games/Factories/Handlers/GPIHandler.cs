@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
+using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Games.Handlers;
 using W88.BusinessLogic.Shared.Helpers;
 
@@ -20,13 +21,13 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
 
         private string memberSessionId;
 
-        public GPIHandler(string token)
+        public GPIHandler(UserSessionInfo user)
             : base(GameProvider.GPI)
         {
             fun = GameSettings.GetGameUrl(GameProvider.GPI, GameLinkSetting.Fun);
             real = GameSettings.GetGameUrl(GameProvider.GPI, GameLinkSetting.Real);
 
-            memberSessionId = token;
+            memberSessionId = user.Token;
         }
 
         protected override string SetLanguageCode()
@@ -80,9 +81,9 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
 
         private string GetGameLanguage(XElement element)
         {
-            if (element.Attribute("LanguageCode") != null)
+            if (!string.IsNullOrWhiteSpace(CultureHelpers.ElementValues.GetResourceXPathAttribute("LanguageCode", element)))
             {
-                string[] languagesCodes = element.Attribute("LanguageCode").Value.Split(',');
+                string[] languagesCodes = CultureHelpers.ElementValues.GetResourceXPathAttribute("LanguageCode", element).Split(',');
 
                 bool isLangSupp = languagesCodes.Contains(langCode, StringComparer.OrdinalIgnoreCase);
 

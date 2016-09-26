@@ -1,0 +1,24 @@
+﻿{
+    "DepositChannel": [
+        {
+            "Value": "ATM",
+            "Text": "ATM"
+        },
+        {
+            "Value": "iBanking",
+            "Text": "Iバンキング"
+        },
+        {
+            "Value": "mBanking",
+            "Text": "Mバンキング"
+        },
+        {
+            "Value": "cBanking",
+            "Text": "Cバンキング"
+        },
+        {
+            "Value": "CDM",
+            "Text": "CDM"
+        }
+    ]
+}

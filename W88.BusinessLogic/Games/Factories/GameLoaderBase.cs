@@ -6,6 +6,7 @@ using System.Xml.Linq;
 using W88.BusinessLogic.Games.Handlers;
 using W88.BusinessLogic.Games.Models;
 using W88.BusinessLogic.Shared.Helpers;
+using W88.Utilities;
 
 namespace W88.BusinessLogic.Games.Factories
 {
@@ -38,30 +39,63 @@ namespace W88.BusinessLogic.Games.Factories
 
         protected abstract string CreateRealUrl(XElement element);
 
-        public List<GameCategoryInfo> Process(string currencyCode)
+        public List<GameCategoryInfo> Process(string currencyCode, int itemCount = 0, List<string> category = null)
         {
-            return LoadCategory(currencyCode);
+            return LoadCategory(currencyCode, itemCount, category);
         }
 
-        private List<GameCategoryInfo> LoadCategory(string currencyCode)
+        private List<GameCategoryInfo> LoadCategory(string currencyCode, int itemCount, List<string> category)
         {
             var gameCategories = new List<GameCategoryInfo>();
 
+            int totalCount = itemCount;
+
             foreach (XElement xeCategory in xeResources.Elements())
             {
+                if (itemCount != 0 && totalCount == 0)
+                    break;
+
+                if (category != null && category.Count() != 0)
+                    if (!category.Contains(xeCategory.Name.LocalName, StringComparer.OrdinalIgnoreCase))
+                        continue;
+
                 if (IsCurrNotSupported(currencyCode, xeCategory)) continue;
 
-                var gameCategory = new GameCategoryInfo();
+                var gameCategory = new GameCategoryInfo
+                {
+                    Provider = this.gameProvider.ToString(),
+                    Title = GetHeadTranslation(xeCategory)
+                };
 
-                gameCategory.Title = GetHeadTranslation(xeCategory);
+                IEnumerable<XElement> newGames = xeCategory.Elements().Where(cat => cat.Attribute("Category") != null && cat.Attribute("Category").Value.Equals("new", StringComparison.OrdinalIgnoreCase))
+                                                                .OrderBy(game => game.Element("Title").Value);
 
-                List<XElement> newGames = xeCategory.Elements().Where(cat => cat.Attribute("Category") != null && cat.Attribute("Category").Value.Equals("new", StringComparison.OrdinalIgnoreCase))
-                                                                .OrderBy(game => game.Element("Title").Value).ToList();
+                int newCount = 0;
+                if (itemCount <= 0)
+                    gameCategory.New = AddGamesPerCategory(currencyCode, newGames.ToList());
+                else
+                {
+                    gameCategory.New = AddGamesPerCategory(currencyCode, newGames.Take(totalCount).ToList());
 
-                gameCategory.New = AddGamesPerCategory(currencyCode, newGames);
+                    newCount = newGames.Take(totalCount).Count();
+                }
 
-                List<XElement> currentGames = xeCategory.Elements().Where(cat => cat.Attribute("Category") == null).OrderBy(game => game.Element("Title").Value).ToList();
-                gameCategory.Current = AddGamesPerCategory(currencyCode, currentGames);
+                IEnumerable<XElement> currentGames = xeCategory.Elements().Where(cat => cat.Attribute("Category") == null)
+                                                                    .OrderBy(game => game.Element("Title").Value).ToList();
+
+                int currentCount = 0;
+                if (itemCount <= 0)
+                    gameCategory.Current = AddGamesPerCategory(currencyCode, currentGames.ToList());
+                else
+                {
+                    totalCount = totalCount - newCount;
+
+                    gameCategory.Current = AddGamesPerCategory(currencyCode, currentGames.Take(totalCount).ToList());
+
+                    currentCount = currentGames.Take(totalCount).Count();
+
+                    totalCount = totalCount - currentCount;
+                }
 
                 gameCategories.Add(gameCategory);
             }
@@ -98,17 +132,17 @@ namespace W88.BusinessLogic.Games.Factories
 
             if (string.IsNullOrEmpty(lang))
             {
-                headerText = element.Attribute("en-us").Value;
+                headerText = CultureHelpers.ElementValues.GetResourceXPathAttribute("en-us", element);
             }
             else
             {
-                if (element.Attribute(lang) != null && element.Attribute(lang).Value.Length > 0)
+                if (string.IsNullOrEmpty(CultureHelpers.ElementValues.GetResourceXPathAttribute(lang, element)))
                 {
-                    headerText = element.Attribute(lang).Value;
+                    headerText = CultureHelpers.ElementValues.GetResourceXPathAttribute(lang, element);
                 }
                 else
                 {
-                    headerText = element.Attribute("en-us").Value;
+                    headerText = CultureHelpers.ElementValues.GetResourceXPathAttribute("en-us", element);
                 }
             }
 
@@ -120,7 +154,7 @@ namespace W88.BusinessLogic.Games.Factories
             if (string.IsNullOrWhiteSpace(currencyCode))
                 return false;
 
-            string currNotSupp = element.Attribute("NotSupportedCurrency") != null ? element.Attribute("NotSupportedCurrency").Value : "";
+            string currNotSupp = CultureHelpers.ElementValues.GetResourceXPathAttribute("NotSupportedCurrency", element);
             string[] currencies = currNotSupp.Split(',');
 
             return currencies.Contains(currencyCode);
@@ -132,18 +166,18 @@ namespace W88.BusinessLogic.Games.Factories
         Fun, Real
     }
 
-     public enum GameProvider
-     {
-         GPI,
-         PT,
-         MGS,
-         PNG,
-         ISB,
-         QT,
-         BS,
-         CTXM,
-         UC8
-     }
+    public enum GameProvider
+    {
+        GPI,
+        PT,
+        MGS,
+        PNG,
+        ISB,
+        QT,
+        BS,
+        CTXM,
+        UC8
+    }
 
     public enum GameDevice
     {

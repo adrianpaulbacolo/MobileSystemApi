@@ -1,0 +1,64 @@
+﻿{
+    "PaymentType": [
+        {
+            "Text": "ทั้งหมด",
+            "Value": "0"
+        },
+        {
+            "Text": "ฝาก",
+            "Value": "1"
+        },
+        {
+            "Text": "ถอน",
+            "Value": "2"
+        }
+    ],
+    "Status": [
+        {
+            "Text": "ทั้งหมด",
+            "Value": "ALL"
+        },
+        {
+            "Text": "สำเร็จ",
+            "Value": "Successful"
+        },
+        {
+            "Text": "อยู่ในระหว่างดำเนินการ",
+            "Value": "Pending"
+        },
+        {
+            "Text": "ล้มเหลว",
+            "Value": "Failed"
+        },
+        {
+            "Text": "ไม่สำเร็จ",
+            "Value": "Rejected"
+        }
+    ],
+    "FT_Status": [
+        {
+            "Text": "ทั้งหมด",
+            "Value": "-1"
+        },
+        {
+            "Text": "อยู่ในระหว่างดำเนินการ",
+            "Value": "0"
+        },
+        {
+            "Text": "สำเร็จ",
+            "Value": "1"
+        },
+        {
+            "Text": "ล้มเหลว",
+            "Value": "2"
+        },
+        {
+            "Text": "ไม่สำเร็จ",
+            "Value": "3"
+        },
+        {
+            "Text": "คืนกลับ",
+            "Value": "4"
+        }
+    ]
+}

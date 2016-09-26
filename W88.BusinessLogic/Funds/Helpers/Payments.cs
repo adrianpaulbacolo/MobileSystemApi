@@ -20,7 +20,7 @@ using W88.Utilities.Log.Helpers;
 
 namespace W88.BusinessLogic.Funds.Helpers
 {
-    internal sealed class Payments : BaseHelper
+    public sealed class Payments : BaseHelper
     {
         public async Task<FundTransferInfo.FtResponse> FundTransfer(FundTransferInfo.FtRequest funds, UserSessionInfo user)
         {

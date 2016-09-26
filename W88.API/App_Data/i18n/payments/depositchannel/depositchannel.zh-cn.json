@@ -1,0 +1,24 @@
+﻿{
+    "DepositChannel": [
+        {
+            "Value": "ATM",
+            "Text": "ATM"
+        },
+        {
+            "Value": "iBanking",
+            "Text": "在线银行"
+        },
+        {
+            "Value": "mBanking",
+            "Text": "手机银行"
+        },
+        {
+            "Value": "cBanking",
+            "Text": "柜台转账"
+        },
+        {
+            "Value": "CDM",
+            "Text": "ATM现金转账"
+        }
+    ]
+}

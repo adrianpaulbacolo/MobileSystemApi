@@ -1,0 +1,12 @@
+﻿{
+    "CardType": [
+        {
+            "Text": "VISA",
+            "Value": "20751003"
+        },
+        {
+            "Text": "MASTER",
+            "Value": "20751004"
+        }
+    ]
+}

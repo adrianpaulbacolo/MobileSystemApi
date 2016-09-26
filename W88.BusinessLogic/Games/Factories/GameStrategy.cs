@@ -12,32 +12,32 @@ namespace W88.BusinessLogic.Games.Factories
             switch (gameProvider.ToUpper())
             {
                 case "CTXM":
-                    return new CTXMHandler(user.Token);
+                    return new CTXMHandler(user);
 
                 case "GPI":
-                    return new GPIHandler(user.Token);
+                    return new GPIHandler(user);
 
                 case "PNG":
-                    return new PNGHandler(user.Token, lobby);
+                    return new PNGHandler(user, lobby);
 
                 case "QT":
-                    return new QTHandler(user.Token, lobby);
+                    return new QTHandler(user, lobby);
 
                 case "ISB":
-                    return new ISBHandler(user.Token, lobby, user.CurrencyCode);
+                    return new ISBHandler(user, lobby, user.CurrencyCode);
 
                 case "MGS":
-                    return new MGSHandler(user.Token, lobby, cashier);
+                    return new MGSHandler(user, lobby, cashier);
 
                 case "BS":
                     GameDevice gameDevice = GameDevice.ANDROID;
 
                     Enum.TryParse(device, true, out gameDevice);
 
-                    return new BSHandler(user.Token, lobby, cashier, gameDevice);
+                    return new BSHandler(user, lobby, cashier, gameDevice);
 
                 case "PT":
-                    return new PTHandler(user.MemberCode, lobby, liveChat, logout);
+                    return new PTHandler(user, lobby, liveChat, logout);
 
                 default:
                     return null;

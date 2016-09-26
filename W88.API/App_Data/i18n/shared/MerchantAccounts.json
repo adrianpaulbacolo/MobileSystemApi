@@ -1,0 +1,116 @@
+﻿{
+    "Help2Pay": [
+        {
+            "MerchantID": "2VP2mlOURjZGA2H02Drvaw==", // M0006
+            "Key": "PkisDuCpeY3tKQKhLfLIX7QJtPmc7Uascz6oBKkOOQYaA1kYFxFEUzUXN2pVsMMI"
+        }
+    ],
+
+    "BofoPay": [
+        {
+            "MerchantID": "424864",
+            "TerminalID": "xpOOKDJMo7ivos+GL1j4Ig==", // 22927
+            "Key": "h9ULGnTwTycEyAGG/cONxmSEc1havkaYS7Zaf6p7bKkc6LhReY9iuqZEtYSYMd72KgOY4nRTFJ667PWBP3GxRQ==" // 62ykjnq7vlqn3tgu
+        },
+        {
+            "MerchantID": "424862",
+            "TerminalID": "xpOOKDJMo7jpor2ZzsHWww==", // 22926
+            "Key": "wnG8744epZYP4rvCycXhb7G3rVEMaXua282jMVoyVI5ipxFbmp1HYA9O5ZXnQmalejLmbYtep7X+O5jm+rRzww==" // bhz4aeu8axlt77v6
+        },
+        {
+            "MerchantID": "424871",
+            "TerminalID": "xpOOKDJMo7jHW0WjIDOOVg==", // 22928
+            "Key": "vslEPCoZBAU/q/mxScPXvYY2BaA0mNn5JkCqFbcbnvJdQQz/IJ/r5pKkJ5Pt1wuGtO/9PhxkuzhG8sTfFFYFHQ==" // lbdxxl5vqhbz5wbz
+        },
+        {
+            "MerchantID": "425131",
+            "TerminalID": "xpOOKDJMo7gl3Ea2jRpK/Q==", // 22976
+            "Key": "S3Cd/KWbIXcKdaqfA4nu5F7L5qwAHo3MOiW4T975U/7Y8mTA8q4eOYcm0irlCcbQMu+QqKqzHDX3/auKWP0lDQ==" // 9a368uugbf2ytj7h
+        },
+        {
+            "MerchantID": "425130",
+            "TerminalID": "xpOOKDJMo7htomU99WPePw==", // 22975
+            "Key": "Oo8ZcRlqze+u2t4h8vpRAZlq3GoYXRfoCI0hTP84Th29Je+pyWJs1IgMmCAKZBrcrTl90QWIQOyjKoTktvp5MA==" // zkjlyq7y533c8lgd
+        },
+        {
+            "MerchantID": "437396",
+            "TerminalID": "q4UZCjGRQ+6u5JlAVffmRw==", // 23967
+            "Key": "1yKxgcw8BbbVYPFaxXozfmOzawt4UjJEjv1ft5nxYyzO4k2EWJiAw78VM+OWznWqRjp4l7tLXMqFHeUU48no7g==" // a9dcvjfdar657env
+        },
+        {
+            "MerchantID": "437400",
+            "TerminalID": "q4UZCjGRQ+5rvK+OccVQ8A==", // 23968
+            "Key": "9boKHWwblXGG2i8LAb0QoiNuRRRBmUhWBkQxRGSW7rrkVcX6J5wT1SvRBpnPUjC1iZTe1udQmHlzWHY4s3q3Ug==" // bbc3khaxfhfm98mx
+        },
+        {
+            "MerchantID": "437413",
+            "TerminalID": "q4UZCjGRQ+4sBEfAMyJd7w==", // 23969
+            "Key": "SeriQ4Lfm47gKmzqwKGGzGkrwKEXd05hDJzbIiVfKkp9lXqfVV03lsgtUvhnMnw++gaOzm2kxedyIqEqU/DoGg==" // 2xqxskmwfwnzhrc6
+        },
+        {
+            "MerchantID": "511002",
+            "TerminalID": "a0Zmopef4gBZW9WnO9m6ug==", // 25091
+            "Key": "O/Xc5TL4fOEvo1IAbRiqpOrXgFpmjiFKe3l0FZRRxOxfjh/I3eOYaeoHOMyvaquOnVhr+jBs2B0PnEM0PQeONQ==" // l438rd9laettlk3w
+        },
+        {
+            "MerchantID": "655387",
+            "TerminalID": "rIHPLuYRSbvuiDbxdU7cqQ==", // 27584
+            "Key": "11gSArP5geaoDPDjg1nW3Jj+vRvmysXHcjvTFARSqe7PHZUK4ObpFwH2RviLClwwIO5gCiHiBaaDC1DfGGKh1A==" // 7w242st8ul7yj9zs
+        },
+        {
+            "MerchantID": "655418",
+            "TerminalID": "rIHPLuYRSbsu6mgpNkWWlw==", // 27586
+            "Key": "mrfr+KiG1jEcifrh+nFdUXLP9zxSRdmGQ5V5M8hduOAjzjd9gpGMuExeY/Jwk4UrwoYBKiZySaqo9CAuoTNwdw==" // bnf23ky8bj43cnmv
+        },
+        {
+            "MerchantID": "655426",
+            "TerminalID": "rIHPLuYRSbuzlnf2Bf5hMA==", // 27587
+            "Key": "XfU4KN5m3Cwi22yrcympZDHLw0EWKmml/mLKecQHzQBsvI485LpRN8wCJgqQZ1di3ZgZ2vErRPClj1tDfj7Pig==" // au633ahnb4ke3dew
+        },
+        {
+            "MerchantID": "655460",
+            "TerminalID": "rIHPLuYRSbt3r77s7ukzvQ==", // 27589
+            "Key": "crobZGpG8TQ3Y14RNRQLDJLyObR1NZ8xK+W7XW2UmECiTdn38eICRDDUTrWt5Uo0O/B2L9yYeYdv8P5mN0AavQ==" // rmc5hh4bw778hthm
+        },
+        {
+            "MerchantID": "655464",
+            "TerminalID": "rIHPLuYRSbv3JVD7LkN7kA==", // 27590
+            "Key": "FaoghAgMI22xicKtqVi5nkvC8H/ddv+larmZWHtTg5OabXvbTMcPoY7XawZ2S8BD/sdCFQfLPZUsO8Sm/yETHQ==" // q94rfvm7fg6tf4s7
+        },
+        {
+            "MerchantID": "742055",
+            "TerminalID": "GrfFv5Jb0lFJp4txIpQ8Hw==", // 28506
+            "Key": "/P6uFSP9M6NGCTJa9fanF9IlknBDqRqArZM1hnqD0gmDh2G786eRjDNNPx5rsTn32hEyzhind4BOZcFVaZcMWg==" // qk6khesuy9ckzpml
+        }
+    ],
+
+    "NextPay": [
+        {
+            "MerchantID": "11ynEs4rOF6NpOtZv6cuP+ZkpwWwtIwbmqf9rgit20Bz0GYQv0/WeDAmrd3aWjSACAeXvPtlg4EXMxIZCaIzGhEOI6R/Uj6TMO85+pNpAcezFx6OU975e97SMVpydDWP" // payment17@chinapnrasia.com
+        }
+    ],
+
+    "SDPay": [
+        {
+            "MerchantID": "AA9925", // rV6rVAYjTiVQ5RjpV/+Ct/TygyH5mvmV
+            "Key1": "Au0rclR74j5lpfpHyVPV6PTSKnOiWrfe5HUM54aP9mZl3jWmAzTj4yyE08VDND7Q",
+            "Key2": "xf9FnCe+9Rwbdl/QxWEIsDl3nXuGS0Xi48KdQmH2mlI0GH9yy46PWjaxpYdfXPEr",
+            "MD5Key": "Ljqsi4fGTjP1PwZS2BEOWyJliEt5TBxO1F7NDjey6Fodwf5hIuZAyDmUjpeAZU2QeRXKUJJv3DdI0/lnQSYwkcheY+lCk03DY6JCEXHKyCzFy/TfvekRA8iswcTtUMxgIWg33Sf3//0="
+        },
+        {
+            "MerchantID": "AA9847", // ewaDViDshh7tQsoIp+Lzlx03fQV9tHPQ
+            "Key1": "rdsRwxHDXcVcXp1a6tk/JcH90LqEeFaKTLfHLnjbN7U1R/up9Q8t3+SZlTvQkvbS",
+            "Key2": "SHaMZH5FyU70B6VZVlCxFbw/3aw8s6TqMGhNmpBUkogIU1OZ4ZmM3Q==",
+            "MD5Key": "JxEOXKXOQ15e2OTQzzrwz+2+qFl7tv2xRWeU6u+C30rdJFaaX5uimkM72gvrDs3j+8RaYSIJBt0swKIi7Uxro04GU835BJ0aPu+27JwQfrWyk5xIePx9dPE/BOlT5JVFV26JirCTIyo="
+        }
+    ],
+
+    "AllDebit": [
+        {
+            "MerchantID": "20751",
+            "AllDebit_Visa": "HntgrErxmqYlD99GdBr0YKLOSA07Wxbeu7IKkBmP318=",
+            "AllDebit_Master": "OFVKWYA1oJ2hLWG08LAE9xmhH1ZJOm6jLUvHgOnzvqA="
+        }
+    ]
+
+}

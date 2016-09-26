@@ -71,6 +71,13 @@ namespace W88.BusinessLogic.Games.Handlers
                         url = Settings.Values.Get("QTRealUrl");
                     break;
 
+                case GameProvider.UC8:
+                    if (linkType == GameLinkSetting.Fun)
+                        url = Settings.Values.Get("UC8FunUrl");
+                    else if (linkType == GameLinkSetting.Real)
+                        url = Settings.Values.Get("UC8RealUrl");
+                    break;
+
                 default:
                     url = "";
                     break;
@@ -96,6 +103,6 @@ namespace W88.BusinessLogic.Games.Handlers
                 return string.IsNullOrEmpty(prefix) ? "" : prefix;
             }
         }
-
+    
     }
 }

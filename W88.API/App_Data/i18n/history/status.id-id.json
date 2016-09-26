@@ -1,0 +1,64 @@
+﻿{
+    "PaymentType": [
+        {
+            "Text": "Semua",
+            "Value": "0"
+        },
+        {
+            "Text": "Deposit",
+            "Value": "1"
+        },
+        {
+            "Text": "Penarikan",
+            "Value": "2"
+        }
+    ],
+    "Status": [
+        {
+            "Text": "Semua",
+            "Value": "ALL"
+        },
+        {
+            "Text": "Sukses",
+            "Value": "Successful"
+        },
+        {
+            "Text": "Pending",
+            "Value": "Pending"
+        },
+        {
+            "Text": "Gagal",
+            "Value": "Failed"
+        },
+        {
+            "Text": "Ditolak",
+            "Value": "Rejected"
+        }
+    ],
+    "FT_Status": [
+        {
+            "Text": "Semua",
+            "Value": "-1"
+        },
+        {
+            "Text": "Pending",
+            "Value": "0"
+        },
+        {
+            "Text": "Sukses",
+            "Value": "1"
+        },
+        {
+            "Text": "Gagal",
+            "Value": "2"
+        },
+        {
+            "Text": "Ditolak",
+            "Value": "3"
+        },
+        {
+            "Text": "Dana Telah Dikembalikan",
+            "Value": "4"
+        }
+    ]
+}

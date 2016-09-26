@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
+using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Games.Handlers;
 using W88.BusinessLogic.Shared.Helpers;
 
@@ -22,13 +23,13 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
 
         private string memberSessionId;
 
-        public MGSHandler(string token, string lobby, string cashier)
+        public MGSHandler(UserSessionInfo user, string lobby, string cashier)
             : base(GameProvider.MGS)
         {
             fun = GameSettings.GetGameUrl(GameProvider.MGS, GameLinkSetting.Fun);
             real = GameSettings.GetGameUrl(GameProvider.MGS, GameLinkSetting.Real);
 
-            memberSessionId = token;
+            memberSessionId = user.Token;
             lobbyPage = lobby;
             cashierPage = cashier;
         }
@@ -89,7 +90,7 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
                 funUrl = fun;
             }
 
-            return funUrl.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{LOBBY}", lobbyPage);
+            return funUrl.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{LOBBY}", lobbyPage).Replace("{CASHIER}", cashierPage);
         }
 
         protected override string CreateRealUrl(XElement element)

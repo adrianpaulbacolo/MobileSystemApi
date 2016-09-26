@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Publish\api</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="App_Data/i18n/contents/messages.en-us.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/contents/messages.id-id.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/contents/messages.ja-jp.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/contents/messages.km-kh.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/contents/messages.ko-kr.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/contents/messages.th-th.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/contents/messages.vi-vn.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/contents/messages.zh-cn.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/contents/translations.en-us.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/contents/translations.id-id.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/contents/translations.ja-jp.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/contents/translations.km-kh.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/contents/translations.ko-kr.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/contents/translations.th-th.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/contents/translations.vi-vn.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/contents/translations.zh-cn.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/history/status.en-us.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/history/status.id-id.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/history/status.ja-jp.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/history/status.km-kh.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/history/status.ko-kr.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/history/status.th-th.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/history/status.vi-vn.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/history/status.zh-cn.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/payments/banks/banks.en-us.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/payments/banks/banks.id-id.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/payments/banks/banks.ja-jp.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/payments/banks/banks.km-kh.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/payments/banks/banks.ko-kr.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/payments/banks/banks.th-th.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/payments/banks/banks.vi-vn.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/payments/banks/banks.zh-cn.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/payments/banks/cardType.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/payments/depositchannel/depositchannel.en-us.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/payments/depositchannel/depositchannel.id-id.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/payments/depositchannel/depositchannel.ja-jp.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/payments/depositchannel/depositchannel.km-kh.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/payments/depositchannel/depositchannel.ko-kr.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/payments/depositchannel/depositchannel.th-th.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/payments/depositchannel/depositchannel.vi-vn.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/payments/depositchannel/depositchannel.zh-cn.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/shared/MerchantAccounts.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/shared/PaymentSettings.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="App_Data/i18n/shared/Wallets.json">
+      <publishTime>09/13/2016 17:29:56</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>09/13/2016 17:31:21</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>09/13/2016 17:31:21</publishTime>
+    </File>
+    <File Include="bin/audit_trail_manager.dll">
+      <publishTime>09/13/2016 10:41:12</publishTime>
+    </File>
+    <File Include="bin/encryption_manager.dll">
+      <publishTime>09/08/2016 14:31:21</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>09/13/2016 15:13:21</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>09/13/2016 15:13:19</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>09/13/2016 15:13:21</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>09/13/2016 14:57:56</publishTime>
+    </File>
+    <File Include="bin/W88.API.dll">
+      <publishTime>09/13/2016 17:31:19</publishTime>
+    </File>
+    <File Include="bin/W88.BusinessLogic.dll">
+      <publishTime>09/13/2016 17:31:19</publishTime>
+    </File>
+    <File Include="bin/W88.Utilities.dll">
+      <publishTime>09/13/2016 17:31:18</publishTime>
+    </File>
+    <File Include="bin/W88.WebRef.dll">
+      <publishTime>09/13/2016 14:15:09</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>09/13/2016 17:31:20</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>09/13/2016 17:31:19</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
