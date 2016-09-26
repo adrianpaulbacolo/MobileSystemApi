@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
-using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Games.Handlers;
 using W88.BusinessLogic.Shared.Helpers;
 
@@ -23,13 +22,13 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
 
         private string memberSessionId;
 
-        public ISBHandler(UserSessionInfo user, string lobby, string currency)
+        public ISBHandler(string token, string lobby, string currency)
             : base(GameProvider.ISB)
         {
             fun = GameSettings.GetGameUrl(GameProvider.ISB, GameLinkSetting.Fun);
             real = GameSettings.GetGameUrl(GameProvider.ISB, GameLinkSetting.Real);
 
-            memberSessionId = user.Token;
+            memberSessionId = token;
             lobbyPage = lobby;
             currencyCode = currency;
         }
