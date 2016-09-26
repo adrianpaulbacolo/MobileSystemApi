@@ -27,11 +27,12 @@ public partial class _Secure_ForgotPassword : BasePage
         if (IsPostBack) return;
         SetTitle(commonCulture.ElementValues.getResourceString("Title", XeResources));
 
-        SetQuestions();
-
         lblUsername.Text = commonCulture.ElementValues.getResourceString("lblUsername", _xeRegisterResources);
         lblEmail.Text = commonCulture.ElementValues.getResourceString("lblEmailAddress", _xeRegisterResources);
-        btnStep1.Text = btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", _xeRegisterResources);
+        btnStep1.Text = btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", XeResources);
+        btnSubmit.Text = btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", XeResources);
+
+        SetQuestions();
     }
 
     private void SetQuestions()
