@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Web;
 using System.Web.UI;
+using W88.BusinessLogic.Accounts.Helpers;
 using W88.BusinessLogic.Accounts.Models;
-using W88.Rewards.BusinessLogic.Accounts.Helpers;
-using W88.Rewards.BusinessLogic.Rewards.Helpers;
-using W88.Rewards.BusinessLogic.Rewards.Models;
+using W88.BusinessLogic.Rewards.Helpers;
+using W88.BusinessLogic.Rewards.Models;
 using W88.Utilities;
-using MemberSession = W88.Rewards.BusinessLogic.Accounts.Models.MemberSession;
 
 public class BasePage : Page
 {
@@ -28,12 +27,7 @@ public class BasePage : Page
         base.OnPreInit(e);
     }
 
-    protected override void OnLoad(EventArgs e)
-    {
-        base.OnLoad(e);
-    }
-
-    protected void CheckSession()
+    protected async void CheckSession()
     {
         try
         {
@@ -42,18 +36,18 @@ public class BasePage : Page
             {
                 var cookie = HttpContext.Current.Request.Cookies["user"];
                 if (cookie == null) return;
-                var user = Common.DeserializeObject<W88.BusinessLogic.Accounts.Models.MemberSession>(cookie.Value);
+                var user = Common.DeserializeObject<MemberSession>(cookie.Value);
                 if (user == null) return;
                 token = user.Token;
             }
 
             if (string.IsNullOrEmpty(token)) return;
             var memberHelper = new Members();
-            var processCode = memberHelper.MembersSessionCheck(token);
+            var processCode = await memberHelper.MembersSessionCheck(token);
             HasSession = processCode.Code == 1;
             if (!HasSession) return;
             MemberSession = processCode.Data;
-            UserSessionInfo = memberHelper.GetMemberInfo(token);
+            UserSessionInfo = await memberHelper.GetMemberInfo(token);
             SetMemberRewardsInfo();
         }
         catch (Exception exception)
@@ -62,11 +56,11 @@ public class BasePage : Page
         }
     }
 
-    protected void SetMemberRewardsInfo()
+    protected async void SetMemberRewardsInfo()
     {
         if (MemberSession == null || UserSessionInfo == null) return;
         MemberRewardsInfo = new MemberRewardsInfo();
-        MemberRewardsInfo.CurrentPoints = (new Members()).GetRewardsPoints(UserSessionInfo);
+        MemberRewardsInfo.CurrentPoints = await (new Members()).GetRewardsPoints(UserSessionInfo);
         MemberRewardsInfo.CurrentPointLevel = (new RewardsHelper()).GetPointLevel(MemberSession.MemberId);
     }
 }

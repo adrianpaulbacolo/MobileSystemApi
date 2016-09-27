@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Web;
 using System.Xml.Linq;
+using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Shared.Helpers;
-using W88.Rewards.BusinessLogic.Rewards.Helpers;
 
 /// <summary>
 /// Summary description for CatalogueBasePage
