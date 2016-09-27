@@ -5,6 +5,7 @@ using System.Text;
 using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Rewards.Models;
+using W88.Utilities;
 using W88.Utilities.Log.Helpers;
 
 public partial class Catalogue_Detail : CatalogueBasePage
@@ -19,49 +20,29 @@ public partial class Catalogue_Detail : CatalogueBasePage
     protected void Page_Load(object sender, EventArgs e)
     {
         SetLabels();
-        SetProductDetails();     
+        SetElementValues();     
     }
 
-    private void SetProductDetails()
+    private void SetElementValues()
     {
         try
         {
             var productId = HttpContext.Current.Request.QueryString.Get("id");
-            var detailsSet = GetProductDetails(MemberSession, productId);
+            var productDetails = GetProductDetails(MemberSession, productId);
 
-            if (detailsSet == null)
+            if (productDetails == null)
             {
                 return;
             }
-
-            var dataRow = detailsSet.Tables[0].Rows[0];
-            var productDetails = new ProductDetails();       
-            productDetails.ProductId = productId;
 
             RedirectUri = !HasSession
                 ? string.Format(@"/_Secure/Login.aspx?redirect=/Catalogue/Redeem.aspx&productId={0}", productId)
                 : string.Format(@"/Catalogue/Redeem.aspx?productId={0}", productId);
 
-            // Set product details
-            productDetails.ProductType = dataRow["productType"].ToString();
-            productDetails.AmountLimit = dataRow["amountLimit"].ToString();
-            productDetails.CategoryId = dataRow["categoryId"].ToString();
-            productDetails.CurrencyCode = dataRow["currencyValidity"].ToString();
-            productDetails.CountryCode = dataRow["countryValidity"].ToString();
-            productDetails.PointsRequired = dataRow["pointsRequired"].ToString();
-            productDetails.ImageUrl = dataRow["imageName"].ToString();
-            productDetails.ProductCategoryName = dataRow["categoryName"].ToString();
-            productDetails.ProductName = dataRow["productName"].ToString();
-            productDetails.ProductDescription = dataRow["productDescription"].ToString();
-            productDetails.DeliveryPeriod = dataRow["deliveryPeriod"].ToString();
-            productDetails.DiscountPoints = dataRow["discountPoints"] == DBNull.Value ? string.Empty : dataRow["discountPoints"].ToString();    
-            productDetails.RedemptionValidity = dataRow["redemptionValidity"].ToString();
-            productDetails.RedemptionValidityCategory = dataRow["redemptionValidityCat"].ToString();
-
             if (productDetails.RedemptionValidity == "1" && productDetails.RedemptionValidityCategory == "1")
             {
                 IsValidRedemption = true;
-                var vipCategoryId = System.Configuration.ConfigurationManager.AppSettings.Get("vipCategoryId");
+                var vipCategoryId = Common.GetAppSetting<string>("vipCategoryId");
                 if (productDetails.CategoryId.Equals(vipCategoryId))
                 {
                     var redemptionLimitResult = RewardsHelper.CheckRedemptionLimitForVipCategory(UserSessionInfo.MemberCode, vipCategoryId);
@@ -119,16 +100,10 @@ public partial class Catalogue_Detail : CatalogueBasePage
         }
     }
 
-    private DataSet GetProductDetails(MemberSession memberSession, string productId)
+    private ProductDetails GetProductDetails(MemberSession memberSession, string productId)
     {
         try
         {
-            var riskId = memberSession == null ? "" : memberSession.RiskId;
-
-            RedirectUri = !HasSession
-                ? string.Format(@"/_Secure/Login.aspx?redirect=/Catalogue/Redeem.aspx&productId={0}", productId)
-                : string.Format(@"/Catalogue/Redeem.aspx?productId={0}", productId);
-
             var detailsSet = RewardsHelper.GetProductDetails(MemberSession, productId);
             if (detailsSet.Tables.Count == 0 || detailsSet.Tables[0].Rows.Count == 0)
             {
@@ -179,9 +154,10 @@ public partial class Catalogue_Detail : CatalogueBasePage
 
             dataRow["imageName"] =
                 Convert.ToString(
-                    System.Configuration.ConfigurationManager.AppSettings.Get("ImagesDirectoryPath") +
+                    Common.GetAppSetting<string>("ImagesDirectoryPath") +
                     "Product/" + dataRow["imageName"]);
 
+            var riskId = memberSession == null ? "" : memberSession.RiskId;
             if (!string.IsNullOrEmpty(riskId))
             {
                 //valid category
@@ -224,8 +200,26 @@ public partial class Catalogue_Detail : CatalogueBasePage
                 dataRow["redemptionValidity"] += "0";
                 dataRow["redemptionValidityCat"] += "0";
             }
+
+            // Set product details
+            var productDetails = new ProductDetails();
+            productDetails.ProductId = productId;
+            productDetails.ProductType = dataRow["productType"].ToString();
+            productDetails.AmountLimit = dataRow["amountLimit"].ToString();
+            productDetails.CategoryId = dataRow["categoryId"].ToString();
+            productDetails.CurrencyCode = dataRow["currencyValidity"].ToString();
+            productDetails.CountryCode = dataRow["countryValidity"].ToString();
+            productDetails.PointsRequired = dataRow["pointsRequired"].ToString();
+            productDetails.ImageUrl = dataRow["imageName"].ToString();
+            productDetails.ProductCategoryName = dataRow["categoryName"].ToString();
+            productDetails.ProductName = dataRow["productName"].ToString();
+            productDetails.ProductDescription = dataRow["productDescription"].ToString();
+            productDetails.DeliveryPeriod = dataRow["deliveryPeriod"].ToString();
+            productDetails.DiscountPoints = dataRow["discountPoints"] == DBNull.Value ? string.Empty : dataRow["discountPoints"].ToString();
+            productDetails.RedemptionValidity = dataRow["redemptionValidity"].ToString();
+            productDetails.RedemptionValidityCategory = dataRow["redemptionValidityCat"].ToString();
             
-            return detailsSet;
+            return productDetails;
         }
         catch (Exception exception)
         {
@@ -240,7 +234,7 @@ public partial class Catalogue_Detail : CatalogueBasePage
         VipOnly = HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem_vip").ToString();
 
         #region labels
-        if (!HasSession && UserSessionInfo == null)
+        if (!HasSession)
         {
             return;
         }

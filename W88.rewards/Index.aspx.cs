@@ -16,7 +16,7 @@ public partial class _Index : CatalogueBasePage
     protected override void SetLabels()
     {
         #region labels
-        if (!HasSession && UserSessionInfo == null)
+        if (!HasSession)
         {
             return;
         }
