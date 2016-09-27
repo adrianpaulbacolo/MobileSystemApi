@@ -80,7 +80,7 @@ public partial class _Secure_Login : BasePage
         var stringBuilder2 = new StringBuilder();
         stringBuilder2.Append(queryStrings["redirect"])
             .Append("?")
-            .Append(stringBuilder1.ToString());
+            .Append(stringBuilder1);
         return  stringBuilder2.ToString();
     }
 }
