@@ -173,11 +173,9 @@
                 case 'VIP':
                     window.w88Mobile.Growl.shout(message);
                     $('#redeemButton').attr("disabled", true);
-                    window.location.replace('/Catalogue');
                     break;
                 case 'SUCCESS':
                     window.w88Mobile.Growl.shout(message);
-                    window.location.replace('/Catalogue');
                     break;
                 case 'FAIL':
                     window.w88Mobile.Growl.shout(message);

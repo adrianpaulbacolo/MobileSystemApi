@@ -24,12 +24,14 @@ public partial class Catalogue_Redeem : CatalogueBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Page.IsPostBack)
-        {    
-            SetLabels();
-            SetFields();
-            GetProductDetails();
+        if (IsPostBack)
+        {
+            return;
         }
+
+        SetLabels();
+        SetFields();
+        GetProductDetails();        
     }
 
     protected void RedeemButtonOnClick(object sender, EventArgs e)
@@ -119,13 +121,14 @@ public partial class Catalogue_Redeem : CatalogueBasePage
                             {
                                 SendMail(memberCode, redemptionItemId.ToString(CultureInfo.InvariantCulture));
                             }
-
-                            AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem_successProcessed");
+                            AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem_success_processed");
                         }
                         else
                         {
                             AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem_success_submit");
                         }                         
+                        SetMemberRewardsInfo();
+                        SetLabels();
                         break;
                     case RedemptionResultEnum.UnknownError:
                         break;
@@ -141,16 +144,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
                 var detail = ";Redeem Result:" + response.Result + ";RedeemId:" + redeemId + ";Type:" + productTypeEnum;
                 var sessionId = HasSession ? MemberSession.Token : string.Empty;                   
                 AuditTrail.AppendLog(memberCode, "/Catalogue/Redeem.aspx", "Redeem Now", "Catalogue/Redeem", string.Empty, detail, "-", string.Empty, remark, string.Empty, sessionId, true);
-            }
-            
-            SetMemberRewardsInfo();
-            SetLabels();
-
-            var scriptBuilder = new StringBuilder();
-            scriptBuilder.Append("setTimeout(function() {showMessage('")
-                .Append(AlertCode + "','")
-                .Append(AlertMessage + "');}, 300);");
-            ScriptManager.RegisterStartupScript(Page, GetType(), (new Guid()).ToString(), scriptBuilder.ToString(), true);
+            }         
         }
         catch (Exception exception)
         {
@@ -158,6 +152,12 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             AlertMessage = HttpContext.GetLocalResourceObject(LocalResx, "lbl_Exception").ToString();          
             AuditTrail.AppendLog(memberCode, "/Catalogue/Redeem.aspx", "Redeem Now", "Catalogue/Redeem", string.Empty, string.Empty, string.Empty, exception.Message, (new Guid()).ToString(), string.Empty, string.Empty, true);
         }
+
+        var scriptBuilder = new StringBuilder();
+        scriptBuilder.Append("setTimeout(function() {showMessage('")
+            .Append(AlertCode + "','")
+            .Append(AlertMessage + "');}, 300);");
+        ScriptManager.RegisterStartupScript(Page, GetType(), (new Guid()).ToString(), scriptBuilder.ToString(), true);
         #endregion
     }
 
