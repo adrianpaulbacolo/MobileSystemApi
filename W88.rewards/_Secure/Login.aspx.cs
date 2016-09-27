@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Specialized;
+using System.Text;
+using System.Web;
 using System.Xml.Linq;
 using W88.BusinessLogic.Shared.Helpers;
 
@@ -26,10 +29,19 @@ public partial class _Secure_Login : BasePage
 
             try
             {
-                RedirectUri = "/Index.aspx?lang=" + LanguageHelpers.SelectedLanguage;
-                if (HasSession)
+
+                var queryString = HttpContext.Current.Request.QueryString;
+                if (queryString.Count > 0 && !string.IsNullOrEmpty(queryString["redirect"]))
                 {
-                    Response.Redirect(RedirectUri);                                   
+                    RedirectUri = GetRedirectUriFromQueryString(queryString);
+                }
+                else
+                {
+                    RedirectUri = "/Index.aspx?lang=" + LanguageHelpers.SelectedLanguage;
+                    if (HasSession)
+                    {
+                        Response.Redirect(RedirectUri);                                   
+                    }
                 }
             }
             catch (Exception ex)
@@ -45,5 +57,30 @@ public partial class _Secure_Login : BasePage
             txtUsername.Focus();
             lblRegister.Text = CultureHelpers.ElementValues.GetResourceString("lblRegister", xeLogin);
         }
+    }
+
+    private string GetRedirectUriFromQueryString(NameValueCollection queryStrings)
+    {
+        var allKeys = queryStrings.AllKeys;
+        var stringBuilder1 = new StringBuilder();
+        for (int index = 0; index < allKeys.Length; index++)
+        {
+            var key = allKeys[index];
+            if (!key.Equals("redirect"))
+            {
+                stringBuilder1.Append(key)
+                    .Append("=")
+                    .Append(queryStrings[key]);
+                if (index < allKeys.Length - 1)
+                {
+                    stringBuilder1.Append("&");
+                }
+            }
+        }
+        var stringBuilder2 = new StringBuilder();
+        stringBuilder2.Append(queryStrings["redirect"])
+            .Append("?")
+            .Append(stringBuilder1.ToString());
+        return  stringBuilder2.ToString();
     }
 }
