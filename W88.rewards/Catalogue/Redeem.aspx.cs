@@ -1,24 +1,26 @@
 ﻿using System;
 using System.Configuration;
+using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Text;
 using System.Web.UI;
-using W88.Rewards.BusinessLogic.Rewards.Models;
-using W88.Rewards.BusinessLogic.Shared.Helpers;
+using W88.BusinessLogic.Shared.Helpers;
 using W88.Utilities.Constant;
 using W88.Utilities.Log.Helpers;
 using W88.WebRef.RewardsServices;
+using W88.BusinessLogic.Rewards.Models;
+using W88.BusinessLogic.Rewards.Helpers;
 
 public partial class Catalogue_Redeem : CatalogueBasePage
 {
     protected string AlertCode = string.Empty;
     protected string AlertMessage = string.Empty;
     protected string ProductType = string.Empty;
-    protected string VipOnly = "Hey there! This rewards redemption is only for VIP-Gold and above HOUSE OF HIGHROLLERS, YOU DESERVED IT!";
+    protected string VipOnly = string.Empty;
     private readonly string _operatorId = Settings.OperatorId.ToString(CultureInfo.InvariantCulture);
-    protected ProductDetails ProductDetails = CookieHelpers.ProductCookie;
+    protected ProductDetails ProductDetails = ProductHelper.SelectedProduct;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -115,8 +117,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
                         {
                             foreach (var redemptionItemId in response.RedemptionIds)
                             {
-                                (new MailHelper()).SendMail(memberCode,
-                                    redemptionItemId.ToString(CultureInfo.InvariantCulture));
+                                SendMail(memberCode, redemptionItemId.ToString(CultureInfo.InvariantCulture));
                             }
 
                             AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem_successProcessed");
@@ -386,19 +387,30 @@ public partial class Catalogue_Redeem : CatalogueBasePage
 
             imgPic.ImageUrl = ProductDetails.ImageUrl;
 
-            if (!string.IsNullOrEmpty(ProductDetails.DiscountPoints))
+            if (!string.IsNullOrEmpty(ProductDetails.DiscountPoints) && int.Parse(ProductDetails.DiscountPoints) != 0)
             {
-                lblBeforeDiscount.Text =
-                    string.Format("{0:#,###,##0.##}", ProductDetails.PointsRequired) + " " +
-                    HttpContext.GetLocalResourceObject(LocalResx, "lblPoints");
-                lblPointCenter.Text = string.Format("{0:#,###,##0.##}", ProductDetails.DiscountPoints) +
-                                      (string)HttpContext.GetLocalResourceObject(LocalResx, "lblPoints");
+                var builder = new StringBuilder();
+                // Before discount
+                builder.Append(string.Format(@"{0:#,###,##0.##}", ProductDetails.PointsRequired))
+                    .Append(" ")
+                    .Append(HttpContext.GetLocalResourceObject(LocalResx, "lbl_points"));
+                lblBeforeDiscount.Text = builder.ToString();
+
+                builder = new StringBuilder();
+                builder.Append(string.Format(@"{0:#,###,##0.##}", ProductDetails.DiscountPoints))
+                    .Append(" ")
+                    .Append((string) HttpContext.GetLocalResourceObject(LocalResx, "lblPoints"));
+                lblPointCenter.Text = builder.ToString();
             }
             else
             {
-                lblBeforeDiscount.Text = "";
-                lblPointCenter.Text = string.Format("{0:#,###,##0.##}", ProductDetails.PointsRequired) +
-                                      " " + (string)HttpContext.GetLocalResourceObject(LocalResx, "lblPoints");
+                lblBeforeDiscount.Text = string.Empty;
+                var builder = new StringBuilder();
+                // Before discount
+                builder.Append(string.Format(@"{0:#,###,##0.##}", ProductDetails.PointsRequired))
+                    .Append(" ")
+                    .Append(HttpContext.GetLocalResourceObject(LocalResx, "lbl_points"));
+                lblPointCenter.Text = builder.ToString();
             }
 
             lblName.Text = ProductDetails.ProductName;
@@ -438,6 +450,73 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             AlertCode = "FAIL";
             AlertMessage = HttpContext.GetLocalResourceObject(LocalResx, "lbl_Exception").ToString();
             AuditTrail.AppendLog(memberCode, "/Catalogue/Redeem.aspx", "Redeem Now", "Catalogue/Redeem", string.Empty, string.Empty, string.Empty, exception.Message, (new Guid()).ToString(), string.Empty, string.Empty, true);
+        }
+    }
+
+    private void SendMail(string memberCode, string redemptionId)
+    {
+        var recipientAddress = string.Empty;
+        var senderAddress = ConfigurationManager.AppSettings.Get("sender_address");
+        var senderName = ConfigurationManager.AppSettings.Get("sender_name");
+        var bccAddress = ConfigurationManager.AppSettings.Get("bcc_addresses");
+        var smtpAlternative = ConfigurationManager.AppSettings.Get("smtp_alternative");
+        var isAlternative = false;
+        var localResxMail = "~/redemption_mail.{0}.aspx";
+        var language = string.Empty;
+
+        using (var client = new RewardsServicesClient())
+        {
+            var dataSet = client.getMemberInfo(Settings.OperatorId.ToString(CultureInfo.InvariantCulture), memberCode);
+
+            foreach (DataRow dataRow in dataSet.Tables[0].Rows)
+            {
+                recipientAddress = dataRow["email"].ToString();
+                language = dataRow["languageCode"].ToString();
+            }
+        }
+
+        var smtpClient = new System.Net.Mail.SmtpClient();
+        var credentials = new System.Net.NetworkCredential();
+
+        using (var message = new System.Net.Mail.MailMessage(senderAddress, recipientAddress))
+        {
+            string[] splitChar = { "|" };
+            string[] results = smtpAlternative.Split(splitChar, StringSplitOptions.None);
+
+            foreach (var r in results)
+            {
+                var mail = r;
+                if (recipientAddress.Contains(mail))
+                {
+                    isAlternative = true;
+                    break;
+                }
+            }
+
+            if (isAlternative)
+            {
+                smtpClient.Port = int.Parse(ConfigurationManager.AppSettings.Get("mail_port"));
+                smtpClient.Host = ConfigurationManager.AppSettings.Get("mail_host");
+                credentials.UserName = ConfigurationManager.AppSettings.Get("mail_username");
+                credentials.Password = ConfigurationManager.AppSettings.Get("mail_password");
+
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = credentials;
+            }
+            else
+            {
+                message.Bcc.Add(new System.Net.Mail.MailAddress(bccAddress));
+            }
+
+            localResxMail = string.Format(localResxMail, string.IsNullOrEmpty(language) ? LanguageHelpers.SelectedLanguage : language);
+            var subject = HttpContext.GetLocalResourceObject(localResxMail, "lbl_subject") == null ? string.Empty : (string)HttpContext.GetLocalResourceObject(localResxMail, "lbl_subject");
+            var body = HttpContext.GetLocalResourceObject(localResxMail, "lbl_body") == null ? string.Empty : string.Format((string)HttpContext.GetLocalResourceObject(localResxMail, "lbl_body"), memberCode.Trim(), redemptionId);
+            message.From = new System.Net.Mail.MailAddress(senderAddress, senderName);
+            message.BodyEncoding = Encoding.UTF8;
+            message.IsBodyHtml = true;
+            message.Subject = subject;
+            message.Body = body;
+            smtpClient.Send(message);
         }
     }
 }

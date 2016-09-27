@@ -1,7 +1,7 @@
 ﻿<%@ Application Language="C#" %>
 <%@ Import Namespace="System.Web.Http" %>
 <%@ Import Namespace="System.Web.Routing" %>
-<%@ Import Namespace="W88.BusinessLogic" %>
+<%@ Import Namespace="W88.API" %>
 <%@ Import Namespace="W88.BusinessLogic.Shared.Helpers" %>
 
 <script RunAt="server">
