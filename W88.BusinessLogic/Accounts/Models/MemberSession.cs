@@ -20,6 +20,8 @@ namespace W88.BusinessLogic.Accounts.Models
         public string Token = string.Empty;
 
         public string MemberId = string.Empty;
+
+        public string RiskId = string.Empty;
     }
 
     public class UserSessionInfo 
@@ -42,6 +44,8 @@ namespace W88.BusinessLogic.Accounts.Models
         public string Token = string.Empty;
 
         public TokenStatus Status = new TokenStatus();
+
+        public string LanguageCode = string.Empty;
 
     }
 

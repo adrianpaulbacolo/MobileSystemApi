@@ -8,24 +8,24 @@ using W88.BusinessLogic.Base.Helpers;
 using W88.BusinessLogic.Shared.Helpers;
 using W88.WebRef.RewardsServices;
 
-namespace W88.Rewards.BusinessLogic.Shared.Helpers
+namespace W88.BusinessLogic.Rewards.Helpers
 {
     public class MailHelper : BaseHelper
     {
         public void SendMail(string memberCode, string redemptionId)
         {
             var recipientAddress = string.Empty;
-            var senderAddress = ConfigurationManager.AppSettings.Get("email_from");
-            var senderName = ConfigurationManager.AppSettings.Get("senderName");
-            var bccAddress = ConfigurationManager.AppSettings.Get("email_bcc");
-            var smtpAlternative = ConfigurationManager.AppSettings.Get("smtpAlternative");
+            var senderAddress = ConfigurationManager.AppSettings.Get("rewards_sender_address");
+            var senderName = ConfigurationManager.AppSettings.Get("rewards_sender_name");
+            var bccAddress = ConfigurationManager.AppSettings.Get("rewards_bcc_addresses");
+            var smtpAlternative = ConfigurationManager.AppSettings.Get("rewards_smtp_alternative");
             var isAlternative = false;
             var localResxMail = "~/redemption_mail.{0}.aspx";
             var language = string.Empty;
 
-            using (var sClientMember = new RewardsServicesClient())
+            using (var client = new RewardsServicesClient())
             {
-                var dataSet = sClientMember.getMemberInfo(OperatorId.ToString(CultureInfo.InvariantCulture), memberCode);
+                var dataSet = client.getMemberInfo(OperatorId.ToString(CultureInfo.InvariantCulture), memberCode);
 
                 foreach (DataRow dataRow in dataSet.Tables[0].Rows)
                 {
@@ -54,10 +54,10 @@ namespace W88.Rewards.BusinessLogic.Shared.Helpers
 
                 if (isAlternative)
                 {
-                    smtpClient.Port = int.Parse(ConfigurationManager.AppSettings.Get("mail_port"));
-                    smtpClient.Host = ConfigurationManager.AppSettings.Get("mail_host");
-                    credentials.UserName = ConfigurationManager.AppSettings.Get("mail_username");
-                    credentials.Password = ConfigurationManager.AppSettings.Get("mail_password");
+                    smtpClient.Port = int.Parse(ConfigurationManager.AppSettings.Get("rewards_mail_port"));
+                    smtpClient.Host = ConfigurationManager.AppSettings.Get("rewards_mail_host");
+                    credentials.UserName = ConfigurationManager.AppSettings.Get("rewards_mail_username");
+                    credentials.Password = ConfigurationManager.AppSettings.Get("rewards_mail_password");
 
                     smtpClient.UseDefaultCredentials = false;
                     smtpClient.Credentials = credentials;

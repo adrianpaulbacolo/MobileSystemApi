@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
+﻿using System.Web;
 using W88.Utilities.Geo;
 
 namespace W88.BusinessLogic.Shared.Helpers
@@ -25,6 +20,32 @@ namespace W88.BusinessLogic.Shared.Helpers
                 cookie.Value = value;
                 if (!string.IsNullOrEmpty(Ip.DomainName)) { cookie.Domain = Ip.DomainName; }
                 HttpContext.Current.Response.Cookies.Add(cookie);
+            }
+        }
+
+        public static string CookieProduct
+        {
+            get
+            {
+                var cookie = HttpContext.Current.Request.Cookies.Get("product");
+                return cookie == null ? "" : cookie.Value;
+            }
+            set
+            {
+                var cookie = HttpContext.Current.Request.Cookies.Get("product");
+                if (cookie == null)
+                {
+                    cookie = new HttpCookie("product");
+                    cookie.Value = value;
+                    if (!string.IsNullOrEmpty(Ip.DomainName)) { cookie.Domain = Ip.DomainName; }
+                    HttpContext.Current.Response.Cookies.Add(cookie);
+                }
+                else
+                {
+                    cookie.Value = value;
+                    if (!string.IsNullOrEmpty(Ip.DomainName)) { cookie.Domain = Ip.DomainName; }
+                    HttpContext.Current.Response.Cookies.Set(cookie);
+                }
             }
         }
     }

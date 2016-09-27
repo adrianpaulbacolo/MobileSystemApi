@@ -4,11 +4,11 @@ using System.Data;
 using System.Globalization;
 using W88.BusinessLogic.Base.Helpers;
 using W88.BusinessLogic.Shared.Helpers;
-using W88.Rewards.BusinessLogic.Rewards.Models;
+using W88.BusinessLogic.Accounts.Models;
 using W88.WebRef.RewardsServices;
-using MemberSession = W88.Rewards.BusinessLogic.Accounts.Models.MemberSession;
+using W88.BusinessLogic.Rewards.Models;
 
-namespace W88.Rewards.BusinessLogic.Rewards.Helpers
+namespace W88.BusinessLogic.Rewards.Helpers
 {
 
     /// <summary>

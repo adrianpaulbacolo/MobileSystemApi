@@ -1,6 +1,6 @@
 ﻿
 
-namespace W88.Rewards.BusinessLogic.Rewards.Models
+namespace W88.BusinessLogic.Rewards.Models
 {
     public class MemberRewardsInfo
     {
