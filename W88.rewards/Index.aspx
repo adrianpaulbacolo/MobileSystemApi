@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Index.aspx.cs" Inherits="_Index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Index.aspx.cs" Inherits="_Index" Async="true"%>
 <%@ Import Namespace="W88.BusinessLogic.Shared.Helpers" %>
 
 <!DOCTYPE html>
