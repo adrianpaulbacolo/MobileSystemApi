@@ -6,7 +6,6 @@
 <head>
     <title><%=CultureHelpers.ElementValues.GetResourceString("brand", LeftMenu).Replace(" -", "")%></title>
     <!--#include virtual="~/_static/head.inc" -->
-    <link type="text/css" href="/_Static/Css/IndexScroll.css" rel="stylesheet">
 </head>
 <body>
     <div data-role="page" data-theme="b">
