@@ -29,7 +29,7 @@ public partial class _Secure_Login : BasePage
                 RedirectUri = "/Index.aspx?lang=" + LanguageHelpers.SelectedLanguage;
                 if (HasSession)
                 {
-                    Response.Redirect(RedirectUri);                                   
+                    Response.Redirect(RedirectUri, false);                                   
                 }
             }
             catch (Exception ex)

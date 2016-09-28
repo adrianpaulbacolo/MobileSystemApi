@@ -62,7 +62,7 @@
         bool isHttpsOnly = ConfigurationManager.AppSettings.Get("httpsOnly").Equals("1");
         if (isHttpsOnly && !isSsl)
         {
-            Response.Redirect("https://" + Request.ServerVariables["HTTP_HOST"] + HttpContext.Current.Request.RawUrl);
+            Response.Redirect("https://" + Request.ServerVariables["HTTP_HOST"] + HttpContext.Current.Request.RawUrl, false);
         }
         if (!string.IsNullOrWhiteSpace(LanguageHelpers.SelectedLanguage)) return;
         var pageHeaders = new W88.Utilities.Geo.Location().CheckCdn(HttpContext.Current.Request);
