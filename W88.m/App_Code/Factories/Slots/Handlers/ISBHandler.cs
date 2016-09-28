@@ -42,6 +42,10 @@ namespace Factories.Slots.Handlers
                     languageCode = "chs";
                     break;
 
+                case "id-id":
+                    languageCode = "id";
+                    break;
+
                 case "th-th":
                     languageCode = "th";
                     break;
