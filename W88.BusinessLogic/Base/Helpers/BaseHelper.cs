@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Security.Permissions;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Caching;
@@ -22,11 +23,16 @@ namespace W88.BusinessLogic.Base.Helpers
         public UserSessionInfo UserInfo = new UserSessionInfo();
         public ProcessCode Process = new ProcessCode();
         public bool TokenIsValid = false;
+        public bool IsValidTokenHeader = false;
 
         public InitializeRequest(HttpRequestMessage request)
         {
             _token = request.GetHeader(Constants.VarNames.Token);
             UserInfo = new UserSessionInfo();
+
+            Guid tokenGuid;
+            var isValid = Guid.TryParse(_token, out tokenGuid);
+            if (isValid) IsValidTokenHeader = true;
         }
 
         public async Task GetMember()

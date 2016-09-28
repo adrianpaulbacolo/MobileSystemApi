@@ -41,16 +41,16 @@ namespace W88.Utilities.Log.Helpers
             }
         }
 
-        public static void AppendLog(Exception e)
+        public static void AppendLog(Exception ex)
         {
             if (!CheckIfLog(true)) return;
 
             _audit = new log
             {
                 log_file_path = auditLogFolder,
-                page_name = string.Format("{0}_{1}", e.TargetSite, DateTime.Now.ToString("yyyy-MM-dd HH00")),
-                process_error_detail = e.InnerException.ToString(),
-                process_remark = e.Message
+                page_name = string.Format("{0}_{1}", ex.TargetSite, DateTime.Now.ToString("yyyy-MM-dd HH00")),
+                process_error_detail = InnermostMessage(ex),
+                process_remark = ex.Message
             };
 
             _audit.inserting();
@@ -60,5 +60,20 @@ namespace W88.Utilities.Log.Helpers
         {
             return string.Compare(auditLog, "yes", true) == 0 || isSystemError;
         }
+
+        private static string InnermostMessage(Exception ex)
+        {
+            if (ex.InnerException == null) return ex.Message;
+
+            if (ex.InnerException.InnerException == null)
+                return ex.InnerException.Message;
+
+            if (ex.InnerException.InnerException.InnerException == null)
+                return ex.InnerException.InnerException.Message;
+
+            return ex.InnerException.InnerException.InnerException.Message;
+        }
+
+       
     }
 }
