@@ -3,6 +3,7 @@
 <%@ Import Namespace="System.Web.Routing" %>
 <%@ Import Namespace="W88.API" %>
 <%@ Import Namespace="W88.BusinessLogic.Shared.Helpers" %>
+<%@ Import Namespace="W88.Utilities" %>
 
 <script RunAt="server">
 
@@ -59,7 +60,7 @@
     {
         // Code that runs when a new session is started   
         bool isSsl = HttpContext.Current.Request.IsSecureConnection.Equals(true);
-        bool isHttpsOnly = ConfigurationManager.AppSettings.Get("httpsOnly").Equals("1");
+        bool isHttpsOnly = Common.GetAppSetting<string>("httpsOnly").Equals("1");
         if (isHttpsOnly && !isSsl)
         {
             Response.Redirect("https://" + Request.ServerVariables["HTTP_HOST"] + HttpContext.Current.Request.RawUrl, false);

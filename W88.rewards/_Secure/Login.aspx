@@ -95,7 +95,7 @@
                 timeout: function () {
                     $('#<%=btnSubmit.ClientID%>').prop('disabled', false);
                     showMessage('<%=CultureHelpers.ElementValues.GetResourceString("Exception", XeErrors)%>');
-                    window.location.replace('/Default.aspx');
+                    loadPage('/Default.aspx');
                 },
                 data: JSON.stringify({ 
                     UserInfo: {
@@ -111,7 +111,7 @@
                     }
 
                     if (response.ResponseData.ResetPassword) {
-                        loadPage('/Settings/ChangePassword.aspx?lang=<%=LanguageHelpers.SelectedLanguage.ToLower()%>','slide');
+                        loadPage('/Settings/ChangePassword.aspx?lang=<%=LanguageHelpers.SelectedLanguage.ToLower()%>');
                         return;
                     }
 

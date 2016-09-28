@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Configuration;
 using System.Data;
 using System.Globalization;
 using System.Linq;
@@ -8,6 +7,7 @@ using System.Text;
 using System.Web.UI;
 using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Shared.Helpers;
+using W88.Utilities;
 using W88.Utilities.Constant;
 using W88.Utilities.Log.Helpers;
 using W88.WebRef.RewardsServices;
@@ -312,7 +312,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         return false;
     }
 
-    private void SetProductInfo()
+    private async void SetProductInfo()
     {
         var memberCode = UserSessionInfo == null ? "" : UserSessionInfo.MemberCode;
         var countryCode = MemberSession == null ? "0" : MemberSession.CountryCode;
@@ -376,7 +376,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             }
 
             //vip cannot select quantity
-            var vipCategoryId = ConfigurationManager.AppSettings.Get("vipCategoryId");
+            var vipCategoryId = Common.GetAppSetting<string>("vipCategoryId");
             if (ProductDetails.CategoryId == vipCategoryId)
             {
                 tbQuantity.Enabled = false;
@@ -425,7 +425,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             }
 
             #region memberInfo
-            var redemptionDetails = RewardsHelper.GetMemberRedemptionDetails(memberCode);
+            var redemptionDetails = await RewardsHelper.GetMemberRedemptionDetails(memberCode);
             if (redemptionDetails == null)
             {
                 return;
@@ -453,10 +453,10 @@ public partial class Catalogue_Redeem : CatalogueBasePage
     private void SendMail(string memberCode, string redemptionId)
     {
         var recipientAddress = string.Empty;
-        var senderAddress = ConfigurationManager.AppSettings.Get("sender_address");
-        var senderName = ConfigurationManager.AppSettings.Get("sender_name");
-        var bccAddress = ConfigurationManager.AppSettings.Get("bcc_addresses");
-        var smtpAlternative = ConfigurationManager.AppSettings.Get("smtp_alternative");
+        var senderAddress = Common.GetAppSetting<string>("sender_address");
+        var senderName = Common.GetAppSetting<string>("sender_name");
+        var bccAddress = Common.GetAppSetting<string>("bcc_addresses");
+        var smtpAlternative = Common.GetAppSetting<string>("smtp_alternative");
         var isAlternative = false;
         var localResxMail = "~/redemption_mail.{0}.aspx";
         var language = string.Empty;
@@ -492,10 +492,10 @@ public partial class Catalogue_Redeem : CatalogueBasePage
 
             if (isAlternative)
             {
-                smtpClient.Port = int.Parse(ConfigurationManager.AppSettings.Get("mail_port"));
-                smtpClient.Host = ConfigurationManager.AppSettings.Get("mail_host");
-                credentials.UserName = ConfigurationManager.AppSettings.Get("mail_username");
-                credentials.Password = ConfigurationManager.AppSettings.Get("mail_password");
+                smtpClient.Port = int.Parse(Common.GetAppSetting<string>("mail_port"));
+                smtpClient.Host = Common.GetAppSetting<string>("mail_host");
+                credentials.UserName = Common.GetAppSetting<string>("mail_username");
+                credentials.Password = Common.GetAppSetting<string>("mail_password");
 
                 smtpClient.UseDefaultCredentials = false;
                 smtpClient.Credentials = credentials;
@@ -524,7 +524,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             MemberRewardsInfo = new MemberRewardsInfo();
         }
         MemberRewardsInfo.CurrentPoints = await MembersHelper.GetRewardsPoints(UserSessionInfo);
-        MemberRewardsInfo.CurrentPointLevel = RewardsHelper.GetPointLevel(MemberSession.MemberId);
+        MemberRewardsInfo.CurrentPointLevel = await RewardsHelper.GetPointLevel(MemberSession.MemberId);
         SetLabels();
         SetProductInfo();
     }
