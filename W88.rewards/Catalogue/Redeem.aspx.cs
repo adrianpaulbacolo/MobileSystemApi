@@ -89,6 +89,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
 
                 if (response == null)
                 {
+                    AlertCode = "FAIL";
                     AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lblPointCheckError");
                     return;
                 }
@@ -96,6 +97,8 @@ public partial class Catalogue_Redeem : CatalogueBasePage
                 switch (response.Result)
                 {
                     case RedemptionResultEnum.ConcurrencyDetected:
+                        AlertCode = "FAIL";
+                        AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lblPointCheckError");
                         break;
                     case RedemptionResultEnum.LimitReached:
                         AlertCode = "FAIL";
@@ -129,6 +132,8 @@ public partial class Catalogue_Redeem : CatalogueBasePage
                         }
                         break;
                     case RedemptionResultEnum.UnknownError:
+                        AlertCode = "FAIL";
+                        AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lblPointCheckError");
                         break;
                     case RedemptionResultEnum.PointCheckError:
                         AlertCode = "FAIL";
