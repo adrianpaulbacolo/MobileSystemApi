@@ -87,6 +87,24 @@
   <wsdl:message name="IMember_getBankAccounts_OutputMessage">
     <wsdl:part name="parameters" element="tns:getBankAccountsResponse" />
   </wsdl:message>
+  <wsdl:message name="IMember_getSecondaryBankAccounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:getSecondaryBankAccounts" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getSecondaryBankAccounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getSecondaryBankAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getBankLocations_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBankLocations" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getBankLocations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBankLocationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getBankBranches_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBankBranches" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getBankBranches_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBankBranchesResponse" />
+  </wsdl:message>
   <wsdl:message name="IMember_getLastDepositWireTransfer_InputMessage">
     <wsdl:part name="parameters" element="tns:getLastDepositWireTransfer" />
   </wsdl:message>
@@ -363,6 +381,18 @@
   <wsdl:message name="IMember_processMemberBaoKimWalletAccount_OutputMessage">
     <wsdl:part name="parameters" element="tns:processMemberBaoKimWalletAccountResponse" />
   </wsdl:message>
+  <wsdl:message name="IMember_GetMemberAvailableDepositMethods_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberAvailableDepositMethods" />
+  </wsdl:message>
+  <wsdl:message name="IMember_GetMemberAvailableDepositMethods_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberAvailableDepositMethodsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMember_GetMemberAvailableDepositMethods_Mobile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberAvailableDepositMethods_Mobile" />
+  </wsdl:message>
+  <wsdl:message name="IMember_GetMemberAvailableDepositMethods_Mobile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberAvailableDepositMethods_MobileResponse" />
+  </wsdl:message>
   <wsdl:portType name="IMember">
     <wsdl:operation name="getWallets">
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/getWallets" message="tns:IMember_getWallets_InputMessage" />
@@ -415,6 +445,18 @@
     <wsdl:operation name="getBankAccounts">
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/getBankAccounts" message="tns:IMember_getBankAccounts_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMember/getBankAccountsResponse" message="tns:IMember_getBankAccounts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getSecondaryBankAccounts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/getSecondaryBankAccounts" message="tns:IMember_getSecondaryBankAccounts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/getSecondaryBankAccountsResponse" message="tns:IMember_getSecondaryBankAccounts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBankLocations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/getBankLocations" message="tns:IMember_getBankLocations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/getBankLocationsResponse" message="tns:IMember_getBankLocations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBankBranches">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/getBankBranches" message="tns:IMember_getBankBranches_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/getBankBranchesResponse" message="tns:IMember_getBankBranches_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="getLastDepositWireTransfer">
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/getLastDepositWireTransfer" message="tns:IMember_getLastDepositWireTransfer_InputMessage" />
@@ -600,6 +642,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/processMemberBaoKimWalletAccount" message="tns:IMember_processMemberBaoKimWalletAccount_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMember/processMemberBaoKimWalletAccountResponse" message="tns:IMember_processMemberBaoKimWalletAccount_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetMemberAvailableDepositMethods">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/GetMemberAvailableDepositMethods" message="tns:IMember_GetMemberAvailableDepositMethods_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/GetMemberAvailableDepositMethodsResponse" message="tns:IMember_GetMemberAvailableDepositMethods_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberAvailableDepositMethods_Mobile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/GetMemberAvailableDepositMethods_Mobile" message="tns:IMember_GetMemberAvailableDepositMethods_Mobile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/GetMemberAvailableDepositMethods_MobileResponse" message="tns:IMember_GetMemberAvailableDepositMethods_Mobile_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IMember" type="tns:IMember">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -713,6 +763,33 @@
     </wsdl:operation>
     <wsdl:operation name="getBankAccounts">
       <soap:operation soapAction="http://tempuri.org/IMember/getBankAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSecondaryBankAccounts">
+      <soap:operation soapAction="http://tempuri.org/IMember/getSecondaryBankAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBankLocations">
+      <soap:operation soapAction="http://tempuri.org/IMember/getBankLocations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBankBranches">
+      <soap:operation soapAction="http://tempuri.org/IMember/getBankBranches" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1127,6 +1204,24 @@
     </wsdl:operation>
     <wsdl:operation name="processMemberBaoKimWalletAccount">
       <soap:operation soapAction="http://tempuri.org/IMember/processMemberBaoKimWalletAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberAvailableDepositMethods">
+      <soap:operation soapAction="http://tempuri.org/IMember/GetMemberAvailableDepositMethods" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberAvailableDepositMethods_Mobile">
+      <soap:operation soapAction="http://tempuri.org/IMember/GetMemberAvailableDepositMethods_Mobile" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
