@@ -137,7 +137,7 @@ public partial class Default : CatalogueBasePage
     protected override void SetLabels()
     {
         #region labels
-        if (!HasSession && UserSessionInfo == null)
+        if (!HasSession)
         {
             return;
         }

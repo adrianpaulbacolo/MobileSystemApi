@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using W88.BusinessLogic.Accounts.Helpers;
@@ -16,15 +17,21 @@ public class BasePage : Page
 
     protected override void OnPreInit(EventArgs e)
     {
-        if (string.Compare(System.Configuration.ConfigurationManager.AppSettings.Get("ClearWebCache"), "true", true) == 0)
+        try
         {
-            foreach (System.Collections.DictionaryEntry deCache in HttpContext.Current.Cache)
+            if (bool.Parse(Common.GetAppSetting<string>("ClearWebCache")))
             {
-                HttpContext.Current.Cache.Remove(Convert.ToString(deCache.Key));
+                foreach (System.Collections.DictionaryEntry deCache in HttpContext.Current.Cache)
+                {
+                    HttpContext.Current.Cache.Remove(Convert.ToString(deCache.Key));
+                }
             }
         }
-        CheckSession();
-        base.OnPreInit(e);
+        finally
+        {
+            CheckSession();
+            base.OnPreInit(e);
+        }
     }
 
     protected async void CheckSession()
