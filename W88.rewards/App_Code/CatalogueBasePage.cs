@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Web;
 using System.Xml.Linq;
+using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Shared.Helpers;
-using W88.Rewards.BusinessLogic.Rewards.Helpers;
 
 /// <summary>
 /// Summary description for CatalogueBasePage
@@ -13,7 +13,6 @@ public abstract class CatalogueBasePage : BasePage
     protected XElement XeErrors = null;
     protected string HeaderResx = "~/rewards.header.{0}.aspx";
     protected string LocalResx = "~/default.{0}.aspx";
-    protected RewardsHelper RewardsHelper = new RewardsHelper();
 
 	protected override void OnPreInit(EventArgs e)
 	{

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Detail.aspx.cs" Inherits="Catalogue_Detail" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Detail.aspx.cs" Inherits="Catalogue_Detail" Async="true"%>
 
 <!DOCTYPE html>
 <html>
@@ -81,10 +81,14 @@
         </form>
         <script type="text/javascript">
             function VIPOnly() {
-                window.w88Mobile.Growl.shout('<%= VipOnly %>');
+                var message = '<%= VipOnly %>';
+                if (_.isEmpty(message)) return;
+                window.w88Mobile.Growl.shout(message);
             }
             function Error() {
-                window.w88Mobile.Growl.shout('<%= Errormsg %>');
+                var message = '<%= Errormsg %>';
+                if (_.isEmpty(message)) return;
+                window.w88Mobile.Growl.shout(message);
             }
             $('#validButton').on('click', function () {
                 window.location.href = '<%= RedirectUri %>';

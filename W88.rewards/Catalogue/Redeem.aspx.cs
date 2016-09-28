@@ -163,7 +163,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
     protected override void SetLabels()
     {
         #region labels
-        if (!HasSession && UserSessionInfo == null)
+        if (!HasSession)
         {
             return;
         }
@@ -325,7 +325,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             ProductType = ProductDetails.ProductType;
             if (ProductType == "1" && (ProductDetails.CurrencyCode != currencyCode))
             {
-                Response.Redirect("/Catalogue?categoryId=53&sortBy=2");
+                Response.Redirect("/Catalogue?categoryId=53&sortBy=2", false);
                 return;
             }
 
@@ -333,7 +333,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             {
                 if (!ProductDetails.CountryCode.Contains(countryCode))
                 {
-                    Response.Redirect("/Catalogue?categoryId=" + ProductDetails.CategoryId + "&sortBy=2");
+                    Response.Redirect("/Catalogue?categoryId=" + ProductDetails.CategoryId + "&sortBy=2", false);
                     return;
                 }
             }

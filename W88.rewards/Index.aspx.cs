@@ -4,11 +4,11 @@ using System.Web;
 
 public partial class _Index : CatalogueBasePage
 {
-    protected void Page_Load(object sender, EventArgs e)
+    protected async void Page_Load(object sender, EventArgs e)
     {
         SetLabels();
         #region Catalogue          
-        Listview1.DataSource = RewardsHelper.GetCatalogueSet(MemberSession);
+        Listview1.DataSource = await RewardsHelper.GetCatalogueSet(MemberSession);
         Listview1.DataBind();
         #endregion
     }
@@ -16,7 +16,7 @@ public partial class _Index : CatalogueBasePage
     protected override void SetLabels()
     {
         #region labels
-        if (!HasSession && UserSessionInfo == null)
+        if (!HasSession)
         {
             return;
         }

@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Web;
 using System.Web.UI;
+using W88.BusinessLogic.Accounts.Helpers;
 using W88.BusinessLogic.Accounts.Models;
-using W88.Rewards.BusinessLogic.Accounts.Helpers;
-using W88.Rewards.BusinessLogic.Rewards.Helpers;
-using W88.Rewards.BusinessLogic.Rewards.Models;
+using W88.BusinessLogic.Rewards.Helpers;
+using W88.BusinessLogic.Rewards.Models;
 using W88.Utilities;
-using MemberSession = W88.Rewards.BusinessLogic.Accounts.Models.MemberSession;
 
 public class BasePage : Page
 {
@@ -14,26 +13,29 @@ public class BasePage : Page
     protected MemberSession MemberSession = null;
     protected UserSessionInfo UserSessionInfo = null;
     protected MemberRewardsInfo MemberRewardsInfo = null;
+    protected Members MembersHelper = new Members();
+    protected RewardsHelper RewardsHelper = new RewardsHelper();
 
     protected override void OnPreInit(EventArgs e)
     {
-        if (string.Compare(System.Configuration.ConfigurationManager.AppSettings.Get("ClearWebCache"), "true", true) == 0)
+        try
         {
-            foreach (System.Collections.DictionaryEntry deCache in HttpContext.Current.Cache)
+            if (bool.Parse(Common.GetAppSetting<string>("ClearWebCache")))
             {
-                HttpContext.Current.Cache.Remove(Convert.ToString(deCache.Key));
+                foreach (System.Collections.DictionaryEntry deCache in HttpContext.Current.Cache)
+                {
+                    HttpContext.Current.Cache.Remove(Convert.ToString(deCache.Key));
+                }
             }
         }
-        CheckSession();
-        base.OnPreInit(e);
+        finally
+        {
+            CheckSession();
+            base.OnPreInit(e);
+        }
     }
 
-    protected override void OnLoad(EventArgs e)
-    {
-        base.OnLoad(e);
-    }
-
-    protected void CheckSession()
+    protected async void CheckSession()
     {
         try
         {
@@ -42,18 +44,17 @@ public class BasePage : Page
             {
                 var cookie = HttpContext.Current.Request.Cookies["user"];
                 if (cookie == null) return;
-                var user = Common.DeserializeObject<W88.BusinessLogic.Accounts.Models.MemberSession>(cookie.Value);
+                var user = Common.DeserializeObject<MemberSession>(cookie.Value);
                 if (user == null) return;
                 token = user.Token;
             }
 
             if (string.IsNullOrEmpty(token)) return;
-            var memberHelper = new Members();
-            var processCode = memberHelper.MembersSessionCheck(token);
+            var processCode = await MembersHelper.MembersSessionCheck(token);
             HasSession = processCode.Code == 1;
             if (!HasSession) return;
             MemberSession = processCode.Data;
-            UserSessionInfo = memberHelper.GetMemberInfo(token);
+            UserSessionInfo = await MembersHelper.GetMemberInfo(token);
             SetMemberRewardsInfo();
         }
         catch (Exception exception)
@@ -62,11 +63,11 @@ public class BasePage : Page
         }
     }
 
-    protected void SetMemberRewardsInfo()
+    protected async void SetMemberRewardsInfo()
     {
         if (MemberSession == null || UserSessionInfo == null) return;
         MemberRewardsInfo = new MemberRewardsInfo();
-        MemberRewardsInfo.CurrentPoints = (new Members()).GetRewardsPoints(UserSessionInfo);
-        MemberRewardsInfo.CurrentPointLevel = (new RewardsHelper()).GetPointLevel(MemberSession.MemberId);
+        MemberRewardsInfo.CurrentPoints = await MembersHelper.GetRewardsPoints(UserSessionInfo);
+        MemberRewardsInfo.CurrentPointLevel = await RewardsHelper.GetPointLevel(MemberSession.MemberId);
     }
 }
