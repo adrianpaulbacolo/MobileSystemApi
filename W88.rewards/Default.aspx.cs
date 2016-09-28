@@ -21,7 +21,7 @@ public partial class _Default : BasePage
         {
             // Do logout logic here
             ClearCookies();
-            Response.Redirect("/Default.aspx", true);
+            Response.Redirect("/Default.aspx", false);
         }
         if (string.Compare(Convert.ToString(RouteData.DataTokens["expire"]), "true", true) == 0)
         {
@@ -37,11 +37,11 @@ public partial class _Default : BasePage
 
         if (HasSession)
         {
-            Response.Redirect("/Index.aspx?lang=" + LanguageHelpers.SelectedLanguage, true);
+            Response.Redirect("/Index.aspx?lang=" + LanguageHelpers.SelectedLanguage, false);
         }
         if (string.IsNullOrEmpty(selectedLanguage))
         {
-            Response.Redirect("/Lang.aspx", true);
+            Response.Redirect("/Lang.aspx", false);
         }
     }
 
