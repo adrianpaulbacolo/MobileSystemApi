@@ -13,9 +13,9 @@ public partial class Default : CatalogueBasePage
         GetProducts();
     }
 
-    private void SetCatalogueList()
+    private async void SetCatalogueList()
     {
-        var catalogueSet = RewardsHelper.GetCatalogueSet(MemberSession);
+        var catalogueSet = await RewardsHelper.GetCatalogueSet(MemberSession);
         CategoryListView.DataSource = catalogueSet.Tables[0];
         var dataTable = (DataTable)CategoryListView.DataSource;
         DataRow dataRowAll = dataTable.NewRow();
@@ -27,7 +27,7 @@ public partial class Default : CatalogueBasePage
         CategoryListView.DataBind();
     }
 
-    private void GetProducts()
+    private async void GetProducts()
     {
         try {
             var categoryId = string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("categoryId")) ? "0" : HttpContext.Current.Request.QueryString.Get("categoryId");
@@ -41,7 +41,7 @@ public partial class Default : CatalogueBasePage
             var pointLevelDiscount = 0;
             var totalCount = 0;
 
-            var dataSet = RewardsHelper.GetProductSearch(
+            var dataSet = await RewardsHelper.GetProductSearch(
                 MemberSession, 
                 categoryId, 
                 pointsFrom, 
@@ -60,7 +60,7 @@ public partial class Default : CatalogueBasePage
 
             if (HasSession)
             {
-                pointLevelDiscount = RewardsHelper.GetMemberPointLevelDiscount(MemberSession);
+                pointLevelDiscount = await RewardsHelper.GetMemberPointLevelDiscount(MemberSession);
             }
 
             if (!dataSet.Tables[0].Columns.Contains("redemptionValidity"))

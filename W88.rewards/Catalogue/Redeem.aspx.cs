@@ -1,17 +1,17 @@
 ﻿using System;
-using System.Configuration;
 using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Text;
 using System.Web.UI;
+using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Shared.Helpers;
+using W88.Utilities;
 using W88.Utilities.Constant;
 using W88.Utilities.Log.Helpers;
 using W88.WebRef.RewardsServices;
 using W88.BusinessLogic.Rewards.Models;
-using W88.BusinessLogic.Rewards.Helpers;
 
 public partial class Catalogue_Redeem : CatalogueBasePage
 {
@@ -28,10 +28,9 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         {
             return;
         }
-
         SetLabels();
-        SetFields();
-        GetProductDetails();        
+        SetProductInfo();
+        InitFields();       
     }
 
     protected void RedeemButtonOnClick(object sender, EventArgs e)
@@ -65,6 +64,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         }
 
         #region redeem product
+
         try
         {
             using (var client = new RewardsServicesClient())
@@ -89,29 +89,32 @@ public partial class Catalogue_Redeem : CatalogueBasePage
 
                 if (response == null)
                 {
-                    AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lblPointCheckError");
+                    AlertCode = "FAIL";
+                    AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lblPointCheckError");
                     return;
                 }
 
                 switch (response.Result)
                 {
                     case RedemptionResultEnum.ConcurrencyDetected:
+                        AlertCode = "FAIL";
+                        AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lblPointCheckError");
                         break;
                     case RedemptionResultEnum.LimitReached:
                         AlertCode = "FAIL";
-                        AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_redemption_limit_reached");
+                        AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lbl_redemption_limit_reached");
                         break;
                     case RedemptionResultEnum.VIPSuccessLimitReached:
                         AlertCode = "FAIL";
-                        AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_redemption_success_limit_reached");
+                        AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lbl_redemption_success_limit_reached");
                         break;
                     case RedemptionResultEnum.VIPProcessingLimitReached:
                         AlertCode = "FAIL";
-                        AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lblPoints_insufficient");
+                        AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lblPoints_insufficient");
                         break;
                     case RedemptionResultEnum.PointIsufficient:
                         AlertCode = "FAIL";
-                        AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lblPoints_insufficient");
+                        AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lblPoints_insufficient");
                         break;
                     case RedemptionResultEnum.Success:
                         AlertCode = "SUCCESS";
@@ -121,20 +124,20 @@ public partial class Catalogue_Redeem : CatalogueBasePage
                             {
                                 SendMail(memberCode, redemptionItemId.ToString(CultureInfo.InvariantCulture));
                             }
-                            AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem_success_processed");
+                            AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem_success_processed");
                         }
                         else
                         {
-                            AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem_success_submit");
-                        }                         
-                        SetMemberRewardsInfo();
-                        SetLabels();
+                            AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem_success_submit");
+                        }
                         break;
                     case RedemptionResultEnum.UnknownError:
+                        AlertCode = "FAIL";
+                        AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lblPointCheckError");
                         break;
                     case RedemptionResultEnum.PointCheckError:
                         AlertCode = "FAIL";
-                        AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lblPointCheckError");
+                        AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lblPointCheckError");
                         break;
                 }
 
@@ -142,22 +145,21 @@ public partial class Catalogue_Redeem : CatalogueBasePage
                 var redeemId = response.RedemptionIds != null ? String.Join("|", response.RedemptionIds.ToArray()) : "";
                 var remark = "Product Id:" + lblproductid.Value + "; Points Required:" + pointsRequired + "; Quantity:" + tbQuantity.Text.Trim();
                 var detail = ";Redeem Result:" + response.Result + ";RedeemId:" + redeemId + ";Type:" + productTypeEnum;
-                var sessionId = HasSession ? MemberSession.Token : string.Empty;                   
+                var sessionId = HasSession ? MemberSession.Token : string.Empty;
                 AuditTrail.AppendLog(memberCode, "/Catalogue/Redeem.aspx", "Redeem Now", "Catalogue/Redeem", string.Empty, detail, "-", string.Empty, remark, string.Empty, sessionId, true);
-            }         
+            }
         }
         catch (Exception exception)
         {
             AlertCode = "FAIL";
-            AlertMessage = HttpContext.GetLocalResourceObject(LocalResx, "lbl_Exception").ToString();          
+            AlertMessage = HttpContext.GetLocalResourceObject(LocalResx, "lbl_Exception").ToString();
             AuditTrail.AppendLog(memberCode, "/Catalogue/Redeem.aspx", "Redeem Now", "Catalogue/Redeem", string.Empty, string.Empty, string.Empty, exception.Message, (new Guid()).ToString(), string.Empty, string.Empty, true);
         }
-
-        var scriptBuilder = new StringBuilder();
-        scriptBuilder.Append("setTimeout(function() {showMessage('")
-            .Append(AlertCode + "','")
-            .Append(AlertMessage + "');}, 300);");
-        ScriptManager.RegisterStartupScript(Page, GetType(), (new Guid()).ToString(), scriptBuilder.ToString(), true);
+        finally
+        {
+            RefreshPoints();
+            ShowMessage(AlertCode, AlertMessage);
+        }
         #endregion
     }
 
@@ -195,7 +197,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         #endregion
     }
 
-    private void SetFields()
+    private void InitFields()
     {
         #region fields
         const string colon = ":";
@@ -315,7 +317,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         return false;
     }
 
-    private void GetProductDetails()
+    private async void SetProductInfo()
     {
         var memberCode = UserSessionInfo == null ? "" : UserSessionInfo.MemberCode;
         var countryCode = MemberSession == null ? "0" : MemberSession.CountryCode;
@@ -379,7 +381,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             }
 
             //vip cannot select quantity
-            var vipCategoryId = ConfigurationManager.AppSettings.Get("vipCategoryId");
+            var vipCategoryId = Common.GetAppSetting<string>("vipCategoryId");
             if (ProductDetails.CategoryId == vipCategoryId)
             {
                 tbQuantity.Enabled = false;
@@ -428,7 +430,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             }
 
             #region memberInfo
-            var redemptionDetails = RewardsHelper.GetMemberRedemptionDetails(memberCode);
+            var redemptionDetails = await RewardsHelper.GetMemberRedemptionDetails(memberCode);
             if (redemptionDetails == null)
             {
                 return;
@@ -456,10 +458,10 @@ public partial class Catalogue_Redeem : CatalogueBasePage
     private void SendMail(string memberCode, string redemptionId)
     {
         var recipientAddress = string.Empty;
-        var senderAddress = ConfigurationManager.AppSettings.Get("sender_address");
-        var senderName = ConfigurationManager.AppSettings.Get("sender_name");
-        var bccAddress = ConfigurationManager.AppSettings.Get("bcc_addresses");
-        var smtpAlternative = ConfigurationManager.AppSettings.Get("smtp_alternative");
+        var senderAddress = Common.GetAppSetting<string>("sender_address");
+        var senderName = Common.GetAppSetting<string>("sender_name");
+        var bccAddress = Common.GetAppSetting<string>("bcc_addresses");
+        var smtpAlternative = Common.GetAppSetting<string>("smtp_alternative");
         var isAlternative = false;
         var localResxMail = "~/redemption_mail.{0}.aspx";
         var language = string.Empty;
@@ -495,10 +497,10 @@ public partial class Catalogue_Redeem : CatalogueBasePage
 
             if (isAlternative)
             {
-                smtpClient.Port = int.Parse(ConfigurationManager.AppSettings.Get("mail_port"));
-                smtpClient.Host = ConfigurationManager.AppSettings.Get("mail_host");
-                credentials.UserName = ConfigurationManager.AppSettings.Get("mail_username");
-                credentials.Password = ConfigurationManager.AppSettings.Get("mail_password");
+                smtpClient.Port = int.Parse(Common.GetAppSetting<string>("mail_port"));
+                smtpClient.Host = Common.GetAppSetting<string>("mail_host");
+                credentials.UserName = Common.GetAppSetting<string>("mail_username");
+                credentials.Password = Common.GetAppSetting<string>("mail_password");
 
                 smtpClient.UseDefaultCredentials = false;
                 smtpClient.Credentials = credentials;
@@ -518,6 +520,27 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             message.Body = body;
             smtpClient.Send(message);
         }
+    }
+
+    private async void RefreshPoints()
+    {
+        if (MemberRewardsInfo == null)
+        {
+            MemberRewardsInfo = new MemberRewardsInfo();
+        }
+        MemberRewardsInfo.CurrentPoints = await MembersHelper.GetRewardsPoints(UserSessionInfo);
+        MemberRewardsInfo.CurrentPointLevel = await RewardsHelper.GetPointLevel(MemberSession.MemberId);
+        SetLabels();
+        SetProductInfo();
+    }
+
+    private void ShowMessage(string alertCode, string alertMessage)
+    {
+        var scriptBuilder = new StringBuilder();
+        scriptBuilder.Append("setTimeout(function() {showMessage('")
+            .Append(alertCode + "','")
+            .Append(alertMessage + "');}, 300);");
+        ScriptManager.RegisterStartupScript(Page, GetType(), (new Guid()).ToString(), scriptBuilder.ToString(), true);
     }
 }
 

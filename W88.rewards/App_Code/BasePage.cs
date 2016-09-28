@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 using System.Web;
 using System.Web.UI;
 using W88.BusinessLogic.Accounts.Helpers;
@@ -14,6 +13,8 @@ public class BasePage : Page
     protected MemberSession MemberSession = null;
     protected UserSessionInfo UserSessionInfo = null;
     protected MemberRewardsInfo MemberRewardsInfo = null;
+    protected Members MembersHelper = new Members();
+    protected RewardsHelper RewardsHelper = new RewardsHelper();
 
     protected override void OnPreInit(EventArgs e)
     {
@@ -49,12 +50,11 @@ public class BasePage : Page
             }
 
             if (string.IsNullOrEmpty(token)) return;
-            var memberHelper = new Members();
-            var processCode = await memberHelper.MembersSessionCheck(token);
+            var processCode = await MembersHelper.MembersSessionCheck(token);
             HasSession = processCode.Code == 1;
             if (!HasSession) return;
             MemberSession = processCode.Data;
-            UserSessionInfo = await memberHelper.GetMemberInfo(token);
+            UserSessionInfo = await MembersHelper.GetMemberInfo(token);
             SetMemberRewardsInfo();
         }
         catch (Exception exception)
@@ -67,7 +67,7 @@ public class BasePage : Page
     {
         if (MemberSession == null || UserSessionInfo == null) return;
         MemberRewardsInfo = new MemberRewardsInfo();
-        MemberRewardsInfo.CurrentPoints = await (new Members()).GetRewardsPoints(UserSessionInfo);
-        MemberRewardsInfo.CurrentPointLevel = (new RewardsHelper()).GetPointLevel(MemberSession.MemberId);
+        MemberRewardsInfo.CurrentPoints = await MembersHelper.GetRewardsPoints(UserSessionInfo);
+        MemberRewardsInfo.CurrentPointLevel = await RewardsHelper.GetPointLevel(MemberSession.MemberId);
     }
 }

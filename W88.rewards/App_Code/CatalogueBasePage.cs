@@ -13,7 +13,6 @@ public abstract class CatalogueBasePage : BasePage
     protected XElement XeErrors = null;
     protected string HeaderResx = "~/rewards.header.{0}.aspx";
     protected string LocalResx = "~/default.{0}.aspx";
-    protected RewardsHelper RewardsHelper = new RewardsHelper();
 
 	protected override void OnPreInit(EventArgs e)
 	{
