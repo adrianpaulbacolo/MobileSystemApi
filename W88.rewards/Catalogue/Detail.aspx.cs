@@ -17,15 +17,15 @@ public partial class Catalogue_Detail : CatalogueBasePage
     protected void Page_Load(object sender, EventArgs e)
     {
         SetLabels();
-        SetElementValues();     
+        SetProductInfo();     
     }
 
-    private void SetElementValues()
+    private async void SetProductInfo()
     {
         try
         {
             var productId = HttpContext.Current.Request.QueryString.Get("id");
-            var productDetails = (new RewardsHelper()).GetProductDetails(MemberSession, productId, HasSession);
+            var productDetails = await RewardsHelper.GetProductDetails(MemberSession, productId, HasSession);
 
             if (productDetails == null)
             {
@@ -42,7 +42,7 @@ public partial class Catalogue_Detail : CatalogueBasePage
                 var vipCategoryId = Common.GetAppSetting<string>("vipCategoryId");
                 if (productDetails.CategoryId.Equals(vipCategoryId))
                 {
-                    var redemptionLimitResult = RewardsHelper.CheckRedemptionLimitForVipCategory(UserSessionInfo.MemberCode, vipCategoryId);
+                    var redemptionLimitResult = await RewardsHelper.CheckRedemptionLimitForVipCategory(UserSessionInfo.MemberCode, vipCategoryId);
 
                     switch (redemptionLimitResult)
                     {
@@ -100,6 +100,9 @@ public partial class Catalogue_Detail : CatalogueBasePage
     protected override void SetLabels()
     {
         VipOnly = HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem_vip").ToString();
+        const string colon = ":";
+        lbcurr.Text = HttpContext.GetLocalResourceObject(LocalResx, "lbl_currency") + colon;
+        lbperiod.Text = HttpContext.GetLocalResourceObject(LocalResx, "lbl_delivery_period").ToString();
 
         #region labels
         if (!HasSession)
@@ -136,9 +139,5 @@ public partial class Catalogue_Detail : CatalogueBasePage
         {
             lblDescription.Text = HttpContext.Current.Request.QueryString.Get("id");
         }
-
-        const string colon = ":";
-        lbcurr.Text = HttpContext.GetLocalResourceObject(LocalResx, "lbl_currency") + colon;
-        lbperiod.Text = HttpContext.GetLocalResourceObject(LocalResx, "lbl_delivery_period").ToString();
     }
 }

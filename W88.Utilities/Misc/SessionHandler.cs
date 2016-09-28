@@ -7,6 +7,8 @@ namespace W88.Utilities
     {
         internal static string GetSessionVariable(string key)
         {
+            if (HttpContext.Current.Session == null) return "";
+
             return string.IsNullOrEmpty(HttpContext.Current.Session[key] as string)
                 ? ""
                 : Convert.ToString(HttpContext.Current.Session[key]);

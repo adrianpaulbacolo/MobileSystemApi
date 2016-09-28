@@ -265,6 +265,12 @@
     <None Include="Service References\svcPayMember\W88.WebRef.svcPayMember.getBankAccountsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\svcPayMember\W88.WebRef.svcPayMember.getBankBranchesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcPayMember\W88.WebRef.svcPayMember.getBankLocationsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\svcPayMember\W88.WebRef.svcPayMember.getDepositWithdrawalHistoryResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -295,6 +301,9 @@
     <None Include="Service References\svcPayMember\W88.WebRef.svcPayMember.getPendingWithdrawalResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\svcPayMember\W88.WebRef.svcPayMember.getSecondaryBankAccountsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\svcPayMember\W88.WebRef.svcPayMember.getWalletBalanceResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -302,6 +311,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\svcPayMember\W88.WebRef.svcPayMember.MemberBank.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcPayMember\W88.WebRef.svcPayMember.MemberSecondaryBank.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\svcPayMember\W88.WebRef.svcPayMember.PendingWithdrawal.datasource">
