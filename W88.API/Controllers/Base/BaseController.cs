@@ -22,8 +22,12 @@ namespace W88.API
         [NonAction]
         protected async Task<bool> CheckToken(HttpRequestMessage request)
         {
+         
             UserRequest = new InitializeRequest(request);
-            await UserRequest.GetMember();
+
+            if (UserRequest.IsValidTokenHeader)
+                await UserRequest.GetMember();    
+            
             return UserRequest.TokenIsValid;
         }
 

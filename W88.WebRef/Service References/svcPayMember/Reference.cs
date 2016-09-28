@@ -92,6 +92,99 @@ namespace W88.WebRef.svcPayMember {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MemberSecondaryBank", Namespace="http://schemas.datacontract.org/2004/07/Services")]
+    [System.SerializableAttribute()]
+    public partial class MemberSecondaryBank : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string bankCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long bankIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string bankNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string bankNameNativeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string bankCode {
+            get {
+                return this.bankCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.bankCodeField, value) != true)) {
+                    this.bankCodeField = value;
+                    this.RaisePropertyChanged("bankCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long bankId {
+            get {
+                return this.bankIdField;
+            }
+            set {
+                if ((this.bankIdField.Equals(value) != true)) {
+                    this.bankIdField = value;
+                    this.RaisePropertyChanged("bankId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string bankName {
+            get {
+                return this.bankNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.bankNameField, value) != true)) {
+                    this.bankNameField = value;
+                    this.RaisePropertyChanged("bankName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string bankNameNative {
+            get {
+                return this.bankNameNativeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.bankNameNativeField, value) != true)) {
+                    this.bankNameNativeField = value;
+                    this.RaisePropertyChanged("bankNameNative");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PendingWithdrawal", Namespace="http://schemas.datacontract.org/2004/07/Services")]
     [System.SerializableAttribute()]
     public partial class PendingWithdrawal : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -306,6 +399,27 @@ namespace W88.WebRef.svcPayMember {
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMember/getBankAccounts", ReplyAction="http://tempuri.org/IMember/getBankAccountsResponse")]
         System.Threading.Tasks.Task<W88.WebRef.svcPayMember.getBankAccountsResponse> getBankAccountsAsync(W88.WebRef.svcPayMember.getBankAccountsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMember/getSecondaryBankAccounts", ReplyAction="http://tempuri.org/IMember/getSecondaryBankAccountsResponse")]
+        W88.WebRef.svcPayMember.getSecondaryBankAccountsResponse getSecondaryBankAccounts(W88.WebRef.svcPayMember.getSecondaryBankAccountsRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMember/getSecondaryBankAccounts", ReplyAction="http://tempuri.org/IMember/getSecondaryBankAccountsResponse")]
+        System.Threading.Tasks.Task<W88.WebRef.svcPayMember.getSecondaryBankAccountsResponse> getSecondaryBankAccountsAsync(W88.WebRef.svcPayMember.getSecondaryBankAccountsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMember/getBankLocations", ReplyAction="http://tempuri.org/IMember/getBankLocationsResponse")]
+        W88.WebRef.svcPayMember.getBankLocationsResponse getBankLocations(W88.WebRef.svcPayMember.getBankLocationsRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMember/getBankLocations", ReplyAction="http://tempuri.org/IMember/getBankLocationsResponse")]
+        System.Threading.Tasks.Task<W88.WebRef.svcPayMember.getBankLocationsResponse> getBankLocationsAsync(W88.WebRef.svcPayMember.getBankLocationsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMember/getBankBranches", ReplyAction="http://tempuri.org/IMember/getBankBranchesResponse")]
+        W88.WebRef.svcPayMember.getBankBranchesResponse getBankBranches(W88.WebRef.svcPayMember.getBankBranchesRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMember/getBankBranches", ReplyAction="http://tempuri.org/IMember/getBankBranchesResponse")]
+        System.Threading.Tasks.Task<W88.WebRef.svcPayMember.getBankBranchesResponse> getBankBranchesAsync(W88.WebRef.svcPayMember.getBankBranchesRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMember/getLastDepositWireTransfer", ReplyAction="http://tempuri.org/IMember/getLastDepositWireTransferResponse")]
         W88.WebRef.svcPayMember.getLastDepositWireTransferResponse getLastDepositWireTransfer(W88.WebRef.svcPayMember.getLastDepositWireTransferRequest request);
@@ -605,6 +719,18 @@ namespace W88.WebRef.svcPayMember {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMember/processMemberBaoKimWalletAccount", ReplyAction="http://tempuri.org/IMember/processMemberBaoKimWalletAccountResponse")]
         System.Threading.Tasks.Task<System.Xml.Linq.XElement> processMemberBaoKimWalletAccountAsync(string memberCode, string email, string action);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMember/GetMemberAvailableDepositMethods", ReplyAction="http://tempuri.org/IMember/GetMemberAvailableDepositMethodsResponse")]
+        System.Data.DataTable GetMemberAvailableDepositMethods(long operatorId, string memberCode, string memberCurrency, string languageCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMember/GetMemberAvailableDepositMethods", ReplyAction="http://tempuri.org/IMember/GetMemberAvailableDepositMethodsResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> GetMemberAvailableDepositMethodsAsync(long operatorId, string memberCode, string memberCurrency, string languageCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMember/GetMemberAvailableDepositMethods_Mobile", ReplyAction="http://tempuri.org/IMember/GetMemberAvailableDepositMethods_MobileResponse")]
+        System.Data.DataTable GetMemberAvailableDepositMethods_Mobile(long operatorId, string memberCode, string memberCurrency, string languageCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMember/GetMemberAvailableDepositMethods_Mobile", ReplyAction="http://tempuri.org/IMember/GetMemberAvailableDepositMethods_MobileResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> GetMemberAvailableDepositMethods_MobileAsync(long operatorId, string memberCode, string memberCurrency, string languageCode);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1126,6 +1252,138 @@ namespace W88.WebRef.svcPayMember {
         
         public getBankAccountsResponse(W88.WebRef.svcPayMember.MemberBank[] getBankAccountsResult, string statusCode, string statusText) {
             this.getBankAccountsResult = getBankAccountsResult;
+            this.statusCode = statusCode;
+            this.statusText = statusText;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getSecondaryBankAccounts", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getSecondaryBankAccountsRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public long operatorId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string currencyCode;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string countryCode;
+        
+        public getSecondaryBankAccountsRequest() {
+        }
+        
+        public getSecondaryBankAccountsRequest(long operatorId, string currencyCode, string countryCode) {
+            this.operatorId = operatorId;
+            this.currencyCode = currencyCode;
+            this.countryCode = countryCode;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getSecondaryBankAccountsResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getSecondaryBankAccountsResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public W88.WebRef.svcPayMember.MemberSecondaryBank[] getSecondaryBankAccountsResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string statusCode;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string statusText;
+        
+        public getSecondaryBankAccountsResponse() {
+        }
+        
+        public getSecondaryBankAccountsResponse(W88.WebRef.svcPayMember.MemberSecondaryBank[] getSecondaryBankAccountsResult, string statusCode, string statusText) {
+            this.getSecondaryBankAccountsResult = getSecondaryBankAccountsResult;
+            this.statusCode = statusCode;
+            this.statusText = statusText;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getBankLocations", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getBankLocationsRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public long bankId;
+        
+        public getBankLocationsRequest() {
+        }
+        
+        public getBankLocationsRequest(long bankId) {
+            this.bankId = bankId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getBankLocationsResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getBankLocationsResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public System.Data.DataTable getBankLocationsResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string statusCode;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string statusText;
+        
+        public getBankLocationsResponse() {
+        }
+        
+        public getBankLocationsResponse(System.Data.DataTable getBankLocationsResult, string statusCode, string statusText) {
+            this.getBankLocationsResult = getBankLocationsResult;
+            this.statusCode = statusCode;
+            this.statusText = statusText;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getBankBranches", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getBankBranchesRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public long bankId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public System.Nullable<long> bankLocationId;
+        
+        public getBankBranchesRequest() {
+        }
+        
+        public getBankBranchesRequest(long bankId, System.Nullable<long> bankLocationId) {
+            this.bankId = bankId;
+            this.bankLocationId = bankLocationId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getBankBranchesResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getBankBranchesResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public System.Data.DataTable getBankBranchesResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string statusCode;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string statusText;
+        
+        public getBankBranchesResponse() {
+        }
+        
+        public getBankBranchesResponse(System.Data.DataTable getBankBranchesResult, string statusCode, string statusText) {
+            this.getBankBranchesResult = getBankBranchesResult;
             this.statusCode = statusCode;
             this.statusText = statusText;
         }
@@ -2374,6 +2632,63 @@ namespace W88.WebRef.svcPayMember {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        W88.WebRef.svcPayMember.getSecondaryBankAccountsResponse W88.WebRef.svcPayMember.IMember.getSecondaryBankAccounts(W88.WebRef.svcPayMember.getSecondaryBankAccountsRequest request) {
+            return base.Channel.getSecondaryBankAccounts(request);
+        }
+        
+        public W88.WebRef.svcPayMember.MemberSecondaryBank[] getSecondaryBankAccounts(long operatorId, string currencyCode, string countryCode, out string statusCode, out string statusText) {
+            W88.WebRef.svcPayMember.getSecondaryBankAccountsRequest inValue = new W88.WebRef.svcPayMember.getSecondaryBankAccountsRequest();
+            inValue.operatorId = operatorId;
+            inValue.currencyCode = currencyCode;
+            inValue.countryCode = countryCode;
+            W88.WebRef.svcPayMember.getSecondaryBankAccountsResponse retVal = ((W88.WebRef.svcPayMember.IMember)(this)).getSecondaryBankAccounts(inValue);
+            statusCode = retVal.statusCode;
+            statusText = retVal.statusText;
+            return retVal.getSecondaryBankAccountsResult;
+        }
+        
+        public System.Threading.Tasks.Task<W88.WebRef.svcPayMember.getSecondaryBankAccountsResponse> getSecondaryBankAccountsAsync(W88.WebRef.svcPayMember.getSecondaryBankAccountsRequest request) {
+            return base.Channel.getSecondaryBankAccountsAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        W88.WebRef.svcPayMember.getBankLocationsResponse W88.WebRef.svcPayMember.IMember.getBankLocations(W88.WebRef.svcPayMember.getBankLocationsRequest request) {
+            return base.Channel.getBankLocations(request);
+        }
+        
+        public System.Data.DataTable getBankLocations(long bankId, out string statusCode, out string statusText) {
+            W88.WebRef.svcPayMember.getBankLocationsRequest inValue = new W88.WebRef.svcPayMember.getBankLocationsRequest();
+            inValue.bankId = bankId;
+            W88.WebRef.svcPayMember.getBankLocationsResponse retVal = ((W88.WebRef.svcPayMember.IMember)(this)).getBankLocations(inValue);
+            statusCode = retVal.statusCode;
+            statusText = retVal.statusText;
+            return retVal.getBankLocationsResult;
+        }
+        
+        public System.Threading.Tasks.Task<W88.WebRef.svcPayMember.getBankLocationsResponse> getBankLocationsAsync(W88.WebRef.svcPayMember.getBankLocationsRequest request) {
+            return base.Channel.getBankLocationsAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        W88.WebRef.svcPayMember.getBankBranchesResponse W88.WebRef.svcPayMember.IMember.getBankBranches(W88.WebRef.svcPayMember.getBankBranchesRequest request) {
+            return base.Channel.getBankBranches(request);
+        }
+        
+        public System.Data.DataTable getBankBranches(long bankId, System.Nullable<long> bankLocationId, out string statusCode, out string statusText) {
+            W88.WebRef.svcPayMember.getBankBranchesRequest inValue = new W88.WebRef.svcPayMember.getBankBranchesRequest();
+            inValue.bankId = bankId;
+            inValue.bankLocationId = bankLocationId;
+            W88.WebRef.svcPayMember.getBankBranchesResponse retVal = ((W88.WebRef.svcPayMember.IMember)(this)).getBankBranches(inValue);
+            statusCode = retVal.statusCode;
+            statusText = retVal.statusText;
+            return retVal.getBankBranchesResult;
+        }
+        
+        public System.Threading.Tasks.Task<W88.WebRef.svcPayMember.getBankBranchesResponse> getBankBranchesAsync(W88.WebRef.svcPayMember.getBankBranchesRequest request) {
+            return base.Channel.getBankBranchesAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         W88.WebRef.svcPayMember.getLastDepositWireTransferResponse W88.WebRef.svcPayMember.IMember.getLastDepositWireTransfer(W88.WebRef.svcPayMember.getLastDepositWireTransferRequest request) {
             return base.Channel.getLastDepositWireTransfer(request);
         }
@@ -2984,6 +3299,22 @@ namespace W88.WebRef.svcPayMember {
         
         public System.Threading.Tasks.Task<System.Xml.Linq.XElement> processMemberBaoKimWalletAccountAsync(string memberCode, string email, string action) {
             return base.Channel.processMemberBaoKimWalletAccountAsync(memberCode, email, action);
+        }
+        
+        public System.Data.DataTable GetMemberAvailableDepositMethods(long operatorId, string memberCode, string memberCurrency, string languageCode) {
+            return base.Channel.GetMemberAvailableDepositMethods(operatorId, memberCode, memberCurrency, languageCode);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> GetMemberAvailableDepositMethodsAsync(long operatorId, string memberCode, string memberCurrency, string languageCode) {
+            return base.Channel.GetMemberAvailableDepositMethodsAsync(operatorId, memberCode, memberCurrency, languageCode);
+        }
+        
+        public System.Data.DataTable GetMemberAvailableDepositMethods_Mobile(long operatorId, string memberCode, string memberCurrency, string languageCode) {
+            return base.Channel.GetMemberAvailableDepositMethods_Mobile(operatorId, memberCode, memberCurrency, languageCode);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> GetMemberAvailableDepositMethods_MobileAsync(long operatorId, string memberCode, string memberCurrency, string languageCode) {
+            return base.Channel.GetMemberAvailableDepositMethods_MobileAsync(operatorId, memberCode, memberCurrency, languageCode);
         }
     }
 }

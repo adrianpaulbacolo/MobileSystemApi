@@ -1,6 +1,6 @@
 ﻿
 
-namespace W88.Rewards.BusinessLogic.Rewards.Models
+namespace W88.BusinessLogic.Rewards.Models
 {
     public class ProductDetails
     {
@@ -20,7 +20,7 @@ namespace W88.Rewards.BusinessLogic.Rewards.Models
 
         public string PointsBefore = string.Empty;
 
-        public string PointsLevelDiscount = string.Empty;
+        public string PointLevelDiscount = string.Empty;
 
         public string PointsRequired = string.Empty;
 

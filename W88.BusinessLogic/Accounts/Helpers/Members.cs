@@ -36,7 +36,8 @@ namespace W88.BusinessLogic.Accounts.Helpers
                 LanguageCode = dTable.Columns["languageCode"] != null ? Convert.ToString(dTable.Rows[0]["languageCode"].ToString()) : string.Empty,
                 PartialSignup = dTable.Columns["partialSignup"] != null ? Convert.ToString(dTable.Rows[0]["partialSignup"].ToString()) : string.Empty,
                 Balance = dTable.Columns["MemberBalance"] != null ? dTable.Rows[0]["MemberBalance"].ToString() : "0.00",
-                ResetPassword = Convert.ToBoolean(dTable.Rows[0]["resetPassword"].ToString())
+                ResetPassword = Convert.ToBoolean(dTable.Rows[0]["resetPassword"].ToString()),
+                RiskId = dTable.Rows[0]["riskId"].ToString()
             };
 
             memberSession.Balance = Convert.ToDecimal(memberSession.Balance).ToW88StringFormat();
