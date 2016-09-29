@@ -46,7 +46,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         var isParsed = int.TryParse(quantitytext, out quantity);
         if (!isParsed)
         {
-            AlertCode = "FAIL";
+            AlertCode = Result.FAIL;
             AlertMessage = HttpContext.GetLocalResourceObject(LocalResx, "lbl_invalid_number").ToString();     
             return;
         }
@@ -54,14 +54,14 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         quantity = int.Parse(quantitytext);
         if (quantity < 1)
         {
-            AlertCode = "FAIL";
+            AlertCode = Result.FAIL;
             AlertMessage = HttpContext.GetLocalResourceObject(LocalResx, "lbl_invalid_at_least").ToString();
             return;
         }
         
         if (!CheckIsValid())
         {
-            AlertCode = "FAIL";
+            AlertCode = Result.FAIL;
             AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lblPointCheckError");
             return;
         }
@@ -91,7 +91,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
 
                 if (response == null)
                 {
-                    AlertCode = "FAIL";
+                    AlertCode = Result.FAIL;
                     AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lblPointCheckError");
                     return;
                 }
@@ -99,27 +99,27 @@ public partial class Catalogue_Redeem : CatalogueBasePage
                 switch (response.Result)
                 {
                     case RedemptionResultEnum.ConcurrencyDetected:
-                        AlertCode = "FAIL";
+                        AlertCode = Result.FAIL;
                         AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lblPointCheckError");
                         break;
                     case RedemptionResultEnum.LimitReached:
-                        AlertCode = "FAIL";
+                        AlertCode = Result.FAIL;
                         AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lbl_redemption_limit_reached");
                         break;
                     case RedemptionResultEnum.VIPSuccessLimitReached:
-                        AlertCode = "FAIL";
+                        AlertCode = Result.FAIL;
                         AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lbl_redemption_success_limit_reached");
                         break;
                     case RedemptionResultEnum.VIPProcessingLimitReached:
-                        AlertCode = "FAIL";
+                        AlertCode = Result.FAIL;
                         AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lblPoints_insufficient");
                         break;
                     case RedemptionResultEnum.PointIsufficient:
-                        AlertCode = "FAIL";
+                        AlertCode = Result.FAIL;
                         AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lblPoints_insufficient");
                         break;
                     case RedemptionResultEnum.Success:
-                        AlertCode = "SUCCESS";
+                        AlertCode = Result.SUCCESS;
                         if (productTypeEnum == ProductTypeEnum.Freebet) //Freebet success
                         {
                             foreach (var redemptionItemId in response.RedemptionIds)
@@ -134,11 +134,11 @@ public partial class Catalogue_Redeem : CatalogueBasePage
                         }
                         break;
                     case RedemptionResultEnum.UnknownError:
-                        AlertCode = "FAIL";
+                        AlertCode = Result.FAIL;
                         AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lblPointCheckError");
                         break;
                     case RedemptionResultEnum.PointCheckError:
-                        AlertCode = "FAIL";
+                        AlertCode = Result.FAIL;
                         AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lblPointCheckError");
                         break;
                 }
@@ -154,7 +154,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         }
         catch (Exception exception)
         {
-            AlertCode = "FAIL";
+            AlertCode = Result.FAIL;
             AlertMessage = HttpContext.GetLocalResourceObject(LocalResx, "lbl_Exception").ToString();
             AuditTrail.AppendLog(exception);
         }
@@ -346,7 +346,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
 
             if (!(ProductDetails.RedemptionValidity == "1" && ProductDetails.RedemptionValidityCategory == "1"))
             {
-                AlertCode = "VIP";
+                AlertCode = Result.VIP;
                 VipOnly = HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem_vip").ToString();
                 return;
             }
@@ -489,6 +489,13 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             ? string.Empty : string.Format((string)HttpContext.GetLocalResourceObject(localResxMail, "lbl_body"), memberCode.Trim(), redemptionId);
         // Send mail
         RewardsHelper.SendMail(fields, memberCode);
+    }
+
+    private enum Result
+    {
+        SUCCESS = "SUCCESS",
+        FAIL = "FAIL",
+        VIP = "VIP"
     }
 }
 
