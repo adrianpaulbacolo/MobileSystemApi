@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Data;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Web;
@@ -457,73 +457,6 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         }
     }
 
-    private void SendMail(string memberCode, string redemptionId)
-    {
-        var recipientAddress = string.Empty;
-        var senderAddress = Common.GetAppSetting<string>("sender_address");
-        var senderName = Common.GetAppSetting<string>("sender_name");
-        var bccAddress = Common.GetAppSetting<string>("bcc_addresses");
-        var smtpAlternative = Common.GetAppSetting<string>("smtp_alternative");
-        var isAlternative = false;
-        var localResxMail = "~/redemption_mail.{0}.aspx";
-        var language = string.Empty;
-
-        using (var client = new RewardsServicesClient())
-        {
-            var dataSet = client.getMemberInfo(Settings.OperatorId.ToString(CultureInfo.InvariantCulture), memberCode);
-
-            foreach (DataRow dataRow in dataSet.Tables[0].Rows)
-            {
-                recipientAddress = dataRow["email"].ToString();
-                language = dataRow["languageCode"].ToString();
-            }
-        }
-
-        var smtpClient = new System.Net.Mail.SmtpClient();
-        var credentials = new System.Net.NetworkCredential();
-
-        using (var message = new System.Net.Mail.MailMessage(senderAddress, recipientAddress))
-        {
-            string[] splitChar = { "|" };
-            string[] results = smtpAlternative.Split(splitChar, StringSplitOptions.None);
-
-            foreach (var r in results)
-            {
-                var mail = r;
-                if (recipientAddress.Contains(mail))
-                {
-                    isAlternative = true;
-                    break;
-                }
-            }
-
-            if (isAlternative)
-            {
-                smtpClient.Port = int.Parse(Common.GetAppSetting<string>("mail_port"));
-                smtpClient.Host = Common.GetAppSetting<string>("mail_host");
-                credentials.UserName = Common.GetAppSetting<string>("mail_username");
-                credentials.Password = Common.GetAppSetting<string>("mail_password");
-
-                smtpClient.UseDefaultCredentials = false;
-                smtpClient.Credentials = credentials;
-            }
-            else
-            {
-                message.Bcc.Add(new System.Net.Mail.MailAddress(bccAddress));
-            }
-
-            localResxMail = string.Format(localResxMail, string.IsNullOrEmpty(language) ? LanguageHelpers.SelectedLanguage : language);
-            var subject = HttpContext.GetLocalResourceObject(localResxMail, "lbl_subject") == null ? string.Empty : (string)HttpContext.GetLocalResourceObject(localResxMail, "lbl_subject");
-            var body = HttpContext.GetLocalResourceObject(localResxMail, "lbl_body") == null ? string.Empty : string.Format((string)HttpContext.GetLocalResourceObject(localResxMail, "lbl_body"), memberCode.Trim(), redemptionId);
-            message.From = new System.Net.Mail.MailAddress(senderAddress, senderName);
-            message.BodyEncoding = Encoding.UTF8;
-            message.IsBodyHtml = true;
-            message.Subject = subject;
-            message.Body = body;
-            smtpClient.Send(message);
-        }
-    }
-
     private async void RefreshPoints()
     {
         if (MemberRewardsInfo == null)
@@ -543,6 +476,20 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             .Append(alertCode + "','")
             .Append(alertMessage + "');}, 300);");
         ScriptManager.RegisterStartupScript(Page, GetType(), (new Guid()).ToString(), scriptBuilder.ToString(), true);
+    }
+
+    private void SendMail(string memberCode, string redemptionId)
+    {
+        var fields = new Dictionary<string, string>();
+        var language = MemberSession.LanguageCode;
+        var localResxMail = "~/redemption_mail.{0}.aspx";
+        localResxMail = string.Format(localResxMail, (string.IsNullOrEmpty(language) ? LanguageHelpers.SelectedLanguage : language));
+        fields["Subject"] = HttpContext.GetLocalResourceObject(localResxMail, "lbl_subject") == null 
+            ? string.Empty : (string)HttpContext.GetLocalResourceObject(localResxMail, "lbl_subject");
+        fields["Body"] = HttpContext.GetLocalResourceObject(localResxMail, "lbl_body") == null 
+            ? string.Empty : string.Format((string)HttpContext.GetLocalResourceObject(localResxMail, "lbl_body"), memberCode.Trim(), redemptionId);
+        // Send mail
+        RewardsHelper.SendMail(fields, memberCode);
     }
 }
 
