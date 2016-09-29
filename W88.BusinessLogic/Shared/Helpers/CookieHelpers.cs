@@ -4,7 +4,7 @@ using W88.Utilities.Geo;
 
 namespace W88.BusinessLogic.Shared.Helpers
 {
-    class CookieHelpers
+    public class CookieHelpers
     {
         static readonly IpHelper Ip = new IpHelper();
 
