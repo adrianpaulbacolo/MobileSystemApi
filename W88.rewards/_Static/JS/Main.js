@@ -119,11 +119,9 @@ function clear() {
         window.localStorage.clear();
         Cookies().setCookie('user', null, -1);
         Cookies().setCookie('product', null, -1);
-        Cookies().setCookie('language', null, -1);
     } catch (e) {
         Cookies().setCookie('user', null, -1);
         Cookies().setCookie('product', null, -1);
-        Cookies().setCookie('language', null, -1);
     }
     window.user = null;
     $.mobile.loading('hide');
