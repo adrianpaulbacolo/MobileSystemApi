@@ -1,11 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.Threading.Tasks;
 using W88.BusinessLogic.Base.Helpers;
 using W88.BusinessLogic.Shared.Helpers;
 using W88.BusinessLogic.Accounts.Models;
+using W88.BusinessLogic.Shared.Models;
 using W88.Utilities;
+using W88.Utilities.Constant;
+using W88.Utilities.Log.Helpers;
 using W88.WebRef.RewardsServices;
 using W88.BusinessLogic.Rewards.Models;
 
@@ -319,6 +323,74 @@ namespace W88.BusinessLogic.Rewards.Helpers
             catch (Exception exception)
             {
                 return null;
+            }
+        }
+
+        public async void SendMail(Dictionary<string, string> fields, string memberCode)
+        {
+            try
+            {
+                var recipient = string.Empty;
+                var isAlternative = false;
+
+                using (var client = new RewardsServicesClient())
+                {
+                    var dataSet = await client.getMemberInfoAsync(Settings.OperatorId.ToString(CultureInfo.InvariantCulture), memberCode);
+                    if (dataSet.Tables.Count > 0 && dataSet.Tables[0].Rows.Count > 0)
+                    {
+                        recipient = dataSet.Tables[0].Rows[0]["email"].ToString();                     
+                    }
+                }
+
+                if (string.IsNullOrEmpty(recipient))
+                {
+                    AuditTrail.AppendLog(memberCode, Constants.PageNames.MailApi, Constants.TaskNames.SendMail,
+                        Constants.PageNames.ComponentName, Convert.ToString((int)Constants.StatusCode.Error), string.Empty, string.Empty,
+                        "Recipient address is empty", string.Empty, "1", Convert.ToString(Guid.NewGuid()), false);
+                    return;
+                }
+                
+                var mailRequest = new MailRequest();
+                mailRequest.To = recipient;
+
+                string[] splitChar = {"|"};
+                var mailDomains = Common.GetAppSetting<string>("smtp_alternative").Split(splitChar, StringSplitOptions.None);
+
+                foreach (var domain in mailDomains)
+                {
+                    if (mailRequest.To.Contains(domain))
+                    {
+                        isAlternative = true;
+                        break;
+                    }
+                }
+
+                if (isAlternative)
+                {
+                    mailRequest.Port = int.Parse(Common.GetAppSetting<string>("mail_port"));
+                    mailRequest.Host = Common.GetAppSetting<string>("mail_host");
+                    mailRequest.Username = Common.GetAppSetting<string>("mail_username");
+                    mailRequest.Password = Common.GetAppSetting<string>("mail_password");
+                }
+                else
+                {
+                    mailRequest.UseDefaultCredentials = true;
+                    var bccAddress = Common.GetAppSetting<string>("bcc_addresses");
+                    if (!string.IsNullOrEmpty(bccAddress))
+                    {
+                        mailRequest.BccAddresses = bccAddress.Split(splitChar, StringSplitOptions.None);
+                    }
+                }
+
+                mailRequest.Subject = fields["Subject"];
+                mailRequest.Body = fields["Body"];
+                mailRequest.From = Common.GetAppSetting<string>("sender_address");
+                mailRequest.SenderName = Common.GetAppSetting<string>("sender_name");
+                MailHelper.SendMail(mailRequest);
+            }
+            catch (Exception exception)
+            {
+                AuditTrail.AppendLog(exception);
             }
         }
     }
