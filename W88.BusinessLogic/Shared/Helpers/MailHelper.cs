@@ -1,10 +1,11 @@
 ﻿using System;
+using W88.BusinessLogic.Base.Helpers;
 using W88.BusinessLogic.Shared.Models;
 using W88.Utilities.Log.Helpers;
 
 namespace W88.BusinessLogic.Shared.Helpers
 {
-    public class MailHelper
+    public class MailHelper : BaseHelper
     {
         public static void SendMail(MailRequest mailRequest)
         {
@@ -43,8 +44,7 @@ namespace W88.BusinessLogic.Shared.Helpers
             }
             catch (Exception exception)
             {
-                AuditTrail.AppendLog(mailRequest.To, string.Empty, "SendMail", "MailHelper", string.Empty, string.Empty, string.Empty,
-                    exception.Message, Convert.ToString(Guid.NewGuid()), string.Empty, string.Empty, true);
+                AuditTrail.AppendLog(exception);
             }
         }
     }

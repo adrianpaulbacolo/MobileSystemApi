@@ -344,8 +344,9 @@ namespace W88.BusinessLogic.Rewards.Helpers
 
                 if (string.IsNullOrEmpty(recipient))
                 {
-                    AuditTrail.AppendLog(memberCode, string.Empty, "SendMail", "RewardsHelper", string.Empty, string.Empty, string.Empty, 
-                        "Email address is empty", Convert.ToString(Guid.NewGuid()), string.Empty, string.Empty, false);
+                    AuditTrail.AppendLog(memberCode, Constants.PageNames.MailApi, Constants.TaskNames.SendMail,
+                        Constants.PageNames.ComponentName, Convert.ToString((int)Constants.StatusCode.Error), string.Empty, string.Empty,
+                        "Recipient address is empty", string.Empty, "1", Convert.ToString(Guid.NewGuid()), false);
                     return;
                 }
                 
@@ -389,8 +390,7 @@ namespace W88.BusinessLogic.Rewards.Helpers
             }
             catch (Exception exception)
             {
-                AuditTrail.AppendLog(memberCode, string.Empty, "SendMail", "RewardsHelper", string.Empty, string.Empty, string.Empty,
-                    exception.Message, Convert.ToString(Guid.NewGuid()), string.Empty, string.Empty, false);
+                AuditTrail.AppendLog(exception);
             }
         }
     }
