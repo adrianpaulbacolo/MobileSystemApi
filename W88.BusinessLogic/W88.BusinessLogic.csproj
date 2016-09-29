@@ -81,6 +81,7 @@
     <Compile Include="Rewards\Models\MemberRewardsInfo.cs" />
     <Compile Include="Rewards\Models\ProductDetails.cs" />
     <Compile Include="Shared\Helpers\ListOfValuesHelper.cs" />
+    <Compile Include="Shared\Helpers\MailHelper.cs" />
     <Compile Include="Shared\Models\Constants.cs" />
     <Compile Include="Shared\Models\LOV.cs" />
     <Compile Include="Games\Helpers\GameSettings.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Funds\Helpers\Promotions.cs" />
     <Compile Include="Funds\Models\CheckPromoInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shared\Models\MailRequest.cs" />
     <Compile Include="Shared\Models\ProcessCode.cs" />
   </ItemGroup>
   <ItemGroup>
