@@ -481,7 +481,7 @@ public partial class _Secure_Register : BasePage
                 commonAuditTrail.appendLog("system", strPageName, "MemberRegistrationNew", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
                 if (strAlertCode == "1")
                 {
-                    Response.Redirect("/Index.aspx?lang=" + commonVariables.SelectedLanguage.ToLower(), false);
+                    Response.Redirect("/Funds.aspx?lang=" + commonVariables.SelectedLanguage.ToLower(), false);
                 }
             }
         }
