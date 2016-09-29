@@ -172,9 +172,10 @@ namespace W88.BusinessLogic.Accounts.Helpers
                     Code = Convert.ToInt32(dsMemberCheck.Tables[0].Rows[0]["RETURN_VALUE"])
                 };
 
-                process.Message = GetSessionCheckMsg(process.Code);
+                int returnCode;
+                process.Message = GetSessionCheckMsg(process.Code, out returnCode);
 
-                if (process.Code == 1)
+                if (returnCode == 1)
                 {
                     var member = new Members();
                     process.Data = member.GetData(dsMemberCheck.Tables[0]);
@@ -206,34 +207,40 @@ namespace W88.BusinessLogic.Accounts.Helpers
                     userInfo.MemberName = dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.Lastname].ToString() + dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.Firstname].ToString();
                 }
 
-                userInfo.Status.ReturnValue = Convert.ToInt32(dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.ReturnValue]);
-                userInfo.Status.ReturnMessage = GetSessionCheckMsg(userInfo.Status.ReturnValue);
+                int returnCode;
+                userInfo.Status.ReturnMessage = GetSessionCheckMsg(userInfo.Status.ReturnValue, out returnCode);
+                userInfo.Status.ReturnValue = returnCode;
 
                 return userInfo;
             }
         }
 
-        private string GetSessionCheckMsg(int returnValue)
+        private string GetSessionCheckMsg(int returnValue, out int translateCode)
         {
             switch (returnValue)
             {
                 case 0:
+                    translateCode = (int)Constants.StatusCode.Error;
                     return GetMessage("Exception");
 
                 case 1:
+                    translateCode = (int)Constants.StatusCode.Success;
                     return string.Empty;
 
-                // @TODO:
                 case 10:
+                    translateCode = (int)Constants.StatusCode.NotLogin;
                     return "Member is not login";
 
                 case 13:
+                    translateCode = (int)Constants.StatusCode.MultipleLogin;
                     return "Member is login at another session. (Multiple Login)";
 
                 case 20:
+                    translateCode = (int)Constants.StatusCode.MemberVip;
                     return "Member is in VIP club";
 
                 default:
+                    translateCode = (int)Constants.StatusCode.SessionExpired;
                     return GetMessage("SessionExpired");
             }
 

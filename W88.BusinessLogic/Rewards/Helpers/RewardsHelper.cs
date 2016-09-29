@@ -219,7 +219,7 @@ namespace W88.BusinessLogic.Rewards.Helpers
                         if (hasSession && dataRow["productType"].ToString() != "1")
                         {
                             //grab member point level
-                            var pointLevelDiscount = GetMemberPointLevelDiscount(memberSession);
+                            var pointLevelDiscount = await GetMemberPointLevelDiscount(memberSession);
                             var percentage = Convert.ToDouble(pointLevelDiscount) / 100;
                             var normalPoint = int.Parse(productDetails.PointsRequired);
                             var points = Math.Floor(normalPoint * (1 - percentage));
