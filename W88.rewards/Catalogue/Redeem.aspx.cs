@@ -7,6 +7,7 @@ using System.Text;
 using System.Web.UI;
 using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Shared.Helpers;
+using W88.BusinessLogic.Shared.Models;
 using W88.Utilities;
 using W88.Utilities.Constant;
 using W88.Utilities.Log.Helpers;
@@ -66,7 +67,6 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         }
 
         #region redeem product
-
         try
         {
             using (var client = new RewardsServicesClient())
@@ -146,16 +146,17 @@ public partial class Catalogue_Redeem : CatalogueBasePage
                 var pointsRequired = ProductDetails == null ? string.Empty : ProductDetails.PointsRequired;
                 var redeemId = response.RedemptionIds != null ? String.Join("|", response.RedemptionIds.ToArray()) : "";
                 var remark = "Product Id:" + lblproductid.Value + "; Points Required:" + pointsRequired + "; Quantity:" + tbQuantity.Text.Trim();
-                var detail = ";Redeem Result:" + response.Result + ";RedeemId:" + redeemId + ";Type:" + productTypeEnum;
-                var sessionId = HasSession ? MemberSession.Token : string.Empty;
-                AuditTrail.AppendLog(memberCode, "/Catalogue/Redeem.aspx", "Redeem Now", "Catalogue/Redeem", string.Empty, detail, "-", string.Empty, remark, string.Empty, sessionId, true);
+                var detail = "Redeem Result:" + response.Result + "; RedeemId:" + redeemId + "; Type:" + productTypeEnum;
+                AuditTrail.AppendLog(memberCode, Constants.PageNames.RedeemPage, Constants.TaskNames.RedeemRewards,
+                    Constants.PageNames.ComponentName, Convert.ToString(Constants.StatusCode.Success), detail, string.Empty,
+                    string.Empty, remark, "1", Convert.ToString(Guid.NewGuid()), false);
             }
         }
         catch (Exception exception)
         {
             AlertCode = "FAIL";
             AlertMessage = HttpContext.GetLocalResourceObject(LocalResx, "lbl_Exception").ToString();
-            AuditTrail.AppendLog(memberCode, "/Catalogue/Redeem.aspx", "Redeem Now", "Catalogue/Redeem", string.Empty, string.Empty, string.Empty, exception.Message, (new Guid()).ToString(), string.Empty, string.Empty, true);
+            AuditTrail.AppendLog(exception);
         }
         finally
         {
@@ -451,9 +452,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         }
         catch (Exception exception)
         {
-            AlertCode = "FAIL";
-            AlertMessage = HttpContext.GetLocalResourceObject(LocalResx, "lbl_Exception").ToString();
-            AuditTrail.AppendLog(memberCode, "/Catalogue/Redeem.aspx", "Redeem Now", "Catalogue/Redeem", string.Empty, string.Empty, string.Empty, exception.Message, (new Guid()).ToString(), string.Empty, string.Empty, true);
+            AuditTrail.AppendLog(exception);
         }
     }
 
