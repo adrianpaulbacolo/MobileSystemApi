@@ -60,6 +60,8 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         
         if (!CheckIsValid())
         {
+            AlertCode = "FAIL";
+            AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lblPointCheckError");
             return;
         }
 
