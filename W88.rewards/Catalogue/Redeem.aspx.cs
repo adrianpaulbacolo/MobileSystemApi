@@ -148,7 +148,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
                 var remark = "Product Id:" + lblproductid.Value + "; Points Required:" + pointsRequired + "; Quantity:" + tbQuantity.Text.Trim();
                 var detail = "Redeem Result:" + response.Result + "; RedeemId:" + redeemId + "; Type:" + productTypeEnum;
                 AuditTrail.AppendLog(memberCode, Constants.PageNames.RedeemPage, Constants.TaskNames.RedeemRewards,
-                    Constants.PageNames.ComponentName, Convert.ToString(Constants.StatusCode.Success), detail, string.Empty,
+                    Constants.PageNames.ComponentName, Convert.ToString((int)Constants.StatusCode.Success), detail, string.Empty,
                     string.Empty, remark, "1", Convert.ToString(Guid.NewGuid()), false);
             }
         }
