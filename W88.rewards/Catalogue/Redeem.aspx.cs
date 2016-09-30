@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Web;
 using System.Text;
 using System.Web.UI;
 using W88.BusinessLogic.Rewards.Helpers;
+using W88.BusinessLogic.Rewards.Redemption.Factories;
 using W88.BusinessLogic.Shared.Helpers;
 using W88.BusinessLogic.Shared.Models;
 using W88.Utilities;
@@ -13,6 +13,7 @@ using W88.Utilities.Constant;
 using W88.Utilities.Log.Helpers;
 using W88.WebRef.RewardsServices;
 using W88.BusinessLogic.Rewards.Models;
+using RedemptionRequest = W88.BusinessLogic.Rewards.Redemption.Model.RedemptionRequest;
 
 public partial class Catalogue_Redeem : CatalogueBasePage
 {
@@ -34,12 +35,12 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         InitFields();       
     }
 
-    protected void RedeemButtonOnClick(object sender, EventArgs e)
+    protected async void RedeemButtonOnClick(object sender, EventArgs e)
     {
         AlertCode = string.Empty;
         AlertMessage = string.Empty;
         var memberCode = UserSessionInfo == null ? string.Empty : UserSessionInfo.MemberCode;
-        var productTypeEnum = (ProductTypeEnum)int.Parse(ProductDetails.ProductType);
+        var productType = (ProductTypeEnum)int.Parse(ProductDetails.ProductType);
         var quantitytext = tbQuantity.Text.Trim();
         int quantity;
 
@@ -47,7 +48,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         if (!isParsed)
         {
             AlertCode = Result.Fail;
-            AlertMessage = HttpContext.GetLocalResourceObject(LocalResx, "lbl_invalid_number").ToString();     
+            AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_invalid_number");     
             return;
         }
 
@@ -55,107 +56,73 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         if (quantity < 1)
         {
             AlertCode = Result.Fail;
-            AlertMessage = HttpContext.GetLocalResourceObject(LocalResx, "lbl_invalid_at_least").ToString();
-            return;
-        }
-        
-        if (!CheckIsValid())
-        {
-            AlertCode = Result.Fail;
-            AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lblPointCheckError");
+            AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_invalid_at_least");
             return;
         }
 
         #region redeem product
         try
         {
-            using (var client = new RewardsServicesClient())
+            var process = await RedemptionStrategy.Initialize(GetRequest(productType)).Redeem();
+            if (process.Code != (int)Constants.StatusCode.Success)
             {
-                RedemptionResponse response = null;
-
-                switch (productTypeEnum)
-                {
-                    case ProductTypeEnum.Freebet:
-                        var freebetRequest = GetRedemptionFreebetRequest();
-                        response = client.RedemptionFreebet(freebetRequest);
-                        break;
-                    case ProductTypeEnum.Normal:
-                        var normalRequest = GetRedemptionNormalRequest();
-                        response = client.RedemptionNormal(normalRequest);
-                        break;
-                    case ProductTypeEnum.Online:
-                        var onlineRequest = GetRedemptionOnlineRequest();
-                        response = client.RedemptionOnline(onlineRequest);
-                        break;
-                }
-
-                if (response == null)
-                {
-                    AlertCode = Result.Fail;
-                    AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lblPointCheckError");
-                    return;
-                }
-
-                switch (response.Result)
-                {
-                    case RedemptionResultEnum.ConcurrencyDetected:
-                        AlertCode = Result.Fail;
-                        AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lblPointCheckError");
-                        break;
-                    case RedemptionResultEnum.LimitReached:
-                        AlertCode = Result.Fail;
-                        AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lbl_redemption_limit_reached");
-                        break;
-                    case RedemptionResultEnum.VIPSuccessLimitReached:
-                        AlertCode = Result.Fail;
-                        AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lbl_redemption_success_limit_reached");
-                        break;
-                    case RedemptionResultEnum.VIPProcessingLimitReached:
-                        AlertCode = Result.Fail;
-                        AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lblPoints_insufficient");
-                        break;
-                    case RedemptionResultEnum.PointIsufficient:
-                        AlertCode = Result.Fail;
-                        AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lblPoints_insufficient");
-                        break;
-                    case RedemptionResultEnum.Success:
-                        AlertCode = Result.Success;
-                        if (productTypeEnum == ProductTypeEnum.Freebet) //Freebet success
-                        {
-                            foreach (var redemptionItemId in response.RedemptionIds)
-                            {
-                                SendMail(memberCode, redemptionItemId.ToString(CultureInfo.InvariantCulture));
-                            }
-                            AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem_success_processed");
-                        }
-                        else
-                        {
-                            AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem_success_submit");
-                        }
-                        break;
-                    case RedemptionResultEnum.UnknownError:
-                        AlertCode = Result.Fail;
-                        AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lblPointCheckError");
-                        break;
-                    case RedemptionResultEnum.PointCheckError:
-                        AlertCode = Result.Fail;
-                        AlertMessage = (string) HttpContext.GetLocalResourceObject(LocalResx, "lblPointCheckError");
-                        break;
-                }
-
-                var pointsRequired = ProductDetails == null ? string.Empty : ProductDetails.PointsRequired;
-                var redeemId = response.RedemptionIds != null ? String.Join("|", response.RedemptionIds.ToArray()) : "";
-                var remark = "Product Id:" + lblproductid.Value + "; Points Required:" + pointsRequired + "; Quantity:" + tbQuantity.Text.Trim();
-                var detail = "Redeem Result:" + response.Result + "; RedeemId:" + redeemId + "; Type:" + productTypeEnum;
-                AuditTrail.AppendLog(memberCode, Constants.PageNames.RedeemPage, Constants.TaskNames.RedeemRewards,
-                    Constants.PageNames.ComponentName, Convert.ToString((int)Constants.StatusCode.Success), detail, string.Empty,
-                    string.Empty, remark, "1", Convert.ToString(Guid.NewGuid()), false);
+                AlertCode = Result.Fail;
+                AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lblPointCheckError");
+                return;
             }
+
+            var response = (RedemptionResponse)process.Data;
+            switch (response.Result)
+            {
+                case RedemptionResultEnum.ConcurrencyDetected:
+                    AlertCode = Result.Fail;
+                    AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lblPointCheckError");
+                    break;
+                case RedemptionResultEnum.LimitReached:
+                    AlertCode = Result.Fail;
+                    AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_redemption_limit_reached");
+                    break;
+                case RedemptionResultEnum.VIPSuccessLimitReached:
+                    AlertCode = Result.Fail;
+                    AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_redemption_success_limit_reached");
+                    break;
+                case RedemptionResultEnum.VIPProcessingLimitReached:
+                    AlertCode = Result.Fail;
+                    AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lblPoints_insufficient");
+                    break;
+                case RedemptionResultEnum.PointIsufficient:
+                    AlertCode = Result.Fail;
+                    AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lblPoints_insufficient");
+                    break;
+                case RedemptionResultEnum.Success:
+                    AlertCode = Result.Success;
+                    if (productType == ProductTypeEnum.Freebet) //Freebet success
+                    {
+                        foreach (var redemptionItemId in response.RedemptionIds)
+                        {
+                            SendMail(memberCode, redemptionItemId.ToString(CultureInfo.InvariantCulture));
+                        }
+                        AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem_success_processed");
+                    }
+                    else
+                    {
+                        AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem_success_submit");
+                    }
+                    break;
+                case RedemptionResultEnum.UnknownError:
+                    AlertCode = Result.Fail;
+                    AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lblPointCheckError");
+                    break;
+                case RedemptionResultEnum.PointCheckError:
+                    AlertCode = Result.Fail;
+                    AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lblPointCheckError");
+                    break;
+            }            
         }
         catch (Exception exception)
         {
             AlertCode = Result.Fail;
-            AlertMessage = HttpContext.GetLocalResourceObject(LocalResx, "lbl_Exception").ToString();
+            AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_Exception");
             AuditTrail.AppendLog(exception);
         }
         finally
@@ -222,104 +189,6 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         #endregion
     }
 
-    private RedemptionFreebetRequest GetRedemptionFreebetRequest()
-    {
-        var request = new RedemptionFreebetRequest();
-        request.OperatorId = _operatorId;
-        request.MemberCode = UserSessionInfo == null ? "" : UserSessionInfo.MemberCode;
-        request.ProductId = lblproductid.Value;
-        request.CategoryId = int.Parse(string.IsNullOrEmpty(ProductDetails.CategoryId) ? "" : ProductDetails.CategoryId);
-        request.RiskId = MemberSession == null ? "0" : MemberSession.RiskId;
-        request.Currency = string.IsNullOrEmpty(ProductDetails.CurrencyCode) ? "0" : ProductDetails.CurrencyCode;
-        request.PointRequired = int.Parse(string.IsNullOrEmpty(ProductDetails.PointsRequired) ? "" : ProductDetails.PointsRequired);
-        request.Quantity = int.Parse(tbQuantity.Text.Trim());
-        request.CreditAmount = Convert.ToDecimal(string.IsNullOrEmpty(ProductDetails.AmountLimit) ? "" : ProductDetails.AmountLimit);
-        return request;
-    }
-
-    private RedemptionNormalRequest GetRedemptionNormalRequest()
-    {
-        var request = new RedemptionNormalRequest();
-        request.OperatorId = _operatorId;
-        request.MemberCode = UserSessionInfo == null ? "" : UserSessionInfo.MemberCode;
-        request.ProductId = lblproductid.Value;
-        request.CategoryId = int.Parse(string.IsNullOrEmpty(ProductDetails.CategoryId) ? "" : ProductDetails.CategoryId);
-        request.RiskId = MemberSession == null ? "0" : MemberSession.RiskId;
-        request.Currency = string.IsNullOrEmpty(ProductDetails.CurrencyCode) ? "0" : ProductDetails.CurrencyCode;
-        request.PointRequired = int.Parse(string.IsNullOrEmpty(ProductDetails.PointsRequired) ? "" : ProductDetails.PointsRequired);
-        request.Quantity = int.Parse(tbQuantity.Text.Trim());
-        request.Name = tbRName.Text.Trim();
-        request.ContactNumber = tbContact.Text.Trim();
-        request.Address = tbAddress.Value.Trim();
-        request.PostalCode = tbPostal.Text.Trim();
-        request.City = tbCity.Text.Trim();
-        request.Country = tbCountry.Text.Trim();
-        return request;
-    }
-
-    private RedemptionOnlineRequest GetRedemptionOnlineRequest()
-    {
-        var request = new RedemptionOnlineRequest();
-        request.OperatorId = _operatorId;
-        request.MemberCode = UserSessionInfo == null ? "" : UserSessionInfo.MemberCode;
-        request.ProductId = lblproductid.Value;
-        request.CategoryId = int.Parse(string.IsNullOrEmpty(ProductDetails.CategoryId) ? "" : ProductDetails.CategoryId);
-        request.RiskId = MemberSession == null ? "0" : MemberSession.RiskId;
-        request.Currency = string.IsNullOrEmpty(ProductDetails.CurrencyCode) ? "0" : ProductDetails.CurrencyCode;
-        request.PointRequired = int.Parse(string.IsNullOrEmpty(ProductDetails.PointsRequired) ? "" : ProductDetails.PointsRequired);
-        request.Quantity = int.Parse(tbQuantity.Text.Trim());
-        request.AimId = tbAccount.Text.Trim();
-        return request;
-    }
-
-    private bool CheckIsValid()
-    {
-        var productType = (ProductTypeEnum)int.Parse(ProductDetails.ProductType);
-    
-        switch (productType)
-        {
-            case ProductTypeEnum.Freebet:
-                return true;
-            case ProductTypeEnum.Normal:
-                {
-                    var name = tbRName.Text.Trim();
-                    var contact = tbContact.Text.Trim();
-                    var address = tbAddress.Value.Trim();
-                    var postal = tbPostal.Text.Trim();
-                    var city = tbCity.Text.Trim();
-                    var country = tbCountry.Text.Trim();
-
-                    if (string.IsNullOrEmpty(name))
-                    {
-                        return false;
-                    }
-                    if (string.IsNullOrEmpty(contact))
-                    {
-                        return false;
-                    }
-                    if (string.IsNullOrEmpty(address))
-                    {
-                        return false;
-                    }
-                    if (string.IsNullOrEmpty(postal))
-                    {
-                        return false;
-                    }
-                    if (string.IsNullOrEmpty(city))
-                    {
-                        return false;
-                    }
-
-                    return !string.IsNullOrEmpty(country);
-                }
-            case ProductTypeEnum.Wishlist:               
-                return false;               
-            case ProductTypeEnum.Online:
-                return !string.IsNullOrEmpty(tbAccount.Text.Trim());
-        }
-        return false;
-    }
-
     private async void SetProductInfo()
     {
         var memberCode = UserSessionInfo == null ? "" : UserSessionInfo.MemberCode;
@@ -339,7 +208,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             {
                 if (!ProductDetails.CountryCode.Contains(countryCode))
                 {
-                    Response.Redirect("/Catalogue?categoryId=" + ProductDetails.CategoryId + "&sortBy=2", false);
+                    Response.Redirect(string.Format("/Catalogue?categoryId={0}&sortBy=2", ProductDetails.CategoryId), false);
                     return;
                 }
             }
@@ -456,6 +325,39 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         }
     }
 
+    private RedemptionRequest GetRequest(ProductTypeEnum type)
+    {
+        var request = new RedemptionRequest();
+        request.ProductType = type;
+        request.MemberCode = UserSessionInfo == null ? string.Empty : UserSessionInfo.MemberCode;
+        request.ProductId = lblproductid.Value;
+        request.CategoryId = string.IsNullOrEmpty(ProductDetails.CategoryId) ? "0" : ProductDetails.CategoryId;
+        request.RiskId = MemberSession == null ? "0" : MemberSession.RiskId;
+        request.Currency = string.IsNullOrEmpty(ProductDetails.CurrencyCode) ? "0" : ProductDetails.CurrencyCode;
+        request.PointRequired = string.IsNullOrEmpty(ProductDetails.PointsRequired) ? string.Empty : ProductDetails.PointsRequired;
+        request.Quantity = tbQuantity.Text.Trim();
+
+        switch (type)
+        {
+            case ProductTypeEnum.Freebet:
+                request.CreditAmount = string.IsNullOrEmpty(ProductDetails.AmountLimit) ? string.Empty : ProductDetails.AmountLimit;
+                break;
+            case ProductTypeEnum.Normal:
+                request.Name = tbRName.Text.Trim();
+                request.ContactNumber = tbContact.Text.Trim();
+                request.Address = tbAddress.Value.Trim();
+                request.PostalCode = tbPostal.Text.Trim();
+                request.City = tbCity.Text.Trim();
+                request.Country = tbCountry.Text.Trim();
+                break;
+            case ProductTypeEnum.Online:
+                request.AimId = tbAccount.Text.Trim();
+                break;
+        }
+
+        return request;
+    }
+
     private async void RefreshPoints()
     {
         if (MemberRewardsInfo == null)
@@ -491,7 +393,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         RewardsHelper.SendMail(fields, memberCode);
     }
 
-    static class Result
+    static private class Result
     {
         public const string Success = "SUCCESS";
         public const string Fail = "FAIL";
