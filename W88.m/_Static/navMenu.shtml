@@ -107,7 +107,7 @@
                 </li>
                 <li>
                     <a class="card" data-rel="livecasino" rel="clbW" href="/_static/ClubW/casino.aspx" data-ajax="false">
-                        <img src="/_Static/Images/bnr-clubW88-Android.jpg" class="img-responsive">
+                        <img src="/_Static/Images/sports/bnr-clubW88-Android.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
