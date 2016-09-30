@@ -13,7 +13,7 @@
             %>
             <%if (deviceId == 1)
               {%>
-             <li class="col">
+            <li class="col">
                 <figure class="banner">
                     <img src="/_Static/Images/casino/clubwpremierbanner.jpg" class="img-responsive img-bg">
                     <figcaption class="banner-caption">
@@ -57,30 +57,29 @@
                     </figcaption>
                 </figure>
             </li>
-            <li class="col">
-                <figure class="banner">
-                    <img src="/_Static/Images/casino/clubpalazzobanner.jpg" class="img-responsive img-bg">
-                    <figcaption class="banner-caption">
-                        <h3 class="title"><%=commonCulture.ElementValues.getResourceString("clubPalazo", commonVariables.LeftMenuXML)%></h3>
-                        <p><%=commonCulture.ElementValues.getResourceString("clubPalazoMessage", commonVariables.LeftMenuXML)%></p>
-                        <a href="/_Static/Palazzo/casino.aspx" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
-                    </figcaption>
-                </figure>
-            </li>
-            <li class="col">
-                <figure class="banner">
-                    <img src="/_Static/Images/casino/clubmassimobanner.jpg" class="img-responsive img-bg">
-                    <figcaption class="banner-caption">
-                        <h3 class="title"><%=commonCulture.ElementValues.getResourceString("clubMassimo", commonVariables.LeftMenuXML)%></h3>
-                        <p><%=commonCulture.ElementValues.getResourceString("clubMassimoMessage", commonVariables.LeftMenuXML)%></p>
-                        <a href="https://livegames.cdn.gameassists.co.uk/AIR/Poria/Installer/V20021/w88/Download.html" data-ajax="false" class="ui-btn btn-primary" target="_blank"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
-                        <p>&nbsp;</p>
-                    </figcaption>
-                </figure>
-            </li>
             <%}%>
             <%if (deviceId == 3)
               {%>
+            <li class="col">
+                <figure class="banner">
+                    <img src="/_Static/Images/casino/clubwpremierbanner.jpg" class="img-responsive img-bg">
+                    <figcaption class="banner-caption">
+                        <h3 class="title"><%=commonCulture.ElementValues.getResourceString("clubwpremier", commonVariables.LeftMenuXML)%></h3>
+                        <p><%=commonCulture.ElementValues.getResourceString("clubwpremierMessage", commonVariables.LeftMenuXML)%></p>
+                        <a href="/_Static/Downloads/w88.aspx" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
+                    </figcaption>
+                </figure>
+            </li>
+            <li class="col">
+                <figure class="banner">
+                    <img src="/_Static/Images/casino/clubwiosbanner.jpg" class="img-responsive img-bg">
+                    <figcaption class="banner-caption">
+                        <h3 class="title"><%=commonCulture.ElementValues.getResourceString("liveCasino", commonVariables.LeftMenuXML)%></h3>
+                        <p><%=commonCulture.ElementValues.getResourceString("liveCasinoMessage", commonVariables.LeftMenuXML)%></p>
+                        <a href="/_Static/Downloads/w88.aspx" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
+                    </figcaption>
+                </figure>
+            </li>
             <li class="col">
                 <figure class="banner">
                     <img src="/_Static/Images/casino/clubwpremierbanner.jpg" class="img-responsive img-bg">
@@ -101,6 +100,11 @@
                     </figcaption>
                 </figure>
             </li>
+
+            <%}%>
+            <%}
+                catch (Exception) { }%>
+
             <li class="col">
                 <figure class="banner">
                     <img src="/_Static/Images/casino/clubpalazzobanner.jpg" class="img-responsive img-bg">
@@ -122,9 +126,6 @@
                     </figcaption>
                 </figure>
             </li>
-            <%}%>
-            <%}
-                catch (Exception) { }%>
         </ul>
     </div>
 </asp:Content>
