@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class _Secure_Palazzo : System.Web.UI.Page
+public partial class _Secure_Palazzo : BasePage
 {
     System.Xml.Linq.XElement _xeLoginResources;
 
