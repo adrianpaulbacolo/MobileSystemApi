@@ -11,7 +11,7 @@
                 try
                 {
             %>
-            <%if (deviceId == 1)
+            <%if (deviceId == 1 || deviceId == 3)
               {%>
             <li class="col">
                 <figure class="banner">
@@ -35,7 +35,7 @@
             </li>
 
             <%}%>
-            <%if (deviceId == 2)
+            <%if (deviceId == 2 || deviceId == 3)
               {%>
             <li class="col">
                 <figure class="banner">
@@ -58,50 +58,7 @@
                 </figure>
             </li>
             <%}%>
-            <%if (deviceId == 3)
-              {%>
-            <li class="col">
-                <figure class="banner">
-                    <img src="/_Static/Images/casino/clubwpremierbanner.jpg" class="img-responsive img-bg">
-                    <figcaption class="banner-caption">
-                        <h3 class="title"><%=commonCulture.ElementValues.getResourceString("clubwpremier", commonVariables.LeftMenuXML)%></h3>
-                        <p><%=commonCulture.ElementValues.getResourceString("clubwpremierMessage", commonVariables.LeftMenuXML)%></p>
-                        <a href="/_Static/Downloads/w88.aspx" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
-                    </figcaption>
-                </figure>
-            </li>
-            <li class="col">
-                <figure class="banner">
-                    <img src="/_Static/Images/casino/clubwiosbanner.jpg" class="img-responsive img-bg">
-                    <figcaption class="banner-caption">
-                        <h3 class="title"><%=commonCulture.ElementValues.getResourceString("liveCasino", commonVariables.LeftMenuXML)%></h3>
-                        <p><%=commonCulture.ElementValues.getResourceString("liveCasinoMessage", commonVariables.LeftMenuXML)%></p>
-                        <a href="/_Static/Downloads/w88.aspx" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
-                    </figcaption>
-                </figure>
-            </li>
-            <li class="col">
-                <figure class="banner">
-                    <img src="/_Static/Images/casino/clubwpremierbanner.jpg" class="img-responsive img-bg">
-                    <figcaption class="banner-caption">
-                        <h3 class="title"><%=commonCulture.ElementValues.getResourceString("clubwpremier", commonVariables.LeftMenuXML)%></h3>
-                        <p><%=commonCulture.ElementValues.getResourceString("clubwpremierMessage", commonVariables.LeftMenuXML)%></p>
-                        <a href="/_Static/ClubW/casino.aspx" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
-                    </figcaption>
-                </figure>
-            </li>
-            <li class="col">
-                <figure class="banner">
-                    <img src="/_Static/Images/casino/clubwbanner.jpg" class="img-responsive img-bg">
-                    <figcaption class="banner-caption">
-                        <h3 class="title"><%=commonCulture.ElementValues.getResourceString("liveCasino", commonVariables.LeftMenuXML)%></h3>
-                        <p><%=commonCulture.ElementValues.getResourceString("liveCasinoMessage", commonVariables.LeftMenuXML)%></p>
-                        <a href="/_Static/ClubW/casino.aspx" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
-                    </figcaption>
-                </figure>
-            </li>
-
-            <%}%>
+           
             <%}
                 catch (Exception) { }%>
 
