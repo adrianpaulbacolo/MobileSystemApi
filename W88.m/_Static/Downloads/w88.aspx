@@ -11,8 +11,8 @@
         <!--#include virtual="~/_static/header.shtml" -->
         <div class="ui-content" role="main">
             <div class="static-content">
-                <div class="banner slider">
-                    <img src="/_Static/Images/Download/Bnr-ClubW88-iOS.jpg" alt="banner" class="img-responsive">
+                <div>
+                    <img src="/_Static/Images/Download/ClubW-Android-iOS-Download-Page.jpg" alt="banner" class="img-responsive">
                 </div>
                 <div class="downloadmsg">
                     <span runat="server" id="spanMsg"></span>

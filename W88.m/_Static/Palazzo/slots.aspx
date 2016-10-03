@@ -6,7 +6,7 @@
     
     <div class="ui-content" role="main">
         <div class="static-content">
-            <div class="banner slider">
+            <div>
                 <img src="/_Static/Images/Download/W88-Mobile-ClubPalazzo-Slots.jpg" alt="banner" class="img-responsive">
             </div>
             <div class="downloadmsg">
