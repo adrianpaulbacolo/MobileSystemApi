@@ -1,210 +1,227 @@
 *, *:before, *:after {
-  @include box-sizing(border-box);
+    @include box-sizing(border-box);
 }
 *{
-  outline: 0 none;
+    outline: 0 none;
 }
 html,
 body{
-  font-family: $primary-font;
-  font-size: 87.5%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  position: relative;
+    font-family: $primary-font;
+    font-size: 87.5%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
 }
 
 .bg{
-  background: #000 url('/_Static/Images/ptlogin/bg-portrait.jpg') center center no-repeat;
-     @include background-size(cover);
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  position: absolute;
-  overflow: auto;
+    background: #000 url('/_Static/Images/ptlogin/bg-portrait.jpg') center center no-repeat;
+        @include background-size(cover);
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    overflow: auto;
 }
 
 @media only screen and (orientation: landscape){
-  .bg{
-    background: #000 url('/_Static/Images/ptlogin/bg-landscape.jpg') center center no-repeat;
-      @include background-size(cover);
-  }
+    .bg{
+        background: #000 url('/_Static/Images/ptlogin/bg-landscape.jpg') center center no-repeat;
+        @include background-size(cover);
+    }
 }
 
 a{
-  text-decoration: none;
-  &:focus,
-  &:hover{
-    color: darken($primary-color , 10%);
-  }
+    text-decoration: none;
+    &:focus,
+    &:hover{
+        color: darken($primary-color , 10%);
+    }
 }
 
 .text-right{
-  text-align: right;
+    text-align: right;
 }
 
 .text-center{
-  text-align: center;
+    text-align: center;
 }
 
 .blue{
-  color: $primary-color !important;
+    color: $primary-color !important;
 }
 
 .button{
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: $white;
-  text-transform: uppercase;
-  background-color: $primary-color;
-  padding: 10px 30px;
-  border: none;
-  display: inline-block;
-  text-decoration: none;
-  &:focus,
-  &:hover{
+    text-align: center;
+    font-size: 1.125rem;
+    font-weight: 700;
     color: $white;
+    text-transform: uppercase;
+    background-color: $primary-color;
+    padding: 10px 30px;
+    border: none;
+    display: block;
     text-decoration: none;
-    background-color: darken($primary-color , 10%);
-  }
+    &:focus,
+    &:hover{
+        color: $white;
+        text-decoration: none;
+        background-color: darken($primary-color , 10%);
+    }
 }
 
 .form-input{
-  height: 31px;
-  padding: 5px;
-  color: #ccc;
-  width: 100%;
-  background: transparent;
-  border: 1px solid #555;
-  &:focus{
-    border-color: $primary-color;
-  }
+    height: 31px;
+    padding: 5px;
+    color: #ccc;
+    width: 100%;
+    background: transparent;
+    border: 1px solid #555;
+    &:focus{
+        border-color: $primary-color;
+    }
 }
 
 .box{
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
 }
 
-.form-container{
-  color: #ccc;
-  width: 85%;
-  max-width: 380px;
-  height: 100%;
-  padding-top: 60px;
-  margin: 0 auto;
-  display: table;
+.form-container{    
+    color: #ccc;
+    width: 85%;
+    max-width: 380px;
+    height: 100%;
+    margin: 0 auto;
+    display: table;
 
-  .form-center{
-    display: table-cell;
-    vertical-align: middle;
-  }
-
-  .form-logo{
-    img{
-      max-width: 75%;
-      display: block;
-      margin: 0 auto 30px;
+    .form-center{
+        display: table-cell;
+        vertical-align: middle;
     }
-  }
 
-  form{
-    padding: 15px;
-    width: 100%;
-    background: rgba(#2e2e2e,0.9);
-    border: 1px solid #827e7b;
+    .form-logo{
+        img{
+            width: 75%;
+            max-width: 180px;
+            display: block;
+            margin: 0 auto 30px;
+        }
+    }
+
+    form{
+        padding: 15px;
+        width: 100%;
+        background: rgba(#2e2e2e,0.9);
+        border: 1px solid #827e7b;
+        span{
+            vertical-align: middle;
+            color: #ccc;
+            font-size: 1rem;
+        }
+    }
+
+    .form-row{
+        margin-bottom: 10px;
+        clear: both;
+        &:before,
+        &:after {
+            content: " ";
+            display: table;
+        }
+        &:after {
+            clear: both;
+        }
+    }
+
+    .form-col{
+        width: 100%;
+        float: left;
+        &.form-col-label{
+            width: 30%;
+        }
+        &.form-col-prefix{
+            width: 15%;
+        }
+        &.form-col-input{
+            width: 55%;
+        }
+        &.form-col-offset{
+            margin-left: 15%;
+        }
+    }
+}
+
+.form-col-prefix{
     span{
-      vertical-align: middle;
-      color: #ccc;
-      font-size: 1rem;
+     padding: 5px;
     }
-  }
-
-  .form-row{
-    margin-bottom: 10px;
-    clear: both;
-    &:before,
-    &:after {
-      content: " ";
-      display: table;
-    }
-    &:after {
-      clear: both;
-    }
-  }
-
-  .form-col{
-    width: 100%;
-    padding: 5px;
-    float: left;
-    &.form-col-15{
-      width: 15%;
-    }
-    &.form-col-20{
-      width: 20%;
-    }
-    &.form-col-30{
-      width: 30%;
-    }
-    &.form-col-70{
-      width: 70%;
-    }
-    &.form-col-80{
-      width: 80%;
-    }
-    &.form-col-85{
-      width: 85%;
-    }
-    &.form-col-offset-30{
-      margin-left: 30%;
-    }
-  }
 }
 
-.forgot{
-  text-align: center;
-  margin-top: 30px;
-  margin-bottom: 30px !important;
+.form-text{
+    margin-top: 30px;
+     margin-bottom: 0;
 }
 
 @media only screen and (orientation: landscape){
-  .form-container{
-      max-width: 520px;
-      form{
-        padding: 45px;
-        background: rgba(#2e2e2e,0.75);
-      }
-  }
+    .form-container{
+        max-width: 520px;
+        form{
+            padding: 30px;
+            background: rgba(#2e2e2e,0.75);
+        }
+    }
 }
 
 
 @media only screen  and (min-width: 321px){
-  html,
-  body{
-    font-size: 100%;
-  }
+    html,
+    body{
+        font-size: 100%;
+    }
 }
 
 @media only screen and (min-width: 768px){
-  html,
-  body{
-    font-size: 87.5%;
-  }
-  .form-container{
-      max-width: 450px;
-      form{
-        padding: 45px;
-      }
-  }
+    html,
+    body{
+        font-size: 87.5%;
+    }
+    .form-container{
+        max-width: 450px;
+        form{
+            padding: 45px;
+        }   
+        .form-col{
+            width: 100%;
+            float: left;
+            &.form-col-label{
+                width: 25%;
+            }
+            &.form-col-prefix{
+                width: 10%;
+            }
+            &.form-col-input{
+                width: 65%;
+            }
+            &.form-col-offset{
+                margin-left: 10%;
+            }
+        }
+    }
+    .form-logo{
+        img{
+            max-width: 280px;
+        }
+    }
 }
 
 @media only screen and (min-width: 768px) and (orientation: landscape){
