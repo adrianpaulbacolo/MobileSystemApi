@@ -20,7 +20,7 @@
 
         <div class="ui-content" role="main">
             <h2 class="page-title">Select Language</h2>
-            <ul id="divLanguageContainer" runat="server" class="row row-wrap row-no-padding"></ul>
+            <ul id="divLanguageContainer" runat="server" class="lang-list"></ul>
         </div>
 
 
