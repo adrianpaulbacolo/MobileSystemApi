@@ -41,22 +41,14 @@
                     <div class="form-row">
                          <a href="javascript: login();" class="button" data-corners="false" role="button">login</a>
                     </div>
-                    <!-- <p class="text-center">
+                    <p class="text-center form-text">
+                        <a href="<%=commonIp.DomainName%>/ForgotPassword.aspx" target="_top" type="forgot_login"><%=commonCulture.ElementValues.getResourceString("forgotpassword", commonVariables.LeftMenuXML)%></a>
+                       <br />
                        <br />
                        <asp:Literal ID="lblRegister" runat="server" />
                        <br />
                        <br />
                        <asp:Literal ID="lblRegNote" runat="server" />
-                   </p> -->
-
-                    <p class="text-center form-text">
-                        <a href="<%=commonIp.DomainName%>/ForgotPassword.aspx" target="_top" type="forgot_login"><%=commonCulture.ElementValues.getResourceString("forgotpassword", commonVariables.LeftMenuXML)%></a>
-                       <br>
-                        <br>
-                       Do not have an account yet? Click <a href="/_Secure/Register.aspx" data-ajax="false">here</a>  to register now!
-                       <br>
-                       <br>
-                       If you encounter any issues while logging in, please contact our  <a href="/LiveChat/Default.aspx" data-ajax="false">Customer Service</a> for further assistance.
                    </p>
                 </form>
             </div>
