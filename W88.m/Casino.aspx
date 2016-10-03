@@ -15,7 +15,7 @@
               {%>
             <li class="col">
                 <figure class="banner">
-                    <img src="/_Static/Images/casino/clubwpremierbanner.jpg" class="img-responsive img-bg">
+                    <img src="/_Static/Images/casino/clubwpremieriosbanner.jpg" class="img-responsive img-bg">
                     <figcaption class="banner-caption">
                         <h3 class="title"><%=commonCulture.ElementValues.getResourceString("clubwpremier", commonVariables.LeftMenuXML)%></h3>
                         <p><%=commonCulture.ElementValues.getResourceString("clubwpremierMessage", commonVariables.LeftMenuXML)%></p>
