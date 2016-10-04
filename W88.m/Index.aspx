@@ -164,14 +164,8 @@
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
-                <li class="col col-33">
-                    <a href="/Lang.aspx" class="tile" role="button" data-transition="slideup">
-                        <span class="icon- ion-ios-world-outline"></span>
-                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("language", commonVariables.LeftMenuXML)%></h4>
-                    </a>
-                </li>
 
-                <!-- Zalo -->
+                 <!-- Zalo -->
                 <% if (commonVariables.SelectedLanguage.Equals("vi-vn", StringComparison.OrdinalIgnoreCase))
                    { %>
                 <li class="col col-33">
@@ -193,7 +187,13 @@
                 </li>
                 <% } %>
 
-                
+                <li class="col col-33">
+                    <a href="/Lang.aspx" class="tile" role="button" data-transition="slideup">
+                        <span class="icon- ion-ios-world-outline"></span>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("language", commonVariables.LeftMenuXML)%></h4>
+                    </a>
+                </li>
+
                 <li class="col col-33">
                     <a href="#" id="icon-desktop" class="tile" role="button" data-ajax="false">
                         <span class="icon-desktop"></span>
