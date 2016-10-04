@@ -8,7 +8,6 @@ html .ui-bar-b .ui-btn,
 html .ui-body-b .ui-btn,
 html body .ui-group-theme-b .ui-btn,
 html head + body .ui-btn.ui-btn-b,
-
 // Button visited
 .ui-page-theme-b .ui-btn:visited,
 html .ui-bar-b .ui-btn:visited,
@@ -29,7 +28,8 @@ html head + body .ui-btn.ui-btn-b:visited {
     text-shadow: none !important;
     @include box-shadow(none);
     @include transition(.3s);
-    &.btn-small{
+
+    &.btn-small {
         font-size: 0.857em !important;
         padding: 0.429em;
     }
@@ -39,8 +39,8 @@ html head + body .ui-btn.ui-btn-b:visited {
 .ui-btn-icon-notext {
     padding: 0;
 }
-.ui-btn:focus
-.ui-btn-active {
+
+.ui-btn:focus .ui-btn-active {
     text-shadow: none !important;
     box-shadow: none !important;
 }
@@ -49,8 +49,18 @@ html head + body .ui-btn.ui-btn-b:visited {
     font-weight: 400 !important;
     color: $strong-color !important;
     background-color: $primary-color !important;
+
     &:hover, &:focus {
         background-color: darken($primary-color, 10%) !important;
+    }
+}
+
+.btn-dark {
+    color: $strong-color !important;
+    background-color: darken($primary-color, 20%) !important;
+
+    &:hover, &:focus {
+        background-color: darken($primary-color, 30%) !important;
     }
 }
 
@@ -58,6 +68,7 @@ html head + body .ui-btn.ui-btn-b:visited {
     font-weight: 400 !important;
     color: darken($strong-color, 8%) !important;
     background-color: $bgColor-02 !important;
+
     &:active, &:hover, &:focus {
         background-color: lighten($bgColor-02, 15%) !important;
     }
@@ -67,22 +78,27 @@ html head + body .ui-btn.ui-btn-b:visited {
     font-weight: 600 !important;
     color: $primary-color !important;
     background-color: $secondary-color !important;
+
     &:hover, &:focus {
         background-color: darken($secondary-color, 10%) !important;
     }
 }
+
 .btn-bordered,
-html head+body .ui-btn.ui-btn-a {
+html head + body .ui-btn.ui-btn-a {
     color: $primary-color !important;
     background-color: transparent !important;
     @include box-shadow(inset 0 0 0 1px $border-input-color);
+
     &:hover, &:focus {
         color: $strong-color !important;
         background-color: darken($primary-color, 10%) !important;
         @include box-shadow(none);
     }
 }
+
 .btn-primary,
+.btn-dark,
 .btn-secondary,
 .btn-bordered {
     text-transform: uppercase;
@@ -134,10 +150,11 @@ html head+body .ui-btn.ui-btn-a {
     line-height: $content-padding + 11;
     @include border-radius(50%);
     cursor: pointer;
+
     &-enhanced {
-        font-size:   $content-padding * 3 - 5;
-        min-width:   $content-padding * 3;
-        min-height:  $content-padding * 3;
+        font-size: $content-padding * 3 - 5;
+        min-width: $content-padding * 3;
+        min-height: $content-padding * 3;
         line-height: $content-padding * 3;
     }
 }
