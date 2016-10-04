@@ -179,7 +179,7 @@
                 <li>
                     <a class="card" data-rel="livecasino" rel="clbW" href="/_static/Downloads/w88.aspx" data-ajax="false">
                         <img src="/_Static/Images/bnr-ClubW-iOS.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Label", commonVariables.ProductsXML)%></div>
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubWPremier/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
                 <li>
