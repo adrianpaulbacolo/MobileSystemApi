@@ -46,6 +46,8 @@
                     </li>
                     <li class="item item-text-wrap">
                         <asp:Literal ID="lblRegister" runat="server" />
+                        <br />
+                        <a href="ForgotPassword.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("forgotpassword", commonVariables.LeftMenuXML)%></a>
                     </li>
                 </ul>
                 <asp:HiddenField runat="server" ID="ioBlackBox" Value="" />
@@ -177,8 +179,8 @@
                                 $('#btnSubmit').attr("disabled", false);
                                 GPINTMOBILE.HideSplash();
                                 window.w88Mobile.Growl.shout('<div>' + message + '</div>');
-                            break;
-                    }
+                                break;
+                        }
                     },
                     error: function (err) {
                         window.w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
