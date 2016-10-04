@@ -28,7 +28,7 @@ namespace Factories.Slots.Handlers
             string lang = GetGameLanguage(element);
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
 
-            var gpi = CheckRSlot(GameLinkSetting.Real, element);
+            var gpi = CheckRSlot(GameLinkSetting.Fun, element);
             if (!string.IsNullOrWhiteSpace(gpi))
             {
                 return gpi;
