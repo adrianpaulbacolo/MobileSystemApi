@@ -13,21 +13,14 @@ namespace Factories.Slots.Handlers
     /// </summary>
     public class QTHandler : GameLoaderBase
     {
-        private string fun;
-        private string real;
-        private string lobbyPage;
-
-        private string memberSessionId;
-
-        public QTHandler(string token, string lobby)
-            : base(GameProvider.QT)
+        public QTHandler(string token, string lobby) : base(GameProvider.QT)
         {
-            fun = GameSettings.GetGameUrl(GameProvider.QT, GameLinkSetting.Fun);
-            real = GameSettings.GetGameUrl(GameProvider.QT, GameLinkSetting.Real);
+            Fun = GameSettings.GetGameUrl(GameProvider.QT, GameLinkSetting.Fun);
+            Real = GameSettings.GetGameUrl(GameProvider.QT, GameLinkSetting.Real);
 
             GameProvider = GameProvider.QT;
-            memberSessionId = token;
-            lobbyPage = lobby;
+            MemberSessionId = token;
+            LobbyPage = lobby;
         }
 
         protected override string CreateFunUrl(XElement element)
@@ -35,7 +28,13 @@ namespace Factories.Slots.Handlers
             string lang = GetGameLanguage(element);
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
 
-            return fun.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{CURRENCY}", GetCurrencyByLanguage()).Replace("{LOBBY}", lobbyPage);
+            var gpi = CheckRSlot(GameLinkSetting.Real, element);
+            if (!string.IsNullOrWhiteSpace(gpi))
+            {
+                return gpi;
+            }
+
+            return Fun.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{CURRENCY}", GetCurrencyByLanguage()).Replace("{LOBBY}", LobbyPage);
         }
 
         protected override string CreateRealUrl(XElement element)
@@ -43,7 +42,13 @@ namespace Factories.Slots.Handlers
             string lang = GetGameLanguage(element);
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
 
-            return real.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{TOKEN}", memberSessionId).Replace("{LOBBY}", lobbyPage);
+            var gpi = CheckRSlot(GameLinkSetting.Real, element);
+            if (!string.IsNullOrWhiteSpace(gpi))
+            {
+                return gpi;
+            }
+
+            return Real.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{TOKEN}", MemberSessionId).Replace("{LOBBY}", LobbyPage);
         }
 
         private string GetCurrencyByLanguage()

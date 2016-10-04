@@ -14,23 +14,16 @@ namespace Factories.Slots.Handlers
     /// </summary>
     public class MGSHandler : GameLoaderBase
     {
-        private string fun;
-        private string real;
-        private string lobbyPage;
-        private string cashierPage;
-
-        private string memberSessionId;
-
         public MGSHandler(string token, string lobby, string cashier)
             : base(GameProvider.MGS)
         {
-            fun = GameSettings.GetGameUrl(GameProvider.MGS, GameLinkSetting.Fun);
-            real = GameSettings.GetGameUrl(GameProvider.MGS, GameLinkSetting.Real);
+            Fun = GameSettings.GetGameUrl(GameProvider.MGS, GameLinkSetting.Fun);
+            Real = GameSettings.GetGameUrl(GameProvider.MGS, GameLinkSetting.Real);
 
             GameProvider = GameProvider.MGS;
-            memberSessionId = token;
-            lobbyPage = lobby;
-            cashierPage = cashier;
+            MemberSessionId = token;
+            LobbyPage = lobby;
+            CashierPage = cashier;
         }
 
         protected override string SetLanguageCode()
@@ -72,6 +65,12 @@ namespace Factories.Slots.Handlers
 
         protected override string CreateFunUrl(XElement element)
         {
+            var gpi = CheckRSlot(GameLinkSetting.Fun, element);
+            if (!string.IsNullOrWhiteSpace(gpi))
+            {
+                return gpi;
+            }
+
             string lang = GetGameLanguage(element);
 
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
@@ -86,14 +85,20 @@ namespace Factories.Slots.Handlers
             }
             else
             {
-                funUrl = fun;
+                funUrl = Fun;
             }
 
-            return funUrl.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{LOBBY}", lobbyPage).Replace("{CASHIER}", cashierPage);
+            return funUrl.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{LOBBY}", LobbyPage).Replace("{CASHIER}", CashierPage);
         }
 
         protected override string CreateRealUrl(XElement element)
         {
+            var gpi = CheckRSlot(GameLinkSetting.Real, element);
+            if (!string.IsNullOrWhiteSpace(gpi))
+            {
+                return gpi;
+            }
+
             string lang = GetGameLanguage(element);
 
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
@@ -108,10 +113,10 @@ namespace Factories.Slots.Handlers
             }
             else
             {
-                realUrl = real;
+                realUrl = Real;
             }
 
-            return realUrl.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{TOKEN}", memberSessionId).Replace("{CASHIER}", cashierPage).Replace("{LOBBY}", lobbyPage);
+            return realUrl.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{TOKEN}", MemberSessionId).Replace("{CASHIER}", CashierPage).Replace("{LOBBY}", LobbyPage);
         }
 
         private string GetGameLanguage(XElement element)

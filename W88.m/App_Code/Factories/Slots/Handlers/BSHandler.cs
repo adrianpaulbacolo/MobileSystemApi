@@ -14,24 +14,18 @@ namespace Factories.Slots.Handlers
     /// </summary>
     public class BSHandler : GameLoaderBase
     {
-        private string fun;
-        private string real;
-        private string lobbyPage;
-        private string cashierPage;
         private GameDevice device;
-
-        private string memberSessionId;
 
         public BSHandler(string token, string lobby, string cashier, GameDevice gameDevice)
             : base(GameProvider.BS)
         {
-            fun = GameSettings.GetGameUrl(GameProvider.BS, GameLinkSetting.Fun);
-            real = GameSettings.GetGameUrl(GameProvider.BS, GameLinkSetting.Real);
+            Fun = GameSettings.GetGameUrl(GameProvider.BS, GameLinkSetting.Fun);
+            Real = GameSettings.GetGameUrl(GameProvider.BS, GameLinkSetting.Real);
 
             GameProvider = GameProvider.BS;
-            memberSessionId = token;
-            lobbyPage = lobby;
-            cashierPage = cashier;
+            MemberSessionId = token;
+            LobbyPage = lobby;
+            CashierPage = cashier;
             device = gameDevice;
         }
 
@@ -42,19 +36,28 @@ namespace Factories.Slots.Handlers
 
         protected override string CreateFunUrl(XElement element)
         {
-            string gameName = "";
-            gameName = GetGameId(element);
+            var gpi = CheckRSlot(GameLinkSetting.Fun, element);
+            if (!string.IsNullOrWhiteSpace(gpi))
+            {
+                return gpi;
+            }
 
-            return fun.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{LOBBY}", lobbyPage);
+            string gameName = GetGameId(element);
+            return Fun.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{LOBBY}", LobbyPage);
         }
 
         protected override string CreateRealUrl(XElement element)
         {
-            string gameName = "";
-            gameName = GetGameId(element);
-
-            return real.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{TOKEN}", memberSessionId).Replace("{CASHIER}", cashierPage).Replace("{LOBBY}", lobbyPage);
+            var gpi = CheckRSlot(GameLinkSetting.Real, element);
+            if (!string.IsNullOrWhiteSpace(gpi))
+            {
+                return gpi;
+            }
+           
+            string gameName = GetGameId(element);
+            return Real.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{TOKEN}", MemberSessionId).Replace("{CASHIER}", CashierPage).Replace("{LOBBY}", LobbyPage);
         }
+
         protected override string GetGameId(XElement xeGame)
         {
             switch (device)

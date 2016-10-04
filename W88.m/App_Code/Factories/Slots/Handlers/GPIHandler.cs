@@ -14,9 +14,6 @@ namespace Factories.Slots.Handlers
     {
         private string fun;
         private string real;
-        private const string mrSlot = "mrslots";
-        private const string mSlot = "mslots";
-
         private string memberSessionId;
 
         public GPIHandler(string token)
@@ -54,44 +51,20 @@ namespace Factories.Slots.Handlers
 
         protected override string CreateFunUrl(XElement element)
         {
-            string lang = GetGameLanguage(element);
-
-            bool isRSlot = element.Attribute("Type") != null && element.Attribute("Type").Value.Equals("rslot", StringComparison.OrdinalIgnoreCase) ? true : false;
-
+            string lang = GetGpiGameLanguage(element);
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
-
-            string slotType = isRSlot ? mrSlot : mSlot;
-
+            string slotType = base.IsRslot(element) ? mrSlot : mSlot;
             return fun.Replace("{TYPE}", slotType).Replace("{GAME}", gameName).Replace("{LANG}", lang);
         }
 
         protected override string CreateRealUrl(XElement element)
         {
-            string lang = GetGameLanguage(element);
-
-            bool isRSlot = element.Attribute("Type") != null && element.Attribute("Type").Value.Equals("rslot", StringComparison.OrdinalIgnoreCase) ? true : false;
-
+            string lang = GetGpiGameLanguage(element);
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
-
-            string slotType = isRSlot ? mrSlot : mSlot;
-
+            string slotType = base.IsRslot(element) ? mrSlot : mSlot;
             return real.Replace("{TYPE}", slotType).Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{TOKEN}", memberSessionId);
         }
 
-        private string GetGameLanguage(XElement element)
-        {
-            if (element.Attribute("LanguageCode") != null)
-            {
-                string[] languagesCodes = element.Attribute("LanguageCode").Value.Split(',');
 
-                bool isLangSupp = languagesCodes.Contains(langCode, StringComparer.OrdinalIgnoreCase);
-
-                return isLangSupp ? langCode : "en";
-            }
-            else
-            {
-                return langCode.Equals("cn", StringComparison.OrdinalIgnoreCase) ? "zn" : "en";
-            }
-        }
     }
 }
