@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Web;
 using System.Xml.Linq;
-using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Shared.Helpers;
 
 /// <summary>

@@ -1,161 +1,75 @@
 ﻿using System;
-using System.Configuration;
-using System.Globalization;
-using System.Linq;
-using System.Web;
 using System.Text;
 using System.Web.UI;
-using W88.Rewards.BusinessLogic.Rewards.Models;
-using W88.Rewards.BusinessLogic.Shared.Helpers;
-using W88.Utilities.Constant;
+using W88.BusinessLogic.Rewards.Helpers;
+using W88.BusinessLogic.Rewards.Redemption.Factories;
+using W88.BusinessLogic.Shared.Models;
+using W88.Utilities;
 using W88.Utilities.Log.Helpers;
 using W88.WebRef.RewardsServices;
+using W88.BusinessLogic.Rewards.Models;
+using RedemptionRequest = W88.BusinessLogic.Rewards.Redemption.Model.RedemptionRequest;
 
 public partial class Catalogue_Redeem : CatalogueBasePage
 {
-    protected string AlertCode = string.Empty;
-    protected string AlertMessage = string.Empty;
+    protected string Status = string.Empty;
+    protected string Message = string.Empty;
     protected string ProductType = string.Empty;
-    protected string VipOnly = "Hey there! This rewards redemption is only for VIP-Gold and above HOUSE OF HIGHROLLERS, YOU DESERVED IT!";
-    private readonly string _operatorId = Settings.OperatorId.ToString(CultureInfo.InvariantCulture);
-    protected ProductDetails ProductDetails = CookieHelpers.ProductCookie;
+    protected string VipOnly = string.Empty;
+    protected ProductDetails ProductDetails = ProductHelper.SelectedProduct;
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Page.IsPostBack)
-        {    
-            SetLabels();
-            SetFields();
-            GetProductDetails();
+        if (IsPostBack)
+        {
+            return;
         }
+        SetLabels();
+        SetProductInfo();
+        InitFields();       
     }
 
-    protected void RedeemButtonOnClick(object sender, EventArgs e)
+    protected async void RedeemButtonOnClick(object sender, EventArgs e)
     {
-        AlertCode = string.Empty;
-        AlertMessage = string.Empty;
-        var memberCode = UserSessionInfo == null ? string.Empty : UserSessionInfo.MemberCode;
-        var productTypeEnum = (ProductTypeEnum)int.Parse(ProductDetails.ProductType);
+        Status = string.Empty;
+        Message = string.Empty;
+        var productType = (ProductTypeEnum)int.Parse(ProductDetails.ProductType);
         var quantitytext = tbQuantity.Text.Trim();
-        int quantity;
-
-        var isParsed = int.TryParse(quantitytext, out quantity);
-        if (!isParsed)
-        {
-            AlertCode = "FAIL";
-            AlertMessage = HttpContext.GetLocalResourceObject(LocalResx, "lbl_invalid_number").ToString();     
-            return;
-        }
-
-        quantity = int.Parse(quantitytext);
-        if (quantity < 1)
-        {
-            AlertCode = "FAIL";
-            AlertMessage = HttpContext.GetLocalResourceObject(LocalResx, "lbl_invalid_at_least").ToString();
-            return;
-        }
-        
-        if (!CheckIsValid())
-        {
-            return;
-        }
 
         #region redeem product
         try
         {
-            using (var client = new RewardsServicesClient())
+            int quantity;
+            var isParsed = int.TryParse(quantitytext, out quantity);
+            if (!isParsed)
             {
-                RedemptionResponse response = null;
-
-                switch (productTypeEnum)
-                {
-                    case ProductTypeEnum.Freebet:
-                        var freebetRequest = GetRedemptionFreebetRequest();
-                        response = client.RedemptionFreebet(freebetRequest);
-                        break;
-                    case ProductTypeEnum.Normal:
-                        var normalRequest = GetRedemptionNormalRequest();
-                        response = client.RedemptionNormal(normalRequest);
-                        break;
-                    case ProductTypeEnum.Online:
-                        var onlineRequest = GetRedemptionOnlineRequest();
-                        response = client.RedemptionOnline(onlineRequest);
-                        break;
-                }
-
-                if (response == null)
-                {
-                    AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lblPointCheckError");
-                    return;
-                }
-
-                switch (response.Result)
-                {
-                    case RedemptionResultEnum.ConcurrencyDetected:
-                        break;
-                    case RedemptionResultEnum.LimitReached:
-                        AlertCode = "FAIL";
-                        AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_redemption_limit_reached");
-                        break;
-                    case RedemptionResultEnum.VIPSuccessLimitReached:
-                        AlertCode = "FAIL";
-                        AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_redemption_success_limit_reached");
-                        break;
-                    case RedemptionResultEnum.VIPProcessingLimitReached:
-                        AlertCode = "FAIL";
-                        AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lblPoints_insufficient");
-                        break;
-                    case RedemptionResultEnum.PointIsufficient:
-                        AlertCode = "FAIL";
-                        AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lblPoints_insufficient");
-                        break;
-                    case RedemptionResultEnum.Success:
-                        AlertCode = "SUCCESS";
-                        if (productTypeEnum == ProductTypeEnum.Freebet) //Freebet success
-                        {
-                            foreach (var redemptionItemId in response.RedemptionIds)
-                            {
-                                (new MailHelper()).SendMail(memberCode,
-                                    redemptionItemId.ToString(CultureInfo.InvariantCulture));
-                            }
-
-                            AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem_successProcessed");
-                        }
-                        else
-                        {
-                            AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem_success_submit");
-                        }                         
-                        break;
-                    case RedemptionResultEnum.UnknownError:
-                        break;
-                    case RedemptionResultEnum.PointCheckError:
-                        AlertCode = "FAIL";
-                        AlertMessage = (string)HttpContext.GetLocalResourceObject(LocalResx, "lblPointCheckError");
-                        break;
-                }
-
-                var pointsRequired = ProductDetails == null ? string.Empty : ProductDetails.PointsRequired;
-                var redeemId = response.RedemptionIds != null ? String.Join("|", response.RedemptionIds.ToArray()) : "";
-                var remark = "Product Id:" + lblproductid.Value + "; Points Required:" + pointsRequired + "; Quantity:" + tbQuantity.Text.Trim();
-                var detail = ";Redeem Result:" + response.Result + ";RedeemId:" + redeemId + ";Type:" + productTypeEnum;
-                var sessionId = HasSession ? MemberSession.Token : string.Empty;                   
-                AuditTrail.AppendLog(memberCode, "/Catalogue/Redeem.aspx", "Redeem Now", "Catalogue/Redeem", string.Empty, detail, "-", string.Empty, remark, string.Empty, sessionId, true);
+                Status = Convert.ToString((int) Constants.StatusCode.Error);
+                Message = RewardsHelper.GetTranslation(TranslationKeys.Redemption.InvalidQuantity);
+                ShowMessage(Status, Message);
+                return;
             }
-            
-            SetMemberRewardsInfo();
-            SetLabels();
 
-            var scriptBuilder = new StringBuilder();
-            scriptBuilder.Append("setTimeout(function() {showMessage('")
-                .Append(AlertCode + "','")
-                .Append(AlertMessage + "');}, 300);");
-            ScriptManager.RegisterStartupScript(Page, GetType(), (new Guid()).ToString(), scriptBuilder.ToString(), true);
+            quantity = int.Parse(quantitytext);
+            if (quantity < 1)
+            {
+                Status = Convert.ToString((int) Constants.StatusCode.Error);
+                Message = RewardsHelper.GetTranslation(TranslationKeys.Redemption.InvalidMinimum);
+                ShowMessage(Status, Message);
+                return;
+            }
+
+            var response = await RedemptionStrategy.Initialize(GetRequest(productType)).Redeem();
+            Status = Convert.ToString(response.Code);
+            Message = response.Message;
+            ShowMessage(Status, Message);
+            RefreshPoints();
         }
         catch (Exception exception)
         {
-            AlertCode = "FAIL";
-            AlertMessage = HttpContext.GetLocalResourceObject(LocalResx, "lbl_Exception").ToString();          
-            AuditTrail.AppendLog(memberCode, "/Catalogue/Redeem.aspx", "Redeem Now", "Catalogue/Redeem", string.Empty, string.Empty, string.Empty, exception.Message, (new Guid()).ToString(), string.Empty, string.Empty, true);
+            Status = Convert.ToString((int) Constants.StatusCode.Error);
+            Message = RewardsHelper.GetTranslation(TranslationKeys.Redemption.Exception);
+            ShowMessage(Status, Message);
+            AuditTrail.AppendLog(exception);
         }
         #endregion
     }
@@ -176,7 +90,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         {
             usernameLabel.InnerText = UserSessionInfo.MemberCode;
         }
-        var pointsLabelText = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_points");
+        var pointsLabelText = RewardsHelper.GetTranslation(TranslationKeys.Member.Points);
         var stringBuilder = new StringBuilder();
 
         stringBuilder.Append(pointsLabelText)
@@ -184,7 +98,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             .Append(MemberRewardsInfo != null ? Convert.ToString(MemberRewardsInfo.CurrentPoints) : "0");
         pointsLabel.InnerText = stringBuilder.ToString();
 
-        var pointLevelLabelText = (string)HttpContext.GetLocalResourceObject(HeaderResx, "lbl_point_level");
+        var pointLevelLabelText = RewardsHelper.GetTranslation(TranslationKeys.Member.PointLevel);
         stringBuilder = new StringBuilder();
         stringBuilder.Append(pointLevelLabelText)
             .Append(" ")
@@ -194,127 +108,29 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         #endregion
     }
 
-    private void SetFields()
+    private void InitFields()
     {
         #region fields
         const string colon = ":";
-        lbcat.Text = HttpContext.GetLocalResourceObject(LocalResx, "lbl_category") + colon;
-        lbproduct.Text = HttpContext.GetLocalResourceObject(LocalResx, "lbl_product") + colon;
-        lbcurr.Text = HttpContext.GetLocalResourceObject(LocalResx, "lbl_currency") + colon;
-        lbpoint.Text = HttpContext.GetLocalResourceObject(LocalResx, "lbl_points") + colon;
-        lbperiod.Text = HttpContext.GetLocalResourceObject(LocalResx, "lbl_delivery_period") + colon;
-        lbqty.Text = HttpContext.GetLocalResourceObject(LocalResx, "lbl_quantity") + colon;
-        lbaccount.Text = HttpContext.GetLocalResourceObject(LocalResx, "lbl_account") + colon;
-        tbRName.Attributes.Add("PLACEHOLDER", HttpContext.GetLocalResourceObject(LocalResx, "lbl_enter_name").ToString());
-        tbAddress.Attributes.Add("PLACEHOLDER", HttpContext.GetLocalResourceObject(LocalResx, "lbl_enter_address").ToString());
-        tbPostal.Attributes.Add("PLACEHOLDER", HttpContext.GetLocalResourceObject(LocalResx, "lbl_enter_postal").ToString());
-        tbCity.Attributes.Add("PLACEHOLDER", HttpContext.GetLocalResourceObject(LocalResx, "lbl_enter_city").ToString());
-        tbCountry.Attributes.Add("PLACEHOLDER", HttpContext.GetLocalResourceObject(LocalResx, "lbl_enter_country").ToString());
-        tbContact.Attributes.Add("PLACEHOLDER", HttpContext.GetLocalResourceObject(LocalResx, "lbl_enter_contact").ToString());
-        redeemButton.Text = HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem_now").ToString();
+        lbcat.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.Category) + colon;
+        lbproduct.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.Product) + colon;
+        lbcurr.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.Currency) + colon;
+        lbpoint.Text = RewardsHelper.GetTranslation(TranslationKeys.Member.Points) + colon;
+        lbperiod.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.Delivery) + colon;
+        lbqty.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.Quantity) + colon;
+        lbaccount.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.Account) + colon;
+        tbRName.Attributes.Add("PLACEHOLDER", RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterName));
+        tbAddress.Attributes.Add("PLACEHOLDER", RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterAddress));
+        tbPostal.Attributes.Add("PLACEHOLDER", RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterPostal));
+        tbCity.Attributes.Add("PLACEHOLDER", RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterCity));
+        tbCountry.Attributes.Add("PLACEHOLDER", RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterCountry));
+        tbContact.Attributes.Add("PLACEHOLDER", RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterContactNumber));
+        redeemButton.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.RedeemNow);
         redeemButton.Visible = true;
         #endregion
     }
 
-    private RedemptionFreebetRequest GetRedemptionFreebetRequest()
-    {
-        var request = new RedemptionFreebetRequest();
-        request.OperatorId = _operatorId;
-        request.MemberCode = UserSessionInfo == null ? "" : UserSessionInfo.MemberCode;
-        request.ProductId = lblproductid.Value;
-        request.CategoryId = int.Parse(string.IsNullOrEmpty(ProductDetails.CategoryId) ? "" : ProductDetails.CategoryId);
-        request.RiskId = MemberSession == null ? "0" : MemberSession.RiskId;
-        request.Currency = string.IsNullOrEmpty(ProductDetails.CurrencyCode) ? "0" : ProductDetails.CurrencyCode;
-        request.PointRequired = int.Parse(string.IsNullOrEmpty(ProductDetails.PointsRequired) ? "" : ProductDetails.PointsRequired);
-        request.Quantity = int.Parse(tbQuantity.Text.Trim());
-        request.CreditAmount = Convert.ToDecimal(string.IsNullOrEmpty(ProductDetails.AmountLimit) ? "" : ProductDetails.AmountLimit);
-        return request;
-    }
-
-    private RedemptionNormalRequest GetRedemptionNormalRequest()
-    {
-        var request = new RedemptionNormalRequest();
-        request.OperatorId = _operatorId;
-        request.MemberCode = UserSessionInfo == null ? "" : UserSessionInfo.MemberCode;
-        request.ProductId = lblproductid.Value;
-        request.CategoryId = int.Parse(string.IsNullOrEmpty(ProductDetails.CategoryId) ? "" : ProductDetails.CategoryId);
-        request.RiskId = MemberSession == null ? "0" : MemberSession.RiskId;
-        request.Currency = string.IsNullOrEmpty(ProductDetails.CurrencyCode) ? "0" : ProductDetails.CurrencyCode;
-        request.PointRequired = int.Parse(string.IsNullOrEmpty(ProductDetails.PointsRequired) ? "" : ProductDetails.PointsRequired);
-        request.Quantity = int.Parse(tbQuantity.Text.Trim());
-        request.Name = tbRName.Text.Trim();
-        request.ContactNumber = tbContact.Text.Trim();
-        request.Address = tbAddress.Value.Trim();
-        request.PostalCode = tbPostal.Text.Trim();
-        request.City = tbCity.Text.Trim();
-        request.Country = tbCountry.Text.Trim();
-        return request;
-    }
-
-    private RedemptionOnlineRequest GetRedemptionOnlineRequest()
-    {
-        var request = new RedemptionOnlineRequest();
-        request.OperatorId = _operatorId;
-        request.MemberCode = UserSessionInfo == null ? "" : UserSessionInfo.MemberCode;
-        request.ProductId = lblproductid.Value;
-        request.CategoryId = int.Parse(string.IsNullOrEmpty(ProductDetails.CategoryId) ? "" : ProductDetails.CategoryId);
-        request.RiskId = MemberSession == null ? "0" : MemberSession.RiskId;
-        request.Currency = string.IsNullOrEmpty(ProductDetails.CurrencyCode) ? "0" : ProductDetails.CurrencyCode;
-        request.PointRequired = int.Parse(string.IsNullOrEmpty(ProductDetails.PointsRequired) ? "" : ProductDetails.PointsRequired);
-        request.Quantity = int.Parse(tbQuantity.Text.Trim());
-        request.AimId = tbAccount.Text.Trim();
-        return request;
-    }
-
-    private bool CheckIsValid()
-    {
-        var productType = (ProductTypeEnum)int.Parse(ProductDetails.ProductType);
-    
-        switch (productType)
-        {
-            case ProductTypeEnum.Freebet:
-                return true;
-            case ProductTypeEnum.Normal:
-                {
-                    var name = tbRName.Text.Trim();
-                    var contact = tbContact.Text.Trim();
-                    var address = tbAddress.Value.Trim();
-                    var postal = tbPostal.Text.Trim();
-                    var city = tbCity.Text.Trim();
-                    var country = tbCountry.Text.Trim();
-
-                    if (string.IsNullOrEmpty(name))
-                    {
-                        return false;
-                    }
-                    if (string.IsNullOrEmpty(contact))
-                    {
-                        return false;
-                    }
-                    if (string.IsNullOrEmpty(address))
-                    {
-                        return false;
-                    }
-                    if (string.IsNullOrEmpty(postal))
-                    {
-                        return false;
-                    }
-                    if (string.IsNullOrEmpty(city))
-                    {
-                        return false;
-                    }
-
-                    return !string.IsNullOrEmpty(country);
-                }
-            case ProductTypeEnum.Wishlist:               
-                return false;               
-            case ProductTypeEnum.Online:
-                return !string.IsNullOrEmpty(tbAccount.Text.Trim());
-        }
-        return false;
-    }
-
-    private void GetProductDetails()
+    private async void SetProductInfo()
     {
         var memberCode = UserSessionInfo == null ? "" : UserSessionInfo.MemberCode;
         var countryCode = MemberSession == null ? "0" : MemberSession.CountryCode;
@@ -333,15 +149,16 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             {
                 if (!ProductDetails.CountryCode.Contains(countryCode))
                 {
-                    Response.Redirect("/Catalogue?categoryId=" + ProductDetails.CategoryId + "&sortBy=2", false);
+                    Response.Redirect(string.Format("/Catalogue?categoryId={0}&sortBy=2", ProductDetails.CategoryId), false);
                     return;
                 }
             }
 
             if (!(ProductDetails.RedemptionValidity == "1" && ProductDetails.RedemptionValidityCategory == "1"))
             {
-                AlertCode = "VIP";
-                VipOnly = HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem_vip").ToString();
+                Status = Convert.ToString((int) Constants.StatusCode.MemberVip);
+                Message = RewardsHelper.GetTranslation(TranslationKeys.Redemption.VipOnly);
+                ShowMessage(Status, Message);
                 return;
             }
 
@@ -378,7 +195,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             }
 
             //vip cannot select quantity
-            var vipCategoryId = ConfigurationManager.AppSettings.Get("vipCategoryId");
+            var vipCategoryId = Common.GetAppSetting<string>("vipCategoryId");
             if (ProductDetails.CategoryId == vipCategoryId)
             {
                 tbQuantity.Enabled = false;
@@ -386,19 +203,27 @@ public partial class Catalogue_Redeem : CatalogueBasePage
 
             imgPic.ImageUrl = ProductDetails.ImageUrl;
 
-            if (!string.IsNullOrEmpty(ProductDetails.DiscountPoints))
+            if (!string.IsNullOrEmpty(ProductDetails.DiscountPoints) && int.Parse(ProductDetails.DiscountPoints) != 0)
             {
-                lblBeforeDiscount.Text =
-                    string.Format("{0:#,###,##0.##}", ProductDetails.PointsRequired) + " " +
-                    HttpContext.GetLocalResourceObject(LocalResx, "lblPoints");
-                lblPointCenter.Text = string.Format("{0:#,###,##0.##}", ProductDetails.DiscountPoints) +
-                                      (string)HttpContext.GetLocalResourceObject(LocalResx, "lblPoints");
+                var builder = new StringBuilder();
+                // Before discount
+                builder.Append(string.Format(@"{0:#,###,##0.##} ", ProductDetails.PointsRequired))
+                    .Append(RewardsHelper.GetTranslation(TranslationKeys.Member.Points));
+                lblBeforeDiscount.Text = builder.ToString();
+
+                builder = new StringBuilder();
+                builder.Append(string.Format(@"{0:#,###,##0.##} ", ProductDetails.DiscountPoints))
+                    .Append(RewardsHelper.GetTranslation(TranslationKeys.Member.Points));
+                lblPointCenter.Text = builder.ToString();
             }
             else
             {
-                lblBeforeDiscount.Text = "";
-                lblPointCenter.Text = string.Format("{0:#,###,##0.##}", ProductDetails.PointsRequired) +
-                                      " " + (string)HttpContext.GetLocalResourceObject(LocalResx, "lblPoints");
+                lblBeforeDiscount.Text = string.Empty;
+                var builder = new StringBuilder();
+                // Before discount
+                builder.Append(string.Format(@"{0:#,###,##0.##} ", ProductDetails.PointsRequired))
+                    .Append(RewardsHelper.GetTranslation(TranslationKeys.Member.Points));
+                lblPointCenter.Text = builder.ToString();
             }
 
             lblName.Text = ProductDetails.ProductName;
@@ -416,7 +241,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             }
 
             #region memberInfo
-            var redemptionDetails = RewardsHelper.GetMemberRedemptionDetails(memberCode);
+            var redemptionDetails = await RewardsHelper.GetMemberRedemptionDetails(memberCode);
             if (redemptionDetails == null)
             {
                 return;
@@ -435,10 +260,62 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         }
         catch (Exception exception)
         {
-            AlertCode = "FAIL";
-            AlertMessage = HttpContext.GetLocalResourceObject(LocalResx, "lbl_Exception").ToString();
-            AuditTrail.AppendLog(memberCode, "/Catalogue/Redeem.aspx", "Redeem Now", "Catalogue/Redeem", string.Empty, string.Empty, string.Empty, exception.Message, (new Guid()).ToString(), string.Empty, string.Empty, true);
+            AuditTrail.AppendLog(exception);
         }
+    }
+
+    private RedemptionRequest GetRequest(ProductTypeEnum type)
+    {
+        var request = new RedemptionRequest();
+        request.ProductType = type;
+        request.MemberCode = UserSessionInfo == null ? string.Empty : UserSessionInfo.MemberCode;
+        request.ProductId = lblproductid.Value;
+        request.CategoryId = string.IsNullOrEmpty(ProductDetails.CategoryId) ? "0" : ProductDetails.CategoryId;
+        request.RiskId = MemberSession == null ? "0" : MemberSession.RiskId;
+        request.Currency = string.IsNullOrEmpty(ProductDetails.CurrencyCode) ? "0" : ProductDetails.CurrencyCode;
+        request.PointRequired = string.IsNullOrEmpty(ProductDetails.PointsRequired) ? string.Empty : ProductDetails.PointsRequired;
+        request.Quantity = tbQuantity.Text.Trim();
+
+        switch (type)
+        {
+            case ProductTypeEnum.Freebet:
+                request.CreditAmount = string.IsNullOrEmpty(ProductDetails.AmountLimit) ? string.Empty : ProductDetails.AmountLimit;
+                break;
+            case ProductTypeEnum.Normal:
+                request.Name = tbRName.Text.Trim();
+                request.ContactNumber = tbContact.Text.Trim();
+                request.Address = tbAddress.Value.Trim();
+                request.PostalCode = tbPostal.Text.Trim();
+                request.City = tbCity.Text.Trim();
+                request.Country = tbCountry.Text.Trim();
+                break;
+            case ProductTypeEnum.Online:
+                request.AimId = tbAccount.Text.Trim();
+                break;
+        }
+
+        return request;
+    }
+
+    private async void RefreshPoints()
+    {
+        if (MemberRewardsInfo == null)
+        {
+            MemberRewardsInfo = new MemberRewardsInfo();
+        }
+        MemberRewardsInfo.CurrentPoints = await MembersHelper.GetRewardsPoints(UserSessionInfo);
+        MemberRewardsInfo.CurrentPointLevel = await RewardsHelper.GetPointLevel(MemberSession.MemberId);
+        SetLabels();
+        SetProductInfo();
+    }
+
+    private void ShowMessage(string status, string message)
+    {
+        var scriptBuilder = new StringBuilder();
+        scriptBuilder.Append("setTimeout(function() {showMessage('")
+            .Append(status + "','")
+            .Append(message + "');}, 300);");
+        ScriptManager.RegisterStartupScript(Page, GetType(), (new Guid()).ToString(), scriptBuilder.ToString(), true);
     }
 }
 

@@ -20,6 +20,7 @@ public partial class _Default : BasePage
         if (string.Compare(Convert.ToString(RouteData.DataTokens["logout"]), "true", true) == 0) 
         {
             // Do logout logic here
+            CookieHelpers.ClearCookies();
             Response.Redirect("/Default.aspx", false);
         }
         if (string.Compare(Convert.ToString(RouteData.DataTokens["expire"]), "true", true) == 0)

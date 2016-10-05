@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Redeem.aspx.cs" Inherits="Catalogue_Redeem" Async="true"%>
+<%@ Import Namespace="W88.BusinessLogic.Rewards.Models" %>
 
 <!DOCTYPE html>
 <html>
@@ -23,7 +24,7 @@
                         </a>
                     </div>
                     <div class="catalog-information">
-                        <h4><%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem_info").ToString()%></h4>
+                        <h4><%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.RedeemInfo)%></h4>
                         <asp:HiddenField ID="lblproductid" runat="server" />
                         <div class="ui-field-contain ui-hide-label">
                             <div>
@@ -98,7 +99,7 @@
                         </div>
                         <br />
                         <div id="RecipientDiv" runat="server">
-                            <h4><%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_recipient").ToString() %>: </h4>
+                            <h4><%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.Recipient)%>: </h4>
                             <div class="ui-field-contain ui-hide-label">
                                 <asp:TextBox ID="tbRName" runat="server" MaxLength="50" type="Text" data-mini="true" placeholder="Recipient Name" />
                                 <asp:Label ID="Label4" CssClass="validator" runat="server" Text="*" data-mini="true" />
@@ -164,36 +165,24 @@
             }
         });
 
-        function showMessage(alertCode, message) {
-            if (_.isEmpty(alertCode) || _.isEmpty(message)) {
+        function showMessage(status, message) {
+            if (_.isEmpty(status) || _.isEmpty(message)) {
                 return;
             }
-
-            switch (alertCode) {
-                case 'VIP':
-                    window.w88Mobile.Growl.shout(message);
+            switch (status) {
+                case '-7':
                     $('#redeemButton').attr("disabled", true);
-                    window.location.replace('/Catalogue');
                     break;
-                case 'SUCCESS':
-                    window.w88Mobile.Growl.shout(message);
-                    window.location.replace('/Catalogue');
-                    break;
-                case 'FAIL':
-                    window.w88Mobile.Growl.shout(message);
+                case '-1':
                     $('#redeemButton').attr("disabled", false);
                     break;
-                case 'CURR':
-                    window.location.replace('/Catalogue?categoryId=0&sortBy=2');
-                    break;
-                default:
-                    break;
             }
+            window.w88Mobile.Growl.shout(message);
         }
 
         function validateFreebet() {
             if ($('#tbQuantity').val() && $('#tbQuantity').val().trim().length == 0) {
-                window.w88Mobile.Growl.shout('<%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_invalid_number").ToString()%>');
+                window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.InvalidQuantity)%>');
                 return false;
             }
             return true;       
@@ -201,11 +190,11 @@
 
         function validateOnlineAccount() {
             if ($('#tbQuantity').val() && $('#tbQuantity').val().trim().length == 0) {
-                window.w88Mobile.Growl.shout('<%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_invalid_number").ToString()%>');
+                window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.InvalidQuantity)%>');
                 return false;
             }
             if ($('#tbAccount').val() && $('#tbAccount').val().trim().length == 0) {
-                window.w88Mobile.Growl.shout('<%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_enter_account").ToString()%>');
+                window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterAccount)%>');
                 return false;
             } 
             return true;        
@@ -213,31 +202,31 @@
 
         function validateNormal() {
             if ($('#tbQuantity').val() && $('#tbQuantity').val().trim().length == 0) {
-                window.w88Mobile.Growl.shout('<%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_invalid_number").ToString()%>');
+                window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.InvalidQuantity)%>');
                 return false;
             }
             if ($('#tbRName').val() && $('#tbRName').val().trim().length == 0) {
-                window.w88Mobile.Growl.shout('<%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_enter_name").ToString()%>');
+                window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterName)%>');
                 return false;
             }
             if ($('#tbAddress').val() && $('#tbAddress').val().trim().length == 0) {
-                window.w88Mobile.Growl.shout('<%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_enter_address").ToString()%>');
+                window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterAddress)%>');
                 return false;
             }
             if ($('#tbPostal').val() && $('#tbPostal').val().trim().length == 0) {
-                window.w88Mobile.Growl.shout('<%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_enter_postal").ToString()%>');
+                window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterPostal)%>');
                 return false;
             }
             if ($('#tbCity').val() && $('#tbCity').val().trim().length == 0) {
-                window.w88Mobile.Growl.shout('<%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_enter_city").ToString()%>');
+                window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterCity)%>');
                 return false;
             }
             if ($('#tbCountry').val() && $('#tbCountry').val().trim().length == 0) {
-                window.w88Mobile.Growl.shout('<%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_enter_country").ToString()%>');
+                window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterCountry)%>');
                 return false;
             }
             if ($('#tbContact').val() && $('#tbContact').val().trim().length == 0) {
-                window.w88Mobile.Growl.shout('<%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_enter_contact").ToString()%>');
+                window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterContactNumber)%>');
                 return false;
             } 
             return true;            
