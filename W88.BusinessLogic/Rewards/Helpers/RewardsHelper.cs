@@ -22,7 +22,6 @@ namespace W88.BusinessLogic.Rewards.Helpers
     public class RewardsHelper : BaseHelper
     {
         private const string TranslationsPath = "rewards/rewards";
-        protected static List<LOV> Translations = Translations ?? GetTranslations();
 
         public async Task<int> CheckRedemptionLimitForVipCategory(string memberCode, string vipCategoryId)
         {
@@ -421,7 +420,7 @@ namespace W88.BusinessLogic.Rewards.Helpers
             LOV keyValue;
             if (string.IsNullOrWhiteSpace(language))
             {
-                keyValue = Translations.Find(x => x.Text == key);
+                keyValue = GetTranslations().Find(x => x.Text == key);
                 return keyValue == null ? string.Empty : keyValue.Value;
             }
             keyValue = GetTranslations(language).Find(x => x.Text == key);
@@ -431,20 +430,27 @@ namespace W88.BusinessLogic.Rewards.Helpers
         private static List<LOV> GetTranslations(string language = "")
         {             
             var list = new List<LOV>();
-            var translations = Common.DeserializeObject<dynamic>(CultureHelpers.AppData.GetLocale_i18n_Resource(TranslationsPath, true, language));
-            if (translations == null)
+            try
             {
+                var translations = Common.DeserializeObject<dynamic>(CultureHelpers.AppData.GetLocale_i18n_Resource(TranslationsPath, true, language));
+                if (translations == null)
+                {
+                    return list;
+                }
+                foreach (var translation in translations)
+                {
+                    list.Add(new LOV
+                    {
+                        Text = translation.Name,
+                        Value = translation.Value
+                    });
+                }
                 return list;
             }
-            foreach (var translation in translations)
+            catch (Exception exception)
             {
-                list.Add(new LOV
-                {
-                    Text = translation.Name,
-                    Value = translation.Value
-                });
-            }
-            return list;            
+                return list;      
+            }   
         }
     }
 }
