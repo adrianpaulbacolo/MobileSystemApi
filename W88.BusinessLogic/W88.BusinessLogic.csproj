@@ -80,6 +80,7 @@
     <Compile Include="Rewards\Models\MemberRedemptionDetails.cs" />
     <Compile Include="Rewards\Models\MemberRewardsInfo.cs" />
     <Compile Include="Rewards\Models\ProductDetails.cs" />
+    <Compile Include="Rewards\Models\TranslationKeys.cs" />
     <Compile Include="Rewards\Redemption\Factories\Handlers\FreeBetRedemptionHandler.cs" />
     <Compile Include="Rewards\Redemption\Factories\Handlers\NormalRedemptionHandler.cs" />
     <Compile Include="Rewards\Redemption\Factories\Handlers\OnlineRedemptionHandler.cs" />
