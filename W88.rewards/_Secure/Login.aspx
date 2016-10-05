@@ -1,10 +1,11 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="_Secure_Login" Async="true"%>
+<%@ Import Namespace="W88.BusinessLogic.Rewards.Models" %>
 <%@ Import Namespace="W88.BusinessLogic.Shared.Helpers" %>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%=CultureHelpers.ElementValues.GetResourceString("brand", LeftMenu) + CultureHelpers.ElementValues.GetResourceString("login", LeftMenu)%></title>
+    <title><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Brand)%></title>
     <!--#include virtual="~/_static/head.inc" -->
 </head>
 <body>
@@ -47,31 +48,25 @@
             $('#<%=btnSubmit.ClientID%>').click(function (e) {
                 $('#btnSubmit').attr("disabled", true);
                 if ($('#txtUsername').val().trim().length == 0) {
-                    showMessage('<%=CultureHelpers.ElementValues.GetResourceXPathString("Login/MissingUsername", XeErrors)%>');
+                    showMessage('<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.MissingUsername)%>');
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
                     return;
                 }
                 if (!/^[a-zA-Z0-9]+$/.test($('#txtUsername').val().trim())) {
-                    showMessage('<%=CultureHelpers.ElementValues.GetResourceXPathString("Login/InvalidUsername", XeErrors)%>');
-                    $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
-                    return;
-                }
-                if ($('#txtUsername').val().trim().indexOf(' ') >= 0) {
-                    showMessage('<%=CultureHelpers.ElementValues.GetResourceXPathString("Login/InvalidUsername", XeErrors)%>');
+                    showMessage('<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.InvalidUsernamePassword)%>');
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
                     return;
                 }
                 if ($('#txtPassword').val().trim().length == 0) {
-                    showMessage('<%=CultureHelpers.ElementValues.GetResourceXPathString("Login/MissingPassword", XeErrors)%>');
+                    showMessage('<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.MissingPassword)%>');
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
                     return;
                 }
                 if ($('#txtCaptcha').val().trim().length == 0 && counter >= 3) {
-                    showMessage('<%=CultureHelpers.ElementValues.GetResourceString("MissingVCode", XeErrors)%>');
+                    showMessage('<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.IncorrectVCode)%>');
                     $('#btnSubmit').attr("disabled", false);
                     e.preventDefault();
                     return;
@@ -94,7 +89,7 @@
                 },
                 timeout: function () {
                     $('#<%=btnSubmit.ClientID%>').prop('disabled', false);
-                    showMessage('<%=CultureHelpers.ElementValues.GetResourceString("Exception", XeErrors)%>');
+                    showMessage('<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.Exception)%>');
                     loadPage('/Default.aspx');
                 },
                 data: JSON.stringify({ 
@@ -149,7 +144,7 @@
                 },
                 error: function (err) {
                     GPINTMOBILE.HideSplash();
-                    showMessage('<%=CultureHelpers.ElementValues.GetResourceString("Exception", XeErrors)%>');
+                    showMessage('<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.Exception)%>');
                     $('#btnSubmit').attr("disabled", false);
                 }
             });

@@ -2,16 +2,16 @@
 using System.Collections.Specialized;
 using System.Configuration;
 using System.Text;
-using System.Xml.Linq;
+using System.Web.UI;
+using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Shared.Helpers;
 
-public partial class _Lang : System.Web.UI.Page
+public partial class _Lang : Page
 {
-    protected XElement LeftMenu = null;
+    protected RewardsHelper RewardsHelper = new RewardsHelper();
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        LeftMenu = CultureHelpers.AppData.GetRootResource("leftMenu");
         var languages = (new LanguageHelpers()).Language;
         var keys = languages.Keys;
         var divBuilder = new StringBuilder();

@@ -1,10 +1,10 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Lang.aspx.cs" Inherits="_Lang" Async="true"%>
-<%@ Import Namespace="W88.BusinessLogic.Shared.Helpers" %>
+<%@ Import Namespace="W88.BusinessLogic.Rewards.Models" %>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%=CultureHelpers.ElementValues.GetResourceString("brand", LeftMenu) + CultureHelpers.ElementValues.GetResourceString("language", LeftMenu)%></title>
+    <title><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Brand)%></title>
     <!--#include virtual="~/_static/head.inc" -->
 </head>
 <body>
@@ -14,7 +14,7 @@
             <section class="main-content">
                 <div class="container">
                     <div class="page-title">
-                        <h3 class="text-center"><%=CultureHelpers.ElementValues.GetResourceString("selectLanguage", LeftMenu)%></h3>
+                        <h3 class="text-center"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.SelectLanguage)%></h3>
                     </div>
                     <div class="language-box">
                         <div runat="server" ID="divLanguageContainer" class="row"></div>
