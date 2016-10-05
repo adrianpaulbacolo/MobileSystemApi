@@ -14,6 +14,8 @@
             public const string CreateVendorParameter = "CreateVendorParameter";
             public const string ProcessDummyUrl = "ProcessDummyUrl";
             public const string CancelPendingWithdrawal = "CancelPendingWithdrawal";
+            public const string SendMail = "SendMail";
+            public const string RedeemRewards = "RedeemRewards";
         }
 
         public struct PageNames
@@ -23,6 +25,8 @@
             public const string FundsPage = "FundsPage";
             public const string LoginPage = "LoginPage";
             public const string WalletsApi = "WalletsApi";
+            public const string MailApi = "MailApi";
+            public const string RedeemPage = "RedeemPage";
         }
 
         public struct VarNames

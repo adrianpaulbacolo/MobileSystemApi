@@ -80,7 +80,14 @@
     <Compile Include="Rewards\Models\MemberRedemptionDetails.cs" />
     <Compile Include="Rewards\Models\MemberRewardsInfo.cs" />
     <Compile Include="Rewards\Models\ProductDetails.cs" />
+    <Compile Include="Rewards\Redemption\Factories\Handlers\FreeBetRedemptionHandler.cs" />
+    <Compile Include="Rewards\Redemption\Factories\Handlers\NormalRedemptionHandler.cs" />
+    <Compile Include="Rewards\Redemption\Factories\Handlers\OnlineRedemptionHandler.cs" />
+    <Compile Include="Rewards\Redemption\Factories\RedemptionStrategy.cs" />
+    <Compile Include="Rewards\Redemption\Factories\RedemptionBase.cs" />
+    <Compile Include="Rewards\Redemption\Model\RedemptionRequest.cs" />
     <Compile Include="Shared\Helpers\ListOfValuesHelper.cs" />
+    <Compile Include="Shared\Helpers\MailHelper.cs" />
     <Compile Include="Shared\Models\Constants.cs" />
     <Compile Include="Shared\Models\LOV.cs" />
     <Compile Include="Games\Helpers\GameSettings.cs" />
@@ -113,6 +120,7 @@
     <Compile Include="Funds\Helpers\Promotions.cs" />
     <Compile Include="Funds\Models\CheckPromoInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shared\Models\MailRequest.cs" />
     <Compile Include="Shared\Models\ProcessCode.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +138,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

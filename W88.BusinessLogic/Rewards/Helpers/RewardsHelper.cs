@@ -1,11 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.Threading.Tasks;
 using W88.BusinessLogic.Base.Helpers;
 using W88.BusinessLogic.Shared.Helpers;
 using W88.BusinessLogic.Accounts.Models;
+using W88.BusinessLogic.Shared.Models;
 using W88.Utilities;
+using W88.Utilities.Constant;
+using W88.Utilities.Log.Helpers;
 using W88.WebRef.RewardsServices;
 using W88.BusinessLogic.Rewards.Models;
 
@@ -17,6 +21,9 @@ namespace W88.BusinessLogic.Rewards.Helpers
     /// </summary>
     public class RewardsHelper : BaseHelper
     {
+        private const string TranslationsPath = "rewards/rewards";
+        protected static List<LOV> Translations = Translations ?? GetTranslations();
+
         public async Task<int> CheckRedemptionLimitForVipCategory(string memberCode, string vipCategoryId)
         {
             try
@@ -320,6 +327,124 @@ namespace W88.BusinessLogic.Rewards.Helpers
             {
                 return null;
             }
+        }
+
+        public async Task<ProcessCode> SendMail(string memberCode, string redemptionId)
+        {
+            var process = new ProcessCode();
+            process.Id = Guid.NewGuid();
+
+            try
+            {
+                var recipient = string.Empty;
+                var language = string.Empty;
+                var isAlternative = false;
+
+                using (var client = new RewardsServicesClient())
+                {
+                    var dataSet = await client.getMemberInfoAsync(Settings.OperatorId.ToString(CultureInfo.InvariantCulture), memberCode);
+                    if (dataSet.Tables.Count > 0 && dataSet.Tables[0].Rows.Count > 0)
+                    {
+                        recipient = dataSet.Tables[0].Rows[0]["email"].ToString();                        
+                        language = dataSet.Tables[0].Rows[0]["languageCode"] == null 
+                            ? LanguageHelpers.SelectedLanguage : dataSet.Tables[0].Rows[0]["languageCode"].ToString();                        
+                    }
+                }
+
+                if (string.IsNullOrEmpty(recipient))
+                {
+                    process.ProcessSerialId += 1;
+                    process.Code = (int)Constants.StatusCode.Error;
+                    AuditTrail.AppendLog(memberCode, Constants.PageNames.MailApi, Constants.TaskNames.SendMail,
+                        Constants.PageNames.ComponentName, Convert.ToString((int)Constants.StatusCode.Error), string.Empty, string.Empty,
+                        "Recipient address is empty", string.Empty, Convert.ToString(process.ProcessSerialId), Convert.ToString(process.Id), false);      
+                    return process;
+                }
+                
+                var mailRequest = new MailRequest();
+                mailRequest.To = recipient;
+
+                string[] splitChar = {"|"};
+                var mailDomains = Common.GetAppSetting<string>("smtp_alternative").Split(splitChar, StringSplitOptions.None);
+
+                foreach (var domain in mailDomains)
+                {
+                    if (mailRequest.To.Contains(domain))
+                    {
+                        isAlternative = true;
+                        break;
+                    }
+                }
+
+                if (isAlternative)
+                {
+                    mailRequest.Port = int.Parse(Common.GetAppSetting<string>("mail_port"));
+                    mailRequest.Host = Common.GetAppSetting<string>("mail_host");
+                    mailRequest.Username = Common.GetAppSetting<string>("mail_username");
+                    mailRequest.Password = Common.GetAppSetting<string>("mail_password");
+                }
+                else
+                {
+                    mailRequest.UseDefaultCredentials = true;
+                    var bccAddress = Common.GetAppSetting<string>("bcc_addresses");
+                    if (!string.IsNullOrEmpty(bccAddress))
+                    {
+                        mailRequest.BccAddresses = bccAddress.Split(splitChar, StringSplitOptions.None);
+                    }
+                }
+
+                var subject = GetTranslation(TranslationKeys.Redemption.MailSubject, language);
+                var body = GetTranslation(TranslationKeys.Redemption.MailBody, language);
+                body = string.IsNullOrEmpty(body) ? string.Empty : string.Format(body.Trim(), memberCode.Trim(), redemptionId);
+                
+                // Send mail
+                mailRequest.Subject = subject;
+                mailRequest.Body = body;
+                mailRequest.From = Common.GetAppSetting<string>("sender_address");
+                mailRequest.SenderName = Common.GetAppSetting<string>("sender_name");
+                MailHelper.SendMail(mailRequest);
+
+                process.ProcessSerialId += 1;
+                process.Code = (int)Constants.StatusCode.Success;
+                return process;
+            }
+            catch (Exception exception)
+            {
+                AuditTrail.AppendLog(exception);
+                process.Code = (int)Constants.StatusCode.Error;
+                return process;
+            }
+        }
+
+        public string GetTranslation(string key, string language = "")
+        {
+            LOV keyValue;
+            if (string.IsNullOrWhiteSpace(language))
+            {
+                keyValue = Translations.Find(x => x.Text == key);
+                return keyValue == null ? string.Empty : keyValue.Value;
+            }
+            keyValue = GetTranslations(language).Find(x => x.Text == key);
+            return keyValue == null ? string.Empty : keyValue.Value;
+        }
+
+        private static List<LOV> GetTranslations(string language = "")
+        {             
+            var list = new List<LOV>();
+            var translations = Common.DeserializeObject<dynamic>(CultureHelpers.AppData.GetLocale_i18n_Resource(TranslationsPath, true, language));
+            if (translations == null)
+            {
+                return list;
+            }
+            foreach (var translation in translations)
+            {
+                list.Add(new LOV
+                {
+                    Text = translation.Name,
+                    Value = translation.Value
+                });
+            }
+            return list;            
         }
     }
 }
