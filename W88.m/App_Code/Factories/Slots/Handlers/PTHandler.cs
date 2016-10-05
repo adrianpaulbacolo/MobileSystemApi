@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
+using Models;
 
 namespace Factories.Slots.Handlers
 {
@@ -20,26 +21,25 @@ namespace Factories.Slots.Handlers
         public string languageCode;
         public string user;
 
-        private string fun;
-        private string real;
         private string prefix;
-
-        private string lobbyPage;
         private string supportPage;
         private string logoutPage;
 
-        public PTHandler(string username, string lobby, string support, string logout)
-            : base(GameProvider.PT)
+        public PTHandler(string username, string lobby, string support, string logout) : base(GameProvider.PT)
         {
             prefix = GameSettings.PtAcctPrefix;
-            fun = GameSettings.GetGameUrl(GameProvider.PT, GameLinkSetting.Fun);
-            real = GameSettings.GetGameUrl(GameProvider.PT, GameLinkSetting.Real);
-
             GameProvider = GameProvider.PT;
+            
             user = prefix + username.ToUpper();
-            lobbyPage = lobby;
             supportPage = support;
             logoutPage = logout;
+
+            GameLink = new GameLinkInfo
+            {
+                Fun = GameSettings.GetGameUrl(GameProvider, GameLinkSetting.Fun),
+                Real = GameSettings.GetGameUrl(GameProvider, GameLinkSetting.Real),
+                LobbyPage = lobby
+            };
         }
 
         protected override string SetLanguageCode()
@@ -67,7 +67,7 @@ namespace Factories.Slots.Handlers
         {
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
 
-            return fun.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode);
+            return GameLink.Fun.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode);
         }
 
         protected override string CreateRealUrl(XElement element)
@@ -76,8 +76,8 @@ namespace Factories.Slots.Handlers
            
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
 
-            return isNGM ? real.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{USER}", user)
-                .Replace("{LOBBY}", lobbyPage).Replace("{SUPPORT}", supportPage).Replace("{LOGOUT}", logoutPage) : "";
+            return isNGM ? GameLink.Real.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{USER}", user)
+                .Replace("{LOBBY}", GameLink.LobbyPage).Replace("{SUPPORT}", supportPage).Replace("{LOGOUT}", logoutPage) : "";
         }
     }
 }

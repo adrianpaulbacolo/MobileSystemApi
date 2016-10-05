@@ -1,4 +1,5 @@
-﻿using Helpers;
+﻿using System.Activities.Expressions;
+using Helpers;
 using Models;
 using System;
 using System.Collections.Generic;
@@ -13,14 +14,7 @@ namespace Factories.Slots
         protected string langCode;
         protected GameProvider GameProvider { get; set; }
         private XElement xeResources = null;
-        protected const string mrSlot = "mrslots";
-        protected const string mSlot = "mslots";
-
-        protected string Fun;
-        protected string Real;
-        protected string LobbyPage;
-        protected string MemberSessionId;
-        protected string CashierPage;
+        public GameLinkInfo GameLink = new GameLinkInfo();
 
         public GameLoaderBase(GameProvider gameProvider)
         {
@@ -185,50 +179,6 @@ namespace Factories.Slots
             return true;
         }
 
-        protected bool IsRslot(XElement element)
-        {
-            return element.Attribute("Type") != null && element.Attribute("Type").Value.Equals("rslot", StringComparison.OrdinalIgnoreCase);
-        }
-
-        protected string GetGpiGameLanguage(XElement element)
-        {
-            if (element.Attribute("LanguageCode") != null)
-            {
-                string[] languagesCodes = element.Attribute("LanguageCode").Value.Split(',');
-
-                bool isLangSupp = languagesCodes.Contains(langCode, StringComparer.OrdinalIgnoreCase);
-
-                return isLangSupp ? langCode : "en";
-            }
-            else
-            {
-                return langCode.Equals("cn", StringComparison.OrdinalIgnoreCase) ? "zn" : "en";
-            }
-        }
-
-        protected string CheckRSlot(GameLinkSetting setting, XElement element)
-        {
-            if (IsRslot(element))
-            {
-                string slotType = IsRslot(element) ? mrSlot : mSlot;
-                string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
-                string lang = GetGpiGameLanguage(element);
-
-                string url = "";
-                if (setting == GameLinkSetting.Fun)
-                {
-                    string funUrl = GameSettings.GetGameUrl(GameProvider.GPI, GameLinkSetting.Fun);
-                    return funUrl.Replace("{TYPE}", slotType).Replace("{GAME}", gameName).Replace("{LANG}", lang);
-                }
-                else
-                {
-                    string realUrl = GameSettings.GetGameUrl(GameProvider.GPI, GameLinkSetting.Real);
-                    return realUrl.Replace("{TYPE}", slotType).Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{TOKEN}", MemberSessionId);
-                }
-            }
-
-            return string.Empty;
-        }
     }
 
      public enum GameLinkSetting

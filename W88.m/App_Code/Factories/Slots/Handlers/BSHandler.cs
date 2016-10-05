@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
+using Helpers.GameProviders;
+using Models;
 
 namespace Factories.Slots.Handlers
 {
@@ -16,17 +18,19 @@ namespace Factories.Slots.Handlers
     {
         private GameDevice device;
 
-        public BSHandler(string token, string lobby, string cashier, GameDevice gameDevice)
-            : base(GameProvider.BS)
+        public BSHandler(string token, string lobby, string cashier, GameDevice gameDevice) : base(GameProvider.BS)
         {
-            Fun = GameSettings.GetGameUrl(GameProvider.BS, GameLinkSetting.Fun);
-            Real = GameSettings.GetGameUrl(GameProvider.BS, GameLinkSetting.Real);
-
             GameProvider = GameProvider.BS;
-            MemberSessionId = token;
-            LobbyPage = lobby;
-            CashierPage = cashier;
             device = gameDevice;
+
+            GameLink = new GameLinkInfo
+            {
+                Fun = GameSettings.GetGameUrl(GameProvider, GameLinkSetting.Fun),
+                Real = GameSettings.GetGameUrl(GameProvider, GameLinkSetting.Real),
+                MemberSessionId = token,
+                LobbyPage = lobby,
+                CashierPage = cashier
+            };
         }
 
         protected override string SetLanguageCode()
@@ -36,26 +40,26 @@ namespace Factories.Slots.Handlers
 
         protected override string CreateFunUrl(XElement element)
         {
-            var gpi = CheckRSlot(GameLinkSetting.Fun, element);
+            var gpi = new Gpi(GameLink).CheckRSlot(GameLinkSetting.Fun, element);
             if (!string.IsNullOrWhiteSpace(gpi))
             {
                 return gpi;
             }
 
             string gameName = GetGameId(element);
-            return Fun.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{LOBBY}", LobbyPage);
+            return GameLink.Fun.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{LOBBY}", GameLink.LobbyPage);
         }
 
         protected override string CreateRealUrl(XElement element)
         {
-            var gpi = CheckRSlot(GameLinkSetting.Real, element);
+            var gpi = new Gpi(GameLink).CheckRSlot(GameLinkSetting.Real, element);
             if (!string.IsNullOrWhiteSpace(gpi))
             {
                 return gpi;
             }
            
             string gameName = GetGameId(element);
-            return Real.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{TOKEN}", MemberSessionId).Replace("{CASHIER}", CashierPage).Replace("{LOBBY}", LobbyPage);
+            return GameLink.Real.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{TOKEN}", GameLink.MemberSessionId).Replace("{CASHIER}", GameLink.CashierPage).Replace("{LOBBY}", GameLink.LobbyPage);
         }
 
         protected override string GetGameId(XElement xeGame)
