@@ -21,6 +21,9 @@ namespace W88.BusinessLogic.Rewards.Helpers
     /// </summary>
     public class RewardsHelper : BaseHelper
     {
+        private const string TranslationsPath = "rewards/rewards";
+        protected static List<LOV> Translations = Translations ?? GetTranslations();
+
         public async Task<int> CheckRedemptionLimitForVipCategory(string memberCode, string vipCategoryId)
         {
             try
@@ -326,11 +329,15 @@ namespace W88.BusinessLogic.Rewards.Helpers
             }
         }
 
-        public async void SendMail(Dictionary<string, string> fields, string memberCode)
+        public async Task<ProcessCode> SendMail(string memberCode, string redemptionId)
         {
+            var process = new ProcessCode();
+            process.Id = Guid.NewGuid();
+
             try
             {
                 var recipient = string.Empty;
+                var language = string.Empty;
                 var isAlternative = false;
 
                 using (var client = new RewardsServicesClient())
@@ -338,16 +345,20 @@ namespace W88.BusinessLogic.Rewards.Helpers
                     var dataSet = await client.getMemberInfoAsync(Settings.OperatorId.ToString(CultureInfo.InvariantCulture), memberCode);
                     if (dataSet.Tables.Count > 0 && dataSet.Tables[0].Rows.Count > 0)
                     {
-                        recipient = dataSet.Tables[0].Rows[0]["email"].ToString();                     
+                        recipient = dataSet.Tables[0].Rows[0]["email"].ToString();                        
+                        language = dataSet.Tables[0].Rows[0]["languageCode"] == null 
+                            ? LanguageHelpers.SelectedLanguage : dataSet.Tables[0].Rows[0]["languageCode"].ToString();                        
                     }
                 }
 
                 if (string.IsNullOrEmpty(recipient))
                 {
+                    process.ProcessSerialId += 1;
+                    process.Code = (int)Constants.StatusCode.Error;
                     AuditTrail.AppendLog(memberCode, Constants.PageNames.MailApi, Constants.TaskNames.SendMail,
                         Constants.PageNames.ComponentName, Convert.ToString((int)Constants.StatusCode.Error), string.Empty, string.Empty,
-                        "Recipient address is empty", string.Empty, "1", Convert.ToString(Guid.NewGuid()), false);
-                    return;
+                        "Recipient address is empty", string.Empty, Convert.ToString(process.ProcessSerialId), Convert.ToString(process.Id), false);      
+                    return process;
                 }
                 
                 var mailRequest = new MailRequest();
@@ -382,16 +393,58 @@ namespace W88.BusinessLogic.Rewards.Helpers
                     }
                 }
 
-                mailRequest.Subject = fields["Subject"];
-                mailRequest.Body = fields["Body"];
+                var subject = GetTranslation(TranslationKeys.Redemption.MailSubject, language);
+                var body = GetTranslation(TranslationKeys.Redemption.MailBody, language);
+                body = string.IsNullOrEmpty(body) ? string.Empty : string.Format(body.Trim(), memberCode.Trim(), redemptionId);
+                
+                // Send mail
+                mailRequest.Subject = subject;
+                mailRequest.Body = body;
                 mailRequest.From = Common.GetAppSetting<string>("sender_address");
                 mailRequest.SenderName = Common.GetAppSetting<string>("sender_name");
                 MailHelper.SendMail(mailRequest);
+
+                process.ProcessSerialId += 1;
+                process.Code = (int)Constants.StatusCode.Success;
+                return process;
             }
             catch (Exception exception)
             {
                 AuditTrail.AppendLog(exception);
+                process.Code = (int)Constants.StatusCode.Error;
+                return process;
             }
+        }
+
+        public string GetTranslation(string key, string language = "")
+        {
+            LOV keyValue;
+            if (string.IsNullOrWhiteSpace(language))
+            {
+                keyValue = Translations.Find(x => x.Text == key);
+                return keyValue == null ? string.Empty : keyValue.Value;
+            }
+            keyValue = GetTranslations(language).Find(x => x.Text == key);
+            return keyValue == null ? string.Empty : keyValue.Value;
+        }
+
+        private static List<LOV> GetTranslations(string language = "")
+        {             
+            var list = new List<LOV>();
+            var translations = Common.DeserializeObject<dynamic>(CultureHelpers.AppData.GetLocale_i18n_Resource(TranslationsPath, true, language));
+            if (translations == null)
+            {
+                return list;
+            }
+            foreach (var translation in translations)
+            {
+                list.Add(new LOV
+                {
+                    Text = translation.Name,
+                    Value = translation.Value
+                });
+            }
+            return list;            
         }
     }
 }

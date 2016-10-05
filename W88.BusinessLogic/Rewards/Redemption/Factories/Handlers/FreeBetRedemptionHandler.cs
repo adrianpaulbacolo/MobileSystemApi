@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using W88.BusinessLogic.Shared.Models;
 using W88.WebRef.RewardsServices;
 using RedemptionRequest = W88.BusinessLogic.Rewards.Redemption.Model.RedemptionRequest;
 
@@ -13,25 +12,12 @@ namespace W88.BusinessLogic.Rewards.Redemption.Factories.Handlers
 
         }
 
-        public override async Task<ProcessCode> Redeem()
+        protected override async Task<RedemptionResponse> ProcessRedemption()
         {
-            var process = new ProcessCode();
-            process.Id = Guid.NewGuid();
-
-            if (!Validate(process))
-            {
-                return process;
-            }
-
             using (var client = new RewardsServicesClient())
             {
-                var request = (RedemptionFreebetRequest) CreateRequest();
-                var response = await client.RedemptionFreebetAsync(request);
-                process.ProcessSerialId += 1;
-                process.Data = response;
-                process.Code = (int)Constants.StatusCode.Success;
-                LogRedemption(process);
-                return process;
+                var request = (RedemptionFreebetRequest)CreateRequest();
+                return await client.RedemptionFreebetAsync(request);
             }
         }
 
