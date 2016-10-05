@@ -90,7 +90,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         {
             usernameLabel.InnerText = UserSessionInfo.MemberCode;
         }
-        var pointsLabelText = RewardsHelper.GetTranslation("Member_Points");
+        var pointsLabelText = RewardsHelper.GetTranslation(TranslationKeys.Member.Points);
         var stringBuilder = new StringBuilder();
 
         stringBuilder.Append(pointsLabelText)
@@ -98,7 +98,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             .Append(MemberRewardsInfo != null ? Convert.ToString(MemberRewardsInfo.CurrentPoints) : "0");
         pointsLabel.InnerText = stringBuilder.ToString();
 
-        var pointLevelLabelText = RewardsHelper.GetTranslation("Member_PointLevel");
+        var pointLevelLabelText = RewardsHelper.GetTranslation(TranslationKeys.Member.PointLevel);
         stringBuilder = new StringBuilder();
         stringBuilder.Append(pointLevelLabelText)
             .Append(" ")
@@ -208,12 +208,12 @@ public partial class Catalogue_Redeem : CatalogueBasePage
                 var builder = new StringBuilder();
                 // Before discount
                 builder.Append(string.Format(@"{0:#,###,##0.##} ", ProductDetails.PointsRequired))
-                    .Append(RewardsHelper.GetTranslation("Member_Points"));
+                    .Append(RewardsHelper.GetTranslation(TranslationKeys.Member.Points));
                 lblBeforeDiscount.Text = builder.ToString();
 
                 builder = new StringBuilder();
                 builder.Append(string.Format(@"{0:#,###,##0.##} ", ProductDetails.DiscountPoints))
-                    .Append(RewardsHelper.GetTranslation("Member_Points"));
+                    .Append(RewardsHelper.GetTranslation(TranslationKeys.Member.Points));
                 lblPointCenter.Text = builder.ToString();
             }
             else
@@ -222,7 +222,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
                 var builder = new StringBuilder();
                 // Before discount
                 builder.Append(string.Format(@"{0:#,###,##0.##} ", ProductDetails.PointsRequired))
-                    .Append(RewardsHelper.GetTranslation("Member_Points"));
+                    .Append(RewardsHelper.GetTranslation(TranslationKeys.Member.Points));
                 lblPointCenter.Text = builder.ToString();
             }
 
