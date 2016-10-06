@@ -8,7 +8,7 @@ using W88.BusinessLogic.Shared.Models;
 
 namespace W88.API
 {
-    [RoutePrefix("api/game")]
+    [RoutePrefix("game")]
     public class GameController : BaseController
     {
         // GET api/<controller>

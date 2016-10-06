@@ -30,14 +30,14 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
         private string supportPage;
         private string logoutPage;
 
-        public PTHandler(UserSessionInfo userObj, string lobby, string support, string logout)
-            : base(GameProvider.PT)
+        public PTHandler(UserSessionInfo userInfo, string lobby, string support, string logout)
+            : base(GameProvider.PT, userInfo.LanguageCode)
         {
             prefix = GameSettings.PTAcctPrefix;
             fun = GameSettings.GetGameUrl(GameProvider.PT, GameLinkSetting.Fun);
             real = GameSettings.GetGameUrl(GameProvider.PT, GameLinkSetting.Real);
 
-            user = prefix + userObj.MemberCode.ToUpper();
+            user = prefix + userInfo.MemberCode.ToUpper();
             lobbyPage = lobby;
             supportPage = support;
             logoutPage = logout;
@@ -45,7 +45,7 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
 
         protected override string SetLanguageCode()
         {
-            switch (LanguageHelpers.SelectedLanguage)
+            switch (LanguageCode)
             {
                 case "ko-kr":
                     languageCode = "ko";
@@ -68,7 +68,7 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
         {
             string gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
 
-            return fun.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode);
+            return fun.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode);
         }
 
         protected override string CreateRealUrl(XElement element)
@@ -77,7 +77,7 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
 
             string gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
 
-            return isNGM ? real.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{USER}", user)
+            return isNGM ? real.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{USER}", user)
                 .Replace("{LOBBY}", lobbyPage).Replace("{SUPPORT}", supportPage).Replace("{LOGOUT}", logoutPage) : "";
         }
     }

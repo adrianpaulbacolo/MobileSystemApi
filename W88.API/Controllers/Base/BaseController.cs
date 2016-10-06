@@ -35,7 +35,7 @@ namespace W88.API
         {
             var languages = new LanguageHelpers();
             var defLang = string.Empty;
-            languages.Language.TryGetValue("en", out defLang);
+            languages.Language.TryGetValue("en-us", out defLang);
             var language = request.GetHeader(Constants.VarNames.LanguageCode);
             return (!string.IsNullOrEmpty(language)) ? language: defLang;
         }

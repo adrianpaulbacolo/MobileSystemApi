@@ -9,7 +9,7 @@ using W88.Utilities.Extensions;
 
 namespace W88.API
 {
-    [RoutePrefix("api/user")]
+    [RoutePrefix("user")]
     public class UserController : BaseController
     {
        

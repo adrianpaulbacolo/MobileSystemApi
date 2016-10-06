@@ -29,6 +29,9 @@ namespace W88.BusinessLogic.Games.Factories
                 case "MGS":
                     return new MGSHandler(user, lobby, cashier);
 
+                case "UC8":
+                    return new UC8Handler(user, lobby, cashier);
+
                 case "BS":
                     GameDevice gameDevice = GameDevice.ANDROID;
 
