@@ -171,7 +171,7 @@
                 return;
             }
             switch (status) {
-                case '-7':
+                case '-8':
                     $('#redeemButton').attr("disabled", true);
                     break;
                 case '-1':
