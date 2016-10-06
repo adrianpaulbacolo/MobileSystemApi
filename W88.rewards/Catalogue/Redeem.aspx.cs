@@ -67,7 +67,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         catch (Exception exception)
         {
             Status = Convert.ToString((int) Constants.StatusCode.Error);
-            Message = RewardsHelper.GetTranslation(TranslationKeys.Redemption.Exception);
+            Message = RewardsHelper.GetTranslation(TranslationKeys.Errors.Exception);
             ShowMessage(Status, Message);
             AuditTrail.AppendLog(exception);
         }
