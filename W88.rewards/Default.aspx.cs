@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Web;
-using System.Xml.Linq;
+using W88.BusinessLogic.Rewards.Helpers;
+using W88.BusinessLogic.Rewards.Models;
 using W88.BusinessLogic.Shared.Helpers;
 using W88.Utilities;
 
 public partial class _Default : BasePage
 {
     protected string AlertMessage = string.Empty;
-    protected XElement XeErrors = null;
-    protected XElement LeftMenu = null;
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        XeErrors = CultureHelpers.AppData.GetRootResource("Errors");
-        LeftMenu = CultureHelpers.AppData.GetRootResource("leftMenu");
         string selectedLanguage = LanguageHelpers.SelectedLanguage;
 
         #region Logout
@@ -25,11 +22,11 @@ public partial class _Default : BasePage
         }
         if (string.Compare(Convert.ToString(RouteData.DataTokens["expire"]), "true", true) == 0)
         {
-            AlertMessage = CultureHelpers.ElementValues.GetResourceString("SessionExpired", XeErrors); 
+            AlertMessage = RewardsHelper.GetTranslation(TranslationKeys.Errors.SessionExpired); 
         }
         if (string.Compare(Convert.ToString(RouteData.DataTokens["invalid"]), "true", true) == 0)
         {
-            AlertMessage = CultureHelpers.ElementValues.GetResourceString("SessionExpired", XeErrors); 
+            AlertMessage = RewardsHelper.GetTranslation(TranslationKeys.Errors.SessionExpired); 
         }
         #endregion
 
@@ -37,7 +34,7 @@ public partial class _Default : BasePage
 
         if (HasSession)
         {
-            Response.Redirect("/Index.aspx?lang=" + LanguageHelpers.SelectedLanguage, false);
+            Response.Redirect(string.Format("/Index.aspx?lang={0}", selectedLanguage), false);
         }
         if (string.IsNullOrEmpty(selectedLanguage))
         {

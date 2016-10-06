@@ -3,6 +3,8 @@ using System.Collections.Specialized;
 using System.Text;
 using System.Web;
 using System.Xml.Linq;
+using W88.BusinessLogic.Rewards.Helpers;
+using W88.BusinessLogic.Rewards.Models;
 using W88.BusinessLogic.Shared.Helpers;
 
 public partial class _Secure_Login : BasePage
@@ -14,9 +16,7 @@ public partial class _Secure_Login : BasePage
     protected void Page_Init(object sender, EventArgs e)
     {
         string language = Request.QueryString.Get("lang");
-        LanguageHelpers.SelectedLanguage = string.IsNullOrEmpty(language) ? 
-            (string.IsNullOrEmpty(LanguageHelpers.SelectedLanguage) ? "en-us" : LanguageHelpers.SelectedLanguage) 
-            : language;
+        LanguageHelpers.SelectedLanguage = language;
         btnSubmit.Visible = !HasSession;
     }
 
@@ -24,12 +24,8 @@ public partial class _Secure_Login : BasePage
     {
         if (!Page.IsPostBack)
         {
-            XeErrors = CultureHelpers.AppData.GetRootResource("Errors");
-            LeftMenu = CultureHelpers.AppData.GetRootResource("leftMenu");
-
             try
             {
-
                 var queryString = HttpContext.Current.Request.QueryString;
                 if (queryString.Count > 0 && !string.IsNullOrEmpty(queryString["redirect"]))
                 {
@@ -49,13 +45,12 @@ public partial class _Secure_Login : BasePage
 
             }
 
-            XElement xeLogin = CultureHelpers.AppData.GetRootResource(@"_Secure/Login.aspx");
-            lblUsername.Text = CultureHelpers.ElementValues.GetResourceString("lblUsername", xeLogin);
-            lblPassword.Text = CultureHelpers.ElementValues.GetResourceString("lblPassword", xeLogin);
-            lblCaptcha.Text = CultureHelpers.ElementValues.GetResourceString("lblCaptcha", xeLogin);
-            btnSubmit.Text = CultureHelpers.ElementValues.GetResourceString("btnLogin", xeLogin);
+            lblUsername.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.Username);
+            lblPassword.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.Password);
+            lblCaptcha.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.Captcha);
+            btnSubmit.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.Login);
             txtUsername.Focus();
-            lblRegister.Text = CultureHelpers.ElementValues.GetResourceString("lblRegister", xeLogin);
+            lblRegister.Text = HttpUtility.HtmlDecode(RewardsHelper.GetTranslation(TranslationKeys.Label.Register));
         }
     }
 

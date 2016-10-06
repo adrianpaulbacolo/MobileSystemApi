@@ -1,4 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Detail.aspx.cs" Inherits="Catalogue_Detail" Async="true"%>
+<%@ Import Namespace="W88.BusinessLogic.Rewards.Helpers" %>
+<%@ Import Namespace="W88.BusinessLogic.Rewards.Models" %>
 
 <!DOCTYPE html>
 <html>
@@ -27,7 +29,7 @@
                         </div>
                     </div>     
                     <div class="catalog-information">
-                        <strong><%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_product_desc").ToString() %></strong>
+                        <strong><%=RewardsHelper.GetTranslation(TranslationKeys.Label.ProductDescription) %></strong>
                         <p><asp:Label ID="lblDescription" runat="server" /></p>
                         <div id="CurrencyDiv" runat="server" class="ui-field-contain ui-hide-label" visible="false">
                             <div>
@@ -57,24 +59,24 @@
                     {
                         if (IsValidRedemption)
                         {  %>
-                            <input type="button" id="validButton" class="btn btn-block btn-primary" value="<%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem").ToString() %>" />
+                            <input type="button" id="validButton" class="btn btn-block btn-primary" value="<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.Redeem)%>" />
                     <%  }
                         else if (IsRedemptionLimitReached)
                         { %>
-                            <input type="button" id="limitButton" class="btn btn-block btn-primary" value="<%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem").ToString() %>" />
+                            <input type="button" id="limitButton" class="btn btn-block btn-primary" value="<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.Redeem)%>" />
                     <%  }
                         else if (IsProcessingLimitReached)
                         { %>
-                            <input type="button" id="processingButton" class="btn btn-block btn-primary" value="<%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem").ToString() %>" />
+                            <input type="button" id="processingButton" class="btn btn-block btn-primary" value="<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.Redeem)%>" />
                     <%  }
                         else
                         { %>
-                            <input type="button" id="vipOnlyButton" class="btn btn-block btn-primary" value="<%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem").ToString() %>" />
+                            <input type="button" id="vipOnlyButton" class="btn btn-block btn-primary" value="<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.Redeem)%>" />
                     <%  }
                     }
                     else
                     {%>
-                        <input type="button" id="noSessionButton" class="btn btn-block btn-primary" value="<%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem").ToString() %>" />
+                        <input type="button" id="noSessionButton" class="btn btn-block btn-primary" value="<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.Redeem)%>" />
                 <%  }%>
             </div>
             <asp:HiddenField ID="hiddenproductitd" runat="server" />

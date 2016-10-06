@@ -1,10 +1,12 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" Async="true"%> 
+<%@ Import Namespace="W88.BusinessLogic.Rewards.Helpers" %>
+<%@ Import Namespace="W88.BusinessLogic.Rewards.Models" %>
 <%@ Import Namespace="W88.BusinessLogic.Shared.Helpers" %>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%=CultureHelpers.ElementValues.GetResourceString("brand", LeftMenu) + CultureHelpers.ElementValues.GetResourceString("rewards", LeftMenu)%></title>
+    <title><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Brand)%></title>
     <!--#include virtual="~/_static/head.inc" -->
 </head>
 <body>
@@ -27,15 +29,15 @@
                 <div class="btn-group btn-group-justified" role="group">
                     <div class="btn-group" role="group">                        
                         <a id="loginFooterButton" style="display: none;" data-ajax="false" class="btn" href="/_Secure/Login.aspx">
-                            <span class="icon icon-login"></span><%=CultureHelpers.ElementValues.GetResourceString("login", LeftMenu)%>
+                            <span class="icon icon-login"></span><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Login)%>
                         </a>
                         <a id="logoutFooterButton" href="javascript: logout();" class="btn">
-                            <span class="icon icon-login"></span><%=CultureHelpers.ElementValues.GetResourceString("logout", LeftMenu)%>
+                            <span class="icon icon-login"></span><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Logout)%>
                         </a>
                     </div>
                     <div class="btn-group" role="group">
                         <a data-ajax="false" class="btn" href="/Catalogue?categoryId=0&sortBy=2">
-                            <span class="icon icon-catalog"></span><%=CultureHelpers.ElementValues.GetResourceString("catalogue", LeftMenu)%>
+                            <span class="icon icon-catalog"></span><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Catalogue)%>
                         </a>
                     </div>
                 </div>

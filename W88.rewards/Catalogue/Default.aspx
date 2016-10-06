@@ -1,10 +1,12 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Default" Async="true"%>
+<%@ Import Namespace="W88.BusinessLogic.Rewards.Helpers" %>
+<%@ Import Namespace="W88.BusinessLogic.Rewards.Models" %>
 <%@ Import Namespace="W88.BusinessLogic.Shared.Helpers" %>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%=CultureHelpers.ElementValues.GetResourceString("brand", LeftMenu).Replace(" -", "")%></title>
+    <title><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Brand)%></title>
     <!--#include virtual="~/_static/head.inc" -->
 </head>
 <body>
@@ -47,11 +49,11 @@
                                     <div class="catalog-details">
                                         <h4><%#DataBinder.Eval(Container.DataItem,"productName")%></h4>
                                         <small>
-                                            <span class="points" style="<%#(DataBinder.Eval(Container, "DataItem.discountPoints").ToString() != "") ? "text-decoration:line-through;": "text-decoration:none;" %>"><%# String.Format("{0:#,###,##0.##}",DataBinder.Eval(Container.DataItem,"pointsRequired"))%> <%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_points").ToString()%></span>
-                                            <span class="newpoints" style="<%#(DataBinder.Eval(Container, "DataItem.discountPoints").ToString() != "") ? "visibility:visible;": "visibility:hidden;" %>"><%# String.Format("{0:#,###,##0.##}",DataBinder.Eval(Container.DataItem,"discountPoints"))%> <%=HttpContext.GetLocalResourceObject(LocalResx, "lbl_points").ToString()%></span>   
+                                            <span class="points" style="<%#(DataBinder.Eval(Container, "DataItem.discountPoints").ToString() != "") ? "text-decoration:line-through;": "text-decoration:none;" %>"><%# String.Format("{0:#,###,##0.##}",DataBinder.Eval(Container.DataItem,"pointsRequired"))%> <%=RewardsHelper.GetTranslation(TranslationKeys.Label.Points)%></span>
+                                            <span class="newpoints" style="<%#(DataBinder.Eval(Container, "DataItem.discountPoints").ToString() != "") ? "visibility:visible;": "visibility:hidden;" %>"><%# String.Format("{0:#,###,##0.##}",DataBinder.Eval(Container.DataItem,"discountPoints"))%> <%=RewardsHelper.GetTranslation(TranslationKeys.Label.Points)%></span>   
                                             <span id="labelTag_<%#DataBinder.Eval(Container.DataItem,"productId")%>" class="tag-label">
-                                                <%#(DataBinder.Eval(Container.DataItem, "productIcon").ToString()=="2") ? HttpContext.GetLocalResourceObject(LocalResx, "lbl_hot") : ""%>
-                                                <%#(DataBinder.Eval(Container.DataItem, "productIcon").ToString()=="3") ? HttpContext.GetLocalResourceObject(LocalResx, "lbl_new") : ""%>                                 
+                                                <%#(DataBinder.Eval(Container.DataItem, "productIcon").ToString()=="2") ? RewardsHelper.GetTranslation(TranslationKeys.Label.Hot) : ""%>
+                                                <%#(DataBinder.Eval(Container.DataItem, "productIcon").ToString()=="3") ? RewardsHelper.GetTranslation(TranslationKeys.Label.New) : ""%>                                 
                                             </span>                                                 
                                         </small> 
                                     </div>                                        

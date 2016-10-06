@@ -2,6 +2,7 @@
 using System.Web;
 using System.Text;
 using W88.BusinessLogic.Rewards.Helpers;
+using W88.BusinessLogic.Rewards.Models;
 using W88.Utilities;
 using W88.Utilities.Log.Helpers;
 
@@ -47,12 +48,12 @@ public partial class Catalogue_Detail : CatalogueBasePage
                     switch (redemptionLimitResult)
                     {
                         case 0:
-                            Errormsg = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_redemption_success_limit_reached");
+                            Errormsg = RewardsHelper.GetTranslation(TranslationKeys.Redemption.BirthdayItemRedeemed);
                             IsRedemptionLimitReached = true;
                             IsValidRedemption = false;
                             break;
                         case 1:
-                            Errormsg = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_redemption_processing_limit_reached");
+                            Errormsg = RewardsHelper.GetTranslation(TranslationKeys.Redemption.BirthdayItemPending);
                             IsProcessingLimitReached = true;
                             IsValidRedemption = false;
                             break;
@@ -73,9 +74,8 @@ public partial class Catalogue_Detail : CatalogueBasePage
                          int.Parse(productDetails.DiscountPoints) != 0
                 ? productDetails.DiscountPoints
                 : productDetails.PointsRequired;
-            builder.Append(string.Format(@"{0:#,###,##0.##}", points))
-                .Append(" ")
-                .Append(HttpContext.GetLocalResourceObject(LocalResx, "lbl_points"));
+            builder.Append(string.Format(@"{0:#,###,##0.##} ", points))
+                .Append(RewardsHelper.GetTranslation(TranslationKeys.Label.Points));
             lblPointCenter.Text = builder.ToString();
 
             if (!string.IsNullOrEmpty(productDetails.DeliveryPeriod))
@@ -92,17 +92,16 @@ public partial class Catalogue_Detail : CatalogueBasePage
         }
         catch (Exception exception)
         {
-            var memberCode = UserSessionInfo == null ? string.Empty : UserSessionInfo.MemberCode;
-            AuditTrail.AppendLog(memberCode, "/Catalogue/Detail.aspx", "RedeemProduct", "Catalogue", string.Empty, string.Empty, string.Empty, exception.Message, (new Guid()).ToString(), string.Empty, string.Empty, true);
+            AuditTrail.AppendLog(exception);
         }
     }
 
     protected override void SetLabels()
     {
-        VipOnly = HttpContext.GetLocalResourceObject(LocalResx, "lbl_redeem_vip").ToString();
+        VipOnly = RewardsHelper.GetTranslation(TranslationKeys.Redemption.VipOnly);
         const string colon = ":";
-        lbcurr.Text = HttpContext.GetLocalResourceObject(LocalResx, "lbl_currency") + colon;
-        lbperiod.Text = HttpContext.GetLocalResourceObject(LocalResx, "lbl_delivery_period").ToString();
+        lbcurr.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.Currency) + colon;
+        lbperiod.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.Delivery);
 
         #region labels
         if (!HasSession)
@@ -118,7 +117,7 @@ public partial class Catalogue_Detail : CatalogueBasePage
         {
             usernameLabel.InnerText = UserSessionInfo.MemberCode;
         }
-        var pointsLabelText = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_points");
+        var pointsLabelText = RewardsHelper.GetTranslation(TranslationKeys.Label.Points);
         var stringBuilder = new StringBuilder();
 
         stringBuilder.Append(pointsLabelText)
@@ -126,7 +125,7 @@ public partial class Catalogue_Detail : CatalogueBasePage
             .Append(MemberRewardsInfo != null ? Convert.ToString(MemberRewardsInfo.CurrentPoints) : "0");
         pointsLabel.InnerText = stringBuilder.ToString();
 
-        var pointLevelLabelText = (string)HttpContext.GetLocalResourceObject(HeaderResx, "lbl_point_level");
+        var pointLevelLabelText = RewardsHelper.GetTranslation(TranslationKeys.Label.PointLevel);
         stringBuilder = new StringBuilder();
         stringBuilder.Append(pointLevelLabelText)
             .Append(" ")
