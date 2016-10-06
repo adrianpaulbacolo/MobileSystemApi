@@ -1,4 +1,6 @@
-﻿using Models;
+﻿using System.Activities.Expressions;
+using Helpers;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +14,7 @@ namespace Factories.Slots
         protected string langCode;
         protected GameProvider GameProvider { get; set; }
         private XElement xeResources = null;
+        public GameLinkInfo GameLink = new GameLinkInfo();
 
         public GameLoaderBase(GameProvider gameProvider)
         {
@@ -175,6 +178,7 @@ namespace Factories.Slots
             url = element.Element(attribute).Value;
             return true;
         }
+
     }
 
      public enum GameLinkSetting

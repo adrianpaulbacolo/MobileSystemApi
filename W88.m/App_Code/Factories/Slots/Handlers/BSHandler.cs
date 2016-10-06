@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
+using Helpers.GameProviders;
+using Models;
 
 namespace Factories.Slots.Handlers
 {
@@ -14,25 +16,21 @@ namespace Factories.Slots.Handlers
     /// </summary>
     public class BSHandler : GameLoaderBase
     {
-        private string fun;
-        private string real;
-        private string lobbyPage;
-        private string cashierPage;
         private GameDevice device;
 
-        private string memberSessionId;
-
-        public BSHandler(string token, string lobby, string cashier, GameDevice gameDevice)
-            : base(GameProvider.BS)
+        public BSHandler(string token, string lobby, string cashier, GameDevice gameDevice) : base(GameProvider.BS)
         {
-            fun = GameSettings.GetGameUrl(GameProvider.BS, GameLinkSetting.Fun);
-            real = GameSettings.GetGameUrl(GameProvider.BS, GameLinkSetting.Real);
-
             GameProvider = GameProvider.BS;
-            memberSessionId = token;
-            lobbyPage = lobby;
-            cashierPage = cashier;
             device = gameDevice;
+
+            GameLink = new GameLinkInfo
+            {
+                Fun = GameSettings.GetGameUrl(GameProvider, GameLinkSetting.Fun),
+                Real = GameSettings.GetGameUrl(GameProvider, GameLinkSetting.Real),
+                MemberSessionId = token,
+                LobbyPage = lobby,
+                CashierPage = cashier
+            };
         }
 
         protected override string SetLanguageCode()
@@ -42,19 +40,28 @@ namespace Factories.Slots.Handlers
 
         protected override string CreateFunUrl(XElement element)
         {
-            string gameName = "";
-            gameName = GetGameId(element);
+            var gpi = new Gpi(GameLink).CheckRSlot(GameLinkSetting.Fun, element);
+            if (!string.IsNullOrWhiteSpace(gpi))
+            {
+                return gpi;
+            }
 
-            return fun.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{LOBBY}", lobbyPage);
+            string gameName = GetGameId(element);
+            return GameLink.Fun.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{LOBBY}", GameLink.LobbyPage);
         }
 
         protected override string CreateRealUrl(XElement element)
         {
-            string gameName = "";
-            gameName = GetGameId(element);
-
-            return real.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{TOKEN}", memberSessionId).Replace("{CASHIER}", cashierPage).Replace("{LOBBY}", lobbyPage);
+            var gpi = new Gpi(GameLink).CheckRSlot(GameLinkSetting.Real, element);
+            if (!string.IsNullOrWhiteSpace(gpi))
+            {
+                return gpi;
+            }
+           
+            string gameName = GetGameId(element);
+            return GameLink.Real.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{TOKEN}", GameLink.MemberSessionId).Replace("{CASHIER}", GameLink.CashierPage).Replace("{LOBBY}", GameLink.LobbyPage);
         }
+
         protected override string GetGameId(XElement xeGame)
         {
             switch (device)

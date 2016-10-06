@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
+﻿using Helpers.GameProviders;
+﻿using Models;
 
 namespace Factories.Slots.Handlers
 {
@@ -14,23 +16,17 @@ namespace Factories.Slots.Handlers
     /// </summary>
     public class MGSHandler : GameLoaderBase
     {
-        private string fun;
-        private string real;
-        private string lobbyPage;
-        private string cashierPage;
-
-        private string memberSessionId;
-
-        public MGSHandler(string token, string lobby, string cashier)
-            : base(GameProvider.MGS)
+        public MGSHandler(string token, string lobby, string cashier) : base(GameProvider.MGS)
         {
-            fun = GameSettings.GetGameUrl(GameProvider.MGS, GameLinkSetting.Fun);
-            real = GameSettings.GetGameUrl(GameProvider.MGS, GameLinkSetting.Real);
-
             GameProvider = GameProvider.MGS;
-            memberSessionId = token;
-            lobbyPage = lobby;
-            cashierPage = cashier;
+            GameLink = new GameLinkInfo
+            {
+                Fun = GameSettings.GetGameUrl(GameProvider, GameLinkSetting.Fun),
+                Real = GameSettings.GetGameUrl(GameProvider, GameLinkSetting.Real),
+                MemberSessionId = token,
+                LobbyPage = lobby,
+                CashierPage = cashier
+            };
         }
 
         protected override string SetLanguageCode()
@@ -72,6 +68,12 @@ namespace Factories.Slots.Handlers
 
         protected override string CreateFunUrl(XElement element)
         {
+            var gpi = new Gpi(GameLink).CheckRSlot(GameLinkSetting.Fun, element);
+            if (!string.IsNullOrWhiteSpace(gpi))
+            {
+                return gpi;
+            }
+
             string lang = GetGameLanguage(element);
 
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
@@ -86,14 +88,20 @@ namespace Factories.Slots.Handlers
             }
             else
             {
-                funUrl = fun;
+                funUrl = GameLink.Fun;
             }
 
-            return funUrl.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{LOBBY}", lobbyPage).Replace("{CASHIER}", cashierPage);
+            return funUrl.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{LOBBY}", GameLink.LobbyPage).Replace("{CASHIER}", GameLink.CashierPage);
         }
 
         protected override string CreateRealUrl(XElement element)
         {
+            var gpi = new Gpi(GameLink).CheckRSlot(GameLinkSetting.Real, element);
+            if (!string.IsNullOrWhiteSpace(gpi))
+            {
+                return gpi;
+            }
+
             string lang = GetGameLanguage(element);
 
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
@@ -108,10 +116,10 @@ namespace Factories.Slots.Handlers
             }
             else
             {
-                realUrl = real;
+                realUrl = GameLink.Real;
             }
 
-            return realUrl.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{TOKEN}", memberSessionId).Replace("{CASHIER}", cashierPage).Replace("{LOBBY}", lobbyPage);
+            return realUrl.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{TOKEN}", GameLink.MemberSessionId).Replace("{CASHIER}", GameLink.CashierPage).Replace("{LOBBY}", GameLink.LobbyPage);
         }
 
         private string GetGameLanguage(XElement element)
