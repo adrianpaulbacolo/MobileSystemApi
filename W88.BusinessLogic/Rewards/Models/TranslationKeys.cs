@@ -13,6 +13,7 @@ namespace W88.BusinessLogic.Rewards.Models
             public const string Failed = "Redemption_Failed";
             public const string LimitReached = "Redemption_LimitReached";
             public const string BirthdayItemRedeemed = "Redemption_BirthdayItemRedeemed";
+            public const string BirthdayItemPending = "Redemption_BirthdayItemPending";
             public const string InsufficientPoints = "Redemption_InsufficientPoints";
             public const string SuccessfulRedemption = "Redemption_SuccessfulRedemption";
             public const string SuccessfulSubmission = "Redemption_SuccessfulSubmission";
@@ -31,16 +32,57 @@ namespace W88.BusinessLogic.Rewards.Models
             public const string EnterCity = "Redemption_EnterCity";
             public const string EnterCountry = "Redemption_EnterCountry";
             public const string EnterContactNumber = "Redemption_EnterContactNumber";
+            public const string Redeem = "Redemption_Redeem";
             public const string RedeemNow = "Redemption_RedeemNow";
             public const string RedeemInfo = "Redemption_RedeemInfo";
             public const string Recipient = "Redemption_Recipient";
             public const string EmailSendFail = "Redemption_EmailSendFail";
+            public const string NoAvailableItems = "Redemption_NoAvailableItems";
         }
 
-        public static class Member
+        public static class Label
         {
-            public const string Points = "Member_Points";
-            public const string PointLevel = "Member_PointLevel";
+            public const string Points = "Label_Points";
+            public const string PointLevel = "Label_PointLevel";
+            public const string Username = "Label_Username";
+            public const string Password = "Label_Password";
+            public const string Captcha = "Label_Captcha";
+            public const string Register = "Label_Register";
+            public const string Brand = "Label_Brand";
+            public const string Home = "Label_Home";
+            public const string Login = "Label_Login";
+            public const string About = "Label_About";
+            public const string Levels = "Label_Levels";
+            public const string Catalogue = "Label_Catalogue";
+            public const string FAQ = "Label_FAQ";
+            public const string TNC = "Label_TNC";
+            public const string Misc = "Label_Misc";
+            public const string LiveChat = "Label_LiveChat";
+            public const string ContactUs = "Label_ContactUs";
+            public const string HelpCenter = "Label_HelpCenter";
+            public const string Language = "Label_Language";
+            public const string Logout = "Label_Logout";
+            public const string Products = "Label_Products";
+            public const string DesktopSite = "Label_DesktopSite";
+            public const string FullScreenMode = "Label_FullScreenMode";
+            public const string Close = "Label_Close";
+            public const string SelectLanguage = "Label_SelectLanguage";
+            public const string Hot = "Label_Hot";
+            public const string New = "Label_New";
+            public const string All = "Label_All";
+            public const string ProductDescription = "Label_ProductDescription";
+        }
+
+        public static class Errors
+        {
+            public const string Exception = "Errors_Exception";
+            public const string IncorrectVCode = "Errors_IncorrectVCode";
+            public const string SessionExpired = "Errors_SessionExpired";
+            public const string ServerError = "Errors_ServerError";
+            public const string InvalidUsernamePassword = "Errors_InvalidUsernamePassword";
+            public const string InactiveAccount = "Errors_InactiveAccount";
+            public const string MissingUsername = "Errors_MissingUsername";
+            public const string MissingPassword = "Errors_MissingPassword";
         }
     }
 }
