@@ -72,6 +72,7 @@
 
         public enum StatusCode
         {
+            MemberVip = -8,
             SessionExpired = -7,
             MultipleLogin = -6,
             WithPendingWithdrawal = -5,

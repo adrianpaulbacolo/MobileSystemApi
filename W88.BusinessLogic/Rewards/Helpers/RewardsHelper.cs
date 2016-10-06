@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.Threading.Tasks;
+using System.Web;
 using W88.BusinessLogic.Base.Helpers;
 using W88.BusinessLogic.Shared.Helpers;
 using W88.BusinessLogic.Accounts.Models;
@@ -304,6 +305,8 @@ namespace W88.BusinessLogic.Rewards.Helpers
                     var countryCode = memberSession == null ? "0" : memberSession.CountryCode;
                     var currencyCode = memberSession == null ? "0" : memberSession.CurrencyCode;
                     var riskId = memberSession == null ? "0" : memberSession.RiskId;
+                    var token = memberSession == null ? string.Empty : memberSession.Token;
+                    var hasSession = !string.IsNullOrEmpty(token);
 
                     var dataSet = await client.getProductSearchAsync(
                         OperatorId.ToString(CultureInfo.InvariantCulture),
@@ -319,6 +322,56 @@ namespace W88.BusinessLogic.Rewards.Helpers
                         sortBy,
                         pageSize,
                         numberOfPages);
+
+                    if (dataSet.Tables.Count == 0 || dataSet.Tables[0].Rows.Count == 0)
+                    {
+                        return null;
+                    }
+
+                    if (!dataSet.Tables[0].Columns.Contains("redemptionValidity"))
+                    {
+                        dataSet.Tables[0].Columns.Add("redemptionValidity");
+                    }
+
+                    foreach (DataRow dataRow in dataSet.Tables[0].Rows)
+                    {
+                        if (hasSession)
+                        {
+                            var pointLevelDiscount = await GetMemberPointLevelDiscount(memberSession);
+                            
+                            if (dataRow["discountPoints"] == DBNull.Value && pointLevelDiscount != 0 &&
+                                dataRow["productType"].ToString() != "1")
+                            {
+                                var percentage = Convert.ToDouble(pointLevelDiscount) / 100;
+                                var normalPoint = int.Parse(dataRow["pointsRequired"].ToString());
+                                var points = Math.Floor(normalPoint * (1 - percentage));
+                                var pointAfterLevelDiscount = Convert.ToInt32(points);
+                                dataRow["pointsRequired"] = pointAfterLevelDiscount;
+                            }
+
+                            dataRow["redemptionValidity"] += ",";
+                            if (dataRow["redemptionValidity"].ToString().ToUpper() != "ALL,")
+                            {
+                                dataRow["redemptionValidity"] = !((string)dataRow["redemptionValidity"]).Contains(riskId.ToUpper() + ",") ? "0" : "1";
+                            }
+                            else
+                            {
+                                dataRow["redemptionValidity"] = "1";
+                            }
+                        }
+                        else
+                        {
+                            dataRow["redemptionValidity"] += "0";
+                        }
+
+                        dataRow["imagePath"] = Common.GetAppSetting<string>("ImagesDirectoryPath") + "Product/" + dataRow["imageName"];
+                    }
+
+                    if (sortBy == "2")
+                    {
+                        dataSet.Tables[0].DefaultView.Sort = "pointsRequired";
+                    }
+
                     return dataSet;
                 }
             }
@@ -394,7 +447,7 @@ namespace W88.BusinessLogic.Rewards.Helpers
 
                 var subject = GetTranslation(TranslationKeys.Redemption.MailSubject, language);
                 var body = GetTranslation(TranslationKeys.Redemption.MailBody, language);
-                body = string.IsNullOrEmpty(body) ? string.Empty : string.Format(body.Trim(), memberCode.Trim(), redemptionId);
+                body = string.IsNullOrEmpty(body) ? string.Empty : HttpUtility.HtmlDecode(string.Format(body.Trim(), memberCode.Trim(), redemptionId));
                 
                 // Send mail
                 mailRequest.Subject = subject;
@@ -445,7 +498,7 @@ namespace W88.BusinessLogic.Rewards.Helpers
                         Value = translation.Value
                     });
                 }
-                return list;
+                return list;     
             }
             catch (Exception exception)
             {
