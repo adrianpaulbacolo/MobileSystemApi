@@ -21,8 +21,7 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
 
         private string memberSessionId;
 
-        public PNGHandler(UserSessionInfo user, string lobby)
-            : base(GameProvider.PNG)
+        public PNGHandler(UserSessionInfo user, string lobby) : base(GameProvider.PNG, user.LanguageCode)
         {
             fun = GameSettings.GetGameUrl(GameProvider.PNG, GameLinkSetting.Fun);
             real = GameSettings.GetGameUrl(GameProvider.PNG, GameLinkSetting.Real);
@@ -33,21 +32,21 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
 
         protected override string SetLanguageCode()
         {
-            return LanguageHelpers.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase) ? LanguageHelpers.SelectedLanguage : "en-gb";
+            return LanguageCode.Equals("zh-cn", StringComparison.OrdinalIgnoreCase) ? "zh_CN" : "en_GB";
         }
 
         protected override string CreateFunUrl(XElement element)
         {
             string gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
 
-            return fun.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{LOBBY}", lobbyPage);
+            return fun.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{LOBBY}", lobbyPage);
         }
 
         protected override string CreateRealUrl(XElement element)
         {
             string gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
 
-            return real.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{TOKEN}", memberSessionId).Replace("{LOBBY}", lobbyPage);
+            return real.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{TOKEN}", memberSessionId).Replace("{LOBBY}", lobbyPage);
         }
     }
 }

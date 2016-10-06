@@ -24,7 +24,7 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
         private string memberSessionId;
 
         public MGSHandler(UserSessionInfo user, string lobby, string cashier)
-            : base(GameProvider.MGS)
+            : base(GameProvider.MGS, user.LanguageCode)
         {
             fun = GameSettings.GetGameUrl(GameProvider.MGS, GameLinkSetting.Fun);
             real = GameSettings.GetGameUrl(GameProvider.MGS, GameLinkSetting.Real);
@@ -37,7 +37,7 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
         protected override string SetLanguageCode()
         {
             string languageCode;
-            switch (LanguageHelpers.SelectedLanguage)
+            switch (base.LanguageCode)
             {
                 case "id-id":
                     languageCode = "id";
@@ -121,9 +121,9 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
             {
                 string[] languagesCodes = element.Attribute("LanguageCode").Value.Split(',');
 
-                bool isLangSupp = languagesCodes.Contains(langCode, StringComparer.OrdinalIgnoreCase);
+                bool isLangSupp = languagesCodes.Contains(LanguageCode, StringComparer.OrdinalIgnoreCase);
 
-                return isLangSupp ? langCode : "en";
+                return isLangSupp ? LanguageCode : "en";
             }
             else
             {
@@ -133,7 +133,7 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
 
         private string SetSpecialUrlLanguageCode()
         {
-            return LanguageHelpers.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase) ? "zh" : "en";
+            return LanguageCode.Equals("zh-cn", StringComparison.OrdinalIgnoreCase) ? "zh" : "en";
         }
     }
 }

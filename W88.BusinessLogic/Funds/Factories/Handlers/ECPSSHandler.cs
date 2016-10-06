@@ -126,6 +126,7 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
                 {
                     process.Data = new { DummyURL = string.Empty };
                     process.Code = (int)Constants.StatusCode.Error;
+                    process.Message = base.GetMessage("Pay_ErrEmptyDummyURL");
                 }
             }
 

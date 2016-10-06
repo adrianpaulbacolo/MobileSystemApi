@@ -25,7 +25,7 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
         private string memberSessionId;
 
         public BSHandler(UserSessionInfo user, string lobby, string cashier, GameDevice gameDevice)
-            : base(GameProvider.BS)
+            : base(GameProvider.BS, user.LanguageCode)
         {
             fun = GameSettings.GetGameUrl(GameProvider.BS, GameLinkSetting.Fun); 
             real = GameSettings.GetGameUrl(GameProvider.BS, GameLinkSetting.Real);
@@ -38,7 +38,7 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
 
         protected override string SetLanguageCode()
         {
-            return LanguageHelpers.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase) ? "zh" : "en";
+            return LanguageCode.Equals("zh-cn", StringComparison.OrdinalIgnoreCase) ? "zh" : "en";
         }
 
         protected override string CreateFunUrl(XElement element)
@@ -53,7 +53,7 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
             if (GameDevice.WP == device)
                 gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("WPId", element);
 
-            return fun.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{LOBBY}", lobbyPage);
+            return fun.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{LOBBY}", lobbyPage);
         }
 
         protected override string CreateRealUrl(XElement element)
@@ -68,7 +68,7 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
             if (GameDevice.WP == device)
                 gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("WPId", element);
 
-            return real.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{TOKEN}", memberSessionId).Replace("{CASHIER}", cashierPage).Replace("{LOBBY}", lobbyPage);
+            return real.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{TOKEN}", memberSessionId).Replace("{CASHIER}", cashierPage).Replace("{LOBBY}", lobbyPage);
         }
     }
 }
