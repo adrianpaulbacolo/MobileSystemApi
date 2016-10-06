@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Activities.Statements;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -84,11 +85,14 @@ public partial class _Index : BasePage
                 var linkClass = promo.Element("class").Value;
                 var content = "";
                 var description = "";
-                var gameId = promo.Attribute("Id").Value;
-                
-                if (!string.IsNullOrEmpty(gameId))
+
+                if (promo.Attribute("Id") != null)
                 {
-                    url = BuildGpiUrl(promo);
+                    var provider = string.Empty;
+                    if (promo.Attribute("provider") != null)
+                        provider = promo.Attribute("provider").Value;
+
+                    url = BuildUrl(promo, provider);
                 }
 
                 var hasCurrency = (promo.HasAttributes && promo.Attribute("currency") != null);
@@ -138,19 +142,26 @@ public partial class _Index : BasePage
         return slider;
     }
 
-    private string BuildGpiUrl(XElement element)
+    private string BuildUrl(XElement element, string provider)
     {
-        var token = userInfo.CurrentSessionId;
-        var funUrl = GameSettings.GetGameUrl(GameProvider.GPI, GameLinkSetting.Fun);
-        var realUrl = GameSettings.GetGameUrl(GameProvider.GPI, GameLinkSetting.Real);
 
-        var gpi = new Gpi(new GameLinkInfo
+        if (provider.ToLower() == GameProvider.GPI.ToString().ToLower())
         {
-            Fun = funUrl,
-            Real = realUrl,
-            MemberSessionId = token
-        });
+            var funUrl = GameSettings.GetGameUrl(GameProvider.GPI, GameLinkSetting.Fun);
+            var realUrl = GameSettings.GetGameUrl(GameProvider.GPI, GameLinkSetting.Real);
 
-        return string.IsNullOrWhiteSpace(token) ? gpi.BuildUrl(funUrl, element, GameLinkSetting.Fun) : gpi.BuildUrl(realUrl, element, GameLinkSetting.Real);
+            var gpi = new Gpi(new GameLinkInfo
+            {
+                Fun = funUrl,
+                Real = realUrl,
+                MemberSessionId = commonVariables.CurrentMemberSessionId
+            });
+
+            return string.IsNullOrWhiteSpace(commonVariables.CurrentMemberSessionId)
+                ? gpi.BuildUrl(funUrl, element, GameLinkSetting.Fun)
+                : gpi.BuildUrl(realUrl, element, GameLinkSetting.Real);
+        }
+
+        return string.Empty;
     }
 }
