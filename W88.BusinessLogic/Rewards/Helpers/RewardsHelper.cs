@@ -415,7 +415,7 @@ namespace W88.BusinessLogic.Rewards.Helpers
             }
         }
 
-        public string GetTranslation(string key, string language = "")
+        public static string GetTranslation(string key, string language = "")
         {
             LOV keyValue;
             if (string.IsNullOrWhiteSpace(language))

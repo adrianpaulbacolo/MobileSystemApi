@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.UI;
 using System.Xml.Linq;
+using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Games.Handlers;
 using W88.BusinessLogic.Shared.Helpers;
 
@@ -19,20 +21,20 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
         private string cashierPage;
         private string memberSessionId;
 
-        public UC8Handler(string token, string lobby, string cashier) 
-            : base(GameProvider.UC8)
+        public UC8Handler(UserSessionInfo user, string lobby, string cashier) 
+            : base(GameProvider.UC8, user.LanguageCode)
         {
             fun = GameSettings.GetGameUrl(GameProvider.UC8, GameLinkSetting.Fun);
             real = GameSettings.GetGameUrl(GameProvider.UC8, GameLinkSetting.Real);
 
-            memberSessionId = token;
+            memberSessionId = user.Token;
             cashierPage = cashier;
             lobbyPage = lobby;
         }
 
         protected override string SetLanguageCode()
         {
-            switch (LanguageHelpers.SelectedLanguage)
+            switch (LanguageCode)
             {
                 case "id-id":
                     return "id_ID";
@@ -53,14 +55,14 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
         {
             string gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
 
-            return fun.Replace("{GAME}", gameName).Replace("{LANG}", langCode).Replace("{LOBBY}", lobbyPage);
+            return fun.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{LOBBY}", lobbyPage);
         }
 
         protected override string CreateRealUrl(XElement element)
         {
             string gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
 
-            return real.Replace("{GAME}", gameName).Replace("{TOKEN}", memberSessionId).Replace("{LANG}", base.langCode).Replace("{LOBBY}", lobbyPage).Replace("{CASHIER}", cashierPage);
+            return real.Replace("{GAME}", gameName).Replace("{TOKEN}", memberSessionId).Replace("{LANG}", base.LanguageCode).Replace("{LOBBY}", lobbyPage).Replace("{CASHIER}", cashierPage);
         }
     }
 }

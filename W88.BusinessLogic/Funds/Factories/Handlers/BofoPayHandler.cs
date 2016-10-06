@@ -45,7 +45,7 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
         protected override void LogResult(ProcessCode process, Constants.PaymentTransactionType paymentType)
         {
             process.Remark = string.Format("IsSuccess: {0} | PaymentType: {1} | TransactionId: {2} | Amount: {3}",
-                process.IsSuccess, Convert.ToString(paymentType), process.Data.TransactionId, this._fundsInfo.Amount);
+                process.IsSuccess, Convert.ToString(paymentType), process.IsSuccess ? process.Data.TransactionId : "", this._fundsInfo.Amount);
 
             AuditTrail.AppendLog(this._userInfo.MemberCode, Constants.PageNames.FundsPage,
                Constants.TaskNames.CreateBOTransaction, Constants.PageNames.ComponentName, Convert.ToString(process.Code),

@@ -208,7 +208,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
                 }
 
                 int returnCode;
-                userInfo.Status.ReturnMessage = GetSessionCheckMsg(userInfo.Status.ReturnValue, out returnCode);
+                userInfo.Status.ReturnMessage = GetSessionCheckMsg(Convert.ToInt32(dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.ReturnValue]), out returnCode);
                 userInfo.Status.ReturnValue = returnCode;
 
                 return userInfo;
@@ -234,10 +234,6 @@ namespace W88.BusinessLogic.Accounts.Helpers
                 case 13:
                     translateCode = (int)Constants.StatusCode.MultipleLogin;
                     return "Member is login at another session. (Multiple Login)";
-
-                case 20:
-                    translateCode = (int)Constants.StatusCode.MemberVip;
-                    return "Member is in VIP club";
 
                 default:
                     translateCode = (int)Constants.StatusCode.SessionExpired;

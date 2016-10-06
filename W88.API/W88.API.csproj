@@ -163,10 +163,6 @@
       <Project>{f7fd60dc-7e75-4d23-a18e-ec0502b965ed}</Project>
       <Name>W88.Utilities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\W88.WebRef\W88.WebRef.csproj">
-      <Project>{19bb7e2e-ef5a-41c7-bfea-5e65ba70370c}</Project>
-      <Name>W88.WebRef</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

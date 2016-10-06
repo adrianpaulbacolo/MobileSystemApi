@@ -24,7 +24,7 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
         private string memberSessionId;
 
         public ISBHandler(UserSessionInfo user, string lobby, string currency)
-            : base(GameProvider.ISB)
+            : base(GameProvider.ISB, user.LanguageCode)
         {
             fun = GameSettings.GetGameUrl(GameProvider.ISB, GameLinkSetting.Fun);
             real = GameSettings.GetGameUrl(GameProvider.ISB, GameLinkSetting.Real);
@@ -37,7 +37,7 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
         protected override string SetLanguageCode()
         {
             string languageCode;
-            switch (LanguageHelpers.SelectedLanguage)
+            switch (base.LanguageCode)
             {
                 case "zh-cn":
                     languageCode = "chs";
@@ -73,14 +73,14 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
 
             string currency = string.IsNullOrWhiteSpace(this.currencyCode) || this.currencyCode.Equals("rmb", StringComparison.OrdinalIgnoreCase) ? "CNY" : this.currencyCode;
 
-            return fun.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{CURRENCY}", currency).Replace("{LOBBY}", lobbyPage);
+            return fun.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{CURRENCY}", currency).Replace("{LOBBY}", lobbyPage);
         }
 
         protected override string CreateRealUrl(XElement element)
         {
             string gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
 
-            return real.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{TOKEN}", memberSessionId).Replace("{LOBBY}", lobbyPage);
+            return real.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{TOKEN}", memberSessionId).Replace("{LOBBY}", lobbyPage);
         }
     }
 }

@@ -21,8 +21,7 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
 
         private string memberSessionId;
 
-        public GPIHandler(UserSessionInfo user)
-            : base(GameProvider.GPI)
+        public GPIHandler(UserSessionInfo user): base(GameProvider.GPI, user.LanguageCode)
         {
             fun = GameSettings.GetGameUrl(GameProvider.GPI, GameLinkSetting.Fun);
             real = GameSettings.GetGameUrl(GameProvider.GPI, GameLinkSetting.Real);
@@ -32,7 +31,7 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
 
         protected override string SetLanguageCode()
         {
-            switch (LanguageHelpers.SelectedLanguage)
+            switch (LanguageCode)
             {
                 case "id-id":
                     return "id";
@@ -85,13 +84,13 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
             {
                 string[] languagesCodes = CultureHelpers.ElementValues.GetResourceXPathAttribute("LanguageCode", element).Split(',');
 
-                bool isLangSupp = languagesCodes.Contains(langCode, StringComparer.OrdinalIgnoreCase);
+                bool isLangSupp = languagesCodes.Contains(LanguageCode, StringComparer.OrdinalIgnoreCase);
 
-                return isLangSupp ? langCode : "en";
+                return isLangSupp ? LanguageCode : "en";
             }
             else
             {
-                return langCode.Equals("cn", StringComparison.OrdinalIgnoreCase) ? "zn" : "en";
+                return LanguageCode.Equals("cn", StringComparison.OrdinalIgnoreCase) ? "zn" : "en";
             }
         }
     }

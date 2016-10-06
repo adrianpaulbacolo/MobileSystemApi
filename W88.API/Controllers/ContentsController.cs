@@ -9,7 +9,6 @@ using W88.BusinessLogic.Shared.Models;
 
 namespace W88.API
 {
-    [RoutePrefix("api")]
     public class ContentsController : BaseController
     {
         [Route("contents")]

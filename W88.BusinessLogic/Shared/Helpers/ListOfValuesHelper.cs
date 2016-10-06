@@ -225,6 +225,10 @@ namespace W88.BusinessLogic.Shared.Helpers
                     var banks = base.GetListOfValues<BankInfo>("payments/Banks/banks", methodId.ToString(), true).FirstOrDefault(x => x.Currency.Equals(currencyCode, StringComparison.OrdinalIgnoreCase));
                     return banks == null ? new List<LOV>() : banks.Banks;
                 }
+                else
+                {
+                    return new List<LOV>();
+                }
             }
 
             return base.GetListOfValues<LOV>("payments/Banks/banks", methodId.ToString(), true);

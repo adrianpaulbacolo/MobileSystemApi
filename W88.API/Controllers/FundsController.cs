@@ -12,7 +12,7 @@ using W88.BusinessLogic.Shared.Models;
 
 namespace W88.API
 {
-    [RoutePrefix("api/payments")]
+    [RoutePrefix("payments")]
     public class FundsController : BaseController
     {
         [HttpGet]

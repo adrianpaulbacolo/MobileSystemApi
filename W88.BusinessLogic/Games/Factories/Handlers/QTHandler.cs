@@ -22,8 +22,7 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
         private string memberSessionId;
         private UserSessionInfo userInfo;
 
-        public QTHandler(UserSessionInfo user, string lobby)
-            : base(GameProvider.QT)
+        public QTHandler(UserSessionInfo user, string lobby) : base(GameProvider.QT, user.LanguageCode)
         {
             fun = GameSettings.GetGameUrl(GameProvider.QT, GameLinkSetting.Fun);
             real = GameSettings.GetGameUrl(GameProvider.QT, GameLinkSetting.Real);
@@ -53,7 +52,7 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
         private string GetCurrencyByLanguage()
         {
             string currency;
-            switch (LanguageHelpers.SelectedLanguage)
+            switch (LanguageCode)
             {
                 case "zh-cn":
                     currency = "CNY";
@@ -81,11 +80,11 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
         {
             if (string.IsNullOrWhiteSpace(CultureHelpers.ElementValues.GetResourceXPathAttribute("LanguageCode", element))) return "en_US";
 
-            var lang = langCode.Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
+            var lang = LanguageCode.Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
                 
             string[] languagesCodes = CultureHelpers.ElementValues.GetResourceXPathAttribute("LanguageCode", element).Split(',');
 
-            bool isLangSupp = languagesCodes.Contains(langCode, StringComparer.OrdinalIgnoreCase);
+            bool isLangSupp = languagesCodes.Contains(LanguageCode, StringComparer.OrdinalIgnoreCase);
 
             return isLangSupp ? string.Format("{0}_{1}", lang[0], lang[1].ToUpper()) : "en_US";
         }

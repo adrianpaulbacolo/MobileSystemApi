@@ -19,8 +19,7 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
 
         private string memberSessionId;
 
-        public CTXMHandler(UserSessionInfo user)
-            : base(GameProvider.CTXM)
+        public CTXMHandler(UserSessionInfo user) : base(GameProvider.CTXM, user.LanguageCode)
         {
             fun = GameSettings.GetGameUrl(GameProvider.CTXM, GameLinkSetting.Fun);
             real = GameSettings.GetGameUrl(GameProvider.CTXM, GameLinkSetting.Real);

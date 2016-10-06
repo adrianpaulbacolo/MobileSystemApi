@@ -302,7 +302,7 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
             else
             {
                 process.Remark = string.Format("IsSuccess: {0} | PaymentType: {1} | TransactionId: {2} | Amount: {3} | BankCode: {4} | AccountName: {5} | AccountNumber: {6}",
-                    process.IsSuccess, Convert.ToString(paymentType), process.Data.TransactionId, this._fundsInfo.Amount, this._fundsInfo.Bank,
+                    process.IsSuccess, Convert.ToString(paymentType), process.IsSuccess ? process.Data.TransactionId : "", this._fundsInfo.Amount, this._fundsInfo.Bank,
                         this._fundsInfo.AccountName, this._fundsInfo.AccountNumber);
             }
 

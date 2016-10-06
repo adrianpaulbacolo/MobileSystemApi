@@ -12,27 +12,26 @@ namespace W88.BusinessLogic.Games.Factories
 {
     public abstract class GameLoaderBase
     {
-        protected string langCode;
+        protected string LanguageCode;
         private GameProvider gameProvider { get; set; }
         private XElement xeResources = null;
         private string gamePath;
         private string fileType;
 
-        public GameLoaderBase(GameProvider gameProvider)
+        public GameLoaderBase(GameProvider gameProvider, string languageCode)
         {
             this.gameProvider = gameProvider;
             this.gamePath = GameSettings.GamePath;
             // Note: temporary only, if all games goes to v2, then file path will be in xml(probably)
             this.fileType = this.gameProvider == GameProvider.PT ? ".png" : ".jpg";
 
-            langCode = SetLanguageCode();
-
+            LanguageCode = languageCode;
             xeResources = CultureHelpers.AppData.GetRootResourceNonLanguage("/Slots/" + gameProvider);
         }
 
         protected virtual string SetLanguageCode()
         {
-            return LanguageHelpers.SelectedLanguage;
+            return LanguageCode;
         }
 
         protected abstract string CreateFunUrl(XElement element);
