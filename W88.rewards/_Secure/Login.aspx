@@ -88,7 +88,7 @@
             $.ajax({
                 type: 'POST',
                 contentType: 'application/json',
-                url: '/api/user/Login',
+                url: '/api/user/login',
                 beforeSend: function () {
                     GPINTMOBILE.ShowSplash();
                 },
