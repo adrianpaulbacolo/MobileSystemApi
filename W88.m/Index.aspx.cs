@@ -5,6 +5,12 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
+using System.Xml.Linq;
+using Factories.Slots;
+using Factories.Slots.Handlers;
+using Helpers;
+using Helpers.GameProviders;
+using Models;
 
 public partial class _Index : BasePage
 {
@@ -78,6 +84,12 @@ public partial class _Index : BasePage
                 var linkClass = promo.Element("class").Value;
                 var content = "";
                 var description = "";
+                var gameId = promo.Attribute("Id").Value;
+                
+                if (!string.IsNullOrEmpty(gameId))
+                {
+                    url = BuildGpiUrl(promo);
+                }
 
                 var hasCurrency = (promo.HasAttributes && promo.Attribute("currency") != null);
                 var isPublic = (promo.HasAttributes && promo.Attribute("public") != null);
@@ -124,5 +136,21 @@ public partial class _Index : BasePage
         {
         }
         return slider;
+    }
+
+    private string BuildGpiUrl(XElement element)
+    {
+        var token = userInfo.CurrentSessionId;
+        var funUrl = GameSettings.GetGameUrl(GameProvider.GPI, GameLinkSetting.Fun);
+        var realUrl = GameSettings.GetGameUrl(GameProvider.GPI, GameLinkSetting.Real);
+
+        var gpi = new Gpi(new GameLinkInfo
+        {
+            Fun = funUrl,
+            Real = realUrl,
+            MemberSessionId = token
+        });
+
+        return string.IsNullOrWhiteSpace(token) ? gpi.BuildUrl(funUrl, element, GameLinkSetting.Fun) : gpi.BuildUrl(realUrl, element, GameLinkSetting.Real);
     }
 }
