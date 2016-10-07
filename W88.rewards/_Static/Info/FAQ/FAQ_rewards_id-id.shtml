@@ -1,232 +1,215 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
-    <script src="/_static/_script/slideToggle.js"></script>
-    <style>
-     
-        table td {
-            line-height :1.8;
-        }
-        ol li {
-            line-height :1.8 !important;
-        }
+﻿<div class="row">
+    <div class="col-xs-12 col-sm-4">
+        <h5>FAQ</h5>
+        <p>Klub Reward</p>
+        <p>Klub reward untuk menghargi pemaian tidak hanya dengan taruhan tetapi juga pada saat yang sama membuat klub ini berharga untuk semua member sebagai bagian dari loyalty dan rekreasi untuk taruhan gratis, produk-produk atau barang-barang yang anda inginkan.</p>
+        <ol>
+            <li><a href="#1">Apa poin reward itu?</a></li>
+            <li><a href="#2">Bagaimana untuk mendapat poin reward?</a></li>
+            <li><a href="#3">Apakah saya harus mendaftar untuk mendapatkan poin reward?</a></li>
+            <li><a href="#4">Akankah poin reward saya berakhir?</a></li>
+            <li><a href="#5">Kapan saya dapat menlihat poin reward didalam account saya?</a></li>
+            <li><a href="#6">Apakah taruhan yang Tidak Sah / Seri / Batal dihitung untuk mendapatkan poin reward?</a></li>
+            <li><a href="#7">Dapatkah saya transfer poin saya?</a></li>
+            <li><a href="#8">Bagaimana cara melihat apakah saya mendapatkan poin?</a></li>
+            <li><a href="#9">Apa yang dapat saya tukar?</a></li>
+            <li><a href="#10">Apa artinya Tertunda, Sukses atau Batal dari laporan?</a></li>
+            <li><a href="#11">Apa Free Bet dan penukaran produk?</a></li>
+            <li><a href="#12">Apa roda W88 yang membawa keberuntungan?</a></li>
+            <li><a href="#13">Apakah account saya masih bisa mendapatkan poin reward jika saya di bawah Rebate atau Reload Program?</a></li>
+        </ol>
+    </div>
 
-        p {
-            line-height :1.8 !important;
-        }
-        </style>
-</head>
+    <div id="1" class="col-xs-12 col-sm-4">
+        <h5>1. Apa poin reward itu?</h5>
+        <p>W88 poin reward itu adalah poin yang bisa didapat secara otomatis ketika anda memasang taruhan pada permainan tertentu untuk menikmati manfaat seperti Free Bet atau Produk atau barang-barang yang anda inginkan dengan jumlah poin penukarannya.</p>
+    </div>
 
-<body>
-<div id="container">
-     <div>
-<!--	<div class="header"></div>
-    <div class="navBar"><img src="images/navTitle_id.gif" /></div>
-    <div id="menu"></div>
-    <div class="content">-->
-    	<div class="contentTitle">FAQ</div>
-        <div class="contentArticle" id="section">
-          <p class="subTitle">Klub Reward</p>
-          <p>Klub reward untuk menghargi pemaian tidak hanya dengan taruhan tetapi juga pada saat yang sama membuat klub ini berharga untuk semua member sebagai bagian dari loyalty dan rekreasi untuk taruhan gratis, produk-produk atau barang-barang yang anda inginkan.</p>
-          <ol class="sectionLink">
-           	<li><a href="#1" onclick="openAccordianFromLink('1');">Apa poin reward itu?</a></li>
-                <li><a href="#2" onclick="openAccordianFromLink('2');">Bagaimana untuk mendapat poin reward?</a></li>
-                <li><a href="#3" onclick="openAccordianFromLink('3');">Apakah saya harus mendaftar untuk mendapatkan poin reward?</a></li>
-                <li><a href="#4" onclick="openAccordianFromLink('4');">Akankah poin reward saya berakhir?</a></li>
-                <li><a href="#5" onclick="openAccordianFromLink('5');">Kapan saya dapat menlihat poin reward didalam account saya?</a></li>
-                <li><a href="#6" onclick="openAccordianFromLink('6');">Apakah taruhan yang Tidak Sah / Seri / Batal dihitung untuk mendapatkan poin reward?</a></li>
-                <li><a href="#7" onclick="openAccordianFromLink('7');">Dapatkah saya transfer poin saya?</a></li>
-                <li><a href="#8" onclick="openAccordianFromLink('8');">Bagaimana cara melihat apakah saya mendapatkan poin?</a></li>
-                <li><a href="#9" onclick="openAccordianFromLink('9');">Apa yang dapat saya tukar?</a></li>
-                <li><a href="#10" onclick="openAccordianFromLink('10');">Apa artinya Tertunda, Sukses atau Batal dari laporan?</a></li>
-                <li><a href="#11" onclick="openAccordianFromLink('11');">Apa Free Bet dan penukaran produk?</a></li>
-                <li><a href="#12" onclick="openAccordianFromLink('12');">Apa roda W88 yang membawa keberuntungan?</a></li>
-                <li><a href="#13" onclick="openAccordianFromLink('13');">Apakah account saya masih bisa mendapatkan poin reward jika saya di bawah Rebate atau Reload Program?</a></li>
-          </ol>
-          
-<div class="tab">
-<a name="1"></a><div id="1" class="1 section-header">1. Apa poin reward itu?</div>
+    <div id="2" class="col-xs-12 col-sm-4">
+        <h5>2. Bagaimana untuk mendapat poin reward?</h5>
+        <p>W88 percaya dalam menghargai pemain tidak hanya dengan taruhan tetapi disaat yang sama, membuat setiap minimal taruhan berharga juga.Untuk member yang bergabung pada atau setelah 1 Februari 2014, anda akan mulai mendapatkan poin secara otomatis saat menjadi angggota Klub W VIP "BLUE".</p>
+    </div>
 
-<div class="section-content open1">
-	    <p>W88 poin reward itu adalah poin yang bisa didapat secara otomatis ketika anda memasang taruhan pada permainan tertentu untuk menikmati manfaat seperti Free Bet atau Produk atau barang-barang yang anda inginkan dengan jumlah poin penukarannya.</p>
+    <div id="3" class="col-xs-12 col-sm-4">
+        <h5>3. Apakah saya harus mendaftar untuk mendapatkan poin reward?</h5>
+        <p>Anda tidak perlu mendaftar. Ketika anda menjadi anggota Klub W VIP "BLUE", secara otomatis anda aktif dalam klub ini dan setelah anda memasang taruhan dengan sukses.</p>
+    </div>
+
+    <div id="4" class="col-xs-12 col-sm-4">
+        <h5>4. Akankah poin reward saya berakhir?</h5>
+        <p>
+            Ya. Poin reward W88 akan berakhir seperti dijelaskan dibawah ini:<br />
+            Untuk BLUE, poin yang didapatkan akan berlaku selama enam (6) bulan.<br />
+            Untuk GOLD dan PLATINUM, poin yang didapatkan akan berlaku selama duabelas (12) bulan.<br />
+            Untuk DIAMOND, poin yang didapatkan akan berlaku seumur hidup. <br />
+            Ketika anda menjadi angggota Klub W VIP "BLUE", ecara otomatis anda aktif dalam klub ini dan setelah anda memasang taruhan dengan sukses.Untuk setiap poin yang tidak digunakan akan hangus pada periode poinnya. Silahkan untuk menukarkan poin anda sebelum masa berlaku poin berakhir agar dapat menikmati manfaat untuk semua member.Silahkan lihat poin reward W88 anda yang mendekati masa berakhir dalam laporan reward.
+        </p>
+    </div>
+
+    <div id="5" class="col-xs-12 col-sm-4">
+        <h5>5. Kapan saya dapat menlihat poin reward didalam account saya?</h5>
+        <p>Poin reward akan dihitung secara MINGGUAN (7 hari kemudian) dan akan di update ke account anda setelah jam 2 siang (GMT +8). Hari kerja W88 adalah 12 siang sampai 11:59 malam. sebagai contoh, poin reward yang diterima pada tanggal 1 juni 2013, akan dikreditkan ke account anda pada 8 juni 2013 (7 hari kemudian). Silahkan hubungi Customer Service kami atau kirim email ke <a href="mailto:rewards@w88.com">rewards@w88.com</a> jika anda memerlukan bantuan.</p>
+    </div>
+
+    <div id="6" class="col-xs-12 col-sm-4">
+        <h5>6. Apakah taruhan yang Tidak sah / Seri / Batal dihitung untuk mendapatkan poin reward?</h5>
+        <p>Tidak seperti itu memenuhi syarat untuk mendapatkan poin reward, tidak termasuk taruhan yang Tidak sah /  Seri / Batal.</p>
+    </div>
+
+    <div id="7" class="col-xs-12 col-sm-4">
+        <h5>7. Dapatkah saya transfer poin saya?</h5>
+        <p>Poin reward tidak dapat ditransfer ke account member W88 yang lain.</p>
+    </div>
+
+    <div id="8" class="col-xs-12 col-sm-4">
+        <h5>8. Bagaimana cara melihat apakah saya mendapatkan poin?</h5>
+        <p>Login ke W88 dan klik pada Reward untuk menampilkan poin anda. Total poin yang anda punya sampai saat ini ditampilkan di bagian atas kanan. Klik pada "Laporan poin" dan anda dapat melihat poin HARIAN dan BULANAN yang anda terima / yang segera berakhir / poin yang telah berakhir.</p>
+    </div>
+
+    <div id="9" class="col-xs-12 col-sm-4">
+        <h5>9. Apa yang dapat saya tukar?</h5>
+        <p>Klub reward W88 memungkinkan anda untuk menukar denga Free Bet, Produk, Barang-barang. Agar anda dapat menukarnya, silahkan login ke W88 reward dan cari produk yang anda inginkan sesuai dengan kategori. Setelah memilh, klik pada produk tersebut dan pastikan anda memberikan informasi yang benar dan kirim permintaan penukaran anda.</p>
+    </div>
+
+    <div id="10" class="col-xs-12 col-sm-4">
+        <h5>10. Apa artinya Tertunda, Sukses atau Batal dari laporan?</h5>
+        <div class="col-xs-12 col-sm-4">
+            <div class="info-box">
+                <div class="info-box-header text-center">
+                    <h4>Tertunda</h4>
+                </div>
+                <div class="info-box-info">
+                    <h5>Keterangan</h5>
+                    <p>
+                        Menunggu W88 memproses penukaran anda.<br />
+                        Poin anda akan langsugn dikurangkan dari poin yang tersedia.
+                    </p>
+                    <h5>Waktu Turnaround</h5>
+                    <p>Dalam 2 hari kerja</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <div class="info-box">
+                <div class="info-box-header text-center">
+                    <h4>Sukses</h4>
+                </div>
+                <div class="info-box-info">
+                    <h5>Keterangan</h5>
+                    <p>
+                        Indikasi bahwa permohonan penukaran anda telah berhasil:-<br />
+                        Untuk Free Bet, akan dikreditkan langsung ke account anda.<br />
+                        Untuk produk, produk yang anda tukar telah dikirim.
+                    </p>
+                    <h5>Waktu Turnaround</h5>
+                    <p>-</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <div class="info-box">
+                <div class="info-box-header text-center">
+                    <h4>Batal</h4>
+                </div>
+                <div class="info-box-info">
+                    <h5>Keterangan</h5>
+                    <p>
+                        Permohonan penukaran tidak sah:<br />
+                        - Perubahan pada permohonan penukaran oleh member.<br />
+                        - Permohonan yang tidak sesuai dengan syarat dan ketentuan W88.<br />
+                        - Produk tidak ada lagi.<br />
+                        - Alasan-alasan lainnya.<br />
+                        Poin anda akan dikembalikan seperti semula ke account anda.
+                    </p>
+                    <h5>Waktu Turnaround</h5>
+                    <p>-</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="11" class="col-xs-12 col-sm-4">
+        <h5>11. Apa Free Bet dan penukaran produk?</h5>
+        <p>Ada dua (2) klub reward untuk "Free Bet" dan "Produk/Barang". Berikut adalah rinciannya:</p>
+        <p><strong>Penukaran "Free Bet"</strong></p>
+        <ol>
+            <li>Setelah saya mengirim penukaran Free Bet, berapa lama waktu yang dibutuh untuk dikreditkan ke account saya?</li>
+            <li>Mengapa saya tidak dapat menukarkan Free Bet dalam mata uang lain?</li>
+            <li>Apakah ada persyaratan rollover untuk penukaran Free Bet?</li>
+        </ol>
+        <p>Umumnya reward Free Bet diketahui oleh member yang sama dengan rebate tetapi poin penukaran adalah langsung.<strong></strong></p>
+        <p>
+            <strong>a. Setelah saya mengirim penukaran Free Bet, berapa lama waktu yang dibutuh untuk dikreditkan ke account saya?</strong><br />
+            Hanya dengan W88, Free Bet akan dikreditkan secara langsung ke Wallet Utama anda.
+        </p>
+        <p>
+            <strong>b. Mengapa saya tidak dapat menukarkan Free Bet dalam mata uang lain?</strong><br />
+            Anda hanya bisa menukar Free Bet dengan mata uang yang sesuai dengan mata uang pilihan anda ketika anda pertama kali mendaftar dengan W88. Jika tidak, penukaran anda dianggap tidak memenuhi syarat dan akan dibatalkan.
+        </p>
+        <p>
+            <strong>c. Apakah ada persyaratan rollover untuk penukaran Free Bet?</strong><br />
+            Tidak diperlukan rollover sebelum dapat melakukan penarikan. Syarat dan Ketentuan penarikan lainnya dari W88 tetap berlaku.<br />
+            <br />
+            <strong>Penukaran "Produk"</strong>
+        </p>
+        <ol>
+            <li>Produk apa saja yang tersedia untuk penukaran?</li>
+            <li>Apakah ada asuransi untuk produk yang bernilai tinggi?</li>
+            <li>Apakah saya bisa mengembalikan produk?</li>
+            <li>Untuk pengiriman, apakah ada biayanya?</li>
+            <li>Kapan saya dapat menerima produk yang saya tukar?</li>
+        </ol>
+        <p>W88 menawarkan berbagai macam produk terbaru dari masing-masing negara tergantung negara tempat anda terdaftar dan produk baru diperbaharui setiap bulannya.</p>
+        <p>
+            <strong>a. Produk apa saja yang tersedia untuk penukaran?</strong><br />
+            W88 tidak hanya menyediakan penukaran Free Bet saja untuk keuntungan permainan anda tetapi juga percaya untuk menawarkan penukaran "Produk" seperti Sports, Barang-barang elektronik, Fashion dan masih banyak lagi. Untuk melihat lebih lengkap daftar produk yang tersedia, kunjungi W88 Reward.
+        </p>
+        <p>
+            <strong>b. Apakah ada asuransi untuk produk yang bernilai tinggi?</strong><br />
+            Akan ada garansi untuk setiap brand tetapi W88 akan bertanggung jawab atas insuransi untuk produk bernilai tinggi. Ini akan ditanggung oleh perusahaan dari mana kami membelinya.
+        </p>
+        <p>
+            <strong>c. Apakah saya bisa mengembalikan produk?</strong><br />
+            Produk yang telah dikirim tidak dapat dikembalikan kecuali rusak. Pengembalian tidak diperbolehkan juga untuk penukaran sebagaimana W88 mempunyai hak tidak bertanggung jawab. Jika ada kekhawatiran produk tidak berkerja sebagaimananya, silahkan menghubungi Customer Service kami untuk membantu anda dalam 5 hari kerja setelah menerima bukti produk.
+        </p>
+        <p>
+            <strong>d. Untuk pengiriman, apakah ada biayanya?</strong><br />
+            Tim klub reward W88 akan menutupin biaya ini sebagai bentuk terima kasih. Tidak ada biaya untuk pengiriman atau biaya insuransi untuk produk yang ditukar.
+        </p>
+        <p>
+            <strong>e. Kapan saya dapat menerima produk yang saya tukar?</strong><br />
+            Sekitar (tergantung pada lokasi) 10 hari kerja dari verifikasi dan proses permohonan anda. Anda dapat menerima barang anda antara 5 sampai 15 hari kerja setelah permohonan penukaran anda dapat diliat pada status "Sukses".
+        </p>
+    </div>
+
+    <div id="12" class="col-xs-12 col-sm-4">
+        <h5>12. Apa roda W88 yang membawa keberuntungan?</h5>
+        <p>Program yang luarbiasa ini memberikan kesempatan kepada semua anggota untuk menang Hadiah yang menarik, promosi terbaru, dan untuk dukungan terus menerus kepda W88.com.</p>
+        <p>
+            <strong>a. Siapa yang memenuhi starat untuk Putaran Keberuntungan W88?</strong><br />
+            Semua member yang sudah mendaftarkan akun dengan kami dan membuat minimal satu (1) deposit sukses setiap minggunya akan memenuhi syarat untuk free spin.
+        </p>
+        <p>
+            <strong>b. Bagaimana Putaran Keberuntungan W88 bekerja?</strong><br />
+            Klub Rewards W88 memberikan anda satu (1) Putaran gratis setiap minggu berdasarkan adanya deposit yang sukses. Dengan cara yang mudah yaitu msuk ke halaman Rewards, klik Putaran Keberuntungan dan anda akan menemukan “PUTAR SEKARANG”.
+        </p>
+        <p>
+            <strong>c. Apakah hadiah Point Reward/Taruhan gratis/Promosi/ akan diproses secara cepat?</strong><br />
+            Untuk pemenang “Point Rewards” atau “Taruhan gratis” akan secara cepat dikreditkan ke akun anda.<br /><br />
+            i. Untuk pemenang “Promosi”, Customer Service akan menghubungi pemenang dalam waktu 24 jam dan anggota harus menyetujui Syarat dan ketentuan promosi sebelum diproses.<br />
+            ii. Untuk pemenang “hadiah”, Tim rewards kami akan menghubungi anda untuk meminta detil alamat pengiriman hadiah dan anggota harus menyetujui Syarat dan ketentuan hadiah setelah itu hadiah akan dikirim dalam waktu 15 hari.<br /><br />
+
+            Catatan: Jika pemenang tidak dapat di hubungi, detil alamat yang tidak lengkap atau tidak memberikan jawaban dari tim reward setelah 7 hari dari waktu kemenangan, hadiah akan dinyatakan BATAL dan akan dimasukkan kembali ke Putaran keberuntungan untuk kesempatan dimenangkan oleh anggota lainnya.<br />
+        </p>
+        <p>
+            <strong>d. Kapan saya dapat melakukan putaran yang baru kembali?</strong><br />
+            Putaran gratis  akan kadaluarsa pada pertengahan malam setiap hari Minggu pada Jam: 23:59:59 (GMT+8).  Putaran gratis yang baru akan tersedia pada minggu berikutnya.
+        </p>
+        <p>Catatan: Pastikan anda menggunakan Putaran Gratis anda setiap minggunya karena kesempatan putaran gratis ini tidak dapat diakumulasikan atau diganti dengan lainnya jika tidak digunakan.</p>
+    </div>
+
+    <div id="13" class="col-xs-12 col-sm-4">
+        <h5>13. Apakah account saya masih bisa mendapatkan poin reward jika saya di bawah Rebate atau Reload Program?</h5>
+        <p>Ya, Anda masih bisa mendapatkan poin reward sementara akun Anda di bawah Reload atau Rebate Program seperti biasa.</p>
+    </div>
 </div>
-
-           <a name="2"></a><div id="2" class="2 section-header">2. Bagaimana untuk mendapat poin reward?</div>
-          
-          <div class="section-content open2">
-            <p>W88 percaya dalam menghargai pemain tidak hanya dengan taruhan tetapi disaat yang sama, membuat setiap minimal taruhan berharga juga.Untuk member yang bergabung pada atau setelah 1 Februari 2014, anda akan mulai mendapatkan poin secara otomatis saat menjadi angggota Klub W VIP "BLUE".</p>
-</div>
-
-          <a name="3"></a><div id="3" class="3 section-header">3. Apakah saya harus mendaftar untuk mendapatkan poin reward?</div>
-          
-          <div class="section-content open3">
-            <p>Anda tidak perlu mendaftar. Ketika anda menjadi anggota Klub W VIP "BLUE", secara otomatis anda aktif dalam klub ini dan setelah anda memasang taruhan dengan sukses.</p>
-</div>
-
-          <a name="4"></a><div id="4" class="4 section-header">4. Akankah poin reward saya berakhir?</div>
-          
-          <div class="section-content open4">
-            <p>Ya. Poin reward W88 akan berakhir seperti dijelaskan dibawah ini:<br/>
-            Untuk BLUE, poin yang didapatkan akan berlaku selama enam (6) bulan.<br/>
-Untuk GOLD dan PLATINUM, poin yang didapatkan akan berlaku selama duabelas (12) bulan.<br/>
-Untuk DIAMOND, poin yang didapatkan akan berlaku seumur hidup. <br/>
-Ketika anda menjadi angggota Klub W VIP "BLUE", ecara otomatis anda aktif dalam klub ini dan setelah anda memasang taruhan dengan sukses.Untuk setiap poin yang tidak digunakan akan hangus pada periode poinnya. Silahkan untuk menukarkan poin anda sebelum masa berlaku poin berakhir agar dapat menikmati manfaat untuk semua member.Silahkan lihat poin reward W88 anda yang mendekati masa berakhir dalam laporan reward. </p>
-</div>
-
-          <a name="5"></a><div id="5" class="5 section-header">5. Kapan saya dapat menlihat poin reward didalam account saya?</div>
-          
-          <div class="section-content open5">
-            <p>Poin reward akan dihitung secara MINGGUAN (7 hari kemudian) dan akan di update ke account anda setelah jam 2 siang (GMT +8). Hari kerja W88 adalah 12 siang sampai 11:59 malam. sebagai contoh, poin reward yang diterima pada tanggal 1 juni 2013, akan dikreditkan ke account anda pada 8 juni 2013 (7 hari kemudian). Silahkan hubungi Customer Service kami atau kirim email ke <a href="mailto:rewards@w88.com">rewards@w88.com</a> jika anda memerlukan bantuan.</p>
-          </div>
-
-          <a name="6"></a><div id="6" class="6 section-header">6. Apakah taruhan yang Tidak sah / Seri / Batal dihitung untuk mendapatkan poin reward?</div>
-          
-          <div class="section-content open6">
-            <p>Tidak seperti itu memenuhi syarat untuk mendapatkan poin reward, tidak termasuk taruhan yang Tidak sah /  Seri / Batal.</p>
-</div>
-
-          <a name="7"></a><div id="7" class="7 section-header">7. Dapatkah saya transfer poin saya?</div>
-          
-          <div class="section-content open7">
-            <p>Poin reward tidak dapat ditransfer ke account member W88 yang lain.</p>
-</div>
-
-           <a name="8"></a><div id="8" class="8 section-header">8. Bagaimana cara melihat apakah saya mendapatkan poin?</div>
-          
-          <div class="section-content open8">
-            <p>Login ke W88 dan klik pada Reward untuk menampilkan poin anda. Total poin yang anda punya sampai saat ini ditampilkan di bagian atas kanan. Klik pada "Laporan poin" dan anda dapat melihat poin HARIAN dan BULANAN yang anda terima / yang segera berakhir / poin yang telah berakhir.</p>
-</div>
-
-          <a name="9"></a><div id="9" class="9 section-header">9. Apa yang dapat saya tukar?</div>
-          
-          <div class="section-content open9">
-            <p>Klub reward W88 memungkinkan anda untuk menukar denga Free Bet, Produk, Barang-barang. Agar anda dapat menukarnya, silahkan login ke W88 reward dan cari produk yang anda inginkan sesuai dengan kategori. Setelah memilh, klik pada produk tersebut dan pastikan anda memberikan informasi yang benar dan kirim permintaan penukaran anda.</p>
-</div>
-
-          <a name="10"></a><div id="10" class="10 section-header">10. Apa artinya Tertunda, Sukses atau Batal dari laporan?</div>
-          
-          <div class="section-content open10">
-            <table class="tableCss" width="100%" border="0" cellpadding="5" cellspacing="1">
-  <tr class="rowHeader">
-    <td align="center"><strong style="font-weight: bold;">Status</strong></td>
-    <td align="center"><strong style="font-weight: bold;">Keterangan</strong></td>
-    <td width="130" align="center"><strong style="font-weight: bold;">Waktu Turnaround</strong></td>
-  </tr>
-  <tr class="row1">
-    <td>Tertunda</td>
-    <td>Menunggu W88 memproses penukaran anda.<br />
-    Poin anda akan langsugn dikurangkan dari poin yang tersedia.</td>
-    <td>Dalam 2 hari kerja</td>
-  </tr>
-  <tr class="row1">
-    <td>Sukses</td>
-    <td>Indikasi bahwa permohonan penukaran anda telah berhasil:-<br />
-      Untuk Free Bet, akan dikreditkan langsung ke account anda.<br />
-      Untuk produk, produk yang anda tukar telah dikirim.</td>
-    <td>-</td>
-  </tr>
-  <tr class="row2">
-    <td>Batal</td>
-    <td>Permohonan penukaran tidak sah:<br />
-    - Perubahan pada permohonan penukaran oleh member<br />
-    - Permohonan yang tidak sesuai dengan syarat dan ketentuan W88<br />
-    - Produk tidak ada lagi<br />
-    - Alasan-alasan lainnya<br />
-    Poin anda akan dikembalikan seperti semula ke account anda.</td>
-    <td>-</td>
-  </tr>
-</table>
-          </div>
-
-          <a name="11"></a><div id="11" class="11 section-header">11. Apa Free Bet dan penukaran produk?</div>
-          
-          <div class="section-content open11">
-            <p>Ada dua (2) klub reward untuk "Free Bet" dan "Produk/Barang". Berikut adalah rinciannya:</p>
-            <p><strong>Penukaran "Free Bet"</strong></p>
-            <ol type="a" class="sectionLink">
-              <li>Setelah saya mengirim penukaran Free Bet, berapa lama waktu yang dibutuh untuk dikreditkan ke account saya?</li>
-              <li>Mengapa saya tidak dapat menukarkan Free Bet dalam mata uang lain?</li>
-              <li>Apakah ada persyaratan rollover untuk penukaran Free Bet?</li>
-            </ol>
-            <p>Umumnya reward Free Bet diketahui oleh member yang sama dengan rebate tetapi poin penukaran adalah langsung.<strong></strong></p>
-            <a name="11.1.1"></a>
-            <p><strong>a.  Setelah saya mengirim penukaran Free Bet, berapa lama waktu yang dibutuh untuk dikreditkan ke account saya?</strong><br />
-            Hanya dengan W88, Free Bet akan dikreditkan secara langsung ke Wallet Utama anda.</p>
-            <a name="11.1.2"></a>
-            <p><strong>b.  Mengapa saya tidak dapat menukarkan Free Bet dalam mata uang lain?</strong><br />
-            Anda hanya bisa menukar Free Bet dengan mata uang yang sesuai dengan mata uang pilihan anda ketika anda pertama kali mendaftar dengan W88. Jika tidak, penukaran anda dianggap tidak memenuhi syarat dan akan dibatalkan.</p>
-            <a name="11.1.3"></a>
-            <p><strong>c. Apakah ada persyaratan rollover untuk penukaran Free Bet?</strong><br />
-              Tidak diperlukan rollover sebelum dapat melakukan penarikan. Syarat dan Ketentuan penarikan lainnya dari W88 tetap berlaku.<br />
-  <br />
-  <strong>Penukaran "Produk"</strong></p>
-            <ol type="a" class="sectionLink">
-              <li>Produk apa saja yang tersedia untuk penukaran?</li>
-              <li>Apakah ada asuransi untuk produk yang bernilai tinggi?</li>
-              <li>Apakah saya bisa mengembalikan produk?</li>
-              <li>Untuk pengiriman, apakah ada biayanya?</li>
-              <li>Kapan saya dapat menerima produk yang saya tukar?</li>
-            </ol>
-            <p>W88 menawarkan berbagai macam produk terbaru dari masing-masing negara tergantung negara tempat anda terdaftar dan produk baru diperbaharui setiap bulannya.</p>
-            <a name="11.2.1"></a>
-            <p><strong>a.  Produk apa saja yang tersedia untuk penukaran?</strong><br />
-            W88 tidak hanya menyediakan penukaran Free Bet saja untuk keuntungan permainan anda tetapi juga percaya untuk menawarkan penukaran "Produk" seperti Sports, Barang-barang elektronik, Fashion dan masih banyak lagi. Untuk melihat lebih lengkap daftar produk yang tersedia, kunjungi W88 Reward.</p>
-            <a name="11.2.2"></a>
-            <p><strong>b.  Apakah ada asuransi untuk produk yang bernilai tinggi?</strong><br />
-            Akan ada garansi untuk setiap brand tetapi W88 akan bertanggung jawab atas insuransi untuk produk bernilai tinggi. Ini akan ditanggung oleh perusahaan dari mana kami membelinya.</p>
-            <a name="11.2.3"></a>
-            <p><strong>c. Apakah saya bisa mengembalikan produk?</strong><br />
-            Produk yang telah dikirim tidak dapat dikembalikan kecuali rusak. Pengembalian tidak diperbolehkan juga untuk penukaran sebagaimana W88 mempunyai hak tidak bertanggung jawab. Jika ada kekhawatiran produk tidak berkerja sebagaimananya, silahkan menghubungi Customer Service kami untuk membantu anda dalam 5 hari kerja setelah menerima bukti produk.</p>
-           <a name="11.2.4"></a>
-           <p><strong>d.  Untuk pengiriman, apakah ada biayanya?</strong><br />
-            Tim klub reward W88 akan menutupin biaya ini sebagai bentuk terima kasih. Tidak ada biaya untuk pengiriman atau biaya insuransi untuk produk yang ditukar.</p>
-            <a name="11.2.5"></a>
-            <p><strong>e.  Kapan saya dapat menerima produk yang saya tukar?</strong><br />
-Sekitar (tergantung pada lokasi) 10 hari kerja dari verifikasi dan proses permohonan anda. Anda dapat menerima barang anda antara 5 sampai 15 hari kerja setelah permohonan penukaran anda dapat diliat pada status "Sukses".</p>          </div>
-
-    <!------------------------------>
-
-          <a name="12"></a><div id="12" class="12 section-header">12. Apa roda W88 yang membawa keberuntungan?</div>
-          
-          <div class="section-content open12">
-            <p>Program yang luarbiasa ini memberikan kesempatan kepada semua anggota untuk menang Hadiah yang menarik, promosi terbaru, dan untuk dukungan terus menerus kepda W88.com.</p>
-            <a name="12.1.1"></a>
-            <p><strong>a.  Siapa yang memenuhi starat untuk Putaran Keberuntungan W88?</strong><br />
-Semua member yang sudah mendaftarkan akun dengan kami dan membuat minimal satu (1) deposit sukses setiap minggunya akan memenuhi syarat untuk free spin.
-</p>
-            <a name="12.1.2"></a>
-            <p><strong>b.  Bagaimana Putaran Keberuntungan W88 bekerja?</strong><br />
-            Klub Rewards W88 memberikan anda satu (1) Putaran gratis setiap minggu berdasarkan adanya deposit yang sukses. Dengan cara yang mudah yaitu msuk ke halaman Rewards, klik Putaran Keberuntungan dan anda akan menemukan “PUTAR SEKARANG”.</p>
-            <a name="12.1.3"></a>
-            <p><strong>c. Apakah hadiah Point Reward/Taruhan gratis/Promosi/ akan diproses secara cepat?</strong><br />
-              Untuk pemenang “Point Rewards” atau “Taruhan gratis” akan secara cepat dikreditkan ke akun anda.<br /><br />   
-              i. Untuk pemenang “Promosi”, Customer Service akan menghubungi pemenang dalam waktu 24 jam dan anggota harus menyetujui Syarat dan ketentuan promosi sebelum diproses.<br />
-              ii. Untuk pemenang “hadiah”, Tim rewards kami akan menghubungi anda untuk meminta detil alamat pengiriman hadiah dan anggota harus menyetujui Syarat dan ketentuan hadiah setelah itu hadiah akan dikirim dalam waktu 15 hari.<br /><br />
-
-             Catatan: Jika pemenang tidak dapat di hubungi, detil alamat yang tidak lengkap atau tidak memberikan jawaban dari tim reward setelah 7 hari dari waktu kemenangan, hadiah akan dinyatakan BATAL dan akan dimasukkan kembali ke Putaran keberuntungan untuk kesempatan dimenangkan oleh anggota lainnya.<br /></p>
-
-            <a name="12.1.4"></a>
-            <p><strong>d.  Kapan saya dapat melakukan putaran yang baru kembali?</strong><br />
-            Putaran gratis  akan kadaluarsa pada pertengahan malam setiap hari Minggu pada Jam: 23:59:59 (GMT+8).  Putaran gratis yang baru akan tersedia pada minggu berikutnya.</p>
-
-            <p>Catatan: Pastikan anda menggunakan Putaran Gratis anda setiap minggunya karena kesempatan putaran gratis ini tidak dapat diakumulasikan atau diganti dengan lainnya jika tidak digunakan.</p>
-          </div>
-
-          <a name="13"></a><div id="13" class="13 section-header">13. Apakah account saya masih bisa mendapatkan poin reward jika saya di bawah Rebate atau Reload Program?</div>
-          
-          <div class="section-content open13">
-            <p>Ya, Anda masih bisa mendapatkan poin reward sementara akun Anda di bawah Reload atau Rebate Program seperti biasa.</p>
-          </div>
-
-<!-------------------------------->
-
-</div>
-            </div> </div>
-<!--      </div>-->
-    <br class="clearfloat" />
-<!--<a href="#" id="gotop" rel="nofollow"><img src="images/goTop.gif" title="Back to Top"/></a>
-<script type="text/javascript" src="js/goTop.js"></script>-->
-</div>
-</body>
-</html>

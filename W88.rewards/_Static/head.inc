@@ -22,7 +22,7 @@
     // set initial values for notification
     if(w88Mobile.Growl) {
         w88Mobile.Growl.options.lang = '<%=W88.BusinessLogic.Shared.Helpers.LanguageHelpers.SelectedLanguageShort%>';
-        w88Mobile.Growl.options.close = '<%=W88.BusinessLogic.Shared.Helpers.CultureHelpers.ElementValues.GetResourceString("close", W88.BusinessLogic.Shared.Helpers.CultureHelpers.AppData.GetRootResource("leftMenu"))%>';
+        w88Mobile.Growl.options.close = '<%=W88.BusinessLogic.Rewards.Helpers.RewardsHelper.GetTranslation(W88.BusinessLogic.Rewards.Models.TranslationKeys.Label.Close)%>';
     }
     var sessionInterval = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("sessionInterval") %>';
 </script>

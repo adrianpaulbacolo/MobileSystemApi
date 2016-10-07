@@ -1,237 +1,217 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
-    <script src="/_static/_script/slideToggle.js"></script>
-    <style>
-      
-        table td {
-            line-height :1.8;
-        }
-        ol li {
-            line-height :1.8 !important;
-        }
+﻿<div class="row">
+    <div class="col-xs-12 col-sm-4">
+        <h6>Câu Hỏi Thường Gặp</h6>
+        <p>Chương Trình Điểm Thưởng</p>
+        <p>Chương trình điểm thưởng là thưởng cho  người chơi không chỉ đặt cược mà trong cùng thời gian đó, nó có giá trị cho tất  cả các thành viên như một phần của khách hàng thường xuyên và quy đổi miễn phí  tiền cược / các sản phẩm / các mặt hàng mà quý khách mong muốn đổi. </p>
+        <ol>
+            <li><a href="#1">Điểm Thưởng Quà Tặng Là Gì?</a></li>
+            <li><a href="#2">Làm Thế Nào Có Thể Nhận Điểm Thưởng Quà Tặng?</a></li>
+            <li><a href="#3">Tôi có cần đăng ký tham gia chương trình điểm thưởng của W88 không?</a></li>
+            <li><a href="#4">Điểm thưởng sẽ hết hạn khi nào?</a></li>
+            <li><a href="#5">Khi Nào Có Thể Thấy Điểm Thưởng Hiển Thị Trong Tài Khoản Tôi?</a></li>
+            <li><a href="#6">Những vé cược đặt vào Hòa/ Không Có Hiệu Lực/ Bị Hòa/ Hủy Bỏ có được tính vào chương trình điểm thưởng hay không?</a></li>
+            <li><a href="#7">Tôi Có Thể Chuyển Điểm Thưởng Không?</a></li>
+            <li><a href="#8">Làm Thế Nào Để Xem Các Điểm Thưởng Có Được? </a></li>
+            <li><a href="#9">Tôi Có Thể Quy Đổi Điểm Thưởng Không?</a></li>
+            <li><a href="#10">Trạng Thái Chờ, Đã Thanh Toán hoặc Hủy Bỏ Trong Phần Thống Kê Quy Đổi Điểm Thưởng Là Gì?</a></li>
+            <li><a href="#11">Cá Cược Miễn Phí và Quy Đổi Sản Phẩm Là Gì?</a></li>
+            <li><a href="#12">Vòng quay may mắn W88 là gì?</a></li>
+            <li><a href="#13">Tài khoản của tôi vẫn có thể tích lũy điểm thưởng nếu tôi tham gia hoàn trả hoặc chương trình nạp lại không?</a></li>
+        </ol>
+    </div>
 
-        p {
-            line-height :1.8 !important;
-        }
-        </style>
-</head>
+    <div id="1" class="col-xs-12 col-sm-4">
+        <h5>1. Điểm Thưởng Quà Tặng Là Gì?</h5>
+        <p>Điểm thưởng W88 là điểm thưởng dành cho  mỗ thành viên có thể tự động kiếm trong hệ thống khi đặt cược vào trò chơi quý khách đã lựa để tận hưởng nhiều lợi ích như quy đổi Tiền Cược Miễn Phí hoặc Hàng Hóa hoặc Mặt Hàng mà quý khách mong  muốn yêu cầu đổi với số lượng chỉ định của điểm số quy đổi. </p>
+    </div>
 
-<body>
-<div id="container">
-     <div>
-<!--	<div class="header"></div>
-    <div class="navBar"><img src="images/navTitle_vn.gif" /></div>
-    <div id="menu"></div>
-    <div class="content">-->
-    	<div class="contentTitle">Câu Hỏi Thường Gặp</div>
-        <div class="contentArticle" id="section">
-          <p class="subTitle">Chương Trình Điểm Thưởng</p>
-          <p>Chương trình điểm thưởng là thưởng cho  người chơi không chỉ đặt cược mà trong cùng thời gian đó, nó có giá trị cho tất  cả các thành viên như một phần của khách hàng thường xuyên và quy đổi miễn phí  tiền cược / các sản phẩm / các mặt hàng mà quý khách mong muốn đổi. </p>
-<ol class="sectionLink">
-       	<li><a href="#1" onclick="openAccordianFromLink('1');">Điểm Thưởng Quà Tặng Là Gì?</a></li>
-                <li><a href="#2" onclick="openAccordianFromLink('2');">Làm Thế Nào Có Thể Nhận Điểm Thưởng Quà Tặng?</a></li>
-                <li><a href="#3" onclick="openAccordianFromLink('3');">Tôi có cần đăng ký tham gia chương trình điểm thưởng của W88 không?</a></li>
-                <li><a href="#4" onclick="openAccordianFromLink('4');">Điểm thưởng sẽ hết hạn khi nào?</a></li>
-                <li><a href="#5" onclick="openAccordianFromLink('5');">Khi Nào Có Thể Thấy Điểm Thưởng Hiển Thị Trong Tài Khoản Tôi?</a></li>
-                <li><a href="#6" onclick="openAccordianFromLink('6');">Những vé cược đặt vào Hòa/ Không Có Hiệu Lực/ Bị Hòa/ Hủy Bỏ có được tính vào chương trình điểm thưởng hay không?</a></li>
-                <li><a href="#7" onclick="openAccordianFromLink('7');">Tôi Có Thể Chuyển Điểm Thưởng Không?</a></li>
-                <li><a href="#8" onclick="openAccordianFromLink('8');">Làm Thế Nào Để Xem Các Điểm Thưởng Có Được? </a></li>
-                <li><a href="#9" onclick="openAccordianFromLink('9');">Tôi Có Thể Quy Đổi Điểm Thưởng Không?</a></li>
-                <li><a href="#10" onclick="openAccordianFromLink('10');">Trạng Thái Chờ, Đã Thanh Toán hoặc Hủy Bỏ Trong Phần Thống Kê Quy Đổi Điểm Thưởng Là Gì?</a></li>
-                <li><a href="#11" onclick="openAccordianFromLink('11');">Cá Cược Miễn Phí và Quy Đổi Sản Phẩm Là Gì?</a></li>
-                <li><a href="#12" onclick="openAccordianFromLink('12');">Vòng quay may mắn W88 là gì?</a></li>
-                <li><a href="#13" onclick="openAccordianFromLink('13');">Tài khoản của tôi vẫn có thể tích lũy điểm thưởng nếu tôi tham gia hoàn trả hoặc chương trình nạp lại không?</a></li>
-          </ol>
-          
-<div class="tab">
-<a name="1"></a><div id="1" class="1 section-header">1. Điểm Thưởng Quà Tặng Là Gì?</div>
+    <div id="2" class="col-xs-12 col-sm-4">
+        <h5>2. Làm Thế Nào Có Thể Nhận Điểm Thưởng Quà Tặng?</h5>
+        <p>W88 tin rằng người chơi không chỉ riêng đặt cược cùng lúc, mà còn quan tâm đến giá trị cược tối thiểu với giá cược tốt nhất. Tất cả các khách hàng đang tham gia hoặc sau ngày 01/02/2014 , quý khách có thể bắt đầu nhận điểm thưởng ngay khi quý khách là thành viên "XANH" trong CLB W VIP.</p>
+    </div>
 
-<div class="section-content open1">
-	    <p>Điểm thưởng W88 là điểm thưởng dành cho  mỗ thành viên có thể tự động kiếm trong hệ thống khi đặt cược vào trò chơi quý khách đã lựa để tận hưởng nhiều lợi ích như quy đổi Tiền Cược Miễn Phí hoặc Hàng Hóa hoặc Mặt Hàng mà quý khách mong  muốn yêu cầu đổi với số lượng chỉ định của điểm số quy đổi. </p>
-</div>
+    <div id="3" class="col-xs-12 col-sm-4">
+        <h5>3. Tôi có cần đăng ký tham gia chương trình điểm thưởng của W88 không?</h5>
+        <p>Quý khách không cần đăng ký. Hệ thống sẽ được tự động kích hoạt ngay khi quý khách là thành viên " XANH " trong CLB W VIP và khi đặt cược thành công.</p>
+    </div>
 
-          <a name="2"></a><div id="2" class="2 section-header">2. Làm Thế Nào Có Thể Nhận Điểm Thưởng Quà Tặng?</div>
-          
-          <div class="section-content open2">
-            <p>W88 tin rằng người chơi không chỉ riêng đặt cược cùng lúc, mà còn quan tâm đến giá trị cược tối thiểu với giá cược tốt nhất. Tất cả các khách hàng đang tham gia hoặc sau ngày 01/02/2014 , quý khách có thể bắt đầu nhận điểm thưởng ngay khi quý khách là thành viên "XANH" trong CLB W VIP.</p>
-</div>
+    <div id="4" class="col-xs-12 col-sm-4">
+        <h5>4. Điểm thưởng sẽ hết hạn khi nào?</h5>
+        <p>
+            Vâng, điểm thưởng W88 sẽ được hết hạn như sau :<br />
+            Với thành viên XANH điểm thưởng kiếm được có giá trị trong vòng sáu (6) tháng.<br />
+            Với thành viên VÀNG và BẠCH KIM điểm thưởng kiếm được có giá trị trong vòng mười hai (12) tháng.<br />
+            Với thành viên KIM CƯƠNG không giới hạn cho điểm thưởng kiếm được.<br />
+            Hệ thống sẽ được tự động kích hoạt ngay khi quý khách là thành viên " XANH " trong CLB W VIP và khi đặt cược thành công.
+            <br />
+            Bất kỳ điểm thưởng tích lũy được sẽ bị hủy nếu không sử dụng trong thời gian có giá trị như qui định. Để tránh điểm thưởng mất hiệu lực qui đổi, quý khách cần sử dụng điểm để qui đổi trước thời hạn qui định.
+            Vui lòng nhấp vào "Số Dư Hiện Tại" để tham khảo Tổng điểm hết hạn.
+        </p>
+    </div>
 
-          <a name="3"></a><div id="3" class="3 section-header">3. Tôi có cần đăng ký tham gia chương trình điểm thưởng của W88 không?</div>
-          
-          <div class="section-content open3">
-            <p>Quý khách không cần đăng ký. Hệ thống sẽ được tự động kích hoạt ngay khi quý khách là thành viên " XANH " trong CLB W VIP và khi đặt cược thành công.</p>
-</div>
+    <div id="5" class="col-xs-12 col-sm-4">
+        <h5>5. Khi Nào Có Thể Thấy Điểm Thưởng Hiển Thị Trong Tài Khoản Tôi?</h5>
+        <p>W88 sẽ tính điểm hàng tuần (7 ngày sau khi cược) và sẽ cập nhật vào tài khoản của quý khách sau 2.00 pm (GMT+8). Ngày làm việc của W88 từ 12pm đến 11.59am (của ngày hôm sau). Ví dụ, điểm thưởng quý khách kiếm được ngày 01/06/2013, sẽ được cập nhật vào tài khoản của quý khách vào ngày 08/06/2013 (7 ngày sau đó). Nếu có vấn đề thắc mắc thêm, quý khách vui lòng gửi email cho chúng tôi qua địa chỉ email <a href="mailto:rewards@w88.com">rewards@w88.com</a>.</p>
+    </div>
 
-          <a name="4"></a><div id="4" class="4 section-header">4. Điểm thưởng sẽ hết hạn khi nào?</div>
-          
-          <div class="section-content open4">
-            <p>Vâng, điểm thưởng W88 sẽ được hết hạn như sau :<br/>
-            Với thành viên XANH điểm thưởng kiếm được có giá trị trong vòng sáu (6) tháng.<br/>
-Với thành viên VÀNG và BẠCH KIM điểm thưởng kiếm được có giá trị trong vòng mười hai (12) tháng.<br/>
-Với thành viên KIM CƯƠNG không giới hạn cho điểm thưởng kiếm được.<br/>
-Hệ thống sẽ được tự động kích hoạt ngay khi quý khách là thành viên " XANH " trong CLB W VIP và khi đặt cược thành công.
-<br/>
-Bất kỳ điểm thưởng tích lũy được sẽ bị hủy nếu không sử dụng trong thời gian có giá trị như qui định. Để tránh điểm thưởng mất hiệu lực qui đổi, quý khách cần sử dụng điểm để qui đổi trước thời hạn qui định.
-Vui lòng nhấp vào "Số Dư Hiện Tại" để tham khảo Tổng điểm hết hạn.
-</p>
-</div>
+    <div id="6" class="col-xs-12 col-sm-4">
+        <h5>6. Những vé cược đặt vào Hòa/ Không Có Hiệu Lực/ Bị Hòa/ Hủy Bỏ có được tính vào chương trình điểm thưởng hay không?</h5>
+        <p>Không, những vé cược hợp lệ để tính  điểm thưởng sẽ KHÔNG bao gồm những vé cược đặt vào Hòa/ Không Có Hiệu Lực/ Bị  Hòa/ Hủy Bỏ</p>
+    </div>
 
-          <a name="5"></a><div id="5" class="5 section-header">5. Khi Nào Có Thể Thấy Điểm Thưởng Hiển Thị Trong Tài Khoản Tôi?</div>
-          
-          <div class="section-content open5">
-            <p>W88 sẽ tính điểm hàng tuần (7 ngày sau khi cược) và sẽ cập nhật vào tài khoản của quý khách sau 2.00 pm (GMT+8). Ngày làm việc của W88 từ 12pm đến 11.59am (của ngày hôm sau). Ví dụ, điểm thưởng quý khách kiếm được ngày 01/06/2013, sẽ được cập nhật vào tài khoản của quý khách vào ngày 08/06/2013 (7 ngày sau đó). Nếu có vấn đề thắc mắc thêm, quý khách vui lòng gửi email cho chúng tôi qua địa chỉ email <a href="mailto:rewards@w88.com">rewards@w88.com</a>.</p>
-          </div>
+    <div id="7" class="col-xs-12 col-sm-4">
+        <h5>7. Tôi Có Thể Chuyển Điểm Thưởng Không?</h5>
+        <p>Điểm thưởng không thể chuyển vào bất kỳ  tài khoản W88 của thành viên khác</p>
+    </div>
 
-          <a name="6"></a><div id="6" class="6 section-header">6. Những vé cược đặt vào Hòa/ Không Có Hiệu Lực/ Bị Hòa/ Hủy Bỏ có được tính vào chương trình điểm thưởng hay không?</div>
-          
-          <div class="section-content open6">
-            <p>Không, những vé cược hợp lệ để tính  điểm thưởng sẽ KHÔNG bao gồm những vé cược đặt vào Hòa/ Không Có Hiệu Lực/ Bị  Hòa/ Hủy Bỏ </p>
-</div>
+    <div id="8" class="col-xs-12 col-sm-4">
+        <h5>8. Điểm thưởng không thể chuyển vào bất kỳ tài khoản W88 của thành viên khác</h5>
+        <p>Vui lòng đăng nhập vào W88 và nhấp chọn  mục Điểm Thưởng để xem điểm của quý khách. Tất cả số điểm thưởng của quý khách  đến hiện tại sẽ hiển thị bên góc phải màn hình. Nhấp vào &ldquo; Thống Kê Điểm Thưởng&rdquo;  và quý khách có thể xem điểm thường hàng ngày và hàng tháng có được/ Sắp Hết Hạn  / Điểm Thưởng Hết Hạn.</p>
+    </div>
 
-          <a name="7"></a><div id="7" class="7 section-header">7. Tôi Có Thể Chuyển Điểm Thưởng Không?</div>
-          
-          <div class="section-content open7">
-            <p>Điểm thưởng không thể chuyển vào bất kỳ  tài khoản W88 của thành viên khác </p>
-</div>
+    <div id="9" class="col-xs-12 col-sm-4">
+        <h5>9. Tôi Có Thể Quy Đổi Điểm Thưởng Không?</h5>
+        <p>Chương trình điểm thưởng W88 cho phép  quý khách quy đổi Tiền Cược Miễn Phí, Hàng Hóa và các sản phẩm khác. Để tiến  hành quy đổi, vui lòng đăng nhập vào mục Điểm Thưởng W88 và tìm kiếm mặt hàng  mong muốn theo các thể loại. Khi chọn xong, vui lòng&rdquo; Nhấn Chọn&rdquo; vào mặt hàng  và chắc chắn rằng quý khách cung cấp chi tiết hợp lệ và xác nhận yêu cầu quy đổi.</p>
+    </div>
 
-          <a name="8"></a><div id="8" class="8 section-header">8. Điểm thưởng không thể chuyển vào bất kỳ tài khoản W88 của thành viên khác </div>
-          
-          <div class="section-content open8">
-            <p>Vui lòng đăng nhập vào W88 và nhấp chọn  mục Điểm Thưởng để xem điểm của quý khách. Tất cả số điểm thưởng của quý khách  đến hiện tại sẽ hiển thị bên góc phải màn hình. Nhấp vào &ldquo; Thống Kê Điểm Thưởng&rdquo;  và quý khách có thể xem điểm thường hàng ngày và hàng tháng có được/ Sắp Hết Hạn  / Điểm Thưởng Hết Hạn.</p>
-</div>
-
-          <a name="9"></a><div id="9" class="9 section-header">9. Tôi Có Thể Quy Đổi Điểm Thưởng Không?</div>
-          
-          <div class="section-content open9">
-            <p>Chương trình điểm thưởng W88 cho phép  quý khách quy đổi Tiền Cược Miễn Phí, Hàng Hóa và các sản phẩm khác. Để tiến  hành quy đổi, vui lòng đăng nhập vào mục Điểm Thưởng W88 và tìm kiếm mặt hàng  mong muốn theo các thể loại. Khi chọn xong, vui lòng&rdquo; Nhấn Chọn&rdquo; vào mặt hàng  và chắc chắn rằng quý khách cung cấp chi tiết hợp lệ và xác nhận yêu cầu quy đổi.</p>
-</div>
-
-          <a name="10"></a><div id="10" class="10 section-header">10. Trạng Thái Chờ, Đã Thanh Toán hoặc Hủy Bỏ Trong Phần Thống Kê Quy Đổi Điểm Thưởng Là Gì?</div>
-          
-          <div class="section-content open10">
-            <table class="tableCss" cellspacing="1" cellpadding="5" width="100%">
-  <tr class="rowHeader">
-    <td align="center"><strong style="font-weight: bold;">Trạng Thái</strong></td>
-    <td align="center"><strong style="font-weight: bold;">Mô Tả</strong></td>
-    <td width="130" align="center"><strong style="font-weight: bold;">Thời Gian</strong></td>
-  </tr>
-  <tr class="row1">
-    <td>Đang Chờ Duyệt</td>
-    <td>Đang chờ W88 tiến hành quy đổi của quý khách.<br />
-    Điểm của quý khách sẽ được khấu trừ ngay sau khi có đủ số dư như yêu cầu.</td>
-    <td>Trong vòng 2 ngày làm việc</td>
-  </tr>
-  <tr class="row1">
-    <td>Thành Công</td>
-    <td>Yêu cầu của bạn đã thành công:<br />
-      Tiền cược miễn phí sẽ được cập nhật vào tài khoản của quý khách.<br />
-      Với các sản phẩm khác, quà tặng yêu cầu sẽ được gửi tới cho quý khách.</td>
-    <td>-</td>
-  </tr>
-  <tr class="row2">
-    <td>Hủy Bỏ</td>
-    <td>Từ chối yêu cầu đổi điểm bởi vì:<br />
-    - Yêu cầu của thành viên có sự thay đổi<br />
-    - Yêu cầu không đáp ứng điều khỏan và điều kiện của W88<br />
-    - Hết quà tặng<br />
-    - Một số lý do khác<br />
-    Điểm sẽ được trả lại vào tài khoản điểm thưởng của quý khách</td>
-    <td>-</td>
-  </tr>
-</table>
-          </div>
-
-          <a name="11"></a><div id="11" class="11 section-header">11. Cá Cược Miễn Phí và Quy Đổi Sản Phẩm Là Gì?</div>
-          
-          <div class="section-content open11">
-            <p>Dưới đây là chi tiết về  2 chương trình quy đổi điểm thưởng là “ Tiền Cược Miễn Phí” và “ Sản Phẩm/ Mặt Hàng” :</p>
-            <p><strong>Quy Đổi “Tiền Cược Miễn Phí”</strong></p>
-            <ol type="a" class="sectionLink">
-              <li>Tiền  Cược Miễn Phí&rdquo; Bao Lâu Sẽ Cập Nhật Sau Khi Xác Nhận Quy Đổi?</li>
-              <li>Tại  Sao Tôi Không Thể Sử Dụng Tiền Tệ Khác Để Quy Đổi &ldquo;Tiền Cược Miễn Phí&rdquo;?</li>
-              <li>Tôi  Có CầnTrải qua Cược Khi Rút &ldquo;Tiền Cược Miễn Phí&rdquo; Không?</li>
-            </ol>
-            <p>Điểm Thưởng Tiền Cược Miễn Phí thường  đươc hiểu là giữa các thành viên có tiền hoàn trả nhưng tích lũy điểm để quy đổi  ngay lập tức.<strong></strong></p>
-<a name="11.1.1"></a>
-            <p><strong>a.  "Tiền Cược Miễn Phí” Bao Lâu Sẽ Cập Nhật Sau Khi Xác Nhận Quy Đổi?</strong><br />
-            Chỉ duy nhất tại W88, tiền cược miễn  phí sẽ cập nhật ngay lập tức vào tài khoản chính của quý khách sau khi thực hiện  quy đổi thành công.</p>
-<a name="11.1.2"></a>
-            <p><strong>b.  Tại Sao Tôi Không Thể Sử Dụng Tiền Tệ Khác Để Quy Đổi “Tiền Cược Miễn Phí”?</strong><br />
-            Quý khách có thể quy đổi &ldquo;Tiền Cược Miễn  Phí&rdquo; phù hợp chính xác với loại tiền tệ khi quý khách đăng ký tại W88. Nếu  không thì việc quy đổi sẽ được xem  không  đủ tiêu chuẩn tại W88 và sẽ bị hủy bỏ.</p>
-<a name="11.1.3"></a>
-            <p><strong>c. Tôi Có CầnTrải qua Cược Khi Rút “Tiền Cược Miễn Phí” Không.</strong><br />
-              Tiền cược miễn phí được quy đổi từ điểm thưởng không cần phải cược lại . W88 luôn áp dụng các điều khoản và điều kiện về quy định rút tiền.<br />
-  <br />
-  <strong>Quy Đổi “Các Sản Phẩm”</strong></p>
-            <ol type="a" class="sectionLink">
-              <li>&ldquo;Các Sản Phẩm&rdquo; Nào Có Sẵn Để Quy Đổi Điểm Thưởng?</li>
-              <li>Các  Sản Phẩm Giá Trị Cao Có Bảo Hành Không?</li>
-              <li>Tôi  Có Thể Hoàn Trả Lại Các Sản Phẩm Không?</li>
-              <li>Việc  Giao Hàng Có Bị Tính Phí Không?</li>
-              <li>Khi  Nào Thì Tôi Có Thể Nhận Các SảnPhẩm?</li>
-            </ol>
-            <p>W88 cung cấp đầy đủ các sản phậm hiện  nay với các mặt hàng mới nhất cập nhật hàng thắng và nhiều hơn thế nữa đến các  nước tùy thuộc vào quốc gia quý khách đã đăng ký trước đó</p>
-<a name="11.2.1"></a>
-            <p><strong>a.  “Các Sản Phẩm” Nào Có Sẵn Để Quy Đổi Điểm Thưởng?</strong><br />
-            W88 không chỉ cung cấp điểm thưởng để  quy đổi &ldquo;Tiền Cược Miễn Phí&rdquo; cho các dịch vụ trò chơi mà còn có thể quy đổi &ldquo;  Các Sản Phẩm&rdquo; như Thể Thao, Đồ Dùng, Thời Trang và nhiều hơn nữa. Vui long truy  cập vào trang Điểm Thưởng W88 để biết thêm thông tin chi tiết và các quà đổi bất  ngờ khác.</p>
-<a name="11.2.2"></a>
-            <p><strong>b.  Các Sản Phẩm Có Giá Trị Cao Có Bảo Hành Không?</strong><br />
-            Tất cả các thương hiệu đều có bảo hành  nhưng W88 chỉ chịu trách nhiệm bảo hành cho tất cả sản phẩm quy đổi có giá trị  cao. Các nhà cung cấp sẽ hoàn toàn bảo hành cho các sản phẩm của họ.</p>
-<a name="11.2.3"></a>
-            <p><strong>c. Tôi Có Thể Hoàn Trả Lại Các Sản Phẩm Không?</strong><br />
-            Tất cả các sản phẩm đã gửi đi sẽ không  thể hoàn trả lại. Tất cả sản phẩm quy đổi không thể hoàn trả và W88 sẽ không  chịu trách nhiệm về các vấn đề hoàn trả sản phẩm này. Nếu có bất kỳ vấn đề  trong quá trình vận chuyển, vui lòng liên hệ Bộ Phận Chăm Sóc Khách Hàng  để được tư vấn trong các sản phẩm nhận được ( trong vòng 5 ngày).</p>
-<a name="11.2.4"></a>
-           <p><strong>d.  Việc Giao Hàng Có Bị Tính Phí Không?</strong><br />
-            Chương Trình Quy Đổi Điểm Thưởng W88 sẽ  thực hiện tất cả các vấn đề của quý khách để thể hiện sự thiện chí của chúng  tôi. Quý khách sẽ không chịu bất kỳ chi phí giao hàng hoặc các yêu cầu bảo hiểm  sản phâm. </p>
-<a name="11.2.5"></a>
-            <p><strong>e.  Khi Nào Thì Tôi Có Thể Nhận Các SảnPhẩm?</strong><br />
-            Thời gian dự tính trong vòng 10 ngày để xác minh  và tiến hành thực hiệu yêu cầu của quý khách ( còn tùy thuộc vào vị trí nhận).  Quý khách có thể nhận hàng trong vòng 5 đến 15 ngày sau khi yêu cầu quy đổi của  quý khách được thực hiện và &ldquo; Thành Công &ldquo; có nghĩa là đã chuyển hàng thành  công.</p>          
+    <div id="10" class="col-xs-12 col-sm-4">
+        <h5>10. Trạng Thái Chờ, Đã Thanh Toán hoặc Hủy Bỏ Trong Phần Thống Kê Quy Đổi Điểm Thưởng Là Gì?</h5>
+        <div class="col-xs-12 col-sm-4">
+            <div class="info-box">
+                <div class="info-box-header text-center">
+                    <h4>Đang Chờ Duyệt</h4>
+                </div>
+                <div class="info-box-info">
+                    <h5>Mô Tả</h5>
+                    <p>
+                        Đang chờ W88 tiến hành quy đổi của quý khách.<br />
+                        Điểm của quý khách sẽ được khấu trừ ngay sau khi có đủ số dư như yêu cầu.
+                    </p>
+                    <h5>Thời Gian</h5>
+                    <p>Trong vòng 2 ngày làm việc</p>
+                </div>
             </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <div class="info-box">
+                <div class="info-box-header text-center">
+                    <h4>Thành Công</h4>
+                </div>
+                <div class="info-box-info">
+                    <h5>Mô Tả</h5>
+                    <p>
+                        Yêu cầu của bạn đã thành công:<br />
+                        Tiền cược miễn phí sẽ được cập nhật vào tài khoản của quý khách.<br />
+                        Với các sản phẩm khác, quà tặng yêu cầu sẽ được gửi tới cho quý khách.
+                    </p>
+                    <h5>Thời Gian</h5>
+                    <p>-</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <div class="info-box">
+                <div class="info-box-header text-center">
+                    <h4>Hủy Bỏ</h4>
+                </div>
+                <div class="info-box-info">
+                    <h5>Mô Tả</h5>
+                    <p>
+                        Từ chối yêu cầu đổi điểm bởi vì:<br />
+                        - Yêu cầu của thành viên có sự thay đổi<br />
+                        - Yêu cầu không đáp ứng điều khỏan và điều kiện của W88<br />
+                        - Hết quà tặng<br />
+                        - Một số lý do khác<br />
+                        Điểm sẽ được trả lại vào tài khoản điểm thưởng của quý khách
+                    </p>
+                    <h5>Thời Gian</h5>
+                    <p>-</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<!------------------------------>
+    <div id="11" class="col-xs-12 col-sm-4">
+        <h5>11. Cá Cược Miễn Phí và Quy Đổi Sản Phẩm Là Gì?</h5>
+        <p>Dưới đây là chi tiết về  2 chương trình quy đổi điểm thưởng là “ Tiền Cược Miễn Phí” và “ Sản Phẩm/ Mặt Hàng” :</p>
+        <p><strong>Quy Đổi “Tiền Cược Miễn Phí”</strong></p>
+        <ol>
+            <li>Tiền  Cược Miễn Phí&rdquo; Bao Lâu Sẽ Cập Nhật Sau Khi Xác Nhận Quy Đổi?</li>
+            <li>Tại  Sao Tôi Không Thể Sử Dụng Tiền Tệ Khác Để Quy Đổi &ldquo;Tiền Cược Miễn Phí&rdquo;?</li>
+            <li>Tôi  Có CầnTrải qua Cược Khi Rút &ldquo;Tiền Cược Miễn Phí&rdquo; Không?</li>
+        </ol>
+        <p>Điểm Thưởng Tiền Cược Miễn Phí thường  đươc hiểu là giữa các thành viên có tiền hoàn trả nhưng tích lũy điểm để quy đổi  ngay lập tức.<strong></strong></p>
+        <p>
+            <strong>a.  "Tiền Cược Miễn Phí” Bao Lâu Sẽ Cập Nhật Sau Khi Xác Nhận Quy Đổi?</strong><br />
+            Chỉ duy nhất tại W88, tiền cược miễn  phí sẽ cập nhật ngay lập tức vào tài khoản chính của quý khách sau khi thực hiện  quy đổi thành công.
+        </p>
+        <p>
+            <strong>b.  Tại Sao Tôi Không Thể Sử Dụng Tiền Tệ Khác Để Quy Đổi “Tiền Cược Miễn Phí”?</strong><br />
+            Quý khách có thể quy đổi &ldquo;Tiền Cược Miễn  Phí&rdquo; phù hợp chính xác với loại tiền tệ khi quý khách đăng ký tại W88. Nếu  không thì việc quy đổi sẽ được xem  không  đủ tiêu chuẩn tại W88 và sẽ bị hủy bỏ.
+        </p>
+        <p>
+            <strong>c. Tôi Có CầnTrải qua Cược Khi Rút “Tiền Cược Miễn Phí” Không.</strong><br />
+            Tiền cược miễn phí được quy đổi từ điểm thưởng không cần phải cược lại . W88 luôn áp dụng các điều khoản và điều kiện về quy định rút tiền.<br />
+            <br />
+            <strong>Quy Đổi “Các Sản Phẩm”</strong>
+        </p>
+        <ol>
+            <li>&ldquo;Các Sản Phẩm&rdquo; Nào Có Sẵn Để Quy Đổi Điểm Thưởng?</li>
+            <li>Các  Sản Phẩm Giá Trị Cao Có Bảo Hành Không?</li>
+            <li>Tôi  Có Thể Hoàn Trả Lại Các Sản Phẩm Không?</li>
+            <li>Việc  Giao Hàng Có Bị Tính Phí Không?</li>
+            <li>Khi  Nào Thì Tôi Có Thể Nhận Các SảnPhẩm?</li>
+        </ol>
+        <p>W88 cung cấp đầy đủ các sản phậm hiện  nay với các mặt hàng mới nhất cập nhật hàng thắng và nhiều hơn thế nữa đến các  nước tùy thuộc vào quốc gia quý khách đã đăng ký trước đó</p>
+        <p>
+            <strong>a.  “Các Sản Phẩm” Nào Có Sẵn Để Quy Đổi Điểm Thưởng?</strong><br />
+            W88 không chỉ cung cấp điểm thưởng để  quy đổi &ldquo;Tiền Cược Miễn Phí&rdquo; cho các dịch vụ trò chơi mà còn có thể quy đổi &ldquo;  Các Sản Phẩm&rdquo; như Thể Thao, Đồ Dùng, Thời Trang và nhiều hơn nữa. Vui long truy  cập vào trang Điểm Thưởng W88 để biết thêm thông tin chi tiết và các quà đổi bất  ngờ khác.
+        </p>
+        <p>
+            <strong>b.  Các Sản Phẩm Có Giá Trị Cao Có Bảo Hành Không?</strong><br />
+            Tất cả các thương hiệu đều có bảo hành  nhưng W88 chỉ chịu trách nhiệm bảo hành cho tất cả sản phẩm quy đổi có giá trị  cao. Các nhà cung cấp sẽ hoàn toàn bảo hành cho các sản phẩm của họ.
+        </p>
+        <p>
+            <strong>c. Tôi Có Thể Hoàn Trả Lại Các Sản Phẩm Không?</strong><br />
+            Tất cả các sản phẩm đã gửi đi sẽ không  thể hoàn trả lại. Tất cả sản phẩm quy đổi không thể hoàn trả và W88 sẽ không  chịu trách nhiệm về các vấn đề hoàn trả sản phẩm này. Nếu có bất kỳ vấn đề  trong quá trình vận chuyển, vui lòng liên hệ Bộ Phận Chăm Sóc Khách Hàng  để được tư vấn trong các sản phẩm nhận được ( trong vòng 5 ngày).
+        </p>
+        <p>
+            <strong>d.  Việc Giao Hàng Có Bị Tính Phí Không?</strong><br />
+            Chương Trình Quy Đổi Điểm Thưởng W88 sẽ  thực hiện tất cả các vấn đề của quý khách để thể hiện sự thiện chí của chúng  tôi. Quý khách sẽ không chịu bất kỳ chi phí giao hàng hoặc các yêu cầu bảo hiểm  sản phâm.
+        </p>
+        <p>
+            <strong>e.  Khi Nào Thì Tôi Có Thể Nhận Các SảnPhẩm?</strong><br />
+            Thời gian dự tính trong vòng 10 ngày để xác minh  và tiến hành thực hiệu yêu cầu của quý khách ( còn tùy thuộc vào vị trí nhận).  Quý khách có thể nhận hàng trong vòng 5 đến 15 ngày sau khi yêu cầu quy đổi của  quý khách được thực hiện và &ldquo; Thành Công &ldquo; có nghĩa là đã chuyển hàng thành  công.
+        </p>
+    </div>
 
-          <a name="12"></a><div id="12" class="12 section-header">12. Vòng quay may mắn W88 là gì?</div>
-          
-          <div class="section-content open12">
-            <p>Đây là chương trình gửi tới tất cả các thành viên của chúng tôi một cơ hội giành các giải thưởng thú vị, các chương trình khuyến mãi  mới nhất để đáp lại sự ủng hộ của người chơi dành cho W88.com</p>
-            <a name="12.1.1"></a>
-            <p><strong>a.  Ai đủ điều kiện tham gia VÒNG QUAY may mắn tại W88?</strong><br />
-Tất cả thành viên tại W88 cần có tối thiểu một (1) giao dịch gửi tiền thành công trong tuần để tham gia chương trình Vòng quay may mắn,
-</p>
-            <a name="12.1.2"></a>
-            <p><strong>b.  Vòng quay may mắn tại W88 hoạt động như thế nào?</strong><br />
-            Câu lạc bộ điểm thưởng tại W88 cung cấp cho bạn một (1) lần quay miễn phí mỗi tuần với giao dịch gửi tiền thành công. Đơn giản là vào trang Điểm thưởng, nhấp vào mục Vòng Quay và bạn sẽ nhìn thấy  “QUAY NGAY”.</p>
-            <a name="12.1.3"></a>
-            <p><strong>c. Điểm thưởng/ Tiền cược miễn phí/ Khuyến Mãi / Quà tặng sẽ được xử lý ngay lập tức hay không?</strong><br />
-              “Điểm thưởng” hoặc “Tiền cược miễn phí” mà người chơi quay được sẽ được chuyển vào tài khoản của người chơi ngay lập tức.<br /><br />   
-              i. Đối với người trúng thưởng “Khuyến Mãi” thì bộ phận chăm sóc khách hàng sẽ liên hệ với người chiến thắng trong vòng 24h và người chơi chấp nhận T&C của khuyến mãi trước khi quá trình có thể được thực hiện.<br />
-              ii. Đối với người chiến thắng “Quà tặng“, thì nhân viên của câu lạc bộ điểm thưởng sẽ liên hệ với người chiến thắng thắng để có được thông tin chi tiết địa chỉ giao hàng và thành viên chấp nhận T&C thì sẽ được giao hàng trong vòng 15 ngày sau khi thành viên có thể liên lạc được bằng các thông tin đã cung cấp.<br /><br />
+    <div id="12" class="col-xs-12 col-sm-4">
+        <h5>12. Vòng quay may mắn W88 là gì?</h5>
+        <p>Đây là chương trình gửi tới tất cả các thành viên của chúng tôi một cơ hội giành các giải thưởng thú vị, các chương trình khuyến mãi  mới nhất để đáp lại sự ủng hộ của người chơi dành cho W88.com</p>
+        <p>
+            <strong>a.  Ai đủ điều kiện tham gia VÒNG QUAY may mắn tại W88?</strong><br />
+            Tất cả thành viên tại W88 cần có tối thiểu một (1) giao dịch gửi tiền thành công trong tuần để tham gia chương trình Vòng quay may mắn,
+        </p>
+        <p>
+            <strong>b.  Vòng quay may mắn tại W88 hoạt động như thế nào?</strong><br />
+            Câu lạc bộ điểm thưởng tại W88 cung cấp cho bạn một (1) lần quay miễn phí mỗi tuần với giao dịch gửi tiền thành công. Đơn giản là vào trang Điểm thưởng, nhấp vào mục Vòng Quay và bạn sẽ nhìn thấy  “QUAY NGAY”.
+        </p>
+        <p>
+            <strong>c. Điểm thưởng/ Tiền cược miễn phí/ Khuyến Mãi / Quà tặng sẽ được xử lý ngay lập tức hay không?</strong><br />
+            “Điểm thưởng” hoặc “Tiền cược miễn phí” mà người chơi quay được sẽ được chuyển vào tài khoản của người chơi ngay lập tức.<br /><br />
+            i. Đối với người trúng thưởng “Khuyến Mãi” thì bộ phận chăm sóc khách hàng sẽ liên hệ với người chiến thắng trong vòng 24h và người chơi chấp nhận T&C của khuyến mãi trước khi quá trình có thể được thực hiện.<br />
+            ii. Đối với người chiến thắng “Quà tặng“, thì nhân viên của câu lạc bộ điểm thưởng sẽ liên hệ với người chiến thắng thắng để có được thông tin chi tiết địa chỉ giao hàng và thành viên chấp nhận T&C thì sẽ được giao hàng trong vòng 15 ngày sau khi thành viên có thể liên lạc được bằng các thông tin đã cung cấp.<br /><br />
+            Chú ý: Nếu W88 không thể liên hệ với người chiến thắng, không đủ thông tin chi tiết được cung cấp hoặc không phản hồi nhân viên của câu lạc bộ điểm thưởng sau 7 ngày kể từ khi chiến thắng, quà tặng sẽ được xem xét HỦY BỎ và sẽ được phát hành trở lại VÒNG QUAY may mắn cho các thành viên khác tham gia một lần nữa.<br />
+        </p>
+        <p>
+            <strong>d.  Khi nào tôi có thể tham gia VÒNG QUAY may mắn miễn phí tiếp theo?</strong><br />
+            Lượt quay miễn phí sẽ hết hạn vào tối chủ nhật mỗi tuần lúc 23:59:59 (GMT+8). Bạn sẽ kiếm được một (1) lượt quay miễn phí mới vào tuần tiếp theo
+        </p>
+        <p>Lưu ý : Vui lòng chắc chắn rằng bạn sử dụng lượt quay miễn phí của bạn 1 lần trong tuần bởi vì lượt quay này sẽ không được tích lũy hoặc trao đổi với chương trình khác hoặc bất kì điều chỉnh nào nếu không được sử dụng.</p>
+    </div>
 
-             Chú ý: Nếu W88 không thể liên hệ với người chiến thắng, không đủ thông tin chi tiết được cung cấp hoặc không phản hồi nhân viên của câu lạc bộ điểm thưởng sau 7 ngày kể từ khi chiến thắng, quà tặng sẽ được xem xét HỦY BỎ và sẽ được phát hành trở lại VÒNG QUAY may mắn cho các thành viên khác tham gia một lần nữa.<br /></p>
-
-            <a name="12.1.4"></a>
-            <p><strong>d.  Khi nào tôi có thể tham gia VÒNG QUAY may mắn miễn phí tiếp theo?</strong><br />
-            Lượt quay miễn phí sẽ hết hạn vào tối chủ nhật mỗi tuần lúc 23:59:59 (GMT+8). Bạn sẽ kiếm được một (1) lượt quay miễn phí mới vào tuần tiếp theo</p>
-
-            <p>Lưu ý : Vui lòng chắc chắn rằng bạn sử dụng lượt quay miễn phí của bạn 1 lần trong tuần bởi vì lượt quay này sẽ không được tích lũy hoặc trao đổi với chương trình khác hoặc bất kì điều chỉnh nào nếu không được sử dụng.</p>
-          </div>
-
-          <a name="13"></a><div id="13" class="13 section-header">13. Tài khoản của tôi vẫn có thể tích lũy điểm thưởng nếu tôi tham gia hoàn trả hoặc chương trình nạp lại không?</div>
-          
-          <div class="section-content open13">
-            <p>Có, bạn vẫn có thể kiếm được điểm thưởng trong khi tài khoản của bạn đang tham gia  chương trình nạp lại hoặc hoàn trả  như bình thường.</p>
-          </div>
-
-<!-------------------------------->
-
+    <div id="13" class="col-xs-12 col-sm-4">
+        <h5>13. Tài khoản của tôi vẫn có thể tích lũy điểm thưởng nếu tôi tham gia hoàn trả hoặc chương trình nạp lại không?</h5>
+        <p>Có, bạn vẫn có thể kiếm được điểm thưởng trong khi tài khoản của bạn đang tham gia  chương trình nạp lại hoặc hoàn trả  như bình thường.</p>
+    </div>
 </div>
- </div> </div>
-   <!--   </div> -->   <br class="clearfloat" />
-<!--<a href="#" id="gotop" rel="nofollow"><img src="images/goTop.gif" title="Trở Về Đầu Trang"/></a>
-<script type="text/javascript" src="js/goTop.js"></script>-->
-</div>
-</body>
-</html>
