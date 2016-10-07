@@ -142,12 +142,16 @@
 
             switch ('<%=ProductType%>') {
                 case '1': //freebet
-                    if (!validateNormal()) {
+                    if (!validateFreebet()) {
                         $('#btnSubmit').attr("disabled", false);
                         return false;
                     } 
                     return true;                   
                 case '2': //normal
+                    if (!validateNormal()) {
+                        $('#btnSubmit').attr("disabled", false);
+                        return false;
+                    }
                     break;
                 case '3': //wishlist same as normal
                     if (!validateNormal()) {

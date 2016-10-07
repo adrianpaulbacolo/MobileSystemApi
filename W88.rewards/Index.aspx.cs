@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
-using System.Web;
+using W88.BusinessLogic.Rewards.Helpers;
+using W88.BusinessLogic.Rewards.Models;
 
 public partial class _Index : CatalogueBasePage
 {
@@ -29,7 +30,7 @@ public partial class _Index : CatalogueBasePage
         {
             usernameLabel.InnerText = UserSessionInfo.MemberCode;
         }
-        var pointsLabelText = (string)HttpContext.GetLocalResourceObject(LocalResx, "lbl_points");
+        var pointsLabelText = RewardsHelper.GetTranslation(TranslationKeys.Label.Points);
         var stringBuilder = new StringBuilder();
 
         stringBuilder.Append(pointsLabelText)
@@ -37,7 +38,7 @@ public partial class _Index : CatalogueBasePage
             .Append(MemberRewardsInfo != null ? Convert.ToString(MemberRewardsInfo.CurrentPoints) : "0");
         pointsLabel.InnerText = stringBuilder.ToString();
 
-        var pointLevelLabelText = (string)HttpContext.GetLocalResourceObject(HeaderResx, "lbl_point_level");
+        var pointLevelLabelText = RewardsHelper.GetTranslation(TranslationKeys.Label.PointLevel);
         stringBuilder = new StringBuilder();
         stringBuilder.Append(pointLevelLabelText)
             .Append(" ")

@@ -1,10 +1,12 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Index.aspx.cs" Inherits="_Index" Async="true"%>
+<%@ Import Namespace="W88.BusinessLogic.Rewards.Helpers" %>
+<%@ Import Namespace="W88.BusinessLogic.Rewards.Models" %>
 <%@ Import Namespace="W88.BusinessLogic.Shared.Helpers" %>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%=CultureHelpers.ElementValues.GetResourceString("brand", LeftMenu).Replace(" -", "")%></title>
+    <title><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Brand)%></title>
     <!--#include virtual="~/_static/head.inc" -->
 </head>
 <body>
