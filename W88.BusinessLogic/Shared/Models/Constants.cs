@@ -72,7 +72,6 @@
 
         public enum StatusCode
         {
-            MemberVip = -8,
             SessionExpired = -7,
             MultipleLogin = -6,
             WithPendingWithdrawal = -5,
@@ -81,7 +80,8 @@
             NotLogin = -2,
             Error = -1,
             Success = 1,
-            ResetPassword = 2
+            ResetPassword = 2,
+            MemberVip = 3
         }
     }
 }
