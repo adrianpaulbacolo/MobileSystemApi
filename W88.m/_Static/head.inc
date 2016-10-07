@@ -19,6 +19,7 @@
     window.w88Mobile = {};
     window.User = {};
     window.User.hasSession = <%= (!String.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) ? 1 : 0 %>;
+    window.User.token = '<%= commonVariables.CurrentMemberSessionId %>';
     window.User.sessionInterval = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("sessionInterval") %>';
 </script>
 <script type="text/javascript" src="/_Static/Js/modules/slots.js"></script>
@@ -27,10 +28,11 @@
 <script type="text/javascript">
     // set initial values for notification
     if(!_.isUndefined(w88Mobile.Growl)){
-    w88Mobile.Growl.options.lang = '<%=commonVariables.SelectedLanguageShort%>';
-    w88Mobile.Growl.options.close = '<%=commonCulture.ElementValues.getResourceString("close", commonVariables.LeftMenuXML)%>';
+        w88Mobile.Growl.options.lang = '<%=commonVariables.SelectedLanguageShort%>';
+        w88Mobile.Growl.options.close = '<%=commonCulture.ElementValues.getResourceString("close", commonVariables.LeftMenuXML)%>';
+        w88Mobile.Gateways = {};
     }
-</script>
+    </script>
 <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0" />
 <script type="text/javascript" src="/_Static/JS/modules/hideMenu.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/fundtransfer.js"></script>
@@ -41,3 +43,4 @@
 <script type="text/javascript" src="/_Static/Js/modules/slots.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/wallets.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/bankTransfer.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/gateways/nganluong.js"></script>

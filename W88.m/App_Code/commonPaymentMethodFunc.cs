@@ -291,6 +291,17 @@ public static class commonPaymentMethodFunc
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
                 break;
+
+            case commonVariables.DepositMethod.NganLuong:
+                list = CreateMethodListControl(paymentCode);
+
+                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
+
+                anchor.Attributes.Add("href", "/Deposit/NganLuong.aspx");
+
+                list.Controls.Add(anchor);
+                depositTabs.Controls.Add(list);
+                break;
             default:
                 break;
         }
