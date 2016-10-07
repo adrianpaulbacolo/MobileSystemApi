@@ -90,7 +90,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         {
             usernameLabel.InnerText = UserSessionInfo.MemberCode;
         }
-        var pointsLabelText = RewardsHelper.GetTranslation(TranslationKeys.Member.Points);
+        var pointsLabelText = RewardsHelper.GetTranslation(TranslationKeys.Label.Points);
         var stringBuilder = new StringBuilder();
 
         stringBuilder.Append(pointsLabelText)
@@ -98,7 +98,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             .Append(MemberRewardsInfo != null ? Convert.ToString(MemberRewardsInfo.CurrentPoints) : "0");
         pointsLabel.InnerText = stringBuilder.ToString();
 
-        var pointLevelLabelText = RewardsHelper.GetTranslation(TranslationKeys.Member.PointLevel);
+        var pointLevelLabelText = RewardsHelper.GetTranslation(TranslationKeys.Label.PointLevel);
         stringBuilder = new StringBuilder();
         stringBuilder.Append(pointLevelLabelText)
             .Append(" ")
@@ -115,7 +115,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         lbcat.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.Category) + colon;
         lbproduct.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.Product) + colon;
         lbcurr.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.Currency) + colon;
-        lbpoint.Text = RewardsHelper.GetTranslation(TranslationKeys.Member.Points) + colon;
+        lbpoint.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.Points) + colon;
         lbperiod.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.Delivery) + colon;
         lbqty.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.Quantity) + colon;
         lbaccount.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.Account) + colon;
@@ -208,12 +208,12 @@ public partial class Catalogue_Redeem : CatalogueBasePage
                 var builder = new StringBuilder();
                 // Before discount
                 builder.Append(string.Format(@"{0:#,###,##0.##} ", ProductDetails.PointsRequired))
-                    .Append(RewardsHelper.GetTranslation(TranslationKeys.Member.Points));
+                    .Append(RewardsHelper.GetTranslation(TranslationKeys.Label.Points));
                 lblBeforeDiscount.Text = builder.ToString();
 
                 builder = new StringBuilder();
                 builder.Append(string.Format(@"{0:#,###,##0.##} ", ProductDetails.DiscountPoints))
-                    .Append(RewardsHelper.GetTranslation(TranslationKeys.Member.Points));
+                    .Append(RewardsHelper.GetTranslation(TranslationKeys.Label.Points));
                 lblPointCenter.Text = builder.ToString();
             }
             else
@@ -222,7 +222,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
                 var builder = new StringBuilder();
                 // Before discount
                 builder.Append(string.Format(@"{0:#,###,##0.##} ", ProductDetails.PointsRequired))
-                    .Append(RewardsHelper.GetTranslation(TranslationKeys.Member.Points));
+                    .Append(RewardsHelper.GetTranslation(TranslationKeys.Label.Points));
                 lblPointCenter.Text = builder.ToString();
             }
 

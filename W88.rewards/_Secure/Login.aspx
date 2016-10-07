@@ -78,6 +78,10 @@
             });
 
             $('#<%=imgCaptcha.ClientID%>').click(function () { $(this).attr('src', '/_Secure/Captcha.aspx'); });
+            var splitHost = window.location.hostname.split('.'),
+                domain = splitHost.length == 3 ? splitHost[1] + '.' + splitHost[2] : splitHost[0] + '.' + splitHost[1],
+                registerUri = window.location.protocol + '//m.' + domain + '/_secure/register.aspx';
+            $('#register').attr('href', registerUri);
         });
 
         function initiateLogin() {
