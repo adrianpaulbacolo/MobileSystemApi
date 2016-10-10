@@ -15,7 +15,7 @@ function piwikManager() {
         return {};
     }
 
-    function setPiwik(customPiwik) {
+    function setPiwik(customPiwik){
         piwik = customPiwik;
     }
 
@@ -59,8 +59,7 @@ function piwikManager() {
 
         var piwik = getInstance();
         if (typeof piwik === "object" && typeof piwik.setUserId === "function") {
-            piwik.setCustomVariable(obj.index, obj.name, obj.value, obj.scope)
-            //piwik.setCustomVariable(1, "deviceID", obj.deviceId, "visit")
+            piwik.setCustomVariable(obj.index, obj.name, obj.value, obj.scope);
         } else if (!_.isUndefined(_paq)) {
             _paq.push(["setCustomVariable", obj.index, obj.name, obj.value, obj.scope]);
         }
