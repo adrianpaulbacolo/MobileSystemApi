@@ -1,22 +1,22 @@
 ﻿<div class="row">
     <div class="col-xs-12 col-sm-4">
-        <h5>FAQ</h5>
+        <h6>FAQ</h6>
         <p>Rewards Club</p>
         <p>Rewards club is to reward players not  only wagering but at the same time, making it worthwhile for all members as  part of loyalty and leisure of exchanging for Free Bets/Products/Items that you  desire.</p>
         <ol>
-            <li><a href="/_Static/Info/FAQ.aspx#1" data-ajax="false">What is reward points?</a></li>
-            <li><a href="/_Static/Info/FAQ.aspx#2" data-ajax="false">How to earn reward points?</a></li>
-            <li><a href="/_Static/Info/FAQ.aspx#3" data-ajax="false">Do I need to sign up for  W88&rsquo;s rewards club?</a></li>
-            <li><a href="/_Static/Info/FAQ.aspx#4" data-ajax="false">Will my reward points  expire?</a></li>
-            <li><a href="/_Static/Info/FAQ.aspx#5" data-ajax="false">When will I see reward  points to be reflected in my account?</a></li>
-            <li><a href="/_Static/Info/FAQ.aspx#6" data-ajax="false">Is Tie Bets / Void / Draw / Cancel being calculated for earning reward  points?</a></li>
-            <li><a href="/_Static/Info/FAQ.aspx#7" data-ajax="false">Can I transfer my points?</a></li>
-            <li><a href="/_Static/Info/FAQ.aspx#8" data-ajax="false">How to see if I am earning  points?</a></li>
-            <li><a href="/_Static/Info/FAQ.aspx#9" data-ajax="false">What am I able to redeem?</a></li>
-            <li><a href="/_Static/Info/FAQ.aspx#10" data-ajax="false">What is the meaning of Pending, Successful or Rejected from rewards redemption statement?</a></li>
-            <li><a href="/_Static/Info/FAQ.aspx#11" data-ajax="false">What is Free Bets and  Product Redemption?</a></li>
-            <li><a href="/_Static/Info/FAQ.aspx#12" data-ajax="false">What is W88 Wheel of Fortune?</a></li>
-            <li><a href="/_Static/Info/FAQ.aspx#13" data-ajax="false">Does my account still able to earn reward points if I’m under Rebate or Reload Programme?</a></li>
+            <li><a data-ajax="false" href="#1">What is reward points?</a></li>
+            <li><a data-ajax="false" href="#2">How to earn reward points?</a></li>
+            <li><a data-ajax="false" href="#3">Do I need to sign up for  W88&rsquo;s rewards club?</a></li>
+            <li><a data-ajax="false" href="#4">Will my reward points  expire?</a></li>
+            <li><a data-ajax="false" href="#5">When will I see reward  points to be reflected in my account?</a></li>
+            <li><a data-ajax="false" href="#6">Is Tie Bets / Void / Draw / Cancel being calculated for earning reward  points?</a></li>
+            <li><a data-ajax="false" href="#7">Can I transfer my points?</a></li>
+            <li><a data-ajax="false" href="#8">How to see if I am earning  points?</a></li>
+            <li><a data-ajax="false" href="#9">What am I able to redeem?</a></li>
+            <li><a data-ajax="false" href="#10">What is the meaning of Pending, Successful or Rejected from rewards redemption statement?</a></li>
+            <li><a data-ajax="false" href="#11">What is Free Bets and  Product Redemption?</a></li>
+            <li><a data-ajax="false" href="#12">What is W88 Wheel of Fortune?</a></li>
+            <li><a data-ajax="false" href="#13">Does my account still able to earn reward points if I’m under Rebate or Reload Programme?</a></li>
         </ol>
     </div>
 
