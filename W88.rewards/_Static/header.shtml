@@ -23,7 +23,7 @@
                         <li id="headerLogoutButton"><a href="javascript: logout();"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Logout)%></a></li>
                     </ul>
                 </div>
-                <a href="/LiveChat/Default.aspx" target="_blank" class="pull-right header-chat"><span class="icon icon-chat"></span></a>
+                <a data-ajax="false" href="/LiveChat/Default.aspx" class="pull-right header-chat"><span class="icon icon-chat"></span></a>
             </div>
             <div class="header-logo">
                 <h1>

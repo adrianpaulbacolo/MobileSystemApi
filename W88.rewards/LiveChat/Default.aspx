@@ -4,13 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Live Chat</title>
+    <!--#include virtual="~/_static/head.inc" -->
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-    
+    <div data-role="page" data-theme="b">
+        <!--#include virtual="~/_static/header.shtml" -->
+        <iframe id="liveChatFrame" src="<%=LiveChatLink%>"></iframe>
     </div>
-    </form>
 </body>
 </html>
