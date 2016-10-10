@@ -6,6 +6,8 @@ function piwikManager() {
         tryNow: 1
     }
 
+    var memberId = "";
+
     function getInstance() {
         if (typeof Piwik !== "undefined") {
             return Piwik.getAsyncTracker();
@@ -13,7 +15,7 @@ function piwikManager() {
         return {};
     }
 
-    function setPiwik(customPiwik){
+    function setPiwik(customPiwik) {
         piwik = customPiwik;
     }
 
@@ -32,7 +34,17 @@ function piwikManager() {
         trackGoal(goals.tryNow);
     }
 
+    function trackEvent(event) {
+        var piwik = getInstance();
+        if (typeof piwik === "object" && typeof piwik.trackEvent === "function") {
+            piwik.trackEvent(event.category, event.action, event.name);
+        } else {
+            _paq.push(['trackEvent', event.category, event.action, event.name]);
+        }
+    }
+
     function setUserId(id) {
+        memberId = id;
         var piwik = getInstance();
         if (typeof piwik === "object" && typeof piwik.setUserId === "function") {
             piwik.setUserId(id);
@@ -42,9 +54,23 @@ function piwikManager() {
         }
     }
 
+    function setDeviceId(obj) {
+        if (_.isEmpty(memberId)) return;
+
+        var piwik = getInstance();
+        if (typeof piwik === "object" && typeof piwik.setUserId === "function") {
+            piwik.setCustomVariable(obj.index, obj.name, obj.value, obj.scope)
+            //piwik.setCustomVariable(1, "deviceID", obj.deviceId, "visit")
+        } else if (!_.isUndefined(_paq)) {
+            _paq.push(["setCustomVariable", obj.index, obj.name, obj.value, obj.scope]);
+        }
+    }
+
     return {
         trackPlayNow: trackPlayNow,
         trackTryNow: trackTryNow,
-        setUserId: setUserId
+        setUserId: setUserId,
+        trackEvent: trackEvent,
+        setDeviceId: setDeviceId
     }
 }
