@@ -6,6 +6,11 @@
 <head runat="server">
     <title>Live Chat</title>
     <!--#include virtual="~/_static/head.inc" -->
+    <script>
+        $(function() {
+            $('#liveChatFrame').height($(document).height());
+        });
+    </script>
 </head>
 <body>
     <div data-role="page" data-theme="b">
