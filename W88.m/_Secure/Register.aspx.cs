@@ -404,7 +404,7 @@ public partial class _Secure_Register : BasePage
             }
 
             var strReferBy = commonCookie.CookieReferralId;
-            string strDeviceId = "Mobile";
+            string strDeviceId = !String.IsNullOrEmpty(commonCookie.CookieDeviceId) ? commonCookie.CookieDeviceId : "Mobile";
 
             System.Data.DataSet dsRegister = null;
 

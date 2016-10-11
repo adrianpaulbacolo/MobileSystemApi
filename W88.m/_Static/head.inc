@@ -21,10 +21,9 @@
     var siteCookie = new Cookies();
     if(_.isEmpty(siteCookie.getCookie("fingerprint"))){
         new Fingerprint2().get(function (result, components) {
-        var domain = "." + location.hostname.split('.').slice(-2).join('.');
-        siteCookie.setCookie("fingerprint", result, 5, domain);
-    });
-
+            var domain = "." + location.hostname.split('.').slice(-2).join('.');
+            siteCookie.setCookie("fingerprint", result, 5, domain);
+        });
     }
 </script>
 <script src="/_Static/JS/piwik.js"></script>
