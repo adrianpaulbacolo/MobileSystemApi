@@ -15,7 +15,7 @@
         <div class="main-content has-footer" role="main">
             <div class="wallet-box" id="divLvl" runat="server" visible="False">
                 <h4 id="usernameLabel" runat="server"></h4>
-                <p id="pointsLabel" runat="server"></p>                
+                <a id="pointsLabel" runat="server" data-ajax="false" href="/Account"></a>                
                 <span id="pointLevelLabel" runat="server"></span>
             </div>
             <div class="container">

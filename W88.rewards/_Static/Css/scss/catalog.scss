@@ -132,7 +132,7 @@
 	}
 }
 
-div.row>span#lblnodata {
+.nodata {
     margin: 0 auto;
     position: absolute;
     top: 200px;
@@ -154,4 +154,48 @@ div.row>span#lblnodata {
 
 .tag-label h4 {
     font-size: 14px;
+}
+
+#tblHistory td div.pointDetailMainHeader {
+    background: none repeat scroll 0 0 #404040;
+    display: block;
+    font-weight: bold !important;
+    line-height: 40px;
+    position: relative;
+    text-align: left;
+    padding: 0 5pt;
+    font-size: 9pt;
+    font-family: Tahoma;
+}
+
+#tblHistory td div.pointDetailMainHeaderHor {
+    background: none repeat scroll 0 0 #404040;
+    display: block;
+    font-size: 10pt;
+    font-weight: bold !important;
+    min-height: 35px;
+    padding: 4pt 5pt;
+    position: relative;
+    text-align: left;
+}
+
+#tblHistory td div.pointsLink {
+    background: none repeat scroll 0 0 #333;
+    display: block;
+    line-height: 40px;
+    padding: 0 5pt;
+    font-size: 9pt;
+}
+
+#tblHistory td div.points {
+    background: none repeat scroll 0 0 #333;
+    display: block;
+    line-height: 40px;
+    padding: 0 5pt;
+    font-size: 9pt;
+}
+
+#tblHistory tr {
+    border: solid;
+    border-width: 1px 0;
 }
