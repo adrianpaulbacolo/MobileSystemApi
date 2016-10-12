@@ -29,7 +29,7 @@
                                 <% 
                                 if ((int)DataSet.Tables[0].Rows[0]["earning"] > 0)
                                 { %>
-                                <a href='/Account?type=stake' id='pointsProduct' runat="server">
+                                <a data-ajax="false" href='/Account?type=stake' id='pointsProduct' runat="server">
                                     <div class="pointsLink" style="text-align: right;"><span><%#DataBinder.Eval(Container.DataItem,"stake")%></span></div>
                                 </a>
                              <% }
@@ -49,7 +49,7 @@
                                 <% 
                                 if ((int)DataSet.Tables[0].Rows[0]["earning"] > 0)
                                 { %>
-                                <a href='/Account?type=stake' id='pointsEarn' runat="server">
+                                <a data-ajax="false" href='/Account?type=stake' id='pointsEarn' runat="server">
                                     <div class="pointsLink" style="text-align: right;"><span><%#DataBinder.Eval(Container.DataItem,"earning")%></span></div>
                                 </a>
                              <% }
@@ -67,7 +67,7 @@
                                 </div>
                             </td>
                             <td>
-                                <a href='/Points?type=redeemed' id='pointsRedeem' runat="server">
+                                <a data-ajax="false" href='/Points?type=redeemed' id='pointsRedeem' runat="server">
                                     <div class="pointsLink" style="text-align: right;"><span><%#DataBinder.Eval(Container.DataItem,"redemption")%></span></div>
                                 </a>
                             </td>
@@ -83,7 +83,7 @@
                                 <% 
                                 if ((int)DataSet.Tables[0].Rows[0]["expired"] > 0)
                                 {%>
-                                <a href='/Points?type=expired' id='pointsExpired' runat="server">
+                                <a data-ajax="false" href='/Points?type=expired' id='pointsExpired' runat="server">
                                     <div class="pointsLink" style="text-align: right;"><span><%#DataBinder.Eval(Container.DataItem,"expired")%></span></div>
                                 </a>
                              <% }
@@ -96,15 +96,14 @@
                         <tr>
                             <td>
                                 <div class="pointDetailMainHeader">
-                                        <span><%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.NetAdjusted)%></span>
-                                       
+                                    <span><%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.NetAdjusted)%></span>                                     
                                 </div>
                             </td>
                             <td>
                                 <% 
                                 if ((int)DataSet.Tables[0].Rows[0]["adjusted"] > 0)
                                 { %>
-                                <a href='/Points?type=adjusted' id='pointsAdjusted' runat="server">
+                                <a data-ajax="false" href='/Points?type=adjusted' id='pointsAdjusted' runat="server">
                                     <div class="pointsLink" style="text-align: right;"><span><%#DataBinder.Eval(Container.DataItem,"adjusted")%></span></div>
                                 </a>
                              <% }
