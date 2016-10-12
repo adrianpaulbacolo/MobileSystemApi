@@ -5,6 +5,7 @@ using System.Web;
 using System.Xml.Linq;
 using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Games.Handlers;
+using W88.BusinessLogic.Games.Models;
 using W88.BusinessLogic.Shared.Helpers;
 
 namespace W88.BusinessLogic.Games.Factories.Handlers
@@ -16,22 +17,16 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
     /// </summary>
     public class MGSHandler : GameLoaderBase
     {
-        private string fun;
-        private string real;
-        private string lobbyPage;
-        private string cashierPage;
-
-        private string memberSessionId;
-
-        public MGSHandler(UserSessionInfo user, string lobby, string cashier)
-            : base(GameProvider.MGS, user.LanguageCode)
+        public MGSHandler(UserSessionInfo user, string lobby, string cashier) : base(GameProvider.MGS, user.LanguageCode)
         {
-            fun = GameSettings.GetGameUrl(GameProvider.MGS, GameLinkSetting.Fun);
-            real = GameSettings.GetGameUrl(GameProvider.MGS, GameLinkSetting.Real);
-
-            memberSessionId = user.Token;
-            lobbyPage = lobby;
-            cashierPage = cashier;
+            GameLink = new GameLinkInfo
+            {
+                Fun = GameSettings.GetGameUrl(gameProvider, GameLinkSetting.Fun),
+                Real = GameSettings.GetGameUrl(gameProvider, GameLinkSetting.Real),
+                MemberSessionId = user.Token,
+                LobbyPage = lobby,
+                CashierPage = cashier
+            };
         }
 
         protected override string SetLanguageCode()
@@ -87,10 +82,10 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
             }
             else
             {
-                funUrl = fun;
+                funUrl = GameLink.Fun;
             }
 
-            return funUrl.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{LOBBY}", lobbyPage).Replace("{CASHIER}", cashierPage);
+            return funUrl.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{LOBBY}", GameLink.LobbyPage).Replace("{CASHIER}", GameLink.CashierPage);
         }
 
         protected override string CreateRealUrl(XElement element)
@@ -109,10 +104,10 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
             }
             else
             {
-                realUrl = real;
+                realUrl = GameLink.Real;
             }
 
-            return realUrl.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{TOKEN}", memberSessionId).Replace("{CASHIER}", cashierPage).Replace("{LOBBY}", lobbyPage);
+            return realUrl.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{TOKEN}", GameLink.MemberSessionId).Replace("{CASHIER}", GameLink.CashierPage).Replace("{LOBBY}", GameLink.LobbyPage);
         }
 
         private string GetGameLanguage(XElement element)

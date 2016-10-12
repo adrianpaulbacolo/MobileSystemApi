@@ -13,12 +13,13 @@ namespace W88.BusinessLogic.Games.Factories
     public abstract class GameLoaderBase
     {
         protected string LanguageCode;
-        private GameProvider gameProvider { get; set; }
+        protected GameProvider gameProvider { get; set; }
         private XElement xeResources = null;
         private string gamePath;
         private string fileType;
+        public GameLinkInfo GameLink = new GameLinkInfo();
 
-        public GameLoaderBase(GameProvider gameProvider, string languageCode)
+        protected GameLoaderBase(GameProvider gameProvider, string languageCode)
         {
             this.gameProvider = gameProvider;
             this.gamePath = GameSettings.GamePath;

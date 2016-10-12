@@ -45,16 +45,6 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
             _cardType = new ListOfValuesHelper().GetCardType();
         }
 
-        protected override bool IsBOTranction
-        {
-            get { return true; }
-        }
-
-        protected override bool IsVendorTransaction
-        {
-            get { return true; }
-        }
-
         protected override void LogResult(ProcessCode process, Constants.PaymentTransactionType paymentType)
         {
             process.Remark = string.Format("IsSuccess: {0} | PaymentType: {1} | TransactionId: {2} | Amount: {3} | CardNumber: {4} | CardType: {5} | CardExpiryMonth: {6} | CardExpiryYear: {7}",
@@ -194,5 +184,19 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
             return process;
         }
 
+        protected override bool IsBOTranction
+        {
+            get { return true; }
+        }
+
+        protected override bool IsVendorTransaction
+        {
+            get { return true; }
+        }
+
+        protected override bool IsVendorRedirection
+        {
+            get { return false; }
+        }
     }
 }

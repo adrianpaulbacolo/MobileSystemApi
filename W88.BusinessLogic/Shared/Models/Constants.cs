@@ -16,6 +16,7 @@
             public const string CancelPendingWithdrawal = "CancelPendingWithdrawal";
             public const string SendMail = "SendMail";
             public const string RedeemRewards = "RedeemRewards";
+            public const string VendorRedirection = "VendorRedirection";
         }
 
         public struct PageNames

@@ -5,6 +5,7 @@ using System.Web;
 using System.Xml.Linq;
 using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Games.Handlers;
+using W88.BusinessLogic.Games.Models;
 using W88.BusinessLogic.Shared.Helpers;
 
 namespace W88.BusinessLogic.Games.Factories.Handlers
@@ -21,26 +22,25 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
     {
         public string languageCode;
         public string user;
-
-        private string fun;
-        private string real;
         private string prefix;
-
-        private string lobbyPage;
         private string supportPage;
         private string logoutPage;
 
-        public PTHandler(UserSessionInfo userInfo, string lobby, string support, string logout)
-            : base(GameProvider.PT, userInfo.LanguageCode)
+        public PTHandler(UserSessionInfo userInfo, string lobby, string support, string logout) : base(GameProvider.PT, userInfo.LanguageCode)
         {
             prefix = GameSettings.PTAcctPrefix;
-            fun = GameSettings.GetGameUrl(GameProvider.PT, GameLinkSetting.Fun);
-            real = GameSettings.GetGameUrl(GameProvider.PT, GameLinkSetting.Real);
 
             user = prefix + userInfo.MemberCode.ToUpper();
-            lobbyPage = lobby;
             supportPage = support;
             logoutPage = logout;
+
+            GameLink = new GameLinkInfo
+            {
+                Fun = GameSettings.GetGameUrl(gameProvider, GameLinkSetting.Fun),
+                Real = GameSettings.GetGameUrl(gameProvider, GameLinkSetting.Real),
+                MemberSessionId = userInfo.Token,
+                LobbyPage = lobby
+            };
         }
 
         protected override string SetLanguageCode()
@@ -68,7 +68,7 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
         {
             string gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
 
-            return fun.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode);
+            return GameLink.Fun.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode);
         }
 
         protected override string CreateRealUrl(XElement element)
@@ -77,8 +77,8 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
 
             string gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
 
-            return isNGM ? real.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{USER}", user)
-                .Replace("{LOBBY}", lobbyPage).Replace("{SUPPORT}", supportPage).Replace("{LOGOUT}", logoutPage) : "";
+            return isNGM ? GameLink.Real.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{USER}", user)
+                .Replace("{LOBBY}", GameLink.LobbyPage).Replace("{SUPPORT}", supportPage).Replace("{LOGOUT}", logoutPage) : "";
         }
     }
 }

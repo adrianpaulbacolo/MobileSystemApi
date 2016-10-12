@@ -59,6 +59,7 @@
     <Compile Include="Funds\Factories\Handlers\AllDebitHandler.cs" />
     <Compile Include="Funds\Factories\Handlers\BankTransferHandler.cs" />
     <Compile Include="Funds\Factories\Handlers\EGHLHandler.cs" />
+    <Compile Include="Funds\Factories\Handlers\NganLuongHandler.cs" />
     <Compile Include="Funds\Factories\Handlers\SDAPayAlipayHandler.cs" />
     <Compile Include="Funds\Factories\Handlers\SDPayHandler.cs" />
     <Compile Include="Funds\Factories\Handlers\NextPayHandler.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Funds\Models\PendingWithdrawalInfo.cs" />
     <Compile Include="Funds\Models\BaseFundsInfo.cs" />
     <Compile Include="Games\Factories\Handlers\UC8Handler.cs" />
+    <Compile Include="Games\Helpers\GPI.cs" />
     <Compile Include="Games\Models\GameConfigInfo.cs" />
     <Compile Include="Rewards\Helpers\ProductHelper.cs" />
     <Compile Include="Rewards\Helpers\RewardsHelper.cs" />

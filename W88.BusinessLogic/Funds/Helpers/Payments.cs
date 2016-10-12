@@ -284,14 +284,14 @@ namespace W88.BusinessLogic.Funds.Helpers
 
                 if (response.processCode == "00")
                 {
-                    settingInfos = SetPaymentSettings(response.getMethodLimits_MobileResult, paymentType);
+                    settingInfos = SetPaymentSettings(userInfo, response.getMethodLimits_MobileResult, paymentType);
                 }
             }
 
             return settingInfos;
         }
 
-        private List<PaymentSettingInfo> SetPaymentSettings(DataTable pgSettings, Constants.PaymentTransactionType transType)
+        private List<PaymentSettingInfo> SetPaymentSettings(UserSessionInfo userInfo, DataTable pgSettings, Constants.PaymentTransactionType transType)
         {
             var paymentSettings = base.GetListOfValues<PaymentSettingInfo>("shared/PaymentSettings", "PaymentGateway", false);
 
@@ -306,7 +306,6 @@ namespace W88.BusinessLogic.Funds.Helpers
                 if (settingInfo == null)
                     continue;
 
-                settingInfo.TabName = settingInfo.TabName.GetValue(LanguageHelpers.SelectedLanguageShort).Value;
                 settingInfo.MerchantId = row["merchantId"].ToString();
                 settingInfo.PaymentMode = row["paymentMode"].ToString();
                 settingInfo.LimitDaily = Convert.ToDecimal(row["totalAllowed"].ToString()) <= 0 ? Constants.VarNames.Unlimited : Convert.ToDecimal(row["totalAllowed"].ToString()).ToW88StringFormat();

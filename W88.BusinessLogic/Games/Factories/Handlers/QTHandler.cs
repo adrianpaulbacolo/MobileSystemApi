@@ -5,6 +5,7 @@ using System.Web;
 using System.Xml.Linq;
 using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Games.Handlers;
+using W88.BusinessLogic.Games.Models;
 using W88.BusinessLogic.Shared.Helpers;
 
 namespace W88.BusinessLogic.Games.Factories.Handlers
@@ -15,22 +16,18 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
     /// </summary>
     public class QTHandler : GameLoaderBase
     {
-        private string fun;
-        private string real;
-        private string lobbyPage;
-
-        private string memberSessionId;
-        private UserSessionInfo userInfo;
+        private UserSessionInfo _userInfo;
 
         public QTHandler(UserSessionInfo user, string lobby) : base(GameProvider.QT, user.LanguageCode)
         {
-            fun = GameSettings.GetGameUrl(GameProvider.QT, GameLinkSetting.Fun);
-            real = GameSettings.GetGameUrl(GameProvider.QT, GameLinkSetting.Real);
-
-            memberSessionId = user.Token;
-            lobbyPage = lobby;
-            userInfo = user;
-
+            _userInfo = user;
+            GameLink = new GameLinkInfo
+            {
+                Fun = GameSettings.GetGameUrl(gameProvider, GameLinkSetting.Fun),
+                Real = GameSettings.GetGameUrl(gameProvider, GameLinkSetting.Real),
+                MemberSessionId = user.Token,
+                LobbyPage = lobby
+            };
         }
 
         protected override string CreateFunUrl(XElement element)
@@ -38,7 +35,7 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
             string lang = GetGameLanguage(element);
             string gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
 
-            return fun.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{CURRENCY}", GetCurrencyByLanguage()).Replace("{LOBBY}", lobbyPage);
+            return GameLink.Fun.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{CURRENCY}", GetCurrencyByLanguage()).Replace("{LOBBY}", GameLink.LobbyPage);
         }
 
         protected override string CreateRealUrl(XElement element)
@@ -46,7 +43,7 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
             string lang = GetGameLanguage(element);
             string gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
 
-            return real.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{TOKEN}", memberSessionId).Replace("{LOBBY}", lobbyPage);
+            return GameLink.Real.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{TOKEN}", GameLink.MemberSessionId).Replace("{LOBBY}", GameLink.LobbyPage);
         }
 
         private string GetCurrencyByLanguage()
@@ -65,9 +62,9 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
                     break;
             }
 
-            if (!string.IsNullOrEmpty(userInfo.LanguageCode) && string.IsNullOrEmpty(userInfo.CurrencyCode))
+            if (!string.IsNullOrEmpty(_userInfo.LanguageCode) && string.IsNullOrEmpty(_userInfo.CurrencyCode))
             {
-                if (userInfo.LanguageCode == "en-us" && ((string)userInfo.CurrencyCode == "MY"))
+                if (_userInfo.LanguageCode == "en-us" && ((string)_userInfo.CurrencyCode == "MY"))
                 {
                     currency = "MYR";
                 }

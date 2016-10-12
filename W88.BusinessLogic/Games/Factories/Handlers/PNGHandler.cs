@@ -5,6 +5,7 @@ using System.Web;
 using System.Xml.Linq;
 using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Games.Handlers;
+using W88.BusinessLogic.Games.Models;
 using W88.BusinessLogic.Shared.Helpers;
 
 namespace W88.BusinessLogic.Games.Factories.Handlers
@@ -15,19 +16,15 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
     /// </summary>
     public class PNGHandler : GameLoaderBase
     {
-        private string fun;
-        private string real;
-        private string lobbyPage;
-
-        private string memberSessionId;
-
         public PNGHandler(UserSessionInfo user, string lobby) : base(GameProvider.PNG, user.LanguageCode)
         {
-            fun = GameSettings.GetGameUrl(GameProvider.PNG, GameLinkSetting.Fun);
-            real = GameSettings.GetGameUrl(GameProvider.PNG, GameLinkSetting.Real);
-
-            memberSessionId = user.Token;
-            lobbyPage = lobby;
+            GameLink = new GameLinkInfo
+            {
+                Fun = GameSettings.GetGameUrl(gameProvider, GameLinkSetting.Fun),
+                Real = GameSettings.GetGameUrl(gameProvider, GameLinkSetting.Real),
+                MemberSessionId = user.Token,
+                LobbyPage = lobby
+            };
         }
 
         protected override string SetLanguageCode()
@@ -39,14 +36,14 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
         {
             string gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
 
-            return fun.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{LOBBY}", lobbyPage);
+            return GameLink.Fun.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{LOBBY}", GameLink.LobbyPage);
         }
 
         protected override string CreateRealUrl(XElement element)
         {
             string gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
 
-            return real.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{TOKEN}", memberSessionId).Replace("{LOBBY}", lobbyPage);
+            return GameLink.Real.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{TOKEN}", GameLink.MemberSessionId).Replace("{LOBBY}", GameLink.LobbyPage);
         }
     }
 }
