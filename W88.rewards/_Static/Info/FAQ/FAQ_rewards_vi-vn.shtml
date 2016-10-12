@@ -82,12 +82,12 @@
                     <h4>Đang Chờ Duyệt</h4>
                 </div>
                 <div class="info-box-info">
-                    <h5>Mô Tả</h5>
+                    <h6>Mô Tả</h6>
                     <p>
                         Đang chờ W88 tiến hành quy đổi của quý khách.<br />
                         Điểm của quý khách sẽ được khấu trừ ngay sau khi có đủ số dư như yêu cầu.
                     </p>
-                    <h5>Thời Gian</h5>
+                    <h6>Thời Gian</h6>
                     <p>Trong vòng 2 ngày làm việc</p>
                 </div>
             </div>
@@ -98,13 +98,13 @@
                     <h4>Thành Công</h4>
                 </div>
                 <div class="info-box-info">
-                    <h5>Mô Tả</h5>
+                    <h6>Mô Tả</h6>
                     <p>
                         Yêu cầu của bạn đã thành công:<br />
                         Tiền cược miễn phí sẽ được cập nhật vào tài khoản của quý khách.<br />
                         Với các sản phẩm khác, quà tặng yêu cầu sẽ được gửi tới cho quý khách.
                     </p>
-                    <h5>Thời Gian</h5>
+                    <h6>Thời Gian</h6>
                     <p>-</p>
                 </div>
             </div>
@@ -115,7 +115,7 @@
                     <h4>Hủy Bỏ</h4>
                 </div>
                 <div class="info-box-info">
-                    <h5>Mô Tả</h5>
+                    <h6>Mô Tả</h6>
                     <p>
                         Từ chối yêu cầu đổi điểm bởi vì:<br />
                         - Yêu cầu của thành viên có sự thay đổi<br />
@@ -124,7 +124,7 @@
                         - Một số lý do khác<br />
                         Điểm sẽ được trả lại vào tài khoản điểm thưởng của quý khách
                     </p>
-                    <h5>Thời Gian</h5>
+                    <h6>Thời Gian</h6>
                     <p>-</p>
                 </div>
             </div>
