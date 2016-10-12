@@ -146,6 +146,14 @@
     <Content Include="App_Data\i18n\shared\PaymentSettings.json" />
     <Content Include="App_Data\i18n\shared\Wallets.json" />
     <Content Include="packages.config" />
+    <None Include="App_Data\i18n\rewards\rewards.en-us.json" />
+    <None Include="App_Data\i18n\rewards\rewards.id-id.json" />
+    <None Include="App_Data\i18n\rewards\rewards.ja-jp.json" />
+    <None Include="App_Data\i18n\rewards\rewards.km-kh.json" />
+    <None Include="App_Data\i18n\rewards\rewards.ko-kr.json" />
+    <None Include="App_Data\i18n\rewards\rewards.th-th.json" />
+    <None Include="App_Data\i18n\rewards\rewards.vi-vn.json" />
+    <None Include="App_Data\i18n\rewards\rewards.zh-cn.json" />
     <None Include="Properties\PublishProfiles\w88.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -345,5 +345,10 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
         {
             get { return false; }
         }
+
+        protected override bool IsVendorRedirection
+        {
+            get { return false; }
+        }
     }
 }

@@ -38,6 +38,21 @@ namespace W88.BusinessLogic.Rewards.Models
             public const string Recipient = "Redemption_Recipient";
             public const string EmailSendFail = "Redemption_EmailSendFail";
             public const string NoAvailableItems = "Redemption_NoAvailableItems";
+            public const string EarningListing = "Redemption_EarningListing";
+            public const string RedemptionListing = "Redemption_RedemptionListing";
+            public const string PointsExpired = "Redemption_PointsExpired";
+            public const string PointsAdjusted = "Redemption_PointsAdjusted";
+            public const string AccountSummary = "Redemption_AccountSummary";
+            public const string PointsEarned = "Redemption_PointsEarned";
+            public const string TotalStake = "Redemption_TotalStake";
+            public const string BetDate = "Redemption_BetDate";
+            public const string TotalEarnings = "Redemption_TotalEarnings";
+            public const string TotalRedemption = "Redemption_TotalRedemption";
+            public const string TotalExpired = "Redemption_TotalExpired";
+            public const string NetAdjusted = "Redemption_NetAdjusted";
+            public const string TotalCart = "Redemption_TotalCart";
+            public const string CurrentBalance = "Redemption_CurrentBalance";
+            public const string NoRecordFound = "Redemption_NoRecordFound";
         }
 
         public static class Label
@@ -71,6 +86,17 @@ namespace W88.BusinessLogic.Rewards.Models
             public const string New = "Label_New";
             public const string All = "Label_All";
             public const string ProductDescription = "Label_ProductDescription";
+            public const string Details = "Label_Details";
+            public const string Wallet = "Label_Wallet";
+            public const string Month = "Label_Month";
+            public const string Year = "Label_Year";
+            public const string Date = "Label_Date";
+            public const string DateFrom = "Label_DateFrom";
+            public const string DateTo = "Label_DateTo";
+            public const string Search = "Label_Search";
+            public const string Status = "Label_Status";
+            public const string AdjustmentType = "Label_AdjustmentType";
+            public const string Remarks = "Label_Remarks";
         }
 
         public static class Errors

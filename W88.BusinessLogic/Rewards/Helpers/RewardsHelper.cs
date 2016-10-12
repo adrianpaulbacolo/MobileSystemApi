@@ -381,6 +381,62 @@ namespace W88.BusinessLogic.Rewards.Helpers
             }
         }
 
+        public async Task<DataSet> GetAccountSummary(string memberCode)
+        {
+            try
+            {
+                using (var client = new RewardsServicesClient())
+                {
+                    var accountSet = await client.getMemberAccountAsync(OperatorId.ToString(CultureInfo.InvariantCulture), memberCode);
+                    
+                    var table0 = accountSet.Tables[0];
+                    var table1 = accountSet.Tables[1];
+                    var table2 = accountSet.Tables[2];
+                    var table3 = accountSet.Tables[3];
+                    var table4 = accountSet.Tables[4];
+                    var table5 = accountSet.Tables[5];
+                    var table6 = accountSet.Tables[6];
+
+                    var totalStake = table0.Rows.Count == 0 ? 0 : (decimal)table0.Rows[0]["totalStake"];
+                    var pointsAwarded = table1.Rows.Count == 0 ? 0 : (int)table1.Rows[0]["pointsAwarded"];
+                    var pointsRequired = table2.Rows.Count == 0 ? 0 : (int)table2.Rows[0]["pointsRequired"];
+                    var pointsAdjusted = table3.Rows.Count == 0 ? 0 : (int)table3.Rows[0]["pointsAdjusted"];
+                    var pointsExpired = table4.Rows.Count == 0 ? 0 : (int)table4.Rows[0]["pointsExpired"];
+                    var pointsBalance = table5.Rows.Count == 0 ? 0 : (int)table5.Rows[0]["pointsBalance"];
+                    var pointsCart = table6.Rows.Count == 0 ? 0 : (int)table6.Rows[0]["pointsCart"];
+                    var finalBalance = pointsBalance - pointsCart;
+
+                    var dataTable = new DataTable("History");
+                    dataTable.Columns.Add(new DataColumn("stake", typeof(decimal)));
+                    dataTable.Columns.Add(new DataColumn("earning", typeof(int)));
+                    dataTable.Columns.Add(new DataColumn("redemption", typeof(int)));
+                    dataTable.Columns.Add(new DataColumn("expired", typeof(int)));
+                    dataTable.Columns.Add(new DataColumn("adjusted", typeof(int)));
+                    dataTable.Columns.Add(new DataColumn("balance", typeof(int)));
+                    dataTable.Columns.Add(new DataColumn("cart", typeof(int)));
+
+                    var pointsDataRow = dataTable.NewRow();
+                    pointsDataRow["stake"] = Math.Round(Convert.ToDecimal(totalStake), 2);
+                    pointsDataRow["earning"] = pointsAwarded;
+                    pointsDataRow["redemption"] = pointsRequired;
+                    pointsDataRow["expired"] = pointsExpired;
+                    pointsDataRow["adjusted"] = pointsAdjusted;
+                    pointsDataRow["balance"] = finalBalance;
+                    pointsDataRow["cart"] = pointsCart;
+
+                    dataTable.Rows.Add(pointsDataRow);
+                    var dataSet = new DataSet();
+                    dataSet.Tables.Add(dataTable);
+                    
+                    return dataSet;
+                }
+            }
+            catch (Exception exception)
+            {
+                return null;
+            }    
+        }
+
         public async Task<ProcessCode> SendMail(string memberCode, string redemptionId)
         {
             var process = new ProcessCode();

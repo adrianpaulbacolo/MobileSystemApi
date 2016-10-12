@@ -5,6 +5,7 @@ using System.Web;
 using System.Xml.Linq;
 using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Games.Handlers;
+using W88.BusinessLogic.Games.Models;
 using W88.BusinessLogic.Shared.Helpers;
 
 namespace W88.BusinessLogic.Games.Factories.Handlers
@@ -16,22 +17,18 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
     /// </summary>
     public class ISBHandler : GameLoaderBase
     {
-        private string fun;
-        private string real;
-        private string lobbyPage;
         private string currencyCode;
 
-        private string memberSessionId;
-
-        public ISBHandler(UserSessionInfo user, string lobby, string currency)
-            : base(GameProvider.ISB, user.LanguageCode)
+        public ISBHandler(UserSessionInfo user, string lobby, string currency) : base(GameProvider.ISB, user.LanguageCode)
         {
-            fun = GameSettings.GetGameUrl(GameProvider.ISB, GameLinkSetting.Fun);
-            real = GameSettings.GetGameUrl(GameProvider.ISB, GameLinkSetting.Real);
-
-            memberSessionId = user.Token;
-            lobbyPage = lobby;
             currencyCode = currency;
+            GameLink = new GameLinkInfo
+            {
+                Fun = GameSettings.GetGameUrl(gameProvider, GameLinkSetting.Fun),
+                Real = GameSettings.GetGameUrl(gameProvider, GameLinkSetting.Real),
+                MemberSessionId = user.Token,
+                LobbyPage = lobby
+            };
         }
 
         protected override string SetLanguageCode()
@@ -73,14 +70,14 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
 
             string currency = string.IsNullOrWhiteSpace(this.currencyCode) || this.currencyCode.Equals("rmb", StringComparison.OrdinalIgnoreCase) ? "CNY" : this.currencyCode;
 
-            return fun.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{CURRENCY}", currency).Replace("{LOBBY}", lobbyPage);
+            return GameLink.Fun.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{CURRENCY}", currency).Replace("{LOBBY}", GameLink.LobbyPage);
         }
 
         protected override string CreateRealUrl(XElement element)
         {
             string gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
 
-            return real.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{TOKEN}", memberSessionId).Replace("{LOBBY}", lobbyPage);
+            return GameLink.Real.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{TOKEN}", GameLink.MemberSessionId).Replace("{LOBBY}", GameLink.LobbyPage);
         }
     }
 }

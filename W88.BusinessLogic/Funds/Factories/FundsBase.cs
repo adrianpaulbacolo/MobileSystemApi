@@ -18,6 +18,7 @@ using W88.Utilities.Constant;
 using W88.WebRef.svcPayWithdrawal;
 using W88.Utilities;
 using System.Collections;
+using System.Web;
 
 namespace W88.BusinessLogic.Funds.Factories
 {
@@ -33,6 +34,12 @@ namespace W88.BusinessLogic.Funds.Factories
         /// True: It will call vendor to create the transaction
         /// </summary>
         protected abstract bool IsVendorTransaction { get; }
+
+        /// <summary>
+        /// True: It will create the vendor url and create the transaction from that
+        /// </summary>
+        protected abstract bool IsVendorRedirection { get; }
+
 
         private BaseFundsInfo _fundsInfo;
         private UserSessionInfo _userInfo;
@@ -211,6 +218,39 @@ namespace W88.BusinessLogic.Funds.Factories
             return process;
         }
 
+        private ProcessCode GetVendorRedirection(ref ProcessCode process)
+        {
+            var settings = new OperatorSettings(W88.Utilities.Constant.Settings.OperatorName);
+
+            string url = settings.Values.Get(this.GetRedirectionUrl());
+
+            string encryptedMemberCode = HttpUtility.UrlEncode(Encryption.Encrypting(this._userInfo.MemberCode, Constants.VarNames.PaymentPrivateKey));
+
+            process.Data = new { VendorRedirectionUrl = url + "AutoSignIn.aspx?a=" + encryptedMemberCode + "&b=" + HttpUtility.UrlEncode(this._userInfo.CurrentSessionId) };
+            process.Code = (int)Constants.StatusCode.Success;
+
+            Constants.PaymentTransactionType paymentType;
+            Enum.TryParse(this._setting.Type, true, out paymentType);
+
+            process.ProcessSerialId += 1;
+
+            this.LogResult(process, paymentType);
+
+            return process;
+        }
+
+        private string GetRedirectionUrl()
+        {
+            switch (this._setting.Id)
+            {
+                case "120212":
+                    return "NganLuong_redirectUrl";
+
+                default :
+                    return "";
+            }
+        }
+
         private async Task<ProcessCode> CreateBOTransaction(ProcessCode process)
         {
             Constants.PaymentTransactionType paymentType;
@@ -280,7 +320,7 @@ namespace W88.BusinessLogic.Funds.Factories
                           Encryption.Decrypting(result.AllDebit_Visa.Value, Constants.VarNames.PaymentPrivateKey) + "|" +
                           Encryption.Decrypting(result.AllDebit_Master.Value, Constants.VarNames.PaymentPrivateKey);
                     break;
-                    
+
                 default:
                     key = Encryption.Decrypting(result.Key.Value, Constants.VarNames.PaymentPrivateKey);
                     break;
@@ -297,28 +337,35 @@ namespace W88.BusinessLogic.Funds.Factories
                     Message = new List<string>()
                 };
 
-            this.ValidateData(ref process);
-
-            LogValidationResult(process);
-
-            if (this.IsBOTranction)
+            if (this.IsVendorRedirection)
             {
-                if (!process.IsAbort)
-                {
-                    process = await this.CreateBOTransaction(process);
-
-                    if (this.IsVendorTransaction)
-                    {
-                        if (process.IsSuccess)
-                        {
-                            this.CreateVendorParameter(ref process);
-                        }
-                    }
-                }
+                this.GetVendorRedirection(ref process);
             }
             else
             {
-                this.ProcessDummyUrl(ref process);
+                this.ValidateData(ref process);
+
+                LogValidationResult(process);
+
+                if (this.IsBOTranction)
+                {
+                    if (!process.IsAbort)
+                    {
+                        process = await this.CreateBOTransaction(process);
+
+                        if (this.IsVendorTransaction)
+                        {
+                            if (process.IsSuccess)
+                            {
+                                this.CreateVendorParameter(ref process);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    this.ProcessDummyUrl(ref process);
+                }
             }
 
             return process;

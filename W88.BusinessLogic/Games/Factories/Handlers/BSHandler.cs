@@ -5,6 +5,7 @@ using System.Web;
 using System.Xml.Linq;
 using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Games.Handlers;
+using W88.BusinessLogic.Games.Models;
 using W88.BusinessLogic.Shared.Helpers;
 
 namespace W88.BusinessLogic.Games.Factories.Handlers
@@ -16,24 +17,19 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
     /// </summary>
     public class BSHandler : GameLoaderBase
     {
-        private string fun;
-        private string real;
-        private string lobbyPage;
-        private string cashierPage;
         private GameDevice device;
 
-        private string memberSessionId;
-
-        public BSHandler(UserSessionInfo user, string lobby, string cashier, GameDevice gameDevice)
-            : base(GameProvider.BS, user.LanguageCode)
+        public BSHandler(UserSessionInfo user, string lobby, string cashier, GameDevice gameDevice) : base(GameProvider.BS, user.LanguageCode)
         {
-            fun = GameSettings.GetGameUrl(GameProvider.BS, GameLinkSetting.Fun); 
-            real = GameSettings.GetGameUrl(GameProvider.BS, GameLinkSetting.Real);
-
-            memberSessionId = user.Token;
-            lobbyPage = lobby;
-            cashierPage = cashier;
             device = gameDevice;
+            GameLink = new GameLinkInfo
+            {
+                Fun = GameSettings.GetGameUrl(gameProvider, GameLinkSetting.Fun),
+                Real = GameSettings.GetGameUrl(gameProvider, GameLinkSetting.Real),
+                MemberSessionId = user.Token,
+                LobbyPage = lobby,
+                CashierPage = cashier
+            };
         }
 
         protected override string SetLanguageCode()
@@ -43,20 +39,15 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
 
         protected override string CreateFunUrl(XElement element)
         {
-            string gameName = "";
-            if (GameDevice.IOS == device)
-                gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("IOSId", element);
-
-            if (GameDevice.ANDROID == device)
-                gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("AndroidId", element);
-
-            if (GameDevice.WP == device)
-                gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("WPId", element);
-
-            return fun.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{LOBBY}", lobbyPage);
+            return BuildUrl(GameLink.Fun, element, GameLinkSetting.Fun);
         }
 
         protected override string CreateRealUrl(XElement element)
+        {
+            return BuildUrl(GameLink.Real, element, GameLinkSetting.Real);
+        }
+
+        private string BuildUrl(string url, XElement element, GameLinkSetting setting)
         {
             string gameName = "";
             if (GameDevice.IOS == device)
@@ -68,7 +59,11 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
             if (GameDevice.WP == device)
                 gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("WPId", element);
 
-            return real.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{TOKEN}", memberSessionId).Replace("{CASHIER}", cashierPage).Replace("{LOBBY}", lobbyPage);
+            if (setting == GameLinkSetting.Real)
+                url = url.Replace("{TOKEN}", GameLink.MemberSessionId).Replace("{CASHIER}", GameLink.CashierPage);
+
+            return url.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{LOBBY}", GameLink.LobbyPage);
+       
         }
     }
 }

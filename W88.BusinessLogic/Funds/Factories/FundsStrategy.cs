@@ -55,6 +55,9 @@ namespace W88.BusinessLogic.Funds.Factories
                 case "120265":
                     return new EGHLHandler(userInfo, fundsInfo, settings);
 
+                case "120212":
+                    return new NganLuongHandler(userInfo, fundsInfo, settings);
+
                 default:
                     return null;
             }
