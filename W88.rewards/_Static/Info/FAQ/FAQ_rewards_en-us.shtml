@@ -79,12 +79,12 @@
                     <h4>Pending</h4>
                 </div>
                 <div class="info-box-info">
-                    <h5>Description</h5>
+                    <h6>Description</h6>
                     <p>
                         Waiting for W88 to process your redemption.<br />
                         Your points are deducted immediately from the available balance.
                     </p>
-                    <h5>Turnaround Time</h5>
+                    <h6>Turnaround Time</h6>
                     <p>Within 2 working days</p>
                 </div>
             </div>
@@ -95,13 +95,13 @@
                     <h4>Successful</h4>
                 </div>
                 <div class="info-box-info">
-                    <h5>Description</h5>
+                    <h6>Description</h6>
                     <p>
                         Indication that your request has been successful:<br />
                         For Free Bets, your playing account is credited accordingly.<br />
                         For Products, your requested item has left out for delivery.
                     </p>
-                    <h5>Turnaround Time</h5>
+                    <h6>Turnaround Time</h6>
                     <p>-</p>
                 </div>
             </div>
@@ -112,7 +112,7 @@
                     <h4>Rejected</h4>
                 </div>
                 <div class="info-box-info">
-                    <h5>Description</h5>
+                    <h6>Description</h6>
                     <p>
                         Voided redemption request:<br />
                         - Member&rsquo;s request due to changes.<br />
@@ -121,7 +121,7 @@
                         - Other Reasons.<br />
                         Your points are return and re-added back into your account.
                     </p>
-                    <h5>Turnaround Time</h5>
+                    <h6>Turnaround Time</h6>
                     <p>-</p>
                 </div>
             </div>
