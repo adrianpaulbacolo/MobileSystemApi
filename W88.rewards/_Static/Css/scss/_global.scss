@@ -189,7 +189,6 @@ p{
 			color: darken($text-alt, 25%);
 
 		}
-
 	}
 }
 
@@ -197,4 +196,17 @@ p{
 	.info-box-info{
 		min-height: 180px;
 	}
+}
+
+.nodata {
+    margin: 0 auto;
+    position: absolute;
+    top: 200px;
+    width: 100%;
+    text-align: center;
+    left: 0;
+}
+
+.spacing15 {
+    padding: 15px 0;
 }

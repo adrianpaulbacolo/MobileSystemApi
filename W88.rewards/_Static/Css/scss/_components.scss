@@ -240,3 +240,86 @@
     display: inline-block;
   }
 }
+
+.datePicker {
+    padding: 4px 0;
+    position: relative;
+}
+
+div.hasDatepicker {
+    margin-top: 10px!important;
+    max-width: 414px !important;
+}
+
+.ui-datepicker .ui-datepicker-title {
+    padding: 5px;
+}
+       
+.ui-datepicker .ui-datepicker-next{
+    right: -2px !important;
+}
+
+.ui-datepicker-calendar th {
+    text-align: center;
+}
+
+#tblHistory td div.pointDetailMainHeader {
+    background: none repeat scroll 0 0 #01405a;
+    display: block;
+    font-weight: bold !important;
+    line-height: 40px;
+    position: relative;
+    text-align: left;
+    padding: 0 5pt;
+    font-size: 9pt;
+    font-family: Tahoma;
+}
+
+#tblHistory td div.pointsLink {
+    background: none repeat scroll 0 0 #023348;
+    display: block;
+    line-height: 40px;
+    padding: 0 5pt;
+    font-size: 9pt;
+}
+
+#tblHistory td div.points {
+    background: none repeat scroll 0 0 #023348;
+    display: block;
+    line-height: 40px;
+    padding: 0 5pt;
+    font-size: 9pt;
+}
+
+#tblHistory tr {
+    border: solid;
+    border-width: 1px 0;
+}
+
+#transactions td div.pointDetailMainHeader {
+    background: none repeat scroll 0 0 #216f93;
+    display: block;
+    font-size: 10pt;
+    font-weight: bold !important;
+    min-height: 35px;
+    padding: 11px;
+    position: relative;
+    height: 62px;
+    text-align: center;
+}
+
+#transactions td div.points {
+    background: none repeat scroll 0 0 #023348;
+    display: block;
+    line-height: 13px;
+    padding: 14px 1px;
+    font-size: 9pt;
+    height: 69px;
+    text-align: center;
+}
+
+#transactions tr {
+    border: solid;
+    border-width: 1px 0;
+    height: 63px;
+}

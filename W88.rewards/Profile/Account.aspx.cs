@@ -123,13 +123,13 @@ public partial class Account : BasePage
                         switch (dataTable.Columns[j].ColumnName)
                         {
                             case "walletName":
-                                headers += string.Format(@"<td><div class='pointDetailMainHeaderHor'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Label.Wallet));
+                                headers += string.Format(@"<td><div class='pointDetailMainHeader'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Label.Wallet));
                                 break;
                             case "totalStake":
-                                headers += string.Format(@"<td><div class='pointDetailMainHeaderHor'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Redemption.TotalStake));
+                                headers += string.Format(@"<td><div class='pointDetailMainHeader'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Redemption.TotalStake));
                                 break;
                             case "pointsAwarded":
-                                headers += string.Format(@"<td><div class='pointDetailMainHeaderHor'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Redemption.PointsEarned));
+                                headers += string.Format(@"<td><div class='pointDetailMainHeader'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Redemption.PointsEarned));
                                 break;
                         }
                     }
@@ -156,8 +156,8 @@ public partial class Account : BasePage
 
                 rows += "</tr>";
             }
-            
-            return string.Format(@"<table width='100%'><tr>{0}</tr>{1}</table>", headers, rows);             
+
+            return string.Format(@"<table id='transactions' width='100%'><tr>{0}</tr>{1}</table>", headers, rows);             
         }
     }
 
@@ -186,16 +186,16 @@ public partial class Account : BasePage
                         switch (dataTable.Columns[j].ColumnName)
                         {
                             case "pointsYear":
-                                headers += string.Format(@"<td><div class='pointDetailMainHeaderHor'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Label.Year));
+                                headers += string.Format(@"<td><div class='pointDetailMainHeader'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Label.Year));
                                 break;
                             case "pointsMonth":
-                                headers += string.Format(@"<td><div class='pointDetailMainHeaderHor'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Label.Month));
+                                headers += string.Format(@"<td><div class='pointDetailMainHeader'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Label.Month));
                                 break;
                             case "totalStake":
-                                headers += string.Format(@"<td><div class='pointDetailMainHeaderHor'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Redemption.TotalStake));
+                                headers += string.Format(@"<td><div class='pointDetailMainHeader'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Redemption.TotalStake));
                                 break;
                             case "pointsAwarded":
-                                headers += string.Format(@"<td><div class='pointDetailMainHeaderHor'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Redemption.PointsEarned));
+                                headers += string.Format(@"<td><div class='pointDetailMainHeader'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Redemption.PointsEarned));
                                 break;
                         }
                     }
@@ -220,11 +220,11 @@ public partial class Account : BasePage
                 rows += "</tr>";
             }
 
-            return string.Format(@"<table width='100%'><tr>{0}</tr>{1}</table>", headers, rows);                         
+            return string.Format(@"<table id='transactions' width='100%'><tr>{0}</tr>{1}</table>", headers, rows);                         
         }
     }
 
-    public async Task<string> GetTotalStakeDetail(string memberCode, string walletId, string yearMonth)
+    private static async Task<string> GetTotalStakeDetail(string memberCode, string walletId, string yearMonth)
     {
         using (var client = new RewardsServicesClient())
         {
@@ -252,16 +252,16 @@ public partial class Account : BasePage
                         switch (dataTable.Columns[j].ColumnName)
                         {
                             case "createdDateTime":
-                                headers += string.Format(@"<td><div class='pointDetailMainHeaderHor'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Label.Date));
+                                headers += string.Format(@"<td><div class='pointDetailMainHeader'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Label.Date));
                                 break;
                             case "transactionDateTime":
-                                headers += string.Format(@"<td><div class='pointDetailMainHeaderHor'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Redemption.BetDate));
+                                headers += string.Format(@"<td><div class='pointDetailMainHeader'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Redemption.BetDate));
                                 break;
                             case "totalStake":
-                                headers += string.Format(@"<td><div class='pointDetailMainHeaderHor'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Redemption.TotalStake));
+                                headers += string.Format(@"<td><div class='pointDetailMainHeader'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Redemption.TotalStake));
                                 break;
                             case "pointsAwarded":
-                                headers += string.Format(@"<td><div class='pointDetailMainHeaderHor'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Redemption.PointsEarned));
+                                headers += string.Format(@"<td><div class='pointDetailMainHeader'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Redemption.PointsEarned));
                                 break;
                         }
                     }
@@ -283,7 +283,7 @@ public partial class Account : BasePage
                 rows += "</tr>";
             }
 
-            return string.Format(@"<table width='100%'><tr>{0}</tr>{1}</table>", headers, rows);                                           
+            return string.Format(@"<table id='transactions' width='100%'><tr>{0}</tr>{1}</table>", headers, rows);                                           
         }      
     }
 
