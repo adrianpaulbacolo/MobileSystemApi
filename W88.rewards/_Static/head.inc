@@ -13,8 +13,6 @@
 <script src="/_Static/JS/GPINT.js"></script>
 <script src="/_Static/JS/Mobile/jquery.mobile-1.4.5.min.js"></script>
 <script src="/_Static/JS/vendor/lodash.js"></script>
-<script src="/_Static/JS/Mobile/iscroll.js"></script>
-<script src="/_Static/JS/piwik.js"></script>
 <script src="/_Static/JS/bootstrap.min.js"></script>
 <script src="/_Static/JS/vendor/slick.min.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/growl.js"></script>

@@ -302,7 +302,7 @@ div.hasDatepicker {
     font-size: 10pt;
     font-weight: bold !important;
     min-height: 35px;
-    padding: 11px;
+    padding: 18px 5px;
     position: relative;
     height: 62px;
     text-align: center;
@@ -312,7 +312,7 @@ div.hasDatepicker {
     background: none repeat scroll 0 0 #023348;
     display: block;
     line-height: 13px;
-    padding: 14px 1px;
+    padding: 29px 5px;
     font-size: 9pt;
     height: 69px;
     text-align: center;
@@ -322,4 +322,8 @@ div.hasDatepicker {
     border: solid;
     border-width: 1px 0;
     height: 63px;
+}
+
+#transactions td {
+    padding: 0 1px;
 }
