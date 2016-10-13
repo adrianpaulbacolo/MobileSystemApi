@@ -26,7 +26,11 @@ public partial class Slots_ClubDivino : BasePage
         var uc8Handler = new UC8Handler(commonVariables.CurrentMemberSessionId, "ClubDivino", "FundTransfer");
         var uc8Category = uc8Handler.Process();
 
-        var divino = bsCategory.Union(cxCategory).Union(uc8Category).GroupBy(x => x.Title);
+        var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
+        var gpiCategory = gpiHandler.Process(true);
+        cxCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, cxCategory[0].Current);
+
+        var divino = bsCategory.Union(cxCategory).Union(uc8Category).Union(gpiCategory).GroupBy(x => x.Title);
 
         foreach (var group in divino)
         {
@@ -56,17 +60,20 @@ public partial class Slots_ClubDivino : BasePage
     {
         foreach (var game in games)
         {
-            sbGames.AppendFormat("<li class='bkg-game'><div rel='{0}.jpg'><div class='div-links'>", game.Image);
+            var providerClass = string.Empty;
+            if (!string.IsNullOrEmpty(game.Provider.ToString())) providerClass = "slot-" + game.Provider; 
+
+            sbGames.AppendFormat("<li class='bkg-game {1}'><div rel='{0}.jpg'><div class='div-links'>", game.Image, providerClass);
 
             if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
             {
                 sbGames.AppendFormat("<a target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubDivino") + "' data-rel='dialog' data-transition='slidedown' data-ajax='false'>");
             }
             else
-                sbGames.AppendFormat("<a href='{0}' target='_blank' data-ajax='false'>", game.RealUrl);
+                sbGames.AppendFormat("<a class=\"track-play-now\" href='{0}' target='_blank' data-ajax='false'>", game.RealUrl);
 
             sbGames.AppendFormat("{0}</a>", commonCulture.ElementValues.getResourceXPathString("/Products/Play", commonVariables.ProductsXML));
-            sbGames.AppendFormat("<a target='_blank' href='{0}' data-ajax='false'>{1}</a></div>", game.FunUrl, commonCulture.ElementValues.getResourceXPathString("/Products/Try", commonVariables.ProductsXML));
+            sbGames.AppendFormat("<a class=\"track-try-now\" target='_blank' href='{0}' data-ajax='false'>{1}</a></div>", game.FunUrl, commonCulture.ElementValues.getResourceXPathString("/Products/Try", commonVariables.ProductsXML));
 
             sbGames.Append("</div></li>");
         }

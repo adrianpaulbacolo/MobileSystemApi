@@ -5,8 +5,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="ui-content" role="main">
         <div class="static-content">
-            <div class="banner slider">
-                <img src="/_Static/Images/Download/W88-Mobile-ClubW-Casino.jpg" alt="banner" class="img-responsive">
+            <div>
+                <img src="/_Static/Images/Download/ClubW-Android-iOS-Download-Page.jpg" alt="banner" class="img-responsive">
             </div>
             <div class="downloadmsg">
                 <span runat="server" id="spanMsg"></span>

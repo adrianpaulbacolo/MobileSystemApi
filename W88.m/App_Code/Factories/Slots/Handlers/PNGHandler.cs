@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
+using Models;
 
 namespace Factories.Slots.Handlers
 {
@@ -13,39 +14,35 @@ namespace Factories.Slots.Handlers
     /// </summary>
     public class PNGHandler : GameLoaderBase
     {
-        private string fun;
-        private string real;
-        private string lobbyPage;
-
-        private string memberSessionId;
-
-        public PNGHandler(string token, string lobby)
-            : base(GameProvider.PNG)
+        public PNGHandler(string token, string lobby) : base(GameProvider.PNG)
         {
-            fun = GameSettings.GetGameUrl(GameProvider.PNG, GameLinkSetting.Fun);
-            real = GameSettings.GetGameUrl(GameProvider.PNG, GameLinkSetting.Real);
-
-            memberSessionId = token;
-            lobbyPage = lobby;
+            GameProvider = GameProvider.PNG;
+            GameLink = new GameLinkInfo
+            {
+                Fun = GameSettings.GetGameUrl(GameProvider, GameLinkSetting.Fun),
+                Real = GameSettings.GetGameUrl(GameProvider, GameLinkSetting.Real),
+                MemberSessionId = token,
+                LobbyPage = lobby
+            };
         }
 
         protected override string SetLanguageCode()
         {
-            return commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase) ? commonVariables.SelectedLanguage : "en-gb";
+            return commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase) ? "zh_CN" : "en_GB";
         }
 
         protected override string CreateFunUrl(XElement element)
         {
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
 
-            return fun.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{LOBBY}", lobbyPage);
+            return GameLink.Fun.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{LOBBY}", GameLink.LobbyPage);
         }
 
         protected override string CreateRealUrl(XElement element)
         {
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
 
-            return real.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{TOKEN}", memberSessionId).Replace("{LOBBY}", lobbyPage);
+            return GameLink.Real.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{TOKEN}", GameLink.MemberSessionId).Replace("{LOBBY}", GameLink.LobbyPage);
         }
     }
 }

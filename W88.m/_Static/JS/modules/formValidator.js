@@ -9,6 +9,11 @@
             setTimeout(function () {
                 $(selector).prop("disabled", true);
             }, 0);
+        },
+        enableSubmitButton: function (selector) {
+            setTimeout(function () {
+                $(selector).prop("disabled", false);
+            }, 0);
         }
     }
 

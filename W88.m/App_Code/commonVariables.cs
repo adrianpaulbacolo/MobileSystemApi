@@ -205,7 +205,8 @@ public class commonVariables
         ECPSS = 120218,
         BofoPay = 120231,
         AllDebit = 120236,
-        EGHL = 120265
+        EGHL = 120265,
+        NganLuong = 120212
     }
 
     public enum WithdrawalMethod

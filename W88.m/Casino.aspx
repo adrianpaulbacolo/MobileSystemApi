@@ -3,9 +3,40 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    
+    <% var deviceId = commonFunctions.getMobileDevice(Request); %>
+
     <div class="ui-content" role="main">
         <ul class="row banner-lists banner-odd-even row-uc">
+            <%
+                try
+                {
+            %>
+            <%if (deviceId == 1 || deviceId == 3)
+              {%>
+            <li class="col">
+                <figure class="banner">
+                    <img src="/_Static/Images/casino/clubwpremieriosbanner.jpg" class="img-responsive img-bg">
+                    <figcaption class="banner-caption">
+                        <h3 class="title"><%=commonCulture.ElementValues.getResourceString("clubwpremier", commonVariables.LeftMenuXML)%></h3>
+                        <p><%=commonCulture.ElementValues.getResourceString("clubwpremierMessage", commonVariables.LeftMenuXML)%></p>
+                        <a href="/_Static/Downloads/w88.aspx" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
+                    </figcaption>
+                </figure>
+            </li>
+            <li class="col">
+                <figure class="banner">
+                    <img src="/_Static/Images/casino/clubwiosbanner.jpg" class="img-responsive img-bg">
+                    <figcaption class="banner-caption">
+                        <h3 class="title"><%=commonCulture.ElementValues.getResourceString("liveCasino", commonVariables.LeftMenuXML)%></h3>
+                        <p><%=commonCulture.ElementValues.getResourceString("liveCasinoMessage", commonVariables.LeftMenuXML)%></p>
+                        <a href="/_Static/Downloads/w88.aspx" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
+                    </figcaption>
+                </figure>
+            </li>
+
+            <%}%>
+            <%if (deviceId == 2 || deviceId == 3)
+              {%>
             <li class="col">
                 <figure class="banner">
                     <img src="/_Static/Images/casino/clubwpremierbanner.jpg" class="img-responsive img-bg">
@@ -26,6 +57,11 @@
                     </figcaption>
                 </figure>
             </li>
+            <%}%>
+           
+            <%}
+                catch (Exception) { }%>
+
             <li class="col">
                 <figure class="banner">
                     <img src="/_Static/Images/casino/clubpalazzobanner.jpg" class="img-responsive img-bg">

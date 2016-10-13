@@ -1,4 +1,6 @@
-﻿using Models;
+﻿using System.Activities.Expressions;
+using Helpers;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +12,13 @@ namespace Factories.Slots
     public abstract class GameLoaderBase
     {
         protected string langCode;
-        private GameProvider gameProvider { get; set; }
+        protected GameProvider GameProvider { get; set; }
         private XElement xeResources = null;
+        public GameLinkInfo GameLink = new GameLinkInfo();
 
         public GameLoaderBase(GameProvider gameProvider)
         {
-            this.gameProvider = gameProvider;
+            this.GameProvider = gameProvider;
 
             langCode = SetLanguageCode();
 
@@ -27,18 +30,23 @@ namespace Factories.Slots
             return commonVariables.SelectedLanguage;
         }
 
+        protected virtual string GetGameId(XElement xeGame)
+        {
+            return xeGame.Attribute("Id").Value;
+        }
+
         protected abstract string CreateFunUrl(XElement element);
 
         protected abstract string CreateRealUrl(XElement element);
 
-        public List<GameCategoryInfo> Process()
+        public List<GameCategoryInfo> Process(bool incInjectGames = false)
         {
             string currencyCode = commonVariables.GetSessionVariable("CurrencyCode");
 
-            return LoadCategory(currencyCode);
+            return LoadCategory(currencyCode, incInjectGames);
         }
 
-        private List<GameCategoryInfo> LoadCategory(string currencyCode)
+        private List<GameCategoryInfo> LoadCategory(string currencyCode, bool incInjectGames)
         {
             var gameCategories = new List<GameCategoryInfo>();
 
@@ -46,17 +54,33 @@ namespace Factories.Slots
             {
                 if (IsCurrNotSupported(currencyCode, xeCategory)) continue;
 
-                var gameCategory = new GameCategoryInfo();
+                var gameCategory = new GameCategoryInfo
+                {
+                    Title = GetHeadTranslation(xeCategory)
+                };
 
-                gameCategory.Title = GetHeadTranslation(xeCategory);
+                List<XElement> newGames;
+                List<XElement> currentGames;
 
-                List<XElement> newGames = xeCategory.Elements().Where(cat => cat.Attribute("Category") != null && cat.Attribute("Category").Value.Equals("new", StringComparison.OrdinalIgnoreCase))
-                                                                .OrderBy(game => game.Element("Title").Value).ToList();
+                if (incInjectGames)
+                {
+                    List<XElement> injectGames = xeCategory.Elements().Where(cat => cat.Attribute("Category") != null && cat.Attribute("Category").Value.Equals("MergeFirstP", StringComparison.OrdinalIgnoreCase)).OrderBy(game => game.Element("Title").Value).ToList();
+                    gameCategory.InjectedGames = AddGamesPerCategory(currencyCode, injectGames);
 
+                    newGames = xeCategory.Elements().Where(cat => cat.Attribute("Category") != null && cat.Attribute("Category").Value.Equals("new", StringComparison.OrdinalIgnoreCase)).OrderBy(game => game.Element("Title").Value).ToList();
                 gameCategory.New = AddGamesPerCategory(currencyCode, newGames);
 
-                List<XElement> currentGames = xeCategory.Elements().Where(cat => cat.Attribute("Category") == null).OrderBy(game => game.Element("Title").Value).ToList();
+                    currentGames = xeCategory.Elements().Where(cat => cat.Attribute("Category") == null).OrderBy(game => game.Element("Title").Value).ToList();
                 gameCategory.Current = AddGamesPerCategory(currencyCode, currentGames);
+                }
+                else
+                {
+                    newGames = xeCategory.Elements().Where(cat => cat.Attribute("Category") != null && cat.Attribute("Category").Value.Equals("new", StringComparison.OrdinalIgnoreCase) && !cat.Attribute("Category").Value.Equals("MergeFirstP", StringComparison.OrdinalIgnoreCase)).OrderBy(game => game.Element("Title").Value).ToList();
+                    gameCategory.New = AddGamesPerCategory(currencyCode, newGames);
+
+                    currentGames = xeCategory.Elements().Where(cat => cat.Attribute("Category") == null || cat.Attribute("Category").Value.Equals("MergeFirstP", StringComparison.OrdinalIgnoreCase)).OrderBy(game => game.Element("Title").Value).ToList();
+                    gameCategory.Current = AddGamesPerCategory(currencyCode, currentGames);
+                }
 
                 gameCategories.Add(gameCategory);
             }
@@ -67,17 +91,21 @@ namespace Factories.Slots
         private List<GameInfo> AddGamesPerCategory(string currencyCode, List<XElement> xeGames)
         {
             var games = new List<GameInfo>();
+            var lang = commonVariables.SelectedLanguage;
 
             foreach (XElement xeGame in xeGames)
             {
                 if (IsCurrNotSupported(currencyCode, xeGame)) continue;
 
                 var game = new GameInfo();
+                var translatedTitle = commonCulture.ElementValues.getResourceXPathString("i18n/" + lang, xeGame);
 
-                game.Title = commonCulture.ElementValues.getResourceString("Title", xeGame);
+                game.Title = (!string.IsNullOrEmpty(translatedTitle)) ? translatedTitle : commonCulture.ElementValues.getResourceString("Title", xeGame);
                 game.Image = commonCulture.ElementValues.getResourceString("Image", xeGame);
                 game.RealUrl = CreateRealUrl(xeGame);
                 game.FunUrl = CreateFunUrl(xeGame);
+                game.Id = GetGameId(xeGame);
+                game.Provider = GameProvider;
 
                 games.Add(game);
             }
@@ -119,6 +147,38 @@ namespace Factories.Slots
 
             return currencies.Contains(currencyCode);
         }
+
+        public List<GameInfo> InsertInjectedGames(List<GameCategoryInfo> sourceCategoryInfo, List<GameInfo> destinationList)
+        {
+            List<GameInfo> injGames = null;
+            if (sourceCategoryInfo.Count > 0)
+            {
+                if (sourceCategoryInfo[0].InjectedGames != null)
+                    injGames = sourceCategoryInfo[0].InjectedGames;
+            }
+
+            if (injGames != null)
+            {
+                foreach (var item in injGames)
+                {
+                    destinationList.Add(item);
+                }
+
+                destinationList = new List<GameInfo>(destinationList.OrderBy(x => x.Title));
+            }
+
+            return destinationList;
+        }
+
+        protected bool IsElementExists(string attribute, XElement element, out string url)
+        {
+            url = string.Empty;
+            if (element.Element(attribute) == null) return false;
+
+            url = element.Element(attribute).Value;
+            return true;
+        }
+
     }
 
      public enum GameLinkSetting

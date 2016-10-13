@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Activities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +7,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml.Linq;
+using Factories.Slots.Handlers;
+using Models;
+using Factories.Slots;
 
 public partial class Slots_ClubApollo : BasePage
 {
@@ -16,111 +20,34 @@ public partial class Slots_ClubApollo : BasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        commonCulture.appData.GetRootResourceNonLanguage("/Slots/ClubApollo.aspx", out xeResources);
+        if (Page.IsPostBack) return;
 
         CheckSupportedCurrency();
 
-        if (Page.IsPostBack) return;
-
-        _selectedLanguage = commonVariables.SelectedLanguage;
-        _currencyCode = commonVariables.GetSessionVariable("CurrencyCode");
-
         SetTitle(commonCulture.ElementValues.getResourceXPathString("/Products/ClubApollo/Label", commonVariables.ProductsXML));
+
+        var handler = new QTHandler(commonVariables.CurrentMemberSessionId, "ClubApollo");
+        var qtCategory = handler.Process();
+
+        var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
+        var gpiCategory = gpiHandler.Process(true);
+
+        qtCategory[0].Current = handler.InsertInjectedGames(gpiCategory, qtCategory[0].Current);
+
+        var games = qtCategory.Union(gpiCategory).GroupBy(x => x.Title);
+
         var sbGames = new StringBuilder();
-
-        XElement xeCategories = xeResources.Element("Category");
-        XElement xeProviders = xeResources.Element("Providers");
-
-        foreach (XElement xeCategory in xeCategories.Elements())
+        foreach (var category in games)
         {
-            var header = GetHeadTranslation(xeCategory);
+            sbGames.AppendFormat("<div data-role='collapsible' data-collapsed='false' data-theme='b' data-content-theme='a' data-mini='true'><h4>{0}</h4>", category.Key);
 
-            sbGames.AppendFormat("<div data-role='collapsible' data-collapsed='false' data-theme='b' data-content-theme='a' data-mini='true'><h4>{0}</h4>", header);
+            sbGames.AppendFormat("<div id='div{0}' class='div-product'><div><ul>", category.Key);
 
-            sbGames.AppendFormat("<div id='div{0}' class='div-product'><div><ul>", xeCategory.Name);
-
-            List<XElement> topgames = xeCategory.Elements().Where(m => m.Attribute("Top") != null).OrderBy(f => f.Value).ToList();
-
-            IEnumerable<XElement> sortedGame = xeCategory.Elements().Where(m => m.Attribute("Top") == null).OrderBy(game => game.Name.ToString());
-
-            topgames.AddRange(sortedGame);
-
-            foreach (XElement xeGame in topgames)
+            foreach (var item in category)
             {
-                var setLanguage = "{providerId}";
-                var currency = "{providerId}";
+                AddGames(sbGames, item.New);
 
-                var pId = xeGame.Attribute("providerId");
-
-                bool isGameSupported = true;
-                if (pId != null)
-                {
-                    if (xeProviders != null)
-                    {
-                        foreach (var prv in xeProviders.Elements())
-                        {
-                            if (prv.Attribute("id").Value != pId.Value) continue;
-
-                            var curr = prv.Attribute("Curr").Value;
-                            var lang = prv.Attribute("Lang").Value;
-
-                            if (lang.Trim().ToLower().Contains(_selectedLanguage.ToLower()))
-                            {
-                                var select = _selectedLanguage.Split(new[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
-                                setLanguage = string.Format("{0}_{1}", @select[0], @select[1].ToUpper());
-                            }
-                            else
-                            {
-                                setLanguage = "en_US";
-                            }
-
-                            isGameSupported = true;
-
-                            if (string.IsNullOrWhiteSpace(_currencyCode))
-                            {
-                                currency = GetCurrencyByLanguage(setLanguage);
-
-                                if (!curr.ToLower().Trim().Contains(currency.ToLower()))
-                                {
-                                    currency = "USD";
-                                }
-                            }
-                            else
-                            {
-                                if (_currencyCode.Equals("RMB", StringComparison.OrdinalIgnoreCase))
-                                {
-                                    _currencyCode = "CNY";
-                                }
-
-                                if (curr.ToLower().Trim().Contains(_currencyCode.ToLower()))
-                                {
-                                    currency = _currencyCode;
-                                }
-                                else
-                                {
-                                    isGameSupported = false;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                if (isGameSupported)
-                {
-                    sbGames.AppendFormat("<li class='bkg-game'><div rel='{0}.jpg'><div class='div-links'>", commonCulture.ElementValues.getResourceString("ImageName", xeGame));
-                    if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-                    {
-                        sbGames.AppendFormat("<a href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubApollo") + "' data-rel='dialog' data-transition='slidedown'>");
-                    }
-                    else
-                    {
-                        sbGames.AppendFormat("<a href='{0}' target='_blank'>", CommonClubApollo.GetRealUrl.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", setLanguage).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId)).Replace("{LOBBYURL}", HttpContext.Current.Request.Url.AbsoluteUri).Replace("{cashier}", HttpContext.Current.Request.Url.Authority + "/fundtransfer");
-                    }
-
-                    sbGames.AppendFormat("{0}</a>", commonCulture.ElementValues.getResourceXPathString("/Products/Play", commonVariables.ProductsXML));
-                    sbGames.AppendFormat("<a target='_blank' href='{1}' data-ajax='false'>{0}</a></div>", commonCulture.ElementValues.getResourceXPathString("/Products/Try", commonVariables.ProductsXML), CommonClubApollo.GetFunUrl.Replace("{GAME}", Convert.ToString(xeGame.Name)).Replace("{LANG}", setLanguage).Replace("{TOKEN}", commonVariables.CurrentMemberSessionId)).Replace("{CURCODE}", currency).Replace("{LOBBYURL}", HttpContext.Current.Request.Url.AbsoluteUri);
-                    sbGames.Append("</div></li>");
-                }
+                AddGames(sbGames, item.Current);
             }
 
             sbGames.Append("</ul></div></div></div>");
@@ -129,61 +56,25 @@ public partial class Slots_ClubApollo : BasePage
         divContainer.InnerHtml = Convert.ToString(sbGames);
     }
 
-    private string GetCurrencyByLanguage(string selectedLanguage)
+    private void AddGames(StringBuilder sbGames, List<GameInfo> games)
     {
-        string currency;
-        switch (selectedLanguage.ToLower())
+        foreach (var game in games)
         {
-            case "zh_cn":
-                currency = "CNY";
-                break;
-            case "ko_kr":
-                currency = "KRW";
-                break;
-            case "ja_jp":
-                currency = "JPY";
-                break;
-            case "th_th":
-                currency = "THB";
-                break;
-            default:
-                currency = "USD";
-                break;
-        }
+            var providerClass = string.Empty;
+            if (!string.IsNullOrEmpty(game.Provider.ToString())) providerClass = "slot-" + game.Provider; 
 
-        if (HttpContext.Current.Session["LanguageCode"] != null && HttpContext.Current.Session["CurrencyCode"] != null)
-        {
-            if ((string)HttpContext.Current.Session["LanguageCode"] == "en-us" && ((string)HttpContext.Current.Session["CurrencyCode"] == "MY"))
-            {
-                currency = "MYR";
-            }
-        }
+            sbGames.AppendFormat("<li class='bkg-game {1}'><div rel='{0}.jpg'><div class='div-links'>", game.Image, providerClass);
 
-        return currency;
-    }
-
-    private string GetHeadTranslation(XElement element)
-    {
-        string headerText;
-        var lang = commonVariables.SelectedLanguage;
-
-        if (string.IsNullOrEmpty(lang))
-        {
-            headerText = element.Attribute("Label").Value;
-        }
-        else
-        {
-            if (element.Attribute(lang) != null && element.Attribute(lang).Value.Length > 0)
-            {
-                headerText = element.Attribute(lang).Value;
-            }
+            if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+                sbGames.AppendFormat("<a class='btn-primary' target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubApollo") + "' data-rel='dialog' data-transition='slidedown' data-ajax='false'>");
             else
-            {
-                headerText = element.Attribute("Label").Value;
-            }
-        }
+                sbGames.AppendFormat("<a class=\"track-play-now\" href='{0}' target='_blank' data-ajax='false'>", game.RealUrl);
 
-        return headerText;
+            sbGames.AppendFormat("{0}</a>", commonCulture.ElementValues.getResourceXPathString("/Products/Play", commonVariables.ProductsXML));
+            sbGames.AppendFormat("<a class=\"track-try-now\" target='_blank' href='{1}'>{0}</a></div>", commonCulture.ElementValues.getResourceXPathString("/Products/Try", commonVariables.ProductsXML), game.FunUrl);
+
+            sbGames.Append("</div></li>");
+        }
     }
 
     private void CheckSupportedCurrency()

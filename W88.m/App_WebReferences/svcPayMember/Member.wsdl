@@ -45,6 +45,12 @@
   <wsdl:message name="IMember_getDepositWithdrawalHistory_OutputMessage">
     <wsdl:part name="parameters" element="tns:getDepositWithdrawalHistoryResponse" />
   </wsdl:message>
+  <wsdl:message name="IMember_getDepositWithdrawalHistoryV2_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDepositWithdrawalHistoryV2" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getDepositWithdrawalHistoryV2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDepositWithdrawalHistoryV2Response" />
+  </wsdl:message>
   <wsdl:message name="IMember_getAdjustmentDepositWithdrawalHistory_InputMessage">
     <wsdl:part name="parameters" element="tns:getAdjustmentDepositWithdrawalHistory" />
   </wsdl:message>
@@ -80,6 +86,24 @@
   </wsdl:message>
   <wsdl:message name="IMember_getBankAccounts_OutputMessage">
     <wsdl:part name="parameters" element="tns:getBankAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getSecondaryBankAccounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:getSecondaryBankAccounts" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getSecondaryBankAccounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getSecondaryBankAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getBankLocations_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBankLocations" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getBankLocations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBankLocationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getBankBranches_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBankBranches" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getBankBranches_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBankBranchesResponse" />
   </wsdl:message>
   <wsdl:message name="IMember_getLastDepositWireTransfer_InputMessage">
     <wsdl:part name="parameters" element="tns:getLastDepositWireTransfer" />
@@ -303,12 +327,6 @@
   <wsdl:message name="IMember_GetPaymentDepositGatewayRoute_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPaymentDepositGatewayRouteResponse" />
   </wsdl:message>
-  <wsdl:message name="IMember_getMemberLastCreditCardDepositDetail_InputMessage">
-    <wsdl:part name="parameters" element="tns:getMemberLastCreditCardDepositDetail" />
-  </wsdl:message>
-  <wsdl:message name="IMember_getMemberLastCreditCardDepositDetail_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getMemberLastCreditCardDepositDetailResponse" />
-  </wsdl:message>
   <wsdl:message name="IMember_checkChinaPnRTransaction_InputMessage">
     <wsdl:part name="parameters" element="tns:checkChinaPnRTransaction" />
   </wsdl:message>
@@ -320,6 +338,12 @@
   </wsdl:message>
   <wsdl:message name="IMember_checkYeePayCardTransaction_OutputMessage">
     <wsdl:part name="parameters" element="tns:checkYeePayCardTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getMemberLastCreditCardDepositDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberLastCreditCardDepositDetail" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getMemberLastCreditCardDepositDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMemberLastCreditCardDepositDetailResponse" />
   </wsdl:message>
   <wsdl:message name="IMember_CheckBankDownTime_InputMessage">
     <wsdl:part name="parameters" element="tns:CheckBankDownTime" />
@@ -345,11 +369,29 @@
   <wsdl:message name="IMember_processMemberWeChatNickName_OutputMessage">
     <wsdl:part name="parameters" element="tns:processMemberWeChatNickNameResponse" />
   </wsdl:message>
-  <wsdl:message name="IMember_getMemberIBanqId_InputMessage">
-    <wsdl:part name="parameters" element="tns:getMemberIBanqId" />
+  <wsdl:message name="IMember_GetMemberJTPayMobileMethod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberJTPayMobileMethod" />
   </wsdl:message>
-  <wsdl:message name="IMember_getMemberIBanqId_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getMemberIBanqIdResponse" />
+  <wsdl:message name="IMember_GetMemberJTPayMobileMethod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberJTPayMobileMethodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMember_processMemberBaoKimWalletAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:processMemberBaoKimWalletAccount" />
+  </wsdl:message>
+  <wsdl:message name="IMember_processMemberBaoKimWalletAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:processMemberBaoKimWalletAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMember_GetMemberAvailableDepositMethods_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberAvailableDepositMethods" />
+  </wsdl:message>
+  <wsdl:message name="IMember_GetMemberAvailableDepositMethods_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberAvailableDepositMethodsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMember_GetMemberAvailableDepositMethods_Mobile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberAvailableDepositMethods_Mobile" />
+  </wsdl:message>
+  <wsdl:message name="IMember_GetMemberAvailableDepositMethods_Mobile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberAvailableDepositMethods_MobileResponse" />
   </wsdl:message>
   <wsdl:portType name="IMember">
     <wsdl:operation name="getWallets">
@@ -376,6 +418,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/getDepositWithdrawalHistory" message="tns:IMember_getDepositWithdrawalHistory_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMember/getDepositWithdrawalHistoryResponse" message="tns:IMember_getDepositWithdrawalHistory_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="getDepositWithdrawalHistoryV2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/getDepositWithdrawalHistoryV2" message="tns:IMember_getDepositWithdrawalHistoryV2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/getDepositWithdrawalHistoryV2Response" message="tns:IMember_getDepositWithdrawalHistoryV2_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="getAdjustmentDepositWithdrawalHistory">
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/getAdjustmentDepositWithdrawalHistory" message="tns:IMember_getAdjustmentDepositWithdrawalHistory_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMember/getAdjustmentDepositWithdrawalHistoryResponse" message="tns:IMember_getAdjustmentDepositWithdrawalHistory_OutputMessage" />
@@ -399,6 +445,18 @@
     <wsdl:operation name="getBankAccounts">
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/getBankAccounts" message="tns:IMember_getBankAccounts_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMember/getBankAccountsResponse" message="tns:IMember_getBankAccounts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getSecondaryBankAccounts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/getSecondaryBankAccounts" message="tns:IMember_getSecondaryBankAccounts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/getSecondaryBankAccountsResponse" message="tns:IMember_getSecondaryBankAccounts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBankLocations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/getBankLocations" message="tns:IMember_getBankLocations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/getBankLocationsResponse" message="tns:IMember_getBankLocations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBankBranches">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/getBankBranches" message="tns:IMember_getBankBranches_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/getBankBranchesResponse" message="tns:IMember_getBankBranches_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="getLastDepositWireTransfer">
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/getLastDepositWireTransfer" message="tns:IMember_getLastDepositWireTransfer_InputMessage" />
@@ -548,10 +606,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/GetPaymentDepositGatewayRoute" message="tns:IMember_GetPaymentDepositGatewayRoute_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMember/GetPaymentDepositGatewayRouteResponse" message="tns:IMember_GetPaymentDepositGatewayRoute_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="getMemberLastCreditCardDepositDetail">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMember/getMemberLastCreditCardDepositDetail" message="tns:IMember_getMemberLastCreditCardDepositDetail_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMember/getMemberLastCreditCardDepositDetailResponse" message="tns:IMember_getMemberLastCreditCardDepositDetail_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="checkChinaPnRTransaction">
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/checkChinaPnRTransaction" message="tns:IMember_checkChinaPnRTransaction_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMember/checkChinaPnRTransactionResponse" message="tns:IMember_checkChinaPnRTransaction_OutputMessage" />
@@ -559,6 +613,10 @@
     <wsdl:operation name="checkYeePayCardTransaction">
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/checkYeePayCardTransaction" message="tns:IMember_checkYeePayCardTransaction_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMember/checkYeePayCardTransactionResponse" message="tns:IMember_checkYeePayCardTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberLastCreditCardDepositDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/getMemberLastCreditCardDepositDetail" message="tns:IMember_getMemberLastCreditCardDepositDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/getMemberLastCreditCardDepositDetailResponse" message="tns:IMember_getMemberLastCreditCardDepositDetail_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CheckBankDownTime">
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/CheckBankDownTime" message="tns:IMember_CheckBankDownTime_InputMessage" />
@@ -576,9 +634,21 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/processMemberWeChatNickName" message="tns:IMember_processMemberWeChatNickName_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMember/processMemberWeChatNickNameResponse" message="tns:IMember_processMemberWeChatNickName_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="getMemberIBanqId">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMember/getMemberIBanqId" message="tns:IMember_getMemberIBanqId_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMember/getMemberIBanqIdResponse" message="tns:IMember_getMemberIBanqId_OutputMessage" />
+    <wsdl:operation name="GetMemberJTPayMobileMethod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/GetMemberJTPayMobileMethod" message="tns:IMember_GetMemberJTPayMobileMethod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/GetMemberJTPayMobileMethodResponse" message="tns:IMember_GetMemberJTPayMobileMethod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="processMemberBaoKimWalletAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/processMemberBaoKimWalletAccount" message="tns:IMember_processMemberBaoKimWalletAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/processMemberBaoKimWalletAccountResponse" message="tns:IMember_processMemberBaoKimWalletAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberAvailableDepositMethods">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/GetMemberAvailableDepositMethods" message="tns:IMember_GetMemberAvailableDepositMethods_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/GetMemberAvailableDepositMethodsResponse" message="tns:IMember_GetMemberAvailableDepositMethods_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberAvailableDepositMethods_Mobile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/GetMemberAvailableDepositMethods_Mobile" message="tns:IMember_GetMemberAvailableDepositMethods_Mobile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/GetMemberAvailableDepositMethods_MobileResponse" message="tns:IMember_GetMemberAvailableDepositMethods_Mobile_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IMember" type="tns:IMember">
@@ -637,6 +707,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getDepositWithdrawalHistoryV2">
+      <soap:operation soapAction="http://tempuri.org/IMember/getDepositWithdrawalHistoryV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getAdjustmentDepositWithdrawalHistory">
       <soap:operation soapAction="http://tempuri.org/IMember/getAdjustmentDepositWithdrawalHistory" style="document" />
       <wsdl:input>
@@ -684,6 +763,33 @@
     </wsdl:operation>
     <wsdl:operation name="getBankAccounts">
       <soap:operation soapAction="http://tempuri.org/IMember/getBankAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSecondaryBankAccounts">
+      <soap:operation soapAction="http://tempuri.org/IMember/getSecondaryBankAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBankLocations">
+      <soap:operation soapAction="http://tempuri.org/IMember/getBankLocations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBankBranches">
+      <soap:operation soapAction="http://tempuri.org/IMember/getBankBranches" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1024,15 +1130,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getMemberLastCreditCardDepositDetail">
-      <soap:operation soapAction="http://tempuri.org/IMember/getMemberLastCreditCardDepositDetail" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="checkChinaPnRTransaction">
       <soap:operation soapAction="http://tempuri.org/IMember/checkChinaPnRTransaction" style="document" />
       <wsdl:input>
@@ -1044,6 +1141,15 @@
     </wsdl:operation>
     <wsdl:operation name="checkYeePayCardTransaction">
       <soap:operation soapAction="http://tempuri.org/IMember/checkYeePayCardTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberLastCreditCardDepositDetail">
+      <soap:operation soapAction="http://tempuri.org/IMember/getMemberLastCreditCardDepositDetail" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1087,8 +1193,35 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getMemberIBanqId">
-      <soap:operation soapAction="http://tempuri.org/IMember/getMemberIBanqId" style="document" />
+    <wsdl:operation name="GetMemberJTPayMobileMethod">
+      <soap:operation soapAction="http://tempuri.org/IMember/GetMemberJTPayMobileMethod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="processMemberBaoKimWalletAccount">
+      <soap:operation soapAction="http://tempuri.org/IMember/processMemberBaoKimWalletAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberAvailableDepositMethods">
+      <soap:operation soapAction="http://tempuri.org/IMember/GetMemberAvailableDepositMethods" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberAvailableDepositMethods_Mobile">
+      <soap:operation soapAction="http://tempuri.org/IMember/GetMemberAvailableDepositMethods_Mobile" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -56,7 +56,7 @@ public partial class _Lang : BasePage
                 //if (string.IsNullOrEmpty(commonCookie.CookieS) || login) { sbLanguageHTML.AppendFormat("<a data-theme='b' href='/_Secure/Login.aspx?lang={0}' data-transition='slide'  data-rel='dialog' data-transition='slidedown' data-inline='true'><div id='div{1}' class='divLangImg'></div></a>", strLanguage, strLanguage); }
                 //else { sbLanguageHTML.AppendFormat("<a data-theme='b' data-ajax='false' href='/Index.aspx?lang={0}' data-inline='true'><div id='div{1}' class='divLangImg'></div></a>", strLanguage, strLanguage); }
 
-                sbLanguageHTML.AppendFormat("<li class='col col-50'><a data-ajax='false' href='/Index.aspx?lang={0}' data-inline='true' id='div{0}' class='divLangImg div{0}'></a></li>", strLanguage);
+                sbLanguageHTML.AppendFormat("<li><a data-ajax='false' href='/Index.aspx?lang={0}' data-inline='true' id='div{0}' class='divLangImg div{0}'></a></li>", strLanguage);
             }
             divLanguageContainer.InnerHtml = Convert.ToString(sbLanguageHTML);
 

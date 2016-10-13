@@ -89,5 +89,15 @@ namespace Helpers
             return string.IsNullOrEmpty(url) ? "" : url.Replace("{DOMAIN}", commonIp.DomainName);
 
         }
+
+        public static string PtAcctPrefix
+        {
+            get
+            {
+                var settings = new customConfig.OperatorSettings("W88");
+                string prefix = settings.Values.Get("PTAccountPrefix");
+                return string.IsNullOrEmpty(prefix) ? "" : prefix;
+            }
+        }
     }
 }

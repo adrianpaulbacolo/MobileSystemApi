@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
+using Helpers.GameProviders;
+using Models;
 
 namespace Factories.Slots.Handlers
 {
@@ -14,22 +16,19 @@ namespace Factories.Slots.Handlers
     /// </summary>
     public class ISBHandler : GameLoaderBase
     {
-        private string fun;
-        private string real;
-        private string lobbyPage;
         private string currencyCode;
 
-        private string memberSessionId;
-
-        public ISBHandler(string token, string lobby, string currency)
-            : base(GameProvider.ISB)
+        public ISBHandler(string token, string lobby, string currency) : base(GameProvider.ISB)
         {
-            fun = GameSettings.GetGameUrl(GameProvider.ISB, GameLinkSetting.Fun);
-            real = GameSettings.GetGameUrl(GameProvider.ISB, GameLinkSetting.Real);
-
-            memberSessionId = token;
-            lobbyPage = lobby;
+            GameProvider = GameProvider.ISB;
             currencyCode = currency;
+            GameLink = new GameLinkInfo
+            {
+                Fun = GameSettings.GetGameUrl(GameProvider, GameLinkSetting.Fun),
+                Real = GameSettings.GetGameUrl(GameProvider, GameLinkSetting.Real),
+                MemberSessionId = token,
+                LobbyPage = lobby
+            };
         }
 
         protected override string SetLanguageCode()
@@ -39,6 +38,10 @@ namespace Factories.Slots.Handlers
             {
                 case "zh-cn":
                     languageCode = "chs";
+                    break;
+
+                case "id-id":
+                    languageCode = "id";
                     break;
 
                 case "th-th":
@@ -67,18 +70,27 @@ namespace Factories.Slots.Handlers
 
         protected override string CreateFunUrl(XElement element)
         {
+            var gpi = new Gpi(GameLink).CheckRSlot(GameLinkSetting.Fun, element);
+            if (!string.IsNullOrWhiteSpace(gpi))
+            {
+                return gpi;
+            }
+
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
-
             string currency = string.IsNullOrWhiteSpace(this.currencyCode) || this.currencyCode.Equals("rmb", StringComparison.OrdinalIgnoreCase) ? "CNY" : this.currencyCode;
-
-            return fun.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{CURRENCY}", currency).Replace("{LOBBY}", lobbyPage);
+            return GameLink.Fun.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{CURRENCY}", currency).Replace("{LOBBY}", GameLink.LobbyPage);
         }
 
         protected override string CreateRealUrl(XElement element)
         {
-            string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
+            var gpi = new Gpi(GameLink).CheckRSlot(GameLinkSetting.Real, element);
+            if (!string.IsNullOrWhiteSpace(gpi))
+            {
+                return gpi;
+            }
 
-            return real.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{TOKEN}", memberSessionId).Replace("{LOBBY}", lobbyPage);
+            string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
+            return GameLink.Real.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{TOKEN}", GameLink.MemberSessionId).Replace("{LOBBY}", GameLink.LobbyPage);
         }
     }
 }

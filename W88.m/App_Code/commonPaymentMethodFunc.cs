@@ -17,6 +17,16 @@ using svcPayMember;
 public static class commonPaymentMethodFunc
 {
 
+    public static MemberSecondaryBank[] GetSecondaryBanks()
+    {
+        using (var client = new MemberClient())
+        {
+            string statusCode, statusText;
+            return client.getSecondaryBankAccounts(Convert.ToInt64(commonVariables.OperatorId), commonCookie.CookieCurrency, "vn", out statusCode, out statusText);
+
+        }
+    }
+
     public static Task<getWalletBalanceResponse> GetWalletBalanceAsync(int walletId)
     {
         using (var svcInstance = new MemberClient())
@@ -277,6 +287,17 @@ public static class commonPaymentMethodFunc
                     anchor.Attributes.Add("href", "/Deposit/EGHL_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/EGHL.aspx");
+
+                list.Controls.Add(anchor);
+                depositTabs.Controls.Add(list);
+                break;
+
+            case commonVariables.DepositMethod.NganLuong:
+                list = CreateMethodListControl(paymentCode);
+
+                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
+
+                anchor.Attributes.Add("href", "/Deposit/NganLuong.aspx");
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);

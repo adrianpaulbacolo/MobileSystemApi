@@ -23,6 +23,63 @@
 
         <asp:ContentPlaceHolder ID="ScriptsPlaceHolder" runat="server"></asp:ContentPlaceHolder>
 
+        <div id="palazzoModal" data-role="popup" data-overlay-theme="b" data-theme="b" data-history="false">
+            <a href="#" data-rel="back" class="close close-enhanced" id="palazzoModalClose">&times;</a>
+            <br>
+            <h1 class="title">
+                <img src="/_Static/Images/logo-<%=commonVariables.SelectedLanguageShort%>.png" width="220" class="logo img-responsive" alt="logo">
+            </h1>
+            <div class="padding">
+                <div class="download-app padding">
+                    <h2 class="title"><%=commonCulture.ElementValues.getResourceXPathString("/Popup/Palazzo/SafariTitle", commonVariables.ProductsXML)%></h2>
+                    <div>
+                        <span><%=commonCulture.ElementValues.getResourceXPathString("/Popup/Palazzo/SafariSettings", commonVariables.ProductsXML)%></span><br>
+                    </div>
+                    <ul>
+                        <li><%=commonCulture.ElementValues.getResourceXPathString("/Popup/Palazzo/SafariBlockPopup", commonVariables.ProductsXML)%></li>
+                        <li><%=commonCulture.ElementValues.getResourceXPathString("/Popup/Palazzo/SafariDoNotTrack", commonVariables.ProductsXML)%></li>
+                        <li><%=commonCulture.ElementValues.getResourceXPathString("/Popup/Palazzo/SafariBlockCookies", commonVariables.ProductsXML)%></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ui-checkbox">
+                <label for="noShowModal">
+                    <small><%=commonCulture.ElementValues.getResourceXPathString("/Popup/DoNotShow", commonVariables.ProductsXML)%></small>
+                </label>
+                <input type="checkbox" name="noShowPalazzoModal" id="noShowPalazzoModal" data-enhanced="true">
+            </div>
+        </div>
+
+        <div id="gameModal" data-role="popup" data-overlay-theme="b" data-theme="b" data-history="false">
+            <a href="#" onclick="w88Mobile.Slots.closeGameModal()" class="close close-enhanced">&times;</a>
+            <div class="padding">
+                <div class="download-app padding slot-modal">
+                    <img id="gameImage" src="" class="img-responsive-full">
+
+                    <div class="row">
+                         <div class="col">
+                            <a id="gameFunUrl" href="#" onclick="w88Mobile.PiwikManager.trackTryNow()" class="ui-btn btn-secondary" role="button" data-ajax="false" target="_blank">
+                                <%=commonCulture.ElementValues.getResourceXPathString("/Products/Try", commonVariables.ProductsXML)%></a>
+                        </div>
+                        <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+                        <div class="col">
+                            <a id="gameRegisterUrl" href="#" class="ui-btn btn-primary" role="button" data-ajax="false">
+                                <%=commonCulture.ElementValues.getResourceString("joinnow", commonVariables.LeftMenuXML)%></a>
+                        </div>
+                        <div class="col">
+                            <a id="gameLoginUrl" href="#" class="ui-btn btn-dark" role="button" data-ajax="false">
+                                <%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></a>
+                        </div>
+                        <%} else {%>
+                        <div class="col">
+                            <a id="gameRealUrl" href="#" onclick="w88Mobile.PiwikManager.trackPlayNow()" class="ui-btn btn-primary" role="button" data-ajax="false" target="_blank">
+                                <%=commonCulture.ElementValues.getResourceXPathString("/Products/Play", commonVariables.ProductsXML)%></a>
+                        </div>
+                        <%}%>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

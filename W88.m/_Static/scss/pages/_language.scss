@@ -18,11 +18,19 @@
     }
 }
 
-#divLanguageContainer {
+.lang-list{
     width: 75%;
     max-width: $grid-responsive-sm-break;
     text-align: center;
     margin: $content-padding auto;
+    padding: 0;
+    list-style: none;
+    display: block;
+    li{
+        width: 50%;
+        float: left;
+        display:block;
+    }
     a {
         color: $base-color;
         width: 100px;
@@ -41,6 +49,14 @@
             left: 0; bottom: -$content-padding*2;
         }
     }
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
 }
 
 #diven-us {background: url('/_Static/Images/flags/en.svg') no-repeat center;}

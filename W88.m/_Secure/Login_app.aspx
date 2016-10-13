@@ -47,6 +47,11 @@
                             <asp:Button ID="btnSubmit" runat="server" Text="login" data-corners="false" />
                         </div>
                     </li>
+                     <li class="item row">
+                        <div class="col">
+                           <a href="ForgotPassword.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("forgotpassword", commonVariables.LeftMenuXML)%></a>
+                        </div>
+                    </li>
                 </ul>
 
                 <asp:HiddenField runat="server" ID="ioBlackBox" Value="" />

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
+using Helpers.GameProviders;
+using Models;
 
 namespace Factories.Slots.Handlers
 {
@@ -14,24 +16,21 @@ namespace Factories.Slots.Handlers
     /// </summary>
     public class BSHandler : GameLoaderBase
     {
-        private string fun;
-        private string real;
-        private string lobbyPage;
-        private string cashierPage;
         private GameDevice device;
 
-        private string memberSessionId;
-
-        public BSHandler(string token, string lobby, string cashier, GameDevice gameDevice)
-            : base(GameProvider.BS)
+        public BSHandler(string token, string lobby, string cashier, GameDevice gameDevice) : base(GameProvider.BS)
         {
-            fun = GameSettings.GetGameUrl(GameProvider.BS, GameLinkSetting.Fun);
-            real = GameSettings.GetGameUrl(GameProvider.BS, GameLinkSetting.Real);
-
-            memberSessionId = token;
-            lobbyPage = lobby;
-            cashierPage = cashier;
+            GameProvider = GameProvider.BS;
             device = gameDevice;
+
+            GameLink = new GameLinkInfo
+            {
+                Fun = GameSettings.GetGameUrl(GameProvider, GameLinkSetting.Fun),
+                Real = GameSettings.GetGameUrl(GameProvider, GameLinkSetting.Real),
+                MemberSessionId = token,
+                LobbyPage = lobby,
+                CashierPage = cashier
+            };
         }
 
         protected override string SetLanguageCode()
@@ -41,32 +40,39 @@ namespace Factories.Slots.Handlers
 
         protected override string CreateFunUrl(XElement element)
         {
-            string gameName = "";
-            if (GameDevice.IOS == device)
-                gameName = element.Attribute("IOSId") != null ? element.Attribute("IOSId").Value : "";
+            var gpi = new Gpi(GameLink).CheckRSlot(GameLinkSetting.Fun, element);
+            if (!string.IsNullOrWhiteSpace(gpi))
+            {
+                return gpi;
+            }
 
-            if (GameDevice.ANDROID == device)
-                gameName = element.Attribute("AndroidId") != null ? element.Attribute("AndroidId").Value : "";
-
-            if (GameDevice.WP == device)
-                gameName = element.Attribute("WPId") != null ? element.Attribute("WPId").Value : "";
-
-            return fun.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{LOBBY}", lobbyPage);
+            string gameName = GetGameId(element);
+            return GameLink.Fun.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{LOBBY}", GameLink.LobbyPage);
         }
 
         protected override string CreateRealUrl(XElement element)
         {
-            string gameName = "";
-            if (GameDevice.IOS == device)
-                gameName = element.Attribute("IOSId") != null ? element.Attribute("IOSId").Value : "";
+            var gpi = new Gpi(GameLink).CheckRSlot(GameLinkSetting.Real, element);
+            if (!string.IsNullOrWhiteSpace(gpi))
+            {
+                return gpi;
+            }
+           
+            string gameName = GetGameId(element);
+            return GameLink.Real.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{TOKEN}", GameLink.MemberSessionId).Replace("{CASHIER}", GameLink.CashierPage).Replace("{LOBBY}", GameLink.LobbyPage);
+        }
 
-            if (GameDevice.ANDROID == device)
-                gameName = element.Attribute("AndroidId") != null ? element.Attribute("AndroidId").Value : "";
-
-            if (GameDevice.WP == device)
-                gameName = element.Attribute("WPId") != null ? element.Attribute("WPId").Value : "";
-
-            return real.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{TOKEN}", memberSessionId).Replace("{CASHIER}", cashierPage).Replace("{LOBBY}", lobbyPage);
+        protected override string GetGameId(XElement xeGame)
+        {
+            switch (device)
+            {
+                case GameDevice.ANDROID:
+                    return xeGame.Attribute("AndroidId") != null ? xeGame.Attribute("AndroidId").Value : "";
+                case GameDevice.IOS:
+                    return xeGame.Attribute("IOSId") != null ? xeGame.Attribute("IOSId").Value : "";
+                default:
+                    return xeGame.Attribute("WPId") != null ? xeGame.Attribute("WPId").Value : "";
+            }
         }
     }
 }

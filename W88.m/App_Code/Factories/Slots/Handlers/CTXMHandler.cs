@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
+using Models;
 
 namespace Factories.Slots.Handlers
 {
@@ -12,32 +13,44 @@ namespace Factories.Slots.Handlers
     /// </summary>
     public class CTXMHandler : GameLoaderBase
     {
-        private string fun;
-        private string real;
 
-        private string memberSessionId;
-
-        public CTXMHandler(string token)
-            : base(GameProvider.CTXM)
+        public CTXMHandler(string token) : base(GameProvider.CTXM)
         {
-            fun = GameSettings.GetGameUrl(GameProvider.CTXM, GameLinkSetting.Fun);
-            real = GameSettings.GetGameUrl(GameProvider.CTXM, GameLinkSetting.Real);
+            GameProvider = GameProvider.CTXM;
+            GameLink = new GameLinkInfo
+            {
+                Fun = GameSettings.GetGameUrl(GameProvider, GameLinkSetting.Fun),
+                Real = GameSettings.GetGameUrl(GameProvider, GameLinkSetting.Real),
+                MemberSessionId = token
+            };
 
-            memberSessionId = token;
         }
 
         protected override string CreateFunUrl(XElement element)
         {
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
 
-            return fun.Replace("{GAME}", gameName);
+            string url = "";
+            string funUrl = IsElementExists("Fun", element, out url) ? url : GameLink.Fun;
+
+            string lang = SetSpecialUrlLanguageCode();
+            return funUrl.Replace("{GAME}", gameName).Replace("{DOMAIN}", commonIp.DomainName).Replace("{LANG}", lang);
         }
 
         protected override string CreateRealUrl(XElement element)
         {
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
 
-            return real.Replace("{GAME}", gameName).Replace("{TOKEN}", memberSessionId);
+            string url = "";
+            string realUrl = IsElementExists("Real", element, out url) ? url : GameLink.Real;
+
+            string lang = SetSpecialUrlLanguageCode();
+            return realUrl.Replace("{GAME}", gameName).Replace("{DOMAIN}", commonIp.DomainName).Replace("{LANG}", lang).Replace("{TOKEN}", GameLink.MemberSessionId);
+        }
+
+        private string SetSpecialUrlLanguageCode()
+        {
+            return commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase) ? "zh" : "en";
         }
     }
 }

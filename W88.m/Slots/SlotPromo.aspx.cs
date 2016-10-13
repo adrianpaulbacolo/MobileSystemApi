@@ -22,6 +22,11 @@ public partial class Slots_SlotPromo : BasePage
     protected void Page_Load(object sender, EventArgs e)
     {
 
+        if (commonCookie.CookieCurrency != "RMB")
+        {
+            Response.Redirect("/Index");
+        }
+
         if (Page.IsPostBack) return;
 
         SetTitle(commonCulture.ElementValues.getResourceString("Title", commonVariables.PromotionsXML));
@@ -53,14 +58,14 @@ public partial class Slots_SlotPromo : BasePage
         var yesterday = (DateTime.Now.Hour >= 2) ? DateTime.Now.AddDays(-1).Date : DateTime.Now.AddDays(-2).Date;
 
         var slotPromo = new SlotPromo();
-        var promoList = slotPromo.getPromo(yesterday, yesterday);
+        var promoResponse = slotPromo.getPromo(yesterday, yesterday);
         var claimPromo = new SlotPromo.SlotPromoItem();
-        if (promoList.Count > 0)
+        if (promoResponse.promoList.Count > 0)
         {
-            var filterPromo = promoList.Find(x => (x.game != null));
+            var filterPromo = promoResponse.promoList.Find(x => (x.game != null));
             if (filterPromo != null)
             {
-                claimPromo = promoList.Find(x => x.game.name != null);
+                claimPromo = promoResponse.promoList.Find(x => x.game.name != null);
                 claimPromo.info = slotPromo.getClaimInfo(claimPromo.id);
             }
 
@@ -83,9 +88,10 @@ public partial class Slots_SlotPromo : BasePage
         var sunday = monday.AddDays(6);
 
         var slotPromo = new SlotPromo();
-        var promoList = slotPromo.getPromo(monday, sunday);
+        var promoResponse = slotPromo.getPromo(monday, sunday);
+        promoResponse.promoList = promoResponse.promoList.ToList();
         JavaScriptSerializer serializer = new JavaScriptSerializer();
-        var responseData = serializer.Serialize(promoList.ToList());
+        var responseData = serializer.Serialize(promoResponse);
         return responseData;
     }
 
