@@ -172,6 +172,29 @@ public static class commonCookie
             }
         }
     }
+
+    public static string CookieDeviceId
+    {
+        get
+        {
+            HttpCookie cookie = HttpContext.Current.Request.Cookies.Get("fingerprint");
+            return cookie == null ? "" : cookie.Value;
+        }
+        set
+        {
+            if (!string.IsNullOrWhiteSpace(value))
+            {
+                HttpCookie cookie = HttpContext.Current.Request.Cookies.Get("fingerprint");
+                // if existing cookie is present, don't override
+                if (cookie == null || string.IsNullOrEmpty(cookie.Value))
+                {
+                    HttpCookie deviceId = new HttpCookie("fingerprint");
+                    deviceId.Value = value;
+                    HttpContext.Current.Response.Cookies.Add(deviceId);
+                }
+            }
+        }
+    }
     public static string CookieIsApp
     {
         get

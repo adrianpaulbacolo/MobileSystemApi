@@ -1,10 +1,17 @@
 ﻿using System;
+using System.Activities.Statements;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
+using System.Xml.Linq;
+using Factories.Slots;
+using Factories.Slots.Handlers;
+using Helpers;
+using Helpers.GameProviders;
+using Models;
 
 public partial class _Index : BasePage
 {
@@ -79,6 +86,15 @@ public partial class _Index : BasePage
                 var content = "";
                 var description = "";
 
+                if (promo.Attribute("Id") != null)
+                {
+                    var provider = string.Empty;
+                    if (promo.Attribute("provider") != null)
+                        provider = promo.Attribute("provider").Value;
+
+                    url = BuildUrl(promo, provider);
+                }
+
                 var hasCurrency = (promo.HasAttributes && promo.Attribute("currency") != null);
                 var isPublic = (promo.HasAttributes && promo.Attribute("public") != null);
 
@@ -124,5 +140,28 @@ public partial class _Index : BasePage
         {
         }
         return slider;
+    }
+
+    private string BuildUrl(XElement element, string provider)
+    {
+
+        if (provider.ToLower() == GameProvider.GPI.ToString().ToLower())
+        {
+            var funUrl = GameSettings.GetGameUrl(GameProvider.GPI, GameLinkSetting.Fun);
+            var realUrl = GameSettings.GetGameUrl(GameProvider.GPI, GameLinkSetting.Real);
+
+            var gpi = new Gpi(new GameLinkInfo
+            {
+                Fun = funUrl,
+                Real = realUrl,
+                MemberSessionId = commonVariables.CurrentMemberSessionId
+            });
+
+            return string.IsNullOrWhiteSpace(commonVariables.CurrentMemberSessionId)
+                ? gpi.BuildUrl(funUrl, element, GameLinkSetting.Fun)
+                : gpi.BuildUrl(realUrl, element, GameLinkSetting.Real);
+        }
+
+        return string.Empty;
     }
 }

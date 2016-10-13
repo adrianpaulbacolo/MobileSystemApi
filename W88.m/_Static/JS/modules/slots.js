@@ -7,17 +7,19 @@
                 var $this = $(this);
                 $this.prepend('<img src="/_Static/Images/Games/' + $this.attr('rel') + '" class="img-responsive-full">')
             });
+
+            $('.game-card > div').each(function () {
+                var $this = $(this);
+                $this.prepend('<img src="/_Static/Images/Games/' + $this.attr('rel') + '" class="img-responsive-full">')
+            });
+
             $("img").error(function () {
-                $(this).unbind("error").attr("src", "/_Static/Images/broken-lt.gif");
+                $(this).unbind("error").attr("src", "/_Static/Images/missing-image.jpg");
             });
-            $('li.slot-GPI').find('a[class*="track-play-now"]').each(function () {
-                var self = $(this);
-                self.on("click", w88Mobile.PiwikManager.trackPlayNow);
-            });
-            $('li.slot-GPI').find('a[class*="track-try-now"]').each(function () {
-                var self = $(this);
-                self.on("click", w88Mobile.PiwikManager.trackTryNow);
-            });
+
+            $('#gameLoginUrl').attr('href', '/_Secure/Login.aspx?redirect=' + encodeURIComponent('\/' + w88Mobile.Slots.club));
+            $('#gameRegisterUrl').attr('href', '/_Secure/Register.aspx?redirect=' + encodeURIComponent('\/' + w88Mobile.Slots.club));
+
             self.reCalcSpaces();
         },
         filterDisplay: function () {
@@ -50,16 +52,16 @@
             var parent = $('.bkg-game').parent().width();
             var box = $('.bkg-game').width();
 
-                var columns = Math.floor(parent / box);
+            var columns = Math.floor(parent / box);
 
-                var space = (parent - (box * columns)) / columns;
-                if (space == 0) {
-                    space = (parent - (box * columns)) / columns;
-                }
+            var space = (parent - (box * columns)) / columns;
+            if (space == 0) {
+                space = (parent - (box * columns)) / columns;
+            }
 
-                $('.bkg-game').css('margin-left', space / 2);
-                $('.bkg-game').css('margin-right', space / 2);
-                $('.bkg-game').css('margin-bottom', space);
+            $('.bkg-game').css('margin-left', space / 2);
+            $('.bkg-game').css('margin-right', space / 2);
+            $('.bkg-game').css('margin-bottom', space);
         },
         initPalazzo: function () {
             self = this;
@@ -126,6 +128,22 @@
                     window.open(realUrl, '_blank');
                 }
             }
+        },
+        showGameModal: function (img, real, fun) {
+
+            $('#gameImage').attr('src', '/_Static/Images/Games/' + img);
+
+            $('#gameFunUrl').attr('href', fun);
+            $('#gameRealUrl').attr('href', real);
+
+            $('#gameModal').popup();
+            $('#gameModal').popup('open');
+        },
+        closeGameModal: function () {
+
+            $('#gameImage').attr('src', '/_Static/Images/Games/missing-image.jpg');
+
+            $('#gameModal').popup('close');
         }
     }
 

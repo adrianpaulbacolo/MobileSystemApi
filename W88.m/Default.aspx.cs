@@ -52,7 +52,7 @@ public partial class _Default : BasePage
         {
             string strLanguage = language.Trim();
 
-            sbLanguageHTML.AppendFormat("<li class='col col-50'><a data-ajax='false' href='/Index.aspx?lang={0}' data-inline='true' id='div{0}' class='divLangImg div{0}'></a></li>", strLanguage);
+            sbLanguageHTML.AppendFormat("<li><a data-ajax='false' href='/Index.aspx?lang={0}' data-inline='true' id='div{0}' class='divLangImg div{0}'></a></li>", strLanguage);
         }
         divLanguageContainer.InnerHtml = Convert.ToString(sbLanguageHTML);
 

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
+using Models;
 
 namespace Factories.Slots.Handlers
 {
@@ -13,21 +14,16 @@ namespace Factories.Slots.Handlers
     /// </summary>
     public class PNGHandler : GameLoaderBase
     {
-        private string fun;
-        private string real;
-        private string lobbyPage;
-
-        private string memberSessionId;
-
-        public PNGHandler(string token, string lobby)
-            : base(GameProvider.PNG)
+        public PNGHandler(string token, string lobby) : base(GameProvider.PNG)
         {
-            fun = GameSettings.GetGameUrl(GameProvider.PNG, GameLinkSetting.Fun);
-            real = GameSettings.GetGameUrl(GameProvider.PNG, GameLinkSetting.Real);
-
             GameProvider = GameProvider.PNG;
-            memberSessionId = token;
-            lobbyPage = lobby;
+            GameLink = new GameLinkInfo
+            {
+                Fun = GameSettings.GetGameUrl(GameProvider, GameLinkSetting.Fun),
+                Real = GameSettings.GetGameUrl(GameProvider, GameLinkSetting.Real),
+                MemberSessionId = token,
+                LobbyPage = lobby
+            };
         }
 
         protected override string SetLanguageCode()
@@ -39,14 +35,14 @@ namespace Factories.Slots.Handlers
         {
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
 
-            return fun.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{LOBBY}", lobbyPage);
+            return GameLink.Fun.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{LOBBY}", GameLink.LobbyPage);
         }
 
         protected override string CreateRealUrl(XElement element)
         {
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
 
-            return real.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{TOKEN}", memberSessionId).Replace("{LOBBY}", lobbyPage);
+            return GameLink.Real.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{TOKEN}", GameLink.MemberSessionId).Replace("{LOBBY}", GameLink.LobbyPage);
         }
     }
 }

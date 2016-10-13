@@ -21,7 +21,7 @@ public partial class Funds : PaymentBasePage
         if (!obj.WalletInfo.Any()) return;
 
         var builder = new StringBuilder();
-        builder.Append("<ul class='row row-bordered bg-gradient'>");
+        builder.Append("<ul class='row row-uc row-bordered bg-gradient'>");
 
         foreach (var info in obj.WalletInfo.Where(info => info.Id != 0))
         {

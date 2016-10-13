@@ -42,6 +42,7 @@ public partial class _Secure_Register : BasePage
             commonCookie.CookieReferralId = HttpContext.Current.Request.QueryString.Get("referid");
         }
 
+
             if (string.IsNullOrEmpty(commonVariables.GetSessionVariable("AffiliateId")))
             {
             var affiliateId = HttpContext.Current.Request.QueryString.Get("AffiliateId");
@@ -403,7 +404,7 @@ public partial class _Secure_Register : BasePage
             }
 
             var strReferBy = commonCookie.CookieReferralId;
-            string strDeviceId = "Mobile";
+            string strDeviceId = !String.IsNullOrEmpty(commonCookie.CookieDeviceId) ? commonCookie.CookieDeviceId : "Mobile";
 
             System.Data.DataSet dsRegister = null;
 
@@ -481,7 +482,12 @@ public partial class _Secure_Register : BasePage
                 commonAuditTrail.appendLog("system", strPageName, "MemberRegistrationNew", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
                 if (strAlertCode == "1")
                 {
-                    Response.Redirect("/Funds.aspx?lang=" + commonVariables.SelectedLanguage.ToLower(), false);
+                    string strRedirect = Request.QueryString.Get("redirect");
+
+                    if (string.IsNullOrWhiteSpace(strRedirect))
+                        Response.Redirect("/Funds.aspx?lang=" + commonVariables.SelectedLanguage.ToLower(), false);
+                    else
+                        Response.Redirect(strRedirect, false);
                 }
             }
         }

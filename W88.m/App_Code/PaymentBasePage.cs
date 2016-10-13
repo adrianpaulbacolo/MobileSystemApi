@@ -98,6 +98,7 @@ public class PaymentBasePage : BasePage
     protected string strUnlimited = string.Empty;
 
     protected string strlblMessage = string.Empty;
+    protected string strlblVendorNote = string.Empty;
 
     protected string strlblAccountName = string.Empty;
     protected string strlblAccountNumber = string.Empty;
@@ -179,6 +180,8 @@ public class PaymentBasePage : BasePage
         strlblAccountNumber = commonCulture.ElementValues.getResourceString("lblAccountNumber", xeDefaultResources);
 
         strlblMessage = commonCulture.ElementValues.getResourceString("browserNotice", xeDefaultResources);
+
+        strlblVendorNote = commonCulture.ElementValues.getResourceString("vendorRedirectionNote", xeDefaultResources);
     }
 
     protected void CancelUnexpectedRePost()

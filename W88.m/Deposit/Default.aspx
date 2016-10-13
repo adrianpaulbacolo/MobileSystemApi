@@ -45,6 +45,12 @@
                     if ($('#depositTabs li').first().children().attr('href') != undefined) {
                         window.location.replace($('#depositTabs li').first().children().attr('href'));
                     } else {
+                        // track accounts with no gateways
+                        w88Mobile.PiwikManager.trackEvent({
+                            category: "Deposit",
+                            action: "<%=base.strCountryCode %>",
+                            name: "<%=base.strMemberID %>"
+                            });
                         $('#paymentNote').append('<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>');
                     }
                 }

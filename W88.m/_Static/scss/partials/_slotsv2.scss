@@ -1,0 +1,115 @@
+// Slot Revamp Phase 1
+#slots .slots-v2{
+	overflow-x: auto;
+	.ui-collapsible{
+		margin-left: auto;
+		margin-right: auto;
+	    max-width: 1200px;
+	}
+	.ui-collapsible-content {
+	    overflow: auto;
+	}
+	.ui-collapsible-heading .ui-btn{
+		padding: .5em 1.5%;
+	}
+}
+.box {
+    padding: 15px 1.5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    clear: both;
+    overflow: auto;
+}
+
+.game-card-box {
+    margin-left: -1.5%;
+    margin-right: -1.5%;
+    clear: both;
+    overflow: auto;
+}
+
+.game-card {
+    width: 30%;
+    background: #fff;
+    padding: 5px;
+    float: left;
+    margin: 0 1.5% 3% 1.5%;
+    display: block;
+    overflow: hidden;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    > div{
+        height: 0;
+        padding-bottom: 100%;
+        overflow: hidden;
+        background: url('/_Static/Images/missing-image.jpg') no-repeat center center ;
+        background-size: 100%;
+        @include border-radius(6px);
+        img {
+            max-width: 100%;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            display: block;
+        }
+    }
+}
+
+.slot-modal{
+    img{
+        @extend .game-card;
+        width: 100px !important;
+        margin: 2em auto;
+        display: block;
+        float: none;
+    }
+     .ui-btn{
+        text-transform: uppercase;
+    }
+}
+
+@media (min-width: 414px) {
+    .game-card {
+        width: 22%;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .slot-modal{
+        .row{
+            display: block;
+        }
+        .ui-btn{
+            margin: 0;
+        }
+    }
+
+}
+
+@media (min-width: 560px) {
+    .game-card {
+        width: 17%;
+    }
+}
+
+@media (min-width: 720px) {
+    .game-card {
+        width: 13.66%;
+    }
+}
+
+@media (min-width: 992px) {
+    .game-card {
+        width: 11.28%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .game-card {
+        width: 9.5%;
+    }
+}

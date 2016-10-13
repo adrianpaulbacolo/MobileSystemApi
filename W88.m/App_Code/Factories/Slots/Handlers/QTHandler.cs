@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
+using Helpers.GameProviders;
+using Models;
 
 namespace Factories.Slots.Handlers
 {
@@ -13,37 +15,42 @@ namespace Factories.Slots.Handlers
     /// </summary>
     public class QTHandler : GameLoaderBase
     {
-        private string fun;
-        private string real;
-        private string lobbyPage;
-
-        private string memberSessionId;
-
-        public QTHandler(string token, string lobby)
-            : base(GameProvider.QT)
+        public QTHandler(string token, string lobby) : base(GameProvider.QT)
         {
-            fun = GameSettings.GetGameUrl(GameProvider.QT, GameLinkSetting.Fun);
-            real = GameSettings.GetGameUrl(GameProvider.QT, GameLinkSetting.Real);
-
             GameProvider = GameProvider.QT;
-            memberSessionId = token;
-            lobbyPage = lobby;
+            GameLink = new GameLinkInfo
+            {
+                Fun = GameSettings.GetGameUrl(GameProvider, GameLinkSetting.Fun),
+                Real = GameSettings.GetGameUrl(GameProvider, GameLinkSetting.Real),
+                MemberSessionId = token,
+                LobbyPage = lobby
+            };
         }
 
         protected override string CreateFunUrl(XElement element)
         {
+            var gpi = new Gpi(GameLink).CheckRSlot(GameLinkSetting.Fun, element);
+            if (!string.IsNullOrWhiteSpace(gpi))
+            {
+                return gpi;
+            }
+
             string lang = GetGameLanguage(element);
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
-
-            return fun.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{CURRENCY}", GetCurrencyByLanguage()).Replace("{LOBBY}", lobbyPage);
+            return GameLink.Fun.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{CURRENCY}", GetCurrencyByLanguage()).Replace("{LOBBY}", GameLink.LobbyPage);
         }
 
         protected override string CreateRealUrl(XElement element)
         {
+            var gpi = new Gpi(GameLink).CheckRSlot(GameLinkSetting.Real, element);
+            if (!string.IsNullOrWhiteSpace(gpi))
+            {
+                return gpi;
+            }
+
             string lang = GetGameLanguage(element);
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
-
-            return real.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{TOKEN}", memberSessionId).Replace("{LOBBY}", lobbyPage);
+            return GameLink.Real.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{TOKEN}", GameLink.MemberSessionId).Replace("{LOBBY}", GameLink.LobbyPage);
         }
 
         private string GetCurrencyByLanguage()

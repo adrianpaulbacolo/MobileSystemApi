@@ -17,4 +17,10 @@ namespace Models
 
         public string PageName = "Login";
     }
+
+    public class ForgotInfo
+    {
+        public string Username { get; set; }
+        public string Email { get; set; }
+    }
 }
