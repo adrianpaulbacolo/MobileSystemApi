@@ -175,7 +175,7 @@ public class SlotPromo
             }
             else
             {
-                slotItem.status = 0; // yester years
+                slotItem.status = 1; // yester years
             }
 
         }

@@ -55,9 +55,10 @@
     </div>
 
     <style>
-        div.daily-slots{
-            background-color:#252525;
+        div.daily-slots {
+            background-color: #252525;
         }
+
         div.daily-slots-claim-terms ol li span {
             text-transform: uppercase;
         }
@@ -241,23 +242,23 @@
 
             var playButton = $("<button>", { class: "ui-btn btn-primary", type: "button" })
                 .html("<%=commonCulture.ElementValues.getResourceString("PlayNow", commonVariables.PromotionsXML)%>");
-                    playButton.on("click", function () {
-                        var cUrl = window.location.hostname;
-                        window.open(activePromoClaim.game.game_link);
-                    })
-                    $(".daily-slots-claim").append(playButton);
-                }
+                playButton.on("click", function () {
+                    var cUrl = window.location.hostname;
+                    window.open(activePromoClaim.game.game_link);
+                })
+                $(".daily-slots-claim").append(playButton);
+            }
     }
 
-        function fetchPromo(week) {
+    function fetchPromo(week) {
 
-            var curDay = moment().day();
-            var monday = moment().add(week, "week");
-            if (curDay > 1) {
-                monday = moment(monday).add(1 - curDay, "day");
-            }
-            var sunday = moment(monday).add(6, "day");
-            var weekLabel = "<%=commonCulture.ElementValues.getResourceString("WeeklyLabel", commonVariables.PromotionsXML)%>";
+        var curDay = moment().day();
+        var monday = moment().add(week, "week");
+        if (curDay > 1) {
+            monday = moment(monday).add(1 - curDay, "day");
+        }
+        var sunday = moment(monday).add(6, "day");
+        var weekLabel = "<%=commonCulture.ElementValues.getResourceString("WeeklyLabel", commonVariables.PromotionsXML)%>";
             weekLabel = weekLabel.replace("{from}", monday.format("DD/MM/YYYY")).replace("{to}", sunday.format("DD/MM/YYYY"));
             $("#weekly-label").html(weekLabel);
 
@@ -295,26 +296,30 @@
                                 //inactive for other state
                                 state = "daily-active";
                                 claimText = "<%=commonCulture.ElementValues.getResourceString("ClaimNow", commonVariables.PromotionsXML)%>";
-                                    break;
-                                case 0:
-                                case 1:
-                                    claimText = promo.endDate;
-                                    break;
-                            }
-                            var gameItem = $("<li>", { class: "bkg-game " + state })
-                            .append($("<div>", { rel: promo.game.Id })
-                                .append($("<img>", { src: promo.game.image_link, class: "img-responsive-full" }))
-                                .append($("<div>", { class: "daily-game-action" })
-                                    .append($("<span>", {}).html(claimText))));
-                            gameItem.on("click", function () {
-                                claimPromo(promo);
-                            });
-                            $("#promo-list").append(gameItem).append(" ");
+                                break;
+                            case 0:
+                                state = "daily-inactive";
+                                claimText = promo.endDate;
+                                break;
+                            case 1:
+                                state = "";
+                                claimText = promo.endDate;
+                                break;
+                        }
+                        var gameItem = $("<li>", { class: "bkg-game " + state })
+                        .append($("<div>", { rel: promo.game.Id })
+                            .append($("<img>", { src: promo.game.image_link, class: "img-responsive-full" }))
+                            .append($("<div>", { class: "daily-game-action" })
+                                .append($("<span>", {}).html(claimText))));
+                        gameItem.on("click", function () {
+                            claimPromo(promo);
                         });
-                    }
-                });
+                        $("#promo-list").append(gameItem).append(" ");
+                    });
+                }
+            });
 
-            }
+        }
 
     </script>
 </asp:Content>
