@@ -53,27 +53,24 @@
             <% } %>
 
         <script type="text/javascript">
-            $('#form1').submit(function (e) {
+            $(document).ready(function () {
                 window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
 
                 window.w88Mobile.Gateways.NganLuong.deposit("", function (response) {
                     switch (response.ResponseCode) {
                         case 1:
-                            window.open(response.ResponseData.VendorRedirectionUrl);
+                            window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
+
+                            $('#btnSubmit').click(function (e) {
+                                window.open(response.ResponseData.VendorRedirectionUrl, '_blank');
+                            });
                             break;
                         default:
                             w88Mobile.Growl.shout(response.ResponseMessage);
                             break;
                     }
-                },
-                function () { console.log("Error connecting to api"); },
-                function () {
-                    window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
-                    GPINTMOBILE.HideSplash();
                 });
-
             });
-
         </script>
     </div>
 </body>
