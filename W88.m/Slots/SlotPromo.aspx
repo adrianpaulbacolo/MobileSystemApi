@@ -302,6 +302,7 @@
                                 claimText = promo.endDate;
                                 break;
                             case 1:
+                            case 2:
                                 state = "";
                                 claimText = promo.endDate;
                                 break;
