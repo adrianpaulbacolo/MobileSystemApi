@@ -259,43 +259,43 @@
         }
         var sunday = moment(monday).add(6, "day");
         var weekLabel = "<%=commonCulture.ElementValues.getResourceString("WeeklyLabel", commonVariables.PromotionsXML)%>";
-            weekLabel = weekLabel.replace("{from}", monday.format("DD/MM/YYYY")).replace("{to}", sunday.format("DD/MM/YYYY"));
-            $("#weekly-label").html(weekLabel);
+        weekLabel = weekLabel.replace("{from}", monday.format("DD/MM/YYYY")).replace("{to}", sunday.format("DD/MM/YYYY"));
+        $("#weekly-label").html(weekLabel);
 
-            _.forEach($(".daily-slots-promo-nav > li"), function (nav) {
-                var childNav = $(nav).children(":first");
-                if ($(nav).attr("data-week") != week) {
-                    childNav.removeClass("active");
-                } else {
-                    if (!childNav.hasClass("active")) childNav.addClass("active");
-                }
-            });
-            $.ajax({
-                url: "SlotPromo.aspx/getWeeklyPromo",
-                data: { week: week },
-                type: "GET",
-                dataType: "json",
-                contentType: "application/json; charset=utf-8",
-                beforeSend: function () {
-                    $("#promo-list").html(loader);
-                },
-                success: function (mydata) {
-                    $("#promo-list").children().remove();
-                    var response = JSON.parse(mydata.d);
-                    var promoList = response.promoList;
+        _.forEach($(".daily-slots-promo-nav > li"), function (nav) {
+            var childNav = $(nav).children(":first");
+            if ($(nav).attr("data-week") != week) {
+                childNav.removeClass("active");
+            } else {
+                if (!childNav.hasClass("active")) childNav.addClass("active");
+            }
+        });
+        $.ajax({
+            url: "SlotPromo.aspx/getWeeklyPromo",
+            data: { week: week },
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            beforeSend: function () {
+                $("#promo-list").html(loader);
+            },
+            success: function (mydata) {
+                $("#promo-list").children().remove();
+                var response = JSON.parse(mydata.d);
+                var promoList = response.promoList;
 
-                    if (!_.isEmpty(response.message)) w88Mobile.Growl.shout(response.message);
+                if (!_.isEmpty(response.message)) w88Mobile.Growl.shout(response.message);
 
-                    _.forEach(promoList, function (promo) {
-                        if (_.isEmpty(promo.game) || _.isEmpty(promo.game.Id)) return;
-                        promo.endDate = moment(promo.start).format("MM/DD/YYYY");
-                        var state = "";
-                        var claimText = "";
-                        switch (promo.status) {
-                            case -1:
-                                //inactive for other state
-                                state = "daily-active";
-                                claimText = "<%=commonCulture.ElementValues.getResourceString("ClaimNow", commonVariables.PromotionsXML)%>";
+                _.forEach(promoList, function (promo) {
+                    if (_.isEmpty(promo.game) || _.isEmpty(promo.game.Id)) return;
+                    promo.endDate = moment(promo.start).format("MM/DD/YYYY");
+                    var state = "";
+                    var claimText = "";
+                    switch (promo.status) {
+                        case -1:
+                            //inactive for other state
+                            state = "daily-active";
+                            claimText = "<%=commonCulture.ElementValues.getResourceString("ClaimNow", commonVariables.PromotionsXML)%>";
                                 break;
                             case 0:
                                 state = "daily-inactive";
@@ -312,9 +312,11 @@
                             .append($("<img>", { src: promo.game.image_link, class: "img-responsive-full" }))
                             .append($("<div>", { class: "daily-game-action" })
                                 .append($("<span>", {}).html(claimText))));
-                        gameItem.on("click", function () {
-                            claimPromo(promo);
-                        });
+                        if (promo.status != 0) {
+                            gameItem.on("click", function () {
+                                claimPromo(promo);
+                            });
+                        }
                         $("#promo-list").append(gameItem).append(" ");
                     });
                 }
