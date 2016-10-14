@@ -46,7 +46,7 @@
                 options: {
                     views_root: './'
                 },
-                src: 'Default.aspx'
+                src: '_Static/head.inc'
             }
         },
         uglify: {
