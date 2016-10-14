@@ -37,6 +37,16 @@
                     </figcaption>
                 </figure>
             </li>
+            <li class="col">
+                <figure class="banner">
+                    <img src="_Static/Images/sports/e-sports-banner.jpg" class="img-responsive img-bg">
+                    <figcaption class="banner-caption">
+                        <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/XSports/Label", commonVariables.ProductsXML)%></h3>
+                        <p><%=commonCulture.ElementValues.getResourceXPathString("Products/XSports/Description", commonVariables.ProductsXML)%></p>
+                        <a href="<%=commonXSports.SportsBookUrl%>" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
+                    </figcaption>
+                </figure>
+            </li>
             <%
                 try
                 {
@@ -54,7 +64,7 @@
                 </figure>
             </li>
             <%}%>
-            <%if (deviceId == 2|| deviceId == 3)
+            <%if (deviceId == 2 || deviceId == 3)
               {%>
             <li class="col">
                 <figure class="banner">
@@ -67,7 +77,7 @@
                 </figure>
             </li>
             <%}%>
-            
+
             <%}
                 catch (Exception) { }%>
         </ul>
