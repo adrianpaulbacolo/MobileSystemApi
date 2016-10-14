@@ -81,8 +81,5 @@
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-filerev');
     grunt.loadNpmTasks('grunt-filerev-replace');
-    grunt.registerTask('default', ['sass']);
     grunt.registerTask('default', ['sass', 'concat', 'uglify', 'filerev', 'filerev_replace']);
-    grunt.registerTask('prod-release', ['sass', 'concat', 'uglify', 'filerev', 'filerev_replace']);
-
 };
