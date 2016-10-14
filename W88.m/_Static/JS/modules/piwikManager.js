@@ -15,6 +15,10 @@ function piwikManager() {
         return {};
     }
 
+    function setGoals(configGoals) {
+        if (!_.isEmpty(configGoals)) goals = configGoals;
+    }
+
     function setPiwik(customPiwik){
         piwik = customPiwik;
     }
@@ -62,7 +66,7 @@ function piwikManager() {
             piwik.setCustomVariable(obj.index, obj.name, obj.value, obj.scope);
         } else if (!_.isUndefined(_paq)) {
             _paq.push(["setCustomVariable", obj.index, obj.name, obj.value, obj.scope]);
-        }
+        } 
     }
 
     return {
@@ -70,6 +74,7 @@ function piwikManager() {
         trackTryNow: trackTryNow,
         setUserId: setUserId,
         trackEvent: trackEvent,
-        setDeviceId: setDeviceId
+        setDeviceId: setDeviceId,
+        setGoals: setGoals
     }
 }
