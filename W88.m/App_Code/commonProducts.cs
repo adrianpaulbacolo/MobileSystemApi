@@ -262,8 +262,19 @@ public class commonXSports
 
             if (!string.IsNullOrWhiteSpace(user.CurrentSessionId))
             {
+                var curr = commonCookie.CookieCurrency;
+                switch (curr.ToLower())
+                {
+                    case "rmb":
+                        curr = "CNY";
+                        break;
+                    case "vnd":
+                        curr = "VD";
+                        break;
+                }
+
                 url = opSettings.Values.Get("xSportsRealUrl");
-                url = url.Replace("{TOKEN}", user.CurrentSessionId).Replace("{USER}", user.MemberId).Replace("{CURR}", commonCookie.CookieCurrency);
+                url = url.Replace("{TOKEN}", user.CurrentSessionId).Replace("{USER}", user.MemberId).Replace("{CURR}", curr);
             }
 
             return url.Replace("{DOMAIN}", commonIp.DomainName).Replace("{LANG}", commonVariables.SelectedLanguage);
