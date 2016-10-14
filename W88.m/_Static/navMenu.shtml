@@ -134,7 +134,7 @@
                 </li> 
                 <li>
                     <a class="card" data-rel="sports" rel="vsports" href="<%=commonXSports.SportsBookUrl%>" data-transition="slidedown" data-ajax="false">
-                        <img src="/_Static/Images/sports/bnr-vSports.jpg" class="img-responsive">
+                        <img src="/_Static/Images/sports/bnr-xsports.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/XSports/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li> 

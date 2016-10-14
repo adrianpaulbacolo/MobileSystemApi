@@ -39,7 +39,7 @@
             </li>
             <li class="col">
                 <figure class="banner">
-                    <img src="_Static/Images/sports/e-sports-banner.jpg" class="img-responsive img-bg">
+                    <img src="_Static/Images/sports/x-sports-banner.jpg" class="img-responsive img-bg">
                     <figcaption class="banner-caption">
                         <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/XSports/Label", commonVariables.ProductsXML)%></h3>
                         <p><%=commonCulture.ElementValues.getResourceXPathString("Products/XSports/Description", commonVariables.ProductsXML)%></p>
