@@ -13,12 +13,12 @@
                         <span></span>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="More">
-                        <li><a data-ajax="false" href="/Catalogue?categoryId=0&sortBy=2"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Catalogue)%></a></li>                                                
-                        <li><a data-ajax="false" href="/Lang.aspx"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Language)%></a></li>
-                        <li><a data-ajax="false" href="/_Static/Info/Terms.aspx?lang=<%=LanguageHelpers.SelectedLanguage%>"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.TNC)%></a></li>
                         <li><a data-ajax="false" href="/_Static/Info/About.aspx?lang=<%=LanguageHelpers.SelectedLanguage%>"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.About)%></a></li>
-                        <li><a data-ajax="false" href="/_Static/Info/FAQ.aspx?lang=<%=LanguageHelpers.SelectedLanguage%>"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.FAQ)%></a></li>
-                        <li><a data-ajax="false" href="/_Static/Info/Levels.aspx?lang=<%=LanguageHelpers.SelectedLanguage%>"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Levels)%></a></li>                                             
+                        <li><a data-ajax="false" href="/_Static/Info/Levels.aspx?lang=<%=LanguageHelpers.SelectedLanguage%>"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Levels)%></a></li> 
+                        <li><a data-ajax="false" href="/Catalogue?categoryId=0&sortBy=2"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Catalogue)%></a></li>    
+                        <li><a data-ajax="false" href="/_Static/Info/Terms.aspx?lang=<%=LanguageHelpers.SelectedLanguage%>"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.TNC)%></a></li>  
+                        <li><a data-ajax="false" href="/_Static/Info/FAQ.aspx?lang=<%=LanguageHelpers.SelectedLanguage%>"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.FAQ)%></a></li>                                           
+                        <li><a data-ajax="false" href="/Lang.aspx"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Language)%></a></li>                                                                  
                         <li id="headerLoginButton"><a data-ajax="false" href="/_Secure/Login.aspx"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Login)%></a></li>
                         <li id="headerLogoutButton"><a href="javascript: logout();"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Logout)%></a></li>
                     </ul>
