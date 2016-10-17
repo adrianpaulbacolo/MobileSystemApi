@@ -162,7 +162,7 @@
             $(function () {
                 $("#drpContact").attr("disabled", "disabled").off('click');
                 $("#drpDOB").attr("disabled", "disabled").off('click');
-                if (CDNCountry.length > 0 && setCurrency(CDNCountry)) {
+                if (CDNCountry.length > 0 && CDNCountry.toLocaleLowerCase() != "xx" && setCurrency(CDNCountry)) {
                     $('#hidValues').val(CDNCountry + "|" + domain + "|" + "<%= !String.IsNullOrEmpty(headers.ip) ? headers.ip : commonIp.UserIP %>" + "|-");
                 } else {
                     $.ajax({
