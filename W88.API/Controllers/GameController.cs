@@ -27,7 +27,7 @@ namespace W88.API
             {
                 await CheckToken(request);
 
-                UserRequest.UserInfo.LanguageCode = getLanguage(request);
+                UserRequest.UserInfo.LanguageCode = GetLanguage(request);
 
                 var strategy = GameStrategy.Initialize(gameProvider, UserRequest.UserInfo, gameInfo.Lobby, gameInfo.Cashier, gameInfo.LiveChat, gameInfo.Logout, gameInfo.Device);
 

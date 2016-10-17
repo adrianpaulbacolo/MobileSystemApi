@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
+using Helpers.GameProviders;
 using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Games.Handlers;
 using W88.BusinessLogic.Games.Models;
@@ -66,18 +67,31 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
 
         protected override string CreateFunUrl(XElement element)
         {
-            string gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
-
-            string currency = string.IsNullOrWhiteSpace(this.currencyCode) || this.currencyCode.Equals("rmb", StringComparison.OrdinalIgnoreCase) ? "CNY" : this.currencyCode;
-
-            return GameLink.Fun.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{CURRENCY}", currency).Replace("{LOBBY}", GameLink.LobbyPage);
+            return BuildUrl(element, GameLinkSetting.Fun);
         }
 
         protected override string CreateRealUrl(XElement element)
         {
-            string gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
+            return BuildUrl(element, GameLinkSetting.Real);
+        }
 
-            return GameLink.Real.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{TOKEN}", GameLink.MemberSessionId).Replace("{LOBBY}", GameLink.LobbyPage);
+        private string BuildUrl(XElement element, GameLinkSetting setting)
+        {
+            var gpi = new Gpi(GameLink, LanguageCode).CheckRSlot(setting, element);
+            if (!string.IsNullOrWhiteSpace(gpi))
+            {
+                return gpi;
+            }
+
+            var gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
+            if (setting == GameLinkSetting.Real)
+            {
+               
+                return GameLink.Real.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{TOKEN}", GameLink.MemberSessionId).Replace("{LOBBY}", GameLink.LobbyPage);
+            }
+
+            var currency = string.IsNullOrWhiteSpace(this.currencyCode) || this.currencyCode.Equals("rmb", StringComparison.OrdinalIgnoreCase) ? "CNY" : this.currencyCode;
+            return GameLink.Fun.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{CURRENCY}", currency).Replace("{LOBBY}", GameLink.LobbyPage);
         }
     }
 }

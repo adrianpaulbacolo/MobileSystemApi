@@ -31,13 +31,10 @@ namespace W88.API
             return UserRequest.TokenIsValid;
         }
 
-        protected string getLanguage(HttpRequestMessage request)
+        protected string GetLanguage(HttpRequestMessage request)
         {
-            var languages = new LanguageHelpers();
-            var defLang = string.Empty;
-            languages.Language.TryGetValue("en-us", out defLang);
             var language = request.GetHeader(Constants.VarNames.LanguageCode);
-            return (!string.IsNullOrEmpty(language)) ? language: defLang;
+            return (!string.IsNullOrEmpty(language)) ? language : "en-us";
         }
 
         protected HttpResponseMessage ReturnResponse(ProcessCode process, Exception e = null)

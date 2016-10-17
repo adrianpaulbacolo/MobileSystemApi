@@ -36,7 +36,7 @@ namespace W88.BusinessLogic.Funds.Helpers
                 if (promo.StatusCode != "00")
                 {
                     ftResponse.FtCode = promo.StatusCode;
-                    ftResponse.Message = promo.StatusText;
+                    ftResponse.Message = new[] {promo.StatusText};
                     return ftResponse;
                 }
             }
@@ -62,10 +62,11 @@ namespace W88.BusinessLogic.Funds.Helpers
 
                 ftResponse.FtCode = CultureHelpers.ElementValues.GetResourceString("statusCode", response.initiateTransferResult);
 
+                string[] msg;
                 switch (ftResponse.FtCode)
                 {
                     case "-60":
-                        ftResponse.Message = GetMessage("FT_TransferFailed");
+                        ftResponse.Message = new[] {GetMessage("FT_TransferFailed")};
                         break;
                     case "00":
                         ftResponse.TransferId =
@@ -78,27 +79,25 @@ namespace W88.BusinessLogic.Funds.Helpers
 
                         if (string.Compare(funds.TransferFrom, "6", true) == 0)
                         {
-                            strPokerAddOn = "[break]" + user.CurrencyCode + " " +
-                                            CultureHelpers.ElementValues.GetResourceString("transferAmount",
-                                                response.initiateTransferResult) + GetMessage("FT_USDDeposited");
+                            strPokerAddOn = user.CurrencyCode + " " + CultureHelpers.ElementValues.GetResourceString("transferAmount", response.initiateTransferResult) + GetMessage("FT_USDDeposited");
                         }
                         else if (string.Compare(funds.TransferTo, "6", true) == 0)
                         {
-                            strPokerAddOn = "[break]USD " +
-                                            Utilities.Constant.DisplaySettings.RoundDown(
-                                                CultureHelpers.ElementValues.GetResourceString("transferAmount",
-                                                    response.initiateTransferResult), 2) + GetMessage("FT_USDDeposited");
+                            strPokerAddOn = "USD " + DisplaySettings.RoundDown(CultureHelpers.ElementValues.GetResourceString("transferAmount", response.initiateTransferResult), 2) + GetMessage("FT_USDDeposited");
                         }
 
-                        ftResponse.Message = string.Format("{0}{1}{2}", GetMessage("FT_TransferSuccess"), GetMessage("FT_BalanceBeforeAfter"), strPokerAddOn);
-                        ftResponse.Message = ftResponse.Message.Replace("{walletFrom}",
-                            string.Format("{0} => {1}",
-                                Convert.ToDecimal(
-                                    CultureHelpers.ElementValues.GetResourceString("transferFromBalanceBefore",
-                                        response.initiateTransferResult)).ToW88StringFormat(),
-                                Convert.ToDecimal(
-                                    CultureHelpers.ElementValues.GetResourceString("transferFromBalanceAfter",
-                                        response.initiateTransferResult)).ToW88StringFormat()))
+                        msg = new string[4];
+                        msg[0] = GetMessage("FT_TransferSuccess");
+                        
+                        msg[1] = GetMessage("FT_BalanceWalletFrom").Replace("{walletFrom}", string.Format("{0} => {1}",
+                            Convert.ToDecimal(
+                                CultureHelpers.ElementValues.GetResourceString("transferFromBalanceBefore",
+                                    response.initiateTransferResult)).ToW88StringFormat(),
+                            Convert.ToDecimal(
+                                CultureHelpers.ElementValues.GetResourceString("transferFromBalanceAfter",
+                                    response.initiateTransferResult)).ToW88StringFormat()));
+
+                        msg[2] = GetMessage("FT_BalanceWalletTo")
                             .Replace("{walletTo}",
                                 string.Format("{0} => {1}",
                                     Convert.ToDecimal(
@@ -107,77 +106,87 @@ namespace W88.BusinessLogic.Funds.Helpers
                                     Convert.ToDecimal(
                                         CultureHelpers.ElementValues.GetResourceString("transferToBalanceAfter",
                                             response.initiateTransferResult)).ToW88StringFormat()));
+
+                        msg[3] = strPokerAddOn;
+
+                        ftResponse.Message = msg;
+
                         break;
 
                     case "12":
-                        ftResponse.Message = GetMessage("FT_InvalidFundTransfer");
+                        ftResponse.Message =  new[] {GetMessage("FT_InvalidFundTransfer")};
                         break;
                     case "13":
-                        ftResponse.Message = GetMessage("FT_TransferAmountDisallowed");
+                        ftResponse.Message =  new[] {GetMessage("FT_TransferAmountDisallowed")};
                         break;
                     case "51": // "Transfer Declined - Reference ID already in used";
-                        ftResponse.Message = GetMessage("FT_TransferFailed");
+                        ftResponse.Message =  new[] {GetMessage("FT_TransferFailed")};
                         break;
                     case "53":
-                        ftResponse.Message = GetMessage("FT_TransferDeclined") + "[break]" + GetMessage("FT_InsufficientFunds");
+                        msg = new string[2];
+                        msg[0] = GetMessage("FT_TransferDeclined");
+                        msg[1] = GetMessage("FT_InsufficientFunds");
+                        ftResponse.Message = msg;
                         break;
                     case "54":
-                        ftResponse.Message = GetMessage("FT_UnderMaintenance");
+                        ftResponse.Message = new[] {GetMessage("FT_UnderMaintenance")};
                         break;
                     case "55": // "Transfer Declined - Funds refunded"
-                        ftResponse.Message = GetMessage("ServerError");
+                        ftResponse.Message = new[] {GetMessage("ServerError")};
                         break;
                     case "62":
-                        ftResponse.Message = GetMessage("FT_FundOutLimit");
+                        ftResponse.Message = new[] {GetMessage("FT_FundOutLimit")};
                         break;
                     case "63":
-                        ftResponse.Message = GetMessage("FT_FundInLimit");
+                        ftResponse.Message = new[] {GetMessage("FT_FundInLimit")};
                         break;
                     case "64":
-                        ftResponse.Message = GetMessage("FT_FundOutLimitReq");
+                        ftResponse.Message = new[] {GetMessage("FT_FundOutLimitReq")};
                         break;
                     case "65":
-                        ftResponse.Message = GetMessage("FT_FundInLimitReq");
+                        ftResponse.Message = new[] {GetMessage("FT_FundInLimitReq")};
                         break;
                     case "70":
-                        ftResponse.Message = GetMessage("FT_TransferFailed") + "[break]" + GetMessage("ServerError");
+                          msg = new string[2];
+                          msg[0] = GetMessage("FT_TransferFailed");
+                          msg[1] = GetMessage("ServerError");
+                          ftResponse.Message = msg;
                         break;
 
                     case "100":
                     case "101":
                     case "107":
                     case "108":
-                        ftResponse.Message = GetMessage("Promotion.InvalidPromo");
+                        ftResponse.Message = new[] {GetMessage("Promotion.InvalidPromo")};
                         break;
                     case "102":
-                        ftResponse.Message = GetMessage("FT_MinTransferNotMet");
+                        ftResponse.Message = new[] {GetMessage("FT_MinTransferNotMet")};
                         break;
                     case "105":
                     case "106":
                     case "109":
-                        string strTransferAmountAllowed =
-                            CultureHelpers.ElementValues.GetResourceString("transferAmountAllowed",
-                                response.initiateTransferResult);
-                        string strTotalStakeAmount = CultureHelpers.ElementValues.GetResourceString("totalStakeAmount",
-                            response.initiateTransferResult);
-                        string strRolloverAmount = CultureHelpers.ElementValues.GetResourceString("rolloverAmount",
-                            response.initiateTransferResult);
-                        decimal decRolloverAmountNeeded = Convert.ToDecimal(strRolloverAmount) -
-                                                          Convert.ToDecimal(strTotalStakeAmount);
+                        
+                        string strTransferAmountAllowed = CultureHelpers.ElementValues.GetResourceString("transferAmountAllowed", response.initiateTransferResult);
+                        string strTotalStakeAmount = CultureHelpers.ElementValues.GetResourceString("totalStakeAmount", response.initiateTransferResult);
+                        string strRolloverAmount = CultureHelpers.ElementValues.GetResourceString("rolloverAmount", response.initiateTransferResult);
+                        decimal decRolloverAmountNeeded = Convert.ToDecimal(strRolloverAmount) - Convert.ToDecimal(strTotalStakeAmount);
 
-                        ftResponse.Message = string.Format("{0} ({1}) [break]{2} [break]{3}", GetMessage("FT_RolloverNotMet"),
-                            ftResponse.FtCode, GetMessage("FT_RolloverAmountNeeded") + Utilities.Constant.DisplaySettings.RoundDown(decRolloverAmountNeeded, 2),
-                            GetMessage("FT_TransferAmountAllowed")) + Utilities.Constant.DisplaySettings.RoundDown(strTransferAmountAllowed, 2);
+                        msg = new string[3];
+                        msg[0] = string.Format("{0} ({1})", GetMessage("FT_RolloverNotMet"), ftResponse.FtCode);
+                        msg[1] = GetMessage("FT_RolloverAmountNeeded") + DisplaySettings.RoundDown(decRolloverAmountNeeded, 2);
+                        msg[3] = GetMessage("FT_TransferAmountAllowed") + DisplaySettings.RoundDown(strTransferAmountAllowed, 2);
+
+                        ftResponse.Message = msg;
                         break;
                     case "103":
                     case "104":
-                        ftResponse.Message = GetMessage("Promotion.PromoAlreadyClaimed");
+                        ftResponse.Message = new[] {GetMessage("Promotion.PromoAlreadyClaimed")};
                         break;
                     case "ERR01":
-                        ftResponse.Message = GetMessage("FT_ERR01");
+                        ftResponse.Message = new[] {GetMessage("FT_ERR01")};
                         break;
                     default:
-                        ftResponse.Message = GetMessage("FT_TransferFailed");
+                        ftResponse.Message = new[] {GetMessage("FT_TransferFailed")};
                         break;
 
                 }
@@ -193,37 +202,37 @@ namespace W88.BusinessLogic.Funds.Helpers
 
             if (string.IsNullOrWhiteSpace(funds.TransferFrom))
             {
-                response.Message = GetMessage("FT_SelectTransferFrom");
+                response.Message = new[] {GetMessage("FT_SelectTransferFrom")};
                 hasError = true;
             }
             else if (string.IsNullOrWhiteSpace(funds.TransferTo))
             {
-                response.Message = GetMessage("FT_SelectTransferTo");
+                response.Message = new[] {GetMessage("FT_SelectTransferTo")};
                 hasError = true;
             }
             else if (string.Compare(funds.TransferFrom, funds.TransferTo, true) == 0)
             {
-                response.Message = GetMessage("FT_InvalidFundTransfer");
+                response.Message = new[] {GetMessage("FT_InvalidFundTransfer")};
                 hasError = true;
             }
             else if (funds.TransferAmount <= 0)
             {
-                response.Message = GetMessage("FT_InputTransferAmount");
+                response.Message = new[] {GetMessage("FT_InputTransferAmount")};
                 hasError = true;
             }
             else if (Utilities.Security.Validation.IsInjection(Convert.ToString(funds.TransferAmount)))
             {
-                response.Message = GetMessage("FT_TransferAmountDisallowed");
+                response.Message = new[] {GetMessage("FT_TransferAmountDisallowed")};
                 hasError = true;
             }
             else if (!Utilities.Security.Validation.IsNumeric(Convert.ToString(funds.TransferAmount)))
             {
-                response.Message = GetMessage("FT_TransferAmountDisallowed");
+                response.Message = new[] {GetMessage("FT_TransferAmountDisallowed")};
                 hasError = true;
             }
             else if (Utilities.Security.Validation.IsInjection(funds.PromoCode))
             {
-                response.Message = GetMessage("Promotion.InvalidPromo");
+                response.Message = new[] {GetMessage("Promotion.InvalidPromo")};
                 hasError = true;
             }
 

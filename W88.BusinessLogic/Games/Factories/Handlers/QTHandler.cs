@@ -32,18 +32,12 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
 
         protected override string CreateFunUrl(XElement element)
         {
-            string lang = GetGameLanguage(element);
-            string gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
-
-            return GameLink.Fun.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{CURRENCY}", GetCurrencyByLanguage()).Replace("{LOBBY}", GameLink.LobbyPage);
+            return BuildUrl(element, GameLinkSetting.Fun);
         }
 
         protected override string CreateRealUrl(XElement element)
         {
-            string lang = GetGameLanguage(element);
-            string gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
-
-            return GameLink.Real.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{TOKEN}", GameLink.MemberSessionId).Replace("{LOBBY}", GameLink.LobbyPage);
+            return BuildUrl(element, GameLinkSetting.Real);
         }
 
         private string GetCurrencyByLanguage()
@@ -84,6 +78,25 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
             bool isLangSupp = languagesCodes.Contains(LanguageCode, StringComparer.OrdinalIgnoreCase);
 
             return isLangSupp ? string.Format("{0}_{1}", lang[0], lang[1].ToUpper()) : "en_US";
+        }
+
+        private string BuildUrl(XElement element, GameLinkSetting setting)
+        {
+            string gameUrl;
+            var lang = GetGameLanguage(element);
+            var gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
+
+            if (setting == GameLinkSetting.Real)
+            {
+                gameUrl = GameLink.Real.Replace("{TOKEN}", GameLink.MemberSessionId);
+            }
+            else
+            {
+                gameUrl = GameLink.Fun.Replace("{CURRENCY}", GetCurrencyByLanguage());
+
+            }
+
+            return gameUrl.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{LOBBY}", GameLink.LobbyPage);
         }
     }
 }

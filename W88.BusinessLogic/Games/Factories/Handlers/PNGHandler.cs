@@ -34,16 +34,29 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
 
         protected override string CreateFunUrl(XElement element)
         {
-            string gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
-
-            return GameLink.Fun.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{LOBBY}", GameLink.LobbyPage);
+            return BuildUrl(element, GameLinkSetting.Fun);
         }
 
         protected override string CreateRealUrl(XElement element)
         {
-            string gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
+            return BuildUrl(element, GameLinkSetting.Real);
+        }
 
-            return GameLink.Real.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{TOKEN}", GameLink.MemberSessionId).Replace("{LOBBY}", GameLink.LobbyPage);
+        private string BuildUrl(XElement element, GameLinkSetting setting)
+        {
+            string url;
+            var gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
+
+            if (setting == GameLinkSetting.Real)
+            {
+                url = GameLink.Real.Replace("{TOKEN}", GameLink.MemberSessionId);
+            }
+            else
+            {
+                url = GameLink.Fun;    
+            }
+
+            return url.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{LOBBY}", GameLink.LobbyPage);
         }
     }
 }

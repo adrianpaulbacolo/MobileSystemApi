@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
+using Helpers.GameProviders;
 using W88.BusinessLogic.Games.Handlers;
+using W88.BusinessLogic.Games.Helpers;
 using W88.BusinessLogic.Games.Models;
 using W88.BusinessLogic.Shared.Helpers;
+using W88.BusinessLogic.Shared.Models;
 using W88.Utilities;
+using W88.Utilities.Constant;
 
 namespace W88.BusinessLogic.Games.Factories
 {
@@ -67,85 +71,95 @@ namespace W88.BusinessLogic.Games.Factories
                     Title = GetHeadTranslation(xeCategory)
                 };
 
-                IEnumerable<XElement> newGames = xeCategory.Elements().Where(cat => cat.Attribute("Category") != null && cat.Attribute("Category").Value.Equals("new", StringComparison.OrdinalIgnoreCase))
-                                                                .OrderBy(game => game.Element("Title").Value);
+                IEnumerable<XElement> currentGames = xeCategory.Elements();
+                var injectValue = CultureHelpers.ElementValues.GetResourceXPathAttribute("Inject", xeCategory);
+                var injectProvider = string.IsNullOrWhiteSpace(injectValue) ? null : injectValue.Split(new char[] { ',' });
 
-                int newCount = 0;
                 if (itemCount <= 0)
-                    gameCategory.New = AddGamesPerCategory(currencyCode, newGames.ToList());
+                    gameCategory.Games = AddGamesPerCategory(currencyCode, currentGames.ToList(), injectProvider, xeCategory.Name.LocalName).OrderBy(game => game.Title).ToList();
                 else
-                {
-                    gameCategory.New = AddGamesPerCategory(currencyCode, newGames.Take(totalCount).ToList());
-
-                    newCount = newGames.Take(totalCount).Count();
-                }
-
-                IEnumerable<XElement> currentGames = xeCategory.Elements().Where(cat => cat.Attribute("Category") == null)
-                                                                    .OrderBy(game => game.Element("Title").Value).ToList();
-
-                int currentCount = 0;
-                if (itemCount <= 0)
-                    gameCategory.Current = AddGamesPerCategory(currencyCode, currentGames.ToList());
-                else
-                {
-                    totalCount = totalCount - newCount;
-
-                    gameCategory.Current = AddGamesPerCategory(currencyCode, currentGames.Take(totalCount).ToList());
-
-                    currentCount = currentGames.Take(totalCount).Count();
-
-                    totalCount = totalCount - currentCount;
-                }
-
+                    gameCategory.Games = AddGamesPerCategory(currencyCode, currentGames.Take(totalCount).ToList(), injectProvider, xeCategory.Name.LocalName).OrderBy(game => game.Title).ToList();
+                
                 gameCategories.Add(gameCategory);
             }
 
             return gameCategories;
         }
 
-        private List<GameInfo> AddGamesPerCategory(string currencyCode, List<XElement> xeGames)
+        private List<GameInfo> AddGamesPerCategory(string currencyCode, List<XElement> xeGames, string[] injectProvider, string elementCategory)
         {
             var games = new List<GameInfo>();
+          
+            if (injectProvider != null)
+            {
+                foreach (var prov in injectProvider)
+                {
+                    var feat = new Featured(prov, elementCategory);
+                    foreach (var f in feat.Games)
+                    {
+                        var pubValue = CultureHelpers.ElementValues.GetResourceXPathAttribute("Publish", f);
+                        var pub = string.IsNullOrWhiteSpace(pubValue) ? null : pubValue.Split(new char[] { ',' });
+                        if (pub != null && pub.Contains(gameProvider.ToString()))
+                        {
+                            var gpi = new Gpi(GameLink, LanguageCode);
+                            AddGameToList(ref games, f, gpi.CheckRSlot(GameLinkSetting.Real, f), gpi.CheckRSlot(GameLinkSetting.Fun, f));
+                        }
+                    }
+                }
+            }
 
             foreach (XElement xeGame in xeGames)
             {
                 if (IsCurrNotSupported(currencyCode, xeGame)) continue;
 
-                var game = new GameInfo();
-
-                game.Title = CultureHelpers.ElementValues.GetResourceString("Title", xeGame);
-                game.Image = CultureHelpers.ElementValues.GetResourceString("Image", xeGame);
-                game.ImagePath = this.gamePath + game.Image + this.fileType;
-                game.RealUrl = CreateRealUrl(xeGame);
-                game.FunUrl = CreateFunUrl(xeGame);
-
-                games.Add(game);
+                AddGameToList(ref games, xeGame, CreateFunUrl(xeGame), CreateRealUrl(xeGame));
             }
 
             return games;
         }
 
+        private void AddGameToList(ref List<GameInfo> games, XElement element, string funUrl, string realUrl)
+        {
+            var game = new GameInfo();
+            game.Title = CultureHelpers.ElementValues.GetResourceString("Title", element);
+            game.Image = CultureHelpers.ElementValues.GetResourceString("Image", element);
+            game.ImagePath = this.gamePath + game.Image + this.fileType;
+            game.RealUrl = funUrl;
+            game.FunUrl = realUrl;
+
+            var catValue = CultureHelpers.ElementValues.GetResourceXPathAttribute("Category", element);
+            game.Category = string.IsNullOrWhiteSpace(catValue) ? new string[0] : catValue.Split(new char[] { ',' }); 
+            
+            var pubValue = CultureHelpers.ElementValues.GetResourceXPathAttribute("Publish", element);
+            game.OtherProvider = string.IsNullOrWhiteSpace(pubValue) ? new string[0] : pubValue.Split(new char[] { ',' });
+
+            if (game.OtherProvider.Length == 0 || game.OtherProvider.Contains(gameProvider.ToString()))
+            {
+                games.Add(game);
+            }
+        }
+
         private string GetHeadTranslation(XElement element)
         {
             string headerText;
-            var lang = LanguageHelpers.SelectedLanguage;
-
-            if (string.IsNullOrEmpty(lang))
+            var defaultLang = new OperatorSettings(Settings.OperatorName).Values.Get(Constants.VarNames.DefaultLanguage);
+            
+            if (string.IsNullOrEmpty(LanguageCode))
             {
-                headerText = CultureHelpers.ElementValues.GetResourceXPathAttribute("en-us", element);
+                headerText = CultureHelpers.ElementValues.GetResourceXPathAttribute(defaultLang, element);
             }
             else
             {
-                if (string.IsNullOrEmpty(CultureHelpers.ElementValues.GetResourceXPathAttribute(lang, element)))
+                if (string.IsNullOrEmpty(CultureHelpers.ElementValues.GetResourceXPathAttribute(LanguageCode, element)))
                 {
-                    headerText = CultureHelpers.ElementValues.GetResourceXPathAttribute(lang, element);
+                    headerText = CultureHelpers.ElementValues.GetResourceXPathAttribute(LanguageCode, element);
                 }
                 else
                 {
-                    headerText = CultureHelpers.ElementValues.GetResourceXPathAttribute("en-us", element);
+                    headerText = CultureHelpers.ElementValues.GetResourceXPathAttribute(defaultLang, element);
                 }
             }
-
+            
             return headerText;
         }
 
@@ -158,6 +172,12 @@ namespace W88.BusinessLogic.Games.Factories
             string[] currencies = currNotSupp.Split(',');
 
             return currencies.Contains(currencyCode);
+        }
+
+        protected bool IsElementExists(string elementName, XElement element, out string url)
+        {
+            url = CultureHelpers.ElementValues.GetResourceString(elementName, element);
+            return !string.IsNullOrWhiteSpace(url);
         }
     }
 

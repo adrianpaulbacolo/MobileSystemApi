@@ -63,6 +63,8 @@
             public const string NextPayPrivateKey = "privateKey_nextPay";
 
             public const string ReturnValue = "Return_Value";
+
+            public const string DefaultLanguage = "DefaultSelectedLanguage";
         }
 
         public enum PaymentTransactionType

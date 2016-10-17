@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using WebApiThrottle;
 
 namespace W88.API
 {
@@ -12,6 +13,13 @@ namespace W88.API
             config.EnableCors();
 
             config.MapHttpAttributeRoutes();
+            // Web Api Throttle https://github.com/stefanprodan/WebApiThrottle 
+            config.MessageHandlers.Add(new ThrottlingHandler()
+            {
+                Policy = ThrottlePolicy.FromStore(new PolicyConfigurationProvider()),
+                Repository = new CacheRepository()
+
+            });
 
             config.Routes.MapHttpRoute(
              name: "DefaultApiWithAction",

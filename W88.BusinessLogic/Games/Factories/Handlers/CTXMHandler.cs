@@ -7,6 +7,7 @@ using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Games.Handlers;
 using W88.BusinessLogic.Games.Models;
 using W88.BusinessLogic.Shared.Helpers;
+using W88.Utilities.Geo;
 
 namespace W88.BusinessLogic.Games.Factories.Handlers
 {
@@ -27,16 +28,40 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
 
         protected override string CreateFunUrl(XElement element)
         {
-            string gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
-
-            return GameLink.Fun.Replace("{GAME}", gameName);
+            return BuildUrl(element, GameLinkSetting.Fun);
         }
 
         protected override string CreateRealUrl(XElement element)
         {
-            string gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
-
-            return GameLink.Real.Replace("{GAME}", gameName).Replace("{TOKEN}", GameLink.MemberSessionId);
+            return BuildUrl(element, GameLinkSetting.Real);
         }
+
+        private string BuildUrl(XElement element, GameLinkSetting setting)
+        {
+
+            var gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
+            var lang = SetSpecialUrlLanguageCode();
+            string url;
+            string gameUrl;
+
+            if (setting == GameLinkSetting.Real)
+            {
+                var realUrl = IsElementExists(GameLinkSetting.Real.ToString(), element, out url) ? url : GameLink.Real;
+                gameUrl = realUrl.Replace("{TOKEN}", GameLink.MemberSessionId);
+            }
+            else
+            {
+                gameUrl = IsElementExists(GameLinkSetting.Fun.ToString(), element, out url) ? url : GameLink.Fun;
+            }
+
+            return gameUrl.Replace("{GAME}", gameName).Replace("{LANG}", lang).Replace("{DOMAIN}", new IpHelper().DomainName);
+        }
+
+        private string SetSpecialUrlLanguageCode()
+        {
+            return LanguageCode.Equals("zh-cn", StringComparison.OrdinalIgnoreCase) ? "zh" : "en";
+        }
+
+
     }
 }

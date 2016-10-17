@@ -24,7 +24,7 @@ namespace W88.BusinessLogic.Accounts.Models
 
             public string TransferStatus { get; set; }
 
-            public string Message { get; set; }
+            public string[] Message { get; set; }
 
         }
     }

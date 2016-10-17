@@ -13,7 +13,7 @@ public class MemberSessionCheck : HttpTaskAsyncHandler, System.Web.SessionState.
 {
     public override async Task ProcessRequestAsync(HttpContext context)
     {
-        if (!context.Request.ContentType.Contains("json")) return ;
+        if (!context.Request.ContentType.Contains("json")) return;
         
         var jsonString = new StreamReader(context.Request.InputStream).ReadToEnd();
         var memberSession = Common.DeserializeObject<MemberSession>(jsonString);

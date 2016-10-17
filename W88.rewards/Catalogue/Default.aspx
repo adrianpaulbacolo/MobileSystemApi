@@ -31,12 +31,12 @@
                             </tr>
                         </GroupTemplate>
                         <ItemTemplate>
-                            <div class="col-xs-6 col-sm-3">
-                                <div id="detailsButton_<%#DataBinder.Eval(Container.DataItem,"productId")%>" class="catalog-box">
+                            <div id="detailsButton_<%#DataBinder.Eval(Container.DataItem,"productId")%>" class="col-xs-6 col-sm-3">
+                                <div class="catalog-box">
                                     <script>
                                         $(function () {
                                             $('#detailsButton_<%#DataBinder.Eval(Container.DataItem,"productId")%>').on('click', function () {
-                                                loadPage('/Catalogue/Detail.aspx', { id: '<%#DataBinder.Eval(Container.DataItem,"productId")%>' }, 'slide');
+                                                window.location.href = '/Catalogue/Detail.aspx?id=<%#DataBinder.Eval(Container.DataItem,"productId")%>';
                                             });
                                             var labelTag = $('#labelTag_<%#DataBinder.Eval(Container.DataItem,"productId")%>');
                                             if (_.isEmpty(labelTag.html().trim()))
@@ -49,7 +49,7 @@
                                     <div class="catalog-details">
                                         <h4><%#DataBinder.Eval(Container.DataItem,"productName")%></h4>
                                         <small>
-                                            <span class="points" style="<%#(DataBinder.Eval(Container, "DataItem.discountPoints").ToString() != "") ? "text-decoration:line-through;": "text-decoration:none;" %>"><%# String.Format("{0:#,###,##0.##}",DataBinder.Eval(Container.DataItem,"pointsRequired"))%> <%=RewardsHelper.GetTranslation(TranslationKeys.Label.Points)%></span>
+                                            <span class="points" style="<%#(DataBinder.Eval(Container, "DataItem.discountPoints").ToString() != "") ? "text-decoration:line-through;": "text-decoration:none;" %>"><%# String.Format("{0:#,###,##0.##}",DataBinder.Eval(Container.DataItem,"pointsRequired"))%> <%=RewardsHelper.GetTranslation(TranslationKeys.Label.Points).ToLower()%></span>
                                             <span class="newpoints" style="<%#(DataBinder.Eval(Container, "DataItem.discountPoints").ToString() != "") ? "visibility:visible;": "visibility:hidden;" %>"><%# String.Format("{0:#,###,##0.##}",DataBinder.Eval(Container.DataItem,"discountPoints"))%> <%=RewardsHelper.GetTranslation(TranslationKeys.Label.Points)%></span>   
                                             <span id="labelTag_<%#DataBinder.Eval(Container.DataItem,"productId")%>" class="tag-label">
                                                 <%#(DataBinder.Eval(Container.DataItem, "productIcon").ToString()=="2") ? RewardsHelper.GetTranslation(TranslationKeys.Label.Hot) : ""%>
