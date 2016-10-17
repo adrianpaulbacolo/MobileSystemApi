@@ -226,7 +226,7 @@ namespace W88.BusinessLogic.Funds.Factories
 
             string encryptedMemberCode = HttpUtility.UrlEncode(Encryption.Encrypting(this._userInfo.MemberCode, Constants.VarNames.PaymentPrivateKey));
 
-            process.Data = new { VendorRedirectionUrl = url + "AutoSignIn.aspx?a=" + encryptedMemberCode + "&b=" + HttpUtility.UrlEncode(this._userInfo.CurrentSessionId) };
+            process.Data = new { VendorRedirectionUrl = url + "AutoSignIn.aspx?a=" + encryptedMemberCode + "&b=" + HttpUtility.UrlEncode(this._userInfo.CurrentSessionId) + "&isMobile=true"  };
             process.Code = (int)Constants.StatusCode.Success;
 
             Constants.PaymentTransactionType paymentType;

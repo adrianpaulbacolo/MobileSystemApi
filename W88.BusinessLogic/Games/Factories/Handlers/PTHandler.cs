@@ -20,7 +20,6 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
     /// </summary>
     public class PTHandler : GameLoaderBase
     {
-        public string languageCode;
         public string user;
         private string prefix;
         private string supportPage;
@@ -45,6 +44,7 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
 
         protected override string SetLanguageCode()
         {
+            string languageCode;
             switch (LanguageCode)
             {
                 case "ko-kr":
@@ -66,19 +66,30 @@ namespace W88.BusinessLogic.Games.Factories.Handlers
 
         protected override string CreateFunUrl(XElement element)
         {
-            string gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
-
-            return GameLink.Fun.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode);
+            return BuildUrl(element, GameLinkSetting.Fun);
         }
 
         protected override string CreateRealUrl(XElement element)
         {
-            bool isNGM = CultureHelpers.ElementValues.GetResourceXPathAttribute("Type", element).Equals("ngm", StringComparison.OrdinalIgnoreCase) ? true : false;
+            return BuildUrl(element, GameLinkSetting.Real);
+        }
 
-            string gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
+        private string BuildUrl(XElement element, GameLinkSetting setting)
+        {
+            var gameName = CultureHelpers.ElementValues.GetResourceXPathAttribute("Id", element);
+            string gameUrl;
 
-            return isNGM ? GameLink.Real.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode).Replace("{USER}", user)
-                .Replace("{LOBBY}", GameLink.LobbyPage).Replace("{SUPPORT}", supportPage).Replace("{LOGOUT}", logoutPage) : "";
+            if (setting == GameLinkSetting.Real)
+            {
+                var isNGM = CultureHelpers.ElementValues.GetResourceXPathAttribute("Type", element).Equals("ngm", StringComparison.OrdinalIgnoreCase) ? true : false;
+                gameUrl = isNGM? GameLink.Real.Replace("{USER}", user).Replace("{LOBBY}", GameLink.LobbyPage).Replace("{SUPPORT}", supportPage).Replace("{LOGOUT}", logoutPage) : "";
+            }
+            else
+            {
+                gameUrl =  GameLink.Fun;
+            }
+
+            return gameUrl.Replace("{GAME}", gameName).Replace("{LANG}", base.LanguageCode);
         }
     }
 }

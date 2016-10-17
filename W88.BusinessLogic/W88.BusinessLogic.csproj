@@ -75,6 +75,7 @@
     <Compile Include="Funds\Models\PendingWithdrawalInfo.cs" />
     <Compile Include="Funds\Models\BaseFundsInfo.cs" />
     <Compile Include="Games\Factories\Handlers\UC8Handler.cs" />
+    <Compile Include="Games\Helpers\Featured.cs" />
     <Compile Include="Games\Helpers\GPI.cs" />
     <Compile Include="Games\Models\GameConfigInfo.cs" />
     <Compile Include="Rewards\Helpers\ProductHelper.cs" />
