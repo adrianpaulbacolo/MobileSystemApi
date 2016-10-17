@@ -11,14 +11,13 @@ public partial class _Default : BasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        string selectedLanguage = LanguageHelpers.SelectedLanguage;
-
         #region Logout
         if (string.Compare(Convert.ToString(RouteData.DataTokens["logout"]), "true", true) == 0) 
         {
             // Do logout logic here
             CookieHelpers.ClearCookies();
-            Response.Redirect("/Default.aspx", false);
+            Response.Redirect(string.Format("/Default.aspx?lang={0}", LanguageHelpers.SelectedLanguage), false);
+            return;
         }
         if (string.Compare(Convert.ToString(RouteData.DataTokens["expire"]), "true", true) == 0)
         {
@@ -34,9 +33,10 @@ public partial class _Default : BasePage
 
         if (HasSession)
         {
-            Response.Redirect(string.Format("/Index.aspx?lang={0}", selectedLanguage), false);
+            Response.Redirect(string.Format("/Index.aspx?lang={0}", LanguageHelpers.SelectedLanguage), false);
         }
-        if (string.IsNullOrEmpty(selectedLanguage))
+
+        if (string.IsNullOrEmpty(HttpContext.Current.Request.QueryString["lang"]))
         {
             Response.Redirect("/Lang.aspx", false);
         }

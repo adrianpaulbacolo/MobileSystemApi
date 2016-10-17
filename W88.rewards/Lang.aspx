@@ -58,7 +58,7 @@
                             break;
                     }
                     Cookies().setCookie('language', langCode);
-                    window.location.href = '/Index.aspx?lang=' + langCode;
+                    window.location.href = '/Default.aspx?lang=' + langCode;
                 });
             });
         });

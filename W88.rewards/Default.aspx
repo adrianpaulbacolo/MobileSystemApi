@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" Async="true"%> 
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" Async="true"%> 
 <%@ Import Namespace="W88.BusinessLogic.Rewards.Helpers" %>
 <%@ Import Namespace="W88.BusinessLogic.Rewards.Models" %>
 <%@ Import Namespace="W88.BusinessLogic.Shared.Helpers" %>
