@@ -48,9 +48,12 @@
                     <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubGallardo/Label", commonVariables.ProductsXML)%></div>
                 </a>
             </li>
-
-            <asp:Literal ID="ltlApollo" runat="server"></asp:Literal>
-
+            <li class="col col-33">
+                <a href="/ClubApollo" class="card" data-ajax="false">
+                    <img src="/_Static/Images/bnr-clubapollo.jpg" class="img-responsive">
+                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubApollo/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
+                </a>
+            </li>
             <li class="col col-33">
                 <a href="/ClubDivino" class="card" data-ajax="false">
                     <img src="/_Static/Images/bnr-clubdivino.jpg" class="img-responsive">

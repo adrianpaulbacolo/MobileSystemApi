@@ -87,8 +87,6 @@ public class BasePage : System.Web.UI.Page
             }
         }
 
-        BusinessRules.SetRules();
-
         base.OnLoad(e);
     }
 
