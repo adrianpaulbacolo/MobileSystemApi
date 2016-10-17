@@ -7,8 +7,8 @@
 <link rel="apple-touch-icon" href="/_Static/Images/icon_76.png"/>
 <link rel="apple-touch-startup-image" href="/_Static/Images/icon_120.png" />
 <link rel="stylesheet" href="/_Static/Css/Mobile/jquery.mobile-1.4.5.min.css" />
-<link rel="stylesheet" href="/_Static/Css/w88.mrewards.c9c3dc11.css" />
-<script src="/_Static/JS/dist/w88.mrewards.9efd14c8.js"></script>
+<link rel="stylesheet" href="/_Static/Css/w88.mrewards.css" />
+<script src="/_Static/JS/dist/w88.mrewards.js"></script>
 <script>
     // set initial values for notification
     if(w88Mobile.Growl) {
