@@ -78,7 +78,6 @@
     <Compile Include="Games\Helpers\Featured.cs" />
     <Compile Include="Games\Helpers\GPI.cs" />
     <Compile Include="Games\Models\GameConfigInfo.cs" />
-    <Compile Include="Rewards\Helpers\ProductHelper.cs" />
     <Compile Include="Rewards\Helpers\RewardsHelper.cs" />
     <Compile Include="Rewards\Models\MemberRedemptionDetails.cs" />
     <Compile Include="Rewards\Models\MemberRewardsInfo.cs" />
