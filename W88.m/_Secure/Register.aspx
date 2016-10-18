@@ -172,10 +172,6 @@
                         success: function (data) {
 
                             var ipCountry = data.country.toString().toUpperCase();
-                            // move back to CDN if XX
-                            if (isValidCountry(ipCountry) && CDNCountry.length != 0) {
-                                ipCountry = CDNCountry;
-                            }
 
                             if ($('#hidValues').val().trim().length == 0) {
                                 setCurrency(ipCountry);

@@ -201,6 +201,15 @@ public partial class _Secure_Register : BasePage
         strAffiliateId = txtAffiliateID.Text;
 
         System.Text.RegularExpressions.Regex rexContact = new System.Text.RegularExpressions.Regex("([0-9]{1,4})[-]([0-9]{6,12})$");
+        // get hidden values
+        lstValues = strHiddenValues.Split(new char[] { '|' }).Select(p => p.Trim()).ToList();
+
+        if (lstValues.Count > 0)
+        {
+            if (lstValues[0] != null) { strCountryCode = lstValues[0]; }
+            if (lstValues.Count > 2) { strIPAddress = lstValues[2]; }
+            if (lstValues.Count > 3) { strPermission = lstValues[3]; }
+        }
         #endregion
 
         #region parametersValidation
@@ -299,6 +308,11 @@ public partial class _Secure_Register : BasePage
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/Required18", xeErrors);
             isProcessAbort = true;
         }
+        else if (!string.IsNullOrEmpty(strCountryCode) && commonCountry.IsBlocked(strCountryCode))
+        {
+            strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/CountryBlocked", xeErrors);
+            isProcessAbort = true;
+        }
         else
         {
             strResultCode = "00";
@@ -318,14 +332,6 @@ public partial class _Secure_Register : BasePage
 
         if (!isProcessAbort)
         {
-            lstValues = strHiddenValues.Split(new char[] { '|' }).Select(p => p.Trim()).ToList();
-
-            if (lstValues.Count > 0)
-            {
-                if (lstValues[0] != null) { strCountryCode = lstValues[0]; }
-                if (lstValues.Count > 2) { strIPAddress = lstValues[2]; }
-                if (lstValues.Count > 3) { strPermission = lstValues[3]; }
-            }
 
             strSignUpUrl = string.Format("m.{0}", commonIp.DomainName);
             strLanguageCode = commonVariables.SelectedLanguage;
@@ -337,7 +343,7 @@ public partial class _Secure_Register : BasePage
 
             if (string.IsNullOrEmpty(strCountryCode) || string.Compare(strCountryCode, "-", true) == 0)
             {
-                if (!string.IsNullOrEmpty(CDNCountryCode))
+                if (commonCountry.IsValidCountry(CDNCountryCode))
                 {
                     strCountryCode = CDNCountryCode;
                 }
@@ -348,6 +354,12 @@ public partial class _Secure_Register : BasePage
                         wsInstance.location(strIPAddress, ref strCountryCode, ref strPermission);
                     }
                 }
+            }
+
+            // should assign country based from currency if still empty or "xx"
+            if (!commonCountry.IsValidCountry(strCountryCode))
+            {
+                strCountryCode = commonCountry.CountryFromCurrency(strCurrencyCode);
             }
 
             switch (strCountryCode.ToUpper())
