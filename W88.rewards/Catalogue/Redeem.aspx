@@ -102,35 +102,36 @@
                         <div id="RecipientDiv" runat="server">
                             <h4><%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.Recipient)%>: </h4>
                             <div class="ui-field-contain ui-hide-label">
-                                <asp:TextBox ID="tbRName" runat="server" MaxLength="50" type="Text" data-mini="true" placeholder="Recipient Name" />
-                                <asp:Label ID="Label4" CssClass="validator" runat="server" Text="*" data-mini="true" />
+                                <asp:Label ID="nameLabel" CssClass="validator" runat="server" Text="*" data-mini="true" />
+                                <asp:TextBox ID="tbRName" runat="server" MaxLength="50" type="Text" data-mini="true" placeholder="Recipient Name" />                              
                             </div>
                             <div class="ui-field-contain ui-hide-label">
+                                <asp:Label ID="addressLabel" CssClass="validator" runat="server" Text="*" data-mini="true" />
                                 <div class="ui-input-text ui-body-inherit ui-corner-all ui-mini ui-shadow-inset">
                                     <textarea cols="40" rows="3" runat="server" id="tbAddress" style="height: auto;" placeholder="Mailing Address"></textarea>
                                 </div>
-                                <asp:Label ID="Label6" CssClass="validator" runat="server" Text="*" data-mini="true" />
                             </div>
                             <div class="ui-field-contain ui-hide-label">
+                                <asp:Label ID="postalLabel" CssClass="validator" runat="server" Text="*" data-mini="true" />
                                 <asp:TextBox ID="tbPostal" runat="server" MaxLength="10" type="Text" data-mini="true" placeholder="Postal Code" />
-                                <asp:Label ID="Label1" CssClass="validator" runat="server" Text="*" data-mini="true" />
                             </div>
                             <div class="ui-field-contain ui-hide-label">
+                                <asp:Label ID="cityLabel" CssClass="validator" runat="server" Text="*" data-mini="true" />
                                 <asp:TextBox ID="tbCity" runat="server" MaxLength="50" type="Text" data-mini="true" placeholder="City" />
-                                <asp:Label ID="Label8" CssClass="validator" runat="server" Text="*" data-mini="true" />
                             </div>
                             <div class="ui-field-contain ui-hide-label">
+                                <asp:Label ID="countryLabel" CssClass="validator" runat="server" Text="*" data-mini="true" />
                                 <asp:TextBox ID="tbCountry" runat="server" MaxLength="50" type="Text" data-mini="true" placeholder="Country" />
-                                <asp:Label ID="Label9" CssClass="validator" runat="server" Text="*" data-mini="true" />
                             </div>
                             <div class="ui-field-contain ui-hide-label">
+                                <asp:Label ID="contactLabel" CssClass="validator" runat="server" Text="*" data-mini="true" />
                                 <asp:TextBox ID="tbContact" runat="server" MaxLength="50" type="tel" data-mini="true" placeholder="Contact Number" />
-                                <asp:Label ID="Label10" CssClass="validator" runat="server" Text="*" data-mini="true" />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <asp:HiddenField ID="ProductDetailsField" Value="" runat="server"/>
             <div class="footer">
                 <asp:Button ID="redeemButton" runat="server" Text="" CssClass="btn btn-block btn-primary" OnClick="RedeemButtonOnClick" />
             </div>

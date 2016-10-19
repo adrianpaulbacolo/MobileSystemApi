@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Activities.Expressions;
 using System.Text;
+using System.Web;
 using System.Web.UI;
 using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Rewards.Redemption.Factories;
@@ -16,7 +18,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
     protected string Message = string.Empty;
     protected string ProductType = string.Empty;
     protected string VipOnly = string.Empty;
-    protected ProductDetails ProductDetails = ProductHelper.SelectedProduct;
+    protected ProductDetails ProductDetails = null;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -25,12 +27,13 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             return;
         }
         SetLabels();
-        SetProductInfo();
+        GetProductDetails();
         InitFields();       
     }
 
     protected async void RedeemButtonOnClick(object sender, EventArgs e)
     {
+        ProductDetails = Common.DeserializeObject<ProductDetails>(ProductDetailsField.Value);
         Status = string.Empty;
         Message = string.Empty;
         var productType = (ProductTypeEnum)int.Parse(ProductDetails.ProductType);
@@ -116,7 +119,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         lbproduct.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.Product) + colon;
         lbcurr.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.Currency) + colon;
         lbpoint.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.Points) + colon;
-        lbperiod.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.Delivery) + colon;
+        lbperiod.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.Delivery);
         lbqty.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.Quantity) + colon;
         lbaccount.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.Account) + colon;
         tbRName.Attributes.Add("PLACEHOLDER", RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterName));
@@ -125,6 +128,12 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         tbCity.Attributes.Add("PLACEHOLDER", RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterCity));
         tbCountry.Attributes.Add("PLACEHOLDER", RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterCountry));
         tbContact.Attributes.Add("PLACEHOLDER", RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterContactNumber));
+        nameLabel.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.Name);
+        addressLabel.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.Address);
+        postalLabel.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.Postal);
+        cityLabel.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.City);
+        countryLabel.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.Country);
+        contactLabel.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.ContactNumber);
         redeemButton.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.RedeemNow);
         redeemButton.Visible = true;
         #endregion
@@ -295,6 +304,19 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         }
 
         return request;
+    }
+
+    private async void GetProductDetails()
+    {
+        var productId = Request.QueryString.Get("productId");
+        if (string.IsNullOrEmpty(productId))
+        {
+            Response.Redirect("/Catalogue?categoryId=0&sortBy=2", false);
+        }
+        ProductDetails = await RewardsHelper.GetProductDetails(MemberSession, productId, HasSession);
+        SetProductInfo();
+        ProductDetails.ProductDescription = HttpUtility.HtmlEncode(ProductDetails.ProductDescription);
+        ProductDetailsField.Value = Common.SerializeObject(ProductDetails);
     }
 
     private async void RefreshPoints()
