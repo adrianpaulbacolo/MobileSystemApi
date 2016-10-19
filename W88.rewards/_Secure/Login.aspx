@@ -120,6 +120,7 @@
                         case 1:
                             window.user = (new User()).setProperties(response.ResponseData);
                             window.user.save();
+                            frsm_code = window.user.MemberId;
                             if (!_.isEmpty('<%=RedirectUri%>')) {
                                 loadPage('<%=RedirectUri%>');
                                 return;
