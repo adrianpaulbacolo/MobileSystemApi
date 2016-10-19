@@ -49,7 +49,10 @@
 <script type="text/javascript" src="/_Static/JS/modules/hideMenu.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/fundtransfer.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/piwikManager.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/piwikConfig.js"></script>
 <script type="text/javascript">
+    w88Mobile.PiwikManager.setGoals(window.w88Mobile.PiwikConfig.goals);
+    w88Mobile.PiwikManager.setDomain();
     w88Mobile.PiwikManager.setUserId('<%=UserSession.MemberId %>');
         var deviceObj = {
         index: 1

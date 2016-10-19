@@ -6,7 +6,7 @@
     <title>FAQ</title>
     <!--#include virtual="~/_static/head.inc" -->
     <style>
-        div.col-xs-12 h5:before {
+        h5:before {
             display: block; 
             content: " "; 
             margin-top: 0; 
