@@ -37,6 +37,7 @@
       <HintPath>..\W88.m\Bin\audit_trail_manager.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http" />
@@ -71,9 +72,11 @@
     <Compile Include="Funds\Helpers\Payments.cs" />
     <Compile Include="Accounts\Models\FundTransferInfo.cs" />
     <Compile Include="Base\Models\DataResponse.cs" />
+    <Compile Include="Funds\Models\BankDetails.cs" />
     <Compile Include="Funds\Models\BankInfo.cs" />
     <Compile Include="Funds\Models\PendingWithdrawalInfo.cs" />
     <Compile Include="Funds\Models\BaseFundsInfo.cs" />
+    <Compile Include="Games\Factories\Handlers\PPHandler.cs" />
     <Compile Include="Games\Factories\Handlers\UC8Handler.cs" />
     <Compile Include="Games\Helpers\Featured.cs" />
     <Compile Include="Games\Helpers\GPI.cs" />

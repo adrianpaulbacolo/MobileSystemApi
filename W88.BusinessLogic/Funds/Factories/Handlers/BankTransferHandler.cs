@@ -301,9 +301,9 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
             }
             else
             {
-                process.Remark = string.Format("IsSuccess: {0} | PaymentType: {1} | TransactionId: {2} | Amount: {3} | BankCode: {4} | AccountName: {5} | AccountNumber: {6}",
-                    process.IsSuccess, Convert.ToString(paymentType), process.IsSuccess ? process.Data.TransactionId : "", this._fundsInfo.Amount, this._fundsInfo.Bank,
-                        this._fundsInfo.AccountName, this._fundsInfo.AccountNumber);
+                process.Remark = string.Format("IsSuccess: {0} | PaymentType: {1} | TransactionId: {2} | Amount: {3} | AccountName: {4} | AccountNumber: {5} | BankCode: {6} | BankName: {7}  | BankBranch: {8} | BankAddress: {9}",
+                    process.IsSuccess, Convert.ToString(paymentType), process.IsSuccess ? process.Data.TransactionId : "", this._fundsInfo.Amount, this._fundsInfo.AccountName, this._fundsInfo.AccountNumber, 
+                        this._fundsInfo.Bank.Value, this._fundsInfo.BankName, this._fundsInfo.BankBranch, this._fundsInfo.BankAddress);
             }
 
             AuditTrail.AppendLog(this._userInfo.MemberCode, Constants.PageNames.FundsPage,

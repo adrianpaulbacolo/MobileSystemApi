@@ -17,6 +17,7 @@
             public const string SendMail = "SendMail";
             public const string RedeemRewards = "RedeemRewards";
             public const string VendorRedirection = "VendorRedirection";
+            public const string CreateBankDetails = "CreateBankDetails";
         }
 
         public struct PageNames

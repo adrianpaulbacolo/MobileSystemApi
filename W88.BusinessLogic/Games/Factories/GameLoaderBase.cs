@@ -196,7 +196,8 @@ namespace W88.BusinessLogic.Games.Factories
         QT,
         BS,
         CTXM,
-        UC8
+        UC8,
+        PP
     }
 
     public enum GameDevice
