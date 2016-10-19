@@ -86,9 +86,6 @@ public partial class Catalogue_Detail : CatalogueBasePage
 
             lblDescription.Text = productDetails.ProductDescription;
             lblName.Text = productDetails.ProductName;
-
-            // Set product cookie
-            ProductHelper.SelectedProduct = productDetails;
         }
         catch (Exception exception)
         {
