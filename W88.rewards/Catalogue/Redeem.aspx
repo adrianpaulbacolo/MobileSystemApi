@@ -183,7 +183,27 @@
                     $('#redeemButton').attr("disabled", false);
                     break;
             }
+
             window.w88Mobile.Growl.shout(message);
+
+            var closeButtons = $('#PopUpModal a');
+            if (!closeButtons || closeButtons.length === 0) {
+                return;
+            }
+
+            if (status === '1') {
+                closeButtons.each(function() {
+                    $(this).attr('data-rel', null);
+                    $(this).on('click', function() {
+                        window.location.href = '/Catalogue?categoryId=0&sortBy=2';
+                    });
+                });
+            } else {
+                closeButtons.each(function() {
+                    $(this).attr('data-rel', 'back');
+                    $(this).off('click');
+                });
+            }
         }
 
         function validateFreebet() {
