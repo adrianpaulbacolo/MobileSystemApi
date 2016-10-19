@@ -485,7 +485,7 @@ public partial class _Secure_Register : BasePage
                     string strRedirect = Request.QueryString.Get("redirect");
 
                     if (string.IsNullOrWhiteSpace(strRedirect))
-                        Response.Redirect("/Deposit?lang=" + commonVariables.SelectedLanguage.ToLower(), false);
+                        Response.Redirect("/Deposit?reg=success&lang=" + commonVariables.SelectedLanguage.ToLower(), false);
                     else
                         Response.Redirect(strRedirect, false);
                 }
