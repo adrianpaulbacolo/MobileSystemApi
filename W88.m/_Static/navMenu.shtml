@@ -329,14 +329,12 @@
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubGallardo/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
-                <% if( commonVariables.GetSessionVariable("clubapollo") == "1" ) {%>
                 <li>
-                    <a class="card" rel="clubdivino" href="/ClubApollo" data-ajax="false">
+                    <a class="card" rel="clubapollo" href="/ClubApollo" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubapollo.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubApollo/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
-                <% } %>
                 <li>
                     <a class="card" rel="clubdivino" href="/ClubDivino" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubdivino.jpg" class="img-responsive">

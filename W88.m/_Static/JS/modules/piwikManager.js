@@ -15,6 +15,10 @@ function piwikManager() {
         return {};
     }
 
+    function setGoals(configGoals) {
+        if (!_.isEmpty(configGoals)) goals = configGoals;
+    }
+
     function setPiwik(customPiwik){
         piwik = customPiwik;
     }
@@ -58,18 +62,31 @@ function piwikManager() {
         if (_.isEmpty(memberId)) return;
 
         var piwik = getInstance();
-        if (typeof piwik === "object" && typeof piwik.setUserId === "function") {
+        if (typeof piwik === "object" && typeof piwik.setCustomVariable === "function") {
             piwik.setCustomVariable(obj.index, obj.name, obj.value, obj.scope);
         } else if (!_.isUndefined(_paq)) {
             _paq.push(["setCustomVariable", obj.index, obj.name, obj.value, obj.scope]);
+        } 
+    }
+
+    function setDomain() {
+        var hosts = location.hostname;
+
+        var piwik = getInstance();
+        if (typeof piwik === "object" && typeof piwik.setDomains === "function") {
+            piwik.setDomains(hosts);
+        } else if (!_.isUndefined(_paq)) {
+            _paq.push(["setDomains", hosts]);
         }
     }
 
     return {
-        trackPlayNow: trackPlayNow,
-        trackTryNow: trackTryNow,
-        setUserId: setUserId,
-        trackEvent: trackEvent,
-        setDeviceId: setDeviceId
+        trackPlayNow: trackPlayNow
+        , trackTryNow: trackTryNow
+        , trackEvent: trackEvent
+        , setUserId: setUserId
+        , setDeviceId: setDeviceId
+        , setGoals: setGoals
+        , setDomain: setDomain
     }
 }
