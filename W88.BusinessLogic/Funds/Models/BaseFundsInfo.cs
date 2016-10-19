@@ -8,11 +8,10 @@ using W88.BusinessLogic.Shared.Models;
 
 namespace W88.BusinessLogic.Funds.Models
 {
-    public class BaseFundsInfo
+    public class BaseFundsInfo : BankDetails
     {
         public BaseFundsInfo()
         {
-            Bank = new LOV();
             SystemBank = new LOV();
             DepositChannel = new LOV();
             CardType = new LOV();
@@ -21,14 +20,6 @@ namespace W88.BusinessLogic.Funds.Models
         public decimal Amount { get; set; }
 
         public LOV SystemBank { get; set; }
-
-        public LOV Bank { get; set; }
-        public string BankName { get; set; }
-        public string BankBranch { get; set; }
-        public string BankAddress { get; set; }
-
-        public string AccountName { get; set; }
-        public string AccountNumber { get; set; }
 
         public string ReferenceId { get; set; }
         public DateTime DepositDateTime { get; set; }

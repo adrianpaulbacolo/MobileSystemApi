@@ -14,6 +14,9 @@ using W88.BusinessLogic.Shared.Helpers;
 using W88.BusinessLogic.Shared.Models;
 using W88.Utilities.Geo;
 using W88.Utilities.Extensions;
+using W88.Utilities.Security;
+using W88.Utilities.Log.Helpers;
+using W88.WebRef.svcPayMember;
 
 namespace W88.BusinessLogic.Accounts.Helpers
 {
@@ -248,6 +251,219 @@ namespace W88.BusinessLogic.Accounts.Helpers
             request.Headers.TryGetValues(Constants.VarNames.Token, out tokens);
             var enumurable = tokens as string[] ?? tokens.ToArray();
             return enumurable.FirstOrDefault();
+        }
+
+        public async Task<ProcessCode> CreateBankDetails(UserSessionInfo userInfo, BankDetails details)
+        {
+            var process = new ProcessCode() { Id = Guid.NewGuid() };
+            process = ValidateBankDetails(userInfo.MemberCode, details, await new ListOfValuesHelper().GetMemberBankAccounts(userInfo));
+
+            if (!process.IsAbort)
+            {
+                using (var client = new MemberClient())
+                {
+                    var response = await client.createBankDetailsAsync(Convert.ToInt64(OperatorId), userInfo.MemberCode, userInfo.CurrencyCode,
+                        details.BankBranch, details.BankAddress, details.AccountName, details.AccountNumber, details.Bank.Value, details.Bank.Text, details.BankName, details.IsPreferred);
+
+                    process.IsSuccess = response;
+
+                    if (process.IsSuccess)
+                    {
+                        process.Code = (int)Constants.StatusCode.Success;
+                        process.Message = base.GetMessage("Pay_Success");
+                    }
+                    else
+                    {
+                        process.Code = (int)Constants.StatusCode.Error;
+                        process.Message = base.GetMessage("Pay_Fail");
+                    }
+
+                    process.ProcessSerialId += 1;
+                    process.Remark = string.Format("IsSuccess: {0} | BankCode: {1} | BankName: {2}  | BankBranch: {3} | BankAddress: {4} | AccountName: {5} | AccountNumber: {6} | IsPreferred: {7}",
+                        process.IsSuccess, details.Bank.Value, details.BankName, details.BankBranch, details.BankAddress, details.AccountName, details.AccountNumber, details.IsPreferred);
+
+                    AuditTrail.AppendLog(userInfo.MemberCode, Constants.PageNames.FundsPage,
+                        Constants.TaskNames.CreateBankDetails, Constants.PageNames.ComponentName,
+                        Convert.ToString(process.Code), process.Message, string.Empty, string.Empty, process.Remark,
+                        Convert.ToString(process.ProcessSerialId), Convert.ToString(process.Id), false);
+                }
+            }
+
+            return process;
+        }
+
+        private ProcessCode ValidateBankDetails(string memberCode, BankDetails details, List<LOV> banks)
+        {
+            var process = new ProcessCode() { Message = new List<string>() };
+
+            if (details.Bank == null)
+            {
+                process.Code = (int)Constants.StatusCode.Error;
+                process.Message.Add(base.GetMessage("Pay_MissingBank"));
+                process.IsAbort = true;
+            }
+            else
+            {
+                if (Validation.IsNumeric(details.Bank.Text) || Validation.IsNumeric(details.Bank.Value))
+                {
+                    process.Code = (int)Constants.StatusCode.Error;
+                    process.Message.Add(base.GetMessage("Pay_MissingBank"));
+                    process.IsAbort = true;
+                }
+                else
+                {
+                    if (string.IsNullOrWhiteSpace(details.Bank.Text) || string.IsNullOrWhiteSpace(details.Bank.Value))
+                    {
+                        process.Code = (int)Constants.StatusCode.Error;
+                        process.Message.Add(base.GetMessage("Pay_MissingBank"));
+                        process.IsAbort = true;
+                    }
+                    else
+                    {
+                        if (details.Bank.Text.Contains("other") || details.Bank.Value.Equals("other", StringComparison.OrdinalIgnoreCase))
+                        {
+                            if (string.IsNullOrWhiteSpace(details.BankName))
+                            {
+                                process.Code = (int)Constants.StatusCode.Error;
+                                process.Message.Add(base.GetMessage("Pay_MissingBankName"));
+                                process.IsAbort = true;
+                            }
+
+                            if (Validation.IsInjection(details.BankName))
+                            {
+                                process.Code = (int)Constants.StatusCode.Error;
+                                process.Message.Add(base.GetMessage("Pay_InvalidBankName"));
+                                process.IsAbort = true;
+                            }
+                        }
+                    }
+
+                    if (Validation.IsInjection(details.Bank.Text) || Validation.IsInjection(details.Bank.Value))
+                    {
+                        process.Code = (int)Constants.StatusCode.Error;
+                        process.Message.Add(base.GetMessage("Pay_MissingBank"));
+                        process.IsAbort = true;
+                    }
+
+                    if (!banks.Any(b => b.Text == details.Bank.Text && b.Value == details.Bank.Value))
+                    {
+                        process.Code = (int)Constants.StatusCode.Error;
+                        process.Message.Add(base.GetMessage("Pay_MissingBank"));
+                        process.IsAbort = true;
+                    }
+                }
+            }
+
+            if (string.IsNullOrWhiteSpace(details.BankBranch))
+            {
+                process.Code = (int)Constants.StatusCode.Error;
+                process.Message.Add(base.GetMessage("Pay_MissingBankBranch"));
+                process.IsAbort = true;
+            }
+
+            if (Validation.IsInjection(details.BankBranch))
+            {
+                process.Code = (int)Constants.StatusCode.Error;
+                process.Message.Add(base.GetMessage("Pay_InvalidBankBranch"));
+                process.IsAbort = true;
+            }
+
+            if (string.IsNullOrWhiteSpace(details.BankAddress))
+            {
+                process.Code = (int)Constants.StatusCode.Error;
+                process.Message.Add(base.GetMessage("Pay_MissingBankAddress"));
+                process.IsAbort = true;
+            }
+
+            if (Validation.IsInjection(details.BankAddress))
+            {
+                process.Code = (int)Constants.StatusCode.Error;
+                process.Message.Add(base.GetMessage("Pay_InvalidBankAddress"));
+                process.IsAbort = true;
+            }
+
+            if (string.IsNullOrWhiteSpace(details.AccountName))
+            {
+                process.Code = (int)Constants.StatusCode.Error;
+                process.Message.Add(base.GetMessage("Pay_MissingAccountName"));
+                process.IsAbort = true;
+            }
+
+            if (Validation.IsInjection(details.AccountName))
+            {
+                process.Code = (int)Constants.StatusCode.Error;
+                process.Message.Add(base.GetMessage("Pay_InvalidAccountName"));
+                process.IsAbort = true;
+            }
+
+            if (string.IsNullOrWhiteSpace(details.AccountNumber))
+            {
+                process.Code = (int)Constants.StatusCode.Error;
+                process.Message.Add(base.GetMessage("Pay_MissingAccountNumber"));
+                process.IsAbort = true;
+            }
+            else
+            {
+                if (!Validation.IsNumeric(details.AccountNumber))
+                {
+                    process.Code = (int)Constants.StatusCode.Error;
+                    process.Message.Add(base.GetMessage("Pay_InvalidAccountNumber"));
+                    process.IsAbort = true;
+                }
+
+                if (Validation.IsInjection(details.AccountNumber))
+                {
+                    process.Code = (int)Constants.StatusCode.Error;
+                    process.Message.Add(base.GetMessage("Pay_InvalidAccountNumber"));
+                    process.IsAbort = true;
+                }
+            }
+
+            process.ProcessSerialId += 1;
+
+            process.Remark = string.Format("IsValid: {0}", !process.IsAbort);
+
+            AuditTrail.AppendLog(memberCode, Constants.PageNames.FundsPage,
+                Constants.TaskNames.ParameterValidation, Constants.PageNames.ComponentName,
+                Convert.ToString(process.Code), string.Join(" | ", process.Message), string.Empty, string.Empty, process.Remark,
+                Convert.ToString(process.ProcessSerialId), Convert.ToString(process.Id), false);
+
+            return process;
+        }
+
+        public async Task<ProcessCode> GetBankDetails(UserSessionInfo userInfo)
+        {
+            var process = new ProcessCode();
+
+            using (var client = new MemberClient())
+            {
+                var response = await client.getBankDetailsAsync(Convert.ToInt64(OperatorId), userInfo.MemberCode);
+
+                if (response != null)
+                {
+                    if (response.Rows.Count > 0)
+                    {
+                        DataRow dr = response.Rows[0];
+                        process.Code = (int)Constants.StatusCode.Success;
+
+                        var banks = await new ListOfValuesHelper().GetMemberBankAccounts(userInfo);
+                        var bank = banks.FirstOrDefault(b => b.Value == dr["bankCode"].ToString());
+
+                        process.Data = new BankDetails()
+                        {
+                            Bank = bank,
+                            BankName = dr["bankNameNative"].ToString(),
+                            BankBranch = dr["bankBranch"].ToString(),
+                            BankAddress = dr["bankAddress"].ToString(),
+                            AccountName = dr["bankAccountName"].ToString(),
+                            AccountNumber = dr["bankAccountNumber"].ToString(),
+                            IsPreferred = Convert.ToBoolean(dr["preferred"]),
+                        };
+                    }
+                }
+            }
+
+            return process;
         }
     }
 }

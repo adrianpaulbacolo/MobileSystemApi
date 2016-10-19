@@ -97,6 +97,12 @@ namespace W88.BusinessLogic.Rewards.Models
             public const string Status = "Label_Status";
             public const string AdjustmentType = "Label_AdjustmentType";
             public const string Remarks = "Label_Remarks";
+            public const string Name = "Label_Name";
+            public const string Address = "Label_Address";
+            public const string Country = "Label_Country";
+            public const string Postal = "Label_Postal";
+            public const string City = "Label_City";
+            public const string ContactNumber = "Label_ContactNumber";
         }
 
         public static class Errors
