@@ -21,19 +21,16 @@
             <div class="register-success-message">
                 <div class="register-success-icon"><span class="icon icon-check"></span></div>
                 <h4>Welcome to W88, and thank you for opening an account.</h4>
-                <p>Your account is now ready for you to login and play on W88.com and mobile <a href="#">m.w88.com</a>.</p>
+                <p>Your account is now ready for you to login and play on W88.com and mobile.</p>
                 <p>Depositing is Quick and Easy. We have a huge range of deposit options available.</p>
             </div>
 
-            <div class="ui-navbar ui-navbar-justified"  role="navigation">
-                <ul>
-                    <li>
-                        <a href="#" class="btn-primary ui-link ui-btn">Bank Transfer</a>
-                    </li>
-                    <li>
-                        <a href="#" class="ui-link ui-btn">Credit Card</a>
-                    </li>
-                </ul>
+            <div class="ui-navbar ui-navbar-justified" role="navigation" id="depositTabs" runat="server">
+            </div>
+
+            <div class="empty-state" style="padding-top: 3%; padding-bottom: 3%">
+                <p id="paymentNote">
+                </p>
             </div>
 
             <div class="register-success-content">
@@ -51,24 +48,23 @@
                                     </ul>
                                 </td>
                             </tr>
-                            <tr>
+                            <%--<tr>
                                 <td>Transaction Limit (USD) :</td>
-                                <td>Min. 10.00<br>
-                                Max. 5,000.00</td>
-                            </tr>
+                                <td>Min. <asp:Literal ID="txtMinLimit" runat="server" /><br>
+                                Max. <asp:Literal ID="txtMaxLimit" runat="server" /></td>
+                            </tr>--%>
                             <tr>
-                                <td colspan="2">
-                                    If you have any queries or problems when making a deposit,
-                                    please <a href="https://www.w88bet.com/ContactUs.aspx"
-                                    target="_blank">Contact Us</a>.
+                                <td colspan="2">If you have any queries or problems when making a deposit,
+                                    please <a href="/LiveChat/Default.aspx"
+                                        target="_blank">Contact Us</a>.
                                 </td>
                             </tr>
                         </tbody>
-                    </table> 
-                </div>               
+                    </table>
+                </div>
             </div>
 
-            <div class="bank_logo"> 
+            <div class="bank_logo">
                 <i class="logo_10"></i>
                 <i class="logo_11"></i>
                 <i class="logo_12"></i>
@@ -79,6 +75,25 @@
         </div>
 
     </div>
+
+    <script type="text/javascript">
+        $(function () {
+            window.history.forward();
+            $(".register-success-content").css("display", "none");
+            $("div.empty-state").css("display", "none");
+            if ($('#depositTabs li').length == 0) {
+                w88Mobile.PiwikManager.trackEvent({
+                    category: "RegSuccess",
+                    action: "<%=base.strCountryCode %>",
+                    name: "<%=base.strMemberID %>"
+                });
+                $('#paymentNote').append('<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>');
+                $("div.empty-state").css("display", "");
+            } else {
+                $(".register-success-content").css("display", "");
+            }
+        });
+    </script>
     <!-- /page -->
 </body>
 </html>
