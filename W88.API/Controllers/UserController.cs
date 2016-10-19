@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using W88.BusinessLogic.Accounts.Helpers;
 using W88.BusinessLogic.Accounts.Models;
+using W88.BusinessLogic.Funds.Models;
 using W88.BusinessLogic.Shared.Models;
 using W88.Utilities.Extensions;
 
@@ -138,6 +139,52 @@ namespace W88.API
                     Code = (int)Constants.StatusCode.Success,
                     Data = Convert.ToDecimal(await new Members().GetRewardsPoints(UserRequest.UserInfo)).ToW88StringFormat()
                 });
+            }
+            catch (Exception ex)
+            {
+                return ReturnResponse(new ProcessCode
+                {
+                    Code = (int)Constants.StatusCode.Error,
+                    Message = ex.Message
+                }, ex);
+            }
+        }
+
+        [HttpGet]
+        [Route("banks")]
+        public async Task<HttpResponseMessage> GetBankDetails(HttpRequestMessage request)
+        {
+            try
+            {
+                if (await CheckToken(request) == false) return ReturnResponse(UserRequest.Process);
+
+                var response = await new Members().GetBankDetails(UserRequest.UserInfo);
+
+                return ReturnResponse(response);
+
+            }
+            catch (Exception ex)
+            {
+                return ReturnResponse(new ProcessCode
+                {
+                    Code = (int)Constants.StatusCode.Error,
+                    Message = ex.Message
+                }, ex);
+            }
+        }
+
+        [HttpPost]
+        [Route("banks")]
+        public async Task<HttpResponseMessage> CreateBankDetails(HttpRequestMessage request, BankDetails details)
+        {
+            try
+            {
+                if (await CheckToken(request) == false) return ReturnResponse(UserRequest.Process);
+
+                var response = await new Members().CreateBankDetails(UserRequest.UserInfo, details);
+
+                return ReturnResponse(response);
+
             }
             catch (Exception ex)
             {

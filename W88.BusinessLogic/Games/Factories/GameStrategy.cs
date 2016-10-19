@@ -1,4 +1,5 @@
 ﻿using System;
+using Factories.Slots.Handlers;
 using W88.BusinessLogic.Accounts.Helpers;
 using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Games.Factories.Handlers;
@@ -41,6 +42,9 @@ namespace W88.BusinessLogic.Games.Factories
 
                 case "PT":
                     return new PTHandler(user, lobby, liveChat, logout);
+
+                case "PP":
+                    return new PPHandler(user, lobby, cashier);
 
                 default:
                     return null;
