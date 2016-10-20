@@ -23,48 +23,19 @@
                 <h4>Welcome to W88, and thank you for opening an account.</h4>
                 <p>Your account is now ready for you to login and play on W88.com and mobile.</p>
                 <p>Depositing is Quick and Easy. We have a huge range of deposit options available.</p>
-            </div>
-
-            <div class="ui-navbar ui-navbar-justified" role="navigation" id="depositTabs" runat="server">
-            </div>
-
-            <div class="empty-state" style="padding-top: 3%; padding-bottom: 3%">
                 <p id="paymentNote">
                 </p>
             </div>
 
-            <div class="register-success-content">
-                <p>Deposit name must be the same as the registered name on your W88 account. Please refer to Terms & Condition.</p>
-                <div class="table-container">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Method:</td>
-                                <td>
-                                    <ul>
-                                        <li>Automated Teller Machine (ATM)</li>
-                                        <li>Online Banking</li>
-                                        <li>Over The Counter Service</li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            <%--<tr>
-                                <td>Transaction Limit (USD) :</td>
-                                <td>Min. <asp:Literal ID="txtMinLimit" runat="server" /><br>
-                                Max. <asp:Literal ID="txtMaxLimit" runat="server" /></td>
-                            </tr>--%>
-                            <tr>
-                                <td colspan="2">If you have any queries or problems when making a deposit,
-                                    please <a href="/LiveChat/Default.aspx"
-                                        target="_blank">Contact Us</a>.
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <div class="ui-navbar ui-navbar-justified register-gateway" role="navigation" id="depositTabs" runat="server">
             </div>
 
             <div class="bank_logo">
+                <p class="reg-contact">
+                    If you have any queries or problems when making a deposit,
+                                    please <a href="/LiveChat/Default.aspx"
+                                        target="_blank">Contact Us</a>.
+                </p>
                 <i class="logo_10"></i>
                 <i class="logo_11"></i>
                 <i class="logo_12"></i>
@@ -80,7 +51,6 @@
         $(function () {
             window.history.forward();
             $(".register-success-content").css("display", "none");
-            $("div.empty-state").css("display", "none");
             if ($('#depositTabs li').length == 0) {
                 w88Mobile.PiwikManager.trackEvent({
                     category: "RegSuccess",
@@ -88,8 +58,8 @@
                     name: "<%=base.strMemberID %>"
                 });
                 $('#paymentNote').append('<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>');
-                $("div.empty-state").css("display", "");
             } else {
+                $('#paymentNote').append('<%= commonCulture.ElementValues.getResourceString("paymentDescription", commonVariables.PaymentMethodsXML)%>');
                 $(".register-success-content").css("display", "");
             }
         });

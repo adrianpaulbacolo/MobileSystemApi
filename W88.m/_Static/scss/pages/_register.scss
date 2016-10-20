@@ -3,14 +3,21 @@
 	color: rgba($white, 0.75);
 }
 .register-success-message{
-	padding: 45px 30px 45px;
+	padding: 15px 30px 15px;
 	text-align: center;
 	max-width: 767px;
 	h4{
 		color: $brand-color;
 		margin-left: auto;
 		margin-right: auto;
+        margin-top: 0;
 	}
+    p#paymentNote{
+        background-color: rgba(0,0,0,0.15);
+        padding: 15px;
+        font-size: 1.25rem;
+        border-radius: 4px;
+    }
 }
 
 .register-success-content{
@@ -45,6 +52,36 @@
 }
 
 .bank_logo{
-	padding: 0 30px 30px;
-	margin-bottom: 0;
+	margin-bottom: 15px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+div#depositTabs.register-gateway{
+    ul{
+        display: table;
+        table-layout: auto;
+        padding: 10px;
+        li{
+            display:block;
+
+            a{
+                font-family: "dinpro";
+                text-align: center;
+                background-color: #01374d;
+                color: #dab867;
+                text-transform: uppercase;
+                padding-top: 30px;
+                padding-bottom: 30px;
+                margin-bottom: 10px;
+                display: block;
+                position: relative;
+                &:hover{
+                    background-color: #00131b;
+                }
+            }
+
+        }
+    }
+
 }
