@@ -14,6 +14,17 @@ namespace W88.Utilities.Extensions
         {
             return item.ToString(Settings.DateTimeFormat);
         }
+
+        public static bool IsOver18(this DateTime dob)
+        {
+            DateTime now = DateTime.Today;
+            int age = now.Year - dob.Year;
+
+            if (now.Month < dob.Month || (now.Month == dob.Month && now.Day < dob.Day))
+                age--;
+
+            return age >= 18;
+        }
     }
 
     public static class DecimalExtension

@@ -22,8 +22,6 @@ namespace W88.BusinessLogic.Rewards.Helpers
     /// </summary>
     public class RewardsHelper : BaseHelper
     {
-        private const string TranslationsPath = "rewards/rewards";
-
         public async Task<int> CheckRedemptionLimitForVipCategory(string memberCode, string vipCategoryId)
         {
             try
@@ -524,24 +522,24 @@ namespace W88.BusinessLogic.Rewards.Helpers
             }
         }
 
-        public static string GetTranslation(string key, string language = "")
+        public static string GetTranslation(string key, string language = "", string path = "rewards/rewards")
         {
             LOV keyValue;
             if (string.IsNullOrWhiteSpace(language))
             {
-                keyValue = GetTranslations().Find(x => x.Text == key);
+                keyValue = GetTranslations(language, path).Find(x => x.Text == key);
                 return keyValue == null ? string.Empty : keyValue.Value;
             }
-            keyValue = GetTranslations(language).Find(x => x.Text == key);
+            keyValue = GetTranslations(language, path).Find(x => x.Text == key);
             return keyValue == null ? string.Empty : keyValue.Value;
         }
 
-        private static List<LOV> GetTranslations(string language = "")
+        private static List<LOV> GetTranslations(string language, string path)
         {             
             var list = new List<LOV>();
             try
             {
-                var translations = Common.DeserializeObject<dynamic>(CultureHelpers.AppData.GetLocale_i18n_Resource(TranslationsPath, true, language));
+                var translations = Common.DeserializeObject<dynamic>(CultureHelpers.AppData.GetLocale_i18n_Resource(path, true, language));
                 if (translations == null)
                 {
                     return list;

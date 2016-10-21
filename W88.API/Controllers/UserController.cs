@@ -16,12 +16,12 @@ namespace W88.API
        
         [HttpPost]
         [Route("Register")]
-        public async Task<HttpResponseMessage> Register(RegisterInfo registerInfo)
+        public async Task<HttpResponseMessage> Register(HttpRequestMessage request, RegisterInfo registerInfo)
         {
             try
             {
                 var register = new RegisterHelper(registerInfo);
-                var response = await register.Process();
+                var response = await register.Process(GetLanguage(request));
 
                 return ReturnResponse(response);
             }
@@ -63,6 +63,26 @@ namespace W88.API
             try
             {
                 var response = await new LoginHelper().Logout(memberId);
+
+                return ReturnResponse(response);
+            }
+            catch (Exception ex)
+            {
+                return ReturnResponse(new ProcessCode
+                {
+                    Code = (int)Constants.StatusCode.Error,
+                    Message = ex.Message
+                }, ex);
+            }
+        }
+
+        [HttpPost]
+        [Route("changepassword")]
+        public async Task<HttpResponseMessage> ChangePassword(ChangePasswordInfo changePasswordInfo)
+        {
+            try
+            {
+                var response = await new Members().ChangePassword(changePasswordInfo);
 
                 return ReturnResponse(response);
             }
