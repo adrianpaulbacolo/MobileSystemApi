@@ -5,17 +5,14 @@
 <head>
     <title><%=commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML) + commonCulture.ElementValues.getResourceString("register", commonVariables.LeftMenuXML)%></title>
     <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/Js/PreLoad.js"></script>
+    <%--<script type="text/javascript" src="/_Static/Js/PreLoad.js"></script>--%>
+    <script type="text/javascript" src="/_Static/Js/Main.js"></script>
+    <script type="application/javascript" src="/_Static/Js/add2home.js"></script>
+    <script type="text/javascript" src="/_Static/Js/radar.js"></script>
 </head>
 <body>
-    <div data-role="page" data-theme="b" id="register">
-
-        <header id="header" data-role="header" data-position="fixed" data-theme="b" data-tap-toggle="false">
-            <a href="" role="button" data-rel="back" class="btn-clear ui-btn-left ui-btn ion-ios-arrow-back" id="aMenu" data-load-ignore-splash="true">
-                <%=commonCulture.ElementValues.getResourceString("back", commonVariables.LeftMenuXML)%>
-            </a>
-            <h1 class="title"><%=commonCulture.ElementValues.getResourceString("register", commonVariables.LeftMenuXML)%></h1>
-        </header>
+    <div id="register"  data-role="page" data-theme="b" data-ajax="false">
+        <!--#include virtual="~/_static/header.shtml" -->
 
         <div class="ui-content" role="main">
             <div class="register-success-message">
@@ -45,6 +42,7 @@
             </div>
         </div>
 
+    <!--#include virtual="~/_static/navMenu.shtml" -->
     </div>
 
     <script type="text/javascript">
