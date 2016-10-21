@@ -18,16 +18,24 @@ public partial class Default : CatalogueBasePage
 
     private async void SetCatalogueList()
     {
-        var catalogueSet = await RewardsHelper.GetCatalogueSet(MemberSession);
-        CategoryListView.DataSource = catalogueSet.Tables[0];
-        var dataTable = (DataTable)CategoryListView.DataSource;
-        var dataRowAll = dataTable.NewRow();
-        dataRowAll["categoryId"] = "0";
-        dataRowAll["categoryName"] = RewardsHelper.GetTranslation(TranslationKeys.Label.All);
-        dataRowAll["imagePathOn"] = Convert.ToString(Common.GetAppSetting<string>("ImagesDirectoryPath") + "Category/" + "clt_all_on.png");
-        dataRowAll["imagePathOff"] = Convert.ToString(Common.GetAppSetting<string>("ImagesDirectoryPath") + "Category/" + "clt_all_off.png");
-        dataTable.Rows.InsertAt(dataRowAll, 0);
-        CategoryListView.DataBind();
+        try
+        {
+            var catalogueSet = await RewardsHelper.GetCatalogueSet(MemberSession);
+            CategoryListView.DataSource = catalogueSet.Tables[0];
+            var dataTable = (DataTable) CategoryListView.DataSource;
+            var dataRowAll = dataTable.NewRow();
+            dataRowAll["categoryId"] = "0";
+            dataRowAll["categoryName"] = RewardsHelper.GetTranslation(TranslationKeys.Label.All);
+            dataRowAll["imagePathOn"] = string.Empty;
+            dataRowAll["imagePathOff"] = string.Empty;
+            dataTable.Rows.InsertAt(dataRowAll, 0);
+            CategoryListView.DataBind();
+        }
+        catch (Exception)
+        {
+            lblnodata.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.NoAvailableItems);
+            lblnodata.Visible = true; 
+        }
     }
 
     private async void GetProducts()
