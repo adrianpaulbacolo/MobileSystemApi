@@ -112,7 +112,7 @@
                 }),
                 success: function (response) {
                     if (!response || response.ResponseCode == undefined) {
-                        changePassword();
+                        showMessage('<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.Exception)%>');
                         return;
                     }
 
