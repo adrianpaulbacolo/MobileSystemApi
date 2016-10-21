@@ -12,6 +12,8 @@ using W88.Utilities.Geo.Models;
 using W88.Utilities.Log.Helpers;
 using W88.Utilities.Security;
 using W88.WebRef.wsMemberMS1;
+using W88.Utilities.Extensions;
+using System.Collections.Generic;
 
 namespace W88.BusinessLogic.Accounts.Helpers
 {
@@ -31,7 +33,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
             SetValues();
         }
 
-        public async Task<ProcessCode> Process()
+        public async Task<ProcessCode> Process(string langCode)
         {
             var process = this.ValidateData();
 
@@ -42,9 +44,8 @@ namespace W88.BusinessLogic.Accounts.Helpers
                     var dsRegister = await svc.MemberRegistrationNewAsync(base.OperatorId, _registerInfo.UserInfo.Username,
                         _registerInfo.UserInfo.Password, _registerInfo.Email, _registerInfo.ContactNumber,
                         _registerInfo.Address, _registerInfo.City, _registerInfo.Postal, _registerInfo.Country,
-                        _registerInfo.CurrencyCode, _registerInfo.Gender, _registerInfo.OddsType,
-                        string.IsNullOrEmpty(_registerInfo.LanguageCode) ? "en-us" : _registerInfo.LanguageCode,
-                        Convert.ToInt32(_registerInfo.AffiliateId), _registerInfo.ReferBy, _registerInfo.IpAddress, _registerInfo.SignUpUrl,
+                        _registerInfo.CurrencyCode, _registerInfo.Gender, _registerInfo.OddsType, langCode,
+                        Convert.ToInt32(_registerInfo.AffiliateId), _registerInfo.ReferralId, _registerInfo.IpAddress, _registerInfo.SignUpUrl,
                         base.DeviceId, _registerInfo.IsTestAccount, _registerInfo.Firstname, _registerInfo.Lastname,
                         _registerInfo.DateOfBirth, string.Empty);
 
@@ -52,7 +53,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
                     {
                         process.Code = Convert.ToInt32(dsRegister.Tables[0].Rows[0]["RETURN_VALUE"]);
 
-                        this.CheckResult(ref process);
+                        this.CheckResult(ref process, langCode);
 
                         if (process.Code != 1)
                             return process;
@@ -77,97 +78,131 @@ namespace W88.BusinessLogic.Accounts.Helpers
         private ProcessCode ValidateData()
         {
             DateTime dtDob;
-            var msg = new ProcessCode { Code = (int)Constants.StatusCode.Success, Message = "OK:ParameterValidation" };
+            var msg = new ProcessCode
+            {
+                Code = (int)Constants.StatusCode.Success,
+                Message = new List<string>()
+            };
 
             if (string.IsNullOrEmpty(_registerInfo.UserInfo.Username))
             {
                 msg.Code = (int)Constants.StatusCode.Error;
-                msg.Message = base.GetMessage("Login_MissingUsername");
+                msg.Message.Add(base.GetMessage("Login_MissingUsername"));
                 msg.IsAbort = true;
             }
-            else if (string.IsNullOrEmpty(_registerInfo.UserInfo.Password))
+
+            if (Validation.IsInjection(_registerInfo.UserInfo.Username) || _registerInfo.UserInfo.Username.IndexOf(' ') >= 0 || !Validation.IsAlphanumeric(_registerInfo.UserInfo.Username) || _registerInfo.UserInfo.Username.Length < 5 || _registerInfo.UserInfo.Username.Length > 16)
             {
                 msg.Code = (int)Constants.StatusCode.Error;
-                msg.Message = base.GetMessage("Login_MissingPassword");
+                msg.Message.Add(base.GetMessage("Login_InvalidUsernamePassword"));
                 msg.IsAbort = true;
             }
-            else if (string.IsNullOrEmpty(_registerInfo.Email))
+
+            if (string.IsNullOrEmpty(_registerInfo.UserInfo.Password))
             {
                 msg.Code = (int)Constants.StatusCode.Error;
-                msg.Message = base.GetMessage("Reg_MissingEmail");
+                msg.Message.Add(base.GetMessage("Login_MissingPassword"));
                 msg.IsAbort = true;
             }
-            else if (string.IsNullOrEmpty(_registerInfo.Phone))
+
+            if (Validation.IsInjection(Encryption.Decrypt(_registerInfo.UserInfo.Password)) || Encryption.Decrypt(_registerInfo.UserInfo.Password).Length < 8 || Encryption.Decrypt(_registerInfo.UserInfo.Password).Length > 10)
             {
                 msg.Code = (int)Constants.StatusCode.Error;
-                msg.Message = base.GetMessage("Reg_MissingContact");
+                msg.Message.Add(base.GetMessage("Login_InvalidUsernamePassword"));
                 msg.IsAbort = true;
             }
-            else if (!_registerInfo.RexgexContact.IsMatch(_registerInfo.ContactNumber))
+
+            if (string.IsNullOrEmpty(_registerInfo.Email))
             {
                 msg.Code = (int)Constants.StatusCode.Error;
-                msg.Message = base.GetMessage("Reg_InvalidContact");
+                msg.Message.Add(base.GetMessage("Reg_MissingEmail"));
                 msg.IsAbort = true;
             }
-            else if (string.IsNullOrEmpty(_registerInfo.CurrencyCode) || string.Compare(_registerInfo.CurrencyCode, "-1", true) == 0)
+
+            if (Validation.IsInjection(_registerInfo.Email))
             {
                 msg.Code = (int)Constants.StatusCode.Error;
-                msg.Message = base.GetMessage("Reg_MissingCurrency");
+                msg.Message.Add(base.GetMessage("Reg_InvalidEmail"));
                 msg.IsAbort = true;
             }
-            else if (string.IsNullOrEmpty(_registerInfo.Firstname))
+
+            if (string.IsNullOrEmpty(_registerInfo.Phone))
+            {
+                msg.Code = (int)Constants.StatusCode.Error;
+                msg.Message.Add(base.GetMessage("Reg_MissingContact"));
+                msg.IsAbort = true;
+            }
+
+            if (Validation.IsInjection(_registerInfo.Phone))
+            {
+                msg.Code = (int)Constants.StatusCode.Error;
+                msg.Message.Add(base.GetMessage("Reg_InvalidContact"));
+                msg.IsAbort = true;
+            }
+
+            if (!_registerInfo.RexgexContact.IsMatch(_registerInfo.ContactNumber))
+            {
+                msg.Code = (int)Constants.StatusCode.Error;
+                msg.Message.Add(base.GetMessage("Reg_InvalidContact"));
+                msg.IsAbort = true;
+            }
+
+            if (string.IsNullOrEmpty(_registerInfo.CurrencyCode))
+            {
+                msg.Code = (int)Constants.StatusCode.Error;
+                msg.Message.Add(base.GetMessage("Reg_MissingCurrency"));
+                msg.IsAbort = true;
+            }
+            else
+            {
+                if (Validation.IsNumeric(_registerInfo.CurrencyCode))
+                {
+                    msg.Code = (int)Constants.StatusCode.Error;
+                    msg.Message.Add(base.GetMessage("Reg_MissingCurrency"));
+                    msg.IsAbort = true;
+                }
+            }
+
+            if (Validation.IsInjection(_registerInfo.CurrencyCode))
+            {
+                msg.Code = (int)Constants.StatusCode.Error;
+                msg.Message.Add(base.GetMessage("Reg_MissingCurrency"));
+                msg.IsAbort = true;
+            }
+
+            if (string.IsNullOrEmpty(_registerInfo.Firstname))
             {
                 // This changes is for the combined name on frontend only but on the BO everything will be saved in firstname
                 msg.Code = (int)Constants.StatusCode.Error;
-                msg.Message = base.GetMessage("Reg_MissingName");
+                msg.Message.Add(base.GetMessage("Reg_MissingName"));
                 msg.IsAbort = true;
             }
-            else if (Validation.IsInjection(_registerInfo.UserInfo.Username) || _registerInfo.UserInfo.Username.IndexOf(' ') >= 0 || !Validation.IsAlphanumeric(_registerInfo.UserInfo.Username) || _registerInfo.UserInfo.Username.Length < 5 || _registerInfo.UserInfo.Username.Length > 16)
+
+            if (Validation.IsInjection(_registerInfo.Firstname))
             {
                 msg.Code = (int)Constants.StatusCode.Error;
-                msg.Message = base.GetMessage("Login_InvalidUsernamePassword");
+                msg.Message.Add(base.GetMessage("Reg_MissingName"));
                 msg.IsAbort = true;
             }
-            else if (Validation.IsInjection(Encryption.Decrypt(_registerInfo.UserInfo.Password)) || Encryption.Decrypt(_registerInfo.UserInfo.Password).Length < 8 || Encryption.Decrypt(_registerInfo.UserInfo.Password).Length > 10)
+
+            if (Validation.IsInjection(_registerInfo.Lastname))
             {
                 msg.Code = (int)Constants.StatusCode.Error;
-                msg.Message = base.GetMessage("Login_InvalidUsernamePassword");
+                msg.Message.Add(base.GetMessage("Reg_MissingName"));
                 msg.IsAbort = true;
             }
-            else if (Validation.IsInjection(_registerInfo.Email))
+
+            if (!DateTime.TryParse(_registerInfo.DateOfBirth.ToShortDateString(), out dtDob))
             {
                 msg.Code = (int)Constants.StatusCode.Error;
-                msg.Message = base.GetMessage("Reg_InvalidEmail");
+                msg.Message.Add(base.GetMessage("Reg_InvalidDOB"));
                 msg.IsAbort = true;
             }
-            else if (Validation.IsInjection(_registerInfo.Phone))
+
+            if (!_registerInfo.DateOfBirth.IsOver18())
             {
                 msg.Code = (int)Constants.StatusCode.Error;
-                msg.Message = base.GetMessage("Reg_InvalidContact");
-                msg.IsAbort = true;
-            }
-            else if (Validation.IsInjection(_registerInfo.CurrencyCode))
-            {
-                msg.Code = (int)Constants.StatusCode.Error;
-                msg.Message = base.GetMessage("Reg_MissingCurrency");
-                msg.IsAbort = true;
-            }
-            else if (Validation.IsInjection(_registerInfo.Firstname))
-            {
-                msg.Code = (int)Constants.StatusCode.Error;
-                msg.Message = base.GetMessage("Reg_MissingFName");
-                msg.IsAbort = true;
-            }
-            else if (Validation.IsInjection(_registerInfo.Lastname))
-            {
-                msg.Code = (int)Constants.StatusCode.Error;
-                msg.Message = base.GetMessage("Reg_MissingLName");
-                msg.IsAbort = true;
-            }
-            else if (!DateTime.TryParse(_registerInfo.DateOfBirth.ToShortDateString(), out dtDob))
-            {
-                msg.Code = (int)Constants.StatusCode.Error;
-                msg.Message = base.GetMessage("Reg_InvalidDOB");
+                msg.Message.Add(base.GetMessage("Reg_Required18"));
                 msg.IsAbort = true;
             }
 
@@ -177,13 +212,13 @@ namespace W88.BusinessLogic.Accounts.Helpers
 
             AuditTrail.AppendLog(_registerInfo.UserInfo.Username, Constants.PageNames.RegisterPage,
                 Constants.TaskNames.ParameterValidation, Constants.PageNames.ComponentName, Convert.ToString(msg.Code),
-                msg.Message, string.Empty, string.Empty, msg.Remark,
+                string.Join(" | ", msg.Message), string.Empty, string.Empty, msg.Remark,
                 Convert.ToString(msg.ProcessSerialId), Convert.ToString(msg.Id), false);
 
             return msg;
         }
 
-        private void CheckResult(ref ProcessCode process)
+        private void CheckResult(ref ProcessCode process, string langCode)
         {
             switch (process.Code)
             {
@@ -210,7 +245,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
                     break;
             }
 
-            LogRegister(process);
+            LogRegister(process, langCode);
         }
 
         private void SetValues()
@@ -259,43 +294,25 @@ namespace W88.BusinessLogic.Accounts.Helpers
                 _registerInfo.IsTestAccount = true;
             }
 
-            string affId;
-            int intAffiliateId;
-            if (string.IsNullOrEmpty(Common.GetSessionVariable("AffiliateId")))
-            {
-                affId = (string.IsNullOrEmpty(_registerInfo.AffiliateId) ? "0" : _registerInfo.AffiliateId);
-            }
-            else
-                affId = Common.GetSessionVariable("AffiliateId");
-
-            try
-            {
-                int.TryParse(affId, out intAffiliateId);
-            }
-            catch
-            {
-                intAffiliateId = 0;
-            }
-
-            _registerInfo.AffiliateId = Convert.ToString(intAffiliateId);
+            _registerInfo.AffiliateId = _registerInfo.AffiliateId ?? "0";
             _registerInfo.Address = _registerInfo.Country;
             _registerInfo.City = _registerInfo.Country;
             _registerInfo.Postal = "000000";
             _registerInfo.Gender = "M";
         }
 
-        private void LogRegister(ProcessCode process)
+        private void LogRegister(ProcessCode process, string langCode)
         {
             process.Remark =
                 string.Format(
-                    "OperatorId: {0} | MemberCode: {1} | Email: {2} | Contact: {3} | Address: {4} | City: {5} | Postal: {6} | Country: {7} | Currency: {8} | Gender: {9} | OddsType: {10} | Language: {11} | Affiliate: {12} | ReferBy: {13} | IP: {14} | SignUpUrl: {15} | DeviceID: {16} | TestAccount: {17} | FName: {18} | LName: {19} | DOB: {20} | REMOTEIP: {21} | FORWARDEDIP: {22} | REQUESTERIP: {23} | AffiliateID: {24}",
-                    base.OperatorId, _registerInfo.UserInfo.Username, _registerInfo.Email, _registerInfo.ContactNumber, _registerInfo.Address, _registerInfo.City, _registerInfo.Postal, 
-                    _registerInfo.Country, _registerInfo.CurrencyCode, _registerInfo.Gender, _registerInfo.OddsType, _registerInfo.LanguageCode, _registerInfo.AffiliateId, _registerInfo.ReferBy,
-                    _registerInfo.IpAddress, _registerInfo.SignUpUrl, base.DeviceId, _registerInfo.IsTestAccount, _registerInfo.Firstname, _registerInfo.Lastname, _registerInfo.DateOfBirth, 
+                    "OperatorId: {0} | MemberCode: {1} | Email: {2} | Contact: {3} | Address: {4} | City: {5} | Postal: {6} | Country: {7} | Currency: {8} | Gender: {9} | OddsType: {10} | Language: {11} | Affiliate: {12} | Referral: {13} | IP: {14} | SignUpUrl: {15} | DeviceID: {16} | TestAccount: {17} | FName: {18} | LName: {19} | DOB: {20} | REMOTEIP: {21} | FORWARDEDIP: {22} | REQUESTERIP: {23} | AffiliateID: {24}",
+                    base.OperatorId, _registerInfo.UserInfo.Username, _registerInfo.Email, _registerInfo.ContactNumber, _registerInfo.Address, _registerInfo.City, _registerInfo.Postal,
+                    _registerInfo.Country, _registerInfo.CurrencyCode, _registerInfo.Gender, _registerInfo.OddsType, langCode, _registerInfo.AffiliateId, _registerInfo.ReferralId,
+                    _registerInfo.IpAddress, _registerInfo.SignUpUrl, base.DeviceId, _registerInfo.IsTestAccount, _registerInfo.Firstname, _registerInfo.Lastname, _registerInfo.DateOfBirth,
                     _ipHelper.Remote, _ipHelper.Forwarded, _ipHelper.Requester, _registerInfo.AffiliateId);
 
             process.ProcessSerialId += 1;
-            
+
             AuditTrail.AppendLog(_registerInfo.UserInfo.Username, Constants.PageNames.RegisterPage,
                 Constants.TaskNames.RegistrationNew, Constants.PageNames.ComponentName, Convert.ToString(process.Code),
                 process.Message, string.Empty, string.Empty, process.Remark,

@@ -163,6 +163,7 @@
     <None Include="App_Data\i18n\rewards\rewards.th-th.json" />
     <None Include="App_Data\i18n\rewards\rewards.vi-vn.json" />
     <None Include="App_Data\i18n\rewards\rewards.zh-cn.json" />
+    <Content Include="App_Data\i18n\shared\Currencies.json" />
     <None Include="Properties\PublishProfiles\w88.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

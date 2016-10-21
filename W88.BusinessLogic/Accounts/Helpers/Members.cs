@@ -10,6 +10,7 @@ using Microsoft.SqlServer.Server;
 using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Base.Helpers;
 using W88.BusinessLogic.Funds.Models;
+using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Shared.Helpers;
 using W88.BusinessLogic.Shared.Models;
 using W88.Utilities.Geo;
@@ -17,6 +18,7 @@ using W88.Utilities.Extensions;
 using W88.Utilities.Security;
 using W88.Utilities.Log.Helpers;
 using W88.WebRef.svcPayMember;
+using W88.WebRef.wsMemberMS1;
 
 namespace W88.BusinessLogic.Accounts.Helpers
 {
@@ -464,6 +466,112 @@ namespace W88.BusinessLogic.Accounts.Helpers
             }
 
             return process;
+        }
+
+        public async Task<ProcessCode> ChangePassword(ChangePasswordInfo changePasswordInfo)
+        {
+            const string translationPath = "contents/translations";
+            var process = new ProcessCode();
+            var memberId = changePasswordInfo.MemberId;
+            var password = changePasswordInfo.Password;
+            var newPassword = changePasswordInfo.NewPassword;
+            var confirmPassword = changePasswordInfo.ConfirmPassword;
+
+            if (string.IsNullOrEmpty(password))
+            {
+                process.ProcessSerialId += 1;
+                process.Code = (int)Constants.StatusCode.Error;
+                process.Message = RewardsHelper.GetTranslation("LABEL_CHANGEPASSWORD_ENTER_CURRENT",
+                    changePasswordInfo.Language, translationPath);
+                LogProcess(process, memberId);
+                return process;
+            }
+
+            if (string.IsNullOrEmpty(newPassword))
+            {
+                process.ProcessSerialId += 1;
+                process.Code = (int)Constants.StatusCode.Error;
+                process.Message = RewardsHelper.GetTranslation("LABEL_CHANGEPASSWORD_ENTER_NEW",
+                    changePasswordInfo.Language, translationPath);
+                LogProcess(process, memberId);
+                return process;
+            }
+
+            if (string.IsNullOrEmpty(confirmPassword))
+            {
+                process.ProcessSerialId += 1;
+                process.Code = (int)Constants.StatusCode.Error;
+                process.Message = RewardsHelper.GetTranslation("LABEL_CHANGEPASSWORD_ENTER_CONFIRM",
+                    changePasswordInfo.Language, translationPath);
+                LogProcess(process, memberId);
+                return process;
+            }
+
+            if (!Encryption.Decrypt(confirmPassword).Equals(Encryption.Decrypt(newPassword)))
+            {
+                process.ProcessSerialId += 1;
+                process.Code = (int)Constants.StatusCode.Error;
+                process.Message = RewardsHelper.GetTranslation("LABEL_CHANGEPASSWORD_MISMATCH",
+                    changePasswordInfo.Language, translationPath);
+                LogProcess(process, memberId);
+                return process;
+            }
+
+            if (Validation.IsInjection(Encryption.Decrypt(password))
+                || Validation.IsInjection(Encryption.Decrypt(newPassword))
+                || Validation.IsInjection(Encryption.Decrypt(confirmPassword)))
+            {
+                process.ProcessSerialId += 1;
+                process.Code = (int)Constants.StatusCode.Error;
+                process.Message = RewardsHelper.GetTranslation("LABEL_CHANGEPASSWORD_INVALID",
+                    changePasswordInfo.Language, translationPath);
+                LogProcess(process, memberId);
+                return process;
+            }
+
+            using (var client = new memberWSSoapClient())
+            {
+
+                process.Id = Guid.NewGuid();
+                process.ProcessSerialId += 1;
+
+                var result = await client.MemberChangePasswordAsync(long.Parse(changePasswordInfo.MemberId), 
+                    changePasswordInfo.Password, changePasswordInfo.NewPassword);
+
+                switch (result)
+                {
+                    case 1: 
+                        process.Code = (int) Constants.StatusCode.Success;
+                        process.Message = RewardsHelper.GetTranslation("LABEL_CHANGEPASSWORD_SUCCESS",
+                            changePasswordInfo.Language, translationPath);
+                        break;
+                    case 10: 
+                        process.Code = (int) Constants.StatusCode.Error;
+                        process.Message = RewardsHelper.GetTranslation("LABEL_CHANGEPASSWORD_FAIL",
+                            changePasswordInfo.Language, translationPath);
+                        break;
+                    case 11: 
+                        process.Code = (int) Constants.StatusCode.Error;
+                        process.Message = RewardsHelper.GetTranslation("LABEL_CHANGEPASSWORD_INVALID",
+                            changePasswordInfo.Language, translationPath);
+                        break;
+                    default: 
+                        process.Code = (int) Constants.StatusCode.Error;
+                        process.Message = GetMessage("Exception");
+                        break;
+                }
+
+                LogProcess(process, memberId);
+                return process;
+            }
+        }
+
+        private void LogProcess(ProcessCode process, string memberCode)
+        {
+            AuditTrail.AppendLog(memberCode, Constants.PageNames.ChangePasswordPage,
+                Constants.TaskNames.ChangePassword, Constants.PageNames.ComponentName,
+                Convert.ToString(process.Code), string.Join(" | ", process.Message), string.Empty, string.Empty, process.Remark,
+                Convert.ToString(process.ProcessSerialId), Convert.ToString(process.Id), false);           
         }
     }
 }
