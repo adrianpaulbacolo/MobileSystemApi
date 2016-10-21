@@ -60,29 +60,29 @@
     <script type="text/javascript">
         $(function () {           
             $('#changePasswordBtn').click(function (e) {
-                $('#changePasswordBtn').attr("disabled", true);
+                $('#changePasswordBtn').attr('disabled', true);
 
                 if ($('#txtCurrentPassword').val().trim().length == 0) {
                     showMessage('<%=RewardsHelper.GetTranslation("LABEL_CHANGEPASSWORD_ENTER_CURRENT", Language, TranslationsPath)%>');
-                    $('#changePasswordBtn').attr("disabled", false);
+                    $('#changePasswordBtn').attr('disabled', false);
                     e.preventDefault();
                     return;
                 }
                 if ($('#txtNewPassword').val().trim().length == 0) {
                     showMessage('<%=RewardsHelper.GetTranslation("LABEL_CHANGEPASSWORD_ENTER_NEW", Language, TranslationsPath)%>');
-                    $('#changePasswordBtn').attr("disabled", false);
+                    $('#changePasswordBtn').attr('disabled', false);
                     e.preventDefault();
                     return;
                 }
                 if ($('#txtConfirmPassword').val().trim().length == 0) {
                     showMessage('<%=RewardsHelper.GetTranslation("LABEL_CHANGEPASSWORD_ENTER_CONFIRM", Language, TranslationsPath)%>');
-                    $('#changePasswordBtn').attr("disabled", false);
+                    $('#changePasswordBtn').attr('disabled', false);
                     e.preventDefault();
                     return;
                 }
                 if ($('#txtNewPassword').val().trim() !== $('#txtConfirmPassword').val().trim()) {
                     showMessage('<%=RewardsHelper.GetTranslation("LABEL_CHANGEPASSWORD_MISMATCH", Language, TranslationsPath)%>');
-                    $('#changePasswordBtn').attr("disabled", false);
+                    $('#changePasswordBtn').attr('disabled', false);
                     e.preventDefault();
                     return;
                 }
@@ -119,10 +119,25 @@
                     var message = response.ResponseMessage;
                     switch (response.ResponseCode) {
                         case 1:
-                            loadPage('<%=string.Format("/Index.aspx?lang={0}", Language)%>');
+                            GPINTMOBILE.HideSplash();
+                            showMessage(message);
+
+                            var closeButtons = $('#PopUpModal a');
+                            if (!closeButtons || closeButtons.length === 0) {                                
+                                setTimeout(function() {
+                                    loadPage('<%=string.Format("/Index.aspx?lang={0}", Language)%>');
+                                }, 3000);
+                                return;
+                            }
+                            closeButtons.each(function () {
+                                $(this).attr('data-rel', null);
+                                $(this).on('click', function() {
+                                    loadPage('<%=string.Format("/Index.aspx?lang={0}", Language)%>');
+                                });
+                            });
                             break;
                         default:
-                            $('#changePasswordBtn').attr("disabled", false);
+                            $('#changePasswordBtn').attr('disabled', false);
                             GPINTMOBILE.HideSplash();
                             showMessage(message);
                             break;
@@ -131,7 +146,7 @@
                 error: function () {
                     GPINTMOBILE.HideSplash();
                     showMessage('<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.Exception)%>');
-                    $('#changePasswordBtn').attr("disabled", false);
+                    $('#changePasswordBtn').attr('disabled', false);
                 }
             });
         }
