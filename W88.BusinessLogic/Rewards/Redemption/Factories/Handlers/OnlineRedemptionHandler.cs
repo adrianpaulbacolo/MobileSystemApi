@@ -33,8 +33,8 @@ namespace W88.BusinessLogic.Rewards.Redemption.Factories.Handlers
                 request.RiskId = Request.RiskId;
                 request.Currency = Request.Currency;
                 request.PointRequired = int.Parse(Request.PointRequired);
-                request.Quantity = request.Quantity;
-                request.AimId = request.AimId;
+                request.Quantity = int.Parse(Request.Quantity);
+                request.AimId = Request.AimId;
                 return request;
             }
             catch (Exception exception)

@@ -53,6 +53,7 @@ namespace W88.BusinessLogic.Rewards.Models
             public const string TotalCart = "Redemption_TotalCart";
             public const string CurrentBalance = "Redemption_CurrentBalance";
             public const string NoRecordFound = "Redemption_NoRecordFound";
+            public const string EnterRemarks = "Redemption_EnterRemarks";
         }
 
         public static class Label
