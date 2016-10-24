@@ -18,6 +18,7 @@
             public const string RedeemRewards = "RedeemRewards";
             public const string VendorRedirection = "VendorRedirection";
             public const string CreateBankDetails = "CreateBankDetails";
+            public const string ChangePassword = "ChangePassword";
         }
 
         public struct PageNames
@@ -29,6 +30,7 @@
             public const string WalletsApi = "WalletsApi";
             public const string MailApi = "MailApi";
             public const string RedeemPage = "RedeemPage";
+            public const string ChangePasswordPage = "ChangePasswordPage";
         }
 
         public struct VarNames

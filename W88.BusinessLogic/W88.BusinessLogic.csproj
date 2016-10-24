@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Accounts\Helpers\HistoryReports.cs" />
     <Compile Include="Accounts\Helpers\Wallets.cs" />
+	<Compile Include="Accounts\Models\ChangePasswordInfo.cs" />
     <Compile Include="Accounts\Models\HistoryInfo.cs" />
     <Compile Include="Base\Helpers\BaseHelper.cs" />
     <Compile Include="Funds\Factories\FundsBase.cs" />
