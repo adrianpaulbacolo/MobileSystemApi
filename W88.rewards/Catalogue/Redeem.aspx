@@ -127,6 +127,10 @@
                                 <asp:Label ID="contactLabel" CssClass="validator" runat="server" Text="*" data-mini="true" />
                                 <asp:TextBox ID="tbContact" runat="server" MaxLength="50" type="tel" data-mini="true" placeholder="Contact Number" />
                             </div>
+                            <div class="ui-field-contain ui-hide-label">
+                                <asp:Label ID="remarksLabel" CssClass="validator" runat="server" Text="*" data-mini="true" Visible="false" />
+                                <textarea cols="40" rows="3" runat="server" id="txtBoxRemarks" style="height: auto;" placeholder="" Visible="false"></textarea>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -141,34 +145,11 @@
         $('#form1').submit(function (e) {
             $('#btnSubmit').attr("disabled", true);
 
-            switch ('<%=ProductType%>') {
-                case '1': //freebet
-                    if (!validateFreebet()) {
-                        $('#btnSubmit').attr("disabled", false);
-                        return false;
-                    } 
-                    return true;                   
-                case '2': //normal
-                    if (!validateNormal()) {
-                        $('#btnSubmit').attr("disabled", false);
-                        return false;
-                    }
-                    break;
-                case '3': //wishlist same as normal
-                    if (!validateNormal()) {
-                        $('#btnSubmit').attr("disabled", false);
-                        return false;
-                    } 
-                    return true;
-                case '4': //online
-                    if (!validateOnlineAccount()) {
-                        $('#btnSubmit').attr("disabled", false);
-                        return false;
-                    } 
-                    return true;                
-                default:
-                    break;
+            if (!isValid('<%=ProductType%>')) {
+                $('#btnSubmit').attr("disabled", false);
+                return false;
             }
+            return true;
         });
 
         function showMessage(status, message) {
@@ -206,56 +187,54 @@
             }
         }
 
-        function validateFreebet() {
-            if ($('#tbQuantity').val() && $('#tbQuantity').val().trim().length == 0) {
-                window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.InvalidQuantity)%>');
-                return false;
-            }
-            return true;       
-        }
+        function isValid(type) {
+            const NORMAL = '2';
+            const WISHLIST = '3';
+            const ONLINE = '4';
 
-        function validateOnlineAccount() {
             if ($('#tbQuantity').val() && $('#tbQuantity').val().trim().length == 0) {
                 window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.InvalidQuantity)%>');
                 return false;
             }
-            if ($('#tbAccount').val() && $('#tbAccount').val().trim().length == 0) {
-                window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterAccount)%>');
-                return false;
-            } 
-            return true;        
-        }
 
-        function validateNormal() {
-            if ($('#tbQuantity').val() && $('#tbQuantity').val().trim().length == 0) {
-                window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.InvalidQuantity)%>');
-                return false;
-            }
-            if ($('#tbRName').val() && $('#tbRName').val().trim().length == 0) {
-                window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterName)%>');
-                return false;
-            }
-            if ($('#tbAddress').val() && $('#tbAddress').val().trim().length == 0) {
-                window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterAddress)%>');
-                return false;
-            }
-            if ($('#tbPostal').val() && $('#tbPostal').val().trim().length == 0) {
-                window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterPostal)%>');
-                return false;
-            }
-            if ($('#tbCity').val() && $('#tbCity').val().trim().length == 0) {
-                window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterCity)%>');
-                return false;
-            }
-            if ($('#tbCountry').val() && $('#tbCountry').val().trim().length == 0) {
-                window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterCountry)%>');
-                return false;
-            }
-            if ($('#tbContact').val() && $('#tbContact').val().trim().length == 0) {
-                window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterContactNumber)%>');
-                return false;
-            } 
-            return true;            
+            if (type == ONLINE) {
+                if ($('#tbAccount').val() && $('#tbAccount').val().trim().length == 0) {
+                    window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterAccount)%>');
+                    return false;
+                }
+            } else if (type == NORMAL || type == WISHLIST) {
+                if ($('#tbRName').val() && $('#tbRName').val().trim().length == 0) {
+                    window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterName)%>');
+                    return false;
+                }
+                if ($('#tbAddress').val() && $('#tbAddress').val().trim().length == 0) {
+                    window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterAddress)%>');
+                    return false;
+                }
+                if ($('#tbPostal').val() && $('#tbPostal').val().trim().length == 0) {
+                    window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterPostal)%>');
+                    return false;
+                }
+                if ($('#tbCity').val() && $('#tbCity').val().trim().length == 0) {
+                    window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterCity)%>');
+                    return false;
+                }
+                if ($('#tbCountry').val() && $('#tbCountry').val().trim().length == 0) {
+                    window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterCountry)%>');
+                    return false;
+                }
+                if ($('#tbContact').val() && $('#tbContact').val().trim().length == 0) {
+                    window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterContactNumber)%>');
+                    return false;
+                }
+                if (type == WISHLIST) {
+                    if ($('#txtBoxRemarks').val() && $('#txtBoxRemarks').val().trim().length == 0) {
+                        window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterRemarks)%>');
+                        return false;
+                    }
+                }
+            }           
+            return true;
         }
     </script>
     <!-- /page -->
