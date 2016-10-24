@@ -21,7 +21,7 @@
         <form id="form1" runat="server">
             <div role="main" class="main-content">               
                 <div class="container">
-                    <h6><%=RewardsHelper.GetTranslation("LABEL_CHANGEPASSWORD_TITLE", Language, TranslationsPath)%></h6>
+                    <h6><%=CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD_TITLE", Language, TranslationsPath)%></h6>
                     <div class="form-container login">
                         <div class="form-group form-group-line">
                             <asp:Label ID="lblCurrentPassword" runat="server" AssociatedControlID="txtCurrentPassword" Text="" />
@@ -43,12 +43,12 @@
                     <div class="btn-group btn-group-justified" role="group">
                         <div class="btn-group" role="group">
                             <a data-ajax="false" class="btn btn-generic" href="<%="/Index.aspx?lang=" + LanguageHelpers.SelectedLanguage %>">
-                                <span class="icon"></span><%=RewardsHelper.GetTranslation("BUTTON_CANCEL", Language, TranslationsPath)%>
+                                <span class="icon"></span><%=CultureHelpers.GetTranslation("BUTTON_CANCEL", Language, TranslationsPath)%>
                             </a>
                         </div>
                         <div class="btn-group" role="group">                                                   
                             <a id="changePasswordBtn" href="#" class="btn btn-generic">
-                                <span class="icon"></span><%=RewardsHelper.GetTranslation("BUTTON_SUBMIT", Language, TranslationsPath)%>
+                                <span class="icon"></span><%=CultureHelpers.GetTranslation("BUTTON_SUBMIT", Language, TranslationsPath)%>
                             </a>
                         </div>
                     </div>
@@ -63,25 +63,25 @@
                 $('#changePasswordBtn').attr('disabled', true);
 
                 if ($('#txtCurrentPassword').val().trim().length == 0) {
-                    showMessage('<%=RewardsHelper.GetTranslation("LABEL_CHANGEPASSWORD_ENTER_CURRENT", Language, TranslationsPath)%>');
+                    showMessage('<%=CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD_ENTER_CURRENT", Language, TranslationsPath)%>');
                     $('#changePasswordBtn').attr('disabled', false);
                     e.preventDefault();
                     return;
                 }
                 if ($('#txtNewPassword').val().trim().length == 0) {
-                    showMessage('<%=RewardsHelper.GetTranslation("LABEL_CHANGEPASSWORD_ENTER_NEW", Language, TranslationsPath)%>');
+                    showMessage('<%=CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD_ENTER_NEW", Language, TranslationsPath)%>');
                     $('#changePasswordBtn').attr('disabled', false);
                     e.preventDefault();
                     return;
                 }
                 if ($('#txtConfirmPassword').val().trim().length == 0) {
-                    showMessage('<%=RewardsHelper.GetTranslation("LABEL_CHANGEPASSWORD_ENTER_CONFIRM", Language, TranslationsPath)%>');
+                    showMessage('<%=CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD_ENTER_CONFIRM", Language, TranslationsPath)%>');
                     $('#changePasswordBtn').attr('disabled', false);
                     e.preventDefault();
                     return;
                 }
                 if ($('#txtNewPassword').val().trim() !== $('#txtConfirmPassword').val().trim()) {
-                    showMessage('<%=RewardsHelper.GetTranslation("LABEL_CHANGEPASSWORD_MISMATCH", Language, TranslationsPath)%>');
+                    showMessage('<%=CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD_MISMATCH", Language, TranslationsPath)%>');
                     $('#changePasswordBtn').attr('disabled', false);
                     e.preventDefault();
                     return;

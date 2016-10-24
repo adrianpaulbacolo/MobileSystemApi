@@ -25,8 +25,8 @@ public partial class _Secure_ChangePassword : BasePage
             return;
         }
 
-        lblCurrentPassword.Text = RewardsHelper.GetTranslation("LABEL_CHANGEPASSWORD", Language, TranslationsPath);
-        lblNewPassword.Text = RewardsHelper.GetTranslation("LABEL_CHANGEPASSWORD_NEW", Language, TranslationsPath);
-        lblConfirmPassword.Text = RewardsHelper.GetTranslation("LABEL_CHANGEPASSWORD_CONFIRM", Language, TranslationsPath);  
+        lblCurrentPassword.Text = CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD", Language, TranslationsPath);
+        lblNewPassword.Text = CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD_NEW", Language, TranslationsPath);
+        lblConfirmPassword.Text = CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD_CONFIRM", Language, TranslationsPath);  
     }
 }
