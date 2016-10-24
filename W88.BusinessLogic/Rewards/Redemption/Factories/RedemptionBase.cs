@@ -20,7 +20,7 @@ namespace W88.BusinessLogic.Rewards.Redemption.Factories
         protected RedemptionBase(RedemptionRequest request)
         {
             Request = request;
-            request.OperatorId = OperatorId.ToString(CultureInfo.InvariantCulture);           
+            Request.OperatorId = OperatorId.ToString(CultureInfo.InvariantCulture);           
         }
 
         public async Task<ProcessCode> Redeem()
@@ -45,6 +45,7 @@ namespace W88.BusinessLogic.Rewards.Redemption.Factories
             {
                 AuditTrail.AppendLog(exception);
                 process.Code = (int) Constants.StatusCode.Error;
+                process.Message = RewardsHelper.GetTranslation(TranslationKeys.Errors.Exception);
                 return process;
             }
         }
