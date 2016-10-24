@@ -88,6 +88,7 @@
     <Compile Include="Rewards\Models\ProductDetails.cs" />
     <Compile Include="Rewards\Models\TranslationKeys.cs" />
     <Compile Include="Rewards\Redemption\Factories\Handlers\FreeBetRedemptionHandler.cs" />
+	<Compile Include="Rewards\Redemption\Factories\Handlers\WishlistRedemptionHandler.cs" />
     <Compile Include="Rewards\Redemption\Factories\Handlers\NormalRedemptionHandler.cs" />
     <Compile Include="Rewards\Redemption\Factories\Handlers\OnlineRedemptionHandler.cs" />
     <Compile Include="Rewards\Redemption\Factories\RedemptionStrategy.cs" />

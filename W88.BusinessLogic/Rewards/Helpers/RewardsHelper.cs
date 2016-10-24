@@ -522,42 +522,9 @@ namespace W88.BusinessLogic.Rewards.Helpers
             }
         }
 
-        public static string GetTranslation(string key, string language = "", string path = "rewards/rewards")
+        public static string GetTranslation(string key, string language = "")
         {
-            LOV keyValue;
-            if (string.IsNullOrWhiteSpace(language))
-            {
-                keyValue = GetTranslations(language, path).Find(x => x.Text == key);
-                return keyValue == null ? string.Empty : keyValue.Value;
-            }
-            keyValue = GetTranslations(language, path).Find(x => x.Text == key);
-            return keyValue == null ? string.Empty : keyValue.Value;
-        }
-
-        private static List<LOV> GetTranslations(string language, string path)
-        {             
-            var list = new List<LOV>();
-            try
-            {
-                var translations = Common.DeserializeObject<dynamic>(CultureHelpers.AppData.GetLocale_i18n_Resource(path, true, language));
-                if (translations == null)
-                {
-                    return list;
-                }
-                foreach (var translation in translations)
-                {
-                    list.Add(new LOV
-                    {
-                        Text = translation.Name,
-                        Value = translation.Value
-                    });
-                }
-                return list;     
-            }
-            catch (Exception exception)
-            {
-                return list;      
-            }   
+            return CultureHelpers.GetTranslation(key, language, "rewards/rewards");
         }
     }
 }
