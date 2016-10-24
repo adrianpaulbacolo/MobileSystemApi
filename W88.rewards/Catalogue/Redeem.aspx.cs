@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Activities.Expressions;
 using System.Text;
 using System.Web;
 using System.Web.UI;
@@ -27,8 +26,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             return;
         }
         SetLabels();
-        GetProductDetails();
-        InitFields();       
+        GetProductDetails();  
     }
 
     protected async void RedeemButtonOnClick(object sender, EventArgs e)
@@ -37,30 +35,10 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         Status = string.Empty;
         Message = string.Empty;
         var productType = (ProductTypeEnum)int.Parse(ProductDetails.ProductType);
-        var quantitytext = tbQuantity.Text.Trim();
 
         #region redeem product
         try
         {
-            int quantity;
-            var isParsed = int.TryParse(quantitytext, out quantity);
-            if (!isParsed)
-            {
-                Status = Convert.ToString((int) Constants.StatusCode.Error);
-                Message = RewardsHelper.GetTranslation(TranslationKeys.Redemption.InvalidQuantity);
-                ShowMessage(Status, Message);
-                return;
-            }
-
-            quantity = int.Parse(quantitytext);
-            if (quantity < 1)
-            {
-                Status = Convert.ToString((int) Constants.StatusCode.Error);
-                Message = RewardsHelper.GetTranslation(TranslationKeys.Redemption.InvalidMinimum);
-                ShowMessage(Status, Message);
-                return;
-            }
-
             var response = await RedemptionStrategy.Initialize(GetRequest(productType)).Redeem();
             Status = Convert.ToString(response.Code);
             Message = response.Message;
@@ -128,6 +106,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         tbCity.Attributes.Add("PLACEHOLDER", RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterCity));
         tbCountry.Attributes.Add("PLACEHOLDER", RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterCountry));
         tbContact.Attributes.Add("PLACEHOLDER", RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterContactNumber));
+        txtBoxRemarks.Attributes.Add("PLACEHOLDER", RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterRemarks));
         nameLabel.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.Name);
         addressLabel.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.Address);
         postalLabel.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.Postal);
@@ -135,6 +114,12 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         countryLabel.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.Country);
         contactLabel.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.ContactNumber);
         redeemButton.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.RedeemNow);
+        remarksLabel.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.Remarks);
+        if ((ProductTypeEnum)int.Parse(ProductType) == ProductTypeEnum.Wishlist)
+        {
+            remarksLabel.Visible = true;
+            txtBoxRemarks.Visible = true;
+        }
         redeemButton.Visible = true;
         #endregion
     }
@@ -281,7 +266,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         request.ProductId = lblproductid.Value;
         request.CategoryId = string.IsNullOrEmpty(ProductDetails.CategoryId) ? "0" : ProductDetails.CategoryId;
         request.RiskId = MemberSession == null ? "0" : MemberSession.RiskId;
-        request.Currency = string.IsNullOrEmpty(ProductDetails.CurrencyCode) ? "0" : ProductDetails.CurrencyCode;
+        request.Currency = MemberSession == null ? "0" : MemberSession.CurrencyCode;
         request.PointRequired = string.IsNullOrEmpty(ProductDetails.PointsRequired) ? string.Empty : ProductDetails.PointsRequired;
         request.Quantity = tbQuantity.Text.Trim();
 
@@ -290,16 +275,23 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             case ProductTypeEnum.Freebet:
                 request.CreditAmount = string.IsNullOrEmpty(ProductDetails.AmountLimit) ? string.Empty : ProductDetails.AmountLimit;
                 break;
-            case ProductTypeEnum.Normal:
-                request.Name = tbRName.Text.Trim();
-                request.ContactNumber = tbContact.Text.Trim();
-                request.Address = tbAddress.Value.Trim();
-                request.PostalCode = tbPostal.Text.Trim();
-                request.City = tbCity.Text.Trim();
-                request.Country = tbCountry.Text.Trim();
-                break;
             case ProductTypeEnum.Online:
                 request.AimId = tbAccount.Text.Trim();
+                break;
+            default:
+                if (type == ProductTypeEnum.Normal || type == ProductTypeEnum.Wishlist)
+                {
+                    request.Name = tbRName.Text.Trim();
+                    request.ContactNumber = tbContact.Text.Trim();
+                    request.Address = tbAddress.Value.Trim();
+                    request.PostalCode = tbPostal.Text.Trim();
+                    request.City = tbCity.Text.Trim();
+                    request.Country = tbCountry.Text.Trim();
+                    if (type == ProductTypeEnum.Wishlist)
+                    {
+                        request.Remarks = txtBoxRemarks.Value.Trim();
+                    }
+                }
                 break;
         }
 
@@ -317,6 +309,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         SetProductInfo();
         ProductDetails.ProductDescription = HttpUtility.HtmlEncode(ProductDetails.ProductDescription);
         ProductDetailsField.Value = Common.SerializeObject(ProductDetails);
+        InitFields();     
     }
 
     private async void RefreshPoints()
