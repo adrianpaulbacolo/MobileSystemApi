@@ -110,21 +110,22 @@
                         return;
                     }
 
-                    if (response.ResponseData.ResetPassword) {
-                        loadPage('/Settings/ChangePassword.aspx?lang=<%=LanguageHelpers.SelectedLanguage.ToLower()%>');
-                        return;
-                    }
-
                     var message = response.ResponseMessage;
                     switch (response.ResponseCode) {
                         case 1:
                             window.user = (new User()).setProperties(response.ResponseData);
                             window.user.save();
-                            frsm_code = window.user.MemberId;
+
+                            if (response.ResponseData.ResetPassword) {
+                                window.location.href = '/_Secure/ChangePassword.aspx?lang=<%=LanguageHelpers.SelectedLanguage%>';
+                                return;
+                            }
                             if (!_.isEmpty('<%=RedirectUri%>')) {
+                                frsm_code = window.user.MemberId;
                                 loadPage('<%=RedirectUri%>');
                                 return;
                             }
+
                             window.location.reload();
                             break;
                         case 22:
