@@ -38,6 +38,8 @@ namespace W88.BusinessLogic.Rewards.Redemption.Model
 
         public string AimId = string.Empty;
 
+        public string Remarks = string.Empty;
+
         public ProductTypeEnum ProductType;
     }
 }
