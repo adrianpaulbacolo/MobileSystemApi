@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Accounts\Helpers\HistoryReports.cs" />
     <Compile Include="Accounts\Helpers\Wallets.cs" />
+	<Compile Include="Accounts\Models\ChangePasswordInfo.cs" />
     <Compile Include="Accounts\Models\HistoryInfo.cs" />
     <Compile Include="Base\Helpers\BaseHelper.cs" />
     <Compile Include="Funds\Factories\FundsBase.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Rewards\Models\ProductDetails.cs" />
     <Compile Include="Rewards\Models\TranslationKeys.cs" />
     <Compile Include="Rewards\Redemption\Factories\Handlers\FreeBetRedemptionHandler.cs" />
+	<Compile Include="Rewards\Redemption\Factories\Handlers\WishlistRedemptionHandler.cs" />
     <Compile Include="Rewards\Redemption\Factories\Handlers\NormalRedemptionHandler.cs" />
     <Compile Include="Rewards\Redemption\Factories\Handlers\OnlineRedemptionHandler.cs" />
     <Compile Include="Rewards\Redemption\Factories\RedemptionStrategy.cs" />

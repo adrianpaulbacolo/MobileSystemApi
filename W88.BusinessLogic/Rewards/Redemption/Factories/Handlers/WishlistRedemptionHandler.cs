@@ -5,9 +5,9 @@ using RedemptionRequest = W88.BusinessLogic.Rewards.Redemption.Model.RedemptionR
 
 namespace W88.BusinessLogic.Rewards.Redemption.Factories.Handlers
 {
-    class OnlineRedemptionHandler : RedemptionBase
+    class WishlistRedemptionHandler : RedemptionBase
     {
-        public OnlineRedemptionHandler(RedemptionRequest request) : base(request)
+        public WishlistRedemptionHandler(RedemptionRequest request) : base(request)
         {
             
         }
@@ -16,14 +16,14 @@ namespace W88.BusinessLogic.Rewards.Redemption.Factories.Handlers
         {
             using (var client = new RewardsServicesClient())
             {
-                var request = (RedemptionOnlineRequest)CreateRequest();
-                return await client.RedemptionOnlineAsync(request);
+                var request = (RedemptionWishlistRequest)CreateRequest();
+                return await client.RedemptionWishlistAsync(request);
             }
         }
 
         protected override dynamic CreateRequest()
         {
-            var request = new RedemptionOnlineRequest();
+            var request = new RedemptionWishlistRequest();
             try
             {
                 request.OperatorId = Request.OperatorId;
@@ -32,9 +32,15 @@ namespace W88.BusinessLogic.Rewards.Redemption.Factories.Handlers
                 request.CategoryId = int.Parse(Request.CategoryId.Trim());
                 request.RiskId = Request.RiskId;
                 request.Currency = Request.Currency;
-                request.PointRequired = int.Parse(Request.PointRequired);
-                request.Quantity = int.Parse(Request.Quantity);
-                request.AimId = Request.AimId;
+                request.PointRequired = int.Parse(Request.PointRequired.Trim());
+                request.Quantity = int.Parse(Request.Quantity.Trim());
+                request.Name = Request.Name;
+                request.ContactNumber = Request.ContactNumber;
+                request.Address = Request.Address;
+                request.PostalCode = Request.PostalCode;
+                request.City = Request.City;
+                request.Country = Request.Country;
+                request.Remark = Request.Remarks;
                 return request;
             }
             catch (Exception exception)
