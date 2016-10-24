@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 using W88.BusinessLogic.Base.Helpers;
 using W88.BusinessLogic.Shared.Helpers;
@@ -25,6 +26,7 @@ namespace W88.BusinessLogic.Accounts.Models
 
         public string Firstname { get; set; }
 
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string Lastname { get; set; }
 
         public DateTime DateOfBirth { get; set; }
@@ -53,9 +55,8 @@ namespace W88.BusinessLogic.Accounts.Models
 
         public string Gender { get; set; }
 
-        public string LanguageCode = LanguageHelpers.SelectedLanguage;
-
-        public string ReferBy = string.Empty;
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        public string ReferralId { get; set; }
 
         public readonly string SignUpUrl = string.Format("m.{0}", new IpHelper().DomainName);
     }
