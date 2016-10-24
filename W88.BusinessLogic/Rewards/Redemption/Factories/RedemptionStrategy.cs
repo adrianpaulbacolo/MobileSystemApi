@@ -16,6 +16,8 @@ namespace W88.BusinessLogic.Rewards.Redemption.Factories
                     return new NormalRedemptionHandler(request);
                 case ProductTypeEnum.Online:
                     return new OnlineRedemptionHandler(request);
+                case ProductTypeEnum.Wishlist:
+                    return new WishlistRedemptionHandler(request);
                 default:
                     return null;
             }

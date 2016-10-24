@@ -123,72 +123,99 @@ namespace W88.BusinessLogic.Rewards.Redemption.Factories
         {
             process.ProcessSerialId += 1;
 
+            int quantity;
+            var isParsed = int.TryParse(Request.Quantity, out quantity);
+            if (!isParsed)
+            {
+                process.Code = (int)Constants.StatusCode.Error;
+                process.Message = RewardsHelper.GetTranslation(TranslationKeys.Redemption.InvalidQuantity);
+                LogError(process);
+                return false;
+            }
+
+            quantity = int.Parse(Request.Quantity);
+            if (quantity < 1)
+            {
+                process.Code = (int)Constants.StatusCode.Error;
+                process.Message = RewardsHelper.GetTranslation(TranslationKeys.Redemption.InvalidMinimum);
+                LogError(process);
+                return false;
+            }
+
             switch (Request.ProductType)
             {
                 case ProductTypeEnum.Freebet:
                     return true;
-                case ProductTypeEnum.Normal:
+                case ProductTypeEnum.Online:
+                    if (!string.IsNullOrEmpty(Request.AimId.Trim()))
                     {
-                        if (string.IsNullOrEmpty(Request.Name.Trim()))
-                        {
-                            process.Code = (int)Constants.StatusCode.Error;
-                            process.Message = "Name is empty";
-                            LogError(process);
-                            return false;
-                        }
-                        if (string.IsNullOrEmpty(Request.ContactNumber.Trim()))
-                        {
-                            process.Code = (int)Constants.StatusCode.Error;
-                            process.Message = "Contact number is empty";
-                            LogError(process);
-                            return false;
-                        }
-                        if (string.IsNullOrEmpty(Request.Address.Trim()))
-                        {
-                            process.Code = (int)Constants.StatusCode.Error;
-                            process.Message = "Address is empty";
-                            LogError(process);
-                            return false;
-                        }
-                        if (string.IsNullOrEmpty(Request.PostalCode.Trim()))
-                        {
-                            process.Code = (int)Constants.StatusCode.Error;
-                            process.Message = "Postal code is empty";
-                            LogError(process);
-                            return false;
-                        }
-                        if (string.IsNullOrEmpty(Request.City.Trim()))
-                        {
-                            process.Code = (int)Constants.StatusCode.Error;
-                            process.Message = "City is empty";
-                            LogError(process);
-                            return false;
-                        }
-                        if (string.IsNullOrEmpty(Request.Country.Trim()))
-                        {
-                            process.Code = (int)Constants.StatusCode.Error;
-                            process.Message = "Country is empty";
-                            LogError(process);
-                            return false;
-                        }
                         return true;
                     }
-                case ProductTypeEnum.Wishlist:
                     process.Code = (int)Constants.StatusCode.Error;
-                    process.Message = "Product type is wishlist";
+                    process.Message = RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterAccount);
                     LogError(process);
                     return false;
-                case ProductTypeEnum.Online:
-                    if (string.IsNullOrEmpty(Request.AimId.Trim()))
+                default:
+                    if (Request.ProductType != ProductTypeEnum.Normal && Request.ProductType != ProductTypeEnum.Wishlist)
+                    {
+                        return true;
+                    }
+
+                    if (string.IsNullOrEmpty(Request.Name.Trim()))
                     {
                         process.Code = (int)Constants.StatusCode.Error;
-                        process.Message = "Account id is missing";
+                        process.Message = RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterName);
                         LogError(process);
                         return false;
                     }
-                    return true;
-            }
-            return false;
+                    if (string.IsNullOrEmpty(Request.ContactNumber.Trim()))
+                    {
+                        process.Code = (int)Constants.StatusCode.Error;
+                        process.Message = RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterContactNumber);
+                        LogError(process);
+                        return false;
+                    }
+                    if (string.IsNullOrEmpty(Request.Address.Trim()))
+                    {
+                        process.Code = (int)Constants.StatusCode.Error;
+                        process.Message = RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterAddress);
+                        LogError(process);
+                        return false;
+                    }
+                    if (string.IsNullOrEmpty(Request.PostalCode.Trim()))
+                    {
+                        process.Code = (int)Constants.StatusCode.Error;
+                        process.Message = RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterPostal);
+                        LogError(process);
+                        return false;
+                    }
+                    if (string.IsNullOrEmpty(Request.City.Trim()))
+                    {
+                        process.Code = (int)Constants.StatusCode.Error;
+                        process.Message = RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterCity);
+                        LogError(process);
+                        return false;
+                    }
+                    if (string.IsNullOrEmpty(Request.Country.Trim()))
+                    {
+                        process.Code = (int)Constants.StatusCode.Error;
+                        process.Message = RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterCountry);
+                        LogError(process);
+                        return false;
+                    }
+                    if (Request.ProductType != ProductTypeEnum.Wishlist)
+                    {
+                        return true;
+                    }
+                    if (!string.IsNullOrEmpty(Request.Remarks.Trim()))
+                    {
+                        return true;
+                    }
+                    process.Code = (int)Constants.StatusCode.Error;
+                    process.Message = RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterRemarks);
+                    LogError(process);
+                    return false;                                       
+            }                    
         }
 
         protected void LogError(ProcessCode process)
