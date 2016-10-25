@@ -6,8 +6,8 @@ $(window).load(function () {
 
     var sessionPoll;
     function checkSession() {
-        var intervalMin = 10000, // 10000
-            sessionInterval = (window.user && parseInt(sessionInterval) > intervalMin) 
+        var intervalMin = 3000,
+            interval = (window.user && parseInt(sessionInterval) > 0) 
             ? parseInt(sessionInterval) : intervalMin;
             
         sessionPoll = window.setInterval(function () {
@@ -31,7 +31,7 @@ $(window).load(function () {
                 error: function (err) {
                 }
             });
-        }, sessionInterval);
+        }, interval);
     }
 
     if (window.user && window.user.hasSession())
