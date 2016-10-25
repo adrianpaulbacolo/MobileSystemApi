@@ -122,17 +122,18 @@
                             GPINTMOBILE.HideSplash();
                             showMessage(message);
 
-                            var closeButtons = $('#PopUpModal a');
+                            var closeButtons = $('#PopUpModal a'),
+                                redirectUri = '<%=string.Format("/Index.aspx?lang={0}", Language)%>';
                             if (!closeButtons || closeButtons.length === 0) {                                
                                 setTimeout(function() {
-                                    loadPage('<%=string.Format("/Index.aspx?lang={0}", Language)%>');
+                                    window.location.href = redirectUri;
                                 }, 3000);
                                 return;
                             }
                             closeButtons.each(function () {
                                 $(this).attr('data-rel', null);
                                 $(this).on('click', function() {
-                                    loadPage('<%=string.Format("/Index.aspx?lang={0}", Language)%>');
+                                    window.location.href = redirectUri;
                                 });
                             });
                             break;
