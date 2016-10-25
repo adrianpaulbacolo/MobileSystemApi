@@ -9,6 +9,7 @@ using System.Web.UI.HtmlControls;
 public partial class _Secure_RegisterSuccess : PaymentBasePage
 {
     protected System.Xml.Linq.XElement xeErrors = null;
+    protected System.Xml.Linq.XElement regTrans = null;
     protected string strAlertCode = string.Empty;
     protected string strAlertMessage = string.Empty;
     public string CDNCountryCode = string.Empty;
@@ -22,6 +23,7 @@ public partial class _Secure_RegisterSuccess : PaymentBasePage
     {
         HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
         commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"), base.strCurrencyCode);
+        commonCulture.appData.getLocalResource("_Secure/Register.aspx", commonVariables.SelectedLanguage, out regTrans);
 
     }
 

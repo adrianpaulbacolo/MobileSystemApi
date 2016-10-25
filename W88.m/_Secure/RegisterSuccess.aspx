@@ -11,15 +11,13 @@
     <script type="text/javascript" src="/_Static/Js/radar.js"></script>
 </head>
 <body>
-    <div id="register"  data-role="page" data-theme="b" data-ajax="false">
+    <div id="register" data-role="page" data-theme="b" data-ajax="false">
         <!--#include virtual="~/_static/header.shtml" -->
 
         <div class="ui-content" role="main">
             <div class="register-success-message">
                 <div class="register-success-icon"><span class="icon icon-check"></span></div>
-                <h4>Welcome to W88, and thank you for opening an account.</h4>
-                <p>Your account is now ready for you to login and play on W88.com and mobile.</p>
-                <p>Depositing is Quick and Easy. We have a huge range of deposit options available.</p>
+                <%=commonCulture.ElementValues.getResourceString("regSuccessDesc", regTrans) %>
                 <p id="paymentNote">
                 </p>
             </div>
@@ -29,9 +27,11 @@
 
             <div class="bank_logo">
                 <p class="reg-contact">
-                    If you have any queries or problems when making a deposit,
-                                    please <a href="/LiveChat/Default.aspx"
-                                        target="_blank">Contact Us</a>.
+                    <%
+                        var contactText = commonCulture.ElementValues.getResourceString("regContact", regTrans);
+                        contactText = contactText.Replace("{chatlink}", "/LiveChat/Default.aspx");
+                    %>
+                    <%=contactText %>
                 </p>
                 <i class="logo_10"></i>
                 <i class="logo_11"></i>
@@ -42,7 +42,7 @@
             </div>
         </div>
 
-    <!--#include virtual="~/_static/navMenu.shtml" -->
+        <!--#include virtual="~/_static/navMenu.shtml" -->
     </div>
 
     <script type="text/javascript">
@@ -57,7 +57,11 @@
                 });
                 $('#paymentNote').append('<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>');
             } else {
-                $('#paymentNote').append('<%= commonCulture.ElementValues.getResourceString("paymentDescription", commonVariables.PaymentMethodsXML)%>');
+                <%
+                var pDesc = commonCulture.ElementValues.getResourceString("paymentDescription", commonVariables.PaymentMethodsXML);
+                pDesc = pDesc.Replace("{termslink}", commonCulture.ElementValues.getResourceString("termsConditionsUrl", regTrans)); 
+                %>
+                $('#paymentNote').append('<%= pDesc%>');
                 $(".register-success-content").css("display", "");
             }
         });

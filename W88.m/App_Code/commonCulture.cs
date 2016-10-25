@@ -716,6 +716,20 @@ namespace commonCulture
                 if (System.IO.File.Exists(xmlFilePath)) { xmlDocument = new System.Xml.XmlDocument(); xmlDocument.Load(xmlFilePath); }
             }
         }
+        public static void getLocalResource(string filePath, string languageCode, out System.Xml.Linq.XElement xmlDocument)
+        {
+            xmlDocument = null;
+            string xmlFilePath = string.Empty;
+
+            languageCode = commonVariables.SelectedLanguage;
+            xmlFilePath = System.Web.HttpContext.Current.Server.MapPath(@"~/App_Data/" + languageCode + @"/" + filePath + ".xml");
+            if (System.IO.File.Exists(xmlFilePath)) { xmlDocument = System.Xml.Linq.XElement.Load(xmlFilePath); }
+            else
+            {
+                xmlFilePath = System.Web.HttpContext.Current.Server.MapPath(@"~/App_Data/en-us/" + filePath + ".xml");
+                if (System.IO.File.Exists(xmlFilePath)) { xmlDocument = System.Xml.Linq.XElement.Load(xmlFilePath); }
+            }
+        }
         #endregion
 
         #region localResourceJsonDocument
