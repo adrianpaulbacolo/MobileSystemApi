@@ -95,7 +95,7 @@
                 timeout: function () {
                     $('#<%=btnSubmit.ClientID%>').prop('disabled', false);
                     showMessage('<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.Exception)%>');
-                    loadPage('/Default.aspx');
+                    window.location.href = '/Default.aspx?lang=<%=Language%>';
                 },
                 data: JSON.stringify({ 
                     UserInfo: {
@@ -117,12 +117,12 @@
                             window.user.save();
 
                             if (response.ResponseData.ResetPassword) {
-                                window.location.href = '/_Secure/ChangePassword.aspx?lang=<%=LanguageHelpers.SelectedLanguage%>';
+                                window.location.href = '/_Secure/ChangePassword.aspx?lang=<%=Language%>';
                                 return;
                             }
                             if (!_.isEmpty('<%=RedirectUri%>')) {
                                 frsm_code = window.user.MemberId;
-                                loadPage('<%=RedirectUri%>');
+                                window.location.href = '<%=RedirectUri%>';
                                 return;
                             }
 
