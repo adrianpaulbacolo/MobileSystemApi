@@ -133,8 +133,6 @@ namespace W88.BusinessLogic.Rewards.Redemption.Factories
                 LogError(process);
                 return false;
             }
-
-            quantity = int.Parse(Request.Quantity);
             if (quantity < 1)
             {
                 process.Code = (int)Constants.StatusCode.Error;
