@@ -38,7 +38,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
 
         if (!HasSession)
         {
-            Response.Redirect("/Catalogue?categoryId=0&sortBy=2", false);
+            Response.Redirect(string.Format(@"/_Secure/Login.aspx?redirect=/Catalogue/Redeem.aspx&productId={0}", ProductIdField.Value), false);
             return;
         }
 
@@ -162,7 +162,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
                 return;
             }
 
-            lblproductid.Value = ProductDetails.ProductId;
+            ProductIdField.Value = ProductDetails.ProductId;
             /**
                 freebet show  currency, hide recipient panel , hide delivery, hide account
                 normal product show recipient, show delivery if any,  hide currency, hide account
@@ -269,7 +269,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         var request = new RedemptionRequest();
         request.ProductType = type;
         request.MemberCode = UserSessionInfo == null ? string.Empty : UserSessionInfo.MemberCode;
-        request.ProductId = lblproductid.Value;
+        request.ProductId = ProductIdField.Value;
         request.CategoryId = string.IsNullOrEmpty(ProductDetails.CategoryId) ? "0" : ProductDetails.CategoryId;
         request.RiskId = MemberSession == null ? "0" : MemberSession.RiskId;
         request.Currency = MemberSession == null ? "0" : MemberSession.CurrencyCode;

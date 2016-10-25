@@ -26,7 +26,6 @@
                     </div>
                     <div class="catalog-information">
                         <h4><%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.RedeemInfo)%></h4>
-                        <asp:HiddenField ID="lblproductid" runat="server" />
                         <div class="ui-field-contain ui-hide-label">
                             <div>
                                 <div>
@@ -136,6 +135,7 @@
                 </div>
             </div>
             <asp:HiddenField ID="ProductDetailsField" Value="" runat="server"/>
+            <asp:HiddenField ID="ProductIdField" runat="server"/>
             <div class="footer">
                 <asp:Button ID="redeemButton" runat="server" Text="" CssClass="btn btn-block btn-primary" OnClick="RedeemButtonOnClick" />
             </div>
