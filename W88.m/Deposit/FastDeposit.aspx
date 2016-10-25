@@ -145,7 +145,7 @@
                     switch (responseCode) {
                         case '-1':
                             alert(responseMsg);
-                            toogleBank($('#drpBank').val());
+                            window.w88Mobile.Gateways.FastDeposit.ToogleBank($('#drpBank').val());
                             break;
                         case '0':
                             alert(responseMsg);
