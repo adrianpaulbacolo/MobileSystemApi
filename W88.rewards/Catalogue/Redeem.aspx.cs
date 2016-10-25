@@ -36,6 +36,12 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         Message = string.Empty;
         var productType = (ProductTypeEnum)int.Parse(ProductDetails.ProductType);
 
+        if (!HasSession)
+        {
+            Response.Redirect(string.Format(@"/_Secure/Login.aspx?redirect=/Catalogue/Redeem.aspx&productId={0}", ProductIdField.Value), false);
+            return;
+        }
+
         #region redeem product
         try
         {
@@ -156,7 +162,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
                 return;
             }
 
-            lblproductid.Value = ProductDetails.ProductId;
+            ProductIdField.Value = ProductDetails.ProductId;
             /**
                 freebet show  currency, hide recipient panel , hide delivery, hide account
                 normal product show recipient, show delivery if any,  hide currency, hide account
@@ -263,7 +269,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         var request = new RedemptionRequest();
         request.ProductType = type;
         request.MemberCode = UserSessionInfo == null ? string.Empty : UserSessionInfo.MemberCode;
-        request.ProductId = lblproductid.Value;
+        request.ProductId = ProductIdField.Value;
         request.CategoryId = string.IsNullOrEmpty(ProductDetails.CategoryId) ? "0" : ProductDetails.CategoryId;
         request.RiskId = MemberSession == null ? "0" : MemberSession.RiskId;
         request.Currency = MemberSession == null ? "0" : MemberSession.CurrencyCode;
@@ -300,10 +306,11 @@ public partial class Catalogue_Redeem : CatalogueBasePage
 
     private async void GetProductDetails()
     {
-        var productId = Request.QueryString.Get("productId");
+        var productId = HttpContext.Current.Request.QueryString.Get("productId");
         if (string.IsNullOrEmpty(productId))
         {
             Response.Redirect("/Catalogue?categoryId=0&sortBy=2", false);
+            return;
         }
         ProductDetails = await RewardsHelper.GetProductDetails(MemberSession, productId, HasSession);
         SetProductInfo();
