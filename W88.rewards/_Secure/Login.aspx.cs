@@ -9,6 +9,7 @@ using W88.BusinessLogic.Shared.Helpers;
 public partial class _Secure_Login : BasePage
 {
     protected string RedirectUri = string.Empty;
+    protected string Language = LanguageHelpers.SelectedLanguage;
     
     protected void Page_Init(object sender, EventArgs e)
     {
@@ -30,7 +31,7 @@ public partial class _Secure_Login : BasePage
             }
             else
             {
-                RedirectUri = "/Index.aspx?lang=" + LanguageHelpers.SelectedLanguage;
+                RedirectUri = string.Format("/Index.aspx?lang={0}", Language);
                 if (HasSession)
                 {
                     Response.Redirect(RedirectUri, false);                                   
