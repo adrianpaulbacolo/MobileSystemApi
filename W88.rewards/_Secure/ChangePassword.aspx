@@ -21,7 +21,7 @@
         <form id="form1" runat="server">
             <div role="main" class="main-content">               
                 <div class="container">
-                    <h6><%=CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD_TITLE", Language, TranslationsPath)%></h6>
+                    <h6><%=CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD", Language, TranslationsPath)%></h6>
                     <div class="form-container login">
                         <div class="form-group form-group-line">
                             <asp:Label ID="lblCurrentPassword" runat="server" AssociatedControlID="txtCurrentPassword" Text="" />
@@ -63,25 +63,25 @@
                 $('#changePasswordBtn').attr('disabled', true);
 
                 if ($('#txtCurrentPassword').val().trim().length == 0) {
-                    showMessage('<%=CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD_ENTER_CURRENT", Language, TranslationsPath)%>');
+                    showMessage('<%=CultureHelpers.GetTranslation("ChangePassword_EnterCurrent", Language, MessagesPath)%>');
                     $('#changePasswordBtn').attr('disabled', false);
                     e.preventDefault();
                     return;
                 }
                 if ($('#txtNewPassword').val().trim().length == 0) {
-                    showMessage('<%=CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD_ENTER_NEW", Language, TranslationsPath)%>');
+                    showMessage('<%=CultureHelpers.GetTranslation("ChangePassword_EnterNew", Language, MessagesPath)%>');
                     $('#changePasswordBtn').attr('disabled', false);
                     e.preventDefault();
                     return;
                 }
                 if ($('#txtConfirmPassword').val().trim().length == 0) {
-                    showMessage('<%=CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD_ENTER_CONFIRM", Language, TranslationsPath)%>');
+                    showMessage('<%=CultureHelpers.GetTranslation("ChangePassword_EnterConfirm", Language, MessagesPath)%>');
                     $('#changePasswordBtn').attr('disabled', false);
                     e.preventDefault();
                     return;
                 }
                 if ($('#txtNewPassword').val().trim() !== $('#txtConfirmPassword').val().trim()) {
-                    showMessage('<%=CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD_MISMATCH", Language, TranslationsPath)%>');
+                    showMessage('<%=CultureHelpers.GetTranslation("ChangePassword_Mismatch", Language, MessagesPath)%>');
                     $('#changePasswordBtn').attr('disabled', false);
                     e.preventDefault();
                     return;
@@ -122,17 +122,18 @@
                             GPINTMOBILE.HideSplash();
                             showMessage(message);
 
-                            var closeButtons = $('#PopUpModal a');
+                            var closeButtons = $('#PopUpModal a'),
+                                redirectUri = '<%=string.Format("/Index.aspx?lang={0}", Language)%>';
                             if (!closeButtons || closeButtons.length === 0) {                                
                                 setTimeout(function() {
-                                    loadPage('<%=string.Format("/Index.aspx?lang={0}", Language)%>');
+                                    window.location.href = redirectUri;
                                 }, 3000);
                                 return;
                             }
                             closeButtons.each(function () {
                                 $(this).attr('data-rel', null);
                                 $(this).on('click', function() {
-                                    loadPage('<%=string.Format("/Index.aspx?lang={0}", Language)%>');
+                                    window.location.href = redirectUri;
                                 });
                             });
                             break;
