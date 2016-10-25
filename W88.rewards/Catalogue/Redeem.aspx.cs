@@ -36,6 +36,12 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         Message = string.Empty;
         var productType = (ProductTypeEnum)int.Parse(ProductDetails.ProductType);
 
+        if (!HasSession)
+        {
+            Response.Redirect("/Catalogue?categoryId=0&sortBy=2", false);
+            return;
+        }
+
         #region redeem product
         try
         {
@@ -300,10 +306,11 @@ public partial class Catalogue_Redeem : CatalogueBasePage
 
     private async void GetProductDetails()
     {
-        var productId = Request.QueryString.Get("productId");
+        var productId = HttpContext.Current.Request.QueryString.Get("productId");
         if (string.IsNullOrEmpty(productId))
         {
             Response.Redirect("/Catalogue?categoryId=0&sortBy=2", false);
+            return;
         }
         ProductDetails = await RewardsHelper.GetProductDetails(MemberSession, productId, HasSession);
         SetProductInfo();
