@@ -469,7 +469,6 @@ namespace W88.BusinessLogic.Accounts.Helpers
 
         public async Task<ProcessCode> ChangePassword(ChangePasswordInfo changePasswordInfo)
         {
-            const string translationPath = "contents/translations";
             var process = new ProcessCode();
             var memberId = changePasswordInfo.MemberId;
             var password = changePasswordInfo.Password;
@@ -480,8 +479,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
             {
                 process.ProcessSerialId += 1;
                 process.Code = (int)Constants.StatusCode.Error;
-                process.Message = CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD_ENTER_CURRENT",
-                    changePasswordInfo.Language, translationPath);
+                process.Message = GetMessage("ChangePassword_EnterCurrent");
                 LogProcess(process, memberId);
                 return process;
             }
@@ -490,8 +488,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
             {
                 process.ProcessSerialId += 1;
                 process.Code = (int)Constants.StatusCode.Error;
-                process.Message = CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD_ENTER_NEW",
-                    changePasswordInfo.Language, translationPath);
+                process.Message = GetMessage("ChangePassword_EnterNew");
                 LogProcess(process, memberId);
                 return process;
             }
@@ -500,8 +497,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
             {
                 process.ProcessSerialId += 1;
                 process.Code = (int)Constants.StatusCode.Error;
-                process.Message = CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD_ENTER_CONFIRM",
-                    changePasswordInfo.Language, translationPath);
+                process.Message = GetMessage("ChangePassword_EnterConfirm");
                 LogProcess(process, memberId);
                 return process;
             }
@@ -510,8 +506,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
             {
                 process.ProcessSerialId += 1;
                 process.Code = (int)Constants.StatusCode.Error;
-                process.Message = CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD_MISMATCH",
-                    changePasswordInfo.Language, translationPath);
+                process.Message = GetMessage("ChangePassword_Mismatch");
                 LogProcess(process, memberId);
                 return process;
             }
@@ -522,8 +517,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
             {
                 process.ProcessSerialId += 1;
                 process.Code = (int)Constants.StatusCode.Error;
-                process.Message = CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD_INVALID",
-                    changePasswordInfo.Language, translationPath);
+                process.Message = GetMessage("ChangePassword_Invalid");
                 LogProcess(process, memberId);
                 return process;
             }
@@ -541,18 +535,15 @@ namespace W88.BusinessLogic.Accounts.Helpers
                 {
                     case 1: 
                         process.Code = (int) Constants.StatusCode.Success;
-                        process.Message = CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD_SUCCESS",
-                            changePasswordInfo.Language, translationPath);
+                        process.Message = GetMessage("ChangePassword_Success");
                         break;
                     case 10: 
                         process.Code = (int) Constants.StatusCode.Error;
-                        process.Message = CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD_FAIL",
-                            changePasswordInfo.Language, translationPath);
+                        process.Message = GetMessage("ChangePassword_Fail");
                         break;
                     case 11: 
                         process.Code = (int) Constants.StatusCode.Error;
-                        process.Message = CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD_INVALID",
-                            changePasswordInfo.Language, translationPath);
+                        process.Message = GetMessage("ChangePassword_Invalid");
                         break;
                     default: 
                         process.Code = (int) Constants.StatusCode.Error;
