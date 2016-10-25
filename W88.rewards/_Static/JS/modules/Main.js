@@ -18,13 +18,15 @@ $(window).load(function () {
                 type: 'POST',
                 data: JSON.stringify(window.user),
                 success: function (data) {
-                    if (data.Code !== 1) {
-                        if (!_.isEmpty(data.message)) w88Mobile.Growl.shout(data.message);
-                        clearInterval(sessionPoll);
-                        setTimeout(function() {
-                            logout();
-                        }, 2000);
+                    if (data.Code === 1) {
+                        return;
                     }
+
+                    if (!_.isEmpty(data.Message)) w88Mobile.Growl.shout(data.Message);
+                    clearInterval(sessionPoll);
+                    setTimeout(function() {
+                        logout();
+                    }, 2000);                    
                 },
                 error: function (err) {
                 }
@@ -53,7 +55,7 @@ $(document).on('pagecontainerbeforeshow', function (event, ui) {
     var baseUri = [event.target.baseURI];
     if (_.some(baseUri, _.method('match', /Login/i))) {
         if (window.user && window.user.Token) {
-            loadPage('/Index.aspx', null, 'slide');
+            window.location.href = '/Index.aspx';
         }
     }
 
@@ -66,18 +68,6 @@ $(document).on('pagecontainerbeforeshow', function (event, ui) {
 
     if (GPINTMOBILE)
         GPINTMOBILE.HideSplash();
-});
-
-$(document).on('pagecontainershow', function (event, ui) {
-
-});
-
-$(document).on('pagecontainerbeforechange', function (event, ui) {
-
-});
-
-$(document).on('pagecontainerbeforeload', function (event, ui) {
-
 });
 
 function loadPage(uri, params, transition) {
@@ -226,5 +216,3 @@ function toggleFullScreen() {
         }
     }
 }
-
-if ($('#divBalance').hasClass('open')) { $('#divBalance').addClass('close'); } else { if ($('#divBalance').hasClass('open')) { $('#divBalance').addClass('close'); } }
