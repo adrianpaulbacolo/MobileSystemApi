@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="FastDeposit.aspx.cs" Inherits="Deposit_FastDesposit" %>
+
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
 <!DOCTYPE html>
@@ -19,7 +20,7 @@
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <uc:Wallet id="uMainWallet" runat="server" />
+                <uc:Wallet ID="uMainWallet" runat="server" />
             </div>
 
             <div data-role="navbar" id="depositTabs" runat="server">
@@ -108,7 +109,7 @@
                         <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" />
                         <asp:TextBox ID="txtAccountNumber" runat="server" data-clear-btn="true" />
                     </li>
-                
+
                     <asp:Literal ID="ltlNote" runat="server"></asp:Literal>
 
                     <li class="item row">
@@ -156,20 +157,11 @@
                 }
             });
 
+            window.w88Mobile.Gateways.FastDeposit.GetBankDetails();
+
             $('#drpBank').change(function () {
-                toogleBank(this.value);
+                window.w88Mobile.Gateways.FastDeposit.ToogleBank(this.value);
             });
-
-
-            function toogleBank(bankId) {
-                if (bankId == "OTHER") {
-                    $('#divBankName').show();
-                }
-                else {
-                    $('#divBankName').hide();
-                }
-            }
-
         </script>
     </div>
 </body>

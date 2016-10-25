@@ -329,14 +329,12 @@
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubGallardo/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
-                <% if( commonVariables.GetSessionVariable("clubapollo") == "1" ) {%>
                 <li>
-                    <a class="card" rel="clubdivino" href="/ClubApollo" data-ajax="false">
+                    <a class="card" rel="clubapollo" href="/ClubApollo" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubapollo.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubApollo/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
-                <% } %>
                 <li>
                     <a class="card" rel="clubdivino" href="/ClubDivino" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubdivino.jpg" class="img-responsive">
@@ -420,7 +418,7 @@
         if (commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase))
         { %>
         <li data-icon="false">
-            <a class="nav-fish" href="https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/LuckyFishing.apk" data-ajax="false">
+            <a class="nav-fish" href="https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/FishingMaster.apk" data-ajax="false">
                 <i class="icon-fish"></i>
                 <div class="label"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
             </a>
@@ -430,7 +428,7 @@
         else if (commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))
         { %>
         <li data-icon="false">
-            <a class="nav-fish" href="https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/LuckyFishing.apk" data-ajax="false">
+            <a class="nav-fish" href="https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/FishingMaster.apk" data-ajax="false">
                 <i class="icon-fish"></i>
                 <div class="label"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
             </a>

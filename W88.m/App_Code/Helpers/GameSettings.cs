@@ -81,6 +81,13 @@ namespace Helpers
                         url = Settings.Values.Get("UC8RealUrl");
                     break;
 
+                case GameProvider.PP:
+                    if (linkType == GameLinkSetting.Fun)
+                        url = Settings.Values.Get("PPFunUrl");
+                    else if (linkType == GameLinkSetting.Real)
+                        url = Settings.Values.Get("PPRealUrl");
+                    break;
+
                 default:
                     url = "";
                     break;
