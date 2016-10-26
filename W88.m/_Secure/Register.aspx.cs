@@ -323,7 +323,7 @@ public partial class _Secure_Register : BasePage
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/Required18", xeErrors);
             isProcessAbort = true;
         }
-        else if ((!string.IsNullOrEmpty(strCountryCode) && commonCountry.IsBlocked(strCountryCode) && string.IsNullOrEmpty(strPermission)) || strPermission == "blocked")
+        else if ((!string.IsNullOrEmpty(strCountryCode) && commonCountry.IsBlocked(strCountryCode) && string.IsNullOrEmpty(strPermission)) || strPermission == commonIp.Ip2locPermission.blocked.ToString())
         {
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/CountryBlocked", xeErrors);
             isProcessAbort = true;
