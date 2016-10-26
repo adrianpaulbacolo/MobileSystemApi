@@ -259,6 +259,39 @@ public class commonXSports
             var user = new Members().MemberData();
             var opSettings = new customConfig.OperatorSettings("W88");
             var url = opSettings.Values.Get("xSportsFunUrl");
+            var lang = commonVariables.SelectedLanguage;
+
+            switch (lang.ToLower())
+            {
+
+                case "id-id":
+                    lang = "id-ID";
+                    break;
+
+                case "ja-jp":
+                    lang = "ja-JP";
+                    break;
+
+                case "ko-kr":
+                    lang = "ko-KR";
+                    break;
+
+                case "th-th":
+                    lang = "th-TH";
+                    break;
+
+                case "vi-vn":
+                    lang = "vi-VN";
+                    break;
+
+                case "zh-cn":
+                    lang = "zh-CN";
+                    break;
+
+                default:
+                    lang = "en-US";
+                    break;
+            }
 
             if (!string.IsNullOrWhiteSpace(user.CurrentSessionId))
             {
@@ -277,7 +310,7 @@ public class commonXSports
                 url = url.Replace("{TOKEN}", user.CurrentSessionId).Replace("{USER}", user.MemberId).Replace("{CURR}", curr);
             }
 
-            return url.Replace("{DOMAIN}", commonIp.DomainName).Replace("{LANG}", commonVariables.SelectedLanguage);
+            return url.Replace("{DOMAIN}", commonIp.DomainName).Replace("{LANG}", lang);
         }
     }
 }
