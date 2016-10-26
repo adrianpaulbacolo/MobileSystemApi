@@ -444,6 +444,13 @@
         </li>
 
         <li data-icon="false">
+            <a id="icon-rewards-sidebar" class="nav-rewards" href="/Rewards" data-ajax="false">
+                <i class="icon-rewards"></i>
+                <div class="label"><%=commonCulture.ElementValues.getResourceString("rewards", commonVariables.LeftMenuXML)%></div>
+            </a>
+        </li>
+
+        <li data-icon="false">
             <a id="icon-desktop-sidebar" href="#"  data-ajax="false">
                 <i class="icon-desktop"></i>
                 <div class="label"><%=commonCulture.ElementValues.getResourceString("desktopIconSide", commonVariables.LeftMenuXML)%></div>
@@ -503,6 +510,9 @@
 </div><!-- /panel -->
 <script type="text/javascript">
     $(function () {
+
+    var urlRewards =  window.location.protocol + '//mrewards.' + '<%=commonIp.DomainName %>';
+    $("#icon-rewards-sidebar").attr('href', urlRewards);
 
 	var url = 'https://www.' + '<%=commonIp.DomainName %>' + '?nomobile=true';
         $("#icon-desktop-sidebar").attr('href', url);
