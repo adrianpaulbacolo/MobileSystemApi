@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Web;
-using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Shared.Helpers;
 
 public partial class _Secure_ChangePassword : BasePage
@@ -8,6 +7,7 @@ public partial class _Secure_ChangePassword : BasePage
     protected string RedirectUri = string.Empty;
     protected string Language = string.Empty;
     protected const string TranslationsPath = "contents/translations";
+    protected const string MessagesPath = "contents/messages";
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -25,8 +25,8 @@ public partial class _Secure_ChangePassword : BasePage
             return;
         }
 
-        lblCurrentPassword.Text = RewardsHelper.GetTranslation("LABEL_CHANGEPASSWORD", Language, TranslationsPath);
-        lblNewPassword.Text = RewardsHelper.GetTranslation("LABEL_CHANGEPASSWORD_NEW", Language, TranslationsPath);
-        lblConfirmPassword.Text = RewardsHelper.GetTranslation("LABEL_CHANGEPASSWORD_CONFIRM", Language, TranslationsPath);  
+        lblCurrentPassword.Text = CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD_CURRENT", Language, TranslationsPath);
+        lblNewPassword.Text = CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD_NEW", Language, TranslationsPath);
+        lblConfirmPassword.Text = CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD_CONFIRM", Language, TranslationsPath);  
     }
 }
