@@ -42,14 +42,6 @@ $(window).load(function () {
     });
 });
 
-(function (send) {
-    XMLHttpRequest.prototype.send = function (data) {
-        if (window.user && window.user.Token)
-            this.setRequestHeader('token', window.user.Token);
-        send.call(this, data);
-    };
-})(XMLHttpRequest.prototype.send);
-
 $(document).on('pagecontainerbeforeshow', function (event, ui) {
     toggleLoginButton();
     var baseUri = [event.target.baseURI];
@@ -150,13 +142,17 @@ function Cookies() {
 }
 
 function setUser() {
+    var storedObject;
     try {
-        var storedObject = window.localStorage.getItem('user');
-        window.user = _.isEmpty(storedObject) ? new User() : (new User()).createUser(storedObject);
+        storedObject = window.localStorage.getItem('user');
+        if (_.isEmpty(storedObject)) {
+            storedObject = Cookies().getCookie('user');
+        }
     } catch (e) {
-        var cookieObject = Cookies().getCookie('user');
-        window.user = _.isEmpty(cookieObject) ? new User() : (new User()).createUser(cookieObject);
-    }
+        storedObject = Cookies().getCookie('user');
+    } 
+
+    window.user = _.isEmpty(storedObject) ? new User() : (new User()).createUser(storedObject);
 }
 
 function toggleLoginButton() {
