@@ -511,10 +511,10 @@
 <script type="text/javascript">
     $(function () {
 
-    var urlRewards =  window.location.protocol + '//mrewards.' + '<%=commonIp.DomainName %>';
+    var urlRewards = window.location.protocol + '//mrewards.' + '<%=commonIp.DomainName %>' + '?lang=' + '<%=commonVariables.SelectedLanguage%>' + '&token=' + '<%=commonVariables.CurrentMemberSessionId%>';
     $("#icon-rewards-sidebar").attr('href', urlRewards);
 
-	var url = 'https://www.' + '<%=commonIp.DomainName %>' + '?nomobile=true';
+	var url = window.location.protocol + '<%=commonIp.DomainName %>' + '?nomobile=true';
         $("#icon-desktop-sidebar").attr('href', url);
 
         if ('<%=commonVariables.CurrentMemberSessionId%>'.trim().length > 0) {

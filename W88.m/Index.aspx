@@ -269,10 +269,10 @@
                     ]
                 });
 
-                var url = 'https://www.' + '<%=commonIp.DomainName %>' + '?nomobile=true';
+                var url = window.location.protocol + '<%=commonIp.DomainName %>' + '?nomobile=true';
                 $("#icon-desktop").attr('href', url);
 
-                var urlRewards =  window.location.protocol + '//mrewards.' + '<%=commonIp.DomainName %>';
+                var urlRewards = window.location.protocol + '//mrewards.' + '<%=commonIp.DomainName %>' + '?lang=' + '<%=commonVariables.SelectedLanguage%>' + '&token=' + '<%=commonVariables.CurrentMemberSessionId%>';
                 $("#icon-rewards").attr('href', urlRewards);
             });
 
