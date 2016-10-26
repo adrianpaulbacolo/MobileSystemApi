@@ -6,8 +6,8 @@ $(window).load(function () {
 
     var sessionPoll;
     function checkSession() {
-        var intervalMin = 10000, // 10000
-            sessionInterval = (window.user && parseInt(sessionInterval) > intervalMin) 
+        var intervalMin = 3000,
+            interval = (window.user && parseInt(sessionInterval) > 0) 
             ? parseInt(sessionInterval) : intervalMin;
             
         sessionPoll = window.setInterval(function () {
@@ -31,7 +31,7 @@ $(window).load(function () {
                 error: function (err) {
                 }
             });
-        }, sessionInterval);
+        }, interval);
     }
 
     if (window.user && window.user.hasSession())
@@ -41,14 +41,6 @@ $(window).load(function () {
         $(this).toggleClass('active');
     });
 });
-
-(function (send) {
-    XMLHttpRequest.prototype.send = function (data) {
-        if (window.user && window.user.Token)
-            this.setRequestHeader('token', window.user.Token);
-        send.call(this, data);
-    };
-})(XMLHttpRequest.prototype.send);
 
 $(document).on('pagecontainerbeforeshow', function (event, ui) {
     toggleLoginButton();
@@ -150,13 +142,17 @@ function Cookies() {
 }
 
 function setUser() {
+    var storedObject;
     try {
-        var storedObject = window.localStorage.getItem('user');
-        window.user = _.isEmpty(storedObject) ? new User() : (new User()).createUser(storedObject);
+        storedObject = window.localStorage.getItem('user');
+        if (_.isEmpty(storedObject)) {
+            storedObject = Cookies().getCookie('user');
+        }
     } catch (e) {
-        var cookieObject = Cookies().getCookie('user');
-        window.user = _.isEmpty(cookieObject) ? new User() : (new User()).createUser(cookieObject);
-    }
+        storedObject = Cookies().getCookie('user');
+    } 
+
+    window.user = _.isEmpty(storedObject) ? new User() : (new User()).createUser(storedObject);
 }
 
 function toggleLoginButton() {
