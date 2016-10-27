@@ -25,7 +25,7 @@ $(window).load(function () {
                     if (!_.isEmpty(data.Message)) w88Mobile.Growl.shout(data.Message);
                     clearInterval(sessionPoll);
                     setTimeout(function() {
-                        logout();
+                        clear();
                     }, 2000);                    
                 },
                 error: function (err) {
@@ -100,10 +100,8 @@ function clear() {
     try {
         window.localStorage.clear();
         Cookies().setCookie('user', null, -1);
-        Cookies().setCookie('product', null, -1);
     } catch (e) {
         Cookies().setCookie('user', null, -1);
-        Cookies().setCookie('product', null, -1);
     }
     window.user = null;
     $.mobile.loading('hide');
