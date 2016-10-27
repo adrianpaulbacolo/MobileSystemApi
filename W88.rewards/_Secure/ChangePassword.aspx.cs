@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Web;
-using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Shared.Helpers;
 
 public partial class _Secure_ChangePassword : BasePage

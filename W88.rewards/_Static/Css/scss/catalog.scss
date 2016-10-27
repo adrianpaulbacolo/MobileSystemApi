@@ -3,13 +3,14 @@
 	background: lighten($body-bg, 2%);
     @include box-shadow(0px 1px 2px rgba(0,0,0,0.1));
 	.catalog-image{
-		background: lighten($body-bg, 6%) url('../images/img-bg.png') center center no-repeat;
-		height: 0;
-		padding-bottom: 53.3%;
+		background: #252525 url("../images/img-bg.png") center center no-repeat;
+		height: 100%;
+		padding: 10px 0;
 		display: block;
 		img{
-			width: 100%;
 			display: block;
+            width: auto;
+            margin: 0 auto;
 		}
 	}
 	.catalog-details{
@@ -41,8 +42,9 @@
 		background: lighten($body-bg, 6%) url('../images/img-bg.png') center center no-repeat;
 		display: block;
 		img{
-			width: 100%;
-			display: block;
+            width: auto;
+            display: block;
+            margin: 0 auto;
 		}
 	}
 	.catalog-details{

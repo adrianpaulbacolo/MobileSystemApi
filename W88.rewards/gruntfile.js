@@ -32,7 +32,7 @@
         },
         filerev: {
             dist: {
-                src: ['_Static/JS/dist/<%= pkg.name %>.js', '_Static/Css/<%= pkg.name %>.css']
+                src: ['_Static/JS/dist/<%= pkg.name %>.js', '_Static/Css/<%= pkg.name %>.css', '_Static/JS/dist/<%= pkg.name %>.main.js']
             }
         },
         filerev_replace: {
@@ -40,7 +40,7 @@
                 assets_root: './'
             },
             compiled_assets: {
-                src: ['_Static/JS/dist/<%= pkg.name %>.js', '_Static/Css/<%= pkg.name %>.css']
+                src: ['_Static/JS/dist/<%= pkg.name %>.js', '_Static/Css/<%= pkg.name %>.css', '_Static/JS/dist/<%= pkg.name %>.main.js']
             },
             views: {
                 options: {
