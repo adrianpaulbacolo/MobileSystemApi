@@ -46,7 +46,7 @@ public partial class Default : CatalogueBasePage
             var pointsFrom = string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("min")) ? 0 : int.Parse(HttpContext.Current.Request.QueryString.Get("min"));
             var pointsTo = string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("max")) ? 2000000 : int.Parse(HttpContext.Current.Request.QueryString.Get("max"));
             var searchText = string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("search")) ? "" : HttpContext.Current.Request.QueryString.Get("search");
-            const string pageSize = "15";
+            const string pageSize = "10000";
             const string pageNumber = "0";
 
             var dataSet = await RewardsHelper.GetProductSearch(
