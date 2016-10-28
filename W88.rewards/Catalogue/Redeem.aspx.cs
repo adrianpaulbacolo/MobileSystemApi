@@ -250,22 +250,23 @@ public partial class Catalogue_Redeem : CatalogueBasePage
                 lblCurrency.Text = ProductDetails.CurrencyCode;
             }
 
+            if (ProductType != "2" && ProductType != "3") //normal & wishlist
+            {
+                return;
+            }
+
             #region memberInfo
             var redemptionDetails = await RewardsHelper.GetMemberRedemptionDetails(memberCode);
             if (redemptionDetails == null)
             {
                 return;
             }
-
-            if (ProductType == "2" || ProductType == "3") //normal & wishlist
-            {
-                tbRName.Text = redemptionDetails.FullName;
-                tbAddress.Value = redemptionDetails.Address;                   
-                tbPostal.Text = redemptionDetails.Postal;
-                tbCity.Text = redemptionDetails.City;
-                tbCountry.Text = redemptionDetails.CountryCode;
-                tbContact.Text = redemptionDetails.Mobile;
-            }
+            tbRName.Text = redemptionDetails.FullName;
+            tbAddress.Value = redemptionDetails.Address;                   
+            tbPostal.Text = redemptionDetails.Postal;
+            tbCity.Text = redemptionDetails.City;
+            tbCountry.Text = redemptionDetails.CountryCode;
+            tbContact.Text = redemptionDetails.Mobile;          
             #endregion
         }
         catch (Exception exception)
