@@ -191,49 +191,56 @@
             const NORMAL = '2';
             const WISHLIST = '3';
             const ONLINE = '4';
+            var isInvalid = false,
+                messages = [];
 
             if ($('#tbQuantity').val() && $('#tbQuantity').val().trim().length == 0) {
-                window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.InvalidQuantity)%>');
-                return false;
+                messages.push('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.InvalidQuantity)%>');
+                isInvalid = true;
             }
 
             if (type == ONLINE) {
                 if ($('#tbAccount').val() && $('#tbAccount').val().trim().length == 0) {
-                    window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterAccount)%>');
-                    return false;
+                    messages.push('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterAccount)%>');
+                    isInvalid = true;
                 }
             } else if (type == NORMAL || type == WISHLIST) {
                 if ($('#tbRName').val() && $('#tbRName').val().trim().length == 0) {
-                    window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterName)%>');
-                    return false;
+                    messages.push('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterName)%>');
+                    isInvalid = true;
                 }
                 if ($('#tbAddress').val() && $('#tbAddress').val().trim().length == 0) {
-                    window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterAddress)%>');
-                    return false;
+                    messages.push('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterAddress)%>');
+                    isInvalid = true;
                 }
                 if ($('#tbPostal').val() && $('#tbPostal').val().trim().length == 0) {
-                    window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterPostal)%>');
-                    return false;
+                    messages.push('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterPostal)%>');
+                    isInvalid = true;
                 }
                 if ($('#tbCity').val() && $('#tbCity').val().trim().length == 0) {
-                    window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterCity)%>');
-                    return false;
+                    messages.push('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterCity)%>');
+                    isInvalid = true;
                 }
                 if ($('#tbCountry').val() && $('#tbCountry').val().trim().length == 0) {
-                    window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterCountry)%>');
-                    return false;
+                    messages.push('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterCountry)%>');
+                    isInvalid = true;
                 }
                 if ($('#tbContact').val() && $('#tbContact').val().trim().length == 0) {
-                    window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterContactNumber)%>');
-                    return false;
+                    messages.push('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterContactNumber)%>');
+                    isInvalid = true;
                 }
                 if (type == WISHLIST) {
                     if ($('#txtBoxRemarks').val() && $('#txtBoxRemarks').val().trim().length == 0) {
-                        window.w88Mobile.Growl.shout('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterRemarks)%>');
-                        return false;
+                        messages.push('<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterRemarks)%>');
+                        isInvalid = true;
                     }
                 }
-            }           
+            }
+
+            if (isInvalid) {
+                w88Mobile.Growl.shout(messages.join('; '));
+                return false;
+            }
             return true;
         }
     </script>
