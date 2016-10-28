@@ -16,12 +16,12 @@ namespace W88.BusinessLogic.Rewards.Redemption.Factories.Handlers
         {
             using (var client = new RewardsServicesClient())
             {
-                var request = (RedemptionFreebetRequest)CreateRequest();
+                var request = CreateFreeBetRequest();
                 return await client.RedemptionFreebetAsync(request);
             }
         }
 
-        protected override dynamic CreateRequest()
+        private RedemptionFreebetRequest CreateFreeBetRequest()
         {
             var request = new RedemptionFreebetRequest();
             try
@@ -33,11 +33,11 @@ namespace W88.BusinessLogic.Rewards.Redemption.Factories.Handlers
                 request.RiskId = Request.RiskId;
                 request.Currency = Request.Currency;
                 request.PointRequired = int.Parse(Request.PointRequired.Trim());
-                request.Quantity = int.Parse(Request.Quantity.Trim());
+                request.Quantity = Request.Quantity;
                 request.CreditAmount = Convert.ToDecimal(Request.CreditAmount.Trim());
                 return request;
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 return request;
             }

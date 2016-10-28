@@ -76,6 +76,28 @@ namespace W88.API
             }
         }
 
+        [HttpGet]
+        [Route("Account")]
+        public async Task<HttpResponseMessage> Account(HttpRequestMessage request)
+        {
+            try
+            {
+                if (await CheckToken(request) == false) return ReturnResponse(UserRequest.Process);
+
+                var response = await new LoginHelper().Account(request.GetHeader(Constants.VarNames.Token));
+
+                return ReturnResponse(response);
+            }
+            catch (Exception ex)
+            {
+                return ReturnResponse(new ProcessCode
+                {
+                    Code = (int)Constants.StatusCode.Error,
+                    Message = ex.Message
+                }, ex);
+            }
+        }
+
         [HttpPost]
         [Route("changepassword")]
         public async Task<HttpResponseMessage> ChangePassword(ChangePasswordInfo changePasswordInfo)

@@ -86,6 +86,8 @@ namespace W88.API
             {
                 if (await CheckToken(request) == false) return ReturnResponse(UserRequest.Process);
 
+                UserRequest.UserInfo.LanguageCode = GetLanguage(request);
+
                 var process = await new Payments().SelectHistoryReport(historyRequest, UserRequest.UserInfo);
 
                 if (process.Data != null)

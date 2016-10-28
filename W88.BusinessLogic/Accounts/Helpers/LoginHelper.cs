@@ -126,6 +126,19 @@ namespace W88.BusinessLogic.Accounts.Helpers
             return process;
         }
 
+        public async Task<ProcessCode> Account(string sessionId)
+        {
+            var response = new ProcessCode { Code = (int)Constants.StatusCode.Success, Message = "" };
+
+            var member = await new Members().MembersSessionCheck(sessionId);
+            response.Code = member.Code;
+            response.Data = member.Data;
+            response.Message = member.Message;
+
+            return response;
+
+        }
+
 
         public async Task<ProcessCode> Logout(string memberId)
         {
