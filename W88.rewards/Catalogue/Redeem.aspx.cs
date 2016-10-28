@@ -31,31 +31,30 @@ public partial class Catalogue_Redeem : CatalogueBasePage
 
     protected async void RedeemButtonOnClick(object sender, EventArgs e)
     {
-        Status = string.Empty;
-        Message = string.Empty;
-
-        int quantity;
-        var isParsed = int.TryParse(tbQuantity.Text.Trim(), out quantity);
-        if (!isParsed)
-        {
-            Status = Convert.ToString((int)Constants.StatusCode.Error);
-            Message = RewardsHelper.GetTranslation(TranslationKeys.Redemption.InvalidQuantity);
-            ShowMessage(Status, Message);
-            return;
-        }
-
-        ProductDetails = Common.DeserializeObject<ProductDetails>(ProductDetailsField.Value);
-        var productType = (ProductTypeEnum)int.Parse(ProductDetails.ProductType);
-
-        if (!HasSession)
-        {
-            Response.Redirect(string.Format(@"/_Secure/Login.aspx?redirect=/Catalogue/Redeem.aspx&productId={0}", ProductIdField.Value), false);
-            return;
-        }
-
         #region redeem product
         try
         {
+            Status = string.Empty;
+            Message = string.Empty;
+
+            int quantity;
+            var isParsed = int.TryParse(tbQuantity.Text.Trim(), out quantity);
+            if (!isParsed)
+            {
+                Status = Convert.ToString((int)Constants.StatusCode.Error);
+                Message = RewardsHelper.GetTranslation(TranslationKeys.Redemption.InvalidQuantity);
+                ShowMessage(Status, Message);
+                return;
+            }
+
+            ProductDetails = Common.DeserializeObject<ProductDetails>(ProductDetailsField.Value);
+            if (!HasSession)
+            {
+                Response.Redirect(string.Format(@"/_Secure/Login.aspx?redirect=/Catalogue/Redeem.aspx&productId={0}", ProductIdField.Value), false);
+                return;
+            }
+
+            var productType = (ProductTypeEnum)int.Parse(ProductDetails.ProductType);
             var response = await RedemptionStrategy.Initialize(GetRequest(productType)).Redeem();
             Status = Convert.ToString(response.Code);
             Message = response.Message;
