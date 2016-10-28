@@ -1,10 +1,8 @@
-﻿// Set window.user property
+﻿var sessionPoll;
+// Set window.user property
 setUser();
-
 $(window).load(function () {
     GPINTMOBILE.HideSplash();
-
-    var sessionPoll;
     function checkSession() {
         var intervalMin = 3000,
             interval = (window.user && parseInt(sessionInterval) > 0) 
@@ -78,6 +76,7 @@ function logout() {
             $.mobile.loading('show');
         },
         success: function (response) {
+            if (sessionPoll) clearInterval(sessionPoll);
             switch (response.ResponseCode) {
                 case 1:
                     clear();
@@ -99,9 +98,11 @@ function logout() {
 function clear() {
     try {
         window.localStorage.clear();
-        Cookies().setCookie('user', null, -1);
+        if (!_.isEmpty(Cookies().getCookie('user')))
+            Cookies().setCookie('user', null, -1);
     } catch (e) {
-        Cookies().setCookie('user', null, -1);
+        if (!_.isEmpty(Cookies().getCookie('user')))
+            Cookies().setCookie('user', null, -1);
     }
     window.user = null;
     $.mobile.loading('hide');
