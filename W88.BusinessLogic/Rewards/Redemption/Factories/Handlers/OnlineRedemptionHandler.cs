@@ -16,12 +16,12 @@ namespace W88.BusinessLogic.Rewards.Redemption.Factories.Handlers
         {
             using (var client = new RewardsServicesClient())
             {
-                var request = (RedemptionOnlineRequest)CreateRequest();
+                var request = CreateOnlineRequest();
                 return await client.RedemptionOnlineAsync(request);
             }
         }
 
-        protected override dynamic CreateRequest()
+        private RedemptionOnlineRequest CreateOnlineRequest()
         {
             var request = new RedemptionOnlineRequest();
             try
@@ -33,11 +33,11 @@ namespace W88.BusinessLogic.Rewards.Redemption.Factories.Handlers
                 request.RiskId = Request.RiskId;
                 request.Currency = Request.Currency;
                 request.PointRequired = int.Parse(Request.PointRequired);
-                request.Quantity = int.Parse(Request.Quantity);
+                request.Quantity = Request.Quantity;
                 request.AimId = Request.AimId;
                 return request;
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 return request;
             }

@@ -24,18 +24,18 @@ namespace W88.BusinessLogic.Accounts.Helpers
         private readonly List<LOV> _paymentType;
         private readonly List<LOV> _status;
         private readonly List<LOV> _ft_status;
-        private readonly List<PaymentSettingInfo> _paymentSettings;
+        private readonly List<PaymentSettingInfo> _paymentSettings;       
 
         public HistoryReports(HistoryInfoRequest historyInfoRequest, UserSessionInfo user) 
         {
             _historyInfoRequest = historyInfoRequest;
             _user = user;
 
-            _paymentType = base.GetListOfValues<LOV>("history/status", "PaymentType", true);
-            _status = base.GetListOfValues<LOV>("history/status", "Status", true);
-            _ft_status = base.GetListOfValues<LOV>("history/status", "FT_Status", true);
+            _paymentType = base.GetListOfValues<LOV>("history/status", "PaymentType", true, _user.LanguageCode);
+            _status = base.GetListOfValues<LOV>("history/status", "Status", true, _user.LanguageCode);
+            _ft_status = base.GetListOfValues<LOV>("history/status", "FT_Status", true, _user.LanguageCode);
             _paymentSettings = base.GetListOfValues<PaymentSettingInfo>("shared/PaymentSettings", "PaymentGateway", false);
-
+            
             _wallets = new Wallets(_user, true);
         }
 
@@ -215,7 +215,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
         private string GetPaymentMethodTranslation(string methodId)
         {
             var settingInfo = _paymentSettings.FirstOrDefault(x => x.Id == methodId);
-            return settingInfo != null ? settingInfo.TabName.GetValue(LanguageHelpers.SelectedLanguageShort).Value : methodId;
+            return settingInfo != null ? CultureHelpers.GetTranslation(settingInfo.TranslationKey, _user.LanguageCode, "contents/translation") : methodId;
         }
 
         private string GetFtStatusTranslation(string status)

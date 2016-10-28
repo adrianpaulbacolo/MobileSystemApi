@@ -129,9 +129,9 @@ namespace W88.BusinessLogic.Base.Helpers
             }
         }
 
-        protected List<T> GetListOfValues<T>(string filepath, string arrayName, bool useLanguage)
+        protected List<T> GetListOfValues<T>(string filepath, string arrayName, bool useLanguage, string languageCode = "")
         {
-            string settings = CultureHelpers.AppData.GetLocale_i18n_Resource(filepath, useLanguage);
+            string settings = CultureHelpers.AppData.GetLocale_i18n_Resource(filepath, useLanguage, languageCode);
             return Common.ParseJsonString<T>(settings, arrayName);
         }
     }

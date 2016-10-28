@@ -25,9 +25,9 @@ namespace W88.BusinessLogic.Account.Helpers
         }
 
         private void GetInfo(bool getAll)
-        {
+       {
             WalletInfo = new List<WalletInfo>();
-            var jsonFile = CultureHelpers.AppData.GetJsonRootResource("Shared/Wallets");
+            var jsonFile = CultureHelpers.AppData.GetLocale_i18n_Resource("Shared/Wallets", false);
             var walletList = Utilities.Common.ParseJsonString<WalletInfo>(jsonFile, "Wallets").OrderBy(info => info.OrderBy);
 
             foreach (var setting in walletList)
@@ -41,7 +41,7 @@ namespace W88.BusinessLogic.Account.Helpers
                     CurrAllowOnly = setting.CurrAllowOnly.ToUpper(),
                     CurrencyLabel = setting.CurrencyLabel.ToUpper(),
                     Enabled = setting.Enabled,
-                    Name = setting.Lang.GetValue(LanguageHelpers.SelectedLanguageShort).Value
+                    Name = setting.Lang.GetValue(_user.LanguageCode).Value
                 };
 
                 var curr = _user.CurrencyCode;

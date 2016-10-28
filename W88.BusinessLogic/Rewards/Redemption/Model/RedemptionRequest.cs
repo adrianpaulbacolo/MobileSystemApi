@@ -20,7 +20,7 @@ namespace W88.BusinessLogic.Rewards.Redemption.Model
 
         public string PointRequired = string.Empty;
 
-        public string Quantity = string.Empty;
+        public int Quantity = 0;
 
         public string CreditAmount = string.Empty;
 
