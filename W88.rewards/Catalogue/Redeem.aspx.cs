@@ -31,9 +31,20 @@ public partial class Catalogue_Redeem : CatalogueBasePage
 
     protected async void RedeemButtonOnClick(object sender, EventArgs e)
     {
-        ProductDetails = Common.DeserializeObject<ProductDetails>(ProductDetailsField.Value);
         Status = string.Empty;
         Message = string.Empty;
+
+        int quantity;
+        var isParsed = int.TryParse(tbQuantity.Text.Trim(), out quantity);
+        if (!isParsed)
+        {
+            Status = Convert.ToString((int)Constants.StatusCode.Error);
+            Message = RewardsHelper.GetTranslation(TranslationKeys.Redemption.InvalidQuantity);
+            ShowMessage(Status, Message);
+            return;
+        }
+
+        ProductDetails = Common.DeserializeObject<ProductDetails>(ProductDetailsField.Value);
         var productType = (ProductTypeEnum)int.Parse(ProductDetails.ProductType);
 
         if (!HasSession)
@@ -274,7 +285,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         request.RiskId = MemberSession == null ? "0" : MemberSession.RiskId;
         request.Currency = MemberSession == null ? "0" : MemberSession.CurrencyCode;
         request.PointRequired = string.IsNullOrEmpty(ProductDetails.PointsRequired) ? string.Empty : ProductDetails.PointsRequired;
-        request.Quantity = tbQuantity.Text.Trim();
+        request.Quantity = int.Parse(tbQuantity.Text.Trim());
 
         switch (type)
         {
