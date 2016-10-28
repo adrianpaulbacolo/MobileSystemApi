@@ -7,6 +7,7 @@ using System.Xml.Linq;
 using System.Xml.XPath;
 using W88.BusinessLogic.Shared.Models;
 using W88.Utilities;
+using W88.Utilities.Constant;
 
 namespace W88.BusinessLogic.Shared.Helpers
 {
@@ -32,7 +33,7 @@ namespace W88.BusinessLogic.Shared.Helpers
 
             public static string GetJsonRootResource(string fileName)
             {
-                string jsonFilePath = HttpContext.Current.Server.MapPath(@"~/App_Data/" + fileName + ".json");
+                var jsonFilePath = HttpContext.Current.Server.MapPath(@"~/App_Data/" +  fileName + ".json");
                 return Common.GetJsonAppData(jsonFilePath);
             }
 
@@ -54,8 +55,11 @@ namespace W88.BusinessLogic.Shared.Helpers
                 var jsonFilePath = string.Format("{0}/{1}", _i18nFolderPath, filePath);
 
                 if (useLanguage)
-                    jsonFilePath = string.Format("{0}/{1}.{2}", _i18nFolderPath, filePath, string.IsNullOrWhiteSpace(specificLanguage) ? LanguageHelpers.SelectedLanguage : specificLanguage.ToLower());
-
+                {
+                      var operatorSettings = new OperatorSettings(Settings.OperatorName);
+                      jsonFilePath = string.Format("{0}/{1}.{2}", _i18nFolderPath, filePath, string.IsNullOrWhiteSpace(specificLanguage) ? operatorSettings.Values.Get(Constants.VarNames.DefaultLanguage) : specificLanguage.ToLower());
+                }
+                    
                 return GetJsonRootResource(jsonFilePath);
             }
 

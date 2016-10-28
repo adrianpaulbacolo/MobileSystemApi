@@ -16,12 +16,12 @@ namespace W88.BusinessLogic.Rewards.Redemption.Factories.Handlers
         {
             using (var client = new RewardsServicesClient())
             {
-                var request = (RedemptionWishlistRequest)CreateRequest();
+                var request = CreateWishListRequest();
                 return await client.RedemptionWishlistAsync(request);
             }
         }
 
-        protected override dynamic CreateRequest()
+        private RedemptionWishlistRequest CreateWishListRequest()
         {
             var request = new RedemptionWishlistRequest();
             try
@@ -33,7 +33,7 @@ namespace W88.BusinessLogic.Rewards.Redemption.Factories.Handlers
                 request.RiskId = Request.RiskId;
                 request.Currency = Request.Currency;
                 request.PointRequired = int.Parse(Request.PointRequired.Trim());
-                request.Quantity = int.Parse(Request.Quantity.Trim());
+                request.Quantity = Request.Quantity;
                 request.Name = Request.Name;
                 request.ContactNumber = Request.ContactNumber;
                 request.Address = Request.Address;
@@ -43,7 +43,7 @@ namespace W88.BusinessLogic.Rewards.Redemption.Factories.Handlers
                 request.Remark = Request.Remarks;
                 return request;
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 return request;
             }
