@@ -28,6 +28,8 @@ function piwikManager() {
         var piwik = getInstance();
         if (typeof piwik === "object" && typeof piwik.trackGoal === "function") {
             piwik.trackGoal(goal);
+        } else {
+            _paq.push(['trackGoal', goal]);
         }
     }
 
