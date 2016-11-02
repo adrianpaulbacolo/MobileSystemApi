@@ -123,4 +123,51 @@ public static class commonCountry
         }
     }
 
+    public static bool IsBlocked(string strCountryCode)
+    {
+        customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
+        string strBlockedCountries = opSettings.Values.Get("BlockedCountries");
+
+        return (strBlockedCountries.IndexOf(strCountryCode) != -1);
+    }
+
+    public static string CountryFromCurrency(string currencyCode)
+    {
+        var countryCode = string.Empty;
+        switch (currencyCode)
+        {
+            case "RMB":
+                countryCode = "CN";
+                break;
+            case "VND":
+                countryCode = "VN";
+                break;
+            case "IDR":
+                countryCode = "ID";
+                break;
+            case "JPY":
+                countryCode = "JP";
+                break;
+            case "KRW":
+                countryCode = "KR";
+                break;
+            case "USD":
+                countryCode = "KH";
+                break;
+            case "MYR":
+                countryCode = "MY";
+                break;
+            case "THB":
+                countryCode = "TH";
+                break;
+        }
+
+        return countryCode;
+    }
+
+    public static bool IsValidCountry(string countryCode)
+    {
+        return !(string.IsNullOrEmpty(countryCode) || string.Compare(countryCode.ToUpper(), "XX", true) == 0 || string.Compare(countryCode.ToUpper(), "-", true) == 0);
+    }
+
 }
