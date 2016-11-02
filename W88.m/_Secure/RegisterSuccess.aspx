@@ -49,6 +49,9 @@
         $(function () {
             window.history.forward();
             $(".register-success-content").css("display", "none");
+            // piwik tracking signup
+            w88Mobile.PiwikManager.trackSignup();
+
             if ($('#depositTabs li').length == 0) {
                 w88Mobile.PiwikManager.trackEvent({
                     category: "RegSuccess",
