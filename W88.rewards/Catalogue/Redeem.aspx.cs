@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Activities.Expressions;
 using System.Text;
 using System.Web;
 using System.Web.UI;
@@ -27,40 +26,35 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             return;
         }
         SetLabels();
-        GetProductDetails();
-        InitFields();       
+        GetProductDetails();  
     }
 
     protected async void RedeemButtonOnClick(object sender, EventArgs e)
     {
-        ProductDetails = Common.DeserializeObject<ProductDetails>(ProductDetailsField.Value);
-        Status = string.Empty;
-        Message = string.Empty;
-        var productType = (ProductTypeEnum)int.Parse(ProductDetails.ProductType);
-        var quantitytext = tbQuantity.Text.Trim();
-
         #region redeem product
         try
         {
+            Status = string.Empty;
+            Message = string.Empty;
+
             int quantity;
-            var isParsed = int.TryParse(quantitytext, out quantity);
+            var isParsed = int.TryParse(tbQuantity.Text.Trim(), out quantity);
             if (!isParsed)
             {
-                Status = Convert.ToString((int) Constants.StatusCode.Error);
+                Status = Convert.ToString((int)Constants.StatusCode.Error);
                 Message = RewardsHelper.GetTranslation(TranslationKeys.Redemption.InvalidQuantity);
                 ShowMessage(Status, Message);
                 return;
             }
 
-            quantity = int.Parse(quantitytext);
-            if (quantity < 1)
+            ProductDetails = Common.DeserializeObject<ProductDetails>(ProductDetailsField.Value);
+            if (!HasSession)
             {
-                Status = Convert.ToString((int) Constants.StatusCode.Error);
-                Message = RewardsHelper.GetTranslation(TranslationKeys.Redemption.InvalidMinimum);
-                ShowMessage(Status, Message);
+                Response.Redirect(string.Format(@"/_Secure/Login.aspx?redirect=/Catalogue/Redeem.aspx&productId={0}", ProductIdField.Value), false);
                 return;
             }
 
+            var productType = (ProductTypeEnum)int.Parse(ProductDetails.ProductType);
             var response = await RedemptionStrategy.Initialize(GetRequest(productType)).Redeem();
             Status = Convert.ToString(response.Code);
             Message = response.Message;
@@ -128,6 +122,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         tbCity.Attributes.Add("PLACEHOLDER", RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterCity));
         tbCountry.Attributes.Add("PLACEHOLDER", RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterCountry));
         tbContact.Attributes.Add("PLACEHOLDER", RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterContactNumber));
+        txtBoxRemarks.Attributes.Add("PLACEHOLDER", RewardsHelper.GetTranslation(TranslationKeys.Redemption.EnterRemarks));
         nameLabel.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.Name);
         addressLabel.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.Address);
         postalLabel.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.Postal);
@@ -135,6 +130,12 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         countryLabel.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.Country);
         contactLabel.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.ContactNumber);
         redeemButton.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.RedeemNow);
+        remarksLabel.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.Remarks);
+        if ((ProductTypeEnum)int.Parse(ProductType) == ProductTypeEnum.Wishlist)
+        {
+            remarksLabel.Visible = true;
+            txtBoxRemarks.Visible = true;
+        }
         redeemButton.Visible = true;
         #endregion
     }
@@ -171,7 +172,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
                 return;
             }
 
-            lblproductid.Value = ProductDetails.ProductId;
+            ProductIdField.Value = ProductDetails.ProductId;
             /**
                 freebet show  currency, hide recipient panel , hide delivery, hide account
                 normal product show recipient, show delivery if any,  hide currency, hide account
@@ -249,22 +250,23 @@ public partial class Catalogue_Redeem : CatalogueBasePage
                 lblCurrency.Text = ProductDetails.CurrencyCode;
             }
 
+            if (ProductType != "2" && ProductType != "3") //normal & wishlist
+            {
+                return;
+            }
+
             #region memberInfo
             var redemptionDetails = await RewardsHelper.GetMemberRedemptionDetails(memberCode);
             if (redemptionDetails == null)
             {
                 return;
             }
-
-            if (ProductType == "2" || ProductType == "3") //normal & wishlist
-            {
-                tbRName.Text = redemptionDetails.FullName;
-                tbAddress.Value = redemptionDetails.Address;                   
-                tbPostal.Text = redemptionDetails.Postal;
-                tbCity.Text = redemptionDetails.City;
-                tbCountry.Text = redemptionDetails.CountryCode;
-                tbContact.Text = redemptionDetails.Mobile;
-            }
+            tbRName.Text = redemptionDetails.FullName;
+            tbAddress.Value = redemptionDetails.Address;                   
+            tbPostal.Text = redemptionDetails.Postal;
+            tbCity.Text = redemptionDetails.City;
+            tbCountry.Text = redemptionDetails.CountryCode;
+            tbContact.Text = redemptionDetails.Mobile;          
             #endregion
         }
         catch (Exception exception)
@@ -278,28 +280,35 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         var request = new RedemptionRequest();
         request.ProductType = type;
         request.MemberCode = UserSessionInfo == null ? string.Empty : UserSessionInfo.MemberCode;
-        request.ProductId = lblproductid.Value;
+        request.ProductId = ProductIdField.Value;
         request.CategoryId = string.IsNullOrEmpty(ProductDetails.CategoryId) ? "0" : ProductDetails.CategoryId;
         request.RiskId = MemberSession == null ? "0" : MemberSession.RiskId;
-        request.Currency = string.IsNullOrEmpty(ProductDetails.CurrencyCode) ? "0" : ProductDetails.CurrencyCode;
+        request.Currency = MemberSession == null ? "0" : MemberSession.CurrencyCode;
         request.PointRequired = string.IsNullOrEmpty(ProductDetails.PointsRequired) ? string.Empty : ProductDetails.PointsRequired;
-        request.Quantity = tbQuantity.Text.Trim();
+        request.Quantity = int.Parse(tbQuantity.Text.Trim());
 
         switch (type)
         {
             case ProductTypeEnum.Freebet:
                 request.CreditAmount = string.IsNullOrEmpty(ProductDetails.AmountLimit) ? string.Empty : ProductDetails.AmountLimit;
                 break;
-            case ProductTypeEnum.Normal:
-                request.Name = tbRName.Text.Trim();
-                request.ContactNumber = tbContact.Text.Trim();
-                request.Address = tbAddress.Value.Trim();
-                request.PostalCode = tbPostal.Text.Trim();
-                request.City = tbCity.Text.Trim();
-                request.Country = tbCountry.Text.Trim();
-                break;
             case ProductTypeEnum.Online:
                 request.AimId = tbAccount.Text.Trim();
+                break;
+            default:
+                if (type == ProductTypeEnum.Normal || type == ProductTypeEnum.Wishlist)
+                {
+                    request.Name = tbRName.Text.Trim();
+                    request.ContactNumber = tbContact.Text.Trim();
+                    request.Address = tbAddress.Value.Trim();
+                    request.PostalCode = tbPostal.Text.Trim();
+                    request.City = tbCity.Text.Trim();
+                    request.Country = tbCountry.Text.Trim();
+                    if (type == ProductTypeEnum.Wishlist)
+                    {
+                        request.Remarks = txtBoxRemarks.Value.Trim();
+                    }
+                }
                 break;
         }
 
@@ -308,15 +317,17 @@ public partial class Catalogue_Redeem : CatalogueBasePage
 
     private async void GetProductDetails()
     {
-        var productId = Request.QueryString.Get("productId");
+        var productId = HttpContext.Current.Request.QueryString.Get("productId");
         if (string.IsNullOrEmpty(productId))
         {
             Response.Redirect("/Catalogue?categoryId=0&sortBy=2", false);
+            return;
         }
         ProductDetails = await RewardsHelper.GetProductDetails(MemberSession, productId, HasSession);
         SetProductInfo();
         ProductDetails.ProductDescription = HttpUtility.HtmlEncode(ProductDetails.ProductDescription);
         ProductDetailsField.Value = Common.SerializeObject(ProductDetails);
+        InitFields();     
     }
 
     private async void RefreshPoints()
