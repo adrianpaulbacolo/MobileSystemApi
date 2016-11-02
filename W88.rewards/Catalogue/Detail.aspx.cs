@@ -26,6 +26,13 @@ public partial class Catalogue_Detail : CatalogueBasePage
         try
         {
             var productId = HttpContext.Current.Request.QueryString.Get("id");
+
+            if (string.IsNullOrEmpty(productId))
+            {
+                Response.Redirect("/Catalogue?categoryId=0&sortBy=2", false);
+                return;
+            }
+
             var productDetails = await RewardsHelper.GetProductDetails(MemberSession, productId, HasSession);
 
             if (productDetails == null)
