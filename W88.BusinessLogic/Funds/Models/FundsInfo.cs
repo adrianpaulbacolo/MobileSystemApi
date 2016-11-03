@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -8,21 +9,29 @@ using W88.BusinessLogic.Shared.Models;
 
 namespace W88.BusinessLogic.Funds.Models
 {
-    public class BaseFundsInfo : BankDetails
+    public class FundsInfo : BankDetails
     {
-        public BaseFundsInfo()
+        public FundsInfo()
         {
             SystemBank = new LOV();
             DepositChannel = new LOV();
             CardType = new LOV();
         }
-
+        
         public decimal Amount { get; set; }
 
         public LOV SystemBank { get; set; }
 
+        public LOV SecondBank { get; set; }
+
+        public long BankAddressId { get; set; }
+
+        public long BankBranchId { get; set; }
+
         public string ReferenceId { get; set; }
+
         public DateTime DepositDateTime { get; set; }
+
         public LOV DepositChannel { get; set; }
 
         public string ThankYouPage { get; set; }
