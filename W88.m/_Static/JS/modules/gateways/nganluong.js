@@ -11,8 +11,7 @@
     return nganluong;
 
     function send(method, data, success, error, complete) {
-        var api = "/api/payments/";
-        url = api + gatewayId;
+        var url = w88Mobile.APIUrl + "/payments/" + gatewayId;
 
         var headers = {
             'Token': window.User.token
