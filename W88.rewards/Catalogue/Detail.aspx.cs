@@ -33,7 +33,7 @@ public partial class Catalogue_Detail : CatalogueBasePage
                 return;
             }
 
-            var productDetails = await RewardsHelper.GetProductDetails(MemberSession, productId, HasSession);
+            var productDetails = await RewardsHelper.GetProductDetails(UserSessionInfo, productId, HasSession);
 
             if (productDetails == null)
             {
