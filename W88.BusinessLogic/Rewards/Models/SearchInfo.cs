@@ -17,7 +17,5 @@ namespace W88.BusinessLogic.Rewards.Models
         public int MinPoints = 0;
 
         public int MaxPoints = 0;
-
-        public MemberSession MemberSession = null;
     }
 }

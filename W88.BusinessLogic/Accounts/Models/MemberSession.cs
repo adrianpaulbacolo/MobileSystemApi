@@ -49,6 +49,7 @@ namespace W88.BusinessLogic.Accounts.Models
 
         public string LanguageCode = string.Empty;
 
+        public string RiskId = string.Empty;
     }
 
     public class TokenStatus
