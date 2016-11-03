@@ -572,6 +572,12 @@ namespace W88.WebRef.svcPayMS1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMS1/SDPayEncrypt", ReplyAction="http://tempuri.org/IMS1/SDPayEncryptResponse")]
         System.Threading.Tasks.Task<string> SDPayEncryptAsync(string data, string key1, string key2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMS1/encryptPrivate", ReplyAction="http://tempuri.org/IMS1/encryptPrivateResponse")]
+        string encryptPrivate(string input, long methodId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMS1/encryptPrivate", ReplyAction="http://tempuri.org/IMS1/encryptPrivateResponse")]
+        System.Threading.Tasks.Task<string> encryptPrivateAsync(string input, long methodId);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -978,6 +984,14 @@ namespace W88.WebRef.svcPayMS1 {
         
         public System.Threading.Tasks.Task<string> SDPayEncryptAsync(string data, string key1, string key2) {
             return base.Channel.SDPayEncryptAsync(data, key1, key2);
+        }
+        
+        public string encryptPrivate(string input, long methodId) {
+            return base.Channel.encryptPrivate(input, methodId);
+        }
+        
+        public System.Threading.Tasks.Task<string> encryptPrivateAsync(string input, long methodId) {
+            return base.Channel.encryptPrivateAsync(input, methodId);
         }
     }
 }

@@ -41,11 +41,11 @@ namespace W88.BusinessLogic.Funds.Factories
         protected abstract bool IsVendorRedirection { get; }
 
 
-        private BaseFundsInfo _fundsInfo;
+        private FundsInfo _fundsInfo;
         private UserSessionInfo _userInfo;
         private PaymentSettingInfo _setting;
 
-        public FundsBase(UserSessionInfo userInfo, BaseFundsInfo fundInfo, PaymentSettingInfo setting)
+        public FundsBase(UserSessionInfo userInfo, FundsInfo fundInfo, PaymentSettingInfo setting)
         {
             if (userInfo == null)
                 userInfo = new UserSessionInfo();
@@ -53,7 +53,7 @@ namespace W88.BusinessLogic.Funds.Factories
             this._userInfo = userInfo;
 
             if (fundInfo == null)
-                fundInfo = new BaseFundsInfo();
+                fundInfo = new FundsInfo();
 
             this._fundsInfo = fundInfo;
 

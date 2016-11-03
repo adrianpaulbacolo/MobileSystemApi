@@ -24,7 +24,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
         private readonly List<LOV> _paymentType;
         private readonly List<LOV> _status;
         private readonly List<LOV> _ft_status;
-        private readonly List<PaymentSettingInfo> _paymentSettings;       
+        private readonly List<PaymentSettingInfo> _paymentSettings;
 
         public HistoryReports(HistoryInfoRequest historyInfoRequest, UserSessionInfo user) 
         {
@@ -35,7 +35,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
             _status = base.GetListOfValues<LOV>("history/status", "Status", true, _user.LanguageCode);
             _ft_status = base.GetListOfValues<LOV>("history/status", "FT_Status", true, _user.LanguageCode);
             _paymentSettings = base.GetListOfValues<PaymentSettingInfo>("shared/PaymentSettings", "PaymentGateway", false);
-            
+
             _wallets = new Wallets(_user, true);
         }
 
@@ -62,7 +62,8 @@ namespace W88.BusinessLogic.Accounts.Helpers
                 {
                     var type = GetPaymentTranslation(row["paymenttype"].ToString().ToUpper());
                     var status = GetStatusTranslation(row["status"].ToString());
-                    var method = GetPaymentMethodTranslation(row["methodid"].ToString());
+                    // TODO: We dont have the translations in payment settings, please update implementation
+                    var method = ""; //GetPaymentMethodTranslation(row["methodid"].ToString()); 
 
                     var info = new HistoryInfoDepositWidrawResponse
                     {

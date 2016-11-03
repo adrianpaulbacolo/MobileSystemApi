@@ -72,7 +72,7 @@ namespace W88.BusinessLogic.Rewards.Redemption.Factories
                     break;
                 case RedemptionResultEnum.VIPProcessingLimitReached:
                     process.Code = (int)Constants.StatusCode.Error;
-                    process.Message = RewardsHelper.GetTranslation(TranslationKeys.Redemption.InsufficientPoints);
+                    process.Message = RewardsHelper.GetTranslation(TranslationKeys.Redemption.BirthdayItemPending);
                     break;
                 case RedemptionResultEnum.PointIsufficient:
                     process.Code = (int)Constants.StatusCode.Error;

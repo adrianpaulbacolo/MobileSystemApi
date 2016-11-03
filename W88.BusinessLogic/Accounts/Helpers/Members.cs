@@ -208,7 +208,12 @@ namespace W88.BusinessLogic.Accounts.Helpers
                     userInfo.MemberId = Convert.ToInt64(dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.MemberId]);
                     userInfo.CountryCode = dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.CountryCode].ToString();
                     userInfo.PaymentGroup = dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.PaymentGroup].ToString();
-                    userInfo.MemberName = dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.Lastname].ToString() + dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.Firstname].ToString();
+
+                    string lastName = dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.Lastname].ToString();
+                    string firstName = dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.Firstname].ToString();
+
+                    userInfo.MemberName = lastName + firstName;
+                    userInfo.AccountName = SetAccountName(userInfo.CurrencyCode, lastName, firstName);
                 }
 
                 int returnCode;
@@ -244,6 +249,39 @@ namespace W88.BusinessLogic.Accounts.Helpers
                     return GetMessage("SessionExpired");
             }
 
+        }
+        private string SetAccountName(string currencyCode, string lastName, string firstName)
+        {
+            string accountName = string.Empty;
+
+            if (!string.IsNullOrWhiteSpace(firstName))
+            {
+                if (string.IsNullOrWhiteSpace(lastName))
+                    accountName = firstName;
+                else
+                {
+                    switch (currencyCode)
+                    {
+                        case "RMB":
+                        case "KRW":
+                            accountName = lastName + firstName;
+                            break;
+                        case "VND":
+                        case "JPY":
+                            accountName = lastName + " " + firstName;
+                            break;
+                        case "USD":
+                        case "MYR":
+                        case "IDR":
+                            accountName = firstName + " " + lastName;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+
+            return accountName;
         }
 
         public string ParseToken(HttpRequestMessage request)
@@ -528,25 +566,25 @@ namespace W88.BusinessLogic.Accounts.Helpers
                 process.Id = Guid.NewGuid();
                 process.ProcessSerialId += 1;
 
-                var result = await client.MemberChangePasswordAsync(long.Parse(changePasswordInfo.MemberId), 
+                var result = await client.MemberChangePasswordAsync(long.Parse(changePasswordInfo.MemberId),
                     changePasswordInfo.Password, changePasswordInfo.NewPassword);
 
                 switch (result)
                 {
-                    case 1: 
-                        process.Code = (int) Constants.StatusCode.Success;
+                    case 1:
+                        process.Code = (int)Constants.StatusCode.Success;
                         process.Message = GetMessage("ChangePassword_Success");
                         break;
-                    case 10: 
-                        process.Code = (int) Constants.StatusCode.Error;
+                    case 10:
+                        process.Code = (int)Constants.StatusCode.Error;
                         process.Message = GetMessage("ChangePassword_Fail");
                         break;
-                    case 11: 
-                        process.Code = (int) Constants.StatusCode.Error;
+                    case 11:
+                        process.Code = (int)Constants.StatusCode.Error;
                         process.Message = GetMessage("ChangePassword_Invalid");
                         break;
-                    default: 
-                        process.Code = (int) Constants.StatusCode.Error;
+                    default:
+                        process.Code = (int)Constants.StatusCode.Error;
                         process.Message = GetMessage("Exception");
                         break;
                 }
@@ -561,7 +599,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
             AuditTrail.AppendLog(memberCode, Constants.PageNames.ChangePasswordPage,
                 Constants.TaskNames.ChangePassword, Constants.PageNames.ComponentName,
                 Convert.ToString(process.Code), string.Join(" | ", process.Message), string.Empty, string.Empty, process.Remark,
-                Convert.ToString(process.ProcessSerialId), Convert.ToString(process.Id), false);           
+                Convert.ToString(process.ProcessSerialId), Convert.ToString(process.Id), false);
         }
     }
 }

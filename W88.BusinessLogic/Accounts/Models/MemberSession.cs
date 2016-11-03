@@ -33,6 +33,8 @@ namespace W88.BusinessLogic.Accounts.Models
 
         public string MemberCode = string.Empty;
 
+        public string AccountName = string.Empty;
+
         public string MemberName = string.Empty;
 
         public string CurrencyCode = string.Empty;

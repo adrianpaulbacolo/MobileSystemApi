@@ -28,6 +28,8 @@ namespace W88.BusinessLogic.Rewards.Models
 
         public string ProductDescription = string.Empty;
 
+        public string ProductIcon = string.Empty;
+
         public string ProductId = string.Empty;
 
         public string ProductName = string.Empty;

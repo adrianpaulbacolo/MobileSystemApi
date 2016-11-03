@@ -22,10 +22,10 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
     public class NganLuongHandler : FundsBase
     {
         private UserSessionInfo _userInfo;
-        private BaseFundsInfo _fundsInfo;
+        private FundsInfo _fundsInfo;
         private PaymentSettingInfo _setting;
 
-        public NganLuongHandler(UserSessionInfo userInfo, BaseFundsInfo fundInfo, PaymentSettingInfo setting)
+        public NganLuongHandler(UserSessionInfo userInfo, FundsInfo fundInfo, PaymentSettingInfo setting)
             : base(userInfo, fundInfo, setting)
         {
             if (userInfo == null)
@@ -34,7 +34,7 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
             this._userInfo = userInfo;
 
             if (fundInfo == null)
-                fundInfo = new BaseFundsInfo();
+                fundInfo = new FundsInfo();
 
             this._fundsInfo = fundInfo;
 
