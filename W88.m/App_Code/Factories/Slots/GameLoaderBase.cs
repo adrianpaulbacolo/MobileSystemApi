@@ -105,7 +105,16 @@ namespace Factories.Slots
                 game.RealUrl = CreateRealUrl(xeGame);
                 game.FunUrl = CreateFunUrl(xeGame);
                 game.Id = GetGameId(xeGame);
-                game.Provider = GameProvider;
+
+                if (xeGame.Attribute("Provider") != null && xeGame.Attribute("Provider").Value.Length > 0)
+                {
+                    string provider = xeGame.Attribute("Provider").Value;
+                    game.Provider = (GameProvider)Enum.Parse(typeof(GameProvider), provider);
+                }
+                else
+                {
+                    game.Provider = GameProvider;
+                }
 
                 games.Add(game);
             }

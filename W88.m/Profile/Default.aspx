@@ -30,6 +30,12 @@
                 </a>
             </li>
             <li class="col col-33">
+                <a href="../_Secure/BankDetails.aspx" class="tile" runat="server" data-ajax="false">
+                    <span class="icon- ion-social-usd-outline"></span>
+                    <h4 class="title" id="bankDetails"></h4>
+                </a>
+            </li>
+            <li class="col col-33">
                 <a href="/LiveChat/Default.aspx" class="tile" runat="server" data-ajax="false">
                     <span class="icon-chat"></span>
                     <h4 class="title"><%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%></h4>
@@ -60,7 +66,13 @@
                 </a>
             </li>
         </ul>
+
+        <script type="text/javascript">
+            window.w88Mobile.BankDetails.Translations(function (response) {
+                if (response && _.isEqual(response.ResponseCode, 1)) {
+                    $('#bankDetails').text(response.ResponseData.LABEL_MENU_BANK_DETAILS);
+                }
+            });
+        </script>
     </div>
-
 </asp:Content>
-
