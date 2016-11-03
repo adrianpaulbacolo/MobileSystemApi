@@ -116,7 +116,7 @@ namespace W88.BusinessLogic.Rewards.Helpers
             }
         }
 
-        public async Task<int> GetMemberPointLevelDiscount(MemberSession memberSession)
+        public async Task<int> GetMemberPointLevelDiscount(UserSessionInfo userSessionInfo)
         {
             try
             {
@@ -124,8 +124,8 @@ namespace W88.BusinessLogic.Rewards.Helpers
                 {
                     return await client.getMemberPointLevelDiscountAsync(
                         OperatorId.ToString(CultureInfo.InvariantCulture),
-                        memberSession.CurrencyCode,
-                        (await GetPointLevel(memberSession.MemberId)).ToString(CultureInfo.InvariantCulture));
+                        userSessionInfo.CurrencyCode,
+                        Convert.ToString(await GetPointLevel(Convert.ToString(userSessionInfo.MemberId))));
                 }
             }
             catch (Exception)
@@ -186,15 +186,15 @@ namespace W88.BusinessLogic.Rewards.Helpers
             }
         }
 
-        public async Task<ProductDetails> GetProductDetails(MemberSession memberSession, string productId, bool hasSession)
+        public async Task<ProductDetails> GetProductDetails(UserSessionInfo userSessionInfo, string productId, bool hasSession)
         {
             try
             {
                 using (var client = new RewardsServicesClient())
                 {
-                    var countryCode = memberSession == null ? "" : memberSession.CountryCode;
-                    var currencyCode = memberSession == null ? "" : memberSession.CurrencyCode;
-                    var riskId = memberSession == null ? "" : memberSession.RiskId.ToUpper();
+                    var countryCode = userSessionInfo == null ? "" : userSessionInfo.CountryCode;
+                    var currencyCode = userSessionInfo == null ? "" : userSessionInfo.CurrencyCode;
+                    var riskId = userSessionInfo == null ? "" : userSessionInfo.RiskId.ToUpper();
 
                     var dataSet = await client.getProductDetailAsync(
                         productId,
@@ -224,7 +224,7 @@ namespace W88.BusinessLogic.Rewards.Helpers
                         if (hasSession && dataRow["productType"].ToString() != "1")
                         {
                             //grab member point level
-                            var pointLevelDiscount = await GetMemberPointLevelDiscount(memberSession);
+                            var pointLevelDiscount = await GetMemberPointLevelDiscount(userSessionInfo);
                             var percentage = Convert.ToDouble(pointLevelDiscount) / 100;
                             var normalPoint = int.Parse(productDetails.PointsRequired);
                             var points = Math.Floor(normalPoint * (1 - percentage));
@@ -287,20 +287,18 @@ namespace W88.BusinessLogic.Rewards.Helpers
             }
         }
 
-        public async Task<ProcessCode> SearchProducts(SearchInfo searchInfo)
+        public async Task<ProcessCode> SearchProducts(SearchInfo searchInfo, UserSessionInfo userSessionInfo)
         {
             var process = new ProcessCode();
-            process.Id = Guid.NewGuid();
 
             try
             {
                 using (var client = new RewardsServicesClient())
                 {
-                    var countryCode = searchInfo.MemberSession == null ? "0" : searchInfo.MemberSession.CountryCode;
-                    var currencyCode = searchInfo.MemberSession == null ? "0" : searchInfo.MemberSession.CurrencyCode;
-                    var riskId = searchInfo.MemberSession == null ? "0" : searchInfo.MemberSession.RiskId;
-                    var token = searchInfo.MemberSession == null ? string.Empty : searchInfo.MemberSession.Token;
-                    var memberId = searchInfo.MemberSession == null ? string.Empty : searchInfo.MemberSession.MemberId;
+                    var countryCode = userSessionInfo == null ? "0" : userSessionInfo.CountryCode;
+                    var currencyCode = userSessionInfo == null ? "0" : userSessionInfo.CurrencyCode;
+                    var riskId = userSessionInfo == null ? "0" : userSessionInfo.RiskId;
+                    var token = userSessionInfo == null ? string.Empty : userSessionInfo.Token;
                     var hasSession = !string.IsNullOrEmpty(token);
 
                     var dataSet = await client.getProductSearchAsync(
@@ -320,12 +318,8 @@ namespace W88.BusinessLogic.Rewards.Helpers
 
                     if (dataSet.Tables.Count == 0 || dataSet.Tables[0].Rows.Count == 0)
                     {
-                        process.ProcessSerialId += 1;
                         process.Code = (int)Constants.StatusCode.Error;
                         process.Data = null;
-                        AuditTrail.AppendLog(memberId, Constants.PageNames.CataloguePage, Constants.TaskNames.SearchCatalogue,
-                            Constants.PageNames.ComponentName, Convert.ToString((int)Constants.StatusCode.Error), "No items found", string.Empty,
-                            string.Empty, string.Empty, Convert.ToString(process.ProcessSerialId), Convert.ToString(process.Id), false);
                         return process;
                     }
 
@@ -339,7 +333,7 @@ namespace W88.BusinessLogic.Rewards.Helpers
                     {
                         if (hasSession)
                         {
-                            var pointLevelDiscount = await GetMemberPointLevelDiscount(searchInfo.MemberSession);
+                            var pointLevelDiscount = await GetMemberPointLevelDiscount(userSessionInfo);
                             
                             if (dataRow["discountPoints"] == DBNull.Value && pointLevelDiscount != 0 &&
                                 dataRow["productType"].ToString() != "1")
@@ -366,9 +360,8 @@ namespace W88.BusinessLogic.Rewards.Helpers
                         result.Add(productDetails);
                     }
 
-                    process.ProcessSerialId += 1;
-                    process.Data = result;
                     process.Code = (int)Constants.StatusCode.Success;
+                    process.Data = result;
                     return process;
                 }
             }

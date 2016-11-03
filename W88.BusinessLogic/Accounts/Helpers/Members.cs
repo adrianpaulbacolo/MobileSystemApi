@@ -6,7 +6,6 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using Microsoft.SqlServer.Server;
 using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Base.Helpers;
 using W88.BusinessLogic.Funds.Models;
@@ -50,7 +49,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
 
         public async Task<List<WalletInfoResponse>> GetWalletBalancesAsync(UserSessionInfo userInfo)
         {
-            using (var svcInstance = new WebRef.svcPayMember.MemberClient())
+            using (var svcInstance = new MemberClient())
             {
                 var wallets = new List<WalletInfoResponse>();
                 var balances = await svcInstance.getBalancesAsync(base.OperatorId.ToString(), base.SiteUrl, userInfo.MemberCode);
@@ -112,7 +111,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
 
         public async Task<WalletInfoResponse> GetWalletBalanceAsync(int walletId, UserSessionInfo userInfo)
         {
-            using (var svcInstance = new WebRef.svcPayMember.MemberClient())
+            using (var svcInstance = new MemberClient())
             {
                 var request = new WebRef.svcPayMember.getWalletBalanceRequest(base.OperatorId.ToString(),
                     base.SiteUrl, userInfo.MemberCode, Convert.ToString(walletId));
@@ -167,7 +166,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
 
         public async Task<ProcessCode> MembersSessionCheck(string token)
         {
-            using (var svcInstance = new WebRef.wsMemberMS1.memberWSSoapClient())
+            using (var svcInstance = new memberWSSoapClient())
             {
                 var dsMemberCheck = await svcInstance.MemberSessionCheckAsync(token, new IpHelper().User);
 
@@ -192,7 +191,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
 
         public async Task<UserSessionInfo> GetMemberInfo(string token)
         {
-            using (var sessionCheck = new WebRef.wsMemberMS1.memberWSSoapClient())
+            using (var sessionCheck = new memberWSSoapClient())
             {
                 var dsMemberCheck = await sessionCheck.MemberSessionCheckAsync(token, new IpHelper().User);
 
@@ -208,9 +207,10 @@ namespace W88.BusinessLogic.Accounts.Helpers
                     userInfo.MemberId = Convert.ToInt64(dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.MemberId]);
                     userInfo.CountryCode = dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.CountryCode].ToString();
                     userInfo.PaymentGroup = dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.PaymentGroup].ToString();
+                    userInfo.RiskId = dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.RiskId].ToString();
 
-                    string lastName = dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.Lastname].ToString();
-                    string firstName = dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.Firstname].ToString();
+                    var lastName = dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.Lastname].ToString();
+                    var firstName = dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.Firstname].ToString();
 
                     userInfo.MemberName = lastName + firstName;
                     userInfo.AccountName = SetAccountName(userInfo.CurrencyCode, lastName, firstName);

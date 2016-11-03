@@ -70,6 +70,8 @@
             public const string ReturnValue = "Return_Value";
 
             public const string DefaultLanguage = "DefaultSelectedLanguage";
+
+            public const string RiskId = "riskId";
         }
 
         public enum PaymentTransactionType
