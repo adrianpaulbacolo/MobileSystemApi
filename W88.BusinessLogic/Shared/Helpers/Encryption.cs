@@ -32,13 +32,13 @@ namespace W88.BusinessLogic.Shared.Helpers
         public static string Encrypt(string clearText)
         {
             var key = Utilities.Common.GetAppSetting<string>("EncryptionKey");
-            return Utilities.Common.GetObject<ApiEncyption>().Encrypt(clearText, key);
+            return Utilities.Common.GetObject<RjnD>().Encrypt(clearText, key);
         }
 
         public static string Decrypt(string encryptedText)
         {
             var key = Utilities.Common.GetAppSetting<string>("EncryptionKey");
-            return Utilities.Common.GetObject<ApiEncyption>().Decrypt(encryptedText, key);
+            return Utilities.Common.GetObject<RjnD>().Decrypt(encryptedText, key);
         }
     }
 }

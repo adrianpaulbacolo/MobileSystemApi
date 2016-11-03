@@ -102,7 +102,7 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
 
             string d = builder.ToString() + md5;
 
-            string des = Common.GetObject<DES>().Encrypt(d, merchantKey1, merchantKey2);
+            string des = Common.GetObject<DESCSProvider>().Encrypt(d, merchantKey1, merchantKey2);
 
             process.Data = new
             {

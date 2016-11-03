@@ -95,5 +95,11 @@
             ResetPassword = 2,
             MemberVip = 3
         }
+
+        public enum ProductStatus
+        {
+            Valid = 1,
+            VipOnly = 2,
+        }
     }
 }
