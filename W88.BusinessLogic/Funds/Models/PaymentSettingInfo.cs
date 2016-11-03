@@ -16,32 +16,6 @@ namespace W88.BusinessLogic.Funds.Models
 
         public string TranslationKey { get; set; }
 
-        public string Amount { get; set; }
-
-        public string BankList { get; set; }
-
-        public string BankBranch { get; set; }
-
-        public string BankAddress { get; set; }
-
-        public string CreditCard { get; set; }
-
-        public string AccountName { get; set; }
-
-        public string AccountNumber { get; set; }
-
-        public string Passcode { get; set; }
-
-        public string ReferenceId { get; set; }
-
-        public string SystemBankAccount { get; set; }
-
-        public string DepositDateTime { get; set; }
-
-        public string DepositChannel { get; set; }
-
-        public string Message { get; set; }
-
         public string PaymentMode { get; set; }
 
         public decimal MinAmount { get; set; }
@@ -54,5 +28,34 @@ namespace W88.BusinessLogic.Funds.Models
 
         public string MerchantId { get; set; }
 
+        public dynamic Amount { get; set; }
+
+        public dynamic Banks { get; set; }
+
+        public dynamic SecondBanks { get; set; }
+
+        public dynamic BankBranch { get; set; }
+
+        public dynamic BankBranchList { get; set; }
+
+        public dynamic BankAddress { get; set; }
+
+        public dynamic BankAddressList { get; set; }
+
+        public dynamic CreditCard { get; set; }
+
+        public dynamic AccountName { get; set; }
+
+        public dynamic AccountNumber { get; set; }
+
+        public dynamic ReferenceId { get; set; }
+
+        public dynamic SystemBankAccount { get; set; }
+
+        public dynamic DepositDateTime { get; set; }
+
+        public dynamic DepositChannel { get; set; }
+
+        public dynamic Message { get; set; }
     }
 }

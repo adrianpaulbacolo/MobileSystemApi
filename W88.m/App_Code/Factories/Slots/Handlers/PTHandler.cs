@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
+using Helpers.GameProviders;
 using Models;
 
 namespace Factories.Slots.Handlers
@@ -65,6 +66,12 @@ namespace Factories.Slots.Handlers
 
         protected override string CreateFunUrl(XElement element)
         {
+            var gpi = new Gpi(GameLink).CheckRSlot(GameLinkSetting.Fun, element);
+            if (!string.IsNullOrWhiteSpace(gpi))
+            {
+                return gpi;
+            }
+
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
 
             return GameLink.Fun.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode);
@@ -72,6 +79,12 @@ namespace Factories.Slots.Handlers
 
         protected override string CreateRealUrl(XElement element)
         {
+            var gpi = new Gpi(GameLink).CheckRSlot(GameLinkSetting.Real, element);
+            if (!string.IsNullOrWhiteSpace(gpi))
+            {
+                return gpi;
+            }
+
             bool isNGM = element.Attribute("Type") != null && element.Attribute("Type").Value.Equals("ngm", StringComparison.OrdinalIgnoreCase) ? true : false;
            
             string gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";

@@ -22,11 +22,11 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
     public class ECPSSHandler : FundsBase
     {
         private UserSessionInfo _userInfo;
-        private BaseFundsInfo _fundsInfo;
+        private FundsInfo _fundsInfo;
         private PaymentSettingInfo _setting;
         private List<LOV> _banks;
 
-        public ECPSSHandler(UserSessionInfo userInfo, BaseFundsInfo fundInfo, PaymentSettingInfo setting)
+        public ECPSSHandler(UserSessionInfo userInfo, FundsInfo fundInfo, PaymentSettingInfo setting)
             : base(userInfo, fundInfo, setting)
         {
             if (userInfo == null)
@@ -35,7 +35,7 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
             this._userInfo = userInfo;
 
             if (fundInfo == null)
-                fundInfo = new BaseFundsInfo();
+                fundInfo = new FundsInfo();
 
             this._fundsInfo = fundInfo;
 
@@ -53,43 +53,11 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
 
             if (this._setting.Type.Equals(Convert.ToString(Constants.PaymentTransactionType.Deposit), StringComparison.OrdinalIgnoreCase))
             {
-                if (_fundsInfo.Bank == null)
+                if (!this._banks.Any(b => b.Text == _fundsInfo.Bank.Text && b.Value == _fundsInfo.Bank.Value))
                 {
                     process.Code = (int)Constants.StatusCode.Error;
                     process.Message.Add(base.GetMessage("Pay_MissingBank"));
                     process.IsAbort = true;
-                }
-                else
-                {
-                    if (Validation.IsNumeric(_fundsInfo.Bank.Text) || Validation.IsNumeric(_fundsInfo.Bank.Value))
-                    {
-                        process.Code = (int)Constants.StatusCode.Error;
-                        process.Message.Add(base.GetMessage("Pay_MissingBank"));
-                        process.IsAbort = true;
-                    }
-                    else
-                    {
-                        if (string.IsNullOrWhiteSpace(_fundsInfo.Bank.Text) || string.IsNullOrWhiteSpace(_fundsInfo.Bank.Value))
-                        {
-                            process.Code = (int)Constants.StatusCode.Error;
-                            process.Message.Add(base.GetMessage("Pay_MissingBank"));
-                            process.IsAbort = true;
-                        }
-
-                        if (Validation.IsInjection(_fundsInfo.Bank.Text) || Validation.IsInjection(_fundsInfo.Bank.Value))
-                        {
-                            process.Code = (int)Constants.StatusCode.Error;
-                            process.Message.Add(base.GetMessage("Pay_MissingBank"));
-                            process.IsAbort = true;
-                        }
-
-                        if (!this._banks.Any(b => b.Text == _fundsInfo.Bank.Text && b.Value == _fundsInfo.Bank.Value))
-                        {
-                            process.Code = (int)Constants.StatusCode.Error;
-                            process.Message.Add(base.GetMessage("Pay_MissingBank"));
-                            process.IsAbort = true;
-                        }
-                    }
                 }
             }
 

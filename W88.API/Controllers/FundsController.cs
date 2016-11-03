@@ -119,7 +119,7 @@ namespace W88.API
 
         [HttpPost]
         [Route("{methodId}")]
-        public async Task<HttpResponseMessage> CreateTransaction(HttpRequestMessage request, int methodId, BaseFundsInfo fundsInfo)
+        public async Task<HttpResponseMessage> CreateTransaction(HttpRequestMessage request, int methodId, FundsInfo fundsInfo)
         {
             try
             {

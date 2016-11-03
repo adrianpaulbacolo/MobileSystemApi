@@ -204,13 +204,13 @@ namespace W88.BusinessLogic.Shared.Helpers
             var bankList = new List<LOV>();
 
             bool isNameNative = false;
-            if ((LanguageHelpers.SelectedLanguage.Equals("ZH-CN", StringComparison.OrdinalIgnoreCase) && userInfo.CurrencyCode.Equals("RMB", StringComparison.OrdinalIgnoreCase)) ||
-                (LanguageHelpers.SelectedLanguage.Equals("VI-VN", StringComparison.OrdinalIgnoreCase) && userInfo.CurrencyCode.Equals("VND", StringComparison.OrdinalIgnoreCase)) ||
-                (LanguageHelpers.SelectedLanguage.Equals("TH-TH", StringComparison.OrdinalIgnoreCase) && userInfo.CurrencyCode.Equals("THB", StringComparison.OrdinalIgnoreCase)) ||
-                (LanguageHelpers.SelectedLanguage.Equals("ID-ID", StringComparison.OrdinalIgnoreCase) && userInfo.CurrencyCode.Equals("IDR", StringComparison.OrdinalIgnoreCase)) ||
-                (LanguageHelpers.SelectedLanguage.Equals("KM-KH", StringComparison.OrdinalIgnoreCase) && userInfo.CurrencyCode.Equals("USD", StringComparison.OrdinalIgnoreCase)) ||
-                (LanguageHelpers.SelectedLanguage.Equals("KO-KR", StringComparison.OrdinalIgnoreCase) && userInfo.CurrencyCode.Equals("KRW", StringComparison.OrdinalIgnoreCase)) ||
-                (LanguageHelpers.SelectedLanguage.Equals("JA-JP", StringComparison.OrdinalIgnoreCase) && userInfo.CurrencyCode.Equals("JPY", StringComparison.OrdinalIgnoreCase)))
+            if ((userInfo.LanguageCode.Equals("ZH-CN", StringComparison.OrdinalIgnoreCase) && userInfo.CurrencyCode.Equals("RMB", StringComparison.OrdinalIgnoreCase)) ||
+                (userInfo.LanguageCode.Equals("VI-VN", StringComparison.OrdinalIgnoreCase) && userInfo.CurrencyCode.Equals("VND", StringComparison.OrdinalIgnoreCase)) ||
+                (userInfo.LanguageCode.Equals("TH-TH", StringComparison.OrdinalIgnoreCase) && userInfo.CurrencyCode.Equals("THB", StringComparison.OrdinalIgnoreCase)) ||
+                (userInfo.LanguageCode.Equals("ID-ID", StringComparison.OrdinalIgnoreCase) && userInfo.CurrencyCode.Equals("IDR", StringComparison.OrdinalIgnoreCase)) ||
+                (userInfo.LanguageCode.Equals("KM-KH", StringComparison.OrdinalIgnoreCase) && userInfo.CurrencyCode.Equals("USD", StringComparison.OrdinalIgnoreCase)) ||
+                (userInfo.LanguageCode.Equals("KO-KR", StringComparison.OrdinalIgnoreCase) && userInfo.CurrencyCode.Equals("KRW", StringComparison.OrdinalIgnoreCase)) ||
+                (userInfo.LanguageCode.Equals("JA-JP", StringComparison.OrdinalIgnoreCase) && userInfo.CurrencyCode.Equals("JPY", StringComparison.OrdinalIgnoreCase)))
             {
                 isNameNative = true;
             }
@@ -219,7 +219,7 @@ namespace W88.BusinessLogic.Shared.Helpers
             {
                 var request = new getBankAccountsRequest
                 {
-                    operatorId = base.OperatorId,
+                    operatorId = OperatorId,
                     countryCode = userInfo.CountryCode,
                     currencyCode = userInfo.CurrencyCode,
                 };
@@ -248,6 +248,106 @@ namespace W88.BusinessLogic.Shared.Helpers
             });
 
             return bankList;
+        }
+
+        public async Task<List<LOV>> GetMemberSecondaryBankAccounts(UserSessionInfo userInfo)
+        {
+            var bankList = new List<LOV>();
+
+            bool isNameNative = false;
+            if (userInfo.LanguageCode.Equals("VI-VN", StringComparison.OrdinalIgnoreCase) && userInfo.CurrencyCode.Equals("VND", StringComparison.OrdinalIgnoreCase))
+            {
+                isNameNative = true;
+            }
+
+            using (var svcInstance = new MemberClient())
+            {
+                var request = new getSecondaryBankAccountsRequest
+                {
+                    operatorId = OperatorId,
+                    currencyCode = userInfo.CurrencyCode,
+                    countryCode = userInfo.CountryCode,
+                };
+
+                var response = await svcInstance.getSecondaryBankAccountsAsync(request);
+
+                if (response.statusCode == "00")
+                {
+                    foreach (var item in response.getSecondaryBankAccountsResult)
+                    {
+                        var bank = new LOV
+                        {
+                            Value = item.bankId.ToString(),
+                            Text = isNameNative ? item.bankNameNative : item.bankName
+                        };
+
+                        bankList.Add(bank);
+                    }
+                }
+            }
+
+            bankList.Add(new LOV
+            {
+                Text = base.GetMessage("Pay_OtherBank"),
+                Value = "OTHER"
+            });
+
+            return bankList;
+        }
+
+        public async Task<List<LOV>> GetMemberBankLocation(long bankId)
+        {
+            var locations = new List<LOV>();
+
+            using (var client = new MemberClient())
+            {
+                var response = await client.getBankLocationsAsync(new getBankLocationsRequest
+                {
+                    bankId = bankId
+                });
+
+                if (response.statusCode == "00")
+                {
+                    foreach (DataRow row in response.getBankLocationsResult.Rows)
+                    {
+                        locations.Add(new LOV
+                        {
+                            Value = row["bankLocationId"].ToString(),
+                            Text = row["description"].ToString()
+                        });
+                    }
+                }
+            }
+
+            return locations;
+        }
+
+        public async Task<List<LOV>> GetMemberBankBranches(long bankId, long bankLocationId)
+        {
+            var branches = new List<LOV>();
+
+            using (var svcInstance = new MemberClient())
+            {
+                var response = await svcInstance.getBankBranchesAsync(new getBankBranchesRequest
+                {
+                    bankId = bankId,
+                    bankLocationId = bankLocationId
+                });
+
+                if (response.statusCode == "00")
+                {
+                    foreach (DataRow row in response.getBankBranchesResult.Rows)
+                    {
+                        branches.Add(new LOV
+                        {
+                            Value = row["bankBranchId"].ToString(),
+                            Text = row["description"].ToString()
+                        });
+                    }
+                }
+            }
+
+            return branches;
         }
 
         public List<LOV> GetDepositChannel()

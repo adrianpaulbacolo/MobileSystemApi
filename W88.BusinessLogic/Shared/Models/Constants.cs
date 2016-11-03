@@ -16,6 +16,7 @@
             public const string CancelPendingWithdrawal = "CancelPendingWithdrawal";
             public const string SendMail = "SendMail";
             public const string RedeemRewards = "RedeemRewards";
+            public const string SearchCatalogue = "SearchCatalogue";
             public const string VendorRedirection = "VendorRedirection";
             public const string CreateBankDetails = "CreateBankDetails";
             public const string ChangePassword = "ChangePassword";
@@ -30,6 +31,7 @@
             public const string WalletsApi = "WalletsApi";
             public const string MailApi = "MailApi";
             public const string RedeemPage = "RedeemPage";
+            public const string CataloguePage = "CataloguePage";
             public const string ChangePasswordPage = "ChangePasswordPage";
         }
 

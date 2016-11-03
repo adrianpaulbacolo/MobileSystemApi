@@ -22,13 +22,14 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
     public class BankTransferHandler : FundsBase
     {
         private UserSessionInfo _userInfo;
-        private BaseFundsInfo _fundsInfo;
+        private FundsInfo _fundsInfo;
         private PaymentSettingInfo _setting;
         private List<LOV> _banks;
+        private List<LOV> _secondBanks;
         private List<LOV> _systemBanks;
         private List<LOV> _depositChannel;
 
-        public BankTransferHandler(UserSessionInfo userInfo, BaseFundsInfo fundInfo, PaymentSettingInfo setting, List<LOV> banks)
+        public BankTransferHandler(UserSessionInfo userInfo, FundsInfo fundInfo, PaymentSettingInfo setting, List<LOV> banks)
             : base(userInfo, fundInfo, setting)
         {
             if (userInfo == null)
@@ -37,7 +38,7 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
             this._userInfo = userInfo;
 
             if (fundInfo == null)
-                fundInfo = new BaseFundsInfo();
+                fundInfo = new FundsInfo();
 
             this._fundsInfo = fundInfo;
 
@@ -54,13 +55,95 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
 
                 this._depositChannel = new ListOfValuesHelper().GetDepositChannel();
             }
+            else
+            {
+                if (this._userInfo.CurrencyCode.Equals("VND", StringComparison.OrdinalIgnoreCase))
+                {
+                    _secondBanks = new ListOfValuesHelper().GetMemberSecondaryBankAccounts(userInfo).Result;
+                }
+            }
         }
 
         protected override ProcessCode ValidateData(ref ProcessCode process)
         {
-
             base.ValidateData(ref process);
 
+            if (!this._banks.Any(b => b.Text == _fundsInfo.Bank.Text && b.Value == _fundsInfo.Bank.Value))
+            {
+                process.Code = (int)Constants.StatusCode.Error;
+                process.Message.Add(base.GetMessage("Pay_MissingBank"));
+                process.IsAbort = true;
+            }
+            else
+            {
+                if (_fundsInfo.Bank.Text.Contains("OTHER") || _fundsInfo.Bank.Value.Equals("OTHER", StringComparison.OrdinalIgnoreCase))
+                {
+                    if (this._userInfo.CurrencyCode.Equals("VND", StringComparison.OrdinalIgnoreCase))
+                    {
+                        if (this._setting.Type.Equals(Convert.ToString(Constants.PaymentTransactionType.Withdrawal), StringComparison.OrdinalIgnoreCase))
+                        {
+                            if (!this._secondBanks.Any(b => b.Text == _fundsInfo.SecondBank.Text && b.Value == _fundsInfo.SecondBank.Value))
+                            {
+                                process.Code = (int)Constants.StatusCode.Error;
+                                process.Message.Add(base.GetMessage("Pay_MissingBank"));
+                                process.IsAbort = true;
+                            }
+                            else
+                            {
+                                if (_fundsInfo.SecondBank.Text.Contains("OTHER") || _fundsInfo.SecondBank.Value.Equals("OTHER", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    if (string.IsNullOrWhiteSpace(_fundsInfo.BankName))
+                                    {
+                                        process.Code = (int)Constants.StatusCode.Error;
+                                        process.Message.Add(base.GetMessage("Pay_MissingBankName"));
+                                        process.IsAbort = true;
+                                    }
+
+                                    if (Validation.IsInjection(_fundsInfo.BankName))
+                                    {
+                                        process.Code = (int)Constants.StatusCode.Error;
+                                        process.Message.Add(base.GetMessage("Pay_InvalidBankName"));
+                                        process.IsAbort = true;
+                                    }
+                                }
+                                else
+                                {
+                                    if (_fundsInfo.BankAddressId <= 0)
+                                    {
+                                        process.Code = (int)Constants.StatusCode.Error;
+                                        process.Message.Add(base.GetMessage("Pay_MissingBankAddressList"));
+                                        process.IsAbort = true;
+                                    }
+
+                                    if (_fundsInfo.BankBranchId <= 0)
+                                    {
+                                        process.Code = (int)Constants.StatusCode.Error;
+                                        process.Message.Add(base.GetMessage("Pay_MissingBankBranchList"));
+                                        process.IsAbort = true;
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (string.IsNullOrWhiteSpace(_fundsInfo.BankName))
+                        {
+                            process.Code = (int)Constants.StatusCode.Error;
+                            process.Message.Add(base.GetMessage("Pay_MissingBankName"));
+                            process.IsAbort = true;
+                        }
+
+                        if (Validation.IsInjection(_fundsInfo.BankName))
+                        {
+                            process.Code = (int)Constants.StatusCode.Error;
+                            process.Message.Add(base.GetMessage("Pay_InvalidBankName"));
+                            process.IsAbort = true;
+                        }
+                    }
+                }
+            }
 
             if (string.IsNullOrWhiteSpace(this._fundsInfo.AccountName))
             {
@@ -74,78 +157,6 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
                 process.Code = (int)Constants.StatusCode.Error;
                 process.Message.Add(base.GetMessage("Pay_InvalidAccountName"));
                 process.IsAbort = true;
-            }
-
-            if (string.IsNullOrWhiteSpace(this._fundsInfo.AccountNumber))
-            {
-                process.Code = (int)Constants.StatusCode.Error;
-                process.Message.Add(base.GetMessage("Pay_MissingAccountNumber"));
-                process.IsAbort = true;
-            }
-
-            if (Validation.IsInjection(_fundsInfo.AccountNumber))
-            {
-                process.Code = (int)Constants.StatusCode.Error;
-                process.Message.Add(base.GetMessage("Pay_InvalidAccountNumber"));
-                process.IsAbort = true;
-            }
-
-            if (_fundsInfo.Bank == null)
-            {
-                process.Code = (int)Constants.StatusCode.Error;
-                process.Message.Add(base.GetMessage("Pay_MissingBank"));
-                process.IsAbort = true;
-            }
-            else
-            {
-                if (Validation.IsNumeric(_fundsInfo.Bank.Text) || Validation.IsNumeric(_fundsInfo.Bank.Value))
-                {
-                    process.Code = (int)Constants.StatusCode.Error;
-                    process.Message.Add(base.GetMessage("Pay_MissingBank"));
-                    process.IsAbort = true;
-                }
-                else
-                {
-                    if (string.IsNullOrWhiteSpace(_fundsInfo.Bank.Text) || string.IsNullOrWhiteSpace(_fundsInfo.Bank.Value))
-                    {
-                        process.Code = (int)Constants.StatusCode.Error;
-                        process.Message.Add(base.GetMessage("Pay_MissingBank"));
-                        process.IsAbort = true;
-                    }
-                    else
-                    {
-                        if (_fundsInfo.Bank.Text.Contains("other") || _fundsInfo.Bank.Value.Equals("other", StringComparison.OrdinalIgnoreCase))
-                        {
-                            if (string.IsNullOrWhiteSpace(_fundsInfo.BankName))
-                            {
-                                process.Code = (int)Constants.StatusCode.Error;
-                                process.Message.Add(base.GetMessage("Pay_MissingBankName"));
-                                process.IsAbort = true;
-                            }
-
-                            if (Validation.IsInjection(_fundsInfo.BankName))
-                            {
-                                process.Code = (int)Constants.StatusCode.Error;
-                                process.Message.Add(base.GetMessage("Pay_InvalidBankName"));
-                                process.IsAbort = true;
-                            }
-                        }
-                    }
-
-                    if (Validation.IsInjection(_fundsInfo.Bank.Text) || Validation.IsInjection(_fundsInfo.Bank.Value))
-                    {
-                        process.Code = (int)Constants.StatusCode.Error;
-                        process.Message.Add(base.GetMessage("Pay_MissingBank"));
-                        process.IsAbort = true;
-                    }
-
-                    if (!this._banks.Any(b => b.Text == _fundsInfo.Bank.Text && b.Value == _fundsInfo.Bank.Value))
-                    {
-                        process.Code = (int)Constants.StatusCode.Error;
-                        process.Message.Add(base.GetMessage("Pay_MissingBank"));
-                        process.IsAbort = true;
-                    }
-                }
             }
 
             if (this._setting.Type.Equals(Convert.ToString(Constants.PaymentTransactionType.Deposit), StringComparison.OrdinalIgnoreCase))
@@ -164,59 +175,24 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
                     process.IsAbort = true;
                 }
 
-                if (this._userInfo.CurrencyCode.Equals("krw", StringComparison.OrdinalIgnoreCase))
+                if (!this._userInfo.CurrencyCode.Equals("KRW", StringComparison.OrdinalIgnoreCase))
                 {
-                    this._fundsInfo.DepositDateTime = DateTime.Now;
+                    if ((this._fundsInfo.DepositDateTime - DateTime.Now).TotalHours > 72 || (this._fundsInfo.DepositDateTime - DateTime.Now).TotalHours < -72)
+                    {
+                        process.Code = (int)Constants.StatusCode.Error;
+                        process.Message.Add(base.GetMessage("Pay_InvalidDateTime"));
+                        process.IsAbort = true;
+                    }
                 }
 
-                if ((this._fundsInfo.DepositDateTime - DateTime.Now).TotalHours > 72 || (this._fundsInfo.DepositDateTime - DateTime.Now).TotalHours < -72)
-                {
-                    process.Code = (int)Constants.StatusCode.Error;
-                    process.Message.Add(base.GetMessage("Pay_InvalidDateTime"));
-                    process.IsAbort = true;
-                }
-
-                if (_fundsInfo.SystemBank == null)
+                if (!this._systemBanks.Any(b => b.Text == _fundsInfo.SystemBank.Text && b.Value == _fundsInfo.SystemBank.Value))
                 {
                     process.Code = (int)Constants.StatusCode.Error;
                     process.Message.Add(base.GetMessage("Pay_MissingSystemAccount"));
                     process.IsAbort = true;
                 }
-                else
-                {
-                    if (Validation.IsNumeric(_fundsInfo.SystemBank.Text) || !Validation.IsNumeric(_fundsInfo.SystemBank.Value))
-                    {
-                        process.Code = (int)Constants.StatusCode.Error;
-                        process.Message.Add(base.GetMessage("Pay_MissingSystemAccount"));
-                        process.IsAbort = true;
-                    }
-                    else
-                    {
-                        if (string.IsNullOrWhiteSpace(_fundsInfo.SystemBank.Text) || string.IsNullOrWhiteSpace(_fundsInfo.SystemBank.Value))
-                        {
-                            process.Code = (int)Constants.StatusCode.Error;
-                            process.Message.Add(base.GetMessage("Pay_MissingSystemAccount"));
-                            process.IsAbort = true;
-                        }
 
-                        if (Validation.IsInjection(_fundsInfo.SystemBank.Text) || Validation.IsInjection(_fundsInfo.SystemBank.Value))
-                        {
-                            process.Code = (int)Constants.StatusCode.Error;
-                            process.Message.Add(base.GetMessage("Pay_MissingSystemAccount"));
-                            process.IsAbort = true;
-                        }
-
-
-                        if (!this._systemBanks.Any(b => b.Text == _fundsInfo.SystemBank.Text && b.Value == _fundsInfo.SystemBank.Value))
-                        {
-                            process.Code = (int)Constants.StatusCode.Error;
-                            process.Message.Add(base.GetMessage("Pay_MissingSystemAccount"));
-                            process.IsAbort = true;
-                        }
-                    }
-                }
-
-                if (_fundsInfo.DepositChannel == null)
+                if (!this._depositChannel.Any(b => b.Text == _fundsInfo.DepositChannel.Text && b.Value == _fundsInfo.DepositChannel.Value))
                 {
                     process.Code = (int)Constants.StatusCode.Error;
                     process.Message.Add(base.GetMessage("Pay_MissingDepositChannel"));
@@ -224,66 +200,55 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
                 }
                 else
                 {
-                    if (Validation.IsNumeric(_fundsInfo.DepositChannel.Text) || Validation.IsNumeric(_fundsInfo.DepositChannel.Value))
+                    if (!_fundsInfo.DepositChannel.Value.Equals("CDM", StringComparison.OrdinalIgnoreCase))
                     {
-                        process.Code = (int)Constants.StatusCode.Error;
-                        process.Message.Add(base.GetMessage("Pay_MissingDepositChannel"));
-                        process.IsAbort = true;
-                    }
-                    else
-                    {
-                        if (string.IsNullOrWhiteSpace(_fundsInfo.DepositChannel.Text) || string.IsNullOrWhiteSpace(_fundsInfo.DepositChannel.Value))
+                        if (string.IsNullOrWhiteSpace(this._fundsInfo.AccountNumber))
                         {
                             process.Code = (int)Constants.StatusCode.Error;
-                            process.Message.Add(base.GetMessage("Pay_MissingDepositChannel"));
+                            process.Message.Add(base.GetMessage("Pay_MissingAccountNumber"));
                             process.IsAbort = true;
                         }
 
-                        if (Validation.IsInjection(_fundsInfo.DepositChannel.Text) || Validation.IsInjection(_fundsInfo.DepositChannel.Value))
+                        if (Validation.IsInjection(_fundsInfo.AccountNumber))
                         {
                             process.Code = (int)Constants.StatusCode.Error;
-                            process.Message.Add(base.GetMessage("Pay_MissingDepositChannel"));
-                            process.IsAbort = true;
-                        }
-
-                        if (!this._depositChannel.Any(b => b.Text == _fundsInfo.DepositChannel.Text && b.Value == _fundsInfo.DepositChannel.Value))
-                        {
-                            process.Code = (int)Constants.StatusCode.Error;
-                            process.Message.Add(base.GetMessage("Pay_MissingDepositChannel"));
+                            process.Message.Add(base.GetMessage("Pay_InvalidAccountNumber"));
                             process.IsAbort = true;
                         }
                     }
                 }
-
             }
             else
             {
-                if (string.IsNullOrWhiteSpace(_fundsInfo.BankBranch))
+                if (!this._userInfo.CurrencyCode.Equals("KRW", StringComparison.OrdinalIgnoreCase))
                 {
-                    process.Code = (int)Constants.StatusCode.Error;
-                    process.Message.Add(base.GetMessage("Pay_MissingBankBranch"));
-                    process.IsAbort = true;
-                }
+                    if (string.IsNullOrWhiteSpace(_fundsInfo.BankBranch))
+                    {
+                        process.Code = (int)Constants.StatusCode.Error;
+                        process.Message.Add(base.GetMessage("Pay_MissingBankBranch"));
+                        process.IsAbort = true;
+                    }
 
-                if (Validation.IsInjection(_fundsInfo.BankBranch))
-                {
-                    process.Code = (int)Constants.StatusCode.Error;
-                    process.Message.Add(base.GetMessage("Pay_InvalidBankBranch"));
-                    process.IsAbort = true;
-                }
+                    if (Validation.IsInjection(_fundsInfo.BankBranch))
+                    {
+                        process.Code = (int)Constants.StatusCode.Error;
+                        process.Message.Add(base.GetMessage("Pay_InvalidBankBranch"));
+                        process.IsAbort = true;
+                    }
 
-                if (string.IsNullOrWhiteSpace(_fundsInfo.BankAddress))
-                {
-                    process.Code = (int)Constants.StatusCode.Error;
-                    process.Message.Add(base.GetMessage("Pay_MissingBankAddress"));
-                    process.IsAbort = true;
-                }
+                    if (string.IsNullOrWhiteSpace(_fundsInfo.BankAddress))
+                    {
+                        process.Code = (int)Constants.StatusCode.Error;
+                        process.Message.Add(base.GetMessage("Pay_MissingBankAddress"));
+                        process.IsAbort = true;
+                    }
 
-                if (Validation.IsInjection(_fundsInfo.BankAddress))
-                {
-                    process.Code = (int)Constants.StatusCode.Error;
-                    process.Message.Add(base.GetMessage("Pay_InvalidBankAddress"));
-                    process.IsAbort = true;
+                    if (Validation.IsInjection(_fundsInfo.BankAddress))
+                    {
+                        process.Code = (int)Constants.StatusCode.Error;
+                        process.Message.Add(base.GetMessage("Pay_InvalidBankAddress"));
+                        process.IsAbort = true;
+                    }
                 }
             }
 
@@ -302,7 +267,7 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
             else
             {
                 process.Remark = string.Format("IsSuccess: {0} | PaymentType: {1} | TransactionId: {2} | Amount: {3} | AccountName: {4} | AccountNumber: {5} | BankCode: {6} | BankName: {7}  | BankBranch: {8} | BankAddress: {9}",
-                    process.IsSuccess, Convert.ToString(paymentType), process.IsSuccess ? process.Data.TransactionId : "", this._fundsInfo.Amount, this._fundsInfo.AccountName, this._fundsInfo.AccountNumber, 
+                    process.IsSuccess, Convert.ToString(paymentType), process.IsSuccess ? process.Data.TransactionId : "", this._fundsInfo.Amount, this._fundsInfo.AccountName, this._fundsInfo.AccountNumber,
                         this._fundsInfo.Bank.Value, this._fundsInfo.BankName, this._fundsInfo.BankBranch, this._fundsInfo.BankAddress);
             }
 
@@ -314,6 +279,11 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
 
         protected override async Task<XElement> CreateDeposit(ProcessCode process)
         {
+            if (this._userInfo.CurrencyCode.Equals("KRW", StringComparison.OrdinalIgnoreCase))
+            {
+                this._fundsInfo.DepositDateTime = DateTime.Now;
+            }
+
             using (DepositClient client = new DepositClient())
             {
                 return await client.createFastDepositTransactionV1Async(OperatorId, this._userInfo.MemberCode, this._fundsInfo.DepositChannel.Value, Convert.ToInt64(this._setting.Id),
@@ -328,11 +298,24 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
             string memberMobile = string.Empty;
             bool mobileNotify = false;
 
-            using (WithdrawalClient client = new WithdrawalClient())
+
+            if (this._fundsInfo.BankAddressId > 0 && this._fundsInfo.BankBranchId > 0)
             {
-                return await client.createBankTransferTransactionV1Async(OperatorId, this._userInfo.MemberCode, Convert.ToInt64(this._setting.Id), this._userInfo.CurrencyCode,
-                    this._fundsInfo.Amount, this._fundsInfo.AccountName, this._fundsInfo.AccountNumber, this._fundsInfo.BankAddress, this._fundsInfo.BankBranch, this._fundsInfo.Bank.Value,
-                    this._fundsInfo.Bank.Text, this._fundsInfo.BankName, memberIC, memberMobile, mobileNotify, Convert.ToString(WithdrawalSource.Mobile));
+                using (WithdrawalClient client = new WithdrawalClient())
+                {
+                    return await client.createBankTransferTransactionV1Async(OperatorId, this._userInfo.MemberCode, Convert.ToInt64(this._setting.Id), this._userInfo.CurrencyCode,
+                        this._fundsInfo.Amount, this._fundsInfo.AccountName, this._fundsInfo.AccountNumber, this._fundsInfo.BankAddress, this._fundsInfo.BankBranch, this._fundsInfo.Bank.Value,
+                        this._fundsInfo.Bank.Text, this._fundsInfo.BankName, memberIC, memberMobile, mobileNotify, Convert.ToString(WithdrawalSource.Mobile));
+                }
+            }
+            else
+            {
+                using (WithdrawalClient client = new WithdrawalClient())
+                {
+                    return await client.createBankTransferTransactionV2Async(OperatorId, this._userInfo.MemberCode, Convert.ToInt64(this._setting.Id), this._userInfo.CurrencyCode,
+                        this._fundsInfo.Amount, this._fundsInfo.AccountName, this._fundsInfo.AccountNumber, this._fundsInfo.BankAddressId, this._fundsInfo.BankBranchId, this._fundsInfo.Bank.Value,
+                        this._fundsInfo.Bank.Text, this._fundsInfo.BankName, memberIC, memberMobile, mobileNotify, Convert.ToString(WithdrawalSource.Mobile));
+                }
             }
         }
 

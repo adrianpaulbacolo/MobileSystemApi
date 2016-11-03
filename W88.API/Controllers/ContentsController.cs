@@ -4,8 +4,10 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using W88.BusinessLogic.Base.Helpers;
 using W88.BusinessLogic.Shared.Helpers;
 using W88.BusinessLogic.Shared.Models;
+using W88.Utilities.Extensions;
 
 namespace W88.API
 {
@@ -17,26 +19,12 @@ namespace W88.API
         {
             try
             {
-                bool isValid = false;
-                var enumerable = new string[] {};
-
-                IEnumerable<string> langCode;
-                request.Headers.TryGetValues(Constants.VarNames.LanguageCode, out langCode);
-
-                if (langCode != null)
-                {
-                    enumerable = langCode as string[] ?? langCode.ToArray();
-                    if (enumerable.Any())
-                    {
-                        var languages = new LanguageHelpers();
-                        isValid = languages.Language.ContainsKey(enumerable.FirstOrDefault().ToLower());
-                    }
-                }
+                var langCode = request.GetHeader(Constants.VarNames.LanguageCode);
 
                 return ReturnResponse(new ProcessCode
                 {
                     Code = (int) Constants.StatusCode.Success,
-                    Data = Utilities.Common.DeserializeObject<dynamic>(CultureHelpers.AppData.GetLocale_i18n_Resource("contents/translations", true, isValid ? enumerable.FirstOrDefault() : string.Empty))
+                    Data = Utilities.Common.DeserializeObject<dynamic>(CultureHelpers.AppData.GetLocale_i18n_Resource("contents/translations", true, langCode))
                 });
             }
             catch (Exception ex)
@@ -167,12 +155,90 @@ namespace W88.API
             {
                 if (await CheckToken(request) == false) return ReturnResponse(UserRequest.Process);
 
+                UserRequest.UserInfo.LanguageCode = GetLanguage(request);
+
                 var banks = await new ListOfValuesHelper().GetMemberBankAccounts(UserRequest.UserInfo);
 
                 return ReturnResponse(new ProcessCode
                 {
                     Code = (int)Constants.StatusCode.Success,
                     Data = banks
+                });
+            }
+            catch (Exception ex)
+            {
+                return ReturnResponse(new ProcessCode
+                {
+                    Code = (int)Constants.StatusCode.Error,
+                    Message = ex.Message,
+                }, ex);
+            }
+        }
+
+        [Route("Banks/member/secondary")]
+        [HttpGet]
+        public async Task<HttpResponseMessage> GetMemberSecondaryBankAccounts(HttpRequestMessage request)
+        {
+            try
+            {
+                if (await CheckToken(request) == false) return ReturnResponse(UserRequest.Process);
+
+                UserRequest.UserInfo.LanguageCode = GetLanguage(request);
+
+                var banks = await new ListOfValuesHelper().GetMemberSecondaryBankAccounts(UserRequest.UserInfo);
+
+                return ReturnResponse(new ProcessCode
+                {
+                    Code = (int)Constants.StatusCode.Success,
+                    Data = banks
+                });
+            }
+            catch (Exception ex)
+            {
+                return ReturnResponse(new ProcessCode
+                {
+                    Code = (int)Constants.StatusCode.Error,
+                    Message = ex.Message,
+                }, ex);
+            }
+        }
+
+        [Route("Banks/member/location/{bankId}")]
+        [HttpGet]
+        public async Task<HttpResponseMessage> GetMemberBankLocation(long bankId)
+        {
+            try
+            {
+                var locations = await new ListOfValuesHelper().GetMemberBankLocation(bankId);
+
+                return ReturnResponse(new ProcessCode
+                {
+                    Code = (int)Constants.StatusCode.Success,
+                    Data = locations
+                });
+            }
+            catch (Exception ex)
+            {
+                return ReturnResponse(new ProcessCode
+                {
+                    Code = (int)Constants.StatusCode.Error,
+                    Message = ex.Message,
+                }, ex);
+            }
+        }
+
+        [Route("Banks/member/branch/{bankId}/{bankLocationId}")]
+        [HttpGet]
+        public async Task<HttpResponseMessage> GetMemberBankLocation(long bankId, long bankLocationId)
+        {
+            try
+            {
+                var branches = await new ListOfValuesHelper().GetMemberBankBranches(bankId, bankLocationId);
+
+                return ReturnResponse(new ProcessCode
+                {
+                    Code = (int)Constants.StatusCode.Success,
+                    Data = branches
                 });
             }
             catch (Exception ex)
@@ -217,6 +283,30 @@ namespace W88.API
                 {
                     Code = (int)Constants.StatusCode.Success,
                     Data = new ListOfValuesHelper().GetCardType()
+                });
+            }
+            catch (Exception ex)
+            {
+                return ReturnResponse(new ProcessCode
+                {
+                    Code = (int)Constants.StatusCode.Error,
+                    Message = ex.Message,
+                }, ex);
+            }
+        }
+
+        [Route("history")]
+        [HttpGet]
+        public HttpResponseMessage GetHistorySelections(HttpRequestMessage request)
+        {
+            try
+            {
+                UserRequest = new InitializeRequest(request) {UserInfo = {LanguageCode = GetLanguage(request)}};
+
+                return ReturnResponse(new ProcessCode
+                {
+                    Code = (int)Constants.StatusCode.Success,
+                    Data = Utilities.Common.DeserializeObject<dynamic>(CultureHelpers.AppData.GetLocale_i18n_Resource("/history/status", true, UserRequest.UserInfo.LanguageCode))
                 });
             }
             catch (Exception ex)

@@ -87,6 +87,12 @@
   <wsdl:message name="IMS1_SDPayEncrypt_OutputMessage">
     <wsdl:part name="parameters" element="tns:SDPayEncryptResponse" />
   </wsdl:message>
+  <wsdl:message name="IMS1_encryptPrivate_InputMessage">
+    <wsdl:part name="parameters" element="tns:encryptPrivate" />
+  </wsdl:message>
+  <wsdl:message name="IMS1_encryptPrivate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:encryptPrivateResponse" />
+  </wsdl:message>
   <wsdl:portType name="IMS1">
     <wsdl:operation name="getSystemAccounts">
       <wsdl:input wsaw:Action="http://tempuri.org/IMS1/getSystemAccounts" message="tns:IMS1_getSystemAccounts_InputMessage" />
@@ -139,6 +145,10 @@
     <wsdl:operation name="SDPayEncrypt">
       <wsdl:input wsaw:Action="http://tempuri.org/IMS1/SDPayEncrypt" message="tns:IMS1_SDPayEncrypt_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMS1/SDPayEncryptResponse" message="tns:IMS1_SDPayEncrypt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="encryptPrivate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMS1/encryptPrivate" message="tns:IMS1_encryptPrivate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMS1/encryptPrivateResponse" message="tns:IMS1_encryptPrivate_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IMS1" type="tns:IMS1">
@@ -253,6 +263,15 @@
     </wsdl:operation>
     <wsdl:operation name="SDPayEncrypt">
       <soap:operation soapAction="http://tempuri.org/IMS1/SDPayEncrypt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="encryptPrivate">
+      <soap:operation soapAction="http://tempuri.org/IMS1/encryptPrivate" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -22,10 +22,10 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
     public class WingMoneyHandler : FundsBase
     {
         private UserSessionInfo _userInfo;
-        private BaseFundsInfo _fundsInfo;
+        private FundsInfo _fundsInfo;
         private PaymentSettingInfo _setting;
 
-        public WingMoneyHandler(UserSessionInfo userInfo, BaseFundsInfo fundInfo, PaymentSettingInfo setting)
+        public WingMoneyHandler(UserSessionInfo userInfo, FundsInfo fundInfo, PaymentSettingInfo setting)
             : base(userInfo, fundInfo, setting)
         {
             if (userInfo == null)
@@ -34,7 +34,7 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
             this._userInfo = userInfo;
 
             if (fundInfo == null)
-                fundInfo = new BaseFundsInfo();
+                fundInfo = new FundsInfo();
 
             this._fundsInfo = fundInfo;
 
@@ -92,16 +92,14 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
                     process.IsAbort = true;
                 }
 
-                if (this._userInfo.CurrencyCode.Equals("krw", StringComparison.OrdinalIgnoreCase))
+                if (!this._userInfo.CurrencyCode.Equals("KRW", StringComparison.OrdinalIgnoreCase))
                 {
-                    this._fundsInfo.DepositDateTime = DateTime.Now;
-                }
-
-                if ((this._fundsInfo.DepositDateTime - DateTime.Now).TotalHours > 72 || (this._fundsInfo.DepositDateTime - DateTime.Now).TotalHours < -72)
-                {
-                    process.Code = (int)Constants.StatusCode.Error;
-                    process.Message.Add(base.GetMessage("Pay_InvalidDateTime"));
-                    process.IsAbort = true;
+                    if ((this._fundsInfo.DepositDateTime - DateTime.Now).TotalHours > 72 || (this._fundsInfo.DepositDateTime - DateTime.Now).TotalHours < -72)
+                    {
+                        process.Code = (int)Constants.StatusCode.Error;
+                        process.Message.Add(base.GetMessage("Pay_InvalidDateTime"));
+                        process.IsAbort = true;
+                    }
                 }
             }
 
@@ -122,6 +120,11 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
 
         protected override async Task<XElement> CreateDeposit(ProcessCode process)
         {
+            if (this._userInfo.CurrencyCode.Equals("krw", StringComparison.OrdinalIgnoreCase))
+            {
+                this._fundsInfo.DepositDateTime = DateTime.Now;
+            }
+
             using (DepositClient client = new DepositClient())
             {
                 return await client.createWingDepositTransactionV1Async(OperatorId, this._userInfo.MemberCode, Convert.ToInt64(this._setting.Id), this._userInfo.CurrencyCode,

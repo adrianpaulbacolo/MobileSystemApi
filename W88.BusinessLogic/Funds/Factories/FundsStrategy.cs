@@ -15,7 +15,7 @@ namespace W88.BusinessLogic.Funds.Factories
 {
     public class FundsStrategy
     {
-        public static async Task<FundsBase> Initialize(UserSessionInfo userInfo, BaseFundsInfo fundsInfo, PaymentSettingInfo settings)
+        public static async Task<FundsBase> Initialize(UserSessionInfo userInfo, FundsInfo fundsInfo, PaymentSettingInfo settings)
         {
             switch (settings.Id)
             {

@@ -33,7 +33,7 @@ namespace W88.BusinessLogic.Rewards.Helpers
                         vipCategoryId);
                 } 
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 return 0;
             }
@@ -95,7 +95,7 @@ namespace W88.BusinessLogic.Rewards.Helpers
                     return dataSet;
                 }               
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 return null;
             }
@@ -110,7 +110,7 @@ namespace W88.BusinessLogic.Rewards.Helpers
                     return await client.getCategoryNameAsync(categoryCode, LanguageHelpers.SelectedLanguage);
                 }              
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return string.Empty;
             }
@@ -128,7 +128,7 @@ namespace W88.BusinessLogic.Rewards.Helpers
                         (await GetPointLevel(memberSession.MemberId)).ToString(CultureInfo.InvariantCulture));
                 }
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 return 0;
             }
@@ -160,7 +160,7 @@ namespace W88.BusinessLogic.Rewards.Helpers
                     return redemptionDetails;
                 }
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 return null;
             }
@@ -281,61 +281,65 @@ namespace W88.BusinessLogic.Rewards.Helpers
                     return productDetails;
                 }                
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 return null;
             }
         }
 
-        public async Task<DataSet> GetProductSearch(MemberSession memberSession, 
-            string categoryId, 
-            int pointsFrom, 
-            int pointsTo, 
-            string searchText,
-            string sortBy,
-            string pageSize,
-            string numberOfPages)
+        public async Task<ProcessCode> SearchProducts(SearchInfo searchInfo)
         {
+            var process = new ProcessCode();
+            process.Id = Guid.NewGuid();
+
             try
             {
                 using (var client = new RewardsServicesClient())
                 {
-                    var countryCode = memberSession == null ? "0" : memberSession.CountryCode;
-                    var currencyCode = memberSession == null ? "0" : memberSession.CurrencyCode;
-                    var riskId = memberSession == null ? "0" : memberSession.RiskId;
-                    var token = memberSession == null ? string.Empty : memberSession.Token;
+                    var countryCode = searchInfo.MemberSession == null ? "0" : searchInfo.MemberSession.CountryCode;
+                    var currencyCode = searchInfo.MemberSession == null ? "0" : searchInfo.MemberSession.CurrencyCode;
+                    var riskId = searchInfo.MemberSession == null ? "0" : searchInfo.MemberSession.RiskId;
+                    var token = searchInfo.MemberSession == null ? string.Empty : searchInfo.MemberSession.Token;
+                    var memberId = searchInfo.MemberSession == null ? string.Empty : searchInfo.MemberSession.MemberId;
                     var hasSession = !string.IsNullOrEmpty(token);
 
                     var dataSet = await client.getProductSearchAsync(
                         OperatorId.ToString(CultureInfo.InvariantCulture),
-                        categoryId,
+                        searchInfo.CategoryId,
                         LanguageHelpers.SelectedLanguage,
-                        pointsFrom,
-                        pointsTo,
-                        searchText,
+                        searchInfo.MinPoints,
+                        searchInfo.MaxPoints,
+                        searchInfo.SearchText,
                         countryCode,
                         currencyCode,
                         riskId,
                         DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-                        sortBy,
-                        pageSize,
-                        numberOfPages);
+                        searchInfo.SortBy,
+                        searchInfo.PageSize,
+                        searchInfo.Index);
 
                     if (dataSet.Tables.Count == 0 || dataSet.Tables[0].Rows.Count == 0)
                     {
-                        return null;
+                        process.ProcessSerialId += 1;
+                        process.Code = (int)Constants.StatusCode.Error;
+                        process.Data = null;
+                        AuditTrail.AppendLog(memberId, Constants.PageNames.CataloguePage, Constants.TaskNames.SearchCatalogue,
+                            Constants.PageNames.ComponentName, Convert.ToString((int)Constants.StatusCode.Error), "No items found", string.Empty,
+                            string.Empty, string.Empty, Convert.ToString(process.ProcessSerialId), Convert.ToString(process.Id), false);
+                        return process;
                     }
 
-                    if (!dataSet.Tables[0].Columns.Contains("redemptionValidity"))
+                    if (searchInfo.SortBy == "2")
                     {
-                        dataSet.Tables[0].Columns.Add("redemptionValidity");
+                        dataSet.Tables[0].DefaultView.Sort = "pointsRequired";
                     }
 
+                    var result = new List<ProductDetails>();
                     foreach (DataRow dataRow in dataSet.Tables[0].Rows)
                     {
                         if (hasSession)
                         {
-                            var pointLevelDiscount = await GetMemberPointLevelDiscount(memberSession);
+                            var pointLevelDiscount = await GetMemberPointLevelDiscount(searchInfo.MemberSession);
                             
                             if (dataRow["discountPoints"] == DBNull.Value && pointLevelDiscount != 0 &&
                                 dataRow["productType"].ToString() != "1")
@@ -346,36 +350,34 @@ namespace W88.BusinessLogic.Rewards.Helpers
                                 var pointAfterLevelDiscount = Convert.ToInt32(points);
                                 dataRow["pointsRequired"] = pointAfterLevelDiscount;
                             }
-
-                            dataRow["redemptionValidity"] += ",";
-                            if (dataRow["redemptionValidity"].ToString().ToUpper() != "ALL,")
-                            {
-                                dataRow["redemptionValidity"] = !((string)dataRow["redemptionValidity"]).Contains(riskId.ToUpper() + ",") ? "0" : "1";
-                            }
-                            else
-                            {
-                                dataRow["redemptionValidity"] = "1";
-                            }
                         }
-                        else
+
+                        var productDetails = new ProductDetails
                         {
-                            dataRow["redemptionValidity"] += "0";
-                        }
+                            DiscountPoints = dataRow["discountPoints"] == DBNull.Value ? string.Empty : Convert.ToString(dataRow["discountPoints"]),
+                            ImageUrl = string.Format("{0}Product/{1}", Common.GetAppSetting<string>("ImagesDirectoryPath"), dataRow["imageName"]),
+                            PointsRequired = dataRow["pointsRequired"] == DBNull.Value ? string.Empty : Convert.ToString(dataRow["pointsRequired"]),
+                            ProductIcon = dataRow["productIcon"] == DBNull.Value ? string.Empty : Convert.ToString(dataRow["productIcon"]),
+                            ProductId = dataRow["productId"] == DBNull.Value ? string.Empty : Convert.ToString(dataRow["productId"]),
+                            ProductName = dataRow["productName"] == DBNull.Value ? string.Empty : Convert.ToString(dataRow["productName"]),
+                            ProductType = dataRow["productType"] == DBNull.Value ? string.Empty : Convert.ToString(dataRow["productType"])
+                        };
 
-                        dataRow["imagePath"] = Common.GetAppSetting<string>("ImagesDirectoryPath") + "Product/" + dataRow["imageName"];
+                        result.Add(productDetails);
                     }
 
-                    if (sortBy == "2")
-                    {
-                        dataSet.Tables[0].DefaultView.Sort = "pointsRequired";
-                    }
-
-                    return dataSet;
+                    process.ProcessSerialId += 1;
+                    process.Data = result;
+                    process.Code = (int)Constants.StatusCode.Success;
+                    return process;
                 }
             }
             catch (Exception exception)
             {
-                return null;
+                AuditTrail.AppendLog(exception);
+                process.Code = (int)Constants.StatusCode.Error;
+                process.Data = null;
+                return process;
             }
         }
 
@@ -429,7 +431,7 @@ namespace W88.BusinessLogic.Rewards.Helpers
                     return dataSet;
                 }
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 return null;
             }    

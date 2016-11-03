@@ -226,6 +226,9 @@
     <None Include="Service References\svcPayMember\W88.WebRef.svcPayMember.checkECPSSTransactionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\svcPayMember\W88.WebRef.svcPayMember.checkFunPayTransactionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\svcPayMember\W88.WebRef.svcPayMember.checkHnapayTransactionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

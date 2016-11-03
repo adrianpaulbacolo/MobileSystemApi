@@ -731,6 +731,25 @@ namespace W88.WebRef.svcPayMember {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMember/GetMemberAvailableDepositMethods_Mobile", ReplyAction="http://tempuri.org/IMember/GetMemberAvailableDepositMethods_MobileResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> GetMemberAvailableDepositMethods_MobileAsync(long operatorId, string memberCode, string memberCurrency, string languageCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMember/checkFunPayTransaction", ReplyAction="http://tempuri.org/IMember/checkFunPayTransactionResponse")]
+        W88.WebRef.svcPayMember.checkFunPayTransactionResponse checkFunPayTransaction(W88.WebRef.svcPayMember.checkFunPayTransactionRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMember/checkFunPayTransaction", ReplyAction="http://tempuri.org/IMember/checkFunPayTransactionResponse")]
+        System.Threading.Tasks.Task<W88.WebRef.svcPayMember.checkFunPayTransactionResponse> checkFunPayTransactionAsync(W88.WebRef.svcPayMember.checkFunPayTransactionRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMember/GetMemberHeepayWeChatPayMobileMethod", ReplyAction="http://tempuri.org/IMember/GetMemberHeepayWeChatPayMobileMethodResponse")]
+        string GetMemberHeepayWeChatPayMobileMethod(long operatorId, string memberCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMember/GetMemberHeepayWeChatPayMobileMethod", ReplyAction="http://tempuri.org/IMember/GetMemberHeepayWeChatPayMobileMethodResponse")]
+        System.Threading.Tasks.Task<string> GetMemberHeepayWeChatPayMobileMethodAsync(long operatorId, string memberCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMember/validateIShowMemberRequest", ReplyAction="http://tempuri.org/IMember/validateIShowMemberRequestResponse")]
+        string validateIShowMemberRequest(string ip, string userId, string gid, string passport, string country, string sid, string chksum);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMember/validateIShowMemberRequest", ReplyAction="http://tempuri.org/IMember/validateIShowMemberRequestResponse")]
+        System.Threading.Tasks.Task<string> validateIShowMemberRequestAsync(string ip, string userId, string gid, string passport, string country, string sid, string chksum);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2369,6 +2388,54 @@ namespace W88.WebRef.svcPayMember {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="checkFunPayTransaction", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class checkFunPayTransactionRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public long invId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public long methodId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string merchantId;
+        
+        public checkFunPayTransactionRequest() {
+        }
+        
+        public checkFunPayTransactionRequest(long invId, long methodId, string merchantId) {
+            this.invId = invId;
+            this.methodId = methodId;
+            this.merchantId = merchantId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="checkFunPayTransactionResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class checkFunPayTransactionResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public int checkFunPayTransactionResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string refNo;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public decimal senderFee;
+        
+        public checkFunPayTransactionResponse() {
+        }
+        
+        public checkFunPayTransactionResponse(int checkFunPayTransactionResult, string refNo, decimal senderFee) {
+            this.checkFunPayTransactionResult = checkFunPayTransactionResult;
+            this.refNo = refNo;
+            this.senderFee = senderFee;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IMemberChannel : W88.WebRef.svcPayMember.IMember, System.ServiceModel.IClientChannel {
     }
@@ -3315,6 +3382,42 @@ namespace W88.WebRef.svcPayMember {
         
         public System.Threading.Tasks.Task<System.Data.DataTable> GetMemberAvailableDepositMethods_MobileAsync(long operatorId, string memberCode, string memberCurrency, string languageCode) {
             return base.Channel.GetMemberAvailableDepositMethods_MobileAsync(operatorId, memberCode, memberCurrency, languageCode);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        W88.WebRef.svcPayMember.checkFunPayTransactionResponse W88.WebRef.svcPayMember.IMember.checkFunPayTransaction(W88.WebRef.svcPayMember.checkFunPayTransactionRequest request) {
+            return base.Channel.checkFunPayTransaction(request);
+        }
+        
+        public int checkFunPayTransaction(long invId, long methodId, string merchantId, out string refNo, out decimal senderFee) {
+            W88.WebRef.svcPayMember.checkFunPayTransactionRequest inValue = new W88.WebRef.svcPayMember.checkFunPayTransactionRequest();
+            inValue.invId = invId;
+            inValue.methodId = methodId;
+            inValue.merchantId = merchantId;
+            W88.WebRef.svcPayMember.checkFunPayTransactionResponse retVal = ((W88.WebRef.svcPayMember.IMember)(this)).checkFunPayTransaction(inValue);
+            refNo = retVal.refNo;
+            senderFee = retVal.senderFee;
+            return retVal.checkFunPayTransactionResult;
+        }
+        
+        public System.Threading.Tasks.Task<W88.WebRef.svcPayMember.checkFunPayTransactionResponse> checkFunPayTransactionAsync(W88.WebRef.svcPayMember.checkFunPayTransactionRequest request) {
+            return base.Channel.checkFunPayTransactionAsync(request);
+        }
+        
+        public string GetMemberHeepayWeChatPayMobileMethod(long operatorId, string memberCode) {
+            return base.Channel.GetMemberHeepayWeChatPayMobileMethod(operatorId, memberCode);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetMemberHeepayWeChatPayMobileMethodAsync(long operatorId, string memberCode) {
+            return base.Channel.GetMemberHeepayWeChatPayMobileMethodAsync(operatorId, memberCode);
+        }
+        
+        public string validateIShowMemberRequest(string ip, string userId, string gid, string passport, string country, string sid, string chksum) {
+            return base.Channel.validateIShowMemberRequest(ip, userId, gid, passport, country, sid, chksum);
+        }
+        
+        public System.Threading.Tasks.Task<string> validateIShowMemberRequestAsync(string ip, string userId, string gid, string passport, string country, string sid, string chksum) {
+            return base.Channel.validateIShowMemberRequestAsync(ip, userId, gid, passport, country, sid, chksum);
         }
     }
 }
