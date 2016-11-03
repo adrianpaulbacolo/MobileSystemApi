@@ -22,11 +22,7 @@ GPInt.prototype.ShowSplash = function () {
                 )
             )
         );
-    if (document.getElementById('divPanel')) {
-        if (document.getElementById('divPanel') != null) {
-            document.getElementById('divPanel').style.zIndex = -1;
-        }
-    }
+   
     window.setTimeout(function () {
         this.GPINTMOBILE.HideSplash();
     }, 10000);
