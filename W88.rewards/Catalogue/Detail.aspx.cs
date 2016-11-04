@@ -17,6 +17,10 @@ public partial class Catalogue_Detail : CatalogueBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (IsPostBack)
+        {
+            return;
+        }
         SetLabels();
         SetProductInfo();     
     }
@@ -33,7 +37,7 @@ public partial class Catalogue_Detail : CatalogueBasePage
                 return;
             }
 
-            var productDetails = await RewardsHelper.GetProductDetails(MemberSession, productId, HasSession);
+            var productDetails = await RewardsHelper.GetProductDetails(UserSessionInfo, productId);
 
             if (productDetails == null)
             {

@@ -50,14 +50,14 @@ public class BasePage : Page
             }
 
             if (string.IsNullOrEmpty(token)) return;
-            var processCode = await MembersHelper.MembersSessionCheck(token);
-            HasSession = processCode.Code == 1;
+            var process = await MembersHelper.MembersSessionCheck(token);
+            HasSession = process.Code == 1 && !string.IsNullOrEmpty(process.Data.Token);
             if (!HasSession) return;
-            MemberSession = processCode.Data;
+            MemberSession = process.Data;
             UserSessionInfo = await MembersHelper.GetMemberInfo(token);
             SetMemberRewardsInfo();
         }
-        catch (Exception exception)
+        catch (Exception)
         {
 
         }

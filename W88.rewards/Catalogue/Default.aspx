@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Default" Async="true"%>
 <%@ Import Namespace="W88.BusinessLogic.Rewards.Helpers" %>
 <%@ Import Namespace="W88.BusinessLogic.Rewards.Models" %>
-<%@ Import Namespace="W88.BusinessLogic.Shared.Helpers" %>
 
 <!DOCTYPE html>
 <html>
@@ -21,46 +20,7 @@
             <div class="container">
                 <div class="row">             
                     <asp:Label ID="lblnodata" runat="server" CssClass="nodata" Text="Label" Visible="false"></asp:Label>
-                    <asp:ListView ID="ListviewProduct" runat="server" GroupItemCount="5">
-                        <LayoutTemplate>
-                            <div runat="server" id="groupPlaceholder"></div>
-                        </LayoutTemplate>
-                        <GroupTemplate>
-                            <tr>
-                                <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
-                            </tr>
-                        </GroupTemplate>
-                        <ItemTemplate>
-                            <div id="detailsButton_<%#DataBinder.Eval(Container.DataItem,"productId")%>" class="col-xs-6 col-sm-3">
-                                <div class="catalog-box">
-                                    <script>
-                                        $(function () {
-                                            $('#detailsButton_<%#DataBinder.Eval(Container.DataItem,"productId")%>').on('click', function () {
-                                                window.location.href = '/Catalogue/Detail.aspx?id=<%#DataBinder.Eval(Container.DataItem,"productId")%>';
-                                            });
-                                            var labelTag = $('#labelTag_<%#DataBinder.Eval(Container.DataItem,"productId")%>');
-                                            if (_.isEmpty(labelTag.html().trim()))
-                                                labelTag.removeClass('tag-label');
-                                        });
-                                    </script>
-                                    <div class="catalog-image">
-                                        <img src="<%#DataBinder.Eval(Container.DataItem,"imagePath")%>" data-imageover="" alt=""/>
-                                    </div>
-                                    <div class="catalog-details">
-                                        <h4><%#DataBinder.Eval(Container.DataItem,"productName")%></h4>
-                                        <small>
-                                            <span class="points" style="<%#(DataBinder.Eval(Container, "DataItem.discountPoints").ToString() != "") ? "text-decoration:line-through;": "text-decoration:none;" %>"><%# String.Format("{0:#,###,##0.##}",DataBinder.Eval(Container.DataItem,"pointsRequired"))%> <%=RewardsHelper.GetTranslation(TranslationKeys.Label.Points).ToLower()%></span>
-                                            <span class="newpoints" style="<%#(DataBinder.Eval(Container, "DataItem.discountPoints").ToString() != "") ? "visibility:visible;": "visibility:hidden;" %>"><%# String.Format("{0:#,###,##0.##}",DataBinder.Eval(Container.DataItem,"discountPoints"))%> <%=RewardsHelper.GetTranslation(TranslationKeys.Label.Points)%></span>   
-                                            <span id="labelTag_<%#DataBinder.Eval(Container.DataItem,"productId")%>" class="tag-label">
-                                                <%#(DataBinder.Eval(Container.DataItem, "productIcon").ToString()=="2") ? RewardsHelper.GetTranslation(TranslationKeys.Label.Hot) : ""%>
-                                                <%#(DataBinder.Eval(Container.DataItem, "productIcon").ToString()=="3") ? RewardsHelper.GetTranslation(TranslationKeys.Label.New) : ""%>                                 
-                                            </span>                                                 
-                                        </small> 
-                                    </div>                                        
-                                </div>
-                            </div>
-                        </ItemTemplate>
-                    </asp:ListView>
+                    <div id="listContainer" runat="server"></div>
                 </div>
             </div>
         </div>
@@ -70,10 +30,14 @@
                     <ItemTemplate>
                         <div class="btn-group" role="group">
                             <script>
-                                $(function() {
-                                    if (_.endsWith(window.location.href, 'categoryId=<%#DataBinder.Eval(Container.DataItem,"categoryId")%>&sortBy=2')) {
-                                        if (!$('#category_<%#DataBinder.Eval(Container.DataItem,"categoryId")%>').hasClass('active')) 
-                                            $('#category_<%#DataBinder.Eval(Container.DataItem,"categoryId")%>').addClass('active');                                       
+                                $(function () {
+                                    var categoryId = '<%#DataBinder.Eval(Container.DataItem,"categoryId")%>';
+                                    if (_.endsWith(window.location.href, 'categoryId=' + categoryId + '&sortBy=2')) {
+                                        if (!$('#category_' + categoryId).hasClass('active'))
+                                            $('#category_' + categoryId).addClass('active');
+                                    } else {
+                                        if ($('#category_' + categoryId).hasClass('active'))
+                                            $('#category_' + categoryId).removeClass('active');
                                     }
                                 });
                             </script>
@@ -86,6 +50,71 @@
             </div>
         </div>
     </div>
-    <!-- /page -->
+    <script>
+        var index = 1,
+            isSearching = false;
+
+        function reset() {
+            $.mobile.loading('hide');
+            isSearching = false;
+        }
+
+        $(function () {
+            $(window).scroll(function () {
+                if (($(window).scrollTop() + $(window).height() < $(document).height() - 20)
+                    || isSearching) {
+                    return;
+                }
+
+                $.mobile.loading('show');
+                isSearching = true;
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/rewards/search/',
+                    headers: {
+                        'token': !_.isEmpty(window.user) ? window.user.Token : null
+                    },
+                    dataType: 'json',
+                    data: {
+                        CategoryId: '<%=CategoryId%>',
+                        Index: index.toString(),
+                        MinPoints: <%=MinPoints%>,
+                        MaxPoints: <%=MaxPoints%>,
+                        PageSize: '<%=PageSize%>',
+                        SearchText: '<%=SearchText%>',
+                        SortBy: '<%=SortBy%>'
+                    },
+                    success: function (response) {
+                        if (response.ResponseCode != 1 || response.ResponseData == null) {
+                            reset();
+                            return;
+                        }
+                        $.ajax({
+                            type: 'POST',
+                            url: 'Default.aspx/CreateHtml',
+                            contentType: 'application/json',
+                            data: JSON.stringify({ products: response.ResponseData }),
+                            success: function(result) {
+                                reset();
+
+                                if (!result) return;
+                                var children = $('#listContainer').children(),
+                                    count = children.length;
+                                if (count == 0) return;
+                                $(children[count-1]).after(result.d);
+                                index++;
+                            }, 
+                            error: function() {
+                                reset();
+                            }
+                        });
+                    },
+                    error: function () {
+                        reset();
+                    }
+                });          
+            });
+        });
+    </script>
 </body>
 </html>

@@ -323,7 +323,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             Response.Redirect("/Catalogue?categoryId=0&sortBy=2", false);
             return;
         }
-        ProductDetails = await RewardsHelper.GetProductDetails(MemberSession, productId, HasSession);
+        ProductDetails = await RewardsHelper.GetProductDetails(UserSessionInfo, productId);
         SetProductInfo();
         ProductDetails.ProductDescription = HttpUtility.HtmlEncode(ProductDetails.ProductDescription);
         ProductDetailsField.Value = Common.SerializeObject(ProductDetails);
