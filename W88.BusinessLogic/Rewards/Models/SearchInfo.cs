@@ -1,21 +1,26 @@
-﻿using W88.BusinessLogic.Accounts.Models;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace W88.BusinessLogic.Rewards.Models
 {
     public class SearchInfo
     {
-        public string CategoryId = string.Empty;
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        public string CategoryId { get; set; }
 
-        public string Index = string.Empty;
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        public string Index { get; set; }
 
-        public string PageSize = string.Empty;
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        public string PageSize { get; set; }
 
-        public string SearchText = string.Empty;
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        public string SearchText { get; set; }
 
-        public string SortBy = string.Empty;
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        public string SortBy { get; set; }
+        
+        public int MinPoints { get; set; }
 
-        public int MinPoints = 0;
-
-        public int MaxPoints = 0;
+        public int MaxPoints { get; set; }
     }
 }

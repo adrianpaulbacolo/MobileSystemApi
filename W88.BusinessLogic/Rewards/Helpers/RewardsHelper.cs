@@ -9,7 +9,6 @@ using W88.BusinessLogic.Shared.Helpers;
 using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Shared.Models;
 using W88.Utilities;
-using W88.Utilities.Constant;
 using W88.Utilities.Log.Helpers;
 using W88.WebRef.RewardsServices;
 using W88.BusinessLogic.Rewards.Models;
@@ -28,7 +27,8 @@ namespace W88.BusinessLogic.Rewards.Helpers
             {
                 using (var client = new RewardsServicesClient())
                 {
-                    return await client.CheckRedemptionLimitForVIPCategoryAsync(OperatorId.ToString(CultureInfo.InvariantCulture), 
+                    return await client.CheckRedemptionLimitForVIPCategoryAsync(
+                        Convert.ToString(OperatorId), 
                         memberCode,
                         vipCategoryId);
                 } 
@@ -39,21 +39,23 @@ namespace W88.BusinessLogic.Rewards.Helpers
             }
         }
 
-        public async Task<DataSet> GetCatalogueSet(MemberSession memberSession)
+        public async Task<DataSet> GetCatalogueSet(UserSessionInfo userSessionInfo)
         {
             try
             {
                 using (var client = new RewardsServicesClient())
                 {
-                    var countryCode = memberSession == null ? "0" : memberSession.CountryCode;
-                    var currencyCode = memberSession == null ? "0" : memberSession.CurrencyCode;
-                    var riskId = memberSession == null ? "0" : memberSession.RiskId;
+                    if (userSessionInfo == null)
+                    {
+                        userSessionInfo = new UserSessionInfo();
+                    }
 
+                    var riskId = userSessionInfo.RiskId;
                     var dataSet = await client.getCatalogueSearchAsync(
-                        OperatorId.ToString(CultureInfo.InvariantCulture)
+                        Convert.ToString(OperatorId)
                         , LanguageHelpers.SelectedLanguage
-                        , countryCode
-                        , currencyCode
+                        , userSessionInfo.CountryCode
+                        , userSessionInfo.CurrencyCode
                         , riskId);
 
                     if (dataSet.Tables.Count == 0)
@@ -74,7 +76,7 @@ namespace W88.BusinessLogic.Rewards.Helpers
                         dataRow["imagePathOn"] = Convert.ToString(Common.GetAppSetting<string>("ImagesDirectoryPath") + "Category/" + imgPathOn);
                         dataRow["imagePathOff"] = Convert.ToString(Common.GetAppSetting<string>("ImagesDirectoryPath") + "Category/" + imgPathOff);
 
-                        if (!riskId.Equals("0"))
+                        if (!string.IsNullOrEmpty(riskId))
                         {
                             dataRow["redemptionValidity"] += ",";
                             var validity = (string) dataRow["redemptionValidity"];
@@ -122,8 +124,12 @@ namespace W88.BusinessLogic.Rewards.Helpers
             {
                 using (var client = new RewardsServicesClient())
                 {
+                    if (userSessionInfo == null)
+                    {
+                        userSessionInfo = new UserSessionInfo();
+                    }
                     return await client.getMemberPointLevelDiscountAsync(
-                        OperatorId.ToString(CultureInfo.InvariantCulture),
+                        Convert.ToString(OperatorId),
                         userSessionInfo.CurrencyCode,
                         Convert.ToString(await GetPointLevel(Convert.ToString(userSessionInfo.MemberId))));
                 }
@@ -140,7 +146,7 @@ namespace W88.BusinessLogic.Rewards.Helpers
             {
                 using (var client = new RewardsServicesClient())
                 {
-                    var dataSet = await client.getMemberRedemptionDetailAsync(OperatorId.ToString(CultureInfo.InvariantCulture), memberCode);
+                    var dataSet = await client.getMemberRedemptionDetailAsync(Convert.ToString(OperatorId), memberCode);
                     if (dataSet.Tables.Count == 0 || dataSet.Tables[0].Rows.Count == 0)
                     {
                         return null;
@@ -186,22 +192,24 @@ namespace W88.BusinessLogic.Rewards.Helpers
             }
         }
 
-        public async Task<ProductDetails> GetProductDetails(UserSessionInfo userSessionInfo, string productId, bool hasSession)
+        public async Task<ProductDetails> GetProductDetails(UserSessionInfo userSessionInfo, string productId)
         {
             try
             {
                 using (var client = new RewardsServicesClient())
                 {
-                    var countryCode = userSessionInfo == null ? "" : userSessionInfo.CountryCode;
-                    var currencyCode = userSessionInfo == null ? "" : userSessionInfo.CurrencyCode;
-                    var riskId = userSessionInfo == null ? "" : userSessionInfo.RiskId.ToUpper();
+                    if (userSessionInfo == null)
+                    {
+                        userSessionInfo = new UserSessionInfo();
+                    }
 
+                    var riskId = userSessionInfo.RiskId.ToUpper();
                     var dataSet = await client.getProductDetailAsync(
                         productId,
                         LanguageHelpers.SelectedLanguage,
                         riskId,
-                        countryCode,
-                        currencyCode,
+                        userSessionInfo.CountryCode,
+                        userSessionInfo.CurrencyCode,
                         riskId);
                     
                     if (dataSet.Tables.Count == 0 || dataSet.Tables[0].Rows.Count == 0)
@@ -221,7 +229,7 @@ namespace W88.BusinessLogic.Rewards.Helpers
 
                     if (dataRow["discountPoints"] == DBNull.Value)
                     {
-                        if (hasSession && dataRow["productType"].ToString() != "1")
+                        if (!string.IsNullOrEmpty(userSessionInfo.Token) && dataRow["productType"].ToString() != "1")
                         {
                             //grab member point level
                             var pointLevelDiscount = await GetMemberPointLevelDiscount(userSessionInfo);
@@ -295,22 +303,21 @@ namespace W88.BusinessLogic.Rewards.Helpers
             {
                 using (var client = new RewardsServicesClient())
                 {
-                    var countryCode = userSessionInfo == null ? "0" : userSessionInfo.CountryCode;
-                    var currencyCode = userSessionInfo == null ? "0" : userSessionInfo.CurrencyCode;
-                    var riskId = userSessionInfo == null ? "0" : userSessionInfo.RiskId;
-                    var token = userSessionInfo == null ? string.Empty : userSessionInfo.Token;
-                    var hasSession = !string.IsNullOrEmpty(token);
+                    if (userSessionInfo == null)
+                    {
+                        userSessionInfo = new UserSessionInfo();
+                    }
 
                     var dataSet = await client.getProductSearchAsync(
-                        OperatorId.ToString(CultureInfo.InvariantCulture),
+                        Convert.ToString(OperatorId),
                         searchInfo.CategoryId,
                         LanguageHelpers.SelectedLanguage,
                         searchInfo.MinPoints,
                         searchInfo.MaxPoints,
                         searchInfo.SearchText,
-                        countryCode,
-                        currencyCode,
-                        riskId,
+                        userSessionInfo.CountryCode,
+                        userSessionInfo.CurrencyCode,
+                        userSessionInfo.RiskId,
                         DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                         searchInfo.SortBy,
                         searchInfo.PageSize,
@@ -328,6 +335,7 @@ namespace W88.BusinessLogic.Rewards.Helpers
                         dataSet.Tables[0].DefaultView.Sort = "pointsRequired";
                     }
 
+                    var hasSession = !string.IsNullOrEmpty(userSessionInfo.Token);
                     var result = new List<ProductDetails>();
                     foreach (DataRow dataRow in dataSet.Tables[0].Rows)
                     {
@@ -380,7 +388,7 @@ namespace W88.BusinessLogic.Rewards.Helpers
             {
                 using (var client = new RewardsServicesClient())
                 {
-                    var accountSet = await client.getMemberAccountAsync(OperatorId.ToString(CultureInfo.InvariantCulture), memberCode);
+                    var accountSet = await client.getMemberAccountAsync(Convert.ToString(OperatorId), memberCode);
                     
                     var table0 = accountSet.Tables[0];
                     var table1 = accountSet.Tables[1];
@@ -443,7 +451,7 @@ namespace W88.BusinessLogic.Rewards.Helpers
 
                 using (var client = new RewardsServicesClient())
                 {
-                    var dataSet = await client.getMemberInfoAsync(Settings.OperatorId.ToString(CultureInfo.InvariantCulture), memberCode);
+                    var dataSet = await client.getMemberInfoAsync(Convert.ToString(OperatorId), memberCode);
                     if (dataSet.Tables.Count > 0 && dataSet.Tables[0].Rows.Count > 0)
                     {
                         recipient = dataSet.Tables[0].Rows[0]["email"].ToString();                        
