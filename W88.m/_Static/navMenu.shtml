@@ -1,6 +1,7 @@
 ﻿<% 
 var deviceId = commonFunctions.getMobileDevice(Request); 
 var fishLink = "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/manifest.plist";
+var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/manifest.plist";
 %>
 <div data-role="panel" id="divPanel">
     <ul data-role="listview" class="nav-menu">
@@ -429,7 +430,7 @@ var fishLink = "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/mani
             <ul class="sub-menu" data-rel="fish">
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></h2>
                 <li>
-                    <a class="card" data-rel="poker" rel="FishIOS" href="<%=fishLink%>" data-ajax="false">
+                    <a class="card" data-rel="poker" rel="FishIOS" href="<%=fishlinkIos%>" data-ajax="false">
                         <img src="/_Static/Images/bnr-fishingmaster-iOs.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
                     </a>
@@ -454,7 +455,7 @@ var fishLink = "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/mani
             <ul class="sub-menu" data-rel="fish">
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></h2>
                 <li>
-                    <a class="card" data-rel="poker" rel="FishIOS" href="<%=fishLink%>" data-ajax="false">
+                    <a class="card" data-rel="poker" rel="FishIOS" href="<%=fishlinkIos%>" data-ajax="false">
                         <img src="/_Static/Images/bnr-fishingmaster-iOs.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
                     </a>
