@@ -428,24 +428,6 @@ var fishLink = "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/mani
             </a>
             <ul class="sub-menu" data-rel="fish">
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></h2>
-                <%try{%>
-                <%if(deviceId==1){%>
-                <li>
-                    <a class="card" data-rel="poker" rel="FishIOS" href="<%=fishLink%>" data-ajax="false">
-                        <img src="/_Static/Images/bnr-fishingmaster-iOs.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
-                    </a>
-                </li>
-                <%}%>
-                <%if(deviceId==2){%>
-                <li>
-                    <a class="card" data-rel="poker" rel="FishAndroid" href="<%=fishLink%>" data-ajax="false">
-                        <img src="/_Static/Images/bnr-fishingmaster-android.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
-                    </a>
-                </li>
-                <%}%>
-                <%if(deviceId==3){%>
                 <li>
                     <a class="card" data-rel="poker" rel="FishIOS" href="<%=fishLink%>" data-ajax="false">
                         <img src="/_Static/Images/bnr-fishingmaster-iOs.jpg" class="img-responsive">
@@ -458,8 +440,6 @@ var fishLink = "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/mani
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
                     </a>
                 </li>
-                <%}%>
-                <%}catch(Exception){}%>
             </ul>
         </li>
         <% }
@@ -473,24 +453,6 @@ var fishLink = "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/mani
             </a>
             <ul class="sub-menu" data-rel="fish">
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></h2>
-                <%try{%>
-                <%if(deviceId==1){%>
-                <li>
-                    <a class="card" data-rel="poker" rel="FishIOS" href="<%=fishLink%>" data-ajax="false">
-                        <img src="/_Static/Images/bnr-fishingmaster-iOs.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
-                    </a>
-                </li>
-                <%}%>
-                <%if(deviceId==2){%>
-                <li>
-                    <a class="card" data-rel="poker" rel="FishAndroid" href="<%=fishLink%>" data-ajax="false">
-                        <img src="/_Static/Images/bnr-fishingmaster-android.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
-                    </a>
-                </li>
-                <%}%>
-                <%if(deviceId==3){%>
                 <li>
                     <a class="card" data-rel="poker" rel="FishIOS" href="<%=fishLink%>" data-ajax="false">
                         <img src="/_Static/Images/bnr-fishingmaster-iOs.jpg" class="img-responsive">
@@ -503,8 +465,6 @@ var fishLink = "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/mani
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
                     </a>
                 </li>
-                <%}%>
-                <%}catch(Exception){}%>
             </ul>
         </li>
         <% } %>
