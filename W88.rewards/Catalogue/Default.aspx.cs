@@ -29,7 +29,7 @@ public partial class Default : CatalogueBasePage
     {
         try
         {
-            var catalogueSet = await RewardsHelper.GetCatalogueSet(MemberSession);
+            var catalogueSet = await RewardsHelper.GetCatalogueSet(UserSessionInfo);
             CategoryListView.DataSource = catalogueSet.Tables[0];
             var dataTable = (DataTable) CategoryListView.DataSource;
             var dataRowAll = dataTable.NewRow();
