@@ -70,12 +70,12 @@
                 isSearching = true;
                 $.ajax({
                     type: 'GET',
-                    url: '/api/rewards/search',
-                    contentType: 'application/json',
+                    url: '/api/rewards/search/',
                     headers: {
                         'token': !_.isEmpty(window.user) ? window.user.Token : null
                     },
-                    data: 'searchInfo=' + JSON.stringify({
+                    dataType: 'json',
+                    data: {
                         CategoryId: '<%=CategoryId%>',
                         Index: index.toString(),
                         MinPoints: <%=MinPoints%>,
@@ -83,7 +83,7 @@
                         PageSize: '<%=PageSize%>',
                         SearchText: '<%=SearchText%>',
                         SortBy: '<%=SortBy%>'
-                    }),
+                    },
                     success: function (response) {
                         if (response.ResponseCode != 1 || response.ResponseData == null) {
                             reset();

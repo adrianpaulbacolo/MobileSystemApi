@@ -9,7 +9,7 @@ public partial class _Index : CatalogueBasePage
     {
         SetLabels();
         #region Catalogue          
-        Listview1.DataSource = await RewardsHelper.GetCatalogueSet(MemberSession);
+        Listview1.DataSource = await RewardsHelper.GetCatalogueSet(UserSessionInfo);
         Listview1.DataBind();
         #endregion
     }
