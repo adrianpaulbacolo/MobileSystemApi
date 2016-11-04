@@ -53,7 +53,7 @@ public partial class Default : CatalogueBasePage
             CategoryId = string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("categoryId")) ? "0" : HttpContext.Current.Request.QueryString.Get("categoryId");
             MinPoints = string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("min")) ? 0 : int.Parse(HttpContext.Current.Request.QueryString.Get("min"));
             MaxPoints = string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("max")) ? 2000000 : int.Parse(HttpContext.Current.Request.QueryString.Get("max"));
-            PageSize = string.IsNullOrEmpty(Common.GetAppSetting<string>("catalogueSize")) ? "7" : Common.GetAppSetting<string>("catalogueSize");
+            PageSize = string.IsNullOrEmpty(Common.GetAppSetting<string>("catalogueSize")) ? "10" : Common.GetAppSetting<string>("catalogueSize");
             SearchText = string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("search")) ? "" : HttpContext.Current.Request.QueryString.Get("search");
             SortBy = string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("sortBy")) ? string.Empty : HttpContext.Current.Request.QueryString.Get("sortBy");
 
