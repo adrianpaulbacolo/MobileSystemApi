@@ -1,6 +1,6 @@
 ﻿<% 
 var deviceId = commonFunctions.getMobileDevice(Request); 
-var fishLink = "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/manifest.plist";
+var fishLink = "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/FishingMaster.apk";
 var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/manifest.plist";
 %>
 <div data-role="panel" id="divPanel">
