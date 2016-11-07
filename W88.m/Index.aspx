@@ -134,8 +134,9 @@
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("promotions", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
-
-                 <li class="col col-33">
+                
+                <!-- Rewards -->
+                <li class="col col-33">
                     <a href="#" id="icon-rewards" class="tile" role="button" data-ajax="false">
                         <span class="icon-rewards"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("rewards", commonVariables.LeftMenuXML)%></h4>
@@ -269,7 +270,7 @@
                     ]
                 });
 
-                var url = window.location.protocol + '//www' + '<%=commonIp.DomainName %>' + '?nomobile=true';
+                var url = window.location.protocol + '//www.' + '<%=commonIp.DomainName %>' + '?nomobile=true';
                 $("#icon-desktop").attr('href', url);
 
                 var urlRewards = window.location.protocol + '//mrewards.' + '<%=commonIp.DomainName %>' + '?lang=' + '<%=commonVariables.SelectedLanguage%>' + '&token=' + '<%=commonVariables.CurrentMemberSessionId%>';
