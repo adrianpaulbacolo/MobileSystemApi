@@ -56,15 +56,15 @@
                 var domain = "." + location.hostname.split('.').slice(-2).join('.');
                 siteCookie.setCookie("fingerprint", result, 5, domain);
             });
+        }else{
+            var deviceObj = {
+                index: 1
+                , name: "deviceId"
+                , value: siteCookie.getCookie("fingerprint")
+                , scope: "visit"
+            }
+            w88Mobile.PiwikManager.setDeviceId(deviceObj);
         }
-        var deviceObj = {
-            index: 1
-            , name: "deviceId"
-            , value: siteCookie.getCookie("fingerprint")
-            , scope: "visit"
-        }
-    
-        w88Mobile.PiwikManager.setDeviceId(deviceObj);
     });
     </script>
 <script type="text/javascript" src="/_Static/Js/modules/slots.js"></script>
