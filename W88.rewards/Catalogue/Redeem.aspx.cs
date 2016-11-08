@@ -79,7 +79,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             return;
         }
 
-        if (string.IsNullOrEmpty(MemberSession.FirstName))
+        if (string.IsNullOrEmpty(MemberSession.FullName))
         {
             usernameLabel.Visible = false;
         }

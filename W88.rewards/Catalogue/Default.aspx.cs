@@ -95,7 +95,7 @@ public partial class Default : CatalogueBasePage
             return;
         }
 
-        if (string.IsNullOrEmpty(MemberSession.FirstName))
+        if (string.IsNullOrEmpty(MemberSession.FullName))
         {
             usernameLabel.Visible = false;
         }

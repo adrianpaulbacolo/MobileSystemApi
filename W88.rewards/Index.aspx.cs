@@ -22,7 +22,7 @@ public partial class _Index : CatalogueBasePage
             return;
         }
 
-        if (string.IsNullOrEmpty(MemberSession.FirstName))
+        if (string.IsNullOrEmpty(MemberSession.FullName))
         {
             usernameLabel.Visible = false;
         }

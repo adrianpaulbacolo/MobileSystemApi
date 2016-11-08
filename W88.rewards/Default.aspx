@@ -40,6 +40,10 @@
     <script type="text/javascript">
         var message = '<%=AlertMessage%>';
         if (!_.isEmpty(message)) { window.w88Mobile.Growl.shout(message); }
+
+        if ('<%=HasSession%>'.toLowerCase() == 'false') {
+            if (window.user && !_.isEmpty(window.user.Token)) clear();
+        }
     </script>
 </body>
 </html>
