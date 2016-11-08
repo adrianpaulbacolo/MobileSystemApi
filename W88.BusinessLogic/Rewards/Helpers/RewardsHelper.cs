@@ -50,12 +50,12 @@ namespace W88.BusinessLogic.Rewards.Helpers
                         userSessionInfo = new UserSessionInfo();
                     }
 
-                    var riskId = userSessionInfo.RiskId;
+                    var riskId = string.IsNullOrEmpty(userSessionInfo.RiskId) ? "0" : userSessionInfo.RiskId;
                     var dataSet = await client.getCatalogueSearchAsync(
                         Convert.ToString(OperatorId)
                         , LanguageHelpers.SelectedLanguage
-                        , userSessionInfo.CountryCode
-                        , userSessionInfo.CurrencyCode
+                        , string.IsNullOrEmpty(userSessionInfo.CountryCode) ? "0" : userSessionInfo.CountryCode
+                        , string.IsNullOrEmpty(userSessionInfo.CurrencyCode) ? "0" : userSessionInfo.CurrencyCode
                         , riskId);
 
                     if (dataSet.Tables.Count == 0)
@@ -76,7 +76,7 @@ namespace W88.BusinessLogic.Rewards.Helpers
                         dataRow["imagePathOn"] = Convert.ToString(Common.GetAppSetting<string>("ImagesDirectoryPath") + "Category/" + imgPathOn);
                         dataRow["imagePathOff"] = Convert.ToString(Common.GetAppSetting<string>("ImagesDirectoryPath") + "Category/" + imgPathOff);
 
-                        if (!string.IsNullOrEmpty(riskId))
+                        if (!riskId.Equals("0"))
                         {
                             dataRow["redemptionValidity"] += ",";
                             var validity = (string) dataRow["redemptionValidity"];
@@ -315,9 +315,9 @@ namespace W88.BusinessLogic.Rewards.Helpers
                         searchInfo.MinPoints,
                         searchInfo.MaxPoints,
                         searchInfo.SearchText,
-                        userSessionInfo.CountryCode,
-                        userSessionInfo.CurrencyCode,
-                        userSessionInfo.RiskId,
+                        string.IsNullOrEmpty(userSessionInfo.CountryCode) ? "0" : userSessionInfo.CountryCode,
+                        string.IsNullOrEmpty(userSessionInfo.CurrencyCode) ? "0" : userSessionInfo.CurrencyCode,
+                        string.IsNullOrEmpty(userSessionInfo.RiskId) ? "0" : userSessionInfo.RiskId,
                         DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                         searchInfo.SortBy,
                         searchInfo.PageSize,
@@ -527,6 +527,7 @@ namespace W88.BusinessLogic.Rewards.Helpers
 
         public static string GetTranslation(string key, string language = "")
         {
+            language = string.IsNullOrWhiteSpace(language) ? LanguageHelpers.SelectedLanguage : language;
             return CultureHelpers.GetTranslation(key, language, "rewards/rewards");
         }
     }
