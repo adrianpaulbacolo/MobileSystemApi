@@ -17,15 +17,6 @@
 <script src="/_Static/JS/GPINT.js"></script>
 
 <script src="/_Static/JS/fingerprint2.min.js"></script>
-<script>
-    var siteCookie = new Cookies();
-    if(_.isEmpty(siteCookie.getCookie("fingerprint"))){
-        new Fingerprint2().get(function (result, components) {
-            var domain = "." + location.hostname.split('.').slice(-2).join('.');
-            siteCookie.setCookie("fingerprint", result, 5, domain);
-        });
-    }
-</script>
 <script src="/_Static/JS/piwik.js"></script>
 <script type="text/javascript">
     window.w88Mobile = {};
@@ -56,13 +47,25 @@
     w88Mobile.PiwikManager.setGoals(window.w88Mobile.PiwikConfig.goals);
     w88Mobile.PiwikManager.setDomain();
     w88Mobile.PiwikManager.setUserId('<%=UserSession.MemberId %>');
-        var deviceObj = {
-        index: 1
-        , name: "deviceId"
-        , value: siteCookie.getCookie("fingerprint")
-        , scope: "visit"
+
+    var siteCookie = new Cookies();
+
+    $(function () {
+        if(_.isEmpty(siteCookie.getCookie("fingerprint"))){
+            new Fingerprint2().get(function (result, components) {
+                var domain = "." + location.hostname.split('.').slice(-2).join('.');
+                siteCookie.setCookie("fingerprint", result, 5, domain);
+            });
+        }else{
+            var deviceObj = {
+                index: 1
+                , name: "deviceId"
+                , value: siteCookie.getCookie("fingerprint")
+                , scope: "visit"
+            }
+            w88Mobile.PiwikManager.setDeviceId(deviceObj);
         }
-        w88Mobile.PiwikManager.setDeviceId(deviceObj);
+    });
     </script>
 <script type="text/javascript" src="/_Static/Js/modules/slots.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/wallets.js"></script>
