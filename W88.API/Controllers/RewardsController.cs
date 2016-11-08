@@ -13,7 +13,7 @@ namespace W88.API
     {
         // GET api/<controller>
         /// <summary>
-        ///     Used to search catalogue products
+        ///     Search catalogue products
         /// </summary>
         /// <param name="request"></param>
         /// <param name="searchInfo">SearchInfo object that contains search parameters</param>

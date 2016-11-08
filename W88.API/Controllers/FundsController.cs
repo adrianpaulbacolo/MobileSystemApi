@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Funds.Factories;
 using W88.BusinessLogic.Funds.Helpers;
 using W88.BusinessLogic.Funds.Models;
+using W88.BusinessLogic.Shared.Helpers;
 using W88.BusinessLogic.Shared.Models;
 
 namespace W88.API
@@ -201,7 +203,7 @@ namespace W88.API
         }
 
         [HttpGet]
-        [Route("LastCardTrans")]
+        [Route("creditcard/lasttrans")]
         public async Task<HttpResponseMessage> GetLastCreditTransaction(HttpRequestMessage request)
         {
             try
@@ -209,6 +211,31 @@ namespace W88.API
                 if (await CheckToken(request) == false) return ReturnResponse(UserRequest.Process);
 
                 var response = await new Payments().GetLastCreditTransaction(UserRequest.UserInfo.MemberCode);
+
+                return ReturnResponse(response);
+
+            }
+            catch (Exception ex)
+            {
+                return ReturnResponse(new ProcessCode
+                {
+                    Code = (int)Constants.StatusCode.Error,
+                    Message = ex.Message
+                }, ex);
+            }
+        }
+
+        [HttpGet]
+        [Route("withdrawal/lasttrans")]
+        public async Task<HttpResponseMessage> GetLastWithdrawalTransaction(HttpRequestMessage request)
+        {
+            try
+            {
+                if (await CheckToken(request) == false) return ReturnResponse(UserRequest.Process);
+
+                UserRequest.UserInfo.LanguageCode = GetLanguage(request);
+
+                var response = await new Payments().GetLastWithdrawalTransaction(UserRequest.UserInfo.MemberCode);
 
                 return ReturnResponse(response);
 

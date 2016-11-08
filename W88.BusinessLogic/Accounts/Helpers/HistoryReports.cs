@@ -25,7 +25,9 @@ namespace W88.BusinessLogic.Accounts.Helpers
         private readonly List<LOV> _status;
         private readonly List<LOV> _ft_status;
         private readonly List<PaymentSettingInfo> _paymentSettings;
-
+        private readonly DateTime _dtFrom;
+        private readonly DateTime _dtTo;
+        
         public HistoryReports(HistoryInfoRequest historyInfoRequest, UserSessionInfo user) 
         {
             _historyInfoRequest = historyInfoRequest;
@@ -37,6 +39,9 @@ namespace W88.BusinessLogic.Accounts.Helpers
             _paymentSettings = base.GetListOfValues<PaymentSettingInfo>("shared/PaymentSettings", "PaymentGateway", false);
 
             _wallets = new Wallets(_user, true);
+
+            _dtFrom = Convert.ToDateTime(_historyInfoRequest.DateFrom.ToShortDateString() + " 00:00");
+            _dtTo = Convert.ToDateTime(_historyInfoRequest.DateTo.ToShortDateString() + " 23:59");
         }
 
         public async Task<List<T>> GetDepositWidrawal<T>() where T :  HistoryInfoDepositWidrawResponse
@@ -47,8 +52,8 @@ namespace W88.BusinessLogic.Accounts.Helpers
                 {
                     operatorId = Convert.ToInt32(OperatorId),
                     memberCode = _user.MemberCode,
-                    datetimeFrom = _historyInfoRequest.DateFrom,
-                    datetimeTo = _historyInfoRequest.DateTo,
+                    datetimeFrom = _dtFrom,
+                    datetimeTo = _dtTo,
                     paymentStatus = _historyInfoRequest.Status,
                     paymentType = _historyInfoRequest.Type
                 };
@@ -91,8 +96,8 @@ namespace W88.BusinessLogic.Accounts.Helpers
                 {
                     operatorId = base.OperatorId,
                     memberCode = _user.MemberCode,
-                    datetimeFrom = _historyInfoRequest.DateFrom,
-                    datetimeTo = _historyInfoRequest.DateTo,
+                    datetimeFrom = _dtFrom,
+                    datetimeTo = _dtTo,
                     transferStatus = _historyInfoRequest.Status,
                     transferType = _historyInfoRequest.Type
                 };
@@ -129,7 +134,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
         {
             using (var svc = new WebRef.wsMemberMS1.memberWSSoapClient())
             {
-                var dtHistory = await svc.MemberPromotionRegistrationHistoryAsync(OperatorId, _user.MemberId, _historyInfoRequest.DateFrom, _historyInfoRequest.DateTo);
+                var dtHistory = await svc.MemberPromotionRegistrationHistoryAsync(OperatorId, _user.MemberId, _dtFrom, _dtTo);
 
                 var response = new List<HistoryInfoPromoClaimResponse>();
                 if (dtHistory.Tables.Count <= 0 || dtHistory.Tables[0].Rows.Count <= 0) return null;
@@ -154,7 +159,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
         {
             using (var svc = new WebRef.wsMemberMS1.memberWSSoapClient())
             {
-                var dtHistory = await svc.MemberReferralHistoryAsync(_user.MemberId, _historyInfoRequest.DateFrom, _historyInfoRequest.DateTo);
+                var dtHistory = await svc.MemberReferralHistoryAsync(_user.MemberId, _dtFrom, _dtTo);
 
                 var response = new HistoryInfoReferralBonusResponse();
                 if (dtHistory.Tables.Count <= 0 || dtHistory.Tables[0].Rows.Count <= 0) return null;
@@ -224,5 +229,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
             var statusFirstOrDefault = _ft_status.FirstOrDefault(x => x.Value.ToUpper() == status.ToUpper());
             return statusFirstOrDefault != null ? statusFirstOrDefault.Text : status;
         }
+
+
     }
 }

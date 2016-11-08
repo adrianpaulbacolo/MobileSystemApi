@@ -3,7 +3,9 @@ namespace W88.BusinessLogic.Accounts.Models
 {
     public class MemberSession
     {
-        public string FirstName = string.Empty;
+        public string FullName = string.Empty;
+
+        public string AccountName = string.Empty;
 
         public string CurrencyCode = string.Empty;
 
@@ -32,8 +34,6 @@ namespace W88.BusinessLogic.Accounts.Models
         public long MemberId = 0;
 
         public string MemberCode = string.Empty;
-
-        public string AccountName = string.Empty;
 
         public string MemberName = string.Empty;
 

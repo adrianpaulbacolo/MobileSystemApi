@@ -63,13 +63,10 @@ namespace W88.BusinessLogic.Shared.Helpers
                 return GetJsonRootResource(jsonFilePath);
             }
 
-            public static dynamic Messages
+            public static dynamic Messages(string languageCode)
             {
-                get
-                {
-                    string jsonFile = GetLocale_i18n_Resource("contents/messages", true);
-                    return Common.DeserializeObject<dynamic>(jsonFile);
-                }
+                string jsonFile = GetLocale_i18n_Resource("contents/messages", true, languageCode);
+                return Common.DeserializeObject<dynamic>(jsonFile);
             }
 
         }

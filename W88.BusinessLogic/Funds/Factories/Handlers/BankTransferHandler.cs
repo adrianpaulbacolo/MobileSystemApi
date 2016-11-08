@@ -11,6 +11,7 @@ using W88.BusinessLogic.Shared.Models;
 using W88.Utilities;
 using W88.Utilities.Constant;
 using W88.Utilities.Data;
+using W88.Utilities.Extensions;
 using W88.Utilities.Log.Helpers;
 using W88.Utilities.Security;
 using W88.WebRef.svcPayDeposit;
@@ -62,6 +63,8 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
                     _secondBanks = new ListOfValuesHelper().GetMemberSecondaryBankAccounts(userInfo).Result;
                 }
             }
+
+            this._fundsInfo.MobileNumber = string.Format("{0}-{1}", this._fundsInfo.CountryCode, this._fundsInfo.Phone);
         }
 
         protected override ProcessCode ValidateData(ref ProcessCode process)
@@ -249,6 +252,27 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
                         process.Message.Add(base.GetMessage("Pay_InvalidBankAddress"));
                         process.IsAbort = true;
                     }
+
+                    if (string.IsNullOrEmpty(_fundsInfo.Phone))
+                    {
+                        process.Code = (int)Constants.StatusCode.Error;
+                        process.Message.Add(base.GetMessage("Reg_MissingContact"));
+                        process.IsAbort = true;
+                    }
+
+                    if (Validation.IsInjection(_fundsInfo.Phone))
+                    {
+                        process.Code = (int)Constants.StatusCode.Error;
+                        process.Message.Add(base.GetMessage("Reg_InvalidContact"));
+                        process.IsAbort = true;
+                    }
+
+                    if (!_fundsInfo.MobileNumber.IsContactNumberMatch())
+                    {
+                        process.Code = (int)Constants.StatusCode.Error;
+                        process.Message.Add(base.GetMessage("Reg_InvalidContact"));
+                        process.IsAbort = true;
+                    }
                 }
             }
 
@@ -295,9 +319,6 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
         protected override async Task<XElement> CreateWithdrawal(ProcessCode process)
         {
             string memberIC = string.Empty;
-            string memberMobile = string.Empty;
-            bool mobileNotify = false;
-
 
             if (this._fundsInfo.BankAddressId > 0 && this._fundsInfo.BankBranchId > 0)
             {
@@ -305,7 +326,7 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
                 {
                     return await client.createBankTransferTransactionV1Async(OperatorId, this._userInfo.MemberCode, Convert.ToInt64(this._setting.Id), this._userInfo.CurrencyCode,
                         this._fundsInfo.Amount, this._fundsInfo.AccountName, this._fundsInfo.AccountNumber, this._fundsInfo.BankAddress, this._fundsInfo.BankBranch, this._fundsInfo.Bank.Value,
-                        this._fundsInfo.Bank.Text, this._fundsInfo.BankName, memberIC, memberMobile, mobileNotify, Convert.ToString(WithdrawalSource.Mobile));
+                        this._fundsInfo.Bank.Text, this._fundsInfo.BankName, memberIC, this._fundsInfo.MobileNumber, this._fundsInfo.NotifyMobile, Convert.ToString(WithdrawalSource.Mobile));
                 }
             }
             else
@@ -314,7 +335,7 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
                 {
                     return await client.createBankTransferTransactionV2Async(OperatorId, this._userInfo.MemberCode, Convert.ToInt64(this._setting.Id), this._userInfo.CurrencyCode,
                         this._fundsInfo.Amount, this._fundsInfo.AccountName, this._fundsInfo.AccountNumber, this._fundsInfo.BankAddressId, this._fundsInfo.BankBranchId, this._fundsInfo.Bank.Value,
-                        this._fundsInfo.Bank.Text, this._fundsInfo.BankName, memberIC, memberMobile, mobileNotify, Convert.ToString(WithdrawalSource.Mobile));
+                        this._fundsInfo.Bank.Text, this._fundsInfo.BankName, memberIC, this._fundsInfo.MobileNumber, this._fundsInfo.NotifyMobile, Convert.ToString(WithdrawalSource.Mobile));
                 }
             }
         }

@@ -37,11 +37,12 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
                 fundInfo = new FundsInfo();
 
             _fundsInfo = fundInfo;
-
+            
             if (setting == null)
                 setting = new PaymentSettingInfo();
 
             _setting = setting;
+
             _cardType = new ListOfValuesHelper().GetCardType();
         }
 
@@ -86,20 +87,6 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
             }
             else
             {
-                if (string.IsNullOrWhiteSpace(_fundsInfo.CardType.Text) || string.IsNullOrWhiteSpace(_fundsInfo.CardType.Value))
-                {
-                    process.Code = (int)Constants.StatusCode.Error;
-                    process.Message.Add(base.GetMessage("Pay_MissingCardType"));
-                    process.IsAbort = true;
-                }
-
-                if (Validation.IsInjection(_fundsInfo.CardType.Text) || Validation.IsInjection(_fundsInfo.CardType.Value))
-                {
-                    process.Code = (int)Constants.StatusCode.Error;
-                    process.Message.Add(base.GetMessage("Pay_MissingCardType"));
-                    process.IsAbort = true;
-                }
-
                 if (!this._cardType.Any(b => b.Text == _fundsInfo.CardType.Text && b.Value == _fundsInfo.CardType.Value))
                 {
                     process.Code = (int)Constants.StatusCode.Error;

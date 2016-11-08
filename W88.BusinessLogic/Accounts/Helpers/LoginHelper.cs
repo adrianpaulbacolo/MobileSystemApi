@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Base.Helpers;
@@ -46,30 +47,33 @@ namespace W88.BusinessLogic.Accounts.Helpers
 
         private ProcessCode ValidateData(LoginInfo loginInfo)
         {
-            var msg = new ProcessCode { Code = (int)Constants.StatusCode.Success, Message = "OK:ParameterValidation" };
+            var msg = new ProcessCode { Code = (int)Constants.StatusCode.Success, Message = new List<string>() };
 
             if (string.IsNullOrEmpty(loginInfo.UserInfo.Username))
             {
                 msg.Code = (int)Constants.StatusCode.Error;
-                msg.Message = base.GetMessage("Login_MissingUsername");
+                msg.Message.Add(base.GetMessage("Login_MissingUsername"));
                 msg.IsAbort = true;
-            }
-            else if (string.IsNullOrEmpty(loginInfo.UserInfo.Password))
-            {
-                msg.Code = (int)Constants.StatusCode.Error;
-                msg.Message = base.GetMessage("Login_MissingPassword");
-                msg.IsAbort = true;
+
+                loginInfo.UserInfo.Username = string.Empty;
             }
             else if (Validation.IsInjection(loginInfo.UserInfo.Username))
             {
                 msg.Code = (int)Constants.StatusCode.Error;
-                msg.Message = base.GetMessage("Login_InvalidUsernamePassword");
+                msg.Message.Add(base.GetMessage("Login_InvalidUsernamePassword"));
+                msg.IsAbort = true;
+            }
+
+            if (string.IsNullOrEmpty(loginInfo.UserInfo.Password))
+            {
+                msg.Code = (int)Constants.StatusCode.Error;
+                msg.Message.Add(base.GetMessage("Login_MissingPassword"));
                 msg.IsAbort = true;
             }
             else if (Validation.IsInjection(Encryption.Decrypt(loginInfo.UserInfo.Password)))
             {
                 msg.Code = (int)Constants.StatusCode.Error;
-                msg.Message = base.GetMessage("Login_InvalidUsernamePassword");
+                msg.Message.Add(base.GetMessage("Login_InvalidUsernamePassword"));
                 msg.IsAbort = true;
             }
 
@@ -78,7 +82,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
 
             AuditTrail.AppendLog(loginInfo.UserInfo.Username, Constants.PageNames.LoginPage,
                 Constants.TaskNames.ParameterValidation, Constants.PageNames.ComponentName, Convert.ToString(msg.Code),
-                msg.Message, string.Empty, string.Empty, msg.Remark,
+                string.Join(" | ", msg.Message), string.Empty, string.Empty, msg.Remark,
                 Convert.ToString(msg.ProcessSerialId), Convert.ToString(msg.Id), false);
 
             return msg;

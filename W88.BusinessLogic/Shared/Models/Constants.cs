@@ -71,7 +71,9 @@
 
             public const string DefaultLanguage = "DefaultSelectedLanguage";
 
-            public const string RiskId = "riskId";
+            public const string OtherBankValue = "OTHER";
+
+            public const string RiskId = "riskId";	
         }
 
         public enum PaymentTransactionType

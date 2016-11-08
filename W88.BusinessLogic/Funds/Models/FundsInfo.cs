@@ -30,11 +30,20 @@ namespace W88.BusinessLogic.Funds.Models
 
         public string ReferenceId { get; set; }
 
+
+        public string CountryCode { get; set; }
+
+        public string Phone { get; set; }
+
+        public string MobileNumber { get; set; }
+
+        public bool NotifyMobile { get; set; }
+
+
         public DateTime DepositDateTime { get; set; }
 
         public LOV DepositChannel { get; set; }
 
-        public string ThankYouPage { get; set; }
 
         public LOV CardType { get; set; }
 
@@ -61,5 +70,7 @@ namespace W88.BusinessLogic.Funds.Models
         }
 
         public string CCV { get; set; }
+
+        public string ThankYouPage { get; set; }
     }
 }

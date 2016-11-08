@@ -90,8 +90,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
                 msg.Message.Add(base.GetMessage("Login_MissingUsername"));
                 msg.IsAbort = true;
             }
-
-            if (Validation.IsInjection(_registerInfo.UserInfo.Username) || _registerInfo.UserInfo.Username.IndexOf(' ') >= 0 || !Validation.IsAlphanumeric(_registerInfo.UserInfo.Username) || _registerInfo.UserInfo.Username.Length < 5 || _registerInfo.UserInfo.Username.Length > 16)
+            else if (Validation.IsInjection(_registerInfo.UserInfo.Username) || !Validation.IsAlphanumeric(_registerInfo.UserInfo.Username) || _registerInfo.UserInfo.Username.Length < 5 || _registerInfo.UserInfo.Username.Length > 16)
             {
                 msg.Code = (int)Constants.StatusCode.Error;
                 msg.Message.Add(base.GetMessage("Login_InvalidUsernamePassword"));
@@ -104,8 +103,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
                 msg.Message.Add(base.GetMessage("Login_MissingPassword"));
                 msg.IsAbort = true;
             }
-
-            if (Validation.IsInjection(Encryption.Decrypt(_registerInfo.UserInfo.Password)) || Encryption.Decrypt(_registerInfo.UserInfo.Password).Length < 8 || Encryption.Decrypt(_registerInfo.UserInfo.Password).Length > 10)
+            else if (Validation.IsInjection(Encryption.Decrypt(_registerInfo.UserInfo.Password)) || Encryption.Decrypt(_registerInfo.UserInfo.Password).Length < 8 || Encryption.Decrypt(_registerInfo.UserInfo.Password).Length > 10)
             {
                 msg.Code = (int)Constants.StatusCode.Error;
                 msg.Message.Add(base.GetMessage("Login_InvalidUsernamePassword"));
@@ -118,8 +116,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
                 msg.Message.Add(base.GetMessage("Reg_MissingEmail"));
                 msg.IsAbort = true;
             }
-
-            if (Validation.IsInjection(_registerInfo.Email))
+            else if (Validation.IsInjection(_registerInfo.Email))
             {
                 msg.Code = (int)Constants.StatusCode.Error;
                 msg.Message.Add(base.GetMessage("Reg_InvalidEmail"));
@@ -132,15 +129,14 @@ namespace W88.BusinessLogic.Accounts.Helpers
                 msg.Message.Add(base.GetMessage("Reg_MissingContact"));
                 msg.IsAbort = true;
             }
-
-            if (Validation.IsInjection(_registerInfo.Phone))
+            else if (Validation.IsInjection(_registerInfo.Phone))
             {
                 msg.Code = (int)Constants.StatusCode.Error;
                 msg.Message.Add(base.GetMessage("Reg_InvalidContact"));
                 msg.IsAbort = true;
             }
 
-            if (!_registerInfo.RexgexContact.IsMatch(_registerInfo.ContactNumber))
+            if (!_registerInfo.ContactNumber.IsContactNumberMatch())
             {
                 msg.Code = (int)Constants.StatusCode.Error;
                 msg.Message.Add(base.GetMessage("Reg_InvalidContact"));
@@ -161,31 +157,28 @@ namespace W88.BusinessLogic.Accounts.Helpers
                     msg.Message.Add(base.GetMessage("Reg_MissingCurrency"));
                     msg.IsAbort = true;
                 }
+                else if (Validation.IsInjection(_registerInfo.CurrencyCode))
+                {
+                    msg.Code = (int)Constants.StatusCode.Error;
+                    msg.Message.Add(base.GetMessage("Reg_MissingCurrency"));
+                    msg.IsAbort = true;
+                }
             }
 
-            if (Validation.IsInjection(_registerInfo.CurrencyCode))
-            {
-                msg.Code = (int)Constants.StatusCode.Error;
-                msg.Message.Add(base.GetMessage("Reg_MissingCurrency"));
-                msg.IsAbort = true;
-            }
-
+            // This changes is for the combined name on frontend only but on the BO everything will be saved in firstname
             if (string.IsNullOrEmpty(_registerInfo.Firstname))
             {
-                // This changes is for the combined name on frontend only but on the BO everything will be saved in firstname
                 msg.Code = (int)Constants.StatusCode.Error;
                 msg.Message.Add(base.GetMessage("Reg_MissingName"));
                 msg.IsAbort = true;
             }
-
-            if (Validation.IsInjection(_registerInfo.Firstname))
+            else if (Validation.IsInjection(_registerInfo.Firstname))
             {
                 msg.Code = (int)Constants.StatusCode.Error;
                 msg.Message.Add(base.GetMessage("Reg_MissingName"));
                 msg.IsAbort = true;
             }
-
-            if (Validation.IsInjection(_registerInfo.Lastname))
+            else if (Validation.IsInjection(_registerInfo.Lastname))
             {
                 msg.Code = (int)Constants.StatusCode.Error;
                 msg.Message.Add(base.GetMessage("Reg_MissingName"));
@@ -198,8 +191,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
                 msg.Message.Add(base.GetMessage("Reg_InvalidDOB"));
                 msg.IsAbort = true;
             }
-
-            if (!_registerInfo.DateOfBirth.IsOver18())
+            else if (!_registerInfo.DateOfBirth.IsOver18())
             {
                 msg.Code = (int)Constants.StatusCode.Error;
                 msg.Message.Add(base.GetMessage("Reg_Required18"));
