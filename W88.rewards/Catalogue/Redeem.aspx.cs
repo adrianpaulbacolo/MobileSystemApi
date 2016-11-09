@@ -164,14 +164,6 @@ public partial class Catalogue_Redeem : CatalogueBasePage
                 }
             }
 
-            if (!(ProductDetails.RedemptionValidity == "1" && ProductDetails.RedemptionValidityCategory == "1"))
-            {
-                Status = Convert.ToString((int) Constants.StatusCode.MemberVip);
-                Message = RewardsHelper.GetTranslation(TranslationKeys.Redemption.VipOnly);
-                ShowMessage(Status, Message);
-                return;
-            }
-
             ProductIdField.Value = ProductDetails.ProductId;
             /**
                 freebet show  currency, hide recipient panel , hide delivery, hide account
@@ -266,7 +258,17 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             tbPostal.Text = redemptionDetails.Postal;
             tbCity.Text = redemptionDetails.City;
             tbCountry.Text = redemptionDetails.CountryCode;
-            tbContact.Text = redemptionDetails.Mobile;          
+            tbContact.Text = redemptionDetails.Mobile;
+
+            if (ProductDetails.Status != (int)Constants.ProductStatus.VipOnly)
+            {
+                return;
+            }
+
+            Status = Convert.ToString((int)Constants.StatusCode.MemberVip);
+            Message = RewardsHelper.GetTranslation(TranslationKeys.Redemption.VipOnly);
+            ShowMessage(Status, Message);
+            redeemButton.Visible = false;
             #endregion
         }
         catch (Exception exception)
@@ -348,7 +350,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         scriptBuilder.Append("setTimeout(function() {showMessage('")
             .Append(status + "','")
             .Append(message + "');}, 300);");
-        ScriptManager.RegisterStartupScript(Page, GetType(), (new Guid()).ToString(), scriptBuilder.ToString(), true);
+        ScriptManager.RegisterStartupScript(Page, GetType(), Convert.ToString(Guid.NewGuid()), scriptBuilder.ToString(), true);
     }
 }
 
