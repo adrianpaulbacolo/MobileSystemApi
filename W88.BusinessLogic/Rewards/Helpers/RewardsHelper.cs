@@ -224,6 +224,7 @@ namespace W88.BusinessLogic.Rewards.Helpers
                         var validity = productDetails.RedemptionValidity.ToUpper();
                         var categoryStatus = 0;
                         var validityStatus = 0;
+
                         if (!category.Equals("ALL"))
                         {
                             categoryStatus = !category.Contains(riskId) ? 0 : 1;
@@ -240,14 +241,10 @@ namespace W88.BusinessLogic.Rewards.Helpers
                         {
                             validityStatus = 1;
                         }
-                        if (categoryStatus == 1 && validityStatus == 1)
-                        {
-                            productDetails.Status = (int)Constants.ProductStatus.Valid;
-                        }
-                        else
-                        {
-                            productDetails.Status = (int)Constants.ProductStatus.VipOnly;
-                        }
+
+                        productDetails.Status = categoryStatus == 1 && validityStatus == 1
+                            ? (int) Constants.ProductStatus.Valid
+                            : (int) Constants.ProductStatus.VipOnly;
                     }
 
                     if(string.IsNullOrEmpty(userSessionInfo.Token))
