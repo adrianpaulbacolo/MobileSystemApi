@@ -206,7 +206,9 @@ public class commonVariables
         BofoPay = 120231,
         AllDebit = 120236,
         EGHL = 120265,
-        NganLuong = 120212
+        NganLuong = 120212,
+        JTPayWeChat = 120262,
+        JTPayAliPay = 120263
     }
 
     public enum WithdrawalMethod
