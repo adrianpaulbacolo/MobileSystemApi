@@ -95,6 +95,7 @@
                     Amount: $('#txtDepositAmount').val(),
                     ThankYouPage: location.protocol + "//" + location.host + "/Thankyou.aspx"
                 }
+                w88Mobile.Gateways.JTPay.gatewayId = "<%=base.PaymentMethodId %>";
                 w88Mobile.Gateways.JTPay.deposit(data, function (response) {
                     switch (response.ResponseCode) {
                         case 1:
