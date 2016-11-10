@@ -83,8 +83,8 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
 
                 if (result.Tables[0].Rows.Count > 0)
                 {
-                    var cookie = Encryption.Encrypting(this._userInfo.CurrentSessionId, Constants.VarNames.PaymentPrivateKey);
-                    var ip = Encryption.Encrypting(new IpHelper().Remote, Constants.VarNames.PaymentPrivateKey);
+                    var cookie = Encryption.Encrypt(EncryptionType.Basic, this._userInfo.CurrentSessionId, Constants.VarNames.PaymentPrivateKey);
+                    var ip = Encryption.Encrypt(EncryptionType.Basic, new IpHelper().Remote, Constants.VarNames.PaymentPrivateKey);
                     var domain = Convert.ToString(result.Tables[0].Rows[0][Constants.VarNames.RedirectUrl]);
 
                     process.Data = new { DummyURL = domain + "api/ECPSSHandler.ashx?requestAmount=" + this._fundsInfo.Amount + "&bankCode=" + this._fundsInfo.Bank.Value + "&cookie=" + cookie + "&ip=" + ip + "&isMobile=true" };

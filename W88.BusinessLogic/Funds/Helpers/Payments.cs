@@ -560,5 +560,30 @@ namespace W88.BusinessLogic.Funds.Helpers
                 return process;
             }
         }
+
+        public ProcessCode GetExchangeRate(decimal amount, string currencyFrom, string currencyTo)
+        {
+            var process = new ProcessCode();
+
+            if (string.IsNullOrWhiteSpace(currencyFrom) && string.IsNullOrWhiteSpace(currencyTo))
+                return process;
+
+            using (var client = new MemberClient())
+            {
+                var response = client.getCurrencyForeignRate(currencyFrom, currencyTo);
+
+                decimal exRate = decimal.Parse(response);
+                decimal convertedAmount = amount * exRate;
+
+                process.Code = (int)Constants.StatusCode.Success;
+                process.Data = new
+                    {
+                        Amount = decimal.Parse(convertedAmount.ToW88StringFormat()),
+                        ExchangeRate = exRate
+                    };
+
+                return process;
+            }
+        }
     }
 }

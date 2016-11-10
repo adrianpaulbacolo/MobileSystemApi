@@ -28,4 +28,13 @@ namespace W88.Utilities.Constant
 
         public const string DeviceId = "Mobile";
     }
+
+    public enum EncryptionType
+    {
+        Basic = 1,
+        Md5Hash = 2,
+        RjnD = 3,
+        Sha256Hash = 4,
+        TripleDESCS = 5
+    }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net.Http;
 using System.Xml.Linq;
 using W88.Utilities.Data;
 
@@ -55,7 +54,60 @@ namespace W88.Utilities
         {
             return (T) Convert.ChangeType(new T(), typeof (T));
         }
+    }
 
+    public static class Encryption
+    {
+        public static string Encrypt(Constant.EncryptionType type, string clearText, string keyName = "")
+        {
+            var encryptedText = string.Empty;
 
+            switch (type)
+            {
+                case Constant.EncryptionType.Basic:
+                    encryptedText = Common.GetObject<Basic>().Encrypt(clearText, 
+                        string.IsNullOrWhiteSpace(keyName) ? Common.GetAppSetting<string>("PrivateKey") : Common.GetAppSetting<string>(keyName));
+                    break;
+                case Constant.EncryptionType.Md5Hash:
+                    encryptedText = Common.GetObject<Md5Hash>().Encrypt(clearText);
+                    break;
+                case Constant.EncryptionType.RjnD:
+                    encryptedText = Common.GetObject<RjnD>().Encrypt(clearText,
+                        string.IsNullOrWhiteSpace(keyName) ? Common.GetAppSetting<string>("EncryptionKey") : Common.GetAppSetting<string>(keyName));
+                    break;
+                case Constant.EncryptionType.Sha256Hash:
+                    encryptedText = Common.GetObject<Sha256Hash>().Encrypt(clearText);
+                    break;
+                case Constant.EncryptionType.TripleDESCS:
+                    var privateKey = Decrypt(Constant.EncryptionType.RjnD, Common.GetAppSetting<string>("PrivateKeyToken"));
+                    encryptedText = Common.GetObject<TripleDESCSProvider>().Encrypt(clearText, privateKey);
+                    break;
+            }
+
+            return encryptedText;
+        }
+
+        public static string Decrypt(Constant.EncryptionType type, string encryptedText, string keyName = "")
+        {
+            var decryptedText = string.Empty;
+
+            switch (type)
+            {
+                case Constant.EncryptionType.Basic:
+                    decryptedText = Common.GetObject<Basic>().Decrypt(encryptedText, 
+                        string.IsNullOrWhiteSpace(keyName) ? Common.GetAppSetting<string>("PrivateKey") : Common.GetAppSetting<string>(keyName));
+                    break;
+                case Constant.EncryptionType.RjnD:
+                    decryptedText = Common.GetObject<RjnD>().Decrypt(encryptedText, 
+                        string.IsNullOrWhiteSpace(keyName) ? Common.GetAppSetting<string>("EncryptionKey") : Common.GetAppSetting<string>(keyName));
+                    break;
+                case Constant.EncryptionType.TripleDESCS:
+                    var privateKey = Decrypt(Constant.EncryptionType.RjnD, Common.GetAppSetting<string>("PrivateKeyToken"));
+                    decryptedText = Common.GetObject<TripleDESCSProvider>().Decrypt(encryptedText, privateKey);
+                    break;
+            }
+
+            return decryptedText;
+        }
     }
 }
