@@ -163,7 +163,7 @@
                 $("#drpContact").attr("disabled", "disabled").off('click');
                 $("#drpDOB").attr("disabled", "disabled").off('click');
                 if (isValidCountry(CDNCountry) && setCurrency(CDNCountry)) {
-                    $('#hidValues').val(CDNCountry + "|" + domain + "|" + "<%= !String.IsNullOrEmpty(headers.ip) ? headers.ip : commonIp.UserIP %>" + "|-");
+                    $('#hidValues').val(CDNCountry + "|" + domain + "|" + "<%= !String.IsNullOrEmpty(headers.ip) ? headers.ip : commonIp.UserIP %>" + "|");
                 } else {
                     $.ajax({
                         contentType: "application/json; charset=utf-8",

@@ -87,4 +87,10 @@ public class commonIp
             //System.Web.HttpContext.Current.Response.Redirect("/forbidden.html");
         }
     }
+
+    public enum Ip2locPermission
+    {
+        blocked,
+        whitelist
+    }
 }
