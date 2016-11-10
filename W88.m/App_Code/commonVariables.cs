@@ -206,7 +206,8 @@ public class commonVariables
         BofoPay = 120231,
         AllDebit = 120236,
         EGHL = 120265,
-        NganLuong = 120212
+        NganLuong = 120212,
+        VenusPoint = 120296
     }
 
     public enum WithdrawalMethod

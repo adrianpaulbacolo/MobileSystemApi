@@ -302,6 +302,18 @@ public static class commonPaymentMethodFunc
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
                 break;
+
+            case commonVariables.DepositMethod.VenusPoint:
+                list = CreateMethodListControl(paymentCode);
+
+                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
+
+                anchor.Attributes.Add("href", "/Deposit/VenusPoint.aspx");
+
+                list.Controls.Add(anchor);
+                depositTabs.Controls.Add(list);
+                break;
+
             default:
                 break;
         }
