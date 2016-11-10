@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Base.Helpers;
-using W88.BusinessLogic.Shared.Helpers;
 using W88.BusinessLogic.Shared.Models;
+using W88.Utilities;
+using W88.Utilities.Constant;
 using W88.Utilities.Geo;
 using W88.Utilities.Log.Helpers;
 using W88.Utilities.Security;
@@ -70,7 +71,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
                 msg.Message.Add(base.GetMessage("Login_MissingPassword"));
                 msg.IsAbort = true;
             }
-            else if (Validation.IsInjection(Encryption.Decrypt(loginInfo.UserInfo.Password)))
+            else if (Validation.IsInjection(Encryption.Decrypt(EncryptionType.RjnD, loginInfo.UserInfo.Password)))
             {
                 msg.Code = (int)Constants.StatusCode.Error;
                 msg.Message.Add(base.GetMessage("Login_InvalidUsernamePassword"));

@@ -295,5 +295,25 @@ namespace W88.API
                 }, ex);
             }
         }
+
+        [HttpGet]
+        [Route("exchangerate")]
+        public HttpResponseMessage GetExchangeRate(decimal amount, string currencyFrom, string currencyTo)
+        {
+            try
+            {
+                var response = new Payments().GetExchangeRate(amount, currencyFrom, currencyTo);
+
+                return ReturnResponse(response);
+            }
+            catch (Exception ex)
+            {
+                return ReturnResponse(new ProcessCode
+                {
+                    Code = (int)Constants.StatusCode.Error,
+                    Message = ex.Message
+                }, ex);
+            }
+        }
     }
 }

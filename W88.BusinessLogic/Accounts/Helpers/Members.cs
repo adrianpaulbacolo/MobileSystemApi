@@ -11,6 +11,8 @@ using W88.BusinessLogic.Base.Helpers;
 using W88.BusinessLogic.Funds.Models;
 using W88.BusinessLogic.Shared.Helpers;
 using W88.BusinessLogic.Shared.Models;
+using W88.Utilities;
+using W88.Utilities.Constant;
 using W88.Utilities.Geo;
 using W88.Utilities.Extensions;
 using W88.Utilities.Security;
@@ -545,7 +547,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
                 return process;
             }
 
-            if (!Encryption.Decrypt(confirmPassword).Equals(Encryption.Decrypt(newPassword)))
+            if (!Encryption.Decrypt(EncryptionType.RjnD, confirmPassword).Equals(Encryption.Decrypt(EncryptionType.RjnD, newPassword)))
             {
                 process.ProcessSerialId += 1;
                 process.Code = (int)Constants.StatusCode.Error;
@@ -554,9 +556,9 @@ namespace W88.BusinessLogic.Accounts.Helpers
                 return process;
             }
 
-            if (Validation.IsInjection(Encryption.Decrypt(password))
-                || Validation.IsInjection(Encryption.Decrypt(newPassword))
-                || Validation.IsInjection(Encryption.Decrypt(confirmPassword)))
+            if (Validation.IsInjection(Encryption.Decrypt(EncryptionType.RjnD, password))
+                || Validation.IsInjection(Encryption.Decrypt(EncryptionType.RjnD, newPassword))
+                || Validation.IsInjection(Encryption.Decrypt(EncryptionType.RjnD, confirmPassword)))
             {
                 process.ProcessSerialId += 1;
                 process.Code = (int)Constants.StatusCode.Error;

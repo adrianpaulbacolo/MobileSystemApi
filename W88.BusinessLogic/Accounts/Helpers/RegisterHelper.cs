@@ -103,7 +103,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
                 msg.Message.Add(base.GetMessage("Login_MissingPassword"));
                 msg.IsAbort = true;
             }
-            else if (Validation.IsInjection(Encryption.Decrypt(_registerInfo.UserInfo.Password)) || Encryption.Decrypt(_registerInfo.UserInfo.Password).Length < 8 || Encryption.Decrypt(_registerInfo.UserInfo.Password).Length > 10)
+            else if (Validation.IsInjection(Encryption.Decrypt(EncryptionType.RjnD, _registerInfo.UserInfo.Password)) || Encryption.Decrypt(EncryptionType.RjnD, _registerInfo.UserInfo.Password).Length < 8 || Encryption.Decrypt(EncryptionType.RjnD, _registerInfo.UserInfo.Password).Length > 10)
             {
                 msg.Code = (int)Constants.StatusCode.Error;
                 msg.Message.Add(base.GetMessage("Login_InvalidUsernamePassword"));

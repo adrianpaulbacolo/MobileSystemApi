@@ -58,6 +58,13 @@ namespace W88.BusinessLogic.Funds.Factories
                 case "120212":
                     return new NganLuongHandler(userInfo, fundsInfo, settings);
 
+                case "120296":
+                    return new VenusPointHandler(userInfo, fundsInfo, settings);
+
+                case "120262":
+                case "120263":
+                    return new JTPayHandler(userInfo, fundsInfo, settings);
+
                 default:
                     return null;
             }
