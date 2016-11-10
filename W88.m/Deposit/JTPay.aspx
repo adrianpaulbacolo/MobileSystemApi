@@ -19,8 +19,7 @@
             </a>
             <% } %>
 
-            <%--<h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dNganLuong", commonVariables.PaymentMethodsXML))%></h1>--%>
-            <h1 class="title">Test</h1>
+            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dNganLuong", commonVariables.PaymentMethodsXML))%></h1>
 
         </header>
 
