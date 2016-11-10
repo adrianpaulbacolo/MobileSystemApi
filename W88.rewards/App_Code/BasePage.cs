@@ -7,6 +7,7 @@ using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Rewards.Models;
 using W88.Utilities;
 
+
 public class BasePage : Page
 {
     protected bool HasSession = false;
@@ -39,14 +40,22 @@ public class BasePage : Page
     {
         try
         {
-            var token = HttpContext.Current.Request.Headers["token"];
+            var token = HttpContext.Current.Request.QueryString.Get("token");
+            if (!string.IsNullOrEmpty(token))
+            {                
+                token = Encryption.Decrypt(W88.Utilities.Constant.EncryptionType.TripleDESCS, token);               
+            }
+
             if (string.IsNullOrEmpty(token))
             {
-                var cookie = HttpContext.Current.Request.Cookies["user"];
-                if (cookie == null) return;
-                var user = Common.DeserializeObject<MemberSession>(cookie.Value);
-                if (user == null) return;
-                token = user.Token;
+                token = HttpContext.Current.Request.Headers.Get("token");
+                if (string.IsNullOrEmpty(token))
+                {
+                    var cookie = HttpContext.Current.Request.Cookies["user"];
+                    var user = Common.DeserializeObject<MemberSession>(cookie.Value);
+                    if (user == null) return;
+                    token = user.Token;     
+                }
             }
 
             if (string.IsNullOrEmpty(token)) return;

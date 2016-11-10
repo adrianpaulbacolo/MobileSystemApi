@@ -3,11 +3,11 @@ using System.Web;
 using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Rewards.Models;
 using W88.BusinessLogic.Shared.Helpers;
-using W88.Utilities;
 
 public partial class _Default : BasePage
 {
     protected string AlertMessage = string.Empty;
+    protected string Language = string.Empty;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -29,14 +29,8 @@ public partial class _Default : BasePage
         }
         #endregion
 
-        if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("AffiliateId"))) { Common.SetSessionVariable("AffiliateId", HttpContext.Current.Request.QueryString.Get("AffiliateId")); }
-
-        if (HasSession)
-        {
-            Response.Redirect(string.Format("/Index.aspx?lang={0}", LanguageHelpers.SelectedLanguage), false);
-        }
-
-        if (string.IsNullOrEmpty(HttpContext.Current.Request.QueryString["lang"]))
+        Language = HttpContext.Current.Request.QueryString["lang"];
+        if (string.IsNullOrEmpty(Language))
         {
             Response.Redirect("/Lang.aspx", false);
         }
