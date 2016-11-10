@@ -3,6 +3,7 @@ using System.Web;
 using System.Text;
 using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Rewards.Models;
+using W88.BusinessLogic.Shared.Models;
 using W88.Utilities;
 using W88.Utilities.Log.Helpers;
 
@@ -10,10 +11,10 @@ public partial class Catalogue_Detail : CatalogueBasePage
 {
     protected string RedirectUri = "/Catalogue/Detail.aspx";
     protected bool IsValidRedemption = false;
-    protected bool IsRedemptionLimitReached = false;
-    protected bool IsProcessingLimitReached = false;
-    protected string VipOnly = string.Empty;
-    protected string Errormsg = string.Empty;
+    protected bool IsLimitReached = false;
+    protected bool IsPending = false;
+    protected bool IsVipOnly = false;
+    protected string VipOnlyMessage = string.Empty;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -37,39 +38,14 @@ public partial class Catalogue_Detail : CatalogueBasePage
                 return;
             }
 
-            var productDetails = await RewardsHelper.GetProductDetails(UserSessionInfo, productId);
+            RedirectUri = !HasSession
+                            ? string.Format(@"/_Secure/Login.aspx?redirect=/Catalogue/Redeem.aspx&productId={0}", productId)
+                            : string.Format(@"/Catalogue/Redeem.aspx?productId={0}", productId);
 
+            var productDetails = await RewardsHelper.GetProductDetails(UserSessionInfo, productId);
             if (productDetails == null)
             {
                 return;
-            }
-
-            RedirectUri = !HasSession
-                ? string.Format(@"/_Secure/Login.aspx?redirect=/Catalogue/Redeem.aspx&productId={0}", productId)
-                : string.Format(@"/Catalogue/Redeem.aspx?productId={0}", productId);
-
-            if (productDetails.RedemptionValidity == "1" && productDetails.RedemptionValidityCategory == "1")
-            {
-                IsValidRedemption = true;
-                var vipCategoryId = Common.GetAppSetting<string>("vipCategoryId");
-                if (productDetails.CategoryId.Equals(vipCategoryId))
-                {
-                    var redemptionLimitResult = await RewardsHelper.CheckRedemptionLimitForVipCategory(UserSessionInfo.MemberCode, vipCategoryId);
-
-                    switch (redemptionLimitResult)
-                    {
-                        case 0:
-                            Errormsg = RewardsHelper.GetTranslation(TranslationKeys.Redemption.BirthdayItemRedeemed);
-                            IsRedemptionLimitReached = true;
-                            IsValidRedemption = false;
-                            break;
-                        case 1:
-                            Errormsg = RewardsHelper.GetTranslation(TranslationKeys.Redemption.BirthdayItemPending);
-                            IsProcessingLimitReached = true;
-                            IsValidRedemption = false;
-                            break;
-                    }
-                }
             }
 
             // Set label and image values
@@ -97,6 +73,28 @@ public partial class Catalogue_Detail : CatalogueBasePage
 
             lblDescription.Text = productDetails.ProductDescription;
             lblName.Text = productDetails.ProductName;
+
+            IsVipOnly = productDetails.Status == (int)Constants.ProductStatus.VipOnly;
+            IsValidRedemption = !IsVipOnly;
+            VipOnlyMessage = RewardsHelper.GetTranslation(TranslationKeys.Redemption.VipOnly);
+
+            var vipCategoryId = Common.GetAppSetting<string>("vipCategoryId");
+            if (!productDetails.CategoryId.Equals(vipCategoryId))
+            {
+                return;
+            }
+            var redemptionLimitResult = await RewardsHelper.CheckRedemptionLimitForVipCategory(UserSessionInfo.MemberCode, vipCategoryId);
+            switch (redemptionLimitResult)
+            {
+                case 0:
+                    VipOnlyMessage = RewardsHelper.GetTranslation(TranslationKeys.Redemption.BirthdayItemRedeemed);
+                    IsLimitReached = true;
+                    break;
+                case 1:
+                    VipOnlyMessage = RewardsHelper.GetTranslation(TranslationKeys.Redemption.BirthdayItemPending);
+                    IsPending = true;
+                    break;
+            }          
         }
         catch (Exception exception)
         {
@@ -106,7 +104,6 @@ public partial class Catalogue_Detail : CatalogueBasePage
 
     protected override void SetLabels()
     {
-        VipOnly = RewardsHelper.GetTranslation(TranslationKeys.Redemption.VipOnly);
         const string colon = ":";
         lbcurr.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.Currency) + colon;
         lbperiod.Text = RewardsHelper.GetTranslation(TranslationKeys.Redemption.Delivery);
