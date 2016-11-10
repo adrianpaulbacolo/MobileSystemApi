@@ -1,5 +1,5 @@
-﻿using System;
-using W88.BusinessLogic.Shared.Helpers;
+﻿using W88.Utilities;
+using W88.Utilities.Constant;
 
 namespace W88.BusinessLogic.Accounts.Models
 {
@@ -12,7 +12,7 @@ namespace W88.BusinessLogic.Accounts.Models
         public string Password
         {
             get { return _password; }
-            set { _password = Encryption.Encrypt(value); }
+            set { _password = Encryption.Encrypt(EncryptionType.RjnD, value); }
         }
     }
 }

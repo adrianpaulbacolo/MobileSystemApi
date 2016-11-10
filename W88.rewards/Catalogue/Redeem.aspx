@@ -158,10 +158,10 @@
             }
             switch (status) {
                 case '3':
-                    $('#redeemButton').attr("disabled", true);
+                    $('div.footer').removeClass('footer');
                     break;
                 case '-1':
-                    $('#redeemButton').attr("disabled", false);
+                    $('#redeemButton').attr('disabled', false);
                     break;
             }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using W88.Utilities.Constant;
 
@@ -48,4 +49,15 @@ namespace W88.Utilities.Extensions
             return enumurable.FirstOrDefault();
         }
     }
+
+    public static class StringExtension
+    {
+        public static bool IsContactNumberMatch(this string item)
+        {
+            var contactRegEx = new Regex("([0-9]{1,4})[-]([0-9]{6,12})$");
+
+            return contactRegEx.IsMatch(item);
+        }
+    }
+
 }

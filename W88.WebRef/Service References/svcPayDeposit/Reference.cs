@@ -13,6 +13,352 @@ namespace W88.WebRef.svcPayDeposit {
     using System;
     
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="YomPayAlipayCallbackResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.DataContracts")]
+    [System.SerializableAttribute()]
+    public partial class YomPayAlipayCallbackResponse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Mer_NoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Order_AmountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Order_NoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Return_ParamsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SignField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Trade_NoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Trade_StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Trade_TimeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Mer_No {
+            get {
+                return this.Mer_NoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Mer_NoField, value) != true)) {
+                    this.Mer_NoField = value;
+                    this.RaisePropertyChanged("Mer_No");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Order_Amount {
+            get {
+                return this.Order_AmountField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Order_AmountField, value) != true)) {
+                    this.Order_AmountField = value;
+                    this.RaisePropertyChanged("Order_Amount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Order_No {
+            get {
+                return this.Order_NoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Order_NoField, value) != true)) {
+                    this.Order_NoField = value;
+                    this.RaisePropertyChanged("Order_No");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Return_Params {
+            get {
+                return this.Return_ParamsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Return_ParamsField, value) != true)) {
+                    this.Return_ParamsField = value;
+                    this.RaisePropertyChanged("Return_Params");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Sign {
+            get {
+                return this.SignField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SignField, value) != true)) {
+                    this.SignField = value;
+                    this.RaisePropertyChanged("Sign");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Trade_No {
+            get {
+                return this.Trade_NoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Trade_NoField, value) != true)) {
+                    this.Trade_NoField = value;
+                    this.RaisePropertyChanged("Trade_No");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Trade_Status {
+            get {
+                return this.Trade_StatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Trade_StatusField, value) != true)) {
+                    this.Trade_StatusField = value;
+                    this.RaisePropertyChanged("Trade_Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Trade_Time {
+            get {
+                return this.Trade_TimeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Trade_TimeField, value) != true)) {
+                    this.Trade_TimeField = value;
+                    this.RaisePropertyChanged("Trade_Time");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RfuAlipayCallbackResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.DataContracts")]
+    [System.SerializableAttribute()]
+    public partial class RfuAlipayCallbackResponse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AppTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BankBillNoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EncodeTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GoodsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OrderAmountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OrderNoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PartyIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SignMD5Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SuccField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TradeNoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AppType {
+            get {
+                return this.AppTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AppTypeField, value) != true)) {
+                    this.AppTypeField = value;
+                    this.RaisePropertyChanged("AppType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BankBillNo {
+            get {
+                return this.BankBillNoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BankBillNoField, value) != true)) {
+                    this.BankBillNoField = value;
+                    this.RaisePropertyChanged("BankBillNo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EncodeType {
+            get {
+                return this.EncodeTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EncodeTypeField, value) != true)) {
+                    this.EncodeTypeField = value;
+                    this.RaisePropertyChanged("EncodeType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Goods {
+            get {
+                return this.GoodsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GoodsField, value) != true)) {
+                    this.GoodsField = value;
+                    this.RaisePropertyChanged("Goods");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OrderAmount {
+            get {
+                return this.OrderAmountField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OrderAmountField, value) != true)) {
+                    this.OrderAmountField = value;
+                    this.RaisePropertyChanged("OrderAmount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OrderNo {
+            get {
+                return this.OrderNoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OrderNoField, value) != true)) {
+                    this.OrderNoField = value;
+                    this.RaisePropertyChanged("OrderNo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PartyId {
+            get {
+                return this.PartyIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PartyIdField, value) != true)) {
+                    this.PartyIdField = value;
+                    this.RaisePropertyChanged("PartyId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SignMD5 {
+            get {
+                return this.SignMD5Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SignMD5Field, value) != true)) {
+                    this.SignMD5Field = value;
+                    this.RaisePropertyChanged("SignMD5");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Succ {
+            get {
+                return this.SuccField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SuccField, value) != true)) {
+                    this.SuccField = value;
+                    this.RaisePropertyChanged("Succ");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TradeNo {
+            get {
+                return this.TradeNoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TradeNoField, value) != true)) {
+                    this.TradeNoField = value;
+                    this.RaisePropertyChanged("TradeNo");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DepositSource", Namespace="http://schemas.datacontract.org/2004/07/Services")]
     public enum DepositSource : int {
@@ -1025,179 +1371,6 @@ namespace W88.WebRef.svcPayDeposit {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TenalipayAlipayCallbackResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.DataContracts")]
-    [System.SerializableAttribute()]
-    public partial class TenalipayAlipayCallbackResponse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AmountField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DatetimeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MemberIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string OrderIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Reserved1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Reserved2Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Reserved3Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ReturnCodeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SignField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Amount {
-            get {
-                return this.AmountField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AmountField, value) != true)) {
-                    this.AmountField = value;
-                    this.RaisePropertyChanged("Amount");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Datetime {
-            get {
-                return this.DatetimeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DatetimeField, value) != true)) {
-                    this.DatetimeField = value;
-                    this.RaisePropertyChanged("Datetime");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MemberID {
-            get {
-                return this.MemberIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MemberIDField, value) != true)) {
-                    this.MemberIDField = value;
-                    this.RaisePropertyChanged("MemberID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OrderID {
-            get {
-                return this.OrderIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OrderIDField, value) != true)) {
-                    this.OrderIDField = value;
-                    this.RaisePropertyChanged("OrderID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Reserved1 {
-            get {
-                return this.Reserved1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Reserved1Field, value) != true)) {
-                    this.Reserved1Field = value;
-                    this.RaisePropertyChanged("Reserved1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Reserved2 {
-            get {
-                return this.Reserved2Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Reserved2Field, value) != true)) {
-                    this.Reserved2Field = value;
-                    this.RaisePropertyChanged("Reserved2");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Reserved3 {
-            get {
-                return this.Reserved3Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Reserved3Field, value) != true)) {
-                    this.Reserved3Field = value;
-                    this.RaisePropertyChanged("Reserved3");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ReturnCode {
-            get {
-                return this.ReturnCodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ReturnCodeField, value) != true)) {
-                    this.ReturnCodeField = value;
-                    this.RaisePropertyChanged("ReturnCode");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Sign {
-            get {
-                return this.SignField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SignField, value) != true)) {
-                    this.SignField = value;
-                    this.RaisePropertyChanged("Sign");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="YingBaoWeChatCallbackResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.DataContracts")]
     [System.SerializableAttribute()]
     public partial class YingBaoWeChatCallbackResponse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -2144,9 +2317,232 @@ namespace W88.WebRef.svcPayDeposit {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="YomPayWeChatCallbackResponse", Namespace="http://schemas.datacontract.org/2004/07/Services.DataContracts")]
+    [System.SerializableAttribute()]
+    public partial class YomPayWeChatCallbackResponse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Mer_NoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Order_AmountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Order_NoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Return_ParamsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SignField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Trade_NoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Trade_StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Trade_TimeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Mer_No {
+            get {
+                return this.Mer_NoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Mer_NoField, value) != true)) {
+                    this.Mer_NoField = value;
+                    this.RaisePropertyChanged("Mer_No");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Order_Amount {
+            get {
+                return this.Order_AmountField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Order_AmountField, value) != true)) {
+                    this.Order_AmountField = value;
+                    this.RaisePropertyChanged("Order_Amount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Order_No {
+            get {
+                return this.Order_NoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Order_NoField, value) != true)) {
+                    this.Order_NoField = value;
+                    this.RaisePropertyChanged("Order_No");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Return_Params {
+            get {
+                return this.Return_ParamsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Return_ParamsField, value) != true)) {
+                    this.Return_ParamsField = value;
+                    this.RaisePropertyChanged("Return_Params");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Sign {
+            get {
+                return this.SignField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SignField, value) != true)) {
+                    this.SignField = value;
+                    this.RaisePropertyChanged("Sign");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Trade_No {
+            get {
+                return this.Trade_NoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Trade_NoField, value) != true)) {
+                    this.Trade_NoField = value;
+                    this.RaisePropertyChanged("Trade_No");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Trade_Status {
+            get {
+                return this.Trade_StatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Trade_StatusField, value) != true)) {
+                    this.Trade_StatusField = value;
+                    this.RaisePropertyChanged("Trade_Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Trade_Time {
+            get {
+                return this.Trade_TimeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Trade_TimeField, value) != true)) {
+                    this.Trade_TimeField = value;
+                    this.RaisePropertyChanged("Trade_Time");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="svcPayDeposit.IDeposit")]
     public interface IDeposit {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateYomPayAlipayTransaction", ReplyAction="http://tempuri.org/IDeposit/validateYomPayAlipayTransactionResponse")]
+        string validateYomPayAlipayTransaction(string ip, W88.WebRef.svcPayDeposit.YomPayAlipayCallbackResponse response);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateYomPayAlipayTransaction", ReplyAction="http://tempuri.org/IDeposit/validateYomPayAlipayTransactionResponse")]
+        System.Threading.Tasks.Task<string> validateYomPayAlipayTransactionAsync(string ip, W88.WebRef.svcPayDeposit.YomPayAlipayCallbackResponse response);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateJutaPayTransaction", ReplyAction="http://tempuri.org/IDeposit/validateJutaPayTransactionResponse")]
+        string validateJutaPayTransaction(string ip, string seller, string datetime, string itemid, string itemdescription, string invoiceno, string confirmdata, string itemprice, string tranresult, string itempriceconversion, string selectedFI);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateJutaPayTransaction", ReplyAction="http://tempuri.org/IDeposit/validateJutaPayTransactionResponse")]
+        System.Threading.Tasks.Task<string> validateJutaPayTransactionAsync(string ip, string seller, string datetime, string itemid, string itemdescription, string invoiceno, string confirmdata, string itemprice, string tranresult, string itempriceconversion, string selectedFI);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateIShowTransaction", ReplyAction="http://tempuri.org/IDeposit/validateIShowTransactionResponse")]
+        string validateIShowTransaction(string ip, string userId, string serial, string amt, string gid, string passport, string dealerId, string dealerName, string dealerIdSub, string currency, string sid, string prCode, string clientIp, string pType, string chksum);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateIShowTransaction", ReplyAction="http://tempuri.org/IDeposit/validateIShowTransactionResponse")]
+        System.Threading.Tasks.Task<string> validateIShowTransactionAsync(string ip, string userId, string serial, string amt, string gid, string passport, string dealerId, string dealerName, string dealerIdSub, string currency, string sid, string prCode, string clientIp, string pType, string chksum);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateVenusPointTransaction", ReplyAction="http://tempuri.org/IDeposit/validateVenusPointTransactionResponse")]
+        string validateVenusPointTransaction(string ip, string transactionId, string processorTransId, string amount, string currency, string status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateVenusPointTransaction", ReplyAction="http://tempuri.org/IDeposit/validateVenusPointTransactionResponse")]
+        System.Threading.Tasks.Task<string> validateVenusPointTransactionAsync(string ip, string transactionId, string processorTransId, string amount, string currency, string status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateRfuAlipayTransaction", ReplyAction="http://tempuri.org/IDeposit/validateRfuAlipayTransactionResponse")]
+        string validateRfuAlipayTransaction(string ip, W88.WebRef.svcPayDeposit.RfuAlipayCallbackResponse response);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateRfuAlipayTransaction", ReplyAction="http://tempuri.org/IDeposit/validateRfuAlipayTransactionResponse")]
+        System.Threading.Tasks.Task<string> validateRfuAlipayTransactionAsync(string ip, W88.WebRef.svcPayDeposit.RfuAlipayCallbackResponse response);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateFunPayAlipayTransaction", ReplyAction="http://tempuri.org/IDeposit/validateFunPayAlipayTransactionResponse")]
+        string validateFunPayAlipayTransaction(string ip, string orderId, string resultCode, string stateCode, string orderAmount, string payAmount, string acquiringTime, string completeTime, string orderNo, string partnerId, string remark, string charset, string signType, string signMsg);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateFunPayAlipayTransaction", ReplyAction="http://tempuri.org/IDeposit/validateFunPayAlipayTransactionResponse")]
+        System.Threading.Tasks.Task<string> validateFunPayAlipayTransactionAsync(string ip, string orderId, string resultCode, string stateCode, string orderAmount, string payAmount, string acquiringTime, string completeTime, string orderNo, string partnerId, string remark, string charset, string signType, string signMsg);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateFunPayTransaction", ReplyAction="http://tempuri.org/IDeposit/validateFunPayTransactionResponse")]
+        string validateFunPayTransaction(string ip, string domain, string orderId, string resultCode, string stateCode, string orderAmount, string payAmount, string acquiringTime, string completeTime, string orderNo, string partnerId, string remark, string charset, string signType, string signMsg);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateFunPayTransaction", ReplyAction="http://tempuri.org/IDeposit/validateFunPayTransactionResponse")]
+        System.Threading.Tasks.Task<string> validateFunPayTransactionAsync(string ip, string domain, string orderId, string resultCode, string stateCode, string orderAmount, string payAmount, string acquiringTime, string completeTime, string orderNo, string partnerId, string remark, string charset, string signType, string signMsg);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/createOnlineDepositTransactionV4", ReplyAction="http://tempuri.org/IDeposit/createOnlineDepositTransactionV4Response")]
+        System.Xml.Linq.XElement createOnlineDepositTransactionV4(long operatorId, string memberCode, long payMethodId, string merchantAcctId, string requestCurrency, decimal requestAmount, string requestAmountConvertedCurrency, decimal requestAmountConverted, decimal exchangeRate, W88.WebRef.svcPayDeposit.DepositSource source, string bankCode, string vendorMemberAccount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/createOnlineDepositTransactionV4", ReplyAction="http://tempuri.org/IDeposit/createOnlineDepositTransactionV4Response")]
+        System.Threading.Tasks.Task<System.Xml.Linq.XElement> createOnlineDepositTransactionV4Async(long operatorId, string memberCode, long payMethodId, string merchantAcctId, string requestCurrency, decimal requestAmount, string requestAmountConvertedCurrency, decimal requestAmountConverted, decimal exchangeRate, W88.WebRef.svcPayDeposit.DepositSource source, string bankCode, string vendorMemberAccount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/createMobileDepositTransaction_HeepayWeChat", ReplyAction="http://tempuri.org/IDeposit/createMobileDepositTransaction_HeepayWeChatResponse")]
+        string createMobileDepositTransaction_HeepayWeChat(long operatorID, string memberCode, string requestCurrency, decimal requestAmount, string hashToken, string ip);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/createMobileDepositTransaction_HeepayWeChat", ReplyAction="http://tempuri.org/IDeposit/createMobileDepositTransaction_HeepayWeChatResponse")]
+        System.Threading.Tasks.Task<string> createMobileDepositTransaction_HeepayWeChatAsync(long operatorID, string memberCode, string requestCurrency, decimal requestAmount, string hashToken, string ip);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateIWalletTransaction", ReplyAction="http://tempuri.org/IDeposit/validateIWalletTransactionResponse")]
+        string validateIWalletTransaction(string ip, string pNum, string txnId, string amount, string toFee, string currency, string transactionNumber, string result, string cs);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateIWalletTransaction", ReplyAction="http://tempuri.org/IDeposit/validateIWalletTransactionResponse")]
+        System.Threading.Tasks.Task<string> validateIWalletTransactionAsync(string ip, string pNum, string txnId, string amount, string toFee, string currency, string transactionNumber, string result, string cs);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateNineVPayTransaction", ReplyAction="http://tempuri.org/IDeposit/validateNineVPayTransactionResponse")]
+        string validateNineVPayTransaction(string ip, string domain, string partner, string orderNumber, string orderStatus, string payMoney, string sysNumber, string attach, string sign);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateNineVPayTransaction", ReplyAction="http://tempuri.org/IDeposit/validateNineVPayTransactionResponse")]
+        System.Threading.Tasks.Task<string> validateNineVPayTransactionAsync(string ip, string domain, string partner, string orderNumber, string orderStatus, string payMoney, string sysNumber, string attach, string sign);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/createFastDepositTransaction", ReplyAction="http://tempuri.org/IDeposit/createFastDepositTransactionResponse")]
         System.Xml.Linq.XElement createFastDepositTransaction(long operatorId, string memberCode, string channel, long payMethodId, string requestCurrency, decimal requestAmount, long bankAccountId, string bankAccountName, string bankAccountNumber, System.DateTime bankTransferDate, string bankReference, string bankCode, string bankName, string bankNameNative);
@@ -3037,12 +3433,6 @@ namespace W88.WebRef.svcPayDeposit {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validatePayPaidTransaction", ReplyAction="http://tempuri.org/IDeposit/validatePayPaidTransactionResponse")]
         System.Threading.Tasks.Task<string> validatePayPaidTransactionAsync(string ip, W88.WebRef.svcPayDeposit.PayPaidCallbackResponse callbackResponse);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateTenalipayAlipayTransaction", ReplyAction="http://tempuri.org/IDeposit/validateTenalipayAlipayTransactionResponse")]
-        string validateTenalipayAlipayTransaction(string ip, W88.WebRef.svcPayDeposit.TenalipayAlipayCallbackResponse tenalipayAlipayResponse);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateTenalipayAlipayTransaction", ReplyAction="http://tempuri.org/IDeposit/validateTenalipayAlipayTransactionResponse")]
-        System.Threading.Tasks.Task<string> validateTenalipayAlipayTransactionAsync(string ip, W88.WebRef.svcPayDeposit.TenalipayAlipayCallbackResponse tenalipayAlipayResponse);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateYingBaoWeChatTransaction", ReplyAction="http://tempuri.org/IDeposit/validateYingBaoWeChatTransactionResponse")]
         string validateYingBaoWeChatTransaction(string ip, W88.WebRef.svcPayDeposit.YingBaoWeChatCallbackResponse response);
         
@@ -3054,12 +3444,6 @@ namespace W88.WebRef.svcPayDeposit {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateThousandPayTransaction", ReplyAction="http://tempuri.org/IDeposit/validateThousandPayTransactionResponse")]
         System.Threading.Tasks.Task<string> validateThousandPayTransactionAsync(string ip, W88.WebRef.svcPayDeposit.ThousandPayCallbackResponse response);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateJutaPayTransaction", ReplyAction="http://tempuri.org/IDeposit/validateJutaPayTransactionResponse")]
-        string validateJutaPayTransaction(string ip, string seller, string datetime, string itemid, string itemdescription, string invoiceno, string confirmdata, string itemprice, string tranresult, string itempriceconversion);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateJutaPayTransaction", ReplyAction="http://tempuri.org/IDeposit/validateJutaPayTransactionResponse")]
-        System.Threading.Tasks.Task<string> validateJutaPayTransactionAsync(string ip, string seller, string datetime, string itemid, string itemdescription, string invoiceno, string confirmdata, string itemprice, string tranresult, string itempriceconversion);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateBaoKimScratchCardTransaction", ReplyAction="http://tempuri.org/IDeposit/validateBaoKimScratchCardTransactionResponse")]
         W88.WebRef.svcPayDeposit.validateBaoKimScratchCardTransactionResponse validateBaoKimScratchCardTransaction(W88.WebRef.svcPayDeposit.validateBaoKimScratchCardTransactionRequest request);
@@ -3085,6 +3469,24 @@ namespace W88.WebRef.svcPayDeposit {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validatePayTechWeChatTransaction", ReplyAction="http://tempuri.org/IDeposit/validatePayTechWeChatTransactionResponse")]
         System.Threading.Tasks.Task<string> validatePayTechWeChatTransactionAsync(string ip, string appKey, string sign, string out_trade_no, string trade_no, string total_fee, string success_time, string trade_status, string result_code);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validatePaySecTransaction", ReplyAction="http://tempuri.org/IDeposit/validatePaySecTransactionResponse")]
+        string validatePaySecTransaction(string ip, string mid, string oid, string cur, string amt, string status, string cartid, string signature);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validatePaySecTransaction", ReplyAction="http://tempuri.org/IDeposit/validatePaySecTransactionResponse")]
+        System.Threading.Tasks.Task<string> validatePaySecTransactionAsync(string ip, string mid, string oid, string cur, string amt, string status, string cartid, string signature);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateFunPayWeChatTransaction", ReplyAction="http://tempuri.org/IDeposit/validateFunPayWeChatTransactionResponse")]
+        string validateFunPayWeChatTransaction(string ip, string domain, string orderId, string resultCode, string stateCode, string orderAmount, string payAmount, string acquiringTime, string completeTime, string orderNo, string partnerId, string remark, string charset, string signType, string signMsg);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateFunPayWeChatTransaction", ReplyAction="http://tempuri.org/IDeposit/validateFunPayWeChatTransactionResponse")]
+        System.Threading.Tasks.Task<string> validateFunPayWeChatTransactionAsync(string ip, string domain, string orderId, string resultCode, string stateCode, string orderAmount, string payAmount, string acquiringTime, string completeTime, string orderNo, string partnerId, string remark, string charset, string signType, string signMsg);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateYomPayWeChatTransaction", ReplyAction="http://tempuri.org/IDeposit/validateYomPayWeChatTransactionResponse")]
+        string validateYomPayWeChatTransaction(string ip, W88.WebRef.svcPayDeposit.YomPayWeChatCallbackResponse response);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeposit/validateYomPayWeChatTransaction", ReplyAction="http://tempuri.org/IDeposit/validateYomPayWeChatTransactionResponse")]
+        System.Threading.Tasks.Task<string> validateYomPayWeChatTransactionAsync(string ip, W88.WebRef.svcPayDeposit.YomPayWeChatCallbackResponse response);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3496,6 +3898,94 @@ namespace W88.WebRef.svcPayDeposit {
         
         public DepositClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public string validateYomPayAlipayTransaction(string ip, W88.WebRef.svcPayDeposit.YomPayAlipayCallbackResponse response) {
+            return base.Channel.validateYomPayAlipayTransaction(ip, response);
+        }
+        
+        public System.Threading.Tasks.Task<string> validateYomPayAlipayTransactionAsync(string ip, W88.WebRef.svcPayDeposit.YomPayAlipayCallbackResponse response) {
+            return base.Channel.validateYomPayAlipayTransactionAsync(ip, response);
+        }
+        
+        public string validateJutaPayTransaction(string ip, string seller, string datetime, string itemid, string itemdescription, string invoiceno, string confirmdata, string itemprice, string tranresult, string itempriceconversion, string selectedFI) {
+            return base.Channel.validateJutaPayTransaction(ip, seller, datetime, itemid, itemdescription, invoiceno, confirmdata, itemprice, tranresult, itempriceconversion, selectedFI);
+        }
+        
+        public System.Threading.Tasks.Task<string> validateJutaPayTransactionAsync(string ip, string seller, string datetime, string itemid, string itemdescription, string invoiceno, string confirmdata, string itemprice, string tranresult, string itempriceconversion, string selectedFI) {
+            return base.Channel.validateJutaPayTransactionAsync(ip, seller, datetime, itemid, itemdescription, invoiceno, confirmdata, itemprice, tranresult, itempriceconversion, selectedFI);
+        }
+        
+        public string validateIShowTransaction(string ip, string userId, string serial, string amt, string gid, string passport, string dealerId, string dealerName, string dealerIdSub, string currency, string sid, string prCode, string clientIp, string pType, string chksum) {
+            return base.Channel.validateIShowTransaction(ip, userId, serial, amt, gid, passport, dealerId, dealerName, dealerIdSub, currency, sid, prCode, clientIp, pType, chksum);
+        }
+        
+        public System.Threading.Tasks.Task<string> validateIShowTransactionAsync(string ip, string userId, string serial, string amt, string gid, string passport, string dealerId, string dealerName, string dealerIdSub, string currency, string sid, string prCode, string clientIp, string pType, string chksum) {
+            return base.Channel.validateIShowTransactionAsync(ip, userId, serial, amt, gid, passport, dealerId, dealerName, dealerIdSub, currency, sid, prCode, clientIp, pType, chksum);
+        }
+        
+        public string validateVenusPointTransaction(string ip, string transactionId, string processorTransId, string amount, string currency, string status) {
+            return base.Channel.validateVenusPointTransaction(ip, transactionId, processorTransId, amount, currency, status);
+        }
+        
+        public System.Threading.Tasks.Task<string> validateVenusPointTransactionAsync(string ip, string transactionId, string processorTransId, string amount, string currency, string status) {
+            return base.Channel.validateVenusPointTransactionAsync(ip, transactionId, processorTransId, amount, currency, status);
+        }
+        
+        public string validateRfuAlipayTransaction(string ip, W88.WebRef.svcPayDeposit.RfuAlipayCallbackResponse response) {
+            return base.Channel.validateRfuAlipayTransaction(ip, response);
+        }
+        
+        public System.Threading.Tasks.Task<string> validateRfuAlipayTransactionAsync(string ip, W88.WebRef.svcPayDeposit.RfuAlipayCallbackResponse response) {
+            return base.Channel.validateRfuAlipayTransactionAsync(ip, response);
+        }
+        
+        public string validateFunPayAlipayTransaction(string ip, string orderId, string resultCode, string stateCode, string orderAmount, string payAmount, string acquiringTime, string completeTime, string orderNo, string partnerId, string remark, string charset, string signType, string signMsg) {
+            return base.Channel.validateFunPayAlipayTransaction(ip, orderId, resultCode, stateCode, orderAmount, payAmount, acquiringTime, completeTime, orderNo, partnerId, remark, charset, signType, signMsg);
+        }
+        
+        public System.Threading.Tasks.Task<string> validateFunPayAlipayTransactionAsync(string ip, string orderId, string resultCode, string stateCode, string orderAmount, string payAmount, string acquiringTime, string completeTime, string orderNo, string partnerId, string remark, string charset, string signType, string signMsg) {
+            return base.Channel.validateFunPayAlipayTransactionAsync(ip, orderId, resultCode, stateCode, orderAmount, payAmount, acquiringTime, completeTime, orderNo, partnerId, remark, charset, signType, signMsg);
+        }
+        
+        public string validateFunPayTransaction(string ip, string domain, string orderId, string resultCode, string stateCode, string orderAmount, string payAmount, string acquiringTime, string completeTime, string orderNo, string partnerId, string remark, string charset, string signType, string signMsg) {
+            return base.Channel.validateFunPayTransaction(ip, domain, orderId, resultCode, stateCode, orderAmount, payAmount, acquiringTime, completeTime, orderNo, partnerId, remark, charset, signType, signMsg);
+        }
+        
+        public System.Threading.Tasks.Task<string> validateFunPayTransactionAsync(string ip, string domain, string orderId, string resultCode, string stateCode, string orderAmount, string payAmount, string acquiringTime, string completeTime, string orderNo, string partnerId, string remark, string charset, string signType, string signMsg) {
+            return base.Channel.validateFunPayTransactionAsync(ip, domain, orderId, resultCode, stateCode, orderAmount, payAmount, acquiringTime, completeTime, orderNo, partnerId, remark, charset, signType, signMsg);
+        }
+        
+        public System.Xml.Linq.XElement createOnlineDepositTransactionV4(long operatorId, string memberCode, long payMethodId, string merchantAcctId, string requestCurrency, decimal requestAmount, string requestAmountConvertedCurrency, decimal requestAmountConverted, decimal exchangeRate, W88.WebRef.svcPayDeposit.DepositSource source, string bankCode, string vendorMemberAccount) {
+            return base.Channel.createOnlineDepositTransactionV4(operatorId, memberCode, payMethodId, merchantAcctId, requestCurrency, requestAmount, requestAmountConvertedCurrency, requestAmountConverted, exchangeRate, source, bankCode, vendorMemberAccount);
+        }
+        
+        public System.Threading.Tasks.Task<System.Xml.Linq.XElement> createOnlineDepositTransactionV4Async(long operatorId, string memberCode, long payMethodId, string merchantAcctId, string requestCurrency, decimal requestAmount, string requestAmountConvertedCurrency, decimal requestAmountConverted, decimal exchangeRate, W88.WebRef.svcPayDeposit.DepositSource source, string bankCode, string vendorMemberAccount) {
+            return base.Channel.createOnlineDepositTransactionV4Async(operatorId, memberCode, payMethodId, merchantAcctId, requestCurrency, requestAmount, requestAmountConvertedCurrency, requestAmountConverted, exchangeRate, source, bankCode, vendorMemberAccount);
+        }
+        
+        public string createMobileDepositTransaction_HeepayWeChat(long operatorID, string memberCode, string requestCurrency, decimal requestAmount, string hashToken, string ip) {
+            return base.Channel.createMobileDepositTransaction_HeepayWeChat(operatorID, memberCode, requestCurrency, requestAmount, hashToken, ip);
+        }
+        
+        public System.Threading.Tasks.Task<string> createMobileDepositTransaction_HeepayWeChatAsync(long operatorID, string memberCode, string requestCurrency, decimal requestAmount, string hashToken, string ip) {
+            return base.Channel.createMobileDepositTransaction_HeepayWeChatAsync(operatorID, memberCode, requestCurrency, requestAmount, hashToken, ip);
+        }
+        
+        public string validateIWalletTransaction(string ip, string pNum, string txnId, string amount, string toFee, string currency, string transactionNumber, string result, string cs) {
+            return base.Channel.validateIWalletTransaction(ip, pNum, txnId, amount, toFee, currency, transactionNumber, result, cs);
+        }
+        
+        public System.Threading.Tasks.Task<string> validateIWalletTransactionAsync(string ip, string pNum, string txnId, string amount, string toFee, string currency, string transactionNumber, string result, string cs) {
+            return base.Channel.validateIWalletTransactionAsync(ip, pNum, txnId, amount, toFee, currency, transactionNumber, result, cs);
+        }
+        
+        public string validateNineVPayTransaction(string ip, string domain, string partner, string orderNumber, string orderStatus, string payMoney, string sysNumber, string attach, string sign) {
+            return base.Channel.validateNineVPayTransaction(ip, domain, partner, orderNumber, orderStatus, payMoney, sysNumber, attach, sign);
+        }
+        
+        public System.Threading.Tasks.Task<string> validateNineVPayTransactionAsync(string ip, string domain, string partner, string orderNumber, string orderStatus, string payMoney, string sysNumber, string attach, string sign) {
+            return base.Channel.validateNineVPayTransactionAsync(ip, domain, partner, orderNumber, orderStatus, payMoney, sysNumber, attach, sign);
         }
         
         public System.Xml.Linq.XElement createFastDepositTransaction(long operatorId, string memberCode, string channel, long payMethodId, string requestCurrency, decimal requestAmount, long bankAccountId, string bankAccountName, string bankAccountNumber, System.DateTime bankTransferDate, string bankReference, string bankCode, string bankName, string bankNameNative) {
@@ -4617,14 +5107,6 @@ namespace W88.WebRef.svcPayDeposit {
             return base.Channel.validatePayPaidTransactionAsync(ip, callbackResponse);
         }
         
-        public string validateTenalipayAlipayTransaction(string ip, W88.WebRef.svcPayDeposit.TenalipayAlipayCallbackResponse tenalipayAlipayResponse) {
-            return base.Channel.validateTenalipayAlipayTransaction(ip, tenalipayAlipayResponse);
-        }
-        
-        public System.Threading.Tasks.Task<string> validateTenalipayAlipayTransactionAsync(string ip, W88.WebRef.svcPayDeposit.TenalipayAlipayCallbackResponse tenalipayAlipayResponse) {
-            return base.Channel.validateTenalipayAlipayTransactionAsync(ip, tenalipayAlipayResponse);
-        }
-        
         public string validateYingBaoWeChatTransaction(string ip, W88.WebRef.svcPayDeposit.YingBaoWeChatCallbackResponse response) {
             return base.Channel.validateYingBaoWeChatTransaction(ip, response);
         }
@@ -4639,14 +5121,6 @@ namespace W88.WebRef.svcPayDeposit {
         
         public System.Threading.Tasks.Task<string> validateThousandPayTransactionAsync(string ip, W88.WebRef.svcPayDeposit.ThousandPayCallbackResponse response) {
             return base.Channel.validateThousandPayTransactionAsync(ip, response);
-        }
-        
-        public string validateJutaPayTransaction(string ip, string seller, string datetime, string itemid, string itemdescription, string invoiceno, string confirmdata, string itemprice, string tranresult, string itempriceconversion) {
-            return base.Channel.validateJutaPayTransaction(ip, seller, datetime, itemid, itemdescription, invoiceno, confirmdata, itemprice, tranresult, itempriceconversion);
-        }
-        
-        public System.Threading.Tasks.Task<string> validateJutaPayTransactionAsync(string ip, string seller, string datetime, string itemid, string itemdescription, string invoiceno, string confirmdata, string itemprice, string tranresult, string itempriceconversion) {
-            return base.Channel.validateJutaPayTransactionAsync(ip, seller, datetime, itemid, itemdescription, invoiceno, confirmdata, itemprice, tranresult, itempriceconversion);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -4692,6 +5166,30 @@ namespace W88.WebRef.svcPayDeposit {
         
         public System.Threading.Tasks.Task<string> validatePayTechWeChatTransactionAsync(string ip, string appKey, string sign, string out_trade_no, string trade_no, string total_fee, string success_time, string trade_status, string result_code) {
             return base.Channel.validatePayTechWeChatTransactionAsync(ip, appKey, sign, out_trade_no, trade_no, total_fee, success_time, trade_status, result_code);
+        }
+        
+        public string validatePaySecTransaction(string ip, string mid, string oid, string cur, string amt, string status, string cartid, string signature) {
+            return base.Channel.validatePaySecTransaction(ip, mid, oid, cur, amt, status, cartid, signature);
+        }
+        
+        public System.Threading.Tasks.Task<string> validatePaySecTransactionAsync(string ip, string mid, string oid, string cur, string amt, string status, string cartid, string signature) {
+            return base.Channel.validatePaySecTransactionAsync(ip, mid, oid, cur, amt, status, cartid, signature);
+        }
+        
+        public string validateFunPayWeChatTransaction(string ip, string domain, string orderId, string resultCode, string stateCode, string orderAmount, string payAmount, string acquiringTime, string completeTime, string orderNo, string partnerId, string remark, string charset, string signType, string signMsg) {
+            return base.Channel.validateFunPayWeChatTransaction(ip, domain, orderId, resultCode, stateCode, orderAmount, payAmount, acquiringTime, completeTime, orderNo, partnerId, remark, charset, signType, signMsg);
+        }
+        
+        public System.Threading.Tasks.Task<string> validateFunPayWeChatTransactionAsync(string ip, string domain, string orderId, string resultCode, string stateCode, string orderAmount, string payAmount, string acquiringTime, string completeTime, string orderNo, string partnerId, string remark, string charset, string signType, string signMsg) {
+            return base.Channel.validateFunPayWeChatTransactionAsync(ip, domain, orderId, resultCode, stateCode, orderAmount, payAmount, acquiringTime, completeTime, orderNo, partnerId, remark, charset, signType, signMsg);
+        }
+        
+        public string validateYomPayWeChatTransaction(string ip, W88.WebRef.svcPayDeposit.YomPayWeChatCallbackResponse response) {
+            return base.Channel.validateYomPayWeChatTransaction(ip, response);
+        }
+        
+        public System.Threading.Tasks.Task<string> validateYomPayWeChatTransactionAsync(string ip, W88.WebRef.svcPayDeposit.YomPayWeChatCallbackResponse response) {
+            return base.Channel.validateYomPayWeChatTransactionAsync(ip, response);
         }
     }
 }

@@ -4,11 +4,77 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://paymentservices.aqzbouat.com/Deposit.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://paymentservices.aqzbouat.com/Deposit.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://paymentservices.aqzbouat.com/Deposit.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Services" />
-      <xsd:import schemaLocation="http://paymentservices.aqzbouat.com/Deposit.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
-      <xsd:import schemaLocation="http://paymentservices.aqzbouat.com/Deposit.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Services.DataContracts" />
+      <xsd:import schemaLocation="http://paymentservices.aqzbouat.com/Deposit.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Services.DataContracts" />
+      <xsd:import schemaLocation="http://paymentservices.aqzbouat.com/Deposit.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Services" />
+      <xsd:import schemaLocation="http://paymentservices.aqzbouat.com/Deposit.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IDeposit_validateYomPayAlipayTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:validateYomPayAlipayTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_validateYomPayAlipayTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:validateYomPayAlipayTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_validateJutaPayTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:validateJutaPayTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_validateJutaPayTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:validateJutaPayTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_validateIShowTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:validateIShowTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_validateIShowTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:validateIShowTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_validateVenusPointTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:validateVenusPointTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_validateVenusPointTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:validateVenusPointTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_validateRfuAlipayTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:validateRfuAlipayTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_validateRfuAlipayTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:validateRfuAlipayTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_validateFunPayAlipayTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:validateFunPayAlipayTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_validateFunPayAlipayTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:validateFunPayAlipayTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_validateFunPayTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:validateFunPayTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_validateFunPayTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:validateFunPayTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_createOnlineDepositTransactionV4_InputMessage">
+    <wsdl:part name="parameters" element="tns:createOnlineDepositTransactionV4" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_createOnlineDepositTransactionV4_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createOnlineDepositTransactionV4Response" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_createMobileDepositTransaction_HeepayWeChat_InputMessage">
+    <wsdl:part name="parameters" element="tns:createMobileDepositTransaction_HeepayWeChat" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_createMobileDepositTransaction_HeepayWeChat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createMobileDepositTransaction_HeepayWeChatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_validateIWalletTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:validateIWalletTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_validateIWalletTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:validateIWalletTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_validateNineVPayTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:validateNineVPayTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_validateNineVPayTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:validateNineVPayTransactionResponse" />
+  </wsdl:message>
   <wsdl:message name="IDeposit_createFastDepositTransaction_InputMessage">
     <wsdl:part name="parameters" element="tns:createFastDepositTransaction" />
   </wsdl:message>
@@ -465,12 +531,6 @@
   <wsdl:message name="IDeposit_validatePayPaidTransaction_OutputMessage">
     <wsdl:part name="parameters" element="tns:validatePayPaidTransactionResponse" />
   </wsdl:message>
-  <wsdl:message name="IDeposit_validateTenalipayAlipayTransaction_InputMessage">
-    <wsdl:part name="parameters" element="tns:validateTenalipayAlipayTransaction" />
-  </wsdl:message>
-  <wsdl:message name="IDeposit_validateTenalipayAlipayTransaction_OutputMessage">
-    <wsdl:part name="parameters" element="tns:validateTenalipayAlipayTransactionResponse" />
-  </wsdl:message>
   <wsdl:message name="IDeposit_validateYingBaoWeChatTransaction_InputMessage">
     <wsdl:part name="parameters" element="tns:validateYingBaoWeChatTransaction" />
   </wsdl:message>
@@ -482,12 +542,6 @@
   </wsdl:message>
   <wsdl:message name="IDeposit_validateThousandPayTransaction_OutputMessage">
     <wsdl:part name="parameters" element="tns:validateThousandPayTransactionResponse" />
-  </wsdl:message>
-  <wsdl:message name="IDeposit_validateJutaPayTransaction_InputMessage">
-    <wsdl:part name="parameters" element="tns:validateJutaPayTransaction" />
-  </wsdl:message>
-  <wsdl:message name="IDeposit_validateJutaPayTransaction_OutputMessage">
-    <wsdl:part name="parameters" element="tns:validateJutaPayTransactionResponse" />
   </wsdl:message>
   <wsdl:message name="IDeposit_validateBaoKimScratchCardTransaction_InputMessage">
     <wsdl:part name="parameters" element="tns:validateBaoKimScratchCardTransaction" />
@@ -513,7 +567,69 @@
   <wsdl:message name="IDeposit_validatePayTechWeChatTransaction_OutputMessage">
     <wsdl:part name="parameters" element="tns:validatePayTechWeChatTransactionResponse" />
   </wsdl:message>
+  <wsdl:message name="IDeposit_validatePaySecTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:validatePaySecTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_validatePaySecTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:validatePaySecTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_validateFunPayWeChatTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:validateFunPayWeChatTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_validateFunPayWeChatTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:validateFunPayWeChatTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_validateYomPayWeChatTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:validateYomPayWeChatTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IDeposit_validateYomPayWeChatTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:validateYomPayWeChatTransactionResponse" />
+  </wsdl:message>
   <wsdl:portType name="IDeposit">
+    <wsdl:operation name="validateYomPayAlipayTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/validateYomPayAlipayTransaction" message="tns:IDeposit_validateYomPayAlipayTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/validateYomPayAlipayTransactionResponse" message="tns:IDeposit_validateYomPayAlipayTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="validateJutaPayTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/validateJutaPayTransaction" message="tns:IDeposit_validateJutaPayTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/validateJutaPayTransactionResponse" message="tns:IDeposit_validateJutaPayTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="validateIShowTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/validateIShowTransaction" message="tns:IDeposit_validateIShowTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/validateIShowTransactionResponse" message="tns:IDeposit_validateIShowTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="validateVenusPointTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/validateVenusPointTransaction" message="tns:IDeposit_validateVenusPointTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/validateVenusPointTransactionResponse" message="tns:IDeposit_validateVenusPointTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="validateRfuAlipayTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/validateRfuAlipayTransaction" message="tns:IDeposit_validateRfuAlipayTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/validateRfuAlipayTransactionResponse" message="tns:IDeposit_validateRfuAlipayTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="validateFunPayAlipayTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/validateFunPayAlipayTransaction" message="tns:IDeposit_validateFunPayAlipayTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/validateFunPayAlipayTransactionResponse" message="tns:IDeposit_validateFunPayAlipayTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="validateFunPayTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/validateFunPayTransaction" message="tns:IDeposit_validateFunPayTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/validateFunPayTransactionResponse" message="tns:IDeposit_validateFunPayTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="createOnlineDepositTransactionV4">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/createOnlineDepositTransactionV4" message="tns:IDeposit_createOnlineDepositTransactionV4_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/createOnlineDepositTransactionV4Response" message="tns:IDeposit_createOnlineDepositTransactionV4_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="createMobileDepositTransaction_HeepayWeChat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/createMobileDepositTransaction_HeepayWeChat" message="tns:IDeposit_createMobileDepositTransaction_HeepayWeChat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/createMobileDepositTransaction_HeepayWeChatResponse" message="tns:IDeposit_createMobileDepositTransaction_HeepayWeChat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="validateIWalletTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/validateIWalletTransaction" message="tns:IDeposit_validateIWalletTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/validateIWalletTransactionResponse" message="tns:IDeposit_validateIWalletTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="validateNineVPayTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/validateNineVPayTransaction" message="tns:IDeposit_validateNineVPayTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/validateNineVPayTransactionResponse" message="tns:IDeposit_validateNineVPayTransaction_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="createFastDepositTransaction">
       <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/createFastDepositTransaction" message="tns:IDeposit_createFastDepositTransaction_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/createFastDepositTransactionResponse" message="tns:IDeposit_createFastDepositTransaction_OutputMessage" />
@@ -818,10 +934,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/validatePayPaidTransaction" message="tns:IDeposit_validatePayPaidTransaction_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/validatePayPaidTransactionResponse" message="tns:IDeposit_validatePayPaidTransaction_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="validateTenalipayAlipayTransaction">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/validateTenalipayAlipayTransaction" message="tns:IDeposit_validateTenalipayAlipayTransaction_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/validateTenalipayAlipayTransactionResponse" message="tns:IDeposit_validateTenalipayAlipayTransaction_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="validateYingBaoWeChatTransaction">
       <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/validateYingBaoWeChatTransaction" message="tns:IDeposit_validateYingBaoWeChatTransaction_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/validateYingBaoWeChatTransactionResponse" message="tns:IDeposit_validateYingBaoWeChatTransaction_OutputMessage" />
@@ -829,10 +941,6 @@
     <wsdl:operation name="validateThousandPayTransaction">
       <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/validateThousandPayTransaction" message="tns:IDeposit_validateThousandPayTransaction_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/validateThousandPayTransactionResponse" message="tns:IDeposit_validateThousandPayTransaction_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="validateJutaPayTransaction">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/validateJutaPayTransaction" message="tns:IDeposit_validateJutaPayTransaction_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/validateJutaPayTransactionResponse" message="tns:IDeposit_validateJutaPayTransaction_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="validateBaoKimScratchCardTransaction">
       <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/validateBaoKimScratchCardTransaction" message="tns:IDeposit_validateBaoKimScratchCardTransaction_InputMessage" />
@@ -850,9 +958,120 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/validatePayTechWeChatTransaction" message="tns:IDeposit_validatePayTechWeChatTransaction_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/validatePayTechWeChatTransactionResponse" message="tns:IDeposit_validatePayTechWeChatTransaction_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="validatePaySecTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/validatePaySecTransaction" message="tns:IDeposit_validatePaySecTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/validatePaySecTransactionResponse" message="tns:IDeposit_validatePaySecTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="validateFunPayWeChatTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/validateFunPayWeChatTransaction" message="tns:IDeposit_validateFunPayWeChatTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/validateFunPayWeChatTransactionResponse" message="tns:IDeposit_validateFunPayWeChatTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="validateYomPayWeChatTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeposit/validateYomPayWeChatTransaction" message="tns:IDeposit_validateYomPayWeChatTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeposit/validateYomPayWeChatTransactionResponse" message="tns:IDeposit_validateYomPayWeChatTransaction_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDeposit" type="tns:IDeposit">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="validateYomPayAlipayTransaction">
+      <soap:operation soapAction="http://tempuri.org/IDeposit/validateYomPayAlipayTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateJutaPayTransaction">
+      <soap:operation soapAction="http://tempuri.org/IDeposit/validateJutaPayTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateIShowTransaction">
+      <soap:operation soapAction="http://tempuri.org/IDeposit/validateIShowTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateVenusPointTransaction">
+      <soap:operation soapAction="http://tempuri.org/IDeposit/validateVenusPointTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateRfuAlipayTransaction">
+      <soap:operation soapAction="http://tempuri.org/IDeposit/validateRfuAlipayTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateFunPayAlipayTransaction">
+      <soap:operation soapAction="http://tempuri.org/IDeposit/validateFunPayAlipayTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateFunPayTransaction">
+      <soap:operation soapAction="http://tempuri.org/IDeposit/validateFunPayTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createOnlineDepositTransactionV4">
+      <soap:operation soapAction="http://tempuri.org/IDeposit/createOnlineDepositTransactionV4" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createMobileDepositTransaction_HeepayWeChat">
+      <soap:operation soapAction="http://tempuri.org/IDeposit/createMobileDepositTransaction_HeepayWeChat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateIWalletTransaction">
+      <soap:operation soapAction="http://tempuri.org/IDeposit/validateIWalletTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateNineVPayTransaction">
+      <soap:operation soapAction="http://tempuri.org/IDeposit/validateNineVPayTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="createFastDepositTransaction">
       <soap:operation soapAction="http://tempuri.org/IDeposit/createFastDepositTransaction" style="document" />
       <wsdl:input>
@@ -1537,15 +1756,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="validateTenalipayAlipayTransaction">
-      <soap:operation soapAction="http://tempuri.org/IDeposit/validateTenalipayAlipayTransaction" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="validateYingBaoWeChatTransaction">
       <soap:operation soapAction="http://tempuri.org/IDeposit/validateYingBaoWeChatTransaction" style="document" />
       <wsdl:input>
@@ -1557,15 +1767,6 @@
     </wsdl:operation>
     <wsdl:operation name="validateThousandPayTransaction">
       <soap:operation soapAction="http://tempuri.org/IDeposit/validateThousandPayTransaction" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="validateJutaPayTransaction">
-      <soap:operation soapAction="http://tempuri.org/IDeposit/validateJutaPayTransaction" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1602,6 +1803,33 @@
     </wsdl:operation>
     <wsdl:operation name="validatePayTechWeChatTransaction">
       <soap:operation soapAction="http://tempuri.org/IDeposit/validatePayTechWeChatTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validatePaySecTransaction">
+      <soap:operation soapAction="http://tempuri.org/IDeposit/validatePaySecTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateFunPayWeChatTransaction">
+      <soap:operation soapAction="http://tempuri.org/IDeposit/validateFunPayWeChatTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateYomPayWeChatTransaction">
+      <soap:operation soapAction="http://tempuri.org/IDeposit/validateYomPayWeChatTransaction" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

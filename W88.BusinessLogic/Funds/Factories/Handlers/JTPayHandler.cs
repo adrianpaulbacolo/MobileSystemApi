@@ -11,22 +11,22 @@ using W88.BusinessLogic.Shared.Models;
 using W88.Utilities;
 using W88.Utilities.Constant;
 using W88.Utilities.Data;
-using W88.Utilities.Extensions;
 using W88.Utilities.Geo;
 using W88.Utilities.Log.Helpers;
 using W88.Utilities.Security;
+using W88.WebRef.svcPayDeposit;
 using W88.WebRef.wsDummy;
 
 
 namespace W88.BusinessLogic.Funds.Factories.Handlers
 {
-    public class SDPayHandler : FundsBase
+    public class JTPayHandler : FundsBase
     {
         private UserSessionInfo _userInfo;
         private FundsInfo _fundsInfo;
         private PaymentSettingInfo _setting;
 
-        public SDPayHandler(UserSessionInfo userInfo, FundsInfo fundInfo, PaymentSettingInfo setting)
+        public JTPayHandler(UserSessionInfo userInfo, FundsInfo fundInfo, PaymentSettingInfo setting)
             : base(userInfo, fundInfo, setting)
         {
             if (userInfo == null)
@@ -47,8 +47,8 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
 
         protected override void LogResult(ProcessCode process, Constants.PaymentTransactionType paymentType)
         {
-            process.Remark = string.Format("IsSuccess: {0} | PaymentType: {1} | TransactionId: {2} | Amount: {3}",
-                process.IsSuccess, Convert.ToString(paymentType), process.IsSuccess ? process.Data.TransactionId : "", this._fundsInfo.Amount);
+            process.Remark = string.Format("IsSuccess: {0} | PaymentType: {1} | Amount: {2}",
+                process.IsSuccess, Convert.ToString(paymentType), this._fundsInfo.Amount);
 
             AuditTrail.AppendLog(this._userInfo.MemberCode, Constants.PageNames.FundsPage,
                Constants.TaskNames.CreateBOTransaction, Constants.PageNames.ComponentName, Convert.ToString(process.Code),
@@ -56,63 +56,57 @@ namespace W88.BusinessLogic.Funds.Factories.Handlers
                Convert.ToString(process.ProcessSerialId), Convert.ToString(process.Id), false);
         }
 
+        protected override async Task<XElement> CreateDeposit(ProcessCode process)
+        {
+            using (DepositClient client = new DepositClient())
+            {
+                return await client.createOnlineDepositTransactionV1Async(OperatorId, this._userInfo.MemberId, this._userInfo.MemberCode, Convert.ToInt64(this._setting.Id), this._userInfo.CurrencyCode, this._fundsInfo.Amount, DepositSource.Mobile, string.Empty);
+            }
+        }
+
         protected override ProcessCode CreateVendorParameter(ref ProcessCode process)
         {
-            string[] merchantAccount = base.GetPaymentGatewayMerchantSetting(this._setting);
+            string[] infoArray = base.GetPaymentGatewayMerchantSetting(this._setting);
 
-            string merchantKey1 = "", merchantKey2 = "", md5Key = "";
-            if (merchantAccount.Count() == 3)
+            string md5Key = "";
+            if (infoArray.Count() == 1)
             {
-                merchantKey1 = merchantAccount[0];
-                merchantKey2 = merchantAccount[1];
-                md5Key = merchantAccount[2];
+                md5Key = infoArray[0];
             }
 
-            string merchantID = _setting.MerchantId;
-            string order = process.Data.TransactionId;
-            string username = Convert.ToString(this._userInfo.MemberId);
-            string money = this._fundsInfo.Amount.ToW88StringFormat();
-            string language = "zh-cn";
-            string cmd = "6009";
-            string unit = "1";
-
             OperatorSettings operatorSettings = new OperatorSettings(Settings.OperatorName);
-            string postUrl = operatorSettings.Values.Get("SDPay_PostUrl");
-            string backurl = operatorSettings.Values.Get("SDPay_ServerReturnUrl");
+
+            string postUrl = operatorSettings.Values.Get("JTPay_posturl");
+            string notifyUrl = operatorSettings.Values.Get("JTPay_serverreturnurl");
 
 
-            var builder = new StringBuilder();
-            builder.Append("<?xml version=\"1.0\" encoding=\"utf-8\" ?>");
-            builder.Append("<message>");
-            builder.AppendFormat("<cmd>{0}</cmd>", cmd);
-            builder.AppendFormat("<merchantid>{0}</merchantid>", merchantID);
-            builder.AppendFormat("<language>{0}</language>", language);
-            builder.Append("<userinfo>");
-            builder.AppendFormat("<order>{0}</order>", order);
-            builder.AppendFormat("<username>{0}</username>", username);
-            builder.AppendFormat("<money>{0}</money>", money);
-            builder.AppendFormat("<unit>{0}</unit>", unit);
-            builder.AppendFormat("<time>{0}</time>", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
-            builder.Append("<remark></remark>");
-            builder.AppendFormat("<backurl>{0}</backurl>", backurl);
-            builder.Append("</userinfo>");
-            builder.Append("</message>");
+            string p1_usercode = this._setting.MerchantId;
+            string p2_order = process.Data.TransactionId;
+            string p3_money = this._fundsInfo.Amount.ToString();
+            string p4_returnurl = this._fundsInfo.ThankYouPage;
+            string p5_notifyurl = notifyUrl;
+            string p6_ordertime = DateTime.Now.ToString("yyyyMMddHHmmss");
 
-            string md5 = Common.GetObject<Md5Hash>().Encrypt(builder.ToString() + md5Key);
+            string signParameters = string.Format("{0}&{1}&{2}&{3}&{4}&{5}{6}", this._setting.MerchantId, process.Data.TransactionId, p3_money, p4_returnurl, p5_notifyurl, p6_ordertime, md5Key);
 
-            string d = builder.ToString() + md5;
-
-            string des = Common.GetObject<DESCSProvider>().Encrypt(d, merchantKey1, merchantKey2);
+            string p7_sign = Common.GetObject<Md5Hash>().Encrypt(signParameters).ToUpper();
+            string p8_signtype = "1";
+            string p9_paymethod = "3";
 
             process.Data = new
             {
-                TransactionId = order,
                 PostUrl = postUrl,
                 FormData = new
                 {
-                    cmd = cmd,
-                    pid = merchantID,
-                    des = des
+                    p1_usercode = p1_usercode,
+                    p2_order = p2_order,
+                    p3_money = p3_money,
+                    p4_returnurl = p4_returnurl,
+                    p5_notifyurl = p5_notifyurl,
+                    p6_ordertime = p6_ordertime,
+                    p7_sign = p7_sign,
+                    p8_signtype = p8_signtype,
+                    p9_paymethod = p9_paymethod
                 }
             };
 

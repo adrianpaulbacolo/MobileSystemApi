@@ -57,5 +57,7 @@ namespace W88.BusinessLogic.Funds.Models
         public dynamic DepositChannel { get; set; }
 
         public dynamic Message { get; set; }
+
+        public dynamic MobileNumber { get; set; }
     }
 }

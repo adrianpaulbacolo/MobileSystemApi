@@ -210,6 +210,21 @@ public partial class _Secure_Register : BasePage
             if (lstValues.Count > 2) { strIPAddress = lstValues[2]; }
             if (lstValues.Count > 3) { strPermission = lstValues[3]; }
         }
+
+        if (string.IsNullOrEmpty(strCountryCode) || string.Compare(strCountryCode, "-", true) == 0)
+        {
+            if (commonCountry.IsValidCountry(CDNCountryCode))
+            {
+                strCountryCode = CDNCountryCode;
+            }
+            else
+            {
+                using (wsIP2Loc.ServiceSoapClient wsInstance = new wsIP2Loc.ServiceSoapClient())
+                {
+                    wsInstance.location(strIPAddress, ref strCountryCode, ref strPermission);
+                }
+            }
+        }
         #endregion
 
         #region parametersValidation
@@ -308,7 +323,7 @@ public partial class _Secure_Register : BasePage
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/Required18", xeErrors);
             isProcessAbort = true;
         }
-        else if (!string.IsNullOrEmpty(strCountryCode) && commonCountry.IsBlocked(strCountryCode))
+        else if ((!string.IsNullOrEmpty(strCountryCode) && commonCountry.IsBlocked(strCountryCode) && string.IsNullOrEmpty(strPermission)) || strPermission == commonIp.Ip2locPermission.blocked.ToString())
         {
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/CountryBlocked", xeErrors);
             isProcessAbort = true;
@@ -339,21 +354,6 @@ public partial class _Secure_Register : BasePage
             if (string.IsNullOrEmpty(strIPAddress))
             {
                 strIPAddress = commonIp.UserIP;
-            }
-
-            if (string.IsNullOrEmpty(strCountryCode) || string.Compare(strCountryCode, "-", true) == 0)
-            {
-                if (commonCountry.IsValidCountry(CDNCountryCode))
-                {
-                    strCountryCode = CDNCountryCode;
-                }
-                else
-                {
-                using (wsIP2Loc.ServiceSoapClient wsInstance = new wsIP2Loc.ServiceSoapClient())
-                {
-                    wsInstance.location(strIPAddress, ref strCountryCode, ref strPermission);
-                }
-            }
             }
 
             // should assign country based from currency if still empty or "xx"

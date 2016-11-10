@@ -7,37 +7,28 @@ namespace W88.Utilities.Data
 {
     public class Basic : IEncrypt
     {
-
         public string Encrypt(string clearText, string key)
         {
-            string functionReturnValue = null;
-            if (!string.IsNullOrEmpty(clearText))
-            {
-                encryption_manager.encryption encrypt = new encryption_manager.encryption();
-                encrypt.private_key = key;
-                encrypt.message = clearText;
-                functionReturnValue = encrypt.encrypting();
-                encrypt = null;
-            }
-            else { functionReturnValue = string.Empty; }
-            return functionReturnValue;
+            if (string.IsNullOrWhiteSpace(clearText))
+                return string.Empty;
+
+            encryption_manager.encryption encrypt = new encryption_manager.encryption();
+            encrypt.private_key = key;
+            encrypt.message = clearText;
+
+            return encrypt.encrypting();
         }
 
         public string Decrypt(string encryptedText, string key)
         {
-            string functionReturnValue = null;
-            if (!string.IsNullOrEmpty(encryptedText))
-            {
-                encryption_manager.encryption decrypt = new encryption_manager.encryption();
-                decrypt.private_key = key;
-                decrypt.message = encryptedText;
-                functionReturnValue = decrypt.decrypting();
-                decrypt = null;
-            }
-            else { functionReturnValue = string.Empty; }
-            return functionReturnValue;
-        }
+            if (string.IsNullOrWhiteSpace(encryptedText))
+                return string.Empty;
 
-     
+            encryption_manager.encryption decrypt = new encryption_manager.encryption();
+            decrypt.private_key = key;
+            decrypt.message = encryptedText;
+
+            return decrypt.decrypting();
+        }
     }
 }

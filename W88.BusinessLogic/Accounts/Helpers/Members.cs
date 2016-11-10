@@ -11,6 +11,8 @@ using W88.BusinessLogic.Base.Helpers;
 using W88.BusinessLogic.Funds.Models;
 using W88.BusinessLogic.Shared.Helpers;
 using W88.BusinessLogic.Shared.Models;
+using W88.Utilities;
+using W88.Utilities.Constant;
 using W88.Utilities.Geo;
 using W88.Utilities.Extensions;
 using W88.Utilities.Security;
@@ -29,13 +31,16 @@ namespace W88.BusinessLogic.Accounts.Helpers
 
         public MemberSession GetData(DataTable dTable)
         {
+            string lastName = dTable.Rows[0][Constants.VarNames.Lastname].ToString();
+            string firstName = dTable.Rows[0][Constants.VarNames.Firstname].ToString();
+
             var memberSession = new MemberSession
             {
-                Token = dTable.Rows[0]["memberSessionId"].ToString(),
-                MemberId = dTable.Rows[0]["MemberId"].ToString(),
-                CurrencyCode = dTable.Columns["currencyCode"] != null ? dTable.Rows[0]["currencyCode"].ToString() : dTable.Rows[0]["currency"].ToString(),
-                CountryCode = dTable.Columns["countryCode"] != null ? dTable.Rows[0]["countryCode"].ToString() : string.Empty,
-                FirstName = dTable.Columns["FirstName"] != null ? Convert.ToString(dTable.Rows[0]["Firstname"]) : string.Empty,
+                Token = dTable.Rows[0][Constants.VarNames.MemberSessionId].ToString(),
+                MemberId = dTable.Rows[0][Constants.VarNames.MemberId].ToString(),
+                CurrencyCode = dTable.Columns[Constants.VarNames.CurrencyCode] != null ? dTable.Rows[0][Constants.VarNames.CurrencyCode].ToString() : dTable.Rows[0]["currency"].ToString(),
+                CountryCode = dTable.Columns[Constants.VarNames.CountryCode] != null ? dTable.Rows[0][Constants.VarNames.CountryCode].ToString() : string.Empty,
+                FullName = dTable.Columns[Constants.VarNames.Firstname] != null ? Convert.ToString(dTable.Rows[0][Constants.VarNames.Firstname]) : string.Empty,
                 LanguageCode = dTable.Columns["languageCode"] != null ? Convert.ToString(dTable.Rows[0]["languageCode"].ToString()) : string.Empty,
                 PartialSignup = dTable.Columns["partialSignup"] != null ? Convert.ToString(dTable.Rows[0]["partialSignup"].ToString()) : string.Empty,
                 Balance = dTable.Columns["MemberBalance"] != null ? dTable.Rows[0]["MemberBalance"].ToString() : "0.00",
@@ -43,7 +48,9 @@ namespace W88.BusinessLogic.Accounts.Helpers
                 RiskId = dTable.Rows[0]["riskId"].ToString()
             };
 
+            memberSession.AccountName = SetAccountName(memberSession.CurrencyCode, lastName, firstName);
             memberSession.Balance = Convert.ToDecimal(memberSession.Balance).ToW88StringFormat();
+
             return memberSession;
         }
 
@@ -85,7 +92,8 @@ namespace W88.BusinessLogic.Accounts.Helpers
                         {
                             Id = c.Id,
                             Name = c.Name,
-                            Balance = c.Balance
+                            Balance = c.Balance,
+                            CurrencyLabel = c.CurrencyLabel
                         };
 
                         if (!string.IsNullOrWhiteSpace(c.CurrAllowOnly))
@@ -213,7 +221,6 @@ namespace W88.BusinessLogic.Accounts.Helpers
                     var firstName = dsMemberCheck.Tables[0].Rows[0][Constants.VarNames.Firstname].ToString();
 
                     userInfo.MemberName = lastName + firstName;
-                    userInfo.AccountName = SetAccountName(userInfo.CurrencyCode, lastName, firstName);
                 }
 
                 int returnCode;
@@ -359,7 +366,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
                     }
                     else
                     {
-                        if (details.Bank.Text.Contains("other") || details.Bank.Value.Equals("other", StringComparison.OrdinalIgnoreCase))
+                        if (details.Bank.Text.Contains(Constants.VarNames.OtherBankValue) || details.Bank.Value.Equals(Constants.VarNames.OtherBankValue, StringComparison.OrdinalIgnoreCase))
                         {
                             if (string.IsNullOrWhiteSpace(details.BankName))
                             {
@@ -540,7 +547,7 @@ namespace W88.BusinessLogic.Accounts.Helpers
                 return process;
             }
 
-            if (!Encryption.Decrypt(confirmPassword).Equals(Encryption.Decrypt(newPassword)))
+            if (!Encryption.Decrypt(EncryptionType.RjnD, confirmPassword).Equals(Encryption.Decrypt(EncryptionType.RjnD, newPassword)))
             {
                 process.ProcessSerialId += 1;
                 process.Code = (int)Constants.StatusCode.Error;
@@ -549,9 +556,9 @@ namespace W88.BusinessLogic.Accounts.Helpers
                 return process;
             }
 
-            if (Validation.IsInjection(Encryption.Decrypt(password))
-                || Validation.IsInjection(Encryption.Decrypt(newPassword))
-                || Validation.IsInjection(Encryption.Decrypt(confirmPassword)))
+            if (Validation.IsInjection(Encryption.Decrypt(EncryptionType.RjnD, password))
+                || Validation.IsInjection(Encryption.Decrypt(EncryptionType.RjnD, newPassword))
+                || Validation.IsInjection(Encryption.Decrypt(EncryptionType.RjnD, confirmPassword)))
             {
                 process.ProcessSerialId += 1;
                 process.Code = (int)Constants.StatusCode.Error;

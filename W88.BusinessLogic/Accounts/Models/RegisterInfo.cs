@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.Text.RegularExpressions;
 using W88.BusinessLogic.Base.Helpers;
 using W88.BusinessLogic.Shared.Helpers;
 using W88.Utilities.Geo;
@@ -36,8 +35,6 @@ namespace W88.BusinessLogic.Accounts.Models
         public string Permission { get; set; }
 
         public string CountryCode { get; set; }
-
-        public Regex RexgexContact = new Regex("([0-9]{1,4})[-]([0-9]{6,12})$");
 
         public bool IsTestAccount = false;
 

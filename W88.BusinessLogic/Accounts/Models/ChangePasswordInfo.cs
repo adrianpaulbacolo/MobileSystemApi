@@ -1,5 +1,7 @@
 ﻿
 using W88.BusinessLogic.Shared.Helpers;
+using W88.Utilities;
+using W88.Utilities.Constant;
 
 namespace W88.BusinessLogic.Accounts.Models
 {
@@ -17,7 +19,7 @@ namespace W88.BusinessLogic.Accounts.Models
             set
             {
                 var password = value.Trim();
-                _password = string.IsNullOrEmpty(password) ? string.Empty : Encryption.Encrypt(password);
+                _password = string.IsNullOrEmpty(password) ? string.Empty : Encryption.Encrypt(EncryptionType.RjnD, password);
             }   
         }
 
@@ -27,7 +29,7 @@ namespace W88.BusinessLogic.Accounts.Models
             set
             {
                 var password = value.Trim();
-                _newPassword = string.IsNullOrEmpty(password) ? string.Empty : Encryption.Encrypt(password);
+                _newPassword = string.IsNullOrEmpty(password) ? string.Empty : Encryption.Encrypt(EncryptionType.RjnD, password);
             }
         }
 
@@ -37,7 +39,7 @@ namespace W88.BusinessLogic.Accounts.Models
             set
             {
                 var password = value.Trim();
-                _confirmPassword = string.IsNullOrEmpty(password) ? string.Empty : Encryption.Encrypt(password);
+                _confirmPassword = string.IsNullOrEmpty(password) ? string.Empty : Encryption.Encrypt(EncryptionType.RjnD, password);
             }
         }
 

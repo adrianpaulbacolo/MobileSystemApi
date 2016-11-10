@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Globalization;
 using System.Threading.Tasks;
 using System.Web;
 using W88.BusinessLogic.Base.Helpers;
@@ -50,49 +49,26 @@ namespace W88.BusinessLogic.Rewards.Helpers
                         userSessionInfo = new UserSessionInfo();
                     }
 
-                    var riskId = userSessionInfo.RiskId;
+                    var riskId = string.IsNullOrEmpty(userSessionInfo.RiskId) ? "0" : userSessionInfo.RiskId;
                     var dataSet = await client.getCatalogueSearchAsync(
                         Convert.ToString(OperatorId)
                         , LanguageHelpers.SelectedLanguage
-                        , userSessionInfo.CountryCode
-                        , userSessionInfo.CurrencyCode
+                        , string.IsNullOrEmpty(userSessionInfo.CountryCode) ? "0" : userSessionInfo.CountryCode
+                        , string.IsNullOrEmpty(userSessionInfo.CurrencyCode) ? "0" : userSessionInfo.CurrencyCode
                         , riskId);
 
                     if (dataSet.Tables.Count == 0)
                     {
                         return null;
                     }
-                    if (!dataSet.Tables[0].Columns.Contains("redemptionValidity"))
-                    {
-                        dataSet.Tables[0].Columns.Add("redemptionValidity");
-                    }
-
                     foreach (DataRow dataRow in dataSet.Tables[0].Rows)
                     {
                         var imgNameOn = dataRow["imageNameOn"].ToString().Split('.')[0];
                         var imgPathOn = imgNameOn + ".png";
                         var imgPathOff = imgNameOn + ".png";
 
-                        dataRow["imagePathOn"] = Convert.ToString(Common.GetAppSetting<string>("ImagesDirectoryPath") + "Category/" + imgPathOn);
-                        dataRow["imagePathOff"] = Convert.ToString(Common.GetAppSetting<string>("ImagesDirectoryPath") + "Category/" + imgPathOff);
-
-                        if (!string.IsNullOrEmpty(riskId))
-                        {
-                            dataRow["redemptionValidity"] += ",";
-                            var validity = (string) dataRow["redemptionValidity"];
-                            if (!validity.ToUpper().Equals("ALL,"))
-                            {
-                                dataRow["redemptionValidity"] = !validity.Contains(riskId.ToUpper() + ",") ? "0" : "1";
-                            }
-                            else
-                            {
-                                dataRow["redemptionValidity"] = "1";
-                            }
-                        }
-                        else
-                        {
-                            dataRow["redemptionValidity"] += "0";
-                        }
+                        dataRow["imagePathOn"] = string.Format("{0}Category/{1}", Common.GetAppSetting<string>("ImagesDirectoryPath"), imgPathOn);
+                        dataRow["imagePathOff"] = string.Format("{0}Category/{1}", Common.GetAppSetting<string>("ImagesDirectoryPath"), imgPathOff);
                     }
                     return dataSet;
                 }               
@@ -224,8 +200,57 @@ namespace W88.BusinessLogic.Rewards.Helpers
                     }
 
                     // Set product details
-                    var productDetails = new ProductDetails();
-                    productDetails.PointsRequired = dataRow["pointsRequired"].ToString().Replace(" ", string.Empty);
+                    var productDetails = new ProductDetails
+                    {
+                        PointsRequired = Convert.ToString(dataRow["pointsRequired"]).Replace(" ", string.Empty),
+                        RedemptionValidity = Convert.ToString(dataRow["redemptionValidity"]),
+                        RedemptionValidityCategory = Convert.ToString(dataRow["redemptionValidityCat"]),
+                        ProductId = productId,
+                        ProductType = Convert.ToString(dataRow["productType"]),
+                        AmountLimit = Convert.ToString(dataRow["amountLimit"]),
+                        CategoryId = Convert.ToString(dataRow["categoryId"]),
+                        CurrencyCode = Convert.ToString(dataRow["currencyValidity"]),
+                        CountryCode = Convert.ToString(dataRow["countryValidity"]),
+                        ImageUrl = string.Format("{0}Product/{1}", Common.GetAppSetting<string>("ImagesDirectoryPath"), dataRow["imageName"]),
+                        ProductCategoryName = Convert.ToString(dataRow["categoryName"]),
+                        ProductName = Convert.ToString(dataRow["productName"]),
+                        ProductDescription = Convert.ToString(dataRow["productDescription"]),
+                        DeliveryPeriod = Convert.ToString(dataRow["deliveryPeriod"])              
+                    };
+
+                    if (!string.IsNullOrEmpty(riskId))
+                    {
+                        var category = productDetails.RedemptionValidityCategory.ToUpper();
+                        var validity = productDetails.RedemptionValidity.ToUpper();
+                        var categoryStatus = 0;
+                        var validityStatus = 0;
+
+                        if (!category.Equals("ALL"))
+                        {
+                            categoryStatus = !category.Contains(riskId) ? 0 : 1;
+                        }
+                        else
+                        {
+                            categoryStatus = 1;
+                        }
+                        if (!validity.Equals("ALL"))
+                        {
+                            validityStatus = !validity.Contains(riskId) ? 0 : 1;
+                        }
+                        else
+                        {
+                            validityStatus = 1;
+                        }
+
+                        productDetails.Status = categoryStatus == 1 && validityStatus == 1
+                            ? (int) Constants.ProductStatus.Valid
+                            : (int) Constants.ProductStatus.VipOnly;
+                    }
+
+                    if(string.IsNullOrEmpty(userSessionInfo.Token))
+                    {
+                        return productDetails;
+                    }
 
                     if (dataRow["discountPoints"] == DBNull.Value)
                     {
@@ -236,56 +261,17 @@ namespace W88.BusinessLogic.Rewards.Helpers
                             var percentage = Convert.ToDouble(pointLevelDiscount) / 100;
                             var normalPoint = int.Parse(productDetails.PointsRequired);
                             var points = Math.Floor(normalPoint * (1 - percentage));
-                            var pointsAfterLevelDiscount = Convert.ToInt32(points).ToString(CultureInfo.InvariantCulture);
+                            var pointsAfterLevelDiscount = Convert.ToString(Convert.ToInt32(points));
 
                             productDetails.PointsRequired = pointsAfterLevelDiscount;
-                            productDetails.PointLevelDiscount = pointLevelDiscount.ToString();
+                            productDetails.PointLevelDiscount = Convert.ToString(pointLevelDiscount);
                         }    
                     }
 
-                    if (!string.IsNullOrEmpty(riskId))
-                    {
-                        //valid category
-                        productDetails.RedemptionValidityCategory = dataRow["redemptionValidityCat"] + ",";
-
-                        if (productDetails.RedemptionValidityCategory.ToUpper() != "ALL,")
-                        {
-                            productDetails.RedemptionValidityCategory = !productDetails.RedemptionValidityCategory.Contains(riskId + ",") ? "0" : "1";
-                        }
-                        else
-                        {
-                            productDetails.RedemptionValidityCategory = "1";
-                        }
-
-                        productDetails.RedemptionValidity = dataRow["redemptionValidity"] + ",";
-                        if (productDetails.RedemptionValidity.ToUpper() != "ALL,")
-                        {
-                            productDetails.RedemptionValidity = !productDetails.RedemptionValidity.Contains(riskId + ",") ? "0" : "1";
-                        }
-                        else
-                        {
-                            productDetails.RedemptionValidity = "1";
-                        }
-                    }
-                    else
-                    {
-                        productDetails.RedemptionValidity = dataRow["redemptionValidity"] + "0";
-                        productDetails.RedemptionValidityCategory = dataRow["redemptionValidityCat"] + "0";
-                    }
-
-                    productDetails.ProductId = productId;
-                    productDetails.ProductType = dataRow["productType"].ToString();
-                    productDetails.AmountLimit = dataRow["amountLimit"].ToString();
-                    productDetails.CategoryId = dataRow["categoryId"].ToString();
-                    productDetails.CurrencyCode = dataRow["currencyValidity"].ToString();
-                    productDetails.CountryCode = dataRow["countryValidity"].ToString();
-                    productDetails.ImageUrl = Common.GetAppSetting<string>("ImagesDirectoryPath") + "Product/" + dataRow["imageName"];
-                    productDetails.ProductCategoryName = dataRow["categoryName"].ToString();
-                    productDetails.ProductName = dataRow["productName"].ToString();
-                    productDetails.ProductDescription = dataRow["productDescription"].ToString();
-                    productDetails.DeliveryPeriod = dataRow["deliveryPeriod"].ToString();
-                    productDetails.DiscountPoints = dataRow["discountPoints"] == DBNull.Value ? string.Empty : dataRow["discountPoints"].ToString();
-            
+                    productDetails.DiscountPoints = dataRow["discountPoints"] == DBNull.Value
+                        ? string.Empty
+                        : Convert.ToString(dataRow["discountPoints"]);
+      
                     return productDetails;
                 }                
             }
@@ -315,9 +301,9 @@ namespace W88.BusinessLogic.Rewards.Helpers
                         searchInfo.MinPoints,
                         searchInfo.MaxPoints,
                         searchInfo.SearchText,
-                        userSessionInfo.CountryCode,
-                        userSessionInfo.CurrencyCode,
-                        userSessionInfo.RiskId,
+                        string.IsNullOrEmpty(userSessionInfo.CountryCode) ? "0" : userSessionInfo.CountryCode,
+                        string.IsNullOrEmpty(userSessionInfo.CurrencyCode) ? "0" : userSessionInfo.CurrencyCode,
+                        string.IsNullOrEmpty(userSessionInfo.RiskId) ? "0" : userSessionInfo.RiskId,
                         DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                         searchInfo.SortBy,
                         searchInfo.PageSize,
@@ -527,6 +513,7 @@ namespace W88.BusinessLogic.Rewards.Helpers
 
         public static string GetTranslation(string key, string language = "")
         {
+            language = string.IsNullOrWhiteSpace(language) ? LanguageHelpers.SelectedLanguage : language;
             return CultureHelpers.GetTranslation(key, language, "rewards/rewards");
         }
     }

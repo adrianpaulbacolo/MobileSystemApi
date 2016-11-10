@@ -97,36 +97,34 @@ namespace W88.BusinessLogic.Base.Helpers
             }
         }
 
-        protected string GetMessage(string messageKey)
+        protected string GetMessage(string messageKey, string languageCode = "")
         {
-            var keyValue = SystemMessages.Find(x => x.Text == messageKey);
+            var keyValue = SystemMessages(languageCode).Find(x => x.Text == messageKey);
             return keyValue == null ? string.Empty : keyValue.Value;
         }
 
-        private static List<LOV> SystemMessages
+        private static List<LOV> SystemMessages(string languageCode)
         {
-            get
+            var key = string.Format("{0}-{1}", Constants.VarNames.MessageKey, languageCode);
+            var msg = HttpContext.Current.Cache.Get(key) as dynamic;
+            if (msg == null)
             {
-                var key = string.Format("{0}-{1}", Constants.VarNames.MessageKey, LanguageHelpers.SelectedLanguageShort);
-                var msg = HttpContext.Current.Cache.Get(key) as dynamic;
-                if (msg == null)
-                {
-                    msg = CultureHelpers.AppData.Messages;
-                    HttpContext.Current.Cache.Add(key, msg, null, Cache.NoAbsoluteExpiration, new TimeSpan(6, 0, 0), CacheItemPriority.AboveNormal, null);
-                }
-                
-                var list = new List<LOV>();
-                foreach (var e in msg)
-                {
-                    list.Add(new LOV
-                    {
-                        Text = e.Name,
-                        Value = e.Value
-                    });
-                }
-
-                return list;
+                msg = CultureHelpers.AppData.Messages(languageCode);
+                HttpContext.Current.Cache.Add(key, msg, null, Cache.NoAbsoluteExpiration, new TimeSpan(6, 0, 0),
+                    CacheItemPriority.AboveNormal, null);
             }
+
+            var list = new List<LOV>();
+            foreach (var e in msg)
+            {
+                list.Add(new LOV
+                {
+                    Text = e.Name,
+                    Value = e.Value
+                });
+            }
+
+            return list;
         }
 
         protected List<T> GetListOfValues<T>(string filepath, string arrayName, bool useLanguage, string languageCode = "")

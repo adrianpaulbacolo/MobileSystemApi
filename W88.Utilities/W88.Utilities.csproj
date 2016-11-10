@@ -57,9 +57,10 @@
     <Compile Include="Constant\Constant.cs" />
     <Compile Include="Constant\DisplaySettings.cs" />
     <Compile Include="Data\Basic.cs" />
-    <Compile Include="Data\ApiEncyption.cs" />
-    <Compile Include="Data\DES.cs" />
-    <Compile Include="Data\Hash.cs" />
+    <Compile Include="Data\RjnD.cs" />
+    <Compile Include="Data\TripleDESCSProvider.cs" />
+    <Compile Include="Data\DESCSProvider.cs" />
+    <Compile Include="Data\Md5Hash.cs" />
     <Compile Include="Data\IEncrypt.cs" />
     <Compile Include="Data\Sha256Hash.cs" />
     <Compile Include="Misc\Extensions.cs" />

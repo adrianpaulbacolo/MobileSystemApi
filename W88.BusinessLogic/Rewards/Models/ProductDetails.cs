@@ -39,5 +39,7 @@ namespace W88.BusinessLogic.Rewards.Models
         public string RedemptionValidity = string.Empty;
 
         public string RedemptionValidityCategory = string.Empty;
+
+        public int Status = 0;
     }
 }

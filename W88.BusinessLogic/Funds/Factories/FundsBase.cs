@@ -224,9 +224,9 @@ namespace W88.BusinessLogic.Funds.Factories
 
             string url = settings.Values.Get(this.GetRedirectionUrl());
 
-            string encryptedMemberCode = HttpUtility.UrlEncode(Encryption.Encrypting(this._userInfo.MemberCode, Constants.VarNames.PaymentPrivateKey));
+            string encryptedMemberCode = HttpUtility.UrlEncode(Encryption.Encrypt(EncryptionType.Basic, this._userInfo.MemberCode, Constants.VarNames.PaymentPrivateKey));
 
-            process.Data = new { VendorRedirectionUrl = url + "AutoSignIn.aspx?a=" + encryptedMemberCode + "&b=" + HttpUtility.UrlEncode(this._userInfo.CurrentSessionId) + "&isMobile=true"  };
+            process.Data = new { VendorRedirectionUrl = url + "AutoSignIn.aspx?a=" + encryptedMemberCode + "&b=" + HttpUtility.UrlEncode(this._userInfo.CurrentSessionId) + "&isMobile=true" };
             process.Code = (int)Constants.StatusCode.Success;
 
             Constants.PaymentTransactionType paymentType;
@@ -246,7 +246,7 @@ namespace W88.BusinessLogic.Funds.Factories
                 case "120212":
                     return "NganLuong_redirectUrl";
 
-                default :
+                default:
                     return "";
             }
         }
@@ -299,30 +299,36 @@ namespace W88.BusinessLogic.Funds.Factories
             switch (paymentSettings.Id)
             {
                 case "120231":
-                    key = Encryption.Decrypting(result.Key.Value, Constants.VarNames.PaymentPrivateKey) + "|" + Encryption.Decrypting(result.TerminalID.Value, Constants.VarNames.PaymentPrivateKey);
+                    key = Encryption.Decrypt(EncryptionType.Basic, result.Key.Value, Constants.VarNames.PaymentPrivateKey) + "|" + Encryption.Decrypt(EncryptionType.Basic, result.TerminalID.Value, Constants.VarNames.PaymentPrivateKey);
                     break;
 
                 case "120227":
-                    key = Encryption.Decrypting(result.Key.Value, Constants.VarNames.PaymentPrivateKey) + "|" + Encryption.Decrypting(result.MerchantID.Value, Constants.VarNames.PaymentPrivateKey);
+                    key = Encryption.Decrypt(EncryptionType.Basic, result.Key.Value, Constants.VarNames.PaymentPrivateKey) + "|" + Encryption.Decrypt(EncryptionType.Basic, result.MerchantID.Value, Constants.VarNames.PaymentPrivateKey);
                     break;
 
                 case "120204":
-                    key = Encryption.Decrypting(result.MerchantID.Value, Constants.VarNames.NextPayPrivateKey);
+                case "120296":
+                    if (paymentSettings.Id.Equals("120204"))
+                        key = Encryption.Decrypt(EncryptionType.Basic, result.MerchantID.Value, Constants.VarNames.NextPayPrivateKey);
+                    else
+                        key = Encryption.Decrypt(EncryptionType.Basic, result.MerchantID.Value, Constants.VarNames.PaymentPrivateKey);
+
                     break;
 
                 case "120223":
-                    key = Encryption.Decrypting(result.Key1.Value, Constants.VarNames.PaymentPrivateKey) + "|" + Encryption.Decrypting(result.Key2.Value, Constants.VarNames.PaymentPrivateKey)
-                        + "|" + Encryption.Decrypting(result.MD5Key.Value, Constants.VarNames.PaymentPrivateKey);
+                    key = Encryption.Decrypt(EncryptionType.Basic, result.Key1.Value, Constants.VarNames.PaymentPrivateKey) + "|" + Encryption.Decrypt(EncryptionType.Basic, result.Key2.Value, Constants.VarNames.PaymentPrivateKey)
+                        + "|" + Encryption.Decrypt(EncryptionType.Basic, result.MD5Key.Value, Constants.VarNames.PaymentPrivateKey);
                     break;
 
                 case "120236":
                     key = result.MerchantID.Value + "|" +
-                          Encryption.Decrypting(result.AllDebit_Visa.Value, Constants.VarNames.PaymentPrivateKey) + "|" +
-                          Encryption.Decrypting(result.AllDebit_Master.Value, Constants.VarNames.PaymentPrivateKey);
+                          Encryption.Decrypt(EncryptionType.Basic, result.AllDebit_Visa.Value, Constants.VarNames.PaymentPrivateKey) + "|" +
+                          Encryption.Decrypt(EncryptionType.Basic, result.AllDebit_Master.Value, Constants.VarNames.PaymentPrivateKey);
                     break;
 
                 default:
-                    key = Encryption.Decrypting(result.Key.Value, Constants.VarNames.PaymentPrivateKey);
+                    key = Encryption.Decrypt(EncryptionType.Basic, result.Key.Value, Constants.VarNames.PaymentPrivateKey);
+
                     break;
             }
 

@@ -71,7 +71,9 @@
 
             public const string DefaultLanguage = "DefaultSelectedLanguage";
 
-            public const string RiskId = "riskId";
+            public const string OtherBankValue = "OTHER";
+
+            public const string RiskId = "riskId";	
         }
 
         public enum PaymentTransactionType
@@ -92,6 +94,12 @@
             Success = 1,
             ResetPassword = 2,
             MemberVip = 3
+        }
+
+        public enum ProductStatus
+        {
+            Valid = 1,
+            VipOnly = 2,
         }
     }
 }

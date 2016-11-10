@@ -217,14 +217,12 @@ namespace W88.BusinessLogic.Shared.Helpers
 
             using (var svcInstance = new MemberClient())
             {
-                var request = new getBankAccountsRequest
+                var response = await svcInstance.getBankAccountsAsync(new getBankAccountsRequest()
                 {
                     operatorId = OperatorId,
                     countryCode = userInfo.CountryCode,
                     currencyCode = userInfo.CurrencyCode,
-                };
-
-                var response = await svcInstance.getBankAccountsAsync(request);
+                });
 
                 if (response.statusCode == "00")
                 {
@@ -244,7 +242,7 @@ namespace W88.BusinessLogic.Shared.Helpers
             bankList.Add(new LOV
             {
                 Text = base.GetMessage("Pay_OtherBank"),
-                Value = "OTHER"
+                Value = Constants.VarNames.OtherBankValue
             });
 
             return bankList;
@@ -262,14 +260,12 @@ namespace W88.BusinessLogic.Shared.Helpers
 
             using (var svcInstance = new MemberClient())
             {
-                var request = new getSecondaryBankAccountsRequest
+                var response = await svcInstance.getSecondaryBankAccountsAsync(new getSecondaryBankAccountsRequest()
                 {
                     operatorId = OperatorId,
                     currencyCode = userInfo.CurrencyCode,
                     countryCode = userInfo.CountryCode,
-                };
-
-                var response = await svcInstance.getSecondaryBankAccountsAsync(request);
+                });
 
                 if (response.statusCode == "00")
                 {
@@ -289,7 +285,7 @@ namespace W88.BusinessLogic.Shared.Helpers
             bankList.Add(new LOV
             {
                 Text = base.GetMessage("Pay_OtherBank"),
-                Value = "OTHER"
+                Value = Constants.VarNames.OtherBankValue
             });
 
             return bankList;

@@ -61,6 +61,7 @@
     <Compile Include="Funds\Factories\Handlers\AllDebitHandler.cs" />
     <Compile Include="Funds\Factories\Handlers\BankTransferHandler.cs" />
     <Compile Include="Funds\Factories\Handlers\EGHLHandler.cs" />
+    <Compile Include="Funds\Factories\Handlers\VenusPointHandler.cs" />
     <Compile Include="Funds\Factories\Handlers\NganLuongHandler.cs" />
     <Compile Include="Funds\Factories\Handlers\SDAPayAlipayHandler.cs" />
     <Compile Include="Funds\Factories\Handlers\SDPayHandler.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Funds\Factories\Handlers\ECPSSHandler.cs" />
     <Compile Include="Funds\Factories\Handlers\NetellerHandler.cs" />
     <Compile Include="Funds\Factories\Handlers\BofoPayHandler.cs" />
+    <Compile Include="Funds\Factories\Handlers\JTPayHandler.cs" />
     <Compile Include="Funds\Factories\Handlers\WingMoneyHandler.cs" />
     <Compile Include="Funds\Helpers\Payments.cs" />
     <Compile Include="Accounts\Models\FundTransferInfo.cs" />
@@ -86,7 +88,7 @@
     <Compile Include="Rewards\Models\MemberRedemptionDetails.cs" />
     <Compile Include="Rewards\Models\MemberRewardsInfo.cs" />
     <Compile Include="Rewards\Models\ProductDetails.cs" />
-	<Compile Include="Rewards\Models\SearchInfo.cs" />
+    <Compile Include="Rewards\Models\SearchInfo.cs" />
     <Compile Include="Rewards\Models\TranslationKeys.cs" />
     <Compile Include="Rewards\Redemption\Factories\Handlers\FreeBetRedemptionHandler.cs" />
     <Compile Include="Rewards\Redemption\Factories\Handlers\WishlistRedemptionHandler.cs" />
@@ -116,7 +118,6 @@
     <Compile Include="Accounts\Models\MemberSession.cs" />
     <Compile Include="Shared\Helpers\CookieHelpers.cs" />
     <Compile Include="Shared\Helpers\CultureHelpers.cs" />
-    <Compile Include="Shared\Helpers\Encryption.cs" />
     <Compile Include="Shared\Helpers\LanguageHelpers.cs" />
     <Compile Include="Shared\Helpers\SettingHelper.cs" />
     <Compile Include="Accounts\Helpers\LoginHelper.cs" />

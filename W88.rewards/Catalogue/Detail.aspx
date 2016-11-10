@@ -57,22 +57,16 @@
             <div class="footer">
                 <% if (HasSession)
                     {
-                        if (IsValidRedemption)
+                        if (IsValidRedemption && !IsVipOnly)
                         {  %>
                             <input type="button" id="validButton" class="btn btn-block btn-primary" value="<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.Redeem)%>" />
                     <%  }
-                        else if (IsRedemptionLimitReached)
-                        { %>
-                            <input type="button" id="limitButton" class="btn btn-block btn-primary" value="<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.Redeem)%>" />
-                    <%  }
-                        else if (IsProcessingLimitReached)
-                        { %>
-                            <input type="button" id="processingButton" class="btn btn-block btn-primary" value="<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.Redeem)%>" />
-                    <%  }
-                        else
+                        else if ((IsVipOnly && !IsValidRedemption) || (IsValidRedemption && (IsLimitReached || IsPending)))
                         { %>
                             <input type="button" id="vipOnlyButton" class="btn btn-block btn-primary" value="<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.Redeem)%>" />
                     <%  }
+                          %>                          
+                    <%  
                     }
                     else
                     {%>
@@ -82,30 +76,19 @@
             <asp:HiddenField ID="hiddenproductitd" runat="server" />
         </form>
         <script type="text/javascript">
-            function VIPOnly() {
-                var message = '<%= VipOnly %>';
-                if (_.isEmpty(message)) return;
-                window.w88Mobile.Growl.shout(message);
-            }
-            function Error() {
-                var message = '<%= Errormsg %>';
-                if (_.isEmpty(message)) return;
-                window.w88Mobile.Growl.shout(message);
-            }
             $('#validButton').on('click', function () {
                 window.location.href = '<%= RedirectUri %>';
-            });
-            $('#limitButton').on('click', function () {
-                Error();
-            });
-            $('#processingButton').on('click', function () {
-                Error();
+                return false;
             });
             $('#vipOnlyButton').on('click', function () {
-                VIPOnly();
+                var message = '<%= VipOnlyMessage %>';
+                if (_.isEmpty(message)) return false;
+                window.w88Mobile.Growl.shout(message);
+                return false;
             });
             $('#noSessionButton').on('click', function () {
                 window.location.href = '<%= RedirectUri %>';
+                return false;
             });
         </script>
     </div>
