@@ -2,6 +2,7 @@
 <%@ Import Namespace="W88.BusinessLogic.Rewards.Helpers" %>
 <%@ Import Namespace="W88.BusinessLogic.Rewards.Models" %>
 <%@ Import Namespace="W88.BusinessLogic.Shared.Helpers" %>
+<%@ Import Namespace="W88.Utilities" %>
 
 <!DOCTYPE html>
 <html>
@@ -43,6 +44,14 @@
 
         if ('<%=HasSession%>'.toLowerCase() == 'false') {
             if (window.user && !_.isEmpty(window.user.Token)) clear();
+        } else {
+            if (window.user && _.isEmpty(window.user.Token)) {
+                window.user.setProperties(JSON.parse('<%=Common.SerializeObject(MemberSession)%>'));
+                window.user.save();
+            }
+            if (!_.isEmpty(window.user.Token)) {
+                window.location.href = '/Index.aspx?lang=' + '<%=Language%>';
+            }
         }
     </script>
 </body>
