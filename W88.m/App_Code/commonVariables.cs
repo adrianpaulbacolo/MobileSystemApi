@@ -206,14 +206,16 @@ public class commonVariables
         BofoPay = 120231,
         AllDebit = 120236,
         EGHL = 120265,
-        NganLuong = 120212
+        NganLuong = 120212,
+        Baokim = 120272
     }
 
     public enum WithdrawalMethod
     {
         BankTransfer = 210602,
         WingMoney = 210709,
-        Neteller = 220815
+        Neteller = 220815,
+        Baokim = 220874
     }
 
     public enum TransactionSource
