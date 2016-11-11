@@ -68,26 +68,36 @@
                             <asp:Literal ID="txtTotalAllowed" runat="server" />
                         </div>
                     </li>
-                    <li class="item item-select" runat="server">
+                    <li class="item row selection">
+                        <div class="col">
+                            <asp:Button data-theme="b" ID="btnEwallet" runat="server" CssClass="button-blue" data-corners="false" CausesValidation="False" Text="Ví Điện Tử Nội Địa" />
+                        </div>
+                    </li>
+                    <li class="item row selection">
+                        <div class="col">
+                            <asp:Button data-theme="b" ID="btnATM" runat="server" CssClass="button-blue" data-corners="false" CausesValidation="False" Text="Thẻ ATM Nội Địa" />
+                        </div>
+                    </li>
+                    <li class="item item-select atm" runat="server">
                         <asp:Label ID="lblBanks" runat="server" AssociatedControlID="drpBanks" />
                         <asp:DropDownList ID="drpBanks" runat="server" data-corners="false">
                         </asp:DropDownList>
                     </li>
-                    <li class="item item-input">
+                    <li class="item item-input atm ewallet">
                         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
                         <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
-                    <li class="item item-input">
+                    <li class="item item-input atm ewallet">
                         <asp:Label ID="lblEmail" runat="server" AssociatedControlID="txtEmail" />
                         <asp:TextBox ID="txtEmail" runat="server" data-mini="true" type="email" data-clear-btn="true" />
                     </li>
-                    <li class="item item-select" >
+                    <li class="item item-select atm">
                         <asp:Label ID="lblContact" runat="server" AssociatedControlID="txtContact" />
                         <asp:TextBox ID="txtContact" runat="server" type="tel" data-mini="true" data-clear-btn="true" />
                     </li>
-                    <li class="item row">
+                    <li class="item row ewallet atm">
                         <div class="col">
-                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" CausesValidation="False"  />
+                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" CausesValidation="False" />
                         </div>
                     </li>
                 </ul>
@@ -108,10 +118,39 @@
                 window.w88Mobile.Gateways.Baokim.getBanks(selectName);
                 window.w88Mobile.Gateways.Baokim.getTranslations();
 
-                $('#btnSubmit').click(function (e) {
+                $('.ewallet').hide();
+                $('.atm').hide();
+
+                $('#btnEwallet').click(function (e) {
                     e.preventDefault();
 
-                    var data = { Amount: $('#txtDepositAmount').val(), Email: $('#txtEmail').val(), Phone: $('#txtContact').val(), Banks: { Text: $('#drpBanks option:selected').text(), Value: $('#drpBanks').val() } };
+                    $('.selection').hide();
+                    $('.atm').hide();
+                    $('.ewallet').show();
+                    $('#btnEwallet').hide();
+                    window.w88Mobile.Gateways.Baokim.method = "EWALLET";
+                });
+
+                $('#btnATM').click(function (e) {
+                    e.preventDefault();
+
+                    $('.selection').hide();
+                    $('.ewallet').hide();
+                    $('.atm').show();
+                    $(this).hide();
+                    window.w88Mobile.Gateways.Baokim.method = "";
+                });
+
+                $('#btnSubmit').click(function (e) {
+                    e.preventDefault();
+                    var data;
+
+                    if (window.w88Mobile.Gateways.Baokim.method == "EWALLET") {
+                        data = { Method: window.w88Mobile.Gateways.Baokim.method, Amount: $('#txtDepositAmount').val(), Email: $('#txtEmail').val() };
+                    } else {
+                        data = { Method: window.w88Mobile.Gateways.Baokim.method, Amount: $('#txtDepositAmount').val(), Email: $('#txtEmail').val(), Phone: $('#txtContact').val(), Banks: { Text: $('#drpBanks option:selected').text(), Value: $('#drpBanks').val() } };
+                    }
+                    
                     window.w88Mobile.Gateways.Baokim.deposit(data, function (response) {
                         switch (response.ResponseCode) {
                             case 1:

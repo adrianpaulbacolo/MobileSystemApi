@@ -2,6 +2,7 @@
 
     var gatewayId = "";
     var token = "";
+    var method = "";
 
     var baokim = {
         deposit: deposit,
@@ -14,7 +15,8 @@
         },
         createTransaction: function () {
             createTransaction();
-        }
+        },
+        method: method
     };
 
     return baokim;
