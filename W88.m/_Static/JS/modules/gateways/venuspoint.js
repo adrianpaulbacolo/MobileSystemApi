@@ -39,6 +39,7 @@
 
     // withdraw
     function withdraw(data, successCallback, errorCallback, completeCallback) {
+        send("/payments/220895", "POST", data, function () { GPInt.prototype.ShowSplash() }, successCallback, completeCallback);
     }
 
     function validate(data, method) {

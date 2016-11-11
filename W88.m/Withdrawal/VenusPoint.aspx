@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="VenusPoint.aspx.cs" Inherits="Deposit_VenusPoint" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="VenusPoint.aspx.cs" Inherits="Withdrawal_VenusPoint" %>
 
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
@@ -19,7 +19,7 @@
             </a>
             <% } %>
 
-            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dVenusPoint", commonVariables.PaymentMethodsXML))%></h1>
+            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dVenusPoint", commonVariables.PaymentMethodsXML))%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -28,7 +28,7 @@
             </div>
 
             <div data-role="navbar">
-                <ul id="depositTabs" runat="server">
+                <ul id="withdrawalTabs" runat="server">
                 </ul>
             </div>
 
@@ -68,16 +68,12 @@
                         </div>
                     </li>
                     <li class="item item-input">
-                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
-                        <asp:TextBox ID="txtDepositAmount" runat="server" data-clear-btn="true" />
+                        <asp:Label ID="lblWithdrawAmount" runat="server" AssociatedControlID="txtWithdrawAmount" />
+                        <asp:TextBox ID="txtWithdrawAmount" runat="server" data-clear-btn="true" />
                     </li>
                     <li class="item item-input">
                         <asp:Label ID="lblAcctName" runat="server" AssociatedControlID="txtAccountName" />
                         <asp:TextBox ID="txtAccountName" runat="server" data-clear-btn="true" />
-                    </li>
-                    <li class="item item-input">
-                        <asp:Label ID="lblAcctNumber" runat="server" AssociatedControlID="txtAccountNumber" />
-                        <asp:TextBox ID="txtAccountNumber" runat="server" TextMode="Password" data-clear-btn="true" />
                     </li>
                     <li class="item-text-wrap">
                         <asp:Label ID="lblVenusPoints" runat="server" />
@@ -108,12 +104,11 @@
                     window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
 
                     var data = {
-                        Amount: $('#txtDepositAmount').val(),
+                        Amount: $('#txtWithdrawAmount').val(),
                         AccountName: $('#txtAccountName').val(),
-                        AccountNumber: $('#txtAccountNumber').val()
                     };
 
-                    window.w88Mobile.Gateways.VenusPoint.Deposit(data, function (response) {
+                    window.w88Mobile.Gateways.VenusPoint.Withdraw(data, function (response) {
                         switch (response.ResponseCode) {
                             case 1:
                                 w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
@@ -133,7 +128,7 @@
                 $("#txtDepositAmount").blur(function () {
                     if ($(this).val() && '<%=commonCookie.CookieCurrency%>' == "JPY") {
                         var data = {
-                            amount: $('#txtDepositAmount').val(),
+                            amount: $('#txtWithdrawAmount').val(),
                             currencyFrom: "JPY",
                             currencyTo: "USD"
                         }

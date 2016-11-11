@@ -396,6 +396,17 @@ public static class commonPaymentMethodFunc
                 withdrawalTabs.Controls.Add(list);
                 break;
 
+            case commonVariables.WithdrawalMethod.VenusPoint:
+                list = CreateMethodListControl(paymentCode);
+
+                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage);
+
+                anchor.Attributes.Add("href", "/Withdrawal/VenusPoint.aspx");
+
+                list.Controls.Add(anchor);
+                withdrawalTabs.Controls.Add(list);
+                break;
+
             case commonVariables.WithdrawalMethod.WingMoney:
                 list = CreateMethodListControl(paymentCode);
 
