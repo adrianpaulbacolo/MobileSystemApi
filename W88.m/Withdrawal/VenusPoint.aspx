@@ -111,8 +111,9 @@
                     window.w88Mobile.Gateways.VenusPoint.Withdraw(data, function (response) {
                         switch (response.ResponseCode) {
                             case 1:
-                                w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
-                                $('#form1')[0].reset();
+                                w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>", function (event, ui) {
+                                    window.location.replace('/Withdrawal/VenusPoint.aspx');
+                                });
                                 break;
                             default:
                                 w88Mobile.Growl.shout(response.ResponseMessage);
@@ -125,7 +126,7 @@
                     });
                 });
 
-                $("#txtDepositAmount").blur(function () {
+                $("#txtWithdrawAmount").blur(function () {
                     if ($(this).val() && '<%=commonCookie.CookieCurrency%>' == "JPY") {
                         var data = {
                             amount: $('#txtWithdrawAmount').val(),
