@@ -9,7 +9,7 @@
 
     return venuspoint;
 
-    function send(resource, method, data, success, complete) {
+    function send(resource, method, data, beforeSend, success, complete) {
         var url = w88Mobile.APIUrl + resource;
 
         var headers = {
@@ -21,6 +21,7 @@
             type: method,
             url: url,
             data: data,
+            beforeSend: beforeSend,
             headers: headers,
             success: success,
             error: function () {
@@ -33,7 +34,7 @@
     // deposit
     function deposit(data, successCallback, completeCallback) {
         validate(data, "deposit");
-        send("/payments/120296", "POST", data, successCallback, completeCallback);
+        send("/payments/120296", "POST", data, function () { GPInt.prototype.ShowSplash() }, successCallback, completeCallback);
     }
 
     // withdraw
@@ -50,7 +51,7 @@
     }
 
     function translations() {
-        send("/contents", "GET", "", function (response) {
+        send("/contents", "GET", "", "", function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
                 setTranslation(response.ResponseData);
             }
@@ -63,7 +64,7 @@
     }
 
     function exchangeRate(data) {
-        send("/payments/exchangerate", "GET", data, function (response) {
+        send("/payments/exchangerate", "GET", data, "", function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
                 var venusPoint = 'JPY Amount = ' + response.ResponseData.Amount + ' Venus Points'
                 $('#lblVenusPoints').text(venusPoint);

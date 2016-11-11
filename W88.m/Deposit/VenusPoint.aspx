@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dNganLuong", commonVariables.PaymentMethodsXML))%></title>
+    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dVenusPoint", commonVariables.PaymentMethodsXML))%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
@@ -19,7 +19,7 @@
             </a>
             <% } %>
 
-            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dNganLuong", commonVariables.PaymentMethodsXML))%></h1>
+            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dVenusPoint", commonVariables.PaymentMethodsXML))%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -125,6 +125,7 @@
                     },
                     function () {
                         window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
+                        GPInt.prototype.HideSplash();
                     });
                 });
 
