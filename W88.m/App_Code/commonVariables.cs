@@ -215,7 +215,7 @@ public class commonVariables
         VenusPoint = 220895,
         BankTransfer = 210602,
         WingMoney = 210709,
-        Neteller = 220815,
+        Neteller = 220815
     }
 
     public enum TransactionSource
