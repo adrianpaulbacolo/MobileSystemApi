@@ -29,8 +29,8 @@ public partial class Withdrawal_VenusPoint : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("withdrawalTabs");
-        commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"), base.strCurrencyCode);
+        HtmlGenericControl withdrawalTabs = (HtmlGenericControl)FindControl("withdrawalTabs");
+        commonPaymentMethodFunc.GetWithdrawalMethodList(strMethodsUnAvailable, withdrawalTabs, base.PageName, sender.ToString().Contains("app"), base.strCurrencyCode);
 
         if (!Page.IsPostBack)
         {
