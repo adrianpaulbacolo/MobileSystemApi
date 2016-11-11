@@ -137,7 +137,7 @@
                 if (!commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase))
                 { %>
                 <li>
-                    <a class="card" data-rel="sports" rel="vsports" href="<%=commonXSports.SportsBookUrl%>" data-transition="slidedown" data-ajax="false">
+                    <a class="card" data-rel="sports" rel="vsports" href="<%=commonXSports.SportsBookUrl%>" data-transition="slidedown" data-ajax="false" target="_blank">
                         <img src="/_Static/Images/sports/bnr-xsports.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/XSports/Label", commonVariables.ProductsXML)%></div>
                     </a>
@@ -147,7 +147,7 @@
                 else if (!commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))
                 { %>
                 <li>
-                    <a class="card" data-rel="sports" rel="vsports" href="<%=commonXSports.SportsBookUrl%>" data-transition="slidedown" data-ajax="false">
+                    <a class="card" data-rel="sports" rel="vsports" href="<%=commonXSports.SportsBookUrl%>" data-transition="slidedown" data-ajax="false" target="_blank">
                         <img src="/_Static/Images/sports/bnr-xsports.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/XSports/Label", commonVariables.ProductsXML)%></div>
                     </a>

@@ -52,7 +52,7 @@
                     <figcaption class="banner-caption">
                         <h3 class="title"><%= commonCulture.ElementValues.getResourceXPathString("Products/XSports/Label", commonVariables.ProductsXML) %></h3>
                         <p><%= commonCulture.ElementValues.getResourceXPathString("Products/XSports/Description", commonVariables.ProductsXML) %></p>
-                        <a href="<%= commonXSports.SportsBookUrl %>" data-ajax="false" class="ui-btn btn-primary"><%= commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML) %></a>
+                        <a href="<%= commonXSports.SportsBookUrl %>" data-ajax="false" class="ui-btn btn-primary" target="_blank"><%= commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML) %></a>
                     </figcaption>
                 </figure>
             </li>
@@ -69,7 +69,7 @@
                     <figcaption class="banner-caption">
                         <h3 class="title"><%= commonCulture.ElementValues.getResourceXPathString("Products/XSports/Label", commonVariables.ProductsXML) %></h3>
                         <p><%= commonCulture.ElementValues.getResourceXPathString("Products/XSports/Description", commonVariables.ProductsXML) %></p>
-                        <a href="<%= commonXSports.SportsBookUrl %>" data-ajax="false" class="ui-btn btn-primary"><%= commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML) %></a>
+                        <a href="<%= commonXSports.SportsBookUrl %>" data-ajax="false" class="ui-btn btn-primary" target="_blank"><%= commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML) %></a>
                     </figcaption>
                 </figure>
             </li>
