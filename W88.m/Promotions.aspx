@@ -497,10 +497,13 @@
             });
 
             $(data).find('.promotion_group_header').each(function (index, div) {
-                var _category = {};
+                var _category = {},
+                    siblings = $(div).siblings();
+
+                if (siblings.length == 0) return;
+                _category['promos'] = siblings;
                 _category['id'] = $(div).attr('id');
                 _category['text'] = $(div).html().trim();
-                _category['promos'] = $(div).siblings();
                 categories.push(_category);
                 $('#categories').append('<div class="btn-group" role="group"><a id="' + _category.id + '"class="btn" href="#' + _category.id + '">' + _category.text + '</a></div>');
                 $('#' + _category.id).on('click', function() {
@@ -512,10 +515,11 @@
             if (!_.isEmpty(category)) {
                 var button = $('#' + category).parent();
                 if (!button) return categories;
-
                 if(!button.hasClass('active')) {
                     button.addClass('active');
-                }     
+                }
+                var index = _.findIndex(categories, { id: category });
+                $('div.footer.footer-div.footer-generic').animate({scrollLeft:index*150}, 100);
             }
 
             return categories;
