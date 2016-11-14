@@ -95,6 +95,9 @@
                         <asp:Label ID="lblContact" runat="server" AssociatedControlID="txtContact" />
                         <asp:TextBox ID="txtContact" runat="server" type="tel" data-mini="true" data-clear-btn="true" />
                     </li>
+                    <li class="item item-select">
+                        <p id="notice" style="color:#ff0000"></p>
+                    </li>
                     <li class="item row ewallet atm">
                         <div class="col">
                             <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" CausesValidation="False" />
@@ -129,6 +132,7 @@
                     $('.ewallet').show();
                     $('#btnEwallet').hide();
                     window.w88Mobile.Gateways.Baokim.method = "EWALLET";
+                    $("#notice").html(sessionStorage.getItem("noticeWallet"));
                 });
 
                 $('#btnATM').click(function (e) {
@@ -139,6 +143,7 @@
                     $('.atm').show();
                     $(this).hide();
                     window.w88Mobile.Gateways.Baokim.method = "";
+                    $("#notice").html(sessionStorage.getItem("noticeAtm"));
                 });
 
                 $('#btnSubmit').click(function (e) {

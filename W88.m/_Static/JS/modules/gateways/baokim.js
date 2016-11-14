@@ -56,7 +56,8 @@
                 $('#lblDepositAmount').html(d.ResponseData.LABEL_FUNDS_DEPOSIT + ' ' + d.ResponseData.LABEL_AMOUNT);
                 $('#lblContact').html(d.ResponseData.LABEL_CONTACT);
                 $('#lblWithdrawAmount').html(d.ResponseData.LABEL_FUNDS_WIDRAW + ' ' + d.ResponseData.LABEL_AMOUNT);
-                
+                sessionStorage.setItem("noticeWallet", d.ResponseData.LABEL_NOTICEEWALLET);
+                sessionStorage.setItem("noticeAtm", d.ResponseData.LABEL_NOTICEATM);
             }
         });
     }
