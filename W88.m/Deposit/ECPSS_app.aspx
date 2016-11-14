@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ECPSS.aspx.cs" Inherits="Deposit_ECPSS" %>
+
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 <%@ Register TagPrefix="uc" TagName="AppFooterMenu" Src="~/UserControls/AppFooterMenu.ascx" %>
 
@@ -17,7 +18,7 @@
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <uc:Wallet id="uMainWallet" runat="server" />
+                <uc:Wallet ID="uMainWallet" runat="server" />
             </div>
 
             <div data-role="navbar" id="depositTabs" runat="server">
@@ -58,13 +59,13 @@
                             <asp:Literal ID="txtTotalAllowed" runat="server" />
                         </div>
                     </li>
-                    <li class="item item-select">
-                        <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank"/>
-                        <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
-                    </li>
                     <li class="item item-input">
                         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
                         <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+                    </li>
+                    <li class="item item-select">
+                        <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
+                        <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
                     </li>
                     <li class="item item-select">
                         <asp:Label ID="lblMessage" runat="server" />

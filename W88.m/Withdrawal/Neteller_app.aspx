@@ -61,10 +61,12 @@
                         </div>
                     </li>
                     <li class="item item-input">
-                        <asp:TextBox ID="txtWithdrawalAmount" runat="server" placeholder="amount" type="number" step="any" min="1" data-clear-btn="true" />
+                        <asp:Label ID="lblWithdrawAmount" runat="server" AssociatedControlID="txtWithdrawalAmount" />
+                        <asp:TextBox ID="txtWithdrawalAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
                     <li class="item item-input">
-                        <asp:TextBox ID="txtAccountId" runat="server" placeholder="NETELLER Account Id" type="number" step="any" min="1" data-clear-btn="true" />
+                        <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountId" />
+                        <asp:TextBox ID="txtAccountId" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
                     <li class="item row">
                         <div class="col">

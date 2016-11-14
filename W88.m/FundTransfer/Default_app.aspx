@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="FundTransfer_Default" %>
+
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 <%@ Register Src="~/UserControls/AppFooterMenu.ascx" TagPrefix="uc" TagName="AppFooterMenu" %>
 
@@ -17,37 +18,34 @@
         </header>
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <uc:Wallet id="uMainWallet" runat="server" />
+                <uc:Wallet ID="uMainWallet" runat="server" />
             </div>
 
             <form class="form" id="form1" runat="server" data-ajax="false">
                 <ul class="list fixed-tablet-size">
-                    <li class="item" runat="server" id="divBalance" data-role="collapsible">
-                    </li>
+                    <li class="item" runat="server" id="divBalance" data-role="collapsible"></li>
                     <li class="item item-select">
                         <asp:Label ID="lblTransferFrom" runat="server" AssociatedControlID="drpTransferFrom" Text="from" />
                         <asp:DropDownList ID="drpTransferFrom" runat="server" data-corners="false" />
                     </li>
                     <li class="btn-swap ion-arrow-swap">
-                        <asp:Button ID="btnSwap" runat="server" Text="Swap Wallets" OnClick="btnSwap_Click"  />
+                        <asp:Button ID="btnSwap" runat="server" Text="Swap Wallets" OnClick="btnSwap_Click" />
                     </li>
                     <%--<div><a href="javascript:void(0)" onclick="javascript:switchWallets();">switch</a></div>--%>
                     <li class="item item-select">
-                        <asp:Label ID="lblTransferTo" runat="server" AssociatedControlID="drpTransferTo" Text="to" />
+                        <asp:Label ID="lblTransferTo" runat="server" AssociatedControlID="drpTransferTo" />
                         <asp:DropDownList ID="drpTransferTo" runat="server" data-corners="false" />
                     </li>
                     <li class="item item-input">
-                        <asp:Label ID="lblTransferAmount" runat="server" AssociatedControlID="txtPromoCode" Text="amount" />
-                        <asp:TextBox ID="txtTransferAmount" runat="server" placeholder="amount" type="number" step="any" min="1" />
+                        <asp:Label ID="lblTransferAmount" runat="server" AssociatedControlID="txtPromoCode" />
+                        <asp:TextBox ID="txtTransferAmount" runat="server" type="number" step="any" min="1" />
                     </li>
                     <li class="item item-input">
                         <asp:Literal ID="litExchangeRate" runat="server" />
                     </li>
                     <li class="item item-input" id="divPromoCode">
-                        <div class="ui-field-contain ui-hide-label">
-                            <asp:Label ID="lblPromoCode" runat="server" AssociatedControlID="txtPromoCode" Text="code" CssClass="ui-hidden-accessible" />
-                            <asp:TextBox ID="txtPromoCode" runat="server" placeholder="code" />
-                        </div>
+                        <asp:Label ID="lblPromoCode" runat="server" AssociatedControlID="txtPromoCode" />
+                        <asp:TextBox ID="txtPromoCode" runat="server" />
                     </li>
                     <li class="item item-input">
                         <span id="litPromoDetails" />
@@ -60,7 +58,7 @@
                 </ul>
 
                 <uc:AppFooterMenu runat="server" ID="AppFooterMenu" />
-                
+
             </form>
         </div>
 
@@ -84,41 +82,41 @@
                 }
                 else if ($('#txtTransferAmount').val().trim().length == 0) {
                     window.w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceXPathString("/FundTransfer/InputTransferAmount", xeErrors)%>');
-                    e.preventDefault();
-                    return;
-                }
+                        e.preventDefault();
+                        return;
+                    }
                 setTimeout(function () {
                     $('#btnSubmit').prop("disabled", true);
                 }, 0);
                 GPINTMOBILE.ShowSplash();
             });
 
-            function switchWallets() {
-                var valTransferFrom = $('#drpTransferFrom').val();
-                $('#drpTransferFrom').val($('#drpTransferTo').val()).change();
-                $('#drpTransferTo').val(valTransferFrom).change();
-            }
+    function switchWallets() {
+        var valTransferFrom = $('#drpTransferFrom').val();
+        $('#drpTransferFrom').val($('#drpTransferTo').val()).change();
+        $('#drpTransferTo').val(valTransferFrom).change();
+    }
 
-            $(function () {
+    $(function () {
 
-                window.history.forward();
+        window.history.forward();
 
-                if (sessionStorage.selectedWalletId != 'undefined' || sessionStorage.selectedWalletId != null) {
-                    $('#drpTransferTo').val(sessionStorage.selectedWalletId).change();
-                    sessionStorage.removeItem('selectedWalletId');
+        if (sessionStorage.selectedWalletId != 'undefined' || sessionStorage.selectedWalletId != null) {
+            $('#drpTransferTo').val(sessionStorage.selectedWalletId).change();
+            sessionStorage.removeItem('selectedWalletId');
+        }
+
+        $('#drpTransferFrom').change(function () {
+
+            $('#drpTransferTo option').each(function () {
+                if ($(this).val() != '-1') {
+                    if ($(this).val() == $('#drpTransferFrom').val()) { $(this).hide(); $('#drpTransferTo').val('-1').change(); }
+                    else { $(this).show(); }
                 }
+            });
 
-                $('#drpTransferFrom').change(function () {
-
-                    $('#drpTransferTo option').each(function () {
-                        if ($(this).val() != '-1') {
-                            if ($(this).val() == $('#drpTransferFrom').val()) { $(this).hide(); $('#drpTransferTo').val('-1').change(); }
-                            else { $(this).show(); }
-                        }
-                    });
-
-                    if ($('#drpTransferFrom').val() == '6') {
-                        $('#txtTransferAmount').attr('placeholder', ($('#txtTransferAmount').attr('placeholder').replace('(<%=commonVariables.GetSessionVariable("CurrencyCode")%>)', '(USD)')));
+            if ($('#drpTransferFrom').val() == '6') {
+                $('#txtTransferAmount').attr('placeholder', ($('#txtTransferAmount').attr('placeholder').replace('(<%=commonVariables.GetSessionVariable("CurrencyCode")%>)', '(USD)')));
                     } else {
                         $('#txtTransferAmount').attr('placeholder', ($('#txtTransferAmount').attr('placeholder').replace('(USD)', '(<%=commonVariables.GetSessionVariable("CurrencyCode")%>)')));
                     }
@@ -147,9 +145,9 @@
                                 switch (strStatusCode) {
                                     case '00':
                                         $('#litPromoDetails').text('<%=commonCulture.ElementValues.getResourceXPathString("/FundTransfer/BonusAmount", xeErrors)%>' + strBonus);
-                                       break;
-                                   case '103':
-                                       $('#litPromoDetails').text('<%=commonCulture.ElementValues.getResourceXPathString("/FundTransfer/RolloverNotMet", xeErrors)%>');
+                                        break;
+                                    case '103':
+                                        $('#litPromoDetails').text('<%=commonCulture.ElementValues.getResourceXPathString("/FundTransfer/RolloverNotMet", xeErrors)%>');
                                        break;
                                    case '109':
                                        $('#litPromoDetails').text('<%=commonCulture.ElementValues.getResourceXPathString("/Promotion/PromoAlreadyClaimed", xeErrors)%>');
@@ -165,8 +163,8 @@
                                        $('#litPromoDetails').text('<%=commonCulture.ElementValues.getResourceXPathString("/Promotion/InvalidPromo", xeErrors)%>');
                                        break;
                                }
-                           }
-                       });
+                            }
+                        });
                    } else { $('#litPromoDetails').text(''); }
                 });
 

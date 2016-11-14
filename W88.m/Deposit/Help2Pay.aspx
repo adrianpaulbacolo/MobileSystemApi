@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Help2Pay.aspx.cs" Inherits="Deposit_Help2Pay" %>
+
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
 <!DOCTYPE html>
@@ -19,7 +20,7 @@
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <uc:Wallet id="uMainWallet" runat="server" />
+                <uc:Wallet ID="uMainWallet" runat="server" />
             </div>
 
             <div data-role="navbar" id="depositTabs" runat="server">
@@ -60,20 +61,20 @@
                             <asp:Literal ID="txtTotalAllowed" runat="server" />
                         </div>
                     </li>
-                    <li class="item item-select">
-                        <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
-                        <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
-                    </li>
                     <li class="item item-input">
                         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
                         <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+                    </li>
+                    <li class="item item-select">
+                        <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
+                        <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
                     </li>
                     <li class="item row">
                         <div class="col">
                             <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" id="btnCancel" runat="server" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
                         </div>
                         <div class="col">
-                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false"  OnClick="btnSubmit_Click" />
+                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" />
                         </div>
                     </li>
                 </ul>
@@ -109,7 +110,7 @@
                     }
                 }
             });
-          
+
         </script>
     </div>
 </body>

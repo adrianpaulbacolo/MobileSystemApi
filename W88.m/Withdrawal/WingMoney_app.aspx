@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="WingMoney.aspx.cs" Inherits="Withdrawal_WingMoney" %>
+
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 <%@ Register Src="~/UserControls/AppFooterMenu.ascx" TagPrefix="uc" TagName="AppFooterMenu" %>
 
@@ -18,7 +19,7 @@
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-               <uc:Wallet id="uMainWallet" runat="server" />
+                <uc:Wallet ID="uMainWallet" runat="server" />
             </div>
 
             <div data-role="navbar">
@@ -29,17 +30,41 @@
             <form class="form" id="form1" runat="server" data-ajax="false">
                 <br />
                 <ul class="list fixed-tablet-size">
+                    <li class="row">
+                        <div class="col">
+                            <asp:Literal ID="lblMode" runat="server" />
+                        </div>
+                        <div class="col">
+                            <asp:Literal ID="txtMode" runat="server" />
+                        </div>
+                    </li>
+                    <li class="row">
+                        <div class="col">
+                            <asp:Literal ID="lblMinMaxLimit" runat="server" />
+                        </div>
+                        <div class="col">
+                            <asp:Literal ID="txtMinMaxLimit" runat="server" />
+                        </div>
+                    </li>
+                    <li class="row">
+                        <div class="col">
+                            <asp:Literal ID="lblDailyLimit" runat="server" />
+                        </div>
+                        <div class="col">
+                            <asp:Literal ID="txtDailyLimit" runat="server" />
+                        </div>
+                    </li>
+                    <li class="row">
+                        <div class="col">
+                            <asp:Literal ID="lblTotalAllowed" runat="server" />
+                        </div>
+                        <div class="col">
+                            <asp:Literal ID="txtTotalAllowed" runat="server" />
+                        </div>
+                    </li>
                     <li class="item item-input">
                         <asp:Label ID="lblWithdrawAmount" runat="server" AssociatedControlID="txtWithdrawAmount" />
                         <asp:TextBox ID="txtWithdrawAmount" runat="server" type="number" step="any" min="1" />
-                    </li>
-                    <li class="item item-text-wrap">
-                        <div class="div-limit">
-                            <div>
-                                <asp:Literal ID="lblDailyLimit" runat="server" /></div>
-                            <div>
-                                <asp:Literal ID="lblTotalAllowed" runat="server" /></div>
-                        </div>
                     </li>
                     <li class="item item-input">
                         <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" />
@@ -57,11 +82,12 @@
                     -->
                     <li class="row">
                         <div class="col">
-                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" OnClick="btnSubmit_Click" data-corners="false" /></div>
+                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" OnClick="btnSubmit_Click" data-corners="false" />
+                        </div>
                     </li>
                 </ul>
 
-                <uc:AppFooterMenu runat="server" id="AppFooterMenu" />
+                <uc:AppFooterMenu runat="server" ID="AppFooterMenu" />
 
             </form>
         </div>

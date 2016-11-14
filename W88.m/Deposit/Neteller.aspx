@@ -61,13 +61,16 @@
                         </div>
                     </li>
                     <li class="item item-input">
-                        <asp:TextBox ID="txtDepositAmount" runat="server" placeholder="amount" type="number" step="any" min="1" data-clear-btn="true" />
+                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
+                        <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
                     <li class="item item-input">
-                        <asp:TextBox ID="txtAccountId" runat="server" placeholder="NETELLER Account Id" type="number" step="any" min="1" data-clear-btn="true" />
+                        <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountId" />
+                        <asp:TextBox ID="txtAccountId" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
                     <li class="item item-input">
-                        <asp:TextBox ID="txtSecureId" runat="server" placeholder="NETELLER Secure Id" type="number" step="any" min="1" CssClass="ui-input-number-secure" data-clear-btn="true" />
+                        <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtSecureId" />
+                        <asp:TextBox ID="txtSecureId" runat="server" type="number" step="any" min="1" CssClass="ui-input-number-secure" data-clear-btn="true" />
                     </li>
                     <li class="item row">
                         <div class="col">

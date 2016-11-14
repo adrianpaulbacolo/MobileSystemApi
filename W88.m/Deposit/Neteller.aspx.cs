@@ -33,22 +33,33 @@ public partial class Deposit_Neteller : PaymentBasePage
 
         if (!Page.IsPostBack)
         {
-            lblMode.Text = commonCulture.ElementValues.getResourceString("lblMode", xeResources);
-            txtMode.Text = string.Format(": {0}", commonCulture.ElementValues.getResourceString("txtMode", xeResources));
-            lblMinMaxLimit.Text = commonCulture.ElementValues.getResourceString("lblMinMaxLimit", xeResources);
-            lblDailyLimit.Text = commonCulture.ElementValues.getResourceString("lblDailyLimit", xeResources);
-            lblTotalAllowed.Text = commonCulture.ElementValues.getResourceString("lblTotalAllowed", xeResources);
-
-            btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
-
-            txtAccountId.Attributes.Add("PLACEHOLDER", string.Format("{0}", commonCulture.ElementValues.getResourceString("accountId", commonVariables.LeftMenuXML)));
-            txtSecureId.Attributes.Add("PLACEHOLDER", string.Format("{0}", commonCulture.ElementValues.getResourceString("secureId", commonVariables.LeftMenuXML)));
-            txtDepositAmount.Attributes.Add("PLACEHOLDER", string.Format("{0} ({1})", commonCulture.ElementValues.getResourceString("lblAmount", xeResources), strCurrencyCode));
-
-            txtMinMaxLimit.Text = string.Format(": {0} / {1}", strMinLimit, strMaxLimit);
-            txtDailyLimit.Text = string.Format(": {0}", strDailyLimit);
-            txtTotalAllowed.Text = string.Format(": {0}", strTotalAllowed);
+            InitializeLabels();
         }
+    }
+
+    private void InitializeLabels()
+    {
+        XElement _xeRegisterResources;
+        commonCulture.appData.getRootResource("/_Secure/Register.aspx", out _xeRegisterResources);
+
+        lblMode.Text = base.strlblMode;
+        txtMode.Text = base.strtxtMode;
+
+        lblMinMaxLimit.Text = base.strlblMinMaxLimit;
+        txtMinMaxLimit.Text = base.strtxtMinMaxLimit;
+
+        lblDailyLimit.Text = base.strlblDailyLimit;
+        txtDailyLimit.Text = base.strtxtDailyLimit;
+
+        lblTotalAllowed.Text = base.strlblTotalAllowed;
+        txtTotalAllowed.Text = base.strtxtTotalAllowed;
+
+        lblDepositAmount.Text = base.strlblAmount;
+
+        lblAccountName.Text = "Neteller " + commonCulture.ElementValues.getResourceString("lblUsername", _xeRegisterResources);
+        lblAccountNumber.Text = "Neteller " + commonCulture.ElementValues.getResourceString("lblPassword", _xeRegisterResources);
+
+        btnSubmit.Text = base.strbtnSubmit;
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)

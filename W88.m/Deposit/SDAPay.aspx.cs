@@ -47,8 +47,6 @@ public partial class Deposit_SDAPay : PaymentBasePage
 
             btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
 
-            txtDepositAmount.Attributes.Add("PLACEHOLDER", string.Format("{0} ({1})", lblDepositAmount.Text, strCurrencyCode));
-
             txtMinMaxLimit.Text = string.Format(": {0} / {1}", strMinLimit, strMaxLimit);
             txtDailyLimit.Text = string.Format(": {0}", strDailyLimit);
             txtTotalAllowed.Text = string.Format(": {0}", strTotalAllowed);
