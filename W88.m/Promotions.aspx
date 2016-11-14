@@ -175,9 +175,9 @@
 
                     listObj.append($(liPromo).append($(divPromoWrapper).append($(divPromoImg).append(imgPromo)).append(divSecond)).append(divPromoDetail));
                     $(this).find('script').each(function () { $.globalEval(this.text || this.textContent || this.innerHTML || ''); });
-
                 });
                 hashOpen();
+                scrollToTab(category, categories);
             })
             .always(function (data) {
                 $('#promoLoader').hide();
@@ -511,18 +511,22 @@
                     window.location.reload();
                 });
             });
-
-            if (!_.isEmpty(category)) {
-                var button = $('#' + category).parent();
-                if (!button) return categories;
-                if(!button.hasClass('active')) {
-                    button.addClass('active');
-                }
-                var index = _.findIndex(categories, { id: category });
-                $('div.footer.footer-div.footer-generic').animate({scrollLeft:index*150}, 100);
-            }
-
             return categories;
+        }
+
+        function scrollToTab(category, categories) {
+            if (_.isEmpty(category)) return;
+
+            var button = $('#' + category).parent();
+            if (!button) return categories;
+            if (!button.hasClass('active')) {
+                button.addClass('active');
+            }
+            var index = _.findIndex(categories, { id: category });
+            setTimeout(function () {
+                $('#categories').show();
+                $('div.footer.footer-div.footer-generic').animate({ scrollLeft: index * 150 }, 100); 
+            }, 300);          
         }
     </script>
 </asp:Content>
@@ -533,7 +537,7 @@
         <img id="promoLoader" src="/_Static/Css/images/ajax-loader.gif" style="display: none;" />
         <div id="divPromotions" class="main-content has-footer"></div>
         <div class="footer footer-div footer-generic">
-            <div id="categories" class="btn-group btn-group-justified btn-group-sliding" role="group"></div>
+            <div id="categories" style="display: none;" class="btn-group btn-group-justified btn-group-sliding"></div>
         </div>
     </div>
 </asp:Content>
