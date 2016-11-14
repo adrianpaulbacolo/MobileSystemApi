@@ -69,13 +69,13 @@
                         </div>
                     </li>
                     <li class="item row selection">
-                        <div class="col">
-                            <asp:Button data-theme="b" ID="btnEwallet" runat="server" CssClass="button-blue" data-corners="false" CausesValidation="False" Text="Ví Điện Tử Nội Địa" />
+                        <div class="col col-50">
+                            <label>
+                                <input type="radio" name="depOption" value="EWALLET" />Ví Điện Tử Nội Địa</label>
                         </div>
-                    </li>
-                    <li class="item row selection">
-                        <div class="col">
-                            <asp:Button data-theme="b" ID="btnATM" runat="server" CssClass="button-blue" data-corners="false" CausesValidation="False" Text="Thẻ ATM Nội Địa" />
+                        <div class="col col-50">
+                            <label>
+                                <input type="radio" name="depOption" value="ATM" />Thẻ ATM Nội Địa</label>
                         </div>
                     </li>
                     <li class="item item-select atm" runat="server">
@@ -96,7 +96,7 @@
                         <asp:TextBox ID="txtContact" runat="server" type="tel" data-mini="true" data-clear-btn="true" />
                     </li>
                     <li class="item item-select">
-                        <p id="notice" style="color:#ff0000"></p>
+                        <p id="notice" style="color: #ff0000"></p>
                     </li>
                     <li class="item row ewallet atm">
                         <div class="col">
@@ -124,26 +124,23 @@
                 $('.ewallet').hide();
                 $('.atm').hide();
 
-                $('#btnEwallet').click(function (e) {
+                $("input[name='depOption']").change(function (e) {
                     e.preventDefault();
+                    var value = $(this).val();
 
-                    $('.selection').hide();
-                    $('.atm').hide();
-                    $('.ewallet').show();
-                    $('#btnEwallet').hide();
-                    window.w88Mobile.Gateways.Baokim.method = "EWALLET";
-                    $("#notice").html(sessionStorage.getItem("noticeWallet"));
-                });
-
-                $('#btnATM').click(function (e) {
-                    e.preventDefault();
-
-                    $('.selection').hide();
-                    $('.ewallet').hide();
-                    $('.atm').show();
-                    $(this).hide();
-                    window.w88Mobile.Gateways.Baokim.method = "";
-                    $("#notice").html(sessionStorage.getItem("noticeAtm"));
+                    if (value == "EWALLET") {
+                        $('.atm').hide();
+                        $('.ewallet').show();
+                        $('#btnEwallet').hide();
+                        window.w88Mobile.Gateways.Baokim.method = "EWALLET";
+                        $("#notice").html(sessionStorage.getItem("noticeWallet"));
+                    } else {
+                        $('.ewallet').hide();
+                        $('.atm').show();
+                        $(this).hide();
+                        window.w88Mobile.Gateways.Baokim.method = "";
+                        $("#notice").html(sessionStorage.getItem("noticeAtm"));
+                    }
                 });
 
                 $('#btnSubmit').click(function (e) {
@@ -155,7 +152,7 @@
                     } else {
                         data = { Method: window.w88Mobile.Gateways.Baokim.method, Amount: $('#txtDepositAmount').val(), Email: $('#txtEmail').val(), Phone: $('#txtContact').val(), Banks: { Text: $('#drpBanks option:selected').text(), Value: $('#drpBanks').val() } };
                     }
-                    
+
                     window.w88Mobile.Gateways.Baokim.deposit(data, function (response) {
                         switch (response.ResponseCode) {
                             case 1:
