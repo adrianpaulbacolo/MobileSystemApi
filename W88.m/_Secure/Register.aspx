@@ -162,21 +162,24 @@
             $(function () {
                 $("#drpContact").attr("disabled", "disabled").off('click');
                 $("#drpDOB").attr("disabled", "disabled").off('click');
-                if (CDNCountry.length > 0 && setCurrency(CDNCountry)) {
-                    $('#hidValues').val(CDNCountry + "|" + domain + "|" + "<%= !String.IsNullOrEmpty(headers.ip) ? headers.ip : commonIp.UserIP %>" + "|-");
+                if (isValidCountry(CDNCountry) && setCurrency(CDNCountry)) {
+                    $('#hidValues').val(CDNCountry + "|" + domain + "|" + "<%= !String.IsNullOrEmpty(headers.ip) ? headers.ip : commonIp.UserIP %>" + "|");
                 } else {
                     $.ajax({
                         contentType: "application/json; charset=utf-8",
                         url: "https://ip2loc.w2script.com/IP2LOC?v=" + new Date().getTime(),
                         dataType: "jsonp",
                         success: function (data) {
+
+                            var ipCountry = data.country.toString().toUpperCase();
+
                             if ($('#hidValues').val().trim().length == 0) {
-                                setCurrency(data.country);
+                                setCurrency(ipCountry);
 
                                 $.ajax({
                                     type: "POST",
                                     url: "/AjaxHandlers/GetCountryInfo.ashx",
-                                    data: { CountryCode: data.country.toString().toUpperCase() },
+                                    data: { CountryCode: ipCountry },
                                     success: function (data) {
                                         strContactCountry = data;
 
@@ -187,7 +190,7 @@
                                 });
                             }
 
-                            $('#hidValues').val(data.country.toString().toUpperCase() + "|" + data.domainName + "|" + data.ip + "|" + (data.permission == '' ? '-' : data.permission));
+                            $('#hidValues').val(ipCountry + "|" + data.domainName + "|" + data.ip + "|" + (data.permission == '' ? '-' : data.permission));
 
                             return;
                         },
@@ -199,10 +202,15 @@
                 }
 
                 var responseMsg = '<%=strAlertMessage%>';
-                if ('<%=strAlertCode%>' != "1" && responseMsg.length > 0) {
+                var responseCode = '<%=strAlertCode%>';
+                if (responseCode != "1" && responseMsg.length > 0) {
                     window.w88Mobile.Growl.shout(responseMsg);
                 }
             });
+
+            function isValidCountry(country) {
+                return (country.length > 0 && country.toUpperCase() != "XX")
+            }
 
             $('#imgCaptcha').click(function () { $(this).attr('src', '/Captcha'); });
 

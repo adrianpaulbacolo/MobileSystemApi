@@ -84,18 +84,18 @@
                    {
                        if (commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase))
                        { %>
-                        <li class="col col-33 product">
-                            <a href="https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/LuckyFishing.apk" class="tile" data-ajax="false" data-transition="slidedown">
-                            <span class="icon-fish"></span>
-                            <h4 class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></h4>
-                            </a>
-                        </li>
+                            <li class="col col-33 product">
+                                <a href="#divPanel" class="tile nav-fish">
+                                    <span class="icon-fish"></span>
+                                    <h4 class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></h4>
+                                </a>
+                            </li>
                     <% }
                    }
                 else if (commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))
                    { %>
                         <li class="col col-33 product">
-                            <a href="https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/LuckyFishing.apk" class="tile" data-ajax="false" data-transition="slidedown">
+                            <a href="#divPanel" class="tile nav-fish">
                                 <span class="icon-fish"></span>
                                 <h4 class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></h4>
                             </a>
