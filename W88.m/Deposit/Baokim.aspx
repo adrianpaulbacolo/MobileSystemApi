@@ -150,7 +150,7 @@
                     if (window.w88Mobile.Gateways.Baokim.method == "EWALLET") {
                         data = { Method: window.w88Mobile.Gateways.Baokim.method, Amount: $('#txtDepositAmount').val(), Email: $('#txtEmail').val() };
                     } else {
-                        data = { Method: window.w88Mobile.Gateways.Baokim.method, Amount: $('#txtDepositAmount').val(), Email: $('#txtEmail').val(), Phone: $('#txtContact').val(), Banks: { Text: $('#drpBanks option:selected').text(), Value: $('#drpBanks').val() } };
+                        data = { Method: window.w88Mobile.Gateways.Baokim.method, Amount: $('#txtDepositAmount').val(), Email: $('#txtEmail').val(), Phone: $('#txtContact').val(), Bank: { Text: $('#drpBanks option:selected').text(), Value: $('#drpBanks').val() } };
                     }
 
                     window.w88Mobile.Gateways.Baokim.deposit(data, function (response) {

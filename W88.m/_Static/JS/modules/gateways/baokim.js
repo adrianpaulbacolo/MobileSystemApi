@@ -13,9 +13,6 @@
         getTranslations: function() {
             return translations();
         },
-        createTransaction: function () {
-            createTransaction();
-        },
         method: method
     };
 
