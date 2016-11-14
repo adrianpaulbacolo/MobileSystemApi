@@ -28,7 +28,7 @@
 	position: absolute;
 	overflow-y: hidden;
     overflow-x: scroll;
-	@include box-shadow(0 -2px 4px 0 rgba(0,0,0,0.3));
+	//@include box-shadow(0 -2px 4px 0 rgba(0,0,0,0.3));
 	.btn{
 		font-weight: 700;
 		height: 69px;
