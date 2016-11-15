@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "W88.redirect", "http://localhost:63491", "{81577C2B-0A91-4DDF-8AF1-F23F23548791}"
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
