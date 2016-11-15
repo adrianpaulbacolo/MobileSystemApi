@@ -2,7 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script type="text/javascript">
-        var lang = '<%=(string.IsNullOrEmpty(commonVariables.SelectedLanguage) ? "en-us" : commonVariables.SelectedLanguage)%>';
+        var lang = '<%=(string.IsNullOrEmpty(commonVariables.SelectedLanguage) ? "en-us" : commonVariables.SelectedLanguage)%>',
+            categories = [];
         if (lang == '') { lang = 'en-us'; }
         $(function () {
             $(window).hashchange(function () {
@@ -10,9 +11,9 @@
             });
             $(window).hashchange();
             if(!_.isEmpty(window.location.hash)) {
-                getPromos(window.location.hash.substring(1));
+                filterPromos(window.location.hash.substring(1));
             } else {
-                getPromos('ALL');
+                filterPromos('ALL');
             }
         });
         // temporarily restrict promo
@@ -24,35 +25,16 @@
         var currentCCode = '<%= commonCookie.CookieCurrency%>';
 
         function timerV2(pid, start_date, end_date) { if (new Date('<%=System.DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') < new Date(start_date) || new Date('<%=System.DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') > new Date(end_date)) { $('div#' + pid).hide(); } }
-        function getPromos(category) {
-            $.get('/AjaxHandlers/Promotion.ashx', function (html) { })
-            .done(function (data) {
-                var hash = '';
-                if (location.hash != '') {
-                    hash = location.hash;
-                }
-                data = data.replace(/<img src=/g, '<img rel=');
-                data = data.replace('[domain]', '.' + location.hostname.split('.').slice(-2).join('.'));
+            function getPromos(category) {
+                $("#divPromotions").html('');
                 var listObj = $("#divPromotions").append('<ul class="row row-uc row-no-padding row-wrap"></ul>').find('ul'),
-                    promos,
-                    categories = getCategories(data, category);
+                    _category = _.find(categories, { id: category });
 
-                if (category !== 'ALL') {
-                    var _category = _.find(categories, { id: category });
-                    if (!_.isEmpty(_category)) {
-                        promos = _category.promos;
-                    } else {
-                        promos = $(data).find('.promotion_group');
-                    }
-                } else {
-                    promos = $(data).find('.promotion_group');
-                }
-
-                if (!promos) return;
-                var promo_length = promos.length;
-                if (promo_length == 0) return;
+                if (!_category || _category.length == 0) return;
+                var promos = _category.promos;
+                if (!promos || promos.length == 0) return;
                 promos.each(function (index) {
-                    if (index == promo_length - 1 && category == 'ALL') { return; }
+                    if (index == promos.length - 1 && category == 'ALL') { return; }
                     var currentPromoId = $(this).attr('id');
                     if (!_.isUndefined(restrictedPromos[currentPromoId])) {
                         if (_.isEmpty(currentCCode)) {
@@ -177,7 +159,16 @@
                     $(this).find('script').each(function () { $.globalEval(this.text || this.textContent || this.innerHTML || ''); });
                 });
                 hashOpen();
-                scrollToTab(category, categories);
+                scrollToTab(category);            
+            }
+
+        function filterPromos(category) {
+            $.get('/AjaxHandlers/Promotion.ashx', function (html) { })
+            .done(function (data) {
+                data = data.replace(/<img src=/g, '<img rel=');
+                data = data.replace('[domain]', '.' + location.hostname.split('.').slice(-2).join('.'));
+                categories = getCategories(data);
+                getPromos(category);
             })
             .always(function (data) {
                 $('#promoLoader').hide();
@@ -483,17 +474,18 @@
             }
         }
 
-        function getCategories(data, category) {
+        function getCategories(data) {
             var categories = [];
             // For 'ALL' category
             categories.push({
                 id: 'ALL',
-                text: '<%=commonCulture.ElementValues.GetResourceXPathAttribute("status", "id", "ALL", commonVariables.HistoryXML)%>'
+                text: '<%=commonCulture.ElementValues.GetResourceXPathAttribute("status", "id", "ALL", commonVariables.HistoryXML)%>',
+                promos: $(data).find('.promotion_group')
             });
             $('#categories').append('<div class="btn-group" role="group"><a id="' + categories[0].id + '"class="btn" href="#' + categories[0].id + '">' + categories[0].text + '</a></div>');
             $('#' + categories[0].id).on('click', function () {
                 window.location.hash = categories[0].id;
-                window.location.reload();
+                getPromos(window.location.hash.substring(1));
             });
 
             $(data).find('.promotion_group_header').each(function (index, div) {
@@ -508,25 +500,29 @@
                 $('#categories').append('<div class="btn-group" role="group"><a id="' + _category.id + '"class="btn" href="#' + _category.id + '">' + _category.text + '</a></div>');
                 $('#' + _category.id).on('click', function() {
                     window.location.hash = _category.id;
-                    window.location.reload();
+                    getPromos(window.location.hash.substring(1));
                 });
             });
             return categories;
         }
 
-        function scrollToTab(category, categories) {
+        function scrollToTab(category) {
             if (_.isEmpty(category)) return;
 
             var button = $('#' + category).parent();
-            if (!button) return categories;
+            if (!button) return;
             if (!button.hasClass('active')) {
                 button.addClass('active');
             }
+            $('#categories').children().children().each(function(index, div) {
+                if ($(div).parent().hasClass('active') && $(div).attr('id') !== category)
+                    $(div).parent().removeClass('active');
+            });
             var index = _.findIndex(categories, { id: category });
             setTimeout(function () {
                 $('#categories').show();
-                $('div.footer.footer-div.footer-generic').animate({ scrollLeft: index * 150 }, 100); 
-            }, 300);          
+                $('div.footer.footer-div.footer-generic').scrollLeft(index * 150); 
+            }, 200);          
         }
     </script>
 </asp:Content>
