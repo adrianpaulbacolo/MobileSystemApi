@@ -78,14 +78,14 @@
                                 <input type="radio" name="depOption" value="ATM" />Thẻ ATM Nội Địa</label>
                         </div>
                     </li>
+                    <li class="item item-input atm ewallet">
+                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
+                        <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+                    </li>
                     <li class="item item-select atm" runat="server">
                         <asp:Label ID="lblBanks" runat="server" AssociatedControlID="drpBanks" />
                         <asp:DropDownList ID="drpBanks" runat="server" data-corners="false">
                         </asp:DropDownList>
-                    </li>
-                    <li class="item item-input atm ewallet">
-                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
-                        <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
                     <li class="item item-input atm ewallet">
                         <asp:Label ID="lblEmail" runat="server" AssociatedControlID="txtEmail" />

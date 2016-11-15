@@ -65,7 +65,6 @@ public partial class Deposit_Baokim : PaymentBasePage
         txtTotalAllowed.Text = base.strtxtTotalAllowed;
 
         lblDepositAmount.Text = base.strlblAmount;
-        txtDepositAmount.Attributes.Add("PLACEHOLDER", base.strtxtAmount);
 
         btnSubmit.Text = base.strbtnSubmit;
 
