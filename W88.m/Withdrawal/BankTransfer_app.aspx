@@ -159,9 +159,14 @@
                 }
 
                 if (sessionStorage.getItem("hfBLId") != null || sessionStorage.getItem("hfBBId") != null) {
-                    var blId = $('#<%=hfBLId.ClientID%>').val();
-                    var bbId = $('#<%=hfBBId.ClientID%>').val();
-                    window.w88Mobile.BankTransfer.ReloadValues(selectName, blId, bbId);
+
+                    if ($('#drpBank').val() != "-1") {
+                        var blId = $('#<%=hfBLId.ClientID%>').val();
+                        var bbId = $('#<%=hfBBId.ClientID%>').val();
+                        window.w88Mobile.BankTransfer.ReloadValues(selectName, blId, bbId);
+                        sessionStorage.removeItem("hfBLId");
+                        sessionStorage.removeItem("hfBBId");
+                    }
                 }
 
             });

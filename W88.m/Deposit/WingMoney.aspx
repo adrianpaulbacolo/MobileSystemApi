@@ -70,7 +70,7 @@
                         <asp:TextBox ID="txtReferenceId" runat="server" data-clear-btn="true" />
                     </li>
                     <li class="item item-select" id="divDepositDateTime" runat="server">
-                         <div class="row">
+                        <div class="row">
                             <asp:Label ID="lblDepositDateTime" runat="server" AssociatedControlID="drpDepositDate" />
                         </div>
                         <div class="row">

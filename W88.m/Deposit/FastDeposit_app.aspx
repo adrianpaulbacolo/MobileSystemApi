@@ -140,7 +140,7 @@
                     switch (responseCode) {
                         case '-1':
                             alert(responseMsg);
-                            toogleBank($('#drpBank').val());
+                            window.w88Mobile.Gateways.FastDeposit.ToogleBank($('#drpBank').val());
                             break;
                         case '0':
                             alert(responseMsg);
@@ -152,20 +152,11 @@
                 }
             });
 
+            window.w88Mobile.Gateways.FastDeposit.GetBankDetails();
+
             $('#drpBank').change(function () {
-                toogleBank(this.value);
+                window.w88Mobile.Gateways.FastDeposit.ToogleBank(this.value);
             });
-
-
-            function toogleBank(bankId) {
-                if (bankId == "OTHER") {
-                    $('#divBankName').show();
-                }
-                else {
-                    $('#divBankName').hide();
-                }
-            }
-
         </script>
     </div>
 </body>

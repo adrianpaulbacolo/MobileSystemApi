@@ -102,15 +102,15 @@
                       switch ('<%=strAlertCode%>') {
                           case '-1':
                               alert('<%=strAlertMessage%>');
-                            tooglePaymentMethod($('#drpBank').val());
-                            break;
-                        case '0':
-                            window.location.replace('/FundTransfer/Default.aspx');
-                            break;
-                        default:
-                            break;
-                    }
-                }
+                              tooglePaymentMethod($('#drpBank').val());
+                              break;
+                          case '0':
+                              window.location.replace('/FundTransfer/Default.aspx');
+                              break;
+                          default:
+                              break;
+                      }
+                  }
                   $('#drpBank').change(function () {
                       var bId = this.value;
                       tooglePaymentMethod(bId);

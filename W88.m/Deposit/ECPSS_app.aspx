@@ -100,6 +100,7 @@
                         case '-1':
                             alert(responseMsg);
                             break;
+
                         case '0':
                             var cookie = '<%=HttpUtility.UrlEncode(commonEncryption.encrypting(HttpUtility.UrlEncode(commonCookie.CookieS),ConfigurationManager.AppSettings["PaymentPrivateKey"]))%>';
                             var remote_ip = '<%=HttpUtility.UrlEncode(commonEncryption.encrypting(commonIp.remoteIP,ConfigurationManager.AppSettings["PaymentPrivateKey"]))%>';
