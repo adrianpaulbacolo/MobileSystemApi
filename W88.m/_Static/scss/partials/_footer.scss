@@ -20,24 +20,24 @@
 
 .footer{
 	width: 100%;
-	height: 65px;
+	height: 40px;
+    top: 0;
 	left: 0;
 	right: 0;
 	z-index: 20;
 	position: absolute;
 	overflow-y: hidden;
     overflow-x: scroll;
-	//@include box-shadow(0 -2px 4px 0 rgba(0,0,0,0.3));
 	.btn{
-		font-weight: 700;
-		height: 69px;
-		padding: 20px 14px;
+		font-weight: 500;
+		padding: 10px 14px; 
+        height: 40px;
 		position: relative;
 	}
 	.btn-group-sliding{
 	    width: auto;
 	    .btn-group{
-	    	min-width: 150px;
+	    	min-width: 80px;
 			.btn{
 				width: 100%;
 				white-space: nowrap;
@@ -59,7 +59,6 @@
 		}
 	}
 	.btn-group{
-		border-right: 1px solid $footer-generic-border;
 		&:last-child{
 			border-right: none;
 		}
@@ -67,10 +66,10 @@
             &.btn-icon{
 		        padding-top: 10px;
             }
-			color: $footer-generic-color;
-			border-color: $footer-generic-bg;
-			background-color: $footer-generic-bg;
-			padding-top: 21px;
+            color: #bfbfbf; 
+            border-color: #333; 
+            background-color: #333;
+			padding-top: 10px;
             border-radius: 0;
 			&:focus,
 			&:hover{
@@ -84,16 +83,6 @@
 				color: $footer-generic-active-color;
 				background-color: $footer-generic-active-bg;
 				border-color: $footer-generic-active-bg;
-				border-bottom: 1px solid $footer-generic-active-border;
-				&:after{
-					content: '';
-					bottom: -1px;
-					left: 0;
-					width: 100%;
-					height: 4px;
-					background: $footer-generic-active-border;
-					position: absolute;
-				}
 			}
 		}
 	}

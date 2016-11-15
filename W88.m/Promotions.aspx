@@ -521,7 +521,7 @@
             var index = _.findIndex(categories, { id: category });
 
             $('#categories').show();
-            $('div.footer.footer-div.footer-generic').scrollLeft(index * 150);
+            $('div.footer.footer-div.footer-generic').scrollLeft(index * 80);
         }
     </script>
 </asp:Content>
