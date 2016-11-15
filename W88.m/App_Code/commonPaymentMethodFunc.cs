@@ -95,7 +95,7 @@ public static class commonPaymentMethodFunc
             if (!isUnavailable)
             {
                 hasMethod = true;
-                SetDepositMethodListLink(depositItem, depositTabsList, sourcePage, isApp, currencyCode);
+                SetDepositMethodListLink(depositItem, depositTabsList, sourcePage, currencyCode);
             }
         }
 
@@ -103,10 +103,12 @@ public static class commonPaymentMethodFunc
 
     }
 
-    private static void SetDepositMethodListLink(commonVariables.DepositMethod paymentCode, HtmlGenericControl depositTabs, string sourcePage, bool isApp, string currencyCode)
+    private static void SetDepositMethodListLink(commonVariables.DepositMethod paymentCode, HtmlGenericControl depositTabs, string sourcePage, string currencyCode)
     {
         HtmlGenericControl anchor;
         HtmlGenericControl list;
+
+        bool isApp = commonCookie.CookieIsApp == "1";
 
         switch (paymentCode)
         {
@@ -302,6 +304,18 @@ public static class commonPaymentMethodFunc
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
                 break;
+
+            case commonVariables.DepositMethod.VenusPoint:
+                list = CreateMethodListControl(paymentCode);
+
+                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
+
+                anchor.Attributes.Add("href", "/Deposit/VenusPoint.aspx");
+
+                list.Controls.Add(anchor);
+                depositTabs.Controls.Add(list);
+                break;
+
             default:
                 break;
         }
@@ -358,15 +372,18 @@ public static class commonPaymentMethodFunc
             bool isUnavailable = methodUnavailable.Contains(paymentCode);
             if (!isUnavailable)
             {
-                SetWithdrawalMethodListLink(withdrawalItem, withdrawalTabs, sourcePage, isApp);
+                SetWithdrawalMethodListLink(withdrawalItem, withdrawalTabs, sourcePage);
             }
         }
     }
 
-    private static void SetWithdrawalMethodListLink(commonVariables.WithdrawalMethod paymentCode, HtmlGenericControl withdrawalTabs, string sourcePage, bool isApp)
+    private static void SetWithdrawalMethodListLink(commonVariables.WithdrawalMethod paymentCode, HtmlGenericControl withdrawalTabs, string sourcePage)
     {
         HtmlGenericControl anchor;
         HtmlGenericControl list;
+
+        bool isApp = commonCookie.CookieIsApp == "1";
+
         switch (paymentCode)
         {
             case commonVariables.WithdrawalMethod.BankTransfer:
@@ -379,6 +396,17 @@ public static class commonPaymentMethodFunc
                     anchor.Attributes.Add("href", "/Withdrawal/BankTransfer_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Withdrawal/BankTransfer.aspx");
+
+                list.Controls.Add(anchor);
+                withdrawalTabs.Controls.Add(list);
+                break;
+
+            case commonVariables.WithdrawalMethod.VenusPoint:
+                list = CreateMethodListControl(paymentCode);
+
+                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage);
+
+                anchor.Attributes.Add("href", "/Withdrawal/VenusPoint.aspx");
 
                 list.Controls.Add(anchor);
                 withdrawalTabs.Controls.Add(list);
