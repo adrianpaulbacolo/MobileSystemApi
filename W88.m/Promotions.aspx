@@ -11,9 +11,9 @@
             });
             $(window).hashchange();
             if(!_.isEmpty(window.location.hash)) {
-                filterPromos(window.location.hash.substring(1));
+                getPromos(window.location.hash.substring(1));
             } else {
-                filterPromos('ALL');
+                getPromos('ALL');
             }
         });
         // temporarily restrict promo
@@ -24,8 +24,8 @@
         };
         var currentCCode = '<%= commonCookie.CookieCurrency%>';
 
-        function timerV2(pid, start_date, end_date) { if (new Date('<%=System.DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') < new Date(start_date) || new Date('<%=System.DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') > new Date(end_date)) { $('div#' + pid).hide(); } }
-            function getPromos(category) {
+        function timerV2(pid, start_date, end_date) { if (new Date('<%=DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') < new Date(start_date) || new Date('<%=System.DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') > new Date(end_date)) { $('div#' + pid).hide(); } }
+            function filterPromos(category) {
                 $("#divPromotions").html('');
                 var listObj = $("#divPromotions").append('<ul class="row row-uc row-no-padding row-wrap"></ul>').find('ul'),
                     _category = _.find(categories, { id: category });
@@ -92,7 +92,7 @@
 
                     if ($(this).find('.promo_join_btn').length > 0) {
                         if ('<%=commonVariables.CurrentMemberSessionId%>'.trim() == '') {
-                            var hrefJoin = $('<a />', { class: 'ui-btn btn-primary', 'data-transition': 'flip', href: '/_Secure/Register.aspx' }).text('<%=commonCulture.ElementValues.getResourceString("joinnow", commonVariables.LeftMenuXML)%>');
+                            var hrefJoin = $('<a />', { class: 'ui-btn btn-primary', href: '/_Secure/Register.aspx', 'data-ajax': 'false' }).text('<%=commonCulture.ElementValues.getResourceString("joinnow", commonVariables.LeftMenuXML)%>');
                             //$(divPromoDetail).append(hrefJoin);
                             $(divJoinButton).append(hrefJoin);
                         }
@@ -162,13 +162,13 @@
                 scrollToTab(category);            
             }
 
-        function filterPromos(category) {
+        function getPromos(category) {
             $.get('/AjaxHandlers/Promotion.ashx', function (html) { })
             .done(function (data) {
                 data = data.replace(/<img src=/g, '<img rel=');
                 data = data.replace('[domain]', '.' + location.hostname.split('.').slice(-2).join('.'));
                 categories = getCategories(data);
-                getPromos(category);
+                filterPromos(category);
             })
             .always(function (data) {
                 $('#promoLoader').hide();
@@ -485,7 +485,7 @@
             $('#categories').append('<div class="btn-group" role="group"><a id="' + categories[0].id + '"class="btn" href="#' + categories[0].id + '">' + categories[0].text + '</a></div>');
             $('#' + categories[0].id).on('click', function () {
                 window.location.hash = categories[0].id;
-                getPromos(window.location.hash.substring(1));
+                filterPromos(window.location.hash.substring(1));
             });
 
             $(data).find('.promotion_group_header').each(function (index, div) {
@@ -500,7 +500,7 @@
                 $('#categories').append('<div class="btn-group" role="group"><a id="' + _category.id + '"class="btn" href="#' + _category.id + '">' + _category.text + '</a></div>');
                 $('#' + _category.id).on('click', function() {
                     window.location.hash = _category.id;
-                    getPromos(window.location.hash.substring(1));
+                    filterPromos(window.location.hash.substring(1));
                 });
             });
             return categories;
@@ -519,10 +519,9 @@
                     $(div).parent().removeClass('active');
             });
             var index = _.findIndex(categories, { id: category });
-            setTimeout(function () {
-                $('#categories').show();
-                $('div.footer.footer-div.footer-generic').scrollLeft(index * 150); 
-            }, 200);          
+
+            $('#categories').show();
+            $('div.footer.footer-div.footer-generic').scrollLeft(index * 150);
         }
     </script>
 </asp:Content>
@@ -531,7 +530,7 @@
 
     <div class="ui-content" role="main">
         <img id="promoLoader" src="/_Static/Css/images/ajax-loader.gif" style="display: none;" />
-        <div id="divPromotions" class="main-content has-footer"></div>
+        <div id="divPromotions" class="main-content"></div>
         <div class="footer footer-div footer-generic">
             <div id="categories" style="display: none;" class="btn-group btn-group-justified btn-group-sliding"></div>
         </div>

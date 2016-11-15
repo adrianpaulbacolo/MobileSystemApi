@@ -21,7 +21,6 @@
 .footer{
 	width: 100%;
 	height: 65px;
-	bottom: 0;
 	left: 0;
 	right: 0;
 	z-index: 20;
@@ -72,6 +71,7 @@
 			border-color: $footer-generic-bg;
 			background-color: $footer-generic-bg;
 			padding-top: 21px;
+            border-radius: 0;
 			&:focus,
 			&:hover{
 				color: $footer-generic-active-color;
