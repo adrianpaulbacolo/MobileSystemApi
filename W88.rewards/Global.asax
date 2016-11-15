@@ -1,7 +1,6 @@
 ﻿<%@ Application Language="C#" %>
 <%@ Import Namespace="System.Web.Http" %>
 <%@ Import Namespace="System.Web.Routing" %>
-<%@ Import Namespace="W88.API" %>
 <%@ Import Namespace="W88.BusinessLogic.Shared.Helpers" %>
 <%@ Import Namespace="W88.Utilities" %>
 
@@ -11,7 +10,6 @@
     {
         // Code that runs on application startup
         RegisterRoutes(RouteTable.Routes);
-        GlobalConfiguration.Configure(WebApiConfig.Register);
         GlobalConfiguration.Configuration.EnsureInitialized();
     }
 
