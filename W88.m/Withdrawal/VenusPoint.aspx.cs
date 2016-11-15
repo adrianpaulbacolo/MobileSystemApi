@@ -55,7 +55,6 @@ public partial class Withdrawal_VenusPoint : PaymentBasePage
         txtTotalAllowed.Text = base.strtxtTotalAllowed;
 
         lblWithdrawAmount.Text = base.strlblAmount;
-        txtWithdrawAmount.Attributes.Add("PLACEHOLDER", base.strtxtAmount);
 
         btnSubmit.Text = base.strbtnSubmit;
 
