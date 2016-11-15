@@ -519,6 +519,13 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
         </li>
 
         <li data-icon="false">
+            <a class="nav-chat" href="/LiveChat/Default.aspx" data-ajax="false" target="_blank">
+                <i class="icon-chat"></i>
+                <div class="label"><%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%></div>
+            </a>
+        </li>
+
+        <li data-icon="false">
             <a id="icon-desktop-sidebar" href="#" data-ajax="false">
                 <i class="icon-desktop"></i>
                 <div class="label"><%=commonCulture.ElementValues.getResourceString("desktopIconSide", commonVariables.LeftMenuXML)%></div>
