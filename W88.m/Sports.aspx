@@ -3,7 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <% var deviceId = commonFunctions.getMobileDevice(Request); %>
+    <% var deviceId = commonFunctions.getMobileDevice(Request);
+       var bannerPosition = false; 
+       %>
 
     <div class="ui-content" role="main">
         <ul class="row banner-lists banner-odd-even row-uc">
@@ -37,6 +39,43 @@
                     </figcaption>
                 </figure>
             </li>
+            <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency))
+               {
+                   if (!commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase))
+                   {
+                       bannerPosition = true;
+                       %>
+            
+            <li class="col">
+                <figure class="banner">
+                    <img src="_Static/Images/sports/x-sports-banner.jpg" class="img-responsive img-bg">
+                    <figcaption class="banner-caption">
+                        <h3 class="title"><%= commonCulture.ElementValues.getResourceXPathString("Products/XSports/Label", commonVariables.ProductsXML) %></h3>
+                        <p><%= commonCulture.ElementValues.getResourceXPathString("Products/XSports/Description", commonVariables.ProductsXML) %></p>
+                        <a href="<%= commonXSports.SportsBookUrl %>" data-ajax="false" class="ui-btn btn-primary" target="_blank"><%= commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML) %></a>
+                    </figcaption>
+                </figure>
+            </li>
+            <% }
+               }
+               else if (!commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))
+               {
+                   bannerPosition = true;
+                   %>
+
+            <li class="col">
+                <figure class="banner">
+                    <img src="_Static/Images/sports/x-sports-banner.jpg" class="img-responsive img-bg">
+                    <figcaption class="banner-caption">
+                        <h3 class="title"><%= commonCulture.ElementValues.getResourceXPathString("Products/XSports/Label", commonVariables.ProductsXML) %></h3>
+                        <p><%= commonCulture.ElementValues.getResourceXPathString("Products/XSports/Description", commonVariables.ProductsXML) %></p>
+                        <a href="<%= commonXSports.SportsBookUrl %>" data-ajax="false" class="ui-btn btn-primary" target="_blank"><%= commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML) %></a>
+                    </figcaption>
+                </figure>
+            </li>
+            <% } %>
+
+
             <%
                 try
                 {
@@ -45,7 +84,7 @@
               {%>
             <li class="col">
                 <figure class="banner">
-                    <img src="_Static/Images/sports/ClubW88-iOS-banner.jpg" class="img-responsive img-bg">
+                    <img src='<%=bannerPosition ? "_Static/Images/sports/ClubW88-iOS-banner-l.jpg" : "_Static/Images/sports/ClubW88-iOS-banner-r.jpg" %>' class="img-responsive img-bg">
                     <figcaption class="banner-caption">
                         <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></h3>
                         <p><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Description", commonVariables.ProductsXML)%></p>
@@ -54,11 +93,11 @@
                 </figure>
             </li>
             <%}%>
-            <%if (deviceId == 2|| deviceId == 3)
+            <%if (deviceId == 2 || deviceId == 3)
               {%>
             <li class="col">
                 <figure class="banner">
-                    <img src="_Static/Images/sports/ClubW88-Android-banner.jpg" class="img-responsive img-bg">
+                    <img src='<%=bannerPosition ? "_Static/Images/sports/ClubW88-Android-banner-l.jpg" : "_Static/Images/sports/ClubW88-Android-banner-r.jpg" %>' class="img-responsive img-bg">
                     <figcaption class="banner-caption">
                         <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></h3>
                         <p><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Description", commonVariables.ProductsXML)%></p>
@@ -67,7 +106,7 @@
                 </figure>
             </li>
             <%}%>
-            
+
             <%}
                 catch (Exception) { }%>
         </ul>
