@@ -159,28 +159,6 @@ html head + body .ui-btn.ui-btn-a {
     }
 }
 
-// Justified Nav List
-.ui-navbar{
-    &.ui-navbar-justified{
-        ul{
-            width: 100%;
-            display: table;
-            table-layout: fixed;
-            li{
-                width: 100%;
-                display: table-cell;
-                a{
-                    text-transform: uppercase;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    display: block;
-                }
-            }
-        }
-    }
-}
-
 .btn{
 	font-size: 0.875em;
 	font-weight: 700;

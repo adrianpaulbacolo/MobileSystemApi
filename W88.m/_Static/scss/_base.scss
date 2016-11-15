@@ -3,16 +3,18 @@
 // -------------------------------
 
 *, *:before, *:after {
-    @include box-sizing(border-box);
+  @include box-sizing(border-box);
 }
 
 html, body, .ui-page, .ui-content,
+
 .ui-body-a,
 .ui-page-theme-a .ui-body-inherit,
 html .ui-bar-a .ui-body-inherit,
 html .ui-body-a .ui-body-inherit,
 html body .ui-group-theme-a .ui-body-inherit,
 html .ui-panel-page-container-a,
+
 .ui-body-b, .ui-overlay-b, .ui-page-theme-b,
 .ui-page-theme-b .ui-body-inherit,
 html .ui-bar-b .ui-body-inherit,
@@ -42,21 +44,18 @@ html body .ui-group-theme-b a {
     color: $primary-color;
     font-weight: normal;
 }
-
 .ui-page-theme-b a:visited,
 html .ui-bar-b a:visited,
 html .ui-body-b a:visited,
 html body .ui-group-theme-b a:visited {
     color: $primary-color;
 }
-
 .ui-page-theme-b a:hover,
 html .ui-bar-b a:hover,
 html .ui-body-b a:hover,
 html body .ui-group-theme-b a:hover {
     color: $primary-color;
 }
-
 .ui-page-theme-b a:active,
 html .ui-bar-b a:active,
 html .ui-body-b a:active,
@@ -75,31 +74,26 @@ body {
 .bg-solid {
     background-color: darken($primary-color, 34%);
 }
-
 .bg-gradient {
     @include bg-gradient();
 }
-
 .bg-image {
     // @include linear-gradient(to bottom, #023144 0%, #000000 100%);
     background: url($base-background-image) center bottom no-repeat $base-background-color;
     @include background-size(cover);
 }
 
-a {
-    &,
+a { &,
     &:active,
     &:visited {
         text-decoration: none;
         color: $primary-color;
     }
 }
-
 h1, h2, h3, h4, h5, h6 {
     color: $strong-color;
     font-family: $primary-font;
 }
-
 hr {
     height: 1px;
     border: none;
@@ -131,7 +125,6 @@ figure {
     color: $black;
     margin-bottom: 1em;
     border-left: 1px solid #ccc;
-
     > span {
         margin: .5em .1em .5em .2em;
         line-height: 2em;
@@ -177,7 +170,6 @@ figure {
 
 .ui-content {
     padding: 0;
-
     > div:n {
         margin: 1em;
     }
@@ -204,48 +196,14 @@ figure {
 // -- Override
 // -------------------------------
 
-#drpContactCountry-button > span {
+#drpContactCountry-button > span{
     overflow: visible !important;
 }
 
-.with-colon {
-    text-indent: -8px;
-    display: inline-block;
+.with-colon{
+    text-indent: -8px; 
+    display: inline-block; 
     padding-left: 8px;
-}
-
-.ui-radio {
-    background: transparent !important;
-
-    label {
-        border: 1px solid $ltGray-color;
-        color: $white !important;
-        padding-left: 2em;
-        background: transparent !important;
-
-        &:after {
-            background-color: $ltGray-color !important;
-            border-width: 5px;
-            border-style: solid;
-            border-color: $white;
-            left: 0;
-        }
-
-        &.ui-btn.ui-radio-on:after {
-            background-color: $primary-color !important;
-            width: 18px;
-            height: 18px;
-            border-width: 5px;
-            border-color: $white;
-        }
-    }
-
-    input[type='radio'] {
-        opacity: 0;
-        visibility: hidden;
-        width: 0;
-        height: 0;
-    }
 }
 
 .main-content{
