@@ -1,0 +1,55 @@
+﻿<div class="div-claim-promo" id="template-promo">
+    <div class="div-claim-promo-header">EPL2016W06</div>
+    <div class="div-claim-promo-data">
+        <div class="promo-match">
+            <div class="row row-uc ">
+                <div class="col col-40">
+                    <label>ID: </label>
+                </div>
+                <div class="col col-60">
+                    {%- promo.data.username %}
+                </div>
+            </div>
+            <div class="row row-uc">
+                <div class="col col-40">
+                    <label>{%- promo.data.label0 %}: </label>
+                </div>
+                <div class="col col-60">
+                    <select name="">
+                        {% _.forEach( promo.data.option0, function( op ){ %}
+                        <option value="{%- op %}">{%- op %}</option>
+                        {% }); %}
+                    </select>
+                </div>
+            </div>
+            <div class="row row-uc">
+                <div class="col col-40">
+                    <label>{%- promo.data.label1 %}: </label>
+                </div>
+                <div class="col col-60">
+                    <input type="text" name="" id="" class="">
+                </div>
+            </div>
+            <div class="row row-uc">
+                <div class="col col-40">
+                    <label>{%- promo.data.label2 %}: </label>
+                </div>
+                <div class="col col-60">
+                    <input type="text" name="" id="" class="">
+                </div>
+            </div>
+            <div class="row row-uc">
+                <div class="col col-40">
+                    <label>{%- promo.data.label3 %}: </label>
+                </div>
+                <div class="col col-60">
+                    <input type="text" name="" id="" class="">
+                </div>
+            </div>
+        </div>
+        <div>
+            <a class="ui-btn btn-primary" onclick="javascript:PromoClaim(this)">Kirim</a>
+            <a class="ui-btn btn-secondary" onclick="javascript:PromoCancelClaim(this)">Batal</a>
+        </div>
+    </div>
+</div>

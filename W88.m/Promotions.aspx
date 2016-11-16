@@ -1,7 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Site.master" AutoEventWireup="true" CodeFile="Promotions.aspx.cs" Inherits="Promotions" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+
     <script type="text/javascript">
+        _.templateSettings = {
+            interpolate: /\{\{(.+?)\}\}/g,      // print value: {{ value_name }}
+            evaluate: /\{%([\s\S]+?)%\}/g,   // excute code: {% code_to_execute %}
+            escape: /\{%-([\s\S]+?)%\}/g
+        };
+        _.templateSettings.variable = "promo";
+
         var lang = '<%=(string.IsNullOrEmpty(commonVariables.SelectedLanguage) ? "en-us" : commonVariables.SelectedLanguage)%>';
         if (lang == '') { lang = 'en-us'; }
         $(function () {
@@ -142,7 +150,16 @@
                                     $obj = $(objCode).attr('href');
                                     var strCode = $obj.substring($obj.indexOf('=') + 1);
 
-                                    var hrefClaim = $('<a />', { class: 'ui-btn btn-primary', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNowMatch(this, \'' + strCode + '\',  \'' + lang + '\')' }).text($(objCode).text());
+                                    var hrefClaim = $('<a />', { class: 'ui-btn btn-primary', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNowMatch(this, \'' + strCode + '\',  \'' + lang + '\', "v4")' }).text($(objCode).text());
+                                    $(divJoinButton).append(hrefClaim);
+                                }
+
+                                var objCode = $(this).find('.promo_join_btn[href^="/promotions/promo_apply_v5.aspx?promoid="]');
+                                if ($(objCode).length > 0) {
+                                    $obj = $(objCode).attr('href');
+                                    var strCode = $obj.substring($obj.indexOf('=') + 1);
+
+                                    var hrefClaim = $('<a />', { class: 'ui-btn btn-primary', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNowMatch(this, \'' + strCode + '\',  \'' + lang + '\', "v5")' }).text($(objCode).text());
                                     $(divJoinButton).append(hrefClaim);
                                 }
 
@@ -361,13 +378,76 @@
             });
         }
 
-        function PromoClaimNowMatch(obj, code, lang) {
+        function promoClaimTemplate(obj, code, lang) {
+            $.get('/_Static/Promotions/templates/v4.html', function (data) {
+                template = _.template(data, {
+                    data: {}
+                });
+                $(obj).parent().append(template).enhanceWithin();
+                //this.$el.html(template);
+            }, 'html');
+        }
+
+        function PromoClaimNowMatch(obj, code, lang, promoType) {
             if ('<%=commonVariables.CurrentMemberSessionId%>'.trim() == '') {
                 location.assign('_Secure/Register.aspx');
             } else {
                 $(obj).hide();
 
-                $.get('/_Static/Promotions/' + code + '.' + lang + '.xml', function (xml) {
+                switch(promoType){
+                    case 'v4':
+
+                        $.get('/_Static/Promotions/' + code + '.' + lang + '.xml', function (xml) {
+                            var promoData = {
+                                team_msg: $(xml).find('team_msg').text(),
+                                score_msg: $(xml).find('score_msg').text(),
+                                score_checking: $(xml).find('score_checking').text().trim(),
+                                score_msg: $(xml).find('score_msg').text(),
+                                team_setting: $(xml).find('team_setting team').map(function () {
+                                    return $(this).text();
+                                }).get(),
+                                additional_column: $(xml).find('additional_column column').map(function (index, value) {
+                                    return { field: $(value).find('field').text(), regex: $(value).find('regex').text().trim() };
+                                }).get()
+                            };
+
+                            $.get('/_Static/Promotions/templates/v4.html', function (data) {
+                                template = _.template(data);
+                                $(obj).parent().append(template({
+                                    data: promoData
+                                })).enhanceWithin();
+                            }, 'html');
+                        });
+
+                        break;
+                    case 'v5':
+
+                        $.get('/_Static/Promotions/' + code + '.' + lang + '.xml', function (xml) {
+                            var promoData = {};
+                            promoData.username = '<%= base.userInfo.MemberCode %>';
+                            $(xml).find('column').each(function (index, value) {
+                                if (!_.isEmpty($(value).find('field'))) promoData['label' + index] = $(value).find('field').text();
+                                if (!_.isEmpty($(value).find('options'))) {
+                                    promoData['option' + index] = [];
+                                    $(value).find('options').find('option').each(function (i, v) {
+                                        promoData['option' + index].push($(v).text());
+                                    })
+                                }
+                            });
+                            $.get('/_Static/Promotions/templates/v5.html', function (data) {
+                                console.log(promoData);
+                                template = _.template(data);
+                                $(obj).parent().append(template({
+                                    data: promoData
+                                })).enhanceWithin();
+                            }, 'html');
+                        });
+
+                    default:
+                        break;
+                }
+
+<%--                $.get('/_Static/Promotions/' + code + '.' + lang + '.xml', function (xml) {
                     var team = {
                         team_msg: $(xml).find('team_msg').text(),
                         score_msg: $(xml).find('score_msg').text(),
@@ -447,7 +527,7 @@
                     $(divPromoClaimWrapper).append(divCode).append(divPromoClaimData);
 
                     $(obj).parent().append(divPromoClaimWrapper);
-                });
+                });--%>
             }
         }
 
