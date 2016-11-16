@@ -28,20 +28,31 @@
             <div class="btn-group btn-group-justified btn-group-sliding" role="group">
                 <asp:ListView ID="CategoryListView" runat="server">
                     <ItemTemplate>
-                        <div class="btn-group" role="group">
+                        <div id="category_<%#DataBinder.Eval(Container.DataItem,"categoryId")%>" class="btn-group" role="group">
                             <script>
                                 $(function () {
-                                    var categoryId = '<%#DataBinder.Eval(Container.DataItem,"categoryId")%>';
-                                    if (_.endsWith(window.location.href, 'categoryId=' + categoryId + '&sortBy=2')) {
-                                        if (!$('#category_' + categoryId).hasClass('active'))
-                                            $('#category_' + categoryId).addClass('active');
+                                    var id = '<%#DataBinder.Eval(Container.DataItem,"categoryId")%>',
+                                        selector = '#category_' + id,
+                                        categoryId = selector.substring(1);
+                                        
+                                    if (_.endsWith(window.location.href, 'categoryId=' + id + '&sortBy=2')) {
+                                        if (!$(selector).hasClass('active'))
+                                            $(selector).addClass('active');
+
+                                        var children = $('div.btn-group.btn-group-justified.btn-group-sliding').children(),
+                                            index = _.findIndex(children, { id: categoryId }),
+                                            width = 0;
+                                        for (var i = 0; i < index; i++) {
+                                            width += $($(children[i]).find('a')[0]).width();
+                                        }
+                                        $('div.footer.footer-generic').scrollLeft(width);
                                     } else {
-                                        if ($('#category_' + categoryId).hasClass('active'))
-                                            $('#category_' + categoryId).removeClass('active');
+                                        if ($(selector).hasClass('active'))
+                                            $(selector).removeClass('active');
                                     }
                                 });
                             </script>
-                            <a id="category_<%#DataBinder.Eval(Container.DataItem,"categoryId")%>" class="btn" data-ajax="false" href="/Catalogue?categoryId=<%#DataBinder.Eval(Container.DataItem,"categoryId")%>&sortBy=2">
+                            <a class="btn" data-ajax="false" href="/Catalogue?categoryId=<%#DataBinder.Eval(Container.DataItem,"categoryId")%>&sortBy=2">
                                 <%#DataBinder.Eval(Container.DataItem,"categoryName")%>
                             </a>
                         </div>
