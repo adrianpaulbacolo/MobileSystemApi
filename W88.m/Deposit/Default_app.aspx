@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Deposit_Default" %>
+
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
 <!DOCTYPE html>
@@ -16,14 +17,15 @@
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <uc:Wallet id="uMainWallet" runat="server" />
+                <uc:Wallet ID="uMainWallet" runat="server" />
             </div>
 
             <div data-role="navbar" id="depositTabs" runat="server">
             </div>
 
             <form class="form" id="form1" runat="server" data-ajax="false">
-                <div class="empty-state">
+                <div class="empty-state" id="loader"></div>
+                <div class="empty-state" hidden>
                     <div class="empty-state-icon">
                         <i class="ion ion-alert"></i>
                     </div>
@@ -34,25 +36,29 @@
 
         </div>
 
-        <script type="text/javascript">
-            $(function () {
-                window.history.forward();
+    <script type="text/javascript">
+        $(function () {
+            window.history.forward();
 
-                GPInt.prototype.ShowSplash();
+            var loader = GPInt.prototype.GetLoaderScafold();
 
-                if ($('#depositTabs li a.btn-primary').length == 0) {
-                    if ($('#depositTabs li').first().children().attr('href') != undefined) {
-                        window.location.replace($('#depositTabs li').first().children().attr('href'));
-                    } else {
-                        // track accounts with no gateways
-                        w88Mobile.PiwikManager.trackEvent({
-                            category: "Deposit",
-                            action: "<%=base.strCountryCode %>",
+            $("#loader").html(loader);
+
+            if ($('#depositTabs li a.btn-primary').length == 0) {
+                if ($('#depositTabs li').first().children().attr('href') != undefined) {
+                    window.location.replace($('#depositTabs li').first().children().attr('href'));
+                } else {
+                    // track accounts with no gateways
+                    w88Mobile.PiwikManager.trackEvent({
+                        category: "Deposit",
+                        action: "<%=base.strCountryCode %>",
                             name: "<%=base.strMemberID %>"
                         });
 
-                        GPInt.prototype.HideSplash();
+                        $('.empty-state').show();
                         $('#paymentNote').append('<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>');
+
+                        $("#loader").hide();
                     }
                 }
             });
