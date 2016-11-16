@@ -41,6 +41,8 @@
             $(function () {
                 window.history.forward();
 
+                GPInt.prototype.ShowSplash();
+
                 if ($('#depositTabs li a.btn-primary').length == 0) {
                     if ($('#depositTabs li').first().children().attr('href') != undefined) {
                         window.location.replace($('#depositTabs li').first().children().attr('href'));
@@ -50,7 +52,9 @@
                             category: "Deposit",
                             action: "<%=base.strCountryCode %>",
                             name: "<%=base.strMemberID %>"
-                            });
+                        });
+
+                        GPInt.prototype.HideSplash();
                         $('#paymentNote').append('<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>');
                     }
                 }
