@@ -1,25 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Configuration;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Web;
-using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
-public partial class Deposit_Baokim : PaymentBasePage
+public partial class Deposit_BaokimScratchCard : PaymentBasePage
 {
     protected void Page_Init(object sender, EventArgs e)
     {
-        base.PageName = Convert.ToString(commonVariables.DepositMethod.Baokim);
+        base.PageName = Convert.ToString(commonVariables.DepositMethod.BaokimScratchCard);
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
-        base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.Baokim);
+        base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.BaokimScratchCard);
 
     }
 
@@ -67,5 +56,4 @@ public partial class Deposit_Baokim : PaymentBasePage
         btnSubmit.Text = base.strbtnSubmit;
 
     }
-
 }

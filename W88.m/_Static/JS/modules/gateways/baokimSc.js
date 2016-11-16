@@ -1,19 +1,19 @@
-﻿function Baokim() {
+﻿function BaokimScratchCard() {
 
     var gatewayId = "";
-    var token = "";
-    var method = "";
+    var telcos = "";
 
     var baokim = {
         deposit: deposit,
-        withdraw: withdraw,
         getBanks: function(selectName) {
             return getBanks(selectName);
         },
         getTranslations: function() {
             return translations();
         },
-        method: method
+        SetFee: function (selectedValue) {
+            return setFee(selectedValue);
+        }
     };
 
     return baokim;
@@ -40,7 +40,7 @@
 
     function translations() {
         var url = w88Mobile.APIUrl + "/contents";
-
+        
         var headers = {
             'LanguageCode': window.User.lang
         };
@@ -48,55 +48,56 @@
             type: "GET",
             url: url,
             headers: headers,
-            success: function(d) {
-                $('#lblBanks').html(d.ResponseData.LABEL_BANK);
-                $('#lblEmail').html(d.ResponseData.LABEL_EMAIL);
+            success: function (d) {
                 $('#lblDepositAmount').html(d.ResponseData.LABEL_FUNDS_DEPOSIT + ' ' + d.ResponseData.LABEL_AMOUNT);
-                $('#lblContact').html(d.ResponseData.LABEL_CONTACT);
-                $('#lblWithdrawAmount').html(d.ResponseData.LABEL_FUNDS_WIDRAW + ' ' + d.ResponseData.LABEL_AMOUNT);
-                sessionStorage.setItem("noticeWallet", d.ResponseData.LABEL_NOTICEEWALLET);
-                sessionStorage.setItem("noticeAtm", d.ResponseData.LABEL_NOTICEATM);
+                $('#lblBanks').html(d.ResponseData.LABEL_TELCO_NAME);
+                $('#lblPin').html(d.ResponseData.LABEL_CARD_PIN);
+                $('#lblCardSerialNo').html(d.ResponseData.LABEL_CARD_SERIAL);
+
+                sessionStorage.setItem("indicator", d.ResponseData.LABEL_INDICATOR_MSG);
+                $('#IndicatorMsg').html(sessionStorage.getItem("indicator"));
             }
         });
     }
 
     function getBanks(selectName) {
-        gatewayId = "120272";
-        var url = w88Mobile.APIUrl + "/banks/vendor/" + gatewayId;
-
-        var headers = {
-            'Token': window.User.token,
-            'LanguageCode': window.User.lang
-        };
+        var url = w88Mobile.APIUrl + "/payments/baokindenom/" ;
 
         $.ajax({
             type: "GET",
             url: url,
-            headers: headers,
             success: function(d) {
+                telcos = d.ResponseData.Telcos;
 
                 $('#drpBanks').append($('<option>').text(selectName).attr('value', '-1'));
 
-                _.forOwn(d.ResponseData, function(data) {
-                    $('#drpBanks').append($('<option>').text(data.Text).attr('value', data.Value));
+                _.forOwn(d.ResponseData.Telcos, function (data) {
+                    $('#drpBanks').append($('<option>').text(data.Name).attr('value', data.Id));
                 });
 
                 $('#drpBanks').val('-1').change();
+
             }
         });
     }
 
-    // deposit
-    function deposit(data, successCallback, errorCallback, completeCallback) {
-        gatewayId = "120272";        
-        validate(data, "deposit");
-        send("POST", data, function () { GPInt.prototype.ShowSplash(); }, successCallback, errorCallback, completeCallback);
+    function setFee(selectedValue) {
+
+        var fee = "";
+
+        _.forEach(telcos, function (i) {
+           if (i.Id == selectedValue) {
+               fee = i.Fee;
+           }
+        });
+
+        $('#IndicatorMsg').html(sessionStorage.getItem("indicator") + fee);
     }
 
-    // withdraw
-    function withdraw(data, successCallback, errorCallback, completeCallback) {
-        gatewayId = "220874";
-        validate(data, "widraw");
+    // deposit
+    function deposit(data, successCallback, errorCallback, completeCallback) {
+        gatewayId = "120286";
+        validate(data, "deposit");
         send("POST", data, function () { GPInt.prototype.ShowSplash(); }, successCallback, errorCallback, completeCallback);
     }
 
@@ -106,4 +107,4 @@
     }
 }
 
-window.w88Mobile.Gateways.Baokim = Baokim();
+window.w88Mobile.Gateways.BaokimScratchCard = BaokimScratchCard();
