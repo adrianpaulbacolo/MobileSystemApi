@@ -7,6 +7,9 @@
 <head>
     <title><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Brand)%></title>
     <!--#include virtual="~/_static/head.inc" -->
+    <script>
+        var ids = [];
+    </script>
 </head>
 <body>
     <div data-role="page" data-theme="b">
@@ -30,27 +33,7 @@
                     <ItemTemplate>
                         <div id="category_<%#DataBinder.Eval(Container.DataItem,"categoryId")%>" class="btn-group" role="group">
                             <script>
-                                $(function () {
-                                    var id = '<%#DataBinder.Eval(Container.DataItem,"categoryId")%>',
-                                        selector = '#category_' + id,
-                                        categoryId = selector.substring(1);
-                                        
-                                    if (_.endsWith(window.location.href, 'categoryId=' + id + '&sortBy=2')) {
-                                        if (!$(selector).hasClass('active'))
-                                            $(selector).addClass('active');
-
-                                        var children = $('div.btn-group.btn-group-justified.btn-group-sliding').children(),
-                                            index = _.findIndex(children, { id: categoryId }),
-                                            width = 0;
-                                        for (var i = 0; i < index; i++) {
-                                            width += $($(children[i]).find('a')[0]).width();
-                                        }
-                                        $('div.footer.footer-generic').scrollLeft(width);
-                                    } else {
-                                        if ($(selector).hasClass('active'))
-                                            $(selector).removeClass('active');
-                                    }
-                                });
+                                ids.push('<%#DataBinder.Eval(Container.DataItem,"categoryId")%>');
                             </script>
                             <a class="btn" data-ajax="false" href="/Catalogue?categoryId=<%#DataBinder.Eval(Container.DataItem,"categoryId")%>&sortBy=2">
                                 <%#DataBinder.Eval(Container.DataItem,"categoryName")%>
@@ -124,6 +107,25 @@
                         reset();
                     }
                 });          
+            });
+
+            var children = $('div.btn-group.btn-group-justified.btn-group-sliding').children();
+            _.find(ids, function(id) {
+                var selector = '#category_' + id,
+                    categoryId = selector.substring(1);
+
+                if (_.endsWith(window.location.href, 'categoryId=' + id + '&sortBy=2')) {
+                    if (!$(selector).hasClass('active'))
+                        $(selector).addClass('active');
+
+                    var index = _.findIndex(children, { id: categoryId }),
+                        width = 0;
+                    for (var i = 0; i < index; i++) {
+                        width += $($(children[i]).find('a')[0]).width();
+                    }
+                    $('div.footer.footer-generic').scrollLeft(width);
+                    return id;
+                } 
             });
         });
     </script>
