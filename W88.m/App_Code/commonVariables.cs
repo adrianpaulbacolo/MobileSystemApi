@@ -196,6 +196,7 @@ public class commonVariables
         Bill99 = 120206,
         IPS = 120207,
         WingMoney = 110308,
+        PayGo = 110394,
         SDPay = 120223,
         Help2Pay = 120227,
         DaddyPay = 120243,
@@ -215,6 +216,7 @@ public class commonVariables
         VenusPoint = 220895,
         BankTransfer = 210602,
         WingMoney = 210709,
+        PayGo = 210797,
         Neteller = 220815
     }
 
