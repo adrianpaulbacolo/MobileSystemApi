@@ -214,10 +214,10 @@ public class commonVariables
 
     public enum WithdrawalMethod
     {
+        PayGo = 210797,
         VenusPoint = 220895,
         BankTransfer = 210602,
         WingMoney = 210709,
-        PayGo = 210797,
         Neteller = 220815
     }
 
