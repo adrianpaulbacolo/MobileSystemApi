@@ -444,7 +444,7 @@
         </li>
 
         <li data-icon="false">
-            <a id="icon-rewards-sidebar" class="nav-rewards" href="/Rewards" data-ajax="false">
+            <a id="icon-rewards-sidebar" class="nav-rewards" href="/Rewards" data-ajax="false" target="_blank">
                 <i class="icon-rewards"></i>
                 <div class="label"><%=commonCulture.ElementValues.getResourceString("rewards", commonVariables.LeftMenuXML)%></div>
             </a>

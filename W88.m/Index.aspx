@@ -136,7 +136,7 @@
                 </li>
 
                  <li class="col col-33">
-                    <a href="#" id="icon-rewards" class="tile" role="button" data-ajax="false">
+                    <a href="#" id="icon-rewards" class="tile" role="button" data-ajax="false" target="_blank">
                         <span class="icon-rewards"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("rewards", commonVariables.LeftMenuXML)%></h4>
                     </a>
