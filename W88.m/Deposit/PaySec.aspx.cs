@@ -14,16 +14,13 @@ using System.Web.UI.WebControls;
 using System.Xml.Linq;
 
 
-public partial class Deposit_VenusPoint : PaymentBasePage
+public partial class Deposit_PaySec : PaymentBasePage
 {
-    protected string lblTransactionId;
-    protected string lblTransactionFailed;
-
     protected void Page_Init(object sender, EventArgs e)
     {
-        base.PageName = Convert.ToString(commonVariables.DepositMethod.VenusPoint);
+        base.PageName = Convert.ToString(commonVariables.DepositMethod.PaySec);
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
-        base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.VenusPoint);
+        base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.PaySec);
 
     }
 
@@ -34,35 +31,24 @@ public partial class Deposit_VenusPoint : PaymentBasePage
 
         if (!Page.IsPostBack)
         {
-            InitializeLabels();
-
+            this.InitializeLabels();
         }
     }
-
     private void InitializeLabels()
     {
         lblMode.Text = base.strlblMode;
         txtMode.Text = base.strtxtMode;
-
         lblMinMaxLimit.Text = base.strlblMinMaxLimit;
-        txtMinMaxLimit.Text = base.strtxtMinMaxLimit;
-
         lblDailyLimit.Text = base.strlblDailyLimit;
-        txtDailyLimit.Text = base.strtxtDailyLimit;
-
         lblTotalAllowed.Text = base.strlblTotalAllowed;
-        txtTotalAllowed.Text = base.strtxtTotalAllowed;
-
         lblDepositAmount.Text = base.strlblAmount;
 
         btnSubmit.Text = base.strbtnSubmit;
 
+        txtDepositAmount.Attributes.Add("PLACEHOLDER", base.strtxtAmount);
+
         txtMinMaxLimit.Text = base.strtxtMinMaxLimit;
         txtDailyLimit.Text = base.strtxtDailyLimit;
         txtTotalAllowed.Text = base.strtxtTotalAllowed;
-
-        lblTransactionId = base.strlblTransactionId;
-
-        lblTransactionFailed = base.GetErrors("/TransferFail").AlertMessage;
     }
 }
