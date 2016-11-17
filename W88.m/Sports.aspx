@@ -57,13 +57,6 @@
                     </figcaption>
                 </figure>
             </li>
-            <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency))
-               {
-                   if (!commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase))
-                   {
-                       bannerPosition = true;
-                       %>
-            
             <li class="col">
                 <figure class="banner">
                     <img src="_Static/Images/sports/x-sports-banner.jpg" class="img-responsive img-bg">
@@ -74,27 +67,11 @@
                     </figcaption>
                 </figure>
             </li>
-            <% }
-               }
-               else if (!commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))
-               {
-                   bannerPosition = true;
-                   %>
-
-            <li class="col">
-                <figure class="banner">
-                    <img src="_Static/Images/sports/x-sports-banner.jpg" class="img-responsive img-bg">
-                    <figcaption class="banner-caption">
-                        <h3 class="title"><%= commonCulture.ElementValues.getResourceXPathString("Products/XSports/Label", commonVariables.ProductsXML) %></h3>
-                        <p><%= commonCulture.ElementValues.getResourceXPathString("Products/XSports/Description", commonVariables.ProductsXML) %></p>
-                        <a href="<%= commonXSports.SportsBookUrl %>" data-ajax="false" class="ui-btn btn-primary" target="_blank"><%= commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML) %></a>
-                    </figcaption>
-                </figure>
-            </li>
-            <% } %>
 
 
             <%
+                bannerPosition = true;
+                
                 try
                 {
             %>
