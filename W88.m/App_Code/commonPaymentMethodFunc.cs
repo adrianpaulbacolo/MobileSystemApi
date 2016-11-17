@@ -112,6 +112,17 @@ public static class commonPaymentMethodFunc
 
         switch (paymentCode)
         {
+            case commonVariables.DepositMethod.JutaPay:
+                list = CreateMethodListControl(paymentCode);
+
+                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
+
+                anchor.Attributes.Add("href", "/Deposit/JutaPay.aspx");
+
+                list.Controls.Add(anchor);
+                depositTabs.Controls.Add(list);
+                break;
+
             case commonVariables.DepositMethod.FastDeposit:
                 list = CreateMethodListControl(paymentCode);
 

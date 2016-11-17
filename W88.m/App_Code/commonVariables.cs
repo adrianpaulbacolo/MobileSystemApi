@@ -194,6 +194,7 @@ public class commonVariables
         SDAPay = 120203,
         NextPay = 120204,
         Bill99 = 120206,
+        JutaPay = 120280,
         IPS = 120207,
         WingMoney = 110308,
         SDPay = 120223,

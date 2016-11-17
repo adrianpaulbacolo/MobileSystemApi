@@ -1,29 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Configuration;
-using System.Data;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Xml.Linq;
 
 
-public partial class Deposit_VenusPoint : PaymentBasePage
+public partial class Deposit_JutaPay : PaymentBasePage
 {
     protected string lblTransactionId;
     protected string lblTransactionFailed;
 
     protected void Page_Init(object sender, EventArgs e)
     {
-        base.PageName = Convert.ToString(commonVariables.DepositMethod.VenusPoint);
+        base.PageName = Convert.ToString(commonVariables.DepositMethod.JutaPay);
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
-        base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.VenusPoint);
+        base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.JutaPay);
 
     }
 
@@ -34,8 +23,7 @@ public partial class Deposit_VenusPoint : PaymentBasePage
 
         if (!Page.IsPostBack)
         {
-            InitializeLabels();
-
+            this.InitializeLabels();
         }
     }
 
