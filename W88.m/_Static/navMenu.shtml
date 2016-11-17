@@ -443,6 +443,7 @@
             </a>
         </li>
 
+        <!-- Rewards -->
         <li data-icon="false">
             <a id="icon-rewards-sidebar" class="nav-rewards" href="/Rewards" data-ajax="false" target="_blank">
                 <i class="icon-rewards"></i>
@@ -457,13 +458,6 @@
             </a>
         </li>
 
-        <!-- Rewards
-            <li data-icon="false">
-                <a rel="rewards" class="nav-rewards" href="javascript:void(0);">
-                    <i class="icon-rewards"></i>
-                    <div class="label"><%=commonCulture.ElementValues.getResourceString("rewards", commonVariables.LeftMenuXML)%></div>
-                </a>
-            </li> -->
         <!-- Submit -->
         <!--<% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
             <li data-icon="false">
@@ -511,10 +505,10 @@
 <script type="text/javascript">
     $(function () {
 
-    var urlRewards = window.location.protocol + '//mrewards.' + '<%=commonIp.DomainName %>' + '?lang=' + '<%=commonVariables.SelectedLanguage%>' + '&token=' + '<%=commonVariables.CurrentMemberSessionId%>';
+    var urlRewards = window.location.protocol + '//mrewards.' + '<%=commonIp.DomainName %>' + '?lang=' + '<%=commonVariables.SelectedLanguage%>' + '&token=' + '<%=commonVariables.EncryptedCurrentMemberSessionId%>';
     $("#icon-rewards-sidebar").attr('href', urlRewards);
 
-	var url = window.location.protocol +'//www'+ '<%=commonIp.DomainName %>' + '?nomobile=true';
+	var url = window.location.protocol +'//www.'+ '<%=commonIp.DomainName %>' + '?nomobile=true';
         $("#icon-desktop-sidebar").attr('href', url);
 
         if ('<%=commonVariables.CurrentMemberSessionId%>'.trim().length > 0) {
@@ -613,9 +607,6 @@
         $('a[rel="clubw"]').each(function () {
             $(this).attr('href', '//casino' + location.hostname.substring(location.hostname.indexOf('.')) + $(this).attr('href'));
             //console.log('//casino' + location.hostname.substring(location.hostname.indexOf('.')) + $(this).attr('href'));
-        });
-        $('a[rel="rewards"]').each(function () {
-            $(this).attr('href', '//mrewards' + location.hostname.substring(location.hostname.indexOf('.')));
         });
 
         var wcLang = 'EN';
