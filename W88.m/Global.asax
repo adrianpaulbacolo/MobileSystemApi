@@ -37,6 +37,12 @@
 
         System.Web.Routing.Route rtInvalid = new System.Web.Routing.Route("Invalid", new System.Web.Routing.PageRouteHandler("~/Default.aspx"));
         rtInvalid.DataTokens = new System.Web.Routing.RouteValueDictionary { { "invalid", "true" } };
+        
+        // JTPAY
+        System.Web.Routing.Route weChat = new System.Web.Routing.Route("Deposit/WeChat", new System.Web.Routing.PageRouteHandler("~/Deposit/JTPay.aspx"));
+        weChat.DataTokens = new System.Web.Routing.RouteValueDictionary { { "type", "wechat" } };
+        System.Web.Routing.Route aliPay = new System.Web.Routing.Route("Deposit/AliPay", new System.Web.Routing.PageRouteHandler("~/Deposit/JTPay.aspx"));
+        aliPay.DataTokens = new System.Web.Routing.RouteValueDictionary { { "type", "alipay" } };
 
         System.Web.Routing.Route rtError400 = new System.Web.Routing.Route("400", new System.Web.Routing.PageRouteHandler("~/_Static/Pages/400.aspx"));
         System.Web.Routing.Route rtError403 = new System.Web.Routing.Route("403", new System.Web.Routing.PageRouteHandler("~/_Static/Pages/403.aspx"));
@@ -48,6 +54,8 @@
         routes.Add(rtLogout);
         routes.Add(rtExpire);
         routes.Add(rtInvalid);
+        routes.Add(weChat);
+        routes.Add(aliPay);
         routes.Add(rtError400);
         routes.Add(rtError403);
         routes.Add(rtError404);
