@@ -22,7 +22,7 @@ public partial class Deposit_SDAPay2 : PaymentBasePage
     protected void Page_Init(object sender, EventArgs e)
     {
 
-        base.PageName = "SDAPayAlipay";
+        base.PageName = Convert.ToString(commonVariables.DepositMethod.SDAPayAlipay);
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.SDAPayAlipay);
     }

@@ -205,3 +205,19 @@ figure {
     display: inline-block; 
     padding-left: 8px;
 }
+
+.main-content{
+    width: 100%;
+    overflow: auto;
+    top: 40px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+	&.has-footer{
+		bottom: 65px;
+	}
+	&.main-content-full{
+		padding: 0;
+	}
+}

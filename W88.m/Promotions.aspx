@@ -13,12 +13,12 @@
         var lang = '<%=(string.IsNullOrEmpty(commonVariables.SelectedLanguage) ? "en-us" : commonVariables.SelectedLanguage)%>';
         if (lang == '') { lang = 'en-us'; }
         $(function () {
-            $(window).hashchange(function () {
-                hashOpen();
+            if(!_.isEmpty(window.location.hash)) {
+                getPromos(window.location.hash.substring(1));
+            } else {
+                getPromos('ALL');
+            }
             });
-            $(window).hashchange();
-            getPromos();
-        });
         // temporarily restrict promo
         var restrictedPromos = {};
         restrictedPromos.DAILYSLOTS = {
@@ -27,21 +27,29 @@
         };
         var currentCCode = '<%= commonCookie.CookieCurrency%>';
 
+        function timerV2(pid, start_date, end_date) { if (new Date('<%=DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') < new Date(start_date) || new Date('<%=DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') > new Date(end_date)) { $('div#' + pid).hide(); } }
+            function filterPromos(category) {
+                $("#divPromotions").html('');
+                var listObj = $("#divPromotions").append('<ul class="row row-uc row-no-padding row-wrap"></ul>').find('ul'),
+                    _category = _.find(categories, { id: category });
 
-        function timerV2(pid, start_date, end_date) { if (new Date('<%=System.DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') < new Date(start_date) || new Date('<%=System.DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') > new Date(end_date)) { $('div#' + pid).hide(); } }
-        function getPromos() {
-            $.get('/AjaxHandlers/Promotion.ashx', function (html) { })
-            .done(function (data) {
-                var hash = '';
-                if (location.hash != '') {
-                    hash = location.hash;
+                if (!_category) {
+                    isCategoryHash = false;
+                    _category = _.find(categories, function (cat) {
+                        var promo = _.find(cat.promos, function (_promos) {
+                            if ($(_promos).attr('id') == category)
+                                return _promos;
+                        });
+                        if (promo) return cat;                       
+                    });
                 }
-                data = data.replace(/<img src=/g, '<img rel=');
-                data = data.replace('[domain]', '.' + location.hostname.split('.').slice(-2).join('.'));
-                var listObj = $("#divPromotions").append('<ul class="row row-uc row-no-padding row-wrap"></ul>').find('ul');
-                var promo_length = $(data).find('.promotion_group').length;
-                $(data).find('.promotion_group').each(function (index) {
-                    if (index == promo_length - 1) { return; }
+                if (!_category) return;
+                category = _category.id;
+
+                var promos = _category.promos;
+                if (!promos || promos.length == 0) return;
+                promos.each(function (index) {
+                    if (index == promos.length - 1 && category == 'ALL') { return; }
                     var currentPromoId = $(this).attr('id');
                     if (!_.isUndefined(restrictedPromos[currentPromoId])) {
                         if (_.isEmpty(currentCCode)) {
@@ -99,7 +107,7 @@
 
                     if ($(this).find('.promo_join_btn').length > 0) {
                         if ('<%=commonVariables.CurrentMemberSessionId%>'.trim() == '') {
-                            var hrefJoin = $('<a />', { class: 'ui-btn btn-primary', 'data-transition': 'flip', href: '/_Secure/Register.aspx' }).text('<%=commonCulture.ElementValues.getResourceString("joinnow", commonVariables.LeftMenuXML)%>');
+                            var hrefJoin = $('<a />', { class: 'ui-btn btn-primary', href: '/_Secure/Register.aspx', 'data-ajax': 'false' }).text('<%=commonCulture.ElementValues.getResourceString("joinnow", commonVariables.LeftMenuXML)%>');
                             //$(divPromoDetail).append(hrefJoin);
                             $(divJoinButton).append(hrefJoin);
                         }
@@ -161,10 +169,10 @@
 
                                     var hrefClaim = $('<a />', { class: 'ui-btn btn-primary', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNowMatch(this, \'' + strCode + '\',  \'' + lang + '\', "v5")' }).text($(objCode).text());
                                     $(divJoinButton).append(hrefClaim);
-                                }
-
                             }
+
                         }
+                    }
                     }
 
                     var divPromoTitle = $('<div />', { class: 'div-promo-header' }).text(strPromoTitle);
@@ -173,9 +181,18 @@
 
                     listObj.append($(liPromo).append($(divPromoWrapper).append($(divPromoImg).append(imgPromo)).append(divSecond)).append(divPromoDetail));
                     $(this).find('script').each(function () { $.globalEval(this.text || this.textContent || this.innerHTML || ''); });
-
                 });
+                scrollToTab(category);
                 hashOpen();
+            }
+
+        function getPromos(category) {
+            $.get('/AjaxHandlers/Promotion.ashx', function (html) { })
+            .done(function (data) {
+                data = data.replace(/<img src=/g, '<img rel=');
+                data = data.replace('[domain]', '.' + location.hostname.split('.').slice(-2).join('.'));
+                categories = getCategories(data);
+                filterPromos(category);
             })
             .always(function (data) {
                 $('#promoLoader').hide();
@@ -191,10 +208,13 @@
                 else { $(divObj).css('background-image', "url('/_Static/Images/arrow-up.png')"); }
 
                 setTimeout(function () {
-                    var yPos = $(location.hash).get(0).offsetTop - 45;
+                    var yPos = $(location.hash).get(0).offsetTop;
                     if (yPos < 0) yPos = 0;
-                    $.mobile.silentScroll(yPos);
-                }, 800);
+                    $('#divPromotions').scrollTop(yPos);
+                    var moreInfo = $(divObj).parent().siblings().find('p a');
+                    if (moreInfo)
+                        moreInfo.trigger('click');
+                }, 400);
             }
         }
 
@@ -405,7 +425,7 @@
                 switch(promoType){
                     case 'v4':
 
-                        $.get('/_Static/Promotions/' + code + '.' + lang + '.xml', function (xml) {
+                $.get('/_Static/Promotions/' + code + '.' + lang + '.xml', function (xml) {
                             var promoData = {
                                 team_msg: $(xml).find('team_msg').text(),
                                 score_msg: $(xml).find('score_msg').text(),
@@ -556,6 +576,59 @@
                 }
             }
         }
+
+        function getCategories(data) {
+            var categories = [];
+            // For 'ALL' category
+            categories.push({
+                id: 'ALL',
+                text: '<%=commonCulture.ElementValues.GetResourceXPathAttribute("status", "id", "ALL", commonVariables.HistoryXML)%>',
+                promos: $(data).find('.promotion_group')
+            });
+            $('#categories').append('<div class="btn-group" role="group"><a id="' + categories[0].id + '"class="btn" href="#' + categories[0].id + '">' + categories[0].text + '</a></div>');
+            $('#' + categories[0].id).on('click', function () {
+                isCategoryHash = true;
+                window.location.hash = categories[0].id;
+                filterPromos(window.location.hash.substring(1));
+            });
+
+            $(data).find('.promotion_group_header').each(function (index, div) {
+                var _category = {},
+                    siblings = $(div).siblings();
+
+                if (siblings.length == 0) return;
+                _category['promos'] = siblings;
+                _category['id'] = $(div).attr('id');
+                _category['text'] = $(div).html().trim();
+                categories.push(_category);
+                $('#categories').append('<div class="btn-group" role="group"><a id="' + _category.id + '"class="btn" href="#' + _category.id + '">' + _category.text + '</a></div>');
+                $('#' + _category.id).on('click', function () {
+                    isCategoryHash = true;
+                    window.location.hash = _category.id;
+                    filterPromos(window.location.hash.substring(1));
+                });
+            });
+            return categories;
+        }
+
+        function scrollToTab(category) {
+            if (_.isEmpty(category)) return;
+
+            var button = $('#' + category).parent();
+            if (!button) return;
+            if (!button.hasClass('active')) {
+                button.addClass('active');
+            }
+
+            $('#categories').children().children().each(function(i, div) {
+                if ($(div).parent().hasClass('active') && $(div).attr('id') !== category)
+                    $(div).parent().removeClass('active');
+            });
+            var index = _.findIndex(categories, { id: category });
+
+            $('#categories').show();
+            $('div.footer.footer-div.footer-generic').scrollLeft(index * 80);
+        }
     </script>
 </asp:Content>
 
@@ -563,7 +636,10 @@
 
     <div class="ui-content" role="main">
         <img id="promoLoader" src="/_Static/Css/images/ajax-loader.gif" style="display: none;" />
-        <div id="divPromotions" class="fixed-tablet-size"></div>
+        <div id="divPromotions" class="main-content"></div>
+        <div class="footer footer-div footer-generic">
+            <div id="categories" style="display: none;" class="btn-group btn-group-justified btn-group-sliding"></div>
+        </div>
     </div>
 </asp:Content>
 
