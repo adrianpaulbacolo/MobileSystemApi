@@ -85,7 +85,7 @@
                     </li>
                     <li class="item item-select">
                         <asp:Label ID="lblCardSerialNo" runat="server" AssociatedControlID="txtCardSerialNo" />
-                        <asp:TextBox ID="txtCardSerialNo" runat="server" type="tel" data-mini="true" data-clear-btn="true" />
+                        <asp:TextBox ID="txtCardSerialNo" runat="server" data-mini="true" data-clear-btn="true" />
                     </li>
                     <li class="item item-select">
                         <p id="notice" style="color: #ff0000"></p>
