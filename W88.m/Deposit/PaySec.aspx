@@ -1,28 +1,36 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ECPSS.aspx.cs" Inherits="Deposit_ECPSS" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="PaySec.aspx.cs" Inherits="Deposit_PaySec" %>
+
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dECPSS", commonVariables.PaymentMethodsXML))%></title>
+    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dPaySec", commonVariables.PaymentMethodsXML))%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
 <body>
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
+            <% if (commonCookie.CookieIsApp != "1")
+               { %>
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
             </a>
-            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dECPSS", commonVariables.PaymentMethodsXML))%></h1>
+            <% } %>
+
+            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dPaySec", commonVariables.PaymentMethodsXML))%></h1>
+
         </header>
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <uc:Wallet id="uMainWallet" runat="server" />
+                <uc:Wallet ID="uMainWallet" runat="server" />
             </div>
 
-            <div data-role="navbar" id="depositTabs" runat="server">
+            <div data-role="navbar">
+                <ul id="depositTabs" runat="server">
+                </ul>
             </div>
 
             <form class="form" id="form1" runat="server" data-ajax="false">
@@ -64,64 +72,52 @@
                         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
                         <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
-                     <li class="item item-select">
-                        <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
-                        <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
-                    </li>
-                    <li class="item item-select">
-                        <asp:Label ID="lblMessage" runat="server" />
-                    </li>
                     <li class="item row">
                         <div class="col">
-                            <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" id="btnCancel" runat="server" data-ajax="false"><%=base.strbtnCancel%></a>
-                        </div>
-                        <div class="col">
-                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" />
+                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" />
                         </div>
                     </li>
                 </ul>
             </form>
         </div>
 
+        <% if (commonCookie.CookieIsApp != "1")
+           { %>
         <!--#include virtual="~/_static/navMenu.shtml" -->
+        <% } %>
+
         <script type="text/javascript">
             $('#form1').submit(function (e) {
                 window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
-            });
-            $(function () {
-                window.history.forward();
-
-                if ($('#depositTabs li').length == 0) {
-                    window.location.reload();
+                // use api
+                e.preventDefault();
+                var data = {
+                    Amount: $('#txtDepositAmount').val()
                 }
+                w88Mobile.Gateways.PaySec.gatewayId = "<%=base.PaymentMethodId %>";
+                w88Mobile.Gateways.PaySec.deposit(data, function (response) {
 
-                var responseCode = '<%=strAlertCode%>';
-                var responseMsg = '<%=strAlertMessage%>';
-                if (responseCode.length > 0) {
-                    switch (responseCode) {
-                        case '-1':
-                            alert(responseMsg);
-                            break;
-
-                        case '0':
-                            var cookie = '<%=HttpUtility.UrlEncode(commonEncryption.encrypting(HttpUtility.UrlEncode(commonCookie.CookieS),ConfigurationManager.AppSettings["PaymentPrivateKey"]))%>';
-                            var remote_ip = '<%=HttpUtility.UrlEncode(commonEncryption.encrypting(commonIp.remoteIP,ConfigurationManager.AppSettings["PaymentPrivateKey"]))%>';
-                            var domain = '<%=strRedirectUrl%>';
-
-                            if (domain != '') {
-                                var url = domain + "api/ECPSSHandler.ashx?requestAmount=" + $("#txtDepositAmount").val() + "&bankCode=" + $("#drpBank").val() + "&cookie=" + cookie + "&ip=" + remote_ip + "&isMobile=true";
-                                window.open(url);
-                            } else {
-                                alert('<%=commonCulture.ElementValues.getResourceXPathString("CustomerService", commonVariables.ErrorsXML)%>');
-                            }
-
+                    switch (response.ResponseCode) {
+                        case 1:
+                            w88Mobile.Growl.shout(response.ResponseMessage);
+                            w88Mobile.PostPaymentForm.create(
+                                response.ResponseData.FormData,
+                                response.ResponseData.PostUrl,
+                                "body");
+                            w88Mobile.PostPaymentForm.submit();
+                            $('#form1')[0].reset();
                             break;
                         default:
+                            w88Mobile.Growl.shout(response.ResponseMessage);
                             break;
                     }
-                }
+                },
+                function () { console.log("Error connecting to api"); },
+                function () {
+                    w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
+                    GPINTMOBILE.HideSplash();
+                });
             });
-
         </script>
     </div>
 </body>

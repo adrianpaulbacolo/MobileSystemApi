@@ -65,6 +65,7 @@
                         <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
                     <li class="item item-select">
+                        <asp:Label ID="lblBank" runat="server" AssociatedControlID="bankDropDownList" />
                         <asp:DropDownList ID="bankDropDownList" runat="server">
                             <asp:ListItem Value="SCB">Siam Commercial Bank</asp:ListItem>
                             <asp:ListItem Value="BAY">Bank Of Ayudaha</asp:ListItem>

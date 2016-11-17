@@ -28,22 +28,31 @@ public partial class Deposit_SDPay : PaymentBasePage
 
         if (!Page.IsPostBack)
         {
-            lblMode.Text = commonCulture.ElementValues.getResourceString("lblMode", xeResources);
-            txtMode.Text = string.Format(": {0}", commonCulture.ElementValues.getResourceString("txtMode", xeResources));
-            lblMinMaxLimit.Text = commonCulture.ElementValues.getResourceString("lblMinMaxLimit", xeResources);
-            lblDailyLimit.Text = commonCulture.ElementValues.getResourceString("lblDailyLimit", xeResources);
-            lblTotalAllowed.Text = commonCulture.ElementValues.getResourceString("lblTotalAllowed", xeResources);
-            lblDepositAmount.Text = commonCulture.ElementValues.getResourceString("lblAmount", xeResources);
-            lblNoticeDownload.Text = commonCulture.ElementValues.getResourceString("lblNoticeDownload", xeResources);
-
-            btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
-
-            txtDepositAmount.Attributes.Add("PLACEHOLDER", string.Format("{0} ({1})", lblDepositAmount.Text, strCurrencyCode));
-
-            txtMinMaxLimit.Text = string.Format(": {0} / {1}", strMinLimit, strMaxLimit);
-            txtDailyLimit.Text = string.Format(": {0}", strDailyLimit);
-            txtTotalAllowed.Text = string.Format(": {0}", strTotalAllowed);
+            this.InitializeLabels();
         }
+    }
+
+
+    private void InitializeLabels()
+    {
+        lblMode.Text = base.strlblMode;
+        txtMode.Text = base.strtxtMode;
+
+        lblMinMaxLimit.Text = base.strlblMinMaxLimit;
+        txtMinMaxLimit.Text = base.strtxtMinMaxLimit;
+
+        lblDailyLimit.Text = base.strlblDailyLimit;
+        txtDailyLimit.Text = base.strtxtDailyLimit;
+
+        lblTotalAllowed.Text = base.strlblTotalAllowed;
+        txtTotalAllowed.Text = base.strtxtTotalAllowed;
+
+        lblDepositAmount.Text = base.strlblAmount;
+
+        btnSubmit.Text = base.strbtnSubmit;
+
+        lblNoticeDownload.Text = commonCulture.ElementValues.getResourceString("lblNoticeDownload", xeResources);
+
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)

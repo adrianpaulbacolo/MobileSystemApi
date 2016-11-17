@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Xml.XPath;
+using Helpers;
 
 public class commonASports
 {
@@ -248,6 +249,71 @@ public class commonVSports
     public static System.Collections.Specialized.NameValueCollection Values { get { return System.Configuration.ConfigurationManager.GetSection("ProductGroupSettings/" + commonVariables.OperatorCode + "/oneworks") as System.Collections.Specialized.NameValueCollection; } }
 }
 
+public class commonXSports
+{
+    public static string SportsBookUrl
+    {
+        get
+        {
+            
+            var user = new Members().MemberData();
+            var opSettings = new customConfig.OperatorSettings("W88");
+            var url = opSettings.Values.Get("xSportsFunUrl");
+            var lang = commonVariables.SelectedLanguage;
+
+            switch (lang.ToLower())
+            {
+
+                case "id-id":
+                    lang = "id-ID";
+                    break;
+
+                case "ja-jp":
+                    lang = "ja-JP";
+                    break;
+
+                case "ko-kr":
+                    lang = "ko-KR";
+                    break;
+
+                case "th-th":
+                    lang = "th-TH";
+                    break;
+
+                case "vi-vn":
+                    lang = "vi-VN";
+                    break;
+
+                case "zh-cn":
+                    lang = "zh-CN";
+                    break;
+
+                default:
+                    lang = "en-US";
+                    break;
+            }
+
+            if (!string.IsNullOrWhiteSpace(user.CurrentSessionId))
+            {
+                var curr = commonCookie.CookieCurrency;
+                switch (curr.ToLower())
+                {
+                    case "rmb":
+                        curr = "CNY";
+                        break;
+                    case "vnd":
+                        curr = "VD";
+                        break;
+                }
+
+                url = opSettings.Values.Get("xSportsRealUrl");
+                url = url.Replace("{TOKEN}", user.CurrentSessionId).Replace("{USER}", user.MemberId).Replace("{CURR}", curr);
+            }
+
+            return url.Replace("{DOMAIN}", commonIp.DomainName).Replace("{LANG}", lang);
+        }
+    }
+}
 
 public class commonClubCrescendo
 {

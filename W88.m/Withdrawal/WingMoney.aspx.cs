@@ -29,16 +29,30 @@ public partial class Withdrawal_WingMoney : PaymentBasePage
 
         if (!Page.IsPostBack)
         {
-            lblWithdrawAmount.Text = commonCulture.ElementValues.getResourceString("lblAmount", xeResources);
-
-            lblAccountName.Text = commonCulture.ElementValues.getResourceString("lblAccountName", xeResources);
-            lblAccountNumber.Text = commonCulture.ElementValues.getResourceString("lblAccountNumber", xeResources);
-            btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
-
-            txtWithdrawAmount.Attributes.Add("PLACEHOLDER", string.Format("{0} {1}({2} / {3})", lblWithdrawAmount.Text, strCurrencyCode, strMinLimit, strMaxLimit));
-            lblDailyLimit.Text = string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("lblDailyLimit", xeResources), strDailyLimit);
-            lblTotalAllowed.Text = string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("lblTotalAllowed", xeResources), strTotalAllowed);
+            InitializeLabels();
         }
+    }
+
+    private void InitializeLabels()
+    {
+        lblMode.Text = base.strlblMode;
+        txtMode.Text = base.strtxtMode;
+
+        lblMinMaxLimit.Text = base.strlblMinMaxLimit;
+        txtMinMaxLimit.Text = base.strtxtMinMaxLimit;
+
+        lblDailyLimit.Text = base.strlblDailyLimit;
+        txtDailyLimit.Text = base.strtxtDailyLimit;
+
+        lblTotalAllowed.Text = base.strlblTotalAllowed;
+        txtTotalAllowed.Text = base.strtxtTotalAllowed;
+
+        lblWithdrawAmount.Text = base.strlblAmount;
+
+        lblAccountName.Text = base.strlblAccountName;
+        lblAccountNumber.Text = base.strlblAccountNumber;
+
+        btnSubmit.Text = base.strbtnSubmit;
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)

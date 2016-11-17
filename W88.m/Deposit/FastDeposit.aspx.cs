@@ -71,7 +71,6 @@ public partial class Deposit_FastDesposit : PaymentBasePage
         txtTotalAllowed.Text = base.strtxtTotalAllowed;
 
         lblDepositAmount.Text = base.strlblAmount;
-        txtDepositAmount.Attributes.Add("PLACEHOLDER", base.strtxtAmount);
 
         lblAccountName.Text = base.strlblAccountName;
         lblAccountNumber.Text = base.strlblAccountNumber;
@@ -166,12 +165,12 @@ public partial class Deposit_FastDesposit : PaymentBasePage
     {
         #region DepositDateTime
 
-        drpDepositDate.Items.Add(new ListItem(commonCulture.ElementValues.getResourceString("lblDepositDateIndicator", xeResources), string.Empty));
-
-        for (System.DateTime dtDepositDateTime = System.DateTime.Today.AddHours(-72); dtDepositDateTime < System.DateTime.Today.AddHours(72); dtDepositDateTime = dtDepositDateTime.AddHours(24))
+        for (System.DateTime dtDepositDateTime = System.DateTime.Today.AddHours(-72); dtDepositDateTime <= System.DateTime.Today.AddHours(72); dtDepositDateTime = dtDepositDateTime.AddHours(24))
         {
-            drpDepositDate.Items.Add(new ListItem(dtDepositDateTime.ToString("dd / MMM / yyyy"), dtDepositDateTime.ToString("yyyy-MM-dd")));
+            drpDepositDate.Items.Add(new ListItem(dtDepositDateTime.ToString("dd / MM / yyyy"), dtDepositDateTime.ToString("yyyy-MM-dd")));
         }
+
+        drpDepositDate.SelectedValue = DateTime.Now.ToString("yyyy-MM-dd");
 
         for (int intHour = 0; intHour < 24; intHour++)
         {
@@ -345,7 +344,7 @@ public partial class Deposit_FastDesposit : PaymentBasePage
             }
             else
             {
-                if ((dtDepositDateTime - DateTime.Now).TotalHours > 72 || (dtDepositDateTime - DateTime.Now).TotalHours < -72)
+                if (!IsValidDepositTime(dtDepositDateTime))
                 {
                     status = base.GetErrors("/InvalidDateTime");
                 }
@@ -353,5 +352,18 @@ public partial class Deposit_FastDesposit : PaymentBasePage
         }
 
         return status;
+    }
+
+    private bool IsValidDepositTime(DateTime validDateTime)
+    {
+        DateTime minDate = DateTime.Now.AddHours(-72);
+        DateTime maxDate = DateTime.Now.AddHours(72);
+
+        if (validDateTime < minDate || validDateTime > maxDate)
+        {
+            return false;
+        }
+
+        return true;
     }
 }
