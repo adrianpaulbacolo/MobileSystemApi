@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Deposit_Default" %>
+
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
 <!DOCTYPE html>
@@ -19,14 +20,15 @@
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <uc:Wallet id="uMainWallet" runat="server" />
+                <uc:Wallet ID="uMainWallet" runat="server" />
             </div>
 
             <div data-role="navbar" id="depositTabs" runat="server">
             </div>
 
             <form class="form" id="form1" runat="server" data-ajax="false">
-                <div class="empty-state">
+                <div class="empty-state" id="loader"></div>
+                <div class="empty-state" hidden>
                     <div class="empty-state-icon">
                         <i class="ion ion-alert"></i>
                     </div>
@@ -41,6 +43,10 @@
             $(function () {
                 window.history.forward();
 
+                var loader = GPInt.prototype.GetLoaderScafold();
+
+                $("#loader").html(loader);
+
                 if ($('#depositTabs li a.btn-primary').length == 0) {
                     if ($('#depositTabs li').first().children().attr('href') != undefined) {
                         window.location.replace($('#depositTabs li').first().children().attr('href'));
@@ -50,8 +56,12 @@
                             category: "Deposit",
                             action: "<%=base.strCountryCode %>",
                             name: "<%=base.strMemberID %>"
-                            });
+                        });
+
+                        $('.empty-state').show();
                         $('#paymentNote').append('<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>');
+
+                        $("#loader").hide();
                     }
                 }
             });
