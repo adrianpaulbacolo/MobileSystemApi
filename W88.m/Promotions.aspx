@@ -3,13 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script type="text/javascript">
         var lang = '<%=(string.IsNullOrEmpty(commonVariables.SelectedLanguage) ? "en-us" : commonVariables.SelectedLanguage)%>',
-            categories = [];
+            categories = [],
+            isCategoryHash = true;
         if (lang == '') { lang = 'en-us'; }
         $(function () {
-            $(window).hashchange(function () {
-                hashOpen();
-            });
-            $(window).hashchange();
             if(!_.isEmpty(window.location.hash)) {
                 getPromos(window.location.hash.substring(1));
             } else {
@@ -24,13 +21,25 @@
         };
         var currentCCode = '<%= commonCookie.CookieCurrency%>';
 
-        function timerV2(pid, start_date, end_date) { if (new Date('<%=DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') < new Date(start_date) || new Date('<%=System.DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') > new Date(end_date)) { $('div#' + pid).hide(); } }
+        function timerV2(pid, start_date, end_date) { if (new Date('<%=DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') < new Date(start_date) || new Date('<%=DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') > new Date(end_date)) { $('div#' + pid).hide(); } }
             function filterPromos(category) {
                 $("#divPromotions").html('');
                 var listObj = $("#divPromotions").append('<ul class="row row-uc row-no-padding row-wrap"></ul>').find('ul'),
                     _category = _.find(categories, { id: category });
 
-                if (!_category || _category.length == 0) return;
+                if (!_category) {
+                    isCategoryHash = false;
+                    _category = _.find(categories, function (cat) {
+                        var promo = _.find(cat.promos, function (_promos) {
+                            if ($(_promos).attr('id') == category)
+                                return _promos;
+                        });
+                        if (promo) return cat;                       
+                    });
+                }
+                if (!_category) return;
+                category = _category.id;
+
                 var promos = _category.promos;
                 if (!promos || promos.length == 0) return;
                 promos.each(function (index) {
@@ -158,8 +167,8 @@
                     listObj.append($(liPromo).append($(divPromoWrapper).append($(divPromoImg).append(imgPromo)).append(divSecond)).append(divPromoDetail));
                     $(this).find('script').each(function () { $.globalEval(this.text || this.textContent || this.innerHTML || ''); });
                 });
+                scrollToTab(category);
                 hashOpen();
-                scrollToTab(category);            
             }
 
         function getPromos(category) {
@@ -187,7 +196,12 @@
                     var yPos = $(location.hash).get(0).offsetTop - 45;
                     if (yPos < 0) yPos = 0;
                     $.mobile.silentScroll(yPos);
-                }, 800);
+                    setTimeout(function() {
+                        var moreInfo = $(divObj).parent().siblings().find('p a');
+                        if (moreInfo)
+                            moreInfo.trigger('click');
+                    }, 200);
+                }, 400);
             }
         }
 
@@ -484,6 +498,7 @@
             });
             $('#categories').append('<div class="btn-group" role="group"><a id="' + categories[0].id + '"class="btn" href="#' + categories[0].id + '">' + categories[0].text + '</a></div>');
             $('#' + categories[0].id).on('click', function () {
+                isCategoryHash = true;
                 window.location.hash = categories[0].id;
                 filterPromos(window.location.hash.substring(1));
             });
@@ -498,7 +513,8 @@
                 _category['text'] = $(div).html().trim();
                 categories.push(_category);
                 $('#categories').append('<div class="btn-group" role="group"><a id="' + _category.id + '"class="btn" href="#' + _category.id + '">' + _category.text + '</a></div>');
-                $('#' + _category.id).on('click', function() {
+                $('#' + _category.id).on('click', function () {
+                    isCategoryHash = true;
                     window.location.hash = _category.id;
                     filterPromos(window.location.hash.substring(1));
                 });
@@ -514,7 +530,8 @@
             if (!button.hasClass('active')) {
                 button.addClass('active');
             }
-            $('#categories').children().children().each(function(index, div) {
+
+            $('#categories').children().children().each(function(i, div) {
                 if ($(div).parent().hasClass('active') && $(div).attr('id') !== category)
                     $(div).parent().removeClass('active');
             });
