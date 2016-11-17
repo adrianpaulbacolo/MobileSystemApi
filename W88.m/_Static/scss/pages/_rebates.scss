@@ -1,0 +1,82 @@
+.rebates{
+	form{
+
+	padding-top: 1em;
+	}
+}
+.rebates-collapse-group{
+	padding-left: 1em;
+	padding-right: 1em;
+	max-width: 767px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 1.5em;
+	> h2{
+		color: $ltGray-color;
+		font-size: 1em;
+		font-weight: 700;
+	}
+	.ui-collapsible{
+		margin: 0;
+		margin-bottom: 1px;
+		.ui-collapsible-heading-toggle{
+			color: #ccc;
+			font-size: 1.143em !important;
+			padding: 0.875em 1em;
+			background-color: darken($primary-color, 26%);
+			border: none !important;
+			&:after{
+				content:'\f3d8';
+			}
+			&:focus,
+			&:hover{
+				background-color: darken($primary-color, 16%);
+			}
+		}
+
+		.ui-collapsible-content{
+			padding: 1em;
+			background-color: darken($primary-color, 36%) !important;
+			
+		}
+
+		&.ui-collapsible-collapsed{
+			.ui-collapsible-heading-toggle:after{
+				content:'\f3d0';
+			}
+			
+		}
+	}
+}
+
+table.rebates-table{
+	width: 100%;
+	font-size: 1em;
+	tr{
+		border-bottom: 1px solid rgba($white, 0.03);
+		td{
+			padding-top: 1em;
+			padding-bottom: 1em;
+			&:first-child{
+				font-weight: 700;
+			}
+			&:last-child{
+				text-align: right;
+			}
+		}
+		&:last-child{
+			border-bottom: none;
+		}
+	}
+}
+
+.rebates-disclaimer{
+	max-width: 767px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 1em;
+}
+.rebates-modal-content{
+	background-color: #111;
+	padding-top: 1.5em;
+}
