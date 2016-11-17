@@ -20,7 +20,7 @@ public partial class Deposit_SDAPay : PaymentBasePage
     protected void Page_Init(object sender, EventArgs e)
     {
 
-        base.PageName = "SDAPayAlipay";
+        base.PageName = Convert.ToString(commonVariables.DepositMethod.SDAPayAlipay);
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.SDAPayAlipay);
 
@@ -37,22 +37,32 @@ public partial class Deposit_SDAPay : PaymentBasePage
         {
             drpBank.Items.AddRange(base.InitializeBank("SDAPayAlipayBank").Where(bank => bank.Value.Equals("alipay", StringComparison.OrdinalIgnoreCase)).ToArray());
 
-            lblMode.Text = commonCulture.ElementValues.getResourceString("lblMode", xeResources);
-            txtMode.Text = string.Format(": {0}", commonCulture.ElementValues.getResourceString("txtMode", xeResources));
-            lblMinMaxLimit.Text = commonCulture.ElementValues.getResourceString("lblMinMaxLimit", xeResources);
-            lblDailyLimit.Text = commonCulture.ElementValues.getResourceString("lblDailyLimit", xeResources);
-            lblTotalAllowed.Text = commonCulture.ElementValues.getResourceString("lblTotalAllowed", xeResources);
-            lblDepositAmount.Text = commonCulture.ElementValues.getResourceString("lblAmount", xeResources);
-            lblIndicatorMessage.Text = commonCulture.ElementValues.getResourceString("lblIndicatorMessage", xeResources);
-
-            btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
-
-            txtMinMaxLimit.Text = string.Format(": {0} / {1}", strMinLimit, strMaxLimit);
-            txtDailyLimit.Text = string.Format(": {0}", strDailyLimit);
-            txtTotalAllowed.Text = string.Format(": {0}", strTotalAllowed);
+            this.InitializeLabels();
 
             drpBank.SelectedValue = "alipay";
         }
+    }
+
+    private void InitializeLabels()
+    {
+        lblMode.Text = base.strlblMode;
+        txtMode.Text = base.strtxtMode;
+
+        lblMinMaxLimit.Text = base.strlblMinMaxLimit;
+        txtMinMaxLimit.Text = base.strtxtMinMaxLimit;
+
+        lblDailyLimit.Text = base.strlblDailyLimit;
+        txtDailyLimit.Text = base.strtxtDailyLimit;
+
+        lblTotalAllowed.Text = base.strlblTotalAllowed;
+        txtTotalAllowed.Text = base.strtxtTotalAllowed;
+
+        lblDepositAmount.Text = base.strlblAmount;
+
+        btnSubmit.Text = base.strbtnSubmit;
+
+        lblIndicatorMessage.Text = commonCulture.ElementValues.getResourceString("lblIndicatorMessage", xeResources);
+
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
