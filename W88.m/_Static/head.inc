@@ -73,6 +73,7 @@
 <script type="text/javascript" src="/_Static/JS/modules/bankDetails.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/gateways/postform.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/gateways/nganluong.js"></script>
-<script type="text/javascript" src="/_Static/JS/modules/gateways/fastdep.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/gateways/venuspoint.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/gateways/paysec.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/gateways/jtpay.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/gateways/fastdep.js"></script>
