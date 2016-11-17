@@ -126,7 +126,6 @@ public partial class Withdrawal_BankTransfer : PaymentBasePage
         txtTotalAllowed.Text = base.strtxtTotalAllowed;
 
         lblWithdrawAmount.Text = base.strlblAmount;
-        txtWithdrawAmount.Attributes.Add("PLACEHOLDER", base.strtxtAmount);
 
         lblAccountName.Text = base.strlblAccountName;
         lblAccountNumber.Text = base.strlblAccountNumber;

@@ -202,6 +202,7 @@ public class commonVariables
         DaddyPay = 120243,
         DaddyPayQR = 120244,
         Neteller = 120214,
+        PaySec = 120290,
         SDAPayAlipay = 120254,
         ECPSS = 120218,
         BofoPay = 120231,
