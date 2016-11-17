@@ -193,14 +193,12 @@
                 else { $(divObj).css('background-image', "url('/_Static/Images/arrow-up.png')"); }
 
                 setTimeout(function () {
-                    var yPos = $(location.hash).get(0).offsetTop - 45;
+                    var yPos = $(location.hash).get(0).offsetTop;
                     if (yPos < 0) yPos = 0;
-                    $.mobile.silentScroll(yPos);
-                    setTimeout(function() {
-                        var moreInfo = $(divObj).parent().siblings().find('p a');
-                        if (moreInfo)
-                            moreInfo.trigger('click');
-                    }, 200);
+                    $('#divPromotions').scrollTop(yPos);
+                    var moreInfo = $(divObj).parent().siblings().find('p a');
+                    if (moreInfo)
+                        moreInfo.trigger('click');
                 }, 400);
             }
         }
