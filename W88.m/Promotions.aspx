@@ -327,7 +327,13 @@
                     strCode = radValue.split('|')[0];
                     strComment = radValue.split('|')[1];
                 } else {
-                    var optionComment = $obj.find('input[type="select"]:selected').val();
+
+                    var selectComment = $obj.find('select');
+                    if (selectComment.length != 0) {
+                        $.each(selectComment, function() {
+                            strComment += selectComment.val() + " | ";
+                        });
+                    }
 
                     var matchComment = $obj.find('input[name="comment"]');
 
@@ -432,9 +438,9 @@
                                 if (!_.isEmpty($(value).find('regex'))) promoData['regex' + index] = $(value).find('regex').text();
                                 if (!_.isEmpty($(value).find('options'))) {
                                     promoData['option' + index] = [];
-                                    $(value).find('options').find('option').each(function (i, v) {
+                                    $(value).find('options').find('option').each(function(i, v) {
                                         promoData['option' + index].push($(v).text());
-                                    })
+                                    });
                                 }
                             });
                             $.get('/_Static/Promotions/templates/v5.html', function (data) {

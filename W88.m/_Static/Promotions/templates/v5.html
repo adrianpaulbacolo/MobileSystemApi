@@ -15,7 +15,7 @@
                     <label>{%- promo.data.label0 %}: </label>
                 </div>
                 <div class="col col-60">
-                    <select name="">
+                    <select name="selection">
                         {% _.forEach( promo.data.option0, function( op ){ %}
                         <option value="{%- op %}">{%- op %}</option>
                         {% }); %}
@@ -27,7 +27,7 @@
                     <label>{%- promo.data.label1 %}: </label>
                 </div>
                 <div class="col col-60">
-                    <input type="text" name="comment" id="" class="">
+                    <input type="text" name="comment" id="" data-regex="{%- promo.data.regex1 %}" class="" oninput='javascript:DataRegex(this)'>
                 </div>
             </div>
             <div class="row row-uc">
@@ -35,7 +35,7 @@
                     <label>{%- promo.data.label2 %}: </label>
                 </div>
                 <div class="col col-60">
-                    <input type="text" name="comment" id="" class="">
+                    <input type="text" name="comment" id="" data-regex="{%- promo.data.regex2 %}" class="" oninput='javascript:DataRegex(this)'>
                 </div>
             </div>
             <div class="row row-uc">
@@ -43,7 +43,7 @@
                     <label>{%- promo.data.label3 %}: </label>
                 </div>
                 <div class="col col-60">
-                    <input type="text" name="comment" id="" class="">
+                    <input type="text" name="comment" id="" data-regex="{%- promo.data.regex3 %}" class="" oninput='javascript:DataRegex(this)'>
                 </div>
             </div>
         </div>
