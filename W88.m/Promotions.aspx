@@ -427,6 +427,7 @@
                             promoData.username = '<%= base.userInfo.MemberCode %>';
                             $(xml).find('column').each(function (index, value) {
                                 if (!_.isEmpty($(value).find('field'))) promoData['label' + index] = $(value).find('field').text();
+                                if (!_.isEmpty($(value).find('regex'))) promoData['regex' + index] = $(value).find('regex').text();
                                 if (!_.isEmpty($(value).find('options'))) {
                                     promoData['option' + index] = [];
                                     $(value).find('options').find('option').each(function (i, v) {
@@ -436,9 +437,13 @@
                             });
                             $.get('/_Static/Promotions/templates/v5.html', function (data) {
                                 console.log(promoData);
+                                var btnSubmit = '<%=commonCulture.ElementValues.getResourceString("btnSubmit", xeResources)%>';
+                                var btnCancel = '<%=commonCulture.ElementValues.getResourceString("btnCancel", xeResources)%>';
                                 template = _.template(data);
                                 $(obj).parent().append(template({
-                                    data: promoData
+                                    data: promoData,
+                                    btnSubmit: btnSubmit,
+                                    btnCancel: btnCancel
                                 })).enhanceWithin();
                             }, 'html');
                         });

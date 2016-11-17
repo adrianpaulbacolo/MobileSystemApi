@@ -47,9 +47,13 @@
                 </div>
             </div>
         </div>
-        <div>
-            <a class="ui-btn btn-primary" onclick="javascript:PromoClaim(this)">Kirim</a>
-            <a class="ui-btn btn-secondary" onclick="javascript:PromoCancelClaim(this)">Batal</a>
+        <div class="row row-uc">
+            <div class="col col-40">
+                <a class="ui-btn btn-primary" onclick="javascript:PromoClaim(this)">{%- promo.btnSubmit %}</a>
+            </div>
+            <div class="col col-60">
+                <a class="ui-btn btn-secondary" onclick="javascript:PromoCancelClaim(this)">{%- promo.btnCancel %}</a>
+            </div>
         </div>
     </div>
 </div>
