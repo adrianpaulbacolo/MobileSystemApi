@@ -16,6 +16,7 @@ using System.Xml.Linq;
 
 public partial class Deposit_PaySec : PaymentBasePage
 {
+    protected string lblTransactionId;
     protected void Page_Init(object sender, EventArgs e)
     {
         base.PageName = Convert.ToString(commonVariables.DepositMethod.PaySec);
@@ -45,10 +46,10 @@ public partial class Deposit_PaySec : PaymentBasePage
 
         btnSubmit.Text = base.strbtnSubmit;
 
-        txtDepositAmount.Attributes.Add("PLACEHOLDER", base.strtxtAmount);
-
         txtMinMaxLimit.Text = base.strtxtMinMaxLimit;
         txtDailyLimit.Text = base.strtxtDailyLimit;
         txtTotalAllowed.Text = base.strtxtTotalAllowed;
+
+        lblTransactionId = base.strlblTransactionId;
     }
 }
