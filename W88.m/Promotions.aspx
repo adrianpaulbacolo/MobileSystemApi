@@ -327,6 +327,8 @@
                     strCode = radValue.split('|')[0];
                     strComment = radValue.split('|')[1];
                 } else {
+                    var optionComment = $obj.find('input[type="select"]:selected').val();
+
                     var matchComment = $obj.find('input[name="comment"]');
 
                     var emptyInputs = $(matchComment).filter(function (index, item) {
