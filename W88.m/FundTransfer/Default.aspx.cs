@@ -52,8 +52,6 @@ public partial class FundTransfer_Default : PaymentBasePage
         drpTransferTo.Items.Insert(0, new ListItem(commonCulture.ElementValues.getResourceString("lblTransferTo", xeResources), "-1"));
         lblTransferAmount.Text = commonCulture.ElementValues.getResourceString("lblTransferAmount", xeResources);
         lblPromoCode.Text = commonCulture.ElementValues.getResourceString("lblPromoCode", xeResources);
-        txtTransferAmount.Attributes["PLACEHOLDER"] = lblTransferAmount.Text + " (" + commonVariables.GetSessionVariable("CurrencyCode") + ")";
-        txtPromoCode.Attributes["PLACEHOLDER"] = lblPromoCode.Text;
         btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
         lblTransferFrom.Text = commonCulture.ElementValues.getResourceString("lblTransferFrom", xeResources);
         lblTransferTo.Text = commonCulture.ElementValues.getResourceString("lblTransferTo", xeResources);

@@ -36,22 +36,22 @@
 
         </div>
 
-    <script type="text/javascript">
-        $(function () {
-            window.history.forward();
+        <script type="text/javascript">
+            $(function () {
+                window.history.forward();
 
             var loader = GPInt.prototype.GetLoaderScafold();
 
             $("#loader").html(loader);
 
-            if ($('#depositTabs li a.btn-primary').length == 0) {
-                if ($('#depositTabs li').first().children().attr('href') != undefined) {
-                    window.location.replace($('#depositTabs li').first().children().attr('href'));
-                } else {
-                    // track accounts with no gateways
-                    w88Mobile.PiwikManager.trackEvent({
-                        category: "Deposit",
-                        action: "<%=base.strCountryCode %>",
+                if ($('#depositTabs li a.btn-primary').length == 0) {
+                    if ($('#depositTabs li').first().children().attr('href') != undefined) {
+                        window.location.replace($('#depositTabs li').first().children().attr('href'));
+                    } else {
+                        // track accounts with no gateways
+                        w88Mobile.PiwikManager.trackEvent({
+                            category: "Deposit",
+                            action: "<%=base.strCountryCode %>",
                             name: "<%=base.strMemberID %>"
                         });
 

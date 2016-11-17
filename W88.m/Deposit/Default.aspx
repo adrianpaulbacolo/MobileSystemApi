@@ -56,7 +56,7 @@
                             category: "Deposit",
                             action: "<%=base.strCountryCode %>",
                             name: "<%=base.strMemberID %>"
-                        });
+                            });
 
                         $('.empty-state').show();
                         $('#paymentNote').append('<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>');
