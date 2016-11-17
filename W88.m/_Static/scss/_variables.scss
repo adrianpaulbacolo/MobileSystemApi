@@ -121,3 +121,25 @@ $tab-item-max-width: 150px;
 $logo-en-image               : '/_Static/Images/logo-en.png' !default;
 $logo-cn-image               : '/_Static/Images/logo-cn.png' !default;
 $base-background-image       : '/_Static/Images/bg.jpg' !default;
+
+//Colors
+$brand-primary : #2a8fbd;
+$brand-default : #01374d;
+$brand-alt : #dab867;
+
+$text-color: #d3dee3;
+
+//Footer Non-sessioned
+$footer-icon-color: $text-color;
+$footer-button-color: $brand-alt;
+$footer-button-bg1: $brand-default;
+$footer-button-bg2: lighten($brand-default, 2.5%);
+$footer-button-bg3: lighten($brand-default, 5%);
+
+//Footer Generic
+$footer-generic-color: $brand-alt;
+$footer-generic-bg: $brand-default;
+$footer-generic-border: darken($brand-default, 3%);
+$footer-generic-active-color: $white;
+$footer-generic-active-bg: $brand-primary;
+$footer-generic-active-border: $white;
