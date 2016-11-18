@@ -3,18 +3,18 @@
     <div class="div-claim-promo-data">
         <div class="promo-match">
             <div class="row row-uc ">
-                <div class="col col-40">
-                    <label>ID: </label>
+                <div class="col col-20">
+                    <p>ID: </p>
                 </div>
-                <div class="col col-60">
+                <div class="col col-80">
                     {%- promo.data.username %}
                 </div>
             </div>
-            <div class="row row-uc">
-                <div class="col col-40">
+            <div class="row row-uc row-no-padding">
+                <div class="col">
                     <label>{%- promo.data.label0 %}: </label>
                 </div>
-                <div class="col col-60">
+                <div class="col">
                     <select name="selection">
                         {% _.forEach( promo.data.option0, function( op ){ %}
                         <option value="{%- op %}">{%- op %}</option>
@@ -22,40 +22,35 @@
                     </select>
                 </div>
             </div>
-            <div class="row row-uc">
-                <div class="col col-40">
-                    <label>{%- promo.data.label1 %}: </label>
+            <div class="row row-uc row-no-padding">
+                <div class="col">
+                    <label>{%- promo.data.label1 %}:</label>
                 </div>
-                <div class="col col-60">
+                <div class="col">
                     <input type="text" name="comment" id="" data-regex="{%- promo.data.regex1 %}" class="" oninput='javascript:DataRegex(this)'>
                 </div>
             </div>
-            <div class="row row-uc">
-                <div class="col col-40">
+            <div class="row row-uc row-no-padding">
+                <div class="col">
                     <label>{%- promo.data.label2 %}: </label>
                 </div>
-                <div class="col col-60">
+                <div class="col">
                     <input type="text" name="comment" id="" data-regex="{%- promo.data.regex2 %}" class="" oninput='javascript:DataRegex(this)'>
                 </div>
             </div>
-            <div class="row row-uc">
-                <div class="col col-40">
+            <div class="row row-uc row-no-padding">
+                <div class="col">
                     <label>{%- promo.data.label3 %}: </label>
                 </div>
-                <div class="col col-60">
+                <div class="col">
                     <input type="text" name="comment" id="" data-regex="{%- promo.data.regex3 %}" class="" oninput='javascript:DataRegex(this)'>
                 </div>
             </div>
-        </div>
-        <div class="row row-no-padding row-uc">
-            <div class="col col-60 col-offset-40">
-                <div class="col col-50">
-                    <a class="ui-btn btn-secondary" onclick="javascript:PromoCancelClaim(this)">{%- promo.btnCancel %}</a>
-                </div>
-                <div class="col col-50">
-                    <a class="ui-btn btn-primary" onclick="javascript:PromoClaim(this)">{%- promo.btnSubmit %}</a>
-                </div>
+            <div class="row row-uc row-no-padding">
+                <a class="ui-btn btn-primary" onclick="javascript:PromoClaim(this)">{%- promo.btnSubmit %}</a>
+                <a class="ui-btn btn-secondary" onclick="javascript:PromoCancelClaim(this)">{%- promo.btnCancel %}</a>
             </div>
         </div>
+
     </div>
 </div>
