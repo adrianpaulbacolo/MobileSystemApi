@@ -35,13 +35,14 @@
             </div>
         </div>
         <div class="promo-match">
-            <label>Pencentak Goal Pertama:</label>
-            <input type="text" name="" id="" class="" data-regex="([a-zA-Z\s\-\']{0,100})" oninput="javascript: DataRegex(this)">
+            {% _.forEach( promo.data.additional_column, function( addCol ){ %}
+            
+            <label>{%- addCol.field %}:</label>
+            <input type="text" name="" id="" class="" data-regex="{%- addCol.regex %}" oninput="javascript: DataRegex(this)">
+
+            {% }); %}
         </div>
-        <div class="promo-match">
-            <label>Pencentak Goal Pertama:</label>
-            <input type="text" name="" id="" data-regex="([a-zA-Z\s\-\']{0,100})" oninput="javascript: DataRegex(this)">
-        </div>
+
         <div>
             <a class="ui-btn btn-primary" onclick="javascript:PromoClaim(this)">Kirim</a>
             <a class="ui-btn btn-secondary" onclick="javascript:PromoCancelClaim(this)">Batal</a>
