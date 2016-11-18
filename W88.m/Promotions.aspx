@@ -509,6 +509,11 @@
                 _category['promos'] = siblings;
                 _category['id'] = $(div).attr('id');
                 _category['text'] = $(div).html().trim();
+
+                var otherPromos = $(data).find('.grp_' + _category.id);
+                if (otherPromos && otherPromos.length > 0)
+                    _category.promos.push.apply(_category.promos, otherPromos);
+
                 categories.push(_category);
                 $('#categories').append('<div class="btn-group" role="group"><a id="' + _category.id + '"class="btn" href="#' + _category.id + '">' + _category.text + '</a></div>');
                 $('#' + _category.id).on('click', function () {
