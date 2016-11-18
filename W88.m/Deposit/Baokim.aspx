@@ -158,7 +158,7 @@
                             case 1:
                                 window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
 
-                                window.open(response.ResponseData.PostUrl, '_blank');
+                                window.location.replace(response.ResponseData.PostUrl);
                                 break;
                             default:
                                 w88Mobile.Growl.shout(response.ResponseMessage);
