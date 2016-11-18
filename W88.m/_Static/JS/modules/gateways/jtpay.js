@@ -15,7 +15,8 @@
         var url = w88Mobile.APIUrl + "/payments/" + gatewayId;
 
         var headers = {
-            'Token': window.User.token
+            'Token': window.User.token,
+            'LanguageCode': window.User.lang
         };
         $.ajax({
             type: method,
