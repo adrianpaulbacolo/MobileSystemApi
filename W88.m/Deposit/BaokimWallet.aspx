@@ -117,6 +117,7 @@
                 $("#txtEmail").val($("#<%=hfEmail.ClientID%>").val());
 
                 window.w88Mobile.Gateways.Baokim.method = "EWALLETCB";
+                window.w88Mobile.Gateways.Baokim.getTranslations();
 
                 var data = {
                     Method: window.w88Mobile.Gateways.Baokim.method,
