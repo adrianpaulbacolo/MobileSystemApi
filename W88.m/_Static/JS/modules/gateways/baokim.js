@@ -13,13 +13,15 @@
         getTranslations: function() {
             return translations();
         },
-        method: method
+        method: method,
+        validateWallet: function () {
+            return validateWallet();
+        },
     };
 
     return baokim;
 
-    function send(method, data, beforeSend, success, error, complete) {
-        var url = w88Mobile.APIUrl + "/payments/" + gatewayId;
+    function send(method, data, beforeSend, success, error, complete, url) {
 
         var headers = {
             'Token': window.User.token,
@@ -88,16 +90,21 @@
 
     // deposit
     function deposit(data, successCallback, errorCallback, completeCallback) {
-        gatewayId = "120272";        
+        var url = w88Mobile.APIUrl + "/payments/120272";
         validate(data, "deposit");
-        send("POST", data, function () { GPInt.prototype.ShowSplash(); }, successCallback, errorCallback, completeCallback);
+        send("POST", data, function () { GPInt.prototype.ShowSplash(); }, successCallback, errorCallback, completeCallback, url);
     }
 
     // withdraw
     function withdraw(data, successCallback, errorCallback, completeCallback) {
-        gatewayId = "220874";
+        var url = w88Mobile.APIUrl + "/payments/220874";
         validate(data, "widraw");
-        send("POST", data, function () { GPInt.prototype.ShowSplash(); }, successCallback, errorCallback, completeCallback);
+        send("POST", data, function () { GPInt.prototype.ShowSplash(); }, successCallback, errorCallback, completeCallback, url);
+    }
+
+    function validateWallet(data, successCallback, errorCallback, completeCallback) {
+        var url = w88Mobile.APIUrl + "/payments/validatewallet";
+        send("POST", data, function () { GPInt.prototype.ShowSplash(); }, successCallback, errorCallback, completeCallback, url);
     }
 
     function validate(data, method) {

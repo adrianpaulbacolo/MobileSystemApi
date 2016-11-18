@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Baokim.aspx.cs" Inherits="Deposit_Baokim" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="BaokimWallet.aspx.cs" Inherits="Deposit_BaokimWallet" %>
 
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
@@ -68,32 +68,18 @@
                             <asp:Literal ID="txtTotalAllowed" runat="server" />
                         </div>
                     </li>
-                    <li class="item row selection">
-                        <div class="col col-50">
-                            <label>
-                                <input type="radio" name="depOption" value="EWALLET" />Ví Điện Tử Nội Địa</label>
-                        </div>
-                        <div class="col col-50">
-                            <label>
-                                <input type="radio" name="depOption" value="ATM" />Thẻ ATM Nội Địa</label>
-                        </div>
-                    </li>
-                    <li class="item item-input atm ewallet">
-                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
-                        <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
-                    </li>
-                    <li class="item item-select atm" runat="server">
-                        <asp:Label ID="lblBanks" runat="server" AssociatedControlID="drpBanks" />
-                        <asp:DropDownList ID="drpBanks" runat="server" data-corners="false">
-                        </asp:DropDownList>
-                    </li>
-                    <li class="item item-input atm ewallet">
+
+                    <li class="item item-input">
                         <asp:Label ID="lblEmail" runat="server" AssociatedControlID="txtEmail" />
                         <asp:TextBox ID="txtEmail" runat="server" data-mini="true" type="email" data-clear-btn="true" />
                     </li>
-                    <li class="item item-select atm">
-                        <asp:Label ID="lblContact" runat="server" AssociatedControlID="txtContact" />
-                        <asp:TextBox ID="txtContact" runat="server" type="tel" data-mini="true" data-clear-btn="true" />
+                    <li class="item item-input">
+                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
+                        <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+                    </li>
+                    <li class="item item-input">
+                        <asp:Label ID="lblOtp" runat="server" AssociatedControlID="txtOtp" required />
+                        <asp:TextBox ID="txtOtp" runat="server" data-clear-btn="true" />
                     </li>
                     <li class="item item-select">
                         <p id="notice" style="color: #ff0000"></p>
@@ -104,8 +90,19 @@
                         </div>
                     </li>
                 </ul>
+
+                <asp:HiddenField ID="hfAmount" runat="server" />
+                <asp:HiddenField ID="hfEmail" runat="server" />
+                <asp:HiddenField ID="hfAccepted" runat="server" />
+                <asp:HiddenField ID="hfPhone" runat="server" />
+                <asp:HiddenField ID="hfMessage" runat="server" />
+                <asp:HiddenField ID="hfChkSum" runat="server" />
+                <asp:HiddenField ID="TransactionId" runat="server" />
+                <asp:HiddenField ID="MchtId" runat="server" />
+
             </form>
         </div>
+
 
         <% if (commonCookie.CookieIsApp != "1")
            { %>
@@ -113,52 +110,55 @@
         <% } %>
 
         <script type="text/javascript">
-            var selectName = '<%=strdrpBank%>';
 
             $(document).ready(function () {
-                //window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
 
-                window.w88Mobile.Gateways.Baokim.getBanks(selectName);
-                window.w88Mobile.Gateways.Baokim.getTranslations();
+                $("#txtDepositAmount").val($("#<%=hfAmount.ClientID%>").val());
+                $("#txtEmail").val($("#<%=hfEmail.ClientID%>").val());
 
-                $('.ewallet').hide();
-                $('.atm').hide();
+                window.w88Mobile.Gateways.Baokim.method = "EWALLETCB";
 
-                $("input[name='depOption']").change(function (e) {
-                    e.preventDefault();
-                    var value = $(this).val();
+                var data = {
+                    Method: window.w88Mobile.Gateways.Baokim.method,
+                    Amount: $("#<%=hfAmount.ClientID%>").val(),
+                    Email: $("#<%=hfEmail.ClientID%>").val(),
+                    Phone: $("#<%=hfPhone.ClientID%>").val(),
+                    Accepted: $("#<%=hfAccepted.ClientID%>").val(),
+                    Message: $("#<%=hfMessage.ClientID%>").val(),
+                    CheckSum: $("#<%=hfChkSum.ClientID%>").val(),
+                };
 
-                    if (value == "EWALLET") {
-                        $('.atm').hide();
-                        $('.ewallet').show();
-                        $('#btnEwallet').hide();
-                        window.w88Mobile.Gateways.Baokim.method = "EWALLET";
-                        $("#notice").html(sessionStorage.getItem("noticeWallet"));
-                    } else {
-                        $('.ewallet').hide();
-                        $('.atm').show();
-                        $(this).hide();
-                        window.w88Mobile.Gateways.Baokim.method = "";
-                        $("#notice").html(sessionStorage.getItem("noticeAtm"));
+                window.w88Mobile.Gateways.Baokim.deposit(data, function (response) {
+                    switch (response.ResponseCode) {
+                        case 1:
+                            window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
+
+                            $("#<%=TransactionId.ClientID%>").val(response.ResponseData.TransactionId);
+                            $("#<%=MchtId.ClientID%>").val(response.ResponseData.MerchantId);
+                            break;
+                        default:
+                            w88Mobile.Growl.shout(response.ResponseMessage);
+
+                            break;
                     }
                 });
 
                 $('#btnSubmit').click(function (e) {
                     e.preventDefault();
-                    var data;
 
-                    if (window.w88Mobile.Gateways.Baokim.method == "EWALLET") {
-                        data = { Method: window.w88Mobile.Gateways.Baokim.method, Amount: $('#txtDepositAmount').val(), Email: $('#txtEmail').val(), ThankYouPage: location.protocol + "//" + location.host + "/Deposit/BaokimWallet.aspx" };
-                    } else {
-                        data = { Method: window.w88Mobile.Gateways.Baokim.method, Amount: $('#txtDepositAmount').val(), Email: $('#txtEmail').val(), Phone: $('#txtContact').val(), Bank: { Text: $('#drpBanks option:selected').text(), Value: $('#drpBanks').val(), ThankYouPage: location.protocol + "//" + location.host + "/Deposit/Thankyou.aspx" } };
-                    }
+                    var walletData = {
+                        TransactionId: $("#<%=TransactionId.ClientID%>").val(),
+                        MerchantId: $("#<%=hfEmail.ClientID%>").val(),
+                        Otp: $("#txtOtp").val()
+                    };
 
-                    window.w88Mobile.Gateways.Baokim.deposit(data, function (response) {
+                    window.w88Mobile.Gateways.Baokim.validateWallet(walletData, function (response) {
                         switch (response.ResponseCode) {
                             case 1:
                                 window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
 
-                                window.open(response.ResponseData.PostUrl, '_blank');
+                                w88Mobile.Growl.shout(response.ResponseMessage);
+                                window.location.replace('/Funds.aspx');
                                 break;
                             default:
                                 w88Mobile.Growl.shout(response.ResponseMessage);
@@ -166,6 +166,7 @@
                         }
                     });
                 });
+
             });
         </script>
 
