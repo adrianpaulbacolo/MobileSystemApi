@@ -71,11 +71,11 @@
 
                     <li class="item item-input">
                         <asp:Label ID="lblEmail" runat="server" AssociatedControlID="txtEmail" />
-                        <asp:TextBox ID="txtEmail" runat="server" data-mini="true" type="email" data-clear-btn="true" />
+                        <asp:TextBox ID="txtEmail" runat="server" data-mini="true" type="email" Enabled="False" />
                     </li>
                     <li class="item item-input">
                         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
-                        <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+                        <asp:TextBox ID="txtDepositAmount" runat="server" type="number" Enabled="False" />
                     </li>
                     <li class="item item-input">
                         <asp:Label ID="lblOtp" runat="server" AssociatedControlID="txtOtp" required />
@@ -139,7 +139,7 @@
                             break;
                         default:
                             w88Mobile.Growl.shout(response.ResponseMessage);
-
+                            //window.location.replace('/Funds.aspx');
                             break;
                     }
                 });
@@ -148,12 +148,11 @@
                     e.preventDefault();
 
                     var walletData = {
-                        TransactionId: $("#<%=TransactionId.ClientID%>").val(),
-                        MerchantId: $("#<%=hfEmail.ClientID%>").val(),
+                        MerchantId: $("#<%=MchtId.ClientID%>").val(),
                         Otp: $("#txtOtp").val()
                     };
 
-                    window.w88Mobile.Gateways.Baokim.validateWallet(walletData, function (response) {
+                    window.w88Mobile.Gateways.Baokim.validateWallet(walletData, $("#<%=TransactionId.ClientID%>").val(), function (response) {
                         switch (response.ResponseCode) {
                             case 1:
                                 window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');

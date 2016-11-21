@@ -14,9 +14,7 @@
             return translations();
         },
         method: method,
-        validateWallet: function () {
-            return validateWallet();
-        },
+        validateWallet: validateWallet
     };
 
     return baokim;
@@ -103,9 +101,9 @@
         send("POST", data, function () { GPInt.prototype.ShowSplash(); }, successCallback, errorCallback, completeCallback, url);
     }
 
-    function validateWallet(data, successCallback, errorCallback, completeCallback) {
-        var url = w88Mobile.APIUrl + "/payments/validatewallet";
-        send("POST", data, function () { GPInt.prototype.ShowSplash(); }, successCallback, errorCallback, completeCallback, url);
+    function validateWallet(walletData, transactionId, successCallback, errorCallback, completeCallback) {
+        var url = w88Mobile.APIUrl + "/payments/120272/" + transactionId;
+        send("GET", walletData, function () { GPInt.prototype.ShowSplash(); }, successCallback, errorCallback, completeCallback, url);
     }
 
     function validate(data, method) {
