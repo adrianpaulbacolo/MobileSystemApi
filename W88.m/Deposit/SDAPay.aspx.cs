@@ -115,7 +115,7 @@ public partial class Deposit_SDAPay : PaymentBasePage
                 {
                     using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
                     {
-                        xeResponse = client.createOnlineDepositTransactionV1(Convert.ToInt64(strOperatorId), Convert.ToInt64(strMemberID), strMemberCode, Convert.ToInt64(base.PaymentMethodId), strCurrencyCode, decDepositAmount, svcPayDeposit.DepositSource.Mobile, string.Empty);
+                        xeResponse = client.createOnlineDepositTransactionV3(Convert.ToInt64(strOperatorId), strMemberCode, Convert.ToInt64(base.PaymentMethodId), strMerchantId, strCurrencyCode, decDepositAmount, svcPayDeposit.DepositSource.Mobile, selectedBank, string.Empty);
 
                         if (xeResponse == null)
                         {
