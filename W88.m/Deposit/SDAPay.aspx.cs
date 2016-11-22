@@ -70,7 +70,7 @@ public partial class Deposit_SDAPay : PaymentBasePage
 
         string strDepositAmount = txtDepositAmount.Text.Trim();
         string selectedBank = drpBank.SelectedItem.Value;
-        selectedBank = "cmb";
+        selectedBank = "CMB";
 
         decimal decDepositAmount = commonValidation.isDecimal(strDepositAmount) ? Convert.ToDecimal(strDepositAmount) : 0;
         decimal decMinLimit = commonValidation.isDecimal(strMinLimit) ? Convert.ToDecimal(strMinLimit) : 0;
