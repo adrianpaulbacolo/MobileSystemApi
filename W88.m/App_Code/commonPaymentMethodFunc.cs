@@ -68,7 +68,7 @@ public static class commonPaymentMethodFunc
         ICollection<KeyValuePair<int, string>> wallet = new Dictionary<int, string>();
         var obj = new Wallets();
 
-        foreach (var info in obj.WalletInfo.OrderBy(x=>x.SelectOrder))
+        foreach (var info in obj.WalletInfo.OrderBy(x => x.SelectOrder))
         {
             var selectName = string.IsNullOrWhiteSpace(info.SelectName) ? info.Name : info.SelectName;
             wallet.Add(new KeyValuePair<int, string>(Convert.ToInt32(info.Id), selectName));
@@ -110,6 +110,10 @@ public static class commonPaymentMethodFunc
 
         bool isApp = commonCookie.CookieIsApp == "1";
 
+
+        list = CreateMethodListControl(paymentCode);
+        anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
+
         switch (paymentCode)
         {
             case commonVariables.DepositMethod.JutaPay:
@@ -124,101 +128,54 @@ public static class commonPaymentMethodFunc
                 break;
 
             case commonVariables.DepositMethod.FastDeposit:
-                list = CreateMethodListControl(paymentCode);
-
-                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
 
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/FastDeposit_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/FastDeposit.aspx");
 
-                list.Controls.Add(anchor);
-                depositTabs.Controls.Add(list);
                 break;
 
             case commonVariables.DepositMethod.NextPay:
-                list = CreateMethodListControl(paymentCode);
-
-                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
-
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/NextPay_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/NextPay.aspx");
-
-                list.Controls.Add(anchor);
-                depositTabs.Controls.Add(list);
                 break;
 
             case commonVariables.DepositMethod.WingMoney:
-                list = CreateMethodListControl(paymentCode);
-
-                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
-
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/WingMoney_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/WingMoney.aspx");
-
-                list.Controls.Add(anchor);
-                depositTabs.Controls.Add(list);
                 break;
 
             case commonVariables.DepositMethod.SDPay:
-                list = CreateMethodListControl(paymentCode);
-
-                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
-
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/SDPay_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/SDPay.aspx");
-
-                list.Controls.Add(anchor);
-                depositTabs.Controls.Add(list);
                 break;
 
             case commonVariables.DepositMethod.SDAPayAlipay:
-                list = CreateMethodListControl(paymentCode);
-
-                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
-
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/SDAPay_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/SDAPay.aspx");
-
-                list.Controls.Add(anchor);
-                depositTabs.Controls.Add(list);
                 break;
 
             case commonVariables.DepositMethod.Help2Pay:
-                list = CreateMethodListControl(paymentCode);
-
-                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
-
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/Help2Pay_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/Help2Pay.aspx");
-
-                list.Controls.Add(anchor);
-                depositTabs.Controls.Add(list);
                 break;
 
             case commonVariables.DepositMethod.DaddyPay:
-                list = CreateMethodListControl(paymentCode);
-
-                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
-
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/DaddyPay_app.aspx?value=1");
                 else
                     anchor.Attributes.Add("href", "/Deposit/DaddyPay.aspx?value=1");
-
-                list.Controls.Add(anchor);
-                depositTabs.Controls.Add(list);
                 break;
 
             case commonVariables.DepositMethod.BaokimScratchCard:
@@ -232,96 +189,48 @@ public static class commonPaymentMethodFunc
                 depositTabs.Controls.Add(list);
                 break;
             //case commonVariables.DepositMethod.DaddyPayQR:
-            //    list = CreateMethodListControl(paymentCode);
-
-            //    anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
-
             //    if (isApp)
             //        anchor.Attributes.Add("href", "/Deposit/DaddyPay_app.aspx?value=2");
             //    else
             //        anchor.Attributes.Add("href", "/Deposit/DaddyPay.aspx?value=2");
-
-            //    list.Controls.Add(anchor);
-            //    depositTabs.Controls.Add(list);
             //    break;
 
             case commonVariables.DepositMethod.Neteller:
-                list = CreateMethodListControl(paymentCode);
-
-                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
-
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/Neteller_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/Neteller.aspx");
-
-                list.Controls.Add(anchor);
-                depositTabs.Controls.Add(list);
                 break;
 
             case commonVariables.DepositMethod.ECPSS:
-                list = CreateMethodListControl(paymentCode);
-
-                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
-
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/ECPSS_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/ECPSS.aspx");
-
-                list.Controls.Add(anchor);
-                depositTabs.Controls.Add(list);
                 break;
 
             case commonVariables.DepositMethod.PaySec:
-                list = CreateMethodListControl(paymentCode);
-
-                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
-
                 anchor.Attributes.Add("href", "/Deposit/PaySec.aspx");
-
-                list.Controls.Add(anchor);
-                depositTabs.Controls.Add(list);
                 break;
 
             case commonVariables.DepositMethod.BofoPay:
-                list = CreateMethodListControl(paymentCode);
-
-                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
-
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/BofoPay_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/BofoPay.aspx");
-
-                list.Controls.Add(anchor);
-                depositTabs.Controls.Add(list);
                 break;
 
             case commonVariables.DepositMethod.AllDebit:
-                list = CreateMethodListControl(paymentCode);
-
-                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
-
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/AllDebit_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/AllDebit.aspx");
-
-                list.Controls.Add(anchor);
-                depositTabs.Controls.Add(list);
                 break;
 
             case commonVariables.DepositMethod.JTPayWeChat:
-                list = CreateMethodListControl(paymentCode);
-
-                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
-
                 anchor.Attributes.Add("href", "/Deposit/WeChat");
-
-                list.Controls.Add(anchor);
-                depositTabs.Controls.Add(list);
                 break;
+
             //case commonVariables.DepositMethod.JTPayAliPay:
             //    list = CreateMethodListControl(paymentCode);
 
@@ -334,44 +243,31 @@ public static class commonPaymentMethodFunc
             //    break;
 
             case commonVariables.DepositMethod.EGHL:
-                list = CreateMethodListControl(paymentCode);
-
-                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
-
                 if (isApp)
                     anchor.Attributes.Add("href", "/Deposit/EGHL_app.aspx");
                 else
                     anchor.Attributes.Add("href", "/Deposit/EGHL.aspx");
-
-                list.Controls.Add(anchor);
-                depositTabs.Controls.Add(list);
                 break;
 
             case commonVariables.DepositMethod.NganLuong:
-                list = CreateMethodListControl(paymentCode);
-
-                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
-
                 anchor.Attributes.Add("href", "/Deposit/NganLuong.aspx");
-
-                list.Controls.Add(anchor);
-                depositTabs.Controls.Add(list);
                 break;
 
             case commonVariables.DepositMethod.VenusPoint:
-                list = CreateMethodListControl(paymentCode);
-
-                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
-
                 anchor.Attributes.Add("href", "/Deposit/VenusPoint.aspx");
-
-                list.Controls.Add(anchor);
-                depositTabs.Controls.Add(list);
                 break;
+
+            case commonVariables.DepositMethod.ShengPayAliPay:
+                anchor.Attributes.Add("href", "/Deposit/ShengPayAliPay.aspx");
+                break;
+
 
             default:
                 break;
         }
+
+        list.Controls.Add(anchor);
+        depositTabs.Controls.Add(list);
     }
 
     private static HtmlGenericControl CreateMethodListControl(commonVariables.DepositMethod paymentCode)

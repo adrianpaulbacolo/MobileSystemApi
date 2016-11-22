@@ -219,6 +219,7 @@ public class commonVariables
         Neteller = 120214,
         PaySec = 120290,
         SDAPayAlipay = 120254,
+        ShengPayAliPay = 1202111,
         ECPSS = 120218,
         BofoPay = 120231,
         JTPayWeChat = 120262,
