@@ -91,7 +91,7 @@ public class commonVariables
         }
         set
         {
-            commonCookie.CookieLanguage = value; 
+            commonCookie.CookieLanguage = value;
             commonVariables.SetSessionVariable("SelectedLanguage", value);
         }
     }
@@ -129,6 +129,21 @@ public class commonVariables
         get
         {
             return (!string.IsNullOrEmpty(commonCookie.CookieS)) ? commonCookie.CookieS : "";
+        }
+    }
+
+    public static string EncryptedCurrentMemberSessionId
+    {
+        get
+        {
+            string ecryptedSessionId = string.Empty;
+            if (!string.IsNullOrEmpty(commonCookie.CookieS))
+            {
+                var cipherKey = commonEncryption.Decrypt(ConfigurationManager.AppSettings.Get("PrivateKeyToken"));
+                ecryptedSessionId = HttpUtility.UrlEncode(commonEncryption.EncryptToken(commonCookie.CookieS, cipherKey));
+            }
+
+            return ecryptedSessionId;
         }
     }
 

@@ -134,12 +134,15 @@
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("promotions", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
-                <%--<li class="col col-33">
-                    <a href="" class="tile">
+
+                 <li class="col col-33">
+                    <a href="#" id="icon-rewards" class="tile" role="button" data-ajax="false" target="_blank">
                         <span class="icon-rewards"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("rewards", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
+
+                <%--
 
                 <li class="col col-33">
                     <a href="#download" runat="server" class="tile notify" data-rel="popup" data-position-to="window" data-transition="fade">
@@ -266,8 +269,11 @@
                     ]
                 });
 
-                var url = 'https://www.' + '<%=commonIp.DomainName %>' + '?nomobile=true';
+                var url = window.location.protocol + '//www.' + '<%=commonIp.DomainName %>' + '?nomobile=true';
                 $("#icon-desktop").attr('href', url);
+
+                var urlRewards = window.location.protocol + '//mrewards.' + '<%=commonIp.DomainName %>' + '?lang=' + '<%=commonVariables.SelectedLanguage%>' + '&token=' + '<%=commonVariables.EncryptedCurrentMemberSessionId%>';
+                $("#icon-rewards").attr('href', urlRewards);
             });
 
             function hideDownload() {
