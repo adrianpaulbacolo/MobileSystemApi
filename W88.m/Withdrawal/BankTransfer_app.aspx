@@ -66,7 +66,7 @@
                     </li>
                     <li class="item item-input">
                         <asp:Label ID="lblWithdrawAmount" runat="server" AssociatedControlID="txtWithdrawAmount" />
-                        <asp:TextBox ID="txtWithdrawAmount" runat="server" type="number" step="any" min="1" />
+                        <asp:TextBox ID="txtWithdrawAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
                     <li class="item item-select">
                         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
@@ -159,9 +159,14 @@
                 }
 
                 if (sessionStorage.getItem("hfBLId") != null || sessionStorage.getItem("hfBBId") != null) {
-                    var blId = $('#<%=hfBLId.ClientID%>').val();
-                    var bbId = $('#<%=hfBBId.ClientID%>').val();
-                    window.w88Mobile.BankTransfer.ReloadValues(selectName, blId, bbId);
+
+                    if ($('#drpBank').val() != "-1") {
+                        var blId = $('#<%=hfBLId.ClientID%>').val();
+                        var bbId = $('#<%=hfBBId.ClientID%>').val();
+                        window.w88Mobile.BankTransfer.ReloadValues(selectName, blId, bbId);
+                        sessionStorage.removeItem("hfBLId");
+                        sessionStorage.removeItem("hfBBId");
+                    }
                 }
 
             });

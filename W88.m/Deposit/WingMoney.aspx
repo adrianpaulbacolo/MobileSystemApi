@@ -29,25 +29,50 @@
             <form class="form" id="form1" runat="server" data-ajax="false">
                 <br />
                 <ul class="list fixed-tablet-size">
-                    <li class="item item-input">
-                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" Text="from" />
-                        <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+                    <li class="row">
+                        <div class="col">
+                            <asp:Literal ID="lblMode" runat="server" />
+                        </div>
+                        <div class="col">
+                            <asp:Literal ID="txtMode" runat="server" />
+                        </div>
                     </li>
-                    <li class="item item-text-wrap">
-                        <div class="div-limit">
-                            <div>
-                                <asp:Literal ID="lblDailyLimit" runat="server" />
-                            </div>
-                            <div>
-                                <asp:Literal ID="lblTotalAllowed" runat="server" />
-                            </div>
+                    <li class="row">
+                        <div class="col">
+                            <asp:Literal ID="lblMinMaxLimit" runat="server" />
+                        </div>
+                        <div class="col">
+                            <asp:Literal ID="txtMinMaxLimit" runat="server" />
+                        </div>
+                    </li>
+                    <li class="row">
+                        <div class="col">
+                            <asp:Literal ID="lblDailyLimit" runat="server" />
+                        </div>
+                        <div class="col">
+                            <asp:Literal ID="txtDailyLimit" runat="server" />
+                        </div>
+                    </li>
+                    <li class="row">
+                        <div class="col">
+                            <asp:Literal ID="lblTotalAllowed" runat="server" />
+                        </div>
+                        <div class="col">
+                            <asp:Literal ID="txtTotalAllowed" runat="server" />
                         </div>
                     </li>
                     <li class="item item-input">
-                        <asp:Label ID="lblReferenceId" runat="server" AssociatedControlID="txtReferenceId" Text="from" />
+                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
+                        <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+                    </li>
+                    <li class="item item-input">
+                        <asp:Label ID="lblReferenceId" runat="server" AssociatedControlID="txtReferenceId" />
                         <asp:TextBox ID="txtReferenceId" runat="server" data-clear-btn="true" />
                     </li>
                     <li class="item item-select" id="divDepositDateTime" runat="server">
+                        <div class="row">
+                            <asp:Label ID="lblDepositDateTime" runat="server" AssociatedControlID="drpDepositDate" />
+                        </div>
                         <div class="row">
                             <div class="col">
                                 <asp:DropDownList ID="drpDepositDate" runat="server" />

@@ -54,7 +54,6 @@ public partial class Deposit_VenusPoint : PaymentBasePage
         txtTotalAllowed.Text = base.strtxtTotalAllowed;
 
         lblDepositAmount.Text = base.strlblAmount;
-        txtDepositAmount.Attributes.Add("PLACEHOLDER", base.strtxtAmount);
 
         btnSubmit.Text = base.strbtnSubmit;
 

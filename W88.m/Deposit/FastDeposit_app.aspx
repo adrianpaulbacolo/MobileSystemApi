@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="FastDeposit.aspx.cs" Inherits="Deposit_FastDesposit" %>
+
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 <%@ Register TagPrefix="uc" TagName="AppFooterMenu" Src="~/UserControls/AppFooterMenu.ascx" %>
 
@@ -17,7 +18,7 @@
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <uc:Wallet id="uMainWallet" runat="server" />
+                <uc:Wallet ID="uMainWallet" runat="server" />
             </div>
 
             <div data-role="navbar" id="depositTabs" runat="server">
@@ -59,20 +60,20 @@
                         </div>
                     </li>
                     <li class="item item-input">
-                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" Text="from" />
+                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
                         <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
                     <li class="item item-input">
-                        <asp:Label ID="lblReferenceId" runat="server" AssociatedControlID="txtReferenceId" Text="from" />
+                        <asp:Label ID="lblReferenceId" runat="server" AssociatedControlID="txtReferenceId" />
                         <asp:TextBox ID="txtReferenceId" runat="server" data-clear-btn="true" />
                     </li>
                     <li class="item item-select">
-                        <asp:Label ID="lblSystemAccount" runat="server" AssociatedControlID="drpSystemAccount" Text="to" />
+                        <asp:Label ID="lblSystemAccount" runat="server" AssociatedControlID="drpSystemAccount" />
                         <asp:DropDownList ID="drpSystemAccount" runat="server" data-corners="false" />
                     </li>
                     <li class="item item-select div-fastdeposit-depositdatetime" id="divDepositDateTime" runat="server">
                         <div class="row">
-                            <asp:Label ID="lblDepositDateTime" runat="server" AssociatedControlID="drpDepositDate" Text="Deposit Date/Time" />
+                            <asp:Label ID="lblDepositDateTime" runat="server" AssociatedControlID="drpDepositDate" />
                         </div>
                         <div class="row">
                             <div class="col">
@@ -95,18 +96,18 @@
                         <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
                     </li>
                     <li class="item item-input" id="divBankName" style="display: none;">
-                        <asp:Label ID="lblBankName" runat="server" AssociatedControlID="txtBankName"  />
+                        <asp:Label ID="lblBankName" runat="server" AssociatedControlID="txtBankName" />
                         <asp:TextBox ID="txtBankName" runat="server" data-clear-btn="true" />
                     </li>
                     <li class="item item-input">
-                        <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName"/>
+                        <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" />
                         <asp:TextBox ID="txtAccountName" runat="server" data-clear-btn="true" />
                     </li>
                     <li class="item item-input">
                         <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" />
                         <asp:TextBox ID="txtAccountNumber" runat="server" data-clear-btn="true" />
                     </li>
-                    
+
                     <asp:Literal ID="ltlNote" runat="server"></asp:Literal>
 
                     <li class="item row">
@@ -139,7 +140,7 @@
                     switch (responseCode) {
                         case '-1':
                             alert(responseMsg);
-                            toogleBank($('#drpBank').val());
+                            window.w88Mobile.Gateways.FastDeposit.ToogleBank($('#drpBank').val());
                             break;
                         case '0':
                             alert(responseMsg);
@@ -151,20 +152,11 @@
                 }
             });
 
+            window.w88Mobile.Gateways.FastDeposit.GetBankDetails();
+
             $('#drpBank').change(function () {
-                toogleBank(this.value);
+                window.w88Mobile.Gateways.FastDeposit.ToogleBank(this.value);
             });
-
-
-            function toogleBank(bankId) {
-                if (bankId == "OTHER") { 
-                    $('#divBankName').show();
-                }
-                else {
-                    $('#divBankName').hide();
-                }
-            }
-
         </script>
     </div>
 </body>

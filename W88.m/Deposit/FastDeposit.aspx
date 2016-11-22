@@ -62,20 +62,20 @@
                         </div>
                     </li>
                     <li class="item item-input">
-                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" Text="from" />
+                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
                         <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
                     <li class="item item-input">
-                        <asp:Label ID="lblReferenceId" runat="server" AssociatedControlID="txtReferenceId" Text="from" />
+                        <asp:Label ID="lblReferenceId" runat="server" AssociatedControlID="txtReferenceId" />
                         <asp:TextBox ID="txtReferenceId" runat="server" data-clear-btn="true" />
                     </li>
                     <li class="item item-select">
-                        <asp:Label ID="lblSystemAccount" runat="server" AssociatedControlID="drpSystemAccount" Text="to" />
+                        <asp:Label ID="lblSystemAccount" runat="server" AssociatedControlID="drpSystemAccount" />
                         <asp:DropDownList ID="drpSystemAccount" runat="server" data-corners="false" />
                     </li>
                     <li class="item item-select div-fastdeposit-depositdatetime" id="divDepositDateTime" runat="server">
                         <div class="row">
-                            <asp:Label ID="lblDepositDateTime" runat="server" AssociatedControlID="drpDepositDate" Text="Deposit Date/Time" />
+                            <asp:Label ID="lblDepositDateTime" runat="server" AssociatedControlID="drpDepositDate" />
                         </div>
                         <div class="row">
                             <div class="col">
