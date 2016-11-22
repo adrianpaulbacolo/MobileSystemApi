@@ -210,7 +210,8 @@ public class commonVariables
         AllDebit = 120236,
         EGHL = 120265,
         NganLuong = 120212,
-        VenusPoint = 120296
+        VenusPoint = 120296,
+        BaokimScratchCard = 120286
     }
 
     public enum WithdrawalMethod

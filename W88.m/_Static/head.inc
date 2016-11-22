@@ -77,3 +77,4 @@
 <script type="text/javascript" src="/_Static/JS/modules/gateways/fastdep.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/gateways/venuspoint.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/gateways/paysec.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/gateways/baokimSc.js"></script>
