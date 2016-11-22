@@ -1,0 +1,86 @@
+.register-success-icon{
+	font-size: 8rem;
+	color: rgba($white, 0.75);
+}
+.register-success-message{
+	padding: 15px 30px 15px;
+	text-align: center;
+	h4{
+		color: $brand-color;
+		margin-left: auto;
+		margin-right: auto;
+        margin-top: 0;
+	}
+    p#paymentNote{
+        background-color: rgba(0,0,0,0.15);
+        padding: 15px;
+        font-size: 1.25rem;
+        border-radius: 4px;
+    }
+}
+
+.register-success-content{
+	padding: 30px;
+	max-width: 767px;
+	margin-left: auto;
+	margin-right: auto;
+	.table-container{
+		width: 100%;
+		overflow: auto;
+		table{
+			font-size: 1.2rem;
+			line-height: 2rem;
+			table-layout: fixed;
+			td, th {
+				padding: 15px 15px 15px 0;
+				vertical-align: top;
+			}
+			tr{
+				border-bottom: 1px solid rgba(255,255,255,0.03);
+				&:last-child{
+					border-bottom: none;
+				}
+			}
+		}
+	}
+	ol,
+	ul{
+		margin: 0 0 0 15px;
+		padding: 0;
+	}
+}
+
+.bank_logo{
+	margin-bottom: 15px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+div#depositTabs.register-gateway{
+    ul{
+        display: table;
+        table-layout: auto;
+        padding: 10px;
+        li{
+            display:block;
+
+            a{
+                font-family: "dinpro";
+                text-align: center;
+                background-color: #01374d;
+                color: #dab867;
+                text-transform: uppercase;
+                padding-top: 30px;
+                padding-bottom: 30px;
+                margin-bottom: 10px;
+                display: block;
+                position: relative;
+                &:hover{
+                    background-color: #00131b;
+                }
+            }
+
+        }
+    }
+
+}
