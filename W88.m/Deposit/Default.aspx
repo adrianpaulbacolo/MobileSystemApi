@@ -27,7 +27,8 @@
             </div>
 
             <form class="form" id="form1" runat="server" data-ajax="false">
-                <div class="empty-state">
+                <div class="empty-state" id="loader"></div>
+                <div class="empty-state" hidden>
                     <div class="empty-state-icon">
                         <i class="ion ion-alert"></i>
                     </div>
@@ -42,6 +43,10 @@
             $(function () {
                 window.history.forward();
 
+                var loader = GPInt.prototype.GetLoaderScafold();
+
+                $("#loader").html(loader);
+
                 if ($('#depositTabs li a.btn-primary').length == 0) {
                     if ($('#depositTabs li').first().children().attr('href') != undefined) {
                         window.location.replace($('#depositTabs li').first().children().attr('href'));
@@ -55,7 +60,10 @@
                         action: "<%=base.strCountryCode %>",
                         name: "<%=base.strMemberID %>"
                     });
-                    $('#paymentNote').append('<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>');
+                        $('.empty-state').show();
+                        $('#paymentNote').append('<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>');
+
+                        $("#loader").hide();
                 }
             });
         </script>

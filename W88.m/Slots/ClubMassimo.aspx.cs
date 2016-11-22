@@ -21,7 +21,7 @@ public partial class Slots_ClubMassimo : BasePage
 
         var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
         var gpiCategory = gpiHandler.Process(true);
-        mgsCategory[1].Current = gpiHandler.InsertInjectedGames(gpiCategory, mgsCategory[1].Current);
+        mgsCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, mgsCategory[0].Current);
 
         var games = mgsCategory.Union(gpiCategory).GroupBy(x => x.Title);
 

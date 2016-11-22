@@ -180,3 +180,21 @@ html head + body .ui-btn.ui-btn-a {
         }
     }
 }
+.btn{
+	font-size: 0.875em;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-family: $primary-font;
+	&:active,
+	&:focus,
+	&:hover{
+		outline: 0 none !important;
+		@include box-shadow(none);
+	}
+	&.btn-xs{
+		font-size: 0.750rem;
+	}
+	&.btn-lg{
+		font-size: 1rem;
+	}
+}

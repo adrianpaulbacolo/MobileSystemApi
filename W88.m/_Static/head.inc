@@ -17,15 +17,6 @@
 <script src="/_Static/JS/GPINT.js"></script>
 
 <script src="/_Static/JS/fingerprint2.min.js"></script>
-<script>
-    var siteCookie = new Cookies();
-    if(_.isEmpty(siteCookie.getCookie("fingerprint"))){
-        new Fingerprint2().get(function (result, components) {
-            var domain = "." + location.hostname.split('.').slice(-2).join('.');
-            siteCookie.setCookie("fingerprint", result, 5, domain);
-        });
-    }
-</script>
 <script src="/_Static/JS/piwik.js"></script>
 <script type="text/javascript">
     window.w88Mobile = {};
@@ -33,6 +24,7 @@
     window.User.hasSession = <%= (!String.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) ? 1 : 0 %>;
     window.User.token = '<%= commonVariables.CurrentMemberSessionId %>';
     window.User.sessionInterval = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("sessionInterval") %>';
+    window.User.lang = '<%=commonVariables.SelectedLanguage%>';
 </script>
 <script type="text/javascript" src="/_Static/Js/modules/slots.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/formValidator.js"></script>
@@ -43,6 +35,7 @@
         w88Mobile.Growl.options.lang = '<%=commonVariables.SelectedLanguageShort%>';
         w88Mobile.Growl.options.close = '<%=commonCulture.ElementValues.getResourceString("close", commonVariables.LeftMenuXML)%>';
         w88Mobile.Gateways = {};
+        w88Mobile.APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("APIUrl") %>';
     }
     </script>
 <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0" />
@@ -54,15 +47,35 @@
     w88Mobile.PiwikManager.setGoals(window.w88Mobile.PiwikConfig.goals);
     w88Mobile.PiwikManager.setDomain();
     w88Mobile.PiwikManager.setUserId('<%=UserSession.MemberId %>');
-        var deviceObj = {
-        index: 1
-        , name: "deviceId"
-        , value: siteCookie.getCookie("fingerprint")
-        , scope: "visit"
+
+    var siteCookie = new Cookies();
+
+    $(function () {
+        if(_.isEmpty(siteCookie.getCookie("fingerprint"))){
+            new Fingerprint2().get(function (result, components) {
+                var domain = "." + location.hostname.split('.').slice(-2).join('.');
+                siteCookie.setCookie("fingerprint", result, 5, domain);
+            });
+        }else{
+            var deviceObj = {
+                index: 1
+                , name: "deviceId"
+                , value: siteCookie.getCookie("fingerprint")
+                , scope: "visit"
+            }
+            w88Mobile.PiwikManager.setDeviceId(deviceObj);
         }
-        w88Mobile.PiwikManager.setDeviceId(deviceObj);
+    });
     </script>
 <script type="text/javascript" src="/_Static/Js/modules/slots.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/wallets.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/bankTransfer.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/gateways/jutapay.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/bankDetails.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/gateways/postForm.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/gateways/jtpay.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/gateways/nganluong.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/gateways/fastdep.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/gateways/venuspoint.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/gateways/paysec.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/gateways/baokimSc.js"></script>

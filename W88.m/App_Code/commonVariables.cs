@@ -194,6 +194,7 @@ public class commonVariables
         SDAPay = 120203,
         NextPay = 120204,
         Bill99 = 120206,
+        JutaPay = 120280,
         IPS = 120207,
         WingMoney = 110308,
         SDPay = 120223,
@@ -201,16 +202,22 @@ public class commonVariables
         DaddyPay = 120243,
         DaddyPayQR = 120244,
         Neteller = 120214,
+        PaySec = 120290,
         SDAPayAlipay = 120254,
         ECPSS = 120218,
         BofoPay = 120231,
+        JTPayWeChat = 120262,
+        JTPayAliPay = 120263,
         AllDebit = 120236,
         EGHL = 120265,
-        NganLuong = 120212
+        NganLuong = 120212,
+        VenusPoint = 120296,
+        BaokimScratchCard = 120286
     }
 
     public enum WithdrawalMethod
     {
+        VenusPoint = 220895,
         BankTransfer = 210602,
         WingMoney = 210709,
         Neteller = 220815

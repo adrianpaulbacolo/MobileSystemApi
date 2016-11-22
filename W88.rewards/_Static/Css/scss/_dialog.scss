@@ -1,0 +1,79 @@
+.dialog{
+	font-size: 14px;
+}
+.dialog-mask{
+	background-color: rgba($black, 0.85);
+}
+.dialog-container{
+	@include border-radius(0);
+	border-color: transparent;
+	background-color: transparent;
+}
+.modal-content{
+	border-color: $modal-bg-color;
+	background-color: $modal-bg-color;
+	&.modal-alt{
+		border-color: $modal-bg-color-alt;
+		background-color: $modal-bg-color-alt;
+		.modal-header{
+			border-bottom: none;
+		}
+	}
+	&.modal-alt{
+		border-color: transparent;
+		background-color: transparent;
+		.modal-header{
+			border-bottom: none;
+		}
+	}
+}
+.modal-header{
+	.modal-title{
+		color: $modal-title-color;
+		text-shadow: none;
+	    white-space: nowrap;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    width: 90%;
+	    margin: 0 auto;
+	    display: block;
+	}
+	.close{
+		color: $modal-close-color;
+		opacity: 0.75;
+		text-shadow: none;
+	}
+	border-bottom: 1px solid $modal-header-border;
+}
+
+.history-results{
+	margin-left: -15px;
+	margin-right: -15px;
+	.list-group-item {
+		font-size: 1em;
+		color: $history-details-value;
+		background-color: transparent;
+	    padding: 15px 15px;
+		margin-bottom: 0;
+		border-top: none;
+		border-left: none;
+		border-right: none;
+	    border-bottom: 1px solid $modal-header-border;
+	    &:last-child{
+	    	border-bottom: none;
+	    }
+	    span{
+	    	font-size: 0.857em;
+	    	color: $history-details-label;
+	    	display: block;
+	    }
+	}
+}
+
+.modal-game-option{
+	img{
+		border:3px solid $white;
+		margin-bottom: 45px;
+		@include border-radius(3px);
+	}
+}
