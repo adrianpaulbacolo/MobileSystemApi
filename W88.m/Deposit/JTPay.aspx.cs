@@ -16,6 +16,8 @@ using System.Xml.Linq;
 
 public partial class Deposit_JTPay : PaymentBasePage
 {
+    protected string lblTransactionId;
+    protected string resourceString;
     protected void Page_Init(object sender, EventArgs e)
     {
         var type = this.RouteData.DataTokens["type"].ToString();
@@ -25,11 +27,13 @@ public partial class Deposit_JTPay : PaymentBasePage
             case "alipay":
                 base.PageName = Convert.ToString(commonVariables.DepositMethod.JTPayAliPay);
                 base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.JTPayAliPay);
+                resourceString = "dJTPayAliPay";
                 break;
             case "wechat":
             default:
                 base.PageName = Convert.ToString(commonVariables.DepositMethod.JTPayWeChat);
                 base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.JTPayWeChat);
+                resourceString = "dJTPayWeChat";
                 break;
         }
 
@@ -59,5 +63,7 @@ public partial class Deposit_JTPay : PaymentBasePage
         txtMinMaxLimit.Text = base.strtxtMinMaxLimit;
         txtDailyLimit.Text = base.strtxtDailyLimit;
         txtTotalAllowed.Text = base.strtxtTotalAllowed;
+
+        lblTransactionId = base.strlblTransactionId;
     }
 }
