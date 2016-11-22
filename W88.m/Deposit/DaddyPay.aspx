@@ -12,9 +12,12 @@
 <body>
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
+            <% if (commonCookie.CookieIsApp != "1")
+               { %>
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
             </a>
+            <% } %>
             <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), strPageTitle)%></h1>
         </header>
 
@@ -84,67 +87,55 @@
                     </li>
                     <li class="row">
                         <div class="col">
-                            <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" id="btnCancel" runat="server" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("cancel", commonVariables.LeftMenuXML)%></a>
-                        </div>
-                        <div class="col">
-                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" />
+                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" />
                         </div>
                     </li>
                 </ul>
             </form>
         </div>
 
+         <% if (commonCookie.CookieIsApp != "1")
+           { %>
         <!--#include virtual="~/_static/navMenu.shtml" -->
+        <% } %>
+
         <script type="text/javascript">
-            $(function () {
-                window.history.forward();
-                if ('<%=strAlertCode%>'.length > 0) {
-                      switch ('<%=strAlertCode%>') {
-                          case '-1':
-                              alert('<%=strAlertMessage%>');
-                              tooglePaymentMethod($('#drpBank').val());
-                              break;
-                          case '0':
-                              window.location.replace('/FundTransfer/Default.aspx');
-                              break;
-                          default:
-                              break;
-                      }
-                  }
-                  $('#drpBank').change(function () {
-                      var bId = this.value;
-                      tooglePaymentMethod(bId);
-                  });
-                  function tooglePaymentMethod(bId) {
-                      $("#txtAccountName").val('');
-                      if (bId == "40") { //WeChat
-                          $("#txtAmount").hide();
-                          $("#drpAmount").show();
-                          $("#accountNo").hide();
-                          populateWeChatNickName();
-                      }
-                      else { //QR
-                          $("#txtAmount").show();
-                          $("#drpAmount").hide();
-                          $("#accountNo").show();
-                      }
-                  }
-                  function populateWeChatNickName() {
-                      $.ajax({
-                          type: "POST",
-                          async: false,
-                          url: "DaddyPay.aspx/ProcessWeChatNickname",
-                          data: JSON.stringify({ action: "getNickname", nickname: "" }),
-                          contentType: "application/json;",
-                          dataType: "json",
-                          success: function (response) {
-                              var result = response.d;
-                              $('#txtAccountName').val(result);
-                              $('#hfWCNickname').val(result); //store original nickname if any.
-                          }
-                      })
-                  }
-              });
+            $(document).ready(function () {
+                $('#form1').submit(function (e) {
+                    e.preventDefault();
+                    window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
+
+                    var data = {
+                        Amount: $('#drpBank option:selected').val() == "40" ? $('#drpDepositAmount option:selected').val() : $('#txtDepositAmount').val(),
+                        Bank: { Text: $('#drpBank option:selected').text(), Value: $('#drpBank option:selected').val() },
+                        AccountName: $('#txtAccountName').val(),
+                        AccountNumber: $('#txtAccountNumber').val(),
+                        Method: '<%=isDaddyPayQR%>' == "True" ? "QR" : ""
+                    };
+
+                    window.w88Mobile.Gateways.DaddyPay.Deposit(data, function (response) {
+                        switch (response.ResponseCode) {
+                            case 1:
+                                w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
+                                $('#form1')[0].reset();
+                                break;
+                            default:
+                                w88Mobile.Growl.shout(response.ResponseMessage);
+                                window.w88Mobile.Gateways.DaddyPay.TooglePaymentMethod($('#drpBank').val());
+                                break;
+                        }
+                    },
+                    function () {
+                        window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
+                        GPInt.prototype.HideSplash();
+                    });
+                });
+
+                $('#drpBank').change(function () {
+                    var bId = this.value;
+                    window.w88Mobile.Gateways.DaddyPay.TooglePaymentMethod(bId);
+                });
+            });
         </script>
     </div>
 </body>
