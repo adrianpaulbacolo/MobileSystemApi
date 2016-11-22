@@ -117,6 +117,8 @@
                         switch (response.ResponseCode) {
                             case 1:
                                 w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
+                                w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
+                                w88Mobile.PostPaymentForm.submit();
                                 $('#form1')[0].reset();
                                 break;
                             default:
