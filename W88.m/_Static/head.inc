@@ -70,6 +70,7 @@
 <script type="text/javascript" src="/_Static/Js/modules/slots.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/wallets.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/bankTransfer.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/gateways/jutapay.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/bankDetails.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/gateways/postForm.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/gateways/jtpay.js"></script>
