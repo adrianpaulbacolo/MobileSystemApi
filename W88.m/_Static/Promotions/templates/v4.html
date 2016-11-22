@@ -1,0 +1,51 @@
+﻿<div class="div-claim-promo" id="template-promo">
+    <div class="div-claim-promo-header">EPL2016W06</div>
+    <div class="div-claim-promo-data">
+        <div class="promo-match">
+            <div class="row row-uc row-no-padding">
+                <div class="col col-20">
+                    <label>{%- promo.data.team_msg %}: </label>
+                </div>
+                <div class="col col-80">
+                    <div class="col col-40">
+                        <p>{%- promo.data.team_setting[0] %}</p>
+                    </div>
+                    <div class="col col-20">
+                        <small>vs</small>
+                    </div>
+                    <div class="col col-40">
+                        <p>{%- promo.data.team_setting[1] %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="promo-match">
+            <div class="row row-uc row-no-padding">
+                <div class="col col-20">
+                    <label>{%- promo.data.score_msg %}:</label>
+                </div>
+                <div class="col col-80">
+                    <div class="col col-40">
+                        <input type="text" name="" id="" data-regex="{%- promo.data.score_checking %}" oninput="javascript: DataRegex(this)">
+                    </div>
+                    <div class="col col-40 col-offset-20">
+                        <input type="text" name="" id="" data-regex="{%- promo.data.score_checking %}" oninput="javascript: DataRegex(this)">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="promo-match">
+            {% _.forEach( promo.data.additional_column, function( addCol ){ %}
+            
+            <label>{%- addCol.field %}:</label>
+            <input type="text" name="" id="" class="" data-regex="{%- addCol.regex %}" oninput="javascript: DataRegex(this)">
+
+            {% }); %}
+        </div>
+
+        <div>
+            <a class="ui-btn btn-primary" onclick="javascript:PromoClaim(this)">Kirim</a>
+            <a class="ui-btn btn-secondary" onclick="javascript:PromoCancelClaim(this)">Batal</a>
+        </div>
+    </div>
+</div>

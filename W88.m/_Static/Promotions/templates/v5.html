@@ -1,0 +1,56 @@
+﻿<div class="div-claim-promo" id="template-promo">
+    <div class="div-claim-promo-header">EPL2016W06</div>
+    <div class="div-claim-promo-data">
+        <div class="promo-match">
+            <div class="row row-uc ">
+                <div class="col col-20">
+                    <p>ID: </p>
+                </div>
+                <div class="col col-80">
+                    {%- promo.data.username %}
+                </div>
+            </div>
+            <div class="row row-uc row-no-padding">
+                <div class="col">
+                    <label>{%- promo.data.label0 %}: </label>
+                </div>
+                <div class="col">
+                    <select name="selection">
+                        {% _.forEach( promo.data.option0, function( op ){ %}
+                        <option value="{%- op %}">{%- op %}</option>
+                        {% }); %}
+                    </select>
+                </div>
+            </div>
+            <div class="row row-uc row-no-padding">
+                <div class="col">
+                    <label>{%- promo.data.label1 %}:</label>
+                </div>
+                <div class="col">
+                    <input type="text" name="comment" id="" data-regex="{%- promo.data.regex1 %}" class="" oninput='javascript:DataRegex(this)'>
+                </div>
+            </div>
+            <div class="row row-uc row-no-padding">
+                <div class="col">
+                    <label>{%- promo.data.label2 %}: </label>
+                </div>
+                <div class="col">
+                    <input type="text" name="comment" id="" data-regex="{%- promo.data.regex2 %}" class="" oninput='javascript:DataRegex(this)'>
+                </div>
+            </div>
+            <div class="row row-uc row-no-padding">
+                <div class="col">
+                    <label>{%- promo.data.label3 %}: </label>
+                </div>
+                <div class="col">
+                    <input type="text" name="comment" id="" data-regex="{%- promo.data.regex3 %}" class="" oninput='javascript:DataRegex(this)'>
+                </div>
+            </div>
+            <div class="row row-uc row-no-padding">
+                <a class="ui-btn btn-primary" onclick="javascript:PromoClaim(this)">{%- promo.btnSubmit %}</a>
+                <a class="ui-btn btn-secondary" onclick="javascript:PromoCancelClaim(this)">{%- promo.btnCancel %}</a>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,10 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Site.master" AutoEventWireup="true" CodeFile="Promotions.aspx.cs" Inherits="Promotions" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+
     <script type="text/javascript">
-        var lang = '<%=(string.IsNullOrEmpty(commonVariables.SelectedLanguage) ? "en-us" : commonVariables.SelectedLanguage)%>',
-            categories = [],
-            isCategoryHash = true;
+        _.templateSettings = {
+            interpolate: /\{\{(.+?)\}\}/g,      // print value: {{ value_name }}
+            evaluate: /\{%([\s\S]+?)%\}/g,   // excute code: {% code_to_execute %}
+            escape: /\{%-([\s\S]+?)%\}/g
+        };
+        _.templateSettings.variable = "promo";
+
+        var lang = '<%=(string.IsNullOrEmpty(commonVariables.SelectedLanguage) ? "en-us" : commonVariables.SelectedLanguage)%>';
         if (lang == '') { lang = 'en-us'; }
         $(function () {
             if(!_.isEmpty(window.location.hash)) {
@@ -12,7 +18,7 @@
             } else {
                 getPromos('ALL');
             }
-        });
+            });
         // temporarily restrict promo
         var restrictedPromos = {};
         restrictedPromos.DAILYSLOTS = {
@@ -152,12 +158,21 @@
                                     $obj = $(objCode).attr('href');
                                     var strCode = $obj.substring($obj.indexOf('=') + 1);
 
-                                    var hrefClaim = $('<a />', { class: 'ui-btn btn-primary', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNowMatch(this, \'' + strCode + '\',  \'' + lang + '\')' }).text($(objCode).text());
+                                    var hrefClaim = $('<a />', { class: 'ui-btn btn-primary', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNowMatch(this, \'' + strCode + '\',  \'' + lang + '\', "v4")' }).text($(objCode).text());
                                     $(divJoinButton).append(hrefClaim);
                                 }
 
+                                var objCode = $(this).find('.promo_join_btn[href^="/promotions/promo_apply_v5.aspx?promoid="]');
+                                if ($(objCode).length > 0) {
+                                    $obj = $(objCode).attr('href');
+                                    var strCode = $obj.substring($obj.indexOf('=') + 1);
+
+                                    var hrefClaim = $('<a />', { class: 'ui-btn btn-primary', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNowMatch(this, \'' + strCode + '\',  \'' + lang + '\', "v5")' }).text($(objCode).text());
+                                    $(divJoinButton).append(hrefClaim);
                             }
+
                         }
+                    }
                     }
 
                     var divPromoTitle = $('<div />', { class: 'div-promo-header' }).text(strPromoTitle);
@@ -332,6 +347,14 @@
                     strCode = radValue.split('|')[0];
                     strComment = radValue.split('|')[1];
                 } else {
+
+                    var selectComment = $obj.find('select');
+                    if (selectComment.length != 0) {
+                        $.each(selectComment, function() {
+                            strComment += selectComment.val() + " | ";
+                        });
+                    }
+
                     var matchComment = $obj.find('input[name="comment"]');
 
                     var emptyInputs = $(matchComment).filter(function (index, item) {
@@ -383,93 +406,81 @@
             });
         }
 
-        function PromoClaimNowMatch(obj, code, lang) {
+        function promoClaimTemplate(obj, code, lang) {
+            $.get('/_Static/Promotions/templates/v4.html', function (data) {
+                template = _.template(data, {
+                    data: {}
+                });
+                $(obj).parent().append(template).enhanceWithin();
+                //this.$el.html(template);
+            }, 'html');
+        }
+
+        function PromoClaimNowMatch(obj, code, lang, promoType) {
             if ('<%=commonVariables.CurrentMemberSessionId%>'.trim() == '') {
                 location.assign('_Secure/Register.aspx');
             } else {
                 $(obj).hide();
 
+                switch(promoType){
+                    case 'v4':
+
                 $.get('/_Static/Promotions/' + code + '.' + lang + '.xml', function (xml) {
-                    var team = {
-                        team_msg: $(xml).find('team_msg').text(),
-                        score_msg: $(xml).find('score_msg').text(),
-                        score_checking: $(xml).find('score_checking').text().trim(),
-                        score_msg: $(xml).find('score_msg').text(),
-                        team_setting: $(xml).find('team_setting team').map(function () {
-                            return $(this).text();
-                        }).get(),
-                        additional_column: $(xml).find('additional_column column').map(function (index, value) {
-                            return { field: $(value).find('field').text(), regex: $(value).find('regex').text().trim() };
-                        }).get()
-                    };
+                            var promoData = {
+                                team_msg: $(xml).find('team_msg').text(),
+                                score_msg: $(xml).find('score_msg').text(),
+                                score_checking: $(xml).find('score_checking').text().trim(),
+                                score_msg: $(xml).find('score_msg').text(),
+                                team_setting: $(xml).find('team_setting team').map(function () {
+                                    return $(this).text();
+                                }).get(),
+                                additional_column: $(xml).find('additional_column column').map(function (index, value) {
+                                    return { field: $(value).find('field').text(), regex: $(value).find('regex').text().trim() };
+                                }).get()
+                            };
 
-                    var divCode = $('<div />', { class: 'div-claim-promo-header' }).text(code);
-                    var divPromoClaimWrapper = $('<div />', { class: 'div-claim-promo' });
-                    var divPromoClaimData = $('<div />', { class: 'div-claim-promo-data' });
-                    var divPromoClaimDataName = $('<div />');
+                            $.get('/_Static/Promotions/templates/v4.html', function (data) {
+                                template = _.template(data);
+                                $(obj).parent().append(template({
+                                    data: promoData
+                                })).enhanceWithin();
+                            }, 'html');
+                        });
 
-                    // Match
-                    var divPromoClaimMatch = $('<div />', { class: 'promo-match' })
-                    var divPromoClaimMatchRow = $('<div />', { class: 'row row-uc row-no-padding' });
+                        break;
+                    case 'v5':
 
-                    var divPromoClaimDataMatchLabel = $('<div />', { class: 'col col-20' }).append($('<label />').text(team.team_msg + ':'));
-                    var divPromoClaimDataMatchName = $('<div />', { class: 'col col-80' });
+                        $.get('/_Static/Promotions/' + code + '.' + lang + '.xml', function (xml) {
+                            var promoData = {};
+                            promoData.username = '<%= base.userInfo.MemberCode %>';
+                            $(xml).find('column').each(function (index, value) {
+                                if (!_.isEmpty($(value).find('field'))) promoData['label' + index] = $(value).find('field').text();
+                                if (!_.isEmpty($(value).find('regex'))) promoData['regex' + index] = $(value).find('regex').text();
+                                if (!_.isEmpty($(value).find('options'))) {
+                                    promoData['option' + index] = [];
+                                    $(value).find('options').find('option').each(function(i, v) {
+                                        promoData['option' + index].push($(v).text());
+                                    });
+                                }
+                            });
+                            $.get('/_Static/Promotions/templates/v5.html', function (data) {
+                                console.log(promoData);
+                                var btnSubmit = '<%=commonCulture.ElementValues.getResourceString("btnSubmit", xeResources)%>';
+                                var btnCancel = '<%=commonCulture.ElementValues.getResourceString("btnCancel", xeResources)%>';
+                                template = _.template(data);
+                                $(obj).parent().append(template({
+                                    data: promoData,
+                                    btnSubmit: btnSubmit,
+                                    btnCancel: btnCancel
+                                })).enhanceWithin();
+                            }, 'html');
+                        });
 
-                    // Score
-                    var divPromoClaimScore = $('<div />', { class: 'promo-match' })
-                    var divPromoClaimScoreRow = $('<div />', { class: 'row row-uc row-no-padding' });
-
-                    var divPromoClaimDataScoreLabel = $('<div />', { class: 'col col-20' }).append($('<label />').text(team.score_msg + ':'));
-                    var divPromoClaimDataScoreName = $('<div />', { class: 'col col-80' });
-
-                    var divPromoClaimDataAddCol = $('<div />', { class: 'promo-match' });
-
-                    $.each(team.team_setting, function (index, value) {
-                        var divMatchName = $('<div />', { class: 'col col-40' }).append($('<p />').text(value));
-                        $(divPromoClaimDataMatchName).append(divMatchName);
-
-                        var taPromoClaimDataName = $('<input />', { type: 'hidden', name: 'comment', value: value });
-                        $(divPromoClaimDataName).append(taPromoClaimDataName);
+                    default:
+                        break;
+                }
 
 
-                        var divScore, taScore = $('<input />', { type: 'text', name: 'comment', id: 'input-' + index, 'data-regex': team.score_checking, oninput: 'javascript:DataRegex(this)' });
-                        if (index != team.team_setting.length - 1) {
-                            divScore = $('<div />', { class: 'col col-40' }).append($('<div />', { class: 'ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset' }).append(taScore));
-
-                        } else {
-                            divScore = $('<div />', { class: 'col col-40 col-offset-20' }).append($('<div />', { class: 'ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset' }).append(taScore));
-                        }
-                        $(divPromoClaimDataScoreName).append(divScore);
-
-                        if (index == 0) {
-                            var lblPromoClaimDataVs = $('<div />', { class: 'col col-20' }).append($('<small />').text("vs"));
-                            $(divPromoClaimDataMatchName).append(lblPromoClaimDataVs);
-                        }
-                    });
-
-                    $.each(team.additional_column, function (index, value) {
-                        $(divPromoClaimDataAddCol).append($('<label />').text(value.field + ':'));
-
-                        var taPromoClaimDataCol = $('<input />', { type: 'text', name: 'comment', id: 'input-' + index, 'data-regex': value.regex, oninput: 'javascript:DataRegex(this)' });
-                        $(divPromoClaimDataAddCol).append($('<div />', { class: 'ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset' }).append(taPromoClaimDataCol));
-                    });
-
-                    var divPromoClaimButtons = $('<div />');
-                    var hrefClaim = $('<a />', { class: 'ui-btn btn-primary', onclick: 'javascript:PromoClaim(this)' }).text('<%=commonCulture.ElementValues.getResourceString("btnSubmit", xeResources)%>');
-                    var hrefClaimCancel = $('<a />', { class: 'ui-btn btn-secondary', onclick: 'javascript:PromoCancelClaim(this)' }).text('<%=commonCulture.ElementValues.getResourceString("btnCancel", xeResources)%>');
-
-                    $(divPromoClaimButtons).append(hrefClaim).append(hrefClaimCancel)
-
-                    $(divPromoClaimMatch).append($(divPromoClaimMatchRow).append($(divPromoClaimDataMatchLabel)).append($(divPromoClaimDataMatchName)))
-
-                    $(divPromoClaimScore).append($(divPromoClaimScoreRow).append($(divPromoClaimDataScoreLabel)).append($(divPromoClaimDataScoreName)))
-
-                    $(divPromoClaimData).append(divPromoClaimDataName).append(divPromoClaimMatch).append(divPromoClaimScore).append(divPromoClaimDataAddCol).append(divPromoClaimButtons);
-
-                    $(divPromoClaimWrapper).append(divCode).append(divPromoClaimData);
-
-                    $(obj).parent().append(divPromoClaimWrapper);
-                });
             }
         }
 
