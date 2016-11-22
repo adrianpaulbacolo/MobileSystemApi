@@ -1,474 +1,305 @@
 ﻿using System;
-using System.Activities.Statements;
-using System.Collections.Generic;
-using System.Configuration;
-using System.IdentityModel;
-using System.Linq;
-using System.Web;
-using System.Web.Script.Serialization;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.Services;
 using System.Data;
-using System.Diagnostics;
-using System.Text;
-using PaymentServices;
+using System.Threading.Tasks;
+using System.Web;
+using W88.BusinessLogic.Rewards.Helpers;
+using W88.BusinessLogic.Rewards.Models;
+using W88.Utilities.Constant;
+using W88.WebRef.RewardsServices;
 
 public partial class Account : BasePage
 {
-    protected string type = string.Empty;
-    protected string title = string.Empty;
-    protected string html = string.Empty;
-    public string localResx = "~/default.{0}.aspx";
+    protected string Title = string.Empty;
+    protected DataSet DataSet = null;
 
-    protected void Page_Load(object sender, EventArgs e)
+    protected async void Page_Load(object sender, EventArgs e)
     {
-        //*
-        localResx = string.Format("~/default.{0}.aspx", commonVariables.SelectedLanguage);
-        string userMemberSessionId = string.IsNullOrEmpty((string)Session["MemberSessionId"]) ? "" : (string)Session["MemberSessionId"];
-        string userMemberId = string.IsNullOrEmpty((string)Session["MemberId"]) ? "" : (string)Session["MemberId"];
-        string userMemberCode = string.IsNullOrEmpty((string)Session["MemberCode"]) ? "" : (string)Session["MemberCode"];
-        string countryCode = string.IsNullOrEmpty((string)Session["CountryCode"]) ? "0" : (string)Session["CountryCode"];
-        string currencyCode = string.IsNullOrEmpty((string)Session["CurrencyCode"]) ? "0" : (string)Session["CurrencyCode"];
-        string riskId = string.IsNullOrEmpty((string)Session["RiskId"]) ? "0" : (string)Session["RiskId"];
-        string LanguageCode = string.IsNullOrEmpty((string)Session["LanguageCode"]) ? "0" : (string)Session["LanguageCode"];
-        //*
-
-        if (!Page.IsPostBack)
+        if (IsPostBack)
         {
-            if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-            {
-                Response.Redirect("~/Index");
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("type")))
-                {
-                    type = HttpContext.Current.Request.QueryString.Get("type");
-                    string walletid = string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("walletid")) ? "" : HttpContext.Current.Request.QueryString.Get("walletid");
-                    string yearmonth = string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("yearmonth")) ? "" : HttpContext.Current.Request.QueryString.Get("yearmonth");
+            return;
+        }
+       
+        if (!HasSession)
+        {
+            Response.Redirect("/Index.aspx", false);
+        }
 
-                    switch (type)
+        var type = HttpContext.Current.Request.QueryString.Get("type");
+        var memberCode = UserSessionInfo == null ? string.Empty : UserSessionInfo.MemberCode;
+
+        if (!string.IsNullOrEmpty(type))
+        {
+            var walletId = string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("walletid")) ? "" : HttpContext.Current.Request.QueryString.Get("walletid");
+            var yearMonth = string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("yearmonth")) ? "" : HttpContext.Current.Request.QueryString.Get("yearmonth");
+            var html = string.Empty;
+
+            switch (type)
+            {
+                case "stake":
+                    if (string.IsNullOrEmpty(walletId)) //all stakes
                     {
-                        case "stake":
-                            if (walletid == "") //all stakes
-                            {
-                              //  title = "Earning Listing by Product";
-                                title = HttpContext.GetLocalResourceObject(localResx, "lbl_earning_listing").ToString() + " (" + HttpContext.GetLocalResourceObject(localResx, "lbl_product").ToString() + ")";
-                                html = TotalStake(userMemberCode);
-                            }
-                            else if (!string.IsNullOrEmpty(walletid) && yearmonth == "") //stakes by walletid
-                            {
-                                //title = "Earning Listing by Month";
-                                title = HttpContext.GetLocalResourceObject(localResx, "lbl_earning_listing").ToString() + " (" + HttpContext.GetLocalResourceObject(localResx, "lbl_month").ToString() + ")";
-                                html = TotalStakeMonth(userMemberCode, walletid);
-                            }
-                            else //stakes detail
-                            {
-                                //title = "Earning Listing Detail";
-                                title = HttpContext.GetLocalResourceObject(localResx, "lbl_earning_listing").ToString() + " (" + HttpContext.GetLocalResourceObject(localResx, "lbl_details").ToString() + ")";
-                                html = TotalStakeDetail(userMemberCode, walletid, yearmonth);
-                            }
-
-                            if (!string.IsNullOrEmpty(html))
-                                resultpanel.InnerHtml = html;
-                            else
-                                lblNoRecord.Visible = true;
-                            ListviewHistory.Visible = false;
-
-                            break;
-                        case "redeemed":
-                            title = HttpContext.GetLocalResourceObject(localResx, "lbl_redemption_listing").ToString();
-                            break;
-                        case "expired":
-                            title = HttpContext.GetLocalResourceObject(localResx, "lbl_points_expired").ToString();
-                            break;
-                        case "adjusted":
-                            title = HttpContext.GetLocalResourceObject(localResx, "lbl_points_adjusted").ToString();
-                            break;
-                        case "cart":
-                            title = "Points in your cart";
-                            break;
-                        default:
-                            title = HttpContext.GetLocalResourceObject(localResx, "lbl_account_summary").ToString();
-                            System.Data.DataSet dsDisplay = AccountSummary(userMemberCode);
-                            if (dsDisplay.Tables[0].Rows.Count > 0)
-                            {  
-                                lblNoRecord.Visible = false;
-                                ListviewHistory.DataSource = dsDisplay.Tables[0];
-                                ListviewHistory.DataBind();
-                            }
-                            else
-                                lblNoRecord.Visible = true;
-                            break;
+                        // "Earning Listing by Product";
+                        Title = string.Format(@"{0} ({1})",
+                            RewardsHelper.GetTranslation(TranslationKeys.Redemption.EarningListing),
+                            RewardsHelper.GetTranslation(TranslationKeys.Redemption.Product));
+                        html = await GetTotalStake(memberCode);
                     }
-                }
-                else
-                {
-                    type = "summary"; title = HttpContext.GetLocalResourceObject(localResx, "lbl_account_summary").ToString();
-                    System.Data.DataSet dsDisplay = AccountSummary(userMemberCode);
-                    if (dsDisplay.Tables[0].Rows.Count > 0)
+                    else if (!string.IsNullOrEmpty(walletId) && string.IsNullOrEmpty(yearMonth)) //stakes by walletid
                     {
-                        lblNoRecord.Visible = false;
-                        ListviewHistory.DataSource = dsDisplay.Tables[0];
-                        ListviewHistory.DataBind();
+                        // "Earning Listing by Month";
+                        Title = string.Format(@"{0} ({1})",
+                            RewardsHelper.GetTranslation(TranslationKeys.Redemption.EarningListing),
+                            RewardsHelper.GetTranslation(TranslationKeys.Label.Month));                      
+                        html = await GetTotalStakeByMonth(memberCode, walletId);
+                    }
+                    else //stakes detail
+                    {
+                        // "Earning Listing Detail";
+                        Title = string.Format(@"{0} ({1})",
+                            RewardsHelper.GetTranslation(TranslationKeys.Redemption.EarningListing),
+                            RewardsHelper.GetTranslation(TranslationKeys.Label.Details));
+                        html = await GetTotalStakeDetail(memberCode, walletId, yearMonth);
+                    }
+
+                    if (!string.IsNullOrEmpty(html))
+                    {
+                        resultpanel.InnerHtml = html;
                     }
                     else
-                        lblNoRecord.Visible = true;
-
-                }
-            }
-
-
-        }
-    }
-
-
-    private static DataSet AccountSummary(string userMemberCode)
-    {
-
-        System.Data.DataSet dsDisplay = new System.Data.DataSet();
-        System.Data.DataTable dt = new System.Data.DataTable("History");
-        dt.Columns.Add(new System.Data.DataColumn("stake", typeof(decimal)));
-        dt.Columns.Add(new System.Data.DataColumn("earning", typeof(int)));
-        dt.Columns.Add(new System.Data.DataColumn("redemption", typeof(int)));
-        dt.Columns.Add(new System.Data.DataColumn("expired", typeof(int)));
-        dt.Columns.Add(new System.Data.DataColumn("adjusted", typeof(int)));
-        dt.Columns.Add(new System.Data.DataColumn("balance", typeof(int)));
-        dt.Columns.Add(new System.Data.DataColumn("cart", typeof(int)));
-
-        using (RewardsServices.RewardsServicesClient sClient = new RewardsServices.RewardsServicesClient())
-        {
-            DataSet ds = sClient.getMemberAccount(commonVariables.OperatorId, userMemberCode);
-
-            if (ds.Tables[0].Rows.Count > 0)
-            {
-
-                foreach (DataRow dr in ds.Tables[0].Rows)
-                {
-                    System.Web.HttpContext.Current.Session["totalStake"] = dr["totalStake"];
-                }
-
-                foreach (DataRow dr in ds.Tables[1].Rows)
-                {
-                    System.Web.HttpContext.Current.Session["pointsAwarded"] = dr["pointsAwarded"];
-                }
-
-                foreach (DataRow dr in ds.Tables[2].Rows)
-                {
-                    System.Web.HttpContext.Current.Session["pointsRequired"] = dr["pointsRequired"];
-
-                }
-                foreach (DataRow dr in ds.Tables[4].Rows)
-                {
-                    System.Web.HttpContext.Current.Session["pointsExpired"] = dr["pointsExpired"];
-
-                }
-                foreach (DataRow dr in ds.Tables[3].Rows)
-                {
-                    System.Web.HttpContext.Current.Session["pointsAdjusted"] = dr["pointsAdjusted"];
-
-                }
-                foreach (DataRow dr in ds.Tables[5].Rows)
-                {
-                    System.Web.HttpContext.Current.Session["pointsBalance"] = dr["pointsBalance"];
-                }
-                foreach (DataRow dr in ds.Tables[6].Rows)
-                {
-                    System.Web.HttpContext.Current.Session["pointsCart"] = dr["pointsCart"];
-                }
-
-                //Point balance deduct cart
-                System.Web.HttpContext.Current.Session["pointsBalance"] =
-                    (int)System.Web.HttpContext.Current.Session["pointsBalance"] -
-                    (int)System.Web.HttpContext.Current.Session["pointsCart"];
-
-                System.Data.DataRow drPoints = dt.NewRow();
-                drPoints["stake"] = System.Math.Round((decimal)System.Web.HttpContext.Current.Session["totalStake"], 2);
-                drPoints["earning"] = (int)System.Web.HttpContext.Current.Session["pointsAwarded"];
-                drPoints["redemption"] = (int)System.Web.HttpContext.Current.Session["pointsRequired"];
-                drPoints["expired"] = (int)System.Web.HttpContext.Current.Session["pointsExpired"];
-                drPoints["adjusted"] = (int)System.Web.HttpContext.Current.Session["pointsAdjusted"];
-                drPoints["balance"] = (int)System.Web.HttpContext.Current.Session["pointsBalance"];
-                drPoints["cart"] = (int)System.Web.HttpContext.Current.Session["pointsCart"];
-                dt.Rows.Add(drPoints);
-                dsDisplay.Tables.Add(dt);
-            }
-            return dsDisplay;
-
-        }
-
-    }
-
-
-    public string TotalStake1(string userMemberCode)
-    {
-
-        using (RewardsServices.RewardsServicesClient sClient = new RewardsServices.RewardsServicesClient())
-        {
-            string html = "";
-            System.Data.DataSet ds = sClient.getEarnProductFE(commonVariables.OperatorId, userMemberCode);
-
-            if (ds.Tables.Count > 0)
-            {
-                if (ds.Tables[0].Rows.Count > 0)
-                {
-                    DataTable dt = ds.Tables[0];
-                    html = "<table>";
-
-                    for (int j = 0; j < dt.Columns.Count; j++)
                     {
-                        string columnname = "";
+                        lblNoRecord.Visible = true;
+                        ListviewHistory.Visible = false;
+                    }
+                    break;
+                case "redeemed":
+                    Title = RewardsHelper.GetTranslation(TranslationKeys.Redemption.RedemptionListing);
+                    resultpanel.InnerHtml = html;
+                    break;
+                case "expired":
+                    Title = RewardsHelper.GetTranslation(TranslationKeys.Redemption.PointsExpired);
+                    resultpanel.InnerHtml = html;
+                    break;
+                case "adjusted":
+                    Title = RewardsHelper.GetTranslation(TranslationKeys.Redemption.PointsAdjusted);
+                    resultpanel.InnerHtml = html;
+                    break;
+                case "cart":
+                    Title = "Points in your cart";
+                    resultpanel.InnerHtml = html;
+                    break;
+                default:
+                    SetAccountSummary(memberCode);
+                    break;
+            }
+        }
+        else
+        {
+            SetAccountSummary(memberCode);
+        }           
+    }
 
-                        switch (dt.Columns[j].ColumnName)
+    private static async Task<string> GetTotalStake(string memberCode)
+    {
+        using (var client = new RewardsServicesClient())
+        {
+            var dataSet = await client.getEarnProductFEAsync(Convert.ToString(Settings.OperatorId), memberCode);
+            if (dataSet.Tables.Count == 0 || dataSet.Tables[0].Rows.Count == 0)
+            {
+                return string.Empty;
+            }
+
+            var dataTable = dataSet.Tables[0];
+            var headers = string.Empty;
+            var rows = string.Empty;
+
+            for (var i = 0; i < dataTable.Rows.Count; i++)
+            {
+                rows += "<tr>";
+
+                for (var j = 0; j < dataTable.Columns.Count; j++)
+                {
+                    if (i == 0)
+                    {
+                        switch (dataTable.Columns[j].ColumnName)
                         {
                             case "walletName":
-                                columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_wallet").ToString();
+                                headers += string.Format(@"<td><div class='pointDetailMainHeader'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Label.Wallet));
                                 break;
                             case "totalStake":
-                                columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_total_stake").ToString();
+                                headers += string.Format(@"<td><div class='pointDetailMainHeader'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Redemption.TotalStake));
                                 break;
                             case "pointsAwarded":
-                                columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_earn").ToString();
-                                break;
-                            default:
+                                headers += string.Format(@"<td><div class='pointDetailMainHeader'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Redemption.PointsEarned));
                                 break;
                         }
-                        html += "<tr><td><div class='pointDetailMainHeader'><span>" + columnname + "</span></div></td>";
-
-                        for (int i = 0; i < dt.Rows.Count; i++)
-                        {
-                            if (j == 0)
-                                html += "";
-                            else if (j == 2) //stake
-                                html += "<td><div class='points'><span>" + String.Format("{0:#,###,##0.##}", dt.Rows[i].ItemArray[j]) + "</span></div></td>";
-                            else if (j == 3) //points earn
-                                html += "<td><a href='/Account?type=stake&walletid=" + dt.Rows[i].ItemArray[0] + "'><div class='points'><span>" +
-                                        String.Format("{0:#,###,##0.##}", dt.Rows[i].ItemArray[j]) + "</span></div></a></td>";
-                            else
-                                html += "<td><div class='points'><span>" + dt.Rows[i].ItemArray[j] +
-                                        "</span></div></td>";
-
-                        }
-                        html += "</tr>";
                     }
-                    html += "</table>";
 
+                    switch (j)
+                    {
+                        case 0:
+                            rows += string.Empty;
+                            break;
+                        case 2:
+                            rows += string.Format(@"<td><div class='points'><span>{0}</span></div></td>", string.Format("{0:#,###,##0.##}", dataTable.Rows[i].ItemArray[j]));
+                            break;
+                        case 3:
+                            rows += string.Format(@"<td><a href='/Account?type=stake&walletid='{0}'><div class='points'><span>{1}</span></div></a></td>",
+                                    dataTable.Rows[i].ItemArray[0],
+                                    string.Format("{0:#,###,##0.##}", 
+                                    dataTable.Rows[i].ItemArray[j]));
+                            break;
+                        default:
+                            rows += string.Format(@"<td><div class='points'><span>{0}</span></div></td>", dataTable.Rows[i].ItemArray[j]);
+                            break;
+                    }
                 }
+
+                rows += "</tr>";
             }
 
-            return html;
-
+            return string.Format(@"<table id='transactions' width='100%'><tr>{0}</tr>{1}</table>", headers, rows);             
         }
     }
 
-    public string TotalStake(string userMemberCode)
+    private static async Task<string> GetTotalStakeByMonth(string memberCode, string walletId)
     {
-
-        using (RewardsServices.RewardsServicesClient sClient = new RewardsServices.RewardsServicesClient())
+        using (var client = new RewardsServicesClient())
         {
-            string html = "";
-            System.Data.DataSet ds = sClient.getEarnProductFE(commonVariables.OperatorId, userMemberCode);
-
-            if (ds.Tables.Count > 0)
+            var dataSet = await client.getEarnMonthFEAsync(Convert.ToString(Settings.OperatorId), memberCode, walletId);
+            if (dataSet.Tables.Count == 0 || dataSet.Tables[0].Rows.Count == 0)
             {
-                if (ds.Tables[0].Rows.Count > 0)
-                {
-                    DataTable dt = ds.Tables[0];
-                    html = "<table>";
-                    string th = "";
-                    string tr = "";
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        string columnname = "";
-                        tr += "<tr>";
-
-                        for (int j = 0; j < dt.Columns.Count; j++)
-                        {
-                            if (i == 0)
-                            {
-                                switch (dt.Columns[j].ColumnName)
-                                {
-                                    case "walletName":
-                                        columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_wallet").ToString();
-                                        th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
-                                        break;
-                                    case "totalStake":
-                                        columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_total_stake").ToString();
-                                        th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
-                                        break;
-                                    case "pointsAwarded":
-                                        columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_earn").ToString();
-                                        th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
-                                        break;
-                                    default:
-                                        break;
-                                }
-                            }
-
-                            if (j == 0)
-                                tr += "";
-                            else if (j == 2) //stake
-                                tr += "<td><div class='points'><span>" + String.Format("{0:#,###,##0.##}", dt.Rows[i].ItemArray[j]) + "</span></div></td>";
-                            else if (j == 3) //points earn
-                                tr += "<td><a href='/Account?type=stake&walletid=" + dt.Rows[i].ItemArray[0] + "'><div class='points'><span>" +
-                                        String.Format("{0:#,###,##0.##}", dt.Rows[i].ItemArray[j]) + "</span></div></a></td>";
-                            else
-                                tr += "<td><div class='points'><span>" + dt.Rows[i].ItemArray[j] +
-                                        "</span></div></td>";
-
-                        }
-                        tr += "</tr>";
-                    }
-                    html = "<table width='100%'>" + "<tr>" + th + "</tr>" + tr + "</table>";
-
-                }
+                return string.Empty;
             }
 
-            return html;
+            var dataTable = dataSet.Tables[0];
+            var headers = string.Empty;
+            var rows = string.Empty;
 
+            for (var i = 0; i < dataTable.Rows.Count; i++)
+            {
+                rows += "<tr>";
+
+                for (var j = 0; j < dataTable.Columns.Count; j++)
+                {
+                    if (i == 0)
+                    {
+                        switch (dataTable.Columns[j].ColumnName)
+                        {
+                            case "pointsYear":
+                                headers += string.Format(@"<td><div class='pointDetailMainHeader'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Label.Year));
+                                break;
+                            case "pointsMonth":
+                                headers += string.Format(@"<td><div class='pointDetailMainHeader'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Label.Month));
+                                break;
+                            case "totalStake":
+                                headers += string.Format(@"<td><div class='pointDetailMainHeader'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Redemption.TotalStake));
+                                break;
+                            case "pointsAwarded":
+                                headers += string.Format(@"<td><div class='pointDetailMainHeader'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Redemption.PointsEarned));
+                                break;
+                        }
+                    }
+
+                    switch (j)
+                    {
+                        case 2:
+                            rows += string.Format(@"<td><div class='points'><span>{0}</span></div></td>", string.Format("{0:#,###,##0.##}", dataTable.Rows[i].ItemArray[j]));
+                            break;
+                        case 3: 
+                            rows += string.Format(@"<td><a href='/Account?type=stake&walletid={0}&yearmonth={1}'><div class='points'><span>{2}</span></div></a></td>", 
+                                walletId, 
+                                ((string)dataTable.Rows[i].ItemArray[0] + (string)dataTable.Rows[i].ItemArray[1]), 
+                                string.Format("{0:#,###,##0.##}", dataTable.Rows[i].ItemArray[j]));
+                            break;
+                        default:
+                            rows += string.Format(@"<td><div class='points'><span>{0}</span></div></td>", dataTable.Rows[i].ItemArray[j]);
+                            break;
+                    }
+                }
+
+                rows += "</tr>";
+            }
+
+            return string.Format(@"<table id='transactions' width='100%'><tr>{0}</tr>{1}</table>", headers, rows);                         
         }
     }
 
-    public string TotalStakeMonth(string userMemberCode, string walletid)//by wallet id
+    private static async Task<string> GetTotalStakeDetail(string memberCode, string walletId, string yearMonth)
     {
-        using (RewardsServices.RewardsServicesClient sClient = new RewardsServices.RewardsServicesClient())
+        using (var client = new RewardsServicesClient())
         {
-            System.Data.DataSet ds = sClient.getEarnMonthFE(commonVariables.OperatorId, userMemberCode, walletid);
+            var year = int.Parse(yearMonth.Substring(0, 4));
+            var month = (yearMonth.Length > 5) ? int.Parse(yearMonth.Substring(4, 2)) : int.Parse(yearMonth.Substring(4, 1));
+            var dataSet = await client.getEarnDetailFEAsync(Convert.ToString(Settings.OperatorId), memberCode, walletId, month, year);
 
-            if (ds.Tables.Count > 0)
+            if (dataSet.Tables.Count == 0 || dataSet.Tables[0].Rows.Count == 0)
             {
-                if (ds.Tables[0].Rows.Count > 0)
-                {
-                    DataTable dt = ds.Tables[0];
-                    html = "";
-                    string th = "";
-                    string tr = "";
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        string columnname = "";
-                        tr += "<tr>";
-
-                        for (int j = 0; j < dt.Columns.Count; j++)
-                        {
-                            if (i == 0)
-                            {
-                                switch (dt.Columns[j].ColumnName)
-                                {
-                                    case "pointsYear":
-                                        columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_year").ToString();
-                                        th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
-                                        break;
-                                    case "pointsMonth":
-                                        columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_month").ToString();
-                                        th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
-                                        break;
-                                    case "totalStake":
-                                        columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_total_stake").ToString();
-                                        th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
-                                        break;
-                                    case "pointsAwarded":
-                                        columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_earn").ToString();
-                                        th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
-                                        break;
-                                    default:
-                                        break;
-                                }
-                            }
-                            //j=0 year j=1 month
-                            if (j == 2) //stake
-                                tr += "<td><div class='points'><span>" + String.Format("{0:#,###,##0.##}", dt.Rows[i].ItemArray[j]) + "</span></div></td>";
-                            else if (j == 3) //points earn
-                                tr += "<td><a href='/Account?type=stake&walletid=" + walletid + "&yearmonth=" + dt.Rows[i].ItemArray[0] + dt.Rows[i].ItemArray[1] + "'><div class='points'><span>" +
-                                        String.Format("{0:#,###,##0.##}", dt.Rows[i].ItemArray[j]) + "</span></div></a></td>";
-                            else
-                                tr += "<td><div class='points'><span>" + dt.Rows[i].ItemArray[j] +
-                                        "</span></div></td>";
-
-                        }
-                        tr += "</tr>";
-                    }
-                    html = "<table width='100%'>" + "<tr>" + th + "</tr>" + tr + "</table>";
-                }
+                return string.Empty;
             }
 
+            var dataTable = dataSet.Tables[0];
+            var headers = string.Empty;
+            var rows = string.Empty;
+
+            for (var i = 0; i < dataTable.Rows.Count; i++)
+            {
+                rows += "<tr>";
+
+                for (var j = 0; j < dataTable.Columns.Count; j++)
+                {
+                    if (i == 0)
+                    {
+                        switch (dataTable.Columns[j].ColumnName)
+                        {
+                            case "createdDateTime":
+                                headers += string.Format(@"<td><div class='pointDetailMainHeader'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Label.Date));
+                                break;
+                            case "transactionDateTime":
+                                headers += string.Format(@"<td><div class='pointDetailMainHeader'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Redemption.BetDate));
+                                break;
+                            case "totalStake":
+                                headers += string.Format(@"<td><div class='pointDetailMainHeader'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Redemption.TotalStake));
+                                break;
+                            case "pointsAwarded":
+                                headers += string.Format(@"<td><div class='pointDetailMainHeader'><span>{0}</span></div></td>", RewardsHelper.GetTranslation(TranslationKeys.Redemption.PointsEarned));
+                                break;
+                        }
+                    }
+
+                    switch (j)
+                    {
+                        case 2:
+                            rows += string.Format(@"<td><div class='points'><span>{0}</span></div></td>", string.Format("{0:#,###,##0.##}", dataTable.Rows[i].ItemArray[j]));
+                            break;
+                        case 3:
+                            rows += string.Format(@"<td><div class='points'><span>{0}</span></div></td>", string.Format("{0:#,###,##0.##}", dataTable.Rows[i].ItemArray[j]));
+                            break;
+                        default:
+                            rows += string.Format(@"<td><div class='points'><span>{0}</span></div></td>", Convert.ToString(DateTime.Parse(dataTable.Rows[i].ItemArray[j].ToString()).ToString("yyyy/MM/dd")));
+                            break;
+                    }
+                }
+
+                rows += "</tr>";
+            }
+
+            return string.Format(@"<table id='transactions' width='100%'><tr>{0}</tr>{1}</table>", headers, rows);                                           
+        }      
+    }
+
+    private async void SetAccountSummary(string memberCode)
+    {
+        Title = RewardsHelper.GetTranslation(TranslationKeys.Redemption.AccountSummary);
+        DataSet = await RewardsHelper.GetAccountSummary(memberCode);
+        if (DataSet == null)
+        {
+            lblNoRecord.Visible = true;
         }
-        return html;
-    }
-
-    public string TotalStakeDetail(string userMemberCode, string walletid, string yearmonth)//by wallet id, year, month
-    {
-        int year = int.Parse(yearmonth.Substring(0, 4));
-        int month = (yearmonth.Length > 5) ? int.Parse(yearmonth.Substring(4, 2)) : int.Parse(yearmonth.Substring(4, 1));
-        
-        using (RewardsServices.RewardsServicesClient sClient = new RewardsServices.RewardsServicesClient())
+        else
         {
-          System.Data.DataSet ds = sClient.getEarnDetailFE(commonVariables.OperatorId, userMemberCode, walletid, month, year);
-
-            if (ds.Tables.Count > 0)
-            {
-                if (ds.Tables[0].Rows.Count > 0)
-                {
-                     DataTable dt = ds.Tables[0];
-                    html = "";
-                    string th = "";
-                    string tr = "";
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        string columnname = "";
-                        tr += "<tr>";
-
-                        for (int j = 0; j < dt.Columns.Count; j++)
-                        {
-                            if (i == 0)
-                            {
-                                switch (dt.Columns[j].ColumnName)
-                                {
-                                    case "createdDateTime":
-                                        columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_date").ToString();
-                                        th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
-                                        break;
-                                    case "transactionDateTime":
-                                        columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_bet_date").ToString();
-                                        th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
-                                        break;
-                                    case "totalStake":
-                                        columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_total_stake").ToString();
-                                        th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
-                                        break;
-                                    case "pointsAwarded":
-                                        columnname = HttpContext.GetLocalResourceObject(localResx, "lbl_earn").ToString();
-                                        th += "<td><div class='pointDetailMainHeaderHor'><span>" + columnname + "</span></div></td>";
-                                        break;
-                                    default:
-                                       // th += "<td><div class='pointDetailMainHeaderHor'><span>" + dt.Columns[j].ColumnName + "</span></div></td>";
-                                        break;
-                                }
-                            }
-                           
-                            if (j == 2) //stake
-                                tr += "<td><div class='points'><span>" + String.Format("{0:#,###,##0.##}", dt.Rows[i].ItemArray[j]) + "</span></div></td>";
-                            else if (j == 3) //points earn
-                                tr += "<td><div class='points'><span>" +
-                                      String.Format("{0:#,###,##0.##}", dt.Rows[i].ItemArray[j]) + "</span></div></td>";
-                            else
-                                tr += "<td><div class='points'><span>" +
-                                      Convert.ToString(
-                                          DateTime.Parse(dt.Rows[i].ItemArray[j].ToString()).ToString("yyyy/MM/dd")) +
-                                      "</span></div></td>";
-
-                        }
-                        tr += "</tr>";
-                    }
-                    html = "<table width='100%'>" + "<tr>" + th + "</tr>" + tr + "</table>";
-                }
-                  
-                }
-            }
-
-        
-        return html;
+            lblNoRecord.Visible = false;
+            ListviewHistory.DataSource = DataSet.Tables[0];
+            ListviewHistory.DataBind();
+        }
     }
-
-
 }

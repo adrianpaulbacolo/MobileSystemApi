@@ -5,22 +5,24 @@
 <head>
     <title>FAQ</title>
     <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/Js/Main.js"></script>
-
+    <style>
+        h5:before {
+            display: block; 
+            content: " "; 
+            margin-top: 0; 
+            height: 44px; 
+            visibility: hidden;
+        }
+    </style>
 </head>
 <body>
-    <!--#include virtual="~/_static/splash.shtml" -->
     <div data-role="page" data-theme="b">
         <!--#include virtual="~/_static/header.shtml" -->
-
-        <div class="ui-content" role="main">
-            <asp:Literal ID="htmltext" runat="server"></asp:Literal>
+        <div class="main-content static-content">
+            <div class="container">
+                <asp:Literal ID="htmltext" runat="server"></asp:Literal>
+            </div>
         </div>
-        <!-- /content -->
-        <!--#include virtual="~/_static/footer.shtml" -->
-        <!--#include virtual="~/_static/navMenu.shtml" -->
     </div>
-    <!-- /page -->
-
 </body>
 </html>

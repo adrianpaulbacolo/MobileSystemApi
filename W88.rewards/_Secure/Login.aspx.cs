@@ -1,61 +1,78 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Collections.Specialized;
+using System.Text;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using W88.BusinessLogic.Rewards.Helpers;
+using W88.BusinessLogic.Rewards.Models;
+using W88.BusinessLogic.Shared.Helpers;
 
-public partial class _Secure_Login : System.Web.UI.Page
+public partial class _Secure_Login : BasePage
 {
-    protected System.Xml.Linq.XElement xeErrors = null;
-    protected string strRedirect = string.Empty;
-
-    protected void Page_Init(object sender, EventArgs e) 
+    protected string RedirectUri = string.Empty;
+    protected string Language = LanguageHelpers.SelectedLanguage;
+    
+    protected void Page_Init(object sender, EventArgs e)
     {
-        string strLanguage = string.Empty;
-
-        strLanguage = Request.QueryString.Get("lang");
-        
-        commonVariables.SelectedLanguage = string.IsNullOrEmpty(strLanguage) ? (string.IsNullOrEmpty(commonVariables.SelectedLanguage) ? "en-us" : commonVariables.SelectedLanguage) : strLanguage;
+        btnSubmit.Visible = !HasSession;
     }
 
     protected void Page_Load(object sender, EventArgs e)
-    {   
-        xeErrors = commonVariables.ErrorsXML;
-        System.Xml.Linq.XElement xeResources = null;
-        commonCulture.appData.getLocalResource(out xeResources);
-
-        if (string.IsNullOrEmpty(Request.QueryString.Get("redirect")))
+    {
+        if (IsPostBack)
         {
-            strRedirect = "/Index.aspx";
+            return;
         }
-        else
+        try
         {
-            strRedirect = Request.QueryString.Get("redirect");
-            if (strRedirect == "/Catalogue" && !(string.IsNullOrEmpty(Request.QueryString.Get("categoryId"))))
-                strRedirect = (string.Format("/Catalogue?categoryId={0}&sortBy={1}", Request.QueryString.Get("categoryId"),Request.QueryString.Get("sortBy")));
-            else if (strRedirect == "Redeem" && !(string.IsNullOrEmpty(Request.QueryString.Get("productId"))) )
-                strRedirect = (string.Format("/Catalogue/Redeem.aspx?productId={0}", Request.QueryString.Get("productId")));         
-        
+            var queryString = HttpContext.Current.Request.QueryString;
+            if (queryString.Count > 0 && !string.IsNullOrEmpty(queryString["redirect"]))
+            {
+                RedirectUri = GetRedirectUriFromQueryString(queryString);
+            }
+            else
+            {
+                RedirectUri = string.Format("/Index.aspx?lang={0}", Language);
+                if (HasSession)
+                {
+                    Response.Redirect(RedirectUri, false);                                   
+                }
+            }
         }
-                
-
-        if (!Page.IsPostBack)
+        catch (Exception ex)
         {
-            lblUsername.Text = commonCulture.ElementValues.getResourceString("lblUsername", xeResources);
-            lblPassword.Text = commonCulture.ElementValues.getResourceString("lblPassword", xeResources);
-            lblCaptcha.Text = commonCulture.ElementValues.getResourceString("lblCaptcha", xeResources);
-            btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnLogin", xeResources);
-
-            txtUsername.Attributes.Add("PLACEHOLDER", lblUsername.Text);
-            txtPassword.Attributes.Add("PLACEHOLDER", lblPassword.Text);
-            txtCaptcha.Attributes.Add("PLACEHOLDER", lblCaptcha.Text);
-
-            txtUsername.Focus();
-
-            lblRegister.Text = commonCulture.ElementValues.getResourceString("btnRegister", xeResources);
 
         }
-      
+
+        lblUsername.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.Username);
+        lblPassword.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.Password);
+        lblCaptcha.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.Captcha);
+        btnSubmit.Text = RewardsHelper.GetTranslation(TranslationKeys.Label.Login);
+        txtUsername.Focus();
+        lblRegister.Text = HttpUtility.HtmlDecode(RewardsHelper.GetTranslation(TranslationKeys.Label.Register));      
+    }
+
+    private string GetRedirectUriFromQueryString(NameValueCollection queryStrings)
+    {
+        var allKeys = queryStrings.AllKeys;
+        var stringBuilder1 = new StringBuilder();
+        for (int index = 0; index < allKeys.Length; index++)
+        {
+            var key = allKeys[index];
+            if (!key.Equals("redirect"))
+            {
+                stringBuilder1.Append(key)
+                    .Append("=")
+                    .Append(queryStrings[key]);
+                if (index < allKeys.Length - 1)
+                {
+                    stringBuilder1.Append("&");
+                }
+            }
+        }
+        var stringBuilder2 = new StringBuilder();
+        stringBuilder2.Append(queryStrings["redirect"])
+            .Append("?")
+            .Append(stringBuilder1);
+        return  stringBuilder2.ToString();
     }
 }
