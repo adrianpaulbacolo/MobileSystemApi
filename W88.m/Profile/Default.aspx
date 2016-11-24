@@ -31,13 +31,13 @@
             </li>
             <li class="col col-33">
                 <a href="../_Secure/BankDetails.aspx" class="tile" runat="server" data-ajax="false">
-                    <span class="icon- ion-social-usd-outline"></span>
+                    <span class="icon icon-banking"></span>
                     <h4 class="title" id="bankDetails"></h4>
                 </a>
             </li>
             <li class="col col-33">
                 <a href="Rebates.aspx" class="tile" runat="server" data-ajax="false">
-                    <span class="icon-rebates"></span>
+                    <span class="icon icon-rebates"></span>
                     <h4 class="title"><%=commonCulture.ElementValues.getResourceString("rebates", commonVariables.LeftMenuXML)%></h4>
                 </a>
                 <li class="col col-33">
