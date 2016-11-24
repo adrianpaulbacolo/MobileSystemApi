@@ -1,0 +1,34 @@
+﻿<div class="padding rebates-modal-content">
+    <div class="text-center">
+        <h4>{%- rebate.data.Summary %}</h4>
+        <p>{%- rebate.data.Monday %} ({%- rebate.data.StartDate %}) - {%- rebate.data.Sunday %} ({%- rebate.data.EndDate %}) </p>
+    </div>
+    <table class="rebates-table">
+        <tbody>
+            <tr>
+                <td>{%- rebate.data.LabelRebateBets %}</td>
+                <td id="betModal">{%- rebate.data.EligibleBets %}</td>
+            </tr>
+            <tr>
+                <td>{%- rebate.data.LabelRebatePercent %}</td>
+                <td id="percentModal">{%- rebate.data.rebatePercent %}</td>
+            </tr>
+            <tr>
+                <td>{%- rebate.data.LabelRebateAmount %}</td>
+                <td id="amountModal">{%- rebate.data.Amount %}</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    
+                    {% if(rebate.data.AllowClaim) { %}
+                        <input type="button" name="claimNow" value="Instant Claim" id="rebateClaim" class="button-blue" data-theme="b" onclick="javascript: $('#rebatesModal').popup('close'); window.w88Mobile.Rebates.ClaimNow('{%- rebate.data.ProductCode %}', '{%- rebate.data.Amount %}', '{%- rebate.data.AllowClaim %}');">
+                    {% } else { %}
+                        <input type="button" name="" value="Instant Claim" id="" class="button-blue" data-theme="b" disabled="disabled">
+                    {% } %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p><small>{%- rebate.data.note1 %} {%- rebate.data.CurrencyCode %} {%- rebate.data.MinimumClaim %} {%- rebate.data.note2 %}</small></p>
+</div>

@@ -36,11 +36,16 @@
                 </a>
             </li>
             <li class="col col-33">
-                <a href="/LiveChat/Default.aspx" class="tile" runat="server" data-ajax="false">
-                    <span class="icon-chat"></span>
-                    <h4 class="title"><%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%></h4>
+                <a href="Rebates.aspx" class="tile" runat="server" data-ajax="false">
+                    <span class="icon-rebates"></span>
+                    <h4 class="title"><%=commonCulture.ElementValues.getResourceString("rebates", commonVariables.LeftMenuXML)%></h4>
                 </a>
-            </li>
+                <li class="col col-33">
+                    <a href="/LiveChat/Default.aspx" class="tile" runat="server" data-ajax="false">
+                        <span class="icon-chat"></span>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%></h4>
+                    </a>
+                </li>
             <li class="col col-33">
                 <a href="/Upload/Default.aspx" class="tile" data-ajax="false">
                     <span class="icon-submit"></span>
