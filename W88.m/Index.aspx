@@ -248,7 +248,8 @@
                     </div>
                 </div>
             <%}%>
-
+            
+        <!--#include virtual="~/_static/footer.shtml" -->
         </div>
 
         <!--#include virtual="~/_static/navMenu.shtml" -->
