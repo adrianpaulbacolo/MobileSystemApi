@@ -1,10 +1,10 @@
 ﻿<div class="gpi-footer">
-    <img src="/_Static/Images/GPI-Logo.png" />
+    <img src="/_Static/Images/GPI-Logo.png" class="gpi-img" />
     <p>
-        W88 offers state-of-the-art technology that has innovated, Asia’s best gaming products and games that has rapidly become higher in class.
+        <%=commonCulture.ElementValues.getResourceString("gpiFooter", commonVariables.LeftMenuXML)%>
     </p>
-    <p>
-        ©2016 W88. All rights reserved.
+    <p>        
+        <%=commonCulture.ElementValues.getResourceString("copyright2016", commonVariables.LeftMenuXML)%>
     </p>
 </div>
 
@@ -13,6 +13,11 @@
         padding: 20px;
         text-align: center;
     }
+
+    .gpi-footer img.gpi-img{
+        width: 50%;
+    }
+
     .gpi-footer p{
         font-size: 0.7em;
         padding-top: 10px;
