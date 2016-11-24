@@ -88,7 +88,7 @@
         send("/rebates/result", "GET", sDate, function () { GPInt.prototype.ShowSplash(); }, function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
 
-                $.get('/_Static/templates/rebates/ClaimGroups.html', function (data) {
+                $.get('/_Static/templates/rebates/ClaimGroups.html', function(data) {
                     var template = _.template(data);
 
                     $("#group").html(template({
@@ -100,6 +100,10 @@
 
                 }, 'html');
 
+            } else {
+                w88Mobile.Growl.shout(response.ResponseMessage, function() {
+                    window.location.replace("/Profile");
+                });
             }
         }, "");
     }
@@ -145,6 +149,10 @@
 
                     $('#rebatesModal').popup('open');
 
+                } else {
+                    w88Mobile.Growl.shout(response.ResponseMessage, function () {
+                        window.location.replace("/Profile");
+                    });
                 }
             }, "");
         }
@@ -174,7 +182,9 @@
                     $('#rebatesModal').popup('open');
 
                 } else {
-                    w88Mobile.Growl.shout(response.ResponseMessage);
+                    w88Mobile.Growl.shout(response.ResponseMessage, function () {
+                        window.location.replace("/Profile");
+                    });
                 }
             }, "");
 
