@@ -141,7 +141,7 @@
                     $.get('/_Static/templates/rebates/claimModal.html', function(data) {
                         var template = _.template(data);
 
-                        $("#modalContent").parent().html(template({
+                        $("#modalContent").html(template({
                             data: d
                         })).enhanceWithin();
 
@@ -169,14 +169,17 @@
             send("/rebates/claim", "POST", claim, function () { GPInt.prototype.ShowSplash(); }, function (response) {
                 if (response && _.isEqual(response.ResponseCode, 1)) {
 
+                    GPInt.prototype.HideSplash();
+
                     var d = {
                         msg: response.ResponseMessage,
-                        congrats: sessionStorage.getItem("congrats")
+                        congrats: sessionStorage.getItem("congrats"),
+                        statusCode: response.ResponseCode
                     };
                     $.get('/_Static/templates/rebates/claimMessage.html', function (data) {
                         var template = _.template(data);
 
-                        $("#modalContent").parent().html(template({
+                        $("#modalContent").html(template({
                             data: d
                         })).enhanceWithin();
 
