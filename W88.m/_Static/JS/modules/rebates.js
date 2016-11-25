@@ -60,6 +60,8 @@
                 sessionStorage.setItem("congrats", response.ResponseData.LABEL_CONGRATS);
                 sessionStorage.setItem("claimedAmount", response.ResponseData.LABEL_REBATE_CLAIMED_AMOUNT);
                 sessionStorage.setItem("balanceAmount", response.ResponseData.LABEL_REBATE_BALANCE_AMOUNT);
+                sessionStorage.setItem("btnClaim", response.ResponseData.BUTTON_CLAIM);
+                sessionStorage.setItem("btnInstant", response.ResponseData.BUTTON_INSTANT_CLAIM);
             }
         }, "");
     }
@@ -97,7 +99,8 @@
                         data: response.ResponseData,
                         LabelRebateAmount: sessionStorage.getItem("rebateAmount"),
                         LabelRebatePercent: sessionStorage.getItem("rebatePercent"),
-                        LabelRebateBets: sessionStorage.getItem("rebateBets")
+                        LabelRebateBets: sessionStorage.getItem("rebateBets"),
+                        BtnClaim: sessionStorage.getItem("btnClaim"),
                     })).enhanceWithin();
 
                 }, 'html');
@@ -142,7 +145,8 @@
                         LabelRebatePercent: sessionStorage.getItem("rebatePercent"),
                         LabelRebateBets: sessionStorage.getItem("rebateBets"),
                         LabelClaimedAmount: sessionStorage.getItem("claimedAmount"),
-                        LabelBalanceAmount: sessionStorage.getItem("balanceAmount")
+                        LabelBalanceAmount: sessionStorage.getItem("balanceAmount"),
+                        btnInstantClaim: sessionStorage.getItem("btnInstant")
                 };
                     $.get('/_Static/templates/rebates/claimModal.html', function(data) {
                         var template = _.template(data);

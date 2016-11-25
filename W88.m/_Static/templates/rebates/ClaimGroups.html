@@ -24,7 +24,7 @@
                     <td colspan="2">
                         
                         {% if(col.AllowClaim) { %}
-                        <input type="button" name="btnSubmit" value="Instant Claim" id="rebatesClaim" class="button-blue" data-theme="b" onclick="javascript: window.w88Mobile.Rebates.ClaimQuery('{%- col.ProductCode %}', '{%- col.AllowClaim %}', '{%- col.TotalEligibleBet %}', '{%- col.RebatePercent %}', '{%- col.RebateAmount %}');">
+                        <input type="button" name="btnSubmit" value="{%- rebate.BtnClaim %}" id="rebatesClaim" class="button-blue" data-theme="b" onclick="javascript: window.w88Mobile.Rebates.ClaimQuery('{%- col.ProductCode %}', '{%- col.AllowClaim %}', '{%- col.TotalEligibleBet %}', '{%- col.RebatePercent %}', '{%- col.RebateAmount %}');">
                         {% } else { %}
                         <input type="button" name="" value="Instant Claim" id="" class="button-blue" data-theme="b" disabled="disabled">
                         {% } %}
