@@ -18,10 +18,18 @@
                 <td id="amountModal">{%- rebate.data.Amount %}</td>
             </tr>
             <tr>
+                <td>{%- rebate.data.LabelClaimedAmount %}</td>
+                <td id="claimModal">{%- rebate.data.ClaimedAmount %}</td>
+            </tr>
+            <tr>
+                <td>{%- rebate.data.LabelBalanceAmount %}</td>
+                <td id="balanceModal">{%- rebate.data.BalanceRebateAmount %}</td>
+            </tr>
+            <tr>
                 <td colspan="2">
                     
-                    {% if(rebate.data.AllowClaim == true) { %}
-                        <input type="button" name="claimNow" value="Instant Claim" id="rebateClaim" class="button-blue" data-theme="b" onclick="javascript: $('#rebatesModal').popup('close'); window.w88Mobile.Rebates.ClaimNow('{%- rebate.data.ProductCode %}', '{%- rebate.data.Amount %}', '{%- rebate.data.AllowClaim %}');">
+                    {% if(rebate.data.AllowClaim) { %}
+                        <input type="button" name="claimNow" value="Instant Claim" id="rebateClaim" class="button-blue" data-theme="b" onclick="javascript: $('#rebatesModal').popup('close'); window.w88Mobile.Rebates.ClaimNow('{%- rebate.data.ProductCode %}', '{%- rebate.data.BalanceRebateAmount %}', '{%- rebate.data.AllowClaim %}');">
                     {% } else { %}
                         <input type="button" name="" value="Instant Claim" id="" class="button-blue" data-theme="b" disabled="disabled">
                     {% } %}

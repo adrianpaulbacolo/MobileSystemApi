@@ -58,6 +58,8 @@
                 sessionStorage.setItem("rebateBets", response.ResponseData.LABEL_REBATE_BETS);
                 sessionStorage.setItem("rebatePercent", response.ResponseData.LABEL_REBATE_PERCENT);
                 sessionStorage.setItem("congrats", response.ResponseData.LABEL_CONGRATS);
+                sessionStorage.setItem("claimedAmount", response.ResponseData.LABEL_REBATE_CLAIMED_AMOUNT);
+                sessionStorage.setItem("balanceAmount", response.ResponseData.LABEL_REBATE_BALANCE_AMOUNT);
             }
         }, "");
     }
@@ -125,6 +127,8 @@
                         rebatePercent: percent,
                         Amount: amount,
                         AllowClaim: allowClaim,
+                        ClaimedAmount: response.ResponseData.ClaimedAmount,
+                        BalanceRebateAmount: response.ResponseData.BalanceRebateAmount,
                         CurrencyCode: response.ResponseData.CurrencyCode,
                         MinimumClaim: response.ResponseData.MinimumClaim,
                         Monday: sessionStorage.getItem("monday"),
