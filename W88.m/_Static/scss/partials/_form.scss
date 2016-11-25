@@ -133,10 +133,8 @@ select {
 
 .download-app-box{
     width: 100%;
-    top: 0;
-    left: 0;
     z-index: 1000;
-    position: absolute;
+    position: relative !important;
 }
 
 .download-app {
