@@ -273,9 +273,6 @@
                     ]
                 });
 
-                //var divMainTop = $(".download-app").height();
-                //$("div#divMain").css("top", divMainTop + "px");  
-
                 var url = window.location.protocol + '//www.' + '<%=commonIp.DomainName %>' + '?nomobile=true';
                 $("#icon-desktop").attr('href', url);
 
@@ -284,8 +281,8 @@
             });
 
             function hideDownload() {
+                $(".download-app").addClass("hide");
                 $("div#divMain").removeClass("download-app-visible");
-                //$("div#divMain").css("top", "0");
             }
         </script>
 
