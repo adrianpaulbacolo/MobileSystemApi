@@ -141,6 +141,8 @@
                         LabelRebateAmount: sessionStorage.getItem("rebateAmount"),
                         LabelRebatePercent: sessionStorage.getItem("rebatePercent"),
                         LabelRebateBets: sessionStorage.getItem("rebateBets"),
+                        LabelClaimedAmount: sessionStorage.getItem("claimedAmount"),
+                        LabelBalanceAmount: sessionStorage.getItem("balanceAmount")
                 };
                     $.get('/_Static/templates/rebates/claimModal.html', function(data) {
                         var template = _.template(data);
