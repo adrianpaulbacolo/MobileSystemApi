@@ -58,6 +58,7 @@
                 sessionStorage.setItem("rebateAmount", response.ResponseData.LABEL_REBATE_AMOUNT);
                 sessionStorage.setItem("rebateBets", response.ResponseData.LABEL_REBATE_BETS);
                 sessionStorage.setItem("rebatePercent", response.ResponseData.LABEL_REBATE_PERCENT);
+                sessionStorage.setItem("congrats", response.ResponseData.LABEL_CONGRATS);
             }
         }, "");
     }
@@ -169,7 +170,10 @@
             send("/rebates/claim", "POST", claim, function () { GPInt.prototype.ShowSplash(); }, function (response) {
                 if (response && _.isEqual(response.ResponseCode, 1)) {
 
-                    var d = { msg: response.ResponseMessage };
+                    var d = {
+                        msg: response.ResponseMessage,
+                        congrats: sessionStorage.getItem("congrats")
+                    };
                     $.get('/_Static/templates/rebates/claimMessage.html', function (data) {
                         var template = _.template(data);
 
