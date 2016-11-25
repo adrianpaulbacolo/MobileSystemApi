@@ -52,11 +52,6 @@
         $(document).ready(function () {
             window.w88Mobile.Rebates.Initialize();
 
-            $("#group").load(function () {
-
-                window.w88Mobile.Rebates.Statement();
-            });
-
             $("#weeks").change(function () {
 
                 window.w88Mobile.Rebates.Statement();

@@ -39,7 +39,6 @@
     function initialize() {
         translations();
         weeks();
-        statement();
     }
 
     function translations() {
