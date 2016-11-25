@@ -10,7 +10,53 @@
     <script type="text/javascript" src="/_Static/Js/radar.js"></script>
 </head>
 <body>
-    <div id="divMain" data-role="page" data-theme="b" data-ajax="false">
+            
+           <%if(mobileDeviceId == 2){%>
+        <div class="download-app-box">
+                <div class="download-app" >
+                    <div class="row">
+                        <div class="col col-25 download-icon">
+                            <span class="ion-social-android"></span>
+                        </div>
+                        <div class="col col-75 download-summary">
+                            <h5 class="title"><%=commonCulture.ElementValues.getResourceString("w88Android", commonVariables.LeftMenuXML)%></h5>
+                            <span><%=commonCulture.ElementValues.getResourceString("w88AndroidDesc", commonVariables.LeftMenuXML)%></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a href="javascript:hideDownload();" role="button" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("NoThanks", commonVariables.LeftMenuXML)%></a>
+                        </div>
+                        <div class="col">
+                            <a href="<%=commonClubWAPK.getDownloadUrl %>"  target="_blank" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("DownloadNow", commonVariables.LeftMenuXML)%></a>
+                        </div>
+                    </div>
+                </div>
+            <%}%>
+            <%if(mobileDeviceId == 1){%>
+                <div class="download-app">
+                    <div class="row">
+                        <div class="col col-25 download-icon">
+                            <span class="ion-social-apple"></span>
+                        </div>
+                        <div class="col col-75 download-summary">
+                            <h5 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Label", commonVariables.ProductsXML)%></h5>
+                            <p><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Description", commonVariables.ProductsXML)%></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a href="javascript:hideDownload();" role="button" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("NoThanks", commonVariables.LeftMenuXML)%></a>
+                        </div>
+                        <div class="col">
+                            <a href="/_Static/Downloads/w88.aspx" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("DownloadNow", commonVariables.LeftMenuXML)%></a>
+                        </div>
+                    </div>
+                </div>
+            <%}%>
+            </div>
+
+    <div id="divMain" class="download-app-visible" data-role="page" data-theme="b" data-ajax="false">
         <!--#include virtual="~/_static/header.shtml" -->
         <div class="ui-content" role="main">
 
@@ -206,49 +252,6 @@
 
             </ul>
             
-           <%if(mobileDeviceId == 2){%>
-                <div class="download-app">
-                    <div class="row">
-                        <div class="col col-25 download-icon">
-                            <span class="ion-social-android"></span>
-                        </div>
-                        <div class="col col-75 download-summary">
-                            <h5 class="title"><%=commonCulture.ElementValues.getResourceString("w88Android", commonVariables.LeftMenuXML)%></h5>
-                            <span><%=commonCulture.ElementValues.getResourceString("w88AndroidDesc", commonVariables.LeftMenuXML)%></span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <a href="javascript:hideDownload();" role="button" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("NoThanks", commonVariables.LeftMenuXML)%></a>
-                        </div>
-                        <div class="col">
-                            <a href="<%=commonClubWAPK.getDownloadUrl %>"  target="_blank" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("DownloadNow", commonVariables.LeftMenuXML)%></a>
-                        </div>
-                    </div>
-                </div>
-            <%}%>
-            <%if(mobileDeviceId == 1){%>
-                <div class="download-app">
-                    <div class="row">
-                        <div class="col col-25 download-icon">
-                            <span class="ion-social-apple"></span>
-                        </div>
-                        <div class="col col-75 download-summary">
-                            <h5 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Label", commonVariables.ProductsXML)%></h5>
-                            <p><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Description", commonVariables.ProductsXML)%></p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <a href="javascript:hideDownload();" role="button" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("NoThanks", commonVariables.LeftMenuXML)%></a>
-                        </div>
-                        <div class="col">
-                            <a href="/_Static/Downloads/w88.aspx" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("DownloadNow", commonVariables.LeftMenuXML)%></a>
-                        </div>
-                    </div>
-                </div>
-            <%}%>
-            
         <!--#include virtual="~/_static/footer.shtml" -->
         </div>
 
@@ -270,6 +273,9 @@
                     ]
                 });
 
+                var divMainTop = $(".download-app").height();
+                $("div#divMain").css("top", divMainTop + "px");  
+
                 var url = window.location.protocol + '//www.' + '<%=commonIp.DomainName %>' + '?nomobile=true';
                 $("#icon-desktop").attr('href', url);
 
@@ -278,7 +284,8 @@
             });
 
             function hideDownload() {
-                $(".download-app").addClass("hide");
+                $("div#divMain").removeClass("download-app-visible");
+                $("div#divMain").css("top", "0");
             }
         </script>
 
