@@ -68,7 +68,7 @@ public static class commonPaymentMethodFunc
         ICollection<KeyValuePair<int, string>> wallet = new Dictionary<int, string>();
         var obj = new Wallets();
 
-        foreach (var info in obj.WalletInfo.OrderBy(x=>x.SelectOrder))
+        foreach (var info in obj.WalletInfo.OrderBy(x => x.SelectOrder))
         {
             var selectName = string.IsNullOrWhiteSpace(info.SelectName) ? info.Name : info.SelectName;
             wallet.Add(new KeyValuePair<int, string>(Convert.ToInt32(info.Id), selectName));
@@ -212,10 +212,7 @@ public static class commonPaymentMethodFunc
 
                 anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
 
-                if (isApp)
-                    anchor.Attributes.Add("href", "/Deposit/DaddyPay_app.aspx?value=1");
-                else
-                    anchor.Attributes.Add("href", "/Deposit/DaddyPay.aspx?value=1");
+                anchor.Attributes.Add("href", "/Deposit/DaddyPay.aspx?value=1");
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
@@ -231,15 +228,13 @@ public static class commonPaymentMethodFunc
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
                 break;
+
             //case commonVariables.DepositMethod.DaddyPayQR:
             //    list = CreateMethodListControl(paymentCode);
 
             //    anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
 
-            //    if (isApp)
-            //        anchor.Attributes.Add("href", "/Deposit/DaddyPay_app.aspx?value=2");
-            //    else
-            //        anchor.Attributes.Add("href", "/Deposit/DaddyPay.aspx?value=2");
+            //    anchor.Attributes.Add("href", "/Deposit/DaddyPay.aspx?value=2");
 
             //    list.Controls.Add(anchor);
             //    depositTabs.Controls.Add(list);
