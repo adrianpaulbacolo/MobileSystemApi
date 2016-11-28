@@ -8,6 +8,7 @@
     <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dShengPayAliPay", commonVariables.PaymentMethodsXML))%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/shengpay.js"></script>
 </head>
 <body>
     <div data-role="page" data-theme="b">
@@ -99,12 +100,7 @@
 
                     switch (response.ResponseCode) {
                         case 1:
-                            w88Mobile.Growl.shout(response.ResponseMessage);
-                            w88Mobile.PostPaymentForm.create(
-                                response.ResponseData.FormData,
-                                response.ResponseData.PostUrl,
-                                "body");
-                            w88Mobile.PostPaymentForm.submit();
+                            window.open(response.ResponseData.PostUrl);
                             $('#form1')[0].reset();
                             break;
                         default:
