@@ -7,13 +7,17 @@
     <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dECPSS", commonVariables.PaymentMethodsXML))%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/ecpss.js"></script>
 </head>
 <body>
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
+            <% if (commonCookie.CookieIsApp != "1")
+               { %>
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
             </a>
+            <% } %>
             <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dECPSS", commonVariables.PaymentMethodsXML))%></h1>
         </header>
 
@@ -73,55 +77,50 @@
                     </li>
                     <li class="item row">
                         <div class="col">
-                            <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" id="btnCancel" runat="server" data-ajax="false"><%=base.strbtnCancel%></a>
-                        </div>
-                        <div class="col">
-                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" />
+                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" />
                         </div>
                     </li>
                 </ul>
             </form>
         </div>
 
+        <% if (commonCookie.CookieIsApp != "1")
+           { %>
         <!--#include virtual="~/_static/navMenu.shtml" -->
+        <% } %>
+
         <script type="text/javascript">
-            $('#form1').submit(function (e) {
-                window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
+            $(document).ready(function () {
+                $('#form1').submit(function (e) {
+                    e.preventDefault();
+                    window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
+
+                    var data = {
+                        Amount: $('#txtDepositAmount').val(),
+                        Bank: { Text: $('#drpBank option:selected').text(), Value: $('#drpBank option:selected').val() },
+                    };
+
+                    window.w88Mobile.Gateways.ECPSS.Deposit(data, function (response) {
+                        switch (response.ResponseCode) {
+                            case 1:
+                                w88Mobile.Growl.shout(response.ResponseMessage);
+                                window.open(response.ResponseData.DummyURL);
+                                $('#form1')[0].reset();
+                                break;
+                            default:
+                                w88Mobile.Growl.shout(response.ResponseMessage);
+                                window.open(response.ResponseData.DummyURL);
+                                $('#form1')[0].reset();
+                                break;
+                        }
+                    },
+                    function () {
+                        window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
+                        GPInt.prototype.HideSplash();
+                    });
+                });
+
             });
-            $(function () {
-                window.history.forward();
-
-                if ($('#depositTabs li').length == 0) {
-                    window.location.reload();
-                }
-
-                var responseCode = '<%=strAlertCode%>';
-                var responseMsg = '<%=strAlertMessage%>';
-                if (responseCode.length > 0) {
-                    switch (responseCode) {
-                        case '-1':
-                            alert(responseMsg);
-                            break;
-
-                        case '0':
-                            var cookie = '<%=HttpUtility.UrlEncode(commonEncryption.encrypting(HttpUtility.UrlEncode(commonCookie.CookieS),ConfigurationManager.AppSettings["PaymentPrivateKey"]))%>';
-                            var remote_ip = '<%=HttpUtility.UrlEncode(commonEncryption.encrypting(commonIp.remoteIP,ConfigurationManager.AppSettings["PaymentPrivateKey"]))%>';
-                            var domain = '<%=strRedirectUrl%>';
-
-                            if (domain != '') {
-                                var url = domain + "api/ECPSSHandler.ashx?requestAmount=" + $("#txtDepositAmount").val() + "&bankCode=" + $("#drpBank").val() + "&cookie=" + cookie + "&ip=" + remote_ip + "&isMobile=true";
-                                window.open(url);
-                            } else {
-                                alert('<%=commonCulture.ElementValues.getResourceXPathString("CustomerService", commonVariables.ErrorsXML)%>');
-                            }
-
-                            break;
-                        default:
-                            break;
-                    }
-                }
-            });
-
         </script>
     </div>
 </body>
