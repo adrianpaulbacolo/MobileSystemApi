@@ -100,6 +100,7 @@
 
                     switch (response.ResponseCode) {
                         case 1:
+                            w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
                             window.open(response.ResponseData.PostUrl);
                             $('#form1')[0].reset();
                             break;
