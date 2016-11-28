@@ -48,6 +48,7 @@
                 $('#labelPeriod').html(response.ResponseData.LABEL_REBATE_PERIOD);
                 $('#monday').html(response.ResponseData.LABEL_MONDAY);
                 $('#sunday').html(response.ResponseData.LABEL_SUNDAY);
+                $('#rebateDisclaimer').html(response.ResponseData.LABEL_REBATE_DISCLAIMER);
 
                 sessionStorage.setItem("monday", response.ResponseData.LABEL_MONDAY);
                 sessionStorage.setItem("sunday", response.ResponseData.LABEL_SUNDAY);

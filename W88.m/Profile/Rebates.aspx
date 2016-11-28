@@ -24,7 +24,7 @@
             <div id="group"></div>
 
             <div class="rebates-disclaimer">
-                <p><small>Disclaimer: Min. Rebate Amount: USD 1.00 Rebate Amount displayed may deviate from the actual rebate paid out. Refer to "Promotion Claim" history for the actual payout.</small></p>
+                <p><small id="rebateDisclaimer"></small></p>
             </div>
         </form>
     </div>
