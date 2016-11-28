@@ -114,7 +114,7 @@
         }, "");
     }
 
-    function claimQuery(productCode, allowClaim, bets, percent, amount) {
+    function claimQuery(productCode, allowClaim) {
 
         if (allowClaim) {
 
@@ -127,9 +127,9 @@
 
                     var d = {
                         ProductCode: productCode,
-                        EligibleBets: bets,
-                        rebatePercent: percent,
-                        Amount: amount,
+                        EligibleBets: response.ResponseData.TotalEligibleBet,
+                        rebatePercent:  response.ResponseData.RebatePercent,
+                        Amount:  response.ResponseData.RebateAmount,
                         AllowClaim: allowClaim,
                         ClaimedAmount: response.ResponseData.ClaimedAmount,
                         BalanceRebateAmount: response.ResponseData.BalanceRebateAmount,
