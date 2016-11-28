@@ -113,18 +113,12 @@ public static class commonPaymentMethodFunc
 
         list = CreateMethodListControl(paymentCode);
         anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
+        var hasLink = true;
 
         switch (paymentCode)
         {
             case commonVariables.DepositMethod.JutaPay:
-                list = CreateMethodListControl(paymentCode);
-
-                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
-
                 anchor.Attributes.Add("href", "/Deposit/JutaPay.aspx");
-
-                list.Controls.Add(anchor);
-                depositTabs.Controls.Add(list);
                 break;
 
             case commonVariables.DepositMethod.FastDeposit:
@@ -179,14 +173,8 @@ public static class commonPaymentMethodFunc
                 break;
 
             case commonVariables.DepositMethod.BaokimScratchCard:
-                list = CreateMethodListControl(paymentCode);
-
-                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
 
                 anchor.Attributes.Add("href", "/Deposit/BaokimScratchCard.aspx");
-
-                list.Controls.Add(anchor);
-                depositTabs.Controls.Add(list);
                 break;
             //case commonVariables.DepositMethod.DaddyPayQR:
             //    if (isApp)
@@ -232,14 +220,8 @@ public static class commonPaymentMethodFunc
                 break;
 
             //case commonVariables.DepositMethod.JTPayAliPay:
-            //    list = CreateMethodListControl(paymentCode);
-
-            //    anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
 
             //    anchor.Attributes.Add("href", "/Deposit/AliPay");
-
-            //    list.Controls.Add(anchor);
-            //    depositTabs.Controls.Add(list);
             //    break;
 
             case commonVariables.DepositMethod.EGHL:
@@ -263,11 +245,14 @@ public static class commonPaymentMethodFunc
 
 
             default:
+                hasLink = false;
                 break;
         }
-
-        list.Controls.Add(anchor);
-        depositTabs.Controls.Add(list);
+        if (hasLink)
+        {
+            list.Controls.Add(anchor);
+            depositTabs.Controls.Add(list);
+        }
     }
 
     private static HtmlGenericControl CreateMethodListControl(commonVariables.DepositMethod paymentCode)
