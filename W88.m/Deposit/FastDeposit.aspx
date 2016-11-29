@@ -24,7 +24,16 @@
             </div>
 
             <div data-role="navbar" id="depositTabs" runat="server">
-            </div>
+            </div> 
+
+            <div class="toggle-list-box">
+                <button class="toggle-list-btn btn-active">Fast Deposit</button>
+                <ul class="toggle-list hidden">
+                    <li><button class="">Bank Transfer</button></li>
+                    <li><button class="">Quick Pay</button></li>
+                    <li><button class="">Fast Deposit</button></li>
+                </ul>
+            </div> 
 
             <form class="form" id="form1" runat="server" data-ajax="false">
                 <br />
@@ -161,6 +170,19 @@
 
             $('#drpBank').change(function () {
                 window.w88Mobile.Gateways.FastDeposit.ToogleBank(this.value);
+            });
+
+
+            $(".toggle-list-btn").click(function() {
+                $(this).parent().find('.toggle-list').slideToggle( "fast", function() {
+                    if(!$('.toggle-list-btn').hasClass('toggled')){
+                        $(this).parent().find('.toggle-list-btn').addClass('toggled');
+                    }
+                    else{
+                        $(this).parent().find('.toggle-list-btn').removeClass('toggled');
+                    }
+                    
+                });
             });
         </script>
     </div>
