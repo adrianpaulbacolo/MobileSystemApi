@@ -179,9 +179,6 @@
             case "110101":
                 return "FastDeposit.aspx";
 
-            case "120203":
-                return "SDAPay.aspx";
-
             case "120204":
                 return "NextPay.aspx";
 
@@ -211,6 +208,9 @@
 
             case "120254":
                 return "SDAPay.aspx";
+
+            case "1202111":
+                return "ShengPayAliPay.aspx";
 
             case "120218":
                 return "ECPSS.aspx";
