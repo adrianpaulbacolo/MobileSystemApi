@@ -7,15 +7,18 @@
 <head>
     <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("wBankTransfer", commonVariables.PaymentMethodsXML))%></title>
     <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/Js/Main.js"></script>
-    <script type="text/javascript" src="/_Static/JS/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js"></script>
 </head>
 <body>
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
+            <% if (commonCookie.CookieIsApp != "1")
+               { %>
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
             </a>
+            <% } %>
+
             <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("wBankTransfer", commonVariables.PaymentMethodsXML))%></h1>
         </header>
 
@@ -24,8 +27,9 @@
                 <uc:Wallet ID="uMainWallet" runat="server" />
             </div>
 
-            <div data-role="navbar">
-                <ul id="withdrawalTabs" runat="server">
+            <div class="toggle-list-box">
+                <button class="toggle-list-btn btn-active" id="activeWithdrawalTabs"></button>
+                <ul class="toggle-list hidden" id="withdrawalTabs">
                 </ul>
             </div>
 
@@ -111,9 +115,6 @@
                     </li>
                     <li class="item row">
                         <div class="col">
-                            <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" data-ajax="false"><%=base.strbtnCancel%></a>
-                        </div>
-                        <div class="col">
                             <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" OnClick="btnSubmit_Click" />
                         </div>
                     </li>
@@ -124,21 +125,22 @@
                 <asp:HiddenField ID="hfBBId" runat="server" ClientIDMode="Static" />
             </form>
         </div>
-        
+
+        <% if (commonCookie.CookieIsApp != "1")
+           { %>
         <!--#include virtual="~/_static/navMenu.shtml" -->
+        <% } %>
+
         <script type="text/javascript">
 
             var selectName = '<%=strdrpBank%>';
 
-            $('#form1').submit(function (e) {
-                window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
-            });
-            $(function () {
-                window.history.forward();
+            $(document).ready(function () {
+                window.w88Mobile.Gateways.DefaultPayments.Withdraw("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
 
-                if ($('#withdrawalTabs li').length == 0) {
-                    window.location.reload();
-                }
+                $('#form1').submit(function (e) {
+                    window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
+                });
 
                 <% if (string.Compare(commonCookie.CookieCurrency, "myr", true) == 0)
                    { %>
@@ -173,44 +175,45 @@
                     }
                 }
 
-            });
 
-            $('#drpBank').change(function () {
-                $('#<%=hfBLId.ClientID%>').val('');
-                $('#<%=hfBBId.ClientID%>').val('');
-                sessionStorage.removeItem("hfBLId");
-                sessionStorage.removeItem("hfBBId");
-                window.w88Mobile.BankTransfer.ToogleBank(this.value, '<%= commonCookie.CookieCurrency.ToLower() %>', selectName);
-            });
 
-            $('#drpSecondaryBank').change(function () {
-                $('#<%=hfBLId.ClientID%>').val('');
-                $('#<%=hfBBId.ClientID%>').val('');
-                sessionStorage.removeItem("hfBLId");
-                sessionStorage.removeItem("hfBBId");
-                window.w88Mobile.BankTransfer.ToogleSecondaryBank(this.value, selectName, $('#<%=hfBLId.ClientID%>').val());
-            });
-
-            $('#drpBankLocation').change(function () {
-                if (this.value != '-1') {
-                    
+                $('#drpBank').change(function () {
+                    $('#<%=hfBLId.ClientID%>').val('');
                     $('#<%=hfBBId.ClientID%>').val('');
+                    sessionStorage.removeItem("hfBLId");
                     sessionStorage.removeItem("hfBBId");
+                    window.w88Mobile.BankTransfer.ToogleBank(this.value, '<%= commonCookie.CookieCurrency.ToLower() %>', selectName);
+                });
 
-                    $('#<%=hfBLId.ClientID%>').val(this.value);
-                    sessionStorage.setItem("hfBLId", this.value);
-                    
-                    window.w88Mobile.BankTransfer.ToogleBankBranch(selectName, $('#<%=hfBLId.ClientID%>').val(), $('#<%=hfBBId.ClientID%>').val());
-                }
+                $('#drpSecondaryBank').change(function () {
+                    $('#<%=hfBLId.ClientID%>').val('');
+                    $('#<%=hfBBId.ClientID%>').val('');
+                    sessionStorage.removeItem("hfBLId");
+                    sessionStorage.removeItem("hfBBId");
+                    window.w88Mobile.BankTransfer.ToogleSecondaryBank(this.value, selectName, $('#<%=hfBLId.ClientID%>').val());
+                });
+
+                $('#drpBankLocation').change(function () {
+                    if (this.value != '-1') {
+
+                        $('#<%=hfBBId.ClientID%>').val('');
+                        sessionStorage.removeItem("hfBBId");
+
+                        $('#<%=hfBLId.ClientID%>').val(this.value);
+                        sessionStorage.setItem("hfBLId", this.value);
+
+                        window.w88Mobile.BankTransfer.ToogleBankBranch(selectName, $('#<%=hfBLId.ClientID%>').val(), $('#<%=hfBBId.ClientID%>').val());
+                        }
+                });
+
+                $('#drpBankBranchList').change(function () {
+                    if (this.value != '-1') {
+                        sessionStorage.setItem("hfBBId", this.value);
+                        $('#<%=hfBBId.ClientID%>').val(this.value);
+                    }
+                });
+
             });
-
-            $('#drpBankBranchList').change(function () {
-                if (this.value != '-1') {
-                    sessionStorage.setItem("hfBBId", this.value);
-                    $('#<%=hfBBId.ClientID%>').val(this.value);
-                }
-            });
-
         </script>
     </div>
 </body>

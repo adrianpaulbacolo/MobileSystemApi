@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ECPSS.aspx.cs" Inherits="Deposit_ECPSS" %>
+
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
 <!DOCTYPE html>
@@ -6,7 +7,7 @@
 <head>
     <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dECPSS", commonVariables.PaymentMethodsXML))%></title>
     <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/Js/Main.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js"></script>
     <script type="text/javascript" src="/_Static/JS/modules/gateways/ecpss.js"></script>
 </head>
 <body>
@@ -23,10 +24,13 @@
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
-                <uc:Wallet id="uMainWallet" runat="server" />
+                <uc:Wallet ID="uMainWallet" runat="server" />
             </div>
 
-            <div data-role="navbar" id="depositTabs" runat="server">
+            <div class="toggle-list-box">
+                <button class="toggle-list-btn btn-active" id="activeDepositTabs"></button>
+                <ul class="toggle-list hidden" id="depositTabs">
+                </ul>
             </div>
 
             <form class="form" id="form1" runat="server" data-ajax="false">
@@ -68,7 +72,7 @@
                         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
                         <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
-                     <li class="item item-select">
+                    <li class="item item-select">
                         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
                         <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
                     </li>
@@ -91,6 +95,8 @@
 
         <script type="text/javascript">
             $(document).ready(function () {
+                window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
+
                 $('#form1').submit(function (e) {
                     e.preventDefault();
                     window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
@@ -108,7 +114,11 @@
                                 $('#form1')[0].reset();
                                 break;
                             default:
-                                w88Mobile.Growl.shout(response.ResponseMessage);
+                                if (_.isArray(response.ResponseMessage))
+                                    w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
+                                else
+                                    w88Mobile.Growl.shout(response.ResponseMessage);
+
                                 window.open(response.ResponseData.DummyURL);
                                 $('#form1')[0].reset();
                                 break;

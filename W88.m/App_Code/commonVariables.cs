@@ -239,6 +239,15 @@ public class commonVariables
         Neteller = 220815
     }
 
+    public enum AutoRouteMethod
+    {
+        QuickOnline = 999999,
+        UnionPay = 999998,
+        TopUpCard = 999997,
+        AliPay = 999996,
+        WeChat = 999995,
+    }
+
     public enum TransactionSource
     {
         Mobile

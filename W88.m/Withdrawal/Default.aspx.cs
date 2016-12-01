@@ -16,7 +16,5 @@ public partial class Withdrawal_Default : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        HtmlGenericControl withdrawalTabs = (HtmlGenericControl)FindControl("withdrawalTabs");
-        commonPaymentMethodFunc.GetWithdrawalMethodList(strMethodsUnAvailable, withdrawalTabs, base.PageName, sender.ToString().Contains("app"));
     }
 }

@@ -18,7 +18,6 @@ public partial class Deposit_FastDesposit : PaymentBasePage
         base.PageName = "FastDeposit";
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.FastDeposit);
-
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -30,9 +29,6 @@ public partial class Deposit_FastDesposit : PaymentBasePage
             this.InitialiseDepositChannel();
             this.InitialiseDepositDateTime();
         }
-
-        HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-        commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"), base.strCurrencyCode);
 
         if (strCurrencyCode.Equals("MYR", StringComparison.OrdinalIgnoreCase) && drpDepositChannel.Text.Equals("CDM", StringComparison.OrdinalIgnoreCase))
         {

@@ -19,7 +19,6 @@ public partial class Deposit_DaddyPay : PaymentBasePage
 {
     protected string strPageTitle = string.Empty;
     protected string lblTransactionId;
-    protected string lblTransactionFailed;
 
     protected bool isDaddyPayQR = false;
 
@@ -47,10 +46,6 @@ public partial class Deposit_DaddyPay : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        base.PageName = isDaddyPayQR ? base.PageName + "QR" : base.PageName;
-        HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-        commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"), base.strCurrencyCode);
-
         if (!Page.IsPostBack)
         {
             this.InitializeLabels();
@@ -109,8 +104,6 @@ public partial class Deposit_DaddyPay : PaymentBasePage
         serverError = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/error" + "1", xeErrors);
 
         lblTransactionId = base.strlblTransactionId;
-
-        lblTransactionFailed = base.GetErrors("/TransferFail").AlertMessage;
     }
 
     private void InitializeWeChatDenominations()

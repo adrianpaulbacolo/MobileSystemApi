@@ -7,7 +7,8 @@
 <head runat="server">
     <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dbaokim", commonVariables.PaymentMethodsXML))%></title>
     <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/Js/Main.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/baokimSc.js"></script>
 </head>
 <body>
     <div data-role="page" data-theme="b">
@@ -27,8 +28,9 @@
                 <uc:Wallet ID="uMainWallet" runat="server" />
             </div>
 
-            <div data-role="navbar">
-                <ul id="depositTabs" runat="server">
+            <div class="toggle-list-box">
+                <button class="toggle-list-btn btn-active" id="activeDepositTabs"></button>
+                <ul class="toggle-list hidden" id="depositTabs">
                 </ul>
             </div>
 
@@ -108,6 +110,8 @@
             var selectName = '<%=strdrpBank%>';
 
             $(document).ready(function () {
+                window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
+
                 //window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
 
                 window.w88Mobile.Gateways.BaokimScratchCard.getBanks(selectName);
@@ -126,7 +130,11 @@
                                 w88Mobile.Growl.shout(response.ResponseMessage);
                                 break;
                             default:
-                                w88Mobile.Growl.shout(response.ResponseMessage);
+                                if (_.isArray(response.ResponseMessage))
+                                    w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
+                                else
+                                    w88Mobile.Growl.shout(response.ResponseMessage);
+
                                 break;
                         }
                     });

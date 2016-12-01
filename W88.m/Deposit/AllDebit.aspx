@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AllDebit.aspx.cs" Inherits="Deposit_AllDebit" %>
+
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
 <!DOCTYPE html>
@@ -6,15 +7,18 @@
 <head>
     <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dAllDebit", commonVariables.PaymentMethodsXML))%></title>
     <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/Js/Main.js"></script>
-    <script type="text/javascript" src="/_Static/JS/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js"></script>
 </head>
 <body>
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
+            <% if (commonCookie.CookieIsApp != "1")
+               { %>
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
             </a>
+            <% } %>
+
             <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dAllDebit", commonVariables.PaymentMethodsXML))%></h1>
         </header>
 
@@ -23,8 +27,9 @@
                 <uc:Wallet ID="uMainWallet" runat="server" />
             </div>
 
-            <div data-role="navbar">
-                <ul id="depositTabs" runat="server">
+            <div class="toggle-list-box">
+                <button class="toggle-list-btn btn-active" id="activeDepositTabs"></button>
+                <ul class="toggle-list hidden" id="depositTabs">
                 </ul>
             </div>
 
@@ -100,9 +105,6 @@
                     </li>
                     <li class="item row">
                         <div class="col">
-                            <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" id="btnCancel" runat="server" data-ajax="false"><%=base.strbtnCancel%></a>
-                        </div>
-                        <div class="col">
                             <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" />
                         </div>
                     </li>
@@ -111,18 +113,18 @@
             </form>
         </div>
 
+        <% if (commonCookie.CookieIsApp != "1")
+           { %>
         <!--#include virtual="~/_static/navMenu.shtml" -->
+        <% } %>
+
         <script type="text/javascript">
-            $('#form1').submit(function (e) {
-                window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
-            });
+            $(document).ready(function () {
+                window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
 
-            $(function () {
-                window.history.forward();
-
-                if ($('#depositTabs li').length == 0) {
-                    window.location.reload();
-                }
+                $('#form1').submit(function (e) {
+                    window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
+                });
 
                 var responseCode = '<%=strAlertCode%>';
                 var responseMsg = '<%=strAlertMessage%>';
@@ -137,7 +139,7 @@
                     $('#ccvModal').popup();
                     $('#ccvModal').popup('open');
                 })
-                
+
             });
         </script>
     </div>
@@ -152,7 +154,8 @@
         </h1>
         <div class="padding">
             <div class="download-app padding">
-                <span><img src="/_Static/Images/CVV-back.jpg" class="img-responsive"/></span>
+                <span>
+                    <img src="/_Static/Images/CVV-back.jpg" class="img-responsive" /></span>
             </div>
         </div>
     </div>

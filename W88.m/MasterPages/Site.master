@@ -8,8 +8,7 @@
     <meta charset="utf-8" />
     <title><%=Page.Title %></title>
     <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/Js/Main.js"></script>
-    <script type="application/javascript" src="/_Static/Js/add2home.js"></script>
+    <script type="application/javascript" src="/_Static/JS/add2home.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>

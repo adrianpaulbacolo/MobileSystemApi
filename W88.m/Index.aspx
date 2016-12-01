@@ -5,9 +5,8 @@
 <head>
     <title><%=commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML).Replace(" -", "")/* + commonCulture.ElementValues.getResourceString("home", commonVariables.LeftMenuXML)*/%></title>
     <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/Js/Main.js"></script>
-    <script type="application/javascript" src="/_Static/Js/add2home.js"></script>
-    <script type="text/javascript" src="/_Static/Js/radar.js"></script>
+    <script type="application/javascript" src="/_Static/JS/add2home.js"></script>
+    <script type="text/javascript" src="/_Static/JS/radar.js"></script>
 </head>
 <body>
             
@@ -257,7 +256,7 @@
 
         <!--#include virtual="~/_static/navMenu.shtml" -->
 
-        <script src="/_Static/Js/vendor/slick.min.js"></script>
+        <script src="/_Static/JS/vendor/slick.min.js"></script>
         <script>
             // Slick - Slider Banner
             $(document).ready(function () {

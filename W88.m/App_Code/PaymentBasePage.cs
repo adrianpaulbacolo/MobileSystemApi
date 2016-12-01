@@ -21,6 +21,8 @@ public class PaymentBasePage : BasePage
     private XElement xeDefaultResources = null;
     protected XElement xeErrors = null;
     protected XElement xeResponse = null;
+
+    protected DataTable autoRouteBanks = null;
     #endregion
 
     #region Common
@@ -184,44 +186,69 @@ public class PaymentBasePage : BasePage
         strlblVendorNote = commonCulture.ElementValues.getResourceString("vendorRedirectionNote", xeDefaultResources);
     }
 
-    protected void CancelUnexpectedRePost()
+    protected void InitialisePaymentLimits()
     {
-        if (!IsPostBack)
+        if (PaymentType != 0)
         {
-            ViewState["postids"] = System.Guid.NewGuid().ToString();
-            Session["postid"] = ViewState["postids"].ToString();
-        }
-        else
-        {
-            if (string.IsNullOrEmpty(ViewState["postids"] as string))
+            if (PaymentType == commonVariables.PaymentTransactionType.Deposit)
             {
-                IsPageRefresh = true;
+                bool isAutoRoute = Enum.IsDefined(typeof(commonVariables.AutoRouteMethod), Convert.ToInt32(PaymentMethodId));
+
+                if (isAutoRoute)
+                    InitializePaymentGatewayLimit();
+                else
+                    InitialiseDepositPaymentLimits();
             }
             else
-            {
-                if (string.IsNullOrEmpty(Session["postid"] as string))
-                {
-                    IsPageRefresh = true;
-                }
-                else if (ViewState["postids"].ToString() != Session["postid"].ToString())
-                {
-                    IsPageRefresh = true;
-                }
-            }
+                InitialiseWithdrawalPaymentLimits();
+        }
 
-            Session["postid"] = System.Guid.NewGuid().ToString();
-            ViewState["postids"] = Session["postid"];
+        InitialiseLabels();
+    }
+
+    private void InitializePaymentGatewayLimit()
+    {
+        commonVariables.AutoRouteMethod autoRoute;
+        Enum.TryParse(PaymentMethodId, out autoRoute);
+
+        string gatewayGroup = GetPaymentGroup(autoRoute);
+
+        using (var svcInstance = new svcPayMember.MemberClient())
+        {
+            var response = svcInstance.GetPaymentDepositGatewayLimit(Convert.ToInt64(strOperatorId), strMemberCode);
+
+            var gatewayGroupTable = response.Tables[0].AsEnumerable().FirstOrDefault(d => d.Field<string>("gatewayGroup").Equals(gatewayGroup, StringComparison.OrdinalIgnoreCase));
+
+            strMinLimit = Convert.ToDecimal(gatewayGroupTable["minDeposit"]).ToString(commonVariables.DecimalFormat);
+            strMaxLimit = Convert.ToDecimal(gatewayGroupTable["maxDeposit"]).ToString(commonVariables.DecimalFormat);
+            strMode = "online";
+
+            autoRouteBanks = response.Tables[1];
         }
     }
 
-    protected void InitialisePaymentLimits()
+    private string GetPaymentGroup(commonVariables.AutoRouteMethod autoRoute)
     {
-        if (PaymentType == commonVariables.PaymentTransactionType.Deposit)
-            InitialiseDepositPaymentLimits();
-        else
-            InitialiseWithdrawalPaymentLimits();
+        switch (autoRoute)
+        {
+            case commonVariables.AutoRouteMethod.QuickOnline:
+                return "Quick Online";
 
-        InitialiseLabels();
+            case commonVariables.AutoRouteMethod.UnionPay:
+                return "UnionPay";
+
+            case commonVariables.AutoRouteMethod.TopUpCard:
+                return "Top-Up Card";
+
+            case commonVariables.AutoRouteMethod.AliPay:
+                return "AliPay";
+
+            case commonVariables.AutoRouteMethod.WeChat:
+                return "WeChat";
+
+            default:
+                return "";
+        }
     }
 
     private void InitialiseDepositPaymentLimits()
@@ -327,10 +354,7 @@ public class PaymentBasePage : BasePage
 
             if (arrPending != null && arrPending.Length > 0)
             {
-                if (isApp)
-                    Response.Redirect("/Withdrawal/Pending_app.aspx");
-                else
-                    Response.Redirect("/Withdrawal/Pending.aspx");
+                Response.Redirect("/Withdrawal/Pending.aspx");
             }
         }
 
