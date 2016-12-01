@@ -66,8 +66,10 @@
                             if (isAutoRoute)
                                 window.location.replace(page);
                             else {
-                                if (activeTabId)
+                                if (activeTabId){
                                     $('#activeDepositTabs').text(title);
+                                    $('#headerTitle').append(' - ' + title);
+                                }
                                 else {
                                     page = setPaymentPage(_.first(response.ResponseData).Id);
                                     if (page)
@@ -129,8 +131,10 @@
                                 }
                             })
 
-                            if (activeTabId)
+                            if (activeTabId){
                                 $('#activeWithdrawalTabs').text(title);
+                                $('#headerTitle').append(' - ' + title);
+                            }
                             else {
                                 page = setPaymentPage(_.first(response.ResponseData).Id);
                                 if (page)
