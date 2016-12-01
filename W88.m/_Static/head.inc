@@ -69,7 +69,6 @@
         }
     });
     </script>
-<script type="text/javascript" src="/_Static/JS/modules/slots.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/wallets.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/bankTransfer.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/bankDetails.js"></script>
