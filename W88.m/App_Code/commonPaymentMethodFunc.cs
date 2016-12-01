@@ -347,6 +347,16 @@ public static class commonPaymentMethodFunc
                 depositTabs.Controls.Add(list);
                 break;
 
+            case commonVariables.DepositMethod.ShengPayAliPay:
+                list = CreateMethodListControl(paymentCode);
+
+                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
+                anchor.Attributes.Add("href", "/Deposit/ShengPayAliPay.aspx");
+
+                list.Controls.Add(anchor);
+                depositTabs.Controls.Add(list);
+                break;
+
             case commonVariables.DepositMethod.VenusPoint:
                 list = CreateMethodListControl(paymentCode);
 
@@ -362,6 +372,7 @@ public static class commonPaymentMethodFunc
                 break;
         }
     }
+
 
     private static HtmlGenericControl CreateMethodListControl(commonVariables.DepositMethod paymentCode)
     {
