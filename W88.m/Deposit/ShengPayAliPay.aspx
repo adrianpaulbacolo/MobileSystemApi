@@ -69,6 +69,9 @@
                             <asp:Literal ID="txtTotalAllowed" runat="server" />
                         </div>
                     </li>
+                    <li class="item-text-wrap ali-pay-note">
+                        <asp:Label ID="lblShengPayNote" runat="server" />
+                    </li>
                     <li class="item item-input">
                         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
                         <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
@@ -87,6 +90,11 @@
         <!--#include virtual="~/_static/navMenu.shtml" -->
         <% } %>
 
+        <style>
+            li.ali-pay-note{
+                font-size: 70%;
+            }
+        </style>
         <script type="text/javascript">
             $('#form1').submit(function (e) {
                 window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
