@@ -50,3 +50,10 @@
 
 .ui-header .ui-title,
 .ui-footer .ui-title {}
+
+.download-app-visible{
+    position: relative !important;
+    .ui-header-fixed{
+        position: absolute !important;
+    }
+}
