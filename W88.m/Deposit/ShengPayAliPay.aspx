@@ -94,6 +94,15 @@
             li.ali-pay-note{
                 font-size: 70%;
             }
+            
+            li.ali-pay-note #lblShengPayNote span{
+                color: red;
+                font-weight: bold;
+            }
+            
+            li.ali-pay-note #lblShengPayNote p{
+                padding-top: 5px;
+            }
         </style>
         <script type="text/javascript">
             $('#form1').submit(function (e) {
