@@ -1,37 +1,49 @@
-﻿<div class="rebates-collapse-group">
+﻿<div class="rebates-group">
     
     {% _.forEach( rebate.data, function( op ){ %}
     <h2>{%- op.GroupNameKey %}</h2>
     
     {% _.forEach( op.Collection, function( col ){ %}
-    <div data-role="collapsible" data-inset="false">
-        <h3>{%- col.Name %}</h3>
-        <table class="rebates-table">
-            <tbody>
-                <tr>
-                    <td>{%- rebate.LabelRebateBets %}</td>
-                    <td>{%- col.TotalEligibleBet %}</td>
-                </tr>
-                <tr>
-                    <td>{%- rebate.LabelRebatePercent %}</td>
-                    <td>{%- col.RebatePercent %}</td>
-                </tr>
-                <tr>
-                    <td>{%- rebate.LabelRebateAmount %}</td>
-                    <td>{%- col.RebateAmount %}</td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        
-                        {% if(col.AllowClaim) { %}
-                        <input type="button" name="btnSubmit" value="{%- rebate.BtnClaim %}" id="rebatesClaim" class="button-blue" data-theme="b" onclick="javascript: window.w88Mobile.Rebates.ClaimQuery('{%- col.ProductCode %}', '{%- col.AllowClaim %}');">
-                        {% } else { %}
-                        <input type="button" name="" value="Instant Claim" id="" class="button-blue" data-theme="b" disabled="disabled">
-                        {% } %}
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="rebate-box" data-inset="false">
+        <div class="rebate-title">
+            <div class="row row-uc">
+                <div class="col col-50">
+                    <h3 title="{%- col.Name %}">{%- col.Name %}</h3>
+                </div>
+                <div class="col col-50 text-right-sm">
+                    {% if(col.AllowClaim) { %}
+                    <input type="button" name="btnSubmit" value="{%- rebate.BtnClaim %}" id="rebatesClaim" class="button-blue" data-theme="b" onclick="javascript: window.w88Mobile.Rebates.ClaimQuery('{%- col.ProductCode %}', '{%- col.AllowClaim %}');">
+                    {% } else { %}
+                    <input type="button" name="" value="Instant Claim" id="" class="button-blue" data-theme="b" disabled="disabled">
+                    {% } %}
+                </div>
+            </div>
+        </div>
+        <div class="rebate-table">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>{%- rebate.LabelRebateAmount %}</td>
+                        <td>{%- col.RebateAmount %}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="collapsible-table">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>{%- rebate.LabelRebatePercent %}</td>
+                            <td>{%- col.RebatePercent %}</td>
+                        </tr>
+                        <tr>
+                            <td>{%- rebate.LabelRebateBets %}</td>
+                            <td>{%- col.TotalEligibleBet %}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <a href="#" class="collapsible-btn"><span>See More</span></a>
 
     </div>
     {% }); %}

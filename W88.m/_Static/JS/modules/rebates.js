@@ -104,6 +104,21 @@
                         BtnClaim: sessionStorage.getItem("btnClaim"),
                     })).enhanceWithin();
 
+                    $(".collapsible-btn").click(function(e) {
+                        e.preventDefault();
+
+                        $(this).parent().find('.collapsible-table').slideToggle("fast");
+
+                        if($(this).hasClass('collapsed')){
+                            $(this).removeClass('collapsed');
+                            $(this).find('span').html('See More');
+                        }
+                        else{
+                            $(this).addClass('collapsed');
+                            $(this).find('span').html('See Less');
+                        }
+                    });
+
                 }, 'html');
 
             } else {

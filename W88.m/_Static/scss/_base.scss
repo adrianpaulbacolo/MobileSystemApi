@@ -226,3 +226,9 @@ figure {
 .text-blue{
     color: $primary-color;
 }
+@media all and (min-width: 769px) {
+    .text-right-sm{
+        text-align: right;
+    }
+
+}
