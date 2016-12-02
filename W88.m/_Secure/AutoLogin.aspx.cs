@@ -37,6 +37,11 @@ public partial class _Secure_AutoLogin : System.Web.UI.Page
                                 ? Request.QueryString.Get("redirect")
                                 : "/Funds.aspx", false);
                     }
+                    else
+                    {
+                         Response.Redirect("./?" + Request.QueryString, false);
+                    }
+
                 }
                 else
                 {
