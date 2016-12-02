@@ -11,42 +11,51 @@ public partial class _Secure_AutoLogin : BasePage
     {
         try
         {
-            using (var client = new memberWSSoapClient())
+            if (Request.QueryString["username"] != null && Request.QueryString["token"] != null)
             {
-                commonCookie.CookieIsApp = "1";
-                var palazzoPrefix = ConfigurationManager.AppSettings.Get("palazzo_account_prefix");
-                var rawUsername = Request.QueryString["username"];
-                var token = Request.QueryString["token"];
-                _username = Request.QueryString["username"].StartsWith(palazzoPrefix)
-                    ? Request.QueryString["username"].Remove(0, palazzoPrefix.Length)
-                    : Request.QueryString["username"];
-
-                var dsData = client.MemberAutoSigninFromApp(Convert.ToInt64(commonVariables.OperatorId), _username,
-                    rawUsername, token,
-                    Request.Url.ToString(), Request.UserHostAddress, Session.SessionID);
-
-                if (dsData.Tables.Count > 0 && dsData.Tables[0].Rows.Count > 0)
+                using (var client = new memberWSSoapClient())
                 {
-                    var result = int.Parse(dsData.Tables[0].Rows[0]["RETURN_VALUE"].ToString());
-                    if (result == 1)
-                    {
-                        new Members().SetSessions(dsData.Tables[0], null);
+                    commonCookie.CookieIsApp = "1";
+                    var palazzoPrefix = ConfigurationManager.AppSettings.Get("palazzo_account_prefix");
+                    var rawUsername = Request.QueryString["username"];
+                    var token = Request.QueryString["token"];
+                    _username = Request.QueryString["username"].StartsWith(palazzoPrefix)
+                        ? Request.QueryString["username"].Remove(0, palazzoPrefix.Length)
+                        : Request.QueryString["username"];
 
-                        Response.Redirect(
-                            !string.IsNullOrEmpty(Request.QueryString.Get("redirect"))
-                                ? Request.QueryString.Get("redirect")
-                                : "/Funds.aspx", false);
+                    var dsData = client.MemberAutoSigninFromApp(Convert.ToInt64(commonVariables.OperatorId), _username,
+                        rawUsername, token,
+                        Request.Url.ToString(), Request.UserHostAddress, Session.SessionID);
+
+                    if (dsData.Tables.Count > 0 && dsData.Tables[0].Rows.Count > 0)
+                    {
+                        var result = int.Parse(dsData.Tables[0].Rows[0]["RETURN_VALUE"].ToString());
+                        if (result == 1)
+                        {
+                            new Members().SetSessions(dsData.Tables[0], null);
+
+                            Response.Redirect(
+                                !string.IsNullOrEmpty(Request.QueryString.Get("redirect"))
+                                    ? Request.QueryString.Get("redirect")
+                                    : "/Funds.aspx", false);
+                        }
+                        else
+                        {
+                            Response.Redirect("./?" + Request.QueryString, false);
+                        }
                     }
                     else
                     {
-                         Response.Redirect("./?" + Request.QueryString, false);
+                        Response.Redirect("./?" + Request.QueryString, false);
                     }
-
                 }
-                else
-                {
-                    Response.Redirect("./?" + Request.QueryString, false);
-                }
+            }
+            else
+            {
+                Response.Redirect(
+                               !string.IsNullOrEmpty(Request.QueryString.Get("redirect"))
+                                   ? Request.QueryString.Get("redirect")
+                                   : "/Funds.aspx", false);
             }
         }
         catch (Exception ex)
