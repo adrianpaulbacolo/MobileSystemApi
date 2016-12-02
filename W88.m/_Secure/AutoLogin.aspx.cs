@@ -3,7 +3,7 @@ using System.Configuration;
 using Helpers;
 using wsMemberMS1;
 
-public partial class _Secure_AutoLogin : System.Web.UI.Page
+public partial class _Secure_AutoLogin : BasePage
 {
     private string _username = string.Empty;
 
