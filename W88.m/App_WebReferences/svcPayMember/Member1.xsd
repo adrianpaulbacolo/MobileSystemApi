@@ -1380,4 +1380,57 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="checkFunPayTransaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="invId" type="xs:long" />
+        <xs:element minOccurs="0" name="methodId" type="xs:long" />
+        <xs:element minOccurs="0" name="merchantId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="checkFunPayTransactionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="checkFunPayTransactionResult" type="xs:int" />
+        <xs:element minOccurs="0" name="refNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="senderFee" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMemberHeepayWeChatPayMobileMethod">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="operatorId" type="xs:long" />
+        <xs:element minOccurs="0" name="memberCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMemberHeepayWeChatPayMobileMethodResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMemberHeepayWeChatPayMobileMethodResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="validateIShowMemberRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ip" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="gid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="passport" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="country" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="chksum" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="validateIShowMemberRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="validateIShowMemberRequestResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

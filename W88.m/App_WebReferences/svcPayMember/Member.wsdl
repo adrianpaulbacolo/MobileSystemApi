@@ -393,6 +393,24 @@
   <wsdl:message name="IMember_GetMemberAvailableDepositMethods_Mobile_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetMemberAvailableDepositMethods_MobileResponse" />
   </wsdl:message>
+  <wsdl:message name="IMember_checkFunPayTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:checkFunPayTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IMember_checkFunPayTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:checkFunPayTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMember_GetMemberHeepayWeChatPayMobileMethod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberHeepayWeChatPayMobileMethod" />
+  </wsdl:message>
+  <wsdl:message name="IMember_GetMemberHeepayWeChatPayMobileMethod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberHeepayWeChatPayMobileMethodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMember_validateIShowMemberRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:validateIShowMemberRequest" />
+  </wsdl:message>
+  <wsdl:message name="IMember_validateIShowMemberRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:validateIShowMemberRequestResponse" />
+  </wsdl:message>
   <wsdl:portType name="IMember">
     <wsdl:operation name="getWallets">
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/getWallets" message="tns:IMember_getWallets_InputMessage" />
@@ -649,6 +667,18 @@
     <wsdl:operation name="GetMemberAvailableDepositMethods_Mobile">
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/GetMemberAvailableDepositMethods_Mobile" message="tns:IMember_GetMemberAvailableDepositMethods_Mobile_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMember/GetMemberAvailableDepositMethods_MobileResponse" message="tns:IMember_GetMemberAvailableDepositMethods_Mobile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="checkFunPayTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/checkFunPayTransaction" message="tns:IMember_checkFunPayTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/checkFunPayTransactionResponse" message="tns:IMember_checkFunPayTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberHeepayWeChatPayMobileMethod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/GetMemberHeepayWeChatPayMobileMethod" message="tns:IMember_GetMemberHeepayWeChatPayMobileMethod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/GetMemberHeepayWeChatPayMobileMethodResponse" message="tns:IMember_GetMemberHeepayWeChatPayMobileMethod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="validateIShowMemberRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/validateIShowMemberRequest" message="tns:IMember_validateIShowMemberRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/validateIShowMemberRequestResponse" message="tns:IMember_validateIShowMemberRequest_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IMember" type="tns:IMember">
@@ -1222,6 +1252,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetMemberAvailableDepositMethods_Mobile">
       <soap:operation soapAction="http://tempuri.org/IMember/GetMemberAvailableDepositMethods_Mobile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkFunPayTransaction">
+      <soap:operation soapAction="http://tempuri.org/IMember/checkFunPayTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberHeepayWeChatPayMobileMethod">
+      <soap:operation soapAction="http://tempuri.org/IMember/GetMemberHeepayWeChatPayMobileMethod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateIShowMemberRequest">
+      <soap:operation soapAction="http://tempuri.org/IMember/validateIShowMemberRequest" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -63,7 +63,7 @@ namespace Helpers
 
         }
 
-        private void SetSessions(DataTable dTable, string password)
+        public void SetSessions(DataTable dTable, string password)
         {
             MemberData(dTable);
 
