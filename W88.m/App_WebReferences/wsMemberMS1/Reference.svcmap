@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://ws.ms1dev.com/memberws.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://ws.aqzbouat.com/memberws.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="memberws.wsdl" MetadataType="Wsdl" ID="728a3194-1602-41c2-95bb-b8ec338d04f9" SourceId="1" SourceUrl="http://ws.ms1dev.com/memberws.asmx?wsdl" />
-    <MetadataFile FileName="memberws.disco" MetadataType="Disco" ID="271513df-5936-4a17-9fc9-25588df552b0" SourceId="1" SourceUrl="http://ws.ms1dev.com/memberws.asmx?disco" />
+    <MetadataFile FileName="memberws.disco" MetadataType="Disco" ID="271513df-5936-4a17-9fc9-25588df552b0" SourceId="1" SourceUrl="http://ws.aqzbouat.com/memberws.asmx?disco" />
+    <MetadataFile FileName="memberws.wsdl" MetadataType="Wsdl" ID="728a3194-1602-41c2-95bb-b8ec338d04f9" SourceId="1" SourceUrl="http://ws.aqzbouat.com/memberws.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
