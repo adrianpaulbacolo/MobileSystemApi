@@ -1,5 +1,5 @@
 ﻿<div class="div-claim-promo" id="template-promo">
-    <div class="div-claim-promo-header">EPL2016W06</div>
+    <div class="div-claim-promo-header">{%- promo.data.code %}</div>
     <div class="div-claim-promo-data">
         <div class="promo-match">
             <div class="row row-uc ">
@@ -47,8 +47,8 @@
                 </div>
             </div>
             <div class="row row-uc row-no-padding">
-                <a class="ui-btn btn-primary" onclick="javascript:PromoClaim(this)">{%- promo.btnSubmit %}</a>
-                <a class="ui-btn btn-secondary" onclick="javascript:PromoCancelClaim(this)">{%- promo.btnCancel %}</a>
+                <a class="ui-btn btn-primary" onclick="javascript: PromoClaim(this);">{%- promo.btnSubmit %}</a>
+                <a class="ui-btn btn-secondary" onclick="javascript: PromoCancelClaim(this);">{%- promo.btnCancel %}</a>
             </div>
         </div>
 
