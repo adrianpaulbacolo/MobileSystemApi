@@ -647,26 +647,41 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
             $('.sub-menu[data-rel]').not('.sub-menu[data-rel="funds"]').hide();
             $('.sub-menu[data-rel="funds"]').show();
             $('body').addClass('open-subnav');
+            if(!_.isUndefined(adjustMenu)){
+                adjustMenu();
+            }
         });
         $('a.nav-sports').bind('touch click', function () {
             $('.sub-menu[data-rel]').not('.sub-menu[data-rel="sports"]').hide();
             $('.sub-menu[data-rel="sports"]').show();
             $('body').addClass('open-subnav');
+            if(!_.isUndefined(adjustMenu)){
+                adjustMenu();
+            }
         });
         $('a.nav-casino').bind('touch click', function () {
             $('.sub-menu[data-rel]').not('.sub-menu[data-rel="livecasino"]').hide();
             $('.sub-menu[data-rel="livecasino"]').show();
             $('body').addClass('open-subnav');
+            if(!_.isUndefined(adjustMenu)){
+                adjustMenu();
+            }
         });
         $('a.nav-poker').bind('touch click', function () {
             $('.sub-menu[data-rel]').not('.sub-menu[data-rel="poker"]').hide();
             $('.sub-menu[data-rel="poker"]').show();
             $('body').addClass('open-subnav');
+            if(!_.isUndefined(adjustMenu)){
+                adjustMenu();
+            }
         });
         $('a.nav-fish').bind('touch click', function () {
             $('.sub-menu[data-rel]').not('.sub-menu[data-rel="fish"]').hide();
             $('.sub-menu[data-rel="fish"]').show();
             $('body').addClass('open-subnav');
+            if(!_.isUndefined(adjustMenu)){
+                adjustMenu();
+            }
         });
             $(".menu-sports-sub").addClass("hide");
             $(".sub-menu .menu-sports").click(function () {
@@ -676,21 +691,33 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
             $('.sub-menu[data-rel]').not('.sub-menu[data-rel="slots"]').hide();
             $('.sub-menu[data-rel="slots"]').show();
             $('body').addClass('open-subnav');
+            if(!_.isUndefined(adjustMenu)){
+                adjustMenu();
+            }
         });
         $('a.nav-keno').bind('touch click', function () {
             $('.sub-menu[data-rel]').not('.sub-menu[data-rel="lottery"]').hide();
             $('.sub-menu[data-rel="lottery"]').show();
             $('body').addClass('open-subnav');
+            if(!_.isUndefined(adjustMenu)){
+                adjustMenu();
+            }
         });
             $('a.nav-pmahjong').bind('touch click', function () {
             $('.sub-menu[data-rel]').not('.sub-menu[data-rel="texasmahjong"]').hide();
             $('.sub-menu[data-rel="texasmahjong"]').show();
             $('body').addClass('open-subnav');
+            if(!_.isUndefined(adjustMenu)){
+                adjustMenu();
+            }
         });
         $('a.nav-infos').bind('touch click', function () {
             $('.sub-menu[data-rel]').not('.sub-menu[data-rel="infos"]').hide();
             $('.sub-menu[data-rel="infos"]').show();
             $('body').addClass('open-subnav');
+            if(!_.isUndefined(adjustMenu)){
+                adjustMenu();
+            }
         });
 
         $('a.close').click(function() {

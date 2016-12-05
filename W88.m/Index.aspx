@@ -11,8 +11,8 @@
 </head>
 <body>
             
-           <%if(mobileDeviceId == 2){%>
         <div class="download-app-box">
+           <%if(mobileDeviceId == 2){%>
                 <div class="download-app" >
                     <div class="row">
                         <div class="col col-25 download-icon">
@@ -275,6 +275,7 @@
 
                 var url = window.location.protocol + '//www.' + '<%=commonIp.DomainName %>' + '?nomobile=true';
                 $("#icon-desktop").attr('href', url);
+                $("#divPanel.ui-panel .sub-menu").css("top", $(".download-app").height());
 
                 var urlRewards = window.location.protocol + '//mrewards.' + '<%=commonIp.DomainName %>' + '?lang=' + '<%=commonVariables.SelectedLanguage%>' + '&token=' + '<%=commonVariables.EncryptedCurrentMemberSessionId%>';
                 $("#icon-rewards").attr('href', urlRewards);
@@ -283,6 +284,12 @@
             function hideDownload() {
                 $(".download-app").addClass("hide");
                 $("div#divMain").removeClass("download-app-visible");
+                $("#divPanel.ui-panel").css("top", 0);
+                $("#divPanel.ui-panel .sub-menu").css("top", 0);
+            }
+
+            function adjustMenu() {
+                $("#divPanel.ui-panel").css("top", $(".download-app").height());
             }
         </script>
 
