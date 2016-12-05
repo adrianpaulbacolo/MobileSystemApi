@@ -77,7 +77,7 @@
                     </a>
                 </div>
                 <div class="col">
-                    <a href="/_Secure/Login.aspx" class="ui-btn btn-primary" role="button" data-rel="dialog" data-transition="slidedown">
+                    <a href="/_Secure/Login.aspx" class="ui-btn btn-primary" role="button" data-rel="dialog" data-ajax="false">
                         <%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%>
                     </a>
                 </div>
@@ -88,13 +88,13 @@
             <ul class="row row-bordered bg-gradient row-uc row-dashboard">
 
                 <li class="col col-33 product">
-                    <a href="Sports.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower() %>" class="tile" data-ajax="false" data-transition="slidedown">
+                    <a href="Sports.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower() %>" class="tile" data-ajax="false">
                         <span class="icon-soccer"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("sports", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
                 <li class="col col-33 product">
-                    <a href="Casino.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower() %>" class="tile" data-ajax="false" data-transition="slidedown">
+                    <a href="Casino.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower() %>" class="tile" data-ajax="false">
                         <span class="icon-casino"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%></h4>
                     </a>
@@ -107,13 +107,13 @@
                 </li>
                 <li class="col col-33 product">
                     <%--<a href="#divPanel" class="tile nav-slots">--%>
-                    <a href="Slots.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>" class="tile" data-ajax="false" data-transition="slidedown">
+                    <a href="Slots.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>" class="tile" data-ajax="false">
                         <span class="icon-slots"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
                 <li class="col col-33 product">                    
-                    <a href="Lottery.aspx?lang=<%=commonVariables.SelectedLanguage%>" class="tile" data-ajax="false" data-transition="slidedown">
+                    <a href="Lottery.aspx?lang=<%=commonVariables.SelectedLanguage%>" class="tile" data-ajax="false">
                         <span class="icon-keno"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></h4>
                     </a>
@@ -152,7 +152,7 @@
                 <!-- Profile -->
                 <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
                 <li class="col col-33">
-                    <a href="/Profile" class="tile" data-ajax="false" data-transition="slidedown">
+                    <a href="/Profile" class="tile" data-ajax="false">
                         <span class="icon-profile"> </span>
                         <h4 class="title">
                             <%--<%=commonVariables.GetSessionVariable("MemberCode")%>--%>
@@ -167,7 +167,7 @@
                 <!-- Funds -->
                 <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
                 <li class="col col-33">
-                    <a href="Funds.aspx" class="tile" data-ajax="false" data-transition="slidedown">
+                    <a href="Funds.aspx" class="tile" data-ajax="false">
                         <span class="icon- ion-social-usd-outline"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%></h4>
                     </a>
@@ -221,14 +221,14 @@
 
                     <%if (mobileDeviceId == 1)
                       {%>
-                    <a href="zalo://639989602209" class="tile" data-ajax="false" data-transition="slidedown">
+                    <a href="zalo://639989602209" class="tile" data-ajax="false">
                         <span class="icon-zalo"></span>
                         <h4 class="title">(+63) 9989602209</h4>
                     </a>
                     <%}
                       else if (mobileDeviceId == 2)
                       {%>
-                    <a href="http://zaloapp.com/qr/p/tkz0l05n8qu5" class="tile" data-ajax="false" data-transition="slidedown">
+                    <a href="http://zaloapp.com/qr/p/tkz0l05n8qu5" class="tile" data-ajax="false">
                         <span class="icon-zalo"></span>
                         <h4 class="title">Zalo</h4>
                     </a>
