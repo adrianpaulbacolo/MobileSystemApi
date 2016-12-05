@@ -41,12 +41,18 @@ public partial class _Secure_AutoLogin : BasePage
                         }
                         else
                         {
-                            Response.Redirect("./?" + Request.QueryString, false);
+                            Response.Redirect(
+                               !string.IsNullOrEmpty(Request.QueryString.Get("redirect"))
+                                   ? Request.QueryString.Get("redirect")
+                                   : "/Funds.aspx", false);
                         }
                     }
                     else
                     {
-                        Response.Redirect("./?" + Request.QueryString, false);
+                        Response.Redirect(
+                               !string.IsNullOrEmpty(Request.QueryString.Get("redirect"))
+                                   ? Request.QueryString.Get("redirect")
+                                   : "/Funds.aspx", false);
                     }
                 }
             }
@@ -62,7 +68,10 @@ public partial class _Secure_AutoLogin : BasePage
         {
             commonAuditTrail.appendLog(_username, "_Secure_AutoLogin", "Page_Load", string.Empty, string.Empty,
                 string.Empty, "-99", ex.InnerException.ToString(), ex.Message, string.Empty, string.Empty, true);
-            Response.Redirect("./?" + Request.QueryString, false);
+            Response.Redirect(
+                               !string.IsNullOrEmpty(Request.QueryString.Get("redirect"))
+                                   ? Request.QueryString.Get("redirect")
+                                   : "/Funds.aspx", false);
         }
     }
 }
