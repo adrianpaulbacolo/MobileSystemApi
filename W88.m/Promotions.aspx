@@ -502,7 +502,7 @@
         }
 
         function getCategories(data) {
-            var categories = [];
+
             // For 'ALL' category
             categories.push({
                 id: 'ALL',
