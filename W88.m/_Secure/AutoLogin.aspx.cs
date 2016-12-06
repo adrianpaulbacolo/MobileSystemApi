@@ -1,17 +1,30 @@
 ﻿using System;
 using System.Configuration;
+using System.Xml.Linq;
 using Helpers;
 using wsMemberMS1;
 
 public partial class _Secure_AutoLogin : BasePage
 {
+    protected XElement xeErrors = null;
+    System.Xml.Linq.XElement _xeLoginResources;
     private string _username = string.Empty;
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        xeErrors = commonVariables.ErrorsXML;
+        commonCulture.appData.getRootResource("/_Secure/Login.aspx", out _xeLoginResources);
+
+        lblRegister.Text = commonCulture.ElementValues.getResourceString("lblRegister2", _xeLoginResources);
+        lblRegNote.Text = commonCulture.ElementValues.getResourceString("lblMsgNote", _xeLoginResources);
+        lblUsername.Text = commonCulture.ElementValues.getResourceString("lblUsername", _xeLoginResources);
+        lblPassword.Text = commonCulture.ElementValues.getResourceString("lblPassword", _xeLoginResources);
+        lblCaptcha.Text = commonCulture.ElementValues.getResourceString("lblCaptcha", _xeLoginResources);
+        hfLoginTranslation.Value = commonCulture.ElementValues.getResourceString("btnLogin", _xeLoginResources);
+
         try
         {
-            if (Request.QueryString["username"] != null && Request.QueryString["token"] != null)
+            if (Request.QueryString["username"] != null && Request.QueryString["code"] != null)
             {
                 using (var client = new memberWSSoapClient())
                 {
@@ -22,7 +35,7 @@ public partial class _Secure_AutoLogin : BasePage
                     commonCookie.CookieIsApp = "1";
                     var palazzoPrefix = ConfigurationManager.AppSettings.Get("palazzo_account_prefix");
                     var rawUsername = Request.QueryString["username"];
-                    var token = Request.QueryString["token"];
+                    var token = Request.QueryString["code"];
                     _username = Request.QueryString["username"].StartsWith(palazzoPrefix)
                         ? Request.QueryString["username"].Remove(0, palazzoPrefix.Length)
                         : Request.QueryString["username"];
@@ -52,29 +65,8 @@ public partial class _Secure_AutoLogin : BasePage
                                     ? Request.QueryString.Get("redirect")
                                     : "/Funds.aspx", false);
                         }
-                        else
-                        {
-                            Response.Redirect(
-                               !string.IsNullOrEmpty(Request.QueryString.Get("redirect"))
-                                   ? Request.QueryString.Get("redirect")
-                                   : "/Funds.aspx", false);
-                        }
-                    }
-                    else
-                    {
-                        Response.Redirect(
-                               !string.IsNullOrEmpty(Request.QueryString.Get("redirect"))
-                                   ? Request.QueryString.Get("redirect")
-                                   : "/Funds.aspx", false);
                     }
                 }
-            }
-            else
-            {
-                Response.Redirect(
-                               !string.IsNullOrEmpty(Request.QueryString.Get("redirect"))
-                                   ? Request.QueryString.Get("redirect")
-                                   : "/Funds.aspx", false);
             }
         }
         catch (Exception ex)
