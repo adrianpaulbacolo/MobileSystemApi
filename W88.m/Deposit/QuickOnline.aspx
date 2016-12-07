@@ -92,16 +92,20 @@
                     window.w88Mobile.Gateways.QuickOnline.Deposit(data, function (response) {
                         switch (response.ResponseCode) {
                             case 1:
-                                w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
-
                             if (response.ResponseData.VendorRedirectionUrl) {
                                 window.open(response.ResponseData.VendorRedirectionUrl, '_blank');
                             } else {
                                 if (response.ResponseData.PostUrl) {
+                                    w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
+
                                     w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
                                     w88Mobile.PostPaymentForm.submit();
                                 } else if (response.ResponseData.DummyURL) {
+                                    w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> ");
+
                                     window.open(response.ResponseData.DummyURL, '_blank');
+                                } else {
+                                    w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
                                 }
                             }
 
