@@ -1,10 +1,10 @@
-﻿function QuickOnline() {
+﻿function AutoRoute() {
 
-    var quickonline = {
+    var autoroute = {
         Deposit: deposit,
     };
 
-    return quickonline;
+    return autoroute;
 
     function send(resource, method, data, beforeSend, success, complete) {
         var url = w88Mobile.APIUrl + resource;
@@ -29,9 +29,9 @@
     }
 
     // deposit
-    function deposit(data, successCallback, completeCallback) {
-        send("/payments/999999", "POST", data, function () { GPInt.prototype.ShowSplash() }, successCallback, completeCallback);
+    function deposit(methodId, data, successCallback, completeCallback) {
+        send("/payments/" + methodId, "POST", data, function () { GPInt.prototype.ShowSplash() }, successCallback, completeCallback);
     }
 }
 
-window.w88Mobile.Gateways.QuickOnline = QuickOnline();
+window.w88Mobile.Gateways.AutoRoute = AutoRoute();

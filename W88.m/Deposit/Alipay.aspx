@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="QuickOnline.aspx.cs" Inherits="Deposit_QuickOnline" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Alipay.aspx.cs" Inherits="Deposit_Alipay" %>
 
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
@@ -57,10 +57,6 @@
                         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
                         <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
-                    <li class="item item-select">
-                        <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
-                        <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
-                    </li>
                     <li class="item row">
                         <div class="col">
                             <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" />
@@ -86,10 +82,9 @@
 
                     var data = {
                         Amount: $('#txtDepositAmount').val(),
-                        Bank: { Text: $('#drpBank option:selected').text(), Value: $('#drpBank').val() },
                     };
 
-                    window.w88Mobile.Gateways.AutoRoute.Deposit("999999", data, function (response) {
+                    window.w88Mobile.Gateways.AutoRoute.Deposit("999996", data, function (response) {
                         switch (response.ResponseCode) {
                             case 1:
                             if (response.ResponseData.VendorRedirectionUrl) {

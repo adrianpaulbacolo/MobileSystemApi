@@ -37,15 +37,15 @@
                 switch (response.ResponseCode) {
                     case 1:
                         if (response.ResponseData.length > 0) {
-                            var routing = ["999999", "999998", "999997", "999996", "999995"];
-                            var isAutoRoute = false, title = "", page = null;
-
+                            var quickonline = "999999";
+                            var routing = [quickonline, "999998", "999997", "999996", "999995"];
+                            var isAutoRoute = false, title = "", page = null, deposit = "/Deposit/";
 
                             _.forEach(response.ResponseData, function (data) {
                                 page = setPaymentPage(data.Id);
 
                                 if (page)
-                                    page = "/Deposit/" + page;
+                                    page = deposit + page;
                                 else
                                     return;
 
@@ -63,24 +63,30 @@
                                 }
                             })
 
-                            if (isAutoRoute)
-                                window.location.replace(page);
+                            if (isAutoRoute) {
+                                var qOnline = _.find(response.ResponseData, function (data) {
+                                    return _.isEqual(data.Id, quickonline)
+                                });
+
+                                if (qOnline)
+                                    window.location.href = deposit + setPaymentPage(quickonline);
+                            }
                             else {
-                                if (activeTabId){
+                                if (activeTabId) {
                                     $('#activeDepositTabs').text(title);
                                     $('#headerTitle').append(' - ' + title);
                                 }
                                 else {
                                     page = setPaymentPage(_.first(response.ResponseData).Id);
                                     if (page)
-                                        window.location.replace("/Deposit/" + page);
+                                        window.location.href = deposit + page;
                                 }
                             }
 
                             GPInt.prototype.HideSplash();
                         } else {
                             if (activeTabId) {
-                                window.location.replace("/deposit");
+                                window.location.href = deposit;
                             }
                             else {
 
@@ -113,14 +119,14 @@
                 switch (response.ResponseCode) {
                     case 1:
                         if (response.ResponseData.length > 0) {
-                            var title = "";
+                            var title = "", withdraw = "/Withdrawal/";
                             _.forEach(response.ResponseData, function (data) {
                                 var page = setPaymentPage(data.Id);
 
                                 if (_.isUndefined(page))
                                     return;
                                 else
-                                    page = "/Withdrawal/" + page;
+                                    page = withdraw + page;
 
                                 if (activeTabId) {
                                     if (_.isEqual(data.Id, activeTabId))
@@ -131,20 +137,20 @@
                                 }
                             })
 
-                            if (activeTabId){
+                            if (activeTabId) {
                                 $('#activeWithdrawalTabs').text(title);
                                 $('#headerTitle').append(' - ' + title);
                             }
                             else {
                                 page = setPaymentPage(_.first(response.ResponseData).Id);
                                 if (page)
-                                    window.location.replace("/Withdrawal/" + page);
+                                    window.location.href = withdraw + page;
                             }
 
                             GPInt.prototype.HideSplash();
                         } else {
                             if (activeTabId) {
-                                window.location.replace("/withdrawal");
+                                window.location.href = withdraw;
                             }
                             else {
                                 $('.empty-state').show();
@@ -245,6 +251,9 @@
 
             case "999999":
                 return "QuickOnline.aspx";
+
+            case "999996":
+                return "Alipay.aspx";
 
             default:
                 break
