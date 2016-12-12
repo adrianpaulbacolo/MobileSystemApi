@@ -89,7 +89,7 @@
                         Bank: { Text: $('#drpBank option:selected').text(), Value: $('#drpBank').val() },
                     };
 
-                    window.w88Mobile.Gateways.AutoRoute.Deposit("999999", data, function (response) {
+                    window.w88Mobile.Gateways.AutoRoute.Deposit(window.w88Mobile.Gateways.DefaultPayments.AutoRouteIds.QuickOnline, data, function (response) {
                         switch (response.ResponseCode) {
                             case 1:
                             if (response.ResponseData.VendorRedirectionUrl) {

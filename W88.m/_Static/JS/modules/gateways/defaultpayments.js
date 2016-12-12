@@ -1,8 +1,17 @@
 ﻿function DefaultPayments() {
 
+    var autorouteIds = {
+        QuickOnline: "999999",
+        UnionPay: "999998",
+        TopUpCard: "999997",
+        AliPay: "999996",
+        WeChat: "999995",
+    };
+
     var defaultpayments = {
         Deposit: deposit,
-        Withdraw: withdraw
+        Withdraw: withdraw,
+        AutoRouteIds: autorouteIds
     };
 
     return defaultpayments;
@@ -37,17 +46,25 @@
                 switch (response.ResponseCode) {
                     case 1:
                         if (response.ResponseData.length > 0) {
-                            var quickonline = "999999";
-                            var routing = [quickonline, "999998", "999997", "999996", "999995"];
+                            var routing = [
+                                autorouteIds.QuickOnline,
+                                autorouteIds.UnionPay,
+                                autorouteIds.TopUpCard,
+                                autorouteIds.AliPay,
+                                autorouteIds.WeChat
+                            ];
+
                             var isAutoRoute = false, title = "", page = null, deposit = "/Deposit/";
 
-                            _.forEach(response.ResponseData, function (data) {
+                            for (var i = 0; i < response.ResponseData.length; i++) {
+                                var data = response.ResponseData[i];
+
                                 page = setPaymentPage(data.Id);
 
                                 if (page)
                                     page = deposit + page;
                                 else
-                                    return;
+                                    continue;
 
                                 if (activeTabId) {
                                     if (_.isEqual(data.Id, activeTabId))
@@ -58,25 +75,20 @@
                                     $('#depositTabs').append($('<li />').append(anchor));
                                 }
                                 else if (!activeTabId && _.includes(routing, data.Id)) {
-                                    if (!_.includes(window.location.pathname, page))
+                                    if (!_.includes(window.location.pathname, page)) {
+                                        window.location.href = page;
                                         isAutoRoute = true;
+                                        break;
+                                    }
                                 }
-                            })
+                            }
 
-                            if (isAutoRoute) {
-                                var qOnline = _.find(response.ResponseData, function (data) {
-                                    return _.isEqual(data.Id, quickonline)
-                                });
-
-                                if (qOnline)
-                                    window.location.href = deposit + setPaymentPage(quickonline);
+                            if (activeTabId) {
+                                $('#activeDepositTabs').text(title);
+                                $('#headerTitle').append(' - ' + title);
                             }
                             else {
-                                if (activeTabId) {
-                                    $('#activeDepositTabs').text(title);
-                                    $('#headerTitle').append(' - ' + title);
-                                }
-                                else {
+                                if (!isAutoRoute) {
                                     page = setPaymentPage(_.first(response.ResponseData).Id);
                                     if (page)
                                         window.location.href = deposit + page;
@@ -123,10 +135,10 @@
                             _.forEach(response.ResponseData, function (data) {
                                 var page = setPaymentPage(data.Id);
 
-                                if (_.isUndefined(page))
-                                    return;
-                                else
+                                if (page)
                                     page = withdraw + page;
+                                else
+                                    return;
 
                                 if (activeTabId) {
                                     if (_.isEqual(data.Id, activeTabId))

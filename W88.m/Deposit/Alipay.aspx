@@ -84,7 +84,7 @@
                         Amount: $('#txtDepositAmount').val(),
                     };
 
-                    window.w88Mobile.Gateways.AutoRoute.Deposit("999996", data, function (response) {
+                    window.w88Mobile.Gateways.AutoRoute.Deposit(window.w88Mobile.Gateways.DefaultPayments.AutoRouteIds.AliPay, data, function (response) {
                         switch (response.ResponseCode) {
                             case 1:
                             if (response.ResponseData.VendorRedirectionUrl) {
