@@ -1,0 +1,209 @@
+//font
+
+@font-face {
+	font-family: 'dinpro';
+	src: url("/assets/css/fonts/din-regular-webfont.eot");
+	src: url("/assets/css/fonts/din-regular-webfont.eot?#iefix") format("embedded-opentype"),
+	url("/assets/css/fonts/din-regular-webfont.woff") format("woff"),
+	url("/assets/css/fonts/din-regular-webfont.ttf") format("truetype"),
+	url("/assets/css/fonts/din-regular-webfont.svg#dinprobold") format("svg");
+	font-weight: normal;
+	font-style: normal; 
+	font-stretch: normal;
+}
+
+@font-face {
+	font-family: 'dinprobold';
+	src: url("/assets/css/fonts/din-bold-webfont.eot");
+	src: url("/assets/css/fonts/din-bold-webfont.eot?#iefix") format("embedded-opentype"),
+	url("/assets/css/fonts/din-bold-webfont.woff") format("woff"),
+	url("/assets/css/fonts/din-bold-webfont.ttf") format("truetype"),
+	url("/assets/css/fonts/din-bold-webfont.svg#dinpro") format("svg");
+	font-weight: 700;
+	font-style: normal; 
+	font-stretch: normal;
+}
+
+$dinpro: 'dinpro';
+$dinprobold: 'dinprobold';
+$font: "Tahoma";
+$font-family-sans-serif: $font,"Helvetica Neue", Helvetica, Arial, sans-serif;
+
+//Override glyphicon deirectory
+$bootstrap-sass-asset-helper: false !default;
+$icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "../fonts/") !default;
+
+//Colors
+$brand-primary : #2a8fbd;
+$brand-default : #01374d;
+$brand-alt : #dab867;
+
+$brand-success: #5cb85c;
+$brand-info: #5bc0de;
+$brand-warning: #f0ad4e;
+$brand-danger:#db2031;
+
+$text-color: #1f1f1f;
+$text-alt: lighten(#1f1f1f, 20%);
+$body-bg: darken(#ffffff, 5%);
+$white: #ffffff;
+$gray-light: #d1d3d4;
+$gray-dark: #787e81;
+$gray-darker: #1f2021;
+$black: #000;
+
+
+//Bootstrap Overrides
+$headings-line-height: 1.45;
+
+$grid-gutter-width: 16px;
+$input-height-base: 38px;
+$padding-base-vertical: 10px;
+$padding-base-horizontal: 14px; 
+
+/* xs */
+$padding-xs-vertical: 2px;
+$padding-xs-horizontal: 8px;
+
+$link-color: $brand-primary;
+$link-hover-color: darken($brand-primary, 10%);
+$link-hover-decoration: none;
+
+$input-border-focus: $brand-primary;
+
+$border-radius-base: 0;
+$border-radius-large: 0;
+$border-radius-small: 0;
+
+$btn-primary-color : $white;
+$btn-primary-bg : $brand-primary;
+$btn-primary-border : $brand-primary;
+
+$btn-default-color: $white;
+$btn-default-bg: $brand-default;
+$btn-default-border: $brand-default;
+
+$btn-line-color: $brand-primary;
+$btn-line-border: $brand-primary;
+
+$screen-xs-min: 480px;
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
+
+$screen-xs-max: ($screen-sm-min - 1);
+$screen-sm-max: ($screen-md-min - 1);
+$screen-md-max: ($screen-lg-min - 1);
+
+
+// Specific Variables for Theming
+
+//Header
+$header-bg-color: $white;
+$header-buttons-color: $brand-primary;
+$header-buttons-bg: lighten($header-bg-color, 2.5%);
+$header-border-color: lighten($gray-darker, 2.5%);
+$header-title-color: $text-color;
+
+//Header Dropdown
+$header-dropdown-bg:  $brand-default;
+$header-dropdown-color:  $brand-alt;
+$header-dropdown-icon-color:  $text-alt;
+$header-dropdown-border: darken($brand-default, 3%);
+$header-dropdown-hover-color:  $text-color;
+$header-dropdown-hover-bg:  $brand-primary;
+
+
+// Header Navigation
+$header-nav-bg: $brand-primary;
+
+//Tab bar
+$tab-bar-bg: lighten($brand-default, 5%);
+$tab-bar-color: rgba($text-color, 0.85);
+$tab-bar-color-active: $white;
+$tab-bar-border-active: $white;
+
+//Slots
+$game-category-border: 1px solid lighten($body-bg, 4%);
+$game-category-title-color: $brand-alt;
+
+$slots-card-bg: darken($white , 10%);
+$slots-card-padding:  0px;
+$slots-image-bg: lighten($body-bg, 6%);
+
+//Downloads
+$download-box-bg: lighten($black, 7%);
+$download-image-bg: lighten($body-bg, 6%);
+$download-box-title: $white;
+
+//Promo
+$promo-box-bg: $white;
+$promo-box-image-bg: lighten($body-bg, 3%);
+$promo-box-title: $brand-primary;
+
+// Bottom Navigation
+$bottom-nav-bg: $brand-primary;
+$bottom-nav-color: rgba($white, 0.85);
+$bottom-nav-color-active: $white;
+$bottom-nav-bg-active: darken($brand-primary, 15%);
+
+//Footer Non-sessioned
+$footer-icon-color: $text-color;
+$footer-button-color: $brand-alt;
+$footer-button-bg1: $brand-default;
+$footer-button-bg2: lighten($brand-default, 2.5%);
+$footer-button-bg3: lighten($brand-default, 5%);
+
+//Footer Generic
+$footer-generic-color: $brand-alt;
+$footer-generic-bg: $brand-default;
+$footer-generic-border: darken($brand-default, 3%);
+$footer-generic-active-color: $white;
+$footer-generic-active-bg: $brand-primary;
+$footer-generic-active-border: $white;
+
+
+// User Info 
+$user-info-bg: darken($brand-default, 5%);
+$user-info-name: $text-color;
+$user-info-wallet: $brand-alt;
+
+// User Menu 
+$user-menu-icon: $text-color;
+$user-menu-label: $brand-alt;
+$user-menu-border: darken($brand-default, 4.5%);
+
+// Generic Menu
+$generic-menu-color: $text-color;
+
+// Modal
+$modal-bg-color: #272727;
+$modal-bg-color-alt: darken($brand-default , 10%);
+$modal-header-border: lighten($modal-bg-color,5%);
+$modal-title-color: $brand-alt;
+$modal-close-color: $text-color;
+
+// History Details
+$history-details-value: $text-alt;
+$history-details-label: darken($history-details-value, 30%);
+
+//Form input lined
+$form-label-color: $brand-alt;
+$form-input-text-color: $text-color;
+$form-input-border-color: #5d727b;
+$form-label2-color: darken($text-color, 40%);
+$help-block-color: darken($text-alt, 30%);
+
+//Page title
+$page-title-header-color: $text-alt;
+$page-title-help-color: darken($text-color, 55%);
+$page-title-text-color: darken($white, 50%);
+
+//Min Max table
+$min-max-color: darken($text-alt, 45%);
+$min-max-value-color:darken($text-alt, 25%);
+
+//Gateway steps
+$step-number-color: $text-alt;
+$step-label-color: $brand-alt;
+

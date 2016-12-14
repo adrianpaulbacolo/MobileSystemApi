@@ -1,0 +1,69 @@
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+.modal-backdrop {
+    opacity: 0.95 !important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+  width: 90%;
+  max-width: 460px;
+}
+
+.modal-content{
+	border-color: $modal-bg-color;
+	background-color: $modal-bg-color;
+	&.modal-alt{
+		border-color: $modal-bg-color-alt;
+		background-color: $modal-bg-color-alt;
+		.modal-header{
+			border-bottom: none;
+		}
+	}
+	&.modal-transparent{
+		border-color: transparent;
+		background-color: transparent;
+		@include box-shadow(none);
+		.modal-header{
+			border-bottom: none;
+		}
+		.modal-footer{
+			border-top: none;
+		}
+	}
+}
+.modal-game{
+	.modal-body{
+		h4{
+			color: $modal-title-color;
+			margin-bottom: 30px;
+		}
+
+		.modal-game-thumb{
+			background-color: $slots-card-bg;
+			padding: $slots-card-padding;
+			margin: 0 auto 30px;
+			width: 110px;
+			@include border-radius(6px);
+			@include box-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+			img{
+				@include border-radius(4px);
+				width: 100%;
+				display: block;
+			}
+		}
+	}
+}

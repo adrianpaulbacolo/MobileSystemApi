@@ -1,0 +1,106 @@
+.header{
+	padding-left: 5px;
+	padding-right: 5px;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 20;
+	position: absolute;
+	height: 47px;
+	width: 100%;
+	background-color: $header-bg-color;
+	//@include box-shadow(0 2px 4px 0 rgba(0,0,0,0.3));
+	
+	
+	.header-logo{
+		text-align: center;
+		overflow-y: hidden;
+		h1{
+			color: $header-title-color;
+			font-family: $dinpro;
+			font-size: 1.250rem;
+			text-transform: capitalize;
+			max-width: 100%;
+			margin: 0;
+			display: inline-block;
+			white-space: nowrap;
+			img{
+				max-height: 20px;
+				display: inline-block;
+			}
+			span{
+				top: 2px;
+				position: relative;
+			}
+		}
+	}
+	.header-title{
+		text-align: center;
+		color: $header-title-color;
+		font-family: $dinpro;
+		font-size: 1.250rem;
+		display: block;
+		white-space: nowrap;
+		width: auto;
+		max-width: 55%;
+		margin: 0 auto;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 47px;
+		line-height: 47px;
+		position: absolute;
+	}
+
+	.header-button{
+		text-align: center;
+		width: 40px;
+		height: 47px;
+		padding: 6px;
+		display: inline-block;
+		z-index: 30;
+		position: relative;
+		&.header-button-text {
+			font-size: 14px;
+			width: auto !important;
+			text-transform: uppercase;
+		}
+		&.header-button-left{
+			float: left !important;
+		}
+		&.header-button-right{
+			float: right !important;
+		}
+		.icon{
+			font-size: 24px;
+		}
+		.button-text{
+			letter-spacing: 1px;
+			bottom: 4px;
+			position: relative;
+		}
+	}
+	/* .header-button{
+		width: 40px;
+		height: 50px;
+		position: relative;
+		> a{
+			color: $header-buttons-color;
+			font-size: 1.5rem;
+			margin: 0;
+			width: 40px;
+			height: 50px;
+			padding: 6px 0;
+			display: block;
+			.icon{
+				font-size: 1.750rem;
+				top: 4px;
+				position: relative;
+			}
+		}
+	} */
+}
+
+@media (orientation: landscape) and (max-height: 414px){
+
+}
