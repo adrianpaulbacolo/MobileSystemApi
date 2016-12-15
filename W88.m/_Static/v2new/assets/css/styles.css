@@ -41,7 +41,7 @@ small,
     color: #216f93; }
 
 .btn {
-  font-size: 0.875em;
+  font-size: 0.875rem;
   font-weight: 700;
   text-transform: uppercase;
   font-family: "dinpro"; }
@@ -109,7 +109,7 @@ small,
   background: -moz-linear-gradient(top, #023144 1%, #1f1f1f 100%);
   background: -webkit-linear-gradient(top, #023144 1%, #1f1f1f 100%);
   background: linear-gradient(to bottom, #023144 1%, #1f1f1f 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#023144', endColorstr='#1f1f1f',GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-dark', endColorstr='#1f1f1f',GradientType=0 );
   /* IE6-9 */ }
 
 .no-gutter {
@@ -546,26 +546,7 @@ small,
   position: absolute;
   height: 47px;
   width: 100%;
-  background-color: #1f2021;
-  /* .header-button{
-  	width: 40px;
-  	height: 50px;
-  	position: relative;
-  	> a{
-  		color: $header-buttons-color;
-  		font-size: 1.5rem;
-  		margin: 0;
-  		width: 40px;
-  		height: 50px;
-  		padding: 6px 0;
-  		display: block;
-  		.icon{
-  			font-size: 1.750rem;
-  			top: 4px;
-  			position: relative;
-  		}
-  	}
-  } */ }
+  background-color: #1f2021; }
   .header .header-logo {
     text-align: center;
     overflow-y: hidden; }
@@ -622,6 +603,45 @@ small,
       letter-spacing: 1px;
       bottom: 4px;
       position: relative; }
+    .header .header-button.btn {
+      padding-top: 12px;
+      padding-bottom: 12px; }
+  .header.header-search {
+    text-align: left;
+    display: table;
+    table-layout: fixed; }
+    .header.header-search .header-search-input,
+    .header.header-search .header-button {
+      float: none !important;
+      display: table-cell;
+      vertical-align: middle; }
+    .header.header-search .header-button {
+      text-align: left;
+      width: 75px !important;
+      white-space: nowrap; }
+    .header.header-search .header-search-input {
+      width: 100%; }
+      .header.header-search .header-search-input .form-control {
+        color: #f2f2f2;
+        border-color: #333333;
+        background-color: #333333;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        -webkit-border-radius: 3px 0 0 3px;
+        -moz-border-radius: 3px 0 0 3px;
+        -ms-border-radius: 3px 0 0 3px;
+        border-radius: 3px 0 0 3px; }
+      .header.header-search .header-search-input .btn {
+        color: #b3b3b3;
+        padding-top: 0;
+        padding-bottom: 0;
+        background-color: #333333;
+        -webkit-border-radius: 0 3px 3px 0;
+        -moz-border-radius: 0 3px 3px 0;
+        -ms-border-radius: 0 3px 3px 0;
+        border-radius: 0 3px 3px 0; }
+        .header.header-search .header-search-input .btn span {
+          font-size: 1rem; }
 
 .tab-bar {
   width: 100%;
@@ -689,6 +709,8 @@ small,
   vertical-align: middle;
   width: 90%;
   max-width: 460px; }
+  .modal-dialog .close {
+    font-size: 2rem; }
 
 .modal-content {
   border-color: #272727;
@@ -707,6 +729,13 @@ small,
       border-bottom: none; }
     .modal-content.modal-transparent .modal-footer {
       border-top: none; }
+    .modal-content.modal-transparent .close {
+      font-size: 2rem;
+      color: #ffffff;
+      opacity: 0.75;
+      text-shadow: none; }
+      .modal-content.modal-transparent .close:focus, .modal-content.modal-transparent .close:hover {
+        opacity: 1; }
 
 .modal-game .modal-body h4 {
   color: #dab867;
@@ -852,14 +881,38 @@ small,
     background-repeat: no-repeat;
     overflow: hidden;
     height: 0;
-    padding-bottom: 100%;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    border-radius: 4px; }
+    padding-bottom: 100%; }
     .game-card .game-card-image img {
       max-width: 100%;
       width: 100%; }
+
+.game-list a {
+  padding: 15px;
+  display: block;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+  background-color: transprent; }
+.game-list li:first-child a {
+  padding-top: 0; }
+.game-list .media {
+  vertical-align: middle;
+  margin-top: 0; }
+.game-list .media-left .game-list-thumbnail {
+  background: #e6e6e6;
+  padding: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); }
+.game-list .media-left img {
+  width: 55px; }
+.game-list .media-body .media-heading {
+  font-size: 1.125rem;
+  color: #dab867;
+  margin-bottom: 0; }
+.game-list .media-body p {
+  color: rgba(255, 255, 255, 0.4); }
 
 @media (min-width: 414px) {
   .game-card {

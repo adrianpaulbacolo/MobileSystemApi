@@ -117,6 +117,11 @@ $header-dropdown-hover-bg:  $brand-primary;
 // Header Navigation
 $header-nav-bg: $brand-primary;
 
+//Header Search
+$header-search-bg: lighten($black , 20%);
+$header-search-input-color: darken($white , 5%);
+$header-search-clear: darken($white , 30%);
+
 //Tab bar
 $tab-bar-bg: lighten($brand-default, 5%);
 $tab-bar-color: rgba($text-color, 0.85);

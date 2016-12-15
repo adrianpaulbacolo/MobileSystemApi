@@ -28,7 +28,7 @@ small,
 	}
 }
 .btn{
-	font-size: 0.875em;
+	font-size: 0.875rem;
 	font-weight: 700;
 	text-transform: uppercase;
 	font-family: $dinpro;
@@ -111,10 +111,10 @@ small,
 .main-content{
     padding: 16px 0;
 	background: #023144; 
-	background: -moz-linear-gradient(top,  #023144 1%, #1f1f1f 100%);
-	background: -webkit-linear-gradient(top,  #023144 1%,#1f1f1f 100%);
-	background: linear-gradient(to bottom,  #023144 1%,#1f1f1f 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#023144', endColorstr='#1f1f1f',GradientType=0 ); /* IE6-9 */
+	background: -moz-linear-gradient(top,  $brand-dark 1%, #1f1f1f 100%);
+	background: -webkit-linear-gradient(top,  $brand-dark 1%,#1f1f1f 100%);
+	background: linear-gradient(to bottom,  $brand-dark 1%,#1f1f1f 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-dark', endColorstr='#1f1f1f',GradientType=0 ); /* IE6-9 */
 }
 
 .no-gutter{

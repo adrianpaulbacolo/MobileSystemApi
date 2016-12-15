@@ -41,10 +41,47 @@
 		overflow: hidden;
 		height: 0;
 		padding-bottom: 100%;
-		@include border-radius(4px);
+
 		img{
 			max-width: 100%;
 			width: 100%;
+		}
+	}
+}
+
+.game-list{
+	a{
+		padding: 15px;
+		display: block;
+		border-bottom: 1px solid rgba($white, 0.075);
+		background-color: $game-list-bg;
+	}
+	li:first-child a{
+		padding-top: 0;
+	}
+	.media{
+		vertical-align: middle;
+		margin-top: 0;
+	}
+	.media-left{
+		.game-list-thumbnail{
+			background: $game-list-thumb-bg;
+			padding: $game-list-thumb-padding;
+			@include border-radius(3px);
+			@include box-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+		}
+		img{
+			width: 55px;
+		}
+	}
+	.media-body{
+		.media-heading{
+			font-size: 1.125rem;
+			color: $game-list-title-color;
+			margin-bottom: 0;
+		}
+		p{
+			color: $game-list-category-color;
 		}
 	}
 }

@@ -21,6 +21,9 @@
   vertical-align: middle;
   width: 90%;
   max-width: 460px;
+	.close{
+		font-size: 2rem;
+	}
 }
 
 .modal-content{
@@ -42,6 +45,16 @@
 		}
 		.modal-footer{
 			border-top: none;
+		}
+		.close{
+			font-size: 2rem;
+			color: $white;
+			opacity: 0.75;
+			text-shadow: none;
+			&:focus,
+			&:hover{
+			opacity: 1;
+			}
 		}
 	}
 }

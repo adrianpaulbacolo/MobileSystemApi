@@ -37,6 +37,7 @@ $icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "../fonts/") !de
 $brand-primary : #2a8fbd;
 $brand-default : #01374d;
 $brand-alt : #dab867;
+$brand-dark : #023144;
 
 $brand-success: #5cb85c;
 $brand-info: #5bc0de;
@@ -57,8 +58,8 @@ $black: #000;
 $headings-line-height: 1.45;
 
 $grid-gutter-width: 30px;
-$input-height-base: 38px;
-$padding-base-vertical: 10px;
+$input-height-base: 39px;
+$padding-base-vertical: 9px;
 $padding-base-horizontal: 14px; 
 
 /* xs */
@@ -117,6 +118,11 @@ $header-dropdown-hover-bg:  $brand-primary;
 // Header Navigation
 $header-nav-bg: darken($brand-default, 8%);
 
+//Header Search
+$header-search-bg: lighten($black , 20%);
+$header-search-input-color: darken($white , 5%);
+$header-search-clear: darken($white , 30%);
+
 //Tab bar
 $tab-bar-bg: $brand-primary;
 $tab-bar-color: rgba($text-color, 0.95);
@@ -130,6 +136,13 @@ $game-category-title-color: $brand-alt;
 $slots-card-bg: darken($white , 10%);
 $slots-card-padding:  5px;
 $slots-image-bg: lighten($body-bg, 6%);
+
+//Game list
+$game-list-bg: transprent;
+$game-list-thumb-bg: $slots-card-bg;
+$game-list-thumb-padding: 3px;
+$game-list-title-color: $brand-alt;
+$game-list-category-color: rgba($white , 0.4);
 
 //Downloads
 $download-box-bg: lighten($body-bg, 8%);
