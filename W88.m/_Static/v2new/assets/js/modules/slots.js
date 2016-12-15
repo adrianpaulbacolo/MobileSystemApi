@@ -18,6 +18,7 @@
         get: getSlots
         , items: slots
         , addItems: addItems
+        , itemsByClub: itemsByClub
         , clubLimit: clubLimit
         , clubs: clubs
         , providers: providers
@@ -47,6 +48,13 @@
 
     function addItems(games) {
         w88Mobile.v2.Slots.items = _.union(w88Mobile.v2.Slots.items, games);
+    }
+
+    function itemsByClub(providers) {
+        return _.filter(w88Mobile.v2.Slots.items, function (item) {
+            var itemProviders = _.join(item.OtherProvider, ",").toLowerCase().split(",");
+            return !_.isEmpty(_.intersection(itemProviders, providers));
+        });
     }
 
 }

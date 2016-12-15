@@ -180,34 +180,14 @@
         };
         _.templateSettings.variable = "slotData";
 
-        var slotList = {};
-        pubsub.subscribe('addGames', onAddGames);
+        pubsub.subscribe('addSlots', onAddSlots);
         pubsub.subscribe("fetchSlots", onFetchSlots);
-        pubsub.subscribe("displayClubs", onDisplayClubs);
+        pubsub.subscribe("updateSlotList", onUpdateSlotList);
 
         $(document).ready(function () {
-
             _.forEach(w88Mobile.v2.Slots.clubs, function (club) {
                 pubsub.publish("fetchSlots", club);
             });
-
-            //w88Mobile.v2.Slots.get(function (data) {
-            //    slotList = data;
-            //    var games = _.first(slotList.ResponseData);
-            //    _.forEach(slotList.ResponseData, function (gameCat) {
-            //        w88Mobile.v2.Slots.addItems(gameCat.Games);
-            //    });
-            //    $.get('assets/templates/slotCategory.html', function (template) {
-            //        var club = {
-            //            title: "Apollo"
-            //        };
-            //        var content = _.template(template);
-            //        $(".main-content").append(content({
-            //            games: _.slice(w88Mobile.v2.Slots.items, 0,  w88Mobile.v2.Slots.clubLimit)
-            //            , club: club
-            //        }));
-            //    }, 'html');
-            //}, function () { })
         });
 
 
@@ -215,34 +195,50 @@
         * loop through slots
         * fetch every provider  (fetchSlots)
         * add games (addGames)
-        * display Clubs (displayClubs) // need to code this ruby lol
+        * display Clubs (updateSlotList) 
         */
 
         // should display category/clubs
-        function onDisplayClubs(topic, provider) {
-            $.get('assets/templates/slotCategory.html', function (template) {
-                var club = {
-                    title: "Apollo"
-                };
-                var content = _.template(template);
-                $(".main-content").append(content({
-                    games: data // _.slice(w88Mobile.v2.Slots.items, 0, w88Mobile.v2.Slots.clubLimit)
-                    , club: club
-                }));
-            }, 'html');
+        function onUpdateSlotList(topic, provider) {
+
+           var clubs =  _.filter(w88Mobile.v2.Slots.clubs, function (club) {
+               return _.indexOf(club.providers, provider.toLowerCase()) !== -1;
+           });
+
+           if (_.isEmpty(clubs)) return;
+
+           _.forEach(clubs, function (club) {
+               $.get('assets/templates/slotCategory.html', function (template) {
+
+                   // need to visit this items by club, since gpi is on top, always return all gpi for first 9 lol
+                   var items = w88Mobile.v2.Slots.itemsByClub(club.providers);
+                   var content = _.template(template);
+                   var innerHtml = content({
+                       games: _.slice(items, 0, w88Mobile.v2.Slots.clubLimit)
+                       , club: club
+                   });
+
+                   if (!_.isEmpty($('.' + club.name + '-main'))) {
+                       $('.' + club.name + '-main').html($(innerHtml).html());
+                   } else {
+                       $(".main-content").append(innerHtml);
+                   }
+               }, 'html');
+           });
+
         }
 
-        function onAddGames(topic, data) {
+        function onAddSlots(topic, data) {
             w88Mobile.v2.Slots.addItems(data.ResponseData.Games);
-            pubsub.publish("addGames", data);
+            pubsub.publish("updateSlotList",  data.ResponseData.Provider);
         }
+
         function onFetchSlots(topic, club) {
             _.forEach(club.providers, function (provider) {
 
                 w88Mobile.v2.Slots.get(provider, function (data) {
                     slotList = data;
-                    pubsub.publish('addGames', data);
-                    pubsub.publish('displayClubs', provider);
+                    pubsub.publish('addSlots', data);
                 }, function () { })
 
             })
