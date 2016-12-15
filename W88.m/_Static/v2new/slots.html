@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -28,7 +28,7 @@
 
     <section class="body">
         <div class="main-content">
-            <div class="game-category">
+            <!--<div class="game-category">
                 <div class="container">
                     <div class="game-category-title">
                         <div class="row">
@@ -154,15 +154,99 @@
                         </a>
                     </div>
                 </div>
-            </div>
-            
+            </div>-->
+
         </div>
     </section>
 
+    <script type="text/javascript">
+        w88Mobile = {};
+        w88Mobile.v2 = {};
+    </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/vendor/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="/_Static/JS/vendor/lodash.js"></script>
+    <script src="assets/js/vendor/pubsub.js"></script>
+    <script src="assets/js/modules/slots.js"></script>
+
+    <script type="text/javascript">
+        _.templateSettings = {
+            interpolate: /\{\{(.+?)\}\}/g,      // print value: {{ value_name }}
+            evaluate: /\{%([\s\S]+?)%\}/g,   // excute code: {% code_to_execute %}
+            escape: /\{%-([\s\S]+?)%\}/g
+        };
+        _.templateSettings.variable = "slotData";
+
+        var slotList = {};
+        pubsub.subscribe('addGames', onAddGames);
+        pubsub.subscribe("fetchSlots", onFetchSlots);
+        pubsub.subscribe("displayClubs", onDisplayClubs);
+
+        $(document).ready(function () {
+
+            _.forEach(w88Mobile.v2.Slots.clubs, function (club) {
+                pubsub.publish("fetchSlots", club);
+            });
+
+            //w88Mobile.v2.Slots.get(function (data) {
+            //    slotList = data;
+            //    var games = _.first(slotList.ResponseData);
+            //    _.forEach(slotList.ResponseData, function (gameCat) {
+            //        w88Mobile.v2.Slots.addItems(gameCat.Games);
+            //    });
+            //    $.get('assets/templates/slotCategory.html', function (template) {
+            //        var club = {
+            //            title: "Apollo"
+            //        };
+            //        var content = _.template(template);
+            //        $(".main-content").append(content({
+            //            games: _.slice(w88Mobile.v2.Slots.items, 0,  w88Mobile.v2.Slots.clubLimit)
+            //            , club: club
+            //        }));
+            //    }, 'html');
+            //}, function () { })
+        });
+
+
+        /**
+        * loop through slots
+        * fetch every provider  (fetchSlots)
+        * add games (addGames)
+        * display Clubs (displayClubs) // need to code this ruby lol
+        */
+
+        // should display category/clubs
+        function onDisplayClubs(topic, provider) {
+            $.get('assets/templates/slotCategory.html', function (template) {
+                var club = {
+                    title: "Apollo"
+                };
+                var content = _.template(template);
+                $(".main-content").append(content({
+                    games: data // _.slice(w88Mobile.v2.Slots.items, 0, w88Mobile.v2.Slots.clubLimit)
+                    , club: club
+                }));
+            }, 'html');
+        }
+
+        function onAddGames(topic, data) {
+            w88Mobile.v2.Slots.addItems(data.ResponseData.Games);
+            pubsub.publish("addGames", data);
+        }
+        function onFetchSlots(topic, club) {
+            _.forEach(club.providers, function (provider) {
+
+                w88Mobile.v2.Slots.get(provider, function (data) {
+                    slotList = data;
+                    pubsub.publish('addGames', data);
+                    pubsub.publish('displayClubs', provider);
+                }, function () { })
+
+            })
+        }
+    </script>
 </body>
 </html>
