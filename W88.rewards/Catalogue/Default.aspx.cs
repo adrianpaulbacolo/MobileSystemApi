@@ -8,6 +8,7 @@ using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Rewards.Models;
 using W88.BusinessLogic.Shared.Models;
 using W88.Utilities;
+using Location = W88.Utilities.Geo.Location;
 
 public partial class Default : CatalogueBasePage
 {
@@ -68,7 +69,13 @@ public partial class Default : CatalogueBasePage
                 SortBy = SortBy
             };
 
-            var result = await RewardsHelper.SearchProducts(searchInfo, UserSessionInfo);
+            var cdnCountryCode = string.Empty;
+            if (UserSessionInfo == null)
+            {
+                var pageHeaders = new Location().CheckCdn(HttpContext.Current.Request);
+                cdnCountryCode = pageHeaders.CountryCode;
+            }
+            var result = await RewardsHelper.SearchProducts(searchInfo, UserSessionInfo, cdnCountryCode);
             var products = result.Data != null ? (List<ProductDetails>) result.Data : null;
             if (result.Code == (int)Constants.StatusCode.Error || products == null)
             {
