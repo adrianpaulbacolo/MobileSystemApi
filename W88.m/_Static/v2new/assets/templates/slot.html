@@ -1,5 +1,11 @@
-﻿<a class="game-card" href="#">
-    <div class="game-card-image">
-        <img src="assets/images/game1.jpg" alt="">
+﻿<div class="container">
+    <div class="game-card-box clearfix">
+        {% _.forEach( slotData.games, function( game ){ %}
+        <a class="game-card" href="#" data-toggle="modal" data-target="#myModal">
+            <div class="game-card-image">
+                <img src="{%- game.ImagePath %}" alt="">
+            </div>
+        </a>
+        {% }); %}
     </div>
-</a>
+</div>
