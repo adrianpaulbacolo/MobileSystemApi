@@ -124,26 +124,34 @@
         </div>
     </section>
     <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="gameModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal-transparent modal-game">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="icon ion-ios-close-outline"></span></button>
                 </div>
                 <div class="modal-body text-center">
-                    <h4>Game Title Here</h4>
+                    <h4 id="gameTitle"></h4>
                     <div class="modal-game-thumb">
-                        <img src="assets/images/game1.jpg" alt="">
+                        <img id="gameImage" src="" alt="">
                     </div>
-                    <a href="#" class="btn btn-block btn-primary">Play Now</a>
-                    <a href="#" class="btn btn-block btn-default">Try Now</a>
+                    <a href="#" id="gameFunUrl" class="btn btn-block btn-default" target="_blank">Try Now</a>
+                    <a href="#" id="gameRegisterUrl" class="btn btn-block btn-primary" hidden>Join Now</a>
+                    <a href="#" id="gameLoginUrl" class="btn btn-block btn-primary" hidden>Login</a>
+                    <a href="#" id="gameRealUrl" class="btn btn-block btn-default" target="_blank">Play Now</a>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="assets/js/modules/cookies.js"></script>
+
     <script type="text/javascript">
         w88Mobile = {};
         w88Mobile.v2 = {};
+        w88Mobile.User = {};
+        w88Mobile.User.token = Cookies().getCookie('s');
+        w88Mobile.User.lang = Cookies().getCookie('language');
     </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

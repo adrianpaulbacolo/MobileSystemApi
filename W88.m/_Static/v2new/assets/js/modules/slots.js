@@ -29,12 +29,16 @@
         , selectClub: selectClub
         , translations: translations
         , getFilterOptions: getFilterOptions
+        , showGameModal: showGameModal
     }
 
 
     function send(url, method, data, success, error, complete) {
 
-        var headers = {};
+        var headers = {
+            'Token': w88Mobile.User.token,
+            'LanguageCode': w88Mobile.User.lang
+        };
 
         $.ajax({
             type: method,
@@ -160,6 +164,41 @@
 
         }, function () { })
 
+    }
+
+    function showGameModal(id) {
+
+        var game = _.find(w88Mobile.v2.Slots.items, function (data) {
+            return _.isEqual(data.Id, id);
+        });
+
+        $('#gameImage').attr('src', game.ImagePath);
+
+        $('#gameTitle').text(game.TranslatedTitle);
+
+        $('#gameFunUrl').attr('href', game.FunUrl);
+
+        if (w88Mobile.User.token) {
+            $('#gameRealUrl').show();
+            $('#gameRegisterUrl').hide();
+            $('#gameLoginUrl').hide();
+
+            $('#gameRealUrl').attr('href', game.RealUrl);
+        }
+        else {
+
+            var loginUrl = "/_Secure/Login.aspx"
+            var registerUrl = "/_Secure/Register.aspx"
+
+            $('#gameRealUrl').hide();
+            $('#gameRegisterUrl').show();
+            $('#gameLoginUrl').show();
+
+            $('#gameRegisterUrl').attr('href', loginUrl);
+            $('#gameLoginUrl').attr('href', registerUrl);
+        }
+
+        $('#gameModal').modal('toggle');
     }
 }
 
