@@ -6,11 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Slots</title>
-
     <!-- Bootstrap -->
     <link href="assets/css/base.css" rel="stylesheet">
     <link href="assets/css/styles.css" rel="stylesheet">
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -19,13 +17,11 @@
     <![endif]-->
 </head>
 <body>
-
     <header class="header clearfix">
         <a href="#" class="header-button header-button-text header-button-left"><span class="icon ion-ios-arrow-back"></span> <span class="button-text">Back</span></a>
-        <a href="#" class="header-button header-button-right"><span class="icon ion-ios-search"></span></a>
-        <a href="#" class="header-button header-button-right"><span class="icon ion-ios-settings"></span></a>
+        <a href="/_static/v2new/search.html" class="header-button header-button-right"><span class="icon ion-ios-search"></span></a>
+        <a href="/_static/v2new/filter.html" class="header-button header-button-right"><span class="icon ion-ios-settings"></span></a>
     </header>
-
     <section class="body">
         <div class="main-content">
             <!--<div class="game-category">
@@ -155,15 +151,12 @@
                     </div>
                 </div>
             </div>-->
-
         </div>
     </section>
-
     <script type="text/javascript">
         w88Mobile = {};
         w88Mobile.v2 = {};
     </script>
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="assets/js/vendor/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -171,7 +164,6 @@
     <script src="/_Static/JS/vendor/lodash.js"></script>
     <script src="assets/js/vendor/pubsub.js"></script>
     <script src="assets/js/modules/slots.js"></script>
-
     <script type="text/javascript">
         _.templateSettings = {
             interpolate: /\{\{(.+?)\}\}/g,      // print value: {{ value_name }}
@@ -195,42 +187,42 @@
         * loop through slots
         * fetch every provider  (fetchSlots)
         * add games (addGames)
-        * display Clubs (updateSlotList) 
+        * display Clubs (updateSlotList)
         */
 
         // should display category/clubs
         function onUpdateSlotList(topic, provider) {
 
-           var clubs =  _.filter(w88Mobile.v2.Slots.clubs, function (club) {
-               return _.indexOf(club.providers, provider.toLowerCase()) !== -1;
-           });
+            var clubs = _.filter(w88Mobile.v2.Slots.clubs, function (club) {
+                return _.indexOf(club.providers, provider.toLowerCase()) !== -1;
+            });
 
-           if (_.isEmpty(clubs)) return;
+            if (_.isEmpty(clubs)) return;
 
-           _.forEach(clubs, function (club) {
-               $.get('assets/templates/slotCategory.html', function (template) {
+            _.forEach(clubs, function (club) {
+                $.get('assets/templates/slotCategory.html', function (template) {
 
-                   // need to visit this items by club, since gpi is on top, always return all gpi for first 9 lol
-                   var items = w88Mobile.v2.Slots.itemsByClub(club.providers);
-                   var content = _.template(template);
-                   var innerHtml = content({
-                       games: _.slice(items, 0, w88Mobile.v2.Slots.clubLimit)
-                       , club: club
-                   });
+                    // need to visit this items by club, since gpi is on top, always return all gpi for first 9 lol
+                    var items = w88Mobile.v2.Slots.itemsBySection("Home");
+                    var content = _.template(template);
+                    var innerHtml = content({
+                        games: _.slice(items, 0, w88Mobile.v2.Slots.clubLimit)
+                        , club: club
+                    });
 
-                   if (!_.isEmpty($('.' + club.name + '-main'))) {
-                       $('.' + club.name + '-main').html($(innerHtml).html());
-                   } else {
-                       $(".main-content").append(innerHtml);
-                   }
-               }, 'html');
-           });
+                    if (!_.isEmpty($('.' + club.name + '-main'))) {
+                        $('.' + club.name + '-main').html($(innerHtml).html());
+                    } else {
+                        $(".main-content").append(innerHtml);
+                    }
+                }, 'html');
+            });
 
         }
 
         function onAddSlots(topic, data) {
             w88Mobile.v2.Slots.addItems(data.ResponseData.Games);
-            pubsub.publish("updateSlotList",  data.ResponseData.Provider);
+            pubsub.publish("updateSlotList", data.ResponseData.Provider);
         }
 
         function onFetchSlots(topic, club) {
