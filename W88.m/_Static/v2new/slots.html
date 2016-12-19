@@ -22,9 +22,13 @@
         <a href="/_static/v2new/search.html" class="header-button header-button-right"><span class="icon ion-ios-search"></span></a>
         <a href="/_static/v2new/filter.html" class="header-button header-button-right"><span class="icon ion-ios-settings"></span></a>
     </header>
+    <script src="assets/js/modules/cookies.js"></script>
     <script type="text/javascript">
         w88Mobile = {};
         w88Mobile.v2 = {};
+        w88Mobile.User = {};
+        w88Mobile.User.token = Cookies().getCookie('s');
+        w88Mobile.User.lang = Cookies().getCookie('language');
     </script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="assets/js/vendor/jquery.js"></script>
