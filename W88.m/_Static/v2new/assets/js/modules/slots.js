@@ -27,6 +27,8 @@
         , section: section
         , toggleSection: toggleSection
         , selectClub: selectClub
+        , translations: translations
+        , getFilterOptions: getFilterOptions
     }
 
 
@@ -99,6 +101,65 @@
         });
 
         w88Mobile.v2.Slots.club = club;
+    }
+
+    function translations(success, error) {
+        var url = "/api/contents";
+        send(url, "GET", {}, success, error);
+    }
+
+    function getFilterOptions(club) {
+        translations(function (res) {
+            $('#clubCategory').append($("<option></option>").attr("value", "all").text(res.ResponseData.LABEL_ALL_DEFAULT));
+
+            _.forEach(club.providers, function (provider) {
+
+                var url = "/api/games/" + provider + "/category";
+                send(url, "GET", {}, function (response) {
+
+                    _.forEach(response.ResponseData, function (data) {
+                        if ($('#clubCategory').find('option[value="' + data.Value + '"]').length == 0) {
+                            $('#clubCategory').append($("<option></option>").attr("value", data.Value).text(data.Text))
+                        }
+                    })
+
+                }, function () { });
+            })
+
+            $('#clubMinBet').append($("<option></option>").attr("value", "all").text(res.ResponseData.LABEL_ALL_DEFAULT));
+
+            _.forEach(club.providers, function (provider) {
+
+                var url = "/api/games/" + provider + "/minbet";
+                send(url, "GET", {}, function (response) {
+
+                    _.forEach(response.ResponseData, function (data) {
+                        if ($('#clubMinBet').find('option[value="' + data + '"]').length == 0) {
+                            $('#clubMinBet').append($("<option></option>").attr("value", data).text(data))
+                        }
+                    })
+
+                }, function () { });
+            })
+
+            $('#clubPlayLines').append($("<option></option>").attr("value", "all").text(res.ResponseData.LABEL_ALL_DEFAULT));
+
+            _.forEach(club.providers, function (provider) {
+
+                var url = "/api/games/" + provider + "/playlines";
+                send(url, "GET", {}, function (response) {
+
+                    _.forEach(response.ResponseData, function (data) {
+                        if ($('#clubPlayLines').find('option[value="' + data + '"]').length == 0) {
+                            $('#clubPlayLines').append($("<option></option>").attr("value", data).text(data))
+                        }
+                    })
+
+                }, function () { });
+            })
+
+        }, function () { })
+
     }
 }
 
