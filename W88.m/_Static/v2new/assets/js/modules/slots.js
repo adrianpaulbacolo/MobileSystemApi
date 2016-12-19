@@ -51,14 +51,27 @@
         send(url, "GET", {}, success, error);
     }
 
-    function addItems(games) {
-        w88Mobile.v2.Slots.items = _.union(w88Mobile.v2.Slots.items, games);
+    function addItems(games, provider) {
+        _.forEach(games, function (game) {
+            var hasItem = _.findIndex(w88Mobile.v2.Slots.items, function (item) {
+                return item.Id == game.Id;
+            });
+            if (hasItem == -1) {
+                game.providers = _.clone(game.OtherProvider);
+                if (!_.isUndefined(provider)) {
+                    game.providers.push(provider);
+                }
+                w88Mobile.v2.Slots.items.push(game);
+            }
+        });
     }
 
-    function itemsByClub(providers) {
+    function itemsByClub(providers, section) {
         return _.filter(w88Mobile.v2.Slots.items, function (item) {
-            var itemProviders = _.join(item.OtherProvider, ",").toLowerCase().split(",");
-            return !_.isEmpty(_.intersection(itemProviders, providers));
+            var itemProviders = _.join(item.providers, ",").toLowerCase().split(",");
+            var hasClub = !_.isEmpty(_.intersection(itemProviders, providers));
+            if (_.isUndefined(section)) return hasClub;
+            else return _.includes(item.Section, section) && hasClub;
         });
     }
 
