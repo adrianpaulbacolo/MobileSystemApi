@@ -44,9 +44,15 @@
             </div>
         </div>
     </section>
+
+    <script src="assets/js/modules/cookies.js"></script>
+
     <script type="text/javascript">
         w88Mobile = {};
         w88Mobile.v2 = {};
+        w88Mobile.User = {};
+        w88Mobile.User.token = Cookies().getCookie('s');
+        w88Mobile.User.lang = Cookies().getCookie('language');
     </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
