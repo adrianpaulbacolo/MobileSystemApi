@@ -197,10 +197,15 @@
                 var items = w88Mobile.v2.Slots.itemsBySection(w88Mobile.v2.Slots.section);
                 var content = _.template(template);
                 var innerHtml = content({
-                    games: items
+                    games: items,
+                    club: club
                 });
 
-                $(".main-content").append(innerHtml);
+                if (!_.isEmpty($('.' + club.name + '-club'))) {
+                    $('.' + club.name + '-club').html($(innerHtml).html());
+                } else {
+                    $(".main-content").append(innerHtml);
+                }
 
             }, 'html');
         }
