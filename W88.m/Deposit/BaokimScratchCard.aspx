@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
-    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dbaokim", commonVariables.PaymentMethodsXML))%></title>
+    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dBaokimScratchCard", commonVariables.PaymentMethodsXML))%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
@@ -19,7 +19,7 @@
             </a>
             <% } %>
 
-            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dbaokim", commonVariables.PaymentMethodsXML))%></h1>
+            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dBaokimScratchCard", commonVariables.PaymentMethodsXML))%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -67,7 +67,7 @@
                             <asp:Literal ID="txtTotalAllowed" runat="server" />
                         </div>
                     </li>
-                    <li class="item item-select" runat="server">
+                    <li class="item-text-wrap" runat="server">
                         <p id="IndicatorMsg" style="color: #ff0000"></p>
                     </li>
                     <li class="item item-select" runat="server">
@@ -75,9 +75,10 @@
                         <asp:DropDownList ID="drpBanks" runat="server" data-corners="false">
                         </asp:DropDownList>
                     </li>
-                    <li class="item item-input">
-                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
-                        <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+                    <li class="item item-select">
+                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="drpAmount" />
+                        <asp:DropDownList ID="drpAmount" runat="server" data-corners="false">
+                        </asp:DropDownList>
                     </li>
                     <li class="item item-input">
                         <asp:Label ID="lblPin" runat="server" AssociatedControlID="txtPin" />
@@ -86,9 +87,6 @@
                     <li class="item item-select">
                         <asp:Label ID="lblCardSerialNo" runat="server" AssociatedControlID="txtCardSerialNo" />
                         <asp:TextBox ID="txtCardSerialNo" runat="server" data-mini="true" data-clear-btn="true" />
-                    </li>
-                    <li class="item item-select">
-                        <p id="notice" style="color: #ff0000"></p>
                     </li>
                     <li class="item row">
                         <div class="col">
@@ -105,20 +103,17 @@
         <% } %>
 
         <script type="text/javascript">
-            var selectName = '<%=strdrpBank%>';
-
             $(document).ready(function () {
                 //window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
 
-                window.w88Mobile.Gateways.BaokimScratchCard.getBanks(selectName);
-                window.w88Mobile.Gateways.BaokimScratchCard.getTranslations();
+                window.w88Mobile.Gateways.BaokimScratchCard.Initialize();
 
                 $('#btnSubmit').click(function (e) {
                     e.preventDefault();
 
-                    var data = { Amount: $('#txtDepositAmount').val(), CardNumber: $('#drpBanks').val(), CCV: $('#txtPin').val(), ReferenceId: $('#txtCardSerialNo').val() };
+                    var data = { Amount: $('#drpAmount').val(), CardNumber: $('#drpBanks').val(), CCV: $('#txtPin').val(), ReferenceId: $('#txtCardSerialNo').val() };
 
-                    window.w88Mobile.Gateways.BaokimScratchCard.deposit(data, function (response) {
+                    window.w88Mobile.Gateways.BaokimScratchCard.Deposit(data, function (response) {
                         switch (response.ResponseCode) {
                             case 1:
                                 window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
@@ -135,6 +130,8 @@
 
                 $('#drpBanks').change(function () {
                     window.w88Mobile.Gateways.BaokimScratchCard.SetFee($('#drpBanks').val());
+
+                    window.w88Mobile.Gateways.BaokimScratchCard.SetDenom($('#drpBanks').val());
                 });
 
 
