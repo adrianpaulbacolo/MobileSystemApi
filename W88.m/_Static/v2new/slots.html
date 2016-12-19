@@ -18,141 +18,10 @@
 </head>
 <body>
     <header class="header clearfix">
-        <a href="#" class="header-button header-button-text header-button-left"><span class="icon ion-ios-arrow-back"></span> <span class="button-text">Back</span></a>
+        <a href="#" onclick="w88Mobile.v2.Routes.previous()" class="header-button header-button-text header-button-left"><span class="icon ion-ios-arrow-back"></span> <span class="button-text">Back</span></a>
         <a href="/_static/v2new/search.html" class="header-button header-button-right"><span class="icon ion-ios-search"></span></a>
         <a href="/_static/v2new/filter.html" class="header-button header-button-right"><span class="icon ion-ios-settings"></span></a>
     </header>
-    <section class="body">
-        <div class="main-content">
-            <!--<div class="game-category">
-                <div class="container">
-                    <div class="game-category-title">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <h4 class="">Club Apollo</h4>
-                            </div>
-                            <div class="col-xs-6 text-right">
-                                <a href="#" class="btn btn-xs btn-link">See More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="game-card-box clearfix">
-                        <a class="game-card" href="#" data-toggle="modal" data-target="#myModal">
-                            <div class="game-card-image">
-                                <img src="assets/images/game1.jpg" alt="">
-                            </div>
-                        </a>
-                        <a class="game-card" href="#" data-toggle="modal" data-target="#myModal">
-                            <div class="game-card-image">
-                                <img src="assets/images/game1.jpg" alt="">
-                            </div>
-                        </a>
-                        <a class="game-card" href="#" data-toggle="modal" data-target="#myModal">
-                            <div class="game-card-image">
-                                <img src="assets/images/game1.jpg" alt="">
-                            </div>
-                        </a>
-                        <a class="game-card" href="#" data-toggle="modal" data-target="#myModal">
-                            <div class="game-card-image">
-                                <img src="assets/images/game1.jpg" alt="">
-                            </div>
-                        </a>
-                        <a class="game-card" href="#">
-                            <div class="game-card-image">
-                                <img src="assets/images/game1.jpg" alt="">
-                            </div>
-                        </a>
-                        <a class="game-card" href="#">
-                            <div class="game-card-image">
-                                <img src="assets/images/game1.jpg" alt="">
-                            </div>
-                        </a>
-                        <a class="game-card" href="#">
-                            <div class="game-card-image">
-                                <img src="assets/images/game1.jpg" alt="">
-                            </div>
-                        </a>
-                        <a class="game-card" href="#">
-                            <div class="game-card-image">
-                                <img src="assets/images/game1.jpg" alt="">
-                            </div>
-                        </a>
-                        <a class="game-card" href="#">
-                            <div class="game-card-image">
-                                <img src="assets/images/game1.jpg" alt="">
-                            </div>
-                        </a>
-                        <a class="game-card" href="#">
-                            <div class="game-card-image">
-                                <img src="assets/images/game1.jpg" alt="">
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="game-category">
-                <div class="container">
-                    <div class="game-category-title">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <h4 class="">Club Apollo</h4>
-                            </div>
-                            <div class="col-xs-6 text-right">
-                                <a href="#" class="btn btn-xs btn-link">See More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="game-card-box clearfix">
-                        <a class="game-card" href="#">
-                            <div class="game-card-image">
-                                <img src="assets/images/game1.jpg" alt="">
-                            </div>
-                        </a>
-                        <a class="game-card" href="#">
-                            <div class="game-card-image">
-                                <img src="assets/images/game1.jpg" alt="">
-                            </div>
-                        </a>
-                        <a class="game-card" href="#">
-                            <div class="game-card-image">
-                                <img src="assets/images/game1.jpg" alt="">
-                            </div>
-                        </a>
-                        <a class="game-card" href="#">
-                            <div class="game-card-image">
-                                <img src="assets/images/game1.jpg" alt="">
-                            </div>
-                        </a>
-                        <a class="game-card" href="#">
-                            <div class="game-card-image">
-                                <img src="assets/images/game1.jpg" alt="">
-                            </div>
-                        </a>
-                        <a class="game-card" href="#">
-                            <div class="game-card-image">
-                                <img src="assets/images/game1.jpg" alt="">
-                            </div>
-                        </a>
-                        <a class="game-card" href="#">
-                            <div class="game-card-image">
-                                <img src="assets/images/game1.jpg" alt="">
-                            </div>
-                        </a>
-                        <a class="game-card" href="#">
-                            <div class="game-card-image">
-                                <img src="assets/images/game1.jpg" alt="">
-                            </div>
-                        </a>
-                        <a class="game-card" href="#">
-                            <div class="game-card-image">
-                                <img src="assets/images/game1.jpg" alt="">
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>-->
-        </div>
-    </section>
     <script type="text/javascript">
         w88Mobile = {};
         w88Mobile.v2 = {};
@@ -164,6 +33,7 @@
     <script src="/_Static/JS/vendor/lodash.js"></script>
     <script src="assets/js/vendor/pubsub.js"></script>
     <script src="assets/js/modules/slots.js"></script>
+    <script src="assets/js/modules/routes.js"></script>
     <script type="text/javascript">
         _.templateSettings = {
             interpolate: /\{\{(.+?)\}\}/g,      // print value: {{ value_name }}
@@ -171,15 +41,22 @@
             escape: /\{%-([\s\S]+?)%\}/g
         };
         _.templateSettings.variable = "slotData";
+        var currentFilter = {};
 
+        // headers and routes
+        pubsub.subscribe("changeRoute", onChangeRoute);
+        pubsub.subscribe("loadClubPage", onLoadClubPage);
+
+        // slots
+        pubsub.subscribe('loadSlots', onLoadSlots);
         pubsub.subscribe('addSlots', onAddSlots);
         pubsub.subscribe("fetchSlots", onFetchSlots);
         pubsub.subscribe("updateSlotList", onUpdateSlotList);
+        pubsub.subscribe("updateList", onUpdateList);
+        pubsub.subscribe("filterSlot", onFilterSlot);
 
         $(document).ready(function () {
-            _.forEach(w88Mobile.v2.Slots.clubs, function (club) {
-                pubsub.publish("fetchSlots", club);
-            });
+            w88Mobile.v2.Routes.init();
         });
 
 
@@ -200,24 +77,33 @@
             if (_.isEmpty(clubs)) return;
 
             _.forEach(clubs, function (club) {
-                $.get('assets/templates/slotCategory.html', function (template) {
-
-                    // need to visit this items by club, since gpi is on top, always return all gpi for first 9 lol
-                    var items = w88Mobile.v2.Slots.itemsByClub(club.providers, "Home");
-                    var content = _.template(template);
-                    var innerHtml = content({
-                        games: _.slice(items, 0, w88Mobile.v2.Slots.clubLimit)
-                        , club: club
-                    });
-
-                    if (!_.isEmpty($('.' + club.name + '-main'))) {
-                        $('.' + club.name + '-main').html($(innerHtml).html());
-                    } else {
-                        $(".main-content").append(innerHtml);
-                    }
-                }, 'html');
+                var items = w88Mobile.v2.Slots.itemsByClub(club.providers, "Home");
+                games = _.slice(items, 0, w88Mobile.v2.Slots.clubLimit);
+                pubsub.publish("updateList", {
+                    games: games
+                    , club: club
+                });
             });
 
+        }
+
+        function onFilterSlot(topic, filter) {
+            var items = [];
+            currentFilter = filter;
+            if (!_.isUndefined(filter.club)) {
+                items = w88Mobile.v2.Slots.itemsByClub(filter.club.providers);
+            }
+            if (_.isUndefined(filter.section)) {
+                filter.section = _.first(w88Mobile.v2.Slots.sections);
+            }
+            items = _.filter(items, function (item) {
+                var sections = _.join(item.Section, ",").toLowerCase().split(",");
+                return _.includes(sections, filter.section.toLowerCase());
+            });
+            pubsub.publish("updateList", {
+                games: items
+                , club: filter.club
+            });
         }
 
         function onAddSlots(topic, data) {
@@ -225,9 +111,14 @@
             pubsub.publish("updateSlotList", data.ResponseData.Provider);
         }
 
+        function onLoadSlots() {
+            _.forEach(w88Mobile.v2.Slots.clubs, function (club) {
+                pubsub.publish("fetchSlots", club);
+            });
+        }
+
         function onFetchSlots(topic, club) {
             _.forEach(club.providers, function (provider) {
-
                 w88Mobile.v2.Slots.get(provider, function (data) {
                     slotList = data;
                     pubsub.publish('addSlots', data);
@@ -235,6 +126,61 @@
 
             })
         }
+
+        function onChangeRoute(topic, data) {
+            w88Mobile.v2.Routes.changeRoute(data.route, data.params);
+        }
+
+        function viewClub(club) {
+            pubsub.publish("changeRoute", {
+                route: "club", params: {
+                    club: club
+                }
+            });
+        }
+
+        function filterClubSlot(tab, section) {
+
+            if (!$(tab).hasClass('active')) {
+                $('#sectionTab').find('li').removeClass('active')
+                $(tab).addClass('active');
+            }
+            currentFilter.section = section;
+            pubsub.publish("filterSlot", currentFilter);
+        }
+
+        function onUpdateList(topic, data) {
+            var club = data.club
+            , games = data.games;
+            $.get('assets/templates/slotCategory.html', function (template) {
+                var content = _.template(template);
+                var innerHtml = content({
+                    games: games
+                    , club: club
+                });
+                if (!_.isEmpty(w88Mobile.v2.Routes.currentPage().find('.' + club.name + '-main'))) {
+                    w88Mobile.v2.Routes.currentPage().find('.' + club.name + '-main').html($(innerHtml).html());
+                } else {
+                    w88Mobile.v2.Routes.currentPage().find(".main-content").append(innerHtml);
+                }
+            }, 'html');
+        }
+
+        function onLoadClubPage(topic, data) {
+            $.get('assets/templates/tabs.html', function (template) {
+                var content = _.template(template);
+                var innerHtml = content({
+                    sections: w88Mobile.v2.Slots.sections,
+                    section: _.first(w88Mobile.v2.Slots.sections)
+                });
+                if (!_.isEmpty($('.filter-bar'))) {
+                    //w88Mobile.v2.Routes.currentPage().find('.' + club.name + '-main').html($(innerHtml).html());
+                } else {
+                    $(".header").after(innerHtml);
+                }
+            }, 'html');
+        }
+
     </script>
 </body>
 </html>

@@ -1,8 +1,11 @@
-﻿function Slots() {
+﻿w88Mobile.v2.Slots = Slots();
+
+function Slots() {
     var slots = [];
     var filteredSlots = [];
     var clubLimit = 9;
     var section = "New";
+    var sections = ["New", "Top", "Featured"];
 
     var providers = ["qt", "gpi", "mgs", "pt", "ctxm", "isb"];
     var clubs = [
@@ -30,6 +33,7 @@
         , translations: translations
         , getFilterOptions: getFilterOptions
         , showGameModal: showGameModal
+        , sections: sections
     }
 
 
@@ -201,5 +205,3 @@
         $('#gameModal').modal('toggle');
     }
 }
-
-w88Mobile.v2.Slots = Slots();
