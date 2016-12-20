@@ -319,21 +319,13 @@ public static class commonPaymentMethodFunc
 
                 anchor.Attributes.Add("href", "/Deposit/WeChat");
 
-<<<<<<< HEAD
-            //    list.Controls.Add(anchor);
-            //    depositTabs.Controls.Add(list);
-            //    break;
-            
-            case commonVariables.DepositMethod.JTPayAliPay:
-                list = CreateMethodListControl(paymentCode);
-=======
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
                 break;
-            //case commonVariables.DepositMethod.JTPayAliPay:
-            //    list = CreateMethodListControl(paymentCode);
->>>>>>> master
 
+            case commonVariables.DepositMethod.JTPayAliPay:
+                list = CreateMethodListControl(paymentCode);
+                
                 anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
 
                 anchor.Attributes.Add("href", "/Deposit/AliPay");
