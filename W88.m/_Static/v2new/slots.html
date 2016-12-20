@@ -18,10 +18,66 @@
 </head>
 <body>
     <header class="header clearfix">
-        <a href="#" onclick="w88Mobile.v2.Routes.previous()" class="header-button header-button-text header-button-left"><span class="icon ion-ios-arrow-back"></span> <span class="button-text">Back</span></a>
-        <a href="/_static/v2new/search.html" class="header-button header-button-right"><span class="icon ion-ios-search"></span></a>
-        <a href="/_static/v2new/filter.html" class="header-button header-button-right"><span class="icon ion-ios-settings"></span></a>
+        <a href="#" onclick="w88Mobile.v2.Routes.previous()" class="header-button header-button-text header-button-left">
+            <span class="icon ion-ios-arrow-back"></span> <span class="button-text">Back</span>
+        </a>
+        <a href="/_static/v2new/search.html" class="header-button header-button-right">
+            <span class="icon ion-ios-search"></span>
+        </a>
+        <a href="#" onclick="showFilterModal()" class="header-button header-button-right">
+            <span class="icon ion-ios-settings"></span>
+        </a>
     </header>
+
+    <!-- Game Modal -->
+    <div class="modal fade" id="gameModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal-transparent modal-game">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="icon ion-ios-close-outline"></span></button>
+                </div>
+                <div class="modal-body text-center">
+                    <h4 id="gameTitle"></h4>
+                    <div class="modal-game-thumb">
+                        <img id="gameImage" src="" alt="">
+                    </div>
+                    <a href="#" id="gameFunUrl" class="btn btn-block btn-default" target="_blank">Try Now</a>
+                    <a href="#" id="gameRegisterUrl" class="btn btn-block btn-primary" hidden>Join Now</a>
+                    <a href="#" id="gameLoginUrl" class="btn btn-block btn-primary" hidden>Login</a>
+                    <a href="#" id="gameRealUrl" class="btn btn-block btn-default" target="_blank">Play Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filter Modal -->
+    <div class="modal modal-fullscreen fade" id="filterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal-transparent">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="icon ion-ios-close-outline"></span></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="form-group form-group-line">
+                        <label>Category</label>
+                        <select name="" id="clubCategory" class="form-control"></select>
+                    </div>
+                    <div class="form-group form-group-line">
+                        <label>Min. Bet (USD)</label>
+                        <select name="" id="clubMinBet" class="form-control"></select>
+                    </div>
+                    <div class="form-group form-group-line">
+                        <label>Play Lines</label>
+                        <select name="" id="clubPlayLines" class="form-control"></select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Apply" onclick="filterGames()"><span class="icon ion-ios-checkmark-outline"></span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="assets/js/modules/cookies.js"></script>
     <script type="text/javascript">
         w88Mobile = {};
@@ -61,6 +117,10 @@
 
         $(document).ready(function () {
             w88Mobile.v2.Routes.init();
+
+            w88Mobile.v2.Slots.getTranslations(function (response) {
+                w88Mobile.v2.Slots.translations = response.ResponseData;
+            }, function () { });
         });
 
 
@@ -108,6 +168,8 @@
                 games: items
                 , club: filter.club
             });
+
+            w88Mobile.v2.Slots.getFilterOptions(currentFilter.club);
         }
 
         function onAddSlots(topic, data) {
@@ -183,6 +245,37 @@
                     $(".header").after(innerHtml);
                 }
             }, 'html');
+        }
+
+
+        function showFilterModal() {
+            $('#filterModal').modal('toggle');
+        }
+
+        function filterGames() {
+
+            var category = $('#clubCategory').val();
+            var minbet = $('#clubMinBet').val();
+            var playlines = $('#clubPlayLines').val();
+
+            var items = [];
+            if (!_.isUndefined(currentFilter.club)) {
+                items = w88Mobile.v2.Slots.itemsByClub(currentFilter.club.providers);
+            }
+
+            items = _.filter(items, function (item) {
+                if (!_.isEqual(category.toLowerCase(), "all") || !_.isEqual(minbet.toLowerCase(), "all") || !_.isEqual(playlines.toLowerCase(), "all")) {
+                    var categories = _.join(item.Category, ",").toLowerCase().split(",");
+                    return _.includes(categories, category.toLowerCase()) || _.isEqual(minbet.toLowerCase(), item.MinBet) || _.isEqual(playlines.toLowerCase(), item.Lines);
+                }
+                else
+                    return true;
+            });
+
+            pubsub.publish("updateList", {
+                games: items
+                , club: currentFilter.club
+            });
         }
 
     </script>

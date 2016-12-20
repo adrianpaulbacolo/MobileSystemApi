@@ -12,7 +12,7 @@
         </div>
         <div class="game-card-box clearfix">
             {% _.forEach( slotData.games, function( game ){ %}
-            <a class="game-card" href="#" data-toggle="modal" data-target="#myModal">
+            <a class="game-card" href="#" onclick="javascript: w88Mobile.v2.Slots.showGameModal('{%- game.Id %}')">
                 <div class="game-card-image">
                     <img src="{%- game.ImagePath %}" alt="">
                 </div>
