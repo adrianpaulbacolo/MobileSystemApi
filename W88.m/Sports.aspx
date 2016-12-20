@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <% var deviceId = commonFunctions.getMobileDevice(Request);
        var bannerPosition = false; 
-       %>
+    %>
 
     <div class="ui-content" role="main">
         <ul class="row banner-lists banner-odd-even row-uc">
@@ -16,11 +16,14 @@
                         <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ASports/Label", commonVariables.ProductsXML)%></h3>
                         <p><%=commonCulture.ElementValues.getResourceXPathString("Products/ASports/Description", commonVariables.ProductsXML)%></p>
 
-                        <%if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) {%>
+                        <%if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+                          {%>
 
                         <a href="/_Secure/Login.aspx" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
 
-                        <%} else { %>
+                        <%}
+                          else
+                          { %>
 
                         <a href="<%=commonASports.getSportsbookUrl%>" target="_blank" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
 
@@ -35,11 +38,14 @@
                         <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></h3>
                         <p><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Description", commonVariables.ProductsXML)%></p>
 
-                        <%if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) {%>
+                        <%if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+                          {%>
 
                         <a href="/_Secure/Login.aspx" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
 
-                        <%} else { %>
+                        <%}
+                          else
+                          { %>
 
                         <a href="<%=commonESports.getSportsbookUrl%>" target="_blank" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
 
@@ -57,6 +63,14 @@
                     </figcaption>
                 </figure>
             </li>
+
+            <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency))
+               {
+                   if (!commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase))
+                   {
+                       bannerPosition = true;
+                       %>
+
             <li class="col">
                 <figure class="banner">
                     <img src="_Static/Images/sports/x-sports-banner.jpg" class="img-responsive img-bg">
@@ -67,11 +81,26 @@
                     </figcaption>
                 </figure>
             </li>
+            <% }
+               }
+               else if (!commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))
+               {
+                   bannerPosition = true;
+                   %>
 
+            <li class="col">
+                <figure class="banner">
+                    <img src="_Static/Images/sports/x-sports-banner.jpg" class="img-responsive img-bg">
+                    <figcaption class="banner-caption">
+                        <h3 class="title"><%= commonCulture.ElementValues.getResourceXPathString("Products/XSports/Label", commonVariables.ProductsXML) %></h3>
+                        <p><%= commonCulture.ElementValues.getResourceXPathString("Products/XSports/Description", commonVariables.ProductsXML) %></p>
+                        <a href="<%= commonXSports.SportsBookUrl %>" data-ajax="false" class="ui-btn btn-primary" target="_blank"><%= commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML) %></a>
+                    </figcaption>
+                </figure>
+            </li>
+            <% } %>
 
             <%
-                bannerPosition = true;
-                
                 try
                 {
             %>
