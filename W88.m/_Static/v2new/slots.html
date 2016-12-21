@@ -41,7 +41,7 @@
                     <div class="modal-game-thumb">
                         <img id="gameImage" src="" alt="">
                     </div>
-                    <a href="#" id="gameFunUrl" class="btn btn-block btn-default" target="_blank">Try Now</a>
+                    <a href="#" id="gameFunUrl" class="btn btn-block btn-gray" target="_blank">Try Now</a>
                     <a href="#" id="gameRegisterUrl" class="btn btn-block btn-primary" hidden>Join Now</a>
                     <a href="#" id="gameLoginUrl" class="btn btn-block btn-primary" hidden>Login</a>
                     <a href="#" id="gameRealUrl" class="btn btn-block btn-default" target="_blank">Play Now</a>
@@ -53,11 +53,12 @@
     <!-- Filter Modal -->
     <div class="modal modal-fullscreen fade" id="filterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
-            <div class="modal-content modal-transparent">
+            <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="icon ion-ios-close-outline"></span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="icon ion-ios-close-empty"></span></button>
+                    <h4 class="modal-title">Filter Bravado</h4>
                 </div>
-                <div class="modal-body text-center">
+                <div class="modal-body">
                     <div class="form-group form-group-line">
                         <label>Category</label>
                         <select name="" id="clubCategory" class="form-control"></select>
@@ -72,7 +73,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Apply" onclick="filterGames()"><span class="icon ion-ios-checkmark-outline"></span></button>
+                    <button type="button" class="btn btn-primary btn-block" data-dismiss="modal" aria-label="Apply" onclick="filterGames()">Apply</button>
                 </div>
             </div>
         </div>

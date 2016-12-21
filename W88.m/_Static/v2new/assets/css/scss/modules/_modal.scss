@@ -1,6 +1,49 @@
 .modal {
   text-align: center;
   padding: 0!important;
+
+	&.modal-fullscreen{
+		@include linearGradient($brand-dark, #1f1f1f);
+		.modal-header{
+			padding: 9px 15px;
+			background-color: $header-bg-color;
+		}
+		.modal-backdrop {
+		    opacity: 1 !important;
+		}
+		.modal-dialog {
+		    vertical-align: top;
+		    width: 100%;
+		    max-width: 100%;
+		    margin: 0;
+		}
+		.modal-content{
+			margin: -1px -1px 0;
+			border-color: transparent;
+			background-color: transparent;
+			@include box-shadow(none);
+			.modal-header{
+				border-bottom: none;
+			}
+			.modal-footer{
+				border-top: none;
+			}
+			.close{
+				font-size: 2rem;
+				color: $white;
+				opacity: 0.75;
+				text-shadow: none;
+				&:focus,
+				&:hover{
+				opacity: 1;
+				}
+			}
+		}
+		&:before{
+			display: none;
+		}
+
+	}
 }
 
 .modal-backdrop {
@@ -58,6 +101,7 @@
 		}
 	}
 }
+
 .modal-game{
 	.modal-body{
 		h4{

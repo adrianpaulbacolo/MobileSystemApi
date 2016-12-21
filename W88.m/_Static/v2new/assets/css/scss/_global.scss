@@ -111,10 +111,7 @@ small,
 .main-content{
     padding: 16px 0;
 	background: #023144; 
-	background: -moz-linear-gradient(top,  $brand-dark 1%, #1f1f1f 100%);
-	background: -webkit-linear-gradient(top,  $brand-dark 1%,#1f1f1f 100%);
-	background: linear-gradient(to bottom,  $brand-dark 1%,#1f1f1f 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-dark', endColorstr='#1f1f1f',GradientType=0 ); /* IE6-9 */
+	@include linearGradient($brand-dark, #1f1f1f);
 }
 
 .no-gutter{
