@@ -4,7 +4,6 @@ function Slots() {
     var slots = [];
     var filteredSlots = [];
     var clubLimit = 9;
-    var section = "New";
     var sections = ["New", "Top", "Featured"];
 
     var providers = ["qt", "gpi", "mgs", "pt", "ctxm", "isb"];
@@ -22,18 +21,15 @@ function Slots() {
         , items: slots
         , addItems: addItems
         , itemsByClub: itemsByClub
-        , itemsBySection: itemsBySection
         , clubLimit: clubLimit
         , clubs: clubs
-        , club: {}
         , providers: providers
-        , section: section
-        , toggleSection: toggleSection
-        , selectClub: selectClub
-        , translations: translations
+        , getTranslations: getTranslations
         , getFilterOptions: getFilterOptions
         , showGameModal: showGameModal
         , sections: sections
+        , clubFilter: {}
+        , translations: {}
     }
 
 
@@ -85,89 +81,91 @@ function Slots() {
         });
     }
 
-    function itemsBySection(section) {
-        return _.filter(w88Mobile.v2.Slots.items, function (item) {
-            return _.includes(item.Section, section)
-        });
-    }
-
-    function toggleSection(self, section) {
-        if (!$(self).hasClass('active')) {
-            $('#sectionTab').find('li').removeClass('active')
-            $(self).addClass('active');
-        }
-
-        w88Mobile.v2.Slots.section = section;
-
-        pubsub.publish("fetchSlots", w88Mobile.v2.Slots.club);
-    }
-
-
-    function selectClub(clubName) {
-        var club = _.find(w88Mobile.v2.Slots.clubs, function (data) {
-            return _.isEqual(data.name.toLowerCase(), clubName);
-        });
-
-        w88Mobile.v2.Slots.club = club;
-    }
-
-    function translations(success, error) {
+    function getTranslations(success, error) {
         var url = "/api/contents";
         send(url, "GET", {}, success, error);
     }
 
     function getFilterOptions(club) {
-        translations(function (res) {
-            $('#clubCategory').append($("<option></option>").attr("value", "all").text(res.ResponseData.LABEL_ALL_DEFAULT));
+
+        if (!w88Mobile.v2.Slots.clubFilter.club || (w88Mobile.v2.Slots.clubFilter.club && !_.isEqual(w88Mobile.v2.Slots.clubFilter.club, club.name))) {
+            var defaultAll = { Text: w88Mobile.v2.Slots.translations.LABEL_ALL_DEFAULT, Value: "All" };
+
+            w88Mobile.v2.Slots.clubFilter = {
+                club: club.name,
+                category: [defaultAll],
+                minbet: [defaultAll],
+                playlines: [defaultAll],
+            };
 
             _.forEach(club.providers, function (provider) {
+                var url = "/api/games/" + provider;
 
-                var url = "/api/games/" + provider + "/category";
-                send(url, "GET", {}, function (response) {
+                send(url + "/category", "GET", {}, function (response) {
 
-                    _.forEach(response.ResponseData, function (data) {
-                        if ($('#clubCategory').find('option[value="' + data.Value + '"]').length == 0) {
-                            $('#clubCategory').append($("<option></option>").attr("value", data.Value).text(data.Text))
-                        }
-                    })
+                    w88Mobile.v2.Slots.clubFilter.category = _.concat(w88Mobile.v2.Slots.clubFilter.category, response.ResponseData);
+
+                    loadClubCategory();
 
                 }, function () { });
-            })
 
-            $('#clubMinBet').append($("<option></option>").attr("value", "all").text(res.ResponseData.LABEL_ALL_DEFAULT));
+                send(url + "/minbet", "GET", {}, function (response) {
 
-            _.forEach(club.providers, function (provider) {
+                    var minBet = _.map(response.ResponseData, function (data) {
+                        return { Text: data, Value: data };
+                    });
 
-                var url = "/api/games/" + provider + "/minbet";
-                send(url, "GET", {}, function (response) {
+                    w88Mobile.v2.Slots.clubFilter.minbet = _.concat(w88Mobile.v2.Slots.clubFilter.minbet, minBet);
 
-                    _.forEach(response.ResponseData, function (data) {
-                        if ($('#clubMinBet').find('option[value="' + data + '"]').length == 0) {
-                            $('#clubMinBet').append($("<option></option>").attr("value", data).text(data))
-                        }
-                    })
+                    loadClubMinBet();
 
                 }, function () { });
-            })
 
-            $('#clubPlayLines').append($("<option></option>").attr("value", "all").text(res.ResponseData.LABEL_ALL_DEFAULT));
+                send(url + "/playlines", "GET", {}, function (response) {
 
-            _.forEach(club.providers, function (provider) {
+                    var playlines = _.map(response.ResponseData, function (data) {
+                        return { Text: data, Value: data };
+                    });
 
-                var url = "/api/games/" + provider + "/playlines";
-                send(url, "GET", {}, function (response) {
+                    w88Mobile.v2.Slots.clubFilter.playlines = _.concat(w88Mobile.v2.Slots.clubFilter.playlines, playlines);
 
-                    _.forEach(response.ResponseData, function (data) {
-                        if ($('#clubPlayLines').find('option[value="' + data + '"]').length == 0) {
-                            $('#clubPlayLines').append($("<option></option>").attr("value", data).text(data))
-                        }
-                    })
-
+                    loadClubPlayLines();
                 }, function () { });
+
             })
+        }
+        else {
+            loadClubCategory();
+            loadClubMinBet();
+            loadClubPlayLines();
+        }
+    }
 
-        }, function () { })
+    function loadClubCategory() {
+        $('#clubCategory').empty();
+        _.forEach(w88Mobile.v2.Slots.clubFilter.category, function (data) {
+            if ($('#clubCategory').find('option[value="' + data.Value + '"]').length == 0) {
+                $('#clubCategory').append($("<option></option>").attr("value", data.Value).text(data.Text))
+            }
+        })
+    }
 
+    function loadClubMinBet() {
+        $('#clubMinBet').empty();
+        _.forEach(w88Mobile.v2.Slots.clubFilter.minbet, function (data) {
+            if ($('#clubMinBet').find('option[value="' + data.Value + '"]').length == 0) {
+                $('#clubMinBet').append($("<option></option>").attr("value", data.Value).text(data.Text))
+            }
+        })
+    }
+
+    function loadClubPlayLines() {
+        $('#clubPlayLines').empty();
+        _.forEach(w88Mobile.v2.Slots.clubFilter.playlines, function (data) {
+            if ($('#clubPlayLines').find('option[value="' + data.Value + '"]').length == 0) {
+                $('#clubPlayLines').append($("<option></option>").attr("value", data.Value).text(data.Text))
+            }
+        })
     }
 
     function showGameModal(id) {
