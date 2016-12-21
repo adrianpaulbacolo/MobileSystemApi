@@ -1,5 +1,6 @@
 ﻿<div class="game-category {%- slotData.club.name %}-main">
     <div class="container">
+        {% if(slotData.showClubLabel){ %}
         <div class="game-category-title">
             <div class="row">
                 <div class="col-xs-6">
@@ -10,6 +11,7 @@
                 </div>
             </div>
         </div>
+        {% } %}
         <div class="game-card-box clearfix">
             {% _.forEach( slotData.games, function( game ){ %}
             <a class="game-card" href="#" onclick="javascript: w88Mobile.v2.Slots.showGameModal('{%- game.Id %}')">

@@ -27,8 +27,12 @@ function Routes() {
 
     routes["index"] = {
         init: function (params) {
-            initPage("index").then(function () {
-                pubsub.publish("loadSlots");
+            var pageRoute = "index";
+            initPage(pageRoute).then(function (page) {
+                var indexpage = new w88Mobile.v2.SlotsCtrl(w88Mobile.v2.Routes);
+                indexpage.route = pageRoute;
+                indexpage.page = w88Mobile.v2.Routes.currentPage();
+                indexpage.init();
             });
         }
     }
@@ -79,7 +83,6 @@ function Routes() {
             var latestRoute = _.last(routeStack);
             routes[latestRoute].onClose();
             w88Mobile.v2.Routes.currentPage().css("display", "inline");
-
         },
         previous: function () {
             if (routeStack.length > 1) {
