@@ -106,10 +106,21 @@ small,
 .main-content {
   padding: 16px 0;
   background: #023144;
-  background: -moz-linear-gradient(top, #023144 1%, #1f1f1f 100%);
-  background: -webkit-linear-gradient(top, #023144 1%, #1f1f1f 100%);
-  background: linear-gradient(to bottom, #023144 1%, #1f1f1f 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-dark', endColorstr='#1f1f1f',GradientType=0 );
+  background: #023144;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #023144 0%, #1f1f1f 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #023144), color-stop(100%, #1f1f1f));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #023144 0%, #1f1f1f 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #023144 0%, #1f1f1f 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #023144 0%, #1f1f1f 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #023144 0%, #1f1f1f 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$top', endColorstr='$bottom',GradientType=0 );
   /* IE6-9 */ }
 
 .no-gutter {
@@ -692,6 +703,52 @@ small,
 .modal {
   text-align: center;
   padding: 0 !important; }
+  .modal.modal-fullscreen {
+    background: #023144;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #023144 0%, #1f1f1f 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #023144), color-stop(100%, #1f1f1f));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #023144 0%, #1f1f1f 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #023144 0%, #1f1f1f 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #023144 0%, #1f1f1f 100%);
+    /* IE10+ */
+    background: linear-gradient(to bottom, #023144 0%, #1f1f1f 100%);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$top', endColorstr='$bottom',GradientType=0 );
+    /* IE6-9 */ }
+    .modal.modal-fullscreen .modal-header {
+      padding: 9px 15px;
+      background-color: #1f2021; }
+    .modal.modal-fullscreen .modal-backdrop {
+      opacity: 1 !important; }
+    .modal.modal-fullscreen .modal-dialog {
+      vertical-align: top;
+      width: 100%;
+      max-width: 100%;
+      margin: 0; }
+    .modal.modal-fullscreen .modal-content {
+      margin: -1px -1px 0;
+      border-color: transparent;
+      background-color: transparent;
+      -webkit-box-shadow: none;
+      box-shadow: none; }
+      .modal.modal-fullscreen .modal-content .modal-header {
+        border-bottom: none; }
+      .modal.modal-fullscreen .modal-content .modal-footer {
+        border-top: none; }
+      .modal.modal-fullscreen .modal-content .close {
+        font-size: 2rem;
+        color: #ffffff;
+        opacity: 0.75;
+        text-shadow: none; }
+        .modal.modal-fullscreen .modal-content .close:focus, .modal.modal-fullscreen .modal-content .close:hover {
+          opacity: 1; }
+    .modal.modal-fullscreen:before {
+      display: none; }
 
 .modal-backdrop {
   opacity: 0.95 !important; }
