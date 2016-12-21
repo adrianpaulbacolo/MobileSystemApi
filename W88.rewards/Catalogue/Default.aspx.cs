@@ -4,11 +4,12 @@ using System.Data;
 using System.Text;
 using System.Web;
 using System.Web.Services;
+using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Rewards.Models;
+using W88.BusinessLogic.Shared.Helpers;
 using W88.BusinessLogic.Shared.Models;
 using W88.Utilities;
-using Location = W88.Utilities.Geo.Location;
 
 public partial class Default : CatalogueBasePage
 {
@@ -69,13 +70,12 @@ public partial class Default : CatalogueBasePage
                 SortBy = SortBy
             };
 
-            var cdnCountryCode = string.Empty;
             if (UserSessionInfo == null)
             {
-                var pageHeaders = new Location().CheckCdn(HttpContext.Current.Request);
-                cdnCountryCode = pageHeaders.CountryCode;
+                UserSessionInfo = new UserSessionInfo();
+                UserSessionInfo.CountryCode = new ListOfValuesHelper().GetCountryInfo().Country;
             }
-            var result = await RewardsHelper.SearchProducts(searchInfo, UserSessionInfo, cdnCountryCode);
+            var result = await RewardsHelper.SearchProducts(searchInfo, UserSessionInfo);
             var products = result.Data != null ? (List<ProductDetails>) result.Data : null;
             if (result.Code == (int)Constants.StatusCode.Error || products == null)
             {
