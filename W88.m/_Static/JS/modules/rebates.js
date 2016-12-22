@@ -4,7 +4,8 @@
         Initialize: initialize,
         Statement: statement,
         ClaimQuery: claimQuery,
-        ClaimNow: claimNow
+        ClaimNow: claimNow,
+        CheckCode: checkCode
     };
 
     _.templateSettings = {
@@ -44,11 +45,18 @@
     function translations() {
         send("/contents", "GET", "", "", function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
-
+                
                 $('#labelPeriod').html(response.ResponseData.LABEL_REBATE_PERIOD);
                 $('#monday').html(response.ResponseData.LABEL_MONDAY);
                 $('#sunday').html(response.ResponseData.LABEL_SUNDAY);
                 $('#rebateDisclaimer').html(response.ResponseData.LABEL_REBATE_DISCLAIMER);
+                $('#rebateDisclaimerMin').html(response.ResponseData.LABEL_REBATE_NOTE1);
+                $('#rebateDisclaimerNoteCurrent').html(response.ResponseData.LABEL_REBATE_DISCLAIMER_CONTENT_CURRENT);
+                $('#rebateDisclaimerNote1').html(response.ResponseData.LABEL_REBATE_DISCLAIMER_CONTENT1);
+                $('#rebateDisclaimerNote2').html(response.ResponseData.LABEL_REBATE_DISCLAIMER_CONTENT2);
+                
+                sessionStorage.setItem("weeklyClaim", response.ResponseData.BUTTON_WEEKLY_CLAIM);
+                sessionStorage.setItem("promoOption", response.ResponseData.LABEL_PROMO_OPTION);
 
                 sessionStorage.setItem("monday", response.ResponseData.LABEL_MONDAY);
                 sessionStorage.setItem("sunday", response.ResponseData.LABEL_SUNDAY);
@@ -97,12 +105,14 @@
                     var template = _.template(data);
 
                     $("#group").html(template({
-                        data: response.ResponseData,
+                        data: response.ResponseData.RebateRow,
                         LabelRebateAmount: sessionStorage.getItem("rebateAmount"),
                         LabelRebatePercent: sessionStorage.getItem("rebatePercent"),
                         LabelRebateBets: sessionStorage.getItem("rebateBets"),
                         BtnClaim: sessionStorage.getItem("btnClaim"),
                     })).enhanceWithin();
+
+                    $('#rebateDisclaimerMin').html(sessionStorage.getItem("rebateNote1") + " " + Cookies().getCookie("currencyCode") + " " + response.ResponseData.MinimumClaim);
 
                     $(".collapsible-btn").click(function(e) {
                         e.preventDefault();
@@ -223,6 +233,14 @@
         }
     }
 
+    function checkCode(code) {
+        send("/rebates/checkCode", "GET", code, "", function (response) {
+            if (response && _.isEqual(response.ResponseCode, 1)) {
+
+                sessionStorage.setItem("checkCode", response.ResponseData);
+            }
+        }, "");
+    }
 
     return Rebates;
 }
