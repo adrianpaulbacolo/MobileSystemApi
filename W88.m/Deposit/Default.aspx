@@ -50,19 +50,20 @@
                 if ($('#depositTabs li a.btn-primary').length == 0) {
                     if ($('#depositTabs li').first().children().attr('href') != undefined) {
                         window.location.replace($('#depositTabs li').first().children().attr('href'));
-                    } else {
-                        // track accounts with no gateways
-                        w88Mobile.PiwikManager.trackEvent({
-                            category: "Deposit",
-                            action: "<%=base.strCountryCode %>",
-                            name: "<%=base.strMemberID %>"
-                            });
+                    }
+                }
 
+                if ($('#depositTabs li').length == 0) {
+                    // track accounts with no gateways
+                    w88Mobile.PiwikManager.trackEvent({
+                        category: "Deposit",
+                        action: "<%=base.strCountryCode %>",
+                        name: "<%=base.strMemberID %>"
+                    });
                         $('.empty-state').show();
                         $('#paymentNote').append('<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>');
 
                         $("#loader").hide();
-                    }
                 }
             });
         </script>

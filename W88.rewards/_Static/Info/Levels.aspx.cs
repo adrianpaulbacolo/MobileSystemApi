@@ -1,21 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+using W88.BusinessLogic.Shared.Helpers;
 
-public partial class _Info_Levels : BasePage
+public partial class _Info_Levels : Page
 {
-  
     protected void Page_Load(object sender, EventArgs e)
     {
-
-        if (!Page.IsPostBack)
+        if (IsPostBack)
         {
-            string path = Server.MapPath("~").ToLower() + string.Format("_Static\\Info\\Levels\\levels.{0}.htm", commonVariables.SelectedLanguage);
-            htmltext.Text = System.IO.File.ReadAllText(path);
-            
+            return;
         }
+        var path = Server.MapPath("~").ToLower() + string.Format("_Static\\Info\\Levels\\levels.{0}.htm", LanguageHelpers.SelectedLanguage);
+        htmltext.Text = System.IO.File.ReadAllText(path);                   
     }
 }

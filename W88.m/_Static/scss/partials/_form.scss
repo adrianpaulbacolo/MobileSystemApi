@@ -131,6 +131,12 @@ select {
     }
 }
 
+.download-app-box{
+    width: 100%;
+    z-index: 1000;
+    position: relative !important;
+}
+
 .download-app {
     // background-color: darken($primary-color, 34%);
     background-color: #111;

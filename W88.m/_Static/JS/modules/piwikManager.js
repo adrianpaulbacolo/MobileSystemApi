@@ -3,7 +3,8 @@
 function piwikManager() {
     var goals = {
         playNow: 2,
-        tryNow: 1
+        tryNow: 1,
+        registerSuccess: 1
     }
 
     var memberId = "";
@@ -27,6 +28,8 @@ function piwikManager() {
         var piwik = getInstance();
         if (typeof piwik === "object" && typeof piwik.trackGoal === "function") {
             piwik.trackGoal(goal);
+        } else {
+            _paq.push(['trackGoal', goal]);
         }
     }
 
@@ -36,6 +39,10 @@ function piwikManager() {
 
     function trackTryNow() {
         trackGoal(goals.tryNow);
+    }
+
+    function trackSignup() {
+        trackGoal(goals.registerSuccess);
     }
 
     function trackEvent(event) {
@@ -84,6 +91,7 @@ function piwikManager() {
         trackPlayNow: trackPlayNow
         , trackTryNow: trackTryNow
         , trackEvent: trackEvent
+        , trackSignup: trackSignup
         , setUserId: setUserId
         , setDeviceId: setDeviceId
         , setGoals: setGoals

@@ -1,10 +1,35 @@
-﻿<div data-role="header" data-position="fixed" data-theme="b" data-tap-toggle="false" class="div-nav-header">
-<div><a href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true"><img src="/_Static/Images/icon-menu.png" /></a></div>
-<% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
-<div><a class="ui-btn ui-gray" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
-         <%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></a></div>
-    <% } else { %>
-   <div> <a class="ui-btn ui-gray" href="/Catalogue/Cart.aspx" data-ajax="false" style="display: none">Cart</a></div>
-<!--<style type="text/css">.div-nav-header { background-position: center center !important; }</style>-->
-<% } %>
+﻿<%@ Import Namespace="W88.BusinessLogic.Rewards.Helpers" %>
+<%@ Import Namespace="W88.BusinessLogic.Rewards.Models" %>
+<%@ Import Namespace="W88.BusinessLogic.Shared.Helpers" %>
+<div data-role="header" data-tap-toggle="false">
+    <header class="header">
+        <div class="header-container">
+            <div class="header-buttons clearfix">
+                <a id="backButton" href="#" data-rel="back" class="pull-left header-menu"><span class="icon icon-back"></span></a>
+                <div class="dropdown pull-right">
+                    <a href="#" class="dropdown-toggle more-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="More">
+                        <li><a data-ajax="false" href="/_Static/Info/About.aspx?lang=<%=LanguageHelpers.SelectedLanguage%>"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.About)%></a></li>
+                        <li><a data-ajax="false" href="/_Static/Info/Levels.aspx?lang=<%=LanguageHelpers.SelectedLanguage%>"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Levels)%></a></li> 
+                        <li><a data-ajax="false" href="/Catalogue?categoryId=0&sortBy=2"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Catalogue)%></a></li>    
+                        <li><a data-ajax="false" href="/_Static/Info/Terms.aspx?lang=<%=LanguageHelpers.SelectedLanguage%>"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.TNC)%></a></li>  
+                        <li><a data-ajax="false" href="/_Static/Info/FAQ.aspx?lang=<%=LanguageHelpers.SelectedLanguage%>"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.FAQ)%></a></li>                                           
+                        <li><a data-ajax="false" href="/Lang.aspx"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Language)%></a></li>                                                                  
+                        <li id="headerLoginButton"><a data-ajax="false" href="/_Secure/Login.aspx"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Login)%></a></li>
+                        <li id="headerLogoutButton"><a href="javascript: logout();"><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Logout)%></a></li>
+                    </ul>
+                </div>
+                <a data-ajax="false" href="/LiveChat/Default.aspx" class="pull-right header-chat"><span class="icon icon-chat"></span></a>
+            </div>
+            <div class="header-logo">
+                <h1>
+                    <img src="/_Static/Images/logo-<%=LanguageHelpers.SelectedLanguageShort%>.png" class="logo" alt="logo">
+                </h1>
+            </div>
+        </div>
+    </header>
 </div>

@@ -1,273 +1,220 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
-    <script src="/_static/_script/slideToggle.js"></script>
-    <style>
-        table td {
-            line-height: 1.8;
-        }
+﻿<div class="row">
+    <div>
+        <h6>常见问题</h6>
+        <p>积分计划</p>
+        <p>积分计划不仅仅是奖励会员的投注行为，更多的是建立在对会员忠诚认同的一种回馈。同时也为阁下提供兑换免费投注或其他众多您所喜爱的礼品的乐趣体验。 </p>
+        <ol>
+            <li><a data-ajax="false" href="#1">什么是奖励积分？</a></li>
+            <li><a data-ajax="false" href="#2">如何获取奖励积分？</a></li>
+            <li><a data-ajax="false" href="#3">我是否需要注册参与优德W88的积分奖励计划？</a></li>
+            <li><a data-ajax="false" href="#4">我的奖励积分是否会过期？</a></li>
+            <li><a data-ajax="false" href="#5">我的奖励积分需要多久才会在账户中显示？</a></li>
+            <li><a data-ajax="false" href="#6">和/平局/无效/取消的投注也可以获得有效积分么？</a></li>
+            <li><a data-ajax="false" href="#7">奖励积分可以被转让么？</a></li>
+            <li><a data-ajax="false" href="#8">如何查看我是否已挣得积分？</a></li>
+            <li><a data-ajax="false" href="#9">我能兑换什么礼品？如何兑换？</a></li>
+            <li><a data-ajax="false" href="#10">在积分兑换历史状态栏中，什么是待定、已完成、和取消？</a></li>
+            <li><a data-ajax="false" href="#11">什么是免费投注及产品兑换？</a></li>
+            <li><a data-ajax="false" href="#12">W88幸运旋转详细资料</a></li>
+            <li><a data-ajax="false" href="#13">若我申请了返水或者再存活动的话，我还可以获得奖励积分吗？</a></li>
+        </ol>
+    </div>
 
-        ol li {
-            line-height: 1.8 !important;
-        }
+    <div id="1">
+        <h5>1. 什么是奖励积分？</h5>
+        <p>优德W88的所有会员可以在对指定游戏的进行投注后，自动获得积分奖励计划的对应积分。并使用对应金额的积分兑换免费投注，或者其他众多阁下所钟爱的礼品等。 </p>
+    </div>
 
-        p {
-            line-height: 1.8 !important;
-        }
-    </style>
-    <body>
-        <div id="container">
-            <div>
-                <!--	<div class="header"></div>
-    <div id="menu"></div>
-    <div class="content">-->
-                <div class="contentTitle">常见问题</div>
-                <div class="contentArticle" id="section">
-                    <p class="subTitle">积分计划</p>
-                    <p>积分计划不仅仅是奖励会员的投注行为，更多的是建立在对会员忠诚认同的一种回馈。同时也为阁下提供兑换免费投注或其他众多您所喜爱的礼品的乐趣体验。 </p>
-                    <ol class="sectionLink">
-                        <li><a href="#1" onclick="openAccordianFromLink('1');">什么是奖励积分？</a></li>
-                        <li><a href="#2" onclick="openAccordianFromLink('2');">如何获取奖励积分？</a></li>
-                        <li><a href="#3" onclick="openAccordianFromLink('3');">我是否需要注册参与优德W88的积分奖励计划？</a></li>
-                        <li><a href="#4" onclick="openAccordianFromLink('4');">我的奖励积分是否会过期？</a></li>
-                        <li><a href="#5" onclick="openAccordianFromLink('5');">我的奖励积分需要多久才会在账户中显示？</a></li>
-                        <li><a href="#6" onclick="openAccordianFromLink('6');">和/平局/无效/取消的投注也可以获得有效积分么？</a></li>
-                        <li><a href="#7" onclick="openAccordianFromLink('7');">奖励积分可以被转让么？</a></li>
-                        <li><a href="#8" onclick="openAccordianFromLink('8');">如何查看我是否已挣得积分？</a></li>
-                        <li><a href="#9" onclick="openAccordianFromLink('9');">我能兑换什么礼品？如何兑换？</a></li>
-                        <li><a href="#10" onclick="openAccordianFromLink('10');">在积分兑换历史状态栏中，什么是待定、已完成、和取消？</a></li>
-                        <li><a href="#11" onclick="openAccordianFromLink('11');">什么是免费投注及产品兑换？</a></li>
-                        <li><a href="#12" onclick="openAccordianFromLink('12');">W88幸运旋转详细资料</a></li>
-                        <li><a href="#13" onclick="openAccordianFromLink('13');">若我申请了返水或者再存活动的话，我还可以获得奖励积分吗？</a></li>
-                    </ol>
-                    <div class="tab">
-                        <a name="1"></a>
-                        <div id="1" class="1 section-header">1. 什么是奖励积分？</div>
+    <div id="2">
+        <h5>2. 如何获取奖励积分？</h5>
+        <p>优德W88相信奖励会员不仅限于鼓励其单一的投注行为，同时我们也关注于使会员在每一笔投注中都能获益。2014年2月1日后所有W贵宾厅“蓝宝石”或以上级别开始投注的会员都将直接从有效投注中获得相应积分。</p>
+    </div>
 
-                        <div class="section-content open1">
-                            <p>优德W88的所有会员可以在对指定游戏的进行投注后，自动获得积分奖励计划的对应积分。并使用对应金额的积分兑换免费投注，或者其他众多阁下所钟爱的礼品等。 </p>
-                        </div>
+    <div id="3">
+        <h5>3. 我是否需要注册参与优德W88的积分奖励计划？</h5>
+        <p>您无需申请参加积分活动。一旦您达到W贵宾厅“蓝宝石”级别会员，您将直接从有效投注中获得积分奖励。</p>
+    </div>
 
-                        <a name="2"></a>
-                        <div id="2" class="2 section-header">2. 如何获取奖励积分？</div>
+    <div id="4">
+        <h5>4. 我的奖励积分是否会过期？</h5>
+        <p>
+            是的。优德W88的积分的有效期如下所示：<br />
+            蓝宝石会员积分有效期为六（6）个月<br />
+            黄金和白金会员积分有效期为十二（12）个月<br />
+            钻石会员积分将长期有效<br />
+            一旦您达到W贵宾厅“蓝宝石”级别会员，您将直接从有效投注中获得积分奖励。任何未使用的或过期的积分将会被扣除。因此，请留意在过期之前及时兑换您的积分，您可以点击"积分过期报表" 查询即将过期的积分。
+        </p>
+    </div>
 
-                        <div class="section-content open2">
-                            <p>优德W88相信奖励会员不仅限于鼓励其单一的投注行为，同时我们也关注于使会员在每一笔投注中都能获益。2014年2月1日后所有W贵宾厅“蓝宝石”或以上级别开始投注的会员都将直接从有效投注中获得相应积分。</p>
-                        </div>
+    <div id="5">
+        <h5>5. 我的奖励积分需要多久才会在账户中显示？</h5>
+        <p>奖励积分以周为结算周期，将会在您的投注结算后的第7天下午2点派发。优德W88的工作日计算是从每天正午12点到第二天上午11点59分。例如，如您的投注在2013年6月1日结算，相应的奖励积分会在2013年6月8日（7天后）为您派发至积分账户中。如您对积分奖励计划有任何疑问，欢迎您随时电邮至<a href="mailto:rewards@w88.com">rewards@w88.com</a>查询。</p>
+    </div>
 
-                        <a name="3"></a>
-                        <div id="3" class="3 section-header">3. 我是否需要注册参与优德W88的积分奖励计划？</div>
+    <div id="6">
+        <h5>6. 和/平局/无效/取消的投注也可以获得有效积分么？</h5>
+        <p>不可以。有效的投注积分不包括所有的和/平局/无效/取消的投注。 </p>
+    </div>
 
-                        <div class="section-content open3">
-                            <p>您无需申请参加积分活动。一旦您达到W贵宾厅“蓝宝石”级别会员，您将直接从有效投注中获得积分奖励。</p>
-                        </div>
+    <div id="7">
+        <h5>7. 奖励积分可以被转让么？</h5>
+        <p>奖励积分无法被转让给其他优德W88会员。</p>
+    </div>
 
-                        <a name="4"></a>
-                        <div id="4" class="4 section-header">4. 我的奖励积分是否会过期？</div>
+    <div id="8">
+        <h5>8. 如何查看我是否已挣得积分？</h5>
+        <p>登录优德W88账户之后，点击奖励计划，查询积分。 您的可用积分总额将可在页面的右上方显示。点击左目录旁的&quot;积分明细&quot;以查询您当日或者当月所赚取的/将过期的/已过期的积分。</p>
+    </div>
 
-                        <div class="section-content open4">
-                            <p>
-                                是的。优德W88的积分的有效期如下所示：<br />
-                                蓝宝石会员积分有效期为六（6）个月<br />
-                                黄金和白金会员积分有效期为十二（12）个月<br />
-                                钻石会员积分将长期有效<br />
-                                一旦您达到W贵宾厅“蓝宝石”级别会员，您将直接从有效投注中获得积分奖励。任何未使用的或过期的积分将会被扣除。因此，请留意在过期之前及时兑换您的积分，您可以点击"积分过期报表" 查询即将过期的积分。
-                            </p>
-                        </div>
+    <div id="9">
+        <h5>9. 我能兑换什么礼品？如何兑换？</h5>
+        <p>您可以使用奖励积分兑换免费投注以及多种礼品。登录优德W88的奖励计划，在优德W88礼品目录中查找您所希望兑换的礼品，点击"查看详情"，根据您拥有的积分兑换相应的礼品。</p>
+    </div>
 
-                        <a name="5"></a>
-                        <div id="5" class="5 section-header">5. 我的奖励积分需要多久才会在账户中显示？</div>
-
-                        <div class="section-content open5">
-                            <p>奖励积分以周为结算周期，将会在您的投注结算后的第7天下午2点派发。优德W88的工作日计算是从每天正午12点到第二天上午11点59分。例如，如您的投注在2013年6月1日结算，相应的奖励积分会在2013年6月8日（7天后）为您派发至积分账户中。如您对积分奖励计划有任何疑问，欢迎您随时电邮至<a href="mailto:rewards@w88.com">rewards@w88.com</a>查询。 </p>
-                        </div>
-
-                        <a name="6"></a>
-                        <div id="6" class="6 section-header">6. 和/平局/无效/取消的投注也可以获得有效积分么？</div>
-
-                        <div class="section-content open6">
-                            <p>不可以。有效的投注积分不包括所有的和/平局/无效/取消的投注。 </p>
-                        </div>
-
-                        <a name="7"></a>
-                        <div id="7" class="7 section-header">7. 奖励积分可以被转让么？</div>
-
-                        <div class="section-content open7">
-                            <p>奖励积分无法被转让给其他优德W88会员。 </p>
-                        </div>
-
-                        <a name="8"></a>
-                        <div id="8" class="8 section-header">8. 如何查看我是否已挣得积分？</div>
-
-                        <div class="section-content open8">
-                            <p>登录优德W88账户之后，点击奖励计划，查询积分。 您的可用积分总额将可在页面的右上方显示。点击左目录旁的&quot;积分明细&quot;以查询您当日或者当月所赚取的/将过期的/已过期的积分。 </p>
-                        </div>
-
-                        <a name="9"></a>
-                        <div id="9" class="9 section-header">9. 我能兑换什么礼品？如何兑换？</div>
-
-                        <div class="section-content open9">
-                            <p>您可以使用奖励积分兑换免费投注以及多种礼品。登录优德W88的奖励计划，在优德W88礼品目录中查找您所希望兑换的礼品，点击"查看详情"，根据您拥有的积分兑换相应的礼品。</p>
-                        </div>
-
-                        <a name="10"></a>
-                        <div id="10" class="10 section-header">10. 在积分兑换历史状态栏中，什么是待定、已完成、和取消？</div>
-
-                        <div class="section-content open10">
-                            <table class="tableCss" cellspacing="1" cellpadding="5" width="100%">
-                                <tr class="rowHeader">
-                                    <td align="center"><strong style="font-weight: bold;">状态</strong></td>
-                                    <td align="center"><strong style="font-weight: bold;">详情说明</strong></td>
-                                    <td width="130" align="center"><strong style="font-weight: bold;">流程时间</strong></td>
-                                </tr>
-                                <tr class="row1">
-                                    <td>待定</td>
-                                    <td>待定则说明正在等待我们确认您的订单，<br />
-                                        您的积分也会根据相应的礼品被扣除。 </td>
-                                    <td>在2个工作日内处理 </td>
-                                </tr>
-                                <tr class="row1">
-                                    <td>已完成</td>
-                                    <td>您的礼品兑换已经完成：<br />
-                                        免费投注 - 已经被存入您的账户<br />
-                                        其他商品 - 已经成功发送出我们的货仓 </td>
-                                    <td>其他产品的物流时间根据您所在城市有所不同。 </td>
-                                </tr>
-                                <tr class="row2">
-                                    <td>已取消</td>
-                                    <td>取消的原因:
-                                        <br />
-                                        - 您的申请不符合优德W88的条款和规定<br />
-                                        - 该物品暂时缺货<br />
-                                        - 或其他原因<br />
-                                        取消后，您的积分将会自动返还 </td>
-                                    <td>-</td>
-                                </tr>
-                            </table>
-                        </div>
-
-                        <a name="11"></a>
-                        <div id="11" class="11 section-header">11. 什么是免费投注及礼品兑换？</div>
-
-                        <div class="section-content open11">
-                            <p>我们提供&ldquo;免费投注&rdquo; 及&ldquo;礼品兑换&rdquo;两种兑换类型。请参见以下详情： </p>
-                            <p><strong>兑换“免费投注”</strong></p>
-                            <ol type="a" class="sectionLink">
-                                <li>在提交兑换申请后，需要多久“免费投注”金额才能到账？</li>
-                                <li>为什么我不能兑换其他货币种类的“免费投注”？</li>
-                                <li>是否“免费投注”需要达到流水要求才能进行提款？</li>
-                            </ol>
-                            <p>免费投注奖励从一定意义上同返水类似，区别在您可立刻兑换累计的积分。 </p>
-                            <a name="11.1.1"></a>
-                            <p>
-                                <strong>a. 免费投注奖励从一定意义上同返水类似，区别在您可立刻兑换累计的积分。</strong><br />
-                                只有在优德W88，您在兑换之后，可立即在中心钱包收到对应金额。
-                            </p>
-                            <a name="11.1.2"></a>
-                            <p>
-                                <strong>b. 为什么我不能兑换其他货币种类的“免费投注”？</strong><br />
-                                你只能兑换和您在优德W88注册时选择的投注货币相同的免费投注产品，否则您的申请将会被取消。
-                            </p>
-                            <a name="11.1.3"></a>
-                            <p>
-                                <strong>c. 是否“免费投注”需要达到流水要求才能进行提款？</strong><br />
-                                无需任何流水要求即可提款。其他提款事宜和情况适用于优德W88规则与条款。
-                                <br />
-                                <br />
-                                <strong>兑换礼品</strong>
-                            </p>
-                            <ol type="a" class="sectionLink">
-                                <li>我能兑换那些礼品？</li>
-                                <li>对于高价值礼品会有保险么？</li>
-                                <li>能否退还所兑换的礼品？</li>
-                                <li>我是否要承担邮寄费用？</li>
-                                <li>需要多久才能收到礼品？</li>
-                            </ol>
-                            <p>优德W88会根据您注册地所在地区，为您提供品种繁多的礼品选择；且月月更新，品位入时。 </p>
-                            <a name="11.2.1"></a>
-                            <p>
-                                <strong>a.  我能兑换那些礼品？</strong><br />
-                                除&ldquo;免费投注&rdquo;以外，阁下也可以使用您的奖励积分其他精美&ldquo;礼品&rdquo;，包括体育休闲类、数码产品类、时尚奢华类等众多选择。如需查看详尽的内容，请参见优德W88礼品目录页面获取更多资讯与惊喜。
-                            </p>
-                            <a name="11.2.2"></a>
-                            <p>
-                                <strong>b.  对于高价值礼品会有保险么？</strong><br />
-                                兑换之礼品由品牌方依据保修条例进行保修。优德W88将保留对高价值礼品负责保修的权力，由供应商负责处理。
-                            </p>
-                            <a name="11.2.3"></a>
-                            <p>
-                                <strong>c. 能否退还所兑换的礼品？</strong><br />
-                                所有礼品在寄出后均不可退还，除非该产品无法正常操作。在此情况下，您须在签收礼品的五日内通过<a href="javascript:load_livechat('zh-cn');">在线客服</a>与我们取得联系。
-                            </p>
-                            <a name="11.2.4"></a>
-                            <p>
-                                <strong>d.  我是否要承担邮寄费用？</strong><br />
-                                阁下无需承担任何邮寄（或保险）费用，优德W88将全权承担所有邮寄费用（偏远地处除外）。
-                            </p>
-                            <a name="11.2.5"></a>
-                            <p>
-                                <strong>e.  需要多久才能收到礼品？</strong><br />
-                                通常需10个工作日(根据所在地)审核办理您的兑换申请。 在兑换状态更新为&ldquo;已完成&rdquo;时，即表示礼品已寄出，您将可在5到15个工作日内收到您的礼品，物流时间取决于您的所在地。
-                            </p>
-                        </div>
-
-                        <!------------------------------>
-
-                        <a name="12"></a>
-                        <div id="12" class="12 section-header">12. W88幸运旋转详细资料</div>
-
-                        <div class="section-content open12">
-                            <p>优德W88愿您好运常伴，每位会员都将有机会获得惊喜奖品以及更多更好的优惠，多多关注和支持我们优德W88。</p>
-                            <a name="12.1.1"></a>
-                            <p>
-                                <strong>a.  会员如何来获得幸运旋转的免费旋转机会呢？</strong><br />
-                                所有注册会员每周最少有一次的存款记录才能符合参与免费“幸运旋转”。
-                            </p>
-                            <a name="12.1.2"></a>
-                            <p>
-                                <strong>b.  如何参加幸运旋转呢？</strong><br />
-                                W88积分奖励俱乐部将每周送您一次免费旋转若您本周内有成功的存款记录。打开积分俱乐部的幸运旋转页面，点击”立即旋转”。
-                            </p>
-                            <a name="12.1.3"></a>
-                            <p>
-                                <strong>c. 积分/免费投注/优惠/奖品等是立即处理的吗？</strong><br />
-                                会员旋转获得的积分或免费投注将立即添加至您的账户中。<br />
-                                <br />
-                                i. 会员旋转获得优惠后，客服将会在24小时内与您取得联系，会员同意此优惠的要求后立即处理。<br />
-                                ii. 会员旋转获得奖品后，积分俱乐部将会与您联系，洽谈与奖品有关的详细信息，会员同意相关要求并提供邮寄地址后的15天内处理。<br />
-                                <br />
-
-                                注意：如果在旋转获得奖品的7天内，获奖者无法取得联系或无法提供详细信息，该奖项视为无效，其他会员将有机会再次通过幸运旋转获得该奖品。<br />
-                            </p>
-
-                            <a name="12.1.4"></a>
-                            <p>
-                                <strong>d.  何时将再次获得新的幸运旋转机会？</strong><br />
-                                免费的幸运旋转将会在每周天的23:59:59分结束（北京时间），下周您将再次获得免费旋转。
-                            </p>
-
-                            <p>注意：每周使用获得的免费旋转机会，未使用的免费旋转不会累计到下周，也无法与其他会员交换或转让。</p>
-                        </div>
-
-                        <a name="13"></a>
-                        <div id="13" class="13 section-header">13. 若我申请了返水或者再存活动的话，我还可以获得奖励积分吗？</div>
-
-                        <div class="section-content open13">
-                            <p>是的，即使您申请参加了再存或者返水活动，您仍然可以获得您的积分的。</p>
-                        </div>
-
-                        <!-------------------------------->
-
-                    </div>
+    <div id="10">
+        <h5>10. 在积分兑换历史状态栏中，什么是待定、已完成、和取消？</h5>
+        <div>
+            <div class="info-box">
+                <div class="info-box-header text-center">
+                    <h4>待定</h4>
                 </div>
-                <!--      </div>-->
-                <!--   </div>  -->
-                <br class="clearfloat" />
-                <!--<a href="#" id="gotop" rel="nofollow"><img src="images/goTop.gif" title="返回顶部"/></a>
-<script type="text/javascript" src="js/goTop.js"></script>-->
+                <div class="info-box-info">
+                    <h6>详情说明</h6>
+                    <p>
+                        待定则说明正在等待我们确认您的订单，<br />
+                        您的积分也会根据相应的礼品被扣除。
+                    </p>
+                    <h6>流程时间</h6>
+                    <p>在2个工作日内处理</p>
+                </div>
             </div>
+        </div>
+        <div>
+            <div class="info-box">
+                <div class="info-box-header text-center">
+                    <h4>已完成</h4>
+                </div>
+                <div class="info-box-info">
+                    <h6>详情说明</h6>
+                    <p>
+                        您的礼品兑换已经完成：<br />
+                        免费投注 - 已经被存入您的账户<br />
+                        其他商品 - 已经成功发送出我们的货仓
+                    </p>
+                    <h6>流程时间</h6>
+                    <p>其他产品的物流时间根据您所在城市有所不同。 </p>
+                </div>
             </div>
-    </body>
-</html>
+        </div>
+        <div>
+            <div class="info-box">
+                <div class="info-box-header text-center">
+                    <h4>已取消</h4>
+                </div>
+                <div class="info-box-info">
+                    <h6>详情说明</h6>
+                    <p>
+                        取消的原因:
+                        <br />
+                        - 您的申请不符合优德W88的条款和规定<br />
+                        - 该物品暂时缺货<br />
+                        - 或其他原因<br />
+                        取消后，您的积分将会自动返还
+                    </p>
+                    <h6>流程时间</h6>
+                    <p>-</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="11">
+        <h5>11. 什么是免费投注及礼品兑换？</h5>
+        <p>我们提供&ldquo;免费投注&rdquo; 及&ldquo;礼品兑换&rdquo;两种兑换类型。请参见以下详情：</p>
+        <p><strong>兑换“免费投注”</strong></p>
+        <ol>
+            <li>在提交兑换申请后，需要多久“免费投注”金额才能到账？</li>
+            <li>为什么我不能兑换其他货币种类的“免费投注”？</li>
+            <li>是否“免费投注”需要达到流水要求才能进行提款？</li>
+        </ol>
+        <p>免费投注奖励从一定意义上同返水类似，区别在您可立刻兑换累计的积分。</p>
+        <p>
+            <strong>a. 免费投注奖励从一定意义上同返水类似，区别在您可立刻兑换累计的积分。</strong><br />
+            只有在优德W88，您在兑换之后，可立即在中心钱包收到对应金额。
+        </p>
+        <p>
+            <strong>b. 为什么我不能兑换其他货币种类的“免费投注”？</strong><br />
+            你只能兑换和您在优德W88注册时选择的投注货币相同的免费投注产品，否则您的申请将会被取消。
+        </p>
+        <p>
+            <strong>c. 是否“免费投注”需要达到流水要求才能进行提款？</strong><br />
+            无需任何流水要求即可提款。其他提款事宜和情况适用于优德W88规则与条款。
+            <br />
+            <br />
+            <strong>兑换礼品</strong>
+        </p>
+        <ol>
+            <li>我能兑换那些礼品？</li>
+            <li>对于高价值礼品会有保险么？</li>
+            <li>能否退还所兑换的礼品？</li>
+            <li>我是否要承担邮寄费用？</li>
+            <li>需要多久才能收到礼品？</li>
+        </ol>
+        <p>优德W88会根据您注册地所在地区，为您提供品种繁多的礼品选择；且月月更新，品位入时。</p>
+        <p>
+            <strong>a. 我能兑换那些礼品？</strong><br />
+            除&ldquo;免费投注&rdquo;以外，阁下也可以使用您的奖励积分其他精美&ldquo;礼品&rdquo;，包括体育休闲类、数码产品类、时尚奢华类等众多选择。如需查看详尽的内容，请参见优德W88礼品目录页面获取更多资讯与惊喜。
+        </p>
+        <p>
+            <strong>b. 对于高价值礼品会有保险么？</strong><br />
+            兑换之礼品由品牌方依据保修条例进行保修。优德W88将保留对高价值礼品负责保修的权力，由供应商负责处理。
+        </p>
+        <p>
+            <strong>c. 能否退还所兑换的礼品？</strong><br />
+            所有礼品在寄出后均不可退还，除非该产品无法正常操作。在此情况下，您须在签收礼品的五日内通过<a href="/LiveChat/Default.aspx">在线客服</a>与我们取得联系。
+        </p>
+        <p>
+            <strong>d. 我是否要承担邮寄费用？</strong><br />
+            阁下无需承担任何邮寄（或保险）费用，优德W88将全权承担所有邮寄费用（偏远地处除外）。
+        </p>
+        <p>
+            <strong>e. 需要多久才能收到礼品？</strong><br />
+            通常需10个工作日(根据所在地)审核办理您的兑换申请。 在兑换状态更新为&ldquo;已完成&rdquo;时，即表示礼品已寄出，您将可在5到15个工作日内收到您的礼品，物流时间取决于您的所在地。
+        </p>
+    </div>
+
+    <div id="12">
+        <h5>12. W88幸运旋转详细资料</h5>
+        <p>优德W88愿您好运常伴，每位会员都将有机会获得惊喜奖品以及更多更好的优惠，多多关注和支持我们优德W88。</p>
+        <p>
+            <strong>a. 会员如何来获得幸运旋转的免费旋转机会呢？</strong><br />
+            所有注册会员每周最少有一次的存款记录才能符合参与免费“幸运旋转”。
+        </p>
+        <p>
+            <strong>b. 如何参加幸运旋转呢？</strong><br />
+            W88积分奖励俱乐部将每周送您一次免费旋转若您本周内有成功的存款记录。打开积分俱乐部的幸运旋转页面，点击”立即旋转”。
+        </p>
+        <p>
+            <strong>c. 积分/免费投注/优惠/奖品等是立即处理的吗？</strong><br />
+            会员旋转获得的积分或免费投注将立即添加至您的账户中。<br />
+            <br />
+            i. 会员旋转获得优惠后，客服将会在24小时内与您取得联系，会员同意此优惠的要求后立即处理。<br />
+            ii. 会员旋转获得奖品后，积分俱乐部将会与您联系，洽谈与奖品有关的详细信息，会员同意相关要求并提供邮寄地址后的15天内处理。<br />
+            <br />
+            注意：如果在旋转获得奖品的7天内，获奖者无法取得联系或无法提供详细信息，该奖项视为无效，其他会员将有机会再次通过幸运旋转获得该奖品。<br />
+        </p>
+        <p>
+            优德W88可能索要一个获奖的屏幕截图来验证获奖的真实性。建议会员提供一个恭喜获奖弹出的消息框的截图以便验证过程。
+        </p>
+        <p>
+            <strong>d.  何时将再次获得新的幸运旋转机会？</strong><br />
+            免费的幸运旋转将会在每周天的23:59:59分结束（北京时间），下周您将再次获得免费旋转。
+        </p>
+        <p>注意：每周使用获得的免费旋转机会，未使用的免费旋转不会累计到下周，也无法与其他会员交换或转让。</p>
+    </div>
+
+    <div id="13">
+        <h5>13. 若我申请了返水或者再存活动的话，我还可以获得奖励积分吗？</h5>
+        <p>是的，即使您申请参加了再存或者返水活动，您仍然可以获得您的积分的。</p>
+    </div>
+</div>

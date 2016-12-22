@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dNganLuong", commonVariables.PaymentMethodsXML))%></title>
+    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString(base.resourceString, commonVariables.PaymentMethodsXML))%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
@@ -19,7 +19,7 @@
             </a>
             <% } %>
 
-            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dNganLuong", commonVariables.PaymentMethodsXML))%></h1>
+            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString(base.resourceString, commonVariables.PaymentMethodsXML))%></h1>
 
         </header>
 
@@ -93,13 +93,13 @@
                 e.preventDefault();
                 var data = {
                     Amount: $('#txtDepositAmount').val(),
-                    ThankYouPage: location.protocol + "//" + location.host + "/Thankyou.aspx"
+                    ThankYouPage: location.protocol + "//" + location.host + "/Deposit/Thankyou.aspx"
                 }
                 w88Mobile.Gateways.JTPay.gatewayId = "<%=base.PaymentMethodId %>";
                 w88Mobile.Gateways.JTPay.deposit(data, function (response) {
                     switch (response.ResponseCode) {
                         case 1:
-                            w88Mobile.Growl.shout(response.ResponseMessage);
+                            w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
                             w88Mobile.PostPaymentForm.create(
                                 response.ResponseData.FormData,
                                 response.ResponseData.PostUrl,

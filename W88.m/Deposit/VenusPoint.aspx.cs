@@ -57,10 +57,6 @@ public partial class Deposit_VenusPoint : PaymentBasePage
 
         btnSubmit.Text = base.strbtnSubmit;
 
-        txtMinMaxLimit.Text = base.strtxtMinMaxLimit;
-        txtDailyLimit.Text = base.strtxtDailyLimit;
-        txtTotalAllowed.Text = base.strtxtTotalAllowed;
-
         lblTransactionId = base.strlblTransactionId;
 
         lblTransactionFailed = base.GetErrors("/TransferFail").AlertMessage;

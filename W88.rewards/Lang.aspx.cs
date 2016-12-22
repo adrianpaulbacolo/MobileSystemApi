@@ -1,41 +1,47 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Collections.Specialized;
+using System.Configuration;
+using System.Text;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+using W88.BusinessLogic.Shared.Helpers;
 
-public partial class _Lang : System.Web.UI.Page
+public partial class _Lang : Page
 {
-    protected string strAlertMessage = string.Empty;
-    protected System.Xml.Linq.XElement xeErrors = null;
-
     protected void Page_Load(object sender, EventArgs e)
     {
-        xeErrors = commonVariables.ErrorsXML;
-        bool login = false;
+        var languages = (new LanguageHelpers()).Language;
+        var keys = languages.Keys;
+        var divBuilder = new StringBuilder();
 
-        #region Logout
-        if (string.Compare(Convert.ToString(this.RouteData.DataTokens["logout"]), "true", true) == 0) { login = true; commonVariables.ClearSessionVariables(); commonCookie.ClearCookies(); }
-        if (string.Compare(Convert.ToString(this.RouteData.DataTokens["expire"]), "true", true) == 0) { login = true; commonVariables.ClearSessionVariables(); commonCookie.ClearCookies(); strAlertMessage = commonCulture.ElementValues.getResourceString("SessionExpired", xeErrors); }
-        if (string.Compare(Convert.ToString(this.RouteData.DataTokens["invalid"]), "true", true) == 0) { login = true; commonVariables.ClearSessionVariables(); commonCookie.ClearCookies(); strAlertMessage = commonCulture.ElementValues.getResourceString("SessionExpired", xeErrors); }
-        #endregion
-
-        customConfig.OperatorSettings opSettings = new customConfig.OperatorSettings("W88");
-        string arrStrLanguageSelection = opSettings.Values.Get("LanguageSelection");
-        List<string> lstLanguageSelection = arrStrLanguageSelection.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries).Select(p => p.Trim()).ToList();
-
-        System.Text.StringBuilder sbLanguageHTML = new System.Text.StringBuilder();
-        foreach (string language in lstLanguageSelection)
+        foreach(var key in keys)
         {
-            string strLanguage = language.Trim();
-            //if (string.IsNullOrEmpty(commonCookie.CookieS) || login) { sbLanguageHTML.AppendFormat("<a data-theme='b' href='/_Secure/Login.aspx?lang={0}' data-transition='slide'  data-rel='dialog' data-transition='slidedown' data-inline='true'><div id='div{1}' class='divLangImg'></div></a>", strLanguage, strLanguage); }
-            //else { sbLanguageHTML.AppendFormat("<a data-theme='b' data-ajax='false' href='/Index.aspx?lang={0}' data-inline='true'><div id='div{1}' class='divLangImg'></div></a>", strLanguage, strLanguage); }
-
-            sbLanguageHTML.AppendFormat("<a data-theme='b' data-ajax='false' href='/Index.aspx?lang={0}' data-inline='true'><div id='div{1}' class='divLangImg'></div></a>", strLanguage, strLanguage);
+            divBuilder.Append(@"<div class='col-xs-6'>")
+                .Append(@"<a id='" + key + "'>")
+                .Append(@"<img src='/_Static/Css/images/flags/")
+                .Append(languages[key])
+                .Append(@".svg' alt=''/>")
+                .Append(@"<span>" + GetLanguageNameTranslation(languages[key]) + "</span>")
+                .Append(@"</a></div>");
         }
-        divLanguageContainer.InnerHtml = Convert.ToString(sbLanguageHTML);
 
-        if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("AffiliateId"))) { commonVariables.SetSessionVariable("AffiliateId", HttpContext.Current.Request.QueryString.Get("AffiliateId")); }
+        divLanguageContainer.InnerHtml = divBuilder.ToString();
+    }
+
+    private string GetLanguageNameTranslation(string shortLangCode)
+    {
+        var operatorSettings = ConfigurationManager.GetSection("OperatorGroupSettings/W88") as NameValueCollection;
+        var languageNames = operatorSettings.Get("list_language_translation");
+        var languageName = string.Empty;
+        var names = languageNames.Split(',');
+        
+        foreach(var name in names) {
+            var split = name.Split('=');
+            var langCode = split[0];
+            if(langCode.Equals(shortLangCode)) {
+                languageName = split[1];
+                break;
+            }
+        }
+        return languageName;
     }
 }

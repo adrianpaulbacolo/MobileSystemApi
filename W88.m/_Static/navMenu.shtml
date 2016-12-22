@@ -32,7 +32,7 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
         </li> -->
         <% } else { var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
         <li id="liOptions" data-icon="false">
-            <a href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
+            <a href="/_Secure/Login.aspx" data-rel="dialog" data-ajax="false">
                 <i class="icon-login"></i>
                 <div class="label"><%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></div>
             </a>
@@ -50,22 +50,22 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
                 <a class="close" data-rel="close">&times;</a>
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%></h2>
                 <li class="title">
-                    <a data-rel="dialog" rel="deposit" href="/_Secure/Login.aspx" data-transition="slidedown">
+                    <a data-rel="dialog" rel="deposit" href="/_Secure/Login.aspx" data-ajax="false">
                         <%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%>
                     </a>
                 </li>
                 <li class="title">
-                    <a data-rel="dialog" rel="fundtransfer" href="/_Secure/Login.aspx" data-transition="slidedown">
+                    <a data-rel="dialog" rel="fundtransfer" href="/_Secure/Login.aspx" data-ajax="false">
                         <%=commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%>
                     </a>
                 </li>
                 <li class="title">
-                    <a data-rel="dialog" rel="withdrawal" href="/_Secure/Login.aspx" data-transition="slidedown">
+                    <a data-rel="dialog" rel="withdrawal" href="/_Secure/Login.aspx" data-ajax="false">
                         <%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%>
                     </a>
                 </li>
                 <li class="title">
-                    <a data-rel="dialog" rel="history" href="/_Secure/Login.aspx" data-transition="slidedown">
+                    <a data-rel="dialog" rel="history" href="/_Secure/Login.aspx" data-ajax="false">
                         <%=commonCulture.ElementValues.getResourceString("history", commonVariables.HistoryXML)%>
                     </a>
                 </li>
@@ -88,7 +88,7 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
                 %>
                 <%if(deviceId==1){%>
                 <li>
-                    <a class="card" data-rel="sports" rel="vsports" href="/_Static/Downloads/w88.aspx" data-transition="slidedown" data-ajax="false">
+                    <a class="card" data-rel="sports" rel="vsports" href="/_Static/Downloads/w88.aspx" data-ajax="false">
                         <img src="/_Static/Images/sports/bnr-clubW88-iOS.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></div>
                     </a>
@@ -104,7 +104,7 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
                 <%}%>
                 <%if(deviceId==3){%>
                 <li>
-                    <a class="card" data-rel="sports" rel="vsports" href="/_Static/Downloads/w88.aspx" data-transition="slidedown" data-ajax="false">
+                    <a class="card" data-rel="sports" rel="vsports" href="/_Static/Downloads/w88.aspx" data-ajax="false">
                         <img src="/_Static/Images/sports/bnr-clubW88-iOS.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></div>
                     </a>
@@ -119,29 +119,45 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
                 <%}catch(Exception){}%>
                
                 <li>
-                    <a class="card" data-rel="sports" rel="asports" href="/_Secure/Login.aspx?redirect=<%=System.Web.HttpContext.Current.Request.Url.ToString()%>" data-rel="dialog" data-transition="slidedown" target="_blank">
+                    <a class="card" data-rel="sports" rel="asports" href="/_Secure/Login.aspx?redirect=<%=System.Web.HttpContext.Current.Request.Url.ToString()%>" data-rel="dialog" data-ajax="false" target="_blank">
                         <img src="/_Static/Images/sports/bnr-asports.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ASports/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
                 <li>
-                    <a class="card" data-rel="sports" rel="esports" href="/_Secure/Login.aspx" data-transition="slidedown" target="_blank">
+                    <a class="card" data-rel="sports" rel="esports" href="/_Secure/Login.aspx" data-ajax="false" target="_blank">
                         <img src="/_Static/Images/sports/bnr-esports.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li>
                  <li>
-                    <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-transition="slidedown" data-ajax="false">
+                    <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-ajax="false">
                         <img src="/_Static/Images/sports/bnr-vSports.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports/Label", commonVariables.ProductsXML)%></div>
                     </a>
                 </li> 
+
+                <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency))
+                {
+                if (!commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase))
+                { %>
+                <li>
+                    <a class="card" data-rel="sports" rel="vsports" href="<%=commonXSports.SportsBookUrl%>" data-ajax="false" target="_blank">
+                        <img src="/_Static/Images/sports/bnr-xsports.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/XSports/Label", commonVariables.ProductsXML)%></div>
+                    </a>
+                </li>
+                <% }
+                }
+                else if (!commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))
+                { %>
                 <li>
                     <a class="card" data-rel="sports" rel="vsports" href="<%=commonXSports.SportsBookUrl%>" data-transition="slidedown" data-ajax="false" target="_blank">
                         <img src="/_Static/Images/sports/bnr-xsports.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/XSports/Label", commonVariables.ProductsXML)%></div>
                     </a>
-                </li> 
+                </li>
+                <% } %>
 
             </ul>
         </li>
@@ -251,7 +267,7 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
                 <%}%>
                 <%if(deviceId==2){%>
                 <li>
-                    <a class="card" rel="texasmahjong" href='<%= commonFunctions.getTexasMahjongDownloadLinks()%>' data-rel="dialog" data-transition="slidedown">
+                    <a class="card" rel="texasmahjong" href='<%= commonFunctions.getTexasMahjongDownloadLinks()%>' data-rel="dialog" data-ajax="false">
                         <img src="/_Static/Images/Download/TexasMahjong-Android.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("androidDownload", commonVariables.LeftMenuXML)%></div>
                     </a>
@@ -259,7 +275,7 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
                 <%}%>
                 <%if(deviceId==3){%>
                 <li>
-                    <a class="card" rel="texasmahjong" href='<%= commonFunctions.getTexasMahjongDownloadLinks()%>' data-rel="dialog" data-transition="slidedown">
+                    <a class="card" rel="texasmahjong" href='<%= commonFunctions.getTexasMahjongDownloadLinks()%>' data-rel="dialog" data-ajax="false">
                         <img src="/_Static/Images/Download/TexasMahjong-Android.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("androidDownload", commonVariables.LeftMenuXML)%></div>
                     </a>
@@ -286,7 +302,7 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></h2>
                 <%if(deviceId==1){%>
                 <li>
-                    <a class="card" data-rel="sports" rel="vsports" href="/_Static/Downloads/w88.aspx" data-transition="slidedown" data-ajax="false">
+                    <a class="card" data-rel="sports" rel="vsports" href="/_Static/Downloads/w88.aspx"  data-ajax="false">
                         <img src="/_Static/Images/sports/bnr-clubW88-iOS.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></div>
                     </a>
@@ -294,7 +310,7 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
                 <%}%>
                 <%if(deviceId==2){%>
                 <li>
-                    <a class="card" data-rel="sports" rel="vsports" href="/_Static/ClubW/casino.aspx" data-transition="slidedown" data-ajax="false">
+                    <a class="card" data-rel="sports" rel="vsports" href="/_Static/ClubW/casino.aspx"  data-ajax="false">
                         <img src="/_Static/Images/sports/bnr-clubW88-android.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></div>
                     </a>
@@ -371,7 +387,7 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
                 <!--<a class="close" data-rel="close">&times;</a>-->
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></h2>
                 <li>
-                    <a class="card" rel="keno" href="/_Secure/Login.aspx" data-rel="dialog" data-transition="slidedown">
+                    <a class="card" rel="keno" href="/_Secure/Login.aspx" data-rel="dialog" data-ajax="false">
                         <img src="/_Static/Images/bnr_lottery.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/Keno/Label", commonVariables.ProductsXML)%></div>
                     </a>
@@ -391,7 +407,7 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
                 <%try{%>
                 <%if(deviceId==1){%>
                 <li>
-                    <a class="card" data-rel="poker" rel="PokerIOS" href='<%= commonFunctions.getPokerDownloadLinks(deviceId)%>' data-transition="slidedown">
+                    <a class="card" data-rel="poker" rel="PokerIOS" href='<%= commonFunctions.getPokerDownloadLinks(deviceId)%>' data-ajax="false">
                         <img src="/_Static/Images/W88-Mobile-Poker-iOS.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("iosDownload", commonVariables.LeftMenuXML)%></div>
                     </a>
@@ -399,7 +415,7 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
                 <%}%>
                 <%if(deviceId==2){%>
                 <li>
-                    <a class="card" data-rel="poker" rel="PokerAndroid" href='<%= commonFunctions.getPokerDownloadLinks(deviceId)%>' data-rel="dialog" data-transition="slidedown">
+                    <a class="card" data-rel="poker" rel="PokerAndroid" href='<%= commonFunctions.getPokerDownloadLinks(deviceId)%>' data-rel="dialog" data-ajax="false">
                         <img src="/_Static/Images/W88-Mobile-Poker-Android.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("androidDownload", commonVariables.LeftMenuXML)%></div>
                     </a>
@@ -407,13 +423,13 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
                 <%}%>
                 <%if(deviceId==3){%>
                 <li>
-                    <a class="card" data-rel="poker" rel="PokerIOS" href='<%= commonFunctions.getPokerDownloadLinks(1)%>' data-transition="slidedown">
+                    <a class="card" data-rel="poker" rel="PokerIOS" href='<%= commonFunctions.getPokerDownloadLinks(1)%>' data-ajax="false">
                         <img src="/_Static/Images/W88-Mobile-Poker-iOS.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("iosDownload", commonVariables.LeftMenuXML)%></div>
                     </a>
                 </li>
                 <li>
-                    <a class="card" data-rel="poker" rel="PokerAndroid" href='<%= commonFunctions.getPokerDownloadLinks(2)%>' data-rel="dialog" data-transition="slidedown">
+                    <a class="card" data-rel="poker" rel="PokerAndroid" href='<%= commonFunctions.getPokerDownloadLinks(2)%>' data-rel="dialog" data-ajax="false">
                         <img src="/_Static/Images/W88-Mobile-Poker-Android.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceString("androidDownload", commonVariables.LeftMenuXML)%></div>
                     </a>
@@ -525,6 +541,14 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
             </a>
         </li>
 
+        <!-- Rewards -->
+        <li data-icon="false">
+            <a id="icon-rewards-sidebar" class="nav-rewards" href="/Rewards" data-ajax="false" target="_blank">
+                <i class="icon-rewards"></i>
+                <div class="label"><%=commonCulture.ElementValues.getResourceString("rewards", commonVariables.LeftMenuXML)%></div>
+            </a>
+        </li>
+
         <li data-icon="false">
             <a class="nav-chat" href="/LiveChat/Default.aspx" data-ajax="false" target="_blank">
                 <i class="icon-chat"></i>
@@ -539,13 +563,6 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
             </a>
         </li>
 
-        <!-- Rewards
-            <li data-icon="false">
-                <a rel="rewards" class="nav-rewards" href="javascript:void(0);">
-                    <i class="icon-rewards"></i>
-                    <div class="label"><%=commonCulture.ElementValues.getResourceString("rewards", commonVariables.LeftMenuXML)%></div>
-                </a>
-            </li> -->
         <!-- Submit -->
         <!--<% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
             <li data-icon="false">
@@ -593,7 +610,10 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
 <script type="text/javascript">
     $(function () {
 
-	var url = 'https://www.' + '<%=commonIp.DomainName %>' + '?nomobile=true';
+    var urlRewards = window.location.protocol + '//mrewards.' + '<%=commonIp.DomainName %>' + '?lang=' + '<%=commonVariables.SelectedLanguage%>' + '&token=' + '<%=commonVariables.EncryptedCurrentMemberSessionId%>';
+    $("#icon-rewards-sidebar").attr('href', urlRewards);
+
+	var url = window.location.protocol +'//www.'+ '<%=commonIp.DomainName %>' + '?nomobile=true';
         $("#icon-desktop-sidebar").attr('href', url);
 
         if ('<%=commonVariables.CurrentMemberSessionId%>'.trim().length > 0) {
@@ -643,26 +663,41 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
             $('.sub-menu[data-rel]').not('.sub-menu[data-rel="funds"]').hide();
             $('.sub-menu[data-rel="funds"]').show();
             $('body').addClass('open-subnav');
+            if(!_.isUndefined(adjustMenu)){
+                adjustMenu();
+            }
         });
         $('a.nav-sports').bind('touch click', function () {
             $('.sub-menu[data-rel]').not('.sub-menu[data-rel="sports"]').hide();
             $('.sub-menu[data-rel="sports"]').show();
             $('body').addClass('open-subnav');
+            if(!_.isUndefined(adjustMenu)){
+                adjustMenu();
+            }
         });
         $('a.nav-casino').bind('touch click', function () {
             $('.sub-menu[data-rel]').not('.sub-menu[data-rel="livecasino"]').hide();
             $('.sub-menu[data-rel="livecasino"]').show();
             $('body').addClass('open-subnav');
+            if(!_.isUndefined(adjustMenu)){
+                adjustMenu();
+            }
         });
         $('a.nav-poker').bind('touch click', function () {
             $('.sub-menu[data-rel]').not('.sub-menu[data-rel="poker"]').hide();
             $('.sub-menu[data-rel="poker"]').show();
             $('body').addClass('open-subnav');
+            if(!_.isUndefined(adjustMenu)){
+                adjustMenu();
+            }
         });
         $('a.nav-fish').bind('touch click', function () {
             $('.sub-menu[data-rel]').not('.sub-menu[data-rel="fish"]').hide();
             $('.sub-menu[data-rel="fish"]').show();
             $('body').addClass('open-subnav');
+            if(!_.isUndefined(adjustMenu)){
+                adjustMenu();
+            }
         });
             $(".menu-sports-sub").addClass("hide");
             $(".sub-menu .menu-sports").click(function () {
@@ -672,21 +707,33 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
             $('.sub-menu[data-rel]').not('.sub-menu[data-rel="slots"]').hide();
             $('.sub-menu[data-rel="slots"]').show();
             $('body').addClass('open-subnav');
+            if(!_.isUndefined(adjustMenu)){
+                adjustMenu();
+            }
         });
         $('a.nav-keno').bind('touch click', function () {
             $('.sub-menu[data-rel]').not('.sub-menu[data-rel="lottery"]').hide();
             $('.sub-menu[data-rel="lottery"]').show();
             $('body').addClass('open-subnav');
+            if(!_.isUndefined(adjustMenu)){
+                adjustMenu();
+            }
         });
             $('a.nav-pmahjong').bind('touch click', function () {
             $('.sub-menu[data-rel]').not('.sub-menu[data-rel="texasmahjong"]').hide();
             $('.sub-menu[data-rel="texasmahjong"]').show();
             $('body').addClass('open-subnav');
+            if(!_.isUndefined(adjustMenu)){
+                adjustMenu();
+            }
         });
         $('a.nav-infos').bind('touch click', function () {
             $('.sub-menu[data-rel]').not('.sub-menu[data-rel="infos"]').hide();
             $('.sub-menu[data-rel="infos"]').show();
             $('body').addClass('open-subnav');
+            if(!_.isUndefined(adjustMenu)){
+                adjustMenu();
+            }
         });
 
         $('a.close').click(function() {
@@ -697,9 +744,6 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
         $('a[rel="clubw"]').each(function () {
             $(this).attr('href', '//casino' + location.hostname.substring(location.hostname.indexOf('.')) + $(this).attr('href'));
             //console.log('//casino' + location.hostname.substring(location.hostname.indexOf('.')) + $(this).attr('href'));
-        });
-        $('a[rel="rewards"]').each(function () {
-            $(this).attr('href', '//mrewards' + location.hostname.substring(location.hostname.indexOf('.')));
         });
 
         var wcLang = 'EN';

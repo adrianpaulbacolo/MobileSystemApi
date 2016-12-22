@@ -91,7 +91,7 @@ public class commonVariables
         }
         set
         {
-            commonCookie.CookieLanguage = value; 
+            commonCookie.CookieLanguage = value;
             commonVariables.SetSessionVariable("SelectedLanguage", value);
         }
     }
@@ -129,6 +129,21 @@ public class commonVariables
         get
         {
             return (!string.IsNullOrEmpty(commonCookie.CookieS)) ? commonCookie.CookieS : "";
+        }
+    }
+
+    public static string EncryptedCurrentMemberSessionId
+    {
+        get
+        {
+            string ecryptedSessionId = string.Empty;
+            if (!string.IsNullOrEmpty(commonCookie.CookieS))
+            {
+                var cipherKey = commonEncryption.Decrypt(ConfigurationManager.AppSettings.Get("PrivateKeyToken"));
+                ecryptedSessionId = HttpUtility.UrlEncode(commonEncryption.EncryptToken(commonCookie.CookieS, cipherKey));
+            }
+
+            return ecryptedSessionId;
         }
     }
 
@@ -194,6 +209,7 @@ public class commonVariables
         SDAPay = 120203,
         NextPay = 120204,
         Bill99 = 120206,
+        JutaPay = 120280,
         IPS = 120207,
         WingMoney = 110308,
         SDPay = 120223,
@@ -203,6 +219,7 @@ public class commonVariables
         Neteller = 120214,
         PaySec = 120290,
         SDAPayAlipay = 120254,
+        ShengPayAliPay = 1202111,
         ECPSS = 120218,
         BofoPay = 120231,
         JTPayWeChat = 120262,
@@ -210,7 +227,8 @@ public class commonVariables
         AllDebit = 120236,
         EGHL = 120265,
         NganLuong = 120212,
-        VenusPoint = 120296
+        VenusPoint = 120296,
+        BaokimScratchCard = 120286
     }
 
     public enum WithdrawalMethod

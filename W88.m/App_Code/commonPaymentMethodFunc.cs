@@ -68,7 +68,7 @@ public static class commonPaymentMethodFunc
         ICollection<KeyValuePair<int, string>> wallet = new Dictionary<int, string>();
         var obj = new Wallets();
 
-        foreach (var info in obj.WalletInfo.OrderBy(x=>x.SelectOrder))
+        foreach (var info in obj.WalletInfo.OrderBy(x => x.SelectOrder))
         {
             var selectName = string.IsNullOrWhiteSpace(info.SelectName) ? info.Name : info.SelectName;
             wallet.Add(new KeyValuePair<int, string>(Convert.ToInt32(info.Id), selectName));
@@ -112,6 +112,17 @@ public static class commonPaymentMethodFunc
 
         switch (paymentCode)
         {
+            case commonVariables.DepositMethod.JutaPay:
+                list = CreateMethodListControl(paymentCode);
+
+                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
+
+                anchor.Attributes.Add("href", "/Deposit/JutaPay.aspx");
+
+                list.Controls.Add(anchor);
+                depositTabs.Controls.Add(list);
+                break;
+
             case commonVariables.DepositMethod.FastDeposit:
                 list = CreateMethodListControl(paymentCode);
 
@@ -210,6 +221,16 @@ public static class commonPaymentMethodFunc
                 depositTabs.Controls.Add(list);
                 break;
 
+            case commonVariables.DepositMethod.BaokimScratchCard:
+                list = CreateMethodListControl(paymentCode);
+
+                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
+
+                anchor.Attributes.Add("href", "/Deposit/BaokimScratchCard.aspx");
+
+                list.Controls.Add(anchor);
+                depositTabs.Controls.Add(list);
+                break;
             //case commonVariables.DepositMethod.DaddyPayQR:
             //    list = CreateMethodListControl(paymentCode);
 
@@ -337,6 +358,16 @@ public static class commonPaymentMethodFunc
                 depositTabs.Controls.Add(list);
                 break;
 
+            case commonVariables.DepositMethod.ShengPayAliPay:
+                list = CreateMethodListControl(paymentCode);
+
+                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
+                anchor.Attributes.Add("href", "/Deposit/ShengPayAliPay.aspx");
+
+                list.Controls.Add(anchor);
+                depositTabs.Controls.Add(list);
+                break;
+
             case commonVariables.DepositMethod.VenusPoint:
                 list = CreateMethodListControl(paymentCode);
 
@@ -352,6 +383,7 @@ public static class commonPaymentMethodFunc
                 break;
         }
     }
+
 
     private static HtmlGenericControl CreateMethodListControl(commonVariables.DepositMethod paymentCode)
     {

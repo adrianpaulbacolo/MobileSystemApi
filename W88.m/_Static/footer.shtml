@@ -1,0 +1,30 @@
+﻿<div class="gpi-footer">
+    <img src="/_Static/Images/GPI-Logo.png" class="gpi-img" />
+    <p>
+        <%=commonCulture.ElementValues.getResourceString("gpiFooter", commonVariables.LeftMenuXML)%>
+    </p>
+    <p>        
+        <%=commonCulture.ElementValues.getResourceString("copyright2016", commonVariables.LeftMenuXML)%>
+    </p>
+</div>
+
+<style>
+    .gpi-footer{
+        padding: 20px;
+        text-align: center;
+    }
+
+    .gpi-footer img.gpi-img{
+        width: 55%;
+        max-width: 200px;
+    }
+
+    .gpi-footer p{
+        font-size: 0.7em;
+        padding-top: 10px;
+    }
+
+    .gpi-footer p:last-child{
+        padding-bottom: 10px
+    }
+</style>

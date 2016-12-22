@@ -65,6 +65,7 @@ public partial class _Secure_Register : BasePage
 
             lblUsername.Text = commonCulture.ElementValues.getResourceString("lblUsername", xeResources);
             lblPassword.Text = commonCulture.ElementValues.getResourceString("lblPassword", xeResources);
+            lblConfirmPassword.Text = commonCulture.ElementValues.getResourceString("lblConfirmPassword", xeResources);
             lblEmail.Text = commonCulture.ElementValues.getResourceString("lblEmailAddress", xeResources);
             lblContact.Text = commonCulture.ElementValues.getResourceString("lblContact", xeResources);
             lblCurrency.Text = commonCulture.ElementValues.getResourceString("lblCurrency", xeResources);
@@ -163,6 +164,7 @@ public partial class _Secure_Register : BasePage
         bool isTestAccount = false;
         string strMemberCode = string.Empty;
         string strPassword = string.Empty;
+        string strConfirmPassword = string.Empty;
         string strPasswordEncrypted = string.Empty;
         string strEmail = string.Empty;
         string strContact = string.Empty;
@@ -189,6 +191,7 @@ public partial class _Secure_Register : BasePage
 
         strMemberCode = txtUsername.Text.Trim();
         strPassword = txtPassword.Text;
+        strConfirmPassword = txtConfirmPassword.Text;
         strEmail = txtEmail.Text;
         strContact = txtContact.Text;
         strCurrencyCode = drpCurrency.SelectedValue;
@@ -240,6 +243,11 @@ public partial class _Secure_Register : BasePage
         else if (string.IsNullOrEmpty(strPassword))
         {
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/MissingPassword", xeErrors);
+            isProcessAbort = true;
+        }
+        else if (!strPassword.Equals(strConfirmPassword))
+        {
+            strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/InvalidConfirmPass", xeErrors);
             isProcessAbort = true;
         }
         else if (string.IsNullOrEmpty(strEmail))
@@ -497,7 +505,7 @@ public partial class _Secure_Register : BasePage
                     string strRedirect = Request.QueryString.Get("redirect");
 
                     if (string.IsNullOrWhiteSpace(strRedirect))
-                        Response.Redirect("/Deposit?reg=success&lang=" + commonVariables.SelectedLanguage.ToLower(), false);
+                        Response.Redirect("/_Secure/RegisterSuccess.aspx?lang=" + commonVariables.SelectedLanguage.ToLower(), false);
                     else
                         Response.Redirect(strRedirect, false);
                 }
