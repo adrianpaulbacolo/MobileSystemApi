@@ -134,7 +134,7 @@
                         case 1:
                             window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
 
-                            $("#<%=TransactionId.ClientID%>").val(response.ResponseData.TransactionId);
+                            $("#<%=TransactionId.ClientID%>").val(response.ResponseData.InvId);
                             $("#<%=MchtId.ClientID%>").val(response.ResponseData.MerchantId);
                             break;
                         default:
