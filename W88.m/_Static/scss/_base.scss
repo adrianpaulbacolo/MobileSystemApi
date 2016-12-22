@@ -3,7 +3,7 @@
 // -------------------------------
 
 *, *:before, *:after {
-    @include box-sizing(border-box);
+  @include box-sizing(border-box);
 }
 
 html, body, .ui-page, .ui-content,
@@ -209,8 +209,8 @@ figure {
 }
 
 .with-colon {
-    text-indent: -8px;
-    display: inline-block;
+    text-indent: -8px; 
+    display: inline-block; 
     padding-left: 8px;
 }
 
@@ -246,4 +246,20 @@ figure {
         width: 0;
         height: 0;
     }
+}
+
+.main-content{
+    width: 100%;
+    overflow: auto;
+    top: 40px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+	&.has-footer{
+		bottom: 65px;
+	}
+	&.main-content-full{
+		padding: 0;
+	}
 }

@@ -132,6 +132,21 @@ public class commonVariables
         }
     }
 
+    public static string EncryptedCurrentMemberSessionId
+    {
+        get
+        {
+            string ecryptedSessionId = string.Empty;
+            if (!string.IsNullOrEmpty(commonCookie.CookieS))
+            {
+                var cipherKey = commonEncryption.Decrypt(ConfigurationManager.AppSettings.Get("PrivateKeyToken"));
+                ecryptedSessionId = HttpUtility.UrlEncode(commonEncryption.EncryptToken(commonCookie.CookieS, cipherKey));
+            }
+
+            return ecryptedSessionId;
+        }
+    }
+
     public static string OperatorId
     {
         get
@@ -194,6 +209,7 @@ public class commonVariables
         SDAPay = 120203,
         NextPay = 120204,
         Bill99 = 120206,
+        JutaPay = 120280,
         IPS = 120207,
         WingMoney = 110308,
         SDPay = 120223,
@@ -201,18 +217,25 @@ public class commonVariables
         DaddyPay = 120243,
         DaddyPayQR = 120244,
         Neteller = 120214,
+        PaySec = 120290,
         SDAPayAlipay = 120254,
+        ShengPayAliPay = 1202111,
         ECPSS = 120218,
         BofoPay = 120231,
+        JTPayWeChat = 120262,
+        JTPayAliPay = 120263,
         AllDebit = 120236,
         EGHL = 120265,
         NganLuong = 120212,
-        Baokim = 120272,
-        BaokimScratchCard = 120286
+        VenusPoint = 120296,
+        BaokimScratchCard = 120286,
+        Baokim = 120272
+
     }
 
     public enum WithdrawalMethod
     {
+        VenusPoint = 220895,
         BankTransfer = 210602,
         WingMoney = 210709,
         Neteller = 220815,

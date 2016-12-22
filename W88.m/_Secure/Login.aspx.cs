@@ -39,7 +39,7 @@ public partial class _Secure_Login : BasePage
             {
                 commonCookie.CookieIsApp = "1";
                 var cipherKey = commonEncryption.Decrypt(ConfigurationManager.AppSettings.Get("PrivateKeyToken"));
-                string strSessionId = commonEncryption.decryptToken(Request.QueryString.Get("token"), cipherKey);
+                string strSessionId = commonEncryption.DecryptToken(Request.QueryString.Get("token"), cipherKey);
 
                 var loginCode = UserSession.checkSession(strSessionId);
 

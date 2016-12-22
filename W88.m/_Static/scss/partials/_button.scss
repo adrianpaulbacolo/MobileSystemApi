@@ -158,3 +158,43 @@ html head + body .ui-btn.ui-btn-a {
         line-height: $content-padding * 3;
     }
 }
+
+// Justified Nav List
+.ui-navbar{
+    &.ui-navbar-justified{
+        ul{
+            width: 100%;
+            display: table;
+            table-layout: fixed;
+            li{
+                width: 100%;
+                display: table-cell;
+                a{
+                    text-transform: uppercase;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: block;
+                }
+            }
+        }
+    }
+}
+.btn{
+	font-size: 0.875em;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-family: $primary-font;
+	&:active,
+	&:focus,
+	&:hover{
+		outline: 0 none !important;
+		@include box-shadow(none);
+	}
+	&.btn-xs{
+		font-size: 0.750rem;
+	}
+	&.btn-lg{
+		font-size: 1rem;
+	}
+}

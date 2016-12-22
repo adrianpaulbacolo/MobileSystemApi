@@ -9,7 +9,6 @@ using System.Xml.XPath;
 
 public partial class Deposit_WingMoney : PaymentBasePage
 {
-    protected string strTitle = string.Empty;
     protected string strStatusCode = string.Empty;
     protected string strAlertCode = string.Empty;
     protected string strAlertMessage = string.Empty;
@@ -32,23 +31,13 @@ public partial class Deposit_WingMoney : PaymentBasePage
         if (!Page.IsPostBack)
         {
             this.InitialiseDepositDateTime();
-            strTitle = commonCulture.ElementValues.getResourceString("lblTitle", xeResources);
 
-            lblDepositAmount.Text = commonCulture.ElementValues.getResourceString("lblAmount", xeResources);
-            lblReferenceId.Text = commonCulture.ElementValues.getResourceString("lblReferenceId", xeResources);
-            lblAccountName.Text = commonCulture.ElementValues.getResourceString("lblAccountName", xeResources);
-            lblAccountNumber.Text = commonCulture.ElementValues.getResourceString("lblAccountNumber", xeResources);
-
-            btnSubmit.Text = commonCulture.ElementValues.getResourceString("btnSubmit", xeResources);
+            this.InitializeLabels();
 
             if (string.Compare(strCurrencyCode, "krw", true) == 0)
             {
                 divDepositDateTime.Visible = false;
             }
-
-            txtDepositAmount.Attributes.Add("PLACEHOLDER", string.Format("{0} {1}({2} / {3})", lblDepositAmount.Text, strCurrencyCode, strMinLimit, strMaxLimit));
-            lblDailyLimit.Text = string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("lblDailyLimit", xeResources), strDailyLimit);
-            lblTotalAllowed.Text = string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("lblTotalAllowed", xeResources), strTotalAllowed);
         }
     }
 
@@ -136,7 +125,7 @@ public partial class Deposit_WingMoney : PaymentBasePage
                 else if (!string.IsNullOrEmpty(strDepositDate))
                 {
                     dtDepositDateTime = DateTime.Parse(strDepositDate).AddHours(double.Parse(strDepositHour)).AddMinutes(double.Parse(strDepositMinute));
-                    if ((dtDepositDateTime - DateTime.Now).TotalHours > 72 || (dtDepositDateTime - DateTime.Now).TotalHours < -72)
+                    if (!IsValidDepositTime(dtDepositDateTime))
                     {
                         strAlertCode = "-1";
                         strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/InvalidDateTime", xeErrors);
@@ -215,16 +204,60 @@ public partial class Deposit_WingMoney : PaymentBasePage
     {
         #region DepositDateTime
 
-        drpDepositDate.Items.Add(new ListItem(commonCulture.ElementValues.getResourceString("drpDepositDateTime", xeResources), string.Empty));
-
-        for (System.DateTime dtDepositDateTime = System.DateTime.Today.AddHours(-72); dtDepositDateTime < System.DateTime.Today.AddHours(72); dtDepositDateTime = dtDepositDateTime.AddHours(24))
+        for (System.DateTime dtDepositDateTime = System.DateTime.Today.AddHours(-72); dtDepositDateTime <= System.DateTime.Today.AddHours(72); dtDepositDateTime = dtDepositDateTime.AddHours(24))
         {
-            drpDepositDate.Items.Add(new ListItem(dtDepositDateTime.ToString("dd / MMM / yyyy"), dtDepositDateTime.ToString("yyyy-MM-dd")));
+            drpDepositDate.Items.Add(new ListItem(dtDepositDateTime.ToString("dd / MM / yyyy"), dtDepositDateTime.ToString("yyyy-MM-dd")));
         }
 
-        for (int intHour = 0; intHour < 24; intHour++) { drpHour.Items.Add(new ListItem((intHour).ToString("0#"), Convert.ToString(intHour))); }
-        for (int intMinute = 0; intMinute < 60; intMinute++) { drpMinute.Items.Add(new ListItem((intMinute).ToString("0#"), Convert.ToString(intMinute))); }
+        drpDepositDate.SelectedValue = DateTime.Now.ToString("yyyy-MM-dd");
+
+        for (int intHour = 0; intHour < 24; intHour++)
+        {
+            drpHour.Items.Add(new ListItem((intHour).ToString("0#"), Convert.ToString(intHour)));
+        }
+        for (int intMinute = 0; intMinute < 60; intMinute++)
+        {
+            drpMinute.Items.Add(new ListItem((intMinute).ToString("0#"), Convert.ToString(intMinute)));
+        }
         #endregion
     }
 
+    private void InitializeLabels()
+    {
+        lblMode.Text = base.strlblMode;
+        txtMode.Text = base.strtxtMode;
+
+        lblMinMaxLimit.Text = base.strlblMinMaxLimit;
+        txtMinMaxLimit.Text = base.strtxtMinMaxLimit;
+
+        lblDailyLimit.Text = base.strlblDailyLimit;
+        txtDailyLimit.Text = base.strtxtDailyLimit;
+
+        lblTotalAllowed.Text = base.strlblTotalAllowed;
+        txtTotalAllowed.Text = base.strtxtTotalAllowed;
+
+        lblDepositAmount.Text = base.strlblAmount;
+
+        lblAccountName.Text = base.strlblAccountName;
+        lblAccountNumber.Text = base.strlblAccountNumber;
+
+        btnSubmit.Text = base.strbtnSubmit;
+
+        lblReferenceId.Text = commonCulture.ElementValues.getResourceString("lblReferenceId", xeResources);
+
+        lblDepositDateTime.Text = commonCulture.ElementValues.getResourceString("drpDepositDateTime", xeResources);
+    }
+
+    private bool IsValidDepositTime(DateTime validDateTime)
+    {
+        DateTime minDate = DateTime.Now.AddHours(-72);
+        DateTime maxDate = DateTime.Now.AddHours(72);
+
+        if (validDateTime < minDate || validDateTime > maxDate)
+        {
+            return false;
+        }
+
+        return true;
+    }
 }

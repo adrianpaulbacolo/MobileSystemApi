@@ -3,6 +3,7 @@
 // -------------------------------
 
 @import
+	"bootstrap",
 
     // -- Core Variables & Mixins
     "variables",
@@ -41,6 +42,7 @@
     "partials/banner",
     "partials/wallet",
     "partials/empty-state",
+    "partials/bank-logos",
 
     // -- Pages
     "base",
@@ -55,6 +57,7 @@
     "pages/contact",
     "pages/promo",
     "pages/daily-slots",
+    "pages/register",
 
     // -- Media Query
     "responsive";

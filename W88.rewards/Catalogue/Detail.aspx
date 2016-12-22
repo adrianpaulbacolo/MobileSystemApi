@@ -1,153 +1,96 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Detail.aspx.cs" Inherits="Catalogue_Detail" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Detail.aspx.cs" Inherits="Catalogue_Detail" Async="true"%>
+<%@ Import Namespace="W88.BusinessLogic.Rewards.Helpers" %>
+<%@ Import Namespace="W88.BusinessLogic.Rewards.Models" %>
 
 <!DOCTYPE html>
-
 <html>
-
-<head runat="server">
+<head>
     <title>Product Detail</title>
     <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/Js/PreLoad.js"></script>
 </head>
 <body>
-    <div data-role="page" data-close-btn="right" data-corners="false">
-        <div data-role="header" data-theme="b" class="div-header-logoonly">
-            <div class="text-center"></div>
-        </div>
-
-
-        <style type="text/css">
-            .div-nav-header {
-                background-position: center center;
-            }
-
-            .div-content-wrapper {
-                background-color: #252525;
-                margin: 0.5em;
-            }
-
-            #leftdiv {
-                float: left;
-                height: 130px;
-                width: 100%;
-                text-align: center;
-            }
-
-
-            #rightdiv {
-                float: left;
-                width: 100%;
-                padding: 3%;
-                text-align: left;
-            }
-
-            #bottomdiv {
-                clear: both;
-            }
-
-            .imgProduct {
-                height: 105px;
-                margin: 10px 0px 0px 0px;
-            }
-
-
-            #lblPointCenter {
-                color: #2a8fbd;
-                float: left;
-                font-size: 10pt;
-                font-weight: bold;
-                text-align: right;
-                width: 95%;
-            }
-
-            #DescHeader {
-                color: white;
-                font-size: 13pt;
-                position: relative;
-                top: 8px;
-            }
-
-            #lblDescription {
-                color: #808080;
-                font-size: 8pt;
-            }
-
-            #lblDelivery {
-                color: #808080;
-                font-size: 8pt;
-            }
-
-            .button-blue {
-                background-color: #2a8fbd !important;
-                border: medium none;
-                color: #fff;
-                font-family: "Open Sans",sans-serif,helvetica,Tahoma,Arial,Verdana,"Comic Sans MS";
-                font-size: 1em !important;
-                font-weight: 700;
-                opacity: 1 !important;
-                text-indent: 0 !important;
-                text-shadow: none !important;
-            }
-        </style>
-        <div class="ui-content" role="main">
-            <form id="form2" runat="server" data-ajax="false">
-                <div class="div-content-wrapper">
-                    <div id="leftdiv">
-                        <asp:Image ID="imgPic" runat="server" CssClass="imgProduct" />
-                        <asp:Label ID="lblPointCenter" runat="server" />
-                        <asp:HiddenField ID="hiddenproductitd" runat="server" />
-                    </div>
-                    <div id="rightdiv">
-                        <asp:Label ID="lblName" runat="server" Visible="false" />
-                        <span id="DescHeader"><%=HttpContext.GetLocalResourceObject(localResx, "lbl_product_desc").ToString() %></span>
-
-                        <asp:Label ID="lblDescription" runat="server" />
-                        <asp:Label ID="lblCurrency" runat="server" />
-
-                        <asp:Label ID="lblDelivery" runat="server" />
-                    </div>
-
-                    <div id="bottomdiv">
-                        <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-                           {
-                               if (validredemption)
-                               {  %>
-                        <a data-role="button" class="button-blue" style="color: #fff" href='<%= strRedirect %>'><%=HttpContext.GetLocalResourceObject(localResx, "lbl_redeem").ToString() %></a>
-                        <% }
-                               else if (redemption_success_limit_reached)
-                               { %>
-                        <a data-role="button" class="button-blue" style="color: #fff" href='#' onclick="Error();"><%=HttpContext.GetLocalResourceObject(localResx, "lbl_redeem").ToString() %></a>
-                        <% }
-                               else if (redemption_processing_limit_reached)
-                               { %>
-                        <a data-role="button" class="button-blue" style="color: #fff" href='#' onclick="Error();"><%=HttpContext.GetLocalResourceObject(localResx, "lbl_redeem").ToString() %></a>
-                        <% }
-                               else
-                               { %>
-                        <a data-role="button" class="button-blue" style="color: #fff" href='#' onclick="VIPOnly();"><%=HttpContext.GetLocalResourceObject(localResx, "lbl_redeem").ToString() %></a>
-                        <% }
-
-                           }
-                           else
-                           {%>
-                        <a data-role="button" class="button-blue" style="color: #fff" data-rel="dialog" data-transition="slidedown" href='<%= strRedirect %>'><%=HttpContext.GetLocalResourceObject(localResx, "lbl_redeem").ToString() %></a>
-                        <% }%>
-                    </div>
-
+    <div data-role="page" data-theme="b">
+        <!--#include virtual="~/_static/header.shtml" -->
+        <form id="form1" runat="server">
+            <div class="main-content has-footer" role="main">
+                <div id="divLevel" class="wallet-box" runat="server" visible="False">
+                    <h4 id="usernameLabel" runat="server"></h4>
+                    <a id="pointsLabel" runat="server" data-ajax="false" href="/Account"></a>                
+                    <span id="pointLevelLabel" runat="server"></span>
+                </div>    
+                <div class="container">
+                    <div class="catalog-detail-box">
+                        <a href="#" class="catalog-detail-image">
+                            <asp:Image ID="imgPic" runat="server" />
+                        </a>
+                        <div class="catalog-details">
+                            <h4><asp:Label ID="lblPointCenter" runat="server" /></h4>
+                            <p><asp:Label ID="lblName" runat="server" Visible="false" /></p>                       
+                        </div>
+                    </div>     
+                    <div class="catalog-information">
+                        <strong><%=RewardsHelper.GetTranslation(TranslationKeys.Label.ProductDescription) %></strong>
+                        <p><asp:Label ID="lblDescription" runat="server" /></p>
+                        <div id="CurrencyDiv" runat="server" class="ui-field-contain ui-hide-label" visible="false">
+                            <div>
+                                <div>
+                                    <asp:Label ID="lbcurr" runat="server" Text="" data-mini="true" />
+                                </div>
+                                <div>
+                                    <asp:Label ID="lblCurrency" runat="server" data-mini="true" />
+                                </div>
+                            </div>
+                        </div>
+                        <div id="DeliveryDiv" class="ui-field-contain ui-hide-label" runat="server" visible="false">
+                            <div>
+                                <div>
+                                    <asp:Label ID="lbperiod" runat="server" Text="" data-mini="true" />
+                                </div>
+                                <div>
+                                    <asp:Label ID="lblDelivery" runat="server" data-mini="true" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>                  
                 </div>
-            </form>
-        </div>
+            </div>
+            <div class="footer">
+                <% if (HasSession)
+                    {
+                        if (IsValidRedemption && !IsVipOnly)
+                        {  %>
+                            <input type="button" id="validButton" class="btn btn-block btn-primary" value="<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.Redeem)%>" />
+                    <%  }
+                        else if ((IsVipOnly && !IsValidRedemption) || (IsValidRedemption && (IsLimitReached || IsPending)))
+                        { %>
+                            <input type="button" id="vipOnlyButton" class="btn btn-block btn-primary" value="<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.Redeem)%>" />
+                    <%  }
+                          %>                          
+                    <%  
+                    }
+                    else
+                    {%>
+                        <input type="button" id="noSessionButton" class="btn btn-block btn-primary" value="<%=RewardsHelper.GetTranslation(TranslationKeys.Redemption.Redeem)%>" />
+                <%  }%>
+            </div>
+            <asp:HiddenField ID="hiddenproductitd" runat="server" />
+        </form>
         <script type="text/javascript">
-            function VIPOnly() {
-                alert('<%= vipOnly %>');
-            }
-            function Error() {
-                alert('<%= Errormsg %>');
-            }
+            $('#validButton').on('click', function () {
+                window.location.href = '<%= RedirectUri %>';
+                return false;
+            });
+            $('#vipOnlyButton').on('click', function () {
+                var message = '<%= VipOnlyMessage %>';
+                if (_.isEmpty(message)) return false;
+                window.w88Mobile.Growl.shout(message);
+                return false;
+            });
+            $('#noSessionButton').on('click', function () {
+                window.location.href = '<%= RedirectUri %>';
+                return false;
+            });
         </script>
-
-
     </div>
 </body>
-
 </html>
