@@ -14,7 +14,7 @@
                     {% if(col.AllowClaim) { %}
                     <input type="button" name="btnSubmit" value="{%- rebate.BtnClaim %}" id="rebatesClaim" class="button-blue" data-theme="b" onclick="javascript: window.w88Mobile.Rebates.ClaimQuery('{%- col.ProductCode %}', '{%- col.AllowClaim %}');">
                     {% } else { %}
-                    <input type="button" name="" value="Instant Claim" id="" class="button-blue" data-theme="b" disabled="disabled">
+                    <input type="button" name="" value="{%- rebate.BtnClaim %}" id="" class="button-blue" data-theme="b" disabled="disabled">
                     {% } %}
                 </div>
             </div>

@@ -32,7 +32,8 @@
                 <div class="curr_week">
                     <small id="rebateDisclaimerNoteCurrent"></small>
                     <br/>
-                    <input type="button" value="" id="weeklyBtn" class="button-blue" data-theme="b">
+                    <button type="button" value="" id="weeklyBtn" class="button-blue" data-theme="b" />
+                    <input type="button" name="" value="claim" id="" class="button-blue" data-theme="b" disabled="disabled">
                 </div>
 
                 <div class="prev_week">
@@ -43,6 +44,7 @@
             </div>
             
             <asp:HiddenField ID="hfWeekPromo" runat="server" />
+            <asp:HiddenField ID="hfProducts" runat="server" />
 
         </form>
     </div>
@@ -58,13 +60,15 @@
                     style="border: 0; overflow: hidden; width: 530px; height: 250px;"
                     frameborder='0'
                     border='0'
-                    allowtransparency="true"></iframe>
+                    allowtransparency="true"
+                    onload="adjust_promoModalHeight()"></iframe>
 
             </div>
         </div>
     </div>
 
     <script>
+       
 
         $("#rebatesClaim").bind("click", function () {
             $('#rebatesModal').popup('open');
@@ -74,10 +78,17 @@
         });
 
         $(document).ready(function () {
+            function adjust_promoModalHeight() {
+                if ($("#promoiframe").length) {
+                    $("#promoiframe").css("height", document.getElementById('promoiframe').contentWindow.document.body.scrollHeight);
+                    $(window).trigger("resize");
+                }
+            }
 
             $("#weeklyBtn").click(function () {
-                $("#rebatesModal").find("iframe").css("height", 0).attr("src", $("#hfWeekPromo").val());
-                $("#rebatesModal").modal("show");
+
+                $("#rebatesModal").find("iframe").css("height", 0).attr("src", $("#<%=hfWeekPromo.ClientID%>").val());
+                $("#rebatesModal").popup('open');
                 return false;
             });
 
@@ -85,7 +96,9 @@
 
             $("#weeks").change(function () {
 
-                if ($("#weeks").val() == $("weeks option:first").val()) {
+                window.w88Mobile.Rebates.Statement();
+
+                if ($("#weeks").val() == $("#weeks option:first").val()) {
                     $(".curr_week").show();
                     $(".prev_week").hide();
                 }
@@ -94,9 +107,6 @@
                     $(".prev_week").show();
                 }
 
-                window.w88Mobile.Rebates.Statement();
-
-                $("#weeklyBtn").val(sessionStorage.getItem("weeklyClaim"));
             });
 
         });

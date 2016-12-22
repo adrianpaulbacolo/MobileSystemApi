@@ -113,6 +113,7 @@
                     })).enhanceWithin();
 
                     $('#rebateDisclaimerMin').html(sessionStorage.getItem("rebateNote1") + " " + Cookies().getCookie("currencyCode") + " " + response.ResponseData.MinimumClaim);
+                    $("#weeklyBtn").html(sessionStorage.getItem("weeklyClaim"));
 
                     $(".collapsible-btn").click(function(e) {
                         e.preventDefault();

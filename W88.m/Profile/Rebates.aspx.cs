@@ -30,5 +30,23 @@ public partial class Rebates : PaymentBasePage
                 "RebateWeeklyClaim.aspx?code=RBASB[weekyear],RBESB[weekyear]&product=asports,esports".Replace(
                     "[weekyear]", textWeekPromo);
         }
+
+        check_promo_code(hfWeekPromo.Value);
+       
+    }
+
+    public string check_promo_code(string code)
+    {
+        try
+        {
+            using (var client = new memberWSSoapClient())
+            {
+                hfProducts.Value = client.CheckClaimedRebateCodes(long.Parse(userInfo.MemberId), code);
+            }
+        }
+        catch (Exception)
+        {
+            hfProducts.Value = "";
+        }
     }
 }

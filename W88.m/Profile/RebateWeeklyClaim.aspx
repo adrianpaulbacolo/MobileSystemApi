@@ -5,7 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-
+     <!--#include virtual="~/_static/head.inc" -->
+  
     <script type="text/javascript" src="/_Static/JS/modules/rebates.js"></script>
 </head>
 <body>
