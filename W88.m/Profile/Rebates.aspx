@@ -7,7 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
     <div class="ui-content rebates" role="main">
-        <form class="form" runat ="server">
+        <form class="form" runat="server">
             <ul class="list fixed-tablet-size">
                 <li class="item item-select">
                     <label id="labelPeriod"></label>
@@ -31,21 +31,17 @@
 
                 <div class="curr_week">
                     <small id="rebateDisclaimerNoteCurrent"></small>
-                    <br/>
-                    <button type="button" value="" id="weeklyBtn" class="button-blue" data-theme="b" />
-                    <input type="button" name="" value="claim" id="" class="button-blue" data-theme="b" disabled="disabled">
+                    <br />
+                    <button type="button" value="" id="weeklyBtn" class="button-blue" data-theme="b"></button>
                 </div>
 
                 <div class="prev_week">
                     <small id="rebateDisclaimerNote1"></small>
                     <small id="rebateDisclaimerNote2"></small>
                 </div>
-                
+
             </div>
             
-            <asp:HiddenField ID="hfWeekPromo" runat="server" />
-            <asp:HiddenField ID="hfProducts" runat="server" />
-
         </form>
     </div>
 
@@ -55,22 +51,14 @@
 
         <div class="padding">
             <div id="modalContent">
-
-                <iframe id="promoiframe" src=""
-                    style="border: 0; overflow: hidden; width: 530px; height: 250px;"
-                    frameborder='0'
-                    border='0'
-                    allowtransparency="true"
-                    onload="adjust_promoModalHeight()"></iframe>
-
             </div>
         </div>
     </div>
 
     <script>
-       
 
         $("#rebatesClaim").bind("click", function () {
+
             $('#rebatesModal').popup('open');
         });
         $("#closeModal").bind("click", function () {
@@ -78,18 +66,10 @@
         });
 
         $(document).ready(function () {
-            function adjust_promoModalHeight() {
-                if ($("#promoiframe").length) {
-                    $("#promoiframe").css("height", document.getElementById('promoiframe').contentWindow.document.body.scrollHeight);
-                    $(window).trigger("resize");
-                }
-            }
 
             $("#weeklyBtn").click(function () {
-
-                $("#rebatesModal").find("iframe").css("height", 0).attr("src", $("#<%=hfWeekPromo.ClientID%>").val());
-                $("#rebatesModal").popup('open');
-                return false;
+               
+                window.w88Mobile.Rebates.GetWeeklySettings('<%=Username%>');
             });
 
             window.w88Mobile.Rebates.Initialize();

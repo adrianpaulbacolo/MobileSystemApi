@@ -5,7 +5,8 @@
         Statement: statement,
         ClaimQuery: claimQuery,
         ClaimNow: claimNow,
-        CheckCode: checkCode
+        GetWeeklySettings: getWeeklySettings,
+        SubmitWeeklyClaim: submitWeeklyClaim
     };
 
     _.templateSettings = {
@@ -70,7 +71,11 @@
                 sessionStorage.setItem("claimedAmount", response.ResponseData.LABEL_REBATE_CLAIMED_AMOUNT);
                 sessionStorage.setItem("balanceAmount", response.ResponseData.LABEL_REBATE_BALANCE_AMOUNT);
                 sessionStorage.setItem("btnClaim", response.ResponseData.BUTTON_CLAIM);
+                sessionStorage.setItem("btnSubmit", response.ResponseData.BUTTON_SUBMIT);
                 sessionStorage.setItem("btnInstant", response.ResponseData.BUTTON_INSTANT_CLAIM);
+                sessionStorage.setItem("weeklySuccess", response.ResponseData.LABEL_REBATE_WEEKLYCLAIM_SUCCESS);
+                sessionStorage.setItem("weeklyMultiple", response.ResponseData.LABEL_REBATE_WEEKLYCLAIM_MULTIPLE);
+                sessionStorage.setItem("weeklyError", response.ResponseData.LABEL_REBATE_WEEKLYCLAIM_DEFAULT);
             }
         }, "");
     }
@@ -142,6 +147,8 @@
 
     function claimQuery(productCode, allowClaim) {
 
+        _.templateSettings.variable = "rebate";
+
         if (allowClaim) {
 
             var strtDate = sessionStorage.getItem("startdate").split("|");
@@ -196,7 +203,8 @@
     }
 
     function claimNow(productCode, amount, allowClaim) {
-        
+        _.templateSettings.variable = "rebate";
+
         if (allowClaim) {
 
             var strtDate = sessionStorage.getItem("startdate").split("|");
@@ -234,14 +242,72 @@
         }
     }
 
-    function checkCode(code) {
-        send("/rebates/checkCode", "GET", code, "", function (response) {
+    function getWeeklySettings(member) {
+        send("/rebates/settings", "GET", "", "", function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
 
-                sessionStorage.setItem("checkCode", response.ResponseData);
+                var d = {
+                    Products: response.ResponseData,
+                    btnSubmit: sessionStorage.getItem("btnSubmit"),
+                    optionLabel: sessionStorage.getItem("promoOption"),
+                    username: member
+                };
+
+                showWeeklyClaim(d);
             }
         }, "");
     }
+
+    function showWeeklyClaim(d) {
+        _.templateSettings.variable = "promo";
+
+        $.get('/_Static/Promotions/templates/v2.html', function (data) {
+            var template = _.template(data);
+
+            $("#modalContent").html(template({
+                data: d
+            })).enhanceWithin();
+
+        }, 'html');
+
+        $('#rebatesModal').popup('open');
+    }
+
+    function submitWeeklyClaim() {
+
+        var msg;
+        var selectedValue = [];
+        $('#productCheckbox input:checked').each(function () {
+            selectedValue.push($(this).attr('value'));
+        });
+       
+        _.each(selectedValue, function (item) {
+
+            $.ajax({
+                type: 'POST',
+                url: '/AjaxHandlers/RegisterPromo.ashx',
+                data: { sCode: item.split("|")[0], Comment: item.split("|")[1] },
+                success: function (data) {
+                    switch (parseInt(data)) {
+                        case 1: // success
+                            msg = sessionStorage.getItem("weeklySuccess");
+                            break;
+                        case 10: // multiple submit
+                            msg = sessionStorage.getItem("weeklyMultiple");
+                            break;
+
+                        default: // error
+                            msg = sessionStorage.getItem("weeklyError");
+                            break;
+                    }
+                    
+                    $(".div-claim-promo-data").html("<p>" + msg + "</p>");
+                }
+            });
+        });
+
+    }
+
 
     return Rebates;
 }
