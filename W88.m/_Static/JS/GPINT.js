@@ -30,6 +30,31 @@ GPInt.prototype.ShowSplash = function () {
 GPInt.prototype.HideSplash = function () {
     window.setTimeout(function () { $('body').find('div#divSplashContainer').remove(); }, 1000);
 }
+
+GPInt.prototype.ShowSplashV2 = function () {
+    $('body').append(
+        $('<div />', {
+            style: '',
+            class: 'loader',
+            id: 'divSplashContainer2'
+        })
+        .append(
+            $('<div />', { style: '' })
+            .append($('<img />', { src: '/_Static/Images/logo_w88a.png', style: '' }))
+            .append($('<div />', { class: 'spinner' })
+                .append($('<div />', { class: 'rect1' })).append("&nbsp;")
+                .append($('<div />', { class: 'rect2' })).append("&nbsp;")
+                .append($('<div />', { class: 'rect3' })).append("&nbsp;")
+                .append($('<div />', { class: 'rect4' })).append("&nbsp;")
+                )
+            )
+        );
+}
+GPInt.prototype.HideSplashV2 = function () {
+    $('body').find('div#divSplashContainer2').remove();
+}
+
+
 /*GAMEPLAYINT END*/
 GPInt.prototype.GetLoaderScafold = function () {
     return '<div class="spinner-generic"><div class="rect1"></div>&nbsp;<div class="rect2"></div>&nbsp;<div class="rect3"></div>&nbsp;<div class="rect4"></div>&nbsp;<div class="rect5"></div>&nbsp;</div>';

@@ -81,7 +81,7 @@
     }
 
     function weeks() {
-        send("/rebates/week", "GET", "", "", function (response) {
+        send("/rebates/week", "GET", "", function () { GPInt.prototype.ShowSplashV2(); }, function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
 
                 _.forOwn(response.ResponseData, function (data) {
@@ -103,7 +103,10 @@
         $("#startdate").html(strtDate[0]);
         $("#endDate").html(strtDate[1]);
 
-        send("/rebates/result", "GET", sDate, function () { GPInt.prototype.ShowSplash(); }, function (response) {
+        send("/rebates/result", "GET", sDate, function () {
+            GPInt.prototype.HideSplashV2();
+            GPInt.prototype.ShowSplashV2();
+        }, function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
 
                 $.get('/_Static/templates/rebates/ClaimGroups.html', function(data) {
@@ -137,6 +140,8 @@
 
                 }, 'html');
 
+                GPInt.prototype.HideSplashV2();
+
             } else {
                 w88Mobile.Growl.shout(response.ResponseMessage, function() {
                     window.location.replace("/Profile");
@@ -155,7 +160,7 @@
             var sDate = strtDate[0].replace("/", "-").replace("/", "-");
             var query = { startdate: sDate, code: productCode };
 
-            send("/rebates/query", "GET", query, function () { GPInt.prototype.ShowSplash(); }, function (response) {
+            send("/rebates/query", "GET", query, function () { GPInt.prototype.ShowSplashV2(); }, function (response) {
                 if (response && _.isEqual(response.ResponseCode, 1)) {
 
                     var d = {
@@ -192,6 +197,7 @@
                     }, 'html');
 
                     $('#rebatesModal').popup('open');
+                    GPInt.prototype.HideSplashV2();
 
                 } else {
                     w88Mobile.Growl.shout(response.ResponseMessage, function () {
@@ -211,7 +217,7 @@
             var sDate = strtDate[0].replace("/", "-").replace("/", "-");
             var claim = { startdate: sDate, code: productCode, amount : amount };
 
-            send("/rebates/claim", "POST", claim, function () { GPInt.prototype.ShowSplash(); }, function (response) {
+            send("/rebates/claim", "POST", claim, function () { GPInt.prototype.ShowSplashV2(); }, function (response) {
                 if (response && _.isEqual(response.ResponseCode, 1)) {
 
                     GPInt.prototype.HideSplash();
@@ -231,6 +237,7 @@
                     }, 'html');
 
                     $('#rebatesModal').popup('open');
+                    GPInt.prototype.HideSplashV2();
 
                 } else {
                     w88Mobile.Growl.shout(response.ResponseMessage, function () {
@@ -243,7 +250,7 @@
     }
 
     function getWeeklySettings(member) {
-        send("/rebates/settings", "GET", "", "", function (response) {
+        send("/rebates/settings", "GET", "", function () { GPInt.prototype.ShowSplashV2(); }, function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
 
                 var d = {
@@ -271,6 +278,7 @@
         }, 'html');
 
         $('#rebatesModal').popup('open');
+        GPInt.prototype.HideSplashV2();
     }
 
     function submitWeeklyClaim() {
