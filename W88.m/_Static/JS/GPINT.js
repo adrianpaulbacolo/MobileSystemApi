@@ -4,7 +4,7 @@ var GPINTMOBILE;
 /*GAMEPLAYINT START*/
 function GPInt() { $('.a-footer-popup').each(function () { $(this).next().hide(); }); }
 GPInt.prototype.LoadPopupMenu = function (obj) { $('.a-footer-popup').next().hide(); $(obj).next().slideToggle(80); FOOTERLANGMENUSCROLL.refresh(); };
-GPInt.prototype.ShowSplash = function () {
+GPInt.prototype.ShowSplash = function (show) {
     $('body').append(
         $('<div />', {
             style: '',
@@ -23,37 +23,15 @@ GPInt.prototype.ShowSplash = function () {
             )
         );
    
-    window.setTimeout(function () {
-        this.GPINTMOBILE.HideSplash();
-    }, 10000);
+    if (!show) {
+        window.setTimeout(function () {
+            this.GPINTMOBILE.HideSplash();
+        }, 10000);
+    }
 }
 GPInt.prototype.HideSplash = function () {
     window.setTimeout(function () { $('body').find('div#divSplashContainer').remove(); }, 1000);
 }
-
-GPInt.prototype.ShowSplashV2 = function () {
-    $('body').append(
-        $('<div />', {
-            style: '',
-            class: 'loader',
-            id: 'divSplashContainer2'
-        })
-        .append(
-            $('<div />', { style: '' })
-            .append($('<img />', { src: '/_Static/Images/logo_w88a.png', style: '' }))
-            .append($('<div />', { class: 'spinner' })
-                .append($('<div />', { class: 'rect1' })).append("&nbsp;")
-                .append($('<div />', { class: 'rect2' })).append("&nbsp;")
-                .append($('<div />', { class: 'rect3' })).append("&nbsp;")
-                .append($('<div />', { class: 'rect4' })).append("&nbsp;")
-                )
-            )
-        );
-}
-GPInt.prototype.HideSplashV2 = function () {
-    $('body').find('div#divSplashContainer2').remove();
-}
-
 
 /*GAMEPLAYINT END*/
 GPInt.prototype.GetLoaderScafold = function () {
