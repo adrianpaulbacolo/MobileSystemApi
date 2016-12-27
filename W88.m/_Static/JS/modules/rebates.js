@@ -81,7 +81,7 @@
     }
 
     function weeks() {
-        send("/rebates/week", "GET", "", function () { GPInt.prototype.ShowSplash(false); }, function (response) {
+        send("/rebates/week", "GET", "", function () { GPInt.prototype.ShowSplash(true); }, function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
 
                 _.forOwn(response.ResponseData, function (data) {
@@ -95,6 +95,7 @@
     }
 
     function statement() {
+        _.templateSettings.variable = "rebate";
         sessionStorage.setItem("startdate", $("#weeks").val());
 
         var strtDate = sessionStorage.getItem("startdate").split("|");
@@ -103,10 +104,7 @@
         $("#startdate").html(strtDate[0]);
         $("#endDate").html(strtDate[1]);
 
-        send("/rebates/result", "GET", sDate, function () {
-            GPInt.prototype.HideSplash();
-            GPInt.prototype.ShowSplash(false);
-        }, function (response) {
+        send("/rebates/result", "GET", sDate, function () { GPInt.prototype.ShowSplash(true); }, function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
 
                 $.get('/_Static/templates/rebates/ClaimGroups.html', function(data) {
@@ -160,7 +158,7 @@
             var sDate = strtDate[0].replace("/", "-").replace("/", "-");
             var query = { startdate: sDate, code: productCode };
 
-            send("/rebates/query", "GET", query, function () { GPInt.prototype.ShowSplash(false); }, function (response) {
+            send("/rebates/query", "GET", query, function () { GPInt.prototype.ShowSplash(true); }, function (response) {
                 if (response && _.isEqual(response.ResponseCode, 1)) {
 
                     var d = {
@@ -217,7 +215,7 @@
             var sDate = strtDate[0].replace("/", "-").replace("/", "-");
             var claim = { startdate: sDate, code: productCode, amount : amount };
 
-            send("/rebates/claim", "POST", claim, function () { GPInt.prototype.ShowSplash(false); }, function (response) {
+            send("/rebates/claim", "POST", claim, function () { GPInt.prototype.ShowSplash(true); }, function (response) {
                 if (response && _.isEqual(response.ResponseCode, 1)) {
 
                     GPInt.prototype.HideSplash();
@@ -250,7 +248,7 @@
     }
 
     function getWeeklySettings(member) {
-        send("/rebates/settings", "GET", "", function () { GPInt.prototype.ShowSplash(false); }, function (response) {
+        send("/rebates/settings", "GET", "", function () { GPInt.prototype.ShowSplash(true); }, function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
 
                 var d = {
