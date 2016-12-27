@@ -31,8 +31,6 @@
 
                 <div class="curr_week">
                     <small id="rebateDisclaimerNoteCurrent"></small>
-                    <br />
-                    <button type="button" value="" id="weeklyBtn" class="button-blue" data-theme="b"></button>
                 </div>
 
                 <div class="prev_week">
@@ -65,12 +63,11 @@
             $('#rebatesModal').popup('close');
         });
 
-        $(document).ready(function () {
+        function weeklyClaim() {
+            window.w88Mobile.Rebates.GetWeeklySettings('<%=Username%>');
+        }
 
-            $("#weeklyBtn").click(function () {
-               
-                window.w88Mobile.Rebates.GetWeeklySettings('<%=Username%>');
-            });
+        $(document).ready(function () {
 
             window.w88Mobile.Rebates.Initialize();
 
