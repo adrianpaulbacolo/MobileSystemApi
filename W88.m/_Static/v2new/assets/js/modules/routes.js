@@ -5,14 +5,15 @@ function Routes() {
     function initPage(route) {
 
         if (routeStack.length > 0) {
-            w88Mobile.v2.Routes.currentPage().css("display","none");
+            w88Mobile.v2.Routes.currentPage().css("display", "none");
         }
 
         return $.when($.get('assets/templates/page.html', function (template) {
 
             var mainClass = [];
 
-            if (route != "index") mainClass.push("has-tab");
+            if (route != "index" && !_.includes(route, "search"))
+                mainClass.push("has-tab")
 
             var content = _.template(template);
             var page = content({
@@ -20,6 +21,7 @@ function Routes() {
                 classes: mainClass.join(" ")
             });
             $(".header").after(page);
+
         }));
     }
 
@@ -35,28 +37,100 @@ function Routes() {
                 indexpage.init();
             });
         }
+        , onOpen: function () {
+            pubsub.publish("changeHeader", {
+                route: "index"
+            });
+        }
+        , onClose: function () {
+            pubsub.publish("changeHeader", {
+                route: "index"
+            });
+        }
     }
 
+    routes["index_search"] = {
+        init: function (params) {
+            var pageRoute = "index_search";
+            initPage(pageRoute).then(function (page) {
+                var indexpage = new w88Mobile.v2.SlotsCtrl(w88Mobile.v2.Routes);
+                indexpage.route = pageRoute;
+                indexpage.page = w88Mobile.v2.Routes.currentPage();
+                indexpage.init();
+            });
+        }
+       , onOpen: function () {
+           pubsub.publish("changeHeader");
+           $('.filter-bar').hide();
+       }
+       , onClose: function () {
+           $("." + _.last(routeStack) + "-page").remove();
+           routeStack = _.dropRight(routeStack);
+
+           pubsub.publish("changeHeader");
+
+           $('.filter-bar').hide();
+       }
+    }
 
     routes["club"] = {
         parent: "index"
         , init: function (params) {
-            initPage("club").then(function () {
-                pubsub.publish("loadClubPage");
-
-                var selectedClub = _.find(w88Mobile.v2.Slots.clubs, function (club) {
-                    return club.name == params.club;
+            var pageRoute = "club";
+            initPage(pageRoute).then(function () {
+                var clubpage = new w88Mobile.v2.ClubsCtrl(w88Mobile.v2.Routes);
+                clubpage.route = pageRoute;
+                clubpage.page = w88Mobile.v2.Routes.currentPage();
+                clubpage.page = _.extend(clubpage.page, params);
+                clubpage.club = _.find(w88Mobile.v2.Slots.clubs, function (club) {
+                    return club.name == clubpage.page.club;
                 });
-                pubsub.publish("filterSlot", {club: selectedClub});
+                clubpage.init();
             });
         }
-        , onOpen: function (){
+        , onOpen: function () {
+            pubsub.publish("loadClubTabBar");
 
+            pubsub.publish("changeHeader");
+
+            $('.filter-bar').show();
         }
-        , onClose: function (){
+        , onClose: function () {
             $("." + _.last(routeStack) + "-page").remove();
             routeStack = _.dropRight(routeStack);
+
+            pubsub.publish("changeHeader");
+
+            $('.filter-bar').hide();
         }
+    }
+
+    routes["club_search"] = {
+        parent: "index"
+       , init: function (params) {
+           var pageRoute = "club_search";
+           initPage(pageRoute).then(function () {
+               var clubpage = new w88Mobile.v2.ClubsCtrl(w88Mobile.v2.Routes);
+               clubpage.route = pageRoute;
+               clubpage.page = w88Mobile.v2.Routes.currentPage();
+               clubpage.page = _.extend(clubpage.page, params);
+               clubpage.init();
+           });
+       }
+       , onOpen: function () {
+           pubsub.publish("changeHeader", { club: w88Mobile.v2.Slots.club });
+           $('.filter-bar').hide();
+       }
+       , onClose: function () {
+           $("." + _.last(routeStack) + "-page").remove();
+           routeStack = _.dropRight(routeStack);
+
+           $('.filter-bar').show();
+
+           pubsub.publish("changeHeader");
+
+           pubsub.publish("loadClubTabBar");
+       }
     }
 
     var routeStack = ["index"];

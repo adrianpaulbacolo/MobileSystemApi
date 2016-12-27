@@ -30,6 +30,7 @@ function Slots() {
         , sections: sections
         , clubFilter: {}
         , translations: {}
+        , send: send
     }
 
 
@@ -176,7 +177,7 @@ function Slots() {
 
         $('#gameImage').attr('src', game.ImagePath);
 
-        $('#gameTitle').text(game.TranslatedTitle);
+        $('#gameTitle').text(game.TranslatedTitle.toUpperCase());
 
         $('#gameFunUrl').attr('href', game.FunUrl);
 

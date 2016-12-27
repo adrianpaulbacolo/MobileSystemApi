@@ -13,12 +13,21 @@ function slotsCtrl(routeObj) {
         pubsub.subscribe("slotItemsChanged", onSlotItemsChanged);
         pubsub.subscribe("displaySlotList", onDisplaySlotList);
 
-        _.forEach(w88Mobile.v2.Slots.clubs, function (club) {
-            pubsub.publish("fetchSlotsByClub", _self.setPushData({
-                club: club
-            }));
-        });
+        switch (_self.route) {
+            case "index":
 
+                _.forEach(w88Mobile.v2.Slots.clubs, function (club) {
+                    pubsub.publish("fetchSlotsByClub", _self.setPushData({
+                        club: club
+                    }));
+                });
+
+                break;
+
+            case "index_search":
+
+                break;
+        }
     }
 
     // hijack pushed data to include instance
@@ -27,7 +36,7 @@ function slotsCtrl(routeObj) {
         return data;
     }
 
-    this.viewClub - function (club) {
+    this.viewClub = function (club) {
         routeObj.changeRoute("club", {
             club: club
         });
@@ -65,6 +74,7 @@ function slotsCtrl(routeObj) {
                 });
 
                 break;
+
             case "index_search":
 
                 break;
