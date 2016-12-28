@@ -325,7 +325,7 @@ public static class commonPaymentMethodFunc
 
             case commonVariables.DepositMethod.JTPayAliPay:
                 list = CreateMethodListControl(paymentCode);
-                
+
                 anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
 
                 anchor.Attributes.Add("href", "/Deposit/AliPay");
