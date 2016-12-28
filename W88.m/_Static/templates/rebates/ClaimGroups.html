@@ -1,8 +1,12 @@
 ﻿<div class="rebates-group">
 
     {% _.forEach( rebate.data, function( op ){ %}
+    {% if((op.GroupNameKey == "Sportsbook")) { %}
+    <div class="rebates-row rebates-row-boxed">
+    {% } else { %}
+    <div class="rebates-row ">
+    {% } %}
     <h2>{%- op.GroupNameKey %}</h2>
-
     {% _.forEach( op.Collection, function( col, index ){ %}
     <div class="rebate-box" data-inset="false">
         <div class="rebate-title">
@@ -49,13 +53,13 @@
             </div>
         </div>
         <a href="#" class="collapsible-btn"><span>See More</span></a>
-        
-        {% if((op.GroupNameKey == "Sportsbook") && ((index + 1) == op.Collection.length)) { %}
-        <button type="button" value="" id="weeklyBtn" class="button-blue" data-theme="b" onclick="javascript: weeklyClaim();"></button>
-        {% } %}
     </div>
-
+    {% if((op.GroupNameKey == "Sportsbook") && ((index + 1) == op.Collection.length)) { %}
+    <button type="button" value="" id="weeklyBtn" class="button-blue" data-theme="b" onclick="javascript: weeklyClaim();"></button>
+    {% } %}
+        
     {% }); %}
+    </div>
 
     {% }); %}
 </div>

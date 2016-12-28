@@ -9,15 +9,27 @@
 	max-width: 767px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 1.5em;
-	> h2{
-		color: $ltGray-color;
-		font-size: 1em;
-		font-weight: 700;
+	margin-bottom: 1.5rem;
+	.rebates-row{
+		margin-bottom: 3rem;
+		> h2{
+			color: $ltGray-color;
+			font-size: 1em;
+			font-weight: 700;
+		}
+		&.rebates-row-boxed{
+			background-color: rgba(0,0,0,0.15);
+			padding: 1.2rem;
+		}
+		.button-blue{
+			color: $white;
+			text-transform: uppercase;
+		}
+
 	}
 	.rebate-box{
-		background-color: darken($primary-color, 26%);
-		margin-bottom: 0.5em;
+		background-color: darken($primary-color, 23%);
+		margin-bottom: 1.5em;
 
 		.collapsible-btn{
 			margin-top: -1px;
