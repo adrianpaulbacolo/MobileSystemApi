@@ -68,6 +68,9 @@
                             <asp:Literal ID="txtTotalAllowed" runat="server" />
                         </div>
                     </li>
+                    <li class="item-text-wrap ali-pay-note">
+                        <asp:Label ID="lblNote" runat="server"></asp:Label>
+                    </li>
                     <li class="item item-input">
                         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
                         <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
@@ -78,13 +81,29 @@
                         </div>
                     </li>
                 </ul>
+
             </form>
         </div>
 
-         <% if (commonCookie.CookieIsApp != "1")
-               { %>
-            <!--#include virtual="~/_static/navMenu.shtml" -->
-            <% } %>
+        <% if (commonCookie.CookieIsApp != "1")
+           { %>
+        <!--#include virtual="~/_static/navMenu.shtml" -->
+        <% } %>
+
+        <style>
+            li.ali-pay-note {
+                font-size: 70%;
+            }
+
+                li.ali-pay-note #lblNote span {
+                    color: red;
+                    font-weight: bold;
+                }
+
+                li.ali-pay-note #lblNote p {
+                    padding-top: 5px;
+                }
+        </style>
 
         <script type="text/javascript">
             $('#form1').submit(function (e) {
