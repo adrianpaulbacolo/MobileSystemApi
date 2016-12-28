@@ -12,19 +12,24 @@
             <div class="row row-uc row-no-padding">
                 <label>{%- promo.data.optionLabel %}</label>
             </div>
-
-            <div class="row row-uc" id="productCheckbox">
-                {% _.each(promo.data.Products, function(item) { %}
-
-                {% if (item.IsEnabled) { %}
-                <input type="checkbox" name="comment" value="{%-item.Product.Value%}" id="{%-item.Product.Value%}">
-                {% } else { %}
-                <input type="checkbox" name="comment" disabled value="{%-item.Product.Value%}" id="{%-item.Product.Value%}">
-                {% } %}
-
-                <label for="{%-item.Product.Value%}">{%-item.Product.Text%}</label>
-
-                {% }); %}
+            <div class="form form-modal">
+                <div class="row row-uc" id="productCheckbox">
+                    <ul class="list fixed-tablet-size">
+                    {% _.each(promo.data.Products, function(item) { %}
+                        <li class="item item-checkbox">
+                        {% if (item.IsEnabled) { %}
+                            <label for="{%-item.Product.Value%}">
+                                <input type="checkbox" name="comment" value="{%-item.Product.Value%}" id="{%-item.Product.Value%}"> {%-item.Product.Text%}
+                            </label>
+                            {% } else { %}
+                            <label for="{%-item.Product.Value%}">
+                                <input type="checkbox" name="comment" disabled value="{%-item.Product.Value%}" id="{%-item.Product.Value%}"> {%-item.Product.Text%}
+                            </label>
+                        {% } %}
+                        </li>
+                    {% }); %}
+                    </ul>
+                </div>
             </div>
 
             <div class="row row-uc row-no-padding">

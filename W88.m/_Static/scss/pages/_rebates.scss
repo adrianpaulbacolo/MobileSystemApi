@@ -114,6 +114,12 @@
 	.collapsible-table{
 		display: none;
 	}
+	&.rebate-table-modal{
+		padding: 0;
+		background-color: transparent !important;
+		table{
+		}
+	}
 
 }
 
