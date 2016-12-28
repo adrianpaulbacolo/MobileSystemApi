@@ -12,7 +12,7 @@
     return jtpay;
 
     function send(method, data, success, error, complete) {
-        var url = w88Mobile.APIUrl + "/payments/" + gatewayId;
+        var url = w88Mobile.APIUrl + "/payments/" + w88Mobile.Gateways.JTPay.gatewayId;
 
         var headers = {
             'Token': window.User.token,
