@@ -322,16 +322,17 @@ public static class commonPaymentMethodFunc
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
                 break;
-            //case commonVariables.DepositMethod.JTPayAliPay:
-            //    list = CreateMethodListControl(paymentCode);
 
-            //    anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
+            case commonVariables.DepositMethod.JTPayAliPay:
+                list = CreateMethodListControl(paymentCode);
 
-            //    anchor.Attributes.Add("href", "/Deposit/AliPay");
+                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
 
-            //    list.Controls.Add(anchor);
-            //    depositTabs.Controls.Add(list);
-            //    break;
+                anchor.Attributes.Add("href", "/Deposit/AliPay");
+
+                list.Controls.Add(anchor);
+                depositTabs.Controls.Add(list);
+                break;
 
             case commonVariables.DepositMethod.EGHL:
                 list = CreateMethodListControl(paymentCode);
