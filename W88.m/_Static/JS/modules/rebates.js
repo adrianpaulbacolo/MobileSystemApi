@@ -58,7 +58,8 @@
                 
                 sessionStorage.setItem("weeklyClaim", response.ResponseData.BUTTON_WEEKLY_CLAIM);
                 sessionStorage.setItem("promoOption", response.ResponseData.LABEL_PROMO_OPTION);
-
+                sessionStorage.setItem("sportsbookNote", response.ResponseData.LABEL_REBATE_NOTE);
+                
                 sessionStorage.setItem("monday", response.ResponseData.LABEL_MONDAY);
                 sessionStorage.setItem("sunday", response.ResponseData.LABEL_SUNDAY);
                 sessionStorage.setItem("summary", response.ResponseData.LABEL_REBATE_SUMMARY);
@@ -116,6 +117,7 @@
                         LabelRebatePercent: sessionStorage.getItem("rebatePercent"),
                         LabelRebateBets: sessionStorage.getItem("rebateBets"),
                         BtnClaim: sessionStorage.getItem("btnClaim"),
+                        Note: sessionStorage.getItem("sportsbookNote")
                     })).enhanceWithin();
 
                     $('#rebateDisclaimerMin').html(sessionStorage.getItem("rebateNote1") + " " + Cookies().getCookie("currencyCode") + " " + response.ResponseData.MinimumClaim);
@@ -166,7 +168,7 @@
                         EligibleBets: response.ResponseData.TotalEligibleBet,
                         rebatePercent:  response.ResponseData.RebatePercent,
                         Amount:  response.ResponseData.RebateAmount,
-                        AllowClaim: allowClaim,
+                        AllowClaim: response.ResponseData.AllowClaim,
                         ClaimedAmount: response.ResponseData.ClaimedAmount,
                         BalanceRebateAmount: response.ResponseData.BalanceRebateAmount,
                         CurrencyCode: response.ResponseData.CurrencyCode,
@@ -236,6 +238,7 @@
 
                     $('#rebatesModal').popup('open');
                     GPInt.prototype.HideSplash();
+                    statement();
 
                 } else {
                     w88Mobile.Growl.shout(response.ResponseMessage, function () {

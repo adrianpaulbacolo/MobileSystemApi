@@ -5,17 +5,22 @@
     <div class="rebates-row rebates-row-boxed">
     {% } else { %}
     <div class="rebates-row ">
-    {% } %}
-    <h2>{%- op.GroupNameKey %}</h2>
-    {% _.forEach( op.Collection, function( col, index ){ %}
-    <div class="rebate-box" data-inset="false">
-        <div class="rebate-title">
-            <div class="row row-uc">
-                <div class="col col-50">
-                    <h3 title="{%- col.Name %}">{%- col.Name %}</h3>
-                </div>
+        {% } %}
+        
+        <h2>{%- op.GroupNameKey %}</h2>
+        {% if(op.GroupNameKey == "Sportsbook") { %} 
+        <p><i>{%- rebate.Note %}</i></p>
+        {% } %}
 
-                {% if(op.GroupNameKey != "Sportsbook") { %}
+        {% _.forEach( op.Collection, function( col, index ){ %}
+        <div class="rebate-box" data-inset="false">
+            <div class="rebate-title">
+                <div class="row row-uc">
+                    <div class="col col-50">
+                        <h3 title="{%- col.Name %}">{%- col.Name %}</h3>
+                    </div>
+
+                    {% if(op.GroupNameKey != "Sportsbook") { %}
                     <div class="col col-50 text-right-sm">
 
                         {% if(col.AllowClaim) { %}
@@ -25,40 +30,40 @@
                         {% } %}
                   
                     </div>
-                {% } %}
+                    {% } %}
+                </div>
             </div>
-        </div>
-        <div class="rebate-table">
-            <table>
-                <tbody>
-                    <tr>
-                        <td>{%- rebate.LabelRebateAmount %}</td>
-                        <td>{%- col.RebateAmount %}</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="collapsible-table">
+            <div class="rebate-table">
                 <table>
                     <tbody>
                         <tr>
-                            <td>{%- rebate.LabelRebatePercent %}</td>
-                            <td>{%- col.RebatePercent %}</td>
-                        </tr>
-                        <tr>
-                            <td>{%- rebate.LabelRebateBets %}</td>
-                            <td>{%- col.TotalEligibleBet %}</td>
+                            <td>{%- rebate.LabelRebateAmount %}</td>
+                            <td>{%- col.RebateAmount %}</td>
                         </tr>
                     </tbody>
                 </table>
+                <div class="collapsible-table">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>{%- rebate.LabelRebatePercent %}</td>
+                                <td>{%- col.RebatePercent %}</td>
+                            </tr>
+                            <tr>
+                                <td>{%- rebate.LabelRebateBets %}</td>
+                                <td>{%- col.TotalEligibleBet %}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+            <a href="#" class="collapsible-btn"><span>See More</span></a>
         </div>
-        <a href="#" class="collapsible-btn"><span>See More</span></a>
-    </div>
-    {% if((op.GroupNameKey == "Sportsbook") && ((index + 1) == op.Collection.length)) { %}
-    <button type="button" value="" id="weeklyBtn" class="button-blue" data-theme="b" onclick="javascript: weeklyClaim();"></button>
-    {% } %}
+        {% if((op.GroupNameKey == "Sportsbook") && ((index + 1) == op.Collection.length)) { %}
+        <button type="button" value="" id="weeklyBtn" class="button-blue" data-theme="b" onclick="javascript: weeklyClaim();"></button>
+        {% } %}
         
-    {% }); %}
+        {% }); %}
     </div>
 
     {% }); %}
