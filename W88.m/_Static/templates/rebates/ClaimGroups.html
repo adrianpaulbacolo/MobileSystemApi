@@ -9,7 +9,7 @@
         
         <h2>{%- op.GroupNameKey %}</h2>
         {% if(op.GroupNameKey == "Sportsbook") { %} 
-        <p><i>{%- rebate.Note %}</i></p>
+        <p><small><i>{%- rebate.Note %}</i></small></p>
         {% } %}
 
         {% _.forEach( op.Collection, function( col, index ){ %}
