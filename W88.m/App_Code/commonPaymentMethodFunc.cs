@@ -284,10 +284,7 @@ public static class commonPaymentMethodFunc
 
                 anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
 
-                if (isApp)
-                    anchor.Attributes.Add("href", "/Deposit/BofoPay_app.aspx");
-                else
-                    anchor.Attributes.Add("href", "/Deposit/BofoPay.aspx");
+                anchor.Attributes.Add("href", "/Deposit/BofoPay.aspx");
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
