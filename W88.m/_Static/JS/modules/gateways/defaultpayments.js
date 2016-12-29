@@ -1,8 +1,17 @@
 ﻿function DefaultPayments() {
 
+    var autorouteIds = {
+        QuickOnline: "999999",
+        UnionPay: "999998",
+        TopUpCard: "999997",
+        AliPay: "999996",
+        WeChat: "999995",
+    };
+
     var defaultpayments = {
         Deposit: deposit,
-        Withdraw: withdraw
+        Withdraw: withdraw,
+        AutoRouteIds: autorouteIds
     };
 
     return defaultpayments;
@@ -37,17 +46,25 @@
                 switch (response.ResponseCode) {
                     case 1:
                         if (response.ResponseData.length > 0) {
-                            var routing = ["999999", "999998", "999997", "999996", "999995"];
-                            var isAutoRoute = false, title = "", page = null;
+                            var routing = [
+                                autorouteIds.QuickOnline,
+                                autorouteIds.UnionPay,
+                                autorouteIds.TopUpCard,
+                                autorouteIds.AliPay,
+                                autorouteIds.WeChat
+                            ];
 
+                            var isAutoRoute = false, title = "", page = null, deposit = "/Deposit/";
 
-                            _.forEach(response.ResponseData, function (data) {
+                            for (var i = 0; i < response.ResponseData.length; i++) {
+                                var data = response.ResponseData[i];
+
                                 page = setPaymentPage(data.Id);
 
                                 if (page)
-                                    page = "/Deposit/" + page;
+                                    page = deposit + page;
                                 else
-                                    return;
+                                    continue;
 
                                 if (activeTabId) {
                                     if (_.isEqual(data.Id, activeTabId))
@@ -58,29 +75,30 @@
                                     $('#depositTabs').append($('<li />').append(anchor));
                                 }
                                 else if (!activeTabId && _.includes(routing, data.Id)) {
-                                    if (!_.includes(window.location.pathname, page))
+                                    if (!_.includes(window.location.pathname, page)) {
+                                        window.location.href = page;
                                         isAutoRoute = true;
+                                        break;
+                                    }
                                 }
-                            })
+                            }
 
-                            if (isAutoRoute)
-                                window.location.replace(page);
+                            if (activeTabId) {
+                                $('#activeDepositTabs').text(title);
+                                $('#headerTitle').append(' - ' + title);
+                            }
                             else {
-                                if (activeTabId){
-                                    $('#activeDepositTabs').text(title);
-                                    $('#headerTitle').append(' - ' + title);
-                                }
-                                else {
+                                if (!isAutoRoute) {
                                     page = setPaymentPage(_.first(response.ResponseData).Id);
                                     if (page)
-                                        window.location.replace("/Deposit/" + page);
+                                        window.location.href = deposit + page;
                                 }
                             }
 
                             GPInt.prototype.HideSplash();
                         } else {
                             if (activeTabId) {
-                                window.location.replace("/deposit");
+                                window.location.href = deposit;
                             }
                             else {
 
@@ -113,14 +131,14 @@
                 switch (response.ResponseCode) {
                     case 1:
                         if (response.ResponseData.length > 0) {
-                            var title = "";
+                            var title = "", withdraw = "/Withdrawal/";
                             _.forEach(response.ResponseData, function (data) {
                                 var page = setPaymentPage(data.Id);
 
-                                if (_.isUndefined(page))
-                                    return;
+                                if (page)
+                                    page = withdraw + page;
                                 else
-                                    page = "/Withdrawal/" + page;
+                                    return;
 
                                 if (activeTabId) {
                                     if (_.isEqual(data.Id, activeTabId))
@@ -131,20 +149,20 @@
                                 }
                             })
 
-                            if (activeTabId){
+                            if (activeTabId) {
                                 $('#activeWithdrawalTabs').text(title);
                                 $('#headerTitle').append(' - ' + title);
                             }
                             else {
                                 page = setPaymentPage(_.first(response.ResponseData).Id);
                                 if (page)
-                                    window.location.replace("/Withdrawal/" + page);
+                                    window.location.href = withdraw + page;
                             }
 
                             GPInt.prototype.HideSplash();
                         } else {
                             if (activeTabId) {
-                                window.location.replace("/withdrawal");
+                                window.location.href = withdraw;
                             }
                             else {
                                 $('.empty-state').show();
@@ -245,6 +263,9 @@
 
             case "999999":
                 return "QuickOnline.aspx";
+
+            case "999996":
+                return "Alipay.aspx";
 
             default:
                 break

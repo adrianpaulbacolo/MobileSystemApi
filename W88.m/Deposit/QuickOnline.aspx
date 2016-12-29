@@ -8,7 +8,7 @@
     <title></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js"></script>
-    <script type="text/javascript" src="/_Static/JS/modules/gateways/quickonline.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/autoroute.js"></script>
 </head>
 <body>
     <div data-role="page" data-theme="b">
@@ -89,37 +89,43 @@
                         Bank: { Text: $('#drpBank option:selected').text(), Value: $('#drpBank').val() },
                     };
 
-                    window.w88Mobile.Gateways.QuickOnline.Deposit(data, function (response) {
+                    window.w88Mobile.Gateways.AutoRoute.Deposit(window.w88Mobile.Gateways.DefaultPayments.AutoRouteIds.QuickOnline, data, function (response) {
                         switch (response.ResponseCode) {
                             case 1:
-                            if (response.ResponseData.VendorRedirectionUrl) {
-                                window.open(response.ResponseData.VendorRedirectionUrl, '_blank');
-                            } else {
-                                if (response.ResponseData.PostUrl) {
-                                    w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
-
-                                    w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
-                                    w88Mobile.PostPaymentForm.submit();
-                                } else if (response.ResponseData.DummyURL) {
-                                    w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> ");
-
-                                    window.open(response.ResponseData.DummyURL, '_blank');
+                                if (response.ResponseData.VendorRedirectionUrl) {
+                                    window.open(response.ResponseData.VendorRedirectionUrl, '_blank');
                                 } else {
-                                    w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
+                                    if (response.ResponseData.PostUrl) {
+                                        w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
+
+                                        w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
+                                        w88Mobile.PostPaymentForm.submit();
+                                    } else if (response.ResponseData.DummyURL) {
+                                        w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> ");
+
+                                        if (response.ResponseData.FormData) {
+                                            w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.DummyURL, "body");
+                                            w88Mobile.PostPaymentForm.submit();
+                                        } else {
+                                            window.open(response.ResponseData.DummyURL, '_blank');
+                                        }
+
+                                    } else {
+                                        w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
+                                    }
                                 }
-                            }
 
-                            $('#form1')[0].reset();
+                                $('#form1')[0].reset();
 
-                            break;
-                        default:
-                            if (_.isArray(response.ResponseMessage))
-                                w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
-                            else
-                                w88Mobile.Growl.shout(response.ResponseMessage);
+                                break;
+                            default:
+                                if (_.isArray(response.ResponseMessage))
+                                    w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
+                                else
+                                    w88Mobile.Growl.shout(response.ResponseMessage);
 
-                            break;
-                    }
+                                break;
+                        }
                     },
                     function () {
                         window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
