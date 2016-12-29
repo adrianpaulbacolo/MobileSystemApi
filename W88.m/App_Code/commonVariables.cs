@@ -212,6 +212,7 @@ public class commonVariables
         JutaPay = 120280,
         IPS = 120207,
         WingMoney = 110308,
+        PayGo = 110394,
         SDPay = 120223,
         Help2Pay = 120227,
         DaddyPay = 120243,
@@ -223,7 +224,7 @@ public class commonVariables
         ECPSS = 120218,
         BofoPay = 120231,
         JTPayWeChat = 120262,
-        JTPayAliPay = 120263,
+        JTPayAliPay = 1202122,
         AllDebit = 120236,
         EGHL = 120265,
         NganLuong = 120212,
@@ -233,6 +234,7 @@ public class commonVariables
 
     public enum WithdrawalMethod
     {
+        PayGo = 210797,
         VenusPoint = 220895,
         BankTransfer = 210602,
         WingMoney = 210709,

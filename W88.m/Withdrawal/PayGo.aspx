@@ -1,15 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ShengPayAliPay.aspx.cs" Inherits="Deposit_ShengPayAliPay" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="PayGo.aspx.cs" Inherits="Withdrawal_PayGo" %>
 
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("wPayGo", commonVariables.PaymentMethodsXML))%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
-    <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js"></script>
-    <script type="text/javascript" src="/_Static/JS/modules/gateways/shengpay.js"></script>
 </head>
 <body>
     <div data-role="page" data-theme="b">
@@ -21,7 +19,7 @@
             </a>
             <% } %>
 
-            <h1 class="title" id="headerTitle"><%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%></h1>
+            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("wPayGo", commonVariables.PaymentMethodsXML))%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -29,9 +27,8 @@
                 <uc:Wallet ID="uMainWallet" runat="server" />
             </div>
 
-            <div class="toggle-list-box">
-                <button class="toggle-list-btn btn-active" id="activeDepositTabs"></button>
-                <ul class="toggle-list hidden" id="depositTabs">
+            <div data-role="navbar">
+                <ul id="withdrawalTabs" runat="server">
                 </ul>
             </div>
 
@@ -70,12 +67,28 @@
                             <asp:Literal ID="txtTotalAllowed" runat="server" />
                         </div>
                     </li>
-                    <li class="item-text-wrap ali-pay-note">
-                        <asp:Label ID="lblShengPayNote" runat="server" />
+                    <li class="item item-input">
+                        <asp:Label ID="lblWithdrawAmount" runat="server" AssociatedControlID="txtWithdrawAmount" />
+                        <asp:TextBox ID="txtWithdrawAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
                     <li class="item item-input">
-                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
-                        <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+                        <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" />
+                        <asp:TextBox ID="txtAccountName" runat="server" data-clear-btn="true" />
+                    </li>
+                    <li class="item item-input">
+                        <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" />
+                        <asp:TextBox ID="txtAccountNumber" runat="server" data-clear-btn="true" />
+                    </li>
+                    <li class="item item-select">
+                        <asp:Label ID="lblContact" runat="server" AssociatedControlID="txtContact" />
+                        <div class="row">
+                            <div class="col col-25">
+                                <asp:DropDownList ID="drpContactCountry" runat="server" data-icon="false" data-mini="true" />
+                            </div>
+                            <div class="col col-75">
+                                <asp:TextBox ID="txtContact" runat="server" type="tel" data-mini="true" data-clear-btn="true" />
+                            </div>
+                        </div>
                     </li>
                     <li class="item row">
                         <div class="col">
@@ -91,51 +104,41 @@
         <!--#include virtual="~/_static/navMenu.shtml" -->
         <% } %>
 
-        <style>
-            li.ali-pay-note{
-                font-size: 70%;
-            }
-            
-            li.ali-pay-note #lblShengPayNote span{
-                color: red;
-                font-weight: bold;
-            }
-            
-            li.ali-pay-note #lblShengPayNote p{
-                padding-top: 5px;
-            }
-        </style>
         <script type="text/javascript">
             $(document).ready(function () {
-                window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
+                window.w88Mobile.Gateways.PayGo.InitWithdraw();
 
                 $('#form1').submit(function (e) {
-                    window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
-                    // use api
                     e.preventDefault();
+                    window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
+
                     var data = {
-                        Amount: $('#txtDepositAmount').val()
-                    }
-                    w88Mobile.Gateways.ShengPay.gatewayId = "<%=base.PaymentMethodId %>";
-                    w88Mobile.Gateways.ShengPay.deposit(data, function (response) {
+                        Amount: $('#txtWithdrawAmount').val(),
+                        AccountName: $('#txtAccountName').val(),
+                        AccountNumber: $('#txtAccountNumber').val(),
+                        CountryCode: $('#drpContactCountry').val(),
+                        Phone: $('#txtContact').val()
+                    };
+
+                    window.w88Mobile.Gateways.PayGo.Withdraw(data, function (response) {
                         switch (response.ResponseCode) {
                             case 1:
                                 w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
-                                window.open(response.ResponseData.PostUrl);
                                 $('#form1')[0].reset();
                                 break;
                             default:
-                                if (_.isArray(response.ResponseMessage))
+                                if (_.isArray(response.ResponseMessage)) {
                                     w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
-                                else
+                                }
+                                else {
                                     w88Mobile.Growl.shout(response.ResponseMessage);
+                                }
                                 break;
                         }
                     },
-                    function () { console.log("Error connecting to api"); },
                     function () {
-                        w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
-                        GPINTMOBILE.HideSplash();
+                        window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
+                        GPInt.prototype.HideSplash();
                     });
                 });
             });

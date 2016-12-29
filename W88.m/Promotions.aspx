@@ -10,7 +10,10 @@
         };
         _.templateSettings.variable = "promo";
 
-        var lang = '<%=(string.IsNullOrEmpty(commonVariables.SelectedLanguage) ? "en-us" : commonVariables.SelectedLanguage)%>';
+        var lang = '<%=(string.IsNullOrEmpty(commonVariables.SelectedLanguage) ? "en-us" : commonVariables.SelectedLanguage)%>',
+            isCategoryHash = false,
+            domain,
+            categories = [];
         if (lang == '') { lang = 'en-us'; }
         $(function () {
             if(!_.isEmpty(window.location.hash)) {
@@ -408,11 +411,10 @@
 
         function promoClaimTemplate(obj, code, lang) {
             $.get('/_Static/Promotions/templates/v4.html', function (data) {
-                template = _.template(data, {
+                var template = _.template(data, {
                     data: {}
                 });
                 $(obj).parent().append(template).enhanceWithin();
-                //this.$el.html(template);
             }, 'html');
         }
 
@@ -421,12 +423,14 @@
                 location.assign('_Secure/Register.aspx');
             } else {
                 $(obj).hide();
+                var template = '';
 
                 switch(promoType){
                     case 'v4':
 
-                $.get('/_Static/Promotions/' + code + '.' + lang + '.xml', function (xml) {
+                        $.get('/_Static/Promotions/' + code + '.' + lang + '.xml', function (xml) {
                             var promoData = {
+                                code: code,
                                 team_msg: $(xml).find('team_msg').text(),
                                 score_msg: $(xml).find('score_msg').text(),
                                 score_checking: $(xml).find('score_checking').text().trim(),
@@ -464,10 +468,10 @@
                                 }
                             });
                             $.get('/_Static/Promotions/templates/v5.html', function (data) {
-                                console.log(promoData);
                                 var btnSubmit = '<%=commonCulture.ElementValues.getResourceString("btnSubmit", xeResources)%>';
                                 var btnCancel = '<%=commonCulture.ElementValues.getResourceString("btnCancel", xeResources)%>';
                                 template = _.template(data);
+                                promoData['code'] = code,
                                 $(obj).parent().append(template({
                                     data: promoData,
                                     btnSubmit: btnSubmit,
@@ -498,7 +502,7 @@
         }
 
         function getCategories(data) {
-            var categories = [];
+
             // For 'ALL' category
             categories.push({
                 id: 'ALL',

@@ -14,24 +14,27 @@ using System.Web.UI.WebControls;
 using System.Xml.Linq;
 
 
-public partial class Deposit_ShengPayAliPay : PaymentBasePage
+public partial class Withdrawal_PayGo : PaymentBasePage
 {
     protected string lblTransactionId;
+    protected string lblTransactionFailed;
 
     protected void Page_Init(object sender, EventArgs e)
     {
-        base.PageName = Convert.ToString(commonVariables.DepositMethod.ShengPayAliPay);
-        base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
-        base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.ShengPayAliPay);
+        base.PageName = Convert.ToString(commonVariables.WithdrawalMethod.PayGo);
+        base.PaymentType = commonVariables.PaymentTransactionType.Withdrawal;
+        base.PaymentMethodId = Convert.ToString((int)commonVariables.WithdrawalMethod.PayGo);
 
     }
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        HtmlGenericControl withdrawalTabs = (HtmlGenericControl)FindControl("withdrawalTabs");
+        commonPaymentMethodFunc.GetWithdrawalMethodList(strMethodsUnAvailable, withdrawalTabs, base.PageName, sender.ToString().Contains("app"));
+
         if (!Page.IsPostBack)
         {
-            InitializeLabels();
-
+            this.InitializeLabels();
         }
     }
 
@@ -49,12 +52,19 @@ public partial class Deposit_ShengPayAliPay : PaymentBasePage
         lblTotalAllowed.Text = base.strlblTotalAllowed;
         txtTotalAllowed.Text = base.strtxtTotalAllowed;
 
-        lblDepositAmount.Text = base.strlblAmount;
+        lblWithdrawAmount.Text = base.strlblAmount;
+
+        lblAccountName.Text = base.strlblAccountName;
+        lblAccountNumber.Text = base.strlblAccountNumber;
 
         btnSubmit.Text = base.strbtnSubmit;
 
         lblTransactionId = base.strlblTransactionId;
 
-        lblShengPayNote.Text = commonCulture.ElementValues.getResourceString("lblShengPayNote", xeResources);
+        XElement xeResources;
+        commonCulture.appData.getRootResource("_Secure/Register.aspx", out xeResources);
+
+        lblContact.Text = commonCulture.ElementValues.getResourceString("lblContact", xeResources);
     }
+
 }

@@ -35,6 +35,11 @@
                         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" data-mini="true" MaxLength="10" data-clear-btn="true" />
                     </li>
                     <li class="item item-icon-left item-input">
+                        <i class="icon icon-password"></i>
+                        <asp:Label ID="lblConfirmPassword" runat="server" AssociatedControlID="txtConfirmPassword" Text="password" />
+                        <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" data-mini="true" MaxLength="10" data-clear-btn="true" />
+                    </li>
+                    <li class="item item-icon-left item-input">
                         <i class="icon icon-mail"></i>
                         <asp:Label ID="lblEmail" runat="server" AssociatedControlID="txtEmail" />
                         <asp:TextBox ID="txtEmail" runat="server" data-mini="true" type="email" data-clear-btn="true" />
@@ -247,6 +252,10 @@
                 }
                 else if ($('#txtPassword').val().trim().indexOf(' ') >= 0) {
                     message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidPassword", xeErrors)%></li>');
+                    hasError = true;
+                    e.preventDefault();
+                } else if ($('#txtPassword').val().trim() != $('#txtConfirmPassword').val().trim()) {
+                    message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/InvalidConfirmPass", xeErrors)%></li>');
                     hasError = true;
                     e.preventDefault();
                 }
