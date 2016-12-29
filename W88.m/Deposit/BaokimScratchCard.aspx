@@ -69,7 +69,7 @@
                             <asp:Literal ID="txtTotalAllowed" runat="server" />
                         </div>
                     </li>
-                    <li class="item item-select" runat="server">
+                    <li class="item-text-wrap" runat="server">
                         <p id="IndicatorMsg" style="color: #ff0000"></p>
                     </li>
                     <li class="item item-select" runat="server">
@@ -77,9 +77,10 @@
                         <asp:DropDownList ID="drpBanks" runat="server" data-corners="false">
                         </asp:DropDownList>
                     </li>
-                    <li class="item item-input">
-                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
-                        <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+                    <li class="item item-select">
+                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="drpAmount" />
+                        <asp:DropDownList ID="drpAmount" runat="server" data-corners="false">
+                        </asp:DropDownList>
                     </li>
                     <li class="item item-input">
                         <asp:Label ID="lblPin" runat="server" AssociatedControlID="txtPin" />
@@ -88,9 +89,6 @@
                     <li class="item item-select">
                         <asp:Label ID="lblCardSerialNo" runat="server" AssociatedControlID="txtCardSerialNo" />
                         <asp:TextBox ID="txtCardSerialNo" runat="server" data-mini="true" data-clear-btn="true" />
-                    </li>
-                    <li class="item item-select">
-                        <p id="notice" style="color: #ff0000"></p>
                     </li>
                     <li class="item row">
                         <div class="col">
@@ -107,22 +105,19 @@
         <% } %>
 
         <script type="text/javascript">
-            var selectName = '<%=strdrpBank%>';
-
             $(document).ready(function () {
                 window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
 
                 //window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
 
-                window.w88Mobile.Gateways.BaokimScratchCard.getBanks(selectName);
-                window.w88Mobile.Gateways.BaokimScratchCard.getTranslations();
+                window.w88Mobile.Gateways.BaokimScratchCard.Initialize();
 
                 $('#btnSubmit').click(function (e) {
                     e.preventDefault();
 
-                    var data = { Amount: $('#txtDepositAmount').val(), CardNumber: $('#drpBanks').val(), CCV: $('#txtPin').val(), ReferenceId: $('#txtCardSerialNo').val() };
+                    var data = { Amount: $('#drpAmount').val(), CardNumber: $('#drpBanks').val(), CCV: $('#txtPin').val(), ReferenceId: $('#txtCardSerialNo').val() };
 
-                    window.w88Mobile.Gateways.BaokimScratchCard.deposit(data, function (response) {
+                    window.w88Mobile.Gateways.BaokimScratchCard.Deposit(data, function (response) {
                         switch (response.ResponseCode) {
                             case 1:
                                 window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
@@ -133,7 +128,7 @@
                                 if (_.isArray(response.ResponseMessage))
                                     w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
                                 else
-                                    w88Mobile.Growl.shout(response.ResponseMessage);
+                                w88Mobile.Growl.shout(response.ResponseMessage);
 
                                 break;
                         }
@@ -143,6 +138,8 @@
 
                 $('#drpBanks').change(function () {
                     window.w88Mobile.Gateways.BaokimScratchCard.SetFee($('#drpBanks').val());
+
+                    window.w88Mobile.Gateways.BaokimScratchCard.SetDenom($('#drpBanks').val());
                 });
 
 

@@ -1,0 +1,365 @@
+@import url(../fonts/icomoon/style.css);
+@import url(../fonts/ionicons/ionicons-icons.css);
+/*! normalize.css v3.0.2 | MIT License | github.com/necolas/normalize.css */
+audio,
+canvas,
+progress,
+video {
+  vertical-align: baseline; }
+
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+b,
+strong {
+  font-weight: bold; }
+
+img {
+  border: 0; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+figure {
+  margin: 1em 40px; }
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0; }
+
+pre {
+  overflow: auto; }
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em; }
+
+label,
+input,
+select,
+textarea {
+  line-height: normal;
+  font-family: inherit; }
+
+form,
+input,
+optgroup,
+select {
+  color: inherit;
+  font: inherit;
+  margin: 0; }
+
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer; }
+
+button[disabled],
+html input[disabled] {
+  cursor: default; }
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0; }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+td,
+th {
+  padding: 0; }
+
+@font-face {
+  font-family: 'icomoon';
+  src: url("../fonts/icomoon/fonts/icomoon.eot?of3qws");
+  src: url("../fonts/icomoon/fonts/icomoon.eot?#iefixof3qws") format("embedded-opentype"), url("../fonts/icomoon/fonts/icomoon.ttf?of3qws") format("truetype"), url("../fonts/icomoon/fonts/icomoon.woff?of3qws") format("woff"), url("../fonts/icomoon/fonts/icomoon.svg?of3qws#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'ionicons';
+  src: url("../fonts/ionicons/ionicons.eot?v=2.0.0");
+  src: url("../fonts/ionicons/ionicons.eot?v=2.0.0#iefix") format("embedded-opentype"), url("../fonts/ionicons/ionicons.ttf?v=2.0.0") format("truetype"), url("../fonts/ionicons/ionicons.woff?v=2.0.0") format("woff"), url("../fonts/ionicons/ionicons.svg?v=2.0.0#ionicons") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+.ion {
+  display: inline-block;
+  font-family: "Ionicons";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-rendering: auto;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+@font-face {
+  font-family: 'dinpro';
+  src: url("../fonts/din-pro-reg/din-regular-webfont.eot");
+  src: url("../fonts/din-pro-reg/din-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/din-pro-reg/din-regular-webfont.woff") format("woff"), url("../fonts/din-pro-reg/din-regular-webfont.ttf") format("truetype"), url("../fonts/din-pro-reg/din-regular-webfont.svg#dinregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+html {
+  font-size: 62.5%; }
+
+body {
+  font-size: 1.4rem;
+  font-family: -apple-system, "Helvetica Neue", "Roboto", sans-serif; }
+
+a {
+  color: #2a8fbd;
+  background-color: transparent; }
+
+.enable-hover a:hover {
+  opacity: 0.7; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  line-height: 1.2;
+  margin-top: 1.6rem;
+  margin-bottom: 1rem; }
+  h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+    margin-top: -0.3rem; }
+
+h1 + h2,
+h1 + h3,
+h2 + h3 {
+  margin-top: -0.3rem; }
+
+h1 {
+  font-size: 3.6rem;
+  margin-top: 2rem; }
+
+h2 {
+  font-size: 3rem;
+  margin-top: 1.8rem; }
+
+h3 {
+  font-size: 2.4rem; }
+
+h4 {
+  font-size: 2rem; }
+
+h5 {
+  font-size: 1.6rem; }
+
+h6 {
+  font-size: 1.4rem; }
+
+p, ol, ul {
+  margin: 0 0 1.5rem; }
+
+small {
+  font-size: 75%; }
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+* {
+  outline: 0 none; }
+
+html,
+body {
+  font-family: "dinpro", sans-serif;
+  font-size: 87.5%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative; }
+
+.bg {
+  background: #000 url("/_Static/Images/ptlogin/bg-portrait.jpg") center center no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  background-size: cover;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  overflow: auto; }
+
+@media only screen and (orientation: landscape) {
+  .bg {
+    background: #000 url("/_Static/Images/ptlogin/bg-landscape.jpg") center center no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    background-size: cover; } }
+a {
+  text-decoration: none; }
+  a:focus, a:hover {
+    color: #216f93; }
+
+.text-right {
+  text-align: right; }
+
+.text-center {
+  text-align: center; }
+
+.blue {
+  color: #2a8fbd !important; }
+
+.button {
+  text-align: center;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  background-color: #2a8fbd;
+  padding: 10px 30px;
+  border: none;
+  display: block;
+  text-decoration: none; }
+  .button:focus, .button:hover {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #216f93; }
+
+.form-input {
+  height: 31px;
+  padding: 5px;
+  color: #ccc;
+  width: 100%;
+  background: transparent;
+  border: 1px solid #555; }
+  .form-input:focus {
+    border-color: #2a8fbd; }
+
+.box {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute; }
+
+.form-container {
+  color: #ccc;
+  width: 85%;
+  max-width: 380px;
+  height: 100%;
+  margin: 0 auto;
+  display: table; }
+  .form-container .form-center {
+    display: table-cell;
+    vertical-align: middle; }
+  .form-container .form-logo img {
+    width: 75%;
+    max-width: 180px;
+    display: block;
+    margin: 0 auto 30px; }
+  .form-container form {
+    padding: 15px;
+    width: 100%;
+    background: rgba(46, 46, 46, 0.9);
+    border: 1px solid #827e7b; }
+    .form-container form span {
+      vertical-align: middle;
+      color: #ccc;
+      font-size: 1rem; }
+  .form-container .form-row {
+    margin-bottom: 10px;
+    clear: both; }
+    .form-container .form-row:before, .form-container .form-row:after {
+      content: " ";
+      display: table; }
+    .form-container .form-row:after {
+      clear: both; }
+  .form-container .form-col {
+    width: 100%;
+    float: left; }
+    .form-container .form-col.form-col-label {
+      width: 30%; }
+    .form-container .form-col.form-col-prefix {
+      width: 15%; }
+    .form-container .form-col.form-col-input {
+      width: 55%; }
+    .form-container .form-col.form-col-offset {
+      margin-left: 15%; }
+
+.form-col-prefix span {
+  padding: 5px; }
+
+.form-text {
+  margin-top: 30px;
+  margin-bottom: 0; }
+
+@media only screen and (orientation: landscape) {
+  .form-container {
+    max-width: 520px; }
+    .form-container form {
+      padding: 30px;
+      background: rgba(46, 46, 46, 0.75); } }
+@media only screen and (min-width: 321px) {
+  html,
+  body {
+    font-size: 100%; } }
+@media only screen and (min-width: 768px) {
+  html,
+  body {
+    font-size: 87.5%; }
+
+  .form-container {
+    max-width: 450px; }
+    .form-container form {
+      padding: 45px; }
+    .form-container .form-col {
+      width: 100%;
+      float: left; }
+      .form-container .form-col.form-col-label {
+        width: 25%; }
+      .form-container .form-col.form-col-prefix {
+        width: 10%; }
+      .form-container .form-col.form-col-input {
+        width: 65%; }
+      .form-container .form-col.form-col-offset {
+        margin-left: 10%; }
+
+  .form-logo img {
+    max-width: 280px; } }
+@media only screen and (min-width: 768px) and (orientation: landscape) {
+  .form-container form {
+    background: rgba(46, 46, 46, 0.75); } }
