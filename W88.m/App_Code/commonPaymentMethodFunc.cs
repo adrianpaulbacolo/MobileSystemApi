@@ -151,6 +151,17 @@ public static class commonPaymentMethodFunc
                 depositTabs.Controls.Add(list);
                 break;
 
+            case commonVariables.DepositMethod.PayGo:
+                list = CreateMethodListControl(paymentCode);
+
+                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
+
+                anchor.Attributes.Add("href", "/Deposit/PayGo.aspx");
+
+                list.Controls.Add(anchor);
+                depositTabs.Controls.Add(list);
+                break;
+
             case commonVariables.DepositMethod.WingMoney:
                 list = CreateMethodListControl(paymentCode);
 
@@ -464,6 +475,17 @@ public static class commonPaymentMethodFunc
                 anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage);
 
                 anchor.Attributes.Add("href", "/Withdrawal/VenusPoint.aspx");
+
+                list.Controls.Add(anchor);
+                withdrawalTabs.Controls.Add(list);
+                break;
+
+            case commonVariables.WithdrawalMethod.PayGo:
+                list = CreateMethodListControl(paymentCode);
+
+                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage);
+
+                anchor.Attributes.Add("href", "/Withdrawal/PayGo.aspx");
 
                 list.Controls.Add(anchor);
                 withdrawalTabs.Controls.Add(list);
