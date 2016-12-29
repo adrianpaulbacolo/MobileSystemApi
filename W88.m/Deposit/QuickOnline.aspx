@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="JutaPay.aspx.cs" Inherits="Deposit_JutaPay" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="QuickOnline.aspx.cs" Inherits="Deposit_QuickOnline" %>
 
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
@@ -8,7 +8,7 @@
     <title></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js"></script>
-    <script type="text/javascript" src="/_Static/JS/modules/gateways/jutapay.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/quickonline.js"></script>
 </head>
 <body>
     <div data-role="page" data-theme="b">
@@ -53,25 +53,13 @@
                             <asp:Literal ID="txtMinMaxLimit" runat="server" />
                         </div>
                     </li>
-                    <li class="row">
-                        <div class="col">
-                            <asp:Literal ID="lblDailyLimit" runat="server" />
-                        </div>
-                        <div class="col">
-                            <asp:Literal ID="txtDailyLimit" runat="server" />
-                        </div>
-                    </li>
-                    <li class="row">
-                        <div class="col">
-                            <asp:Literal ID="lblTotalAllowed" runat="server" />
-                        </div>
-                        <div class="col">
-                            <asp:Literal ID="txtTotalAllowed" runat="server" />
-                        </div>
-                    </li>
                     <li class="item item-input">
                         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
                         <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+                    </li>
+                    <li class="item item-select">
+                        <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
+                        <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
                     </li>
                     <li class="item row">
                         <div class="col">
@@ -82,7 +70,6 @@
             </form>
         </div>
 
-
         <% if (commonCookie.CookieIsApp != "1")
            { %>
         <!--#include virtual="~/_static/navMenu.shtml" -->
@@ -92,40 +79,53 @@
             $(document).ready(function () {
                 window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
 
-                window.w88Mobile.Gateways.JutaPay.Initialize();
-
                 $('#form1').submit(function (e) {
-                    e.preventDefault();
                     window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
+                    // use api
+                    e.preventDefault();
 
                     var data = {
                         Amount: $('#txtDepositAmount').val(),
-                        ThankYouPage: location.protocol + "//" + location.host + "/Deposit/Thankyou.aspx"
+                        Bank: { Text: $('#drpBank option:selected').text(), Value: $('#drpBank').val() },
                     };
 
-                    window.w88Mobile.Gateways.JutaPay.Deposit(data, function (response) {
+                    window.w88Mobile.Gateways.QuickOnline.Deposit(data, function (response) {
                         switch (response.ResponseCode) {
                             case 1:
-                                w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
-                               w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
-                               w88Mobile.PostPaymentForm.submit();
+                            if (response.ResponseData.VendorRedirectionUrl) {
+                                window.open(response.ResponseData.VendorRedirectionUrl, '_blank');
+                            } else {
+                                if (response.ResponseData.PostUrl) {
+                                    w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
 
-                               $('#form1')[0].reset();
-                               break;
-                           default:
-                               if (_.isArray(response.ResponseMessage))
-                                   w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
-                               else
-                                   w88Mobile.Growl.shout(response.ResponseMessage);
+                                    w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
+                                    w88Mobile.PostPaymentForm.submit();
+                                } else if (response.ResponseData.DummyURL) {
+                                    w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> ");
 
-                               break;
-                       }
-                   },
+                                    window.open(response.ResponseData.DummyURL, '_blank');
+                                } else {
+                                    w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
+                                }
+                            }
+
+                            $('#form1')[0].reset();
+
+                            break;
+                        default:
+                            if (_.isArray(response.ResponseMessage))
+                                w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
+                            else
+                                w88Mobile.Growl.shout(response.ResponseMessage);
+
+                            break;
+                    }
+                    },
                     function () {
                         window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
                         GPInt.prototype.HideSplash();
                     });
-               });
+                });
             });
         </script>
     </div>

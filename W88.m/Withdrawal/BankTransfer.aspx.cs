@@ -43,8 +43,6 @@ public partial class Withdrawal_BankTransfer : PaymentBasePage
             base.InitialisePendingWithdrawals(sender.ToString().Contains("app"));
             this.InitialiseMemberBank();
         }
-        HtmlGenericControl withdrawalTabs = (HtmlGenericControl)FindControl("withdrawalTabs");
-        commonPaymentMethodFunc.GetWithdrawalMethodList(strMethodsUnAvailable, withdrawalTabs, base.PageName, sender.ToString().Contains("app"));
 
         if (string.Compare(strCurrencyCode, "krw", true) == 0)
         {

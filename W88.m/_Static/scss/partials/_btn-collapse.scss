@@ -1,0 +1,49 @@
+.toggle-list-box{
+	button {
+		margin: 0;
+	}
+	> button {
+		text-transform: uppercase;
+		position: relative;
+		&:after{
+			content: '\f3d0';
+			font: 1.5em "ionicons";
+			color: #ffffff;
+			color: rgba(255, 255, 255, 0.5);
+			text-indent: 0;
+			background: transparent !important;
+			right: 0.5em;
+			position: absolute;
+		}
+		&.toggled:after{
+			content: '\f3d8';
+		}
+		&.btn-active{
+			color: $white;
+			background-color: $primary-color;
+			border-color: $primary-color;
+			&:focus,
+			&:hover{
+				color: $white;
+				background-color: darken($primary-color ,10%);
+				border-color: darken($primary-color ,10%);
+
+			}
+		}
+	}
+	ul{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		height: auto;
+		overflow: hidden;
+		display: none;
+		li{
+			border-top: 1px solid rgba($white, 0.05);
+			display: block;
+			&:first-child{
+				border-top: none;
+			}
+		}
+	}
+}
