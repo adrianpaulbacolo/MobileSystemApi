@@ -236,7 +236,7 @@
                 <% } %>
 
                 <li class="col col-33">
-                    <a href="/Lang.aspx" class="tile" role="button" data-transition="slideup">
+                    <a href="/Lang.aspx" class="tile" role="button" data-ajax="false">
                         <span class="icon- ion-ios-world-outline"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("language", commonVariables.LeftMenuXML)%></h4>
                     </a>
