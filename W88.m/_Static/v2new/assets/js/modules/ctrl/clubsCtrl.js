@@ -1,8 +1,8 @@
 ﻿w88Mobile.v2.ClubsCtrl = clubsCtrl;
 
-function clubsCtrl(routeObj) {
+function clubsCtrl(routeObj, slotSvc) {
 
-    this.items = [];
+    this.games = [];
     this.page = {};
     this.route = "";
     this.routeObj = routeObj;
@@ -11,22 +11,35 @@ function clubsCtrl(routeObj) {
     this.init = function () {
         var _self = this;
         pubsub.subscribe("filterSlotByClub", onFilterSlotByClub);
-        pubsub.subscribe("loadClubTabBar", onLoadClubTabBar);
+        _self.games = slotSvc.itemsByClub(_self.club.providers);
 
         switch (_self.route) {
             case "club":
-                pubsub.publish("loadClubTabBar");
-
-                pubsub.publish("filterSlotByClub", _self.setPushData({
-                    club: this.club
+                _self.club.section = _.first(slotSvc.sections);
+                pubsub.publish("loadClubTabBar", _self.setPushData({
+                    section: _self.club.section
+                    , ctrl: _self
                 }));
 
+                pubsub.publish("filterSlotByClub", _self.setPushData({
+                    club: _self.club
+                }));
                 break;
 
             case "club_search":
 
                 break;
         }
+    }
+
+    this.filterClubSlots = function (section) {
+
+        var _self = this;
+        _self.club.section = section;
+
+        pubsub.publish("filterSlotByClub", _self.setPushData({
+            club: _self.club
+        }));
     }
 
     // hijack pushed data to include instance
@@ -46,42 +59,23 @@ function clubsCtrl(routeObj) {
     *
     **/
 
-    function onLoadClubTabBar(topic, data) {
-        $.get('assets/templates/tabs.html', function (template) {
-            var content = _.template(template);
-            var innerHtml = content({
-                sections: w88Mobile.v2.Slots.sections,
-                section: _.first(w88Mobile.v2.Slots.sections)
-            });
-            if (!_.isEmpty($('.filter-bar'))) {
-                //w88Mobile.v2.Routes.currentPage().find('.' + club.name + '-main').html($(innerHtml).html());
-            } else {
-                $(".header").after(innerHtml);
-            }
-        }, 'html');
-    }
-
     function onFilterSlotByClub(topic, data) {
         var _self = data._self;
 
-        if (!_.isUndefined(data.club)) {
-            _self.items = w88Mobile.v2.Slots.itemsByClub(data.club.providers);
-        }
-
         if (_.isUndefined(data.club.section)) {
-            data.club.section = _.first(w88Mobile.v2.Slots.sections);
+            data.club.section = _.first(slotSvc.sections);
         }
 
-        _self.items = _.filter(_self.items, function (item) {
+        var games = _.filter(_self.games, function (item) {
             var sections = _.join(item.Section, ",").toLowerCase().split(",");
             return _.includes(sections, data.club.section.toLowerCase());
         });
 
         pubsub.publish("displaySlotList", _self.setPushData({
-            games: _self.items
+            games: games
             , page: _self.page
-            , selector: "." + data.club.name + "-main"
-            , club: data.club
+            , selector: "." + _self.club.name + "-main"
+            , club: _self.club
         }));
 
         getFilterOptions(data.club);

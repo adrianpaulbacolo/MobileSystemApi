@@ -1,7 +1,7 @@
 ﻿<section class="tab-bar filter-bar">
     <ul id="sectionTab">
         {% _.forEach( slotData.sections, function( section ){ %}
-        <li {% if(section==slotData.section){ %}class="active" {% } %} onclick="filterClubSlot(this, '{%- section %}')">
+        <li {% if(section==slotData.section){ %}class="active" {% } %} onclick="filterClubSlots(this, '{%- section %}')">
         <a href="#">{%- section %}</a>
         </li>
         {% }); %}

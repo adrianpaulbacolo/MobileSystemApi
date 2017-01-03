@@ -78,7 +78,7 @@ function Routes() {
         , init: function (params) {
             var pageRoute = "club";
             initPage(pageRoute).then(function () {
-                var clubpage = new w88Mobile.v2.ClubsCtrl(w88Mobile.v2.Routes);
+                var clubpage = new w88Mobile.v2.ClubsCtrl(w88Mobile.v2.Routes, w88Mobile.v2.Slots);
                 clubpage.route = pageRoute;
                 clubpage.page = w88Mobile.v2.Routes.currentPage();
                 clubpage.page = _.extend(clubpage.page, params);
@@ -88,11 +88,9 @@ function Routes() {
                 clubpage.init();
             });
         }
-        , onOpen: function () {
-            pubsub.publish("loadClubTabBar");
-
+        , onOpen: function ()
+        {
             pubsub.publish("changeHeader");
-
             $('.filter-bar').show();
         }
         , onClose: function () {
@@ -124,12 +122,8 @@ function Routes() {
        , onClose: function () {
            $("." + _.last(routeStack) + "-page").remove();
            routeStack = _.dropRight(routeStack);
-
            $('.filter-bar').show();
-
            pubsub.publish("changeHeader");
-
-           pubsub.publish("loadClubTabBar");
        }
     }
 
