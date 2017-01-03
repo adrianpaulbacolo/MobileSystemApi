@@ -75,15 +75,6 @@
 
                 window.w88Mobile.Rebates.Statement();
 
-                if ($("#weeks").val() == $("#weeks option:first").val()) {
-                    $(".curr_week").show();
-                    $(".prev_week").hide();
-                }
-                else {
-                    $(".curr_week").hide();
-                    $(".prev_week").show();
-                }
-
             });
 
         });

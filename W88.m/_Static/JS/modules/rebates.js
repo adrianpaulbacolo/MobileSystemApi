@@ -138,6 +138,17 @@
                         }
                     });
 
+                    if ($("#weeks").val() == $("#weeks option:first").val()) {
+                        $(".curr_week").show();
+                        $("#weeklyBtn").show();
+                        $(".prev_week").hide();
+                    }
+                    else {
+                        $(".curr_week").hide();
+                        $("#weeklyBtn").hide();
+                        $(".prev_week").show();
+                    }
+
                 }, 'html');
 
                 GPInt.prototype.HideSplash();
