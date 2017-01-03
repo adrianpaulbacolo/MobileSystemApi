@@ -243,7 +243,7 @@
             case "120262":
                 return "WeChat";
 
-            case "120263":
+            case "1202122":
                 return "Alipay";
 
             case "120236":
