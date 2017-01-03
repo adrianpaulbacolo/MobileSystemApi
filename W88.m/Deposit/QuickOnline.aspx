@@ -87,6 +87,7 @@
                     var data = {
                         Amount: $('#txtDepositAmount').val(),
                         Bank: { Text: $('#drpBank option:selected').text(), Value: $('#drpBank').val() },
+                        ThankYouPage: location.protocol + "//" + location.host + "/Deposit/Thankyou.aspx"
                     };
 
                     window.w88Mobile.Gateways.AutoRoute.Deposit(window.w88Mobile.Gateways.DefaultPayments.AutoRouteIds.QuickOnline, data, function (response) {
