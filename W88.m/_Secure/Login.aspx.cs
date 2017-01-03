@@ -32,6 +32,11 @@ public partial class _Secure_Login : BasePage
         XElement xeResources = null;
         commonCulture.appData.getLocalResource(out xeResources);
 
+        strRedirect = Request.QueryString.Get("redirect");
+
+        if (strRedirect.ToLower().Contains("deposit") || strRedirect.ToLower().Contains("withdraw"))
+            strRedirect = strRedirect.Replace("_app", "");
+
         commonCookie.CookieIsApp = null;
         if (!string.IsNullOrEmpty(Request.QueryString.Get("token")))
         {
@@ -49,9 +54,9 @@ public partial class _Secure_Login : BasePage
                 }
                 else
                 {
-                    if (!string.IsNullOrEmpty(Request.QueryString.Get("redirect")))
+                    if (!string.IsNullOrEmpty(strRedirect))
                     {
-                        Response.Redirect(Request.QueryString.Get("redirect"), false);
+                        Response.Redirect(strRedirect, false);
                     }
                     else
                     {
@@ -66,7 +71,7 @@ public partial class _Secure_Login : BasePage
         }
         else
         {
-            if (string.IsNullOrEmpty(Request.QueryString.Get("redirect")))
+            if (string.IsNullOrEmpty(strRedirect))
             {
                 if (!string.IsNullOrEmpty(Request.QueryString["url"]))
                 {
@@ -131,10 +136,6 @@ public partial class _Secure_Login : BasePage
                 {
                     strRedirect = "/Index.aspx?lang=" + commonVariables.SelectedLanguage;
                 }
-            }
-            else
-            {
-                strRedirect = Request.QueryString.Get("redirect");
             }
         }
 
