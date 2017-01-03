@@ -66,7 +66,7 @@
 
             <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency))
                {
-                   if (!commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase))
+                   if ((!commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase)) && (!commonCookie.CookieCurrency.Equals("usd", StringComparison.OrdinalIgnoreCase)))
                    {
                        bannerPosition = true;
                        %>
