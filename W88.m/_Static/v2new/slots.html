@@ -111,7 +111,6 @@
             currentClubCtrl.filterClubSlots(section);
         }
 
-
         function onLoadClubTabBar(topic, data) {
 
             currentClubCtrl = data.ctrl;
@@ -133,13 +132,6 @@
                 }
             }, 'html');
         }
-
-
-
-
-
-
-
 
         $(document).ready(function () {
             pubsub.publish("changeHeader");
@@ -233,28 +225,6 @@
             });
 
             w88Mobile.v2.Slots.club = club;
-        }
-
-        function filterClubSlot(tab, section) {
-            if (!$(tab).hasClass('active')) {
-                $('#sectionTab').find('li').removeClass('active')
-                $(tab).addClass('active');
-            }
-
-            var clubpage = new w88Mobile.v2.ClubsCtrl(w88Mobile.v2.Routes);
-            clubpage.route = "club";
-            clubpage.page = w88Mobile.v2.Routes.currentPage();
-            clubpage.page.club = w88Mobile.v2.Slots.club;
-
-            var selectedClub = _.find(w88Mobile.v2.Slots.clubs, function (club) {
-                return club.name == clubpage.page.club;
-            });
-
-            selectedClub.section = section;
-
-            pubsub.publish("filterSlotByClub", clubpage.setPushData({
-                club: selectedClub
-            }));
         }
 
         function onUpdateList(topic, data) {
