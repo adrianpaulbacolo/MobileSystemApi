@@ -34,7 +34,7 @@ public partial class _Secure_Login : BasePage
 
         strRedirect = Request.QueryString.Get("redirect");
 
-        if (strRedirect.ToLower().Contains("deposit") || strRedirect.ToLower().Contains("withdraw"))
+        if (!string.IsNullOrWhiteSpace(strRedirect) && (strRedirect.ToLower().Contains("deposit") || strRedirect.ToLower().Contains("withdraw")))
             strRedirect = strRedirect.Replace("_app", "");
 
         commonCookie.CookieIsApp = null;
