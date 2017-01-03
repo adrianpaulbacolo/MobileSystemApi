@@ -82,6 +82,7 @@
 
                     var data = {
                         Amount: $('#txtDepositAmount').val(),
+                        ThankYouPage: location.protocol + "//" + location.host + "/Deposit/Thankyou.aspx"
                     };
 
                     window.w88Mobile.Gateways.AutoRoute.Deposit(window.w88Mobile.Gateways.DefaultPayments.AutoRouteIds.AliPay, data, function (response) {
