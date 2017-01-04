@@ -1,4 +1,4 @@
-﻿{% if (_.isEqual(slotData.route, "search")) { %}
+﻿{% if (_.isEqual(slotData.route, "index_search") || _.isEqual(slotData.route, "club_search")) { %}
 
 <a href="#" onclick="w88Mobile.v2.Routes.previous()" class="header-button header-button-text header-button-left">
     <span class="icon ion-ios-arrow-back"></span> <span class="button-text">Back</span>
@@ -17,7 +17,7 @@
 <a href="#" onclick="w88Mobile.v2.Routes.previous()" class="header-button header-button-text header-button-left">
     <span class="icon ion-ios-arrow-back"></span> <span class="button-text">Back</span>
 </a>
-<a href="#" onclick="showSearchHeader()" class="header-button header-button-right">
+<a href="#" onclick="showSearchHeader('club_search')" class="header-button header-button-right">
     <span class="icon ion-ios-search"></span>
 </a>
 <a href="#" onclick="viewClubFilter()" class="header-button header-button-right" id="filterMode">
@@ -37,7 +37,7 @@
 <a href="#" onclick="w88Mobile.v2.Routes.previous()" class="header-button header-button-text header-button-left">
     <span class="icon ion-ios-arrow-back"></span> <span class="button-text">Back</span>
 </a>
-<a href="#" onclick="showSearchHeader()" class="header-button header-button-right">
+<a href="#" onclick="showSearchHeader('index_search')" class="header-button header-button-right">
     <span class="icon ion-ios-search"></span>
 </a>
 

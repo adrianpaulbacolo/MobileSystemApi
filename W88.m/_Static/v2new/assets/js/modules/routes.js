@@ -155,10 +155,13 @@ function Routes() {
        , init: function (params) {
            var pageRoute = "club_search";
            initPage(pageRoute).then(function () {
-               var clubpage = new w88Mobile.v2.ClubsCtrl(w88Mobile.v2.Routes);
+               var clubpage = new w88Mobile.v2.ClubsCtrl(w88Mobile.v2.Routes, w88Mobile.v2.Slots);
                clubpage.route = pageRoute;
                clubpage.page = w88Mobile.v2.Routes.currentPage();
                clubpage.page = _.extend(clubpage.page, params);
+               clubpage.club = _.find(w88Mobile.v2.Slots.clubs, function (club) {
+                   return club.name == clubpage.page.club;
+               });
                clubpage.init();
                routeCtrl.push(clubpage);
 

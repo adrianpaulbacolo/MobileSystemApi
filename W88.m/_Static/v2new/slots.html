@@ -280,19 +280,25 @@
 
         var searchToken;
 
-        function showSearchHeader() {
+        function showSearchHeader(route) {
 
-            if (_.includes(w88Mobile.v2.Routes.currentPage().selector, "club"))
-                pubsub.publish("changeRoute", {
-                    route: "club_search", params: {
-                        club: w88Mobile.v2.Slots.club
-                    }
-                });
-            else
-                pubsub.publish("changeRoute", {
-                    route: "index_search", params: {
-                    }
-                });
+            switch(route){
+                case 'club_search':
+                    var club = w88Mobile.v2.Routes.currentCtrl().club;
+                    pubsub.publish("changeRoute", {
+                        route: route
+                        , params: {
+                            club: club.name
+                        }
+                    });
+                    break;
+                case 'index_search':
+                    pubsub.publish("changeRoute", {
+                        route: route
+                        , params: {}
+                    });
+                    break;
+            }
 
             pubsub.subscribe('searchSlots', onSearchSlots);
         }

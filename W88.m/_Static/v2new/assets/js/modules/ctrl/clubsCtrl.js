@@ -73,12 +73,6 @@ function clubsCtrl(routeObj, slotSvc) {
         return data;
     }
 
-    this.viewClub = function (club) {
-        routeObj.changeRoute("club", {
-            club: club
-        });
-    }
-
     this.setActiveSection = function (section) {
         var _self = this;
         if (!_self.page.find('#sectionTab > li.' + section).hasClass('active')) {
