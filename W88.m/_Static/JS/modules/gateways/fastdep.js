@@ -1,16 +1,17 @@
 ﻿function FastDeposit() {
 
-    var gatewayId = "110101";
     var token = "";
 
     var fastdeposit = {
         GetBankDetails: get,
-        ToogleBank: toogleBank
+        ToogleBank: toogleBank,
+        Deposit: deposit,
+        Withdraw: withdraw
     };
 
     return fastdeposit;
 
-    function send(resource, method, data, success) {
+    function send(resource, method, data, beforeSend, success, complete) {
         var url = w88Mobile.APIUrl + resource;
 
         var headers = {
@@ -23,20 +24,23 @@
             url: url,
             data: data,
             headers: headers,
+            beforeSend: beforeSend,
             success: success,
             error: function () {
                 console.log("Error connecting to api");
-            }
+            },
+            complete: complete
         });
     }
 
     function get() {
-        send("/user/banks", "GET", "",
+        send("/user/banks", "GET", "", "",
             function (response) {
                 if (!_.isEqual(response.ResponseCode, 0)) {
                     load(response.ResponseData);
                 }
-            }
+            },
+            ""
         );
     }
 
@@ -58,6 +62,22 @@
         else {
             $('#divBankName').hide();
         }
+    }
+
+    // deposit
+    function deposit(data, successCallback, completeCallback) {
+        validate(data, "deposit");
+        send("/payments/110101", "POST", data, function () { GPInt.prototype.ShowSplash() }, successCallback, completeCallback);
+    }
+
+    // withdraw
+    function withdraw(data, successCallback, completeCallback) {
+        send("/payments/210602", "POST", data, function () { GPInt.prototype.ShowSplash() }, successCallback, completeCallback);
+    }
+
+    function validate(data, method) {
+        // @todo add validation here
+        return;
     }
 }
 
