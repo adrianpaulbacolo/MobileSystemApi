@@ -223,7 +223,7 @@ public class commonVariables
         ShengPayAliPay = 1202111,
         ECPSS = 120218,
         BofoPay = 120231,
-        JTPayWeChat = 120262,
+        JTPayWeChat = 1202123,
         JTPayAliPay = 1202122,
         AllDebit = 120236,
         EGHL = 120265,

@@ -240,7 +240,7 @@
             case "120231":
                 return "BofoPay.aspx";
 
-            case "120262":
+            case "1202123":
                 return "WeChat";
 
             case "1202122":
