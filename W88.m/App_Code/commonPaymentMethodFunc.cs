@@ -112,6 +112,17 @@ public static class commonPaymentMethodFunc
 
         switch (paymentCode)
         {
+            case commonVariables.DepositMethod.JuyPayAlipay:
+                list = CreateMethodListControl(paymentCode);
+
+                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
+
+                anchor.Attributes.Add("href", "/Deposit/JuyPayAlipay.aspx");
+
+                list.Controls.Add(anchor);
+                depositTabs.Controls.Add(list);
+                break;
+
             case commonVariables.DepositMethod.JutaPay:
                 list = CreateMethodListControl(paymentCode);
 
