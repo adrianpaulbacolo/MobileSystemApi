@@ -11,14 +11,17 @@ function Routes() {
         return $.when($.get('assets/templates/page.html', function (template) {
 
             var mainClass = [];
+            var sections = [];
 
-            if (route != "index" && !_.includes(route, "search"))
-                mainClass.push("has-tab")
+            if (_.isEqual(route, "club")) {
+                sections = w88Mobile.v2.Slots.sections;
+            }
 
             var content = _.template(template);
             var page = content({
                 page: route,
-                classes: mainClass.join(" ")
+                classes: mainClass.join(" "),
+                sections: sections
             });
             $(".header").after(page);
 
@@ -35,6 +38,7 @@ function Routes() {
                 indexpage.route = pageRoute;
                 indexpage.page = w88Mobile.v2.Routes.currentPage();
                 indexpage.init();
+                routeCtrl.push(indexpage);
             });
         }
         , onOpen: function () {
@@ -57,6 +61,7 @@ function Routes() {
                 indexpage.route = pageRoute;
                 indexpage.page = w88Mobile.v2.Routes.currentPage();
                 indexpage.init();
+                routeCtrl.push(indexpage);
             });
         }
        , onOpen: function () {
@@ -65,11 +70,12 @@ function Routes() {
        }
        , onClose: function () {
            $("." + _.last(routeStack) + "-page").remove();
-           routeStack = _.dropRight(routeStack);
+           $('.filter-bar').hide();
 
            pubsub.publish("changeHeader");
 
-           $('.filter-bar').hide();
+           routeStack = _.dropRight(routeStack);
+           routeCtrl = _.dropRight(routeCtrl);
        }
     }
 
@@ -86,6 +92,7 @@ function Routes() {
                     return club.name == clubpage.page.club;
                 });
                 clubpage.init();
+                routeCtrl.push(clubpage);
             });
         }
         , onOpen: function ()
@@ -95,13 +102,53 @@ function Routes() {
         }
         , onClose: function () {
             $("." + _.last(routeStack) + "-page").remove();
-            routeStack = _.dropRight(routeStack);
+            $('.filter-bar').hide();
 
             pubsub.publish("changeHeader");
 
-            $('.filter-bar').hide();
+            routeStack = _.dropRight(routeStack);
+            routeCtrl = _.dropRight(routeCtrl);
         }
     }
+
+    routes["club_filter"] = {
+        parent: "club"
+        , init: function (params) {
+            var pageRoute = "club_filter";
+            initPage(pageRoute).then(function () {
+                var clubpage = new w88Mobile.v2.ClubsCtrl(w88Mobile.v2.Routes, w88Mobile.v2.Slots);
+                clubpage.route = pageRoute;
+                clubpage.page = w88Mobile.v2.Routes.currentPage();
+                clubpage.page = _.extend(clubpage.page, params);
+                clubpage.club = _.find(w88Mobile.v2.Slots.clubs, function (club) {
+                    return club.name == clubpage.page.club;
+                });
+                clubpage.init();
+                routeCtrl.push(clubpage);
+                showFilterModal();
+            });
+        }
+        , onOpen: function () {
+            pubsub.publish("changeHeader");
+            // find suitable place to do this
+            if (!_.isEmpty($('.filter-bar'))) {
+                $('.filter-bar').remove();
+                $('.club-page').removeClass('has-tab');
+            }
+
+            $('.filter-bar').show();
+        }
+        , onClose: function () {
+            $("." + _.last(routeStack) + "-page").remove();
+            $('.filter-bar').hide();
+
+            pubsub.publish("changeHeader");
+
+            routeStack = _.dropRight(routeStack);
+            routeCtrl = _.dropRight(routeCtrl);
+        }
+    }
+
 
     routes["club_search"] = {
         parent: "index"
@@ -113,6 +160,8 @@ function Routes() {
                clubpage.page = w88Mobile.v2.Routes.currentPage();
                clubpage.page = _.extend(clubpage.page, params);
                clubpage.init();
+               routeCtrl.push(clubpage);
+
            });
        }
        , onOpen: function () {
@@ -121,13 +170,16 @@ function Routes() {
        }
        , onClose: function () {
            $("." + _.last(routeStack) + "-page").remove();
-           routeStack = _.dropRight(routeStack);
            $('.filter-bar').show();
            pubsub.publish("changeHeader");
+
+           routeStack = _.dropRight(routeStack);
+           routeCtrl = _.dropRight(routeCtrl);
        }
     }
 
     var routeStack = ["index"];
+    var routeCtrl = [];
 
     return {
         init: function () {
@@ -143,6 +195,9 @@ function Routes() {
         currentPage: function () {
             var topPage = _.last(routeStack);
             return $("." + topPage + "-page");
+        },
+        currentCtrl: function () {
+            return _.last(routeCtrl);
         },
         current: function () {
             return _.last(routeStack);

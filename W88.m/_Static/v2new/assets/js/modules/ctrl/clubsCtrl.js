@@ -17,11 +17,7 @@ function clubsCtrl(routeObj, slotSvc) {
         switch (_self.route) {
             case "club":
                 _self.club.section = _.first(slotSvc.sections);
-                pubsub.publish("loadClubTabBar", _self.setPushData({
-                    section: _self.club.section
-                    , ctrl: _self
-                }));
-
+                _self.setActiveSection(_self.club.section);
                 _self.filterClubSlots({
                     section: _self.club.section
                 });
@@ -29,6 +25,9 @@ function clubsCtrl(routeObj, slotSvc) {
 
             case "club_search":
 
+                break;
+
+            case "club_filter":
                 break;
         }
     }
@@ -78,6 +77,14 @@ function clubsCtrl(routeObj, slotSvc) {
         routeObj.changeRoute("club", {
             club: club
         });
+    }
+
+    this.setActiveSection = function (section) {
+        var _self = this;
+        if (!_self.page.find('#sectionTab > li.' + section).hasClass('active')) {
+            _self.page.find('#sectionTab > li').removeClass('active')
+            _self.page.find('#sectionTab > li.' + section).addClass('active');
+        }
     }
 
     /**

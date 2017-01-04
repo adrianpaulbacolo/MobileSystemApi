@@ -95,7 +95,7 @@
         };
         _.templateSettings.variable = "slotData";
         var currentFilter = {};
-        var currentClubCtrl = {};
+        //var currentClubCtrl = {};
 
         // headers and routes
         pubsub.subscribe("changeRoute", onChangeRoute);
@@ -108,14 +108,12 @@
                 $('#sectionTab').find('li').removeClass('active')
                 $(tab).addClass('active');
             }
-            currentClubCtrl.filterClubSlots({
+            w88Mobile.v2.Routes.currentCtrl().filterClubSlots({
                 section: section
             });
         }
 
         function onLoadClubTabBar(topic, data) {
-
-            currentClubCtrl = data.ctrl;
 
             if (_.isUndefined(data.section)) {
                 data.section = _.first(w88Mobile.v2.Slots.sections);
@@ -128,7 +126,7 @@
                     , section: data.section
                 });
                 if (!_.isEmpty($('.filter-bar'))) {
-                    //w88Mobile.v2.Routes.currentPage().find('.' + club.name + '-main').html($(innerHtml).html());
+                    //$(".header").html($(innerHtml).html());
                 } else {
                     $(".header").after(innerHtml);
                 }
@@ -219,6 +217,16 @@
             w88Mobile.v2.Routes.changeRoute(data.route, data.params);
         }
 
+        function viewClubFilter() {
+            var ctrl = w88Mobile.v2.Routes.currentCtrl();
+            pubsub.publish("changeRoute", {
+                route: "club_filter", 
+                params: {
+                    club: ctrl.club.name
+                }
+            });
+        }
+
         function viewClub(club) {
             pubsub.publish("changeRoute", {
                 route: "club", params: {
@@ -256,7 +264,7 @@
             var minbet = $('#clubMinBet').val();
             var playlines = $('#clubPlayLines').val();
 
-            currentClubCtrl.filterClubSlots({
+            w88Mobile.v2.Routes.currentCtrl().filterClubSlots({
                 form: {
                     category: category
                     , minbet: minbet
@@ -316,7 +324,7 @@
                 var content = _.template(template);
 
                 var innerHtml = content({
-                    route: w88Mobile.v2.Routes.currentPage().selector
+                    route: w88Mobile.v2.Routes.current()
                 });
 
                 $(".header").empty();
