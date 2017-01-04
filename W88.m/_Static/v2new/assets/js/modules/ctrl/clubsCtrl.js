@@ -12,6 +12,7 @@ function clubsCtrl(routeObj, slotSvc) {
         var _self = this;
         pubsub.subscribe("filterSlotByClub", onFilterSlotByClub);
         _self.games = slotSvc.itemsByClub(_self.club.providers);
+        getFilterOptions(_self.club);
 
         switch (_self.route) {
             case "club":
@@ -21,9 +22,9 @@ function clubsCtrl(routeObj, slotSvc) {
                     , ctrl: _self
                 }));
 
-                pubsub.publish("filterSlotByClub", _self.setPushData({
-                    club: _self.club
-                }));
+                _self.filterClubSlots({
+                    section: _self.club.section
+                });
                 break;
 
             case "club_search":
@@ -32,13 +33,38 @@ function clubsCtrl(routeObj, slotSvc) {
         }
     }
 
-    this.filterClubSlots = function (section) {
+    this.filterClubSlots = function (filter) {
 
         var _self = this;
-        _self.club.section = section;
+        var games = _.clone(_self.games);
 
-        pubsub.publish("filterSlotByClub", _self.setPushData({
-            club: _self.club
+        // filter for section
+        if (!_.isUndefined(filter.section)) {
+            games = _.filter(games, function (item) {
+                var sections = _.join(item.Section, ",").toLowerCase().split(",");
+                return _.includes(sections, filter.section.toLowerCase());
+            });
+        }
+
+        if (!_.isUndefined(filter.form)) {
+            games = _.filter(games, function (item) {
+
+                var categories = _.join(item.Category, ",").toLowerCase().split(",");
+                var hasCategory = (!_.isEqual(filter.form.category.toLowerCase(), "all")) ? _.includes(categories, filter.form.category.toLowerCase()) : true;
+                var hasMinBet = (!_.isEqual(filter.form.minbet.toLowerCase(), "all")) ? _.isEqual(filter.form.minbet.toLowerCase(), item.MinBet) : true;
+                var hasPL = (!_.isEqual(filter.form.playlines.toLowerCase(), "all")) ? _.isEqual(filter.form.playlines.toLowerCase(), item.Lines) : true;
+
+                return hasCategory && hasMinBet && hasPL;
+
+            });
+        }
+
+
+        pubsub.publish("displaySlotList", _self.setPushData({
+            games: games
+            , page: _self.page
+            , selector: "." + _self.club.name + "-main"
+            , club: _self.club
         }));
     }
 

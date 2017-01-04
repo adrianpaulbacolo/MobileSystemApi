@@ -108,7 +108,9 @@
                 $('#sectionTab').find('li').removeClass('active')
                 $(tab).addClass('active');
             }
-            currentClubCtrl.filterClubSlots(section);
+            currentClubCtrl.filterClubSlots({
+                section: section
+            });
         }
 
         function onLoadClubTabBar(topic, data) {
@@ -254,40 +256,18 @@
             var minbet = $('#clubMinBet').val();
             var playlines = $('#clubPlayLines').val();
 
-            var clubpage = new w88Mobile.v2.ClubsCtrl(w88Mobile.v2.Routes);
-            clubpage.route = "club";
-            clubpage.page = w88Mobile.v2.Routes.currentPage();
-            clubpage.page.club = w88Mobile.v2.Slots.club;
-
-            var selectedClub = _.find(w88Mobile.v2.Slots.clubs, function (club) {
-                return club.name == clubpage.page.club;
-            });
-
-            var items = [];
-            if (!_.isUndefined(selectedClub)) {
-                items = w88Mobile.v2.Slots.itemsByClub(selectedClub.providers);
-            }
-
-            items = _.filter(items, function (item) {
-                if (!_.isEqual(category.toLowerCase(), "all") || !_.isEqual(minbet.toLowerCase(), "all") || !_.isEqual(playlines.toLowerCase(), "all")) {
-                    var categories = _.join(item.Category, ",").toLowerCase().split(",");
-                    return _.includes(categories, category.toLowerCase()) || _.isEqual(minbet.toLowerCase(), item.MinBet) || _.isEqual(playlines.toLowerCase(), item.Lines);
+            currentClubCtrl.filterClubSlots({
+                form: {
+                    category: category
+                    , minbet: minbet
+                    , playlines: playlines
                 }
-                else
-                    return true;
             });
 
             if (!_.isEmpty($('.filter-bar'))) {
                 $('.filter-bar').remove();
                 $('.club-page').removeClass('has-tab');
             }
-
-            pubsub.publish("displaySlotList", clubpage.setPushData({
-                games: items
-              , page: clubpage.page
-              , selector: "." + selectedClub.name + "-main"
-              , club: clubpage.page.club
-            }));
         }
 
         var searchToken;
