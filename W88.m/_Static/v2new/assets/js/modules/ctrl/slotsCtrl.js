@@ -2,7 +2,7 @@
 
 function slotsCtrl(routeObj) {
 
-    this.items = [];
+    this.games = [];
     this.page = {};
     this.route = "";
     this.routeObj = routeObj;
@@ -25,7 +25,7 @@ function slotsCtrl(routeObj) {
                 break;
 
             case "index_search":
-
+                _self.games = w88Mobile.v2.Slots.items;
                 break;
         }
     }
@@ -39,6 +39,24 @@ function slotsCtrl(routeObj) {
     this.viewClub = function (club) {
         routeObj.changeRoute("club", {
             club: club
+        });
+    }
+
+    this.filterClubSlots = function (filter) {
+
+        var _self = this;
+        var games = _.clone(_self.games);
+
+        if (!_.isUndefined(filter.title)) {
+            games = _.filter(games, function (item) {
+                if (_.isEmpty(filter.title)) return false;
+                return _.includes(item.TranslatedTitle.toLowerCase(), filter.title.toLowerCase());
+            });
+        }
+
+        pubsub.publish('searchSlots', {
+            club: {}
+            , games: games
         });
     }
 
@@ -89,7 +107,9 @@ function slotsCtrl(routeObj) {
                     provider: response.ResponseData.Provider
                 }));
             }, function () { })
-        })
+        });
+        data._self.games = w88Mobile.v2.Slots.items;
+
     }
 
     function onDisplaySlotList(topic, data) {
