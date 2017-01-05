@@ -117,7 +117,8 @@
                         LabelRebatePercent: sessionStorage.getItem("rebatePercent"),
                         LabelRebateBets: sessionStorage.getItem("rebateBets"),
                         BtnClaim: sessionStorage.getItem("btnClaim"),
-                        Note: sessionStorage.getItem("sportsbookNote")
+                        Note: sessionStorage.getItem("sportsbookNote"),
+                        ShowWeekClaim: $("#weeks").val() == $("#weeks option:first").val()
                     })).enhanceWithin();
 
                     $('#rebateDisclaimerMin').html(sessionStorage.getItem("rebateNote1") + " " + Cookies().getCookie("currencyCode") + " " + response.ResponseData.MinimumClaim);
@@ -136,22 +137,19 @@
                             $(this).addClass('collapsed');
                             $(this).find('span').html('See Less');
                         }
-                    });
-
-                    if ($("#weeks").val() == $("#weeks option:first").val()) {
-                        $(".curr_week").show();
-                        $("#weeklyBtn").show();
-                        $(".prev_week").hide();
-                    }
-                    else {
-                        $(".curr_week").hide();
-                        $("#weeklyBtn").hide();
-                        $(".prev_week").show();
-                    }
+                    });                
 
                 }, 'html');
 
                 GPInt.prototype.HideSplash();
+                if ($("#weeks").val() == $("#weeks option:first").val()) {
+                    $(".curr_week").show();
+                    $(".prev_week").hide();
+                }
+                else {
+                    $(".curr_week").hide();
+                    $(".prev_week").show();
+                }
 
             } else {
                 w88Mobile.Growl.shout(response.ResponseMessage, function() {
