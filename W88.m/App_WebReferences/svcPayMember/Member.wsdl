@@ -327,6 +327,12 @@
   <wsdl:message name="IMember_GetPaymentDepositGatewayLimit_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPaymentDepositGatewayLimitResponse" />
   </wsdl:message>
+  <wsdl:message name="IMember_GetPaymentDepositGatewayLimit_Mobile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentDepositGatewayLimit_Mobile" />
+  </wsdl:message>
+  <wsdl:message name="IMember_GetPaymentDepositGatewayLimit_Mobile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentDepositGatewayLimit_MobileResponse" />
+  </wsdl:message>
   <wsdl:message name="IMember_GetPaymentDepositGatewayRoute_InputMessage">
     <wsdl:part name="parameters" element="tns:GetPaymentDepositGatewayRoute" />
   </wsdl:message>
@@ -629,6 +635,10 @@
     <wsdl:operation name="GetPaymentDepositGatewayLimit">
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/GetPaymentDepositGatewayLimit" message="tns:IMember_GetPaymentDepositGatewayLimit_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMember/GetPaymentDepositGatewayLimitResponse" message="tns:IMember_GetPaymentDepositGatewayLimit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentDepositGatewayLimit_Mobile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/GetPaymentDepositGatewayLimit_Mobile" message="tns:IMember_GetPaymentDepositGatewayLimit_Mobile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/GetPaymentDepositGatewayLimit_MobileResponse" message="tns:IMember_GetPaymentDepositGatewayLimit_Mobile_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetPaymentDepositGatewayRoute">
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/GetPaymentDepositGatewayRoute" message="tns:IMember_GetPaymentDepositGatewayRoute_InputMessage" />
@@ -1163,6 +1173,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetPaymentDepositGatewayLimit">
       <soap:operation soapAction="http://tempuri.org/IMember/GetPaymentDepositGatewayLimit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentDepositGatewayLimit_Mobile">
+      <soap:operation soapAction="http://tempuri.org/IMember/GetPaymentDepositGatewayLimit_Mobile" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

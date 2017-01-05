@@ -214,7 +214,7 @@ public class PaymentBasePage : BasePage
 
         using (var svcInstance = new svcPayMember.MemberClient())
         {
-            var response = svcInstance.GetPaymentDepositGatewayLimit(Convert.ToInt64(strOperatorId), strMemberCode, commonVariables.TransactionSource.Mobile.ToString());
+            var response = svcInstance.GetPaymentDepositGatewayLimit_Mobile(Convert.ToInt64(strOperatorId), strMemberCode);
 
             var gatewayGroupTable = response.Tables[0].AsEnumerable().FirstOrDefault(d => d.Field<string>("gatewayGroup").Equals(gatewayGroup, StringComparison.OrdinalIgnoreCase));
 
