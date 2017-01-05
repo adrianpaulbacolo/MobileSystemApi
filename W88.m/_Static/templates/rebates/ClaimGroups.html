@@ -59,12 +59,8 @@
             </div>
             <a href="#" class="collapsible-btn"><span>See More</span></a>
         </div>
-        {% if((op.GroupNameKey == "Sportsbook") && ((index + 1) == op.Collection.length)) { %}
-
-        {% if(rebate.ShowWeekClaim) { %}
+        {% if((op.GroupNameKey == "Sportsbook") && ((index + 1) == op.Collection.length) && (rebate.ShowWeekClaim))  { %}
             <button type="button" value="" id="weeklyBtn" class="button-blue" data-theme="b" onclick="javascript: weeklyClaim();"></button>
-        {% } %}
-
         {% } %}
         
         {% }); %}
