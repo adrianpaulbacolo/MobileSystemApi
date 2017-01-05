@@ -99,6 +99,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="getCurrencyBaseExchangeRate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="currency" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCurrencyBaseExchangeRateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getCurrencyBaseExchangeRateResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="getDepositWithdrawalHistory">
     <xs:complexType>
       <xs:sequence>
@@ -1110,6 +1124,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="operatorId" type="xs:long" />
         <xs:element minOccurs="0" name="memberCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="platform" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
