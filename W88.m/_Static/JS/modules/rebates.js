@@ -205,10 +205,12 @@
                             data: d
                         })).enhanceWithin();
 
+                        $('#rebatesModal').popup('open');
+
                     }, 'html');
 
-                    $('#rebatesModal').popup('open');
                     GPInt.prototype.HideSplash();
+                    $('#rebatesModal').popup('reposition', 'positionTo: window');
 
                 } else {
                     w88Mobile.Growl.shout(response.ResponseMessage, function () {
@@ -245,9 +247,11 @@
                             data: d
                         })).enhanceWithin();
 
+                        $('#rebatesModal').popup('open');
+
                     }, 'html');
 
-                    $('#rebatesModal').popup('open');
+                    $('#rebatesModal').popup('reposition', 'positionTo: window');
                     GPInt.prototype.HideSplash();
                     statement();
 
@@ -287,10 +291,12 @@
                 data: d
             })).enhanceWithin();
 
+            $('#rebatesModal').popup('open');
+
         }, 'html');
 
-        $('#rebatesModal').popup('open');
         GPInt.prototype.HideSplash();
+        $('#rebatesModal').popup('reposition', 'positionTo: window');
     }
 
     function submitWeeklyClaim() {
