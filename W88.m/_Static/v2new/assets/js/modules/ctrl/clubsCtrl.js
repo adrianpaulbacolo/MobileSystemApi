@@ -1,6 +1,6 @@
 ﻿w88Mobile.v2.ClubsCtrl = clubsCtrl;
 
-function clubsCtrl(routeObj, slotSvc) {
+function clubsCtrl(routeObj, slotSvc, templateSvc) {
 
     this.games = [];
     this.page = {};
@@ -35,29 +35,7 @@ function clubsCtrl(routeObj, slotSvc) {
     this.filterClubSlots = function (filter) {
 
         var _self = this;
-        var games = _.clone(_self.games);
-
-        // filter for section
-        if (!_.isUndefined(filter.section)) {
-            games = _.filter(games, function (item) {
-                var sections = _.join(item.Section, ",").toLowerCase().split(",");
-                return _.includes(sections, filter.section.toLowerCase());
-            });
-        }
-
-        if (!_.isUndefined(filter.form)) {
-            games = _.filter(games, function (item) {
-
-                var categories = _.join(item.Category, ",").toLowerCase().split(",");
-                var hasCategory = (!_.isEqual(filter.form.category.toLowerCase(), "all")) ? _.includes(categories, filter.form.category.toLowerCase()) : true;
-                var hasMinBet = (!_.isEqual(filter.form.minbet.toLowerCase(), "all")) ? _.isEqual(filter.form.minbet.toLowerCase(), item.MinBet) : true;
-                var hasPL = (!_.isEqual(filter.form.playlines.toLowerCase(), "all")) ? _.isEqual(filter.form.playlines.toLowerCase(), item.Lines) : true;
-
-                return hasCategory && hasMinBet && hasPL;
-
-            });
-        }
-
+        var games = slotSvc.filterSlots(filter, _.clone(_self.games));
 
         pubsub.publish("displaySlotList", _self.setPushData({
             games: games
@@ -65,6 +43,17 @@ function clubsCtrl(routeObj, slotSvc) {
             , selector: "." + _self.club.name + "-main"
             , club: _self.club
         }));
+    }
+
+    this.filterSearchSlots = function (filter) {
+
+        var _self = this;
+        var games = slotSvc.filterSlots(filter, _.clone(_self.games));
+
+        pubsub.publish('searchSlots', {
+            club: _self.club
+            , games: games
+        });
     }
 
     // hijack pushed data to include instance

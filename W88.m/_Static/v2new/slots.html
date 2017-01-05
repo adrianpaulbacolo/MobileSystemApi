@@ -73,6 +73,7 @@
     <script type="text/javascript">
         w88Mobile = {};
         w88Mobile.v2 = {};
+        w88Mobile.v2._templates = {};
         w88Mobile.User = {};
         w88Mobile.User.token = Cookies().getCookie('s');
         w88Mobile.User.lang = Cookies().getCookie('language');
@@ -97,8 +98,8 @@
         _.templateSettings.variable = "slotData";
         var currentFilter = {};
 
-        var _templates = new w88Mobile.v2.Templates();
-        _templates.init();
+        w88Mobile.v2._templates = new w88Mobile.v2.Templates();
+        w88Mobile.v2._templates.init();
 
         // headers and routes
         pubsub.subscribe("changeRoute", onChangeRoute);
@@ -242,8 +243,7 @@
         function onUpdateList(topic, data) {
             var club = data.club
             , games = data.games;
-            $.get('assets/templates/slotCategory.html', function (template) {
-                var content = _.template(template);
+            var content = _.template(w88Mobile.v2._templates.SlotList);
                 var innerHtml = content({
                     games: games
                     , club: club
@@ -253,7 +253,6 @@
                 } else {
                     w88Mobile.v2.Routes.currentPage().find(".main-content").append(innerHtml);
                 }
-            }, 'html');
         }
 
         function showFilterModal() {
@@ -311,7 +310,7 @@
 
             if (games.length > 0) {
 
-                var content = _.template(_templates.SearchList);
+                var content = _.template(w88Mobile.v2._templates.SearchList);
                 var innerHtml = content({
                     games: games
                     , club: club
@@ -353,10 +352,9 @@
                                 $(this).popover('hide');
                         }
 
-                        if (data)
-                            searchGamesByClub(this.value);
-                        else
-                            searchAllGames(this.value);
+                        w88Mobile.v2.Routes.currentCtrl().filterSearchSlots({
+                            title: this.value
+                        });
                     });
 
                     $("#searchText").popover('show');
@@ -371,27 +369,6 @@
             $("#searchText").val('').trigger("change").focus();
         }
 
-        function searchAllGames(title, clubName) {
-            w88Mobile.v2.Routes.currentCtrl().filterClubSlots({
-                title: title
-            });
-        }
-
-        function searchGamesByClub(title) {
-            var club = w88Mobile.v2.Slots.clubFilter.club;
-
-            var items = w88Mobile.v2.Slots.itemsByClub(club.providers);
-
-            items = _.filter(items, function (item) {
-                if (_.isEmpty(title)) return false;
-                return _.includes(item.TranslatedTitle.toLowerCase(), title.toLowerCase());
-            });
-
-            pubsub.publish('searchSlots', {
-                club: club
-                , games: items
-            });
-        }
     </script>
 </body>
 </html>

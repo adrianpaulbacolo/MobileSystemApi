@@ -24,6 +24,7 @@ function Slots() {
         , clubLimit: clubLimit
         , clubs: clubs
         , providers: providers
+        , filterSlots: filterSlots
         , getTranslations: getTranslations
         , getFilterOptions: getFilterOptions
         , showGameModal: showGameModal
@@ -72,6 +73,40 @@ function Slots() {
             }
         });
     }
+
+    function filterSlots(filter, items) {
+
+        // filter for section
+        if (!_.isUndefined(filter.section)) {
+            items = _.filter(items, function (item) {
+                var sections = _.join(item.Section, ",").toLowerCase().split(",");
+                return _.includes(sections, filter.section.toLowerCase());
+            });
+        }
+
+        if (!_.isUndefined(filter.form)) {
+            items = _.filter(items, function (item) {
+
+                var categories = _.join(item.Category, ",").toLowerCase().split(",");
+                var hasCategory = (!_.isEqual(filter.form.category.toLowerCase(), "all")) ? _.includes(categories, filter.form.category.toLowerCase()) : true;
+                var hasMinBet = (!_.isEqual(filter.form.minbet.toLowerCase(), "all")) ? _.isEqual(filter.form.minbet.toLowerCase(), item.MinBet) : true;
+                var hasPL = (!_.isEqual(filter.form.playlines.toLowerCase(), "all")) ? _.isEqual(filter.form.playlines.toLowerCase(), item.Lines) : true;
+
+                return hasCategory && hasMinBet && hasPL;
+
+            });
+        }
+
+        if (!_.isUndefined(filter.title)) {
+            items = _.filter(items, function (item) {
+                if (_.isEmpty(filter.title)) return false;
+                return _.includes(item.TranslatedTitle.toLowerCase(), filter.title.toLowerCase());
+            });
+        }
+
+        return items;
+    }
+
 
     function itemsByClub(providers, section) {
         return _.filter(w88Mobile.v2.Slots.items, function (item) {

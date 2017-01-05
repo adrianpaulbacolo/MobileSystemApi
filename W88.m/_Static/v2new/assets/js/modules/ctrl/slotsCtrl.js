@@ -1,6 +1,6 @@
 ﻿w88Mobile.v2.SlotsCtrl = slotsCtrl;
 
-function slotsCtrl(routeObj) {
+function slotsCtrl(routeObj, slotSvc, templateSvc) {
 
     this.games = [];
     this.page = {};
@@ -42,17 +42,10 @@ function slotsCtrl(routeObj) {
         });
     }
 
-    this.filterClubSlots = function (filter) {
+    this.filterSearchSlots = function (filter) {
 
         var _self = this;
-        var games = _.clone(_self.games);
-
-        if (!_.isUndefined(filter.title)) {
-            games = _.filter(games, function (item) {
-                if (_.isEmpty(filter.title)) return false;
-                return _.includes(item.TranslatedTitle.toLowerCase(), filter.title.toLowerCase());
-            });
-        }
+        var games = slotSvc.filterSlots(filter, _.clone(_self.games));
 
         pubsub.publish('searchSlots', {
             club: {}
@@ -115,20 +108,18 @@ function slotsCtrl(routeObj) {
     function onDisplaySlotList(topic, data) {
         var club = data.club
         , games = data.games;
-        $.get('assets/templates/slotCategory.html', function (template) {
-            var content = _.template(template);
-            var innerHtml = content({
-                games: games
-                , club: club
-                , showClubLabel: (!_.isUndefined(data.showClubLabel) && data.showClubLabel == true)
-            });
+        var content = _.template(templateSvc.SlotList);
+        var innerHtml = content({
+            games: games
+            , club: club
+            , showClubLabel: (!_.isUndefined(data.showClubLabel) && data.showClubLabel == true)
+        });
 
-            if (!_.isEmpty(data.page.find(data.selector))) {
-                data.page.find(data.selector).html($(innerHtml).html());
-            } else {
-                data._self.page.find(".main-content").append(innerHtml);
-            }
-        }, 'html');
+        if (!_.isEmpty(data.page.find(data.selector))) {
+            data.page.find(data.selector).html($(innerHtml).html());
+        } else {
+            data._self.page.find(".main-content").append(innerHtml);
+        }
     }
 
 }

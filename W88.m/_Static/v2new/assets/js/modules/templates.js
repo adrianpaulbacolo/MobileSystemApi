@@ -5,7 +5,7 @@ function Templates() {
     //templates
     var templates = [
         { id: 'SearchList', url: 'assets/templates/search.html' }
-        , { id: 'SearchList', url: 'assets/templates/search.html' }
+        , { id: 'SlotList', url: 'assets/templates/slotCategory.html' }
     ];
 
     this.init = function () {
