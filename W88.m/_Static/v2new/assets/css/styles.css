@@ -895,6 +895,17 @@ small,
     transform: scaleY(1);
     -webkit-transform: scaleY(1);
     background-color: #d3dee3; } }
+.header .popover {
+  background-color: #012736;
+  border-color: #012736; }
+  .header .popover .arrow:after {
+    border-bottom-color: #012736; }
+  .header .popover.bottom {
+    margin-top: 14px; }
+  .header .popover .popover-content {
+    color: #dab867;
+    font-size: 12px; }
+
 .game-category {
   margin-bottom: 15px;
   padding-bottom: 30px;
