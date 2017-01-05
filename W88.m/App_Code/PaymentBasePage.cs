@@ -7,8 +7,6 @@ using System.Text;
 using System.Web;
 using System.Web.UI.WebControls;
 using System.Xml.Linq;
-using Helpers;
-using Microsoft.VisualStudio.Web.PageInspector.Runtime;
 
 /// <summary>
 /// Summary description for PaymentBasePage
