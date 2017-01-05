@@ -220,7 +220,7 @@
         function viewClubFilter() {
             var ctrl = w88Mobile.v2.Routes.currentCtrl();
             pubsub.publish("changeRoute", {
-                route: "club_filter", 
+                route: "club_filter",
                 params: {
                     club: ctrl.club.name
                 }
@@ -282,7 +282,7 @@
 
         function showSearchHeader(route) {
 
-            switch(route){
+            switch (route) {
                 case 'club_search':
                     var club = w88Mobile.v2.Routes.currentCtrl().club;
                     pubsub.publish("changeRoute", {
@@ -336,15 +336,29 @@
                 $(".header").empty();
                 $(".header").append(innerHtml);
 
+                $("#searchText").popover({
+                    trigger: "manual"
+                });
                 if (_.includes(w88Mobile.v2.Routes.currentPage().selector, "search")) {
                     $(".header").addClass("header-search");
 
-                    $("#searchText").on("input propertychange", function () {
+                    $("#searchText").on("input propertychange change click keyup paste", function () {
+                        var hasPopOver = ($(this).next('div.popover:visible').length > 0);
+                        if (_.isEmpty(this.value)) {
+                            if (!hasPopOver)
+                                $(this).popover('show');
+                        } else {
+                            if (hasPopOver)
+                                $(this).popover('hide');
+                        }
+
                         if (data)
                             searchGamesByClub(this.value);
                         else
                             searchAllGames(this.value);
                     });
+
+                    $("#searchText").popover('show');
                 }
                 else
                     $(".header").removeClass("header-search");
@@ -353,7 +367,7 @@
         }
 
         function clearSearchText() {
-            $("#searchText").val('');
+            $("#searchText").val('').trigger("change").focus();
         }
 
         function searchAllGames(title, clubName) {
@@ -361,6 +375,7 @@
                 var items = w88Mobile.v2.Slots.itemsByClub(club.providers);
 
                 items = _.filter(items, function (item) {
+                    if (_.isEmpty(title)) return false;
                     return _.includes(item.TranslatedTitle.toLowerCase(), title.toLowerCase());
                 });
 
@@ -377,6 +392,7 @@
             var items = w88Mobile.v2.Slots.itemsByClub(club.providers);
 
             items = _.filter(items, function (item) {
+                if (_.isEmpty(title)) return false;
                 return _.includes(item.TranslatedTitle.toLowerCase(), title.toLowerCase());
             });
 
