@@ -61,6 +61,10 @@
                         <label>Play Lines</label>
                         <select name="" id="clubPlayLines" class="form-control"></select>
                     </div>
+                    <div class="form-group form-group-line">
+                        <label>Providers</label>
+                        <select name="" id="clubProviders" class="form-control"></select>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary btn-block" data-dismiss="modal" aria-label="Apply" onclick="filterGames()">Apply</button>
@@ -266,12 +270,14 @@
             var category = $('#clubCategory').val();
             var minbet = $('#clubMinBet').val();
             var playlines = $('#clubPlayLines').val();
+            var provider = $('#clubProviders').val();
 
             w88Mobile.v2.Routes.currentCtrl().filterClubSlots({
                 form: {
                     category: category
                     , minbet: minbet
                     , playlines: playlines
+                    , provider: provider
                 }
             });
 

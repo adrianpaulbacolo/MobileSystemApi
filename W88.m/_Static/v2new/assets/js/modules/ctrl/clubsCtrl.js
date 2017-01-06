@@ -112,10 +112,10 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
 
     function getFilterOptions(club) {
 
-        if (!w88Mobile.v2.Slots.clubFilter.club || (w88Mobile.v2.Slots.clubFilter.club && !_.isEqual(w88Mobile.v2.Slots.clubFilter.club, club))) {
-            var defaultAll = { Text: w88Mobile.v2.Slots.translations.LABEL_ALL_DEFAULT, Value: "All" };
+        if (!slotSvc.clubFilter.club || (slotSvc.clubFilter.club && !_.isEqual(slotSvc.clubFilter.club, club))) {
+            var defaultAll = { Text: slotSvc.translations.LABEL_ALL_DEFAULT, Value: "All" };
 
-            w88Mobile.v2.Slots.clubFilter = {
+            slotSvc.clubFilter = {
                 club: club,
                 category: [defaultAll],
                 minbet: [defaultAll],
@@ -125,33 +125,33 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
             _.forEach(club.providers, function (provider) {
                 var url = "/api/games/" + provider;
 
-                w88Mobile.v2.Slots.send(url + "/category", "GET", {}, function (response) {
+                slotSvc.send(url + "/category", "GET", {}, function (response) {
 
-                    w88Mobile.v2.Slots.clubFilter.category = _.concat(w88Mobile.v2.Slots.clubFilter.category, response.ResponseData);
+                    slotSvc.clubFilter.category = _.concat(slotSvc.clubFilter.category, response.ResponseData);
 
                     loadClubCategory();
 
                 }, function () { });
 
-                w88Mobile.v2.Slots.send(url + "/minbet", "GET", {}, function (response) {
+                slotSvc.send(url + "/minbet", "GET", {}, function (response) {
 
                     var minBet = _.map(response.ResponseData, function (data) {
                         return { Text: data, Value: data };
                     });
 
-                    w88Mobile.v2.Slots.clubFilter.minbet = _.concat(w88Mobile.v2.Slots.clubFilter.minbet, minBet);
+                    slotSvc.clubFilter.minbet = _.concat(slotSvc.clubFilter.minbet, minBet);
 
                     loadClubMinBet();
 
                 }, function () { });
 
-                w88Mobile.v2.Slots.send(url + "/playlines", "GET", {}, function (response) {
+                slotSvc.send(url + "/playlines", "GET", {}, function (response) {
 
                     var playlines = _.map(response.ResponseData, function (data) {
                         return { Text: data, Value: data };
                     });
 
-                    w88Mobile.v2.Slots.clubFilter.playlines = _.concat(w88Mobile.v2.Slots.clubFilter.playlines, playlines);
+                    slotSvc.clubFilter.playlines = _.concat(slotSvc.clubFilter.playlines, playlines);
 
                     loadClubPlayLines();
                 }, function () { });
@@ -163,11 +163,12 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
             loadClubMinBet();
             loadClubPlayLines();
         }
+        loadClubProviders(club);
     }
 
     function loadClubCategory() {
         $('#clubCategory').empty();
-        _.forEach(w88Mobile.v2.Slots.clubFilter.category, function (data) {
+        _.forEach(slotSvc.clubFilter.category, function (data) {
             if ($('#clubCategory').find('option[value="' + data.Value + '"]').length == 0) {
                 $('#clubCategory').append($("<option></option>").attr("value", data.Value).text(data.Text))
             }
@@ -176,7 +177,7 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
 
     function loadClubMinBet() {
         $('#clubMinBet').empty();
-        _.forEach(w88Mobile.v2.Slots.clubFilter.minbet, function (data) {
+        _.forEach(slotSvc.clubFilter.minbet, function (data) {
             if ($('#clubMinBet').find('option[value="' + data.Value + '"]').length == 0) {
                 $('#clubMinBet').append($("<option></option>").attr("value", data.Value).text(data.Text))
             }
@@ -185,10 +186,25 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
 
     function loadClubPlayLines() {
         $('#clubPlayLines').empty();
-        _.forEach(w88Mobile.v2.Slots.clubFilter.playlines, function (data) {
+        _.forEach(slotSvc.clubFilter.playlines, function (data) {
             if ($('#clubPlayLines').find('option[value="' + data.Value + '"]').length == 0) {
                 $('#clubPlayLines').append($("<option></option>").attr("value", data.Value).text(data.Text))
             }
         })
+    }
+
+    function loadClubProviders(club) {
+        $('#clubProviders').empty();
+        if (_.indexOf(["divino", "apollo", "gallardo"], club.name) != -1) {
+            $('#clubProviders').parent().show();
+            _.forEach(club.providers, function (data) {
+                if ($('#clubProviders').find('option[value="' + data.toUpperCase() + '"]').length == 0) {
+                    $('#clubProviders').append($("<option></option>").attr("value", data.toUpperCase()).text(data.toUpperCase()))
+                }
+            })
+        } else {
+            $('#clubProviders').parent().hide();
+            $('#clubProviders').append($("<option></option>").attr("value", '').text("All"));
+        }
     }
 }

@@ -91,8 +91,13 @@ function Slots() {
                 var hasCategory = (!_.isEqual(filter.form.category.toLowerCase(), "all")) ? _.includes(categories, filter.form.category.toLowerCase()) : true;
                 var hasMinBet = (!_.isEqual(filter.form.minbet.toLowerCase(), "all")) ? _.isEqual(filter.form.minbet.toLowerCase(), item.MinBet) : true;
                 var hasPL = (!_.isEqual(filter.form.playlines.toLowerCase(), "all")) ? _.isEqual(filter.form.playlines.toLowerCase(), item.Lines) : true;
+                var hasProvider = true;
+                if (!_.isEmpty(filter.form.provider.toLowerCase())) {
+                    var itemProviders = _.join(item.providers, ",").toLowerCase().split(",");
+                    hasProvider = _.indexOf(itemProviders, filter.form.provider.toLowerCase()) != -1;
+                }
 
-                return hasCategory && hasMinBet && hasPL;
+                return hasCategory && hasMinBet && hasPL && hasProvider;
 
             });
         }

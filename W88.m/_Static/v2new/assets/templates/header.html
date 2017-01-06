@@ -29,7 +29,7 @@
 <a href="#" onclick="w88Mobile.v2.Routes.previous()" class="header-button header-button-text header-button-left">
     <span class="icon ion-ios-arrow-back"></span> <span class="button-text">Back</span>
 </a>
-<a href="#" onclick="showFilterModal()" class="header-button header-button-right" id="filterMode">
+<a href="#" onclick="showFilterModal(w88Mobile.v2.Routes.currentCtrl().club)" class="header-button header-button-right" id="filterMode">
     <span class="icon ion-ios-settings"></span>
 </a>
 {% } else if (_.isEqual(slotData.route, "index")) { %}
