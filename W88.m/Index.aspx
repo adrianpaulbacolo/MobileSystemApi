@@ -85,6 +85,16 @@
 
 
             <ul class="row row-bordered bg-gradient row-uc row-dashboard">
+            
+                <!-- Funds -->
+                <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+                <li class="col" style="background-color: #c64135;">
+                    <a href="Funds.aspx" class="tile" data-ajax="false">
+                        <span class="icon- ion-social-usd-outline" style="-webkit-filter: brightness(0) invert(100%); filter: brightness(0) invert(100%);"></span>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%></h4>
+                    </a>
+                </li>
+                <% } %>
 
                 <li class="col col-33 product">
                     <a href="Sports.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower() %>" class="tile" data-ajax="false">
@@ -161,16 +171,6 @@
                 </li>
                 <% } else {
                    var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
-                <% } %>
-
-                <!-- Funds -->
-                <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
-                <li class="col col-33">
-                    <a href="Funds.aspx" class="tile" data-ajax="false">
-                        <span class="icon- ion-social-usd-outline"></span>
-                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%></h4>
-                    </a>
-                </li>
                 <% } %>
 
                 <li class="col col-33">
