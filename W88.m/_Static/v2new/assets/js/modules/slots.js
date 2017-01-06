@@ -4,7 +4,7 @@ function Slots() {
     var slots = [];
     var filteredSlots = [];
     var clubLimit = 9;
-    var sections = ["New", "Top", "Featured"];
+    var sections = ["New", "Top", "All"];
 
     var providers = ["qt", "gpi", "mgs", "pt", "ctxm", "isb"];
     var clubs = [
@@ -215,6 +215,13 @@ function Slots() {
         $('#gameTitle').text(game.TranslatedTitle.toUpperCase());
 
         $('#gameFunUrl').attr('href', game.FunUrl);
+
+        var isPT = _.indexOf(game.providers, "PT") != -1;
+        if (isPT) {
+            $('#gameFunUrl').hide();
+        } else {
+            $('#gameFunUrl').show();
+        }
 
         if (w88Mobile.User.token) {
             $('#gameRealUrl').show();

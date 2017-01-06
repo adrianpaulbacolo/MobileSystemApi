@@ -35,14 +35,27 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
     this.filterClubSlots = function (filter) {
 
         var _self = this;
-        var games = slotSvc.filterSlots(filter, _.clone(_self.games));
 
-        pubsub.publish("displaySlotList", _self.setPushData({
-            games: games
-            , page: _self.page
-            , selector: "." + _self.club.name + "-main"
-            , club: _self.club
-        }));
+        if (!_.isUndefined(filter.section) && filter.section.toLowerCase() == 'all') {
+
+            _self.page.find(".main-content").children().remove();
+            pubsub.publish('searchSlots', {
+                club: _self.club
+                , games: _self.games
+            });
+
+        } else {
+
+            _self.page.find(".main-content").children().remove();
+            var games = slotSvc.filterSlots(filter, _.clone(_self.games));
+            pubsub.publish("displaySlotList", _self.setPushData({
+                games: games
+                , page: _self.page
+                , selector: "." + _self.club.name + "-main"
+                , club: _self.club
+            }));
+
+        }
     }
 
     this.filterSearchSlots = function (filter) {

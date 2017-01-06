@@ -132,7 +132,7 @@ function Routes() {
                 });
                 clubpage.init();
                 routeCtrl.push(clubpage);
-                showFilterModal();
+                showFilterModal(clubpage.club);
             });
         }
         , onOpen: function () {
