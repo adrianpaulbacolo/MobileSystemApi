@@ -90,6 +90,7 @@
     <script src="assets/js/vendor/pubsub.js"></script>
     <script src="assets/js/modules/templates.js"></script>
     <script src="assets/js/modules/slots.js"></script>
+    <script src="assets/js/modules/loader.js"></script>
     <script src="assets/js/modules/ctrl/slotsCtrl.js"></script>
     <script src="assets/js/modules/ctrl/clubsCtrl.js"></script>
     <script src="assets/js/modules/routes.js"></script>
@@ -104,6 +105,8 @@
 
         w88Mobile.v2._templates = new w88Mobile.v2.Templates();
         w88Mobile.v2._templates.init();
+
+        w88Mobile.v2.Loader.init();
 
         // headers and routes
         pubsub.subscribe("changeRoute", onChangeRoute);

@@ -44,12 +44,17 @@ function Slots() {
 
         $.ajax({
             type: method,
+            beforeSend: function (){
+                pubsub.publish('startLoadItem', {});
+            },
             url: url,
             data: data,
             headers: headers,
             success: success,
             error: error,
-            complete: complete
+            complete: function () {
+                pubsub.publish('stopLoadItem', {});
+            }
         });
 
     }
