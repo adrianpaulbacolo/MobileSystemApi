@@ -77,6 +77,8 @@
                 sessionStorage.setItem("weeklySuccess", response.ResponseData.LABEL_REBATE_WEEKLYCLAIM_SUCCESS);
                 sessionStorage.setItem("weeklyMultiple", response.ResponseData.LABEL_REBATE_WEEKLYCLAIM_MULTIPLE);
                 sessionStorage.setItem("weeklyError", response.ResponseData.LABEL_REBATE_WEEKLYCLAIM_DEFAULT);
+                sessionStorage.setItem("seeMore", response.ResponseData.LABEL_MORE);
+                sessionStorage.setItem("seeLess", response.ResponseData.LABEL_LESS);
             }
         }, "");
     }
@@ -118,7 +120,8 @@
                         LabelRebateBets: sessionStorage.getItem("rebateBets"),
                         BtnClaim: sessionStorage.getItem("btnClaim"),
                         Note: sessionStorage.getItem("sportsbookNote"),
-                        ShowWeekClaim: $("#weeks").val() == $("#weeks option:first").val()
+                        ShowWeekClaim: $("#weeks").val() == $("#weeks option:first").val(),
+                        LabelSeeMore: sessionStorage.getItem("seeMore")
                     })).enhanceWithin();
 
                     $('#rebateDisclaimerMin').html(sessionStorage.getItem("rebateNote1") + " " + Cookies().getCookie("currencyCode") + " " + response.ResponseData.MinimumClaim);
@@ -131,11 +134,11 @@
 
                         if($(this).hasClass('collapsed')){
                             $(this).removeClass('collapsed');
-                            $(this).find('span').html('See More');
+                            $(this).find('span').html(sessionStorage.getItem("seeMore"));
                         }
                         else{
                             $(this).addClass('collapsed');
-                            $(this).find('span').html('See Less');
+                            $(this).find('span').html(sessionStorage.getItem("seeLess"));
                         }
                     });                
 
