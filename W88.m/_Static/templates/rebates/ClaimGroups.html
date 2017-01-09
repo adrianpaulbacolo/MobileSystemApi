@@ -1,14 +1,14 @@
 ﻿<div class="rebates-group">
 
     {% _.forEach( rebate.data, function( op ){ %}
-    {% if((op.GroupNameKey == "Sportsbook")) { %}
+    {% if((op.NativeGroupKey == "SB")) { %}
     <div class="rebates-row rebates-row-boxed">
     {% } else { %}
     <div class="rebates-row ">
         {% } %}
         
         <h2>{%- op.GroupNameKey %}</h2>
-        {% if(op.GroupNameKey == "Sportsbook") { %} 
+        {% if(op.NativeGroupKey == "SB") { %} 
         <p><small><i>{%- rebate.Note %}</i></small></p>
         {% } %}
 
@@ -20,7 +20,7 @@
                         <h3 title="{%- col.Name %}">{%- col.Name %}</h3>
                     </div>
 
-                    {% if(op.GroupNameKey != "Sportsbook") { %}
+                    {% if(op.NativeGroupKey != "SB") { %}
                     <div class="col col-50 text-right-sm">
 
                         {% if(col.AllowClaim) { %}
@@ -59,7 +59,7 @@
             </div>
             <a href="#" class="collapsible-btn"><span>See More</span></a>
         </div>
-        {% if((op.GroupNameKey == "Sportsbook") && ((index + 1) == op.Collection.length) && (rebate.ShowWeekClaim))  { %}
+        {% if((op.NativeGroupKey == "SB") && ((index + 1) == op.Collection.length) && (rebate.ShowWeekClaim))  { %}
             <button type="button" value="" id="weeklyBtn" class="button-blue" data-theme="b" onclick="javascript: weeklyClaim();"></button>
         {% } %}
         
