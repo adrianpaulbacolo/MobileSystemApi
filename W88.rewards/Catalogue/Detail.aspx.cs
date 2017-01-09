@@ -42,12 +42,13 @@ public partial class Catalogue_Detail : CatalogueBasePage
                             ? string.Format(@"/_Secure/Login.aspx?redirect=/Catalogue/Redeem.aspx&productId={0}", productId)
                             : string.Format(@"/Catalogue/Redeem.aspx?productId={0}", productId);
 
-            var productDetails = await RewardsHelper.GetProductDetails(UserSessionInfo, productId);
-            if (productDetails == null)
+            var process = await RewardsHelper.GetProductDetails(UserSessionInfo, productId);
+            if (process == null || process.Data == null)
             {
                 return;
             }
 
+            var productDetails = (ProductDetails) process.Data;
             // Set label and image values
             if (!string.IsNullOrEmpty(productDetails.CurrencyCode))
             {

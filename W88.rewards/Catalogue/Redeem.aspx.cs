@@ -288,7 +288,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         request.Currency = MemberSession == null ? "0" : MemberSession.CurrencyCode;
         request.PointRequired = string.IsNullOrEmpty(ProductDetails.PointsRequired) ? string.Empty : ProductDetails.PointsRequired;
         request.Quantity = int.Parse(tbQuantity.Text.Trim());
-
+        request.CountryCode = UserSessionInfo == null ? RewardsHelper.GetCountryCode() : UserSessionInfo.CountryCode;
         switch (type)
         {
             case ProductTypeEnum.Freebet:
@@ -325,7 +325,8 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             Response.Redirect("/Catalogue?categoryId=0&sortBy=2", false);
             return;
         }
-        ProductDetails = await RewardsHelper.GetProductDetails(UserSessionInfo, productId);
+        var process = await RewardsHelper.GetProductDetails(UserSessionInfo, productId);
+        ProductDetails = process == null || process.Data == null ? new ProductDetails() : (ProductDetails) process.Data;
         SetProductInfo();
         ProductDetails.ProductDescription = HttpUtility.HtmlEncode(ProductDetails.ProductDescription);
         ProductDetailsField.Value = Common.SerializeObject(ProductDetails);
