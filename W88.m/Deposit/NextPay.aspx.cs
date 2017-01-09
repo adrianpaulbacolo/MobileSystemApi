@@ -27,10 +27,6 @@ public partial class Deposit_NextPay : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
-        HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-        commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, "nextpay", sender.ToString().Contains("app"), base.strCurrencyCode);
-
         if (!Page.IsPostBack)
         {
             this.InitializeLabels();
