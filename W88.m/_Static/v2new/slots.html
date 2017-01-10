@@ -17,7 +17,7 @@
     <![endif]-->
 </head>
 <body>
-    <header class="header clearfix"></header>
+    <header class="header header-main clearfix"></header>
 
     <!-- Game Modal -->
     <div class="modal fade" id="gameModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -342,14 +342,14 @@
                     route: w88Mobile.v2.Routes.current()
                 });
 
-                $(".header").empty();
-                $(".header").append(innerHtml);
+                $(".header-main").empty();
+                $(".header-main").append(innerHtml);
 
                 $("#searchText").popover({
                     trigger: "manual"
                 });
                 if (_.includes(w88Mobile.v2.Routes.currentPage().selector, "search")) {
-                    $(".header").addClass("header-search");
+                    $(".header-main").addClass("header-search");
 
                     $("#searchText").on("input change click keyup paste propertychange", function () {
                         var hasPopOver = ($(this).next('div.popover:visible').length > 0);
@@ -369,7 +369,7 @@
                     $("#searchText").popover('show');
                 }
                 else
-                    $(".header").removeClass("header-search");
+                    $(".header-main").removeClass("header-search");
 
             }, 'html');
         }

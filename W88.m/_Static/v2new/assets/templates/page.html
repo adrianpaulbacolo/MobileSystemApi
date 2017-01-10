@@ -1,6 +1,7 @@
-﻿<section class="body {%- slotData.page %}-page">
+﻿<div class="{%- slotData.page %}-page">
+    <header class="header header-main clearfix hidden"></header>
     {% if(!_.isEmpty(slotData.sections)){ %}
-    <section class="tab-bar" style="top: 0">
+    <section class="tab-bar">
         <ul id="sectionTab">
             {% _.forEach( slotData.sections, function( section ){ %}
             <li class="{%- section %} {% if(section==slotData.section){ %}active{% } %}" onclick="filterClubSlots(this, '{%- section %}')">
@@ -9,10 +10,14 @@
             {% }); %}
         </ul>
     </section>
-    <div class="main-content body">
+    <div class="body has-tab">
+        <div class="main-content">
+        </div>
     </div>
     {% }else{ %}
-    <div class="main-content">
-    </div>    
+    <div class="body">
+        <div class="main-content">
+        </div>    
+    </div>
     {% } %}
-</section>
+</div>

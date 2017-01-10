@@ -27,7 +27,6 @@ function loader() {
                 })
                 .append(
                     $('<div />', { style: '' })
-                    //.append($('<img />', { src: '/_Static/Images/logo_w88a.png', style: '' }))
                     .append($('<div />', { class: 'spinner' })
                         .append($('<div />', { class: 'rect1' })).append("&nbsp;")
                         .append($('<div />', { class: 'rect2' })).append("&nbsp;")
