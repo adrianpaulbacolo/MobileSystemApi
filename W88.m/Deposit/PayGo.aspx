@@ -1,19 +1,25 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="FastDeposit.aspx.cs" Inherits="Deposit_FastDesposit" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="PayGo.aspx.cs" Inherits="Deposit_PayGo" %>
 
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
-<%@ Register TagPrefix="uc" TagName="AppFooterMenu" Src="~/UserControls/AppFooterMenu.ascx" %>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dFastDeposit", commonVariables.PaymentMethodsXML))%></title>
+    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dPayGo", commonVariables.PaymentMethodsXML))%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
 <body>
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
-            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dFastDeposit", commonVariables.PaymentMethodsXML))%></h1>
+            <% if (commonCookie.CookieIsApp != "1")
+               { %>
+            <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
+                <i class="icon-navicon"></i>
+            </a>
+            <% } %>
+
+            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dPayGo", commonVariables.PaymentMethodsXML))%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -21,11 +27,13 @@
                 <uc:Wallet ID="uMainWallet" runat="server" />
             </div>
 
-            <div data-role="navbar" id="depositTabs" runat="server">
+            <div data-role="navbar">
+                <ul id="depositTabs" runat="server">
+                </ul>
             </div>
 
             <form class="form" id="form1" runat="server" data-ajax="false">
-                <br />
+                <br>
                 <ul class="list fixed-tablet-size">
                     <li class="row">
                         <div class="col">
@@ -61,17 +69,17 @@
                     </li>
                     <li class="item item-input">
                         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
-                        <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
-                    </li>
-                    <li class="item item-input">
-                        <asp:Label ID="lblReferenceId" runat="server" AssociatedControlID="txtReferenceId" />
-                        <asp:TextBox ID="txtReferenceId" runat="server" data-clear-btn="true" />
+                        <asp:TextBox ID="txtDepositAmount" runat="server" data-clear-btn="true" />
                     </li>
                     <li class="item item-select">
                         <asp:Label ID="lblSystemAccount" runat="server" AssociatedControlID="drpSystemAccount" />
                         <asp:DropDownList ID="drpSystemAccount" runat="server" data-corners="false" />
                     </li>
-                    <li class="item item-select div-fastdeposit-depositdatetime" id="divDepositDateTime" runat="server">
+                    <li class="item item-input">
+                        <asp:Label ID="lblReferenceId" runat="server" AssociatedControlID="txtReferenceId" />
+                        <asp:TextBox ID="txtReferenceId" runat="server" data-clear-btn="true" />
+                    </li>
+                    <li class="item item-select" runat="server">
                         <div class="row">
                             <asp:Label ID="lblDepositDateTime" runat="server" AssociatedControlID="drpDepositDate" />
                         </div>
@@ -87,18 +95,6 @@
                             </div>
                         </div>
                     </li>
-                    <li class="item item-select">
-                        <asp:Label ID="lblDepositChannel" runat="server" AssociatedControlID="drpDepositChannel" />
-                        <asp:DropDownList ID="drpDepositChannel" runat="server" data-corners="false" />
-                    </li>
-                    <li class="item item-select">
-                        <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
-                        <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
-                    </li>
-                    <li class="item item-input" id="divBankName" style="display: none;">
-                        <asp:Label ID="lblBankName" runat="server" AssociatedControlID="txtBankName" />
-                        <asp:TextBox ID="txtBankName" runat="server" data-clear-btn="true" />
-                    </li>
                     <li class="item item-input">
                         <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" />
                         <asp:TextBox ID="txtAccountName" runat="server" data-clear-btn="true" />
@@ -107,55 +103,62 @@
                         <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" />
                         <asp:TextBox ID="txtAccountNumber" runat="server" data-clear-btn="true" />
                     </li>
-
-                    <asp:Literal ID="ltlNote" runat="server"></asp:Literal>
-
                     <li class="item row">
                         <div class="col">
-                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" OnClick="btnSubmit_Click" data-corners="false" />
+                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" />
                         </div>
                     </li>
                 </ul>
-
-                <uc:AppFooterMenu runat="server" ID="AppFooterMenu" />
-
             </form>
         </div>
 
+        <% if (commonCookie.CookieIsApp != "1")
+           { %>
+        <!--#include virtual="~/_static/navMenu.shtml" -->
+        <% } %>
+
         <script type="text/javascript">
-            $('#form1').submit(function (e) {
-                window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
-            });
-            $(function () {
-                window.history.forward();
+            $(document).ready(function () {
+                window.w88Mobile.Gateways.PayGo.InitDeposit();
 
-                if ($('#depositTabs li').length == 0) {
-                    window.location.reload();
-                }
+                $('#form1').submit(function (e) {
+                    e.preventDefault();
+                    window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
 
-                var responseCode = '<%=strAlertCode%>';
-                var responseMsg = '<%=strAlertMessage%>';
+                    var depositDateTime = new Date($('#drpDepositDate').val());
+                    depositDateTime.setHours($('#drpHour').val());
+                    depositDateTime.setMinutes($('#drpMinute').val());
 
-                if (responseCode.length > 0) {
-                    switch (responseCode) {
-                        case '-1':
-                            alert(responseMsg);
-                            window.w88Mobile.Gateways.FastDeposit.ToogleBank($('#drpBank').val());
-                            break;
-                        case '0':
-                            alert(responseMsg);
-                            window.location.replace('/FundTransfer/Default_app.aspx');
-                            break;
-                        default:
-                            break;
-                    }
-                }
-            });
+                    var data = {
+                        Amount: $('#txtDepositAmount').val(),
+                        DepositDateTime: depositDateTime.toLocaleDateString() + " " + depositDateTime.toLocaleTimeString(),
+                        ReferenceId: $('#txtReferenceId').val(),
+                        SystemBank: JSON.parse($('#drpSystemAccount').val()),
+                        AccountName: $('#txtAccountName').val(),
+                        AccountNumber: $('#txtAccountNumber').val()
+                    };
 
-            window.w88Mobile.Gateways.FastDeposit.GetBankDetails();
-
-            $('#drpBank').change(function () {
-                window.w88Mobile.Gateways.FastDeposit.ToogleBank(this.value);
+                    window.w88Mobile.Gateways.PayGo.Deposit(data, function (response) {
+                        switch (response.ResponseCode) {
+                            case 1:
+                                w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
+                                $('#form1')[0].reset();
+                                break;
+                            default:
+                                if (_.isArray(response.ResponseMessage)) {
+                                    w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
+                                }
+                                else {
+                                    w88Mobile.Growl.shout(response.ResponseMessage);
+                                }
+                                break;
+                        }
+                    },
+                    function () {
+                        window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
+                        GPInt.prototype.HideSplash();
+                    });
+                });
             });
         </script>
     </div>

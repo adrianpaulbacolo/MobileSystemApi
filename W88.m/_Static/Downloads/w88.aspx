@@ -4,7 +4,6 @@
 <head>
     <title><%=commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML).Replace(" -", "")%></title>
     <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
 <body>
     <div id="divMain" data-role="page" data-theme="b" data-ajax="false">

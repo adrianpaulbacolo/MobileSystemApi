@@ -41,12 +41,14 @@
     }
 
     function load(data) {
-        $('#drpBank').val(data.Bank.Value).selectmenu("refresh");
+        if (data) {
+            $('#drpBank').val(data.Bank.Value).selectmenu("refresh");
 
-        toogleBank($('#drpBank').val());
-        $('#txtBankName').val(data.BankName);
-        $('#txtAccountName').val(data.AccountName);
-        $('#txtAccountNumber').val(data.AccountNumber);
+            toogleBank($('#drpBank').val());
+            $('#txtBankName').val(data.BankName);
+            $('#txtAccountName').val(data.AccountName);
+            $('#txtAccountNumber').val(data.AccountNumber);
+        }
     }
 
     function toogleBank(bankId) {

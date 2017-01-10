@@ -5,9 +5,8 @@
 <head>
     <title><%=commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML).Replace(" -", "")/* + commonCulture.ElementValues.getResourceString("home", commonVariables.LeftMenuXML)*/%></title>
     <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/Js/Main.js"></script>
-    <script type="application/javascript" src="/_Static/Js/add2home.js"></script>
-    <script type="text/javascript" src="/_Static/Js/radar.js"></script>
+    <script type="application/javascript" src="/_Static/JS/add2home.js"></script>
+    <script type="text/javascript" src="/_Static/JS/radar.js"></script>
 </head>
 <body>
             
@@ -237,7 +236,7 @@
                 <% } %>
 
                 <li class="col col-33">
-                    <a href="/Lang.aspx" class="tile" role="button" data-transition="slideup">
+                    <a href="/Lang.aspx" class="tile" role="button" data-ajax="false">
                         <span class="icon- ion-ios-world-outline"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("language", commonVariables.LeftMenuXML)%></h4>
                     </a>
@@ -257,7 +256,7 @@
 
         <!--#include virtual="~/_static/navMenu.shtml" -->
 
-        <script src="/_Static/Js/vendor/slick.min.js"></script>
+        <script src="/_Static/JS/vendor/slick.min.js"></script>
         <script>
             // Slick - Slider Banner
             $(document).ready(function () {

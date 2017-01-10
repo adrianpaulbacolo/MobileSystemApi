@@ -31,7 +31,7 @@
             </li>
             <li class="col col-33">
                 <a href="../_Secure/BankDetails.aspx" class="tile" runat="server" data-ajax="false">
-                    <span class="icon- ion-social-usd-outline"></span>
+                    <span class="icon icon-banking"></span>
                     <h4 class="title" id="bankDetails"></h4>
                 </a>
             </li>

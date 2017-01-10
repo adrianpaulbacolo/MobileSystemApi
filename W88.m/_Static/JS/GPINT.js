@@ -4,7 +4,7 @@ var GPINTMOBILE;
 /*GAMEPLAYINT START*/
 function GPInt() { $('.a-footer-popup').each(function () { $(this).next().hide(); }); }
 GPInt.prototype.LoadPopupMenu = function (obj) { $('.a-footer-popup').next().hide(); $(obj).next().slideToggle(80); FOOTERLANGMENUSCROLL.refresh(); };
-GPInt.prototype.ShowSplash = function () {
+GPInt.prototype.ShowSplash = function (show) {
     $('body').append(
         $('<div />', {
             style: '',
@@ -22,10 +22,12 @@ GPInt.prototype.ShowSplash = function () {
                 )
             )
         );
-   
-    window.setTimeout(function () {
-        this.GPINTMOBILE.HideSplash();
-    }, 10000);
+
+    if (!show) {
+        window.setTimeout(function () {
+            this.GPINTMOBILE.HideSplash();
+        }, 10000);
+    }
 }
 GPInt.prototype.HideSplash = function () {
     window.setTimeout(function () { $('body').find('div#divSplashContainer').remove(); }, 1000);

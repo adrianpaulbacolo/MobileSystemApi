@@ -5,10 +5,9 @@
 <head>
     <title><%=commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML) + commonCulture.ElementValues.getResourceString("register", commonVariables.LeftMenuXML)%></title>
     <!--#include virtual="~/_static/head.inc" -->
-    <%--<script type="text/javascript" src="/_Static/Js/PreLoad.js"></script>--%>
-    <script type="text/javascript" src="/_Static/Js/Main.js"></script>
-    <script type="application/javascript" src="/_Static/Js/add2home.js"></script>
-    <script type="text/javascript" src="/_Static/Js/radar.js"></script>
+    <%--<script type="text/javascript" src="/_Static/JS/PreLoad.js"></script>--%>
+    <script type="application/javascript" src="/_Static/JS/add2home.js"></script>
+    <script type="text/javascript" src="/_Static/JS/radar.js"></script>
 </head>
 <body>
     <div id="register" data-role="page" data-theme="b" data-ajax="false">

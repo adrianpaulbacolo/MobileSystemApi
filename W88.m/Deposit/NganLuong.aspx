@@ -5,9 +5,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dNganLuong", commonVariables.PaymentMethodsXML))%></title>
+    <title></title>
     <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/Js/Main.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/nganluong.js"></script>
 </head>
 <body>
     <div data-role="page" data-theme="b">
@@ -19,7 +20,7 @@
             </a>
             <% } %>
 
-            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("dNganLuong", commonVariables.PaymentMethodsXML))%></h1>
+            <h1 class="title" id="headerTitle"><%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -27,8 +28,9 @@
                 <uc:Wallet ID="uMainWallet" runat="server" />
             </div>
 
-            <div data-role="navbar">
-                <ul id="depositTabs" runat="server">
+             <div class="toggle-list-box">
+                <button class="toggle-list-btn btn-active" id="activeDepositTabs"></button>
+                <ul class="toggle-list hidden" id="depositTabs">
                 </ul>
             </div>
 
@@ -36,7 +38,7 @@
                 <br>
                 <ul class="list fixed-tablet-size">
                     <li class="item-text-wrap">
-                         <asp:Label ID="lblMessage" runat="server" />
+                        <asp:Label ID="lblMessage" runat="server" />
                     </li>
                     <li class="item row">
                         <div class="col">
@@ -47,13 +49,15 @@
             </form>
         </div>
 
-         <% if (commonCookie.CookieIsApp != "1")
-               { %>
-            <!--#include virtual="~/_static/navMenu.shtml" -->
-            <% } %>
+        <% if (commonCookie.CookieIsApp != "1")
+           { %>
+        <!--#include virtual="~/_static/navMenu.shtml" -->
+        <% } %>
 
         <script type="text/javascript">
             $(document).ready(function () {
+                window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
+
                 window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
 
                 window.w88Mobile.Gateways.NganLuong.deposit("", function (response) {
@@ -66,7 +70,11 @@
                             });
                             break;
                         default:
-                            w88Mobile.Growl.shout(response.ResponseMessage);
+                            if (_.isArray(response.ResponseMessage))
+                                w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
+                            else
+                                w88Mobile.Growl.shout(response.ResponseMessage);
+
                             break;
                     }
                 });
