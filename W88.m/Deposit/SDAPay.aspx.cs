@@ -28,11 +28,6 @@ public partial class Deposit_SDAPay : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
-        HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-        commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"), base.strCurrencyCode);
-
-
         if (!Page.IsPostBack)
         {
             drpBank.Items.AddRange(base.InitializeBank("SDAPayAlipayBank").Where(bank => bank.Value.Equals("alipay", StringComparison.OrdinalIgnoreCase)).ToArray());

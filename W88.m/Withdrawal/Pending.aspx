@@ -6,14 +6,17 @@
 <head>
     <title><%=commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML) + commonCulture.ElementValues.getResourceString("lblHeader", xeResources)%></title>
     <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/Js/Main.js"></script>
 </head>
 <body>
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
+            <% if (commonCookie.CookieIsApp != "1")
+               { %>
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
             </a>
+            <% } %>
+
             <h1 class="title"><%=commonCulture.ElementValues.getResourceString("lblHeader", xeResources)%></h1>
         </header>
 
@@ -31,8 +34,12 @@
                 </ul>
             </form>
         </div>
-        <!-- /content -->
+
+        <% if (commonCookie.CookieIsApp != "1")
+           { %>
         <!--#include virtual="~/_static/navMenu.shtml" -->
+        <% } %>
+
         <script type="text/javascript">
             function CancelWithdrawal(obj)
             {

@@ -10,11 +10,13 @@
 <link rel="apple-touch-startup-image" href="/_Static/Images/icon_120.png" />
 <script src="/_Static/JS/Mobile/jquery-1.11.3.min.js"></script>
 <script src="/_Static/JS/Mobile/jquery.mobile-1.4.5.min.js"></script>
+<script src="/_Static/JS/jquery.mask.min.js"></script>
 <script src="/_Static/JS/vendor/lodash.js"></script>
 <script src="/_Static/JS/vendor/moment.min.js"></script>
 <script src="/_Static/JS/Mobile/iscroll.js"></script>
 <script src="/_Static/JS/Cookie.js"></script>
 <script src="/_Static/JS/GPINT.js"></script>
+<script src="/_Static/JS/Main.js"></script>
 
 <script src="/_Static/JS/fingerprint2.min.js"></script>
 <script src="/_Static/JS/piwik.js"></script>
@@ -26,7 +28,7 @@
     window.User.sessionInterval = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("sessionInterval") %>';
     window.User.lang = '<%=commonVariables.SelectedLanguage%>';
 </script>
-<script type="text/javascript" src="/_Static/Js/modules/slots.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/slots.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/formValidator.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/growl.js"></script>
 <script type="text/javascript">
@@ -67,15 +69,7 @@
         }
     });
     </script>
-<script type="text/javascript" src="/_Static/Js/modules/slots.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/wallets.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/bankTransfer.js"></script>
-<script type="text/javascript" src="/_Static/JS/modules/gateways/jutapay.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/bankDetails.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/gateways/postForm.js"></script>
-<script type="text/javascript" src="/_Static/JS/modules/gateways/jtpay.js"></script>
-<script type="text/javascript" src="/_Static/JS/modules/gateways/nganluong.js"></script>
-<script type="text/javascript" src="/_Static/JS/modules/gateways/fastdep.js"></script>
-<script type="text/javascript" src="/_Static/JS/modules/gateways/venuspoint.js"></script>
-<script type="text/javascript" src="/_Static/JS/modules/gateways/paysec.js"></script>
-<script type="text/javascript" src="/_Static/JS/modules/gateways/baokimSc.js"></script>
