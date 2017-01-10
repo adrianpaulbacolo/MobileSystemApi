@@ -5,6 +5,11 @@ function Slots() {
     var filteredSlots = [];
     var clubLimit = 9;
     var sections = ["New", "Top", "All"];
+    var sectionKeys = {
+        "new": "LABEL_SLOTS_NEW"
+        , "top":"LABEL_SLOTS_TOP"
+        , "all": "LABEL_SLOTS_ALL"
+    };
 
     var providers = ["qt", "gpi", "mgs", "pt", "ctxm", "isb"];
     var clubs = [
@@ -25,12 +30,12 @@ function Slots() {
         , clubs: clubs
         , providers: providers
         , filterSlots: filterSlots
-        , getTranslations: getTranslations
         , getFilterOptions: getFilterOptions
         , showGameModal: showGameModal
         , sections: sections
         , clubFilter: {}
         , translations: {}
+        , sectionKeys: sectionKeys
         , send: send
     }
 
@@ -125,11 +130,6 @@ function Slots() {
             if (_.isUndefined(section)) return hasClub;
             else return _.includes(item.Section, section) && hasClub;
         });
-    }
-
-    function getTranslations(success, error) {
-        var url = "/api/contents";
-        send(url, "GET", {}, success, error);
     }
 
     function getFilterOptions(club) {

@@ -3,8 +3,8 @@
     <section class="tab-bar" style="top: 0">
         <ul id="sectionTab">
             {% _.forEach( slotData.sections, function( section ){ %}
-            <li class="{%- section %} {% if(section==slotData.section){ %}active{% } %}" onclick="filterClubSlots(this, '{%- section %}')">
-                <a href="#">{%- section %}</a>
+            <li class="{%- section %} {% if(!_.isUndefined(slotData.section) && section==slotData.section){ %}active{% } %}" onclick="filterClubSlots(this, '{%- section %}')">
+                <a href="#">{%- _contents.translate(w88Mobile.v2.Slots.sectionKeys[section.toLowerCase()]) %}</a>
             </li>
             {% }); %}
         </ul>
