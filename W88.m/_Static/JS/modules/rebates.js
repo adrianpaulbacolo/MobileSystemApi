@@ -199,7 +199,7 @@
                         LabelBalanceAmount: sessionStorage.getItem("balanceAmount"),
                         btnInstantClaim: sessionStorage.getItem("btnInstant")
                 };
-                    $.get('/_Static/templates/rebates/claimModal.html', function(data) {
+                    $.get('/_Static/templates/rebates/ClaimModal.html', function(data) {
                         var template = _.template(data);
 
                         $("#modalContent").html(template({
@@ -207,6 +207,8 @@
                         })).enhanceWithin();
 
                         $('#rebatesModal').popup('open');
+                        $('#rebateClaim').css('opacity', 1);
+                        $('#rebateClaim').css('text-indent', 0);
 
                     }, 'html');
 
