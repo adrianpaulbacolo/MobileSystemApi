@@ -211,6 +211,7 @@ public class commonVariables
         Bill99 = 120206,
         JutaPay = 120280,
         IPS = 120207,
+        IWallet = 1202103,
         WingMoney = 110308,
         PayGo = 110394,
         SDPay = 120223,
@@ -238,7 +239,8 @@ public class commonVariables
         VenusPoint = 220895,
         BankTransfer = 210602,
         WingMoney = 210709,
-        Neteller = 220815
+        Neteller = 220815,
+        IWallet = 2208102
     }
 
     public enum AutoRouteMethod

@@ -109,6 +109,9 @@
                         e.preventDefault();
                         initiateLogin();
 
+                        amplify.store("depositSettings", null);
+                        amplify.store("withdrawalSettings", null);
+
                     }
                 });
             });

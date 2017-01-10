@@ -14,16 +14,15 @@ using System.Web.UI.WebControls;
 using System.Xml.Linq;
 
 
-public partial class Withdrawal_PayGo : PaymentBasePage
+public partial class Deposit_IWallet : PaymentBasePage
 {
     protected string lblTransactionId;
 
     protected void Page_Init(object sender, EventArgs e)
     {
-        base.PageName = Convert.ToString(commonVariables.WithdrawalMethod.PayGo);
-        base.PaymentType = commonVariables.PaymentTransactionType.Withdrawal;
-        base.PaymentMethodId = Convert.ToString((int)commonVariables.WithdrawalMethod.PayGo);
-
+        base.PageName = Convert.ToString(commonVariables.DepositMethod.IWallet);
+        base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
+        base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.IWallet);
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -38,15 +37,6 @@ public partial class Withdrawal_PayGo : PaymentBasePage
     {
         lblAmount.Text = base.strlblAmount;
 
-        lblAccountName.Text = base.strlblAccountName;
-        lblAccountNumber.Text = base.strlblAccountNumber;
-
         lblTransactionId = base.strlblTransactionId;
-
-        XElement xeResources;
-        commonCulture.appData.getRootResource("_Secure/Register.aspx", out xeResources);
-
-        lblContact.Text = commonCulture.ElementValues.getResourceString("lblContact", xeResources);
     }
-
 }
