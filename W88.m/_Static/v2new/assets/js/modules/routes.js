@@ -23,7 +23,7 @@ function Routes() {
                 classes: mainClass.join(" "),
                 sections: sections
             });
-            $(".header").after(page);
+            $("#page-stack").after(page);
 
         }));
     }
@@ -132,7 +132,11 @@ function Routes() {
                 });
                 clubpage.init();
                 routeCtrl.push(clubpage);
-                showFilterModal(clubpage.club);
+                if (!_.isUndefined(params.form)) {
+                    clubpage.filterClubSlots({
+                        form: params.form
+                    });
+                }
             });
         }
         , onOpen: function () {

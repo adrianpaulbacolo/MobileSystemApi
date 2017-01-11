@@ -7,7 +7,7 @@ function Slots() {
     var sections = ["New", "Top", "All"];
     var sectionKeys = {
         "new": "LABEL_SLOTS_NEW"
-        , "top":"LABEL_SLOTS_TOP"
+        , "top": "LABEL_SLOTS_TOP"
         , "all": "LABEL_SLOTS_ALL"
     };
 
@@ -49,7 +49,7 @@ function Slots() {
 
         $.ajax({
             type: method,
-            beforeSend: function (){
+            beforeSend: function () {
                 pubsub.publish('startLoadItem', {});
             },
             url: url,
@@ -224,7 +224,10 @@ function Slots() {
 
         $('#gameTitle').text(game.TranslatedTitle.toUpperCase());
 
-        $('#gameFunUrl').attr('href', game.FunUrl);
+        $('#gameFunUrl').attr('href', game.FunUrl);//.html(_contents.translate("BUTTON_FREE_PLAY"));
+        $('#gameRegisterUrl').html(_contents.translate("BUTTON_REGISTER"));
+        $('#gameLoginUrl').html(_contents.translate("BUTTON_LOGIN"));
+        //$('#gameRealUrl').html(_contents.translate("BUTTON_PLAY"));
 
         var isPT = _.indexOf(game.providers, "PT") != -1;
         if (isPT) {

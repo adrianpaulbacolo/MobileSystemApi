@@ -36,7 +36,7 @@ function translate() {
     }
 
     this.translate = function (key) {
-        var _self = this; console.log(key);
+        var _self = this;
         if (_.isEmpty(_self.items[key])) return key;
         else return _self.items[key];
     }

@@ -17,8 +17,7 @@
     <![endif]-->
 </head>
 <body>
-    <header class="header header-main clearfix"></header>
-
+    <div id="page-stack" style="display: none"></div>
     <!-- Game Modal -->
     <div class="modal fade" id="gameModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -103,6 +102,7 @@
         };
         _.templateSettings.variable = "slotData";
         var currentFilter = {};
+        w88Mobile.v2.Loader.init();
 
         // headers and routes
         pubsub.subscribe('contentsLoaded', onContentsLoaded);
@@ -118,7 +118,6 @@
         var _contents = w88Mobile.v2._contents; // alias for contents
         _contents.init();
 
-        w88Mobile.v2.Loader.init();
 
         function filterClubSlots(tab, section) {
             if (!$(tab).hasClass('active')) {
@@ -212,12 +211,7 @@
 
         function viewClubFilter() {
             var ctrl = w88Mobile.v2.Routes.currentCtrl();
-            pubsub.publish("changeRoute", {
-                route: "club_filter",
-                params: {
-                    club: ctrl.club.name
-                }
-            });
+            showFilterModal(ctrl.club);
         }
 
         function viewClub(club) {
@@ -252,23 +246,31 @@
 
         function filterGames() {
 
+            var ctrl = w88Mobile.v2.Routes.currentCtrl();
             var category = $('#clubCategory').val();
             var minbet = $('#clubMinBet').val();
             var playlines = $('#clubPlayLines').val();
             var provider = $('#clubProviders').val();
 
-            w88Mobile.v2.Routes.currentCtrl().filterClubSlots({
-                form: {
-                    category: category
-                    , minbet: minbet
-                    , playlines: playlines
-                    , provider: provider
-                }
-            });
+            var form = {
+                category: category
+                , minbet: minbet
+                , playlines: playlines
+                , provider: provider
+            }
 
-            if (!_.isEmpty($('.filter-bar'))) {
-                $('.filter-bar').remove();
-                $('.club-page').removeClass('has-tab');
+            if (w88Mobile.v2.Routes.current() != "club_filter") {
+                pubsub.publish("changeRoute", {
+                    route: "club_filter",
+                    params: {
+                        club: ctrl.club.name
+                        , form: form
+                    }
+                });
+            } else {
+                ctrl.filterClubSlots({
+                    form: form
+                });
             }
         }
 
