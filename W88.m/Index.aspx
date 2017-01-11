@@ -81,7 +81,17 @@
                     </a>
                 </div>
             </div>
-        <% } %>
+             <% } %>
+             <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+             <div class="row row-no-padding action-btn action-button-lg" data-ajax="false">
+                <div class="col">
+                    <a href="Funds.aspx" class="ui-btn btn-primary" role="button" data-ajax="false">
+                        <span class="icon- ion-social-usd-outline" ></span>
+                        <%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%>
+                    </a>
+                </div>
+            </div>
+             <% } %>
 
 
             <ul class="row row-bordered bg-gradient row-uc row-dashboard">
@@ -161,16 +171,6 @@
                 </li>
                 <% } else {
                    var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
-                <% } %>
-
-                <!-- Funds -->
-                <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
-                <li class="col col-33">
-                    <a href="Funds.aspx" class="tile" data-ajax="false">
-                        <span class="icon- ion-social-usd-outline"></span>
-                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%></h4>
-                    </a>
-                </li>
                 <% } %>
 
                 <li class="col col-33">
