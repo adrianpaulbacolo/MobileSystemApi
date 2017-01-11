@@ -195,6 +195,7 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
 
     function loadClubProviders(club) {
         $('#clubProviders').empty();
+        $('#clubProviders').append($("<option></option>").attr("value", '').text("All"));
         if (_.indexOf(["divino", "apollo", "gallardo"], club.name) != -1) {
             $('#clubProviders').parent().show();
             _.forEach(club.providers, function (data) {
@@ -204,7 +205,6 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
             })
         } else {
             $('#clubProviders').parent().hide();
-            $('#clubProviders').append($("<option></option>").attr("value", '').text("All"));
         }
     }
 }
