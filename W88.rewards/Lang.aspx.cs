@@ -1,18 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Configuration;
 using System.Text;
 using System.Web.UI;
-using W88.BusinessLogic.Shared.Helpers;
 
 public partial class _Lang : Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        var languages = (new LanguageHelpers()).Language;
-        var keys = languages.Keys;
-        var divBuilder = new StringBuilder();
+        var languages = new Dictionary<string, string>();
+        languages.Add("en-us", "en");
+        languages.Add("zh-cn", "cn");
+        languages.Add("id-id", "id");
+        languages.Add("ja-jp", "jp");
+        languages.Add("km-kh", "kh");
+        languages.Add("ko-kr", "kr");
+        languages.Add("th-th", "th");
+        languages.Add("vi-vn", "vn");
 
+        var divBuilder = new StringBuilder();
+        var keys = languages.Keys;
         foreach(var key in keys)
         {
             divBuilder.Append(@"<div class='col-xs-6'>")
