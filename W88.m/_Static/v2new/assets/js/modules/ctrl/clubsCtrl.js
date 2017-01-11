@@ -195,7 +195,7 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
 
     function loadClubProviders(club) {
         $('#clubProviders').empty();
-        $('#clubProviders').append($("<option></option>").attr("value", '').text("All"));
+        $('#clubProviders').append($("<option></option>").attr("value", '').text(_contents.translate("LABEL_ALL_DEFAULT")));
         if (_.indexOf(["divino", "apollo", "gallardo"], club.name) != -1) {
             $('#clubProviders').parent().show();
             _.forEach(club.providers, function (data) {
