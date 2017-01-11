@@ -210,6 +210,7 @@ public class commonVariables
         NextPay = 120204,
         Bill99 = 120206,
         JutaPay = 120280,
+        JuyPayAlipay = 1202113,
         IPS = 120207,
         WingMoney = 110308,
         PayGo = 110394,
