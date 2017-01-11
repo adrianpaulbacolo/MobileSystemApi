@@ -273,6 +273,12 @@
                 });
 
                 var url = window.location.protocol + '//www.' + '<%=commonIp.DomainName %>' + '?nomobile=true';
+                 
+                <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieAffiliateId))
+                    {%>
+                        url += '&affiliateID=' + <%=commonCookie.CookieAffiliateId%>;
+                <%  } %>
+
                 $("#icon-desktop").attr('href', url);
                 $("#divPanel.ui-panel .sub-menu").css("top", $(".download-app").height());
 
