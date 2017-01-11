@@ -319,43 +319,41 @@
         }
 
         function onChangeHeader(topic, data) {
-            $.get('assets/templates/header.html', function (template) {
-                var content = _.template(template);
+            var content = _.template(_templates.TopBar);
 
-                var innerHtml = content({
-                    route: w88Mobile.v2.Routes.current()
-                });
+            var innerHtml = content({
+                route: w88Mobile.v2.Routes.current()
+            });
+            var headerElem = w88Mobile.v2.Routes.currentPage().find(".header-main");
+            headerElem.empty();
+            headerElem.append(innerHtml);
 
-                $(".header-main").empty();
-                $(".header-main").append(innerHtml);
+            $("#searchText").popover({
+                trigger: "manual"
+            });
+            if (_.includes(w88Mobile.v2.Routes.currentPage().selector, "search")) {
+                headerElem.addClass("header-search");
 
-                $("#searchText").popover({
-                    trigger: "manual"
-                });
-                if (_.includes(w88Mobile.v2.Routes.currentPage().selector, "search")) {
-                    $(".header-main").addClass("header-search");
+                $("#searchText").on("input click keyup paste propertychange", function () {
+                    var hasPopOver = ($(this).next('div.popover:visible').length > 0);
+                    if (_.isEmpty(this.value)) {
+                        if (!hasPopOver)
+                            $(this).popover('show');
+                    } else {
+                        if (hasPopOver)
+                            $(this).popover('hide');
+                    }
 
-                    $("#searchText").on("input change click keyup paste propertychange", function () {
-                        var hasPopOver = ($(this).next('div.popover:visible').length > 0);
-                        if (_.isEmpty(this.value)) {
-                            if (!hasPopOver)
-                                $(this).popover('show');
-                        } else {
-                            if (hasPopOver)
-                                $(this).popover('hide');
-                        }
-
-                        w88Mobile.v2.Routes.currentCtrl().filterSearchSlots({
-                            title: this.value
-                        });
+                    w88Mobile.v2.Routes.currentCtrl().filterSearchSlots({
+                        title: this.value
                     });
+                });
 
-                    $("#searchText").popover('show');
-                }
-                else
-                    $(".header-main").removeClass("header-search");
+                $("#searchText").popover('show');
+            }
+            else
+                headerElem.removeClass("header-search");
 
-            }, 'html');
         }
 
         function clearSearchText() {

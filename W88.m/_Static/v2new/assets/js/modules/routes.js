@@ -41,6 +41,7 @@ function Routes() {
                 indexpage.page = w88Mobile.v2.Routes.currentPage();
                 indexpage.init();
                 routeCtrl.push(indexpage);
+                pubsub.publish("changeHeader");
             });
         }
         , onOpen: function () {
@@ -66,10 +67,10 @@ function Routes() {
                 indexpage.page = w88Mobile.v2.Routes.currentPage();
                 indexpage.init();
                 routeCtrl.push(indexpage);
+                pubsub.publish("changeHeader");
             });
         }
        , onOpen: function () {
-           pubsub.publish("changeHeader");
            $('.filter-bar').hide();
        }
        , onClose: function () {
@@ -99,6 +100,7 @@ function Routes() {
                 });
                 clubpage.init();
                 routeCtrl.push(clubpage);
+                pubsub.publish("changeHeader");
             });
         }
         , onOpen: function () {
@@ -132,6 +134,7 @@ function Routes() {
                 });
                 clubpage.init();
                 routeCtrl.push(clubpage);
+                pubsub.publish("changeHeader");
                 if (!_.isUndefined(params.form)) {
                     clubpage.filterClubSlots({
                         form: params.form
@@ -140,7 +143,6 @@ function Routes() {
             });
         }
         , onOpen: function () {
-            pubsub.publish("changeHeader");
             // find suitable place to do this
             if (!_.isEmpty($('.filter-bar'))) {
                 $('.filter-bar').remove();
@@ -177,11 +179,11 @@ function Routes() {
                });
                clubpage.init();
                routeCtrl.push(clubpage);
+               pubsub.publish("changeHeader", { club: w88Mobile.v2.Slots.club });
 
            });
        }
        , onOpen: function () {
-           pubsub.publish("changeHeader", { club: w88Mobile.v2.Slots.club });
            $('.filter-bar').hide();
        }
        , onClose: function () {

@@ -6,6 +6,7 @@ function Templates() {
     var templates = [
         { id: 'SearchList', url: 'assets/templates/search.html' }
         , { id: 'SlotList', url: 'assets/templates/slotCategory.html' }
+        , { id: 'TopBar', url: 'assets/templates/header.html' }
     ];
 
     this.init = function () {
