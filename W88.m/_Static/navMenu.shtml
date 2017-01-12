@@ -614,6 +614,12 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
     $("#icon-rewards-sidebar").attr('href', urlRewards);
 
 	var url = window.location.protocol +'//www.'+ '<%=commonIp.DomainName %>' + '?nomobile=true';
+    
+        <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieAffiliateId))
+            {%>
+                url += '&affiliateID=' + <%=commonCookie.CookieAffiliateId%>;
+        <%  } %>
+
         $("#icon-desktop-sidebar").attr('href', url);
 
         if ('<%=commonVariables.CurrentMemberSessionId%>'.trim().length > 0) {

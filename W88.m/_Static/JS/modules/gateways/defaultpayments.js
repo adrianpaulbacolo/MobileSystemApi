@@ -11,12 +11,13 @@
     var defaultpayments = {
         Deposit: deposit,
         Withdraw: withdraw,
-        AutoRouteIds: autorouteIds
+        AutoRouteIds: autorouteIds,
+        Send :send
     };
 
     return defaultpayments;
 
-    function send(resource, method, success) {
+    function send(resource, method, success, data, complete) {
         var url = w88Mobile.APIUrl + resource;
 
         var headers = {
@@ -27,6 +28,7 @@
         $.ajax({
             type: method,
             url: url,
+            data: data,
             beforeSend: function () {
                 GPInt.prototype.ShowSplash(true);
             },
@@ -34,7 +36,8 @@
             success: success,
             error: function () {
                 console.log("Error connecting to api");
-            }
+            },
+            complete: complete
         });
     }
 
@@ -324,6 +327,9 @@
 
             case "999996":
                 return "Alipay.aspx";
+
+            case "1202113":
+                return "JuyPayAlipay.aspx";
 
             default:
                 break
