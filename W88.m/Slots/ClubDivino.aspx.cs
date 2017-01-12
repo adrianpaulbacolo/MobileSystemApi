@@ -26,11 +26,12 @@ public partial class Slots_ClubDivino : BasePage
         var uc8Handler = new UC8Handler(commonVariables.CurrentMemberSessionId, "ClubDivino", "FundTransfer");
         var uc8Category = uc8Handler.Process();
 
-        var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
-        var gpiCategory = gpiHandler.Process(true);
-        cxCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, cxCategory[0].Current);
+        //var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
+        //var gpiCategory = gpiHandler.Process(true);
+        //cxCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, cxCategory[0].Current);
 
-        var divino = bsCategory.Union(cxCategory).Union(uc8Category).Union(gpiCategory).GroupBy(x => x.Title);
+        //var divino = bsCategory.Union(cxCategory).Union(uc8Category).Union(gpiCategory).GroupBy(x => x.Title);
+        var divino = bsCategory.Union(cxCategory).Union(uc8Category).GroupBy(x => x.Title);
 
         foreach (var group in divino)
         {

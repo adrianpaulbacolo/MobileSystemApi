@@ -24,11 +24,12 @@ public partial class Slots_ClubPalazzo : BasePage
         var handler = new PTHandler(info.MemberCode, "ClubPalazzo", "LiveChat/Default.aspx", "Logout");
         var ptCategory = handler.Process();
 
-        var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
-        var gpiCategory = gpiHandler.Process(true);
-        ptCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, ptCategory[0].Current);
+        //var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
+        //var gpiCategory = gpiHandler.Process(true);
+        //ptCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, ptCategory[0].Current);
 
-        var games = ptCategory.Union(gpiCategory).GroupBy(x => x.Title);
+        //var games = ptCategory.Union(gpiCategory).GroupBy(x => x.Title);
+        var games = ptCategory.GroupBy(x => x.Title);
 
         var sbGames = new StringBuilder();
         foreach (var category in games)
