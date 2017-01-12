@@ -287,6 +287,10 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         request.RiskId = MemberSession == null ? "0" : MemberSession.RiskId;
         request.Currency = MemberSession == null ? "0" : MemberSession.CurrencyCode;
         request.PointRequired = string.IsNullOrEmpty(ProductDetails.PointsRequired) ? string.Empty : ProductDetails.PointsRequired;
+        if (!string.IsNullOrEmpty(ProductDetails.DiscountPoints))
+        {
+            request.PointRequired = ProductDetails.DiscountPoints;
+        }
         request.Quantity = int.Parse(tbQuantity.Text.Trim());
         request.CountryCode = UserSessionInfo == null ? RewardsHelper.GetCountryCode() : UserSessionInfo.CountryCode;
         switch (type)
