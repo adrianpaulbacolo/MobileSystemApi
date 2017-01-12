@@ -557,6 +557,13 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
         </li>
 
         <li data-icon="false">
+            <a class="nav-language" href="/Lang.aspx" data-ajax="false">
+                <i class="icon- ion-ios-world-outline"></i>
+                <div class="label"><%=commonCulture.ElementValues.getResourceString("language", commonVariables.LeftMenuXML)%></div>
+            </a>
+        </li>
+
+        <li data-icon="false">
             <a id="icon-desktop-sidebar" href="#" data-ajax="false">
                 <i class="icon-desktop"></i>
                 <div class="label"><%=commonCulture.ElementValues.getResourceString("desktopIconSide", commonVariables.LeftMenuXML)%></div>
