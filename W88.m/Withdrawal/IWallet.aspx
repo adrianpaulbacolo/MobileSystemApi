@@ -1,8 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Payments.master" AutoEventWireup="true" CodeFile="IWallet.aspx.cs" Inherits="Withdrawal_IWallet" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <ul class="list fixed-tablet-size">
         <li class="item item-input">
             <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
@@ -14,7 +12,7 @@
         </li>
     </ul>
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder" runat="Server">
+<asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder1" runat="Server">
     <script type="text/javascript">
         $(document).ready(function () {
             var payments = new w88Mobile.Gateways.Payments("<%=base.PaymentMethodId %>");
@@ -25,7 +23,7 @@
 
             $('#form1').submit(function (e) {
                 e.preventDefault();
-                window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
+                window.w88Mobile.FormValidator.disableSubmitButton('#ContentPlaceHolder1_btnSubmit');
 
                 var data = {
                     Amount: $('#<%=txtAmount.ClientID%>').val(),
@@ -51,7 +49,7 @@
                     }
                 },
                 function () {
-                    w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
+                    w88Mobile.FormValidator.enableSubmitButton('#ContentPlaceHolder1_btnSubmit');
                     GPINTMOBILE.HideSplash();
                 });
             });

@@ -8,7 +8,7 @@
     <asp:HyperLink id="aMenu" runat="server" visible="false" href="" role="button" data-rel="back" class="btn-clear ui-btn-left ui-btn ion-ios-arrow-back" data-load-ignore-splash="true">Back</asp:HyperLink>
     <asp:HyperLink id="cancel" runat="server" visible="false" role="button" data-rel="back" class="btn-clear ui-btn-right ui-btn">Cancel &nbsp;</asp:HyperLink>
     <% } %>
-    <h1 class="title">
+    <h1 class="title" id="headerTitle" >
         <asp:Panel id="logo" runat="server" Visible="False"><img src="/_Static/Images/logo-<%=commonVariables.SelectedLanguageShort%>.png" class="logo" alt="logo"></asp:Panel>
         <asp:Literal runat="server" ID="ltrTitle" Visible="False" />
     </h1>

@@ -41,6 +41,13 @@ public partial class Deposit_PayGo : PaymentBasePage
         lblAccountName.Text = base.strlblAccountName;
         lblAccountNumber.Text = base.strlblAccountNumber;
 
+        XElement xeResources;
+        commonCulture.appData.getRootResource("Deposit/FastDeposit", out xeResources);
+
+        lblReferenceId.Text = commonCulture.ElementValues.getResourceString("lblReferenceId", xeResources);
+        lblSystemAccount.Text = commonCulture.ElementValues.getResourceString("lblSystemAccount", xeResources);
+        lblDepositDateTime.Text = commonCulture.ElementValues.getResourceString("drpDepositDateTime", xeResources);
+
         lblTransactionId = base.strlblTransactionId;
     }
 
