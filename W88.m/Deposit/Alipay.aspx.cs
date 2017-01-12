@@ -45,5 +45,10 @@ public partial class Deposit_Alipay : PaymentBasePage
         btnSubmit.Text = base.strbtnSubmit;
 
         lblTransactionId = base.strlblTransactionId;
+
+        XElement xeResources;
+        commonCulture.appData.getRootResource("Deposit/JuyPayAlipay", out xeResources);
+
+        lblNote.Text = commonCulture.ElementValues.getResourceString("lblNote", xeResources);
     }
 }

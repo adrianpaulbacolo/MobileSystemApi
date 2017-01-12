@@ -53,6 +53,9 @@
                             <asp:Literal ID="txtMinMaxLimit" runat="server" />
                         </div>
                     </li>
+                    <li class="item-text-wrap ali-pay-note">
+                        <asp:Label ID="lblNote" runat="server"></asp:Label>
+                    </li>
                     <li class="item item-input">
                         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
                         <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
@@ -71,6 +74,21 @@
         <!--#include virtual="~/_static/navMenu.shtml" -->
         <% } %>
 
+         <style>
+            li.ali-pay-note {
+                font-size: 70%;
+            }
+
+                li.ali-pay-note #lblNote span {
+                    color: red;
+                    font-weight: bold;
+                }
+
+                li.ali-pay-note #lblNote p {
+                    padding-top: 5px;
+                }
+        </style>
+
         <script type="text/javascript">
             $(document).ready(function () {
                 window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
@@ -88,11 +106,11 @@
                     window.w88Mobile.Gateways.AutoRoute.Deposit(window.w88Mobile.Gateways.DefaultPayments.AutoRouteIds.AliPay, data, function (response) {
                         switch (response.ResponseCode) {
                             case 1:
-                            if (response.ResponseData.VendorRedirectionUrl) {
-                                window.open(response.ResponseData.VendorRedirectionUrl, '_blank');
-                            } else {
-                                if (response.ResponseData.PostUrl) {
-                                    w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
+                                if (response.ResponseData.VendorRedirectionUrl) {
+                                    window.open(response.ResponseData.VendorRedirectionUrl, '_blank');
+                                } else {
+                                    if (response.ResponseData.PostUrl) {
+                                        w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
 
                                     w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
                                     w88Mobile.PostPaymentForm.submit();
@@ -103,19 +121,19 @@
                                 } else {
                                     w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
                                 }
-                            }
+                        }
 
-                            $('#form1')[0].reset();
+                        $('#form1')[0].reset();
 
-                            break;
-                        default:
-                            if (_.isArray(response.ResponseMessage))
-                                w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
-                            else
-                                w88Mobile.Growl.shout(response.ResponseMessage);
+                        break;
+                    default:
+                        if (_.isArray(response.ResponseMessage))
+                            w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
+                        else
+                            w88Mobile.Growl.shout(response.ResponseMessage);
 
-                            break;
-                    }
+                        break;
+                }
                     },
                     function () {
                         window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
