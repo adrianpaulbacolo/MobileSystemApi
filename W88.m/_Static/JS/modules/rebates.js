@@ -55,7 +55,7 @@
                 $('#rebateDisclaimerNoteCurrent').html(response.ResponseData.LABEL_REBATE_DISCLAIMER_CONTENT_CURRENT);
                 $('#rebateDisclaimerNote1').html(response.ResponseData.LABEL_REBATE_DISCLAIMER_CONTENT1);
                 $('#rebateDisclaimerNote2').html(response.ResponseData.LABEL_REBATE_DISCLAIMER_CONTENT2);
-                $('.title').text(response.ResponseData.LABEL_MENU_REBATES);
+                $('#header .ui-title').first().text(response.ResponseData.LABEL_MENU_REBATES);
 
                 sessionStorage.setItem("weeklyClaim", response.ResponseData.BUTTON_WEEKLY_CLAIM);
                 sessionStorage.setItem("promoOption", response.ResponseData.LABEL_PROMO_OPTION);
