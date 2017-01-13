@@ -6,7 +6,6 @@ using System.Web.UI.HtmlControls;
 public partial class Deposit_JutaPay : PaymentBasePage
 {
     protected string lblTransactionId;
-    protected string lblTransactionFailed;
 
     protected void Page_Init(object sender, EventArgs e)
     {
@@ -18,9 +17,6 @@ public partial class Deposit_JutaPay : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-        commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"), base.strCurrencyCode);
-
         if (!Page.IsPostBack)
         {
             this.InitializeLabels();
@@ -46,7 +42,5 @@ public partial class Deposit_JutaPay : PaymentBasePage
         btnSubmit.Text = base.strbtnSubmit;
 
         lblTransactionId = base.strlblTransactionId;
-
-        lblTransactionFailed = base.GetErrors("/TransferFail").AlertMessage;
     }
 }

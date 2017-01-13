@@ -45,6 +45,19 @@
 
             return template;
         },
+        bulletedList: function (messages) {
+            var message = "";
+            if (_.isArray(messages)) {
+                message = "<ul>";
+
+                for (var i = 0; i < messages.length; i++) {
+                    message = message + "<li>" + messages[i] + "</li>";
+                }
+
+                return message + "</ul>";
+            }
+            return message;
+        },
         modal: null
     }
 

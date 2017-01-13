@@ -5,29 +5,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%=string.Format("{0}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML))%></title>
+    <title></title>
     <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/Js/Main.js"></script>
-    <script type="text/javascript" src="/_Static/JS/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js"></script>
 </head>
 <body>
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
+            <% if (commonCookie.CookieIsApp != "1")
+               { %>
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
                 <i class="icon-navicon"></i>
             </a>
-            <h1 class="title"><%=string.Format("{0}", commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML))%></h1>
+            <% } %>
+
+            <h1 class="title" id="headerTitle"><%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%></h1>
         </header>
 
         <div class="ui-content" role="main">
             <div class="wallet main-wallet">
                 <uc:Wallet ID="uMainWallet" runat="server" />
-            </div>
-
-            <div data-role="navbar">
-                <ul id="withdrawalTabs" runat="server">
-                    <li />
-                </ul>
             </div>
 
             <form class="form" id="form1" runat="server" data-ajax="false">
@@ -42,28 +39,14 @@
             </form>
         </div>
 
+        <% if (commonCookie.CookieIsApp != "1")
+           { %>
         <!--#include virtual="~/_static/navMenu.shtml" -->
+        <% } %>
+
         <script type="text/javascript">
-            $(function () {
-                window.history.forward();
-
-                $('#withdrawalTabs li').first().remove();
-
-                var loader = GPInt.prototype.GetLoaderScafold();
-
-                $("#loader").html(loader);
-
-                if ($('#withdrawalTabs li a.btn-primary').length == 0) {
-                    if ($('#withdrawalTabs li').first().children().attr('href') != undefined) {
-                        window.location.replace($('#withdrawalTabs li').first().children().attr('href'));
-                    } else {
-
-                        $('.empty-state').show();
-                        $('#paymentNote').append('<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>');
-
-                        $("#loader").hide();
-                    }
-                }
+            $(document).ready(function () {
+                window.w88Mobile.Gateways.DefaultPayments.Withdraw("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
             });
 
         </script>

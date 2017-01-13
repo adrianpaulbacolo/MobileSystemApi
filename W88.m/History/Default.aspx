@@ -8,8 +8,7 @@
 <head>
     <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("history", commonVariables.HistoryXML))%></title>
     <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/Js/Main.js"></script>
-    <script type="application/javascript" src="/_Static/Js/add2home.js"></script>
+    <script type="application/javascript" src="/_Static/JS/add2home.js"></script>
 </head>
 <body>
     <div id="divMain" data-role="page" data-theme="b" data-ajax="false">

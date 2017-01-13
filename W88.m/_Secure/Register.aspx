@@ -5,7 +5,7 @@
 <head>
     <title><%=commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML) + commonCulture.ElementValues.getResourceString("register", commonVariables.LeftMenuXML)%></title>
     <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/Js/PreLoad.js"></script>
+    <script type="text/javascript" src="/_Static/JS/PreLoad.js"></script>
 </head>
 <body>
     <div data-role="page" id="register">

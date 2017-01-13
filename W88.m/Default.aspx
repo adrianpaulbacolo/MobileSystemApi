@@ -5,9 +5,9 @@
 <head>
     <title></title>
     <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/Js/PreLoad.js"></script>
-    <script type="application/javascript" src="/_Static/Js/add2home.js"></script>
-    <script type="application/javascript" src="/_Static/Js/checkManifest.js"></script>
+    <script type="text/javascript" src="/_Static/JS/PreLoad.js"></script>
+    <script type="application/javascript" src="/_Static/JS/add2home.js"></script>
+    <script type="application/javascript" src="/_Static/JS/checkManifest.js"></script>
 </head>
 <body id="language">
     <div data-role="page" data-theme="b" data-ajax="false">

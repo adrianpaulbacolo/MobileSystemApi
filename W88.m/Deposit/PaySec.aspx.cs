@@ -27,9 +27,6 @@ public partial class Deposit_PaySec : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-        commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"), base.strCurrencyCode);
-
         if (!Page.IsPostBack)
         {
             this.InitializeLabels();

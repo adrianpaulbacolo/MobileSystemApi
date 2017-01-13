@@ -34,6 +34,7 @@ public partial class Deposit_JTPay : PaymentBasePage
                 base.PageName = Convert.ToString(commonVariables.DepositMethod.JTPayWeChat);
                 base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.JTPayWeChat);
                 resourceString = "dJTPayWeChat";
+                
                 break;
         }
 
@@ -41,9 +42,6 @@ public partial class Deposit_JTPay : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-        commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"), base.strCurrencyCode);
-
         if (!Page.IsPostBack)
         {
             this.InitializeLabels();
@@ -51,6 +49,8 @@ public partial class Deposit_JTPay : PaymentBasePage
     }
     private void InitializeLabels()
     {
+        lblNote.Text = commonCulture.ElementValues.getResourceString("lblNote", xeResources);
+
         lblMode.Text = base.strlblMode;
         txtMode.Text = base.strtxtMode;
         lblMinMaxLimit.Text = base.strlblMinMaxLimit;

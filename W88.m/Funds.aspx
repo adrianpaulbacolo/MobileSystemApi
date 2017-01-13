@@ -14,9 +14,9 @@
         <div id="tabs">
             <div data-role="navbar">
                 <ul>
-                    <li><a href="/Deposit/Default<%=getAppSuffix() %>.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%></a></li>
+                    <li><a href="/Deposit/Default.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%></a></li>
                     <li><a href="/FundTransfer/Default<%=getAppSuffix() %>.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%></a></li>
-                    <li><a href="/Withdrawal/Default<%=getAppSuffix() %>.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%></a></li>
+                    <li><a href="/Withdrawal/Default.aspx" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%></a></li>
                     <li><a href="/History" data-ajax="false"><%=commonCulture.ElementValues.getResourceString("history", commonVariables.HistoryXML)%></a></li>
                 </ul>
             </div>

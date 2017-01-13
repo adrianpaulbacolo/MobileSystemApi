@@ -39,6 +39,12 @@
   <wsdl:message name="IMember_getCurrencyForeignRate_OutputMessage">
     <wsdl:part name="parameters" element="tns:getCurrencyForeignRateResponse" />
   </wsdl:message>
+  <wsdl:message name="IMember_getCurrencyBaseExchangeRate_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCurrencyBaseExchangeRate" />
+  </wsdl:message>
+  <wsdl:message name="IMember_getCurrencyBaseExchangeRate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCurrencyBaseExchangeRateResponse" />
+  </wsdl:message>
   <wsdl:message name="IMember_getDepositWithdrawalHistory_InputMessage">
     <wsdl:part name="parameters" element="tns:getDepositWithdrawalHistory" />
   </wsdl:message>
@@ -321,6 +327,12 @@
   <wsdl:message name="IMember_GetPaymentDepositGatewayLimit_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPaymentDepositGatewayLimitResponse" />
   </wsdl:message>
+  <wsdl:message name="IMember_GetPaymentDepositGatewayLimit_Mobile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentDepositGatewayLimit_Mobile" />
+  </wsdl:message>
+  <wsdl:message name="IMember_GetPaymentDepositGatewayLimit_Mobile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentDepositGatewayLimit_MobileResponse" />
+  </wsdl:message>
   <wsdl:message name="IMember_GetPaymentDepositGatewayRoute_InputMessage">
     <wsdl:part name="parameters" element="tns:GetPaymentDepositGatewayRoute" />
   </wsdl:message>
@@ -431,6 +443,10 @@
     <wsdl:operation name="getCurrencyForeignRate">
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/getCurrencyForeignRate" message="tns:IMember_getCurrencyForeignRate_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMember/getCurrencyForeignRateResponse" message="tns:IMember_getCurrencyForeignRate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCurrencyBaseExchangeRate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/getCurrencyBaseExchangeRate" message="tns:IMember_getCurrencyBaseExchangeRate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/getCurrencyBaseExchangeRateResponse" message="tns:IMember_getCurrencyBaseExchangeRate_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="getDepositWithdrawalHistory">
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/getDepositWithdrawalHistory" message="tns:IMember_getDepositWithdrawalHistory_InputMessage" />
@@ -620,6 +636,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/GetPaymentDepositGatewayLimit" message="tns:IMember_GetPaymentDepositGatewayLimit_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMember/GetPaymentDepositGatewayLimitResponse" message="tns:IMember_GetPaymentDepositGatewayLimit_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetPaymentDepositGatewayLimit_Mobile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMember/GetPaymentDepositGatewayLimit_Mobile" message="tns:IMember_GetPaymentDepositGatewayLimit_Mobile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMember/GetPaymentDepositGatewayLimit_MobileResponse" message="tns:IMember_GetPaymentDepositGatewayLimit_Mobile_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetPaymentDepositGatewayRoute">
       <wsdl:input wsaw:Action="http://tempuri.org/IMember/GetPaymentDepositGatewayRoute" message="tns:IMember_GetPaymentDepositGatewayRoute_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMember/GetPaymentDepositGatewayRouteResponse" message="tns:IMember_GetPaymentDepositGatewayRoute_OutputMessage" />
@@ -721,6 +741,15 @@
     </wsdl:operation>
     <wsdl:operation name="getCurrencyForeignRate">
       <soap:operation soapAction="http://tempuri.org/IMember/getCurrencyForeignRate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCurrencyBaseExchangeRate">
+      <soap:operation soapAction="http://tempuri.org/IMember/getCurrencyBaseExchangeRate" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1144,6 +1173,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetPaymentDepositGatewayLimit">
       <soap:operation soapAction="http://tempuri.org/IMember/GetPaymentDepositGatewayLimit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentDepositGatewayLimit_Mobile">
+      <soap:operation soapAction="http://tempuri.org/IMember/GetPaymentDepositGatewayLimit_Mobile" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
