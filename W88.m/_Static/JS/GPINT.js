@@ -24,10 +24,10 @@ GPInt.prototype.ShowSplash = function (show) {
         );
    
     if (!show) {
-        window.setTimeout(function () {
-            this.GPINTMOBILE.HideSplash();
-        }, 10000);
-    }
+    window.setTimeout(function () {
+        this.GPINTMOBILE.HideSplash();
+    }, 10000);
+}
 }
 GPInt.prototype.HideSplash = function () {
     window.setTimeout(function () { $('body').find('div#divSplashContainer').remove(); }, 1000);

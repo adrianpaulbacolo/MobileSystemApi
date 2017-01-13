@@ -10,24 +10,17 @@ using System.Xml.Linq;
 
 public partial class Deposit_Help2Pay : PaymentBasePage
 {
-    protected string strStatusCode = string.Empty;
-    protected string strAlertCode = string.Empty;
-    protected string strAlertMessage = string.Empty;
+    protected string lblTransactionId;
 
     protected void Page_Init(object sender, EventArgs e)
     {
-        base.PageName = "Help2Pay";
+        base.PageName = Convert.ToString(commonVariables.DepositMethod.Help2Pay);
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.Help2Pay);
-
     }
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
-        HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-        commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"), base.strCurrencyCode);
-
         if (!Page.IsPostBack)
         {
             this.InitializeBank();
@@ -78,72 +71,7 @@ public partial class Deposit_Help2Pay : PaymentBasePage
         lblBank.Text = base.strlblBank;
 
         btnSubmit.Text = base.strbtnSubmit;
-    }
 
-    protected void btnSubmit_Click(object sender, EventArgs e)
-    {
-
-        string strDepositAmount = txtDepositAmount.Text.Trim();
-        string selectedBank = drpBank.SelectedItem.Value;
-
-        decimal decDepositAmount = commonValidation.isDecimal(strDepositAmount) ? Convert.ToDecimal(strDepositAmount) : 0;
-        decimal decMinLimit = commonValidation.isDecimal(strMinLimit) ? Convert.ToDecimal(strMinLimit) : 0;
-        decimal decMaxLimit = commonValidation.isDecimal(strMaxLimit) ? Convert.ToDecimal(strMaxLimit) : 0;
-
-        if (!isProcessAbort)
-        {
-
-            try
-            {
-                if (decDepositAmount == 0)
-                {
-                    strAlertCode = "-1";
-                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/MissingDepositAmount", xeErrors);
-                    isProcessAbort = true;
-                }
-                else if (selectedBank == "-1")
-                {
-                    strAlertCode = "-1";
-                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/SelectBank", xeErrors);
-                    isProcessAbort = true;
-                }
-                if (decDepositAmount < decMinLimit)
-                {
-                    strAlertCode = "-1";
-                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/AmountMinLimit", xeErrors);
-                    isProcessAbort = true;
-                }
-                else if (decDepositAmount > decMaxLimit)
-                {
-                    strAlertCode = "-1";
-                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/AmountMaxLimit", xeErrors);
-                    isProcessAbort = true;
-                }
-                else if ((strTotalAllowed != commonCulture.ElementValues.getResourceString("unlimited", xeResources)) && (decDepositAmount > Convert.ToDecimal(strTotalAllowed)) && Convert.ToDecimal(strTotalAllowed) > 0)
-                {
-                    strAlertCode = "-1";
-                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TotalAllowedExceeded", xeErrors);
-                    isProcessAbort = true;
-                }
-
-                if (!isProcessAbort)
-                {
-                    strAlertCode = "0";
-                }
-            }
-            catch (Exception ex)
-            {
-                strAlertCode = "-1";
-                strAlertMessage = commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/Exception", xeErrors);
-
-                strErrorDetail = ex.Message;
-            }
-
-            string strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | CurrencyCode: {2} | DepositAmount: {3} | BankName: {4} | MinLimit: {5} | MaxLimit: {6} | TotalAllowed: {7} | DailyLimit: {8} | Response: {9}",
-               Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, drpBank.SelectedValue, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
-
-            intProcessSerialId += 1;
-            commonAuditTrail.appendLog("system", PageName, "InitiateDeposit", "DataBaseManager.DLL", strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
-        }
+        lblTransactionId = base.strlblTransactionId;
     }
 }

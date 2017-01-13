@@ -34,9 +34,6 @@ public partial class Deposit_EGHL : PaymentBasePage
         drpBank.Items.AddRange(base.InitializeBank("EGHLBank").ToArray());
         strPageTitle = strCurrencyCode.Equals("IDR", StringComparison.OrdinalIgnoreCase) ? "ATM Online" : commonCulture.ElementValues.getResourceString("dEGHL", commonVariables.PaymentMethodsXML);
 
-        HtmlGenericControl depositTabs = (HtmlGenericControl)FindControl("depositTabs");
-        commonPaymentMethodFunc.GetDepositMethodList(strMethodsUnAvailable, depositTabs, base.PageName, sender.ToString().Contains("app"), base.strCurrencyCode);
-
         if (!Page.IsPostBack)
         {
             this.InitializeLabels();

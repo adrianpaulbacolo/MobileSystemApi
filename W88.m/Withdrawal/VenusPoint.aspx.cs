@@ -17,7 +17,6 @@ using System.Xml.Linq;
 public partial class Withdrawal_VenusPoint : PaymentBasePage
 {
     protected string lblTransactionId;
-    protected string lblTransactionFailed;
 
     protected void Page_Init(object sender, EventArgs e)
     {
@@ -29,13 +28,9 @@ public partial class Withdrawal_VenusPoint : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Page.IsPostBack) base.InitialisePendingWithdrawals(sender.ToString().Contains("app"));
-
-        HtmlGenericControl withdrawalTabs = (HtmlGenericControl)FindControl("withdrawalTabs");
-        commonPaymentMethodFunc.GetWithdrawalMethodList(strMethodsUnAvailable, withdrawalTabs, base.PageName, sender.ToString().Contains("app"));
-
         if (!Page.IsPostBack)
         {
+            base.InitialisePendingWithdrawals(sender.ToString().Contains("app"));
             InitializeLabels();
         }
     }
@@ -63,7 +58,5 @@ public partial class Withdrawal_VenusPoint : PaymentBasePage
         txtTotalAllowed.Text = base.strtxtTotalAllowed;
 
         lblTransactionId = base.strlblTransactionId;
-
-        lblTransactionFailed = base.GetErrors("/TransferFail").AlertMessage;
     }
 }

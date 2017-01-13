@@ -4,7 +4,6 @@
 <head runat="server">
     <title><%=commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML) + commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML)%></title>
     <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/Js/Main.js"></script>
     <script type="text/javascript" src="https://login.goldenphoenix88.com/jswrapper/integration.js.php?casino=blacktiger88"></script>
 
     <script type="text/javascript">     
