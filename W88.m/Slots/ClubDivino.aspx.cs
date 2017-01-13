@@ -15,11 +15,11 @@ public partial class Slots_ClubDivino : BasePage
         if (Page.IsPostBack) return;
 
         SetTitle(commonCulture.ElementValues.getResourceXPathString("/Products/ClubDivino/Label", commonVariables.ProductsXML));
-        
+
         var opSettings = new OperatorSettings(System.Configuration.ConfigurationManager.AppSettings.Get("Operator"));
         var addGpi = Convert.ToBoolean(opSettings.Values.Get("GPIAddOtheClubs"));
         var sbGames = new StringBuilder();
-        
+
         var bsHandler = new BSHandler(commonVariables.CurrentMemberSessionId, "ClubDivino", "FundTransfer", GetDevice());
         var bsCategory = bsHandler.Process();
 

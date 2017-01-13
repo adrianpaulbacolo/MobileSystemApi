@@ -42,7 +42,7 @@ public partial class Slots_ClubApollo : BasePage
             var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
             var gpiCategory = gpiHandler.Process(true);
 
-            qtCategory[0].Current = handler.InsertInjectedGames(gpiCategory, qtCategory[0].Current);
+        qtCategory[0].Current = handler.InsertInjectedGames(gpiCategory, qtCategory[0].Current);
 
             games = qtCategory.Union(ppCategory).Union(gpiCategory).GroupBy(x => x.Title);
         }
