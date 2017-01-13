@@ -19,7 +19,10 @@
             setTranslations(translations);
 
             function setTranslations(data) {
-                $("#header .ui-title").first().text(data.LABEL_PRODUCTS_CLUB_NUOVO);
+
+                if (!_.isUndefined(data)) {
+                    $("#header .ui-title").first().text(data.LABEL_PRODUCTS_CLUB_NUOVO);
+                }
             }
         });
 

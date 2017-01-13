@@ -627,7 +627,10 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
             setTranslations(translations);
 
             function setTranslations(data) {
-                $("#ClubNuovoNavTitle").text(data.LABEL_PRODUCTS_CLUB_NUOVO);
+
+                if (!_.isUndefined(data)) {
+                    $("#ClubNuovoNavTitle").text(data.LABEL_PRODUCTS_CLUB_NUOVO);
+                }
             }
 
         });
