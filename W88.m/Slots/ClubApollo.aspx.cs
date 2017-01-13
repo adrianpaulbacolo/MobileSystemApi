@@ -32,13 +32,12 @@ public partial class Slots_ClubApollo : BasePage
         var ppHandler = new PPHandler(commonVariables.CurrentMemberSessionId, "ClubApollo", "FundTransfer");
         var ppCategory = ppHandler.Process(true);
 
-        //var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
-        //var gpiCategory = gpiHandler.Process(true);
+        var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
+        var gpiCategory = gpiHandler.Process(true);
 
-        //qtCategory[0].Current = handler.InsertInjectedGames(gpiCategory, qtCategory[0].Current);
+        qtCategory[0].Current = handler.InsertInjectedGames(gpiCategory, qtCategory[0].Current);
 
-        //var games = qtCategory.Union(ppCategory).Union(gpiCategory).GroupBy(x => x.Title);
-        var games = qtCategory.Union(ppCategory).GroupBy(x => x.Title);
+        var games = qtCategory.Union(ppCategory).Union(gpiCategory).GroupBy(x => x.Title);
 
         var sbGames = new StringBuilder();
         foreach (var category in games)

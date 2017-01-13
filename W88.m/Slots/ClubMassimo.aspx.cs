@@ -19,12 +19,11 @@ public partial class Slots_ClubMassimo : BasePage
         var handler = new MGSHandler(commonVariables.CurrentMemberSessionId, "ClubMassimo", "FundTransfer");
         var mgsCategory = handler.Process();
 
-        //var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
-        //var gpiCategory = gpiHandler.Process(true);
-        //mgsCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, mgsCategory[0].Current);
+        var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
+        var gpiCategory = gpiHandler.Process(true);
+        mgsCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, mgsCategory[0].Current);
 
-        //var games = mgsCategory.Union(gpiCategory).GroupBy(x => x.Title);
-        var games = mgsCategory.GroupBy(x => x.Title);
+        var games = mgsCategory.Union(gpiCategory).GroupBy(x => x.Title);
 
         var sbGames = new StringBuilder();
         foreach (var category in games)
