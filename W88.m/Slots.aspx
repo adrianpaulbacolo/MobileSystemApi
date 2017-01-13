@@ -91,6 +91,12 @@
                 </a>
             </li>
             <li class="col col-33">
+                <a href="/ClubNuovo" class="card" data-ajax="false">
+                    <img src="/_Static/Images/bnr-clubnuovo.jpg" class="img-responsive">
+                    <div class="title" id="ClubNuovoTitle"></div>
+                </a>
+            </li>
+            <li class="col col-33">
                 <a href="/ClubApollo" class="card" data-ajax="false">
                     <img src="/_Static/Images/bnr-clubapollo.jpg" class="img-responsive">
                     <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubApollo/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
@@ -104,5 +110,19 @@
             </li>
         </ul>
     </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var translations = amplify.store("translations");
+
+            setTranslations(translations);
+
+            function setTranslations(data) {
+                $("#ClubNuovoTitle").text(data.LABEL_PRODUCTS_CLUB_NUOVO);
+            }
+        });
+    </script>
+
 </asp:Content>
 

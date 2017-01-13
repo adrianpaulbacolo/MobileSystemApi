@@ -88,6 +88,13 @@ namespace Helpers
                         url = Settings.Values.Get("PPRealUrl");
                     break;
 
+                case GameProvider.GNS:
+                    if (linkType == GameLinkSetting.Fun)
+                        url = Settings.Values.Get("GNSFunUrl");
+                    else if (linkType == GameLinkSetting.Real)
+                        url = Settings.Values.Get("GNSRealUrl");
+                    break;
+
                 default:
                     url = "";
                     break;
