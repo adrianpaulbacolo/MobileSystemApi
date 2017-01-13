@@ -99,7 +99,7 @@
                 <asp:HiddenField ID="hfChkSum" runat="server" />
                 <asp:HiddenField ID="TransactionId" runat="server" />
                 <asp:HiddenField ID="MchtId" runat="server" />
-
+                <asp:HiddenField ID="VendorTransID" runat="server" />
             </form>
         </div>
 
@@ -134,7 +134,8 @@
                         case 1:
                             window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
 
-                            $("#<%=TransactionId.ClientID%>").val(response.ResponseData.InvId);
+                            $("#<%=TransactionId.ClientID%>").val(response.ResponseData.TransactionId);
+                            $("#<%=VendorTransID.ClientID%>").val(response.ResponseData.VendorTransactionId);
                             $("#<%=MchtId.ClientID%>").val(response.ResponseData.MerchantId);
                             break;
                         default:
@@ -149,6 +150,7 @@
 
                     var walletData = {
                         MerchantId: $("#<%=MchtId.ClientID%>").val(),
+                        VendorTransactionId: $("#<%=VendorTransID.ClientID%>").val(),
                         Otp: $("#txtOtp").val()
                     };
 
