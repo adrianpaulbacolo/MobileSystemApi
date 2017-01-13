@@ -87,20 +87,13 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         {
             usernameLabel.InnerText = UserSessionInfo.MemberCode;
         }
-        var pointsLabelText = RewardsHelper.GetTranslation(TranslationKeys.Label.Points);
-        var stringBuilder = new StringBuilder();
 
-        stringBuilder.Append(pointsLabelText)
-            .Append(": ")
-            .Append(MemberRewardsInfo != null ? Convert.ToString(MemberRewardsInfo.CurrentPoints) : "0");
-        pointsLabel.InnerText = stringBuilder.ToString();
-
-        var pointLevelLabelText = RewardsHelper.GetTranslation(TranslationKeys.Label.PointLevel);
-        stringBuilder = new StringBuilder();
-        stringBuilder.Append(pointLevelLabelText)
-            .Append(" ")
-            .Append(MemberRewardsInfo != null ? Convert.ToString(MemberRewardsInfo.CurrentPointLevel) : "0");
-        pointLevelLabel.InnerText = stringBuilder.ToString();
+        pointsLabel.InnerText = string.Format("{0}: {1}",
+            RewardsHelper.GetTranslation(TranslationKeys.Label.Points),
+            MemberRewardsInfo != null ? Convert.ToString(MemberRewardsInfo.CurrentPoints) : "0");
+        pointLevelLabel.InnerText = string.Format("{0} {1}",
+            RewardsHelper.GetTranslation(TranslationKeys.Label.PointLevel),
+            MemberRewardsInfo != null ? Convert.ToString(MemberRewardsInfo.CurrentPointLevel) : "0");
         divLevel.Visible = true;
         #endregion
     }
