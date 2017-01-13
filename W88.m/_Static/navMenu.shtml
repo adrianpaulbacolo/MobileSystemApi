@@ -359,7 +359,7 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
                 <li>
                     <a class="card" rel="clubnuovo" href="/ClubNuovo" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubnuovo.jpg" class="img-responsive">
-                        <div class="title" id="ClubNuovoTitle"></div>
+                        <div class="title" id="ClubNuovoNavTitle"></div>
                     </a>
                 </li>
                 <li>
@@ -627,7 +627,7 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
             setTranslations(translations);
 
             function setTranslations(data) {
-                $("#ClubNuovoTitle").text(data.LABEL_PRODUCTS_CLUB_NUOVO);
+                $("#ClubNuovoNavTitle").text(data.LABEL_PRODUCTS_CLUB_NUOVO);
             }
 
         });
