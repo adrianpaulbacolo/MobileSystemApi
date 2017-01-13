@@ -60,7 +60,7 @@
                             <asp:Label ID="txtAmount" runat="server" />
                         </div>
                         <div class="col col-20">
-                            <a href="#" class="ui-btn btn-small btn-bordered" id="copyAmount"><span class="icon ion-ios-copy-outline"></span><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
+                            <a href="#" class="ui-btn btn-small btn-bordered" id="copyAmount"><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </li>
                     <li class="row">
@@ -85,7 +85,7 @@
                             <asp:Label ID="txtBankHolderName" runat="server" />
                         </div>
                         <div class="col col-20">
-                            <a href="#" class="ui-btn btn-small btn-bordered" id="copyAccountName"><span class="icon ion-ios-copy-outline"></span><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
+                            <a href="#" class="ui-btn btn-small btn-bordered" id="copyAccountName"><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </li>
                     <li class="row">
@@ -96,7 +96,7 @@
                             <asp:Label ID="txtBankAccountNo" runat="server" class="with-colon" />
                         </div>
                         <div class="col col-20">
-                            <a href="#" class="ui-btn btn-small btn-bordered" id="copyAccountNo"><span class="icon ion-ios-copy-outline"></span><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
+                            <a href="#" class="ui-btn btn-small btn-bordered" id="copyAccountNo"><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </li>
                     <li class="row">
