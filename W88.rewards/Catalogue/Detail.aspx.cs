@@ -57,14 +57,18 @@ public partial class Catalogue_Detail : CatalogueBasePage
             }
 
             imgPic.ImageUrl = productDetails.ImageUrl;
-            var builder = new StringBuilder();
-            var points = !string.IsNullOrEmpty(productDetails.DiscountPoints) &&
-                         int.Parse(productDetails.DiscountPoints) != 0
-                ? productDetails.DiscountPoints
-                : productDetails.PointsRequired;
-            builder.Append(string.Format(@"{0:#,###,##0.##} ", points))
-                .Append(RewardsHelper.GetTranslation(TranslationKeys.Label.Points));
-            lblPointCenter.Text = builder.ToString();
+
+            var pointsLabelText = RewardsHelper.GetTranslation(TranslationKeys.Label.Points);
+            if (!string.IsNullOrEmpty(productDetails.DiscountPoints) && int.Parse(productDetails.DiscountPoints) != 0)
+            {
+                lblPointCenter.Text = string.Format(@"{0:#,###,##0.##} {1}", productDetails.DiscountPoints, pointsLabelText);
+                lblBeforeDiscount.Text = string.Format(@"{0:#,###,##0.##} {1}", productDetails.PointsRequired, pointsLabelText);
+            }
+            else
+            {
+                lblPointCenter.Text = string.Format(@"{0:#,###,##0.##} {1}", productDetails.PointsRequired, pointsLabelText);
+                lblBeforeDiscount.Text = string.Empty;
+            }
 
             if (!string.IsNullOrEmpty(productDetails.DeliveryPeriod))
             {

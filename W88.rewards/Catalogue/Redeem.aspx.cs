@@ -205,27 +205,16 @@ public partial class Catalogue_Redeem : CatalogueBasePage
 
             imgPic.ImageUrl = ProductDetails.ImageUrl;
 
+            var pointsLabelText = RewardsHelper.GetTranslation(TranslationKeys.Label.Points);
             if (!string.IsNullOrEmpty(ProductDetails.DiscountPoints) && int.Parse(ProductDetails.DiscountPoints) != 0)
             {
-                var builder = new StringBuilder();
-                // Before discount
-                builder.Append(string.Format(@"{0:#,###,##0.##} ", ProductDetails.PointsRequired))
-                    .Append(RewardsHelper.GetTranslation(TranslationKeys.Label.Points));
-                lblBeforeDiscount.Text = builder.ToString();
-
-                builder = new StringBuilder();
-                builder.Append(string.Format(@"{0:#,###,##0.##} ", ProductDetails.DiscountPoints))
-                    .Append(RewardsHelper.GetTranslation(TranslationKeys.Label.Points));
-                lblPointCenter.Text = builder.ToString();
+                lblPointCenter.Text = string.Format(@"{0:#,###,##0.##} {1}", ProductDetails.DiscountPoints, pointsLabelText);
+                lblBeforeDiscount.Text = string.Format(@"{0:#,###,##0.##} {1}", ProductDetails.PointsRequired, pointsLabelText);
             }
             else
             {
+                lblPointCenter.Text = string.Format(@"{0:#,###,##0.##} {1}", ProductDetails.PointsRequired, pointsLabelText);
                 lblBeforeDiscount.Text = string.Empty;
-                var builder = new StringBuilder();
-                // Before discount
-                builder.Append(string.Format(@"{0:#,###,##0.##} ", ProductDetails.PointsRequired))
-                    .Append(RewardsHelper.GetTranslation(TranslationKeys.Label.Points));
-                lblPointCenter.Text = builder.ToString();
             }
 
             lblName.Text = ProductDetails.ProductName;
