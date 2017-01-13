@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml.Linq;
+using customConfig;
 using Factories.Slots.Handlers;
 using Models;
 using Factories.Slots;
@@ -26,19 +27,29 @@ public partial class Slots_ClubApollo : BasePage
 
         SetTitle(commonCulture.ElementValues.getResourceXPathString("/Products/ClubApollo/Label", commonVariables.ProductsXML));
 
+        var opSettings = new OperatorSettings(System.Configuration.ConfigurationManager.AppSettings.Get("Operator"));
+        var addGpi = Convert.ToBoolean(opSettings.Values.Get("GPIAddOtheClubs"));
+
         var handler = new QTHandler(commonVariables.CurrentMemberSessionId, "ClubApollo");
         var qtCategory = handler.Process();
 
         var ppHandler = new PPHandler(commonVariables.CurrentMemberSessionId, "ClubApollo", "FundTransfer");
         var ppCategory = ppHandler.Process(true);
 
-        //var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
-        //var gpiCategory = gpiHandler.Process(true);
+        IEnumerable<IGrouping<string, GameCategoryInfo>> games;
+        if (addGpi)
+        {
+            var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
+            var gpiCategory = gpiHandler.Process(true);
 
-        //qtCategory[0].Current = handler.InsertInjectedGames(gpiCategory, qtCategory[0].Current);
+            qtCategory[0].Current = handler.InsertInjectedGames(gpiCategory, qtCategory[0].Current);
 
-        //var games = qtCategory.Union(ppCategory).Union(gpiCategory).GroupBy(x => x.Title);
-        var games = qtCategory.Union(ppCategory).GroupBy(x => x.Title);
+            games = qtCategory.Union(ppCategory).Union(gpiCategory).GroupBy(x => x.Title);
+        }
+        else
+        {
+            games = qtCategory.Union(ppCategory).GroupBy(x => x.Title);
+        }
 
         var sbGames = new StringBuilder();
         foreach (var category in games)

@@ -623,7 +623,13 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
 <script type="text/javascript">
 
         $(document).ready(function () {
-            $("#ClubNuovoTitle").text();
+            var translations = amplify.store("translations");
+            setTranslations(translations);
+
+            function setTranslations(data) {
+                $("#ClubNuovoTitle").text(data.LABEL_PRODUCTS_CLUB_NUOVO);
+            }
+
         });
 
     $(function () {

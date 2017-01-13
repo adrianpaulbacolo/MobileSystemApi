@@ -1,4 +1,5 @@
-﻿using Factories.Slots;
+﻿using customConfig;
+using Factories.Slots;
 using Factories.Slots.Handlers;
 using Models;
 using System;
@@ -16,15 +17,25 @@ public partial class Slots_ClubMassimo : BasePage
 
         SetTitle(commonCulture.ElementValues.getResourceXPathString("/Products/ClubMassimoSlots/Label", commonVariables.ProductsXML));
 
+        var opSettings = new OperatorSettings(System.Configuration.ConfigurationManager.AppSettings.Get("Operator"));
+        var addGpi = Convert.ToBoolean(opSettings.Values.Get("GPIAddOtheClubs"));
+
         var handler = new MGSHandler(commonVariables.CurrentMemberSessionId, "ClubMassimo", "FundTransfer");
         var mgsCategory = handler.Process();
 
-        //var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
-        //var gpiCategory = gpiHandler.Process(true);
-        //mgsCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, mgsCategory[0].Current);
+        IEnumerable<IGrouping<string, GameCategoryInfo>> games;
+        if (addGpi)
+        {
+            var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
+            var gpiCategory = gpiHandler.Process(true);
+            mgsCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, mgsCategory[0].Current);
 
-        //var games = mgsCategory.Union(gpiCategory).GroupBy(x => x.Title);
-        var games = mgsCategory.GroupBy(x => x.Title);
+            games = mgsCategory.Union(gpiCategory).GroupBy(x => x.Title);
+        }
+        else
+        {
+            games = mgsCategory.GroupBy(x => x.Title);
+        }
 
         var sbGames = new StringBuilder();
         foreach (var category in games)

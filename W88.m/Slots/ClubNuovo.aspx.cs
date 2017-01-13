@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using customConfig;
 using Factories.Slots.Handlers;
 using Models;
 
@@ -14,12 +15,21 @@ public partial class Slots_ClubNuovo : BasePage
         var handler = new GNSHandler(commonVariables.CurrentMemberSessionId, "ClubNuovo", "FundTransfer");
         var gnsCategory = handler.Process();
 
-        //var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
-        //var gpiCategory = gpiHandler.Process(true);
-        //mgsCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, mgsCategory[0].Current);
+        var opSettings = new OperatorSettings(System.Configuration.ConfigurationManager.AppSettings.Get("Operator"));
+        var addGpi = Convert.ToBoolean(opSettings.Values.Get("GPIAddOtheClubs"));
 
-        //var games = mgsCategory.Union(gpiCategory).GroupBy(x => x.Title);
-        var games = gnsCategory.GroupBy(x => x.Title);
+        IEnumerable<IGrouping<string, GameCategoryInfo>> games;
+        if (addGpi)
+        {
+            var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
+            var gpiCategory = gpiHandler.Process(true);
+            gnsCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, gnsCategory[0].Current);
+            games = gnsCategory.Union(gpiCategory).GroupBy(x => x.Title);
+        }
+        else
+        {
+            games = gnsCategory.GroupBy(x => x.Title);
+        }
 
         var sbGames = new StringBuilder();
         foreach (var category in games)
