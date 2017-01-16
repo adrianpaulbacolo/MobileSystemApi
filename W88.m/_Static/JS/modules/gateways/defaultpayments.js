@@ -12,7 +12,7 @@
         Deposit: deposit,
         Withdraw: withdraw,
         AutoRouteIds: autorouteIds,
-        Send: send
+        Send :send
     };
 
     return defaultpayments;
@@ -269,6 +269,9 @@
 
             case "999996":
                 return "Alipay.aspx";
+
+            case "1202113":
+                return "JuyPayAlipay.aspx";
 
             case "1202105":
                 return "NineVPayAlipay.aspx";

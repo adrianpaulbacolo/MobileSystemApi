@@ -7,7 +7,6 @@ using System.Text;
 using System.Web;
 using System.Web.UI.WebControls;
 using System.Xml.Linq;
-using Helpers;
 
 /// <summary>
 /// Summary description for PaymentBasePage
@@ -215,7 +214,7 @@ public class PaymentBasePage : BasePage
 
         using (var svcInstance = new svcPayMember.MemberClient())
         {
-            var response = svcInstance.GetPaymentDepositGatewayLimit(Convert.ToInt64(strOperatorId), strMemberCode);
+            var response = svcInstance.GetPaymentDepositGatewayLimit_Mobile(Convert.ToInt64(strOperatorId), strMemberCode);
 
             var gatewayGroupTable = response.Tables[0].AsEnumerable().FirstOrDefault(d => d.Field<string>("gatewayGroup").Equals(gatewayGroup, StringComparison.OrdinalIgnoreCase));
 

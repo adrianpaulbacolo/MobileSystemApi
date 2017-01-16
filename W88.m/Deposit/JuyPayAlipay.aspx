@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Help2Pay.aspx.cs" Inherits="Deposit_Help2Pay" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="JuyPayAlipay.aspx.cs" Inherits="Deposit_JuyPayAlipay" %>
 
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
@@ -8,6 +8,7 @@
     <title></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/juypayalipay.js"></script>
 </head>
 <body>
     <div data-role="page" data-theme="b">
@@ -68,13 +69,12 @@
                             <asp:Literal ID="txtTotalAllowed" runat="server" />
                         </div>
                     </li>
+                    <li class="item-text-wrap ali-pay-note">
+                        <asp:Label ID="lblNote" runat="server"></asp:Label>
+                    </li>
                     <li class="item item-input">
                         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
                         <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
-                    </li>
-                    <li class="item item-select">
-                        <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
-                        <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
                     </li>
                     <li class="item row">
                         <div class="col">
@@ -85,14 +85,32 @@
             </form>
         </div>
 
+
         <% if (commonCookie.CookieIsApp != "1")
            { %>
         <!--#include virtual="~/_static/navMenu.shtml" -->
         <% } %>
 
+        <style>
+            li.ali-pay-note {
+                font-size: 70%;
+            }
+
+                li.ali-pay-note #lblNote span {
+                    color: red;
+                    font-weight: bold;
+                }
+
+                li.ali-pay-note #lblNote p {
+                    padding-top: 5px;
+                }
+        </style>
+
         <script type="text/javascript">
             $(document).ready(function () {
                 window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
+
+                window.w88Mobile.Gateways.JuyPayAlipay.Initialize();
 
                 $('#form1').submit(function (e) {
                     e.preventDefault();
@@ -100,52 +118,33 @@
 
                     var data = {
                         Amount: $('#txtDepositAmount').val(),
-                        Bank: { Text: $('#drpBank option:selected').text(), Value: $('#drpBank option:selected').val() },
-                        ThankYouPage: location.protocol + "//" + location.host + "/Index"
+                        ThankYouPage: location.protocol + "//" + location.host + "/Deposit/Thankyou.aspx"
                     };
 
-                    var url = w88Mobile.APIUrl + "/payments/120227";
+                    window.w88Mobile.Gateways.JuyPayAlipay.Deposit(data, function (response) {
+                        switch (response.ResponseCode) {
+                            case 1:
+                                w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
+                                w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
+                                w88Mobile.PostPaymentForm.submit();
 
-                    var headers = {
-                        'Token': window.User.token,
-                        'LanguageCode': window.User.lang
-                    };
+                                $('#form1')[0].reset();
+                                break;
+                            default:
+                                if (_.isArray(response.ResponseMessage))
+                                    w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
+                                else
+                                    w88Mobile.Growl.shout(response.ResponseMessage);
 
-                    $.ajax({
-                        type: "POST",
-                        url: url,
-                        data: data,
-                        beforeSend: function () { GPInt.prototype.ShowSplash() },
-                        headers: headers,
-                        success: function (response) {
-                            switch (response.ResponseCode) {
-                                case 1:
-                                    w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
-                                    w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
-                                    w88Mobile.PostPaymentForm.submit();
-
-                                    $('#form1')[0].reset();
-                                    break;
-                                default:
-                                    if (_.isArray(response.ResponseMessage))
-                                        w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
-                                    else
-                                        w88Mobile.Growl.shout(response.ResponseMessage);
-
-                                    break;
-                            }
-                        },
-                        error: function () {
-                            console.log("Error connecting to api");
-                        },
-                        complete: function () {
-                            window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
-                            GPInt.prototype.HideSplash();
+                                break;
                         }
+                    },
+                    function () {
+                        window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
+                        GPInt.prototype.HideSplash();
                     });
                 });
             });
-
         </script>
     </div>
 </body>
