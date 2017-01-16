@@ -37,10 +37,11 @@ function Routes() {
                 var indexpage = new w88Mobile.v2.SlotsCtrl(w88Mobile.v2.Routes
                     , w88Mobile.v2.Slots
                     , w88Mobile.v2._templates);
+                routeCtrl.push(indexpage);
+
                 indexpage.route = pageRoute;
                 indexpage.page = w88Mobile.v2.Routes.currentPage();
                 indexpage.init();
-                routeCtrl.push(indexpage);
                 pubsub.publish("changeHeader");
             });
         }
@@ -63,10 +64,11 @@ function Routes() {
                 var indexpage = new w88Mobile.v2.SlotsCtrl(w88Mobile.v2.Routes
                     , w88Mobile.v2.Slots
                     , w88Mobile.v2._templates);
+                routeCtrl.push(indexpage);
+
                 indexpage.route = pageRoute;
                 indexpage.page = w88Mobile.v2.Routes.currentPage();
                 indexpage.init();
-                routeCtrl.push(indexpage);
                 pubsub.publish("changeHeader");
             });
         }
@@ -92,6 +94,8 @@ function Routes() {
                 var clubpage = new w88Mobile.v2.ClubsCtrl(w88Mobile.v2.Routes
                     , w88Mobile.v2.Slots
                     , w88Mobile.v2._templates);
+                routeCtrl.push(clubpage);
+
                 clubpage.route = pageRoute;
                 clubpage.page = w88Mobile.v2.Routes.currentPage();
                 clubpage.page = _.extend(clubpage.page, params);
@@ -99,7 +103,6 @@ function Routes() {
                     return club.name == clubpage.page.club;
                 });
                 clubpage.init();
-                routeCtrl.push(clubpage);
                 pubsub.publish("changeHeader");
             });
         }
@@ -126,6 +129,8 @@ function Routes() {
                 var clubpage = new w88Mobile.v2.ClubsCtrl(w88Mobile.v2.Routes
                     , w88Mobile.v2.Slots
                     , w88Mobile.v2._templates);
+                routeCtrl.push(clubpage);
+
                 clubpage.route = pageRoute;
                 clubpage.page = w88Mobile.v2.Routes.currentPage();
                 clubpage.page = _.extend(clubpage.page, params);
@@ -133,7 +138,6 @@ function Routes() {
                     return club.name == clubpage.page.club;
                 });
                 clubpage.init();
-                routeCtrl.push(clubpage);
                 pubsub.publish("changeHeader");
                 if (!_.isUndefined(params.form)) {
                     clubpage.filterClubSlots({

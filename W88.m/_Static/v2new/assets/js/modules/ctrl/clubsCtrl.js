@@ -6,11 +6,17 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
     this.page = {};
     this.route = "";
     this.routeObj = routeObj;
+    this.clubFilter = {
+        category: [],
+        minbet: [],
+        playlines: [],
+    }
     this.club = {};
 
     this.init = function () {
         var _self = this;
         pubsub.subscribe("filterSlotByClub", onFilterSlotByClub);
+        pubsub.subscribe("updateFilterOptions", onUpdateFilterOptions);
         _self.games = slotSvc.itemsByClub(_self.club.providers);
         getFilterOptions(_self.club);
 
@@ -37,7 +43,6 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
         var _self = this;
 
         if (!_.isUndefined(filter.section) && filter.section.toLowerCase() == 'all') {
-
             _self.page.find(".main-content").children().remove();
             pubsub.publish('searchSlots', {
                 club: _self.club
@@ -112,63 +117,43 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
 
     function getFilterOptions(club) {
 
-        if (!slotSvc.clubFilter.club || (slotSvc.clubFilter.club && !_.isEqual(slotSvc.clubFilter.club, club))) {
-            var defaultAll = { Text: slotSvc.translations.LABEL_ALL_DEFAULT, Value: "All" };
-
-            slotSvc.clubFilter = {
-                club: club,
-                category: [defaultAll],
-                minbet: [defaultAll],
-                playlines: [defaultAll],
-            };
-
-            _.forEach(club.providers, function (provider) {
-                var url = "/api/games/" + provider;
-
-                slotSvc.send(url + "/category", "GET", {}, function (response) {
-
-                    slotSvc.clubFilter.category = _.concat(slotSvc.clubFilter.category, response.ResponseData);
-
-                    loadClubCategory();
-
-                }, function () { });
-
-                slotSvc.send(url + "/minbet", "GET", {}, function (response) {
-
-                    var minBet = _.map(response.ResponseData, function (data) {
-                        return { Text: data, Value: data };
-                    });
-
-                    slotSvc.clubFilter.minbet = _.concat(slotSvc.clubFilter.minbet, minBet);
-
-                    loadClubMinBet();
-
-                }, function () { });
-
-                slotSvc.send(url + "/playlines", "GET", {}, function (response) {
-
-                    var playlines = _.map(response.ResponseData, function (data) {
-                        return { Text: data, Value: data };
-                    });
-
-                    slotSvc.clubFilter.playlines = _.concat(slotSvc.clubFilter.playlines, playlines);
-
-                    loadClubPlayLines();
-                }, function () { });
-
-            })
-        }
-        else {
-            loadClubCategory();
-            loadClubMinBet();
-            loadClubPlayLines();
-        }
+        _.forEach(club.providers, function (provider) {
+            var hasProvider = !_.isUndefined(slotSvc.clubFilterOptions[provider]);
+            if (!hasProvider || _.isUndefined(slotSvc.clubFilterOptions[provider]["category"])) {
+                slotSvc.fetchClubFilter("category", provider);
+            }
+            if (!hasProvider || _.isUndefined(slotSvc.clubFilterOptions[provider]["minbet"])) {
+                slotSvc.fetchClubFilter("minbet", provider);
+            }
+            if (!hasProvider || _.isUndefined(slotSvc.clubFilterOptions[provider]["playlines"])) {
+                slotSvc.fetchClubFilter("playlines", provider);
+            }
+        });
+        loadClubCategory();
+        loadClubMinBet();
+        loadClubPlayLines();
         loadClubProviders(club);
+    }
+
+    function onUpdateFilterOptions(topic, data) {
+        switch (data.option) {
+            case "category":
+                loadClubCategory();
+                break;
+            case "minbet":
+                loadClubMinBet();
+                break;
+            case "playlines":
+                loadClubPlayLines();
+                break;
+        }
     }
 
     function loadClubCategory() {
         $('#clubCategory').empty();
-        _.forEach(slotSvc.clubFilter.category, function (data) {
+        var ctrl = routeObj.currentCtrl();
+        var categories = slotSvc.getClubFilterOptions("category", ctrl.club.providers);
+        _.forEach(categories, function (data) {
             if ($('#clubCategory').find('option[value="' + data.Value + '"]').length == 0) {
                 $('#clubCategory').append($("<option></option>").attr("value", data.Value).text(data.Text))
             }
@@ -177,7 +162,9 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
 
     function loadClubMinBet() {
         $('#clubMinBet').empty();
-        _.forEach(slotSvc.clubFilter.minbet, function (data) {
+        var ctrl = routeObj.currentCtrl();
+        var minbets = slotSvc.getClubFilterOptions("minbet", ctrl.club.providers);
+        _.forEach(minbets, function (data) {
             if ($('#clubMinBet').find('option[value="' + data.Value + '"]').length == 0) {
                 $('#clubMinBet').append($("<option></option>").attr("value", data.Value).text(data.Text))
             }
@@ -186,7 +173,9 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
 
     function loadClubPlayLines() {
         $('#clubPlayLines').empty();
-        _.forEach(slotSvc.clubFilter.playlines, function (data) {
+        var ctrl = routeObj.currentCtrl();
+        var playlines = slotSvc.getClubFilterOptions("playlines", ctrl.club.providers);
+        _.forEach(playlines, function (data) {
             if ($('#clubPlayLines').find('option[value="' + data.Value + '"]').length == 0) {
                 $('#clubPlayLines').append($("<option></option>").attr("value", data.Value).text(data.Text))
             }

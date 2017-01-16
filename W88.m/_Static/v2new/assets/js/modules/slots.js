@@ -11,6 +11,8 @@ function Slots() {
         , "all": "LABEL_SLOTS_ALL"
     };
 
+    clubFilterOptions = {};
+
     var providers = ["qt", "gpi", "mgs", "pt", "ctxm", "isb"];
     var clubs = [
         { name: "apollo", label: "Club Apollo", providers: ["qt", "pp", "gpi"] }
@@ -33,7 +35,9 @@ function Slots() {
         , getFilterOptions: getFilterOptions
         , showGameModal: showGameModal
         , sections: sections
-        , clubFilter: {}
+        , clubFilterOptions: clubFilterOptions
+        , fetchClubFilter: fetchClubFilter
+        , getClubFilterOptions: getClubFilterOptions
         , translations: {}
         , sectionKeys: sectionKeys
         , send: send
@@ -122,7 +126,6 @@ function Slots() {
         return items;
     }
 
-
     function itemsByClub(providers, section) {
         return _.filter(w88Mobile.v2.Slots.items, function (item) {
             var itemProviders = _.join(item.providers, ",").toLowerCase().split(",");
@@ -135,7 +138,7 @@ function Slots() {
     function getFilterOptions(club) {
 
         if (!w88Mobile.v2.Slots.clubFilter.club || (w88Mobile.v2.Slots.clubFilter.club && !_.isEqual(w88Mobile.v2.Slots.clubFilter.club, club.name))) {
-            var defaultAll = { Text: w88Mobile.v2.Slots.translations.LABEL_ALL_DEFAULT, Value: "All" };
+            var defaultAll = { Text: _contents.translate("LABEL_ALL_DEFAULT") };
 
             w88Mobile.v2.Slots.clubFilter = {
                 club: club.name,
@@ -224,10 +227,10 @@ function Slots() {
 
         $('#gameTitle').text(game.TranslatedTitle.toUpperCase());
 
-        $('#gameFunUrl').attr('href', game.FunUrl);//.html(_contents.translate("BUTTON_FREE_PLAY"));
+        $('#gameFunUrl').attr('href', game.FunUrl).html(_contents.translate("LABEL_TRY"));
         $('#gameRegisterUrl').html(_contents.translate("BUTTON_REGISTER"));
         $('#gameLoginUrl').html(_contents.translate("BUTTON_LOGIN"));
-        //$('#gameRealUrl').html(_contents.translate("BUTTON_PLAY"));
+        $('#gameRealUrl').html(_contents.translate("LABEL_PLAY"));
 
         var isPT = _.indexOf(game.providers, "PT") != -1;
         if (isPT) {
@@ -257,5 +260,45 @@ function Slots() {
         }
 
         $('#gameModal').modal('toggle');
+    }
+
+    function fetchClubFilter(option, provider) {
+
+        var url = "/api/games/" + provider + "/" + option;
+        send(url, "GET", {}, function (response) {
+            if (_.isUndefined(clubFilterOptions[provider])) clubFilterOptions[provider] = {};
+            clubFilterOptions[provider][option] = response.ResponseData;
+            pubsub.publish("updateFilterOptions", { option: option });
+
+        }, function () {
+        });
+    }
+
+    function getClubFilterOptions(option, providers) {
+        var options = [];
+        options.push({ Text: _contents.translate("LABEL_ALL_DEFAULT"), Value: "All" });
+        _.forEach(providers, function (provider) {
+            if (!_.isUndefined(clubFilterOptions[provider]) && !_.isUndefined(clubFilterOptions[provider][option])) {
+                var data = [];
+                switch (option) {
+                    case 'minbet':
+                        data = _.map(clubFilterOptions[provider][option], function (data) {
+                            return { Text: data, Value: data };
+                        });
+                        break;
+                    case 'playlines':
+                        data = _.map(clubFilterOptions[provider][option], function (data) {
+                            return { Text: data, Value: data };
+                        });
+                        break;
+                    default:
+                        data = clubFilterOptions[provider][option]
+                        break;
+                }
+                options = _.concat(options, data);
+            }
+        });
+
+        return options;
     }
 }

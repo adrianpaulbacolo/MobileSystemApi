@@ -7,6 +7,7 @@ function Templates() {
         { id: 'SearchList', url: 'assets/templates/search.html' }
         , { id: 'SlotList', url: 'assets/templates/slotCategory.html' }
         , { id: 'TopBar', url: 'assets/templates/header.html' }
+        , { id: 'MainPage', url: 'assets/templates/page.html' }
     ];
 
     this.init = function () {
