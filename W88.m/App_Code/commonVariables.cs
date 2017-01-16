@@ -219,6 +219,7 @@ public class commonVariables
         DaddyPay = 120243,
         DaddyPayQR = 120244,
         Neteller = 120214,
+        KexunPay = 1202127,
         PaySec = 120290,
         SDAPayAlipay = 120254,
         ShengPayAliPay = 1202111,
