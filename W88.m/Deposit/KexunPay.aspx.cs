@@ -23,34 +23,9 @@ public partial class Deposit_KexunPay : PaymentBasePage
     {
         if (!Page.IsPostBack)
         {
-            //this.InitializeBank();
             this.InitializeLabels();
         }
     }
-
-    //private void InitializeBank()
-    //{
-    //    try
-    //    {
-    //        XElement xElementBank = null;
-
-    //        commonCulture.appData.getRootResource("/Deposit/Help2PayBank", out xElementBank);
-
-    //        XElement xElementBankPath = xElementBank.Element(strCurrencyCode);
-    //        var banks = from bank in xElementBankPath.Elements("bank") select new { value = bank.Attribute("id").Value, text = bank.Value };
-
-    //        drpBank.Items.Insert(0, new ListItem(commonCulture.ElementValues.getResourceString("drpBank", xeResources), "-1"));
-
-    //        foreach (var b in banks)
-    //        {
-    //            drpBank.Items.Add(new ListItem(b.text, b.value));
-    //        }
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        commonAuditTrail.appendLog("system", "help2pay", "InitializeBank", string.Empty, string.Empty, string.Empty, "-99", "exception", ex.Message, string.Empty, string.Empty, true);
-    //    }
-    //}
 
     private void InitializeLabels()
     {
@@ -67,8 +42,6 @@ public partial class Deposit_KexunPay : PaymentBasePage
         txtTotalAllowed.Text = base.strtxtTotalAllowed;
 
         lblDepositAmount.Text = base.strlblAmount;
-
-        //lblBank.Text = base.strlblBank;
 
         btnSubmit.Text = base.strbtnSubmit;
 
