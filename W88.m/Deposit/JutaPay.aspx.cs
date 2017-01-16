@@ -12,7 +12,6 @@ public partial class Deposit_JutaPay : PaymentBasePage
         base.PageName = Convert.ToString(commonVariables.DepositMethod.JutaPay);
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.JutaPay);
-
     }
 
     protected void Page_Load(object sender, EventArgs e)
