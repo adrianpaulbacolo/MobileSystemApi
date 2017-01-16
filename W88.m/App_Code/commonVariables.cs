@@ -216,6 +216,7 @@ public class commonVariables
         PayGo = 110394,
         SDPay = 120223,
         Help2Pay = 120227,
+        KDPayWeChat = 1202114,
         DaddyPay = 120243,
         DaddyPayQR = 120244,
         Neteller = 120214,

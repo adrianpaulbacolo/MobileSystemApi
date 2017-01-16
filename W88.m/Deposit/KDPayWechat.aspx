@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Help2Pay.aspx.cs" Inherits="Deposit_Help2Pay" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="KDPayWechat.aspx.cs" Inherits="Deposit_KDPayWechat" %>
 
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
@@ -72,10 +72,6 @@
                         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
                         <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
-                    <li class="item item-select">
-                        <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
-                        <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
-                    </li>
                     <li class="item row">
                         <div class="col">
                             <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" />
@@ -100,8 +96,6 @@
 
                     var data = {
                         Amount: $('#txtDepositAmount').val(),
-                        Bank: { Text: $('#drpBank option:selected').text(), Value: $('#drpBank option:selected').val() },
-                        ThankYouPage: location.protocol + "//" + location.host + "/Index"
                     };
 
                     var url = w88Mobile.APIUrl + "/payments/" + "<%=base.PaymentMethodId %>";
