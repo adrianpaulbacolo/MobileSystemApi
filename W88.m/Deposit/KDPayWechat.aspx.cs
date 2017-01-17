@@ -45,6 +45,11 @@ public partial class Deposit_KDPayWechat : PaymentBasePage
 
         btnSubmit.Text = base.strbtnSubmit;
 
+        XElement xeResources;
+        commonCulture.appData.getRootResource("Deposit/JTPayWeChat", out xeResources);
+
+        lblNote.Text = commonCulture.ElementValues.getResourceString("lblNote", xeResources);
+
         lblTransactionId = base.strlblTransactionId;
     }
 }
