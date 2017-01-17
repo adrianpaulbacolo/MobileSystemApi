@@ -29,6 +29,10 @@ public partial class Deposit_KexunPay : PaymentBasePage
 
     private void InitializeLabels()
     {
+        XElement xRes;
+        commonCulture.appData.getRootResource("Deposit/JTPayWeChat", out xRes);
+        lblNote.Text = commonCulture.ElementValues.getResourceString("lblNote", xRes);
+
         lblMode.Text = base.strlblMode;
         txtMode.Text = base.strtxtMode;
 
