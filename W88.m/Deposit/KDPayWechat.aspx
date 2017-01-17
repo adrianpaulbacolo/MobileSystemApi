@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Help2Pay.aspx.cs" Inherits="Deposit_Help2Pay" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="KDPayWechat.aspx.cs" Inherits="Deposit_KDPayWechat" %>
 
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
@@ -68,13 +68,12 @@
                             <asp:Literal ID="txtTotalAllowed" runat="server" />
                         </div>
                     </li>
+                    <li class="item-text-wrap ali-pay-note">
+                        <asp:Label ID="lblNote" runat="server"></asp:Label>
+                    </li>
                     <li class="item item-input">
                         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
                         <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
-                    </li>
-                    <li class="item item-select">
-                        <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
-                        <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
                     </li>
                     <li class="item row">
                         <div class="col">
@@ -90,6 +89,21 @@
         <!--#include virtual="~/_static/navMenu.shtml" -->
         <% } %>
 
+        <style>
+            li.ali-pay-note {
+                font-size: 70%;
+            }
+
+                li.ali-pay-note #lblNote span {
+                    color: red;
+                    font-weight: bold;
+                }
+
+                li.ali-pay-note #lblNote p {
+                    padding-top: 5px;
+                }
+        </style>
+
         <script type="text/javascript">
             $(document).ready(function () {
                 window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
@@ -100,8 +114,6 @@
 
                     var data = {
                         Amount: $('#txtDepositAmount').val(),
-                        Bank: { Text: $('#drpBank option:selected').text(), Value: $('#drpBank option:selected').val() },
-                        ThankYouPage: location.protocol + "//" + location.host + "/Index"
                     };
 
                     var url = w88Mobile.APIUrl + "/payments/" + "<%=base.PaymentMethodId %>";

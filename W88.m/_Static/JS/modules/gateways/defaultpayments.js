@@ -219,6 +219,9 @@
             case "120227":
                 return "Help2Pay.aspx";
 
+            case "1202114":
+                return "KDPayWechat.aspx";
+
             case "120243":
                 return "DaddyPay.aspx?value=1";
 
