@@ -13,6 +13,7 @@
 <script src="/_Static/JS/jquery.mask.min.js"></script>
 <script src="/_Static/JS/vendor/lodash.js"></script>
 <script src="/_Static/JS/vendor/moment.min.js"></script>
+<script src="/_Static/JS/vendor/amplify.min.js"></script>
 <script src="/_Static/JS/Mobile/iscroll.js"></script>
 <script src="/_Static/JS/Cookie.js"></script>
 <script src="/_Static/JS/GPINT.js"></script>
@@ -27,6 +28,7 @@
     window.User.token = '<%= commonVariables.CurrentMemberSessionId %>';
     window.User.sessionInterval = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("sessionInterval") %>';
     window.User.lang = '<%=commonVariables.SelectedLanguage%>';
+    window.User.storageExpiration = { expires: 1200000 };
 </script>
 <script type="text/javascript" src="/_Static/JS/modules/slots.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/formValidator.js"></script>
@@ -35,9 +37,38 @@
     // set initial values for notification
     if(!_.isUndefined(w88Mobile.Growl)){
         w88Mobile.Growl.options.lang = '<%=commonVariables.SelectedLanguageShort%>';
-        w88Mobile.Growl.options.close = '<%=commonCulture.ElementValues.getResourceString("close", commonVariables.LeftMenuXML)%>';
-        w88Mobile.Gateways = {};
-        w88Mobile.APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("APIUrl") %>';
+        w88Mobile.Growl.options.close = '<%=commonCulture.ElementValues.getResourceString("close", commonVariables.LeftMenuXML)%>';   
+    }
+
+    w88Mobile.APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("APIUrl") %>';
+    w88Mobile.Gateways = {};
+
+    var translations = amplify.store("translations");
+
+    var headers = {
+        'Token': window.User.token,
+        'LanguageCode': window.User.lang
+    };
+
+    if (!translations || (translations && headers.LanguageCode != translations.language)) {
+        $.ajax({
+            type: "GET",
+            url: w88Mobile.APIUrl + "/contents",
+            headers: headers,
+            success: function (response) {
+                switch (response.ResponseCode) {
+                    case 1:
+                        response.ResponseData.language = window.User.lang;
+                        amplify.store("translations", response.ResponseData, window.User.storageExpiration);
+                        w88Mobile.Gateways.Translations = response.ResponseData;
+                    default:
+                        break;
+                }
+            },
+            error: function () {
+                console.log("Error connecting to api");
+            },
+        });
     }
     </script>
 <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0" />

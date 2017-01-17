@@ -270,6 +270,9 @@
             case "999996":
                 return "Alipay.aspx";
 
+            case "999995":
+                return "WeChat.aspx";
+
             case "1202113":
                 return "JuyPayAlipay.aspx";
 

@@ -46,9 +46,5 @@ public partial class Deposit_Alipay : PaymentBasePage
 
         lblTransactionId = base.strlblTransactionId;
 
-        XElement xeResources;
-        commonCulture.appData.getRootResource("Deposit/JuyPayAlipay", out xeResources);
-
-        lblNote.Text = commonCulture.ElementValues.getResourceString("lblNote", xeResources);
     }
 }
