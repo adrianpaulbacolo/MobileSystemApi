@@ -222,6 +222,7 @@ public class commonVariables
         PaySec = 120290,
         SDAPayAlipay = 120254,
         ShengPayAliPay = 1202111,
+        NineVPayAlipay = 1202105,
         ECPSS = 120218,
         BofoPay = 120231,
         JTPayWeChat = 1202123,

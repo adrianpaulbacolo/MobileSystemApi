@@ -273,6 +273,9 @@
             case "1202113":
                 return "JuyPayAlipay.aspx";
 
+            case "1202105":
+                return "NineVPayAlipay.aspx";
+
             default:
                 break
         }
