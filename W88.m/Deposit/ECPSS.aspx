@@ -9,6 +9,8 @@
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js"></script>
     <script type="text/javascript" src="/_Static/JS/modules/gateways/ecpss.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/gateway.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/ecpsspay.js"></script>
 </head>
 <body>
     <div data-role="page" data-theme="b">
@@ -100,38 +102,17 @@
 
                 $('#form1').submit(function (e) {
                     e.preventDefault();
-                    window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
-
                     var data = {
                         Amount: $('#txtDepositAmount').val(),
-                        Bank: { Text: $('#drpBank option:selected').text(), Value: $('#drpBank option:selected').val() },
+                        BankText: $('#drpBank option:selected').text(),
+                        BankValue: $('#drpBank option:selected').val(),
+                        MethodId: "<%=base.PaymentMethodId%>"
                     };
-
-                    window.w88Mobile.Gateways.ECPSS.Deposit(data, function (response) {
-                        switch (response.ResponseCode) {
-                            case 1:
-                                w88Mobile.Growl.shout(response.ResponseMessage);
-                                w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.DummyURL, "body");
-                                w88Mobile.PostPaymentForm.submit();
-                                $('#form1')[0].reset();
-                                break;
-                            default:
-                                if (_.isArray(response.ResponseMessage))
-                                    w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
-                                else
-                                    w88Mobile.Growl.shout(response.ResponseMessage);
-
-                                window.open(response.ResponseData.DummyURL);
-                                $('#form1')[0].reset();
-                                break;
-                        }
-                    },
-                    function () {
-                        window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
-                        GPInt.prototype.HideSplash();
-                    });
+                    var action = "/Deposit/Pay.aspx";
+                    var params = decodeURIComponent($.param(data));
+                    window.open(action + "?" + params, "<%=base.PageName%>");
+                    return;
                 });
-
             });
         </script>
     </div>
