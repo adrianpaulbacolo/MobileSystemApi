@@ -249,6 +249,9 @@
             case "1202123":
                 return "WeChat";
 
+            case "1202127":
+                return "KexunPay.aspx";
+
             case "1202122":
                 return "Alipay";
 
