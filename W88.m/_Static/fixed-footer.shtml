@@ -1,0 +1,16 @@
+<div data-role="footer" data-position="fixed">
+	<div class="footer-nav">
+		<div class="active">
+			<a href="#" class="footer-nav-item"><i class="icon icon-wallet"></i><span>Funds</span></a>
+		</div>
+		<div>
+			<a href="#" class="footer-nav-item"><i class="icon icon-rewards"></i><span>Rewards</span></a>
+		</div>
+		<div>
+			<a href="#" class="footer-nav-item"><i class="icon icon-promo"></i><span>Promos</span></a>
+		</div>
+		<div>
+			<a href="#" class="footer-nav-item"><i class="icon icon-chat"></i><span>Contact</span></a>
+		</div>
+	</div>
+</div>
