@@ -13,7 +13,7 @@ GPInt.prototype.ShowSplash = function (show) {
         })
         .append(
             $('<div />', { style: '' })
-            .append($('<img />', { src: '/_Static/Images/logo_w88a.png', style: '' }))
+            .append($('<img />', { src: '/_Static/Images/logo-loader.png', style: '' }))
             .append($('<div />', { class: 'spinner' })
                 .append($('<div />', { class: 'rect1' })).append("&nbsp;")
                 .append($('<div />', { class: 'rect2' })).append("&nbsp;")
@@ -22,16 +22,17 @@ GPInt.prototype.ShowSplash = function (show) {
                 )
             )
         );
-
+   
     if (!show) {
-        window.setTimeout(function () {
-            this.GPINTMOBILE.HideSplash();
-        }, 10000);
-    }
+    window.setTimeout(function () {
+        this.GPINTMOBILE.HideSplash();
+    }, 10000);
+}
 }
 GPInt.prototype.HideSplash = function () {
     window.setTimeout(function () { $('body').find('div#divSplashContainer').remove(); }, 1000);
 }
+
 /*GAMEPLAYINT END*/
 GPInt.prototype.GetLoaderScafold = function () {
     return '<div class="spinner-generic"><div class="rect1"></div>&nbsp;<div class="rect2"></div>&nbsp;<div class="rect3"></div>&nbsp;<div class="rect4"></div>&nbsp;<div class="rect5"></div>&nbsp;</div>';

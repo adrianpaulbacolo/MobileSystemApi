@@ -1,0 +1,147 @@
+.rebates{
+	form{
+		padding-top: 1em;
+	}
+}
+.rebates-group{
+	padding-left: 1em;
+	padding-right: 1em;
+	max-width: 767px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 1.5rem;
+	.rebates-row{
+		margin-bottom: 3rem;
+		> h2{
+			color: $ltGray-color;
+			font-size: 1em;
+			font-weight: 700;
+		}
+		&.rebates-row-boxed{
+			background-color: rgba(0,0,0,0.15);
+			padding: 1.2rem;
+		}
+		.button-blue{
+			color: $white;
+			text-transform: uppercase;
+		}
+
+	}
+	.rebate-box{
+		background-color: darken($primary-color, 23%);
+		margin-bottom: 1.5em;
+
+		.collapsible-btn{
+			margin-top: -1px;
+			text-transform: uppercase;
+			font-size: 0.786em;
+			color: darken($ltGray-color, 30%);
+			text-align: center;
+			background-color: darken($primary-color, 38%) !important;
+			display: block;
+			padding: 3px 0;
+			&:before{
+    			font-family: "Ionicons";
+				content:'\f3d0';
+				margin-right: 4px;
+			}
+			&.collapsed:before{
+				content:'\f3d8';
+			}
+		}
+	}
+	.rebate-title{
+		h3{
+    		margin-top: 0.5em;
+			font-size: 1.143em;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		.ui-btn{
+			font-size: 1em;
+			padding: 0.5em;
+		}
+	}
+	.ui-collapsible{
+		margin: 0;
+		margin-bottom: 1px;
+		.ui-collapsible-heading-toggle{
+			color: #ccc;
+			font-size: 1.143em !important;
+			padding: 0.875em 1em;
+			border: none !important;
+			&:after{
+				content:'\f3d8';
+			}
+			&:focus,
+			&:hover{
+				background-color: darken($primary-color, 16%);
+			}
+		}
+
+		&.ui-collapsible-collapsed{
+			.ui-collapsible-heading-toggle:after{
+				content:'\f3d0';
+			}
+			
+		}
+	}
+}
+.rebate-table{
+	padding: 0 1em;
+	background-color: darken($primary-color, 36%) !important;
+	table{
+		width: 100%;
+		font-size: 1em;
+		tr{
+			border-bottom: 1px solid rgba($white, 0.03);
+			td{
+				padding-top: 1em;
+				padding-bottom: 1em;
+				&:first-child{
+					font-weight: 700;
+				}
+				&:last-child{
+					text-align: right;
+				}
+			}
+		}
+		&:last-child tr:last-child{
+			border-bottom: none;
+		}
+	}
+	.collapsible-table{
+		display: none;
+	}
+	&.rebate-table-modal{
+		padding: 0;
+		background-color: transparent !important;
+		table{
+		}
+	}
+
+}
+
+.rebates-disclaimer{
+	max-width: 767px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 1em;
+}
+.rebates-modal-content{
+	background-color: #111;
+	padding-top: 1.5em;
+}
+
+@media all and (min-width: 769px) {
+	.rebates-group{
+		.rebate-title{
+			.ui-btn{
+				width: auto;
+				display: inline-block;
+			}
+		}
+	}
+
+}
