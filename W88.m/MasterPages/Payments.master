@@ -1,0 +1,132 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/Site.master" AutoEventWireup="true" CodeFile="Payments.master.cs" Inherits="MasterPages_Payments" %>
+
+<%@ Register TagPrefix="mainWallet" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/payments.js"></script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <!--Payments Master-->
+    <div class="ui-content" role="main">
+        <div class="wallet main-wallet">
+            <mainWallet:Wallet ID="uMainWallet" runat="server" />
+        </div>
+
+        <div class="toggle-list-box">
+            <button class="toggle-list-btn btn-active" id="activeTab"></button>
+            <ul class="toggle-list hidden" id="paymentTabs">
+            </ul>
+        </div>
+
+        <form class="form" id="form1" runat="server" data-ajax="false">
+            <br>
+            <ul class="list fixed-tablet-size">
+                <li class="row">
+                    <div class="col">
+                        <span id="lblMode" />
+                    </div>
+                    <div class="col">
+                        <span id="txtMode" />
+                    </div>
+                </li>
+                <li class="row">
+                    <div class="col">
+                        <span id="lblMinMaxLimit" />
+                    </div>
+                    <div class="col">
+                        <span id="txtMinMaxLimit" />
+                    </div>
+                </li>
+                <li class="row">
+                    <div class="col">
+                        <span id="lblDailyLimit" />
+                    </div>
+                    <div class="col">
+                        <span id="txtDailyLimit" />
+                    </div>
+                </li>
+                <li class="row">
+                    <div class="col">
+                        <span id="lblTotalAllowed" />
+                    </div>
+                    <div class="col">
+                        <span id="txtTotalAllowed" />
+                    </div>
+                </li>
+            </ul>
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+
+            <ul class="list fixed-tablet-size">
+                <li class="item row">
+                    <div class="col">
+                        <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" />
+                    </div>
+                </li>
+            </ul>
+        </form>
+    </div>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder" runat="Server">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var translations = amplify.store("translations");
+
+            var isDeposit = _.includes(window.location.pathname.toLowerCase(), "deposit");
+
+            setTranslations(translations);
+
+            function setTranslations(data) {
+                var headerTitle = isDeposit ? data.LABEL_FUNDS_DEPOSIT : data.LABEL_FUNDS_WIDRAW;
+                $('#headerTitle').text(headerTitle);
+                $('#lblMode').text(data.LABEL_MODE);
+                $('#lblMinMaxLimit').text(data.LABEL_MINMAX_LIMIT);
+                $('#lblDailyLimit').text(data.LABEL_DAILY_LIMIT);
+                $('#lblTotalAllowed').text(data.LABEL_TOTAL_ALLOWED);
+
+                $('#<%=btnSubmit.ClientID%>').val(data.BUTTON_SUBMIT).button("refresh");
+            }
+
+            var resource = "", payment = undefined, storage = "";
+
+            if (isDeposit) {
+                resource = "/payments/settings/deposit";
+                payment = amplify.store("depositSettings");
+                storage = "depositSettings";
+            } else {
+                resource = "/payments/settings/withdrawal";
+                payment = amplify.store("withdrawalSettings");
+                storage = "withdrawalSettings";
+            }
+
+            if (!payment || (payment && window.User.lang != payment.language)) {
+                var headers = {
+                    'Token': window.User.token,
+                    'LanguageCode': window.User.lang
+                };
+
+                $.ajax({
+                    type: "GET",
+                    url: w88Mobile.APIUrl + resource,
+                    headers: headers,
+                    success: function (response) {
+                        switch (response.ResponseCode) {
+                            case 1:
+                                var data = { settings: response.ResponseData, language: window.User.lang };
+
+                                amplify.store(storage, data, window.User.storageExpiration);
+                            default:
+                                break;
+                        }
+                    },
+                    error: function () {
+                        console.log("Error connecting to api");
+                    },
+                });
+            }
+        });
+    </script>
+
+    <asp:ContentPlaceHolder ID="ScriptsPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
