@@ -24,6 +24,14 @@
     }
 
     function init() {
+        var translations = amplify.store("translations");
+        setTranslations(translations);
+        function setTranslations(data) {
+            if (!_.isUndefined(data)) {
+                $("#paymentNote").text(data.LABEL_PAYMENT_NOTE);
+                $("#paymentNoteContent").text(data.LABEL_PAYMENT_NOTE1);
+            }
+        }
     }
 
 }
