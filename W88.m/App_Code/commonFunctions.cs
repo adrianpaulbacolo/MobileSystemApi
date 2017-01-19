@@ -709,12 +709,22 @@ public static class commonFunctions
             {
                 responseCode = 2;
             }
+            else if (strUserAgent.ToLower().Contains("clubw"))
+            {
+                // club w native embed
+                responseCode = 4;
+            }
             else
             {
                 responseCode = 3;
             }
         }
         return responseCode;
+    }
+
+    public static bool isNativeAgent(HttpRequest request)
+    {
+        return getMobileDevice(request) == 4;
     }
 
 
