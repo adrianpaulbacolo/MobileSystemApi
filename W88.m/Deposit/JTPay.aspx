@@ -36,10 +36,6 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            var payments = new w88Mobile.Gateways.Payments("<%=base.PaymentMethodId %>");
-
-            payments.init();
-
             window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
 
             window.w88Mobile.Gateways.JTPay.Initialize($("#hdnNoteVersion").val());
@@ -49,14 +45,15 @@
                 // use api
                 e.preventDefault();
                 var data = {
-                    Amount: $('#<%=txtDepositAmount.ClientID%>').val(),
+                    Amount: $('#txtDepositAmount').val(),
                     ThankYouPage: location.protocol + "//" + location.host + "/Deposit/Thankyou.aspx"
                 };
 
-                payments.send(data, function (response) {
-                    switch (response.ResponseCode) {
-                        case 1:
-                            w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
+                w88Mobile.Gateways.JTPay.gatewayId = "<%=base.PaymentMethodId %>";
+                    w88Mobile.Gateways.JTPay.deposit(data, function (response) {
+                        switch (response.ResponseCode) {
+                            case 1:
+                                w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
                             w88Mobile.PostPaymentForm.create(
                                 response.ResponseData.FormData,
                                 response.ResponseData.PostUrl,
@@ -78,7 +75,7 @@
                     w88Mobile.FormValidator.enableSubmitButton('#ContentPlaceHolder1_btnSubmit');
                     GPINTMOBILE.HideSplash();
                 });
-            });
+                });
         });
-    </script>
+        </script>
 </asp:Content>
