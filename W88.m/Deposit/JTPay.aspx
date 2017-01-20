@@ -45,7 +45,7 @@
                 // use api
                 e.preventDefault();
                 var data = {
-                    Amount: $('#txtDepositAmount').val(),
+                    Amount: $('#<%=txtDepositAmount.ClientID%>').val(),
                     ThankYouPage: location.protocol + "//" + location.host + "/Deposit/Thankyou.aspx"
                 };
 
