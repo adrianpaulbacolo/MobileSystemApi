@@ -44,144 +44,196 @@
 
     // deposit
     function deposit(countryCode, memberid, paymentNotice, activeTabId) {
-        send("/payments/settings/deposit", "GET",
-            function (response) {
-                switch (response.ResponseCode) {
-                    case 1:
-                        if (response.ResponseData.length > 0) {
-                            var routing = [
-                                autorouteIds.QuickOnline,
-                                autorouteIds.UnionPay,
-                                autorouteIds.TopUpCard,
-                                autorouteIds.AliPay,
-                                autorouteIds.WeChat
-                            ];
 
-                            var isAutoRoute = false, title = "", page = null, deposit = "/Deposit/";
+        var payment = amplify.store("depositSettings");
 
-                            for (var i = 0; i < response.ResponseData.length; i++) {
-                                var data = response.ResponseData[i];
+        if (payment && window.User.lang == payment.language) {
+            setDepositPaymentTab(payment.settings, activeTabId)
+        }
+        else {
+            send("/payments/settings/deposit", "GET",
+                function (response) {
+                    switch (response.ResponseCode) {
+                        case 1:
+                            var data = { settings: response.ResponseData, language: window.User.lang };
 
-                                page = setPaymentPage(data.Id);
+                            amplify.store("depositSettings", data, window.User.storageExpiration);
 
-                                if (page)
-                                    page = deposit + page;
-                                else
-                                    continue;
-
-                                if (activeTabId) {
-                                    if (_.isEqual(data.Id, activeTabId))
-                                        title = data.Title;
-
-                                    var anchor = $('<a />', { class: 'ui-btn ui-shadow ui-corner-all', id: data.Id, href: page, 'data-ajax': false }).text(data.Title);
-
-                                    $('#depositTabs').append($('<li />').append(anchor));
-                                }
-                                else if (!activeTabId && _.includes(routing, data.Id)) {
-                                    if (!_.includes(window.location.pathname, page)) {
-                                        window.location.href = page;
-                                        isAutoRoute = true;
-                                        break;
-                                    }
-                                }
-                            }
-
-                            if (activeTabId) {
-                                $('#activeDepositTabs').text(title);
-                                $('#headerTitle').append(' - ' + title);
-                            }
-                            else {
-                                if (!isAutoRoute) {
-                                    page = setPaymentPage(_.first(response.ResponseData).Id);
-                                    if (page)
-                                        window.location.href = deposit + page;
-                                }
-                            }
-
-                            GPInt.prototype.HideSplash();
-                        } else {
-                            if (activeTabId) {
-                                window.location.href = deposit;
-                            }
-                            else {
-
-                                // track accounts with no gateways
-                                w88Mobile.PiwikManager.trackEvent({
-                                    category: "Deposit",
-                                    action: countryCode,
-                                    name: memberid
-                                });
-
-                                $('.empty-state').show();
-                                $('#paymentNote').append(paymentNotice);
-
-                                GPInt.prototype.HideSplash();
-                            }
-                        }
-                    default:
-                        break;
+                            setDepositPaymentTab(response.ResponseData, activeTabId)
+                        default:
+                            break;
+                    }
                 }
-            }
-        );
+            );
+        }
 
         togglePayment();
     }
 
-    // withdraw
-    function withdraw(countryCode, memberid, paymentNotice, activeTabId) {
-        send("/payments/settings/Withdrawal", "GET",
-            function (response) {
-                switch (response.ResponseCode) {
-                    case 1:
-                        if (response.ResponseData.length > 0) {
-                            var title = "", withdraw = "/Withdrawal/";
-                            _.forEach(response.ResponseData, function (data) {
-                                var page = setPaymentPage(data.Id);
+    function setDepositPaymentTab(responseData, activeTabId) {
+        if (responseData.length > 0) {
+            var routing = [
+                autorouteIds.QuickOnline,
+                autorouteIds.UnionPay,
+                autorouteIds.TopUpCard,
+                autorouteIds.AliPay,
+                autorouteIds.WeChat
+            ];
 
-                                if (page)
-                                    page = withdraw + page;
-                                else
-                                    return;
+            var isAutoRoute = false, title = "", page = null, deposit = "/Deposit/";
 
-                                if (activeTabId) {
-                                    if (_.isEqual(data.Id, activeTabId))
-                                        title = data.Title;
+            for (var i = 0; i < responseData.length; i++) {
+                var data = responseData[i];
 
-                                    var anchor = $('<a />', { class: 'ui-btn ui-shadow ui-corner-all', id: data.Id, href: page, 'data-ajax': false }).text(data.Title);
-                                    $('#withdrawalTabs').append($('<li />').append(anchor));
-                                }
-                            })
+                page = setPaymentPage(data.Id);
 
-                            if (activeTabId) {
-                                $('#activeWithdrawalTabs').text(title);
-                                $('#headerTitle').append(' - ' + title);
-                            }
-                            else {
-                                page = setPaymentPage(_.first(response.ResponseData).Id);
-                                if (page)
-                                    window.location.href = withdraw + page;
-                            }
+                if (page)
+                    page = deposit + page;
+                else
+                    continue;
 
-                            GPInt.prototype.HideSplash();
-                        } else {
-                            if (activeTabId) {
-                                window.location.href = withdraw;
-                            }
-                            else {
-                                $('.empty-state').show();
-                                $('#paymentNote').append(paymentNotice);
+                if (activeTabId) {
+                    if (_.isEqual(data.Id, activeTabId))
+                        title = data.Title;
 
-                                GPInt.prototype.HideSplash();
-                            }
-                        }
+                    var anchor = $('<a />', { class: 'ui-btn ui-shadow ui-corner-all', id: data.Id, href: page, 'data-ajax': false }).text(data.Title);
+
+                    if ($('#depositTabs').length > 0)
+                        $('#depositTabs').append($('<li />').append(anchor));
+
+                    if ($('#paymentTabs').length > 0)
+                        $('#paymentTabs').append($('<li />').append(anchor));
+
+                }
+                else if (!activeTabId && _.includes(routing, data.Id)) {
+                    if (!_.includes(window.location.pathname, page)) {
+                        window.location.href = page;
+                        isAutoRoute = true;
                         break;
-                    default:
-                        break;
+                    }
                 }
             }
-        );
+
+            if (activeTabId) {
+                if ($('#activeDepositTabs').length > 0)
+                    $('#activeDepositTabs').text(title);
+
+                if ($('#activeTab').length > 0)
+                    $('#activeTab').text(title);
+
+                $('#headerTitle').append(' - ' + title);
+            }
+            else {
+                if (!isAutoRoute) {
+                    page = setPaymentPage(_.first(responseData).Id);
+                    if (page)
+                        window.location.href = deposit + page;
+                }
+            }
+
+            GPInt.prototype.HideSplash();
+        } else {
+            if (activeTabId) {
+                window.location.href = deposit;
+            }
+            else {
+
+                // track accounts with no gateways
+                w88Mobile.PiwikManager.trackEvent({
+                    category: "Deposit",
+                    action: countryCode,
+                    name: memberid
+                });
+
+                $('.empty-state').show();
+                $('#paymentNote').append(paymentNotice);
+
+                GPInt.prototype.HideSplash();
+            }
+        }
+    }
+
+    // withdraw
+    function withdraw(countryCode, memberid, paymentNotice, activeTabId) {
+
+        var payment = amplify.store("withdrawalSettings");
+
+        if (payment && window.User.lang == payment.language) {
+            setWithdrawalPaymentTab(payment.settings, activeTabId)
+        }
+        else {
+            send("/payments/settings/Withdrawal", "GET",
+                function (response) {
+                    switch (response.ResponseCode) {
+                        case 1:
+                            var data = { settings: response.ResponseData, language: window.User.lang };
+
+                            amplify.store("withdrawalSettings", data, window.User.storageExpiration);
+
+                            setWithdrawalPaymentTab(response.ResponseData, activeTabId)
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            );
+        }
 
         togglePayment();
+    }
+
+    function setWithdrawalPaymentTab(responseData, activeTabId) {
+        if (responseData.length > 0) {
+            var title = "", withdraw = "/Withdrawal/";
+            _.forEach(responseData, function (data) {
+                var page = setPaymentPage(data.Id);
+
+                if (page)
+                    page = withdraw + page;
+                else
+                    return;
+
+                if (activeTabId) {
+                    if (_.isEqual(data.Id, activeTabId))
+                        title = data.Title;
+
+                    var anchor = $('<a />', { class: 'ui-btn ui-shadow ui-corner-all', id: data.Id, href: page, 'data-ajax': false }).text(data.Title);
+
+                    if ($('#withdrawalTabs').length > 0)
+                        $('#withdrawalTabs').append($('<li />').append(anchor));
+
+                    if ($('#paymentTabs').length > 0)
+                        $('#paymentTabs').append($('<li />').append(anchor));
+                }
+            })
+
+            if (activeTabId) {
+                if ($('#activeWithdrawalTabs').length > 0)
+                    $('#activeWithdrawalTabs').text(title);
+
+                if ($('#activeTab').length > 0)
+                    $('#activeTab').text(title);
+
+                $('#headerTitle').append(' - ' + title);
+            }
+            else {
+                page = setPaymentPage(_.first(responseData).Id);
+                if (page)
+                    window.location.href = withdraw + page;
+            }
+
+            GPInt.prototype.HideSplash();
+        } else {
+            if (activeTabId) {
+                window.location.href = withdraw;
+            }
+            else {
+                $('.empty-state').show();
+                $('#paymentNote').append(paymentNotice);
+
+                GPInt.prototype.HideSplash();
+            }
+        }
     }
 
     function setPaymentPage(id) {
@@ -199,6 +251,9 @@
 
             case "220895":
                 return "VenusPoint.aspx";
+
+            case "2208102":
+                return "IWallet.aspx";
 
                 // deposit
             case "110101":
@@ -264,6 +319,9 @@
             case "120212":
                 return "NganLuong.aspx";
 
+            case "1202103":
+                return "IWallet.aspx";
+
             case "120296":
                 return "VenusPoint.aspx";
 
@@ -275,6 +333,9 @@
 
             case "999996":
                 return "Alipay.aspx";
+
+            case "999995":
+                return "WeChat.aspx";
 
             case "1202113":
                 return "JuyPayAlipay.aspx";

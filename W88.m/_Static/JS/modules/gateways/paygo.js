@@ -5,8 +5,6 @@
     var paygo = {
         InitDeposit: initDeposit,
         InitWithdraw: initWithdraw,
-        Deposit: deposit,
-        Withdraw: withdraw,
     };
 
     return paygo;
@@ -31,22 +29,6 @@
             },
             complete: complete
         });
-    }
-
-    // deposit
-    function deposit(data, successCallback, completeCallback) {
-        validate(data, "deposit");
-        send("/payments/110394", "POST", data, function () { GPInt.prototype.ShowSplash() }, successCallback, completeCallback);
-    }
-
-    // withdraw
-    function withdraw(data, successCallback, completeCallback) {
-        send("/payments/210797", "POST", data, function () { GPInt.prototype.ShowSplash() }, successCallback, completeCallback);
-    }
-
-    function validate(data, method) {
-        // @todo add validation here
-        return;
     }
 
     function initDeposit() {

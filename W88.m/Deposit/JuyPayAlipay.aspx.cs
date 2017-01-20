@@ -23,8 +23,6 @@ public partial class Deposit_JuyPayAlipay : PaymentBasePage
 
     private void InitializeLabels()
     {
-        lblNote.Text = commonCulture.ElementValues.getResourceString("lblNote", xeResources);
-
         lblMode.Text = base.strlblMode;
         txtMode.Text = base.strtxtMode;
 

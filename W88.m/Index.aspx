@@ -161,7 +161,7 @@
                 <!-- Profile -->
                 <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
                 <li class="col col-33">
-                    <a href="/Profile" class="tile" data-ajax="false">
+                    <a href="/Profile/Default.aspx" class="tile" data-ajax="false">
                         <span class="icon-profile"> </span>
                         <h4 class="title">
                             <%--<%=commonVariables.GetSessionVariable("MemberCode")%>--%>
