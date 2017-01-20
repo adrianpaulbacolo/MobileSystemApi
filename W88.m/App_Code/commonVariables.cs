@@ -246,7 +246,7 @@ public class commonVariables
         BankTransfer = 210602,
         WingMoney = 210709,
         Neteller = 220815,
-        IWallet = 2208102
+        IWallet = 2208102,
         Baokim = 220874
     }
 

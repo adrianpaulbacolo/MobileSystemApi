@@ -59,7 +59,7 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
 
             <ul class="list fixed-tablet-size">
-                <li class="item row">
+                <li class="item row" id="btnSubmitPlacement">
                     <div class="col">
                         <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" />
                     </div>

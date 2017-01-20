@@ -1,17 +1,14 @@
 ﻿function Baokim() {
 
     var gatewayId = "";
-    var token = "";
     var method = "";
 
     var baokim = {
+        Initialize: init,
         deposit: deposit,
         withdraw: withdraw,
         getBanks: function(selectName) {
             return getBanks(selectName);
-        },
-        getTranslations: function() {
-            return translations();
         },
         method: method,
         validateWallet: validateWallet
@@ -38,27 +35,21 @@
 
     }
 
-    function translations() {
-        var url = w88Mobile.APIUrl + "/contents";
-
-        var headers = {
-            'LanguageCode': window.User.lang
-        };
-        $.ajax({
-            type: "GET",
-            url: url,
-            headers: headers,
-            success: function(d) {
-                $('#lblBanks').html(d.ResponseData.LABEL_BANK);
-                $('#lblEmail').html(d.ResponseData.LABEL_EMAIL);
-                $('#lblDepositAmount').html(d.ResponseData.LABEL_FUNDS_DEPOSIT + ' ' + d.ResponseData.LABEL_AMOUNT);
-                $('#lblContact').html(d.ResponseData.LABEL_CONTACT);
-                $('#lblWithdrawAmount').html(d.ResponseData.LABEL_FUNDS_WIDRAW + ' ' + d.ResponseData.LABEL_AMOUNT);
-                $('#lblOtp').html(d.ResponseData.LABEL_OTP);
-                sessionStorage.setItem("noticeWallet", d.ResponseData.LABEL_NOTICEEWALLET);
-                sessionStorage.setItem("noticeAtm", d.ResponseData.LABEL_NOTICEATM);
+    function init() {
+        var translations = amplify.store("translations");
+        setTranslations(translations);
+        function setTranslations(data) {
+            if (!_.isUndefined(data)) {
+                $('#ContentPlaceHolder1_ContentPlaceHolder2_lblBanks').html(data.LABEL_BANK);
+                $('#ContentPlaceHolder1_ContentPlaceHolder2_lblEmail').html(data.LABEL_EMAIL);
+                $('#ContentPlaceHolder1_ContentPlaceHolder2_lblDepositAmount').html(data.LABEL_FUNDS_DEPOSIT + ' ' + data.LABEL_AMOUNT);
+                $('#ContentPlaceHolder1_ContentPlaceHolder2_lblContact').html(data.LABEL_CONTACT);
+                $('#ContentPlaceHolder1_ContentPlaceHolder2_lblWithdrawAmount').html(data.LABEL_FUNDS_WIDRAW + ' ' + data.LABEL_AMOUNT);
+                $('#ContentPlaceHolder1_ContentPlaceHolder2_lblOtp').html(data.LABEL_OTP);
+                sessionStorage.setItem("noticeWallet", data.LABEL_NOTICEEWALLET);
+                sessionStorage.setItem("noticeAtm", data.LABEL_NOTICEATM);
             }
-        });
+        }
     }
 
     function getBanks(selectName) {
@@ -76,13 +67,13 @@
             headers: headers,
             success: function(d) {
 
-                $('#drpBanks').append($('<option>').text(selectName).attr('value', '-1'));
+                $('#ContentPlaceHolder1_ContentPlaceHolder2_drpBanks').append($('<option>').text(selectName).attr('value', '-1'));
 
                 _.forOwn(d.ResponseData, function(data) {
-                    $('#drpBanks').append($('<option>').text(data.Text).attr('value', data.Value));
+                    $('#ContentPlaceHolder1_ContentPlaceHolder2_drpBanks').append($('<option>').text(data.Text).attr('value', data.Value));
                 });
 
-                $('#drpBanks').val('-1').change();
+                $('#ContentPlaceHolder1_ContentPlaceHolder2_drpBanks').val('-1').change();
             }
         });
     }

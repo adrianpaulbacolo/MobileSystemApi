@@ -75,7 +75,11 @@
 
                                     var anchor = $('<a />', { class: 'ui-btn ui-shadow ui-corner-all', id: data.Id, href: page, 'data-ajax': false }).text(data.Title);
 
-                                    $('#depositTabs').append($('<li />').append(anchor));
+                                    if ($('#depositTabs').length > 0)
+                                        $('#depositTabs').append($('<li />').append(anchor));
+
+                                    if ($('#paymentTabs').length > 0)
+                                        $('#paymentTabs').append($('<li />').append(anchor));
                                 }
                                 else if (!activeTabId && _.includes(routing, data.Id)) {
                                     if (!_.includes(window.location.pathname, page)) {
@@ -203,6 +207,9 @@
                 // deposit
             case "110101":
                 return "FastDeposit.aspx";
+
+            case "120272":
+                return "Baokim.aspx";
 
             case "120204":
                 return "NextPay.aspx";
