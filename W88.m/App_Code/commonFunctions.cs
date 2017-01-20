@@ -735,6 +735,7 @@ public static class commonFunctions
             , "/promotions"
             , "/funds.aspx"
             , "/index.aspx"
+            , "/index"
             , "/lang.aspx"
             , "/profile/default.aspx"
         };
