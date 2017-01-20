@@ -1,4 +1,4 @@
-<% if(commonFunctions.isNativeAgent(Request)){ %>
+<% if(commonFunctions.isNativeAgent(Request) && commonFunctions.isMainPage(Request)){ %>
 <div data-role="footer" data-position="fixed">
     <div class="footer-nav">
         <div>
@@ -37,6 +37,19 @@
             console.log(e.message)
         }
     });
+
+    setTimeout(function(){
+        $("a[href*='Casino.aspx']").unbind("touch click");
+        $("a[href*='Casino.aspx']").bind("touch click", function(e){
+            e.preventDefault();
+            try{
+                $(this).attr("href", "#");
+                Native.openLiveCasino();
+            }catch(e){
+                console.log(e.message)
+            }
+        });
+    }, 1);
 
     var urlRewards = window.location.protocol + '//mrewards.' + '<%=commonIp.DomainName %>' + '?lang=' + '<%=commonVariables.SelectedLanguage%>' + '&token=' + '<%=commonVariables.EncryptedCurrentMemberSessionId%>';
     $(".f-rewards-bottom").attr('href', urlRewards);
