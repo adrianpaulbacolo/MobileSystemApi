@@ -53,7 +53,10 @@ public partial class Withdrawal_Pending : BasePage
                 foreach (svcPayMember.PendingWithdrawal trxWithdrawal in arrPendingTrx)
                 {
                     sbPendingTrx.AppendFormat("<tr id='tr_{0}'><td>{0}</td><td>{1}</td><td>{2}</td><td>{3}</td><td><a href='javascript:void(0)' onclick='javascript:return CancelWithdrawal(this);' data-id='{0}' data-method='{5}'>{4}</a></td></tr>"
-                        ,trxWithdrawal.invId, trxWithdrawal.requestDate, commonCulture.ElementValues.getResourceString("w" + trxWithdrawal.payMethodId, xePaymentMethods), trxWithdrawal.requestAmount.ToString(commonVariables.DecimalFormat), commonCulture.ElementValues.getResourceString("btnCancelWithdrawal", xeResources), trxWithdrawal.payMethodId);
+                        ,trxWithdrawal.invId, trxWithdrawal.requestDate,
+                        commonCulture.ElementValues.getResourceString("w" + Enum.GetName(typeof(commonVariables.WithdrawalMethod), trxWithdrawal.payMethodId), xePaymentMethods),
+                        trxWithdrawal.requestAmount.ToString(commonVariables.DecimalFormat), commonCulture.ElementValues.getResourceString("btnCancelWithdrawal", xeResources),
+                        trxWithdrawal.payMethodId);
                 }
 
                 sbPendingTrx.Append("</tbody></table>");

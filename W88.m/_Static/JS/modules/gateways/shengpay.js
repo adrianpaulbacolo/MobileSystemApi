@@ -7,6 +7,7 @@
         deposit: deposit
         , withdraw: withdraw
         , gatewayId: gatewayId
+        ,Initialize: init
     };
 
     return shengpay;
@@ -43,6 +44,17 @@
     function validate(data, method) {
         // @todo add validation here
         return;
+    }
+
+    function init() {
+        var translations = amplify.store("translations");
+        setTranslations(translations);
+        function setTranslations(data) {
+            if (!_.isUndefined(data)) {
+                $("#paymentNote").text(data.LABEL_PAYMENT_NOTE);
+                $("#paymentNoteContent").text(data.LABEL_PAYMENT_NOTE1);
+            }
+        }
     }
 
 }

@@ -28,13 +28,14 @@ public partial class Deposit_JTPay : PaymentBasePage
                 base.PageName = Convert.ToString(commonVariables.DepositMethod.JTPayAliPay);
                 base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.JTPayAliPay);
                 resourceString = "dJTPayAliPay";
+                hdnNoteVersion.Value = "1";
                 break;
             case "wechat":
             default:
                 base.PageName = Convert.ToString(commonVariables.DepositMethod.JTPayWeChat);
                 base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.JTPayWeChat);
                 resourceString = "dJTPayWeChat";
-                
+                hdnNoteVersion.Value = "0";
                 break;
         }
 
@@ -49,8 +50,6 @@ public partial class Deposit_JTPay : PaymentBasePage
     }
     private void InitializeLabels()
     {
-        lblNote.Text = commonCulture.ElementValues.getResourceString("lblNote", xeResources);
-
         lblMode.Text = base.strlblMode;
         txtMode.Text = base.strtxtMode;
         lblMinMaxLimit.Text = base.strlblMinMaxLimit;

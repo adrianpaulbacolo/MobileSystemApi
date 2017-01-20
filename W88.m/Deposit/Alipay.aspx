@@ -54,7 +54,8 @@
                         </div>
                     </li>
                     <li class="item-text-wrap ali-pay-note">
-                        <asp:Label ID="lblNote" runat="server"></asp:Label>
+                        <span id="paymentNote"></span>
+                        <p id="paymentNoteContent"></p>
                     </li>
                     <li class="item item-input">
                         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
@@ -79,19 +80,28 @@
                 font-size: 70%;
             }
 
-                li.ali-pay-note #lblNote span {
-                    color: red;
-                    font-weight: bold;
-                }
+             li.ali-pay-note #paymentNote {
+                 color: red;
+                 font-weight: bold;
+             }
 
-                li.ali-pay-note #lblNote p {
-                    padding-top: 5px;
-                }
+             li.ali-pay-note #paymentNoteContent {
+                 padding-top: 5px;
+             }
         </style>
 
         <script type="text/javascript">
             $(document).ready(function () {
                 window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
+
+                var translations = amplify.store("translations");
+                setTranslations(translations);
+                function setTranslations(data) {
+                    if (!_.isUndefined(data)) {
+                        $("#paymentNote").text(data.LABEL_PAYMENT_NOTE);
+                        $("#paymentNoteContent").text(data.LABEL_PAYMENT_NOTE1);
+                    }
+                }
 
                 $('#form1').submit(function (e) {
                     window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');

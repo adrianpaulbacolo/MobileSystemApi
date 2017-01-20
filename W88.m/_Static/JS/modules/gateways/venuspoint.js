@@ -60,7 +60,7 @@
     }
 
     function setTranslation(data) {
-        $('#lblAcctName').text("Venus Point " + data.LABEL_USERNAME);
+        $('#lblAcctName').text("Venus Point " + data.LABEL_ACCOUNT_ID);
         $('#lblAcctNumber').text("Venus Point " + data.LABEL_PASSWORD);
     }
 

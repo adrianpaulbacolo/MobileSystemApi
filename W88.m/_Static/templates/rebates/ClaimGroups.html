@@ -1,0 +1,70 @@
+﻿<div class="rebates-group">
+
+    {% _.forEach( rebate.data, function( op ){ %}
+    {% if((op.NativeGroupKey == "SB")) { %}
+    <div class="rebates-row rebates-row-boxed">
+    {% } else { %}
+    <div class="rebates-row ">
+        {% } %}
+        
+        <h2>{%- op.GroupNameKey %}</h2>
+        {% if(op.NativeGroupKey == "SB") { %} 
+        <p><small><i>{%- rebate.Note %}</i></small></p>
+        {% } %}
+
+        {% _.forEach( op.Collection, function( col, index ){ %}
+        <div class="rebate-box" data-inset="false">
+            <div class="rebate-title">
+                <div class="row row-uc">
+                    <div class="col col-50">
+                        <h3 title="{%- col.Name %}">{%- col.Name %}</h3>
+                    </div>
+
+                    {% if(op.NativeGroupKey != "SB") { %}
+                    <div class="col col-50 text-right-sm">
+
+                        {% if(col.AllowClaim) { %}
+                        <input type="button" name="btnSubmit" value="{%- rebate.BtnClaim %}" id="rebatesClaim" class="button-blue" data-theme="b" onclick="javascript: window.w88Mobile.Rebates.ClaimQuery('{%- col.ProductCode %}', '{%- col.AllowClaim %}');">
+                        {% } else { %}
+                        <input type="button" name="" value="{%- rebate.BtnClaim %}" id="" class="button-blue" data-theme="b" disabled="disabled">
+                        {% } %}
+                  
+                    </div>
+                    {% } %}
+                </div>
+            </div>
+            <div class="rebate-table">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>{%- rebate.LabelRebateAmount %}</td>
+                            <td>{%- col.RebateAmount %}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="collapsible-table">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>{%- rebate.LabelRebatePercent %}</td>
+                                <td>{%- col.RebatePercent %}</td>
+                            </tr>
+                            <tr>
+                                <td>{%- rebate.LabelRebateBets %}</td>
+                                <td>{%- col.TotalEligibleBet %}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <a href="#" class="collapsible-btn"><span>{%- rebate.LabelSeeMore %}</span></a>
+        </div>
+        {% if((op.NativeGroupKey == "SB") && ((index + 1) == op.Collection.length) && (rebate.ShowWeekClaim))  { %}
+            <button type="button" value="" id="weeklyBtn" class="button-blue" data-theme="b" onclick="javascript: weeklyClaim();"></button>
+        {% } %}
+        
+        {% }); %}
+    </div>
+
+    {% }); %}
+</div>

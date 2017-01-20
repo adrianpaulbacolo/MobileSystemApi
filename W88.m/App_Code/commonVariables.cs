@@ -91,7 +91,7 @@ public class commonVariables
         }
         set
         {
-            commonCookie.CookieLanguage = value; 
+            commonCookie.CookieLanguage = value;
             commonVariables.SetSessionVariable("SelectedLanguage", value);
         }
     }
@@ -212,16 +212,20 @@ public class commonVariables
         JutaPay = 120280,
         JuyPayAlipay = 1202113,
         IPS = 120207,
+        IWallet = 1202103,
         WingMoney = 110308,
         PayGo = 110394,
         SDPay = 120223,
         Help2Pay = 120227,
+        KDPayWeChat = 1202114,
         DaddyPay = 120243,
         DaddyPayQR = 120244,
         Neteller = 120214,
+        KexunPay = 1202127,
         PaySec = 120290,
         SDAPayAlipay = 120254,
         ShengPayAliPay = 1202111,
+        NineVPayAlipay = 1202105,
         ECPSS = 120218,
         BofoPay = 120231,
         JTPayWeChat = 1202123,
@@ -242,6 +246,7 @@ public class commonVariables
         BankTransfer = 210602,
         WingMoney = 210709,
         Neteller = 220815,
+        IWallet = 2208102
         Baokim = 220874
     }
 
