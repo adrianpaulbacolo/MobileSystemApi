@@ -31,7 +31,7 @@
     window.User.storageExpiration = { expires: 1200000 };
 </script>
 <script src="/_Static/JS/i18n/contents-<%=commonVariables.SelectedLanguageShort%>.js"></script>
-<script src="/_Static/JS/modules/translate.js"></script>
+<script src="/_Static/JS/modules/translate.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 <script>
     w88Mobile.APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("APIUrl") %>';
     w88Mobile.Gateways = {};
