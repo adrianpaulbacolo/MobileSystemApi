@@ -205,15 +205,22 @@ public static class commonCookie
         }
         set
         {
-            if (!string.IsNullOrWhiteSpace(value))
+            if (value != null)
             {
-                HttpCookie cookie = HttpContext.Current.Request.Cookies.Get("isvp");
-                // if existing cookie is present, don't override
-                if (cookie == null || string.IsNullOrEmpty(cookie.Value))
+                HttpCookie cookie = new HttpCookie("isvp");
+                cookie.Value = value;
+                if (!string.IsNullOrEmpty(commonIp.DomainName)) { cookie.Domain = commonIp.DomainName; }
+                HttpContext.Current.Response.Cookies.Set(cookie);
+            }
+            else
+            {
+                var httpCookie = HttpContext.Current.Request.Cookies["isvp"];
+                if (httpCookie != null)
                 {
-                    var vip = new HttpCookie("isvp");
-                    vip.Value = value;
-                    HttpContext.Current.Response.Cookies.Add(vip);
+                    HttpCookie cookie = new HttpCookie("isvp");
+                    cookie.Value = "";
+                    cookie.Expires = DateTime.Now.AddYears(-1);
+                    HttpContext.Current.Response.Cookies.Add(cookie);
                 }
             }
         }
