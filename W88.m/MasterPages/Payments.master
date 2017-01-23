@@ -3,8 +3,8 @@
 <%@ Register TagPrefix="mainWallet" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js"></script>
-    <script type="text/javascript" src="/_Static/JS/modules/gateways/payments.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js?v=<%=ConfigurationManager.AppSettings.Get("sessionInterval") %>"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/payments.js?v=<%=ConfigurationManager.AppSettings.Get("sessionInterval") %>"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <!--Payments Master-->
@@ -71,60 +71,55 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder" runat="Server">
     <script type="text/javascript">
         $(document).ready(function () {
-            var translations = amplify.store("translations");
 
             var isDeposit = _.includes(window.location.pathname.toLowerCase(), "deposit");
 
-            setTranslations(translations);
+            var headerTitle = isDeposit ? _w88_contents.translate("LABEL_FUNDS_DEPOSIT") : _w88_contents.translate("LABEL_FUNDS_WIDRAW");
+            $('#headerTitle').text(headerTitle);
+            $('#lblMode').text(_w88_contents.translate("LABEL_MODE"));
+            $('#lblMinMaxLimit').text(_w88_contents.translate("LABEL_MINMAX_LIMIT"));
+            $('#lblDailyLimit').text(_w88_contents.translate("LABEL_DAILY_LIMIT"));
+            $('#lblTotalAllowed').text(_w88_contents.translate("LABEL_TOTAL_ALLOWED"));
 
-            function setTranslations(data) {
-                var headerTitle = isDeposit ? data.LABEL_FUNDS_DEPOSIT : data.LABEL_FUNDS_WIDRAW;
-                $('#headerTitle').text(headerTitle);
-                $('#lblMode').text(data.LABEL_MODE);
-                $('#lblMinMaxLimit').text(data.LABEL_MINMAX_LIMIT);
-                $('#lblDailyLimit').text(data.LABEL_DAILY_LIMIT);
-                $('#lblTotalAllowed').text(data.LABEL_TOTAL_ALLOWED);
+            $('#<%=btnSubmit.ClientID%>').val(data.BUTTON_SUBMIT).button("refresh");
 
-                $('#<%=btnSubmit.ClientID%>').val(data.BUTTON_SUBMIT).button("refresh");
-            }
+                var resource = "", payment = undefined, storage = "";
 
-            var resource = "", payment = undefined, storage = "";
+                if (isDeposit) {
+                    resource = "/payments/settings/deposit";
+                    payment = amplify.store("depositSettings");
+                    storage = "depositSettings";
+                } else {
+                    resource = "/payments/settings/withdrawal";
+                    payment = amplify.store("withdrawalSettings");
+                    storage = "withdrawalSettings";
+                }
 
-            if (isDeposit) {
-                resource = "/payments/settings/deposit";
-                payment = amplify.store("depositSettings");
-                storage = "depositSettings";
-            } else {
-                resource = "/payments/settings/withdrawal";
-                payment = amplify.store("withdrawalSettings");
-                storage = "withdrawalSettings";
-            }
+                if (!payment || (payment && window.User.lang != payment.language)) {
+                    var headers = {
+                        'Token': window.User.token,
+                        'LanguageCode': window.User.lang
+                    };
 
-            if (!payment || (payment && window.User.lang != payment.language)) {
-                var headers = {
-                    'Token': window.User.token,
-                    'LanguageCode': window.User.lang
-                };
+                    $.ajax({
+                        type: "GET",
+                        url: w88Mobile.APIUrl + resource,
+                        headers: headers,
+                        success: function (response) {
+                            switch (response.ResponseCode) {
+                                case 1:
+                                    var data = { settings: response.ResponseData, language: window.User.lang };
 
-                $.ajax({
-                    type: "GET",
-                    url: w88Mobile.APIUrl + resource,
-                    headers: headers,
-                    success: function (response) {
-                        switch (response.ResponseCode) {
-                            case 1:
-                                var data = { settings: response.ResponseData, language: window.User.lang };
-
-                                amplify.store(storage, data, window.User.storageExpiration);
-                            default:
-                                break;
-                        }
-                    },
-                    error: function () {
-                        console.log("Error connecting to api");
-                    },
-                });
-            }
+                                    amplify.store(storage, data, window.User.storageExpiration);
+                                default:
+                                    break;
+                            }
+                        },
+                        error: function () {
+                            console.log("Error connecting to api");
+                        },
+                    });
+                }
         });
     </script>
 

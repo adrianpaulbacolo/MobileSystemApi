@@ -42,7 +42,7 @@
 
     function load(data) {
         if (data) {
-            $('#drpBank').val(data.Bank.Value).selectmenu("refresh");
+            if (!_.isEmpty(data.Bank)) $('#drpBank').val(data.Bank.Value).selectmenu("refresh");
 
             toogleBank($('#drpBank').val());
             $('#txtBankName').val(data.BankName);
