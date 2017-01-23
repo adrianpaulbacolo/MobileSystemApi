@@ -195,6 +195,30 @@ public static class commonCookie
             }
         }
     }
+
+    public static string CookieVip
+    {
+        get
+        {
+            HttpCookie cookie = HttpContext.Current.Request.Cookies.Get("isvp");
+            return cookie == null ? "" : cookie.Value;
+        }
+        set
+        {
+            if (!string.IsNullOrWhiteSpace(value))
+            {
+                HttpCookie cookie = HttpContext.Current.Request.Cookies.Get("isvp");
+                // if existing cookie is present, don't override
+                if (cookie == null || string.IsNullOrEmpty(cookie.Value))
+                {
+                    var vip = new HttpCookie("isvp");
+                    vip.Value = value;
+                    HttpContext.Current.Response.Cookies.Add(vip);
+                }
+            }
+        }
+    }
+
     public static string CookieIsApp
     {
         get
@@ -301,6 +325,17 @@ public static class commonCookie
             g.Value = null;
             g.Domain = commonIp.DomainName;
             HttpContext.Current.Response.SetCookie(g);
+        }
+
+        HttpCookie vip = HttpContext.Current.Request.Cookies["isvp"];
+        HttpContext.Current.Response.Cookies.Remove("isvp");
+
+        if (vip != null)
+        {
+            vip.Expires = DateTime.Now.AddYears(-1);
+            vip.Value = null;
+            vip.Domain = commonIp.DomainName;
+            HttpContext.Current.Response.SetCookie(vip);
         }
     }
 }

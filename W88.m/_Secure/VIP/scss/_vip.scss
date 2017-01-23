@@ -1,0 +1,176 @@
+body{
+	font-family: "SimHei", "dinpro", "Helvetica Neue", Helvetica,Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.6;
+	color: $white;
+	background-color: $darkgray;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: 0 none;
+}
+a{
+	font-family: "SimHei", "dinpro", "Helvetica Neue", Helvetica,Arial, sans-serif;
+	color: $blue;
+	text-decoration: none;
+	&:focus,
+	&:hover{
+		color: darken($blue, 10%);
+		text-decoration: none;
+	}
+}
+p{
+	font-family: "SimHei", "dinpro", "Helvetica Neue", Helvetica,Arial, sans-serif;
+	margin-top: 0;
+	margin-bottom: 15px;
+}
+.text-center{
+	text-align: center;
+}
+.viplogin{
+	width: 100%;
+	height: 100%;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	position: absolute;
+	display: table;
+}
+.viplogin-container{
+	vertical-align: middle;
+	display: table-cell;
+}
+.viplogin-box{
+	width: 80%;
+	max-width: 470px;
+	margin: 0 auto;
+}
+.viplogo{
+	width: 60%;
+	max-width: 280px;
+	margin: 0 auto 30px;
+	display: block;
+}
+.viplogin-form{
+	border-top: 5px solid $yellow;
+	padding: 45px 30px;
+	margin-bottom: 30px;
+	-webkit-box-shadow: 0 0 60px 10px rgba(0,0,0,0.75);
+	box-shadow: 0 0 60px 10px rgba(0,0,0,0.75);
+	h3{
+		text-transform: capitalize;
+		font-size: 40px;
+		margin-top: 0;
+		margin-bottom: 15px;
+	}
+}
+.input-group{
+	margin-bottom: 20px;
+}
+.input-box{
+	background-color: $darkergray;
+	display: table;
+	.input-box-icon{
+		padding: 0 15px;
+		width: 1%;
+	    white-space: nowrap;
+	    vertical-align: middle;
+		display: table-cell;
+		opacity: 0.5;
+	}
+	.input{
+		font-family: "SimHei", "dinpro", "Helvetica Neue", Helvetica,Arial, sans-serif;
+		font-size: 18px;
+		color: $white;
+		background-color: transparent;
+		box-shadow: none;
+		text-shadow: none;
+		border: none;
+		padding: 15px;
+		width: 100%;
+		display: table-cell;
+		&::-webkit-input-placeholder { 
+		  color: $white;
+		}
+		&:-ms-input-placeholder { 
+		  color: $white;
+		}
+		&::-moz-placeholder {
+		  color: $white;
+		  opacity: 1;
+		}
+		&:-moz-placeholder { 
+		  color: $white;
+		  opacity: 1;
+		}
+	}
+	&:focus,
+	&:hover{
+		background-color: darken($darkergray, 3%);
+	}
+}
+.button{
+	cursor: pointer;
+	font-family: "SimHei", "dinpro", "Helvetica Neue", Helvetica,Arial, sans-serif;
+	font-size: 40px;
+	text-transform: uppercase;
+	width: 100%;
+	font-weight: 700;
+	color: $white;
+	border: none;
+	background-color: $blue;
+	padding: 15px;
+	display: block;
+	-webkit-border-radius: 0 0 0 0;
+	border-radius: 0 0 0 0;
+	&:focus,
+	&:hover{
+		background-color: darken($blue, 10%);
+	}
+}
+
+@media (max-width: 320px){
+
+	.viplogo{
+		margin: 0 auto 15px;
+	}
+	.viplogin-form{
+		padding: 30px 30px;
+		margin-bottom: 15px;
+		h3{
+			font-size: 30px;
+			margin-top: 0;
+		}
+	}
+	.input-group{
+		margin-bottom: 15px;
+	}
+	.button{
+		font-size: 30px;
+	}
+
+}
+@media (max-height: 640px){
+	.viplogin{
+		width: 100%;
+		height: 100%;
+		top: auto;
+		bottom: auto;
+		right: auto;
+		left: auto;
+		position: relative;
+		display: block;
+	}
+	.viplogin-container{
+		display: block;
+	}
+	.viplogo{
+		margin: 15px auto 15px;
+	}
+}
+
