@@ -65,9 +65,13 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
+
+        $('#txtUsername').keyup(function () {
+            $(this).val($(this).val().toLowerCase());
+        });
+
         $('#btnSubmit').click(function (e) {
             var message = ('<ul>');
-            $('#btnSubmit').attr("disabled", true);
             var username = _.trim($('#txtUsername').val()),
                 password = _.trim($('#txtPassword').val());
 
@@ -92,8 +96,8 @@
 
             if (hasError) {
                 message += ('</ul>');
-                $('#btnSubmit').attr("disabled", false);
-                window.w88Mobile.Growl.shout(message);
+                $('#ModalMessage').html(message);
+                $('#PopUpModal').modal();
                 return;
             } else {
                 e.preventDefault();
@@ -138,7 +142,6 @@
                         break;
 
                     case "22":
-                        $('#btnSubmit').attr("disabled", false);
                         $('#PopUpModal').modal();
                         $('#ModalMessage').html('<div>' + message + '</div>');
                         break;
