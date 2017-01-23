@@ -81,7 +81,7 @@
             $('#lblDailyLimit').text(_w88_contents.translate("LABEL_DAILY_LIMIT"));
             $('#lblTotalAllowed').text(_w88_contents.translate("LABEL_TOTAL_ALLOWED"));
 
-            $('#<%=btnSubmit.ClientID%>').val(data.BUTTON_SUBMIT).button("refresh");
+            $('#<%=btnSubmit.ClientID%>').val(_w88_contents.translate("BUTTON_SUBMIT")).button("refresh");
 
                 var resource = "", payment = undefined, storage = "";
 
