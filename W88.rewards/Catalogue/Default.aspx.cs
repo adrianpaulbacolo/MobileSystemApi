@@ -4,6 +4,7 @@ using System.Data;
 using System.Text;
 using System.Web;
 using System.Web.Services;
+using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Rewards.Models;
 using W88.BusinessLogic.Shared.Models;
@@ -68,6 +69,11 @@ public partial class Default : CatalogueBasePage
                 SortBy = SortBy
             };
 
+            if (UserSessionInfo == null)
+            {
+                UserSessionInfo = new UserSessionInfo();
+                UserSessionInfo.CountryCode = RewardsHelper.GetCountryCode();
+            }
             var result = await RewardsHelper.SearchProducts(searchInfo, UserSessionInfo);
             var products = result.Data != null ? (List<ProductDetails>) result.Data : null;
             if (result.Code == (int)Constants.StatusCode.Error || products == null)
@@ -103,20 +109,13 @@ public partial class Default : CatalogueBasePage
         {
             usernameLabel.InnerText = UserSessionInfo.MemberCode;
         }
-        var pointsLabelText = RewardsHelper.GetTranslation(TranslationKeys.Label.Points);
-        var stringBuilder = new StringBuilder();
 
-        stringBuilder.Append(pointsLabelText)
-            .Append(": ")
-            .Append(MemberRewardsInfo != null ? Convert.ToString(MemberRewardsInfo.CurrentPoints) : "0");
-        pointsLabel.InnerText = stringBuilder.ToString();
-
-        var pointLevelLabelText = RewardsHelper.GetTranslation(TranslationKeys.Label.PointLevel);
-        stringBuilder = new StringBuilder();
-        stringBuilder.Append(pointLevelLabelText)
-            .Append(" ")
-            .Append(MemberRewardsInfo != null ? Convert.ToString(MemberRewardsInfo.CurrentPointLevel) : "0");
-        pointLevelLabel.InnerText = stringBuilder.ToString();
+        pointsLabel.InnerText = string.Format("{0}: {1}", 
+            RewardsHelper.GetTranslation(TranslationKeys.Label.Points), 
+            MemberRewardsInfo != null ? Convert.ToString(MemberRewardsInfo.CurrentPoints) : "0");
+        pointLevelLabel.InnerText = string.Format("{0} {1}", 
+            RewardsHelper.GetTranslation(TranslationKeys.Label.PointLevel), 
+            MemberRewardsInfo != null ? Convert.ToString(MemberRewardsInfo.CurrentPointLevel) : "0");
         divLevel.Visible = true;
         #endregion
     }
