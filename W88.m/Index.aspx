@@ -86,7 +86,7 @@
              <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
              <div class="row row-no-padding action-btn action-button-lg" data-ajax="false">
                 <div class="col">
-                    <a href="Funds.aspx" class="ui-btn btn-new" role="button" data-ajax="false">
+                    <a href="Funds.aspx" class="ui-btn btn-primary" role="button" data-ajax="false">
                         <span class="icon icon-currency" ></span>
                         <%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%>
                     </a>
