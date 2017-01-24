@@ -95,7 +95,7 @@
                 window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
 
                 $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-                $("#paymentNoteContent").text(_w88_contents.translate("LABEL_PAYMENT_NOTE1"));
+                $("#paymentNoteContent").text(_w88_contents.translate("LABEL_PAYMENT_NOTE0"));
 
                 $('#form1').submit(function (e) {
                     window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
