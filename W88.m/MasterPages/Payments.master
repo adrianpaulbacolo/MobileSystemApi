@@ -92,12 +92,12 @@
 
             if (isDeposit) {
                 resource = "/payments/settings/deposit";
-                payment = amplify.store("depositSettings");
-                storage = "depositSettings";
+                payment = amplify.store(w88Mobile.Keys.depositSettings);
+                storage = w88Mobile.Keys.depositSettingsy;
             } else {
                 resource = "/payments/settings/withdrawal";
-                payment = amplify.store("withdrawalSettings");
-                storage = "withdrawalSettings";
+                payment = amplify.store(w88Mobile.Keys.withdrawalSettings);
+                storage = w88Mobile.Keys.withdrawalSettings;
             }
 
             if (!payment || (payment && window.User.lang != payment.language)) {
@@ -114,7 +114,6 @@
                         switch (response.ResponseCode) {
                             case 1:
                                 var data = { settings: response.ResponseData, language: window.User.lang };
-
                                 amplify.store(storage, data, window.User.storageExpiration);
                             default:
                                 break;

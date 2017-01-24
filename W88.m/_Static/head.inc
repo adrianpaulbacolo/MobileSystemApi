@@ -28,9 +28,10 @@
     window.User.token = '<%= commonVariables.CurrentMemberSessionId %>';
     window.User.sessionInterval = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("sessionInterval") %>';
     window.User.lang = '<%=commonVariables.SelectedLanguage%>';
-    window.User.storageExpiration = { expires: 1200000 };
+    window.User.storageExpiration = { expires: 300000 };
 </script>
 <script type="text/javascript" src="/_Static/JS/modules/slots.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/constants.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/formValidator.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/growl.js"></script>
 <script type="text/javascript">
