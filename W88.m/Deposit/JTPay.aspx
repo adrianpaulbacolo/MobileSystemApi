@@ -36,6 +36,9 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+            var payments = new w88Mobile.Gateways.Payments("<%=base.PaymentMethodId %>");
+            payments.init();
+
             window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
 
             window.w88Mobile.Gateways.JTPay.Initialize($("#hdnNoteVersion").val());
