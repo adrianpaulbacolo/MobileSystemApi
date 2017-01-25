@@ -25,6 +25,28 @@
     <script src="/_Static/JS/vendor/lodash.js"></script>
     <script src="/_Static/JS/GPINT.js"></script>
     <script src="/_Static/JS/Cookie.js"></script>
+    <script src="/_Static/JS/vendor/amplify.min.js"></script>
+
+    <script type="text/javascript">
+        window.w88Mobile = {}; 
+        window.User = {};
+        window.User.hasSession = <%= (!String.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) ? 1 : 0 %>;
+        window.User.token = '<%= commonVariables.CurrentMemberSessionId %>';
+        window.User.sessionInterval = '<%=ConfigurationManager.AppSettings.Get("sessionInterval") %>';
+        window.User.lang = '<%=commonVariables.SelectedLanguage%>';
+        window.User.storageExpiration = { expires: 1200000 };
+    </script>
+
+    <script src="/_Static/JS/i18n/contents-<%=commonVariables.SelectedLanguageShort%>.js"></script>
+    <script src="/_Static/JS/modules/translate.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+
+    <script>
+        w88Mobile.APIUrl = '<%= ConfigurationManager.AppSettings.Get("APIUrl") %>';
+
+        var _w88_contents = new w88Mobile.Translate();
+        _w88_contents.init();
+    </script>
+
 </head>
 <body>
     <section class="viplogin">
@@ -32,39 +54,74 @@
             <div class="viplogin-box">
                 <img src="img/w88-vip.png" alt="" class="viplogo">
                 <form action="" class="viplogin-form">
-                    <h3>贵宾登录</h3>
+                    <h3><span id="formHeader"></span></h3>
                     <div class="input-group">
                         <div class="input-box">
-                            <input type="text" class="input" placeholder="用户名" id="txtUsername">
+                            <input type="text" class="input" placeholder="" id="txtUsername">
                             <span class="input-box-icon">
                                 <img src="img/icon-user.png" alt=""></span>
                         </div>
                     </div>
                     <div class="input-group">
                         <div class="input-box">
-                            <input type="password" class="input" placeholder="密码" id="txtPassword">
+                            <input type="password" class="input" placeholder="" id="txtPassword">
                             <span class="input-box-icon">
                                 <img src="img/icon-password.png" alt=""></span>
                         </div>
                     </div>
                     <div class="input-group">
-                        <input id="btnSubmit" type="submit" class="button" value="登录">
+                        <input id="btnSubmit" type="submit" class="button" value="">
                     </div>
                     <div class="text-center">
-                        <a href="/_Secure/ForgotPassword.aspx">忘记密码?</a>
+                        <a id="forgot" href="/_Secure/ForgotPassword.aspx"></a>
                     </div>
                 </form>
                 <div class="text-center">
-                    <p>登录时遇到任何问题，请及时联<a href="/LiveChat/Default.aspx">系在线客服</a>获取帮助。 本网站采用最先进的 256 BIT SSL 服务器加密机制。</p>
+                    <p>
+                        <span id="loginNote0"></span>
+                        <a id="csLink" href="/LiveChat/Default.aspx"></a>
+                        <span id="loginNote1"></span>
+                    </p>
+                     <div id="sslNote"></div>
                 </div>
             </div>
         </div>
     </section>
 </body>
-
-
+    
 <script type="text/javascript">
+
     $(document).ready(function () {
+        
+        if (Cookies().getCookie('language') == "zh-cn"){
+            $("body").addClass("ch")
+        }
+        else
+        {
+            $("body").removeClass("ch")
+        }
+
+        setTranslations();
+
+        window.setInterval(function() {
+            if ($("#formHeader").text() == "LABEL_VIP_LOGIN") {
+                setTranslations();
+            }
+        }, 100);
+        
+        function setTranslations() {
+            $("#formHeader").text(_w88_contents.translate("LABEL_VIP_LOGIN"));
+            $("#txtUsername").attr("placeholder", _w88_contents.translate("LABEL_USERNAME"));
+            $("#txtPassword").attr("placeholder", _w88_contents.translate("LABEL_PASSWORD"));
+            $("#btnSubmit").val(_w88_contents.translate("BUTTON_LOGIN"));
+
+            var note0 = _w88_contents.translate("LABEL_VIP_LOGIN_NOTE_0").split('{0}');
+            $("#loginNote0").text(note0[0]);
+            $("#loginNote1").text(note0[1]);
+            $("#sslNote").text(_w88_contents.translate("LABEL_VIP_LOGIN_NOTE_1"));
+            $("#forgot").text(_w88_contents.translate("LABEL_FORGOTPASSWORD"));
+            $("#csLink").text(_w88_contents.translate("LABEL_CS_LINK"));
+        }
 
         $('#txtUsername').keyup(function () {
             $(this).val($(this).val().toLowerCase());
@@ -130,31 +187,31 @@
                 }
 
                 switch (xml.Code) {
-                    case "1":
+                case "1":
 
-                        if (Cookies().getCookie('isvp') == 'true') {
-                            window.location.replace('/Index');
-                        } else {
+                    if (Cookies().getCookie('isvp') == 'true') {
+                        window.location.replace('/Index');
+                    } else {
 
-                            $('#ModalMessage').html('<%=commonCulture.ElementValues.getResourceXPathString("Login/MembersOnly", xeErrors)%>');
-                            $('#PopUpModal').modal();
-                        }
-                        break;
-
-                    case "22":
+                        $('#ModalMessage').html('<%=commonCulture.ElementValues.getResourceXPathString("Login/MembersOnly", xeErrors)%>');
                         $('#PopUpModal').modal();
-                        $('#ModalMessage').html('<div>' + message + '</div>');
-                        break;
+                    }
+                    break;
 
-                    case "resetPassword":
-                        window.location.replace('/Settings/ChangePassword.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
-                        break;
+                case "22":
+                    $('#PopUpModal').modal();
+                    $('#ModalMessage').html('<div>' + message + '</div>');
+                    break;
 
-                    default:
-                        GPINTMOBILE.HideSplash();
-                        $('#PopUpModal').modal();
-                        $('#ModalMessage').html('<div>' + message + '</div>');
-                        break;
+                case "resetPassword":
+                    window.location.replace('/Settings/ChangePassword.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
+                    break;
+
+                default:
+                    GPINTMOBILE.HideSplash();
+                    $('#PopUpModal').modal();
+                    $('#ModalMessage').html('<div>' + message + '</div>');
+                    break;
                 }
             },
             error: function (err) {
@@ -166,10 +223,8 @@
 
 </script>
 
-<div id="PopUpModal" class="modal" style="display:none;">
-    <div class="padding">
-        <div id="ModalMessage" class="download-app padding"></div>
-    </div>
+<div id="PopUpModal" class="modal" style="display: none;">
+    <div id="ModalMessage" class="modal-content padding text-center"></div>
 </div>
 
 </html>
