@@ -183,6 +183,11 @@
         });
     });
 
+    function notAllow() {
+        $('#ModalMessage').html('<%=commonCulture.ElementValues.getResourceXPathString("Login/MembersOnly", xeErrors)%>');
+        $('#PopUpModal').modal();
+    }
+
     function initiateLogin() {
         var udata = { Username: $('#txtUsername').val(), Password: $('#txtPassword').val(), Captcha: $('#txtCaptcha').val() };
         $.ajax({
@@ -207,15 +212,14 @@
                 }
 
                 switch (xml.Code) {
+
                     case "1":
 
                         if (Cookies().getCookie('isvp') == 'true') {
                             window.location.replace('/Index');
                         } else {
-
-                            $('#ModalMessage').html('<%=commonCulture.ElementValues.getResourceXPathString("Login/MembersOnly", xeErrors)%>');
-                        $('#PopUpModal').modal();
-                    }
+                            notAllow();
+                        }
                     break;
 
                 case "22":
@@ -223,9 +227,14 @@
                     $('#ModalMessage').html('<div>' + message + '</div>');
                     break;
 
-                case "resetPassword":
-                    window.location.replace('/Settings/ChangePassword.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
-                    break;
+                    case "resetPassword":
+                        if (Cookies().getCookie('isvp') == 'true') {
+                            window.location.replace('/Settings/ChangePassword.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
+                        } else {
+                            notAllow();
+                        }
+
+                        break;
 
                     default:
                         counter += 1;
