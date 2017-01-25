@@ -30,6 +30,15 @@
     window.User.lang = '<%=commonVariables.SelectedLanguage%>';
     window.User.storageExpiration = { expires: 300000 };
 </script>
+<script src="/_Static/JS/i18n/contents-<%=commonVariables.SelectedLanguageShort%>.js"></script>
+<script src="/_Static/JS/modules/translate.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+<script>
+    w88Mobile.APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("APIUrl") %>';
+    w88Mobile.Gateways = {};
+
+    var _w88_contents = new w88Mobile.Translate();
+    _w88_contents.init();
+</script>
 <script type="text/javascript" src="/_Static/JS/modules/slots.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/constants.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/formValidator.js"></script>
@@ -39,37 +48,6 @@
     if(!_.isUndefined(w88Mobile.Growl)){
         w88Mobile.Growl.options.lang = '<%=commonVariables.SelectedLanguageShort%>';
         w88Mobile.Growl.options.close = '<%=commonCulture.ElementValues.getResourceString("close", commonVariables.LeftMenuXML)%>';   
-    }
-
-    w88Mobile.APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("APIUrl") %>';
-    w88Mobile.Gateways = {};
-
-    var translations = amplify.store("translations");
-
-    var headers = {
-        'Token': window.User.token,
-        'LanguageCode': window.User.lang
-    };
-
-    if (!translations || (translations && headers.LanguageCode != translations.language)) {
-        $.ajax({
-            type: "GET",
-            url: w88Mobile.APIUrl + "/contents",
-            headers: headers,
-            success: function (response) {
-                switch (response.ResponseCode) {
-                    case 1:
-                        response.ResponseData.language = window.User.lang;
-                        amplify.store("translations", response.ResponseData, window.User.storageExpiration);
-                        w88Mobile.Gateways.Translations = response.ResponseData;
-                    default:
-                        break;
-                }
-            },
-            error: function () {
-                console.log("Error connecting to api");
-            },
-        });
     }
     </script>
 <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0" />
