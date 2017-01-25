@@ -18,7 +18,7 @@ function translate() {
     
     this.fetch = function (lang) {
         var _self = this;
-        var url = w88Mobile.APIUrl  + "/contents";
+        var url = "/api/contents";
         var headers = {
             'Token': window.User.token,
             'LanguageCode': lang
