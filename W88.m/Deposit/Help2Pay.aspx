@@ -78,7 +78,7 @@
                     </li>
                     <li class="item row">
                         <div class="col">
-                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" />
+                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" />
                         </div>
                     </li>
                 </ul>
@@ -95,25 +95,55 @@
                 window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
 
                 $('#form1').submit(function (e) {
+                    e.preventDefault();
                     window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
+
+                    var data = {
+                        Amount: $('#txtDepositAmount').val(),
+                        Bank: { Text: $('#drpBank option:selected').text(), Value: $('#drpBank option:selected').val() },
+                        ThankYouPage: location.protocol + "//" + location.host + "/Index"
+                    };
+
+                    var url = w88Mobile.APIUrl + "/payments/" + "<%=base.PaymentMethodId %>";
+
+                    var headers = {
+                        'Token': window.User.token,
+                        'LanguageCode': window.User.lang
+                    };
+
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        data: data,
+                        beforeSend: function () { GPInt.prototype.ShowSplash() },
+                        headers: headers,
+                        success: function (response) {
+                            switch (response.ResponseCode) {
+                                case 1:
+                                    w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
+                                    w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
+                                    w88Mobile.PostPaymentForm.submit();
+
+                                    $('#form1')[0].reset();
+                                    break;
+                                default:
+                                    if (_.isArray(response.ResponseMessage))
+                                        w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
+                                    else
+                                        w88Mobile.Growl.shout(response.ResponseMessage);
+
+                                    break;
+                            }
+                        },
+                        error: function () {
+                            console.log("Error connecting to api");
+                        },
+                        complete: function () {
+                            window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
+                            GPInt.prototype.HideSplash();
+                        }
+                    });
                 });
-
-                var responseCode = '<%=strAlertCode%>';
-                var responseMsg = '<%=strAlertMessage%>';
-                if (responseCode.length > 0) {
-                    switch (responseCode) {
-                        case '-1':
-                            alert(responseMsg);
-                            break;
-                        case '0':
-                            var help2payurl = '/_secure/ajaxhandlers/help2pay.ashx?v=' + new Date().getTime() + '&requestAmount=' + $('#txtDepositAmount').val() + '&requestBank=' + $('#drpBank').val();
-                            window.open(help2payurl);
-
-                            break;
-                        default:
-                            break;
-                    }
-                }
             });
 
         </script>

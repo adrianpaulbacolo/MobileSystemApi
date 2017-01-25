@@ -24,6 +24,8 @@
     }
 
     function init() {
+        $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+        $("#paymentNoteContent").text(_w88_contents.translate("LABEL_PAYMENT_NOTE1"));
     }
 
 }

@@ -1,0 +1,10 @@
+﻿<div class="padding rebates-modal-content">
+    <div class="text-center">
+        
+        {% if(rebate.data.statusCode == 1) { %}
+            <h4>{%- rebate.data.congrats %}!</h4>
+        {% } %}
+
+        <p>{%- rebate.data.msg %}</p>
+    </div>
+</div>

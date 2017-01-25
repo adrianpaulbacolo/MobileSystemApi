@@ -71,7 +71,8 @@
                         </div>
                     </li>
                     <li class="item-text-wrap ali-pay-note">
-                        <asp:Label ID="lblShengPayNote" runat="server" />
+                        <span id="paymentNote"></span>
+                        <p id="paymentNoteContent"></p>
                     </li>
                     <li class="item item-input">
                         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
@@ -96,18 +97,20 @@
                 font-size: 70%;
             }
             
-            li.ali-pay-note #lblShengPayNote span{
-                color: red;
-                font-weight: bold;
-            }
-            
-            li.ali-pay-note #lblShengPayNote p{
-                padding-top: 5px;
-            }
+             li.ali-pay-note #paymentNote {
+                 color: red;
+                 font-weight: bold;
+             }
+
+             li.ali-pay-note #paymentNoteContent {
+                 padding-top: 5px;
+             }
         </style>
         <script type="text/javascript">
             $(document).ready(function () {
                 window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
+
+                window.w88Mobile.Gateways.ShengPay.Initialize();
 
                 $('#form1').submit(function (e) {
                     window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');

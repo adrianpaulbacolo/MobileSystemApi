@@ -31,15 +31,15 @@ public partial class Slots_ClubGallardo : BasePage
         IEnumerable<IGrouping<string, GameCategoryInfo>> games;
         if (addGpi)
         {
-            var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
-            var gpiCategory = gpiHandler.Process(true);
-            isbCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, isbCategory[0].Current);
+        var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
+        var gpiCategory = gpiHandler.Process(true);
+        isbCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, isbCategory[0].Current);
 
-            games = isbCategory.Union(pngCategory).Union(gpiCategory).GroupBy(x => x.Title);
+        games = pngCategory.Union(isbCategory).Union(gpiCategory).GroupBy(x => x.Title);
         }
         else
         {
-            games = isbCategory.Union(pngCategory).GroupBy(x => x.Title);
+            games = pngCategory.Union(isbCategory).GroupBy(x => x.Title);
         }
 
         StringBuilder sbGames = new StringBuilder();

@@ -54,7 +54,5 @@ public partial class Deposit_ShengPayAliPay : PaymentBasePage
         btnSubmit.Text = base.strbtnSubmit;
 
         lblTransactionId = base.strlblTransactionId;
-
-        lblShengPayNote.Text = commonCulture.ElementValues.getResourceString("lblShengPayNote", xeResources);
     }
 }

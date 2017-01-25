@@ -1,5 +1,5 @@
 ﻿$(window).load(function () {
-    GPINTMOBILE.HideSplash();
+    
     if (typeof window.User != "undefined" && window.User.hasSession) checkSession();
     var sessionPoll;
 

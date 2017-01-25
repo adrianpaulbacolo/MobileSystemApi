@@ -83,6 +83,16 @@
         background-image: none;
         border: none;
     }
+    &.form-modal{
+        background: transparent !important; 
+        .item{
+            padding: 0;
+            margin-left: 0;
+            .item-checkbox .ui-btn{
+                padding-left: 55px !important;
+            }
+        }
+    }
 }
 
 .captcha {
