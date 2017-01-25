@@ -72,8 +72,9 @@
                     <div class="input-group captcha">
                         <asp:Image ID="imgCaptcha" runat="server" CssClass="imgCaptcha" />
                         <div class="input-box">
-                            <asp:TextBox ID="txtCaptcha" runat="server" MaxLength="4" type="tel" data-mini="true" data-corners="false" CssClass="input"  />
-                             <span class="input-box-icon"><img src="img/icon-password.png" alt=""></span>
+                            <asp:TextBox ID="txtCaptcha" runat="server" MaxLength="4" type="tel" data-mini="true" data-corners="false" CssClass="input" />
+                            <span class="input-box-icon">
+                                <img src="img/icon-password.png" alt=""></span>
                         </div>
                     </div>
                     <div class="input-group">
@@ -220,12 +221,12 @@
                         } else {
                             notAllow();
                         }
-                    break;
+                        break;
 
-                case "22":
-                    $('#PopUpModal').modal();
-                    $('#ModalMessage').html('<div>' + message + '</div>');
-                    break;
+                    case "22":
+                        $('#PopUpModal').modal();
+                        $('#ModalMessage').html('<div>' + message + '</div>');
+                        break;
 
                     case "resetPassword":
                         if (Cookies().getCookie('isvp') == 'true') {
@@ -246,11 +247,11 @@
                             $('#txtPassword').val('');
                         }
 
-                    GPINTMOBILE.HideSplash();
-                    $('#PopUpModal').modal();
-                    $('#ModalMessage').html('<div>' + message + '</div>');
-                    break;
-            }
+                        GPINTMOBILE.HideSplash();
+                        $('#PopUpModal').modal();
+                        $('#ModalMessage').html('<div>' + message + '</div>');
+                        break;
+                }
             },
             error: function (err) {
                 $('#PopUpModal').modal();
