@@ -24,14 +24,8 @@
     }
 
     function init() {
-        var translations = amplify.store("translations");
-        setTranslations(translations);
-        function setTranslations(data) {
-            if (!_.isUndefined(data)) {
-                $("#paymentNote").text(data.LABEL_PAYMENT_NOTE);
-                $("#paymentNoteContent").text(data.LABEL_PAYMENT_NOTE1);
-            }
-        }
+        $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+        $("#paymentNoteContent").text(_w88_contents.translate("LABEL_PAYMENT_NOTE1"));
     }
 
 }
