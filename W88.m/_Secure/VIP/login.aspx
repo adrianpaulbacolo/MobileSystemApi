@@ -53,7 +53,7 @@
         <div class="viplogin-container">
             <div class="viplogin-box">
                 <img src="img/w88-vip.png" alt="" class="viplogo">
-                <form action="" class="viplogin-form">
+                <form action="" class="viplogin-form" runat="server">
                     <h3><span id="formHeader"></span></h3>
                     <div class="input-group">
                         <div class="input-box">
@@ -69,6 +69,13 @@
                                 <img src="img/icon-password.png" alt=""></span>
                         </div>
                     </div>
+                    <div class="input-group captcha">
+                        <asp:Image ID="imgCaptcha" runat="server" CssClass="imgCaptcha" />
+                        <div class="input-box">
+                            <asp:TextBox ID="txtCaptcha" runat="server" MaxLength="4" type="tel" data-mini="true" data-corners="false" CssClass="input"  />
+                             <span class="input-box-icon"><img src="img/icon-password.png" alt=""></span>
+                        </div>
+                    </div>
                     <div class="input-group">
                         <input id="btnSubmit" type="submit" class="button" value="">
                     </div>
@@ -82,29 +89,33 @@
                         <a id="csLink" href="/LiveChat/Default.aspx"></a>
                         <span id="loginNote1"></span>
                     </p>
-                     <div id="sslNote"></div>
+                    <div id="sslNote"></div>
                 </div>
             </div>
         </div>
     </section>
 </body>
-    
+
 <script type="text/javascript">
+    $(function () { $('#<%=imgCaptcha.ClientID%>').attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime()); });
+    $('#<%=imgCaptcha.ClientID%>').click(function () { $(this).attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime()); });
+
+    var counter = 0;
+    $('.captcha').hide();
 
     $(document).ready(function () {
-        
-        if (Cookies().getCookie('language') == "zh-cn"){
-            $("body").addClass("ch")
+       
+        if (Cookies().getCookie('language') == "zh-cn") {
+            $("body").addClass("ch");
         }
-        else
-        {
-            $("body").removeClass("ch")
+        else {
+            $("body").removeClass("ch");
         }
 
         setTranslations();
 
         window.setInterval(function() {
-            if ($("#formHeader").text() == "LABEL_VIP_LOGIN") {
+            if (_w88_contents.translate("LABEL_VIP_LOGIN") == "LABEL_VIP_LOGIN") {
                 setTranslations();
             }
         }, 100);
@@ -113,6 +124,7 @@
             $("#formHeader").text(_w88_contents.translate("LABEL_VIP_LOGIN"));
             $("#txtUsername").attr("placeholder", _w88_contents.translate("LABEL_USERNAME"));
             $("#txtPassword").attr("placeholder", _w88_contents.translate("LABEL_PASSWORD"));
+            $("#txtCaptcha").attr("placeholder", _w88_contents.translate("LABEL_CAPTCHA"));
             $("#btnSubmit").val(_w88_contents.translate("BUTTON_LOGIN"));
 
             var note0 = _w88_contents.translate("LABEL_VIP_LOGIN_NOTE_0").split('{0}');
@@ -121,6 +133,7 @@
             $("#sslNote").text(_w88_contents.translate("LABEL_VIP_LOGIN_NOTE_1"));
             $("#forgot").text(_w88_contents.translate("LABEL_FORGOTPASSWORD"));
             $("#csLink").text(_w88_contents.translate("LABEL_CS_LINK"));
+
         }
 
         $('#txtUsername').keyup(function () {
@@ -151,6 +164,14 @@
                 e.preventDefault();
             }
 
+            if (counter >= 3) {
+                if ($('#txtCaptcha').val().trim().length == 0) {
+                    message += ('<li><%=commonCulture.ElementValues.getResourceXPathString("Register/MissingVCode", xeErrors)%></li>');
+                    hasError = true;
+                    e.preventDefault();
+                }
+            }
+
             if (hasError) {
                 message += ('</ul>');
                 $('#ModalMessage').html(message);
@@ -164,7 +185,7 @@
     });
 
     function initiateLogin() {
-        var udata = { Username: $('#txtUsername').val(), Password: $('#txtPassword').val() };
+        var udata = { Username: $('#txtUsername').val(), Password: $('#txtPassword').val(), Captcha: $('#txtCaptcha').val() };
         $.ajax({
             type: 'POST',
             contentType: "application/json",
@@ -187,13 +208,13 @@
                 }
 
                 switch (xml.Code) {
-                case "1":
+                    case "1":
 
-                    if (Cookies().getCookie('isvp') == 'true') {
-                        window.location.replace('/Index');
-                    } else {
+                        if (Cookies().getCookie('isvp') == 'true') {
+                            window.location.replace('/Index');
+                        } else {
 
-                        $('#ModalMessage').html('<%=commonCulture.ElementValues.getResourceXPathString("Login/MembersOnly", xeErrors)%>');
+                            $('#ModalMessage').html('<%=commonCulture.ElementValues.getResourceXPathString("Login/MembersOnly", xeErrors)%>');
                         $('#PopUpModal').modal();
                     }
                     break;
@@ -207,12 +228,21 @@
                     window.location.replace('/Settings/ChangePassword.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
                     break;
 
-                default:
+                    default:
+                        counter += 1;
+
+                        if (counter >= 3) {
+                            $('.captcha').show();
+                            $('#<%=imgCaptcha.ClientID%>').attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime());
+                            $('#<%=txtCaptcha.ClientID%>').val('');
+                            $('#txtPassword').val('');
+                        }
+
                     GPINTMOBILE.HideSplash();
                     $('#PopUpModal').modal();
                     $('#ModalMessage').html('<div>' + message + '</div>');
                     break;
-                }
+            }
             },
             error: function (err) {
                 $('#PopUpModal').modal();

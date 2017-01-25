@@ -150,6 +150,12 @@ body.ch{
 	}
 }
 
+  
+    .imgCaptcha{
+        height:40px;
+        width:100%;
+    }
+
 @media (max-width: 320px){
 
 	.viplogo{
@@ -180,6 +186,11 @@ body.ch{
 
 	}
 
+    .imgCaptcha{
+        height:40px;
+        width:100%;
+    }
+
 }
 @media (max-height: 640px){
 	.viplogin{
@@ -198,5 +209,9 @@ body.ch{
 	.viplogo{
 		margin: 15px auto 15px;
 	}
+    .imgCaptcha{
+        height:29px;
+        width:100%;
+    }
 }
 
