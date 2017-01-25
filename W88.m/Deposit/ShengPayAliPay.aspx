@@ -8,7 +8,7 @@
         </li>
         <li class="item item-input">
             <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
-            <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+            <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true"  onKeyPress="return ValidateNumeric(event);" />
         </li>
     </ul>
 
@@ -32,6 +32,20 @@
     <script type="text/javascript" src="/_Static/JS/modules/gateways/shengpay.js"></script>
 
     <script type="text/javascript">
+        
+        function ValidateNumeric(e) {
+            var key = e.keyCode;
+            if ($.browser.mozilla) {
+                key = e.which;
+            }
+            if (key != 0 && key != 8) {
+                var regex = new RegExp("^[0-9]+$");
+                var code = String.fromCharCode(key);
+                if (!regex.test(code))
+                    return false;
+            }
+        }
+
         $(document).ready(function () {
             var payments = new w88Mobile.Gateways.Payments("<%=base.PaymentMethodId %>");
             payments.init();
@@ -50,7 +64,7 @@
 
                 w88Mobile.Gateways.ShengPay.gatewayId = "<%=base.PaymentMethodId %>";
                 w88Mobile.Gateways.ShengPay.deposit(data, function (response) {
-                    switch (response.ResponseCode) {
+                        switch (response.ResponseCode) {
                         case 1:
                             w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
                             window.open(response.ResponseData.PostUrl);
@@ -62,13 +76,13 @@
                             else
                                 w88Mobile.Growl.shout(response.ResponseMessage);
                             break;
-                    }
-                },
-                function () { console.log("Error connecting to api"); },
-                function () {
-                    w88Mobile.FormValidator.enableSubmitButton('#ContentPlaceHolder1_btnSubmit');
-                    GPINTMOBILE.HideSplash();
-                });
+                        }
+                    },
+                    function () { console.log("Error connecting to api"); },
+                    function () {
+                        w88Mobile.FormValidator.enableSubmitButton('#ContentPlaceHolder1_btnSubmit');
+                        GPINTMOBILE.HideSplash();
+                    });
             });
         });
     </script>
