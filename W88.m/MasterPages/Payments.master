@@ -83,17 +83,7 @@
 
             $('#<%=btnSubmit.ClientID%>').val(_w88_contents.translate("BUTTON_SUBMIT")).button("refresh");
 
-                var resource = "", payment = undefined, storage = "";
-
-                if (isDeposit) {
-                    resource = "/payments/settings/deposit";
-                    payment = amplify.store("depositSettings");
-                    storage = "depositSettings";
-                } else {
-                    resource = "/payments/settings/withdrawal";
-                    payment = amplify.store("withdrawalSettings");
-                    storage = "withdrawalSettings";
-                }
+            var resource = "", payment = undefined, storage = "";
 
             if (isDeposit) {
                 resource = "/payments/settings/deposit";
