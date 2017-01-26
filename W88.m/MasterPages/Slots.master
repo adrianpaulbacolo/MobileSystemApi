@@ -8,7 +8,6 @@
     <meta charset="utf-8" />
     <title></title>
     <!--#include virtual="~/_static/head.inc" -->
-    <script src="/_Static/JS/modules/translate.jsv=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
