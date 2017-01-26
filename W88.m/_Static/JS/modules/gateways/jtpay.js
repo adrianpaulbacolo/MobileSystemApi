@@ -1,10 +1,15 @@
 ﻿function JTPay() {
 
     var jtpay = {
-        Initialize: init
+        Initialize: init,
+        Deposit : deposit
     };
 
     return jtpay;
+
+    function deposit(data, successCallback, errorCallback, completeCallback) {
+        window.w88Mobile.Gateways.DefaultPayments.Send("/payments/120262", "POST", successCallback, data, completeCallback);
+    }
 
     function init(version) {
         var translations = amplify.store("translations");

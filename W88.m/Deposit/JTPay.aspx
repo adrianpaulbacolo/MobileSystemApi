@@ -35,7 +35,7 @@
     </style>
 
     <script type="text/javascript">
-        $(document).ready(function () {
+        $(document).ready(function() {
             var payments = new w88Mobile.Gateways.Payments("<%=base.PaymentMethodId %>");
             payments.init();
 
@@ -43,7 +43,7 @@
 
             window.w88Mobile.Gateways.JTPay.Initialize($("#hdnNoteVersion").val());
 
-            $('#form1').submit(function (e) {
+            $('#form1').submit(function(e) {
                 window.w88Mobile.FormValidator.disableSubmitButton('#ContentPlaceHolder1_btnSubmit');
                 // use api
                 e.preventDefault();
@@ -52,11 +52,10 @@
                     ThankYouPage: location.protocol + "//" + location.host + "/Deposit/Thankyou.aspx"
                 };
 
-                w88Mobile.Gateways.JTPay.gatewayId = "<%=base.PaymentMethodId %>";
-                    w88Mobile.Gateways.JTPay.deposit(data, function (response) {
+                w88Mobile.Gateways.JTPay.Deposit(data, function (response) {
                         switch (response.ResponseCode) {
-                            case 1:
-                                w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
+                        case 1:
+                            w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
                             w88Mobile.PostPaymentForm.create(
                                 response.ResponseData.FormData,
                                 response.ResponseData.PostUrl,
@@ -71,14 +70,14 @@
                                 w88Mobile.Growl.shout(response.ResponseMessage);
 
                             break;
-                    }
-                },
-                function () { console.log("Error connecting to api"); },
-                function () {
-                    w88Mobile.FormValidator.enableSubmitButton('#ContentPlaceHolder1_btnSubmit');
-                    GPINTMOBILE.HideSplash();
-                });
-                });
+                        }
+                    },
+                    function() { console.log("Error connecting to api"); },
+                    function() {
+                        w88Mobile.FormValidator.enableSubmitButton('#ContentPlaceHolder1_btnSubmit');
+                        GPINTMOBILE.HideSplash();
+                    });
+            });
         });
         </script>
 </asp:Content>
