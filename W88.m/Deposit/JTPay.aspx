@@ -17,7 +17,7 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder1" runat="Server">
-    <script type="text/javascript" src="/_Static/JS/modules/gateways/jtpay.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/jtpay.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 
     <style>
         li.ali-pay-note {
@@ -41,7 +41,7 @@
 
             window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
 
-            window.w88Mobile.Gateways.JTPay.Initialize($("#hdnNoteVersion").val());
+            window.w88Mobile.Gateways.JTPay.Initialize($('#<%=hdnNoteVersion.ClientID%>').val());
 
             $('#form1').submit(function(e) {
                 window.w88Mobile.FormValidator.disableSubmitButton('#ContentPlaceHolder1_btnSubmit');
@@ -52,6 +52,7 @@
                     ThankYouPage: location.protocol + "//" + location.host + "/Deposit/Thankyou.aspx"
                 };
 
+                w88Mobile.Gateways.JTPay.gatewayId = "<%=base.PaymentMethodId %>";
                 w88Mobile.Gateways.JTPay.Deposit(data, function (response) {
                         switch (response.ResponseCode) {
                         case 1:
