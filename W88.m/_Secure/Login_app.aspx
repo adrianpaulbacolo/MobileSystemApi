@@ -112,8 +112,8 @@
                         e.preventDefault();
                         initiateLogin();
 
-                        amplify.store("depositSettings", null);
-                        amplify.store("withdrawalSettings", null);
+                        amplify.store(w88Mobile.Keys.depositSettings, null);
+                        amplify.store(w88Mobile.Keys.withdrawalSettings, null);
                     }
                 });
             });
