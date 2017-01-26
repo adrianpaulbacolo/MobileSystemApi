@@ -174,8 +174,9 @@
 
             if (status === '1') {
                 closeButtons.each(function() {
-                    $(this).attr('data-rel', null);
-                    $(this).on('click', function() {
+                    $(this).attr('data-rel','back');
+                    $(this).on('click', function () {
+                        $.mobile.loading('show');
                         window.location.href = '/Catalogue?categoryId=0&sortBy=2';
                     });
                 });

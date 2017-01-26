@@ -1,12 +1,9 @@
 ﻿function ShengPay() {
 
-    var gatewayId = "1202111";
-
     var shengpay = {
         deposit: deposit
         , withdraw: withdraw
-        , gatewayId: gatewayId
-        ,Initialize: init
+        , Initialize: init
     };
 
     return shengpay;
@@ -30,8 +27,8 @@
         setTranslations();
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
-                $("#paymentNote").text(data.LABEL_PAYMENT_NOTE);
-                $("#paymentNoteContent").text(data.LABEL_PAYMENT_NOTE1);
+                $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+                $("#paymentNoteContent").text(_w88_contents.translate("LABEL_PAYMENT_NOTE1"));
             } else {
                 window.setInterval(function () {
                     setTranslations();
