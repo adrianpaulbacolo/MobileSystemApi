@@ -623,13 +623,15 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
 <script type="text/javascript">
 
         $(document).ready(function () {
-            var translations = amplify.store("translations");
-            setTranslations(translations);
-
-            function setTranslations(data) {
-
-                if (!_.isUndefined(data)) {
-                    $("#ClubNuovoNavTitle").text(data.LABEL_PRODUCTS_CLUB_NUOVO);
+            
+            setTranslations();
+            function setTranslations() {
+                if (_w88_contents.translate("LABEL_PRODUCTS_CLUB_NUOVO") != "LABEL_PRODUCTS_CLUB_NUOVO") {
+                    $("#ClubNuovoNavTitle").text(_w88_contents.translate("LABEL_PRODUCTS_CLUB_NUOVO"));
+                } else {
+                    window.setInterval(function () {
+                        setTranslations();
+                    }, 500);
                 }
             }
 

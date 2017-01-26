@@ -114,12 +114,15 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-            var translations = amplify.store("translations");
-
-            setTranslations(translations);
-
-            function setTranslations(data) {
-                $("#ClubNuovoTitle").text(data.LABEL_PRODUCTS_CLUB_NUOVO);
+            setTranslations();
+            function setTranslations() {
+                if (_w88_contents.translate("LABEL_PRODUCTS_CLUB_NUOVO") != "LABEL_PRODUCTS_CLUB_NUOVO") {
+                    $("#ClubNuovoTitle").text(_w88_contents.translate("LABEL_PRODUCTS_CLUB_NUOVO"));
+                } else {
+                    window.setInterval(function () {
+                        setTranslations();
+                    }, 500);
+                }
             }
         });
     </script>
