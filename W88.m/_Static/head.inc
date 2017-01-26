@@ -28,18 +28,19 @@
     window.User.token = '<%= commonVariables.CurrentMemberSessionId %>';
     window.User.sessionInterval = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("sessionInterval") %>';
     window.User.lang = '<%=commonVariables.SelectedLanguage%>';
-    window.User.storageExpiration = { expires: 1200000 };
+    window.User.storageExpiration = { expires: 300000 };
+    w88Mobile.APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("APIUrl") %>';
 </script>
 <script src="/_Static/JS/i18n/contents-<%=commonVariables.SelectedLanguageShort%>.js"></script>
 <script src="/_Static/JS/modules/translate.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 <script>
-    w88Mobile.APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("APIUrl") %>';
     w88Mobile.Gateways = {};
 
     var _w88_contents = new w88Mobile.Translate();
     _w88_contents.init();
 </script>
 <script type="text/javascript" src="/_Static/JS/modules/slots.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/constants.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/formValidator.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/growl.js"></script>
 <script type="text/javascript">
