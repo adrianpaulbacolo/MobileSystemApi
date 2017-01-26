@@ -1,7 +1,6 @@
 ﻿function ShengPay() {
 
     var gatewayId = "1202111";
-    var token = "";
 
     var shengpay = {
         deposit: deposit
@@ -12,29 +11,10 @@
 
     return shengpay;
 
-    function send(method, data, success, error, complete) {
-        var url = w88Mobile.APIUrl + "/payments/" + gatewayId;
-
-        var headers = {
-            'Token': window.User.token,
-            'LanguageCode': window.User.lang
-        };
-        $.ajax({
-            type: method,
-            url: url,
-            data: data,
-            headers: headers,
-            success: success,
-            error: error,
-            complete: complete
-        });
-
-    }
-
     // deposit
     function deposit(data, successCallback, errorCallback, completeCallback) {
         validate(data, "deposit");
-        send("POST", data, successCallback, errorCallback, completeCallback);
+        window.w88Mobile.Gateways.DefaultPayments.Send("/payments/1202111", "POST", successCallback, data, completeCallback);
     }
 
     // withdraw
@@ -47,12 +27,15 @@
     }
 
     function init() {
-        var translations = amplify.store("translations");
-        setTranslations(translations);
-        function setTranslations(data) {
-            if (!_.isUndefined(data)) {
+        setTranslations();
+        function setTranslations() {
+            if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
                 $("#paymentNote").text(data.LABEL_PAYMENT_NOTE);
                 $("#paymentNoteContent").text(data.LABEL_PAYMENT_NOTE1);
+            } else {
+                window.setInterval(function () {
+                    setTranslations();
+                }, 500);
             }
         }
     }
