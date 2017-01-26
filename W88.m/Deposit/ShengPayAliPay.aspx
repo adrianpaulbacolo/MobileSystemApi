@@ -59,7 +59,7 @@
                 // use api
                 e.preventDefault();
                 var data = {
-                    Amount: $('#txtDepositAmount').val()
+                    Amount: $('#ContentPlaceHolder1_ContentPlaceHolder2_txtDepositAmount').val()
                 };
 
                 w88Mobile.Gateways.ShengPay.gatewayId = "<%=base.PaymentMethodId %>";
