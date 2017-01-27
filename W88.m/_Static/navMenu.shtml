@@ -273,13 +273,13 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
                 <li>
                     <a class="card" rel="clubbravado" href="/ClubBravado" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubbravado.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubBravado/Label", commonVariables.ProductsXML)%></div>
+                        <div class="title" id="ClubBravadoNavTitle"></div>
                     </a>
                 </li>
                 <li>
                     <a class="card" rel="clubmassimo-slots" href="/ClubMassimo" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubmassimo-slots.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
+                        <div class="title" id="ClubMassimoNavTitle"></div>
                     </a>
                 </li>
                 <%if(deviceId==2){%>
@@ -293,7 +293,7 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
                 <li>
                     <a class="card" rel="clubpalazzo-slots" href="/ClubPalazzo" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubpalazzo-slots.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
+                        <div class="title" id="ClubPalazzoNavTitle"></div>
                     </a>
                 </li>
                 <%if(deviceId==2){%>
@@ -307,7 +307,7 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
                 <li>
                     <a class="card" rel="clubgallardo" href="/ClubGallardo" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubgallardo.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubGallardo/Label", commonVariables.ProductsXML)%></div>
+                        <div class="title" id="ClubGallardoNavTitle"></div>
                     </a>
                 </li>
                 <li>
@@ -319,13 +319,13 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
                 <li>
                     <a class="card" rel="clubapollo" href="/ClubApollo" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubapollo.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubApollo/Label", commonVariables.ProductsXML)%></div>
+                        <div class="title" id="ClubApolloNavTitle"></div>
                     </a>
                 </li>
                 <li>
                     <a class="card" rel="clubdivino" href="/ClubDivino" data-ajax="false">
                         <img src="/_Static/Images/bnr-clubdivino.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubDivino/Label", commonVariables.ProductsXML)%></div>
+                        <div class="title" id="ClubDivinoNavTitle"></div>
                     </a>
                 </li>
                 <!--<li>
@@ -623,11 +623,17 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
 <script type="text/javascript">
 
         $(document).ready(function () {
-            
+
             setTranslations();
             function setTranslations() {
                 if (_w88_contents.translate("LABEL_PRODUCTS_CLUB_NUOVO") != "LABEL_PRODUCTS_CLUB_NUOVO") {
                     $("#ClubNuovoNavTitle").text(_w88_contents.translate("LABEL_PRODUCTS_CLUB_NUOVO"));
+                    $("#ClubBravadoNavTitle").text(_w88_contents.translate("LABEL_PRODUCTS_BRAVADO"));
+                    $("#ClubMassimoNavTitle").text(_w88_contents.translate("LABEL_PRODUCTS_MASSIMO"));
+                    $("#ClubPalazzoNavTitle").text(_w88_contents.translate("LABEL_PRODUCTS_PALAZZO"));
+                    $("#ClubGallardoNavTitle").text(_w88_contents.translate("LABEL_PRODUCTS_GALLARDO"));
+                    $("#ClubApolloNavTitle").text(_w88_contents.translate("LABEL_PRODUCTS_APOLLO"));
+                    $("#ClubDivinoNavTitle").text(_w88_contents.translate("LABEL_PRODUCTS_DIVINO"));
                 } else {
                     window.setInterval(function () {
                         setTranslations();
@@ -643,7 +649,7 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
     $("#icon-rewards-sidebar").attr('href', urlRewards);
 
 	var url = window.location.protocol +'//www.'+ '<%=commonIp.DomainName %>' + '?nomobile=true';
-    
+
         <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieAffiliateId))
             {%>
                 url += '&affiliateID=' + <%=commonCookie.CookieAffiliateId%>;

@@ -35,14 +35,14 @@
             <li class="col col-33">
                 <a href="/ClubBravado" class="card" data-ajax="false">
                     <img src="/_Static/Images/bnr-clubbravado.jpg" class="img-responsive">
-                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubBravado/Label", commonVariables.ProductsXML)%></div>
+                    <div class="title" id="ClubBravadoTitle"></div>
                 </a>
             </li>
 
             <li class="col col-33">
                 <a href="/ClubMassimo" class="card" data-ajax="false">
                     <img src="/_Static/Images/bnr-clubmassimo-slots.jpg" class="img-responsive">
-                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
+                    <div class="title" id="ClubMassimoTitle"></div>
                 </a>
             </li>
 
@@ -65,7 +65,7 @@
             <li class="col col-33">
                 <a href="/ClubPalazzo" class="card" data-ajax="false">
                     <img src="/_Static/Images/bnr-clubpalazzo-slots.jpg?" class="img-responsive">
-                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
+                    <div class="title" id="ClubPalazzoTitle"></div>
                 </a>
             </li>
             <%
@@ -87,7 +87,7 @@
             <li class="col col-33">
                 <a href="/ClubGallardo" class="card" data-ajax="false">
                     <img src="/_Static/Images/bnr-clubgallardo.jpg" class="img-responsive">
-                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubGallardo/Label", commonVariables.ProductsXML)%></div>
+                    <div class="title" id="ClubGallardoTitle"></div>
                 </a>
             </li>
             <li class="col col-33">
@@ -99,13 +99,13 @@
             <li class="col col-33">
                 <a href="/ClubApollo" class="card" data-ajax="false">
                     <img src="/_Static/Images/bnr-clubapollo.jpg" class="img-responsive">
-                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubApollo/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
+                    <div class="title" id="ClubApolloTitle"></div>
                 </a>
             </li>
             <li class="col col-33">
                 <a href="/ClubDivino" class="card" data-ajax="false">
                     <img src="/_Static/Images/bnr-clubdivino.jpg" class="img-responsive">
-                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubDivino/Label", commonVariables.ProductsXML)%></div>
+                    <div class="title" id="ClubDivinoTitle"></div>
                 </a>
             </li>
         </ul>
@@ -118,6 +118,12 @@
             function setTranslations() {
                 if (_w88_contents.translate("LABEL_PRODUCTS_CLUB_NUOVO") != "LABEL_PRODUCTS_CLUB_NUOVO") {
                     $("#ClubNuovoTitle").text(_w88_contents.translate("LABEL_PRODUCTS_CLUB_NUOVO"));
+                    $("#ClubBravadoTitle").text(_w88_contents.translate("LABEL_PRODUCTS_BRAVADO"));
+                    $("#ClubMassimoTitle").text(_w88_contents.translate("LABEL_PRODUCTS_MASSIMO"));
+                    $("#ClubPalazzoTitle").text(_w88_contents.translate("LABEL_PRODUCTS_PALAZZO"));
+                    $("#ClubGallardoTitle").text(_w88_contents.translate("LABEL_PRODUCTS_GALLARDO"));
+                    $("#ClubApolloTitle").text(_w88_contents.translate("LABEL_PRODUCTS_APOLLO"));
+                    $("#ClubDivinoTitle").text(_w88_contents.translate("LABEL_PRODUCTS_DIVINO"));
                 } else {
                     window.setInterval(function () {
                         setTranslations();
