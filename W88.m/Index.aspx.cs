@@ -86,22 +86,27 @@ public partial class _Index : BasePage
                 var content = "";
                 var description = "";
 
-                if (promo.Attribute("PromoDate") != null)
+                try
                 {
-                    try
+                    if (promo.Attribute("PromoStart") != null)
                     {
-                        string promoDate = promo.Attribute("PromoDate").Value;
-                        DateTime oDate = DateTime.Parse(promoDate, null);
-
-                        if (oDate > DateTime.Now)
+                        var promoStart = promo.Attribute("PromoStart").Value;
+                        DateTime start = DateTime.Parse(promoStart, null);
+                        if (start > DateTime.Now)
                             continue;
 
                     }
-                    catch (Exception e)
+
+                    if (promo.Attribute("PromoEnd") != null)
                     {
-                        continue;
+                        var promoEnd = promo.Attribute("PromoEnd").Value;
+                        DateTime end = DateTime.Parse(promoEnd, null);
+                        if (end <= DateTime.Now)
+                            continue;
                     }
+
                 }
+                catch (Exception e) { }
 
                 if (promo.Attribute("Id") != null)
                 {
