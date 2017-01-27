@@ -45,7 +45,7 @@
     // deposit
     function deposit(countryCode, memberid, paymentNotice, activeTabId) {
 
-        var payment = amplify.store("depositSettings");
+        var payment = amplify.store(w88Mobile.Keys.depositSettings);
 
         if (payment && window.User.lang == payment.language) {
             setDepositPaymentTab(payment.settings, activeTabId)
@@ -57,7 +57,7 @@
                         case 1:
                             var data = { settings: response.ResponseData, language: window.User.lang };
 
-                            amplify.store("depositSettings", data, window.User.storageExpiration);
+                            amplify.store(w88Mobile.Keys.depositSettings, data, window.User.storageExpiration);
 
                             setDepositPaymentTab(response.ResponseData, activeTabId)
                         default:
@@ -156,7 +156,7 @@
     // withdraw
     function withdraw(countryCode, memberid, paymentNotice, activeTabId) {
 
-        var payment = amplify.store("withdrawalSettings");
+        var payment = amplify.store(w88Mobile.Keys.withdrawalSettings);
 
         if (payment && window.User.lang == payment.language) {
             setWithdrawalPaymentTab(payment.settings, activeTabId)
@@ -168,7 +168,7 @@
                         case 1:
                             var data = { settings: response.ResponseData, language: window.User.lang };
 
-                            amplify.store("withdrawalSettings", data, window.User.storageExpiration);
+                            amplify.store(w88Mobile.Keys.withdrawalSettings, data, window.User.storageExpiration);
 
                             setWithdrawalPaymentTab(response.ResponseData, activeTabId)
                             break;

@@ -83,43 +83,42 @@
 
             $('#<%=btnSubmit.ClientID%>').val(_w88_contents.translate("BUTTON_SUBMIT")).button("refresh");
 
-                var resource = "", payment = undefined, storage = "";
+            var resource = "", payment = undefined, storage = "";
 
-                if (isDeposit) {
-                    resource = "/payments/settings/deposit";
-                    payment = amplify.store("depositSettings");
-                    storage = "depositSettings";
-                } else {
-                    resource = "/payments/settings/withdrawal";
-                    payment = amplify.store("withdrawalSettings");
-                    storage = "withdrawalSettings";
-                }
+            if (isDeposit) {
+                resource = "/payments/settings/deposit";
+                payment = amplify.store(w88Mobile.Keys.depositSettings);
+                storage = w88Mobile.Keys.depositSettingsy;
+            } else {
+                resource = "/payments/settings/withdrawal";
+                payment = amplify.store(w88Mobile.Keys.withdrawalSettings);
+                storage = w88Mobile.Keys.withdrawalSettings;
+            }
 
-                if (!payment || (payment && window.User.lang != payment.language)) {
-                    var headers = {
-                        'Token': window.User.token,
-                        'LanguageCode': window.User.lang
-                    };
+            if (!payment || (payment && window.User.lang != payment.language)) {
+                var headers = {
+                    'Token': window.User.token,
+                    'LanguageCode': window.User.lang
+                };
 
-                    $.ajax({
-                        type: "GET",
-                        url: w88Mobile.APIUrl + resource,
-                        headers: headers,
-                        success: function (response) {
-                            switch (response.ResponseCode) {
-                                case 1:
-                                    var data = { settings: response.ResponseData, language: window.User.lang };
-
-                                    amplify.store(storage, data, window.User.storageExpiration);
-                                default:
-                                    break;
-                            }
-                        },
-                        error: function () {
-                            console.log("Error connecting to api");
-                        },
-                    });
-                }
+                $.ajax({
+                    type: "GET",
+                    url: w88Mobile.APIUrl + resource,
+                    headers: headers,
+                    success: function (response) {
+                        switch (response.ResponseCode) {
+                            case 1:
+                                var data = { settings: response.ResponseData, language: window.User.lang };
+                                amplify.store(storage, data, window.User.storageExpiration);
+                            default:
+                                break;
+                        }
+                    },
+                    error: function () {
+                        console.log("Error connecting to api");
+                    },
+                });
+            }
         });
     </script>
 

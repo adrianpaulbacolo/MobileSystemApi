@@ -49,11 +49,11 @@
     function init(version) {
         $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
 
-        if (version != "0") {
+        if (version == "0") {
             $("#paymentNoteContent").text(_w88_contents.translate("LABEL_PAYMENT_NOTE0"));
         }
         else {
-            $("#paymentNoteContent").text(_w88_contents.translate("data.LABEL_PAYMENT_NOTE1"));
+            $("#paymentNoteContent").text(_w88_contents.translate("LABEL_PAYMENT_NOTE1"));
         }
     }
 

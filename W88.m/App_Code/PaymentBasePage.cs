@@ -218,11 +218,15 @@ public class PaymentBasePage : BasePage
 
             var gatewayGroupTable = response.Tables[0].AsEnumerable().FirstOrDefault(d => d.Field<string>("gatewayGroup").Equals(gatewayGroup, StringComparison.OrdinalIgnoreCase));
 
-            strMinLimit = Convert.ToDecimal(gatewayGroupTable["minDeposit"]).ToString(commonVariables.DecimalFormat);
-            strMaxLimit = Convert.ToDecimal(gatewayGroupTable["maxDeposit"]).ToString(commonVariables.DecimalFormat);
-            strMode = "online";
+            if (gatewayGroupTable != null)
+            {
+                strMinLimit = Convert.ToDecimal(gatewayGroupTable["minDeposit"]).ToString(commonVariables.DecimalFormat);
+                strMaxLimit = Convert.ToDecimal(gatewayGroupTable["maxDeposit"]).ToString(commonVariables.DecimalFormat);
+                strMode = "online";
 
-            autoRouteBanks = response.Tables[1];
+                autoRouteBanks = response.Tables[1];
+
+            }
         }
     }
 
