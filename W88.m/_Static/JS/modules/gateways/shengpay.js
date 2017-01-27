@@ -1,8 +1,11 @@
 ﻿function ShengPay() {
 
+    var gatewayId = "1202111";
+
     var shengpay = {
         deposit: deposit
         , withdraw: withdraw
+        , gatewayId: gatewayId
         , Initialize: init
     };
 
@@ -11,7 +14,7 @@
     // deposit
     function deposit(data, successCallback, errorCallback, completeCallback) {
         validate(data, "deposit");
-        window.w88Mobile.Gateways.DefaultPayments.Send("/payments/1202111", "POST", successCallback, data, completeCallback);
+        window.w88Mobile.Gateways.DefaultPayments.Send("/payments/" + window.w88Mobile.Gateways.ShengPay.gatewayId, "POST", successCallback, data, completeCallback);
     }
 
     // withdraw

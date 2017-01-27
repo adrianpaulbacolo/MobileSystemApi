@@ -8,7 +8,7 @@
         </li>
         <li class="item item-input">
             <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
-            <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true"  onKeyPress="return ValidateNumeric(event);" />
+            <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
         </li>
     </ul>
 
@@ -29,11 +29,11 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder1" runat="Server">
-    <script type="text/javascript" src="/_Static/JS/modules/gateways/shengpay.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/shengpay.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 
     <script type="text/javascript">
         
-        function ValidateNumeric(e) {
+        $('#<%=txtDepositAmount.ClientID%>').bind('input keyup', function (e) {
             var key = e.keyCode;
             if ($.browser.mozilla) {
                 key = e.which;
@@ -44,7 +44,7 @@
                 if (!regex.test(code))
                     return false;
             }
-        }
+        });
 
         $(document).ready(function () {
             var payments = new w88Mobile.Gateways.Payments("<%=base.PaymentMethodId %>");
