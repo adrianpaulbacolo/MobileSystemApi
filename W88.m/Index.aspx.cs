@@ -86,6 +86,23 @@ public partial class _Index : BasePage
                 var content = "";
                 var description = "";
 
+                if (promo.Attribute("PromoDate") != null)
+                {
+                    try
+                    {
+                        string promoDate = promo.Attribute("PromoDate").Value;
+                        DateTime oDate = DateTime.Parse(promoDate, null);
+
+                        if (oDate > DateTime.Now)
+                            continue;
+
+                    }
+                    catch (Exception e)
+                    {
+                        continue;
+                    }
+                }
+
                 if (promo.Attribute("Id") != null)
                 {
                     var provider = string.Empty;
@@ -112,8 +129,10 @@ public partial class _Index : BasePage
                 if (isPublic && string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                 {
                     var publicAttr = promo.Attribute("public").Value;
-                    if(!string.IsNullOrEmpty(publicAttr)){
-                        if(publicAttr != "1"){
+                    if (!string.IsNullOrEmpty(publicAttr))
+                    {
+                        if (publicAttr != "1")
+                        {
                             continue;
                         }
                     }
