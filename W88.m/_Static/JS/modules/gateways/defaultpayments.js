@@ -12,12 +12,78 @@
         Deposit: deposit,
         Withdraw: withdraw,
         AutoRouteIds: autorouteIds,
-        Send :send
+        Send: sendv1,
+        SendDeposit: send,
+        DisplaySettings: displaySettings,
+        setPaymentTabs: setPaymentTabs
     };
+
+    var paymentCache = {};
+
+    var paymentOptions = {};
 
     return defaultpayments;
 
-    function send(resource, method, success, data, complete) {
+    function displaySettings(methodId, options) {
+        paymentOptions = options;
+        fetchSettings(paymentOptions.type, function () {
+            if (!_.isEmpty(paymentCache)) {
+                var setting = _.find(paymentCache.settings, function (data) {
+                    return data.Id == methodId;
+                });
+
+                if (setting) {
+                    $('#txtMode').text(": " + setting.PaymentMode)
+                    $('#txtMinMaxLimit').text(": " + setting.MinAmount.toLocaleString(undefined, { minimumFractionDigits: 2 }) + " / " + setting.MaxAmount.toLocaleString(undefined, { minimumFractionDigits: 2 }))
+                    $('#txtDailyLimit').text(": " + setting.LimitDaily)
+                    $('#txtTotalAllowed').text(": " + setting.TotalAllowed)
+                }
+            }
+        })
+    }
+
+    function setPaymentTabs(type, activeMethodId) {
+        if (type == "deposit") {
+            fetchSettings(type, function () {
+                // payment cache variable is now present once callback is triggered
+                setDepositPaymentTab(paymentCache.settings, activeMethodId);
+            });
+        } else {
+            fetchSettings(type, function () {
+                setWithdrawalPaymentTab(paymentCache.settings, activeMethodId);
+            });
+        }
+    }
+
+    function fetchSettings(type, callback) {
+
+        var url = "/payments/settings/" + type;
+        cacheKey = (type == "deposit") ? w88Mobile.Keys.depositSettings : w88Mobile.Keys.withdrawalSettings;
+
+        paymentCache = amplify.store(cacheKey);
+
+        if (!_.isEmpty(paymentCache) && User.lang == paymentCache.language) {
+            callback();
+        } else {
+            send(url, "GET", {},
+                    function (response) {
+                        switch (response.ResponseCode) {
+                            case 1:
+                                paymentCache = {
+                                    settings: response.ResponseData
+                                    , language: window.User.lang
+                                };
+                                amplify.store(cacheKey, paymentCache, User.storageExpiration);
+                                callback();
+                            default:
+                                break;
+                        }
+                    }
+                );
+        }
+    }
+
+    function send(resource, method, data, success, complete) {
         var url = w88Mobile.APIUrl + resource;
 
         var headers = {
@@ -41,8 +107,13 @@
         });
     }
 
+    // to be deprecated, use "send"
+    function sendv1(resource, method, success, data, complete) {
+        send(resource, method, data, success, complete);
+    }
 
-    // deposit
+
+    // deposit to be deprecated once new flow is applied use fetchSettings
     function deposit(countryCode, memberid, paymentNotice, activeTabId) {
 
         var payment = amplify.store(w88Mobile.Keys.depositSettings);
@@ -51,7 +122,7 @@
             setDepositPaymentTab(payment.settings, activeTabId)
         }
         else {
-            send("/payments/settings/deposit", "GET",
+            send("/payments/settings/deposit", "GET", {},
                 function (response) {
                     switch (response.ResponseCode) {
                         case 1:
@@ -153,7 +224,7 @@
         }
     }
 
-    // withdraw
+    // withdraw to be deprecated once new flow is applied use fetchSettings
     function withdraw(countryCode, memberid, paymentNotice, activeTabId) {
 
         var payment = amplify.store(w88Mobile.Keys.withdrawalSettings);
@@ -162,7 +233,7 @@
             setWithdrawalPaymentTab(payment.settings, activeTabId)
         }
         else {
-            send("/payments/settings/Withdrawal", "GET",
+            send("/payments/settings/Withdrawal", "GET", {},
                 function (response) {
                     switch (response.ResponseCode) {
                         case 1:
@@ -362,4 +433,4 @@
     }
 }
 
-window.w88Mobile.Gateways.DefaultPayments = DefaultPayments();
+var _w88_paymentSvc = window.w88Mobile.Gateways.DefaultPayments = DefaultPayments();

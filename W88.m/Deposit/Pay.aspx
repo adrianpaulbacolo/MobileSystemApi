@@ -7,8 +7,9 @@
     <title></title>
     <!--#include virtual="~/_static/head.inc" -->
     <%--<script type="text/javascript" src="/_Static/JS/PreLoad.js"></script>--%>
-    <script type="text/javascript" src="/_Static/JS/modules/gateways/gateway.js"></script>
-    <script type="text/javascript" src="/_Static/JS/modules/gateways/ecpsspay.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/gateway.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/<%=base.GatewayFile %>.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -20,7 +21,7 @@
 </html>
 <script type="text/javascript">
     $(document).ready(function () {
-        var ecpss = w88Mobile.Gateways.ECPSSPay;
-        ecpss.createDeposit();
+        var gateway = _w88_<%=base.GatewayFile %>;
+        gateway.createDeposit();
     });
 </script>

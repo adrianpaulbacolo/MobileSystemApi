@@ -1,38 +1,20 @@
 ﻿window.w88Mobile.Gateway = Gateway;
 
-function Gateway() {
+function Gateway(paymentSvc) {
 
     this.methodId;
 
-    this.send = function(resource, method, data, beforeSend, success, complete) {
-        var url = w88Mobile.APIUrl + resource;
-
-        var headers = {
-            'Token': window.User.token,
-            'LanguageCode': window.User.lang
-        };
-
-        $.ajax({
-            type: method,
-            url: url,
-            data: data,
-            beforeSend: beforeSend,
-            headers: headers,
-            success: success,
-            error: function () {
-                console.log("Error connecting to api");
-            },
-            complete: complete
-        });
+    this.send = function (resource, method, data, success, complete) {
+        paymentSvc.SendDeposit(resource, method, data, success, complete);
     }
 
     this.deposit = function(data, successCallback, completeCallback) {
         var _self = this;
-        _self.send("/payments/" + _self.methodId, "POST", data, function () { GPInt.prototype.ShowSplash() }, successCallback, completeCallback);
+        _self.send("/payments/" + _self.methodId, "POST", data, successCallback, completeCallback);
     }
 
     this.withdraw = function(data, successCallback, completeCallback) {
-        _self.send("/payments/" + _self.methodId, "POST", data, function () { GPInt.prototype.ShowSplash() }, successCallback, completeCallback);
+        _self.send("/payments/" + _self.methodId, "POST", data, successCallback, completeCallback);
     }
 
     this.getUrlVars = function()
