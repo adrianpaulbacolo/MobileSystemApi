@@ -87,20 +87,13 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         {
             usernameLabel.InnerText = UserSessionInfo.MemberCode;
         }
-        var pointsLabelText = RewardsHelper.GetTranslation(TranslationKeys.Label.Points);
-        var stringBuilder = new StringBuilder();
 
-        stringBuilder.Append(pointsLabelText)
-            .Append(": ")
-            .Append(MemberRewardsInfo != null ? Convert.ToString(MemberRewardsInfo.CurrentPoints) : "0");
-        pointsLabel.InnerText = stringBuilder.ToString();
-
-        var pointLevelLabelText = RewardsHelper.GetTranslation(TranslationKeys.Label.PointLevel);
-        stringBuilder = new StringBuilder();
-        stringBuilder.Append(pointLevelLabelText)
-            .Append(" ")
-            .Append(MemberRewardsInfo != null ? Convert.ToString(MemberRewardsInfo.CurrentPointLevel) : "0");
-        pointLevelLabel.InnerText = stringBuilder.ToString();
+        pointsLabel.InnerText = string.Format("{0}: {1}",
+            RewardsHelper.GetTranslation(TranslationKeys.Label.Points),
+            MemberRewardsInfo != null ? Convert.ToString(MemberRewardsInfo.CurrentPoints) : "0");
+        pointLevelLabel.InnerText = string.Format("{0} {1}",
+            RewardsHelper.GetTranslation(TranslationKeys.Label.PointLevel),
+            MemberRewardsInfo != null ? Convert.ToString(MemberRewardsInfo.CurrentPointLevel) : "0");
         divLevel.Visible = true;
         #endregion
     }
@@ -205,27 +198,16 @@ public partial class Catalogue_Redeem : CatalogueBasePage
 
             imgPic.ImageUrl = ProductDetails.ImageUrl;
 
+            var pointsLabelText = RewardsHelper.GetTranslation(TranslationKeys.Label.Points);
             if (!string.IsNullOrEmpty(ProductDetails.DiscountPoints) && int.Parse(ProductDetails.DiscountPoints) != 0)
             {
-                var builder = new StringBuilder();
-                // Before discount
-                builder.Append(string.Format(@"{0:#,###,##0.##} ", ProductDetails.PointsRequired))
-                    .Append(RewardsHelper.GetTranslation(TranslationKeys.Label.Points));
-                lblBeforeDiscount.Text = builder.ToString();
-
-                builder = new StringBuilder();
-                builder.Append(string.Format(@"{0:#,###,##0.##} ", ProductDetails.DiscountPoints))
-                    .Append(RewardsHelper.GetTranslation(TranslationKeys.Label.Points));
-                lblPointCenter.Text = builder.ToString();
+                lblPointCenter.Text = string.Format(@"{0:#,###,##0.##} {1}", ProductDetails.DiscountPoints, pointsLabelText);
+                lblBeforeDiscount.Text = string.Format(@"{0:#,###,##0.##} {1}", ProductDetails.PointsRequired, pointsLabelText);
             }
             else
             {
+                lblPointCenter.Text = string.Format(@"{0:#,###,##0.##} {1}", ProductDetails.PointsRequired, pointsLabelText);
                 lblBeforeDiscount.Text = string.Empty;
-                var builder = new StringBuilder();
-                // Before discount
-                builder.Append(string.Format(@"{0:#,###,##0.##} ", ProductDetails.PointsRequired))
-                    .Append(RewardsHelper.GetTranslation(TranslationKeys.Label.Points));
-                lblPointCenter.Text = builder.ToString();
             }
 
             lblName.Text = ProductDetails.ProductName;
@@ -287,8 +269,12 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         request.RiskId = MemberSession == null ? "0" : MemberSession.RiskId;
         request.Currency = MemberSession == null ? "0" : MemberSession.CurrencyCode;
         request.PointRequired = string.IsNullOrEmpty(ProductDetails.PointsRequired) ? string.Empty : ProductDetails.PointsRequired;
+        if (!string.IsNullOrEmpty(ProductDetails.DiscountPoints))
+        {
+            request.PointRequired = ProductDetails.DiscountPoints;
+        }
         request.Quantity = int.Parse(tbQuantity.Text.Trim());
-
+        request.CountryCode = UserSessionInfo == null ? RewardsHelper.GetCountryCode() : UserSessionInfo.CountryCode;
         switch (type)
         {
             case ProductTypeEnum.Freebet:
@@ -325,7 +311,8 @@ public partial class Catalogue_Redeem : CatalogueBasePage
             Response.Redirect("/Catalogue?categoryId=0&sortBy=2", false);
             return;
         }
-        ProductDetails = await RewardsHelper.GetProductDetails(UserSessionInfo, productId);
+        var process = await RewardsHelper.GetProductDetails(UserSessionInfo, productId);
+        ProductDetails = process == null || process.Data == null ? new ProductDetails() : (ProductDetails) process.Data;
         SetProductInfo();
         ProductDetails.ProductDescription = HttpUtility.HtmlEncode(ProductDetails.ProductDescription);
         ProductDetailsField.Value = Common.SerializeObject(ProductDetails);
