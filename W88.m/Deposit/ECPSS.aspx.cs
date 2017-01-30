@@ -50,7 +50,5 @@ public partial class Deposit_ECPSS : PaymentBasePage
         lblMessage.Text = base.strlblMessage;
 
         lblBank.Text = base.strlblBank;
-
-        btnSubmit.Text = base.strbtnSubmit;
     }
 }

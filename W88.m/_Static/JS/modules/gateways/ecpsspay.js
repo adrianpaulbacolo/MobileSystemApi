@@ -1,8 +1,9 @@
 ﻿window.w88Mobile.Gateways.ECPSSPay = ECPSSPay();
+var _w88_ecpsspay = window.w88Mobile.Gateways.ECPSSPay;
 
 function ECPSSPay() {
 
-    var ecpss = Object.create(new w88Mobile.Gateway());
+    var ecpss = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
 
     ecpss.createDeposit = function () {
         var _self = this;
