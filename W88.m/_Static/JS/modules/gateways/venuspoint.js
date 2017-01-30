@@ -68,9 +68,9 @@
         send("/payments/exchangerate", "GET", data, "", function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
                 var venusPoint = 'JPY Amount = ' + response.ResponseData.Amount + ' Venus Points'
-                $('label[id$="lblVenusPoints"]').text(venusPoint);
+                $('span[id$="lblVenusPoints"]').text(venusPoint);
                 var exchange = '1 JPY = ' + response.ResponseData.ExchangeRate + ' USD'
-                $('label[id$="lblExchangeRate"]').text(exchange);
+                $('span[id$="lblExchangeRate"]').text(exchange);
             }
         }, "");
     }
