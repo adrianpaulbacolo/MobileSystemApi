@@ -77,25 +77,11 @@ public partial class Deposit_DaddyPay : PaymentBasePage
 
     private void InitializeLabels()
     {
-        lblMode.Text = base.strlblMode;
-        txtMode.Text = base.strtxtMode;
-
-        lblMinMaxLimit.Text = base.strlblMinMaxLimit;
-        txtMinMaxLimit.Text = base.strtxtMinMaxLimit;
-
-        lblDailyLimit.Text = base.strlblDailyLimit;
-        txtDailyLimit.Text = base.strtxtDailyLimit;
-
-        lblTotalAllowed.Text = base.strlblTotalAllowed;
-        txtTotalAllowed.Text = base.strtxtTotalAllowed;
-
         lblDepositAmount.Text = base.strlblAmount;
         lbldrpDepositAmount.Text = base.strlblAmount;
 
         lblAccountName.Text = base.strlblAccountName;
         lblAccountNumber.Text = base.strlblAccountNumber;
-
-        btnSubmit.Text = base.strbtnSubmit;
 
         lblBank.Text = base.strlblBank;
 
