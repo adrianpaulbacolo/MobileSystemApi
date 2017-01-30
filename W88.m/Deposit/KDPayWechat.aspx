@@ -16,20 +16,9 @@
     </ul>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder1" runat="Server">
-    <style>
-        li.ali-pay-note {
-            font-size: 70%;
-        }
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/wechat.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <link href="/_Static/Css/payment.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
 
-            li.ali-pay-note #paymentNote {
-                color: red;
-                font-weight: bold;
-            }
-
-            li.ali-pay-note #paymentNoteContent {
-                padding-top: 5px;
-            }
-    </style>
     <script type="text/javascript">
         $(document).ready(function () {
 
@@ -37,18 +26,7 @@
 
             payments.init();
 
-            setTranslations();
-
-            function setTranslations() {
-                if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
-                    $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-                    $("#paymentNoteContent").text(_w88_contents.translate("LABEL_PAYMENT_NOTE0"));
-                } else {
-                    window.setInterval(function () {
-                        setTranslations();
-                    }, 500);
-                }
-            }
+            window.w88Mobile.Gateways.Wechat.Initialize();
 
             window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
 
@@ -58,7 +36,7 @@
 
                 var data = {
                     Amount: $('#<%=txtAmount.ClientID%>').val(),
-                };
+                    };
 
                 payments.send(data, function (response) {
                     switch (response.ResponseCode) {
