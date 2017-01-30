@@ -1,39 +1,19 @@
 ﻿function JutaPay() {
 
+    var gatewayId = "120280";
+
     var jutapay = {
-        Initialize: init,
+        gatewayId: gatewayId,
         Deposit: deposit,
         Withdraw: withdraw,
     };
 
     return jutapay;
 
-    function send(resource, method, data, beforeSend, success, complete) {
-        var url = w88Mobile.APIUrl + resource;
-
-        var headers = {
-            'Token': window.User.token,
-            'LanguageCode': window.User.lang
-        };
-
-        $.ajax({
-            type: method,
-            url: url,
-            data: data,
-            beforeSend: beforeSend,
-            headers: headers,
-            success: success,
-            error: function () {
-                console.log("Error connecting to api");
-            },
-            complete: complete
-        });
-    }
-
     // deposit
     function deposit(data, successCallback, completeCallback) {
         validate(data, "deposit");
-        send("/payments/120280", "POST", data, function () { GPInt.prototype.ShowSplash() }, successCallback, completeCallback);
+        window.w88Mobile.Gateways.DefaultPayments.Send("/payments/" + window.w88Mobile.Gateways.JutaPay.gatewayId, "POST", successCallback, data, completeCallback);
     }
 
     // withdraw
@@ -45,16 +25,6 @@
         return;
     }
 
-    function init() {
-    }
-
-    function translations() {
-        send("/contents", "GET", "", "", function (response) {
-            if (response && _.isEqual(response.ResponseCode, 1)) {
-                setTranslation(response.ResponseData);
-            }
-        }, "");
-    }
 }
 
 window.w88Mobile.Gateways.JutaPay = JutaPay();
