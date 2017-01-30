@@ -1,0 +1,12 @@
+﻿li.ali-pay-note {
+    font-size: 70%;
+}
+
+    li.ali-pay-note #paymentNote {
+        color: red;
+        font-weight: bold;
+    }
+
+    li.ali-pay-note #paymentNoteContent {
+        padding-top: 5px;
+    }
