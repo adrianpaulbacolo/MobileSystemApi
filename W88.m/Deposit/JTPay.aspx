@@ -18,21 +18,7 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder1" runat="Server">
     <script type="text/javascript" src="/_Static/JS/modules/gateways/jtpay.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-
-    <style>
-        li.ali-pay-note {
-            font-size: 70%;
-        }
-
-            li.ali-pay-note #paymentNote {
-                color: red;
-                font-weight: bold;
-            }
-
-            li.ali-pay-note #paymentNoteContent {
-                padding-top: 5px;
-            }
-    </style>
+    <link href="/_Static/Css/payment.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
 
     <script type="text/javascript">
         $(document).ready(function() {
@@ -52,8 +38,7 @@
                     ThankYouPage: location.protocol + "//" + location.host + "/Deposit/Thankyou.aspx"
                 };
 
-                w88Mobile.Gateways.JTPay.gatewayId = "<%=base.PaymentMethodId %>";
-                w88Mobile.Gateways.JTPay.Deposit(data, function (response) {
+                payments.send(data, function (response) {
                         switch (response.ResponseCode) {
                         case 1:
                             w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");

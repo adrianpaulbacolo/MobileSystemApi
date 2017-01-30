@@ -1,18 +1,10 @@
 ﻿function JTPay() {
 
-    var gatewayId = "120262";
-
     var jtpay = {
-        gatewayId: gatewayId,
-        Initialize: init,
-        Deposit: deposit
+        Initialize: init
     };
 
     return jtpay;
-
-    function deposit(data, successCallback, errorCallback, completeCallback) {
-        window.w88Mobile.Gateways.DefaultPayments.Send("/payments/" + window.w88Mobile.Gateways.JTPay.gatewayId, "POST", successCallback, data, completeCallback);
-    }
 
     function init(version) {
 
