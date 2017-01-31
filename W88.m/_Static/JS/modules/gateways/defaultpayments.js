@@ -47,10 +47,12 @@
             fetchSettings(type, function () {
                 // payment cache variable is now present once callback is triggered
                 setDepositPaymentTab(paymentCache.settings, activeMethodId);
+                togglePayment();
             });
         } else {
             fetchSettings(type, function () {
                 setWithdrawalPaymentTab(paymentCache.settings, activeMethodId);
+                togglePayment();
             });
         }
     }
