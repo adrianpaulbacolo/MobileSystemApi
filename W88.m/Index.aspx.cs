@@ -86,6 +86,28 @@ public partial class _Index : BasePage
                 var content = "";
                 var description = "";
 
+                try
+                {
+                    if (promo.Attribute("PromoStart") != null)
+                    {
+                        var promoStart = promo.Attribute("PromoStart").Value;
+                        DateTime start = DateTime.Parse(promoStart, null);
+                        if (start > DateTime.Now)
+                            continue;
+
+                    }
+
+                    if (promo.Attribute("PromoEnd") != null)
+                    {
+                        var promoEnd = promo.Attribute("PromoEnd").Value;
+                        DateTime end = DateTime.Parse(promoEnd, null);
+                        if (end <= DateTime.Now)
+                            continue;
+                    }
+
+                }
+                catch (Exception e) { }
+
                 if (promo.Attribute("Id") != null)
                 {
                     var provider = string.Empty;
@@ -112,8 +134,10 @@ public partial class _Index : BasePage
                 if (isPublic && string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                 {
                     var publicAttr = promo.Attribute("public").Value;
-                    if(!string.IsNullOrEmpty(publicAttr)){
-                        if(publicAttr != "1"){
+                    if (!string.IsNullOrEmpty(publicAttr))
+                    {
+                        if (publicAttr != "1")
+                        {
                             continue;
                         }
                     }

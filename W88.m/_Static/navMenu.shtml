@@ -245,52 +245,6 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
             </ul>
         </li>
 
-        <!-- Texas Mahjong -->
-        <li data-icon="false">
-            <a class="nav-pmahjong">
-                <i class="icon-mahjong"></i>
-                <div class="label"><%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%></div>
-            </a>
-            <ul class="sub-menu" data-rel="texasmahjong">
-                <!--<a class="close" data-rel="close">&times;</a>-->
-                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%></h2>
-                <%
-                try{
-                %>
-                <%if(deviceId==1){%>
-                <li>
-                    <a class="card" rel="texasmahjong" href='/_static/TexasMahjong/download.aspx' data-ajax="false">
-                        <img src="/_Static/Images/Download/TexasMahjong-iOS.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("iosDownload", commonVariables.LeftMenuXML)%></div>
-                    </a>
-                </li>
-                <%}%>
-                <%if(deviceId==2){%>
-                <li>
-                    <a class="card" rel="texasmahjong" href='<%= commonFunctions.getTexasMahjongDownloadLinks()%>' data-rel="dialog" data-ajax="false">
-                        <img src="/_Static/Images/Download/TexasMahjong-Android.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("androidDownload", commonVariables.LeftMenuXML)%></div>
-                    </a>
-                </li>
-                <%}%>
-                <%if(deviceId==3){%>
-                <li>
-                    <a class="card" rel="texasmahjong" href='<%= commonFunctions.getTexasMahjongDownloadLinks()%>' data-rel="dialog" data-ajax="false">
-                        <img src="/_Static/Images/Download/TexasMahjong-Android.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("androidDownload", commonVariables.LeftMenuXML)%></div>
-                    </a>
-                </li>
-                <li>
-                    <a class="card" rel="texasmahjong" href='/_static/TexasMahjong/download.aspx' data-ajax="false">
-                        <img src="/_Static/Images/Download/TexasMahjong-iOS.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("iosDownload", commonVariables.LeftMenuXML)%></div>
-                    </a>
-                </li>
-                <%}%>
-                <%}catch(Exception){}%>
-            </ul>
-        </li>
-
         <!-- Slots -->
         <li data-icon="false">
             <a class="nav-slots">
@@ -302,7 +256,7 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
                 <h2 class="title"><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></h2>
                 <%if(deviceId==1){%>
                 <li>
-                    <a class="card" data-rel="sports" rel="vsports" href="/_Static/Downloads/w88.aspx"  data-ajax="false">
+                    <a class="card" data-rel="sports" rel="vsports" href="/_Static/Downloads/w88.aspx" data-ajax="false">
                         <img src="/_Static/Images/sports/bnr-clubW88-iOS.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></div>
                     </a>
@@ -310,7 +264,7 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
                 <%}%>
                 <%if(deviceId==2){%>
                 <li>
-                    <a class="card" data-rel="sports" rel="vsports" href="/_Static/ClubW/casino.aspx"  data-ajax="false">
+                    <a class="card" data-rel="sports" rel="vsports" href="/_Static/ClubW/casino.aspx" data-ajax="false">
                         <img src="/_Static/Images/sports/bnr-clubW88-android.jpg" class="img-responsive">
                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></div>
                     </a>
@@ -369,13 +323,107 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
                     </a>
                 </li>
                 <!--<li>
-                    <a class="card" rel="clubcrescendo" href="/ClubCrescendo" data-ajax="false">
-                        <img src="_Static/Images/bnr-clubcrescendo.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubCrescendo/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li>-->
+                <a class="card" rel="clubcrescendo" href="/ClubCrescendo" data-ajax="false">
+                    <img src="_Static/Images/bnr-clubcrescendo.jpg" class="img-responsive">
+                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubCrescendo/Label", commonVariables.ProductsXML)%></div>
+                </a>
+            </li>-->
             </ul>
         </li>
+
+        <!-- Fishing Game -->
+        <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency))
+        {
+
+        if (commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase))
+        { %>
+        <li data-icon="false">
+            <a class="nav-fish">
+                <i class="icon-fish"></i>
+                <div class="label"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
+            </a>
+            <ul class="sub-menu" data-rel="fish">
+                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></h2>
+                <%try{%>
+                <%if(deviceId==1){%>
+                <li>
+                    <a class="card" data-rel="fish" rel="FishIOS" href="<%=fishlinkIos%>" data-ajax="false">
+                        <img src="/_Static/Images/bnr-fishingmaster-iOs.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
+                    </a>
+                </li>
+                <%}%>
+                <%if(deviceId==2){%>
+                <li>
+                    <a class="card" data-rel="fish" rel="FishAndroid" href="<%=fishLink%>" data-ajax="false">
+                        <img src="/_Static/Images/bnr-fishingmaster-android.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
+                    </a>
+                </li>
+                <%}%>
+                <%if(deviceId==3){%>
+                <li>
+                    <a class="card" data-rel="fish" rel="FishIOS" href="<%=fishlinkIos%>" data-ajax="false">
+                        <img src="/_Static/Images/bnr-fishingmaster-iOs.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
+                    </a>
+                </li>
+                <li>
+                    <a class="card" data-rel="fish" rel="FishAndroid" href="<%=fishLink%>" data-ajax="false">
+                        <img src="/_Static/Images/bnr-fishingmaster-android.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
+                    </a>
+                </li>
+                <%}%>
+                <%}catch(Exception){}%>
+            </ul>
+        </li>
+        <% }
+        }
+        else if (commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))
+        { %>
+        <li data-icon="false">
+            <a class="nav-fish">
+                <i class="icon-fish"></i>
+                <div class="label"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
+            </a>
+            <ul class="sub-menu" data-rel="fish">
+                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></h2>
+                <%try{%>
+                <%if(deviceId==1){%>
+                <li>
+                    <a class="card" data-rel="fish" rel="FishIOS" href="<%=fishlinkIos%>" data-ajax="false">
+                        <img src="/_Static/Images/bnr-fishingmaster-iOs.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
+                    </a>
+                </li>
+                <%}%>
+                <%if(deviceId==2){%>
+                <li>
+                    <a class="card" data-rel="fish" rel="FishAndroid" href="<%=fishLink%>" data-ajax="false">
+                        <img src="/_Static/Images/bnr-fishingmaster-android.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
+                    </a>
+                </li>
+                <%}%>
+                <%if(deviceId==3){%>
+                <li>
+                    <a class="card" data-rel="fish" rel="FishIOS" href="<%=fishlinkIos%>" data-ajax="false">
+                        <img src="/_Static/Images/bnr-fishingmaster-iOs.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
+                    </a>
+                </li>
+                <li>
+                    <a class="card" data-rel="fish" rel="FishAndroid" href="<%=fishLink%>" data-ajax="false">
+                        <img src="/_Static/Images/bnr-fishingmaster-android.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
+                    </a>
+                </li>
+                <%}%>
+                <%}catch(Exception){}%>
+            </ul>
+        </li>
+        <% } %>
 
         <!-- Lottery -->
         <li data-icon="false">
@@ -439,99 +487,51 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
             </ul>
         </li>
 
-        <!-- Fishing Game -->
-        <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency))
-        {
-
-        if (commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase))
-        { %>
+        <!-- Texas Mahjong -->
         <li data-icon="false">
-            <a class="nav-fish">
-                <i class="icon-fish"></i>
-                <div class="label"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
+            <a class="nav-pmahjong">
+                <i class="icon-mahjong"></i>
+                <div class="label"><%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%></div>
             </a>
-            <ul class="sub-menu" data-rel="fish">
-                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></h2>
-                <%try{%>
-                <%if(deviceId==1){%>
-                    <li>
-                        <a class="card" data-rel="fish" rel="FishIOS" href="<%=fishlinkIos%>" data-ajax="false">
-                            <img src="/_Static/Images/bnr-fishingmaster-iOs.jpg" class="img-responsive">
-                            <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
-                        </a>
-        </li>
-                <%}%>
-                <%if(deviceId==2){%>
-                    <li>
-                        <a class="card" data-rel="fish" rel="FishAndroid" href="<%=fishLink%>" data-ajax="false">
-                            <img src="/_Static/Images/bnr-fishingmaster-android.jpg" class="img-responsive">
-                            <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
-                        </a>
-                    </li>
-                <%}%>
-                <%if(deviceId==3){%>
-                    <li>
-                        <a class="card" data-rel="fish" rel="FishIOS" href="<%=fishlinkIos%>" data-ajax="false">
-                            <img src="/_Static/Images/bnr-fishingmaster-iOs.jpg" class="img-responsive">
-                            <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="card" data-rel="fish" rel="FishAndroid" href="<%=fishLink%>" data-ajax="false">
-                            <img src="/_Static/Images/bnr-fishingmaster-android.jpg" class="img-responsive">
-                            <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
-                        </a>
-                    </li>
-                <%}%>
-                <%}catch(Exception){}%>
-            </ul>
-        </li>
-        <% }
-        }
-        else if (commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))
-        { %>
-        <li data-icon="false">
-            <a class="nav-fish">
-                <i class="icon-fish"></i>
-                <div class="label"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
-            </a>
-            <ul class="sub-menu" data-rel="fish">
-                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></h2>
-                <%try{%>
+            <ul class="sub-menu" data-rel="texasmahjong">
+                <!--<a class="close" data-rel="close">&times;</a>-->
+                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%></h2>
+                <%
+                try{
+                %>
                 <%if(deviceId==1){%>
                 <li>
-                    <a class="card" data-rel="fish" rel="FishIOS" href="<%=fishlinkIos%>" data-ajax="false">
-                        <img src="/_Static/Images/bnr-fishingmaster-iOs.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
+                    <a class="card" rel="texasmahjong" href='/_static/TexasMahjong/download.aspx' data-ajax="false">
+                        <img src="/_Static/Images/Download/TexasMahjong-iOS.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("iosDownload", commonVariables.LeftMenuXML)%></div>
                     </a>
                 </li>
                 <%}%>
                 <%if(deviceId==2){%>
                 <li>
-                    <a class="card" data-rel="fish" rel="FishAndroid" href="<%=fishLink%>" data-ajax="false">
-                        <img src="/_Static/Images/bnr-fishingmaster-android.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
+                    <a class="card" rel="texasmahjong" href='<%= commonFunctions.getTexasMahjongDownloadLinks()%>' data-rel="dialog" data-ajax="false">
+                        <img src="/_Static/Images/Download/TexasMahjong-Android.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("androidDownload", commonVariables.LeftMenuXML)%></div>
                     </a>
-        </li>
+                </li>
                 <%}%>
                 <%if(deviceId==3){%>
                 <li>
-                    <a class="card" data-rel="fish" rel="FishIOS" href="<%=fishlinkIos%>" data-ajax="false">
-                        <img src="/_Static/Images/bnr-fishingmaster-iOs.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
+                    <a class="card" rel="texasmahjong" href='<%= commonFunctions.getTexasMahjongDownloadLinks()%>' data-rel="dialog" data-ajax="false">
+                        <img src="/_Static/Images/Download/TexasMahjong-Android.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("androidDownload", commonVariables.LeftMenuXML)%></div>
                     </a>
                 </li>
                 <li>
-                    <a class="card" data-rel="fish" rel="FishAndroid" href="<%=fishLink%>" data-ajax="false">
-                        <img src="/_Static/Images/bnr-fishingmaster-android.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
+                    <a class="card" rel="texasmahjong" href='/_static/TexasMahjong/download.aspx' data-ajax="false">
+                        <img src="/_Static/Images/Download/TexasMahjong-iOS.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("iosDownload", commonVariables.LeftMenuXML)%></div>
                     </a>
                 </li>
                 <%}%>
                 <%}catch(Exception){}%>
             </ul>
         </li>
-        <% } %>
 
         <!-- Promotions -->
         <li data-icon="false">
