@@ -39,6 +39,7 @@
                 var action = "/Deposit/Pay.aspx";
                 var params = decodeURIComponent($.param(data));
                 window.open(action + "?" + params, "<%=base.PageName%>");
+                _.first($(this)).reset();
                     return;
             });
         });
