@@ -34,15 +34,7 @@ public partial class Deposit_WeChat : PaymentBasePage
 
     private void InitializeLabels()
     {
-        lblMode.Text = base.strlblMode;
-        txtMode.Text = base.strtxtMode;
-
-        lblMinMaxLimit.Text = base.strlblMinMaxLimit;
-        txtMinMaxLimit.Text = base.strtxtMinMaxLimit;
-
         lblDepositAmount.Text = base.strlblAmount;
-
-        btnSubmit.Text = base.strbtnSubmit;
 
         lblTransactionId = base.strlblTransactionId;
     }
