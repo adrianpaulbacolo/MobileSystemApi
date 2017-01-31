@@ -56,7 +56,7 @@ public partial class Deposit_DaddyPay : PaymentBasePage
             string value = Request.QueryString["value"].ToString();
             if (value == "1")
             {
-                txtAccountNo.Visible = false;
+                txtAccountNumber.Visible = false;
                 txtAccountName.Visible = false;
 
                 lblAccountNumber.Visible = false;
@@ -64,7 +64,7 @@ public partial class Deposit_DaddyPay : PaymentBasePage
             }
             else if (value == "2")
             {
-                txtAccountNo.Visible = true;
+                txtAccountNumber.Visible = true;
                 txtAccountName.Visible = true;
 
                 lblAccountNumber.Visible = true;

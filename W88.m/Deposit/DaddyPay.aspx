@@ -26,7 +26,7 @@
     </ul>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder1" runat="Server">
-    <script type="text/javascript" src="/_Static/JS/modules/gateways/daddypay.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/daddypay.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -49,7 +49,7 @@
                     Method: '<%=isDaddyPayQR%>' == "True" ? "QR" : ""
                 };
 
-                window.w88Mobile.Gateways.DaddyPay.Deposit(data, function (response) {
+                payments.send(data, function (response) {
                     switch (response.ResponseCode) {
                         case 1:
                             w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
@@ -67,10 +67,10 @@
                             break;
                     }
                 },
-                    function () {
-                        window.w88Mobile.FormValidator.enableSubmitButton('#ContentPlaceHolder1_btnSubmit');
-                        GPInt.prototype.HideSplash();
-                    });
+                function () {
+                    window.w88Mobile.FormValidator.enableSubmitButton('#ContentPlaceHolder1_btnSubmit');
+                    GPInt.prototype.HideSplash();
+                });
             });
 
             $('#<%=drpBank.ClientID%>').change(function () {
