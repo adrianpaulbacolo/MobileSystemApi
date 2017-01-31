@@ -15,7 +15,7 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder1" runat="Server">
-    <script type="text/javascript" src="/_Static/JS/modules/gateways/nextpay.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/nextpay.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             var payments = new w88Mobile.Gateways.Payments("<%=base.PaymentMethodId %>");
