@@ -10,7 +10,6 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder1" runat="Server">
-    <script type="text/javascript" src="/_Static/JS/modules/gateways/jutapay.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 
     <script type="text/javascript">
         $(document).ready(function() {
@@ -28,8 +27,7 @@
                     ThankYouPage: location.protocol + "//" + location.host + "/Deposit/Thankyou.aspx"
                 };
 
-                w88Mobile.Gateways.JutaPay.gatewayId = "<%=base.PaymentMethodId %>";
-                window.w88Mobile.Gateways.JutaPay.Deposit(data, function(response) {
+                payments.send(data, function(response) {
                         switch (response.ResponseCode) {
                         case 1:
                             w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
