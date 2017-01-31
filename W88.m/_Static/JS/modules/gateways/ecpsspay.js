@@ -19,7 +19,7 @@ function ECPSSPay() {
             switch (response.ResponseCode) {
                 case 1:
                     w88Mobile.Growl.shout(response.ResponseMessage);
-                    w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.DummyURL, "body");
+                    w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.DummyURL, "body");
                     $(".ui-page").attr("display", "none");
                     w88Mobile.PostPaymentForm.submit();
                     $('#form1')[0].reset();
