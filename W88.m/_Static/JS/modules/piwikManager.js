@@ -5,7 +5,7 @@ function piwikManager() {
         playNow: 2,
         tryNow: 1,
         registerSuccess: 1
-    }
+    };
 
     var memberId = "";
 
@@ -33,12 +33,24 @@ function piwikManager() {
         }
     }
 
-    function trackPlayNow() {
+    function trackPlayNow(obj) {
         trackGoal(goals.playNow);
+        if (_.isEmpty(obj.data)) return;
+        
+        if (typeof obj.data.club === "string" && typeof obj.data.url === "string"){
+            obj.data.playType = "Real";
+            _reportGpiSlotClick(obj.data);
+        }
     }
 
-    function trackTryNow() {
+    function trackTryNow(obj) {
         trackGoal(goals.tryNow);
+        if (_.isEmpty(obj.data)) return;
+
+        if (typeof obj.data.club === "string" && typeof obj.data.url === "string"){
+            obj.data.playType = "Fun";
+            _reportGpiSlotClick(obj.data);
+        }
     }
 
     function trackSignup() {
@@ -87,14 +99,61 @@ function piwikManager() {
         }
     }
 
-    return {
-        trackPlayNow: trackPlayNow
-        , trackTryNow: trackTryNow
-        , trackEvent: trackEvent
-        , trackSignup: trackSignup
-        , setUserId: setUserId
-        , setDeviceId: setDeviceId
-        , setGoals: setGoals
-        , setDomain: setDomain
+    /**
+     * @function setCustomDimension
+     * @description Tracking Custom Dimensions on various tracking requests, within scope ACTION or VISIT
+     *
+     * @param {string} useCase - Required, determines which logic to execute. Refer to switch statement in function
+     * @param {Object} dimensions - Flexible object, structure is determined by the useCase
+     */
+    function setCustomDimension(useCase,dimensions) {
+        var piwik = getInstance();
+        var async = (typeof piwik === "object" && typeof piwik.setCustomDimension === "function") ? true 
+                  : (!_.isUndefined(_paq)) ? false 
+                  : undefined;
+
+        //Define ALL dimension cases below. If the case is not defined, we will skip the tracking request.
+        switch(useCase){
+            case "gpiSlotClick":
+                if (async) {
+                    piwik.trackLink(dimensions.url,'link', {dimension4: dimensions.gameType, dimension5: dimensions.gameName, dimension6: dimensions.club, dimension7: dimensions.playType});
+                } else if (!async && typeof a !== "undefined") {
+                    _paq.push(['trackLink', dimensions.url, "link", {dimension4: dimensions.gameType, dimension5: dimensions.gameName, dimension6: dimensions.club, dimension7: dimensions.playType}]);
+                }
+                break;
+            default:
+                console.log("...skipping Dimension request");
+        }
     }
+
+    //THE FUNCTIONS BELOW ARE USED FOR PRE-PROCESSING DIMENSION TRACKING//
+
+    /**
+     * @function _reportGpiSlotClick
+     * @description Process a click on a GPI game and report the click with associated Dimensions to piwik
+     *
+     * @param {Object} obj - Required parameter, must contain below properties
+     * @param {string} obj.club - The club the GPI click originated from, ex: "ClubBravado", "ClubMassimo", "ClubPalazzo"
+     * @param {string} obj.url -  The URL of the game clicked, gathered from the href attribute of the clicked node
+     * @param {string} obj.playType -  "Real" or "Fun" ONLY
+     */
+    function _reportGpiSlotClick(obj){
+        var a = document.createElement("a");
+        a.href = obj.url;
+        obj.gameName = a.pathname.replace(/\//g, '');
+        obj.gameType = "Slot";
+        setCustomDimension("gpiSlotClick",obj);
+    }
+
+    return {
+        trackPlayNow: trackPlayNow,
+        trackTryNow: trackTryNow,
+        trackEvent: trackEvent,
+        trackSignup: trackSignup,
+        setUserId: setUserId,
+        setDeviceId: setDeviceId,
+        setGoals: setGoals,
+        setDomain: setDomain,
+        setCustomDimension: setCustomDimension
+    };
 }
