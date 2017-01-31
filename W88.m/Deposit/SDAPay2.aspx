@@ -88,7 +88,7 @@
                     $('#lblBankName').text(_w88_contents.translate("LABEL_BANK_NAME"))
                     $('#lblBankHolderName').text(_w88_contents.translate("LABEL_ACCOUNT_NAME"))
                     $('#lblBankAccountNo').text(_w88_contents.translate("LABEL_ACCOUNT_NUMBER"))
-                    $('#lblAmountNote').text(_w88_contents.translate("LABEL_MSG_AMOUNT_120254"))
+                    $('#lblAmountNote').html(_w88_contents.translate("LABEL_MSG_AMOUNT_120254"))
                 } else {
                     window.setInterval(function () {
                         setTranslations();
