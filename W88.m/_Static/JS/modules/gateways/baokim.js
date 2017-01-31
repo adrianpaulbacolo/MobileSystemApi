@@ -36,18 +36,23 @@
     }
 
     function init() {
-        var translations = amplify.store("translations");
-        setTranslations(translations);
-        function setTranslations(data) {
-            if (!_.isUndefined(data)) {
-                $('#ContentPlaceHolder1_ContentPlaceHolder2_lblBanks').html(data.LABEL_BANK);
-                $('#ContentPlaceHolder1_ContentPlaceHolder2_lblEmail').html(data.LABEL_EMAIL);
-                $('#ContentPlaceHolder1_ContentPlaceHolder2_lblDepositAmount').html(data.LABEL_FUNDS_DEPOSIT + ' ' + data.LABEL_AMOUNT);
-                $('#ContentPlaceHolder1_ContentPlaceHolder2_lblContact').html(data.LABEL_CONTACT);
-                $('#ContentPlaceHolder1_ContentPlaceHolder2_lblWithdrawAmount').html(data.LABEL_FUNDS_WIDRAW + ' ' + data.LABEL_AMOUNT);
-                $('#ContentPlaceHolder1_ContentPlaceHolder2_lblOtp').html(data.LABEL_OTP);
-                sessionStorage.setItem("noticeWallet", data.LABEL_NOTICEEWALLET);
-                sessionStorage.setItem("noticeAtm", data.LABEL_NOTICEATM);
+        setTranslations();
+        function setTranslations() {
+            if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
+                
+                $('#ContentPlaceHolder1_ContentPlaceHolder2_lblBanks').html(_w88_contents.translate("LABEL_BANK"));
+                $('#ContentPlaceHolder1_ContentPlaceHolder2_lblEmail').html(_w88_contents.translate("LABEL_EMAIL"));
+                $('#ContentPlaceHolder1_ContentPlaceHolder2_lblDepositAmount').html(_w88_contents.translate("LABEL_FUNDS_DEPOSIT") + ' ' + _w88_contents.translate("LABEL_AMOUNT"));
+                $('#ContentPlaceHolder1_ContentPlaceHolder2_lblContact').html(_w88_contents.translate("LABEL_CONTACT"));
+                $('#ContentPlaceHolder1_ContentPlaceHolder2_lblWithdrawAmount').html(_w88_contents.translate("LABEL_FUNDS_WIDRAW") + ' ' + _w88_contents.translate("LABEL_AMOUNT"));
+                $('#ContentPlaceHolder1_ContentPlaceHolder2_lblOtp').html(_w88_contents.translate("LABEL_OTP"));
+                sessionStorage.setItem("noticeWallet", _w88_contents.translate("LABEL_NOTICEEWALLET"));
+                sessionStorage.setItem("noticeAtm", _w88_contents.translate("LABEL_NOTICEATM"));
+
+            } else {
+                window.setInterval(function () {
+                    setTranslations();
+                }, 500);
             }
         }
     }
