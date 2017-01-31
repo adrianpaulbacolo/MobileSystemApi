@@ -82,19 +82,19 @@
                 if (window.w88Mobile.Gateways.Baokim.method == "EWALLET") {
                     data = {
                         Method: window.w88Mobile.Gateways.Baokim.method,
-                        Amount: $('#ContentPlaceHolder1_ContentPlaceHolder2_txtDepositAmount').val(),
-                        Email: $('#ContentPlaceHolder1_ContentPlaceHolder2_txtEmail').val(),
-                        ThankYouPage: location.protocol + "//" + location.host + "/Deposit/BaokimWallet.aspx?requestAmount=" + $('#ContentPlaceHolder1_ContentPlaceHolder2_txtDepositAmount').val()
+                        Amount: $('#<%=txtDepositAmount.ClientID%>').val(),
+                        Email: $('#<%=txtEmail.ClientID%>').val(),
+                        ThankYouPage: location.protocol + "//" + location.host + "/Deposit/BaokimWallet.aspx?requestAmount=" + $('#<%=txtDepositAmount.ClientID%>').val()
                     };
                 } else {
                     data = {
                         Method: window.w88Mobile.Gateways.Baokim.method,
-                        Amount: $('#ContentPlaceHolder1_ContentPlaceHolder2_txtDepositAmount').val(),
-                        Email: $('#ContentPlaceHolder1_ContentPlaceHolder2_txtEmail').val(),
-                        Phone: $('#txtContact').val(),
+                        Amount: $('#<%=txtDepositAmount.ClientID%>').val(),
+                        Email: $('#<%=txtEmail.ClientID%>').val(),
+                        Phone: $('#<%=txtContact.ClientID%>').val(),
                         Bank: {
-                            Text: $('#ContentPlaceHolder1_ContentPlaceHolder2_drpBanks option:selected').text(),
-                            Value: $('#ContentPlaceHolder1_ContentPlaceHolder2_drpBanks').val()
+                            Text: $('#<%=txtDepositAmount.ClientID%> option:selected').text(),
+                            Value: $('#<%=txtDepositAmount.ClientID%>').val()
                         },
                         ThankYouPage: location.protocol + "//" + location.host + "/Deposit/Thankyou.aspx"
                     };
