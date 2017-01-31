@@ -21,7 +21,7 @@
 
         <form class="form" id="form1" runat="server" data-ajax="false">
             <br>
-            <ul class="list fixed-tablet-size">
+            <ul class="list fixed-tablet-size" id="paymentSettings">
                 <li class="row">
                     <div class="col">
                         <span id="lblMode" />
