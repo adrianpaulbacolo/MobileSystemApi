@@ -15,7 +15,8 @@
         Send: sendv1,
         SendDeposit: send,
         DisplaySettings: displaySettings,
-        setPaymentTabs: setPaymentTabs
+        setPaymentTabs: setPaymentTabs,
+        onTransactionCreated: onTransactionCreated
     };
 
     var paymentCache = {};
@@ -107,6 +108,11 @@
             },
             complete: complete
         });
+    }
+
+    function onTransactionCreated(form) {
+        if (!_.isUndefined(form)) _.first(form).reset();
+        w88Mobile.Growl.shout(_w88_contents.translate("MESSAGES_CHECK_HISTORY"));
     }
 
     // to be deprecated, use "send"

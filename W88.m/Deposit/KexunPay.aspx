@@ -36,7 +36,7 @@
                 var action = "/Deposit/Pay.aspx";
                 var params = decodeURIComponent($.param(data));
                 window.open(action + "?" + params, "<%=base.PageName%>");
-                _.first($(this)).reset();
+                _w88_paymentSvc.onTransactionCreated($(this));
                 return;
             });
 
