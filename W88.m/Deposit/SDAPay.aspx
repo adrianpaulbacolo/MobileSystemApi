@@ -48,6 +48,8 @@
                                 window.location.replace('SDAPay2.aspx?id=' + response.ResponseData.TransactionId)
                             });
 
+                            $('#form1')[0].reset();
+
                             break;
                         default:
                             if (_.isArray(response.ResponseMessage))
