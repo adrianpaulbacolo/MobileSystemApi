@@ -4,122 +4,40 @@
 	bottom: 0;
 	left: 0;
 	right: 0;
-	z-index: 20;
+	z-index: 2;
 	position: absolute;
 	overflow-y: hidden;
     overflow-x: scroll;
-	@include box-shadow(0 -2px 4px 0 rgba(0,0,0,0.3));
-	.btn{
-		font-weight: 700;
-		height: 60px;
-		padding: 20px 14px;
-		position: relative;
-	}
-}
-
-.footer-generic{
-	.btn{
-		font-size: 0.750rem;
-		color: $footer-button-color;
-		> span {
-			font-size: 1.750rem;
-			color:$footer-icon-color;
-			display: block;
-		}
-	}
+    background-color: $bottom-nav-bg;
+	@include box-shadow(0 -10px 10px 0 rgba(0,0,0,0.075));
 	.btn-group{
-		&:last-child{
-			border-right: none;
-		}
+		position: relative;
+		height: 100%;
 		.btn{
-            &.btn-icon{
-		        padding-top: 6px;
-            }
-			color: $footer-generic-color;
-			border-color: $footer-generic-bg;
-			background-color: $footer-generic-bg;
-			padding-top: 20px;
+			color: $bottom-nav-color;
+			font-size: 0.688rem;
+			padding-top: 0;
+			padding-bottom: 0;
+			position: relative;
+			height: 100%;
+			background-color: transparent;
+			border: none;
+			.icon{
+				color: $bottom-nav-icon;
+				font-size: 1.813rem;
+				margin-bottom: 2px;
+				display: block;
+			}
+			&.active,
 			&:focus,
 			&:hover{
-				color: $footer-generic-active-color;
-				background-color: $footer-generic-active-bg;
-				border-color: $footer-generic-active-bg;
-			}
-		}
-		&.active{
-			.btn{
-				color: $footer-generic-active-color;
-				background-color: $footer-generic-active-bg;
-				border-color: $footer-generic-active-bg;
-				border-bottom: 1px solid $footer-generic-active-border;
-				&:after{
-					content: '';
-					bottom: -1px;
-					left: 0;
-					width: 100%;
-					height: 4px;
-					background: $footer-generic-active-border;
-					position: absolute;
+				color: $bottom-nav-color-active;
+				background-color: $bottom-nav-bg-active;
+				.icon{
+				color: $bottom-nav-icon-active;
 				}
 			}
 		}
 	}
-	&.footer-wallets{
-		.btn{
-			padding-top: 14px;
-			font-size: 0.875rem;
-			small{
-				font-size: 0.750rem;
-				font-weight: 500;
-				color: $text-color;
-				display: block;
-			}
-		}
-	}
 }
 
-.footer-message{
-	padding: 6px;
-	background-color: rgba($black, 0.45);
-	left: 0;
-	right: 0;
-	bottom: 60px;
-	z-index: 25;
-	position: fixed;
-	text-align: center;
-	.icon, p{
-		color: $text-alt;
-	}
-	.icon{
-		font-size: 1.714em;
-		bottom: -4px;
-		position: relative;
-	}
-	p{
-		font-size: 0.857em;
-		margin-bottom: 5px;
-        &.small{
-            font-size: 0.750rem;
-        }
-	}
-    &.footer-error {
-        background: $brand-danger;
-    }
-    &.footer-default{
-	    background-color: $body-bg;
-    }
-}
-
-
-.btn-group-sliding{
-    width: auto;
-    .btn-group{
-    	min-width: 125px;
-		.btn{
-			width: 100%;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
-		}
-    }
-}

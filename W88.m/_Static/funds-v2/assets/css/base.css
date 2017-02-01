@@ -7,9 +7,9 @@
   font-style: normal;
   font-stretch: normal; }
 @font-face {
-  font-family: 'dinprobold';
-  src: url("/assets/css/fonts/din-bold-webfont.eot");
-  src: url("/assets/css/fonts/din-bold-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/css/fonts/din-bold-webfont.woff") format("woff"), url("/assets/css/fonts/din-bold-webfont.ttf") format("truetype"), url("/assets/css/fonts/din-bold-webfont.svg#dinpro") format("svg");
+  font-family: 'dinpro';
+  src: url("fonts/fonts/din-medium-webfont.eot");
+  src: url("fonts/fonts/din-medium-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/din-medium-webfont.woff") format("woff"), url("fonts/din-medium-webfont.ttf") format("truetype"), url("fonts/din-medium-webfont.svg#dinpro") format("svg");
   font-weight: 700;
   font-style: normal;
   font-stretch: normal; }

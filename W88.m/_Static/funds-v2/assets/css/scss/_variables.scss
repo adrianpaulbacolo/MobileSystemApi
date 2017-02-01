@@ -13,12 +13,12 @@
 }
 
 @font-face {
-	font-family: 'dinprobold';
-	src: url("/assets/css/fonts/din-bold-webfont.eot");
-	src: url("/assets/css/fonts/din-bold-webfont.eot?#iefix") format("embedded-opentype"),
-	url("/assets/css/fonts/din-bold-webfont.woff") format("woff"),
-	url("/assets/css/fonts/din-bold-webfont.ttf") format("truetype"),
-	url("/assets/css/fonts/din-bold-webfont.svg#dinpro") format("svg");
+	font-family: 'dinpro';
+	src: url("fonts/fonts/din-medium-webfont.eot");
+	src: url("fonts/fonts/din-medium-webfont.eot?#iefix") format("embedded-opentype"),
+	url("fonts/din-medium-webfont.woff") format("woff"),
+	url("fonts/din-medium-webfont.ttf") format("truetype"),
+	url("fonts/din-medium-webfont.svg#dinpro") format("svg");
 	font-weight: 700;
 	font-style: normal; 
 	font-stretch: normal;
@@ -130,6 +130,14 @@ $header-search-bg: lighten($black , 20%);
 $header-search-input-color: darken($white , 5%);
 $header-search-clear: darken($white , 30%);
 
+// Bottom Navigation
+$bottom-nav-bg: lighten($gray-darker, 3%);
+$bottom-nav-icon: $brand-primary;
+$bottom-nav-icon-active: $white;
+$bottom-nav-color: $text-color;
+$bottom-nav-color-active: $white;
+$bottom-nav-bg-active: $brand-primary;
+
 //Tab bar
 $tab-bar-bg: $brand-primary;
 $tab-bar-color: rgba($text-color, 0.95);
@@ -144,6 +152,21 @@ $sidemenu-icon-color-hover: $white;
 $sidemenu-link-color: $brand-alt;
 $sidemenu-link-color-hover: $white;
 $sidemenu-link-bg-hover: $brand-primary;
+
+//Wallets
+$wallet-bg: darken($brand-dark, 5%);
+$wallet-main-title: $brand-alt;
+$wallet-main-value: $text-color;
+$wallet-main-currency: darken($text-color, 40%);
+$wallet-group-border: rgba($white, 0.04);
+$wallet-group-name: darken($brand-primary, 10%);
+$wallet-group-value: darken($text-color, 10%);
+
+//Dashboard
+$dashboard-icon: $text-color;
+$dashboard-text: $brand-alt;
+$dashboard-active-color: $white;
+$dashboard-active-bg: $brand-primary;
 
 //Slots
 $game-category-border: 15px solid darken($brand-default, 7%);
@@ -170,32 +193,11 @@ $promo-box-bg: lighten($body-bg, 4%);
 $promo-box-image-bg: lighten($body-bg, 6%);
 $promo-title: $brand-alt;
 
-// Bottom Navigation
-$bottom-nav-bg: lighten($brand-default, 5%);
-$bottom-nav-color: $text-color;
-$bottom-nav-color-active: $white;
-$bottom-nav-bg-active: $brand-primary;
-
 // Menu Page
 $more-bg-color: transparent;
 $more-menu-color: $brand-alt;
 $more-menu-icon-color:  $text-color;
 $more-menu-arrow-color:  rgba($white, 0.2);
-
-//Footer Non-sessioned
-$footer-icon-color: $text-color;
-$footer-button-color: $brand-alt;
-$footer-button-bg1: $brand-default;
-$footer-button-bg2: lighten($brand-default, 2.5%);
-$footer-button-bg3: lighten($brand-default, 5%);
-
-//Footer Generic
-$footer-generic-color: $brand-alt;
-$footer-generic-bg: $brand-default;
-$footer-generic-border: darken($brand-default, 3%);
-$footer-generic-active-color: $white;
-$footer-generic-active-bg: $brand-primary;
-$footer-generic-active-border: $white;
 
 
 // User Info 

@@ -1,0 +1,48 @@
+.dashboard{
+	font-family: $dinpro;
+	.row{
+		margin-left: 0;
+		margin-right: 0;
+		div[class^="col-"],
+		div[class*=" col-"] {
+		    padding-left: 0;
+		    padding-right: 0;
+		}	
+	}
+	 a{
+	 	color: $dashboard-text;
+	 	text-transform: uppercase;
+	 	font-size: 0.688rem;
+	 	padding: 14% 0;
+		text-align: center;
+		display: block;
+	 	.icon{
+	 		color: $dashboard-icon;
+			font-size: 3.125rem;
+			margin-bottom: 4px;
+			display: block;
+	 	}
+	 	&:focus,
+	 	&:hover{
+			color: $dashboard-active-color;
+			background-color: $dashboard-active-bg;
+		 	.icon{
+				color: $dashboard-active-color;
+		 	}
+	 	}
+	 }
+}
+.dashboard-row{
+	border-bottom: 1px solid rgba($white, 0.05);
+	div[class^="col-"],
+	div[class*=" col-"]{
+		border-right: 1px solid rgba($white, 0.05);
+	}	
+	div[class^="col-"]:last-child,
+	div[class*=" col-"]:last-child {
+		border-right: none
+	}	
+}
+.dashboard-col{
+
+}

@@ -6,16 +6,16 @@
   font-style: normal;
   font-stretch: normal; }
 @font-face {
-  font-family: 'dinprobold';
-  src: url("/assets/css/fonts/din-bold-webfont.eot");
-  src: url("/assets/css/fonts/din-bold-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/css/fonts/din-bold-webfont.woff") format("woff"), url("/assets/css/fonts/din-bold-webfont.ttf") format("truetype"), url("/assets/css/fonts/din-bold-webfont.svg#dinpro") format("svg");
+  font-family: 'dinpro';
+  src: url("fonts/fonts/din-medium-webfont.eot");
+  src: url("fonts/fonts/din-medium-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/din-medium-webfont.woff") format("woff"), url("fonts/din-medium-webfont.ttf") format("truetype"), url("fonts/din-medium-webfont.svg#dinpro") format("svg");
   font-weight: 700;
   font-style: normal;
   font-stretch: normal; }
 /* xs */
 html,
 body {
-  font-size: 16px;
+  font-size: 100%;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
@@ -42,6 +42,7 @@ small,
 
 .canvas {
   background-color: #1f1f1f;
+  overflow: hidden;
   -webkit-box-shadow: -5px 0px 25px 0px rgba(0, 0, 0, 0.3);
   box-shadow: -5px 0px 25px 0px rgba(0, 0, 0, 0.3); }
   .canvas.expanded {
@@ -65,16 +66,6 @@ small,
   right: 0;
   bottom: 0;
   position: absolute;
-  background-color: #1f1f1f; }
-  .body.has-tab {
-    top: 94px; }
-  .body.has-footer {
-    bottom: 60px; }
-  .body.main-content-full {
-    padding: 0; }
-
-.main-content {
-  padding: 16px 0;
   background: #023144;
   background: #023144;
   /* Old browsers */
@@ -92,6 +83,12 @@ small,
   /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$top', endColorstr='$bottom',GradientType=0 );
   /* IE6-9 */ }
+  .body.has-tab {
+    top: 94px; }
+  .body.has-footer {
+    bottom: 60px; }
+  .body.main-content-full {
+    padding: 0; }
 
 .no-gutter {
   margin-left: 0;
@@ -150,11 +147,13 @@ small,
   top: 0;
   left: 0;
   right: 0;
-  z-index: 20;
+  z-index: 2;
   position: absolute;
   height: 47px;
   width: 100%;
-  background-color: #1f2021; }
+  background-color: #1f2021;
+  -webkit-box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.095);
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.095); }
   .header:before, .header:after {
     content: " ";
     display: table; }
@@ -821,6 +820,84 @@ small,
 @media (orientation: landscape) {
   .error-box .error-content p {
     margin: 0 auto 20px; } }
+.wallets {
+  background-color: #011f2b;
+  -webkit-box-shadow: inset 0 -5px 5px 0 rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 -5px 5px 0 rgba(0, 0, 0, 0.075); }
+  .wallets .wallet-main {
+    text-align: center;
+    padding: 15px 0; }
+    .wallets .wallet-main .wallet-title {
+      color: #dab867;
+      margin-bottom: 0; }
+    .wallets .wallet-main .wallet-value {
+      font-size: 1.313rem;
+      font-weight: 700;
+      color: #d3dee3;
+      margin-top: 0;
+      margin-bottom: 5px; }
+    .wallets .wallet-main .wallet-currency {
+      font-size: 0.750rem;
+      margin-bottom: 0;
+      color: #5b7f8f; }
+  .wallets .wallet-group {
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    width: 100%;
+    overflow: auto; }
+    .wallets .wallet-group > div {
+      display: table; }
+    .wallets .wallet-group .wallet-group-item {
+      white-space: nowrap;
+      padding: 15px;
+      text-align: center;
+      display: table-cell; }
+      .wallets .wallet-group .wallet-group-item p {
+        color: #216f93;
+        font-size: 0.750rem;
+        margin-bottom: 0; }
+      .wallets .wallet-group .wallet-group-item h5 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #b4c7cf;
+        margin-top: 0;
+        margin-bottom: 0; }
+
+.dashboard {
+  font-family: "dinpro"; }
+  .dashboard .row {
+    margin-left: 0;
+    margin-right: 0; }
+    .dashboard .row div[class^="col-"],
+    .dashboard .row div[class*=" col-"] {
+      padding-left: 0;
+      padding-right: 0; }
+  .dashboard a {
+    color: #dab867;
+    text-transform: uppercase;
+    font-size: 0.688rem;
+    padding: 14% 0;
+    text-align: center;
+    display: block; }
+    .dashboard a .icon {
+      color: #d3dee3;
+      font-size: 3.125rem;
+      margin-bottom: 4px;
+      display: block; }
+    .dashboard a:focus, .dashboard a:hover {
+      color: #ffffff;
+      background-color: #2a8fbd; }
+      .dashboard a:focus .icon, .dashboard a:hover .icon {
+        color: #ffffff; }
+
+.dashboard-row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+  .dashboard-row div[class^="col-"],
+  .dashboard-row div[class*=" col-"] {
+    border-right: 1px solid rgba(255, 255, 255, 0.05); }
+  .dashboard-row div[class^="col-"]:last-child,
+  .dashboard-row div[class*=" col-"]:last-child {
+    border-right: none; }
+
 .modal {
   text-align: center;
   padding: 0 !important; }
@@ -1026,5 +1103,41 @@ small,
   .header .popover .popover-content {
     color: #dab867;
     font-size: 12px; }
+
+.footer {
+  width: 100%;
+  height: 60px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  position: absolute;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  background-color: #262829;
+  -webkit-box-shadow: 0 -10px 10px 0 rgba(0, 0, 0, 0.075);
+  box-shadow: 0 -10px 10px 0 rgba(0, 0, 0, 0.075); }
+  .footer .btn-group {
+    position: relative;
+    height: 100%; }
+    .footer .btn-group .btn {
+      color: #d3dee3;
+      font-size: 0.688rem;
+      padding-top: 0;
+      padding-bottom: 0;
+      position: relative;
+      height: 100%;
+      background-color: transparent;
+      border: none; }
+      .footer .btn-group .btn .icon {
+        color: #2a8fbd;
+        font-size: 1.813rem;
+        margin-bottom: 2px;
+        display: block; }
+      .footer .btn-group .btn.active, .footer .btn-group .btn:focus, .footer .btn-group .btn:hover {
+        color: #ffffff;
+        background-color: #2a8fbd; }
+        .footer .btn-group .btn.active .icon, .footer .btn-group .btn:focus .icon, .footer .btn-group .btn:hover .icon {
+          color: #ffffff; }
 
 /*# sourceMappingURL=styles.css.map */

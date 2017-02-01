@@ -1,6 +1,6 @@
 html,
 body{
-	font-size: 16px;
+	font-size: 100%;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -29,6 +29,7 @@ small,
 }
 .canvas{
     background-color: $body-bg;
+    overflow: hidden;
 	@include box-shadow(-5px 0px 25px 0px rgba($black, 0.3));
 	&.expanded{
 		@include transform(translate(310px, 0px) !important);
@@ -51,7 +52,8 @@ small,
     right: 0;
     bottom: 0;
     position: absolute;
-    background-color: $body-bg;
+	background: $brand-dark; 
+	@include linearGradient($brand-dark, $body-bg);
 	&.has-tab{
 		top: 94px;
 	}
@@ -61,11 +63,6 @@ small,
 	&.main-content-full{
 		padding: 0;
 	}
-}
-.main-content{
-    padding: 16px 0;
-	background: $brand-dark; 
-	@include linearGradient($brand-dark, $body-bg);
 }
 
 .no-gutter{
