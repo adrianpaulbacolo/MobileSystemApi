@@ -1,5 +1,6 @@
 ﻿var _paq = _paq || [];
 _paq.push(['setCustomUrl', location.href.toLowerCase()]);
+_paq.push(['setCustomDimension', 1, window.location.hostname]);
 _paq.push(['trackPageView']);
 //_paq.push(['enableLinkTracking']); Disabled, we will manually track outlinks and downloads
 

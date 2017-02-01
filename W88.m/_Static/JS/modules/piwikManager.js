@@ -117,7 +117,7 @@ function piwikManager() {
             case "gpiSlotClick":
                 if (async) {
                     piwik.trackLink(dimensions.url,'link', {dimension4: dimensions.gameType, dimension5: dimensions.gameName, dimension6: dimensions.club, dimension7: dimensions.playType});
-                } else if (!async && typeof a !== "undefined") {
+                } else if (!async && typeof aync !== "undefined") {
                     _paq.push(['trackLink', dimensions.url, "link", {dimension4: dimensions.gameType, dimension5: dimensions.gameName, dimension6: dimensions.club, dimension7: dimensions.playType}]);
                 }
                 break;
