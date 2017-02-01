@@ -20,7 +20,7 @@
             url: url,
             success: function (d) {
                 banks = d.ResponseData;
-
+                var defaultSelect = _w88_contents.translate("LABEL_SELECT_DEFAULT");
                 $('select[id$="drpBanks"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
                 $('select[id$="drpBanks"]').val("-1").selectmenu("refresh");
 
