@@ -42,7 +42,7 @@ along with references to existing branches on the main Repository and what those
 
 ### Guidelines
 
-1. When a new feature is being built, we create a new branch from '<your-fork>'/master. Development and local testing should happen here so that you are developing against a working copy of PRODUCTION.
+1. When a new feature is being built, we create a new branch from '{your-fork}'/master. Development and local testing should happen here so that you are developing against a working copy of PRODUCTION.
 2. Feature branch naming is up to you, but please make sure the name describes the feature being built.
 3. Feature branches should NOT include work that is unrelated to the feature the branch was created for.
 4. Feature branches will ALWAYS have a '{your-fork}/{feature-branch}-dev' AND '{your-fork}/{feature-branch}-stage' counter part. Please see Pull Requests section below for more details.
