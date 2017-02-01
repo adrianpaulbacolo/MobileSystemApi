@@ -24,19 +24,13 @@ public partial class Deposit_SDAPay : PaymentBasePage
     {
         if (!Page.IsPostBack)
         {
-            drpBank.Items.AddRange(base.InitializeBank("SDAPayAlipayBank").Where(bank => bank.Value.Equals("alipay", StringComparison.OrdinalIgnoreCase)).ToArray());
-
             this.InitializeLabels();
-
-            drpBank.SelectedValue = "alipay";
         }
     }
 
     private void InitializeLabels()
     {
         lblAmount.Text = base.strlblAmount;
-
-        lblIndicatorMessage.Text = commonCulture.ElementValues.getResourceString("lblIndicatorMessage", xeResources);
 
         lblTransactionId = base.strlblTransactionId;
     }

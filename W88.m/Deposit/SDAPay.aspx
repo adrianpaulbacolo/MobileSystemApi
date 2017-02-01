@@ -4,15 +4,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <ul class="list fixed-tablet-size">
         <li class="item-text-wrap">
-            <asp:Label ID="lblIndicatorMessage" runat="server" />
+            <span ID="lblIndicatorMessage" />
         </li>
         <li class="item item-input">
             <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
             <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
-        </li>
-        <li class="item item-select" hidden>
-            <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
-            <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
         </li>
     </ul>
 </asp:Content>
@@ -23,6 +19,17 @@
             var payments = new w88Mobile.Gateways.Payments("<%=base.PaymentMethodId %>");
 
             payments.init();
+
+            setTranslations();
+            function setTranslations() {
+                if (_w88_contents.translate("LABEL_MSG_120254") != "LABEL_MSG_120254") {
+                    $('#lblIndicatorMessage').html(_w88_contents.translate("LABEL_MSG_120254"))
+                } else {
+                    window.setInterval(function () {
+                        setTranslations();
+                    }, 500);
+                }
+            }
 
             window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
 
