@@ -58,7 +58,6 @@
                             break;
                         }
                     },
-                    function() { console.log("Error connecting to api"); },
                     function() {
                         w88Mobile.FormValidator.enableSubmitButton('#ContentPlaceHolder1_btnSubmit');
                         GPINTMOBILE.HideSplash();
