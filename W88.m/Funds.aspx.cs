@@ -50,7 +50,7 @@ public partial class Funds : PaymentBasePage
         var userAgent = Request.UserAgent.ToString();
         if (userAgent.ToLower().Contains("clubw"))
         {
-            Response.Redirect("/FundsNew.aspx");
+            Response.Redirect("/v2/Funds.aspx");
         }
     }
 }
