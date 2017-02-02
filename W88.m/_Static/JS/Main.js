@@ -59,3 +59,16 @@ function redirectToHttps() {
     }
 }
 
+function NotAllowDecimal(e) {
+    var key = e.keyCode;
+    if ($.browser.mozilla) {
+        key = e.which;
+    }
+    if (key != 0 && key != 8) {
+        var regex = new RegExp("^[0-9]+$");
+        var code = String.fromCharCode(key);
+        if (!regex.test(code))
+            return false;
+    }
+}
+
