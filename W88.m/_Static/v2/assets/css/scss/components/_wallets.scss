@@ -1,4 +1,5 @@
 .wallets{
+	height: 175px;
 	background-color: $wallet-bg;
 	@include box-shadow(inset 0 -5px 5px 0 rgba(0,0,0,0.075));
 	.wallet-main{
@@ -32,6 +33,7 @@
 			white-space: nowrap;
 			padding: 15px;
 			text-align: center;
+			width: 1%;
 			display: table-cell;
 			p{
 				color: $wallet-group-name;

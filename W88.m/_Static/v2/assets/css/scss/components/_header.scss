@@ -18,29 +18,6 @@
 	&:after {
 		clear: both;
 	}
-	
-	.header-logo{
-		text-align: center;
-		overflow-y: hidden;
-		h1{
-			color: $header-title-color;
-			font-family: $dinpro;
-			font-size: 1.250rem;
-			text-transform: capitalize;
-			max-width: 100%;
-			margin: 0;
-			display: inline-block;
-			white-space: nowrap;
-			img{
-				max-height: 20px;
-				display: inline-block;
-			}
-			span{
-				top: 2px;
-				position: relative;
-			}
-		}
-	}
 
 	.header-title{
 		text-align: center;
@@ -58,6 +35,11 @@
 		height: 47px;
 		line-height: 47px;
 		position: absolute;
+		img{
+			height: 22px;
+			margin-top: 12px;
+			vertical-align: top;
+		}
 	}
 
 	.header-button{

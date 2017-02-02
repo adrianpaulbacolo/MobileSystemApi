@@ -53,7 +53,6 @@ small,
     bottom: 0;
     position: absolute;
 	background: $brand-dark; 
-	@include linearGradient($brand-dark, $body-bg);
 	&.has-tab{
 		top: 94px;
 	}

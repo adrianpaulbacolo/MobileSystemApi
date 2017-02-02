@@ -48,4 +48,11 @@ $(document).ready(function() {
 		$('.side-nav').removeClass('overflow-shown');
 	});
 
+
+	$('.home-banner').slick({
+		arrows: false,
+		dots:true,
+		autoplay: true
+	});
+		
 });

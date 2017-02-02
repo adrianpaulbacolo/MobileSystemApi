@@ -13,9 +13,10 @@
 	 	color: $dashboard-text;
 	 	text-transform: uppercase;
 	 	font-size: 0.688rem;
-	 	padding: 14% 0;
+	 	padding: 15px;
 		text-align: center;
-		display: block;
+		display: inline-block;
+		margin: 0 auto;
 	 	.icon{
 	 		color: $dashboard-icon;
 			font-size: 3.125rem;
@@ -23,26 +24,48 @@
 			display: block;
 	 	}
 	 	&:focus,
-	 	&:hover{
+	 	&:active{
 			color: $dashboard-active-color;
-			background-color: $dashboard-active-bg;
 		 	.icon{
-				color: $dashboard-active-color;
+				color: $dashboard-active-icon
 		 	}
 	 	}
 	 }
 }
 .dashboard-row{
+	width: 100%;
+	position: relative;
 	border-bottom: 1px solid rgba($white, 0.05);
-	div[class^="col-"],
-	div[class*=" col-"]{
-		border-right: 1px solid rgba($white, 0.05);
-	}	
-	div[class^="col-"]:last-child,
-	div[class*=" col-"]:last-child {
-		border-right: none
+	display: table;
+	table-layout: fixed;
+	&.dashboard-row-3 .dashboard-col{
+		width: 33.33336%;
+	}
+	&.dashboard-row-4 .dashboard-col{
+		width: 25%;
 	}	
 }
 .dashboard-col{
+	text-align: center;
+	border-right: 1px solid rgba($white, 0.05);
+	vertical-align: middle;
+	width: 50%;
+	display: table-cell;
+	&:last-child {
+		border-right: none;
+	}	
+}
 
+@media (min-height: 640px){
+	// Funds Dashboard
+	.dashboard-funds{
+		height: calc(100% - 175px);
+		.dashboard-row{
+			height: 50%;
+			&:last-child {
+				border-bottom: none
+			}
+		}
+	}
+	
 }

@@ -165,8 +165,11 @@ $wallet-group-value: darken($text-color, 10%);
 //Dashboard
 $dashboard-icon: $text-color;
 $dashboard-text: $brand-alt;
-$dashboard-active-color: $white;
-$dashboard-active-bg: $brand-primary;
+$dashboard-active-icon: darken($text-color, 20%);
+$dashboard-active-color: darken($brand-alt, 20%);
+
+//Home Banners
+$home-banner-bg: darken($brand-dark, 5%);
 
 //Slots
 $game-category-border: 15px solid darken($brand-default, 7%);
