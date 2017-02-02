@@ -72,3 +72,37 @@ function NotAllowDecimal(e) {
     }
 }
 
+function ValidatePositiveDecimal(ctrl, e, cur) {
+    var allowDecimal;
+    if (cur === undefined) cur = "";
+    switch (cur) {
+        case "JPY":
+            allowDecimal = false;
+            break;
+        default:
+            allowDecimal = true;
+            break;
+    }
+
+    var key = e.keyCode;
+    if ($.browser.mozilla) {
+        key = e.which;
+    }
+    if (key != 0 && key != 8) {
+        if (key == 46) {
+            if (!allowDecimal) return false;
+
+            var code = String.fromCharCode(key);
+            if (ctrl.value.indexOf(code) >= 0)
+                return false;
+        }
+        else if (key < 48 || key > 57)
+            return false;
+        else {
+            var num = parseFloat($(ctrl).val() + String.fromCharCode(key));
+            var cleanNum = num.toFixed(2);
+            if (num / cleanNum != 1)
+                return false;
+        }
+    }
+}
