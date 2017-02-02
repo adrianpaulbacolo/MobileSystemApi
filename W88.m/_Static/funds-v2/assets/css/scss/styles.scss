@@ -1,0 +1,36 @@
+
+// Global
+@import "variables";
+//@import "variables-light";
+@import "css3-mixins";
+@import "global";
+//@import "fit-screen";
+
+// Components
+@import "components/buttons";
+@import "components/header";
+@import "components/tab-bar";
+@import "components/sidenav";
+@import "components/download-banner";
+@import "components/components";
+@import "components/wallets";
+@import "components/dashboard";
+@import "components/modal";
+@import "components/loader";
+@import "components/popover";
+@import "components/footer";
+//@import "modules/bottom-nav";
+
+// Pages
+//@import "pages/login";
+//@import "pages/home";
+//@import "pages/gateway";
+//@import "pages/games";
+//@import "pages/funds";
+//@import "pages/promotions";
+//@import "pages/download-center";
+//@import "pages/language";
+//@import "pages/more";
+
+//Responsive
+@import "responsive";
