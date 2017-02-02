@@ -1,0 +1,19 @@
+.home-carousel-item{
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 100%;
+  height: calc(100% - 109px);
+  display: block;
+  top: 44px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+}
+
+@media (orientation: landscape){
+  .home-carousel-item{
+    background-size: auto 100%;
+  }
+}

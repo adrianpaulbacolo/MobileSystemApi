@@ -1,0 +1,86 @@
+html,
+body{
+	font-size: 100%;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+h1,h2,h3,h4,h5{
+	font-family: $dinpro;
+}
+p{
+	font-size: 0.875rem;
+	color: $text-alt;
+}
+.text-alt{
+	color: $brand-alt;
+}
+small,
+.small{
+	font-size: 0.750rem;
+}
+.primary-link{
+	color: $brand-primary;
+	&:focus,
+	&:hover{
+		text-decoration: none;
+		color: darken($brand-primary, 10%);
+	}
+}
+.canvas{
+    background-color: $body-bg;
+    overflow: hidden;
+	@include box-shadow(-5px 0px 25px 0px rgba($black, 0.3));
+	&.expanded{
+		@include transform(translate(310px, 0px) !important);
+	}
+}
+.main-screen{
+	position: relative;
+	height: 100%;
+}
+.screen{
+	margin-left: -16px;
+	margin-right: -16px;
+}
+
+.body{
+    width: 100%;
+    overflow: auto;
+    top: 47px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+	background: $brand-dark; 
+	@include linearGradient($brand-dark, $body-bg);
+	&.has-tab{
+		top: 94px;
+	}
+	&.has-footer{
+		bottom: 60px;
+	}
+	&.main-content-full{
+		padding: 0;
+	}
+}
+
+.no-gutter{
+    margin-left: 0;
+    margin-right: 0;
+	div[class^="col-"],
+	div[class*=" col-"] {
+	    padding-left: 0;
+	    padding-right: 0;
+	}	
+}
+
+.thin-gutter{
+    margin-left: -4px;
+    margin-right: -4px;
+	div[class^="col-"],
+	div[class*=" col-"] {
+	    padding-left: 4px;
+	    padding-right: 4px;
+	}	
+}

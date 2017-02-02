@@ -1,0 +1,1369 @@
+@font-face {
+  font-family: 'dinpro';
+  src: url("fonts/din-regular-webfont.eot");
+  src: url("fonts/din-regular-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/din-regular-webfont.woff") format("woff"), url("fonts/din-regular-webfont.ttf") format("truetype"), url("fonts/din-regular-webfont.svg#dinprobold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal; }
+@font-face {
+  font-family: 'dinpro';
+  src: url("fonts/fonts/din-medium-webfont.eot");
+  src: url("fonts/fonts/din-medium-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/din-medium-webfont.woff") format("woff"), url("fonts/din-medium-webfont.ttf") format("truetype"), url("fonts/din-medium-webfont.svg#dinpro") format("svg");
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal; }
+/* xs */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/_global\.scss}line{font-family:\000031}}
+html,
+body {
+  font-size: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/_global\.scss}line{font-family:\000038}}
+h1, h2, h3, h4, h5 {
+  font-family: "dinpro"; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/_global\.scss}line{font-family:\0000311}}
+p {
+  font-size: 0.875rem;
+  color: #bbb; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/_global\.scss}line{font-family:\0000315}}
+.text-alt {
+  color: #dab867; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/_global\.scss}line{font-family:\0000318}}
+small,
+.small {
+  font-size: 0.750rem; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/_global\.scss}line{font-family:\0000322}}
+.primary-link {
+  color: #2a8fbd; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/_global\.scss}line{font-family:\0000324}}
+  .primary-link:focus, .primary-link:hover {
+    text-decoration: none;
+    color: #216f93; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/_global\.scss}line{font-family:\0000330}}
+.canvas {
+  background-color: #1f1f1f;
+  overflow: hidden;
+  -webkit-box-shadow: -5px 0px 25px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: -5px 0px 25px 0px rgba(0, 0, 0, 0.3); }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/_global\.scss}line{font-family:\0000334}}
+  .canvas.expanded {
+    -webkit-transform: translate(310px, 0px) !important;
+    -moz-transform: translate(310px, 0px) !important;
+    transform: translate(310px, 0px) !important; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/_global\.scss}line{font-family:\0000338}}
+.main-screen {
+  position: relative;
+  height: 100%; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/_global\.scss}line{font-family:\0000342}}
+.screen {
+  margin-left: -16px;
+  margin-right: -16px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/_global\.scss}line{font-family:\0000347}}
+.body {
+  width: 100%;
+  overflow: auto;
+  top: 47px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  background: #023144;
+  background: #023144;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #023144 0%, #1f1f1f 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #023144), color-stop(100%, #1f1f1f));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #023144 0%, #1f1f1f 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #023144 0%, #1f1f1f 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #023144 0%, #1f1f1f 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #023144 0%, #1f1f1f 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$top', endColorstr='$bottom',GradientType=0 );
+  /* IE6-9 */ }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/_global\.scss}line{font-family:\0000357}}
+  .body.has-tab {
+    top: 94px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/_global\.scss}line{font-family:\0000360}}
+  .body.has-footer {
+    bottom: 60px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/_global\.scss}line{font-family:\0000363}}
+  .body.main-content-full {
+    padding: 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/_global\.scss}line{font-family:\0000368}}
+.no-gutter {
+  margin-left: 0;
+  margin-right: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/_global\.scss}line{font-family:\0000371}}
+  .no-gutter div[class^="col-"],
+  .no-gutter div[class*=" col-"] {
+    padding-left: 0;
+    padding-right: 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/_global\.scss}line{font-family:\0000378}}
+.thin-gutter {
+  margin-left: -4px;
+  margin-right: -4px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/_global\.scss}line{font-family:\0000381}}
+  .thin-gutter div[class^="col-"],
+  .thin-gutter div[class*=" col-"] {
+    padding-left: 4px;
+    padding-right: 4px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_buttons\.scss}line{font-family:\000032}}
+.btn {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  font-family: "dinpro"; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_buttons\.scss}line{font-family:\000036}}
+  .btn:active, .btn:focus, .btn:hover {
+    outline: 0 none !important;
+    -webkit-box-shadow: none;
+    box-shadow: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_buttons\.scss}line{font-family:\0000312}}
+  .btn.btn-xs {
+    font-size: 0.750rem; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_buttons\.scss}line{font-family:\0000315}}
+  .btn.btn-lg {
+    font-size: 1rem; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_buttons\.scss}line{font-family:\0000320}}
+.btn-default:focus, .btn-default:hover {
+  background-color: #012534 !important;
+  border-color: #012534 !important; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_buttons\.scss}line{font-family:\0000326}}
+.btn-line {
+  color: #2a8fbd;
+  background-color: transparent;
+  border-color: #222; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_buttons\.scss}line{font-family:\0000330}}
+  .btn-line:focus, .btn-line:hover {
+    color: #2a8fbd;
+    background-color: transparent;
+    border-color: #090909; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_buttons\.scss}line{font-family:\0000337}}
+.btn-gray {
+  color: #2a8fbd;
+  background-color: #d1d3d4;
+  border-color: #d1d3d4; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_buttons\.scss}line{font-family:\0000341}}
+  .btn-gray:focus, .btn-gray:hover {
+    color: #2a8fbd;
+    background-color: #b7babb;
+    border-color: #b7babb; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_header\.scss}line{font-family:\000031}}
+.header {
+  padding-left: 5px;
+  padding-right: 5px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  position: absolute;
+  height: 47px;
+  width: 100%;
+  background-color: #1f2021;
+  -webkit-box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.095);
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.095); }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_header\.scss}line{font-family:\0000313}}
+  .header:before, .header:after {
+    content: " ";
+    display: table; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_header\.scss}line{font-family:\0000318}}
+  .header:after {
+    clear: both; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_header\.scss}line{font-family:\0000322}}
+  .header .header-logo {
+    text-align: center;
+    overflow-y: hidden; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_header\.scss}line{font-family:\0000325}}
+    .header .header-logo h1 {
+      color: #d3dee3;
+      font-family: "dinpro";
+      font-size: 1.250rem;
+      text-transform: capitalize;
+      max-width: 100%;
+      margin: 0;
+      display: inline-block;
+      white-space: nowrap; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_header\.scss}line{font-family:\0000334}}
+      .header .header-logo h1 img {
+        max-height: 20px;
+        display: inline-block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_header\.scss}line{font-family:\0000338}}
+      .header .header-logo h1 span {
+        top: 2px;
+        position: relative; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_header\.scss}line{font-family:\0000345}}
+  .header .header-title {
+    text-align: center;
+    color: #d3dee3;
+    font-family: "dinpro";
+    font-size: 1.250rem;
+    display: block;
+    white-space: nowrap;
+    width: auto;
+    max-width: 55%;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 47px;
+    line-height: 47px;
+    position: absolute; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_header\.scss}line{font-family:\0000363}}
+  .header .header-button {
+    text-align: center;
+    width: 40px;
+    height: 47px;
+    padding: 6px;
+    display: inline-block;
+    z-index: 30;
+    position: relative; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_header\.scss}line{font-family:\0000371}}
+    .header .header-button.header-button-text {
+      font-size: 14px;
+      width: auto !important;
+      text-transform: uppercase; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_header\.scss}line{font-family:\0000376}}
+    .header .header-button.header-button-left {
+      float: left !important; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_header\.scss}line{font-family:\0000379}}
+    .header .header-button.header-button-right {
+      float: right !important; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_header\.scss}line{font-family:\0000382}}
+    .header .header-button .icon {
+      font-size: 32px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_header\.scss}line{font-family:\0000385}}
+    .header .header-button .button-text {
+      letter-spacing: 1px;
+      bottom: 4px;
+      position: relative; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_header\.scss}line{font-family:\0000390}}
+    .header .header-button.btn {
+      padding-top: 12px;
+      padding-bottom: 12px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_header\.scss}line{font-family:\0000395}}
+  .header.header-search {
+    text-align: left;
+    display: table;
+    table-layout: fixed; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_header\.scss}line{font-family:\0000399}}
+    .header.header-search .header-search-input,
+    .header.header-search .header-button {
+      float: none !important;
+      display: table-cell;
+      vertical-align: middle; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_header\.scss}line{font-family:\00003105}}
+    .header.header-search .header-button {
+      text-align: left;
+      width: 75px !important;
+      white-space: nowrap; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_header\.scss}line{font-family:\00003110}}
+    .header.header-search .header-search-input {
+      width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_header\.scss}line{font-family:\00003112}}
+      .header.header-search .header-search-input .form-control {
+        color: #f2f2f2;
+        border-color: #333333;
+        background-color: #333333;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        -webkit-border-radius: 3px 0 0 3px;
+        -moz-border-radius: 3px 0 0 3px;
+        -ms-border-radius: 3px 0 0 3px;
+        border-radius: 3px 0 0 3px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_header\.scss}line{font-family:\00003119}}
+      .header.header-search .header-search-input .btn {
+        color: #b3b3b3;
+        padding-top: 0;
+        padding-bottom: 0;
+        background-color: #333333;
+        -webkit-border-radius: 0 3px 3px 0;
+        -moz-border-radius: 0 3px 3px 0;
+        -ms-border-radius: 0 3px 3px 0;
+        border-radius: 0 3px 3px 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_header\.scss}line{font-family:\00003125}}
+        .header.header-search .header-search-input .btn span {
+          font-size: 1rem; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_tab-bar\.scss}line{font-family:\000031}}
+.tab-bar {
+  width: 100%;
+  font-family: "dinpro";
+  background-color: #2a8fbd;
+  background-image: none;
+  height: 50px;
+  border: none;
+  top: 47px;
+  padding-left: 16px;
+  position: absolute;
+  overflow: auto; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_tab-bar\.scss}line{font-family:\0000312}}
+  .tab-bar ul {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: table;
+    height: 47px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_tab-bar\.scss}line{font-family:\0000319}}
+    .tab-bar ul li {
+      text-align: center;
+      padding: 0;
+      display: table-cell;
+      vertical-align: middle;
+      position: relative;
+      width: 1%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_tab-bar\.scss}line{font-family:\0000326}}
+      .tab-bar ul li a {
+        color: rgba(211, 222, 227, 0.95);
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        padding-left: 15px;
+        padding-right: 15px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_tab-bar\.scss}line{font-family:\0000334}}
+      .tab-bar ul li.active a {
+        color: #ffffff; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_tab-bar\.scss}line{font-family:\0000337}}
+      .tab-bar ul li.active:after {
+        content: '';
+        width: 100%;
+        height: 4px;
+        background-color: #ffffff;
+        left: 0;
+        bottom: 0;
+        position: absolute; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_tab-bar\.scss}line{font-family:\0000350}}
+  .tab-bar.tab-bar-scroll ul {
+    width: auto; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_tab-bar\.scss}line{font-family:\0000352}}
+    .tab-bar.tab-bar-scroll ul li {
+      width: auto; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_sidenav\.scss}line{font-family:\000031}}
+.side-nav {
+  width: 100px;
+  background: #023144;
+  background: #023144;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #023144 0%, #1f1f1f 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #023144), color-stop(100%, #1f1f1f));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #023144 0%, #1f1f1f 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #023144 0%, #1f1f1f 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #023144 0%, #1f1f1f 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #023144 0%, #1f1f1f 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$top', endColorstr='$bottom',GradientType=0 );
+  /* IE6-9 */ }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_sidenav\.scss}line{font-family:\000035}}
+  .side-nav.overflow-shown {
+    overflow: visible; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_sidenav\.scss}line{font-family:\0000310}}
+.side-nav-items {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_sidenav\.scss}line{font-family:\0000314}}
+  .side-nav-items li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    display: block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_sidenav\.scss}line{font-family:\0000317}}
+    .side-nav-items li > a {
+      font-family: "dinpro";
+      font-size: 0.688rem;
+      text-transform: uppercase;
+      color: #dab867;
+      text-align: center;
+      padding: 10px 0;
+      display: block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_sidenav\.scss}line{font-family:\0000325}}
+      .side-nav-items li > a .icon {
+        color: #2a8fbd;
+        font-size: 2rem;
+        text-align: center;
+        margin: 0 auto 4px;
+        display: block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_sidenav\.scss}line{font-family:\0000333}}
+    .side-nav-items li:last-child {
+      border-bottom: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_sidenav\.scss}line{font-family:\0000336}}
+    .side-nav-items li > a:focus,
+    .side-nav-items li > a:hover, .side-nav-items li.active {
+      color: #ffffff;
+      background-color: #2a8fbd; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_sidenav\.scss}line{font-family:\0000341}}
+      .side-nav-items li > a:focus .icon,
+      .side-nav-items li > a:hover .icon, .side-nav-items li.active .icon {
+        color: #ffffff; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_sidenav\.scss}line{font-family:\0000349}}
+.nav-category-items {
+  background-color: #121212;
+  width: 210px;
+  padding: 2px;
+  display: none;
+  top: 0;
+  left: 100px;
+  bottom: 0;
+  overflow: auto;
+  position: absolute; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_sidenav\.scss}line{font-family:\0000359}}
+  .nav-category-items h4 {
+    color: #dab867;
+    padding: 15px;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    font-weight: 700; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_sidenav\.scss}line{font-family:\0000367}}
+  .nav-category-items .row {
+    margin-left: -1px;
+    margin-right: -1px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_sidenav\.scss}line{font-family:\0000370}}
+    .nav-category-items .row div[class^="col-"],
+    .nav-category-items .row div[class*=" col-"] {
+      padding-left: 1px;
+      padding-right: 1px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_sidenav\.scss}line{font-family:\0000376}}
+  .nav-category-items img {
+    width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_sidenav\.scss}line{font-family:\0000379}}
+  .nav-category-items a {
+    text-align: center;
+    background-color: #000;
+    padding-bottom: 15px;
+    margin-bottom: 4px;
+    display: block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_sidenav\.scss}line{font-family:\0000385}}
+    .nav-category-items a span {
+      margin-top: 5px;
+      font-size: 0.875rem;
+      color: #dab867;
+      display: block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_sidenav\.scss}line{font-family:\0000391}}
+    .nav-category-items a:focus > span, .nav-category-items a:hover > span {
+      color: #ffffff; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_sidenav\.scss}line{font-family:\0000396}}
+  .nav-category-items.nav-category-items-shown {
+    display: block; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_download-banner\.scss}line{font-family:\000031}}
+.download-banner {
+  padding: 15px;
+  background-color: #111111; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_download-banner\.scss}line{font-family:\000034}}
+  .download-banner .media-left {
+    width: 25%;
+    text-align: right; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_download-banner\.scss}line{font-family:\000038}}
+  .download-banner .icon {
+    font-size: 2.750rem; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_download-banner\.scss}line{font-family:\0000310}}
+    .download-banner .icon.icon-apple {
+      color: #999; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_download-banner\.scss}line{font-family:\0000313}}
+    .download-banner .icon.icon-android {
+      color: #A4C639; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_download-banner\.scss}line{font-family:\0000317}}
+  .download-banner .media-heading {
+    font-family: "dinpro";
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_download-banner\.scss}line{font-family:\0000323}}
+  .download-banner p {
+    color: #a6a6a6; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\000031}}
+.form-box {
+  margin-top: 30px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\000034}}
+.help-block {
+  color: #6e6e6e;
+  font-size: 0.750rem; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\0000311}}
+.radio label,
+.checkbox label {
+  color: #dab867;
+  font-size: 0.875rem; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\0000315}}
+.radio input[type="radio"],
+.radio input[type="checkbox"],
+.checkbox input[type="radio"],
+.checkbox input[type="checkbox"] {
+  margin-top: 6px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\0000321}}
+.form-group {
+  margin-bottom: 20px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\0000325}}
+.form-group.form-group-line label {
+  color: #dab867;
+  font-size: 0.857em;
+  margin-bottom: 0;
+  font-weight: normal;
+  pointer-events: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\0000332}}
+.form-group.form-group-line .form-control {
+  color: #d3dee3;
+  font-size: 1rem;
+  padding: 4px 0;
+  height: 35px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #5d727b;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-transition: all 600ms ease;
+  transition: all 600ms ease; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\0000343}}
+  .form-group.form-group-line .form-control > option {
+    color: #ffffff;
+    background-color: #1f2021; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\0000347}}
+  .form-group.form-group-line .form-control:focus {
+    outline: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\0000350}}
+  .form-group.form-group-line .form-control.ng-dirty.ng-valid {
+    border-bottom: 1px solid #2a8fbd; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\0000353}}
+  .form-group.form-group-line .form-control.ng-dirty.ng-invalid {
+    border-bottom: 1px solid #db2031; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\0000358}}
+.form-group-placeholder {
+  position: relative; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\0000360}}
+  .form-group-placeholder label {
+    color: #5b7f8f;
+    font-size: 0.857em;
+    margin-bottom: 0;
+    font-weight: normal;
+    pointer-events: none;
+    top: 11px;
+    position: absolute; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\0000369}}
+  .form-group-placeholder .form-control {
+    color: #d3dee3;
+    font-size: 1.143em;
+    padding: 8px 0 8px 30px;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid #5d727b;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\0000378}}
+    .form-group-placeholder .form-control > option {
+      color: #ffffff;
+      background-color: #1f2021; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\0000382}}
+    .form-group-placeholder .form-control:focus {
+      border-bottom: 1px solid #2a8fbd;
+      outline: none;
+      -webkit-box-shadow: none;
+      box-shadow: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\0000389}}
+.page-title {
+  margin-bottom: 16px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\0000391}}
+  .page-title h3 {
+    color: #bbb;
+    font-size: 1.250rem;
+    margin-top: 0;
+    margin-bottom: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\0000396}}
+    .page-title h3 a {
+      margin-left: 10px;
+      color: #3d5560; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003101}}
+  .page-title p {
+    font-size: 0.786em;
+    line-height: 1.429em;
+    color: gray;
+    max-width: 90%;
+    margin: 0 auto 10px;
+    display: block; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003111}}
+.wallet-box {
+  text-align: center;
+  margin: -16px -16px 16px;
+  padding: 16px 0;
+  background: #1a1a1a; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003116}}
+  .wallet-box h4 {
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.429em;
+    color: #d3dee3;
+    margin-top: 0;
+    margin-bottom: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003124}}
+  .wallet-box p {
+    font-size: 1.125rem;
+    line-height: 1.125rem;
+    color: #dab867;
+    margin-bottom: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003130}}
+  .wallet-box span {
+    font-size: 0.750rem;
+    color: #5b7f8f;
+    display: block; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003138}}
+.table > thead > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > th,
+.table > tbody > tr > td,
+.table > tfoot > tr > th,
+.table > tfoot > tr > td {
+  color: #bbb;
+  padding: 16px 0;
+  vertical-align: middle;
+  border-top: 1px solid #2c2c2c; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003149}}
+.table .table-entry-type {
+  color: #dab867;
+  font-size: 1rem;
+  display: block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003154}}
+.table .table-date, .table .table-status {
+  font-size: 0.750rem;
+  color: #555555;
+  display: block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003159}}
+.table .table-status {
+  color: #bbb;
+  font-weight: 700;
+  display: inline; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003167}}
+.error-container {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  display: table; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003178}}
+.error-box {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003184}}
+  .error-box .error-content .icon-error {
+    color: #333333;
+    font-size: 6em;
+    display: inline-block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003189}}
+  .error-box .error-content h1 {
+    color: #dab867; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003192}}
+  .error-box .error-content p {
+    color: #7b7b7b;
+    width: 75%;
+    margin: 0 auto 45px;
+    display: block; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003201}}
+.loader {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1024; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003213}}
+.offscreen-view {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 100%;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  position: fixed;
+  background: #ffffff;
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003224}}
+  .offscreen-view.offscreen-view-downloads {
+    background-color: #1f1f1f; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003227}}
+  .offscreen-view.offscreen-view-open {
+    left: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003230}}
+  .offscreen-view .offscreen-view-close {
+    color: #ffffff;
+    font-size: 1rem;
+    background: rgba(1, 55, 77, 0.75);
+    padding: 1px 3px;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    position: absolute; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003240}}
+  .offscreen-view .offscreen-view-header {
+    background: #01374d;
+    padding: 5px 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003243}}
+    .offscreen-view .offscreen-view-header .offscreen-back {
+      color: #bbb;
+      font-size: 1.5rem;
+      padding-left: 6px;
+      padding-right: 6px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003250}}
+  .offscreen-view .offscreen-container {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    top: 39px;
+    position: absolute;
+    overflow: hidden; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003257}}
+    .offscreen-view .offscreen-container iframe,
+    .offscreen-view .offscreen-container object,
+    .offscreen-view .offscreen-container embed {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003268}}
+    .offscreen-view .offscreen-container.offscreen-container-slots {
+      top: 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003276}}
+.step-indicator .step-box {
+  text-align: center;
+  opacity: 0.3;
+  margin-bottom: 16px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003280}}
+  .step-indicator .step-box h5 {
+    font-size: 1rem;
+    color: #bbb;
+    width: 35px;
+    height: 35px;
+    border: 2px solid #bbb;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+    text-align: center;
+    margin: 0 auto 5px;
+    display: table; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003290}}
+    .step-indicator .step-box h5 span {
+      display: table-cell;
+      vertical-align: middle; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003295}}
+  .step-indicator .step-box p {
+    color: #bbb;
+    font-size: 0.750em;
+    margin: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003300}}
+  .step-indicator .step-box.current {
+    opacity: 1; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003303}}
+  .step-indicator .step-box.done {
+    opacity: 1; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003305}}
+    .step-indicator .step-box.done h5 {
+      color: #ffffff;
+      border: 2px solid #2a8fbd;
+      background-color: #2a8fbd; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003314}}
+.message-overlay {
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  position: absolute;
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003326}}
+  .message-overlay .message-body {
+    text-align: center;
+    background-color: #393939;
+    width: 100%;
+    height: 70%;
+    top: -100%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    -webkit-box-shadow: 0px 6px 6px -6px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 6px 6px -6px rgba(0, 0, 0, 0.5);
+    -webkit-transition: all 400ms ease;
+    transition: all 400ms ease; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003337}}
+    .message-overlay .message-body .close {
+      opacity: 1;
+      color: #d3dee3;
+      text-shadow: none;
+      float: none;
+      top: 16px;
+      right: 16px;
+      position: absolute; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003346}}
+    .message-overlay .message-body .message-container {
+      width: 100%;
+      height: 100%;
+      display: table;
+      margin: 0 auto;
+      max-width: 600px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003352}}
+      .message-overlay .message-body .message-container .message-content {
+        padding: 0 30px;
+        vertical-align: middle;
+        display: table-cell; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003357}}
+        .message-overlay .message-body .message-container .message-content .message-icon span {
+          font-size: 5rem;
+          opacity: 0.50; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003362}}
+        .message-overlay .message-body .message-container .message-content .message-text {
+          margin-bottom: 30px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003365}}
+        .message-overlay .message-body .message-container .message-content h3 {
+          margin-top: 0;
+          color: #dab867; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003372}}
+  .message-overlay.message-active {
+    z-index: 20000;
+    opacity: 1; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003375}}
+    .message-overlay.message-active .message-body {
+      top: 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003381}}
+.page-icon {
+  margin-bottom: 30px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003383}}
+  .page-icon .icon {
+    font-size: 4rem;
+    color: #ffffff; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003389}}
+.info-box {
+  padding: 8px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  border-radius: 6px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003395}}
+  .info-box .media-left .icon {
+    font-size: 2rem;
+    color: #2a8fbd; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003401}}
+.bank-list {
+  list-style: none;
+  margin: 16px 0;
+  padding: 0;
+  text-align: center; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003406}}
+  .bank-list li {
+    display: inline-block; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003411}}
+.bank-select {
+  color: #dab867;
+  font-family: "dinpro";
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1rem;
+  background-color: #01374d;
+  padding: 32px 16px;
+  display: block;
+  margin-bottom: 8px;
+  position: relative; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003422}}
+  .bank-select:hover {
+    background-color: #00131b; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003425}}
+  .bank-select.bank-select-add {
+    color: #ffffff;
+    background-color: #2a8fbd; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003428}}
+    .bank-select.bank-select-add:hover {
+      background-color: #216f93; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003432}}
+  .bank-select.bank-select-default .icon {
+    color: #ffffff;
+    font-size: 1.5rem;
+    top: 8px;
+    right: 8px;
+    position: absolute; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003441}}
+.instuction-box {
+  padding-top: 5%;
+  padding-bottom: 10%;
+  max-width: 375px;
+  margin: 0 auto; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003447}}
+.middle-box {
+  width: 100%;
+  height: 100%;
+  display: table;
+  position: relative; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003452}}
+  .middle-box .middle-box-content {
+    display: table-cell;
+    vertical-align: middle; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003456}}
+  .middle-box .instuction-box {
+    padding-top: 0; }
+
+@media (min-width: 321px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003462}}
+  .page-icon .icon {
+    font-size: 5rem; } }
+@media (orientation: landscape) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_components\.scss}line{font-family:\00003468}}
+  .error-box .error-content p {
+    margin: 0 auto 20px; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_wallets\.scss}line{font-family:\000031}}
+.wallets {
+  background-color: #011f2b;
+  -webkit-box-shadow: inset 0 -5px 5px 0 rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 -5px 5px 0 rgba(0, 0, 0, 0.075); }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_wallets\.scss}line{font-family:\000034}}
+  .wallets .wallet-main {
+    text-align: center;
+    padding: 15px 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_wallets\.scss}line{font-family:\000037}}
+    .wallets .wallet-main .wallet-title {
+      color: #dab867;
+      margin-bottom: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_wallets\.scss}line{font-family:\0000311}}
+    .wallets .wallet-main .wallet-value {
+      font-size: 1.313rem;
+      font-weight: 700;
+      color: #d3dee3;
+      margin-top: 0;
+      margin-bottom: 5px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_wallets\.scss}line{font-family:\0000318}}
+    .wallets .wallet-main .wallet-currency {
+      font-size: 0.750rem;
+      margin-bottom: 0;
+      color: #5b7f8f; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_wallets\.scss}line{font-family:\0000324}}
+  .wallets .wallet-group {
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    width: 100%;
+    overflow: auto; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_wallets\.scss}line{font-family:\0000328}}
+    .wallets .wallet-group > div {
+      display: table; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_wallets\.scss}line{font-family:\0000331}}
+    .wallets .wallet-group .wallet-group-item {
+      white-space: nowrap;
+      padding: 15px;
+      text-align: center;
+      display: table-cell; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_wallets\.scss}line{font-family:\0000336}}
+      .wallets .wallet-group .wallet-group-item p {
+        color: #216f93;
+        font-size: 0.750rem;
+        margin-bottom: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_wallets\.scss}line{font-family:\0000341}}
+      .wallets .wallet-group .wallet-group-item h5 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #b4c7cf;
+        margin-top: 0;
+        margin-bottom: 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_dashboard\.scss}line{font-family:\000031}}
+.dashboard {
+  font-family: "dinpro"; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_dashboard\.scss}line{font-family:\000033}}
+  .dashboard .row {
+    margin-left: 0;
+    margin-right: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_dashboard\.scss}line{font-family:\000036}}
+    .dashboard .row div[class^="col-"],
+    .dashboard .row div[class*=" col-"] {
+      padding-left: 0;
+      padding-right: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_dashboard\.scss}line{font-family:\0000312}}
+  .dashboard a {
+    color: #dab867;
+    text-transform: uppercase;
+    font-size: 0.688rem;
+    padding: 14% 0;
+    text-align: center;
+    display: block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_dashboard\.scss}line{font-family:\0000319}}
+    .dashboard a .icon {
+      color: #d3dee3;
+      font-size: 3.125rem;
+      margin-bottom: 4px;
+      display: block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_dashboard\.scss}line{font-family:\0000325}}
+    .dashboard a:focus, .dashboard a:hover {
+      color: #ffffff;
+      background-color: #2a8fbd; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_dashboard\.scss}line{font-family:\0000329}}
+      .dashboard a:focus .icon, .dashboard a:hover .icon {
+        color: #ffffff; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_dashboard\.scss}line{font-family:\0000335}}
+.dashboard-row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_dashboard\.scss}line{font-family:\0000337}}
+  .dashboard-row div[class^="col-"],
+  .dashboard-row div[class*=" col-"] {
+    border-right: 1px solid rgba(255, 255, 255, 0.05); }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_dashboard\.scss}line{font-family:\0000341}}
+  .dashboard-row div[class^="col-"]:last-child,
+  .dashboard-row div[class*=" col-"]:last-child {
+    border-right: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_modal\.scss}line{font-family:\000031}}
+.modal {
+  text-align: center;
+  padding: 0 !important; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_modal\.scss}line{font-family:\000035}}
+  .modal.modal-fullscreen {
+    background: #023144;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #023144 0%, #1f1f1f 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #023144), color-stop(100%, #1f1f1f));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #023144 0%, #1f1f1f 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #023144 0%, #1f1f1f 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #023144 0%, #1f1f1f 100%);
+    /* IE10+ */
+    background: linear-gradient(to bottom, #023144 0%, #1f1f1f 100%);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$top', endColorstr='$bottom',GradientType=0 );
+    /* IE6-9 */ }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_modal\.scss}line{font-family:\000037}}
+    .modal.modal-fullscreen .modal-header {
+      padding: 9px 15px;
+      background-color: #1f2021; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_modal\.scss}line{font-family:\0000311}}
+    .modal.modal-fullscreen .modal-backdrop {
+      opacity: 1 !important; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_modal\.scss}line{font-family:\0000314}}
+    .modal.modal-fullscreen .modal-dialog {
+      vertical-align: top;
+      width: 100%;
+      max-width: 100%;
+      margin: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_modal\.scss}line{font-family:\0000320}}
+    .modal.modal-fullscreen .modal-content {
+      margin: -1px -1px 0;
+      border-color: transparent;
+      background-color: transparent;
+      -webkit-box-shadow: none;
+      box-shadow: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_modal\.scss}line{font-family:\0000325}}
+      .modal.modal-fullscreen .modal-content .modal-header {
+        border-bottom: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_modal\.scss}line{font-family:\0000328}}
+      .modal.modal-fullscreen .modal-content .modal-footer {
+        border-top: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_modal\.scss}line{font-family:\0000331}}
+      .modal.modal-fullscreen .modal-content .close {
+        font-size: 2rem;
+        color: #ffffff;
+        opacity: 0.75;
+        text-shadow: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_modal\.scss}line{font-family:\0000336}}
+        .modal.modal-fullscreen .modal-content .close:focus, .modal.modal-fullscreen .modal-content .close:hover {
+          opacity: 1; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_modal\.scss}line{font-family:\0000342}}
+    .modal.modal-fullscreen:before {
+      display: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_modal\.scss}line{font-family:\0000349}}
+.modal-backdrop {
+  opacity: 0.95 !important; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_modal\.scss}line{font-family:\0000353}}
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_modal\.scss}line{font-family:\0000361}}
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+  width: 90%;
+  max-width: 460px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_modal\.scss}line{font-family:\0000367}}
+  .modal-dialog .close {
+    font-size: 2rem; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_modal\.scss}line{font-family:\0000372}}
+.modal-content {
+  border-color: #272727;
+  background-color: #272727; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_modal\.scss}line{font-family:\0000375}}
+  .modal-content.modal-alt {
+    border-color: #00131b;
+    background-color: #00131b; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_modal\.scss}line{font-family:\0000378}}
+    .modal-content.modal-alt .modal-header {
+      border-bottom: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_modal\.scss}line{font-family:\0000382}}
+  .modal-content.modal-transparent {
+    border-color: transparent;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_modal\.scss}line{font-family:\0000386}}
+    .modal-content.modal-transparent .modal-header {
+      border-bottom: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_modal\.scss}line{font-family:\0000389}}
+    .modal-content.modal-transparent .modal-footer {
+      border-top: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_modal\.scss}line{font-family:\0000392}}
+    .modal-content.modal-transparent .close {
+      font-size: 2rem;
+      color: #ffffff;
+      opacity: 0.75;
+      text-shadow: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_modal\.scss}line{font-family:\0000397}}
+      .modal-content.modal-transparent .close:focus, .modal-content.modal-transparent .close:hover {
+        opacity: 1; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_modal\.scss}line{font-family:\00003107}}
+.modal-game .modal-body h4 {
+  color: #dab867;
+  margin-bottom: 30px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_modal\.scss}line{font-family:\00003112}}
+.modal-game .modal-body .modal-game-thumb {
+  background-color: #e6e6e6;
+  padding: 5px;
+  margin: 0 auto 30px;
+  width: 110px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_modal\.scss}line{font-family:\00003119}}
+  .modal-game .modal-body .modal-game-thumb img {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    border-radius: 4px;
+    width: 100%;
+    display: block; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_loader\.scss}line{font-family:\000032}}
+.on-splash-screen,
+.splash-screen {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  position: fixed;
+  display: table;
+  background-color: #1f1f1f; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_loader\.scss}line{font-family:\0000314}}
+  .on-splash-screen .splash-screen-box,
+  .splash-screen .splash-screen-box {
+    display: table-cell;
+    vertical-align: middle; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_loader\.scss}line{font-family:\0000317}}
+    .on-splash-screen .splash-screen-box img,
+    .splash-screen .splash-screen-box img {
+      margin-top: 0;
+      max-width: 30%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_loader\.scss}line{font-family:\0000321}}
+    .on-splash-screen .splash-screen-box .on-spinner,
+    .on-splash-screen .splash-screen-box .spinner,
+    .splash-screen .splash-screen-box .on-spinner,
+    .splash-screen .splash-screen-box .spinner {
+      margin-top: 30px;
+      position: relative; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_loader\.scss}line{font-family:\0000329}}
+.on-spinner,
+.spinner {
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 0.714em;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_loader\.scss}line{font-family:\0000342}}
+  .on-spinner > div,
+  .spinner > div {
+    background-color: #01374d;
+    height: 100%;
+    width: 4px;
+    display: inline-block;
+    -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+    animation: sk-stretchdelay 1.2s infinite ease-in-out; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_loader\.scss}line{font-family:\0000352}}
+  .on-spinner .rect2,
+  .spinner .rect2 {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s;
+    background-color: #01374d; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_loader\.scss}line{font-family:\0000358}}
+  .on-spinner .rect3,
+  .spinner .rect3 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_loader\.scss}line{font-family:\0000363}}
+  .on-spinner .rect4,
+  .spinner .rect4 {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_loader\.scss}line{font-family:\0000368}}
+  .on-spinner .rect5,
+  .spinner .rect5 {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s; }
+
+@-webkit-keyframes sk-stretchdelay {
+  0%, 40%, 100% {
+    -webkit-transform: scaleY(0.4); }
+  20% {
+    -webkit-transform: scaleY(1); } }
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+    background-color: #01374d; }
+  20% {
+    transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+    background-color: #d3dee3; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_popover\.scss}line{font-family:\000032}}
+.header .popover {
+  background-color: #012736;
+  border-color: #012736; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_popover\.scss}line{font-family:\000035}}
+  .header .popover .arrow:after {
+    border-bottom-color: #012736; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_popover\.scss}line{font-family:\000038}}
+  .header .popover.bottom {
+    margin-top: 14px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_popover\.scss}line{font-family:\0000311}}
+  .header .popover .popover-content {
+    color: #dab867;
+    font-size: 12px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_footer\.scss}line{font-family:\000031}}
+.footer {
+  width: 100%;
+  height: 60px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  position: absolute;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  background-color: #262829;
+  -webkit-box-shadow: 0 -10px 10px 0 rgba(0, 0, 0, 0.075);
+  box-shadow: 0 -10px 10px 0 rgba(0, 0, 0, 0.075); }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_footer\.scss}line{font-family:\0000313}}
+  .footer .btn-group {
+    position: relative;
+    height: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_footer\.scss}line{font-family:\0000316}}
+    .footer .btn-group .btn {
+      color: #d3dee3;
+      font-size: 0.688rem;
+      padding-top: 0;
+      padding-bottom: 0;
+      position: relative;
+      height: 100%;
+      background-color: transparent;
+      border: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_footer\.scss}line{font-family:\0000325}}
+      .footer .btn-group .btn .icon {
+        color: #2a8fbd;
+        font-size: 1.813rem;
+        margin-bottom: 2px;
+        display: block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_footer\.scss}line{font-family:\0000331}}
+      .footer .btn-group .btn.active, .footer .btn-group .btn:focus, .footer .btn-group .btn:hover {
+        color: #ffffff;
+        background-color: #2a8fbd; }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Administrator\/codes\/w88-mobile\/W88\.m\/_Static\/v2\/assets\/css\/scss\/components\/_footer\.scss}line{font-family:\0000336}}
+        .footer .btn-group .btn.active .icon, .footer .btn-group .btn:focus .icon, .footer .btn-group .btn:hover .icon {
+          color: #ffffff; }
+
+/*# sourceMappingURL=styles.css.map */

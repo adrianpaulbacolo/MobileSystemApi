@@ -1,0 +1,60 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/v2/MasterPages/Main.master" AutoEventWireup="true" CodeFile="Payment.master.cs" Inherits="v2_MasterPages_Payment" %>
+
+
+<asp:Content ID="MainContent" ContentPlaceHolderID="MainContentHolder" runat="Server">
+
+    <div class="wallets">
+        <div class="wallet-main">
+            <p class="wallet-title">Main Wallet</p>
+            <h4 class="wallet-value">1,200,000.00</h4>
+            <p class="wallet-currency">USD</p>
+        </div>
+        <div class="wallet-group">
+            <div>
+                <div class="wallet-group-item">
+                    <p>A-Sports</p>
+                    <h5>1,000.00</h5>
+                </div>
+                <div class="wallet-group-item">
+                    <p>A-Sports</p>
+                    <h5>1,000.00</h5>
+                </div>
+                <div class="wallet-group-item">
+                    <p>A-Sports</p>
+                    <h5>1,000.00</h5>
+                </div>
+                <div class="wallet-group-item">
+                    <p>A-Sports</p>
+                    <h5>1,000.00</h5>
+                </div>
+                <div class="wallet-group-item">
+                    <p>A-Sports</p>
+                    <h5>1,000.00</h5>
+                </div>
+                <div class="wallet-group-item">
+                    <p>A-Sports</p>
+                    <h5>1,000.00</h5>
+                </div>
+                <div class="wallet-group-item">
+                    <p>A-Sports</p>
+                    <h5>1,000.00</h5>
+                </div>
+                <div class="wallet-group-item">
+                    <p>A-Sports</p>
+                    <h5>1,000.00</h5>
+                </div>
+                <div class="wallet-group-item">
+                    <p>A-Sports</p>
+                    <h5>1,000.00</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <asp:ContentPlaceHolder ID="PaymentMainContent" runat="Server">
+    </asp:ContentPlaceHolder>
+
+</asp:Content>
+
+<asp:Content ID="ScriptBottom" ContentPlaceHolderID="ScriptPlaceHolder" runat="Server">
+</asp:Content>
