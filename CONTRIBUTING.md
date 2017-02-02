@@ -1,6 +1,6 @@
 # Introduction
 
-> We use a variation of the [Fork GitFlow][forkflow] model. Below is a brief description of our branching and development flow, 
+> We use a variation of the [ENV Workflow][envflow] model. Below is a brief description of our branching and development flow, 
 along with references to existing branches on the main Repository and what those branches represent.
 
 ## Branch Reference
@@ -64,7 +64,7 @@ along with references to existing branches on the main Repository and what those
 4. If the feature has passed UAT and STG merges above and has been approved for PROD deployment, we pass the Pull Request url to [The Boss][bossman] for review and merging. Once the merge is complete, SOP for deployment prep can commence.
 
 
-[forkflow]: https://www.atlassian.com/git/tutorials/comparing-workflows#forking-workflow
+[envflow]: https://www.wearefine.com/mingle/env-branching-with-git/
 [mainrepo]: https://github.com/MainSystemDev/MobileSystem/
 [devbranch]: https://github.com/MainSystemDev/MobileSystem/tree/dev
 [stagebranch]: https://github.com/MainSystemDev/MobileSystem/tree/stage
