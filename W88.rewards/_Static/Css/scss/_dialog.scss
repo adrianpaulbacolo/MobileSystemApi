@@ -77,3 +77,13 @@
 		@include border-radius(3px);
 	}
 }
+
+@media screen and (min-width: 640px) and (orientation: landscape) {
+    #PopUpModal-popup {
+        position: absolute;
+        left: 50% !important;
+        top: 50% !important;
+        margin-left: -283px;
+        margin-top: -85px;
+    }
+}

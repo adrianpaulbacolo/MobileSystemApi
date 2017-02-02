@@ -7,7 +7,7 @@
 
         var isDeposit = _.includes(window.location.pathname.toLowerCase(), "deposit");
 
-        var payment = isDeposit ? amplify.store("depositSettings") : amplify.store("withdrawalSettings");
+        var payment = isDeposit ? amplify.store(w88Mobile.Keys.depositSettings) : amplify.store(w88Mobile.Keys.withdrawalSettings);
 
         if (payment) {
             var setting = _.find(payment.settings, function (data) {

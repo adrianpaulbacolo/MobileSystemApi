@@ -1,64 +1,27 @@
 ﻿function JTPay() {
 
-    var gatewayId = "120262";
-    var token = "";
-
     var jtpay = {
-        deposit: deposit
-        , withdraw: withdraw
-        , gatewayId: gatewayId
-        , Initialize: init
+        Initialize: init
     };
 
     return jtpay;
 
-    function send(method, data, success, error, complete) {
-        var url = w88Mobile.APIUrl + "/payments/" + w88Mobile.Gateways.JTPay.gatewayId;
-
-        var headers = {
-            'Token': window.User.token,
-            'LanguageCode': window.User.lang
-        };
-        $.ajax({
-            type: method,
-            url: url,
-            data: data,
-            headers: headers,
-            success: success,
-            error: error,
-            complete: complete
-        });
-
-    }
-
-    // deposit
-    function deposit(data, successCallback, errorCallback, completeCallback) {
-        validate(data, "deposit");
-        send("POST", data, successCallback, errorCallback, completeCallback);
-    }
-
-    // withdraw
-    function withdraw(data, successCallback, errorCallback, completeCallback) {
-    }
-
-    function validate(data, method) {
-        // @todo add validation here
-        return;
-    }
-
     function init(version) {
-        var translations = amplify.store("translations");
-        setTranslations(translations);
-        function setTranslations(data) {
-            if (!_.isUndefined(data)) {
-                $("#paymentNote").text(data.LABEL_PAYMENT_NOTE);
 
+        setTranslations();
+        function setTranslations() {
+            if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
+                $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
                 if (version == "0") {
-                    $("#paymentNoteContent").text(data.LABEL_PAYMENT_NOTE0);
+            $("#paymentNoteContent").text(_w88_contents.translate("LABEL_PAYMENT_NOTE0"));
                 }
                 else {
-                    $("#paymentNoteContent").text(data.LABEL_PAYMENT_NOTE1);
+                    $("#paymentNoteContent").text(_w88_contents.translate("LABEL_PAYMENT_NOTE1"));
                 }
+            } else {
+                window.setInterval(function () {
+                    setTranslations();
+                }, 500);
             }
         }
     }

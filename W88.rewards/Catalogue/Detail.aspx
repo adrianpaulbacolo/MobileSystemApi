@@ -24,7 +24,10 @@
                             <asp:Image ID="imgPic" runat="server" />
                         </a>
                         <div class="catalog-details">
-                            <h4><asp:Label ID="lblPointCenter" runat="server" /></h4>
+                            <h4>
+                                <asp:Label ID="lblBeforeDiscount" runat="server" Style="text-decoration: line-through;" Visible="true" data-mini="true" Text="39" />
+                                <asp:Label ID="lblPointCenter" runat="server" />
+                            </h4>
                             <p><asp:Label ID="lblName" runat="server" Visible="false" /></p>                       
                         </div>
                     </div>     

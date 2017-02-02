@@ -28,7 +28,7 @@ public partial class Slots_ClubGallardo : BasePage
         var gpiCategory = gpiHandler.Process(true);
         isbCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, isbCategory[0].Current);
 
-        var gallardo = isbCategory.Union(pngCategory).Union(gpiCategory).GroupBy(x => x.Title);
+        var gallardo = pngCategory.Union(isbCategory).Union(gpiCategory).GroupBy(x => x.Title);
 
         StringBuilder sbGames = new StringBuilder();
         foreach (var category in gallardo)
