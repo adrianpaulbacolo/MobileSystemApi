@@ -1,84 +1,52 @@
-﻿using System;
-using System.Activities.Statements;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Configuration;
-using System.Xml.Linq;
-using Factories.Slots;
-using Factories.Slots.Handlers;
+﻿using Factories.Slots;
 using Helpers;
 using Helpers.GameProviders;
 using Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Web;
+using System.Xml.Linq;
 
-public partial class _Index : BasePage
+/// <summary>
+/// Summary description for Banner
+/// </summary>
+public class Banner
 {
-    protected System.Xml.Linq.XElement xeErrors = null;
-
-    protected void Page_Init(object sender, EventArgs e)
+    private XElement promoResource;
+    public string slider = string.Empty;
+    private string BannerTemplate = string.Empty;
+    public Banner()
     {
-        string priorityVIP = commonVariables.GetSessionVariable("PriorityVIP");
+        commonCulture.appData.getRootResource("leftMenu", out promoResource);
+        BannerTemplate = "<a href=\"{link}\">" +
+            "<img src=\"{img}\" alt=\"\">" +
+        "</a>";
+        SetBanners();
     }
 
-    protected void Page_Load(object sender, EventArgs e)
+    public string GetBanners()
     {
-        CheckAgent();
-        System.Web.UI.WebControls.Literal litScript = (System.Web.UI.WebControls.Literal)Page.FindControl("litScript");
-
-        xeErrors = commonVariables.ErrorsXML;
-
-        System.Xml.Linq.XElement xeResources = null;
-        commonCulture.appData.getRootResource("/Index.aspx", out xeResources);
-
-        if (!Page.IsPostBack)
-        {
-            if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("Error")) && !string.IsNullOrEmpty(commonVariables.GetSessionVariable("Error")))
-            {
-                Session.Remove("Error");
-                if (litScript != null) { litScript.Text += string.Format("<script type='text/javascript'>alert('{0}');</script>", HttpContext.Current.Request.QueryString.Get("Error")); }
-            }
-        }
-
-        string affiliateId = HttpContext.Current.Request.QueryString.Get("AffiliateId");
-
-        if (!string.IsNullOrEmpty(affiliateId))
-        {
-            commonVariables.SetSessionVariable("AffiliateId", affiliateId);
-
-            commonCookie.CookieAffiliateId = affiliateId;
-        }
-
+        return slider;
     }
 
-    protected void LinkButton1_Click(object sender, EventArgs e)
+    public void setTemplate(string CustomTemplate)
     {
-        Response.Redirect("Casino.aspx");
-    }
-    protected void ASport_Btn_Click1(object sender, EventArgs e)
-    {
-        if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-        {
-            string CurrentUrl = System.Web.HttpContext.Current.Request.Url.ToString();
-            Response.Redirect("/_Secure/Login.aspx?redirect=" + CurrentUrl);
-        }
-        else
-        {
-            Response.Redirect(commonASports.getSportsbookUrl);
-        }
+        BannerTemplate = CustomTemplate;
+        slider = string.Empty;
+        SetBanners();
     }
 
-    public string getPromoBanner()
+    private void SetBanners()
     {
-        var slider = string.Empty;
+
         try
         {
-            System.Xml.Linq.XElement promoResource;
-            commonCulture.appData.getRootResource("leftMenu", out promoResource);
             IEnumerable<System.Xml.Linq.XElement> promoNode = promoResource.Element("PromoBanner").Elements();
             foreach (System.Xml.Linq.XElement promo in promoNode)
             {
+                var imageRoot = "/_Static/Images/promo-banner/";
                 var imageSrc = promo.Element("imageSrc").Value;
                 var url = promo.Element("url").Value;
                 var mainText = promo.Element("title").Value;
@@ -144,27 +112,36 @@ public partial class _Index : BasePage
                     }
                 }
 
-                if (!string.IsNullOrWhiteSpace(descText)) description = "<p>" + descText + "</p>";
-                if (!string.IsNullOrWhiteSpace(mainText)) content = "<div class=\"slide-title\"><h2>" + mainText + "</h2>" + description + "</div>";
+                StringBuilder sliderTemplate = new StringBuilder(BannerTemplate);
+                sliderTemplate.Replace("{link}", url);
+                sliderTemplate.Replace("{img}", imageRoot + imageSrc);
+                sliderTemplate.Replace("{description}", description);
+                sliderTemplate.Replace("{content}", content);
+                sliderTemplate.Replace("{description}", descText);
 
-                var bannerText = "";
-                if (!string.IsNullOrWhiteSpace(content) || !string.IsNullOrWhiteSpace(content))
-                {
-                    bannerText = "<div class=\"slide_content\"><div class=\"textarea\">" + content + description + "</div></div>";
-                }
+                //if (!string.IsNullOrWhiteSpace(descText)) description = "<p>" + descText + "</p>";
+                //if (!string.IsNullOrWhiteSpace(mainText)) content = "<div class=\"slide-title\"><h2>" + mainText + "</h2>" + description + "</div>";
 
-                slider += "<div class=\"slide\">" +
-                            "<a href=\"" + url + "\" data-ajax=\"false\" class=\"" + linkClass + "\">" +
-                            content +
-                                "<img src=\"/_Static/Images/promo-banner/" + imageSrc + "\" alt=\"banner\" class=\"img-responsive\"> " +
-                            "</a>" +
-                        "</div>";
+                //var bannerText = "";
+                //if (!string.IsNullOrWhiteSpace(content) || !string.IsNullOrWhiteSpace(content))
+                //{
+                //    bannerText = "<div class=\"slide_content\"><div class=\"textarea\">" + content + description + "</div></div>";
+                //}
+
+                //slider += "<div class=\"slide\">" +
+                //            "<a href=\"" + url + "\" data-ajax=\"false\" class=\"" + linkClass + "\">" +
+                //            content +
+                //                "<img src=\"/_Static/Images/promo-banner/" + imageSrc + "\" alt=\"banner\" class=\"img-responsive\"> " +
+                //            "</a>" +
+                //        "</div>";
+                slider += sliderTemplate.ToString();
             }
         }
         catch (Exception)
         {
         }
-        return slider;
+
+
     }
 
     private string BuildUrl(XElement element, string provider)
@@ -188,14 +165,5 @@ public partial class _Index : BasePage
         }
 
         return string.Empty;
-    }
-
-    private void CheckAgent()
-    {
-        var userAgent = Request.UserAgent.ToString();
-        if (userAgent.ToLower().Contains("clubw"))
-        {
-            Response.Redirect("/v2/Dashboard.aspx");
-        }
     }
 }

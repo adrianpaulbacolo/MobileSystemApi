@@ -26,8 +26,8 @@
     <div class="canvas" canvas="container">
         <div class="main-screen">
             <header class="header">
-                <a href="#" class="header-button header-button-left" id="nav-btn<%=(commonFunctions.isNativeAgent(Request) && commonFunctions.isMainPage(Request)) ? "-native" : "" %>"><span class="icon icon-navicon"></span></a>
-                <h1 class="header-title">Funds</h1>
+                <a href="#" class="header-button header-button-left" id="nav-btn<%=(commonFunctions.isNativeAgent(Request)) ? "-native" : "" %>"><span class="icon icon-navicon"></span></a>
+                <h1 class="header-title"><%=base.Page.Title %></h1>
             </header>
 
             <section class="body has-footer">
@@ -38,16 +38,24 @@
             <footer class="footer">
                 <div class="btn-group btn-group-justified" role="group" aria-label="...">
                     <div class="btn-group" role="group">
-                        <button type="button" class="btn"><span class="icon icon-home"></span>Home</button>
+                        <button type="button" class="btn <%= (base.Page.Title == "Funds") ? "active" : "" %>"><span class="icon icon-wallet"></span>
+                            <%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%>
+                        </button>
                     </div>
                     <div class="btn-group" role="group">
-                        <button type="button" class="btn <%= (base.Page.Title == "Funds") ? "active" : "" %>"><span class="icon icon-wallet"></span>Funds</button>
+                        <button type="button" class="btn"><span class="icon icon-rewards"></span>
+                            <%=commonCulture.ElementValues.getResourceString("rewards", commonVariables.LeftMenuXML)%>
+                        </button>
                     </div>
                     <div class="btn-group" role="group">
-                        <button type="button" class="btn"><span class="icon icon-promo"></span>Promos</button>
+                        <button type="button" class="btn"><span class="icon icon-promo"></span>
+                            <%=commonCulture.ElementValues.getResourceString("promotions", commonVariables.LeftMenuXML)%>
+                        </button>
                     </div>
                     <div class="btn-group" role="group">
-                        <button type="button" class="btn"><span class="icon icon-chat"></span>Contact</button>
+                        <button type="button" class="btn"><span class="icon icon-chat"></span>
+                            <%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%>
+                        </button>
                     </div>
                 </div>
             </footer>
@@ -209,7 +217,7 @@
                 $("#nav-btn-native").click(function(e){
                     e.preventDefault();
                     try{
-                        Native.openLiveCasino();
+                        Native.openSlidingMenu();
                     }catch(e){
                         console.log("Native does not exist!");
                     }
