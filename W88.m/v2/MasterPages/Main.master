@@ -38,22 +38,22 @@
             <footer class="footer">
                 <div class="btn-group btn-group-justified" role="group" aria-label="...">
                     <div class="btn-group" role="group">
-                        <button type="button" class="btn <%= (base.Page.Title == "Funds") ? "active" : "" %>"><span class="icon icon-wallet"></span>
+                        <button type="button" class="btn btn-menu-funds <%= (base.Page.Title == "Funds") ? "active" : "" %>"><span class="icon icon-wallet"></span>
                             <%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%>
                         </button>
                     </div>
                     <div class="btn-group" role="group">
-                        <button type="button" class="btn"><span class="icon icon-rewards"></span>
+                        <button type="button" class="btn btn-menu-rewards"><span class="icon icon-rewards"></span>
                             <%=commonCulture.ElementValues.getResourceString("rewards", commonVariables.LeftMenuXML)%>
                         </button>
                     </div>
                     <div class="btn-group" role="group">
-                        <button type="button" class="btn"><span class="icon icon-promo"></span>
+                        <button type="button" class="btn btn-menu-promo"><span class="icon icon-promo"></span>
                             <%=commonCulture.ElementValues.getResourceString("promotions", commonVariables.LeftMenuXML)%>
                         </button>
                     </div>
                     <div class="btn-group" role="group">
-                        <button type="button" class="btn"><span class="icon icon-chat"></span>
+                        <button type="button" class="btn btn-menu-chat"><span class="icon icon-chat"></span>
                             <%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%>
                         </button>
                     </div>
@@ -200,16 +200,20 @@
 
             // footer action
             $(document).ready(function(){
-                $(".footer .icon-home").click(function(){
-                    location.href = "/Index";
+                $(".footer .btn-menu-rewards").click(function(){
+                    var urlRewards = window.location.protocol + 
+                        '//mrewards.' + '<%=commonIp.DomainName %>' + 
+                        '?lang=' + '<%=commonVariables.SelectedLanguage%>' + 
+                        '&token=' + '<%=commonVariables.EncryptedCurrentMemberSessionId%>';
+                    window.open(urlRewards, "RewardsWindow");
                 });
-                $(".footer .icon-wallet").click(function(){
+                $(".footer .btn-menu-funds").click(function(){
                     location.href = "/v2/Funds.aspx";
                 });
-                $(".footer .icon-promo").click(function(){
+                $(".footer .btn-menu-promo").click(function(){
                     location.href = "/Promotions";
                 });
-                $(".footer .icon-chat").click(function(){
+                $(".footer .gtn-menu-chat").click(function(){
                     location.href = "/LiveChat/Default.aspx";
                 });
 

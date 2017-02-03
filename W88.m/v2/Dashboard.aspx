@@ -3,21 +3,6 @@
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentHolder" runat="Server">
     <div class="home-banner">
         <%=base.BannerDiv %>
-        <%--<a href="#">
-            <img src="/_Static/v2/assets/images/sample-home.jpg" alt="">
-        </a>
-        <a href="#">
-            <img src="/_Static/v2/assets/images/sample-home.jpg" alt="">
-        </a>
-        <a href="#">
-            <img src="/_Static/v2/assets/images/sample-home.jpg" alt="">
-        </a>
-        <a href="#">
-            <img src="/_Static/v2/assets/images/sample-home.jpg" alt="">
-        </a>
-        <a href="#">
-            <img src="/_Static/v2/assets/images/sample-home.jpg" alt="">
-        </a>--%>
     </div>
 
     <div class="dashboard dashboard-home">
