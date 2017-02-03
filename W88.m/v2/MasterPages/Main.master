@@ -66,15 +66,19 @@
         <nav>
             <ul class="side-nav-items">
                 <li>
-                    <a href="#home"><span class="icon icon-home"></span>Home</a>
+                    <a href="#home"><span class="icon icon-home"></span>
+                        <%=commonCulture.ElementValues.getResourceString("home", commonVariables.LeftMenuXML)%>
+                    </a>
                 </li>
                 <li>
-                    <a href="#"><span class="icon icon-login"></span>Login</a>
+                    <a href="#"><span class="icon icon-login"></span>
+                        <%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%>
+                    </a>
                 </li>
                 <li class="nav-category">
-                    <a href="#"><span class="icon icon-soccer"></span>Sports</a>
+                    <a href="#"><span class="icon icon-soccer"></span><%=commonCulture.ElementValues.getResourceString("sports", commonVariables.LeftMenuXML)%></a>
                     <div class="nav-category-items">
-                        <h4>Sports</h4>
+                        <h4><%=commonCulture.ElementValues.getResourceString("sports", commonVariables.LeftMenuXML)%></h4>
                         <div class="row">
                             <div class="col-xs-6">
                                 <a href="#">
@@ -104,9 +108,11 @@
                     </div>
                 </li>
                 <li class="nav-category">
-                    <a href="#"><span class="icon icon-casino"></span>Live Casino</a>
+                    <a href="#"><span class="icon icon-casino"></span>
+                        <%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%>
+                    </a>
                     <div class="nav-category-items">
-                        <h4>Live Casino</h4>
+                        <h4><%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%></h4>
                         <div class="row">
                             <div class="col-xs-6">
                                 <a href="#test">
@@ -136,31 +142,49 @@
                     </div>
                 </li>
                 <li>
-                    <a href="#"><span class="icon icon-slots"></span>Slots</a>
+                    <a href="#"><span class="icon icon-slots"></span>
+                        <%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%>
+                    </a>
                 </li>
                 <li>
-                    <a href="#"><span class="icon icon-keno"></span>Lottery</a>
+                    <a href="#"><span class="icon icon-keno"></span>
+                        <%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%>
+                    </a>
                 </li>
                 <li>
-                    <a href="#"><span class="icon icon-spade"></span>Poker</a>
+                    <a href="#"><span class="icon icon-spade"></span>
+                        <%=commonCulture.ElementValues.getResourceString("poker", commonVariables.LeftMenuXML)%>
+                    </a>
                 </li>
                 <li>
-                    <a href="#"><span class="icon icon-mahjong"></span>Texas Mahjong</a>
+                    <a href="#"><span class="icon icon-mahjong"></span>
+                        <%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%>
+                    </a>
                 </li>
                 <li>
-                    <a href="#"><span class="icon icon-promo"></span>Promotions</a>
+                    <a href="#"><span class="icon icon-promo"></span>
+                        <%=commonCulture.ElementValues.getResourceString("promotions", commonVariables.LeftMenuXML)%>
+                    </a>
                 </li>
                 <li>
-                    <a href="#"><span class="icon icon-rewards"></span>Rewards</a>
+                    <a href="#"><span class="icon icon-rewards"></span>
+                        <%=commonCulture.ElementValues.getResourceString("rewards", commonVariables.LeftMenuXML)%>
+                    </a>
                 </li>
                 <li>
-                    <a href="#"><span class="icon icon-chat"></span>Live Chat</a>
+                    <a href="#"><span class="icon icon-chat"></span>
+                        <%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%>
+                    </a>
                 </li>
                 <li>
-                    <a href="#"><span class="icon icon-world"></span>Language</a>
+                    <a href="#"><span class="icon icon-world"></span>
+                        <%=commonCulture.ElementValues.getResourceString("language", commonVariables.LeftMenuXML)%>
+                    </a>
                 </li>
                 <li>
-                    <a href="#"><span class="icon icon-desktop"></span>Desktop</a>
+                    <a href="#"><span class="icon icon-desktop"></span>
+                        <%=commonCulture.ElementValues.getResourceString("desktopIconSide", commonVariables.LeftMenuXML)%>
+                    </a>
                 </li>
             </ul>
         </nav>
