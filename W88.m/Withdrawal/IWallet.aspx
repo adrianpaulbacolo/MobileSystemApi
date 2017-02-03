@@ -4,7 +4,7 @@
     <ul class="list fixed-tablet-size">
         <li class="item item-input">
             <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
-            <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true"  onKeyPress="return NotAllowDecimal(event);"/>
+            <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true"  onKeyPress="return NotAllowDecimal(event);"/>
         </li>
         <li class="item item-input">
             <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" />
@@ -27,7 +27,7 @@
                 window.w88Mobile.FormValidator.disableSubmitButton('#ContentPlaceHolder1_btnSubmit');
 
                 var data = {
-                    Amount: $('#<%=txtDepositAmount.ClientID%>').val(),
+                    Amount: $('#<%=txtAmount.ClientID%>').val(),
                     AccountNumber: $('#<%=txtAccountNumber.ClientID%>').val(),
                     ThankYouPage: location.protocol + "//" + location.host + "/Deposit/Thankyou.aspx",
                 }
