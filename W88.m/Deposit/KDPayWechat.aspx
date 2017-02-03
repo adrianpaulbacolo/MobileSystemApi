@@ -1,7 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/Payments.master" AutoEventWireup="true" CodeFile="KDPayWechat.aspx.cs" Inherits="Deposit_KDPayWechat" %>
 
-<%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <ul class="list fixed-tablet-size">
         <li class="item-text-wrap ali-pay-note">
@@ -10,8 +8,8 @@
             <p id="paymentNoteContent"></p>
         </li>
         <li class="item item-input">
-            <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
-            <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" onKeyPress="return ValidatePositiveDecimal(this, event);"/>
+            <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtDepositAmount" />
+            <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" onKeyPress="return ValidatePositiveDecimal(this, event);" />
         </li>
     </ul>
 </asp:Content>
@@ -20,10 +18,18 @@
     <link href="/_Static/Css/payment.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
 
     <script type="text/javascript">
+
+        var ua = navigator.userAgent.toLowerCase();
+        var isAndroid = ua.indexOf("android") > -1;
+        if (isAndroid) {
+            $('#<%=txtDepositAmount.ClientID%>').keypress(function (event) {
+                return TwoDecimalAndroid($(this), event);
+            });
+        }
+
         $(document).ready(function () {
 
             var payments = new w88Mobile.Gateways.Payments("<%=base.PaymentMethodId %>");
-
             payments.init();
 
             window.w88Mobile.Gateways.Wechat.Initialize();
@@ -31,12 +37,19 @@
             window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
 
             $('#form1').submit(function (e) {
+
+                var hasOneDecimal = PositiveOneDecimalValidation($('#<%=txtDepositAmount.ClientID%>').val());
+
+                if (!hasOneDecimal) {
+                    return;
+                }
+
                 e.preventDefault();
                 window.w88Mobile.FormValidator.disableSubmitButton('#ContentPlaceHolder1_btnSubmit');
 
                 var data = {
-                    Amount: $('#<%=txtAmount.ClientID%>').val(),
-                    };
+                    Amount: $('#<%=txtDepositAmount.ClientID%>').val(),
+                };
 
                 payments.send(data, function (response) {
                     switch (response.ResponseCode) {
@@ -56,10 +69,10 @@
                             break;
                     }
                 },
-                function () {
-                    w88Mobile.FormValidator.enableSubmitButton('#ContentPlaceHolder1_btnSubmit');
-                    GPINTMOBILE.HideSplash();
-                });
+                    function () {
+                        w88Mobile.FormValidator.enableSubmitButton('#ContentPlaceHolder1_btnSubmit');
+                        GPINTMOBILE.HideSplash();
+                    });
             });
         });
 

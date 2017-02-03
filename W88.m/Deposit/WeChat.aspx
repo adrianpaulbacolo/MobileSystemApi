@@ -91,6 +91,16 @@
         </style>
 
         <script type="text/javascript">
+            
+            var ua = navigator.userAgent.toLowerCase();
+            var isAndroid = ua.indexOf("android") > -1;
+            if (isAndroid) {
+                $('#<%=txtDepositAmount.ClientID%>').keypress(function (event) {
+                    return TwoDecimalAndroid($(this), event);
+                });
+            }
+
+
             $(document).ready(function () {
                 window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
 
@@ -98,6 +108,13 @@
                 $("#paymentNoteContent").text(_w88_contents.translate("LABEL_PAYMENT_NOTE0"));
 
                 $('#form1').submit(function (e) {
+
+                    var hasOneDecimal = PositiveOneDecimalValidation($('#<%=txtDepositAmount.ClientID%>').val());
+
+                    if (!hasOneDecimal) {
+                        return;
+                    }
+
                     window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
                     // use api
                     e.preventDefault();
@@ -108,7 +125,7 @@
                     };
 
                     window.w88Mobile.Gateways.AutoRoute.Deposit(window.w88Mobile.Gateways.DefaultPayments.AutoRouteIds.WeChat, data, function (response) {
-                        switch (response.ResponseCode) {
+                            switch (response.ResponseCode) {
                             case 1:
                                 if (response.ResponseData.VendorRedirectionUrl) {
                                     window.open(response.ResponseData.VendorRedirectionUrl, '_blank');
@@ -116,33 +133,33 @@
                                     if (response.ResponseData.PostUrl) {
                                         w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
 
-                                    w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
-                                    w88Mobile.PostPaymentForm.submit();
-                                } else if (response.ResponseData.DummyURL) {
-                                    w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> ");
+                                        w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
+                                        w88Mobile.PostPaymentForm.submit();
+                                    } else if (response.ResponseData.DummyURL) {
+                                        w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> ");
 
-                                    window.open(response.ResponseData.DummyURL, '_blank');
-                                } else {
-                                    w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
+                                        window.open(response.ResponseData.DummyURL, '_blank');
+                                    } else {
+                                        w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
+                                    }
                                 }
-                        }
 
-                        $('#form1')[0].reset();
+                                $('#form1')[0].reset();
 
-                        break;
-                    default:
-                        if (_.isArray(response.ResponseMessage))
-                            w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
-                        else
-                            w88Mobile.Growl.shout(response.ResponseMessage);
+                                break;
+                            default:
+                                if (_.isArray(response.ResponseMessage))
+                                    w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
+                                else
+                                    w88Mobile.Growl.shout(response.ResponseMessage);
 
-                        break;
-                }
-                    },
-                    function () {
-                        window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
-                        GPInt.prototype.HideSplash();
-                    });
+                                break;
+                            }
+                        },
+                        function () {
+                            window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
+                            GPInt.prototype.HideSplash();
+                        });
                 });
             });
         </script>
