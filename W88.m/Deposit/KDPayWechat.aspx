@@ -8,8 +8,8 @@
             <p id="paymentNoteContent"></p>
         </li>
         <li class="item item-input">
-            <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtDepositAmount" />
-            <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" onKeyPress="return ValidatePositiveDecimal(this, event);" />
+            <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
+            <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" onKeyPress="return ValidatePositiveDecimal(this, event);" />
         </li>
     </ul>
 </asp:Content>
@@ -22,7 +22,7 @@
         var ua = navigator.userAgent.toLowerCase();
         var isAndroid = ua.indexOf("android") > -1;
         if (isAndroid) {
-            $('#<%=txtDepositAmount.ClientID%>').keypress(function (event) {
+            $('#<%=txtAmount.ClientID%>').keypress(function (event) {
                 return TwoDecimalAndroid($(this), event);
             });
         }
@@ -38,7 +38,7 @@
 
             $('#form1').submit(function (e) {
 
-                var hasOneDecimal = PositiveOneDecimalValidation($('#<%=txtDepositAmount.ClientID%>').val());
+                var hasOneDecimal = PositiveOneDecimalValidation($('#<%=txtAmount.ClientID%>').val());
 
                 if (!hasOneDecimal) {
                     return;
@@ -48,7 +48,7 @@
                 window.w88Mobile.FormValidator.disableSubmitButton('#ContentPlaceHolder1_btnSubmit');
 
                 var data = {
-                    Amount: $('#<%=txtDepositAmount.ClientID%>').val(),
+                    Amount: $('#<%=txtAmount.ClientID%>').val(),
                 };
 
                 payments.send(data, function (response) {
