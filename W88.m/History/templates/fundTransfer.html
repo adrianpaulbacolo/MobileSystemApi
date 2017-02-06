@@ -1,0 +1,23 @@
+﻿<div class="table-container">
+    <table class="table">
+        <tbody>
+            {% _.each(history.result, function(item) { %}
+            <tr>
+                <td>
+                    <span class="table-entry-type">{%-item.TransactionId%}</span>
+                    <span class="table-date">{%-item.DateTime%}</span>
+                    <span class="table-status">{%-item.Status%}</span>
+                </td>
+                <td>
+                    <span class="table-status">{%-item.FromWalletId%}</span>
+                    <span class="table-status">{%-item.ToWalletId%}</span>
+                </td>
+                <td>
+                    <span class="table-status">{%-item.CreatedBy%}</span>
+                    <span class="table-status">{%-item.TransferAmount%}</span>
+                </td>
+            </tr>
+            {% }); %}
+        </tbody>
+    </table>
+</div>
