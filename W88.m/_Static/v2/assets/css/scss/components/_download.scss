@@ -1,0 +1,29 @@
+.download-centre{
+}
+.download-box{
+	display: block;
+	position: relative;
+	margin-bottom: 8px;
+	img{
+		width: 100%;
+	}
+	span{
+		font-family: $dinpro;
+		width: 100%;
+		padding: 10px 10px;
+		font-size: 1rem;
+		color: $brand-alt;
+		background-color: rgba($black,0.75);
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		left: 0;
+		bottom: 0;
+		position: absolute;
+		display: block;
+	}
+	&:focus > span,
+	&:active > span{
+		color: darken($brand-alt, 20%);
+	}
+}

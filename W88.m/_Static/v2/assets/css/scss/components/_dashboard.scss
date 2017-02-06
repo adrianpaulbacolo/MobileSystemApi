@@ -56,10 +56,10 @@
 	}	
 }
 
-@media (min-height: 640px){
+@media (min-height: 568px){
 	// Funds Dashboard
 	.dashboard-funds{
-		height: calc(100% - 175px);
+		height: calc(100% - 155px);
 		.dashboard-row{
 			height: 50%;
 			&:last-child {
