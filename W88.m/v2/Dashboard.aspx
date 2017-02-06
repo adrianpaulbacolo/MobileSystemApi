@@ -36,7 +36,7 @@
                 </a>
             </div>
             <div class="dashboard-col">
-                <a href="/_Static/ClubW/casino.aspx"><span class="icon icon-download"></span>
+                <a href="/v2/Downloads.aspx"><span class="icon icon-download"></span>
                     <%=commonCulture.ElementValues.getResourceString("download", commonVariables.LeftMenuXML)%>
                 </a>
             </div>
