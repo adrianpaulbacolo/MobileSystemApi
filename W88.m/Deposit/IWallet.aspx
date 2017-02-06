@@ -4,28 +4,37 @@
     <ul class="list fixed-tablet-size">
         <li class="item item-input">
             <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
-            <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" onKeyPress="return NotAllowDecimal(event);"/>
+            <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" onKeyPress="return NotAllowDecimal(event);" />
         </li>
     </ul>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder1" runat="Server">
 
     <script type="text/javascript">
+
         $(document).ready(function () {
             var payments = new w88Mobile.Gateways.Payments("<%=base.PaymentMethodId %>");
-
             payments.init();
-
             window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
 
+            window.setInterval(function () {
+                CheckWholeNumber($('#<%=txtAmount.ClientID%>'));
+            }, 500);
+
             $('#form1').submit(function (e) {
+
+                if (!CheckWholeNumber($('#<%=txtAmount.ClientID%>'))) {
+                    e.preventDefault();
+                    return;
+                }
+
                 e.preventDefault();
                 window.w88Mobile.FormValidator.disableSubmitButton('#ContentPlaceHolder1_btnSubmit');
 
                 var data = {
                     Amount: $('#<%=txtAmount.ClientID%>').val(),
                     ThankYouPage: location.protocol + "//" + location.host + "/Deposit/Thankyou.aspx"
-                }
+                };
 
                 payments.send(data, function (response) {
                     switch (response.ResponseCode) {
@@ -46,10 +55,10 @@
                             break;
                     }
                 },
-                function () {
-                    w88Mobile.FormValidator.enableSubmitButton('#ContentPlaceHolder1_btnSubmit');
-                    GPINTMOBILE.HideSplash();
-                });
+                    function () {
+                        w88Mobile.FormValidator.enableSubmitButton('#ContentPlaceHolder1_btnSubmit');
+                        GPINTMOBILE.HideSplash();
+                    });
             });
         });
     </script>

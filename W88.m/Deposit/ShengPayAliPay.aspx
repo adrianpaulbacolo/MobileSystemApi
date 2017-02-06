@@ -7,8 +7,8 @@
             <p id="paymentNoteContent"></p>
         </li>
         <li class="item item-input">
-            <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
-            <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" onKeyPress="return NotAllowDecimal(event);" />
+            <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
+            <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true"  onKeyPress="return NotAllowDecimal(event);"/>
         </li>
     </ul>
 </asp:Content>
@@ -25,12 +25,22 @@
             window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
             window.w88Mobile.Gateways.Alipay.Initialize();
 
+            window.setInterval(function () {
+                CheckWholeNumber($('#<%=txtAmount.ClientID%>'));
+            }, 500);
+
             $('#form1').submit(function (e) {
+
+                if (!CheckWholeNumber($('#<%=txtAmount.ClientID%>'))) {
+                    e.preventDefault();
+                    return;
+                }
+
                 window.w88Mobile.FormValidator.disableSubmitButton('#ContentPlaceHolder1_btnSubmit');
                 // use api
                 e.preventDefault();
                 var data = {
-                    Amount: $('#<%=txtDepositAmount.ClientID%>').val()
+                    Amount: $('#<%=txtAmount.ClientID%>').val()
                 };
 
                 payments.send(data, function (response) {

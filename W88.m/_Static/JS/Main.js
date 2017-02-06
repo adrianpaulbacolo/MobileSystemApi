@@ -72,6 +72,20 @@ function NotAllowDecimal(e) {
     }
 }
 
+function CheckWholeNumber(element) {
+    if (element.val().length > 0) {
+        if (element.val().indexOf('.') >= 0) {
+            element.parent("div.ui-input-text").attr("style", "border-bottom: 2px solid red !important");
+            return false;
+        } else {
+            element.parent("div.ui-input-text").removeAttr("style");
+            return true;
+        }
+    } else {
+        return false;
+    }
+}
+
 function ValidatePositiveDecimal(ctrl, e, cur) {
     var allowDecimal;
     if (cur === undefined) cur = "";
