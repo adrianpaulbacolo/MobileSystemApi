@@ -45,7 +45,7 @@
             payments.init();
 
             window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
-         
+
             window.w88Mobile.Gateways.Baokim.getBanks(selectName);
             window.w88Mobile.Gateways.Baokim.Initialize();
 
@@ -108,7 +108,10 @@
                             window.location.replace(response.ResponseData.PostUrl);
                             break;
                         default:
-                            w88Mobile.Growl.shout(response.ResponseMessage);
+                            if (_.isArray(response.ResponseMessage))
+                                w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
+                            else
+                                w88Mobile.Growl.shout(response.ResponseMessage);
                             break;
                     }
                 },
