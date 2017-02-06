@@ -107,27 +107,8 @@
                     ReportType: $('select[id$="ddlTransactionType"]').val(),
                 }
 
-                _w88_history.send(data, "/payments/history", "POST", function (response) {
-                    switch (response.ResponseCode) {
-                        case 1:
+                _w88_history.getHistoryReport(data);
 
-                            _w88_history.result($('select[id$="ddlTransactionType"]').val(), $('select[id$="ddlTransactionType"] option:selected').text(), response.ResponseData);
-
-                            $('#form1')[0].reset();
-                            break;
-                        default:
-                            if (_.isArray(response.ResponseMessage))
-                                w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
-                            else
-                                w88Mobile.Growl.shout(response.ResponseMessage);
-
-                            break;
-                    }
-                },
-               function () {
-                   w88Mobile.FormValidator.enableSubmitButton('input[id$="btnSubmit"]');
-                   GPINTMOBILE.HideSplash();
-               });
             });
         });
     </script>

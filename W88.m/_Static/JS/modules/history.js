@@ -3,7 +3,8 @@
         init: init,
         toggleType: toggleType,
         send: send,
-        getReport: getReport
+        getReport: getReport,
+        getHistoryReport: getHistoryReport
     }
 
     return history;
@@ -44,41 +45,82 @@
     }
 
     function getReport(currentReport) {
+        var data = null;
 
         switch (currentReport) {
 
             case "history-Adjustment":
 
                 if (_.isEmpty($('#history-Adjustment .table-container')) && _.isEmpty($('#history-Adjustment .notFound').html()))
-                    getAdjustmentTransaction();
+                    data = setParams("adjustment");
 
                 break;
 
             case "history-DepositWidraw":
 
                 if (_.isEmpty($('#history-DepositWidraw .table-container')) && _.isEmpty($('#history-DepositWidraw .notFound').html()))
-                    getDepositWidrawTransaction()
+                    data = setParams("depositwidraw");
 
                 break;
 
             case "history-FundTransfer":
 
-                if (_.isEmpty($('#history-FundTransfer .table-container')) && _.isEmpty($('#history-FundTransfer .notFound').html()))
-                    getFundTransferTransaction();
+                if (_.isEmpty($('#history-FundTransfer .table-container')) && _.isEmpty($('#history-FundTransfer .notFound').html())) {
+                    data = setParams("fundtransfer");
+                    data.Status = "-1";
+                    data.Type = "-1";
+                }
 
                 break;
 
             case "history-RefferalBonus":
 
                 if (_.isEmpty($('#history-RefferalBonus .table-container')) && _.isEmpty($('#history-RefferalBonus .notFound').html()))
-                    getReferralBonusTransaction();
+                    data = setParams("refferalbonus");
 
                 break;
 
             case "history-PromoClaim":
 
                 if (_.isEmpty($('#history-PromoClaim .table-container')) && _.isEmpty($('#history-PromoClaim .notFound').html()))
-                    getPromoClaimTransaction();
+                    data = setParams("promoclaim");
+
+                break;
+
+            default:
+        }
+
+        getHistoryReport(data);
+    }
+
+    function filterResult(currentReport, data) {
+
+        switch (currentReport) {
+
+            case "Adjustment":
+
+                setTemplate(_w88_templates.History_Adjustment, data, currentReport);
+
+                break;
+
+            case "DepositWidraw":
+
+                setTemplate(_w88_templates.History_DepositWithdraw, data, currentReport);
+
+                break;
+
+            case "FundTransfer":
+                setTemplate(_w88_templates.History_FundTransfer, data, currentReport)
+
+                break;
+
+            case "RefferalBonus":
+                setTemplate(_w88_templates.History_RefferalBonus, data, currentReport)
+
+                break;
+
+            case "PromoClaim":
+                setTemplate(_w88_templates.History_PromoClaim, data, currentReport)
 
                 break;
 
@@ -112,164 +154,47 @@
         return data;
     }
 
-
-    function getAdjustmentTransaction() {
-        var data = setParams("adjustment");
-
-        send(data, "/payments/history", "POST", function (response) {
-            switch (response.ResponseCode) {
-                case 1:
-                    var content = _.template(_w88_templates.History_Adjustment);
-                    var innerHtml = content({
-                        result: response.ResponseData
-                    });
-
-                    $("#history-Adjustment").append(innerHtml);
-
-                    $("#history-Adjustment .notFound").hide();
-
-                    break;
-                default:
-
-                    var message = data.DateFrom + "-" + data.DateTo + ": " + response.ResponseMessage;
-
-                    notFound(data.ReportType, message);
-
-                    break;
-            }
-        },
-       function () {
-           GPInt.prototype.HideSplash();
-       });
-    }
-
-    function getDepositWidrawTransaction() {
-        var data = setParams("depositwidraw");
-
-        send(data, "/payments/history", "POST", function (response) {
-            switch (response.ResponseCode) {
-                case 1:
-                    var content = _.template(_w88_templates.History_DepositWithdraw);
-                    var innerHtml = content({
-                        result: response.ResponseData
-                    });
-
-                    $("#history-DepositWidraw").append(innerHtml);
-
-                    $("#history-DepositWidraw .notFound").hide();
-
-                    break;
-                default:
-
-                    var message = data.DateFrom + "-" + data.DateTo + ": " + response.ResponseMessage;
-
-                    notFound(data.ReportType, message);
-
-                    break;
-            }
-        },
-        function () {
-            GPInt.prototype.HideSplash();
+    function setTemplate(template, result, type) {
+        var content = _.template(template);
+        var innerHtml = content({
+            result: result
         });
+
+        $('#history-' + type).append(innerHtml);
+
+        $('#history-' + type + ' .notFound').hide();
+
+        if ($('#totalInvitees').length > 0) {
+            if (_w88_contents.translate("LABEL_TOTAL_INVITEES") != "LABEL_TOTAL_INVITEES") {
+                $('#totalInvitees').text(_w88_contents.translate("LABEL_TOTAL_INVITEES"));
+                $('#totalRegistered').text(_w88_contents.translate("LABEL_TOTAL_REGISTERED"));
+                $('#totalSuccess').text(_w88_contents.translate("LABEL_TOTAL_SUCCESS_REFFERAL"));
+                $('#totalBonus').text(_w88_contents.translate("LABEL_TOTAL_REFFERAL_BONUS").replace('[cur]', Cookies().getCookie('currencyCode')));
+            }
+        }
     }
 
-    function getFundTransferTransaction() {
-        var data = setParams("fundtransfer");
-        data.Status = "-1";
-        data.Type = "-1";
+    function getHistoryReport(data) {
+        if (data) {
+            send(data, "/payments/history", "POST", function (response) {
+                switch (response.ResponseCode) {
+                    case 1:
+                        filterResult(data.ReportType, response.ResponseData);
 
-        send(data, "/payments/history", "POST", function (response) {
-            switch (response.ResponseCode) {
-                case 1:
-                    var content = _.template(_w88_templates.History_FundTransfer);
-                    var innerHtml = content({
-                        result: response.ResponseData
-                    });
+                        break;
+                    default:
 
-                    $("#history-FundTransfer").append(innerHtml);
+                        var message = data.DateFrom + "-" + data.DateTo + ": " + response.ResponseMessage;
 
-                    $("#history-FundTransfer .notFound").hide();
+                        notFound(data.ReportType, message);
 
-                    break;
-                default:
-
-                    var message = data.DateFrom + "-" + data.DateTo + ": " + response.ResponseMessage;
-
-                    notFound(data.ReportType, message);
-
-                    break;
-            }
-        },
-       function () {
-           GPInt.prototype.HideSplash();
-       });
-    }
-
-    function getReferralBonusTransaction() {
-        var data = setParams("refferalbonus");
-
-        send(data, "/payments/history", "POST", function (response) {
-            switch (response.ResponseCode) {
-                case 1:
-                    var content = _.template(_w88_templates.History_RefferalBonus);
-                    var innerHtml = content({
-                        result: response.ResponseData
-                    });
-
-                    $("#history-RefferalBonus").append(innerHtml);
-
-                    $("#history-RefferalBonus .notFound").hide();
-
-                    $('#totalInvitees').text(_w88_contents.translate("LABEL_TOTAL_INVITEES"));
-                    $('#totalRegistered').text(_w88_contents.translate("LABEL_TOTAL_REGISTERED"));
-                    $('#totalSuccess').text(_w88_contents.translate("LABEL_TOTAL_SUCCESS_REFFERAL"));
-                    $('#totalBonus').text(_w88_contents.translate("LABEL_TOTAL_REFFERAL_BONUS").replace('[cur]', Cookies().getCookie('currencyCode')));
-
-                    break;
-
-                default:
-
-                    var message = data.DateFrom + "-" + data.DateTo + ": " + response.ResponseMessage;
-
-                    notFound(data.ReportType, message);
-
-                    break;
-            }
-        },
-       function () {
-           GPInt.prototype.HideSplash();
-       });
-    }
-
-    function getPromoClaimTransaction() {
-        var data = setParams("promoclaim");
-
-        send(data, "/payments/history", "POST", function (response) {
-            switch (response.ResponseCode) {
-                case 1:
-                    var content = _.template(_w88_templates.History_PromoClaim);
-                    var innerHtml = content({
-                        result: response.ResponseData
-                    });
-
-                    $("#history-PromoClaim").append(innerHtml);
-
-                    $("#history-PromoClaim .notFound").hide();
-
-                    break;
-
-                default:
-
-                    var message = data.DateFrom + "-" + data.DateTo + ": " + response.ResponseMessage;
-
-                    notFound(data.ReportType, message);
-
-                    break;
-            }
-        },
-       function () {
-           GPInt.prototype.HideSplash();
-       });
+                        break;
+                }
+            },
+            function () {
+                GPInt.prototype.HideSplash();
+            });
+        }
     }
 
     function getHistorySelection() {
