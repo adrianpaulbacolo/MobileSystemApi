@@ -13,8 +13,8 @@
             </div>
         </li>
         <li class="item item-input atm ewallet">
-            <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
-            <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+            <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
+            <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
         </li>
         <li class="item item-select atm" runat="server">
             <asp:Label ID="lblBanks" runat="server" AssociatedControlID="drpBanks" />
@@ -82,19 +82,19 @@
                 if (window.w88Mobile.Gateways.Baokim.method == "EWALLET") {
                     data = {
                         Method: window.w88Mobile.Gateways.Baokim.method,
-                        Amount: $('#<%=txtDepositAmount.ClientID%>').val(),
+                        Amount: $('#<%=txtAmount.ClientID%>').val(),
                         Email: $('#<%=txtEmail.ClientID%>').val(),
-                        ThankYouPage: location.protocol + "//" + location.host + "/Deposit/BaokimWallet.aspx?requestAmount=" + $('#<%=txtDepositAmount.ClientID%>').val()
+                        ThankYouPage: location.protocol + "//" + location.host + "/Deposit/BaokimWallet.aspx?requestAmount=" + $('#<%=txtAmount.ClientID%>').val()
                     };
                 } else {
                     data = {
                         Method: window.w88Mobile.Gateways.Baokim.method,
-                        Amount: $('#<%=txtDepositAmount.ClientID%>').val(),
+                        Amount: $('#<%=txtAmount.ClientID%>').val(),
                         Email: $('#<%=txtEmail.ClientID%>').val(),
                         Phone: $('#<%=txtContact.ClientID%>').val(),
                         Bank: {
-                            Text: $('#<%=txtDepositAmount.ClientID%> option:selected').text(),
-                            Value: $('#<%=txtDepositAmount.ClientID%>').val()
+                            Text: $('#<%=drpBanks.ClientID%> option:selected').text(),
+                            Value: $('#<%=drpBanks.ClientID%>').val()
                         },
                         ThankYouPage: location.protocol + "//" + location.host + "/Deposit/Thankyou.aspx"
                     };
