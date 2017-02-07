@@ -88,7 +88,7 @@
             if (isDeposit) {
                 resource = "/payments/settings/deposit";
                 payment = amplify.store(w88Mobile.Keys.depositSettings);
-                storage = w88Mobile.Keys.depositSettingsy;
+                storage = w88Mobile.Keys.depositSettings;
             } else {
                 resource = "/payments/settings/withdrawal";
                 payment = amplify.store(w88Mobile.Keys.withdrawalSettings);
