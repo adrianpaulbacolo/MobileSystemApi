@@ -136,7 +136,7 @@
 
     function setParams(type) {
         var today = new Date();
-        var dateFrom = today.setDate(today.getDate() - 5);
+        var dateFrom = today.setDate(today.getDate() - 10);
         var dateTo = new Date();
 
         var reports = _.find(reportType, function (item) {
@@ -216,7 +216,71 @@
 
             $(".history-result").append(innerHtml);
 
-            $('.history-result').slick();
+            $('.history-result').slick({
+                autoplay: false,
+                arrows: false,
+                infinite: false,
+                asNavFor: '.history-nav',
+                focusOnSelect: true,
+            });
+
+
+            $( "#adj-btn" ).bind( "click", function() {
+                 $(".history-result").slick('slickGoTo', 0, false );
+            });
+           
+            $( "#dep-btn" ).bind( "click", function() {
+                 $(".history-result").slick('slickGoTo', 1, false );
+            });
+
+            $( "#fund-btn" ).bind( "click", function() {
+                 $(".history-result").slick('slickGoTo', 2, false );
+            });
+           
+            $( "#ref-btn" ).bind( "click", function() {
+                 $(".history-result").slick('slickGoTo', 3, false );
+            });
+           
+            $( "#promo-btn" ).bind( "click", function() {
+                 $(".history-result").slick('slickGoTo', 4, false );
+            });
+
+
+            $('.history-nav').slick({
+              initialSlide: 0,
+              slidesToShow: 5,
+              slidesToScroll: 1,
+              dots: false,
+              arrows: false,
+              infinite: false,
+              draggable: false,
+              swipeToSlide: false,
+              responsive: [
+                  {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 3,
+                        arrows: true,
+                    }
+                  },
+                  {
+                    breakpoint: 517,
+                    settings: {
+                        slidesToShow: 2,
+                        arrows: true,
+                    }
+                  },
+              ]
+            });
+
+            $('.history-result').on('beforeChange', function(event, slick, nextSlide){
+                $(".history-nav").find("span").removeClass("initial");
+                $(".history-nav").find("span").removeClass("current");
+            });
+
+            $('.history-result').on('afterChange', function(event, slick, nextSlide){
+                $(".history-nav").find("span").eq(nextSlide).addClass("current");
+            });
 
             _.forEach(reportType, function (item) {
                 getReport("history-" + item.Value);

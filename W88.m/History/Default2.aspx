@@ -6,7 +6,26 @@
     <script type="text/javascript" src="/_Static/JS/modules/history.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion")%>"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
-    <div class="history-result">
+    <div class="history-nav-container">
+        <div class="history-nav">
+            <div id="adj-btn">
+                <span class="initial">Adjustment</span>
+            </div>
+            <div id="dep-btn">
+                <span>Deposit/ Withdrawal</span>
+            </div>
+            <div id="fund-btn">
+                <span>Fund Transfer</span>
+            </div>
+            <div id="ref-btn">
+                <span>Referral Bonus</span>
+            </div>
+            <div id="promo-btn">
+                <span>Promo Claim</span>
+            </div>
+        </div>
+    </div>
+    <div class="history-result bg-gradient">
     </div>
 
     <div id="filterModal" data-role="popup" data-overlay-theme="b" data-theme="b" data-history="false">
