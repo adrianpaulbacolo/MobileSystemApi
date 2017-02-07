@@ -115,14 +115,13 @@
                                 w88Mobile.PostPaymentForm.submit();
                                 $('#form1')[0].reset();
                                 break;
+
                             default:
                                 if (_.isArray(response.ResponseMessage))
                                     w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
                                 else
                                     w88Mobile.Growl.shout(response.ResponseMessage);
 
-                                window.open(response.ResponseData.DummyURL);
-                                $('#form1')[0].reset();
                                 break;
                         }
                     },
