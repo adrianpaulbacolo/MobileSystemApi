@@ -1,0 +1,16 @@
+﻿<div class="table-container">
+    <table class="table">
+        <tbody>
+            {% _.each(history.result, function(item) { %}
+            <tr>
+                <td>
+                    <span class="table-date">{%-item.SubmissionDate%}</span>
+                </td>
+                <td>
+                    <span class="table-status">{%-item.SubjectCode%}</span>
+                </td>
+            </tr>
+            {% }); %}
+        </tbody>
+    </table>
+</div>

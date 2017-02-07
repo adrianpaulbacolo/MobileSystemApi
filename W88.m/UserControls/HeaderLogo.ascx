@@ -12,4 +12,5 @@
         <asp:Panel id="logo" runat="server" Visible="False"><img src="/_Static/Images/logo-<%=commonVariables.SelectedLanguageShort%>.png" class="logo" alt="logo"></asp:Panel>
         <asp:Literal runat="server" ID="ltrTitle" Visible="False" />
     </h1>
+    <asp:HyperLink id="filterHistory" runat="server" Visible="False" role="button" class="btn-clear ui-btn-right ui-btn">Filter &nbsp;</asp:HyperLink>
 </header>

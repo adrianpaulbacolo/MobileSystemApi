@@ -1,0 +1,26 @@
+﻿<div class="table-container">
+    <div>
+        <span id="totalInvitees"></span><span>{%- history.result.TotalInvitees %}</span>
+        <span id="totalRegistered"></span><span>{%- history.result.TotalRegistered %}</span>
+        <span id="totalSuccess"></span><span>{%- history.result.TotalSuccessRef %}</span>
+        <span id="totalBonus"></span><span>{%- history.result.TotalBonus %}</span>
+    </div>
+    <table class="table">
+        <tbody>
+            {% _.each(history.result.Records, function(item) { %}
+            <tr>
+                <td>
+                    <span class="table-date">{%-item.DateTime%}</span>
+                </td>
+                <td>
+                    <span class="table-entry-type">{%-item.TransactionId%}</span>
+                    <span class="table-status">{%-item.Status%}</span>
+                </td>
+                <td>
+                    <span class="table-status">{%-item.Amount%}</span>
+                </td>
+            </tr>
+            {% }); %}
+        </tbody>
+    </table>
+</div>
