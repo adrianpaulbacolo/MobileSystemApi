@@ -24,22 +24,7 @@ public partial class Deposit_JutaPay : PaymentBasePage
 
     private void InitializeLabels()
     {
-        lblMode.Text = base.strlblMode;
-        txtMode.Text = base.strtxtMode;
-
-        lblMinMaxLimit.Text = base.strlblMinMaxLimit;
-        txtMinMaxLimit.Text = base.strtxtMinMaxLimit;
-
-        lblDailyLimit.Text = base.strlblDailyLimit;
-        txtDailyLimit.Text = base.strtxtDailyLimit;
-
-        lblTotalAllowed.Text = base.strlblTotalAllowed;
-        txtTotalAllowed.Text = base.strtxtTotalAllowed;
-
         lblDepositAmount.Text = base.strlblAmount;
-
-        btnSubmit.Text = base.strbtnSubmit;
-
         lblTransactionId = base.strlblTransactionId;
     }
 }

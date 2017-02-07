@@ -13,7 +13,7 @@
     </ul>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder1" runat="Server">
-    <script type="text/javascript" src="/_Static/JS/modules/gateways/shengpay.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/alipay.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
     <link href="/_Static/Css/payment.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
 
     <script type="text/javascript">
@@ -36,7 +36,7 @@
             payments.init();
 
             window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
-            window.w88Mobile.Gateways.AliPay.Initialize();
+            window.w88Mobile.Gateways.Alipay.Initialize();
 
             $('#form1').submit(function (e) {
                 window.w88Mobile.FormValidator.disableSubmitButton('#ContentPlaceHolder1_btnSubmit');
@@ -61,7 +61,6 @@
                             break;
                         }
                     },
-                    function () { console.log("Error connecting to api"); },
                     function () {
                         w88Mobile.FormValidator.enableSubmitButton('#ContentPlaceHolder1_btnSubmit');
                         GPINTMOBILE.HideSplash();
