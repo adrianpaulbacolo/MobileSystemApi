@@ -29,6 +29,9 @@
             }
         }
 
+        routes.MapPageRoute("download", "v2/Downloads", "~/v2/Downloads.aspx");
+        routes.MapPageRoute("downloads", "v2/Downloads/{item}", "~/v2/DownloadItem.aspx");
+
         System.Web.Routing.Route rtLogout = new System.Web.Routing.Route("Logout", new System.Web.Routing.PageRouteHandler("~/Default.aspx"));
         rtLogout.DataTokens = new System.Web.Routing.RouteValueDictionary { { "logout", "true" } };
 

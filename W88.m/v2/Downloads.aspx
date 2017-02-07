@@ -35,61 +35,61 @@
                 {
                     title: "Massimo - Slots",
                     others: {
-                        src: "/_Static/Images/bnr-clubmassimo-slots2.jpg",
+                        src: "/_Static/v2/Assets/Images/downloads/MGS-Slots-Android.jpg",
                         link: "http://resigner.qfcontent.com/w88.apk",
                     }
                 },
                 {
                     title: "Massimo Live Casino",
                     others: {
-                        src: "/_Static/Images/bnr-clubmassimo-casino-android.jpg",
+                        src: "/_Static/v2/Assets/Images/downloads/MGS-LiveCasino-Android.jpg",
                         link: "https://livegames.cdn.gameassists.co.uk/AIR/Poria/Installer/V20021/w88/Download.html",
                     }
                 },
                 {
                     title: "Palazzo Slots",
                     others: {
-                        src: "/_Static/Images/bnr-clubpalazzo-slots2.jpg",
-                        link: "/_static/palazzo/slots.aspx",
+                        src: "/_Static/v2/Assets/Images/downloads/PT-Slots-Android.jpg",
+                        link: "/v2/Downloads/palazzo-slots",
                     }
                 },
                 {
                     title: "Palazzo Casino",
                     others: {
-                        src: "/_Static/Images/bnr-clubpalazzo-casino-android.jpg",
-                        link: "/_static/palazzo/slots.aspx",
+                        src: "/_Static/v2/Assets/Images/downloads/PT-LiveCasino-Android.jpg",
+                        link: "/v2/Downloads/palazzo-casino",
                     }
                 },
                 {
                     title: "<%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%>",
                     ios: {
-                        src: "/_Static/v2/assets/Images/downloads/W88-Mobile-Poker-iOS.jpg",
+                        src: "/_Static/v2/Assets/Images/downloads/FishingMaster-iOS.jpg",
                         link: "itms-services://?action=download-manifest&url=https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/manifest.plist"
                     },
                     others: {
-                        src: "/_Static/v2/assets/Images/downloads/W88-Mobile-Poker-Android.jpg",
+                        src: "/_Static/v2/Assets/Images/downloads/FishingMaster-Android.jpg",
                         link: "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/FishingMaster.apk"
                     }
                 },
                 {
                     title: "<%=commonCulture.ElementValues.getResourceString("poker", commonVariables.LeftMenuXML)%>",
                     ios: {
-                        src: "/_Static/Images/W88-Mobile-Poker-iOS.jpg",
+                        src: "/_Static/v2/Assets/Images/downloads/Poker-iOS.jpg",
                         link: "itms-services://?action=download-manifest&url=https://dlportal.good-game-network.com/mobile/installer/ios/W88"
                     },
                     others: {
-                        src: "/_Static/Images/W88-Mobile-Poker-Android.jpg",
+                        src: "/_Static/v2/Assets/Images/downloads/Poker-Android.jpg",
                         link: "http://dlportal.good-game-network.com/mobile/installer/android/W88",
                     }
                 },
                 {
                     title: "<%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%>",
                     ios: {
-                        src: "/_Static/Images/Download/TexasMahjong-IOS.jpg",
-                        link: "/_static/TexasMahjong/download.aspx",
+                        src: "/_Static/v2/Assets/Images/downloads/TexasMahjong-iOS.jpg",
+                        link: "/v2/Downloads/texas-mahjong-ios",
                     },
                     others: {
-                        src: "/_Static/Images/Download/TexasMahjong-Android.jpg",
+                        src: "/_Static/v2/Assets/Images/downloads/TexasMahjong-Android.jpg",
                         link: "https://tm.gp2play.com/mobile/android/install.html",
                     }
                 }
