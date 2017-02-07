@@ -10,15 +10,13 @@ using System.Xml.Linq;
 public partial class v2_DownloadItem : BasePage
 {
     public string Item;
-    public string ItemLink;
     public string ItemBanner;
     protected XElement xeResources;
-    protected DownloadItem DItem;
 
     protected override void OnLoad(EventArgs e)
     {
         Page.Title = "Download Details";
-        Page.Items.Add("Parent", "/v2/Downloads.aspx");
+        Page.Items.Add("Parent", "/v2/Downloads");
         base.OnLoad(e);
     }
 
@@ -33,8 +31,8 @@ public partial class v2_DownloadItem : BasePage
                     instructions.InnerHtml = commonCulture.ElementValues.getResourceString("content", xeResources);
                     instructionHeader.InnerHtml = commonCulture.ElementValues.getResourceString("header", xeResources);
                     downloadlink.InnerText = commonCulture.ElementValues.getResourceString("downloadnow", xeResources);
+                    downloadlink.HRef = "http://mlive.w88palazzo.com";
 
-                    ItemLink = "http://mlive.w88palazzo.com";
                     ItemBanner = "/_static/v2/assets/images/downloads/PT-LiveCasino-DownloadPage.jpg";
                     break;
                 case "palazzo-slots":
@@ -42,8 +40,8 @@ public partial class v2_DownloadItem : BasePage
                     instructions.InnerHtml = commonCulture.ElementValues.getResourceString("content", xeResources);
                     instructionHeader.InnerHtml = commonCulture.ElementValues.getResourceString("header", xeResources);
                     downloadlink.InnerText = commonCulture.ElementValues.getResourceString("downloadnow", xeResources);
+                    downloadlink.HRef = "http://mgames.w88palazzo.com";
 
-                    ItemLink = "http://mgames.w88palazzo.com";
                     ItemBanner = "/_static/v2/assets/images/downloads/PT-Slots-DownloadPage.jpg";
                     break;
                 case "texas-mahjong-ios":
@@ -51,8 +49,8 @@ public partial class v2_DownloadItem : BasePage
                     instructions.InnerHtml = commonCulture.ElementValues.getResourceString("content", xeResources);
                     instructionHeader.InnerHtml = commonCulture.ElementValues.getResourceString("header", xeResources);
                     downloadlink.InnerText = commonCulture.ElementValues.getResourceString("downloadnow", xeResources);
+                    downloadlink.HRef = ConfigurationManager.AppSettings["TexasMahjongIOS_URL"];
 
-                    ItemLink = ConfigurationManager.AppSettings["TexasMahjongIOS_URL"];
                     ItemBanner = "/_static/v2/assets/images/downloads/TM-DownloadPage.jpg";
                     break;
                 default:
@@ -64,12 +62,5 @@ public partial class v2_DownloadItem : BasePage
             Item = string.Empty;
         }
 
-    }
-
-    public class DownloadItem
-    {
-        public string header;
-        public string instructions;
-        public string url;
     }
 }
