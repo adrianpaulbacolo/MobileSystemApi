@@ -17,6 +17,15 @@
                 $(this).unbind("error").attr("src", "/_Static/Images/missing-image.jpg");
             });
 
+            $('li.slot-GPI').find('a[class*="track-play-now"]').each(function () {
+                var self = $(this);
+                self.on("click", {club: w88Mobile.Slots.club, url: self.attr("href")}, w88Mobile.PiwikManager.trackPlayNow);
+            });
+            $('li.slot-GPI').find('a[class*="track-try-now"]').each(function () {
+                var self = $(this);
+                self.on("click", {club: w88Mobile.Slots.club, url: self.attr("href")}, w88Mobile.PiwikManager.trackTryNow);
+            });
+
             $('#gameLoginUrl').attr('href', '/_Secure/Login.aspx?redirect=' + encodeURIComponent('\/' + w88Mobile.Slots.club));
             $('#gameRegisterUrl').attr('href', '/_Secure/Register.aspx?redirect=' + encodeURIComponent('\/' + w88Mobile.Slots.club));
 
