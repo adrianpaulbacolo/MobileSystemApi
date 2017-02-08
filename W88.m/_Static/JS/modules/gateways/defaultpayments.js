@@ -16,7 +16,8 @@
         SendDeposit: send,
         DisplaySettings: displaySettings,
         setPaymentTabs: setPaymentTabs,
-        onTransactionCreated: onTransactionCreated
+        onTransactionCreated: onTransactionCreated,
+        formatDateTime: formatDateTime
     };
 
     var paymentCache = {};
@@ -24,6 +25,19 @@
     var paymentOptions = {};
 
     return defaultpayments;
+
+    function formatDateTime(dateTime) {
+        //MM/DD/YYYY h:m:s
+        var month = (dateTime.getMonth() + 1).toString().length == 1 ? "0" + (dateTime.getMonth() + 1).toString() : (dateTime.getMonth() + 1).toString();
+        var day = (dateTime.getDate()).toString().length == 1 ? "0" + dateTime.getDate().toString() : dateTime.getDate().toString();
+        var year = dateTime.getFullYear();
+
+        var hours = dateTime.getHours();
+        var minutes = dateTime.getMinutes();
+        var seconds = dateTime.getSeconds();
+
+        return month + "/" + day + "/" + year + " " + hours + ":" + minutes + ":" + seconds
+    }
 
     function displaySettings(methodId, options) {
         paymentOptions = options;
