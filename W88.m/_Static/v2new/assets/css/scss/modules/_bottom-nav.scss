@@ -1,0 +1,38 @@
+.bottom-navigation{
+	background-color: $bottom-nav-bg;
+	width: 100%;
+	height: 60px;
+	z-index: 20;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	position: absolute;
+	@include box-shadow(0 -2px 4px 0 rgba(0,0,0,0.3));
+	.btn-group{
+		height: 60px;
+
+	}
+	.btn{
+		text-align: center;
+		color: $bottom-nav-color;
+		font-size: 1.750rem;
+		height: 60px;
+		padding: 8px 0;
+		line-height: 1;
+		&.active{
+			color: $bottom-nav-color-active;
+			background-color: $bottom-nav-bg-active;
+			background-image: none;
+			@include box-shadow(none);
+		}
+
+		small{
+			font-weight: normal;
+			display: block;
+			font-size: 0.688rem;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+}
