@@ -71,6 +71,7 @@
                 files: {
                     '_Static/Css/base.css': '_Static/Css/scss/base.scss'
                     , '_Static/Css/styles.css': '_Static/Css/scss/styles.scss'
+                    , '_Secure/VIP/css/style.css': '_Secure/VIP/scss/style.scss'
                 }
             }
         },
