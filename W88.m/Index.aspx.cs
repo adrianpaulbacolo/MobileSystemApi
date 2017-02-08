@@ -24,6 +24,7 @@ public partial class _Index : BasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        CheckAgent();
         System.Web.UI.WebControls.Literal litScript = (System.Web.UI.WebControls.Literal)Page.FindControl("litScript");
 
         xeErrors = commonVariables.ErrorsXML;
@@ -187,5 +188,14 @@ public partial class _Index : BasePage
         }
 
         return string.Empty;
+    }
+
+    private void CheckAgent()
+    {
+        var userAgent = Request.UserAgent.ToString();
+        if (userAgent.ToLower().Contains("clubw"))
+        {
+            Response.Redirect("/v2/Dashboard.aspx");
+        }
     }
 }

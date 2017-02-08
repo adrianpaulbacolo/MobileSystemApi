@@ -705,6 +705,11 @@ public static class commonFunctions
             {
                 responseCode = 1;
             }
+            else if (strUserAgent.ToLower().Contains("clubw"))
+            {
+                // club w native embed
+                responseCode = 4;
+            }
             else if (strUserAgent.Contains("android"))
             {
                 responseCode = 2;
@@ -715,6 +720,28 @@ public static class commonFunctions
             }
         }
         return responseCode;
+    }
+
+    public static bool isNativeAgent(HttpRequest request)
+    {
+        return getMobileDevice(request) == 4;
+    }
+
+    public static bool isMainPage(HttpRequest request)
+    {
+        var path = request.Url.AbsolutePath;
+        var pageList = new string[] {
+            "/sports.aspx"
+            , "/promotions"
+            , "/funds.aspx"
+            , "/index.aspx"
+            , "/index"
+            , "/lang.aspx"
+            , "/profile/default.aspx"
+        };
+
+        return pageList.Any(path.ToLower().Contains);
+
     }
 
 

@@ -82,11 +82,12 @@
                 </div>
             </div>
              <% } %>
+
              <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
              <div class="row row-no-padding action-btn action-button-lg" data-ajax="false">
                 <div class="col">
                     <a href="Funds.aspx" class="ui-btn btn-primary" role="button" data-ajax="false">
-                        <span class="icon- ion-social-usd-outline" ></span>
+                        <span class="icon icon-currency" ></span>
                         <%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%>
                     </a>
                 </div>
@@ -254,6 +255,8 @@
             
         <!--#include virtual="~/_static/footer.shtml" -->
         </div>
+        
+        <!--#include virtual="~/_static/fixed-footer.shtml" -->
 
         <!--#include virtual="~/_static/navMenu.shtml" -->
 

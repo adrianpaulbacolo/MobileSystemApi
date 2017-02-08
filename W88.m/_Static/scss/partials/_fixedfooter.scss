@@ -1,0 +1,46 @@
+.ui-page .ui-footer{
+	border: none;
+	@include box-shadow(0 3px 3px 3px rgba(0,0,0,0.3));
+	/* 
+	background-color: $primaryOff-color;
+	border-color: $primaryOff-color; */
+}
+.footer-nav{
+	width: 100%;
+	text-align: center;
+	display: table;
+	> div{
+		width: 1%;
+		vertical-align: middle;
+		display: table-cell;
+	}
+}
+.footer-nav-item{
+	padding: 0.5rem 0;
+	text-shadow: none;
+	display: block;
+	.icon{
+		color: $primary-color;
+		font-size: 3rem;
+		display: block;
+	}
+	span{
+    	font-family: 'dinpro';
+    	text-transform: uppercase;
+		color: $ltGray-color;
+		font-size: 1rem;
+	}
+}
+
+.footer-nav .active{
+	background-color: $primary-color;
+	.footer-nav-item{
+		.icon{
+			color: $white;
+		}
+		span{
+			color: $white;
+		}
+	}
+
+}
