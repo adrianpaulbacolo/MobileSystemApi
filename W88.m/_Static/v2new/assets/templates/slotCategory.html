@@ -1,0 +1,25 @@
+﻿<div class="game-category {%- slotData.club.name %}-main">
+    <div class="container">
+        {% if(slotData.showClubLabel){ %}
+        <div class="game-category-title">
+            <div class="row">
+                <div class="col-xs-6">
+                    <h4 class="">{%- slotData.club.label %}</h4>
+                </div>
+                <div class="col-xs-6 text-right">
+                    <a href="#" onclick="javascript: viewClub('{%- slotData.club.name %}')" class="btn btn-xs btn-link">{%- _contents.translate('LABEL_MORE') %}</a>
+                </div>
+            </div>
+        </div>
+        {% } %}
+        <div class="game-card-box clearfix">
+            {% _.forEach( slotData.games, function( game ){ %}
+            <a class="game-card" href="#" onclick="javascript: w88Mobile.v2.Slots.showGameModal('{%- game.Id %}')">
+                <div class="game-card-image">
+                    <img src="{%- game.ImagePath %}" alt="">
+                </div>
+            </a>
+            {% }); %}
+        </div>
+    </div>
+</div>
