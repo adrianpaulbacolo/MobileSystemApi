@@ -233,7 +233,7 @@ function Routes() {
             if (routeStack.length > 1) {
                 w88Mobile.v2.Routes.popPage()
             } else {
-
+                window.location.href="/v2/Dashboard.aspx"
             }
         },
 
