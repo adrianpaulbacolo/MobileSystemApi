@@ -63,7 +63,7 @@
 
                 var data = {
                     Amount: $('#<%=txtAmount.ClientID%>').val(),
-                    DepositDateTime: depositDateTime.toLocaleDateString() + " " + depositDateTime.toLocaleTimeString(),
+                    DepositDateTime: window.w88Mobile.Gateways.DefaultPayments.formatDateTime(depositDateTime),
                     ReferenceId: $('#<%=txtReferenceId.ClientID%>').val(),
                     SystemBank: JSON.parse($('#<%=drpSystemAccount.ClientID%>').val()),
                     AccountName: $('#<%=txtAccountName.ClientID%>').val(),

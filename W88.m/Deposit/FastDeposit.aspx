@@ -161,7 +161,7 @@
                         BankName: $('#txtBankName').val(),
                         ReferenceId: $('#txtReferenceId').val(),
                         DepositChannel: { Text: $('#drpDepositChannel option:selected').text(), Value: $('#drpDepositChannel').val() },
-                        DepositDateTime: depositDateTime.toLocaleDateString() + " " + depositDateTime.toLocaleTimeString(),
+                        DepositDateTime: window.w88Mobile.Gateways.DefaultPayments.formatDateTime(depositDateTime),
                     };
 
                     window.w88Mobile.Gateways.FastDeposit.Deposit(data, function (response) {
