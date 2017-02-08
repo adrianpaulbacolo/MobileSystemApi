@@ -46,12 +46,15 @@
 		text-align: center;
 		width: 40px;
 		height: 47px;
-		padding: 6px;
-		display: inline-block;
+		display: table;
 		z-index: 30;
 		position: relative;
+		span{
+			vertical-align: middle;
+			display: table-cell;
+		}
 		&.header-button-text {
-			font-size: 14px;
+			font-size: 0.875rem;
 			width: auto !important;
 			text-transform: uppercase;
 		}
@@ -62,12 +65,11 @@
 			float: right !important;
 		}
 		.icon{
-			font-size: 32px;
+			font-size: 1.813rem;
 		}
 		.button-text{
+			margin-left: 4px;
 			letter-spacing: 1px;
-			bottom: 4px;
-			position: relative;
 		}
 		&.btn{
 			padding-top: 12px;
