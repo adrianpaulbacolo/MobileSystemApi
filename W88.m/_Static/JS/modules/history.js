@@ -4,7 +4,9 @@
         toggleType: toggleType,
         send: send,
         getReport: getReport,
-        getHistoryReport: getHistoryReport
+        getHistoryReport: getHistoryReport,
+        minDate: new Date(),
+        maxDate: addMonths(new Date(), -3),
     }
 
     return history;
@@ -22,6 +24,11 @@
 
         _w88_templates = new window.w88Mobile.Templates();
         _w88_templates.init();
+    }
+
+    function addMonths(date, months) {
+        date.setMonth(date.getMonth() + months);
+        return date;
     }
 
     function setTranslations() {
@@ -129,9 +136,9 @@
     }
 
     function notFound(type, message) {
+        $('#history-' + type + ' .table-container').empty();
         $('#history-' + type + ' .notFound').empty();
         $('#history-' + type + ' .notFound').append(message);
-        $('#history-' + type + ' .notFound').show();
     }
 
     function setParams(type) {
@@ -160,9 +167,8 @@
             result: result
         });
 
+        $('#history-' + type + ' .table-container').empty();
         $('#history-' + type).append(innerHtml);
-
-        $('#history-' + type + ' .notFound').hide();
 
         if ($('#totalInvitees').length > 0) {
             if (_w88_contents.translate("LABEL_TOTAL_INVITEES") != "LABEL_TOTAL_INVITEES") {
@@ -182,14 +188,17 @@
                         filterResult(data.ReportType, response.ResponseData);
 
                         break;
+
                     default:
-
                         var message = data.DateFrom + "-" + data.DateTo + ": " + response.ResponseMessage;
-
                         notFound(data.ReportType, message);
 
                         break;
                 }
+
+                var selectedIndex = $('select[id$="ddlTransactionType"] option:selected').index() - 1;
+                if (selectedIndex >= 0)
+                    $(".history-result").slick('slickGoTo', selectedIndex, false);
             },
             function () {
                 GPInt.prototype.HideSplash();
@@ -225,60 +234,62 @@
             });
 
 
-            $( "#adj-btn" ).bind( "click", function() {
-                 $(".history-result").slick('slickGoTo', 0, false );
-            });
-           
-            $( "#dep-btn" ).bind( "click", function() {
-                 $(".history-result").slick('slickGoTo', 1, false );
+            $("#adj-btn").bind("click", function () {
+                $(".history-result").slick('slickGoTo', 0, false);
             });
 
-            $( "#fund-btn" ).bind( "click", function() {
-                 $(".history-result").slick('slickGoTo', 2, false );
+            $("#dep-btn").bind("click", function () {
+                $(".history-result").slick('slickGoTo', 1, false);
             });
-           
-            $( "#ref-btn" ).bind( "click", function() {
-                 $(".history-result").slick('slickGoTo', 3, false );
+
+            $("#fund-btn").bind("click", function () {
+                $(".history-result").slick('slickGoTo', 2, false);
             });
-           
-            $( "#promo-btn" ).bind( "click", function() {
-                 $(".history-result").slick('slickGoTo', 4, false );
+
+            $("#ref-btn").bind("click", function () {
+                $(".history-result").slick('slickGoTo', 3, false);
+            });
+
+            $("#promo-btn").bind("click", function () {
+                $(".history-result").slick('slickGoTo', 4, false);
             });
 
 
             $('.history-nav').slick({
-              initialSlide: 0,
-              slidesToShow: 5,
-              slidesToScroll: 1,
-              dots: false,
-              arrows: false,
-              infinite: false,
-              draggable: false,
-              swipeToSlide: false,
-              responsive: [
-                  {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 3,
-                        arrows: true,
-                    }
-                  },
-                  {
-                    breakpoint: 517,
-                    settings: {
-                        slidesToShow: 2,
-                        arrows: true,
-                    }
-                  },
-              ]
+                initialSlide: 0,
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                dots: false,
+                arrows: false,
+                infinite: false,
+                draggable: false,
+                swipeToSlide: false,
+                responsive: [
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 3,
+                            arrows: true,
+                        }
+                    },
+                    {
+                        breakpoint: 517,
+                        settings: {
+                            slidesToShow: 2,
+                            arrows: true,
+                        }
+                    },
+                ]
             });
 
-            $('.history-result').on('beforeChange', function(event, slick, nextSlide){
+            $('.history-result').on('beforeChange', function (event, slick, nextSlide) {
                 $(".history-nav").find("span").removeClass("initial");
                 $(".history-nav").find("span").removeClass("current");
+
+                getReport($(slick.$slides.get(nextSlide)).attr('id'));
             });
 
-            $('.history-result').on('afterChange', function(event, slick, nextSlide){
+            $('.history-result').on('afterChange', function (event, slick, nextSlide) {
                 $(".history-nav").find("span").eq(nextSlide).addClass("current");
             });
 

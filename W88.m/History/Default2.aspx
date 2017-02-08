@@ -57,7 +57,7 @@
                         </li>
                         <li class="item row">
                             <div class="col">
-                                <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" />
+                                <asp:Button data-theme="b" data-rel="back" ID="btnSubmit" runat="server" CssClass="button-blue" />
                             </div>
                         </li>
                     </ul>
@@ -78,10 +78,6 @@
 
             var _w88_history = window.w88Mobile.History();
             _w88_history.init();
-
-            $('.history-result').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-                _w88_history.getReport($(slick.$slides.get(nextSlide)).attr('id'));
-            });
 
             $('#filterHistory').click(function () {
                 $('#filterModal').popup();
@@ -113,7 +109,9 @@
 
             $('#form1').submit(function (e) {
                 e.preventDefault();
-                window.w88Mobile.FormValidator.disableSubmitButton('input[id$="btnSubmit"]');
+
+                $('#filterModal').popup();
+                $('#filterModal').popup('close');
 
                 var dateFrom = new Date($('input[id$="txtDateFrom"]').val());
                 var dateTo = new Date($('input[id$="txtDateTo"]').val());
@@ -127,7 +125,6 @@
                 }
 
                 _w88_history.getHistoryReport(data);
-
             });
         });
     </script>
