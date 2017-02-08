@@ -9,7 +9,7 @@ public partial class v2_Funds : PaymentBasePage
 {
     protected override void OnLoad(EventArgs e)
     {
-        Page.Title = "Funds";
+        Page.Title = commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML);
         base.OnLoad(e);
     }
 
