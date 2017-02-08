@@ -335,6 +335,9 @@
                 return "IWallet.aspx";
 
                 // deposit
+            case "120272":
+                return "Baokim.aspx";
+
             case "110101":
                 return "FastDeposit.aspx";
 
