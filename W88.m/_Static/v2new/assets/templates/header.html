@@ -15,7 +15,7 @@
 {% } else if (_.isEqual(slotData.route, "club")) { %}
 
 <a href="#" onclick="w88Mobile.v2.Routes.previous()" class="header-button header-button-text header-button-left">
-    <span class="icon icon-back"></span> <span class="button-text">{%- _contents.translate('LABEL_BACK') %}</span>
+    <span class="icon icon-back"></span> <span class="button-text"></span>
 </a>
 <a href="#" onclick="showSearchHeader('club_search')" class="header-button header-button-right">
     <span class="icon icon-search"></span>
@@ -27,7 +27,7 @@
 {% } else if (_.isEqual(slotData.route, "club_filter")) { %}
 
 <a href="#" onclick="w88Mobile.v2.Routes.previous()" class="header-button header-button-text header-button-left">
-    <span class="icon icon-back"></span> <span class="button-text">{%- _contents.translate('LABEL_BACK') %}</span>
+    <span class="icon icon-back"></span> <span class="button-text"></span>
 </a>
 <a href="#" onclick="showFilterModal(w88Mobile.v2.Routes.currentCtrl().club)" class="header-button header-button-right" id="filterMode">
     <span class="icon icon-filter"></span>
@@ -35,10 +35,10 @@
 {% } else if (_.isEqual(slotData.route, "index")) { %}
 
 <a href="#" onclick="w88Mobile.v2.Routes.previous()" class="header-button header-button-text header-button-left">
-    <span class="icon icon-back"></span> <span class="button-text">{%- _contents.translate('LABEL_BACK') %}</span>
+    <span class="icon icon-back"></span> <span class="button-text"></span>
 </a>
 <a href="#" onclick="showSearchHeader('index_search')" class="header-button header-button-right">
     <span class="icon icon-search"></span>
 </a>
-
 {% } %}
+<h1 class="header-title">{%- _contents.translate("LABEL_MENU_SLOTS") %}</h1>
