@@ -75,18 +75,18 @@ small,
 }
 
 .thin-gutter{
-    margin-left: -4px;
-    margin-right: -4px;
+    margin-left: -2px;
+    margin-right: -2px;
 	div[class^="col-"],
 	div[class*=" col-"] {
-	    padding-left: 4px;
-	    padding-right: 4px;
+	    padding-left: 2px;
+	    padding-right: 2px;
 	}	
 }
 .container{
 	max-width: 768px;
 }
 .container-thin{
-	padding-left: 8px;
-	padding-right: 8px;
+	padding-left: 4px;
+	padding-right: 4px;
 }

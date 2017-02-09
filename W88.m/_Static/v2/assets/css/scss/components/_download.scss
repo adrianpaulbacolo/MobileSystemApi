@@ -1,30 +1,51 @@
 .download-centre{
+	padding-top: 4px;
 }
 .download-box{
 	display: block;
 	position: relative;
-	margin-bottom: 8px;
+	margin-bottom: 4px;
+	overflow: hidden;
 	img{
 		width: 100%;
+		@include transition(all 600ms ease-in-out);
 	}
-	span{
-		font-family: $dinpro;
+	.download-box-title{
 		width: 100%;
-		padding: 10px 10px;
-		font-size: 1rem;
-		color: $brand-alt;
-		background-color: rgba($black,0.75);
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
+		background-color: rgba($black,0.65);
 		left: 0;
 		bottom: 0;
 		position: absolute;
-		display: block;
+		display: table;
+		height: 55px;
+	}
+	span{
+		text-transform: capitalize;
+		font-family: $dinpro;
+		font-weight: 700;
+		width: 100%;
+		padding: 8px;
+		font-size: 1rem;
+		color: $brand-alt;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: table-cell;
+		vertical-align: middle;
+		small{
+			font-weight: 400;
+			color: darken($text-color, 10%);
+			display: block;
+		}
 	}
 	&:focus > span,
 	&:active > span{
 		color: darken($brand-alt, 20%);
+	}
+
+	&:focus img,
+	&:active img{
+		@include transform(scale(1.05));
 	}
 }
 .download-coverphoto{

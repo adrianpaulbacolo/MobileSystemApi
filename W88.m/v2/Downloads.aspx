@@ -15,11 +15,17 @@
                 <div class="col-xs-6">
                     {% if(tplData.deviceId == 1 && !_.isUndefined(item.ios)){ %}
                     <a href="{%-item.ios.link%}" class="download-box">
-                        <img src="{%-item.ios.src%}" alt=""><span>{{item.title}}</span>
+                        <img src="{%-item.ios.src%}" alt="">
+                        <div class="download-box-title">
+                            <span>{{item.title}}</span>
+                        </div>
                     </a>
                     {% }else if(tplData.deviceId != 1  && !_.isUndefined(item.others)){ %}
                     <a href="{%-item.others.link%}" class="download-box">
-                        <img src="{%-item.others.src%}" alt=""><span>{{item.title}}</span>
+                        <img src="{%-item.others.src%}" alt="">
+                        <div class="download-box-title">
+                            <span>{{item.title}}</span>
+                        </div>
                     </a>
                     {% } %}
                 </div>
@@ -33,28 +39,28 @@
 
         var downloadItems = [
                 {
-                    title: "<%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%> <br /><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%>",
+                    title: "<%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%><small><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></small>",
                     others: {
                         src: "/_Static/v2/Assets/Images/downloads/MGS-Slots-Android.jpg",
                         link: "http://resigner.qfcontent.com/w88.apk",
                     }
                 },
                 {
-                    title: "<%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%> <br /><%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%>",
+                    title: "<%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%><small><%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%></small>",
                     others: {
                         src: "/_Static/v2/Assets/Images/downloads/MGS-LiveCasino-Android.jpg",
                         link: "https://livegames.cdn.gameassists.co.uk/AIR/Poria/Installer/V20021/w88/Download.html",
                     }
                 },
                 {
-                    title: "<%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%> <br /><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%>",
+                    title: "<%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%><small><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></small>",
                     others: {
                         src: "/_Static/v2/Assets/Images/downloads/PT-Slots-Android.jpg",
                         link: "/v2/Downloads/palazzo-slots",
                     }
                 },
                 {
-                    title: "<%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%> <br /><%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%>",
+                    title: "<%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%><small><%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%></small>",
                     others: {
                         src: "/_Static/v2/Assets/Images/downloads/PT-LiveCasino-Android.jpg",
                         link: "/v2/Downloads/palazzo-casino",
