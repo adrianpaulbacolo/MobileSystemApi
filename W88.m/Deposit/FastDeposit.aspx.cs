@@ -10,12 +10,11 @@ using System.Xml.XPath;
 
 public partial class Deposit_FastDesposit : PaymentBasePage
 {
-    protected string strAlertCode = string.Empty;
-    protected string strAlertMessage = string.Empty;
+    protected string lblTransactionId;
 
     protected void Page_Init(object sender, EventArgs e)
     {
-        base.PageName = "FastDeposit";
+        base.PageName = Convert.ToString(commonVariables.DepositMethod.FastDeposit);
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.FastDeposit);
     }
@@ -93,6 +92,7 @@ public partial class Deposit_FastDesposit : PaymentBasePage
             ltlNote.Text = sbNote.ToString();
         }
 
+        lblTransactionId = base.strlblTransactionId;
     }
 
     private void InitialiseSystemBankAccounts()
@@ -177,189 +177,5 @@ public partial class Deposit_FastDesposit : PaymentBasePage
             drpMinute.Items.Add(new ListItem((intMinute).ToString("0#"), Convert.ToString(intMinute)));
         }
         #endregion
-    }
-     
-    protected void btnSubmit_Click(object sender, EventArgs e)
-    {
-        string strSystemAccount = drpSystemAccount.SelectedItem.Value;
-        string strDepositChannel = drpDepositChannel.SelectedItem.Value;
-
-        string strBankCode = drpBank.SelectedItem.Value;
-        string strBankName = drpBank.SelectedItem.Text;
-        string strBankNameInput = txtBankName.Text;
-
-        string strDepositAmount = txtDepositAmount.Text.Trim();
-        string strReferenceId = txtReferenceId.Text;
-        string strAccountName = txtAccountName.Text;
-        string strAccountNumber = txtAccountNumber.Text;
-        string strDepositDate = drpDepositDate.SelectedValue;
-        string strDepositHour = drpHour.SelectedValue;
-        string strDepositMinute = drpMinute.SelectedValue;
-
-        DateTime dtDepositDateTime = string.Compare(strCurrencyCode, "krw", true) == 0 ? DateTime.Now : DateTime.MinValue;
-
-        decimal decDepositAmount = commonValidation.isDecimal(strDepositAmount) ? Convert.ToDecimal(strDepositAmount) : 0;
-        decimal decMinLimit = commonValidation.isDecimal(strMinLimit) ? Convert.ToDecimal(strMinLimit) : 0;
-        decimal decMaxLimit = commonValidation.isDecimal(strMaxLimit) ? Convert.ToDecimal(strMaxLimit) : 0;
-
-        CommonStatus status = new CommonStatus();
-
-        if (!status.IsProcessAbort)
-        {
-            try
-            {
-                if (string.Compare(strCurrencyCode, "krw", true) != 0 && !string.IsNullOrEmpty(strDepositDate))
-                {
-                    dtDepositDateTime = divDepositDateTime.Visible ? DateTime.Parse(strDepositDate).AddHours(double.Parse(strDepositHour)).AddMinutes(double.Parse(strDepositMinute)) : DateTime.MinValue;
-                }
-
-                status = ValidateDeposit(dtDepositDateTime, strDepositDate, strDepositHour, strDepositMinute, strSystemAccount, strDepositChannel, strBankCode, strBankName, strBankNameInput, strDepositAmount,
-                                            strReferenceId, strAccountName, strAccountNumber, decDepositAmount, decMinLimit, decMaxLimit);
-
-                if (!status.IsProcessAbort)
-                {
-                    using (svcPayDeposit.DepositClient client = new svcPayDeposit.DepositClient())
-                    {
-                        xeResponse = client.createFastDepositTransactionV1(Convert.ToInt64(strOperatorId), strMemberCode, strDepositChannel, Convert.ToInt64(base.PaymentMethodId), strCurrencyCode, decDepositAmount, Convert.ToInt64(strSystemAccount),
-                                            strAccountName, strAccountNumber, dtDepositDateTime, strReferenceId, strBankCode, strBankName, strBankNameInput, Convert.ToString(svcPayDeposit.DepositSource.Mobile));
-
-                        if (xeResponse == null)
-                        {
-                            status = base.GetErrors("/TransferFail");
-                        }
-                        else
-                        {
-                            bool isTransactionSuccessful = Convert.ToBoolean(commonCulture.ElementValues.getResourceString("result", xeResponse));
-                            string strTransferId = commonCulture.ElementValues.getResourceString("invId", xeResponse);
-
-                            if (isTransactionSuccessful)
-                            {
-                                status.AlertCode = "0";
-                                status.AlertMessage = string.Format("{0}\\n{1}: {2}", commonCulture.ElementValues.getResourceXPathString(base.PaymentType.ToString() + "/TransferSuccess", xeErrors), strlblTransactionId, strTransferId);
-                            }
-                            else
-                            {
-                                status = GetErrors("/TransferFail", strTransferId, "/error");
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                status = base.GetErrors("/Exception");
-
-                strErrorDetail = ex.Message;
-            }
-
-            strAlertCode = status.AlertCode;
-            strAlertMessage = status.AlertMessage;
-
-            string strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | CurrencyCode: {2} | DepositAmount: {3} | DepositChannel: {4} | AccountName: {6} | AccountNumber: {6} | SystemAccount: {7} | BankCode: {8} | BankName: {9} | BankNameInput: {10} | ReferenceID: {11} | DepositDateTime: {12} | MinLimit: {13} | MaxLimit: {14} | TotalAllowed: {15} | DailyLimit: {16} | Response: {17}",
-                Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, strDepositChannel, strAccountName, strAccountNumber, strSystemAccount, drpBank.SelectedValue, strBankName, strBankNameInput, strReferenceId, dtDepositDateTime.ToString("yyyy-MM-dd HH:mm:ss"), decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());
-
-            intProcessSerialId += 1;
-            commonAuditTrail.appendLog("system", PageName, "InitiateDeposit", string.Empty, strResultCode, strResultDetail, strErrorCode, strErrorDetail, strProcessRemark, Convert.ToString(intProcessSerialId), strProcessId, isSystemError);
-        }
-    }
-
-    private CommonStatus ValidateDeposit(DateTime dtDepositDateTime, string strDepositDate, string strDepositHour, string strDepositMinute, string strSystemAccount, string strDepositChannel, string strBankCode,
-        string strBankName, string strBankNameInput, string strDepositAmount, string strReferenceId, string strAccountName, string strAccountNumber, decimal decDepositAmount, decimal decMinLimit, decimal decMaxLimit)
-    {
-        CommonStatus status = new CommonStatus();
-
-        if (decDepositAmount == 0)
-        {
-            status = base.GetErrors("/MissingDepositAmount");
-        }
-        else if (decDepositAmount <= 0)
-        {
-            status = base.GetErrors("/InvalidDepositAmount");
-        }
-        else if (commonValidation.isInjection(strDepositAmount))
-        {
-            status = base.GetErrors("/InvalidDepositAmount");
-        }
-        else if (commonValidation.isInjection(strReferenceId))
-        {
-            status = base.GetErrors("/InvalidReferenceId");
-        }
-        else if (string.Compare(drpBank.SelectedValue, "OTHER", true) == 0 && string.IsNullOrEmpty(strBankNameInput))
-        {
-            status = base.GetErrors("/MissingBankName");
-        }
-        else if (commonValidation.isInjection(strBankNameInput))
-        {
-            status = base.GetErrors("/InvalidBankName");
-        }
-        else if (strSystemAccount == "-1")
-        {
-            status = base.GetErrors("/SelectSystemAccount");
-        }
-        else if (strDepositChannel == "-1")
-        {
-            status = base.GetErrors("/SelectDepositChannel");
-        }
-        else if (strBankCode == "-1")
-        {
-            status = base.GetErrors("/SelectBank");
-        }
-        else if (string.IsNullOrEmpty(strAccountName))
-        {
-            status = base.GetErrors("/MissingAccountName");
-        }
-        else if (commonValidation.isInjection(strAccountName))
-        {
-            status = base.GetErrors("/InvalidAccountName");
-        }
-        else if (string.IsNullOrEmpty(strAccountNumber))
-        {
-            status = base.GetErrors("/MissingAccountNumber");
-        }
-        else if (commonValidation.isInjection(strAccountNumber))
-        {
-            status = base.GetErrors("/InvalidAccountNumber");
-        }
-        else if (decDepositAmount < decMinLimit)
-        {
-            status = base.GetErrors("/AmountMinLimit");
-        }
-        else if (decDepositAmount > decMaxLimit)
-        {
-            status = base.GetErrors("/AmountMaxLimit");
-        }
-        else if ((strTotalAllowed != strUnlimited) && (decDepositAmount > Convert.ToDecimal(strTotalAllowed)) && Convert.ToDecimal(strTotalAllowed) > 0)
-        {
-            status = base.GetErrors("/TotalAllowedExceeded");
-        }
-        else if (string.Compare(strCurrencyCode, "krw", true) != 0)
-        {
-            if (string.IsNullOrEmpty(strDepositDate))
-            {
-                status = base.GetErrors("/InvalidDateTime");
-            }
-            else
-            {
-                if (!IsValidDepositTime(dtDepositDateTime))
-                {
-                    status = base.GetErrors("/InvalidDateTime");
-                }
-            }
-        }
-
-        return status;
-    }
-
-    private bool IsValidDepositTime(DateTime validDateTime)
-    {
-        DateTime minDate = DateTime.Now.AddHours(-72);
-        DateTime maxDate = DateTime.Now.AddHours(72);
-
-        if (validDateTime < minDate || validDateTime > maxDate)
-        {
-            return false;
-        }
-
-        return true;
     }
 }

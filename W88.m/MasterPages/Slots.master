@@ -57,7 +57,7 @@
 
                     <div class="row">
                          <div class="col">
-                            <a id="gameFunUrl" href="#" onclick="w88Mobile.PiwikManager.trackTryNow()" class="ui-btn btn-secondary" role="button" data-ajax="false" target="_blank">
+                            <a id="gameFunUrl" href="#" onclick="w88Mobile.PiwikManager.trackTryNow({data: {club: 'ClubBravado', url: $(this).attr('href')}})" class="ui-btn btn-secondary" role="button" data-ajax="false" target="_blank">
                                 <%=commonCulture.ElementValues.getResourceXPathString("/Products/Try", commonVariables.ProductsXML)%></a>
                         </div>
                         <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
@@ -71,7 +71,7 @@
                         </div>
                         <%} else {%>
                         <div class="col">
-                            <a id="gameRealUrl" href="#" onclick="w88Mobile.PiwikManager.trackPlayNow()" class="ui-btn btn-primary" role="button" data-ajax="false" target="_blank">
+                            <a id="gameRealUrl" href="#" onclick="w88Mobile.PiwikManager.trackPlayNow({data: {club: 'ClubBravado', url: $(this).attr('href')}})" class="ui-btn btn-primary" role="button" data-ajax="false" target="_blank">
                                 <%=commonCulture.ElementValues.getResourceXPathString("/Products/Play", commonVariables.ProductsXML)%></a>
                         </div>
                         <%}%>

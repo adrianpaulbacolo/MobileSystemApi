@@ -1,164 +1,81 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="KDPayWechat.aspx.cs" Inherits="Deposit_KDPayWechat" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/Payments.master" AutoEventWireup="true" CodeFile="KDPayWechat.aspx.cs" Inherits="Deposit_KDPayWechat" %>
 
-<%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
+    <ul class="list fixed-tablet-size">
+        <li class="item-text-wrap ali-pay-note">
+            <asp:Label ID="lblNote" runat="server"></asp:Label>
+            <span id="paymentNote"></span>
+            <p id="paymentNoteContent"></p>
+        </li>
+        <li class="item item-input">
+            <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
+            <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" onKeyPress="return ValidatePositiveDecimal(this, event);" />
+        </li>
+    </ul>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder1" runat="Server">
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/wechat.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <link href="/_Static/Css/payment.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-    <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js"></script>
-</head>
-<body>
-    <div data-role="page" data-theme="b">
-        <header data-role="header" data-theme="b" data-position="fixed" id="header">
-            <% if (commonCookie.CookieIsApp != "1")
-               { %>
-            <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
-                <i class="icon-navicon"></i>
-            </a>
-            <% } %>
+    <script type="text/javascript">
 
-            <h1 class="title" id="headerTitle"><%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%></h1>
-        </header>
-
-        <div class="ui-content" role="main">
-            <div class="wallet main-wallet">
-                <uc:Wallet ID="uMainWallet" runat="server" />
-            </div>
-
-            <div class="toggle-list-box">
-                <button class="toggle-list-btn btn-active" id="activeDepositTabs"></button>
-                <ul class="toggle-list hidden" id="depositTabs">
-                </ul>
-            </div>
-
-            <form class="form" id="form1" runat="server" data-ajax="false">
-                <br>
-                <ul class="list fixed-tablet-size">
-                    <li class="row">
-                        <div class="col">
-                            <asp:Literal ID="lblMode" runat="server" />
-                        </div>
-                        <div class="col">
-                            <asp:Literal ID="txtMode" runat="server" />
-                        </div>
-                    </li>
-                    <li class="row">
-                        <div class="col">
-                            <asp:Literal ID="lblMinMaxLimit" runat="server" />
-                        </div>
-                        <div class="col">
-                            <asp:Literal ID="txtMinMaxLimit" runat="server" />
-                        </div>
-                    </li>
-                    <li class="row">
-                        <div class="col">
-                            <asp:Literal ID="lblDailyLimit" runat="server" />
-                        </div>
-                        <div class="col">
-                            <asp:Literal ID="txtDailyLimit" runat="server" />
-                        </div>
-                    </li>
-                    <li class="row">
-                        <div class="col">
-                            <asp:Literal ID="lblTotalAllowed" runat="server" />
-                        </div>
-                        <div class="col">
-                            <asp:Literal ID="txtTotalAllowed" runat="server" />
-                        </div>
-                    </li>
-                    <li class="item-text-wrap ali-pay-note">
-                        <asp:Label ID="lblNote" runat="server"></asp:Label>
-                    </li>
-                    <li class="item item-input">
-                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
-                        <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
-                    </li>
-                    <li class="item row">
-                        <div class="col">
-                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" />
-                        </div>
-                    </li>
-                </ul>
-            </form>
-        </div>
-
-        <% if (commonCookie.CookieIsApp != "1")
-           { %>
-        <!--#include virtual="~/_static/navMenu.shtml" -->
-        <% } %>
-
-        <style>
-            li.ali-pay-note {
-                font-size: 70%;
-            }
-
-                li.ali-pay-note #lblNote span {
-                    color: red;
-                    font-weight: bold;
-                }
-
-                li.ali-pay-note #lblNote p {
-                    padding-top: 5px;
-                }
-        </style>
-
-        <script type="text/javascript">
-            $(document).ready(function () {
-                window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
-
-                $('#form1').submit(function (e) {
-                    e.preventDefault();
-                    window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
-
-                    var data = {
-                        Amount: $('#txtDepositAmount').val(),
-                    };
-
-                    var url = w88Mobile.APIUrl + "/payments/" + "<%=base.PaymentMethodId %>";
-
-                    var headers = {
-                        'Token': window.User.token,
-                        'LanguageCode': window.User.lang
-                    };
-
-                    $.ajax({
-                        type: "POST",
-                        url: url,
-                        data: data,
-                        beforeSend: function () { GPInt.prototype.ShowSplash() },
-                        headers: headers,
-                        success: function (response) {
-                            switch (response.ResponseCode) {
-                                case 1:
-                                    w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
-                                    w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
-                                    w88Mobile.PostPaymentForm.submit();
-
-                                    $('#form1')[0].reset();
-                                    break;
-                                default:
-                                    if (_.isArray(response.ResponseMessage))
-                                        w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
-                                    else
-                                        w88Mobile.Growl.shout(response.ResponseMessage);
-
-                                    break;
-                            }
-                        },
-                        error: function () {
-                            console.log("Error connecting to api");
-                        },
-                        complete: function () {
-                            window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
-                            GPInt.prototype.HideSplash();
-                        }
-                    });
-                });
+        var ua = navigator.userAgent.toLowerCase();
+        var isAndroid = ua.indexOf("android") > -1;
+        if (isAndroid) {
+            $('#<%=txtAmount.ClientID%>').keypress(function (event) {
+                return TwoDecimalAndroid($(this), event);
             });
+        }
 
-        </script>
-    </div>
-</body>
-</html>
+        $(document).ready(function () {
+
+            var payments = new w88Mobile.Gateways.Payments("<%=base.PaymentMethodId %>");
+            payments.init();
+
+            window.w88Mobile.Gateways.Wechat.Initialize();
+
+            window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
+
+            $('#form1').submit(function (e) {
+
+                var hasOneDecimal = PositiveOneDecimalValidation($('#<%=txtAmount.ClientID%>').val());
+
+                if (!hasOneDecimal) {
+                    return;
+                }
+
+                e.preventDefault();
+                window.w88Mobile.FormValidator.disableSubmitButton('#ContentPlaceHolder1_btnSubmit');
+
+                var data = {
+                    Amount: $('#<%=txtAmount.ClientID%>').val(),
+                };
+
+                payments.send(data, function (response) {
+                    switch (response.ResponseCode) {
+                        case 1:
+                            w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
+                            w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
+                            w88Mobile.PostPaymentForm.submit();
+
+                            $('#form1')[0].reset();
+                            break;
+                        default:
+                            if (_.isArray(response.ResponseMessage))
+                                w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
+                            else
+                                w88Mobile.Growl.shout(response.ResponseMessage);
+
+                            break;
+                    }
+                },
+                    function () {
+                        w88Mobile.FormValidator.enableSubmitButton('#ContentPlaceHolder1_btnSubmit');
+                        GPINTMOBILE.HideSplash();
+                    });
+            });
+        });
+
+    </script>
+</asp:Content>
+

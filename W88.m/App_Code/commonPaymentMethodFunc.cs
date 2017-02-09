@@ -128,7 +128,7 @@ public static class commonPaymentMethodFunc
 
                 anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
 
-                anchor.Attributes.Add("href", "/Deposit/FastDeposit.aspx");
+                    anchor.Attributes.Add("href", "/Deposit/FastDeposit.aspx");
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
@@ -139,7 +139,7 @@ public static class commonPaymentMethodFunc
 
                 anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
 
-                anchor.Attributes.Add("href", "/Deposit/NextPay.aspx");
+                    anchor.Attributes.Add("href", "/Deposit/NextPay.aspx");
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
@@ -161,7 +161,7 @@ public static class commonPaymentMethodFunc
 
                 anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
 
-                anchor.Attributes.Add("href", "/Deposit/WingMoney.aspx");
+                    anchor.Attributes.Add("href", "/Deposit/WingMoney.aspx");
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
@@ -172,7 +172,7 @@ public static class commonPaymentMethodFunc
 
                 anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
 
-                anchor.Attributes.Add("href", "/Deposit/SDPay.aspx");
+                    anchor.Attributes.Add("href", "/Deposit/SDPay.aspx");
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
@@ -184,7 +184,7 @@ public static class commonPaymentMethodFunc
                 anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
 
 
-                anchor.Attributes.Add("href", "/Deposit/SDAPay.aspx");
+                    anchor.Attributes.Add("href", "/Deposit/SDAPay.aspx");
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
@@ -196,7 +196,7 @@ public static class commonPaymentMethodFunc
                 anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
 
 
-                anchor.Attributes.Add("href", "/Deposit/Help2Pay.aspx");
+                    anchor.Attributes.Add("href", "/Deposit/Help2Pay.aspx");
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
@@ -207,7 +207,7 @@ public static class commonPaymentMethodFunc
 
                 anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
 
-                anchor.Attributes.Add("href", "/Deposit/DaddyPay.aspx?value=1");
+                    anchor.Attributes.Add("href", "/Deposit/DaddyPay.aspx?value=1");
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
@@ -223,6 +223,17 @@ public static class commonPaymentMethodFunc
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
                 break;
+            case commonVariables.DepositMethod.Baokim:
+                list = CreateMethodListControl(paymentCode);
+
+                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
+
+                anchor.Attributes.Add("href", "/Deposit/Baokim.aspx");
+
+                list.Controls.Add(anchor);
+                depositTabs.Controls.Add(list);
+                break;
+
 
             //case commonVariables.DepositMethod.DaddyPayQR:
             //    list = CreateMethodListControl(paymentCode);
@@ -240,7 +251,7 @@ public static class commonPaymentMethodFunc
 
                 anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
 
-                anchor.Attributes.Add("href", "/Deposit/Neteller.aspx");
+                    anchor.Attributes.Add("href", "/Deposit/Neteller.aspx");
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
@@ -251,7 +262,7 @@ public static class commonPaymentMethodFunc
 
                 anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
 
-                anchor.Attributes.Add("href", "/Deposit/ECPSS.aspx");
+                    anchor.Attributes.Add("href", "/Deposit/ECPSS.aspx");
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
@@ -273,7 +284,7 @@ public static class commonPaymentMethodFunc
 
                 anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
 
-                anchor.Attributes.Add("href", "/Deposit/BofoPay.aspx");
+                    anchor.Attributes.Add("href", "/Deposit/BofoPay.aspx");
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
@@ -284,7 +295,7 @@ public static class commonPaymentMethodFunc
 
                 anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
 
-                anchor.Attributes.Add("href", "/Deposit/AllDebit.aspx");
+                    anchor.Attributes.Add("href", "/Deposit/AllDebit.aspx");
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
@@ -317,7 +328,7 @@ public static class commonPaymentMethodFunc
 
                 anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage, currencyCode);
 
-                anchor.Attributes.Add("href", "/Deposit/EGHL.aspx");
+                    anchor.Attributes.Add("href", "/Deposit/EGHL.aspx");
 
                 list.Controls.Add(anchor);
                 depositTabs.Controls.Add(list);
@@ -432,7 +443,7 @@ public static class commonPaymentMethodFunc
 
                 anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage);
 
-                anchor.Attributes.Add("href", "/Withdrawal/BankTransfer.aspx");
+                    anchor.Attributes.Add("href", "/Withdrawal/BankTransfer.aspx");
 
                 list.Controls.Add(anchor);
                 withdrawalTabs.Controls.Add(list);
@@ -465,7 +476,7 @@ public static class commonPaymentMethodFunc
 
                 anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage);
 
-                anchor.Attributes.Add("href", "/Withdrawal/WingMoney.aspx");
+                    anchor.Attributes.Add("href", "/Withdrawal/WingMoney.aspx");
 
                 list.Controls.Add(anchor);
                 withdrawalTabs.Controls.Add(list);
@@ -476,7 +487,18 @@ public static class commonPaymentMethodFunc
 
                 anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage);
 
-                anchor.Attributes.Add("href", "/Withdrawal/Neteller.aspx");
+                    anchor.Attributes.Add("href", "/Withdrawal/Neteller.aspx");
+
+                list.Controls.Add(anchor);
+                withdrawalTabs.Controls.Add(list);
+                break;
+
+            case commonVariables.WithdrawalMethod.Baokim:
+                list = CreateMethodListControl(paymentCode);
+
+                anchor = CreateMethodLinkControl(list.ID, paymentCode.ToString(), sourcePage);
+                    
+                anchor.Attributes.Add("href", "/Withdrawal/Baokim.aspx");
 
                 list.Controls.Add(anchor);
                 withdrawalTabs.Controls.Add(list);
