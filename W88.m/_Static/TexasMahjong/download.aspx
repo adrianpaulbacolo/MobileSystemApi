@@ -11,7 +11,7 @@
         <div class="ui-content" role="main">
             <div class="static-content">
                 <div class="banner slider">
-                    <img src="/_Static/Images/Download/PMahjongMobile_<%=commonVariables.SelectedLanguage.ToLower() %>.jpg" alt="banner" class="img-responsive">
+                    <img src="/_Static/Images/Download/MobileSite-DownloadPage-TM-<%=commonVariables.SelectedLanguage.ToLower() %>.jpg" alt="banner" class="img-responsive">
                 </div>
                 <div class="downloadmsg">
                     <span runat="server" id="spanMsg"></span>

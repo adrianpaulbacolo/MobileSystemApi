@@ -7,7 +7,7 @@
     <div class="ui-content" role="main">
         <div class="static-content">
             <div>
-                <img src="/_Static/Images/Download/W88-Mobile-ClubPalazzo-Slots.jpg" alt="banner" class="img-responsive">
+                <img src="/_Static/Images/Download/MobileSite-DownloadPage-Palazzo-Slots.jpg" alt="banner" class="img-responsive">
             </div>
             <div class="downloadmsg">
                 <span runat="server" id="spanMsg"></span>
