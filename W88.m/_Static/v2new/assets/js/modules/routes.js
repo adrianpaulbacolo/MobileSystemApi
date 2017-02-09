@@ -227,13 +227,13 @@ function Routes() {
         popPage: function () {
             var latestRoute = _.last(routeStack);
             routes[latestRoute].onClose();
-            w88Mobile.v2.Routes.currentPage().css("display", "inline");
+            w88Mobile.v2.Routes.currentPage().css("display", "block");
         },
         previous: function () {
             if (routeStack.length > 1) {
                 w88Mobile.v2.Routes.popPage()
             } else {
-
+                window.location.href="/v2/Dashboard.aspx"
             }
         },
 

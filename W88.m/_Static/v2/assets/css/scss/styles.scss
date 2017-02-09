@@ -15,7 +15,6 @@
 @import "components/components";
 @import "components/wallets";
 @import "components/dashboard";
-@import "components/home";
 @import "components/download";
 @import "components/modal";
 @import "components/loader";
@@ -25,9 +24,9 @@
 
 // Pages
 //@import "pages/login";
-//@import "pages/home";
+@import "pages/home";
 //@import "pages/gateway";
-//@import "pages/games";
+@import "pages/games";
 //@import "pages/funds";
 //@import "pages/promotions";
 //@import "pages/download-center";
