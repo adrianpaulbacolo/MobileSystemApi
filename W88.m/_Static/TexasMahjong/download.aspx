@@ -10,7 +10,7 @@
         <!--#include virtual="~/_static/header.shtml" -->
         <div class="ui-content" role="main">
             <div class="static-content">
-                <div class="banner slider">
+                <div >
                     <img src="/_Static/Images/Download/MobileSite-DownloadPage-TM-<%=commonVariables.SelectedLanguage.ToLower() %>.jpg" alt="banner" class="img-responsive">
                 </div>
                 <div class="downloadmsg">
