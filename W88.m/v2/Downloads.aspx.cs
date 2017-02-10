@@ -9,7 +9,7 @@ public partial class v2_Downloads : BasePage
 {
     protected override void OnLoad(EventArgs e)
     {
-        Page.Title = "Downloads";
+        Page.Title = commonCulture.ElementValues.getResourceString("download", commonVariables.LeftMenuXML);
         base.OnLoad(e);
     }
 

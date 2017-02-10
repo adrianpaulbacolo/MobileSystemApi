@@ -5,6 +5,7 @@
 		text-align: center;
 		padding: 15px 0;
 		.wallet-title{
+			text-transform: capitalize;
 			color: $wallet-main-title;
 			margin-bottom: 0;
 		}
@@ -35,6 +36,7 @@
 			width: 1%;
 			display: table-cell;
 			p{
+				text-transform: capitalize;
 				color: $wallet-group-name;
 				font-size: 0.750rem;
 				margin-bottom: 0;
@@ -48,13 +50,4 @@
 			}
 		}
 	}
-}
-
-
-@media (min-height: 568px){
-	// Funds Dashboard
-	.wallets{
-		height: 155px;
-	}
-	
 }

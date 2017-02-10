@@ -15,7 +15,7 @@ public partial class v2_DownloadItem : BasePage
 
     protected override void OnLoad(EventArgs e)
     {
-        Page.Title = "Download Details";
+        Page.Title = commonCulture.ElementValues.getResourceString("download", commonVariables.LeftMenuXML);
         Page.Items.Add("Parent", "/v2/Downloads");
         base.OnLoad(e);
     }

@@ -15,8 +15,8 @@
 @import "components/components";
 @import "components/wallets";
 @import "components/dashboard";
-@import "components/home";
 @import "components/download";
+@import "components/forms";
 @import "components/modal";
 @import "components/loader";
 @import "components/popover";
@@ -25,12 +25,11 @@
 
 // Pages
 //@import "pages/login";
-//@import "pages/home";
-//@import "pages/gateway";
-//@import "pages/games";
+@import "pages/home";
+@import "pages/gateway";
+@import "pages/games";
 //@import "pages/funds";
 //@import "pages/promotions";
-//@import "pages/download-center";
 //@import "pages/language";
 //@import "pages/more";
 
