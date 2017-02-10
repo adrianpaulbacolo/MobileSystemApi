@@ -1,7 +1,7 @@
-﻿window.w88Mobile.Gateways.PaysecPay = PaysecPay();
-var _w88_paysecpay = window.w88Mobile.Gateways.PaysecPay;
+﻿window.w88Mobile.Gateways.Paysec = Paysec();
+var _w88_paysec = window.w88Mobile.Gateways.Paysec;
 
-function PaysecPay() {
+function Paysec() {
 
     var paysec = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
 
