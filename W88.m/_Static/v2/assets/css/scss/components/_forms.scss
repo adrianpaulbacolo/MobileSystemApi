@@ -1,0 +1,35 @@
+.form-container{
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.form-group{
+	> label{
+		font-weight: 400;
+		font-size: 0.875rem;
+		color: $brand-alt;
+		margin-bottom: 0;
+	}
+	.form-control{
+		padding-left: 0;
+		color: $text-color;
+		background-color: transparent;
+		border-top: none;
+		border-right: none;
+		border-left: none;
+		@include box-shadow(none);
+		border-bottom: 1px solid darken($text-color ,50%);
+		&:focus {
+		    border-color: $brand-primary;
+		    outline: 0 none;
+		    @include box-shadow(none);
+		}
+	}
+	select.form-control{
+		option {
+		    background-color: $body-bg;
+		    color: $text-color;
+		    text-shadow: none;
+		}
+	}
+}

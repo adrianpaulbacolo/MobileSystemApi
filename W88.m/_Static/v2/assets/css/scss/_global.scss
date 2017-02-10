@@ -75,6 +75,15 @@ small,
 }
 
 .thin-gutter{
+    margin-left: -8px;
+    margin-right: -8px;
+	div[class^="col-"],
+	div[class*=" col-"] {
+	    padding-left: 8px;
+	    padding-right: 8px;
+	}	
+}
+.extra-thin-gutter{
     margin-left: -2px;
     margin-right: -2px;
 	div[class^="col-"],
@@ -86,7 +95,7 @@ small,
 .container{
 	max-width: 768px;
 }
-.container-thin{
+.container-extra-thin{
 	padding-left: 4px;
 	padding-right: 4px;
 }
