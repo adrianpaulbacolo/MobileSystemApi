@@ -15,12 +15,12 @@ function Slots() {
 
     var providers = ["qt", "gpi", "mgs", "pt", "ctxm", "isb"];
     var clubs = [
-        { name: "apollo", label: "Club Apollo", providers: ["qt", "pp", "gpi"] }
-        , { name: "bravado", label: "Club Bravado", providers: ["gpi"] }
-        , { name: "massimo", label: "Club Massimo", providers: ["mgs", "gpi"] }
-        , { name: "palazzo", label: "Club Palazzo", providers: ["pt", "gpi"] }
-        , { name: "divino", label: "Club Divino", providers: ["bs", "ctxm", "uc8", "gpi"] }
-        , { name: "gallardo", label: "Club Gallardo", providers: ["isb", "png", "gpi"] }
+        { name: "apollo", key: "LABEL_PRODUCTS_MASSIMO", label: "Club Apollo", providers: ["qt", "pp", "gpi"] }
+        , { name: "bravado", key: "LABEL_PRODUCTS_BRAVADO", label: "Club Bravado", providers: ["gpi"] }
+        , { name: "massimo", key: "LABEL_PRODUCTS_MASSIMO", label: "Club Massimo", providers: ["mgs", "gpi"] }
+        , { name: "palazzo", key: "LABEL_PRODUCTS_PALAZZO", label: "Club Palazzo", providers: ["pt", "gpi"] }
+        , { name: "divino", key: "LABEL_PRODUCTS_DIVINO", label: "Club Divino", providers: ["bs", "ctxm", "uc8", "gpi"] }
+        , { name: "gallardo", key: "LABEL_PRODUCTS_GALLARDO", label: "Club Gallardo", providers: ["isb", "png", "gpi"] }
     ];
 
     return {
