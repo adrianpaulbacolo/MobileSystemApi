@@ -57,11 +57,11 @@
         })
     }
 
-    function setPaymentTabs(type, activeMethodId) {
+    function setPaymentTabs(type, activeMethodId, memberid) {
         if (type == "deposit") {
             fetchSettings(type, function () {
                 // payment cache variable is now present once callback is triggered
-                setDepositPaymentTab(paymentCache.settings, activeMethodId);
+                setDepositPaymentTab(paymentCache.settings, activeMethodId, memberid);
                 togglePayment();
             });
         } else {
@@ -141,7 +141,7 @@
         var payment = amplify.store(w88Mobile.Keys.depositSettings);
 
         if (payment && window.User.lang == payment.language) {
-            setDepositPaymentTab(payment.settings, activeTabId)
+            setDepositPaymentTab(payment.settings, activeTabId, memberid)
         }
         else {
             send("/payments/settings/deposit", "GET", {},
@@ -152,7 +152,7 @@
 
                             amplify.store(w88Mobile.Keys.depositSettings, data, window.User.storageExpiration);
 
-                            setDepositPaymentTab(response.ResponseData, activeTabId)
+                            setDepositPaymentTab(response.ResponseData, activeTabId, memberid)
                         default:
                             break;
                     }
@@ -163,7 +163,7 @@
         togglePayment();
     }
 
-    function setDepositPaymentTab(responseData, activeTabId) {
+    function setDepositPaymentTab(responseData, activeTabId, memberid) {
         if (responseData.length > 0) {
             var routing = [
                 autorouteIds.QuickOnline,

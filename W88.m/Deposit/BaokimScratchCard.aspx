@@ -73,8 +73,8 @@
                         <p id="IndicatorMsg" style="color: #ff0000"></p>
                     </li>
                     <li class="item item-select" runat="server">
-                        <asp:Label ID="lblBanks" runat="server" AssociatedControlID="drpBanks" />
-                        <asp:DropDownList ID="drpBanks" runat="server" data-corners="false">
+                        <asp:Label ID="lblBanks" runat="server" AssociatedControlID="drpBank" />
+                        <asp:DropDownList ID="drpBank" runat="server" data-corners="false">
                         </asp:DropDownList>
                     </li>
                     <li class="item item-select">
@@ -115,7 +115,7 @@
                 $('#btnSubmit').click(function (e) {
                     e.preventDefault();
 
-                    var data = { Amount: $('#drpAmount').val(), CardNumber: $('#drpBanks').val(), CCV: $('#txtPin').val(), ReferenceId: $('#txtCardSerialNo').val() };
+                    var data = { Amount: $('#drpAmount').val(), CardNumber: $('#drpBank').val(), CCV: $('#txtPin').val(), ReferenceId: $('#txtCardSerialNo').val() };
 
                     window.w88Mobile.Gateways.BaokimScratchCard.Deposit(data, function (response) {
                         switch (response.ResponseCode) {
@@ -136,10 +136,10 @@
                 });
 
 
-                $('#drpBanks').change(function () {
-                    window.w88Mobile.Gateways.BaokimScratchCard.SetFee($('#drpBanks').val());
+                $('#drpBank').change(function () {
+                    window.w88Mobile.Gateways.BaokimScratchCard.SetFee($('#drpBank').val());
 
-                    window.w88Mobile.Gateways.BaokimScratchCard.SetDenom($('#drpBanks').val());
+                    window.w88Mobile.Gateways.BaokimScratchCard.SetDenom($('#drpBank').val());
                 });
 
 

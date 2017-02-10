@@ -15,45 +15,33 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder1" runat="Server">
     <script type="text/javascript">
         $(document).ready(function () {
-            var payments = new w88Mobile.Gateways.Payments("<%=base.PaymentMethodId %>");
+            _w88_paymentSvc.setPaymentTabs("deposit", "<%=base.PaymentMethodId %>", "<%=base.strMemberID %>");;
 
-            payments.init();
-
-            window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
+            _w88_paymentSvc.DisplaySettings(
+                "<%=base.PaymentMethodId %>"
+                , {
+                    type: "deposit"
+                    , countryCode: "<%=base.strCountryCode %>"
+                    , memberId: "<%=base.strMemberID %>"
+                    , notice: '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>'
+                });
 
             $('#form1').submit(function (e) {
                 e.preventDefault();
-                window.w88Mobile.FormValidator.disableSubmitButton('#ContentPlaceHolder1_btnSubmit');
 
                 var data = {
-                    Amount: $('#<%=txtAmount.ClientID%>').val(),
-                    Bank: { Text: $('#<%=drpBank.ClientID%> option:selected').text(), Value: $('#<%=drpBank.ClientID%> option:selected').val() },
-                    ThankYouPage: location.protocol + "//" + location.host + "/Index"
+                    Amount: $('input[id$="txtAmount"]').val(),
+                    BankText: $('[id$="drpBank"] option:selected').text(),
+                    BankValue: $('[id$="drpBank"] option:selected').val(),
+                    ThankYouPage: location.protocol + "//" + location.host + "/Index",
+                    MethodId: "<%=base.PaymentMethodId%>"
                 };
 
-                payments.send(data, function (response) {
-                    switch (response.ResponseCode) {
-                        case 1:
-                            w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
-                            w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
-                            w88Mobile.PostPaymentForm.submit();
-
-                            $('#form1')[0].reset();
-
-                            break;
-                        default:
-                            if (_.isArray(response.ResponseMessage))
-                                w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
-                            else
-                                w88Mobile.Growl.shout(response.ResponseMessage);
-
-                            break;
-                    }
-                },
-                function () {
-                    w88Mobile.FormValidator.enableSubmitButton('#ContentPlaceHolder1_btnSubmit');
-                    GPINTMOBILE.HideSplash();
-                });
+                var action = "/Deposit/Pay.aspx";
+                var params = decodeURIComponent($.param(data));
+                window.open(action + "?" + params, "<%=base.PageName%>");
+                _w88_paymentSvc.onTransactionCreated($(this));
+                return;
             });
         });
     </script>
