@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class v2_Deposit_AllDebit : PaymentBasePage
+public partial class v2_Deposit_Pay120236 : PaymentBasePage
 {
     protected string lblTransactionId;
 
