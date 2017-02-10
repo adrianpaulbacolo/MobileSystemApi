@@ -15,6 +15,9 @@ public partial class Deposit_Pay : PaymentBasePage
 
         switch (PaymentMethodId)
         {
+            case commonVariables.DepositMethod.PaySec:
+                GatewayFile = "paysecpay";
+                break;
             case commonVariables.DepositMethod.ECPSS:
                 GatewayFile = "ecpsspay";
                 break;
