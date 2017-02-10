@@ -47,7 +47,7 @@ function Funds() {
     }
 
     function fetchWallets() {
-        var resource = "/user/wallets";
+        var resource = "/user/wallets?isSelection=true";
         send(resource, "GET", {}, function (response) {
             if (_.isUndefined(response.ResponseData)) {
                 console.log('Unable to fetch wallets.');
