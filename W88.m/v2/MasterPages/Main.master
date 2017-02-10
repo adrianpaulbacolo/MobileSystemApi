@@ -93,25 +93,25 @@
                         <div class="row">
                             <div class="col-xs-6">
                                 <a href="#">
-                                    <img src="assets/images/sample.jpg" alt="">
+                                    <%--<img src="assets/images/sample.jpg" alt="">--%>
                                     <span>Club W</span>
                                 </a>
                             </div>
                             <div class="col-xs-6">
                                 <a href="#">
-                                    <img src="assets/images/sample.jpg" alt="">
+                                    <%--<img src="assets/images/sample.jpg" alt="">--%>
                                     <span>Club W</span>
                                 </a>
                             </div>
                             <div class="col-xs-6">
                                 <a href="#">
-                                    <img src="assets/images/sample.jpg" alt="">
+                                    <%--<img src="assets/images/sample.jpg" alt="">--%>
                                     <span>Club W</span>
                                 </a>
                             </div>
                             <div class="col-xs-6">
                                 <a href="#">
-                                    <img src="assets/images/sample.jpg" alt="">
+                                    <%--<img src="assets/images/sample.jpg" alt="">--%>
                                     <span>Club W</span>
                                 </a>
                             </div>
@@ -127,25 +127,25 @@
                         <div class="row">
                             <div class="col-xs-6">
                                 <a href="#test">
-                                    <img src="assets/images/sample.jpg" alt="">
+                                    <%--<img src="assets/images/sample.jpg" alt="">--%>
                                     <span>Club W</span>
                                 </a>
                             </div>
                             <div class="col-xs-6">
                                 <a href="#">
-                                    <img src="assets/images/sample.jpg" alt="">
+                                    <%--<img src="assets/images/sample.jpg" alt="">--%>
                                     <span>Club W</span>
                                 </a>
                             </div>
                             <div class="col-xs-6">
                                 <a href="#">
-                                    <img src="assets/images/sample.jpg" alt="">
+                                    <%--<img src="assets/images/sample.jpg" alt="">--%>
                                     <span>Club W</span>
                                 </a>
                             </div>
                             <div class="col-xs-6">
                                 <a href="#">
-                                    <img src="assets/images/sample.jpg" alt="">
+                                    <%--<img src="assets/images/sample.jpg" alt="">--%>
                                     <span>Club W</span>
                                 </a>
                             </div>
