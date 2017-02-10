@@ -15,7 +15,7 @@ function Slots() {
 
     var providers = ["qt", "gpi", "mgs", "pt", "ctxm", "isb"];
     var clubs = [
-        { name: "apollo", key: "LABEL_PRODUCTS_MASSIMO", label: "Club Apollo", providers: ["qt", "pp", "gpi"] }
+        { name: "apollo", key: "LABEL_PRODUCTS_APOLLO", label: "Club Apollo", providers: ["qt", "pp", "gpi"] }
         , { name: "bravado", key: "LABEL_PRODUCTS_BRAVADO", label: "Club Bravado", providers: ["gpi"] }
         , { name: "massimo", key: "LABEL_PRODUCTS_MASSIMO", label: "Club Massimo", providers: ["mgs", "gpi"] }
         , { name: "palazzo", key: "LABEL_PRODUCTS_PALAZZO", label: "Club Palazzo", providers: ["pt", "gpi"] }
