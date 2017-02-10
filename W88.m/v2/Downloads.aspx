@@ -9,8 +9,8 @@
 
     <script type="text/template" id='downloadItem'>
 
-        <div class="container container-small container-thin">
-            <div class="row thin-gutter">
+        <div class="container container-small container-extra-thin">
+            <div class="row extra-thin-gutter">
                 {% _.forEach( tplData.items, function( item ){ %}
                 <div class="col-xs-6">
                     {% if(tplData.deviceId == 1 && !_.isUndefined(item.ios)){ %}
