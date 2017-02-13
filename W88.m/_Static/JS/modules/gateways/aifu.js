@@ -17,7 +17,7 @@ function Aifu() {
         _self.deposit(data, function (response) {
             switch (response.ResponseCode) {
                 case 1:
-                    w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.DummyURL, "body");
+                    w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
                     $(".ui-page").attr("display", "none");
                     w88Mobile.PostPaymentForm.submit();
                     $('#form1')[0].reset();
