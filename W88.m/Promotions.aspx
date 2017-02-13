@@ -30,7 +30,9 @@
         };
         var currentCCode = '<%= commonCookie.CookieCurrency%>';
 
-        function timerV2(pid, start_date, end_date) { if (new Date('<%=DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') < new Date(start_date) || new Date('<%=DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') > new Date(end_date)) { $('div#' + pid).hide(); } }
+        function timerV2(pid, start_date, end_date) {
+            if (new Date('<%=DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') < new Date(start_date) || new Date('<%=DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') > new Date(end_date)) { $('div#' + pid).hide(); }
+        }
             function filterPromos(category) {
                 $("#divPromotions").html('');
                 var listObj = $("#divPromotions").append('<ul class="row row-uc row-no-padding row-wrap"></ul>').find('ul'),
@@ -378,6 +380,21 @@
                 }
             }
             else { strComment = $obj.find('textarea').val(); }
+
+            var hasError = false;
+            var requiredFields = $obj.find("input[data-required]");
+            if (!_.isEmpty(requiredFields)) {
+                _.forEach(requiredFields, function (input) {
+                    if (_.isEmpty($(input).val())) {
+                        hasError = true;
+                    }
+                });
+            }
+
+            if (hasError) {
+                w88Mobile.Growl.shout("<%=commonCulture.ElementValues.getResourceXPathString("/Promotion/MissingFields", xeErrors)%>");
+                return;
+            }
 
             $.ajax({
                 type: 'POST',
