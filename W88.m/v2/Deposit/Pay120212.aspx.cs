@@ -12,5 +12,9 @@ public partial class v2_Deposit_Pay120212 : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!Page.IsPostBack)
+        {
+            lblMessage.Text = base.strlblVendorNote;
+        }
     }
 }

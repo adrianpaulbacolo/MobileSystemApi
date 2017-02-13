@@ -192,8 +192,9 @@
                     var anchor = $('<a />', { class: 'list-group-item', id: data.Id, href: page }).text(data.Title);
 
                     if ($('#paymentTabs').length > 0)
-                        $('#paymentTabs').append($('<li />').append(anchor));
+                        $('#paymentTabs').append(anchor);
 
+                    $('#' + activeTabId).addClass('active');
                 }
                 else if (!activeTabId && _.includes(routing, data.Id)) {
                     if (!_.includes(window.location.pathname, page)) {

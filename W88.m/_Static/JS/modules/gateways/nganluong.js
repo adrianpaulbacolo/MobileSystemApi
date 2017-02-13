@@ -9,7 +9,7 @@ function NganLuongV2() {
         setTranslations();
         function setTranslations() {
             if (_w88_contents.translate("BUTTON_PROCEED") != "BUTTON_PROCEED") {
-                $("#ContentPlaceHolder1_btnSubmit").text(_w88_contents.translate("BUTTON_PROCEED"));
+                $("#btnSubmitPlacement").text(_w88_contents.translate("BUTTON_PROCEED"));
             } else {
                 window.setInterval(function () {
                     setTranslations();
