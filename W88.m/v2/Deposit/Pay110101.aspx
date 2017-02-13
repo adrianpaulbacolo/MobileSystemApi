@@ -14,25 +14,18 @@
         <asp:Label ID="lblSystemAccount" runat="server" AssociatedControlID="drpSystemAccount" />
         <asp:DropDownList ID="drpSystemAccount" runat="server" CssClass="form-control" />
     </div>
-    <div class="form-group">
-        <asp:Label ID="lblDepositDateTime" runat="server" AssociatedControlID="drpDepositDate" />
-    </div>
-
     <div class="form-group" id="divDepositDateTime" runat="server">
-        <div class="col-xs-6">
-            <label>
+        <asp:Label ID="lblDepositDateTime" runat="server" AssociatedControlID="drpDepositDate" />
+        <div class="row thin-gutter">
+            <div class="col-xs-6">
                 <asp:DropDownList ID="drpDepositDate" runat="server" CssClass="form-control" />
-            </label>
-        </div>
-        <div class="col-xs-3">
-            <label>
-                <asp:DropDownList ID="drpHour" runat="server" CssClass="form-control" />
-            </label>
-        </div>
-        <div class="col-xs-3">
-            <label>
+            </div>
+            <div class="col-xs-3">
+                    <asp:DropDownList ID="drpHour" runat="server" CssClass="form-control" />
+            </div>
+            <div class="col-xs-3">
                 <asp:DropDownList ID="drpMinute" runat="server" CssClass="form-control" />
-            </label>
+            </div>
         </div>
     </div>
     <div class="form-group">
