@@ -54,7 +54,7 @@ public partial class Withdrawal_WingMoney : PaymentBasePage
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
 
-        string strWithdrawalAmount = txtWithdrawAmount.Text;
+        string strWithdrawalAmount = txtAmount.Text;
         string strAccountName = txtAccountName.Text;
         string strAccountNumber = txtAccountNumber.Text;
 

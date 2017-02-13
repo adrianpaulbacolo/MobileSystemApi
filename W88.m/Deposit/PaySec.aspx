@@ -13,8 +13,8 @@
     <script type="text/javascript">
         $(document).ready(function () {
             _w88_paymentSvc.setPaymentTabs("deposit", "<%=base.PaymentMethodId %>", "<%=base.strMemberID %>");
-            _w88_paymentSvc.DisplaySettings(
-                "<%=base.PaymentMethodId %>"
+                _w88_paymentSvc.DisplaySettings(
+                    "<%=base.PaymentMethodId %>"
                 , {
                     type: "deposit"
                     , countryCode: "<%=base.strCountryCode %>"
@@ -22,19 +22,19 @@
                     , notice: '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>'
                 });
 
-            $('#form1').submit(function (e) {
-                e.preventDefault();
-                var data = {
-                    Amount: $('input[id$="txtAmount"]').val(),
-                    MethodId: "<%=base.PaymentMethodId%>"
-                };
-                var action = "/Deposit/Pay.aspx";
-                var params = decodeURIComponent($.param(data));
-                window.open(action + "?" + params, "<%=base.PageName%>");
-                _w88_paymentSvc.onTransactionCreated($(this));
-                return;
-            });
+                $('#form1').submit(function (e) {
+                    e.preventDefault();
+                    var data = {
+                        Amount: $('input[id$="txtAmount"]').val(),
+                        MethodId: "<%=base.PaymentMethodId%>"
+                    };
+                    var action = "/Deposit/Pay.aspx";
+                    var params = decodeURIComponent($.param(data));
+                    window.open(action + "?" + params, "<%=base.PageName%>");
+                    _w88_paymentSvc.onTransactionCreated($(this));
+                    return;
+                });
 
-        });
+            });
     </script>
 </asp:Content>

@@ -67,11 +67,11 @@
             success: function (d) {
                 telcos = d.ResponseData.Telcos;
 
-                $('#drpBanks').append($('<option>').text(defaultSelect).attr('value', '-1'));
-                $('#drpBanks').val("-1").selectmenu("refresh");
+                $('#drpBank').append($('<option>').text(defaultSelect).attr('value', '-1'));
+                $('#drpBank').val("-1").selectmenu("refresh");
 
                 _.forOwn(d.ResponseData.Telcos, function (data) {
-                    $('#drpBanks').append($('<option>').text(data.Name).attr('value', data.Id));
+                    $('#drpBank').append($('<option>').text(data.Name).attr('value', data.Id));
                 });
 
 
