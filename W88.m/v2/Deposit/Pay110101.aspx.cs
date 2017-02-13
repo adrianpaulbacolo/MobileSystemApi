@@ -10,6 +10,13 @@ public partial class v2_Deposit_Pay110101 : PaymentBasePage
 {
     protected string lblTransactionId;
 
+    protected void Page_Init(object sender, EventArgs e)
+    {
+        base.PageName = Convert.ToString(commonVariables.DepositMethod.FastDeposit);
+        base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
+        base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.FastDeposit);
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
@@ -58,7 +65,7 @@ public partial class v2_Deposit_Pay110101 : PaymentBasePage
         lblDepositChannel.Text = commonCulture.ElementValues.getResourceString("lblDepositChannel", xeResources);
 
         lblSystemAccount.Text = commonCulture.ElementValues.getResourceString("lblSystemAccount", xeResources);
-
+        
         lblDepositDateTime.Text = commonCulture.ElementValues.getResourceString("drpDepositDateTime", xeResources);
 
         lblTransactionId = base.strlblTransactionId;

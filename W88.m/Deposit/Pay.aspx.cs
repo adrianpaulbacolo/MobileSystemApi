@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 public partial class Deposit_Pay : PaymentBasePage
 {
@@ -20,6 +15,22 @@ public partial class Deposit_Pay : PaymentBasePage
                 break;
             case commonVariables.DepositMethod.KexunPay:
                 GatewayFile = "kexunpay";
+                break;
+
+            case commonVariables.DepositMethod.AllDebit:
+                GatewayFile = "alldebit";
+                break;
+
+            case commonVariables.DepositMethod.BaokimScratchCard:
+                GatewayFile = "baokimSc";
+                break;
+
+            case commonVariables.DepositMethod.NganLuong:
+                GatewayFile = "nganluong";
+                break;
+
+            case commonVariables.DepositMethod.FastDeposit:
+                GatewayFile = "fastdeposit";
                 break;
         }
     }
