@@ -30,43 +30,37 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            var payments = new w88Mobile.Gateways.Payments("<%=base.PaymentMethodId %>");
-            payments.init();
 
-            window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
-            window.w88Mobile.Gateways.BaokimScratchCard.Initialize();
-
-            $('#form1').submit(function (e) {
-                window.w88Mobile.FormValidator.disableSubmitButton('button[id$="btnSubmit"]');
-                e.preventDefault();
-                var data = {
-                    Amount: $('#<%=drpAmount.ClientID%>').val(),
-                    CardNumber: $('#<%=drpBanks.ClientID%>').val(),
-                    CCV: $('#<%=txtPin.ClientID%>').val(),
-                    ReferenceId: $('#<%=txtCardSerialNo.ClientID%>').val()
-                };
-                payments.send(data, function (response) {
-                    switch (response.ResponseCode) {
-                        case 1:
-                            w88Mobile.Growl.shout(response.ResponseMessage);
-                            break;
-                        default:
-                            if (_.isArray(response.ResponseMessage))
-                                w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
-                            else
-                                w88Mobile.Growl.shout(response.ResponseMessage);
-                            break;
-                    }
-                },
-                    function () {
-                        w88Mobile.FormValidator.enableSubmitButton('button[id$="btnSubmit"]');
-                        GPINTMOBILE.HideSplash();
-                    });
+            _w88_paymentSvcV2.setPaymentTabs("deposit", "<%=base.PaymentMethodId %>", "<%=base.strMemberID %>");
+            _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", {
+                type: "deposit",
+                countryCode: "<%=base.strCountryCode %>",
+                memberId: "<%=base.strMemberID %>",
+                notice: '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>'
             });
 
+            window.w88Mobile.Gateways.BaokimScratchCard.init();
+
             $('#<%=drpBanks.ClientID%>').change(function () {
-                window.w88Mobile.Gateways.BaokimScratchCard.SetFee($('#<%=drpBanks.ClientID%>').val());
-                window.w88Mobile.Gateways.BaokimScratchCard.SetDenom($('#<%=drpBanks.ClientID%>').val());
+                window.w88Mobile.Gateways.BaokimScratchCard.setFee($('#<%=drpBanks.ClientID%>').val());
+                window.w88Mobile.Gateways.BaokimScratchCard.setDenom($('#<%=drpBanks.ClientID%>').val());
+            });
+
+            $('#form1').submit(function (e) {
+                e.preventDefault();
+
+                var data = {
+                    Amount: $('input[id$="txtAmount"]').val(),
+                    CardNumber: $('[id$="drpBanks"]').val(),
+                    ReferenceId: $('[id$="txtCardSerialNo"]').val(),
+                    CCV: $('[id$="txtPin"]').val()
+                };
+
+                var action = "/Deposit/Pay.aspx";
+                var params = decodeURIComponent($.param(data));
+                window.open(action + "?" + params, "<%=base.PageName%>");
+                _w88_paymentSvc.onTransactionCreated($(this));
+                return;
             });
         });
     </script>

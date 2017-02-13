@@ -46,7 +46,7 @@
         <h4 class="modal-title" id="exampleModalLabel">New message</h4>
       </div>--%>
                 <div class="modal-body">
-                    <img src="/_Static/Images/CVV-back.jpg" class="img-responsive" /></span>
+                    <span><img src="/_Static/Images/CVV-back.jpg" class="img-responsive" /></span>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -61,11 +61,15 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            var payments = new w88Mobile.Gateways.Payments("<%=base.PaymentMethodId %>");
-            payments.init();
+            _w88_paymentSvcV2.setPaymentTabs("deposit", "<%=base.PaymentMethodId %>", "<%=base.strMemberID %>");
+            _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", {
+                type: "deposit",
+                countryCode: "<%=base.strCountryCode %>",
+                memberId: "<%=base.strMemberID %>",
+                notice: '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>'
+            });
 
-            window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
-            window.w88Mobile.Gateways.AllDebit.Initialize();
+            window.w88Mobile.Gateways.AllDebit.init();
 
             $('#<%=txtCardNo.ClientID%>').mask('9999-9999-9999-9999');
             $('#<%=txtSecurityCode.ClientID%>').mask('999');
@@ -73,38 +77,22 @@
             $('#form1').submit(function (e) {
                 e.preventDefault();
 
-                window.w88Mobile.FormValidator.disableSubmitButton('button[id$="btnSubmit"]');
-
                 var data = {
-                    Amount: $('#<%=txtAmount.ClientID%>').val(),
-                    CardType: { Text: $('#<%=ddlCardType.ClientID%> option:selected').text(), Value: $('#<%=ddlCardType.ClientID%>').val() },
-                    AccountName: $('#<%=txtCardName.ClientID%>').val(),
-                    CardNumber: $('#<%=txtCardNo.ClientID%>').val(),
-                    CardExpiryMonth: $('#<%=ddlExpiryMonth.ClientID%>').val(),
-                    CardExpiryYear: $('#<%=ddlExpiryYear.ClientID%>').val(),
-                    CCV: $('#<%=txtSecurityCode.ClientID%>').val()
+                    Amount: $('input[id$="txtAmount"]').val(),
+                    CardTypeText: $('[id$="ddlCardType"] option:selected').text(),
+                    CardTypeValue: $('[id$="ddlCardType"]').val(),
+                    AccountName: $('[id$="txtCardName"]').val(),
+                    CardNumber: $('[id$="txtCardNo"]').val(),
+                    CardExpiryMonth: $('[id$="ddlExpiryMonth"]').val(),
+                    CardExpiryYear: $('[id$="ddlExpiryYear"]').val(),
+                    CCV: $('[id$="txtSecurityCode"]').val()
                 };
 
-                payments.send(data, function (response) {
-                    switch (response.ResponseCode) {
-                        case 1:
-                            w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
-                            w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
-                            w88Mobile.PostPaymentForm.submit();
-                            $('#form1')[0].reset();
-                            break;
-                        default:
-                            if (_.isArray(response.ResponseMessage))
-                                w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
-                            else
-                                w88Mobile.Growl.shout(response.ResponseMessage);
-                            break;
-                    }
-                },
-                    function () {
-                        w88Mobile.FormValidator.enableSubmitButton('button[id$="btnSubmit"]');
-                        GPINTMOBILE.HideSplash();
-                    });
+                var action = "/Deposit/Pay.aspx";
+                var params = decodeURIComponent($.param(data));
+                window.open(action + "?" + params, "<%=base.PageName%>");
+                _w88_paymentSvc.onTransactionCreated($(this));
+                return;
             });
         });
     </script>

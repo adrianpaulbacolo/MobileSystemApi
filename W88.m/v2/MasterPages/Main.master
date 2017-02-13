@@ -213,6 +213,7 @@
     <script src="/_static/v2/assets/js/main.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
     <%--<script src="/_static/v2/assets/js/templates?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>--%>
     <script src="/_Static/JS/vendor/amplify.min.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="/_Static/JS/Cookie.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 
     <asp:ContentPlaceHolder ID="ScriptPlaceHolder" runat="server">
 
@@ -231,8 +232,8 @@
             window.User.lang = '<%=commonVariables.SelectedLanguage%>';
             window.User.storageExpiration = { expires: 300000 };
             w88Mobile.APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("APIUrl") %>';
-            w88Mobile.Gateways = {};
-
+            window.w88Mobile.Gateway = {};
+            window.w88Mobile.Gateways = {};
         </script>
         <script src="/_Static/JS/i18n/contents-<%=commonVariables.SelectedLanguageShort%>.js"></script>
         <script src="/_Static/JS/modules/translate.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
