@@ -30,6 +30,10 @@ public partial class Deposit_Pay : PaymentBasePage
             case commonVariables.DepositMethod.Help2Pay:
                 GatewayFile = "help2pay";
                 break;
+            case commonVariables.DepositMethod.AifuAlipay:
+            case commonVariables.DepositMethod.AifuWeChat:
+                GatewayFile = "aifu";
+                break;
         }
     }
 }
