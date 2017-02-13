@@ -1,18 +1,35 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/v2/MasterPages/Main.master" AutoEventWireup="true" CodeFile="Payment.master.cs" Inherits="v2_MasterPages_Payment" %>
 
-
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentHolder" runat="Server">
+
+
 
     <div class="wallets">
     </div>
 
-    <asp:ContentPlaceHolder ID="PaymentMainContent" runat="Server">
-    </asp:ContentPlaceHolder>
+    <form class="form" id="form1" runat="server">
+        <asp:ContentPlaceHolder ID="PaymentMainContent" runat="Server">
+        </asp:ContentPlaceHolder>
+
+        <ul class="list fixed-tablet-size">
+            <li class="item row" id="btnSubmitPlacement">
+                <div class="col">
+                    <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" />
+                </div>
+            </li>
+        </ul>
+    </form>
 
 </asp:Content>
 
 <asp:Content ID="ScriptBottom" ContentPlaceHolderID="InnerScriptPlaceHolder" runat="Server">
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/payments.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/gateway.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/formValidator.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="/_Static/JS/jquery.mask.min.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
     <script src="/_static/v2/assets/js/funds.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+
     <script>
         $(document).ready(function () {
 
@@ -69,4 +86,72 @@
 
     </script>
 
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var isDeposit = _.includes(window.location.pathname.toLowerCase(), "deposit");
+
+            var headerTitle = isDeposit ? _w88_contents.translate("LABEL_FUNDS_DEPOSIT") : _w88_contents.translate("LABEL_FUNDS_WIDRAW");
+
+            setTranslations();
+            function setTranslations() {
+                if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
+                    $('#headerTitle').text(headerTitle);
+                    $('#lblMode').text(_w88_contents.translate("LABEL_MODE"));
+                    $('#lblMinMaxLimit').text(_w88_contents.translate("LABEL_MINMAX_LIMIT"));
+                    $('#lblDailyLimit').text(_w88_contents.translate("LABEL_DAILY_LIMIT"));
+                    $('#lblTotalAllowed').text(_w88_contents.translate("LABEL_TOTAL_ALLOWED"));
+
+                    $('#<%=btnSubmit.ClientID%>').val(_w88_contents.translate("BUTTON_SUBMIT")).button("refresh");
+                } else {
+                    window.setInterval(function () {
+                        setTranslations();
+                    }, 500);
+                }
+            }
+
+            var resource = "", payment = undefined, storage = "";
+
+            if (isDeposit) {
+                resource = "/payments/settings/deposit";
+                payment = amplify.store(w88Mobile.Keys.depositSettings);
+                storage = w88Mobile.Keys.depositSettings;
+            } else {
+                resource = "/payments/settings/withdrawal";
+                payment = amplify.store(w88Mobile.Keys.withdrawalSettings);
+                storage = w88Mobile.Keys.withdrawalSettings;
+            }
+
+            if (!payment || (payment && window.User.lang != payment.language)) {
+                var headers = {
+                    'Token': window.User.token,
+                    'LanguageCode': window.User.lang
+                };
+
+                $.ajax({
+                    type: "GET",
+                    url: w88Mobile.APIUrl + resource,
+                    headers: headers,
+                    success: function (response) {
+                        switch (response.ResponseCode) {
+                            case 1:
+                                var data = { settings: response.ResponseData, language: window.User.lang };
+                                amplify.store(storage, data, window.User.storageExpiration);
+                            default:
+                                break;
+                        }
+                    },
+                    error: function () {
+                        console.log("Error connecting to api");
+                    },
+                });
+            }
+        });
+    </script>
+
+    <asp:ContentPlaceHolder ID="ScriptsHolder" runat="Server">
+    </asp:ContentPlaceHolder>
+
 </asp:Content>
+
+

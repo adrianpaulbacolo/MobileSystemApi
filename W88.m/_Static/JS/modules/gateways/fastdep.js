@@ -1,84 +1,49 @@
 ﻿function FastDeposit() {
 
-    var token = "";
-
     var fastdeposit = {
         GetBankDetails: get,
-        ToogleBank: toogleBank,
-        Deposit: deposit,
-        Withdraw: withdraw
+        ToogleBank: toogleBank
     };
 
     return fastdeposit;
 
-    function send(resource, method, data, beforeSend, success, complete) {
-        var url = w88Mobile.APIUrl + resource;
-
-        var headers = {
-            'Token': window.User.token,
-            'LanguageCode': window.User.lang
-        };
-
-        $.ajax({
-            type: method,
-            url: url,
-            data: data,
-            headers: headers,
-            beforeSend: beforeSend,
-            success: success,
-            error: function () {
-                console.log("Error connecting to api");
-            },
-            complete: complete
-        });
-    }
-
     function get() {
-        send("/user/banks", "GET", "", "",
-            function (response) {
-                if (!_.isEqual(response.ResponseCode, 0)) {
-                    load(response.ResponseData);
+
+        setTranslations();
+
+        function setTranslations() {
+
+            if (Cookies().getCookie('language').toLowerCase() == 'vn' && Cookies().getCookie('currencyCode').toLowerCase() == 'vnd') {
+                if (_w88_contents.translate("LABEL_PAYMENT_NOTE_FASTDEPOSIT") != "LABEL_PAYMENT_NOTE_FASTDEPOSIT") {
+                    $("#paymentNoteContent").text(_w88_contents.translate("LABEL_PAYMENT_NOTE_FASTDEPOSIT"));
+                } else {
+                    window.setInterval(function() {
+                        setTranslations();
+                    }, 500);
                 }
-            },
-            ""
-        );
-    }
+            }
 
-    function load(data) {
-        if (data) {
-            if (!_.isEmpty(data.Bank)) $('#drpBank').val(data.Bank.Value).selectmenu("refresh");
+            _w88_paymentSvc.SendDeposit("/user/banks", "GET", "", function (response) {
+                if (!_.isEqual(response.ResponseCode, 0)) {
+                    if (!_.isEmpty(data.Bank)) $('select[id$="ContentPlaceHolder1_ContentPlaceHolder2_drpBank"]').val(data.Bank.Value).selectmenu("refresh");
 
-            toogleBank($('#drpBank').val());
-            $('#txtBankName').val(data.BankName);
-            $('#txtAccountName').val(data.AccountName);
-            $('#txtAccountNumber').val(data.AccountNumber);
+                    toogleBank($('select[id$="ContentPlaceHolder1_ContentPlaceHolder2_drpBank"]')).val();
+                    $('input[id$="ContentPlaceHolder1_ContentPlaceHolder2_txtBankName"]').val(data.BankName);
+                    $('input[id$="ContentPlaceHolder1_ContentPlaceHolder2_txtAccountName"]').val(data.AccountName);
+                    $('input[id$="ContentPlaceHolder1_ContentPlaceHolder2_txtAccountNumber"]').val(data.AccountNumber);
+                }
+            });
         }
-    }
 
-    function toogleBank(bankId) {
-        if (bankId && _.isEqual(bankId.toUpperCase(), "OTHER")) {
-            $('#divBankName').show();
+        function toogleBank(bankId) {
+            if (bankId && _.isEqual(bankId.toUpperCase(), "OTHER")) {
+                $('#divBankName').show();
+            }
+            else {
+                $('#divBankName').hide();
+            }
         }
-        else {
-            $('#divBankName').hide();
-        }
+
     }
 
-    // deposit
-    function deposit(data, successCallback, completeCallback) {
-        validate(data, "deposit");
-        send("/payments/110101", "POST", data, function () { GPInt.prototype.ShowSplash() }, successCallback, completeCallback);
-    }
-
-    // withdraw
-    function withdraw(data, successCallback, completeCallback) {
-        send("/payments/210602", "POST", data, function () { GPInt.prototype.ShowSplash() }, successCallback, completeCallback);
-    }
-
-    function validate(data, method) {
-        // @todo add validation here
-        return;
-    }
-}
-
-window.w88Mobile.Gateways.FastDeposit = FastDeposit();
+    window.w88Mobile.Gateways.FastDeposit = FastDeposit();
