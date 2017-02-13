@@ -1,7 +1,7 @@
 ﻿{% if (_.isEqual(slotData.route, "index_search") || _.isEqual(slotData.route, "club_search")) { %}
 
-<a href="#" onclick="w88Mobile.v2.Routes.previous()" class="header-button header-button-text header-button-left">
-    <span class="icon icon-back"></span> <span class="button-text"></span>
+<a href="#" onclick="w88Mobile.v2.Routes.previous()" class="header-button header-button-left">
+    <span class="icon icon-back"></span>
 </a>
 <div class="header-search-input">
     <div class="input-group input-group-sm">
@@ -14,8 +14,8 @@
 
 {% } else if (_.isEqual(slotData.route, "club")) { %}
 
-<a href="#" onclick="w88Mobile.v2.Routes.previous()" class="header-button header-button-text header-button-left">
-    <span class="icon icon-back"></span> <span class="button-text"></span>
+<a href="#" onclick="w88Mobile.v2.Routes.previous()" class="header-button header-button-left">
+    <span class="icon icon-back"></span>
 </a>
 <a href="#" onclick="showSearchHeader('club_search')" class="header-button header-button-right">
     <span class="icon icon-search"></span>
@@ -26,16 +26,16 @@
 
 {% } else if (_.isEqual(slotData.route, "club_filter")) { %}
 
-<a href="#" onclick="w88Mobile.v2.Routes.previous()" class="header-button header-button-text header-button-left">
-    <span class="icon icon-back"></span> <span class="button-text"></span>
+<a href="#" onclick="w88Mobile.v2.Routes.previous()" class="header-button header-button-left">
+    <span class="icon icon-back"></span>
 </a>
 <a href="#" onclick="showFilterModal(w88Mobile.v2.Routes.currentCtrl().club)" class="header-button header-button-right" id="filterMode">
     <span class="icon icon-filter"></span>
 </a>
 {% } else if (_.isEqual(slotData.route, "index")) { %}
 
-<a href="#" onclick="w88Mobile.v2.Routes.previous()" class="header-button header-button-text header-button-left">
-    <span class="icon icon-back"></span> <span class="button-text"></span>
+<a href="#" onclick="w88Mobile.v2.Routes.previous()" class="header-button header-button-left">
+    <span class="icon icon-back"></span>
 </a>
 <a href="#" onclick="showSearchHeader('index_search')" class="header-button header-button-right">
     <span class="icon icon-search"></span>

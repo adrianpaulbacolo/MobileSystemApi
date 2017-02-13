@@ -98,23 +98,49 @@
                                 <textarea name="" rows="3" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
-                                <div class="checkbox">
+                                <div class="checkbox checkbox-custom">
                                     <label>
-                                        <input type="checkbox"> Check me out
+                                        <input type="checkbox"><span>Checkbox 1</span>
                                     </label>
                                 </div>
-                                <div class="checkbox">
+                                <div class="checkbox checkbox-custom">
                                     <label>
-                                        <input type="checkbox"> Check me out
+                                        <input type="checkbox"><span>Checkbox 2</span>
                                     </label>
                                 </div>
-                                <div class="checkbox">
+                                <div class="checkbox checkbox-custom">
                                     <label>
-                                        <input type="checkbox"> Check me out
+                                        <input type="checkbox"><span>Checkbox 3</span>
                                     </label>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-block btn-primary">Submit</button>
+                            <div class="form-group">
+                                <div class="radio radio-custom">
+                                    <label>
+                                        <input type="radio" name="radio"><span>radio 1</span>
+                                    </label>
+                                </div>
+                                <div class="radio radio-custom">
+                                    <label>
+                                        <input type="radio" name="radio"><span>radio 2</span>
+                                    </label>
+                                </div>
+                                <div class="radio radio-custom">
+                                    <label>
+                                        <input type="radio" name="radio"><span>radio 3</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#sample-modal1">
+                                Sample Modal 1
+                            </button>
+
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#sample-modal2">
+                                Sample Modal 2
+                            </button>
                         </form>
                         
                     </div>
@@ -243,6 +269,63 @@
             </ul>
         </nav>
     </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="sample-modal1" tabindex="-1" role="dialog" aria-labelledby="sample-modal1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="icon icon-close"></span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla efficitur in metus vel semper. Donec cursus, nibh nec ultrices consectetur, justo mauris tristique metus, non pretium tellus urna sed nunc. </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-block btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-block btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="sample-modal2" tabindex="-1" role="dialog" aria-labelledby="sample-modal2">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header mheader-notitle">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="icon icon-close"></span></button>
+                </div>
+                <div class="modal-body">
+                    <h4 class="text-alt">ID: Testrubyjpy</h4>
+                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
+                    <form action="">
+                        <div class="form-group">
+                            <div class="radio radio-custom">
+                                <label>
+                                    <input type="radio" name="radio"><span>radio 1</span>
+                                </label>
+                            </div>
+                            <div class="radio radio-custom">
+                                <label>
+                                    <input type="radio" name="radio"><span>radio 2</span>
+                                </label>
+                            </div>
+                            <div class="radio radio-custom">
+                                <label>
+                                    <input type="radio" name="radio"><span>radio 3</span>
+                                </label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-block btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-block btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="assets/js/vendor/jquery.js"></script>

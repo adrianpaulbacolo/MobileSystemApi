@@ -29,14 +29,7 @@
 				border-top: none;
 			}
 			.close{
-				font-size: 1.813rem;
-				color: $white;
-				opacity: 0.75;
-				text-shadow: none;
-				&:focus,
-				&:hover{
-				opacity: 1;
-				}
+				margin-top: 0;
 			}
 		}
 		&:before{
@@ -45,11 +38,6 @@
 
 	}
 }
-
-.modal-backdrop {
-    opacity: 0.95 !important;
-}
-
 .modal:before {
   content: '';
   display: inline-block;
@@ -58,6 +46,24 @@
   margin-right: -4px;
 }
 
+.modal-header{
+	border-bottom: none;
+	position: relative;
+	z-index: 1052;
+	&.mheader-notitle{
+		margin-bottom: -30px;
+	}
+}
+.modal-title{
+	color: $brand-alt;
+	font-weight: 700;
+}
+.modal-footer{
+	border-top: none;
+}
+.modal-backdrop {
+    opacity: 0.95 !important;
+}
 .modal-dialog {
   display: inline-block;
   text-align: left;
@@ -65,7 +71,15 @@
   width: 90%;
   max-width: 460px;
 	.close{
-		font-size: 2rem;
+		opacity: 0.75;
+		color: $text-color;
+		font-size: 1.5rem;
+		text-shadow: none;
+		&:focus,
+		&:active,
+		&:hover{
+			opacity: 1;
+		}
 	}
 }
 
@@ -75,30 +89,11 @@
 	&.modal-alt{
 		border-color: $modal-bg-color-alt;
 		background-color: $modal-bg-color-alt;
-		.modal-header{
-			border-bottom: none;
-		}
 	}
 	&.modal-transparent{
 		border-color: transparent;
 		background-color: transparent;
 		@include box-shadow(none);
-		.modal-header{
-			border-bottom: none;
-		}
-		.modal-footer{
-			border-top: none;
-		}
-		.close{
-			font-size: 2rem;
-			color: $white;
-			opacity: 0.75;
-			text-shadow: none;
-			&:focus,
-			&:hover{
-			opacity: 1;
-			}
-		}
 	}
 }
 
@@ -106,6 +101,7 @@
 	.modal-body{
 		h4{
 			color: $modal-title-color;
+			font-weight: 700;
 			margin-bottom: 30px;
 		}
 

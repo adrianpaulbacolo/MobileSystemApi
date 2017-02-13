@@ -6,21 +6,6 @@
   font-size: 0.750rem;
 }
 
-.radio,
-.checkbox{
-  label{
-    color: $brand-alt;
-    font-size: 0.875rem;
-  }
-  input[type="radio"], 
-  input[type="checkbox"] {
-      margin-top: 3px;
-  }
-}
-
-.form-group{
-  margin-bottom: 20px;
-}
 .form-group.form-group-line{
   label{
     color: $form-label-color;
@@ -175,6 +160,7 @@
   position: absolute;
   display: table;
 }
+
 .error-box{
   text-align: center;
   display: table-cell;
