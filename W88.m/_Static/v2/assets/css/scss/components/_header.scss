@@ -88,7 +88,7 @@
 		}
 		.header-button{
 			text-align: left;
-			width: 75px !important;
+			width: 45px !important;
 			white-space: nowrap;
 		}
 		.header-search-input{
@@ -107,7 +107,7 @@
 				background-color: $header-search-bg;
 				@include border-radius( 0 3px 3px 0);
 				span{
-					font-size: 1rem;
+					font-size: 1.188rem;
 				}
 			}
 		}
