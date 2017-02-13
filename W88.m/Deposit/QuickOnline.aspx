@@ -54,8 +54,8 @@
                         </div>
                     </li>
                     <li class="item item-input">
-                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
-                        <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
+                        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
                     <li class="item item-select">
                         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
@@ -85,7 +85,7 @@
                     e.preventDefault();
 
                     var data = {
-                        Amount: $('#txtDepositAmount').val(),
+                        Amount: $('#txtAmount').val(),
                         Bank: { Text: $('#drpBank option:selected').text(), Value: $('#drpBank').val() },
                         ThankYouPage: location.protocol + "//" + location.host + "/Deposit/Thankyou.aspx"
                     };

@@ -68,8 +68,8 @@
                         </div>
                     </li>
                     <li class="item item-input">
-                        <asp:Label ID="lblWithdrawAmount" runat="server" AssociatedControlID="txtWithdrawAmount" />
-                        <asp:TextBox ID="txtWithdrawAmount" runat="server" type="number" step="any" min="1" />
+                        <asp:Label ID="lblWithdrawAmount" runat="server" AssociatedControlID="txtAmount" />
+                        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" />
                     </li>
                     <li class="item item-input">
                         <asp:Label ID="lblEmail" runat="server" AssociatedControlID="txtEmail" />
@@ -101,7 +101,7 @@
                 $('#btnSubmit').click(function (e) {
                     e.preventDefault();
 
-                    var data = { Amount: $('#txtWithdrawAmount').val(), Email: $('#txtEmail').val() };
+                    var data = { Amount: $('#txtAmount').val(), Email: $('#txtEmail').val() };
                     window.w88Mobile.Gateways.Baokim.withdraw(data, function (response) {
                         switch (response.ResponseCode) {
                             case 1:

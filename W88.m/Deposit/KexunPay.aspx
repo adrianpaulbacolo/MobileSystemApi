@@ -6,8 +6,8 @@
             <asp:Label ID="lblNote" runat="server"></asp:Label>
         </li>
         <li class="item item-input">
-            <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
-            <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+            <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
+            <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
         </li>
     </ul>
 </asp:Content>
@@ -16,7 +16,7 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            _w88_paymentSvc.setPaymentTabs("deposit", "<%=base.PaymentMethodId %>");
+            _w88_paymentSvc.setPaymentTabs("deposit", "<%=base.PaymentMethodId %>", "<%=base.strMemberID %>");
             _w88_paymentSvc.DisplaySettings(
                 "<%=base.PaymentMethodId %>"
                 , {
@@ -29,7 +29,7 @@
             $('#form1').submit(function (e) {
                 e.preventDefault();
                 var data = {
-                    Amount: $('input[id$="txtDepositAmount"]').val(),
+                    Amount: $('input[id$="txtAmount"]').val(),
                     ThankYouPage: location.protocol + "//" + location.host + "/Index",
                     MethodId: "<%=base.PaymentMethodId%>"
                 };

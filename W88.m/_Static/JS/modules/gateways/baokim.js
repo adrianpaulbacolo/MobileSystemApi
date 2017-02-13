@@ -72,13 +72,13 @@
             headers: headers,
             success: function(d) {
 
-                $('#ContentPlaceHolder1_ContentPlaceHolder2_drpBanks').append($('<option>').text(selectName).attr('value', '-1'));
+                $('#ContentPlaceHolder1_ContentPlaceHolder2_drpBank').append($('<option>').text(selectName).attr('value', '-1'));
 
                 _.forOwn(d.ResponseData, function(data) {
-                    $('#ContentPlaceHolder1_ContentPlaceHolder2_drpBanks').append($('<option>').text(data.Text).attr('value', data.Value));
+                    $('#ContentPlaceHolder1_ContentPlaceHolder2_drpBank').append($('<option>').text(data.Text).attr('value', data.Value));
                 });
 
-                $('#ContentPlaceHolder1_ContentPlaceHolder2_drpBanks').val('-1').change();
+                $('#ContentPlaceHolder1_ContentPlaceHolder2_drpBank').val('-1').change();
             }
         });
     }

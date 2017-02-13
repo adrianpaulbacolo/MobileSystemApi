@@ -42,7 +42,7 @@ public partial class Deposit_WingMoney : PaymentBasePage
 
         DateTime dtDepositDateTime = DateTime.MinValue;
 
-        string strDepositAmount = txtDepositAmount.Text.Trim();
+        string strDepositAmount = txtAmount.Text.Trim();
         string strReferenceId = txtReferenceId.Text;
         string strDepositDate = drpDepositDate.SelectedValue;
         string strDepositHour = drpHour.SelectedValue;
