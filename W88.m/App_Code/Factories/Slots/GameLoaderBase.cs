@@ -207,7 +207,8 @@ namespace Factories.Slots
          CTXM,
          UC8,
          PP,
-         GNS
+         GNS,
+         PLS
      }
 
     public enum GameDevice

@@ -95,6 +95,13 @@ namespace Helpers
                         url = Settings.Values.Get("GNSRealUrl");
                     break;
 
+                case GameProvider.PLS:
+                    if (linkType == GameLinkSetting.Fun)
+                        url = Settings.Values.Get("PLSFunUrl");
+                    else if (linkType == GameLinkSetting.Real)
+                        url = Settings.Values.Get("PLSRealUrl");
+                    break;
+
                 default:
                     url = "";
                     break;
