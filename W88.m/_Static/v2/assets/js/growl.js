@@ -6,45 +6,43 @@
             close: 'x',
             ok: "OK"
         },
-        init: function (msg, ok) {
+        init: function (msg) {
             var self = this;
-            if (self.modal == null) {
-                $('body').append(self.getTemplate(ok));
-                self.modal = $('#PopUpModal');
-            }
-            $("#ModalMessage").html(msg);
-            self.modal.popup({
-                afterclose: function (event, ui) { }
-            });
+
+            var template = '<div class="modal fade" id="w88modal" tabindex="-1" role="dialog" aria-labelledby="sample-modal1">' +
+                '<div class="modal-dialog" role="document">' +
+                '<div class="modal-content">' +
+                '<div class="modal-header mheader-notitle">' +
+                '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="icon icon-close"></span></button>' +
+                '</div>' +
+                '<div id="ModalMessage"></div>' +
+                '</div></div></div>';
+
+            $('body').append(template);
         },
         shout: function (msg, callback) {
-            this.init(msg, '');
-            this.modal.popup('open');
 
-            if (!_.isUndefined(callback) && _.isFunction(callback))
-                this.modal.on("popupafterclose", callback);
-        },
-        notif: function (msg) {
+            var message = ' <div class="modal-body"><p>' + msg + '</p></div>';
+
+            //this.init(msg, '');
             var self = this;
 
-            var okButton = '<div class="row row-no-padding"><div class="col">' +
-           '<a href="#" data-rel="back" class="ui-btn btn-primary">' + self.options.ok + '</a>' +
-           '</div>';
+            $("#ModalMessage").html(message);
+            $('#w88modal').modal('show');
 
-            this.init(msg, okButton);
-            this.modal.popup('open');
+            //if (!_.isUndefined(callback) && _.isFunction(callback))
+            //    this.modal.on("popupafterclose", callback);
         },
-        getTemplate: function (ok) {
-            var self = this;
+        //notif: function (msg) {
+        //    var self = this;
 
-            var template = '<div id="PopUpModal" data-role="popup" data-overlay-theme="b" data-theme="b" data-history="false">' +
-            '<a href="#" data-rel="back" class="close close-enhanced">&times;</a>' + '<br>' +
-            '<div class="padding">' +
-            '<div id="ModalMessage" class="download-app padding"></div>' +
-            '</div>' + ok + '</div></div>';
+        //    var okButton = '<div class="row row-no-padding"><div class="col">' +
+        //   '<a href="#" data-rel="back" class="ui-btn btn-primary">' + self.options.ok + '</a>' +
+        //   '</div>';
 
-            return template;
-        },
+        //    this.init(msg, okButton);
+        //    this.modal.popup('open');
+        //},
         bulletedList: function (messages) {
             var message = "";
             if (_.isArray(messages)) {

@@ -23,6 +23,7 @@ public partial class Deposit_FastDesposit : PaymentBasePage
     {
         if (!Page.IsPostBack)
         {
+            CheckAgentAndRedirect(V2DepositPath + "Pay110101.aspx");
             this.InitialiseSystemBankAccounts();
             this.InitialiseMemberBank();
             this.InitialiseDepositChannel();

@@ -16,6 +16,7 @@ public partial class Deposit_NganLuong : PaymentBasePage
     {
         if (!Page.IsPostBack)
         {
+            CheckAgentAndRedirect(V2DepositPath + "Pay120212.aspx");
             lblMessage.Text = base.strlblVendorNote;
             btnSubmit.Text = commonCulture.ElementValues.getResourceString("proceed", commonVariables.LeftMenuXML);
         }

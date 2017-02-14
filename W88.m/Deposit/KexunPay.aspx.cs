@@ -23,6 +23,7 @@ public partial class Deposit_KexunPay : PaymentBasePage
     {
         if (!Page.IsPostBack)
         {
+            CheckAgentAndRedirect(V2DepositPath + "Pay1202127.aspx");
             this.InitializeLabels();
         }
     }

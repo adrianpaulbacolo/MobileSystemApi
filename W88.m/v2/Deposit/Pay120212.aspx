@@ -23,6 +23,10 @@
             $('#form1').submit(function (e) {
                 e.preventDefault();
 
+                var data = {
+                    MethodId: "<%=base.PaymentMethodId%>"
+                };
+
                 var action = "/Deposit/Pay.aspx";
                 var params = decodeURIComponent($.param(data));
                 window.open(action + "?" + params, "<%=base.PageName%>");

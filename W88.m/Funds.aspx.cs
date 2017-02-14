@@ -7,7 +7,7 @@ public partial class Funds : PaymentBasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        CheckAgent();
+        CheckAgentAndRedirect("/v2/Funds.aspx");
         BuildUiFunds();
 
         if (Page.IsPostBack) return;
@@ -43,14 +43,5 @@ public partial class Funds : PaymentBasePage
         ltlFunds.Text = builder.ToString();
         ltlNote.Text = obj.FundsPageNote;
 
-    }
-
-    private void CheckAgent()
-    {
-        var userAgent = Request.UserAgent.ToString();
-        if (userAgent.ToLower().Contains("clubw"))
-        {
-            Response.Redirect("/v2/Funds.aspx");
-        }
     }
 }

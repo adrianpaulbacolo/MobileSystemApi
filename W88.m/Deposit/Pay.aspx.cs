@@ -14,15 +14,11 @@ public partial class Deposit_Pay : PaymentBasePage
                 GatewayFile = "ecpsspay";
                 break;
             case commonVariables.DepositMethod.KexunPay:
-                GatewayFile = "kexunpayV2";
+                GatewayFile = "kexunpay";
                 break;
 
             case commonVariables.DepositMethod.AllDebit:
                 GatewayFile = "alldebit";
-                break;
-
-            case commonVariables.DepositMethod.BaokimScratchCard:
-                GatewayFile = "baokimSc";
                 break;
 
             case commonVariables.DepositMethod.NganLuong:
@@ -30,7 +26,19 @@ public partial class Deposit_Pay : PaymentBasePage
                 break;
 
             case commonVariables.DepositMethod.FastDeposit:
-                GatewayFile = "fastdeposit";
+                GatewayFile = "fastdep";
+                break;
+
+            case commonVariables.DepositMethod.BaokimScratchCard:
+                GatewayFile = "baokimSc";
+                break;
+         
+            case commonVariables.DepositMethod.NineVPayAlipay:
+            case commonVariables.DepositMethod.JuyPayAlipay:
+            case commonVariables.DepositMethod.JTPayAliPay:
+            case commonVariables.DepositMethod.JutaPay:
+            case commonVariables.DepositMethod.ShengPayAliPay:
+                GatewayFile = "alipay";
                 break;
         }
     }

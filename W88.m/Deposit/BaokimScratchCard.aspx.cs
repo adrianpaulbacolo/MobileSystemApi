@@ -16,6 +16,7 @@ public partial class Deposit_BaokimScratchCard : PaymentBasePage
     {
         if (!Page.IsPostBack)
         {
+            CheckAgentAndRedirect(V2DepositPath + "Pay120286.aspx");
             InitializeLabels();
         }
     }

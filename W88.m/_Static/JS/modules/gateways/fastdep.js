@@ -1,5 +1,5 @@
 ﻿window.w88Mobile.Gateways.FastDepositv2 = FastDepositv2();
-var _w88_fastdeposit = window.w88Mobile.Gateways.FastDepositv2;
+var _w88_fastdep = window.w88Mobile.Gateways.FastDepositv2;
 
 function FastDepositv2() {
 
@@ -16,13 +16,13 @@ function FastDepositv2() {
                 if (_w88_contents.translate("LABEL_PAYMENT_NOTE_FASTDEPOSIT") != "LABEL_PAYMENT_NOTE_FASTDEPOSIT") {
                     $("#paymentNoteContent").text(_w88_contents.translate("LABEL_PAYMENT_NOTE_FASTDEPOSIT"));
                 } else {
-                    window.setInterval(function() {
+                    window.setInterval(function () {
                         setTranslations();
                     }, 500);
                 }
             }
 
-            _w88_paymentSvc.SendDeposit("/user/banks", "GET", "", function(response) {
+            _w88_paymentSvcV2.SendDeposit("/user/banks", "GET", "", function (response) {
                 if (!_.isEqual(response.ResponseCode, 0)) {
                     if (!_.isEmpty(response.ResponseData.Bank)) $('select[id$="drpBank"]').val(response.ResponseData.Bank.Value).selectmenu("refresh");
 
@@ -36,7 +36,7 @@ function FastDepositv2() {
 
     };
 
-    fastdeposit.toogleBank = function(bankId) {
+    fastdeposit.toogleBank = function (bankId) {
         if (bankId && _.isEqual(bankId.toUpperCase(), "OTHER")) {
             $('#divBankName').show();
         } else {
@@ -44,12 +44,19 @@ function FastDepositv2() {
         }
     };
 
-    fastdeposit.createDeposit = function() {
+    fastdeposit.createDeposit = function () {
         var _self = this;
         var params = _self.getUrlVars();
         var data = {
             Amount: params.Amount,
-            ThankYouPage: params.ThankYouPage,
+            Bank: { Text: params.BankText, Value: params.BankValue },
+            AccountName: params.AccountName,
+            AccountNumber: params.AccountNumber,
+            SystemBank: { Text: params.SystemBankText, Value: params.SystemBankValue },
+            BankName: params.BankName,
+            ReferenceId: params.ReferenceId,
+            DepositChannel: { Text: params.DepositChannelText, Value: params.DepositChannelValue },
+            DepositDateTime: params.DepositDateTime.replace('+', ' '),
         };
 
         _self.methodId = params.MethodId;
@@ -62,7 +69,7 @@ function FastDepositv2() {
 
                     $('#form1')[0].reset();
 
-                    _self.toogleBank($('select[id$="drpBank"]').val());
+                    fastdeposit.toogleBank($('select[id$="drpBank"]').val());
                     break;
                 default:
                     if (_.isArray(response.ResponseMessage))

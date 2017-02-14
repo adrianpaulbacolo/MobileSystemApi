@@ -5,7 +5,7 @@ function AllDebit() {
 
     var alldebit = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
 
-    alldebit.init = function() {
+    alldebit.init = function () {
         setTranslations();
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
@@ -116,9 +116,9 @@ function AllDebit() {
                     break;
             }
         },
-        function () {
-            GPInt.prototype.HideSplash();
-        });
+            function () {
+                GPInt.prototype.HideSplash();
+            });
     }
 
     return alldebit;

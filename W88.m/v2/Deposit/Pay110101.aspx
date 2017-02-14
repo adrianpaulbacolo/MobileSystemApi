@@ -70,30 +70,31 @@
 
             window.w88Mobile.Gateways.FastDepositv2.init();
 
-            $('[id$="drpBank"]').change(function () {
+            $('select[id$="drpBank"]').change(function () {
                 window.w88Mobile.Gateways.FastDepositv2.toogleBank(this.value);
             });
-
-            var depositDateTime = new Date($('[id$="drpDepositDate"]').val());
-            depositDateTime.setHours($('[id$="drpHour"]').val());
-            depositDateTime.setMinutes($('[id$="drpMinute"]').val());
 
             $('#form1').submit(function (e) {
                 e.preventDefault();
 
+                var depositDateTime = new Date($('select[id$="drpDepositDate"]').val());
+                depositDateTime.setHours($('select[id$="drpHour"]').val());
+                depositDateTime.setMinutes($('select[id$="drpMinute"]').val());
+
                 var data = {
                     Amount: $('input[id$="txtAmount"]').val(),
-                    BankText: $('[id$="drpBank"] option:selected').text(),
-                    BankValue: $('[id$="drpBank"]').val(),
+                    BankText: $('select[id$="drpBank"] option:selected').text(),
+                    BankValue: $('select[id$="drpBank"]').val(),
                     AccountName: $('[id$="txtAccountName"]').val(),
                     AccountNumber: $('[id$="txtAccountNumber"]').val(),
-                    SystemBankText: $('[id$="drpSystemAccount"] option:selected').text(),
-                    SystemBankValue: $('[id$="drpSystemAccount"]').val(),
+                    SystemBankText: $('select[id$="drpSystemAccount"] option:selected').text(),
+                    SystemBankValue: $('select[id$="drpSystemAccount"]').val(),
                     BankName: $('[id$="BankName"]').val(),
                     ReferenceId: $('[id$="ReferenceId"]').val(),
-                    DepositChannelText: $('[id$="drpDepositChannel"] option:selected').text(),
-                    DepositChannelValue: $('[id$="drpDepositChannel"]').val(),
-                    DepositDateTime: window.w88Mobile.Gateways.DefaultPayments.formatDateTime(depositDateTime),
+                    DepositChannelText: $('select[id$="drpDepositChannel"] option:selected').text(),
+                    DepositChannelValue: $('select[id$="drpDepositChannel"]').val(),
+                    DepositDateTime: _w88_paymentSvcV2.formatDateTime(depositDateTime),
+                    MethodId: "<%=base.PaymentMethodId%>"
                 };
 
                 var action = "/Deposit/Pay.aspx";

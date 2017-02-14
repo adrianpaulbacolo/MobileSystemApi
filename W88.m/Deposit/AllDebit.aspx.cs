@@ -36,6 +36,7 @@ public partial class Deposit_AllDebit : PaymentBasePage
 
         if (!Page.IsPostBack)
         {
+            CheckAgentAndRedirect(V2DepositPath + "Pay120236.aspx");
             this.InitializeExpiryMonthYear();
             this.InitializeLabels();
 

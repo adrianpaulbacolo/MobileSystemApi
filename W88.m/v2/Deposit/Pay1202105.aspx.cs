@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
-
-public partial class Deposit_NineVPayAlipay : PaymentBasePage
+public partial class v2_Deposit_Pay1202105 : PaymentBasePage
 {
-    protected string lblTransactionId;
-
     protected void Page_Init(object sender, EventArgs e)
     {
         base.PageName = Convert.ToString(commonVariables.DepositMethod.NineVPayAlipay);
@@ -15,16 +17,5 @@ public partial class Deposit_NineVPayAlipay : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Page.IsPostBack)
-        {
-            CheckAgentAndRedirect(V2DepositPath + "Pay1202105.aspx");
-            this.InitializeLabels();
-        }
-    }
-
-    private void InitializeLabels()
-    {
-        lblDepositAmount.Text = base.strlblAmount;
-        lblTransactionId = base.strlblTransactionId;
     }
 }

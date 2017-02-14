@@ -1,5 +1,5 @@
 ﻿window.w88Mobile.Gateways.KexunPayV2 = KexunPayV2();
-var _w88_kexunpayV2 = window.w88Mobile.Gateways.KexunPayV2;
+var _w88_kexunpay = window.w88Mobile.Gateways.KexunPayV2;
 
 function KexunPayV2() {
 
@@ -66,7 +66,6 @@ function KexunPayV2() {
 
 
 window.w88Mobile.Gateways.KexunPay = KexunPay();
-var _w88_kexunpay = window.w88Mobile.Gateways.KexunPay;
 
 function KexunPay() {
 

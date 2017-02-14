@@ -67,6 +67,8 @@ public class PaymentBasePage : BasePage
 
     protected bool isSystemError = false;
     protected bool isProcessAbort = false;
+
+    protected string V2DepositPath = "/v2/Deposit/";
     #endregion
 
     #region Labels
@@ -456,6 +458,15 @@ public class PaymentBasePage : BasePage
         status.IsProcessAbort = true;
 
         return status;
+    }
+
+    protected void CheckAgentAndRedirect(string url)
+    {
+        var userAgent = Request.UserAgent.ToString();
+        if (userAgent.ToLower().Contains("clubw"))
+        {
+            Response.Redirect(url);
+        }
     }
 }
 

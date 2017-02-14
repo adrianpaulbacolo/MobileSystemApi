@@ -79,13 +79,14 @@
 
                 var data = {
                     Amount: $('input[id$="txtAmount"]').val(),
-                    CardTypeText: $('[id$="ddlCardType"] option:selected').text(),
-                    CardTypeValue: $('[id$="ddlCardType"]').val(),
+                    CardTypeText: $('select[id$="ddlCardType"] option:selected').text(),
+                    CardTypeValue: $('select[id$="ddlCardType"]').val(),
                     AccountName: $('[id$="txtCardName"]').val(),
                     CardNumber: $('[id$="txtCardNo"]').val(),
-                    CardExpiryMonth: $('[id$="ddlExpiryMonth"]').val(),
-                    CardExpiryYear: $('[id$="ddlExpiryYear"]').val(),
-                    CCV: $('[id$="txtSecurityCode"]').val()
+                    CardExpiryMonth: $('select[id$="ddlExpiryMonth"]').val(),
+                    CardExpiryYear: $('select[id$="ddlExpiryYear"]').val(),
+                    CCV: $('[id$="txtSecurityCode"]').val(),
+                    MethodId: "<%=base.PaymentMethodId%>"
                 };
 
                 var action = "/Deposit/Pay.aspx";

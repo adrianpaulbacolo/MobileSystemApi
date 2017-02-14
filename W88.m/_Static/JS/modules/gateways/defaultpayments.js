@@ -173,7 +173,7 @@
                 autorouteIds.WeChat
             ];
 
-            var isAutoRoute = false, title = "", page = null, deposit = "/v2/Deposit/";
+            var isAutoRoute = false, title = "", page = null, deposit = "/Deposit/";
 
             for (var i = 0; i < responseData.length; i++) {
                 var data = responseData[i];
@@ -181,7 +181,7 @@
                 page = setPaymentPage(data.Id);
 
                 if (page)
-                    page = page; // deposit + page;
+                    page = deposit + page;
                 else
                     continue;
 
@@ -216,14 +216,14 @@
                 if (!isAutoRoute) {
                     page = setPaymentPage(_.first(responseData).Id);
                     if (page)
-                        window.location.href = page; // deposit + page;
+                        window.location.href = deposit + page;
                 }
             }
 
             GPInt.prototype.HideSplash();
         } else {
             if (activeTabId) {
-                window.location.href = page; //deposit
+                window.location.href = deposit;
             }
             else {
 
@@ -330,110 +330,110 @@
 
             // withdrawal
             case "210602":
-                return "/Deposit/BankTransfer.aspx";
+                return "BankTransfer.aspx";
 
             case "220815":
-                return "/Deposit/Neteller.aspx";
+                return "Neteller.aspx";
 
             case "210709":
-                return "/Deposit/WingMoney.aspx";
+                return "WingMoney.aspx";
 
             case "220895":
-                return "/Deposit/VenusPoint.aspx";
+                return "VenusPoint.aspx";
 
             case "2208102":
-                return "/Deposit/IWallet.aspx";
+                return "IWallet.aspx";
 
                 // deposit
             case "120272":
-                return "/Deposit/Baokim.aspx";
+                return "Baokim.aspx";
 
             case "110101": //FastDeposit
-                return "/v2/Deposit/Pay110101.aspx";
+                return "FastDeposit.aspx";
 
             case "120204":
-                return "/Deposit/NextPay.aspx";
+                return "NextPay.aspx";
 
             case "120280":
-                return "/Deposit/JutaPay.aspx";
+                return "JutaPay.aspx";
 
             case "110308":
-                return "/Deposit/WingMoney.aspx";
+                return "WingMoney.aspx";
 
             case "120223":
-                return "/Deposit/SDPay.aspx";
+                return "SDPay.aspx";
 
             case "120227":
-                return "/Deposit/Help2Pay.aspx";
+                return "Help2Pay.aspx";
 
             case "1202114":
-                return "/Deposit/KDPayWechat.aspx";
+                return "KDPayWechat.aspx";
 
             case "120243":
-                return "/Deposit/DaddyPay.aspx?value=1";
+                return "DaddyPay.aspx?value=1";
 
             case "120244":
-                return "/Deposit/DaddyPay.aspx?value=2";
+                return "DaddyPay.aspx?value=2";
 
             case "120214":
-                return "/Deposit/Neteller.aspx";
+                return "Neteller.aspx";
 
             case "120290":
-                return "/Deposit/PaySec.aspx";
+                return "PaySec.aspx";
 
             case "120254":
-                return "/Deposit/SDAPay.aspx";
+                return "SDAPay.aspx";
 
             case "1202111":
-                return "/Deposit/ShengPayAliPay.aspx";
+                return "ShengPayAliPay.aspx";
 
             case "120218":
-                return "/Deposit/ECPSS.aspx";
+                return "ECPSS.aspx";
 
             case "120231":
-                return "/Deposit/BofoPay.aspx";
+                return "BofoPay.aspx";
 
             case "1202123":
-                return "/Deposit/WeChat";
+                return "WeChat";
 
             case "1202127": //Kexun
-                return "/v2/Deposit/Pay1202127.aspx";
+                return "KexunPay.aspx";
 
             case "1202122":
-                return "/Deposit/Alipay";
+                return "Alipay";
 
             case "120236": //AllDebit
-                return "/v2/Deposit/Pay120236.aspx";
+                return "AllDebit.aspx";
 
             case "120265":
-                return "/Deposit/EGHL.aspx";
+                return "EGHL.aspx";
 
             case "120212": //NganLuong
-                return "/v2/Deposit/Pay120212.aspx";
+                return "NganLuong.aspx";
 
             case "1202103":
-                return "/Deposit/IWallet.aspx";
+                return "IWallet.aspx";
 
             case "120296":
-                return "/Deposit/VenusPoint.aspx";
+                return "VenusPoint.aspx";
 
             case "120286": // BaokimScratchCard
-                return "/v2/Deposit/Pay120286.aspx";
+                return "BaokimScratchCard.aspx";
 
-            case "999999":
-                return "/Deposit/QuickOnline.aspx";
+            case "999999": 
+                return "QuickOnline.aspx";
 
-            case "999996":
-                return "/Deposit/Alipay.aspx";
+            case "999996": //Alipay
+                return "Alipay.aspx";
 
             case "999995":
-                return "/Deposit/WeChat.aspx";
+                return "WeChat.aspx";
 
-            case "1202113":
-                return "/Deposit/JuyPayAlipay.aspx";
+            case "1202113": //JuyPayAlipay
+                return "JuyPayAlipay.aspx";
 
-            case "1202105":
-                return "/Deposit/NineVPayAlipay.aspx";
+            case "1202105": //NineVPayAlipay
+                return "NineVPayAlipay.aspx";
 
             default:
                 break
