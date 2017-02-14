@@ -392,7 +392,6 @@
             }
 
             if (hasError) {
-                w88Mobile.Growl.shout("<%=commonCulture.ElementValues.getResourceXPathString("/Promotion/MissingFields", xeErrors)%>");
                 return;
             }
 
