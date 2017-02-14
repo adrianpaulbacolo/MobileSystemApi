@@ -60,17 +60,17 @@
     }
 
     function setTranslation(data) {
-        $('#lblAcctName').text("Venus Point " + data.LABEL_ACCOUNT_ID);
-        $('#lblAcctNumber').text("Venus Point " + data.LABEL_PASSWORD);
+        $('label[id$="lblAcctName"]').text("Venus Point " + data.LABEL_ACCOUNT_ID);
+        $('label[id$="lblAcctNumber"]').text("Venus Point " + data.LABEL_PASSWORD);
     }
 
     function exchangeRate(data) {
         send("/payments/exchangerate", "GET", data, "", function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
                 var venusPoint = 'JPY Amount = ' + response.ResponseData.Amount + ' Venus Points'
-                $('#lblVenusPoints').text(venusPoint);
+                $('span[id$="lblVenusPoints"]').text(venusPoint);
                 var exchange = '1 JPY = ' + response.ResponseData.ExchangeRate + ' USD'
-                $('#lblExchangeRate').text(exchange);
+                $('span[id$="lblExchangeRate"]').text(exchange);
             }
         }, "");
     }

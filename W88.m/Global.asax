@@ -1,4 +1,5 @@
 ﻿<%@ Application Language="C#" %>
+<%@ Import Namespace="customConfig" %>
 
 <script RunAt="server">
 
@@ -6,6 +7,8 @@
     {
         // Code that runs on application startup
         RegisterRoutes(System.Web.Routing.RouteTable.Routes);
+
+      
     }
 
     void RegisterRoutes(System.Web.Routing.RouteCollection routes)
@@ -83,6 +86,15 @@
         if (isHttpsOnly && !isSsl)
         {
             Response.Redirect("https://" + Request.ServerVariables["HTTP_HOST"] + HttpContext.Current.Request.RawUrl);
+        }
+
+        var opSettings = new OperatorSettings("W88");
+        if (opSettings.Values.Get("VIP_Domains").ToLower().Contains(HttpContext.Current.Request.Url.Host))
+        {
+            commonCookie.CookieLanguage = "zh-cn";
+            Response.Clear();
+            Response.Redirect("/_Secure/VIP/login.aspx");
+            Response.End();
         }
     }
 

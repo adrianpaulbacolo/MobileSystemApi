@@ -7,8 +7,8 @@
             <p id="paymentNoteContent"></p>
         </li>
         <li class="item item-input">
-            <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
-            <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+            <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
+            <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
         </li>
     </ul>
 
@@ -34,7 +34,7 @@
                 // use api
                 e.preventDefault();
                 var data = {
-                    Amount: $('#<%=txtDepositAmount.ClientID%>').val(),
+                    Amount: $('#<%=txtAmount.ClientID%>').val(),
                     ThankYouPage: location.protocol + "//" + location.host + "/Deposit/Thankyou.aspx"
                 };
 
@@ -58,7 +58,6 @@
                             break;
                         }
                     },
-                    function() { console.log("Error connecting to api"); },
                     function() {
                         w88Mobile.FormValidator.enableSubmitButton('#ContentPlaceHolder1_btnSubmit');
                         GPINTMOBILE.HideSplash();

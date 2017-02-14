@@ -1,4 +1,6 @@
-﻿using Models;
+﻿using System.Linq;
+using customConfig;
+using Models;
 using System;
  using System.Data;
  using System.Web;
@@ -68,6 +70,7 @@ namespace Helpers
             MemberData(dTable);
 
             var memberSessionId = dTable.Rows[0]["memberSessionId"];
+            var riskId = dTable.Rows[0]["riskId"].ToString();
             var currencyCode = dTable.Columns["currencyCode"] != null ? dTable.Rows[0]["currencyCode"].ToString() : dTable.Rows[0]["currency"].ToString();
             commonVariables.SetSessionVariable("MemberSessionId", memberSessionId.ToString());
             commonVariables.SetSessionVariable("MemberId", dTable.Rows[0]["memberId"].ToString());
@@ -75,7 +78,7 @@ namespace Helpers
             commonVariables.SetSessionVariable("CountryCode", dTable.Rows[0]["countryCode"].ToString());
             commonVariables.SetSessionVariable("CurrencyCode", currencyCode);
             commonVariables.SetSessionVariable("LanguageCode", dTable.Rows[0]["languageCode"].ToString());
-            commonVariables.SetSessionVariable("RiskId", dTable.Rows[0]["riskId"].ToString());
+            commonVariables.SetSessionVariable("RiskId", riskId);
             commonVariables.SetSessionVariable("PaymentGroup", dTable.Rows[0]["paymentGroup"].ToString());
             commonVariables.SetSessionVariable("PartialSignup", dTable.Rows[0]["partialSignup"].ToString());
             commonVariables.SetSessionVariable("ResetPassword", dTable.Rows[0]["resetPassword"].ToString());
@@ -89,6 +92,12 @@ namespace Helpers
 
             if (password != null)
                 commonCookie.CookiePalazzo = password;
+
+            var opSettings = new OperatorSettings("W88");
+            foreach (var v in opSettings.Values.Get("VIP_Allowed").ToUpper().Split(new[] { '|' }).Where(v => v.Equals(riskId)))
+            {
+                commonCookie.CookieVip = "true";
+            }
         }
 
         public void MemberData(DataTable dTable)

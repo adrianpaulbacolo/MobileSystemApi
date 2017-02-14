@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <ul class="list fixed-tablet-size">
         <li class="item-text-wrap">
-            <span ID="lblIndicatorMessage" />
+            <span id="lblIndicatorMessage" />
         </li>
         <li class="item item-input">
             <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
@@ -41,10 +41,10 @@
                     Amount: $('#<%=txtAmount.ClientID%>').val(),
                 }
 
-                payments.send(data, function (response) {
-                    switch (response.ResponseCode) {
-                        case 1:
-                            w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>", function(){
+                    payments.send(data, function (response) {
+                        switch (response.ResponseCode) {
+                            case 1:
+                                w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>", function () {
                                 window.location.replace('SDAPay2.aspx?id=' + response.ResponseData.TransactionId)
                             });
 
@@ -64,7 +64,7 @@
                     w88Mobile.FormValidator.enableSubmitButton('#ContentPlaceHolder1_btnSubmit');
                     GPINTMOBILE.HideSplash();
                 });
-            });
+                });
         });
     </script>
 </asp:Content>
