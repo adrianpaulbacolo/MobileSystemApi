@@ -63,7 +63,7 @@ public partial class Deposit_SDAPay : PaymentBasePage
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
 
-        string strDepositAmount = txtDepositAmount.Text.Trim();
+        string strDepositAmount = txtAmount.Text.Trim();
         string selectedBank = drpBank.SelectedItem.Value;
         selectedBank = "CMB";
 

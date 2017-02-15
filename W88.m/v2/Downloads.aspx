@@ -14,14 +14,14 @@
                 {% _.forEach( tplData.items, function( item ){ %}
                 <div class="col-xs-6">
                     {% if(tplData.deviceId == 1 && !_.isUndefined(item.ios)){ %}
-                    <a href="{%-item.ios.link%}" class="download-box">
+                    <a href="{%-item.ios.link%}" class="download-box" target="{%- (!_.isUndefined(item.ios.target)) ? item.ios.target : '_self' %}">
                         <img src="{%-item.ios.src%}" alt="">
                         <div class="download-box-title">
                             <span>{{item.title}}</span>
                         </div>
                     </a>
                     {% }else if(tplData.deviceId != 1  && !_.isUndefined(item.others)){ %}
-                    <a href="{%-item.others.link%}" class="download-box">
+                    <a href="{%-item.others.link%}" class="download-box" target="{%- (!_.isUndefined(item.others.target)) ? item.others.target : '_self' %}">
                         <img src="{%-item.others.src%}" alt="">
                         <div class="download-box-title">
                             <span>{{item.title}}</span>
@@ -50,6 +50,7 @@
                     others: {
                         src: "/_Static/v2/Assets/Images/downloads/MGS-LiveCasino-Android.jpg",
                         link: "https://livegames.cdn.gameassists.co.uk/AIR/Poria/Installer/V20021/w88/Download.html",
+                        target: "_blank"
                     }
                 },
                 {

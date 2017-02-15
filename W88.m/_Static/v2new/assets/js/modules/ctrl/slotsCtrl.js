@@ -6,6 +6,7 @@ function slotsCtrl(routeObj, slotSvc, templateSvc) {
     this.page = {};
     this.route = "";
     this.routeObj = routeObj;
+    this.title = "";
 
     this.init = function () {
         var _self = this;

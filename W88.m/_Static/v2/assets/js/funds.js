@@ -14,7 +14,7 @@ function Funds() {
     }
 
     function init() {
-        fetchWallets();
+        fetchWallets({selector: "funds-wallet-lists"});
     }
 
     function mainWalletInit() {
@@ -27,6 +27,11 @@ function Funds() {
             error = function () {
                 console.log("Error connecting to api");
             }
+        }
+        var selector = "";
+        if (!_.isUndefined(data.selector)) {
+            selector = _.clone(data.selector);
+            delete data["selector"];
         }
 
         var url = w88Mobile.APIUrl + resource;
@@ -41,21 +46,21 @@ function Funds() {
             url: url,
             data: data,
             beforeSend: function () {
-                pubsub.publish('startLoadItem', {});
+                pubsub.publish('startLoadItem', {selector: selector});
             },
             headers: headers,
             success: success,
             error: error,
             complete: function () {
                 if(!_.isUndefined(complete)) complete();
-                pubsub.publish('stopLoadItem', {});
+                pubsub.publish('stopLoadItem', { selector: selector });
             }
         });
     }
 
-    function fetchWallets() {
+    function fetchWallets(data) {
         var resource = "/user/wallets?isSelection=true";
-        send(resource, "GET", {}, function (response) {
+        send(resource, "GET", data, function (response) {
             if (_.isUndefined(response.ResponseData)) {
                 console.log('Unable to fetch wallets.');
                 return;

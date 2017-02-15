@@ -32,7 +32,6 @@ function KexunPay() {
             }
         },
         function () {
-            window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
             GPInt.prototype.HideSplash();
         });
     }

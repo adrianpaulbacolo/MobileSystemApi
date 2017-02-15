@@ -2,6 +2,7 @@
 
 function clubsCtrl(routeObj, slotSvc, templateSvc) {
 
+    this.title = "";
     this.games = [];
     this.page = {};
     this.route = "";
@@ -19,6 +20,8 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
         pubsub.subscribe("updateFilterOptions", onUpdateFilterOptions);
         _self.games = slotSvc.itemsByClub(_self.club.providers);
         getFilterOptions(_self.club);
+
+        if(!_.isEmpty(_self.club.key)) _self.title = _contents.translate(_self.club.key);
 
         switch (_self.route) {
             case "club":

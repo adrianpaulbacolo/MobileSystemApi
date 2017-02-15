@@ -10,6 +10,15 @@ public partial class Deposit_Pay : PaymentBasePage
 
         switch (PaymentMethodId)
         {
+            case commonVariables.DepositMethod.PaySec:
+                GatewayFile = "paysec";
+                break;
+            case commonVariables.DepositMethod.NineVPayAlipay:
+                GatewayFile = "ninevpay";
+                break;
+            case commonVariables.DepositMethod.JuyPayAlipay:
+                GatewayFile = "juypay";
+                break;
             case commonVariables.DepositMethod.ECPSS:
                 GatewayFile = "ecpsspay";
                 break;
@@ -38,10 +47,16 @@ public partial class Deposit_Pay : PaymentBasePage
                 GatewayFile = "alipay";
                 break;
 
+            case commonVariables.DepositMethod.IWallet:
+                GatewayFile = "iwallet";
+                break;
             case commonVariables.DepositMethod.KexunPay:
             case commonVariables.DepositMethod.JTPayWeChat:
             case commonVariables.DepositMethod.KDPayWeChat:
                 GatewayFile = "wechat";
+                break;
+            case commonVariables.DepositMethod.Help2Pay:
+                GatewayFile = "help2pay";
                 break;
         }
     }

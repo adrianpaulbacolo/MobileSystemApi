@@ -19,8 +19,8 @@ function ECPSSPay() {
             switch (response.ResponseCode) {
                 case 1:
                     w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.DummyURL, "body");
-                    $(".ui-page").attr("display", "none");
                     w88Mobile.PostPaymentForm.submit();
+
                     $('#form1')[0].reset();
                     break;
                 default:
@@ -28,12 +28,11 @@ function ECPSSPay() {
                         w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage), _self.shoutCallback);
                     else
                         w88Mobile.Growl.shout(response.ResponseMessage, _self.shoutCallback);
-                    $('#form1')[0].reset();
+
                     break;
             }
         },
         function () {
-            window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
             GPInt.prototype.HideSplash();
         });
     }

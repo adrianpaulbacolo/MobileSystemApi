@@ -124,7 +124,7 @@ public partial class Deposit_AllDebit : PaymentBasePage
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        string strDepositAmount = txtDepositAmount.Text.Trim();
+        string strDepositAmount = txtAmount.Text.Trim();
         string strCardName = txtCardName.Text;
         string strCardNo = txtCardNo.Text.Replace("-", "");
         string strCCV = txtSecurityCode.Text;

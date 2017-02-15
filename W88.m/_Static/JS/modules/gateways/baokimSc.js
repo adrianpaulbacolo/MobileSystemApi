@@ -29,7 +29,7 @@ function BaokimScratchCardV2() {
                 }, 500);
             }
         }
-    };
+        };
 
     baokimSc.getBanks = function () {
         var url = w88Mobile.APIUrl + "/payments/baokindenom/";
@@ -114,11 +114,11 @@ function BaokimScratchCardV2() {
             },
             function() {
                 GPInt.prototype.HideSplash();
-            });
+        });
     };
 
     return baokimSc;
-}
+    }
 
 function BaokimScratchCard() {
 
@@ -129,7 +129,7 @@ function BaokimScratchCard() {
         SetFee: setFee,
         SetDenom: setDenom,
         Initialize: init,
-    };
+        };
 
     return baokim;
 
@@ -154,7 +154,7 @@ function BaokimScratchCard() {
                     setTranslations();
                 }, 500);
             }
-        }
+            }
     }
 
     function getBanks() {
@@ -166,11 +166,11 @@ function BaokimScratchCard() {
             success: function (d) {
                 telcos = d.ResponseData.Telcos;
 
-                $('select[id$="ContentPlaceHolder1_ContentPlaceHolder2_drpBanks"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
-                $('select[id$="ContentPlaceHolder1_ContentPlaceHolder2_drpBanks"]').val("-1").selectmenu("refresh");
+                $('#drpBank').append($('<option>').text(defaultSelect).attr('value', '-1'));
+                $('#drpBank').val("-1").selectmenu("refresh");
 
                 _.forOwn(d.ResponseData.Telcos, function (data) {
-                    $('select[id$="ContentPlaceHolder1_ContentPlaceHolder2_drpBanks"]').append($('<option>').text(data.Name).attr('value', data.Id));
+                    $('#drpBank').append($('<option>').text(data.Name).attr('value', data.Id));
                 });
 
 
