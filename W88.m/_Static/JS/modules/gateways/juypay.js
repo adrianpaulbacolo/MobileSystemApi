@@ -1,15 +1,16 @@
-﻿window.w88Mobile.Gateways.Paysec = Paysec();
-var _w88_paysec = window.w88Mobile.Gateways.Paysec;
+﻿window.w88Mobile.Gateways.JuyPay = JuyPay();
+var _w88_juypay = window.w88Mobile.Gateways.JuyPay;
 
-function Paysec() {
+function JuyPay() {
 
-    var paysec = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
+    var juypay = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
 
-    paysec.createDeposit = function () {
+    juypay.createDeposit = function () {
         var _self = this;
         var params = _self.getUrlVars();
         var data = {
             Amount: params.Amount,
+            ThankYouPage: params.ThankYouPage,
         };
 
         _self.methodId = params.MethodId;
@@ -18,16 +19,16 @@ function Paysec() {
             switch (response.ResponseCode) {
                 case 1:
                     w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
-                    $(".ui-page").attr("display", "none");
                     w88Mobile.PostPaymentForm.submit();
+
                     $('#form1')[0].reset();
                     break;
                 default:
                     if (_.isArray(response.ResponseMessage))
-                        w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage), _self.shoutCallback);
+                        w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
                     else
-                        w88Mobile.Growl.shout(response.ResponseMessage, _self.shoutCallback);
-                    $('#form1')[0].reset();
+                        w88Mobile.Growl.shout(response.ResponseMessage);
+
                     break;
             }
         },
@@ -36,5 +37,6 @@ function Paysec() {
         });
     }
 
-    return paysec;
+    return juypay;
 }
+

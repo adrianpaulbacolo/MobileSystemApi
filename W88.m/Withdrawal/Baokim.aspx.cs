@@ -52,7 +52,7 @@ public partial class Withdrawal_Baokim : PaymentBasePage
         txtTotalAllowed.Text = base.strtxtTotalAllowed;
 
         lblWithdrawAmount.Text = base.strlblAmount;
-        txtWithdrawAmount.Attributes.Add("PLACEHOLDER", base.strtxtAmount);
+        txtAmount.Attributes.Add("PLACEHOLDER", base.strtxtAmount);
 
         btnSubmit.Text = base.strbtnSubmit;
     }

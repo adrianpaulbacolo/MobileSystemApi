@@ -1,7 +1,7 @@
 ﻿w88Mobile.Loader = loader();
 
 function loader() {
-    var items = [];
+    var items = {};
     return {
         items: items
         , init: init
@@ -16,20 +16,34 @@ function loader() {
     }
 
     function onStartLoadItem(topic, data) {
+        var key = "main";
+        if (!_.isUndefined(data.selector) && !_.isEmpty(data.selector)) {
+            key = data.selector;
+        }
 
-        w88Mobile.Loader.items.push(data);
         var elem = $('body');
 
-        if (_.isEmpty(elem.find('div#divSplashContainer'))) {
-            w88Mobile.Loader.attachLoader(elem);
+        if (key != "main") {
+            elem = elem.find("." + key);
         }
+
+        if (_.isEmpty(elem)) return;
+
+        if (_.isEmpty(elem.find('div#divSplashContainer'))) {
+            w88Mobile.Loader.attachLoader(elem, key);
+        }
+
+        if (_.isUndefined(w88Mobile.Loader.items[key])) w88Mobile.Loader.items[key] = [];
+
+        w88Mobile.Loader.items[key].push(data);
     }
 
-    function attachLoader(elem) {
+    function attachLoader(elem, key) {
+        var mainClassKey = (key != "main") ? "loader inner" : "loader";
         elem.append(
             $('<div />', {
                 style: '',
-                class: 'loader',
+                class: mainClassKey,
                 id: 'divSplashContainer'
             })
             .append(
@@ -46,8 +60,12 @@ function loader() {
     }
 
     function onStopLoadItem(topic, data) {
-        w88Mobile.Loader.items.pop();
-        if (w88Mobile.Loader.items.length == 0) {
+        var key = "main";
+        if (!_.isUndefined(data.selector) && !_.isEmpty(data.selector)) {
+            key = data.selector;
+        }
+        w88Mobile.Loader.items[key].pop();
+        if (w88Mobile.Loader.items[key].length == 0) {
             $('div#divSplashContainer').remove();
         }
     }

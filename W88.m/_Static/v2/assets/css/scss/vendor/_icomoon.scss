@@ -35,11 +35,17 @@
 .icon-apple:before {
   content: "\e91b";
 }
+.icon-arrow-down:before {
+  content: "\e915";
+}
 .icon-arrow-left:before {
   content: "\e914";
 }
 .icon-arrow-right:before {
-  content: "\e915";
+  content: "\e91e";
+}
+.icon-arrow-up:before {
+  content: "\e91f";
 }
 .icon-back:before {
   content: "\e916";
@@ -52,6 +58,12 @@
 }
 .icon-bell-solid:before {
   content: "\e900";
+}
+.icon-box-checked:before {
+  content: "\e920";
+}
+.icon-box-unchecked:before {
+  content: "\e921";
 }
 .icon-bullet:before {
   content: "\e801";
@@ -88,6 +100,9 @@
 }
 .icon-download:before {
   content: "\e913";
+}
+.icon-filter:before {
+  content: "\e91d";
 }
 .icon-fish:before {
   content: "\e902";
@@ -158,6 +173,12 @@
 .icon-promo-solid:before {
   content: "\e909";
 }
+.icon-radio-checked:before {
+  content: "\e922";
+}
+.icon-radio-unchecked:before {
+  content: "\e923";
+}
 .icon-rebates:before {
   content: "\e910";
 }
@@ -221,5 +242,4 @@
 .icon-zalo:before {
   content: "\e90e";
 }
-
 

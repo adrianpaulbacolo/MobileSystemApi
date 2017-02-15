@@ -1,5 +1,5 @@
 .game-category{
-	margin-bottom: 15px;
+	padding-top: 15px;
 	padding-bottom: 30px;
 	border-bottom: $game-category-border;
 	&:last-child{
@@ -14,9 +14,14 @@
 		margin-top: 5px;
 		margin-bottom: 5px;
 		font-size: 1rem;
+		font-weight: 700;
 		text-align: left;
 		text-transform: uppercase;
 		color: $game-category-title-color;
+	}
+	.btn{
+		top: 6px;
+		position: relative;
 	}
 }
 .game-card-box{
@@ -76,11 +81,13 @@
 	}
 	.media-body{
 		.media-heading{
-			font-size: 1.125rem;
+			font-size: 1rem;
 			color: $game-list-title-color;
 			margin-bottom: 0;
+			font-weight: 700;
 		}
 		p{
+			font-size: 0.750rem;
 			color: $game-list-category-color;
 		}
 	}

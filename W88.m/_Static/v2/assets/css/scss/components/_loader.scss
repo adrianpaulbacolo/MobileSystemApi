@@ -26,6 +26,11 @@
 	}
 }
 
+.loader.inner{
+    position: relative;
+    min-height: 100px;
+}
+
 .on-spinner,
 .spinner {
   margin: auto;

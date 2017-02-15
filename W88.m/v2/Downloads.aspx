@@ -9,17 +9,23 @@
 
     <script type="text/template" id='downloadItem'>
 
-        <div class="container container-small container-thin">
-            <div class="row thin-gutter">
+        <div class="container container-small container-extra-thin">
+            <div class="row extra-thin-gutter">
                 {% _.forEach( tplData.items, function( item ){ %}
                 <div class="col-xs-6">
                     {% if(tplData.deviceId == 1 && !_.isUndefined(item.ios)){ %}
-                    <a href="{%-item.ios.link%}" class="download-box">
-                        <img src="{%-item.ios.src%}" alt=""><span>{%-item.title%}</span>
+                    <a href="{%-item.ios.link%}" class="download-box" target="{%- (!_.isUndefined(item.ios.target)) ? item.ios.target : '_self' %}">
+                        <img src="{%-item.ios.src%}" alt="">
+                        <div class="download-box-title">
+                            <span>{{item.title}}</span>
+                        </div>
                     </a>
                     {% }else if(tplData.deviceId != 1  && !_.isUndefined(item.others)){ %}
-                    <a href="{%-item.others.link%}" class="download-box">
-                        <img src="{%-item.others.src%}" alt=""><span>{%-item.title%}</span>
+                    <a href="{%-item.others.link%}" class="download-box" target="{%- (!_.isUndefined(item.others.target)) ? item.others.target : '_self' %}">
+                        <img src="{%-item.others.src%}" alt="">
+                        <div class="download-box-title">
+                            <span>{{item.title}}</span>
+                        </div>
                     </a>
                     {% } %}
                 </div>
@@ -33,28 +39,29 @@
 
         var downloadItems = [
                 {
-                    title: "Massimo - Slots",
+                    title: "<%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%><small><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></small>",
                     others: {
                         src: "/_Static/v2/Assets/Images/downloads/MGS-Slots-Android.jpg",
                         link: "http://resigner.qfcontent.com/w88.apk",
                     }
                 },
                 {
-                    title: "Massimo Live Casino",
+                    title: "<%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%><small><%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%></small>",
                     others: {
                         src: "/_Static/v2/Assets/Images/downloads/MGS-LiveCasino-Android.jpg",
                         link: "https://livegames.cdn.gameassists.co.uk/AIR/Poria/Installer/V20021/w88/Download.html",
+                        target: "_blank"
                     }
                 },
                 {
-                    title: "Palazzo Slots",
+                    title: "<%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%><small><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></small>",
                     others: {
                         src: "/_Static/v2/Assets/Images/downloads/PT-Slots-Android.jpg",
                         link: "/v2/Downloads/palazzo-slots",
                     }
                 },
                 {
-                    title: "Palazzo Casino",
+                    title: "<%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots/Label", commonVariables.ProductsXML).Replace("<br />", "")%><small><%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%></small>",
                     others: {
                         src: "/_Static/v2/Assets/Images/downloads/PT-LiveCasino-Android.jpg",
                         link: "/v2/Downloads/palazzo-casino",

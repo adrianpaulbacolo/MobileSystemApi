@@ -3,9 +3,10 @@
 	font-family: $dinpro;
 	background-color: $tab-bar-bg;
 	background-image: none; 
-	height: 50px;
+	height: 47px;
 	border: none;
 	top: 47px;
+	z-index: 4;
 	padding-left: 16px;
 	position: absolute;
 	overflow: auto;

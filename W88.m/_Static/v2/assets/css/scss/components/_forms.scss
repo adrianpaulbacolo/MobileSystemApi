@@ -1,0 +1,89 @@
+.form-container{
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.form-group{
+  margin-bottom: 20px;
+	> label{
+		font-weight: 400;
+		font-size: 0.875rem;
+		color: $brand-alt;
+		margin-bottom: 0;
+	}
+	.form-control{
+		padding-left: 0;
+		color: $text-color;
+		background-color: transparent;
+		border-top: none;
+		border-right: none;
+		border-left: none;
+		@include box-shadow(none);
+		border-bottom: 1px solid darken($text-color ,50%);
+		&:focus {
+		    border-color: $brand-primary;
+		    outline: 0 none;
+		    @include box-shadow(none);
+		}
+	}
+	select.form-control{
+		option {
+		    background-color: $body-bg;
+		    color: $text-color;
+		    text-shadow: none;
+		}
+	}
+}
+
+
+.radio,
+.checkbox{
+  label{
+    color: $text-color;
+    font-size: 0.875rem;
+  }
+  input[type="radio"], 
+  input[type="checkbox"] {
+      margin-top: 3px;
+  }
+}
+
+
+.radio-custom,
+.checkbox-custom{
+  label{
+    padding-left: 0;
+  }
+  span{
+    padding-left: 8px;
+    &:before{
+      font-family: 'icomoon';
+      font-size: 1.188em;
+      top: 3px;
+      left: -8px;
+      position: relative;
+    }
+  }
+  input[type="radio"],
+  input[type="checkbox"]{
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+  }
+  input[type="radio"] + span:before{
+    content: '\e923';
+  }
+  input[type="radio"]:checked + span:before{
+    content: '\e922';
+  }
+  input[type="checkbox"] + span:before{
+    content: '\e921';
+  }
+  input[type="checkbox"]:checked + span:before{
+    content: '\e920';
+  }
+  input[type="radio"]:checked + span:before,
+  input[type="checkbox"]:checked + span:before{
+    color: $brand-primary !important;
+  }
+}

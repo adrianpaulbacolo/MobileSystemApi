@@ -59,12 +59,9 @@
 @media (min-height: 568px){
 	// Funds Dashboard
 	.dashboard-funds{
-		height: calc(100% - 155px);
+		height: 66%;
 		.dashboard-row{
 			height: 50%;
-			&:last-child {
-				border-bottom: none
-			}
 		}
 	}
 	

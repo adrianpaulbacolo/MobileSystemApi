@@ -1,15 +1,16 @@
-﻿window.w88Mobile.Gateways.Paysec = Paysec();
-var _w88_paysec = window.w88Mobile.Gateways.Paysec;
+﻿window.w88Mobile.Gateways.IWallet = IWallet();
+var _w88_iwallet = window.w88Mobile.Gateways.IWallet;
 
-function Paysec() {
+function IWallet() {
 
-    var paysec = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
+    var iwallet = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
 
-    paysec.createDeposit = function () {
+    iwallet.createDeposit = function () {
         var _self = this;
         var params = _self.getUrlVars();
         var data = {
             Amount: params.Amount,
+            ThankYouPage: params.ThankYouPage,
         };
 
         _self.methodId = params.MethodId;
@@ -36,5 +37,6 @@ function Paysec() {
         });
     }
 
-    return paysec;
+    return iwallet;
 }
+
