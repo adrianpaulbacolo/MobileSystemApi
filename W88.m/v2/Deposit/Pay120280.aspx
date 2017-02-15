@@ -11,15 +11,8 @@
     
         <script type="text/javascript">
         $(document).ready(function () {
-            _w88_paymentSvcV2.setPaymentTabs("deposit", "<%=base.PaymentMethodId %>");
-             _w88_paymentSvcV2.DisplaySettings(
-                 "<%=base.PaymentMethodId %>"
-                , {
-                    type: "deposit"
-                    , countryCode: "<%=base.strCountryCode %>"
-                    , memberId: "<%=base.strMemberID %>"
-                    , notice: '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>'
-                });
+            _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
+            _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
              window.w88Mobile.Gateways.AlipayV2.init();
 

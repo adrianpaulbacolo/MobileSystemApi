@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/v2/MasterPages/Payment.master" AutoEventWireup="true" CodeFile="Pay1202113.aspx.cs" Inherits="v2_Deposit_Pay1202113" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" Runat="Server">
-        <div class="form-group ali-pay-note">
+        <div class="form-group pay-note">
         <span id="paymentNote"></span>
         <p id="paymentNoteContent"></p>
     </div>
@@ -17,15 +17,8 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-            _w88_paymentSvcV2.setPaymentTabs("deposit", "<%=base.PaymentMethodId %>");
-            _w88_paymentSvcV2.DisplaySettings(
-                "<%=base.PaymentMethodId %>"
-                , {
-                    type: "deposit"
-                    , countryCode: "<%=base.strCountryCode %>"
-                    , memberId: "<%=base.strMemberID %>"
-                    , notice: '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>'
-                });
+            _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
+            _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
             window.w88Mobile.Gateways.AlipayV2.init();
 

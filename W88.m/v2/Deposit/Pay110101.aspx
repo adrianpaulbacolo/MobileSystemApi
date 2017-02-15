@@ -61,12 +61,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             _w88_paymentSvcV2.setPaymentTabs("deposit", "<%=base.PaymentMethodId %>", "<%=base.strMemberID %>");
-            _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", {
-                type: "deposit",
-                countryCode: "<%=base.strCountryCode %>",
-                memberId: "<%=base.strMemberID %>",
-                notice: '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>'
-            });
+            _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
             window.w88Mobile.Gateways.FastDepositv2.init();
 

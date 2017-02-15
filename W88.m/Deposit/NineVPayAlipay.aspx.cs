@@ -15,7 +15,7 @@ public partial class Deposit_NineVPayAlipay : PaymentBasePage
     {
         if (!Page.IsPostBack)
         {
-            CheckAgentAndRedirect(V2DepositPath + "Pay1202105.aspx");
+            CheckAgentAndRedirect(string.Concat(V2DepositPath, "Pay", PaymentMethodId, ".aspx"));
             this.InitializeLabels();
         }
     }

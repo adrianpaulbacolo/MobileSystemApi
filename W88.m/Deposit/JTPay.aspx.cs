@@ -19,18 +19,17 @@ public partial class Deposit_JTPay : PaymentBasePage
                 base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.JTPayAliPay);
                 resourceString = "dJTPayAliPay";
                 hdnNoteVersion.Value = "1";
-                _redirection = "Pay1202122.aspx";
-                
                 break;
             case "wechat":
             default:
-                _redirection = "Pay1202123.aspx";
                 base.PageName = Convert.ToString(commonVariables.DepositMethod.JTPayWeChat);
                 base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.JTPayWeChat);
                 resourceString = "dJTPayWeChat";
                 hdnNoteVersion.Value = "0";
                 break;
         }
+
+        _redirection = string.Concat(V2DepositPath, "Pay", PaymentMethodId, ".aspx");
 
     }
 

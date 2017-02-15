@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
 
-    <div class="form-group ali-pay-note">
+    <div class="form-group pay-note">
         <span id="paymentNote"></span>
         <p id="paymentNoteContent"></p>
     </div>
@@ -27,15 +27,8 @@
         }
 
         $(document).ready(function () {
-            _w88_paymentSvcV2.setPaymentTabs("deposit", "<%=base.PaymentMethodId %>");
-            _w88_paymentSvcV2.DisplaySettings(
-                "<%=base.PaymentMethodId %>"
-                , {
-                    type: "deposit"
-                    , countryCode: "<%=base.strCountryCode %>"
-                    , memberId: "<%=base.strMemberID %>"
-                    , notice: '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>'
-                });
+            _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
+            _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
             window.w88Mobile.Gateways.WeChatV2.init();
 
