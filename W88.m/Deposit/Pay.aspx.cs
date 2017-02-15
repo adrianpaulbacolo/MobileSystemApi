@@ -18,6 +18,12 @@ public partial class Deposit_Pay : PaymentBasePage
             case commonVariables.DepositMethod.PaySec:
                 GatewayFile = "paysec";
                 break;
+            case commonVariables.DepositMethod.NineVPayAlipay:
+                GatewayFile = "ninevpay";
+                break;
+            case commonVariables.DepositMethod.JuyPayAlipay:
+                GatewayFile = "juypay";
+                break;
             case commonVariables.DepositMethod.ECPSS:
                 GatewayFile = "ecpsspay";
                 break;
