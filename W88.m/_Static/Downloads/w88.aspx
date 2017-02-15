@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="w88.aspx.cs" Inherits="_Static_Downloads_w88" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,7 @@
         <div class="ui-content" role="main">
             <div class="static-content">
                 <div>
-                    <img src="/_Static/Images/Download/ClubW-Android-iOS-Download-Page.jpg" alt="banner" class="img-responsive">
+                    <img src="/_Static/Images/Download/ClubW-Android-iOS-Download-Page_<%=commonVariables.SelectedLanguageShort.ToLower() %>.jpg" alt="banner" class="img-responsive">
                 </div>
                 <div class="downloadmsg">
                     <span runat="server" id="spanMsg"></span>
