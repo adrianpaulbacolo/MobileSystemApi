@@ -41,4 +41,16 @@
     <span class="icon icon-search"></span>
 </a>
 {% } %}
-<h1 class="header-title">{%- _contents.translate("LABEL_MENU_SLOTS") %}</h1>
+<h1 class="header-title">{%
+    if(!_.isUndefined(w88Mobile.v2.Routes.currentCtrl()) && w88Mobile.v2.Routes.currentCtrl().title != ""){
+    %}
+        {%- w88Mobile.v2.Routes.currentCtrl().title %}
+    {%
+    }else{
+    %}
+        {%- _contents.translate("LABEL_MENU_SLOTS") %}
+    {%
+       
+    }
+    
+    %}</h1>
