@@ -110,61 +110,7 @@
 
             var isDeposit = _.includes(window.location.pathname.toLowerCase(), "deposit");
 
-            var headerTitle = isDeposit ? _w88_contents.translate("LABEL_FUNDS_DEPOSIT") : _w88_contents.translate("LABEL_FUNDS_WIDRAW");
-
-            setTranslations();
-            function setTranslations() {
-                if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
-                    $("header .header-title").text(headerTitle);
-                    $('#lblMode').text(_w88_contents.translate("LABEL_MODE"));
-                    $('#lblMinMaxLimit').text(_w88_contents.translate("LABEL_MINMAX_LIMIT"));
-                    $('#lblDailyLimit').text(_w88_contents.translate("LABEL_DAILY_LIMIT"));
-                    $('#lblTotalAllowed').text(_w88_contents.translate("LABEL_TOTAL_ALLOWED"));
-
-                    $('#btnSubmitPlacement').val(_w88_contents.translate("BUTTON_SUBMIT")).button("refresh");
-                } else {
-                    window.setInterval(function () {
-                        setTranslations();
-                    }, 500);
-                }
-            }
-
-            var resource = "", payment = undefined, storage = "";
-
-            if (isDeposit) {
-                resource = "/payments/settings/deposit";
-                payment = amplify.store(w88Mobile.Keys.depositSettings);
-                storage = w88Mobile.Keys.depositSettings;
-            } else {
-                resource = "/payments/settings/withdrawal";
-                payment = amplify.store(w88Mobile.Keys.withdrawalSettings);
-                storage = w88Mobile.Keys.withdrawalSettings;
-            }
-
-            if (!payment || (payment && window.User.lang != payment.language)) {
-                var headers = {
-                    'Token': window.User.token,
-                    'LanguageCode': window.User.lang
-                };
-
-                $.ajax({
-                    type: "GET",
-                    url: w88Mobile.APIUrl + resource,
-                    headers: headers,
-                    success: function (response) {
-                        switch (response.ResponseCode) {
-                            case 1:
-                                var data = { settings: response.ResponseData, language: window.User.lang };
-                                amplify.store(storage, data, window.User.storageExpiration);
-                            default:
-                                break;
-                        }
-                    },
-                    error: function () {
-                        console.log("Error connecting to api");
-                    },
-                });
-            }
+            _w88_paymentSvcV2.init(isDeposit);
         });
     </script>
 

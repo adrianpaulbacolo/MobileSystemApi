@@ -22,38 +22,11 @@ public partial class Deposit_Pay : PaymentBasePage
             case commonVariables.DepositMethod.ECPSS:
                 GatewayFile = "ecpsspay";
                 break;
-
-            case commonVariables.DepositMethod.AllDebit:
-                GatewayFile = "alldebit";
-                break;
-
-            case commonVariables.DepositMethod.NganLuong:
-                GatewayFile = "nganluong";
-                break;
-
-            case commonVariables.DepositMethod.FastDeposit:
-                GatewayFile = "fastdep";
-                break;
-
-            case commonVariables.DepositMethod.BaokimScratchCard:
-                GatewayFile = "baokimSc";
-                break;
-         
-            case commonVariables.DepositMethod.NineVPayAlipay:
-            case commonVariables.DepositMethod.JuyPayAlipay:
-            case commonVariables.DepositMethod.JTPayAliPay:
-            case commonVariables.DepositMethod.JutaPay:
-            case commonVariables.DepositMethod.ShengPayAliPay:
-                GatewayFile = "alipay";
-                break;
-
             case commonVariables.DepositMethod.IWallet:
                 GatewayFile = "iwallet";
                 break;
             case commonVariables.DepositMethod.KexunPay:
-            case commonVariables.DepositMethod.JTPayWeChat:
-            case commonVariables.DepositMethod.KDPayWeChat:
-                GatewayFile = "wechat";
+                GatewayFile = "kexunpay";
                 break;
             case commonVariables.DepositMethod.Help2Pay:
                 GatewayFile = "help2pay";

@@ -97,9 +97,8 @@
                     MethodId: "<%=base.PaymentMethodId%>"
                 };
 
-                var action = "/Deposit/Pay.aspx";
                 var params = decodeURIComponent($.param(data));
-                window.open(action + "?" + params, "<%=base.PageName%>");
+                window.open(_w88_paymentSvcV2.payRoute + "?" + params, "<%=base.PageName%>");
                 _w88_paymentSvcV2.onTransactionCreated($(this));
                 return;
             });
