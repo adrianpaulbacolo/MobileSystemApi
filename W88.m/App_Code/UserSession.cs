@@ -78,4 +78,14 @@ public class UserSession
             return info.MemberId;
         }
     }
+
+    public static string CountryCode
+    {
+        get
+        {
+            var member = new Members();
+            var info = member.MemberData();
+            return info.CountryCode;
+        }
+    }
 }

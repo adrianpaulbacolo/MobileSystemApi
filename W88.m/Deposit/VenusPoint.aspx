@@ -1,120 +1,48 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="VenusPoint.aspx.cs" Inherits="Deposit_VenusPoint" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Payments.master" AutoEventWireup="true" CodeFile="VenusPoint.aspx.cs" Inherits="Deposit_VenusPoint" %>
 
-<%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-    <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js"></script>
-    <script type="text/javascript" src="/_Static/JS/modules/gateways/venuspoint.js"></script>
-</head>
-<body>
-    <div data-role="page" data-theme="b">
-        <header data-role="header" data-theme="b" data-position="fixed" id="header">
-            <% if (commonCookie.CookieIsApp != "1")
-               { %>
-            <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
-                <i class="icon-navicon"></i>
-            </a>
-            <% } %>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
 
-            <h1 class="title" id="headerTitle"><%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%></h1>
-        </header>
+    <ul class="list fixed-tablet-size">
+        <li class="item item-input">
+            <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
+            <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+        </li>
+        <li class="item item-input">
+            <asp:Label ID="lblAcctName" runat="server" AssociatedControlID="txtAccountName" />
+            <asp:TextBox ID="txtAccountName" runat="server" data-clear-btn="true" />
+        </li>
+        <li class="item item-input">
+            <asp:Label ID="lblAcctNumber" runat="server" AssociatedControlID="txtAccountNumber" />
+            <asp:TextBox ID="txtAccountNumber" runat="server" TextMode="Password" data-clear-btn="true" />
+        </li>
+        <li class="item-text-wrap">
+            <asp:Label ID="lblVenusPoints" runat="server" />
+        </li>
+        <li class="item-text-wrap">
+            <asp:Label ID="lblExchangeRate" runat="server" />
+        </li>
+    </ul>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder1" runat="Server">
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/venuspoint.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var payments = new w88Mobile.Gateways.Payments("<%=base.PaymentMethodId %>");
+            payments.init();
 
-        <div class="ui-content" role="main">
-            <div class="wallet main-wallet">
-                <uc:Wallet ID="uMainWallet" runat="server" />
-            </div>
-
-            <div class="toggle-list-box">
-                <button class="toggle-list-btn btn-active" id="activeDepositTabs"></button>
-                <ul class="toggle-list hidden" id="depositTabs">
-                </ul>
-            </div>
-
-            <form class="form" id="form1" runat="server" data-ajax="false">
-                <br>
-                <ul class="list fixed-tablet-size">
-                    <li class="row">
-                        <div class="col">
-                            <asp:Literal ID="lblMode" runat="server" />
-                        </div>
-                        <div class="col">
-                            <asp:Literal ID="txtMode" runat="server" />
-                        </div>
-                    </li>
-                    <li class="row">
-                        <div class="col">
-                            <asp:Literal ID="lblMinMaxLimit" runat="server" />
-                        </div>
-                        <div class="col">
-                            <asp:Literal ID="txtMinMaxLimit" runat="server" />
-                        </div>
-                    </li>
-                    <li class="row">
-                        <div class="col">
-                            <asp:Literal ID="lblDailyLimit" runat="server" />
-                        </div>
-                        <div class="col">
-                            <asp:Literal ID="txtDailyLimit" runat="server" />
-                        </div>
-                    </li>
-                    <li class="row">
-                        <div class="col">
-                            <asp:Literal ID="lblTotalAllowed" runat="server" />
-                        </div>
-                        <div class="col">
-                            <asp:Literal ID="txtTotalAllowed" runat="server" />
-                        </div>
-                    </li>
-                    <li class="item item-input">
-                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
-                        <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
-                    </li>
-                    <li class="item item-input">
-                        <asp:Label ID="lblAcctName" runat="server" AssociatedControlID="txtAccountName" />
-                        <asp:TextBox ID="txtAccountName" runat="server" data-clear-btn="true" />
-                    </li>
-                    <li class="item item-input">
-                        <asp:Label ID="lblAcctNumber" runat="server" AssociatedControlID="txtAccountNumber" />
-                        <asp:TextBox ID="txtAccountNumber" runat="server" TextMode="Password" data-clear-btn="true" />
-                    </li>
-                    <li class="item-text-wrap">
-                        <asp:Label ID="lblVenusPoints" runat="server" />
-                    </li>
-                    <li class="item-text-wrap">
-                        <asp:Label ID="lblExchangeRate" runat="server" />
-                    </li>
-                    <li class="item row">
-                        <div class="col">
-                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" />
-                        </div>
-                    </li>
-                </ul>
-            </form>
-        </div>
-
-        <% if (commonCookie.CookieIsApp != "1")
-           { %>
-        <!--#include virtual="~/_static/navMenu.shtml" -->
-        <% } %>
-
-        <script type="text/javascript">
-            $(document).ready(function () {
-                window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
+            window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
 
                 window.w88Mobile.Gateways.VenusPoint.Initialize();
 
                 $('#form1').submit(function (e) {
                     e.preventDefault();
-                    window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
+                    window.w88Mobile.FormValidator.disableSubmitButton('input[id$="btnSubmit"]');
 
                     var data = {
-                        Amount: $('#txtDepositAmount').val(),
-                        AccountName: $('#txtAccountName').val(),
-                        AccountNumber: $('#txtAccountNumber').val()
+                        Amount: $('input[id$="txtAmount"]').val(),
+                        AccountName: $('input[id$="txtAccountName"]').val(),
+                        AccountNumber: $('input[id$="txtAccountNumber"]').val()
                     };
 
                     window.w88Mobile.Gateways.VenusPoint.Deposit(data, function (response) {
@@ -133,15 +61,15 @@
                         }
                     },
                     function () {
-                        window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
+                        window.w88Mobile.FormValidator.enableSubmitButton('input[id$="btnSubmit"]');
                         GPInt.prototype.HideSplash();
                     });
                 });
 
-                $("#txtDepositAmount").blur(function () {
+            $('input[id$="txtAmount"]').blur(function () {
                     if ($(this).val() && '<%=commonCookie.CookieCurrency%>' == "JPY") {
                         var data = {
-                            amount: $('#txtDepositAmount').val(),
+                            amount: $('input[id$="txtAmount"]').val(),
                             currencyFrom: "JPY",
                             currencyTo: "USD"
                         }
@@ -150,7 +78,5 @@
                     }
                 });
             });
-        </script>
-    </div>
-</body>
-</html>
+    </script>
+</asp:Content>

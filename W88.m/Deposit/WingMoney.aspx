@@ -42,9 +42,9 @@
         $(document).ready(function () {
             var payments = new w88Mobile.Gateways.Payments("<%=base.PaymentMethodId %>");
 
-            payments.init();
+                payments.init();
 
-            window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
+                window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
 
             $('#form1').submit(function (e) {
                 e.preventDefault();
@@ -52,20 +52,20 @@
 
                 var depositDateTime = new Date($('#<%=drpDepositDate.ClientID%>').val());
                 depositDateTime.setHours($('#<%=drpHour.ClientID%>').val());
-                depositDateTime.setMinutes($('#<%=drpMinute.ClientID%>').val());
+                    depositDateTime.setMinutes($('#<%=drpMinute.ClientID%>').val());
 
-                var data = {
-                    Amount: $('#<%=txtAmount.ClientID%>').val(),
+                    var data = {
+                        Amount: $('#<%=txtAmount.ClientID%>').val(),
                     AccountName: $('#<%=txtAccountName.ClientID%>').val(),
                     AccountNumber: $('#<%=txtAccountNumber.ClientID%>').val(),
                     ReferenceId: $('#<%=txtReferenceId.ClientID%>').val(),
                     DepositDateTime: depositDateTime.toLocaleDateString() + " " + depositDateTime.toLocaleTimeString()
                 }
 
-                payments.send(data, function (response) {
-                    switch (response.ResponseCode) {
-                        case 1:
-                            w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>", function () {
+                    payments.send(data, function (response) {
+                        switch (response.ResponseCode) {
+                            case 1:
+                                w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>", function () {
                                 $('#form1')[0].reset();
                             });
 
@@ -83,7 +83,7 @@
                     w88Mobile.FormValidator.enableSubmitButton('#ContentPlaceHolder1_btnSubmit');
                     GPINTMOBILE.HideSplash();
                 });
+                });
             });
-        });
     </script>
 </asp:Content>

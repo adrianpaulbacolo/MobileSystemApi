@@ -12,12 +12,129 @@
         Deposit: deposit,
         Withdraw: withdraw,
         AutoRouteIds: autorouteIds,
-        Send :send
+        Send: sendv1,
+        SendDeposit: send,
+        DisplaySettings: displaySettings,
+        setPaymentTabs: setPaymentTabs,
+        onTransactionCreated: onTransactionCreated,
+        formatDateTime: formatDateTime,
+        init: init
     };
+
+    var paymentCache = {};
+
+    var paymentOptions = {};
 
     return defaultpayments;
 
-    function send(resource, method, success, data, complete) {
+    function init(isDeposit) {
+
+        var headerTitle = isDeposit ? _w88_contents.translate("LABEL_FUNDS_DEPOSIT") : _w88_contents.translate("LABEL_FUNDS_WIDRAW");
+        $('#headerTitle').text(headerTitle);
+        $('span[id$="lblMode"]').text(_w88_contents.translate("LABEL_MODE"));
+        $('span[id$="lblMinMaxLimit"]').text(_w88_contents.translate("LABEL_MINMAX_LIMIT"));
+        $('span[id$="lblDailyLimit"]').text(_w88_contents.translate("LABEL_DAILY_LIMIT"));
+        $('span[id$="lblTotalAllowed"]').text(_w88_contents.translate("LABEL_TOTAL_ALLOWED"));
+
+        $('input[id$="btnSubmit"]').val(_w88_contents.translate("BUTTON_SUBMIT")).button("refresh");
+
+        var type = isDeposit ? "deposit" : "withdrawal";
+
+        fetchSettings(type, function () { });
+    }
+
+    function formatDateTime(dateTime) {
+        //MM/DD/YYYY h:m:s
+        var month = (dateTime.getMonth() + 1).toString().length == 1 ? "0" + (dateTime.getMonth() + 1).toString() : (dateTime.getMonth() + 1).toString();
+        var day = (dateTime.getDate()).toString().length == 1 ? "0" + dateTime.getDate().toString() : dateTime.getDate().toString();
+        var year = dateTime.getFullYear();
+
+        var hours = dateTime.getHours();
+        var minutes = dateTime.getMinutes();
+        var seconds = dateTime.getSeconds();
+
+        return month + "/" + day + "/" + year + " " + hours + ":" + minutes + ":" + seconds
+    }
+
+    function displaySettings(methodId, options) {
+        paymentOptions = options;
+        fetchSettings(paymentOptions.type, function () {
+            if (!_.isEmpty(paymentCache)) {
+                var setting = _.find(paymentCache.settings, function (data) {
+                    return data.Id == methodId;
+                });
+
+                if (setting) {
+                    $('#txtMode').text(": " + setting.PaymentMode);
+                    $('#txtMinMaxLimit').text(": " + setting.MinAmount.toLocaleString(undefined, { minimumFractionDigits: 2 }) + " / " + setting.MaxAmount.toLocaleString(undefined, { minimumFractionDigits: 2 }));
+                    $('#txtDailyLimit').text(": " + setting.LimitDaily);
+                    $('#txtTotalAllowed').text(": " + setting.TotalAllowed);
+                }
+            }
+        })
+    }
+
+    function setPaymentTabs(type, activeMethodId) {
+        if (type.toLowerCase() == "deposit") {
+            fetchSettings(type, function () {
+                if (paymentCache.settings.length == 0) {
+                    // track accounts with no gateways
+                    w88Mobile.PiwikManager.trackEvent({
+                        category: type,
+                        action: window.User.countryCode,
+                        name: window.User.memberId
+                    });
+
+                    nogateway();
+                }
+                else {
+                    // payment cache variable is now present once callback is triggered
+                    setDepositPaymentTab(paymentCache.settings, activeMethodId);
+                    togglePayment();
+                }
+            });
+        } else {
+            fetchSettings(type, function () {
+                if (paymentCache.settings.length == 0) {
+                    nogateway();
+                }
+                else {
+                    setWithdrawalPaymentTab(paymentCache.settings, activeMethodId);
+                    togglePayment();
+                }
+            });
+        }
+    }
+
+    function fetchSettings(type, callback) {
+
+        var url = "/payments/settings/" + type;
+        cacheKey = (type.toLowerCase() == "deposit") ? w88Mobile.Keys.depositSettings : w88Mobile.Keys.withdrawalSettings;
+
+        paymentCache = amplify.store(cacheKey);
+
+        if (!_.isEmpty(paymentCache) && User.lang == paymentCache.language) {
+            callback();
+        } else {
+            send(url, "GET", {},
+                    function (response) {
+                        switch (response.ResponseCode) {
+                            case 1:
+                                paymentCache = {
+                                    settings: response.ResponseData
+                                    , language: window.User.lang
+                                };
+                                amplify.store(cacheKey, paymentCache, User.storageExpiration);
+                                callback();
+                            default:
+                                break;
+                        }
+                    }
+                );
+        }
+    }
+
+    function send(resource, method, data, success, complete) {
         var url = w88Mobile.APIUrl + resource;
 
         var headers = {
@@ -41,17 +158,27 @@
         });
     }
 
+    function onTransactionCreated(form) {
+        if (!_.isUndefined(form)) _.first(form).reset();
+        w88Mobile.Growl.shout(_w88_contents.translate("MESSAGES_CHECK_HISTORY"));
+    }
 
-    // deposit
+    // to be deprecated, use "send"
+    function sendv1(resource, method, success, data, complete) {
+        send(resource, method, data, success, complete);
+    }
+
+
+    // deposit to be deprecated once new flow is applied use fetchSettings
     function deposit(countryCode, memberid, paymentNotice, activeTabId) {
 
         var payment = amplify.store(w88Mobile.Keys.depositSettings);
 
         if (payment && window.User.lang == payment.language) {
-            setDepositPaymentTab(payment.settings, activeTabId)
+            setDepositPaymentTab(payment.settings, activeTabId);
         }
         else {
-            send("/payments/settings/deposit", "GET",
+            send("/payments/settings/deposit", "GET", {},
                 function (response) {
                     switch (response.ResponseCode) {
                         case 1:
@@ -59,7 +186,7 @@
 
                             amplify.store(w88Mobile.Keys.depositSettings, data, window.User.storageExpiration);
 
-                            setDepositPaymentTab(response.ResponseData, activeTabId)
+                            setDepositPaymentTab(response.ResponseData, activeTabId);
                         default:
                             break;
                     }
@@ -141,28 +268,25 @@
                 // track accounts with no gateways
                 w88Mobile.PiwikManager.trackEvent({
                     category: "Deposit",
-                    action: countryCode,
-                    name: memberid
+                    action: window.User.countryCode,
+                    name: window.User.memberId
                 });
 
-                $('.empty-state').show();
-                $('#paymentNote').append(paymentNotice);
-
-                GPInt.prototype.HideSplash();
+                nogateway();
             }
         }
     }
 
-    // withdraw
+    // withdraw to be deprecated once new flow is applied use fetchSettings
     function withdraw(countryCode, memberid, paymentNotice, activeTabId) {
 
         var payment = amplify.store(w88Mobile.Keys.withdrawalSettings);
 
         if (payment && window.User.lang == payment.language) {
-            setWithdrawalPaymentTab(payment.settings, activeTabId)
+            setWithdrawalPaymentTab(payment.settings, activeTabId);
         }
         else {
-            send("/payments/settings/Withdrawal", "GET",
+            send("/payments/settings/Withdrawal", "GET", {},
                 function (response) {
                     switch (response.ResponseCode) {
                         case 1:
@@ -170,7 +294,7 @@
 
                             amplify.store(w88Mobile.Keys.withdrawalSettings, data, window.User.storageExpiration);
 
-                            setWithdrawalPaymentTab(response.ResponseData, activeTabId)
+                            setWithdrawalPaymentTab(response.ResponseData, activeTabId);
                             break;
                         default:
                             break;
@@ -228,12 +352,19 @@
                 window.location.href = withdraw;
             }
             else {
-                $('.empty-state').show();
-                $('#paymentNote').append(paymentNotice);
-
-                GPInt.prototype.HideSplash();
+                nogateway();
             }
         }
+    }
+
+    function nogateway() {
+        $('.empty-state').show();
+        $('#paymentNote').html(_w88_contents.translate("LABEL_PAYMENT_NOTE_NO_GATEWAY"));
+        $('#btnSubmitPlacement').hide();
+        $('#paymentSettings').hide();
+        $('#paymentList').hide();
+        
+        GPInt.prototype.HideSplash();
     }
 
     function setPaymentPage(id) {
@@ -256,6 +387,9 @@
                 return "IWallet.aspx";
 
                 // deposit
+            case "120272":
+                return "Baokim.aspx";
+
             case "110101":
                 return "FastDeposit.aspx";
 
@@ -362,4 +496,4 @@
     }
 }
 
-window.w88Mobile.Gateways.DefaultPayments = DefaultPayments();
+var _w88_paymentSvc = window.w88Mobile.Gateways.DefaultPayments = DefaultPayments();
