@@ -29,11 +29,9 @@
                 <a href="#" class="ui-btn btn-small btn-bordered" id="copyAmount"><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
             </div>
         </li>
-        <li class="row">
-            <div class="col">
-                <h5 style="font-style: italic">
-                    <span id="lblAmountNote" /></h5>
-            </div>
+        <li class="item-text-wrap ali-pay-note">
+            <span id="paymentNote"></span>
+            <p id="paymentNoteContent"></p>
         </li>
         <li class="row">
             <div class="col col-40">
@@ -68,27 +66,25 @@
     </ul>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder1" runat="Server">
-
+    <link href="/_Static/Css/payment.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
     <script type="text/javascript">
         $(document).ready(function () {
-            var payments = new w88Mobile.Gateways.Payments("<%=base.PaymentMethodId %>");
-
-            payments.init();
-
-            $('#paymentSettings').hide();
-
-            window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
+            _w88_paymentSvc.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
 
             setTranslations();
             function setTranslations() {
                 if (_w88_contents.translate("LABEL_AMOUNT") != "LABEL_AMOUNT") {
+                    $('#paymentSettings').hide();
+
                     $('#lblStatus').text(_w88_contents.translate("LABEL_FIELDS_STATUS"))
                     $('#lblTransactionId').text(_w88_contents.translate("LABEL_TRANSACTION_ID"))
                     $('#lblAmount').text(_w88_contents.translate("LABEL_AMOUNT"))
                     $('#lblBankName').text(_w88_contents.translate("LABEL_BANK_NAME"))
                     $('#lblBankHolderName').text(_w88_contents.translate("LABEL_ACCOUNT_NAME"))
                     $('#lblBankAccountNo').text(_w88_contents.translate("LABEL_ACCOUNT_NUMBER"))
-                    $('#lblAmountNote').html(_w88_contents.translate("LABEL_MSG_AMOUNT_120254"))
+
+                    $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+                    $("#paymentNoteContent").text(_w88_contents.translate("LABEL_MSG_AMOUNT_120254"));
                 } else {
                     window.setInterval(function () {
                         setTranslations();
@@ -98,7 +94,7 @@
 
             var transactionId = window.location.search.substr(4); //querystring "id"
             var bankUrl = "";
-            window.w88Mobile.Gateways.DefaultPayments.Send("/payments/<%=base.PaymentMethodId %>/" + transactionId, "GET", function (response) {
+            _w88_paymentSvc.SendDeposit("/payments/<%=base.PaymentMethodId %>/" + transactionId, "GET", "", function (response) {
                 switch (response.ResponseCode) {
                     case 1:
                         $('#txtStatus').text(": " + response.ResponseData.Status)

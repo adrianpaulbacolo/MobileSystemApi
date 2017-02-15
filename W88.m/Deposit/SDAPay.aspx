@@ -3,8 +3,9 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <ul class="list fixed-tablet-size">
-        <li class="item-text-wrap">
-            <span id="lblIndicatorMessage" />
+        <li class="item-text-wrap ali-pay-note">
+            <span id="paymentNote"></span>
+            <p id="paymentNoteContent"></p>
         </li>
         <li class="item item-input">
             <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
@@ -13,17 +14,22 @@
     </ul>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder1" runat="Server">
+    <link href="/_Static/Css/payment.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
 
     <script type="text/javascript">
         $(document).ready(function () {
-            var payments = new w88Mobile.Gateways.Payments("<%=base.PaymentMethodId %>");
-
-            payments.init();
+            _w88_paymentSvc.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
+            _w88_paymentSvc.DisplaySettings(
+                "<%=base.PaymentMethodId %>"
+                , {
+                    type: "<%=base.PaymentType %>"
+                });
 
             setTranslations();
             function setTranslations() {
                 if (_w88_contents.translate("LABEL_MSG_120254") != "LABEL_MSG_120254") {
-                    $('#lblIndicatorMessage').html(_w88_contents.translate("LABEL_MSG_120254"))
+                    $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+                    $("#paymentNoteContent").text(_w88_contents.translate("LABEL_MSG_120254"));
                 } else {
                     window.setInterval(function () {
                         setTranslations();
@@ -31,40 +37,34 @@
                 }
             }
 
-            window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
-
             $('#form1').submit(function (e) {
                 e.preventDefault();
-                window.w88Mobile.FormValidator.disableSubmitButton('#ContentPlaceHolder1_btnSubmit');
-
                 var data = {
-                    Amount: $('#<%=txtAmount.ClientID%>').val(),
-                }
+                    Amount: $('input[id$="txtAmount"]').val(),
+                };
 
-                    payments.send(data, function (response) {
-                        switch (response.ResponseCode) {
-                            case 1:
-                                w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>", function () {
-                                window.location.replace('SDAPay2.aspx?id=' + response.ResponseData.TransactionId)
-                            });
+                _w88_paymentSvc.SendDeposit("/payments/" + "<%=base.PaymentMethodId %>", "POST", data, function (response) {
+                    switch (response.ResponseCode) {
+                        case 1:
+
+                            w88Mobile.Growl.shout(_w88_contents.translate("MESSAGES_CHECK_HISTORY"));
+                            window.location.replace('SDAPay2.aspx?id=' + response.ResponseData.TransactionId)
 
                             $('#form1')[0].reset();
-
                             break;
                         default:
                             if (_.isArray(response.ResponseMessage))
-                                w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
+                                w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage), _self.shoutCallback);
                             else
-                                w88Mobile.Growl.shout(response.ResponseMessage);
+                                w88Mobile.Growl.shout(response.ResponseMessage, _self.shoutCallback);
 
                             break;
                     }
                 },
                 function () {
-                    w88Mobile.FormValidator.enableSubmitButton('#ContentPlaceHolder1_btnSubmit');
-                    GPINTMOBILE.HideSplash();
+                    GPInt.prototype.HideSplash();
                 });
-                });
+            });
         });
     </script>
 </asp:Content>
