@@ -17,11 +17,10 @@
         <uc1:HeaderLogo runat="server" ID="HeaderLogo" />
 
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
-        
-        <!--#include virtual="~/_static/fixed-footer.shtml" -->
 
         <% if(commonCookie.CookieIsApp != "1"){ %>
         <!--#include virtual="~/_static/navMenu.shtml" -->
+        <!--#include virtual="~/_static/fixed-footer.shtml" -->
         <% } %>
 
         <asp:ContentPlaceHolder ID="ScriptsPlaceHolder" runat="server"></asp:ContentPlaceHolder>
