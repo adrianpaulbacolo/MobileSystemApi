@@ -218,23 +218,25 @@
                  <!-- Zalo -->
                 <% if (commonVariables.SelectedLanguage.Equals("vi-vn", StringComparison.OrdinalIgnoreCase))
                    { %>
-                <li class="col col-33">
 
                     <%if (mobileDeviceId == 1)
                       {%>
+                    <li class="col col-33">
                     <a href="zalo://639989602209" class="tile" data-ajax="false">
                         <span class="icon-zalo"></span>
                         <h4 class="title">(+63) 9989602209</h4>
                     </a>
+                </li>
                     <%}
                       else if (mobileDeviceId == 2)
                       {%>
+                    <li class="col col-33">
                     <a href="http://zaloapp.com/qr/p/tkz0l05n8qu5" class="tile" data-ajax="false">
                         <span class="icon-zalo"></span>
                         <h4 class="title">Zalo</h4>
                     </a>
-                    <% }%>
                 </li>
+                    <% } %>
                 <% } %>
 
                 <li class="col col-33">

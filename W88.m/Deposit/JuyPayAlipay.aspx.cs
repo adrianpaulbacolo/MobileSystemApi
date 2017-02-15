@@ -3,8 +3,6 @@
 
 public partial class Deposit_JuyPayAlipay : PaymentBasePage
 {
-    protected string lblTransactionId;
-
     protected void Page_Init(object sender, EventArgs e)
     {
         base.PageName = Convert.ToString(commonVariables.DepositMethod.JuyPayAlipay);
@@ -24,6 +22,5 @@ public partial class Deposit_JuyPayAlipay : PaymentBasePage
     private void InitializeLabels()
     {
         lblDepositAmount.Text = base.strlblAmount;
-        lblTransactionId = base.strlblTransactionId;
     }
 }

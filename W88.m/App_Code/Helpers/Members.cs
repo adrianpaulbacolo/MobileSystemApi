@@ -107,7 +107,8 @@ namespace Helpers
                 CurrentSessionId = dTable.Rows[0]["memberSessionId"].ToString(),
                 MemberId = dTable.Rows[0]["memberId"].ToString(),
                 MemberCode = dTable.Rows[0]["memberCode"].ToString(),
-                RiskId = dTable.Rows[0]["riskId"].ToString()
+                RiskId = dTable.Rows[0]["riskId"].ToString(),
+                CountryCode = dTable.Rows[0]["countryCode"].ToString()
             };
 
             var serializer = new JavaScriptSerializer();
@@ -154,6 +155,11 @@ namespace Helpers
             if (string.IsNullOrEmpty(userData.RiskId))
             {
                 userData.RiskId = commonVariables.GetSessionVariable("RiskId");
+            }
+
+            if (string.IsNullOrEmpty(userData.CountryCode))
+            {
+                userData.CountryCode = commonVariables.GetSessionVariable("CountryCode");
             }
 
             return userData;

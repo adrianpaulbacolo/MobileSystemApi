@@ -3,8 +3,6 @@
 
 public partial class Deposit_NineVPayAlipay : PaymentBasePage
 {
-    protected string lblTransactionId;
-
     protected void Page_Init(object sender, EventArgs e)
     {
         base.PageName = Convert.ToString(commonVariables.DepositMethod.NineVPayAlipay);
@@ -24,6 +22,5 @@ public partial class Deposit_NineVPayAlipay : PaymentBasePage
     private void InitializeLabels()
     {
         lblDepositAmount.Text = base.strlblAmount;
-        lblTransactionId = base.strlblTransactionId;
     }
 }
