@@ -102,7 +102,6 @@ function BaokimScratchCardV2() {
                     w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
                     w88Mobile.PostPaymentForm.submit();
 
-                    $('#form1')[0].reset();
                     break;
                 default:
                     if (_.isArray(response.ResponseMessage))

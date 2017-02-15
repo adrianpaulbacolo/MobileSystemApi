@@ -29,7 +29,6 @@ function NganLuongV2() {
                 case 1:
                     window.open(response.ResponseData.VendorRedirectionUrl, '_blank');
 
-                    $('#form1')[0].reset();
                     break;
                 default:
                     if (_.isArray(response.ResponseMessage))

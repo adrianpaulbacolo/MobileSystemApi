@@ -68,8 +68,6 @@ function FastDepositv2() {
                     w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
                     w88Mobile.PostPaymentForm.submit();
 
-                    $('#form1')[0].reset();
-
                     fastdeposit.toogleBank($('select[id$="drpBank"]').val());
                     break;
                 default:

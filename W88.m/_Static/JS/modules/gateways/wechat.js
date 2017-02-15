@@ -43,7 +43,6 @@ function WeChatV2() {
                         }
                     }
 
-                    $('#form1')[0].reset();
                     break;
                 default:
                     if (_.isArray(response.ResponseMessage))
