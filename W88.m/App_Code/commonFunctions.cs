@@ -737,6 +737,7 @@ public static class commonFunctions
             , "/index.aspx"
             , "/index"
             , "/lang.aspx"
+            , "/lottery.aspx"
             , "/profile/default.aspx"
         };
 

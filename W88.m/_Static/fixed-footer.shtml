@@ -15,18 +15,20 @@
         </div>
     </div>
 </div>
-<script>
-
+<script type="text/javascript">
+    $(function () {
     _.forEach($(".footer-nav > div"), function(menu){
         if($(menu).find(".footer-nav-item").attr("href") == location.pathname){
             $(menu).addClass("active");
         }
     });
 
-    function isActive(){
-        return
-    }
-
+    var urlRewards = window.location.protocol + '//mrewards.' + '<%=commonIp.DomainName %>' + '?lang=' + '<%=commonVariables.SelectedLanguage%>' + '&token=' + '<%=commonVariables.EncryptedCurrentMemberSessionId%>';
+    $(".f-rewards-bottom").attr('href', urlRewards);
+});
+</script>
+<% } if(commonFunctions.isNativeAgent(Request)){ %>
+<script type="text/javascript">
     $(function () {
     $("#aMenu").attr("href", "#");
     $("#aMenu").on("click", function(e){
@@ -50,9 +52,6 @@
             }
         });
     }, 1);
-
-    var urlRewards = window.location.protocol + '//mrewards.' + '<%=commonIp.DomainName %>' + '?lang=' + '<%=commonVariables.SelectedLanguage%>' + '&token=' + '<%=commonVariables.EncryptedCurrentMemberSessionId%>';
-    $(".f-rewards-bottom").attr('href', urlRewards);
 });
 </script>
 <% } %>
