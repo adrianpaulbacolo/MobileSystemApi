@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/v2/MasterPages/Payment.master" AutoEventWireup="true" CodeFile="Pay1202127.aspx.cs" Inherits="v2_Deposit_Pay1202127" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/v2/MasterPages/Payment.master" AutoEventWireup="true" CodeFile="Pay1202123.aspx.cs" Inherits="v2_Deposit_Pay1202123" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
     <div class="form-group ali-pay-note">
@@ -27,7 +27,7 @@
                 });
 
             window.w88Mobile.Gateways.WeChatV2.init();
-            
+
             $('#form1').submit(function (e) {
                 e.preventDefault();
                 var data = {

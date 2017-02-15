@@ -23,6 +23,7 @@ public partial class Deposit_KDPayWechat : PaymentBasePage
     {
         if (!Page.IsPostBack)
         {
+            CheckAgentAndRedirect(V2DepositPath + "Pay1202114.aspx");
             this.InitializeLabels();
         }
     }

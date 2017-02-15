@@ -14,6 +14,7 @@ function AlipayV2() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
                 $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
                 $("#paymentNoteContent").text(_w88_contents.translate("LABEL_PAYMENT_NOTE_ALIPAY"));
+                $('label[id$="lblDepositAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
             } else {
                 window.setInterval(function () {
                     setTranslations();
@@ -35,8 +36,16 @@ function AlipayV2() {
         _self.deposit(data, function (response) {
             switch (response.ResponseCode) {
                 case 1:
-                    w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
-                    w88Mobile.PostPaymentForm.submit();
+                    if (response.ResponseData.VendorRedirectionUrl) {
+                        window.open(response.ResponseData.VendorRedirectionUrl, '_blank');
+                    } else {
+                        if (response.ResponseData.PostUrl) {
+                            w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
+                            w88Mobile.PostPaymentForm.submit();
+                        } else if (response.ResponseData.DummyURL) {
+                            window.open(response.ResponseData.DummyURL, '_blank');
+                        }
+                    }
 
                     $('#form1')[0].reset();
                     break;

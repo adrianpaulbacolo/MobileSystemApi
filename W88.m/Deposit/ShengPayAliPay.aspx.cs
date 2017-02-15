@@ -30,6 +30,7 @@ public partial class Deposit_ShengPayAliPay : PaymentBasePage
     {
         if (!Page.IsPostBack)
         {
+            CheckAgentAndRedirect(V2DepositPath + "Pay1202111.aspx");
             InitializeLabels();
 
         }

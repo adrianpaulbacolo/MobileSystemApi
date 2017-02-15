@@ -15,6 +15,7 @@ function FastDepositv2() {
             if (Cookies().getCookie('language').toLowerCase() == 'vn' && Cookies().getCookie('currencyCode').toLowerCase() == 'vnd') {
                 if (_w88_contents.translate("LABEL_PAYMENT_NOTE_FASTDEPOSIT") != "LABEL_PAYMENT_NOTE_FASTDEPOSIT") {
                     $("#paymentNoteContent").text(_w88_contents.translate("LABEL_PAYMENT_NOTE_FASTDEPOSIT"));
+                    $('label[id$="lblDepositAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
                 } else {
                     window.setInterval(function () {
                         setTranslations();

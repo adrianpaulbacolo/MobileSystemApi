@@ -15,7 +15,7 @@ public partial class Deposit_Alipay : PaymentBasePage
     {
         if (!Page.IsPostBack)
         {
-            CheckAgentAndRedirect(V2DepositPath + "Pay999996.aspx");
+            CheckAgentAndRedirect(V2DepositPath + "Pay1202122.aspx");
             this.InitializeLabels();
         }
     }

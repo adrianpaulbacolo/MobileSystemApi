@@ -14,15 +14,6 @@ public partial class v2_Deposit_Pay1202127 : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Page.IsPostBack)
-        {
-            this.InitializeLabels();
-        }
     }
 
-    private void InitializeLabels()
-    {
-        lblDepositAmount.Text = base.strlblAmount;
-        lblTransactionId = base.strlblTransactionId;
-    }
 }
