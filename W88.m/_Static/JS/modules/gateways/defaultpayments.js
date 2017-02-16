@@ -33,7 +33,7 @@ function DefaultPaymentsV2() {
     function init(isDeposit) {
 
         var headerTitle = isDeposit ? _w88_contents.translate("LABEL_FUNDS_DEPOSIT") : _w88_contents.translate("LABEL_FUNDS_WIDRAW");
-        $('#headerTitle').text(headerTitle);
+        $("header .header-title").text(headerTitle);
         $('span[id$="lblMode"]').text(_w88_contents.translate("LABEL_MODE"));
         $('span[id$="lblMinMaxLimit"]').text(_w88_contents.translate("LABEL_MINMAX_LIMIT"));
         $('span[id$="lblDailyLimit"]').text(_w88_contents.translate("LABEL_DAILY_LIMIT"));
@@ -91,9 +91,9 @@ function DefaultPaymentsV2() {
                     nogateway();
                 }
                 else {
-                // payment cache variable is now present once callback is triggered
-                setDepositPaymentTab(paymentCache.settings, activeMethodId, memberId);
-                togglePayment();
+                    // payment cache variable is now present once callback is triggered
+                    setDepositPaymentTab(paymentCache.settings, activeMethodId);
+                    togglePayment();
                 }
             });
         } else {
@@ -102,8 +102,8 @@ function DefaultPaymentsV2() {
                     nogateway();
                 }
                 else {
-                setWithdrawalPaymentTab(paymentCache.settings, activeMethodId);
-                togglePayment();
+                    setWithdrawalPaymentTab(paymentCache.settings, activeMethodId);
+                    togglePayment();
                 }
             });
         }
@@ -200,7 +200,7 @@ function DefaultPaymentsV2() {
         togglePayment();
     }
 
-    function setDepositPaymentTab(responseData, activeTabId, memberId) {
+    function setDepositPaymentTab(responseData, activeTabId) {
         if (responseData.length > 0) {
             var routing = [
                 autorouteIds.QuickOnline,
