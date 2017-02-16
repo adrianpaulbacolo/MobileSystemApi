@@ -230,6 +230,7 @@
             w88Mobile.APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("APIUrl") %>';
         </script>
         <script src="/_static/v2/assets/js/loader.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+        <script src="/_static/v2/assets/js/usercheck.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
         <script>
             w88Mobile.Loader.init();
 
