@@ -24,7 +24,7 @@ function AllDebit() {
                 var monthText = _w88_contents.translate("LABEL_MONTH");
                 var yearText = _w88_contents.translate("LABEL_YEAR");
 
-                _w88_paymentSvc.SendDeposit("/CardType", "GET", "", function (response) {
+                _w88_paymentSvcV2.SendDeposit("/CardType", "GET", "", function (response) {
 
                     $('select[id$="ddlCardType"]').append($("<option />").val('-1').text(ddlCardTypeText));
 
@@ -47,7 +47,7 @@ function AllDebit() {
                 }
                 $('select[id$="ddlExpiryYear"]').val('-1').change();
 
-                _w88_paymentSvc.SendDeposit("/user/lastccdetails", "GET", "", function (response) {
+                _w88_paymentSvcV2.SendDeposit("/user/lastccdetails", "GET", "", function (response) {
 
                     if (response.ResponseCode == 1 && response.ResponseData != null) {
 
@@ -116,7 +116,7 @@ function AllDebit() {
             }
         },
             function () {
-                GPInt.prototype.HideSplash();
+                pubsub.publish('stopLoadItem', { selector: "" });
             });
     }
 

@@ -43,6 +43,14 @@ public partial class v2_Deposit_Pay : PaymentBasePage
                 GatewayFile = "iwallet";
                 break;
 
+            case commonVariables.DepositMethod.Neteller:
+                GatewayFile = "neteller";
+                break;
+
+            case commonVariables.DepositMethod.VenusPoint:
+                GatewayFile = "venuspoint";
+                break;
+
             case commonVariables.DepositMethod.NineVPayAlipay:
             case commonVariables.DepositMethod.JuyPayAlipay:
             case commonVariables.DepositMethod.JTPayAliPay:

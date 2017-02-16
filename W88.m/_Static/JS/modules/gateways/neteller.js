@@ -1,15 +1,18 @@
-﻿window.w88Mobile.Gateways.WeChatV2 = WeChatV2();
-var _w88_wechat = window.w88Mobile.Gateways.WeChatV2;
+﻿window.w88Mobile.Gateways.Neteller = Neteller();
+var _w88_neteller = window.w88Mobile.Gateways.Neteller;
 
-function WeChatV2() {
-    var wechat = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+function Neteller() {
 
-    wechat.init = function () {
+    var neteller = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+
+    neteller.init = function () {
+
         setTranslations();
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
-                $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-                $("#paymentNoteContent").text(_w88_contents.translate("LABEL_PAYMENT_NOTE_WECHAT"));
+            
+                $('label[id$="lblAccountName"]').text("Neteller " + _w88_contents.translate("LABEL_USERNAME"));
+                $('label[id$="lblAccountNumber"]').text("Neteller " + _w88_contents.translate("LABEL_PASSWORD"));
                 $('label[id$="lblDepositAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
             } else {
                 window.setInterval(function () {
@@ -19,18 +22,20 @@ function WeChatV2() {
         }
     };
 
-    wechat.createDeposit = function () {
+    neteller.createDeposit = function() {
         var _self = this;
         var params = _self.getUrlVars();
         var data = {
             Amount: params.Amount,
+            AccountName: params.AccountName,
+            AccountNumber: params.AccountNumber,
             ThankYouPage: params.ThankYouPage,
         };
 
         _self.methodId = params.MethodId;
         _self.changeRoute();
-        _self.deposit(data, function (response) {
-            switch (response.ResponseCode) {
+        _self.deposit(data, function(response) {
+                switch (response.ResponseCode) {
                 case 1:
                     if (response.ResponseData.VendorRedirectionUrl) {
                         window.open(response.ResponseData.VendorRedirectionUrl, '_blank');
@@ -51,37 +56,12 @@ function WeChatV2() {
                         w88Mobile.Growl.shout(response.ResponseMessage);
 
                     break;
-            }
-        },
-            function () {
+                }
+            },
+            function() {
                 pubsub.publish('stopLoadItem', { selector: "" });
             });
-    }
-
-    return wechat;
-}
-
-function wechat() {
-
-    var wechat = {
-        Initialize: init
     };
 
-    return wechat;
-
-    function init() {
-        setTranslations();
-        function setTranslations() {
-            if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
-                $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-                $("#paymentNoteContent").text(_w88_contents.translate("LABEL_PAYMENT_NOTE0"));
-            } else {
-                window.setInterval(function () {
-                    setTranslations();
-                }, 500);
-            }
-        }
-    }
+    return neteller;
 }
-
-window.w88Mobile.Gateways.Wechat = wechat();

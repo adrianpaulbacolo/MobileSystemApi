@@ -113,7 +113,7 @@ function BaokimScratchCardV2() {
                 }
             },
             function() {
-                GPInt.prototype.HideSplash();
+                pubsub.publish('stopLoadItem', { selector: "" });
         });
     };
 

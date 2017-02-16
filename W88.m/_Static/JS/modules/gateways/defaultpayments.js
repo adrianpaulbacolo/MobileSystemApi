@@ -21,7 +21,8 @@ function DefaultPaymentsV2() {
         onTransactionCreated: onTransactionCreated,
         formatDateTime: formatDateTime,
         init: init,
-        payRoute: "/v2/Deposit/Pay.aspx"
+        payRoute: "/v2/Deposit/Pay.aspx",
+        translateDefault: translateDefault
     };
 
     var paymentCache = {};
@@ -29,6 +30,19 @@ function DefaultPaymentsV2() {
     var paymentOptions = {};
 
     return defaultpayments;
+
+    function translateDefault() {
+        setTranslations();
+        function setTranslations() {
+            if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
+                $('label[id$="lblDepositAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
+            } else {
+                window.setInterval(function () {
+                    setTranslations();
+                }, 500);
+            }
+        }
+    }
 
     function init(isDeposit) {
 
@@ -150,14 +164,17 @@ function DefaultPaymentsV2() {
             url: url,
             data: data,
             beforeSend: function () {
-                GPInt.prototype.ShowSplash(true);
+                pubsub.publish('startLoadItem', { selector: "" });
             },
             headers: headers,
             success: success,
             error: function () {
                 console.log("Error connecting to api");
             },
-            complete: complete
+            complete: function () {
+                if (!_.isUndefined(complete)) complete();
+                pubsub.publish('stopLoadItem', { selector: "" });
+            }
         });
     }
 
@@ -257,7 +274,7 @@ function DefaultPaymentsV2() {
                 }
             }
 
-            GPInt.prototype.HideSplash();
+            pubsub.publish('stopLoadItem', { selector: "" });
         } else {
             if (activeTabId) {
                 window.location.href = deposit;
@@ -345,7 +362,7 @@ function DefaultPaymentsV2() {
                     window.location.href = withdraw + page;
             }
 
-            GPInt.prototype.HideSplash();
+            pubsub.publish('stopLoadItem', { selector: "" });
         } else {
             if (activeTabId) {
                 window.location.href = withdraw;
@@ -363,7 +380,7 @@ function DefaultPaymentsV2() {
         $('#paymentSettings').hide();
         $('#paymentList').hide();
 
-                GPInt.prototype.HideSplash();
+        pubsub.publish('stopLoadItem', { selector: "" });
             }
 
     function setPaymentPage(id) {

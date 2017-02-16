@@ -40,7 +40,7 @@ function NganLuongV2() {
                 }
             },
             function() {
-                GPInt.prototype.HideSplash();
+                pubsub.publish('stopLoadItem', { selector: "" });
             });
     };
 

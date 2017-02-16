@@ -3,35 +3,35 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
     <div class="form-group">
         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
-        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1"  CssClass="form-control"  />
     </div>
     <div class="form-group">
         <asp:Label ID="lblCardType" runat="server" AssociatedControlID="ddlCardType" />
-        <asp:DropDownList ID="ddlCardType" runat="server">
+        <asp:DropDownList ID="ddlCardType" runat="server" CssClass="form-control" >
         </asp:DropDownList>
     </div>
     <div class="form-group">
         <asp:Label ID="lblCardName" runat="server" AssociatedControlID="txtCardName" />
-        <asp:TextBox ID="txtCardName" runat="server" />
+        <asp:TextBox ID="txtCardName" runat="server"  CssClass="form-control" />
     </div>
     <div class="form-group">
         <asp:Label ID="lblCardNo" runat="server" AssociatedControlID="txtCardNo" />
-        <asp:TextBox ID="txtCardNo" runat="server" />
+        <asp:TextBox ID="txtCardNo" runat="server"  CssClass="form-control" />
     </div>
     <div class="form-group">
         <asp:Label ID="lblExpiry" runat="server" AssociatedControlID="ddlExpiryMonth" />
         <div class="row thin-gutter">
             <div class="col-xs-6">
-                <asp:DropDownList ID="ddlExpiryMonth" runat="server" />
+                <asp:DropDownList ID="ddlExpiryMonth" runat="server" CssClass="form-control" />
             </div>
             <div class="col-xs-6">
-                <asp:DropDownList ID="ddlExpiryYear" runat="server" />
+                <asp:DropDownList ID="ddlExpiryYear" runat="server"  CssClass="form-control" />
             </div>
         </div>
     </div>
     <div class="form-group">
         <asp:Label ID="lblSecurityCode" runat="server" AssociatedControlID="txtSecurityCode" />
-        <asp:TextBox ID="txtSecurityCode" runat="server" />
+        <asp:TextBox ID="txtSecurityCode" runat="server"  CssClass="form-control" />
         <a href="#" data-toggle="modal" data-target="#ccvModal"></a>
     </div>
 
