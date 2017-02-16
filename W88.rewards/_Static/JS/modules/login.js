@@ -1,7 +1,7 @@
 ﻿var Login = function(translations, elems, redirectUri, isVipLogin) {
     this.elems = elems;
     this.translations = translations;
-    this.count = 0;
+    this.counter = 0;
     this.redirectUri = redirectUri;
     this.elems.captchaDiv.hide();
     this.isVipLogin = isVipLogin;
@@ -14,30 +14,32 @@ Login.prototype.initializeButtons = function() {
         submitButton.attr('disabled', true);
         var username = self.elems.username.val().trim(),
             password = self.elems.password.val().trim(),
-            captcha = self.elems.captcha.val().trim();
+            captcha = self.elems.captcha.val().trim(),
+            hasError = false,
+            message = '<ul>';
 
         if (username.length == 0) {
-            self.showMessage(self.translations.MissingUsername);
-            submitButton.attr('disabled', false);
-            e.preventDefault();
-            return;
-        }
-        if (!/^[a-zA-Z0-9]+$/.test(username)) {
-            self.showMessage(self.translations.InvalidUsernamePassword);
-            submitButton.attr('disabled', false);
-            e.preventDefault();
-            return;
+            message += '<li>' + self.translations.MissingUsername + '</li>';
+            hasError = true;
         }
         if (password.length == 0) {
-            self.showMessage(self.translations.MissingPassword);
-            submitButton.attr('disabled', false);
-            e.preventDefault();
-            return;
+            message += '<li>' + self.translations.MissingPassword + '</li>';
+            hasError = true;
+        }
+        if (!/^[a-zA-Z0-9]+$/.test(username)) {
+            message += '<li>' + self.translations.InvalidUsernamePassword + '</li>';
+            hasError = true;
         }
         if (captcha.length == 0 && self.counter >= 3) {
-            self.showMessage(self.translations.IncorrectVCode);
+            message += '<li>' + self.translations.IncorrectVCode + '</li>';
+            hasError = true;
+        }
+
+        if (hasError) {
+            message += '</ul>';
             submitButton.attr('disabled', false);
             e.preventDefault();
+            self.showMessage(message);
             return;
         }
 
@@ -59,7 +61,7 @@ Login.prototype.initiateLogin = function () {
         timeout: function() {
             self.elems.submitButton.attr('disabled', false);
             self.showMessage(self.translations.Exception);
-            window.location.href = '/Default.aspx?lang=<%=Language%>';
+            window.location.href = '/Default.aspx';
         },
         data: JSON.stringify({
             UserInfo: {
@@ -100,7 +102,7 @@ Login.prototype.initiateLogin = function () {
                 default:
                     self.counter += 1;
 
-                    if (counter >= 3) {
+                    if (self.counter >= 3) {
                         self.elems.captchaDiv.show();
                         self.elems.captchaImg.attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime());
                         self.elems.captcha.val('');

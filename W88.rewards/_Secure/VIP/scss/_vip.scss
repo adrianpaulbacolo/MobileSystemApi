@@ -1,5 +1,5 @@
 body{
-	font-family: "dinpro", "Helvetica Neue", Helvetica,Arial, sans-serif;
+    font-family: "SimHei", "dinpro", "Helvetica Neue", Helvetica,Arial, sans-serif;
 	font-size: 14px;
 	line-height: 1.6;
 	color: $white;
@@ -14,7 +14,6 @@ body{
     outline: 0 none;
 }
 a{
-	font-family: "dinpro", "Helvetica Neue", Helvetica,Arial, sans-serif;
 	color: $blue;
 	text-decoration: none;
 	&:focus,
@@ -24,7 +23,6 @@ a{
 	}
 }
 p{
-	font-family: "dinpro", "Helvetica Neue", Helvetica,Arial, sans-serif;
 	margin-top: 0;
 	margin-bottom: 15px;
 }
@@ -34,7 +32,7 @@ p{
 .viplogin{
 	width: 100%;
 	height: 100%;
-	top: 0;
+	top: 75px;
 	bottom: 0;
 	right: 0;
 	left: 0;
@@ -71,9 +69,10 @@ p{
 }
 .input-group{
 	margin-bottom: 20px;
+    width: 100%;
 }
 .input-box{
-	background-color: $darkergray;
+    background-color: $darkergray;
 	display: table;
 	.input-box-icon{
 		padding: 0 15px;
@@ -84,7 +83,6 @@ p{
 		opacity: 0.5;
 	}
 	.input{
-		font-family: "dinpro", "Helvetica Neue", Helvetica,Arial, sans-serif;
 		font-size: 16px;
 		color: $white;
 		background-color: transparent;
@@ -116,7 +114,6 @@ p{
 }
 .button{
 	cursor: pointer;
-	font-family: "dinpro", "Helvetica Neue", Helvetica,Arial, sans-serif;
 	font-size: 25;
 	text-transform: uppercase;
 	width: 100%;
@@ -135,10 +132,6 @@ p{
 }
 
 body.ch{
-	font-family: "SimHei", "dinpro", "Helvetica Neue", Helvetica,Arial, sans-serif;
-	p,a,.button,.input-box .input{
-		font-family: "SimHei", "dinpro", "Helvetica Neue", Helvetica,Arial, sans-serif;
-	}
 	.viplogin-form h3 {
 	    font-size: 40px;
 	}
@@ -149,15 +142,13 @@ body.ch{
 	    font-size: 18px;
 	}
 }
-
-  
-    .imgCaptcha{
-        height:40px;
-        width:100%;
-    }
+ 
+.imgCaptcha{
+    height:40px;
+    width:100%;
+}
 
 @media (max-width: 320px){
-
 	.viplogo{
 		margin: 0 auto 15px;
 	}
@@ -175,7 +166,6 @@ body.ch{
 	.button{
 		font-size: 21px;
 	}
-
 	body.ch{
 		.viplogin-form h3{
 			font-size: 30px;
@@ -185,12 +175,10 @@ body.ch{
 		}
 
 	}
-
     .imgCaptcha{
         height:40px;
         width:100%;
     }
-
 }
 @media (max-height: 640px){
 	.viplogin{

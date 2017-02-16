@@ -1,45 +1,41 @@
 ﻿
 .loader {
-    background-color: lighten($black ,10%);
+    background-color: #000000;
     z-index: 9999;
     height: 100%;
     width: 100%;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
     vertical-align: middle;
     margin: auto;
     display: table;
-    table-layout: fixed;
-
-    > div {
-        display: table-cell;
-        vertical-align: middle;
-        margin: auto;
-
-        > img {
-            display: block;
-            margin: auto;
-            width: 80%;
-            max-width: 120px;
-            max-height: 100%;
-            margin-bottom: 50px;
-        }
-    }
+    table-layout: fixed; 
+}
+.loader > div {
+    display: table-cell;
+    vertical-align: middle;
+    margin: auto; 
+}
+.loader > div > img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    margin-bottom: 200px; 
 }
 
 .spinner {
-    margin: auto;
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    font-size: 10px;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+      margin: auto;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      font-size: 0.714em;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
 }
 
 .spinner > div {

@@ -20,28 +20,28 @@
                             <h3><span id="formHeader"></span></h3>
                             <div class="input-group">
                                 <div class="input-box">
-                                    <input type="text" class="input" placeholder="" id="txtUsername">
+                                    <input type="text" class="input" placeholder="" id="txtUsername" data-role="none">
                                     <span class="input-box-icon">
                                         <img src="img/icon-user.png" alt=""></span>
                                 </div>
                             </div>
                             <div class="input-group">
                                 <div class="input-box">
-                                    <input type="password" class="input" placeholder="" id="txtPassword">
+                                    <input type="password" class="input" placeholder="" id="txtPassword" data-role="none">
                                     <span class="input-box-icon">
                                         <img src="img/icon-password.png" alt=""></span>
                                 </div>
                             </div>
                             <div class="input-group captcha">
-                                <asp:Image ID="imgCaptcha" runat="server" CssClass="imgCaptcha" />
+                                <asp:Image ID="imgCaptcha" runat="server" CssClass="imgCaptcha" data-role="none"/>
                                 <div class="input-box">
-                                    <asp:TextBox ID="txtCaptcha" runat="server" MaxLength="4" type="tel" data-mini="true" data-corners="false" CssClass="input" />
+                                    <asp:TextBox ID="txtCaptcha" runat="server" MaxLength="4" type="tel" data-mini="true" data-corners="false" CssClass="input" data-role="none"/>
                                     <span class="input-box-icon">
                                         <img src="img/icon-password.png" alt=""></span>
                                 </div>
                             </div>
                             <div class="input-group">
-                                <input id="btnSubmit" type="submit" class="button" value="">
+                                <input id="btnSubmit" type="submit" class="button" value="" data-role="none">
                             </div>
                         </form>
                         <div class="text-center">

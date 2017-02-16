@@ -79,4 +79,15 @@ public class BasePage : Page
         MemberRewardsInfo.CurrentPoints = await MembersHelper.GetRewardsPoints(UserSessionInfo);
         MemberRewardsInfo.CurrentPointLevel = await RewardsHelper.GetPointLevel(MemberSession.MemberId);
     }
+
+    protected bool IsVip
+    {     
+        get
+        {
+            bool isVip;
+            var cookie = HttpContext.Current.Request.Cookies.Get("vip");
+            bool.TryParse(cookie != null ? cookie.Value : "false", out isVip);
+            return isVip;
+        }
+    }
 }

@@ -46,7 +46,7 @@
                 options: {
                     views_root: './'
                 },
-                src: '_Static/head.inc'
+                src: ['_Static/head.inc', '_Static/headvip.inc']
             }
         },
         uglify: {

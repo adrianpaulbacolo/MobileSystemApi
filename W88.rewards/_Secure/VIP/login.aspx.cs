@@ -7,7 +7,7 @@ public partial class _Secure_VIP_login : BasePage
     {
         if (Page.IsPostBack) return;
 
-        if (IsVip())
+        if (IsVip)
         {
             Response.Redirect("/Index", true);
         }
