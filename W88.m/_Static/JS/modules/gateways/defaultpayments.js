@@ -586,9 +586,9 @@ function DefaultPayments() {
                     nogateway();
                 }
                 else {
-                // payment cache variable is now present once callback is triggered
-                setDepositPaymentTab(paymentCache.settings, activeMethodId, memberId);
-                togglePayment();
+                    // payment cache variable is now present once callback is triggered
+                    setDepositPaymentTab(paymentCache.settings, activeMethodId);
+                    togglePayment();
                 }
             });
         } else {
@@ -597,8 +597,8 @@ function DefaultPayments() {
                     nogateway();
                 }
                 else {
-                setWithdrawalPaymentTab(paymentCache.settings, activeMethodId);
-                togglePayment();
+                    setWithdrawalPaymentTab(paymentCache.settings, activeMethodId);
+                    togglePayment();
                 }
             });
         }
@@ -695,7 +695,7 @@ function DefaultPayments() {
         togglePayment();
     }
 
-    function setDepositPaymentTab(responseData, activeTabId, memberId) {
+    function setDepositPaymentTab(responseData, activeTabId) {
         if (responseData.length > 0) {
             var routing = [
                 autorouteIds.QuickOnline,
@@ -856,14 +856,14 @@ function DefaultPayments() {
     }
 
     function nogateway() {
-                $('.empty-state').show();
+        $('.empty-state').show();
         $('#paymentNote').html(_w88_contents.translate("LABEL_PAYMENT_NOTE_NO_GATEWAY"));
         $('#btnSubmitPlacement').hide();
         $('#paymentSettings').hide();
         $('#paymentList').hide();
-
-                GPInt.prototype.HideSplash();
-            }
+        
+        GPInt.prototype.HideSplash();
+    }
 
     function setPaymentPage(id) {
         switch (id) {
