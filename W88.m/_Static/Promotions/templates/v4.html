@@ -8,13 +8,13 @@
                 </div>
                 <div class="col col-80">
                     <div class="col col-40">
-                        <p>{%- promo.data.team_setting[0] %}</p>
+                        <p>{%- promo.data.team_setting[0] %}<input type="hidden" data-required name="comment" id="" value="{%- promo.data.team_setting[0] %}" ></p>
                     </div>
                     <div class="col col-20">
                         <small>vs</small>
                     </div>
                     <div class="col col-40">
-                        <p>{%- promo.data.team_setting[1] %}</p>
+                        <p>{%- promo.data.team_setting[1] %}<input type="hidden" data-required name="comment" id="" value="{%- promo.data.team_setting[1] %}" ></p>
                     </div>
                 </div>
             </div>
@@ -26,10 +26,10 @@
                 </div>
                 <div class="col col-80">
                     <div class="col col-40">
-                        <input type="text" name="" id="" data-regex="{%- promo.data.score_checking %}" oninput="javascript: DataRegex(this)">
+                        <input type="text" data-required name="comment" id="" data-regex="{%- promo.data.score_checking %}" oninput="javascript: DataRegex(this)">
                     </div>
                     <div class="col col-40 col-offset-20">
-                        <input type="text" name="" id="" data-regex="{%- promo.data.score_checking %}" oninput="javascript: DataRegex(this)">
+                        <input type="text" data-required name="comment" id="" data-regex="{%- promo.data.score_checking %}" oninput="javascript: DataRegex(this)">
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
             {% _.forEach( promo.data.additional_column, function( addCol ){ %}
             
             <label>{%- addCol.field %}:</label>
-            <input type="text" name="" id="" class="" data-regex="{%- addCol.regex %}" oninput="javascript: DataRegex(this)">
+            <input type="text" data-required name="comment" id="" class="" data-regex="{%- addCol.regex %}" oninput="javascript: DataRegex(this)">
 
             {% }); %}
         </div>

@@ -29,6 +29,8 @@
     window.User.sessionInterval = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("sessionInterval") %>';
     window.User.lang = '<%=commonVariables.SelectedLanguage%>';
     window.User.storageExpiration = { expires: 300000 };
+    window.User.memberId = '<%=UserSession.MemberId %>';
+    window.User.countryCode = '<%=UserSession.CountryCode %>';
     w88Mobile.APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("APIUrl") %>';
 </script>
 <script src="/_Static/JS/i18n/contents-<%=commonVariables.SelectedLanguageShort%>.js"></script>

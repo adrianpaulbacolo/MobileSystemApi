@@ -89,7 +89,7 @@ public partial class Deposit_NextPay : PaymentBasePage
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
 
-        string strDepositAmount = txtDepositAmount.Text.Trim();
+        string strDepositAmount = txtAmount.Text.Trim();
 
         decimal decDepositAmount = commonValidation.isDecimal(strDepositAmount) ? Convert.ToDecimal(strDepositAmount) : 0;
         decimal decMinLimit = commonValidation.isDecimal(strMinLimit) ? Convert.ToDecimal(strMinLimit) : 0;
@@ -168,7 +168,7 @@ public partial class Deposit_NextPay : PaymentBasePage
                 strErrorDetail = ex.Message;
             }
 
-            txtDepositAmount.Text = string.Empty;
+            txtAmount.Text = string.Empty;
 
             string strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | CurrencyCode: {2} | DepositAmount: {3} | BankName: {4} | MinLimit: {5} | MaxLimit: {6} | TotalAllowed: {7} | DailyLimit: {8} | Response: {9}",
                Convert.ToInt64(strOperatorId), strMemberCode, strCurrencyCode, strDepositAmount, bankDropDownList.SelectedValue, decMinLimit, decMaxLimit, strTotalAllowed, strDailyLimit, xeResponse == null ? string.Empty : xeResponse.ToString());

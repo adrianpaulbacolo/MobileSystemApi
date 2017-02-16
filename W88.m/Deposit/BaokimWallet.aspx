@@ -7,8 +7,8 @@
             <asp:TextBox ID="txtEmail" runat="server" data-mini="true" type="email" Enabled="False" />
         </li>
         <li class="item item-input">
-            <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
-            <asp:TextBox ID="txtDepositAmount" runat="server" type="number" Enabled="False" />
+            <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
+            <asp:TextBox ID="txtAmount" runat="server" type="number" Enabled="False" />
         </li>
         <li class="item item-input">
             <asp:Label ID="lblOtp" runat="server" AssociatedControlID="txtOtp" required />
@@ -41,7 +41,7 @@
 
             window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
 
-            $("#ContentPlaceHolder1_ContentPlaceHolder2_txtDepositAmount").val($("#<%=hfAmount.ClientID%>").val());
+            $("#ContentPlaceHolder1_ContentPlaceHolder2_txtAmount").val($("#<%=hfAmount.ClientID%>").val());
             $("#ContentPlaceHolder1_ContentPlaceHolder2_txtEmail").val($("#<%=hfEmail.ClientID%>").val());
 
             window.w88Mobile.Gateways.Baokim.method = "EWALLETCB";

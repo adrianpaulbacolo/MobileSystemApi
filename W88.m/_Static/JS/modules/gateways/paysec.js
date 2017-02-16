@@ -1,68 +1,37 @@
-﻿function PaySec() {
+﻿window.w88Mobile.Gateways.Paysec = Paysec();
+var _w88_paysec = window.w88Mobile.Gateways.Paysec;
 
-    var gatewayId = "120290";
-    var token = "";
+function Paysec() {
 
-    var paysec = {
-        deposit: deposit
-        , withdraw: withdraw
-        , gatewayId: gatewayId
-        , callVendor: callVendor
-    };
+    var paysec = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
+
+    paysec.createDeposit = function () {
+        var _self = this;
+        var params = _self.getUrlVars();
+        var data = {
+            Amount: params.Amount,
+        };
+
+        _self.methodId = params.MethodId;
+        _self.changeRoute();
+        _self.deposit(data, function (response) {
+            switch (response.ResponseCode) {
+                case 1:
+                    w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
+                    w88Mobile.PostPaymentForm.submit();
+                    break;
+                default:
+                    if (_.isArray(response.ResponseMessage))
+                        w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage), _self.shoutCallback);
+                    else
+                        w88Mobile.Growl.shout(response.ResponseMessage, _self.shoutCallback);
+                    break;
+            }
+        },
+        function () {
+            GPInt.prototype.HideSplash();
+        });
+    }
 
     return paysec;
-
-    function send(method, data, success, error, complete) {
-        var url = w88Mobile.APIUrl + "/payments/" + gatewayId;
-
-        var headers = {
-            'Token': window.User.token,
-            'LanguageCode': window.User.lang
-        };
-        $.ajax({
-            type: method,
-            url: url,
-            data: data,
-            headers: headers,
-            success: success,
-            error: error,
-            complete: complete
-        });
-
-    }
-
-    // deposit
-    function deposit(data, successCallback, errorCallback, completeCallback) {
-        validate(data, "deposit");
-        send("POST", data, successCallback, errorCallback, completeCallback);
-    }
-
-    // withdraw
-    function withdraw(data, successCallback, errorCallback, completeCallback) {
-    }
-
-    function validate(data, method) {
-        // @todo add validation here
-        return;
-    }
-
-    function callVendor(method, url, data, success, error, complete) {
-
-        var headers = {
-            'Access-Control-Allow-Headers': "x-requested-with"
-        };
-
-        $.ajax({
-            type: method,
-            url: url,
-            data: data,
-            headers: headers,
-            success: success,
-            error: error,
-            complete: complete
-        });
-    }
-
 }
-
-window.w88Mobile.Gateways.PaySec = PaySec();

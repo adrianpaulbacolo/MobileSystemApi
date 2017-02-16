@@ -17,8 +17,8 @@
             <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
         </li>
         <li class="item item-select atm" runat="server">
-            <asp:Label ID="lblBanks" runat="server" AssociatedControlID="drpBanks" />
-            <asp:DropDownList ID="drpBanks" runat="server" data-corners="false">
+            <asp:Label ID="lblBanks" runat="server" AssociatedControlID="drpBank" />
+            <asp:DropDownList ID="drpBank" runat="server" data-corners="false">
             </asp:DropDownList>
         </li>
         <li class="item item-input atm ewallet">
@@ -93,8 +93,8 @@
                         Email: $('#<%=txtEmail.ClientID%>').val(),
                         Phone: $('#<%=txtContact.ClientID%>').val(),
                         Bank: {
-                            Text: $('#<%=drpBanks.ClientID%> option:selected').text(),
-                            Value: $('#<%=drpBanks.ClientID%>').val()
+                            Text: $('#<%=drpBank.ClientID%> option:selected').text(),
+                            Value: $('#<%=drpBank.ClientID%>').val()
                         },
                         ThankYouPage: location.protocol + "//" + location.host + "/Deposit/Thankyou.aspx"
                     };

@@ -1,11 +1,11 @@
-﻿window.w88Mobile.Gateways.KexunPay = KexunPay();
-var _w88_kexunpay = window.w88Mobile.Gateways.KexunPay;
+﻿window.w88Mobile.Gateways.JuyPay = JuyPay();
+var _w88_juypay = window.w88Mobile.Gateways.JuyPay;
 
-function KexunPay() {
+function JuyPay() {
 
-    var kexunpay = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
+    var juypay = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
 
-    kexunpay.createDeposit = function () {
+    juypay.createDeposit = function () {
         var _self = this;
         var params = _self.getUrlVars();
         var data = {
@@ -20,6 +20,8 @@ function KexunPay() {
                 case 1:
                     w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
                     w88Mobile.PostPaymentForm.submit();
+
+                    $('#form1')[0].reset();
                     break;
                 default:
                     if (_.isArray(response.ResponseMessage))
@@ -35,6 +37,6 @@ function KexunPay() {
         });
     }
 
-    return kexunpay;
+    return juypay;
 }
 

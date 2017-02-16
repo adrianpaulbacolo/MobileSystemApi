@@ -1,11 +1,11 @@
-﻿window.w88Mobile.Gateways.KexunPay = KexunPay();
-var _w88_kexunpay = window.w88Mobile.Gateways.KexunPay;
+﻿window.w88Mobile.Gateways.NineVPay = NineVPay();
+var _w88_ninevpay = window.w88Mobile.Gateways.NineVPay;
 
-function KexunPay() {
+function NineVPay() {
 
-    var kexunpay = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
+    var ninevpay = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
 
-    kexunpay.createDeposit = function () {
+    ninevpay.createDeposit = function () {
         var _self = this;
         var params = _self.getUrlVars();
         var data = {
@@ -35,6 +35,6 @@ function KexunPay() {
         });
     }
 
-    return kexunpay;
+    return ninevpay;
 }
 
