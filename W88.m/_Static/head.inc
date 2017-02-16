@@ -8,21 +8,10 @@
 <link rel="stylesheet" href="/_Static/Css/style.css" />
 <link rel="apple-touch-icon" href="/_Static/Images/icon_76.png" />
 <link rel="apple-touch-startup-image" href="/_Static/Images/icon_120.png" />
-<script src="/_Static/JS/Mobile/jquery-1.11.3.min.js"></script>
-<script src="/_Static/JS/Mobile/jquery.mobile-1.4.5.min.js"></script>
-<script src="/_Static/JS/jquery.mask.min.js"></script>
-<script src="/_Static/JS/vendor/lodash.js"></script>
-<script src="/_Static/JS/vendor/moment.min.js"></script>
-<script src="/_Static/JS/vendor/amplify.min.js"></script>
-<script src="/_Static/JS/Mobile/iscroll.js"></script>
-<script src="/_Static/JS/Cookie.js"></script>
-<script src="/_Static/JS/GPINT.js"></script>
-<script src="/_Static/JS/Main.js"></script>
 
-<script src="/_Static/JS/fingerprint2.min.js"></script>
-<script src="/_Static/JS/piwik.js"></script>
 <script type="text/javascript">
     window.w88Mobile = {};
+    w88Mobile.Gateways = {};
     window.User = {};
     window.User.hasSession = <%= (!String.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) ? 1 : 0 %>;
     window.User.token = '<%= commonVariables.CurrentMemberSessionId %>';
@@ -33,18 +22,32 @@
     window.User.countryCode = '<%=UserSession.CountryCode %>';
     w88Mobile.APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("APIUrl") %>';
 </script>
-<script src="/_Static/JS/i18n/contents-<%=commonVariables.SelectedLanguageShort%>.js"></script>
-<script src="/_Static/JS/modules/translate.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-<script>
-    w88Mobile.Gateways = {};
 
+<script type="text/javascript" src="/_Static/JS/Cookie.js"></script>
+<script type="text/javascript">
+    var siteCookie = new Cookies();
+</script>
+<script type="text/javascript" src="/_Static/JS/Mobile/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/_Static/JS/Mobile/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="/_Static/JS/jquery.mask.min.js"></script>
+<script type="text/javascript" src="/_Static/JS/vendor/lodash.js"></script>
+<script type="text/javascript" src="/_Static/JS/vendor/moment.min.js"></script>
+<script type="text/javascript" src="/_Static/JS/vendor/amplify.min.js"></script>
+<script type="text/javascript" src="/_Static/JS/Mobile/iscroll.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/constants.js"></script>
+<script type="text/javascript" src="/_Static/JS/GPINT.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/growl.js"></script>
+<script type="text/javascript" src="/_Static/JS/Main.js"></script>
+<script type="text/javascript" src="/_Static/JS/fingerprint2.min.js"></script>
+<script type="text/javascript" src="/_Static/JS/piwik.js"></script>
+<script type="text/javascript" src="/_Static/JS/i18n/contents-<%=commonVariables.SelectedLanguageShort%>.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/translate.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+<script>
     var _w88_contents = new w88Mobile.Translate();
     _w88_contents.init();
 </script>
 <script type="text/javascript" src="/_Static/JS/modules/slots.js"></script>
-<script type="text/javascript" src="/_Static/JS/modules/constants.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/formValidator.js"></script>
-<script type="text/javascript" src="/_Static/JS/modules/growl.js"></script>
 <script type="text/javascript">
     // set initial values for notification
     if(!_.isUndefined(w88Mobile.Growl)){
@@ -61,8 +64,6 @@
     w88Mobile.PiwikManager.setGoals(window.w88Mobile.PiwikConfig.goals);
     w88Mobile.PiwikManager.setDomain();
     w88Mobile.PiwikManager.setUserId('<%=UserSession.MemberId %>');
-
-    var siteCookie = new Cookies();
 
     $(function () {
         if(_.isEmpty(siteCookie.getCookie("fingerprint"))){
