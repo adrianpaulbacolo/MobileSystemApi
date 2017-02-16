@@ -17,9 +17,24 @@ function Paysec() {
         _self.deposit(data, function (response) {
             switch (response.ResponseCode) {
                 case 1:
-                    w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
-                    $(".ui-page").attr("display", "none");
-                    w88Mobile.PostPaymentForm.submit();
+                    if (response.ResponseData.PostUrl) {
+                        w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
+                        w88Mobile.PostPaymentForm.submit();
+                    } else {
+                        var data = {
+                            VANumber: response.ResponseData.FormData.VANumber,
+                            VAExpiry: response.ResponseData.FormData.VAExpiry,
+                            Amount: response.ResponseData.FormData.Amount,
+                            OrderId: response.ResponseData.FormData.OrderId,
+                            CartId: response.ResponseData.FormData.CartId
+                        };
+
+                        var action = "/Deposit/PaySec2.aspx";
+                        var params = decodeURIComponent($.param(data));
+                        window.open(action + "?" + params, "PaySec");
+
+                    }
+
                     $('#form1')[0].reset();
                     break;
                 default:
@@ -27,7 +42,7 @@ function Paysec() {
                         w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage), _self.shoutCallback);
                     else
                         w88Mobile.Growl.shout(response.ResponseMessage, _self.shoutCallback);
-                    $('#form1')[0].reset();
+
                     break;
             }
         },
