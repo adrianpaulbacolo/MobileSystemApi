@@ -38,6 +38,10 @@ public partial class v2_Deposit_Pay : PaymentBasePage
             case commonVariables.DepositMethod.BaokimScratchCard:
                 GatewayFile = "baokimSc";
                 break;
+            
+            case commonVariables.DepositMethod.IWallet:
+                GatewayFile = "iwallet";
+                break;
 
             case commonVariables.DepositMethod.NineVPayAlipay:
             case commonVariables.DepositMethod.JuyPayAlipay:

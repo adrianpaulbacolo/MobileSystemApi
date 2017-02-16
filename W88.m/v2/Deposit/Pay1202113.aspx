@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/v2/MasterPages/Payment.master" AutoEventWireup="true" CodeFile="Pay1202113.aspx.cs" Inherits="v2_Deposit_Pay1202113" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" Runat="Server">
-        <div class="form-group pay-note">
+<asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
+    <div class="form-group pay-note">
         <span id="paymentNote"></span>
         <p id="paymentNoteContent"></p>
     </div>
@@ -10,10 +10,9 @@
         <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" />
     </div>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" Runat="Server">
-        <script type="text/javascript" src="/_Static/JS/modules/gateways/alipay.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-    <link href="/_Static/Css/payment.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
-    
+<asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/alipay.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+
     <script type="text/javascript">
         $(document).ready(function () {
 
