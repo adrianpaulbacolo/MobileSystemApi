@@ -19,11 +19,11 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            _w88_paymentSvc.setPaymentTabs("deposit", "<%=base.PaymentMethodId %>");
+            _w88_paymentSvc.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvc.DisplaySettings(
                 "<%=base.PaymentMethodId %>"
                 , {
-                    type: "deposit"
+                    type: "<%=base.PaymentType %>"
                 });
 
             window.w88Mobile.Gateways.Alipay.Initialize();

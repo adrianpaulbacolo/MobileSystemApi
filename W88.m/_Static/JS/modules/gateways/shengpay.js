@@ -1,11 +1,11 @@
-﻿window.w88Mobile.Gateways.KexunPay = KexunPay();
-var _w88_kexunpay = window.w88Mobile.Gateways.KexunPay;
+﻿window.w88Mobile.Gateways.ShengPay = ShengPay();
+var _w88_shengpay = window.w88Mobile.Gateways.ShengPay;
 
-function KexunPay() {
+function ShengPay() {
 
-    var kexunpay = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
+    var shengpay = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
 
-    kexunpay.createDeposit = function () {
+    shengpay.createDeposit = function () {
         var _self = this;
         var params = _self.getUrlVars();
         var data = {
@@ -35,6 +35,6 @@ function KexunPay() {
         });
     }
 
-    return kexunpay;
+    return shengpay;
 }
 
