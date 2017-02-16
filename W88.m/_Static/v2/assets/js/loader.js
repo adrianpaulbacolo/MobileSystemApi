@@ -64,6 +64,8 @@ function loader() {
         if (!_.isUndefined(data.selector) && !_.isEmpty(data.selector)) {
             key = data.selector;
         }
+
+        if (_.isUndefined(w88Mobile.Loader.items[key])) return;
         w88Mobile.Loader.items[key].pop();
         if (w88Mobile.Loader.items[key].length == 0) {
             $('div#divSplashContainer').remove();
