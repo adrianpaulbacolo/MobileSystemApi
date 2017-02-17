@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -6,11 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Paysec</title>
-
     <!-- Bootstrap -->
     <link href="../_Static/paysec/css/bootstrap.min.css" rel="stylesheet">
     <link href="../_Static/paysec/css/style.css" rel="stylesheet">
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -19,30 +17,33 @@
     <![endif]-->
 </head>
 <body>
-    <form action="" id="form1" runat="server">
+    <form action="" id="form1">
         <div>
             <section class="paysec-section text-center">
                 <div class="container">
                     <div class="copy-box">
-                        <h4 class="h4-large dinpro no-margin-bottom"><strong>789360000008106</strong></h4>
-                        <a href="#" class="btn btn-xs btn-default copy-btn"><span class="glyphicon glyphicon-copy"></span></a>
+                        <h4 class="h4-large dinpro no-margin-bottom"><strong id="vaNumber"></strong></h4>
+                        <a href="#" class="btn btn-xs btn-default copy-btn" id="copyVANumber"><span class="glyphicon glyphicon-copy"></span></a>
                     </div>
                     <p class="text-alt">Nomor VA</p>
                 </div>
             </section>
             <section class="paysec-section text-center">
                 <div class="container">
-                    <h4 class="h4-large dinpro no-margin-bottom"><strong>100000.00 RP</strong></h4>
+                    <div class="copy-box">
+                        <h4 class="h4-large dinpro no-margin-bottom"><strong id="amount"></strong></h4>
+                        <a href="#" class="btn btn-xs btn-default copy-btn" id="copyAmount"><span class="glyphicon glyphicon-copy"></span></a>
+                    </div>
                     <p class="text-alt">Jumlah</p>
                 </div>
             </section>
             <section class="paysec-section text-center">
                 <div class="container">
-                    <p class="text-dark no-margin-bottom">Order ID: M999-C-102</p>
-                    <p class="text-dark">Cart ID: 3216543321654</p>
+                    <p class="text-dark no-margin-bottom" id="orderId"></p>
+                    <p class="text-dark" id="cardId"></p>
                     <div class="info-box">
                         <p class="text-dark">Silakan menyelesikan transaksi ini sebelum:</p>
-                        <h4 class="dinpro">2017-02-14 19:06:17</h4>
+                        <h4 class="dinpro" id="vaExpiry"></h4>
                     </div>
                 </div>
             </section>
@@ -51,7 +52,6 @@
                     <h5 class="text-dark"><span class="glyphicon glyphicon-info-sign"></span> Instructions</h5>
                 </div>
                 <div class="instructions">
-
                     <ul class="nav nav-tabs nav-justified" role="tablist">
                         <li role="presentation" class="active">
                             <a href="#atm" aria-controls="atm" role="tab" data-toggle="tab">ATM</a>
@@ -60,7 +60,6 @@
                             <a href="#internet-banking" aria-controls="internet-banking" role="tab" data-toggle="tab">Internet Banking</a>
                         </li>
                     </ul>
-
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="atm">
                             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -81,12 +80,12 @@
                                                 <li class="steps">Masukkan "<b>7893 **** **** ****</b>" sebagai Nomor Rekening Tujuan dan pilih tombol <b>Benar</b>.(Maybank) dan pilih tombol <b>Benar</b>.</li>
                                                 <li class="steps">Masukkan jumlah transfer <b>*Amount*</b> dan pilih tombol Benar.</li>
                                                 <li class="steps">Periksa data transaksi Anda yang ditampilkan di layar mesin ATM sudah benar lalu pilih tombol <b>Benar</b> untuk lanjut.</li>
-                                                <li class="steps">Mesin ATM akan mengeluarkan struk ATM sebagai bukti pembayaran. Transaksi Anda otomatis akan diproses.
+                                                <li class="steps">
+                                                    Mesin ATM akan mengeluarkan struk ATM sebagai bukti pembayaran. Transaksi Anda otomatis akan diproses.
                                                     <p>*Jika Anda harus mengetik jumlah transfer di mesin ATM secara manual, ketik jumlah sebenarnya yang Anda ingin depositkan.</p>
                                                     <p>*Transaksi ini akan dikenakan biaya sesuai dengan ketentuan tarif transfer antar bank.</p>
                                                 </li>
                                             </ol>
-
                                         </div>
                                     </div>
                                 </div>
@@ -107,7 +106,8 @@
                                                 <li class="steps">Masukkan “<b>7893 **** **** ****</b>” sebagai Nomor Rekening Tujuan dan pilih Tombol <b>Benar</b>.</li>
                                                 <li class="steps">Masukkan jumlah transfer <b>*Amount*</b> dan pilih tombol <b>Benar</b>.</li>
                                                 <li class="steps">Periksa data transaksi Anda yang ditampilkan di layer mesin ATM sudah benar lalu pilih tombol <b>Ya</b> untuk lanjut.</li>
-                                                <li class="steps">Mesin ATM akan mengeluarkan struk ATM sebagai bukti pembayaran. Transaksi Anda otomatis akan diproses.
+                                                <li class="steps">
+                                                    Mesin ATM akan mengeluarkan struk ATM sebagai bukti pembayaran. Transaksi Anda otomatis akan diproses.
                                                     <p>*Jika Anda harus mengetik jumlah transfer di mesin ATM secara manual, ketik jumlah sebenarnya yang Anda ingin depositkan.</p>
                                                     <p>*Transaksi ini akan dikenakan biaya sesuai dengan ketentuan tarif transfer antar bank.</p>
                                                 </li>
@@ -132,7 +132,8 @@
                                                 <li class="steps">Masukkan jumlah transfer <b>*Amount*</b> dan pilih tombol Tekan Jika Benar</li>
                                                 <li class="steps">Masukkan nomor referensi (boleh dikosongkan) dan pilih tombol <b>Tekan Jika Benar</b></li>
                                                 <li class="steps">Periksa data transaksi Anda yang ditampilkan di layer mesin ATM sudah benar lalu pilih tombol <b>Tekan Jika Benar</b> untuk lanjut.</li>
-                                                <li class="steps">Mesin ATM akan mengeluarkan struk ATM sebagai bukti pembayaran. Transaksi Anda otomatis akan diproses.
+                                                <li class="steps">
+                                                    Mesin ATM akan mengeluarkan struk ATM sebagai bukti pembayaran. Transaksi Anda otomatis akan diproses.
                                                     <p>*Jika Anda harus mengetik jumlah transfer di mesin ATM secara manual, ketik jumlah sebenarnya yang Anda ingin depositkan.</p>
                                                     <p>*Transaksi ini akan dikenakan biaya sesuai dengan ketentuan tarif transfer antar bank.</p>
                                                 </li>
@@ -156,7 +157,8 @@
                                                 <li class="steps">Masukkan Kode Bank 016 (Maybank) diikuti dengan “<b>7893 **** **** ****</b>”, lalu pili tombol <b>Tekan Jika Benar</b></li>
                                                 <li class="steps">Masukkan jumlah transfer <b>*Amount*</b> dan pilih tombol <b>Tekan Jika Benar</b></li>
                                                 <li class="steps">Periksa data transaksi Anda yang ditampilkan di layer mesin ATM sudah benar lalu pilih tombol <b>Benar</b> untuk lanjut.</li>
-                                                <li class="steps">Mesin ATM akan mengeluarkan struk ATM sebagai bukti pembayaran. Transaksi Anda otomatis akan diproses.
+                                                <li class="steps">
+                                                    Mesin ATM akan mengeluarkan struk ATM sebagai bukti pembayaran. Transaksi Anda otomatis akan diproses.
                                                     <p>*Jika Anda harus mengetik jumlah transfer di mesin ATM secara manual, ketik jumlah sebenarnya yang Anda ingin depositkan.</p>
                                                     <p>*Transaksi ini akan dikenakan biaya sesuai dengan ketentuan tarif transfer antar bank.</p>
                                                 </li>
@@ -182,7 +184,8 @@
                                                 <li class="steps">Masukkan jumlah transfer <b>*Amount*</b> dan pilih tombol <b>Tekan Jika Benar</b></li>
                                                 <li class="steps">Masukkan nomor referensi (boleh dikosongkan) dan pilih tombol <b>Tekan Jika Benar</b></li>
                                                 <li class="steps">Periksa data transaksi Anda yang ditampilkan di layer mesin ATM sudah benar lalu pilih tombol <b>Tekan Jika Benar</b> untuk lanjut.</li>
-                                                <li class="steps">Mesin ATM akan mengeluarkan struk ATM sebagai bukti pembayaran. Transaksi Anda otomatis akan diproses.
+                                                <li class="steps">
+                                                    Mesin ATM akan mengeluarkan struk ATM sebagai bukti pembayaran. Transaksi Anda otomatis akan diproses.
                                                     <p>*Jika Anda harus mengetik jumlah transfer di mesin ATM secara manual, ketik jumlah sebenarnya yang Anda ingin depositkan.</p>
                                                     <p>*Transaksi ini akan dikenakan biaya sesuai dengan ketentuan tarif transfer antar bank.</p>
                                                 </li>
@@ -207,9 +210,10 @@
                                                 <li class="steps">Klik tombol <b>Rekening</b> Penerima dan pilih bank (016) Maybank dari Nama Bank.</li>
                                                 <li class="steps">Ketik “<b>7893 **** **** ****</b>” di kolom Nomor Rekening dan klik tombol <b>Lanjutkan</b>.</li>
                                                 <li class="steps">Perkisa data yang ditamplikan di layer sudah benar lalu lanjutkan transaksi dengan token PIN Mandiri Anda dan klik tombol <b>Lanjutkan</b>.</li>
-                                                <li class="steps">Anda akan dapat melihat bukti transfer Anda telah berhasil.
-                                                <p>*Jika Anda harus mengetik jumlah transfer di internet banking secara manual, ketik jumlah sebenarnya yang Anda ingin depositkan.</p>
-                                                <p>*Transaksi ini akan dikenakan biaya sesuai dengan ketentuan tarif transfer antar bank.</p>
+                                                <li class="steps">
+                                                    Anda akan dapat melihat bukti transfer Anda telah berhasil.
+                                                    <p>*Jika Anda harus mengetik jumlah transfer di internet banking secara manual, ketik jumlah sebenarnya yang Anda ingin depositkan.</p>
+                                                    <p>*Transaksi ini akan dikenakan biaya sesuai dengan ketentuan tarif transfer antar bank.</p>
                                                 </li>
                                             </ol>
                                         </div>
@@ -227,7 +231,8 @@
                                                 <li class="steps">Pilih <b>Transfer ke Rekening Lain</b>, pilih bank (016) Maybank dari daftar yang ada, lalu klik tombol Lanjut.</li>
                                                 <li class="steps">Ketiks “<b>7893 **** **** ****</b>” di kolom Rekening Penerima dan klik tombol <b>Lanjut</b> Kolom email boleh dikosongkan.</li>
                                                 <li class="steps">Periksa data transaksi Anda yang ditampilkan di layer sudah benar lalu masukkan mPin Anda dan klik tombol <b>Kirim</b> untuk lanjut.</li>
-                                                <li class="steps">Anda akan dapat melihat bukti transfer Anda telah berhasil.
+                                                <li class="steps">
+                                                    Anda akan dapat melihat bukti transfer Anda telah berhasil.
                                                     <p>*Jika Anda harus mengetik jumlah transfer di internet banking secara manual, ketik jumlah sebenarnya yang Anda ingin depositkan.</p>
                                                     <p>*Transaksi ini akan dikenakan biaya sesuai dengan ketentuan tarif transfer antar bank.</p>
                                                 </li>
@@ -254,7 +259,8 @@
                                                 <li class="steps">Pada DEtil Transaksi, pilih <b>Rekening</b> milik Anda.</li>
                                                 <li class="steps">Pada detil Tujuan, pilih <b>Nama Singkat</b> yang baru saja Anda buat dan ketik <b>*Amount*</b> di kolom Jumlah, lalu klik tombol <b>Lanjutkan</b>. Kolom Nomor Referensi Nasabah boleh dikosongkan.</li>
                                                 <li class="steps">Periksa data transaksi Anda yang ditampilkan di layer sudah benar lalu lanjutkan transaksi dengan token BNI E-secure Anda dan klik tombol <b>Proses</b>.</li>
-                                                <li class="steps">Anda akan dapat melihat bukti transfer Anda telah berhasil.
+                                                <li class="steps">
+                                                    Anda akan dapat melihat bukti transfer Anda telah berhasil.
                                                     <p>*Anda akan perlu mengulang langkah-langkah di atas untuk setiap transaksi.</p>
                                                     <p>*Jika Anda harus mengetik jumlah transfer di internet banking secara manual, ketik jumlah sebenarnya yang Anda ingin depositkan.</p>
                                                     <p>*Transaksi ini akan dikenakan biaya sesuai dengan ketentuan tarif transfer antar bank.</p>
@@ -266,13 +272,63 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </section>
         </div>
     </form>
-
     <script src="../_Static/JS/paysec/jquery-3.1.1.min.js"></script>
     <script src="../_Static/JS/paysec/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var params = getUrlVars();
+            function getUrlVars() {
+                var vars = [], hash;
+                var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+                for (var i = 0; i < hashes.length; i++) {
+                    hash = hashes[i].split('=');
+                    vars.push(hash[0]);
+                    vars[hash[0]] = hash[1];
+                }
+                return vars;
+            }
+
+            if (params) {
+                $('#vaNumber').text(params.VANumber)
+                $('#amount').text(params.Amount + " RP")
+                $('#orderId').text("Order ID: " + params.OrderId)
+                $('#cardId').text("Cart ID: " + params.CartId)
+                $('#vaExpiry').text(params.VAExpiry.replace("+", " "))
+            }
+
+            var isiOS = navigator.userAgent.match(/ip(hone|od|ad)/i);
+            if (isiOS)
+                $(".copy-btn").show();
+            else
+                $(".copy-btn").hide();
+
+            $('#copyAmount').on('click', function () {
+                var amount = $("#amount").text().replace(" RP", ""); //this will removed the " RP"
+                copyToClipboard(amount)
+            });
+
+            $('#copyVANumber').on('click', function () {
+                var vaNumber = $("#vaNumber").text();
+                copyToClipboard(vaNumber)
+            });
+
+            function copyToClipboard(text) {
+                var input = document.createElement('textarea', { "permissions": ["clipboardWrite"] });
+                document.body.appendChild(input);
+                input.value = text;
+                input.focus();
+                input.select();
+
+                var s = document.execCommand('copy', false, null);
+                console.log(s == true ? "Copy" : "Unable to Copy");
+
+                input.remove();
+            }
+        });
+    </script>
 </body>
 </html>

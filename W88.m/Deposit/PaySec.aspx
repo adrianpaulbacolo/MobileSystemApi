@@ -23,6 +23,7 @@
                 e.preventDefault();
                 var data = {
                     Amount: $('input[id$="txtAmount"]').val(),
+                    ThankYouPage: location.protocol + "//" + location.host + "/Deposit/Thankyou.aspx",
                     MethodId: "<%=base.PaymentMethodId%>"
                 };
                 var action = "/Deposit/Pay.aspx";

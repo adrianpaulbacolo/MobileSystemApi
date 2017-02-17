@@ -10,6 +10,7 @@ function Paysec() {
         var params = _self.getUrlVars();
         var data = {
             Amount: params.Amount,
+            ThankYouPage: params.ThankYouPage
         };
 
         _self.methodId = params.MethodId;
@@ -29,13 +30,11 @@ function Paysec() {
                             CartId: response.ResponseData.FormData.CartId
                         };
 
-                        var action = "/Deposit/PaySec2.aspx";
+                        var action = "/Deposit/PaySec.html";
                         var params = decodeURIComponent($.param(data));
                         window.open(action + "?" + params, "PaySec");
 
                     }
-
-                    $('#form1')[0].reset();
                     break;
                 default:
                     if (_.isArray(response.ResponseMessage))
