@@ -269,6 +269,7 @@ public partial class Catalogue_Redeem : CatalogueBasePage
         request.RiskId = MemberSession == null ? "0" : MemberSession.RiskId;
         request.Currency = MemberSession == null ? "0" : MemberSession.CurrencyCode;
         request.PointRequired = string.IsNullOrEmpty(ProductDetails.PointsRequired) ? string.Empty : ProductDetails.PointsRequired;
+        request.IsMobile = true;
         if (!string.IsNullOrEmpty(ProductDetails.DiscountPoints))
         {
             request.PointRequired = ProductDetails.DiscountPoints;

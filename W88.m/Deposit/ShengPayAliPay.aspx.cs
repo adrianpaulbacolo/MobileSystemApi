@@ -16,14 +16,11 @@ using System.Xml.Linq;
 
 public partial class Deposit_ShengPayAliPay : PaymentBasePage
 {
-    protected string lblTransactionId;
-
     protected void Page_Init(object sender, EventArgs e)
     {
         base.PageName = Convert.ToString(commonVariables.DepositMethod.ShengPayAliPay);
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.ShengPayAliPay);
-
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -31,13 +28,11 @@ public partial class Deposit_ShengPayAliPay : PaymentBasePage
         if (!Page.IsPostBack)
         {
             InitializeLabels();
-
         }
     }
 
     private void InitializeLabels()
     {
         lblDepositAmount.Text = base.strlblAmount;
-        lblTransactionId = base.strlblTransactionId;
     }
 }

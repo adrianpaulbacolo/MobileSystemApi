@@ -19,8 +19,8 @@ function Paysec() {
             switch (response.ResponseCode) {
                 case 1:
                     if (response.ResponseData.PostUrl) {
-                        w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
-                        w88Mobile.PostPaymentForm.submit();
+                    w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
+                    w88Mobile.PostPaymentForm.submit();
                     } else {
                         var data = {
                             VANumber: response.ResponseData.FormData.VANumber,
