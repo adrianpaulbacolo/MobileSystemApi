@@ -3,7 +3,7 @@ var _w88_iwalletV2 = window.w88Mobile.Gateways.IWalletV2;
 
 function IWalletV2() {
 
-    var iwallet = Object.create();
+    var iwallet = {};
 
     iwallet.init = function() {
         iwallet = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));

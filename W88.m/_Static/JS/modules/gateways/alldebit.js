@@ -3,7 +3,7 @@ var _w88_alldebit = window.w88Mobile.Gateways.AllDebit;
 
 function AllDebit() {
 
-    var alldebit = Object.create();
+    var alldebit = {};
 
     alldebit.init = function () {
 

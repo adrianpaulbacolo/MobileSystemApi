@@ -3,7 +3,7 @@ var _w88_neteller = window.w88Mobile.Gateways.Neteller;
 
 function Neteller() {
 
-    var neteller = Object.create();
+    var neteller = {};
 
     neteller.init = function () {
 

@@ -3,7 +3,7 @@ var _w88_alipay = window.w88Mobile.Gateways.AlipayV2;
 
 function AlipayV2() {
 
-    var alipay = Object.create();
+    var alipay = {};
 
     alipay.init = function () {
         

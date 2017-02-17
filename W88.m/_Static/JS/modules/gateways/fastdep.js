@@ -3,10 +3,11 @@ var _w88_fastdep = window.w88Mobile.Gateways.FastDepositv2;
 
 function FastDepositv2() {
 
-    var fastdeposit = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+    var fastdeposit = {};
 
     fastdeposit.init = function () {
-        var _self = this;
+
+        fastdeposit = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
 
         setTranslations();
 

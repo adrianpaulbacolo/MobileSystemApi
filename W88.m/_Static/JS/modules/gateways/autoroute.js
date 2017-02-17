@@ -3,7 +3,7 @@ var _w88_autoroute = window.w88Mobile.Gateways.AutoRouteV2;
 
 function AutoRouteV2() {
 
-    var autoroute = Object.create();
+    var autoroute = {};
 
     autoroute.init = function () {
 

@@ -3,7 +3,7 @@ var _w88_paysecV2 = window.w88Mobile.Gateways.PaysecV2;
 
 function PaysecV2() {
 
-    var paysec = Object.create();
+    var paysec = {};
 
     paysec.init = function () {
 

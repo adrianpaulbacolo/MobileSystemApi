@@ -3,7 +3,7 @@ var _w88_wechat = window.w88Mobile.Gateways.WeChatV2;
 
 function WeChatV2() {
 
-    var wechat = Object.create();
+    var wechat = {};
 
     wechat.init = function () {
 

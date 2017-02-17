@@ -5,7 +5,7 @@ function BaokimScratchCardV2() {
 
     var defaultSelect = "";
     var telcos = "";
-    var baokimSc = Object.create();
+    var baokimSc = {};
 
     baokimSc.init = function () {
 

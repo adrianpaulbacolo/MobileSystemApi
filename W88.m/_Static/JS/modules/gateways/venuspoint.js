@@ -3,7 +3,7 @@ var _w88_venuspoint = window.w88Mobile.Gateways.VenusPointV2;
 
 function VenusPointV2() {
 
-    var venuspoint = Object.create();
+    var venuspoint = {};
 
     venuspoint.init = function () {
 
