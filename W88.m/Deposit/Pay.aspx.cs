@@ -24,6 +24,10 @@ public partial class Deposit_Pay : PaymentBasePage
             case commonVariables.DepositMethod.JuyPayAlipay:
                 GatewayFile = "juypay";
                 break;
+            case commonVariables.DepositMethod.JTPayWeChat:
+            case commonVariables.DepositMethod.JTPayAliPay:
+                GatewayFile = "jtpay";
+                break;
             case commonVariables.DepositMethod.ECPSS:
                 GatewayFile = "ecpss";
                 break;
@@ -32,6 +36,9 @@ public partial class Deposit_Pay : PaymentBasePage
                 break;
             case commonVariables.DepositMethod.KexunPay:
                 GatewayFile = "kexunpay";
+                break;
+            case commonVariables.DepositMethod.KDPayWeChat:
+                GatewayFile = "kdpay";
                 break;
             case commonVariables.DepositMethod.Help2Pay:
                 GatewayFile = "help2pay";

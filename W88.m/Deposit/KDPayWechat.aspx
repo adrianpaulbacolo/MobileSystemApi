@@ -18,64 +18,42 @@
     <link href="/_Static/Css/payment.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
 
     <script type="text/javascript">
-
-        var ua = navigator.userAgent.toLowerCase();
-        var isAndroid = ua.indexOf("android") > -1;
-        if (isAndroid) {
-            $('#<%=txtAmount.ClientID%>').keypress(function (event) {
-                return TwoDecimalAndroid($(this), event);
-            });
-        }
-
         $(document).ready(function () {
+            var ua = navigator.userAgent.toLowerCase();
+            var isAndroid = ua.indexOf("android") > -1;
+            if (isAndroid) {
+                $('input[id$="txtAmount"]').keypress(function (event) {
+                    return TwoDecimalAndroid($(this), event);
+                });
+            }
 
-            var payments = new w88Mobile.Gateways.Payments("<%=base.PaymentMethodId %>");
-            payments.init();
+            _w88_paymentSvc.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
+            _w88_paymentSvc.DisplaySettings(
+                "<%=base.PaymentMethodId %>"
+                , {
+                    type: "<%=base.PaymentType %>"
+                });
 
             window.w88Mobile.Gateways.Wechat.Initialize();
 
-            window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
-
             $('#form1').submit(function (e) {
-
-                var hasOneDecimal = PositiveOneDecimalValidation($('#<%=txtAmount.ClientID%>').val());
+                var hasOneDecimal = PositiveOneDecimalValidation($('input[id$="txtAmount"]').val());
 
                 if (!hasOneDecimal) {
                     return;
                 }
 
                 e.preventDefault();
-                window.w88Mobile.FormValidator.disableSubmitButton('#ContentPlaceHolder1_btnSubmit');
-
                 var data = {
-                    Amount: $('#<%=txtAmount.ClientID%>').val(),
+                    Amount: $('input[id$="txtAmount"]').val(),
+                    MethodId: "<%=base.PaymentMethodId%>"
                 };
-
-                payments.send(data, function (response) {
-                    switch (response.ResponseCode) {
-                        case 1:
-                            w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
-                            w88Mobile.PostPaymentForm.create(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
-                            w88Mobile.PostPaymentForm.submit();
-
-                            $('#form1')[0].reset();
-                            break;
-                        default:
-                            if (_.isArray(response.ResponseMessage))
-                                w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
-                            else
-                                w88Mobile.Growl.shout(response.ResponseMessage);
-
-                            break;
-                    }
-                },
-                    function () {
-                        w88Mobile.FormValidator.enableSubmitButton('#ContentPlaceHolder1_btnSubmit');
-                        GPINTMOBILE.HideSplash();
-                    });
+                var action = "/Deposit/Pay.aspx";
+                var params = decodeURIComponent($.param(data));
+                window.open(action + "?" + params, "<%=base.PageName%>");
+                _w88_paymentSvc.onTransactionCreated($(this));
+                return;
             });
         });
-
     </script>
 </asp:Content>
-
