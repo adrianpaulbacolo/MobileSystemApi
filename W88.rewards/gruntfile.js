@@ -32,7 +32,7 @@
         },
         filerev: {
             dist: {
-                src: ['_Static/JS/dist/<%= pkg.name %>.js', '_Static/Css/<%= pkg.name %>.css', '_Static/JS/dist/<%= pkg.name %>.main.js']
+                src: ['_Static/JS/dist/<%= pkg.name %>.js', '_Static/Css/<%= pkg.name %>.css', '_Static/JS/dist/<%= pkg.name %>.main.js', '_Static/JS/dist/<%= pkg.name %>.login.js']
             }
         },
         filerev_replace: {
@@ -40,13 +40,13 @@
                 assets_root: './'
             },
             compiled_assets: {
-                src: ['_Static/JS/dist/<%= pkg.name %>.js', '_Static/Css/<%= pkg.name %>.css', '_Static/JS/dist/<%= pkg.name %>.main.js']
+                src: ['_Static/JS/dist/<%= pkg.name %>.js', '_Static/Css/<%= pkg.name %>.css', '_Static/JS/dist/<%= pkg.name %>.main.js', '_Static/JS/dist/<%= pkg.name %>.login.js']
             },
             views: {
                 options: {
                     views_root: './'
                 },
-                src: ['_Static/head.inc', '_Static/headvip.inc']
+                src: ['_Static/head.inc', '_Static/headvip.inc', '_Secure/Login.aspx']
             }
         },
         uglify: {
@@ -59,6 +59,7 @@
                 files: {
                     '_Static/JS/dist/<%= pkg.name %>.js': ['_Static/JS/dist/concat-*.js']
                     , '_Static/JS/dist/<%= pkg.name %>.main.js': ['_Static/JS/modules/Main.js']
+                    , '_Static/JS/dist/<%= pkg.name %>.login.js': ['_Static/JS/modules/login.js']
                 }
             }
         },

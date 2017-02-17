@@ -9,12 +9,12 @@ public partial class _Secure_VIP_login : BasePage
 
         if (IsVip)
         {
-            Response.Redirect("/Index", true);
+            Response.Redirect("/Index.aspx", false);
         }
     }
 
-    protected string GetTranslation(string key)
+    protected string GetTranslation(string key, string fileName = "")
     {
-        return CultureHelpers.GetTranslation(key, LanguageHelpers.SelectedLanguage, "contents/translations");
+        return CultureHelpers.GetTranslation(key, LanguageHelpers.SelectedLanguage, string.Format("contents/{0}", string.IsNullOrEmpty(fileName) ? "translations" : fileName));
     }
 }

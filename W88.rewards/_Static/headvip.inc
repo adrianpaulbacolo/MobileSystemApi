@@ -6,11 +6,11 @@
 <meta name="apple-mobile-web-app-title" content="W88" />   
 <link rel="apple-touch-icon" href="/_Static/Images/icon_76.png"/>
 <link rel="apple-touch-startup-image" href="/_Static/Images/icon_120.png" />
-<link rel="stylesheet" href="/_Static/Css/w88.mrewards.css" />
 <link rel="stylesheet" href="/_Static/Css/Mobile/jquery.mobile-1.4.5.min.css" />
+<link rel="stylesheet" href="/_Static/Css/w88.mrewards.css" />
 <link rel="stylesheet" href="/_Secure/VIP/css/style.css" />
 <script src="/_Static/JS/dist/w88.mrewards.js"></script>
-<script src="/_Static/JS/modules/login.js"></script>
+<script src="/_Static/JS/dist/w88.mrewards.login.js"></script>
 <script>
     // set initial values for notification
     if(w88Mobile.Growl) {

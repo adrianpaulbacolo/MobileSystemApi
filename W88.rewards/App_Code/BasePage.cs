@@ -5,6 +5,7 @@ using W88.BusinessLogic.Accounts.Helpers;
 using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Rewards.Models;
+using W88.BusinessLogic.Shared.Helpers;
 using W88.Utilities;
 
 
@@ -84,9 +85,9 @@ public class BasePage : Page
     {     
         get
         {
+            var vipCookie = CookieHelpers.CookieVip;
             bool isVip;
-            var cookie = HttpContext.Current.Request.Cookies.Get("vip");
-            bool.TryParse(cookie != null ? cookie.Value : "false", out isVip);
+            bool.TryParse(vipCookie, out isVip);
             return isVip;
         }
     }

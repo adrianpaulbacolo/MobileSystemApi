@@ -72,9 +72,10 @@
                 IncorrectVCode: '<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.IncorrectVCode)%>',
                 InvalidUsernamePassword: '<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.InvalidUsernamePassword)%>',
                 MissingPassword: '<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.MissingPassword)%>',
-                MissingUsername: '<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.MissingUsername)%>'
+                MissingUsername: '<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.MissingUsername)%>',
+                VipOnly: '<%=GetTranslation("VIP_NotAllowed", "messages")%>'
             },
-            login = new Login(translations, elems, '/Index.aspx');
+            login = new Login(translations, elems, '/Index.aspx', true);
             login.initializeButtons();
 
             var language = '<%=LanguageHelpers.SelectedLanguage%>';

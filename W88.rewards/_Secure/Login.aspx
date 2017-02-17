@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="_Secure_Login" Async="true"%>
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="_Secure_Login" Async="true"%>
 <%@ Import Namespace="W88.BusinessLogic.Rewards.Helpers" %>
 <%@ Import Namespace="W88.BusinessLogic.Rewards.Models" %>
 <%@ Import Namespace="W88.BusinessLogic.Shared.Helpers" %>
@@ -8,7 +8,7 @@
 <head>
     <title><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Brand)%></title>
     <!--#include virtual="~/_static/head.inc" -->
-    <script src="/_Static/JS/modules/login.js"></script>
+    <script src="/_Static/JS/dist/w88.mrewards.login.js"></script>
 </head>
 <body>
     <div data-role="page" data-theme="b">

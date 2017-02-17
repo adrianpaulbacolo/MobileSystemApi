@@ -3,7 +3,7 @@ body{
 	font-size: 14px;
 	line-height: 1.6;
 	color: $white;
-	background-color: $darkgray;
+	background-color: #011720;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -23,6 +23,7 @@ a{
 	}
 }
 p{
+    font-family: "dinpro", "Helvetica Neue", Helvetica,Arial, sans-serif;
 	margin-top: 0;
 	margin-bottom: 15px;
 }
@@ -65,6 +66,7 @@ p{
 		font-size: 29px;
 		margin-top: 0;
 		margin-bottom: 15px;
+        font-weight: bold;
 	}
 }
 .input-group{
@@ -72,7 +74,7 @@ p{
     width: 100%;
 }
 .input-box{
-    background-color: $darkergray;
+    background-color: darken($darkergray, 3%);
 	display: table;
 	.input-box-icon{
 		padding: 0 15px;
@@ -83,9 +85,10 @@ p{
 		opacity: 0.5;
 	}
 	.input{
+        font-family: "dinpro", "Helvetica Neue", Helvetica,Arial, sans-serif;
 		font-size: 16px;
 		color: $white;
-		background-color: transparent;
+		background-color: darken($darkergray, 3%);
 		box-shadow: none;
 		text-shadow: none;
 		border: none;
@@ -107,12 +110,9 @@ p{
 		  opacity: 1;
 		}
 	}
-	&:focus,
-	&:hover{
-		background-color: darken($darkergray, 3%);
-	}
 }
 .button{
+    font-family: "dinpro", "Helvetica Neue", Helvetica,Arial, sans-serif;
 	cursor: pointer;
 	font-size: 25;
 	text-transform: uppercase;
@@ -132,7 +132,12 @@ p{
 }
 
 body.ch{
+    font-family: "SimHei", "dinpro", "Helvetica Neue", Helvetica,Arial, sans-serif;
+	p, .button,.input-box .input{
+		font-family: "SimHei", "dinpro", "Helvetica Neue", Helvetica,Arial, sans-serif;
+	}
 	.viplogin-form h3 {
+        font-family: "SimHei", "dinpro", "Helvetica Neue", Helvetica,Arial, sans-serif;
 	    font-size: 40px;
 	}
 	.button {
@@ -157,7 +162,7 @@ body.ch{
 		margin-bottom: 15px;
 		h3{
 			font-size: 25px;
-			margin-top: 0;
+			margin-top: 0;         
 		}
 	}
 	.input-group{
