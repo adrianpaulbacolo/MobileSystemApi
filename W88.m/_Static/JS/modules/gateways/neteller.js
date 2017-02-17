@@ -3,9 +3,11 @@ var _w88_neteller = window.w88Mobile.Gateways.Neteller;
 
 function Neteller() {
 
-    var neteller = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+    var neteller = Object.create();
 
     neteller.init = function () {
+
+        neteller = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
 
         setTranslations();
         function setTranslations() {

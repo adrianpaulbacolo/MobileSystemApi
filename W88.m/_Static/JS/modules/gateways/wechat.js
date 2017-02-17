@@ -2,9 +2,13 @@
 var _w88_wechat = window.w88Mobile.Gateways.WeChatV2;
 
 function WeChatV2() {
-    var wechat = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+
+    var wechat = Object.create();
 
     wechat.init = function () {
+
+        wechat = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+
         setTranslations();
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {

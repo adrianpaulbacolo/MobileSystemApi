@@ -3,7 +3,11 @@ var _w88_iwalletV2 = window.w88Mobile.Gateways.IWalletV2;
 
 function IWalletV2() {
 
-    var iwallet = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+    var iwallet = Object.create();
+
+    iwallet.init = function() {
+        iwallet = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+    };
 
     iwallet.createDeposit = function () {
         var _self = this;

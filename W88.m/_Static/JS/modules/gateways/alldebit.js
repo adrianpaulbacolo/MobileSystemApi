@@ -3,9 +3,12 @@ var _w88_alldebit = window.w88Mobile.Gateways.AllDebit;
 
 function AllDebit() {
 
-    var alldebit = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+    var alldebit = Object.create();
 
     alldebit.init = function () {
+
+        alldebit = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+
         setTranslations();
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
@@ -89,7 +92,7 @@ function AllDebit() {
         var params = _self.getUrlVars();
         var data = {
             Amount: params.Amount,
-            CardType: { Text: params.CardTypeTextText, Value: params.CardTypeTextValue },
+            CardType: { Text: params.CardTypeText, Value: params.CardTypeValue },
             AccountName: params.AccountName,
             CardNumber: params.CardNumber,
             CardExpiryMonth: params.CardExpiryMonth,

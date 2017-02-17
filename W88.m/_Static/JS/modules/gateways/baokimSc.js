@@ -5,9 +5,12 @@ function BaokimScratchCardV2() {
 
     var defaultSelect = "";
     var telcos = "";
-    var baokimSc = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+    var baokimSc = Object.create();
 
     baokimSc.init = function () {
+
+        baokimSc = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+
         setTranslations();
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {

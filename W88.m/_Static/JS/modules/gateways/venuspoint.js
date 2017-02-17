@@ -2,9 +2,13 @@
 var _w88_venuspoint = window.w88Mobile.Gateways.VenusPointV2;
 
 function VenusPointV2() {
-    var venuspoint = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+
+    var venuspoint = Object.create();
 
     venuspoint.init = function () {
+
+        venuspoint = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+
         setTranslations();
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {

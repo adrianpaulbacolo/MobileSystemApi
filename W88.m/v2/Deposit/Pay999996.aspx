@@ -26,7 +26,8 @@
                  var data = {
                      Amount: $('input[id$="txtAmount"]').val(),
                      ThankYouPage: location.protocol + "//" + location.host + "/Index",
-                     MethodId: "<%=base.PaymentMethodId%>"
+                     MethodId: "<%=base.PaymentMethodId%>",
+                     AutoRoute: true
                 };
 
                 var params = decodeURIComponent($.param(data));

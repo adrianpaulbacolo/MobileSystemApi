@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 public partial class v2_Deposit_Pay : PaymentBasePage
 {
@@ -11,58 +6,75 @@ public partial class v2_Deposit_Pay : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        commonVariables.DepositMethod PaymentMethodId = (commonVariables.DepositMethod)Enum.Parse(typeof(commonVariables.DepositMethod), Request.QueryString["MethodId"]);
+        var isAutoRoute = false;
 
-        switch (PaymentMethodId)
+        if (Request.QueryString["AutoRoute"] != null)
         {
-            case commonVariables.DepositMethod.PaySec:
+            isAutoRoute = Boolean.TryParse(Request.QueryString["AutoRoute"], out isAutoRoute);
+        }
+
+       var methodId = (isAutoRoute)
+            ? (int) Enum.Parse(typeof (commonVariables.AutoRouteMethod), Request.QueryString["MethodId"])
+            : (int) Enum.Parse(typeof (commonVariables.DepositMethod), Request.QueryString["MethodId"]);
+
+        switch (methodId)
+        {
+            case (int)commonVariables.DepositMethod.PaySec:
                 GatewayFile = "paysec";
                 break;
 
-            case commonVariables.DepositMethod.ECPSS:
+            case (int)commonVariables.DepositMethod.ECPSS:
                 GatewayFile = "ecpsspay";
                 break;
 
-            case commonVariables.DepositMethod.AllDebit:
+            case (int)commonVariables.DepositMethod.AllDebit:
                 GatewayFile = "alldebit";
                 break;
 
-            case commonVariables.DepositMethod.NganLuong:
+            case (int)commonVariables.DepositMethod.NganLuong:
                 GatewayFile = "nganluong";
                 break;
 
-            case commonVariables.DepositMethod.FastDeposit:
+            case (int)commonVariables.DepositMethod.FastDeposit:
                 GatewayFile = "fastdep";
                 break;
 
-            case commonVariables.DepositMethod.BaokimScratchCard:
+            case (int)commonVariables.DepositMethod.BaokimScratchCard:
                 GatewayFile = "baokimSc";
                 break;
-            
-            case commonVariables.DepositMethod.IWallet:
+
+            case (int)commonVariables.DepositMethod.IWallet:
                 GatewayFile = "iwallet";
                 break;
 
-            case commonVariables.DepositMethod.Neteller:
+            case (int)commonVariables.DepositMethod.Neteller:
                 GatewayFile = "neteller";
                 break;
 
-            case commonVariables.DepositMethod.VenusPoint:
+            case (int)commonVariables.DepositMethod.VenusPoint:
                 GatewayFile = "venuspoint";
                 break;
 
-            case commonVariables.DepositMethod.NineVPayAlipay:
-            case commonVariables.DepositMethod.JuyPayAlipay:
-            case commonVariables.DepositMethod.JTPayAliPay:
-            case commonVariables.DepositMethod.JutaPay:
-            case commonVariables.DepositMethod.ShengPayAliPay:
+            case (int)commonVariables.AutoRouteMethod.AliPay:
+            case (int)commonVariables.DepositMethod.NineVPayAlipay:
+            case (int)commonVariables.DepositMethod.JuyPayAlipay:
+            case (int)commonVariables.DepositMethod.JTPayAliPay:
+            case (int)commonVariables.DepositMethod.JutaPay:
+            case (int)commonVariables.DepositMethod.ShengPayAliPay:
                 GatewayFile = "alipay";
                 break;
 
-            case commonVariables.DepositMethod.KexunPay:
-            case commonVariables.DepositMethod.JTPayWeChat:
-            case commonVariables.DepositMethod.KDPayWeChat:
+            case (int)commonVariables.AutoRouteMethod.WeChat:
+            case (int)commonVariables.DepositMethod.KexunPay:
+            case (int)commonVariables.DepositMethod.JTPayWeChat:
+            case (int)commonVariables.DepositMethod.KDPayWeChat:
                 GatewayFile = "wechat";
+                break;
+
+            case (int)commonVariables.AutoRouteMethod.QuickOnline:
+            case (int)commonVariables.AutoRouteMethod.TopUpCard:
+            case (int)commonVariables.AutoRouteMethod.UnionPay:
+                GatewayFile = "autoroute";
                 break;
         }
     }

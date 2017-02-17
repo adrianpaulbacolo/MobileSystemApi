@@ -218,6 +218,8 @@
     <asp:ContentPlaceHolder ID="ScriptPlaceHolder" runat="server">
 
         <script type="text/javascript">
+            var siteCookie = new Cookies();
+
             _.templateSettings = {
                 interpolate: /\{\{(.+?)\}\}/g,      // print value: {{ value_name }}
                 evaluate: /\{%([\s\S]+?)%\}/g,   // excute code: {% code_to_execute %}
