@@ -16,7 +16,6 @@
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
             _w88_paymentSvcV2.translateDefault();
-            window.w88Mobile.Gateways.IWalletV2.init();
 
             $('#form1').submit(function (e) {
 

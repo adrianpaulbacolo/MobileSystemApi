@@ -55,6 +55,10 @@ public partial class v2_Deposit_Pay : PaymentBasePage
                 GatewayFile = "venuspoint";
                 break;
 
+            case (int)commonVariables.DepositMethod.Baokim:
+                GatewayFile = "baokim";
+                break;
+
             case (int)commonVariables.AutoRouteMethod.AliPay:
             case (int)commonVariables.DepositMethod.NineVPayAlipay:
             case (int)commonVariables.DepositMethod.JuyPayAlipay:

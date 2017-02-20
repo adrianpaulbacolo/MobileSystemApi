@@ -3,11 +3,15 @@ var _w88_autoroute = window.w88Mobile.Gateways.AutoRouteV2;
 
 function AutoRouteV2() {
 
-    var autoroute = {};
+    var autoroute;
+
+    try {
+        autoroute = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+    } catch (err) {
+        autoroute = {};
+    }
 
     autoroute.init = function () {
-
-        autoroute = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
 
         setTranslations();
         function setTranslations() {

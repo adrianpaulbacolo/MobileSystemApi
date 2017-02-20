@@ -49,7 +49,7 @@ function PaysecV2() {
             }
         },
         function () {
-            GPInt.prototype.HideSplash();
+            pubsub.publish('stopLoadItem', { selector: "" });
         });
     }
 

@@ -3,11 +3,15 @@ var _w88_alldebit = window.w88Mobile.Gateways.AllDebit;
 
 function AllDebit() {
 
-    var alldebit = {};
+    var alldebit;
+
+    try {
+        alldebit = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+    } catch (err) {
+        alldebit = {};
+    }
 
     alldebit.init = function () {
-
-        alldebit = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
 
         setTranslations();
         function setTranslations() {
@@ -50,7 +54,7 @@ function AllDebit() {
                 }
                 $('select[id$="ddlExpiryYear"]').val('-1').change();
 
-                _w88_paymentSvcV2.SendDeposit("/user/lastccdetails", "GET", "", function (response) {
+                _w88_paymentSvcV2.SendDeposit("/payments/creditcard/lasttrans", "GET", "", function (response) {
 
                     if (response.ResponseCode == 1 && response.ResponseData != null) {
 

@@ -5,9 +5,14 @@ function WeChatV2() {
 
     var wechat = {};
 
-    wechat.init = function () {
-
+    try {
         wechat = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+    } catch (err) {
+        wechat = {};
+    }
+
+
+    wechat.init = function () {
 
         setTranslations();
         function setTranslations() {

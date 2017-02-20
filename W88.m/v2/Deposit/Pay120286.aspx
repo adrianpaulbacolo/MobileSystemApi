@@ -45,8 +45,8 @@
                 var data = {
                     Amount: $('select[id$="drpAmount"]').val(),
                     CardNumber: $('select[id$="drpBanks"]').val(),
-                    ReferenceId: $('[id$="txtCardSerialNo"]').val(),
-                    CCV: $('[id$="txtPin"]').val(),
+                    ReferenceId: $('input[id$="txtCardSerialNo"]').val(),
+                    CCV: $('input[id$="txtPin"]').val(),
                     MethodId: "<%=base.PaymentMethodId%>"
                 };
 

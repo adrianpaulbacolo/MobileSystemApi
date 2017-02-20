@@ -3,11 +3,15 @@ var _w88_venuspoint = window.w88Mobile.Gateways.VenusPointV2;
 
 function VenusPointV2() {
 
-    var venuspoint = {};
+    var venuspoint;
+
+    try {
+        venuspoint = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+    } catch (err) {
+        venuspoint = {};
+    }
 
     venuspoint.init = function () {
-
-        venuspoint = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
 
         setTranslations();
         function setTranslations() {

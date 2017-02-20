@@ -3,11 +3,16 @@ var _w88_fastdep = window.w88Mobile.Gateways.FastDepositv2;
 
 function FastDepositv2() {
 
-    var fastdeposit = {};
+    var fastdeposit;
+
+    try {
+        fastdeposit = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+    } catch (err) {
+        fastdeposit = {};
+    }
+
 
     fastdeposit.init = function () {
-
-        fastdeposit = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
 
         setTranslations();
 
@@ -28,7 +33,7 @@ function FastDepositv2() {
                 if (!_.isEqual(response.ResponseCode, 0)) {
                     if (!_.isEmpty(response.ResponseData.Bank)) $('select[id$="drpBank"]').val(response.ResponseData.Bank.Value).selectmenu("refresh");
 
-                    fastdeposit.toogleBank($('select[id$="drpBank"]').val());
+                    _w88_fastdep.toogleBank($('select[id$="drpBank"]').val());
                     $('input[id$="txtBankName"]').val(response.ResponseData.BankName);
                     $('input[id$="txtAccountName"]').val(response.ResponseData.AccountName);
                     $('input[id$="txtAccountNumber"]').val(response.ResponseData.AccountNumber);

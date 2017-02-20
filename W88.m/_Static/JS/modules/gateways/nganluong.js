@@ -3,11 +3,15 @@ var _w88_nganluong = window.w88Mobile.Gateways.NganLuongV2;
 
 function NganLuongV2() {
 
-    var nganloung = {};
+    var nganloung;
+
+    try {
+        nganloung = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+    } catch (err) {
+        nganloung = {};
+    }
 
     nganloung.init = function () {
-
-        nganloung = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
 
         setTranslations();
         function setTranslations() {

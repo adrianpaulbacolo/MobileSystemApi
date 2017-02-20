@@ -5,7 +5,13 @@ function BaokimScratchCardV2() {
 
     var defaultSelect = "";
     var telcos = "";
-    var baokimSc = {};
+    var baokimSc;
+
+    try {
+        baokimSc = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+    } catch (err) {
+        baokimSc = {};
+    }
 
     baokimSc.init = function () {
 
@@ -24,7 +30,7 @@ function BaokimScratchCardV2() {
 
                 defaultSelect = _w88_contents.translate("LABEL_SELECT_DEFAULT");
 
-                baokimSc.getBanks();
+                _w88_baokimSc.getBanks();
 
             } else {
                 window.setInterval(function () {
@@ -35,26 +41,21 @@ function BaokimScratchCardV2() {
         };
 
     baokimSc.getBanks = function () {
-        var url = w88Mobile.APIUrl + "/payments/baokindenom/";
-
-        $.ajax({
-            type: "GET",
-            url: url,
-            success: function (d) {
-                telcos = d.ResponseData.Telcos;
+        _w88_paymentSvcV2.SendDeposit("/payments/baokindenom/", "GET", "", function (response) {
+            if (response && _.isEqual(response.ResponseCode, 1)) {
+                telcos = response.ResponseData.Telcos;
 
                 $('select[id$="drpBanks"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
                 $('select[id$="drpBanks"]').val("-1").change();
 
-                _.forOwn(d.ResponseData.Telcos, function (data) {
+                _.forOwn(response.ResponseData.Telcos, function (data) {
                     $('select[id$="drpBanks"]').append($('<option>').text(data.Name).attr('value', data.Id));
                 });
-
 
                 $('select[id$="drpAmount"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
                 $('select[id$="drpAmount"]').val("-1").change();
             }
-        });
+        }, undefined);
     };
 
     baokimSc.setDenom = function (selectedValue) {
@@ -87,7 +88,7 @@ function BaokimScratchCardV2() {
         $('p[id$="IndicatorMsg"]').html(sessionStorage.getItem("indicator") + fee);
     };
 
-    baokimSc.createDeposit = function() {
+    baokimSc.createDeposit = function () {
         var _self = this;
         var params = _self.getUrlVars();
         var data = {
