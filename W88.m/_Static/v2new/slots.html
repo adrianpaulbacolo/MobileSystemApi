@@ -247,7 +247,7 @@
             $("#filter-apply-button").html(_contents.translate("LABEL_APPLY"));
 
             $('#filterModal').modal('toggle');
-            $('.modal-title').html('Filter ' + club.label);
+            $('.modal-title').html(_contents.translate(club.key + "_FILTER", club.title));
         }
 
         function filterGames() {
