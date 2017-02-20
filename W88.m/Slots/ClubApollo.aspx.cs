@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml.Linq;
+using customConfig;
 using Factories.Slots.Handlers;
 using Models;
 using Factories.Slots;
@@ -26,18 +27,32 @@ public partial class Slots_ClubApollo : BasePage
 
         SetTitle(commonCulture.ElementValues.getResourceXPathString("/Products/ClubApollo/Label", commonVariables.ProductsXML));
 
+        var opSettings = new OperatorSettings(System.Configuration.ConfigurationManager.AppSettings.Get("Operator"));
+        var addGpi = Convert.ToBoolean(opSettings.Values.Get("GPIAddOtheClubs"));
+
         var handler = new QTHandler(commonVariables.CurrentMemberSessionId, "ClubApollo");
         var qtCategory = handler.Process();
 
         var ppHandler = new PPHandler(commonVariables.CurrentMemberSessionId, "ClubApollo", "FundTransfer");
         var ppCategory = ppHandler.Process(true);
 
-        var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
-        var gpiCategory = gpiHandler.Process(true);
+        var ttgHandler = new TTGHandler(commonVariables.CurrentMemberSessionId, "ClubApollo", "FundTransfer");
+        var ttgCategory = ttgHandler.Process(true);
 
-        qtCategory[0].Current = handler.InsertInjectedGames(gpiCategory, qtCategory[0].Current);
+        IEnumerable<IGrouping<string, GameCategoryInfo>> games;
+        if (addGpi)
+        {
+            var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
+            var gpiCategory = gpiHandler.Process(true);
 
-        var games = qtCategory.Union(ppCategory).Union(gpiCategory).GroupBy(x => x.Title);
+            qtCategory[0].Current = handler.InsertInjectedGames(gpiCategory, qtCategory[0].Current);
+
+            games = qtCategory.Union(ppCategory).Union(ttgCategory).Union(gpiCategory).GroupBy(x => x.Title);
+        }
+        else
+        {
+            games = qtCategory.Union(ppCategory).Union(ttgCategory).GroupBy(x => x.Title);
+        }
 
         var sbGames = new StringBuilder();
         foreach (var category in games)
