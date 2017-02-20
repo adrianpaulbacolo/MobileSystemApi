@@ -11,7 +11,12 @@ public partial class Deposit_Pay : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        commonVariables.DepositMethod PaymentMethodId = (commonVariables.DepositMethod)Enum.Parse(typeof(commonVariables.DepositMethod), Request.QueryString["MethodId"]);
+        var methodId = Request.QueryString["MethodId"];
+
+        if (string.IsNullOrWhiteSpace(methodId))
+            return;
+
+        commonVariables.DepositMethod PaymentMethodId = (commonVariables.DepositMethod)Enum.Parse(typeof(commonVariables.DepositMethod), methodId);
 
         switch (PaymentMethodId)
         {

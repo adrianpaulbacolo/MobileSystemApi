@@ -7,30 +7,31 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Xml.XPath;
 
-public partial class Deposit_WingMoney : PaymentBasePage
+public partial class Deposit_MoneyTransfer : PaymentBasePage
 {
-    protected string lblTransactionId;
-
     protected void Page_Init(object sender, EventArgs e)
     {
-        base.PageName = Convert.ToString(commonVariables.DepositMethod.WingMoney);
+        var money = this.RouteData.DataTokens["money"].ToString();
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
-        base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.WingMoney);
-
+        switch (money)
+        {
+            case "wing":
+                base.PageName = Convert.ToString(commonVariables.DepositMethod.WingMoney);
+                base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.WingMoney);
+                break;
+            case "true":
+                base.PageName = Convert.ToString(commonVariables.DepositMethod.TrueMoney);
+                base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.TrueMoney);
+                break;
+        }
     }
 
     protected void Page_Load(object sender, EventArgs e)
     {
+
         if (!Page.IsPostBack)
         {
             this.InitialiseDepositDateTime();
-
-            this.InitializeLabels();
-
-            if (string.Compare(strCurrencyCode, "krw", true) == 0)
-            {
-                divDepositDateTime.Visible = false;
-            }
         }
     }
 
@@ -54,19 +55,5 @@ public partial class Deposit_WingMoney : PaymentBasePage
             drpMinute.Items.Add(new ListItem((intMinute).ToString("0#"), Convert.ToString(intMinute)));
         }
         #endregion
-    }
-
-    private void InitializeLabels()
-    {
-        lblDepositAmount.Text = base.strlblAmount;
-
-        lblAccountName.Text = base.strlblAccountName;
-        lblAccountNumber.Text = base.strlblAccountNumber;
-
-        lblReferenceId.Text = commonCulture.ElementValues.getResourceString("lblReferenceId", xeResources);
-
-        lblDepositDateTime.Text = commonCulture.ElementValues.getResourceString("drpDepositDateTime", xeResources);
-
-        lblTransactionId = base.strlblTransactionId;
     }
 }
