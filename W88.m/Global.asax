@@ -78,7 +78,7 @@
 
     }
 
-    void Session_Start(object sender, EventArgs e)
+    private void Session_Start(object sender, EventArgs e)
     {
         // Code that runs when a new session is started
         bool isSsl = HttpContext.Current.Request.IsSecureConnection.Equals(true);
@@ -89,13 +89,13 @@
         }
 
         var opSettings = new OperatorSettings("W88");
-        if (opSettings.Values.Get("VIP_Domains").ToLower().Contains(HttpContext.Current.Request.Url.Host))
+        foreach (var v in opSettings.Values.Get("VIP_Domains").ToLower().Split(new[] { '|' }).Where(v => v.Equals(HttpContext.Current.Request.Url.Host)))
         {
             commonCookie.CookieLanguage = "zh-cn";
             Response.Clear();
-            Response.Redirect("/_Secure/VIP/login.aspx");
-            Response.End();
+            Response.Redirect("/_Secure/VIP/login.aspx", false);
         }
+
     }
 
     void Session_End(object sender, EventArgs e)
