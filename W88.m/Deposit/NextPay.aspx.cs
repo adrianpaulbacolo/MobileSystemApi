@@ -14,8 +14,6 @@ using svcPayDeposit;
 
 public partial class Deposit_NextPay : PaymentBasePage
 {
-    protected string lblTransactionId;
-
     protected void Page_Init(object sender, EventArgs e)
     {
         base.PageName = Convert.ToString(commonVariables.DepositMethod.NextPay);
@@ -35,6 +33,5 @@ public partial class Deposit_NextPay : PaymentBasePage
     {
         lblDepositAmount.Text = base.strlblAmount;
         lblBank.Text = base.strlblBank;
-        lblTransactionId = base.strlblTransactionId;
     }
 }

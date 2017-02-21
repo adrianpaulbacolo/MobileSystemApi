@@ -46,6 +46,9 @@ public partial class Deposit_Pay : PaymentBasePage
             case commonVariables.DepositMethod.ShengPayAliPay:
                 GatewayFile = "shengpay";
                 break;
+            case commonVariables.DepositMethod.NextPay:
+                GatewayFile = "nextpay";
+                break;
         }
     }
 }
