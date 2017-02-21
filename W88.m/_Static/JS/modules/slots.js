@@ -138,6 +138,28 @@
                 }
             }
         },
+        launchTTG: function (link) {
+
+            $.ajax({
+                type: 'GET',
+                contentType: "application/json",
+                url: link,
+                beforeSend: function () { GPINTMOBILE.ShowSplash(); },
+                success: function (response) {
+                    var err = response.find('error_code');
+
+                    switch (err) {
+                    case 0:
+                        window.open(response.find('redirect_url'), '_blank');
+                    default:
+                        window.w88Mobile.Growl.shout(response.find('error_msg'));
+                    }
+                },
+                complete : function() {
+                    GPINTMOBILE.HideSplash();
+                }
+            });
+        },
         showGameModal: function (img, real, fun) {
 
             $('#gameImage').attr('src', '/_Static/Images/Games/' + img);

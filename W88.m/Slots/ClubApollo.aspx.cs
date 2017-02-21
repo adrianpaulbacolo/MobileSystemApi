@@ -84,10 +84,19 @@ public partial class Slots_ClubApollo : BasePage
             sbGames.AppendFormat("<li class='bkg-game {1}'><div rel='{0}.jpg'><div class='div-links'>", game.Image, providerClass);
 
             if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-                sbGames.AppendFormat("<a class='btn-primary' target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubApollo") + "' data-rel='dialog' data-transition='slidedown' data-ajax='false'>");
+            {
+                sbGames.AppendFormat("<a class='btn-primary' target='_blank' href='/_Secure/Login.aspx?redirect=" +
+                                     Server.UrlEncode("/ClubApollo") +
+                                     "' data-rel='dialog' data-transition='slidedown' data-ajax='false'>");
+            }
             else
-                sbGames.AppendFormat("<a class=\"track-play-now\" href='{0}' target='_blank' data-ajax='false'>", game.RealUrl);
-
+            {
+                sbGames.AppendFormat(
+                    game.Provider == GameProvider.TTG
+                        ? "<a href='#' onclick='javascript:w88Mobile.Slots.launchTTG(\"{0}\")' target='_blank' data-ajax='false'>"
+                        : "<a class=\"track-play-now\" href='{0}' target='_blank' data-ajax='false'>", game.RealUrl);
+            }
+              
             sbGames.AppendFormat("{0}</a>", commonCulture.ElementValues.getResourceXPathString("/Products/Play", commonVariables.ProductsXML));
             sbGames.AppendFormat("<a class=\"track-try-now\" target='_blank' href='{1}'>{0}</a></div>", commonCulture.ElementValues.getResourceXPathString("/Products/Try", commonVariables.ProductsXML), game.FunUrl);
 
