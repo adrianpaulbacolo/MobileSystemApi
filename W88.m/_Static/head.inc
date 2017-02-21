@@ -22,6 +22,7 @@
 <script src="/_Static/JS/fingerprint2.min.js"></script>
 <script src="/_Static/JS/piwik.js"></script>
 <script type="text/javascript">
+    var siteCookie = new Cookies();
     window.w88Mobile = {};
     window.User = {};
     window.User.hasSession = <%= (!String.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) ? 1 : 0 %>;
@@ -32,6 +33,14 @@
     window.User.memberId = '<%=UserSession.MemberId %>';
     window.User.countryCode = '<%=UserSession.CountryCode %>';
     w88Mobile.APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("APIUrl") %>';
+    
+    //amplify clear
+    amplify.clearStore = function() {
+    $.each(amplify.store(), function (storeKey) {
+        // Delete the current key from Amplify storage
+        amplify.store(storeKey, null);
+    });
+};
 </script>
 <script src="/_Static/JS/i18n/contents-<%=commonVariables.SelectedLanguageShort%>.js"></script>
 <script src="/_Static/JS/modules/translate.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
@@ -42,7 +51,7 @@
     _w88_contents.init();
 </script>
 <script type="text/javascript" src="/_Static/JS/modules/slots.js"></script>
-<script type="text/javascript" src="/_Static/JS/modules/constants.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/constants.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 <script type="text/javascript" src="/_Static/JS/modules/formValidator.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/growl.js"></script>
 <script type="text/javascript">
@@ -62,7 +71,6 @@
     w88Mobile.PiwikManager.setDomain();
     w88Mobile.PiwikManager.setUserId('<%=UserSession.MemberId %>');
 
-    var siteCookie = new Cookies();
 
     $(function () {
         if(_.isEmpty(siteCookie.getCookie("fingerprint"))){
