@@ -138,27 +138,9 @@
                 }
             }
         },
-        launchTTG: function (link) {
-
-            $.ajax({
-                type: 'GET',
-                contentType: "application/json",
-                url: link,
-                beforeSend: function () { GPINTMOBILE.ShowSplash(); },
-                success: function (response) {
-                    var err = response.find('error_code');
-
-                    switch (err) {
-                    case 0:
-                        window.open(response.find('redirect_url'), '_blank');
-                    default:
-                        window.w88Mobile.Growl.shout(response.find('error_msg'));
-                    }
-                },
-                complete : function() {
-                    GPINTMOBILE.HideSplash();
-                }
-            });
+        launchTTG: function (gameId, gameName, gameType, lang, lobby) {
+            var baseUrl = "/Slots/ClubApollo.aspx?provider=TTG&gameId={0}&gameName={1}&gameType={2}&gameLang={3}&lobby={4}";
+            window.open(baseUrl.replace("{0}", gameId).replace("{1}", gameName).replace("{2}", gameType).replace("{3}", lang).replace("{4}", lobby), '_blank');
         },
         showGameModal: function (img, real, fun) {
 
