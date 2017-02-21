@@ -1,16 +1,15 @@
-﻿window.w88Mobile.Gateways.JuyPay = JuyPay();
-var _w88_juypay = window.w88Mobile.Gateways.JuyPay;
+﻿window.w88Mobile.Gateways.KDPay = KDPay();
+var _w88_kdpay = window.w88Mobile.Gateways.KDPay;
 
-function JuyPay() {
+function KDPay() {
 
-    var juypay = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
+    var kdpay = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
 
-    juypay.createDeposit = function () {
+    kdpay.createDeposit = function () {
         var _self = this;
         var params = _self.getUrlVars();
         var data = {
             Amount: params.Amount,
-            ThankYouPage: params.ThankYouPage,
         };
 
         _self.methodId = params.MethodId;
@@ -35,6 +34,6 @@ function JuyPay() {
         });
     }
 
-    return juypay;
+    return kdpay;
 }
 

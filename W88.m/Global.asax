@@ -70,7 +70,7 @@
     void Application_End(object sender, EventArgs e)
     {
         //  Code that runs on application shutdown
-
+        
     }
 
     void Application_Error(object sender, EventArgs e)
@@ -78,7 +78,7 @@
 
     }
 
-    void Session_Start(object sender, EventArgs e)
+    private void Session_Start(object sender, EventArgs e)
     {
         // Code that runs when a new session is started
         bool isSsl = HttpContext.Current.Request.IsSecureConnection.Equals(true);
@@ -86,15 +86,6 @@
         if (isHttpsOnly && !isSsl)
         {
             Response.Redirect("https://" + Request.ServerVariables["HTTP_HOST"] + HttpContext.Current.Request.RawUrl);
-        }
-
-        var opSettings = new OperatorSettings("W88");
-        if (opSettings.Values.Get("VIP_Domains").ToLower().Contains(HttpContext.Current.Request.Url.Host))
-        {
-            commonCookie.CookieLanguage = "zh-cn";
-            Response.Clear();
-            Response.Redirect("/_Secure/VIP/login.aspx");
-            Response.End();
         }
     }
 
@@ -104,7 +95,8 @@
         // Note: The Session_End event is raised only when the sessionstate mode
         // is set to InProc in the Web.config file. If session mode is set to StateServer 
         // or SQLServer, the event is not raised.
-
+      
+      
     }
        
 </script>

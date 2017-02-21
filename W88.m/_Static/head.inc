@@ -10,6 +10,7 @@
 <link rel="apple-touch-startup-image" href="/_Static/Images/icon_120.png" />
 
 <script type="text/javascript">
+    var siteCookie = new Cookies();
     window.w88Mobile = {};
     w88Mobile.Gateways = {};
     window.User = {};
@@ -21,11 +22,19 @@
     window.User.memberId = '<%=UserSession.MemberId %>';
     window.User.countryCode = '<%=UserSession.CountryCode %>';
     w88Mobile.APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("APIUrl") %>';
+    
 </script>
 
 <script type="text/javascript" src="/_Static/JS/Cookie.js"></script>
 <script type="text/javascript">
     var siteCookie = new Cookies();
+    //amplify clear
+    amplify.clearStore = function() {
+        $.each(amplify.store(), function (storeKey) {
+            // Delete the current key from Amplify storage
+            amplify.store(storeKey, null);
+        });
+    };
 </script>
 <script type="text/javascript" src="/_Static/JS/Mobile/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="/_Static/JS/Mobile/jquery.mobile-1.4.5.min.js"></script>
@@ -47,6 +56,7 @@
     _w88_contents.init();
 </script>
 <script type="text/javascript" src="/_Static/JS/modules/slots.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/constants.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 <script type="text/javascript" src="/_Static/JS/modules/formValidator.js"></script>
 <script type="text/javascript">
     // set initial values for notification
@@ -64,6 +74,7 @@
     w88Mobile.PiwikManager.setGoals(window.w88Mobile.PiwikConfig.goals);
     w88Mobile.PiwikManager.setDomain();
     w88Mobile.PiwikManager.setUserId('<%=UserSession.MemberId %>');
+
 
     $(function () {
         if(_.isEmpty(siteCookie.getCookie("fingerprint"))){
