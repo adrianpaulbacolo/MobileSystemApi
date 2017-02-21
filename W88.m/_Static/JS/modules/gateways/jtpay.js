@@ -1,62 +1,37 @@
-﻿function JTPay() {
+﻿window.w88Mobile.Gateways.JTPay = JTPay();
+var _w88_jtpay = window.w88Mobile.Gateways.JTPay;
 
-    var gatewayId = "120262";
-    var token = "";
+function JTPay() {
 
-    var jtpay = {
-        deposit: deposit
-        , withdraw: withdraw
-        , gatewayId: gatewayId
-        , Initialize: init
-    };
+    var jtpay = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
+
+    jtpay.createDeposit = function () {
+        var _self = this;
+        var params = _self.getUrlVars();
+        var data = {
+            Amount: params.Amount,
+        };
+
+        _self.methodId = params.MethodId;
+        _self.changeRoute();
+        _self.deposit(data, function (response) {
+            switch (response.ResponseCode) {
+                case 1:
+                    w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
+                    w88Mobile.PostPaymentForm.submit();
+                    break;
+                default:
+                    if (_.isArray(response.ResponseMessage))
+                        w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage), _self.shoutCallback);
+                    else
+                        w88Mobile.Growl.shout(response.ResponseMessage, _self.shoutCallback);
+                    break;
+            }
+        },
+        function () {
+            GPInt.prototype.HideSplash();
+        });
+    }
 
     return jtpay;
-
-    function send(method, data, success, error, complete) {
-        var url = w88Mobile.APIUrl + "/payments/" + w88Mobile.Gateways.JTPay.gatewayId;
-
-        var headers = {
-            'Token': window.User.token,
-            'LanguageCode': window.User.lang
-        };
-        $.ajax({
-            type: method,
-            url: url,
-            data: data,
-            headers: headers,
-            success: success,
-            error: error,
-            complete: complete
-        });
-
-    }
-
-    // deposit
-    function deposit(data, successCallback, errorCallback, completeCallback) {
-        validate(data, "deposit");
-        send("POST", data, successCallback, errorCallback, completeCallback);
-    }
-
-    // withdraw
-    function withdraw(data, successCallback, errorCallback, completeCallback) {
-    }
-
-    function validate(data, method) {
-        // @todo add validation here
-        return;
-    }
-
-    function init(version) {
-        $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-
-        if (version == "0") {
-            $("#paymentNoteContent").text(_w88_contents.translate("LABEL_PAYMENT_NOTE0"));
-        }
-        else {
-            $("#paymentNoteContent").text(_w88_contents.translate("LABEL_PAYMENT_NOTE1"));
-        }
-    }
-
 }
-
-window.w88Mobile.Gateways.JTPay = JTPay();

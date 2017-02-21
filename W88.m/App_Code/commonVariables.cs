@@ -234,7 +234,9 @@ public class commonVariables
         EGHL = 120265,
         NganLuong = 120212,
         VenusPoint = 120296,
-        BaokimScratchCard = 120286
+        BaokimScratchCard = 120286,
+        Baokim = 120272
+
     }
 
     public enum WithdrawalMethod
@@ -244,7 +246,8 @@ public class commonVariables
         BankTransfer = 210602,
         WingMoney = 210709,
         Neteller = 220815,
-        IWallet = 2208102
+        IWallet = 2208102,
+        Baokim = 220874
     }
 
     public enum AutoRouteMethod

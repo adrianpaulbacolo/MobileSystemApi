@@ -1,77 +1,40 @@
-﻿function ECPSS() {
+﻿window.w88Mobile.Gateways.ECPSS = ECPSS();
+var _w88_ecpss = window.w88Mobile.Gateways.ECPSS;
 
-    var ecpss = {
-        Deposit: deposit,
-        Withdraw: withdraw,
-    };
+function ECPSS() {
 
-    return ecpss;
+    var ecpss = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
 
-    function send(resource, method, data, beforeSend, success, complete) {
-        var url = w88Mobile.APIUrl + resource;
-
-        var headers = {
-            'Token': window.User.token,
-            'LanguageCode': window.User.lang
+    ecpss.createDeposit = function () {
+        var _self = this;
+        var params = _self.getUrlVars();
+        var data = {
+            Amount: params.Amount,
+            Bank: { Text: params.BankText, Value: params.BankValue },
         };
 
-        $.ajax({
-            type: method,
-            url: url,
-            data: data,
-            beforeSend: beforeSend,
-            headers: headers,
-            success: success,
-            error: function () {
-                console.log("Error connecting to api");
-            },
-            complete: complete
+        _self.methodId = params.MethodId;
+        _self.changeRoute();
+        _self.deposit(data, function (response) {
+            switch (response.ResponseCode) {
+                case 1:
+                    w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.DummyURL, "body");
+                    w88Mobile.PostPaymentForm.submit();
+                    break;
+                default:
+                    if (_.isArray(response.ResponseMessage))
+                        w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage), _self.shoutCallback);
+                    else
+                        w88Mobile.Growl.shout(response.ResponseMessage, _self.shoutCallback);
+
+                    break;
+            }
+        },
+        function () {
+            GPInt.prototype.HideSplash();
         });
     }
 
-    // deposit
-    function deposit(data, successCallback, completeCallback) {
-        validate(data, "deposit");
-        send("/payments/120218", "POST", data, function () { GPInt.prototype.ShowSplash() }, successCallback, completeCallback);
-    }
-
-    // withdraw
-    function withdraw(data, successCallback, completeCallback) {
-        send("/payments/", "POST", data, function () { GPInt.prototype.ShowSplash() }, successCallback, completeCallback);
-    }
-
-    function validate(data, method) {
-        // @todo add validation here
-        return;
-    }
-
-    function init() {
-        translations();
-    }
-
-    function translations() {
-        send("/contents", "GET", "", "", function (response) {
-            if (response && _.isEqual(response.ResponseCode, 1)) {
-                setTranslation(response.ResponseData);
-            }
-        }, "");
-    }
-
-    function setTranslation(data) {
-        $('#lblAcctName').text("Venus Point " + data.LABEL_USERNAME);
-        $('#lblAcctNumber').text("Venus Point " + data.LABEL_PASSWORD);
-    }
-
-    function exchangeRate(data) {
-        send("/payments/exchangerate", "GET", data, "", function (response) {
-            if (response && _.isEqual(response.ResponseCode, 1)) {
-                var venusPoint = 'JPY Amount = ' + response.ResponseData.Amount + ' Venus Points'
-                $('#lblVenusPoints').text(venusPoint);
-                var exchange = '1 JPY = ' + response.ResponseData.ExchangeRate + ' USD'
-                $('#lblExchangeRate').text(exchange);
-            }
-        }, "");
-    }
+    return ecpss; 
 }
 
-window.w88Mobile.Gateways.ECPSS = ECPSS();

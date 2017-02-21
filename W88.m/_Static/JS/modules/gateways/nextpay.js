@@ -1,35 +1,39 @@
-﻿function GNextPay() {
+﻿window.w88Mobile.Gateways.NextPay = NextPay();
+var _w88_nextpay = window.w88Mobile.Gateways.NextPay;
 
-    var gatewayId = "";
+function NextPay() {
 
-    var nextpay = {
-        init: init
-    };
+    var nextpay = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
 
-    return nextpay;
+    nextpay.createDeposit = function () {
+        var _self = this;
+        var params = _self.getUrlVars();
+        var data = {
+            Amount: params.Amount,
+            Bank: { Text: params.BankText, Value: params.BankValue },
+        };
 
-    function init(gateway) {
-        gatewayId = gateway;
-        getBanks();
-    }
+        _self.methodId = params.MethodId;
+        _self.changeRoute();
+        _self.deposit(data, function (response) {
+            switch (response.ResponseCode) {
+                case 1:
+                    w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
+                    w88Mobile.PostPaymentForm.submit();
+                    break;
+                default:
+                    if (_.isArray(response.ResponseMessage))
+                        w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage), _self.shoutCallback);
+                    else
+                        w88Mobile.Growl.shout(response.ResponseMessage, _self.shoutCallback);
 
-    function getBanks() {
-        var url = w88Mobile.APIUrl + "/banks/vendor/" + gatewayId ;
-        $.ajax({
-            type: "GET",
-            url: url,
-            success: function (d) {
-                banks = d.ResponseData;
-                var defaultSelect = _w88_contents.translate("LABEL_SELECT_DEFAULT");
-                $('select[id$="drpBanks"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
-                $('select[id$="drpBanks"]').val("-1").selectmenu("refresh");
-
-                _.forOwn(banks, function (data) {
-                    $('select[id$="drpBanks"]').append($('<option>').text(data.Text).attr('value', data.Value));
-                });
+                    break;
             }
+        },
+        function () {
+            GPInt.prototype.HideSplash();
         });
     }
-}
 
-window.w88Mobile.Gateways.GNextPay = GNextPay();
+    return nextpay;
+}

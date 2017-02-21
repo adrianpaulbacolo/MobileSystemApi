@@ -18,7 +18,7 @@ function translate() {
     
     this.fetch = function (lang) {
         var _self = this;
-        var url = "/api/contents";
+        var url = w88Mobile.APIUrl + "/contents";
         var headers = {
             'Token': window.User.token,
             'LanguageCode': lang
@@ -32,6 +32,7 @@ function translate() {
             data: {},
             headers: headers,
             success: function (response) {
+                if (_.isUndefined(response.ResponseData)) return;
                 response.ResponseData.language = window.User.lang;
                 _self.items = response.ResponseData;
 

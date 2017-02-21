@@ -1,4 +1,5 @@
 ﻿<%@ Application Language="C#" %>
+<%@ Import Namespace="customConfig" %>
 
 <script RunAt="server">
 
@@ -6,6 +7,8 @@
     {
         // Code that runs on application startup
         RegisterRoutes(System.Web.Routing.RouteTable.Routes);
+
+      
     }
 
     void RegisterRoutes(System.Web.Routing.RouteCollection routes)
@@ -75,7 +78,7 @@
 
     }
 
-    void Session_Start(object sender, EventArgs e)
+    private void Session_Start(object sender, EventArgs e)
     {
         // Code that runs when a new session is started
         bool isSsl = HttpContext.Current.Request.IsSecureConnection.Equals(true);
@@ -84,6 +87,15 @@
         {
             Response.Redirect("https://" + Request.ServerVariables["HTTP_HOST"] + HttpContext.Current.Request.RawUrl);
         }
+
+        var opSettings = new OperatorSettings("W88");
+        foreach (var v in opSettings.Values.Get("VIP_Domains").ToLower().Split(new[] { '|' }).Where(v => v.Equals(HttpContext.Current.Request.Url.Host)))
+        {
+            commonCookie.CookieLanguage = "zh-cn";
+            Response.Clear();
+            Response.Redirect("/_Secure/VIP/login.aspx", false);
+        }
+
     }
 
     void Session_End(object sender, EventArgs e)
