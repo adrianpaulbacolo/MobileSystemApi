@@ -5,12 +5,12 @@
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="apple-mobile-web-app-title" content="W88" />
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="/_Static/Css/style.css" />
 <link rel="apple-touch-icon" href="/_Static/Images/icon_76.png" />
 <link rel="apple-touch-startup-image" href="/_Static/Images/icon_120.png" />
 
 <script type="text/javascript">
-    var siteCookie = new Cookies();
     window.w88Mobile = {};
     w88Mobile.Gateways = {};
     window.User = {};
@@ -22,20 +22,8 @@
     window.User.memberId = '<%=UserSession.MemberId %>';
     window.User.countryCode = '<%=UserSession.CountryCode %>';
     w88Mobile.APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("APIUrl") %>';
-    
 </script>
-
 <script type="text/javascript" src="/_Static/JS/Cookie.js"></script>
-<script type="text/javascript">
-    var siteCookie = new Cookies();
-    //amplify clear
-    amplify.clearStore = function() {
-        $.each(amplify.store(), function (storeKey) {
-            // Delete the current key from Amplify storage
-            amplify.store(storeKey, null);
-        });
-    };
-</script>
 <script type="text/javascript" src="/_Static/JS/Mobile/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="/_Static/JS/Mobile/jquery.mobile-1.4.5.min.js"></script>
 <script type="text/javascript" src="/_Static/JS/jquery.mask.min.js"></script>
@@ -43,7 +31,6 @@
 <script type="text/javascript" src="/_Static/JS/vendor/moment.min.js"></script>
 <script type="text/javascript" src="/_Static/JS/vendor/amplify.min.js"></script>
 <script type="text/javascript" src="/_Static/JS/Mobile/iscroll.js"></script>
-<script type="text/javascript" src="/_Static/JS/modules/constants.js"></script>
 <script type="text/javascript" src="/_Static/JS/GPINT.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/growl.js"></script>
 <script type="text/javascript" src="/_Static/JS/Main.js"></script>
@@ -52,20 +39,27 @@
 <script type="text/javascript" src="/_Static/JS/i18n/contents-<%=commonVariables.SelectedLanguageShort%>.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/translate.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 <script>
+    var siteCookie = new Cookies();
+    //amplify clear
+    amplify.clearStore = function() {
+        $.each(amplify.store(), function (storeKey) {
+            // Delete the current key from Amplify storage
+            amplify.store(storeKey, null);
+        });
+    };
+    
     var _w88_contents = new w88Mobile.Translate();
     _w88_contents.init();
-</script>
-<script type="text/javascript" src="/_Static/JS/modules/slots.js"></script>
-<script type="text/javascript" src="/_Static/JS/modules/constants.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-<script type="text/javascript" src="/_Static/JS/modules/formValidator.js"></script>
-<script type="text/javascript">
+    
     // set initial values for notification
     if(!_.isUndefined(w88Mobile.Growl)){
         w88Mobile.Growl.options.lang = '<%=commonVariables.SelectedLanguageShort%>';
         w88Mobile.Growl.options.close = '<%=commonCulture.ElementValues.getResourceString("close", commonVariables.LeftMenuXML)%>';   
     }
-    </script>
-<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0" />
+</script>
+<script type="text/javascript" src="/_Static/JS/modules/slots.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/constants.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+<script type="text/javascript" src="/_Static/JS/modules/formValidator.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/hideMenu.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/fundtransfer.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/piwikManager.js"></script>
