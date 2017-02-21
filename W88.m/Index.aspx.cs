@@ -25,17 +25,6 @@ public partial class _Index : BasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-        {
-            var opSettings = new OperatorSettings("W88");
-            foreach (var v in opSettings.Values.Get("VIP_Domains").ToLower().Split(new[] { '|' }).Where(v => v.Equals(HttpContext.Current.Request.Url.Host)))
-            {
-                commonCookie.CookieLanguage = "zh-cn";
-                Response.Clear();
-                Response.Redirect("/_Secure/VIP/login.aspx", false);
-            }   
-        }
-
         System.Web.UI.WebControls.Literal litScript = (System.Web.UI.WebControls.Literal)Page.FindControl("litScript");
 
         xeErrors = commonVariables.ErrorsXML;
