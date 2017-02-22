@@ -32,7 +32,7 @@ function Paysec() {
 
                         var action = "/Deposit/PaySec.html";
                         var params = decodeURIComponent($.param(data));
-                        window.open(action + "?" + params, "PaySec");
+                        window.location.href = action + "?" + params;
 
                     }
                     break;
