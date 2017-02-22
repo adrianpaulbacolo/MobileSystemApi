@@ -29,7 +29,7 @@ function loader() {
 
         if (_.isEmpty(elem)) return;
 
-        if (_.isEmpty(elem.find('div#divSplashContainer'))) {
+        if (_.isEmpty(elem.find('div.css-loader'))) {
             w88Mobile.Loader.attachLoader(elem, key);
         }
 
@@ -39,24 +39,25 @@ function loader() {
     }
 
     function attachLoader(elem, key) {
-        var mainClassKey = (key != "main") ? "loader inner" : "loader";
-        elem.append(
-            $('<div />', {
-                style: '',
-                class: mainClassKey,
-                id: 'divSplashContainer'
-            })
-            .append(
-                $('<div />', { style: '' })
-                .append($('<div />', { class: 'spinner' })
-                    .append($('<div />', { class: 'rect1' })).append("&nbsp;")
-                    .append($('<div />', { class: 'rect2' })).append("&nbsp;")
-                    .append($('<div />', { class: 'rect3' })).append("&nbsp;")
-                    .append($('<div />', { class: 'rect4' })).append("&nbsp;")
+        if (key == "main") {
+            elem.append(
+                $('<section />', { class: 'css-loader-full' })
+                .append($('<div />', { class: 'css-loader-container' })
+                    .append($('<img />', { class: 'css-loader-logo', alt: "W88 Logo", src: '/_Static/v2/assets/images/logo-en.png' })).append("&nbsp;")
+                    .append($('<div />', { class: 'css-loader' })
+                        .append($('<div />')).append("&nbsp;")
+                        .append($('<div />')).append("&nbsp;")
+                        .append($('<div />')).append("&nbsp;")
+                        )
                     )
-                )
-            );
-
+                );
+        } else {
+            elem.append($('<div />', { class: 'css-loader  css-loader-small' })
+                        .append($('<div />')).append("&nbsp;")
+                        .append($('<div />')).append("&nbsp;")
+                        .append($('<div />')).append("&nbsp;")
+                        );
+        }
     }
 
     function onStopLoadItem(topic, data) {
@@ -68,7 +69,11 @@ function loader() {
         if (_.isUndefined(w88Mobile.Loader.items[key])) return;
         w88Mobile.Loader.items[key].pop();
         if (w88Mobile.Loader.items[key].length == 0) {
-            $('div#divSplashContainer').remove();
+            if (key != "main") {
+                $("." + key).find(".css-loader").remove();
+            } else {
+                $('section.css-loader-full').remove();
+            }
         }
     }
 }
