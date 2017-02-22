@@ -6,6 +6,8 @@ public partial class Deposit_JTPay : PaymentBasePage
 {
     protected string lblTransactionId;
     protected string resourceString;
+    private string _redirection;
+
     protected void Page_Init(object sender, EventArgs e)
     {
         var type = this.RouteData.DataTokens["type"].ToString();
@@ -27,12 +29,15 @@ public partial class Deposit_JTPay : PaymentBasePage
                 break;
         }
 
+        _redirection = string.Concat(V2DepositPath, "Pay", PaymentMethodId, ".aspx");
+
     }
 
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
         {
+            CheckAgentAndRedirect(V2DepositPath + _redirection);
             this.InitializeLabels();
         }
     }

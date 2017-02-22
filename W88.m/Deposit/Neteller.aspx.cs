@@ -18,7 +18,7 @@ public partial class Deposit_Neteller : PaymentBasePage
 
     protected void Page_Init(object sender, EventArgs e)
     {
-        base.PageName = "Neteller";
+        base.PageName = Convert.ToString(commonVariables.DepositMethod.Neteller);
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.Neteller);
     }
@@ -27,6 +27,7 @@ public partial class Deposit_Neteller : PaymentBasePage
     {
         if (!Page.IsPostBack)
         {
+            CheckAgentAndRedirect(string.Concat(V2DepositPath, "Pay", PaymentMethodId, ".aspx"));
             InitializeLabels();
         }
     }

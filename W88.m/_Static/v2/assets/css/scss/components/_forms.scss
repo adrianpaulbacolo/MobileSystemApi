@@ -13,6 +13,7 @@
 	}
 	.form-control{
 		padding-left: 0;
+		padding-right: 0;
 		color: $text-color;
 		background-color: transparent;
 		border-top: none;
@@ -86,4 +87,17 @@
   input[type="checkbox"]:checked + span:before{
     color: $brand-primary !important;
   }
+}
+
+li.pay-note {
+    font-size: 70%;
+}
+
+li.pay-note #paymentNote {
+    color: red;
+    font-weight: bold;
+}
+
+li.pay-note #paymentNoteContent {
+    padding-top: 5px;
 }
