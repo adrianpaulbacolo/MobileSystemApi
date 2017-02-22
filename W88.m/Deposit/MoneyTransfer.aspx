@@ -10,7 +10,7 @@
             <asp:Label ID="lblReferenceId" runat="server" AssociatedControlID="txtReferenceId" />
             <asp:TextBox ID="txtReferenceId" runat="server" data-clear-btn="true" />
         </li>
-        <li class="item item-select">
+        <li class="item item-select" id="systemAccount">
             <asp:Label ID="lblSystemAccount" runat="server" AssociatedControlID="drpSystemAccount" />
             <asp:DropDownList ID="drpSystemAccount" runat="server" data-corners="false" />
         </li>

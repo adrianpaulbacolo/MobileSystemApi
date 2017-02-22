@@ -13,7 +13,7 @@
         var isDeposit = _.includes(type.toLowerCase(), "deposit");
         setTranslations(isDeposit, methodId);
 
-        if (isDeposit){
+        if (isDeposit) {
             getDepositLastTransaction();
             getSystemAccount();
         }
@@ -61,12 +61,18 @@
         _w88_paymentSvc.SendDeposit("/Banks/money/" + methodId, "GET", "", function (response) {
             switch (response.ResponseCode) {
                 case 1:
-                    $('select[id$="drpSystemAccount"]').append($("<option></option>").attr("value", "-1").text(selectDefault));
-                    $('select[id$="drpSystemAccount"]').val("-1").selectmenu("refresh");
+                    $('select[id$="drpSystemAccount"]').append($("<option></option>").attr("value", "0").text(selectDefault));
+                    $('select[id$="drpSystemAccount"]').val("0").selectmenu("refresh");
 
                     _.forEach(response.ResponseData, function (data) {
                         $('select[id$="drpSystemAccount"]').append($("<option></option>").attr("value", data.Value).text(data.Text))
                     })
+
+                    if (response.ResponseData.length > 0)
+                        $('#systemAccount').show();
+                    else
+                        $('#systemAccount').hide();
+
                     break;
                 default:
                     if (_.isArray(response.ResponseMessage))
