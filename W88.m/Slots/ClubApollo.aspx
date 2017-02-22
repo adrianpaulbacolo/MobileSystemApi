@@ -3,11 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <form runat="server">
-        <div class="ui-content" role="main">
+
+    <div class="ui-content" role="main">
+        <form id="slotsForm" runat="server" data-role="">
             <div id="divContainer" runat="server"></div>
-        </div>
-    </form>
+        </form>
+    </div>
+
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder" runat="Server">
     <script type="text/javascript">
