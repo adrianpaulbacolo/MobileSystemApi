@@ -40,11 +40,11 @@ public partial class v2_Deposit_Pay : PaymentBasePage
                 break;
 
             case (int)commonVariables.DepositMethod.FastDeposit:
-                GatewayFile = "fastdep";
+                GatewayFile = "banktransfer";
                 break;
 
             case (int)commonVariables.DepositMethod.BaokimScratchCard:
-                GatewayFile = "baokimSc";
+                GatewayFile = "baokimscratchcard";
                 break;
 
             case (int)commonVariables.DepositMethod.IWallet:

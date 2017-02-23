@@ -55,17 +55,17 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">
-    <script type="text/javascript" src="/_Static/JS/modules/gateways/fastdep.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script type="text/javascript" src="/_static/v2/assets/js/gateways/banktransfer.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
             _w88_paymentSvcV2.setPaymentTabs("deposit", "<%=base.PaymentMethodId %>", "<%=base.strMemberID %>");
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
-            window.w88Mobile.Gateways.FastDepositv2.init();
+            window.w88Mobile.Gateways.BankTransferv2.init();
 
             $('select[id$="drpBank"]').change(function () {
-                window.w88Mobile.Gateways.FastDepositv2.toogleBank(this.value);
+                window.w88Mobile.Gateways.BankTransferv2.toogleBank(this.value);
             });
 
             $('#form1').submit(function (e) {

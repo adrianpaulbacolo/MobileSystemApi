@@ -1,24 +1,24 @@
-﻿window.w88Mobile.Gateways.Neteller = Neteller();
-var _w88_neteller = window.w88Mobile.Gateways.Neteller;
+﻿window.w88Mobile.Gateways.AlipayV2 = AlipayV2();
+var _w88_alipay = window.w88Mobile.Gateways.AlipayV2;
 
-function Neteller() {
+function AlipayV2() {
 
-    var neteller;
+    var alipay;
 
     try {
-        neteller = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+        alipay = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
     } catch (err) {
-        neteller = {};
+        alipay = {};
     }
 
-    neteller.init = function () {
+    alipay.init = function () {
 
         setTranslations();
+
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
-            
-                $('label[id$="lblAccountName"]').text("Neteller " + _w88_contents.translate("LABEL_USERNAME"));
-                $('label[id$="lblAccountNumber"]').text("Neteller " + _w88_contents.translate("LABEL_PASSWORD"));
+                $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+                $("#paymentNoteContent").text(_w88_contents.translate("LABEL_PAYMENT_NOTE_ALIPAY"));
                 $('label[id$="lblDepositAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
             } else {
                 window.setInterval(function () {
@@ -28,20 +28,18 @@ function Neteller() {
         }
     };
 
-    neteller.createDeposit = function() {
+    alipay.createDeposit = function () {
         var _self = this;
         var params = _self.getUrlVars();
         var data = {
             Amount: params.Amount,
-            AccountName: params.AccountName,
-            AccountNumber: params.AccountNumber,
             ThankYouPage: params.ThankYouPage,
         };
 
         _self.methodId = params.MethodId;
         _self.changeRoute();
-        _self.deposit(data, function(response) {
-                switch (response.ResponseCode) {
+        _self.deposit(data, function (response) {
+            switch (response.ResponseCode) {
                 case 1:
                     if (response.ResponseData.VendorRedirectionUrl) {
                         window.open(response.ResponseData.VendorRedirectionUrl, '_blank');
@@ -57,17 +55,17 @@ function Neteller() {
                     break;
                 default:
                     if (_.isArray(response.ResponseMessage))
-                        w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
+                        w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage), _self.shoutCallback);
                     else
-                        w88Mobile.Growl.shout(response.ResponseMessage);
+                        w88Mobile.Growl.shout(response.ResponseMessage, _self.shoutCallback);
 
                     break;
-                }
-            },
-            function() {
-                pubsub.publish('stopLoadItem', { selector: "" });
-            });
-    };
+            }
+        },
+        function () {
+            pubsub.publish('stopLoadItem', { selector: "" });
+        });
+    }
 
-    return neteller;
+    return alipay;
 }

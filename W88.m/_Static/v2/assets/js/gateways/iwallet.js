@@ -1,9 +1,15 @@
-﻿window.w88Mobile.Gateways.IWallet = IWallet();
-var _w88_iwallet = window.w88Mobile.Gateways.IWallet;
+﻿window.w88Mobile.Gateways.IWalletV2 = IWalletV2();
+var _w88_iwalletV2 = window.w88Mobile.Gateways.IWalletV2;
 
-function IWallet() {
+function IWalletV2() {
 
-    var iwallet = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
+    var iwallet;
+
+    try {
+        iwallet = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+    } catch (err) {
+        iwallet = {};
+    }
 
     iwallet.createDeposit = function () {
         var _self = this;
@@ -30,10 +36,9 @@ function IWallet() {
             }
         },
         function () {
-            GPInt.prototype.HideSplash();
+            pubsub.publish('stopLoadItem', { selector: "" });
         });
     }
 
     return iwallet;
 }
-
