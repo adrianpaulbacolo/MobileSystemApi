@@ -11,7 +11,12 @@ public partial class Deposit_Pay : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        commonVariables.DepositMethod PaymentMethodId = (commonVariables.DepositMethod)Enum.Parse(typeof(commonVariables.DepositMethod), Request.QueryString["MethodId"]);
+        var methodId = Request.QueryString["MethodId"];
+
+        if (string.IsNullOrWhiteSpace(methodId))
+            return;
+
+        commonVariables.DepositMethod PaymentMethodId = (commonVariables.DepositMethod)Enum.Parse(typeof(commonVariables.DepositMethod), methodId);
 
         switch (PaymentMethodId)
         {
@@ -24,6 +29,10 @@ public partial class Deposit_Pay : PaymentBasePage
             case commonVariables.DepositMethod.JuyPayAlipay:
                 GatewayFile = "juypay";
                 break;
+            case commonVariables.DepositMethod.JTPayWeChat:
+            case commonVariables.DepositMethod.JTPayAliPay:
+                GatewayFile = "jtpay";
+                break;
             case commonVariables.DepositMethod.ECPSS:
                 GatewayFile = "ecpss";
                 break;
@@ -32,6 +41,9 @@ public partial class Deposit_Pay : PaymentBasePage
                 break;
             case commonVariables.DepositMethod.KexunPay:
                 GatewayFile = "kexunpay";
+                break;
+            case commonVariables.DepositMethod.KDPayWeChat:
+                GatewayFile = "kdpay";
                 break;
             case commonVariables.DepositMethod.Help2Pay:
                 GatewayFile = "help2pay";
