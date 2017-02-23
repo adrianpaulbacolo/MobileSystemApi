@@ -52,11 +52,25 @@ function loader() {
                     )
                 );
         } else {
-            elem.append($('<div />', { class: 'css-loader  css-loader-small' })
+            if (elem.width() < 100) {
+                elem.append($('<div />', { class: 'css-loader  css-loader-small' })
                         .append($('<div />')).append("&nbsp;")
                         .append($('<div />')).append("&nbsp;")
                         .append($('<div />')).append("&nbsp;")
                         );
+            } else {
+                if (!elem.hasClass("css-loader-ready")) elem.addClass("css-loader-ready");
+
+                elem.append($('<div />', { class: 'css-loader-center' })
+                    .append($('<div />', { class: 'css-loader-container' })
+                        .append($('<div />', { class: 'css-loader' })
+                            .append($('<div />')).append("&nbsp;")
+                            .append($('<div />')).append("&nbsp;")
+                            .append($('<div />')).append("&nbsp;")
+                            )
+                        )
+                );
+            }
         }
     }
 
