@@ -1,16 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/v2/MasterPages/Payment.master" AutoEventWireup="true" CodeFile="Pay999999.aspx.cs" Inherits="v2_Deposit_Pay999999" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/v2/MasterPages/Payment.master" AutoEventWireup="true" CodeFile="Pay120231.aspx.cs" Inherits="v2_Deposit_Pay120231" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
-    <div class="form-group">
+<asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" Runat="Server">
+     <div class="form-group">
         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
         <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" />
     </div>
-    <div class="form-group">
-        <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
-        <asp:DropDownList ID="drpBank" runat="server" CssClass="form-control" />
-    </div>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" Runat="Server">
     <script type="text/javascript" src="/_Static/JS/modules/gateways/quickonline.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 
     <script type="text/javascript">
@@ -18,17 +14,14 @@
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
-            window.w88Mobile.Gateways.QuickOnlineV2.init("<%=base.PaymentMethodId %>", true);
+            window.w88Mobile.Gateways.QuickOnlineV2.init("<%=base.PaymentMethodId %>", false);
 
             $('#form1').submit(function (e) {
                 e.preventDefault();
                 var data = {
                     Amount: $('input[id$="txtAmount"]').val(),
-                    BankText: $('select[id$="drpBank"] option:selected').val(),
-                    BankValue: $('select[id$="drpBank"]').val(),
                     ThankYouPage: location.protocol + "//" + location.host + "/Index",
-                    MethodId: "<%=base.PaymentMethodId%>",
-                    AutoRoute: true
+                    MethodId: "<%=base.PaymentMethodId%>"
                  };
 
                  var params = decodeURIComponent($.param(data));

@@ -31,7 +31,7 @@ function FastDepositv2() {
 
             _w88_paymentSvcV2.SendDeposit("/user/banks", "GET", "", function (response) {
                 if (!_.isEqual(response.ResponseCode, 0)) {
-                    if (!_.isEmpty(response.ResponseData.Bank)) $('select[id$="drpBank"]').val(response.ResponseData.Bank.Value).selectmenu("refresh");
+                    if (!_.isEmpty(response.ResponseData.Bank)) $('select[id$="drpBank"]').val(response.ResponseData.Bank.Value).change();
 
                     _w88_fastdep.toogleBank($('select[id$="drpBank"]').val());
                     $('input[id$="txtBankName"]').val(response.ResponseData.BankName);
@@ -51,7 +51,7 @@ function FastDepositv2() {
         }
     };
 
-    fastdeposit.createDeposit = function () {
+    fastdeposit.createDeposit = function() {
         var _self = this;
         var params = _self.getUrlVars();
         var data = {
@@ -69,21 +69,14 @@ function FastDepositv2() {
         _self.methodId = params.MethodId;
         _self.changeRoute();
         _self.deposit(data, function(response) {
-                switch (response.ResponseCode) {
-                case 1:
-                    w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
-                    w88Mobile.PostPaymentForm.submit();
 
-                    fastdeposit.toogleBank($('select[id$="drpBank"]').val());
-                    break;
-                default:
-                    if (_.isArray(response.ResponseMessage))
-                        w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
-                    else
-                        w88Mobile.Growl.shout(response.ResponseMessage);
+                if (_.isArray(response.ResponseMessage))
+                    w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage), function() { window.close(); });
+                else
+                    w88Mobile.Growl.shout(response.ResponseMessage, function() { window.close(); });
 
-                    break;
-                }
+                _w88_fastdep.toogleBank($('select[id$="drpBank"]').val());
+
             },
             function() {
                 pubsub.publish('stopLoadItem', { selector: "" });

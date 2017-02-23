@@ -454,19 +454,19 @@ function DefaultPaymentsV2() {
             case "1202123":
                 return "WeChat";
 
-            case "1202127": //GO
+            case "1202127": 
                 return "KexunPay.aspx";
 
             case "1202122":
                 return "Alipay";
 
-            case "120236": //GO
+            case "120236": 
                 return "AllDebit.aspx";
 
             case "120265":
                 return "EGHL.aspx";
 
-            case "120212": //GO
+            case "120212": 
                 return "NganLuong.aspx";
 
             case "1202103":
@@ -475,26 +475,29 @@ function DefaultPaymentsV2() {
             case "120296":
                 return "VenusPoint.aspx";
 
-            case "120286": //GO
+            case "120286":
                 return "BaokimScratchCard.aspx";
 
             case "999999": 
                 return "QuickOnline.aspx";
 
-            case "999996": //GO
+            case "999996": 
                 return "Alipay.aspx";
 
             case "999995":
                 return "WeChat.aspx";
 
-            case "1202113": //GO
+            case "1202113": 
                 return "JuyPayAlipay.aspx";
 
-            case "1202105": //GO
+            case "1202105": 
                 return "NineVPayAlipay.aspx";
 
+            case "110394":
+                return "PayGo.aspx";
+                
             default:
-                break
+                break;
         }
     }
 

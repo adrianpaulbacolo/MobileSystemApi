@@ -84,7 +84,7 @@
                     SystemBankText: $('select[id$="drpSystemAccount"] option:selected').text(),
                     SystemBankValue: $('select[id$="drpSystemAccount"]').val(),
                     BankName: $('[id$="BankName"]').val(),
-                    ReferenceId: $('[id$="ReferenceId"]').val(),
+                    ReferenceId: $('[id$="txtReferenceId"]').val(),
                     DepositChannelText: $('select[id$="drpDepositChannel"] option:selected').text(),
                     DepositChannelValue: $('select[id$="drpDepositChannel"]').val(),
                     DepositDateTime: _w88_paymentSvcV2.formatDateTime(depositDateTime),

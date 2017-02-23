@@ -23,6 +23,10 @@ public partial class v2_Deposit_Pay : PaymentBasePage
                 GatewayFile = "paysec";
                 break;
 
+            case (int)commonVariables.DepositMethod.PayGo:
+                GatewayFile = "paygo";
+                break;
+
             case (int)commonVariables.DepositMethod.ECPSS:
                 GatewayFile = "ecpsspay";
                 break;
@@ -76,6 +80,11 @@ public partial class v2_Deposit_Pay : PaymentBasePage
                 break;
 
             case (int)commonVariables.AutoRouteMethod.QuickOnline:
+            case (int)commonVariables.DepositMethod.NextPay:
+            case (int)commonVariables.DepositMethod.BofoPay:
+                GatewayFile = "quickonline";
+                break;
+
             case (int)commonVariables.AutoRouteMethod.TopUpCard:
             case (int)commonVariables.AutoRouteMethod.UnionPay:
                 GatewayFile = "autoroute";
