@@ -29,7 +29,7 @@
             function setTranslations() {
                 if (_w88_contents.translate("LABEL_MSG_120254") != "LABEL_MSG_120254") {
                     $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-                    $("#paymentNoteContent").text(_w88_contents.translate("LABEL_MSG_120254"));
+                    $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_120254"));
                 } else {
                     window.setInterval(function () {
                         setTranslations();
