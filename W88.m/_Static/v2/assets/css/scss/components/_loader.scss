@@ -28,7 +28,7 @@
 
 .loader.inner{
     position: relative;
-    min-height: 100px;
+    min-height: inherit;
 }
 
 .on-spinner,
@@ -139,6 +139,35 @@
 		height: 5px;
   	}
   }
+}
+
+.ccs-loader-ready{
+	position: relative;
+}
+.css-loader-center{
+	background-color: transparent;
+	width: 100%;
+	height: 100%;
+	z-index: 5;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	display: table;
+	.css-loader-container{
+		vertical-align: middle;
+		display: table-cell;
+	}
+	.css-loader-logo{
+		display: block;
+		margin: 0 auto 30px;
+	}
+	.css-loader{
+		margin: 0 auto;
+		text-align: center;
+		display: block;
+	}
 }
 
 
