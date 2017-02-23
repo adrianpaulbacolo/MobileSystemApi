@@ -19,7 +19,7 @@
         </div>
         <div class="dashboard-row">
             <div class="dashboard-col">
-                <a href="/Slots.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>"><span class="icon icon-slots"></span>
+                <a href="/Slots.aspx"><span class="icon icon-slots"></span>
                     <%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%>
                 </a>
             </div>

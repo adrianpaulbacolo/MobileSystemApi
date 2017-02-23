@@ -14,7 +14,7 @@ function Funds() {
     }
 
     function init() {
-        fetchWallets({selector: "funds-wallet-lists"});
+        fetchWallets({selector: "wallets"});
     }
 
     function mainWalletInit() {

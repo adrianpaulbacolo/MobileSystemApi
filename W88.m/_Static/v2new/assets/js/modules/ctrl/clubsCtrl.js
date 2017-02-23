@@ -125,15 +125,24 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
             if (!hasProvider || _.isUndefined(slotSvc.clubFilterOptions[provider]["category"])) {
                 slotSvc.fetchClubFilter("category", provider);
             }
-            if (!hasProvider || _.isUndefined(slotSvc.clubFilterOptions[provider]["minbet"])) {
-                slotSvc.fetchClubFilter("minbet", provider);
+            // @todo how to make this configurable
+            if (club.name == "bravado") {
+                if (!hasProvider || _.isUndefined(slotSvc.clubFilterOptions[provider]["minbet"])) {
+                    slotSvc.fetchClubFilter("minbet", provider);
+                }
             }
             if (!hasProvider || _.isUndefined(slotSvc.clubFilterOptions[provider]["playlines"])) {
                 slotSvc.fetchClubFilter("playlines", provider);
             }
         });
         loadClubCategory();
-        loadClubMinBet();
+        // @todo how to make this configurable
+        if (club.name == "bravado") {
+            $('#clubMinBet').parent().show();
+            loadClubMinBet();
+        } else {
+            $('#clubMinBet').parent().hide();
+        }
         loadClubPlayLines();
         loadClubProviders(club);
     }

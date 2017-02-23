@@ -90,7 +90,7 @@
     <script src="assets/js/modules/templates.js"></script>
     <script src="assets/js/modules/slots.js"></script>
     <script src="assets/js/modules/translate.js"></script>
-    <script src="assets/js/modules/loader.js"></script>
+    <script src="/_Static/v2/assets/js/loader.js"></script>
     <script src="assets/js/modules/ctrl/slotsCtrl.js"></script>
     <script src="assets/js/modules/ctrl/clubsCtrl.js"></script>
     <script src="assets/js/modules/routes.js"></script>
@@ -102,7 +102,7 @@
         };
         _.templateSettings.variable = "slotData";
         var currentFilter = {};
-        w88Mobile.v2.Loader.init();
+        w88Mobile.Loader.init();
 
         // headers and routes
         pubsub.subscribe('contentsLoaded', onContentsLoaded);
@@ -247,7 +247,7 @@
             $("#filter-apply-button").html(_contents.translate("LABEL_APPLY"));
 
             $('#filterModal').modal('toggle');
-            $('.modal-title').html('Filter ' + club.label);
+            $('.modal-title').html(_contents.translate(club.key + "_FILTER", club.title));
         }
 
         function filterGames() {
