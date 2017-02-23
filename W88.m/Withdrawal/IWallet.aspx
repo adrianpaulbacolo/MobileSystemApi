@@ -4,7 +4,7 @@
     <ul class="list fixed-tablet-size">
         <li class="item item-input">
             <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
-            <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+            <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true"  onKeyPress="return NotAllowDecimal(event);"/>
         </li>
         <li class="item item-input">
             <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" />
@@ -13,6 +13,7 @@
     </ul>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder1" runat="Server">
+    
     <script type="text/javascript">
         $(document).ready(function () {
             var payments = new w88Mobile.Gateways.Payments("<%=base.PaymentMethodId %>");
@@ -34,9 +35,10 @@
                 payments.send(data, function (response) {
                     switch (response.ResponseCode) {
                         case 1:
-                            w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
+                            w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>", function () {
+                                window.location.reload();
+                            });
 
-                            window.location.reload();
 
                             break;
                         default:

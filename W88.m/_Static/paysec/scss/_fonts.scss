@@ -1,0 +1,11 @@
+// -- Din Pro
+@font-face {
+    font-family: 'dinpro';
+    src: url('#{$dinpro-font-path}/din-regular-webfont.eot');
+    src: url('#{$dinpro-font-path}/din-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('#{$dinpro-font-path}/din-regular-webfont.woff') format('woff'),
+         url('#{$dinpro-font-path}/din-regular-webfont.ttf') format('truetype'),
+         url('#{$dinpro-font-path}/din-regular-webfont.svg#dinregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

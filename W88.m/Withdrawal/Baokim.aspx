@@ -1,13 +1,14 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="WingMoney.aspx.cs" Inherits="Withdrawal_WingMoney" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Baokim.aspx.cs" Inherits="Withdrawal_Baokim" %>
 
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title><%=string.Format("{0} {1}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("wBaokim", commonVariables.PaymentMethodsXML))%></title>
     <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js"></script>
+    <script type="text/javascript" src="/_Static/Js/Main.js"></script>
+    <script type="text/javascript" src="/_Static/JS/jquery.mask.min.js"></script>
 </head>
 <body>
     <div data-role="page" data-theme="b">
@@ -18,8 +19,7 @@
                 <i class="icon-navicon"></i>
             </a>
             <% } %>
-
-            <h1 class="title" id="headerTitle"><%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%></h1>
+            <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML), commonCulture.ElementValues.getResourceString("wBaokim", commonVariables.PaymentMethodsXML))%></h1>
         </header>
 
         <div class="ui-content" role="main">
@@ -27,9 +27,8 @@
                 <uc:Wallet ID="uMainWallet" runat="server" />
             </div>
 
-            <div class="toggle-list-box">
-                <button class="toggle-list-btn btn-active" id="activeWithdrawalTabs"></button>
-                <ul class="toggle-list hidden" id="withdrawalTabs">
+            <div data-role="navbar">
+                <ul id="withdrawalTabs" runat="server">
                 </ul>
             </div>
 
@@ -69,29 +68,23 @@
                         </div>
                     </li>
                     <li class="item item-input">
-                        <asp:Label ID="lblWithdrawAmount" runat="server" AssociatedControlID="txtWithdrawAmount" />
-                        <asp:TextBox ID="txtWithdrawAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+                        <asp:Label ID="lblWithdrawAmount" runat="server" AssociatedControlID="txtAmount" />
+                        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" />
                     </li>
                     <li class="item item-input">
-                        <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" />
-                        <asp:TextBox ID="txtAccountName" runat="server" />
+                        <asp:Label ID="lblEmail" runat="server" AssociatedControlID="txtEmail" />
+                        <asp:TextBox ID="txtEmail" runat="server" data-mini="true" type="email" data-clear-btn="true" />
                     </li>
-                    <li class="item item-input">
-                        <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" />
-                        <asp:TextBox ID="txtAccountNumber" runat="server" />
-                    </li>
-                    <!--
-                    <li class="item item-input">
-                        <asp:Label ID="lblMobile" runat="server" AssociatedControlID="txtMobile" Text="to" />
-                        <asp:TextBox ID="txtMobile" runat="server" />
-                    </li>
-                    -->
                     <li class="item row">
                         <div class="col">
-                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" OnClick="btnSubmit_Click" data-corners="false" />
+                            <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" data-ajax="false"><%=base.strbtnCancel%></a>
+                        </div>
+                        <div class="col">
+                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" CausesValidation="False" />
                         </div>
                     </li>
                 </ul>
+
             </form>
         </div>
 
@@ -101,29 +94,27 @@
         <% } %>
 
         <script type="text/javascript">
+
             $(document).ready(function () {
-                window.w88Mobile.Gateways.DefaultPayments.Withdraw("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
+                window.w88Mobile.Gateways.Baokim.getTranslations();
 
-                $('#form1').submit(function (e) {
-                    window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
+                $('#btnSubmit').click(function (e) {
+                    e.preventDefault();
+
+                    var data = { Amount: $('#txtAmount').val(), Email: $('#txtEmail').val() };
+                    window.w88Mobile.Gateways.Baokim.withdraw(data, function (response) {
+                        switch (response.ResponseCode) {
+                            case 1:
+                                window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
+
+                                window.location.replace('/Withdrawal/Baokim.aspx');
+                                break;
+                            default:
+                                w88Mobile.Growl.shout(response.ResponseMessage);
+                                break;
+                        }
+                    });
                 });
-
-                var responseCode = '<%=strAlertCode%>';
-                var responseMsg = '<%=strAlertMessage%>';
-                if (responseCode.length > 0) {
-                    switch (responseCode) {
-                        case '-1':
-                            alert(responseMsg);
-                            break;
-                        case '0':
-                            alert(responseMsg);
-                            window.location.replace('/Withdrawal/WingMoney');
-                            break;
-                        default:
-                            break;
-                    }
-                }
-
             });
         </script>
     </div>
