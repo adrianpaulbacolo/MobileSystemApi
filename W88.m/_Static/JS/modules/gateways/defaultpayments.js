@@ -378,7 +378,10 @@
                 return "Neteller.aspx";
 
             case "210709":
-                return "WingMoney.aspx";
+                return "210709";
+
+            case "2107138":
+                return "2107138";
 
             case "220895":
                 return "VenusPoint.aspx";
@@ -400,7 +403,10 @@
                 return "JutaPay.aspx";
 
             case "110308":
-                return "WingMoney.aspx";
+                return "110308";
+
+            case "1103132":
+                return "1103132";
 
             case "120223":
                 return "SDPay.aspx";
