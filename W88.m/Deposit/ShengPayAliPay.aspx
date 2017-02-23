@@ -9,6 +9,7 @@
         <li class="item item-input">
             <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
             <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true"  onKeyPress="return NotAllowDecimal(event);"/>
+            <span id="amtErr" hidden style="color: red !important"></span>
         </li>
     </ul>
 </asp:Content>
@@ -28,12 +29,14 @@
 
             window.w88Mobile.Gateways.Alipay.Initialize();
 
+            $('#amtErr').text(_w88_contents.translate("MESSAGES_WHOLE_NUMBER"));
+
             window.setInterval(function () {
-                CheckWholeNumber($('#<%=txtAmount.ClientID%>'));
+                CheckWholeNumber($('input[id$="txtAmount"]'));
             }, 500);
 
             $('#form1').submit(function (e) {
-                if (!CheckWholeNumber($('#<%=txtAmount.ClientID%>'))) {
+                if (!CheckWholeNumber($('input[id$="txtAmount"]'))) {
                     e.preventDefault();
                     return;
                 }
