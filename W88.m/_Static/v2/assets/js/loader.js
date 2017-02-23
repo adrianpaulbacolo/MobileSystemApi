@@ -84,7 +84,7 @@ function loader() {
         w88Mobile.Loader.items[key].pop();
         if (w88Mobile.Loader.items[key].length == 0) {
             if (key != "main") {
-                $("." + key).find(".css-loader").remove();
+                $("." + key).find("[class^='css-loader']").remove();
             } else {
                 $('section.css-loader-full').remove();
             }
