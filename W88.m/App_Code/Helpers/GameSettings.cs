@@ -61,6 +61,7 @@ namespace Helpers
                     break;
 
                 case GameProvider.PT:
+                case GameProvider.PTN:
                     if (linkType == GameLinkSetting.Fun)
                         url = Settings.Values.Get("PTFunUrl");
                     else if (linkType == GameLinkSetting.Real)
