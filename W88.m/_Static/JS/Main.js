@@ -76,9 +76,11 @@ function CheckWholeNumber(element) {
     if (element.val().length > 0) {
         if (element.val().indexOf('.') >= 0) {
             element.parent("div.ui-input-text").attr("style", "border-bottom: 2px solid red !important");
+            $('#amtErr').show();
             return false;
         } else {
             element.parent("div.ui-input-text").removeAttr("style");
+            $('#amtErr').hide();
             return true;
         }
     } else {
