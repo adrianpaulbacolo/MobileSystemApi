@@ -1,0 +1,157 @@
+body{
+	color: $text-color;
+	background-color: $brand-dark;
+	font-family: sans-serif;
+}
+.btn{
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	&.btn-default{
+		color: $text-color;
+		background-color: $brand-default;
+		border-color: $brand-default;
+		&:focus,
+		&:hover{
+			color: $text-color;
+			background-color: darken($brand-default, 10%);
+			border-color: darken($brand-default, 10%);
+		}
+	}
+}
+.dinpro{
+	font-family: $dinpro;
+}
+.text-alt{
+	color: $brand-alt;
+}
+.text-dark{
+	color: $text-dark;
+}
+.no-margin-bottom{
+	margin-bottom: 0;
+}
+.paysec-section{
+	padding: 15px 0;
+	border-bottom: 1px solid lighten($brand-dark, 2.5%);
+	h4.h4-large{
+		font-size: 21px;
+	}
+	&:last-child{
+		border-bottom: none;
+	}
+}
+.info-box{
+	padding: 15px;
+	border: 1px solid darken($brand-dark, 2%);
+	background-color: lighten($brand-dark, 2%);
+}
+.copy-box{
+	display: inline-block;
+	position: relative;
+	h4{
+		display: inline-block;
+	}
+	.copy-btn{
+		right: -32px;
+		top: 11px;
+		margin-left: 5px;
+		position: absolute;
+	}
+}
+.instructions{
+	.nav-tabs.nav-justified{
+		>li {
+		    display: table-cell;
+		    width: 1%;
+		    > a{
+		    	border-bottom: 1px solid $brand-default;
+		    	margin-bottom: 0;
+		    	-webkit-border-radius: 0;
+		    	border-radius: 0;
+		    }
+		}
+	}
+	.nav-tabs>li>a {
+		font-family: $dinpro;
+	    color: $white;
+	    text-transform: uppercase;
+	    background-color: $brand-default;
+	    position: relative;
+	}
+	.nav-tabs>li.active>a, 
+	.nav-tabs>li.active>a:focus, 
+	.nav-tabs>li.active>a:hover {
+	    color: $white;
+	    background-color: $brand-primary;
+	    border: 1px solid $brand-primary;
+	    border-bottom-color: transparent;
+	}
+	.panel-heading {
+	    padding: 0;
+	    border-bottom: 1px solid darken($brand-dark, 2.5%);
+	    border-top-left-radius: 0;
+	    border-top-right-radius: 0;
+	    background-color: $brand-dark;
+	}
+	.panel-title {
+	    margin-top: 0;
+	    margin-bottom: 0;
+	    font-size: 16px;
+	    a{
+	    	font-family: $dinpro;
+	    	color: $brand-primary;
+	    	padding: 15px 40px 15px 15px;
+	    	line-height: 1.5;
+	    	display: block;
+	    	position: relative;
+		    &:after{
+		    	font-family: 'Glyphicons Halflings';
+		    	font-size: 11px;
+		    	font-weight: normal;
+		    	font-style: normal;
+		    	line-height: 2;
+		    	content: '\e252';
+		    	top: 35%;
+		    	right: 15px;
+		    	position: absolute;
+		    }
+	    	&.collapsed{
+	    		color: $text-color;
+			    &:after{
+			    	content: '\e253';
+	    			color: darken($text-color , 60%);
+			    	position: absolute;
+			    }
+	    	}
+	    	&:focus,
+	    	&:hover{
+	    		color: $brand-primary;
+	    		text-decoration: none;
+	    	}
+	    }
+	}
+	.panel {
+	    color: darken($text-dark, 5%);
+	    background-color: darken($brand-dark, 2.5%);
+	    margin-bottom: 0;
+	    border: none;
+	    border-radius: 0;
+	    -webkit-box-shadow: none;
+	    box-shadow: none;
+	    font-size: 12px;
+	    line-height: 1.6;
+	    ol, ul {
+		    padding-left: 15px;
+		    li{
+		    	margin-bottom: 5px;
+		    }
+		}
+	}
+	.panel-group .panel+.panel {
+	    margin-top: 0;
+	}
+	.panel-group .panel-heading+.panel-collapse>.list-group, 
+	.panel-group .panel-heading+.panel-collapse>.panel-body {
+	    border-top: none;
+	}
+}

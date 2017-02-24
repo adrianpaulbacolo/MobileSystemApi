@@ -15,6 +15,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             _w88_paymentSvc.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
+            GPInt.prototype.ShowSplash(true);
         });
     </script>
 </asp:Content>
