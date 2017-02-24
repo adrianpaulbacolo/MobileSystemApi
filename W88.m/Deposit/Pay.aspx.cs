@@ -52,5 +52,16 @@ public partial class Deposit_Pay : PaymentBasePage
                 GatewayFile = "shengpay";
                 break;
         }
+
+        commonVariables.AutoRouteMethod autoRouteId;
+        if (!Enum.TryParse(methodId, out autoRouteId))
+            return;
+
+        switch (autoRouteId)
+        {
+            case commonVariables.AutoRouteMethod.WeChat:
+                GatewayFile = "wechatpay";
+                break;
+        }
     }
 }
