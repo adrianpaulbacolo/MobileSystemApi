@@ -29,26 +29,7 @@ public partial class Deposit_KDPayWechat : PaymentBasePage
 
     private void InitializeLabels()
     {
-        lblMode.Text = base.strlblMode;
-        txtMode.Text = base.strtxtMode;
-
-        lblMinMaxLimit.Text = base.strlblMinMaxLimit;
-        txtMinMaxLimit.Text = base.strtxtMinMaxLimit;
-
-        lblDailyLimit.Text = base.strlblDailyLimit;
-        txtDailyLimit.Text = base.strtxtDailyLimit;
-
-        lblTotalAllowed.Text = base.strlblTotalAllowed;
-        txtTotalAllowed.Text = base.strtxtTotalAllowed;
-
-        lblDepositAmount.Text = base.strlblAmount;
-
-        btnSubmit.Text = base.strbtnSubmit;
-
-        XElement xeResources;
-        commonCulture.appData.getRootResource("Deposit/JTPayWeChat", out xeResources);
-
-        lblNote.Text = commonCulture.ElementValues.getResourceString("lblNote", xeResources);
+        lblAmount.Text = base.strlblAmount;
 
         lblTransactionId = base.strlblTransactionId;
     }
