@@ -6,8 +6,7 @@
             close: 'x',
             ok: "OK"
         },
-        init: function (msg) {
-            var self = this;
+        init: function() {
 
             var template = '<div class="modal fade" id="w88modal" tabindex="-1" role="dialog" aria-labelledby="sample-modal1">' +
                 '<div class="modal-dialog" role="document">' +
@@ -20,30 +19,17 @@
 
             $('body').append(template);
         },
-        shout: function (msg, callback) {
+        shout: function(msg, callback) {
 
             var message = ' <div class="modal-body"><p>' + msg + '</p></div>';
-
-            //this.init(msg, '');
-            var self = this;
 
             $("#ModalMessage").html(message);
             $('#w88modal').modal('show');
 
-            //if (!_.isUndefined(callback) && _.isFunction(callback))
-            //    this.modal.on("popupafterclose", callback);
+            if (!_.isUndefined(callback) && _.isFunction(callback))
+                $('#w88modal').on("hidden.bs.modal", callback);
         },
-        //notif: function (msg) {
-        //    var self = this;
-
-        //    var okButton = '<div class="row row-no-padding"><div class="col">' +
-        //   '<a href="#" data-rel="back" class="ui-btn btn-primary">' + self.options.ok + '</a>' +
-        //   '</div>';
-
-        //    this.init(msg, okButton);
-        //    this.modal.popup('open');
-        //},
-        bulletedList: function (messages) {
+        bulletedList: function(messages) {
             var message = "";
             if (_.isArray(messages)) {
                 message = "<ul>";
@@ -57,7 +43,7 @@
             return message;
         },
         modal: null
-    }
+    };
 
     return Notification;
 }

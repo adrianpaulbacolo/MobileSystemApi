@@ -35,7 +35,7 @@ function PayGoV2() {
             }
         }
 
-        _w88_paymentSvcV2.SendDeposit("/banks/money/110394", "GET", "", function (response) {
+        _w88_paymentSvcV2.Send("/banks/money/110394", "GET", "", function (response) {
             if (!_.isEqual(response.ResponseCode, 0)) {
                 $('select[id$="drpSystemAccount"]').append($("<option></option>").attr("value", "-1").text(defaultBank));
                 $('select[id$="drpSystemAccount"]').val("-1").change();

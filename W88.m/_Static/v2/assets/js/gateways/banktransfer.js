@@ -28,7 +28,7 @@ function BankTransferv2() {
                 }
             }
 
-            _w88_paymentSvcV2.SendDeposit("/user/banks", "GET", "", function (response) {
+            _w88_paymentSvcV2.Send("/user/banks", "GET", "", function (response) {
                 if (!_.isEqual(response.ResponseCode, 0)) {
                     if (!_.isEmpty(response.ResponseData.Bank)) $('select[id$="drpBank"]').val(response.ResponseData.Bank.Value).change();
 

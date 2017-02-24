@@ -18,7 +18,7 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            _w88_paymentSvcV2.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
+            _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType%>", "<%=base.PaymentMethodId %>");
          });
     </script>
 

@@ -28,7 +28,7 @@ function VenusPointV2() {
     };
 
     venuspoint.exchangeRate = function (data) {
-        _w88_paymentSvcV2.SendDeposit("/payments/exchangerate", "GET", data, function (response) {
+        _w88_paymentSvcV2.Send("/payments/exchangerate", "GET", data, function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
                 var venusPoint = 'JPY Amount = ' + response.ResponseData.Amount + ' Venus Points';
                 $('span[id$="lblVenusPoints"]').text(venusPoint);

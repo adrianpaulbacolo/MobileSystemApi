@@ -11,11 +11,8 @@ function DefaultPaymentsV2() {
     };
 
     var defaultpayments = {
-        Deposit: deposit,
-        Withdraw: withdraw,
         AutoRouteIds: autorouteIds,
-        Send: sendv1,
-        SendDeposit: send,
+        Send: send,
         DisplaySettings: displaySettings,
         setPaymentTabs: setPaymentTabs,
         onTransactionCreated: onTransactionCreated,
@@ -107,7 +104,6 @@ function DefaultPaymentsV2() {
                 else {
                     // payment cache variable is now present once callback is triggered
                     setDepositPaymentTab(paymentCache.settings, activeMethodId);
-                    togglePayment();
                 }
             });
         } else {
@@ -117,7 +113,6 @@ function DefaultPaymentsV2() {
                 }
                 else {
                     setWithdrawalPaymentTab(paymentCache.settings, activeMethodId);
-                    togglePayment();
                 }
             });
         }
@@ -181,40 +176,6 @@ function DefaultPaymentsV2() {
     function onTransactionCreated(form) {
         if (!_.isUndefined(form)) _.first(form).reset();
         w88Mobile.Growl.shout(_w88_contents.translate("MESSAGES_CHECK_HISTORY"));
-    }
-
-    // to be deprecated, use "send"
-    function sendv1(resource, method, success, data, complete) {
-        send(resource, method, data, success, complete);
-    }
-
-
-    // deposit to be deprecated once new flow is applied use fetchSettings
-    function deposit(countryCode, memberid, paymentNotice, activeTabId) {
-
-        var payment = amplify.store(w88Mobile.Keys.depositSettings);
-
-        if (payment && window.User.lang == payment.language) {
-            setDepositPaymentTab(payment.settings, activeTabId);
-        }
-        else {
-            send("/payments/settings/deposit", "GET", {},
-                function (response) {
-                    switch (response.ResponseCode) {
-                        case 1:
-                            var data = { settings: response.ResponseData, language: window.User.lang };
-
-                            amplify.store(w88Mobile.Keys.depositSettings, data, window.User.storageExpiration);
-
-                            setDepositPaymentTab(response.ResponseData, activeTabId);
-                        default:
-                            break;
-                    }
-                }
-            );
-        }
-
-        togglePayment();
     }
 
     function setDepositPaymentTab(responseData, activeTabId) {
@@ -291,35 +252,6 @@ function DefaultPaymentsV2() {
                 nogateway();
             }
         }
-    }
-
-    // withdraw to be deprecated once new flow is applied use fetchSettings
-    function withdraw(countryCode, memberid, paymentNotice, activeTabId) {
-
-        var payment = amplify.store(w88Mobile.Keys.withdrawalSettings);
-
-        if (payment && window.User.lang == payment.language) {
-            setWithdrawalPaymentTab(payment.settings, activeTabId);
-        }
-        else {
-            send("/payments/settings/Withdrawal", "GET", {},
-                function (response) {
-                    switch (response.ResponseCode) {
-                        case 1:
-                            var data = { settings: response.ResponseData, language: window.User.lang };
-
-                            amplify.store(w88Mobile.Keys.withdrawalSettings, data, window.User.storageExpiration);
-
-                            setWithdrawalPaymentTab(response.ResponseData, activeTabId);
-                            break;
-                        default:
-                            break;
-                    }
-                }
-            );
-        }
-
-        togglePayment();
     }
 
     function setWithdrawalPaymentTab(responseData, activeTabId) {
@@ -499,18 +431,5 @@ function DefaultPaymentsV2() {
             default:
                 break;
         }
-    }
-
-    function togglePayment() {
-        //$(".toggle-list-btn").click(function () {
-        //    $(this).parent().find('.toggle-list').slideToggle("fast", function () {
-        //        if (!$('.toggle-list-btn').hasClass('toggled')) {
-        //            $(this).parent().find('.toggle-list-btn').addClass('toggled');
-        //        }
-        //        else {
-        //            $(this).parent().find('.toggle-list-btn').removeClass('toggled');
-        //        }
-        //    });
-        //});
     }
 }

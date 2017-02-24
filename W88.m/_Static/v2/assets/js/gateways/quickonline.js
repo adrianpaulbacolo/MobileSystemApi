@@ -29,7 +29,7 @@ function QuickOnlineV2() {
         }
 
         if (getBank) {
-            _w88_paymentSvc.SendDeposit("/Banks/vendor/" + gateway, "GET", "", function (response) {
+            _w88_paymentSvc.Send("/Banks/vendor/" + gateway, "GET", "", function (response) {
                 var banks = response.ResponseData;
                 var defaultSelect = _w88_contents.translate("LABEL_SELECT_DEFAULT");
                 $('select[id$="drpBank"]').append($('<option>').text(defaultSelect).attr('value', '-1'));

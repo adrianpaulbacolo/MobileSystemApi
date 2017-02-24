@@ -46,7 +46,7 @@ function BaokimV2() {
     baokim.createDeposit = function () {
         var _self = this;
         var params = _self.getUrlVars();
-        var data = {};
+        var data;
 
         if (params.Method == 'EWALLET') {
             data = {
@@ -97,7 +97,7 @@ function BaokimV2() {
     };
 
     baokim.getBanks = function (selectName) {
-        _w88_paymentSvcV2.SendDeposit("/banks/vendor/120272", "GET", "", function (response) {
+        _w88_paymentSvcV2.Send("/banks/vendor/120272", "GET", "", function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
                 $('select[id$="drpBank"]').append($('<option>').text(selectName).attr('value', '-1'));
 
@@ -112,7 +112,7 @@ function BaokimV2() {
 
     baokim.validateWallet = function (data, transactionId) {
 
-        _w88_paymentSvcV2.SendDeposit("/payments/120272/" + transactionId, "GET", data, function (response) {
+        _w88_paymentSvcV2.Send("/payments/120272/" + transactionId, "GET", data, function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
                 switch (response.ResponseCode) {
                     case 1:

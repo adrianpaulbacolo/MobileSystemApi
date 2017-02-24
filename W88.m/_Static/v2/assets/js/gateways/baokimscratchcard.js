@@ -39,7 +39,7 @@ function BaokimScratchCardV2() {
     };
 
     baokimscratchcard.getBanks = function () {
-        _w88_paymentSvcV2.SendDeposit("/payments/baokindenom/", "GET", "", function (response) {
+        _w88_paymentSvcV2.Send("/payments/baokindenom/", "GET", "", function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
                 telcos = response.ResponseData.Telcos;
 

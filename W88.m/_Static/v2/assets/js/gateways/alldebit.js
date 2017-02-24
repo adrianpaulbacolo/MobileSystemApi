@@ -31,7 +31,7 @@ function AllDebit() {
                 var monthText = _w88_contents.translate("LABEL_MONTH");
                 var yearText = _w88_contents.translate("LABEL_YEAR");
 
-                _w88_paymentSvcV2.SendDeposit("/CardType", "GET", "", function (response) {
+                _w88_paymentSvcV2.Send("/CardType", "GET", "", function (response) {
 
                     $('select[id$="ddlCardType"]').append($("<option />").val('-1').text(ddlCardTypeText));
 
@@ -54,7 +54,7 @@ function AllDebit() {
                 }
                 $('select[id$="ddlExpiryYear"]').val('-1').change();
 
-                _w88_paymentSvcV2.SendDeposit("/payments/creditcard/lasttrans", "GET", "", function (response) {
+                _w88_paymentSvcV2.Send("/payments/creditcard/lasttrans", "GET", "", function (response) {
 
                     if (response.ResponseCode == 1 && response.ResponseData != null) {
 

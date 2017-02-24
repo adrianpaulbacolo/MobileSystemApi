@@ -5,7 +5,7 @@ function Gateway(paymentSvc) {
     this.methodId;
 
     this.send = function (resource, method, data, success, complete) {
-        paymentSvc.SendDeposit(resource, method, data, success, complete);
+        paymentSvc.Send(resource, method, data, success, complete);
     }
 
     this.deposit = function(data, successCallback, completeCallback) {
