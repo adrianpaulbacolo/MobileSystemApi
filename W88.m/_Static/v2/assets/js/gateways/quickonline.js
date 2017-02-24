@@ -29,26 +29,43 @@ function QuickOnlineV2() {
         }
 
         if (getBank) {
-            _w88_paymentSvc.Send("/Banks/vendor/" + gateway, "GET", "", function (response) {
+            _w88_paymentSvcV2.Send("/Banks/vendor/" + gateway + "/" + new Cookies().getCookie("currencyCode"), "GET", "", function (response) {
                 var banks = response.ResponseData;
                 var defaultSelect = _w88_contents.translate("LABEL_SELECT_DEFAULT");
                 $('select[id$="drpBank"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
-                $('select[id$="drpBank"]').val("-1").selectmenu("refresh");
+                $('select[id$="drpBank"]').val("-1").change();
 
                 _.forOwn(banks, function (data) {
                     $('select[id$="drpBank"]').append($('<option>').text(data.Text).attr('value', data.Value));
                 });
             });
         }
-      
+    };
+
+    quickonline.nganluongInit = function () {
+
+        setTranslations();
+        function setTranslations() {
+            if (_w88_contents.translate("BUTTON_PROCEED") != "BUTTON_PROCEED") {
+                $("#btnSubmitPlacement").text(_w88_contents.translate("BUTTON_PROCEED"));
+            } else {
+                window.setInterval(function () {
+                    setTranslations();
+                }, 500);
+            }
+        }
     };
 
     quickonline.createDeposit = function () {
         var _self = this;
         var params = _self.getUrlVars();
         var data = {
-            Amount: params.Amount
+            ThankYouPage: params.ThankYouPage
         };
+
+        if (!_.isUndefined(params.Amount)) {
+            data.Amount = params.Amount;
+        }
 
         if (!_.isUndefined(params.BankValue)) {
             data.Bank = { Text: params.BankText, Value: params.BankValue };

@@ -24,7 +24,9 @@ public partial class v2_Deposit_Pay : PaymentBasePage
                 break;
 
             case (int)commonVariables.DepositMethod.PayGo:
-                GatewayFile = "paygo";
+            case (int)commonVariables.DepositMethod.WingMoney:
+            case (int)commonVariables.DepositMethod.TrueMoney:
+                GatewayFile = "moneytransfer";
                 break;
 
             case (int)commonVariables.DepositMethod.ECPSS:
@@ -33,10 +35,6 @@ public partial class v2_Deposit_Pay : PaymentBasePage
 
             case (int)commonVariables.DepositMethod.AllDebit:
                 GatewayFile = "alldebit";
-                break;
-
-            case (int)commonVariables.DepositMethod.NganLuong:
-                GatewayFile = "nganluong";
                 break;
 
             case (int)commonVariables.DepositMethod.FastDeposit:
@@ -82,6 +80,8 @@ public partial class v2_Deposit_Pay : PaymentBasePage
             case (int)commonVariables.AutoRouteMethod.QuickOnline:
             case (int)commonVariables.DepositMethod.NextPay:
             case (int)commonVariables.DepositMethod.BofoPay:
+            case (int)commonVariables.DepositMethod.NganLuong:
+            case (int)commonVariables.DepositMethod.Help2Pay:
                 GatewayFile = "quickonline";
                 break;
 

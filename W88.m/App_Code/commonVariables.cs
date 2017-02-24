@@ -236,6 +236,7 @@ public class commonVariables
         VenusPoint = 120296,
         BaokimScratchCard = 120286,
         Baokim = 120272
+        ,TrueMoney = 1103132
 
     }
 

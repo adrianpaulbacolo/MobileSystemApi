@@ -1,13 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class v2_Deposit_Pay110394 : PaymentBasePage
+public partial class v2_Deposit_Pay1103132 : PaymentBasePage
 {
     protected void Page_Init(object sender, EventArgs e)
     {
-        PageName = Convert.ToString(commonVariables.DepositMethod.PayGo);
+        PageName = Convert.ToString(commonVariables.DepositMethod.TrueMoney);
         PaymentType = commonVariables.PaymentTransactionType.Deposit;
-        PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.PayGo);
+        PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.TrueMoney);
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -36,5 +40,4 @@ public partial class v2_Deposit_Pay110394 : PaymentBasePage
             drpMinute.Items.Add(new ListItem((intMinute).ToString("0#"), Convert.ToString(intMinute)));
         }
     }
-
 }

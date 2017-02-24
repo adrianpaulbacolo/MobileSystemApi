@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/v2/MasterPages/Payment.master" AutoEventWireup="true" CodeFile="Pay110394.aspx.cs" Inherits="v2_Deposit_Pay110394" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/v2/MasterPages/Payment.master" AutoEventWireup="true" CodeFile="Pay110308.aspx.cs" Inherits="v2_Deposit_Pay110308" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
     <div class="form-group">
@@ -6,12 +6,12 @@
         <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" />
     </div>
     <div class="form-group">
-        <asp:Label ID="lblSystemAccount" runat="server" AssociatedControlID="drpSystemAccount" />
-        <asp:DropDownList ID="drpSystemAccount" runat="server" CssClass="form-control" />
-    </div>
-    <div class="form-group">
         <asp:Label ID="lblReferenceId" runat="server" AssociatedControlID="txtReferenceId" />
         <asp:TextBox ID="txtReferenceId" runat="server" CssClass="form-control" />
+    </div>
+    <div class="form-group">
+        <asp:Label ID="lblSystemAccount" runat="server" AssociatedControlID="drpSystemAccount" />
+        <asp:DropDownList ID="drpSystemAccount" runat="server" CssClass="form-control" />
     </div>
     <div class="form-group">
         <asp:Label ID="lblDepositDateTime" runat="server" AssociatedControlID="drpDepositDate" />

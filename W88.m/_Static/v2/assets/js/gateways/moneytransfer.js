@@ -1,18 +1,18 @@
-﻿window.w88Mobile.Gateways.PayGoV2 = PayGoV2();
-var _w88_paygo = window.w88Mobile.Gateways.PayGoV2;
+﻿window.w88Mobile.Gateways.MoneyTransfer = MoneyTransfer();
+var _w88_moneytransfer = window.w88Mobile.Gateways.MoneyTransfer;
 
-function PayGoV2() {
+function MoneyTransfer() {
 
-    var paygo;
+    var moneytransfer;
     var defaultBank;
 
     try {
-        paygo = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+        moneytransfer = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
     } catch (err) {
-        paygo = {};
+        moneytransfer = {};
     }
 
-    paygo.init = function () {
+    moneytransfer.init = function (methodId) {
 
         setTranslations();
 
@@ -35,7 +35,7 @@ function PayGoV2() {
             }
         }
 
-        _w88_paymentSvcV2.Send("/banks/money/110394", "GET", "", function (response) {
+        _w88_paymentSvcV2.Send("/banks/money/" + methodId, "GET", "", function (response) {
             if (!_.isEqual(response.ResponseCode, 0)) {
                 $('select[id$="drpSystemAccount"]').append($("<option></option>").attr("value", "-1").text(defaultBank));
                 $('select[id$="drpSystemAccount"]').val("-1").change();
@@ -47,7 +47,7 @@ function PayGoV2() {
         });
     };
 
-    paygo.createDeposit = function () {
+    moneytransfer.createDeposit = function () {
         var _self = this;
         var params = _self.getUrlVars();
         var data = {
@@ -73,5 +73,5 @@ function PayGoV2() {
             });
     };
 
-    return paygo;
+    return moneytransfer;
 }
