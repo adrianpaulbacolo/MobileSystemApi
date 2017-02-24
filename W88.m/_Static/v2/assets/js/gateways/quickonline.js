@@ -21,6 +21,10 @@ function QuickOnlineV2() {
                 $('label[id$="lblDepositAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
                 $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
 
+                //payment note is for ECPSS
+                $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+                $("#paymentNoteContent").text(_w88_contents.translate("LABEL_MSG_BANK_NOT_SUPPORTED"));
+
             } else {
                 window.setInterval(function() {
                     setTranslations();

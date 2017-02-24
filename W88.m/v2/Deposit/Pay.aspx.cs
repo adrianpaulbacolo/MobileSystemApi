@@ -29,10 +29,6 @@ public partial class v2_Deposit_Pay : PaymentBasePage
                 GatewayFile = "moneytransfer";
                 break;
 
-            case (int)commonVariables.DepositMethod.ECPSS:
-                GatewayFile = "ecpsspay";
-                break;
-
             case (int)commonVariables.DepositMethod.AllDebit:
                 GatewayFile = "alldebit";
                 break;
@@ -82,6 +78,7 @@ public partial class v2_Deposit_Pay : PaymentBasePage
             case (int)commonVariables.DepositMethod.BofoPay:
             case (int)commonVariables.DepositMethod.NganLuong:
             case (int)commonVariables.DepositMethod.Help2Pay:
+            case (int)commonVariables.DepositMethod.ECPSS:
                 GatewayFile = "quickonline";
                 break;
 
