@@ -27,6 +27,30 @@
     </div>
     <div class="history-result bg-gradient">
     </div>
+    <div class="history-full">
+        <div class="history-full-header">
+            <h5>Withdrawal 11/17/2016 10:57:29 AM</h5>
+            <a href="#"><span class="icon ion-ios-close-empty"></span></a>
+        </div>
+        <div class="history-full-content">
+            <div>
+                <p><small>Type</small></p>
+                <h5>Deposit</h5>
+            </div>
+            <div>
+                <p><small>Transaction ID</small></p>
+                <h5>1034284221716</h5>
+            </div>
+            <div>
+                <p><small>Date</small></p>
+                <h5>12/28/2016 4:45:53 PM</h5>
+            </div>
+            <div>
+                <p><small>Payment Method</small></p>
+                <h5>Online</h5>
+            </div>
+        </div>
+    </div>
 
     <div id="filterModal" data-role="popup" data-overlay-theme="b" data-theme="b" data-history="false">
         <a href="#" data-rel="back" class="close close-enhanced">&times;</a>

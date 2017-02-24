@@ -99,6 +99,63 @@
 	font-size: 1.2rem;
 	text-align: center;
 }
+
+.history-full{
+    background-color: darken(#033143, 2%);
+	width: 100%;
+	height: 100%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	position: fixed;
+}
+.history-full-header{
+	background-color: #252525;
+	padding: 15px;
+	position: relative;
+	overflow: hidden;
+	height: 45px;
+	h5{
+		color: $text-color;
+		margin-bottom: 0;
+		width: 85%;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: inline-block;
+	    position: relative;
+	    top: 2px;
+	}
+	a{
+		font-size: 3.3rem;
+		padding: 3px 15px 0;
+		top: 0;
+		right: 0;
+		position: absolute;
+		background-color: #252525;
+	}
+}
+.history-full-content{
+	> div{
+		padding: 15px;
+		border-bottom: 1px solid rgba($text-color, 0.05);
+		&:last-child{
+			border-bottom: none;
+		}
+	}
+	p{
+		color: darken($text-color, 40%);
+		margin-bottom: 3px;
+	}
+	h5{
+        color: $text-color;
+		margin-top: 0;
+		margin-bottom: 0;
+	    font-size: 1.8rem;
+	}
+}
 @media screen and (max-width: 425px) {
 	.history-nav span{
 		font-size: 1.286rem;
