@@ -1,4 +1,20 @@
-﻿<div class="table-container">
+﻿<div class="history-data">
+    {% _.each(history.result, function(item) { %}
+        <div class="history-data-row">
+            <div>
+                <p class="h-date"><small>To</small></p>
+                <h5 class="h-title">{%-item.ToWalletId%}</h5>
+                <p class="h-id">{%-item.TransactionId%}</p>
+                <p class="h-date"><small>{%-item.DateTime%}</small></p>
+            </div>
+            <div class="h-col-last">
+                <p class="h-status"><small>{%-item.Status%}</small></p>
+            </div>
+        </div>
+    {% }); %}
+</div>
+
+<!-- <div class="table-container">
     <table class="table">
         <tbody>
             {% _.each(history.result, function(item) { %}
@@ -20,4 +36,4 @@
             {% }); %}
         </tbody>
     </table>
-</div>
+</div> -->

@@ -55,7 +55,50 @@
 	}
 }
 
+.history-data{
+	max-width: 768px;
+	margin: 0 auto;
+	.h-title{
+        color: $brand-color;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	    font-size: 1.8rem;
+	}
+	p{
+		color: $text-color;
+		margin-bottom: 0;
+	}
+	.h-date{
+		color: darken($text-color, 50%);
+	}
+	.h-status{
+		text-transform: uppercase;
+		color: darken($text-color, 20%);
+	}
+}
 
+.history-data-row{
+	width: 100%;
+	display: table;
+	padding: 15px;
+	border-bottom: 1px solid rgba($text-color, 0.05);
+	table-layout: fixed;
+	&:last-child{
+		border-bottom: none;
+	}
+	> div{
+		vertical-align: top;
+		display: table-cell;
+	}
+	.h-col-last{
+		text-align: right;
+	}
+}
+
+.notFound{
+	font-size: 1.2rem;
+	text-align: center;
+}
 @media screen and (max-width: 425px) {
 	.history-nav span{
 		font-size: 1.286rem;
