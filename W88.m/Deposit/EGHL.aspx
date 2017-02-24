@@ -3,7 +3,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <ul class="list fixed-tablet-size">
         <li class="item item-input">
-            <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
+            <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
             <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
         </li>
         <li class="item item-select idrBank">
@@ -22,23 +22,23 @@
         $(document).ready(function () {
             var payments = new w88Mobile.Gateways.Payments("<%=base.PaymentMethodId %>");
 
-            payments.init();
+                payments.init();
 
-            window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
+                window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
 
             if ('<%=commonVariables.GetSessionVariable("CurrencyCode")%>' == "MYR") {
-                $('.idrBank').show();
-            }
-            else {
-                $('.idrBank').hide();
-            }
+                    $('.idrBank').show();
+                }
+                else {
+                    $('.idrBank').hide();
+                }
 
-            $('#form1').submit(function (e) {
-                e.preventDefault();
-                window.w88Mobile.FormValidator.disableSubmitButton('#ContentPlaceHolder1_btnSubmit');
+                $('#form1').submit(function (e) {
+                    e.preventDefault();
+                    window.w88Mobile.FormValidator.disableSubmitButton('#ContentPlaceHolder1_btnSubmit');
 
-                var data = {
-                    Amount: $('#<%=txtAmount.ClientID%>').val(),
+                    var data = {
+                        Amount: $('#<%=txtAmount.ClientID%>').val(),
                     Bank: { Text: $('#<%=drpBank.ClientID%> option:selected').text(), Value: $('#<%=drpBank.ClientID%> option:selected').val() },
                 }
 
@@ -66,6 +66,6 @@
                     GPINTMOBILE.HideSplash();
                 });
             });
-        });
+            });
     </script>
 </asp:Content>

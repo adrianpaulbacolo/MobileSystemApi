@@ -143,7 +143,7 @@ public partial class Withdrawal_BankTransfer : PaymentBasePage
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
 
-        string strWithdrawalAmount = txtWithdrawAmount.Text.Trim();
+        string strWithdrawalAmount = txtAmount.Text.Trim();
         string strBankCode = drpBank.SelectedValue;
         string strBankName = drpBank.SelectedItem.Text;
         string strBankNameInput = txtBankName.Text;

@@ -1,9 +1,9 @@
 ﻿<meta charset="utf-8" />
 <meta name="viewport" id="viewport" content="minimal-ui, width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no,target-densityDpi=device-dpi" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-<meta name="apple-mobile-web-app-title" content="W88">
+<meta name="apple-mobile-web-app-title" content="W88" />
 <!--<link type="text/css" rel="stylesheet" href="//css.w2script.com/_Static/Css/Mobile/jquery.mobile-1.4.2.min.css" />
 <script type="text/javascript" src="//js.w2script.com/_Static/JS/Mobile/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="//js.w2script.com/_Static/JS/Mobile/jquery.mobile-1.4.2.min.js"></script>
@@ -25,3 +25,8 @@
 <% } else if (string.Compare(commonVariables.SelectedLanguage, "zh-cn", true) == 0) { %>
 <link type="text/css" rel="stylesheet" href="/_Static/Css/zh-cn.css" />
 <% } %>
+<script type="text/javascript">
+  var frsm_code = '<%=commonVariables.CurrentMemberSessionId%>';
+</script>
+<script type="text/javascript" src="//inpref-asia-s3-amazonaws-com.cdnga.net/frosmo.easy.js"></script>
+<script type="text/javascript" src="//inpref-asia-s3-amazonaws-com.cdnga.net/sites/w88live_com.js" ></script>

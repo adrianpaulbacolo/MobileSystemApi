@@ -296,7 +296,7 @@ public class commonValidation
         //return mc.Match(text).Success;
     }
 
-    internal static bool isEmail(string text)
+    public static bool IsEmail(string text)
     {
         System.Text.RegularExpressions.MatchCollection mc = null;
         mc = System.Text.RegularExpressions.Regex.Matches(text, "([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})");
@@ -314,5 +314,52 @@ public class commonValidation
         else { return false; }
     }
 
+    public static bool IsValidString(string input, int length)
+    {
+        if (string.IsNullOrWhiteSpace(input))
+        {
+            return false;
+        }
+
+        if (input.Trim().Length > length)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    public static bool IsValidAmount(string amount, string currency = "")
+    {
+        decimal v = 0;
+        if (string.IsNullOrWhiteSpace(amount))
+        {
+            return false;
+        }
+        if (!decimal.TryParse(amount, out v))
+        {
+            return false;
+        }
+        if (currency == "JPY")
+        {
+            if ((v <= 0) || (HasMoreThanNDecimals(v, 0)))
+            {
+                return false;
+            }
+        }
+        else
+        {
+            if ((v <= 0) || (HasMoreThanNDecimals(v, 2)))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static bool HasMoreThanNDecimals(decimal obj, int n)
+    {
+        return !(obj * (decimal)Math.Pow(10, n) % 1 == 0);
+    }
     #endregion
 }
