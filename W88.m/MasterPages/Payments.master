@@ -39,7 +39,7 @@
                         <span id="txtMinMaxLimit" />
                     </div>
                 </li>
-                <li class="row">
+                <li class="row" id="dailyLimit">
                     <div class="col">
                         <span id="lblDailyLimit" />
                     </div>
@@ -47,7 +47,7 @@
                         <span id="txtDailyLimit" />
                     </div>
                 </li>
-                <li class="row">
+                <li class="row" id="totalAllowed">
                     <div class="col">
                         <span id="lblTotalAllowed" />
                     </div>
