@@ -3,10 +3,9 @@
 
 public partial class Deposit_Alipay : PaymentBasePage
 {
-    protected string lblTransactionId;
-
     protected void Page_Init(object sender, EventArgs e)
     {
+        base.PageName = Convert.ToString(commonVariables.AutoRouteMethod.AliPay);
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.AutoRouteMethod.AliPay);
     }
@@ -22,7 +21,5 @@ public partial class Deposit_Alipay : PaymentBasePage
     private void InitializeLabels()
     {
         lblDepositAmount.Text = base.strlblAmount;
-        lblTransactionId = base.strlblTransactionId;
-
     }
 }
