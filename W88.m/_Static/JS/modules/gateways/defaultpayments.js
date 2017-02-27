@@ -154,7 +154,10 @@
             error: function () {
                 console.log("Error connecting to api");
             },
-            complete: complete
+            complete: function () {
+                if (!_.isUndefined(complete)) complete();
+                GPInt.prototype.HideSplash();
+            }
         });
     }
 
