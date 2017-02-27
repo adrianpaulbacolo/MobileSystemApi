@@ -67,14 +67,6 @@ public partial class Deposit_Pay : PaymentBasePage
             case commonVariables.AutoRouteMethod.QuickOnline:
                 GatewayFile = "quickonline";
                 break;
-        }
-
-        commonVariables.AutoRouteMethod autoRouteId;
-        if (!Enum.TryParse(methodId, out autoRouteId))
-            return;
-
-        switch (autoRouteId)
-        {
             case commonVariables.AutoRouteMethod.WeChat:
                 GatewayFile = "wechatpay";
                 break;
