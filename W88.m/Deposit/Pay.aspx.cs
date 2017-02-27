@@ -70,17 +70,10 @@ public partial class Deposit_Pay : PaymentBasePage
             case commonVariables.AutoRouteMethod.WeChat:
                 GatewayFile = "wechatpay";
                 break;
-        }
-
-        commonVariables.AutoRouteMethod autoRouteId;
-        if (!Enum.TryParse(methodId, out autoRouteId))
-            return;
-
-        switch (autoRouteId)
-        {
             case commonVariables.AutoRouteMethod.AliPay:
                 GatewayFile = "alipay2";
                 break;
         }
+
     }
 }
