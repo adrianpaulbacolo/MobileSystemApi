@@ -16,7 +16,9 @@ public partial class Deposit_Pay : PaymentBasePage
         if (string.IsNullOrWhiteSpace(methodId))
             return;
 
-        commonVariables.DepositMethod PaymentMethodId = (commonVariables.DepositMethod)Enum.Parse(typeof(commonVariables.DepositMethod), methodId);
+        commonVariables.DepositMethod PaymentMethodId;
+        if (!Enum.TryParse(methodId, out PaymentMethodId))
+            return;
 
         switch (PaymentMethodId)
         {
@@ -51,6 +53,9 @@ public partial class Deposit_Pay : PaymentBasePage
             case commonVariables.DepositMethod.ShengPayAliPay:
                 GatewayFile = "shengpay";
                 break;
+            case commonVariables.DepositMethod.NextPay:
+                GatewayFile = "nextpay";
+                break;
         }
 
         commonVariables.AutoRouteMethod autoRouteId;
@@ -59,6 +64,9 @@ public partial class Deposit_Pay : PaymentBasePage
 
         switch (autoRouteId)
         {
+            case commonVariables.AutoRouteMethod.QuickOnline:
+                GatewayFile = "quickonline";
+                break;
             case commonVariables.AutoRouteMethod.WeChat:
                 GatewayFile = "wechatpay";
                 break;
