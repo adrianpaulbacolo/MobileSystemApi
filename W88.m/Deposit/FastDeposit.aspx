@@ -70,8 +70,8 @@
                         </div>
                     </li>
                     <li class="item item-input">
-                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
-                        <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
+                        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
                     <li class="item item-input">
                         <asp:Label ID="lblReferenceId" runat="server" AssociatedControlID="txtReferenceId" />
@@ -153,7 +153,7 @@
                     depositDateTime.setMinutes($('#drpMinute').val());
 
                     var data = {
-                        Amount: $('#txtDepositAmount').val(),
+                        Amount: $('#txtAmount').val(),
                         Bank: { Text: $('#drpBank option:selected').text(), Value: $('#drpBank').val() },
                         AccountName: $('#txtAccountName').val(),
                         AccountNumber: $('#txtAccountNumber').val(),
@@ -161,7 +161,7 @@
                         BankName: $('#txtBankName').val(),
                         ReferenceId: $('#txtReferenceId').val(),
                         DepositChannel: { Text: $('#drpDepositChannel option:selected').text(), Value: $('#drpDepositChannel').val() },
-                        DepositDateTime: depositDateTime.toLocaleDateString() + " " + depositDateTime.toLocaleTimeString(),
+                        DepositDateTime: window.w88Mobile.Gateways.DefaultPayments.formatDateTime(depositDateTime),
                     };
 
                     window.w88Mobile.Gateways.FastDeposit.Deposit(data, function (response) {

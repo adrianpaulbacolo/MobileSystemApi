@@ -70,8 +70,8 @@
                         </div>
                     </li>
                     <li class="item item-input">
-                        <asp:Label ID="lblWithdrawAmount" runat="server" AssociatedControlID="txtWithdrawAmount" />
-                        <asp:TextBox ID="txtWithdrawAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+                        <asp:Label ID="lblWithdrawAmount" runat="server" AssociatedControlID="txtAmount" />
+                        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
                     <li class="item item-input">
                         <asp:Label ID="lblAcctName" runat="server" AssociatedControlID="txtAccountName" />
@@ -108,7 +108,7 @@
                     window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
 
                     var data = {
-                        Amount: $('#txtWithdrawAmount').val(),
+                        Amount: $('#txtAmount').val(),
                         AccountName: $('#txtAccountName').val(),
                     };
 
@@ -134,10 +134,10 @@
                     });
                 });
 
-                $("#txtWithdrawAmount").blur(function () {
+                $("#txtAmount").blur(function () {
                     if ($(this).val() && '<%=commonCookie.CookieCurrency%>' == "JPY") {
                         var data = {
-                            amount: $('#txtWithdrawAmount').val(),
+                            amount: $('#txtAmount').val(),
                             currencyFrom: "JPY",
                             currencyTo: "USD"
                         }

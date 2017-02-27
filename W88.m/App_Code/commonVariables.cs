@@ -214,6 +214,7 @@ public class commonVariables
         IPS = 120207,
         IWallet = 1202103,
         WingMoney = 110308,
+        TrueMoney = 1103132,
         PayGo = 110394,
         SDPay = 120223,
         Help2Pay = 120227,
@@ -234,7 +235,9 @@ public class commonVariables
         EGHL = 120265,
         NganLuong = 120212,
         VenusPoint = 120296,
-        BaokimScratchCard = 120286
+        BaokimScratchCard = 120286,
+        Baokim = 120272
+
     }
 
     public enum WithdrawalMethod
@@ -243,8 +246,10 @@ public class commonVariables
         VenusPoint = 220895,
         BankTransfer = 210602,
         WingMoney = 210709,
+        TrueMoney = 2107138,
         Neteller = 220815,
-        IWallet = 2208102
+        IWallet = 2208102,
+        Baokim = 220874
     }
 
     public enum AutoRouteMethod

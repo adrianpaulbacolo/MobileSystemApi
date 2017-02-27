@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using customConfig;
 using Helpers;
 using Models;
 
@@ -72,29 +73,49 @@ public class BasePage : System.Web.UI.Page
     protected override void OnLoad(EventArgs e)
     {
 
-        string strLanguage = HttpContext.Current.Request.QueryString.Get("lang");
+        var strLanguage = HttpContext.Current.Request.QueryString.Get("lang");
+
+        if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("languageCode")))
+        {
+            strLanguage = HttpContext.Current.Request.QueryString.Get("languageCode");
+        }
 
         switch (strLanguage)
         {
+            case "en":
+                strLanguage = "en-us";
+                break;
+
             case "id":
                 strLanguage = "id-id";
                 break;
+
+            case "ja":
             case "jp":
                 strLanguage = "ja-jp";
                 break;
+
+            case "km":
             case "kh":
                 strLanguage = "km-kh";
                 break;
+
+            case "ko":
             case "kr":
                 strLanguage = "ko-kr";
                 break;
+            
             case "th":
                 strLanguage = "th-th";
                 break;
+
+            case "vi":
             case "vn":
                 strLanguage = "vi-vn";
                 break;
+
             case "cn":
+            case "zh":
                 strLanguage = "zh-cn";
                 break;
         }
@@ -105,6 +126,7 @@ public class BasePage : System.Web.UI.Page
 
             var queryString = HttpUtility.ParseQueryString(Request.Url.Query);
             queryString.Remove("lang");
+            queryString.Remove("languageCode");
 
             string redirectPath = queryString.Count > 0 ? string.Format("{0}?{1}", Request.Url.LocalPath, queryString) : Request.Url.LocalPath;
             Response.Redirect(redirectPath);
@@ -120,6 +142,17 @@ public class BasePage : System.Web.UI.Page
         }
 
         base.OnLoad(e);
+
+        if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) && !HttpContext.Current.Request.Url.AbsoluteUri.ToLower().Contains("/_secure/vip/"))
+        {
+            var opSettings = new OperatorSettings("W88");
+            foreach (var v in opSettings.Values.Get("VIP_Domains").ToLower().Split(new[] { '|' }).Where(v => v.Equals(HttpContext.Current.Request.Url.Host)))
+            {
+                commonCookie.CookieLanguage = "zh-cn";
+                Response.Clear();
+                Response.Redirect("/_Secure/VIP/login.aspx", true);
+            }
+        }
     }
 
     protected bool CheckLogin()

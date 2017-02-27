@@ -1,4 +1,5 @@
 ﻿<%@ Application Language="C#" %>
+<%@ Import Namespace="customConfig" %>
 
 <script RunAt="server">
 
@@ -6,6 +7,8 @@
     {
         // Code that runs on application startup
         RegisterRoutes(System.Web.Routing.RouteTable.Routes);
+
+      
     }
 
     void RegisterRoutes(System.Web.Routing.RouteCollection routes)
@@ -37,6 +40,18 @@
 
         System.Web.Routing.Route rtInvalid = new System.Web.Routing.Route("Invalid", new System.Web.Routing.PageRouteHandler("~/Default.aspx"));
         rtInvalid.DataTokens = new System.Web.Routing.RouteValueDictionary { { "invalid", "true" } };
+
+        // WINGMONEY
+        System.Web.Routing.Route wingmoney_dep = new System.Web.Routing.Route("Deposit/110308", new System.Web.Routing.PageRouteHandler("~/Deposit/MoneyTransfer.aspx"));
+        wingmoney_dep.DataTokens = new System.Web.Routing.RouteValueDictionary { { "money", "wing" } };
+        System.Web.Routing.Route wingmoney_with = new System.Web.Routing.Route("Withdrawal/210709", new System.Web.Routing.PageRouteHandler("~/Withdrawal/MoneyTransfer.aspx"));
+        wingmoney_with.DataTokens = new System.Web.Routing.RouteValueDictionary { { "money", "wing" } };
+
+        // TRUEMONEY
+        System.Web.Routing.Route truemoney_dep = new System.Web.Routing.Route("Deposit/1103132", new System.Web.Routing.PageRouteHandler("~/Deposit/MoneyTransfer.aspx"));
+        truemoney_dep.DataTokens = new System.Web.Routing.RouteValueDictionary { { "money", "true" } };
+        System.Web.Routing.Route truemoney_with = new System.Web.Routing.Route("Withdrawal/2107138", new System.Web.Routing.PageRouteHandler("~/Withdrawal/MoneyTransfer.aspx"));
+        truemoney_with.DataTokens = new System.Web.Routing.RouteValueDictionary { { "money", "true" } };
         
         // JTPAY
         System.Web.Routing.Route weChat = new System.Web.Routing.Route("Deposit/WeChat", new System.Web.Routing.PageRouteHandler("~/Deposit/JTPay.aspx"));
@@ -62,12 +77,18 @@
         routes.Add(rtError408);
         routes.Add(rtError500);
         routes.Add(rtError502);
+
+        routes.Add(wingmoney_dep);
+        routes.Add(wingmoney_with);
+
+        routes.Add(truemoney_dep);
+        routes.Add(truemoney_with);
     }
 
     void Application_End(object sender, EventArgs e)
     {
         //  Code that runs on application shutdown
-
+        
     }
 
     void Application_Error(object sender, EventArgs e)
@@ -75,7 +96,7 @@
 
     }
 
-    void Session_Start(object sender, EventArgs e)
+    private void Session_Start(object sender, EventArgs e)
     {
         // Code that runs when a new session is started
         bool isSsl = HttpContext.Current.Request.IsSecureConnection.Equals(true);
@@ -92,7 +113,8 @@
         // Note: The Session_End event is raised only when the sessionstate mode
         // is set to InProc in the Web.config file. If session mode is set to StateServer 
         // or SQLServer, the event is not raised.
-
+      
+      
     }
        
 </script>

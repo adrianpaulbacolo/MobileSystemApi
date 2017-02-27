@@ -60,7 +60,7 @@ public partial class Deposit_EGHL : PaymentBasePage
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        string strDepositAmount = txtDepositAmount.Text.Trim();
+        string strDepositAmount = txtAmount.Text.Trim();
         string selectedBank = drpBank.SelectedItem.Value != "-1" ? drpBank.SelectedItem.Value : string.Empty;
 
         decimal decDepositAmount = commonValidation.isDecimal(strDepositAmount) ? Convert.ToDecimal(strDepositAmount) : 0;

@@ -20,20 +20,17 @@ function KexunPay() {
                 case 1:
                     w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
                     w88Mobile.PostPaymentForm.submit();
-
-                    $('#form1')[0].reset();
                     break;
                 default:
                     if (_.isArray(response.ResponseMessage))
-                        w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
+                        w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage), _self.shoutCallback);
                     else
-                        w88Mobile.Growl.shout(response.ResponseMessage);
+                        w88Mobile.Growl.shout(response.ResponseMessage, _self.shoutCallback);
 
                     break;
             }
         },
         function () {
-            window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
             GPInt.prototype.HideSplash();
         });
     }

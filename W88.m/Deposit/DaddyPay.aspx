@@ -3,8 +3,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <ul class="list fixed-tablet-size">
         <li class="item item-input" id="txtAmount">
-            <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
-            <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+            <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
+            <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
         </li>
         <li class="item item-select" id="drpAmount" style="display: none;">
             <asp:Label ID="lbldrpDepositAmount" runat="server" AssociatedControlID="drpDepositAmount" />
@@ -42,7 +42,7 @@
                 window.w88Mobile.FormValidator.disableSubmitButton('#ContentPlaceHolder1_btnSubmit');
 
                 var data = {
-                    Amount: $('#<%=drpBank.ClientID%> option:selected').val() == "40" ? $('#<%=drpDepositAmount.ClientID%> option:selected').val() : $('#<%=txtDepositAmount.ClientID%>').val(),
+                    Amount: $('#<%=drpBank.ClientID%> option:selected').val() == "40" ? $('#<%=drpDepositAmount.ClientID%> option:selected').val() : $('#<%=txtAmount.ClientID%>').val(),
                     Bank: { Text: $('#<%=drpBank.ClientID%> option:selected').text(), Value: $('#<%=drpBank.ClientID%> option:selected').val() },
                     AccountName: $('#<%=txtAccountName.ClientID%>').val(),
                     AccountNumber: $('#<%=txtAccountNumber.ClientID%>').val(),

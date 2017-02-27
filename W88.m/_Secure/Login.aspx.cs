@@ -17,15 +17,6 @@ public partial class _Secure_Login : BasePage
     protected string strRedirect = string.Empty;
     protected bool isSlotRedirect = false;
 
-    protected void Page_Init(object sender, EventArgs e)
-    {
-        string strLanguage = string.Empty;
-
-        strLanguage = Request.QueryString.Get("lang");
-
-        commonVariables.SelectedLanguage = string.IsNullOrEmpty(strLanguage) ? (string.IsNullOrEmpty(commonVariables.SelectedLanguage) ? "en-us" : commonVariables.SelectedLanguage) : strLanguage;
-    }
-
     protected void Page_Load(object sender, EventArgs e)
     {
         xeErrors = commonVariables.ErrorsXML;

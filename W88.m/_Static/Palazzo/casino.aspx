@@ -11,7 +11,7 @@
         <div class="ui-content" role="main">
             <div class="static-content">
                 <div>
-                    <img src="/_Static/Images/Download/W88-Mobile-ClubPalazzo-Casino.jpg" alt="banner" class="img-responsive">
+                    <img src="/_Static/Images/Download/MobileSite-DownloadPage-Palazzo-LiveCasino.jpg" alt="banner" class="img-responsive">
                 </div>
                 <div class="downloadmsg">
                     <span runat="server" id="spanMsg"></span>

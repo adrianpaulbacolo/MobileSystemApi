@@ -5,8 +5,8 @@
 
     <ul class="list fixed-tablet-size">
         <li class="item item-input">
-            <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
-            <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+            <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
+            <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
         </li>
         <li class="item item-input">
             <asp:Label ID="lblAcctName" runat="server" AssociatedControlID="txtAccountName" />
@@ -40,7 +40,7 @@
                     window.w88Mobile.FormValidator.disableSubmitButton('input[id$="btnSubmit"]');
 
                     var data = {
-                        Amount: $('input[id$="txtDepositAmount"]').val(),
+                        Amount: $('input[id$="txtAmount"]').val(),
                         AccountName: $('input[id$="txtAccountName"]').val(),
                         AccountNumber: $('input[id$="txtAccountNumber"]').val()
                     };
@@ -66,10 +66,10 @@
                     });
                 });
 
-            $('input[id$="txtDepositAmount"]').blur(function () {
+            $('input[id$="txtAmount"]').blur(function () {
                     if ($(this).val() && '<%=commonCookie.CookieCurrency%>' == "JPY") {
                         var data = {
-                            amount: $('input[id$="txtDepositAmount"]').val(),
+                            amount: $('input[id$="txtAmount"]').val(),
                             currencyFrom: "JPY",
                             currencyTo: "USD"
                         }
