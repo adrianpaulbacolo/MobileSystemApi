@@ -249,6 +249,11 @@
                     $('#activeTab').text(title);
 
                 $('#headerTitle').append(' - ' + title);
+
+                if (_.includes(routing, activeTabId)) {
+                    $('#dailyLimit').hide()
+                    $('#totalAllowed').hide()
+                }
             }
             else {
                 if (!isAutoRoute) {
@@ -257,8 +262,6 @@
                         window.location.href = deposit + page;
                 }
             }
-
-            GPInt.prototype.HideSplash();
         } else {
             if (activeTabId) {
                 window.location.href = deposit;
