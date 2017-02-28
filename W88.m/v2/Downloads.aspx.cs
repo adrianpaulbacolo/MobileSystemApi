@@ -10,6 +10,7 @@ public partial class v2_Downloads : BasePage
     protected override void OnLoad(EventArgs e)
     {
         Page.Title = commonCulture.ElementValues.getResourceString("download", commonVariables.LeftMenuXML);
+        Page.Items.Add("Parent", "/v2/Dashboard.aspx");
         base.OnLoad(e);
     }
 
