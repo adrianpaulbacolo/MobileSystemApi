@@ -245,13 +245,17 @@
             }
 
             if (activeTabId) {
-                if ($('#activeDepositTabs').length > 0)
-                    $('#activeDepositTabs').text(title);
+                if (title) {
+                    if ($('#activeDepositTabs').length > 0)
+                        $('#activeDepositTabs').text(title);
 
-                if ($('#activeTab').length > 0)
-                    $('#activeTab').text(title);
+                    if ($('#activeTab').length > 0)
+                        $('#activeTab').text(title);
 
-                $('#headerTitle').append(' - ' + title);
+                    $('#headerTitle').append(' - ' + title);
+                } else {
+                    window.location.href = deposit;
+                }
 
                 if (_.includes(routing, activeTabId)) {
                     $('#dailyLimit').hide()
@@ -369,7 +373,7 @@
         $('#btnSubmitPlacement').hide();
         $('#paymentSettings').hide();
         $('#paymentList').hide();
-        
+
         GPInt.prototype.HideSplash();
     }
 
