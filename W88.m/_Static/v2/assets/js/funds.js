@@ -11,7 +11,16 @@ function Funds() {
     }
 
     function init() {
-        fetchWallets({selector: "funds-wallet-lists"});
+        fetchWallets({ selector: "funds-wallet-lists" });
+
+        $("div.launch-deposit").on("click", function (e) {
+            e.preventDefault();
+            try {
+                Native.openDeposit();
+            } catch (e) {
+                console.log("Native is not defined");
+            }
+        });
     }
 
     function send(resource, method, data, success, error, complete) {

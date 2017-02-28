@@ -3,8 +3,8 @@
 <asp:Content ID="PaymentContent" ContentPlaceHolderID="PaymentMainContent" runat="Server">
     <div class="dashboard dashboard-funds">
         <div class="dashboard-row">
-            <div class="dashboard-col">
-                <a href="/Deposit/Default.aspx">
+            <div class="dashboard-col launch-deposit">
+                <a href="#">
                     <span class="icon icon-deposit"></span> <%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%>
                 </a>
             </div>
