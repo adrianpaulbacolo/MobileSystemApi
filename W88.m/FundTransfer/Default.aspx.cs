@@ -233,6 +233,9 @@ public partial class FundTransfer_Default : PaymentBasePage
                 case "13":
                     strAlertMessage = commonCulture.ElementValues.getResourceXPathString("FundTransfer/TransferAmountDisallowed", xeErrors);
                     break;
+                case "36":
+                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString("SessionExpired", xeErrors);
+                    break;
                 case "51": // "Transfer Declined - Reference ID already in used";
                     strAlertMessage = commonCulture.ElementValues.getResourceXPathString("FundTransfer/TransferFailed", xeErrors);
                     break;
@@ -290,9 +293,6 @@ public partial class FundTransfer_Default : PaymentBasePage
                     break;
                 case "917":
                     strAlertMessage = commonCulture.ElementValues.getResourceXPathString("FundTransfer/CloseGame", xeErrors);
-                    break;
-                case "36":
-                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString("SessionExpired", xeErrors);
                     break;
                 default:
                     strAlertMessage = commonCulture.ElementValues.getResourceXPathString("FundTransfer/TransferFailed", xeErrors);
