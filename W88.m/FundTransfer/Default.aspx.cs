@@ -291,6 +291,9 @@ public partial class FundTransfer_Default : PaymentBasePage
                 case "917":
                     strAlertMessage = commonCulture.ElementValues.getResourceXPathString("FundTransfer/CloseGame", xeErrors);
                     break;
+                case "36":
+                    strAlertMessage = commonCulture.ElementValues.getResourceXPathString("SessionExpired", xeErrors);
+                    break;
                 default:
                     strAlertMessage = commonCulture.ElementValues.getResourceXPathString("FundTransfer/TransferFailed", xeErrors);
                     break;

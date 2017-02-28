@@ -170,9 +170,14 @@
                 var responseCode = '<%=strAlertCode%>';
                 var responseMsg = '<%=strAlertMessage%>';
 
-                if (responseMsg.length > 0) { alert(responseMsg.split('[break]').join('\n')); }
+                if (responseMsg.length > 0) {
+                    alert(responseMsg.split('[break]').join('\n'));
+                }
+
                 if (responseCode == "-1") {
                     window.location.replace('/Default_app.aspx');
+                } else if (responseCode == "36") {
+                    window.location.replace('/Logout');
                 }
             });
 

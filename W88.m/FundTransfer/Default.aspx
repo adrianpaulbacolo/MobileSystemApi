@@ -25,7 +25,7 @@
                 <ul class="list fixed-tablet-size">
                     <li class="item" runat="server" id="divBalance" data-role="collapsible"></li>
                     <li class="item item-select">
-                        <asp:Label ID="lblTransferFrom" runat="server" AssociatedControlID="drpTransferFrom"/>
+                        <asp:Label ID="lblTransferFrom" runat="server" AssociatedControlID="drpTransferFrom" />
                         <asp:DropDownList ID="drpTransferFrom" runat="server" data-corners="false" />
                     </li>
                     <li class="btn-swap ion-arrow-swap">
@@ -169,9 +169,14 @@
                 var responseCode = '<%=strAlertCode%>';
                 var responseMsg = '<%=strAlertMessage%>';
 
-                if (responseMsg.length > 0) { alert(responseMsg.split('[break]').join('\n')); }
+                if (responseMsg.length > 0) { 
+                    alert(responseMsg.split('[break]').join('\n')); 
+                }
+
                 if (responseCode == "-1") {
                     window.location.replace('/default.aspx');
+                } else if (responseCode == "36") {
+                    window.location.replace('/Logout');
                 }
             });
 
