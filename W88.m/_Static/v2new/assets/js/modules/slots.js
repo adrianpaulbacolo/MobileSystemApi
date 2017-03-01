@@ -20,7 +20,7 @@ function Slots() {
         , { name: "palazzo", key: "LABEL_PRODUCTS_PALAZZO", label: "Club Palazzo", providers: ["pt", "gpi"] }
         , { name: "gallardo", key: "LABEL_PRODUCTS_GALLARDO", label: "Club Gallardo", providers: ["isb", "png", "gpi"] }
         , { name: "apollo", key: "LABEL_PRODUCTS_APOLLO", label: "Club Apollo", providers: ["qt", "pp", "gpi"] }
-        , { name: "nuovo", key: "LABEL_PRODUCTS_NUOVO", label: "Club Nuovo", providers: ["gns", "playson", "gpi"] }
+        , { name: "nuovo", key: "LABEL_PRODUCTS_NUOVO", label: "Club Nuovo", providers: ["gns", "pls", "gpi"] }
         , { name: "divino", key: "LABEL_PRODUCTS_DIVINO", label: "Club Divino", providers: ["bs", "ctxm", "uc8", "gpi"] }
     ];
 
