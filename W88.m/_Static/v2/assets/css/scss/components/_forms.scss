@@ -11,29 +11,32 @@
 		color: $brand-alt;
 		margin-bottom: 0;
 	}
-	.form-control{
-		padding-left: 0;
-		padding-right: 0;
-		color: $text-color;
-		background-color: transparent;
-		border-top: none;
-		border-right: none;
-		border-left: none;
-		@include box-shadow(none);
-		border-bottom: 1px solid darken($text-color ,50%);
-		&:focus {
-		    border-color: $brand-primary;
-		    outline: 0 none;
-		    @include box-shadow(none);
-		}
-	}
-	select.form-control{
-		option {
-		    background-color: $body-bg;
-		    color: $text-color;
-		    text-shadow: none;
-		}
-	}
+}
+
+.form-control{
+  padding-left: 0;
+  padding-right: 0;
+  color: $text-color;
+  background-color: transparent;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  @include box-shadow(none);
+  border-bottom: 1px solid darken($text-color ,50%);
+  &:focus {
+      border-color: $brand-primary;
+      outline: 0 none;
+      @include box-shadow(none);
+  }
+
+}
+
+select.form-control{
+  option {
+      background-color: $body-bg;
+      color: $text-color;
+      text-shadow: none;
+  }
 }
 
 
@@ -109,5 +112,26 @@ div.error-group {
 div.error-group span {
     color: red;
     font-weight: bold;
+}
+.has-error .form-control {
+  border-color: $brand-danger;
+  @include box-shadow(none);
+  &:focus{
+    border-color: lighten($brand-danger, 7%);
+    @include box-shadow(none);
+  }
+
+}
+.has-error .help-block, 
+.has-error .control-label, 
+.has-error .radio, 
+.has-error .checkbox, 
+.has-error .radio-inline, 
+.has-error .checkbox-inline, 
+.has-error.radio label, 
+.has-error.checkbox label, 
+.has-error.radio-inline label, 
+.has-error.checkbox-inline label {
+  color: $brand-danger;
 }
 
