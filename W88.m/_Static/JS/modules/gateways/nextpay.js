@@ -1,15 +1,16 @@
-﻿window.w88Mobile.Gateways.KDPay = KDPay();
-var _w88_kdpay = window.w88Mobile.Gateways.KDPay;
+﻿window.w88Mobile.Gateways.NextPay = NextPay();
+var _w88_nextpay = window.w88Mobile.Gateways.NextPay;
 
-function KDPay() {
+function NextPay() {
 
-    var kdpay = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
+    var nextpay = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
 
-    kdpay.createDeposit = function () {
+    nextpay.createDeposit = function () {
         var _self = this;
         var params = _self.getUrlVars();
         var data = {
             Amount: params.Amount,
+            Bank: { Text: params.BankText, Value: params.BankValue },
         };
 
         _self.methodId = params.MethodId;
@@ -34,6 +35,5 @@ function KDPay() {
         });
     }
 
-    return kdpay;
+    return nextpay;
 }
-

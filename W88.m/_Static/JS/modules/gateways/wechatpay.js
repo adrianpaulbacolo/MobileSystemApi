@@ -1,15 +1,16 @@
-﻿window.w88Mobile.Gateways.KDPay = KDPay();
-var _w88_kdpay = window.w88Mobile.Gateways.KDPay;
+﻿window.w88Mobile.Gateways.WechatPay = WechatPay();
+var _w88_wechatpay = window.w88Mobile.Gateways.WechatPay;
 
-function KDPay() {
+function WechatPay() {
 
-    var kdpay = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
+    var wechatpay = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
 
-    kdpay.createDeposit = function () {
+    wechatpay.createDeposit = function () {
         var _self = this;
         var params = _self.getUrlVars();
         var data = {
             Amount: params.Amount,
+            ThankYouPage: params.ThankYouPage,
         };
 
         _self.methodId = params.MethodId;
@@ -34,6 +35,6 @@ function KDPay() {
         });
     }
 
-    return kdpay;
+    return wechatpay;
 }
 
