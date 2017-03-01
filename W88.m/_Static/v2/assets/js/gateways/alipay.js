@@ -11,15 +11,23 @@ function AlipayV2() {
         alipay = {};
     }
 
-    alipay.init = function () {
+    alipay.init = function (gatewayId) {
 
         setTranslations();
 
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
                 $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-                $("#paymentNoteContent").text(_w88_contents.translate("LABEL_PAYMENT_NOTE_ALIPAY"));
                 $('label[id$="lblDepositAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
+
+                if (!_.isUndefined(gatewayId)) {
+                    if (gatewayId == "120254") {
+                        $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_120254")); //SDA alipay note
+                    }
+                } else {
+                    $("#paymentNoteContent").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_ALIPAY"));
+                }
+
             } else {
                 window.setInterval(function () {
                     setTranslations();

@@ -36,6 +36,7 @@ public partial class Deposit_EGHL : PaymentBasePage
 
         if (!Page.IsPostBack)
         {
+            CheckAgentAndRedirect(string.Concat(V2DepositPath, "Pay", PaymentMethodId, ".aspx"));
             this.InitializeLabels();
         }
     }

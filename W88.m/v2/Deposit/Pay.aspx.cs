@@ -13,9 +13,9 @@ public partial class v2_Deposit_Pay : PaymentBasePage
             isAutoRoute = Boolean.TryParse(Request.QueryString["AutoRoute"], out isAutoRoute);
         }
 
-       var methodId = (isAutoRoute)
-            ? (int) Enum.Parse(typeof (commonVariables.AutoRouteMethod), Request.QueryString["MethodId"])
-            : (int) Enum.Parse(typeof (commonVariables.DepositMethod), Request.QueryString["MethodId"]);
+        var methodId = (isAutoRoute)
+             ? (int)Enum.Parse(typeof(commonVariables.AutoRouteMethod), Request.QueryString["MethodId"])
+             : (int)Enum.Parse(typeof(commonVariables.DepositMethod), Request.QueryString["MethodId"]);
 
         switch (methodId)
         {
@@ -57,6 +57,19 @@ public partial class v2_Deposit_Pay : PaymentBasePage
                 GatewayFile = "baokim";
                 break;
 
+            case (int)commonVariables.DepositMethod.SDPay:
+                GatewayFile = "unionpay";
+                break;
+
+            case (int)commonVariables.DepositMethod.DaddyPay:
+            case (int)commonVariables.DepositMethod.DaddyPayQR:
+                GatewayFile = "daddypay";
+                break;
+
+            case (int)commonVariables.DepositMethod.SDAPayAlipay:
+                GatewayFile = "sdapay";
+                break;
+
             case (int)commonVariables.AutoRouteMethod.AliPay:
             case (int)commonVariables.DepositMethod.NineVPayAlipay:
             case (int)commonVariables.DepositMethod.JuyPayAlipay:
@@ -79,6 +92,7 @@ public partial class v2_Deposit_Pay : PaymentBasePage
             case (int)commonVariables.DepositMethod.NganLuong:
             case (int)commonVariables.DepositMethod.Help2Pay:
             case (int)commonVariables.DepositMethod.ECPSS:
+            case (int)commonVariables.DepositMethod.EGHL:
                 GatewayFile = "quickonline";
                 break;
 

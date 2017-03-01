@@ -1,24 +1,31 @@
-﻿window.w88Mobile.Gateways.WeChatV2 = WeChatV2();
-var _w88_wechat = window.w88Mobile.Gateways.WeChatV2;
+﻿window.w88Mobile.Gateways.UnionPay = UnionPay();
+var _w88_unionpay = window.w88Mobile.Gateways.UnionPay;
 
-function WeChatV2() {
+function UnionPay() {
 
-    var wechat = {};
+    var unionpay;
 
     try {
-        wechat = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+        unionpay = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
     } catch (err) {
-        wechat = {};
+        unionpay = {};
     }
 
-    wechat.init = function () {
+    unionpay.init = function (gatewayId) {
 
         setTranslations();
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
-                $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-                $("#paymentNoteContent").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_WECHAT"));
+
                 $('label[id$="lblDepositAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
+                $("#paymentNote").text(_w88_contents.translate("LABEL_REMINDER"));
+
+                if (!_.isUndefined(gatewayId)) {
+                    if (gatewayId == "120223") {
+                        $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_120223")); //SD pay
+                    }
+                }
+
             } else {
                 window.setInterval(function () {
                     setTranslations();
@@ -27,7 +34,7 @@ function WeChatV2() {
         }
     };
 
-    wechat.createDeposit = function () {
+    unionpay.createDeposit = function () {
         var _self = this;
         var params = _self.getUrlVars();
         var data = {
@@ -66,5 +73,5 @@ function WeChatV2() {
             });
     }
 
-    return wechat;
+    return unionpay;
 }

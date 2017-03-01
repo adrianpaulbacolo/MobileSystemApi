@@ -1,17 +1,17 @@
-﻿window.w88Mobile.Gateways.QuickOnlineV2 = QuickOnlineV2();
-var _w88_quickonline = window.w88Mobile.Gateways.QuickOnlineV2;
+﻿window.w88Mobile.Gateways.DaddyPayV2 = DaddyPayV2();
+var _w88_daddypay = window.w88Mobile.Gateways.DaddyPayV2;
 
-function QuickOnlineV2() {
+function DaddyPayV2() {
 
-    var quickonline;
+    var daddypay;
 
     try {
-        quickonline = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+        daddypay = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
     } catch (err) {
-        quickonline = {};
+        daddypay = {};
     }
 
-    quickonline.init = function(gateway, getBank) {
+    daddypay.init = function (gateway, getBank) {
 
         setTranslations();
 
@@ -19,18 +19,13 @@ function QuickOnlineV2() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
 
                 $('label[id$="lblDepositAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
+                $('label[id$="lbldrpDepositAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
                 $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
-
-                if (gateway == '120265') { //EGHL
-                    $('label[id$="paymentNoteContent"]').html(_w88_contents.translate("LABEL_MSG_120265"));
-                } else {
-                    //payment note is for ECPSS
-                    $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-                    $('label[id$="paymentNoteContent"]').html(_w88_contents.translate("LABEL_MSG_BANK_NOT_SUPPORTED"));
-                }
+                $('label[id$="lblAccountName"]').text(_w88_contents.translate("LABEL_ACCOUNT_NAME"));
+                $('label[id$="lblAccountNumber"]').text(_w88_contents.translate("LABEL_ACCOUNT_NUMBER"));
 
             } else {
-                window.setInterval(function() {
+                window.setInterval(function () {
                     setTranslations();
                 }, 500);
             }
@@ -50,21 +45,38 @@ function QuickOnlineV2() {
         }
     };
 
-    quickonline.nganluongInit = function () {
+    daddypay.getnickname = function () {
+        var data = {
+            action: "getNickname",
+            nickname: ""
+        };
 
-        setTranslations();
-        function setTranslations() {
-            if (_w88_contents.translate("BUTTON_PROCEED") != "BUTTON_PROCEED") {
-                $("#btnSubmitPlacement").text(_w88_contents.translate("BUTTON_PROCEED"));
-            } else {
-                window.setInterval(function () {
-                    setTranslations();
-                }, 500);
+        _w88_paymentSvcV2.Send("/user/wechatnickname/", "GET", data, function (response) {
+            if (response && _.isEqual(response.ResponseCode, 1)) {
+                $('#txtAccountName').val(response.responseData);
+                $('#hfWCNickname').val(response.responseData); //store original nickname if any.    
             }
+            
+        });
+    };
+
+    daddypay.togglePayment = function (bankId) {
+    
+        $("#txtAccountName").val('');
+        if (bankId == "40") { //WeChat
+            $("#amount").hide();
+            $("#drpAmount").show();
+            $("#accountNo").hide();
+            _w88_daddypay.getnickname();
+        }
+        else { //QR
+            $("#amount").show();
+            $("#drpAmount").hide();
+            $("#accountNo").show();
         }
     };
 
-    quickonline.createDeposit = function () {
+    daddypay.createDeposit = function () {
         var _self = this;
         var params = _self.getUrlVars();
         var data = {
@@ -74,6 +86,15 @@ function QuickOnlineV2() {
         if (!_.isUndefined(params.Amount)) {
             data.Amount = params.Amount;
         }
+
+        if (!_.isUndefined(params.AccountName)) {
+            data.AccountName = params.AccountName;
+        }
+
+        if (!_.isUndefined(params.AccountNumber)) {
+            data.AccountNumber = params.AccountNumber;
+        }
+
 
         if (!_.isUndefined(params.BankValue)) {
             data.Bank = { Text: params.BankText, Value: params.BankValue };
@@ -110,5 +131,5 @@ function QuickOnlineV2() {
         });
     }
 
-    return quickonline;
+    return daddypay;
 }

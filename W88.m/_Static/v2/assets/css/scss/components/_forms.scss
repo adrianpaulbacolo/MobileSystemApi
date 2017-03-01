@@ -89,15 +89,25 @@
   }
 }
 
-li.pay-note {
+div.pay-note {
     font-size: 70%;
 }
 
-li.pay-note #paymentNote {
+div.pay-note #paymentNote {
     color: red;
     font-weight: bold;
 }
 
-li.pay-note #paymentNoteContent {
+div.pay-note #paymentNoteContent {
     padding-top: 5px;
 }
+
+div.error-group {
+    font-size: 70%;
+}
+
+div.error-group span {
+    color: red;
+    font-weight: bold;
+}
+

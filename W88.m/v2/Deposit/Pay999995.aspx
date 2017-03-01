@@ -7,7 +7,8 @@
     </div>
     <div class="form-group">
         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
-        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" onKeyPress="return ValidatePositiveDecimal(this, event);" />
+        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" onKeyPress="return ValidatePositiveDecimal(this, event);" required data-paylimit="0" data-onedecimal="true"/>
+        <div class="error-group"><span id="errorAmount"></span></div>
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">
@@ -30,25 +31,29 @@
 
              window.w88Mobile.Gateways.WeChatV2.init();
 
-             $('#form1').submit(function (e) {
-                 var hasOneDecimal = PositiveOneDecimalValidation($('#<%=txtAmount.ClientID%>').val());
+             $('#form1').validator().on('submit', function (e) {
 
-                 if (!hasOneDecimal) {
+                 if (!e.isDefaultPrevented()) {
+                     var hasOneDecimal = PositiveOneDecimalValidation($('#<%=txtAmount.ClientID%>').val());
+
+                     if (!hasOneDecimal) {
+                         return;
+                     }
+
+                     e.preventDefault();
+                     var data = {
+                         Amount: $('input[id$="txtAmount"]').val(),
+                         ThankYouPage: location.protocol + "//" + location.host + "/Index",
+                         MethodId: "<%=base.PaymentMethodId%>",
+                         AutoRoute: true
+                     };
+
+                     var params = decodeURIComponent($.param(data));
+                     window.open(_w88_paymentSvcV2.payRoute + "?" + params, "<%=base.PageName%>");
+                     _w88_paymentSvcV2.onTransactionCreated($(this));
                      return;
                  }
 
-                 e.preventDefault();
-                 var data = {
-                     Amount: $('input[id$="txtAmount"]').val(),
-                     ThankYouPage: location.protocol + "//" + location.host + "/Index",
-                     MethodId: "<%=base.PaymentMethodId%>",
-                     AutoRoute: true
-                 };
-
-                 var params = decodeURIComponent($.param(data));
-                 window.open(_w88_paymentSvcV2.payRoute + "?" + params, "<%=base.PageName%>");
-                 _w88_paymentSvcV2.onTransactionCreated($(this));
-                 return;
              });
 
          });

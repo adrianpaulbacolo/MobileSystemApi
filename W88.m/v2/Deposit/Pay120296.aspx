@@ -3,15 +3,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
     <div class="form-group">
         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
-        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" />
+        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" required data-paylimit="0" />
+        <div class="error-group"><span id="errorAmount"></span></div>
     </div>
     <div class="form-group">
         <asp:Label ID="lblAcctName" runat="server" AssociatedControlID="txtAccountName" />
-        <asp:TextBox ID="txtAccountName" runat="server" CssClass="form-control" />
+        <asp:TextBox ID="txtAccountName" runat="server" CssClass="form-control" required data-accountName=""/>
+        <div class="error-group"><span id="errorAccountName"></span></div>
     </div>
     <div class="form-group">
         <asp:Label ID="lblAcctNumber" runat="server" AssociatedControlID="txtAccountNumber" />
-        <asp:TextBox ID="txtAccountNumber" runat="server" TextMode="Password" CssClass="form-control" />
+        <asp:TextBox ID="txtAccountNumber" runat="server" TextMode="Password" CssClass="form-control" required data-accountNo=""/>
+         <div class="error-group"><span id="errorAccountN"></span></div>
     </div>
     <div class="form-group">
         <asp:Label ID="lblVenusPoints" runat="server" />

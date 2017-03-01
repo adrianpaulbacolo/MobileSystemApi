@@ -72,6 +72,7 @@ function DefaultPaymentsV2() {
 
     function displaySettings(methodId, options) {
         paymentOptions = options;
+        initiateValidator(methodId);
         fetchSettings(paymentOptions.type, function () {
             if (!_.isEmpty(paymentCache)) {
                 var setting = _.find(paymentCache.settings, function (data) {
@@ -177,6 +178,59 @@ function DefaultPaymentsV2() {
         if (!_.isUndefined(form)) _.first(form).reset();
         w88Mobile.Growl.shout(_w88_contents.translate("MESSAGES_CHECK_HISTORY"));
     }
+
+    function validateLimits(methodId, value) {
+
+        $("#errorAmount").text('');
+
+        if (!_.isUndefined(value)) {
+            var setting = _.find(paymentCache.settings, function (data) {
+                return data.Id == methodId;
+            });
+
+            if (value < setting.MinAmount) {
+                $("#errorAmount").text(_w88_contents.translate("Pay_AmountMinLimit"));
+                return true;
+            }
+            else if (value > setting.MaxAmount) {
+                $("#errorAmount").text(_w88_contents.translate("Pay_AmountMaxLimit"));
+                return true;
+            }
+        }
+    }
+
+
+    function initiateValidator(methodId) {
+        $('#form1').validator({
+            custom: {
+                bankequals: function ($el) {
+                    $("#errorBank").text('');
+                    var matchValue = $el.data("bankequals");
+                    if ($el.val() == matchValue) {
+                        $("#errorBank").text(_w88_contents.translate("Pay_MissingBank"));
+                        return true;
+                    }
+                },
+                paylimit: function ($el) {
+                    return validateLimits(methodId, $el.val());
+                },
+                onedecimal: function ($el) {
+                    return PositiveOneDecimalValidation($el.val(), $el);
+                },
+                accountNo: function () {
+                    $("#errorAccountNo").text(_w88_contents.translate("Pay_MissingAccountNumber"));
+                    return true;
+                },
+                accountName: function () {
+                    $("#errorAccountName").text(_w88_contents.translate("Pay_MissingAccountName"));
+                    return true;
+                }
+
+            }
+        });
+
+    }
+
 
     function setDepositPaymentTab(responseData, activeTabId) {
         if (responseData.length > 0) {
@@ -326,7 +380,7 @@ function DefaultPaymentsV2() {
                 return "Neteller.aspx";
 
             case "210709":
-                return "WingMoney.aspx";
+                return "210709";
 
             case "220895":
                 return "VenusPoint.aspx";
@@ -348,7 +402,7 @@ function DefaultPaymentsV2() {
                 return "JutaPay.aspx";
 
             case "110308":
-                return "WingMoney.aspx";
+                return "110308";
 
             case "120223":
                 return "SDPay.aspx";
