@@ -26,9 +26,8 @@
   &:focus {
       border-color: $brand-primary;
       outline: 0 none;
-      @include box-shadow(none);
+      @include box-shadow(0 1px 0px 0 $brand-primary);
   }
-
 }
 
 select.form-control{
@@ -115,10 +114,10 @@ div.error-group span {
 }
 .has-error .form-control {
   border-color: $brand-danger;
-  @include box-shadow(none);
+  @include box-shadow(0 1px 0px 0 $brand-danger);
   &:focus{
     border-color: lighten($brand-danger, 7%);
-    @include box-shadow(none);
+    @include box-shadow(0 1px 0px 0 lighten($brand-danger, 7%));
   }
 
 }
