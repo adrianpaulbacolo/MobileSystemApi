@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" Runat="Server">
      <div class="form-group">
         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
-        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" />
+        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" required data-paylimit="0" />
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" Runat="Server">
@@ -16,19 +16,22 @@
 
             window.w88Mobile.Gateways.QuickOnlineV2.init("<%=base.PaymentMethodId %>", false);
 
-            $('#form1').submit(function (e) {
-                e.preventDefault();
-                var data = {
-                    Amount: $('input[id$="txtAmount"]').val(),
-                    ThankYouPage: location.protocol + "//" + location.host + "/Index",
-                    MethodId: "<%=base.PaymentMethodId%>"
-                 };
+            $('#form1').validator().on('submit', function (e) {
 
-                 var params = decodeURIComponent($.param(data));
-                 window.open(_w88_paymentSvcV2.payRoute + "?" + params, "<%=base.PageName%>");
-                _w88_paymentSvcV2.onTransactionCreated($(this));
-                return;
-             });
+                if (!e.isDefaultPrevented()) {
+                    e.preventDefault();
+                    var data = {
+                        Amount: $('input[id$="txtAmount"]').val(),
+                        ThankYouPage: location.protocol + "//" + location.host + "/Index",
+                        MethodId: "<%=base.PaymentMethodId%>"
+                    };
+
+                    var params = decodeURIComponent($.param(data));
+                    window.open(_w88_paymentSvcV2.payRoute + "?" + params, "<%=base.PageName%>");
+                    _w88_paymentSvcV2.onTransactionCreated($(this));
+                    return;
+                }
+            });
 
         });
 

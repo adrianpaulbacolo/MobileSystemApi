@@ -8,7 +8,6 @@
     <div class="form-group">
         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
         <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" onKeyPress="return ValidatePositiveDecimal(this, event);" required data-paylimit="0" />
-        <div class="error-group"><span id="errorAmount"></span></div>
     </div>
 
 </asp:Content>

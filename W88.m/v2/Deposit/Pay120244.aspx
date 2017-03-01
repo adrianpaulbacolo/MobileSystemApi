@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
     <div class="form-group" id="amount">
         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
-        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" />
+        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" required data-paylimit="0" />
     </div>
     <div class="form-group" id="drpAmount" style="display: none;">
         <asp:Label ID="lbldrpDepositAmount" runat="server" AssociatedControlID="drpDepositAmount" />
@@ -33,22 +33,25 @@
 
             window.w88Mobile.Gateways.DaddyPayV2.init("<%=base.PaymentMethodId %>", true);
 
-            $('#form1').submit(function (e) {
-                e.preventDefault();
-                var data = {
-                    Amount: $('select[id$="drpBank"] option:selected').val() == "40" ? $('select[id$="drpDepositAmount"] option:selected').val() : $('input[id$="txtAmount"]').val(),
-                    BankText: $('select[id$="drpBank"] option:selected').val(),
-                    BankValue: $('select[id$="drpBank"]').val(),
-                    AccountName: $('input[id$="txtAccountName"]').val(),
-                    AccountNumber: $('input[id$="txtAccountNumber"]').val(),
-                    ThankYouPage: location.protocol + "//" + location.host + "/Index",
-                    MethodId: "<%=base.PaymentMethodId%>"
-                };
+            $('#form1').validator().on('submit', function (e) {
 
-                var params = decodeURIComponent($.param(data));
-                window.open(_w88_paymentSvcV2.payRoute + "?" + params, "<%=base.PageName%>");
-                 _w88_paymentSvcV2.onTransactionCreated($(this));
-                 return;
+                if (!e.isDefaultPrevented()) {
+                    e.preventDefault();
+                    var data = {
+                        Amount: $('select[id$="drpBank"] option:selected').val() == "40" ? $('select[id$="drpDepositAmount"] option:selected').val() : $('input[id$="txtAmount"]').val(),
+                        BankText: $('select[id$="drpBank"] option:selected').val(),
+                        BankValue: $('select[id$="drpBank"]').val(),
+                        AccountName: $('input[id$="txtAccountName"]').val(),
+                        AccountNumber: $('input[id$="txtAccountNumber"]').val(),
+                        ThankYouPage: location.protocol + "//" + location.host + "/Index",
+                        MethodId: "<%=base.PaymentMethodId%>"
+                    };
+
+                    var params = decodeURIComponent($.param(data));
+                    window.open(_w88_paymentSvcV2.payRoute + "?" + params, "<%=base.PageName%>");
+                    _w88_paymentSvcV2.onTransactionCreated($(this));
+                    return;
+                }
             });
 
             $('#<%=drpBank.ClientID%>').change(function () {

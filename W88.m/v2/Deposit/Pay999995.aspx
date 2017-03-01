@@ -7,8 +7,7 @@
     </div>
     <div class="form-group">
         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
-        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" onKeyPress="return ValidatePositiveDecimal(this, event);" required data-paylimit="0" data-onedecimal="true"/>
-        <div class="error-group"><span id="errorAmount"></span></div>
+        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" onKeyPress="return ValidatePositiveDecimal(this, event);" required data-paylimit="0" data-onedecimal="true" />
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">
@@ -21,12 +20,12 @@
         var isAndroid = ua.indexOf("android") > -1;
         if (isAndroid) {
             $('#<%=txtAmount.ClientID%>').keypress(function (event) {
-                 return TwoDecimalAndroid($(this), event);
-             });
-         }
+                return TwoDecimalAndroid($(this), event);
+            });
+        }
 
-         $(document).ready(function () {
-             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
+        $(document).ready(function () {
+            _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
              _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
              window.w88Mobile.Gateways.WeChatV2.init();

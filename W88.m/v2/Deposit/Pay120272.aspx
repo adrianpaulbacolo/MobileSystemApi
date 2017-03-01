@@ -14,7 +14,7 @@
     <div id="atm">
         <div class="form-group">
             <asp:Label ID="lblDepositAmountAtm" runat="server" AssociatedControlID="txtAmountAtm" />
-            <asp:TextBox ID="txtAmountAtm" runat="server" type="number" step="any" min="1" CssClass="form-control" />
+            <asp:TextBox ID="txtAmountAtm" runat="server" type="number" step="any" min="1" CssClass="form-control" required data-paylimit="0" />
         </div>
         <div class="form-group">
             <asp:Label ID="lblBanks" runat="server" AssociatedControlID="drpBank" />
@@ -32,7 +32,7 @@
     <div id="ewallet">
         <div class="form-group">
             <asp:Label ID="lblDepositAmountWallet" runat="server" AssociatedControlID="txtAmountWallet" />
-            <asp:TextBox ID="txtAmountWallet" runat="server" type="number" step="any" min="1" CssClass="form-control" />
+            <asp:TextBox ID="txtAmountWallet" runat="server" type="number" step="any" min="1" CssClass="form-control" required data-paylimit="0" />
         </div>
         <div class="form-group">
             <asp:Label ID="lblEmail" runat="server" AssociatedControlID="txtEmailWallet" />
@@ -76,35 +76,38 @@
                 }
             });
 
-            $('#form1').submit(function (e) {
-                e.preventDefault();
-                var data;
+            $('#form1').validator().on('submit', function (e) {
 
-                if (window.w88Mobile.Gateways.BaokimV2.method == "EWALLET") {
-                    data = {
-                        Method: window.w88Mobile.Gateways.BaokimV2.method,
-                        Amount: $('input[id$="txtAmountWallet"]').val(),
-                        Email: $('input[id$="txtEmailWallet"]').val(),
-                        MethodId: "<%=base.PaymentMethodId%>",
-                        ThankYouPage: location.protocol + "//" + location.host + "/Deposit/BaokimWallet.aspx?requestAmount=" + $('input[id$="txtAmountWallet"]').val()
-                    };
-                } else {
-                    data = {
-                        Method: window.w88Mobile.Gateways.BaokimV2.method,
-                        Amount: $('input[id$="txtAmountAtm"]').val(),
-                        Email: $('input[id$="txtEmailAtm"]').val(),
-                        Phone: $('input[id$="txtContact"]').val(),
-                        BankText: $('select[id$="drpBank"] option:selected').text(),
-                        BankValue: $('select[id$="drpBank"]').val(),
-                        MethodId: "<%=base.PaymentMethodId%>",
-                        ThankYouPage: location.protocol + "//" + location.host + "/Deposit/Thankyou.aspx"
-                    };
+                if (!e.isDefaultPrevented()) {
+                    e.preventDefault();
+                    var data;
+
+                    if (window.w88Mobile.Gateways.BaokimV2.method == "EWALLET") {
+                        data = {
+                            Method: window.w88Mobile.Gateways.BaokimV2.method,
+                            Amount: $('input[id$="txtAmountWallet"]').val(),
+                            Email: $('input[id$="txtEmailWallet"]').val(),
+                            MethodId: "<%=base.PaymentMethodId%>",
+                            ThankYouPage: location.protocol + "//" + location.host + "/Deposit/BaokimWallet.aspx?requestAmount=" + $('input[id$="txtAmountWallet"]').val()
+                        };
+                    } else {
+                        data = {
+                            Method: window.w88Mobile.Gateways.BaokimV2.method,
+                            Amount: $('input[id$="txtAmountAtm"]').val(),
+                            Email: $('input[id$="txtEmailAtm"]').val(),
+                            Phone: $('input[id$="txtContact"]').val(),
+                            BankText: $('select[id$="drpBank"] option:selected').text(),
+                            BankValue: $('select[id$="drpBank"]').val(),
+                            MethodId: "<%=base.PaymentMethodId%>",
+                            ThankYouPage: location.protocol + "//" + location.host + "/Deposit/Thankyou.aspx"
+                        };
+                    }
+
+                    var params = decodeURIComponent($.param(data));
+                    window.open(_w88_paymentSvcV2.payRoute + "?" + params, "<%=base.PageName%>");
+                    _w88_paymentSvcV2.onTransactionCreated($(this));
+                    return;
                 }
-
-                var params = decodeURIComponent($.param(data));
-                window.open(_w88_paymentSvcV2.payRoute + "?" + params, "<%=base.PageName%>");
-                _w88_paymentSvcV2.onTransactionCreated($(this));
-                return;
             });
 
         });

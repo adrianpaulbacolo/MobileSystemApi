@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
     <div class="form-group">
         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
-        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1"  CssClass="form-control"  />
+        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1"  CssClass="form-control" required data-paylimit="0" />
     </div>
     <div class="form-group">
         <asp:Label ID="lblCardType" runat="server" AssociatedControlID="ddlCardType" />
@@ -63,25 +63,28 @@
             $('#<%=txtCardNo.ClientID%>').mask('9999-9999-9999-9999');
             $('#<%=txtSecurityCode.ClientID%>').mask('999');
 
-            $('#form1').submit(function (e) {
-                e.preventDefault();
+            $('#form1').validator().on('submit', function (e) {
 
-                var data = {
-                    Amount: $('input[id$="txtAmount"]').val(),
-                    CardTypeText: $('select[id$="ddlCardType"] option:selected').text(),
-                    CardTypeValue: $('select[id$="ddlCardType"]').val(),
-                    AccountName: $('[id$="txtCardName"]').val(),
-                    CardNumber: $('[id$="txtCardNo"]').val(),
-                    CardExpiryMonth: $('select[id$="ddlExpiryMonth"]').val(),
-                    CardExpiryYear: $('select[id$="ddlExpiryYear"]').val(),
-                    CCV: $('[id$="txtSecurityCode"]').val(),
-                    MethodId: "<%=base.PaymentMethodId%>"
-                };
+                if (!e.isDefaultPrevented()) {
+                    e.preventDefault();
 
-                var params = decodeURIComponent($.param(data));
-                window.open(_w88_paymentSvcV2.payRoute + "?" + params, "<%=base.PageName%>");
-                _w88_paymentSvc.onTransactionCreated($(this));
-                return;
+                    var data = {
+                        Amount: $('input[id$="txtAmount"]').val(),
+                        CardTypeText: $('select[id$="ddlCardType"] option:selected').text(),
+                        CardTypeValue: $('select[id$="ddlCardType"]').val(),
+                        AccountName: $('[id$="txtCardName"]').val(),
+                        CardNumber: $('[id$="txtCardNo"]').val(),
+                        CardExpiryMonth: $('select[id$="ddlExpiryMonth"]').val(),
+                        CardExpiryYear: $('select[id$="ddlExpiryYear"]').val(),
+                        CCV: $('[id$="txtSecurityCode"]').val(),
+                        MethodId: "<%=base.PaymentMethodId%>"
+                    };
+
+                    var params = decodeURIComponent($.param(data));
+                    window.open(_w88_paymentSvcV2.payRoute + "?" + params, "<%=base.PageName%>");
+                    _w88_paymentSvc.onTransactionCreated($(this));
+                    return;
+                }
             });
         });
     </script>

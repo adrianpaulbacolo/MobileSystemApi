@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
     <div class="form-group">
         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
-        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" />
+        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" required data-paylimit="0" />
     </div>
     <div class="form-group">
         <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" />
@@ -26,21 +26,24 @@
 
             window.w88Mobile.Gateways.Neteller.init();
 
-            $('#form1').submit(function (e) {
+            $('#form1').validator().on('submit', function (e) {
 
-                e.preventDefault();
-                var data = {
-                    Amount: $('input[id$="txtAmount"]').val(),
-                    AccountName: $('input[id$="txtAccountName"]').val(),
-                    AccountNumber: $('input[id$="txtAccountNumber"]').val(),
-                    ThankYouPage: location.protocol + "//" + location.host + "/Index",
-                    MethodId: "<%=base.PaymentMethodId%>"
-                };
+                if (!e.isDefaultPrevented()) {
 
-                var params = decodeURIComponent($.param(data));
-                window.open(_w88_paymentSvcV2.payRoute + "?" + params, "<%=base.PageName%>");
-                _w88_paymentSvcV2.onTransactionCreated($(this));
-                return;
+                    e.preventDefault();
+                    var data = {
+                        Amount: $('input[id$="txtAmount"]').val(),
+                        AccountName: $('input[id$="txtAccountName"]').val(),
+                        AccountNumber: $('input[id$="txtAccountNumber"]').val(),
+                        ThankYouPage: location.protocol + "//" + location.host + "/Index",
+                        MethodId: "<%=base.PaymentMethodId%>"
+                    };
+
+                    var params = decodeURIComponent($.param(data));
+                    window.open(_w88_paymentSvcV2.payRoute + "?" + params, "<%=base.PageName%>");
+                    _w88_paymentSvcV2.onTransactionCreated($(this));
+                    return;
+                }
             });
 
         });

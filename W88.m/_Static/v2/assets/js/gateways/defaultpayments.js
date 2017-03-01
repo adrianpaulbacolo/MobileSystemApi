@@ -179,51 +179,67 @@ function DefaultPaymentsV2() {
         w88Mobile.Growl.shout(_w88_contents.translate("MESSAGES_CHECK_HISTORY"));
     }
 
-    function validateLimits(methodId, value) {
-
-        $("#errorAmount").text('');
-
-        if (!_.isUndefined(value)) {
-            var setting = _.find(paymentCache.settings, function (data) {
-                return data.Id == methodId;
-            });
-
-            if (value < setting.MinAmount) {
-                $("#errorAmount").text(_w88_contents.translate("Pay_AmountMinLimit"));
-                return true;
-            }
-            else if (value > setting.MaxAmount) {
-                $("#errorAmount").text(_w88_contents.translate("Pay_AmountMaxLimit"));
-                return true;
-            }
-        }
-    }
-
-
     function initiateValidator(methodId) {
         $('#form1').validator({
             custom: {
                 bankequals: function ($el) {
-                    $("#errorBank").text('');
+                    $el.parent("div.form-group").removeClass('has-error');
+                    $el.parent("div.form-group").children("span.help-block").remove();
                     var matchValue = $el.data("bankequals");
                     if ($el.val() == matchValue) {
-                        $("#errorBank").text(_w88_contents.translate("Pay_MissingBank"));
+                        $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_MissingBank") + '</span>');
+                        $el.parent("div.form-group").addClass('has-error');
                         return true;
                     }
                 },
                 paylimit: function ($el) {
-                    return validateLimits(methodId, $el.val());
+                    $el.parent("div.form-group").children("span.help-block").remove();
+                    $el.parent(".form-group").removeClass('has-error');
+
+                    if (!_.isUndefined($el)) {
+
+                        var setting = _.find(paymentCache.settings, function (data) {
+                            return data.Id == methodId;
+                        });
+
+                        if ($el.val() < setting.MinAmount) {
+                            $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_AmountMinLimit") + '</span>');
+                            return true;
+                        }
+                        else if ($el.val() > setting.MaxAmount) {
+                            $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_AmountMaxLimit") + '</span>');
+                            return true;
+                        }
+                    }
                 },
                 onedecimal: function ($el) {
-                    return PositiveOneDecimalValidation($el.val(), $el);
+                    $el.parent("div.form-group").children("span.help-block").remove();
+                    $el.parent("div.form-group").removeClass('has-error');
+
+                    if (!PositiveOneDecimalValidation($el.val(), $el)) {
+                        $el.parent("div.form-group").addClass('has-error');
+                        return true;
+                    }
                 },
-                accountNo: function () {
-                    $("#errorAccountNo").text(_w88_contents.translate("Pay_MissingAccountNumber"));
-                    return true;
+                accountNo: function ($el) {
+                    $el.parent("div.form-group").children("span.help-block").remove();
+                    $el.parent("div.form-group").removeClass('has-error');
+
+                    if (_.isUndefined($el.val())) {
+                        $el.parent("div.form-group").addClass('has-error');
+                        $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_MissingAccountNumber") + '</span>');
+                        return true;
+                    }
                 },
-                accountName: function () {
-                    $("#errorAccountName").text(_w88_contents.translate("Pay_MissingAccountName"));
-                    return true;
+                accountName: function ($el) {
+                    $el.parent("div.form-group").children("span.help-block").remove();
+                    $el.parent("div.form-group").removeClass('has-error');
+
+                    if (_.isUndefined($el.val())) {
+                        $el.parent("div.form-group").addClass('has-error');
+                        $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_MissingAccountName") + '</span>');
+                        return true;
+                    }
                 }
 
             }

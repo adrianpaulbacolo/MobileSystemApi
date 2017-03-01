@@ -4,12 +4,11 @@
     <div class="form-group">
         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
         <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" required data-paylimit="0" />
-        <div class="error-group"><span id="errorAmount"></span></div>
+        <span id="errorAmount" class="help-block"></span>
     </div>
     <div class="form-group">
         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
         <asp:DropDownList ID="drpBank" runat="server" CssClass="form-control" data-bankequals="-1" />
-        <div class="error-group"><span id="errorBank"></span></div>
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">

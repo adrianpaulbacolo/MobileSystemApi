@@ -8,7 +8,7 @@
         </div>
         <div class="form-group">
             <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
-            <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" />
+            <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" required data-paylimit="0" />
         </div>
     </div>
 
@@ -88,20 +88,21 @@
 
             window.w88Mobile.Gateways.SDAPay.init();
 
-            $('#form1').submit(function (e) {
-                e.preventDefault();
+            $('#form1').validator().on('submit', function (e) {
 
-                if (window.w88Mobile.Gateways.SDAPay.step == 1) {
-                    var data = {
-                        Amount: $('input[id$="txtAmount"]').val()
-                    };
+                if (!e.isDefaultPrevented()) {
+                    e.preventDefault();
 
-                    window.w88Mobile.Gateways.SDAPay.step2("<%=base.PaymentMethodId %>", data);
+                    if (window.w88Mobile.Gateways.SDAPay.step == 1) {
+                        var data = {
+                            Amount: $('input[id$="txtAmount"]').val()
+                        };
+
+                        window.w88Mobile.Gateways.SDAPay.step2("<%=base.PaymentMethodId %>", data);
+                    } else {
+                        window.open(window.w88Mobile.Gateways.SDAPay.bankUrl);
+                    }
                 }
-                else {
-                    window.open(window.w88Mobile.Gateways.SDAPay.bankUrl);
-                }
-
             });
 
 

@@ -8,7 +8,6 @@
     <div class="form-group">
         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
         <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" required data-paylimit="0" />
-         <div class="error-group"><span id="errorAmount"></span></div>
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">
@@ -20,7 +19,7 @@
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
-             window.w88Mobile.Gateways.AlipayV2.init();
+            window.w88Mobile.Gateways.AlipayV2.init();
 
             $('#form1').validator().on('submit', function (e) {
 
@@ -40,7 +39,7 @@
                 }
             });
 
-         });
+        });
 
     </script>
 
