@@ -97,9 +97,11 @@ function slotsCtrl(routeObj, slotSvc, templateSvc) {
         _.forEach(data.club.providers, function (provider) {
             w88Mobile.v2.Slots.get(provider, function (response) {
                 w88Mobile.v2.Slots.addItems(response.ResponseData.Games, response.ResponseData.Provider);
-                pubsub.publish("slotItemsChanged", data._self.setPushData({
-                    provider: response.ResponseData.Provider
-                }));
+                if (response.ResponseCode == 1) {
+                    pubsub.publish("slotItemsChanged", data._self.setPushData({
+                        provider: response.ResponseData.Provider
+                    }));
+                }
             }, function () { })
         });
         data._self.games = w88Mobile.v2.Slots.items;
@@ -126,7 +128,7 @@ function slotsCtrl(routeObj, slotSvc, templateSvc) {
 
                 try {
                     var selector = "";
-                    for (var i = _.clone(slotIndex)-1 ; i >= 0; i--) {
+                    for (var i = _.clone(slotIndex) - 1 ; i >= 0; i--) {
                         var selectorClub = w88Mobile.v2.Slots.clubs[i].name;
                         if (!_.isEmpty($("div." + selectorClub + "-main"))) {
                             selector = "div." + selectorClub + "-main";
@@ -134,7 +136,7 @@ function slotsCtrl(routeObj, slotSvc, templateSvc) {
                         }
                     }
 
-                    if(!_.isEmpty(selector))
+                    if (!_.isEmpty(selector))
                         data._self.page.find(selector).after(innerHtml);
                     else
                         data._self.page.find(".main-content").prepend(innerHtml);
