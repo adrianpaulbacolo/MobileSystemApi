@@ -91,4 +91,9 @@ public class BasePage : Page
             return isVip;
         }
     }
+
+    protected string GetTranslation(string key, string fileName = "")
+    {
+        return CultureHelpers.GetTranslation(key, LanguageHelpers.SelectedLanguage, string.Format("contents/{0}", string.IsNullOrEmpty(fileName) ? "translations" : fileName));
+    }
 }

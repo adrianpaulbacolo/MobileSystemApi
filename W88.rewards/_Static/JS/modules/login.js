@@ -131,23 +131,22 @@ Login.prototype.initiateLogin = function () {
                         window.location.reload();
                     }
                     break;
-                case 22:
-                    GPINTMOBILE.HideSplash();
-                    self.elems.submitButton.attr('disabled', false);
-                    self.showMessage(message);
-                    break;
                 default:
                     self.counter += 1;
-
                     if (self.counter >= 3) {
                         self.elems.captchaDiv.show();
                         self.elems.captchaImg.attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime());
                         self.elems.captcha.val('');
                         self.elems.password.val('');
                     }
-
                     self.elems.submitButton.attr('disabled', false);
                     GPINTMOBILE.HideSplash();
+
+                    if (response.ResponseCode == 21 || response.ResponseCode == 23) 
+                        message = self.translations.InvalidUsernamePassword;
+                    else if (response.ResponseCode == 22) 
+                        message = self.translations.InactiveAccount;
+                  
                     self.showMessage(message);
                     break;
             }

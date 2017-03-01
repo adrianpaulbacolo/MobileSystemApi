@@ -55,6 +55,7 @@
             translations = {
                 Exception: '<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.Exception)%>',
                 IncorrectVCode: '<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.IncorrectVCode)%>',
+                InactiveAccount: '<%=GetTranslation("Login_InactiveAccount", "messages")%>',
                 InvalidUsernamePassword: '<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.InvalidUsernamePassword)%>',
                 MissingPassword: '<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.MissingPassword)%>',
                 MissingUsername: '<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.MissingUsername)%>'
