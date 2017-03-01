@@ -8,7 +8,7 @@
 
     <div class="dashboard dashboard-funds">
         <div class="dashboard-row">
-            <div class="dashboard-col">
+            <div class="dashboard-col launch-deposit">
                 <a href="/v2/Deposit/Default.aspx">
                     <span class="icon icon-deposit"></span><%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%>
                 </a>
