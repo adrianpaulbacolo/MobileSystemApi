@@ -1,4 +1,6 @@
-﻿function AutoRoute() {
+﻿window.w88Mobile.Gateways.AutoRoute = AutoRoute();
+
+function AutoRoute() {
 
     var autoroute = {
         Deposit: deposit,

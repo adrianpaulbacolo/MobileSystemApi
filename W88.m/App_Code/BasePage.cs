@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using customConfig;
 using Helpers;
 using Models;
 
@@ -141,6 +142,17 @@ public class BasePage : System.Web.UI.Page
         }
 
         base.OnLoad(e);
+
+        if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) && !HttpContext.Current.Request.Url.AbsoluteUri.ToLower().Contains("/_secure/vip/"))
+        {
+            var opSettings = new OperatorSettings("W88");
+            foreach (var v in opSettings.Values.Get("VIP_Domains").ToLower().Split(new[] { '|' }).Where(v => v.Equals(HttpContext.Current.Request.Url.Host)))
+            {
+                commonCookie.CookieLanguage = "zh-cn";
+                Response.Clear();
+                Response.Redirect("/_Secure/VIP/login.aspx", true);
+            }
+        }
     }
 
     protected bool CheckLogin()

@@ -15,6 +15,7 @@ public partial class Deposit_JuyPayAlipay : PaymentBasePage
     {
         if (!Page.IsPostBack)
         {
+            CheckAgentAndRedirect(string.Concat(V2DepositPath, "Pay", PaymentMethodId, ".aspx"));
             this.InitializeLabels();
         }
     }

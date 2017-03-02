@@ -1,5 +1,6 @@
 .wallets{
 	background-color: $wallet-bg;
+    height: 171px;
 	@include box-shadow(inset 0 -5px 5px 0 rgba(0,0,0,0.075));
 	.wallet-main{
 		text-align: center;
@@ -50,4 +51,8 @@
 			}
 		}
 	}
+}
+
+.wallets.deposit{
+    height:101px;
 }

@@ -1,61 +1,38 @@
 ﻿function BaokimScratchCard() {
 
-    var gatewayId = "", defaultSelect = "";
+    var defaultSelect = "";
     var telcos = "";
 
     var baokim = {
-        Deposit: deposit,
         SetFee: setFee,
         SetDenom: setDenom,
-        Initialize: translations,
-    };
+        Initialize: init,
+        };
 
     return baokim;
 
-    function send(method, data, beforeSend, success, error, complete) {
-        var url = w88Mobile.APIUrl + "/payments/" + gatewayId;
+    function init() {
+        setTranslations();
+        function setTranslations() {
+            if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
+                $('label[id$="lblDepositAmount"]').text(_w88_contents.translate("LABEL_CARD_AMOUNT"));
+                $('label[id$="lblBanks"]').text(_w88_contents.translate("LABEL_TELCO_NAME"));
+                $('label[id$="lblPin"]').text(_w88_contents.translate("LABEL_CARD_PIN"));
+                $('label[id$="lblCardSerialNo"]').text(_w88_contents.translate("LABEL_CARD_SERIAL"));
 
-        var headers = {
-            'Token': window.User.token,
-            'LanguageCode': window.User.lang
-        };
-        $.ajax({
-            type: method,
-            url: url,
-            data: data,
-            beforeSend: beforeSend,
-            headers: headers,
-            success: success,
-            error: error,
-            complete: complete
-        });
+                sessionStorage.setItem("indicator", _w88_contents.translate("LABEL_INDICATOR_MSG"));
+                $('p[id$="IndicatorMsg"]').html(sessionStorage.getItem("indicator"));
 
-    }
-
-    function translations() {
-        var url = w88Mobile.APIUrl + "/contents";
-
-        var headers = {
-            'LanguageCode': window.User.lang
-        };
-        $.ajax({
-            type: "GET",
-            url: url,
-            headers: headers,
-            success: function (d) {
-                $('#lblDepositAmount').html(d.ResponseData.LABEL_CARD_AMOUNT);
-                $('#lblBanks').html(d.ResponseData.LABEL_TELCO_NAME);
-                $('#lblPin').html(d.ResponseData.LABEL_CARD_PIN);
-                $('#lblCardSerialNo').html(d.ResponseData.LABEL_CARD_SERIAL);
-
-                sessionStorage.setItem("indicator", d.ResponseData.LABEL_INDICATOR_MSG);
-                $('#IndicatorMsg').html(sessionStorage.getItem("indicator"));
-
-                defaultSelect = d.ResponseData.LABEL_SELECT_DEFAULT;
+                defaultSelect = _w88_contents.translate("LABEL_SELECT_DEFAULT");
 
                 getBanks();
+
+            } else {
+                window.setInterval(function () {
+                    setTranslations();
+                }, 500);
             }
-        });
+            }
     }
 
     function getBanks() {
@@ -75,8 +52,8 @@
                 });
 
 
-                $('#drpAmount').append($('<option>').text(defaultSelect).attr('value', '-1'));
-                $('#drpAmount').val("-1").selectmenu("refresh");
+                $('select[id$="ContentPlaceHolder1_ContentPlaceHolder2_drpAmount"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
+                $('select[id$="ContentPlaceHolder1_ContentPlaceHolder2_drpAmount"]').val("-1").selectmenu("refresh");
             }
         });
     }
@@ -86,13 +63,13 @@
             return data.Id == selectedValue;
         });
 
-        $('#drpAmount').empty();
+        $('select[id$="ContentPlaceHolder1_ContentPlaceHolder2_drpAmount"]').empty();
 
-        $('#drpAmount').append($('<option>').text(defaultSelect).attr('value', '-1'));
-        $('#drpAmount').val("-1").selectmenu("refresh");
+        $('select[id$="ContentPlaceHolder1_ContentPlaceHolder2_drpAmount"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
+        $('select[id$="ContentPlaceHolder1_ContentPlaceHolder2_drpAmount"]').val("-1").selectmenu("refresh");
 
         _.forOwn(telco.Denominations, function (data) {
-            $('#drpAmount').append($('<option>').text(data.Text).attr('value', data.Value));
+            $('select[id$="ContentPlaceHolder1_ContentPlaceHolder2_drpAmount"]').append($('<option>').text(data.Text).attr('value', data.Value));
         });
     }
 
@@ -106,20 +83,9 @@
             }
         });
 
-        $('#IndicatorMsg').html(sessionStorage.getItem("indicator") + fee);
+        $('p[id$="IndicatorMsg"]').html(sessionStorage.getItem("indicator") + fee);
     }
 
-    // deposit
-    function deposit(data, successCallback, errorCallback, completeCallback) {
-        gatewayId = "120286";
-        validate(data, "deposit");
-        send("POST", data, function () { GPInt.prototype.ShowSplash(); }, successCallback, errorCallback, completeCallback);
-    }
-
-    function validate(data, method) {
-        // @todo add validation here
-        return;
-    }
 }
 
 window.w88Mobile.Gateways.BaokimScratchCard = BaokimScratchCard();

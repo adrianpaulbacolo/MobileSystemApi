@@ -1,66 +1,102 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/v2/MasterPages/Main.master" AutoEventWireup="true" CodeFile="Payment.master.cs" Inherits="v2_MasterPages_Payment" %>
 
-
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentHolder" runat="Server">
 
-    <div class="wallets">
+    <div class="wallets deposit">
     </div>
 
-    <asp:ContentPlaceHolder ID="PaymentMainContent" runat="Server">
-    </asp:ContentPlaceHolder>
+
+    <div class="gateway-select">
+        <button id="activeTab" class="btn btn-block btn-primary collapsed" type="button" data-toggle="collapse" data-target="#gateway-list" aria-expanded="false" aria-controls="gateway-list">
+        </button>
+        <div class="gateway-list collapse" id="gateway-list">
+            <div id="paymentTabs" class="list-group">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <div class="container">
+            <form class="form" id="form1" runat="server">
+
+
+
+                <div class="gateway-restrictions">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <p><small id="lblMode">Mode</small></p>
+                            </div>
+                            <div class="col-xs-6">
+                                <p><small id="txtMode"></small></p>
+                            </div>
+                            <div class="col-xs-6">
+                                <p><small id="lblMinMaxLimit">Min/Max Limit</small></p>
+                            </div>
+                            <div class="col-xs-6">
+                                <p><small id="txtMinMaxLimit"></small></p>
+                            </div>
+                            <div class="col-xs-6">
+                                <p><small id="lblDailyLimit">Daily Limit</small></p>
+                            </div>
+                            <div class="col-xs-6">
+                                <p><small id="txtDailyLimit"></small></p>
+                            </div>
+                            <div class="col-xs-6">
+                                <p><small id="lblTotalAllowed">Total Allowed</small></p>
+                            </div>
+                            <div class="col-xs-6">
+                                <p><small id="txtTotalAllowed"></small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <asp:ContentPlaceHolder ID="PaymentMainContent" runat="Server">
+                </asp:ContentPlaceHolder>
+
+                <button type="submit" id="btnSubmitPlacement" class="btn btn-block btn-primary">Submit</button>
+
+            </form>
+
+        </div>
+    </div>
 
 </asp:Content>
 
 <asp:Content ID="ScriptBottom" ContentPlaceHolderID="InnerScriptPlaceHolder" runat="Server">
-    <script src="/_static/v2/assets/js/funds.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script type="text/javascript" src="/_static/v2/assets/js/gateways/defaultpayments.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script type="text/javascript" src="/_static/v2/assets/js/gateways/gateway.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/formValidator.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="/_Static/JS/jquery.mask.min.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="/_Static/v2/assets/js/funds.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+
     <script>
         $(document).ready(function () {
 
-            pubsub.subscribe('fundsLoaded', onFundsLoaded);
+            pubsub.subscribe('mainWalletLoaded', onMainWalletLoaded);
 
-            _w88_funds.init();
+            _w88_funds.mainWalletInit();
 
-            function onFundsLoaded() {
+            function onMainWalletLoaded() {
 
-                var wallets = _w88_funds.wallets()
+                var wallet = _w88_funds.wallet();
 
                 var mainWalletTpl = _.template(
                     $("script#mainWallet").html()
                 );
 
-                var walletList = _.template(
-                    $("script#walletMenu").html()
-                );
-
                 $("div.wallets").append(
-                    mainWalletTpl(_.first(wallets))
-                );
-
-                $("div.wallets").append(
-                    walletList({ wallets: wallets })
+                    mainWalletTpl(wallet)
                 );
             }
 
         });
 
     </script>
-    <script type="text/template" id='walletMenu'>
-
-        <div class="wallet-group">
-            <div>
-                {% _.forEach( tplData.wallets, function( wallet ){ %}
-            <div class="wallet-group-item">
-                <p>{%-wallet.Name%}</p>
-                <h5>{%-wallet.Balance%}</h5>
-            </div>
-                {% }); %}
-            </div>
-        </div>
-
-    </script>
 
     <script type="text/template" id='mainWallet'>
-
+        
         <div class="wallet-main">
             <p class="wallet-title">{%-tplData.Name%}</p>
             <h4 class="wallet-value">{%-tplData.Balance%}</h4>
@@ -69,4 +105,18 @@
 
     </script>
 
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var isDeposit = _.includes(window.location.pathname.toLowerCase(), "deposit");
+
+            _w88_paymentSvcV2.init(isDeposit);
+        });
+    </script>
+
+    <asp:ContentPlaceHolder ID="ScriptsHolder" runat="Server">
+    </asp:ContentPlaceHolder>
+
 </asp:Content>
+
+

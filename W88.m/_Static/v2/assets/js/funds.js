@@ -3,15 +3,18 @@
 function Funds() {
 
     var wallets = [];
+    var wallet = [];
     var task = "";
 
     return {
         init: init,
-        wallets: getWallets
+        wallets: getWallets,
+        wallet: getWallet,
+        mainWalletInit: mainWalletInit
     }
 
     function init() {
-        fetchWallets({ selector: "funds-wallet-lists" });
+        fetchWallets({ selector: "wallets" });
 
         $("div.launch-deposit").on("click", function (e) {
             e.preventDefault();
@@ -21,6 +24,10 @@ function Funds() {
                 console.log("Native is not defined");
             }
         });
+    }
+
+    function mainWalletInit() {
+        getMainWallet();
     }
 
     function send(resource, method, data, success, error, complete) {
@@ -74,6 +81,22 @@ function Funds() {
 
     function getWallets() {
         return wallets;
+    }
+
+    function getWallet() {
+        return wallet;
+    }
+
+    function getMainWallet() {
+        var resource = "/user/wallet/0";
+        send(resource, "GET", {}, function (response) {
+            if (_.isUndefined(response.ResponseData)) {
+                console.log('Unable to fetch wallet.');
+                return;
+            }
+            wallet = response.ResponseData;
+            pubsub.publish("mainWalletLoaded");
+        });
     }
 
 }
