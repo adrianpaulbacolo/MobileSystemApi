@@ -1,5 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="MainWalletBalance.ascx.cs" Inherits="UserControls.UserControlsMainWalletBalance" %>
 
+<script type="text/javascript" src="/_Static/JS/modules/wallets.js"></script>
 
 <label class="label"><%=commonCulture.ElementValues.getResourceString("mainWallet", commonVariables.LeftMenuXML)%></label>
 <h2 class="value" id="mainwallet"></h2>
