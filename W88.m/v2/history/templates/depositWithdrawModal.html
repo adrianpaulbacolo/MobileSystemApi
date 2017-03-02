@@ -1,0 +1,28 @@
+﻿<div class="history-full">
+    <div class="history-full-header">
+        <h5>{%-history.result.PaymentType%} {%-history.result.DateTime%}</h5>
+        <a href="#" onclick="javascript: w88Mobile.History().closeModal()"><span class="icon ion-ios-close-empty"></span></a>
+    </div>
+    <div class="history-full-content">
+        <div>
+            <p><small id="method-lbl"></small></p>
+            <h5>{%-history.result.PaymentMethod%}</h5>
+        </div>
+        <div>
+            <p><small id="transId-lbl"></small></p>
+            <h5>{%-history.result.TransactionId%}</h5>
+        </div>
+        <div>
+            <p><small id="recAmt-lbl"></small></p>
+            <h5>{%-history.result.ReceivedAmount%}</h5>
+        </div>
+        <div>
+            <p><small id="subAmt-lbl"></small></p>
+            <h5>{%-history.result.SubmittedAmount%}</h5>
+        </div>
+        <div>
+            <p><small id="status-lbl"></small></p>
+            <h5>{%-history.result.Status%}</h5>
+        </div>
+    </div>
+</div>

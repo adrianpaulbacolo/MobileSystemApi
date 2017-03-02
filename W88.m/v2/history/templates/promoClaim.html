@@ -1,0 +1,17 @@
+﻿<div class="history-data">
+    {% if (history.result) { %}
+    {% _.each(history.result, function(item) { %}
+    <div class="history-data-row">
+        <div>
+            <h5 class="h-title">{%-item.SubjectCode%}</h5>
+            <p class="h-date"><small>{%-item.SubmissionDate%}</small></p>
+        </div>
+    </div>
+    {% }); %}
+    {% } else { %}
+    <div class="history-not-found">
+        <span>{%-history.dateFrom%} - {%-history.dateTo%}</span>
+        <span> {%-history.message%}</span>
+    </div>
+    {% }%}
+</div>
