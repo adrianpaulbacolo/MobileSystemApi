@@ -20,6 +20,7 @@ public partial class Deposit_WeChat : PaymentBasePage
 
     protected void Page_Init(object sender, EventArgs e)
     {
+        base.PageName = Convert.ToString(commonVariables.AutoRouteMethod.WeChat);
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.AutoRouteMethod.WeChat);
     }
@@ -34,15 +35,7 @@ public partial class Deposit_WeChat : PaymentBasePage
 
     private void InitializeLabels()
     {
-        lblMode.Text = base.strlblMode;
-        txtMode.Text = base.strtxtMode;
-
-        lblMinMaxLimit.Text = base.strlblMinMaxLimit;
-        txtMinMaxLimit.Text = base.strtxtMinMaxLimit;
-
         lblDepositAmount.Text = base.strlblAmount;
-
-        btnSubmit.Text = base.strbtnSubmit;
 
         lblTransactionId = base.strlblTransactionId;
     }

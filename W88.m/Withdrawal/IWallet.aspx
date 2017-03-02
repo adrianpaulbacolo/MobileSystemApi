@@ -35,9 +35,10 @@
                 payments.send(data, function (response) {
                     switch (response.ResponseCode) {
                         case 1:
-                            w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
+                            w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>", function () {
+                                window.location.reload();
+                            });
 
-                            window.location.reload();
 
                             break;
                         default:

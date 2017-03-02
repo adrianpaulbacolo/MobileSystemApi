@@ -14,9 +14,10 @@
                 responseType: "json",
                 success: function (data) {
                     if (data.code != "1") {
-                        if (typeof data.message != "undefined") alert(data.message);
+                        if (typeof data.message != "undefined") window.w88Mobile.Growl.shout(data.message, function () {
+                            window.location.replace("/Logout");
+                        });
                         clearInterval(sessionPoll);
-                        window.location.replace("/Logout");
                     }
                 },
                 error: function (err) {
@@ -76,9 +77,11 @@ function CheckWholeNumber(element) {
     if (element.val().length > 0) {
         if (element.val().indexOf('.') >= 0) {
             element.parent("div.ui-input-text").attr("style", "border-bottom: 2px solid red !important");
+            $('#amtErr').show();
             return false;
         } else {
             element.parent("div.ui-input-text").removeAttr("style");
+            $('#amtErr').hide();
             return true;
         }
     } else {

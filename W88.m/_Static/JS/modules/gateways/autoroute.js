@@ -2,6 +2,7 @@
 
     var autoroute = {
         Deposit: deposit,
+        Initialize: init
     };
 
     return autoroute;
@@ -31,6 +32,36 @@
     // deposit
     function deposit(methodId, data, successCallback, completeCallback) {
         send("/payments/" + methodId, "POST", data, function () { GPInt.prototype.ShowSplash() }, successCallback, completeCallback);
+    }
+
+    function init() {
+        getGatewayBanks();
+    }
+
+    function getGatewayBanks() {
+        _w88_paymentSvc.SendDeposit("/Banks/gateway", "GET", "", function (response) {
+            switch (response.ResponseCode) {
+                case 1:
+                    $('select[id$="drpBank"]').append($("<option></option>").attr("value", "-1").text(_w88_contents.translate("LABEL_SELECT_DEFAULT")));
+                    $('select[id$="drpBank"]').val("-1").selectmenu("refresh");
+
+                    _.forEach(response.ResponseData, function (data) {
+                        $('select[id$="drpBank"]').append($("<option></option>").attr("value", data.Value).text(data.Text))
+                    })
+
+                    break;
+                default:
+                    if (_.isArray(response.ResponseMessage))
+                        w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
+                    else
+                        w88Mobile.Growl.shout(response.ResponseMessage);
+
+                    break;
+            }
+        },
+      function () {
+          GPInt.prototype.HideSplash();
+      });
     }
 }
 

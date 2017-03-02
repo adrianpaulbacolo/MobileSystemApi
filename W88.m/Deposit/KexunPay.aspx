@@ -16,14 +16,11 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            _w88_paymentSvc.setPaymentTabs("deposit", "<%=base.PaymentMethodId %>", "<%=base.strMemberID %>");
+            _w88_paymentSvc.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvc.DisplaySettings(
                 "<%=base.PaymentMethodId %>"
                 , {
-                    type: "deposit"
-                    , countryCode: "<%=base.strCountryCode %>"
-                    , memberId: "<%=base.strMemberID %>"
-                    , notice: '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>'
+                    type: "<%=base.PaymentType %>"
                 });
 
             $('#form1').submit(function (e) {

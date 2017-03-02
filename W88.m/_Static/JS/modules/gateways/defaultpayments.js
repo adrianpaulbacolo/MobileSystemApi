@@ -17,7 +17,8 @@
         DisplaySettings: displaySettings,
         setPaymentTabs: setPaymentTabs,
         onTransactionCreated: onTransactionCreated,
-        formatDateTime: formatDateTime
+        formatDateTime: formatDateTime,
+        init: init
     };
 
     var paymentCache = {};
@@ -25,6 +26,22 @@
     var paymentOptions = {};
 
     return defaultpayments;
+
+    function init(isDeposit) {
+
+        var headerTitle = isDeposit ? _w88_contents.translate("LABEL_FUNDS_DEPOSIT") : _w88_contents.translate("LABEL_FUNDS_WIDRAW");
+        $('#headerTitle').text(headerTitle);
+        $('span[id$="lblMode"]').text(_w88_contents.translate("LABEL_MODE"));
+        $('span[id$="lblMinMaxLimit"]').text(_w88_contents.translate("LABEL_MINMAX_LIMIT"));
+        $('span[id$="lblDailyLimit"]').text(_w88_contents.translate("LABEL_DAILY_LIMIT"));
+        $('span[id$="lblTotalAllowed"]').text(_w88_contents.translate("LABEL_TOTAL_ALLOWED"));
+
+        $('input[id$="btnSubmit"]').val(_w88_contents.translate("BUTTON_SUBMIT")).button("refresh");
+
+        var type = isDeposit ? "deposit" : "withdrawal";
+
+        fetchSettings(type, function () { });
+    }
 
     function formatDateTime(dateTime) {
         //MM/DD/YYYY h:m:s
@@ -48,26 +65,43 @@
                 });
 
                 if (setting) {
-                    $('#txtMode').text(": " + setting.PaymentMode)
-                    $('#txtMinMaxLimit').text(": " + setting.MinAmount.toLocaleString(undefined, { minimumFractionDigits: 2 }) + " / " + setting.MaxAmount.toLocaleString(undefined, { minimumFractionDigits: 2 }))
-                    $('#txtDailyLimit').text(": " + setting.LimitDaily)
-                    $('#txtTotalAllowed').text(": " + setting.TotalAllowed)
+                    $('#txtMode').text(": " + setting.PaymentMode);
+                    $('#txtMinMaxLimit').text(": " + setting.MinAmount.toLocaleString(undefined, { minimumFractionDigits: 2 }) + " / " + setting.MaxAmount.toLocaleString(undefined, { minimumFractionDigits: 2 }));
+                    $('#txtDailyLimit').text(": " + setting.LimitDaily);
+                    $('#txtTotalAllowed').text(": " + setting.TotalAllowed);
                 }
             }
         })
     }
 
-    function setPaymentTabs(type, activeMethodId, memberid) {
-        if (type == "deposit") {
+    function setPaymentTabs(type, activeMethodId) {
+        if (type.toLowerCase() == "deposit") {
             fetchSettings(type, function () {
-                // payment cache variable is now present once callback is triggered
-                setDepositPaymentTab(paymentCache.settings, activeMethodId, memberid);
-                togglePayment();
+                if (paymentCache.settings.length == 0) {
+                    // track accounts with no gateways
+                    w88Mobile.PiwikManager.trackEvent({
+                        category: type,
+                        action: window.User.countryCode,
+                        name: window.User.memberId
+                    });
+
+                    nogateway();
+                }
+                else {
+                    // payment cache variable is now present once callback is triggered
+                    setDepositPaymentTab(paymentCache.settings, activeMethodId);
+                    togglePayment();
+                }
             });
         } else {
             fetchSettings(type, function () {
-                setWithdrawalPaymentTab(paymentCache.settings, activeMethodId);
-                togglePayment();
+                if (paymentCache.settings.length == 0) {
+                    nogateway();
+                }
+                else {
+                    setWithdrawalPaymentTab(paymentCache.settings, activeMethodId);
+                    togglePayment();
+                }
             });
         }
     }
@@ -75,7 +109,7 @@
     function fetchSettings(type, callback) {
 
         var url = "/payments/settings/" + type;
-        cacheKey = (type == "deposit") ? w88Mobile.Keys.depositSettings : w88Mobile.Keys.withdrawalSettings;
+        cacheKey = (type.toLowerCase() == "deposit") ? w88Mobile.Keys.depositSettings : w88Mobile.Keys.withdrawalSettings;
 
         paymentCache = amplify.store(cacheKey);
 
@@ -120,7 +154,10 @@
             error: function () {
                 console.log("Error connecting to api");
             },
-            complete: complete
+            complete: function () {
+                if (!_.isUndefined(complete)) complete();
+                GPInt.prototype.HideSplash();
+            }
         });
     }
 
@@ -141,7 +178,7 @@
         var payment = amplify.store(w88Mobile.Keys.depositSettings);
 
         if (payment && window.User.lang == payment.language) {
-            setDepositPaymentTab(payment.settings, activeTabId, memberid)
+            setDepositPaymentTab(payment.settings, activeTabId);
         }
         else {
             send("/payments/settings/deposit", "GET", {},
@@ -152,7 +189,7 @@
 
                             amplify.store(w88Mobile.Keys.depositSettings, data, window.User.storageExpiration);
 
-                            setDepositPaymentTab(response.ResponseData, activeTabId, memberid)
+                            setDepositPaymentTab(response.ResponseData, activeTabId);
                         default:
                             break;
                     }
@@ -163,7 +200,7 @@
         togglePayment();
     }
 
-    function setDepositPaymentTab(responseData, activeTabId, memberid) {
+    function setDepositPaymentTab(responseData, activeTabId) {
         if (responseData.length > 0) {
             var routing = [
                 autorouteIds.QuickOnline,
@@ -177,6 +214,9 @@
 
             for (var i = 0; i < responseData.length; i++) {
                 var data = responseData[i];
+
+                if (data.Method)
+                    continue;
 
                 page = setPaymentPage(data.Id);
 
@@ -208,13 +248,22 @@
             }
 
             if (activeTabId) {
-                if ($('#activeDepositTabs').length > 0)
-                    $('#activeDepositTabs').text(title);
+                if (title) {
+                    if ($('#activeDepositTabs').length > 0)
+                        $('#activeDepositTabs').text(title);
 
-                if ($('#activeTab').length > 0)
-                    $('#activeTab').text(title);
+                    if ($('#activeTab').length > 0)
+                        $('#activeTab').text(title);
 
-                $('#headerTitle').append(' - ' + title);
+                    $('#headerTitle').append(' - ' + title);
+                } else {
+                    window.location.href = deposit;
+                }
+
+                if (_.includes(routing, activeTabId)) {
+                    $('#dailyLimit').hide()
+                    $('#totalAllowed').hide()
+                }
             }
             else {
                 if (!isAutoRoute) {
@@ -223,8 +272,6 @@
                         window.location.href = deposit + page;
                 }
             }
-
-            GPInt.prototype.HideSplash();
         } else {
             if (activeTabId) {
                 window.location.href = deposit;
@@ -234,14 +281,11 @@
                 // track accounts with no gateways
                 w88Mobile.PiwikManager.trackEvent({
                     category: "Deposit",
-                    action: countryCode,
-                    name: memberid
+                    action: window.User.countryCode,
+                    name: window.User.memberId
                 });
 
-                $('.empty-state').show();
-                $('#paymentNote').append(paymentNotice);
-
-                GPInt.prototype.HideSplash();
+                nogateway();
             }
         }
     }
@@ -252,7 +296,7 @@
         var payment = amplify.store(w88Mobile.Keys.withdrawalSettings);
 
         if (payment && window.User.lang == payment.language) {
-            setWithdrawalPaymentTab(payment.settings, activeTabId)
+            setWithdrawalPaymentTab(payment.settings, activeTabId);
         }
         else {
             send("/payments/settings/Withdrawal", "GET", {},
@@ -263,7 +307,7 @@
 
                             amplify.store(w88Mobile.Keys.withdrawalSettings, data, window.User.storageExpiration);
 
-                            setWithdrawalPaymentTab(response.ResponseData, activeTabId)
+                            setWithdrawalPaymentTab(response.ResponseData, activeTabId);
                             break;
                         default:
                             break;
@@ -321,12 +365,19 @@
                 window.location.href = withdraw;
             }
             else {
-                $('.empty-state').show();
-                $('#paymentNote').append(paymentNotice);
-
-                GPInt.prototype.HideSplash();
+                nogateway();
             }
         }
+    }
+
+    function nogateway() {
+        $('.empty-state').show();
+        $('#paymentNote').html(_w88_contents.translate("LABEL_PAYMENT_NOTE_NO_GATEWAY"));
+        $('#btnSubmitPlacement').hide();
+        $('#paymentSettings').hide();
+        $('#paymentList').hide();
+
+        GPInt.prototype.HideSplash();
     }
 
     function setPaymentPage(id) {
@@ -340,7 +391,10 @@
                 return "Neteller.aspx";
 
             case "210709":
-                return "WingMoney.aspx";
+                return "210709";
+
+            case "2107138":
+                return "2107138";
 
             case "220895":
                 return "VenusPoint.aspx";
@@ -362,7 +416,10 @@
                 return "JutaPay.aspx";
 
             case "110308":
-                return "WingMoney.aspx";
+                return "110308";
+
+            case "1103132":
+                return "1103132";
 
             case "120223":
                 return "SDPay.aspx";

@@ -5,6 +5,7 @@
         <li class="item item-input">
             <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
             <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" onKeyPress="return NotAllowDecimal(event);" />
+            <span id="amtErr" hidden style="color: red !important"></span>
         </li>
     </ul>
 </asp:Content>
@@ -13,15 +14,18 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
-            _w88_paymentSvc.setPaymentTabs("deposit", "<%=base.PaymentMethodId %>", "<%=base.strMemberID %>");
+            _w88_paymentSvc.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvc.DisplaySettings(
                 "<%=base.PaymentMethodId %>"
                 , {
-                    type: "deposit"
-                    , countryCode: "<%=base.strCountryCode %>"
-                    , memberId: "<%=base.strMemberID %>"
-                    , notice: '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>'
+                    type: "<%=base.PaymentType %>"
                 });
+
+            $('#amtErr').text(_w88_contents.translate("MESSAGES_WHOLE_NUMBER"));
+
+            window.setInterval(function () {
+                CheckWholeNumber($('input[id$="txtAmount'));
+            }, 500);
 
             $('#form1').submit(function (e) {
 
