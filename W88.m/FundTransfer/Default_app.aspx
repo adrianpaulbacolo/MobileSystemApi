@@ -9,6 +9,7 @@
 <head>
     <title><%=commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML) + commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%></title>
     <!--#include virtual="~/_static/head.inc" -->
+       <script type="text/javascript" src="/_Static/JS/modules/fundtransfer.js"></script>
 </head>
 <body>
     <div data-role="page">
