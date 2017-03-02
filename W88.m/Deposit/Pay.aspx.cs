@@ -56,6 +56,9 @@ public partial class Deposit_Pay : PaymentBasePage
             case commonVariables.DepositMethod.NextPay:
                 GatewayFile = "nextpay";
                 break;
+            case commonVariables.DepositMethod.EGHL:
+                GatewayFile = "eghl";
+                break;
         }
 
         commonVariables.AutoRouteMethod autoRouteId;
