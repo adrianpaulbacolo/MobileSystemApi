@@ -41,12 +41,12 @@
 			display: block;
 			padding: 3px 0;
 			&:before{
-    			font-family: "Ionicons";
-				content:'\f3d0';
+    			font-family: "icomoon";
+				content:'\e915';
 				margin-right: 4px;
 			}
 			&.collapsed:before{
-				content:'\f3d8';
+				content:'\e91f';
 			}
 		}
 	}
