@@ -110,14 +110,23 @@ function BaokimV2() {
         }, undefined);
     };
 
+    baokim.verifyOtp = function (data) {
+        _w88_paymentSvcV2.Send("/payments/120272", "POST", data, function (response) {
+            if (response && _.isEqual(response.ResponseCode, 1)) {
+                return response;
+            }
+        }, undefined);
+    };
+
     baokim.validateWallet = function (data, transactionId) {
 
         _w88_paymentSvcV2.Send("/payments/120272/" + transactionId, "GET", data, function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
                 switch (response.ResponseCode) {
                     case 1:
-                        w88Mobile.Growl.shout(response.ResponseMessage);
-                        window.location.replace('/v2/Funds.aspx');
+                        w88Mobile.Growl.shout(response.ResponseMessage, function() {
+                            window.location.replace('/v2/Funds.aspx');
+                        } );
                         break;
                     default:
                         w88Mobile.Growl.shout(response.ResponseMessage);
