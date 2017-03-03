@@ -42,8 +42,6 @@
             </div>
         </div>
 
-        <div class="history-modal"></div>
-
         <div id="filterModal" data-role="popup" data-overlay-theme="b" data-theme="b" data-history="false">
             <a href="#" data-rel="back" class="close close-enhanced">&times;</a>
             <div class="padding">
@@ -82,6 +80,7 @@
             </div>
         </div>
     </div>
+    <div class="history-modal"></div>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="ScriptsPlaceHolder" runat="Server">
     <script type="text/javascript">

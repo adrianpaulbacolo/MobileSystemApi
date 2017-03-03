@@ -60,7 +60,7 @@
 	margin: 0 auto;
 	.h-title{
         color: $brand-color;
-		margin-top: 5px;
+		margin-top: 0;
 		margin-bottom: 5px;
 	    font-size: 1.8rem;
 	}
@@ -82,12 +82,13 @@
 	display: table;
 	padding: 15px;
 	border-bottom: 1px solid rgba($text-color, 0.05);
+	cursor: pointer;
 	table-layout: fixed;
 	&:last-child{
 		border-bottom: none;
 	}
 	> div{
-		vertical-align: top;
+		vertical-align: middle;
 		display: table-cell;
 	}
 	.h-col-last{
@@ -98,8 +99,12 @@
 .notFound{
 	font-size: 1.2rem;
 	text-align: center;
+	padding: 1em 0;
 }
-
+.history-modal{
+	position: relative;
+	z-index: 1000;
+}
 .history-full{
     background-color: darken(#033143, 2%);
 	width: 100%;
@@ -118,7 +123,7 @@
 	overflow: hidden;
 	height: 45px;
 	h5{
-		color: $text-color;
+        color: $text-color;
 		margin-bottom: 0;
 		width: 85%;
 		white-space: nowrap;
@@ -138,6 +143,7 @@
 	}
 }
 .history-full-content{
+	overflow: auto;
 	> div{
 		padding: 15px;
 		border-bottom: 1px solid rgba($text-color, 0.05);
@@ -150,7 +156,7 @@
 		margin-bottom: 3px;
 	}
 	h5{
-        color: $text-color;
+        color: $brand-color;
 		margin-top: 0;
 		margin-bottom: 0;
 	    font-size: 1.8rem;
