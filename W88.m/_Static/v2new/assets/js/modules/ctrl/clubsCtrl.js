@@ -57,6 +57,20 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
 
             _self.page.find(".main-content").children().remove();
             var games = slotSvc.filterSlots(filter, _.clone(_self.games));
+
+            // filter
+            switch(filter.section){
+                case "Home":
+                    games = _.orderBy(games, ["Home"], ["asc"]);
+                    break;
+                case "Top":
+                    games = _.orderBy(games, ["Top"], ["asc"]);
+                    break;
+                case "New":
+                    games = _.orderBy(games, ["New"], ["asc"]);
+                    break;
+            }
+
             pubsub.publish("displaySlotList", _self.setPushData({
                 games: games
                 , page: _self.page
