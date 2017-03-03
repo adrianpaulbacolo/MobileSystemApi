@@ -17,7 +17,7 @@ function Slots() {
     var clubs = [
         { name: "bravado", key: "LABEL_PRODUCTS_BRAVADO", label: "Club Bravado", providers: ["gpi"] }
         , { name: "massimo", key: "LABEL_PRODUCTS_MASSIMO", label: "Club Massimo", providers: ["mgs"] }
-        , { name: "palazzo", key: "LABEL_PRODUCTS_PALAZZO", label: "Club Palazzo", providers: ["pt", "gpi"] }
+        , { name: "palazzo", key: "LABEL_PRODUCTS_PALAZZO", label: "Club Palazzo", providers: ["pt"] }
         , { name: "gallardo", key: "LABEL_PRODUCTS_GALLARDO", label: "Club Gallardo", providers: ["isb", "png"] }
         , { name: "apollo", key: "LABEL_PRODUCTS_APOLLO", label: "Club Apollo", providers: ["qt", "pp"] }
         , { name: "nuovo", key: "LABEL_PRODUCTS_NUOVO", label: "Club Nuovo", providers: ["gns", "pls"] }
@@ -171,7 +171,6 @@ function Slots() {
             publishedItems.push(cloneItem);
         });
 
-        debugger;
         return publishedItems;
     }
 
