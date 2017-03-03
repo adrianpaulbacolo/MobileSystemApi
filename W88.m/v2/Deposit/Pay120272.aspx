@@ -88,7 +88,7 @@
                             Amount: $('input[id$="txtAmountWallet"]').val(),
                             Email: $('input[id$="txtEmailWallet"]').val(),
                             MethodId: "<%=base.PaymentMethodId%>",
-                            ThankYouPage: location.protocol + "//" + location.host + "/Deposit/BaokimWallet.aspx?requestAmount=" + $('input[id$="txtAmountWallet"]').val()
+                            ThankYouPage: location.protocol + "//" + location.host + "/v2/Deposit/Pay120272ew.aspx?requestAmount=" + $('input[id$="txtAmountWallet"]').val()
                         };
                     } else {
                         data = {
