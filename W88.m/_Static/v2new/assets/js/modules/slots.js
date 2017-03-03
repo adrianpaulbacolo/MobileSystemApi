@@ -16,12 +16,12 @@ function Slots() {
     var providers = ["qt", "gpi", "mgs", "pt", "ctxm", "isb"];
     var clubs = [
         { name: "bravado", key: "LABEL_PRODUCTS_BRAVADO", label: "Club Bravado", providers: ["gpi"] }
-        , { name: "massimo", key: "LABEL_PRODUCTS_MASSIMO", label: "Club Massimo", providers: ["mgs", "gpi"] }
+        , { name: "massimo", key: "LABEL_PRODUCTS_MASSIMO", label: "Club Massimo", providers: ["mgs"] }
         , { name: "palazzo", key: "LABEL_PRODUCTS_PALAZZO", label: "Club Palazzo", providers: ["pt", "gpi"] }
-        , { name: "gallardo", key: "LABEL_PRODUCTS_GALLARDO", label: "Club Gallardo", providers: ["isb", "png", "gpi"] }
-        , { name: "apollo", key: "LABEL_PRODUCTS_APOLLO", label: "Club Apollo", providers: ["qt", "pp", "gpi"] }
-        , { name: "nuovo", key: "LABEL_PRODUCTS_NUOVO", label: "Club Nuovo", providers: ["gns", "pls", "gpi"] }
-        , { name: "divino", key: "LABEL_PRODUCTS_DIVINO", label: "Club Divino", providers: ["bs", "ctxm", "uc8", "gpi"] }
+        , { name: "gallardo", key: "LABEL_PRODUCTS_GALLARDO", label: "Club Gallardo", providers: ["isb", "png"] }
+        , { name: "apollo", key: "LABEL_PRODUCTS_APOLLO", label: "Club Apollo", providers: ["qt", "pp"] }
+        , { name: "nuovo", key: "LABEL_PRODUCTS_NUOVO", label: "Club Nuovo", providers: ["gns", "pls"] }
+        , { name: "divino", key: "LABEL_PRODUCTS_DIVINO", label: "Club Divino", providers: ["bs", "ctxm", "uc8"] }
     ];
 
     return {
@@ -42,6 +42,7 @@ function Slots() {
         , translations: {}
         , sectionKeys: sectionKeys
         , send: send
+        , publishedItems: publishedItems
     }
 
 
@@ -94,8 +95,9 @@ function Slots() {
         // filter for section
         if (!_.isUndefined(filter.section)) {
             items = _.filter(items, function (item) {
-                var sections = _.join(item.Section, ",").toLowerCase().split(",");
-                return _.includes(sections, filter.section.toLowerCase());
+                //var sections = _.join(item.Section, ",").toLowerCase().split(",");
+                //return _.includes(sections, filter.section.toCamelCase());
+                return !_.isUndefined(item.Section[filter.section.toCapitalize()]);
             });
         }
 
@@ -132,8 +134,45 @@ function Slots() {
             var itemProviders = _.join(item.providers, ",").toLowerCase().split(",");
             var hasClub = !_.isEmpty(_.intersection(itemProviders, providers));
             if (_.isUndefined(section)) return hasClub;
-            else return _.includes(item.Section, section) && hasClub;
+            else return !_.isUndefined(item.Section[section.toCapitalize()]) && hasClub;
         });
+    }
+
+    function publishedItems(club) {
+        var items = _.filter(w88Mobile.v2.Slots.items, function (item) {
+            hasClub = (!_.isEmpty(item.PublishedTo)) && (!_.isUndefined(item.PublishedTo[club.name.toCapitalize()]));
+            return hasClub;
+        });
+
+        var publishedItems = [];
+        _.forEach(items, function (item) {
+
+            var topItem = !_.isEmpty(item.PublishedTo[club.name.toCapitalize()]["Top"]) ? item.PublishedTo[club.name.toCapitalize()]["Top"] : "";
+            var homeItem = !_.isEmpty(item.PublishedTo[club.name.toCapitalize()]["Home"]) ? item.PublishedTo[club.name.toCapitalize()]["Home"] : "";
+            var newItem = !_.isEmpty(item.PublishedTo[club.name.toCapitalize()]["New"]) ? item.PublishedTo[club.name.toCapitalize()]["New"] : "";
+
+            var cloneItem = _.clone(item);
+            if (_.isEmpty(topItem)) {
+                if (!_.isUndefined(cloneItem["Top"])) delete cloneItem["Top"];
+            } else {
+                cloneItem.Top = topItem;
+            }
+            if (_.isEmpty(homeItem)) {
+                if (!_.isUndefined(cloneItem["Home"])) delete cloneItem["Home"];
+            } else {
+                cloneItem.Home = homeItem;
+            }
+            if (_.isEmpty(newItem)) {
+                if (!_.isUndefined(cloneItem["New"])) delete cloneItem["New"];
+            } else {
+                cloneItem.New = newItem;
+            }
+
+            publishedItems.push(cloneItem);
+        });
+
+        debugger;
+        return publishedItems;
     }
 
     function getFilterOptions(club) {

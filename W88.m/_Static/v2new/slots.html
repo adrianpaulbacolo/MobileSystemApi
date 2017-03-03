@@ -80,6 +80,10 @@
         w88Mobile.User = {};
         w88Mobile.User.token = Cookies().getCookie('s');
         w88Mobile.User.lang = Cookies().getCookie('language');
+
+        String.prototype.toCapitalize = function () {
+            return this.charAt(0).toUpperCase() + this.slice(1);
+        }
     </script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="assets/js/vendor/jquery.js"></script>

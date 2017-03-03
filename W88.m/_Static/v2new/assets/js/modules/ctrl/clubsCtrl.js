@@ -19,6 +19,7 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
         pubsub.subscribe("filterSlotByClub", onFilterSlotByClub);
         pubsub.subscribe("updateFilterOptions", onUpdateFilterOptions);
         _self.games = slotSvc.itemsByClub(_self.club.providers);
+        _self.games = _.concat(_self.games, slotSvc.publishedItems(_self.club));
         getFilterOptions(_self.club);
 
         if(!_.isEmpty(_self.club.key)) _self.title = _contents.translate(_self.club.key);
