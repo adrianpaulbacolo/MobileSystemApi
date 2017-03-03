@@ -15,26 +15,29 @@
 
     void RegisterRoutes(RouteCollection routes)
     {
-        XDocument doc = XDocument.Load(Server.MapPath("~/") + @"/App_Data/MapRoutes.xml");
+        var doc = XDocument.Load(Server.MapPath("~/") + @"/App_Data/MapRoutes.xml");
         routes.RouteExistingFiles = true;
 
-        foreach (XElement xeMapRoute in doc.Root.Elements())
+        if (doc.Root != null)
         {
-            RouteValueDictionary routeValueDictionary = new RouteValueDictionary();
-            routeValueDictionary.Add("reroute", xeMapRoute.Value);
-            if (xeMapRoute.Attribute("AbsoluteURL") != null && !string.IsNullOrEmpty(xeMapRoute.Attribute("AbsoluteURL").Value))
+            foreach (var xeMapRoute in doc.Root.Elements())
             {
-                routes.MapPageRoute(Convert.ToString(xeMapRoute.Name), Convert.ToString(xeMapRoute.Value), Convert.ToString(xeMapRoute.Attribute("AbsoluteURL").Value));              
+                var routeValueDictionary = new RouteValueDictionary();
+                routeValueDictionary.Add("reroute", xeMapRoute.Value);
+                if (xeMapRoute.Attribute("AbsoluteURL") != null && !string.IsNullOrEmpty(xeMapRoute.Attribute("AbsoluteURL").Value))
+                {
+                    routes.MapPageRoute(Convert.ToString(xeMapRoute.Name), Convert.ToString(xeMapRoute.Value), Convert.ToString(xeMapRoute.Attribute("AbsoluteURL").Value));
+                }
             }
         }
 
-        Route logoutRoute = new Route("Logout", new PageRouteHandler("~/Default.aspx"));
+        var logoutRoute = new Route("Logout", new PageRouteHandler("~/Default.aspx"));
         logoutRoute.DataTokens = new RouteValueDictionary { { "logout", "true" } };
 
-        Route expireRoute = new Route("Expire", new PageRouteHandler("~/Default.aspx"));
+        var expireRoute = new Route("Expire", new PageRouteHandler("~/Default.aspx"));
         expireRoute.DataTokens = new RouteValueDictionary { { "expire", "true" } };
 
-        Route invalidRoute = new Route("Invalid", new PageRouteHandler("~/Default.aspx"));
+        var invalidRoute = new Route("Invalid", new PageRouteHandler("~/Default.aspx"));
         invalidRoute.DataTokens = new RouteValueDictionary { { "invalid", "true" } };
 
         routes.Add(logoutRoute);
@@ -57,12 +60,13 @@
     void Session_Start(object sender, EventArgs e)
     {
         // Code that runs when a new session is started   
-        bool isSsl = HttpContext.Current.Request.IsSecureConnection.Equals(true);
-        bool isHttpsOnly = Common.GetAppSetting<string>("httpsOnly").Equals("1");
+        var isSsl = HttpContext.Current.Request.IsSecureConnection.Equals(true);
+        var isHttpsOnly = Common.GetAppSetting<string>("httpsOnly").Equals("1");
         if (isHttpsOnly && !isSsl)
         {
             Response.Redirect("https://" + Request.ServerVariables["HTTP_HOST"] + HttpContext.Current.Request.RawUrl, false);
         }
+        
         if (!string.IsNullOrWhiteSpace(LanguageHelpers.SelectedLanguage)) return;
         var pageHeaders = new W88.Utilities.Geo.Location().CheckCdn(HttpContext.Current.Request);
         if (!string.IsNullOrWhiteSpace(pageHeaders.Cdn) && !string.IsNullOrWhiteSpace(pageHeaders.Key))
@@ -72,7 +76,7 @@
         else
         {
             var myUri = new Uri(HttpContext.Current.Request.Url.ToString());
-            string[] host = myUri.Host.Split('.');
+            var host = myUri.Host.Split('.');
             if (host.Count() > 1)
             {
                 LanguageHelpers.SelectedLanguage = LanguageHelpers.GetLanguageByDomain("." + host[1] + "." + host[2]);
