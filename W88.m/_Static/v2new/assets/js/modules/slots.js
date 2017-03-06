@@ -152,20 +152,24 @@ function Slots() {
             var newItem = !_.isEmpty(item.PublishedTo[club.name.toCapitalize()]["New"]) ? item.PublishedTo[club.name.toCapitalize()]["New"] : "";
 
             var cloneItem = _.clone(item);
-            if (_.isEmpty(topItem)) {
-                if (!_.isUndefined(cloneItem["Top"])) delete cloneItem["Top"];
+            var hasSection = !_.isUndefined(cloneItem.Section);
+
+            if (_.isEmpty(topItem) && hasSection) {
+                if (!_.isUndefined(cloneItem.Section["Top"])) delete cloneItem.Section["Top"];
             } else {
-                cloneItem.Top = topItem;
+                cloneItem.Section.Top = topItem;
             }
-            if (_.isEmpty(homeItem)) {
-                if (!_.isUndefined(cloneItem["Home"])) delete cloneItem["Home"];
+
+            if (_.isEmpty(homeItem) && hasSection) {
+                if (!_.isUndefined(cloneItem.Section["Home"])) delete cloneItem.Section["Home"];
             } else {
-                cloneItem.Home = homeItem;
+                cloneItem.Section.Home = homeItem;
             }
-            if (_.isEmpty(newItem)) {
-                if (!_.isUndefined(cloneItem["New"])) delete cloneItem["New"];
+
+            if (_.isEmpty(newItem) && hasSection) {
+                if (!_.isUndefined(cloneItem.Section["New"])) delete cloneItem.Section["New"];
             } else {
-                cloneItem.New = newItem;
+                cloneItem.Section.New = newItem;
             }
 
             publishedItems.push(cloneItem);

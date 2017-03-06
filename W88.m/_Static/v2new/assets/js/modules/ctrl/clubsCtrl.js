@@ -61,13 +61,34 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
             // filter
             switch(filter.section){
                 case "Home":
-                    games = _.orderBy(games, ["Home"], ["asc"]);
+                    games = _.orderBy(games, function (game) {
+                        var max = games.length;
+                        try{
+                            return (game.Section.Home > 0) ? parseInt(game.Section.Home) : max;
+                        }catch(e){
+                            return max;
+                        }
+                    }, ["asc"]);
                     break;
                 case "Top":
-                    games = _.orderBy(games, ["Top"], ["asc"]);
+                    games = _.orderBy(games, function (game) {
+                        var max = games.length;
+                        try{
+                            return (game.Section.Top > 0) ? parseInt(game.Section.Top) : max;
+                        }catch(e){
+                            return max;
+                        }
+                    }, ["asc"]);
                     break;
                 case "New":
-                    games = _.orderBy(games, ["New"], ["asc"]);
+                    games = _.orderBy(games, function (game) {
+                        var max = games.length;
+                        try {
+                            return (game.Section.New > 0) ? parseInt(game.Section.New) : max;
+                        } catch (e) {
+                            return max;
+                        }
+                    }, ["asc"]);
                     break;
             }
 
