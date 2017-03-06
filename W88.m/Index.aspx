@@ -12,7 +12,8 @@
 <body>
 
     <div class="download-app-box">
-        <%if(mobileDeviceId == 2){%>
+        <%if (mobileDeviceId == 2)
+          {%>
         <div class="download-app">
             <div class="row">
                 <div class="col col-25 download-icon">
@@ -33,7 +34,8 @@
             </div>
         </div>
         <%}%>
-        <%if(mobileDeviceId == 1){%>
+        <%if (mobileDeviceId == 1)
+          {%>
         <div class="download-app">
             <div class="row">
                 <div class="col col-25 download-icon">
@@ -68,8 +70,9 @@
                     </a>
                 </div>-->
             </section>
-            <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) {
-            var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
+            <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+               {
+                   var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
             <div class="row row-no-padding action-btn">
                 <div class="col">
                     <a href="/_Secure/Register.aspx<%= queryString %>" class="ui-btn btn-secondary" role="button" data-ajax="false">
@@ -83,7 +86,8 @@
                 </div>
             </div>
             <% } %>
-            <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+            <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+               { %>
             <div class="row row-no-padding action-btn action-button-lg" data-ajax="false">
                 <div class="col">
                     <a href="Funds.aspx" class="ui-btn btn-primary" role="button" data-ajax="false">
@@ -119,32 +123,21 @@
 
                 <!-- Fishing Game -->
                 <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency))
-                   {
-                       if (commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase))
-                       { %>
+                   { 
+                %>
                 <li class="col col-33 product">
                     <a href="#divPanel" class="tile nav-fish">
                         <span class="icon-fish"></span>
-                        <h4 class="title"><%= commonCulture.ElementValues.getResourceString("FishingWorld", commonVariables.LeftMenuXML) %></h4>
+                        <h4 class="title"><%= commonCulture.ElementValues.getResourceString("FishingTitle", commonVariables.LeftMenuXML) %></h4>
                     </a>
                 </li>
                 <% }
-                       else
-                       { %>
-                <li class="col col-33 product">
-                    <a href="#divPanel" class="tile nav-fish">
-                        <span class="icon-fish"></span>
-                        <h4 class="title"><%= commonCulture.ElementValues.getResourceString("FishingWorld", commonVariables.LeftMenuXML) %></h4>
-                    </a>
-                </li>
-                 <% } %>
-                <% }
-                   else
+                   else 
                    { %>
                 <li class="col col-33 product">
                     <a href="#divPanel" class="tile nav-fish">
                         <span class="icon-fish"></span>
-                        <h4 class="title"><%= commonCulture.ElementValues.getResourceString("FishingWorld", commonVariables.LeftMenuXML) %></h4>
+                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("FishingTitle", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
                 <% } %>
@@ -170,7 +163,8 @@
                 </li>
 
                 <!-- Profile -->
-                <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+                <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+                   { %>
                 <li class="col col-33">
                     <a href="/Profile/Default.aspx" class="tile" data-ajax="false">
                         <span class="icon-profile"></span>
@@ -180,8 +174,10 @@
                         </h4>
                     </a>
                 </li>
-                <% } else {
-                   var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
+                <% }
+                   else
+                   {
+                       var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
                 <% } %>
 
                 <li class="col col-33">
@@ -208,7 +204,8 @@
                     </a>
                 </li>--%>
 
-                <%if(mobileDeviceId == 2){%>
+                <%if (mobileDeviceId == 2)
+                  {%>
                 <li class="col col-33">
                     <a href="/_Static/ClubW/casino.aspx" id="downloadButton" runat="server" class="tile notify" data-ajax="false">
                         <span class="icon- ion-ios-download-outline"></span>
@@ -229,7 +226,7 @@
                    { %>
 
                 <%if (mobileDeviceId == 1)
-                      {%>
+                  {%>
                 <li class="col col-33">
                     <a href="zalo://639989602209" class="tile" data-ajax="false">
                         <span class="icon-zalo"></span>
@@ -237,8 +234,8 @@
                     </a>
                 </li>
                 <%}
-                      else if (mobileDeviceId == 2)
-                      {%>
+                  else if (mobileDeviceId == 2)
+                  {%>
                 <li class="col col-33">
                     <a href="http://zaloapp.com/qr/p/tkz0l05n8qu5" class="tile" data-ajax="false">
                         <span class="icon-zalo"></span>
@@ -288,8 +285,8 @@
                 var url = window.location.protocol + '//www.' + '<%=commonIp.DomainName %>' + '?nomobile=true';
                  
                 <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieAffiliateId))
-                    {%>
-                        url += '&affiliateID=' + <%=commonCookie.CookieAffiliateId%>;
+                   {%>
+                url += '&affiliateID=' + <%=commonCookie.CookieAffiliateId%>;
                 <%  } %>
 
                 $("#icon-desktop").attr('href', url);
