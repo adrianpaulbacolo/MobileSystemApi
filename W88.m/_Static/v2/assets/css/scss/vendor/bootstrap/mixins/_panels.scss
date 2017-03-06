@@ -1,7 +1,5 @@
 // Panels
-.ui-panel-wrapper{
-  z-index: 998 !important;
-}
+
 @mixin panel-variant($border, $heading-text-color, $heading-bg-color, $heading-border) {
   border-color: $border;
 

@@ -406,29 +406,18 @@
 
         if (data) {
             send(data, "/payments/history", "POST", function (response) {
-                switch (response.ResponseCode) {
-                    case 1:
-                        filterResult({
-                            Type: data.ReportType.toLowerCase(),
-                            Result: response.ResponseData,
-                            Message: response.ResponseMessage,
-                            DateFrom: data.DateFrom,
-                            DateTo: data.DateTo
-                        });
-
-                        break;
-
-                    default:
-                        w88Mobile.Growl.shout(response.ResponseMessage);
-
-                        break;
-                }
-
+                filterResult(response.ResponseCode, {
+                    Type: data.ReportType.toLowerCase(),
+                    Result: response.ResponseData,
+                    Message: response.ResponseMessage,
+                    DateFrom: data.DateFrom,
+                    DateTo: data.DateTo
+                });
             });
         }
     }
 
-    function filterResult(data) {
+    function filterResult(responseCode, data) {
         var template = null;
 
         switch (data.Type) {
@@ -470,19 +459,23 @@
             default:
         }
 
-        var content = _.template(template);
-        var innerHtml = content({
-            type: data.Type,
-            result: data.Result,
-            message: data.Message,
-            dateFrom: data.DateFrom,
-            dateTo: data.DateTo
-        });
+        if (!_.isEqual(responseCode, 1)) {
+            w88Mobile.Growl.shout(response.ResponseMessage);
+        } else {
+            var content = _.template(template);
+            var innerHtml = content({
+                type: data.Type,
+                result: data.Result,
+                message: data.Message,
+                dateFrom: data.DateFrom,
+                dateTo: data.DateTo
+            });
 
-        $('#' + data.Type + ' .history-data').empty();
-        $('#' + data.Type).append(innerHtml);
+            $('#' + data.Type + ' .history-data').empty();
+            $('#' + data.Type).append(innerHtml);
 
-        $('.to-lbl').text(_w88_contents.translate("LABEL_TO"));
+            $('.to-lbl').text(_w88_contents.translate("LABEL_TO"));
+        }
     }
 
     function bindSlick(reportType) {

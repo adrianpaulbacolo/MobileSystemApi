@@ -1,6 +1,6 @@
 ﻿<div class="history-data">
-    {% if (history.result) { %}
-    {% _.each(history.result, function(item) { %}
+    {% if (tplData.result) { %}
+    {% _.each(tplData.result, function(item) { %}
     <div class="history-data-row">
         <div>
             <h5 class="h-title">{%-item.SubjectCode%}</h5>
@@ -10,8 +10,8 @@
     {% }); %}
     {% } else { %}
     <div class="history-not-found">
-        <span>{%-history.dateFrom%} - {%-history.dateTo%}</span>
-        <span> {%-history.message%}</span>
+        <span>{%-tplData.dateFrom%} - {%-tplData.dateTo%}</span>
+        <span> {%-tplData.message%}</span>
     </div>
     {% }%}
 </div>

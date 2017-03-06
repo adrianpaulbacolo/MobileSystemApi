@@ -1,7 +1,7 @@
 ﻿<div class="history-data">
-    {% if (history.result) { %}
-    {% _.each(history.result, function(item) { %}
-    <div class="history-data-row" onclick="javascript: w88Mobile.History().showModal('{%- history.type %}', '{%- item.TransactionId %}')">
+    {% if (tplData.result) { %}
+    {% _.each(tplData.result, function(item) { %}
+    <div class="history-data-row" onclick="javascript: w88Mobile.History().showModal('{%- tplData.type %}', '{%- item.TransactionId %}')">
         <div>
             <h5 class="h-title">{%-item.Type%}</h5>
             <p class="h-id">{%-item.TransactionId%}</p>
@@ -14,8 +14,8 @@
     {% }); %}
     {% } else { %}
     <div class="history-not-found">
-        <span>{%-history.dateFrom%} - {%-history.dateTo%}</span>
-        <span> {%-history.message%}</span>
+        <span>{%-tplData.dateFrom%} - {%-tplData.dateTo%}</span>
+        <span> {%-tplData.message%}</span>
     </div>
     {% }%}
 </div>

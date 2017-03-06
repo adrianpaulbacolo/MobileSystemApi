@@ -139,7 +139,7 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
 
                 <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency))
                 {
-                if ( (!commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase)) && (!commonCookie.CookieCurrency.Equals("usd", StringComparison.OrdinalIgnoreCase)) )
+                if ((!commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase)) && (!commonCookie.CookieCurrency.Equals("usd", StringComparison.OrdinalIgnoreCase)) )
                 { %>
                 <li>
                     <a class="card" data-rel="sports" rel="vsports" href="<%=commonXSports.SportsBookUrl%>" data-ajax="false" target="_blank">
