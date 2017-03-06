@@ -71,8 +71,12 @@ function Slots() {
     }
 
     function getSlots(provider, success, error) {
+        var data = {
+            cashier: "v2/Funds.aspx",
+            lobby: "_static/v2new/slots.html"
+        }
         var url = "/api/games/" + provider;
-        send(url, "GET", {}, success, error);
+        send(url, "GET", data, success, error);
     }
 
     function addItems(games, provider) {
