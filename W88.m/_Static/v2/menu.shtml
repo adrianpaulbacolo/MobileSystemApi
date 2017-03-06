@@ -10,8 +10,6 @@ if (!string.IsNullOrWhiteSpace(commonCookie.CookieAffiliateId)) {
 }
 %>
 
-<script type="text/javascript" src='<%=ConfigurationManager.AppSettings.Get("AssetsPath")%>/assets/js/modules/wallets.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>'></script>
-
 <section class="side-nav" off-canvas="side-nav left reveal">
     <nav>
         <ul class="side-nav-items">
@@ -114,8 +112,8 @@ if (!string.IsNullOrWhiteSpace(commonCookie.CookieAffiliateId)) {
                             </a>
                         </div>
                         <!-- X Sports -->
-                        <%if ((!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency) && commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase)) ||
-                        commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase)) {%>
+                        <%if ((!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency) && !commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase) && !commonCookie.CookieCurrency.Equals("usd", StringComparison.OrdinalIgnoreCase)) ||
+                        (string.IsNullOrWhiteSpace(commonCookie.CookieCurrency) && !commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))) {%>
                         <div class="col-xs-6">
                             <a href="<%=commonXSports.SportsBookUrl%>">
                                 <img src="#" alt="">
@@ -270,8 +268,8 @@ if (!string.IsNullOrWhiteSpace(commonCookie.CookieAffiliateId)) {
                     </div>
                 </div>
             </li>
-            <%if ((!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency) && commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase)) || 
-                    commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase)) {%>
+            <%if ((!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency) && commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase)) ||
+            (string.IsNullOrWhiteSpace(commonCookie.CookieCurrency) && commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))) {%>
             <!-- Fishing Master -->
             <li class="nav-category">
                 <a href="#">
@@ -438,3 +436,4 @@ if (!string.IsNullOrWhiteSpace(commonCookie.CookieAffiliateId)) {
         </ul>
     </nav>
 </section>
+<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/menu.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
