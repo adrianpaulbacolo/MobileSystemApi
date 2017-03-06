@@ -154,7 +154,10 @@
             error: function () {
                 console.log("Error connecting to api");
             },
-            complete: complete
+            complete: function () {
+                if (!_.isUndefined(complete)) complete();
+                GPInt.prototype.HideSplash();
+            }
         });
     }
 
@@ -212,6 +215,9 @@
             for (var i = 0; i < responseData.length; i++) {
                 var data = responseData[i];
 
+                if (data.Method)
+                    continue;
+
                 page = setPaymentPage(data.Id);
 
                 if (page)
@@ -242,13 +248,22 @@
             }
 
             if (activeTabId) {
-                if ($('#activeDepositTabs').length > 0)
-                    $('#activeDepositTabs').text(title);
+                if (title) {
+                    if ($('#activeDepositTabs').length > 0)
+                        $('#activeDepositTabs').text(title);
 
-                if ($('#activeTab').length > 0)
-                    $('#activeTab').text(title);
+                    if ($('#activeTab').length > 0)
+                        $('#activeTab').text(title);
 
-                $('#headerTitle').append(' - ' + title);
+                    $('#headerTitle').append(' - ' + title);
+                } else {
+                    window.location.href = deposit;
+                }
+
+                if (_.includes(routing, activeTabId)) {
+                    $('#dailyLimit').hide()
+                    $('#totalAllowed').hide()
+                }
             }
             else {
                 if (!isAutoRoute) {
@@ -257,8 +272,6 @@
                         window.location.href = deposit + page;
                 }
             }
-
-            GPInt.prototype.HideSplash();
         } else {
             if (activeTabId) {
                 window.location.href = deposit;
@@ -363,7 +376,7 @@
         $('#btnSubmitPlacement').hide();
         $('#paymentSettings').hide();
         $('#paymentList').hide();
-        
+
         GPInt.prototype.HideSplash();
     }
 

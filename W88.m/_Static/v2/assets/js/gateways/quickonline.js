@@ -18,7 +18,6 @@ function QuickOnlineV2() {
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
 
-                $('label[id$="lblDepositAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
                 $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
 
                 if (gateway == '120265') { //EGHL

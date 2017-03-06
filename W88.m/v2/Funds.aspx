@@ -21,7 +21,7 @@
         </div>
         <div class="dashboard-row">
             <div class="dashboard-col">
-                <a href="/Withdrawal/">
+                <a href="/v2/Withdrawal/">
                     <span class="icon icon-withdraw"></span><%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%>
                 </a>
             </div>

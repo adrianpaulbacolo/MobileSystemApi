@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
     <div class="form-group">
-        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
+        <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
         <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" />
     </div>
     <div class="form-group">
@@ -45,7 +45,7 @@
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
-            window.w88Mobile.Gateways.MoneyTransfer.init("<%=base.PaymentMethodId %>");
+            window.w88Mobile.Gateways.MoneyTransfer.init("<%=base.PaymentMethodId %>", true);
 
             $('#form1').submit(function (e) {
                 e.preventDefault();

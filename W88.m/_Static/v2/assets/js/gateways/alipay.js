@@ -18,7 +18,6 @@ function AlipayV2() {
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
                 $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-                $('label[id$="lblDepositAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
 
                 if (!_.isUndefined(gatewayId)) {
                     if (gatewayId == "120254") {

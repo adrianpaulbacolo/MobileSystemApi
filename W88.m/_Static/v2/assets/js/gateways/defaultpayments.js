@@ -19,7 +19,7 @@ function DefaultPaymentsV2() {
         formatDateTime: formatDateTime,
         init: init,
         payRoute: "/v2/Deposit/Pay.aspx",
-        translateDefault: translateDefault
+        CreateWithdraw: createWithdraw
     };
 
     var paymentCache = {};
@@ -28,29 +28,7 @@ function DefaultPaymentsV2() {
 
     return defaultpayments;
 
-    function translateDefault() {
-        setTranslations();
-        function setTranslations() {
-            if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
-                $('label[id$="lblDepositAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
-            } else {
-                window.setInterval(function () {
-                    setTranslations();
-                }, 500);
-            }
-        }
-    }
-
     function init(isDeposit) {
-
-        var headerTitle = isDeposit ? _w88_contents.translate("LABEL_FUNDS_DEPOSIT") : _w88_contents.translate("LABEL_FUNDS_WIDRAW");
-        $("header .header-title").text(headerTitle);
-        $('span[id$="lblMode"]').text(_w88_contents.translate("LABEL_MODE"));
-        $('span[id$="lblMinMaxLimit"]').text(_w88_contents.translate("LABEL_MINMAX_LIMIT"));
-        $('span[id$="lblDailyLimit"]').text(_w88_contents.translate("LABEL_DAILY_LIMIT"));
-        $('span[id$="lblTotalAllowed"]').text(_w88_contents.translate("LABEL_TOTAL_ALLOWED"));
-
-        $('input[id$="btnSubmit"]').val(_w88_contents.translate("BUTTON_SUBMIT")).button("refresh");
 
         var type = isDeposit ? "deposit" : "withdrawal";
 
@@ -85,8 +63,31 @@ function DefaultPaymentsV2() {
                     $('#txtDailyLimit').text(": " + setting.LimitDaily);
                     $('#txtTotalAllowed').text(": " + setting.TotalAllowed);
                 }
+
+                setTranslations(paymentOptions.type);
             }
-        })
+        });
+    }
+
+    function setTranslations(paymentOptions) {
+        if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
+            $('label[id$="lblDepositAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
+            $('label[id$="lblAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
+
+            var headerTitle = paymentOptions ? _w88_contents.translate("LABEL_FUNDS_DEPOSIT") : _w88_contents.translate("LABEL_FUNDS_WIDRAW");
+            $("header .header-title").text(headerTitle);
+            $('span[id$="lblMode"]').text(_w88_contents.translate("LABEL_MODE"));
+            $('span[id$="lblMinMaxLimit"]').text(_w88_contents.translate("LABEL_MINMAX_LIMIT"));
+            $('span[id$="lblDailyLimit"]').text(_w88_contents.translate("LABEL_DAILY_LIMIT"));
+            $('span[id$="lblTotalAllowed"]').text(_w88_contents.translate("LABEL_TOTAL_ALLOWED"));
+
+            $('#btnSubmitPlacement').text(_w88_contents.translate("BUTTON_SUBMIT"));
+
+        } else {
+            window.setInterval(function () {
+                setTranslations();
+            }, 500);
+        }
     }
 
     function setPaymentTabs(type, activeMethodId) {
@@ -113,7 +114,31 @@ function DefaultPaymentsV2() {
                     nogateway();
                 }
                 else {
-                    setWithdrawalPaymentTab(paymentCache.settings, activeMethodId);
+
+                    send("/payments/withdrawal/pending", "GET", "", function (response) {
+                        switch (response.ResponseCode) {
+                            case 1:
+
+                                var pendingWithdrawal = {
+                                    Name: response.ResponseData.Name,
+                                    TransactionId: response.ResponseData.TransactionId,
+                                    MethodId: response.ResponseData.MethodId,
+                                    Amount: response.ResponseData.Amount,
+                                    RequestDateTime: response.ResponseData.RequestDateTime
+                                };
+
+                                var widrawKey = w88Mobile.Keys.withdrawalSettings + "-pending";
+                                amplify.store(widrawKey, pendingWithdrawal, User.storageExpiration);
+
+                                window.location = "/v2/Withdrawal/Pending.aspx";
+                                break;
+
+                            default:
+                                setWithdrawalPaymentTab(paymentCache.settings, activeMethodId);
+                                break;
+                        }
+                    });
+
                 }
             });
         }
@@ -247,7 +272,6 @@ function DefaultPaymentsV2() {
 
     }
 
-
     function setDepositPaymentTab(responseData, activeTabId) {
         if (responseData.length > 0) {
             var routing = [
@@ -339,24 +363,20 @@ function DefaultPaymentsV2() {
                     if (_.isEqual(data.Id, activeTabId))
                         title = data.Title;
 
-                    var anchor = $('<a />', { class: 'ui-btn ui-shadow ui-corner-all', id: data.Id, href: page, 'data-ajax': false }).text(data.Title);
-
-                    if ($('#withdrawalTabs').length > 0)
-                        $('#withdrawalTabs').append($('<li />').append(anchor));
+                    var anchor = $('<a />', { class: 'list-group-item', id: data.Id, href: page }).text(data.Title);
 
                     if ($('#paymentTabs').length > 0)
-                        $('#paymentTabs').append($('<li />').append(anchor));
+                        $('#paymentTabs').append(anchor);
+
+                    $('#' + activeTabId).addClass('active');
                 }
             })
 
             if (activeTabId) {
-                if ($('#activeWithdrawalTabs').length > 0)
-                    $('#activeWithdrawalTabs').text(title);
-
                 if ($('#activeTab').length > 0)
                     $('#activeTab').text(title);
 
-                $('#headerTitle').append(' - ' + title);
+                $('header .header-title').append(' - ' + title);
             }
             else {
                 page = setPaymentPage(_.first(responseData).Id);
@@ -381,7 +401,9 @@ function DefaultPaymentsV2() {
         $('#btnSubmitPlacement').hide();
         $('#paymentSettings').hide();
         $('#paymentList').hide();
-
+        $('.gateway-select').hide();
+        $('.gateway-restrictions').hide();
+        
         pubsub.publish('stopLoadItem', { selector: "" });
     }
 
@@ -502,4 +524,28 @@ function DefaultPaymentsV2() {
                 break;
         }
     }
+
+    function createWithdraw(data, methodId) {
+        send("/payments/" + methodId, "POST", data, function (response) {
+            switch (response.ResponseCode) {
+                case 1:
+                    w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + _w88_contents.translate("LABEL_TRANSACTION_ID") + ": " + response.ResponseData.TransactionId + "</p>", function () {
+                        window.location.reload();
+                    });
+
+                    break;
+                default:
+                    if (_.isArray(response.ResponseMessage))
+                        w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
+                    else
+                        w88Mobile.Growl.shout(response.ResponseMessage);
+
+                    break;
+            }
+        },
+            function () {
+                pubsub.publish('stopLoadItem', { selector: "" });
+            });
+    }
+
 }

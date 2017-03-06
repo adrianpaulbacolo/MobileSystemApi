@@ -17,7 +17,6 @@ function AllDebit() {
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
 
-                $('label[id$="lblDepositAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
                 $('label[id$="lblCardType"]').text(_w88_contents.translate("LABEL_CARD_TYPE"));
                 $('label[id$="lblCardName"]').text(_w88_contents.translate("LABEL_CARD_NAME"));
                 $('label[id$="lblCardNo"]').text(_w88_contents.translate("LABEL_CARD_NUMBER"));

@@ -18,7 +18,6 @@ function DaddyPayV2() {
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
 
-                $('label[id$="lblDepositAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
                 $('label[id$="lbldrpDepositAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
                 $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
                 $('label[id$="lblAccountName"]').text(_w88_contents.translate("LABEL_ACCOUNT_NAME"));

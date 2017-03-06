@@ -55,7 +55,7 @@
                 <asp:ContentPlaceHolder ID="PaymentMainContent" runat="Server">
                 </asp:ContentPlaceHolder>
 
-                <button type="submit" id="btnSubmitPlacement" class="btn btn-block btn-primary">Submit</button>
+                <button type="submit" id="btnSubmitPlacement" class="btn btn-block btn-primary"></button>
 
             </form>
 

@@ -22,9 +22,9 @@ function KexunPay() {
                     break;
                 default:
                     if (_.isArray(response.ResponseMessage))
-                        w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
+                        w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage), _self.shoutCallback);
                     else
-                        w88Mobile.Growl.shout(response.ResponseMessage);
+                        w88Mobile.Growl.shout(response.ResponseMessage, _self.shoutCallback);
 
                     break;
             }
