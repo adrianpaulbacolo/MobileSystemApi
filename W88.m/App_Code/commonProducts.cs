@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Xml.XPath;
 using Helpers;
+using Models;
+using svcPayMember;
 
 public class commonASports
 {
@@ -568,5 +570,27 @@ public class commonProduct
             default:
                 return productCode;
         }
+    }
+}
+
+public static class FishingWorldProduct
+{
+    public static string GetLink()
+    {
+        var settings = new customConfig.OperatorSettings(commonVariables.OperatorCode);
+                var user = new Members().MemberData();
+        
+        var isProd = Convert.ToBoolean(ConfigurationManager.AppSettings.Get("ProductionSettings"));
+
+        var url = isProd
+            ? settings.Values.Get("FishingWorld_PROD_Url")
+            : settings.Values.Get("FishingWorld_UAT_Url");
+
+        return
+            url.Replace("{OP}", commonVariables.operatorCode.W88.ToString())
+                .Replace("{ID}", user.MemberId)
+                .Replace("{CURR}", commonCookie.CookieCurrency)
+                .Replace("{LANG}", commonCookie.CookieLanguage)
+                .Replace("{IP}", commonIp.UserIP);
     }
 }
