@@ -592,17 +592,23 @@ public static class FishingWorldProduct
             ? settings.Values.Get("FishingWorld_PROD_Url")
             : settings.Values.Get("FishingWorld_UAT_Url");
 
-        var link = XDocument.Load(url.Replace("{OP}", commonVariables.operatorCode.W88.ToString())
+        var op = (int) commonVariables.operatorCode.W88;
+        url = url.Replace("{OP}", op.ToString())
             .Replace("{ID}", user.MemberId)
             .Replace("{CURR}", commonCookie.CookieCurrency)
             .Replace("{LANG}", commonCookie.CookieLanguage)
-            .Replace("{IP}", commonIp.remoteIP));
+            .Replace("{IP}", commonIp.remoteIP);
+
+        var link = XDocument.Load(url);
 
         if (!string.IsNullOrEmpty((string) link.Root.Element("loginURL")))
         {
             return (string) link.Root.Element("loginURL");
         }
-     
+
+        commonAuditTrail.appendLog("system", "FishingWorldProduct", "NavMenu", "", "1", link.ToString(), "", "", url, Convert.ToString(1), "1", false);
+
         return string.Empty;
+
     }
 }
