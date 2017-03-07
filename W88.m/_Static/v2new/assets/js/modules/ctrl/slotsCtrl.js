@@ -74,9 +74,12 @@ function slotsCtrl(routeObj, slotSvc, templateSvc) {
                 if (_.isEmpty(clubs)) return;
 
                 _.forEach(clubs, function (club) {
-                    var items = w88Mobile.v2.Slots.itemsByClub(club.providers, "Home");
+                    var items = _.clone(w88Mobile.v2.Slots.itemsByClub(club.providers, "Home"));
                     // add published items
-                    items = _.concat(items, slotSvc.publishedItems(club));
+                    var publishedItems = _.filter(slotSvc.publishedItems(club), function (slot) {
+                        return !_.isUndefined(slot.Section.Home);
+                    });
+                    items = _.concat(items, publishedItems);
                     items = w88Mobile.v2.Slots.sortGames(items, "Home");
                     games = _.slice(items, 0, w88Mobile.v2.Slots.clubLimit);
                     pubsub.publish("displaySlotList", _self.setPushData({

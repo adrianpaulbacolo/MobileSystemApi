@@ -157,7 +157,7 @@ function Slots() {
             var homeItem = !_.isEmpty(item.PublishedTo[club.name.toCapitalize()]["Home"]) ? item.PublishedTo[club.name.toCapitalize()]["Home"] : "";
             var newItem = !_.isEmpty(item.PublishedTo[club.name.toCapitalize()]["New"]) ? item.PublishedTo[club.name.toCapitalize()]["New"] : "";
 
-            var cloneItem = _.clone(item);
+            var cloneItem = _.cloneDeep(item);
             var hasSection = !_.isUndefined(cloneItem.Section);
 
             if (_.isEmpty(topItem) && hasSection) {
