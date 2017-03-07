@@ -3,7 +3,7 @@
     {% _.each(tplData.result, function(item) { %}
     <div class="history-data-row" onclick="javascript: w88Mobile.History.showModal('{%- tplData.type %}', '{%- item.TransactionId %}')">
         <div>
-            <p class="h-date"><small class="to-lbl"></small></p>
+            <p class="h-to"><small class="to-lbl"></small></p>
             <h5 class="h-title">{%-item.ToWalletId%}</h5>
             <p class="h-id">{%-item.TransactionId%}</p>
             <p class="h-date"><small>{%-item.DateTime%}</small></p>

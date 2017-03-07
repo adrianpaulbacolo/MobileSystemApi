@@ -28,7 +28,7 @@
             </div>
         </div>
 
-        <div class="history-result bg-gradient">
+        <div class="history-result">
             <div id="adjustment">
             </div>
             <div id="depositwidraw">

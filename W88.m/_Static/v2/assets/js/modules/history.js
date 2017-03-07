@@ -511,7 +511,10 @@ function History() {
             arrows: false,
             infinite: false,
             draggable: false,
+            zIndex: '5',
             swipeToSlide: false,
+            prevArrow: '<button type="button" class="slick-prev"><span class="icon icon-arrow-left"></span></button>',
+            nextArrow: '<button type="button" class="slick-next"><span class="icon icon-arrow-right"></span></button>',
             responsive: [
                 {
                     breakpoint: 600,
@@ -527,16 +530,23 @@ function History() {
                         arrows: true,
                     }
                 },
+                {
+                    breakpoint: 321,
+                    settings: {
+                        slidesToShow: 1,
+                        arrows: true,
+                    }
+                },
             ]
         });
 
         $('.history-result').on('beforeChange', function (event, slick, nextSlide, currentSlide) {
-            $(".history-nav").find("span").removeClass("initial");
-            $(".history-nav").find("span").removeClass("current");
+            $(".history-nav .slick-slide").find("span").removeClass("initial");
+            $(".history-nav .slick-slide").find("span").removeClass("current");
         });
 
         $('.history-result').on('afterChange', function (event, slick, nextSlide) {
-            $(".history-nav").find("span").eq(nextSlide).addClass("current");
+            $(".history-nav .slick-slide").find("span").eq(nextSlide).addClass("current");
         });
     }
 

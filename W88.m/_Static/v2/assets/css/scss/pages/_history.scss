@@ -2,7 +2,7 @@
     background-color: darken($brand-primary, 36%);
 }
 .history-nav{
-    background-color: darken($brand-primary, 36%);
+    background-color: darken($brand-primary, 38%);
 	min-height: auto;
 	margin: 0 auto;
 	max-width: 900px;
@@ -13,7 +13,8 @@
 			outline: 0 none;
 		}
 	}
-	span{
+	.slick-slide span{
+		font-size: 0.875em;
 		cursor: pointer;
 		text-transform: uppercase;
 		font-family: $dinpro;
@@ -42,16 +43,27 @@
 	}
 	.slick-prev, 
 	.slick-next {
+		z-index: 10;
 	    position: absolute;
 	    top: 20%;
 	    margin-top: 0;
 	    width: 30px;
 	    height: 30px;
 	    background-color: transparent;
-	    &:before{
-	    	font-size: 1.286rem;
-	    	line-height: 30px;
+	    border: none;
+	    font-size: 1rem;
+	    &:focus{
+	    	outline: 0 none;
 	    }
+	    &.slick-disabled{
+	    	opacity: 0.2;
+	    }
+	}
+	.slick-prev{
+		left: 0;
+	}
+	.slick-next{
+		right: 0;
 	}
 }
 
@@ -59,14 +71,20 @@
 	max-width: 768px;
 	margin: 0 auto;
 	.h-title{
-        color: $brand-primary;
+        color: $brand-alt;
 		margin-top: 0;
 		margin-bottom: 5px;
-	    font-size: 1.8rem;
+		line-height: 1;
+	    font-size: 1.063rem;
 	}
 	p{
 		color: $text-color;
 		margin-bottom: 0;
+		line-height: 1.4;
+	}
+	.h-to{
+		color: darken($text-color, 50%);
+		line-height: 1;
 	}
 	.h-date{
 		color: darken($text-color, 50%);
@@ -96,10 +114,10 @@
 	}
 }
 
-.notFound{
-	font-size: 1.2rem;
+.history-not-found{
+	font-size: 0.875rem;
 	text-align: center;
-	padding: 1em 0;
+	padding: 5% 0;
 }
 .history-modal{
 	position: relative;
@@ -118,13 +136,16 @@
 	display: none;
 }
 .history-full-header{
-	background-color: #252525;
-	padding: 15px;
+	background-color: $header-bg-color;
+	padding: 0 15px;
 	position: relative;
 	overflow: hidden;
 	height: 45px;
+	@include box-shadow(0 10px  10px 0 rgba(0,0,0,0.095));
 	h5{
+		font-size: 1.063rem;
         color: $text-color;
+		margin-top: 7px;
 		margin-bottom: 0;
 		width: 85%;
 		white-space: nowrap;
@@ -135,12 +156,13 @@
 	    top: 2px;
 	}
 	a{
-		font-size: 3.3rem;
-		padding: 3px 15px 0;
+		font-size: 1.563rem;
+		padding: 5px 15px 0;
+		height: 45px;
 		top: 0;
 		right: 0;
 		position: absolute;
-		background-color: #252525;
+		background-color: $header-bg-color;
 	}
 }
 .history-full-content{
@@ -153,25 +175,13 @@
 		}
 	}
 	p{
-		color: darken($text-color, 40%);
+		color: darken($text-color, 42%);
 		margin-bottom: 3px;
 	}
 	h5{
         color: $brand-alt;
 		margin-top: 0;
 		margin-bottom: 0;
-	    font-size: 1.8rem;
+		font-size: 1.063rem;
 	}
 }
-@media screen and (max-width: 425px) {
-	.history-nav span{
-		font-size: 1.286rem;
-	}
-}
-
-@media screen and (max-width: 340px) {
-	.history-nav span{
-		font-size: 1.143rem;
-	}
-}
- 
