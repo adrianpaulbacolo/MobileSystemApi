@@ -29,7 +29,7 @@
                         <asp:Label ID="lblTransferFrom" runat="server" AssociatedControlID="drpTransferFrom" />
                         <asp:DropDownList ID="drpTransferFrom" runat="server" data-corners="false" />
                     </li>
-                    <li class="btn-swap ion-arrow-swap">
+                    <li class="btn-swap icon-swap">
                         <asp:Button ID="btnSwap" runat="server" Text="Swap Wallets" OnClick="btnSwap_Click" />
                     </li>
                     <%--<div><a href="javascript:void(0)" onclick="javascript:switchWallets();">switch</a></div>--%>
