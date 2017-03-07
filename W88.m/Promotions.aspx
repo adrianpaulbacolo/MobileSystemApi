@@ -353,6 +353,10 @@
                     strComment = radValue.split('|')[1];
                 } else {
 
+                    if ($obj.find('input[type="radio"]').length > 0) {
+                        return;
+                    }
+
                     var selectComment = $obj.find('select');
                     if (selectComment.length != 0) {
                         $.each(selectComment, function() {

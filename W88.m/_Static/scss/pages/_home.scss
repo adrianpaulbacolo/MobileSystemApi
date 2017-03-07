@@ -5,11 +5,18 @@
 .action-btn {
     .ui-btn {
         margin: 0;
+        line-height: 1;
+        .icon{
+            font-size: 1.5em;
+            top: 5px;
+            position: relative;
+        }
     }
     &.action-button-lg{
         .ui-btn{
-            padding: 1.094em 1em;
+            padding: 0.75em 1em;
             font-size: 1.143em !important;
+            line-height: 2 !important;
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="_Secure_Login" Async="true"%>
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="_Secure_Login" Async="true"%>
 <%@ Import Namespace="W88.BusinessLogic.Rewards.Helpers" %>
 <%@ Import Namespace="W88.BusinessLogic.Rewards.Models" %>
 <%@ Import Namespace="W88.BusinessLogic.Shared.Helpers" %>
@@ -8,6 +8,7 @@
 <head>
     <title><%=RewardsHelper.GetTranslation(TranslationKeys.Label.Brand)%></title>
     <!--#include virtual="~/_static/head.inc" -->
+    <script src="/_Static/JS/dist/w88.mrewards.login.js"></script>
 </head>
 <body>
     <div data-role="page" data-theme="b">
@@ -42,40 +43,25 @@
     </div>
 
     <script type="text/javascript">
-        var counter = 0;
         $(function () {
-            $('#<%=imgCaptcha.ClientID%>').attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime());
-
-            $('#<%=btnSubmit.ClientID%>').click(function (e) {
-                $('#btnSubmit').attr("disabled", true);
-                if ($('#txtUsername').val().trim().length == 0) {
-                    showMessage('<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.MissingUsername)%>');
-                    $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
-                    return;
-                }
-                if (!/^[a-zA-Z0-9]+$/.test($('#txtUsername').val().trim())) {
-                    showMessage('<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.InvalidUsernamePassword)%>');
-                    $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
-                    return;
-                }
-                if ($('#txtPassword').val().trim().length == 0) {
-                    showMessage('<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.MissingPassword)%>');
-                    $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
-                    return;
-                }
-                if ($('#txtCaptcha').val().trim().length == 0 && counter >= 3) {
-                    showMessage('<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.IncorrectVCode)%>');
-                    $('#btnSubmit').attr("disabled", false);
-                    e.preventDefault();
-                    return;
-                }
-
-                initiateLogin();
-                e.preventDefault();
-            });
+            var elems = {
+                submitButton: $('#btnSubmit'),
+                captchaDiv: $('#captchaDiv'),
+                username: $('#txtUsername'),
+                password: $('#txtPassword'),
+                captcha: $('#<%=txtCaptcha.ClientID%>'),
+                captchaImg: $('#<%=imgCaptcha.ClientID%>')
+            },
+            translations = {
+                Exception: '<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.Exception)%>',
+                IncorrectVCode: '<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.IncorrectVCode)%>',
+                InactiveAccount: '<%=GetTranslation("Login_InactiveAccount", "messages")%>',
+                InvalidUsernamePassword: '<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.InvalidUsernamePassword)%>',
+                MissingPassword: '<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.MissingPassword)%>',
+                MissingUsername: '<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.MissingUsername)%>'
+            },
+            login = new Login(translations, elems, '/Index.aspx');
+            login.initializeButtons();
 
             $('#<%=imgCaptcha.ClientID%>').click(function () { $(this).attr('src', '/_Secure/Captcha.aspx'); });
             var splitHost = window.location.hostname.split('.'),
@@ -83,84 +69,6 @@
                 registerUri = window.location.protocol + '//m.' + domain + '/_secure/register.aspx';
             $('#register').attr('href', registerUri);
         });
-
-        function initiateLogin() {
-            $.ajax({
-                type: 'POST',
-                contentType: 'application/json',
-                url: '/api/user/login',
-                beforeSend: function () {
-                    GPINTMOBILE.ShowSplash();
-                },
-                timeout: function () {
-                    $('#<%=btnSubmit.ClientID%>').prop('disabled', false);
-                    showMessage('<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.Exception)%>');
-                    window.location.href = '/Default.aspx?lang=<%=Language%>';
-                },
-                data: JSON.stringify({ 
-                    UserInfo: {
-                        Username: $('#txtUsername').val(),
-                        Password: $('#txtPassword').val()
-                    },
-                    Captcha: $('#txtCaptcha').val()
-                }),
-                success: function (response) {
-                    if (!response || response.ResponseCode == undefined) {
-                        initiateLogin();
-                        return;
-                    }
-
-                    var message = response.ResponseMessage;
-                    switch (response.ResponseCode) {
-                        case 1:
-                            window.user = (new User()).setProperties(response.ResponseData);
-                            window.user.save();
-
-                            if (response.ResponseData.ResetPassword) {
-                                window.location.href = '/_Secure/ChangePassword.aspx?lang=<%=Language%>';
-                                return;
-                            }
-                            if (!_.isEmpty('<%=RedirectUri%>')) {
-                                frsm_code = window.user.MemberId;
-                                window.location.href = '<%=RedirectUri%>';
-                                return;
-                            }
-
-                            window.location.reload();
-                            break;
-                        case 22:
-                            GPINTMOBILE.HideSplash();
-                            $('#btnSubmit').attr("disabled", false);
-                            showMessage(message);
-                            break;
-                        default:
-                            counter += 1;
-
-                            if (counter >= 3) {
-                                $('#captchaDiv').show();
-                                $('#<%=imgCaptcha.ClientID%>').attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime());
-                                $('#<%=txtCaptcha.ClientID%>').val('');
-                                $('#<%=txtPassword.ClientID%>').val('');
-                            }
-
-                            $('#btnSubmit').attr("disabled", false);
-                            GPINTMOBILE.HideSplash();
-                            showMessage(message);
-                            break;
-                    }
-                },
-                error: function (err) {
-                    GPINTMOBILE.HideSplash();
-                    showMessage('<%=RewardsHelper.GetTranslation(TranslationKeys.Errors.Exception)%>');
-                    $('#btnSubmit').attr("disabled", false);
-                }
-            });
-        }
-
-        function showMessage(message) {
-            if(_.isEmpty(message)) return
-            window.w88Mobile.Growl.shout('<div>' + message + '</div>');
-        }
     </script>
 </body>
 </html>

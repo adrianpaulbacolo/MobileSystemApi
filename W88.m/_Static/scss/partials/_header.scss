@@ -13,8 +13,13 @@
         width: auto;
         margin: .25em 0;
 
-        [class^="icon-"], [class*=" icon-"] {
-            font-size: 2.28571429em; // 32px
+        .icon{
+            font-size: 1.2em;
+            position: relative;
+            top: 2px;
+            &.icon-navicon{
+                font-size: 3.2rem;
+            }
         }
 
         &[data-rel="back"] {

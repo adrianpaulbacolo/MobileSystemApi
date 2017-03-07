@@ -59,6 +59,12 @@
         System.Web.Routing.Route aliPay = new System.Web.Routing.Route("Deposit/AliPay", new System.Web.Routing.PageRouteHandler("~/Deposit/JTPay.aspx"));
         aliPay.DataTokens = new System.Web.Routing.RouteValueDictionary { { "type", "alipay" } };
 
+        // Aifu
+        System.Web.Routing.Route aifuWeChat = new System.Web.Routing.Route("Deposit/WeChat/Aifu", new System.Web.Routing.PageRouteHandler("~/Deposit/Aifu.aspx"));
+        aifuWeChat.DataTokens = new System.Web.Routing.RouteValueDictionary { { "type", "wechat" } };
+        System.Web.Routing.Route aifuAliPay = new System.Web.Routing.Route("Deposit/Alipay/Aifu", new System.Web.Routing.PageRouteHandler("~/Deposit/Aifu.aspx"));
+        aifuAliPay.DataTokens = new System.Web.Routing.RouteValueDictionary { { "type", "alipay" } };
+
         System.Web.Routing.Route rtError400 = new System.Web.Routing.Route("400", new System.Web.Routing.PageRouteHandler("~/_Static/Pages/400.aspx"));
         System.Web.Routing.Route rtError403 = new System.Web.Routing.Route("403", new System.Web.Routing.PageRouteHandler("~/_Static/Pages/403.aspx"));
         System.Web.Routing.Route rtError404 = new System.Web.Routing.Route("404", new System.Web.Routing.PageRouteHandler("~/_Static/Pages/404.aspx"));
@@ -71,6 +77,8 @@
         routes.Add(rtInvalid);
         routes.Add(weChat);
         routes.Add(aliPay);
+        routes.Add(aifuWeChat);
+        routes.Add(aifuAliPay);
         routes.Add(rtError400);
         routes.Add(rtError403);
         routes.Add(rtError404);

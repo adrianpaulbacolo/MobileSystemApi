@@ -215,6 +215,9 @@
             for (var i = 0; i < responseData.length; i++) {
                 var data = responseData[i];
 
+                if (data.Method)
+                    continue;
+
                 page = setPaymentPage(data.Id);
 
                 if (page)
@@ -492,6 +495,12 @@
 
             case "1202105":
                 return "NineVPayAlipay.aspx";
+
+            case "1202133":
+                return "WeChat/Aifu";
+
+            case "1202134":
+                return "Alipay/Aifu";
 
             default:
                 break
