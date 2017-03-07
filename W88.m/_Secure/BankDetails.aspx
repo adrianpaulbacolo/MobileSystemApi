@@ -7,6 +7,7 @@
 <head>
     <title><%=string.Format("{0}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML))%></title>
     <!--#include virtual="~/_static/head.inc" -->
+    <script type="text/javascript" src="/_Static/JS/modules/bankDetails.js"></script>
 </head>
 <body>
     <div data-role="page" data-theme="b">

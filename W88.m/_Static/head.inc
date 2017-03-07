@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="apple-mobile-web-app-title" content="W88" />
 <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="/_Static/Css/style.css" />
+<link rel="stylesheet" href="/_Static/Css/style.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" />
 <link rel="apple-touch-icon" href="/_Static/Images/icon_76.png" />
 <link rel="apple-touch-startup-image" href="/_Static/Images/icon_120.png" />
 
@@ -27,15 +27,15 @@
 <script type="text/javascript" src="/_Static/JS/Mobile/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="/_Static/JS/Mobile/jquery.mobile-1.4.5.min.js"></script>
 <script type="text/javascript" src="/_Static/JS/jquery.mask.min.js"></script>
-<script type="text/javascript" src="/_Static/JS/vendor/lodash.js"></script>
+<script type="text/javascript" src="/_Static/JS/vendor/lodash.min.js"></script>
 <script type="text/javascript" src="/_Static/JS/vendor/moment.min.js"></script>
 <script type="text/javascript" src="/_Static/JS/vendor/amplify.min.js"></script>
 <script type="text/javascript" src="/_Static/JS/Mobile/iscroll.js"></script>
-<script type="text/javascript" src="/_Static/JS/GPINT.js"></script>
+<script type="text/javascript" src="/_Static/JS/GPINT.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 <script type="text/javascript" src="/_Static/JS/modules/growl.js"></script>
-<script type="text/javascript" src="/_Static/JS/Main.js"></script>
+<script type="text/javascript" src="/_Static/JS/Main.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 <script type="text/javascript" src="/_Static/JS/fingerprint2.min.js"></script>
-<script type="text/javascript" src="/_Static/JS/piwik.js"></script>
+<script type="text/javascript" src="/_Static/JS/piwik.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 <script type="text/javascript" src="/_Static/JS/i18n/contents-<%=commonVariables.SelectedLanguageShort%>.js"></script>
 <script type="text/javascript" src="/_Static/JS/modules/translate.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 <script>
@@ -57,13 +57,11 @@
         w88Mobile.Growl.options.close = '<%=commonCulture.ElementValues.getResourceString("close", commonVariables.LeftMenuXML)%>';   
     }
 </script>
-<script type="text/javascript" src="/_Static/JS/modules/slots.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/slots.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 <script type="text/javascript" src="/_Static/JS/modules/constants.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-<script type="text/javascript" src="/_Static/JS/modules/formValidator.js"></script>
-<script type="text/javascript" src="/_Static/JS/modules/hideMenu.js"></script>
-<script type="text/javascript" src="/_Static/JS/modules/fundtransfer.js"></script>
-<script type="text/javascript" src="/_Static/JS/modules/piwikManager.js"></script>
-<script type="text/javascript" src="/_Static/JS/modules/piwikConfig.js"></script>
+<script type="text/javascript" src="/_Static/JS/modules/formValidator.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+<script type="text/javascript" src="/_Static/JS/modules/piwikManager.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+<script type="text/javascript" src="/_Static/JS/modules/piwikConfig.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 <script type="text/javascript">
     w88Mobile.PiwikManager.setGoals(window.w88Mobile.PiwikConfig.goals);
     w88Mobile.PiwikManager.setDomain();
@@ -87,7 +85,5 @@
         }
     });
     </script>
-<script type="text/javascript" src="/_Static/JS/modules/wallets.js"></script>
-<script type="text/javascript" src="/_Static/JS/modules/bankTransfer.js"></script>
-<script type="text/javascript" src="/_Static/JS/modules/bankDetails.js"></script>
-<script type="text/javascript" src="/_Static/JS/modules/gateways/postForm.js"></script>
+
+<script type="text/javascript" src="/_Static/JS/modules/gateways/postForm.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
