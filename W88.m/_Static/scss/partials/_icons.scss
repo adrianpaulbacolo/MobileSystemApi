@@ -5,7 +5,8 @@
 [class^="ui-icon-"], [class*=" ui-icon-"],
 [class^="ui-btn-icon-"], [class*=" ui-btn-icon-"] {
     &:after {
-        font: 1.5em $ionicons-font;
+        font-family: 'icomoon';
+        font-size: 1.2em;
         color: $strong-color;
         color: rgba(255,255,255,0.5);
         text-indent: 0;
@@ -14,19 +15,19 @@
 }
 
 .ui-icon-carat-d:after {
-    content: '\f3d0'; // ion-ios-arrow-down
+    content: '\e915';
 }
 .ui-icon-plus:after {
-    content: '\f489'; // ion-ios-plus-empty
+    content: '\e928';
 }
 .ui-icon-minus:after {
-    content: '\f489'; // ion-ios-plus-empty
+    content: '\e927';
 }
 .ui-checkbox-on:after {
-    content: '\f3fd'; // ion-ios-checkmark-empty
+    content: '\e926';
 }
 .ui-icon-delete:after {
-    content: '\f36e'; // ion-android-cancel
+    content: '\e925';
     @include opacity(.5);
     @include transition(.3s);
 }
