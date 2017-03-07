@@ -59,7 +59,7 @@
         truemoney_dep.DataTokens = new System.Web.Routing.RouteValueDictionary { { "money", "true" } };
         System.Web.Routing.Route truemoney_with = new System.Web.Routing.Route("Withdrawal/2107138", new System.Web.Routing.PageRouteHandler("~/Withdrawal/MoneyTransfer.aspx"));
         truemoney_with.DataTokens = new System.Web.Routing.RouteValueDictionary { { "money", "true" } };
-
+        
         routes.Add(truemoney_dep);
         routes.Add(truemoney_with);
 
@@ -83,6 +83,15 @@
 
         routes.Add(weChat);
         routes.Add(aliPay);
+
+        // Aifu
+        System.Web.Routing.Route aifuWeChat = new System.Web.Routing.Route("Deposit/WeChat/Aifu", new System.Web.Routing.PageRouteHandler("~/Deposit/Aifu.aspx"));
+        aifuWeChat.DataTokens = new System.Web.Routing.RouteValueDictionary { { "type", "wechat" } };
+        System.Web.Routing.Route aifuAliPay = new System.Web.Routing.Route("Deposit/Alipay/Aifu", new System.Web.Routing.PageRouteHandler("~/Deposit/Aifu.aspx"));
+        aifuAliPay.DataTokens = new System.Web.Routing.RouteValueDictionary { { "type", "alipay" } };
+
+        routes.Add(aifuWeChat);
+        routes.Add(aifuAliPay);
 
         // ERRORS
         System.Web.Routing.Route rtError400 = new System.Web.Routing.Route("400", new System.Web.Routing.PageRouteHandler("~/_Static/Pages/400.aspx"));

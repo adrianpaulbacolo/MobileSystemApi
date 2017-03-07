@@ -64,6 +64,10 @@ public partial class Deposit_Pay : PaymentBasePage
             case commonVariables.DepositMethod.EGHL:
                 GatewayFile = "eghl";
                 break;
+            case commonVariables.DepositMethod.AifuAlipay:
+            case commonVariables.DepositMethod.AifuWeChat:
+                GatewayFile = "aifu";
+                break;
         }
 
         commonVariables.AutoRouteMethod autoRouteId;

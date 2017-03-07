@@ -239,7 +239,9 @@ public class commonVariables
         NganLuong = 120212,
         VenusPoint = 120296,
         BaokimScratchCard = 120286,
-        Baokim = 120272
+        Baokim = 120272,
+        AifuWeChat = 1202133,
+        AifuAlipay = 1202134,
 
     }
 
