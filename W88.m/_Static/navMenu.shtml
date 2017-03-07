@@ -4,9 +4,17 @@ var deviceId = commonFunctions.getMobileDevice(Request);
 var fishLink = "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/FishingMasterEN.apk";
 var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/manifestEN.plist";
 
-if (commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase)){
-    fishLink = "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/FishingMaster.apk";
-    fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/manifest.plist";
+if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)){
+    if (commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase)){
+           fishLink = "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/FishingMaster.apk";
+           fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/manifest.plist";
+    }
+}
+else{
+    if (commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase)){
+        fishLink = "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/FishingMaster.apk";
+        fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/manifest.plist";
+    }
 }
 
 var fishingWorld = FishingWorldProduct.GetLink();
