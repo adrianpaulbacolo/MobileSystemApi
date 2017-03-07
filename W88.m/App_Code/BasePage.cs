@@ -15,6 +15,7 @@ public class BasePage : System.Web.UI.Page
     public Boolean isPublic = true;
     public PageHeaders headers = new PageHeaders();
     public MemberSession.UserSessionInfo userInfo = new MemberSession.UserSessionInfo();
+    public string CDNCountryCode = string.Empty;
 
     protected override void OnPreInit(EventArgs e)
     {
@@ -35,11 +36,13 @@ public class BasePage : System.Web.UI.Page
         string CDN_Value = getCDNValue();
         string key = getCDNKey();
 
+
         if (string.IsNullOrWhiteSpace(commonCookie.CookieLanguage))
         {
             if (!string.IsNullOrEmpty(CDN_Value) && !string.IsNullOrEmpty(key))
             {
                 commonVariables.SelectedLanguage = commonCountry.GetLanguageByCountry(GetCountryCode(CDN_Value, key));
+                CDNCountryCode = GetCountryCode(CDN_Value, key);
             }
             else
             {
@@ -104,7 +107,7 @@ public class BasePage : System.Web.UI.Page
             case "kr":
                 strLanguage = "ko-kr";
                 break;
-            
+
             case "th":
                 strLanguage = "th-th";
                 break;
