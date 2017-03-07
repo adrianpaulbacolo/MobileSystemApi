@@ -1,8 +1,8 @@
 .history-nav-container{
-    background-color: darken($primary-color, 36%);
+    background-color: darken($brand-primary, 36%);
 }
 .history-nav{
-    background-color: darken($primary-color, 36%);
+    background-color: darken($brand-primary, 36%);
 	min-height: auto;
 	margin: 0 auto;
 	max-width: 900px;
@@ -16,7 +16,7 @@
 	span{
 		cursor: pointer;
 		text-transform: uppercase;
-		font-family: $primary-font;
+		font-family: $dinpro;
 		color: darken($text-color , 20%);
 		padding: 15px 0;
 		display: block;
@@ -59,7 +59,7 @@
 	max-width: 768px;
 	margin: 0 auto;
 	.h-title{
-        color: $brand-color;
+        color: $brand-primary;
 		margin-top: 0;
 		margin-bottom: 5px;
 	    font-size: 1.8rem;
@@ -115,6 +115,7 @@
 	right: 0;
 	z-index: 1000;
 	position: fixed;
+	display: none;
 }
 .history-full-header{
 	background-color: #252525;
@@ -156,7 +157,7 @@
 		margin-bottom: 3px;
 	}
 	h5{
-        color: $brand-color;
+        color: $brand-alt;
 		margin-top: 0;
 		margin-bottom: 0;
 	    font-size: 1.8rem;

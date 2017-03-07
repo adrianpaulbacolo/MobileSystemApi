@@ -6,9 +6,9 @@
     <script type="text/javascript" src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/wallets.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"> </script>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <div class="ui-content" role="main">
+    <section class="body" role="main">
 
-        <div class="wallets">
+        <div class="wallets wallet-auto">
         </div>
 
         <div class="history-nav-container">
@@ -78,7 +78,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <div class="history-full"></div>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="ScriptsPlaceHolder" runat="Server">

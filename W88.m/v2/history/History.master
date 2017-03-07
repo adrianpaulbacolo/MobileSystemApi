@@ -11,22 +11,26 @@
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
-    <div data-role="page" data-theme="b" data-ajax="false">
-
-        <header class="header">
-            <a href="#" class="header-button header-button-left" id="nav-btn"><span class="icon icon-navicon"></span></a>
-            <h1 class="header-title"><%=(base.Page.Title == "Dashboard" ? "<img alt=\"Dashboard\" src=\"/_Static/v2/assets/images/logo-en.png\" />" : base.Page.Title) %></h1>
-            <a id="historyFilter" class="header-button header-button-right"><span class="icon icon-settings"></span></a>
-        </header>
-
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
-
-         <% if (commonCookie.CookieIsApp != "1") { %>
-        <!--#include virtual="~/_Static/v2/menu.shtml" -->
-        <% } %>
-
-        <asp:ContentPlaceHolder ID="ScriptsPlaceHolder" runat="server"></asp:ContentPlaceHolder>
-
+    <div class="canvas" canvas="container">
+        <div class="main-screen">
+            <header class="header">
+                <a href="#" class="header-button header-button-left" id="nav-btn">
+                    <span class="icon icon-navicon"></span>
+                </a>
+                <h1 class="header-title"><%=(base.Page.Title == "Dashboard" ? "<img alt=\"Dashboard\" src=\"/_Static/v2/assets/images/logo-en.png\" />" : base.Page.Title) %></h1>
+                <a id="historyFilter" class="header-button header-button-right">
+                    <span class="icon icon-filter"></span>
+                </a>
+            </header>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+        </div>
     </div>
+
+    <% if (commonCookie.CookieIsApp != "1") { %>
+    <!--#include virtual="~/_Static/v2/menu.shtml" -->
+    <% } %>
+
+    <asp:ContentPlaceHolder ID="ScriptsPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+
 </body>
 </html>
