@@ -496,6 +496,12 @@
             case "1202105":
                 return "NineVPayAlipay.aspx";
 
+            case "1202133":
+                return "WeChat/Aifu";
+
+            case "1202134":
+                return "Alipay/Aifu";
+
             default:
                 break
         }
