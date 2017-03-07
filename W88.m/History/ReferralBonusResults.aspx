@@ -14,7 +14,7 @@
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
-                <i class="icon-navicon"></i>
+                <i class="icon icon-navicon"></i>
             </a>
             <h1 class="title"><%=string.Format("{0} - {1}", commonCulture.ElementValues.getResourceString("history", commonVariables.HistoryXML), commonCulture.ElementValues.getResourceString("referralbonus", commonVariables.HistoryXML))%></h1>
         </header>
