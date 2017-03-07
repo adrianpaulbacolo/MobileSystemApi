@@ -58,39 +58,7 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
             _self.page.find(".main-content").children().remove();
             var games = slotSvc.filterSlots(filter, _.clone(_self.games));
 
-            // filter
-            switch(filter.section){
-                case "Home":
-                    games = _.orderBy(games, function (game) {
-                        var max = games.length;
-                        try{
-                            return (game.Section.Home > 0) ? parseInt(game.Section.Home) : max;
-                        }catch(e){
-                            return max;
-                        }
-                    }, ["asc"]);
-                    break;
-                case "Top":
-                    games = _.orderBy(games, function (game) {
-                        var max = games.length;
-                        try{
-                            return (game.Section.Top > 0) ? parseInt(game.Section.Top) : max;
-                        }catch(e){
-                            return max;
-                        }
-                    }, ["asc"]);
-                    break;
-                case "New":
-                    games = _.orderBy(games, function (game) {
-                        var max = games.length;
-                        try {
-                            return (game.Section.New > 0) ? parseInt(game.Section.New) : max;
-                        } catch (e) {
-                            return max;
-                        }
-                    }, ["asc"]);
-                    break;
-            }
+            games = slotSvc.sortGames(games, filter.section);
 
             pubsub.publish("displaySlotList", _self.setPushData({
                 games: games

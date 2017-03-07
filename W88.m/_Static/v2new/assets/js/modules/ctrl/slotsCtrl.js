@@ -75,6 +75,9 @@ function slotsCtrl(routeObj, slotSvc, templateSvc) {
 
                 _.forEach(clubs, function (club) {
                     var items = w88Mobile.v2.Slots.itemsByClub(club.providers, "Home");
+                    // add published items
+                    items = _.concat(items, slotSvc.publishedItems(club));
+                    items = w88Mobile.v2.Slots.sortGames(items, "Home");
                     games = _.slice(items, 0, w88Mobile.v2.Slots.clubLimit);
                     pubsub.publish("displaySlotList", _self.setPushData({
                         games: games
@@ -96,6 +99,7 @@ function slotsCtrl(routeObj, slotSvc, templateSvc) {
     function onFetchSlotsByClub(topic, data) {
         _.forEach(data.club.providers, function (provider) {
             w88Mobile.v2.Slots.get(provider, function (response) {
+                _.forEach(response.ResponseData.Games, w88Mobile.v2.Slots.formatReleaseDate);
                 w88Mobile.v2.Slots.addItems(response.ResponseData.Games, response.ResponseData.Provider);
                 if (response.ResponseCode == 1) {
                     pubsub.publish("slotItemsChanged", data._self.setPushData({

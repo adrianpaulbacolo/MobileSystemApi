@@ -43,6 +43,8 @@ function Slots() {
         , sectionKeys: sectionKeys
         , send: send
         , publishedItems: publishedItems
+        , sortGames: sortGames
+        , formatReleaseDate: formatReleaseDate
     }
 
 
@@ -347,5 +349,58 @@ function Slots() {
         });
 
         return options;
+    }
+
+    function sortGames(games, section) {
+        // filter
+        switch (section) {
+            case "Home":
+                games = _.orderBy(games, [function (game) {
+                    var max = games.length;
+                    try {
+                        return (game.Section.Home > 0) ? parseInt(game.Section.Home) : max;
+                    } catch (e) {
+                        return max;
+                    }
+                }, getSortedReleaseDate], ["asc", "asc"]);
+                break;
+            case "Top":
+                games = _.orderBy(games, [function (game) {
+                    var max = games.length;
+                    try {
+                        return (game.Section.Top > 0) ? parseInt(game.Section.Top) : max;
+                    } catch (e) {
+                        return max;
+                    }
+                }, getSortedReleaseDate], ["asc", "asc"]);
+                break;
+            case "New":
+                games = _.orderBy(games, [function (game) {
+                    var max = games.length;
+                    try {
+                        return (game.Section.New > 0) ? parseInt(game.Section.New) : max;
+                    } catch (e) {
+                        return max;
+                    }
+                }, getSortedReleaseDate], ["asc", "asc"]);
+                break;
+        }
+
+        return games;
+    }
+
+    // private function used for sorting date, should return integer
+    function getSortedReleaseDate(game) {
+        return (game.release instanceof Date) ? parseInt(game.release.getTime()/1000) : parseInt(new Date().getTime()/1000);
+    }
+
+    function formatReleaseDate(game) {
+        try {
+            if (!_.isEmpty(game.ReleaseDate)) {
+                game.release = new Date([game.ReleaseDate.substr(0, 4), game.ReleaseDate.substr(4, 2), game.ReleaseDate.substr(6, 2)].join("-"));
+            }
+        } catch (e) {
+            console.log("invalid date");
+        }
     }
 }
