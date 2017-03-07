@@ -8,6 +8,7 @@
     <title></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/bankTransfer.js"></script>
 </head>
 <body>
     <div data-role="page" data-theme="b">
@@ -203,7 +204,7 @@
                         sessionStorage.setItem("hfBLId", this.value);
 
                         window.w88Mobile.BankTransfer.ToogleBankBranch(selectName, $('#<%=hfBLId.ClientID%>').val(), $('#<%=hfBBId.ClientID%>').val());
-                        }
+                    }
                 });
 
                 $('#drpBankBranchList').change(function () {
