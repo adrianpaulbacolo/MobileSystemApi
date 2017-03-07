@@ -72,7 +72,7 @@ function History() {
         switch (data.Type) {
 
             case "adjustment":
-                template = _w88_templates.items.History_AdjustmentModal;
+                template = _w88_templates.History_AdjustmentModal;
 
                 report = _.find(result.Adjustment, function (item) {
                     return item.TransactionId == data.Id;
@@ -81,7 +81,7 @@ function History() {
                 break;
 
             case "depositwidraw":
-                template = _w88_templates.items.History_DepositWithdrawModal;
+                template = _w88_templates.History_DepositWithdrawModal;
 
                 report = _.find(result.DepositWithdraw, function (item) {
                     return item.TransactionId == data.Id;
@@ -90,7 +90,7 @@ function History() {
                 break;
 
             case "fundtransfer":
-                template = _w88_templates.items.History_FundTransferModal;
+                template = _w88_templates.History_FundTransferModal;
 
                 report = _.find(result.FundTransfer, function (item) {
                     return item.TransactionId == data.Id;
@@ -228,6 +228,7 @@ function History() {
 
     function closeModal() {
         $('.history-full').empty();
+        $('.history-full').hide();
     }
 
     function init() {
@@ -426,7 +427,7 @@ function History() {
         switch (data.Type) {
 
             case "adjustment":
-                template = _w88_templates.items.History_Adjustment;
+                template = _w88_templates.History_Adjustment;
 
                 result.Adjustment = data.Result;
 
@@ -435,7 +436,7 @@ function History() {
                 break;
 
             case "depositwidraw":
-                template = _w88_templates.items.History_DepositWithdraw;
+                template = _w88_templates.History_DepositWithdraw;
 
                 result.DepositWithdraw = data.Result;
 
@@ -444,7 +445,7 @@ function History() {
                 break;
 
             case "fundtransfer":
-                template = _w88_templates.items.History_FundTransfer;
+                template = _w88_templates.History_FundTransfer;
 
                 result.FundTransfer = data.Result;
 
@@ -453,7 +454,7 @@ function History() {
                 break;
 
             case "promoclaim":
-                template = _w88_templates.items.History_PromoClaim;
+                template = _w88_templates.History_PromoClaim;
 
                 pubsub.publish("promoStatus", status.Done);
 

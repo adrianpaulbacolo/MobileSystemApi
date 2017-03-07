@@ -1,7 +1,7 @@
 ﻿<div class="history-data">
     {% if (tplData.result) { %}
     {% _.each(tplData.result, function(item) { %}
-    <div class="history-data-row" onclick="javascript: w88Mobile.History().showModal('{%- tplData.type %}', '{%- item.TransactionId %}')">
+    <div class="history-data-row" onclick="javascript: w88Mobile.History.showModal('{%- tplData.type %}', '{%- item.TransactionId %}')">
         <div>
             <h5 class="h-title">{%-item.PaymentType%}</h5>
             <p class="h-id">{%-item.TransactionId%}</p>

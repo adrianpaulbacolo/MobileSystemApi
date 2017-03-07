@@ -6,7 +6,7 @@
     <script type="text/javascript" src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/wallets.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"> </script>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <section class="body" role="main">
+    <section class="body">
 
         <div class="wallets wallet-auto">
         </div>
