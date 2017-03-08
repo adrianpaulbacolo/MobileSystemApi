@@ -25,6 +25,11 @@ public partial class Deposit_Pay : PaymentBasePage
             case commonVariables.DepositMethod.PaySec:
                 GatewayFile = "paysec";
                 break;
+            case commonVariables.DepositMethod.TongHuiPay:
+            case commonVariables.DepositMethod.TongHuiAlipay:
+            case commonVariables.DepositMethod.TongHuiWeChat:
+                GatewayFile = "tonghui";
+                break;
             case commonVariables.DepositMethod.NineVPayAlipay:
                 GatewayFile = "ninevpay";
                 break;
