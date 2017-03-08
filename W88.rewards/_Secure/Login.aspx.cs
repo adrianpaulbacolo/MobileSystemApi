@@ -20,7 +20,6 @@ public partial class _Secure_Login : BasePage
         var host = myUri.Host.Split('.');
         if (Common.GetAppSetting<string>("VIP_Domains").ToLower().Contains(string.Format("{0}.{1}", host[1], host[2])))
         {
-            LanguageHelpers.SelectedLanguage = "zh-cn";
             Response.Clear();
             Response.Redirect("/_Secure/VIP/login.aspx", true);
         }
