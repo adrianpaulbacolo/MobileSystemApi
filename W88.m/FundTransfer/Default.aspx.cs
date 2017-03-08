@@ -14,7 +14,7 @@ public partial class FundTransfer_Default : PaymentBasePage
     protected string strAlertMessage = string.Empty;
 
     private Boolean IsPageRefresh = false;
-    
+
     protected void Page_Load(object sender, EventArgs e)
     {
         System.Xml.Linq.XElement xeFTCurrencySettings = null;
@@ -37,7 +37,7 @@ public partial class FundTransfer_Default : PaymentBasePage
             var strProduct = pair.Value.Trim();
             if (string.Compare(commonCulture.ElementValues.GetResourceXPathAttribute("Currencies/" + strCurrencyCode + "/" + strProduct.ToUpper(), "disabledfundout", xeFTCurrencySettings), "true", true) != 0)
             {
-                    drpTransferFrom.Items.Add(new ListItem(pair.Value, Convert.ToString(pair.Key)));
+                drpTransferFrom.Items.Add(new ListItem(pair.Value, Convert.ToString(pair.Key)));
             }
 
             if (string.Compare(commonCulture.ElementValues.GetResourceXPathAttribute("Currencies/" + strCurrencyCode + "/" + strProduct.ToUpper(), "disabledfundin", xeFTCurrencySettings), "true", true) != 0)
@@ -214,11 +214,16 @@ public partial class FundTransfer_Default : PaymentBasePage
                         strPokerAddOn = "[break]USD " + commonValidation.roundDown(commonCulture.ElementValues.getResourceString("transferAmount", xeResponse), 2) + commonCulture.ElementValues.getResourceXPathString("FundTransfer/USDDeposited", xeErrors);
                     }
 
-                    strAlertMessage = string.Format("{0}{1}", commonCulture.ElementValues.getResourceXPathString("FundTransfer/TransferSuccess", xeErrors),
+                    string err46 = string.Empty;
+
+                    if (commonCulture.ElementValues.getResourceString("customCode", xeResponse).Equals("1"))
+                        err46 = "[break]" + commonCulture.ElementValues.getResourceXPathString("FundTransfer/ERR46", xeErrors);
+
+                    strAlertMessage = string.Format("{0}{1}{2}{3}", commonCulture.ElementValues.getResourceXPathString("FundTransfer/TransferSuccess", xeErrors),
                         commonCulture.ElementValues.getResourceXPathString("FundTransfer/BalanceBeforeAfter", xeErrors)
                         .Replace("{walletFrom}", string.Format("{0} => {1}", Convert.ToDecimal(commonCulture.ElementValues.getResourceString("transferFromBalanceBefore", xeResponse)).ToString(commonVariables.DecimalFormat), Convert.ToDecimal(commonCulture.ElementValues.getResourceString("transferFromBalanceAfter", xeResponse)).ToString(commonVariables.DecimalFormat)))
                         .Replace("{walletTo}", string.Format("{0} => {1}", Convert.ToDecimal(commonCulture.ElementValues.getResourceString("transferToBalanceBefore", xeResponse)).ToString(commonVariables.DecimalFormat), Convert.ToDecimal(commonCulture.ElementValues.getResourceString("transferToBalanceAfter", xeResponse)).ToString(commonVariables.DecimalFormat))),
-                        strPokerAddOn);
+                        strPokerAddOn, err46);
 
                     drpTransferFrom.SelectedIndex = 0;
                     drpTransferTo.SelectedIndex = 0;
