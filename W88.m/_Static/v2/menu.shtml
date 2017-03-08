@@ -33,7 +33,7 @@ if (!string.IsNullOrWhiteSpace(commonCookie.CookieAffiliateId)) {
             <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
             <li class="nav-category">
                 <a href="/_Secure/Login.aspx">
-                    <span class="icon icon-login"></span>
+                    <span class="icon icon-currency-circle"></span>
                     <span class="menu_funds"></span>
                 </a>
                 <div class="nav-category-items">

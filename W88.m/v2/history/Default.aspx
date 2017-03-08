@@ -28,6 +28,7 @@
             </div>
         </div>
 
+        <!-- Results Page -->
         <div class="history-result">
             <div id="adjustment">
             </div>
@@ -38,50 +39,55 @@
             <div id="promoclaim">
             </div>
         </div>
+    </section>
 
+    <!-- Results Detail Page -->
+    <div class="history-full"></div>
+</asp:Content>
+
+<asp:Content ID="Content6" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
         <!-- Modal -->
-        <div class="modal fade" id="history-modal" tabindex="-1" role="dialog" aria-labelledby="history">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header mheader-notitle">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="icon icon-close"></span></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-container">
-                            <div class="container">
-                                <form class="form" id="form1" runat="server">
-                                    <div class="form-group">
-                                        <asp:Label ID="lblTransactionType" runat="server" AssociatedControlID="ddlTransactionType" />
-                                        <asp:DropDownList ID="ddlTransactionType" runat="server" CssClass="form-control" />
-                                    </div>
-                                    <div class="form-group">
-                                        <asp:Label ID="lblDateFrom" runat="server" AssociatedControlID="txtDateFrom" />
-                                        <asp:TextBox ID="txtDateFrom" type="date" runat="server" CssClass="form-control" />
-                                    </div>
-                                    <div class="form-group">
-                                        <asp:Label ID="lblDateTo" runat="server" AssociatedControlID="txtDateTo" />
-                                        <asp:TextBox ID="txtDateTo" type="date" runat="server" CssClass="form-control" />
-                                    </div>
-                                    <div class="form-group" id="type">
-                                        <asp:Label ID="lblType" runat="server" AssociatedControlID="ddlType" />
-                                        <asp:DropDownList ID="ddlType" runat="server" CssClass="form-control" />
-                                    </div>
-                                    <div class="form-group" id="status">
-                                        <asp:Label ID="lblStatus" runat="server" AssociatedControlID="ddlStatus" />
-                                        <asp:DropDownList ID="ddlStatus" runat="server" CssClass="form-control" />
-                                    </div>
-                                    <button type="submit" id="btnSubmit" class="btn btn-block btn-primary"></button>
-                                </form>
-                            </div>
+    <div class="modal fade" id="history-modal" tabindex="-1" role="dialog" aria-labelledby="history">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header mheader-notitle">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="icon icon-close"></span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-container">
+                        <div class="container">
+                            <form class="form" id="form1" runat="server">
+                                <div class="form-group">
+                                    <asp:Label ID="lblTransactionType" runat="server" AssociatedControlID="ddlTransactionType" />
+                                    <asp:DropDownList ID="ddlTransactionType" runat="server" CssClass="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <asp:Label ID="lblDateFrom" runat="server" AssociatedControlID="txtDateFrom" />
+                                    <asp:TextBox ID="txtDateFrom" type="date" runat="server" CssClass="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <asp:Label ID="lblDateTo" runat="server" AssociatedControlID="txtDateTo" />
+                                    <asp:TextBox ID="txtDateTo" type="date" runat="server" CssClass="form-control" />
+                                </div>
+                                <div class="form-group" id="type">
+                                    <asp:Label ID="lblType" runat="server" AssociatedControlID="ddlType" />
+                                    <asp:DropDownList ID="ddlType" runat="server" CssClass="form-control" />
+                                </div>
+                                <div class="form-group" id="status">
+                                    <asp:Label ID="lblStatus" runat="server" AssociatedControlID="ddlStatus" />
+                                    <asp:DropDownList ID="ddlStatus" runat="server" CssClass="form-control" />
+                                </div>
+                                <button type="submit" id="btnSubmit" class="btn btn-block btn-primary"></button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <div class="history-full"></div>
+    </div>
 </asp:Content>
-<asp:Content ID="Content6" ContentPlaceHolderID="ScriptsPlaceHolder" runat="Server">
+
+<asp:Content ID="Content7" ContentPlaceHolderID="ScriptsPlaceHolder" runat="Server">
     <script type="text/javascript">
         $(document).ready(function () {
             _w88_wallets.mainWalletInit();
@@ -118,7 +124,7 @@
             $('#form1').submit(function (e) {
                 e.preventDefault();
 
-                $('#history-modal').modal('close');
+                $('#history-modal').modal('hide');
 
                 var dateFrom = new Date($('input[id$="txtDateFrom"]').val());
                 var dateTo = new Date($('input[id$="txtDateTo"]').val());
