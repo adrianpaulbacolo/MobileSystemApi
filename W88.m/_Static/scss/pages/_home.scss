@@ -3,6 +3,11 @@
 // --------------------------------------------------
 
 .action-btn {
+    .front-btn{
+        .ui-btn {
+        max-height: 45px;
+        }
+    }
     .ui-btn {
         margin: 0;
         line-height: 1;
