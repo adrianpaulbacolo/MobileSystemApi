@@ -112,7 +112,7 @@ function Slots() {
 
                 var categories = _.join(item.Category, ",").toLowerCase().split(",");
                 var hasCategory = (!_.isEqual(filter.form.category.toLowerCase(), "all")) ? _.includes(categories, filter.form.category.toLowerCase()) : true;
-                var hasMinBet = (!_.isEqual(filter.form.minbet.toLowerCase(), "all")) ? _.isEqual(filter.form.minbet.toLowerCase(), item.MinBet) : true;
+                var hasMinBet = (!_.isEmpty(filter.form.minbet) && !_.isEqual(filter.form.minbet.toLowerCase(), "all")) ? _.isEqual(filter.form.minbet.toLowerCase(), item.MinBet) : true;
                 var hasPL = (!_.isEqual(filter.form.playlines.toLowerCase(), "all")) ? _.isEqual(filter.form.playlines.toLowerCase(), item.Lines) : true;
                 var hasProvider = true;
                 if (!_.isEmpty(filter.form.provider.toLowerCase())) {
