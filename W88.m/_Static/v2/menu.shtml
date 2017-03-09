@@ -38,29 +38,29 @@ if (!string.IsNullOrWhiteSpace(commonCookie.CookieAffiliateId)) {
                 </a>
                 <div class="nav-category-items">
                     <h4><span class="menu_funds"></span></h4>
-                    <div class="row">
-                        <!-- Club W - Club W Premier-->
-                        <div class="col-xs-12">
+                    <!-- Club W - Club W Premier-->
+                    <ul class="side-submenu">
+                        <li>
                             <a href="/Deposit">
                                 <span class="menu_deposit"></span>
                             </a>
-                        </div>
-                        <div class="col-xs-12">
+                        </li>
+                        <li>
                             <a href="/FundTransfer">
                                 <span class="menu_transfer"></span>
                             </a>
-                        </div>
-                        <div class="col-xs-12">
+                        </li>
+                        <li>
                             <a href="/Withdrawal">
                                 <span class="menu_withdraw"></span>
                             </a>
-                        </div>
-                        <div class="col-xs-12">
+                        </li>
+                        <li>
                             <a href="/History">
                                 <span class="menu_history"></span>
                             </a>
-                        </div>
-                    </div>
+                        </li>
+                    </ul>
                 </div>
             </li>
             <% } %>

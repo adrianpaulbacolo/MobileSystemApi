@@ -30,6 +30,14 @@
   }
 }
 
+.modal .form-control {
+  border-color: #666;
+  &:focus {
+    border-color: $brand-primary;
+  }
+}
+
+
 select.form-control{
   option {
       background-color: $body-bg;
@@ -125,4 +133,3 @@ div.pay-note #paymentNoteContent {
 .has-error.checkbox-inline label {
   color: $brand-danger;
 }
-

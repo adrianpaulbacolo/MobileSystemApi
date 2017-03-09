@@ -35,6 +35,7 @@
 		}
 		&.initial,
 		&.current{
+			
 			color: $text-color;
 			&:after{
 				background-color: $text-color;
