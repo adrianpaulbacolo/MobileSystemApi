@@ -225,6 +225,7 @@ public class commonVariables
         KexunPay = 1202127,
         PaySec = 120290,
         SDAPayAlipay = 120254,
+        AlipayTransfer = 1204131,
         ShengPayAliPay = 1202111,
         NineVPayAlipay = 1202105,
         ECPSS = 120218,

@@ -84,7 +84,7 @@
         routes.Add(weChat);
         routes.Add(aliPay);
 
-        // Aifu
+        // AIFU
         System.Web.Routing.Route aifuWeChat = new System.Web.Routing.Route("Deposit/WeChat/Aifu", new System.Web.Routing.PageRouteHandler("~/Deposit/Aifu.aspx"));
         aifuWeChat.DataTokens = new System.Web.Routing.RouteValueDictionary { { "type", "wechat" } };
         System.Web.Routing.Route aifuAliPay = new System.Web.Routing.Route("Deposit/Alipay/Aifu", new System.Web.Routing.PageRouteHandler("~/Deposit/Aifu.aspx"));
@@ -92,6 +92,24 @@
 
         routes.Add(aifuWeChat);
         routes.Add(aifuAliPay);
+
+        // ALIPAY TRANSFER
+        System.Web.Routing.Route alipaytransfer = new System.Web.Routing.Route("Deposit/1204131", new System.Web.Routing.PageRouteHandler("~/Deposit/SDAPay.aspx"));
+        alipaytransfer.DataTokens = new System.Web.Routing.RouteValueDictionary { { "type", "alipaytransfer" } };
+        System.Web.Routing.Route alipaytransfer2 = new System.Web.Routing.Route("Deposit/1204131/2", new System.Web.Routing.PageRouteHandler("~/Deposit/SDAPay2.aspx"));
+        alipaytransfer2.DataTokens = new System.Web.Routing.RouteValueDictionary { { "type", "alipaytransfer" } };
+
+        routes.Add(alipaytransfer);
+        routes.Add(alipaytransfer2);
+
+        // SDAPAYALIPAY
+        System.Web.Routing.Route sdapayalipay = new System.Web.Routing.Route("Deposit/120254", new System.Web.Routing.PageRouteHandler("~/Deposit/SDAPay.aspx"));
+        sdapayalipay.DataTokens = new System.Web.Routing.RouteValueDictionary { { "type", "sdapayalipay" } };
+        System.Web.Routing.Route sdapayalipay2 = new System.Web.Routing.Route("Deposit/120254/2", new System.Web.Routing.PageRouteHandler("~/Deposit/SDAPay2.aspx"));
+        sdapayalipay2.DataTokens = new System.Web.Routing.RouteValueDictionary { { "type", "sdapayalipay" } };
+
+        routes.Add(sdapayalipay);
+        routes.Add(sdapayalipay2);
 
         // ERRORS
         System.Web.Routing.Route rtError400 = new System.Web.Routing.Route("400", new System.Web.Routing.PageRouteHandler("~/_Static/Pages/400.aspx"));
