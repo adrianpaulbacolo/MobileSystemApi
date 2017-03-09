@@ -85,7 +85,7 @@ function DefaultPaymentsV2() {
 
         } else {
             window.setInterval(function () {
-                setTranslations();
+                setTranslations(paymentOptions);
             }, 500);
         }
     }
@@ -213,6 +213,15 @@ function DefaultPaymentsV2() {
                     var matchValue = $el.data("bankequals");
                     if ($el.val() == matchValue) {
                         $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_MissingBank") + '</span>');
+                        $el.parent("div.form-group").addClass('has-error');
+                        return true;
+                    }
+                },
+                selectequals: function ($el) {
+                    $el.parent("div.form-group").removeClass('has-error');
+                    $el.parent("div.form-group").children("span.help-block").remove();
+                    var matchValue = $el.data("bankequals");
+                    if ($el.val() == matchValue) {
                         $el.parent("div.form-group").addClass('has-error');
                         return true;
                     }
@@ -530,7 +539,7 @@ function DefaultPaymentsV2() {
             switch (response.ResponseCode) {
                 case 1:
                     w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + _w88_contents.translate("LABEL_TRANSACTION_ID") + ": " + response.ResponseData.TransactionId + "</p>", function () {
-                        window.location.reload();
+                        window.location = "/v2/Withdrawal/";
                     });
 
                     break;

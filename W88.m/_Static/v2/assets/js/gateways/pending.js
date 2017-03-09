@@ -23,7 +23,9 @@ function Pending() {
                 $('label[id$="lblPaymentMethod"]').text(_w88_contents.translate("LABEL_PAYMENT_METHOD"));
                 $('label[id$="lblAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
                 $('label[id$="lblStatus"]').text(_w88_contents.translate("LABEL_FIELDS_STATUS"));
-                $('#btnCancel').text(_w88_contents.translate("BUTTON_CANCEL"));
+
+                var widrawText = _w88_contents.translate("LABEL_HISTORY_DEPOSITWIDRAW").split("/");
+                $('#btnCancel').text(_w88_contents.translate("BUTTON_CANCEL") + " " + $.trim(widrawText[1]));
 
                 $('.gateway-select').hide();
                 $('.gateway-restrictions').hide();
