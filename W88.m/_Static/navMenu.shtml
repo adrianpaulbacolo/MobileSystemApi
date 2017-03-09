@@ -841,3 +841,25 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
         });
     });
 </script>
+
+<% if (commonFunctions.isNativeAgent(Request)){ %>
+<script type="text/javascript">
+        $(function () {
+            $("#aMenu").attr("href", "#");
+            $("#aMenu").on("click", function(e){
+                e.preventDefault();
+                try{
+                    if(!_.isEmpty($(this).find("i.icon-navicon"))){
+                        Native.openSlidingMenu();
+                    }else{
+                        var isMainPage =  <%= commonFunctions.isMainPage(Request).ToString().ToLower() %>;
+                        if(isMainPage) window.location.href="/v2/Dashboard.aspx";
+                        else window.history.go(-1);
+                    }
+                }catch(e){
+                    console.log(e.message)
+                }
+            });
+        });
+</script>
+<% } %>

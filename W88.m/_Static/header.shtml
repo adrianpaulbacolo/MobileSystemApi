@@ -1,6 +1,13 @@
 ﻿<header id="header" data-role="header" data-position="fixed" data-theme="b" data-tap-toggle="false">
     <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" role="button" id="aMenu" data-load-ignore-splash="true">
+        <% if (commonFunctions.isNativeAgent(Request) && !Request.Url.AbsolutePath.ToLower().Contains("index"))
+        { %>
+        <span class="icon icon-back"></span>
+        <% }
+        else
+        { %>
         <span class="icon icon-navicon"></span>
+        <% } %>
     </a>
     <h1 class="title">
         <img src="/_Static/Images/logo-<%=commonVariables.SelectedLanguageShort%>.png" class="logo" alt="logo">
