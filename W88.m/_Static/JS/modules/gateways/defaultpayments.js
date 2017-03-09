@@ -154,7 +154,10 @@
             error: function () {
                 console.log("Error connecting to api");
             },
-            complete: complete
+            complete: function () {
+                if (!_.isUndefined(complete)) complete();
+                GPInt.prototype.HideSplash();
+            }
         });
     }
 
@@ -212,6 +215,9 @@
             for (var i = 0; i < responseData.length; i++) {
                 var data = responseData[i];
 
+                if (data.Method)
+                    continue;
+
                 page = setPaymentPage(data.Id);
 
                 if (page)
@@ -242,13 +248,22 @@
             }
 
             if (activeTabId) {
-                if ($('#activeDepositTabs').length > 0)
-                    $('#activeDepositTabs').text(title);
+                if (title) {
+                    if ($('#activeDepositTabs').length > 0)
+                        $('#activeDepositTabs').text(title);
 
-                if ($('#activeTab').length > 0)
-                    $('#activeTab').text(title);
+                    if ($('#activeTab').length > 0)
+                        $('#activeTab').text(title);
 
-                $('#headerTitle').append(' - ' + title);
+                    $('#headerTitle').append(' - ' + title);
+                } else {
+                    window.location.href = deposit;
+                }
+
+                if (_.includes(routing, activeTabId)) {
+                    $('#dailyLimit').hide()
+                    $('#totalAllowed').hide()
+                }
             }
             else {
                 if (!isAutoRoute) {
@@ -257,8 +272,6 @@
                         window.location.href = deposit + page;
                 }
             }
-
-            GPInt.prototype.HideSplash();
         } else {
             if (activeTabId) {
                 window.location.href = deposit;
@@ -363,7 +376,7 @@
         $('#btnSubmitPlacement').hide();
         $('#paymentSettings').hide();
         $('#paymentList').hide();
-        
+
         GPInt.prototype.HideSplash();
     }
 
@@ -378,10 +391,10 @@
                 return "Neteller.aspx";
 
             case "210709":
-                return "210709";
+                return "210709"; // WingMoney
 
             case "2107138":
-                return "2107138";
+                return "2107138"; // TrueMoney
 
             case "220895":
                 return "VenusPoint.aspx";
@@ -403,10 +416,10 @@
                 return "JutaPay.aspx";
 
             case "110308":
-                return "110308";
+                return "110308"; // WingMoney
 
             case "1103132":
-                return "1103132";
+                return "1103132"; // TrueMoney
 
             case "120223":
                 return "SDPay.aspx";
@@ -447,6 +460,15 @@
             case "1202127":
                 return "KexunPay.aspx";
 
+            case "120275":
+                return "120275"; // TongHuiPay
+
+            case "120293":
+                return "120293"; // TongHuiAlipay
+
+            case "120277":
+                return "120277"; // TongHuiWeChat
+
             case "1202122":
                 return "Alipay";
 
@@ -482,6 +504,12 @@
 
             case "1202105":
                 return "NineVPayAlipay.aspx";
+
+            case "1202133":
+                return "WeChat/Aifu";
+
+            case "1202134":
+                return "Alipay/Aifu";
 
             default:
                 break
