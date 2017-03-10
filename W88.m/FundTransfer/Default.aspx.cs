@@ -205,7 +205,7 @@ public partial class FundTransfer_Default : PaymentBasePage
                     strTransferStatus = commonCulture.ElementValues.getResourceString("transferStatus", xeResponse);
 
                     string strPokerAddOn = string.Empty;
-                    if (string.Compare(strTransferFrom, "6", true) == 0)
+                    if (string.Compare(strTransferFrom, "6", true) == 0 && string.Compare(strTransferTo, "16", true) != 0)
                     {
                         strPokerAddOn = "[break]" + commonVariables.GetSessionVariable("CurrencyCode") + " " + commonCulture.ElementValues.getResourceString("transferAmount", xeResponse) + commonCulture.ElementValues.getResourceXPathString("FundTransfer/USDDeposited", xeErrors);
                     }
@@ -215,7 +215,7 @@ public partial class FundTransfer_Default : PaymentBasePage
                     }
 
                     string strFishingAddOn = string.Empty;
-                    if (string.Compare(strTransferFrom, "16", true) == 0)
+                    if (string.Compare(strTransferFrom, "16", true) == 0 && string.Compare(strTransferTo, "6", true) != 0) 
                     {
                         strFishingAddOn = "[break]" + commonVariables.GetSessionVariable("CurrencyCode") + " " + commonCulture.ElementValues.getResourceString("transferAmount", xeResponse) + commonCulture.ElementValues.getResourceXPathString("FundTransfer/USDDeposited", xeErrors);
                     }
