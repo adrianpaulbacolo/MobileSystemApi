@@ -16,12 +16,12 @@ function Slots() {
     var providers = ["qt", "gpi", "mgs", "pt", "ctxm", "isb"];
     var clubs = [
         { name: "bravado", key: "LABEL_PRODUCTS_BRAVADO", label: "Club Bravado", providers: ["gpi"] }
-        , { name: "massimo", key: "LABEL_PRODUCTS_MASSIMO", label: "Club Massimo", providers: ["mgs", "gpi"] }
-        , { name: "palazzo", key: "LABEL_PRODUCTS_PALAZZO", label: "Club Palazzo", providers: ["pt", "gpi"] }
-        , { name: "gallardo", key: "LABEL_PRODUCTS_GALLARDO", label: "Club Gallardo", providers: ["isb", "png", "gpi"] }
-        , { name: "apollo", key: "LABEL_PRODUCTS_APOLLO", label: "Club Apollo", providers: ["qt", "pp", "gpi"] }
-        , { name: "nuovo", key: "LABEL_PRODUCTS_NUOVO", label: "Club Nuovo", providers: ["gns", "playson", "gpi"] }
-        , { name: "divino", key: "LABEL_PRODUCTS_DIVINO", label: "Club Divino", providers: ["bs", "ctxm", "uc8", "gpi"] }
+        , { name: "massimo", key: "LABEL_PRODUCTS_MASSIMO", label: "Club Massimo", providers: ["mgs"] }
+        , { name: "palazzo", key: "LABEL_PRODUCTS_PALAZZO", label: "Club Palazzo", providers: ["pt"] }
+        , { name: "gallardo", key: "LABEL_PRODUCTS_GALLARDO", label: "Club Gallardo", providers: ["isb", "png"] }
+        , { name: "apollo", key: "LABEL_PRODUCTS_APOLLO", label: "Club Apollo", providers: ["qt", "pp"] }
+        , { name: "nuovo", key: "LABEL_PRODUCTS_NUOVO", label: "Club Nuovo", providers: ["gns", "pls"] }
+        , { name: "divino", key: "LABEL_PRODUCTS_DIVINO", label: "Club Divino", providers: ["bs", "ctxm", "uc8"] }
     ];
 
     return {
@@ -42,6 +42,9 @@ function Slots() {
         , translations: {}
         , sectionKeys: sectionKeys
         , send: send
+        , publishedItems: publishedItems
+        , sortGames: sortGames
+        , formatReleaseDate: formatReleaseDate
     }
 
 
@@ -70,8 +73,12 @@ function Slots() {
     }
 
     function getSlots(provider, success, error) {
+        var data = {
+            cashier: "v2/Funds.aspx",
+            lobby: "_static/v2new/slots.html"
+        }
         var url = "/api/games/" + provider;
-        send(url, "GET", {}, success, error);
+        send(url, "GET", data, success, error);
     }
 
     function addItems(games, provider) {
@@ -94,8 +101,9 @@ function Slots() {
         // filter for section
         if (!_.isUndefined(filter.section)) {
             items = _.filter(items, function (item) {
-                var sections = _.join(item.Section, ",").toLowerCase().split(",");
-                return _.includes(sections, filter.section.toLowerCase());
+                //var sections = _.join(item.Section, ",").toLowerCase().split(",");
+                //return _.includes(sections, filter.section.toCamelCase());
+                return !_.isUndefined(item.Section[filter.section.toCapitalize()]);
             });
         }
 
@@ -104,7 +112,7 @@ function Slots() {
 
                 var categories = _.join(item.Category, ",").toLowerCase().split(",");
                 var hasCategory = (!_.isEqual(filter.form.category.toLowerCase(), "all")) ? _.includes(categories, filter.form.category.toLowerCase()) : true;
-                var hasMinBet = (!_.isEqual(filter.form.minbet.toLowerCase(), "all")) ? _.isEqual(filter.form.minbet.toLowerCase(), item.MinBet) : true;
+                var hasMinBet = (!_.isEmpty(filter.form.minbet) && !_.isEqual(filter.form.minbet.toLowerCase(), "all")) ? _.isEqual(filter.form.minbet.toLowerCase(), item.MinBet) : true;
                 var hasPL = (!_.isEqual(filter.form.playlines.toLowerCase(), "all")) ? _.isEqual(filter.form.playlines.toLowerCase(), item.Lines) : true;
                 var hasProvider = true;
                 if (!_.isEmpty(filter.form.provider.toLowerCase())) {
@@ -132,8 +140,48 @@ function Slots() {
             var itemProviders = _.join(item.providers, ",").toLowerCase().split(",");
             var hasClub = !_.isEmpty(_.intersection(itemProviders, providers));
             if (_.isUndefined(section)) return hasClub;
-            else return _.includes(item.Section, section) && hasClub;
+            else return !_.isUndefined(item.Section[section.toCapitalize()]) && hasClub;
         });
+    }
+
+    function publishedItems(club) {
+        var items = _.filter(w88Mobile.v2.Slots.items, function (item) {
+            hasClub = (!_.isEmpty(item.PublishedTo)) && (!_.isUndefined(item.PublishedTo[club.name.toCapitalize()]));
+            return hasClub;
+        });
+
+        var publishedItems = [];
+        _.forEach(items, function (item) {
+
+            var topItem = !_.isEmpty(item.PublishedTo[club.name.toCapitalize()]["Top"]) ? item.PublishedTo[club.name.toCapitalize()]["Top"] : "";
+            var homeItem = !_.isEmpty(item.PublishedTo[club.name.toCapitalize()]["Home"]) ? item.PublishedTo[club.name.toCapitalize()]["Home"] : "";
+            var newItem = !_.isEmpty(item.PublishedTo[club.name.toCapitalize()]["New"]) ? item.PublishedTo[club.name.toCapitalize()]["New"] : "";
+
+            var cloneItem = _.cloneDeep(item);
+            var hasSection = !_.isUndefined(cloneItem.Section);
+
+            if (_.isEmpty(topItem) && hasSection) {
+                if (!_.isUndefined(cloneItem.Section["Top"])) delete cloneItem.Section["Top"];
+            } else {
+                cloneItem.Section.Top = topItem;
+            }
+
+            if (_.isEmpty(homeItem) && hasSection) {
+                if (!_.isUndefined(cloneItem.Section["Home"])) delete cloneItem.Section["Home"];
+            } else {
+                cloneItem.Section.Home = homeItem;
+            }
+
+            if (_.isEmpty(newItem) && hasSection) {
+                if (!_.isUndefined(cloneItem.Section["New"])) delete cloneItem.Section["New"];
+            } else {
+                cloneItem.Section.New = newItem;
+            }
+
+            publishedItems.push(cloneItem);
+        });
+
+        return publishedItems;
     }
 
     function getFilterOptions(club) {
@@ -301,5 +349,58 @@ function Slots() {
         });
 
         return options;
+    }
+
+    function sortGames(games, section) {
+        // filter
+        switch (section) {
+            case "Home":
+                games = _.orderBy(games, [function (game) {
+                    var max = games.length;
+                    try {
+                        return (game.Section.Home > 0) ? parseInt(game.Section.Home) : max;
+                    } catch (e) {
+                        return max;
+                    }
+                }, getSortedReleaseDate], ["asc", "asc"]);
+                break;
+            case "Top":
+                games = _.orderBy(games, [function (game) {
+                    var max = games.length;
+                    try {
+                        return (game.Section.Top > 0) ? parseInt(game.Section.Top) : max;
+                    } catch (e) {
+                        return max;
+                    }
+                }, getSortedReleaseDate], ["asc", "asc"]);
+                break;
+            case "New":
+                games = _.orderBy(games, [function (game) {
+                    var max = games.length;
+                    try {
+                        return (game.Section.New > 0) ? parseInt(game.Section.New) : max;
+                    } catch (e) {
+                        return max;
+                    }
+                }, getSortedReleaseDate], ["asc", "asc"]);
+                break;
+        }
+
+        return games;
+    }
+
+    // private function used for sorting date, should return integer
+    function getSortedReleaseDate(game) {
+        return (game.release instanceof Date) ? parseInt(game.release.getTime()/1000) : parseInt(new Date().getTime()/1000);
+    }
+
+    function formatReleaseDate(game) {
+        try {
+            if (!_.isEmpty(game.ReleaseDate)) {
+                game.release = new Date([game.ReleaseDate.substr(0, 4), game.ReleaseDate.substr(4, 2), game.ReleaseDate.substr(6, 2)].join("-"));
+            }
+        } catch (e) {
+            console.log("invalid date");
+        }
     }
 }

@@ -461,14 +461,6 @@ public class PaymentBasePage : BasePage
         return status;
     }
 
-    protected void CheckAgentAndRedirect(string url)
-    {
-        var userAgent = Request.UserAgent.ToString();
-        if (userAgent.ToLower().Contains("clubw"))
-        {
-            Response.Redirect(url);
-        }
-    }
 }
 
 public class CommonStatus

@@ -16,7 +16,14 @@
             <% if (commonCookie.CookieIsApp != "1")
                { %>
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
-                <i class="icon-navicon"></i>
+                <% if (commonFunctions.isNativeAgent(Request))
+                   { %>
+                <i class="icon icon-back"></i>
+                <% }
+                   else
+                   { %>
+                <i class="icon icon-navicon"></i>
+                <% } %>
             </a>
             <% } %>
 
@@ -128,7 +135,7 @@
                                 if (_.isArray(response.ResponseMessage))
                                     w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
                                 else
-                                w88Mobile.Growl.shout(response.ResponseMessage);
+                                    w88Mobile.Growl.shout(response.ResponseMessage);
 
                                 break;
                         }

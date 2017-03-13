@@ -4,13 +4,13 @@
     <% if (commonCookie.CookieIsApp != "1")
        { %>
     <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" role="button" id="aMenu" data-load-ignore-splash="true">
-        <% if (commonFunctions.isNativeAgent(Request) && commonFunctions.isMainPage(Request) && !Request.Url.AbsolutePath.ToLower().Contains("index"))
+        <% if (commonFunctions.isNativeAgent(Request) && !Request.Url.AbsolutePath.ToLower().Contains("index"))
            { %>
-        <i class="icon-back"></i>
+        <i class="icon icon-back"></i>
         <% }
            else
            { %>
-        <i class="icon-navicon"></i>
+        <i class="icon icon-navicon"></i>
         <% } %>
     </a>
     <asp:HyperLink ID="aMenu" runat="server" Visible="false" href="" role="button" data-rel="back" class="btn-clear ui-btn-left ui-btn ion-ios-arrow-back" data-load-ignore-splash="true">Back</asp:HyperLink>

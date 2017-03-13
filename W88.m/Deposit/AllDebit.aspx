@@ -15,7 +15,15 @@
             <% if (commonCookie.CookieIsApp != "1")
                { %>
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
-                <i class="icon-navicon"></i>
+
+                <% if (commonFunctions.isNativeAgent(Request) && !Request.Url.AbsolutePath.ToLower().Contains("index"))
+                   { %>
+                <i class="icon icon-back"></i>
+                <% }
+                   else
+                   { %>
+                <i class="icon icon-navicon"></i>
+                <% } %>
             </a>
             <% } %>
 

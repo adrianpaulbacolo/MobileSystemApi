@@ -1,5 +1,6 @@
 ﻿<%@ Control Language="C#" ClassName="AppFooterMenu" %>
 
+<script type="text/javascript" src="/_Static/JS/modules/hideMenu.js"></script>
 
 <script runat="server">
    

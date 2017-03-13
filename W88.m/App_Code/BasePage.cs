@@ -351,4 +351,13 @@ public class BasePage : System.Web.UI.Page
     {
         return (commonCookie.CookieIsApp == "1") ? "_app" : "";
     }
+
+    protected void CheckAgentAndRedirect(string url)
+    {
+        var userAgent = Request.UserAgent.ToString();
+        if (userAgent.ToLower().Contains("clubw"))
+        {
+            Response.Redirect(url);
+        }
+    }
 }

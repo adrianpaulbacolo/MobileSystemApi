@@ -74,7 +74,13 @@ function slotsCtrl(routeObj, slotSvc, templateSvc) {
                 if (_.isEmpty(clubs)) return;
 
                 _.forEach(clubs, function (club) {
-                    var items = w88Mobile.v2.Slots.itemsByClub(club.providers, "Home");
+                    var items = _.clone(w88Mobile.v2.Slots.itemsByClub(club.providers, "Home"));
+                    // add published items
+                    var publishedItems = _.filter(slotSvc.publishedItems(club), function (slot) {
+                        return !_.isUndefined(slot.Section.Home);
+                    });
+                    items = _.concat(items, publishedItems);
+                    items = w88Mobile.v2.Slots.sortGames(items, "Home");
                     games = _.slice(items, 0, w88Mobile.v2.Slots.clubLimit);
                     pubsub.publish("displaySlotList", _self.setPushData({
                         games: games
@@ -96,6 +102,7 @@ function slotsCtrl(routeObj, slotSvc, templateSvc) {
     function onFetchSlotsByClub(topic, data) {
         _.forEach(data.club.providers, function (provider) {
             w88Mobile.v2.Slots.get(provider, function (response) {
+                _.forEach(response.ResponseData.Games, w88Mobile.v2.Slots.formatReleaseDate);
                 w88Mobile.v2.Slots.addItems(response.ResponseData.Games, response.ResponseData.Provider);
                 if (response.ResponseCode == 1) {
                     pubsub.publish("slotItemsChanged", data._self.setPushData({
@@ -121,29 +128,36 @@ function slotsCtrl(routeObj, slotSvc, templateSvc) {
         if (!_.isEmpty(data.page.find(data.selector))) {
             data.page.find(data.selector).html($(innerHtml).html());
         } else {
-            if (!_.isEmpty(club.name)) {
-                var slotIndex = _.findIndex(w88Mobile.v2.Slots.clubs, function (slot) {
-                    return slot.name == club.name
-                });
 
-                try {
-                    var selector = "";
-                    for (var i = _.clone(slotIndex) - 1 ; i >= 0; i--) {
-                        var selectorClub = w88Mobile.v2.Slots.clubs[i].name;
-                        if (!_.isEmpty($("div." + selectorClub + "-main"))) {
-                            selector = "div." + selectorClub + "-main";
-                            break;
+            if (data._self.route != "index") {
+                data._self.page.find(".main-content").append(innerHtml);
+            } else {
+
+                if (!_.isEmpty(club.name)) {
+                    var slotIndex = _.findIndex(w88Mobile.v2.Slots.clubs, function (slot) {
+                        return slot.name == club.name
+                    });
+
+                    try {
+                        var selector = "";
+                        for (var i = _.clone(slotIndex) - 1 ; i >= 0; i--) {
+                            var selectorClub = w88Mobile.v2.Slots.clubs[i].name;
+                            if (!_.isEmpty($("div." + selectorClub + "-main"))) {
+                                selector = "div." + selectorClub + "-main";
+                                break;
+                            }
                         }
+
+                        if (!_.isEmpty(selector))
+                            data._self.page.find(selector).after(innerHtml);
+                        else
+                            data._self.page.find(".main-content").prepend(innerHtml);
+
+                    } catch (e) {
+                        data._self.page.find(".main-content").append(innerHtml);
                     }
-
-                    if (!_.isEmpty(selector))
-                        data._self.page.find(selector).after(innerHtml);
-                    else
-                        data._self.page.find(".main-content").prepend(innerHtml);
-
-                } catch (e) {
-                    data._self.page.find(".main-content").append(innerHtml);
                 }
+
             }
         }
     }
