@@ -13,8 +13,10 @@ function Funds() {
         mainWalletInit: mainWalletInit
     }
 
-    function init() {
-        fetchWallets({ selector: "wallets" });
+    function init(options) {
+
+        var selector = _.isUndefined(options) ? "wallets" : options.selector;
+        fetchWallets({ selector: selector });
 
         $("div.launch-deposit").on("click", function (e) {
             e.preventDefault();
