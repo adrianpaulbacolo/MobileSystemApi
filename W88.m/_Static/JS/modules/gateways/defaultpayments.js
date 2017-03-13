@@ -511,6 +511,9 @@
             case "1202134":
                 return "Alipay/Aifu";
 
+            case "1202112":
+                return "DinPayTopUp.aspx";
+
             default:
                 break
         }

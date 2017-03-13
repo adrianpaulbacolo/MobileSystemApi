@@ -242,6 +242,7 @@ public class commonVariables
         Baokim = 120272,
         AifuWeChat = 1202133,
         AifuAlipay = 1202134,
+        DinPayTopUp = 1202112,
 
     }
 
