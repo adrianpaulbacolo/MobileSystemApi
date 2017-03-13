@@ -70,12 +70,12 @@
             <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) {
             var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
             <div class="row row-no-padding action-btn">
-                <div class="col">
+                <div class="col front-btn">
                     <a href="/_Secure/Register.aspx<%= queryString %>" class="ui-btn btn-secondary" role="button" data-ajax="false">
                         <%=commonCulture.ElementValues.getResourceString("joinnow", commonVariables.LeftMenuXML)%>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col front-btn">
                     <a href="/_Secure/Login.aspx" class="ui-btn btn-primary" role="button" data-rel="dialog" data-ajax="false">
                         <%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%>
                     </a>
