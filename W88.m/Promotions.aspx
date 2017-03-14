@@ -174,6 +174,15 @@
 
                                     var hrefClaim = $('<a />', { class: 'ui-btn btn-primary', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNowMatch(this, \'' + strCode + '\',  \'' + lang + '\', "v5")' }).text($(objCode).text());
                                     $(divJoinButton).append(hrefClaim);
+                                }
+
+                                var objCode = $(this).find('.promo_join_btn[href^="/promotions/promo_apply_v6.aspx?promoid="]');
+                                if ($(objCode).length > 0) {
+                                    $obj = $(objCode).attr('href');
+                                    var strCode = $obj.substring($obj.indexOf('=') + 1);
+
+                                    var hrefClaim = $('<a />', { class: 'ui-btn btn-primary', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNowMatch(this, \'' + strCode + '\',  \'' + lang + '\', "v6")' }).text($(objCode).text());
+                                    $(divJoinButton).append(hrefClaim);
                             }
 
                         }
@@ -482,7 +491,7 @@
                                 if (!_.isEmpty($(value).find('regex'))) promoData['regex' + index] = $(value).find('regex').text();
                                 if (!_.isEmpty($(value).find('options'))) {
                                     promoData['option' + index] = [];
-                                    $(value).find('options').find('option').each(function(i, v) {
+                                    $(value).find('options').find('option').each(function (i, v) {
                                         promoData['option' + index].push($(v).text());
                                     });
                                 }
@@ -499,6 +508,38 @@
                                 })).enhanceWithin();
                             }, 'html');
                         });
+                        break;
+
+                    case 'v6':
+
+                        $.get('/_Static/Promotions/' + code + '.' + lang + '.xml', function (xml) {
+                            var promoData = {
+                                positions: []
+                                , team_msg: $(xml).find('team_msg').text()
+                                , score_msg: $(xml).find('score_msg').text()
+                                , team_setting: $(xml).find('team_setting team').map(function () {
+                                    return $(this).text();
+                                }).get()
+                                , score_checking: $(xml).find('score_checking').text().trim(),
+                            };
+                            promoData.username = '<%= base.userInfo.MemberCode %>';
+                            $(xml).find('column').each(function (index, value) {
+                                if (!_.isEmpty($(value).find('field'))) promoData.positions.push($(value).find('field').text());
+                            });
+
+                            $.get('/_Static/Promotions/templates/v6.html', function (data) {
+                                var btnSubmit = '<%=commonCulture.ElementValues.getResourceString("btnSubmit", xeResources)%>';
+                                var btnCancel = '<%=commonCulture.ElementValues.getResourceString("btnCancel", xeResources)%>';
+                                template = _.template(data);
+                                promoData['code'] = code,
+                                $(obj).parent().append(template({
+                                    data: promoData,
+                                    btnSubmit: btnSubmit,
+                                    btnCancel: btnCancel
+                                })).enhanceWithin();
+                            }, 'html');
+                        });
+                        break;
 
                     default:
                         break;

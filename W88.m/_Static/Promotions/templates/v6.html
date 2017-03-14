@@ -1,0 +1,42 @@
+﻿<div class="div-claim-promo" id="template-promo">
+    <div class="div-claim-promo-header">{%- promo.data.code %}</div>
+    <div class="div-claim-promo-data">
+        <div class="promo-match">
+            <div class="row row-uc">
+                <div class="col col-40">
+                    <p>ID: </p>
+                </div>
+                <div class="col col-60">
+                    {%- promo.data.username %}
+                </div>
+            </div>
+            <div class="row row-uc">
+                <div class="col col-40">
+                    <p>{%- promo.data.team_msg %}:</p>
+                </div>
+                <div class="col col-60">
+                    {%- promo.data.team_setting[0] %}
+                </div>
+            </div>
+
+            <div><div class="col"></div></div>
+
+            {% _.forEach( promo.data.positions, function( op ){ %}
+            <div class="row row-uc row-no-padding">
+                <div class="col">
+                    <p><label>{%- op %}:</label></p>
+                </div>
+                <div class="col">
+                    <input type="text" name="comment" id="" class="" oninput='javascript:DataRegex(this)'>
+                </div>
+            </div>            
+            {% }); %}
+
+            <div class="row row-uc row-no-padding">
+                <a class="ui-btn btn-primary" onclick="javascript: PromoClaim(this);">{%- promo.btnSubmit %}</a>
+                <a class="ui-btn btn-secondary" onclick="javascript: PromoCancelClaim(this);">{%- promo.btnCancel %}</a>
+            </div>
+        </div>
+
+    </div>
+</div>
