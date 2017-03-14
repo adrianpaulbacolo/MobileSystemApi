@@ -206,6 +206,7 @@ public class commonVariables
     public enum DepositMethod
     {
         FastDeposit = 110101,
+        Cubits = 1202120,
         SDAPay = 120203,
         NextPay = 120204,
         Bill99 = 120206,
@@ -250,6 +251,7 @@ public class commonVariables
         PayGo = 210797,
         VenusPoint = 220895,
         BankTransfer = 210602,
+        Cubits = 2208121,
         WingMoney = 210709,
         TrueMoney = 2107138,
         Neteller = 220815,

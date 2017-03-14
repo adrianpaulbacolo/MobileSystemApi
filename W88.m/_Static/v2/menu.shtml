@@ -18,7 +18,7 @@ if ((!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency) && commonCookie.Coo
     fishlinkiOS = "itms-services://?action=download-manifest&url=https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/manifest.plist";
 }
 
-var fishingWorld = "";;
+var fishingWorld = FishingWorldProduct.GetLink();
 %>
 
 <section class="side-nav" off-canvas="side-nav left reveal">
