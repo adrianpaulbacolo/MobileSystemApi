@@ -1,5 +1,5 @@
 ﻿$(window).load(function () {
-    
+
     if (typeof window.User != "undefined" && window.User.hasSession) checkSession();
     var sessionPoll;
 
@@ -136,12 +136,16 @@ function PositiveDecimal(value, cur) {
             break;
     }
 
-    if (!allowDecimal) return false;
+    if (!allowDecimal) {
+        return value % 1 === 0;
+    }
 
     var num = parseFloat(value);
     var cleanNum = num.toFixed(2);
     if (num / cleanNum != 1)
         return false;
+
+    return true;
 }
 
 function PositiveOneDecimalValidation(value, element) {
