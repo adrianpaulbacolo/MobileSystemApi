@@ -143,7 +143,7 @@ function FundTransfer() {
                                 window.location.reload();
                             });
 
-                        _w88_funds.init({ selector: "walletFrom" });
+                        init();
 
                         break;
 
