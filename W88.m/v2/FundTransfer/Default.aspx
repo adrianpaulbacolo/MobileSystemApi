@@ -90,7 +90,7 @@
                 $(this).attr('balance', option);
             });
 
-            $('input[id$="btnSwap"]').click(function () {
+            $('#btnSwap').click(function () {
                 _w88_fundtransfer.swap($('select[id$="drpTransferFrom"]'), $('select[id$="drpTransferTo"]'));
             });
 
