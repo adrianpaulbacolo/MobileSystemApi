@@ -51,8 +51,12 @@
 			}
 		}
 	}
+	&.wallet-auto{
+		height: auto !important;
+	}
 }
 
 .wallets.deposit{
     height:101px;
 }
+
