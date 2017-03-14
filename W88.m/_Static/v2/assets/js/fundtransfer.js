@@ -35,8 +35,21 @@ function FundTransfer() {
         $('select[id$="drpTransferTo"]').attr('disabled', 'disabled');
 
         pubsub.subscribe('fundsLoaded', onFundsLoaded);
+        pubsub.subscribe('mainWalletLoaded', onMainWalletLoaded);
 
         _w88_funds.init({ selector: "walletFrom" });
+
+        _w88_funds.mainWalletInit();
+    }
+
+    function onMainWalletLoaded() {
+
+        var wallet = _w88_funds.wallet();
+
+        $(".wallet-title").html(wallet.Name);
+        $(".wallet-value").html(wallet.Balance);
+        $(".wallet-currency").html(wallet.CurrencyLabel);
+        $(".wallets").addClass('wallet-auto');
     }
 
     function onFundsLoaded() {

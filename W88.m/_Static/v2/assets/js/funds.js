@@ -28,8 +28,10 @@ function Funds() {
         });
     }
 
-    function mainWalletInit() {
-        getMainWallet();
+    function mainWalletInit(options) {
+
+        var selector = _.isUndefined(options) ? "wallet-value" : options.selector;
+        getMainWallet({ selector: selector });
     }
 
     function send(resource, method, data, success, error, complete) {
@@ -89,9 +91,9 @@ function Funds() {
         return wallet;
     }
 
-    function getMainWallet() {
+    function getMainWallet(selector) {
         var resource = "/user/wallet/0";
-        send(resource, "GET", {}, function (response) {
+        send(resource, "GET", selector, function (response) {
             if (_.isUndefined(response.ResponseData)) {
                 console.log('Unable to fetch wallet.');
                 return;

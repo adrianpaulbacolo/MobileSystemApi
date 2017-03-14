@@ -32,7 +32,7 @@
         bulletedList: function(messages) {
             var message = "";
             if (_.isArray(messages)) {
-                message = "<ul>";
+                message = "<ul class='list-unstyled'>";
 
                 for (var i = 0; i < messages.length; i++) {
                     message = message + "<li>" + messages[i] + "</li>";
