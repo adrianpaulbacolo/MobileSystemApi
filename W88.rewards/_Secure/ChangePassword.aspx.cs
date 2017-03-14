@@ -5,7 +5,6 @@ using W88.BusinessLogic.Shared.Helpers;
 public partial class _Secure_ChangePassword : BasePage
 {
     protected string RedirectUri = string.Empty;
-    protected string Language = string.Empty;
     protected const string TranslationsPath = "contents/translations";
     protected const string MessagesPath = "contents/messages";
 
@@ -16,12 +15,9 @@ public partial class _Secure_ChangePassword : BasePage
             return;
         }
 
-        var language = HttpContext.Current.Request.QueryString.Get("lang");
-        Language = string.IsNullOrEmpty(language) ? LanguageHelpers.SelectedLanguage : language;
-
         if (!HasSession)
         {
-            Response.Redirect(string.Format(@"/_Secure/Login.aspx?lang={0}", language));
+            Response.Redirect(string.Format(@"/_Secure/Login.aspx?lang={0}", Language));
             return;
         }
 

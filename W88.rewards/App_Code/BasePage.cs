@@ -17,6 +17,7 @@ public class BasePage : Page
     protected MemberRewardsInfo MemberRewardsInfo = null;
     protected Members MembersHelper = new Members();
     protected RewardsHelper RewardsHelper = new RewardsHelper();
+    protected string Language = string.Empty;
 
     protected override void OnPreInit(EventArgs e)
     {
@@ -32,8 +33,9 @@ public class BasePage : Page
         }
         finally
         {
+            var language = HttpContext.Current.Request.QueryString.Get("lang");
+            Language = !string.IsNullOrEmpty(language) ? language : LanguageHelpers.SelectedLanguage;
             CheckSession();
-            base.OnPreInit(e);
         }
     }
 
@@ -53,6 +55,7 @@ public class BasePage : Page
                 if (string.IsNullOrEmpty(token))
                 {
                     var cookie = HttpContext.Current.Request.Cookies["user"];
+                    if (cookie == null) return;
                     var user = Common.DeserializeObject<MemberSession>(cookie.Value);
                     if (user == null) return;
                     token = user.Token;     

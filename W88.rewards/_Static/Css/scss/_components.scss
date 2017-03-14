@@ -1,4 +1,4 @@
-.spinner {
+﻿.spinner {
   margin: auto;
   width: 50px;
   height: 50px;
@@ -327,3 +327,35 @@ div.hasDatepicker {
 #transactions td {
     padding: 0 1px;
 }
+
+.flags {
+    width: 100%;
+    max-width: 150px;
+    margin: 0 auto 40px;
+    display: block !important;
+    height: 55px;
+    background-size: contain !important;
+    font-size: 11px;
+}
+
+#en-us {background: url(/_Static/Css/images/flags/en.jpg) no-repeat center;}
+#en-my {background: url(/_Static/Css/images/flags/my.jpg) no-repeat center;}
+#zh-cn {background: url(/_Static/Css/images/flags/cn.jpg) no-repeat center;}
+#zh-my {background: url(/_Static/Css/images/flags/my.jpg) no-repeat center;}
+#id-id {background: url(/_Static/Css/images/flags/id.jpg) no-repeat center;}
+#ja-jp {background: url(/_Static/Css/images/flags/jp.jpg) no-repeat center;}
+#km-kh {background: url(/_Static/Css/images/flags/kh.jpg) no-repeat center;}
+#ko-kr {background: url(/_Static/Css/images/flags/kr.jpg) no-repeat center;}
+#th-th {background: url(/_Static/Css/images/flags/th.jpg) no-repeat center;}
+#vi-vn {background: url(/_Static/Css/images/flags/vn.jpg) no-repeat center;}
+
+#en-us:after {content: 'English'; top: 60px; position: relative;}
+#en-my:after {content: 'English'; top: 60px; position: relative;}
+#zh-cn:after {content: '简体中文'; top: 60px; position: relative;}
+#zh-my:after {content: '简体中文'; top: 60px; position: relative;}
+#id-id:after {content: 'Bhs Indonesia'; top: 60px; position: relative;}
+#km-kh:after {content: 'ខ្មែរ'; top: 60px; position: relative;}
+#ko-kr:after {content: '한국어'; top: 60px; position: relative;}
+#ja-jp:after {content: '日本語'; top: 60px; position: relative;}
+#th-th:after {content: 'ไทย'; top: 60px; position: relative;}
+#vi-vn:after {content: 'Tiếng Việt'; top: 60px; position: relative;}

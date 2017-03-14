@@ -4,13 +4,11 @@ using System.Text;
 using System.Web;
 using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Rewards.Models;
-using W88.BusinessLogic.Shared.Helpers;
 using W88.Utilities;
 
 public partial class _Secure_Login : BasePage
 {
     protected string RedirectUri = string.Empty;
-    protected string Language = LanguageHelpers.SelectedLanguage;
     
     protected void Page_Init(object sender, EventArgs e)
     {
