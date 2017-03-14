@@ -37,7 +37,7 @@ function FundTransfer() {
         pubsub.subscribe('fundsLoaded', onFundsLoaded);
         pubsub.subscribe('mainWalletLoaded', onMainWalletLoaded);
 
-        _w88_funds.init({ selector: "walletFrom" });
+        _w88_funds.init({ selector: "walletFrom" }, true);
 
         _w88_funds.mainWalletInit();
     }

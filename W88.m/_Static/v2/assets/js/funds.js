@@ -13,10 +13,11 @@ function Funds() {
         mainWalletInit: mainWalletInit
     }
 
-    function init(options) {
+    function init(options, isSelection) {
+        var isSelect = _.isUndefined(isSelection) ? false : true;
 
         var selector = _.isUndefined(options) ? "wallets" : options.selector;
-        fetchWallets({ selector: selector });
+        fetchWallets({ selector: selector }, isSelect);
 
         $("div.launch-deposit").on("click", function (e) {
             e.preventDefault();
@@ -71,8 +72,9 @@ function Funds() {
         });
     }
 
-    function fetchWallets(data) {
-        var resource = "/user/wallets?isSelection=true";
+    function fetchWallets(data, isSelection) {
+
+        var resource = "/user/wallets?isSelection=" + isSelection;
         send(resource, "GET", data, function (response) {
             if (_.isUndefined(response.ResponseData)) {
                 console.log('Unable to fetch wallets.');
