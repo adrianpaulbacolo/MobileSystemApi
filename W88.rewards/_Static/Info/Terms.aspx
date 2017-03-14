@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Terms.aspx.cs" Inherits="_Info_Terms" Async="true"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Terms.aspx.cs" Inherits="_Info_Terms"%>
 
 <!DOCTYPE html>
 <html>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="FAQ.aspx.cs" Inherits="_Info_Faq" Async="true"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="FAQ.aspx.cs" Inherits="_Info_Faq"%>
 
 <!DOCTYPE html>
 <html>

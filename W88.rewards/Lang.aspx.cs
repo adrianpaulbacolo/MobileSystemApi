@@ -2,9 +2,10 @@
 using System.Collections.Specialized;
 using System.Configuration;
 using System.Text;
+using System.Web.UI;
 using W88.BusinessLogic.Rewards.Helpers;
 
-public partial class _Lang : BasePage
+public partial class _Lang : Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
