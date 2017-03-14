@@ -4,7 +4,7 @@
     <ul class="list fixed-tablet-size">
         <li class="item item-input">
             <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
-            <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+            <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" onKeyPress="return ValidatePositiveDecimal(this, event, Cookies().getCookie('currencyCode'));" />
         </li>
     </ul>
 </asp:Content>
@@ -24,6 +24,12 @@
                    });
 
                 $('#form1').submit(function (e) {
+                    var hasPositiveDecimal = PositiveDecimal($('input[id$="txtAmount"]').val(), Cookies().getCookie('currencyCode'));
+
+                    if (!hasPositiveDecimal) {
+                        return;
+                    }
+
                     e.preventDefault();
                     var data = {
                         Amount: $('input[id$="txtAmount"]').val(),

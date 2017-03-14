@@ -124,6 +124,26 @@ function ValidatePositiveDecimal(ctrl, e, cur) {
     }
 }
 
+function PositiveDecimal(value, cur) {
+    var allowDecimal;
+    if (cur === undefined) cur = "";
+    switch (cur) {
+        case "JPY":
+            allowDecimal = false;
+            break;
+        default:
+            allowDecimal = true;
+            break;
+    }
+
+    if (!allowDecimal) return false;
+
+    var num = parseFloat(value);
+    var cleanNum = num.toFixed(2);
+    if (num / cleanNum != 1)
+        return false;
+}
+
 function PositiveOneDecimalValidation(value, element) {
     if (isNaN(value) || value <= 0)
         return false;
