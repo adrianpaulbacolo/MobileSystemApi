@@ -34,7 +34,6 @@ public partial class Deposit_ECPSS : PaymentBasePage
     private void InitializeLabels()
     {
         lblDepositAmount.Text = base.strlblAmount;
-
         lblBank.Text = base.strlblBank;
     }
 }

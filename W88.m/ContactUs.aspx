@@ -7,7 +7,7 @@
     <div class="ui-content contact-us" role="main">
         <ul class="list fixed-tablet-size" data-role="listview" data-icon="false">
             <li class="item item-icon-left">
-                <i class="icon ion-ios-chatboxes-outline"></i>
+                <i class="icon icon-chat"></i>
                 <a id="aLiveChat" runat="server" href="/LiveChat" data-ajax="false">
                     <h4 class="title"><%=commonCulture.ElementValues.getResourceString("lblLiveChat", xeResources)%></h4>
                     <p><%=commonCulture.ElementValues.getResourceString("lblLiveChatMessage", xeResources)%></p>
@@ -28,14 +28,14 @@
                 </a>
             </li>
             <li class="item item-icon-left">
-                <i class="icon ion-social-usd-outline"></i>
+                <i class="icon icon-banking"></i>
                 <a id="aBanking" runat="server" href="javascript:void(0);">
                     <h4 class="title"><%=commonCulture.ElementValues.getResourceString("lblBanking", xeResources)%></h4>
                     <p><%=commonCulture.ElementValues.getResourceString("lblBankingMessage", xeResources)%></p>
                 </a>
             </li>
             <li class="item item-icon-left" id="liPhone" runat="server">
-                <i class="icon ion-ios-telephone-outline"></i>
+                <i class="icon icon-phone"></i>
                 <a id="aPhone" runat="server" href="/_Secure/Login.aspx">
                     <h4 class="title"><%=commonCulture.ElementValues.getResourceString("lblPhone", xeResources)%></h4>
                     <p><%=commonCulture.ElementValues.getResourceString("lblPhoneMessage", xeResources)%></p>

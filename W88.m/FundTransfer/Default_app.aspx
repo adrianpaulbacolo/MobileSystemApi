@@ -28,7 +28,7 @@
                         <asp:Label ID="lblTransferFrom" runat="server" AssociatedControlID="drpTransferFrom" Text="from" />
                         <asp:DropDownList ID="drpTransferFrom" runat="server" data-corners="false" />
                     </li>
-                    <li class="btn-swap ion-arrow-swap">
+                    <li class="btn-swap icon-swap">
                         <asp:Button ID="btnSwap" runat="server" Text="Swap Wallets" OnClick="btnSwap_Click" />
                     </li>
                     <%--<div><a href="javascript:void(0)" onclick="javascript:switchWallets();">switch</a></div>--%>
@@ -117,40 +117,40 @@
 
             if ($('#drpTransferFrom').val() == '6') {
                 $('#txtTransferAmount').attr('placeholder', ($('#txtTransferAmount').attr('placeholder').replace('(<%=commonVariables.GetSessionVariable("CurrencyCode")%>)', '(USD)')));
-                    } else {
-                        $('#txtTransferAmount').attr('placeholder', ($('#txtTransferAmount').attr('placeholder').replace('(USD)', '(<%=commonVariables.GetSessionVariable("CurrencyCode")%>)')));
-                    }
+            } else {
+                $('#txtTransferAmount').attr('placeholder', ($('#txtTransferAmount').attr('placeholder').replace('(USD)', '(<%=commonVariables.GetSessionVariable("CurrencyCode")%>)')));
+            }
 
-                    if ($('#drpTransferFrom').val() == '0') { $('#divPromoCode').show(); }
-                    else { $('#divPromoCode').hide(); }
-                });
+            if ($('#drpTransferFrom').val() == '0') { $('#divPromoCode').show(); }
+            else { $('#divPromoCode').hide(); }
+        });
 
-                $('#txtPromoCode').on('input', function () {
-                    var strCode = $('#txtPromoCode').val();
-                    if (parseInt($('#drpTransferFrom').val()) == 0 && parseInt($('#drpTransferTo').val()) > 0 && strCode.length > 0) {
-                        var strWallet = $('#drpTransferTo').val();
-                        var strAmount = $('#txtTransferAmount').val();
+        $('#txtPromoCode').on('input', function () {
+            var strCode = $('#txtPromoCode').val();
+            if (parseInt($('#drpTransferFrom').val()) == 0 && parseInt($('#drpTransferTo').val()) > 0 && strCode.length > 0) {
+                var strWallet = $('#drpTransferTo').val();
+                var strAmount = $('#txtTransferAmount').val();
 
-                        $.ajax({
-                            type: 'POST',
-                            url: '/AjaxHandlers/CheckPromo.ashx',
-                            data: { Wallet: strWallet, Amount: strAmount, Code: strCode },
-                            //dataType: "text/xml",
-                            success: function (xml) {
-                                var strStatusCode = $(xml).find('statusCode').text();
-                                var strBonus = $(xml).find('bonusAmount').text();
-                                var strRollover = $(xml).find('rolloverAmount').text();
-                                var strMin = $(xml).find('minTransferAmount').text();
+                $.ajax({
+                    type: 'POST',
+                    url: '/AjaxHandlers/CheckPromo.ashx',
+                    data: { Wallet: strWallet, Amount: strAmount, Code: strCode },
+                    //dataType: "text/xml",
+                    success: function (xml) {
+                        var strStatusCode = $(xml).find('statusCode').text();
+                        var strBonus = $(xml).find('bonusAmount').text();
+                        var strRollover = $(xml).find('rolloverAmount').text();
+                        var strMin = $(xml).find('minTransferAmount').text();
 
-                                switch (strStatusCode) {
-                                    case '00':
-                                        $('#litPromoDetails').text('<%=commonCulture.ElementValues.getResourceXPathString("/FundTransfer/BonusAmount", xeErrors)%>' + strBonus);
+                        switch (strStatusCode) {
+                            case '00':
+                                $('#litPromoDetails').text('<%=commonCulture.ElementValues.getResourceXPathString("/FundTransfer/BonusAmount", xeErrors)%>' + strBonus);
                                         break;
                                     case '103':
                                         $('#litPromoDetails').text('<%=commonCulture.ElementValues.getResourceXPathString("/FundTransfer/RolloverNotMet", xeErrors)%>');
-                                       break;
-                                   case '109':
-                                       $('#litPromoDetails').text('<%=commonCulture.ElementValues.getResourceXPathString("/Promotion/PromoAlreadyClaimed", xeErrors)%>');
+                                        break;
+                                    case '109':
+                                        $('#litPromoDetails').text('<%=commonCulture.ElementValues.getResourceXPathString("/Promotion/PromoAlreadyClaimed", xeErrors)%>');
                                        break;
                                    case '100':
                                    case '101':
@@ -168,29 +168,40 @@
                    } else { $('#litPromoDetails').text(''); }
                 });
 
-                var responseCode = '<%=strAlertCode%>';
-                var responseMsg = '<%=strAlertMessage%>';
+        var responseCode = '<%=strAlertCode%>';
+        var responseMsg = '<%=strAlertMessage%>';
 
-                if (responseMsg.length > 0) { alert(responseMsg.split('[break]').join('\n')); }
-                if (responseCode == "-1") {
-                    window.location.replace('/Default_app.aspx');
+        if (responseMsg.length > 0) {
+            responseMsg = responseMsg.replace(/\n/g, '[break]');
+
+            w88Mobile.Growl.shout(responseMsg.split('[break]').join('<br>'), function () {
+                switch (responseCode) {
+                    case "-1":
+                        window.location.replace('/Default_app.aspx');
+                        break;
+                    case "36":
+                        window.location.replace('/Logout');
+                        break;
+                    default:
                 }
             });
+        }
+    });
 
-            function hBalanceToggle(obj, strShow, strHide) {
-                if ($(obj).hasClass('ui-collapsible-heading-collapsed')) {
-                    $(obj).find(".ui-btn").text(strHide);
-                    getBalance();
-                } else {
-                    $(obj).find(".ui-btn").text(strShow);
-                }
-            }
+    function hBalanceToggle(obj, strShow, strHide) {
+        if ($(obj).hasClass('ui-collapsible-heading-collapsed')) {
+            $(obj).find(".ui-btn").text(strHide);
+            getBalance();
+        } else {
+            $(obj).find(".ui-btn").text(strShow);
+        }
+    }
 
-            function getBalance() {
-                $(document).ready(function () {
-                    window.w88Mobile.FTWallets.getWallets();
-                });
-            }
+    function getBalance() {
+        $(document).ready(function () {
+            window.w88Mobile.FTWallets.getWallets();
+        });
+    }
         </script>
     </div>
 </body>

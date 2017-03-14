@@ -231,12 +231,17 @@ public class commonVariables
         BofoPay = 120231,
         JTPayWeChat = 1202123,
         JTPayAliPay = 1202122,
+        TongHuiPay = 120275,
+        TongHuiWeChat = 120277,
+        TongHuiAlipay = 120293,
         AllDebit = 120236,
         EGHL = 120265,
         NganLuong = 120212,
         VenusPoint = 120296,
         BaokimScratchCard = 120286,
-        Baokim = 120272
+        Baokim = 120272,
+        AifuWeChat = 1202133,
+        AifuAlipay = 1202134,
 
     }
 

@@ -25,6 +25,11 @@ public partial class Deposit_Pay : PaymentBasePage
             case commonVariables.DepositMethod.PaySec:
                 GatewayFile = "paysec";
                 break;
+            case commonVariables.DepositMethod.TongHuiPay:
+            case commonVariables.DepositMethod.TongHuiAlipay:
+            case commonVariables.DepositMethod.TongHuiWeChat:
+                GatewayFile = "tonghui";
+                break;
             case commonVariables.DepositMethod.NineVPayAlipay:
                 GatewayFile = "ninevpay";
                 break;
@@ -55,6 +60,13 @@ public partial class Deposit_Pay : PaymentBasePage
                 break;
             case commonVariables.DepositMethod.NextPay:
                 GatewayFile = "nextpay";
+                break;
+            case commonVariables.DepositMethod.EGHL:
+                GatewayFile = "eghl";
+                break;
+            case commonVariables.DepositMethod.AifuAlipay:
+            case commonVariables.DepositMethod.AifuWeChat:
+                GatewayFile = "aifu";
                 break;
         }
 
