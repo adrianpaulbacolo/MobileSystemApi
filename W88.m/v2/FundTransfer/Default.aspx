@@ -1,19 +1,28 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/v2/MasterPages/Main.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="v2_FundTransfer_Default" %>
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentHolder" runat="Server">
+    <div class="wallets wallet-auto">
+        <div class="wallet-main">
+            <p class="wallet-title">Main Wallet</p>
+            <h4 class="wallet-value">1,200,000.00</h4>
+            <p class="wallet-currency">USD</p>
+        </div>
+    </div>
+    <div class="balance-collapse">
+        <button id="showBalance" type="button" class="btn btn-block show-balance collapsed" data-toggle="collapse" data-target="#walletBalances" aria-expanded="false" aria-controls="walletBalances"></button>
+        <div class="collapse" id="walletBalances"></div>
+    </div>
     <div class="form-container">
         <div class="container">
             <form class="form" id="form1" runat="server">
-                <div class="form-group">
-                    <button id="showBalance" type="button" data-toggle="collapse" data-target="#walletBalances" aria-expanded="false" aria-controls="walletBalances"></button>
-                    <div class="collapse" id="walletBalances"></div>
-                </div>
                 <div class="form-group walletFrom">
                     <asp:Label ID="lblTransferFrom" runat="server" AssociatedControlID="drpTransferFrom" />
                     <asp:DropDownList ID="drpTransferFrom" runat="server" data-corners="false" CssClass="form-control" required data-selectequals="" data-balance="0" />
                 </div>
-                <div class="form-group">
-                    <input id="btnSwap" type="button" value="" class="btn-swap icon icon-swap" />
+                <div class="text-center">
+                    <button id="btnSwap" type="button" value="" class="btn-swap" />
+                        <span class="icon icon-swap"></span>
+                    </button>
                 </div>
                 <div class="form-group walletFrom">
                     <asp:Label ID="lblTransferTo" runat="server" AssociatedControlID="drpTransferTo" />
@@ -112,18 +121,19 @@
     </script>
 
     <script type="text/template" id='walletBalance'>
-        
-        <div class="row thin-gutter wallet-group">
-            <div>
-                {% _.forEach( tplData.wallets, function( wallet ){ %}
-            <div class="col-xs-6">
-                <p>{%-wallet.Name%}</p>
-            </div>
-                <div class="col-xs-6">
-                    <h5>{%-wallet.Balance%}</h5>
-                </div>
-                {% }); %}
-            </div>
+        <div class="balances">
+            <table>
+            {% _.forEach( tplData.wallets, function( wallet ){ %}
+                <tr>
+                    <td>
+                        {%-wallet.Name%}
+                    </td>
+                    <td class="text-right">
+                        {%-wallet.Balance%}
+                    </td>
+                </tr>
+            {% }); %}
+            </table>
         </div>
     </script>
 
