@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Index.aspx.cs" Inherits="_Index" %>
+
 <% var mobileDeviceId = commonFunctions.getMobileDevice(Request); %>
 <!DOCTYPE html>
 <html>
@@ -11,8 +12,9 @@
 <body>
             
         <div class="download-app-box">
-           <%if(mobileDeviceId == 2){%>
-                <div class="download-app" >
+        <%if (mobileDeviceId == 2)
+          {%>
+        <div class="download-app">
                     <div class="row">
                         <div class="col col-25 download-icon">
                             <span class="icon icon-android"></span>
@@ -27,12 +29,13 @@
                             <a href="javascript:hideDownload();" role="button" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("NoThanks", commonVariables.LeftMenuXML)%></a>
                         </div>
                         <div class="col">
-                            <a href="<%=commonClubWAPK.getDownloadUrl %>"  target="_blank" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("DownloadNow", commonVariables.LeftMenuXML)%></a>
+                    <a href="<%=commonClubWAPK.getDownloadUrl %>" target="_blank" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("DownloadNow", commonVariables.LeftMenuXML)%></a>
                         </div>
                     </div>
                 </div>
             <%}%>
-            <%if(mobileDeviceId == 1){%>
+        <%if (mobileDeviceId == 1)
+          {%>
                 <div class="download-app">
                     <div class="row">
                         <div class="col col-25 download-icon">
@@ -67,7 +70,8 @@
                     </a>
                 </div>-->
             </section>
-            <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) {
+            <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+               {
             var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
             <div class="row row-no-padding action-btn">
                 <div class="col front-btn">
@@ -82,7 +86,8 @@
                 </div>
             </div>
              <% } %>
-             <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+            <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+               { %>
              <div class="row row-no-padding action-btn action-button-lg" data-ajax="false">
                 <div class="col">
                     <a href="Funds.aspx" class="ui-btn btn-primary" role="button" data-ajax="false">
@@ -119,22 +124,20 @@
                 <!-- Fishing Game -->
                 <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency))
                    {
-                       if (commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase))
-                       { %>
+                %>
                             <li class="col col-33 product">
                                 <a href="#divPanel" class="tile nav-fish">
                                     <span class="icon icon-fish"></span>
-                                    <h4 class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></h4>
+                                    <h4 class="title"><%=commonCulture.ElementValues.getResourceString("FishingTitle", commonVariables.LeftMenuXML)%></h4>
                                 </a>
                             </li>
                     <% }
-                   }
-                else if (commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))
+                   else 
                    { %>
                         <li class="col col-33 product">
                             <a href="#divPanel" class="tile nav-fish">
                                 <span class="icon icon-fish"></span>
-                                <h4 class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></h4>
+                                <h4 class="title"><%=commonCulture.ElementValues.getResourceString("FishingTitle", commonVariables.LeftMenuXML)%></h4>
                             </a>
                         </li>
                 <% } %>
@@ -160,7 +163,8 @@
                 </li>
 
                 <!-- Profile -->
-                <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+                <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+                   { %>
                 <li class="col col-33">
                     <a href="/Profile/Default.aspx" class="tile" data-ajax="false">
                         <span class="icon icon-profile"> </span>
@@ -170,7 +174,9 @@
                         </h4>
                     </a>
                 </li>
-                <% } else {
+                <% }
+                   else
+                   {
                    var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
                 <% } %>
 
@@ -198,7 +204,8 @@
                     </a>
                 </li>--%>
 
-                <%if(mobileDeviceId == 2){%>
+                <%if (mobileDeviceId == 2)
+                  {%>
                 <li class="col col-33">
                     <a href="/_Static/ClubW/casino.aspx" id="downloadButton" runat="server" class="tile notify" data-ajax="false">
                         <span class="icon icon-download"></span>

@@ -1,11 +1,11 @@
-﻿window.w88Mobile.Gateways.Aifu = Aifu();
-var _w88_aifu = window.w88Mobile.Gateways.Aifu;
+﻿window.w88Mobile.Gateways.Cubits = Cubits();
+var _w88_cubits = window.w88Mobile.Gateways.Cubits;
 
-function Aifu() {
+function Cubits() {
 
-    var aifu = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
+    var cubits = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
 
-    aifu.createDeposit = function () {
+    cubits.createDeposit = function () {
         var _self = this;
         var params = _self.getUrlVars();
         var data = {
@@ -33,6 +33,6 @@ function Aifu() {
         });
     }
 
-    return aifu;
+    return cubits;
 }
 

@@ -1,4 +1,4 @@
-﻿function DefaultPayments() {
+function DefaultPayments() {
 
     var autorouteIds = {
         QuickOnline: "999999",
@@ -402,6 +402,9 @@
             case "2208102":
                 return "IWallet.aspx";
 
+            case "2208121":
+                return "Cubits.aspx";
+
                 // deposit
             case "120272":
                 return "Baokim.aspx";
@@ -510,6 +513,9 @@
 
             case "1202134":
                 return "Alipay/Aifu";
+
+            case "1202120":
+                return "Cubits.aspx";
 
             case "1202112":
                 return "DinPayTopUp.aspx";

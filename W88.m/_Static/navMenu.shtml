@@ -1,7 +1,23 @@
 ﻿<% 
 var deviceId = commonFunctions.getMobileDevice(Request); 
-var fishLink = "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/FishingMaster.apk";
-var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/manifest.plist";
+
+var fishLink = "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/FishingMasterEN.apk";
+var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/manifestEN.plist";
+
+if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)){
+    if (commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase)){
+           fishLink = "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/FishingMaster.apk";
+           fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/manifest.plist";
+    }
+}
+else{
+    if (commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase)){
+        fishLink = "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/FishingMaster.apk";
+        fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/manifest.plist";
+    }
+}
+
+var fishingWorld = FishingWorldProduct.GetLink();
 %>
 <div data-role="panel" id="divPanel">
     <ul data-role="listview" class="nav-menu">
@@ -332,18 +348,14 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
         </li>
 
         <!-- Fishing Game -->
-        <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency))
-        {
+        <li data-icon="false">
+            <a class="nav-fish">
+                <i class="icon icon-fish"></i>
+                <div class="label"><%=commonCulture.ElementValues.getResourceString("FishingTitle", commonVariables.LeftMenuXML)%></div>
+            </a>
+            <ul class="sub-menu" data-rel="fish">
+                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("FishingTitle", commonVariables.LeftMenuXML)%></h2>
 
-        if (commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase))
-        { %>
-        <li data-icon="false">
-            <a class="nav-fish">
-                <i class="icon icon-fish"></i>
-                <div class="label"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
-            </a>
-            <ul class="sub-menu" data-rel="fish">
-                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></h2>
                 <%try{%>
                 <%if(deviceId==1){%>
                 <li>
@@ -376,54 +388,18 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
                 </li>
                 <%}%>
                 <%}catch(Exception){}%>
-            </ul>
-        </li>
-        <% }
-        }
-        else if (commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))
+
+                <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency))
         { %>
-        <li data-icon="false">
-            <a class="nav-fish">
-                <i class="icon icon-fish"></i>
-                <div class="label"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
-            </a>
-            <ul class="sub-menu" data-rel="fish">
-                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></h2>
-                <%try{%>
-                <%if(deviceId==1){%>
                 <li>
-                    <a class="card" data-rel="fish" rel="FishIOS" href="<%=fishlinkIos%>" data-ajax="false">
-                        <img src="#" class="img-responsive fishingmaster-iOs">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
+                    <a class="card" data-rel="fish" rel="FishAndroid" href="<%=fishingWorld%>" data-ajax="false" target="_blank">
+                        <img src="#" class="img-responsive FishWorld3">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceString("FishingWorld", commonVariables.LeftMenuXML)%></div>
                     </a>
                 </li>
                 <%}%>
-                <%if(deviceId==2){%>
-                <li>
-                    <a class="card" data-rel="fish" rel="FishAndroid" href="<%=fishLink%>" data-ajax="false">
-                        <img src="#" class="img-responsive fishingmaster-android">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
-                    </a>
-                </li>
-                <%}%>
-                <%if(deviceId==3){%>
-                <li>
-                    <a class="card" data-rel="fish" rel="FishIOS" href="<%=fishlinkIos%>" data-ajax="false">
-                        <img src="#" class="img-responsive FishIOS">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
-                    </a>
-                </li>
-                <li>
-                    <a class="card" data-rel="fish" rel="FishAndroid" href="<%=fishLink%>" data-ajax="false">
-                        <img src="#" class="img-responsive FishAndroid">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
-                    </a>
-                </li>
-                <%}%>
-                <%}catch(Exception){}%>
             </ul>
         </li>
-        <% } %>
 
         <!-- Lottery -->
         <li data-icon="false">
@@ -756,6 +732,7 @@ var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-s
             $('.fishingmaster-android').attr('src', '/_Static/Images/bnr-fishingmaster-android.jpg');
             $('.FishIOS').attr('src', '/_Static/Images/bnr-fishingmaster-iOs.jpg');
             $('.FishAndroid').attr('src', '/_Static/Images/bnr-fishingmaster-android.jpg');
+            $('.FishWorld3').attr('src', '/_Static/Images/thumbnail-FishingWorld.jpg');
 
             if(!_.isUndefined(adjustMenu)){
                 adjustMenu();
