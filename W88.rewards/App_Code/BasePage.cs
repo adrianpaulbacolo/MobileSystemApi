@@ -19,6 +19,11 @@ public class BasePage : Page
     protected RewardsHelper RewardsHelper = new RewardsHelper();
     protected string Language = string.Empty;
 
+    protected string ContentLanguage
+    {
+        get { return RewardsHelper.ContentLanguage; }
+    }
+
     protected override void OnPreInit(EventArgs e)
     {
         try
