@@ -209,6 +209,7 @@ public class commonVariables
         Cubits = 1202120,
         SDAPay = 120203,
         NextPay = 120204,
+        NextPayGV = 120248,
         Bill99 = 120206,
         JutaPay = 120280,
         JuyPayAlipay = 1202113,
