@@ -446,7 +446,10 @@
                 return "PaySec.aspx";
 
             case "120254":
-                return "SDAPay.aspx";
+                return "120254"; //SDAPayAlipay
+
+            case "1204131":
+                return "1204131"; // AlipayTransfer
 
             case "1202111":
                 return "ShengPayAliPay.aspx";
