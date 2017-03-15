@@ -16,7 +16,6 @@ function VenusPointV2() {
         setTranslations();
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
-                $('label[id$="lblDepositAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
                 $('label[id$="lblAcctName"]').text("Venus Point " + _w88_contents.translate("LABEL_ACCOUNT_ID"));
                 $('label[id$="lblAcctNumber"]').text("Venus Point " + _w88_contents.translate("LABEL_PASSWORD"));
             } else {

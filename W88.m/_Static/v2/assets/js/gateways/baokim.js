@@ -33,7 +33,9 @@ function BaokimV2() {
                 $('#atm').hide();
                 $('#btnSubmitPlacement').hide();
 
-                _w88_baokim.getBanks(selectName);
+                if (!_.isUndefined(selectName)) {
+                    _w88_baokim.getBanks(selectName);
+                }
 
             } else {
                 window.setInterval(function () {

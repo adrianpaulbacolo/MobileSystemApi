@@ -14,14 +14,14 @@
                 </a>
             </div>
             <div class="dashboard-col">
-                <a href="/FundTransfer">
+                <a href="/v2/FundTransfer">
                     <span class="icon icon-transfer"></span><%=commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%>
                 </a>
             </div>
         </div>
         <div class="dashboard-row">
             <div class="dashboard-col">
-                <a href="/Withdrawal/">
+                <a href="/v2/Withdrawal/">
                     <span class="icon icon-withdraw"></span><%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%>
                 </a>
             </div>

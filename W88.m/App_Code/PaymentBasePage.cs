@@ -69,6 +69,7 @@ public class PaymentBasePage : BasePage
     protected bool isProcessAbort = false;
 
     protected string V2DepositPath = "/v2/Deposit/";
+    protected string V2WithdrawalPath = "/v2/Withdrawal/";
     #endregion
 
     #region Labels

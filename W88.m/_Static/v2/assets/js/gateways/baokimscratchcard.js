@@ -18,7 +18,6 @@ function BaokimScratchCardV2() {
         setTranslations();
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
-                $('label[id$="lblDepositAmount"]').text(_w88_contents.translate("LABEL_CARD_AMOUNT"));
                 $('label[id$="lblBanks"]').text(_w88_contents.translate("LABEL_TELCO_NAME"));
                 $('label[id$="lblPin"]').text(_w88_contents.translate("LABEL_CARD_PIN"));
                 $('label[id$="lblCardSerialNo"]').text(_w88_contents.translate("LABEL_CARD_SERIAL"));

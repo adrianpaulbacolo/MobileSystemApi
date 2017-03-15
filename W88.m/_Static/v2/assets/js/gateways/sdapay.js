@@ -21,7 +21,6 @@ function SDAPay() {
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
                 $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-                $('label[id$="lblDepositAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
                 $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_120254"));
 
             } else {

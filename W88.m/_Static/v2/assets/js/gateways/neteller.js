@@ -19,7 +19,7 @@ function Neteller() {
             
                 $('label[id$="lblAccountName"]').text("Neteller " + _w88_contents.translate("LABEL_USERNAME"));
                 $('label[id$="lblAccountNumber"]').text("Neteller " + _w88_contents.translate("LABEL_PASSWORD"));
-                $('label[id$="lblDepositAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
+                $('label[id$="lblAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
             } else {
                 window.setInterval(function () {
                     setTranslations();

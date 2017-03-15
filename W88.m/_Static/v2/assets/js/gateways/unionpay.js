@@ -17,7 +17,6 @@ function UnionPay() {
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
 
-                $('label[id$="lblDepositAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
                 $("#paymentNote").text(_w88_contents.translate("LABEL_REMINDER"));
 
                 if (!_.isUndefined(gatewayId)) {
