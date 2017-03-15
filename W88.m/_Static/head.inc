@@ -83,6 +83,9 @@
             }
             w88Mobile.PiwikManager.setDeviceId(deviceObj);
         }
+
+        // Saving subplatform(WAP, Android, iOS, etc.) in cookie
+        siteCookie.setCookie('spfid', '<%=HttpContext.Current.Request.QueryString.Get("spfid")%>', 1);
     });
     </script>
 
