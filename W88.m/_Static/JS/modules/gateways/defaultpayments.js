@@ -238,13 +238,6 @@
                         $('#paymentTabs').append($('<li />').append(anchor));
 
                 }
-                else if (!activeTabId && _.includes(routing, data.Id)) {
-                    if (!_.includes(window.location.pathname, page)) {
-                        window.location.href = page;
-                        isAutoRoute = true;
-                        break;
-                    }
-                }
             }
 
             if (activeTabId) {
@@ -266,11 +259,9 @@
                 }
             }
             else {
-                if (!isAutoRoute) {
-                    page = setPaymentPage(_.first(responseData).Id);
-                    if (page)
-                        window.location.href = deposit + page;
-                }
+                page = setPaymentPage(_.first(responseData).Id);
+                if (page)
+                    window.location.href = deposit + page;
             }
         } else {
             if (activeTabId) {
@@ -358,8 +349,6 @@
                 if (page)
                     window.location.href = withdraw + page;
             }
-
-            GPInt.prototype.HideSplash();
         } else {
             if (activeTabId) {
                 window.location.href = withdraw;
