@@ -60,9 +60,6 @@ function FundTransfer() {
             $('select[id$="drpTransferFrom"]').append($('<option>').text(data.Name).attr('value', data.Id).attr('balance', data.Balance));
         });
 
-        var option = $('option:selected', $('select[id$="drpTransferFrom"]')).attr('balance');
-        $('select[id$="drpTransferFrom"]').attr('balance', option);
-
         changeWalletTo($('select[id$="drpTransferFrom"]').val());
 
         $('select[id$="drpTransferFrom"]').removeAttr('disabled');
@@ -75,6 +72,8 @@ function FundTransfer() {
         $("#walletBalances").append(
             walletList({ wallets: wallets })
         );
+
+        setBalanceOptions();
     }
 
     function changeWalletTo(selectedValue) {
@@ -88,13 +87,22 @@ function FundTransfer() {
         });
 
         $('select[id$="drpTransferTo"]').val($('select[id$="drpTransferTo"] option:first').val());
+
+        setBalanceOptions();
+    }
+
+    function setBalanceOptions() {
+
+        var option = $('option:selected', $('select[id$="drpTransferFrom"]')).attr('balance');
+        $('select[id$="drpTransferFrom"]').attr('balance', option);
+
+        option = $('option:selected', $('select[id$="drpTransferTo"]')).attr('balance');
+        $('select[id$="drpTransferTo"]').attr('balance', option);
     }
 
     function swap($FromEl, $ToEl) {
         var from = $FromEl.val();
         var to = $ToEl.val();
-        var fBalance = $FromEl.attr('balance');
-        var tBalance = $ToEl.attr('balance');
 
         if (!_.isUndefined(from) && !_.isUndefined(to)) {
 
@@ -102,16 +110,19 @@ function FundTransfer() {
             $ToEl.empty();
 
             _.forOwn(wallets, function (data) {
-                $('select[id$="drpTransferFrom"]').append($('<option>').text(data.Name).attr('value', data.Id));
+                $('select[id$="drpTransferFrom"]').append($('<option>').text(data.Name).attr('value', data.Id).attr('balance', data.Balance));
             });
-            $FromEl.val(to).attr('balance', tBalance);
 
             _.forOwn(wallets, function (data) {
                 if (data.Id != to) {
-                    $('select[id$="drpTransferTo"]').append($('<option>').text(data.Name).attr('value', data.Id));
+                    $('select[id$="drpTransferTo"]').append($('<option>').text(data.Name).attr('value', data.Id).attr('balance', data.Balance));
                 }
             });
-            $ToEl.val(from).attr('balance', fBalance);
+
+            $FromEl.val(to);
+            $ToEl.val(from);
+
+            setBalanceOptions();
         }
 
     }
