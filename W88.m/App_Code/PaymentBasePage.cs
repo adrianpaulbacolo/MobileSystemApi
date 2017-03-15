@@ -121,8 +121,18 @@ public class PaymentBasePage : BasePage
     {
         base.OnPreLoad(e);
 
+
         InitialiseVariables();
         InitialisePaymentLimits();
+
+        if (!string.IsNullOrEmpty(PaymentMethodId))
+        {
+            try
+            {
+                Page.Items.Add("Parent", "/v2/Funds.aspx");
+            }
+            catch (Exception ex) { }
+        }
     }
     protected void InitialiseVariables()
     {

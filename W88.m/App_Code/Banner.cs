@@ -20,7 +20,7 @@ public class Banner
     public Banner()
     {
         commonCulture.appData.getRootResource("leftMenu", out promoResource);
-        BannerTemplate = "<a href=\"{link}\">" +
+        BannerTemplate = "<a href=\"{link}\" class=\"slick-slide\">" +
             "<img src=\"{img}\" alt=\"\">" +
         "</a>";
         SetBanners();

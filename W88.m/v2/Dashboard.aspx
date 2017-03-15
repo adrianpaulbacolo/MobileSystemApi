@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/v2/MasterPages/Main.master" AutoEventWireup="true" CodeFile="Dashboard.aspx.cs" Inherits="v2_Dashboard" %>
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentHolder" runat="Server">
-    <div class="home-banner">
+    <div class="home-banner slick-slider">
         <%=base.BannerDiv %>
     </div>
 
