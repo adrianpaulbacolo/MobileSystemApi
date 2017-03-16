@@ -52,7 +52,7 @@ public partial class _Default : BasePage
         {
             string strLanguage = language.Trim();
 
-            if (base.CDNCountryCode.Equals("MY", StringComparison.OrdinalIgnoreCase))
+            if (base.CDNCountryCode.Equals("MY", StringComparison.OrdinalIgnoreCase) || commonCookie.CookieLanguage.Equals("zh-my", StringComparison.OrdinalIgnoreCase))
             {
                 if (strLanguage.Equals("en-us", StringComparison.OrdinalIgnoreCase) || strLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))
                     continue;

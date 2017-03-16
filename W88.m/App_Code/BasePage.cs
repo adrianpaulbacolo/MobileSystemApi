@@ -269,7 +269,7 @@ public class BasePage : System.Web.UI.Page
         }
         else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_MY].Contains(Domain))
         {
-            Language = "en-us";
+            Language = "zh-my";
         }
         else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_KR].Contains(Domain))
         {
