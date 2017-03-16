@@ -72,6 +72,8 @@ public class BasePage : System.Web.UI.Page
 
     protected override void OnLoad(EventArgs e)
     {
+        if (HttpContext.Current.Request.QueryString.Get("spfid") != null)
+            commonCookie.Set("spfid", HttpContext.Current.Request.QueryString.Get("spfid"), DateTime.Now.AddDays(1));
 
         var strLanguage = HttpContext.Current.Request.QueryString.Get("lang");
 
@@ -104,7 +106,7 @@ public class BasePage : System.Web.UI.Page
             case "kr":
                 strLanguage = "ko-kr";
                 break;
-            
+
             case "th":
                 strLanguage = "th-th";
                 break;

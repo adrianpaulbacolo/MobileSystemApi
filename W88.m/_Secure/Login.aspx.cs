@@ -23,8 +23,6 @@ public partial class _Secure_Login : BasePage
         XElement xeResources = null;
         commonCulture.appData.getLocalResource(out xeResources);
 
-        commonCookie.Set("spfid", HttpContext.Current.Request.QueryString.Get("spfid") ?? "", DateTime.Now.AddDays(1));
-
         strRedirect = Request.QueryString.Get("redirect");
 
         if (!string.IsNullOrWhiteSpace(strRedirect) && (strRedirect.ToLower().Contains("deposit") || strRedirect.ToLower().Contains("withdraw")))
