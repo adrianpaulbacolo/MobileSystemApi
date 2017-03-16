@@ -391,16 +391,19 @@
                 return "Neteller.aspx";
 
             case "210709":
-                return "210709";
+                return "210709"; // WingMoney
 
             case "2107138":
-                return "2107138";
+                return "2107138"; // TrueMoney
 
             case "220895":
                 return "VenusPoint.aspx";
 
             case "2208102":
                 return "IWallet.aspx";
+
+            case "2208121":
+                return "Cubits.aspx";
 
                 // deposit
             case "120272":
@@ -416,10 +419,10 @@
                 return "JutaPay.aspx";
 
             case "110308":
-                return "110308";
+                return "110308"; // WingMoney
 
             case "1103132":
-                return "1103132";
+                return "1103132"; // TrueMoney
 
             case "120223":
                 return "SDPay.aspx";
@@ -443,7 +446,10 @@
                 return "PaySec.aspx";
 
             case "120254":
-                return "SDAPay.aspx";
+                return "120254"; //SDAPayAlipay
+
+            case "1204131":
+                return "1204131"; // AlipayTransfer
 
             case "1202111":
                 return "ShengPayAliPay.aspx";
@@ -459,6 +465,15 @@
 
             case "1202127":
                 return "KexunPay.aspx";
+
+            case "120275":
+                return "120275"; // TongHuiPay
+
+            case "120293":
+                return "120293"; // TongHuiAlipay
+
+            case "120277":
+                return "120277"; // TongHuiWeChat
 
             case "1202122":
                 return "Alipay";
@@ -495,6 +510,15 @@
 
             case "1202105":
                 return "NineVPayAlipay.aspx";
+
+            case "1202133":
+                return "WeChat/Aifu";
+
+            case "1202134":
+                return "Alipay/Aifu";
+
+            case "1202120":
+                return "Cubits.aspx";
 
             default:
                 break

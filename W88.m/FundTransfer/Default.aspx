@@ -7,12 +7,13 @@
 <head>
     <title><%=commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML) + commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%></title>
     <!--#include virtual="~/_static/head.inc" -->
+    <script type="text/javascript" src="/_Static/JS/modules/fundtransfer.js"></script>
 </head>
 <body>
     <div data-role="page">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
-                <i class="icon-navicon"></i>
+                <i class="icon icon-navicon"></i>
             </a>
             <h1 class="title"><%=commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%></h1>
         </header>
@@ -28,7 +29,7 @@
                         <asp:Label ID="lblTransferFrom" runat="server" AssociatedControlID="drpTransferFrom" />
                         <asp:DropDownList ID="drpTransferFrom" runat="server" data-corners="false" />
                     </li>
-                    <li class="btn-swap ion-arrow-swap">
+                    <li class="btn-swap icon-swap">
                         <asp:Button ID="btnSwap" runat="server" Text="Swap Wallets" OnClick="btnSwap_Click" />
                     </li>
                     <%--<div><a href="javascript:void(0)" onclick="javascript:switchWallets();">switch</a></div>--%>
