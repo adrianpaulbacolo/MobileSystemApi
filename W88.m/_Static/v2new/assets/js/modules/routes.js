@@ -200,6 +200,44 @@ function Routes() {
        }
     }
 
+    routes["launcher"] = {
+        parent: "index"
+        , init: function (params) {
+            var pageRoute = "launcher";
+            initPage(pageRoute).then(function () {
+                var launcherPage = new w88Mobile.v2.LauncherCtrl(w88Mobile.v2.Routes
+                    , w88Mobile.v2.Slots
+                    , w88Mobile.v2._templates);
+                routeCtrl.push(launcherPage);
+
+                launcherPage.route = pageRoute;
+                launcherPage.page = w88Mobile.v2.Routes.currentPage();
+                launcherPage.page = _.extend(launcherPage.page, params);
+                launcherPage.game = _.find(w88Mobile.v2.Slots.items, function (data) {
+                    return _.isEqual(data.Id, launcherPage.page.gameId);
+                });
+                launcherPage.club = _.find(w88Mobile.v2.Slots.clubs, function (club) {
+                    return club.name == launcherPage.page.club;
+                });
+                launcherPage.init();
+                pubsub.publish("changeHeader");
+            });
+        }
+        , onOpen: function () {
+            pubsub.publish("changeHeader");
+            $('.filter-bar').show();
+        }
+        , onClose: function () {
+            $("." + _.last(routeStack) + "-page").remove();
+            $('.filter-bar').hide();
+
+            pubsub.publish("changeHeader");
+
+            routeStack = _.dropRight(routeStack);
+            routeCtrl = _.dropRight(routeCtrl);
+        }
+    }
+
     var routeStack = ["index"];
     var routeCtrl = [];
 

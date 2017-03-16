@@ -24,6 +24,12 @@
     <span class="icon icon-filter"></span>
 </a>
 
+{% } else if (_.isEqual(slotData.route, "launcher")) { %}
+
+<a href="#" onclick="w88Mobile.v2.Routes.previous()" class="header-button header-button-left">
+    <span class="icon icon-back"></span>
+</a>
+
 {% } else if (_.isEqual(slotData.route, "club_filter")) { %}
 
 <a href="#" onclick="w88Mobile.v2.Routes.previous()" class="header-button header-button-left">

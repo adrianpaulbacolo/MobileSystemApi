@@ -8,6 +8,7 @@ function Templates() {
         , { id: 'SlotList', url: 'assets/templates/slotCategory.html' }
         , { id: 'TopBar', url: 'assets/templates/header.html' }
         , { id: 'MainPage', url: 'assets/templates/page.html' }
+        , { id: 'GameLauncher', url: 'assets/templates/launcher.html' }
     ];
 
     this.init = function () {

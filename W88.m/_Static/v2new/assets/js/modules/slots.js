@@ -266,7 +266,12 @@ function Slots() {
         })
     }
 
-    function showGameModal(id) {
+    function launchGame(id, club) {
+        viewGame(id, club);
+        $('#gameModal').modal('toggle');
+    }
+
+    function showGameModal(id, club) {
 
         var game = _.find(w88Mobile.v2.Slots.items, function (data) {
             return _.isEqual(data.Id, id);
@@ -276,7 +281,12 @@ function Slots() {
 
         $('#gameTitle').text(game.TranslatedTitle.toUpperCase());
 
-        $('#gameFunUrl').attr('href', game.FunUrl).html(_contents.translate("LABEL_TRY"));
+        // remove click action then re-attach
+        $('#gameFunUrl').off("click");
+        $('#gameFunUrl').on("click", function (e) {
+            e.preventDefault();
+            launchGame(id, club);
+        });
         $('#gameRegisterUrl').html(_contents.translate("BUTTON_REGISTER"));
         $('#gameLoginUrl').html(_contents.translate("BUTTON_LOGIN"));
         $('#gameRealUrl').html(_contents.translate("LABEL_PLAY"));
@@ -293,7 +303,11 @@ function Slots() {
             $('#gameRegisterUrl').hide();
             $('#gameLoginUrl').hide();
 
-            $('#gameRealUrl').attr('href', game.RealUrl);
+            $('#gameRealUrl').off("click");
+            $('#gameRealUrl').on("click", function (e) {
+                e.preventDefault();
+                launchGame(id, club);
+            });
         }
         else {
 
@@ -391,7 +405,7 @@ function Slots() {
 
     // private function used for sorting date, should return integer
     function getSortedReleaseDate(game) {
-        return (game.release instanceof Date) ? parseInt(game.release.getTime()/1000) : parseInt(new Date().getTime()/1000);
+        return (game.release instanceof Date) ? parseInt(game.release.getTime() / 1000) : parseInt(new Date().getTime() / 1000);
     }
 
     function formatReleaseDate(game) {
