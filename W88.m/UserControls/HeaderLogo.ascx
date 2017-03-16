@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="HeaderLogo.ascx.cs" Inherits="UserControls.UserControlsHeaderonLogo" ClientIDMode="static" %>
 
 <header id="header" data-role="header" data-position="fixed" data-theme="b" data-tap-toggle="false">
-    <% if (commonCookie.CookieIsApp != "1")
+    <% if (commonCookie.CookieIsApp != "1" || commonFunctions.isNativeAgent(Request))
        { %>
     <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" role="button" id="aMenu" data-load-ignore-splash="true">
         <% if (commonFunctions.isNativeAgent(Request) && !Request.Url.AbsolutePath.ToLower().Contains("index"))

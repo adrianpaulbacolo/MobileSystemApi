@@ -18,7 +18,8 @@
 
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
 
-        <% if(commonCookie.CookieIsApp != "1"){ %>
+        <% if (commonCookie.CookieIsApp != "1" || commonFunctions.isNativeAgent(Request))
+           { %>
         <!--#include virtual="~/_static/navMenu.shtml" -->
         <!--#include virtual="~/_static/fixed-footer.shtml" -->
         <% } %>
