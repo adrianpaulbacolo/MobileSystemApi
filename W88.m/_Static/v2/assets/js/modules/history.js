@@ -123,6 +123,7 @@ function History() {
         $('#recAmt-lbl').text(_w88_contents.translate("LABEL_RECEIVED_AMOUNT"));
         $('#amt-lbl').text(_w88_contents.translate("LABEL_AMOUNT"));
 
+        $('#dt-lbl').text(_w88_contents.translate("LABEL_DATE_TIME"));
         $('#from-lbl').text(_w88_contents.translate("LABEL_FROM"));
         $('#to-lbl').text(_w88_contents.translate("LABEL_TO"));
     }
