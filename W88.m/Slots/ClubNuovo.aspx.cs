@@ -12,8 +12,8 @@ public partial class Slots_ClubNuovo : BasePage
     {
         if (Page.IsPostBack) return;
 
-        var handler = new GNSHandler(commonVariables.CurrentMemberSessionId, "ClubNuovo", "FundTransfer");
-        var gnsCategory = handler.Process();
+        //var handler = new GNSHandler(commonVariables.CurrentMemberSessionId, "ClubNuovo", "FundTransfer");
+        //var gnsCategory = handler.Process();
 
         var plsHandler = new PLSHandler(commonVariables.CurrentMemberSessionId, "ClubNuovo", "FundTransfer");
         var plsCategory = plsHandler.Process();
@@ -26,12 +26,15 @@ public partial class Slots_ClubNuovo : BasePage
         {
             var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
             var gpiCategory = gpiHandler.Process(true);
-            gnsCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, gnsCategory[0].Current);
-            games = gnsCategory.Union(plsCategory).Union(gpiCategory).GroupBy(x => x.Title);
+            //gnsCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, gnsCategory[0].Current);
+            //games = gnsCategory.Union(plsCategory).Union(gpiCategory).GroupBy(x => x.Title);
+
+            plsCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, plsCategory[0].Current);
+            games = plsCategory.Union(gpiCategory).GroupBy(x => x.Title);
         }
         else
         {
-            games = gnsCategory.Union(plsCategory).GroupBy(x => x.Title);
+            games = plsCategory.GroupBy(x => x.Title);
         }
 
         var sbGames = new StringBuilder();
