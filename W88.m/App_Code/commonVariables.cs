@@ -209,6 +209,7 @@ public class commonVariables
         Cubits = 1202120,
         SDAPay = 120203,
         NextPay = 120204,
+        NextPayGV = 120248,
         Bill99 = 120206,
         JutaPay = 120280,
         JuyPayAlipay = 1202113,
@@ -226,6 +227,7 @@ public class commonVariables
         KexunPay = 1202127,
         PaySec = 120290,
         SDAPayAlipay = 120254,
+        AlipayTransfer = 1204131,
         ShengPayAliPay = 1202111,
         NineVPayAlipay = 1202105,
         ECPSS = 120218,
@@ -243,6 +245,7 @@ public class commonVariables
         Baokim = 120272,
         AifuWeChat = 1202133,
         AifuAlipay = 1202134,
+        DinPayTopUp = 1202112,
 
     }
 

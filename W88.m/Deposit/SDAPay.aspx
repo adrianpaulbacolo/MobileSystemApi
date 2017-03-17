@@ -27,9 +27,9 @@
 
             setTranslations();
             function setTranslations() {
-                if (_w88_contents.translate("LABEL_MSG_120254") != "LABEL_MSG_120254") {
+                if (_w88_contents.translate("LABEL_MSG_" + "<%=base.PaymentMethodId %>") != "LABEL_MSG_" + "<%=base.PaymentMethodId %>") {
                     $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-                    $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_120254"));
+                    $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_" + "<%=base.PaymentMethodId %>"));
                 } else {
                     window.setInterval(function () {
                         setTranslations();
@@ -48,7 +48,7 @@
                         case 1:
 
                             w88Mobile.Growl.shout(_w88_contents.translate("MESSAGES_CHECK_HISTORY"));
-                            window.location.replace('SDAPay2.aspx?id=' + response.ResponseData.TransactionId)
+                            window.location.replace("<%=base.PaymentMethodId %>" + "/2?id=" + response.ResponseData.TransactionId)
 
                             $('#form1')[0].reset();
                             break;
