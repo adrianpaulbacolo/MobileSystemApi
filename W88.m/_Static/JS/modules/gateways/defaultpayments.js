@@ -1,4 +1,4 @@
-﻿function DefaultPayments() {
+function DefaultPayments() {
 
     var autorouteIds = {
         QuickOnline: "999999",
@@ -511,6 +511,9 @@
 
             case "1202120":
                 return "Cubits.aspx";
+
+            case "1202112":
+                return "DinPayTopUp.aspx";
 
             default:
                 break

@@ -43,6 +43,9 @@ public partial class Deposit_Pay : PaymentBasePage
             case commonVariables.DepositMethod.ECPSS:
                 GatewayFile = "ecpss";
                 break;
+            case commonVariables.DepositMethod.DinPayTopUp:
+                GatewayFile = "dinpay";
+                break;
             case commonVariables.DepositMethod.IWallet:
                 GatewayFile = "iwallet";
                 break;
