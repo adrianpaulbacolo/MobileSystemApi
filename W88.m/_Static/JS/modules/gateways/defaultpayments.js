@@ -404,6 +404,9 @@
             case "120204":
                 return "NextPay.aspx";
 
+            case "120248":
+                return "NextPayGV.aspx";
+
             case "120280":
                 return "JutaPay.aspx";
 
