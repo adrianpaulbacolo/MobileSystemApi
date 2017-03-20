@@ -4,7 +4,7 @@
 
     <div class="form-group">
         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
-        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" />
+        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" required data-paylimit="0" />
     </div>
     <div class="form-group">
         <asp:Label ID="lblReferenceId" runat="server" AssociatedControlID="txtReferenceId" />
@@ -30,7 +30,7 @@
     </div>
     <div class="form-group">
         <asp:Label ID="lblDepositChannel" runat="server" AssociatedControlID="drpDepositChannel" />
-        <asp:DropDownList ID="drpDepositChannel" runat="server" CssClass="form-control" />
+        <asp:DropDownList ID="drpDepositChannel" runat="server" CssClass="form-control" required data-selectequals="-1"/>
     </div>
     <div class="form-group">
         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
@@ -43,11 +43,11 @@
     </div>
     <div class="form-group">
         <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" />
-        <asp:TextBox ID="txtAccountName" runat="server" CssClass="form-control" />
+        <asp:TextBox ID="txtAccountName" runat="server" CssClass="form-control" required data-accountName=""/>
     </div>
     <div class="form-group">
         <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" />
-        <asp:TextBox ID="txtAccountNumber" runat="server" CssClass="form-control" />
+        <asp:TextBox ID="txtAccountNumber" runat="server" CssClass="form-control" required data-accountNo=""/>
     </div>
     <div class="form-group ali-pay-note">
         <p id="paymentNoteContent"></p>

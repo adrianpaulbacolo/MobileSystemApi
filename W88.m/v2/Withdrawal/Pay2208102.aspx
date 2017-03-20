@@ -11,16 +11,12 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">
-    <script type="text/javascript" src="/_static/v2/assets/js/gateways/moneytransfer.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
 
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
-
-            window.w88Mobile.Gateways.MoneyTransfer.countryphone();
-            window.w88Mobile.Gateways.MoneyTransfer.init("<%=base.PaymentMethodId %>", false);
 
             $('#form1').validator().on('submit', function (e) {
 
@@ -30,13 +26,7 @@
 
                     var data = {
                         Amount: $('input[id$="txtAmount"]').val(),
-                        AccountName: $('input[id$="txtAccountName"]').val(),
-                        AccountNumber: $('input[id$="txtAccountNumber"]').val(),
-                        CountryCode: {
-                            Text: $('select[id$="drpContactCountry"] option:selected').text(),
-                            Value: $('select[id$="drpContactCountry"]').val()
-                        },
-                        Phone: $('input[id$="txtContact"]').val()
+                        AccountNumber: $('input[id$="txtAccountNumber"]').val()
                     };
 
                     _w88_paymentSvcV2.CreateWithdraw(data, "<%=base.PaymentMethodId %>");

@@ -2,8 +2,6 @@
 
 public partial class v2_Withdrawal_Pay2208102 : PaymentBasePage
 {
-    protected string lblTransactionId;
-
     protected void Page_Init(object sender, EventArgs e)
     {
         base.PageName = Convert.ToString(commonVariables.WithdrawalMethod.IWallet);
