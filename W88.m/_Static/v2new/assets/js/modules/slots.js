@@ -283,7 +283,7 @@ function Slots() {
 
         // remove click action then re-attach
         $('#gameFunUrl').off("click");
-        $('#gameFunUrl').on("click", function (e) {
+        $('#gameFunUrl').html(_contents.translate("LABEL_TRY")).on("click", function (e) {
             e.preventDefault();
             launchGame(id, club);
         });
