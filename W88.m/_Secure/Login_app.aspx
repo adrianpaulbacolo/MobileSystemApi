@@ -112,8 +112,7 @@
                         e.preventDefault();
                         initiateLogin();
 
-                        amplify.store(w88Mobile.Keys.depositSettings, null);
-                        amplify.store(w88Mobile.Keys.withdrawalSettings, null);
+                        amplify.clearStore();
                     }
                 });
             });

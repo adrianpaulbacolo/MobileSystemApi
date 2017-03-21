@@ -19,7 +19,7 @@ public partial class _Lang : Page
                 .Append(@"<a id='" + key + "'>")
                 .Append(@"<img src='/_Static/Css/images/flags/")
                 .Append(languages[key])
-                .Append(@".svg' alt=''/>")
+                .Append(@".jpg' alt=''/>")
                 .Append(@"<span>" + GetLanguageNameTranslation(languageNames, languages[key]) + "</span>")
                 .Append(@"</a></div>");
         }

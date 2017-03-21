@@ -8,6 +8,7 @@
     <title></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/bankTransfer.js"></script>
 </head>
 <body>
     <div data-role="page" data-theme="b">
@@ -15,7 +16,7 @@
             <% if (commonCookie.CookieIsApp != "1")
                { %>
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
-                <i class="icon-navicon"></i>
+                <i class="icon icon-navicon"></i>
             </a>
             <% } %>
 
@@ -69,8 +70,8 @@
                         </div>
                     </li>
                     <li class="item item-input">
-                        <asp:Label ID="lblWithdrawAmount" runat="server" AssociatedControlID="txtWithdrawAmount" />
-                        <asp:TextBox ID="txtWithdrawAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+                        <asp:Label ID="lblWithdrawAmount" runat="server" AssociatedControlID="txtAmount" />
+                        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
 
                     <li class="item item-select">
@@ -203,7 +204,7 @@
                         sessionStorage.setItem("hfBLId", this.value);
 
                         window.w88Mobile.BankTransfer.ToogleBankBranch(selectName, $('#<%=hfBLId.ClientID%>').val(), $('#<%=hfBBId.ClientID%>').val());
-                        }
+                    }
                 });
 
                 $('#drpBankBranchList').change(function () {

@@ -6,8 +6,8 @@
 		text-transform: uppercase;
 		position: relative;
 		&:after{
-			content: '\f3d0';
-			font: 1.5em "ionicons";
+			content: '\e915';
+			font: 1.5em "icomoon";
 			color: #ffffff;
 			color: rgba(255, 255, 255, 0.5);
 			text-indent: 0;
@@ -16,7 +16,7 @@
 			position: absolute;
 		}
 		&.toggled:after{
-			content: '\f3d8';
+			content: '\e91f';
 		}
 		&.btn-active{
 			color: $white;

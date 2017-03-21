@@ -59,14 +59,14 @@
 	}
 }
 
-#diven-us {background: url('/_Static/Images/flags/en.svg') no-repeat center;}
-#divzh-cn {background: url('/_Static/Images/flags/cn.svg') no-repeat center;}
-#divid-id {background: url('/_Static/Images/flags/id.svg') no-repeat center;}
-#divja-jp {background: url('/_Static/Images/flags/jp.svg') no-repeat center;}
-#divkm-kh {background: url('/_Static/Images/flags/kh.svg') no-repeat center;}
-#divko-kr {background: url('/_Static/Images/flags/kr.svg') no-repeat center;}
-#divth-th {background: url('/_Static/Images/flags/th.svg') no-repeat center;}
-#divvi-vn {background: url('/_Static/Images/flags/vn.svg') no-repeat center;}
+#diven-us {background: url('/_Static/Images/flags/en.jpg') no-repeat center; background-size: contain;}
+#divzh-cn {background: url('/_Static/Images/flags/cn.jpg') no-repeat center; background-size: contain;}
+#divid-id {background: url('/_Static/Images/flags/id.jpg') no-repeat center; background-size: contain;}
+#divja-jp {background: url('/_Static/Images/flags/jp.jpg') no-repeat center; background-size: contain;}
+#divkm-kh {background: url('/_Static/Images/flags/kh.jpg') no-repeat center; background-size: contain;}
+#divko-kr {background: url('/_Static/Images/flags/kr.jpg') no-repeat center; background-size: contain;}
+#divth-th {background: url('/_Static/Images/flags/th.jpg') no-repeat center; background-size: contain;}
+#divvi-vn {background: url('/_Static/Images/flags/vn.jpg') no-repeat center; background-size: contain;}
 
 #diven-us:after {content: 'English'}
 #divzh-cn:after {content: '简体中文'}

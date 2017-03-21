@@ -11,7 +11,8 @@
 <body>
     <div data-role="page" data-close-btn="right" data-corners="false" id="login">
         <header id="header" data-role="header" data-position="fixed" data-theme="b" data-tap-toggle="false">
-            <a href="" role="button" data-rel="back" class="btn-clear ui-btn-left ui-btn ion-ios-arrow-back" id="aMenu" data-load-ignore-splash="true">
+            <a href="" role="button" data-rel="back" class="btn-clear ui-btn-left ui-btn" id="aMenu" data-load-ignore-splash="true">
+                <span class="icon icon-back"></span>
                 <%=commonCulture.ElementValues.getResourceString("back", commonVariables.LeftMenuXML)%>
             </a>
             <h1 class="title"><%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></h1>
@@ -109,8 +110,7 @@
                         e.preventDefault();
                         initiateLogin();
 
-                        amplify.store(w88Mobile.Keys.depositSettings, null);
-                        amplify.store(w88Mobile.Keys.withdrawalSettings, null);
+                        amplify.clearStore();
 
                     }
                 });

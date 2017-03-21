@@ -10,15 +10,17 @@ function translate() {
         var contents = amplify.store(location.hostname + "_translations");
         if (_.isEmpty(contents) || contents.language != window.User.lang) {
             _self.fetch(window.User.lang);
+            _self.fetch(window.User.lang, "/messages");
         } else {
             _self.items = contents;
         }
 
     }
     
-    this.fetch = function (lang) {
+    this.fetch = function (lang, endpoint) {
         var _self = this;
-        var url = "/api/contents";
+        endpoint = (_.isUndefined(endpoint)) ? "/contents" : endpoint;
+        var url = w88Mobile.APIUrl + endpoint;
         var headers = {
             'Token': window.User.token,
             'LanguageCode': lang
@@ -32,12 +34,19 @@ function translate() {
             data: {},
             headers: headers,
             success: function (response) {
+                if (_.isUndefined(response.ResponseData)) return;
                 response.ResponseData.language = window.User.lang;
-                _self.items = response.ResponseData;
 
                 var settings = _.clone(window.User.storageExpiration);
                 settings.expires = _self.expiry;
-                amplify.store(location.hostname + "_translations", response.ResponseData, settings);
+                var contents = amplify.store(location.hostname + "_translations");
+                if (!_.isEmpty(contents)) {
+                    contents = _.assign(contents, response.ResponseData);
+                } else {
+                    contents = response.ResponseData;
+                }
+                _self.items = contents;
+                amplify.store(location.hostname + "_translations", contents, settings);
             },
             error: function () {
                 console.log("unable to load contents");

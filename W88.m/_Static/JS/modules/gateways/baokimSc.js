@@ -48,9 +48,9 @@
                 $('#lblPin').html(d.ResponseData.LABEL_CARD_PIN);
                 $('#lblCardSerialNo').html(d.ResponseData.LABEL_CARD_SERIAL);
 
-                sessionStorage.setItem("indicator", d.ResponseData.LABEL_INDICATOR_MSG);
-                $('#IndicatorMsg').html(sessionStorage.getItem("indicator"));
-
+                sessionStorage.setItem("indicator", d.ResponseData.LABEL_MSG_120286);
+                $('#paymentNoteContent').html(sessionStorage.getItem("indicator"));
+                $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
                 defaultSelect = d.ResponseData.LABEL_SELECT_DEFAULT;
 
                 getBanks();
@@ -59,7 +59,7 @@
     }
 
     function getBanks() {
-        var url = w88Mobile.APIUrl + "/payments/baokindenom/";
+        var url = w88Mobile.APIUrl + "/payments/denomination/120286";
 
         $.ajax({
             type: "GET",
@@ -67,11 +67,11 @@
             success: function (d) {
                 telcos = d.ResponseData.Telcos;
 
-                $('#drpBanks').append($('<option>').text(defaultSelect).attr('value', '-1'));
-                $('#drpBanks').val("-1").selectmenu("refresh");
+                $('#drpBank').append($('<option>').text(defaultSelect).attr('value', '-1'));
+                $('#drpBank').val("-1").selectmenu("refresh");
 
                 _.forOwn(d.ResponseData.Telcos, function (data) {
-                    $('#drpBanks').append($('<option>').text(data.Name).attr('value', data.Id));
+                    $('#drpBank').append($('<option>').text(data.Name).attr('value', data.Id));
                 });
 
 
@@ -106,7 +106,7 @@
             }
         });
 
-        $('#IndicatorMsg').html(sessionStorage.getItem("indicator") + fee);
+        $('#paymentNoteContent').html(sessionStorage.getItem("indicator") + fee);
     }
 
     // deposit

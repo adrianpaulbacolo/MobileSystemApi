@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using customConfig;
 using Helpers;
 using Models;
 
@@ -108,13 +109,14 @@ public class LoginProcess
     private void SetSessions(DataTable dTable, string password)
     {
         var memberSessionId = dTable.Rows[0]["memberSessionId"];
+        var riskId = dTable.Rows[0]["riskId"].ToString();
         HttpContext.Current.Session.Add("MemberSessionId", memberSessionId);
         HttpContext.Current.Session.Add("MemberId", dTable.Rows[0]["memberId"]);
         HttpContext.Current.Session.Add("MemberCode", dTable.Rows[0]["memberCode"]);
         HttpContext.Current.Session.Add("CountryCode", dTable.Rows[0]["countryCode"]);
         HttpContext.Current.Session.Add("CurrencyCode", dTable.Rows[0]["currency"]);
         HttpContext.Current.Session.Add("LanguageCode", dTable.Rows[0]["languageCode"]);
-        HttpContext.Current.Session.Add("RiskId", dTable.Rows[0]["riskId"]);
+        HttpContext.Current.Session.Add("RiskId", riskId);
         HttpContext.Current.Session.Add("PaymentGroup", dTable.Rows[0]["paymentGroup"]);
         HttpContext.Current.Session.Add("PartialSignup", dTable.Rows[0]["partialSignup"]);
         HttpContext.Current.Session.Add("ResetPassword", dTable.Rows[0]["resetPassword"]);
@@ -122,6 +124,12 @@ public class LoginProcess
         commonCookie.CookieS = Convert.ToString(memberSessionId);
         commonCookie.CookieG = Convert.ToString(memberSessionId);
         commonCookie.CookiePalazzo = password;
+
+        var opSettings = new OperatorSettings("W88");
+        foreach (var v in opSettings.Values.Get("VIP_Allowed").ToUpper().Split(new[] { '|' }).Where(v => v.Equals(riskId)))
+        {
+            commonCookie.CookieVip = "true";
+        }
     }
 
     private bool IsResetPassword()

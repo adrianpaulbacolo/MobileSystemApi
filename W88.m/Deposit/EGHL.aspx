@@ -1,128 +1,66 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EGHL.aspx.cs" Inherits="Deposit_EGHL" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/Payments.master" AutoEventWireup="true" CodeFile="EGHL.aspx.cs" Inherits="Deposit_EGHL" %>
 
-<%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
+    <ul class="list fixed-tablet-size">
+        <li class="item-text-wrap ali-pay-note idrBank">
+            <span id="paymentNote"></span>
+            <p id="paymentNoteContent"></p>
+        </li>
+        <li class="item item-input">
+            <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
+            <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+        </li>
+        <li class="item item-select idrBank">
+            <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
+            <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
+        </li>
+    </ul>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder1" runat="Server">
+    <link href="/_Static/Css/payment.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
+    <script type="text/javascript">
+        $(document).ready(function () {
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-    <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js"></script>
-</head>
-<body>
-    <div data-role="page" data-theme="b">
-        <header data-role="header" data-theme="b" data-position="fixed" id="header">
-            <% if (commonCookie.CookieIsApp != "1")
-               { %>
-            <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
-                <i class="icon-navicon"></i>
-            </a>
-            <% } %>
+            _w88_paymentSvc.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
+            _w88_paymentSvc.DisplaySettings(
+                "<%=base.PaymentMethodId %>"
+                , {
+                    type: "<%=base.PaymentType %>"
+                });
 
-            <h1 class="title" id="headerTitle"><%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%></h1>
-        </header>
+            if ('<%=commonVariables.GetSessionVariable("CurrencyCode")%>' == "MYR") {
+                $('.idrBank').show();
+            }
+            else {
+                $('.idrBank').hide();
+            }
 
-        <div class="ui-content" role="main">
-            <div class="wallet main-wallet">
-                <uc:Wallet ID="uMainWallet" runat="server" />
-            </div>
-
-            <div class="toggle-list-box">
-                <button class="toggle-list-btn btn-active" id="activeDepositTabs"></button>
-                <ul class="toggle-list hidden" id="depositTabs">
-                </ul>
-            </div>
-
-            <form class="form" id="form1" runat="server" data-ajax="false">
-                <br>
-                <ul class="list fixed-tablet-size">
-                    <li class="row">
-                        <div class="col">
-                            <asp:Literal ID="lblMode" runat="server" />
-                        </div>
-                        <div class="col">
-                            <asp:Literal ID="txtMode" runat="server" />
-                        </div>
-                    </li>
-                    <li class="row">
-                        <div class="col">
-                            <asp:Literal ID="lblMinMaxLimit" runat="server" />
-                        </div>
-                        <div class="col">
-                            <asp:Literal ID="txtMinMaxLimit" runat="server" />
-                        </div>
-                    </li>
-                    <li class="row">
-                        <div class="col">
-                            <asp:Literal ID="lblDailyLimit" runat="server" />
-                        </div>
-                        <div class="col">
-                            <asp:Literal ID="txtDailyLimit" runat="server" />
-                        </div>
-                    </li>
-                    <li class="row">
-                        <div class="col">
-                            <asp:Literal ID="lblTotalAllowed" runat="server" />
-                        </div>
-                        <div class="col">
-                            <asp:Literal ID="txtTotalAllowed" runat="server" />
-                        </div>
-                    </li>
-                    <li class="item item-input">
-                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
-                        <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
-                    </li>
-                    <li class="item item-select idrBank">
-                        <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
-                        <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
-                    </li>
-
-                    <li class="item-text-wrap idrBank">
-                        <asp:Label ID="lblMessage" runat="server" ForeColor="Red" />
-                    </li>
-                    <li class="item row">
-                        <div class="col">
-                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" OnClick="btnSubmit_Click" />
-                        </div>
-                    </li>
-                </ul>
-            </form>
-        </div>
-
-        <% if (commonCookie.CookieIsApp != "1")
-           { %>
-        <!--#include virtual="~/_static/navMenu.shtml" -->
-        <% } %>
-
-        <script type="text/javascript">
-            $(document).ready(function () {
-                window.w88Mobile.Gateways.DefaultPayments.Deposit("<%=base.strCountryCode %>", "<%=base.strMemberID %>", '<%= commonCulture.ElementValues.getResourceString("paymentNotice", commonVariables.PaymentMethodsXML)%>', "<%=base.PaymentMethodId %>");
-
-                if ('<%=commonVariables.GetSessionVariable("CurrencyCode")%>' == "MYR") {
-                    $('.idrBank').show();
+            setTranslations();
+            function setTranslations() {
+                if (_w88_contents.translate("LABEL_MSG_120254") != "LABEL_MSG_120254") {
+                    $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+                    $("#paymentNoteContent").text(_w88_contents.translate("LABEL_MSG_120265"));
+                } else {
+                    window.setInterval(function () {
+                        setTranslations();
+                    }, 500);
                 }
-                else {
-                    $('.idrBank').hide();
-                }
+            }
 
-                if ('<%=strAlertCode%>'.length > 0) {
-                    switch ('<%=strAlertCode%>') {
-                        case '-1':
-                            alert('<%=strAlertMessage%>');
-                            break;
-
-                        case '0':
-                            alert('<%=strAlertMessage%>');
-                            break;
-                        default:
-                            break;
-                    }
-                }
+            $('#form1').submit(function (e) {
+                e.preventDefault();
+                var data = {
+                    Amount: $('input[id$="txtAmount"]').val(),
+                    BankText: $('[id$="drpBank"] option:selected').text(),
+                    BankValue: $('[id$="drpBank"] option:selected').val(),
+                    MethodId: "<%=base.PaymentMethodId%>"
+                };
+                var action = "/Deposit/Pay.aspx";
+                var params = decodeURIComponent($.param(data));
+                window.open(action + "?" + params, "<%=base.PageName%>");
+                _w88_paymentSvc.onTransactionCreated($(this));
+                return;
             });
-
-        </script>
-    </div>
-
-    <asp:Literal ID="litForm" runat="server"></asp:Literal>
-</body>
-</html>
+        });
+    </script>
+</asp:Content>

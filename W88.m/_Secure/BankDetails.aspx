@@ -7,12 +7,13 @@
 <head>
     <title><%=string.Format("{0}", commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML))%></title>
     <!--#include virtual="~/_static/head.inc" -->
+    <script type="text/javascript" src="/_Static/JS/modules/bankDetails.js"></script>
 </head>
 <body>
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
-                <i class="icon-navicon"></i>
+                 <span class="icon icon-navicon"></span>
             </a>
             <h1 class="title" id="h1title"></h1>
         </header>

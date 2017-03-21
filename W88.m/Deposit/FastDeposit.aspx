@@ -16,7 +16,7 @@
             <% if (commonCookie.CookieIsApp != "1")
                { %>
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
-                <i class="icon-navicon"></i>
+                <i class="icon icon-navicon"></i>
             </a>
             <% } %>
 
@@ -70,8 +70,8 @@
                         </div>
                     </li>
                     <li class="item item-input">
-                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtDepositAmount" />
-                        <asp:TextBox ID="txtDepositAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
+                        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
+                        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
                     </li>
                     <li class="item item-input">
                         <asp:Label ID="lblReferenceId" runat="server" AssociatedControlID="txtReferenceId" />
@@ -122,10 +122,7 @@
 
                     <li class="item row">
                         <div class="col">
-                            <a href="/Funds.aspx" role="button" class="ui-btn btn-bordered" id="btnCancel" runat="server" data-ajax="false"><%=base.strbtnCancel%></a>
-                        </div>
-                        <div class="col">
-                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" OnClick="btnSubmit_Click" />
+                            <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue"/>
                         </div>
                     </li>
                 </ul>
@@ -143,34 +140,55 @@
 
                 window.w88Mobile.Gateways.FastDeposit.GetBankDetails();
 
-                $('#form1').submit(function (e) {
-                    window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
+                $('#drpBank').change(function () {
+                    window.w88Mobile.Gateways.FastDeposit.ToogleBank(this.value);
                 });
 
+                $('#form1').submit(function (e) {
+                    e.preventDefault();
+                    window.w88Mobile.FormValidator.disableSubmitButton('#btnSubmit');
 
-                var responseCode = '<%=strAlertCode%>';
-                var responseMsg = '<%=strAlertMessage%>';
+                    var depositDateTime = new Date($('#drpDepositDate').val());
+                    depositDateTime.setHours($('#drpHour').val());
+                    depositDateTime.setMinutes($('#drpMinute').val());
 
-                if (responseCode.length > 0) {
-                    switch (responseCode) {
-                        case '-1':
-                            alert(responseMsg);
-                            window.w88Mobile.Gateways.FastDeposit.ToogleBank($('#drpBank').val());
-                            break;
-                        case '0':
-                            alert(responseMsg);
-                            window.location.replace('/Funds.aspx');
-                            break;
-                        default:
-                            break;
-                    }
-                }
+                    var data = {
+                        Amount: $('#txtAmount').val(),
+                        Bank: { Text: $('#drpBank option:selected').text(), Value: $('#drpBank').val() },
+                        AccountName: $('#txtAccountName').val(),
+                        AccountNumber: $('#txtAccountNumber').val(),
+                        SystemBank: { Text: $('#drpSystemAccount option:selected').text(), Value: $('#drpSystemAccount').val() },
+                        BankName: $('#txtBankName').val(),
+                        ReferenceId: $('#txtReferenceId').val(),
+                        DepositChannel: { Text: $('#drpDepositChannel option:selected').text(), Value: $('#drpDepositChannel').val() },
+                        DepositDateTime: window.w88Mobile.Gateways.DefaultPayments.formatDateTime(depositDateTime),
+                    };
+
+                    window.w88Mobile.Gateways.FastDeposit.Deposit(data, function (response) {
+                        switch (response.ResponseCode) {
+                            case 1:
+                                w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + '<%=lblTransactionId%>' + ": " + response.ResponseData.TransactionId + "</p>");
+
+                                $('#form1')[0].reset();
+
+                                window.w88Mobile.Gateways.FastDeposit.ToogleBank($('#drpBank').val());
+                                break;
+
+                            default:
+                                if (_.isArray(response.ResponseMessage))
+                                    w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
+                                else
+                                    w88Mobile.Growl.shout(response.ResponseMessage);
+
+                                break;
+                        }
+                    },
+                    function () {
+                        window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
+                        GPInt.prototype.HideSplash();
+                    });
+                });
             });
-
-            $('#drpBank').change(function () {
-                window.w88Mobile.Gateways.FastDeposit.ToogleBank(this.value);
-            });
-
         </script>
     </div>
 </body>

@@ -102,6 +102,13 @@ namespace Helpers
                         url = Settings.Values.Get("PLSRealUrl");
                     break;
 
+                case GameProvider.TTG:
+                    if (linkType == GameLinkSetting.Fun)
+                        url = Settings.Values.Get("TTGFunUrl");
+                    else if (linkType == GameLinkSetting.Real)
+                        url = Settings.Values.Get("TTGRealUrl");
+                    break;
+
                 default:
                     url = "";
                     break;

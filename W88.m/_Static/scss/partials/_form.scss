@@ -120,11 +120,7 @@ select {
     z-index: 3;
     color: $primary-color;
     text-align: center;
-    font-size: 1.5em;
-
-    &:before {
-        @include transform(rotate(90deg));
-    }
+    font-size: 1.55em;
 
     .ui-input-btn {
         text-indent: -9999px;
@@ -165,23 +161,17 @@ select {
             margin-bottom: 0;
         }
     }
-
-    .ion-social-android {
-        font-size: 50px;
-
-        &, &:before {
-            line-height: 50px;
-            color: #A4C639;
-        }
+    
+    .icon{
+        font-size: 5rem;
+        line-height: 1;
+    }
+    .icon-android {
+        color: #A4C639;
     }
 
-    .ion-social-apple {
-        font-size: 50px;
-
-        &, &:before {
-            line-height: 50px;
-            color: #999999;
-        }
+    .icon-apple {
+        color: #999999;
     }
 
     .ui-btn {

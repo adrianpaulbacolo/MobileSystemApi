@@ -206,7 +206,9 @@ namespace Factories.Slots
          BS,
          CTXM,
          UC8,
-         PP,
+         PP
+             ,TTG
+         
          GNS,
          PLS
      }
