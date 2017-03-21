@@ -10,6 +10,10 @@
             <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
             <asp:DropDownList ID="drpBank" runat="server" data-corners="false" />
         </li>
+        <li class="item item-checkbox">
+            <asp:Label ID="lblSwitchLine" runat="server" AssociatedControlID="isSwitchLine" />
+            <asp:CheckBox type="checkbox" ID="isSwitchLine" runat="server" />
+        </li>
     </ul>
 </asp:Content>
 
@@ -33,6 +37,7 @@
                     BankText: $('[id$="drpBank"] option:selected').text(),
                     BankValue: $('[id$="drpBank"] option:selected').val(),
                     ThankYouPage: location.protocol + "//" + location.host + "/Deposit/Thankyou.aspx",
+                    SwitchLine: $('input[id$="isSwitchLine"]').is(':checked'),
                     MethodId: "<%=base.PaymentMethodId%>"
                 };
                 var action = "/Deposit/Pay.aspx";
