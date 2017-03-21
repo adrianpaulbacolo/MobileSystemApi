@@ -75,10 +75,10 @@ public partial class Slots_ClubApollo : BasePage
         IEnumerable<IGrouping<string, GameCategoryInfo>> games;
         if (addGpi)
         {
-            var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
-            var gpiCategory = gpiHandler.Process(true);
+        var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
+        var gpiCategory = gpiHandler.Process(true);
 
-            qtCategory[0].Current = handler.InsertInjectedGames(gpiCategory, qtCategory[0].Current);
+        qtCategory[0].Current = handler.InsertInjectedGames(gpiCategory, qtCategory[0].Current);
 
             games = qtCategory.Union(ppCategory).Union(ttgCategory).Union(gpiCategory).GroupBy(x => x.Title);
         }
@@ -137,14 +137,14 @@ public partial class Slots_ClubApollo : BasePage
                         "<a class=\"track-play-now\" href='#' onclick='javascript:w88Mobile.Slots.launchTTG(\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\")' target='_blank' data-ajax='false'>",
                         gameId, gameName, gameType, lang, "ClubApollo");
                 }
-                else
+            else
                 {
                     sbGames.AppendFormat("<a class=\"track-play-now\" href='{0}' target='_blank' data-ajax='false'>",
                         game.RealUrl);
                 }
 
             }
-              
+
             sbGames.AppendFormat("{0}</a>", commonCulture.ElementValues.getResourceXPathString("/Products/Play", commonVariables.ProductsXML));
             sbGames.AppendFormat("<a class=\"track-try-now\" target='_blank' href='{1}'>{0}</a></div>", commonCulture.ElementValues.getResourceXPathString("/Products/Try", commonVariables.ProductsXML), game.FunUrl);
 

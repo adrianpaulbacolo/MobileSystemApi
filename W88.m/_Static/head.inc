@@ -54,7 +54,7 @@
     // set initial values for notification
     if(!_.isUndefined(w88Mobile.Growl)){
         w88Mobile.Growl.options.lang = '<%=commonVariables.SelectedLanguageShort%>';
-        w88Mobile.Growl.options.close = '<%=commonCulture.ElementValues.getResourceString("close", commonVariables.LeftMenuXML)%>';   
+        w88Mobile.Growl.options.close = '<%=commonCulture.ElementValues.getResourceString("close", commonVariables.LeftMenuXML)%>';
     }
 </script>
 <script type="text/javascript" src="/_Static/JS/modules/slots.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>

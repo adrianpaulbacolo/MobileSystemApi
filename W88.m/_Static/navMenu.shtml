@@ -147,10 +147,10 @@ var fishingWorld = FishingWorldProduct.GetLink();
                     </a>
                 </li>
                  <li>
-                     <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-ajax="false">
+                    <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-ajax="false">
                          <img src="#" class="img-responsive vsports">
-                         <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports/Label", commonVariables.ProductsXML)%></div>
-                     </a>
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports/Label", commonVariables.ProductsXML)%></div>
+                    </a>
                 </li> 
 
                 <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency))
@@ -324,6 +324,12 @@ var fishingWorld = FishingWorldProduct.GetLink();
                     <a class="card" rel="clubgallardo" href="/ClubGallardo" data-ajax="false">
                         <img src="#" class="img-responsive clubgallardo">
                         <div class="title" id="ClubGallardoNavTitle"></div>
+                    </a>
+                </li>
+                <li>
+                    <a class="card" rel="clubnuovo" href="/ClubNuovo" data-ajax="false">
+                        <img src="/_Static/Images/bnr-clubnuovo.jpg" class="img-responsive">
+                        <div class="title" id="ClubNuovoNavTitle"></div>
                     </a>
                 </li>
                 <li>
@@ -619,7 +625,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
     $("#icon-rewards-sidebar").attr('href', urlRewards);
 
 	var url = window.location.protocol +'//www.'+ '<%=commonIp.DomainName %>' + '?nomobile=true';
-
+    
         <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieAffiliateId))
             {%>
                 url += '&affiliateID=' + <%=commonCookie.CookieAffiliateId%>;

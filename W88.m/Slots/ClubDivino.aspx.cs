@@ -1,4 +1,5 @@
-﻿using Factories.Slots;
+﻿using customConfig;
+using Factories.Slots;
 using Factories.Slots.Handlers;
 using Models;
 using System;
@@ -15,7 +16,9 @@ public partial class Slots_ClubDivino : BasePage
 
         SetTitle(commonCulture.ElementValues.getResourceXPathString("/Products/ClubDivino/Label", commonVariables.ProductsXML));
 
-        StringBuilder sbGames = new StringBuilder();
+        var opSettings = new OperatorSettings(System.Configuration.ConfigurationManager.AppSettings.Get("Operator"));
+        var addGpi = Convert.ToBoolean(opSettings.Values.Get("GPIAddOtheClubs"));
+        var sbGames = new StringBuilder();
 
         var bsHandler = new BSHandler(commonVariables.CurrentMemberSessionId, "ClubDivino", "FundTransfer", GetDevice());
         var bsCategory = bsHandler.Process();
@@ -26,13 +29,21 @@ public partial class Slots_ClubDivino : BasePage
         var uc8Handler = new UC8Handler(commonVariables.CurrentMemberSessionId, "ClubDivino", "FundTransfer");
         var uc8Category = uc8Handler.Process();
 
-        var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
-        var gpiCategory = gpiHandler.Process(true);
-        cxCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, cxCategory[0].Current);
+        IEnumerable<IGrouping<string, GameCategoryInfo>> games;
+        if (addGpi)
+        {
+            var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
+            var gpiCategory = gpiHandler.Process(true);
+            cxCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, cxCategory[0].Current);
 
-        var divino = bsCategory.Union(cxCategory).Union(uc8Category).Union(gpiCategory).GroupBy(x => x.Title);
+            games = bsCategory.Union(cxCategory).Union(uc8Category).Union(gpiCategory).GroupBy(x => x.Title);
+        }
+        else
+        {
+            games = bsCategory.Union(cxCategory).Union(uc8Category).GroupBy(x => x.Title);
+        }
 
-        foreach (var group in divino)
+        foreach (var group in games)
         {
             AddGamesPerDevice(sbGames, group);
         }
