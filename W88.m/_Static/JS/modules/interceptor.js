@@ -11,6 +11,8 @@
 // interceptor: check api calls if user status has changed
 $(document).ajaxComplete(function (event, request, settings) {
 
+    if (_.isUndefined(request.responseJSON)) return;
+
     if (isAPIRequest(settings.url)) {
         if (!_.isUndefined(request.responseJSON.ResponseCode)) {
             switch (request.responseJSON.ResponseCode) {
