@@ -62,6 +62,7 @@
 <script type="text/javascript" src="/_Static/JS/modules/formValidator.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 <script type="text/javascript" src="/_Static/JS/modules/piwikManager.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 <script type="text/javascript" src="/_Static/JS/modules/piwikConfig.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+<script type="text/javascript" src="/_Static/JS/modules/interceptor.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 <script type="text/javascript">
     w88Mobile.PiwikManager.setGoals(window.w88Mobile.PiwikConfig.goals);
     w88Mobile.PiwikManager.setDomain();
@@ -84,6 +85,6 @@
             w88Mobile.PiwikManager.setDeviceId(deviceObj);
         }
     });
-    </script>
+</script>
 
 <script type="text/javascript" src="/_Static/JS/modules/gateways/postForm.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
