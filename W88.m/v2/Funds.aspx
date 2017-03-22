@@ -67,6 +67,22 @@
 
            });
 
+           // hackish way to communicate in between iframes lol, check slots page, surprisingly, it has too
+           if (inIframe()) {
+               var parentOrigin = window.location.origin;
+               var parentWindow = window.parent;
+
+               parentWindow.postMessage('funds', parentOrigin);
+           }
+
+           function inIframe() {
+               try {
+                   return window.self !== window.top;
+               } catch (e) {
+                   return true;
+               }
+           }
+
     </script>
     <script type="text/template" id='walletMenu'>
 

@@ -45,6 +45,11 @@ function launcherCtrl(routeObj, slotSvc, templateSvc) {
         });
 
         _self.page.find(".main-content").append(gameDiv);
+
+        var launcherOrigin = window.location.origin;
+        var launcherWindow = _.first(_self.page.find(".iframe-launcher")).contentWindow;
+
+
     }
 
 
