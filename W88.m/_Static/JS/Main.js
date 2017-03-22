@@ -1,5 +1,5 @@
 ﻿$(window).load(function () {
-    
+
     if (typeof window.User != "undefined" && window.User.hasSession) checkSession();
     var sessionPoll;
 
@@ -122,6 +122,30 @@ function ValidatePositiveDecimal(ctrl, e, cur) {
                 return false;
         }
     }
+}
+
+function PositiveDecimal(value, cur) {
+    var allowDecimal;
+    if (cur === undefined) cur = "";
+    switch (cur) {
+        case "JPY":
+            allowDecimal = false;
+            break;
+        default:
+            allowDecimal = true;
+            break;
+    }
+
+    if (!allowDecimal) {
+        return value % 1 === 0;
+    }
+
+    var num = parseFloat(value);
+    var cleanNum = num.toFixed(2);
+    if (num / cleanNum != 1)
+        return false;
+
+    return true;
 }
 
 function PositiveOneDecimalValidation(value, element) {

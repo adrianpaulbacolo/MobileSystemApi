@@ -1,4 +1,5 @@
-﻿﻿using Factories.Slots;
+﻿﻿using customConfig;
+﻿using Factories.Slots;
 using Factories.Slots.Handlers;
 using Models;
 using System;
@@ -18,20 +19,31 @@ public partial class Slots_ClubGallardo : BasePage
 
         SetTitle(commonCulture.ElementValues.getResourceXPathString("/Products/ClubGallardo/Label", commonVariables.ProductsXML));
 
+        var opSettings = new OperatorSettings(System.Configuration.ConfigurationManager.AppSettings.Get("Operator"));
+        var addGpi = Convert.ToBoolean(opSettings.Values.Get("GPIAddOtheClubs"));
+
         var isbHandler = new ISBHandler(commonVariables.CurrentMemberSessionId, "ClubGallardo", commonVariables.GetSessionVariable("CurrencyCode"));
         var isbCategory = isbHandler.Process();
 
         var pngHandler = new PNGHandler(commonVariables.CurrentMemberSessionId, "ClubGallardo");
         var pngCategory = pngHandler.Process();
 
+        IEnumerable<IGrouping<string, GameCategoryInfo>> games;
+        if (addGpi)
+        {
         var gpiHandler = new GPIHandler(commonVariables.CurrentMemberSessionId);
         var gpiCategory = gpiHandler.Process(true);
         isbCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, isbCategory[0].Current);
 
-        var gallardo = pngCategory.Union(isbCategory).Union(gpiCategory).GroupBy(x => x.Title);
+        games = pngCategory.Union(isbCategory).Union(gpiCategory).GroupBy(x => x.Title);
+        }
+        else
+        {
+            games = pngCategory.Union(isbCategory).GroupBy(x => x.Title);
+        }
 
         StringBuilder sbGames = new StringBuilder();
-        foreach (var category in gallardo)
+        foreach (var category in games)
         {
             sbGames.AppendFormat("<div data-role='collapsible' data-collapsed='false' data-theme='b' data-content-theme='a' data-mini='true'><h4>{0}</h4>", category.Key);
 

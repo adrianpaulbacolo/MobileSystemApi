@@ -54,7 +54,7 @@
     // set initial values for notification
     if(!_.isUndefined(w88Mobile.Growl)){
         w88Mobile.Growl.options.lang = '<%=commonVariables.SelectedLanguageShort%>';
-        w88Mobile.Growl.options.close = '<%=commonCulture.ElementValues.getResourceString("close", commonVariables.LeftMenuXML)%>';   
+        w88Mobile.Growl.options.close = '<%=commonCulture.ElementValues.getResourceString("close", commonVariables.LeftMenuXML)%>';
     }
 </script>
 <script type="text/javascript" src="/_Static/JS/modules/slots.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
@@ -62,6 +62,7 @@
 <script type="text/javascript" src="/_Static/JS/modules/formValidator.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 <script type="text/javascript" src="/_Static/JS/modules/piwikManager.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 <script type="text/javascript" src="/_Static/JS/modules/piwikConfig.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+<script type="text/javascript" src="/_Static/JS/modules/interceptor.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 <script type="text/javascript">
     w88Mobile.PiwikManager.setGoals(window.w88Mobile.PiwikConfig.goals);
     w88Mobile.PiwikManager.setDomain();
@@ -84,6 +85,6 @@
             w88Mobile.PiwikManager.setDeviceId(deviceObj);
         }
     });
-    </script>
+</script>
 
 <script type="text/javascript" src="/_Static/JS/modules/gateways/postForm.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>

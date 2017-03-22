@@ -10,6 +10,10 @@
             <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
             <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" onKeyPress="return ValidatePositiveDecimal(this, event);" />
         </li>
+        <li class="item item-checkbox">
+            <asp:Label ID="lblSwitchLine" runat="server" AssociatedControlID="isSwitchLine" />
+            <asp:CheckBox type="checkbox" ID="isSwitchLine" runat="server" />
+        </li>
     </ul>
 </asp:Content>
 
@@ -49,6 +53,7 @@
                 var data = {
                     Amount: $('input[id$="txtAmount"]').val(),
                     ThankYouPage: location.protocol + "//" + location.host + "/Deposit/Thankyou.aspx",
+                    SwitchLine: $('input[id$="isSwitchLine"]').is(':checked'),
                     MethodId: "<%=base.PaymentMethodId%>"
                 };
                 var action = "/Deposit/Pay.aspx";

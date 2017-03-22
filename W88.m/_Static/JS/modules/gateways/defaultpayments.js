@@ -1,4 +1,4 @@
-﻿function DefaultPayments() {
+function DefaultPayments() {
 
     var autorouteIds = {
         QuickOnline: "999999",
@@ -238,13 +238,6 @@
                         $('#paymentTabs').append($('<li />').append(anchor));
 
                 }
-                else if (!activeTabId && _.includes(routing, data.Id)) {
-                    if (!_.includes(window.location.pathname, page)) {
-                        window.location.href = page;
-                        isAutoRoute = true;
-                        break;
-                    }
-                }
             }
 
             if (activeTabId) {
@@ -266,11 +259,9 @@
                 }
             }
             else {
-                if (!isAutoRoute) {
-                    page = setPaymentPage(_.first(responseData).Id);
-                    if (page)
-                        window.location.href = deposit + page;
-                }
+                page = setPaymentPage(_.first(responseData).Id);
+                if (page)
+                    window.location.href = deposit + page;
             }
         } else {
             if (activeTabId) {
@@ -358,8 +349,6 @@
                 if (page)
                     window.location.href = withdraw + page;
             }
-
-            GPInt.prototype.HideSplash();
         } else {
             if (activeTabId) {
                 window.location.href = withdraw;
@@ -402,6 +391,9 @@
             case "2208102":
                 return "IWallet.aspx";
 
+            case "2208121":
+                return "Cubits.aspx";
+
                 // deposit
             case "120272":
                 return "Baokim.aspx";
@@ -411,6 +403,9 @@
 
             case "120204":
                 return "NextPay.aspx";
+
+            case "120248":
+                return "NextPayGV.aspx";
 
             case "120280":
                 return "JutaPay.aspx";
@@ -443,7 +438,10 @@
                 return "PaySec.aspx";
 
             case "120254":
-                return "SDAPay.aspx";
+                return "120254"; //SDAPayAlipay
+
+            case "1204131":
+                return "1204131"; // AlipayTransfer
 
             case "1202111":
                 return "ShengPayAliPay.aspx";
@@ -510,6 +508,12 @@
 
             case "1202134":
                 return "Alipay/Aifu";
+
+            case "1202120":
+                return "Cubits.aspx";
+
+            case "1202112":
+                return "DinPayTopUp.aspx";
 
             default:
                 break

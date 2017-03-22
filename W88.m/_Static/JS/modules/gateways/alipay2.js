@@ -10,6 +10,7 @@ function Alipay2() {
         var params = _self.getUrlVars();
         var data = {
             Amount: params.Amount,
+            SwitchLine: params.SwitchLine,
             ThankYouPage: params.ThankYouPage
         };
         
