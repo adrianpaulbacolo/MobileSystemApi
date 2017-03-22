@@ -326,12 +326,28 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <div class="title" id="ClubGallardoNavTitle"></div>
                     </a>
                 </li>
+                <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+                {
+                if (commonCookie.CookieCurrency.ToLower() != "idr" && commonCookie.CookieCurrency.ToLower() != "vnd")
+                { %>
                 <li>
                     <a class="card" rel="clubnuovo" href="/ClubNuovo" data-ajax="false">
-                        <img src="/_Static/Images/bnr-clubnuovo.jpg" class="img-responsive">
+                        <img src="#" class="img-responsive clubnuovo">
                         <div class="title" id="ClubNuovoNavTitle"></div>
                     </a>
                 </li>
+                <% }
+                }
+                else
+                { %>
+                <li>
+                    <a class="card" rel="clubnuovo" href="/ClubNuovo" data-ajax="false">
+                        <img src="#" class="img-responsive clubnuovo">
+                        <div class="title" id="ClubNuovoNavTitle"></div>
+                    </a>
+                </li>
+                <% } %>
+
                 <li>
                     <a class="card" rel="clubapollo" href="/ClubApollo" data-ajax="false">
                         <img src="#" class="img-responsive clubapollo">
@@ -395,7 +411,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 <%}%>
                 <%}catch(Exception){}%>
 
-                <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency))
+                <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
         { %>
                 <li>
                     <a class="card" data-rel="fish" rel="FishAndroid" href="<%=fishingWorld%>" data-ajax="false" target="_blank">
@@ -763,7 +779,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             $('.clubgallardo').attr('src', '/_Static/Images/bnr-clubgallardo.jpg');
             $('.clubapollo').attr('src', '/_Static/Images/bnr-clubapollo.jpg');
             $('.clubdivino').attr('src', '/_Static/Images/bnr-clubdivino.jpg');
-            $('.clubdivino').attr('src', '/_Static/Images/bnr-clubnuovo.jpg');
+            $('.clubnuovo').attr('src', '/_Static/Images/bnr-clubnuovo.jpg');
 
             if(!_.isUndefined(adjustMenu)){
                 adjustMenu();
