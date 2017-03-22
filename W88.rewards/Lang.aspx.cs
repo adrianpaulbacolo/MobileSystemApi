@@ -2,21 +2,20 @@
 using System.Collections.Specialized;
 using System.Configuration;
 using System.Text;
-using System.Web.UI;
-using W88.BusinessLogic.Rewards.Helpers;
 
-public partial class _Lang : Page
+public partial class _Lang : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         var divBuilder = new StringBuilder();
         var enabledLanguages = OperatorSettings.Get("EnabledLanguages");
         var availableLanguages = OperatorSettings.Get("LanguageSelection").Split('|');
+        var countryCode = CountryCode;
         foreach (var language in availableLanguages)
         {
-            switch (RewardsHelper.CountryCode)
+            switch (countryCode)
             {
-                case "MY":
+                case "my":
                     divBuilder.Append(@"<div class='col-xs-6'>")
                         .Append(@"<span id='");
 

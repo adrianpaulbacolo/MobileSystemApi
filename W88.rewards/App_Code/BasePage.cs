@@ -19,6 +19,52 @@ public class BasePage : Page
     protected RewardsHelper RewardsHelper = new RewardsHelper();
     protected string Language = string.Empty;
 
+    protected string ContentLanguage
+    {
+        get
+        {
+            if (!IsDebugMode)
+            {
+                return new RewardsHelper(Language).ContentLanguage;
+            }
+
+            switch (CountryCode)
+            {
+                case "my":
+                    switch (Language)
+                    {
+                        case "en-us":
+                            return "en-my";
+                        case "zh-cn":
+                            return "zh-my";
+                    }
+                    return Language;
+                default:
+                    return Language;
+            }
+        }
+    }
+
+    public static string CountryCode
+    {
+        get
+        {
+            var debugCountryCode = Common.GetAppSetting<string>("debugCountryCode");
+            if (IsDebugMode && !string.IsNullOrEmpty(debugCountryCode)) return debugCountryCode.Trim().ToLower();
+            return RewardsHelper.CountryCode.ToLower();
+        }
+    }
+
+    public static bool IsDebugMode
+    {
+        get
+        {
+            bool isDebugMode;
+            Boolean.TryParse(Common.GetAppSetting<string>("isDebugMode"), out isDebugMode);
+            return isDebugMode;
+        }
+    }
+
     protected override void OnPreInit(EventArgs e)
     {
         try

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Web.UI;
-using W88.BusinessLogic.Rewards.Helpers;
 
-public partial class _Info_Faq : Page
+public partial class _Info_Faq : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -10,7 +8,7 @@ public partial class _Info_Faq : Page
         {
             return;
         }
-        var path = string.Format("{0}_Static\\Info\\FAQ\\FAQ_rewards_{1}.shtml", Server.MapPath("~").ToLower(), RewardsHelper.ContentLanguage);
+        var path = string.Format("{0}_Static\\Info\\FAQ\\FAQ_rewards_{1}.shtml", Server.MapPath("~").ToLower(), ContentLanguage);
         htmltext.Text = System.IO.File.ReadAllText(path);                   
     }
 }
