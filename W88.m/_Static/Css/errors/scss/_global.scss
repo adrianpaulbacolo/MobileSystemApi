@@ -13,11 +13,14 @@ html,
 body{
     height: 100%;
 }
+
 body{
+    font-family: sans-serif;
 	line-height: 1.6;
 	color: #aaa;
     background: #070707 url('../../Images/errors/error-bg.jpg') center center no-repeat;
 }
+
 a{
 	color: #aaa;
 	text-decoration: none;
@@ -27,11 +30,13 @@ a{
 		text-decoration: none;
 	}
 }
+
 p{
 	font-size: 0.875rem;
 	margin-top: 0;
 	margin-bottom: 10px;
 }
+
 img{
 	max-width: 100%;
 }

@@ -406,6 +406,7 @@ body {
   height: 100%; }
 
 body {
+  font-family: sans-serif;
   line-height: 1.6;
   color: #aaa;
   background: #070707 url("../../Images/errors/error-bg.jpg") center center no-repeat; }
