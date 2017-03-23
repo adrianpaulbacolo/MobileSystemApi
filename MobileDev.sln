@@ -134,6 +134,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "W88.affiliate", "http://loc
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W88Mobile.GameXmlGenerator", "W88Mobile.GameXmlGenerator\W88Mobile.GameXmlGenerator.csproj", "{4C8FE92A-F800-4D31-9C26-8AC95F8F7E83}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -159,6 +161,10 @@ Global
 		{28345140-2059-4379-9894-9B757E214642}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{28345140-2059-4379-9894-9B757E214642}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{28345140-2059-4379-9894-9B757E214642}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{4C8FE92A-F800-4D31-9C26-8AC95F8F7E83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C8FE92A-F800-4D31-9C26-8AC95F8F7E83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C8FE92A-F800-4D31-9C26-8AC95F8F7E83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C8FE92A-F800-4D31-9C26-8AC95F8F7E83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

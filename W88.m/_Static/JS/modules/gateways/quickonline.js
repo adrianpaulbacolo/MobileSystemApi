@@ -11,6 +11,7 @@ function QuickOnline() {
         var data = {
             Amount: params.Amount,
             Bank: { Text: params.BankText, Value: params.BankValue },
+            SwitchLine: params.SwitchLine,
             ThankYouPage: params.ThankYouPage
         };
 

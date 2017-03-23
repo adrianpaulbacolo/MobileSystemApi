@@ -16,12 +16,12 @@
             categories = [];
         if (lang == '') { lang = 'en-us'; }
         $(function () {
-            if(!_.isEmpty(window.location.hash)) {
+            if (!_.isEmpty(window.location.hash)) {
                 getPromos(window.location.hash.substring(1));
             } else {
                 getPromos('ALL');
             }
-            });
+        });
         // temporarily restrict promo
         var restrictedPromos = {};
         restrictedPromos.DAILYSLOTS = {
@@ -33,82 +33,82 @@
         function timerV2(pid, start_date, end_date) {
             if (new Date('<%=DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') < new Date(start_date) || new Date('<%=DateTime.Now.ToString(commonVariables.DateTimeFormat)%>') > new Date(end_date)) { $('div#' + pid).hide(); }
         }
-            function filterPromos(category) {
-                $("#divPromotions").html('');
-                var listObj = $("#divPromotions").append('<ul class="row row-uc row-no-padding row-wrap"></ul>').find('ul'),
-                    _category = _.find(categories, { id: category });
+        function filterPromos(category) {
+            $("#divPromotions").html('');
+            var listObj = $("#divPromotions").append('<ul class="row row-uc row-no-padding row-wrap"></ul>').find('ul'),
+                _category = _.find(categories, { id: category });
 
-                if (!_category) {
-                    isCategoryHash = false;
-                    _category = _.find(categories, function (cat) {
-                        var promo = _.find(cat.promos, function (_promos) {
-                            if ($(_promos).attr('id') == category)
-                                return _promos;
-                        });
-                        if (promo) return cat;                       
+            if (!_category) {
+                isCategoryHash = false;
+                _category = _.find(categories, function (cat) {
+                    var promo = _.find(cat.promos, function (_promos) {
+                        if ($(_promos).attr('id') == category)
+                            return _promos;
                     });
-                }
-                if (!_category) return;
-                category = _category.id;
+                    if (promo) return cat;
+                });
+            }
+            if (!_category) return;
+            category = _category.id;
 
-                var promos = _category.promos;
-                if (!promos || promos.length == 0) return;
-                promos.each(function (index) {
-                    if (index == promos.length - 1 && category == 'ALL') { return; }
-                    var currentPromoId = $(this).attr('id');
-                    if (!_.isUndefined(restrictedPromos[currentPromoId])) {
-                        if (_.isEmpty(currentCCode)) {
-                            if (_.indexOf(restrictedPromos[currentPromoId].langAllowed, lang) == -1) {
+            var promos = _category.promos;
+            if (!promos || promos.length == 0) return;
+            promos.each(function (index) {
+                if (index == promos.length - 1 && category == 'ALL') { return; }
+                var currentPromoId = $(this).attr('id');
+                if (!_.isUndefined(restrictedPromos[currentPromoId])) {
+                    if (_.isEmpty(currentCCode)) {
+                        if (_.indexOf(restrictedPromos[currentPromoId].langAllowed, lang) == -1) {
+                            return;
+                        }
+                    } else {
+                        if (!_.isUndefined(restrictedPromos[currentPromoId].allowed)) {
+                            if (_.indexOf(restrictedPromos[currentPromoId].allowed, currentCCode) == -1) {
                                 return;
                             }
-                        } else {
-                            if (!_.isUndefined(restrictedPromos[currentPromoId].allowed)) {
-                                if (_.indexOf(restrictedPromos[currentPromoId].allowed, currentCCode) == -1) {
-                                    return;
-                                }
-                            }
                         }
                     }
+                }
 
-                    var hostName = window.location.host;
-                    var firstDot = hostName.indexOf('.') + 1;
-                    domain = hostName.substr(firstDot, hostName.length - firstDot);
+                var hostName = window.location.host;
+                var firstDot = hostName.indexOf('.') + 1;
+                domain = hostName.substr(firstDot, hostName.length - firstDot);
 
-                    $(this).find('.promotion_detail a').each(function (index, item) {
-                        if (_.includes(item.href.toLowerCase(), 'leaderboard')) {
-                            item.href = window.location.protocol + '//www.' + domain + item.pathname + item.search + '&nomobile=true';
-                        }
-                    });
-
-                    var strPromoTitle = $(this).find('div.promotion_title').text();
-                    var strPromoContent = $(this).find('div.promotion_content').text();
-                    var promoDetailHtml = $(this).find('div.promotion_detail').html();
-                    var strPromoDetail;
-                    if (promoDetailHtml != undefined) {
-                        strPromoDetail = promoDetailHtml.substr(0, 4) == '<br>' ? promoDetailHtml.substring(4) : promoDetailHtml.replace(/<img rel=/g, '<img src=');
+                $(this).find('.promotion_detail a').each(function (index, item) {
+                    if (_.includes(item.href.toLowerCase(), 'leaderboard')) {
+                        item.href = window.location.protocol + '//www.' + domain + item.pathname + item.search + '&nomobile=true';
                     }
-                    var objImage = $(this).find('img')[0];
-                    var strImageSrc = null;
-                    if (objImage != null) {
-                        if (/\/promotions\/img\/W88(-vip)?-Promotion(s)*-/i.test($(objImage).attr('rel'))) {
-                            strImageSrc = $(objImage).attr('rel').replace(/-small/i, '-big');
-                        }
+                });
+
+                var strPromoTitle = $(this).find('div.promotion_title').text();
+                var strPromoContent = $(this).find('div.promotion_content').text();
+                var promoDetailHtml = $(this).find('div.promotion_detail').html();
+                var strPromoDetail;
+                if (promoDetailHtml != undefined) {
+                    strPromoDetail = promoDetailHtml.substr(0, 4) == '<br>' ? promoDetailHtml.substring(4) : promoDetailHtml.replace(/<img rel=/g, '<img src=');
+                }
+                var objImage = $(this).find('img')[0];
+                var strImageSrc = null;
+                if (objImage != null) {
+                    if (/\/promotions\/img\/W88(-vip)?-Promotion(s)*-/i.test($(objImage).attr('rel'))) {
+                        strImageSrc = $(objImage).attr('rel').replace(/-small/i, '-big');
                     }
+                }
 
-                    var liPromo = $('<li class="col" />');
-                    var divPromoWrapper = $('<div />', { id: $(this).attr('id'), class: index % 2 == 0 ? 'div-promo-row' : 'div-promo-row' });
-                    var divPromoImg = $('<div />', { class: 'div-promo-img' });
+                var liPromo = $('<li class="col" />');
+                var divPromoWrapper = $('<div />', { id: $(this).attr('id'), class: index % 2 == 0 ? 'div-promo-row' : 'div-promo-row' });
+                var divPromoImg = $('<div />', { class: 'div-promo-img' });
 
-                    var imgPromo = $('<img />', { src: strImageSrc, onclick: "javascript:OpenPromoDetails(this);" });
-                    var hrefPromo = $('<a />', { href: "javascript:void(0)", onclick: "javascript:OpenPromoDetails(this);" });
+                var imgPromo = $('<img />', { src: strImageSrc, onclick: "javascript:OpenPromoDetails(this);" });
+                var hrefPromo = $('<a />', { href: "javascript:void(0)", onclick: "javascript:OpenPromoDetails(this);" });
 
-                    var divJoinButton = $('<div />', { class: 'div-promo-join' });
-                    var divPromoContent = $('<div />', { class: 'div-promo-desc' }).text(strPromoContent);
-                    var divPromoDetail = $('<div />', { class: 'div-promo-content' }).html(/<img rel=/g.test(strPromoDetail) ? strPromoDetail.replace(/<img rel=/g, '<img src=') : strPromoDetail);
+                var divJoinButton = $('<div />', { class: 'div-promo-join' });
+                var divPromoContent = $('<div />', { class: 'div-promo-desc' }).text(strPromoContent);
+                var divPromoDetail = $('<div />', { class: 'div-promo-content' }).html(/<img rel=/g.test(strPromoDetail) ? strPromoDetail.replace(/<img rel=/g, '<img src=') : strPromoDetail);
 
-                    var pViewMore = null;
+                var pViewMore = null;
 
-                    if ($(this).find('div.p-tnc').length > 0) { pViewMore = $('<p />').append($('<a />', { href: 'javascript:void(0);', onclick: 'javascript:$(this).parents(".div-promo-content").find(".p-tnc").next().andSelf().slideDown();$(this).remove();' }).text('<%=commonCulture.ElementValues.getResourceString("lblMoreInfo", xeResources)%>')); $(divPromoDetail).append(pViewMore); }
+                if ($(this).find('div.p-tnc').length > 0) { pViewMore = $('<p />').append($('<a />', { href: 'javascript:void(0);', onclick: 'javascript:$(this).parents(".div-promo-content").find(".p-tnc").next().andSelf().slideDown();$(this).remove();' }).text('<%=commonCulture.ElementValues.getResourceString("lblMoreInfo", xeResources)%>')); $(divPromoDetail).append(pViewMore); }
 
                     if ($(this).find('.promo_join_btn').length > 0) {
                         if ('<%=commonVariables.CurrentMemberSessionId%>'.trim() == '') {
@@ -183,10 +183,10 @@
 
                                     var hrefClaim = $('<a />', { class: 'ui-btn btn-primary', href: 'javascript:void(0)', onclick: 'javascript:PromoClaimNowMatch(this, \'' + strCode + '\',  \'' + lang + '\', "v6")' }).text($(objCode).text());
                                     $(divJoinButton).append(hrefClaim);
-                            }
+                                }
 
+                            }
                         }
-                    }
                     }
 
                     var divPromoTitle = $('<div />', { class: 'div-promo-header' }).text(strPromoTitle);
@@ -200,52 +200,52 @@
                 hashOpen();
             }
 
-        function getPromos(category) {
-            $.get('/AjaxHandlers/Promotion.ashx', function (html) { })
-            .done(function (data) {
-                data = data.replace(/<img src=/g, '<img rel=');
-                data = data.replace('[domain]', '.' + location.hostname.split('.').slice(-2).join('.'));
-                categories = getCategories(data);
-                filterPromos(category);
-            })
-            .always(function (data) {
-                $('#promoLoader').hide();
-            });
-        }
-
-        function hashOpen() {
-            if (location.hash != '') {
-                $(location.hash).next().slideToggle();
-                var divObj = $(location.hash).find('div')[1];
-                if (divObj == undefined) return;
-                if ($(divObj).css('background-image').indexOf('arrow-up') > 0) { $(divObj).css('background-image', "url('/_Static/Images/arrow-down.png')"); }
-                else { $(divObj).css('background-image', "url('/_Static/Images/arrow-up.png')"); }
-
-                setTimeout(function () {
-                    var yPos = $(location.hash).get(0).offsetTop;
-                    if (yPos < 0) yPos = 0;
-                    $('#divPromotions').scrollTop(yPos);
-                    var moreInfo = $(divObj).parent().siblings().find('p a');
-                    if (moreInfo)
-                        moreInfo.trigger('click');
-                }, 400);
+            function getPromos(category) {
+                $.get('/AjaxHandlers/Promotion.ashx', function (html) { })
+                .done(function (data) {
+                    data = data.replace(/<img src=/g, '<img rel=');
+                    data = data.replace('[domain]', '.' + location.hostname.split('.').slice(-2).join('.'));
+                    categories = getCategories(data);
+                    filterPromos(category);
+                })
+                .always(function (data) {
+                    $('#promoLoader').hide();
+                });
             }
-        }
 
-        function OpenPromoDetails(obj) {
-            var selected_promo_id = $(obj).parent().parent().attr('id');
-            $('.div-promo-row').each(function () {
-                if ($(this).attr('id') != selected_promo_id) {
-                    $(this).next().slideUp();
-                }
-                else {
-                    $(this).next().slideToggle();
-                }
-            });
-        }
+            function hashOpen() {
+                if (location.hash != '') {
+                    $(location.hash).next().slideToggle();
+                    var divObj = $(location.hash).find('div')[1];
+                    if (divObj == undefined) return;
+                    if ($(divObj).css('background-image').indexOf('arrow-up') > 0) { $(divObj).css('background-image', "url('/_Static/Images/arrow-down.png')"); }
+                    else { $(divObj).css('background-image', "url('/_Static/Images/arrow-up.png')"); }
 
-        function PromoClaimNow(obj, code, products, title) {
-            if ('<%=commonVariables.CurrentMemberSessionId%>'.trim() == '') {
+                    setTimeout(function () {
+                        var yPos = $(location.hash).get(0).offsetTop;
+                        if (yPos < 0) yPos = 0;
+                        $('#divPromotions').scrollTop(yPos);
+                        var moreInfo = $(divObj).parent().siblings().find('p a');
+                        if (moreInfo)
+                            moreInfo.trigger('click');
+                    }, 400);
+                }
+            }
+
+            function OpenPromoDetails(obj) {
+                var selected_promo_id = $(obj).parent().parent().attr('id');
+                $('.div-promo-row').each(function () {
+                    if ($(this).attr('id') != selected_promo_id) {
+                        $(this).next().slideUp();
+                    }
+                    else {
+                        $(this).next().slideToggle();
+                    }
+                });
+            }
+
+            function PromoClaimNow(obj, code, products, title) {
+                if ('<%=commonVariables.CurrentMemberSessionId%>'.trim() == '') {
                 location.assign('_Secure/Register.aspx');
             } else {
                 $(obj).hide();
@@ -368,7 +368,7 @@
 
                     var selectComment = $obj.find('select');
                     if (selectComment.length != 0) {
-                        $.each(selectComment, function() {
+                        $.each(selectComment, function () {
                             strComment += selectComment.val() + " | ";
                         });
                     }
@@ -454,7 +454,7 @@
                 $(obj).hide();
                 var template = '';
 
-                switch(promoType){
+                switch (promoType) {
                     case 'v4':
 
                         $.get('/_Static/Promotions/' + code + '.' + lang + '.xml', function (xml) {
@@ -610,7 +610,7 @@
                 button.addClass('active');
             }
 
-            $('#categories').children().children().each(function(i, div) {
+            $('#categories').children().children().each(function (i, div) {
                 if ($(div).parent().hasClass('active') && $(div).attr('id') !== category)
                     $(div).parent().removeClass('active');
             });

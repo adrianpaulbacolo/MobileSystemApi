@@ -1,19 +1,20 @@
-﻿window.w88Mobile.Gateways.Alipay2 = Alipay2();
-var _w88_alipay2 = window.w88Mobile.Gateways.Alipay2;
+﻿window.w88Mobile.Gateways.DinPay = DinPay();
+var _w88_dinpay = window.w88Mobile.Gateways.DinPay;
 
-function Alipay2() {
+function DinPay() {
 
-    var alipay2 = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
+    var dinpay = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
 
-    alipay2.createDeposit = function () {
+    dinpay.createDeposit = function () {
         var _self = this;
         var params = _self.getUrlVars();
         var data = {
             Amount: params.Amount,
-            SwitchLine: params.SwitchLine,
-            ThankYouPage: params.ThankYouPage
+            CardType: { Text: params.CardTypeText, Value: params.CardTypeValue },
+            CardNumber: params.CardNumber,
+            CCV: params.CCV,
         };
-        
+
         _self.methodId = params.MethodId;
         _self.changeRoute();
         _self.deposit(data, function (response) {
@@ -27,6 +28,7 @@ function Alipay2() {
                         w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage), _self.shoutCallback);
                     else
                         w88Mobile.Growl.shout(response.ResponseMessage, _self.shoutCallback);
+
                     break;
             }
         },
@@ -35,6 +37,6 @@ function Alipay2() {
         });
     }
 
-    return alipay2;
+    return dinpay;
 }
 

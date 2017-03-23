@@ -1,16 +1,15 @@
-﻿window.w88Mobile.Gateways.Alipay2 = Alipay2();
-var _w88_alipay2 = window.w88Mobile.Gateways.Alipay2;
+﻿window.w88Mobile.Gateways.NextPayGV = NextPayGV();
+var _w88_nextpaygv = window.w88Mobile.Gateways.NextPayGV;
 
-function Alipay2() {
+function NextPayGV() {
 
-    var alipay2 = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
+    var nextpaygv = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
 
-    alipay2.createDeposit = function () {
+    nextpaygv.createDeposit = function () {
         var _self = this;
         var params = _self.getUrlVars();
         var data = {
             Amount: params.Amount,
-            SwitchLine: params.SwitchLine,
             ThankYouPage: params.ThankYouPage
         };
         
@@ -35,6 +34,6 @@ function Alipay2() {
         });
     }
 
-    return alipay2;
+    return nextpaygv;
 }
 
