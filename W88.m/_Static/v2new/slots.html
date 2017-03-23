@@ -405,6 +405,9 @@
 
         if (!inIframe()) {
 
+            var launcherOrigin = window.location.origin;
+            var launcherWindow = {};
+
             // Listen for the response from the child
             window.addEventListener('message', function (event) {
 
