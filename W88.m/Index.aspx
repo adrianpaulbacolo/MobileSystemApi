@@ -7,7 +7,6 @@
     <title><%=commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML).Replace(" -", "")/* + commonCulture.ElementValues.getResourceString("home", commonVariables.LeftMenuXML)*/%></title>
     <!--#include virtual="~/_static/head.inc" -->
     <script type="application/javascript" src="/_Static/JS/add2home.js"></script>
-    <script type="text/javascript" src="/_Static/JS/radar.js"></script>
 </head>
 <body>
             

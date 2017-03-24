@@ -44,7 +44,6 @@
                 e.preventDefault();
                 var data = {
                     Amount: $('input[id$="txtAmount"]').val(),
-                    Method: siteCookie.getCookie('spfid'),
                     MethodId: "<%=base.PaymentMethodId%>"
                 };
                 var action = "/Deposit/Pay.aspx";
