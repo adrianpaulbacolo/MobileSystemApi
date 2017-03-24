@@ -20,6 +20,17 @@ namespace GameXmlGenerator.Helpers
 
         public XElement BuildGame(XElement game, string[] columns, string club)
         {
+            // Game Id
+            var idIndex = GetItemIndex("Game ID");
+            if (idIndex != -1 && !string.IsNullOrEmpty(columns[idIndex]))
+            {
+                game.Add(new XAttribute("Id", FormatText(columns[idIndex])));
+            }
+            else
+            {
+                // return if no game id
+                return game;
+            }
 
             // Category
             var categories = new List<string>();
@@ -35,19 +46,19 @@ namespace GameXmlGenerator.Helpers
             }
             game.Add(new XAttribute("Category", string.Join(",", categories.ToArray())));
 
-            // Game Id
-            var idIndex = GetItemIndex("Game ID");
-            if (idIndex != -1 && !string.IsNullOrEmpty(columns[idIndex]))
-            {
-                game.Add(new XAttribute("Id", FormatText(columns[idIndex])));
-            }
 
             // Game Image
             var imageIndex = GetItemIndex("Image Name");
             if (imageIndex != -1 && !string.IsNullOrEmpty(columns[imageIndex]))
             {
-                game.Add(new XElement("Image", new XCData(FormatText(columns[imageIndex]))));
+                var imageElem = new XElement("Image", new XCData(FormatText(columns[imageIndex])));
+                var imageLangIndex = GetItemIndex("Image Language");
 
+                if (imageLangIndex != -1 && !string.IsNullOrEmpty(columns[imageLangIndex]))
+                {
+                    imageElem.Add(new XAttribute("Languages", FormatText(columns[imageLangIndex].Replace("|", ","))));
+                }
+                game.Add(imageElem);
             }
             if (club.ToUpper() == "BS")
             {
@@ -89,12 +100,13 @@ namespace GameXmlGenerator.Helpers
             {
                 if (!string.IsNullOrEmpty(externalProvider))
                 {
+                    game.Add(new XAttribute("Provider", externalProvider));
                     AddProvider(externalProvider, langCode, disabledCurrency);
                 }
             }
             else
             {
-                if (!string.IsNullOrEmpty(langCode)) game.Add(new XAttribute("LanguageCode", langCode));
+                if (!string.IsNullOrEmpty(langCode)) game.Add(new XAttribute("LanguageCode", langCode.Replace("|", ",")));
             }
 
             // Release Date
