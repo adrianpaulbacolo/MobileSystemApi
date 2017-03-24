@@ -195,22 +195,22 @@ namespace Factories.Slots
          Fun, Real
      }
 
-     public enum GameProvider
-     {
-         GPI,
-         PT,
-         MGS,
-         PNG,
-         ISB,
-         QT,
-         BS,
-         CTXM,
-         UC8,
+    public enum GameProvider
+    {
+        GPI,
+        PT,
+        MGS,
+        PNG,
+        ISB,
+        QT,
+        BS,
+        CTXM,
+        UC8,
         PP,
         TTG,
         GNS,
         PLS
-     }
+    }
 
     public enum GameDevice
     {
