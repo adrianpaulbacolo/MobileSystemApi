@@ -20,14 +20,14 @@
                     <div>
                         <asp:Label ID="lblPasswordNew" runat="server" AssociatedControlID="txtPasswordNew" />
                     </div>
-                    <asp:TextBox name="txtPasswordNew" runat="server" type="password" MaxLength="10" ID="txtPasswordNew" data-mini="true" data-clear-btn="true" />
+                    <asp:TextBox name="txtPasswordNew" runat="server" type="password" MaxLength="20" ID="txtPasswordNew" data-mini="true" data-clear-btn="true" />
                 </li>
                 <li class="item item-input">
 
                     <div>
                         <asp:Label ID="lblPasswordConfirm" runat="server" AssociatedControlID="txtPasswordConfirm" />
                     </div>
-                    <asp:TextBox name="txtPasswordConfirm" runat="server" type="password" MaxLength="10" ID="txtPasswordConfirm" data-mini="true" data-clear-btn="true" />
+                    <asp:TextBox name="txtPasswordConfirm" runat="server" type="password" MaxLength="20" ID="txtPasswordConfirm" data-mini="true" data-clear-btn="true" />
                 </li>
 
                 <li class="item row">
