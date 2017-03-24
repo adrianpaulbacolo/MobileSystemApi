@@ -5,6 +5,7 @@ using W88.BusinessLogic.Accounts.Helpers;
 using W88.BusinessLogic.Accounts.Models;
 using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Rewards.Models;
+using W88.BusinessLogic.Shared.Helpers;
 using W88.Utilities;
 
 
@@ -78,5 +79,21 @@ public class BasePage : Page
         MemberRewardsInfo = new MemberRewardsInfo();
         MemberRewardsInfo.CurrentPoints = await MembersHelper.GetRewardsPoints(UserSessionInfo);
         MemberRewardsInfo.CurrentPointLevel = await RewardsHelper.GetPointLevel(MemberSession.MemberId);
+    }
+
+    protected bool IsVip
+    {     
+        get
+        {
+            var vipCookie = CookieHelpers.CookieVip;
+            bool isVip;
+            bool.TryParse(vipCookie, out isVip);
+            return isVip;
+        }
+    }
+
+    protected string GetTranslation(string key, string fileName = "")
+    {
+        return CultureHelpers.GetTranslation(key, LanguageHelpers.SelectedLanguage, string.Format("contents/{0}", string.IsNullOrEmpty(fileName) ? "translations" : fileName));
     }
 }

@@ -9,7 +9,9 @@
     <div class="ui-content" role="main" id="funds">
         <div class="wallet main-wallet">
             <uc:Wallet ID="uMainWallet" runat="server" />
-            <a href="#" id="refesh" class="reload ion-ios-refresh-empty"></a>
+            <a href="#" id="refesh" class="reload">
+                <span class="icon icon-refresh"></span>
+            </a>
         </div>
         <div id="tabs">
             <div data-role="navbar">

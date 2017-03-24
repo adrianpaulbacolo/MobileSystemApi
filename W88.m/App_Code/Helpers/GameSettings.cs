@@ -61,7 +61,6 @@ namespace Helpers
                     break;
 
                 case GameProvider.PT:
-                case GameProvider.PTN:
                     if (linkType == GameLinkSetting.Fun)
                         url = Settings.Values.Get("PTFunUrl");
                     else if (linkType == GameLinkSetting.Real)
@@ -87,6 +86,27 @@ namespace Helpers
                         url = Settings.Values.Get("PPFunUrl");
                     else if (linkType == GameLinkSetting.Real)
                         url = Settings.Values.Get("PPRealUrl");
+                    break;
+
+                case GameProvider.GNS:
+                    if (linkType == GameLinkSetting.Fun)
+                        url = Settings.Values.Get("GNSFunUrl");
+                    else if (linkType == GameLinkSetting.Real)
+                        url = Settings.Values.Get("GNSRealUrl");
+                    break;
+
+                case GameProvider.PLS:
+                    if (linkType == GameLinkSetting.Fun)
+                        url = Settings.Values.Get("PLSFunUrl");
+                    else if (linkType == GameLinkSetting.Real)
+                        url = Settings.Values.Get("PLSRealUrl");
+                    break;
+
+                case GameProvider.TTG:
+                    if (linkType == GameLinkSetting.Fun)
+                        url = Settings.Values.Get("TTGFunUrl");
+                    else if (linkType == GameLinkSetting.Real)
+                        url = Settings.Values.Get("TTGRealUrl");
                     break;
 
                 default:

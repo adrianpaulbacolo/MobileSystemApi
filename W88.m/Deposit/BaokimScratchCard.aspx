@@ -9,6 +9,7 @@
     <!--#include virtual="~/_static/head.inc" -->
     <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js"></script>
     <script type="text/javascript" src="/_Static/JS/modules/gateways/baokimSc.js"></script>
+    <link href="/_Static/Css/payment.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
 </head>
 <body>
     <div data-role="page" data-theme="b">
@@ -16,7 +17,7 @@
             <% if (commonCookie.CookieIsApp != "1")
                { %>
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
-                <i class="icon-navicon"></i>
+                <i class="icon icon-navicon"></i>
             </a>
             <% } %>
 
@@ -69,8 +70,9 @@
                             <asp:Literal ID="txtTotalAllowed" runat="server" />
                         </div>
                     </li>
-                    <li class="item-text-wrap" runat="server">
-                        <p id="IndicatorMsg" style="color: #ff0000"></p>
+                    <li class="item-text-wrap ali-pay-note">
+                        <span id="paymentNote"></span>
+                        <p id="paymentNoteContent"></p>
                     </li>
                     <li class="item item-select" runat="server">
                         <asp:Label ID="lblBanks" runat="server" AssociatedControlID="drpBank" />
@@ -128,7 +130,7 @@
                                 if (_.isArray(response.ResponseMessage))
                                     w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
                                 else
-                                w88Mobile.Growl.shout(response.ResponseMessage);
+                                    w88Mobile.Growl.shout(response.ResponseMessage);
 
                                 break;
                         }

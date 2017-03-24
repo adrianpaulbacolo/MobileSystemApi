@@ -84,7 +84,7 @@
                     $('#lblBankAccountNo').text(_w88_contents.translate("LABEL_ACCOUNT_NUMBER"))
 
                     $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-                    $("#paymentNoteContent").text(_w88_contents.translate("LABEL_MSG_AMOUNT_120254"));
+                    $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_AMOUNT_" + "<%=base.PaymentMethodId %>"));
                 } else {
                     window.setInterval(function () {
                         setTranslations();

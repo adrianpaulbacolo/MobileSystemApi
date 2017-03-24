@@ -1,10 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Configuration;
 using System.Linq;
+using System.Net;
+using System.Text;
 using System.Web;
+using System.Xml.Linq;
 using System.Xml.XPath;
 using Helpers;
+using Models;
+using svcPayMember;
 
 public class commonASports
 {
@@ -568,5 +574,41 @@ public class commonProduct
             default:
                 return productCode;
         }
+    }
+}
+
+public static class FishingWorldProduct
+{
+    public static string GetLink()
+    {
+        if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) return string.Empty;
+
+        var settings = new customConfig.OperatorSettings(commonVariables.OperatorCode);
+        var user = new Members().MemberData();
+
+        var isProd = Convert.ToBoolean(ConfigurationManager.AppSettings.Get("ProductionSettings"));
+
+        var url = isProd
+            ? settings.Values.Get("FishingWorld_PROD_Url")
+            : settings.Values.Get("FishingWorld_UAT_Url");
+
+        var op = (int) commonVariables.operatorCode.W88;
+        url = url.Replace("{OP}", op.ToString())
+            .Replace("{ID}", user.MemberId)
+            .Replace("{CURR}", commonCookie.CookieCurrency)
+            .Replace("{LANG}", commonCookie.CookieLanguage)
+            .Replace("{IP}", commonIp.remoteIP);
+
+        var link = XDocument.Load(url);
+
+        if (!string.IsNullOrEmpty((string) link.Root.Element("loginURL")))
+        {
+            return (string) link.Root.Element("loginURL");
+        }
+
+        commonAuditTrail.appendLog("system", "FishingWorldProduct", "NavMenu", "", "1", link.ToString(), "", "", url, Convert.ToString(1), "1", false);
+
+        return string.Empty;
+
     }
 }

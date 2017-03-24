@@ -5,6 +5,7 @@ using System.Web;
 using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Rewards.Models;
 using W88.BusinessLogic.Shared.Helpers;
+using W88.Utilities;
 
 public partial class _Secure_Login : BasePage
 {
@@ -14,6 +15,14 @@ public partial class _Secure_Login : BasePage
     protected void Page_Init(object sender, EventArgs e)
     {
         btnSubmit.Visible = !HasSession;
+
+        var myUri = new Uri(HttpContext.Current.Request.Url.ToString());
+        var host = myUri.Host.Split('.');
+        if (Common.GetAppSetting<string>("VIP_Domains").ToLower().Contains(string.Format("{0}.{1}", host[1], host[2])))
+        {
+            Response.Clear();
+            Response.Redirect("/_Secure/VIP/login.aspx", true);
+        }
     }
 
     protected void Page_Load(object sender, EventArgs e)

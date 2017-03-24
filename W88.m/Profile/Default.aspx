@@ -3,6 +3,8 @@
 <%@ Register TagPrefix="uc" TagName="Wallet" Src="~/UserControls/MainWalletBalance.ascx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <script type="text/javascript" src="/_Static/JS/modules/bankDetails.js"></script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
@@ -25,7 +27,7 @@
         <ul class="row row-bordered bg-gradient">
             <li class="col col-33">
                 <a href="../Funds.aspx" class="tile" data-ajax="false" data-transition="slidedown">
-                    <span class="icon- ion-social-usd-outline"></span>
+                    <span class="icon icon-currency-circle"></span>
                     <h4 class="title"><%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%></h4>
                 </a>
             </li>
@@ -42,13 +44,13 @@
                 </a>
                 <li class="col col-33">
                     <a href="/LiveChat/Default.aspx" class="tile" runat="server" data-ajax="false">
-                        <span class="icon-chat"></span>
+                        <span class="icon icon-chat"></span>
                         <h4 class="title"><%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%></h4>
                     </a>
                 </li>
             <li class="col col-33">
                 <a href="/Upload/Default.aspx" class="tile" data-ajax="false">
-                    <span class="icon-submit"></span>
+                    <span class="icon icon-submit"></span>
                     <h4 class="title"><%=commonCulture.ElementValues.getResourceString("submitUpload", commonVariables.LeftMenuXML)%></h4>
                 </a>
             </li>
@@ -60,13 +62,13 @@
                 </li>--%>
             <li class="col col-33">
                 <a href="../Settings/ChangePassword.aspx" class="tile" runat="server" data-ajax="false">
-                    <span class="icon-password"></span>
+                    <span class="icon icon-password"></span>
                     <h4 class="title"><%=commonCulture.ElementValues.getResourceString("changePassword", commonVariables.LeftMenuXML)%></h4>
                 </a>
             </li>
             <li class="col col-33">
                 <a href="../ContactUs.aspx" class="tile" runat="server" data-ajax="false">
-                    <span class="icon-phone"></span>
+                    <span class="icon icon-phone"></span>
                     <h4 class="title"><%=commonCulture.ElementValues.getResourceString("contactUs", commonVariables.LeftMenuXML)%></h4>
                 </a>
             </li>

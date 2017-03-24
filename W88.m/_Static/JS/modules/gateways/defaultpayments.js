@@ -1,4 +1,4 @@
-﻿function DefaultPayments() {
+function DefaultPayments() {
 
     var autorouteIds = {
         QuickOnline: "999999",
@@ -154,7 +154,10 @@
             error: function () {
                 console.log("Error connecting to api");
             },
-            complete: complete
+            complete: function () {
+                if (!_.isUndefined(complete)) complete();
+                GPInt.prototype.HideSplash();
+            }
         });
     }
 
@@ -212,6 +215,9 @@
             for (var i = 0; i < responseData.length; i++) {
                 var data = responseData[i];
 
+                if (data.Method)
+                    continue;
+
                 page = setPaymentPage(data.Id);
 
                 if (page)
@@ -232,33 +238,31 @@
                         $('#paymentTabs').append($('<li />').append(anchor));
 
                 }
-                else if (!activeTabId && _.includes(routing, data.Id)) {
-                    if (!_.includes(window.location.pathname, page)) {
-                        window.location.href = page;
-                        isAutoRoute = true;
-                        break;
-                    }
-                }
             }
 
             if (activeTabId) {
-                if ($('#activeDepositTabs').length > 0)
-                    $('#activeDepositTabs').text(title);
+                if (title) {
+                    if ($('#activeDepositTabs').length > 0)
+                        $('#activeDepositTabs').text(title);
 
-                if ($('#activeTab').length > 0)
-                    $('#activeTab').text(title);
+                    if ($('#activeTab').length > 0)
+                        $('#activeTab').text(title);
 
-                $('#headerTitle').append(' - ' + title);
-            }
-            else {
-                if (!isAutoRoute) {
-                    page = setPaymentPage(_.first(responseData).Id);
-                    if (page)
-                        window.location.href = deposit + page;
+                    $('#headerTitle').append(' - ' + title);
+                } else {
+                    window.location.href = deposit;
+                }
+
+                if (_.includes(routing, activeTabId)) {
+                    $('#dailyLimit').hide()
+                    $('#totalAllowed').hide()
                 }
             }
-
-            GPInt.prototype.HideSplash();
+            else {
+                page = setPaymentPage(_.first(responseData).Id);
+                if (page)
+                    window.location.href = deposit + page;
+            }
         } else {
             if (activeTabId) {
                 window.location.href = deposit;
@@ -345,8 +349,6 @@
                 if (page)
                     window.location.href = withdraw + page;
             }
-
-            GPInt.prototype.HideSplash();
         } else {
             if (activeTabId) {
                 window.location.href = withdraw;
@@ -363,7 +365,7 @@
         $('#btnSubmitPlacement').hide();
         $('#paymentSettings').hide();
         $('#paymentList').hide();
-        
+
         GPInt.prototype.HideSplash();
     }
 
@@ -378,16 +380,19 @@
                 return "Neteller.aspx";
 
             case "210709":
-                return "210709";
+                return "210709"; // WingMoney
 
             case "2107138":
-                return "2107138";
+                return "2107138"; // TrueMoney
 
             case "220895":
                 return "VenusPoint.aspx";
 
             case "2208102":
                 return "IWallet.aspx";
+
+            case "2208121":
+                return "Cubits.aspx";
 
                 // deposit
             case "120272":
@@ -399,14 +404,17 @@
             case "120204":
                 return "NextPay.aspx";
 
+            case "120248":
+                return "NextPayGV.aspx";
+
             case "120280":
                 return "JutaPay.aspx";
 
             case "110308":
-                return "110308";
+                return "110308"; // WingMoney
 
             case "1103132":
-                return "1103132";
+                return "1103132"; // TrueMoney
 
             case "120223":
                 return "SDPay.aspx";
@@ -430,7 +438,10 @@
                 return "PaySec.aspx";
 
             case "120254":
-                return "SDAPay.aspx";
+                return "120254"; //SDAPayAlipay
+
+            case "1204131":
+                return "1204131"; // AlipayTransfer
 
             case "1202111":
                 return "ShengPayAliPay.aspx";
@@ -446,6 +457,15 @@
 
             case "1202127":
                 return "KexunPay.aspx";
+
+            case "120275":
+                return "120275"; // TongHuiPay
+
+            case "120293":
+                return "120293"; // TongHuiAlipay
+
+            case "120277":
+                return "120277"; // TongHuiWeChat
 
             case "1202122":
                 return "Alipay";
@@ -482,6 +502,18 @@
 
             case "1202105":
                 return "NineVPayAlipay.aspx";
+
+            case "1202133":
+                return "WeChat/Aifu";
+
+            case "1202134":
+                return "Alipay/Aifu";
+
+            case "1202120":
+                return "Cubits.aspx";
+
+            case "1202112":
+                return "DinPayTopUp.aspx";
 
             default:
                 break

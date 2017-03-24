@@ -206,8 +206,10 @@ public class commonVariables
     public enum DepositMethod
     {
         FastDeposit = 110101,
+        Cubits = 1202120,
         SDAPay = 120203,
         NextPay = 120204,
+        NextPayGV = 120248,
         Bill99 = 120206,
         JutaPay = 120280,
         JuyPayAlipay = 1202113,
@@ -225,18 +227,25 @@ public class commonVariables
         KexunPay = 1202127,
         PaySec = 120290,
         SDAPayAlipay = 120254,
+        AlipayTransfer = 1204131,
         ShengPayAliPay = 1202111,
         NineVPayAlipay = 1202105,
         ECPSS = 120218,
         BofoPay = 120231,
         JTPayWeChat = 1202123,
         JTPayAliPay = 1202122,
+        TongHuiPay = 120275,
+        TongHuiWeChat = 120277,
+        TongHuiAlipay = 120293,
         AllDebit = 120236,
         EGHL = 120265,
         NganLuong = 120212,
         VenusPoint = 120296,
         BaokimScratchCard = 120286,
-        Baokim = 120272
+        Baokim = 120272,
+        AifuWeChat = 1202133,
+        AifuAlipay = 1202134,
+        DinPayTopUp = 1202112,
 
     }
 
@@ -245,6 +254,7 @@ public class commonVariables
         PayGo = 210797,
         VenusPoint = 220895,
         BankTransfer = 210602,
+        Cubits = 2208121,
         WingMoney = 210709,
         TrueMoney = 2107138,
         Neteller = 220815,
