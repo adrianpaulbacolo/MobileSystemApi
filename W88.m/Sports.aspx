@@ -69,7 +69,7 @@
                    if ((!commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase)) && (!commonCookie.CookieCurrency.Equals("usd", StringComparison.OrdinalIgnoreCase)))
                    {
                        bannerPosition = true;
-                       %>
+            %>
 
             <li class="col">
                 <figure class="banner">
@@ -86,7 +86,7 @@
                else if (!commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))
                {
                    bannerPosition = true;
-                   %>
+            %>
 
             <li class="col">
                 <figure class="banner">
@@ -104,7 +104,7 @@
                 try
                 {
             %>
-            <%if (deviceId == 1 || deviceId == 3)
+            <%if (deviceId == 1)
               {%>
             <li class="col">
                 <figure class="banner">
@@ -117,11 +117,34 @@
                 </figure>
             </li>
             <%}%>
-            <%if (deviceId == 2 || deviceId == 3)
+            <%else if (deviceId == 2)
               {%>
             <li class="col">
                 <figure class="banner">
                     <img src='<%=bannerPosition ? "_Static/Images/sports/ClubW88-Android-banner-l.jpg" : "_Static/Images/sports/ClubW88-Android-banner-r.jpg" %>' class="img-responsive img-bg">
+                    <figcaption class="banner-caption">
+                        <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></h3>
+                        <p><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Description", commonVariables.ProductsXML)%></p>
+                        <a href="/_Static/ClubW/casino.aspx" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
+                    </figcaption>
+                </figure>
+            </li>
+            <%}%>
+            <%else if (deviceId == 3)
+              {%>
+            <li class="col">
+                <figure class="banner">
+                    <img src='<%=bannerPosition ? "_Static/Images/sports/ClubW88-iOS-banner-l.jpg" : "_Static/Images/sports/ClubW88-iOS-banner-r.jpg" %>' class="img-responsive img-bg">
+                    <figcaption class="banner-caption">
+                        <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></h3>
+                        <p><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Description", commonVariables.ProductsXML)%></p>
+                        <a href="/_Static/Downloads/w88.aspx" data-ajax="false" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("playNow", commonVariables.LeftMenuXML)%></a>
+                    </figcaption>
+                </figure>
+            </li>
+            <li class="col">
+                <figure class="banner">
+                    <img src='<%=bannerPosition ? "_Static/Images/sports/ClubW88-Android-banner-r.jpg" :"_Static/Images/sports/ClubW88-Android-banner-l.jpg"  %>' class="img-responsive img-bg">
                     <figcaption class="banner-caption">
                         <h3 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></h3>
                         <p><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Description", commonVariables.ProductsXML)%></p>

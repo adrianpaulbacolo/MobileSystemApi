@@ -38,6 +38,17 @@ function AutoRoute() {
 
     function init() {
         getGatewayBanks();
+
+        setTranslations();
+        function setTranslations() {
+            if (_w88_contents.translate("LABEL_SWITCH_LINE") != "LABEL_SWITCH_LINE") {
+                $('label[id$="lblSwitchLine"]').text(_w88_contents.translate("LABEL_SWITCH_LINE"));
+            } else {
+                window.setInterval(function () {
+                    setTranslations();
+                }, 500);
+            }
+        }
     }
 
     function getGatewayBanks() {

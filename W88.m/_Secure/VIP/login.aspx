@@ -22,7 +22,7 @@
 
     <script src="/_Static/JS/jquery-1.10.2.min.js"></script>
     <script src="js/jquery.modal.min.js"></script>
-    <script src="/_Static/JS/vendor/lodash.js"></script>
+    <script src="/_Static/JS/vendor/lodash.min.js"></script>
     <script src="/_Static/JS/GPINT.js"></script>
     <script src="/_Static/JS/Cookie.js"></script>
     <script src="/_Static/JS/vendor/amplify.min.js"></script>

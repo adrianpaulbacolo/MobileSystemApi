@@ -72,7 +72,7 @@ public partial class Default : CatalogueBasePage
             if (UserSessionInfo == null)
             {
                 UserSessionInfo = new UserSessionInfo();
-                UserSessionInfo.CountryCode = RewardsHelper.GetCountryCode();
+                UserSessionInfo.CountryCode = RewardsHelper.CountryCode;
             }
             var result = await RewardsHelper.SearchProducts(searchInfo, UserSessionInfo);
             var products = result.Data != null ? (List<ProductDetails>) result.Data : null;

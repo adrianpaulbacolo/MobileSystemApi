@@ -36,7 +36,7 @@
     }
 
     function getBanks() {
-        var url = w88Mobile.APIUrl + "/payments/baokindenom/";
+        var url = w88Mobile.APIUrl + "/payments/denomination/120286";
 
         $.ajax({
             type: "GET",
@@ -83,7 +83,7 @@
             }
         });
 
-        $('p[id$="IndicatorMsg"]').html(sessionStorage.getItem("indicator") + fee);
+        $('#paymentNoteContent').html(sessionStorage.getItem("indicator") + fee);
     }
 
 }

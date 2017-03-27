@@ -15,9 +15,20 @@ public partial class Deposit_SDAPay2 : PaymentBasePage
 {
     protected void Page_Init(object sender, EventArgs e)
     {
-        base.PageName = Convert.ToString(commonVariables.DepositMethod.SDAPayAlipay);
+        var type = this.RouteData.DataTokens["type"].ToString();
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
-        base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.SDAPayAlipay);
+        switch (type)
+        {
+            case "sdapayalipay":
+                base.PageName = Convert.ToString(commonVariables.DepositMethod.SDAPayAlipay);
+                base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.SDAPayAlipay);
+                break;
+            case "alipaytransfer":
+            default:
+                base.PageName = Convert.ToString(commonVariables.DepositMethod.AlipayTransfer);
+                base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.AlipayTransfer);
+                break;
+        }
     }
 
 }
