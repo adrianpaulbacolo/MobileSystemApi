@@ -1,6 +1,6 @@
 ﻿{% if (_.isEqual(slotData.route, "index_search") || _.isEqual(slotData.route, "club_search")) { %}
 
-<a href="#" onclick="w88Mobile.v2.Routes.previous()" class="header-button header-button-left">
+<a href="#" onclick="_routes.previous()" class="header-button header-button-left">
     <span class="icon icon-back"></span>
 </a>
 <div class="header-search-input">
@@ -14,7 +14,7 @@
 
 {% } else if (_.isEqual(slotData.route, "club")) { %}
 
-<a href="#" onclick="w88Mobile.v2.Routes.previous()" class="header-button header-button-left">
+<a href="#" onclick="_routes.previous()" class="header-button header-button-left">
     <span class="icon icon-back"></span>
 </a>
 <a href="#" onclick="showSearchHeader('club_search')" class="header-button header-button-right">
@@ -26,21 +26,21 @@
 
 {% } else if (_.isEqual(slotData.route, "launcher")) { %}
 
-<a href="#" onclick="w88Mobile.v2.Routes.previous()" class="header-button header-button-left">
+<a href="#" onclick="_routes.previous()" class="header-button header-button-left">
     <span class="icon icon-back"></span>
 </a>
 
 {% } else if (_.isEqual(slotData.route, "club_filter")) { %}
 
-<a href="#" onclick="w88Mobile.v2.Routes.previous()" class="header-button header-button-left">
+<a href="#" onclick="_routes.previous()" class="header-button header-button-left">
     <span class="icon icon-back"></span>
 </a>
-<a href="#" onclick="showFilterModal(w88Mobile.v2.Routes.currentCtrl().club)" class="header-button header-button-right" id="filterMode">
+<a href="#" onclick="showFilterModal(_routes.currentCtrl().club)" class="header-button header-button-right" id="filterMode">
     <span class="icon icon-filter"></span>
 </a>
 {% } else if (_.isEqual(slotData.route, "index")) { %}
 
-<a href="#" onclick="w88Mobile.v2.Routes.previous()" class="header-button header-button-left">
+<a href="#" onclick="_routes.previous()" class="header-button header-button-left">
     <span class="icon icon-back"></span>
 </a>
 <a href="#" onclick="showSearchHeader('index_search')" class="header-button header-button-right">
@@ -48,9 +48,9 @@
 </a>
 {% } %}
 <h1 class="header-title">{%
-    if(!_.isUndefined(w88Mobile.v2.Routes.currentCtrl()) && w88Mobile.v2.Routes.currentCtrl().title != ""){
+    if(!_.isUndefined(_routes.currentCtrl()) && _routes.currentCtrl().title != ""){
     %}
-        {%- w88Mobile.v2.Routes.currentCtrl().title %}
+        {%- _routes.currentCtrl().title %}
     {%
     }else{
     %}

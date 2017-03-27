@@ -62,6 +62,9 @@ small,
 	&.main-content-full{
 		padding: 0;
 	}
+    &.full{
+        top: 0;
+    }
 }
 
 .no-gutter{

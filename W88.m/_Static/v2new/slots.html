@@ -123,12 +123,14 @@
         var _contents = w88Mobile.v2._contents; // alias for contents
         _contents.init();
 
+        var _routes = w88Mobile.v2.Routes;
+
         function filterClubSlots(tab, section) {
             if (!$(tab).hasClass('active')) {
                 $('#sectionTab').find('li').removeClass('active')
                 $(tab).addClass('active');
             }
-            w88Mobile.v2.Routes.currentCtrl().filterClubSlots({
+            _routes.currentCtrl().filterClubSlots({
                 section: section
             });
         }
@@ -136,7 +138,7 @@
         function onContentsLoaded(topic, data) {
             $(document).ready(function () {
                 pubsub.publish("changeHeader");
-                w88Mobile.v2.Routes.init();
+                _routes.init();
             });
         }
 
@@ -210,11 +212,11 @@
         }
 
         function onChangeRoute(topic, data) {
-            w88Mobile.v2.Routes.changeRoute(data.route, data.params);
+            _routes.changeRoute(data.route, data.params);
         }
 
         function viewClubFilter() {
-            var ctrl = w88Mobile.v2.Routes.currentCtrl();
+            var ctrl = _routes.currentCtrl();
             showFilterModal(ctrl.club);
         }
 
@@ -231,7 +233,7 @@
         function viewGame(id, club) {
 
             if (_.isUndefined(club)) {
-                var ctrl = w88Mobile.v2.Routes.currentCtrl();
+                var ctrl = _routes.currentCtrl();
                 club = (!_.isUndefined(ctrl.page.club)) ? ctrl.page.club : "";
             }
 
@@ -253,10 +255,10 @@
                     games: games
                     , club: club
                 });
-                if (!_.isEmpty(w88Mobile.v2.Routes.currentPage().find('.' + club.name + '-main'))) {
-                    w88Mobile.v2.Routes.currentPage().find('.' + club.name + '-main').html($(innerHtml).html());
+                if (!_.isEmpty(_routes.currentPage().find('.' + club.name + '-main'))) {
+                    _routes.currentPage().find('.' + club.name + '-main').html($(innerHtml).html());
                 } else {
-                    w88Mobile.v2.Routes.currentPage().find(".main-content").append(innerHtml);
+                    _routes.currentPage().find(".main-content").append(innerHtml);
                 }
         }
 
@@ -274,7 +276,7 @@
 
         function filterGames() {
 
-            var ctrl = w88Mobile.v2.Routes.currentCtrl();
+            var ctrl = _routes.currentCtrl();
             var category = $('#clubCategory').val();
             var minbet = $('#clubMinBet').val();
             var playlines = $('#clubPlayLines').val();
@@ -287,7 +289,7 @@
                 , provider: provider
             }
 
-            if (w88Mobile.v2.Routes.current() != "club_filter") {
+            if (_routes.current() != "club_filter") {
                 pubsub.publish("changeRoute", {
                     route: "club_filter",
                     params: {
@@ -308,7 +310,7 @@
 
             switch (route) {
                 case 'club_search':
-                    var club = w88Mobile.v2.Routes.currentCtrl().club;
+                    var club = _routes.currentCtrl().club;
                     pubsub.publish("changeRoute", {
                         route: route
                         , params: {
@@ -336,13 +338,13 @@
                     games: games
                     , club: club
                 });
-                if (!_.isEmpty(w88Mobile.v2.Routes.currentPage().find('.search-main'))) {
-                    w88Mobile.v2.Routes.currentPage().find('.search-main').html($(innerHtml).html());
+                if (!_.isEmpty(_routes.currentPage().find('.search-main'))) {
+                    _routes.currentPage().find('.search-main').html($(innerHtml).html());
                 } else {
-                    w88Mobile.v2.Routes.currentPage().find(".main-content").html(innerHtml);
+                    _routes.currentPage().find(".main-content").html(innerHtml);
                 }
             } else {
-                w88Mobile.v2.Routes.currentPage().find(".main-content").children().remove();
+                _routes.currentPage().find(".main-content").children().remove();
             }
         }
 
@@ -350,16 +352,16 @@
             var content = _.template(_templates.TopBar);
 
             var innerHtml = content({
-                route: w88Mobile.v2.Routes.current()
+                route: _routes.current()
             });
-            var headerElem = w88Mobile.v2.Routes.currentPage().find(".header-main");
+            var headerElem = _routes.currentPage().find(".header-main");
             headerElem.empty();
             headerElem.append(innerHtml);
 
             $("#searchText").popover({
                 trigger: "manual"
             });
-            if (_.includes(w88Mobile.v2.Routes.currentPage().selector, "search")) {
+            if (_.includes(_routes.currentPage().selector, "search")) {
                 headerElem.addClass("header-search");
 
                 $("#searchText").on("input click keyup paste propertychange", function () {
@@ -372,7 +374,7 @@
                             $(this).popover('hide');
                     }
 
-                    w88Mobile.v2.Routes.currentCtrl().filterSearchSlots({
+                    _routes.currentCtrl().filterSearchSlots({
                         title: this.value
                     });
                 });
@@ -426,7 +428,7 @@
                         break;
                     case "slot-home":
                     default:
-                        w88Mobile.v2.Routes.previous();
+                        _routes.previous();
                         break;
                 }
             }, false);

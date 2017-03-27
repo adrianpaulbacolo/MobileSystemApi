@@ -2,13 +2,15 @@
 
 function Routes() {
 
-    function initPage(route) {
+    function initPage(route, tpl) {
 
         if (routeStack.length > 0) {
             w88Mobile.v2.Routes.currentPage().css("display", "none");
         }
 
-        return $.when($.get('assets/templates/page.html', function (template) {
+        var pageTpl = (!_.isEmpty(tpl)) ? tpl : 'assets/templates/page.html';
+
+        return $.when($.get(pageTpl, function (template) {
 
             var mainClass = [];
             var sections = [];
@@ -204,7 +206,8 @@ function Routes() {
         parent: "index"
         , init: function (params) {
             var pageRoute = "launcher";
-            initPage(pageRoute).then(function () {
+            var pageTemplate = 'assets/templates/page-full.html';
+            initPage(pageRoute, pageTemplate).then(function () {
                 var launcherPage = new w88Mobile.v2.LauncherCtrl(w88Mobile.v2.Routes
                     , w88Mobile.v2.Slots
                     , w88Mobile.v2._templates);
