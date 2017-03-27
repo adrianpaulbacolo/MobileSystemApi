@@ -59,6 +59,8 @@
 
             <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
 
+            <div class="payment-banner" style="background-color: transparent; padding-bottom: 30px;"></div>
+
             <ul class="list fixed-tablet-size">
                 <li class="item row" id="btnSubmitPlacement">
                     <div class="col">
@@ -78,6 +80,23 @@
             _w88_paymentSvc.init(isDeposit);
         });
     </script>
-
+    <script type="text/javascript">
+        _.templateSettings = {
+            interpolate: /\{\{(.+?)\}\}/g,      // print value: {{ value_name }}
+            evaluate: /\{%([\s\S]+?)%\}/g,   // excute code: {% code_to_execute %}
+            escape: /\{%-([\s\S]+?)%\}/g
+        };
+        _.templateSettings.variable = "tplData";
+    </script>
+    <script type="text/template" id='paymentBanner'>
+        {% _.each(tplData.Banner, function(item) { %}
+            <div>
+                <a href="#">
+                    <img class="img-responsive" src="{%-item.Image%}" onclick="javascript: _w88_paymentbanner.openVideo(this)">
+                    <video class="video-responsive" controls src="{%-item.Video%}" />
+                </a>
+            </div>
+        {% }); %}
+    </script>
     <asp:ContentPlaceHolder ID="ScriptsPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
 </asp:Content>

@@ -15,22 +15,6 @@
             <asp:CheckBox type="checkbox" ID="isSwitchLine" runat="server" />
         </li>
     </ul>
-
-    <div class="payment-banner">
-        <div>
-            <a href="#">
-                <img src="/_Static/Images/payments/Deposit-RMB-AliPay-Limited-CN.png">
-                <video width="320" height="240" controls src="http://anecdn.w88media.com/CN/vid/Deposit-RMB-AliPay-Limited-CN.mp4" />
-            </a>
-        </div>
-        <div>
-            <a href="#">
-                <img src="/_Static/Images/payments/Deposit-RMB-All-Request-Submission-Failed-CN.png">
-                <video width="320" height="240" controls src="http://anecdn.w88media.com/CN/vid/Deposit-RMB-All-Request-Submission-Failed-CN.mp4" />
-            </a>
-        </div>
-    </div>
-
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder1" runat="Server">
@@ -38,9 +22,11 @@
     <script type="text/javascript" src="/_Static/JS/modules/gateways/autoroute.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
     <link href="/_Static/Css/payment.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
     <script src="/_Static/JS/vendor/slick.min.js"></script>
-
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/banner.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+            _w88_paymentbanner.init("Alipay");
+
             _w88_paymentSvc.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvc.DisplaySettings(
                 "<%=base.PaymentMethodId %>"
@@ -63,13 +49,6 @@
                 window.open(action + "?" + params, "<%=base.PageName%>");
                 _w88_paymentSvc.onTransactionCreated($(this));
                 return;
-            });
-
-            $('.payment-banner').slick({
-                arrows: false,
-                infinite: false,
-                focusOnSelect: true,
-                dots: true
             });
         });
     </script>

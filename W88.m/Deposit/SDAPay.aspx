@@ -12,21 +12,15 @@
             <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
         </li>
     </ul>
-
-    <div class="payment-banner">
-        <div>
-            <a href="#">
-                <img src="/_Static/Images/payments/Deposit-RMB-AliPay-Cannot-Redirect.png">
-                <video width="320" height="240" controls src="http://anecdn.w88media.com/CN/vid/Deposit-RMB-AliPay-Transfer-Cannot-Redirect-CN.mp4" />
-            </a>
-        </div>
-    </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder1" runat="Server">
     <link href="/_Static/Css/payment.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
     <script src="/_Static/JS/vendor/slick.min.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/banner.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+            _w88_paymentbanner.init("AlipayTransfer");
+
             _w88_paymentSvc.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvc.DisplaySettings(
                 "<%=base.PaymentMethodId %>"
@@ -73,14 +67,6 @@
                 function () {
                     GPInt.prototype.HideSplash();
                 });
-            });
-
-
-            $('.payment-banner').slick({
-                arrows: false,
-                infinite: false,
-                focusOnSelect: true,
-                dots: true
             });
         });
     </script>
