@@ -71,7 +71,7 @@ function Banner() {
 
         $('div.payment-banner').slick({
             dots: true,
-            arrows: false,
+            arrows: true,
             infinite: false,
             focusOnSelect: true,
         });
