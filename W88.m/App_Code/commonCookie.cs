@@ -374,5 +374,16 @@ public static class commonCookie
             vip.Domain = commonIp.DomainName;
             HttpContext.Current.Response.SetCookie(vip);
         }
+
+        HttpCookie spfid = HttpContext.Current.Request.Cookies["spfid"];
+        HttpContext.Current.Response.Cookies.Remove("spfid");
+
+        if (spfid != null)
+        {
+            spfid.Expires = DateTime.Now.AddYears(-1);
+            spfid.Value = null;
+            spfid.Domain = commonIp.DomainName;
+            HttpContext.Current.Response.SetCookie(spfid);
+        }
     }
 }
