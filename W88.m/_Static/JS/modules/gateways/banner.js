@@ -52,7 +52,8 @@ function Banner() {
 
     var paymentbanner = {
         init: init,
-        openVideo: openVideo
+        openVideo: openVideo,
+        closeVideo: closeVideo
     }
 
     function init(id) {
@@ -79,8 +80,15 @@ function Banner() {
     }
 
     function openVideo(me) {
-        $(me.nextElementSibling).show();
-        $(me).hide();
+        $(me.nextElementSibling).show(); // video
+        $(me.nextElementSibling)[0].play();
+        $(me).hide(); // image
+    }
+
+
+    function closeVideo(me) {
+        $(me.previousElementSibling).show(); //image
+        $(me).hide(); // video
     }
 
     return paymentbanner;

@@ -93,7 +93,7 @@
             <div>
                 <a href="#">
                     <img class="img-responsive" src="{%-item.Image%}" onclick="javascript: _w88_paymentbanner.openVideo(this)">
-                    <video class="video-responsive" controls src="{%-item.Video%}" />
+                    <video class="video-responsive" controls src="{%-item.Video%}" onended="javascript: _w88_paymentbanner.closeVideo(this)" />
                 </a>
             </div>
         {% }); %}
