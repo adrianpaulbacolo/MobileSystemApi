@@ -90,12 +90,22 @@
     </script>
     <script type="text/template" id='paymentBanner'>
         {% _.each(tplData.Banner, function(item) { %}
-            <div>
-                <a href="#">
-                    <img class="img-responsive" src="{%-item.Image%}" onclick="javascript: _w88_paymentbanner.openVideo(this)">
-                    <video class="video-responsive" controls src="{%-item.Video%}" onended="javascript: _w88_paymentbanner.closeVideo(this)" />
-                </a>
-            </div>
+        <div>
+            <a href="#">
+                <img class="img-responsive" src="{%-item.Image%}" onclick="javascript: _w88_paymentbanner.openVideo(this)">
+                <video class="video-responsive" controls="controls" poster="{%-item.Image%}" onended="javascript: _w88_paymentbanner.closeVideo(this)">
+                    {% _.each(item.Videos, function(itemType) { %}
+                    <source src="{%-itemType.Video%}" type="{%-itemType.Type%}" />
+                    {% }); %}
+                    <object type="application/x-shockwave-flash" data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf">
+                        <param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />
+                        <param name="allowFullScreen" value="true" />
+                        <param name="wmode" value="transparent" />
+                        <param name="flashVars" value="config={'playlist':['{%-item.Image%}',{'url':'{%-item.Flash.Video%}','autoPlay':false}]}" />
+                    </object>
+                </video>
+            </a>
+        </div>
         {% }); %}
     </script>
     <asp:ContentPlaceHolder ID="ScriptsPlaceHolder1" runat="server"></asp:ContentPlaceHolder>

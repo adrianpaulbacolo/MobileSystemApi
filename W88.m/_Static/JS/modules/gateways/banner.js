@@ -7,45 +7,126 @@ function Banner() {
         "Alipay": [
             {
                 Image: "/_Static/Images/payments/Deposit-RMB-AliPay-Limited-CN.png",
-                Video: "http://anecdn.w88media.com/CN/vid/Deposit-RMB-AliPay-Limited-CN.mp4"
+                Videos: [
+                    {
+                        Video: "http://anecdn.w88media.com/CN/vid/Deposit-RMB-AliPay-Limited-CN.mp4",
+                        Type: "video/mp4",
+                    },
+                ],
+                Flash: {
+                    Title: "AliPay Limited",
+                    Video: "http%3A%2F%2Fanecdn.w88media.com%2FCN%2Fvid%2FDeposit-RMB-AliPay-Limited-CN.mp4",
+                }
             },
             {
                 Image: "/_Static/Images/payments/Deposit-RMB-All-Request-Submission-Failed-CN.png",
-                Video: "http://anecdn.w88media.com/CN/vid/Deposit-RMB-All-Request-Submission-Failed-CN.mp4"
+                Videos: [
+                    {
+                        Video: "http://anecdn.w88media.com/CN/vid/Deposit-RMB-All-Request-Submission-Failed-CN.mp4",
+                        Type: "video/mp4",
+                    }
+                ],
+                Flash: {
+                    Title: "Request Submission Failed",
+                    Video: "http%3A%2F%2Fanecdn.w88media.com%2FCN%2Fvid%2FDeposit-RMB-All-Request-Submission-Failed-CN.mp4",
+                },
             }
         ],
         "AlipayTransfer": [
            {
                Image: "/_Static/Images/payments/Deposit-RMB-AliPay-Cannot-Redirect.png",
-               Video: "http://anecdn.w88media.com/CN/vid/Deposit-RMB-AliPay-Transfer-Cannot-Redirect-CN.mp4"
+               Videos: [
+                   {
+                       Video: "http://anecdn.w88media.com/CN/vid/Deposit-RMB-AliPay-Transfer-Cannot-Redirect-CN.mp4",
+                       Type: "video/mp4",
+                   },
+               ],
+               Flash: {
+                   Title: "AliPay Cannot Redirect",
+                   Video: "http%3A%2F%2Fanecdn.w88media.com%2FCN%2Fvid%2FDeposit-RMB-AliPay-Transfer-Cannot-Redirect-CN.mp4",
+               }
            }
         ],
         "QuickOnline": [
            {
                Image: "/_Static/Images/payments/Deposit-RMB-Quick-Online-Cannot-Redirect.png",
-               Video: "http://anecdn.w88media.com/CN/vid/Deposit-RMB-Quick-Online-Cannot-Redirect-CN.mp4"
+               Videos: [
+                   {
+                       Video: "http://anecdn.w88media.com/CN/vid/Deposit-RMB-Quick-Online-Cannot-Redirect-CN.mp4",
+                       Type: "video/mp4",
+                   }
+               ],
+               Flash: {
+                   Title: "Quick Online Cannot Redirect",
+                   Video: "http%3A%2F%2Fanecdn.w88media.com%2FCN%2Fvid%2FDeposit-RMB-Quick-Online-Cannot-Redirect-CN.mp4",
+               },
            },
            {
                Image: "/_Static/Images/payments/Deposit-RMB-Quick-Online-Failed-CN.png",
-               Video: "http://anecdn.w88media.com/CN/vid/Deposit-RMB-Quick-Online-Failed-CN.mp4"
+               Videos: [
+                   {
+                       Video: "http://anecdn.w88media.com/CN/vid/Deposit-RMB-Quick-Online-Failed-CN.mp4",
+                       Type: "video/mp4",
+                   }
+               ],
+               Flash: {
+                   Title: "Quick Online Failed",
+                   Video: "http%3A%2F%2Fanecdn.w88media.com%2FCN%2Fvid%2FDeposit-RMB-Quick-Online-Failed-CN.mp4",
+               },
            },
            {
                Image: "/_Static/Images/payments/Deposit-RMB-All-Request-Submission-Failed-CN.png",
-               Video: "http://anecdn.w88media.com/CN/vid/Deposit-RMB-All-Request-Submission-Failed-CN.mp4"
-           }
+               Videos: [
+                   {
+                       Video: "http://anecdn.w88media.com/CN/vid/Deposit-RMB-All-Request-Submission-Failed-CN.mp4",
+                       Type: "video/mp4",
+                   }
+               ],
+               Flash: {
+                   Title: "Request Submission Failed",
+                   Video: "http%3A%2F%2Fanecdn.w88media.com%2FCN%2Fvid%2FDeposit-RMB-All-Request-Submission-Failed-CN.mp4",
+               },
+           },
         ],
         "Wechat": [
            {
                Image: "/_Static/Images/payments/Deposit-RMB-All-Request-Submission-Failed-CN.png",
-               Video: "http://anecdn.w88media.com/CN/vid/Deposit-RMB-All-Request-Submission-Failed-CN.mp4"
+               Videos: [
+                   {
+                       Video: "http://anecdn.w88media.com/CN/vid/Deposit-RMB-All-Request-Submission-Failed-CN.mp4",
+                       Type: "video/mp4",
+                   }
+               ],
+               Flash: {
+                   Title: "Request Submission Failed",
+                   Video: "http%3A%2F%2Fanecdn.w88media.com%2FCN%2Fvid%2FDeposit-RMB-All-Request-Submission-Failed-CN.mp4",
+               },
            },
            {
                Image: "/_Static/Images/payments/Deposit-RMB-WeChat-Add-Bank-Card-CN.png",
-               Video: "http://anecdn.w88media.com/CN/vid/Deposit-RMB-WeChat-Add-Bank-Card-CN.mp4"
+               Videos: [
+                   {
+                       Video: "http://anecdn.w88media.com/CN/vid/Deposit-RMB-WeChat-Add-Bank-Card-CN.mp4",
+                       Type: "video/mp4",
+                   }
+               ],
+               Flash: {
+                   Title: "WeChat Add Bank Card",
+                   Video: "http%3A%2F%2Fanecdn.w88media.com%2FCN%2Fvid%2FDeposit-RMB-WeChat-Add-Bank-Card-CN.mp4",
+               },
            },
            {
                Image: "/_Static/Images/payments/Deposit-RMB-WeChat-Limited-CN.png",
-               Video: "http://anecdn.w88media.com/CN/vid/Deposit-RMB-WeChat-Limited-CN.mp4"
+               Videos: [
+                   {
+                       Video: "http://anecdn.w88media.com/CN/vid/Deposit-RMB-WeChat-Limited-CN.mp4",
+                       Type: "video/mp4",
+                   }
+               ],
+               Flash: {
+                   Title: "WeChat Limited",
+                   Video: "http%3A%2F%2Fanecdn.w88media.com%2FCN%2Fvid%2FDeposit-RMB-WeChat-Limited-CN.mp4",
+               },
            }
         ],
     };
