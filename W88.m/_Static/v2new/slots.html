@@ -417,6 +417,12 @@
                 if (event.origin !== launcherOrigin || event.source !== launcherWindow) {
                     throw new Error('The domain of the child does not match');
                 }
+                // remove floating button
+                try {
+                    Native.onSlotGameClosed();
+                } catch (e) {
+                    console.log(e.message)
+                }
                 switch (event.data) {
                     case "funds":
                         // lol @todo move this shit to constants
@@ -428,6 +434,7 @@
                         break;
                     case "slot-home":
                     default:
+                        // remove launcher
                         _routes.previous();
                         break;
                 }

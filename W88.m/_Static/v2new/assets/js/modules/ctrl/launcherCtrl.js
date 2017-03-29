@@ -45,9 +45,15 @@ function launcherCtrl(routeObj, slotSvc, templateSvc) {
         });
 
         _self.page.find(".main-content").append(gameDiv);
-
+        _self.page.find(".iframe-launcher").on("load", function (e) {
+            try {
+                Native.onSlotGameOpened();
+            } catch (e) {
+                console.log(e.message)
+            }
+        });
         var launcherOrigin = window.location.origin;
-        var launcherWindow = _.first(_self.page.find(".iframe-launcher")).contentWindow;
+        window.launcherWindow = _.first(_self.page.find(".iframe-launcher")).contentWindow;
 
 
     }
