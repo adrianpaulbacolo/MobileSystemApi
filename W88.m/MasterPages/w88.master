@@ -1,0 +1,84 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="w88.master.cs" Inherits="MasterPages_w88" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%=Page.Title %></title>
+   
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- CSS refence should be put inside the child content head -->
+    <link href="/_static/v2/assets/css/base.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+
+    <%-- Use ContentHeaderSection to manipulate header logo and text on child pages --%>
+    <asp:ContentPlaceHolder ID="ContentHeaderSection" runat="server"></asp:ContentPlaceHolder>
+
+    <asp:ContentPlaceHolder ID="ContentMain" runat="server"></asp:ContentPlaceHolder>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/_Static/v2/assets/js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="/_Static/v2/assets/js/vendor/lodash.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/_Static/v2/assets/js/vendor/bootstrap.min.js"></script>
+    <script src="/_Static/v2/assets/js/vendor/amplify.min.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="/_Static/v2/assets/js/Cookie.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="/_Static/v2/assets/js/vendor/pubsub.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="/_Static/v2/assets/js/vendor/bootstrap-validator.min.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+
+    <script type="text/javascript">
+        var siteCookie = new Cookies();
+
+        _.templateSettings = {
+            interpolate: /\{\{(.+?)\}\}/g,      // print value: {{ value_name }}
+            evaluate: /\{%([\s\S]+?)%\}/g,   // excute code: {% code_to_execute %}
+            escape: /\{%-([\s\S]+?)%\}/g
+        };
+        _.templateSettings.variable = "tplData";
+            
+        window.w88Mobile = {};
+        window.User = {};
+        window.User.hasSession = <%= (!String.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) ? 1 : 0 %>;
+            window.User.token = '<%= commonVariables.CurrentMemberSessionId %>';
+        window.User.lang = '<%=commonVariables.SelectedLanguage%>';
+        window.User.storageExpiration = { expires: 300000 };
+        w88Mobile.APIUrl = '<%= ConfigurationManager.AppSettings.Get("APIUrl") %>';
+        window.w88Mobile.Gateway = {};
+        window.w88Mobile.Gateways = {};
+        </script>
+
+        <script type="text/javascript" src="/_static/v2/assets/i18n/contents-<%=commonVariables.SelectedLanguageShort%>.js"></script>
+        <script type="text/javascript" src="/_static/v2/assets/js/modules/translate.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+        <script type="text/javascript" src="/_static/v2/assets/js/modules/constants.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+        <script type="text/javascript" src="/_static/v2/assets/js/modules/loader.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+        <script type="text/javascript" src="/_static/v2/assets/js/modules/interceptor.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+        <script type="text/javascript" src="/_static/v2/assets/js/modules/growl.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+
+        <script>
+            if (!_.isUndefined(w88Mobile.Growl)) {
+                w88Mobile.Growl.init();
+                w88Mobile.Growl.options.lang = '<%=commonVariables.SelectedLanguageShort%>';
+                w88Mobile.Growl.options.close = '<%=commonCulture.ElementValues.getResourceString("close", commonVariables.LeftMenuXML)%>';
+            }
+
+            var _w88_contents = new w88Mobile.Translate();
+            _w88_contents.init();
+
+            w88Mobile.Loader.init();
+        </script>
+
+    <asp:ContentPlaceHolder ID="ScriptPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+
+</body>
+</html>
