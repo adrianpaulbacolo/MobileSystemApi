@@ -2,9 +2,13 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <ul class="list fixed-tablet-size">
+        <li class="item-text-wrap ali-pay-note">
+            <span id="paymentNote"></span>
+            <p id="paymentNoteContent"></p>
+        </li>
         <li class="item item-input">
             <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
-            <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true"  onKeyPress="return NotAllowDecimal(event);"/>
+            <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" onKeyPress="return NotAllowDecimal(event);" />
         </li>
         <li class="item item-input">
             <asp:Label ID="lblAddress" runat="server" AssociatedControlID="txtAddress" />
@@ -13,7 +17,7 @@
     </ul>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder1" runat="Server">
-    
+    <link href="/_Static/Css/payment.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
     <script type="text/javascript">
         $(document).ready(function () {
             _w88_paymentSvc.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
@@ -24,6 +28,8 @@
                 });
 
             $('label[id$="lblAddress"]').text(_w88_contents.translate("LABEL_ADDRESS")),
+            $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+            $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_2208121"));
 
             $('#form1').submit(function (e) {
                 e.preventDefault();
