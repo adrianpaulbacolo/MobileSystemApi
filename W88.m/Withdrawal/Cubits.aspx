@@ -29,7 +29,7 @@
 
             $('label[id$="lblAddress"]').text(_w88_contents.translate("LABEL_ADDRESS")),
             $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-            $("#paymentNoteContent").text(_w88_contents.translate("LABEL_MSG_2208121"));
+            $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_2208121"));
 
             $('#form1').submit(function (e) {
                 e.preventDefault();
