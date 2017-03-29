@@ -1,4 +1,6 @@
-﻿w88Mobile.Loader = loader();
+﻿var _w88_loader = w88Mobile.Loader = loader();
+
+_w88_loader.init();
 
 function loader() {
     var items = {};

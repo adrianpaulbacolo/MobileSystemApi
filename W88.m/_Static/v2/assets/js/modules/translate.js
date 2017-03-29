@@ -1,6 +1,8 @@
-﻿w88Mobile.Translate = translate;
+﻿var _w88_contents = new w88Mobile.Translate();
 
-function translate() {
+_w88_contents.init();
+
+function Translate() {
 
     this.items = {};
     this.expiry = 1200000; // cache expiry
