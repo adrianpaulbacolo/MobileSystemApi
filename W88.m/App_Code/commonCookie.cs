@@ -286,6 +286,21 @@ public static class commonCookie
         }
     }
 
+    public static void CookieSubPlatform(string spfId)
+    {
+        if (!string.IsNullOrWhiteSpace(spfId))
+        {
+            Set("spfid", spfId, DateTime.Now.AddDays(1));
+        }
+        else
+        {
+            if (string.IsNullOrWhiteSpace(commonCookie.Get("spfid")))
+            {
+                Set("spfid", "22", DateTime.Now.AddDays(1)); // Add Default Subplatform = WAP
+            }
+        }
+    }
+
     public static void Set(string key, string value, DateTime expires)
     {
         HttpCookie cookie = new HttpCookie(key, value);

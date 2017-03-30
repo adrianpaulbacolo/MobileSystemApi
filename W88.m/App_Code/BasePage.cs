@@ -72,18 +72,7 @@ public class BasePage : System.Web.UI.Page
 
     protected override void OnLoad(EventArgs e)
     {
-        var spfId = HttpContext.Current.Request.QueryString.Get("spfid");
-        if (!string.IsNullOrWhiteSpace(spfId))
-        {
-            commonCookie.Set("spfid", spfId, DateTime.Now.AddDays(1));
-        }
-        else
-        {
-            if (string.IsNullOrWhiteSpace(commonCookie.Get("spfid")))
-            {
-                commonCookie.Set("spfid", "22", DateTime.Now.AddDays(1)); // Add Default Subplatform = WAP
-            }
-        }
+        commonCookie.CookieSubPlatform(HttpContext.Current.Request.QueryString.Get("spfid"));
 
         var strLanguage = HttpContext.Current.Request.QueryString.Get("lang");
 
