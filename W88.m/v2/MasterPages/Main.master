@@ -276,7 +276,7 @@
                     var lang = window.User.lang;
                     if(lang == "zh-my") lang = "zh-cn";
                     xhr.setRequestHeader('Token', window.User.token);
-                    xhr.setRequestHeader('LanguageCode', window.User.lang);
+                    xhr.setRequestHeader('LanguageCode', lang);
             });
 
             // interceptor: check api calls if user status has changed
