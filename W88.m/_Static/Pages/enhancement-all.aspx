@@ -7,7 +7,7 @@
     <title>Enhancement</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <!-- <link href="/_Static/Css/errors/styles.css" rel="stylesheet" type="text/css"> -->
-    <link href="/_Static/Css/errors/styles-light.css" rel="stylesheet" type="text/css">
+    <link href="/_Static/Css/errors/styles.css" rel="stylesheet" type="text/css">
 
 </head>
 <body class="enhancement-all">
@@ -22,7 +22,7 @@
             <div class="enhancement-content-all">
                 <div class="enhancement-lang">
                     <h3>Enhancement</h3>
-                    <p>We will be back shortly after this scheduled enhancement. If you need assistance, please contact our Customer Service via <a href="#" class="text-primary">Live Chat</a> or <span class="text-primary">info@w88.com</span>.</p>
+                    <p>We will be back shortly after this scheduled enhancement. If you need assistance, please contact our Customer Service via <a href="/LiveChat/Default.aspx" target="_blank" class="text-primary">Live Chat</a> or <span class="text-primary"><a href="mailto:info@w88.com" class="text-primary">info@w88.com</a></span>.</p>
                 </div>
                 <div class="enhancement-lang">
                     <h3>升级</h3> 

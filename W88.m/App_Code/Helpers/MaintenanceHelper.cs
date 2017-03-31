@@ -49,16 +49,22 @@ namespace Helpers
 
             var response = (MaintenanceServiceResponse) JsonConvert.DeserializeObject(data.Result, typeof (MaintenanceServiceResponse));
 
-            if (response.ResponseInfo.ErrorCode != 0)
+            if (response.info.ErrorCode != 0)
             {
                 maintenance.AllSite = maintenance.PerModule = false;
             }
 
-            var hasRow = response.ModuleInfo.Any(module => module.ModuleCode.ToUpper() == _maintenanceInfo.CurrentPage.ToString());
+            var hasRow = response.detail.Where(module => module.ModuleCode.ToUpper() == _maintenanceInfo.CurrentPage.ToString()).ToList();
 
-            if (hasRow)
+            if (hasRow.Count > 0)
             {
-                maintenance.PerModule = false;
+                foreach (var item in hasRow)
+                {
+                    if (DateTime.Now > item.StartDate && DateTime.Now < item.EndDate)
+                        maintenance.PerModule = true;
+                    else
+                        maintenance.PerModule = false;
+                }
             }
 
             return maintenance;
@@ -76,10 +82,16 @@ namespace Helpers
             switch (_maintenanceInfo.CurrentPage)
             {
                 case MaintenanceModules.DPM:
+                     maintenance.PerModule = _maintenanceInfo.Deposit;
+                    break;
                 case MaintenanceModules.FTM:
+                     maintenance.PerModule = _maintenanceInfo.FundTransfer;
+                     break;
                 case MaintenanceModules.RS:
+                     maintenance.PerModule = _maintenanceInfo.Rebates;
+                     break;
                 case MaintenanceModules.WPM:
-                    maintenance.PerModule = true;
+                     maintenance.PerModule = _maintenanceInfo.Widrawal;
                     break;
             }
 

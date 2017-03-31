@@ -108,7 +108,8 @@ namespace Helpers
                 MemberId = dTable.Rows[0]["memberId"].ToString(),
                 MemberCode = dTable.Rows[0]["memberCode"].ToString(),
                 RiskId = dTable.Rows[0]["riskId"].ToString(),
-                CountryCode = dTable.Rows[0]["countryCode"].ToString()
+                CountryCode = dTable.Rows[0]["countryCode"].ToString(),
+                IsTestAccount = Convert.ToBoolean(dTable.Rows[0]["testAccount"].ToString())
             };
 
             var serializer = new JavaScriptSerializer();

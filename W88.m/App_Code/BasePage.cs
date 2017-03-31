@@ -147,47 +147,68 @@ public class BasePage : System.Web.UI.Page
 
         base.OnLoad(e);
 
-        if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) &&
-            !HttpContext.Current.Request.Url.AbsoluteUri.ToLower().Contains("/_secure/vip/"))
-        {
-            var opSettings = new OperatorSettings("W88");
-            foreach (
-                var v in
-                    opSettings.Values.Get("VIP_Domains")
-                        .ToLower()
-                        .Split(new[] {'|'})
-                        .Where(v => v.Equals(HttpContext.Current.Request.Url.Host)))
-            {
-                commonCookie.CookieLanguage = "zh-cn";
-                Response.Clear();
-                Response.Redirect("/_Secure/VIP/login.aspx", true);
-            }
-        }
+        CheckVipDomain();
 
+        if (!userInfo.IsTestAccount)
+        {
+            CheckMaintenanceSettings();
+        }
+    }
+
+    private void CheckMaintenanceSettings()
+    {
         var pageLocation = HttpContext.Current.Request.Url.AbsoluteUri;
 
         var info = new MaintenanceInfo();
 
-        if (pageLocation.Contains("/Deposit/"))
+        if (pageLocation.Contains("/Deposit"))
             info.CurrentPage = MaintenanceModules.DPM;
-        else if (pageLocation.Contains("/Withdrawal/"))
+        else if (pageLocation.Contains("/Withdrawal"))
             info.CurrentPage = MaintenanceModules.WPM;
         else if (pageLocation.Contains("/Profile/Rebates.aspx"))
             info.CurrentPage = MaintenanceModules.RS;
-        else if (pageLocation.Contains("/FundTransfer/"))
-            info.CurrentPage = MaintenanceModules.RS;
+        else if (pageLocation.Contains("/FundTransfer"))
+            info.CurrentPage = MaintenanceModules.FTM;
+        else
+            info.CurrentPage = MaintenanceModules.NonPage;
+
+        info.MainSite = Convert.ToBoolean(_opsettings.Values.Get("MaintenanceAllPages"));
+        info.Deposit = Convert.ToBoolean(_opsettings.Values.Get("MaintenanceDeposit"));
+        info.Widrawal = Convert.ToBoolean(_opsettings.Values.Get("MaintenanceWidrawal"));
+        info.FundTransfer = Convert.ToBoolean(_opsettings.Values.Get("MaintenanceFundTransfer"));
+        info.Rebates = Convert.ToBoolean(_opsettings.Values.Get("MaintenanceRebates"));
 
         var maintenanceHelper = new MaintenanceHelper(info).CheckStatus();
         if (maintenanceHelper.AllSite)
         {
             Response.Clear();
-            Response.Redirect(_opsettings.Values.Get("MaintenanceAll"), true);
+            Response.Redirect(_opsettings.Values.Get("MaintenanceAllPage"), true);
         }
         else if (maintenanceHelper.PerModule)
         {
             Response.Clear();
             Response.Redirect(_opsettings.Values.Get("MaintenancePage"), true);
 
+        }
+    }
+
+    private void CheckVipDomain()
+    {
+        if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) &&
+          !HttpContext.Current.Request.Url.AbsoluteUri.ToLower().Contains("/_secure/vip/"))
+        {
+            var opSettings = new OperatorSettings("W88");
+            foreach (
+                var v in
+                    opSettings.Values.Get("VIP_Domains")
+                        .ToLower()
+                        .Split(new[] { '|' })
+                        .Where(v => v.Equals(HttpContext.Current.Request.Url.Host)))
+            {
+                commonCookie.CookieLanguage = "zh-cn";
+                Response.Clear();
+                Response.Redirect("/_Secure/VIP/login.aspx", true);
+            }
         }
     }
 

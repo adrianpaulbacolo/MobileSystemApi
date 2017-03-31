@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Models
 {
@@ -25,14 +26,15 @@ namespace Models
         FTM,
         RS,
         DPM,
-        WPM
+        WPM,
+        NonPage
     }
 
     public class MaintenanceServiceResponse
     {
-        public Info ResponseInfo { get; set; }
+        public Info info { get; set; }
 
-        public List<MaintenanceModuleInfo> ModuleInfo { get; set; }
+        public List<MaintenanceModuleInfo> detail { get; set; }
     }
 
     public class MaintenanceModuleInfo
@@ -41,9 +43,9 @@ namespace Models
 
         public string ModuleName  { get; set; }
         
-        public string StartDate { get; set; }
-     
-        public string EndDate { get; set; }
+        public DateTime StartDate { get; set; }
+
+        public DateTime EndDate { get; set; }
     }
 
     public class MaintenanceIsActive
