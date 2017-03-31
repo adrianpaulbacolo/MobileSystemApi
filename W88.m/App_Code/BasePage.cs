@@ -15,6 +15,7 @@ public class BasePage : System.Web.UI.Page
     public Boolean isPublic = true;
     public PageHeaders headers = new PageHeaders();
     public MemberSession.UserSessionInfo userInfo = new MemberSession.UserSessionInfo();
+    private OperatorSettings _opsettings = new OperatorSettings("W88");
 
     protected override void OnPreInit(EventArgs e)
     {
@@ -104,7 +105,7 @@ public class BasePage : System.Web.UI.Page
             case "kr":
                 strLanguage = "ko-kr";
                 break;
-            
+
             case "th":
                 strLanguage = "th-th";
                 break;
@@ -128,7 +129,9 @@ public class BasePage : System.Web.UI.Page
             queryString.Remove("lang");
             queryString.Remove("languageCode");
 
-            string redirectPath = queryString.Count > 0 ? string.Format("{0}?{1}", Request.Url.LocalPath, queryString) : Request.Url.LocalPath;
+            string redirectPath = queryString.Count > 0
+                ? string.Format("{0}?{1}", Request.Url.LocalPath, queryString)
+                : Request.Url.LocalPath;
             Response.Redirect(redirectPath);
         }
 
@@ -136,22 +139,55 @@ public class BasePage : System.Web.UI.Page
         {
             if (!UserSession.IsLoggedIn())
             {
-                var redirectUrl = string.Format("/_Secure/Login.aspx?redirect={0}", Uri.EscapeDataString(Request.Url.PathAndQuery));
+                var redirectUrl = string.Format("/_Secure/Login.aspx?redirect={0}",
+                    Uri.EscapeDataString(Request.Url.PathAndQuery));
                 Response.Redirect(redirectUrl);
             }
         }
 
         base.OnLoad(e);
 
-        if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) && !HttpContext.Current.Request.Url.AbsoluteUri.ToLower().Contains("/_secure/vip/"))
+        if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) &&
+            !HttpContext.Current.Request.Url.AbsoluteUri.ToLower().Contains("/_secure/vip/"))
         {
             var opSettings = new OperatorSettings("W88");
-            foreach (var v in opSettings.Values.Get("VIP_Domains").ToLower().Split(new[] { '|' }).Where(v => v.Equals(HttpContext.Current.Request.Url.Host)))
+            foreach (
+                var v in
+                    opSettings.Values.Get("VIP_Domains")
+                        .ToLower()
+                        .Split(new[] {'|'})
+                        .Where(v => v.Equals(HttpContext.Current.Request.Url.Host)))
             {
                 commonCookie.CookieLanguage = "zh-cn";
                 Response.Clear();
                 Response.Redirect("/_Secure/VIP/login.aspx", true);
             }
+        }
+
+        var pageLocation = HttpContext.Current.Request.Url.AbsoluteUri;
+
+        var info = new MaintenanceInfo();
+
+        if (pageLocation.Contains("/Deposit/"))
+            info.CurrentPage = MaintenanceModules.DPM;
+        else if (pageLocation.Contains("/Withdrawal/"))
+            info.CurrentPage = MaintenanceModules.WPM;
+        else if (pageLocation.Contains("/Profile/Rebates.aspx"))
+            info.CurrentPage = MaintenanceModules.RS;
+        else if (pageLocation.Contains("/FundTransfer/"))
+            info.CurrentPage = MaintenanceModules.RS;
+
+        var maintenanceHelper = new MaintenanceHelper(info).CheckStatus();
+        if (maintenanceHelper.AllSite)
+        {
+            Response.Clear();
+            Response.Redirect(_opsettings.Values.Get("MaintenanceAll"), true);
+        }
+        else if (maintenanceHelper.PerModule)
+        {
+            Response.Clear();
+            Response.Redirect(_opsettings.Values.Get("MaintenancePage"), true);
+
         }
     }
 
