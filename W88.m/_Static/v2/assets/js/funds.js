@@ -50,11 +50,6 @@ function Funds() {
 
         var url = w88Mobile.APIUrl + resource;
 
-        var headers = {
-            'Token': window.User.token,
-            'LanguageCode': window.User.lang
-        };
-
         $.ajax({
             type: method,
             url: url,
@@ -62,7 +57,6 @@ function Funds() {
             beforeSend: function () {
                 pubsub.publish('startLoadItem', {selector: selector});
             },
-            headers: headers,
             success: success,
             error: error,
             complete: function () {

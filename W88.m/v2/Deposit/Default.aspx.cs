@@ -12,6 +12,13 @@ public partial class v2_Deposit_Default : PaymentBasePage
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
     }
 
+    protected override void OnLoad(EventArgs e)
+    {
+        Page.Title = commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML);
+        Page.Items.Add("Parent", "/v2/Funds.aspx");
+        base.OnLoad(e);
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
