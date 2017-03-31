@@ -10,20 +10,22 @@ function Gateway(paymentSvc) {
 
     this.deposit = function (data, successCallback, completeCallback) {
         var _self = this;
-        if (data.SwitchLine && data.SwitchLine == "true") {
+
+        if (_.includes(_w88_paymentSvc.AutoRouteIds, _self.methodId)) {
+
+            var prevMethodIds = amplify.store(w88Mobile.Keys.switchLineSettings);
+            data.Id = prevMethodIds;
+
             _self.send("/payments/autoroute/" + _self.methodId, "POST", data, function (response) {
                 switch (response.ResponseCode) {
                     case 1:
                         var methodId = response.ResponseData.MethodId;
-                        var prevMethodIds = amplify.store(w88Mobile.Keys.switchLineSettings);
 
-                        if (prevMethodIds)
+                        if (prevMethodIds && !response.ResponseData.ResetPreviousList)
                             amplify.store(w88Mobile.Keys.switchLineSettings, prevMethodIds + "," + methodId, _self.switchLineExpiration);
                         else
                             amplify.store(w88Mobile.Keys.switchLineSettings, methodId, _self.switchLineExpiration);
-
                         data.Bank = response.ResponseData.Bank;
-                        data.Id = prevMethodIds;
                         _self.send("/payments/" + methodId, "POST", data, successCallback, completeCallback);
                         break;
                     default:
