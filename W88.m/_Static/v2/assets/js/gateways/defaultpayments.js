@@ -62,6 +62,11 @@ function DefaultPaymentsV2() {
                     $('#txtMinMaxLimit').text(": " + setting.MinAmount.toLocaleString(undefined, { minimumFractionDigits: 2 }) + " / " + setting.MaxAmount.toLocaleString(undefined, { minimumFractionDigits: 2 }));
                     $('#txtDailyLimit').text(": " + setting.LimitDaily);
                     $('#txtTotalAllowed').text(": " + setting.TotalAllowed);
+
+                    $('#lblTotalAllowed').html(_w88_contents.translate("LABEL_TOTAL_ALLOWED"));
+                    $('#lblDailyLimit').html(_w88_contents.translate("LABEL_DAILY_LIMIT"));
+                    $('#lblMinMaxLimit').html(_w88_contents.translate("LABEL_MINMAX_LIMIT"));
+                    $('#lblMode').html(_w88_contents.translate("LABEL_MODE"));
                 }
 
                 setTranslations(paymentOptions.type);
