@@ -666,14 +666,14 @@ body {
 body {
   font-family: sans-serif,"Helvetica Neue",Helvetica,Arial;
   line-height: 1.6;
-  color: #aaa;
+  color: #888;
   background: #070707 url("../../Images/errors/error-bg.jpg") center center no-repeat; }
 
 a {
-  color: #aaa;
+  color: #888;
   text-decoration: none; }
   a:focus, a:hover {
-    color: #c4c4c4;
+    color: #a2a2a2;
     text-decoration: none; }
 
 p {
@@ -761,12 +761,12 @@ section {
           font-size: 0.688rem;
           text-transform: uppercase; }
           .error-container .error-content ul li a:focus, .error-container .error-content ul li a:hover {
-            color: #919191; }
+            color: #6f6f6f; }
             .error-container .error-content ul li a:focus > img, .error-container .error-content ul li a:hover > img {
               opacity: 0.75; }
 
 .enhancement {
-  background: #070707 url("../../Images/errors/enhancement-bg.jpg") center center no-repeat; }
+  background: #fff; }
 
 .enhancement-container {
   width: 100%;
@@ -782,7 +782,7 @@ section {
   margin-top: 30px;
   margin-bottom: 30px; }
   .enhancement-header .icon {
-    color: #ffffff;
+    color: #bbb;
     font-size: 3.313rem; }
   .enhancement-header h1 {
     color: #dab867;
@@ -819,7 +819,7 @@ section {
       line-height: 1.45;
       display: inline-block; }
   .links .icon {
-    color: #ccc;
+    color: #888;
     font-size: 2.188rem; }
   .links .link-text {
     color: #dab867;
@@ -889,14 +889,14 @@ section {
     display: block; }
 
 .enhancement-all {
-  background: #070707 url("../../Images/errors/enhancement-bg.jpg") center -100px no-repeat; }
+  background: #fff; }
 
 .enhancement-content-all {
   max-width: 768px;
   margin: 30px auto; }
   .enhancement-content-all .enhancement-lang {
     padding: 30px 15px;
-    border-bottom: 1px dotted rgba(255, 255, 255, 0.1); }
+    border-bottom: 1px dotted rgba(136, 136, 136, 0.4); }
     .enhancement-content-all .enhancement-lang:last-child {
       border-bottom: none; }
     .enhancement-content-all .enhancement-lang h3 {
@@ -922,4 +922,4 @@ section {
     .enhancement .enhancement-container .enhancement-content {
       display: block; } }
 
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=styles-light.css.map */

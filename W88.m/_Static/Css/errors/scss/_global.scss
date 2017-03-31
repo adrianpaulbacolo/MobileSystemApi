@@ -1,13 +1,4 @@
-@font-face {
-    font-family: 'dinpro';
-    src: url('/_static/fonts/din-pro-reg/din-regular-webfont.eot');
-    src: url('/_static/fonts/din-pro-reg/din-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/_static/fonts/din-pro-reg/din-regular-webfont.woff') format('woff'),
-         url('/_static/fonts/din-pro-reg/din-regular-webfont.ttf') format('truetype'),
-         url('/_static/fonts/din-pro-reg/din-regular-webfont.svg#dinregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
+
 
 html,
 body{
@@ -17,16 +8,16 @@ body{
 body{
     font-family: sans-serif,"Helvetica Neue",Helvetica,Arial;
 	line-height: 1.6;
-	color: #aaa;
-    background: #070707 url('../../Images/errors/error-bg.jpg') center center no-repeat;
+	color: $text-color;
+    background: $background;
 }
 
 a{
-	color: #aaa;
+	color: $text-color;
 	text-decoration: none;
 	&:focus,
 	&:hover{
-		color: lighten(#aaa, 10%);
+		color: lighten($text-color, 10%);
 		text-decoration: none;
 	}
 }
@@ -39,6 +30,14 @@ p{
 
 img{
 	max-width: 100%;
+}
+
+.text-primary{
+	color: $brand-primary;
+}
+a.text-primary:focus,
+a.text-primary:hover{
+	color: lighten($brand-primary, 10%);
 }
 
 header{
@@ -58,16 +57,16 @@ footer{
 	left: 0;
 	position: absolute;
 	p{
-		color: #999;
+		color: $text-color-light;
 		margin-bottom: 0;
 	}
 }
+
 section{
-	max-width: 72%;
+	max-width: 90%;
 	margin: 0 auto;
     height: 100%;
 }
-
 
 .error-container{
 	width: 100%;
@@ -81,7 +80,7 @@ section{
     		font-family: 'dinpro';
     		font-weight: normal;
 			font-size: 6.750rem;
-			color: #e8e7e7;
+			color: $error-header-color;
 			line-height: 1;
 			margin-top: 0;
 			margin-bottom: 5px;
@@ -91,13 +90,13 @@ section{
     		font-family: 'dinpro';
     		font-weight: normal;
     		font-size: 1.188rem;
-			color: #e8e7e7;
+			color: $error-header-color;
 			line-height: 1;
 			margin-top: 0;
 			margin-bottom: 16px;
 		}
 		p{
-			color: #aaa;
+			color: $text-color-light;
 		    max-width: 310px;
 		    margin: 0 auto 16px;
 		}
@@ -120,7 +119,7 @@ section{
 					text-transform: uppercase;
 					&:focus,
 					&:hover{
-						color: darken(#999, 10%);
+						color: darken($text-color, 10%);
 						> img{
 							opacity: 0.75;
 						}
@@ -128,6 +127,86 @@ section{
 				}
 			}
 		}
+	}
+}
+
+.enhancement{
+	background: $enhancement-background;
+}
+.enhancement-container{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	display: table;
+	.enhancement-content {
+		display: table-cell;
+		vertical-align: middle;
+	}
+}
+.enhancement-header{
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	.icon{
+		color: $enhancement-icon;
+		font-size: 3.313rem;
+	}
+	h1{
+		color: $brand-alt;
+		font-family: 'dinpro';
+		font-size: 1.313rem;
+		font-weight: normal;
+		margin-top: 0;
+		text-transform: uppercase;
+	}
+	p{
+		max-width: 600px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+
+.links{
+	width: 100%;
+	list-style: none;
+	margin: 0 0 30px 0;
+	padding: 0;
+	&.links-error{
+		li{
+			float: none;
+			width: auto;
+		}
+	}
+	&:before,
+	&:after {
+	content: " ";
+	display: table;
+	}
+	&:after {
+	clear: both;
+	}
+	li{
+		text-align: center;
+		width: 33.33%;
+		padding: 5px 0;
+		display: block;
+		float: left;
+		a{
+			line-height: 1.45;
+			display: inline-block;
+		}
+	}
+	.icon{
+		color: $link-icon;
+		font-size: 2.188rem;
+	}
+	.link-text{
+		color: $brand-alt;
+		font-family: 'dinpro';
+		font-size: 0.750rem;
+		text-transform: uppercase;
+		display: inline-block;
 	}
 }
 
@@ -174,5 +253,91 @@ section{
 		    margin: 0 30px;
 		}
 	}
+	.enhancement-header{
+		margin-top: 0;
+		margin-bottom: 45px;
+		.icon{
+			font-size: 4.500rem;
+		}
+		h1{
+			font-size: 1.688rem;
+		}
+	}
+	.links{
+		margin-bottom: 0;
+		li{
+			width: auto;
+			float: none;
+			margin-left: 12px;
+			margin-right: 12px;
+			display: inline-block;
+		}
+	}
+}
 
+.enhancement-all{
+	header{
+		position: relative;
+	}
+	section{
+	    height: auto;
+	}
+
+	footer{
+		position: relative;
+	}
+	.enhancement-container{
+		width: 100%;
+		height: auto;
+		display: block;
+		.enhancement-content {
+			display: block;
+		}
+	}
+}
+.enhancement-all{
+	background: $enhancement-background-all;
+}
+.enhancement-content-all{
+    max-width: 768px;
+    margin: 30px auto;
+	.enhancement-lang{
+		padding: 30px 15px;
+		border-bottom: 1px dotted $enhancement-border-color;
+		&:last-child{
+			border-bottom: none;
+		}
+		h3{
+			font-family: 'dinpro';
+			color: $brand-alt;
+			text-transform: uppercase;;
+			margin-top: 0;
+			margin-bottom: 15px;
+		}
+		p{
+			margin-bottom: 0;
+		}
+	}
+}
+@media (max-width: 767px) {
+	.enhancement{
+		header{
+			position: relative;
+		}
+		section{
+		    height: auto;
+		}
+
+		footer{
+			position: relative;
+		}
+		.enhancement-container{
+			width: 100%;
+			height: auto;
+			display: block;
+			.enhancement-content {
+				display: block;
+			}
+		}
+	}
 }
