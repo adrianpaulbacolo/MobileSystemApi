@@ -27,7 +27,7 @@
                 </div>
                 <ul class="links">
                     <li>
-                        <a href="/">
+                        <a href="/Index.aspx">
                             <span class="icon icon-home"></span>
                             <br>
                             <span class="link-text">Home</span>
@@ -55,7 +55,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/">
+                        <a href="/Index.aspx">
                             <span class="icon icon-games"></span>
                             <br>
                             <span class="link-text">Games</span>
@@ -69,14 +69,14 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/">
+                        <a href="/Index.aspx">
                             <span class="icon icon-spade"></span>
                             <br>
                             <span class="link-text">Poker</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/">
+                        <a href="/Index.aspx">
                             <span class="icon icon-mahjong"></span>
                             <br>
                             <span class="link-text">Texas Mahjong</span>
