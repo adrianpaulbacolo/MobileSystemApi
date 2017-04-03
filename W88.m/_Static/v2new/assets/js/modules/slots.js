@@ -266,8 +266,9 @@ function Slots() {
         })
     }
 
-    function launchGame(id, club) {
-        viewGame(id, club);
+    function launchGame(id, club, mode) {
+        if (_.isEmpty(mode)) mode = "fun";
+        viewGame(id, club, mode);
         $('#gameModal').modal('toggle');
     }
 
@@ -306,7 +307,7 @@ function Slots() {
             $('#gameRealUrl').off("click");
             $('#gameRealUrl').on("click", function (e) {
                 e.preventDefault();
-                launchGame(id, club);
+                launchGame(id, club, "real");
             });
         }
         else {

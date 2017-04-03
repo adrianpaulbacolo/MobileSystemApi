@@ -216,6 +216,7 @@ function Routes() {
                 launcherPage.route = pageRoute;
                 launcherPage.page = w88Mobile.v2.Routes.currentPage();
                 launcherPage.page = _.extend(launcherPage.page, params);
+                launcherPage.mode = (!_.isEmpty(params.mode)) ? params.mode : "fun";
                 launcherPage.game = _.find(w88Mobile.v2.Slots.items, function (data) {
                     return _.isEqual(data.Id, launcherPage.page.gameId);
                 });

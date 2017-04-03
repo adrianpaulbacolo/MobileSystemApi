@@ -73,24 +73,25 @@
     </div>
 
     <script src="assets/js/modules/cookies.js"></script>
-    <script type="text/javascript">
-        w88Mobile = {};
-        w88Mobile.v2 = {};
-        w88Mobile.v2._templates = {};
-        w88Mobile.User = {};
-        w88Mobile.User.token = Cookies().getCookie('s');
-        w88Mobile.User.lang = Cookies().getCookie('language');
-
-        String.prototype.toCapitalize = function () {
-            return this.charAt(0).toUpperCase() + this.slice(1);
-        }
-    </script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="assets/js/vendor/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../v2/assets/js/vendor/bootstrap.min.js"></script>
     <script src="/_Static/JS/vendor/lodash.min.js"></script>
     <script src="assets/js/vendor/pubsub.js"></script>
+    <script type="text/javascript">
+        w88Mobile = {};
+        w88Mobile.v2 = {};
+        w88Mobile.v2._templates = {};
+        window.User = w88Mobile.User = {};
+        w88Mobile.User.token = Cookies().getCookie('s');
+        w88Mobile.User.hasSession = !_.isEmpty(w88Mobile.User.token);
+        w88Mobile.User.lang = Cookies().getCookie('language');
+
+        String.prototype.toCapitalize = function () {
+            return this.charAt(0).toUpperCase() + this.slice(1);
+        }
+    </script>
     <script src="assets/js/modules/templates.js"></script>
     <script src="assets/js/modules/slots.js"></script>
     <script src="assets/js/modules/translate.js"></script>
@@ -99,6 +100,7 @@
     <script src="assets/js/modules/ctrl/clubsCtrl.js"></script>
     <script src="assets/js/modules/ctrl/launcherCtrl.js"></script>
     <script src="assets/js/modules/routes.js"></script>
+    <script src="/_Static/v2/assets/js/usercheck.js"></script>
     <script type="text/javascript">
         _.templateSettings = {
             interpolate: /\{\{(.+?)\}\}/g,      // print value: {{ value_name }}
@@ -230,7 +232,7 @@
             w88Mobile.v2.Slots.club = club;
         }
 
-        function viewGame(id, club) {
+        function viewGame(id, club, mode) {
 
             if (_.isUndefined(club)) {
                 var ctrl = _routes.currentCtrl();
@@ -241,6 +243,7 @@
                 route: "launcher", params: {
                     gameId: id
                     , club: club
+                    , mode: mode
                 }
             });
 
