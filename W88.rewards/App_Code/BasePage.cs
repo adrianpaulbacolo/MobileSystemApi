@@ -97,6 +97,8 @@ public class BasePage : Page
 
     protected string GetTranslation(string key, string fileName = "")
     {
-        return CultureHelpers.GetTranslation(key, LanguageHelpers.SelectedLanguage, string.Format("contents/{0}", string.IsNullOrEmpty(fileName) ? "translations" : fileName));
+        return CultureHelpers.GetTranslation(key, 
+            string.IsNullOrEmpty(Language) ? LanguageHelpers.SelectedLanguage : Language, 
+            string.Format("contents/{0}", string.IsNullOrEmpty(fileName) ? "translations" : fileName));
     }
 }

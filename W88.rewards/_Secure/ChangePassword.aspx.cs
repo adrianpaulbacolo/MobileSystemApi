@@ -17,12 +17,12 @@ public partial class _Secure_ChangePassword : BasePage
 
         if (!HasSession)
         {
-            Response.Redirect(string.Format(@"/_Secure/Login.aspx?lang={0}", Language));
+            Response.Redirect("/_Secure/Login.aspx");
             return;
         }
 
-        lblCurrentPassword.Text = CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD_CURRENT", Language, TranslationsPath);
-        lblNewPassword.Text = CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD_NEW", Language, TranslationsPath);
-        lblConfirmPassword.Text = CultureHelpers.GetTranslation("LABEL_CHANGEPASSWORD_CONFIRM", Language, TranslationsPath);  
+        lblCurrentPassword.Text = GetTranslation("LABEL_CHANGEPASSWORD_CURRENT");
+        lblNewPassword.Text = GetTranslation("LABEL_CHANGEPASSWORD_NEW");
+        lblConfirmPassword.Text = GetTranslation("LABEL_CHANGEPASSWORD_CONFIRM");  
     }
 }
