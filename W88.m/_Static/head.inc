@@ -28,6 +28,7 @@
 <script type="text/javascript" src="/_Static/JS/Mobile/jquery.mobile-1.4.5.min.js"></script>
 <script type="text/javascript" src="/_Static/JS/jquery.mask.min.js"></script>
 <script type="text/javascript" src="/_Static/JS/vendor/lodash.min.js"></script>
+<script type="text/javascript" src="/_Static/JS/vendor/pubsub.js?v="<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 <script type="text/javascript" src="/_Static/JS/vendor/moment.min.js"></script>
 <script type="text/javascript" src="/_Static/JS/vendor/amplify.min.js"></script>
 <script type="text/javascript" src="/_Static/JS/Mobile/iscroll.js"></script>
