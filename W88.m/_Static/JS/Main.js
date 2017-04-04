@@ -60,6 +60,10 @@ function redirectToHttps() {
     }
 }
 
+function getQueryStringValue(key) {
+    return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+}
+
 function NotAllowDecimal(e) {
     var key = e.keyCode;
     if ($.browser.mozilla) {
@@ -177,8 +181,4 @@ function TwoDecimalAndroid(ctrl, event) {
     if ((text.indexOf('.') != -1) && (text.substring(text.indexOf('.')).length > 2) && (event.which != 0 && event.which != 8) && ($this[0].selectionStart >= text.length - 2)) {
         event.preventDefault();
     }
-}
-
-function getQueryStringValue(key) {
-    return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
 }
