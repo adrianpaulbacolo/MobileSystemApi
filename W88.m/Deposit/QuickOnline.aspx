@@ -19,8 +19,12 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder1" runat="Server">
     <script type="text/javascript" src="/_Static/JS/modules/gateways/autoroute.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="/_Static/JS/vendor/slick.min.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/banner.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+            _w88_paymentbanner.init("QuickOnline");
+
             _w88_paymentSvc.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvc.DisplaySettings(
                 "<%=base.PaymentMethodId %>"
