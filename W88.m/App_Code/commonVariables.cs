@@ -246,7 +246,7 @@ public class commonVariables
         AifuWeChat = 1202133,
         AifuAlipay = 1202134,
         DinPayTopUp = 1202112,
-
+        PayTrust = 1202139,
     }
 
     public enum WithdrawalMethod

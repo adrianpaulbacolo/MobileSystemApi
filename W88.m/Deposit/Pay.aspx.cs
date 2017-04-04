@@ -77,6 +77,9 @@ public partial class Deposit_Pay : PaymentBasePage
             case commonVariables.DepositMethod.AifuWeChat:
                 GatewayFile = "aifu";
                 break;
+            case commonVariables.DepositMethod.PayTrust:
+                GatewayFile = "paytrust";
+                break;
         }
 
         commonVariables.AutoRouteMethod autoRouteId;
