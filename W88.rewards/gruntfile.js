@@ -65,7 +65,9 @@
                     '_Static/headvip.inc',
                     '_Secure/Login.aspx',
                     '_Static/Pages/404.aspx',
-                    '_Static/Pages/500.aspx'
+                    '_Static/Pages/500.aspx',
+                    '_Static/Pages/enhancement-all.aspx',
+                    '_Static/Pages/enhancement.aspx'
                 ]
             }
         },

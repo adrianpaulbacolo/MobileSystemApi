@@ -1,3 +1,4 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="enhancement-all.aspx.cs" Inherits="enhancement_all" Async="true"%> 
 <%@ Import Namespace="W88.BusinessLogic.Shared.Helpers" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +9,7 @@
     <title>Enhancement</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link href="/_Static/Css/errors/styles.ab50292d.css" rel="stylesheet" type="text/css">
-
+    <script src="/_Static/JS/Mobile/jquery-1.11.3.min.js"></script>
 </head>
 <body class="enhancement-all">
 
@@ -19,37 +20,37 @@
     <section>
         <div class="enhancement-container">
             <div class="enhancement-content-all">
-                <div class="enhancement-lang">
-                    <h3>Enhancement</h3>
-                    <p>We will be back shortly after this scheduled enhancement. If you need assistance, please contact our Customer Service via <a href="/LiveChat/Default.aspx" target="_blank" class="text-primary">Live Chat</a> or <span class="text-primary"><a href="mailto:info@w88.com" class="text-primary">info@w88.com</a></span>.</p>
+                <div id="en" class="enhancement-lang">
+                    <h3></h3>
+                    <p></p>
                 </div>
-                <div class="enhancement-lang">
-                    <h3>升级</h3> 
-                    <p>我们将尽快恢复，完成此次升级。 如需帮助，请随时联系 <a href="#" class="text-primary">在线客服</a> 或发送邮件至<span class="text-primary">cncs@w88yd.com</span>.</p>
+                <div id="cn" class="enhancement-lang">
+                    <h3></h3> 
+                    <p></p>
                 </div>
-                <div class="enhancement-lang">
-                    <h3>PENINGKATAN</h3>
-                    <p>Kami akan kembali online secepatnya setelah peningkatan reguler ini. Jika Anda butuh bantuan, silakan hubungi Customer Service kami lewat <a href="#" class="text-primary">Live Chat</a> atau  <span class="text-primary">infoid@w88.com</span>.</p>
+                <div id="id" class="enhancement-lang">
+                    <h3></h3>
+                    <p></p>
                 </div>
-                <div class="enhancement-lang">
-                    <h3>強化</h3>
-                    <p>この強化作業が完了次第、通常に戻ります。 何かご不明な点がございましたら、<a href="#" class="text-primary">ライブチャット</a> もしくは  <span class="text-primary">infojp@w88.com</span>までお問い合わせください。</p>
+                <div id="jp" class="enhancement-lang">
+                    <h3></h3>
+                    <p></p>
                 </div>
-                <div class="enhancement-lang">
-                    <h3>ការតម្លើង</h3>
-                    <p>យើងខ្ញុំនឹងត្រឡប់មកវិញឆាប់ៗ បន្ទាប់ពីការតម្លើងនេះ។ ប្រសិនបើអ្នកត្រូវការជំនួយ សូមទំនាក់ទំនងសេវាបំរើអតិថិជនតាមរយៈ<a href="#" class="text-primary">ជំនួយផ្ទាល់</a> ឬ <span class="text-primary">infokh@w88.com</span>.</p>
+                <div id="kh" class="enhancement-lang">
+                    <h3></h3>
+                    <p></p>
                 </div>
-                <div class="enhancement-lang">
-                    <h3>점검</h3>
-                    <p>더 나은 서비스 개선을 위해 점검에 들어갔습니다. 도움이 필요하신 분들께서는 고객상담 <a href="#" class="text-primary">라이브 채팅</a> 또는 <span class="text-primary">infokr@w88.com</span> 으로 문의주세요.</p>
+                <div id="kr" class="enhancement-lang">
+                    <h3></h3>
+                    <p></p>
                 </div>
-                <div class="enhancement-lang">
-                    <h3>กำลังปรับปรุงระบบ</h3>
-                    <p>ระบบจะกลับมาใช้งานได้ตามปกติอีกครั้งหลังจากดำเนินการปรับปรุงระบบเสร็จสิ้นแล้ว หากท่านต้องการความช่วยเหลือเพิ่มเติม กรุณาติดต่อเจ้าหน้าที่ลูกค้าสัมพันธ์ผ่าน <a href="#" class="text-primary">ห้องสนทนาสด</a> หรือ <span class="text-primary">infoth@w88.com</span>.</p>
+                <div id="th" class="enhancement-lang">
+                    <h3></h3>
+                    <p></p>
                 </div>
-                <div class="enhancement-lang">
-                    <h3>NÂNG CẤP</h3>
-                    <p>Chúng tôi sẽ quay lại ngay sau khi nâng cấp hệ thống định kỳ. Vui lòng <a href="#" class="text-primary">liên hệ chat</a> hỗ trợ trực tuyến hoặc email về <span class="text-primary">infovn@w88.com</span> nếu bạn cần hỗ trợ.</p>
+                <div id="vn" class="enhancement-lang">
+                    <h3></h3>
+                    <p></p>
                 </div>
             </div>
         </div>
@@ -61,8 +62,46 @@
     </footer>
 
     <script>
-        var language = '<%=LanguageHelpers.SelectedLanguage%>';
-
+        var language = '<%=LanguageHelpers.SelectedLanguage%>',
+            translations = {
+                en: {
+                    title: "<%=GetTranslation("Enhancement_en", "messages")%>",
+                    message: "<%=GetTranslation("Enhancement_Message_en", "messages")%>"
+                },
+                cn: {
+                    title: "<%=GetTranslation("Enhancement_cn", "messages")%>",
+                    message: "<%=GetTranslation("Enhancement_Message_cn", "messages")%>"
+                },
+                id: {
+                    title: "<%=GetTranslation("Enhancement_id", "messages")%>",
+                    message: "<%=GetTranslation("Enhancement_Message_id", "messages")%>"
+                },
+                jp: {
+                    title: "<%=GetTranslation("Enhancement_jp", "messages")%>",
+                    message: "<%=GetTranslation("Enhancement_Message_jp", "messages")%>"
+                },
+                kh: {
+                    title: "<%=GetTranslation("Enhancement_kh", "messages")%>",
+                    message: "<%=GetTranslation("Enhancement_Message_kh", "messages")%>"
+                },
+                kr: {
+                    title: "<%=GetTranslation("Enhancement_kr", "messages")%>",
+                    message: "<%=GetTranslation("Enhancement_Message_kr", "messages")%>"
+                },
+                th: {
+                    title: "<%=GetTranslation("Enhancement_th", "messages")%>",
+                    message: "<%=GetTranslation("Enhancement_Message_th", "messages")%>"
+                },
+                vn: {
+                    title: "<%=GetTranslation("Enhancement_vn", "messages")%>",
+                    message: "<%=GetTranslation("Enhancement_Message_vn", "messages")%>"
+                }
+            };
+        $('div.enhancement-content-all').find($('div.enhancement-lang')).each(function() {
+            var id = $(this)[0].id;
+            $('#' + id + ' h3').html(translations[id].title);
+            $('#' + id + ' p').html(translations[id].message);
+        });
     </script>
 </body>
 </html>
