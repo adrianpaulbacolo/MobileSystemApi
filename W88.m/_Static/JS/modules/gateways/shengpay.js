@@ -10,6 +10,7 @@ function ShengPay() {
         var params = _self.getUrlVars();
         var data = {
             Amount: params.Amount,
+            Method: params.Method,
             ThankYouPage: params.ThankYouPage,
         };
 

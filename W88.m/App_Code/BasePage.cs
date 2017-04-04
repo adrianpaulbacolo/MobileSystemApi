@@ -73,6 +73,7 @@ public class BasePage : System.Web.UI.Page
 
     protected override void OnLoad(EventArgs e)
     {
+        commonCookie.CookieSubPlatform(HttpContext.Current.Request.QueryString.Get("spfid"));
 
         var strLanguage = HttpContext.Current.Request.QueryString.Get("lang");
 
