@@ -22,6 +22,7 @@ function launcherCtrl(routeObj, slotSvc, templateSvc) {
             top: headerHeight + "px"
         };
 
+
         switch (_self.mode) {
             default:
             case "fun":
@@ -32,7 +33,21 @@ function launcherCtrl(routeObj, slotSvc, templateSvc) {
                 break;
         }
 
-        _self.attachGame(game);
+        switch (_self.club.name) {
+            case "palazzo":
+                initPalazzo(
+                    (_self.mode == "fun") ? 0 : 1
+                    , _self.game.ProviderSettings.username
+                    , _self.game.ProviderSettings.gamepass
+                    , _self.game.ProviderSettings.gamelang
+                    , game.url
+                    );
+                break
+            default:
+                _self.attachGame(game);
+                break;
+        }
+
 
     }
 
@@ -77,5 +92,41 @@ function launcherCtrl(routeObj, slotSvc, templateSvc) {
     * List of listeners below
     *
     **/
+
+    /**
+    * List of custom private functions
+    *
+    **/
+    function initPalazzo(isReal, userName, password, langCode, link) {
+
+        iapiSetClientPlatform("mobile&deliveryPlatform=HTML5");
+        var result = iapiLogin(userName, password, isReal, langCode);
+        iapiSetCallout('Login', calloutLogin);
+
+        //CALLOUT----------------------------------------------
+        function calloutLogin(response) {
+            if (response.errorCode) {
+                w88Mobile.Growl.shout("Login failed. " + response.playerMessage + " Error code: " + response.errorCode, function () {
+                    _routes.previous();
+                });
+            }
+            else {
+                iapiRequestTemporaryToken(isReal, '427', 'GamePlay');
+                iapiSetCallout('GetTemporaryAuthenticationToken', calloutGetTemporaryAuthenticationToken);
+            }
+        }
+
+        function calloutGetTemporaryAuthenticationToken(response) {
+            if (response.errorCode) {
+                w88Mobile.Growl.shout("Token failed. " + response.playerMessage + " Error code: " + response.errorCode, function () {
+                    _routes.previous();
+                });
+            }
+            else {
+                _self.game.realUrl = link.replace("{TOKEN}", response.sessionToken.sessionToken);
+                _self.attachGame(game);
+            }
+        }
+    }
 
 }

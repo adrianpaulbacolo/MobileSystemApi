@@ -73,9 +73,14 @@ function Slots() {
     }
 
     function getSlots(provider, success, error) {
+
         var data = {
             cashier: "v2/Funds.aspx",
-            lobby: "_static/v2new/slots.html"
+            lobby: "_static/v2new/slots.html",
+            configfile: "native"
+        }
+        if(provider == "pt"){
+            data.gamepass = Cookies().getCookie('palazzo');
         }
         var url = "/api/games/" + provider;
         send(url, "GET", data, success, error);
