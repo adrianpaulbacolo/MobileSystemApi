@@ -1,5 +1,13 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="enhancement-all.aspx.cs" Inherits="enhancement_all" Async="true"%> 
+<%@ Page Language="C#" AutoEventWireup="true" %>
 <%@ Import Namespace="W88.BusinessLogic.Shared.Helpers" %>
+<script runat="server">
+    protected string Language = string.Empty;
+    protected const string Path = "contents/messages";
+    protected void Page_Load(object obj, EventArgs e)
+    {
+        Language = LanguageHelpers.SelectedLanguage;
+    }
+</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,36 +73,36 @@
         var language = '<%=LanguageHelpers.SelectedLanguage%>',
             translations = {
                 en: {
-                    title: "<%=GetTranslation("Enhancement_en", "messages")%>",
-                    message: "<%=GetTranslation("Enhancement_Message_en", "messages")%>"
+                    title: "<%=CultureHelpers.GetTranslation("Enhancement_en", Language, Path)%>",
+                    message: "<%=CultureHelpers.GetTranslation("Enhancement_Message_en", Language, Path)%>"
                 },
                 cn: {
-                    title: "<%=GetTranslation("Enhancement_cn", "messages")%>",
-                    message: "<%=GetTranslation("Enhancement_Message_cn", "messages")%>"
+                    title: "<%=CultureHelpers.GetTranslation("Enhancement_cn", Language, Path)%>",
+                    message: "<%=CultureHelpers.GetTranslation("Enhancement_Message_cn", Language, Path)%>"
                 },
                 id: {
-                    title: "<%=GetTranslation("Enhancement_id", "messages")%>",
-                    message: "<%=GetTranslation("Enhancement_Message_id", "messages")%>"
+                    title: "<%=CultureHelpers.GetTranslation("Enhancement_id", Language, Path)%>",
+                    message: "<%=CultureHelpers.GetTranslation("Enhancement_Message_id", Language, Path)%>"
                 },
                 jp: {
-                    title: "<%=GetTranslation("Enhancement_jp", "messages")%>",
-                    message: "<%=GetTranslation("Enhancement_Message_jp", "messages")%>"
+                    title: "<%=CultureHelpers.GetTranslation("Enhancement_jp", Language, Path)%>",
+                    message: "<%=CultureHelpers.GetTranslation("Enhancement_Message_jp", Language, Path)%>"
                 },
                 kh: {
-                    title: "<%=GetTranslation("Enhancement_kh", "messages")%>",
-                    message: "<%=GetTranslation("Enhancement_Message_kh", "messages")%>"
+                    title: "<%=CultureHelpers.GetTranslation("Enhancement_kh", Language, Path)%>",
+                    message: "<%=CultureHelpers.GetTranslation("Enhancement_Message_kh", Language, Path)%>"
                 },
                 kr: {
-                    title: "<%=GetTranslation("Enhancement_kr", "messages")%>",
-                    message: "<%=GetTranslation("Enhancement_Message_kr", "messages")%>"
+                    title: "<%=CultureHelpers.GetTranslation("Enhancement_kr", Language, Path)%>",
+                    message: "<%=CultureHelpers.GetTranslation("Enhancement_Message_kr", Language, Path)%>"
                 },
                 th: {
-                    title: "<%=GetTranslation("Enhancement_th", "messages")%>",
-                    message: "<%=GetTranslation("Enhancement_Message_th", "messages")%>"
+                    title: "<%=CultureHelpers.GetTranslation("Enhancement_th", Language, Path)%>",
+                    message: "<%=CultureHelpers.GetTranslation("Enhancement_Message_th", Language, Path)%>"
                 },
                 vn: {
-                    title: "<%=GetTranslation("Enhancement_vn", "messages")%>",
-                    message: "<%=GetTranslation("Enhancement_Message_vn", "messages")%>"
+                    title: "<%=CultureHelpers.GetTranslation("Enhancement_vn", Language, Path)%>",
+                    message: "<%=CultureHelpers.GetTranslation("Enhancement_Message_vn", Language, Path)%>"
                 }
             };
         $('div.enhancement-content-all').find($('div.enhancement-lang')).each(function() {

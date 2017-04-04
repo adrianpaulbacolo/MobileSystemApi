@@ -7,6 +7,7 @@ using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Rewards.Models;
 using W88.BusinessLogic.Shared.Helpers;
 using W88.Utilities;
+using W88.Utilities.Geo;
 
 
 public class BasePage : Page
@@ -19,10 +20,37 @@ public class BasePage : Page
     protected RewardsHelper RewardsHelper = new RewardsHelper();
     protected string Language = string.Empty;
 
+    protected bool IsUnderMaintenance
+    {
+        get
+        {
+            bool isUnderMaintenance;
+            Boolean.TryParse(Common.GetAppSetting<string>("isUnderMaintenance"), out isUnderMaintenance);
+            var allowedIps = Common.GetAppSetting<string>("allowedIPs");
+
+            if (isUnderMaintenance &&
+                (!string.IsNullOrEmpty(allowedIps) && allowedIps.Contains(new IpHelper().User)))
+                return false;
+
+            var maintenanceModules = Common.GetAppSetting<string>("maintenanceModules");
+            if (string.IsNullOrEmpty(maintenanceModules))
+                return isUnderMaintenance;
+
+            if (!string.IsNullOrEmpty(maintenanceModules) && Array.IndexOf(maintenanceModules.Split('|'), Request.Url.AbsolutePath.ToLower()) < 0)
+                return false;
+
+            return isUnderMaintenance;
+        }
+    }
+
     protected override void OnPreInit(EventArgs e)
     {
         try
         {
+            if (IsUnderMaintenance)
+            {
+                Response.Redirect("/_Static/Pages/enhancement-all.aspx", true);
+            }
             if (bool.Parse(Common.GetAppSetting<string>("ClearWebCache")))
             {
                 foreach (System.Collections.DictionaryEntry deCache in HttpContext.Current.Cache)
