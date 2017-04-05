@@ -132,6 +132,7 @@ function slotsCtrl(routeObj, slotSvc, templateSvc) {
             if (data._self.route != "index") {
                 data._self.page.find(".main-content").append(innerHtml);
             } else {
+                if (data.games.length == 0) return;
 
                 if (!_.isEmpty(club.name)) {
                     var slotIndex = _.findIndex(w88Mobile.v2.Slots.clubs, function (slot) {

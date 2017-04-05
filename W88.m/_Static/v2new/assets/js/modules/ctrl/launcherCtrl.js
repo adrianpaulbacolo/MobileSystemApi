@@ -40,7 +40,8 @@ function launcherCtrl(routeObj, slotSvc, templateSvc) {
                     , _self.game.ProviderSettings.username
                     , _self.game.ProviderSettings.gamepass
                     , _self.game.ProviderSettings.gamelang
-                    , game.url
+                    , game
+                    , _self
                     );
                 break
             default:
@@ -97,8 +98,9 @@ function launcherCtrl(routeObj, slotSvc, templateSvc) {
     * List of custom private functions
     *
     **/
-    function initPalazzo(isReal, userName, password, langCode, link) {
+    function initPalazzo(isReal, userName, password, langCode, game, _self) {
 
+        link = game.url
         iapiSetClientPlatform("mobile&deliveryPlatform=HTML5");
         var result = iapiLogin(userName, password, isReal, langCode);
         iapiSetCallout('Login', calloutLogin);
@@ -123,7 +125,7 @@ function launcherCtrl(routeObj, slotSvc, templateSvc) {
                 });
             }
             else {
-                _self.game.realUrl = link.replace("{TOKEN}", response.sessionToken.sessionToken);
+                game.url = link.replace("{TOKEN}", response.sessionToken.sessionToken);
                 _self.attachGame(game);
             }
         }
