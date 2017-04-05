@@ -92,7 +92,8 @@ public class BasePage : Page
                 // Check if site is under maintenance and allow only certain users to have access
                 var isAllowedAccess = false;
                 var allowedUsers = Common.GetAppSetting<string>("allowedUsers");
-                if (!string.IsNullOrEmpty(allowedUsers) && allowedUsers.Contains(UserSessionInfo.MemberCode))
+                if (!string.IsNullOrEmpty(allowedUsers) && !string.IsNullOrEmpty(UserSessionInfo.MemberCode) 
+                    && allowedUsers.Contains(UserSessionInfo.MemberCode))
                     isAllowedAccess = true;
 
                 if (!isAllowedAccess)
