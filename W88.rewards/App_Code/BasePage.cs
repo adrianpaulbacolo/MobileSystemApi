@@ -26,20 +26,14 @@ public class BasePage : Page
         {
             bool isUnderMaintenance;
             Boolean.TryParse(Common.GetAppSetting<string>("isUnderMaintenance"), out isUnderMaintenance);
-            var allowedIps = Common.GetAppSetting<string>("allowedIPs");
-
-            if (isUnderMaintenance &&
-                (!string.IsNullOrEmpty(allowedIps) && allowedIps.Contains(new IpHelper().User)))
+            if (!isUnderMaintenance)
                 return false;
 
             var maintenanceModules = Common.GetAppSetting<string>("maintenanceModules");
             if (string.IsNullOrEmpty(maintenanceModules))
-                return isUnderMaintenance;
+                return true;
 
-            if (!string.IsNullOrEmpty(maintenanceModules) && Array.IndexOf(maintenanceModules.Split('|'), Request.Url.AbsolutePath.ToLower()) < 0)
-                return false;
-
-            return isUnderMaintenance;
+            return !(Array.IndexOf(maintenanceModules.Split('|'), Request.Url.AbsolutePath.ToLower()) < 0);
         }
     }
 
@@ -47,11 +41,6 @@ public class BasePage : Page
     {
         try
         {
-            if (IsUnderMaintenance)
-            {
-                Response.Redirect("/_Static/Pages/enhancement-all.aspx", false);
-                return;
-            }
             if (bool.Parse(Common.GetAppSetting<string>("ClearWebCache")))
             {
                 foreach (System.Collections.DictionaryEntry deCache in HttpContext.Current.Cache)
@@ -97,6 +86,22 @@ public class BasePage : Page
             if (!HasSession) return;
             MemberSession = process.Data;
             UserSessionInfo = await MembersHelper.GetMemberInfo(token);
+
+            if (IsUnderMaintenance)
+            {
+                // Check if site is under maintenance and allow only certain users to have access
+                var isAllowedAccess = false;
+                var allowedUsers = Common.GetAppSetting<string>("allowedUsers");
+                if (!string.IsNullOrEmpty(allowedUsers) && allowedUsers.Contains(UserSessionInfo.MemberCode))
+                    isAllowedAccess = true;
+
+                if (!isAllowedAccess)
+                {
+                    Response.Redirect("/_Static/Pages/enhancement-all.aspx", false);
+                    return;
+                }
+            }
+         
             SetMemberRewardsInfo();
         }
         catch (Exception)
