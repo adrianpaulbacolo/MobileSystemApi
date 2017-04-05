@@ -134,7 +134,8 @@ function Banner() {
     var paymentbanner = {
         init: init,
         openVideo: openVideo,
-        closeVideo: closeVideo
+        closeVideo: closeVideo,
+        forceStop: forceStop
     }
 
     function init(id) {
@@ -155,21 +156,29 @@ function Banner() {
             arrows: true,
             infinite: false,
             focusOnSelect: true,
+            zIndex: 1
         });
 
-        $('.video-responsive').hide();
+        $('.embed-responsive').hide();
     }
 
     function openVideo(me) {
         $(me.nextElementSibling).show(); // video
-        $(me.nextElementSibling)[0].play();
+        $(me.nextElementSibling).find('video')[0].play();
         $(me).hide(); // image
     }
 
 
     function closeVideo(me) {
         $(me.previousElementSibling).show(); //image
-        $(me).hide(); // video
+        $(me).parent().hide(); // video
+    }
+
+
+    function forceStop(me) {
+        $(me).parent().find('video')[0].pause();
+        $(me).parent().parent().find('img').show(); // video
+        $(me).parent().hide(); // video
     }
 
     return paymentbanner;
