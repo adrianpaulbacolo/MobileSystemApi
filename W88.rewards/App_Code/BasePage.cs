@@ -93,7 +93,7 @@ public class BasePage : Page
                 var isAllowedAccess = false;
                 var allowedUsers = Common.GetAppSetting<string>("allowedUsers");
                 if (!string.IsNullOrEmpty(allowedUsers) && !string.IsNullOrEmpty(UserSessionInfo.MemberCode) 
-                    && allowedUsers.Contains(UserSessionInfo.MemberCode))
+                    && allowedUsers.ToLower().Contains(UserSessionInfo.MemberCode.ToLower()))
                     isAllowedAccess = true;
 
                 if (!isAllowedAccess)
