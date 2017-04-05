@@ -49,7 +49,8 @@ public class BasePage : Page
         {
             if (IsUnderMaintenance)
             {
-                Response.Redirect("/_Static/Pages/enhancement-all.aspx", true);
+                Response.Redirect("/_Static/Pages/enhancement-all.aspx", false);
+                return;
             }
             if (bool.Parse(Common.GetAppSetting<string>("ClearWebCache")))
             {
