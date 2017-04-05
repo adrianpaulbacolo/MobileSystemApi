@@ -1,0 +1,58 @@
+.tab-bar {
+	width: 100%;
+	font-family: $dinpro;
+	background-color: $tab-bar-bg;
+	background-image: none; 
+	height: 47px;
+	border: none;
+	top: 47px;
+	z-index: 4;
+	padding-left: 16px;
+	position: absolute;
+	overflow: auto;
+	ul{
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: table;
+		height: 47px;
+		li{
+			text-align: center;
+			padding: 0;
+			display: table-cell;
+			vertical-align: middle;
+			position: relative;
+			width: 1%;
+			a{
+				color: $tab-bar-color;
+				font-size: 0.875rem;
+				text-transform: uppercase;
+				padding-left: 15px;
+				padding-right: 15px;
+			}
+			&.active{
+				a{
+					color: $tab-bar-color-active;
+				}
+				&:after{
+					content: '';
+					width: 100%;
+					height: 4px;
+					background-color: $tab-bar-border-active;
+					left: 0;
+					bottom: 0;
+					position: absolute;
+				}
+			}
+		}
+	}
+	&.tab-bar-scroll{
+		ul{
+			width: auto;
+			li{
+				width: auto;
+			}
+		}
+	}
+}

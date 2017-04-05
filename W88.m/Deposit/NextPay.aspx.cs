@@ -25,6 +25,7 @@ public partial class Deposit_NextPay : PaymentBasePage
     {
         if (!Page.IsPostBack)
         {
+            CheckAgentAndRedirect(string.Concat(V2DepositPath, "Pay", PaymentMethodId, ".aspx"));
             this.InitializeLabels();
         }
     }

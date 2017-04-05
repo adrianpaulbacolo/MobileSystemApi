@@ -1,34 +1,54 @@
 @font-face {
-  font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?sga6h5');
-  src:  url('fonts/icomoon.eot?sga6h5#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?sga6h5') format('truetype'),
-    url('fonts/icomoon.woff?sga6h5') format('woff'),
-    url('fonts/icomoon.svg?sga6h5#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'icomoon';
+    src:    url('fonts/icomoon.eot?svjfqi');
+    src:    url('fonts/icomoon.eot?svjfqi#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?svjfqi') format('truetype'),
+        url('fonts/icomoon.woff?svjfqi') format('woff'),
+        url('fonts/icomoon.svg?svjfqi#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
-
 [class^="icon-"], [class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
 
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .icon-affiliate:before {
   content: "\e600";
 }
+.icon-android:before {
+  content: "\e91a";
+}
 .icon-announcement:before {
   content: "\e601";
+}
+.icon-apple:before {
+  content: "\e91b";
+}
+.icon-arrow-down:before {
+  content: "\e915";
+}
+.icon-arrow-left:before {
+  content: "\e914";
+}
+.icon-arrow-right:before {
+  content: "\e91e";
+}
+.icon-arrow-up:before {
+  content: "\e91f";
+}
+.icon-back:before {
+  content: "\e916";
 }
 .icon-banking:before {
   content: "\e602";
@@ -39,11 +59,20 @@
 .icon-bell-solid:before {
   content: "\e900";
 }
+.icon-box-checked:before {
+  content: "\e920";
+}
+.icon-box-unchecked:before {
+  content: "\e921";
+}
 .icon-bullet:before {
   content: "\e801";
 }
 .icon-bullet-outline:before {
   content: "\e800";
+}
+.icon-cancel:before {
+  content: "\e925";
 }
 .icon-casino:before {
   content: "\e603";
@@ -52,7 +81,13 @@
   content: "\e604";
 }
 .icon-check:before {
+  content: "\e926";
+}
+.icon-check2:before {
   content: "\e908";
+}
+.icon-close:before {
+  content: "\e917";
 }
 .icon-compose:before {
   content: "\e605";
@@ -60,17 +95,32 @@
 .icon-currency:before {
   content: "\e606";
 }
+.icon-currency-circle:before {
+  content: "\e911";
+}
 .icon-deposit:before {
   content: "\e607";
 }
 .icon-desktop:before {
   content: "\e90f";
 }
+.icon-download:before {
+  content: "\e913";
+}
+.icon-filter:before {
+  content: "\e91d";
+}
 .icon-fish:before {
   content: "\e902";
 }
+.icon-forward:before {
+  content: "\e918";
+}
 .icon-freebet:before {
   content: "\e608";
+}
+.icon-games:before {
+  content: "\e91c";
 }
 .icon-grid:before {
   content: "\e903";
@@ -108,6 +158,9 @@
 .icon-mail:before {
   content: "\e60f";
 }
+.icon-minus:before {
+  content: "\e927";
+}
 .icon-navicon:before {
   content: "\e906";
 }
@@ -116,6 +169,9 @@
 }
 .icon-phone:before {
   content: "\e611";
+}
+.icon-plus:before {
+  content: "\e928";
 }
 .icon-profile:before {
   content: "\e612";
@@ -129,17 +185,29 @@
 .icon-promo-solid:before {
   content: "\e909";
 }
+.icon-radio-checked:before {
+  content: "\e922";
+}
+.icon-radio-unchecked:before {
+  content: "\e923";
+}
 .icon-rebates:before {
   content: "\e910";
 }
 .icon-referral-bonus:before {
   content: "\e615";
 }
+.icon-refresh:before {
+  content: "\e924";
+}
 .icon-rewards:before {
   content: "\e806";
 }
 .icon-rewards-solid:before {
   content: "\e805";
+}
+.icon-search:before {
+  content: "\e919";
 }
 .icon-security:before {
   content: "\e617";
@@ -168,6 +236,9 @@
 .icon-submit:before {
   content: "\e61b";
 }
+.icon-swap:before {
+  content: "\e929";
+}
 .icon-template:before {
   content: "\e61c";
 }
@@ -183,7 +254,13 @@
 .icon-withdraw:before {
   content: "\e61f";
 }
+.icon-world:before {
+  content: "\e912";
+}
 .icon-zalo:before {
   content: "\e90e";
+}
+.icon-event:before {
+  content: "\e92a";
 }
 

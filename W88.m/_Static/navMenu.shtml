@@ -840,3 +840,25 @@ var fishingWorld = FishingWorldProduct.GetLink();
         });
     });
 </script>
+
+<% if (commonFunctions.isNativeAgent(Request)){ %>
+<script type="text/javascript">
+        $(function () {
+            $("#aMenu").attr("href", "#");
+            $("#aMenu").on("click", function(e){
+                e.preventDefault();
+                try{
+                    if(!_.isEmpty($(this).find("i.icon-navicon"))){
+                        Native.openSlidingMenu();
+                    }else{
+                        var isMainPage =  <%= commonFunctions.isMainPage(Request).ToString().ToLower() %>;
+                        if(isMainPage) window.location.href="/v2/Dashboard.aspx";
+                        else window.history.go(-1);
+                    }
+                }catch(e){
+                    console.log(e.message)
+                }
+            });
+        });
+</script>
+<% } %>

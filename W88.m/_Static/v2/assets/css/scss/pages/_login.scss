@@ -1,0 +1,54 @@
+.login{
+	padding-top: 30px;
+}
+.no-account{
+	margin: 16px auto 0;
+	max-width: 90%;
+}
+
+.login-message{
+	width: 100%;
+	margin: 0 auto;
+	left: 0;
+	bottom: 10%;
+	padding-left: 10%;
+	padding-right: 10%;
+	position: absolute;
+}
+
+
+@media (orientation: landscape) and (max-width:768px){
+	.login-message{
+		padding-top: 15px;
+		position: relative;
+		left: auto;
+		bottom: auto;
+	}
+
+}
+
+@media (min-height: 568px) {
+	.login{
+		padding-top: 20%;
+
+		.no-account{
+			margin: 20% auto 0;
+		}
+	}
+}
+
+@media (min-height: 768px) {
+	.login{
+		.no-account{
+			margin: 25% auto 0;
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.login{
+		.no-account{
+			margin: 20% auto 0;
+		}
+	}
+}

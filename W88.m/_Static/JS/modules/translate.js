@@ -21,7 +21,7 @@ function translate() {
         }
 
     }
-    
+
     this.fetch = function (lang, endpoint) {
         var _self = this;
         endpoint = (_.isUndefined(endpoint)) ? "/contents" : endpoint;
