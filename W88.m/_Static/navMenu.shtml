@@ -507,7 +507,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                     </a>
                 </li>
                 <li>
-                    <a class="card" rel="texasmahjong" href='<%= commonFunctions.getTexasMahjongDownloadLinks()%>' data-rel="dialog" data-ajax="false">
+                    <a class="card" rel="texasmahjong" href='<%= commonFunctions.GetSuperBullDownloadLink()%>' data-rel="dialog" data-ajax="false">
                         <img src="#" class="img-responsive SuperBull-Android">
                         <div class="title menuSuperBullTitle"></div>
                     </a>
