@@ -49,7 +49,7 @@ function MoneyTransfer() {
     };
 
     moneytransfer.countryphone = function () {
-        _w88_paymentSvcV2.Send("/countryphonelist", "GET", "", function (response) {
+        _w88_paymentSvcV2.Send("/CountryPhoneList", "GET", "", function (response) {
             if (!_.isEqual(response.ResponseCode, 0)) {
                 _.forEach(response.ResponseData.PhoneList, function(data) {
                     $('select[id$="drpContactCountry"]').append($("<option></option>").attr("value", data.Value).text(data.Text));
@@ -88,7 +88,7 @@ function MoneyTransfer() {
 
     moneytransfer.createWithdrawal = function (data) {
 
-        _w88_paymentSvcV2.Send("/countryphonelist", "GET", "", function (response) {
+        _w88_paymentSvcV2.Send("/CountryPhoneList", "GET", "", function (response) {
             if (!_.isEqual(response.ResponseCode, 0)) {
                 _.forEach(response.ResponseData.PhoneList, function (data) {
                     $('select[id$="drpContactCountry"]').append($("<option></option>").attr("value", data.Value).text(data.Text));

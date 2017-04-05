@@ -14,7 +14,7 @@
                 </a>
             </div>
             <div class="dashboard-col">
-                <a href="/v2/FundTransfer">
+                <a href="/v2/FundTransfer/">
                     <span class="icon icon-transfer"></span><%=commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%>
                 </a>
             </div>
@@ -26,7 +26,7 @@
                 </a>
             </div>
             <div class="dashboard-col">
-                <a href="/History">
+                <a href="/History/">
                     <span class="icon icon-history"></span><%=commonCulture.ElementValues.getResourceString("history", commonVariables.HistoryXML)%>
                 </a>
             </div>

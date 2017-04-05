@@ -15,12 +15,12 @@
     </div>
     <div class="form-group" id="accountName">
         <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" />
-        <asp:TextBox ID="txtAccountName" runat="server" CssClass="form-control" />
+        <asp:TextBox ID="txtAccountName" runat="server" CssClass="form-control" required data-accountName=""/>
         <asp:HiddenField ID="hfWCNickname" runat="server" ClientIDMode="Static" />
     </div>
     <div class="form-group" id="accountNo">
         <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" />
-        <asp:TextBox ID="txtAccountNumber" runat="server" CssClass="form-control" />
+        <asp:TextBox ID="txtAccountNumber" runat="server" CssClass="form-control" required data-accountNo=""/>
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">

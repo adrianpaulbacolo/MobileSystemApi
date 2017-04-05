@@ -10,8 +10,8 @@
         <asp:TextBox ID="txtAmount" runat="server" type="number" Enabled="False" />
     </div>
     <div class="form-group">
-        <asp:Label ID="lblOtp" runat="server" AssociatedControlID="txtOtp" required />
-        <asp:TextBox ID="txtOtp" runat="server" data-clear-btn="true" />
+        <asp:Label ID="lblOtp" runat="server" AssociatedControlID="txtOtp" />
+        <asp:TextBox ID="txtOtp" runat="server" data-clear-btn="true" required/>
     </div>
     <div class="form-group">
         <p id="notice" style="color: #ff0000"></p>

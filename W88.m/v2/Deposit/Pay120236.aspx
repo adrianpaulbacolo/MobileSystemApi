@@ -7,16 +7,16 @@
     </div>
     <div class="form-group">
         <asp:Label ID="lblCardType" runat="server" AssociatedControlID="ddlCardType" />
-        <asp:DropDownList ID="ddlCardType" runat="server" CssClass="form-control" >
+        <asp:DropDownList ID="ddlCardType" runat="server" CssClass="form-control" required data-selectequals="-1">
         </asp:DropDownList>
     </div>
     <div class="form-group">
         <asp:Label ID="lblCardName" runat="server" AssociatedControlID="txtCardName" />
-        <asp:TextBox ID="txtCardName" runat="server"  CssClass="form-control" />
+        <asp:TextBox ID="txtCardName" runat="server"  CssClass="form-control" required/>
     </div>
     <div class="form-group">
         <asp:Label ID="lblCardNo" runat="server" AssociatedControlID="txtCardNo" />
-        <asp:TextBox ID="txtCardNo" runat="server"  CssClass="form-control" />
+        <asp:TextBox ID="txtCardNo" runat="server"  CssClass="form-control" required/>
     </div>
     <div class="form-group">
         <asp:Label ID="lblExpiry" runat="server" AssociatedControlID="ddlExpiryMonth" />
@@ -31,7 +31,7 @@
     </div>
     <div class="form-group">
         <asp:Label ID="lblSecurityCode" runat="server" AssociatedControlID="txtSecurityCode" />
-        <asp:TextBox ID="txtSecurityCode" runat="server"  CssClass="form-control" />
+        <asp:TextBox ID="txtSecurityCode" runat="server"  CssClass="form-control" required />
         <a href="#" data-toggle="modal" data-target="#ccvModal"></a>
     </div>
 

@@ -6,7 +6,7 @@
     </div>
     <div class="form-group">
         <asp:Label ID="lblBanks" runat="server" AssociatedControlID="drpBanks" />
-        <asp:DropDownList ID="drpBanks" runat="server" CssClass="form-control">
+        <asp:DropDownList ID="drpBanks" runat="server" CssClass="form-control"  data-bankequals="-1">
         </asp:DropDownList>
     </div>
     <div class="form-group">
@@ -16,11 +16,11 @@
     </div>
     <div class="form-group">
         <asp:Label ID="lblPin" runat="server" AssociatedControlID="txtPin" />
-        <asp:TextBox ID="txtPin" runat="server" CssClass="form-control" />
+        <asp:TextBox ID="txtPin" runat="server" CssClass="form-control" required />
     </div>
     <div class="form-group">
         <asp:Label ID="lblCardSerialNo" runat="server" AssociatedControlID="txtCardSerialNo" />
-        <asp:TextBox ID="txtCardSerialNo" runat="server" CssClass="form-control" />
+        <asp:TextBox ID="txtCardSerialNo" runat="server" CssClass="form-control" required/>
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">
