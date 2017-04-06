@@ -135,7 +135,8 @@ function Banner() {
         init: init,
         openVideo: openVideo,
         closeVideo: closeVideo,
-        forceStop: forceStop
+        forceStop: forceStop,
+        forceStopWhenSubmit: forceStopWhenSubmit,
     }
 
     function init(id) {
@@ -176,9 +177,15 @@ function Banner() {
 
 
     function forceStop(me) {
-        $(me).parent().find('video')[0].pause();
-        $(me).parent().parent().find('img').show(); // video
+        $(me).parent().find('video')[0].pause(); // video
+        $(me).parent().parent().find('img').show(); //image
         $(me).parent().hide(); // video
+    }
+
+    function forceStopWhenSubmit() {
+        $(".payment-banner .embed-responsive video")[0].pause();
+        $(".img-responsive").show(); // video
+        $(".embed-responsive").hide(); // video
     }
 
     return paymentbanner;

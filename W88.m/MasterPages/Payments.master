@@ -64,7 +64,7 @@
             <ul class="list fixed-tablet-size">
                 <li class="item row" id="btnSubmitPlacement">
                     <div class="col">
-                        <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" />
+                        <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" OnClientClick="javascript: _w88_paymentbanner.forceStopWhenSubmit()" />
                     </div>
                 </li>
             </ul>
@@ -75,18 +75,17 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
+            _.templateSettings = {
+                interpolate: /\{\{(.+?)\}\}/g,      // print value: {{ value_name }}
+                evaluate: /\{%([\s\S]+?)%\}/g,   // excute code: {% code_to_execute %}
+                escape: /\{%-([\s\S]+?)%\}/g
+            };
+            _.templateSettings.variable = "tplData";
+
             var isDeposit = _.includes(window.location.pathname.toLowerCase(), "deposit");
 
             _w88_paymentSvc.init(isDeposit);
         });
-    </script>
-    <script type="text/javascript">
-        _.templateSettings = {
-            interpolate: /\{\{(.+?)\}\}/g,      // print value: {{ value_name }}
-            evaluate: /\{%([\s\S]+?)%\}/g,   // excute code: {% code_to_execute %}
-            escape: /\{%-([\s\S]+?)%\}/g
-        };
-        _.templateSettings.variable = "tplData";
     </script>
     <script type="text/template" id='paymentBanner'>
         {% _.each(tplData.Banner, function(item) { %}
