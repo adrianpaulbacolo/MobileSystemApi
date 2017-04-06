@@ -62,11 +62,11 @@
                             </div>
                             <div class="form-group">
                                 <asp:Label ID="lblDateFrom" runat="server" AssociatedControlID="txtDateFrom" />
-                                <asp:TextBox ID="txtDateFrom" type="date" runat="server" CssClass="form-control" />
+                                <asp:TextBox ID="txtDateFrom" data-role="datebox" data-options='{"mode":"flipbox"}' runat="server" CssClass="form-control" />
                             </div>
                             <div class="form-group">
                                 <asp:Label ID="lblDateTo" runat="server" AssociatedControlID="txtDateTo" />
-                                <asp:TextBox ID="txtDateTo" type="date" runat="server" CssClass="form-control" />
+                                <asp:TextBox ID="txtDateTo" data-role="datebox" data-options='{"mode":"flipbox"}' runat="server" CssClass="form-control" />
                             </div>
                             <div class="form-group" id="type">
                                 <asp:Label ID="lblType" runat="server" AssociatedControlID="ddlType" />

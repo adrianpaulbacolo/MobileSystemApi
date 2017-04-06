@@ -8,6 +8,8 @@
 <link href="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/css/base.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
 <link href="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/css/styles.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
 
+
+
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -20,6 +22,14 @@
 
 <!-- Include all compiled plugins from vendor (below), or include individual files as needed -->
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/bootstrap.min.js"></script>
+
+<!-- jQuery Widget Factory (necessary for JTSageDateBox's JavaScript plugins) -->
+<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/jquery-ui.js" type="text/javascript"></script>
+
+<!-- JTSageDateBox -->
+<link href="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/css/vendor/jtsage-datebox-4.1.1.bootstrap.min.css" rel="stylesheet" type="text/css">
+<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/jtsage-datebox-4.1.1.bootstrap.min.js" type="text/javascript"></script>
+
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/bootstrap-validator.min.js"></script>
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/slidebars.min.js"></script>
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/slick.min.js"></script>
@@ -27,6 +37,7 @@
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/amplify.min.js"></script>
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/pubsub.js"></script>
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/fingerprint2.min.js"></script>
+
 
 <!-- Include all related variables (below), or include individual files as needed -->
 <script type="text/javascript">
