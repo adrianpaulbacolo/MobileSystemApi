@@ -7,7 +7,7 @@ function translate() {
     this.init = function () {
         var _self = this;
 
-        var url = "/api/contents";
+        var url = _constants.API_URL + "/contents";
         
         var headers = {
             'Token': w88Mobile.User.token,
