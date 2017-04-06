@@ -6,11 +6,6 @@ function Templates() {
 
     //templates
     var templateSettings = [
-        //{ id: 'SearchList', url: 'assets/templates/search.html' }
-        //, { id: 'SlotList', url: 'assets/templates/slotCategory.html' }
-        //, { id: 'TopBar', url: 'assets/templates/header.html' }
-        //, { id: 'MainPage', url: 'assets/templates/page.html' }
-
           { id: 'History_DepositWithdraw', url: 'templates/depositWithdraw.html' }
         , { id: 'History_FundTransfer', url: 'templates/fundTransfer.html' }
         , { id: 'History_Adjustment', url: 'templates/adjustment.html' }
