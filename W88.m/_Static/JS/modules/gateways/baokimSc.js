@@ -2,8 +2,10 @@
 
     var defaultSelect = "";
     var telcos = "";
+    var gatewayId = "";
 
     var baokim = {
+        Deposit: deposit,
         SetFee: setFee,
         SetDenom: setDenom,
         Initialize: init,
@@ -85,6 +87,32 @@
 
         $('#paymentNoteContent').html(sessionStorage.getItem("indicator") + fee);
     }
+
+    function send(method, data, beforeSend, success, error, complete) {
+        var url = w88Mobile.APIUrl + "/payments/" + gatewayId;
+
+        var headers = {
+            'Token': window.User.token,
+            'LanguageCode': window.User.lang
+        };
+        $.ajax({
+            type: method,
+            url: url,
+            data: data,
+            beforeSend: beforeSend,
+            headers: headers,
+            success: success,
+            error: error,
+            complete: complete
+        });
+
+    }
+
+    function deposit(data, successCallback, errorCallback, completeCallback) {
+        gatewayId = "120286";
+        send("POST", data, function () { GPInt.prototype.ShowSplash(); }, successCallback, errorCallback, completeCallback);
+    }
+
 
 }
 
