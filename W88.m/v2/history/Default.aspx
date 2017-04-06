@@ -62,11 +62,11 @@
                             </div>
                             <div class="form-group">
                                 <asp:Label ID="lblDateFrom" runat="server" AssociatedControlID="txtDateFrom" />
-                                <asp:TextBox ID="txtDateFrom" data-role="datebox" data-options='{"mode":"flipbox"}' runat="server" CssClass="form-control" />
+                                <asp:TextBox ID="txtDateFrom" type="text" runat="server" CssClass="form-control" />
                             </div>
                             <div class="form-group">
                                 <asp:Label ID="lblDateTo" runat="server" AssociatedControlID="txtDateTo" />
-                                <asp:TextBox ID="txtDateTo" data-role="datebox" data-options='{"mode":"flipbox"}' runat="server" CssClass="form-control" />
+                                <asp:TextBox ID="txtDateTo" type="text" runat="server" CssClass="form-control" />
                             </div>
                             <div class="form-group" id="type">
                                 <asp:Label ID="lblType" runat="server" AssociatedControlID="ddlType" />
@@ -100,32 +100,25 @@
                 _w88_history.toggleType(this.value);
             });
 
-            $('input[id$="txtDateFrom"]').on('focusout', function () {
+            var dateOptions = {
+                mode: 'flipbox',
+                showInitialValue: true,
+                overrideDateFormat: '%m/%d/%Y',
+                beforeToday: true,
+                useCancelButton: true
+            };
 
-                $('input[id$="txtDateTo"]').val("");
-                $('input[id$="txtDateTo"]').attr("min", $('input[id$="txtDateFrom"]').val());
-
-                var date = new Date($('input[id$="txtDateFrom"]').val());
-                var maxDays = parseInt(90);
-                date.setDate(date.getDate() + maxDays);
-
-                var month = date.getMonth() + 1;
-                var day = date.getDate();
-
-                var maxDate = date.getFullYear() + '-' +
-                    (month < 10 ? '0' : '') + month + '-' +
-                    (day < 10 ? '0' : '') + day;
-
-                $('input[id$="txtDateTo"]').attr("max", maxDate);
-            });
+            $('input[id$="txtDateFrom"]').datebox(dateOptions);
+            $('input[id$="txtDateFrom"]').datebox('setTheDate', _w88_history.minDate);
+            $('input[id$="txtDateTo"]').datebox(dateOptions);
 
             $('#form1').submit(function (e) {
                 e.preventDefault();
 
                 $('#history-modal').modal('hide');
 
-                var dateFrom = new Date($('input[id$="txtDateFrom"]').val());
-                var dateTo = new Date($('input[id$="txtDateTo"]').val());
+                var dateFrom = new Date($('input[id$="txtDateFrom"]').datebox('getTheDate'));
+                var dateTo = new Date($('input[id$="txtDateTo"]').datebox('getTheDate'));
 
                 var data = {
                     DateFrom: _w88_history.formatDateTime(dateFrom),

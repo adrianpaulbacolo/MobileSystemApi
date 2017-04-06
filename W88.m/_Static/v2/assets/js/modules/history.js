@@ -10,8 +10,8 @@ function History() {
         setReportStatus: setReportStatus,
         showModal: showModal,
         closeModal: closeModal,
-        minDate: new Date(),
-        maxDate: addMonths(new Date(), -3),
+        maxDate: new Date(),
+        minDate: addMonths(new Date(), -3),
         formatDateTime: formatDateTime
     }
 
@@ -243,29 +243,22 @@ function History() {
     }
 
     function setTranslations() {
-        if (_w88_contents.translate("LABEL_STARTDATE") != "LABEL_STARTDATE") {
-            defaultSelect = _w88_contents.translate("LABEL_SELECT_DEFAULT")
-            defaultAll = _w88_contents.translate("LABEL_ALL_DEFAULT")
+        defaultSelect = _w88_contents.translate("LABEL_SELECT_DEFAULT")
+        defaultAll = _w88_contents.translate("LABEL_ALL_DEFAULT")
 
-            $("header .header-title").text(_w88_contents.translate("LABEL_FUNDS_HISTORY"));
-            $('button[id$="btnSubmit"]').text(_w88_contents.translate("BUTTON_SUBMIT"));
+        $("header .header-title").text(_w88_contents.translate("LABEL_FUNDS_HISTORY"));
+        $('button[id$="btnSubmit"]').text(_w88_contents.translate("BUTTON_SUBMIT"));
 
-            $('label[id$="lblTransactionType"]').text(_w88_contents.translate("LABEL_TRANSACTION"));
-            $('label[id$="lblDateFrom"]').text(_w88_contents.translate("LABEL_STARTDATE"));
-            $('label[id$="lblDateTo"]').text(_w88_contents.translate("LABEL_ENDDATE"));
-            $('label[id$="lblType"]').text(_w88_contents.translate("LABEL_TYPE"));
-            $('label[id$="lblStatus"]').text(_w88_contents.translate("LABEL_STATUS"));
+        $('label[id$="lblTransactionType"]').text(_w88_contents.translate("LABEL_TRANSACTION"));
+        $('label[id$="lblDateFrom"]').text(_w88_contents.translate("LABEL_STARTDATE"));
+        $('label[id$="lblDateTo"]').text(_w88_contents.translate("LABEL_ENDDATE"));
+        $('label[id$="lblType"]').text(_w88_contents.translate("LABEL_TYPE"));
+        $('label[id$="lblStatus"]').text(_w88_contents.translate("LABEL_STATUS"));
 
-            $('#adj-lbl').text(_w88_contents.translate("LABEL_HISTORY_ADJUSTMENT"));
-            $('#dep-lbl').text(_w88_contents.translate("LABEL_HISTORY_DEPOSITWIDRAW"));
-            $('#fund-lbl').text(_w88_contents.translate("LABEL_HISTORY_FUND_TRANSFER"));
-            $('#promo-lbl').text(_w88_contents.translate("LABEL_HISTORY_PROMO_CLAIM"));
-
-        } else {
-            window.setInterval(function () {
-                setTranslations();
-            }, 500);
-        }
+        $('#adj-lbl').text(_w88_contents.translate("LABEL_HISTORY_ADJUSTMENT"));
+        $('#dep-lbl').text(_w88_contents.translate("LABEL_HISTORY_DEPOSITWIDRAW"));
+        $('#fund-lbl').text(_w88_contents.translate("LABEL_HISTORY_FUND_TRANSFER"));
+        $('#promo-lbl').text(_w88_contents.translate("LABEL_HISTORY_PROMO_CLAIM"));
     }
 
     function getSelection() {
