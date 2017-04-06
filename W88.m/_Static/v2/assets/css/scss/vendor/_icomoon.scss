@@ -8,7 +8,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
@@ -269,5 +268,8 @@
 }
 .icon-zalo:before {
   content: "\e90e";
+}
+.icon-event:before {
+  content: "\e92a";
 }
 

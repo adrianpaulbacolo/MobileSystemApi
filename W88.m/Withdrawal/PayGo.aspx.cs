@@ -30,6 +30,7 @@ public partial class Withdrawal_PayGo : PaymentBasePage
     {
         if (!Page.IsPostBack)
         {
+            CheckAgentAndRedirect(string.Concat(V2WithdrawalPath, "Pay", PaymentMethodId, ".aspx"));
             this.InitializeLabels();
         }
     }

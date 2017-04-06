@@ -52,6 +52,7 @@ public partial class Withdrawal_BankTransfer : PaymentBasePage
 
         if (!Page.IsPostBack)
         {
+            CheckAgentAndRedirect(string.Concat(V2WithdrawalPath, "Pay", PaymentMethodId, ".aspx"));
             this.InitializeLabels();
             // bank account name pre defined value
             var user = new Members();

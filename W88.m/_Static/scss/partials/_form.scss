@@ -83,12 +83,15 @@
         background-image: none;
         border: none;
     }
-    &.form-modal{
-        background: transparent !important; 
-        .item{
+
+    &.form-modal {
+        background: transparent !important;
+
+        .item {
             padding: 0;
             margin-left: 0;
-            .item-checkbox .ui-btn{
+
+            .item-checkbox .ui-btn {
                 padding-left: 55px !important;
             }
         }
@@ -137,7 +140,7 @@ select {
     }
 }
 
-.download-app-box{
+.download-app-box {
     width: 100%;
     z-index: 1000;
     position: relative !important;

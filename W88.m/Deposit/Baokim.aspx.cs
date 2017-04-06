@@ -16,6 +16,7 @@ public partial class Deposit_Baokim : PaymentBasePage
     {
         if (!Page.IsPostBack)
         {
+            CheckAgentAndRedirect(string.Concat(V2DepositPath, "Pay", PaymentMethodId, ".aspx"));
             lblDepositAmount.Text = base.strlblAmount;
         }
     }

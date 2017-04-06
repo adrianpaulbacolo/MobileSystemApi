@@ -1,5 +1,5 @@
-﻿<%
-var deviceId = commonFunctions.getMobileDevice(Request);
+﻿<% 
+var deviceId = commonFunctions.getMobileDevice(Request); 
 
 var fishLink = "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/FishingMasterEN.apk";
 var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/manifestEN.plist";
@@ -123,7 +123,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 </li>
                 <%}%>
                 <%}catch(Exception){}%>
-
+               
                 <li>
                     <a class="card" data-rel="sports" rel="asports" href="/_Secure/Login.aspx?redirect=<%=System.Web.HttpContext.Current.Request.Url.ToString()%>" data-rel="dialog" data-ajax="false" target="_blank">
                         <img src="#" class="img-responsive asports">
@@ -136,12 +136,12 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <div class="title menuESportsTitle"></div>
                     </a>
                 </li>
-                <li>
+                 <li>
                     <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-ajax="false">
-                        <img src="#" class="img-responsive vsports">
+                         <img src="#" class="img-responsive vsports">
                         <div class="title menuVSportsTitle"></div>
                     </a>
-                </li>
+                </li> 
                 <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency))
                 {
                 if ( (!commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase)) && (!commonCookie.CookieCurrency.Equals("usd", StringComparison.OrdinalIgnoreCase)) )
@@ -233,7 +233,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 </li>
                 <%}%>
                 <%}catch(Exception){}%>
-
+              
                 <li>
                     <a class="card" data-rel="livecasino" rel="clubpalazzo-casino" href="/_static/palazzo/casino.aspx" data-ajax="false">
                         <img src="#" class="img-responsive clubpalazzo-casino-android">
@@ -348,11 +348,11 @@ var fishingWorld = FishingWorldProduct.GetLink();
                     </a>
                 </li>
                 <!--<li>
-                    <a class="card" rel="clubcrescendo" href="/ClubCrescendo" data-ajax="false">
-                        <img src="_Static/Images/bnr-clubcrescendo.jpg" class="img-responsive">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubCrescendo/Label", commonVariables.ProductsXML)%></div>
-                    </a>
-                </li>-->
+                <a class="card" rel="clubcrescendo" href="/ClubCrescendo" data-ajax="false">
+                    <img src="_Static/Images/bnr-clubcrescendo.jpg" class="img-responsive">
+                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubCrescendo/Label", commonVariables.ProductsXML)%></div>
+                </a>
+            </li>-->
             </ul>
         </li>
         <!-- Fishing Game -->
@@ -397,7 +397,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 <%}catch(Exception){}%>
 
                 <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-                { %>
+        { %>
                 <li>
                     <a class="card" data-rel="fish" rel="FishAndroid" href="<%=fishingWorld%>" data-ajax="false" target="_blank">
                         <img src="#" class="img-responsive FishWorld3">
@@ -472,7 +472,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             <a class="nav-pmahjong">
                 
                 <%if(deviceId==1){%>
-                    <i class="icon icon-mahjong"></i>
+                <i class="icon icon-mahjong"></i>
                     <div class="label menuTexasMahjongTitle"></div>
                 <%}%>
                 <% else  if (deviceId == 2) {%>
@@ -615,14 +615,14 @@ var fishingWorld = FishingWorldProduct.GetLink();
 </div><!-- /panel -->
 <script type="text/javascript">
      pubsub.subscribe('contentsLoaded', onContentsLoaded);
-
+            
     function onContentsLoaded() {
         _w88_products.init();
-    }
+            }
 
     $(document).ready(function () {
         _w88_products.init();
-    });
+        });
 
     $(function () {
 
@@ -630,7 +630,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
     $("#icon-rewards-sidebar").attr('href', urlRewards);
 
 	var url = window.location.protocol +'//www.'+ '<%=commonIp.DomainName %>' + '?nomobile=true';
-
+    
         <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieAffiliateId))
             {%>
                 url += '&affiliateID=' + <%=commonCookie.CookieAffiliateId%>;
@@ -830,3 +830,25 @@ var fishingWorld = FishingWorldProduct.GetLink();
         });
     });
 </script>
+
+<% if (commonFunctions.isNativeAgent(Request)){ %>
+<script type="text/javascript">
+        $(function () {
+            $("#aMenu").attr("href", "#");
+            $("#aMenu").on("click", function(e){
+                e.preventDefault();
+                try{
+                    if(!_.isEmpty($(this).find("i.icon-navicon"))){
+                        Native.openSlidingMenu();
+                    }else{
+                        var isMainPage =  <%= commonFunctions.isMainPage(Request).ToString().ToLower() %>;
+                        if(isMainPage) window.location.href="/v2/Dashboard.aspx";
+                        else window.history.go(-1);
+                    }
+                }catch(e){
+                    console.log(e.message)
+                }
+            });
+        });
+</script>
+<% } %>

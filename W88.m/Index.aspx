@@ -81,6 +81,7 @@
                 </div>
             </div>
              <% } %>
+
             <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                { %>
              <div class="row row-no-padding action-btn action-button-lg" data-ajax="false">
@@ -119,7 +120,8 @@
                 <!-- Fishing Game -->
                 <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency))
                    {
-                %>
+                       if (commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase))
+                       { %>
                             <li class="col col-33 product">
                                 <a href="#divPanel" class="tile nav-fish">
                                     <span class="icon icon-fish"></span>
@@ -127,7 +129,8 @@
                                 </a>
                             </li>
                     <% }
-                   else 
+                   }
+                   else if (commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))
                    { %>
                         <li class="col col-33 product">
                             <a href="#divPanel" class="tile nav-fish">
@@ -149,7 +152,7 @@
                         <h4 class="title menuPokerTitle" ></h4>
                     </a>
                 </li>
-                
+
                   <%if (mobileDeviceId == 1)
                   {%>
                 <li class="col col-33 product">
@@ -174,7 +177,7 @@
                    { %>
                 <li class="col col-33">
                     <a href="/Profile/Default.aspx" class="tile" data-ajax="false">
-                        <span class="icon icon-profile"> </span>
+                        <span class="icon icon-profile"></span>
                         <h4 class="title">
                             <%--<%=commonVariables.GetSessionVariable("MemberCode")%>--%>
                              <%=commonCulture.ElementValues.getResourceString("profile", commonVariables.LeftMenuXML)%>
@@ -271,6 +274,8 @@
         <!--#include virtual="~/_static/footer.shtml" -->
         </div>
 
+        <!--#include virtual="~/_static/fixed-footer.shtml" -->
+
         <!--#include virtual="~/_static/navMenu.shtml" -->
 
         <script src="/_Static/JS/vendor/slick.min.js"></script>
@@ -292,12 +297,12 @@
                 $('.banner-slider').slick({
                     dots: true,
                     responsive: [
-                        {
-                            breakpoint: 768,
-                            settings: {
-                                arrows: false
-                            }
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            arrows: false
                         }
+                    }
                     ]
                 });
 
@@ -305,7 +310,7 @@
                  
                 <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieAffiliateId))
                     {%>
-                url += '&affiliateID=' + <%=commonCookie.CookieAffiliateId%>;
+                        url += '&affiliateID=' + <%=commonCookie.CookieAffiliateId%>;
                 <%  } %>
 
                 $("#icon-desktop").attr('href', url);
@@ -326,7 +331,6 @@
                 $("#divPanel.ui-panel").css("top", $(".download-app").height());
             }
         </script>
-
     </div>
 </body>
 </html>
