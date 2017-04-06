@@ -7,8 +7,8 @@
 <head runat="server">
     <title></title>
     <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js"></script>
-    <script type="text/javascript" src="/_Static/JS/modules/gateways/baokimSc.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/baokimSc.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
     <link href="/_Static/Css/payment.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
 </head>
 <body>
