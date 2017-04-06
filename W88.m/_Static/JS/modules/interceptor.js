@@ -12,7 +12,7 @@
 // interceptor: update headers
 $(document).ajaxSend(function (event, xhr, settings) {
     if (isAPIRequest(settings.url) && _.includes(settings.url.toLowerCase(), "payments")) {
-        xhr.setRequestHeader("SubPlatformId", siteCookie.getCookie('spfid'));
+        xhr.setRequestHeader("SubPlatformId", siteCookie.getCookie('spfid_mob'));
     }
 });
 
