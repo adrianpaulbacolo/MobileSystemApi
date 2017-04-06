@@ -52,8 +52,8 @@
                 });
 
 
-                $('select[id$="ContentPlaceHolder1_ContentPlaceHolder2_drpAmount"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
-                $('select[id$="ContentPlaceHolder1_ContentPlaceHolder2_drpAmount"]').val("-1").selectmenu("refresh");
+                $('select[id$="drpAmount"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
+                $('select[id$="drpAmount"]').val("-1").selectmenu("refresh");
             }
         });
     }
@@ -63,13 +63,13 @@
             return data.Id == selectedValue;
         });
 
-        $('select[id$="ContentPlaceHolder1_ContentPlaceHolder2_drpAmount"]').empty();
+        $('select[id$="drpAmount"]').empty();
 
-        $('select[id$="ContentPlaceHolder1_ContentPlaceHolder2_drpAmount"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
-        $('select[id$="ContentPlaceHolder1_ContentPlaceHolder2_drpAmount"]').val("-1").selectmenu("refresh");
+        $('select[id$="drpAmount"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
+        $('select[id$="drpAmount"]').val("-1").selectmenu("refresh");
 
         _.forOwn(telco.Denominations, function (data) {
-            $('select[id$="ContentPlaceHolder1_ContentPlaceHolder2_drpAmount"]').append($('<option>').text(data.Text).attr('value', data.Value));
+            $('select[id$="drpAmount"]').append($('<option>').text(data.Text).attr('value', data.Value));
         });
     }
 
