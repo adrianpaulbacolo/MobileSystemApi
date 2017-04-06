@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Web;
@@ -125,8 +126,7 @@ public class LoginProcess
         commonCookie.CookieG = Convert.ToString(memberSessionId);
         commonCookie.CookiePalazzo = password;
 
-        var opSettings = new OperatorSettings("W88");
-        foreach (var v in opSettings.Values.Get("VIP_Allowed").ToUpper().Split(new[] { '|' }).Where(v => v.Equals(riskId)))
+        foreach (var v in ConfigurationManager.AppSettings.Get("VIP_Allowed").ToUpper().Split(new[] { '|' }).Where(v => v.Equals(riskId)))
         {
             commonCookie.CookieVip = "true";
         }
