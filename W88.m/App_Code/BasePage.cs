@@ -195,8 +195,7 @@ public class BasePage : System.Web.UI.Page
 
     private void CheckVipDomain()
     {
-        if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) &&
-          !HttpContext.Current.Request.Url.AbsoluteUri.ToLower().Contains("/_secure/vip/"))
+        if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) && !HttpContext.Current.Request.Url.AbsoluteUri.ToLower().Contains("/vip/"))
         {
             var opSettings = new OperatorSettings("W88");
             foreach (
@@ -208,7 +207,7 @@ public class BasePage : System.Web.UI.Page
             {
                 commonCookie.CookieLanguage = "zh-cn";
                 Response.Clear();
-                Response.Redirect("/_Secure/VIP/login.aspx", true);
+                Response.Redirect(ConfigurationManager.AppSettings.Get("VipUrl"), true);
             }
         }
     }
