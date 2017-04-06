@@ -14,11 +14,12 @@
                 responseType: "json",
                 success: function (data) {
                     if (data.code != "1") {
-                        //@todo use growl and add redirection in callback
                         if (typeof data.message != "undefined") {
-                            alert(data.message);
-                        }
-                        window.location.replace("/Logout");
+                            w88Mobile.Growl.shout(data.message, function () {
+                                window.location.replace("/Logout");
+                            });
+                        } else window.location.replace("/Logout");
+
                         clearInterval(sessionPoll);
                     }
                 },
