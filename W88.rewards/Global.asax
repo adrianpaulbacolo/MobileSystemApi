@@ -43,6 +43,11 @@
         routes.Add(logoutRoute);
         routes.Add(expireRoute);
         routes.Add(invalidRoute);
+
+        var error404 = new Route("404", new PageRouteHandler("~/_Static/Pages/404.aspx"));
+        var error500 = new Route("500", new PageRouteHandler("~/_Static/Pages/500.aspx"));
+        routes.Add(error404);
+        routes.Add(error500);
     }
 
     void Application_End(object sender, EventArgs e)

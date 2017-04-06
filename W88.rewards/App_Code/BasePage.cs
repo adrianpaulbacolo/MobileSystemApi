@@ -7,6 +7,7 @@ using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Rewards.Models;
 using W88.BusinessLogic.Shared.Helpers;
 using W88.Utilities;
+using W88.Utilities.Geo;
 
 
 public class BasePage : Page
@@ -17,6 +18,24 @@ public class BasePage : Page
     protected MemberRewardsInfo MemberRewardsInfo = null;
     protected Members MembersHelper = new Members();
     protected RewardsHelper RewardsHelper = new RewardsHelper();
+    protected string Language = string.Empty;
+
+    protected bool IsUnderMaintenance
+    {
+        get
+        {
+            bool isUnderMaintenance;
+            Boolean.TryParse(Common.GetAppSetting<string>("isUnderMaintenance"), out isUnderMaintenance);
+            if (!isUnderMaintenance)
+                return false;
+
+            var maintenanceModules = Common.GetAppSetting<string>("maintenanceModules");
+            if (string.IsNullOrEmpty(maintenanceModules))
+                return true;
+
+            return !(Array.IndexOf(maintenanceModules.Split('|'), Request.Url.AbsolutePath.ToLower()) < 0);
+        }
+    }
 
     protected override void OnPreInit(EventArgs e)
     {
@@ -32,8 +51,9 @@ public class BasePage : Page
         }
         finally
         {
+            var language = HttpContext.Current.Request.QueryString.Get("lang");
+            Language = !string.IsNullOrEmpty(language) ? language : LanguageHelpers.SelectedLanguage;
             CheckSession();
-            base.OnPreInit(e);
         }
     }
 
@@ -53,6 +73,7 @@ public class BasePage : Page
                 if (string.IsNullOrEmpty(token))
                 {
                     var cookie = HttpContext.Current.Request.Cookies["user"];
+                    if (cookie == null) return;
                     var user = Common.DeserializeObject<MemberSession>(cookie.Value);
                     if (user == null) return;
                     token = user.Token;     
@@ -65,6 +86,23 @@ public class BasePage : Page
             if (!HasSession) return;
             MemberSession = process.Data;
             UserSessionInfo = await MembersHelper.GetMemberInfo(token);
+
+            if (IsUnderMaintenance)
+            {
+                // Check if site is under maintenance and allow only certain users to have access
+                var isAllowedAccess = false;
+                var allowedUsers = Common.GetAppSetting<string>("allowedUsers");
+                if (!string.IsNullOrEmpty(allowedUsers) && !string.IsNullOrEmpty(UserSessionInfo.MemberCode) 
+                    && Array.IndexOf(allowedUsers.ToLower().Split('|'), UserSessionInfo.MemberCode.ToLower()) >= 0)
+                    isAllowedAccess = true;
+
+                if (!isAllowedAccess)
+                {
+                    Response.Redirect("/_Static/Pages/enhancement-all.aspx", false);
+                    return;
+                }
+            }
+         
             SetMemberRewardsInfo();
         }
         catch (Exception)
@@ -94,6 +132,8 @@ public class BasePage : Page
 
     protected string GetTranslation(string key, string fileName = "")
     {
-        return CultureHelpers.GetTranslation(key, LanguageHelpers.SelectedLanguage, string.Format("contents/{0}", string.IsNullOrEmpty(fileName) ? "translations" : fileName));
+        return CultureHelpers.GetTranslation(key, 
+            string.IsNullOrEmpty(Language) ? LanguageHelpers.SelectedLanguage : Language, 
+            string.Format("contents/{0}", string.IsNullOrEmpty(fileName) ? "translations" : fileName));
     }
 }
