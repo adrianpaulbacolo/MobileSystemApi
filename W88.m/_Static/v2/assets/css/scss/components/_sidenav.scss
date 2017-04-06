@@ -11,7 +11,7 @@
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	> li{
+	li{
 		border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 		display: block;
 		> a{
@@ -95,30 +95,5 @@
 	}
 	&.nav-category-items-shown{
 		display: block;
-	}
-}
-
-.side-submenu{
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	li{
-		display: block;
-		border-bottom: 1px solid rgba($white, 0.04);
-		a{
-			text-align: left;
-			color: $text-color;
-			padding: 10px 15px;
-			background-color: transparent;
-			text-transform: uppercase;
-			display: block;
-			span{
-				color: $text-color !important;
-			}
-			&:active span,
-			&:focus span{
-				color: $brand-primary;
-			}
-		}
 	}
 }

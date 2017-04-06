@@ -72,3 +72,14 @@
     font-size: 10px;
   }
 }
+
+.slick-slider .slick-slide{
+    display: none;
+}
+ .slick-slider .slick-slide:first-child{
+    display: block;
+}
+.slick-initialized.slick-slider .slick-slide,
+.slick-initialized.slick-slider .slick-slide:first-child{
+    display: block;
+}

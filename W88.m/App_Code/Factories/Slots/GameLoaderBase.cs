@@ -92,6 +92,7 @@ namespace Factories.Slots
         {
             var games = new List<GameInfo>();
             var lang = commonVariables.SelectedLanguage;
+            var shortLang = commonVariables.SelectedLanguageShort;
 
             foreach (XElement xeGame in xeGames)
             {
@@ -102,6 +103,22 @@ namespace Factories.Slots
 
                 game.Title = (!string.IsNullOrEmpty(translatedTitle)) ? translatedTitle : commonCulture.ElementValues.getResourceString("Title", xeGame);
                 game.Image = commonCulture.ElementValues.getResourceString("Image", xeGame);
+                try
+                {
+                    var imageElem = xeGame.Element("Image");
+                    var supportedImageLang = imageElem.Attribute("Languages").Value.Split(',');
+                    bool hasLangSupp = supportedImageLang.Contains(shortLang, StringComparer.OrdinalIgnoreCase);
+                    if (hasLangSupp)
+                    {
+                        game.Image = game.Image.Replace("{LANG}", "-" + shortLang);
+                    }
+                    else
+                    {
+                        game.Image = game.Image.Replace("{LANG}", "-EN");
+                    }
+                }catch(Exception e){
+                        game.Image = game.Image.Replace("{LANG}", "-EN");
+                }
                 game.RealUrl = CreateRealUrl(xeGame);
                 game.FunUrl = CreateFunUrl(xeGame);
                 game.Id = GetGameId(xeGame);
@@ -195,21 +212,22 @@ namespace Factories.Slots
          Fun, Real
      }
 
-     public enum GameProvider
-     {
-         GPI,
-         PT,
-         MGS,
-         PNG,
-         ISB,
-         QT,
-         BS,
-         CTXM,
-         UC8,
-         PP
-
-         ,TTG
-     }
+    public enum GameProvider
+    {
+        GPI,
+        PT,
+        MGS,
+        PNG,
+        ISB,
+        QT,
+        BS,
+        CTXM,
+        UC8,
+        PP,
+        TTG,
+        GNS,
+        PLS
+    }
 
     public enum GameDevice
     {

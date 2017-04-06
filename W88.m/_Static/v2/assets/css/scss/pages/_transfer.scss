@@ -1,0 +1,54 @@
+.show-balance{
+  color: $text-color;
+  background-color: lighten($brand-default, 5%);
+  text-align: left;
+  position: relative;
+  text-transform: none;
+  &:active,
+  &:focus,
+  &:hover{
+    color: $text-color;
+    background-color: lighten($brand-default, 10%);
+  }
+  &:after{
+    font-family: 'icomoon';
+    content: "\e927";
+    right: 15px;
+    position: absolute;
+  }
+  &.collapsed:after{
+    content: "\e928";
+  }
+}
+
+.balance-collapse{
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.balances{
+  padding: 0 15px;
+  background-color: darken($brand-default, 5%);
+	table{
+    width: 100%;
+		td{
+      color: #a6a6a6;
+      font-size: 0.750rem;
+			padding: 10px 0;
+		}
+	}
+}
+
+.btn-swap{
+  color: $brand-primary;
+  border: none;
+  background-color: transparent;
+  font-size: 1.438rem;
+  display: inline-block;
+  &:active,
+  &:focus,
+  &:hover{
+    outline: 0 none;
+    color: darken($brand-primary, 10%);
+  }
+}

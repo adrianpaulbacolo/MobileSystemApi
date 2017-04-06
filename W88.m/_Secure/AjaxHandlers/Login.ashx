@@ -15,6 +15,9 @@ public class Login : IHttpHandler, System.Web.SessionState.IReadOnlySessionState
 
         if (!context.Request.ContentType.Contains("json")) return;
 
+        var queryString = HttpUtility.ParseQueryString(context.Request.UrlReferrer.Query);
+        commonCookie.CookieSubPlatform(queryString.Get("spfid"));
+
         var sJson = new StreamReader(context.Request.InputStream).ReadToEnd();
         var loginInfo = commonFunctions.Deserialize<LoginInfo>(sJson);
 

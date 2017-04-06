@@ -32,7 +32,14 @@
         },
         filerev: {
             dist: {
-                src: ['_Static/JS/dist/<%= pkg.name %>.js', '_Static/Css/<%= pkg.name %>.css', '_Static/JS/dist/<%= pkg.name %>.main.js', '_Static/JS/dist/<%= pkg.name %>.login.js']
+                src: [
+                    '_Static/JS/dist/<%= pkg.name %>.js',
+                    '_Static/JS/dist/<%= pkg.name %>.main.js',
+                    '_Static/JS/dist/<%= pkg.name %>.login.js',
+                    '_Static/Css/<%= pkg.name %>.css',
+                    '_Static/Css/errors/styles.css',
+                    '_Static/Css/errors/styles-light.css'
+                ]
             }
         },
         filerev_replace: {
@@ -40,13 +47,28 @@
                 assets_root: './'
             },
             compiled_assets: {
-                src: ['_Static/JS/dist/<%= pkg.name %>.js', '_Static/Css/<%= pkg.name %>.css', '_Static/JS/dist/<%= pkg.name %>.main.js', '_Static/JS/dist/<%= pkg.name %>.login.js']
+                src: [
+                    '_Static/JS/dist/<%= pkg.name %>.js',
+                    '_Static/JS/dist/<%= pkg.name %>.main.js',
+                    '_Static/JS/dist/<%= pkg.name %>.login.js',
+                    '_Static/Css/<%= pkg.name %>.css',
+                    '_Static/Css/errors/styles.css',
+                    '_Static/Css/errors/styles-light.css'
+                ]
             },
             views: {
                 options: {
                     views_root: './'
                 },
-                src: ['_Static/head.inc', '_Static/headvip.inc', '_Secure/Login.aspx']
+                src: [
+                    '_Static/head.inc',
+                    '_Static/headvip.inc',
+                    '_Secure/Login.aspx',
+                    '_Static/Pages/404.aspx',
+                    '_Static/Pages/500.aspx',
+                    '_Static/Pages/enhancement-all.aspx',
+                    '_Static/Pages/enhancement.aspx'
+                ]
             }
         },
         uglify: {
@@ -73,6 +95,9 @@
                     '_Static/Css/base.css': '_Static/Css/scss/base.scss'
                     , '_Static/Css/styles.css': '_Static/Css/scss/styles.scss'
                     , '_Secure/VIP/css/style.css': '_Secure/VIP/scss/style.scss'
+                    , '_Static/Css/errors/styles.css': '_Static/Css/errors/scss/styles.scss'
+                    , '_Static/Css/errors/styles-light.css': '_Static/Css/errors/scss/styles-light.scss'
+                    , '_Static/fonts/icomoon/style.css': '_Static/fonts/icomoon/style.scss'
                 }
             }
         },

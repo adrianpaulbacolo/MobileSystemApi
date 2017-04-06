@@ -13,7 +13,7 @@
     <script>
         window.w88Mobile = {};
     </script>
-    <script src="/_Static/JS/vendor/lodash.js"></script>
+    <script src="/_Static/JS/vendor/lodash.min.js"></script>
     <script src="/_Static/JS/GPINT.js"></script>
     <script src="/_Static/JS/Cookie.js"></script>
 </head>
