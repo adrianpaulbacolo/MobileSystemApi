@@ -478,7 +478,7 @@ function DefaultPaymentsV2() {
                 return "PaySec.aspx";
 
             case "120254":
-                return "SDAPay.aspx";
+                return "120254";
 
             case "1202111": //GO
                 return "ShengPayAliPay.aspx";
