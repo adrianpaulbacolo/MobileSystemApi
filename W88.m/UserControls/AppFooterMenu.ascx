@@ -24,7 +24,9 @@
 </div>--%>
 
 <script type="text/javascript">
-    $(document).ready(function () {
-        window.w88Mobile.HideMenu.CheckIfApp();
-    });
+    <% if (!commonFunctions.isNativeAgent(Request)) { %>
+        $(document).ready(function () {
+            window.w88Mobile.HideMenu.CheckIfApp();
+        });
+    <% } %>
 </script>

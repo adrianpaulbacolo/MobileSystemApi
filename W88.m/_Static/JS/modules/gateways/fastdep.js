@@ -80,5 +80,4 @@
         return;
     }
 }
-
 window.w88Mobile.Gateways.FastDeposit = FastDeposit();

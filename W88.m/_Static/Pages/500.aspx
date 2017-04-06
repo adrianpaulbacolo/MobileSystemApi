@@ -21,17 +21,19 @@
                 <h1><%=commonCulture.ElementValues.getResourceXPathString("StatusCode/e500", commonVariables.ErrorsXML)%></h1>
                 <h3><%=commonCulture.ElementValues.getResourceXPathString("HttpError/e500title", commonVariables.ErrorsXML)%></h3>
                 <p><%=commonCulture.ElementValues.getResourceXPathString("HttpError/e500", commonVariables.ErrorsXML)%></p>
-                <ul>
+                <ul class="links links-error">
                     <li>
                         <a href="/Index.aspx">
-                            <img class="logo" src="/_Static/Images/errors/home.png">
-                            <%=commonCulture.ElementValues.getResourceString("home", commonVariables.LeftMenuXML)%>
+                            <span class="icon icon-home"></span><br>
+                            <span class="link-text"><%=commonCulture.ElementValues.getResourceString("home", commonVariables.LeftMenuXML)%></span> 
+                             
                         </a>
                     </li>
                     <li>
                         <a href="https://server.iad.liveperson.net/hc/88942816/?cmd=file&amp;file=visitorWantsToChat&amp;site=88942816&amp;SV!skill=English&amp;leInsId=88942816527642465&amp;skId=1&amp;leEngId=88942816_29aeab82-a5fc-4de7-b801-c6a87c638106&amp;leEngTypeId=8&amp;leEngName=LiveHelp_default&amp;leRepAvState=3&amp;SESSIONVAR!visitor_profile=English" onclick="window.open(&#39;https://server.iad.liveperson.net/hc/88942816/?cmd=file&amp;file=visitorWantsToChat&amp;site=88942816&amp;SV!skill=English&amp;leInsId=88942816527642465&amp;skId=1&amp;leEngId=88942816_29aeab82-a5fc-4de7-b801-c6a87c638106&amp;leEngTypeId=8&amp;leEngName=LiveHelp_default&amp;leRepAvState=3&amp;SESSIONVAR!visitor_profile=English&#39;, &#39;popup&#39;, &#39;width=517,height=465&#39;); return false">
-                            <img class="logo" src="/_Static/Images/errors/chat.png">
-                            <%=commonCulture.ElementValues.getResourceString("helpCenter", commonVariables.LeftMenuXML)%>
+                            <span class="icon icon-chat"></span><br>
+                            <span class="link-text">
+                            <%=commonCulture.ElementValues.getResourceString("helpCenter", commonVariables.LeftMenuXML)%></span>
                         </a>
                     </li>
                 </ul>

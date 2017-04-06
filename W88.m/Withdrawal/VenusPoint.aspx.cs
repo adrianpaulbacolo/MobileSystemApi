@@ -30,6 +30,7 @@ public partial class Withdrawal_VenusPoint : PaymentBasePage
     {
         if (!Page.IsPostBack)
         {
+            CheckAgentAndRedirect(string.Concat(V2WithdrawalPath, "Pay", PaymentMethodId, ".aspx"));
             base.InitialisePendingWithdrawals(sender.ToString().Contains("app"));
             InitializeLabels();
         }

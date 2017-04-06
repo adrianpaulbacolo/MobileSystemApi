@@ -396,11 +396,269 @@ template {
   display: none; }
 
 @font-face {
+  font-family: 'icomoon';
+  src: url("../../fonts/icomoon/fonts/icomoon.eot");
+  src: url("../../fonts/icomoon/fonts/icomoon.eot?#iefix") format("embedded-opentype"), url("../../fonts/icomoon/fonts/icomoon.ttf") format("truetype"), url("../../fonts/icomoon/fonts/icomoon.woff") format("woff"), url("../../fonts/icomoon/fonts/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
   font-family: 'dinpro';
   src: url("/_static/fonts/din-pro-reg/din-regular-webfont.eot");
   src: url("/_static/fonts/din-pro-reg/din-regular-webfont.eot?#iefix") format("embedded-opentype"), url("/_static/fonts/din-pro-reg/din-regular-webfont.woff") format("woff"), url("/_static/fonts/din-pro-reg/din-regular-webfont.ttf") format("truetype"), url("/_static/fonts/din-pro-reg/din-regular-webfont.svg#dinregular") format("svg");
   font-weight: normal;
   font-style: normal; }
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-affiliate:before {
+  content: "\e600"; }
+
+.icon-android:before {
+  content: "\e91a"; }
+
+.icon-announcement:before {
+  content: "\e601"; }
+
+.icon-apple:before {
+  content: "\e91b"; }
+
+.icon-arrow-down:before {
+  content: "\e915"; }
+
+.icon-arrow-left:before {
+  content: "\e914"; }
+
+.icon-arrow-right:before {
+  content: "\e91e"; }
+
+.icon-arrow-up:before {
+  content: "\e91f"; }
+
+.icon-back:before {
+  content: "\e916"; }
+
+.icon-banking:before {
+  content: "\e602"; }
+
+.icon-bell:before {
+  content: "\e901"; }
+
+.icon-bell-solid:before {
+  content: "\e900"; }
+
+.icon-box-checked:before {
+  content: "\e920"; }
+
+.icon-box-unchecked:before {
+  content: "\e921"; }
+
+.icon-bullet:before {
+  content: "\e801"; }
+
+.icon-bullet-outline:before {
+  content: "\e800"; }
+
+.icon-cancel:before {
+  content: "\e925"; }
+
+.icon-casino:before {
+  content: "\e603"; }
+
+.icon-chat:before {
+  content: "\e604"; }
+
+.icon-check:before {
+  content: "\e926"; }
+
+.icon-check2:before {
+  content: "\e908"; }
+
+.icon-close:before {
+  content: "\e917"; }
+
+.icon-compose:before {
+  content: "\e605"; }
+
+.icon-currency:before {
+  content: "\e606"; }
+
+.icon-currency-circle:before {
+  content: "\e911"; }
+
+.icon-deposit:before {
+  content: "\e607"; }
+
+.icon-desktop:before {
+  content: "\e90f"; }
+
+.icon-download:before {
+  content: "\e913"; }
+
+.icon-filter:before {
+  content: "\e91d"; }
+
+.icon-fish:before {
+  content: "\e902"; }
+
+.icon-forward:before {
+  content: "\e918"; }
+
+.icon-freebet:before {
+  content: "\e608"; }
+
+.icon-games:before {
+  content: "\e91c"; }
+
+.icon-grid:before {
+  content: "\e903"; }
+
+.icon-grid-solid:before {
+  content: "\e904"; }
+
+.icon-help-buoy:before {
+  content: "\e620"; }
+
+.icon-history:before {
+  content: "\e609"; }
+
+.icon-home:before {
+  content: "\e60a"; }
+
+.icon-info:before {
+  content: "\e907"; }
+
+.icon-keno:before {
+  content: "\e60b"; }
+
+.icon-location:before {
+  content: "\e60c"; }
+
+.icon-login:before {
+  content: "\e60d"; }
+
+.icon-logout:before {
+  content: "\e60e"; }
+
+.icon-mahjong:before {
+  content: "\e90b"; }
+
+.icon-mail:before {
+  content: "\e60f"; }
+
+.icon-minus:before {
+  content: "\e927"; }
+
+.icon-navicon:before {
+  content: "\e906"; }
+
+.icon-password:before {
+  content: "\e610"; }
+
+.icon-phone:before {
+  content: "\e611"; }
+
+.icon-plus:before {
+  content: "\e928"; }
+
+.icon-profile:before {
+  content: "\e612"; }
+
+.icon-promo:before {
+  content: "\e905"; }
+
+.icon-promo-claim:before {
+  content: "\e614"; }
+
+.icon-promo-solid:before {
+  content: "\e909"; }
+
+.icon-radio-checked:before {
+  content: "\e922"; }
+
+.icon-radio-unchecked:before {
+  content: "\e923"; }
+
+.icon-rebates:before {
+  content: "\e910"; }
+
+.icon-referral-bonus:before {
+  content: "\e615"; }
+
+.icon-refresh:before {
+  content: "\e924"; }
+
+.icon-rewards:before {
+  content: "\e806"; }
+
+.icon-rewards-solid:before {
+  content: "\e805"; }
+
+.icon-search:before {
+  content: "\e919"; }
+
+.icon-security:before {
+  content: "\e617"; }
+
+.icon-settings:before {
+  content: "\e618"; }
+
+.icon-skype:before {
+  content: "\e621"; }
+
+.icon-slots:before {
+  content: "\e619"; }
+
+.icon-soccer:before {
+  content: "\e90d"; }
+
+.icon-spade:before {
+  content: "\e90a"; }
+
+.icon-spade-solid:before {
+  content: "\e90c"; }
+
+.icon-sports:before {
+  content: "\e61a"; }
+
+.icon-submit:before {
+  content: "\e61b"; }
+
+.icon-swap:before {
+  content: "\e929"; }
+
+.icon-template:before {
+  content: "\e61c"; }
+
+.icon-transfer:before {
+  content: "\e61d"; }
+
+.icon-wallet:before {
+  content: "\e808"; }
+
+.icon-wallet-solid:before {
+  content: "\e807"; }
+
+.icon-withdraw:before {
+  content: "\e61f"; }
+
+.icon-world:before {
+  content: "\e912"; }
+
+.icon-zalo:before {
+  content: "\e90e"; }
+
+.icon-event:before {
+  content: "\e92a"; }
+
 html,
 body {
   height: 100%; }
@@ -426,6 +684,13 @@ p {
 img {
   max-width: 100%; }
 
+.text-primary {
+  color: #2a8fbd; }
+
+a.text-primary:focus,
+a.text-primary:hover {
+  color: #44a8d6; }
+
 header {
   text-align: center;
   width: 100%;
@@ -446,7 +711,7 @@ footer {
     margin-bottom: 0; }
 
 section {
-  max-width: 72%;
+  max-width: 90%;
   margin: 0 auto;
   height: 100%; }
 
@@ -476,7 +741,7 @@ section {
       margin-top: 0;
       margin-bottom: 16px; }
     .error-container .error-content p {
-      color: #aaa;
+      color: #999;
       max-width: 310px;
       margin: 0 auto 16px; }
     .error-container .error-content ul {
@@ -496,9 +761,72 @@ section {
           font-size: 0.688rem;
           text-transform: uppercase; }
           .error-container .error-content ul li a:focus, .error-container .error-content ul li a:hover {
-            color: gray; }
+            color: #919191; }
             .error-container .error-content ul li a:focus > img, .error-container .error-content ul li a:hover > img {
               opacity: 0.75; }
+
+.enhancement {
+  background: #070707 url("../../Images/errors/enhancement-bg.jpg") center center no-repeat; }
+
+.enhancement-container {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: table; }
+  .enhancement-container .enhancement-content {
+    display: table-cell;
+    vertical-align: middle; }
+
+.enhancement-header {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px; }
+  .enhancement-header .icon {
+    color: #ffffff;
+    font-size: 3.313rem; }
+  .enhancement-header h1 {
+    color: #dab867;
+    font-family: 'dinpro';
+    font-size: 1.313rem;
+    font-weight: normal;
+    margin-top: 0;
+    text-transform: uppercase; }
+  .enhancement-header p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto; }
+
+.links {
+  width: 100%;
+  list-style: none;
+  margin: 0 0 30px 0;
+  padding: 0; }
+  .links.links-error li {
+    float: none;
+    width: auto; }
+  .links:before, .links:after {
+    content: " ";
+    display: table; }
+  .links:after {
+    clear: both; }
+  .links li {
+    text-align: center;
+    width: 33.33%;
+    padding: 5px 0;
+    display: block;
+    float: left; }
+    .links li a {
+      line-height: 1.45;
+      display: inline-block; }
+  .links .icon {
+    color: #ccc;
+    font-size: 2.188rem; }
+  .links .link-text {
+    color: #dab867;
+    font-family: 'dinpro';
+    font-size: 0.750rem;
+    text-transform: uppercase;
+    display: inline-block; }
 
 @media (max-width: 320px) and (max-height: 480px) {
   header img {
@@ -529,6 +857,69 @@ section {
     font-size: 1.313rem;
     margin-bottom: 30px; }
   .error-container .error-content ul li {
-    margin: 0 30px; } }
+    margin: 0 30px; }
+
+  .enhancement-header {
+    margin-top: 0;
+    margin-bottom: 45px; }
+    .enhancement-header .icon {
+      font-size: 4.500rem; }
+    .enhancement-header h1 {
+      font-size: 1.688rem; }
+
+  .links {
+    margin-bottom: 0; }
+    .links li {
+      width: auto;
+      float: none;
+      margin-left: 12px;
+      margin-right: 12px;
+      display: inline-block; } }
+.enhancement-all header {
+  position: relative; }
+.enhancement-all section {
+  height: auto; }
+.enhancement-all footer {
+  position: relative; }
+.enhancement-all .enhancement-container {
+  width: 100%;
+  height: auto;
+  display: block; }
+  .enhancement-all .enhancement-container .enhancement-content {
+    display: block; }
+
+.enhancement-all {
+  background: #070707 url("../../Images/errors/enhancement-bg.jpg") center -100px no-repeat; }
+
+.enhancement-content-all {
+  max-width: 768px;
+  margin: 30px auto; }
+  .enhancement-content-all .enhancement-lang {
+    padding: 30px 15px;
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.1); }
+    .enhancement-content-all .enhancement-lang:last-child {
+      border-bottom: none; }
+    .enhancement-content-all .enhancement-lang h3 {
+      font-family: 'dinpro';
+      color: #dab867;
+      text-transform: uppercase;
+      margin-top: 0;
+      margin-bottom: 15px; }
+    .enhancement-content-all .enhancement-lang p {
+      margin-bottom: 0; }
+
+@media (max-width: 767px) {
+  .enhancement header {
+    position: relative; }
+  .enhancement section {
+    height: auto; }
+  .enhancement footer {
+    position: relative; }
+  .enhancement .enhancement-container {
+    width: 100%;
+    height: auto;
+    display: block; }
+    .enhancement .enhancement-container .enhancement-content {
+      display: block; } }
 
 /*# sourceMappingURL=styles.css.map */

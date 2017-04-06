@@ -48,6 +48,7 @@ public partial class Deposit_DaddyPay : PaymentBasePage
     {
         if (!Page.IsPostBack)
         {
+            CheckAgentAndRedirect(string.Concat(V2DepositPath, "Pay", PaymentMethodId, ".aspx"));
             this.InitializeLabels();
 
             string bank = isDaddyPayQR ? "DaddyPayQRBank" : "DaddyPayBank";

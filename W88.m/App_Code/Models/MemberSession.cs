@@ -19,6 +19,9 @@ namespace Models
             public string RiskId = string.Empty;
 
             public string CountryCode = string.Empty;
+
+            public bool IsTestAccount = false;
+
         }
     }
 }
