@@ -54,12 +54,17 @@ public partial class _Default : BasePage
 
             if (base.CDNCountryCode.Equals("MY", StringComparison.OrdinalIgnoreCase) || commonCookie.CookieLanguage.Equals("zh-my", StringComparison.OrdinalIgnoreCase))
             {
-                if (strLanguage.Equals("en-us", StringComparison.OrdinalIgnoreCase) || strLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))
+                if (strLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))
                     continue;
+                else if (strLanguage.Equals("en-us", StringComparison.OrdinalIgnoreCase))
+                {
+                    sbLanguageHTML.AppendFormat("<li><a data-ajax='false' href='/Index.aspx?lang={0}' data-inline='true' id='diven-my' class='divLangImg diven-my'></a></li>", strLanguage);
+                    continue;
+                }
             }
             else
             {
-                if (strLanguage.Equals("en-my", StringComparison.OrdinalIgnoreCase) || strLanguage.Equals("zh-my", StringComparison.OrdinalIgnoreCase))
+                if (strLanguage.Equals("zh-my", StringComparison.OrdinalIgnoreCase))
                     continue;
             }
 
