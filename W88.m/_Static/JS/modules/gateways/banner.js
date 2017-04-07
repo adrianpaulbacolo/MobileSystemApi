@@ -171,7 +171,7 @@ function Banner() {
 
 
     function closeVideo(me) {
-        $(me.previousElementSibling).show(); //image
+        $(me).parent().parent().find('img').show(); //image
         $(me).parent().hide(); // video
     }
 
