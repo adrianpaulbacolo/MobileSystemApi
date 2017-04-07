@@ -1,0 +1,277 @@
+//
+// Global Mixins'
+// ----------------------------------------------
+
+// credits: http://zerosixthree.se/8-sass-mixins-you-must-have-in-your-toolbox/
+
+@function calculateRem($sizeRem) {
+ $remSize: $sizeRem / 16px;
+ @return $remSize * 1rem;
+}
+
+@mixin font-size($sizeRem) {
+ font-size: $sizeRem;
+ font-size: calculateRem($sizeRem);
+}
+
+$image-path: '/assets/images' !default;
+$fallback-extension: 'png' !default;
+$retina-suffix: '@2x';
+@mixin background-image($name, $sizeImg:false){
+ background-image: url(#{$image-path}/#{$name}.svg);
+ @if($sizeImg){
+   background-size: $sizeImg;
+ }
+ .no-svg &{
+   background-image: url(#{$image-path}/#{$name}.#{$fallback-extension});
+
+   @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+     background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$fallback-extension});
+   }
+ }
+}
+
+// Usage - @include background-image('pattern');
+
+@mixin keyframes($animation-name) {
+ @-webkit-keyframes #{$animation-name} {
+   @content;
+ }
+ @-moz-keyframes #{$animation-name} {
+   @content;
+ }
+ @-ms-keyframes #{$animation-name} {
+   @content;
+ }
+ @-o-keyframes #{$animation-name} {
+   @content;
+ }
+ @keyframes #{$animation-name} {
+   @content;
+ }
+}
+
+@mixin animation($str) {
+ -webkit-animation: #{$str};
+ -moz-animation: #{$str};
+ -ms-animation: #{$str};
+ -o-animation: #{$str};
+ animation: #{$str};
+}
+
+@mixin opacity($opacity) {
+ opacity: $opacity;
+ $opacity-ie: $opacity * 100;
+ filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+%clearfix {
+ *zoom: 1;
+ &:before, &:after {
+   content: " ";
+   display: table;
+ }
+ &:after {
+   clear: both;
+ }
+}
+
+// Usage - @extend %clearfix;
+
+
+// BS Transitions
+// ----------------------------------------------
+
+@mixin transition($transition...) {
+ -webkit-transition: $transition;
+         transition: $transition;
+}
+@mixin transition-property($transition-property...) {
+ -webkit-transition-property: $transition-property;
+         transition-property: $transition-property;
+}
+@mixin transition-delay($transition-delay) {
+ -webkit-transition-delay: $transition-delay;
+         transition-delay: $transition-delay;
+}
+@mixin transition-duration($transition-duration...) {
+ -webkit-transition-duration: $transition-duration;
+         transition-duration: $transition-duration;
+}
+@mixin transition-timing-function($timing-function) {
+ -webkit-transition-timing-function: $timing-function;
+         transition-timing-function: $timing-function;
+}
+@mixin transition-transform($transition...) {
+ -webkit-transition: -webkit-transform $transition;
+    -moz-transition: -moz-transform $transition;
+         transition: transform $transition;
+}
+
+@mixin transform($transform...) {
+ -webkit-transform: $transform;
+    -moz-transform: $transform;
+         transform: $transform;
+}
+
+@mixin filter($filter) {
+ -webkit-filter: $filter;
+    -moz-filter: $filter;
+         filter: $filter;
+}
+
+@mixin border-radius($radius) {
+ -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+     -ms-border-radius: $radius;
+         border-radius: $radius;
+}
+
+@mixin background-size($background-size) {
+ -webkit-background-size: $background-size;
+    -moz-background-size: $background-size;
+     -ms-background-size: $background-size;
+         background-size: $background-size;
+}
+
+@mixin box-sizing($boxmodel) {
+ -webkit-box-sizing: $boxmodel;
+    -moz-box-sizing: $boxmodel;
+         box-sizing: $boxmodel;
+}
+
+@mixin appearance($appearance) {
+   -webkit-appearance: $appearance;
+      -moz-appearance: $appearance;
+           appearance: $appearance;
+}
+
+@mixin background-clip($background-clip...) {
+ -webkit-background-clip: $background-clip;
+    -moz-background-clip: $background-clip;
+         background-clip: $background-clip;
+}
+
+@mixin translate($translatex, $translatey) {
+   transform: translate($translatex,$translatey);
+   -webkit-transform: translate($translatex,$translatey);
+}
+
+@mixin user-select($user-select) {
+ -webkit-user-select: $user-select;
+    -moz-user-select: $user-select;
+     -ms-user-select: $user-select;
+         user-select: $user-select;
+}
+
+// Drop shadows
+//
+// Note: Deprecated `.box-shadow()` as of v3.1.0 since all of Bootstrap's
+// supported browsers that have box shadow capabilities now support it.
+
+@mixin box-shadow($shadow...) {
+ -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
+         box-shadow: $shadow;
+}
+
+// Placeholder text
+@mixin placeholder($color: $input-color-placeholder) {
+ // Firefox
+ &::-moz-placeholder {
+   color: $color;
+   opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+ }
+ &:-ms-input-placeholder { color: $color; } // Internet Explorer 10+
+ &::-webkit-input-placeholder  { color: $color; } // Safari and Chrome
+}
+
+// Mixin to customize scrollbars
+// @param {Length} $size - Horizontal scrollbar's height and vertical scrollbar's width
+// @param {Color} $foreground-color - Scrollbar's color
+// @param {Color} $background-color [mix($primary, white, 75%)] - Scrollbar's color
+// @include scrollbars(.5em, slategray);
+@mixin scrollbars($sizeScroll, $foreground-color, $background-color: mix($foreground-color, white, 25%)) {
+ ::-webkit-scrollbar {
+       width:  $sizeScroll;
+       height: $sizeScroll;
+ }
+ ::-webkit-scrollbar-thumb {
+       background: $foreground-color;
+ }
+ ::-webkit-scrollbar-track {
+       background: $background-color;
+ }
+ // For Internet Explorer
+ body {
+   scrollbar-face-color: $foreground-color;
+   scrollbar-track-color: $background-color;
+ }
+}
+
+// Resets the outline when focus.
+// For accessibility you need to apply some styling in its place.
+@mixin reset-focus {
+ outline: 0;
+}
+
+// Flexbox
+@mixin flexbox {
+ display: -webkit-box;
+ display: -moz-box;
+ display: -ms-flexbox;
+ display: -webkit-flex;
+ display: flex;
+}
+@mixin flexbox-flex($width) {
+ -webkit-box-flex: 1;
+ -moz-box-flex: 1;
+ -webkit-flex: 1;
+ -ms-flex: 1;
+ flex: 1;
+ width: $width; // Passing our width value here
+}
+@mixin flexbox-order($order) {
+ -webkit-box-ordinal-group: $order;
+ -moz-box-ordinal-group: $order;
+ -ms-flex-order: $order;
+ -webkit-order: $order;
+ order: $order;
+}
+
+// RANGES
+// We use these functions to define ranges for various things, like media queries.
+@function lower-bound($range) {
+ @if length($range) <= 0 {
+   @return 0;
+ }
+ @return nth($range, 1);
+}
+
+@function upper-bound($range) {
+ @if length($range) < 2 {
+   @return 999999999999;
+ }
+ @return nth($range, 2);
+}
+
+@mixin clearFix($display:block) {
+ content: ' ';
+ display: $display;
+ clear: both;
+}
+
+@mixin calc($property, $expression) {
+ #{$property}: -webkit-calc(#{$expression});
+ #{$property}: calc(#{$expression});
+}
+
+@mixin linearGradient($top, $bottom){
+    background: $top; /* Old browsers */
+    background: -moz-linear-gradient(top,  $top 0%, $bottom 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$top), color-stop(100%,$bottom)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  $top 0%,$bottom 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  $top 0%,$bottom 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  $top 0%,$bottom 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  $top 0%,$bottom 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$top', endColorstr='$bottom',GradientType=0 ); /* IE6-9 */
+}

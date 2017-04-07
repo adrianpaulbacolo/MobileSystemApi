@@ -1,4 +1,4 @@
-﻿function DefaultPayments() {
+function DefaultPayments() {
 
     var autorouteIds = {
         QuickOnline: "999999",
@@ -162,8 +162,11 @@
     }
 
     function onTransactionCreated(form) {
+
+        var historyBtn = "<a href='/History' class='btn btn-primary'>" + _w88_contents.translate("LABEL_FUNDS_HISTORY") + "</a>";
+        var message = "<p>" + _w88_contents.translate("MESSAGES_CHECK_HISTORY") + "</p>" + historyBtn;
         if (!_.isUndefined(form)) _.first(form).reset();
-        w88Mobile.Growl.shout(_w88_contents.translate("MESSAGES_CHECK_HISTORY"));
+        w88Mobile.Growl.shout(message);
     }
 
     // to be deprecated, use "send"
@@ -238,13 +241,6 @@
                         $('#paymentTabs').append($('<li />').append(anchor));
 
                 }
-                else if (!activeTabId && _.includes(routing, data.Id)) {
-                    if (!_.includes(window.location.pathname, page)) {
-                        window.location.href = page;
-                        isAutoRoute = true;
-                        break;
-                    }
-                }
             }
 
             if (activeTabId) {
@@ -266,11 +262,9 @@
                 }
             }
             else {
-                if (!isAutoRoute) {
-                    page = setPaymentPage(_.first(responseData).Id);
-                    if (page)
-                        window.location.href = deposit + page;
-                }
+                page = setPaymentPage(_.first(responseData).Id);
+                if (page)
+                    window.location.href = deposit + page;
             }
         } else {
             if (activeTabId) {
@@ -358,8 +352,6 @@
                 if (page)
                     window.location.href = withdraw + page;
             }
-
-            GPInt.prototype.HideSplash();
         } else {
             if (activeTabId) {
                 window.location.href = withdraw;
@@ -414,6 +406,9 @@
 
             case "120204":
                 return "NextPay.aspx";
+
+            case "120248":
+                return "NextPayGV.aspx";
 
             case "120280":
                 return "JutaPay.aspx";
@@ -519,6 +514,9 @@
 
             case "1202120":
                 return "Cubits.aspx";
+
+            case "1202112":
+                return "DinPayTopUp.aspx";
 
             default:
                 break

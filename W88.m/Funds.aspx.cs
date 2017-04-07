@@ -7,6 +7,7 @@ public partial class Funds : PaymentBasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        CheckAgentAndRedirect("/v2/Funds.aspx");
         BuildUiFunds();
 
         if (Page.IsPostBack) return;
@@ -15,7 +16,7 @@ public partial class Funds : PaymentBasePage
     }
 
     private void BuildUiFunds()
-    { 
+    {
         var obj = new Wallets();
 
         if (!obj.WalletInfo.Any()) return;

@@ -1,0 +1,65 @@
+.gateway-restrictions{
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid rgba($white, 0.05);
+	p{
+		text-transform: uppercase;
+		color: darken($text-color, 15%);
+		line-height: 1.2;
+		margin-bottom: 5px;
+		small{
+			text-transform: none;
+		}
+	}
+}
+
+.gateway-select{
+	> .btn{
+		&:after{
+			color: $white;
+  			content: "\e915";
+		    font-family: 'icomoon' !important;
+			speak: none;
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			text-transform: none;
+			line-height: 1;
+		    position: absolute;
+		    right: 8px;
+		    font-size: 1rem;
+		}
+		&.collapsed:after{
+  			content: "\e91e";
+		}
+	}
+}
+
+.gateway-list{
+	.list-group{
+
+	}
+	.list-group-item {
+		font-size: 0.875rem;
+		text-align: center;
+		color: $text-color;
+	    background-color: $body-bg;
+	    border-top: 1px solid lighten($body-bg, 5%);
+	    border-bottom: 1px solid lighten($body-bg, 5%);
+	    border-left: none;
+	    border-right: none;
+	    &:first-child{
+			border-top: none;
+	    }
+	    &:last-child{
+			border-bottom: none;
+	    }
+	    &.active,
+	    &:hover,
+	    &:active,
+	    &:focus{
+			color: $white;
+			background-color: $brand-primary;
+	    }
+	}
+}

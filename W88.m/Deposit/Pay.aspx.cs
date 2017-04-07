@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 public partial class Deposit_Pay : PaymentBasePage
 {
@@ -43,6 +38,9 @@ public partial class Deposit_Pay : PaymentBasePage
             case commonVariables.DepositMethod.ECPSS:
                 GatewayFile = "ecpss";
                 break;
+            case commonVariables.DepositMethod.DinPayTopUp:
+                GatewayFile = "dinpay";
+                break;
             case commonVariables.DepositMethod.IWallet:
                 GatewayFile = "iwallet";
                 break;
@@ -63,6 +61,9 @@ public partial class Deposit_Pay : PaymentBasePage
                 break;
             case commonVariables.DepositMethod.NextPay:
                 GatewayFile = "nextpay";
+                break;
+            case commonVariables.DepositMethod.NextPayGV:
+                GatewayFile = "nextpaygv";
                 break;
             case commonVariables.DepositMethod.EGHL:
                 GatewayFile = "eghl";

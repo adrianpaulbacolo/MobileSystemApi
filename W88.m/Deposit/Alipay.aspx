@@ -10,6 +10,10 @@
             <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
             <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" data-clear-btn="true" />
         </li>
+        <li class="item item-checkbox">
+            <asp:Label ID="lblSwitchLine" runat="server" AssociatedControlID="isSwitchLine" />
+            <asp:CheckBox type="checkbox" ID="isSwitchLine" runat="server" />
+        </li>
     </ul>
 </asp:Content>
 
@@ -17,9 +21,12 @@
     <script type="text/javascript" src="/_Static/JS/modules/gateways/alipay.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
     <script type="text/javascript" src="/_Static/JS/modules/gateways/autoroute.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
     <link href="/_Static/Css/payment.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
-
+    <script src="/_Static/JS/vendor/slick.min.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/banner.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+            _w88_paymentbanner.init("Alipay");
+
             _w88_paymentSvc.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvc.DisplaySettings(
                 "<%=base.PaymentMethodId %>"
@@ -34,6 +41,7 @@
                 var data = {
                     Amount: $('input[id$="txtAmount"]').val(),
                     ThankYouPage: location.protocol + "//" + location.host + "/Deposit/Thankyou.aspx",
+                    SwitchLine: $('input[id$="isSwitchLine"]').is(':checked'),
                     MethodId: "<%=base.PaymentMethodId%>"
                 };
                 var action = "/Deposit/Pay.aspx";
