@@ -449,6 +449,13 @@
             }, false);
         }
 
+
+        $(window).bind('resize', function () {
+            if (!_.isUndefined(_routes.currentCtrl().resize)) {
+                _routes.currentCtrl().resize();
+            }
+        });
+
     </script>
 </body>
 </html>

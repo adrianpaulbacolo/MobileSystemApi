@@ -23,24 +23,25 @@ function slotsCtrl(routeObj, slotSvc, templateSvc) {
                     }));
                 });
 
-                $(window).bind('resize', function () {
-
-                    _.forEach(slotSvc.clubs, function (club) {
-                        _.forEach(club.providers, function (prov) {
-                            pubsub.publish("slotItemsChanged", _self.setPushData({
-                                provider: prov
-                            }));
-                        });
-                    });
-
-                });
-
                 break;
 
             case "index_search":
                 _self.games = w88Mobile.v2.Slots.items;
                 break;
         }
+    }
+
+    this.resize = function () {
+        var _self = this;
+        if (_self.route != "index") return;
+        _.forEach(slotSvc.clubs, function (club) {
+            _.forEach(club.providers, function (prov) {
+                pubsub.publish("slotItemsChanged", _self.setPushData({
+                    provider: prov
+                }));
+            });
+        });
+
     }
 
     // hijack pushed data to include instance
