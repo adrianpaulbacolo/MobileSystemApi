@@ -247,10 +247,10 @@ public static class commonCookie
                 var httpCookie = HttpContext.Current.Request.Cookies["IsApp"];
                 if (httpCookie != null)
                 {
-                    HttpCookie cookie = new HttpCookie("IsApp");
-                    cookie.Value = "";
-                    cookie.Expires = DateTime.Now.AddYears(-1);
-                    HttpContext.Current.Response.Cookies.Add(cookie);
+                    httpCookie.Value = "";
+                    httpCookie.Expires = DateTime.Now.AddYears(-1);
+                    if (!string.IsNullOrEmpty(commonIp.DomainName)) { httpCookie.Domain = commonIp.DomainName; }
+                    HttpContext.Current.Response.Cookies.Add(httpCookie);
                 }
             }
         }
