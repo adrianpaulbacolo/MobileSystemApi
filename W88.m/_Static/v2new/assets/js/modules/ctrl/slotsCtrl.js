@@ -23,6 +23,18 @@ function slotsCtrl(routeObj, slotSvc, templateSvc) {
                     }));
                 });
 
+                $(window).bind('resize', function () {
+
+                    _.forEach(slotSvc.clubs, function (club) {
+                        _.forEach(club.providers, function (prov) {
+                            pubsub.publish("slotItemsChanged", _self.setPushData({
+                                provider: prov
+                            }));
+                        });
+                    });
+
+                });
+
                 break;
 
             case "index_search":
@@ -81,7 +93,7 @@ function slotsCtrl(routeObj, slotSvc, templateSvc) {
                     });
                     items = _.concat(items, publishedItems);
                     items = w88Mobile.v2.Slots.sortGames(items, "Home");
-                    games = _.slice(items, 0, w88Mobile.v2.Slots.clubLimit);
+                    games = _.slice(items, 0, w88Mobile.v2.Slots.getClubLimit());
                     pubsub.publish("displaySlotList", _self.setPushData({
                         games: games
                         , page: _self.page
