@@ -82,7 +82,7 @@ public partial class Slots_ClubPalazzo : BasePage
             }
             else
             {
-                sbGames.AppendFormat("<li class='bkg-game'><div rel='{0}.png'><div class='div-links'>", game.Image);
+                sbGames.AppendFormat("<li class='bkg-game'><div rel='{0}'><div class='div-links'>", game.Image);
 
                 if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                     sbGames.AppendFormat("<a class='btn-primary' target='_blank' href='/_Secure/Login.aspx?redirect=" + Server.UrlEncode("/ClubPalazzo") + "' data-rel='dialog' data-transition='slidedown' data-ajax='false'>");
