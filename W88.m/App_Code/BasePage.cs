@@ -195,20 +195,13 @@ public class BasePage : System.Web.UI.Page
 
     private void CheckVipDomain()
     {
-        if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) &&
-          !HttpContext.Current.Request.Url.AbsoluteUri.ToLower().Contains("/_secure/vip/"))
+        if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) && !HttpContext.Current.Request.Url.AbsoluteUri.ToLower().Contains("/vip/"))
         {
-            var opSettings = new OperatorSettings("W88");
-            foreach (
-                var v in
-                    opSettings.Values.Get("VIP_Domains")
-                        .ToLower()
-                        .Split(new[] { '|' })
-                        .Where(v => v.Equals(HttpContext.Current.Request.Url.Host)))
+            foreach (var v in ConfigurationManager.AppSettings.Get("VIP_Domains").ToLower().Split(new[] { '|' }).Where(v => v.Equals(HttpContext.Current.Request.Url.Host)))
             {
                 commonCookie.CookieLanguage = "zh-cn";
                 Response.Clear();
-                Response.Redirect("/_Secure/VIP/login.aspx", true);
+                Response.Redirect(ConfigurationManager.AppSettings.Get("VipUrl"), true);
             }
         }
     }

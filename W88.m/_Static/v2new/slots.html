@@ -79,10 +79,12 @@
     <script src="../v2/assets/js/vendor/bootstrap.min.js"></script>
     <script src="/_Static/JS/vendor/lodash.min.js"></script>
     <script src="assets/js/vendor/pubsub.js"></script>
+    <script src="assets/js/modules/constants.js"></script>
     <script type="text/javascript">
         w88Mobile = {};
         w88Mobile.v2 = {};
         w88Mobile.v2._templates = {};
+        w88Mobile.v2.Constants = _constants;
         window.User = w88Mobile.User = {};
         w88Mobile.User.token = Cookies().getCookie('s');
         w88Mobile.User.hasSession = !_.isEmpty(w88Mobile.User.token);

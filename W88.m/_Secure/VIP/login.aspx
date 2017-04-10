@@ -10,8 +10,8 @@
     <title>W88 Vip</title>
 
     <!-- Bootstrap -->
-    <link href="js/jquery.modal.min.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet">
+    <link href="/_Secure/VIP/js/jquery.modal.min.css" rel="stylesheet" />
+    <link href="/_Secure/VIP/css/style.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -21,8 +21,9 @@
     <![endif]-->
 
     <script src="/_Static/JS/jquery-1.10.2.min.js"></script>
-    <script src="js/jquery.modal.min.js"></script>
+    <script src="/_Secure/VIP/js/jquery.modal.min.js"></script>
     <script src="/_Static/JS/vendor/lodash.min.js"></script>
+    <script type="text/javascript" src="/_Static/v2/assets/js/vendor/pubsub.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
     <script src="/_Static/JS/GPINT.js"></script>
     <script src="/_Static/JS/Cookie.js"></script>
     <script src="/_Static/JS/vendor/amplify.min.js"></script>
@@ -52,21 +53,21 @@
     <section class="viplogin">
         <div class="viplogin-container">
             <div class="viplogin-box">
-                <img src="img/w88-vip.png" alt="" class="viplogo">
+                <img src="/_Secure/VIP/img/w88-vip.png" alt="" class="viplogo">
                 <form action="" class="viplogin-form" runat="server">
                     <h3><span id="formHeader"></span></h3>
                     <div class="input-group">
                         <div class="input-box">
                             <input type="text" class="input" placeholder="" id="txtUsername">
                             <span class="input-box-icon">
-                                <img src="img/icon-user.png" alt=""></span>
+                                <img src="/_Secure/VIP/img/icon-user.png" alt=""></span>
                         </div>
                     </div>
                     <div class="input-group">
                         <div class="input-box">
                             <input type="password" class="input" placeholder="" id="txtPassword">
                             <span class="input-box-icon">
-                                <img src="img/icon-password.png" alt=""></span>
+                                <img src="/_Secure/VIP/img/icon-password.png" alt=""></span>
                         </div>
                     </div>
                     <div class="input-group captcha">
@@ -74,7 +75,7 @@
                         <div class="input-box">
                             <asp:TextBox ID="txtCaptcha" runat="server" MaxLength="4" type="tel" data-mini="true" data-corners="false" CssClass="input" />
                             <span class="input-box-icon">
-                                <img src="img/icon-password.png" alt=""></span>
+                                <img src="/_Secure/VIP/img/icon-password.png" alt=""></span>
                         </div>
                     </div>
                     <div class="input-group">
@@ -113,27 +114,28 @@
             $("body").removeClass("ch");
         }
 
+        pubsub.subscribe('contentsLoaded', onContentsLoaded);
+
+        function onContentsLoaded() {
+
+            setTranslations();
+        }
+
         setTranslations();
 
         function setTranslations() {
-            if (_w88_contents.translate("LABEL_VIP_LOGIN") != "LABEL_VIP_LOGIN") {
-                $("#formHeader").text(_w88_contents.translate("LABEL_VIP_LOGIN"));
-                $("#txtUsername").attr("placeholder", _w88_contents.translate("LABEL_USERNAME"));
-                $("#txtPassword").attr("placeholder", _w88_contents.translate("LABEL_PASSWORD"));
-                $("#txtCaptcha").attr("placeholder", _w88_contents.translate("LABEL_CAPTCHA"));
-                $("#btnSubmit").val(_w88_contents.translate("BUTTON_LOGIN"));
+            $("#formHeader").text(_w88_contents.translate("LABEL_VIP_LOGIN"));
+            $("#txtUsername").attr("placeholder", _w88_contents.translate("LABEL_USERNAME"));
+            $("#txtPassword").attr("placeholder", _w88_contents.translate("LABEL_PASSWORD"));
+            $("#txtCaptcha").attr("placeholder", _w88_contents.translate("LABEL_CAPTCHA"));
+            $("#btnSubmit").val(_w88_contents.translate("BUTTON_LOGIN"));
 
-                var note0 = _w88_contents.translate("LABEL_VIP_LOGIN_NOTE_0").split('{0}');
-                $("#loginNote0").text(note0[0]);
-                $("#loginNote1").text(note0[1]);
-                $("#sslNote").text(_w88_contents.translate("LABEL_VIP_LOGIN_NOTE_1"));
-                $("#forgot").text(_w88_contents.translate("LABEL_FORGOTPASSWORD"));
-                $("#csLink").text(_w88_contents.translate("LABEL_CS_LINK"));
-            } else {
-                window.setInterval(function() {
-                    setTranslations();
-                }, 500);
-            }
+            var note0 = _w88_contents.translate("LABEL_VIP_LOGIN_NOTE_0").split('{0}');
+            $("#loginNote0").text(note0[0]);
+            $("#loginNote1").text(note0[1]);
+            $("#sslNote").text(_w88_contents.translate("LABEL_VIP_LOGIN_NOTE_1"));
+            $("#forgot").text(_w88_contents.translate("LABEL_FORGOTPASSWORD"));
+            $("#csLink").text(_w88_contents.translate("LABEL_CS_LINK"));
         }
 
         $('#txtUsername').keyup(function () {

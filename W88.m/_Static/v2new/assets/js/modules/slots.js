@@ -82,7 +82,7 @@ function Slots() {
         if(provider == "pt"){
             data.gamepass = Cookies().getCookie('palazzo');
         }
-        var url = "/api/games/" + provider;
+        var url = _constants.API_URL + "/games/" + provider;
         send(url, "GET", data, success, error);
     }
 
@@ -202,7 +202,7 @@ function Slots() {
             };
 
             _.forEach(club.providers, function (provider) {
-                var url = "/api/games/" + provider;
+                var url = _constants.API_URL + "/games/" + provider;
 
                 send(url + "/category", "GET", {}, function (response) {
 
@@ -333,7 +333,7 @@ function Slots() {
 
     function fetchClubFilter(option, provider) {
 
-        var url = "/api/games/" + provider + "/" + option;
+        var url = _constants.API_URL + "/games/" + provider + "/" + option;
         send(url, "GET", {}, function (response) {
             if (_.isUndefined(clubFilterOptions[provider])) clubFilterOptions[provider] = {};
             clubFilterOptions[provider][option] = response.ResponseData;
