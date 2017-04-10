@@ -16,5 +16,9 @@ public partial class Withdrawal_Default : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!Page.IsPostBack)
+        {
+            CheckAgentAndRedirect(V2WithdrawalPath);
+        }
     }
 }

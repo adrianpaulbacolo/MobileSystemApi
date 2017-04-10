@@ -1,127 +1,51 @@
-﻿<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<%@ Import Namespace="W88.BusinessLogic.Shared.Helpers" %>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Page Not Found</title>
-<style type="text/css">
-html body {
-    color: #808080;
-	font-size:11px;
-	font-family:Tahoma, Geneva, sans-serif;
-	background-color: #1f1f1f;
-	height:100%;
-	}
-.header {	
-	font-family: DINPro-Regular;
-	font-size:25px;
-	color:#FFF;
-	}
-a:link {
-	text-decoration:none;
-	color:#2a8fbd;
-	}
-a:visited  {
-	text-decoration:none;	
-	color:#2a8fbd;
-	}
-a:hover {color:#38c0ff}
-  
-  </style>
+<meta>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%=commonCulture.ElementValues.getResourceXPathString("HttpError/e404title", commonVariables.ErrorsXML)%></title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link href="/_Static/Css/errors/styles.ab50292d.css" rel="stylesheet" type="text/css">
+
 </head>
-
 <body>
- 
-<table width="550" cellspacing="0" cellpadding="0" style="border:1px solid #404040; margin:0px auto; margin-top:20px" bgcolor="#252525" align="center">
-  <tr>
-    <td style="padding:20px;">
 
-<!---->
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="header">PAGE NOT FOUND</td>
-  </tr>
-  <tr>
-    <td height="20"></td>
-  </tr>
-  <tr>
-    <td bgcolor="#404040" height="1"></td>
-  </tr>
-  <tr>
-    <td height="20"></td>
-  </tr>
-  <tr>
-    <td>This may happen if you have entered site url incorrectly or this page does not exit anymore. <br />
-You can click on icons below to get back to our website.
-<br /><br />
-可能您输入了错误的网址或者该网页已经不存在。<br />
-您可以点击以下图标回到我们的网站。
-<br /><br />
-นี้อาจเกิดขึ้นถ้าคุณได้ป้อน URL ของเว็บไซต์ไม่ถูกต้องหรือหน้านี้ไม่ออกอีกต่อไป<br />
-คุณสามารถคลิกที่ไอคอนด้านล่างเพื่อกลับไปที่เว็บไซต์ของเรา
-<br /><br />
-Quý khách đã nhập vào địa chỉ url không chính xác hoặc trang web này đã không còn tồn tại. <br />
-Quý khách có thể nhấp vào các biểu tượng bên dưới để quay trở lại trang web của chúng tôi.
-<br /><br />
-Ini dapat terjadi ketika anda memasukkan alamat situs yang salah atau halaman ini tidak ada lagi.<br />
-Anda dapat mengklik pada icon-icon dibawah ini untuk kembali ke situs kami.
-<br /><br />
-នេះអាចបណ្តាលមកពីអ្នកវាយបញ្ចូលអាស័យដ្ឋានវេបសាយមិនត្រឹមត្រូវ ឬទំព័រនេះមិនមានទៀតទេ។
-</td>
-  </tr>
-  <tr>
-    <td height="30"></td>
-  </tr>
-  <tr>
-    <td>
-    
-<!---->     
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr align="center">
-    <td><a href="http://www.w88.com"><img src="/_static/img/icon_home_off.png" alt="" onmouseover=" this.src='/_static/img/icon_home_on.png'" onmouseout="this.src='/_static/img/icon_home_off.png'" 
-style="cursor:pointer;"></a></td>
-    <td><a href="http://www.w88.com/Sports/"><img src="/_static/img/icon_sports_off.png" alt="" onmouseover=" this.src='/_static/img/icon_sports_on.png'" onmouseout="this.src='/_static/img/icon_sports_off.png'" 
-style="cursor:pointer;"></a></td>
-    <td><a href="http://www.w88.com/Casino/"><img src="/_static/img/icon_livecasino_off.png" alt="" onmouseover=" this.src='/_static/img/icon_livecasino_on.png'" onmouseout="this.src='/_static/img/icon_livecasino_off.png'" 
-style="cursor:pointer;"></a></td>
-    <td><a href="http://www.w88.com/Lottery/"><img src="/_static/img/icon_kenolottery_off.png" alt="" onmouseover=" this.src='/_static/img/icon_kenolottery_on.png'" onmouseout="this.src='/_static/img/icon_kenolottery_off.png'" 
-style="cursor:pointer;"></a></td>
-    <td><a href="http://www.w88.com/Games/"><img src="/_static/img/icon_games_off.png" alt="" onmouseover=" this.src='/_static/img/icon_games_on.png'" onmouseout="this.src='/_static/img/icon_games_off.png'" 
-style="cursor:pointer;"></a></td>
-   <!-- <td><a href="http://www.google.com"><img src="img/icon_financial_off.png" alt="Poker" onmouseover=" this.src='img/icon_financial_on.png'" onmouseout="this.src='img/icon_financial_off.png'" 
-style="cursor:pointer;"></a></td>
-<td><a href="http://www.google.com"><img src="img/icon_poker_off.png" alt="" onmouseover=" this.src='img/icon_poker_on.png'" onmouseout="this.src='img/icon_poker_off.png'" 
-style="cursor:pointer;"></a></td>-->
+    <header>
+    	<a href="/"><img src="/_Static/Images/logo-<%=LanguageHelpers.SelectedLanguageShort%>.png"></a>
+    </header>
 
-  </tr>
-</table>
-<!---->    
-    
-    </td>
-  </tr>
-  <tr>
-    <td height="30"></td>
-  </tr>
-<!--  <tr>
-    <td>Thank you. 谢谢！ขอบคุณ Chân thành cảm ơn. Terima Kasih</td>
-  </tr>-->
-  <tr>
-    <td>Thank you.</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td><img src="/_static/img/logo_w88.png" /></td>
-  </tr>
-</table>
+    <section>
+        <div class="error-container">
+            <div class="error-content">
+                <h1>404</h1>
+                <h3><%=commonCulture.ElementValues.getResourceXPathString("HttpError/e404title", commonVariables.ErrorsXML)%></h3>
+                <p><%=commonCulture.ElementValues.getResourceXPathString("HttpError/e404", commonVariables.ErrorsXML)%></p>
+                <ul class="links links-error">
+                    <li>
+                        <a href="/Index.aspx">
+                            <span class="icon icon-home"></span><br>
+                            <span class="link-text"><%=commonCulture.ElementValues.getResourceString("home", commonVariables.LeftMenuXML)%></span> 
+                             
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://server.iad.liveperson.net/hc/88942816/?cmd=file&amp;file=visitorWantsToChat&amp;site=88942816&amp;SV!skill=English&amp;leInsId=88942816527642465&amp;skId=1&amp;leEngId=88942816_29aeab82-a5fc-4de7-b801-c6a87c638106&amp;leEngTypeId=8&amp;leEngName=LiveHelp_default&amp;leRepAvState=3&amp;SESSIONVAR!visitor_profile=English" onclick="window.open(&#39;https://server.iad.liveperson.net/hc/88942816/?cmd=file&amp;file=visitorWantsToChat&amp;site=88942816&amp;SV!skill=English&amp;leInsId=88942816527642465&amp;skId=1&amp;leEngId=88942816_29aeab82-a5fc-4de7-b801-c6a87c638106&amp;leEngTypeId=8&amp;leEngName=LiveHelp_default&amp;leRepAvState=3&amp;SESSIONVAR!visitor_profile=English&#39;, &#39;popup&#39;, &#39;width=517,height=465&#39;); return false">
+                            <span class="icon icon-chat"></span><br>
+                            <span class="link-text">
+                            <%=commonCulture.ElementValues.getResourceString("helpCenter", commonVariables.LeftMenuXML)%></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-<!----> 
-
-    
-</td></tr></table>
-
-
-
+    <footer>
+        <img src="/_Static/Images/errors/gpi-logo.png" alt="">
+        <p><small>&copy; <%=DateTime.Now.Year%> <a href="/">W88</a>. All rights reserved.</small></p>
+    </footer>
 
 </body>
 </html>

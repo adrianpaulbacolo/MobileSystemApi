@@ -44,7 +44,7 @@ namespace GameXmlGenerator
 
                     game = xmlHelp.BuildGame(game, line.Split(','), xmlHelp.GetClub(filename));
 
-                    xml.Add(game);
+                    if (game.Elements().FirstOrDefault() != null) xml.Add(game);
                 }
 
                 if (xmlHelp.Providers.HasElements) xml.Add(xmlHelp.Providers);

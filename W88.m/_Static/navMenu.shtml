@@ -696,7 +696,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             $('.sub-menu[data-rel]').not('.sub-menu[data-rel="funds"]').hide();
             $('.sub-menu[data-rel="funds"]').show();
             $('body').addClass('open-subnav');
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
         });
@@ -712,7 +712,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             $('.vsports').attr('src', '/_Static/Images/sports/bnr-vSports.jpg');
             $('.xsports').attr('src', '/_Static/Images/sports/bnr-xsports.jpg');
 
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
 
@@ -729,7 +729,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             $('.clubpalazzo-casino-android').attr('src', '/_Static/Images/casino/bnr-clubpalazzo-casino-android.jpg');
             $('.clubmassimo-casino-android').attr('src', '/_Static/Images/casino/bnr-clubmassimo-casino-android.jpg');
 
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
         });
@@ -741,7 +741,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             $('.PokerIOS').attr('src', '/_Static/Images/W88-Mobile-Poker-iOS.jpg');
             $('.PokerAndroid').attr('src', '/_Static/Images/W88-Mobile-Poker-Android.jpg');
 
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
         });
@@ -756,7 +756,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             $('.FishAndroid').attr('src', '/_Static/Images/bnr-fishingmaster-android.jpg');
             $('.FishWorld3').attr('src', '/_Static/Images/thumbnail-FishingWorld.jpg');
 
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
         });
@@ -781,7 +781,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             $('.clubdivino').attr('src', '/_Static/Images/bnr-clubdivino.jpg');
             $('.clubnuovo').attr('src', '/_Static/Images/bnr-clubnuovo.jpg');
 
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
         });
@@ -792,7 +792,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
 
             $('.keno').attr('src', '/_Static/Images/bnr_lottery.jpg');
 
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
         });
@@ -804,7 +804,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             $('.TexasMahjong-iOS').attr('src', '/_Static/Images/Download/TexasMahjong-iOS.jpg');
             $('.TexasMahjong-Android').attr('src', '/_Static/Images/Download/TexasMahjong-Android.jpg');
 
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
         });
@@ -812,7 +812,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             $('.sub-menu[data-rel]').not('.sub-menu[data-rel="infos"]').hide();
             $('.sub-menu[data-rel="infos"]').show();
             $('body').addClass('open-subnav');
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
         });
@@ -840,3 +840,25 @@ var fishingWorld = FishingWorldProduct.GetLink();
         });
     });
 </script>
+
+<% if (commonFunctions.isNativeAgent(Request)){ %>
+<script type="text/javascript">
+        $(function () {
+            $("#aMenu").attr("href", "#");
+            $("#aMenu").on("click", function(e){
+                e.preventDefault();
+                try{
+                    if(!_.isEmpty($(this).find("i.icon-navicon"))){
+                        Native.openSlidingMenu();
+                    }else{
+                        var isMainPage =  <%= commonFunctions.isMainPage(Request).ToString().ToLower() %>;
+                        if(isMainPage) window.location.href="/v2/Dashboard.aspx";
+                        else window.history.go(-1);
+                    }
+                }catch(e){
+                    console.log(e.message)
+                }
+            });
+        });
+</script>
+<% } %>

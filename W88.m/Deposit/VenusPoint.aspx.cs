@@ -30,6 +30,7 @@ public partial class Deposit_VenusPoint : PaymentBasePage
     {
         if (!Page.IsPostBack)
         {
+            CheckAgentAndRedirect(string.Concat(V2DepositPath, "Pay", PaymentMethodId, ".aspx"));
             InitializeLabels();
 
         }

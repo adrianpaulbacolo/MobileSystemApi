@@ -79,7 +79,7 @@
             login = new Login(translations, elems, '/Index.aspx', true);
             login.initializeButtons();
 
-            var language = '<%=LanguageHelpers.SelectedLanguage%>';
+            var language = '<%=Language%>';
             if (language == 'zh-cn') {
                 $("body").addClass("ch");
             }

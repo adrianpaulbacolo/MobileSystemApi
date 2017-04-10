@@ -1,17 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Configuration;
-using System.Data;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Xml.Linq;
 
 
 public partial class Deposit_NganLuong : PaymentBasePage
@@ -28,6 +16,7 @@ public partial class Deposit_NganLuong : PaymentBasePage
     {
         if (!Page.IsPostBack)
         {
+            CheckAgentAndRedirect(string.Concat(V2DepositPath, "Pay", PaymentMethodId, ".aspx"));
             lblMessage.Text = base.strlblVendorNote;
             btnSubmit.Text = commonCulture.ElementValues.getResourceString("proceed", commonVariables.LeftMenuXML);
         }

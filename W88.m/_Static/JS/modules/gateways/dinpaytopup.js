@@ -43,9 +43,11 @@
         $('select[id$="drpAmount"]').append($('<option>').text(_w88_contents.translate("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
         $('select[id$="drpAmount"]').val("-1").selectmenu("refresh");
 
-        _.forOwn(card.Denominations, function (data) {
-            $('select[id$="drpAmount"]').append($('<option>').text(data.Text).attr('value', data.Value));
-        });
+        if (cards) {
+            _.forOwn(card.Denominations, function (data) {
+                $('select[id$="drpAmount"]').append($('<option>').text(data.Text).attr('value', data.Value));
+            });
+        }
     }
 
     function setFee(selectedValue) {

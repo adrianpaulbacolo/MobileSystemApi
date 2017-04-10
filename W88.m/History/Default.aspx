@@ -15,7 +15,14 @@
 
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
+                <% if (commonFunctions.isNativeAgent(Request))
+                   { %>
+                <i class="icon icon-back"></i>
+                <% }
+                   else
+                   { %>
                 <i class="icon icon-navicon"></i>
+                <% } %>
             </a>
             <h1 class="title"><%=commonCulture.ElementValues.getResourceString("history", commonVariables.HistoryXML)%></h1>
         </header>
