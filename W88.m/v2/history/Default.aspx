@@ -105,7 +105,6 @@
                 showInitialValue: true,
                 overrideDateFormat: '%m/%d/%Y',
                 beforeToday: true,
-                useCancelButton: true
             };
 
             $('input[id$="txtDateFrom"]').datebox(dateOptions);

@@ -6,6 +6,10 @@
 
 <!-- Bootstrap -->
 <link href="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/css/base.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
+
+<!-- JTSageDateBox -->
+<link href="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/css/vendor/jtsage-datebox-4.1.1.bootstrap.min.css" rel="stylesheet" type="text/css">
+
 <link href="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/css/styles.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
 
 
@@ -25,9 +29,6 @@
 
 <!-- jQuery Widget Factory (necessary for JTSageDateBox's JavaScript plugins) -->
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/jquery-ui.js" type="text/javascript"></script>
-
-<!-- JTSageDateBox -->
-<link href="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/css/vendor/jtsage-datebox-4.1.1.bootstrap.min.css" rel="stylesheet" type="text/css">
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/jtsage-datebox-4.1.1.bootstrap.min.js" type="text/javascript"></script>
 
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/bootstrap-validator.min.js"></script>
