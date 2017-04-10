@@ -42,6 +42,14 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
         }
     }
 
+    this.resize = function () {
+        var _self = this;
+        if (_self.route != "club") return;
+        _self.filterClubSlots({
+            section: _self.club.section
+        });
+    }
+
     this.filterClubSlots = function (filter) {
 
         var _self = this;
@@ -59,6 +67,7 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
             var games = slotSvc.filterSlots(filter, _.clone(_self.games));
 
             games = slotSvc.sortGames(games, filter.section);
+            games = _.slice(games, 0, slotSvc.getClubLimit());
 
             pubsub.publish("displaySlotList", _self.setPushData({
                 games: games

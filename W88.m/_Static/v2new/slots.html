@@ -167,7 +167,7 @@
 
             _.forEach(clubs, function (club) {
                 var items = w88Mobile.v2.Slots.itemsByClub(club.providers, "Home");
-                games = _.slice(items, 0, w88Mobile.v2.Slots.clubLimit);
+                games = _.slice(items, 0, w88Mobile.v2.Slots.getClubLimit());
                 pubsub.publish("updateList", {
                     games: games
                     , club: club
@@ -448,6 +448,13 @@
                 }
             }, false);
         }
+
+
+        $(window).bind('resize', function () {
+            if (!_.isUndefined(_routes.currentCtrl().resize)) {
+                _routes.currentCtrl().resize();
+            }
+        });
 
     </script>
 </body>
