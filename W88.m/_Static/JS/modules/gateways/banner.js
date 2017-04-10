@@ -160,6 +160,22 @@ function Banner() {
             zIndex: 1
         });
 
+        $('div.payment-banner').on('swipe', function (event, slick, direction) {
+            if ($(".embed-responsive").is(":visible")) {
+                $(".embed-responsive video")[0].pause();
+                $(".img-responsive").show(); // video
+                $(".embed-responsive").hide(); // video
+            }
+        });
+
+        $('div.payment-banner .slick-arrow').on('click', function (event) {
+            if ($(".embed-responsive").is(":visible")) {
+                $(".embed-responsive video")[0].pause();
+                $(".img-responsive").show(); // video
+                $(".embed-responsive").hide(); // video
+            }
+        });
+
         $('.embed-responsive').hide();
     }
 
