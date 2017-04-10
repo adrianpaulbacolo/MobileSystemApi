@@ -101,7 +101,7 @@
             });
 
             var dateOptions = {
-                mode: 'flipbox',
+                mode: 'calbox',
                 showInitialValue: true,
                 overrideDateFormat: '%m/%d/%Y',
                 beforeToday: true,
