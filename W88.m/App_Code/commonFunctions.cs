@@ -789,4 +789,9 @@ public static class commonFunctions
         return ConfigurationManager.AppSettings["TexasMahjongAndroid_URL"];
     }
 
+    public static string GetSuperBullDownloadLink()
+    {
+        return ConfigurationManager.AppSettings["SuperBull_Android_URL"];
+    }
+
 }
