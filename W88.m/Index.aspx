@@ -9,53 +9,53 @@
     <script type="application/javascript" src="/_Static/JS/add2home.js"></script>
 </head>
 <body>
-            
-        <div class="download-app-box">
+
+    <div class="download-app-box">
         <%if (mobileDeviceId == 2)
           {%>
         <div class="download-app">
-                    <div class="row">
-                        <div class="col col-25 download-icon">
-                            <span class="icon icon-android"></span>
-                        </div>
-                        <div class="col col-75 download-summary">
-                            <h5 class="title"><%=commonCulture.ElementValues.getResourceString("w88Android", commonVariables.LeftMenuXML)%></h5>
-                            <span><%=commonCulture.ElementValues.getResourceString("w88AndroidDesc", commonVariables.LeftMenuXML)%></span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <a href="javascript:hideDownload();" role="button" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("NoThanks", commonVariables.LeftMenuXML)%></a>
-                        </div>
-                        <div class="col">
-                    <a href="<%=commonClubWAPK.getDownloadUrl %>" target="_blank" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("DownloadNow", commonVariables.LeftMenuXML)%></a>
-                        </div>
-                    </div>
+            <div class="row">
+                <div class="col col-25 download-icon">
+                    <span class="icon icon-android"></span>
                 </div>
-            <%}%>
+                <div class="col col-75 download-summary">
+                    <h5 class="title"><%=commonCulture.ElementValues.getResourceString("w88Android", commonVariables.LeftMenuXML)%></h5>
+                    <span><%=commonCulture.ElementValues.getResourceString("w88AndroidDesc", commonVariables.LeftMenuXML)%></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <a href="javascript:hideDownload();" role="button" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("NoThanks", commonVariables.LeftMenuXML)%></a>
+                </div>
+                <div class="col">
+                    <a href="<%=commonClubWAPK.getDownloadUrl %>" target="_blank" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("DownloadNow", commonVariables.LeftMenuXML)%></a>
+                </div>
+            </div>
+        </div>
+        <%}%>
         <%if (mobileDeviceId == 1)
           {%>
-                <div class="download-app">
-                    <div class="row">
-                        <div class="col col-25 download-icon">
-                            <span class="icon icon-apple"></span>
-                        </div>
-                        <div class="col col-75 download-summary">
-                            <h5 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Label", commonVariables.ProductsXML)%></h5>
-                            <p><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Description", commonVariables.ProductsXML)%></p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <a href="javascript:hideDownload();" role="button" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("NoThanks", commonVariables.LeftMenuXML)%></a>
-                        </div>
-                        <div class="col">
-                            <a href="/_Static/Downloads/w88.aspx" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("DownloadNow", commonVariables.LeftMenuXML)%></a>
-                        </div>
-                    </div>
+        <div class="download-app">
+            <div class="row">
+                <div class="col col-25 download-icon">
+                    <span class="icon icon-apple"></span>
                 </div>
-            <%}%>
+                <div class="col col-75 download-summary">
+                    <h5 class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Label", commonVariables.ProductsXML)%></h5>
+                    <p><%=commonCulture.ElementValues.getResourceXPathString("Products/iOSSports/Description", commonVariables.ProductsXML)%></p>
+                </div>
             </div>
+            <div class="row">
+                <div class="col">
+                    <a href="javascript:hideDownload();" role="button" class="ui-btn btn-bordered"><%=commonCulture.ElementValues.getResourceString("NoThanks", commonVariables.LeftMenuXML)%></a>
+                </div>
+                <div class="col">
+                    <a href="/_Static/Downloads/w88.aspx" class="ui-btn btn-primary"><%=commonCulture.ElementValues.getResourceString("DownloadNow", commonVariables.LeftMenuXML)%></a>
+                </div>
+            </div>
+        </div>
+        <%}%>
+    </div>
 
     <div id="divMain" class="download-app-visible" data-role="page" data-theme="b" data-ajax="false">
         <!--#include virtual="~/_static/header.shtml" -->
@@ -71,7 +71,7 @@
             </section>
             <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                {
-            var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
+                   var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
             <div class="row row-no-padding action-btn">
                 <div class="col front-btn">
                     <a href="/_Secure/Register.aspx<%= queryString %>" class="ui-btn btn-secondary menuJoinTitle" role="button" data-ajax="false"></a>
@@ -80,19 +80,19 @@
                     <a href="/_Secure/Login.aspx" class="ui-btn btn-primary menuLoginTitle" role="button" data-rel="dialog" data-ajax="false"></a>
                 </div>
             </div>
-             <% } %>
+            <% } %>
 
             <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                { %>
-             <div class="row row-no-padding action-btn action-button-lg" data-ajax="false">
+            <div class="row row-no-padding action-btn action-button-lg" data-ajax="false">
                 <div class="col">
                     <a href="Funds.aspx" class="ui-btn btn-primary " role="button" data-ajax="false">
-                        <span class="icon icon-currency-circle" ></span>
+                        <span class="icon icon-currency-circle"></span>
                         <span class="menuFundsTitle"></span>
                     </a>
                 </div>
             </div>
-             <% } %>
+            <% } %>
 
 
             <ul class="row row-bordered bg-gradient row-uc row-dashboard">
@@ -116,31 +116,31 @@
                         <h4 class="title menuSlotsTitle"></h4>
                     </a>
                 </li>
-                
+
                 <!-- Fishing Game -->
                 <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency))
                    {
                        if (commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase))
                        { %>
-                            <li class="col col-33 product">
-                                <a href="#divPanel" class="tile nav-fish">
-                                    <span class="icon icon-fish"></span>
-                                    <h4 class="title menuFishingTitle"></h4>
-                                </a>
-                            </li>
-                    <% }
+                <li class="col col-33 product">
+                    <a href="#divPanel" class="tile nav-fish">
+                        <span class="icon icon-fish"></span>
+                        <h4 class="title menuFishingTitle"></h4>
+                    </a>
+                </li>
+                <% }
                    }
                    else if (commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))
                    { %>
-                        <li class="col col-33 product">
-                            <a href="#divPanel" class="tile nav-fish">
-                                <span class="icon icon-fish"></span>
-                                <h4 class="title menuFishingTitle"></h4>
-                            </a>
-                        </li>
+                <li class="col col-33 product">
+                    <a href="#divPanel" class="tile nav-fish">
+                        <span class="icon icon-fish"></span>
+                        <h4 class="title menuFishingTitle"></h4>
+                    </a>
+                </li>
                 <% } %>
-                
-                <li class="col col-33 product">                    
+
+                <li class="col col-33 product">
                     <a href="Lottery.aspx?lang=<%=commonVariables.SelectedLanguage%>" class="tile" data-ajax="false">
                         <span class="icon icon-keno"></span>
                         <h4 class="title menuLotteryTitle"></h4>
@@ -149,25 +149,52 @@
                 <li class="col col-33 product">
                     <a href="#divPanel" class="tile nav-poker">
                         <span class="icon icon-spade"></span>
-                        <h4 class="title menuPokerTitle" ></h4>
+                        <h4 class="title menuPokerTitle"></h4>
                     </a>
                 </li>
 
-                  <%if (mobileDeviceId == 1)
-                  {%>
-                <li class="col col-33 product">
-                    <a href="#divPanel" class="tile nav-pmahjong">
-                        <span class="icon icon-mahjong"></span>
-                        <h4 class="title menuTexasMahjongTitle"></h4>
-                    </a>
-                </li>
-                <% } %>
-                <% else
-                  {%>
+
+                <%
+                    var isSuperBullIndex = false;
+
+                    if (mobileDeviceId == 2 || mobileDeviceId == 3)
+                    {
+                        if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+                        {
+
+                            if (commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase))
+                            {
+                                isSuperBullIndex = true;
+                            }
+
+                        }
+                        else
+                        {
+                            if (commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))
+                            {
+                                isSuperBullIndex = true;
+                            }
+                        }
+                    }
+                %>
+
+
+                <% if (isSuperBullIndex)
+                   {
+                %>
                 <li class="col col-33 product">
                     <a href="#divPanel" class="tile nav-pmahjong">
                         <span class="icon icon-super-bull"></span>
                         <h4 class="title menuP2PTitle"></h4>
+                    </a>
+                </li>
+                <%}
+                   else
+                   { %>
+                <li class="col col-33 product">
+                    <a href="#divPanel" class="tile nav-pmahjong">
+                        <span class="icon icon-mahjong"></span>
+                        <h4 class="title menuTexasMahjongTitle"></h4>
                     </a>
                 </li>
                 <% } %>
@@ -180,14 +207,14 @@
                         <span class="icon icon-profile"></span>
                         <h4 class="title">
                             <%--<%=commonVariables.GetSessionVariable("MemberCode")%>--%>
-                             <%=commonCulture.ElementValues.getResourceString("profile", commonVariables.LeftMenuXML)%>
+                            <%=commonCulture.ElementValues.getResourceString("profile", commonVariables.LeftMenuXML)%>
                         </h4>
                     </a>
                 </li>
                 <% }
                    else
                    {
-                   var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
+                       var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
                 <% } %>
 
                 <li class="col col-33">
@@ -197,7 +224,7 @@
                     </a>
                 </li>
 
-                 <li class="col col-33">
+                <li class="col col-33">
                     <a href="#" id="icon-rewards" class="tile" role="button" data-ajax="false" target="_blank">
                         <span class="icon icon-rewards"></span>
                         <h4 class="title menuRewardsTitle"></h4>
@@ -231,28 +258,28 @@
                     </a>
                 </li>
 
-                 <!-- Zalo -->
+                <!-- Zalo -->
                 <% if (commonVariables.SelectedLanguage.Equals("vi-vn", StringComparison.OrdinalIgnoreCase))
                    { %>
 
-                    <%if (mobileDeviceId == 1)
-                      {%>
-                    <li class="col col-33">
+                <%if (mobileDeviceId == 1)
+                  {%>
+                <li class="col col-33">
                     <a href="zalo://639989602209" class="tile" data-ajax="false">
                         <span class="icon icon-zalo"></span>
                         <h4 class="title">(+63) 9989602209</h4>
                     </a>
                 </li>
-                    <%}
-                      else if (mobileDeviceId == 2)
-                      {%>
-                    <li class="col col-33">
+                <%}
+                  else if (mobileDeviceId == 2)
+                  {%>
+                <li class="col col-33">
                     <a href="http://zaloapp.com/qr/p/tkz0l05n8qu5" class="tile" data-ajax="false">
                         <span class="icon icon-zalo"></span>
                         <h4 class="title">Zalo</h4>
                     </a>
                 </li>
-                    <% } %>
+                <% } %>
                 <% } %>
 
                 <li class="col col-33">
@@ -270,8 +297,8 @@
                 </li>
 
             </ul>
-            
-        <!--#include virtual="~/_static/footer.shtml" -->
+
+            <!--#include virtual="~/_static/footer.shtml" -->
         </div>
 
         <!--#include virtual="~/_static/fixed-footer.shtml" -->
@@ -279,7 +306,7 @@
         <!--#include virtual="~/_static/navMenu.shtml" -->
 
         <script src="/_Static/JS/vendor/slick.min.js"></script>
-        
+
         <script>
             
             pubsub.subscribe('contentsLoaded', onContentsLoaded);
@@ -309,8 +336,8 @@
                 var url = window.location.protocol + '//www.' + '<%=commonIp.DomainName %>' + '?nomobile=true';
                  
                 <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieAffiliateId))
-                    {%>
-                        url += '&affiliateID=' + <%=commonCookie.CookieAffiliateId%>;
+                   {%>
+                url += '&affiliateID=' + <%=commonCookie.CookieAffiliateId%>;
                 <%  } %>
 
                 $("#icon-desktop").attr('href', url);

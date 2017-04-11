@@ -18,6 +18,21 @@ else{
 }
 
 var fishingWorld = FishingWorldProduct.GetLink();
+
+var isSuperBull = false;
+if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)){
+
+    if (commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase)){
+        isSuperBull = true;
+    }
+
+}
+else {
+    if (commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase)){
+         isSuperBull = true;
+    }
+}
+
 %>
 <div data-role="panel" id="divPanel">
     <ul data-role="listview" class="nav-menu">
@@ -467,25 +482,41 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 <%}catch(Exception){}%>
             </ul>
         </li>
+
         <!-- Texas Mahjong -->
         <li data-icon="false">
             <a class="nav-pmahjong">
                 
                 <%if(deviceId==1){%>
-                <i class="icon icon-mahjong"></i>
+                    <i class="icon icon-mahjong"></i>
                     <div class="label menuTexasMahjongTitle"></div>
                 <%}%>
                 <% else  if (deviceId == 2) {%>
-                    <i class="icon icon-super-bull"></i>
-                    <div class="label menuP2PTitle"></div>
+                       
+                    <% if(isSuperBull) { %>  
+                        <i class="icon icon-super-bull"></i>
+                        <div class="label menuP2PTitle"></div>
+                    <% } else { %>
+                        <i class="icon icon-mahjong"></i>
+                        <div class="label menuTexasMahjongTitle"></div>
+
+                    <%} %>
+
                 <%}%>
                 <% else {%>
-                    <i class="icon icon-super-bull"></i>
-                    <div class="label menuP2PTitle"></div>
+                    <% if(isSuperBull) { %>
+                        <i class="icon icon-super-bull"></i>
+                        <div class="label menuP2PTitle"></div>
+                    <% } else { %>
+                        <i class="icon icon-mahjong"></i>
+                        <div class="label menuTexasMahjongTitle"></div>
+                    <% } %>
+
                 <%}%>
             </a>
             <ul class="sub-menu" data-rel="texasmahjong">
                 <!--<a class="close" data-rel="close">&times;</a>-->
+               
                 <%
                 try{
                 %>
@@ -499,22 +530,39 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 </li>
                 <%}%>
                 <%if(deviceId==2){%>
-                <h2 class="title menuP2PTitle"></h2>
+
+                <% if(isSuperBull) { %>
+                    <h2 class="title menuP2PTitle"></h2>
+                <% } else { %>
+                    <h2 class="title menuTexasMahjongTitle"></h2>
+                <% } %>
+
                 <li>
                     <a class="card" rel="texasmahjong" href='<%= commonFunctions.getTexasMahjongDownloadLinks()%>' data-rel="dialog" data-ajax="false">
                         <img src="#" class="img-responsive TexasMahjong-Android">
                         <div class="title menuTexasMahjongTitle"></div>
                     </a>
                 </li>
-                <li>
-                    <a class="card" rel="texasmahjong" href='<%= commonFunctions.GetSuperBullDownloadLink()%>' data-rel="dialog" data-ajax="false">
-                        <img src="#" class="img-responsive SuperBull-Android">
-                        <div class="title menuSuperBullTitle"></div>
-                    </a>
-                </li>
+                
+                    <% if(isSuperBull) { %>
+                        <li>
+                            <a class="card" rel="texasmahjong" href='<%= commonFunctions.GetSuperBullDownloadLink()%>' data-rel="dialog" data-ajax="false">
+                                <img src="#" class="img-responsive SuperBull-Android">
+                                <div class="title menuSuperBullTitle"></div>
+                            </a>
+                        </li>
+                    <% } %>
+
+
                 <%}%>
                 <%if(deviceId==3){%>
+                
+                <% if(isSuperBull) { %>
                 <h2 class="title menuP2PTitle"></h2>
+                <% } else { %>
+                <h2 class="title menuTexasMahjongTitle"></h2>
+                <% } %>
+
                 <li>
                     <a class="card" rel="texasmahjong" href='<%= commonFunctions.getTexasMahjongDownloadLinks()%>' data-rel="dialog" data-ajax="false">
                         <img src="#" class="img-responsive TexasMahjong-Android">
@@ -527,13 +575,18 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <div class="title menuTexasMahjongTitle"></div>
                     </a>
                 </li>
-                <li>
-                    <a class="card" rel="texasmahjong" href='<%= commonFunctions.GetSuperBullDownloadLink()%>' data-rel="dialog" data-ajax="false">
-                        <img src="#" class="img-responsive SuperBull-Android">
-                        <div class="title menuSuperBullTitle"></div>
-                    </a>
-                </li>
+
+                    <% if(isSuperBull) { %>
+                    <li>
+                        <a class="card" rel="texasmahjong" href='<%= commonFunctions.GetSuperBullDownloadLink()%>' data-rel="dialog" data-ajax="false">
+                            <img src="#" class="img-responsive SuperBull-Android">
+                            <div class="title menuSuperBullTitle"></div>
+                        </a>
+                    </li>
+                    <% } %>
+
                 <%}%>
+
                 <%}catch(Exception){}%>
             </ul>
         </li>
