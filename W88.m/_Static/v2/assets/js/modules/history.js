@@ -278,7 +278,7 @@ function History() {
             selection.Status = response.ResponseData.Status;
             selection.FT_Status = response.ResponseData.FT_Status
 
-            bindSlick(selection.ReportType);
+            bindSlick();
 
             pubsub.publish("transType", {
                 Type: selection.ReportType, Default: "-1"
@@ -542,7 +542,12 @@ function History() {
 
         $('.history-result').on('afterChange', function (event, slick, nextSlide) {
             $(".history-nav .slick-slide").find("span").eq(nextSlide).addClass("current");
-            $(".body").animate({ scrollTop: 0 }, 400);
+        });
+
+        $('.history-result').on('swipe', function (event, slick, direction) {
+            if ($(".body").scrollTop() != 0) {
+                $(".body").delay(500).animate({ scrollTop: 0 }, 400);
+            }
         });
     }
 
