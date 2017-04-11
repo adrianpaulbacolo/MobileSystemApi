@@ -1,0 +1,22 @@
+﻿<div class="history-data">
+    {% if (tplData.result) { %}
+    {% _.each(tplData.result, function(item) { %}
+    <div class="history-data-row" onclick="javascript: w88Mobile.History.showModal('{%- tplData.type %}', '{%- item.TransactionId %}')">
+        <div>
+            <h5 class="h-title">{%-item.PaymentType%}</h5>
+            <p class="h-id">{%-item.TransactionId%}</p>
+            <p class="h-date"><small>{%-item.DateTime%}</small></p>
+        </div>
+        <div class="h-col-last">
+            <p class="h-status"><small>{%-item.Status%}</small></p>
+        </div>
+    </div>
+    {% }); %}
+    {% } else { %}
+    <div class="history-not-found">
+        <span>{%-tplData.dateFrom%} - {%-tplData.dateTo%}</span>
+        <br />
+        <span> {%-tplData.message%}</span>
+    </div>
+    {% }%}
+</div>
