@@ -155,6 +155,7 @@
     right: 0;
     z-index: 1000;
     position: fixed;
+    overflow: auto;
     display: none;
 }
 
@@ -192,9 +193,6 @@
 }
 
 .history-full-content {
-    overflow: auto;
-    height: 100%;
-
     > div {
         padding: 15px;
         border-bottom: 1px solid rgba($text-color, 0.05);
