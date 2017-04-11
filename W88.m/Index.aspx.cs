@@ -197,7 +197,7 @@ public partial class _Index : BasePage
     {
         if (!url.Contains("{DOMAIN}")) return url;
 
-        url = url.Replace("{DOMAIN}", commonIp.DomainName).Replace("{TOKEN}", !string.IsNullOrWhiteSpace(commonVariables.CurrentMemberSessionId) ? commonVariables.CurrentMemberSessionId : "").Replace("{LANG}", commonVariables.SelectedLanguage);
+        url = url.Replace("{DOMAIN}", commonIp.DomainName).Replace("{TOKEN}", !string.IsNullOrWhiteSpace(commonVariables.CurrentMemberSessionId) ? commonVariables.EncryptedCurrentMemberSessionId : "").Replace("{LANG}", commonVariables.SelectedLanguage);
         return url;
     }
 
