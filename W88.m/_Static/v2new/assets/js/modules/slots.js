@@ -3,7 +3,6 @@
 function Slots() {
     var slots = [];
     var filteredSlots = [];
-    var clubLimit = 9;
     var sections = ["New", "Top", "All"];
     var sectionKeys = {
         "new": "LABEL_SLOTS_NEW"
@@ -24,12 +23,29 @@ function Slots() {
         , { name: "divino", key: "LABEL_PRODUCTS_DIVINO", label: "Club Divino", providers: ["bs", "ctxm", "uc8"] }
     ];
 
+    function getClubLimit() {
+        var gameSizes = { xxxlarge: 16, xxlarge: 14, large: 12, medium: 10, small: 8, xsmall: 6 };
+
+        var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+
+        switch (true) {
+            case ((width < 560) && (width >= 414)):
+                return gameSizes.small;
+
+            case ((width < 414)):
+                return gameSizes.xsmall;
+
+            default:
+                return gameSizes.small;
+        }
+    };
+
     return {
         get: getSlots
         , items: slots
         , addItems: addItems
         , itemsByClub: itemsByClub
-        , clubLimit: clubLimit
+        , getClubLimit: getClubLimit
         , clubs: clubs
         , providers: providers
         , filterSlots: filterSlots
@@ -82,7 +98,7 @@ function Slots() {
         if(provider == "pt"){
             data.gamepass = Cookies().getCookie('palazzo');
         }
-        var url = "/api/games/" + provider;
+        var url = _constants.API_URL + "/games/" + provider;
         send(url, "GET", data, success, error);
     }
 
@@ -202,7 +218,7 @@ function Slots() {
             };
 
             _.forEach(club.providers, function (provider) {
-                var url = "/api/games/" + provider;
+                var url = _constants.API_URL + "/games/" + provider;
 
                 send(url + "/category", "GET", {}, function (response) {
 
@@ -333,7 +349,7 @@ function Slots() {
 
     function fetchClubFilter(option, provider) {
 
-        var url = "/api/games/" + provider + "/" + option;
+        var url = _constants.API_URL + "/games/" + provider + "/" + option;
         send(url, "GET", {}, function (response) {
             if (_.isUndefined(clubFilterOptions[provider])) clubFilterOptions[provider] = {};
             clubFilterOptions[provider][option] = response.ResponseData;

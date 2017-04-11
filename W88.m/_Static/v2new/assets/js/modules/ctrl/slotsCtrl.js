@@ -31,6 +31,19 @@ function slotsCtrl(routeObj, slotSvc, templateSvc) {
         }
     }
 
+    this.resize = function () {
+        var _self = this;
+        if (_self.route != "index") return;
+        _.forEach(slotSvc.clubs, function (club) {
+            _.forEach(club.providers, function (prov) {
+                pubsub.publish("slotItemsChanged", _self.setPushData({
+                    provider: prov
+                }));
+            });
+        });
+
+    }
+
     // hijack pushed data to include instance
     this.setPushData = function (data) {
         data._self = this;
@@ -81,7 +94,7 @@ function slotsCtrl(routeObj, slotSvc, templateSvc) {
                     });
                     items = _.concat(items, publishedItems);
                     items = w88Mobile.v2.Slots.sortGames(items, "Home");
-                    games = _.slice(items, 0, w88Mobile.v2.Slots.clubLimit);
+                    games = _.slice(items, 0, w88Mobile.v2.Slots.getClubLimit());
                     pubsub.publish("displaySlotList", _self.setPushData({
                         games: games
                         , page: _self.page

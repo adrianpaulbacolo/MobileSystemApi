@@ -1,11 +1,11 @@
-<!DOCTYPE html>
 <%@ Import Namespace="W88.BusinessLogic.Shared.Helpers" %>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><%=commonCulture.ElementValues.getResourceXPathString("HttpError/e404title", commonVariables.ErrorsXML)%></title>
+    <title><%=commonCulture.ElementValues.getResourceXPathString("HttpError/e500title", commonVariables.ErrorsXML)%></title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link href="/_Static/Css/errors/styles.ab50292d.css" rel="stylesheet" type="text/css">
 
@@ -13,15 +13,15 @@
 <body>
 
     <header>
-    	<a href="/"><img src="/_Static/Images/logo-<%=LanguageHelpers.SelectedLanguageShort%>.png"></a>
+        <a href="/"><img src="/_Static/Images/logo-<%=LanguageHelpers.SelectedLanguageShort%>.png"></a>
     </header>
 
     <section>
         <div class="error-container">
             <div class="error-content">
-                <h1>404</h1>
-                <h3><%=commonCulture.ElementValues.getResourceXPathString("HttpError/e404title", commonVariables.ErrorsXML)%></h3>
-                <p><%=commonCulture.ElementValues.getResourceXPathString("HttpError/e404", commonVariables.ErrorsXML)%></p>
+                <h1>500</h1>
+                <h3><%=commonCulture.ElementValues.getResourceXPathString("HttpError/e500title", commonVariables.ErrorsXML)%></h3>
+                <p><%=commonCulture.ElementValues.getResourceXPathString("HttpError/e500", commonVariables.ErrorsXML)%></p>
                 <ul class="links links-error">
                     <li>
                         <a href="/Index.aspx">

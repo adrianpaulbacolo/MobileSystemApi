@@ -738,7 +738,7 @@ else {
             $('.sub-menu[data-rel]').not('.sub-menu[data-rel="funds"]').hide();
             $('.sub-menu[data-rel="funds"]').show();
             $('body').addClass('open-subnav');
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
         });
@@ -754,7 +754,7 @@ else {
             $('.vsports').attr('src', '/_Static/Images/sports/bnr-vSports.jpg');
             $('.xsports').attr('src', '/_Static/Images/sports/bnr-xsports.jpg');
 
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
 
@@ -771,7 +771,7 @@ else {
             $('.clubpalazzo-casino-android').attr('src', '/_Static/Images/casino/bnr-clubpalazzo-casino-android.jpg');
             $('.clubmassimo-casino-android').attr('src', '/_Static/Images/casino/bnr-clubmassimo-casino-android.jpg');
 
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
         });
@@ -783,7 +783,7 @@ else {
             $('.PokerIOS').attr('src', '/_Static/Images/W88-Mobile-Poker-iOS.jpg');
             $('.PokerAndroid').attr('src', '/_Static/Images/W88-Mobile-Poker-Android.jpg');
 
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
         });
@@ -798,7 +798,7 @@ else {
             $('.FishAndroid').attr('src', '/_Static/Images/bnr-fishingmaster-android.jpg');
             $('.FishWorld3').attr('src', '/_Static/Images/thumbnail-FishingWorld.jpg');
 
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
         });
@@ -823,7 +823,7 @@ else {
             $('.clubdivino').attr('src', '/_Static/Images/bnr-clubdivino.jpg');
             $('.clubnuovo').attr('src', '/_Static/Images/bnr-clubnuovo.jpg');
 
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
         });
@@ -834,7 +834,7 @@ else {
 
             $('.keno').attr('src', '/_Static/Images/bnr_lottery.jpg');
 
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
         });
@@ -847,7 +847,7 @@ else {
             $('.TexasMahjong-Android').attr('src', '/_Static/Images/Download/TexasMahjong-Android.jpg');
             $('.SuperBull-Android').attr('src', '/_Static/Images/Download/bnr-superbull-android.jpg');
 
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
         });
@@ -855,7 +855,7 @@ else {
             $('.sub-menu[data-rel]').not('.sub-menu[data-rel="infos"]').hide();
             $('.sub-menu[data-rel="infos"]').show();
             $('body').addClass('open-subnav');
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
         });

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Configuration;
+using System.Linq;
 using customConfig;
 using Models;
 using System;
@@ -93,8 +94,7 @@ namespace Helpers
             if (password != null)
                 commonCookie.CookiePalazzo = password;
 
-            var opSettings = new OperatorSettings("W88");
-            foreach (var v in opSettings.Values.Get("VIP_Allowed").ToUpper().Split(new[] { '|' }).Where(v => v.Equals(riskId)))
+            foreach (var v in ConfigurationManager.AppSettings.Get("VIP_Allowed").ToUpper().Split(new[] { '|' }).Where(v => v.Equals(riskId)))
             {
                 commonCookie.CookieVip = "true";
             }

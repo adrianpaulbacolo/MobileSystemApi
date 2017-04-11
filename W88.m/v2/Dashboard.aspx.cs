@@ -14,7 +14,7 @@ public partial class v2_Dashboard : BasePage
     {
         Page.Title = "Dashboard";
         var deviceId = commonFunctions.getMobileDevice(Request);
-        FishingLink = (deviceId == 2) ? "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/FishingMaster.apk" : "itms-services://?action=download-manifest&url=https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/manifest.plist";
+        FishingLink = (deviceId == 2 || deviceId == 4) ? "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/FishingMasterEN.apk" : "itms-services://?action=download-manifest&url=https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/manifest.plist";
         base.OnLoad(e);
     }
     protected void Page_Load(object sender, EventArgs e)

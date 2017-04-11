@@ -154,6 +154,8 @@ public partial class _Index : BasePage
                     bannerText = "<div class=\"slide_content\"><div class=\"textarea\">" + content + description + "</div></div>";
                 }
 
+                url = CheckDomain(url);
+
                 slider += "<div class=\"slide\">" +
                             "<a href=\"" + url + "\" data-ajax=\"false\" class=\"" + linkClass + "\">" +
                             content +
@@ -189,6 +191,14 @@ public partial class _Index : BasePage
         }
 
         return string.Empty;
+    }
+
+    private string CheckDomain(string url)
+    {
+        if (!url.Contains("{DOMAIN}")) return url;
+
+        url = url.Replace("{DOMAIN}", commonIp.DomainName).Replace("{TOKEN}", !string.IsNullOrWhiteSpace(commonVariables.CurrentMemberSessionId) ? commonVariables.EncryptedCurrentMemberSessionId : "").Replace("{LANG}", commonVariables.SelectedLanguage);
+        return url;
     }
 
     private void CheckAgent()

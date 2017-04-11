@@ -42,7 +42,7 @@
                 <section class="footer footer-public">
                     <div class="btn-group btn-group-justified" role="group">
                         <div class="btn-group" role="group">
-                            <a data-ajax="false" class="btn btn-generic" href="<%="/Index.aspx?lang=" + LanguageHelpers.SelectedLanguage %>">
+                            <a data-ajax="false" class="btn btn-generic" href="<%=string.Format("/Index.aspx?lang={0}", Language) %>">
                                 <span class="icon"></span><%=CultureHelpers.GetTranslation("BUTTON_CANCEL", Language, TranslationsPath)%>
                             </a>
                         </div>

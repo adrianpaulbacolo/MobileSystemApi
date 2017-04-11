@@ -134,7 +134,9 @@ function Banner() {
     var paymentbanner = {
         init: init,
         openVideo: openVideo,
-        closeVideo: closeVideo
+        closeVideo: closeVideo,
+        forceStop: forceStop,
+        forceStopWhenSubmit: forceStopWhenSubmit,
     }
 
     function init(id) {
@@ -155,21 +157,51 @@ function Banner() {
             arrows: true,
             infinite: false,
             focusOnSelect: true,
+            zIndex: 1
         });
 
-        $('.video-responsive').hide();
+        $('div.payment-banner').on('swipe', function (event, slick, direction) {
+            if ($(".embed-responsive").is(":visible")) {
+                $(".embed-responsive video")[0].pause();
+                $(".img-responsive").show(); // video
+                $(".embed-responsive").hide(); // video
+            }
+        });
+
+        $('div.payment-banner .slick-arrow').on('click', function (event) {
+            if ($(".embed-responsive").is(":visible")) {
+                $(".embed-responsive video")[0].pause();
+                $(".img-responsive").show(); // video
+                $(".embed-responsive").hide(); // video
+            }
+        });
+
+        $('.embed-responsive').hide();
     }
 
     function openVideo(me) {
         $(me.nextElementSibling).show(); // video
-        $(me.nextElementSibling)[0].play();
+        $(me.nextElementSibling).find('video')[0].play();
         $(me).hide(); // image
     }
 
 
     function closeVideo(me) {
-        $(me.previousElementSibling).show(); //image
-        $(me).hide(); // video
+        $(me).parent().parent().find('img').show(); //image
+        $(me).parent().hide(); // video
+    }
+
+
+    function forceStop(me) {
+        $(me).parent().find('video')[0].pause(); // video
+        $(me).parent().parent().find('img').show(); //image
+        $(me).parent().hide(); // video
+    }
+
+    function forceStopWhenSubmit() {
+        $(".payment-banner .embed-responsive video")[0].pause();
+        $(".img-responsive").show(); // video
+        $(".embed-responsive").hide(); // video
     }
 
     return paymentbanner;

@@ -79,10 +79,12 @@
     <script src="../v2/assets/js/vendor/bootstrap.min.js"></script>
     <script src="/_Static/JS/vendor/lodash.min.js"></script>
     <script src="assets/js/vendor/pubsub.js"></script>
+    <script src="../v2/assets/js/constants.js"></script>
     <script type="text/javascript">
         w88Mobile = {};
         w88Mobile.v2 = {};
         w88Mobile.v2._templates = {};
+        w88Mobile.v2.Constants = _constants;
         window.User = w88Mobile.User = {};
         w88Mobile.User.token = Cookies().getCookie('s');
         w88Mobile.User.hasSession = !_.isEmpty(w88Mobile.User.token);
@@ -165,7 +167,7 @@
 
             _.forEach(clubs, function (club) {
                 var items = w88Mobile.v2.Slots.itemsByClub(club.providers, "Home");
-                games = _.slice(items, 0, w88Mobile.v2.Slots.clubLimit);
+                games = _.slice(items, 0, w88Mobile.v2.Slots.getClubLimit());
                 pubsub.publish("updateList", {
                     games: games
                     , club: club
@@ -431,12 +433,10 @@
                 }
                 switch (event.data) {
                     case "funds":
-                        // lol @todo move this shit to constants
-                        location.href = "/v2/Funds.aspx";
+                        location.href = _constants.FUNDS_URL;
                         break;
                     case "home":
-                        // lol @todo move this shit to constants
-                        location.href = "/v2/Dashboard.aspx";
+                        location.href = _constants.DASHBOARD_URL;
                         break;
                     case "slot-home":
                     default:
@@ -446,6 +446,13 @@
                 }
             }, false);
         }
+
+
+        $(window).bind('resize', function () {
+            if (!_.isUndefined(_routes.currentCtrl().resize)) {
+                _routes.currentCtrl().resize();
+            }
+        });
 
     </script>
 </body>
