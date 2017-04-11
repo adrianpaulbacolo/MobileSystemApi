@@ -479,6 +479,7 @@ function History() {
             infinite: false,
             asNavFor: '.history-nav',
             focusOnSelect: true,
+            adaptiveHeight: true,
         });
 
         $("#adj-btn").bind("click", function () {
@@ -541,6 +542,7 @@ function History() {
 
         $('.history-result').on('afterChange', function (event, slick, nextSlide) {
             $(".history-nav .slick-slide").find("span").eq(nextSlide).addClass("current");
+            $(".body").animate({ scrollTop: 0 }, 400);
         });
     }
 

@@ -78,7 +78,11 @@
         right: 0;
     }
 }
-
+.history-result{
+    .slick-list{
+        height: auto !important;
+    }
+}
 .history-data {
     max-width: 768px;
     margin: 0 auto;
