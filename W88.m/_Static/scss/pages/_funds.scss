@@ -5,3 +5,28 @@
 // #funds {
 //     background-color: darken($primary-color, 34%);
 // }
+
+
+.payment-banner.slick-slider{
+	background-color: transparent;
+    margin-bottom: 50px;
+	.slick-dots {
+	    bottom: -43px;
+	    background-image: none; 
+	    background-color: transparent;
+	}
+	.slick-arrow {
+		z-index: 10;
+	}
+}
+
+.stop-video{
+	border: none;
+	color: #fff;
+	padding: 10px;
+	background: rgba(0,0,0,0.5);
+	top: 5px;
+	right: 5px;
+	z-index: 10;
+	position: absolute;
+}
