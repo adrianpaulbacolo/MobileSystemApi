@@ -290,13 +290,13 @@ public static class commonCookie
     {
         if (!string.IsNullOrWhiteSpace(spfId))
         {
-            Set("spfid", spfId, DateTime.Now.AddDays(1));
+            Set("spfid_mob", spfId, DateTime.Now.AddDays(1));
         }
         else
         {
-            if (string.IsNullOrWhiteSpace(commonCookie.Get("spfid")))
+            if (string.IsNullOrWhiteSpace(commonCookie.Get("spfid_mob")))
             {
-                Set("spfid", "22", DateTime.Now.AddDays(1)); // Add Default Subplatform = WAP
+                Set("spfid_mob", "22", DateTime.Now.AddDays(1)); // Add Default Subplatform = WAP
             }
         }
     }
@@ -390,8 +390,8 @@ public static class commonCookie
             HttpContext.Current.Response.SetCookie(vip);
         }
 
-        HttpCookie spfid = HttpContext.Current.Request.Cookies["spfid"];
-        HttpContext.Current.Response.Cookies.Remove("spfid");
+        HttpCookie spfid = HttpContext.Current.Request.Cookies["spfid_mob"];
+        HttpContext.Current.Response.Cookies.Remove("spfid_mob");
 
         if (spfid != null)
         {

@@ -518,6 +518,9 @@ function DefaultPayments() {
             case "1202112":
                 return "DinPayTopUp.aspx";
 
+            case "1202139":
+                return "PayTrust.aspx";
+
             default:
                 break
         }
