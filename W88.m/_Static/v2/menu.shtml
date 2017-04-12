@@ -78,7 +78,7 @@ else {
                             </a>
                         </li>
                         <li>
-                            <a href="/v2/History">
+                            <a href="/v2/History/Default.aspx">
                                 <span class="title_history"></span>
                             </a>
                         </li>

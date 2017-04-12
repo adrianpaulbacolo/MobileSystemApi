@@ -26,7 +26,7 @@
                 </a>
             </div>
             <div class="dashboard-col">
-                <a href="/v2/History/">
+                <a href="/v2/History/Default.aspx">
                     <span class="icon icon-history"></span><%=commonCulture.ElementValues.getResourceString("history", commonVariables.HistoryXML)%>
                 </a>
             </div>
