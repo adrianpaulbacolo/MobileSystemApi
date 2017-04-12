@@ -13,7 +13,7 @@
 
     void RegisterRoutes(System.Web.Routing.RouteCollection routes)
     {
-        System.Xml.Linq.XDocument doc = System.Xml.Linq.XDocument.Load(Server.MapPath("~/") + @"/App_data/MapRoutes.xml");
+        System.Xml.Linq.XDocument doc = System.Xml.Linq.XDocument.Load(HttpContext.Current.Server.MapPath(@"~/App_Data/MapRoutes.xml"));
         System.Web.Routing.Route rtElement = null;
         System.Web.Routing.RouteValueDictionary rvdRoutes = null;
 
