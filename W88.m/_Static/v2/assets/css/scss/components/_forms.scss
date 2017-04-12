@@ -43,6 +43,31 @@ select.form-control{
       text-shadow: none;
   }
 }
+.input-group{
+  .form-control{
+      background-color: transparent;
+      color: $text-color;
+      border-bottom: 1px solid darken($text-color ,50%);
+  }
+  .input-group-addon{
+      color: $text-color;
+      padding: 11px 5px;
+      background-color: transparent;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+      border-bottom: 1px solid darken($text-color ,50%);
+  }
+  &:focus {
+    .form-control,
+    .input-group-addon{
+      border-color: $brand-primary;
+      outline: 0 none;
+      @include box-shadow(0 1px 0px 0 $brand-primary);
+    }
+  
+  }
+}
 
 
 .radio,
@@ -132,4 +157,67 @@ div.pay-note #paymentNoteContent {
   color: $brand-danger;
 }
 
+.ui-datebox-container.dropdown-menu{
+  width: 100%;
+  min-width: 257px;
+  max-width: 340px;
+  padding: 0;
+  border: none;
+  background-color: darken($brand-primary, 30%);
+}
+.ui-datebox-flipcenter {
+    width: 100%;
+    height: 40px;
+    border: none;
+    @include box-shadow(none);
+}
+.modal-title{
+  .closer{
+    color: $text-alt;
+  }
+}
+.ui-datebox-header{
+  h4{
+    font-size: 0.875rem;
+  }
+}
+.ui-datebox-flipcontent{
+  padding-top: 10px;
+  margin-bottom: -45px;
+  background-color: darken($brand-primary, 32%);
+  li{
+    border-color: transparent;
+    span{
+      margin-top: 6px;
+      color: darken($text-color, 40%);
+    }
+    &.bg-success {
+      border: 1px solid rgba($white, 0.3);
+      background-color: darken($brand-primary, 23%);
+      span{
+        color: $text-color;
+      }
+    }
+  }
+  div{
+    width: 31%;
+  }
+}
 
+.ui-datebox-controls{
+  padding: 0;
+  .btn-default{
+    color: $white;
+    padding: 10px;
+    background-color: $brand-primary;
+    border-color: $brand-primary;
+    &:focus,
+    &:hover{
+      background-color: darken($brand-primary, 10%);
+      border-color: darken($brand-primary, 10%);
+    }
+    .glyphicon {
+      display: none;
+    }
+  }
+}

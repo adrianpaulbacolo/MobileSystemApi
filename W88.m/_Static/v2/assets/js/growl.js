@@ -1,4 +1,4 @@
-﻿function Notification() {
+﻿﻿function Notification() {
     var Notification = {
         options: {
             hasButtons: false,
