@@ -70,6 +70,7 @@ function Menu() {
         $('a.texas_mahjong').bind('touch click', function () {
             $('.img_texas_mahjong_iOS').attr('src', '/_Static/Images/Download/TexasMahjong-iOS.jpg');
             $('.img_texas_mahjong_Android').attr('src', '/_Static/Images/Download/TexasMahjong-Android.jpg');
+            $('.img_super_bull').attr('src', '/_Static/Images/Download/bnr-superbull-android.jpg');
         });
     }
 
@@ -129,6 +130,7 @@ function Menu() {
 
             // Texas Mahjong
             $('.title_texas_mahjong').html(_w88_contents.translate("LABEL_MENU_TEXAS_MAHJONG"));
+            $('.title_super_bull').html(_w88_contents.translate("LABEL_MENU_P2P"));
             $('.title_android').html(_w88_contents.translate("LABEL_ANDROID_DOWNLOAD"));
             $('.title_ios').html(_w88_contents.translate("LABEL_IOS_DOWNLOAD"));
 

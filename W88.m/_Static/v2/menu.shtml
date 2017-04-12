@@ -19,6 +19,17 @@ if ((!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency) && commonCookie.Coo
 }
 
 var fishingWorld = FishingWorldProduct.GetLink();
+
+var isSuperBull = false;
+if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) && commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase)){
+    isSuperBull = true;
+}
+else {
+    if (commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase)){
+         isSuperBull = true;
+    }
+}
+
 %>
 
 <section class="side-nav" off-canvas="side-nav left reveal">
@@ -67,7 +78,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                             </a>
                         </li>
                         <li>
-                            <a href="/History">
+                            <a href="/v2/History">
                                 <span class="title_history"></span>
                             </a>
                         </li>
@@ -368,8 +379,19 @@ var fishingWorld = FishingWorldProduct.GetLink();
             <!-- Texas Mahjong -->
             <li class="nav-category">
                 <a href="#" class="texas_mahjong">
+                <%if(deviceId==1 || deviceId==3){%>
                     <span class="icon icon-mahjong"></span>
                     <span class="title_texas_mahjong"></span>
+                <%}%>
+                <%if(deviceId==2){%>
+                    <%if(isSuperBull) { %>
+                        <span class="icon icon-super-bull"></span>
+                        <span class="title_super_bull"></span>
+                    <%} else { %>
+                        <span class="icon icon-mahjong"></span>
+                        <span class="title_texas_mahjong"></span>
+                    <%}%>
+                <%}%>
                 </a>
                 <div class="nav-category-items">
                     <h4><span class="title_texas_mahjong"></span></h4>
@@ -382,13 +404,22 @@ var fishingWorld = FishingWorldProduct.GetLink();
                             </a>
                         </div>
                         <%}%>
-                        <%if(deviceId==2 || deviceId==3){%>
-                        <div class="col-xs-6">
-                            <a href='<%=commonFunctions.getTexasMahjongDownloadLinks()%>'>
-                                <img src="#" alt="" class="img_texas_mahjong_Android">
-                                <span class="title_android"></span>
-                            </a>
-                        </div>
+                        <%if(deviceId==2){%>
+                            <%if(isSuperBull) { %>
+                            <div class="col-xs-6">
+                                <a href='<%= commonFunctions.GetSuperBullDownloadLink()%>'>
+                                    <img src="#" alt="" class="img_super_bull">
+                                    <span class="title_super_bull"></span>
+                                </a>
+                            </div>
+                            <%} else { %>
+                            <div class="col-xs-6">
+                                <a href='<%=commonFunctions.getTexasMahjongDownloadLinks()%>'>
+                                    <img src="#" alt="" class="img_texas_mahjong_Android">
+                                    <span class="title_android"></span>
+                                </a>
+                            </div>
+                            <%}%>
                         <%}%>
                     </div>
                 </div>
