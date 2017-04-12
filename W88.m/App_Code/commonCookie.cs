@@ -83,6 +83,7 @@ public static class commonCookie
         {
             HttpCookie cookie = new HttpCookie("palazzo");
             cookie.Value = value;
+            cookie.Expires = DateTime.Now.AddDays(1);
             if (!string.IsNullOrEmpty(commonIp.DomainName)) { cookie.Domain = commonIp.DomainName; }
             HttpContext.Current.Response.Cookies.Add(cookie);
         }
