@@ -90,7 +90,7 @@
     <script type="text/template" id='paymentBanner'>
         {% _.each(tplData.Banner, function(item) { %}
         <div>
-            <img class="img-responsive" src="{%-item.Image%}" onclick="javascript: _w88_paymentbanner.openVideo(this)">
+            <img class="img-responsive" style="padding-right: 10px" src="{%-item.Image%}" onclick="javascript: _w88_paymentbanner.openVideo(this)">
             <div class="embed-responsive">
                 <button type="button" class="stop-video" onclick="javascript: _w88_paymentbanner.forceStop(this)"><span class="icon icon-close"></span></button>  
                 <video controls="controls"  onended="javascript: _w88_paymentbanner.closeVideo(this)">
