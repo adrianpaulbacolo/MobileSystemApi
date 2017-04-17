@@ -147,7 +147,7 @@ function DefaultPayments() {
             url: url,
             data: data,
             beforeSend: function () {
-                GPInt.prototype.ShowSplash(true);
+                pubsub.publish('startLoadItem', { selector: "" });
             },
             headers: headers,
             success: success,
@@ -155,8 +155,8 @@ function DefaultPayments() {
                 console.log("Error connecting to api");
             },
             complete: function () {
+                pubsub.publish('stopLoadItem', { selector: "" });
                 if (!_.isUndefined(complete)) complete();
-                GPInt.prototype.HideSplash();
             }
         });
     }
@@ -369,7 +369,7 @@ function DefaultPayments() {
         $('#paymentSettings').hide();
         $('#paymentList').hide();
 
-        GPInt.prototype.HideSplash();
+        pubsub.publish('stopLoadItem', { selector: "" });
     }
 
     function setPaymentPage(id) {
