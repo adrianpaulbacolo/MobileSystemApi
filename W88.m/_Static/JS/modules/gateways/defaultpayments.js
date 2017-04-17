@@ -521,6 +521,9 @@ function DefaultPayments() {
             case "1202139":
                 return "PayTrust.aspx";
 
+            case "1202154":
+                return "AloGatewayWechat.aspx";
+
             default:
                 break
         }
