@@ -118,27 +118,12 @@
                 </li>
 
                 <!-- Fishing Game -->
-                <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency))
-                   {
-                       if (commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase))
-                       { %>
                 <li class="col col-33 product">
                     <a href="#divPanel" class="tile nav-fish">
                         <span class="icon icon-fish"></span>
                         <h4 class="title menuFishingTitle"></h4>
                     </a>
                 </li>
-                <% }
-                   }
-                   else if (commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))
-                   { %>
-                <li class="col col-33 product">
-                    <a href="#divPanel" class="tile nav-fish">
-                        <span class="icon icon-fish"></span>
-                        <h4 class="title menuFishingTitle"></h4>
-                    </a>
-                </li>
-                <% } %>
 
                 <li class="col col-33 product">
                     <a href="Lottery.aspx?lang=<%=commonVariables.SelectedLanguage%>" class="tile" data-ajax="false">
