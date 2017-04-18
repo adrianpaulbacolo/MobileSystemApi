@@ -80,7 +80,7 @@ public partial class v2_Deposit_Pay : PaymentBasePage
                 break;
 
             case (int)commonVariables.AutoRouteMethod.WeChat:
-            case (int)commonVariables.DepositMethod.KexunPay:
+            case (int)commonVariables.DepositMethod.KexunPayWeChat:
             case (int)commonVariables.DepositMethod.JTPayWeChat:
             case (int)commonVariables.DepositMethod.KDPayWeChat:
                 GatewayFile = "wechat";
