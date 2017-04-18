@@ -76,6 +76,7 @@ public partial class v2_Deposit_Pay : PaymentBasePage
             case (int)commonVariables.DepositMethod.JTPayAliPay:
             case (int)commonVariables.DepositMethod.JutaPay:
             case (int)commonVariables.DepositMethod.ShengPayAliPay:
+            case (int)commonVariables.DepositMethod.AifuAlipay:
                 GatewayFile = "alipay";
                 break;
 
@@ -83,6 +84,7 @@ public partial class v2_Deposit_Pay : PaymentBasePage
             case (int)commonVariables.DepositMethod.KexunPay:
             case (int)commonVariables.DepositMethod.JTPayWeChat:
             case (int)commonVariables.DepositMethod.KDPayWeChat:
+            case (int)commonVariables.DepositMethod.AifuWeChat:
                 GatewayFile = "wechat";
                 break;
 
