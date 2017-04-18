@@ -248,6 +248,7 @@ function History() {
 
         $("header .header-title").text(_w88_contents.translate("LABEL_FUNDS_HISTORY"));
         $('button[id$="btnSubmit"]').text(_w88_contents.translate("BUTTON_SUBMIT"));
+        document.title = _w88_contents.translate("LABEL_FUNDS_HISTORY");
 
         $('label[id$="lblTransactionType"]').text(_w88_contents.translate("LABEL_TRANSACTION"));
         $('label[id$="lblDateFrom"]').text(_w88_contents.translate("LABEL_STARTDATE"));
