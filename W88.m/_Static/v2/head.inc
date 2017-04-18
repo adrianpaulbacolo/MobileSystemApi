@@ -107,11 +107,13 @@
     var _w88_contents = new w88Mobile.Translate();
     _w88_contents.init();
     
-    // set initial values for notification
-    if(!_.isUndefined(w88Mobile.Growl)){
-        w88Mobile.Growl.init();
-        w88Mobile.Growl.options.lang = '<%=commonVariables.SelectedLanguageShort%>';
-    }
+    $(document).ready(function () {
+        // set initial values for notification
+        if(!_.isUndefined(w88Mobile.Growl)){
+            w88Mobile.Growl.init();
+            w88Mobile.Growl.options.lang = '<%=commonVariables.SelectedLanguageShort%>';
+        }
+    });
 </script>
     
 <!-- Include all API Interceptor related modules (below), or include individual files as needed --> 
