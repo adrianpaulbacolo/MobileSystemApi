@@ -1,18 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.IO;
 using System.Linq;
-using System.Net;
-using System.Text;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using svcPayDeposit;
 
-public partial class Deposit_NextPayGV : PaymentBasePage
+public partial class v2_Deposit_Pay120248 : PaymentBasePage
 {
     protected void Page_Init(object sender, EventArgs e)
     {
@@ -23,15 +16,6 @@ public partial class Deposit_NextPayGV : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Page.IsPostBack)
-        {
-            CheckAgentAndRedirect(string.Concat(V2DepositPath, "Pay", PaymentMethodId, ".aspx"));
-            this.InitializeLabels();
-        }
-    }
 
-    private void InitializeLabels()
-    {
-        lblDepositAmount.Text = base.strlblAmount;
     }
 }
