@@ -569,7 +569,6 @@ function DefaultPaymentsV2() {
 
             case "1202139":
                 return "1202139"; // PayTrust
-
             case "1202154":
                 return "1202154"; // AloGatewayWechat  
 

@@ -14,8 +14,13 @@
     <div class="canvas" canvas="container">
         <div class="main-screen">
             <header class="header">
-                <a href="#" class="header-button header-button-left" id="nav-btn">
-                    <span class="icon icon-navicon"></span>
+                <%
+                    var isHome = (!base.Page.Items.Contains("Parent") || !commonFunctions.isNativeAgent(Request));
+                    var navIcon = isHome ? "icon-navicon" : "icon-back";
+                    var navUrl = isHome ? "#" : base.Page.Items["Parent"];
+                %>
+                <a href="<%=navUrl %>" class="header-button header-button-left" id="nav-btn<%=(commonFunctions.isNativeAgent(Request)) ? "-native" : "" %>">
+                    <span class="icon <%=navIcon %>"></span>
                 </a>
                 <h1 class="header-title"><%=(base.Page.Title == "Dashboard" ? "<img alt=\"Dashboard\" src=\"/_Static/v2/assets/images/logo-en.png\" />" : base.Page.Title) %></h1>
                 <a id="historyFilter" class="header-button header-button-right">
@@ -34,6 +39,20 @@
     <% } %>
 
     <asp:ContentPlaceHolder ID="ScriptsPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+
+    <script type="text/javascript">
+        //menu-action
+        $("#nav-btn-native").click(function (e) {
+            try {
+                if ($(this).attr("href") == "#") {
+                    e.preventDefault();
+                    Native.openSlidingMenu();
+                }
+            } catch (e) {
+                console.log("Native does not exist!");
+            }
+        });
+    </script>
 
 </body>
 </html>
