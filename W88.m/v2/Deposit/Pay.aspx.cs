@@ -70,6 +70,10 @@ public partial class v2_Deposit_Pay : PaymentBasePage
                 GatewayFile = "sdapay";
                 break;
 
+            case (int)commonVariables.DepositMethod.Cubits:
+                GatewayFile = "cubits";
+                break;
+
             case (int)commonVariables.AutoRouteMethod.AliPay:
             case (int)commonVariables.DepositMethod.NineVPayAlipay:
             case (int)commonVariables.DepositMethod.JuyPayAlipay:

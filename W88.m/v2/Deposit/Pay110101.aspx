@@ -49,7 +49,8 @@
         <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" />
         <asp:TextBox ID="txtAccountNumber" runat="server" CssClass="form-control" required data-accountNo=""/>
     </div>
-    <div class="form-group ali-pay-note">
+    <div class="form-group pay-note">
+        <span id="paymentNote"></span>
         <p id="paymentNoteContent"></p>
     </div>
 
