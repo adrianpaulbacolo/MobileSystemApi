@@ -4,7 +4,7 @@
     <div class="empty-state" id="loader"></div>
     <div class="empty-state" hidden>
         <div class="empty-state-icon">
-            <i class="ion ion-alert"></i>
+           <i class="icon icon-error"></i>
         </div>
         <p id="paymentNote">
         </p>
