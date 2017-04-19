@@ -40,6 +40,10 @@ public partial class v2_Deposit_Pay : PaymentBasePage
             case (int)commonVariables.DepositMethod.BaokimScratchCard:
                 GatewayFile = "baokimscratchcard";
                 break;
+            
+            case (int)commonVariables.DepositMethod.DinPayTopUp:
+                GatewayFile = "dinpaytopup";
+                break;
 
             case (int)commonVariables.DepositMethod.IWallet:
                 GatewayFile = "iwallet";
