@@ -16,6 +16,7 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+            pubsub.publish('startLoadItem', { selector: "" });
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType%>", "<%=base.PaymentMethodId %>");
          });
     </script>
