@@ -53,6 +53,8 @@
                 <asp:HiddenField runat="server" ID="ioBlackBox" Value="" />
             </form>
         </div>
+        
+
         <script type="text/javascript">
             $(function () { $('#<%=imgCaptcha.ClientID%>').attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime()); });
             $('#<%=imgCaptcha.ClientID%>').click(function () { $(this).attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime()); });
@@ -139,30 +141,47 @@
                         }
 
                         switch (xml.Code) {
+
+                            case "resetPassword":
                             case "1":
-                                if ('<%=strRedirect%>' !== '') {
-                                    switch ('<%=strRedirect%>') {
-                                        case 'mlotto':
-                                            window.location.replace('<%=commonLottery.getKenoUrl%>');
-                                            break;
-                                        default:
-                                            window.location.replace('<%=strRedirect%>');
-                                            break;
-                                    }
-                                } else {
-                                    window.location.reload();
-                                }
 
                                 Cookies().setCookie('is_app', '0', 0);
+
+                                pubsub.subscribe('checkFreeRounds', onCheckFreeRounds);
+                                _w88_products.checkFreeRounds();
+
+                                function onCheckFreeRounds() {
+
+                                    if (!_.isUndefined(_w88_products.FreeRoundsGameUrl)) {
+                                        var gameTemplate = '<div><span><a href="{0}" data-ajax="false">Accept</a><a href="{1}" data-ajax="false">Later</a></span></div>';
+                                        gameTemplate = gameTemplate.replace("{0}", _w88_products.FreeRoundsGameUrl);
+                                        gameTemplate = gameTemplate.replace("{1}", "/ClubBravado");
+
+                                        window.w88Mobile.Growl.shout(gameTemplate, function () { window.location = "/index"; });
+                                    } else {
+
+                                        if (xml.Code == "resetPassword")
+                                            window.location.replace('/Settings/ChangePassword.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
+                                        else {
+                                            if ('<%=strRedirect%>' !== '') {
+                                                switch ('<%=strRedirect%>') {
+                                                case 'mlotto':
+                                                    window.location.replace('<%=commonLottery.getKenoUrl%>');
+                                                    break;
+                                                default:
+                                                    window.location.replace('<%=strRedirect%>');
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
                                 break;
 
                             case "22":
                                 $('#btnSubmit').attr("disabled", false);
                                 window.w88Mobile.Growl.shout('<div>' + message + '</div>');
-                                break;
-
-                            case "resetPassword":
-                                window.location.replace('/Settings/ChangePassword.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
                                 break;
 
                             default:
