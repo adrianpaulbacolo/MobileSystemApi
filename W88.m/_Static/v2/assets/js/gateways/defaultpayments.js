@@ -76,7 +76,6 @@ function DefaultPaymentsV2() {
 
     function setTranslations(paymentOptions) {
         if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
-            $('label[id$="lblDepositAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
             $('label[id$="lblAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
 
             var headerTitle = paymentOptions == "Deposit" ? _w88_contents.translate("LABEL_FUNDS_DEPOSIT") : _w88_contents.translate("LABEL_FUNDS_WIDRAW");
@@ -225,7 +224,7 @@ function DefaultPaymentsV2() {
                 selectequals: function ($el) {
                     $el.parent("div.form-group").removeClass('has-error');
                     $el.parent("div.form-group").children("span.help-block").remove();
-                    var matchValue = $el.data("bankequals");
+                    var matchValue = $el.data("selectequals");
                     if ($el.val() == matchValue) {
                         $el.parent("div.form-group").addClass('has-error');
                         return true;

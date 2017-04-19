@@ -13,7 +13,7 @@ function DinpayTopUp() {
         dinpaytopup = {};
     }
 
-    dinpaytopup.init = function () {
+    dinpaytopup.init = function (gatewayId) {
 
         $('label[id$="lblCardType"]').html(_w88_contents.translate("LABEL_CARD_TYPE"));
         $('label[id$="lblDepositAmount"]').html(_w88_contents.translate("LABEL_CARD_AMOUNT"));
@@ -25,12 +25,12 @@ function DinpayTopUp() {
 
         defaultSelect = _w88_contents.translate("LABEL_SELECT_DEFAULT");
 
-        _w88_dinpaytopup.getBanks();
+        _w88_dinpaytopup.getDenomination(gatewayId);
 
     };
 
-    dinpaytopup.getBanks = function () {
-        _w88_paymentSvcV2.Send("/payments/baokindenom/", "GET", "", function (response) {
+    dinpaytopup.getDenomination = function (gatewayId) {
+        _w88_paymentSvcV2.Send("/payments/denomination/" + gatewayId, "GET", "", function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
                 cards = response.ResponseData.Cards;
 
@@ -81,7 +81,7 @@ function DinpayTopUp() {
         var data = {
             Amount: params.Amount,
             CardNumber: params.CardNumber,
-            CardTypeValue: params.CardTypeValue,
+            CardType: { Text: params.CardTypeText, Value: params.CardTypeValue },
             CCV: params.CCV
         };
 

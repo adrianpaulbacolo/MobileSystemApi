@@ -7,12 +7,12 @@
     </div>
     <div class="form-group">
         <asp:Label ID="lblCardType" runat="server" AssociatedControlID="drpCardType" />
-        <asp:DropDownList ID="drpCardType" runat="server" CssClass="form-control" data-bankequals="-1">
+        <asp:DropDownList ID="drpCardType" runat="server" CssClass="form-control" required data-selectequals="-1">
         </asp:DropDownList>
     </div>
     <div class="form-group">
         <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="drpAmount" />
-        <asp:DropDownList ID="drpAmount" runat="server" CssClass="form-control" data-selectequals="-1">
+        <asp:DropDownList ID="drpAmount" runat="server" CssClass="form-control" required data-selectequals="-1">
         </asp:DropDownList>
     </div>
     <div class="form-group">
@@ -39,11 +39,11 @@
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
-            window.w88Mobile.Gateways.DinpayTopUp.init();
+            window.w88Mobile.Gateways.DinpayTopUp.init("<%=base.PaymentMethodId %>");
 
             $('select[id$="drpCardType"]').change(function () {
-                window.w88Mobile.Gateways.DinPayTopUp.setFee($('select[id$="drpCardType"]').val());
-                window.w88Mobile.Gateways.DinPayTopUp.setDenom($('select[id$="drpCardType"]').val());
+                window.w88Mobile.Gateways.DinpayTopUp.setFee($('select[id$="drpCardType"]').val());
+                window.w88Mobile.Gateways.DinpayTopUp.setDenom($('select[id$="drpCardType"]').val());
             });
 
             $('#form1').submit(function (e) {
@@ -51,6 +51,7 @@
 
                 var data = {
                     Amount: $('select[id$="drpAmount"]').val(),
+                    CardTypeText: $('select[id$="drpCardType"] selected').text(),
                     CardTypeValue: $('select[id$="drpCardType"]').val(),
                     CardNumber: $('input[id$="txtCardNo"]').val(),
                     CCV: $('input[id$="txtPin"]').val(),
