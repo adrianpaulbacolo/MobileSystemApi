@@ -63,7 +63,7 @@ else {
                     <!-- Club W - Club W Premier-->
                     <ul class="side-submenu">
                         <li>
-                            <a href="/v2/Deposit">
+                            <a href="/v2/Deposit/">
                                 <span class="title_deposit"></span>
                             </a>
                         </li>
