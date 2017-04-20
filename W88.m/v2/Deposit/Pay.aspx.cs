@@ -67,6 +67,7 @@ public partial class v2_Deposit_Pay : PaymentBasePage
                 break;
 
             case (int)commonVariables.DepositMethod.SDAPayAlipay:
+            case (int)commonVariables.DepositMethod.AlipayTransfer:
                 GatewayFile = "sdapay";
                 break;
 
@@ -86,6 +87,7 @@ public partial class v2_Deposit_Pay : PaymentBasePage
             case (int)commonVariables.AutoRouteMethod.WeChat:
             case (int)commonVariables.DepositMethod.KexunPayWeChat:
             case (int)commonVariables.DepositMethod.JTPayWeChat:
+            case (int)commonVariables.DepositMethod.TongHuiWeChat:
             case (int)commonVariables.DepositMethod.KDPayWeChat:
                 GatewayFile = "wechat";
                 break;
@@ -97,6 +99,8 @@ public partial class v2_Deposit_Pay : PaymentBasePage
             case (int)commonVariables.DepositMethod.Help2Pay:
             case (int)commonVariables.DepositMethod.ECPSS:
             case (int)commonVariables.DepositMethod.EGHL:
+            case (int)commonVariables.DepositMethod.NextPayGV:
+            case (int)commonVariables.DepositMethod.PayTrust:
                 GatewayFile = "quickonline";
                 break;
 
