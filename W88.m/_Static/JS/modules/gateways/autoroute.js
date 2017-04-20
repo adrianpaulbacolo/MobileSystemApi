@@ -43,6 +43,8 @@ function AutoRoute() {
         function setTranslations() {
             if (_w88_contents.translate("LABEL_SWITCH_LINE") != "LABEL_SWITCH_LINE") {
                 $('label[id$="lblSwitchLine"]').text(_w88_contents.translate("LABEL_SWITCH_LINE"));
+                $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+                $("#paymentNoteContent").text(_w88_contents.translate("LABEL_MSG_BANK_NOT_SUPPORTED"));
             } else {
                 window.setInterval(function () {
                     setTranslations();
@@ -59,6 +61,10 @@ function AutoRoute() {
                     $('select[id$="drpBank"]').val("-1").selectmenu("refresh");
 
                     _.forEach(response.ResponseData, function (data) {
+
+                        if (_.isEqual(data.Value, "ICBC") || _.isEqual(data.Value, "ECITIC"))
+                            data.Text = data.Text + " (*)";
+
                         $('select[id$="drpBank"]').append($("<option></option>").attr("value", data.Value).text(data.Text))
                     })
 
