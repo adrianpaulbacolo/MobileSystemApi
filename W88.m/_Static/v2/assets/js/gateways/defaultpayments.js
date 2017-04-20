@@ -343,7 +343,6 @@ function DefaultPaymentsV2() {
                 }
             }
 
-            pubsub.publish('stopLoadItem', { selector: "" });
         } else {
             if (activeTabId) {
                 window.location.href = deposit;
@@ -398,7 +397,6 @@ function DefaultPaymentsV2() {
                     window.location.href = withdraw + page;
             }
 
-            pubsub.publish('stopLoadItem', { selector: "" });
         } else {
             if (activeTabId) {
                 window.location.href = withdraw;
