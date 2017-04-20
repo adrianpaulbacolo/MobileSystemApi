@@ -123,7 +123,9 @@
                     type: "POST",
                     contentType: "application/json",
                     url: '/_Secure/AjaxHandlers/Login.ashx',
-                    beforeSend: function () { GPINTMOBILE.ShowSplash(); },
+                    beforeSend: function() {
+                        pubsub.publish('startLoadItem', { selector: '' });
+                    },
                     timeout: function () {
                         $('#<%=btnSubmit.ClientID%>').prop('disabled', false);
                         window.w88Mobile.Growl.shout('<ul><li><%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%></li></ul>');
@@ -144,6 +146,8 @@
                             case "resetPassword":
 
                                 Cookies().setCookie('IsApp', '1', 1);
+
+                                window.User.token = Cookies().getCookie('s');
 
                                 pubsub.subscribe('checkFreeRounds', onCheckFreeRounds);
                                 _w88_products.checkFreeRounds();
@@ -183,13 +187,13 @@
                                 }
 
                                 $('#btnSubmit').attr("disabled", false);
-                                GPINTMOBILE.HideSplash();
+                                pubsub.publish('stopLoadItem', { selector: '' });
                                 window.w88Mobile.Growl.shout('<div>' + message + '</div>');
                                 break;
                         }
                     },
                     error: function (err) {
-                        GPINTMOBILE.HideSplash();
+                        pubsub.publish('stopLoadItem', { selector: '' });
                         window.w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
                         window.location.replace('<%=strRedirect%>');
                     }
