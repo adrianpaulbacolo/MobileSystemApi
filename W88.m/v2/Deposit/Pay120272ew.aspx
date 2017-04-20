@@ -6,7 +6,7 @@
         <asp:TextBox ID="txtEmail" runat="server" data-mini="true" type="email" Enabled="False" />
     </div>
     <div class="form-group">
-        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
+        <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
         <asp:TextBox ID="txtAmount" runat="server" type="number" Enabled="False" />
     </div>
     <div class="form-group">

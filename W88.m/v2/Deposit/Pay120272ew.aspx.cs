@@ -18,7 +18,6 @@ public partial class v2_Deposit_Pay120272ew : PaymentBasePage
     {
         if (!Page.IsPostBack)
         {
-            lblDepositAmount.Text = base.strlblAmount;
             ProcessCallBack();
         }
     }
