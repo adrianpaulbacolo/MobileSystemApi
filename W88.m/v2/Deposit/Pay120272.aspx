@@ -4,17 +4,23 @@
     <div id="selectAtmWallet" class="form-group">
         <div class="row thin-gutter">
             <div class="col-xs-6">
-                <label><input type="radio" name="depOption" value="EWALLET" />Ví Điện Tử Nội Địa</label>
+                <label>
+                    <input type="radio" name="depOption" value="EWALLET" />Ví Điện Tử Nội Địa</label>
             </div>
-            <div class="col-xs-6" >
-                <label><input type="radio" name="depOption" value="ATM" />Thẻ ATM Nội Địa</label>
+            <div class="col-xs-6">
+                <label>
+                    <input type="radio" name="depOption" value="ATM" />Thẻ ATM Nội Địa</label>
             </div>
         </div>
     </div>
+    <div class="form-group pay-note">
+        <span id="paymentNote"></span>
+        <p id="paymentNoteContent"></p>
+    </div>
     <div id="atm">
         <div class="form-group">
-            <asp:Label ID="lblDepositAmountAtm" runat="server" AssociatedControlID="txtAmountAtm" />
-            <asp:TextBox ID="txtAmountAtm" runat="server" type="number" step="any" min="1" CssClass="form-control" required data-paylimit="0" />
+            <asp:Label ID="lblAmountAtm" runat="server" AssociatedControlID="txtAmountAtm" />
+            <asp:TextBox ID="txtAmountAtm" runat="server" CssClass="form-control" required data-paylimit="0" data-numeric />
         </div>
         <div class="form-group">
             <asp:Label ID="lblBanks" runat="server" AssociatedControlID="drpBank" />
@@ -31,17 +37,15 @@
     </div>
     <div id="ewallet">
         <div class="form-group">
-            <asp:Label ID="lblDepositAmountWallet" runat="server" AssociatedControlID="txtAmountWallet" />
-            <asp:TextBox ID="txtAmountWallet" runat="server" type="number" step="any" min="1" CssClass="form-control" required data-paylimit="0" />
+            <asp:Label ID="lblAmountWallet" runat="server" AssociatedControlID="txtAmountWallet" />
+            <asp:TextBox ID="txtAmountWallet" runat="server" CssClass="form-control" required data-paylimit="0" data-numeric />
         </div>
         <div class="form-group">
             <asp:Label ID="lblEmail" runat="server" AssociatedControlID="txtEmailWallet" />
             <asp:TextBox ID="txtEmailWallet" runat="server" type="email" CssClass="form-control" />
         </div>
     </div>
-    <div class="form-group">
-        <p id="notice" style="color: #ff0000"></p>
-    </div>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">
     <script type="text/javascript" src="/_static/v2/assets/js/gateways/baokim.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
@@ -61,18 +65,20 @@
 
                 $('#btnSubmitPlacement').show();
                 $('#selectAtmWallet').hide();
-                
+
                 if (value == "EWALLET") {
                     $('#atm').hide();
                     $('#ewallet').show();
                     window.w88Mobile.Gateways.BaokimV2.method = "EWALLET";
-                    $("#notice").html(sessionStorage.getItem("noticeWallet"));
+                    $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+                    $("#notice").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_EWALLET"));
                 } else {
                     $('#ewallet').hide();
                     $('#atm').show();
                     $(this).hide();
                     window.w88Mobile.Gateways.BaokimV2.method = "ATM";
-                    $("#notice").html(sessionStorage.getItem("noticeAtm"));
+                    $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+                    $("#notice").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_ATM"));
                 }
             });
 
@@ -85,7 +91,7 @@
                     if (window.w88Mobile.Gateways.BaokimV2.method == "EWALLET") {
                         data = {
                             Method: window.w88Mobile.Gateways.BaokimV2.method,
-                            Amount: $('input[id$="txtAmountWallet"]').val(),
+                            Amount: $('input[id$="txtAmountWallet"]').autoNumeric('get'),
                             Email: $('input[id$="txtEmailWallet"]').val(),
                             MethodId: "<%=base.PaymentMethodId%>",
                             ThankYouPage: location.protocol + "//" + location.host + "/v2/Deposit/Pay120272ew.aspx?requestAmount=" + $('input[id$="txtAmountWallet"]').val()
@@ -93,7 +99,7 @@
                     } else {
                         data = {
                             Method: window.w88Mobile.Gateways.BaokimV2.method,
-                            Amount: $('input[id$="txtAmountAtm"]').val(),
+                            Amount: $('input[id$="txtAmountAtm"]').autoNumeric('get'),
                             Email: $('input[id$="txtEmailAtm"]').val(),
                             Phone: $('input[id$="txtContact"]').val(),
                             BankText: $('select[id$="drpBank"] option:selected').text(),

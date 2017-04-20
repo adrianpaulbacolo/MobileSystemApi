@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
     <div class="form-group">
         <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
-        <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control"  required data-paylimit="0"/>
+        <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" required data-paylimit="0" data-numeric />
     </div>
     <div class="form-group">
         <asp:Label ID="lblSystemAccount" runat="server" AssociatedControlID="drpSystemAccount" />
@@ -55,7 +55,7 @@
                 depositDateTime.setMinutes($('#<%=drpMinute.ClientID%>').val());
 
                 var data = {
-                    Amount: $('input[id$="txtAmount"]').val(),
+                    Amount: $('input[id$="txtAmount"]').autoNumeric('get'),
                     AccountName: $('input[id$="txtAccountName"]').val(),
                     AccountNumber: $('input[id$="txtAccountNumber"]').val(),
                     SystemBankText: $('select[id$="drpSystemAccount"] option:selected').text(),
