@@ -150,7 +150,7 @@
 
                                 Cookies().setCookie('is_app', '0', 0);
 
-                                window.User.token = '<%= commonVariables.CurrentMemberSessionId %>';
+                                window.User.token = Cookies().getCookie('s');
 
                                 pubsub.subscribe('checkFreeRounds', onCheckFreeRounds);
                                 _w88_products.checkFreeRounds();
@@ -203,7 +203,6 @@
                                 }
 
                                 $('#btnSubmit').attr("disabled", false);
-                                pubsub.publish('stopLoadItem', { selector: '' });
                                 window.w88Mobile.Growl.shout('<div>' + message + '</div>');
                                 break;
                         }

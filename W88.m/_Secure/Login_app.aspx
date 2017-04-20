@@ -187,7 +187,6 @@
                                 }
 
                                 $('#btnSubmit').attr("disabled", false);
-                                pubsub.publish('stopLoadItem', { selector: '' });
                                 window.w88Mobile.Growl.shout('<div>' + message + '</div>');
                                 break;
                         }
