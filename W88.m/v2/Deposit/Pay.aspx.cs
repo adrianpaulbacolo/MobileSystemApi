@@ -40,6 +40,10 @@ public partial class v2_Deposit_Pay : PaymentBasePage
             case (int)commonVariables.DepositMethod.BaokimScratchCard:
                 GatewayFile = "baokimscratchcard";
                 break;
+            
+            case (int)commonVariables.DepositMethod.DinPayTopUp:
+                GatewayFile = "dinpaytopup";
+                break;
 
             case (int)commonVariables.DepositMethod.IWallet:
                 GatewayFile = "iwallet";
@@ -81,6 +85,7 @@ public partial class v2_Deposit_Pay : PaymentBasePage
             case (int)commonVariables.DepositMethod.JTPayAliPay:
             case (int)commonVariables.DepositMethod.JutaPay:
             case (int)commonVariables.DepositMethod.ShengPayAliPay:
+            case (int)commonVariables.DepositMethod.AifuAlipay:
                 GatewayFile = "alipay";
                 break;
 
@@ -89,6 +94,7 @@ public partial class v2_Deposit_Pay : PaymentBasePage
             case (int)commonVariables.DepositMethod.JTPayWeChat:
             case (int)commonVariables.DepositMethod.TongHuiWeChat:
             case (int)commonVariables.DepositMethod.KDPayWeChat:
+            case (int)commonVariables.DepositMethod.AifuWeChat:
                 GatewayFile = "wechat";
                 break;
 
