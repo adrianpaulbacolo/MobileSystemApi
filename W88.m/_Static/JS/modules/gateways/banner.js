@@ -157,7 +157,10 @@ function Banner() {
             arrows: true,
             infinite: false,
             focusOnSelect: true,
-            zIndex: 1
+            zIndex: 1,
+            appendArrows: $(".arrow-container"),
+            prevArrow : '<button type="button" class="slick-prev"><span class="icon icon-arrow-left"></span></button>',
+            nextArrow : '<button type="button" class="slick-next"><span class="icon icon-arrow-right"></span></button>'
         });
 
         $('div.payment-banner').on('swipe', function (event, slick, direction) {
@@ -168,7 +171,15 @@ function Banner() {
             }
         });
 
-        $('div.payment-banner .slick-arrow').on('click', function (event) {
+        $('div.arrow-container .slick-arrow').on('click', function (event) {
+            if ($(".embed-responsive").is(":visible")) {
+                $(".embed-responsive video")[0].pause();
+                $(".img-responsive").show(); // video
+                $(".embed-responsive").hide(); // video
+            }
+        });
+
+        $('div.payment-banner .slick-dots button').on('click', function (event) {
             if ($(".embed-responsive").is(":visible")) {
                 $(".embed-responsive video")[0].pause();
                 $(".img-responsive").show(); // video
