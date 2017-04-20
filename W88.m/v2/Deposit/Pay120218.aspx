@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/v2/MasterPages/Payment.master" AutoEventWireup="true" CodeFile="Pay120218.aspx.cs" Inherits="v2_Deposit_Pay120218" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
-    <div class="form-group ali-pay-note">
+    <div class="form-group pay-note">
         <span id="paymentNote"></span>
         <p id="paymentNoteContent"></p>
     </div>

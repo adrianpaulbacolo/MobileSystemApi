@@ -210,6 +210,8 @@ function DefaultPaymentsV2() {
     }
 
     function initiateValidator(methodId) {
+        setNumericValidator();
+
         $('#form1').validator({
             custom: {
                 bankequals: function ($el) {
@@ -235,7 +237,7 @@ function DefaultPaymentsV2() {
                     $el.parent("div.form-group").children("span.help-block").remove();
                     $el.parent(".form-group").removeClass('has-error');
 
-                    if (!_.isUndefined($el)) {
+                    if (!_.isEmpty($el)) {
 
                         var setting = _.find(paymentCache.settings, function (data) {
                             return data.Id == methodId;
@@ -264,7 +266,7 @@ function DefaultPaymentsV2() {
                     $el.parent("div.form-group").children("span.help-block").remove();
                     $el.parent("div.form-group").removeClass('has-error');
 
-                    if (_.isUndefined($el.val())) {
+                    if (_.isEmpty($el.val())) {
                         $el.parent("div.form-group").addClass('has-error');
                         $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_MissingAccountNumber") + '</span>');
                         return true;
@@ -274,16 +276,36 @@ function DefaultPaymentsV2() {
                     $el.parent("div.form-group").children("span.help-block").remove();
                     $el.parent("div.form-group").removeClass('has-error');
 
-                    if (_.isUndefined($el.val())) {
+                    if (_.isEmpty($el.val())) {
                         $el.parent("div.form-group").addClass('has-error');
                         $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_MissingAccountName") + '</span>');
+                        return true;
+                    }
+                },
+                address: function ($el) {
+                    $el.parent("div.form-group").children("span.help-block").remove();
+                    $el.parent("div.form-group").removeClass('has-error');
+
+                    if (_.isEmpty($el.val())) {
+                        $el.parent("div.form-group").addClass('has-error');
+                        $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_MissingAddress") + '</span>');
                         return true;
                     }
                 }
 
             }
         });
+    }
 
+    function setNumericValidator() {
+        _.forEach($('[data-numeric]'), function (item, index) {
+            var numeric = item.getAttribute('data-numeric');
+
+            if (_.isEmpty(numeric))
+                $(item).autoNumeric('init');
+            else
+                $(item).autoNumeric('init', { mDec: numeric });
+        });
     }
 
     function setDepositPaymentTab(responseData, activeTabId) {
@@ -415,7 +437,7 @@ function DefaultPaymentsV2() {
         $('#paymentList').hide();
         $('.gateway-select').hide();
         $('.gateway-restrictions').hide();
-        
+
         pubsub.publish('stopLoadItem', { selector: "" });
     }
 
