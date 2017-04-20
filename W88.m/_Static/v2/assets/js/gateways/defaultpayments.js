@@ -76,7 +76,6 @@ function DefaultPaymentsV2() {
 
     function setTranslations(paymentOptions) {
         if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
-            $('label[id$="lblDepositAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
             $('label[id$="lblAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
 
             var headerTitle = paymentOptions == "Deposit" ? _w88_contents.translate("LABEL_FUNDS_DEPOSIT") : _w88_contents.translate("LABEL_FUNDS_WIDRAW");
@@ -210,6 +209,8 @@ function DefaultPaymentsV2() {
     }
 
     function initiateValidator(methodId) {
+        setNumericValidator();
+
         $('#form1').validator({
             custom: {
                 bankequals: function ($el) {
@@ -225,7 +226,7 @@ function DefaultPaymentsV2() {
                 selectequals: function ($el) {
                     $el.parent("div.form-group").removeClass('has-error');
                     $el.parent("div.form-group").children("span.help-block").remove();
-                    var matchValue = $el.data("bankequals");
+                    var matchValue = $el.data("selectequals");
                     if ($el.val() == matchValue) {
                         $el.parent("div.form-group").addClass('has-error');
                         return true;
@@ -235,7 +236,7 @@ function DefaultPaymentsV2() {
                     $el.parent("div.form-group").children("span.help-block").remove();
                     $el.parent(".form-group").removeClass('has-error');
 
-                    if (!_.isUndefined($el)) {
+                    if (!_.isEmpty($el)) {
 
                         var setting = _.find(paymentCache.settings, function (data) {
                             return data.Id == methodId;
@@ -264,7 +265,7 @@ function DefaultPaymentsV2() {
                     $el.parent("div.form-group").children("span.help-block").remove();
                     $el.parent("div.form-group").removeClass('has-error');
 
-                    if (_.isUndefined($el.val())) {
+                    if (_.isEmpty($el.val())) {
                         $el.parent("div.form-group").addClass('has-error');
                         $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_MissingAccountNumber") + '</span>');
                         return true;
@@ -274,16 +275,36 @@ function DefaultPaymentsV2() {
                     $el.parent("div.form-group").children("span.help-block").remove();
                     $el.parent("div.form-group").removeClass('has-error');
 
-                    if (_.isUndefined($el.val())) {
+                    if (_.isEmpty($el.val())) {
                         $el.parent("div.form-group").addClass('has-error');
                         $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_MissingAccountName") + '</span>');
+                        return true;
+                    }
+                },
+                address: function ($el) {
+                    $el.parent("div.form-group").children("span.help-block").remove();
+                    $el.parent("div.form-group").removeClass('has-error');
+
+                    if (_.isEmpty($el.val())) {
+                        $el.parent("div.form-group").addClass('has-error');
+                        $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_MissingAddress") + '</span>');
                         return true;
                     }
                 }
 
             }
         });
+    }
 
+    function setNumericValidator() {
+        _.forEach($('[data-numeric]'), function (item, index) {
+            var numeric = item.getAttribute('data-numeric');
+
+            if (_.isEmpty(numeric))
+                $(item).autoNumeric('init');
+            else
+                $(item).autoNumeric('init', { mDec: numeric });
+        });
     }
 
     function setDepositPaymentTab(responseData, activeTabId) {
@@ -334,6 +355,11 @@ function DefaultPaymentsV2() {
                     $('#activeTab').text(title);
 
                 $('header .header-title').append(' - ' + title);
+
+                if (_.includes(routing, activeTabId)) {
+                    $('.dailyLimit').hide()
+                    $('.totalAllowed').hide()
+                }
             }
             else {
                 if (!isAutoRoute) {
@@ -343,7 +369,6 @@ function DefaultPaymentsV2() {
                 }
             }
 
-            pubsub.publish('stopLoadItem', { selector: "" });
         } else {
             if (activeTabId) {
                 window.location.href = deposit;
@@ -398,7 +423,6 @@ function DefaultPaymentsV2() {
                     window.location.href = withdraw + page;
             }
 
-            pubsub.publish('stopLoadItem', { selector: "" });
         } else {
             if (activeTabId) {
                 window.location.href = withdraw;
@@ -417,7 +441,7 @@ function DefaultPaymentsV2() {
         $('#paymentList').hide();
         $('.gateway-select').hide();
         $('.gateway-restrictions').hide();
-        
+
         pubsub.publish('stopLoadItem', { selector: "" });
     }
 
@@ -569,6 +593,8 @@ function DefaultPaymentsV2() {
 
             case "1202139":
                 return "1202139"; // PayTrust
+            case "1202154":
+                return "1202154"; // AloGatewayWechat  
 
             default:
                 break;

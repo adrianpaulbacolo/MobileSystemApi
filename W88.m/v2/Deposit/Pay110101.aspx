@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
 
     <div class="form-group">
-        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
+        <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
         <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" required data-paylimit="0" />
     </div>
     <div class="form-group">
@@ -49,7 +49,8 @@
         <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" />
         <asp:TextBox ID="txtAccountNumber" runat="server" CssClass="form-control" required data-accountNo=""/>
     </div>
-    <div class="form-group ali-pay-note">
+    <div class="form-group pay-note">
+        <span id="paymentNote"></span>
         <p id="paymentNoteContent"></p>
     </div>
 

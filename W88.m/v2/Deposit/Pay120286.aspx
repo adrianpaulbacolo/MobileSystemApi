@@ -10,7 +10,7 @@
         </asp:DropDownList>
     </div>
     <div class="form-group">
-        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="drpAmount" />
+        <asp:Label ID="lblAmount" runat="server" AssociatedControlID="drpAmount" />
         <asp:DropDownList ID="drpAmount" runat="server" CssClass="form-control">
         </asp:DropDownList>
     </div>

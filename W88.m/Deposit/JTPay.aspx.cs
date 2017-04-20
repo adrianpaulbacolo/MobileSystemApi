@@ -33,7 +33,7 @@ public partial class Deposit_JTPay : PaymentBasePage
     {
         if (!Page.IsPostBack)
         {
-            CheckAgentAndRedirect(V2DepositPath + _redirection);
+            CheckAgentAndRedirect(_redirection);
             this.InitializeLabels();
         }
     }

@@ -37,7 +37,7 @@
                 <span id="txtStep2Amount"></span>
             </div>
             <div class="col-xs-2">
-                <a href="#" id="copyAmount"><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
+                <a href="#" id="copyAmount"></a>
             </div>
         </div>
         <div class="form-group pay-note">
@@ -62,7 +62,7 @@
                 <span id="txtBankHolderName"></span>
             </div>
             <div class="col-xs-2">
-                <a href="#" id="copyAccountName"><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
+                <a href="#" id="copyAccountName"></a>
             </div>
         </div>
         <div class="form-group">
@@ -73,7 +73,7 @@
                 <span id="txtBankAccountNo"></span>
             </div>
             <div class="col-xs-2">
-                <a href="#" id="copyAccountNo"><%=commonCulture.ElementValues.getResourceString("copy", commonVariables.LeftMenuXML)%></a>
+                <a href="#" id="copyAccountNo"></a>
             </div>
         </div>
     </div>
@@ -86,7 +86,7 @@
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
-            window.w88Mobile.Gateways.SDAPay.init();
+            window.w88Mobile.Gateways.SDAPay.init("<%=base.PaymentMethodId %>");
 
             $('#form1').validator().on('submit', function (e) {
 
