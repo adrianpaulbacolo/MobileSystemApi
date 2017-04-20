@@ -142,8 +142,25 @@
                         switch (xml.Code) {
                             case "1":
                             case "resetPassword":
+
                                 Cookies().setCookie('IsApp', '1', 1);
-                                window.location.replace('/Funds.aspx');
+
+                                pubsub.subscribe('checkFreeRounds', onCheckFreeRounds);
+                                _w88_products.checkFreeRounds();
+
+                                function onCheckFreeRounds() {
+
+                                    if (!_.isUndefined(_w88_products.FreeRoundsGameUrl)) {
+                                        var gameTemplate = '<div><span><a href="{0}" data-ajax="false">Accept</a><a href="{1}" data-ajax="false">Later</a></span></div>';
+                                        gameTemplate = gameTemplate.replace("{0}", _w88_products.FreeRoundsGameUrl);
+                                        gameTemplate = gameTemplate.replace("{1}", "/ClubBravado");
+
+                                        window.w88Mobile.Growl.shout(gameTemplate, function () { window.location = "/index"; });
+                                    } else {
+                                        window.location.replace('/Funds.aspx');
+                                    }
+                                }
+
                                 break;
                             case "22":
                                 GPINTMOBILE.HideSplash();

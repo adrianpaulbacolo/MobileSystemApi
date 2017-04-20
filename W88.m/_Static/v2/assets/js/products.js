@@ -3,7 +3,7 @@ var _w88_products = window.w88Mobile.Products;
 
 function Products() {
 
-    var products = {};   
+    var products = {};
 
     products.init = function() {
 
@@ -58,6 +58,46 @@ function Products() {
         $(".ClubGallardoNavTitle").text(_w88_contents.translate("LABEL_PRODUCTS_GALLARDO"));
         $(".ClubApolloNavTitle").text(_w88_contents.translate("LABEL_PRODUCTS_APOLLO"));
         $(".ClubDivinoNavTitle").text(_w88_contents.translate("LABEL_PRODUCTS_DIVINO"));
+
+    };
+
+    products.checkFreeRounds = function () {
+
+        var headers = {
+            'Token': window.User.token,
+            'LanguageCode': window.User.lang
+        };
+
+        var data = { cashier: "Funds.aspx", Lobby: "ClubBravado" };
+
+        $.ajax({
+            type: "GET",
+            url: w88Mobile.APIUrl + "/products/freerounds/gpi",
+            data: data,
+            beforeSend: function() {
+                pubsub.publish('startLoadItem', { selector: '' });
+            },
+            headers: headers,
+            success: function(response) {
+                switch (response.ResponseCode) {
+                case 1:
+                    _w88_products.FreeRoundsGameUrl = response.ResponseData;
+                    break;
+                }
+
+                pubsub.publish('checkFreeRounds', { selector: '' });
+            },
+            error: function(response) {
+                if (_.isUndefined(response.ResponseData)) {
+                    pubsub.publish('stopLoadItem', { selector: '' });
+                    console.log('Unable to get freerounds.');
+                    return;
+                }
+            },
+            complete: function() {
+                pubsub.publish('stopLoadItem', { selector: '' });               
+            }
+        });
 
     };
 
