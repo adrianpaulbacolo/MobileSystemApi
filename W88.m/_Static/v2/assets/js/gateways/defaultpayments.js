@@ -355,6 +355,11 @@ function DefaultPaymentsV2() {
                     $('#activeTab').text(title);
 
                 $('header .header-title').append(' - ' + title);
+
+                if (_.includes(routing, activeTabId)) {
+                    $('.dailyLimit').hide()
+                    $('.totalAllowed').hide()
+                }
             }
             else {
                 if (!isAutoRoute) {
