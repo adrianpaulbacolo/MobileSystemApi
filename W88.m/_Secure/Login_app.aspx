@@ -151,7 +151,7 @@
                                 function onCheckFreeRounds() {
 
                                     if (!_.isUndefined(_w88_products.FreeRoundsGameUrl)) {
-                                        var gameTemplate = '<div><span><a href="{0}" data-ajax="false">Accept</a><a href="{1}" data-ajax="false">Later</a></span></div>';
+                                        var gameTemplate = '<div class="free-rounds"><img src="/_Static/images/v2/freerounds/Popup-free-round-<%=commonVariables.SelectedLanguageShort.ToLower()%>.jpg"> </img> <div class="free-round-btns"><a href="{0}" data-ajax="false" class="ui-btn btn-primary">Accept</a><a href="{1}" data-ajax="false" class="ui-btn btn-primary">Later</a></div></div>';
                                         gameTemplate = gameTemplate.replace("{0}", _w88_products.FreeRoundsGameUrl);
                                         gameTemplate = gameTemplate.replace("{1}", "/ClubBravado");
 
