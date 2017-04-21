@@ -205,7 +205,7 @@ function DefaultPaymentsV2() {
 
     function onTransactionCreated(form) {
 
-        var historyBtn = "<a href='/v2/History/Default.aspx' class='btn btn-primary' data-ajax='false'>" + _w88_contents.translate("LABEL_FUNDS_HISTORY") + "</a>";
+        var historyBtn = "<a href='/v2/History/Default.aspx' class='btn btn-block btn-primary' data-ajax='false'>" + _w88_contents.translate("LABEL_FUNDS_HISTORY") + "</a>";
         var message = "<p>" + _w88_contents.translate("MESSAGES_CHECK_HISTORY") + "</p>" + historyBtn;
         if (!_.isUndefined(form)) _.first(form).reset();
         w88Mobile.Growl.shout(message);
