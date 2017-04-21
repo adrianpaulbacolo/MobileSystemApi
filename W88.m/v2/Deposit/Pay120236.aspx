@@ -82,7 +82,7 @@
 
                     var params = decodeURIComponent($.param(data));
                     window.open(_w88_paymentSvcV2.payRoute + "?" + params, "<%=base.PageName%>");
-                    _w88_paymentSvc.onTransactionCreated($(this));
+                    _w88_paymentSvcV2.onTransactionCreated($(this));
                     return;
                 }
             });
