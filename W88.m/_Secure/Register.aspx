@@ -13,7 +13,6 @@
         <header id="header" data-role="header" data-position="fixed" data-theme="b" data-tap-toggle="false">
             <a href="" role="button" data-rel="back" class="btn-clear ui-btn-left ui-btn" id="aMenu" data-load-ignore-splash="true">
                 <span class="icon icon-back"></span>
-                <%=commonCulture.ElementValues.getResourceString("back", commonVariables.LeftMenuXML)%>
             </a>
             <h1 class="title"><%=commonCulture.ElementValues.getResourceString("register", commonVariables.LeftMenuXML)%></h1>
         </header>
