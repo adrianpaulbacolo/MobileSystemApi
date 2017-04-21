@@ -19,6 +19,7 @@
         },
         shout: function (msg, callback) {
             this.init(msg, '');
+            
             this.modal.popup('open');
 
             if (!_.isUndefined(callback) && _.isFunction(callback))
@@ -37,7 +38,7 @@
         getTemplate: function (ok) {
             var self = this;
 
-            var template = '<div id="PopUpModal" data-role="popup" data-overlay-theme="b" data-theme="b" data-history="false">' +
+            var template = '<div id="PopUpModal" data-role="popup" data-transition="pop" data-overlay-theme="b" data-theme="b" data-history="false">' +
             '<a href="#" data-rel="back" class="close close-enhanced">&times;</a>' + '<br>' +
             '<div class="padding">' +
             '<div id="ModalMessage" class="download-app padding"></div>' +
