@@ -1,5 +1,5 @@
 ﻿window.w88Mobile.Gateways.PaysecV2 = PaysecV2();
-var _w88_paysecV2 = window.w88Mobile.Gateways.PaysecV2;
+var _w88_paysec = window.w88Mobile.Gateways.PaysecV2;
 
 function PaysecV2() {
 
