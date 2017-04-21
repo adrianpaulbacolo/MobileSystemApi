@@ -177,7 +177,14 @@ function DefaultPaymentsV2() {
     }
 
     function send(resource, method, data, success, complete) {
-        var url = w88Mobile.APIUrl + resource;
+
+        var selector = "";
+        if (!_.isEmpty(data.selector)) {
+            selector = _.clone(data.selector);
+            delete data["selector"];
+        }
+
+        var url = w88Mobile.APIUrl +resource;
 
         var headers = {
             'Token': window.User.token,
@@ -189,7 +196,7 @@ function DefaultPaymentsV2() {
             url: url,
             data: data,
             beforeSend: function () {
-                pubsub.publish('startLoadItem', { selector: "" });
+                pubsub.publish('startLoadItem', { selector: selector });
             },
             headers: headers,
             success: success,
@@ -198,7 +205,7 @@ function DefaultPaymentsV2() {
             },
             complete: function () {
                 if (!_.isUndefined(complete)) complete();
-                pubsub.publish('stopLoadItem', { selector: "" });
+                pubsub.publish('stopLoadItem', { selector: selector });
             }
         });
     }
@@ -321,6 +328,9 @@ function DefaultPaymentsV2() {
 
             for (var i = 0; i < responseData.length; i++) {
                 var data = responseData[i];
+
+                if (data.Method)
+                    continue;
 
                 page = setPaymentPage(data.Id);
 
