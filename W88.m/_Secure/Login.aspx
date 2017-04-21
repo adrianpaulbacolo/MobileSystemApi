@@ -70,8 +70,6 @@
             $('#<%=txtCaptcha.ClientID%>').attr('class', 'hide');
 
             var gameTemplate = '<div class="free-rounds"><img src="/_Static/images/v2/freerounds/Popup-free-round-<%=commonVariables.SelectedLanguageShort.ToLower()%>.jpg"> </img> <div class="free-round-btns"><a id="btnClaimNow" href="{0}" data-ajax="false" class="ui-btn btn-primary"></a><a id="btnClaimLater" href="{1}" data-ajax="false" class="ui-btn btn-primary"></a></div></div>';
-            gameTemplate = gameTemplate.replace("{0}", _w88_products.FreeRoundsGameUrl);
-            gameTemplate = gameTemplate.replace("{1}", "/ClubBravado");
 
             $(document).ready(function () {
 
@@ -164,6 +162,9 @@
                                 function onCheckFreeRounds() {
 
                                     if (!_.isUndefined(_w88_products.FreeRoundsGameUrl)) {
+                                        var gameTemplate = '<div class="free-rounds"><img src="/_Static/images/v2/freerounds/Popup-free-round-<%=commonVariables.SelectedLanguageShort.ToLower()%>.jpg"> </img> <div class="free-round-btns"><a id="btnClaimNow" href="{0}" data-ajax="false" class="ui-btn btn-primary"></a><a id="btnClaimLater" href="{1}" data-ajax="false" class="ui-btn btn-primary"></a></div></div>';
+                                        gameTemplate = gameTemplate.replace("{0}", _w88_products.FreeRoundsGameUrl);
+                                        gameTemplate = gameTemplate.replace("{1}", "/ClubBravado");
 
                                         window.w88Mobile.Growl.shout(gameTemplate, function () { window.location = "/index"; });
                                         $("#btnClaimNow").text(_w88_contents.translate("BUTTON_CLAIM"));
