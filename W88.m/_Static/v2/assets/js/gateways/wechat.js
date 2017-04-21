@@ -12,6 +12,7 @@ function WeChatV2() {
     }
 
     wechat.init = function () {
+        $('label[id$="lblSwitchLine"]').text(_w88_contents.translate("LABEL_SWITCH_LINE"));
         $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
         $("#paymentNoteContent").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_WECHAT"));
     };
@@ -22,6 +23,7 @@ function WeChatV2() {
         var data = {
             Amount: params.Amount,
             ThankYouPage: params.ThankYouPage,
+            SwitchLine: params.SwitchLine,
         };
 
         _self.methodId = params.MethodId;

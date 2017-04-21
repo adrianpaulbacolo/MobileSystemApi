@@ -9,6 +9,10 @@
         <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
         <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" required data-paylimit="0" />
     </div>
+    <div class="form-group">
+        <asp:CheckBox type="checkbox" ID="isSwitchLine" runat="server" />
+        <asp:Label ID="lblSwitchLine" runat="server" AssociatedControlID="isSwitchLine" />
+    </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">
     <script type="text/javascript" src="/_static/v2/assets/js/gateways/alipay.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
@@ -28,6 +32,7 @@
                     var data = {
                         Amount: $('input[id$="txtAmount"]').val(),
                         ThankYouPage: location.protocol + "//" + location.host + "/Index",
+                        SwitchLine: $('input[id$="isSwitchLine"]').is(':checked'),
                         MethodId: "<%=base.PaymentMethodId%>",
                         AutoRoute: true
                     };
