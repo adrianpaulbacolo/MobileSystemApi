@@ -5,8 +5,8 @@
 <head runat="server">
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
     <title><%=commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML) + commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></title>
-    
-    
+
+
     <!-- Bootstrap -->
     <link href="/_Secure/VIP/js/jquery.modal.min.css" rel="stylesheet" />
     <link href="/_Static/css/style.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet">
@@ -59,6 +59,34 @@
     
     </script>
     
+    <script type="text/javascript" src="/_Static/JS/fingerprint2.min.js"></script>
+    <script type="text/javascript" src="/_Static/JS/piwik.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/piwikManager.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/piwikConfig.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/interceptor.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script type="text/javascript">
+    w88Mobile.PiwikManager.setGoals(window.w88Mobile.PiwikConfig.goals);
+    w88Mobile.PiwikManager.setDomain();
+    w88Mobile.PiwikManager.setUserId('<%=UserSession.MemberId %>');
+
+    $(function () {
+        if(_.isEmpty(siteCookie.getCookie("fingerprint"))){
+            new Fingerprint2().get(function (result, components) {
+                var domain = "." + location.hostname.split('.').slice(-2).join('.');
+                siteCookie.setCookie("fingerprint", result, 5, domain);
+            });
+        }else{
+            var deviceObj = {
+                index: 1
+                , name: "deviceId"
+                , value: siteCookie.getCookie("fingerprint")
+                , scope: "visit"
+            }
+            w88Mobile.PiwikManager.setDeviceId(deviceObj);
+        }
+    });
+    </script>
+
     <script src="/_Static/v2/assets/js/products.js"></script>
 </head>
 <body>
