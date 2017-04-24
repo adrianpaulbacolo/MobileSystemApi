@@ -21,11 +21,11 @@ function QuickOnlineV2() {
                 $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
 
                 if (gateway == '120265') { //EGHL
-                    $('label[id$="paymentNoteContent"]').html(_w88_contents.translate("LABEL_MSG_120265"));
+                    $('#paymentNoteContent').html(_w88_contents.translate("LABEL_MSG_120265"));
                 } else {
                     //payment note is for ECPSS
                     $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-                    $('label[id$="paymentNoteContent"]').html(_w88_contents.translate("LABEL_MSG_BANK_NOT_SUPPORTED"));
+                    $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_BANK_NOT_SUPPORTED"));
                 }
 
             } else {

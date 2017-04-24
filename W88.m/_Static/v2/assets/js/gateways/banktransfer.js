@@ -20,6 +20,7 @@ function BankTransferv2() {
 
             if (Cookies().getCookie('language').toLowerCase() == 'vn' && Cookies().getCookie('currencyCode').toLowerCase() == 'vnd') {
                 if (_w88_contents.translate("LABEL_PAYMENT_NOTE_FASTDEPOSIT") != "LABEL_PAYMENT_NOTE_FASTDEPOSIT") {
+                    $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
                     $("#paymentNoteContent").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_FASTDEPOSIT"));
                 } else {
                     window.setInterval(function () {

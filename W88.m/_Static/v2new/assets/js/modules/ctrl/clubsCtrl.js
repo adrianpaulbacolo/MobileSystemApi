@@ -67,7 +67,7 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
             var games = slotSvc.filterSlots(filter, _.clone(_self.games));
 
             games = slotSvc.sortGames(games, filter.section);
-            games = _.slice(games, 0, slotSvc.getClubLimit());
+            games = _.slice(games, 0, slotSvc.getClubLimit(filter.section));
 
             pubsub.publish("displaySlotList", _self.setPushData({
                 games: games

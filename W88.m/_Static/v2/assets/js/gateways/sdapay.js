@@ -14,14 +14,17 @@ function SDAPay() {
     sdapay.bankUrl = "";
     sdapay.step = 1;
 
-    sdapay.init = function () {
+    sdapay.init = function (methodId) {
 
         setTranslations();
 
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
                 $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-                $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_120254"));
+                $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_" + methodId));
+                $("#copyAmount").html(_w88_contents.translate("LABEL_COPY"));
+                $("#copyAccountName").html(_w88_contents.translate("LABEL_COPY"));
+                $("#copyAccountNo").html(_w88_contents.translate("LABEL_COPY"));
 
             } else {
                 window.setInterval(function () {
@@ -78,7 +81,7 @@ function SDAPay() {
                     $('#lblBankAccountNo').text(_w88_contents.translate("LABEL_ACCOUNT_NUMBER"));
 
                     $("#paymentNote2").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-                    $("#paymentNoteContent2").text(_w88_contents.translate("LABEL_MSG_AMOUNT_120254"));
+                    $("#paymentNoteContent2").text(_w88_contents.translate("LABEL_MSG_AMOUNT_" + methodId));
                 } else {
                     window.setInterval(function () {
                         setTranslations();

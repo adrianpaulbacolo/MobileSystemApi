@@ -10,8 +10,6 @@ using System.Xml.Linq;
 
 public partial class Deposit_PayTrust : PaymentBasePage
 {
-    protected string lblTransactionId;
-
     protected void Page_Init(object sender, EventArgs e)
     {
         base.PageName = Convert.ToString(commonVariables.DepositMethod.PayTrust);
@@ -23,6 +21,7 @@ public partial class Deposit_PayTrust : PaymentBasePage
     {
         if (!Page.IsPostBack)
         {
+            CheckAgentAndRedirect(string.Concat(V2DepositPath, "Pay", PaymentMethodId, ".aspx"));
             this.InitializeLabels();
         }
     }

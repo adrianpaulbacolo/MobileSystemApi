@@ -103,16 +103,16 @@ function Banner() {
                },
            },
            {
-               Image: "/_Static/Images/payments/Deposit-RMB-WeChat-Add-Bank-Card-CN.png",
+               Image: "/_Static/Images/payments/Deposit-RMB-WeChat-QR-Limited-CN.png",
                Videos: [
                    {
-                       Video: "http://anecdn.w88media.com/CN/vid/Deposit-RMB-WeChat-Add-Bank-Card-CN.mp4",
+                       Video: "http://anecdn.w88media.com/CN/vid/Deposit-RMB-WeChat-QR-Limited-CN.mp4",
                        Type: "video/mp4",
                    }
                ],
                Flash: {
-                   Title: "WeChat Add Bank Card",
-                   Video: "http%3A%2F%2Fanecdn.w88media.com%2FCN%2Fvid%2FDeposit-RMB-WeChat-Add-Bank-Card-CN.mp4",
+                   Title: "WeChat QR Limited",
+                   Video: "http%3A%2F%2Fanecdn.w88media.com%2FCN%2Fvid%2FDeposit-RMB-WeChat-QR-Limited-CN.mp4",
                },
            },
            {
