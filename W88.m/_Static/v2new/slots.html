@@ -165,9 +165,11 @@
 
             if (_.isEmpty(clubs)) return;
 
+            var section = "Home";
+
             _.forEach(clubs, function (club) {
-                var items = w88Mobile.v2.Slots.itemsByClub(club.providers, "Home");
-                games = _.slice(items, 0, w88Mobile.v2.Slots.getClubLimit());
+                var items = w88Mobile.v2.Slots.itemsByClub(club.providers, section);
+                games = _.slice(items, 0, w88Mobile.v2.Slots.getClubLimit(section));
                 pubsub.publish("updateList", {
                     games: games
                     , club: club

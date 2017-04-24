@@ -147,7 +147,7 @@ function DefaultPayments() {
             url: url,
             data: data,
             beforeSend: function () {
-                GPInt.prototype.ShowSplash(true);
+                pubsub.publish('startLoadItem', { selector: "" });
             },
             headers: headers,
             success: success,
@@ -155,8 +155,8 @@ function DefaultPayments() {
                 console.log("Error connecting to api");
             },
             complete: function () {
+                pubsub.publish('stopLoadItem', { selector: "" });
                 if (!_.isUndefined(complete)) complete();
-                GPInt.prototype.HideSplash();
             }
         });
     }
@@ -369,7 +369,7 @@ function DefaultPayments() {
         $('#paymentSettings').hide();
         $('#paymentList').hide();
 
-        GPInt.prototype.HideSplash();
+        pubsub.publish('stopLoadItem', { selector: "" });
     }
 
     function setPaymentPage(id) {
@@ -377,10 +377,10 @@ function DefaultPayments() {
 
             // withdrawal
             case "210602":
-                return "BankTransfer.aspx";
+                return "210602"; // BankTransfer
 
             case "220815":
-                return "Neteller.aspx";
+                return "220815"; // Neteller
 
             case "210709":
                 return "210709"; // WingMoney
@@ -389,29 +389,29 @@ function DefaultPayments() {
                 return "2107138"; // TrueMoney
 
             case "220895":
-                return "VenusPoint.aspx";
+                return "220895"; // VenusPoint
 
             case "2208102":
-                return "IWallet.aspx";
+                return "2208102"; // IWallet
 
             case "2208121":
-                return "Cubits.aspx";
+                return "2208121"; // Cubits
 
                 // deposit
             case "120272":
-                return "Baokim.aspx";
+                return "120272"; // Baokim
 
             case "110101":
-                return "FastDeposit.aspx";
+                return "110101"; // FastDeposit
 
             case "120204":
-                return "NextPay.aspx";
+                return "120204"; // NextPay
 
             case "120248":
-                return "NextPayGV.aspx";
+                return "120248"; // NextPayGV
 
             case "120280":
-                return "JutaPay.aspx";
+                return "120280"; // JutaPay
 
             case "110308":
                 return "110308"; // WingMoney
@@ -420,46 +420,43 @@ function DefaultPayments() {
                 return "1103132"; // TrueMoney
 
             case "120223":
-                return "SDPay.aspx";
+                return "120223"; // SDPay
 
             case "120227":
-                return "Help2Pay.aspx";
+                return "120227"; // Help2Pay
 
             case "1202114":
-                return "KDPayWechat.aspx";
+                return "1202114"; // KDPayWechat
 
             case "120243":
-                return "DaddyPay.aspx?value=1";
+                return "120243?value=1"; // DaddyPay
 
             case "120244":
-                return "DaddyPay.aspx?value=2";
+                return "120244?value=2"; // DaddyPayQR
 
             case "120214":
-                return "Neteller.aspx";
+                return "120214"; // Neteller
 
             case "120290":
-                return "PaySec.aspx";
+                return "120290"; // PaySec
 
             case "120254":
-                return "120254"; //SDAPayAlipay
+                return "120254"; // SDAPayAlipay
 
             case "1204131":
                 return "1204131"; // AlipayTransfer
 
             case "1202111":
-                return "ShengPayAliPay.aspx";
+                return "1202111"; // ShengPayAliPay
 
             case "120218":
-                return "ECPSS.aspx";
+                return "120218"; // ECPSS
 
             case "120231":
-                return "BofoPay.aspx";
-
-            case "1202123":
-                return "WeChat";
+                return "120231"; // BofoPay
 
             case "1202127":
-                return "KexunPay.aspx";
+                return "1202127"; // KexunPayWeChat
 
             case "120275":
                 return "120275"; // TongHuiPay
@@ -470,26 +467,29 @@ function DefaultPayments() {
             case "120277":
                 return "120277"; // TongHuiWeChat
 
+            case "1202123":
+                return "1202123"; // JTPayWeChat
+
             case "1202122":
-                return "Alipay";
+                return "1202122"; // JTPayAliPay
 
             case "120236":
-                return "AllDebit.aspx";
+                return "120236"; // AllDebit
 
             case "120265":
-                return "EGHL.aspx";
+                return "120265"; // EGHL
 
             case "120212":
-                return "NganLuong.aspx";
+                return "120212"; // NganLuong
 
             case "1202103":
-                return "IWallet.aspx";
+                return "1202103"; // IWallet
 
             case "120296":
-                return "VenusPoint.aspx";
+                return "120296"; // VenusPoint
 
             case "120286":
-                return "BaokimScratchCard.aspx";
+                return "120286"; // BaokimScratchCard
 
             case "999999":
                 return "QuickOnline.aspx";
@@ -501,25 +501,25 @@ function DefaultPayments() {
                 return "WeChat.aspx";
 
             case "1202113":
-                return "JuyPayAlipay.aspx";
+                return "1202113"; // JuyPayAlipay
 
             case "1202105":
-                return "NineVPayAlipay.aspx";
+                return "1202105"; // NineVPayAlipay
 
             case "1202133":
-                return "WeChat/Aifu";
+                return "1202133"; // AifuWeChat
 
             case "1202134":
-                return "Alipay/Aifu";
+                return "1202134"; // AifuAlipay
 
             case "1202120":
-                return "Cubits.aspx";
+                return "1202120"; // Cubits
 
             case "1202112":
-                return "DinPayTopUp.aspx";
+                return "1202112"; // DinPayTopUp
 
             case "1202139":
-                return "PayTrust.aspx";
+                return "1202139"; // PayTrust
 
             case "1202154":
                 return "AloGatewayWechat.aspx";

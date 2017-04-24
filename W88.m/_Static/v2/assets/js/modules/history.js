@@ -16,7 +16,6 @@ function History() {
     }
 
     var selection = {};
-    var defaultSelect = null, defaultAll = null;
 
     var status = {
         NotStarted: "notstarted", Started: "started", Done: "done"
@@ -235,19 +234,15 @@ function History() {
     function init() {
         subscription();
 
-        setTranslations();
-
         getSelection();
 
         hideSelection();
     }
 
     function setTranslations() {
-        defaultSelect = _w88_contents.translate("LABEL_SELECT_DEFAULT")
-        defaultAll = _w88_contents.translate("LABEL_ALL_DEFAULT")
-
         $("header .header-title").text(_w88_contents.translate("LABEL_FUNDS_HISTORY"));
         $('button[id$="btnSubmit"]').text(_w88_contents.translate("BUTTON_SUBMIT"));
+        document.title = _w88_contents.translate("LABEL_FUNDS_HISTORY");
 
         $('label[id$="lblTransactionType"]').text(_w88_contents.translate("LABEL_TRANSACTION"));
         $('label[id$="lblDateFrom"]').text(_w88_contents.translate("LABEL_STARTDATE"));
@@ -279,6 +274,8 @@ function History() {
             selection.FT_Status = response.ResponseData.FT_Status
 
             bindSlick();
+
+            setTranslations();
 
             pubsub.publish("transType", {
                 Type: selection.ReportType, Default: "-1"
@@ -557,7 +554,7 @@ function History() {
     };
 
     function onSetTransType(topic, data) {
-        $('select[id$="ddlTransactionType"]').append($("<option></option>").val(data.Default).text(defaultSelect))
+        $('select[id$="ddlTransactionType"]').append($("<option></option>").val(data.Default).text(_w88_contents.translate("LABEL_SELECT_DEFAULT")))
 
         _.each(data.Type, function (item, index) {
             $('select[id$="ddlTransactionType"]').append($("<option></option>").val(item.Value).text(item.Text))
@@ -590,7 +587,7 @@ function History() {
 
         $('select[id$="ddlType"]').empty();
 
-        $('select[id$="ddlType"]').append($("<option></option>").val(data.Default).text(defaultAll))
+        $('select[id$="ddlType"]').append($("<option></option>").val(data.Default).text(_w88_contents.translate("LABEL_ALL_DEFAULT")))
 
         _.each(data.Type, function (item, index) {
             $('select[id$="ddlType"]').append($("<option></option>").val(item.Id).text(item.Name))

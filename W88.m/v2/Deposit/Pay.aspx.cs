@@ -40,6 +40,10 @@ public partial class v2_Deposit_Pay : PaymentBasePage
             case (int)commonVariables.DepositMethod.BaokimScratchCard:
                 GatewayFile = "baokimscratchcard";
                 break;
+            
+            case (int)commonVariables.DepositMethod.DinPayTopUp:
+                GatewayFile = "dinpaytopup";
+                break;
 
             case (int)commonVariables.DepositMethod.IWallet:
                 GatewayFile = "iwallet";
@@ -67,7 +71,12 @@ public partial class v2_Deposit_Pay : PaymentBasePage
                 break;
 
             case (int)commonVariables.DepositMethod.SDAPayAlipay:
+            case (int)commonVariables.DepositMethod.AlipayTransfer:
                 GatewayFile = "sdapay";
+                break;
+
+            case (int)commonVariables.DepositMethod.Cubits:
+                GatewayFile = "cubits";
                 break;
 
             case (int)commonVariables.AutoRouteMethod.AliPay:
@@ -76,13 +85,16 @@ public partial class v2_Deposit_Pay : PaymentBasePage
             case (int)commonVariables.DepositMethod.JTPayAliPay:
             case (int)commonVariables.DepositMethod.JutaPay:
             case (int)commonVariables.DepositMethod.ShengPayAliPay:
+            case (int)commonVariables.DepositMethod.AifuAlipay:
                 GatewayFile = "alipay";
                 break;
 
             case (int)commonVariables.AutoRouteMethod.WeChat:
-            case (int)commonVariables.DepositMethod.KexunPay:
+            case (int)commonVariables.DepositMethod.KexunPayWeChat:
             case (int)commonVariables.DepositMethod.JTPayWeChat:
+            case (int)commonVariables.DepositMethod.TongHuiWeChat:
             case (int)commonVariables.DepositMethod.KDPayWeChat:
+            case (int)commonVariables.DepositMethod.AifuWeChat:
                 GatewayFile = "wechat";
                 break;
 
@@ -93,6 +105,8 @@ public partial class v2_Deposit_Pay : PaymentBasePage
             case (int)commonVariables.DepositMethod.Help2Pay:
             case (int)commonVariables.DepositMethod.ECPSS:
             case (int)commonVariables.DepositMethod.EGHL:
+            case (int)commonVariables.DepositMethod.NextPayGV:
+            case (int)commonVariables.DepositMethod.PayTrust:
                 GatewayFile = "quickonline";
                 break;
 

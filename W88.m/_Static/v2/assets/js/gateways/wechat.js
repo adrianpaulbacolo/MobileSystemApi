@@ -12,18 +12,8 @@ function WeChatV2() {
     }
 
     wechat.init = function () {
-
-        setTranslations();
-        function setTranslations() {
-            if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
-                $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-                $("#paymentNoteContent").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_WECHAT"));
-            } else {
-                window.setInterval(function () {
-                    setTranslations();
-                }, 500);
-            }
-        }
+        $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+        $("#paymentNoteContent").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_WECHAT"));
     };
 
     wechat.createDeposit = function () {

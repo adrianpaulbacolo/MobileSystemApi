@@ -44,7 +44,7 @@ public partial class Deposit_Pay : PaymentBasePage
             case commonVariables.DepositMethod.IWallet:
                 GatewayFile = "iwallet";
                 break;
-            case commonVariables.DepositMethod.KexunPay:
+            case commonVariables.DepositMethod.KexunPayWeChat:
                 GatewayFile = "kexunpay";
                 break;
             case commonVariables.DepositMethod.KDPayWeChat:

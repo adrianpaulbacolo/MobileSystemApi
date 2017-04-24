@@ -79,18 +79,18 @@
         routes.Add(tonghui_weChat);
 
         // JTPAY
-        System.Web.Routing.Route weChat = new System.Web.Routing.Route("Deposit/WeChat", new System.Web.Routing.PageRouteHandler("~/Deposit/JTPay.aspx"));
+        System.Web.Routing.Route weChat = new System.Web.Routing.Route("Deposit/1202123", new System.Web.Routing.PageRouteHandler("~/Deposit/JTPay.aspx"));
         weChat.DataTokens = new System.Web.Routing.RouteValueDictionary { { "type", "wechat" } };
-        System.Web.Routing.Route aliPay = new System.Web.Routing.Route("Deposit/AliPay", new System.Web.Routing.PageRouteHandler("~/Deposit/JTPay.aspx"));
+        System.Web.Routing.Route aliPay = new System.Web.Routing.Route("Deposit/1202122", new System.Web.Routing.PageRouteHandler("~/Deposit/JTPay.aspx"));
         aliPay.DataTokens = new System.Web.Routing.RouteValueDictionary { { "type", "alipay" } };
 
         routes.Add(weChat);
         routes.Add(aliPay);
 
         // AIFU
-        System.Web.Routing.Route aifuWeChat = new System.Web.Routing.Route("Deposit/WeChat/Aifu", new System.Web.Routing.PageRouteHandler("~/Deposit/Aifu.aspx"));
+        System.Web.Routing.Route aifuWeChat = new System.Web.Routing.Route("Deposit/1202133", new System.Web.Routing.PageRouteHandler("~/Deposit/Aifu.aspx"));
         aifuWeChat.DataTokens = new System.Web.Routing.RouteValueDictionary { { "type", "wechat" } };
-        System.Web.Routing.Route aifuAliPay = new System.Web.Routing.Route("Deposit/Alipay/Aifu", new System.Web.Routing.PageRouteHandler("~/Deposit/Aifu.aspx"));
+        System.Web.Routing.Route aifuAliPay = new System.Web.Routing.Route("Deposit/1202134", new System.Web.Routing.PageRouteHandler("~/Deposit/Aifu.aspx"));
         aifuAliPay.DataTokens = new System.Web.Routing.RouteValueDictionary { { "type", "alipay" } };
 
         routes.Add(aifuWeChat);

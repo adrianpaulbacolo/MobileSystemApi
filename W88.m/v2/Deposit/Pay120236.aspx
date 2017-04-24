@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
     <div class="form-group">
-        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
+        <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
         <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1"  CssClass="form-control" required data-paylimit="0" />
     </div>
     <div class="form-group">
@@ -82,7 +82,7 @@
 
                     var params = decodeURIComponent($.param(data));
                     window.open(_w88_paymentSvcV2.payRoute + "?" + params, "<%=base.PageName%>");
-                    _w88_paymentSvc.onTransactionCreated($(this));
+                    _w88_paymentSvcV2.onTransactionCreated($(this));
                     return;
                 }
             });

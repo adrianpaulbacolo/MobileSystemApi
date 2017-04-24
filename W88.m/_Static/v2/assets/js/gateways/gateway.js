@@ -1,7 +1,7 @@
 ﻿window.w88Mobile.Gateway = Gateway;
 
 function Gateway(paymentSvc) {
-
+    this.switchLineExpiration = { expires: 50000 };
     this.methodId;
 
     this.send = function (resource, method, data, success, complete) {
@@ -10,7 +10,36 @@ function Gateway(paymentSvc) {
 
     this.deposit = function(data, successCallback, completeCallback) {
         var _self = this;
-        _self.send("/payments/" + _self.methodId, "POST", data, successCallback, completeCallback);
+
+        if (_.includes(_w88_paymentSvcV2.AutoRouteIds, _self.methodId)) {
+
+            var prevMethodIds = amplify.store(w88Mobile.Keys.switchLineSettings);
+            data.Id = prevMethodIds;
+
+            _self.send("/payments/autoroute/" + _self.methodId, "POST", data, function (response) {
+                switch (response.ResponseCode) {
+                    case 1:
+                        var methodId = response.ResponseData.MethodId;
+
+                        if (prevMethodIds && !response.ResponseData.ResetPreviousList)
+                            amplify.store(w88Mobile.Keys.switchLineSettings, prevMethodIds + "," + methodId, _self.switchLineExpiration);
+                        else
+                            amplify.store(w88Mobile.Keys.switchLineSettings, methodId, _self.switchLineExpiration);
+                        data.Bank = response.ResponseData.Bank;
+                        _self.send("/payments/" + methodId, "POST", data, successCallback, completeCallback);
+                        break;
+                    default:
+                        if (_.isArray(response.ResponseMessage))
+                            w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage), _self.shoutCallback);
+                        else
+                            w88Mobile.Growl.shout(response.ResponseMessage, _self.shoutCallback);
+                        break;
+                }
+            }, function () { });
+        }
+        else {
+            _self.send("/payments/" + _self.methodId, "POST", data, successCallback, completeCallback);
+        }
     }
 
     this.withdraw = function(data, successCallback, completeCallback) {

@@ -6,7 +6,7 @@
         <p id="paymentNoteContent"></p>
     </div>
     <div class="form-group">
-        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
+        <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
         <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" onKeyPress="return ValidatePositiveDecimal(this, event);" required data-paylimit="0" data-onedecimal="true" />
     </div>
 </asp:Content>
@@ -15,6 +15,10 @@
     <script type="text/javascript" src="/_static/v2/assets/js/gateways/autoroute.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 
     <script type="text/javascript">
+        pubsub.subscribe('contentsLoaded', onContentsLoaded);
+        function onContentsLoaded() {
+            window.w88Mobile.Gateways.WeChatV2.init();
+        }
 
         var ua = navigator.userAgent.toLowerCase();
         var isAndroid = ua.indexOf("android") > -1;

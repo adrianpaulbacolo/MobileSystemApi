@@ -59,8 +59,6 @@
                 fee = i.Fee;
             }
         });
-
-        $('p[id$="IndicatorMsg"]').html(sessionStorage.getItem("indicator") + fee);
     }
 
 
@@ -73,9 +71,6 @@
 
             $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
             $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_1202112"));
-
-            sessionStorage.setItem("indicator", _w88_contents.translate("LABEL_INDICATOR_MSG"));
-            $('p[id$="IndicatorMsg"]').html(sessionStorage.getItem("indicator"));
         } else {
             window.setInterval(function () {
                 setTranslations();
