@@ -85,6 +85,7 @@ function Products() {
                     break;
                 }
 
+                pubsub.publish('stopLoadItem', { selector: '' });
                 pubsub.publish('checkFreeRounds', { selector: '' });
             },
             error: function(response) {
