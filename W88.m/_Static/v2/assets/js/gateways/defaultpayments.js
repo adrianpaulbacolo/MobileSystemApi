@@ -242,11 +242,13 @@ function DefaultPaymentsV2() {
                             return data.Id == methodId;
                         });
 
-                        if ($el.val() < setting.MinAmount) {
+                        var elValue = _.parseInt(_.replace($el.val(), ",", ""));
+
+                        if (_.isNaN(elValue) || elValue < setting.MinAmount) {
                             $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_AmountMinLimit") + '</span>');
                             return true;
                         }
-                        else if ($el.val() > setting.MaxAmount) {
+                        else if (elValue > setting.MaxAmount) {
                             $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_AmountMaxLimit") + '</span>');
                             return true;
                         }
