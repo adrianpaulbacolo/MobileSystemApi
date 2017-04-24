@@ -21,16 +21,18 @@
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
-            if ('<%=commonVariables.GetSessionVariable("CurrencyCode")%>' == "MYR") {
+            var currencyCode = '<%=commonVariables.GetSessionVariable("CurrencyCode")%>';
+            var hasBank = true;
+
+            if (currencyCode == "MYR") {
                 $('.idrBank').show();
-                $('select[id$="drpBank"]').val("-1").trigger("change");
             }
             else {
                 $('.idrBank').hide();
-                $('select[id$="drpBank"]').attr("").trigger("change");
+                hasBank = false;
             }
 
-            window.w88Mobile.Gateways.QuickOnlineV2.init("<%=base.PaymentMethodId %>", true);
+            window.w88Mobile.Gateways.QuickOnlineV2.init("<%=base.PaymentMethodId %>", hasBank);
 
             $('#form1').validator().on('submit', function (e) {
 
