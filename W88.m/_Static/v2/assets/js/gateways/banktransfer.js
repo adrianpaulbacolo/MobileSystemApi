@@ -186,12 +186,13 @@ function BankTransferv2() {
             _w88_banktransfer.setOriginStateWidraw();
             $('[id$="divOtherBank"]').show();
             $('[id$="divBankName"]').show();
+            $('input[id$="txtBankBranch"]').attr("required", true).trigger("change");
 
         } else if (bankId != "-1") {
 
             _w88_banktransfer.loadBankLocationWidraw(bankLocationId);
-
             _w88_banktransfer.disableBranchWidraw();
+            $('input[id$="txtBankBranch"]').attr("required", false).trigger("change");
 
         }
     };

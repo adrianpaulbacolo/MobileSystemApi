@@ -23,9 +23,11 @@
 
             if ('<%=commonVariables.GetSessionVariable("CurrencyCode")%>' == "MYR") {
                 $('.idrBank').show();
+                $('select[id$="drpBank"]').val("-1").trigger("change");
             }
             else {
                 $('.idrBank').hide();
+                $('select[id$="drpBank"]').attr("").trigger("change");
             }
 
             window.w88Mobile.Gateways.QuickOnlineV2.init("<%=base.PaymentMethodId %>", true);
