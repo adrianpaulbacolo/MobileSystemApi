@@ -101,8 +101,8 @@
                     </li>
                     <asp:Panel ID="pnlLineId" runat="server" Visible="False">
                         <li class="item item-icon-left item-input">
-                            <i class="icon icon-referral-bonus"></i>
-                            <asp:Label ID="lblLineId" runat="server" AssociatedControlID="txtLineId" />
+                              <i class="icon icon-info"></i>
+                            <asp:Label ID="lblLineId" runat="server" AssociatedControlID="txtLineId" Text="Line ID" />
                             <asp:TextBox ID="txtLineId" runat="server" data-mini="true" MaxLength="25" />
                         </li>                        
                     </asp:Panel>
