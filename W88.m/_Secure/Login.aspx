@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
     <title><%=commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML) + commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></title>
 
-
-    <!-- Bootstrap -->
     <link href="/_Secure/VIP/js/jquery.modal.min.css" rel="stylesheet" />
     <link href="/_Static/css/style.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet">
 
@@ -87,7 +85,7 @@
     });
     </script>
 
-    <script src="/_Static/v2/assets/js/products.js"></script>
+    <script src="/_Static/v2/assets/js/products.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 </head>
 <body>
     <div data-role="page" data-close-btn="right" data-corners="false" id="login">
