@@ -486,56 +486,45 @@ else {
         <!-- Texas Mahjong -->
         <li data-icon="false">
             <a class="nav-pmahjong">
-                
-                <%if(deviceId==1){%>
+                <% if(isSuperBull) { %>
+                    <i class="icon icon-super-bull"></i>
+                    <div class="label menuP2PTitle"></div>
+                <% } else { %>
                     <i class="icon icon-mahjong"></i>
                     <div class="label menuTexasMahjongTitle"></div>
-                <%}%>
-                <% else  if (deviceId == 2) {%>
-                       
-                    <% if(isSuperBull) { %>  
-                        <i class="icon icon-super-bull"></i>
-                        <div class="label menuP2PTitle"></div>
-                    <% } else { %>
-                        <i class="icon icon-mahjong"></i>
-                        <div class="label menuTexasMahjongTitle"></div>
-
-                    <%} %>
-
-                <%}%>
-                <% else {%>
-                    <% if(isSuperBull) { %>
-                        <i class="icon icon-super-bull"></i>
-                        <div class="label menuP2PTitle"></div>
-                    <% } else { %>
-                        <i class="icon icon-mahjong"></i>
-                        <div class="label menuTexasMahjongTitle"></div>
-                    <% } %>
-
-                <%}%>
+                <%} %>
             </a>
             <ul class="sub-menu" data-rel="texasmahjong">
                 <!--<a class="close" data-rel="close">&times;</a>-->
-               
+                <% if(isSuperBull) { %>
+                <h2 class="title menuP2PTitle"></h2>
+                <% } else { %>
+                <h2 class="title menuTexasMahjongTitle"></h2>
+                <% } %>
+
                 <%
                 try{
                 %>
                 <%if(deviceId==1){%>
-                <h2 class="title menuTexasMahjongTitle"></h2>
+
                 <li>
                     <a class="card" rel="texasmahjong" href='/_static/TexasMahjong/download.aspx' data-ajax="false">
                         <img src="#" class="img-responsive TexasMahjong-iOS">
                         <div class="title menuiOSDownloadTitle"></div>
                     </a>
                 </li>
+                <% if(isSuperBull) { %>
+                <li>
+                    <a class="card" rel="superbull" href='<%= commonFunctions.GetSuperBullDownloadLinkIos()%>' data-rel="dialog" data-ajax="false">
+                        <img src="#" class="img-responsive SuperBull-Ios">
+                        <div class="title menuSuperBullTitle"></div>
+                    </a>
+                </li>
+                <% } %>
+
+
                 <%}%>
                 <%if(deviceId==2){%>
-
-                <% if(isSuperBull) { %>
-                    <h2 class="title menuP2PTitle"></h2>
-                <% } else { %>
-                    <h2 class="title menuTexasMahjongTitle"></h2>
-                <% } %>
 
                 <li>
                     <a class="card" rel="texasmahjong" href='<%= commonFunctions.getTexasMahjongDownloadLinks()%>' data-rel="dialog" data-ajax="false">
@@ -546,7 +535,7 @@ else {
                 
                     <% if(isSuperBull) { %>
                         <li>
-                            <a class="card" rel="texasmahjong" href='<%= commonFunctions.GetSuperBullDownloadLink()%>' data-rel="dialog" data-ajax="false">
+                            <a class="card" rel="superbull" href='<%= commonFunctions.GetSuperBullDownloadLink()%>' data-rel="dialog" data-ajax="false">
                                 <img src="#" class="img-responsive SuperBull-Android">
                                 <div class="title menuSuperBullTitle"></div>
                             </a>
@@ -557,12 +546,6 @@ else {
                 <%}%>
                 <%if(deviceId==3){%>
                 
-                <% if(isSuperBull) { %>
-                <h2 class="title menuP2PTitle"></h2>
-                <% } else { %>
-                <h2 class="title menuTexasMahjongTitle"></h2>
-                <% } %>
-
                 <li>
                     <a class="card" rel="texasmahjong" href='<%= commonFunctions.getTexasMahjongDownloadLinks()%>' data-rel="dialog" data-ajax="false">
                         <img src="#" class="img-responsive TexasMahjong-Android">
@@ -578,8 +561,14 @@ else {
 
                     <% if(isSuperBull) { %>
                     <li>
-                        <a class="card" rel="texasmahjong" href='<%= commonFunctions.GetSuperBullDownloadLink()%>' data-rel="dialog" data-ajax="false">
+                        <a class="card" rel="superbull" href='<%= commonFunctions.GetSuperBullDownloadLink()%>' data-rel="dialog" data-ajax="false">
                             <img src="#" class="img-responsive SuperBull-Android">
+                            <div class="title menuSuperBullTitle"></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="card" rel="superbull" href='<%= commonFunctions.GetSuperBullDownloadLinkIos()%>' data-rel="dialog" data-ajax="false">
+                            <img src="#" class="img-responsive SuperBull-Ios">
                             <div class="title menuSuperBullTitle"></div>
                         </a>
                     </li>
@@ -668,7 +657,7 @@ else {
 </div><!-- /panel -->
 <script type="text/javascript">
      pubsub.subscribe('contentsLoaded', onContentsLoaded);
-            
+
     function onContentsLoaded() {
         _w88_products.init();
             }
@@ -683,7 +672,7 @@ else {
     $("#icon-rewards-sidebar").attr('href', urlRewards);
 
 	var url = window.location.protocol +'//www.'+ '<%=commonIp.DomainName %>' + '?nomobile=true';
-    
+
         <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieAffiliateId))
             {%>
                 url += '&affiliateID=' + <%=commonCookie.CookieAffiliateId%>;
@@ -846,6 +835,7 @@ else {
             $('.TexasMahjong-iOS').attr('src', '/_Static/Images/Download/TexasMahjong-iOS.jpg');
             $('.TexasMahjong-Android').attr('src', '/_Static/Images/Download/TexasMahjong-Android.jpg');
             $('.SuperBull-Android').attr('src', '/_Static/Images/Download/bnr-superbull-android.jpg');
+            $('.SuperBull-Ios').attr('src', '/_Static/Images/Download/bnr-superbull-ios.jpg');
 
             if(typeof adjustMenu == "function"){
                 adjustMenu();
