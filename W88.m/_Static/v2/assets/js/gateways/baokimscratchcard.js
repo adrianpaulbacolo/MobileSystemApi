@@ -22,8 +22,8 @@ function BaokimScratchCardV2() {
                 $('label[id$="lblPin"]').text(_w88_contents.translate("LABEL_CARD_PIN"));
                 $('label[id$="lblCardSerialNo"]').text(_w88_contents.translate("LABEL_CARD_SERIAL"));
 
-                sessionStorage.setItem("indicator", _w88_contents.translate("LABEL_INDICATOR_MSG"));
-                $('p[id$="IndicatorMsg"]').html(sessionStorage.getItem("indicator"));
+                $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+                $('#paymentNoteContent').html(_w88_contents.translate("LABEL_MSG_120286"));
 
                 defaultSelect = _w88_contents.translate("LABEL_SELECT_DEFAULT");
 
@@ -82,7 +82,7 @@ function BaokimScratchCardV2() {
             }
         });
 
-        $('p[id$="IndicatorMsg"]').html(sessionStorage.getItem("indicator") + fee);
+        $('#paymentNoteContent').html(_w88_contents.translate("LABEL_MSG_120286") + fee);
     };
 
     baokimscratchcard.createDeposit = function () {

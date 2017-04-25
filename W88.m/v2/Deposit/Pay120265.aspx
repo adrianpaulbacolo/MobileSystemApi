@@ -3,11 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
     <div class="form-group">
         <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
-        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" required data-paylimit="0"/>
+        <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" required data-paylimit="0" data-numeric />
     </div>
     <div class="form-group idrBank">
         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
-        <asp:DropDownList ID="drpBank" runat="server" CssClass="form-control" data-bankequals="-1"/>
+        <asp:DropDownList ID="drpBank" runat="server" CssClass="form-control" data-bankequals="-1" />
     </div>
     <div class="form-group pay-note idrBank">
         <asp:Label ID="paymentNoteContent" runat="server" ForeColor="Red" />
@@ -21,7 +21,7 @@
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
-            if ('<%=commonVariables.GetSessionVariable("CurrencyCode")%>' == "MYR") {
+            if ('<%=commonCookie.CookieCurrency%>' == "MYR") {
                 $('.idrBank').show();
             }
             else {
@@ -35,7 +35,7 @@
                 if (!e.isDefaultPrevented()) {
                     e.preventDefault();
                     var data = {
-                        Amount: $('input[id$="txtAmount"]').val(),
+                        Amount: $('input[id$="txtAmount"]').autoNumeric('get'),
                         BankText: $('select[id$="drpBank"] option:selected').val(),
                         BankValue: $('select[id$="drpBank"]').val(),
                         ThankYouPage: location.protocol + "//" + location.host + "/Index",

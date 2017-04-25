@@ -7,8 +7,8 @@
             <p id="paymentNoteContent"></p>
         </div>
         <div class="form-group">
-            <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
-            <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" required data-paylimit="0" />
+            <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
+            <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" required data-paylimit="0" data-numeric />
         </div>
     </div>
 
@@ -31,7 +31,7 @@
         </div>
         <div class="form-group">
             <div class="col-xs-6">
-                <span id="lblAmount"></span>
+                <span id="lblAmount2"></span>
             </div>
             <div class="col-xs-4">
                 <span id="txtStep2Amount"></span>
@@ -95,7 +95,7 @@
 
                     if (window.w88Mobile.Gateways.SDAPay.step == 1) {
                         var data = {
-                            Amount: $('input[id$="txtAmount"]').val()
+                            Amount: $('input[id$="txtAmount"]').autoNumeric('get')
                         };
 
                         window.w88Mobile.Gateways.SDAPay.step2("<%=base.PaymentMethodId %>", data);

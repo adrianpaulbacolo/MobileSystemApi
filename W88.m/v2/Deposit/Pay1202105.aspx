@@ -7,7 +7,7 @@
     </div>
     <div class="form-group">
         <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
-        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" required data-paylimit="0"/>
+        <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" required data-paylimit="0" data-numeric />
     </div>
 
 </asp:Content>
@@ -25,7 +25,7 @@
             $('#form1').submit(function (e) {
                 e.preventDefault();
                 var data = {
-                    Amount: $('input[id$="txtAmount"]').val(),
+                    Amount: $('input[id$="txtAmount"]').autoNumeric('get'),
                     ThankYouPage: location.protocol + "//" + location.host + "/Index",
                     MethodId: "<%=base.PaymentMethodId%>"
                 };
