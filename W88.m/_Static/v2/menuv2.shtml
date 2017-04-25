@@ -1,0 +1,474 @@
+﻿<%
+var deviceId = commonFunctions.getMobileDevice(Request);
+
+var massimoCasino = "https://livegames.cdn.gameassists.co.uk/AIR/Poria/Installer/V20021/w88/Download.html";
+
+var rewardsUrl = HttpContext.Current.Request.Url.Scheme + "://mrewards." + commonIp.DomainName + "?lang=" + commonVariables.SelectedLanguage + "&token=" + commonVariables.EncryptedCurrentMemberSessionId;
+var desktopUrl = HttpContext.Current.Request.Url.Scheme + "://www." + commonIp.DomainName + "?nomobile=true";
+if (!string.IsNullOrWhiteSpace(commonCookie.CookieAffiliateId)) {
+    desktopUrl += "&affiliateID=" + commonCookie.CookieAffiliateId;
+}
+
+var fishLinkAndroid = "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/FishingMasterEN.apk";
+var fishlinkiOS = "itms-services://?action=download-manifest&url=https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/manifestEN.plist";
+
+if ((!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency) && commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase)) ||
+   (string.IsNullOrWhiteSpace(commonCookie.CookieCurrency) && commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))){
+    fishLinkAndroid = "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/FishingMaster.apk";
+    fishlinkiOS = "itms-services://?action=download-manifest&url=https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/manifest.plist";
+}
+
+var fishingWorld = FishingWorldProduct.GetLink();
+
+var isSuperBull = false;
+if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) && commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase)){
+    isSuperBull = true;
+}
+else {
+    if (commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase)){
+         isSuperBull = true;
+    }
+}
+
+%>
+
+<section class="side-nav" off-canvas="side-nav left reveal">
+    <nav>
+        <ul class="side-nav-items">
+            <!-- Home -->
+            <li>
+                <a href="/v2/Dashboard.aspx?lang=<%=commonVariables.SelectedLanguage%>">
+                    <span class="icon icon-home"></span>
+                    <span class="title_home"></span>
+                </a>
+            </li>
+            <!-- Login -->
+            <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+            <li>
+                <a href="/_Secure/Login.aspx">
+                    <span class="icon icon-login"></span>
+                    <span class="title_login"></span>
+                </a>
+            </li>
+            <% } %>
+            <!-- Funds -->
+            <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+            <li class="nav-category">
+                <a href="/_Secure/Login.aspx">
+                    <span class="icon icon-currency-circle"></span>
+                    <span class="title_funds"></span>
+                </a>
+                <div class="nav-category-items">
+                    <h4><span class="title_funds"></span></h4>
+                    <!-- Club W - Club W Premier-->
+                    <ul class="side-submenu">
+                        <li>
+                            <a href="/v2/Deposit/">
+                                <span class="title_deposit"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/v2/FundTransfer/">
+                                <span class="title_transfer"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/v2/Withdrawal/">
+                                <span class="title_withdraw"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/v2/History/Default.aspx">
+                                <span class="title_history"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <% } %>
+            <!-- Sports -->
+            <li class="nav-category">
+                <a href="#" class="sports">
+                    <span class="icon icon-soccer"></span>
+                    <span class="title_sports"></span>
+                </a>
+                <div class="nav-category-items">
+                    <h4><span class="title_live_casino"></span></h4>
+                    <div class="row">
+                        <!-- Club W - Club W Premier-->
+                        <%if(deviceId==1 || deviceId==3){%>
+                        <div class="col-xs-6">
+                            <a href="/_Static/Downloads/w88.aspx">
+                                <img src="#" alt="" class="img_sports_clubW_iOS">
+                                <span class="title_clubw"></span>
+                            </a>
+                        </div>
+                        <%}%>
+                        <%if(deviceId==2 || deviceId==3){%>
+                        <div class="col-xs-6">
+                            <a href="/_Static/ClubW/casino.aspx">
+                                <img src="#" alt="" class="img_sports_clubW_Android">
+                                <span class="title_clubw"></span>
+                            </a>
+                        </div>
+                        <%}%>
+                        <!-- A Sports -->
+                        <div class="col-xs-6">
+                            <a href="/_static/palazzo/casino.aspx">
+                                <img src="#" alt="" class="img_sports_A">
+                                <span class="title_asport"></span>
+                            </a>
+                        </div>
+                        <!-- E Sports -->
+                        <div class="col-xs-6">
+                            <a href="/_static/palazzo/casino.aspx">
+                                <img src="#" alt="" class="img_sports_E">
+                                <span class="title_esport"></span>
+                            </a>
+                        </div>
+                        <!-- V Sports -->
+                        <div class="col-xs-6">
+                            <a href="/_static/palazzo/casino.aspx">
+                                <img src="#" alt="" class="img_sports_V">
+                                <span class="title_vsport"></span>
+                            </a>
+                        </div>
+                        <!-- X Sports -->
+                        <%if ((!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency) && !commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase) && !commonCookie.CookieCurrency.Equals("usd", StringComparison.OrdinalIgnoreCase)) ||
+                        (string.IsNullOrWhiteSpace(commonCookie.CookieCurrency) && !commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))) {%>
+                        <div class="col-xs-6">
+                            <a href="<%=commonXSports.SportsBookUrl%>">
+                                <img src="#" alt="" class="img_sports_X">
+                                <span class="title_xsport"></span>
+                            </a>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+            </li>
+            <!-- Casino -->
+            <li class="nav-category">
+                <a href="#" class="casino">
+                    <span class="icon icon-casino"></span>
+                    <span class="title_live_casino"></span>
+                </a>
+                <div class="nav-category-items">
+                    <h4><span class="title_live_casino"></span></h4>
+                    <div class="row">
+                        <!-- Club W - Club W Premier-->
+                        <%if(deviceId==1 || deviceId==3){%>
+                        <div class="col-xs-6">
+                            <a href="/_Static/Downloads/w88.aspx">
+                                <img src="#" alt="" class="img_casino_clubWPremier_iOS">
+                                <span class="title_clubwpremier"></span>
+                            </a>
+                        </div>
+                        <div class="col-xs-6">
+                            <a href="/_Static/Downloads/w88.aspx">
+                                <img src="#" alt="" class="img_casino_clubW_iOS">
+                                <span class="title_clubw"></span>
+                            </a>
+                        </div>
+                        <%}%>
+                        <%if(deviceId==2 || deviceId==3){%>
+                        <div class="col-xs-6">
+                            <a href="/_Static/ClubW/casino.aspx">
+                                <img src="#" alt="" class="img_casino_clubWPremier_Android">
+                                <span class="title_clubwpremier"></span>
+                            </a>
+                        </div>
+                        <div class="col-xs-6">
+                            <a href="/_Static/ClubW/casino.aspx">
+                                <img src="#" alt="" class="img_casino_clubW_Android">
+                                <span class="title_clubw"></span>
+                            </a>
+                        </div>
+                        <%}%>
+                        <!-- Palazzo -->
+                        <div class="col-xs-6">
+                            <a href="/v2/Downloads/palazzo-casino">
+                                <img src="#" alt="" class="img_casino_palazzo">
+                                <span class="title_palazzo"></span>
+                            </a>
+                        </div>
+                        <!-- Massimo -->
+                        <div class="col-xs-6">
+                            <a href="<%=massimoCasino%>">
+                                <img src="#" alt="" class="img_casino_massimo">
+                                <span class="title_massimo"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!-- Slots -->
+            <li class="nav-category">
+                <a href="#" class="slots">
+                    <span class="icon icon-slots"></span>
+                    <span class="title_slots"></span>
+                </a>
+                <div class="nav-category-items">
+                    <h4><span class="title_slots"></span></h4>
+                    <div class="row">
+                        <!-- Club W -->
+                        <%if(deviceId==1){%>
+                        <div class="col-xs-6">
+                            <a href="/_Static/Downloads/w88.aspx">
+                                <img src="#" alt="" class="img_slots_clubW_iOS">
+                                <span class="title_clubw"></span>
+                            </a>
+                        </div>
+                        <%}%>
+                        <%if(deviceId==2){%>
+                        <div class="col-xs-6">
+                            <a href="/_Static/ClubW/casino.aspx">
+                                <img src="#" alt="" class="img_slots_clubW_Android">
+                                <span class="title_clubw"></span>
+                            </a>
+                        </div>
+                        <%}%>
+                        <!-- Bravado -->
+                        <div class="col-xs-6">
+                            <a href="/_static/v2new/slots.html">
+                                <img src="#" alt="" class="img_slots_bravado">
+                                <span class="title_bravado"></span>
+                            </a>
+                        </div>
+                        <!-- Massimo -->
+                        <div class="col-xs-6">
+                            <a href="/_static/v2new/slots.html">
+                                <img src="#" alt="" class="img_slots_massimo">
+                                <span class="title_massimo"></span>
+                            </a>
+                        </div>
+                        <!-- Massimo Download -->
+                        <%if(deviceId==2){%>
+                        <div class="col-xs-6">
+                            <a href="<%=commonClubMassimo.getDownloadUrl%>">
+                                <img src="#" alt="" class="img_slots_massimo-download">
+                                <span class="title_massimo_download"></span>
+                            </a>
+                        </div>
+                        <%}%>
+                        <!-- Palazzo -->
+                        <div class="col-xs-6">
+                            <a href="/_static/v2new/slots.html">
+                                <img src="#" alt="" class="img_slots_palazzo">
+                                <span class="title_palazzo"></span>
+                            </a>
+                        </div>
+                        <!-- Palazzo Download -->
+                        <%if(deviceId==2){%>
+                        <div class="col-xs-6">
+                            <a href="/v2/Downloads/palazzo-slots">
+                                <img src="#" alt="" class="img_slots_palazzo-download">
+                                <span class="title_palazzo_download"></span>
+                            </a>
+                        </div>
+                        <%}%>
+                        <!-- Gallardo -->
+                        <div class="col-xs-6">
+                            <a href="/_static/v2new/slots.html">
+                                <img src="#" alt="" class="img_slots_gallardo">
+                                <span class="title_gallardo"></span>
+                            </a>
+                        </div>
+                        <!-- Apollo -->
+                        <div class="col-xs-6">
+                            <a href="/_static/v2new/slots.html">
+                                <img src="#" alt="" class="img_slots_apollo">
+                                <span class="title_apollo"></span>
+                            </a>
+                        </div>
+                        <!-- Divino -->
+                        <div class="col-xs-6">
+                            <a href="/_static/v2new/slots.html">
+                                <img src="#" alt="" class="img_slots_divino">
+                                <span class="title_divino"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!-- Fishing  -->
+            <li class="nav-category">
+                <a href="#" class="fishing">
+                    <span class="icon icon-fish"></span>
+                    <span class="title_fishing"></span>
+                </a>
+                <div class="nav-category-items">
+                    <h4><span class="title_fishing_master"></span></h4>
+                    <div class="row">
+                        <!-- Fishing  Master -->
+                        <%if(deviceId==1 || deviceId==3){%>
+                        <div class="col-xs-6">
+                            <a href="<%=fishlinkiOS%>">
+                                <img src="#" alt="" class="img_fishing_master_iOS">
+                                <span class="title_fishing_master"></span>
+                            </a>
+                        </div>
+                        <%}%>
+                        <%if(deviceId==2 || deviceId==3){%>
+                        <div class="col-xs-6">
+                            <a href="<%=fishLinkAndroid%>">
+                                <img src="#" alt="" class="img_fishing_master_Android">
+                                <span class="title_fishing_master"></span>
+                            </a>
+                        </div>
+                        <%}%>
+                        <!-- Fishing  World -->
+                        <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+                        <div class="col-xs-6">
+                            <a href="<%=fishingWorld%>">
+                                <img src="#" alt="" class="img_fishing_world">
+                                <span class="title_fishing_world"></span>
+                            </a>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+            </li>
+            <!-- Lottery -->
+            <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+            <li class="nav-category">
+                <a href="#" class="lottery">
+                    <span class="icon icon-keno"></span>
+                    <span class="title_lottery"></span>
+                </a>
+                <div class="nav-category-items">
+                    <h4><span class="title_lottery"></span></h4>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <a href="<%=commonLottery.getKenoUrl%>">
+                                <img src="#" alt="" class="img_lottery_keno">
+                                <span class="title_keno"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <% } %>
+            <!-- Poker -->
+            <li class="nav-category">
+                <a href="#" class="poker">
+                    <span class="icon icon-spade"></span>
+                    <span class="title_poker"></span>
+                </a>
+                <div class="nav-category-items">
+                    <h4><span class="title_poker"></span></h4>
+                    <div class="row">
+                        <%if(deviceId==1 || deviceId==3){%>
+                        <div class="col-xs-6">
+                            <a href="<%=commonFunctions.getPokerDownloadLinks(1)%>">
+                                <img src="#" alt="" class="img_poker_iOS">
+                                <span class="title_ios"></span>
+                            </a>
+                        </div>
+                        <%}%>
+                        <%if(deviceId==2 || deviceId==3){%>
+                        <div class="col-xs-6">
+                            <a href='<%=commonFunctions.getPokerDownloadLinks(2)%>'>
+                                <img src="#" alt="" class="img_poker_Android">
+                                <span class="title_android"></span>
+                            </a>
+                        </div>
+                        <%}%>
+                    </div>
+                </div>
+            </li>
+            <!-- Texas Mahjong -->
+            <li class="nav-category">
+                <a href="#" class="texas_mahjong">
+                <%if(deviceId==1 || deviceId==3){%>
+                    <span class="icon icon-mahjong"></span>
+                    <span class="title_texas_mahjong"></span>
+                <%}%>
+                <%if(deviceId==2){%>
+                    <%if(isSuperBull) { %>
+                        <span class="icon icon-super-bull"></span>
+                        <span class="title_super_bull"></span>
+                    <%} else { %>
+                        <span class="icon icon-mahjong"></span>
+                        <span class="title_texas_mahjong"></span>
+                    <%}%>
+                <%}%>
+                </a>
+                <div class="nav-category-items">
+                    <h4><span class="title_texas_mahjong"></span></h4>
+                    <div class="row">
+                        <%if(deviceId==1 || deviceId==3){%>
+                        <div class="col-xs-6">
+                            <a href="/_Static/TexasMahjong/download.aspx">
+                                <img src="#" alt="" class="img_texas_mahjong_iOS">
+                                <span class="title_ios"></span>
+                            </a>
+                        </div>
+                        <%}%>
+                        <%if(deviceId==2){%>
+                            <%if(isSuperBull) { %>
+                            <div class="col-xs-6">
+                                <a href='<%= commonFunctions.GetSuperBullDownloadLink()%>'>
+                                    <img src="#" alt="" class="img_super_bull">
+                                    <span class="title_super_bull"></span>
+                                </a>
+                            </div>
+                            <%} else { %>
+                            <div class="col-xs-6">
+                                <a href='<%=commonFunctions.getTexasMahjongDownloadLinks()%>'>
+                                    <img src="#" alt="" class="img_texas_mahjong_Android">
+                                    <span class="title_android"></span>
+                                </a>
+                            </div>
+                            <%}%>
+                        <%}%>
+                    </div>
+                </div>
+            </li>
+            <!-- Promotions -->
+            <li>
+                <a href="/Promotions">
+                    <span class="icon icon-promo"></span>
+                    <span class="title_promo"></span>
+                </a>
+            </li>
+            <!-- Rewards -->
+            <li>
+                <a href="<%=rewardsUrl%>">
+                    <span class="icon icon-rewards"></span>
+                    <span class="title_rewards"></span>
+                </a>
+            </li>
+            <!-- Live Chat -->
+            <li>
+                <a href="/LiveChat/Default.aspx">
+                    <span class="icon icon-chat"></span>
+                    <span class="title_live_chat"></span>
+                </a>
+            </li>
+            <!-- Language -->
+            <li>
+                <a href="/Lang.aspx">
+                    <span class="icon icon-world"></span>
+                    <span class="title_language"></span>
+                </a>
+            </li>
+            <!-- Desktop -->
+            <li>
+                <a href="<%=desktopUrl%>">
+                    <span class="icon icon-desktop"></span>
+                    <span class="title_desktop"></span>
+                </a>
+            </li>
+            <!-- Logout -->
+            <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+            <li>
+                <a href="/Logout">
+                    <span class="icon icon-logout"></span>
+                    <span class="title_logout"></span>
+                </a>
+            </li>
+            <% } %>
+        </ul>
+    </nav>
+</section>
+<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/menu.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
