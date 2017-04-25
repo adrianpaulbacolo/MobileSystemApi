@@ -9,6 +9,10 @@
         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
         <asp:DropDownList ID="drpBank" runat="server" CssClass="form-control" data-bankequals="-1" />
     </div>
+    <div class="form-group checkbox checkbox-custom">
+        <asp:CheckBox type="checkbox" ID="isSwitchLine" runat="server" />
+        <asp:Label ID="lblSwitchLine" runat="server" AssociatedControlID="isSwitchLine" />
+    </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">
     <script type="text/javascript" src="/_static/v2/assets/js/gateways/quickonline.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
@@ -29,6 +33,7 @@
                         BankText: $('select[id$="drpBank"] option:selected').val(),
                         BankValue: $('select[id$="drpBank"]').val(),
                         ThankYouPage: location.protocol + "//" + location.host + "/Index",
+                        SwitchLine: $('input[id$="isSwitchLine"]').is(':checked'),
                         MethodId: "<%=base.PaymentMethodId%>",
                         AutoRoute: true
                     };

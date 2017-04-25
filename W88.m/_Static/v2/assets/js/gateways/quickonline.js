@@ -17,7 +17,7 @@ function QuickOnlineV2() {
 
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
-
+                $('label[id$="lblSwitchLine"]').text(_w88_contents.translate("LABEL_SWITCH_LINE"));
                 $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
 
                 if (gateway == '120265') { //EGHL
@@ -67,7 +67,8 @@ function QuickOnlineV2() {
         var _self = this;
         var params = _self.getUrlVars();
         var data = {
-            ThankYouPage: params.ThankYouPage
+            ThankYouPage: params.ThankYouPage,
+            SwitchLine: params.SwitchLine,
         };
 
         if (!_.isUndefined(params.Amount)) {

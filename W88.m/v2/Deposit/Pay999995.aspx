@@ -9,6 +9,10 @@
         <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
         <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" required data-paylimit="0" data-numeric="1" />
     </div>
+    <div class="form-group">
+        <asp:CheckBox type="checkbox" ID="isSwitchLine" runat="server" />
+        <asp:Label ID="lblSwitchLine" runat="server" AssociatedControlID="isSwitchLine" />
+    </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">
     <script type="text/javascript" src="/_static/v2/assets/js/gateways/wechat.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
@@ -33,6 +37,7 @@
                      var data = {
                          Amount: $('input[id$="txtAmount"]').autoNumeric('get'),
                          ThankYouPage: location.protocol + "//" + location.host + "/Index",
+                         SwitchLine: $('input[id$="isSwitchLine"]').is(':checked'),
                          MethodId: "<%=base.PaymentMethodId%>",
                          AutoRoute: true
                      };
