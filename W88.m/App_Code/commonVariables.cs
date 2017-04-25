@@ -209,6 +209,7 @@ public class commonVariables
         AifuWeChat = 1202133,
         AlipayTransfer = 1204131,
         AllDebit = 120236,
+        AloGatewayWeChat = 1202154,
         Baokim = 120272,
         BaokimScratchCard = 120286,
         BofoPay = 120231,
