@@ -5,8 +5,87 @@
 <head runat="server">
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
     <title><%=commonCulture.ElementValues.getResourceString("brand", commonVariables.LeftMenuXML) + commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></title>
-    <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/JS/PreLoad.js"></script>
+
+    <link href="/_Secure/VIP/js/jquery.modal.min.css" rel="stylesheet" />
+    <link href="/_Static/css/style.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="/_Static/JS/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/_Static/JS/Mobile/jquery.mobile-1.4.5.min.js"></script>
+    <script src="/_Secure/VIP/js/jquery.modal.min.js"></script>
+    <script src="/_Static/JS/vendor/lodash.min.js"></script>
+    <script type="text/javascript" src="/_Static/v2/assets/js/vendor/pubsub.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="/_Static/JS/Cookie.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="/_Static/JS/vendor/amplify.min.js"></script>
+
+    <script type="text/javascript">
+        window.w88Mobile = {}; 
+        window.User = {};
+        window.User.hasSession = <%= (!String.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) ? 1 : 0 %>;
+        window.User.token = '<%= commonVariables.CurrentMemberSessionId %>';
+        window.User.sessionInterval = '<%=ConfigurationManager.AppSettings.Get("sessionInterval") %>';
+        window.User.lang = '<%=commonVariables.SelectedLanguage%>';
+        window.User.storageExpiration = { expires: 1200000 };
+    </script>
+
+    <script src="/_Static/JS/i18n/contents-<%=commonVariables.SelectedLanguageShort%>.js"></script>
+    <script src="/_Static/v2/assets/js/modules/translate.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="/_Static/v2/assets/js/loader.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+
+    <script>
+        w88Mobile.APIUrl = '<%= ConfigurationManager.AppSettings.Get("APIUrl") %>';
+
+        var _w88_contents = new w88Mobile.Translate();
+        _w88_contents.init();
+        
+        w88Mobile.Loader.init();
+
+        var siteCookie = new Cookies();
+        //amplify clear
+        amplify.clearStore = function() {
+            $.each(amplify.store(), function (storeKey) {
+                // Delete the current key from Amplify storage
+                amplify.store(storeKey, null);
+            });
+        };
+    
+    </script>
+    
+    <script type="text/javascript" src="/_Static/JS/fingerprint2.min.js"></script>
+    <script type="text/javascript" src="/_Static/JS/piwik.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/piwikManager.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/piwikConfig.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/interceptor.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script type="text/javascript">
+    w88Mobile.PiwikManager.setGoals(window.w88Mobile.PiwikConfig.goals);
+    w88Mobile.PiwikManager.setDomain();
+    w88Mobile.PiwikManager.setUserId('<%=UserSession.MemberId %>');
+
+    $(function () {
+        if(_.isEmpty(siteCookie.getCookie("fingerprint"))){
+            new Fingerprint2().get(function (result, components) {
+                var domain = "." + location.hostname.split('.').slice(-2).join('.');
+                siteCookie.setCookie("fingerprint", result, 5, domain);
+            });
+        }else{
+            var deviceObj = {
+                index: 1
+                , name: "deviceId"
+                , value: siteCookie.getCookie("fingerprint")
+                , scope: "visit"
+            }
+            w88Mobile.PiwikManager.setDeviceId(deviceObj);
+        }
+    });
+    </script>
+
+    <script src="/_Static/v2/assets/js/products.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 </head>
 <body>
     <div data-role="page" data-close-btn="right" data-corners="false" id="login">
@@ -52,7 +131,15 @@
                 <asp:HiddenField runat="server" ID="ioBlackBox" Value="" />
             </form>
         </div>
+
+
         <script type="text/javascript">
+            
+            function showModal(message) {
+                $('#ModalMessage').html(message);
+                $("#jqPopUpModal").modal();
+            }
+
             $(function () { $('#<%=imgCaptcha.ClientID%>').attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime()); });
             $('#<%=imgCaptcha.ClientID%>').click(function () { $(this).attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime()); });
 
@@ -67,6 +154,9 @@
             $('#<%=txtCaptcha.ClientID%>').attr('class', 'hide');
 
             $(document).ready(function () {
+
+                $(".ui-overlay-a").css('text-shadow', '0 1px 0 #2a8fbd');
+
                 $('#<%=btnSubmit.ClientID%>').click(function (e) {
                     var message = ('<ul>');
                     $('#btnSubmit').attr("disabled", true);
@@ -103,14 +193,11 @@
                     if (hasError) {
                         message += ('</ul>');
                         $('#btnSubmit').attr("disabled", false);
-                        window.w88Mobile.Growl.shout(message);
+                        showModal(message);
                         return;
                     } else {
                         e.preventDefault();
                         initiateLogin();
-
-                        amplify.clearStore();
-
                     }
                 });
             });
@@ -121,10 +208,12 @@
                     type: 'POST',
                     contentType: "application/json",
                     url: '/_Secure/AjaxHandlers/Login.ashx',
-                    beforeSend: function () { GPINTMOBILE.ShowSplash(); },
+                    beforeSend: function() {
+                        pubsub.publish('startLoadItem', { selector: '' });
+                    },
                     timeout: function () {
                         $('#<%=btnSubmit.ClientID%>').prop('disabled', false);
-                        window.w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
+                        showModal('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
                         window.location.replace('/Default.aspx');
                     },
                     data: JSON.stringify(udata),
@@ -138,53 +227,81 @@
                         }
 
                         switch (xml.Code) {
-                            case "1":
-                                if ('<%=strRedirect%>' !== '') {
-                                    switch ('<%=strRedirect%>') {
-                                        case 'mlotto':
-                                            window.location.replace('<%=commonLottery.getKenoUrl%>');
-                                            break;
-                                        default:
-                                            window.location.replace('<%=strRedirect%>');
-                                            break;
-                                    }
+
+                        case "resetPassword":
+                        case "1":
+
+                            Cookies().setCookie('is_app', '0', 0);
+
+                            window.User.token = Cookies().getCookie('s');
+
+                            pubsub.subscribe('checkFreeRounds', onCheckFreeRounds);
+                            _w88_products.checkFreeRounds();
+
+                            function onCheckFreeRounds() {
+
+                                if (!_.isUndefined(_w88_products.FreeRoundsGameUrl)) {
+                                    var gameTemplate = '<div class="free-rounds"><img src="/_Static/images/v2/freerounds/Popup-free-round-<%=commonVariables.SelectedLanguageShort.ToLower()%>.jpg"> </img> <div class="free-round-btns"><a id="btnClaimNow" href="{0}" data-ajax="false" class="ui-btn btn-primary"></a><a id="btnClaimLater" href="{1}" data-ajax="false" class="ui-btn btn-primary"></a></div></div>';
+                                    gameTemplate = gameTemplate.replace("{0}", _w88_products.FreeRoundsGameUrl);
+                                    gameTemplate = gameTemplate.replace("{1}", "/ClubBravado");
+
+                                    showModal(gameTemplate);
+                                    
+                                    $("#btnClaimNow").text(_w88_contents.translate("BUTTON_CLAIM"));
+                                    $("#btnClaimLater").text(_w88_contents.translate("BUTTON_CLAIM_LATER"));
+
+                                    $('#jqPopUpModal').on($.modal.BEFORE_CLOSE, function() {
+                                        window.location = "/index";
+                                    });
+
                                 } else {
-                                    window.location.reload();
+
+                                    if (xml.Code == "resetPassword")
+                                        window.location.replace('/Settings/ChangePassword.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
+                                    else {
+                                        if ('<%=strRedirect%>' !== '') {
+                                            switch ('<%=strRedirect%>') {
+                                            case 'mlotto':
+                                                window.location.replace('<%=commonLottery.getKenoUrl%>');
+                                                break;
+                                            default:
+                                                window.location.replace('<%=strRedirect%>');
+                                                break;
+                                            }
+                                        }
+                                    }
                                 }
+                            }
 
-                                Cookies().setCookie('is_app', '0', 0);
-                                break;
+                            break;
 
-                            case "22":
-                                $('#btnSubmit').attr("disabled", false);
-                                window.w88Mobile.Growl.shout('<div>' + message + '</div>');
-                                break;
+                        case "22":
+                            $('#btnSubmit').attr("disabled", false);
+                            showModal('<div>' + message + '</div>');
+                            break;
 
-                            case "resetPassword":
-                                window.location.replace('/Settings/ChangePassword.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
-                                break;
+                        default:
+                            counter += 1;
 
-                            default:
-                                counter += 1;
+                            if (counter >= 3) {
+                                $(".capt").removeClass("hide");
+                                $('#<%=imgCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
+                                $('#<%=lblCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
+                                $('#<%=txtCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
+                                $('#<%=imgCaptcha.ClientID%>').attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime());
+                                $('#<%=txtCaptcha.ClientID%>').val('');
+                                $('#<%=txtPassword.ClientID%>').val('');
+                            }
 
-                                if (counter >= 3) {
-                                    $(".capt").removeClass("hide");
-                                    $('#<%=imgCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
-                                    $('#<%=lblCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
-                                    $('#<%=txtCaptcha.ClientID%>').attr('class', 'show imgCaptcha');
-                                    $('#<%=imgCaptcha.ClientID%>').attr('src', '/_Secure/Captcha.aspx?t=' + new Date().getTime());
-                                    $('#<%=txtCaptcha.ClientID%>').val('');
-                                    $('#<%=txtPassword.ClientID%>').val('');
-                                }
-
-                                $('#btnSubmit').attr("disabled", false);
-                                GPINTMOBILE.HideSplash();
-                                window.w88Mobile.Growl.shout('<div>' + message + '</div>');
-                                break;
+                            $('#btnSubmit').attr("disabled", false);
+                            showModal('<div>' + message + '</div>');
+                            pubsub.publish('stopLoadItem', { selector: '' });
+                            break;
                         }
                     },
                     error: function (err) {
-                        window.w88Mobile.Growl.shout('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
+                        pubsub.publish('stopLoadItem', { selector: '' });
+                        showModal('<%=commonCulture.ElementValues.getResourceString("Exception", xeErrors)%>');
                         window.location.replace('<%=strRedirect%>');
                     }
                 });
@@ -194,4 +311,10 @@
 
     </div>
 </body>
+
+
+<div id="jqPopUpModal" class="modal" style="display: none;">
+    <div id="ModalMessage" class="modal-content padding text-center"></div>
+</div>
+
 </html>
