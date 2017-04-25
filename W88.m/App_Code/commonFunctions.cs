@@ -794,9 +794,4 @@ public static class commonFunctions
         return ConfigurationManager.AppSettings["SuperBull_Android_URL"];
     }
 
-    public static string GetSuperBullDownloadLinkIos()
-    {
-        return ConfigurationManager.AppSettings["SuperBull_IOS_URL"];
-    }
-
 }

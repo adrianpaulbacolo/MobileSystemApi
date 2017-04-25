@@ -515,7 +515,7 @@ else {
                 </li>
                 <% if(isSuperBull) { %>
                 <li>
-                    <a class="card" rel="superbull" href='<%= commonFunctions.GetSuperBullDownloadLinkIos()%>' data-rel="dialog" data-ajax="false">
+                    <a class="card" rel="superbull" href='/_static/Downloads/superbull.aspx' data-rel="dialog" data-ajax="false">
                         <img src="#" class="img-responsive SuperBull-Ios">
                         <div class="title menuSuperBullTitle"></div>
                     </a>
@@ -561,14 +561,14 @@ else {
 
                     <% if(isSuperBull) { %>
                     <li>
-                        <a class="card" rel="superbull" href='<%= commonFunctions.GetSuperBullDownloadLink()%>' data-rel="dialog" data-ajax="false">
-                            <img src="#" class="img-responsive SuperBull-Android">
+                        <a class="card" rel="superbull" href='/_static/Downloads/superbull.aspx' data-rel="dialog" data-ajax="false">
+                            <img src="#" class="img-responsive SuperBull-Ios">
                             <div class="title menuSuperBullTitle"></div>
                         </a>
                     </li>
                     <li>
-                        <a class="card" rel="superbull" href='<%= commonFunctions.GetSuperBullDownloadLinkIos()%>' data-rel="dialog" data-ajax="false">
-                            <img src="#" class="img-responsive SuperBull-Ios">
+                        <a class="card" rel="superbull" href='<%= commonFunctions.GetSuperBullDownloadLink()%>' data-rel="dialog" data-ajax="false">
+                            <img src="#" class="img-responsive SuperBull-Android">
                             <div class="title menuSuperBullTitle"></div>
                         </a>
                     </li>
