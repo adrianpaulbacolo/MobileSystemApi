@@ -1,0 +1,63 @@
+// Banner in Payment Page
+
+.payment-banner.slick-slider{
+	background-color: transparent;
+    margin-bottom: 50px;
+	.slick-dots {
+	    bottom: -43px;
+	    background-image: none; 
+	    background-color: transparent;
+	}
+	.slick-arrow {
+		z-index: 10;
+	}
+	video{
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+	}
+}
+
+.arrow-container{
+	position: relative;
+	width: 100%;
+	max-width: 767px;
+	margin: 0 auto;
+	.slick-arrow{
+		font-size: 2rem;
+		padding: 5px;
+		line-height: 1;
+		top: 40%;
+		color: #fff;
+		background: rgba(0,0,0,0.5);
+		border: none;
+		position: absolute;
+		z-index: 10;
+		&:focus,
+		&:active,
+		&:hover{
+			outline: 0 none;
+			background: rgba(0,0,0,0.75);
+		}
+		&.slick-disabled{
+			opacity: 0.2;
+		}
+	}
+	.slick-prev{
+		left: 0;
+	}
+	.slick-next{
+		right: 0;
+	}
+}
+
+.stop-video{
+	border: none;
+	color: #fff;
+	padding: 10px;
+	background: rgba(0,0,0,0.5);
+	top: 5px;
+	right: 5px;
+	z-index: 10;
+	position: absolute;
+}

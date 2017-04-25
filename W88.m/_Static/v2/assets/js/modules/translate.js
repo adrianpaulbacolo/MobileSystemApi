@@ -1,8 +1,6 @@
-﻿var _w88_contents = new w88Mobile.Translate();
+﻿w88Mobile.Translate = translate;
 
-_w88_contents.init();
-
-function Translate() {
+function translate() {
 
     this.items = {};
     this.expiry = 1200000; // cache expiry
@@ -18,7 +16,7 @@ function Translate() {
         }
 
     }
-    
+
     this.fetch = function (lang, endpoint) {
         var _self = this;
         endpoint = (_.isUndefined(endpoint)) ? "/contents" : endpoint;

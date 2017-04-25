@@ -27,6 +27,7 @@ public partial class Withdrawal_Cubits : PaymentBasePage
     {
         if (!Page.IsPostBack)
         {
+            CheckAgentAndRedirect(string.Concat(V2WithdrawalPath, "Pay", PaymentMethodId, ".aspx"));
             base.InitialisePendingWithdrawals(false);
             this.InitializeLabels();
         }

@@ -6,7 +6,7 @@ function HideMenu() {
             if (Cookies().getCookie('IsApp') == 1) {
                 $("#aMenu").css('display', 'none');
 
-                if (document.URL.toLowerCase().indexOf("/history") > 0) {
+                if (document.URL.toLowerCase().indexOf("/v2/history") > 0) {
                     $("#NonAppMenu").css('display', 'none');
                 }
             } else {

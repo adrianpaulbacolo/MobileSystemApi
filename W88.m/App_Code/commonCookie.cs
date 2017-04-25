@@ -83,6 +83,7 @@ public static class commonCookie
         {
             HttpCookie cookie = new HttpCookie("palazzo");
             cookie.Value = value;
+            cookie.Expires = DateTime.Now.AddDays(1);
             if (!string.IsNullOrEmpty(commonIp.DomainName)) { cookie.Domain = commonIp.DomainName; }
             HttpContext.Current.Response.Cookies.Add(cookie);
         }
@@ -240,17 +241,17 @@ public static class commonCookie
                 HttpCookie cookie = new HttpCookie("IsApp");
                 cookie.Value = value;
                 if (!string.IsNullOrEmpty(commonIp.DomainName)) { cookie.Domain = commonIp.DomainName; }
-                HttpContext.Current.Response.Cookies.Set(cookie);    
+                HttpContext.Current.Response.Cookies.Set(cookie);
             }
             else
             {
                 var httpCookie = HttpContext.Current.Request.Cookies["IsApp"];
                 if (httpCookie != null)
                 {
-                    HttpCookie cookie = new HttpCookie("IsApp");
-                    cookie.Value = "";
-                    cookie.Expires = DateTime.Now.AddYears(-1);
-                    HttpContext.Current.Response.Cookies.Add(cookie);   
+                    httpCookie.Value = "";
+                    httpCookie.Expires = DateTime.Now.AddYears(-1);
+                    if (!string.IsNullOrEmpty(commonIp.DomainName)) { httpCookie.Domain = commonIp.DomainName; }
+                    HttpContext.Current.Response.Cookies.Add(httpCookie);
                 }
             }
         }
@@ -286,6 +287,51 @@ public static class commonCookie
         }
     }
 
+    public static void CookieSubPlatform(string spfId)
+    {
+        if (!string.IsNullOrWhiteSpace(spfId))
+        {
+            Set("spfid_mob", spfId, DateTime.Now.AddDays(1));
+        }
+        else
+        {
+            if (string.IsNullOrWhiteSpace(commonCookie.Get("spfid_mob")))
+            {
+                Set("spfid_mob", "22", DateTime.Now.AddDays(1)); // Add Default Subplatform = WAP
+            }
+        }
+    }
+
+    public static void Set(string key, string value, DateTime expires)
+    {
+        HttpCookie cookie = new HttpCookie(key, value);
+        cookie.Expires = expires;
+
+        if (!string.IsNullOrEmpty(commonIp.DomainName))
+        {
+            cookie.Domain = commonIp.DomainName;
+        }
+
+        if (cookie != null)
+        {
+            HttpContext.Current.Response.Cookies.Set(cookie);
+        }
+        else
+        {
+            HttpContext.Current.Response.Cookies.Add(cookie);
+        }
+    }
+
+    public static string Get(string key)
+    {
+        string value = "";
+        if (HttpContext.Current.Request.Cookies.AllKeys.Contains(key))
+        {
+            value = HttpContext.Current.Request.Cookies[key].Value;
+        }
+
+        return value;
+    }
 
     public static void ClearCookies()
     {
@@ -343,6 +389,17 @@ public static class commonCookie
             vip.Value = null;
             vip.Domain = commonIp.DomainName;
             HttpContext.Current.Response.SetCookie(vip);
+        }
+
+        HttpCookie spfid = HttpContext.Current.Request.Cookies["spfid_mob"];
+        HttpContext.Current.Response.Cookies.Remove("spfid_mob");
+
+        if (spfid != null)
+        {
+            spfid.Expires = DateTime.Now.AddYears(-1);
+            spfid.Value = null;
+            spfid.Domain = commonIp.DomainName;
+            HttpContext.Current.Response.SetCookie(spfid);
         }
     }
 }

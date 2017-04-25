@@ -183,7 +183,7 @@ public partial class FundTransfer_Default : PaymentBasePage
             {
                 using (svcFundTransfer.FundTransferClient svcInstance = new svcFundTransfer.FundTransferClient())
                 {
-                    xeResponse = svcInstance.initiateTransfer(strTransferFrom, strTransferTo, strOperatorId, strSiteCode, strMemberCode, strCurrencyCode, strSessionToken, Math.Abs(Convert.ToDecimal(strTransferAmount)), strPromoCode, svcFundTransfer.transferOrigin.Mobile, out strStatusCode, out strStatusText);
+                     xeResponse = svcInstance.initiateTransfer(strTransferFrom, strTransferTo, strOperatorId, strSiteCode, strMemberCode, strCurrencyCode, strSessionToken, Math.Abs(Convert.ToDecimal(strTransferAmount)), strPromoCode, svcFundTransfer.transferOrigin.Mobile, out strStatusCode, out strStatusText);
                 }
             }
             catch (Exception ex)
@@ -282,6 +282,8 @@ public partial class FundTransfer_Default : PaymentBasePage
                 case "101":
                 case "107":
                 case "108":
+                case "71": // merchant accoutn frozen
+                case "52": //new error code - no messages yet
                     strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Promotion/InvalidPromo", xeErrors);
                     break;
                 case "102":

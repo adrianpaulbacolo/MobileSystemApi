@@ -20,8 +20,9 @@ public partial class Withdrawal_Neteller : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Page.IsPostBack) 
+        if (!Page.IsPostBack)
         {
+            CheckAgentAndRedirect(string.Concat(V2WithdrawalPath, "Pay", PaymentMethodId, ".aspx"));
             base.InitialisePendingWithdrawals(sender.ToString().Contains("app"));
             InitializeLabels();
         }

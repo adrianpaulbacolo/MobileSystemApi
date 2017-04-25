@@ -26,34 +26,39 @@
     </div>
     <script>
         $(function () {
-            $('#divLanguageContainer div.col-xs-6 a').each(function () {
+            $('#divLanguageContainer div.col-xs-6 span').each(function () {
                 $(this).on('click', function () {
-                    var imgSrcSplit = $(this).children()[0].src.split('/'),
-                        shortLangCode = imgSrcSplit[imgSrcSplit.length - 1].split('.')[0],
+                    var id = $(this).attr('id'),
                         langCode = 'en-us';
-                    switch (shortLangCode) {
-                        case 'en':
+                    switch (id) {
+                        case 'en-us':
                             langCode = 'en-us';
                             break;
-                        case 'id':
+                        case 'en-my':
+                            langCode = 'en-us';
+                            break;
+                        case 'id-id':
                             langCode = 'id-id';
                             break;
-                        case 'jp':
+                        case 'ja-jp':
                             langCode = 'ja-jp';
                             break;
-                        case 'kh':
+                        case 'km-kh':
                             langCode = 'km-kh';
                             break;
-                        case 'kr':
+                        case 'ko-kr':
                             langCode = 'ko-kr';
                             break;
-                        case 'th':
+                        case 'th-th':
                             langCode = 'th-th';
                             break;
-                        case 'vn':
+                        case 'vi-vn':
                             langCode = 'vi-vn';
                             break;
-                        case 'cn':
+                        case 'zh-cn':
+                            langCode = 'zh-cn';
+                            break;
+                        case 'zh-my':
                             langCode = 'zh-cn';
                             break;
                     }

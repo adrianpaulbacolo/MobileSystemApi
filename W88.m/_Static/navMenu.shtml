@@ -18,10 +18,24 @@ else{
 }
 
 var fishingWorld = FishingWorldProduct.GetLink();
+
+var isSuperBull = false;
+if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)){
+
+    if (commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase)){
+        isSuperBull = true;
+    }
+
+}
+else {
+    if (commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase)){
+         isSuperBull = true;
+    }
+}
+
 %>
 <div data-role="panel" id="divPanel">
     <ul data-role="listview" class="nav-menu">
-
         <!-- Close Menu -->
         <!-- <li data-icon="false">
             <a id="aMnuCloseMenu" runat="server" href="#" data-rel="close">
@@ -33,7 +47,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
         <li data-icon="false">
             <a id="aMnuHome" href="/Index.aspx?lang=<%=language%>" data-ajax="false">
                 <i class="icon icon-home"></i>
-                <div class="label"><%=commonCulture.ElementValues.getResourceString("home", commonVariables.LeftMenuXML)%></div>
+                <div class="label menuHomeTitle"></div>
             </a>
         </li>
         <% } %>
@@ -50,7 +64,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
         <li id="liOptions" data-icon="false">
             <a href="/_Secure/Login.aspx" data-rel="dialog" data-ajax="false">
                 <i class="icon icon-login"></i>
-                <div class="label"><%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%></div>
+                <div class="label menuLoginTitle"></div>
             </a>
         </li>
         <% } %>
@@ -60,32 +74,23 @@ var fishingWorld = FishingWorldProduct.GetLink();
         <li data-icon="false">
             <a class="nav-funds">
                 <i class="icon icon-currency-circle"></i>
-                <div class="label"><%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%></div>
+                <div class="label menuFundsTitle"></div>
             </a>
             <ul class="sub-menu menu-link" data-rel="funds">
                 <a class="close" data-rel="close">&times;</a>
-                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%></h2>
+                <h2 class="title menuFundsTitle"></h2>
                 <li class="title">
-                    <a data-rel="dialog" rel="deposit" href="/_Secure/Login.aspx" data-ajax="false">
-                        <%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%>
-                    </a>
+                    <a data-rel="dialog" rel="deposit" href="/_Secure/Login.aspx" data-ajax="false" class="menuDepositTitle"></a>
                 </li>
                 <li class="title">
-                    <a data-rel="dialog" rel="fundtransfer" href="/_Secure/Login.aspx" data-ajax="false">
-                        <%=commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%>
-                    </a>
+                    <a data-rel="dialog" rel="fundtransfer" href="/_Secure/Login.aspx" data-ajax="false" class="menuTransferTitle"></a>
                 </li>
                 <li class="title">
-                    <a data-rel="dialog" rel="withdrawal" href="/_Secure/Login.aspx" data-ajax="false">
-                        <%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%>
-                    </a>
+                    <a data-rel="dialog" rel="withdrawal" href="/_Secure/Login.aspx" data-ajax="false" class="menuWidrawTitle"></a>
                 </li>
                 <li class="title">
-                    <a data-rel="dialog" rel="history" href="/_Secure/Login.aspx" data-ajax="false">
-                        <%=commonCulture.ElementValues.getResourceString("history", commonVariables.HistoryXML)%>
-                    </a>
+                    <a data-rel="dialog" rel="history" href="/_Secure/Login.aspx" data-ajax="false" class="menuHistoryTitle"></a>
                 </li>
-
             </ul>
         </li>
         <% } %>
@@ -94,11 +99,11 @@ var fishingWorld = FishingWorldProduct.GetLink();
         <li data-icon="false">
             <a class="nav-sports">
                 <i class="icon icon-soccer"></i>
-                <div class="label"><%=commonCulture.ElementValues.getResourceString("sports", commonVariables.LeftMenuXML)%></div>
+                <div class="label menuSportsTitle"></div>
             </a>
             <ul class="sub-menu" data-rel="sports">
                 <!--<a class="close" data-rel="close">&times;</a>-->
-                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("sports", commonVariables.LeftMenuXML)%></h2>
+                <h2 class="title menuSportsTitle"></h2>
                 <%
                 try{
                 %>
@@ -106,7 +111,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 <li>
                     <a class="card" data-rel="sports" rel="clbW" href="/_Static/Downloads/w88.aspx" data-ajax="false">
                         <img src="#" class="img-responsive clubWiOS">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></div>
+                        <div class="title menuClubWTitle"></div>
                     </a>
                 </li>
                 <%}%>
@@ -114,7 +119,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 <li>
                     <a class="card" data-rel="livecasino" rel="clbW" href="/_static/ClubW/casino.aspx" data-ajax="false">
                         <img src="#" class="img-responsive clubWAndroid">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></div>
+                        <div class="title menuClubWTitle"></div>
                     </a>
                 </li>
                 <%}%>
@@ -122,13 +127,13 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 <li>
                     <a class="card" data-rel="sports" rel="vsports" href="/_Static/Downloads/w88.aspx" data-ajax="false">
                         <img src="#" class="img-responsive clubWiOS">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></div>
+                        <div class="title menuClubWTitle"></div>
                     </a>
                 </li>
                 <li>
                     <a class="card" data-rel="livecasino" rel="clbW" href="/_static/ClubW/casino.aspx" data-ajax="false">
                         <img src="#" class="img-responsive clubWAndroid">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></div>
+                        <div class="title menuClubWTitle"></div>
                     </a>
                 </li>
                 <%}%>
@@ -137,22 +142,21 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 <li>
                     <a class="card" data-rel="sports" rel="asports" href="/_Secure/Login.aspx?redirect=<%=System.Web.HttpContext.Current.Request.Url.ToString()%>" data-rel="dialog" data-ajax="false" target="_blank">
                         <img src="#" class="img-responsive asports">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ASports/Label", commonVariables.ProductsXML)%></div>
+                        <div class="title menuASportsTitle"></div>
                     </a>
                 </li>
                 <li>
                     <a class="card" data-rel="sports" rel="esports" href="/_Secure/Login.aspx" data-ajax="false" target="_blank">
                         <img src="#" class="img-responsive esports">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ESports/Label", commonVariables.ProductsXML)%></div>
+                        <div class="title menuESportsTitle"></div>
                     </a>
                 </li>
                  <li>
                     <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-ajax="false">
                          <img src="#" class="img-responsive vsports">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/VSports/Label", commonVariables.ProductsXML)%></div>
+                        <div class="title menuVSportsTitle"></div>
                     </a>
                 </li> 
-
                 <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency))
                 {
                 if ( (!commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase)) && (!commonCookie.CookieCurrency.Equals("usd", StringComparison.OrdinalIgnoreCase)) )
@@ -160,7 +164,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 <li>
                     <a class="card" data-rel="sports" rel="xsports" href="<%=commonXSports.SportsBookUrl%>" data-ajax="false" target="_blank">
                         <img src="#" class="img-responsive xsports">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/XSports/Label", commonVariables.ProductsXML)%></div>
+                        <div class="title menuXSportsTitle"></div>
                     </a>
                 </li>
                 <% }
@@ -170,23 +174,22 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 <li>
                     <a class="card" data-rel="sports" rel="xsports" href="<%=commonXSports.SportsBookUrl%>" data-transition="slidedown" data-ajax="false" target="_blank">
                         <img src="#" class="img-responsive xsports">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/XSports/Label", commonVariables.ProductsXML)%></div>
+                        <div class="title menuXSportsTitle"></div>
                     </a>
                 </li>
                 <% } %>
 
             </ul>
         </li>
-
         <!-- Casino -->
         <li data-icon="false">
             <a class="nav-casino">
                 <i class="icon icon-casino"></i>
-                <div class="label"><%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%></div>
+                <div class="label menuLiveCasinoTitle"></div>
             </a>
             <ul class="sub-menu" data-rel="livecasino">
                 <!--<a class="close" data-rel="close">&times;</a>-->
-                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%></h2>
+                <h2 class="title menuLiveCasinoTitle"></h2>
                 <%
                 try{
                 %>
@@ -194,13 +197,13 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 <li>
                     <a class="card" data-rel="livecasino" rel="clbW" href="/_static/Downloads/w88.aspx" data-ajax="false">
                         <img src="#" class="img-responsive casinoClbWPremier-ios">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubWPremier/Label", commonVariables.ProductsXML)%></div>
+                        <div class="title menuClubWPremierTitle"></div>
                     </a>
                 </li>
                 <li>
                     <a class="card" data-rel="livecasino" rel="clbW" href="/_static/Downloads/w88.aspx" data-ajax="false">
                         <img src="#" class="img-responsive casinoClbW-ios">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></div>
+                        <div class="title menuClubWTitle"></div>
                     </a>
                 </li>
                 <%}%>
@@ -208,13 +211,13 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 <li>
                     <a class="card" data-rel="livecasino" rel="clbW" href="/_static/ClubW/casino.aspx" data-ajax="false">
                         <img src="#" class="img-responsive clubwpremier-android">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubWPremier/Label", commonVariables.ProductsXML)%></div>
+                        <div class="title menuClubWPremierTitle"></div>
                     </a>
                 </li>
                 <li>
                     <a class="card" data-rel="livecasino" rel="clbW" href="/_static/ClubW/casino.aspx" data-ajax="false">
                         <img src="#" class="img-responsive clubw-android">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></div>
+                        <div class="title menuClubWTitle"></div>
                     </a>
                 </li>
                 <%}%>
@@ -222,25 +225,25 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 <li>
                     <a class="card" data-rel="livecasino" rel="clbW" href="/_static/Downloads/w88.aspx" data-ajax="false">
                         <img src="#" class="img-responsive casinoClbWPremier-ios">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubWPremier/Label", commonVariables.ProductsXML)%></div>
+                        <div class="title menuClubWPremierTitle"></div>
                     </a>
                 </li>
                 <li>
                     <a class="card" data-rel="livecasino" rel="clbW" href="/_static/Downloads/w88.aspx" data-ajax="false">
                         <img src="#" class="img-responsive casinoClbW-ios">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></div>
+                        <div class="title menuClubWTitle"></div>
                     </a>
                 </li>
                 <li>
                     <a class="card" data-rel="livecasino" rel="clbW" href="/_static/ClubW/casino.aspx" data-ajax="false">
                         <img src="#" class="img-responsive clubwpremier-android">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubWPremier/Label", commonVariables.ProductsXML)%></div>
+                        <div class="title menuClubWPremierTitle"></div>
                     </a>
                 </li>
                 <li>
                     <a class="card" data-rel="livecasino" rel="clbW" href="/_static/ClubW/casino.aspx" data-ajax="false">
                         <img src="#" class="img-responsive clubw-android">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></div>
+                        <div class="title menuClubWTitle"></div>
                     </a>
                 </li>
                 <%}%>
@@ -249,32 +252,31 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 <li>
                     <a class="card" data-rel="livecasino" rel="clubpalazzo-casino" href="/_static/palazzo/casino.aspx" data-ajax="false">
                         <img src="#" class="img-responsive clubpalazzo-casino-android">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoCasino/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
+                        <div class="title ClubPalazzoNavTitle"></div>
                     </a>
                 </li>
                 <li>
                     <a class="card" data-rel="livecasino" rel="clubmassimo-casino" href="https://livegames.cdn.gameassists.co.uk/AIR/Poria/Installer/V20021/w88/Download.html" data-ajax="false" target="_blank">
                         <img src="#" class="img-responsive clubmassimo-casino-android">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoCasino/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
+                        <div class="title ClubMassimoNavTitle"></div>
                     </a>
                 </li>
             </ul>
         </li>
-
         <!-- Slots -->
         <li data-icon="false">
             <a class="nav-slots">
                 <i class="icon icon-slots"></i>
-                <div class="label"><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></div>
+                <div class="label menuSlotsTitle"></div>
             </a>
             <ul class="sub-menu" data-rel="slots">
                 <!--<a class="close" data-rel="close">&times;</a>-->
-                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></h2>
+                <h2 class="title menuSlotsTitle"></h2>
                 <%if(deviceId==1){%>
                 <li>
                     <a class="card" data-rel="sports" rel="vsports" href="/_Static/Downloads/w88.aspx" data-ajax="false">
                         <img src="#" class="img-responsive clubWiOS">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></div>
+                        <div class="title menuClubWTitle"></div>
                     </a>
                 </li>
                 <%}%>
@@ -282,66 +284,82 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 <li>
                     <a class="card" data-rel="sports" rel="vsports" href="/_Static/ClubW/casino.aspx" data-ajax="false">
                         <img src="#" class="img-responsive clubWAndroid">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubW/Label", commonVariables.ProductsXML)%></div>
+                        <div class="title menuClubWTitle"></div>
                     </a>
                 </li>
                 <%}%>
                 <li>
                     <a class="card" rel="clubbravado" href="/ClubBravado" data-ajax="false">
                         <img src="#" class="img-responsive clubbravado">
-                        <div class="title" id="ClubBravadoNavTitle"></div>
+                        <div class="title ClubBravadoNavTitle"></div>
                     </a>
                 </li>
                 <li>
                     <a class="card" rel="clubmassimo-slots" href="/ClubMassimo" data-ajax="false">
                         <img src="#" class="img-responsive clubmassimo-slots">
-                        <div class="title" id="ClubMassimoNavTitle"></div>
+                        <div class="title ClubMassimoNavTitle"></div>
                     </a>
                 </li>
                 <%if(deviceId==2){%>
                 <li>
                     <a class="card" rel="clubmassimo-slots" href=" <%=commonClubMassimo.getDownloadUrl%>" data-ajax="false">
                         <img src="#" class="img-responsive clubmassimo-slots2">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubMassimoSlots2/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
+                        <div class="title menuClubMassimoDownloadTitle"></div>
                     </a>
                 </li>
                 <%}%>
                 <li>
                     <a class="card" rel="clubpalazzo-slots" href="/ClubPalazzo" data-ajax="false">
                         <img src="#" class="img-responsive clubpalazzo-slots">
-                        <div class="title" id="ClubPalazzoNavTitle"></div>
+                        <div class="title ClubPalazzoNavTitle"></div>
                     </a>
                 </li>
                 <%if(deviceId==2){%>
                 <li>
                     <a class="card" rel="clubpalazzo-slots" href="/_static/palazzo/slots.aspx" data-ajax="false">
                         <img src="#" class="img-responsive clubpalazzo-slots2">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubPalazzoSlots2/Label", commonVariables.ProductsXML).Replace("<br />", "")%></div>
+                        <div class="title menuClubPalazzoDownloadTitle"></div>
                     </a>
                 </li>
                 <%}%>
                 <li>
                     <a class="card" rel="clubgallardo" href="/ClubGallardo" data-ajax="false">
                         <img src="#" class="img-responsive clubgallardo">
-                        <div class="title" id="ClubGallardoNavTitle"></div>
+                        <div class="title ClubGallardoNavTitle"></div>
                     </a>
                 </li>
+                <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+                {
+                if (commonCookie.CookieCurrency.ToLower() != "idr" && commonCookie.CookieCurrency.ToLower() != "vnd")
+                { %>
                 <li>
                     <a class="card" rel="clubnuovo" href="/ClubNuovo" data-ajax="false">
-                        <img src="/_Static/Images/bnr-clubnuovo.jpg" class="img-responsive">
-                        <div class="title" id="ClubNuovoNavTitle"></div>
+                        <img src="#" class="img-responsive clubnuovo">
+                        <div class="title ClubNuovoNavTitle"></div>
                     </a>
                 </li>
+                <% }
+                }
+                else
+                { %>
+                <li>
+                    <a class="card" rel="clubnuovo" href="/ClubNuovo" data-ajax="false">
+                        <img src="#" class="img-responsive clubnuovo">
+                        <div class="title ClubNuovoNavTitle"></div>
+                    </a>
+                </li>
+                <% } %>
+
                 <li>
                     <a class="card" rel="clubapollo" href="/ClubApollo" data-ajax="false">
                         <img src="#" class="img-responsive clubapollo">
-                        <div class="title" id="ClubApolloNavTitle"></div>
+                        <div class="title ClubApolloNavTitle"></div>
                     </a>
                 </li>
                 <li>
                     <a class="card" rel="clubdivino" href="/ClubDivino" data-ajax="false">
                         <img src="#" class="img-responsive clubdivino">
-                        <div class="title" id="ClubDivinoNavTitle"></div>
+                        <div class="title ClubDivinoNavTitle"></div>
                     </a>
                 </li>
                 <!--<li>
@@ -352,22 +370,20 @@ var fishingWorld = FishingWorldProduct.GetLink();
             </li>-->
             </ul>
         </li>
-
         <!-- Fishing Game -->
         <li data-icon="false">
             <a class="nav-fish">
                 <i class="icon icon-fish"></i>
-                <div class="label"><%=commonCulture.ElementValues.getResourceString("FishingTitle", commonVariables.LeftMenuXML)%></div>
+                <div class="label menuFishingTitle"></div>
             </a>
             <ul class="sub-menu" data-rel="fish">
-                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("FishingTitle", commonVariables.LeftMenuXML)%></h2>
-
+                <h2 class="title menuFishingTitle"></h2>
                 <%try{%>
                 <%if(deviceId==1){%>
                 <li>
                     <a class="card" data-rel="fish" rel="FishIOS" href="<%=fishlinkIos%>" data-ajax="false">
                         <img src="#" class="img-responsive fishingmaster-iOs">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
+                        <div class="title menuLuckyFishingTitle"></div>
                     </a>
                 </li>
                 <%}%>
@@ -375,7 +391,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 <li>
                     <a class="card" data-rel="fish" rel="FishAndroid" href="<%=fishLink%>" data-ajax="false">
                         <img src="#" class="img-responsive fishingmaster-android">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
+                        <div class="title menuLuckyFishingTitle"></div>
                     </a>
                 </li>
                 <%}%>
@@ -383,63 +399,61 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 <li>
                     <a class="card" data-rel="fish" rel="FishIOS" href="<%=fishlinkIos%>" data-ajax="false">
                         <img src="#" class="img-responsive FishIOS">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
+                        <div class="title menuLuckyFishingTitle"></div>
                     </a>
                 </li>
                 <li>
                     <a class="card" data-rel="fish" rel="FishAndroid" href="<%=fishLink%>" data-ajax="false">
                         <img src="#" class="img-responsive FishAndroid">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></div>
+                        <div class="title menuLuckyFishingTitle"></div>
                     </a>
                 </li>
                 <%}%>
                 <%}catch(Exception){}%>
 
-                <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency))
+                <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
         { %>
                 <li>
                     <a class="card" data-rel="fish" rel="FishAndroid" href="<%=fishingWorld%>" data-ajax="false" target="_blank">
                         <img src="#" class="img-responsive FishWorld3">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("FishingWorld", commonVariables.LeftMenuXML)%></div>
+                        <div class="title menuFishingWorldTitle"></div>
                     </a>
                 </li>
                 <%}%>
             </ul>
         </li>
-
         <!-- Lottery -->
         <li data-icon="false">
             <a class="nav-keno">
                 <i class="icon icon-keno"></i>
-                <div class="label"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></div>
+                <div class="label menuLotteryTitle"></div>
             </a>
             <ul class="sub-menu" data-rel="lottery">
                 <!--<a class="close" data-rel="close">&times;</a>-->
-                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></h2>
+                <h2 class="title menuLotteryTitle"></h2>
                 <li>
                     <a class="card" rel="keno" href="/_Secure/Login.aspx" data-rel="dialog" data-ajax="false">
                         <img src="#" class="img-responsive keno">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/Keno/Label", commonVariables.ProductsXML)%></div>
+                        <div class="title menuKenoTitle"></div>
                     </a>
                 </li>
             </ul>
         </li>
-
         <!-- Poker -->
         <li data-icon="false">
             <a class="nav-poker">
                 <i class="icon icon-spade"></i>
-                <div class="label"><%=commonCulture.ElementValues.getResourceString("poker", commonVariables.LeftMenuXML)%></div>
+                <div class="label menuPokerTitle"></div>
             </a>
             <ul class="sub-menu" data-rel="poker">
                 <!--<a class="close" data-rel="close">&times;</a>-->
-                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("poker", commonVariables.LeftMenuXML)%></h2>
+                <h2 class="title menuPokerTitle"></h2>
                 <%try{%>
                 <%if(deviceId==1){%>
                 <li>
                     <a class="card" data-rel="poker" rel="PokerIOS" href='<%= commonFunctions.getPokerDownloadLinks(deviceId)%>' data-ajax="false">
                         <img src="#" class="img-responsive PokerIOS">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("iosDownload", commonVariables.LeftMenuXML)%></div>
+                        <div class="title menuiOSDownloadTitle"></div>
                     </a>
                 </li>
                 <%}%>
@@ -447,7 +461,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 <li>
                     <a class="card" data-rel="poker" rel="PokerAndroid" href='<%= commonFunctions.getPokerDownloadLinks(deviceId)%>' data-rel="dialog" data-ajax="false">
                         <img src="#" class="img-responsive PokerAndroid">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("androidDownload", commonVariables.LeftMenuXML)%></div>
+                        <div class="title menuAndroidDownloadTitle"></div>
                     </a>
                 </li>
                 <%}%>
@@ -455,13 +469,13 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 <li>
                     <a class="card" data-rel="poker" rel="PokerIOS" href='<%= commonFunctions.getPokerDownloadLinks(1)%>' data-ajax="false">
                         <img src="#" class="img-responsive PokerIOS">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("iosDownload", commonVariables.LeftMenuXML)%></div>
+                        <div class="title menuiOSDownloadTitle"></div>
                     </a>
                 </li>
                 <li>
                     <a class="card" data-rel="poker" rel="PokerAndroid" href='<%= commonFunctions.getPokerDownloadLinks(2)%>' data-rel="dialog" data-ajax="false">
                         <img src="#" class="img-responsive PokerAndroid">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("androidDownload", commonVariables.LeftMenuXML)%></div>
+                        <div class="title menuAndroidDownloadTitle"></div>
                     </a>
                 </li>
                 <%}%>
@@ -472,86 +486,142 @@ var fishingWorld = FishingWorldProduct.GetLink();
         <!-- Texas Mahjong -->
         <li data-icon="false">
             <a class="nav-pmahjong">
-                <i class="icon icon-mahjong"></i>
-                <div class="label"><%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%></div>
+                
+                <%if(deviceId==1){%>
+                    <i class="icon icon-mahjong"></i>
+                    <div class="label menuTexasMahjongTitle"></div>
+                <%}%>
+                <% else  if (deviceId == 2) {%>
+                       
+                    <% if(isSuperBull) { %>  
+                        <i class="icon icon-super-bull"></i>
+                        <div class="label menuP2PTitle"></div>
+                    <% } else { %>
+                        <i class="icon icon-mahjong"></i>
+                        <div class="label menuTexasMahjongTitle"></div>
+
+                    <%} %>
+
+                <%}%>
+                <% else {%>
+                    <% if(isSuperBull) { %>
+                        <i class="icon icon-super-bull"></i>
+                        <div class="label menuP2PTitle"></div>
+                    <% } else { %>
+                        <i class="icon icon-mahjong"></i>
+                        <div class="label menuTexasMahjongTitle"></div>
+                    <% } %>
+
+                <%}%>
             </a>
             <ul class="sub-menu" data-rel="texasmahjong">
                 <!--<a class="close" data-rel="close">&times;</a>-->
-                <h2 class="title"><%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%></h2>
+               
                 <%
                 try{
                 %>
                 <%if(deviceId==1){%>
+                <h2 class="title menuTexasMahjongTitle"></h2>
                 <li>
                     <a class="card" rel="texasmahjong" href='/_static/TexasMahjong/download.aspx' data-ajax="false">
                         <img src="#" class="img-responsive TexasMahjong-iOS">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("iosDownload", commonVariables.LeftMenuXML)%></div>
+                        <div class="title menuiOSDownloadTitle"></div>
                     </a>
                 </li>
                 <%}%>
                 <%if(deviceId==2){%>
+
+                <% if(isSuperBull) { %>
+                    <h2 class="title menuP2PTitle"></h2>
+                <% } else { %>
+                    <h2 class="title menuTexasMahjongTitle"></h2>
+                <% } %>
+
                 <li>
                     <a class="card" rel="texasmahjong" href='<%= commonFunctions.getTexasMahjongDownloadLinks()%>' data-rel="dialog" data-ajax="false">
                         <img src="#" class="img-responsive TexasMahjong-Android">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("androidDownload", commonVariables.LeftMenuXML)%></div>
+                        <div class="title menuTexasMahjongTitle"></div>
                     </a>
                 </li>
+                
+                    <% if(isSuperBull) { %>
+                        <li>
+                            <a class="card" rel="texasmahjong" href='<%= commonFunctions.GetSuperBullDownloadLink()%>' data-rel="dialog" data-ajax="false">
+                                <img src="#" class="img-responsive SuperBull-Android">
+                                <div class="title menuSuperBullTitle"></div>
+                            </a>
+                        </li>
+                    <% } %>
+
+
                 <%}%>
                 <%if(deviceId==3){%>
+                
+                <% if(isSuperBull) { %>
+                <h2 class="title menuP2PTitle"></h2>
+                <% } else { %>
+                <h2 class="title menuTexasMahjongTitle"></h2>
+                <% } %>
+
                 <li>
                     <a class="card" rel="texasmahjong" href='<%= commonFunctions.getTexasMahjongDownloadLinks()%>' data-rel="dialog" data-ajax="false">
                         <img src="#" class="img-responsive TexasMahjong-Android">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("androidDownload", commonVariables.LeftMenuXML)%></div>
+                        <div class="title menuTexasMahjongTitle"></div>
                     </a>
                 </li>
                 <li>
                     <a class="card" rel="texasmahjong" href='/_static/TexasMahjong/download.aspx' data-ajax="false">
                         <img src="#" class="img-responsive TexasMahjong-iOS">
-                        <div class="title"><%=commonCulture.ElementValues.getResourceString("iosDownload", commonVariables.LeftMenuXML)%></div>
+                        <div class="title menuTexasMahjongTitle"></div>
                     </a>
                 </li>
+
+                    <% if(isSuperBull) { %>
+                    <li>
+                        <a class="card" rel="texasmahjong" href='<%= commonFunctions.GetSuperBullDownloadLink()%>' data-rel="dialog" data-ajax="false">
+                            <img src="#" class="img-responsive SuperBull-Android">
+                            <div class="title menuSuperBullTitle"></div>
+                        </a>
+                    </li>
+                    <% } %>
+
                 <%}%>
+
                 <%}catch(Exception){}%>
             </ul>
         </li>
-
         <!-- Promotions -->
         <li data-icon="false">
             <a class="nav-promotions" href="/Promotions" data-ajax="false">
                 <i class="icon icon-promo"></i>
-                <div class="label"><%=commonCulture.ElementValues.getResourceString("promotions", commonVariables.LeftMenuXML)%></div>
+                <div class="label menuPromotionsTitle"></div>
             </a>
         </li>
-
         <!-- Rewards -->
         <li data-icon="false">
             <a id="icon-rewards-sidebar" class="nav-rewards" href="/Rewards" data-ajax="false" target="_blank">
                 <i class="icon icon-rewards"></i>
-                <div class="label"><%=commonCulture.ElementValues.getResourceString("rewards", commonVariables.LeftMenuXML)%></div>
+                <div class="label menuRewardsTitle"></div>
             </a>
         </li>
-
         <li data-icon="false">
             <a class="nav-chat" href="/LiveChat/Default.aspx" data-ajax="false" target="_blank">
                 <i class="icon icon-chat"></i>
-                <div class="label"><%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%></div>
+                <div class="label menuLiveChatTitle"></div>
             </a>
         </li>
-
         <li data-icon="false">
             <a class="nav-language" href="/Lang.aspx" data-ajax="false">
                 <i class="icon icon-world"></i>
-                <div class="label"><%=commonCulture.ElementValues.getResourceString("language", commonVariables.LeftMenuXML)%></div>
+                <div class="label menuLanguageTitle"></div>
             </a>
         </li>
-
         <li data-icon="false">
             <a id="icon-desktop-sidebar" href="#" data-ajax="false">
                 <i class="icon icon-desktop"></i>
-                <div class="label"><%=commonCulture.ElementValues.getResourceString("desktopIconSide", commonVariables.LeftMenuXML)%></div>
+                <div class="label menuDesktopNavTitle"></div>
             </a>
         </li>
-
         <!-- Submit -->
         <!--<% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
             <li data-icon="false">
@@ -589,7 +659,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
         <li data-icon="false" class="liLogout">
             <a id="aMnuLogOut" runat="server" href="/Logout" data-ajax="false">
                 <i class="icon icon-logout"></i>
-                <div class="label"><%=commonCulture.ElementValues.getResourceString("logout", commonVariables.LeftMenuXML)%></div>
+                <div class="label menuLogoutTitle"></div>
             </a>
         </li>
         <% } %>
@@ -597,26 +667,14 @@ var fishingWorld = FishingWorldProduct.GetLink();
     </ul>
 </div><!-- /panel -->
 <script type="text/javascript">
-
-        $(document).ready(function () {
+     pubsub.subscribe('contentsLoaded', onContentsLoaded);
             
-            setTranslations();
-            function setTranslations() {
-                if (_w88_contents.translate("LABEL_PRODUCTS_CLUB_NUOVO") != "LABEL_PRODUCTS_CLUB_NUOVO") {
-                    $("#ClubNuovoNavTitle").text(_w88_contents.translate("LABEL_PRODUCTS_CLUB_NUOVO"));
-                    $("#ClubBravadoNavTitle").text(_w88_contents.translate("LABEL_PRODUCTS_BRAVADO"));
-                    $("#ClubMassimoNavTitle").text(_w88_contents.translate("LABEL_PRODUCTS_MASSIMO"));
-                    $("#ClubPalazzoNavTitle").text(_w88_contents.translate("LABEL_PRODUCTS_PALAZZO"));
-                    $("#ClubGallardoNavTitle").text(_w88_contents.translate("LABEL_PRODUCTS_GALLARDO"));
-                    $("#ClubApolloNavTitle").text(_w88_contents.translate("LABEL_PRODUCTS_APOLLO"));
-                    $("#ClubDivinoNavTitle").text(_w88_contents.translate("LABEL_PRODUCTS_DIVINO"));
-                } else {
-                    window.setInterval(function () {
-                        setTranslations();
-                    }, 500);
-                }
+    function onContentsLoaded() {
+        _w88_products.init();
             }
 
+    $(document).ready(function () {
+        _w88_products.init();
         });
 
     $(function () {
@@ -644,7 +702,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 $(this).removeAttr('data-rel').removeAttr('data-transition').attr('data-ajax', 'false').attr('href', '/Withdrawal');
             });
             $('a[rel="history"]').each(function () {
-                $(this).removeAttr('data-rel').removeAttr('data-transition').attr('data-ajax', 'false').attr('href', '/History');
+                $(this).removeAttr('data-rel').removeAttr('data-transition').attr('data-ajax', 'false').attr('href', '/v2/History/Default.aspx');
             });
             $('a[rel="asports"]').each(function () {
                 $(this).removeAttr('data-rel').removeAttr('data-transition').attr('data-ajax', 'false').attr('href', '<%=(string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId) ? "_Secure/Login" : commonASports.getSportsbookUrl)%>');
@@ -680,7 +738,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             $('.sub-menu[data-rel]').not('.sub-menu[data-rel="funds"]').hide();
             $('.sub-menu[data-rel="funds"]').show();
             $('body').addClass('open-subnav');
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
         });
@@ -696,7 +754,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             $('.vsports').attr('src', '/_Static/Images/sports/bnr-vSports.jpg');
             $('.xsports').attr('src', '/_Static/Images/sports/bnr-xsports.jpg');
 
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
 
@@ -713,7 +771,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             $('.clubpalazzo-casino-android').attr('src', '/_Static/Images/casino/bnr-clubpalazzo-casino-android.jpg');
             $('.clubmassimo-casino-android').attr('src', '/_Static/Images/casino/bnr-clubmassimo-casino-android.jpg');
 
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
         });
@@ -725,7 +783,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             $('.PokerIOS').attr('src', '/_Static/Images/W88-Mobile-Poker-iOS.jpg');
             $('.PokerAndroid').attr('src', '/_Static/Images/W88-Mobile-Poker-Android.jpg');
 
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
         });
@@ -740,7 +798,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             $('.FishAndroid').attr('src', '/_Static/Images/bnr-fishingmaster-android.jpg');
             $('.FishWorld3').attr('src', '/_Static/Images/thumbnail-FishingWorld.jpg');
 
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
         });
@@ -763,9 +821,9 @@ var fishingWorld = FishingWorldProduct.GetLink();
             $('.clubgallardo').attr('src', '/_Static/Images/bnr-clubgallardo.jpg');
             $('.clubapollo').attr('src', '/_Static/Images/bnr-clubapollo.jpg');
             $('.clubdivino').attr('src', '/_Static/Images/bnr-clubdivino.jpg');
-            $('.clubdivino').attr('src', '/_Static/Images/bnr-clubnuovo.jpg');
+            $('.clubnuovo').attr('src', '/_Static/Images/bnr-clubnuovo.jpg');
 
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
         });
@@ -776,7 +834,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
 
             $('.keno').attr('src', '/_Static/Images/bnr_lottery.jpg');
 
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
         });
@@ -787,8 +845,9 @@ var fishingWorld = FishingWorldProduct.GetLink();
 
             $('.TexasMahjong-iOS').attr('src', '/_Static/Images/Download/TexasMahjong-iOS.jpg');
             $('.TexasMahjong-Android').attr('src', '/_Static/Images/Download/TexasMahjong-Android.jpg');
+            $('.SuperBull-Android').attr('src', '/_Static/Images/Download/bnr-superbull-android.jpg');
 
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
         });
@@ -796,7 +855,7 @@ var fishingWorld = FishingWorldProduct.GetLink();
             $('.sub-menu[data-rel]').not('.sub-menu[data-rel="infos"]').hide();
             $('.sub-menu[data-rel="infos"]').show();
             $('body').addClass('open-subnav');
-            if(!_.isUndefined(adjustMenu)){
+            if(typeof adjustMenu == "function"){
                 adjustMenu();
             }
         });
@@ -824,3 +883,25 @@ var fishingWorld = FishingWorldProduct.GetLink();
         });
     });
 </script>
+
+<% if (commonFunctions.isNativeAgent(Request)){ %>
+<script type="text/javascript">
+        $(function () {
+            $("#aMenu").attr("href", "#");
+            $("#aMenu").on("click", function(e){
+                e.preventDefault();
+                try{
+                    if(!_.isEmpty($(this).find("i.icon-navicon"))){
+                        Native.openSlidingMenu();
+                    }else{
+                        var isMainPage =  <%= commonFunctions.isMainPage(Request).ToString().ToLower() %>;
+                        if(isMainPage) window.location.href="/v2/Dashboard.aspx";
+                        else window.history.go(-1);
+                    }
+                }catch(e){
+                    console.log(e.message)
+                }
+            });
+        });
+</script>
+<% } %>

@@ -8,6 +8,19 @@
     return false;
 };
 
+
+// interceptor: update headers
+$(document).ajaxSend(function (event, xhr, settings) {
+    if (isAPIRequest(settings.url) && _.includes(settings.url.toLowerCase(), "payments")) {
+        xhr.setRequestHeader("SubPlatformId", siteCookie.getCookie('spfid_mob'));
+    }
+    var lang = window.User.lang;
+    // @todo remove if zh-my is available
+    if (lang == "zh-my") lang = "zh-cn";
+    xhr.setRequestHeader('Token', window.User.token);
+    xhr.setRequestHeader('LanguageCode', lang);
+});
+
 // interceptor: check api calls if user status has changed
 $(document).ajaxComplete(function (event, request, settings) {
 
@@ -17,27 +30,18 @@ $(document).ajaxComplete(function (event, request, settings) {
         if (!_.isUndefined(request.responseJSON.ResponseCode)) {
             switch (request.responseJSON.ResponseCode) {
                 case -7: //session expired
-                    //alert(request.responseJSON.ResponseMessage);
-                    //window.location.href = "/logout";
-                    // use below if growl is available
                     w88Mobile.Growl.shout(request.responseJSON.ResponseMessage, function () {
                         window.location.href = "/logout";
                     });
                     break;
 
                 case -6: //multiple login
-                    //alert(request.responseJSON.ResponseMessage);
-                    //window.location.href = "/logout";
-                    // use below if growl is available
                     w88Mobile.Growl.shout(request.responseJSON.ResponseMessage, function () {
                         window.location.href = "/logout";
                     });
                     break;
 
                 case -2: // not logged in
-                    //alert(request.responseJSON.ResponseMessage);
-                    //window.location.href = "/_secure/login.aspx";
-                    // use below if growl is available
                     w88Mobile.Growl.shout(request.responseJSON.ResponseMessage, function () {
                         window.location.href = "/_secure/login.aspx";
                     });

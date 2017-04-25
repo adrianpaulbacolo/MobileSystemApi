@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 public partial class Deposit_Pay : PaymentBasePage
 {
@@ -49,7 +44,7 @@ public partial class Deposit_Pay : PaymentBasePage
             case commonVariables.DepositMethod.IWallet:
                 GatewayFile = "iwallet";
                 break;
-            case commonVariables.DepositMethod.KexunPay:
+            case commonVariables.DepositMethod.KexunPayWeChat:
                 GatewayFile = "kexunpay";
                 break;
             case commonVariables.DepositMethod.KDPayWeChat:
@@ -76,6 +71,9 @@ public partial class Deposit_Pay : PaymentBasePage
             case commonVariables.DepositMethod.AifuAlipay:
             case commonVariables.DepositMethod.AifuWeChat:
                 GatewayFile = "aifu";
+                break;
+            case commonVariables.DepositMethod.PayTrust:
+                GatewayFile = "paytrust";
                 break;
         }
 

@@ -1,0 +1,119 @@
+.header{
+	padding-left: 5px;
+	padding-right: 5px;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 2;
+	position: absolute;
+	height: 47px;
+	width: 100%;
+	background-color: $header-bg-color;
+	@include box-shadow(0 10px  10px 0 rgba(0,0,0,0.095));
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+
+	.header-title{
+		text-align: center;
+		color: $header-title-color;
+		font-family: $dinpro;
+		font-size: 1.250rem;
+		display: block;
+		white-space: nowrap;
+		width: auto;
+		max-width: 55%;
+		margin: 0 auto;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 47px;
+		line-height: 47px;
+		position: absolute;
+		img{
+			height: 22px;
+			margin-top: 12px;
+			vertical-align: top;
+		}
+	}
+
+	.header-button{
+		text-align: center;
+		width: 40px;
+		height: 47px;
+		display: table;
+		z-index: 30;
+		position: relative;
+		span{
+			vertical-align: middle;
+			display: table-cell;
+		}
+		&.header-button-text {
+			font-size: 0.875rem;
+			width: auto !important;
+			text-transform: uppercase;
+		}
+		&.header-button-left{
+			float: left !important;
+		}
+		&.header-button-right{
+			float: right !important;
+		}
+		.icon{
+			font-size: 1.813rem;
+		}
+		.button-text{
+			margin-left: 4px;
+			letter-spacing: 1px;
+		}
+		&.btn{
+			padding-top: 12px;
+			padding-bottom: 12px;
+		}
+	}
+	&.header-search{
+		text-align: left;
+		display: table;
+		table-layout: fixed;
+		.header-search-input,
+		.header-button{
+			float: none !important;
+			display: table-cell;
+			vertical-align: middle;
+		}
+		.header-button{
+			text-align: left;
+			width: 45px !important;
+			white-space: nowrap;
+		}
+		.header-search-input{
+			width: 100%;
+			.form-control{
+				color: $header-search-input-color;
+				border-color: $header-search-bg;
+				background-color: $header-search-bg;
+				@include box-shadow(none);
+				@include border-radius( 3px 0 0 3px);
+			}
+			.btn{
+				color: $header-search-clear;
+				padding-top: 0;
+				padding-bottom: 0;
+				background-color: $header-search-bg;
+				@include border-radius( 0 3px 3px 0);
+				span{
+					font-size: 1.188rem;
+				}
+			}
+		}
+	}
+}
+
+@media (orientation: landscape) and (max-height: 414px){
+
+}

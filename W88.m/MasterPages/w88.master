@@ -15,8 +15,9 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     
+    <!--#include virtual="~/_Static/v2/head.inc" -->
+
     <!-- CSS refence should be put inside the child content head -->
-    <link href="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/css/base.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
@@ -25,8 +26,6 @@
     <asp:ContentPlaceHolder ID="ContentHeaderSection" runat="server"></asp:ContentPlaceHolder>
 
     <asp:ContentPlaceHolder ID="ContentMain" runat="server"></asp:ContentPlaceHolder>
-     
-    <!--#include virtual="~/_Static/v2/head.inc" -->
 
     <asp:ContentPlaceHolder ID="ScriptPlaceHolder" runat="server">
     </asp:ContentPlaceHolder>

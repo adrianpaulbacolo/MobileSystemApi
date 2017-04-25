@@ -7,7 +7,6 @@ using W88.BusinessLogic.Shared.Helpers;
 public partial class _Default : BasePage
 {
     protected string AlertMessage = string.Empty;
-    protected string Language = string.Empty;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -16,7 +15,7 @@ public partial class _Default : BasePage
         {
             // Do logout logic here
             CookieHelpers.ClearCookies();
-            Response.Redirect(string.Format("/Default.aspx?lang={0}", LanguageHelpers.SelectedLanguage), false);
+            Response.Redirect(string.Format("/Default.aspx?lang={0}", Language), false);
             return;
         }
         if (string.Compare(Convert.ToString(RouteData.DataTokens["expire"]), "true", true) == 0)

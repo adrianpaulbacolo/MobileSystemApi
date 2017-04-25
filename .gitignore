@@ -6,7 +6,9 @@
 style.css
 style.css.map
 style.min.css
-W88Mobile.GameXmlGenerator/bin/**
+W88.m/_Static/v2/assets/css/scss/styles.css
+**/_Static/v2/assets/css/*.css
+W88.m/_Static/v2/assets/css/*.css
+**/scss/*.css
 W88Mobile.GameXmlGenerator/obj/**
-W88.m/_Static/v2/**/*.css
-W88.m/_Static/v2/assets/**/*.css.map
+W88Mobile.GameXmlGenerator/bin/Debug/**

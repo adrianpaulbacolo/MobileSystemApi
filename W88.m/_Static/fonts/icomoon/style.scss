@@ -1,11 +1,12 @@
 [class^="icon-"], [class*=" icon-"] {
-    font-family: 'icomoon';
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
 
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
@@ -95,6 +96,12 @@
 }
 .icon-download:before {
   content: "\e913";
+}
+.icon-error:before {
+  content: "\e92b";
+}
+.icon-event:before {
+  content: "\e92a";
 }
 .icon-filter:before {
   content: "\e91d";
@@ -225,6 +232,9 @@
 .icon-submit:before {
   content: "\e61b";
 }
+.icon-super-bull:before {
+  content: "\e92c";
+}
 .icon-swap:before {
   content: "\e929";
 }
@@ -249,6 +259,4 @@
 .icon-zalo:before {
   content: "\e90e";
 }
-.icon-event:before {
-  content: "\e92a";
-}
+
