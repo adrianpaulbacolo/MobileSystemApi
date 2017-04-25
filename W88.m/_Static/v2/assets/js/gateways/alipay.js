@@ -17,6 +17,7 @@ function AlipayV2() {
 
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
+                $('label[id$="lblSwitchLine"]').text(_w88_contents.translate("LABEL_SWITCH_LINE"));
                 $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
 
                 if (!_.isUndefined(gatewayId)) {
@@ -41,6 +42,7 @@ function AlipayV2() {
         var data = {
             Amount: params.Amount,
             ThankYouPage: params.ThankYouPage,
+            SwitchLine: params.SwitchLine,
         };
 
         _self.methodId = params.MethodId;

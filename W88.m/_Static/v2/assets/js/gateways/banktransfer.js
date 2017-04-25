@@ -253,7 +253,7 @@ function BankTransferv2() {
         var bankId = $('select[id$="drpSecondaryBank"]').val();
 
         if (bankId != '-1') {
-            _w88_paymentSvcV2.Send("/Banks/member/location/" + bankId, "GET", "", function (response) {
+            _w88_paymentSvcV2.Send("/Banks/member/location/" + bankId, "GET", { selector: "location" }, function (response) {
                 if (!_.isEqual(response.ResponseCode, 0)) {
 
                     $('select[id$="drpBankLocation"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
@@ -263,7 +263,7 @@ function BankTransferv2() {
                         $('select[id$="drpBankLocation"]').append($('<option>').text(v.Text).attr('value', v.Value));
                     });
 
-                    if (!_.isUndefined(blId)) {
+                    if (!_.isEmpty(blId)) {
                         $('select[id$="drpBankLocation"]').val(blId).change();
                     } else {
                         $('select[id$="drpBankLocation"]').val('-1').change();
@@ -280,7 +280,7 @@ function BankTransferv2() {
         var bankId = $('select[id$="drpSecondaryBank"]').val();
 
         if (bankId != '-1') {
-            _w88_paymentSvcV2.Send("/Banks/member/branch/" + bankId + "/" + bankLocationId, "GET", "", function (response) {
+            _w88_paymentSvcV2.Send("/Banks/member/branch/" + bankId + "/" + bankLocationId, "GET", { selector: "branch" }, function (response) {
                 if (!_.isEqual(response.ResponseCode, 0)) {
 
                     $('select[id$="drpBankBranchList"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
@@ -290,7 +290,7 @@ function BankTransferv2() {
                         $('select[id$="drpBankBranchList"]').append($('<option>').text(v.Text).attr('value', v.Value));
                     });
 
-                    if (!_.isUndefined(bankBranchId)) {
+                    if (!_.isEmpty(bankBranchId)) {
                         $('select[id$="drpBankBranchList"]').val(bankBranchId).change();
                     } else {
                         $('select[id$="drpBankBranchList"]').val("-1").change();

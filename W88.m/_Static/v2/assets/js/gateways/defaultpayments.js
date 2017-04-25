@@ -177,7 +177,14 @@ function DefaultPaymentsV2() {
     }
 
     function send(resource, method, data, success, complete) {
-        var url = w88Mobile.APIUrl + resource;
+
+        var selector = "";
+        if (!_.isEmpty(data.selector)) {
+            selector = _.clone(data.selector);
+            delete data["selector"];
+        }
+
+        var url = w88Mobile.APIUrl +resource;
 
         var headers = {
             'Token': window.User.token,
@@ -189,7 +196,7 @@ function DefaultPaymentsV2() {
             url: url,
             data: data,
             beforeSend: function () {
-                pubsub.publish('startLoadItem', { selector: "" });
+                pubsub.publish('startLoadItem', { selector: selector });
             },
             headers: headers,
             success: success,
@@ -198,14 +205,17 @@ function DefaultPaymentsV2() {
             },
             complete: function () {
                 if (!_.isUndefined(complete)) complete();
-                pubsub.publish('stopLoadItem', { selector: "" });
+                pubsub.publish('stopLoadItem', { selector: selector });
             }
         });
     }
 
     function onTransactionCreated(form) {
+
+        var historyBtn = "<a href='/v2/History/Default.aspx' class='btn btn-block btn-primary' data-ajax='false'>" + _w88_contents.translate("LABEL_FUNDS_HISTORY") + "</a>";
+        var message = "<p>" + _w88_contents.translate("MESSAGES_CHECK_HISTORY") + "</p>" + historyBtn;
         if (!_.isUndefined(form)) _.first(form).reset();
-        w88Mobile.Growl.shout(_w88_contents.translate("MESSAGES_CHECK_HISTORY"));
+        w88Mobile.Growl.shout(message);
     }
 
     function initiateValidator(methodId) {
@@ -317,10 +327,13 @@ function DefaultPaymentsV2() {
                 autorouteIds.WeChat
             ];
 
-            var isAutoRoute = false, title = "", page = null, deposit = "/Deposit/";
+            var isAutoRoute = false, title = "", page = null, deposit = "/v2/Deposit/";
 
             for (var i = 0; i < responseData.length; i++) {
                 var data = responseData[i];
+
+                if (data.Method)
+                    continue;
 
                 page = setPaymentPage(data.Id);
 
@@ -364,7 +377,7 @@ function DefaultPaymentsV2() {
             else {
                 if (!isAutoRoute) {
                     page = setPaymentPage(_.first(responseData).Id);
-                    if (page)
+                    if (!_.isEmpty(page))
                         window.location.href = deposit + page;
                 }
             }
@@ -389,7 +402,7 @@ function DefaultPaymentsV2() {
 
     function setWithdrawalPaymentTab(responseData, activeTabId) {
         if (responseData.length > 0) {
-            var title = "", withdraw = "/Withdrawal/";
+            var title = "", withdraw = "/v2/Withdrawal/";
             _.forEach(responseData, function (data) {
                 var page = setPaymentPage(data.Id);
 
@@ -419,7 +432,7 @@ function DefaultPaymentsV2() {
             }
             else {
                 page = setPaymentPage(_.first(responseData).Id);
-                if (page)
+                if (!_.isEmpty(page))
                     window.location.href = withdraw + page;
             }
 
@@ -446,159 +459,8 @@ function DefaultPaymentsV2() {
     }
 
     function setPaymentPage(id) {
-        switch (id) {
-
-            // withdrawal
-            case "210602":
-                return "210602"; // BankTransfer
-
-            case "220815":
-                return "220815"; // Neteller
-
-            case "210709":
-                return "210709"; // WingMoney
-
-            case "2107138":
-                return "2107138"; // TrueMoney
-
-            case "220895":
-                return "220895"; // VenusPoint
-
-            case "2208102":
-                return "2208102"; // IWallet
-
-            case "2208121":
-                return "2208121"; // Cubits
-
-                // deposit
-            case "120272":
-                return "120272"; // Baokim
-
-            case "110101":
-                return "110101"; // FastDeposit
-
-            case "120204":
-                return "120204"; // NextPay
-
-            case "120248":
-                return "120248"; // NextPayGV
-
-            case "120280":
-                return "120280"; // JutaPay
-
-            case "110308":
-                return "110308"; // WingMoney
-
-            case "1103132":
-                return "1103132"; // TrueMoney
-
-            case "120223":
-                return "120223"; // SDPay
-
-            case "120227":
-                return "120227"; // Help2Pay
-
-            case "1202114":
-                return "1202114"; // KDPayWechat
-
-            case "120243":
-                return "120243?value=1"; // DaddyPay
-
-            case "120244":
-                return "120244?value=2"; // DaddyPayQR
-
-            case "120214":
-                return "120214"; // Neteller
-
-            case "120290":
-                return "120290"; // PaySec
-
-            case "120254":
-                return "120254"; // SDAPayAlipay
-
-            case "1204131":
-                return "1204131"; // AlipayTransfer
-
-            case "1202111":
-                return "1202111"; // ShengPayAliPay
-
-            case "120218":
-                return "120218"; // ECPSS
-
-            case "120231":
-                return "120231"; // BofoPay
-
-            case "1202127":
-                return "1202127"; // KexunPayWeChat
-
-            case "120275":
-                return "120275"; // TongHuiPay
-
-            case "120293":
-                return "120293"; // TongHuiAlipay
-
-            case "120277":
-                return "120277"; // TongHuiWeChat
-
-            case "1202123":
-                return "1202123"; // JTPayWeChat
-
-            case "1202122":
-                return "1202122"; // JTPayAliPay
-
-            case "120236":
-                return "120236"; // AllDebit
-
-            case "120265":
-                return "120265"; // EGHL
-
-            case "120212":
-                return "120212"; // NganLuong
-
-            case "1202103":
-                return "1202103"; // IWallet
-
-            case "120296":
-                return "120296"; // VenusPoint
-
-            case "120286":
-                return "120286"; // BaokimScratchCard
-
-            case "999999":
-                return "QuickOnline.aspx";
-
-            case "999996":
-                return "Alipay.aspx";
-
-            case "999995":
-                return "WeChat.aspx";
-
-            case "1202113":
-                return "1202113"; // JuyPayAlipay
-
-            case "1202105":
-                return "1202105"; // NineVPayAlipay
-
-            case "1202133":
-                return "1202133"; // AifuWeChat
-
-            case "1202134":
-                return "1202134"; // AifuAlipay
-
-            case "1202120":
-                return "1202120"; // Cubits
-
-            case "1202112":
-                return "1202112"; // DinPayTopUp
-
-            case "1202139":
-                return "1202139"; // PayTrust
-            case "1202154":
-                return "1202154"; // AloGatewayWechat  
-
-            default:
-                break;
-        }
+        if (_.isEmpty(id)) return "";
+        return "Pay" + id + ".aspx";
     }
 
     function createWithdraw(data, methodId) {

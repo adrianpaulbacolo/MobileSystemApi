@@ -16,7 +16,7 @@ function AutoRouteV2() {
         setTranslations();
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
-
+                $('label[id$="lblSwitchLine"]').text(_w88_contents.translate("LABEL_SWITCH_LINE"));
                 $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
 
             } else {
@@ -33,6 +33,7 @@ function AutoRouteV2() {
         var data = {
             Amount: params.Amount,
             Bank: { Text: params.BankText, Value: params.BankValue },
+            SwitchLine: params.SwitchLine,
             AccountName: params.AccountName
         };
 
