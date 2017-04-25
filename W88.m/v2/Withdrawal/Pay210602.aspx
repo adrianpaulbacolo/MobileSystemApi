@@ -14,15 +14,13 @@
         <asp:DropDownList ID="drpSecondaryBank" runat="server" CssClass="form-control">
         </asp:DropDownList>
     </div>
-    <div class="form-group" id="divBankLocation" runat="server" style="display: none;">
+    <div class="form-group location" id="divBankLocation" runat="server" style="display: none;">
         <asp:Label ID="lblBankLocation" runat="server" AssociatedControlID="txtBankName" />
-        <span id="loader1" class="css-loader css-loader-small" style="display: none"></span>
         <asp:DropDownList ID="drpBankLocation" runat="server" CssClass="form-control">
         </asp:DropDownList>
     </div>
-    <div class="form-group" id="divBankNameSelection" runat="server" style="display: none;">
+    <div class="form-group branch" id="divBankNameSelection" runat="server" style="display: none;">
         <asp:Label ID="lblBranch" runat="server" AssociatedControlID="txtBankName" />
-        <span id="loader2" class="css-loader css-loader-small" style="display: none"></span>
         <asp:DropDownList ID="drpBankBranchList" runat="server" CssClass="form-control">
         </asp:DropDownList>
     </div>
@@ -71,30 +69,16 @@
             window.w88Mobile.Gateways.BankTransferv2.loadSecondaryBankWidraw();
 
             $('select[id$="drpBank"]').change(function () {
-                sessionStorage.removeItem("hfBLId");
-                sessionStorage.removeItem("hfBBId");
                 window.w88Mobile.Gateways.BankTransferv2.toggleBankWidraw(this.value, '<%= commonCookie.CookieCurrency.ToLower() %>');
             });
 
             $('select[id$="drpSecondaryBank"]').change(function () {
-                sessionStorage.removeItem("hfBLId");
-                sessionStorage.removeItem("hfBBId");
-                window.w88Mobile.Gateways.BankTransferv2.toggleSecondaryBankWidraw(this.value, sessionStorage.getItem("hfBLId"));
+                window.w88Mobile.Gateways.BankTransferv2.toggleSecondaryBankWidraw(this.value, $('select[id$="drpBankLocation"]').val());
             });
 
             $('select[id$="drpBankLocation"]').change(function () {
                 if (this.value != '-1') {
-
-                    sessionStorage.removeItem("hfBBId");
-                    sessionStorage.setItem("hfBLId", this.value);
-
                     window.w88Mobile.Gateways.BankTransferv2.toogleBankBranchWidraw(this.value, "");
-                }
-            });
-
-            $('select[id$="drpBankBranchList"]').change(function () {
-                if (this.value != '-1') {
-                    sessionStorage.setItem("hfBBId", this.value);
                 }
             });
 
