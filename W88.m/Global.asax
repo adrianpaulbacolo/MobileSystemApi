@@ -114,6 +114,30 @@
         routes.Add(sdapayalipay);
         routes.Add(sdapayalipay2);
 
+        // DADDYPAY
+        System.Web.Routing.Route daddypay = new System.Web.Routing.Route("Deposit/120243", new System.Web.Routing.PageRouteHandler("~/Deposit/DaddyPay.aspx"));
+        daddypay.DataTokens = new System.Web.Routing.RouteValueDictionary { { "type", "daddypay" } };
+
+        routes.Add(daddypay);
+
+        // DADDYPAYQR
+        System.Web.Routing.Route daddypayqr = new System.Web.Routing.Route("Deposit/120244", new System.Web.Routing.PageRouteHandler("~/Deposit/DaddyPay.aspx"));
+        daddypayqr.DataTokens = new System.Web.Routing.RouteValueDictionary { { "type", "daddypayqr" } };
+
+        routes.Add(daddypayqr);
+
+        // ALLDEBIT
+        System.Web.Routing.Route alldebit_b2c = new System.Web.Routing.Route("Deposit/1202167", new System.Web.Routing.PageRouteHandler("~/Deposit/AllDebit.aspx"));
+        alldebit_b2c.DataTokens = new System.Web.Routing.RouteValueDictionary { { "type", "pay" } };
+        System.Web.Routing.Route alldebit_aliPay = new System.Web.Routing.Route("Deposit/1202169", new System.Web.Routing.PageRouteHandler("~/Deposit/AllDebit.aspx"));
+        alldebit_aliPay.DataTokens = new System.Web.Routing.RouteValueDictionary { { "type", "alipay" } };
+        System.Web.Routing.Route alldebit_weChat = new System.Web.Routing.Route("Deposit/1202168", new System.Web.Routing.PageRouteHandler("~/Deposit/AllDebit.aspx"));
+        alldebit_weChat.DataTokens = new System.Web.Routing.RouteValueDictionary { { "type", "wechat" } };
+
+        routes.Add(alldebit_b2c);
+        routes.Add(alldebit_aliPay);
+        routes.Add(alldebit_weChat);
+
         // ERRORS
         System.Web.Routing.Route rtError400 = new System.Web.Routing.Route("400", new System.Web.Routing.PageRouteHandler("~/_Static/Pages/400.aspx"));
         System.Web.Routing.Route rtError403 = new System.Web.Routing.Route("403", new System.Web.Routing.PageRouteHandler("~/_Static/Pages/403.aspx"));
