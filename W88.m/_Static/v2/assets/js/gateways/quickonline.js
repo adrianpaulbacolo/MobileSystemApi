@@ -15,6 +15,8 @@ function QuickOnlineV2() {
 
         setTranslations();
 
+        var currencyCode = new Cookies().getCookie("currencyCode");
+
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
                 $('label[id$="lblSwitchLine"]').text(_w88_contents.translate("LABEL_SWITCH_LINE"));
@@ -36,7 +38,7 @@ function QuickOnlineV2() {
         }
 
         if (getBank) {
-            _w88_paymentSvcV2.Send("/Banks/vendor/" + gateway + "/" + new Cookies().getCookie("currencyCode"), "GET", "", function (response) {
+            _w88_paymentSvcV2.Send("/Banks/vendor/" + gateway + "/" + currencyCode, "GET", "", function (response) {
                 var banks = response.ResponseData;
                 var defaultSelect = _w88_contents.translate("LABEL_SELECT_DEFAULT");
                 $('select[id$="drpBank"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
