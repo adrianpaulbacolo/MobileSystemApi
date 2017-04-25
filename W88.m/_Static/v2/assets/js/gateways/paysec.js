@@ -3,12 +3,13 @@ var _w88_paysec = window.w88Mobile.Gateways.PaysecV2;
 
 function PaysecV2() {
 
-    var paysec = {};
+    var paysec;
 
-    paysec.init = function () {
-
+    try {
         paysec = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
-    };
+    } catch (err) {
+        paysec = {};
+    }
 
     paysec.createDeposit = function () {
         var _self = this;
