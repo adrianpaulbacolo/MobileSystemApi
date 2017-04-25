@@ -113,27 +113,12 @@ public class Banner
                 }
 
                 StringBuilder sliderTemplate = new StringBuilder(BannerTemplate);
-                sliderTemplate.Replace("{link}", url);
+                sliderTemplate.Replace("{link}", CheckDomain(url));
                 sliderTemplate.Replace("{img}", imageRoot + imageSrc);
                 sliderTemplate.Replace("{description}", description);
                 sliderTemplate.Replace("{content}", content);
                 sliderTemplate.Replace("{description}", descText);
 
-                //if (!string.IsNullOrWhiteSpace(descText)) description = "<p>" + descText + "</p>";
-                //if (!string.IsNullOrWhiteSpace(mainText)) content = "<div class=\"slide-title\"><h2>" + mainText + "</h2>" + description + "</div>";
-
-                //var bannerText = "";
-                //if (!string.IsNullOrWhiteSpace(content) || !string.IsNullOrWhiteSpace(content))
-                //{
-                //    bannerText = "<div class=\"slide_content\"><div class=\"textarea\">" + content + description + "</div></div>";
-                //}
-
-                //slider += "<div class=\"slide\">" +
-                //            "<a href=\"" + url + "\" data-ajax=\"false\" class=\"" + linkClass + "\">" +
-                //            content +
-                //                "<img src=\"/_Static/Images/promo-banner/" + imageSrc + "\" alt=\"banner\" class=\"img-responsive\"> " +
-                //            "</a>" +
-                //        "</div>";
                 slider += sliderTemplate.ToString();
             }
         }
@@ -165,5 +150,13 @@ public class Banner
         }
 
         return string.Empty;
+    }
+
+    private string CheckDomain(string url)
+    {
+        if (!url.Contains("{DOMAIN}")) return url;
+
+        url = url.Replace("{DOMAIN}", commonIp.DomainName).Replace("{TOKEN}", !string.IsNullOrWhiteSpace(commonVariables.CurrentMemberSessionId) ? commonVariables.EncryptedCurrentMemberSessionId : "").Replace("{LANG}", commonVariables.SelectedLanguage);
+        return url;
     }
 }
