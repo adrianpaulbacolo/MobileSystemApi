@@ -24,7 +24,7 @@
         "name": "affiliate"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 0
     },
     {
@@ -62,7 +62,7 @@
         "code": 59674
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 1
     },
     {
@@ -88,7 +88,7 @@
         "name": "announcement"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 2
     },
     {
@@ -120,7 +120,7 @@
         "code": 59675
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 3
     },
     {
@@ -149,7 +149,7 @@
         "code": 59669
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 4
     },
     {
@@ -178,7 +178,7 @@
         "code": 59668
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 5
     },
     {
@@ -207,7 +207,7 @@
         "name": "arrow-right"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 6
     },
     {
@@ -236,27 +236,27 @@
         "code": 59679
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 7
     },
     {
       "icon": {
         "paths": [
-          "M916.96 528h-791.84c-8.837 0-16-7.163-16-16s7.163-16 16-16h791.84c8.837 0 16 7.163 16 16s-7.163 16-16 16z",
-          "M107.040 528c-0.012 0-0.027 0-0.042 0-8.837 0-16-7.163-16-16 0-3.55 1.156-6.83 3.113-9.484l214.049-294.516c2.95-4.016 7.654-6.594 12.96-6.594 8.855 0 16.034 7.178 16.034 16.034 0 3.549-1.153 6.828-3.105 9.485l-214.049 294.515c-2.944 3.996-7.632 6.56-12.918 6.56-0.015 0-0.029-0-0.044-0z",
-          "M321.12 822.080c-0.012 0-0.027 0-0.042 0-5.287 0-9.974-2.564-12.888-6.516l-213.951-294.124c-2.307-2.754-3.709-6.335-3.709-10.243 0-8.837 7.163-16 16-16 5.629 0 10.579 2.907 13.431 7.301l214.118 294.142c1.925 2.61 3.082 5.89 3.082 9.44 0 8.837-7.163 16-16 16-0.015 0-0.029-0-0.044-0z"
+          "M821.858 528.017h-608c-8.837 0-16-7.163-16-16s7.163-16 16-16h608c8.837 0 16 7.163 16 16s-7.163 16-16 16z",
+          "M202.338 528.017c-0.012 0-0.027 0-0.042 0-8.837 0-16-7.163-16-16 0-3.55 1.156-6.83 3.113-9.484l197.889-271.956c2.95-4.016 7.654-6.594 12.96-6.594 8.855 0 16.034 7.178 16.034 16.034 0 3.549-1.153 6.828-3.105 9.485l-197.889 271.955c-2.944 3.996-7.632 6.56-12.918 6.56-0.015 0-0.029 0-0.044 0z",
+          "M400.098 800.017c-0.012 0-0.027 0-0.042 0-5.287 0-9.974-2.564-12.888-6.516l-197.951-272.044c-1.921-2.612-3.074-5.891-3.074-9.44 0-8.855 7.178-16.034 16.034-16.034 5.306 0 10.010 2.578 12.929 6.549l197.951 272.045c1.925 2.61 3.082 5.89 3.082 9.44 0 8.837-7.163 16-16 16-0.015 0-0.029 0-0.044 0z"
         ],
         "attrs": [
           {},
           {},
           {}
         ],
-        "isMulticolor": false,
-        "isMulticolor2": false,
         "tags": [
           "back"
         ],
-        "grid": 32
+        "grid": 32,
+        "isMulticolor": false,
+        "isMulticolor2": false
       },
       "attrs": [
         {},
@@ -264,14 +264,14 @@
         {}
       ],
       "properties": {
-        "order": 577,
+        "order": 3,
         "id": 8,
         "name": "back",
         "prevSize": 32,
         "code": 59670
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 8
     },
     {
@@ -303,7 +303,7 @@
         "name": "banking"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 9
     },
     {
@@ -328,7 +328,7 @@
         "name": "bell"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 10
     },
     {
@@ -353,7 +353,7 @@
         "name": "bell-solid"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 11
     },
     {
@@ -382,7 +382,7 @@
         "code": 59680
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 12
     },
     {
@@ -411,7 +411,7 @@
         "code": 59681
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 13
     },
     {
@@ -436,7 +436,7 @@
         "name": "bullet"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 14
     },
     {
@@ -461,7 +461,7 @@
         "name": "bullet-outline"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 15
     },
     {
@@ -490,7 +490,7 @@
         "code": 59685
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 16
     },
     {
@@ -518,7 +518,7 @@
         "name": "casino"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 17
     },
     {
@@ -546,7 +546,7 @@
         "name": "chat"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 18
     },
     {
@@ -575,7 +575,7 @@
         "code": 59686
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 19
     },
     {
@@ -600,7 +600,7 @@
         "name": "check2"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 20
     },
     {
@@ -632,7 +632,7 @@
         "code": 59671
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 21
     },
     {
@@ -658,7 +658,7 @@
         "name": "compose"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 22
     },
     {
@@ -690,7 +690,7 @@
         "name": "currency"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 23
     },
     {
@@ -725,7 +725,7 @@
         "code": 59665
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 24
     },
     {
@@ -752,7 +752,7 @@
         "name": "deposit"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 25
     },
     {
@@ -803,7 +803,7 @@
         "code": 59663
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 26
     },
     {
@@ -842,7 +842,7 @@
         "code": 59667
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 27
     },
     {
@@ -859,10 +859,10 @@
         ],
         "isMulticolor": false,
         "isMulticolor2": false,
-        "grid": 32,
         "tags": [
           "error"
-        ]
+        ],
+        "grid": 32
       },
       "attrs": [
         {},
@@ -871,13 +871,13 @@
       ],
       "properties": {
         "order": 597,
-        "id": 80,
+        "id": 28,
         "name": "error",
         "prevSize": 32,
         "code": 59691
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 28
     },
     {
@@ -909,13 +909,13 @@
       ],
       "properties": {
         "order": 650,
-        "id": 79,
+        "id": 29,
         "name": "event",
         "prevSize": 32,
         "code": 59690
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 29
     },
     {
@@ -962,13 +962,13 @@
       ],
       "properties": {
         "order": 599,
-        "id": 28,
+        "id": 30,
         "name": "filter",
         "prevSize": 32,
         "code": 59677
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 30
     },
     {
@@ -998,33 +998,33 @@
       ],
       "properties": {
         "order": 600,
-        "id": 29,
+        "id": 31,
         "name": "fish",
         "prevSize": 32,
         "code": 59650
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 31
     },
     {
       "icon": {
         "paths": [
-          "M898.88 528h-791.84c-8.837 0-16-7.163-16-16s7.163-16 16-16h791.84c8.837 0 16 7.163 16 16s-7.163 16-16 16z",
-          "M916.96 528c-0.012 0-0.027 0-0.042 0-5.287 0-9.974-2.564-12.888-6.516l-214.111-294.124c-2.008-2.665-3.216-6.031-3.216-9.68 0-8.934 7.242-16.176 16.176-16.176 5.285 0 9.978 2.535 12.93 6.455l213.95 294.601c1.926 2.61 3.082 5.89 3.082 9.44 0 8.795-7.096 15.933-15.876 16z",
-          "M702.88 822.080c-0.012 0-0.027 0-0.042 0-8.837 0-16-7.163-16-16 0-3.55 1.156-6.83 3.113-9.484l214.049-294.036c2.95-4.016 7.654-6.594 12.96-6.594 8.855 0 16.034 7.178 16.034 16.034 0 3.549-1.153 6.828-3.105 9.485l-214.049 294.515c-2.956 3.721-7.481 6.085-12.558 6.085-0.141 0-0.283-0.002-0.423-0.005z"
+          "M810.24 528h-608c-8.837 0-16-7.163-16-16s7.163-16 16-16h608c8.837 0 16 7.163 16 16s-7.163 16-16 16z",
+          "M821.76 528c-0.012 0-0.027 0-0.042 0-5.287 0-9.974-2.564-12.888-6.516l-197.951-272.044c-1.921-2.612-3.074-5.891-3.074-9.44 0-8.855 7.178-16.034 16.034-16.034 5.306 0 10.010 2.578 12.929 6.549l197.951 272.045c1.925 2.61 3.082 5.89 3.082 9.44 0 8.837-7.163 16-16 16-0.015 0-0.029-0-0.044-0z",
+          "M624 800c-0.012 0-0.027 0-0.042 0-8.837 0-16-7.163-16-16 0-3.55 1.156-6.83 3.113-9.484l197.889-271.956c2.95-4.016 7.654-6.594 12.96-6.594 8.855 0 16.034 7.178 16.034 16.034 0 3.549-1.153 6.828-3.105 9.485l-197.889 271.955c-2.944 3.996-7.632 6.56-12.918 6.56-0.015 0-0.029-0-0.044-0z"
         ],
         "attrs": [
           {},
           {},
           {}
         ],
-        "isMulticolor": false,
-        "isMulticolor2": false,
         "tags": [
           "forward"
         ],
-        "grid": 32
+        "grid": 32,
+        "isMulticolor": false,
+        "isMulticolor2": false
       },
       "attrs": [
         {},
@@ -1033,13 +1033,13 @@
       ],
       "properties": {
         "order": 601,
-        "id": 30,
+        "id": 32,
         "name": "forward",
         "prevSize": 32,
         "code": 59672
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 32
     },
     {
@@ -1060,13 +1060,13 @@
       "attrs": [],
       "properties": {
         "order": 602,
-        "id": 31,
+        "id": 33,
         "prevSize": 32,
         "code": 58888,
         "name": "freebet"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 33
     },
     {
@@ -1089,13 +1089,13 @@
       ],
       "properties": {
         "order": 603,
-        "id": 32,
+        "id": 34,
         "name": "games",
         "prevSize": 32,
         "code": 59676
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 34
     },
     {
@@ -1114,13 +1114,13 @@
       "attrs": [],
       "properties": {
         "order": 604,
-        "id": 33,
+        "id": 35,
         "prevSize": 32,
         "code": 59651,
         "name": "grid"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 35
     },
     {
@@ -1139,13 +1139,13 @@
       "attrs": [],
       "properties": {
         "order": 605,
-        "id": 34,
+        "id": 36,
         "prevSize": 32,
         "code": 59652,
         "name": "grid-solid"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 36
     },
     {
@@ -1164,13 +1164,13 @@
       "attrs": [],
       "properties": {
         "order": 606,
-        "id": 35,
+        "id": 37,
         "prevSize": 32,
         "code": 58912,
         "name": "help-buoy"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 37
     },
     {
@@ -1190,13 +1190,13 @@
       "attrs": [],
       "properties": {
         "order": 607,
-        "id": 36,
+        "id": 38,
         "prevSize": 32,
         "code": 58889,
         "name": "history"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 38
     },
     {
@@ -1216,13 +1216,13 @@
       "attrs": [],
       "properties": {
         "order": 608,
-        "id": 37,
+        "id": 39,
         "prevSize": 32,
         "code": 58890,
         "name": "home"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 39
     },
     {
@@ -1243,13 +1243,13 @@
       "attrs": [],
       "properties": {
         "order": 609,
-        "id": 38,
+        "id": 40,
         "prevSize": 32,
         "code": 59655,
         "name": "info"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 40
     },
     {
@@ -1276,13 +1276,13 @@
       "attrs": [],
       "properties": {
         "order": 610,
-        "id": 39,
+        "id": 41,
         "prevSize": 32,
         "code": 58891,
         "name": "keno"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 41
     },
     {
@@ -1302,13 +1302,13 @@
       "attrs": [],
       "properties": {
         "order": 611,
-        "id": 40,
+        "id": 42,
         "prevSize": 32,
         "code": 58892,
         "name": "location"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 42
     },
     {
@@ -1328,13 +1328,13 @@
       "attrs": [],
       "properties": {
         "order": 612,
-        "id": 41,
+        "id": 43,
         "prevSize": 32,
         "code": 58893,
         "name": "login"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 43
     },
     {
@@ -1354,13 +1354,13 @@
       "attrs": [],
       "properties": {
         "order": 613,
-        "id": 42,
+        "id": 44,
         "prevSize": 32,
         "code": 58894,
         "name": "logout"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 44
     },
     {
@@ -1384,13 +1384,13 @@
       "attrs": [],
       "properties": {
         "order": 614,
-        "id": 43,
+        "id": 45,
         "prevSize": 32,
         "code": 59659,
         "name": "mahjong"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 45
     },
     {
@@ -1409,13 +1409,13 @@
       "attrs": [],
       "properties": {
         "order": 615,
-        "id": 44,
+        "id": 46,
         "prevSize": 32,
         "code": 58895,
         "name": "mail"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 46
     },
     {
@@ -1438,13 +1438,13 @@
       ],
       "properties": {
         "order": 616,
-        "id": 45,
+        "id": 47,
         "name": "minus",
         "prevSize": 32,
         "code": 59687
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 47
     },
     {
@@ -1473,13 +1473,13 @@
       ],
       "properties": {
         "order": 617,
-        "id": 46,
+        "id": 48,
         "prevSize": 32,
         "code": 59654,
         "name": "navicon"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 48
     },
     {
@@ -1499,13 +1499,13 @@
       "attrs": [],
       "properties": {
         "order": 618,
-        "id": 47,
+        "id": 49,
         "prevSize": 32,
         "code": 58896,
         "name": "password"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 49
     },
     {
@@ -1524,13 +1524,13 @@
       "attrs": [],
       "properties": {
         "order": 619,
-        "id": 48,
+        "id": 50,
         "prevSize": 32,
         "code": 58897,
         "name": "phone"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 50
     },
     {
@@ -1556,13 +1556,13 @@
       ],
       "properties": {
         "order": 620,
-        "id": 49,
+        "id": 51,
         "name": "plus",
         "prevSize": 32,
         "code": 59688
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 51
     },
     {
@@ -1581,13 +1581,13 @@
       "attrs": [],
       "properties": {
         "order": 621,
-        "id": 50,
+        "id": 52,
         "prevSize": 32,
         "code": 58898,
         "name": "profile"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 52
     },
     {
@@ -1606,13 +1606,13 @@
       "attrs": [],
       "properties": {
         "order": 622,
-        "id": 51,
+        "id": 53,
         "prevSize": 32,
         "code": 59653,
         "name": "promo"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 53
     },
     {
@@ -1632,13 +1632,13 @@
       "attrs": [],
       "properties": {
         "order": 623,
-        "id": 52,
+        "id": 54,
         "prevSize": 32,
         "code": 58900,
         "name": "promo-claim"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 54
     },
     {
@@ -1657,13 +1657,13 @@
       "attrs": [],
       "properties": {
         "order": 624,
-        "id": 53,
+        "id": 55,
         "prevSize": 32,
         "code": 59657,
         "name": "promo-solid"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 55
     },
     {
@@ -1689,13 +1689,13 @@
       ],
       "properties": {
         "order": 625,
-        "id": 54,
+        "id": 56,
         "name": "radio-checked",
         "prevSize": 32,
         "code": 59682
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 56
     },
     {
@@ -1718,13 +1718,13 @@
       ],
       "properties": {
         "order": 626,
-        "id": 55,
+        "id": 57,
         "name": "radio-unchecked",
         "prevSize": 32,
         "code": 59683
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 57
     },
     {
@@ -1759,13 +1759,13 @@
       ],
       "properties": {
         "order": 627,
-        "id": 56,
+        "id": 58,
         "name": "rebates",
         "prevSize": 32,
         "code": 59664
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 58
     },
     {
@@ -1787,13 +1787,13 @@
       "attrs": [],
       "properties": {
         "order": 628,
-        "id": 57,
+        "id": 59,
         "prevSize": 32,
         "code": 58901,
         "name": "referral-bonus"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 59
     },
     {
@@ -1822,13 +1822,13 @@
       ],
       "properties": {
         "order": 629,
-        "id": 58,
+        "id": 60,
         "name": "refresh",
         "prevSize": 32,
         "code": 59684
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 60
     },
     {
@@ -1847,13 +1847,13 @@
       "attrs": [],
       "properties": {
         "order": 630,
-        "id": 59,
+        "id": 61,
         "prevSize": 32,
         "code": 59398,
         "name": "rewards"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 61
     },
     {
@@ -1872,13 +1872,13 @@
       "attrs": [],
       "properties": {
         "order": 631,
-        "id": 60,
+        "id": 62,
         "prevSize": 32,
         "code": 59397,
         "name": "rewards-solid"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 62
     },
     {
@@ -1904,13 +1904,13 @@
       ],
       "properties": {
         "order": 632,
-        "id": 61,
+        "id": 63,
         "name": "search",
         "prevSize": 32,
         "code": 59673
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 63
     },
     {
@@ -1930,13 +1930,13 @@
       "attrs": [],
       "properties": {
         "order": 633,
-        "id": 62,
+        "id": 64,
         "prevSize": 32,
         "code": 58903,
         "name": "security"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 64
     },
     {
@@ -1956,13 +1956,13 @@
       "attrs": [],
       "properties": {
         "order": 634,
-        "id": 63,
+        "id": 65,
         "prevSize": 32,
         "code": 58904,
         "name": "settings"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 65
     },
     {
@@ -1981,13 +1981,13 @@
       "attrs": [],
       "properties": {
         "order": 635,
-        "id": 64,
+        "id": 66,
         "prevSize": 32,
         "code": 58913,
         "name": "skype"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 66
     },
     {
@@ -2017,13 +2017,13 @@
       "attrs": [],
       "properties": {
         "order": 636,
-        "id": 65,
+        "id": 67,
         "prevSize": 32,
         "code": 58905,
         "name": "slots"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 67
     },
     {
@@ -2046,13 +2046,13 @@
       ],
       "properties": {
         "order": 637,
-        "id": 66,
+        "id": 68,
         "name": "soccer",
         "prevSize": 32,
         "code": 59661
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 68
     },
     {
@@ -2071,13 +2071,13 @@
       "attrs": [],
       "properties": {
         "order": 638,
-        "id": 67,
+        "id": 69,
         "prevSize": 32,
         "code": 59658,
         "name": "spade"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 69
     },
     {
@@ -2096,13 +2096,13 @@
       "attrs": [],
       "properties": {
         "order": 639,
-        "id": 68,
+        "id": 70,
         "prevSize": 32,
         "code": 59660,
         "name": "spade-solid"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 70
     },
     {
@@ -2121,13 +2121,13 @@
       "attrs": [],
       "properties": {
         "order": 640,
-        "id": 69,
+        "id": 71,
         "prevSize": 32,
         "code": 58906,
         "name": "sports"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 71
     },
     {
@@ -2148,13 +2148,13 @@
       "attrs": [],
       "properties": {
         "order": 641,
-        "id": 70,
+        "id": 72,
         "prevSize": 32,
         "code": 58907,
         "name": "submit"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 72
     },
     {
@@ -2219,10 +2219,10 @@
         ],
         "isMulticolor": false,
         "isMulticolor2": false,
-        "grid": 32,
         "tags": [
           "super-bull"
-        ]
+        ],
+        "grid": 32
       },
       "attrs": [
         {},
@@ -2255,13 +2255,13 @@
       ],
       "properties": {
         "order": 568,
-        "id": 81,
+        "id": 73,
         "name": "super-bull",
         "prevSize": 32,
         "code": 59692
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 73
     },
     {
@@ -2299,13 +2299,13 @@
       ],
       "properties": {
         "order": 642,
-        "id": 71,
+        "id": 74,
         "name": "swap",
         "prevSize": 32,
         "code": 59689
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 74
     },
     {
@@ -2324,13 +2324,13 @@
       "attrs": [],
       "properties": {
         "order": 643,
-        "id": 72,
+        "id": 75,
         "prevSize": 32,
         "code": 58908,
         "name": "template"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 75
     },
     {
@@ -2351,13 +2351,13 @@
       "attrs": [],
       "properties": {
         "order": 644,
-        "id": 73,
+        "id": 76,
         "prevSize": 32,
         "code": 58909,
         "name": "transfer"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 76
     },
     {
@@ -2376,13 +2376,13 @@
       "attrs": [],
       "properties": {
         "order": 645,
-        "id": 74,
+        "id": 77,
         "prevSize": 32,
         "code": 59400,
         "name": "wallet"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 77
     },
     {
@@ -2401,13 +2401,13 @@
       "attrs": [],
       "properties": {
         "order": 646,
-        "id": 75,
+        "id": 78,
         "prevSize": 32,
         "code": 59399,
         "name": "wallet-solid"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 78
     },
     {
@@ -2431,13 +2431,13 @@
       "attrs": [],
       "properties": {
         "order": 647,
-        "id": 76,
+        "id": 79,
         "prevSize": 32,
         "code": 58911,
         "name": "withdraw"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 79
     },
     {
@@ -2475,13 +2475,13 @@
       ],
       "properties": {
         "order": 648,
-        "id": 77,
+        "id": 80,
         "name": "world",
         "prevSize": 32,
         "code": 59666
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 80
     },
     {
@@ -2516,13 +2516,13 @@
       ],
       "properties": {
         "order": 649,
-        "id": 78,
+        "id": 81,
         "prevSize": 32,
         "code": 59662,
         "name": "zalo"
       },
       "setIdx": 0,
-      "setId": 1,
+      "setId": 0,
       "iconIdx": 81
     }
   ],

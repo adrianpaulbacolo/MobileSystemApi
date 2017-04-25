@@ -1,70 +1,127 @@
-//dashboard
+// Banner in Payment Page
 
-.fund-dashboard{
-  	.wallet-box{
-  		margin: 0;
-  		height: 95px;
-  		position: relative;
-  	}
-}
+.payment-banner.slick-slider {
+    background-color: transparent;
+    margin-bottom: 50px;
 
-.wallet-carousel-box{
-	overflow: hidden;
-	padding-bottom: 30px;
-	min-height: 130px;
-	h5{
-		color: $page-title-header-color;
-		margin-top: 0;
-		margin-bottom: 16px;
-		font-size: 1rem;
-	}
-}
+    .slick-dots {
+        height: 22px;
+        text-align: center;
+        margin: 0 auto;
+        padding: 0;
+        left: 0;
+        right: 0;
+        bottom: -43px;
+        position: absolute;
+        @include box-shadow(inset 0 -10px 10px 0 rgba(0,0,0,0.075));
 
-.carousel-from,
-.carousel-to{
-    display: none;
-}
-.wallet-carousel{
-	text-align: center;
-	margin: 0 -8px;
-	.wallet-carousel-col{
-		padding: 16px 0;
-		margin: 0 4px;
-		background: $brand-default;
-		@include box-shadow(0 17px 17px -16px rgba(0,0,0,0.75));
-		@include transition(all 300ms ease-in-out);
-		opacity: 0.65;
-		h4{
-			font-family: $dinpro;
-			color: $text-color;
-			font-size: 0.688rem;
-			text-transform: uppercase;
-			margin-top: 0;
-			margin-bottom: 0;
-		}
-		p{
-			color: $brand-alt;
-			font-size: 0.875rem;
-			margin-bottom: 0;
-		}
-		span{
-			color: darken($text-color, 40%);
-			font-size: 0.688rem;
-			display: block;
-		}
-	}
-	.slick-list{
-		overflow: visible;
-	}
-	.slick-current .wallet-carousel-col {
-		background: lighten($brand-default, 7%);
-	    z-index: 5;
-		position: relative;
-	    opacity: 1;
-		@include transform(scale(1.2));
-		@include box-shadow(0 17px 17px -16px rgba(0,0,0,0.95));
-        &.disabled {
-			background: $brand-default;
+        li {
+            margin: 0 4px;
+            display: inline-block;
+
+            button {
+                padding: 0;
+                width: 7px;
+                height: 7px;
+                text-indent: -9999px;
+                border: none;
+                display: block;
+                @include border-radius(50%);
+                background-color: $text-color;
+                opacity: 0.9;
+            }
+
+            &.slick-active button {
+                background-color: $brand-primary;
+            }
         }
-	}
+    }
+
+    .slick-arrow {
+        z-index: 10;
+    }
+
+    video {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+}
+
+.arrow-container {
+    position: relative;
+    width: 100%;
+    max-width: 767px;
+    margin: 0 auto;
+
+    .slick-arrow {
+        font-size: 2rem;
+        padding: 5px;
+        line-height: 1;
+        top: 40%;
+        color: #fff;
+        background: rgba(0,0,0,0.5);
+        border: none;
+        position: absolute;
+        z-index: 10;
+
+        &:focus,
+        &:active,
+        &:hover {
+            outline: 0 none;
+            background: rgba(0,0,0,0.75);
+        }
+
+        &.slick-disabled {
+            opacity: 0.2;
+        }
+    }
+
+    .slick-prev {
+        left: 0;
+    }
+
+    .slick-next {
+        right: 0;
+    }
+}
+
+.stop-video {
+    border: none;
+    color: #fff;
+    padding: 10px;
+    background: rgba(0,0,0,0.5);
+    top: 5px;
+    right: 5px;
+    z-index: 10;
+    position: absolute;
+}
+
+// Media
+
+.img-responsive {
+    margin: auto;
+}
+
+.embed-responsive {
+    padding: 0;
+    height: 0;
+    padding-bottom: 63%;
+    display: block;
+    position: relative;
+    overflow: hidden;
+
+    embed,
+    iframe,
+    video,
+    object {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        background: #222 center center;
+    }
 }

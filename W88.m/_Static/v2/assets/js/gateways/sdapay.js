@@ -76,6 +76,7 @@ function SDAPay() {
                     $('#lblStatus').text(_w88_contents.translate("LABEL_FIELDS_STATUS"));
                     $('#lblTransactionId').text(_w88_contents.translate("LABEL_TRANSACTION_ID"));
                     $('#lblAmount').text(_w88_contents.translate("LABEL_AMOUNT"));
+                    $('#lblAmount2').text(_w88_contents.translate("LABEL_AMOUNT"));
                     $('#lblBankName').text(_w88_contents.translate("LABEL_BANK_NAME"));
                     $('#lblBankHolderName').text(_w88_contents.translate("LABEL_ACCOUNT_NAME"));
                     $('#lblBankAccountNo').text(_w88_contents.translate("LABEL_ACCOUNT_NUMBER"));

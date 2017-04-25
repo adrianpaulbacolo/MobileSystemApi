@@ -17,11 +17,13 @@ function UnionPay() {
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
 
-                $("#paymentNote").text(_w88_contents.translate("LABEL_REMINDER"));
+                $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
 
                 if (!_.isUndefined(gatewayId)) {
                     if (gatewayId == "120223") {
                         $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_120223")); //SD pay
+                        $("#securePayAndroid").html(_w88_contents.translate("LABEL_ANDROID_DOWNLOAD_SECURE_PAY"));
+                        $("#securePayiOS").html(_w88_contents.translate("LABEL_IOS_DOWNLOAD_SECURE_PAY"));
                     }
                 }
 

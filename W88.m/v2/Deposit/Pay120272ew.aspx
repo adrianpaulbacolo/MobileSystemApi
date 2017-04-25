@@ -7,7 +7,7 @@
     </div>
     <div class="form-group">
         <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
-        <asp:TextBox ID="txtAmount" runat="server" type="number" Enabled="False" />
+        <asp:TextBox ID="txtAmount" runat="server" Enabled="False" CssClass="form-control" required data-paylimit="0" data-numeric />
     </div>
     <div class="form-group">
         <asp:Label ID="lblOtp" runat="server" AssociatedControlID="txtOtp" />

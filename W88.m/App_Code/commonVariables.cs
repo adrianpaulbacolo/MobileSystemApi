@@ -236,7 +236,6 @@ public class commonVariables
         PayGo = 110394,
         PaySec = 120290,
         PayTrust = 1202139,
-        SDAPay = 120203,
         SDAPayAlipay = 120254,
         SDPay = 120223,
         ShengPayAliPay = 1202111,
