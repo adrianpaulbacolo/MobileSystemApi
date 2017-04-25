@@ -35,6 +35,7 @@
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
             window.w88Mobile.Gateways.MoneyTransfer.init("<%=base.PaymentMethodId %>", false);
+            window.w88Mobile.Gateways.MoneyTransfer.countryphone();
 
             $('#form1').validator().on('submit', function (e) {
 

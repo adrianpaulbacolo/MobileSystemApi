@@ -96,6 +96,7 @@ public partial class v2_Deposit_Pay : PaymentBasePage
             case (int)commonVariables.DepositMethod.TongHuiWeChat:
             case (int)commonVariables.DepositMethod.KDPayWeChat:
             case (int)commonVariables.DepositMethod.AifuWeChat:
+            case (int)commonVariables.DepositMethod.AloGatewayWeChat:
             case (int)commonVariables.DepositMethod.AllDebitWeChat:
                 GatewayFile = "wechat";
                 break;

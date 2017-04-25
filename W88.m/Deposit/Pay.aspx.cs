@@ -77,6 +77,9 @@ public partial class Deposit_Pay : PaymentBasePage
             case commonVariables.DepositMethod.PayTrust:
                 GatewayFile = "paytrust";
                 break;
+            case commonVariables.DepositMethod.AloGatewayWeChat:
+                GatewayFile = "alogateway";
+                break;
             case commonVariables.DepositMethod.AllDebitB2C:
                 GatewayFile = "quickonline";
                 break;

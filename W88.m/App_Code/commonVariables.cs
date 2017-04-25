@@ -212,6 +212,7 @@ public class commonVariables
         AllDebitAlipay = 1202169,
         AllDebitB2C = 1202167,
         AllDebitWeChat = 1202168,
+        AloGatewayWeChat = 1202154,
         Baokim = 120272,
         BaokimScratchCard = 120286,
         BofoPay = 120231,
