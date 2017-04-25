@@ -7,23 +7,13 @@
     </div>
     <div class="form-group">
         <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
-        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" onKeyPress="return ValidatePositiveDecimal(this, event);" required data-paylimit="0" />
+        <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" required data-paylimit="0" data-numeric="1" />
     </div>
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">
     <script type="text/javascript" src="/_static/v2/assets/js/gateways/wechat.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 
     <script type="text/javascript">
-
-        var ua = navigator.userAgent.toLowerCase();
-        var isAndroid = ua.indexOf("android") > -1;
-        if (isAndroid) {
-            $('#<%=txtAmount.ClientID%>').keypress(function (event) {
-                return TwoDecimalAndroid($(this), event);
-            });
-        }
-
         $(document).ready(function () {
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
@@ -33,15 +23,9 @@
             $('#form1').validator().on('submit', function (e) {
 
                 if (!e.isDefaultPrevented()) {
-                    var hasOneDecimal = PositiveOneDecimalValidation($('#<%=txtAmount.ClientID%>').val());
-
-                    if (!hasOneDecimal) {
-                        return;
-                    }
-
                     e.preventDefault();
                     var data = {
-                        Amount: $('input[id$="txtAmount"]').val(),
+                        Amount: $('input[id$="txtAmount"]').autoNumeric('get'),
                         ThankYouPage: location.protocol + "//" + location.host + "/Index",
                         MethodId: "<%=base.PaymentMethodId%>"
                     };

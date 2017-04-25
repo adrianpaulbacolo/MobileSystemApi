@@ -38,12 +38,23 @@
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/amplify.min.js"></script>
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/pubsub.js"></script>
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/fingerprint2.min.js"></script>
+<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/cookie.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>  
 
 
 <!-- Include all related variables (below), or include individual files as needed -->
 <script type="text/javascript">
+    var siteCookie = new Cookies();
+
+    _.templateSettings = {
+    interpolate: /\{\{(.+?)\}\}/g,      // print value: {{ value_name }}
+    evaluate: /\{%([\s\S]+?)%\}/g,   // excute code: {% code_to_execute %}
+    escape: /\{%-([\s\S]+?)%\}/g
+    };
+    _.templateSettings.variable = "tplData";
+
     window.w88Mobile = {};
     w88Mobile.Gateways = {};
+    w88Mobile.Gateway = {};
     window.User = {};
     window.User.hasSession = <%= (!String.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) ? 1 : 0 %>;
     window.User.token = '<%= commonVariables.CurrentMemberSessionId %>';
@@ -59,9 +70,7 @@
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/main.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/usercheck.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/loader.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/growl.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-
-<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/cookie.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>   
+<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/growl.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script> 
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/constants.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 
 <!-- Include all PIWIK related modules (below), or include individual files as needed -->
@@ -112,60 +121,11 @@
         if(!_.isUndefined(w88Mobile.Growl)){
             w88Mobile.Growl.init();
             w88Mobile.Growl.options.lang = '<%=commonVariables.SelectedLanguageShort%>';
+            w88Mobile.Growl.options.close = '<%=commonCulture.ElementValues.getResourceString("close", commonVariables.LeftMenuXML)%>';
         }
     });
-</script>
     
-<!-- Include all API Interceptor related modules (below), or include individual files as needed --> 
-<script>
     w88Mobile.Loader.init();
-
-    var isAPIRequest = function (url) {
-
-        var apiPaths = [w88Mobile.APIUrl];
-
-        for (var i in apiPaths) {
-            if (_.includes(url, apiPaths[i])) {
-                return true;
-            }
-        }
-        return false;
-    };
-
-    // interceptor: check api calls if user status has changed
-    $( document ).ajaxComplete(function( event, request, settings ) {
-
-        if (isAPIRequest(settings.url)) {
-            if (!_.isUndefined(request.responseJSON.ResponseCode)) {
-                switch (request.responseJSON.ResponseCode) {
-                    case -7: //session expired
-                        //alert(request.responseJSON.ResponseMessage);
-                        //window.location.href = "/logout";
-                        // use below if growl is available
-                        w88Mobile.Growl.shout(request.responseJSON.ResponseMessage, function(){
-                            window.location.href = "/logout";
-                        });
-                        break;
-
-                    case -6: //multiple login
-                        //alert(request.responseJSON.ResponseMessage);
-                        //window.location.href = "/logout";
-                        // use below if growl is available
-                        w88Mobile.Growl.shout(request.responseJSON.ResponseMessage, function(){
-                            window.location.href = "/logout";
-                        });
-                        break;
-
-                    case -2: // not logged in
-                        //alert(request.responseJSON.ResponseMessage);
-                        //window.location.href = "/_secure/login.aspx";
-                        // use below if growl is available
-                        w88Mobile.Growl.shout(request.responseJSON.ResponseMessage, function(){
-                            window.location.href = "/_secure/login.aspx";
-                        });
-                        break;
-                }
-            }
-        }
-    });
 </script>
+<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/interceptor.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    
