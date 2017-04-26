@@ -26,6 +26,8 @@ function MoneyTransfer() {
                 $('label[id$="lblAccountName"]').text(_w88_contents.translate("LABEL_ACCOUNT_NAME"));
                 $('label[id$="lblAccountNumber"]').text(_w88_contents.translate("LABEL_ACCOUNT_NUMBER"));
                 defaultBank = _w88_contents.translate("LABEL_SELECT_DEFAULT") + " " + _w88_contents.translate("LABEL_SYSTEM_ACCOUNT");
+                // for withdraw
+                $('label[id$="lblContact"]').text(_w88_contents.translate("LABEL_MOBILE_NUMBER"));
 
             } else {
                 window.setInterval(function () {
@@ -78,34 +80,6 @@ function MoneyTransfer() {
 
             if (_.isArray(response.ResponseMessage))
                 w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage), _self.shoutCallback);
-            else
-                w88Mobile.Growl.shout(response.ResponseMessage,  _self.shoutCallback);
-        },
-            function () {
-                pubsub.publish('stopLoadItem', { selector: "" });
-            });
-    };
-
-    moneytransfer.createWithdrawal = function (data) {
-
-        _w88_paymentSvcV2.Send("/CountryPhoneList", "GET", "", function (response) {
-            if (!_.isEqual(response.ResponseCode, 0)) {
-                _.forEach(response.ResponseData.PhoneList, function (data) {
-                    $('select[id$="drpContactCountry"]').append($("<option></option>").attr("value", data.Value).text(data.Text));
-                });
-
-                $('select[id$="drpContactCountry"]').val(response.ResponseData.PhoneSelected).change();
-            }
-        });
-
-        var _self = this;
-
-        _self.methodId = params.MethodId;
-        _self.changeRoute();
-        _self.deposit(data, function (response) {
-
-            if (_.isArray(response.ResponseMessage))
-                w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage),  _self.shoutCallback);
             else
                 w88Mobile.Growl.shout(response.ResponseMessage,  _self.shoutCallback);
         },

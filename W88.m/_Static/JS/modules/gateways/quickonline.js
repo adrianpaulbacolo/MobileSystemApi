@@ -3,7 +3,33 @@ var _w88_quickonline = window.w88Mobile.Gateways.QuickOnline;
 
 function QuickOnline() {
 
-    var quickonline = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
+    var quickonline;
+
+    try {
+        quickonline = Object.create(new w88Mobile.Gateway(_w88_paymentSvc));
+    } catch (err) {
+        quickonline = {};
+    }
+
+    quickonline.init = function (gateway, getBank) {
+
+        $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+        $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_BANK_NOT_SUPPORTED"));
+
+        if (getBank) {
+
+            var currencyCode = new Cookies().getCookie("currencyCode");
+
+            _w88_paymentSvc.SendDeposit("/Banks/vendor/" + gateway + "/" + currencyCode, "GET", "", function (response) {
+                $('select[id$="drpBank"]').append($('<option>').text(_w88_contents.translate("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
+                $('select[id$="drpBank"]').val("-1").change();
+
+                _.forOwn(response.ResponseData, function (data) {
+                    $('select[id$="drpBank"]').append($('<option>').text(data.Text).attr('value', data.Value));
+                });
+            });
+        }
+    };
 
     quickonline.createDeposit = function () {
         var _self = this;
