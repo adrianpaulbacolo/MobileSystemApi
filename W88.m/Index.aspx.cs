@@ -147,8 +147,16 @@ public partial class _Index : BasePage
 
                 if (promo.HasAttributes && promo.Attribute("deviceId") != null)
                 {
-                    if (Convert.ToInt16(promo.Attribute("deviceId").Value) != commonFunctions.getMobileDevice(Request))
-                        continue;
+                    if (commonFunctions.getMobileDevice(Request) == 3)
+                    {
+                        if (Convert.ToInt16(promo.Attribute("deviceId").Value) != 2)
+                            continue;
+                    }
+                    else
+                    {
+                        if (Convert.ToInt16(promo.Attribute("deviceId").Value) != commonFunctions.getMobileDevice(Request))
+                            continue;    
+                    }
                 }
 
                 if (!string.IsNullOrWhiteSpace(descText)) description = "<p>" + descText + "</p>";
