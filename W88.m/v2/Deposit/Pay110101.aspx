@@ -84,7 +84,7 @@
                     AccountNumber: $('[id$="txtAccountNumber"]').val(),
                     SystemBankText: $('select[id$="drpSystemAccount"] option:selected').text(),
                     SystemBankValue: $('select[id$="drpSystemAccount"]').val(),
-                    BankName: $('[id$="BankName"]').val(),
+                    BankName: $('[id$="txtBankName"]').val(),
                     ReferenceId: $('[id$="txtReferenceId"]').val(),
                     DepositChannelText: $('select[id$="drpDepositChannel"] option:selected').text(),
                     DepositChannelValue: $('select[id$="drpDepositChannel"]').val(),

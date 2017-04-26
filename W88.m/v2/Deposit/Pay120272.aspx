@@ -71,14 +71,14 @@
                     $('#ewallet').show();
                     window.w88Mobile.Gateways.BaokimV2.method = "EWALLET";
                     $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-                    $("#notice").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_EWALLET"));
+                    $("#paymentNoteContent").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_EWALLET"));
                 } else {
                     $('#ewallet').hide();
                     $('#atm').show();
                     $(this).hide();
                     window.w88Mobile.Gateways.BaokimV2.method = "ATM";
                     $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-                    $("#notice").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_ATM"));
+                    $("#paymentNoteContent").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_ATM"));
                 }
             });
 
