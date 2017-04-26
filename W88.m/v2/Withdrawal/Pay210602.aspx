@@ -62,6 +62,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
+            var currency = '<%= commonCookie.CookieCurrency.ToLower() %>';
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
@@ -69,7 +70,7 @@
             window.w88Mobile.Gateways.BankTransferv2.loadSecondaryBankWidraw();
 
             $('select[id$="drpBank"]').change(function () {
-                window.w88Mobile.Gateways.BankTransferv2.toggleBankWidraw(this.value, '<%= commonCookie.CookieCurrency.ToLower() %>');
+                window.w88Mobile.Gateways.BankTransferv2.toggleBankWidraw(this.value, currency);
             });
 
             $('select[id$="drpSecondaryBank"]').change(function () {
@@ -111,13 +112,13 @@
                         data.BankBranch = $('input[id$="txtBankBranch"]').val();
                     }
 
-                    if ($('select[id$="drpSecondaryBank"]').val() == 'OTHER') {
+                    if ($('select[id$="drpSecondaryBank"]').val() != 'OTHER' && currency == 'vnd') {
+                        data.BankAddressId = $('select[id$="drpBankLocation"]').val();
+                        data.BankBranchId = $('select[id$="drpBankBranchList"]').val();
+                    } else {
                         data.BankAddress = $('input[id$="txtAddress"]').val();
                         data.BankBranch = $('input[id$="txtBankBranch"]').val();
                         data.BankName = $('input[id$="txtBankName"]').val();
-                    } else {
-                        data.BankAddressId = $('select[id$="drpBankLocation"]').val();
-                        data.BankBranchId = $('select[id$="drpBankBranchList"]').val();
                     }
 
                     _w88_paymentSvcV2.CreateWithdraw(data, "<%=base.PaymentMethodId %>");
