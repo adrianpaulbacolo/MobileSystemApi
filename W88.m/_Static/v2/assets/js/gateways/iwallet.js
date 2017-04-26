@@ -11,6 +11,10 @@ function IWalletV2() {
         iwallet = {};
     }
 
+    iwallet.init = function (gatewayId) {
+        $('label[id$="lblAccountNumber"]').text(_w88_contents.translate("LABEL_ACCOUNT_NUMBER"));
+    };
+
     iwallet.createDeposit = function () {
         var _self = this;
         var params = _self.getUrlVars();
