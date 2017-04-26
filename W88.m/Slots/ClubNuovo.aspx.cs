@@ -18,6 +18,9 @@ public partial class Slots_ClubNuovo : BasePage
         var plsHandler = new PLSHandler(commonVariables.CurrentMemberSessionId, "ClubNuovo", "FundTransfer");
         var plsCategory = plsHandler.Process();
 
+        var mrsHandler = new MRSHandler(commonVariables.CurrentMemberSessionId, "ClubNuovo", "FundTransfer");
+        var mrsCategory = mrsHandler.Process();
+
         var opSettings = new OperatorSettings(System.Configuration.ConfigurationManager.AppSettings.Get("Operator"));
         var addGpi = Convert.ToBoolean(opSettings.Values.Get("GPIAddOtheClubs"));
 
@@ -30,11 +33,11 @@ public partial class Slots_ClubNuovo : BasePage
             //games = gnsCategory.Union(plsCategory).Union(gpiCategory).GroupBy(x => x.Title);
 
             plsCategory[0].Current = gpiHandler.InsertInjectedGames(gpiCategory, plsCategory[0].Current);
-            games = plsCategory.Union(gpiCategory).GroupBy(x => x.Title);
+            games = plsCategory.Union(mrsCategory).Union(gpiCategory).GroupBy(x => x.Title);
         }
         else
         {
-            games = plsCategory.GroupBy(x => x.Title);
+            games = plsCategory.Union(mrsCategory).GroupBy(x => x.Title);
         }
 
         var sbGames = new StringBuilder();
