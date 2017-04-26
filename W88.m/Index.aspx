@@ -142,8 +142,6 @@
                 <%
                     var isSuperBullIndex = false;
 
-                    if (mobileDeviceId == 2 || mobileDeviceId == 3)
-                    {
                         if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
                         {
 
@@ -160,7 +158,6 @@
                                 isSuperBullIndex = true;
                             }
                         }
-                    }
                 %>
 
 
