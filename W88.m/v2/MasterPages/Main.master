@@ -32,17 +32,18 @@
                     var isHome = (!base.Page.Items.Contains("Parent") || !commonFunctions.isNativeAgent(Request));
                     var navIcon = isHome ? "icon-navicon" : "icon-back";
                     var navUrl = isHome ? "#" : base.Page.Items["Parent"];
+                    var hasFooter = isHome && commonFunctions.isMainPage(Request);
                 %>
                 <a href="<%=navUrl %>" class="header-button header-button-left" id="nav-btn<%=(commonFunctions.isNativeAgent(Request)) ? "-native" : "" %>"><span class="icon <%=navIcon %>"></span></a>
                 <h1 class="header-title"><%=(base.Page.Title == "Dashboard" ? "<img alt=\"Dashboard\" src=\"/_Static/v2/assets/images/logo-en.png\" />" : base.Page.Title) %></h1>
             </header>
 
-            <section class="body <%=(isHome) ? "has-footer" : "" %>">
+            <section class="body <%=(hasFooter) ? "has-footer" : "" %>">
                 <asp:ContentPlaceHolder ID="MainContentHolder" runat="server">
                 </asp:ContentPlaceHolder>
             </section>
 
-            <% if(isHome){ %>
+            <% if(hasFooter){ %>
             <footer class="footer">
                 <div class="btn-group btn-group-justified" role="group" aria-label="...">
                     <div class="btn-group" role="group">

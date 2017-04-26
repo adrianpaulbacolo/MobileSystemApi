@@ -739,6 +739,7 @@ public static class commonFunctions
             , "/lang.aspx"
             , "/lottery.aspx"
             , "/profile/default.aspx"
+            , "/v2/dashboard.aspx"
         };
 
         return pageList.Any(path.ToLower().Contains);
