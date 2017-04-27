@@ -17,6 +17,7 @@ function UnionPay() {
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
 
+                $(".pay-note").show();
                 $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
 
                 if (!_.isUndefined(gatewayId)) {

@@ -11,7 +11,7 @@ function QuickOnlineV2() {
         quickonline = {};
     }
 
-    quickonline.init = function(gateway, getBank) {
+    quickonline.init = function (gateway, getBank) {
 
         setTranslations();
 
@@ -19,19 +19,20 @@ function QuickOnlineV2() {
 
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
-                $('label[id$="lblSwitchLine"]').text(_w88_contents.translate("LABEL_SWITCH_LINE"));
+                $('[id$="lblSwitchLine"]').text(_w88_contents.translate("LABEL_SWITCH_LINE"));
                 $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
+
+                $(".pay-note").show();
+                $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
 
                 if (gateway == '120265') { //EGHL
                     $('#paymentNoteContent').html(_w88_contents.translate("LABEL_MSG_120265"));
                 } else {
-                    //payment note is for ECPSS
-                    $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
                     $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_BANK_NOT_SUPPORTED"));
                 }
 
             } else {
-                window.setInterval(function() {
+                window.setInterval(function () {
                     setTranslations();
                 }, 500);
             }

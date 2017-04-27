@@ -18,6 +18,7 @@ function Cubits() {
         function setTranslations() {
             $('label[id$="lblAddress"]').text(_w88_contents.translate("LABEL_ADDRESS"));
 
+            $(".pay-note").show();
             $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
             $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_" + gatewayId));
         }

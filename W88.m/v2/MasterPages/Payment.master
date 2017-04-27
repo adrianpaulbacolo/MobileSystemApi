@@ -4,7 +4,7 @@
 
     <div class="wallets deposit">
     </div>
-    
+
     <div class="gateway-select">
         <button id="activeTab" class="btn btn-block btn-primary collapsed" type="button" data-toggle="collapse" data-target="#gateway-list" aria-expanded="false" aria-controls="gateway-list">
         </button>
@@ -48,6 +48,13 @@
     <div class="form-container">
         <div class="container">
             <form class="form" id="form1" runat="server">
+                <div class="pay-note" hidden>
+                    <p>
+                        <small class="pay-note-label" id="paymentNote"></small>
+                        <br />
+                        <small id="paymentNoteContent"></small>
+                    </p>
+                </div>
                 <asp:ContentPlaceHolder ID="PaymentMainContent" runat="Server">
                 </asp:ContentPlaceHolder>
                 <div class="arrow-container">
