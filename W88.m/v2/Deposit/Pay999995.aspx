@@ -1,17 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/v2/MasterPages/Payment.master" AutoEventWireup="true" CodeFile="Pay999995.aspx.cs" Inherits="v2_Deposit_Pay999995" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
-    <div class="form-group pay-note">
-        <span id="paymentNote"></span>
-        <p id="paymentNoteContent"></p>
+    <div class="pay-note">
+        <p><small  class="pay-note-label" id="paymentNote"></small><br>
+            <small id="paymentNoteContent"></small>
+        </p>
     </div>
     <div class="form-group">
         <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
         <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" required data-paylimit="0" data-numeric="1" />
     </div>
     <div class="form-group">
-        <asp:CheckBox type="checkbox" ID="isSwitchLine" runat="server" />
-        <asp:Label ID="lblSwitchLine" runat="server" AssociatedControlID="isSwitchLine" />
+        <div class="checkbox checkbox-custom">
+            <label>
+                <input type="checkbox" type="checkbox" ID="isSwitchLine">
+                <span ID="lblSwitchLine">Switch Line</span>
+            </label>
+        </div>
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">

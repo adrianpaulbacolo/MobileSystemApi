@@ -1,61 +1,13 @@
 // Banner in Payment Page
 
-.payment-banner.slick-slider {
-    background-color: transparent;
-    margin-bottom: 50px;
-
-    .slick-dots {
-        height: 22px;
-        text-align: center;
-        margin: 0 auto;
-        padding: 0;
-        left: 0;
-        right: 0;
-        bottom: -43px;
-        position: absolute;
-        @include box-shadow(inset 0 -10px 10px 0 rgba(0,0,0,0.075));
-
-        li {
-            margin: 0 4px;
-            display: inline-block;
-
-            button {
-                padding: 0;
-                width: 7px;
-                height: 7px;
-                text-indent: -9999px;
-                border: none;
-                display: block;
-                @include border-radius(50%);
-                background-color: $text-color;
-                opacity: 0.9;
-            }
-
-            &.slick-active button {
-                background-color: $brand-primary;
-            }
-        }
-    }
-
-    .slick-arrow {
-        z-index: 10;
-    }
-
-    video {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-    }
-}
-
 .arrow-container {
     position: relative;
     width: 100%;
     max-width: 767px;
-    margin: 0 auto;
+    margin: 0 auto 70px;
 
     .slick-arrow {
-        font-size: 2rem;
+        font-size: 1.125rem;
         padding: 5px;
         line-height: 1;
         top: 40%;
@@ -83,6 +35,55 @@
 
     .slick-next {
         right: 0;
+    }
+}
+.payment-banner.slick-slider {
+    background-color: rgba(0,0,0,0.1);
+    .slick-dots {
+        height: 22px;
+        text-align: center;
+        margin: 0 auto;
+        padding: 0;
+        left: 0;
+        right: 0;
+        bottom: -43px;
+        position: absolute;
+
+        li {
+            margin: 0 4px;
+            display: inline-block;
+
+            button {
+                padding: 0;
+                width: 7px;
+                height: 7px;
+                text-indent: -9999px;
+                border: none;
+                display: block;
+                @include border-radius(50%);
+                background-color: $text-color;
+                opacity: 0.9;
+            }
+
+            &.slick-active button {
+                background-color: $brand-primary;
+            }
+        }
+    }
+    .slick-slide{
+        padding: 32px 28px;
+        img{
+            margin: 0 auto;
+        }
+    }
+    .slick-arrow {
+        z-index: 10;
+    }
+
+    video {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
     }
 }
 
