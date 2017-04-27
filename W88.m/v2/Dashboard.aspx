@@ -2,7 +2,6 @@
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentHolder" runat="Server">
     <div class="home-banner slick-slider">
-        <%=base.BannerDiv %>
     </div>
 
     <div class="dashboard dashboard-home">
@@ -60,6 +59,15 @@
             } catch (e) {
                 console.log("Native does not exist!");
             }
+        });
+
+        $(document).ready(function () {
+            $(".home-banner.slick-slider").append('<%=base.BannerDiv %>').slick({
+                arrows: false,
+                dots: true,
+                autoplay: true
+            });
+
         });
     </script>
 </asp:Content>
