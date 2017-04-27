@@ -184,7 +184,7 @@ function DefaultPaymentsV2() {
             delete data["selector"];
         }
 
-        var url = w88Mobile.APIUrl +resource;
+        var url = w88Mobile.APIUrl + resource;
 
         var headers = {
             'Token': window.User.token,
@@ -355,21 +355,17 @@ function DefaultPaymentsV2() {
 
                     $('#' + activeTabId).addClass('active');
                 }
-                else if (!activeTabId && _.includes(routing, data.Id)) {
-                    if (!_.includes(window.location.pathname, page)) {
-                        window.location.href = page;
-                        isAutoRoute = true;
-                        break;
-                    }
-                }
             }
 
             if (activeTabId) {
+                if (title) {
+                    if ($('#activeTab').length > 0)
+                        $('#activeTab').text(title);
 
-                if ($('#activeTab').length > 0)
-                    $('#activeTab').text(title);
-
-                $('header .header-title').append(' - ' + title);
+                    $('header .header-title').append(' - ' + title);
+                } else {
+                    window.location.href = deposit;
+                }
 
                 if (_.includes(routing, activeTabId)) {
                     $('.dailyLimit').hide()
@@ -377,11 +373,9 @@ function DefaultPaymentsV2() {
                 }
             }
             else {
-                if (!isAutoRoute) {
-                    page = setPaymentPage(_.first(responseData).Id);
-                    if (!_.isEmpty(page))
-                        window.location.href = deposit + page;
-                }
+                page = setPaymentPage(_.first(responseData).Id);
+                if (page)
+                    window.location.href = deposit + page;
             }
 
         } else {
