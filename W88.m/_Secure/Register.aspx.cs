@@ -35,6 +35,11 @@ public partial class _Secure_Register : BasePage
         commonCulture.appData.getLocalResource(out xeResources);
         var opSettings = new customConfig.OperatorSettings("W88");
 
+        if (commonVariables.SelectedLanguageShort.ToLower() == "th")
+        {
+            pnlLineId.Visible = true;
+        }
+
         if (Page.IsPostBack) return;
 
         if (!string.IsNullOrEmpty(HttpContext.Current.Request.QueryString.Get("referid")))
@@ -336,6 +341,11 @@ public partial class _Secure_Register : BasePage
             strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/CountryBlocked", xeErrors);
             isProcessAbort = true;
         }
+        else if (commonValidation.isInjection(txtLineId.Text))
+        {
+            strAlertMessage = commonCulture.ElementValues.getResourceXPathString("Register/InvalidLineId", xeErrors);
+            isProcessAbort = true;
+        }
         else
         {
             strResultCode = "00";
@@ -430,9 +440,9 @@ public partial class _Secure_Register : BasePage
 
             using (wsMemberMS1.memberWSSoapClient svcInstance = new wsMemberMS1.memberWSSoapClient())
             {
-                dsRegister = svcInstance.MemberRegistrationNew(lngOperatorId, strMemberCode, strPasswordEncrypted, strEmail, strContactNumber,
+                dsRegister = svcInstance.MemberRegistrationNewWithLineId(lngOperatorId, strMemberCode, strPasswordEncrypted, strEmail, strContactNumber,
                     strAddress, strCity, strPostal, strCountryCode, strCurrencyCode, strGender, intOddsType, string.IsNullOrEmpty(strLanguageCode) ? "en-us" : strLanguageCode,
-                            intAffiliateId, strReferBy, strIPAddress, strSignUpUrl, strDeviceId, isTestAccount, strFName, strLName, dtDOB, string.Empty);
+                            intAffiliateId, strReferBy, strIPAddress, strSignUpUrl, strDeviceId, isTestAccount, strFName, strLName, dtDOB, string.Empty, txtLineId.Text);
 
                 strProcessRemark = string.Format("OperatorId: {0} | MemberCode: {1} | Password: {2} | Email: {3} | Contact: {4} | Address: {5} | City: {6} | Postal: {6} | Country: {8} | Currency: {9} | Gender: {10} | OddsType: {11} | Language: {12} | Affiliate: {13} | ReferBy: {14} | IP: {15} | SignUpUrl: {16} | DeviceID: {17} | TestAccount: {18} | FName: {19} | LName: {20} | DOB: {21} | REMOTEIP: {22} | FORWARDEDIP: {23} | REQUESTERIP: {24} | AffiliateID: {25}",
                     lngOperatorId, strMemberCode, strPasswordEncrypted, strEmail, strContact, strAddress, strCity, strPostal, strCountryCode, strCurrencyCode, strGender, intOddsType, strLanguageCode, intAffiliateId, strReferBy, strIPAddress, strSignUpUrl, strDeviceId, isTestAccount, strFName, strLName, dtDOB, commonIp.remoteIP, commonIp.forwardedIP, commonIp.requesterIP, intAffiliateId);
