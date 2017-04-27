@@ -5,7 +5,6 @@
     <div class="wallets deposit">
     </div>
 
-
     <div class="gateway-select">
         <button id="activeTab" class="btn btn-block btn-primary collapsed" type="button" data-toggle="collapse" data-target="#gateway-list" aria-expanded="false" aria-controls="gateway-list">
         </button>
@@ -15,54 +14,54 @@
         </div>
     </div>
 
+    <div class="gateway-restrictions">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6">
+                    <p><small id="lblMode">Mode</small></p>
+                </div>
+                <div class="col-xs-6">
+                    <p><small id="txtMode"></small></p>
+                </div>
+                <div class="col-xs-6">
+                    <p><small id="lblMinMaxLimit">Min/Max Limit</small></p>
+                </div>
+                <div class="col-xs-6">
+                    <p><small id="txtMinMaxLimit"></small></p>
+                </div>
+                <div class="col-xs-6 dailyLimit">
+                    <p><small id="lblDailyLimit">Daily Limit</small></p>
+                </div>
+                <div class="col-xs-6 dailyLimit">
+                    <p><small id="txtDailyLimit"></small></p>
+                </div>
+                <div class="col-xs-6 totalAllowed">
+                    <p><small id="lblTotalAllowed">Total Allowed</small></p>
+                </div>
+                <div class="col-xs-6 totalAllowed">
+                    <p><small id="txtTotalAllowed"></small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="form-container">
         <div class="container">
             <form class="form" id="form1" runat="server">
-
-
-
-                <div class="gateway-restrictions">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <p><small id="lblMode">Mode</small></p>
-                            </div>
-                            <div class="col-xs-6">
-                                <p><small id="txtMode"></small></p>
-                            </div>
-                            <div class="col-xs-6">
-                                <p><small id="lblMinMaxLimit">Min/Max Limit</small></p>
-                            </div>
-                            <div class="col-xs-6">
-                                <p><small id="txtMinMaxLimit"></small></p>
-                            </div>
-                            <div class="col-xs-6 dailyLimit">
-                                <p><small id="lblDailyLimit">Daily Limit</small></p>
-                            </div>
-                            <div class="col-xs-6 dailyLimit">
-                                <p><small id="txtDailyLimit"></small></p>
-                            </div>
-                            <div class="col-xs-6 totalAllowed">
-                                <p><small id="lblTotalAllowed">Total Allowed</small></p>
-                            </div>
-                            <div class="col-xs-6 totalAllowed">
-                                <p><small id="txtTotalAllowed"></small></p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="pay-note" hidden>
+                    <p>
+                        <small class="pay-note-label" id="paymentNote"></small>
+                        <br />
+                        <small id="paymentNoteContent"></small>
+                    </p>
                 </div>
-
                 <asp:ContentPlaceHolder ID="PaymentMainContent" runat="Server">
                 </asp:ContentPlaceHolder>
-
                 <div class="arrow-container">
                     <div class="payment-banner"></div>
                 </div>
-
                 <button type="submit" id="btnSubmitPlacement" class="btn btn-block btn-primary"></button>
-
             </form>
-
         </div>
     </div>
 

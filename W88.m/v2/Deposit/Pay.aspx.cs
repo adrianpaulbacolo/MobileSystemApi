@@ -72,7 +72,7 @@ public partial class v2_Deposit_Pay : PaymentBasePage
 
             case (int)commonVariables.DepositMethod.SDAPayAlipay:
             case (int)commonVariables.DepositMethod.AlipayTransfer:
-                GatewayFile = "sdapay";
+                GatewayFile = "alipaytransfer";
                 break;
 
             case (int)commonVariables.DepositMethod.Cubits:

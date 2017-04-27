@@ -20,6 +20,7 @@ function DinpayTopUp() {
         $('label[id$="lblCardNo"]').html(_w88_contents.translate("LABEL_CARD_NUMBER"));
         $('label[id$="lblPin"]').html(_w88_contents.translate("LABEL_CARD_PIN"));
 
+        $(".pay-note").show();
         $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
         $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_1202112"));
 

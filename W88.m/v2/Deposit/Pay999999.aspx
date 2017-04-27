@@ -9,9 +9,13 @@
         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
         <asp:DropDownList ID="drpBank" runat="server" CssClass="form-control" data-bankequals="-1" />
     </div>
-    <div class="form-group checkbox checkbox-custom">
-        <asp:CheckBox type="checkbox" ID="isSwitchLine" runat="server" />
-        <asp:Label ID="lblSwitchLine" runat="server" AssociatedControlID="isSwitchLine" />
+    <div class="form-group">
+        <div class="checkbox checkbox-custom">
+            <label>
+                <input type="checkbox" id="isSwitchLine">
+                <span id="lblSwitchLine"></span>
+            </label>
+        </div>
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">

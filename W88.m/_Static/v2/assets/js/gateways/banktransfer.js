@@ -18,8 +18,9 @@ function BankTransferv2() {
 
         function setTranslations() {
 
-            if (Cookies().getCookie('language').toLowerCase() == 'vn' && Cookies().getCookie('currencyCode').toLowerCase() == 'vnd') {
+            if (Cookies().getCookie('language').toLowerCase() == 'vi-vn' && Cookies().getCookie('currencyCode').toLowerCase() == 'vnd') {
                 if (_w88_contents.translate("LABEL_PAYMENT_NOTE_FASTDEPOSIT") != "LABEL_PAYMENT_NOTE_FASTDEPOSIT") {
+                    $(".pay-note").show();
                     $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
                     $("#paymentNoteContent").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_FASTDEPOSIT"));
                 } else {

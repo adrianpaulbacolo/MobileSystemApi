@@ -22,6 +22,7 @@ function BaokimScratchCardV2() {
                 $('label[id$="lblPin"]').text(_w88_contents.translate("LABEL_CARD_PIN"));
                 $('label[id$="lblCardSerialNo"]').text(_w88_contents.translate("LABEL_CARD_SERIAL"));
 
+                $(".pay-note").show();
                 $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
                 $('#paymentNoteContent').html(_w88_contents.translate("LABEL_MSG_120286"));
 

@@ -43,6 +43,8 @@ function AutoRoute() {
         function setTranslations() {
             if (_w88_contents.translate("LABEL_SWITCH_LINE") != "LABEL_SWITCH_LINE") {
                 $('label[id$="lblSwitchLine"]').text(_w88_contents.translate("LABEL_SWITCH_LINE"));
+
+                $(".pay-note").show();
                 $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
                 $("#paymentNoteContent").text(_w88_contents.translate("LABEL_MSG_BANK_NOT_SUPPORTED"));
             } else {

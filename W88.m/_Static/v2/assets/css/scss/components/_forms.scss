@@ -37,11 +37,14 @@ fieldset[disabled] .form-control {
 }
 
 select.form-control{
+  background: url('../images/select-arrow.png') center right no-repeat;
+  @include appearance(none);
   option {
       background-color: $body-bg;
       color: $text-color;
       text-shadow: none;
   }
+
 }
 .input-group{
   .form-control{
@@ -89,12 +92,14 @@ select.form-control{
     padding-left: 0;
   }
   span{
-    padding-left: 8px;
+    color: $brand-alt;
+    padding-left: 6px;
     &:before{
+      color: $text-color;
       font-family: 'icomoon';
-      font-size: 1.188em;
+      font-size: 1.313em;
       top: 3px;
-      left: -8px;
+      left: -6px;
       position: relative;
     }
   }
@@ -118,21 +123,8 @@ select.form-control{
   }
   input[type="radio"]:checked + span:before,
   input[type="checkbox"]:checked + span:before{
-    color: $brand-primary !important;
+    color: $text-color !important;
   }
-}
-
-div.pay-note {
-    font-size: 70%;
-}
-
-div.pay-note #paymentNote {
-    color: red;
-    font-weight: bold;
-}
-
-div.pay-note #paymentNoteContent {
-    padding-top: 5px;
 }
 
 .has-error .form-control {
@@ -219,5 +211,13 @@ div.pay-note #paymentNoteContent {
     .glyphicon {
       display: none;
     }
+  }
+}
+
+.pay-note {
+  margin-bottom: 15px;
+  .pay-note-label{
+      color: $brand-danger;
+      font-weight: 700;
   }
 }

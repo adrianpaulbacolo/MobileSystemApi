@@ -379,8 +379,8 @@ function Slots() {
             $('#gameRegisterUrl').show();
             $('#gameLoginUrl').show();
 
-            $('#gameRegisterUrl').attr('href', loginUrl);
-            $('#gameLoginUrl').attr('href', registerUrl);
+            $('#gameRegisterUrl').attr('href', registerUrl);
+            $('#gameLoginUrl').attr('href', loginUrl);
         }
 
         $('#gameModal').modal('toggle');

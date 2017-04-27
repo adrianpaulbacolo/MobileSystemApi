@@ -1,27 +1,30 @@
-﻿window.w88Mobile.Gateways.SDAPay = SDAPay();
-var _w88_sdapay = window.w88Mobile.Gateways.SDAPay;
+﻿window.w88Mobile.Gateways.AliPayTransfer = AliPayTransfer();
+var _w88_alipaytransfer = window.w88Mobile.Gateways.AliPayTransfer;
 
-function SDAPay() {
+function AliPayTransfer() {
 
-    var sdapay;
+    var alipaytransfer;
 
     try {
-        sdapay = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
+        alipaytransfer = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
     } catch (err) {
-        sdapay = {};
+        alipaytransfer = {};
     }
 
-    sdapay.bankUrl = "";
-    sdapay.step = 1;
+    alipaytransfer.bankUrl = "";
+    alipaytransfer.step = 1;
 
-    sdapay.init = function (methodId) {
+    alipaytransfer.init = function (methodId) {
 
         setTranslations();
 
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
+
+                $(".pay-note").show();
                 $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
                 $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_" + methodId));
+
                 $("#copyAmount").html(_w88_contents.translate("LABEL_COPY"));
                 $("#copyAccountName").html(_w88_contents.translate("LABEL_COPY"));
                 $("#copyAccountNo").html(_w88_contents.translate("LABEL_COPY"));
@@ -34,17 +37,18 @@ function SDAPay() {
         }
     };
 
-    sdapay.step2 = function (methodId, data) {
+    alipaytransfer.step2 = function (methodId, data) {
 
-        _w88_sdapay.send("/payments/" + methodId, "POST", data, function (response) {
+        _w88_alipaytransfer.send("/payments/" + methodId, "POST", data, function (response) {
             var transactionId = response.ResponseData.TransactionId;
 
             setTranslations();
 
             $('#PaymentInfo').show();
             $('#PaymentAmount').hide();
+            $('.arrow-container').hide();
 
-            _w88_sdapay.send("/payments/" + methodId + "/" + transactionId, "GET", "", function (respData) {
+            _w88_alipaytransfer.send("/payments/" + methodId + "/" + transactionId, "GET", "", function (respData) {
                 switch (respData.ResponseCode) {
                     case 1:
                         $('#txtStatus').text(": " + respData.ResponseData.Status);
@@ -54,10 +58,10 @@ function SDAPay() {
                         $('#txtBankHolderName').text(": " + respData.ResponseData.AccountName);
                         $('#txtBankAccountNo').text(": " + respData.ResponseData.AccountNumber);
 
-                        _w88_sdapay.step = 2;
-                        _w88_sdapay.bankUrl = respData.ResponseData.BankUrl;
+                        _w88_alipaytransfer.step = 2;
+                        _w88_alipaytransfer.bankUrl = respData.ResponseData.BankUrl;
 
-                        _w88_sdapay.checkstatus(transactionId);
+                        _w88_alipaytransfer.checkstatus(transactionId);
 
                         break;
                     default:
@@ -81,8 +85,9 @@ function SDAPay() {
                     $('#lblBankHolderName').text(_w88_contents.translate("LABEL_ACCOUNT_NAME"));
                     $('#lblBankAccountNo').text(_w88_contents.translate("LABEL_ACCOUNT_NUMBER"));
 
-                    $("#paymentNote2").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-                    $("#paymentNoteContent2").text(_w88_contents.translate("LABEL_MSG_AMOUNT_" + methodId));
+                    $(".pay-note").show();
+                    $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+                    $("#paymentNoteContent").text(_w88_contents.translate("LABEL_MSG_AMOUNT_" + methodId));
                 } else {
                     window.setInterval(function () {
                         setTranslations();
@@ -94,7 +99,7 @@ function SDAPay() {
       
     };
 
-    sdapay.copytoclipboard = function(text) {
+    alipaytransfer.copytoclipboard = function (text) {
         var input = document.createElement('textarea', { "permissions": ["clipboardWrite"] });
         document.body.appendChild(input);
         input.value = text;
@@ -107,7 +112,7 @@ function SDAPay() {
         input.remove();
     };
 
-    sdapay.checkstatus = function (transactionId) {
+    alipaytransfer.checkstatus = function (transactionId) {
 
         var intervalId = setInterval(function() {
 
@@ -151,5 +156,5 @@ function SDAPay() {
 
     };
 
-    return sdapay;
+    return alipaytransfer;
 }
