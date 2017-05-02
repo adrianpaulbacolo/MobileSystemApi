@@ -91,7 +91,7 @@ public partial class Upload_Default : BasePage
                                     break;
 
                                 case "rmb":
-                                    message.CC.Add("team_cschina@aquozsolutions.com");
+                                    message.CC.Add("cncs@w88yd.com");
                                     break;
 
                                 case "idr":
