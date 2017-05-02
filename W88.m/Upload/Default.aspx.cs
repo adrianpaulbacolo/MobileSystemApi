@@ -86,12 +86,12 @@ public partial class Upload_Default : BasePage
                                     break;
 
                                 case "usd":
-                                    message.CC.Add("team_cscambodia@aquozsolutions.com");
                                     message.CC.Add("CS_English@aquozsolutions.com");
+                                    message.CC.Add("team_cscambodia@aquozsolutions.com");
                                     break;
 
                                 case "rmb":
-                                    message.CC.Add("inforcn@w88.com");
+                                    message.CC.Add("team_cschina@aquozsolutions.com");
                                     break;
 
                                 case "idr":
@@ -108,6 +108,10 @@ public partial class Upload_Default : BasePage
 
                                 case "vnd":
                                     message.CC.Add("team_csvietnam@aquozsolutions.com");
+                                    break;
+
+                                case "jpy":
+                                    message.CC.Add("team_csjapan@aquozsolutions.com");
                                     break;
                             }
 
