@@ -48,7 +48,7 @@ public partial class Upload_Default : BasePage
         //string strUploadRecipients = System.Configuration.ConfigurationManager.AppSettings.Get("UploadRecipients");
         int fileSize = fuFileUpload.PostedFile.ContentLength;
         string fileExtension = System.IO.Path.GetExtension(fuFileUpload.PostedFile.FileName.ToString());
-        System.Text.RegularExpressions.Regex rexFileExt = new System.Text.RegularExpressions.Regex("(.gif|.jpg|.png)");
+        System.Text.RegularExpressions.Regex rexFileExt = new System.Text.RegularExpressions.Regex("(?i)(.gif|.jpg|.png)");
 
         if (fuFileUpload.HasFile)
         {
