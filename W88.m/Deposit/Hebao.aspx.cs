@@ -2,7 +2,7 @@
 using System.Web.UI;
 
 
-public partial class Deposit_AllDebit : PaymentBasePage
+public partial class Deposit_Hebao : PaymentBasePage
 {
     protected void Page_Init(object sender, EventArgs e)
     {
