@@ -223,6 +223,8 @@ public class commonVariables
         ECPSS = 120218,
         EGHL = 120265,
         FastDeposit = 110101,
+        HebaoB2C = 1202174,
+        HebaoWeChat = 1202175,
         Help2Pay = 120227,
         IWallet = 1202103,
         JTPayAliPay = 1202122,

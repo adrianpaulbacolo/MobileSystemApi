@@ -18,13 +18,15 @@ function QuickOnline() {
 
         if (getBank) {
 
-            var currencyCode = new Cookies().getCookie("currencyCode");
-
-            _w88_paymentSvc.SendDeposit("/Banks/vendor/" + gateway + "/" + currencyCode, "GET", "", function (response) {
+            _w88_paymentSvc.SendDeposit("/Banks/vendor/" + gateway, "GET", "", function (response) {
                 $('select[id$="drpBank"]').append($('<option>').text(_w88_contents.translate("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
                 $('select[id$="drpBank"]').val("-1").change();
 
                 _.forOwn(response.ResponseData, function (data) {
+
+                    if (_.isEqual(data.Value, "ICBC") || _.isEqual(data.Value, "ECITIC"))
+                        data.Text = data.Text + " (*)";
+
                     $('select[id$="drpBank"]').append($('<option>').text(data.Text).attr('value', data.Value));
                 });
             });
