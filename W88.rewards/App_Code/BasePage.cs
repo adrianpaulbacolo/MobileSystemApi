@@ -7,7 +7,6 @@ using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Rewards.Models;
 using W88.BusinessLogic.Shared.Helpers;
 using W88.Utilities;
-using W88.Utilities.Geo;
 
 
 public class BasePage : Page
@@ -20,6 +19,7 @@ public class BasePage : Page
     protected RewardsHelper RewardsHelper = new RewardsHelper();
     protected string Language = string.Empty;
 
+    #region Page Properties
     protected bool IsUnderMaintenance
     {
         get
@@ -37,6 +37,25 @@ public class BasePage : Page
         }
     }
 
+    protected bool IsVip
+    {
+        get
+        {
+            var vipCookie = CookieHelpers.CookieVip;
+            bool isVip;
+            bool.TryParse(vipCookie, out isVip);
+            return isVip;
+        }
+    }
+
+    protected string PageTitle
+    {
+        get { return Title; }
+        set { Title = value; }
+    }
+    #endregion
+
+    #region Page Methods
     protected override void OnPreInit(EventArgs e)
     {
         try
@@ -56,7 +75,9 @@ public class BasePage : Page
             CheckSession();
         }
     }
+    #endregion
 
+    #region Protected Methods
     protected async void CheckSession()
     {
         try
@@ -119,21 +140,11 @@ public class BasePage : Page
         MemberRewardsInfo.CurrentPointLevel = await RewardsHelper.GetPointLevel(MemberSession.MemberId);
     }
 
-    protected bool IsVip
-    {     
-        get
-        {
-            var vipCookie = CookieHelpers.CookieVip;
-            bool isVip;
-            bool.TryParse(vipCookie, out isVip);
-            return isVip;
-        }
-    }
-
     protected string GetTranslation(string key, string fileName = "")
     {
         return CultureHelpers.GetTranslation(key, 
             string.IsNullOrEmpty(Language) ? LanguageHelpers.SelectedLanguage : Language, 
             string.Format("contents/{0}", string.IsNullOrEmpty(fileName) ? "translations" : fileName));
     }
+    #endregion
 }

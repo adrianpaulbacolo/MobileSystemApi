@@ -163,34 +163,38 @@ function toggleLoginButton() {
         headerLogoutButton = $('div.dropdown ul>li#headerLogoutButton'),
         loginFooterButton = $('div.btn-group a#loginFooterButton'),
         logoutFooterButton = $('div.btn-group a#logoutFooterButton'),
+        spinWheelLinkButton = $('div.dropdown ul>li#spinWheelLink'),
         submitButton = $('#btnSubmit');
 
-    if (headerLoginButton && headerLogoutButton) {
-        if (window.user && window.user.hasSession()) {
+    if (window.user && window.user.hasSession()) {
+        if (headerLoginButton && headerLogoutButton) {
             headerLoginButton.hide();
             headerLogoutButton.show();
-        } else {
+        }
+        if (loginFooterButton && logoutFooterButton) {
+            loginFooterButton.hide();
+            logoutFooterButton.show();
+        }
+
+        if (spinWheelLinkButton) 
+            spinWheelLinkButton.show();
+        
+        if (submitButton) 
+            $('#btnSubmit').hide();      
+    } else {
+        if (headerLoginButton && headerLogoutButton) {
             headerLogoutButton.hide();
             headerLoginButton.show();
         }
-    }
-
-    if (loginFooterButton && logoutFooterButton) {
-        if (window.user && window.user.hasSession()) {
-            loginFooterButton.hide();
-            logoutFooterButton.show();
-        } else {
+        if (loginFooterButton && logoutFooterButton) {
             logoutFooterButton.hide();
             loginFooterButton.show();
         }
-    }
-
-    if (submitButton) {
-        if (window.user && window.user.hasSession()) {
-            $('#btnSubmit').hide();
-        } else {
-            $('#btnSubmit').show();
-        }
+        if (spinWheelLinkButton)
+            spinWheelLinkButton.hide();
+        
+        if (submitButton) 
+            $('#btnSubmit').show();     
     }
 }
 
