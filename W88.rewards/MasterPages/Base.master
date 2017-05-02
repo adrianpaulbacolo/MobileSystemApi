@@ -1,8 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Base.master.cs" Inherits="MasterPages.Base" %>
 
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head runat="server">
     <title><%=Page.Title%></title>
     <!--#include virtual="~/_static/head.inc" -->

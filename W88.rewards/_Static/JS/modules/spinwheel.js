@@ -33,10 +33,10 @@ document.oncontextmenu = new Function("return false");
 
 var _sid = 0;
 	
-var SW = function(user, translations, coordinates, swc, pic, isMobile, isLoggedIn) {
+var SW = function(user, translations, swc, pic, isMobile, isLoggedIn) {
     this.u = user;
     this.t = translations;
-    this.ca = coordinates;
+    this.ca = [];
     this.im = isMobile;
     this.swp = [];
     this.hl = false;
@@ -51,13 +51,87 @@ var SW = function(user, translations, coordinates, swc, pic, isMobile, isLoggedI
     this.isLoggedIn = isLoggedIn;
 };
 
+window.addEventListener("orientationchange", function() {
+    if (Math.abs(screen.orientation.angle) == 90) return;
+});
+
 window.onload = function () {
     if (!sw.swc) 
-        sw.swc = {h: $('#roulette').height(), w: $('#roulette').width()};    
+        sw.swc = { h: $('#roulette').height(), w: $('#roulette').width() };
+
+    sw._gwc_();
     sw._db_();
     sw._isw_();
     document.getElementById('spinWheel').addEventListener('wheel', function () { return false; });
     sw._obsM_();
+};
+
+SW.prototype._gwc_ = function () {
+    var self = this,
+        ca = [];
+    switch (Math.ceil($('#roulette').width())) {
+        case 604:
+            ca[0] = { a: 0, b: 0 };
+            ca[1] = { a: 125, b: -301 };
+            ca[2] = { a: 0, b: -605 };
+            ca[3] = { a: -301, b: -730 };
+            ca[4] = { a: -606, b: -615 };
+            ca[5] = { a: -730, b: -300 };
+            ca[6] = { a: -605, b: 0 };
+            ca[7] = { a: -305, b: 125 };
+            break;
+        case 398:
+            ca[0] = { a: 0, b: 0 };
+            ca[1] = { a: 82, b: -200 };
+            ca[2] = { a: 0, b: -395 };
+            ca[3] = { a: -197, b: -480 };
+            ca[4] = { a: -397, b: -395 };
+            ca[5] = { a: -480, b: -195 };
+            ca[6] = { a: -400, b: 0 };
+            ca[7] = { a: -197, b: 79 };
+            break;
+        case 359:
+            ca[0] = { a: 0, b: 0 };
+            ca[1] = { a: 75, b: -175 };
+            ca[2] = { a: 0, b: -355 };
+            ca[3] = { a: -180, b: -430 };
+            ca[4] = { a: -357, b: -360 };
+            ca[5] = { a: -432, b: -175 };
+            ca[6] = { a: -360, b: 0 };
+            ca[7] = { a: -178, b: 80 };
+            break;
+        case 344:
+            ca[0] = { a: 0, b: 0 };
+            ca[1] = { a: 73, b: -171 };
+            ca[2] = { a: 0, b: -340 };
+            ca[3] = { a: -171, b: -410 };
+            ca[4] = { a: -342, b: -345 };
+            ca[5] = { a: -415, b: -165 };
+            ca[6] = { a: -340, b: 0 };
+            ca[7] = { a: -170, b: 75 };
+            break;
+        case 304:
+            ca[0] = { a: 0, b: 0 };
+            ca[1] = { a: 65, b: -151 };
+            ca[2] = { a: 0, b: -303 };
+            ca[3] = { a: -151, b: -365 };
+            ca[4] = { a: -303, b: -305 };
+            ca[5] = { a: -367, b: -150 };
+            ca[6] = { a: -303, b: 5 };
+            ca[7] = { a: -152, b: 63 };
+            break;
+        default:
+            ca[0] = { a: 0, b: 0 };
+            ca[1] = { a: 73, b: -171 };
+            ca[2] = { a: 0, b: -340 };
+            ca[3] = { a: -171, b: -410 };
+            ca[4] = { a: -342, b: -345 };
+            ca[5] = { a: -415, b: -165 };
+            ca[6] = { a: -340, b: 0 };
+            ca[7] = { a: -170, b: 75 };
+            break;
+    }
+    self.ca = ca;
 };
 
 SW.prototype._obsM_ = function() {

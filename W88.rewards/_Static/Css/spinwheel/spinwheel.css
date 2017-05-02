@@ -1,0 +1,396 @@
+﻿.main-content {
+    background-image: url("/_Static/Images/spinwheel/BG.jpg");
+    background-repeat: repeat;
+}
+#spinWheelContainer {
+    width: 100%;
+    position: relative;
+}
+#spinWheelContent {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+#roulette {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 190px auto 0;
+}
+#wheelPointer {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 190px auto 0;
+}
+#prizes p {
+    color: #fff;
+    z-index: 1000;
+    position: absolute;
+    text-align: center;
+    word-break: break-all;
+    padding: 0 10px;
+}
+@media (min-width: 320px) and (orientation: portrait) {
+    #spinWheelContainer {
+        height: 85vh;
+        top: -208px;
+    }
+    #roulette {
+        width: 100%;
+    }
+    #wheelPointer {
+        width: 100%;
+    }
+    #prizes {
+        position: absolute;
+        top: 75px;
+        bottom: 0px;
+        left: -135px;
+        right: 0;
+    }
+    #prizes p {
+        height: 20px;
+        width: 75px;
+        font-size: 8px;
+    }
+    #prize1 {
+        top: 192px;
+        left: 251px;
+    }
+    #prize2 {
+        top: 210px;
+        left: 298px;
+    } 
+    #prize3 {
+        top: 258px;
+        left: 315px;
+    }
+    #prize4 {
+        top: 303px;
+        left: 296px;
+    }
+    #prize5 {
+        top: 322px;
+        left: 250px;
+    }
+    #prize6 {
+        top: 304px;
+        left: 205px;
+    }
+    #prize7 {
+        top: 257px;
+        left: 185px;
+    }
+    #prize8 {
+        top: 212px;
+        left: 202px;
+    }
+}
+@media (min-width: 360px) and (orientation: portrait) {
+    #spinWheelContainer {
+        height: 85vh;
+        top: -208px;
+    }
+    #roulette {
+        width: 100%;
+    }
+    #wheelPointer {
+        width: 100%;
+    }
+    #prizes {
+        position: absolute;
+        top: 95px;
+        bottom: 0px;
+        left: -116px;
+        right: 0;
+    }
+    #prize1 {
+        top: 182px;
+        left: 251px;
+    }
+    #prize2 {
+        top: 204px;
+        left: 305px;
+    } 
+    #prize3 {
+        top: 258px;
+        left: 326px;
+    }
+    #prize4 {
+        top: 310px;
+        left: 304px;
+    }
+    #prize5 {
+        top: 332px;
+        left: 250px;
+    }
+    #prize6 {
+        top: 312px;
+        left: 195px;
+    }
+    #prize7 {
+        top: 257px;
+        left: 174px;
+    }
+    #prize8 {
+        top: 204px;
+        left: 195px;
+    }
+}
+@media (min-width: 375px) and (orientation: portrait) {
+    #spinWheelContainer {
+        height: 85vh;
+        top: -208px;
+    }
+    #roulette {
+        width: 100%;
+    }
+    #wheelPointer {
+        width: 100%;
+    }
+    #prizes {
+        position: absolute;
+        top: 103px;
+        bottom: 0px;
+        left: -107px;
+        right: 0;
+    }
+    #prize1 {
+        top: 182px;
+        left: 251px;
+    }
+    #prize2 {
+        top: 204px;
+        left: 305px;
+    } 
+    #prize3 {
+        top: 258px;
+        left: 326px;
+    }
+    #prize4 {
+        top: 310px;
+        left: 304px;
+    }
+    #prize5 {
+        top: 332px;
+        left: 250px;
+    }
+    #prize6 {
+        top: 312px;
+        left: 196px;
+    }
+    #prize7 {
+        top: 258px;
+        left: 172px;
+    }
+    #prize8 {
+        top: 203px;
+        left: 194px;
+    }
+}
+@media (min-width: 414px) and (orientation: portrait) {
+    #spinWheelContainer {
+        height: 90vh;
+    }
+    #roulette {
+        width: 100%;
+    }
+    #wheelPointer {
+        width: 100%;
+    }
+    #prizes {
+        position: absolute;
+        top: 120px;
+        bottom: 0px;
+        left: -89px;
+        right: 0;
+    }
+    #prizes p {
+        font-size: 9px;
+    }
+    #prize1 {
+        top: 169px;
+        left: 251px;
+    }
+    #prize2 {
+        top: 195px;
+        left: 317px;
+    }
+    #prize3 {
+        top: 260px;
+        left: 340px;
+    }
+    #prize4 {
+        top: 323px;
+        left: 313px;
+    }
+    #prize5 {
+        top: 349px;
+        left: 250px;
+    }
+    #prize6 {
+        top: 323px;
+        left: 187px;
+    }
+    #prize7 {
+        top: 258px;
+        left: 162px;
+    }
+    #prize8 {
+        top: 196px;
+        left: 186px;
+    }
+}
+@media (min-width: 768px) and (orientation: portrait) {
+    #spinWheelContainer {
+        width: 100%;
+        height: 80vh;
+        position: relative;
+        margin: 0 auto;
+        top: -210px;
+    }
+    #roulette {
+        width: 80.3%;
+    }
+    #wheelPointer {
+        width: 80.3%;
+    }
+    #prizes {
+        position: absolute;
+        top: 205px;
+        bottom: 0;
+        left: 74px;
+        right: 0;
+    }
+    #prizes p {
+        height: 60px;
+        width: 106px;
+        font-size: 14px;
+    }
+    #prize1 {
+        top: 124px;
+        left: 249px;
+    } 
+    #prize2 {
+        top: 163px;
+        left: 344px;
+    } 
+    #prize3 {
+        top: 258px;
+        left: 384px;
+    } 
+    #prize4 {
+        top: 354px;
+        left: 345px;
+    } 
+    #prize5 {
+        top: 393px;
+        left: 249px;
+    } 
+    #prize6 {
+        top: 354px;
+        left: 154px;
+    } 
+    #prize7 {
+        top: 258px;
+        left: 113px;
+    } 
+    #prize8 {
+        top: 162px;
+        left: 154px;
+    } 
+}
+@media (min-width: 1024px) and (orientation: portrait) {
+    #spinWheelContainer {
+        width: 100%;
+        height: 80vh;
+        position: relative;
+        margin: 0 auto;
+        top: -125px;
+    }
+    #roulette {
+        width: 59.9%;
+    }
+    #wheelPointer {
+        width: 59.9%;
+    }
+    #prizes {
+        position: absolute;
+        top: 207px;
+        bottom: 0;
+        left: 201px;
+        right: 0;
+    }
+}
+.spinWheel {
+    margin: 190px auto 0;
+    position: relative;
+    -ms-transform-origin: 50% 50%;
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+}
+#swc {
+    z-index: 1;
+    position: relative;
+    margin: 190px auto 0;
+}
+.rotate45 {
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.rotate90 {
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+.rotate135 {
+    -ms-transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+.rotate180 {
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.rotate225 {
+    -ms-transform: rotate(225deg);
+    -webkit-transform: rotate(225deg);
+    -moz-transform: rotate(225deg);
+    -o-transform: rotate(225deg);
+    transform: rotate(225deg);
+}
+.rotate270 {
+    -ms-transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+.rotate315 {
+    -ms-transform: rotate(315deg);
+    -webkit-transform: rotate(315deg);
+    -moz-transform: rotate(315deg);
+    -o-transform: rotate(315deg);
+    transform: rotate(315deg);
+}
