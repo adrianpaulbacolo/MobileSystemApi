@@ -38,7 +38,7 @@ function QuickOnlineV2() {
             }
         }
 
-        if (getBank) {
+        if (getBank == true) {
             _w88_paymentSvcV2.Send("/Banks/vendor/" + gateway + "/" + currencyCode, "GET", "", function (response) {
                 var banks = response.ResponseData;
                 var defaultSelect = _w88_contents.translate("LABEL_SELECT_DEFAULT");
