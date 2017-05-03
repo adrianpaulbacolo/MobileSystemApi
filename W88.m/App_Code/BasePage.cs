@@ -36,6 +36,8 @@ public class BasePage : System.Web.UI.Page
         string CDN_Value = getCDNValue();
         string key = getCDNKey();
 
+        commonCookie.Set("CDNCountryCode", GetCountryCode(CDN_Value, key), DateTime.Now.AddDays(1));
+
         if (string.IsNullOrWhiteSpace(commonCookie.CookieLanguage))
         {
             if (!string.IsNullOrEmpty(CDN_Value) && !string.IsNullOrEmpty(key))
