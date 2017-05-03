@@ -37,14 +37,14 @@ public class BasePage : System.Web.UI.Page
         string CDN_Value = getCDNValue();
         string key = getCDNKey();
 
-        commonCookie.Set("CDNCountryCode", GetCountryCode(CDN_Value, key), DateTime.Now.AddDays(1));
+        CDNCountryCode = "MY";//GetCountryCode(CDN_Value, key);
+        commonCookie.Set("CDNCountryCode", CDNCountryCode, DateTime.Now.AddDays(1));
 
         if (string.IsNullOrWhiteSpace(commonCookie.CookieLanguage))
         {
-            if (!string.IsNullOrEmpty(CDN_Value) && !string.IsNullOrEmpty(key))
+            if (!string.IsNullOrEmpty(CDNCountryCode))
             {
-                commonVariables.SelectedLanguage = commonCountry.GetLanguageByCountry(GetCountryCode(CDN_Value, key));
-                CDNCountryCode = GetCountryCode(CDN_Value, key);
+                commonVariables.SelectedLanguage = commonCountry.GetLanguageByCountry(CDNCountryCode);
             }
             else
             {
@@ -80,7 +80,7 @@ public class BasePage : System.Web.UI.Page
         var strIsApp = HttpContext.Current.Request.QueryString.Get("isApp");
         if (!string.IsNullOrEmpty(strIsApp))
         {
-               commonCookie.CookieIsApp = (strIsApp == "1") ? strIsApp : null;
+            commonCookie.CookieIsApp = (strIsApp == "1") ? strIsApp : null;
         }
 
         commonCookie.CookieSubPlatform(HttpContext.Current.Request.QueryString.Get("spfid"));
@@ -116,7 +116,7 @@ public class BasePage : System.Web.UI.Page
             case "kr":
                 strLanguage = "ko-kr";
                 break;
-            
+
             case "th":
                 strLanguage = "th-th";
                 break;
@@ -327,7 +327,7 @@ public class BasePage : System.Web.UI.Page
         }
         else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_MY].Contains(Domain))
         {
-            Language = "zh-my";
+            Language = "zh-cn";
         }
         else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_KR].Contains(Domain))
         {

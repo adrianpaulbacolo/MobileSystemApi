@@ -52,20 +52,18 @@ public partial class _Default : BasePage
         {
             string strLanguage = language.Trim();
 
-            if (base.CDNCountryCode.Equals("MY", StringComparison.OrdinalIgnoreCase) || commonCookie.CookieLanguage.Equals("zh-my", StringComparison.OrdinalIgnoreCase))
+            if (base.CDNCountryCode.Equals("MY", StringComparison.OrdinalIgnoreCase))
             {
                 if (strLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))
+                {
+                    sbLanguageHTML.AppendFormat("<li><a data-ajax='false' href='/Index.aspx?lang={0}' data-inline='true' id='divzh-my' class='divLangImg divzh-my'></a></li>", strLanguage);
                     continue;
+                }
                 else if (strLanguage.Equals("en-us", StringComparison.OrdinalIgnoreCase))
                 {
                     sbLanguageHTML.AppendFormat("<li><a data-ajax='false' href='/Index.aspx?lang={0}' data-inline='true' id='diven-my' class='divLangImg diven-my'></a></li>", strLanguage);
                     continue;
                 }
-            }
-            else
-            {
-                if (strLanguage.Equals("zh-my", StringComparison.OrdinalIgnoreCase))
-                    continue;
             }
 
             sbLanguageHTML.AppendFormat("<li><a data-ajax='false' href='/Index.aspx?lang={0}' data-inline='true' id='div{0}' class='divLangImg div{0}'></a></li>", strLanguage);
