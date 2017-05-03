@@ -874,7 +874,7 @@ else {
     });
 </script>
 
-<% if (commonFunctions.isNativeAgent(Request)){ %>
+<% if (commonFunctions.isExternalPlatform()){ %>
 <script type="text/javascript">
         $(function () {
             $("#aMenu").attr("href", "#");

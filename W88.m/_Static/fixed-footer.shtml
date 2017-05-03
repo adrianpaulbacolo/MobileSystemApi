@@ -1,4 +1,4 @@
-<% if(commonFunctions.isNativeAgent(Request) && commonFunctions.isMainPage(Request)){ %>
+<% if(commonFunctions.isExternalPlatform() && commonFunctions.isMainPage(Request)){ %>
 <div data-role="footer" data-position="fixed">
     <div class="footer-nav">
         <div>
@@ -27,7 +27,7 @@
     $(".f-rewards-bottom").attr('href', urlRewards);
 });
 </script>
-<% } if(commonFunctions.isNativeAgent(Request)){ %>
+<% } if(commonFunctions.isExternalPlatform()){ %>
 <script type="text/javascript">
     $(function () {
 
