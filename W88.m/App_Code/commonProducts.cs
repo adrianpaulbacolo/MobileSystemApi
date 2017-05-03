@@ -442,7 +442,9 @@ public class commonLottery
 
             var language = commonCookie.CookieLanguage;
             var token = commonCookie.CookieS;
-            var paramString = "?vendor=W88&s=" + token + "&domainlink=" + domainHost + "&domain=" + domainHost + "&lang=" + language + "&game=keno";
+            var isExternalPlatform = commonFunctions.isExternalPlatform();
+            var paramString =  "?vendor=W88&s=" + token  + "&lang=" + language + "&game=keno";
+            if(!isExternalPlatform) paramString += "&domainlink=" + domainHost + "&domain=" + domainHost;
             //Change URL to GPI - Get From Config
             //return string.IsNullOrEmpty(strUrl) ? "" : strUrl.Replace("{DOMAIN}", commonIp.DomainName);
             return string.IsNullOrEmpty(strUrl) ? "" : strUrl + paramString;

@@ -30,7 +30,7 @@
         </div>
         <div class="dashboard-row">
             <div class="dashboard-col">
-                <a href="/Lottery.aspx?lang=<%=commonVariables.SelectedLanguage%>"><span class="icon icon-keno"></span>
+                <a href="/v2/Lottery.aspx?lang=<%=commonVariables.SelectedLanguage%>"><span class="icon icon-keno"></span>
                     <%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%>
                 </a>
             </div>
