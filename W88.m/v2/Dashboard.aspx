@@ -18,7 +18,7 @@
         </div>
         <div class="dashboard-row">
             <div class="dashboard-col">
-                <a href="/Slots.aspx"><span class="icon icon-slots"></span>
+                <a href="/_Static/v2new/slots.html"><span class="icon icon-slots"></span>
                     <%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%>
                 </a>
             </div>

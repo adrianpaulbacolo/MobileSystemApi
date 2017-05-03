@@ -48,8 +48,11 @@ function launcherCtrl(routeObj, slotSvc, templateSvc) {
                 _self.attachGame(game);
                 break;
         }
+    }
 
-
+    this.resize = function () {
+        var _self = this;
+        _self.init();
     }
 
     this.attachGame = function (game)
