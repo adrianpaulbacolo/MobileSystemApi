@@ -413,8 +413,7 @@ public class BasePage : System.Web.UI.Page
 
     protected void CheckAgentAndRedirect(string url)
     {
-        var userAgent = Request.UserAgent.ToString();
-        if (userAgent.ToLower().Contains("clubw"))
+        if (commonFunctions.isExternalPlatform())
         {
             Response.Redirect(url);
         }
