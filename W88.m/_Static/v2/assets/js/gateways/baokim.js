@@ -21,13 +21,11 @@ function BaokimV2() {
                 $('label[id$="lblBanks"]').text(_w88_contents.translate("LABEL_BANK"));
                 $('label[id$="lblEmailAtm"]').text(_w88_contents.translate("LABEL_EMAIL"));
                 $('label[id$="lblEmail"]').text(_w88_contents.translate("LABEL_EMAIL"));
-                $('label[id$="lblDepositAmountAtm"]').text(_w88_contents.translate("LABEL_AMOUNT"));
-                $('label[id$="lblDepositAmountWallet"]').text(_w88_contents.translate("LABEL_AMOUNT"));
+                $('label[id$="lblAmountAtm"]').text(_w88_contents.translate("LABEL_AMOUNT"));
+                $('label[id$="lblAmountWallet"]').text(_w88_contents.translate("LABEL_AMOUNT"));
                 $('label[id$="lblContact"]').text(_w88_contents.translate("LABEL_CONTACT"));
                 $('label[id$="lblWithdrawAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
                 $('label[id$="lblOtp"]').text(_w88_contents.translate("LABEL_OTP"));
-                sessionStorage.setItem("noticeWallet", _w88_contents.translate("LABEL_NOTICEEWALLET"));
-                sessionStorage.setItem("noticeAtm", _w88_contents.translate("LABEL_NOTICEATM"));
 
                 $('#ewallet').hide();
                 $('#atm').hide();
@@ -80,7 +78,8 @@ function BaokimV2() {
                             w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
                             w88Mobile.PostPaymentForm.submit();
                         } else if (response.ResponseData.DummyURL) {
-                            window.open(response.ResponseData.DummyURL, '_blank');
+                            w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.DummyURL, "body");
+                            w88Mobile.PostPaymentForm.submit();
                         }
                     }
                     break;

@@ -1,5 +1,5 @@
 ﻿window.w88Mobile.Gateways.IWalletV2 = IWalletV2();
-var _w88_iwalletV2 = window.w88Mobile.Gateways.IWalletV2;
+var _w88_iwallet = window.w88Mobile.Gateways.IWalletV2;
 
 function IWalletV2() {
 
@@ -10,6 +10,10 @@ function IWalletV2() {
     } catch (err) {
         iwallet = {};
     }
+
+    iwallet.init = function (gatewayId) {
+        $('label[id$="lblAccountNumber"]').text(_w88_contents.translate("LABEL_ACCOUNT_NUMBER"));
+    };
 
     iwallet.createDeposit = function () {
         var _self = this;

@@ -147,7 +147,7 @@ function DefaultPayments() {
             url: url,
             data: data,
             beforeSend: function () {
-                GPInt.prototype.ShowSplash(true);
+                pubsub.publish('startLoadItem', { selector: "" });
             },
             headers: headers,
             success: success,
@@ -155,15 +155,15 @@ function DefaultPayments() {
                 console.log("Error connecting to api");
             },
             complete: function () {
+                pubsub.publish('stopLoadItem', { selector: "" });
                 if (!_.isUndefined(complete)) complete();
-                GPInt.prototype.HideSplash();
             }
         });
     }
 
     function onTransactionCreated(form) {
 
-        var historyBtn = "<a href='/History' class='btn btn-primary'>" + _w88_contents.translate("LABEL_FUNDS_HISTORY") + "</a>";
+        var historyBtn = "<a href='/v2/History/Default.aspx' class='btn btn-primary' data-ajax='false'>" + _w88_contents.translate("LABEL_FUNDS_HISTORY") + "</a>";
         var message = "<p>" + _w88_contents.translate("MESSAGES_CHECK_HISTORY") + "</p>" + historyBtn;
         if (!_.isUndefined(form)) _.first(form).reset();
         w88Mobile.Growl.shout(message);
@@ -369,158 +369,12 @@ function DefaultPayments() {
         $('#paymentSettings').hide();
         $('#paymentList').hide();
 
-        GPInt.prototype.HideSplash();
+        pubsub.publish('stopLoadItem', { selector: "" });
     }
 
     function setPaymentPage(id) {
-        switch (id) {
-
-            // withdrawal
-            case "210602":
-                return "BankTransfer.aspx";
-
-            case "220815":
-                return "Neteller.aspx";
-
-            case "210709":
-                return "210709"; // WingMoney
-
-            case "2107138":
-                return "2107138"; // TrueMoney
-
-            case "220895":
-                return "VenusPoint.aspx";
-
-            case "2208102":
-                return "IWallet.aspx";
-
-            case "2208121":
-                return "Cubits.aspx";
-
-                // deposit
-            case "120272":
-                return "Baokim.aspx";
-
-            case "110101":
-                return "FastDeposit.aspx";
-
-            case "120204":
-                return "NextPay.aspx";
-
-            case "120248":
-                return "NextPayGV.aspx";
-
-            case "120280":
-                return "JutaPay.aspx";
-
-            case "110308":
-                return "110308"; // WingMoney
-
-            case "1103132":
-                return "1103132"; // TrueMoney
-
-            case "120223":
-                return "SDPay.aspx";
-
-            case "120227":
-                return "Help2Pay.aspx";
-
-            case "1202114":
-                return "KDPayWechat.aspx";
-
-            case "120243":
-                return "DaddyPay.aspx?value=1";
-
-            case "120244":
-                return "DaddyPay.aspx?value=2";
-
-            case "120214":
-                return "Neteller.aspx";
-
-            case "120290":
-                return "PaySec.aspx";
-
-            case "120254":
-                return "120254"; //SDAPayAlipay
-
-            case "1204131":
-                return "1204131"; // AlipayTransfer
-
-            case "1202111":
-                return "ShengPayAliPay.aspx";
-
-            case "120218":
-                return "ECPSS.aspx";
-
-            case "120231":
-                return "BofoPay.aspx";
-
-            case "1202123":
-                return "WeChat";
-
-            case "1202127":
-                return "KexunPay.aspx";
-
-            case "120275":
-                return "120275"; // TongHuiPay
-
-            case "120293":
-                return "120293"; // TongHuiAlipay
-
-            case "120277":
-                return "120277"; // TongHuiWeChat
-
-            case "1202122":
-                return "Alipay";
-
-            case "120236":
-                return "AllDebit.aspx";
-
-            case "120265":
-                return "EGHL.aspx";
-
-            case "120212":
-                return "NganLuong.aspx";
-
-            case "1202103":
-                return "IWallet.aspx";
-
-            case "120296":
-                return "VenusPoint.aspx";
-
-            case "120286":
-                return "BaokimScratchCard.aspx";
-
-            case "999999":
-                return "QuickOnline.aspx";
-
-            case "999996":
-                return "Alipay.aspx";
-
-            case "999995":
-                return "WeChat.aspx";
-
-            case "1202113":
-                return "JuyPayAlipay.aspx";
-
-            case "1202105":
-                return "NineVPayAlipay.aspx";
-
-            case "1202133":
-                return "WeChat/Aifu";
-
-            case "1202134":
-                return "Alipay/Aifu";
-
-            case "1202120":
-                return "Cubits.aspx";
-
-            case "1202112":
-                return "DinPayTopUp.aspx";
-
-            default:
-                break
-        }
+        if (_.isEmpty(id)) return "";
+        return id;
     }
 
     function togglePayment() {

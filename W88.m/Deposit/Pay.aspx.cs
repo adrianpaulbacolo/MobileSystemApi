@@ -44,7 +44,8 @@ public partial class Deposit_Pay : PaymentBasePage
             case commonVariables.DepositMethod.IWallet:
                 GatewayFile = "iwallet";
                 break;
-            case commonVariables.DepositMethod.KexunPay:
+            case commonVariables.DepositMethod.KexunPayWeChat:
+            case commonVariables.DepositMethod.AllDebitWeChat:
                 GatewayFile = "kexunpay";
                 break;
             case commonVariables.DepositMethod.KDPayWeChat:
@@ -54,6 +55,7 @@ public partial class Deposit_Pay : PaymentBasePage
                 GatewayFile = "help2pay";
                 break;
             case commonVariables.DepositMethod.ShengPayAliPay:
+            case commonVariables.DepositMethod.AllDebitAlipay:
                 GatewayFile = "shengpay";
                 break;
             case commonVariables.DepositMethod.Cubits:
@@ -71,6 +73,15 @@ public partial class Deposit_Pay : PaymentBasePage
             case commonVariables.DepositMethod.AifuAlipay:
             case commonVariables.DepositMethod.AifuWeChat:
                 GatewayFile = "aifu";
+                break;
+            case commonVariables.DepositMethod.PayTrust:
+                GatewayFile = "paytrust";
+                break;
+            case commonVariables.DepositMethod.AloGatewayWeChat:
+                GatewayFile = "alogateway";
+                break;
+            case commonVariables.DepositMethod.AllDebitB2C:
+                GatewayFile = "quickonline";
                 break;
         }
 

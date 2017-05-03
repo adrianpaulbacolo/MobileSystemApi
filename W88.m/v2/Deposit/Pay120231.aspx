@@ -2,8 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" Runat="Server">
      <div class="form-group">
-        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
-        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" required data-paylimit="0" />
+        <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
+        <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" required data-paylimit="0" data-numeric />
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" Runat="Server">
@@ -21,7 +21,7 @@
                 if (!e.isDefaultPrevented()) {
                     e.preventDefault();
                     var data = {
-                        Amount: $('input[id$="txtAmount"]').val(),
+                        Amount: $('input[id$="txtAmount"]').autoNumeric('get'),
                         ThankYouPage: location.protocol + "//" + location.host + "/Index",
                         MethodId: "<%=base.PaymentMethodId%>"
                     };

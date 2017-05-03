@@ -47,12 +47,6 @@ $(document).ready(function() {
 		$('.canvas').removeClass('expanded');
 		$('.side-nav').removeClass('overflow-shown');
 	});
-
-	$('.home-banner').slick({
-		arrows: false,
-		dots:true,
-		autoplay: true
-	});
 		
 });
 

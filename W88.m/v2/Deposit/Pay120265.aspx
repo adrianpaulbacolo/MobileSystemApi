@@ -2,12 +2,12 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
     <div class="form-group">
-        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
-        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" required data-paylimit="0"/>
+        <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
+        <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" required data-paylimit="0" data-numeric />
     </div>
     <div class="form-group idrBank">
         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
-        <asp:DropDownList ID="drpBank" runat="server" CssClass="form-control" data-bankequals="-1"/>
+        <asp:DropDownList ID="drpBank" runat="server" CssClass="form-control" data-bankequals="-1" />
     </div>
     <div class="form-group pay-note idrBank">
         <asp:Label ID="paymentNoteContent" runat="server" ForeColor="Red" />
@@ -21,21 +21,25 @@
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
-            if ('<%=commonVariables.GetSessionVariable("CurrencyCode")%>' == "MYR") {
+            var currencyCode = '<%=commonVariables.GetSessionVariable("CurrencyCode")%>';
+            var hasBank = true;
+
+            if (currencyCode == "MYR") {
                 $('.idrBank').show();
             }
             else {
                 $('.idrBank').hide();
+                hasBank = false;
             }
 
-            window.w88Mobile.Gateways.QuickOnlineV2.init("<%=base.PaymentMethodId %>", true);
+            window.w88Mobile.Gateways.QuickOnlineV2.init("<%=base.PaymentMethodId %>", hasBank);
 
             $('#form1').validator().on('submit', function (e) {
 
                 if (!e.isDefaultPrevented()) {
                     e.preventDefault();
                     var data = {
-                        Amount: $('input[id$="txtAmount"]').val(),
+                        Amount: $('input[id$="txtAmount"]').autoNumeric('get'),
                         BankText: $('select[id$="drpBank"] option:selected').val(),
                         BankValue: $('select[id$="drpBank"]').val(),
                         ThankYouPage: location.protocol + "//" + location.host + "/Index",

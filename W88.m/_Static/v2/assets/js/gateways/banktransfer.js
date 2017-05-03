@@ -18,8 +18,10 @@ function BankTransferv2() {
 
         function setTranslations() {
 
-            if (Cookies().getCookie('language').toLowerCase() == 'vn' && Cookies().getCookie('currencyCode').toLowerCase() == 'vnd') {
+            if (Cookies().getCookie('language').toLowerCase() == 'vi-vn' && Cookies().getCookie('currencyCode').toLowerCase() == 'vnd') {
                 if (_w88_contents.translate("LABEL_PAYMENT_NOTE_FASTDEPOSIT") != "LABEL_PAYMENT_NOTE_FASTDEPOSIT") {
+                    $(".pay-note").show();
+                    $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
                     $("#paymentNoteContent").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_FASTDEPOSIT"));
                 } else {
                     window.setInterval(function () {
@@ -185,12 +187,15 @@ function BankTransferv2() {
             _w88_banktransfer.setOriginStateWidraw();
             $('[id$="divOtherBank"]').show();
             $('[id$="divBankName"]').show();
+            $('input[id$="txtBankBranch"]').attr("required", true).trigger("change");
+            $('input[id$="txtAddress"]').attr("required", true).trigger("change");
 
         } else if (bankId != "-1") {
 
             _w88_banktransfer.loadBankLocationWidraw(bankLocationId);
-
             _w88_banktransfer.disableBranchWidraw();
+            $('input[id$="txtBankBranch"]').attr("required", false).trigger("change");
+            $('input[id$="txtAddress"]').attr("required", false).trigger("change");
 
         }
     };
@@ -249,7 +254,7 @@ function BankTransferv2() {
         var bankId = $('select[id$="drpSecondaryBank"]').val();
 
         if (bankId != '-1') {
-            _w88_paymentSvcV2.Send("/Banks/member/location/" + bankId, "GET", "", function (response) {
+            _w88_paymentSvcV2.Send("/Banks/member/location/" + bankId, "GET", { selector: "location" }, function (response) {
                 if (!_.isEqual(response.ResponseCode, 0)) {
 
                     $('select[id$="drpBankLocation"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
@@ -259,7 +264,7 @@ function BankTransferv2() {
                         $('select[id$="drpBankLocation"]').append($('<option>').text(v.Text).attr('value', v.Value));
                     });
 
-                    if (!_.isUndefined(blId)) {
+                    if (!_.isEmpty(blId)) {
                         $('select[id$="drpBankLocation"]').val(blId).change();
                     } else {
                         $('select[id$="drpBankLocation"]').val('-1').change();
@@ -276,7 +281,7 @@ function BankTransferv2() {
         var bankId = $('select[id$="drpSecondaryBank"]').val();
 
         if (bankId != '-1') {
-            _w88_paymentSvcV2.Send("/Banks/member/branch/" + bankId + "/" + bankLocationId, "GET", "", function (response) {
+            _w88_paymentSvcV2.Send("/Banks/member/branch/" + bankId + "/" + bankLocationId, "GET", { selector: "branch" }, function (response) {
                 if (!_.isEqual(response.ResponseCode, 0)) {
 
                     $('select[id$="drpBankBranchList"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
@@ -286,7 +291,7 @@ function BankTransferv2() {
                         $('select[id$="drpBankBranchList"]').append($('<option>').text(v.Text).attr('value', v.Value));
                     });
 
-                    if (!_.isUndefined(bankBranchId)) {
+                    if (!_.isEmpty(bankBranchId)) {
                         $('select[id$="drpBankBranchList"]').val(bankBranchId).change();
                     } else {
                         $('select[id$="drpBankBranchList"]').val("-1").change();

@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
     <div class="form-group">
         <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
-        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" required data-paylimit="0" />
+        <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" required data-paylimit="0" data-numeric />
     </div>
     <div class="form-group">
         <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" />
@@ -35,6 +35,7 @@
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
             window.w88Mobile.Gateways.MoneyTransfer.init("<%=base.PaymentMethodId %>", false);
+            window.w88Mobile.Gateways.MoneyTransfer.countryphone();
 
             $('#form1').validator().on('submit', function (e) {
 
@@ -43,7 +44,7 @@
                     e.preventDefault();
 
                     var data = {
-                        Amount: $('input[id$="txtAmount"]').val(),
+                        Amount: $('input[id$="txtAmount"]').autoNumeric('get'),
                         AccountName: $('input[id$="txtAccountName"]').val(),
                         AccountNumber: $('input[id$="txtAccountNumber"]').val(),
                         Phone: $('input[id$="txtContact"]').val(),

@@ -3,13 +3,30 @@
 function Slots() {
     var slots = [];
     var filteredSlots = [];
-    var clubLimit = 9;
     var sections = ["New", "Top", "All"];
     var sectionKeys = {
         "new": "LABEL_SLOTS_NEW"
         , "top": "LABEL_SLOTS_TOP"
         , "all": "LABEL_SLOTS_ALL"
     };
+
+    var slotRows = {
+        "new": {
+            "row": 3
+            , "landscape": 0 // add to rows if considered landscape
+            , "portrait": 2 // add to rows if considered portrait
+        },
+        "top": {
+            "row": 3
+            , "landscape": 0
+            , "portrait": 2
+        },
+        "home": {
+            "row": 2
+            , "landscape": 0
+            , "portrait": 0
+        }
+    }
 
     clubFilterOptions = {};
 
@@ -24,12 +41,50 @@ function Slots() {
         , { name: "divino", key: "LABEL_PRODUCTS_DIVINO", label: "Club Divino", providers: ["bs", "ctxm", "uc8"] }
     ];
 
+    function getClubLimit(section)
+    {
+        var defaultRow = {
+            "row": 2
+            , "landscape": 0
+            , "portrait": 0
+        };
+
+        var rows = (_.isUndefined(slotRows[_.lowerCase(section)])) ? defaultRow : slotRows[_.lowerCase(section)];
+
+        var gameSizes = { xxxlarge: 8, xxlarge: 7, large: 6, medium: 5, small: 4, xsmall: 3 };
+
+        var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+
+        switch (true) {
+            case (width >= 1200):
+                return gameSizes.xxxlarge * (rows.row + rows.landscape);
+
+            case ((width < 1200) && (width >= 992)):
+                return gameSizes.xxlarge * (rows.row + rows.landscape);
+
+            case ((width < 992) && (width >= 720)):
+                return gameSizes.large * (rows.row + rows.landscape);
+
+            case ((width < 720) && (width >= 560)):
+                return gameSizes.medium * (rows.row + rows.landscape);
+
+            case ((width < 560) && (width >= 414)):
+                return gameSizes.small * (rows.row + rows.portrait);
+
+            case ((width < 414)):
+                return gameSizes.xsmall * (rows.row + rows.portrait);
+
+            default:
+                return gameSizes.xxxlarge * (rrows.rowows + rows.portrait);
+        }
+    };
+
     return {
         get: getSlots
         , items: slots
         , addItems: addItems
         , itemsByClub: itemsByClub
-        , clubLimit: clubLimit
+        , getClubLimit: getClubLimit
         , clubs: clubs
         , providers: providers
         , filterSlots: filterSlots
@@ -324,8 +379,8 @@ function Slots() {
             $('#gameRegisterUrl').show();
             $('#gameLoginUrl').show();
 
-            $('#gameRegisterUrl').attr('href', loginUrl);
-            $('#gameLoginUrl').attr('href', registerUrl);
+            $('#gameRegisterUrl').attr('href', registerUrl);
+            $('#gameLoginUrl').attr('href', loginUrl);
         }
 
         $('#gameModal').modal('toggle');

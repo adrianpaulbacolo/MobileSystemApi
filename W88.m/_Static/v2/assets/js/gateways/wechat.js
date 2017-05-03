@@ -12,18 +12,11 @@ function WeChatV2() {
     }
 
     wechat.init = function () {
+        $('[id$="lblSwitchLine"]').text(_w88_contents.translate("LABEL_SWITCH_LINE"));
 
-        setTranslations();
-        function setTranslations() {
-            if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
-                $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-                $("#paymentNoteContent").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_WECHAT"));
-            } else {
-                window.setInterval(function () {
-                    setTranslations();
-                }, 500);
-            }
-        }
+        $(".pay-note").show();
+        $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+        $("#paymentNoteContent").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_WECHAT"));
     };
 
     wechat.createDeposit = function () {
@@ -32,6 +25,7 @@ function WeChatV2() {
         var data = {
             Amount: params.Amount,
             ThankYouPage: params.ThankYouPage,
+            SwitchLine: params.SwitchLine,
         };
 
         _self.methodId = params.MethodId;
@@ -46,7 +40,8 @@ function WeChatV2() {
                             w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
                             w88Mobile.PostPaymentForm.submit();
                         } else if (response.ResponseData.DummyURL) {
-                            window.open(response.ResponseData.DummyURL, '_blank');
+                            w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.DummyURL, "body");
+                            w88Mobile.PostPaymentForm.submit();
                         }
                     }
 

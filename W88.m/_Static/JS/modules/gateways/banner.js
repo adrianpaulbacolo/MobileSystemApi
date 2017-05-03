@@ -103,16 +103,16 @@ function Banner() {
                },
            },
            {
-               Image: "/_Static/Images/payments/Deposit-RMB-WeChat-Add-Bank-Card-CN.png",
+               Image: "/_Static/Images/payments/Deposit-RMB-WeChat-QR-Limited-CN.png",
                Videos: [
                    {
-                       Video: "http://anecdn.w88media.com/CN/vid/Deposit-RMB-WeChat-Add-Bank-Card-CN.mp4",
+                       Video: "http://anecdn.w88media.com/CN/vid/Deposit-RMB-WeChat-QR-Limited-CN.mp4",
                        Type: "video/mp4",
                    }
                ],
                Flash: {
-                   Title: "WeChat Add Bank Card",
-                   Video: "http%3A%2F%2Fanecdn.w88media.com%2FCN%2Fvid%2FDeposit-RMB-WeChat-Add-Bank-Card-CN.mp4",
+                   Title: "WeChat QR Limited",
+                   Video: "http%3A%2F%2Fanecdn.w88media.com%2FCN%2Fvid%2FDeposit-RMB-WeChat-QR-Limited-CN.mp4",
                },
            },
            {
@@ -134,7 +134,9 @@ function Banner() {
     var paymentbanner = {
         init: init,
         openVideo: openVideo,
-        closeVideo: closeVideo
+        closeVideo: closeVideo,
+        forceStop: forceStop,
+        forceStopWhenSubmit: forceStopWhenSubmit,
     }
 
     function init(id) {
@@ -155,21 +157,62 @@ function Banner() {
             arrows: true,
             infinite: false,
             focusOnSelect: true,
+            zIndex: 1,
+            appendArrows: $(".arrow-container"),
+            prevArrow : '<button type="button" class="slick-prev"><span class="icon icon-arrow-left"></span></button>',
+            nextArrow : '<button type="button" class="slick-next"><span class="icon icon-arrow-right"></span></button>'
         });
 
-        $('.video-responsive').hide();
+        $('div.payment-banner').on('swipe', function (event, slick, direction) {
+            if ($(".embed-responsive").is(":visible")) {
+                $(".embed-responsive video")[0].pause();
+                $(".img-responsive").show(); // video
+                $(".embed-responsive").hide(); // video
+            }
+        });
+
+        $('div.arrow-container .slick-arrow').on('click', function (event) {
+            if ($(".embed-responsive").is(":visible")) {
+                $(".embed-responsive video")[0].pause();
+                $(".img-responsive").show(); // video
+                $(".embed-responsive").hide(); // video
+            }
+        });
+
+        $('div.payment-banner .slick-dots button').on('click', function (event) {
+            if ($(".embed-responsive").is(":visible")) {
+                $(".embed-responsive video")[0].pause();
+                $(".img-responsive").show(); // video
+                $(".embed-responsive").hide(); // video
+            }
+        });
+
+        $('.embed-responsive').hide();
     }
 
     function openVideo(me) {
         $(me.nextElementSibling).show(); // video
-        $(me.nextElementSibling)[0].play();
+        $(me.nextElementSibling).find('video')[0].play();
         $(me).hide(); // image
     }
 
 
     function closeVideo(me) {
-        $(me.previousElementSibling).show(); //image
-        $(me).hide(); // video
+        $(me).parent().parent().find('img').show(); //image
+        $(me).parent().hide(); // video
+    }
+
+
+    function forceStop(me) {
+        $(me).parent().find('video')[0].pause(); // video
+        $(me).parent().parent().find('img').show(); //image
+        $(me).parent().hide(); // video
+    }
+
+    function forceStopWhenSubmit() {
+        $(".payment-banner .embed-responsive video")[0].pause();
+        $(".img-responsive").show(); // video
+        $(".embed-responsive").hide(); // video
     }
 
     return paymentbanner;

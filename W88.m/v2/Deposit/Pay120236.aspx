@@ -2,8 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
     <div class="form-group">
-        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
-        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1"  CssClass="form-control" required data-paylimit="0" />
+        <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
+        <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" required data-paylimit="0" data-numeric />
     </div>
     <div class="form-group">
         <asp:Label ID="lblCardType" runat="server" AssociatedControlID="ddlCardType" />
@@ -60,8 +60,8 @@
 
             window.w88Mobile.Gateways.AllDebit.init();
 
-            $('#<%=txtCardNo.ClientID%>').mask('9999-9999-9999-9999');
-            $('#<%=txtSecurityCode.ClientID%>').mask('999');
+            $('input[id$="txtCardNo"]').mask('9999-9999-9999-9999');
+            $('input[id$="txtSecurityCode"]').mask('999');
 
             $('#form1').validator().on('submit', function (e) {
 
@@ -69,7 +69,7 @@
                     e.preventDefault();
 
                     var data = {
-                        Amount: $('input[id$="txtAmount"]').val(),
+                        Amount: $('input[id$="txtAmount"]').autoNumeric('get'),
                         CardTypeText: $('select[id$="ddlCardType"] option:selected').text(),
                         CardTypeValue: $('select[id$="ddlCardType"]').val(),
                         AccountName: $('[id$="txtCardName"]').val(),
@@ -82,7 +82,7 @@
 
                     var params = decodeURIComponent($.param(data));
                     window.open(_w88_paymentSvcV2.payRoute + "?" + params, "<%=base.PageName%>");
-                    _w88_paymentSvc.onTransactionCreated($(this));
+                    _w88_paymentSvcV2.onTransactionCreated($(this));
                     return;
                 }
             });

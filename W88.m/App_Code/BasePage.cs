@@ -37,6 +37,8 @@ public class BasePage : System.Web.UI.Page
         string CDN_Value = getCDNValue();
         string key = getCDNKey();
 
+        commonCookie.Set("CDNCountryCode", GetCountryCode(CDN_Value, key), DateTime.Now.AddDays(1));
+
         if (string.IsNullOrWhiteSpace(commonCookie.CookieLanguage))
         {
             if (!string.IsNullOrEmpty(CDN_Value) && !string.IsNullOrEmpty(key))
@@ -75,6 +77,12 @@ public class BasePage : System.Web.UI.Page
 
     protected override void OnLoad(EventArgs e)
     {
+        var strIsApp = HttpContext.Current.Request.QueryString.Get("isApp");
+        if (!string.IsNullOrEmpty(strIsApp))
+        {
+               commonCookie.CookieIsApp = (strIsApp == "1") ? strIsApp : null;
+        }
+
         commonCookie.CookieSubPlatform(HttpContext.Current.Request.QueryString.Get("spfid"));
 
         var strLanguage = HttpContext.Current.Request.QueryString.Get("lang");

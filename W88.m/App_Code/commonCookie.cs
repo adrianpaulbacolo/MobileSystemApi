@@ -83,6 +83,7 @@ public static class commonCookie
         {
             HttpCookie cookie = new HttpCookie("palazzo");
             cookie.Value = value;
+            cookie.Expires = DateTime.Now.AddDays(1);
             if (!string.IsNullOrEmpty(commonIp.DomainName)) { cookie.Domain = commonIp.DomainName; }
             HttpContext.Current.Response.Cookies.Add(cookie);
         }
@@ -247,10 +248,10 @@ public static class commonCookie
                 var httpCookie = HttpContext.Current.Request.Cookies["IsApp"];
                 if (httpCookie != null)
                 {
-                    HttpCookie cookie = new HttpCookie("IsApp");
-                    cookie.Value = "";
-                    cookie.Expires = DateTime.Now.AddYears(-1);
-                    HttpContext.Current.Response.Cookies.Add(cookie);
+                    httpCookie.Value = "";
+                    httpCookie.Expires = DateTime.Now.AddYears(-1);
+                    if (!string.IsNullOrEmpty(commonIp.DomainName)) { httpCookie.Domain = commonIp.DomainName; }
+                    HttpContext.Current.Response.Cookies.Add(httpCookie);
                 }
             }
         }
@@ -290,13 +291,13 @@ public static class commonCookie
     {
         if (!string.IsNullOrWhiteSpace(spfId))
         {
-            Set("spfid", spfId, DateTime.Now.AddDays(1));
+            Set("spfid_mob", spfId, DateTime.Now.AddDays(1));
         }
         else
         {
-            if (string.IsNullOrWhiteSpace(commonCookie.Get("spfid")))
+            if (string.IsNullOrWhiteSpace(commonCookie.Get("spfid_mob")))
             {
-                Set("spfid", "22", DateTime.Now.AddDays(1)); // Add Default Subplatform = WAP
+                Set("spfid_mob", "22", DateTime.Now.AddDays(1)); // Add Default Subplatform = WAP
             }
         }
     }
@@ -390,8 +391,8 @@ public static class commonCookie
             HttpContext.Current.Response.SetCookie(vip);
         }
 
-        HttpCookie spfid = HttpContext.Current.Request.Cookies["spfid"];
-        HttpContext.Current.Response.Cookies.Remove("spfid");
+        HttpCookie spfid = HttpContext.Current.Request.Cookies["spfid_mob"];
+        HttpContext.Current.Response.Cookies.Remove("spfid_mob");
 
         if (spfid != null)
         {

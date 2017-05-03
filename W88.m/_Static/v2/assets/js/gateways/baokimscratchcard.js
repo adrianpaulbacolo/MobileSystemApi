@@ -22,8 +22,9 @@ function BaokimScratchCardV2() {
                 $('label[id$="lblPin"]').text(_w88_contents.translate("LABEL_CARD_PIN"));
                 $('label[id$="lblCardSerialNo"]').text(_w88_contents.translate("LABEL_CARD_SERIAL"));
 
-                sessionStorage.setItem("indicator", _w88_contents.translate("LABEL_INDICATOR_MSG"));
-                $('p[id$="IndicatorMsg"]').html(sessionStorage.getItem("indicator"));
+                $(".pay-note").show();
+                $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+                $('#paymentNoteContent').html(_w88_contents.translate("LABEL_MSG_120286"));
 
                 defaultSelect = _w88_contents.translate("LABEL_SELECT_DEFAULT");
 
@@ -38,7 +39,7 @@ function BaokimScratchCardV2() {
     };
 
     baokimscratchcard.getBanks = function () {
-        _w88_paymentSvcV2.Send("/payments/baokindenom/", "GET", "", function (response) {
+        _w88_paymentSvcV2.Send("/payments/denomination/120286", "GET", "", function (response) {
             if (response && _.isEqual(response.ResponseCode, 1)) {
                 telcos = response.ResponseData.Telcos;
 
@@ -82,7 +83,7 @@ function BaokimScratchCardV2() {
             }
         });
 
-        $('p[id$="IndicatorMsg"]').html(sessionStorage.getItem("indicator") + fee);
+        $('#paymentNoteContent').html(_w88_contents.translate("LABEL_MSG_120286") + fee);
     };
 
     baokimscratchcard.createDeposit = function () {

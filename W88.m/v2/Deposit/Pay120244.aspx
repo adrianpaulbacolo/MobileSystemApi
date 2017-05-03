@@ -2,8 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
     <div class="form-group" id="amount">
-        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
-        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" required data-paylimit="0" />
+        <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
+        <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" required data-paylimit="0" data-numeric />
     </div>
     <div class="form-group" id="drpAmount" style="display: none;">
         <asp:Label ID="lbldrpDepositAmount" runat="server" AssociatedControlID="drpDepositAmount" />
@@ -38,7 +38,7 @@
                 if (!e.isDefaultPrevented()) {
                     e.preventDefault();
                     var data = {
-                        Amount: $('select[id$="drpBank"] option:selected').val() == "40" ? $('select[id$="drpDepositAmount"] option:selected').val() : $('input[id$="txtAmount"]').val(),
+                        Amount: $('select[id$="drpBank"] option:selected').val() == "40" ? $('select[id$="drpDepositAmount"] option:selected').val() : $('input[id$="txtAmount"]').autoNumeric('get'),
                         BankText: $('select[id$="drpBank"] option:selected').val(),
                         BankValue: $('select[id$="drpBank"]').val(),
                         AccountName: $('input[id$="txtAccountName"]').val(),

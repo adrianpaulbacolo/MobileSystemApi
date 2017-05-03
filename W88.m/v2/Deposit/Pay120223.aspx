@@ -2,18 +2,14 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
     <div class="form-group">
-        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
-        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" required data-paylimit="0" />
-    </div>
-    <div class="form-group pay-note">
-        <span id="paymentNote"></span>
-        <p id="paymentNoteContent"></p>
+        <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
+        <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" required data-paylimit="0" data-numeric />
     </div>
     <div class="form-group">
-        <a href="http://mobile.unionpay.com/getclient?platform=android&type=securepayplugin" target="_blank"><%=commonCulture.ElementValues.getResourceString("lblAndroidDownload", xeResources)%></a>
+        <a href="http://mobile.unionpay.com/getclient?platform=android&type=securepayplugin" target="_blank" id="securePayAndroid"></a>
     </div>
     <div class="form-group">
-        <a href="http://mobile.unionpay.com/getclient?platform=ios&type=securepayplugin" target="_blank"><%=commonCulture.ElementValues.getResourceString("lblIOSDownload", xeResources)%></a>
+        <a href="http://mobile.unionpay.com/getclient?platform=ios&type=securepayplugin" target="_blank" id="securePayiOS"></a>
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">
@@ -33,7 +29,7 @@
                     e.preventDefault();
 
                     var data = {
-                        Amount: $('input[id$="txtAmount"]').val(),
+                        Amount: $('input[id$="txtAmount"]').autoNumeric('get'),
                         ThankYouPage: location.protocol + "//" + location.host + "/Index",
                         MethodId: "<%=base.PaymentMethodId%>"
                     };

@@ -14,8 +14,8 @@
 
 @font-face {
 	font-family: 'dinpro';
-	src: url("fonts/fonts/din-medium-webfont.eot");
-	src: url("fonts/fonts/din-medium-webfont.eot?#iefix") format("embedded-opentype"),
+	src: url("fonts/din-medium-webfont.eot");
+	src: url("fonts/din-medium-webfont.eot?#iefix") format("embedded-opentype"),
 	url("fonts/din-medium-webfont.woff") format("woff"),
 	url("fonts/din-medium-webfont.ttf") format("truetype"),
 	url("fonts/din-medium-webfont.svg#dinpro") format("svg");
@@ -31,7 +31,7 @@ $font-family-sans-serif: $font,"Helvetica Neue", Helvetica, Arial, sans-serif;
 
 //Override glyphicon deirectory
 $bootstrap-sass-asset-helper: false !default;
-$icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "../fonts/") !default;
+$icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "fonts/") !default;
 
 //Colors
 $brand-primary : #2a8fbd;
@@ -42,7 +42,7 @@ $brand-dark : #023144;
 $brand-success: #5cb85c;
 $brand-info: #5bc0de;
 $brand-warning: #f0ad4e;
-$brand-danger:#db2031;
+$brand-danger:#fd1f33;
 
 $text-color: #d3dee3;
 $text-alt: #bbb;

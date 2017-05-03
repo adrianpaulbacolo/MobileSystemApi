@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
     <div class="form-group">
         <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
-        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" required data-paylimit="0" />
+        <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" required data-paylimit="0" data-numeric />
     </div>
     <div class="form-group">
         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
@@ -14,15 +14,13 @@
         <asp:DropDownList ID="drpSecondaryBank" runat="server" CssClass="form-control">
         </asp:DropDownList>
     </div>
-    <div class="form-group" id="divBankLocation" runat="server" style="display: none;">
+    <div class="form-group location" id="divBankLocation" runat="server" style="display: none;">
         <asp:Label ID="lblBankLocation" runat="server" AssociatedControlID="txtBankName" />
-        <span id="loader1" class="css-loader css-loader-small" style="display: none"></span>
         <asp:DropDownList ID="drpBankLocation" runat="server" CssClass="form-control">
         </asp:DropDownList>
     </div>
-    <div class="form-group" id="divBankNameSelection" runat="server" style="display: none;">
+    <div class="form-group branch" id="divBankNameSelection" runat="server" style="display: none;">
         <asp:Label ID="lblBranch" runat="server" AssociatedControlID="txtBankName" />
-        <span id="loader2" class="css-loader css-loader-small" style="display: none"></span>
         <asp:DropDownList ID="drpBankBranchList" runat="server" CssClass="form-control">
         </asp:DropDownList>
     </div>
@@ -64,6 +62,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
+            var currency = '<%= commonCookie.CookieCurrency.ToLower() %>';
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
@@ -71,30 +70,16 @@
             window.w88Mobile.Gateways.BankTransferv2.loadSecondaryBankWidraw();
 
             $('select[id$="drpBank"]').change(function () {
-                sessionStorage.removeItem("hfBLId");
-                sessionStorage.removeItem("hfBBId");
-                window.w88Mobile.Gateways.BankTransferv2.toggleBankWidraw(this.value, '<%= commonCookie.CookieCurrency.ToLower() %>');
+                window.w88Mobile.Gateways.BankTransferv2.toggleBankWidraw(this.value, currency);
             });
 
             $('select[id$="drpSecondaryBank"]').change(function () {
-                sessionStorage.removeItem("hfBLId");
-                sessionStorage.removeItem("hfBBId");
-                window.w88Mobile.Gateways.BankTransferv2.toggleSecondaryBankWidraw(this.value, sessionStorage.getItem("hfBLId"));
+                window.w88Mobile.Gateways.BankTransferv2.toggleSecondaryBankWidraw(this.value, $('select[id$="drpBankLocation"]').val());
             });
 
             $('select[id$="drpBankLocation"]').change(function () {
                 if (this.value != '-1') {
-
-                    sessionStorage.removeItem("hfBBId");
-                    sessionStorage.setItem("hfBLId", this.value);
-
                     window.w88Mobile.Gateways.BankTransferv2.toogleBankBranchWidraw(this.value, "");
-                }
-            });
-
-            $('select[id$="drpBankBranchList"]').change(function () {
-                if (this.value != '-1') {
-                    sessionStorage.setItem("hfBBId", this.value);
                 }
             });
 
@@ -105,7 +90,7 @@
                     e.preventDefault();
 
                     var data = {
-                        Amount: $('input[id$="txtAmount"]').val(),
+                        Amount: $('input[id$="txtAmount"]').autoNumeric('get'),
                         AccountName: $('input[id$="txtAccountName"]').val(),
                         AccountNumber: $('input[id$="txtAccountNumber"]').val(),
                         CountryCode: $('select[id$="drpCountryCode"]').val(),
@@ -127,13 +112,13 @@
                         data.BankBranch = $('input[id$="txtBankBranch"]').val();
                     }
 
-                    if ($('select[id$="drpSecondaryBank"]').val() == 'OTHER') {
+                    if ($('select[id$="drpSecondaryBank"]').val() != 'OTHER' && currency == 'vnd') {
+                        data.BankAddressId = $('select[id$="drpBankLocation"]').val();
+                        data.BankBranchId = $('select[id$="drpBankBranchList"]').val();
+                    } else {
                         data.BankAddress = $('input[id$="txtAddress"]').val();
                         data.BankBranch = $('input[id$="txtBankBranch"]').val();
                         data.BankName = $('input[id$="txtBankName"]').val();
-                    } else {
-                        data.BankAddressId = $('select[id$="drpBankLocation"]').val();
-                        data.BankBranchId = $('select[id$="drpBankBranchList"]').val();
                     }
 
                     _w88_paymentSvcV2.CreateWithdraw(data, "<%=base.PaymentMethodId %>");

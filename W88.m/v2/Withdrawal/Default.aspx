@@ -4,7 +4,7 @@
     <div class="empty-state" id="loader"></div>
     <div class="empty-state" hidden>
         <div class="empty-state-icon">
-            <i class="ion ion-alert"></i>
+            <i class="icon icon-error"></i>
         </div>
         <p id="paymentNote">
         </p>
@@ -16,6 +16,7 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+            pubsub.publish('startLoadItem', { selector: "" });
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType%>", "");
         });
     </script>

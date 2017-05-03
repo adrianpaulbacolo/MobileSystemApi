@@ -8,7 +8,8 @@
 
     <div class="dashboard dashboard-funds">
         <div class="dashboard-row">
-            <div class="dashboard-col launch-deposit">
+            <% var depositLinkId = (commonFunctions.isNativeAgent(Request)) ? "launch-deposit" : ""; %>
+            <div class="dashboard-col <%=depositLinkId %>">
                 <a href="/v2/Deposit/Default.aspx">
                     <span class="icon icon-deposit"></span><%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%>
                 </a>
@@ -26,7 +27,7 @@
                 </a>
             </div>
             <div class="dashboard-col">
-                <a href="/History/">
+                <a href="/v2/History/Default.aspx">
                     <span class="icon icon-history"></span><%=commonCulture.ElementValues.getResourceString("history", commonVariables.HistoryXML)%>
                 </a>
             </div>

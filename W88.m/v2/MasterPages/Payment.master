@@ -5,7 +5,6 @@
     <div class="wallets deposit">
     </div>
 
-
     <div class="gateway-select">
         <button id="activeTab" class="btn btn-block btn-primary collapsed" type="button" data-toggle="collapse" data-target="#gateway-list" aria-expanded="false" aria-controls="gateway-list">
         </button>
@@ -15,50 +14,54 @@
         </div>
     </div>
 
+    <div class="gateway-restrictions">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6">
+                    <p><small id="lblMode">Mode</small></p>
+                </div>
+                <div class="col-xs-6">
+                    <p><small id="txtMode"></small></p>
+                </div>
+                <div class="col-xs-6">
+                    <p><small id="lblMinMaxLimit">Min/Max Limit</small></p>
+                </div>
+                <div class="col-xs-6">
+                    <p><small id="txtMinMaxLimit"></small></p>
+                </div>
+                <div class="col-xs-6 dailyLimit">
+                    <p><small id="lblDailyLimit">Daily Limit</small></p>
+                </div>
+                <div class="col-xs-6 dailyLimit">
+                    <p><small id="txtDailyLimit"></small></p>
+                </div>
+                <div class="col-xs-6 totalAllowed">
+                    <p><small id="lblTotalAllowed">Total Allowed</small></p>
+                </div>
+                <div class="col-xs-6 totalAllowed">
+                    <p><small id="txtTotalAllowed"></small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="form-container">
         <div class="container">
             <form class="form" id="form1" runat="server">
-
-
-
-                <div class="gateway-restrictions">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <p><small id="lblMode">Mode</small></p>
-                            </div>
-                            <div class="col-xs-6">
-                                <p><small id="txtMode"></small></p>
-                            </div>
-                            <div class="col-xs-6">
-                                <p><small id="lblMinMaxLimit">Min/Max Limit</small></p>
-                            </div>
-                            <div class="col-xs-6">
-                                <p><small id="txtMinMaxLimit"></small></p>
-                            </div>
-                            <div class="col-xs-6">
-                                <p><small id="lblDailyLimit">Daily Limit</small></p>
-                            </div>
-                            <div class="col-xs-6">
-                                <p><small id="txtDailyLimit"></small></p>
-                            </div>
-                            <div class="col-xs-6">
-                                <p><small id="lblTotalAllowed">Total Allowed</small></p>
-                            </div>
-                            <div class="col-xs-6">
-                                <p><small id="txtTotalAllowed"></small></p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="pay-note" hidden>
+                    <p>
+                        <small class="pay-note-label" id="paymentNote"></small>
+                        <br />
+                        <small id="paymentNoteContent"></small>
+                    </p>
                 </div>
-
                 <asp:ContentPlaceHolder ID="PaymentMainContent" runat="Server">
                 </asp:ContentPlaceHolder>
-
+                <div class="arrow-container">
+                    <div class="payment-banner"></div>
+                </div>
                 <button type="submit" id="btnSubmitPlacement" class="btn btn-block btn-primary"></button>
-
             </form>
-
         </div>
     </div>
 
@@ -70,6 +73,7 @@
     <script type="text/javascript" src="/_Static/JS/modules/formValidator.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
     <script src="/_Static/JS/jquery.mask.min.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
     <script src="/_Static/v2/assets/js/funds.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script type="text/javascript" src="/_static/v2/assets/js/vendor/autoNumeric-min.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 
     <script>
         $(document).ready(function () {
@@ -96,13 +100,39 @@
     </script>
 
     <script type="text/template" id='mainWallet'>
-        
+
         <div class="wallet-main">
             <p class="wallet-title">{%-tplData.Name%}</p>
             <h4 class="wallet-value">{%-tplData.Balance%}</h4>
             <p class="wallet-currency">{%-tplData.CurrencyLabel%}</p>
         </div>
 
+    </script>
+
+    <script type="text/template" id='paymentBanner'>
+        {% _.each(tplData.Banner, function(item) { %}
+       
+        <div>
+            <img class="img-responsive" style="padding-right: 10px" src="{%-item.Image%}" onclick="javascript: _w88_paymentbanner.openVideo(this)">
+            <div class="embed-responsive">
+                <button type="button" class="stop-video" onclick="javascript: _w88_paymentbanner.forceStop(this)"><span class="icon icon-close"></span></button>
+                <video controls="controls" onended="javascript: _w88_paymentbanner.closeVideo(this)">
+                    {% _.each(item.Videos, function(itemType) { %}
+                   
+                    <source src="{%-itemType.Video%}" type="{%-itemType.Type%}" />
+                    {% }); %}
+                   
+                    <object type="application/x-shockwave-flash" data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf">
+                        <param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />
+                        <param name="allowFullScreen" value="true" />
+                        <param name="wmode" value="transparent" />
+                        <param name="flashVars" value="config={'playlist':['{%-item.Image%}',{'url':'{%-item.Flash.Video%}','autoPlay':false}]}" />
+                    </object>
+                </video>
+            </div>
+        </div>
+        {% }); %}
+   
     </script>
 
     <script type="text/javascript">

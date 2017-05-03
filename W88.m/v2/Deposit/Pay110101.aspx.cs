@@ -52,8 +52,6 @@ public partial class v2_Deposit_Pay110101 : PaymentBasePage
 
     private void InitializeLabels()
     {
-        lblDepositAmount.Text = base.strlblAmount;
-
         lblAccountName.Text = base.strlblAccountName;
         lblAccountNumber.Text = base.strlblAccountNumber;
 

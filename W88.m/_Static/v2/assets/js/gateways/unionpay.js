@@ -17,11 +17,14 @@ function UnionPay() {
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
 
-                $("#paymentNote").text(_w88_contents.translate("LABEL_REMINDER"));
+                $(".pay-note").show();
+                $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
 
                 if (!_.isUndefined(gatewayId)) {
                     if (gatewayId == "120223") {
                         $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_120223")); //SD pay
+                        $("#securePayAndroid").html(_w88_contents.translate("LABEL_ANDROID_DOWNLOAD_SECURE_PAY"));
+                        $("#securePayiOS").html(_w88_contents.translate("LABEL_IOS_DOWNLOAD_SECURE_PAY"));
                     }
                 }
 
@@ -53,7 +56,8 @@ function UnionPay() {
                             w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
                             w88Mobile.PostPaymentForm.submit();
                         } else if (response.ResponseData.DummyURL) {
-                            window.open(response.ResponseData.DummyURL, '_blank');
+                            w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.DummyURL, "body");
+                            w88Mobile.PostPaymentForm.submit();
                         }
                     }
 

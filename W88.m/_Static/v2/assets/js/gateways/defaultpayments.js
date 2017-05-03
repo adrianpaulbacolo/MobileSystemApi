@@ -76,7 +76,6 @@ function DefaultPaymentsV2() {
 
     function setTranslations(paymentOptions) {
         if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
-            $('label[id$="lblDepositAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
             $('label[id$="lblAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
 
             var headerTitle = paymentOptions == "Deposit" ? _w88_contents.translate("LABEL_FUNDS_DEPOSIT") : _w88_contents.translate("LABEL_FUNDS_WIDRAW");
@@ -178,6 +177,13 @@ function DefaultPaymentsV2() {
     }
 
     function send(resource, method, data, success, complete) {
+
+        var selector = "";
+        if (!_.isEmpty(data.selector)) {
+            selector = _.clone(data.selector);
+            delete data["selector"];
+        }
+
         var url = w88Mobile.APIUrl + resource;
 
         var headers = {
@@ -190,7 +196,7 @@ function DefaultPaymentsV2() {
             url: url,
             data: data,
             beforeSend: function () {
-                pubsub.publish('startLoadItem', { selector: "" });
+                pubsub.publish('startLoadItem', { selector: selector });
             },
             headers: headers,
             success: success,
@@ -199,17 +205,22 @@ function DefaultPaymentsV2() {
             },
             complete: function () {
                 if (!_.isUndefined(complete)) complete();
-                pubsub.publish('stopLoadItem', { selector: "" });
+                pubsub.publish('stopLoadItem', { selector: selector });
             }
         });
     }
 
     function onTransactionCreated(form) {
+
+        var historyBtn = "<a href='/v2/History/Default.aspx' class='btn btn-block btn-primary' data-ajax='false'>" + _w88_contents.translate("LABEL_FUNDS_HISTORY") + "</a>";
+        var message = "<p>" + _w88_contents.translate("MESSAGES_CHECK_HISTORY") + "</p>" + historyBtn;
         if (!_.isUndefined(form)) _.first(form).reset();
-        w88Mobile.Growl.shout(_w88_contents.translate("MESSAGES_CHECK_HISTORY"));
+        w88Mobile.Growl.shout(message);
     }
 
     function initiateValidator(methodId) {
+        setNumericValidator();
+
         $('#form1').validator({
             custom: {
                 bankequals: function ($el) {
@@ -225,7 +236,7 @@ function DefaultPaymentsV2() {
                 selectequals: function ($el) {
                     $el.parent("div.form-group").removeClass('has-error');
                     $el.parent("div.form-group").children("span.help-block").remove();
-                    var matchValue = $el.data("bankequals");
+                    var matchValue = $el.data("selectequals");
                     if ($el.val() == matchValue) {
                         $el.parent("div.form-group").addClass('has-error');
                         return true;
@@ -235,17 +246,19 @@ function DefaultPaymentsV2() {
                     $el.parent("div.form-group").children("span.help-block").remove();
                     $el.parent(".form-group").removeClass('has-error');
 
-                    if (!_.isUndefined($el)) {
+                    if (!_.isEmpty($el)) {
 
                         var setting = _.find(paymentCache.settings, function (data) {
                             return data.Id == methodId;
                         });
 
-                        if ($el.val() < setting.MinAmount) {
+                        var elValue = _.parseInt(_.replace($el.val(), ",", ""));
+
+                        if (_.isNaN(elValue) || elValue < setting.MinAmount) {
                             $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_AmountMinLimit") + '</span>');
                             return true;
                         }
-                        else if ($el.val() > setting.MaxAmount) {
+                        else if (elValue > setting.MaxAmount) {
                             $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_AmountMaxLimit") + '</span>');
                             return true;
                         }
@@ -264,7 +277,7 @@ function DefaultPaymentsV2() {
                     $el.parent("div.form-group").children("span.help-block").remove();
                     $el.parent("div.form-group").removeClass('has-error');
 
-                    if (_.isUndefined($el.val())) {
+                    if (_.isEmpty($el.val())) {
                         $el.parent("div.form-group").addClass('has-error');
                         $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_MissingAccountNumber") + '</span>');
                         return true;
@@ -274,16 +287,36 @@ function DefaultPaymentsV2() {
                     $el.parent("div.form-group").children("span.help-block").remove();
                     $el.parent("div.form-group").removeClass('has-error');
 
-                    if (_.isUndefined($el.val())) {
+                    if (_.isEmpty($el.val())) {
                         $el.parent("div.form-group").addClass('has-error');
                         $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_MissingAccountName") + '</span>');
+                        return true;
+                    }
+                },
+                address: function ($el) {
+                    $el.parent("div.form-group").children("span.help-block").remove();
+                    $el.parent("div.form-group").removeClass('has-error');
+
+                    if (_.isEmpty($el.val())) {
+                        $el.parent("div.form-group").addClass('has-error');
+                        $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("Pay_MissingAddress") + '</span>');
                         return true;
                     }
                 }
 
             }
         });
+    }
 
+    function setNumericValidator() {
+        _.forEach($('[data-numeric]'), function (item, index) {
+            var numeric = item.getAttribute('data-numeric');
+
+            if (_.isEmpty(numeric))
+                $(item).autoNumeric('init');
+            else
+                $(item).autoNumeric('init', { mDec: numeric });
+        });
     }
 
     function setDepositPaymentTab(responseData, activeTabId) {
@@ -296,10 +329,13 @@ function DefaultPaymentsV2() {
                 autorouteIds.WeChat
             ];
 
-            var isAutoRoute = false, title = "", page = null, deposit = "/Deposit/";
+            var isAutoRoute = false, title = "", page = null, deposit = "/v2/Deposit/";
 
             for (var i = 0; i < responseData.length; i++) {
                 var data = responseData[i];
+
+                if (data.Method)
+                    continue;
 
                 page = setPaymentPage(data.Id);
 
@@ -319,31 +355,29 @@ function DefaultPaymentsV2() {
 
                     $('#' + activeTabId).addClass('active');
                 }
-                else if (!activeTabId && _.includes(routing, data.Id)) {
-                    if (!_.includes(window.location.pathname, page)) {
-                        window.location.href = page;
-                        isAutoRoute = true;
-                        break;
-                    }
-                }
             }
 
             if (activeTabId) {
+                if (title) {
+                    if ($('#activeTab').length > 0)
+                        $('#activeTab').text(title);
 
-                if ($('#activeTab').length > 0)
-                    $('#activeTab').text(title);
+                    $('header .header-title').append(' - ' + title);
+                } else {
+                    window.location.href = deposit;
+                }
 
-                $('header .header-title').append(' - ' + title);
-            }
-            else {
-                if (!isAutoRoute) {
-                    page = setPaymentPage(_.first(responseData).Id);
-                    if (page)
-                        window.location.href = deposit + page;
+                if (_.includes(routing, activeTabId)) {
+                    $('.dailyLimit').hide()
+                    $('.totalAllowed').hide()
                 }
             }
+            else {
+                page = setPaymentPage(_.first(responseData).Id);
+                if (page)
+                    window.location.href = deposit + page;
+            }
 
-            pubsub.publish('stopLoadItem', { selector: "" });
         } else {
             if (activeTabId) {
                 window.location.href = deposit;
@@ -364,7 +398,7 @@ function DefaultPaymentsV2() {
 
     function setWithdrawalPaymentTab(responseData, activeTabId) {
         if (responseData.length > 0) {
-            var title = "", withdraw = "/Withdrawal/";
+            var title = "", withdraw = "/v2/Withdrawal/";
             _.forEach(responseData, function (data) {
                 var page = setPaymentPage(data.Id);
 
@@ -394,11 +428,10 @@ function DefaultPaymentsV2() {
             }
             else {
                 page = setPaymentPage(_.first(responseData).Id);
-                if (page)
+                if (!_.isEmpty(page))
                     window.location.href = withdraw + page;
             }
 
-            pubsub.publish('stopLoadItem', { selector: "" });
         } else {
             if (activeTabId) {
                 window.location.href = withdraw;
@@ -417,126 +450,13 @@ function DefaultPaymentsV2() {
         $('#paymentList').hide();
         $('.gateway-select').hide();
         $('.gateway-restrictions').hide();
-        
+
         pubsub.publish('stopLoadItem', { selector: "" });
     }
 
     function setPaymentPage(id) {
-        switch (id) {
-
-            // withdrawal
-            case "210602":
-                return "BankTransfer.aspx";
-
-            case "220815":
-                return "Neteller.aspx";
-
-            case "210709":
-                return "210709";
-
-            case "220895":
-                return "VenusPoint.aspx";
-
-            case "2208102":
-                return "IWallet.aspx";
-
-                // deposit
-            case "120272":
-                return "Baokim.aspx";
-
-            case "110101": //GO
-                return "FastDeposit.aspx";
-
-            case "120204":
-                return "NextPay.aspx";
-
-            case "120280": //GO
-                return "JutaPay.aspx";
-
-            case "110308":
-                return "110308";
-
-            case "120223":
-                return "SDPay.aspx";
-
-            case "120227":
-                return "Help2Pay.aspx";
-
-            case "1202114": //GO
-                return "KDPayWechat.aspx";
-
-            case "120243":
-                return "DaddyPay.aspx?value=1";
-
-            case "120244":
-                return "DaddyPay.aspx?value=2";
-
-            case "120214":
-                return "Neteller.aspx";
-
-            case "120290":
-                return "PaySec.aspx";
-
-            case "120254":
-                return "120254";
-
-            case "1202111": //GO
-                return "ShengPayAliPay.aspx";
-
-            case "120218":
-                return "ECPSS.aspx";
-
-            case "120231":
-                return "BofoPay.aspx";
-
-            case "1202123":
-                return "WeChat";
-
-            case "1202127":
-                return "KexunPay.aspx";
-
-            case "1202122":
-                return "Alipay";
-
-            case "120236":
-                return "AllDebit.aspx";
-
-            case "120265":
-                return "EGHL.aspx";
-
-            case "120212":
-                return "NganLuong.aspx";
-
-            case "1202103":
-                return "IWallet.aspx";
-
-            case "120296":
-                return "VenusPoint.aspx";
-
-            case "120286":
-                return "BaokimScratchCard.aspx";
-
-            case "999999":
-                return "QuickOnline.aspx";
-
-            case "999996":
-                return "Alipay.aspx";
-
-            case "999995":
-                return "WeChat.aspx";
-
-            case "1202113":
-                return "JuyPayAlipay.aspx";
-
-            case "1202105":
-                return "NineVPayAlipay.aspx";
-
-            case "110394":
-                return "PayGo.aspx";
-
-            default:
-                break;
-        }
+        if (_.isEmpty(id)) return "";
+        return "Pay" + id + ".aspx";
     }
 
     function createWithdraw(data, methodId) {

@@ -10,16 +10,27 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title><%=base.Page.Title %></title>
     <!-- Bootstrap -->
-    <link href="/_static/v2/assets/css/base.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
-    <link href="/_static/v2/assets/css/styles.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
+    <link href="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/css/base.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
+    <!-- JTSageDateBox -->
+    <link href="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/css/vendor/jtsage-datebox-4.1.1.bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/css/styles.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/cookie.min.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script type="text/javascript">
+        if (siteCookie.getCookie("CDNCountryCode") == "VN") {
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+                var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-W854N4G');
+        }
+    </script>
 </head>
 <body>
 
@@ -27,20 +38,21 @@
         <div class="main-screen">
             <header class="header">
                 <%
-                    var isHome = (!base.Page.Items.Contains("Parent"));
+                    var isHome = (!base.Page.Items.Contains("Parent") || !commonFunctions.isNativeAgent(Request));
                     var navIcon = isHome ? "icon-navicon" : "icon-back";
                     var navUrl = isHome ? "#" : base.Page.Items["Parent"];
+                    var hasFooter = isHome && commonFunctions.isMainPage(Request);
                 %>
                 <a href="<%=navUrl %>" class="header-button header-button-left" id="nav-btn<%=(commonFunctions.isNativeAgent(Request)) ? "-native" : "" %>"><span class="icon <%=navIcon %>"></span></a>
                 <h1 class="header-title"><%=(base.Page.Title == "Dashboard" ? "<img alt=\"Dashboard\" src=\"/_Static/v2/assets/images/logo-en.png\" />" : base.Page.Title) %></h1>
             </header>
 
-            <section class="body <%=(isHome) ? "has-footer" : "" %>">
+            <section class="body <%=(hasFooter) ? "has-footer" : "" %>">
                 <asp:ContentPlaceHolder ID="MainContentHolder" runat="server">
                 </asp:ContentPlaceHolder>
             </section>
 
-            <% if(isHome){ %>
+            <% if(hasFooter){ %>
             <footer class="footer">
                 <div class="btn-group btn-group-justified" role="group" aria-label="...">
                     <div class="btn-group" role="group">
@@ -73,180 +85,18 @@
         </div>
     </div>
 
-    <section class="side-nav" off-canvas="side-nav left reveal">
-        <nav>
-            <ul class="side-nav-items">
-                <li>
-                    <a href="#home"><span class="icon icon-home"></span>
-                        <%=commonCulture.ElementValues.getResourceString("home", commonVariables.LeftMenuXML)%>
-                    </a>
-                </li>
-                <li>
-                    <a href="#"><span class="icon icon-login"></span>
-                        <%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%>
-                    </a>
-                </li>
-                <li class="nav-category">
-                    <a href="#"><span class="icon icon-soccer"></span><%=commonCulture.ElementValues.getResourceString("sports", commonVariables.LeftMenuXML)%></a>
-                    <div class="nav-category-items">
-                        <h4><%=commonCulture.ElementValues.getResourceString("sports", commonVariables.LeftMenuXML)%></h4>
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <a href="#">
-                                    <%--<img src="assets/images/sample.jpg" alt="">--%>
-                                    <span>Club W</span>
-                                </a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="#">
-                                    <%--<img src="assets/images/sample.jpg" alt="">--%>
-                                    <span>Club W</span>
-                                </a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="#">
-                                    <%--<img src="assets/images/sample.jpg" alt="">--%>
-                                    <span>Club W</span>
-                                </a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="#">
-                                    <%--<img src="assets/images/sample.jpg" alt="">--%>
-                                    <span>Club W</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-category">
-                    <a href="#"><span class="icon icon-casino"></span>
-                        <%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%>
-                    </a>
-                    <div class="nav-category-items">
-                        <h4><%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%></h4>
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <a href="#test">
-                                    <%--<img src="assets/images/sample.jpg" alt="">--%>
-                                    <span>Club W</span>
-                                </a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="#">
-                                    <%--<img src="assets/images/sample.jpg" alt="">--%>
-                                    <span>Club W</span>
-                                </a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="#">
-                                    <%--<img src="assets/images/sample.jpg" alt="">--%>
-                                    <span>Club W</span>
-                                </a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="#">
-                                    <%--<img src="assets/images/sample.jpg" alt="">--%>
-                                    <span>Club W</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a href="#"><span class="icon icon-slots"></span>
-                        <%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%>
-                    </a>
-                </li>
-                <li>
-                    <a href="#"><span class="icon icon-keno"></span>
-                        <%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%>
-                    </a>
-                </li>
-                <li>
-                    <a href="#"><span class="icon icon-spade"></span>
-                        <%=commonCulture.ElementValues.getResourceString("poker", commonVariables.LeftMenuXML)%>
-                    </a>
-                </li>
-                <li>
-                    <a href="#"><span class="icon icon-mahjong"></span>
-                        <%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%>
-                    </a>
-                </li>
-                <li>
-                    <a href="#"><span class="icon icon-promo"></span>
-                        <%=commonCulture.ElementValues.getResourceString("promotions", commonVariables.LeftMenuXML)%>
-                    </a>
-                </li>
-                <li>
-                    <a href="#"><span class="icon icon-rewards"></span>
-                        <%=commonCulture.ElementValues.getResourceString("rewards", commonVariables.LeftMenuXML)%>
-                    </a>
-                </li>
-                <li>
-                    <a href="#"><span class="icon icon-chat"></span>
-                        <%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%>
-                    </a>
-                </li>
-                <li>
-                    <a href="#"><span class="icon icon-world"></span>
-                        <%=commonCulture.ElementValues.getResourceString("language", commonVariables.LeftMenuXML)%>
-                    </a>
-                </li>
-                <li>
-                    <a href="#"><span class="icon icon-desktop"></span>
-                        <%=commonCulture.ElementValues.getResourceString("desktopIconSide", commonVariables.LeftMenuXML)%>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </section>
+    <% if (commonCookie.CookieIsApp != "1"){ %>
+        <!--#include virtual="~/_Static/v2/menuv2.shtml" -->
+    <% } %>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/_static/v2/assets/js/vendor/jquery.js"></script>
-    <script src="/_static/js/vendor/lodash.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/_static/v2/assets/js/vendor/bootstrap.min.js"></script>
-    <script src="/_static/v2/assets/js/vendor/slidebars.min.js"></script>
-    <script src="/_static/v2/assets/js/vendor/slick.min.js"></script>
+    <!--#include virtual="~/_Static/v2/head.inc" -->
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
     <script src="/_static/js/gpint.js"></script>
-    <script src="/_static/v2/assets/js/vendor/pubsub.js"></script>
-    <script src="/_static/v2/assets/js/main.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-    <script src="/_static/v2/assets/js/usercheck.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-    <%--<script src="/_static/v2/assets/js/templates?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>--%>
-    <script src="/_Static/JS/vendor/amplify.min.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-    <script src="/_Static/JS/Cookie.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-    <script type="text/javascript" src="/_static/v2new/assets/js/vendor/bootstrap-validator.min.js"></script>
-
     <asp:ContentPlaceHolder ID="ScriptPlaceHolder" runat="server">
 
-        <script type="text/javascript">
-            var siteCookie = new Cookies();
-
-            _.templateSettings = {
-                interpolate: /\{\{(.+?)\}\}/g,      // print value: {{ value_name }}
-                evaluate: /\{%([\s\S]+?)%\}/g,   // excute code: {% code_to_execute %}
-                escape: /\{%-([\s\S]+?)%\}/g
-            };
-            _.templateSettings.variable = "tplData";
-            
-            window.w88Mobile = {};
-            window.User = {};
-            window.User.hasSession = <%= (!String.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) ? 1 : 0 %>;
-            window.User.token = '<%= commonVariables.CurrentMemberSessionId %>';
-            window.User.lang = '<%=commonVariables.SelectedLanguage%>';
-            window.User.storageExpiration = { expires: 300000 };
-            w88Mobile.APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings.Get("APIUrl") %>';
-            window.w88Mobile.Gateway = {};
-            window.w88Mobile.Gateways = {};
-        </script>
-        <script src="/_Static/JS/i18n/contents-<%=commonVariables.SelectedLanguageShort%>.js"></script>
-        <script src="/_Static/JS/modules/translate.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
         <script type="text/javascript" src="/_Static/JS/modules/constants.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-        <script src="/_static/v2/assets/js/loader.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-        <script type="text/javascript" src="/_static/v2/assets/js/growl.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-        <script src="/_Static/JS/piwik.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-        <script type="text/javascript" src="/_Static/JS/modules/piwikConfig.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-        <script type="text/javascript" src="/_Static/JS/modules/piwikManager.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
         <script>
 
             if (!_.isUndefined(w88Mobile.Growl)) {
@@ -259,62 +109,6 @@
             _w88_contents.init();
 
             w88Mobile.Loader.init();
-
-            var isAPIRequest = function (url) {
-
-                var apiPaths = [w88Mobile.APIUrl];
-
-                for (var i in apiPaths) {
-                    if (_.includes(url, apiPaths[i])) {
-                        return true;
-                    }
-                }
-                return false;
-            };
-
-            $( document ).ajaxSend(function( event, xhr, settings ) {
-                    var lang = window.User.lang;
-                    if(lang == "zh-my") lang = "zh-cn";
-                    xhr.setRequestHeader('Token', window.User.token);
-                    xhr.setRequestHeader('LanguageCode', lang);
-            });
-
-            // interceptor: check api calls if user status has changed
-            $( document ).ajaxComplete(function( event, request, settings ) {
-
-                if (isAPIRequest(settings.url)) {
-                    if (!_.isUndefined(request.responseJSON.ResponseCode)) {
-                        switch (request.responseJSON.ResponseCode) {
-                            case -7: //session expired
-                                alert(request.responseJSON.ResponseMessage);
-                                window.location.href = "/logout";
-                                // use below if growl is available
-                                //w88Mobile.Growl.shout(request.responseJSON.ResponseMessage, function(){
-                                //    window.location.href = "/logout";
-                                //});
-                                break;
-
-                            case -6: //multiple login
-                                alert(request.responseJSON.ResponseMessage);
-                                window.location.href = "/logout";
-                                // use below if growl is available
-                                //w88Mobile.Growl.shout(request.responseJSON.ResponseMessage, function(){
-                                //    window.location.href = "/logout";
-                                //});
-                                break;
-
-                            case -2: // not logged in
-                                alert(request.responseJSON.ResponseMessage);
-                                window.location.href = "/_secure/login.aspx";
-                                // use below if growl is available
-                                //w88Mobile.Growl.shout(request.responseJSON.ResponseMessage, function(){
-                                //    window.location.href = "/_secure/login.aspx";
-                                //});
-                                break;
-                        }
-                    }
-                }
-            });
 
             // footer action
             $(document).ready(function(){
@@ -331,8 +125,13 @@
                 $(".footer .btn-menu-promo").click(function(){
                     location.href = "/Promotions";
                 });
-                $(".footer .btn-menu-chat").click(function(){
-                    window.open("/LiveChat/Default.aspx", "ChatWindow");
+                $(".footer .btn-menu-chat").click(function () {
+                    try {
+                            Native.openLiveChat();
+                    } catch (e) {
+                        console.log("Native does not exist!");
+                        window.open("/LiveChat/Default.aspx", "ChatWindow");
+                    }
                 });
 
                 //menu-action
@@ -364,6 +163,7 @@
                 }
             }
         </script>
+        <script src="/_static/v2/assets/js/modules/interceptor.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" type="text/javascript"></script>
 
         <asp:ContentPlaceHolder ID="InnerScriptPlaceHolder" runat="server">
         </asp:ContentPlaceHolder>

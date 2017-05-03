@@ -1,13 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/v2/MasterPages/Payment.master" AutoEventWireup="true" CodeFile="Pay120218.aspx.cs" Inherits="v2_Deposit_Pay120218" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
-    <div class="form-group ali-pay-note">
-        <span id="paymentNote"></span>
-        <p id="paymentNoteContent"></p>
-    </div>
     <div class="form-group">
-        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="txtAmount" />
-        <asp:TextBox ID="txtAmount" runat="server" type="number" step="any" min="1" CssClass="form-control" required data-paylimit="0" />
+        <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
+        <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" required data-paylimit="0" data-numeric />
     </div>
     <div class="form-group">
         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
@@ -29,7 +25,7 @@
                 if (!e.isDefaultPrevented()) {
                     e.preventDefault();
                     var data = {
-                        Amount: $('input[id$="txtAmount"]').val(),
+                        Amount: $('input[id$="txtAmount"]').autoNumeric('get'),
                         BankText: $('select[id$="drpBank"] option:selected').val(),
                         BankValue: $('select[id$="drpBank"]').val(),
                         ThankYouPage: location.protocol + "//" + location.host + "/Index",

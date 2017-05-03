@@ -2,7 +2,6 @@
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentHolder" runat="Server">
     <div class="home-banner slick-slider">
-        <%=base.BannerDiv %>
     </div>
 
     <div class="dashboard dashboard-home">
@@ -19,7 +18,7 @@
         </div>
         <div class="dashboard-row">
             <div class="dashboard-col">
-                <a href="/Slots.aspx"><span class="icon icon-slots"></span>
+                <a href="/_Static/v2new/slots.html"><span class="icon icon-slots"></span>
                     <%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%>
                 </a>
             </div>
@@ -61,5 +60,18 @@
                 console.log("Native does not exist!");
             }
         });
+
+        var loadBanner = function () {
+            $(".home-banner.slick-slider").append('<%=base.BannerDiv %>').slick({
+                arrows: false,
+                dots: true,
+                autoplay: true
+            }
+            );
+        }
+
+        if (!_.isUndefined($(window).load)) {
+            $(window).load(loadBanner);
+        } else $(document).read(loadBanner);
     </script>
 </asp:Content>

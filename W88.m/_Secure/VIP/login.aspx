@@ -124,18 +124,18 @@
         setTranslations();
 
         function setTranslations() {
-            $("#formHeader").text(_w88_contents.translate("LABEL_VIP_LOGIN"));
-            $("#txtUsername").attr("placeholder", _w88_contents.translate("LABEL_USERNAME"));
-            $("#txtPassword").attr("placeholder", _w88_contents.translate("LABEL_PASSWORD"));
-            $("#txtCaptcha").attr("placeholder", _w88_contents.translate("LABEL_CAPTCHA"));
-            $("#btnSubmit").val(_w88_contents.translate("BUTTON_LOGIN"));
+                $("#formHeader").text(_w88_contents.translate("LABEL_VIP_LOGIN"));
+                $("#txtUsername").attr("placeholder", _w88_contents.translate("LABEL_USERNAME"));
+                $("#txtPassword").attr("placeholder", _w88_contents.translate("LABEL_PASSWORD"));
+                $("#txtCaptcha").attr("placeholder", _w88_contents.translate("LABEL_CAPTCHA"));
+                $("#btnSubmit").val(_w88_contents.translate("BUTTON_LOGIN"));
 
-            var note0 = _w88_contents.translate("LABEL_VIP_LOGIN_NOTE_0").split('{0}');
-            $("#loginNote0").text(note0[0]);
-            $("#loginNote1").text(note0[1]);
-            $("#sslNote").text(_w88_contents.translate("LABEL_VIP_LOGIN_NOTE_1"));
-            $("#forgot").text(_w88_contents.translate("LABEL_FORGOTPASSWORD"));
-            $("#csLink").text(_w88_contents.translate("LABEL_CS_LINK"));
+                var note0 = _w88_contents.translate("LABEL_VIP_LOGIN_NOTE_0").split('{0}');
+                $("#loginNote0").text(note0[0]);
+                $("#loginNote1").text(note0[1]);
+                $("#sslNote").text(_w88_contents.translate("LABEL_VIP_LOGIN_NOTE_1"));
+                $("#forgot").text(_w88_contents.translate("LABEL_FORGOTPASSWORD"));
+                $("#csLink").text(_w88_contents.translate("LABEL_CS_LINK"));
         }
 
         $('#txtUsername').keyup(function () {

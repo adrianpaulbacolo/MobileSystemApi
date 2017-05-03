@@ -17,16 +17,11 @@ function AlipayV2() {
 
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
+                $('[id$="lblSwitchLine"]').text(_w88_contents.translate("LABEL_SWITCH_LINE"));
+
+                $(".pay-note").show();
                 $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-
-                if (!_.isUndefined(gatewayId)) {
-                    if (gatewayId == "120254") {
-                        $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_120254")); //SDA alipay note
-                    }
-                } else {
-                    $("#paymentNoteContent").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_ALIPAY"));
-                }
-
+                $("#paymentNoteContent").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_ALIPAY"));
             } else {
                 window.setInterval(function () {
                     setTranslations();
@@ -41,6 +36,7 @@ function AlipayV2() {
         var data = {
             Amount: params.Amount,
             ThankYouPage: params.ThankYouPage,
+            SwitchLine: params.SwitchLine,
         };
 
         _self.methodId = params.MethodId;
@@ -55,7 +51,8 @@ function AlipayV2() {
                             w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");
                             w88Mobile.PostPaymentForm.submit();
                         } else if (response.ResponseData.DummyURL) {
-                            window.open(response.ResponseData.DummyURL, '_blank');
+                            w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.DummyURL, "body");
+                            w88Mobile.PostPaymentForm.submit();
                         }
                     }
 

@@ -58,13 +58,14 @@
             </ul>
 
             <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
-
-            <div class="payment-banner" style="background-color: transparent; padding-bottom: 30px;"></div>
+            <div class="arrow-container">
+                <div class="payment-banner"></div>
+            </div>
 
             <ul class="list fixed-tablet-size">
                 <li class="item row" id="btnSubmitPlacement">
                     <div class="col">
-                        <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" />
+                        <asp:Button data-theme="b" ID="btnSubmit" runat="server" CssClass="button-blue" data-corners="false" OnClientClick="javascript: _w88_paymentbanner.forceStopWhenSubmit()" />
                     </div>
                 </li>
             </ul>
@@ -75,34 +76,36 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
+            _.templateSettings = {
+                interpolate: /\{\{(.+?)\}\}/g,      // print value: {{ value_name }}
+                evaluate: /\{%([\s\S]+?)%\}/g,   // excute code: {% code_to_execute %}
+                escape: /\{%-([\s\S]+?)%\}/g
+            };
+            _.templateSettings.variable = "tplData";
+
             var isDeposit = _.includes(window.location.pathname.toLowerCase(), "deposit");
 
             _w88_paymentSvc.init(isDeposit);
         });
     </script>
-    <script type="text/javascript">
-        _.templateSettings = {
-            interpolate: /\{\{(.+?)\}\}/g,      // print value: {{ value_name }}
-            evaluate: /\{%([\s\S]+?)%\}/g,   // excute code: {% code_to_execute %}
-            escape: /\{%-([\s\S]+?)%\}/g
-        };
-        _.templateSettings.variable = "tplData";
-    </script>
     <script type="text/template" id='paymentBanner'>
         {% _.each(tplData.Banner, function(item) { %}
         <div>
-            <img class="img-responsive" src="{%-item.Image%}" onclick="javascript: _w88_paymentbanner.openVideo(this)">
-            <video class="video-responsive" controls="controls" poster="{%-item.Image%}" onended="javascript: _w88_paymentbanner.closeVideo(this)">
-                {% _.each(item.Videos, function(itemType) { %}
-                <source src="{%-itemType.Video%}" type="{%-itemType.Type%}" />
-                {% }); %}
-                <object type="application/x-shockwave-flash" data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf">
-                    <param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />
-                    <param name="allowFullScreen" value="true" />
-                    <param name="wmode" value="transparent" />
-                    <param name="flashVars" value="config={'playlist':['{%-item.Image%}',{'url':'{%-item.Flash.Video%}','autoPlay':false}]}" />
-                </object>
-            </video>
+            <img class="img-responsive" style="padding-right: 10px" src="{%-item.Image%}" onclick="javascript: _w88_paymentbanner.openVideo(this)">
+            <div class="embed-responsive">
+                <button type="button" class="stop-video" onclick="javascript: _w88_paymentbanner.forceStop(this)"><span class="icon icon-close"></span></button>  
+                <video controls="controls"  onended="javascript: _w88_paymentbanner.closeVideo(this)">
+                    {% _.each(item.Videos, function(itemType) { %}
+                    <source src="{%-itemType.Video%}" type="{%-itemType.Type%}" />
+                    {% }); %}
+                    <object type="application/x-shockwave-flash" data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf">
+                        <param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />
+                        <param name="allowFullScreen" value="true" />
+                        <param name="wmode" value="transparent" />
+                        <param name="flashVars" value="config={'playlist':['{%-item.Image%}',{'url':'{%-item.Flash.Video%}','autoPlay':false}]}" />
+                    </object>
+                </video>
+            </div>
         </div>
         {% }); %}
     </script>

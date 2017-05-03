@@ -145,6 +145,20 @@ public partial class _Index : BasePage
                     }
                 }
 
+                if (promo.HasAttributes && promo.Attribute("deviceId") != null)
+                {
+                    if (commonFunctions.getMobileDevice(Request) == 3)
+                    {
+                        if (Convert.ToInt16(promo.Attribute("deviceId").Value) != 2)
+                            continue;
+                    }
+                    else
+                    {
+                        if (Convert.ToInt16(promo.Attribute("deviceId").Value) != commonFunctions.getMobileDevice(Request))
+                            continue;    
+                    }
+                }
+
                 if (!string.IsNullOrWhiteSpace(descText)) description = "<p>" + descText + "</p>";
                 if (!string.IsNullOrWhiteSpace(mainText)) content = "<div class=\"slide-title\"><h2>" + mainText + "</h2>" + description + "</div>";
 
@@ -153,6 +167,8 @@ public partial class _Index : BasePage
                 {
                     bannerText = "<div class=\"slide_content\"><div class=\"textarea\">" + content + description + "</div></div>";
                 }
+
+                url = CheckDomain(url);
 
                 slider += "<div class=\"slide\">" +
                             "<a href=\"" + url + "\" data-ajax=\"false\" class=\"" + linkClass + "\">" +
@@ -189,6 +205,14 @@ public partial class _Index : BasePage
         }
 
         return string.Empty;
+    }
+
+    private string CheckDomain(string url)
+    {
+        if (!url.Contains("{DOMAIN}")) return url;
+
+        url = url.Replace("{DOMAIN}", commonIp.DomainName).Replace("{TOKEN}", !string.IsNullOrWhiteSpace(commonVariables.CurrentMemberSessionId) ? commonVariables.EncryptedCurrentMemberSessionId : "").Replace("{LANG}", commonVariables.SelectedLanguage);
+        return url;
     }
 
     private void CheckAgent()

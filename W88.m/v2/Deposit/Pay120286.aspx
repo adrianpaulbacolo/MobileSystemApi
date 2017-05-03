@@ -2,15 +2,12 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
     <div class="form-group">
-        <p id="IndicatorMsg" style="color: #ff0000"></p>
-    </div>
-    <div class="form-group">
         <asp:Label ID="lblBanks" runat="server" AssociatedControlID="drpBanks" />
         <asp:DropDownList ID="drpBanks" runat="server" CssClass="form-control"  data-bankequals="-1">
         </asp:DropDownList>
     </div>
     <div class="form-group">
-        <asp:Label ID="lblDepositAmount" runat="server" AssociatedControlID="drpAmount" />
+        <asp:Label ID="lblAmount" runat="server" AssociatedControlID="drpAmount" />
         <asp:DropDownList ID="drpAmount" runat="server" CssClass="form-control">
         </asp:DropDownList>
     </div>
@@ -34,9 +31,9 @@
 
             window.w88Mobile.Gateways.BaokimScratchCardV2.init();
 
-            $('#<%=drpBanks.ClientID%>').change(function () {
-                window.w88Mobile.Gateways.BaokimScratchCardV2.setFee($('#<%=drpBanks.ClientID%>').val());
-                window.w88Mobile.Gateways.BaokimScratchCardV2.setDenom($('#<%=drpBanks.ClientID%>').val());
+            $('select[id$="drpBanks"]').change(function () {
+                window.w88Mobile.Gateways.BaokimScratchCardV2.setFee($('select[id$="drpBanks"]').val());
+                window.w88Mobile.Gateways.BaokimScratchCardV2.setDenom($('select[id$="drpBanks"]').val());
             });
 
             $('#form1').submit(function (e) {

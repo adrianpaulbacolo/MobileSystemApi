@@ -74,14 +74,10 @@
                    var queryString = commonVariables.GetSessionVariable("AffiliateId") == string.Empty ? "" : "?affiliateId=" + commonVariables.GetSessionVariable("AffiliateId"); %>
             <div class="row row-no-padding action-btn">
                 <div class="col front-btn">
-                    <a href="/_Secure/Register.aspx<%= queryString %>" class="ui-btn btn-secondary" role="button" data-ajax="false">
-                        <%=commonCulture.ElementValues.getResourceString("joinnow", commonVariables.LeftMenuXML)%>
-                    </a>
+                    <a href="/_Secure/Register.aspx<%= queryString %>" class="ui-btn btn-secondary menuJoinTitle" role="button" data-ajax="false"></a>
                 </div>
                 <div class="col front-btn">
-                    <a href="/_Secure/Login.aspx" class="ui-btn btn-primary" role="button" data-rel="dialog" data-ajax="false">
-                        <%=commonCulture.ElementValues.getResourceString("login", commonVariables.LeftMenuXML)%>
-                    </a>
+                    <a href="/_Secure/Login.aspx" class="ui-btn btn-primary menuLoginTitle" role="button" data-rel="dialog" data-ajax="false"></a>
                 </div>
             </div>
             <% } %>
@@ -90,9 +86,9 @@
                { %>
             <div class="row row-no-padding action-btn action-button-lg" data-ajax="false">
                 <div class="col">
-                    <a href="Funds.aspx" class="ui-btn btn-primary" role="button" data-ajax="false">
+                    <a href="Funds.aspx" class="ui-btn btn-primary " role="button" data-ajax="false">
                         <span class="icon icon-currency-circle"></span>
-                        <%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%>
+                        <span class="menuFundsTitle"></span>
                     </a>
                 </div>
             </div>
@@ -104,65 +100,86 @@
                 <li class="col col-33 product">
                     <a href="Sports.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower() %>" class="tile" data-ajax="false">
                         <span class="icon icon-soccer"></span>
-                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("sports", commonVariables.LeftMenuXML)%></h4>
+                        <h4 class="title menuSportsTitle"></h4>
                     </a>
                 </li>
                 <li class="col col-33 product">
                     <a href="Casino.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower() %>" class="tile" data-ajax="false">
                         <span class="icon icon-casino"></span>
-                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("livecasino", commonVariables.LeftMenuXML)%></h4>
+                        <h4 class="title menuLiveCasinoTitle"></h4>
                     </a>
                 </li>
                 <li class="col col-33 product">
                     <%--<a href="#divPanel" class="tile nav-slots">--%>
                     <a href="Slots.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>" class="tile" data-ajax="false">
                         <span class="icon icon-slots"></span>
-                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%></h4>
+                        <h4 class="title menuSlotsTitle"></h4>
                     </a>
                 </li>
 
                 <!-- Fishing Game -->
-                <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency))
-                   {
-                       if (commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase))
-                       { %>
                 <li class="col col-33 product">
                     <a href="#divPanel" class="tile nav-fish">
                         <span class="icon icon-fish"></span>
-                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></h4>
+                        <h4 class="title menuFishingTitle"></h4>
                     </a>
                 </li>
-                <% }
-                   }
-                   else if (commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))
-                   { %>
-                <li class="col col-33 product">
-                    <a href="#divPanel" class="tile nav-fish">
-                        <span class="icon icon-fish"></span>
-                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%></h4>
-                    </a>
-                </li>
-                <% } %>
 
                 <li class="col col-33 product">
                     <a href="Lottery.aspx?lang=<%=commonVariables.SelectedLanguage%>" class="tile" data-ajax="false">
                         <span class="icon icon-keno"></span>
-                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%></h4>
+                        <h4 class="title menuLotteryTitle"></h4>
                     </a>
                 </li>
                 <li class="col col-33 product">
                     <a href="#divPanel" class="tile nav-poker">
                         <span class="icon icon-spade"></span>
-                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("poker", commonVariables.LeftMenuXML)%></h4>
+                        <h4 class="title menuPokerTitle"></h4>
                     </a>
                 </li>
 
+
+                <%
+                    var isSuperBullIndex = false;
+
+                        if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
+                        {
+
+                            if (commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase))
+                            {
+                                isSuperBullIndex = true;
+                            }
+
+                        }
+                        else
+                        {
+                            if (commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))
+                            {
+                                isSuperBullIndex = true;
+                            }
+                        }
+                %>
+
+
+                <% if (isSuperBullIndex)
+                   {
+                %>
+                <li class="col col-33 product">
+                    <a href="#divPanel" class="tile nav-pmahjong">
+                        <span class="icon icon-super-bull"></span>
+                        <h4 class="title menuP2PTitle"></h4>
+                    </a>
+                </li>
+                <%}
+                   else
+                   { %>
                 <li class="col col-33 product">
                     <a href="#divPanel" class="tile nav-pmahjong">
                         <span class="icon icon-mahjong"></span>
-                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("texasmahjong", commonVariables.LeftMenuXML)%></h4>
+                        <h4 class="title menuTexasMahjongTitle"></h4>
                     </a>
                 </li>
+                <% } %>
 
                 <!-- Profile -->
                 <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
@@ -185,14 +202,14 @@
                 <li class="col col-33">
                     <a href="/Promotions" data-ajax="false" class="tile">
                         <span class="icon icon-promo"></span>
-                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("promotions", commonVariables.LeftMenuXML)%></h4>
+                        <h4 class="title menuPromotionsTitle"></h4>
                     </a>
                 </li>
 
                 <li class="col col-33">
                     <a href="#" id="icon-rewards" class="tile" role="button" data-ajax="false" target="_blank">
                         <span class="icon icon-rewards"></span>
-                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("rewards", commonVariables.LeftMenuXML)%></h4>
+                        <h4 class="title menuRewardsTitle"></h4>
                     </a>
                 </li>
 
@@ -219,7 +236,7 @@
                 <li class="col col-33">
                     <a href="/LiveChat/Default.aspx" class="tile" role="button" runat="server" data-ajax="false" target="_blank">
                         <span class="icon icon-chat"></span>
-                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%></h4>
+                        <h4 class="title menuLiveChatTitle"></h4>
                     </a>
                 </li>
 
@@ -250,14 +267,14 @@
                 <li class="col col-33">
                     <a href="/Lang.aspx" class="tile" role="button" data-ajax="false">
                         <span class="icon icon-world"></span>
-                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("language", commonVariables.LeftMenuXML)%></h4>
+                        <h4 class="title menuLanguageTitle"></h4>
                     </a>
                 </li>
 
                 <li class="col col-33">
                     <a href="#" id="icon-desktop" class="tile" role="button" data-ajax="false">
                         <span class="icon icon-desktop"></span>
-                        <h4 class="title"><%=commonCulture.ElementValues.getResourceString("desktopIcon", commonVariables.LeftMenuXML)%></h4>
+                        <h4 class="title menuDesktopTitle"></h4>
                     </a>
                 </li>
 
@@ -271,9 +288,21 @@
         <!--#include virtual="~/_static/navMenu.shtml" -->
 
         <script src="/_Static/JS/vendor/slick.min.js"></script>
+
         <script>
+            
+            pubsub.subscribe('contentsLoaded', onContentsLoaded);
+
+            function onContentsLoaded() {
+                
+                _w88_products.init();
+            }
+
             // Slick - Slider Banner
             $(document).ready(function () {
+
+                _w88_products.init();
+
                 $('.banner-slider').slick({
                     dots: true,
                     responsive: [

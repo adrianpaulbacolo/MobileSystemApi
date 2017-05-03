@@ -739,6 +739,7 @@ public static class commonFunctions
             , "/lang.aspx"
             , "/lottery.aspx"
             , "/profile/default.aspx"
+            , "/v2/dashboard.aspx"
         };
 
         return pageList.Any(path.ToLower().Contains);
@@ -787,6 +788,11 @@ public static class commonFunctions
     public static string getTexasMahjongDownloadLinks()
     {
         return ConfigurationManager.AppSettings["TexasMahjongAndroid_URL"];
+    }
+
+    public static string GetSuperBullDownloadLink()
+    {
+        return ConfigurationManager.AppSettings["SuperBull_Android_URL"];
     }
 
 }
