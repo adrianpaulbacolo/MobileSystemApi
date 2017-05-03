@@ -8,62 +8,62 @@
         </div>
     </div>
 
-    <div id="PaymentInfo" style="display: none">
-        <div class="form-group">
-            <div class="col-xs-6">
-                <span id="lblStatus"></span>
+    <div class="payment-info" id="PaymentInfo" style="display: none">
+        <div class="row no-gutter">
+            <div class="col-xs-3 col-sm-5">
+                <p class="payment-label" id="lblStatus"></p>
             </div>
-            <div class="col-xs-6">
-                <span id="txtStatus"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-xs-6">
-                <span id="lblTransactionId"></span>
-            </div>
-            <div class="col-xs-6">
-                <span id="txtTransactionId"></span>
+            <div class="col-xs-6 col-sm-5">
+                <p id="txtStatus"></p>
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-xs-6">
-                <span id="lblAmount2"></span>
+        <div class="row no-gutter">
+            <div class="col-xs-3 col-sm-5">
+                <p class="payment-label" id="lblTransactionId"></p>
             </div>
-            <div class="col-xs-4">
-                <span id="txtStep2Amount"></span>
-            </div>
-            <div class="col-xs-2">
-                <a href="#" class="btn btn-xs btn-line" id="copyAmount"></a>
+            <div class="col-xs-6 col-sm-5">
+                <p id="txtTransactionId"></p>
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-xs-6">
-                <span id="lblBankName"></span>
+        <div class="row no-gutter">
+            <div class="col-xs-3 col-sm-5">
+                <p class="payment-label" id="lblAmount2"></p>
             </div>
-            <div class="col-xs-6">
-                <span id="txtBankName"></span>
+            <div class="col-xs-6 col-sm-5">
+                <p id="txtStep2Amount"></p>
             </div>
-        </div>
-        <div class="form-group">
-            <div class="col-xs-6">
-                <span id="lblBankHolderName"></span>
-            </div>
-            <div class="col-xs-4">
-                <span id="txtBankHolderName"></span>
-            </div>
-            <div class="col-xs-2">
-                <a href="#" class="btn btn-xs btn-line" id="copyAccountName"></a>
+            <div class="col-xs-3 col-sm-2">
+                <a href="#" class="btn btn-xs btn-default" id="copyAmount"></a>
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-xs-6">
-                <span id="lblBankAccountNo"></span>
+        <div class="row no-gutter">
+            <div class="col-xs-3 col-sm-5">
+                <p class="payment-label" id="lblBankName"></p>
             </div>
-            <div class="col-xs-4">
-                <span id="txtBankAccountNo"></span>
+            <div class="col-xs-6 col-sm-5">
+                <p id="txtBankName"></p>
             </div>
-            <div class="col-xs-2">
-                <a href="#" class="btn btn-xs btn-line" id="copyAccountNo"></a>
+        </div>
+        <div class="row no-gutter">
+            <div class="col-xs-3 col-sm-5">
+                <p class="payment-label" id="lblBankHolderName"></p>
+            </div>
+            <div class="col-xs-6 col-sm-5">
+                <p id="txtBankHolderName"></p>
+            </div>
+            <div class="col-xs-3 col-sm-2">
+                <a href="#" class="btn btn-xs btn-default" id="copyAccountName"></a>
+            </div>
+        </div>
+        <div class="row no-gutter">
+            <div class="col-xs-3 col-sm-5">
+                <p class="payment-label" id="lblBankAccountNo"></p>
+            </div>
+            <div class="col-xs-6 col-sm-5">
+                <p id="txtBankAccountNo"></p>
+            </div>
+            <div class="col-xs-3 col-sm-2">
+                <a href="#" class="btn btn-xs btn-default" id="copyAccountNo"></a>
             </div>
         </div>
     </div>
