@@ -74,7 +74,10 @@
 
                 $('#ContentPlaceHolder1_ContentPlaceHolder2_drpBank').append($('<option>').text(selectName).attr('value', '-1'));
 
-                _.forOwn(d.ResponseData, function(data) {
+                _.forOwn(d.ResponseData, function (data) {
+                    if (_.isEqual(data.Value, "ICBC") || _.isEqual(data.Value, "ECITIC"))
+                        data.Text = data.Text + " (*)";
+
                     $('#ContentPlaceHolder1_ContentPlaceHolder2_drpBank').append($('<option>').text(data.Text).attr('value', data.Value));
                 });
 
