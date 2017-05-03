@@ -1,5 +1,5 @@
-﻿<% 
-var deviceId = commonFunctions.getMobileDevice(Request); 
+﻿<%
+var deviceId = commonFunctions.getMobileDevice(Request);
 
 var fishLink = "https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/FishingMasterEN.apk";
 var fishlinkIos = "itms-services://?action=download-manifest&url=https://s3-ap-southeast-1.amazonaws.com/w88download/fishing/manifestEN.plist";
@@ -18,20 +18,6 @@ else{
 }
 
 var fishingWorld = FishingWorldProduct.GetLink();
-
-var isSuperBull = false;
-if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)){
-
-    if (commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase)){
-        isSuperBull = true;
-    }
-
-}
-else {
-    if (commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase)){
-         isSuperBull = true;
-    }
-}
 
 %>
 <div data-role="panel" id="divPanel">
@@ -138,7 +124,7 @@ else {
                 </li>
                 <%}%>
                 <%}catch(Exception){}%>
-               
+
                 <li>
                     <a class="card" data-rel="sports" rel="asports" href="/_Secure/Login.aspx?redirect=<%=System.Web.HttpContext.Current.Request.Url.ToString()%>" data-rel="dialog" data-ajax="false" target="_blank">
                         <img src="#" class="img-responsive asports">
@@ -151,12 +137,12 @@ else {
                         <div class="title menuESportsTitle"></div>
                     </a>
                 </li>
-                 <li>
+                <li>
                     <a class="card" data-rel="sports" rel="vsports" href="/V-Sports.aspx" data-ajax="false">
-                         <img src="#" class="img-responsive vsports">
+                        <img src="#" class="img-responsive vsports">
                         <div class="title menuVSportsTitle"></div>
                     </a>
-                </li> 
+                </li>
                 <% if (!string.IsNullOrWhiteSpace(commonCookie.CookieCurrency))
                 {
                 if ( (!commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase)) && (!commonCookie.CookieCurrency.Equals("usd", StringComparison.OrdinalIgnoreCase)) )
@@ -248,7 +234,7 @@ else {
                 </li>
                 <%}%>
                 <%}catch(Exception){}%>
-              
+
                 <li>
                     <a class="card" data-rel="livecasino" rel="clubpalazzo-casino" href="/_static/palazzo/casino.aspx" data-ajax="false">
                         <img src="#" class="img-responsive clubpalazzo-casino-android">
@@ -363,11 +349,11 @@ else {
                     </a>
                 </li>
                 <!--<li>
-                <a class="card" rel="clubcrescendo" href="/ClubCrescendo" data-ajax="false">
-                    <img src="_Static/Images/bnr-clubcrescendo.jpg" class="img-responsive">
-                    <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubCrescendo/Label", commonVariables.ProductsXML)%></div>
-                </a>
-            </li>-->
+                    <a class="card" rel="clubcrescendo" href="/ClubCrescendo" data-ajax="false">
+                        <img src="_Static/Images/bnr-clubcrescendo.jpg" class="img-responsive">
+                        <div class="title"><%=commonCulture.ElementValues.getResourceXPathString("Products/ClubCrescendo/Label", commonVariables.ProductsXML)%></div>
+                    </a>
+                </li>-->
             </ul>
         </li>
         <!-- Fishing Game -->
@@ -412,7 +398,7 @@ else {
                 <%}catch(Exception){}%>
 
                 <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-        { %>
+                { %>
                 <li>
                     <a class="card" data-rel="fish" rel="FishAndroid" href="<%=fishingWorld%>" data-ajax="false" target="_blank">
                         <img src="#" class="img-responsive FishWorld3">
@@ -482,26 +468,16 @@ else {
                 <%}catch(Exception){}%>
             </ul>
         </li>
-
         <!-- Texas Mahjong -->
         <li data-icon="false">
             <a class="nav-pmahjong">
-                <% if(isSuperBull) { %>
-                    <i class="icon icon-super-bull"></i>
-                    <div class="label menuP2PTitle"></div>
-                <% } else { %>
-                    <i class="icon icon-mahjong"></i>
-                    <div class="label menuTexasMahjongTitle"></div>
-                <%} %>
+                <i class="icon icon-super-bull"></i>
+                <div class="label menuP2PTitle"></div>
             </a>
             <ul class="sub-menu" data-rel="texasmahjong">
                 <!--<a class="close" data-rel="close">&times;</a>-->
-                <% if(isSuperBull) { %>
                 <h2 class="title menuP2PTitle"></h2>
-                <% } else { %>
-                <h2 class="title menuTexasMahjongTitle"></h2>
-                <% } %>
-
+                
                 <%
                 try{
                 %>
@@ -513,15 +489,12 @@ else {
                         <div class="title menuiOSDownloadTitle"></div>
                     </a>
                 </li>
-                <% if(isSuperBull) { %>
                 <li>
                     <a class="card" rel="superbull" href='/_static/Downloads/superbull.aspx' data-rel="dialog" data-ajax="false">
                         <img src="#" class="img-responsive SuperBull-Ios">
                         <div class="title menuSuperBullTitle"></div>
                     </a>
                 </li>
-                <% } %>
-
 
                 <%}%>
                 <%if(deviceId==2){%>
@@ -532,20 +505,16 @@ else {
                         <div class="title menuTexasMahjongTitle"></div>
                     </a>
                 </li>
-                
-                    <% if(isSuperBull) { %>
-                        <li>
-                            <a class="card" rel="superbull" href='<%= commonFunctions.GetSuperBullDownloadLink()%>' data-rel="dialog" data-ajax="false">
-                                <img src="#" class="img-responsive SuperBull-Android">
-                                <div class="title menuSuperBullTitle"></div>
-                            </a>
-                        </li>
-                    <% } %>
-
+                <li>
+                    <a class="card" rel="superbull" href='<%= commonFunctions.GetSuperBullDownloadLink()%>' data-rel="dialog" data-ajax="false">
+                        <img src="#" class="img-responsive SuperBull-Android">
+                        <div class="title menuSuperBullTitle"></div>
+                    </a>
+                </li>
 
                 <%}%>
                 <%if(deviceId==3){%>
-                
+
                 <li>
                     <a class="card" rel="texasmahjong" href='<%= commonFunctions.getTexasMahjongDownloadLinks()%>' data-rel="dialog" data-ajax="false">
                         <img src="#" class="img-responsive TexasMahjong-Android">
@@ -558,21 +527,18 @@ else {
                         <div class="title menuTexasMahjongTitle"></div>
                     </a>
                 </li>
-
-                    <% if(isSuperBull) { %>
-                    <li>
-                        <a class="card" rel="superbull" href='/_static/Downloads/superbull.aspx' data-rel="dialog" data-ajax="false">
-                            <img src="#" class="img-responsive SuperBull-Ios">
-                            <div class="title menuSuperBullTitle"></div>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="card" rel="superbull" href='<%= commonFunctions.GetSuperBullDownloadLink()%>' data-rel="dialog" data-ajax="false">
-                            <img src="#" class="img-responsive SuperBull-Android">
-                            <div class="title menuSuperBullTitle"></div>
-                        </a>
-                    </li>
-                    <% } %>
+                <li>
+                    <a class="card" rel="superbull" href='/_static/Downloads/superbull.aspx' data-rel="dialog" data-ajax="false">
+                        <img src="#" class="img-responsive SuperBull-Ios">
+                        <div class="title menuSuperBullTitle"></div>
+                    </a>
+                </li>
+                <li>
+                    <a class="card" rel="superbull" href='<%= commonFunctions.GetSuperBullDownloadLink()%>' data-rel="dialog" data-ajax="false">
+                        <img src="#" class="img-responsive SuperBull-Android">
+                        <div class="title menuSuperBullTitle"></div>
+                    </a>
+                </li>
 
                 <%}%>
 

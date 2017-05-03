@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
-public partial class _Static_Downloads_superbull : System.Web.UI.Page
+public partial class _Static_Downloads_superbull : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -15,6 +10,10 @@ public partial class _Static_Downloads_superbull : System.Web.UI.Page
 
         spanMsg.InnerHtml = commonCulture.ElementValues.getResourceString("superbulliOSMessage", xeResources);
         sDownload.InnerText = commonCulture.ElementValues.getResourceString("downloadnow", xeResources);
-        sDownload.HRef = ConfigurationManager.AppSettings["SuperBull_IOS_URL"];
+
+        sDownload.HRef = commonCookie.CookieLanguage.ToLower() == "zh-cn"
+            ? ConfigurationManager.AppSettings["SuperBull_IOS_URL"]
+            : ConfigurationManager.AppSettings["SuperBull_IOS_URL_EN"];
+
     }
 }

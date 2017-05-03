@@ -792,7 +792,9 @@ public static class commonFunctions
 
     public static string GetSuperBullDownloadLink()
     {
-        return ConfigurationManager.AppSettings["SuperBull_Android_URL"];
+        return commonCookie.CookieLanguage.ToLower() == "zh-cn"
+            ? ConfigurationManager.AppSettings["SuperBull_Android_URL"]
+            : ConfigurationManager.AppSettings["SuperBull_Android_URL_EN"];
     }
 
 }
