@@ -722,9 +722,10 @@ public static class commonFunctions
         return responseCode;
     }
 
-    public static bool isNativeAgent(HttpRequest request)
+    public static bool isExternalPlatform()
     {
-        return getMobileDevice(request) == 4;
+        // @todo check if spfid not 22 is not applicable anymore to be treated as Native agent
+        return commonCookie.Get("spfid_mob") != "22";
     }
 
     public static bool isMainPage(HttpRequest request)

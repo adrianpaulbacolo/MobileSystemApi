@@ -16,7 +16,7 @@
                { %>
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
 
-                <% if (commonFunctions.isNativeAgent(Request) && !Request.Url.AbsolutePath.ToLower().Contains("index"))
+                <% if (commonFunctions.isExternalPlatform() && !Request.Url.AbsolutePath.ToLower().Contains("index"))
                    { %>
                 <i class="icon icon-back"></i>
                 <% }
