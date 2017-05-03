@@ -61,13 +61,17 @@
             }
         });
 
-        $(document).ready(function () {
+        var loadBanner = function () {
             $(".home-banner.slick-slider").append('<%=base.BannerDiv %>').slick({
                 arrows: false,
                 dots: true,
                 autoplay: true
-            });
+            }
+            );
+        }
 
-        });
+        if (!_.isUndefined($(window).load)) {
+            $(window).load(loadBanner);
+        } else $(document).read(loadBanner);
     </script>
 </asp:Content>

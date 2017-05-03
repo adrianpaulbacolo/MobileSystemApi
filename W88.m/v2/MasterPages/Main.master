@@ -10,18 +10,27 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title><%=base.Page.Title %></title>
     <!-- Bootstrap -->
-    <link href="/_static/v2/assets/css/base.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
-    <link href="/_static/v2/assets/css/styles.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
+    <link href="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/css/base.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
+    <!-- JTSageDateBox -->
+    <link href="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/css/vendor/jtsage-datebox-4.1.1.bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/css/styles.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <!--#include virtual="~/_Static/v2/head.inc" -->
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/cookie.min.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script type="text/javascript">
+        if (siteCookie.getCookie("CDNCountryCode") == "VN") {
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+                var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-W854N4G');
+        }
+    </script>
 </head>
 <body>
 
@@ -80,6 +89,10 @@
         <!--#include virtual="~/_Static/v2/menuv2.shtml" -->
     <% } %>
 
+    <!--#include virtual="~/_Static/v2/head.inc" -->
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
     <script src="/_static/js/gpint.js"></script>
     <asp:ContentPlaceHolder ID="ScriptPlaceHolder" runat="server">
 
@@ -112,8 +125,13 @@
                 $(".footer .btn-menu-promo").click(function(){
                     location.href = "/Promotions";
                 });
-                $(".footer .btn-menu-chat").click(function(){
-                    window.open("/LiveChat/Default.aspx", "ChatWindow");
+                $(".footer .btn-menu-chat").click(function () {
+                    try {
+                            Native.openLiveChat();
+                    } catch (e) {
+                        console.log("Native does not exist!");
+                        window.open("/LiveChat/Default.aspx", "ChatWindow");
+                    }
                 });
 
                 //menu-action

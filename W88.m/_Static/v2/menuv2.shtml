@@ -504,4 +504,3 @@ else {
         </ul>
     </nav>
 </section>
-<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/menu.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
