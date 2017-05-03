@@ -1,35 +1,95 @@
-﻿.main-content {
+﻿.rotate45 {
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.rotate90 {
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+.rotate135 {
+    -ms-transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+.rotate180 {
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.rotate225 {
+    -ms-transform: rotate(225deg);
+    -webkit-transform: rotate(225deg);
+    -moz-transform: rotate(225deg);
+    -o-transform: rotate(225deg);
+    transform: rotate(225deg);
+}
+.rotate270 {
+    -ms-transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+.rotate315 {
+    -ms-transform: rotate(315deg);
+    -webkit-transform: rotate(315deg);
+    -moz-transform: rotate(315deg);
+    -o-transform: rotate(315deg);
+    transform: rotate(315deg);
+}
+.main-content {
     background-image: url("/_Static/Images/spinwheel/BG.jpg");
     background-repeat: repeat;
 }
 #spinWheelContainer {
     width: 100%;
     position: relative;
+    color: #a6a6a6;
+    margin: 0 auto;
+    font-family: dinpro;
+    display: block;
+}
+#spinWheelContainer p {
+    color: #a6a6a6;
+}
+#spinWheelContainer hr {
+    border-top: 1px solid #a6a6a6;
+}
+#spinWheelHeader {
+    text-align: center;
+    top: -95px;
+    position: relative;
+    margin: 0 auto;
+}
+#spinWheelHeader h3 {
+    color: #4b96bd;
+}
+#spinWheelHeader h3, h5 {
+    font-weight: bolder;
 }
 #spinWheelContent {
-    width: 100%;
-    height: 100%;
     text-align: center;
+    position: relative;
+    margin: 0 auto;
+    top: -105px;
 }
-#roulette {
+#roulette, #wheelPointer {
     width: 100%;
     height: auto;
     position: absolute;
-    top: 0;
+    top: 45px;
     bottom: 0;
-    left: 0;
     right: 0;
-    margin: 190px auto 0;
-}
-#wheelPointer {
-    width: 100%;
-    height: auto;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 190px auto 0;
 }
 #prizes p {
     color: #fff;
@@ -39,10 +99,114 @@
     word-break: break-all;
     padding: 0 10px;
 }
+.spinWheel {
+    margin: 0 auto;
+    position: relative;
+    top: -185px;
+    -ms-transform-origin: 50% 50%;
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+}
+#swc {
+    z-index: 1;
+    position: relative;
+    margin: 190px auto 0;
+}
+#spinButton {
+    max-width: 300px;
+    display: block;
+    padding: 15px;
+    margin: 15px auto;
+}
+#disclaimer, #spinButton {
+    top: -190px;
+    position: relative;
+}
+#spinsLeft, #spinButton, #claimButton, #okButton {
+    display: none;
+}
+#spinsLeft {
+    padding: 5px;
+}
+#spinsLeft span {
+    font-size: inherit;
+    font-family: inherit;
+}
+#countdownContainer {
+    width: 160px;
+    height: 90px;
+    background-color: #2f2e2e;
+    position: relative;
+    margin: 0 auto;
+    display: none;
+}
+div#countdownContainer>div.countdownElement:nth-child(4) {
+    border-right: none;
+}
+.countdownElement p:nth-child(1) {
+    margin-bottom: 0;
+    color: #3799ec;
+    position: relative;
+    top: -21px;
+    font-size: 20px;
+}
+.countdownElement p:nth-child(2) {
+    color: grey;
+    position: relative;
+    top: -22px;
+    font-size: 10px;
+}
+#spinMessage {
+    z-index: 2;
+    top: 120px;
+}
+#spinMessage span {
+    position: absolute;
+    text-align: center;
+    width: 370px;
+    left: 0;
+}
+#spinWheelContent a.button_login:enabled:hover {
+    background: #35a8db !important;
+}
+#pic {
+    z-index: 1;
+    position: absolute;
+}
+.prizeModal {
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    text-align: center;
+    top: 195px;
+    width: 100%;
+    height: 100%;
+}
+#prizeContainer img {
+    left: 3px;
+    position: relative;
+    margin: 0 auto;
+}
+#claimButton, #okButton {
+    max-width: 120px;
+    padding: 8px;
+    margin: 0 auto;
+    top: -65px;
+}
+#prizeContainer p {
+    position: absolute;
+    top: 125px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #e1ebef;
+    font-size: 16px;
+}
 @media (min-width: 320px) and (orientation: portrait) {
     #spinWheelContainer {
-        height: 85vh;
-        top: -208px;
+        top: 80px;
     }
     #roulette {
         width: 100%;
@@ -63,49 +227,42 @@
         font-size: 8px;
     }
     #prize1 {
-        top: 192px;
+        top: 187px;
         left: 251px;
     }
     #prize2 {
-        top: 210px;
-        left: 298px;
-    } 
+        top: 207px;
+        left: 300px;
+    }
     #prize3 {
         top: 258px;
-        left: 315px;
+        left: 320px;
     }
     #prize4 {
-        top: 303px;
-        left: 296px;
+        top: 307px;
+        left: 299px;
     }
     #prize5 {
-        top: 322px;
+        top: 327px;
         left: 250px;
     }
     #prize6 {
-        top: 304px;
-        left: 205px;
+        top: 307px;
+        left: 200px;
     }
     #prize7 {
         top: 257px;
-        left: 185px;
+        left: 180px;
     }
     #prize8 {
-        top: 212px;
-        left: 202px;
+        top: 207px;
+        left: 199px;
+    }
+    #prizeContainer img {
+        width: 90%;
     }
 }
 @media (min-width: 360px) and (orientation: portrait) {
-    #spinWheelContainer {
-        height: 85vh;
-        top: -208px;
-    }
-    #roulette {
-        width: 100%;
-    }
-    #wheelPointer {
-        width: 100%;
-    }
     #prizes {
         position: absolute;
         top: 95px;
@@ -114,49 +271,39 @@
         right: 0;
     }
     #prize1 {
-        top: 182px;
+        top: 178px;
         left: 251px;
     }
     #prize2 {
-        top: 204px;
-        left: 305px;
-    } 
+        top: 200px;
+        left: 308px;
+    }
     #prize3 {
         top: 258px;
-        left: 326px;
+        left: 329px;
     }
     #prize4 {
-        top: 310px;
-        left: 304px;
+        top: 314px;
+        left: 308px;
     }
     #prize5 {
-        top: 332px;
+        top: 337px;
         left: 250px;
     }
     #prize6 {
-        top: 312px;
-        left: 195px;
+        top: 315px;
+        left: 193px;
     }
     #prize7 {
         top: 257px;
-        left: 174px;
+        left: 171px;
     }
     #prize8 {
-        top: 204px;
-        left: 195px;
+        top: 201px;
+        left: 193px;
     }
 }
 @media (min-width: 375px) and (orientation: portrait) {
-    #spinWheelContainer {
-        height: 85vh;
-        top: -208px;
-    }
-    #roulette {
-        width: 100%;
-    }
-    #wheelPointer {
-        width: 100%;
-    }
     #prizes {
         position: absolute;
         top: 103px;
@@ -165,42 +312,39 @@
         right: 0;
     }
     #prize1 {
-        top: 182px;
+        top: 175px;
         left: 251px;
     }
     #prize2 {
-        top: 204px;
-        left: 305px;
-    } 
+        top: 199px;
+        left: 309px;
+    }
     #prize3 {
         top: 258px;
-        left: 326px;
+        left: 331px;
     }
     #prize4 {
-        top: 310px;
-        left: 304px;
+        top: 315px;
+        left: 308px;
     }
     #prize5 {
-        top: 332px;
+        top: 340px;
         left: 250px;
     }
     #prize6 {
-        top: 312px;
-        left: 196px;
+        top: 316px;
+        left: 191px;
     }
     #prize7 {
         top: 258px;
-        left: 172px;
+        left: 169px;
     }
     #prize8 {
-        top: 203px;
-        left: 194px;
+        top: 199px;
+        left: 191px;
     }
 }
 @media (min-width: 414px) and (orientation: portrait) {
-    #spinWheelContainer {
-        height: 90vh;
-    }
     #roulette {
         width: 100%;
     }
@@ -249,14 +393,13 @@
         top: 196px;
         left: 186px;
     }
+    #prizeContainer img {
+        width: 95%;
+    }
 }
 @media (min-width: 768px) and (orientation: portrait) {
     #spinWheelContainer {
-        width: 100%;
-        height: 80vh;
-        position: relative;
-        margin: 0 auto;
-        top: -210px;
+        top: 70px;
     }
     #roulette {
         width: 80.3%;
@@ -308,14 +451,16 @@
         top: 162px;
         left: 154px;
     } 
+    #prizeContainer img {
+        width: 52.8%;
+    }
+    #roulette, #wheelPointer {
+        left: 75px;
+    }
 }
 @media (min-width: 1024px) and (orientation: portrait) {
     #spinWheelContainer {
-        width: 100%;
-        height: 80vh;
-        position: relative;
-        margin: 0 auto;
-        top: -125px;
+        top: 80px;
     }
     #roulette {
         width: 59.9%;
@@ -330,67 +475,10 @@
         left: 201px;
         right: 0;
     }
-}
-.spinWheel {
-    margin: 190px auto 0;
-    position: relative;
-    -ms-transform-origin: 50% 50%;
-    -webkit-transform-origin: 50% 50%;
-    -moz-transform-origin: 50% 50%;
-    -o-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
-}
-#swc {
-    z-index: 1;
-    position: relative;
-    margin: 190px auto 0;
-}
-.rotate45 {
-    -ms-transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-.rotate90 {
-    -ms-transform: rotate(90deg);
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    transform: rotate(90deg);
-}
-.rotate135 {
-    -ms-transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
-    -moz-transform: rotate(135deg);
-    -o-transform: rotate(135deg);
-    transform: rotate(135deg);
-}
-.rotate180 {
-    -ms-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    transform: rotate(180deg);
-}
-.rotate225 {
-    -ms-transform: rotate(225deg);
-    -webkit-transform: rotate(225deg);
-    -moz-transform: rotate(225deg);
-    -o-transform: rotate(225deg);
-    transform: rotate(225deg);
-}
-.rotate270 {
-    -ms-transform: rotate(270deg);
-    -webkit-transform: rotate(270deg);
-    -moz-transform: rotate(270deg);
-    -o-transform: rotate(270deg);
-    transform: rotate(270deg);
-}
-.rotate315 {
-    -ms-transform: rotate(315deg);
-    -webkit-transform: rotate(315deg);
-    -moz-transform: rotate(315deg);
-    -o-transform: rotate(315deg);
-    transform: rotate(315deg);
+    #prizeContainer img {
+        width: 39.7%;
+    }
+    #roulette, #wheelPointer {
+        left: 202px;
+    }
 }

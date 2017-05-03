@@ -75,10 +75,12 @@ SW.prototype._gwc_ = function () {
             ca[1] = { a: 125, b: -301 };
             ca[2] = { a: 0, b: -605 };
             ca[3] = { a: -301, b: -730 };
-            ca[4] = { a: -606, b: -615 };
+            ca[4] = { a: -606, b: -605 };
             ca[5] = { a: -730, b: -300 };
             ca[6] = { a: -605, b: 0 };
             ca[7] = { a: -305, b: 125 };
+            if (!self.pic)
+                self.pic = { w: 408, h: 328, a: -100, b: -10 };
             break;
         case 398:
             ca[0] = { a: 0, b: 0 };
@@ -89,6 +91,8 @@ SW.prototype._gwc_ = function () {
             ca[5] = { a: -480, b: -195 };
             ca[6] = { a: -400, b: 0 };
             ca[7] = { a: -197, b: 79 };
+            if (!self.pic)
+                self.pic = { w: 408, h: 328, a: -103, b: -12 };
             break;
         case 359:
             ca[0] = { a: 0, b: 0 };
@@ -99,6 +103,8 @@ SW.prototype._gwc_ = function () {
             ca[5] = { a: -432, b: -175 };
             ca[6] = { a: -360, b: 0 };
             ca[7] = { a: -178, b: 80 };
+            if (!self.pic)
+                self.pic = { w: 408, h: 328, a: -132, b: -22 };
             break;
         case 344:
             ca[0] = { a: 0, b: 0 };
@@ -109,6 +115,8 @@ SW.prototype._gwc_ = function () {
             ca[5] = { a: -415, b: -165 };
             ca[6] = { a: -340, b: 0 };
             ca[7] = { a: -170, b: 75 };
+            if(!self.pic)
+                self.pic = { w: 408, h: 328, a: -138, b: -25 };
             break;
         case 304:
             ca[0] = { a: 0, b: 0 };
@@ -119,6 +127,8 @@ SW.prototype._gwc_ = function () {
             ca[5] = { a: -367, b: -150 };
             ca[6] = { a: -303, b: 5 };
             ca[7] = { a: -152, b: 63 };
+            if (!self.pic)
+                self.pic = { w: 408, h: 328, a: -155, b: -32 };
             break;
         default:
             ca[0] = { a: 0, b: 0 };
@@ -482,7 +492,7 @@ function _rp_() {
 }
 
 SW.prototype._eb_ = function() {
-    $('#spinButton').show();
+    $('#spinButton').css('display', 'block');
     $('#spinButton').css('background', '#2a8fbd');
     $('#spinButton').attr('onclick', 'javascript: _gp_();');
     $('#spinButton').attr('href', '#');
@@ -499,10 +509,10 @@ SW.prototype._db_ = function() {
 SW.prototype._sp_ = function (message) {
     var self = this;
     message = message.replace('[prize]', self.wp.pn);
-    var splitMessage = message.split('<br />');
-    $('#spinMessage').html('<span>' + splitMessage[0] + '</span><span>' + splitMessage[1] + '</span>');
+    var splitMessage = message.split('<br />').length > 1 ? message.split('<br />') : message.split('&lt;br /&gt;');
+    $('#spinMessage').html('<span>' + splitMessage[0] + '</span><br/><span>' + splitMessage[1] + '</span>');
     self._dp_();
-    $('#claimButton').show();
+    $('#claimButton').css('display', 'block');
     $('#prizeModal').modal('show');
     self.is = false;
 };
@@ -512,12 +522,12 @@ SW.prototype._ssr_ = function(message) {
     $('#spinMessage').html(message);
     $('#okButton').attr('onclick', 'javascript: _tp_(true);');
     $('#claimButton').hide();
-    $('#okButton').show();
+    $('#okButton').css('display', 'block');
 };
 
 SW.prototype._sem_ = function(message, isInit) {
     $('#claimButton').hide();
-    $('#okButton').show();
+    $('#okButton').css('display', 'block');
     $('#spinsLeft').html(message);
     $('#okButton').attr('onclick', 'javascript: _tp_();');
     self.is = false;
@@ -543,7 +553,7 @@ SW.prototype._esw_ = function(isInit) {
     $('#spinsLeft').html(self.t.spinsLeftLabel1 + '<span>' + self.swr.ResponseData.Spins + '</span>' + self.t.spinsLeftLabel2);
     self._eb_();
     if (isInit) {
-        document.getElementById('spinWheel').style.display = 'inline-block';
+        document.getElementById('spinWheel').style.display = 'block';
     }
 };
 
