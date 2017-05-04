@@ -567,8 +567,10 @@ SW.prototype._db_ = function() {
 SW.prototype._sp_ = function (message) {
     var self = this;
     message = message.replace('[prize]', self.wp.pn);
-    var splitMessage = message.split('<br />').length > 1 ? message.split('<br />') : message.split('&lt;br /&gt;');
-    $('#spinMessage').html('<span>' + splitMessage[0] + '</span><br/><span>' + splitMessage[1] + '</span>');
+    var splitMessage = message.split('<br />').length > 1 ? message.split('<br />') : message.split('&lt;br /&gt;'),
+        mobile = '<span>' + splitMessage[0] + '</span><br/><span>' + splitMessage[1] + '</span>',
+        web = '<span>' + splitMessage[0] + '</span><span>' + splitMessage[1] + '</span>';
+    $('#spinMessage').html(self.im ? mobile : web);
     self._dp_();
     $('#claimButton').css('display', 'block');
     $('#prizeModal').modal('show');
