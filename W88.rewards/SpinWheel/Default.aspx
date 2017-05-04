@@ -5,42 +5,41 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" href="/_Static/Css/spinwheel/spinwheel.css" />
     <script type="text/javascript" src="/_Static/JS/Mobile/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/_Static/JS/vendor/amplify.min.js"></script>
     <script type="text/javascript" src="/_Static/JS/modules/spinwheel.js"></script>
     <script type="text/javascript"> 
-        var translations = {
-            message5: '<%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.ApplicationError, Language)%>',
-            claimMessage: '<%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.ClaimPrize, Language)%>',
-            wonNothing: '<%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.NoPrizeWon, Language)%>',
-            countdownDay: '<%=RewardsHelper.GetTranslation(TranslationKeys.Label.Day, Language)%>',
-            countdownHour: '<%=RewardsHelper.GetTranslation(TranslationKeys.Label.Hour, Language)%>',
-            countdownMin: '<%=RewardsHelper.GetTranslation(TranslationKeys.Label.Minute, Language)%>',
-            countdownSec: '<%=RewardsHelper.GetTranslation(TranslationKeys.Label.Second, Language)%>',
-            successfulClaim: '<%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.RedemptionSuccessful, Language)%>',
-            spinsLeftLabel1: '<%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.HeaderLabel1, Language)%>',
-            spinsLeftLabel2: '<%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.HeaderLabel2, Language)%>',
-        },
-        md = JSON.parse('<%=SpinWheelRequest%>');  
+        var date = new Date('<%=DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")%>'),
+            translations = {
+                message5: '<%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.ApplicationError, Language)%>',
+                claimMessage: '<%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.ClaimPrize, Language)%>',
+                wonNothing: '<%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.NoPrizeWon, Language)%>',
+                countdownDay: '<%=RewardsHelper.GetTranslation(TranslationKeys.Label.Day, Language)%>',
+                countdownHour: '<%=RewardsHelper.GetTranslation(TranslationKeys.Label.Hour, Language)%>',
+                countdownMin: '<%=RewardsHelper.GetTranslation(TranslationKeys.Label.Minute, Language)%>',
+                countdownSec: '<%=RewardsHelper.GetTranslation(TranslationKeys.Label.Second, Language)%>',
+                successfulClaim: '<%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.RedemptionSuccessful, Language)%>',
+                spinsLeftLabel1: '<%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.HeaderLabel1, Language)%>',
+                spinsLeftLabel2: '<%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.HeaderLabel2, Language)%>',
+            },
+            md = JSON.parse('<%=SpinWheelRequest%>');  
         var sw = new SW(md, translations, null, null, true, <%=Convert.ToString(HasSession).ToLower()%>);
+        setInterval(function() {
+            var current = date.getTime();
+            current += 1000;
+            date = new Date(current);
+        }, 1000);
     </script>
     <div class="main-content" role="main">
         <div id="spinWheelContainer">
             <div id="spinWheelHeader">
                 <h3><%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.WheelLabel, Language).ToUpper()%></h3>
                 <h5><%=HttpUtility.HtmlDecode(RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.Header, Language).Replace("&lt;br /&gt;", " "))%></h5>
-                You have ...
                 <hr />
             </div>
             <div id="spinWheelContent">               
                 <p id="spinsLeft">
                     <%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.HeaderLabel1)%><span></span><%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.HeaderLabel2, Language)%>
-                </p>                
-                <div id="countdownContainer">
-                    <div class="countdownElement"></div>
-                    <div class="countdownElement"></div>
-                    <div class="countdownElement"></div>
-                    <div class="countdownElement"></div>
-                    <div id="nextSpinLabel"><%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.NextSpinLabel, Language).ToUpper()%></div>
-                </div>     
+                </p>                    
                 <img id="roulette" src="/_Static/Images/spinwheel/spinwheel1.png"/>                
                 <div id="spinWheel" class="spinWheel">
                     <canvas id="swc"></canvas>
@@ -57,6 +56,13 @@
                 </div>      
                 <img id="wheelPointer" src="/_Static/Images/spinwheel/spinwheel3.png"/>
                 <a id="spinButton" class="ui-btn btn-primary"><%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.SpinButtonLabel, Language).ToUpper()%></a>    
+                <div id="countdownContainer">
+                    <div class="countdownElement"></div>
+                    <div class="countdownElement"></div>
+                    <div class="countdownElement"></div>
+                    <div class="countdownElement"></div>
+                    <div id="nextSpinLabel"><%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.NextSpinLabel, Language).ToUpper()%></div>
+                </div> 
                 <p id="disclaimer">
                     <%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.RemarkFree, Language)%><br/>
                     <%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.RemarkNonRefundable, Language)%>

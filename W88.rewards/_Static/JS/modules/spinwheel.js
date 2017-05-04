@@ -51,13 +51,14 @@ var SW = function(user, translations, swc, pic, isMobile, isLoggedIn) {
     this.isLoggedIn = isLoggedIn;
 };
 
-window.addEventListener("orientationchange", function() {
-    if (Math.abs(screen.orientation.angle) == 90) return;
+window.addEventListener("orientationchange", function () {
+    if (!sw) return;
+    sw._rdc_();
 });
 
 window.onload = function () {
     if (!sw.swc) 
-        sw.swc = { h: $('#roulette').height(), w: $('#roulette').width() };
+        sw._gcd_();
 
     sw._gwc_();
     sw._db_();
@@ -69,7 +70,7 @@ window.onload = function () {
 SW.prototype._gwc_ = function () {
     var self = this,
         ca = [];
-    switch (Math.ceil($('#roulette').width())) {
+    switch (self.swc.w) {
         case 604:
             ca[0] = { a: 0, b: 0 };
             ca[1] = { a: 125, b: -301 };
@@ -79,8 +80,32 @@ SW.prototype._gwc_ = function () {
             ca[5] = { a: -730, b: -300 };
             ca[6] = { a: -605, b: 0 };
             ca[7] = { a: -305, b: 125 };
-            if (!self.pic)
-                self.pic = { w: 408, h: 328, a: -100, b: -10 };
+            if(self.im)
+                self.pic = { w: 408, h: 328, a: -147, b: -10 };             
+            break;
+        case 507:
+            ca[0] = { a: 0, b: 0 };
+            ca[1] = { a: 105, b: -251 };
+            ca[2] = { a: 0, b: -505 };
+            ca[3] = { a: -253, b: -620 };
+            ca[4] = { a: -505, b: -505 };
+            ca[5] = { a: -610, b: -250 };
+            ca[6] = { a: -510, b: 0 };
+            ca[7] = { a: -250, b: 105 };
+            if (self.im)
+                self.pic = { w: 408, h: 328, a: -197, b: -27 };
+            break;
+        case 464:
+            ca[0] = { a: 0, b: 0 };
+            ca[1] = { a: 98, b: -231 };
+            ca[2] = { a: 0, b: -460 };
+            ca[3] = { a: -230, b: -565 };
+            ca[4] = { a: -464, b: -465 };
+            ca[5] = { a: -560, b: -230 };
+            ca[6] = { a: -465, b: 0 };
+            ca[7] = { a: -230, b: 95 };
+            if (self.im)
+                self.pic = { w: 408, h: 328, a: -197, b: -27 };
             break;
         case 398:
             ca[0] = { a: 0, b: 0 };
@@ -91,8 +116,8 @@ SW.prototype._gwc_ = function () {
             ca[5] = { a: -480, b: -195 };
             ca[6] = { a: -400, b: 0 };
             ca[7] = { a: -197, b: 79 };
-            if (!self.pic)
-                self.pic = { w: 408, h: 328, a: -103, b: -12 };
+            if (self.im)
+                self.pic = { w: 408, h: 328, a: -95, b: -12 };
             break;
         case 359:
             ca[0] = { a: 0, b: 0 };
@@ -103,8 +128,8 @@ SW.prototype._gwc_ = function () {
             ca[5] = { a: -432, b: -175 };
             ca[6] = { a: -360, b: 0 };
             ca[7] = { a: -178, b: 80 };
-            if (!self.pic)
-                self.pic = { w: 408, h: 328, a: -132, b: -22 };
+            if (self.im)
+                self.pic = { w: 408, h: 328, a: -112, b: -22 };
             break;
         case 344:
             ca[0] = { a: 0, b: 0 };
@@ -115,8 +140,8 @@ SW.prototype._gwc_ = function () {
             ca[5] = { a: -415, b: -165 };
             ca[6] = { a: -340, b: 0 };
             ca[7] = { a: -170, b: 75 };
-            if(!self.pic)
-                self.pic = { w: 408, h: 328, a: -138, b: -25 };
+            if(self.im)
+                self.pic = { w: 408, h: 328, a: -121, b: -20 };
             break;
         case 304:
             ca[0] = { a: 0, b: 0 };
@@ -127,18 +152,20 @@ SW.prototype._gwc_ = function () {
             ca[5] = { a: -367, b: -150 };
             ca[6] = { a: -303, b: 5 };
             ca[7] = { a: -152, b: 63 };
-            if (!self.pic)
-                self.pic = { w: 408, h: 328, a: -155, b: -32 };
+            if (self.im)
+                self.pic = { w: 408, h: 328, a: -141, b: -25 };
             break;
         default:
             ca[0] = { a: 0, b: 0 };
-            ca[1] = { a: 73, b: -171 };
-            ca[2] = { a: 0, b: -340 };
-            ca[3] = { a: -171, b: -410 };
-            ca[4] = { a: -342, b: -345 };
-            ca[5] = { a: -415, b: -165 };
-            ca[6] = { a: -340, b: 0 };
-            ca[7] = { a: -170, b: 75 };
+            ca[1] = { a: 125, b: -301 };
+            ca[2] = { a: 0, b: -605 };
+            ca[3] = { a: -301, b: -730 };
+            ca[4] = { a: -606, b: -605 };
+            ca[5] = { a: -730, b: -300 };
+            ca[6] = { a: -605, b: 0 };
+            ca[7] = { a: -305, b: 125 };
+            if (self.im)
+                self.pic = { w: 408, h: 328, a: -147, b: -10 };
             break;
     }
     self.ca = ca;
@@ -389,6 +416,7 @@ SW.prototype._iv_ = function () {
             });
         } 
     });
+    amplify.store('prizes', self.swp);
     self._dsw_();
     self._ssw_(true);
 };
@@ -703,4 +731,29 @@ SW.prototype._gar_ = function() {
     }
     var angle = Math.round(radians * (180 / Math.PI));
     return angle;
+};
+
+SW.prototype._gcd_ = function () {
+    var self = this;
+    self.swc = { h: $('#roulette').height(), w: $('#roulette').width() };
+};
+
+SW.prototype._rdc_ = function () {
+    var self = this,
+        c = document.getElementById('swc'),
+        ctx = c.getContext('2d');
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    c = document.getElementById('pic'),
+    ctx = c.getContext('2d'),
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    $('#prizes').hide();
+    $('#spinButton').hide();
+    setTimeout(function () {
+        self._gcd_();
+        self._gwc_();
+        self._dsw_();
+        self._dp_();
+        $('#prizes').show();
+        $('#spinButton').show();
+    }, 500);
 };
