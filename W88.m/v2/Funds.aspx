@@ -8,7 +8,7 @@
 
     <div class="dashboard dashboard-funds">
         <div class="dashboard-row">
-            <% var depositLinkId = (commonFunctions.isNativeAgent(Request)) ? "launch-deposit" : ""; %>
+            <% var depositLinkId = (commonFunctions.isExternalPlatform()) ? "launch-deposit" : ""; %>
             <div class="dashboard-col <%=depositLinkId %>">
                 <a href="/v2/Deposit/Default.aspx">
                     <span class="icon icon-deposit"></span><%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%>

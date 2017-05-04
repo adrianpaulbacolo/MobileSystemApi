@@ -72,6 +72,6 @@
 
         if (!_.isUndefined($(window).load)) {
             $(window).load(loadBanner);
-        } else $(document).read(loadBanner);
+        } else $(document).ready(loadBanner);
     </script>
 </asp:Content>

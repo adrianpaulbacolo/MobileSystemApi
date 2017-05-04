@@ -94,7 +94,7 @@ function DefaultPaymentsV2() {
         }
     }
 
-    function setPaymentTabs(type, activeMethodId) {
+    function setPaymentTabs(type, activeMethodId, method) {
         if (type.toLowerCase() == "deposit") {
             fetchSettings(type, function () {
                 if (paymentCache.settings.length == 0) {
@@ -109,7 +109,7 @@ function DefaultPaymentsV2() {
                 }
                 else {
                     // payment cache variable is now present once callback is triggered
-                    setDepositPaymentTab(paymentCache.settings, activeMethodId);
+                    setDepositPaymentTab(paymentCache.settings, activeMethodId, method);
                 }
             });
         } else {
@@ -319,7 +319,7 @@ function DefaultPaymentsV2() {
         });
     }
 
-    function setDepositPaymentTab(responseData, activeTabId) {
+    function setDepositPaymentTab(responseData, activeTabId, method) {
         if (responseData.length > 0) {
             var routing = [
                 autorouteIds.QuickOnline,
@@ -331,13 +331,21 @@ function DefaultPaymentsV2() {
 
             var isAutoRoute = false, title = "", page = null, deposit = "/v2/Deposit/";
 
+            if (_.isEmpty(method))
+                method = "";
+
+            activeTabId = activeTabId + method;
+
             for (var i = 0; i < responseData.length; i++) {
                 var data = responseData[i];
 
-                if (data.Method)
+                data.Method = _.isEmpty(data.Method) ? "" : data.Method;
+                data.Id = data.Id + data.Method;
+
+                if (_.isEmpty(data.Method) && _.isEqual(data.Name, "Baokim"))
                     continue;
 
-                page = setPaymentPage(data.Id);
+                page = setPaymentPage(data.Id, data.Method);
 
                 if (page)
                     page = deposit + page;
@@ -345,15 +353,20 @@ function DefaultPaymentsV2() {
                     continue;
 
                 if (activeTabId) {
-                    if (_.isEqual(data.Id, activeTabId))
-                        title = data.Title;
+                    if (!_.isEmpty(data.Method) && _.isEqual(data.Name, "Baokim")) {
+                        if (_.isEqual(data.Id, activeTabId) && _.isEqual(data.Method, method)) {
+                            title = data.Title;
+                        }
+                    } else {
+                        if (_.isEqual(data.Id, activeTabId))
+                            title = data.Title;
+                    }
 
                     var anchor = $('<a />', { class: 'list-group-item', id: data.Id, href: page }).text(data.Title);
 
                     if ($('#paymentTabs').length > 0)
                         $('#paymentTabs').append(anchor);
 
-                    $('#' + activeTabId).addClass('active');
                 }
             }
 
@@ -361,6 +374,8 @@ function DefaultPaymentsV2() {
                 if (title) {
                     if ($('#activeTab').length > 0)
                         $('#activeTab').text(title);
+
+                    $('#' + activeTabId).addClass('active');
 
                     $('header .header-title').append(' - ' + title);
                 } else {
@@ -455,7 +470,9 @@ function DefaultPaymentsV2() {
     }
 
     function setPaymentPage(id) {
-        if (_.isEmpty(id)) return "";
+        if (_.isEmpty(id))
+            return "";
+
         return "Pay" + id + ".aspx";
     }
 
@@ -477,9 +494,9 @@ function DefaultPaymentsV2() {
                     break;
             }
         },
-            function () {
-                pubsub.publish('stopLoadItem', { selector: "" });
-            });
+        function () {
+            pubsub.publish('stopLoadItem', { selector: "" });
+        });
     }
 
 }
