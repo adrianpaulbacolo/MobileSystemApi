@@ -24,7 +24,12 @@ public partial class _Secure_Login : BasePage
         commonCulture.appData.getLocalResource(out xeResources);
 
         strRedirect = Request.QueryString.Get("redirect");
-        if (string.IsNullOrEmpty(strRedirect)) strRedirect = Request.QueryString.Get("url");
+        if (string.IsNullOrEmpty(strRedirect))
+        {
+            //@todo find a better way to implement hackish solution 
+            isSlotRedirect = true;
+            strRedirect = Request.QueryString.Get("url");
+        }
 
         if (!string.IsNullOrWhiteSpace(strRedirect) && (strRedirect.ToLower().Contains("deposit") || strRedirect.ToLower().Contains("withdraw")))
             strRedirect = strRedirect.Replace("_app", "");
