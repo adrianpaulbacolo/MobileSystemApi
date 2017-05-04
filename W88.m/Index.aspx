@@ -144,12 +144,6 @@
                         <h4 class="title menuP2PTitle"></h4>
                     </a>
                 </li>
-                <li class="col col-33 product">
-                    <a href="#divPanel" class="tile nav-pmahjong">
-                        <span class="icon icon-mahjong"></span>
-                        <h4 class="title menuTexasMahjongTitle"></h4>
-                    </a>
-                </li>
 
                 <!-- Profile -->
                 <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
