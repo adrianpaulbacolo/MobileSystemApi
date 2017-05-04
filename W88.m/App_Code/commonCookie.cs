@@ -257,6 +257,36 @@ public static class commonCookie
         }
     }
 
+    public static string CookieIsNative
+    {
+        get
+        {
+            HttpCookie cookie = HttpContext.Current.Request.Cookies.Get("isNative");
+            return cookie == null ? "" : cookie.Value;
+        }
+        set
+        {
+            if (value != null)
+            {
+                HttpCookie cookie = new HttpCookie("isNative");
+                cookie.Value = value;
+                if (!string.IsNullOrEmpty(commonIp.DomainName)) { cookie.Domain = commonIp.DomainName; }
+                HttpContext.Current.Response.Cookies.Set(cookie);
+            }
+            else
+            {
+                var httpCookie = HttpContext.Current.Request.Cookies["IsNative"];
+                if (httpCookie != null)
+                {
+                    httpCookie.Value = "";
+                    httpCookie.Expires = DateTime.Now.AddYears(-1);
+                    if (!string.IsNullOrEmpty(commonIp.DomainName)) { httpCookie.Domain = commonIp.DomainName; }
+                    HttpContext.Current.Response.Cookies.Add(httpCookie);
+                }
+            }
+        }
+    }
+
     public static string CookieCurrency
     {
         get

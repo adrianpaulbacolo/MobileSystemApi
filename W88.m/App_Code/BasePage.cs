@@ -81,6 +81,12 @@ public class BasePage : System.Web.UI.Page
                commonCookie.CookieIsApp = (strIsApp == "1") ? strIsApp : null;
         }
 
+        var strIsNative = HttpContext.Current.Request.QueryString.Get("isNative");
+        if (!string.IsNullOrEmpty(strIsNative))
+        {
+            commonCookie.CookieIsNative = (strIsNative == "1") ? strIsNative : null;
+        }
+
         commonCookie.CookieSubPlatform(HttpContext.Current.Request.QueryString.Get("spfid"));
 
         var strLanguage = HttpContext.Current.Request.QueryString.Get("lang");
