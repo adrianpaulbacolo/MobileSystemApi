@@ -20,6 +20,7 @@
                 successfulClaim: '<%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.RedemptionSuccessful, Language)%>',
                 spinsLeftLabel1: '<%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.HeaderLabel1, Language)%>',
                 spinsLeftLabel2: '<%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.HeaderLabel2, Language)%>',
+                prizeListUpdated: '<%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.PrizesUpdated, Language)%>'
             },
             md = JSON.parse('<%=SpinWheelRequest%>');  
         var sw = new SW(md, translations, null, null, true, <%=Convert.ToString(HasSession).ToLower()%>);

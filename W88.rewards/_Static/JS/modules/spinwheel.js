@@ -19,6 +19,12 @@ document.onkeydown = function(event) {
     }
 };
 
+if (typeof String.prototype.trim !== 'function') {
+    String.prototype.trim = function () {
+        return this.replace(/^\s+|\s+$/g, '');
+    };
+}
+
 function clickIE() { if (document.all) { return false; } }
 function clickNS(e) {
     if(document.layers || (document.getElementById && !document.all)) {
@@ -315,17 +321,11 @@ SW.prototype._rpi_ = function (ctx, img, deg, x, y) {
     ctx.save();
 };
 
-SW.prototype._isw_ = function() {
+SW.prototype._isw_ = function(isSpin, cb) {
     var self = this;
     if (!self.isLoggedIn) {
         $('#loginFrame').modal('show');
         return;
-    }
-
-    if (typeof String.prototype.trim !== 'function') {
-        String.prototype.trim = function() {
-            return this.replace(/^\s+|\s+$/g, '');
-        };
     }
     self._t_(0);
     $.ajax({
@@ -342,7 +342,14 @@ SW.prototype._isw_ = function() {
                     return;
                 }
                 self.swr = response;
-                self._iv_();
+                var diff = self._iv_(isSpin);
+                if (diff && self.is)
+                {
+                    self._ss_(true, true);
+                    return;
+                }
+                if (isSpin && cb instanceof Function)
+                    cb.call();
             } catch (e) {
                 self._sem_(self.t.message5, true);
             }
@@ -355,15 +362,14 @@ SW.prototype._isw_ = function() {
     });
 };
 
-SW.prototype._iv_ = function () {
+SW.prototype._iv_ = function (isSpin) {
     var self = this,
         data = self.swr.ResponseData;
     if (_.isEmpty(data) || _.isEmpty(data.PrizeItems)) {
         self._sem_(self.swr.ResponseMessage, true);
         return;
     }
-
-    var self = this;
+    self.swp = [];
     _.each(data.PrizeItems, function(p, i) {
         var index = i + 1,
             r = 0,
@@ -416,7 +422,22 @@ SW.prototype._iv_ = function () {
             });
         } 
     });
+    var prizes = amplify.store('prizes');
+    if (!_.isEmpty(prizes)) {
+        var pdiff = _.filter(prizes, function (prize, index) {
+                if(!_.isEqual(prize, self.swp[index])) 
+                    return prize;
+            });
+        if (!_.isEmpty(pdiff)) {
+            self._rdc_();
+            amplify.store('prizes', self.swp);
+            if (!isSpin) self._ssw_(true);
+            self._sem_(self.t.prizeListUpdated);
+            return true;
+        }
+    } 
     amplify.store('prizes', self.swp);
+    if (isSpin) return;
     self._dsw_();
     self._ssw_(true);
 };
@@ -439,7 +460,7 @@ SW.prototype._is_ = function () {
     self._ar_(self.la, self.la - 20, 600, false, true);
 };
 
-SW.prototype._ar_ = function(fromDegrees, toDegrees, duration, hasError, isInit) {
+SW.prototype._ar_ = function(fromDegrees, toDegrees, duration, hasError, isInit, isUpdate) {
     var self = this;
     $({ deg: fromDegrees }).animate({ deg: toDegrees }, {
         duration: duration,
@@ -449,13 +470,18 @@ SW.prototype._ar_ = function(fromDegrees, toDegrees, duration, hasError, isInit)
         },
         complete: function() {
             self.la = toDegrees;
+            if (hasError) {
+                if (isUpdate) {
+                    self._sem_(self.t.wonNothing);
+                    self._ssw_();
+                    return;
+                }
+                self._sem_(self.t.message5);
+                return;
+            }
             if (!self.wp || self.wp.c == 0) {
                 self._sem_(self.t.wonNothing);
                 self._isw_();
-                return;
-            }
-            if (hasError) {
-                self._sem_(self.t.message5);
                 return;
             }
             if (isInit) {
@@ -467,16 +493,20 @@ SW.prototype._ar_ = function(fromDegrees, toDegrees, duration, hasError, isInit)
     });
 };
 
-SW.prototype._ss_ = function(hasError) {
+SW.prototype._ss_ = function(hasError, isUpdate) {
     var self = this;
     clearInterval(self.siid);
-    self._ar_(self._gar_(), 720 + (self.wp === null || self.wp.c === undefined ? 0 : self.wp.o), 6000, hasError);
+    self._ar_(self._gar_(), 720 + (self.wp === null || self.wp.c === undefined ? 0 : self.wp.o), 6000, hasError, false, isUpdate);
 };
 
 function _gp_() {
     sw.is = true;
     sw._rs_();
     sw._is_();
+    sw._isw_(true, _sw_);
+}
+
+function _sw_() {
     $.ajax({
         type: 'POST',
         async: true,
@@ -492,7 +522,7 @@ function _gp_() {
                 setTimeout(function () {
                     sw.swr = response;
                     sw._gr_(sw.swr);
-                }, 700);           
+                }, 700);
             } catch (e) {
                 sw._ss_(true);
             }

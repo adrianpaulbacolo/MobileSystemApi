@@ -8,4 +8,5 @@
   <mr6 AbsoluteURL="~/Catalogue/Redeem.aspx"><![CDATA[Redeem/Submit]]></mr6>
   <mr7 AbsoluteURL="~/Profile/Account.aspx"><![CDATA[Account]]></mr7>
   <mr8 AbsoluteURL="~/Profile/Points.aspx"><![CDATA[Points]]></mr8>
+  <mr9 AbsoluteURL="~/SpinWheel/Default.aspx"><![CDATA[SpinWheel]]></mr9>
 </MapRoutes>
