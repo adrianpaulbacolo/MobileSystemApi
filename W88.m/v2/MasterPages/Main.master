@@ -31,8 +31,63 @@
             })(window, document, 'script', 'dataLayer', 'GTM-W854N4G');
         }
     </script>
+    <style>
+        .init-css-loader-full {
+            background-color: #1f1f1f;
+            width: 100%;
+            height: 100%;
+            z-index: 40;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            position: fixed;
+            display: table;
+        }
+
+            .init-css-loader-full .init-css-loader-container {
+                vertical-align: middle;
+                display: table-cell;
+            }
+
+            .init-css-loader-full .init-css-loader-logo {
+                display: block;
+                margin: 0 auto 30px;
+            }
+
+            .init-css-loader-full .init-css-loader {
+                margin: 0 auto;
+                text-align: center;
+                display: block;
+            }
+
+        .init-css-loader > div:nth-child(2n-1) {
+            animation-delay: -0.35s !important;
+        }
+
+        .init-css-loader > div {
+            background-color: #d3dee3;
+            width: 9px;
+            height: 9px;
+            border-radius: 0;
+            margin: 0px;
+            animation-fill-mode: both;
+            display: inline-block;
+            animation: css-loader 0.8s 0s infinite linear;
+        }
+    </style>
 </head>
 <body>
+    <section class="init-css-loader-full">
+        <div class="init-css-loader-container">
+            <img class="init-css-loader-logo" alt="W88 Logo" src="/_Static/v2/assets/images/logo-en.png" />
+            <div class="init-css-loader">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </section>
 
     <div class="canvas" canvas="container">
         <div class="main-screen">
@@ -52,7 +107,8 @@
                 </asp:ContentPlaceHolder>
             </section>
 
-            <% if(hasFooter){ %>
+            <% if (hasFooter)
+               { %>
             <footer class="footer">
                 <div class="btn-group btn-group-justified" role="group" aria-label="...">
                     <div class="btn-group" role="group">
@@ -85,8 +141,9 @@
         </div>
     </div>
 
-    <% if (commonCookie.CookieIsApp != "1"){ %>
-        <!--#include virtual="~/_Static/v2/menuv2.shtml" -->
+    <% if (commonCookie.CookieIsApp != "1")
+       { %>
+    <!--#include virtual="~/_Static/v2/menuv2.shtml" -->
     <% } %>
 
     <!--#include virtual="~/_Static/v2/head.inc" -->
@@ -111,23 +168,23 @@
             w88Mobile.Loader.init();
 
             // footer action
-            $(document).ready(function(){
-                $(".footer .btn-menu-rewards").click(function(){
-                    var urlRewards = window.location.protocol + 
-                        '//mrewards.' + '<%=commonIp.DomainName %>' + 
-                        '?lang=' + '<%=commonVariables.SelectedLanguage%>' + 
+            $(document).ready(function () {
+                $(".footer .btn-menu-rewards").click(function () {
+                    var urlRewards = window.location.protocol +
+                        '//mrewards.' + '<%=commonIp.DomainName %>' +
+                        '?lang=' + '<%=commonVariables.SelectedLanguage%>' +
                         '&token=' + '<%=commonVariables.EncryptedCurrentMemberSessionId%>';
                     window.open(urlRewards, "RewardsWindow");
                 });
-                $(".footer .btn-menu-funds").click(function(){
+                $(".footer .btn-menu-funds").click(function () {
                     location.href = "/v2/Funds.aspx";
                 });
-                $(".footer .btn-menu-promo").click(function(){
+                $(".footer .btn-menu-promo").click(function () {
                     location.href = "/Promotions";
                 });
                 $(".footer .btn-menu-chat").click(function () {
                     try {
-                            Native.openLiveChat();
+                        Native.openLiveChat();
                     } catch (e) {
                         console.log("Native does not exist!");
                         window.open("/LiveChat/Default.aspx", "ChatWindow");
@@ -135,13 +192,13 @@
                 });
 
                 //menu-action
-                $("#nav-btn-native").click(function(e){
-                    try{
-                        if($(this).attr("href") == "#"){
+                $("#nav-btn-native").click(function (e) {
+                    try {
+                        if ($(this).attr("href") == "#") {
                             e.preventDefault();
                             Native.openSlidingMenu();
                         }
-                    }catch(e){
+                    } catch (e) {
                         console.log("Native does not exist!");
                     }
                 });
@@ -162,6 +219,12 @@
                     return true;
                 }
             }
+
+            var removeLoader = function () {
+                $(".init-css-loader-full").remove();
+            }
+
+            $(document).ready(removeLoader);
         </script>
         <script src="/_static/v2/assets/js/modules/interceptor.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" type="text/javascript"></script>
 
