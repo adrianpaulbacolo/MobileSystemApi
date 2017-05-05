@@ -39,7 +39,7 @@ document.oncontextmenu = new Function("return false");
 
 var _sid = 0;
 	
-var SW = function(user, translations, swc, pic, isMobile, isLoggedIn) {
+var SW = function(user, translations, swc, pic, isMobile, isLoggedIn, lang) {
     this.u = user;
     this.t = translations;
     this.ca = [];
@@ -55,6 +55,7 @@ var SW = function(user, translations, swc, pic, isMobile, isLoggedIn) {
     this.siid = 0;
     this.ciid = 0;
     this.isLoggedIn = isLoggedIn;
+    this.sk = 'prizes_' + lang;
 };
 
 window.addEventListener("orientationchange", function () {
@@ -422,7 +423,7 @@ SW.prototype._iv_ = function (isSpin) {
             });
         } 
     });
-    var prizes = amplify.store('prizes');
+    var prizes = amplify.store(self.sk);
     if (!_.isEmpty(prizes)) {
         var pdiff = _.filter(prizes, function (prize, index) {
                 if(!_.isEqual(prize, self.swp[index])) 
@@ -430,13 +431,13 @@ SW.prototype._iv_ = function (isSpin) {
             });
         if (!_.isEmpty(pdiff)) {
             self._rdc_();
-            amplify.store('prizes', self.swp);
+            amplify.store(self.sk, self.swp);
             if (!isSpin) self._ssw_(true);
             self._sem_(self.t.prizeListUpdated);
             return true;
         }
     } 
-    amplify.store('prizes', self.swp);
+    amplify.store(self.sk, self.swp);
     if (isSpin) return;
     self._dsw_();
     self._ssw_(true);

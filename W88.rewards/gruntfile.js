@@ -38,7 +38,8 @@
                     '_Static/JS/dist/<%= pkg.name %>.login.js',
                     '_Static/Css/<%= pkg.name %>.css',
                     '_Static/Css/errors/styles.css',
-                    '_Static/Css/errors/styles-light.css'
+                    '_Static/Css/errors/styles-light.css',
+                    '_Static/JS/dist/<%= pkg.name %>.sw.min.js'
                 ]
             }
         },
@@ -53,7 +54,8 @@
                     '_Static/JS/dist/<%= pkg.name %>.login.js',
                     '_Static/Css/<%= pkg.name %>.css',
                     '_Static/Css/errors/styles.css',
-                    '_Static/Css/errors/styles-light.css'
+                    '_Static/Css/errors/styles-light.css',
+                    '_Static/JS/dist/<%= pkg.name %>.sw.min.js'
                 ]
             },
             views: {
@@ -67,7 +69,8 @@
                     '_Static/Pages/404.aspx',
                     '_Static/Pages/500.aspx',
                     '_Static/Pages/enhancement-all.aspx',
-                    '_Static/Pages/enhancement.aspx'
+                    '_Static/Pages/enhancement.aspx',
+                    'SpinWheel/Default.aspx'
                 ]
             }
         },
@@ -82,6 +85,7 @@
                     '_Static/JS/dist/<%= pkg.name %>.js': ['_Static/JS/dist/concat-*.js']
                     , '_Static/JS/dist/<%= pkg.name %>.main.js': ['_Static/JS/modules/Main.js']
                     , '_Static/JS/dist/<%= pkg.name %>.login.js': ['_Static/JS/modules/login.js']
+                    , '_Static/JS/dist/<%= pkg.name %>.sw.min.js': ['_Static/JS/modules/spinwheel.js']
                 }
             }
         },

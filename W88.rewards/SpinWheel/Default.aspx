@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/_Static/Css/spinwheel/spinwheel.css" />
     <script type="text/javascript" src="/_Static/JS/Mobile/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/_Static/JS/vendor/amplify.min.js"></script>
-    <script type="text/javascript" src="/_Static/JS/modules/spinwheel.js"></script>
+    <script type="text/javascript" src="/_Static/JS/dist/w88.mrewards.sw.min.js"></script>
     <script type="text/javascript"> 
         var date = new Date('<%=DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")%>'),
             translations = {
@@ -23,7 +23,7 @@
                 prizeListUpdated: '<%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.PrizesUpdated, Language)%>'
             },
             md = JSON.parse('<%=SpinWheelRequest%>');  
-        var sw = new SW(md, translations, null, null, true, <%=Convert.ToString(HasSession).ToLower()%>);
+        var sw = new SW(md, translations, null, null, true, <%=Convert.ToString(HasSession).ToLower()%>, '<%=Language%>');
         setInterval(function() {
             var current = date.getTime();
             current += 1000;
