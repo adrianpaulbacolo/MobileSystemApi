@@ -42,16 +42,15 @@
                         ThankYouPage: location.protocol + "//" + location.host + "/Index",
                         SwitchLine: $('input[id$="isSwitchLine"]').is(':checked'),
                         MethodId: "<%=base.PaymentMethodId%>",
-                         AutoRoute: true
-                     };
+                    };
 
-                     var params = decodeURIComponent($.param(data));
-                     window.open(_w88_paymentSvcV2.payRoute + "?" + params, "<%=base.PageName%>");
-                     _w88_paymentSvcV2.onTransactionCreated($(this));
-                     return;
+                    var params = decodeURIComponent($.param(data));
+                    window.open(_w88_paymentSvcV2.payRoute + "?" + params, "<%=base.PageName%>");
+                    _w88_paymentSvcV2.onTransactionCreated($(this));
+                    return;
                  }
 
-             });
+            });
 
         });
 

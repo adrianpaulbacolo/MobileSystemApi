@@ -14,7 +14,6 @@ public partial class v2_Deposit_Default : PaymentBasePage
 
     protected override void OnLoad(EventArgs e)
     {
-        Page.Title = commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML);
         Page.Items.Add("Parent", "/v2/Funds.aspx");
         base.OnLoad(e);
     }

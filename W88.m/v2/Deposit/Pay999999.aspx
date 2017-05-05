@@ -42,7 +42,6 @@
                         ThankYouPage: location.protocol + "//" + location.host + "/Index",
                         SwitchLine: $('input[id$="isSwitchLine"]').is(':checked'),
                         MethodId: "<%=base.PaymentMethodId%>",
-                        AutoRoute: true
                     };
 
                     var params = decodeURIComponent($.param(data));

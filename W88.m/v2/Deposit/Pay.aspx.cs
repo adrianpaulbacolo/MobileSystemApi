@@ -6,16 +6,19 @@ public partial class v2_Deposit_Pay : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        var isAutoRoute = false;
+        var methodId = Convert.ToInt32(Request.QueryString["MethodId"]);
+        if (methodId < 0)
+            return;
 
-        if (Request.QueryString["AutoRoute"] != null)
+        if (Enum.IsDefined(typeof(commonVariables.AutoRouteMethod), methodId))
+            methodId = (int)Enum.Parse(typeof(commonVariables.AutoRouteMethod), methodId.ToString());
+        else
         {
-            isAutoRoute = Boolean.TryParse(Request.QueryString["AutoRoute"], out isAutoRoute);
+            if (Enum.IsDefined(typeof(commonVariables.DepositMethod), methodId))
+                methodId = (int)Enum.Parse(typeof(commonVariables.DepositMethod), methodId.ToString());
+            else
+                return;
         }
-
-        var methodId = (isAutoRoute)
-             ? (int)Enum.Parse(typeof(commonVariables.AutoRouteMethod), Request.QueryString["MethodId"])
-             : (int)Enum.Parse(typeof(commonVariables.DepositMethod), Request.QueryString["MethodId"]);
 
         switch (methodId)
         {
@@ -40,7 +43,7 @@ public partial class v2_Deposit_Pay : PaymentBasePage
             case (int)commonVariables.DepositMethod.BaokimScratchCard:
                 GatewayFile = "baokimscratchcard";
                 break;
-            
+
             case (int)commonVariables.DepositMethod.DinPayTopUp:
                 GatewayFile = "dinpaytopup";
                 break;

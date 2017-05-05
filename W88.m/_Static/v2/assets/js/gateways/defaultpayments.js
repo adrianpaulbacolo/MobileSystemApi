@@ -50,7 +50,6 @@ function DefaultPaymentsV2() {
 
     function displaySettings(methodId, options) {
         paymentOptions = options;
-        initiateValidator(methodId);
         fetchSettings(paymentOptions.type, function () {
             if (!_.isEmpty(paymentCache)) {
                 var setting = _.find(paymentCache.settings, function (data) {
@@ -70,8 +69,11 @@ function DefaultPaymentsV2() {
                 }
 
                 setTranslations(paymentOptions.type);
+
+                _w88_validator.initiateValidator("#form1", setting);
             }
         });
+
     }
 
     function setTranslations(paymentOptions) {

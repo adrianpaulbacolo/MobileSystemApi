@@ -8,8 +8,8 @@ function Funds() {
 
     return {
         init: init,
-        wallets: getWallets,
-        wallet: getWallet,
+        wallets: wallets,
+        wallet: wallet,
         mainWalletInit: mainWalletInit
     }
 
@@ -29,10 +29,69 @@ function Funds() {
         });
     }
 
+    function fetchWallets(data, isSelection) {
+        pubsub.subscribe('fundsLoaded', onFundsLoaded);
+
+        var resource = "/user/wallets?isSelection=" + isSelection;
+        send(resource, "GET", data, function (response) {
+            if (_.isUndefined(response.ResponseData)) {
+                console.log('Unable to fetch wallets.');
+                return;
+            }
+            wallets = response.ResponseData;
+            pubsub.publish("fundsLoaded");
+        });
+    }
+
+    function onFundsLoaded() {
+
+        var wallets = _w88_funds.wallets()
+
+        var mainWalletTpl = _.template(
+            $("script#mainWallet").html()
+        );
+
+        var walletList = _.template(
+            $("script#walletMenu").html()
+        );
+
+        $("div.wallets").append(
+            mainWalletTpl(_.first(wallets))
+        );
+
+        $("div.wallets").append(
+            walletList({ wallets: wallets })
+        );
+    }
+
     function mainWalletInit(options) {
+        pubsub.subscribe('mainWalletLoaded', onMainWalletLoaded);
 
         var selector = _.isUndefined(options) ? "wallet-value" : options.selector;
         getMainWallet({ selector: selector });
+    }
+
+    function getMainWallet(selector) {
+        var resource = "/user/wallet/0";
+        send(resource, "GET", selector, function (response) {
+            if (_.isUndefined(response.ResponseData)) {
+                console.log('Unable to fetch wallet.');
+                return;
+            }
+            wallet = response.ResponseData;
+            pubsub.publish("mainWalletLoaded");
+        });
+    }
+
+    function onMainWalletLoaded() {
+
+        var mainWalletTpl = _.template(
+            $("script#mainWallet").html()
+        );
+
+        $("div.wallets").append(
+            mainWalletTpl(wallet)
+        );
     }
 
     function send(resource, method, data, success, error, complete) {
@@ -65,38 +124,4 @@ function Funds() {
             }
         });
     }
-
-    function fetchWallets(data, isSelection) {
-
-        var resource = "/user/wallets?isSelection=" + isSelection;
-        send(resource, "GET", data, function (response) {
-            if (_.isUndefined(response.ResponseData)) {
-                console.log('Unable to fetch wallets.');
-                return;
-            }
-            wallets = response.ResponseData;
-            pubsub.publish("fundsLoaded");
-        });
-    }
-
-    function getWallets() {
-        return wallets;
-    }
-
-    function getWallet() {
-        return wallet;
-    }
-
-    function getMainWallet(selector) {
-        var resource = "/user/wallet/0";
-        send(resource, "GET", selector, function (response) {
-            if (_.isUndefined(response.ResponseData)) {
-                console.log('Unable to fetch wallet.');
-                return;
-            }
-            wallet = response.ResponseData;
-            pubsub.publish("mainWalletLoaded");
-        });
-    }
-
 }

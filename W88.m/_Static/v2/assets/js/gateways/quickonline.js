@@ -39,13 +39,16 @@ function QuickOnlineV2() {
         }
 
         if (getBank == true) {
-            _w88_paymentSvcV2.Send("/Banks/vendor/" + gateway + "/" + currencyCode, "GET", "", function (response) {
+            _w88_paymentSvcV2.Send("/Banks/vendor/" + gateway, "GET", "", function (response) {
                 var banks = response.ResponseData;
                 var defaultSelect = _w88_contents.translate("LABEL_SELECT_DEFAULT");
                 $('select[id$="drpBank"]').append($('<option>').text(defaultSelect).attr('value', '-1'));
                 $('select[id$="drpBank"]').val("-1").change();
 
                 _.forOwn(banks, function (data) {
+                    if (_.isEqual(data.Value, "ICBC") || _.isEqual(data.Value, "ECITIC"))
+                        data.Text = data.Text + " (*)";
+
                     $('select[id$="drpBank"]').append($('<option>').text(data.Text).attr('value', data.Value));
                 });
             });

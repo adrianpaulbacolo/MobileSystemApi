@@ -18,10 +18,10 @@
             </div>
         </div>
         <div class="row no-gutter">
-            <div class="col-xs-3 col-sm-5">
+            <div class="col-xs-3 col-sm-6">
                 <p class="payment-label" id="lblTransactionId"></p>
             </div>
-            <div class="col-xs-6 col-sm-5">
+            <div class="col-xs-6 col-sm-6">
                 <p id="txtTransactionId"></p>
             </div>
         </div>
