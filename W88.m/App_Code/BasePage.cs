@@ -16,7 +16,6 @@ public class BasePage : System.Web.UI.Page
     public PageHeaders headers = new PageHeaders();
     public MemberSession.UserSessionInfo userInfo = new MemberSession.UserSessionInfo();
     private OperatorSettings _opsettings = new OperatorSettings("W88");
-    public string CDNCountryCode = string.Empty;
 
     protected override void OnPreInit(EventArgs e)
     {
@@ -37,31 +36,20 @@ public class BasePage : System.Web.UI.Page
         string CDN_Value = getCDNValue();
         string key = getCDNKey();
 
-        CDNCountryCode = GetCountryCode(CDN_Value, key);
-        commonCookie.Set("CDNCountryCode", CDNCountryCode, DateTime.Now.AddDays(1));
+        var cdnCountryCode = GetCountryCode(CDN_Value, key);
+
+        if (string.IsNullOrEmpty(cdnCountryCode))
+        {
+            cdnCountryCode = GetCountryCodeByDomain("." + commonIp.DomainName);
+        }
 
         if (string.IsNullOrWhiteSpace(commonCookie.CookieLanguage))
         {
-            if (!string.IsNullOrEmpty(CDNCountryCode))
-            {
-                commonVariables.SelectedLanguage = commonCountry.GetLanguageByCountry(CDNCountryCode);
-            }
-            else
-            {
-                Uri myUri = new Uri(System.Web.HttpContext.Current.Request.Url.ToString());
-                string[] host = myUri.Host.Split('.');
-
-                if (host.Count() > 1)
-                {
-                    commonVariables.SelectedLanguage = GetLanguageByDomain("." + host[1] + "." + host[2]);
-                }
-                else
-                {
-                    commonVariables.SelectedLanguage = GetLanguageByDomain("default");
-                }
-
-            }
+            commonVariables.SelectedLanguage = string.IsNullOrEmpty(cdnCountryCode) ?
+                GetLanguageByDomain("." + commonIp.DomainName) : commonCountry.GetLanguageByCountry(cdnCountryCode);
         }
+
+        commonVariables.CDNCountryCode = cdnCountryCode;
 
         base.OnInit(e);
     }
@@ -351,6 +339,50 @@ public class BasePage : System.Web.UI.Page
         }
 
         return Language;
+    }
+
+    public string GetCountryCodeByDomain(string Domain)
+    {
+        string CountryCode = string.Empty;
+
+        if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_CN].Contains(Domain))
+        {
+            CountryCode = "CN";
+        }
+        else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_VN].Contains(Domain))
+        {
+            CountryCode = "VN";
+        }
+        else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_TH].Contains(Domain))
+        {
+            CountryCode = "TH";
+        }
+        else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_ID].Contains(Domain))
+        {
+            CountryCode = "ID";
+        }
+        else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_MY].Contains(Domain))
+        {
+            CountryCode = "MY";
+        }
+        else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_KR].Contains(Domain))
+        {
+            CountryCode = "KR";
+        }
+        else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_JP].Contains(Domain))
+        {
+            CountryCode = "JP";
+        }
+        else if (ConfigurationManager.AppSettings[commonCountry.HeaderKeys.COUNTRY_DOMAIN_KH].Contains(Domain))
+        {
+            CountryCode = "KH";
+        }
+        else
+        {
+            CountryCode = "CN";
+        }
+
+        return CountryCode;
     }
 
     protected void SetTitle(string s)

@@ -53,7 +53,7 @@ public partial class _Lang : BasePage
         {
             string strLanguage = language.Trim();
 
-            if (base.CDNCountryCode.Equals("MY", StringComparison.OrdinalIgnoreCase))
+            if (commonVariables.CDNCountryCode.Equals("MY", StringComparison.OrdinalIgnoreCase))
             {
                 if (strLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase)){
                     sbLanguageHTML.AppendFormat("<li><a data-ajax='false' href='/Index.aspx?lang={0}' data-inline='true' id='divzh-my' class='divLangImg divzh-my'></a></li>", strLanguage);
