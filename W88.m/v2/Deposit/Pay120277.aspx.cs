@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 public partial class v2_Deposit_Pay120277 : PaymentBasePage
 {
@@ -13,7 +8,6 @@ public partial class v2_Deposit_Pay120277 : PaymentBasePage
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.TongHuiWeChat);
     }
-
 
     protected void Page_Load(object sender, EventArgs e)
     {

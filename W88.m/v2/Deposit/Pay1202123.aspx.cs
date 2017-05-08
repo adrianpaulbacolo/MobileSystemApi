@@ -7,8 +7,8 @@ public partial class v2_Deposit_Pay1202123 : PaymentBasePage
         base.PageName = Convert.ToString(commonVariables.DepositMethod.JTPayWeChat);
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.JTPayWeChat);
-
     }
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
