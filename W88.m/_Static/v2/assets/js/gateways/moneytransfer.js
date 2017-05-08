@@ -15,7 +15,7 @@ function MoneyTransfer() {
         methodId = id;
 
         var isDeposit = _.includes(type.toLowerCase(), "deposit");
-        moneytransfer.setTranslations(isDeposit, methodId);
+        moneytransfer.setTranslations(isDeposit);
 
         if (isDeposit) {
             moneytransfer.getDepositLastTransaction();
@@ -27,7 +27,7 @@ function MoneyTransfer() {
         }
     };
 
-    moneytransfer.setTranslations = function (isDeposit, methodId) {
+    moneytransfer.setTranslations = function (isDeposit) {
         $('label[id$="lblAccountName"]').text(_w88_contents.translate("LABEL_ACCOUNT_NAME"));
         $('label[id$="lblAccountNumber"]').text(_w88_contents.translate("LABEL_ACCOUNT_NUMBER"));
 
