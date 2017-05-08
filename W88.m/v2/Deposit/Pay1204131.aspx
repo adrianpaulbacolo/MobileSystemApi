@@ -13,7 +13,7 @@
             <div class="col-xs-3 col-sm-5">
                 <p class="payment-label" id="lblStatus"></p>
             </div>
-            <div class="col-xs-6 col-sm-5">
+            <div class="col-xs-6 col-sm-5 status">
                 <p id="txtStatus"></p>
             </div>
         </div>
@@ -69,8 +69,8 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">
-    <script type="text/javascript" src="/_static/v2/assets/js/gateways/alipaytransfer.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-    <script type="text/javascript" src="/_static/v2/assets/js/gateways/banner.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/gateways/alipaytransfer.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/gateways/banner.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -79,39 +79,23 @@
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
-            window.w88Mobile.Gateways.AliPayTransfer.init("<%=base.PaymentMethodId %>");
+            _w88_alipaytransfer.init("<%=base.PaymentMethodId %>");
 
             $('#form1').validator().on('submit', function (e) {
-
                 if (!e.isDefaultPrevented()) {
                     e.preventDefault();
 
-                    if (window.w88Mobile.Gateways.AliPayTransfer.step == 1) {
+                    if (_w88_alipaytransfer.step == 1) {
                         var data = {
                             Amount: $('input[id$="txtAmount"]').autoNumeric('get')
                         };
 
-                        window.w88Mobile.Gateways.AliPayTransfer.step2("<%=base.PaymentMethodId %>", data);
+                        _w88_alipaytransfer.createDeposit($(this), data);
+
                     } else {
-                        window.open(window.w88Mobile.Gateways.AliPayTransfer.bankUrl);
+                        window.open(_w88_alipaytransfer.bankUrl);
                     }
                 }
-            });
-
-
-            $('#copyAmount').on('click', function () {
-                var amount = $("#txtStep2Amount").text().slice(2); //this will removed the ": "
-                window.w88Mobile.Gateways.AliPayTransfer.copytoclipboard(amount);
-            });
-
-            $('#copyAccountName').on('click', function () {
-                var accountName = $("#txtBankHolderName").text().slice(2); //this will removed the ": "
-                window.w88Mobile.Gateways.AliPayTransfer.copytoclipboard(accountName);
-            });
-
-            $('#copyAccountNo').on('click', function () {
-                var accountNo = $("#txtBankAccountNo").text().slice(2); //this will removed the ": "
-                window.w88Mobile.Gateways.AliPayTransfer.copytoclipboard(accountNo);
             });
 
             (function (a) { (jQuery.browser = jQuery.browser || {}).ios = /ip(hone|od|ad)/i.test(a) })(navigator.userAgent || navigator.vendor || window.opera);
@@ -122,9 +106,7 @@
             else {
                 $(".col-xs-2").show();
             }
-
         });
 
     </script>
 </asp:Content>
-

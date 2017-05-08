@@ -64,7 +64,7 @@
                         MethodId: "<%=base.PaymentMethodId%>"
                     };
 
-                    _w88_moneytransfer.createDeposit($(this), data, "<%=base.PaymentMethodId%>");
+                    _w88_moneytransfer.createDeposit($(this), data);
                 }
             });
         });

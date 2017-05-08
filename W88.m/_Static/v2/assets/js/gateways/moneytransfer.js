@@ -55,7 +55,9 @@ function MoneyTransfer() {
     }
 
     moneytransfer.getSystemAccount = function () {
-        _w88_paymentSvcV2.Send("/Banks/money/" + methodId, "GET", "", function (response) {
+        var _self = this;
+
+        _self.send("/Banks/money/" + methodId, "GET", "", function (response) {
             if (!_.isEqual(response.ResponseCode, 0)) {
                 $('select[id$="drpSystemAccount"]').append($("<option></option>").attr("value", "-1").text(_w88_contents.translate("LABEL_SELECT_DEFAULT")));
 
@@ -87,7 +89,9 @@ function MoneyTransfer() {
     }
 
     moneytransfer.getCountryPhoneList = function () {
-        _w88_paymentSvcV2.Send("/CountryPhoneList", "GET", "", function (response) {
+        var _self = this;
+
+        _self.send("/CountryPhoneList", "GET", "", function (response) {
             if (!_.isEqual(response.ResponseCode, 0)) {
                 $('select[id$="drpContactCountry"]').append($("<option></option>").attr("value", "-1").text(_w88_contents.translate("LABEL_SELECT_DEFAULT")));
 
@@ -101,7 +105,9 @@ function MoneyTransfer() {
     };
 
     moneytransfer.getDepositLastTransaction = function () {
-        _w88_paymentSvcV2.Send("/payments/deposit/lasttrans/moneytransfer/" + methodId, "GET", "", function (response) {
+        var _self = this;
+
+        _self.send("/payments/deposit/lasttrans/moneytransfer/" + methodId, "GET", "", function (response) {
             switch (response.ResponseCode) {
                 case 1:
                     $('input[id$="txtAccountName"]').val(response.ResponseData.AccountName);
@@ -122,7 +128,9 @@ function MoneyTransfer() {
     }
 
     moneytransfer.getWithdrawalLastTransaction = function () {
-        _w88_paymentSvcV2.Send("/payments/withdrawal/lasttrans/moneytransfer/" + methodId, "GET", "", function (response) {
+        var _self = this;
+
+        _self.send("/payments/withdrawal/lasttrans/moneytransfer/" + methodId, "GET", "", function (response) {
             switch (response.ResponseCode) {
                 case 1:
                     $('input[id$="txtAccountName"]').val(response.ResponseData.AccountName);
@@ -145,14 +153,14 @@ function MoneyTransfer() {
         });
     }
 
-    moneytransfer.createDeposit = function (form, data, methodId) {
+    moneytransfer.createDeposit = function (form, data) {
         var _self = this;
 
         _self.methodId = methodId;
         _self.offlineDeposit(form, data);
     };
 
-    moneytransfer.createWithdraw = function (data, methodId) {
+    moneytransfer.createWithdraw = function (data) {
         var _self = this;
         _self.methodId = methodId;
         _self.withdraw(data);
