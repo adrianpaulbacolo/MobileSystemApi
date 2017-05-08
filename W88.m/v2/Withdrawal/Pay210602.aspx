@@ -46,7 +46,7 @@
     </div>
     <div class="form-group">
         <asp:Label ID="lblContact" runat="server" AssociatedControlID="drpCountryCode" />
-        <div class="row">
+        <div class="row thin-gutter">
             <div class="col-xs-6 col-sm-6">
                 <asp:DropDownList ID="drpCountryCode" runat="server" CssClass="form-control" required data-selectequals="-1" />
             </div>
@@ -103,7 +103,7 @@
                         data.BankName = $('input[id$="txtBankName"]').val();
                     }
 
-                    _w88_banktransfer.createWithdraw(data, "<%=base.PaymentMethodId%>");
+                    _w88_banktransfer.createWithdraw(data, "<%=base.PaymentMethodId %>");
                 }
             });
         });

@@ -15,12 +15,12 @@
     </div>
     <div class="form-group depositDatetime" id="divDepositDateTime" runat="server">
         <asp:Label ID="lblDepositDateTime" runat="server" AssociatedControlID="txtDepositDate" />
-        <div class="row">
+        <div class="row thin-gutter">
             <div class="col-xs-6 col-sm-6">
-                <asp:TextBox ID="txtDepositDate" type="text" runat="server" CssClass="form-control" />
+                <asp:TextBox ID="txtDepositDate" type="text" runat="server" CssClass="form-control" data-date-box />
             </div>
             <div class="col-xs-6 col-sm-6">
-                <asp:TextBox ID="txtDepositTime" type="text" runat="server" CssClass="form-control" />
+                <asp:TextBox ID="txtDepositTime" type="text" runat="server" CssClass="form-control" data-date-box="time"/>
             </div>
         </div>
     </div>
@@ -65,24 +65,18 @@
 
                     var data = {
                         Amount: $('input[id$="txtAmount"]').autoNumeric('get'),
-                        BankText: $('select[id$="drpBank"] option:selected').text(),
-                        BankValue: $('select[id$="drpBank"]').val(),
+                        Bank: { Text: $('select[id$="drpBank"] option:selected').text(), Value: $('select[id$="drpBank"]').val() },
                         AccountName: $('[id$="txtAccountName"]').val(),
                         AccountNumber: $('[id$="txtAccountNumber"]').val(),
-                        SystemBankText: $('select[id$="drpSystemAccount"] option:selected').text(),
-                        SystemBankValue: $('select[id$="drpSystemAccount"]').val(),
+                        SystemBank: { Text: $('select[id$="drpSystemAccount"] option:selected').text(), Value: $('select[id$="drpSystemAccount"]').val() },
                         BankName: $('[id$="txtBankName"]').val(),
                         ReferenceId: $('[id$="txtReferenceId"]').val(),
-                        DepositChannelText: $('select[id$="drpDepositChannel"] option:selected').text(),
-                        DepositChannelValue: $('select[id$="drpDepositChannel"]').val(),
+                        DepositChannel: { Text: $('select[id$="drpDepositChannel"] option:selected').text(), Value: $('select[id$="drpDepositChannel"]').val() },
                         DepositDateTime: _w88_paymentSvcV2.formatDateTime(depositDateTime),
                         MethodId: "<%=base.PaymentMethodId%>"
                     };
 
-                    var params = decodeURIComponent($.param(data));
-                    window.open(_w88_paymentSvcV2.payRoute + "?" + params, "<%=base.PageName%>");
-                    _w88_paymentSvcV2.onTransactionCreated($(this));
-                    return;
+                    _w88_banktransfer.createDeposit($(this), data, "<%=base.PaymentMethodId%>");
                 }
             });
         });

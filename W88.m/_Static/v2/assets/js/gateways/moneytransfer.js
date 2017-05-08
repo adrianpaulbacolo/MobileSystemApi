@@ -4,56 +4,94 @@ var _w88_moneytransfer = window.w88Mobile.Gateways.MoneyTransfer;
 function MoneyTransfer() {
 
     var moneytransfer;
-    var defaultBank;
-
+    var methodId;
     try {
         moneytransfer = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
     } catch (err) {
         moneytransfer = {};
     }
 
-    moneytransfer.init = function (methodId, getbanks) {
+    moneytransfer.init = function (type, id) {
+        methodId = id;
 
-        setTranslations();
+        var isDeposit = _.includes(type.toLowerCase(), "deposit");
+        moneytransfer.setTranslations(isDeposit, methodId);
 
-        function setTranslations() {
-
-            if (_w88_contents.translate("LABEL_SYSTEM_ACCOUNT") != "LABEL_SYSTEM_ACCOUNT") {
-
-                $('label[id$="lblSystemAccount"]').text(_w88_contents.translate("LABEL_SYSTEM_ACCOUNT"));
-                $('label[id$="lblDepositDateTime"]').text(_w88_contents.translate("LABEL_DEPOSIT_DATETIME"));
-                $('label[id$="lblReferenceId"]').text(_w88_contents.translate("LABEL_REFERENCE_ID"));
-                $('label[id$="lblAccountName"]').text(_w88_contents.translate("LABEL_ACCOUNT_NAME"));
-                $('label[id$="lblAccountNumber"]').text(_w88_contents.translate("LABEL_ACCOUNT_NUMBER"));
-                defaultBank = _w88_contents.translate("LABEL_SELECT_DEFAULT") + " " + _w88_contents.translate("LABEL_SYSTEM_ACCOUNT");
-                // for withdraw
-                $('label[id$="lblContact"]').text(_w88_contents.translate("LABEL_MOBILE_NUMBER"));
-
-            } else {
-                window.setInterval(function () {
-                    setTranslations();
-                }, 500);
-            }
+        if (isDeposit) {
+            moneytransfer.getDepositLastTransaction();
+            moneytransfer.getSystemAccount();
         }
-
-        if (getbanks) {
-            _w88_paymentSvcV2.Send("/banks/money/" + methodId, "GET", "", function(response) {
-                if (!_.isEqual(response.ResponseCode, 0)) {
-                    $('select[id$="drpSystemAccount"]').append($("<option></option>").attr("value", "-1").text(defaultBank));
-                    $('select[id$="drpSystemAccount"]').val("-1").change();
-
-                    _.forEach(response.ResponseData, function(data) {
-                        $('select[id$="drpSystemAccount"]').append($("<option></option>").attr("value", data.Value).text(data.Text));
-                    });
-                }
-            });
+        else {
+            moneytransfer.getWithdrawalLastTransaction();
+            moneytransfer.getCountryPhoneList();
         }
     };
 
-    moneytransfer.countryphone = function () {
+    moneytransfer.setTranslations = function (isDeposit, methodId) {
+        $('label[id$="lblAccountName"]').text(_w88_contents.translate("LABEL_ACCOUNT_NAME"));
+        $('label[id$="lblAccountNumber"]').text(_w88_contents.translate("LABEL_ACCOUNT_NUMBER"));
+
+        if (isDeposit) {
+            $('label[id$="lblAmount"]').text(_w88_contents.translate("LABEL_DEPOSIT_AMOUNT"));
+            $('label[id$="lblDepositDateTime"]').text(_w88_contents.translate("LABEL_DEPOSIT_DATETIME"));
+            $('label[id$="lblSystemAccount"]').text(_w88_contents.translate("LABEL_SYSTEM_ACCOUNT"));
+        }
+        else {
+            $('label[id$="lblAmount"]').text(_w88_contents.translate("LABEL_WITHDRAWAL_AMOUNT"));
+            $('label[id$="lblContact"]').text(_w88_contents.translate("LABEL_MOBILE_NUMBER"));
+            $('input[id$="txtPhoneNumber"]').mask('999999999999');
+        }
+
+        switch (methodId) {
+            case "1103132":
+                $('label[id$="lblReferenceId"]').text(_w88_contents.translate("LABEL_TRANSACTION_ID"));
+                break;
+            case "110308":
+            default:
+                $('label[id$="lblReferenceId"]').text(_w88_contents.translate("LABEL_REFERENCE_ID"));
+                break;
+
+        }
+    }
+
+    moneytransfer.getSystemAccount = function () {
+        _w88_paymentSvcV2.Send("/Banks/money/" + methodId, "GET", "", function (response) {
+            if (!_.isEqual(response.ResponseCode, 0)) {
+                $('select[id$="drpSystemAccount"]').append($("<option></option>").attr("value", "-1").text(_w88_contents.translate("LABEL_SELECT_DEFAULT")));
+
+                _.forEach(response.ResponseData, function (data) {
+                    $('select[id$="drpSystemAccount"]').append($("<option></option>").attr("value", data.Value).text(data.Text))
+                })
+
+                if (response.ResponseData.length > 0)
+                    moneytransfer.showSystemAccount();
+                else
+                    moneytransfer.hideSystemAccount();
+            }
+        },
+      function () {
+          GPInt.prototype.HideSplash();
+      });
+    }
+
+    moneytransfer.showSystemAccount = function () {
+        $('.systemAccount').show();
+        $('select[id$="drpSystemAccount').attr({ required: '', 'data-selectequals': '-1' });
+        $('#form1').validator('update');
+    };
+
+    moneytransfer.hideSystemAccount = function () {
+        $('.systemAccount').hide();
+        $('select[id$="drpSystemAccount"]').removeAttr('required data-selectequals');
+        $('#form1').validator('update');
+    }
+
+    moneytransfer.getCountryPhoneList = function () {
         _w88_paymentSvcV2.Send("/CountryPhoneList", "GET", "", function (response) {
             if (!_.isEqual(response.ResponseCode, 0)) {
-                _.forEach(response.ResponseData.PhoneList, function(data) {
+                $('select[id$="drpContactCountry"]').append($("<option></option>").attr("value", "-1").text(_w88_contents.translate("LABEL_SELECT_DEFAULT")));
+
+                _.forEach(response.ResponseData.PhoneList, function (data) {
                     $('select[id$="drpContactCountry"]').append($("<option></option>").attr("value", data.Value).text(data.Text));
                 });
 
@@ -62,30 +100,62 @@ function MoneyTransfer() {
         });
     };
 
-    moneytransfer.createDeposit = function () {
-        var _self = this;
-        var params = _self.getUrlVars();
-        var data = {
-            Amount: params.Amount,
-            AccountName: params.AccountName,
-            AccountNumber: params.AccountNumber,
-            SystemBank: { Text: params.SystemBankText, Value: params.SystemBankValue },
-            ReferenceId: params.ReferenceId,
-            DepositDateTime: params.DepositDateTime.replace('+', ' '),
-        };
+    moneytransfer.getDepositLastTransaction = function () {
+        _w88_paymentSvcV2.Send("/payments/deposit/lasttrans/moneytransfer/" + methodId, "GET", "", function (response) {
+            switch (response.ResponseCode) {
+                case 1:
+                    $('input[id$="txtAccountName"]').val(response.ResponseData.AccountName);
+                    $('input[id$="txtAccountNumber"]').val(response.ResponseData.AccountNumber);
+                    break;
+                default:
+                    if (_.isArray(response.ResponseMessage))
+                        w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
+                    else
+                        w88Mobile.Growl.shout(response.ResponseMessage);
 
-        _self.methodId = params.MethodId;
-        _self.changeRoute();
-        _self.deposit(data, function (response) {
-
-            if (_.isArray(response.ResponseMessage))
-                w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage), _self.shoutCallback);
-            else
-                w88Mobile.Growl.shout(response.ResponseMessage,  _self.shoutCallback);
+                    break;
+            }
         },
-            function () {
-                pubsub.publish('stopLoadItem', { selector: "" });
-            });
+        function () {
+            GPInt.prototype.HideSplash();
+        });
+    }
+
+    moneytransfer.getWithdrawalLastTransaction = function () {
+        _w88_paymentSvcV2.Send("/payments/withdrawal/lasttrans/moneytransfer/" + methodId, "GET", "", function (response) {
+            switch (response.ResponseCode) {
+                case 1:
+                    $('input[id$="txtAccountName"]').val(response.ResponseData.AccountName);
+                    $('input[id$="txtAccountNumber"]').val(response.ResponseData.AccountNumber);
+                    $('input[id$="txtContact"]').val(response.ResponseData.Phone);
+
+                    $('select[id$="drpContactCountry"]').val(response.ResponseData.CountryCode).change();
+                    break;
+                default:
+                    if (_.isArray(response.ResponseMessage))
+                        w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
+                    else
+                        w88Mobile.Growl.shout(response.ResponseMessage);
+
+                    break;
+            }
+        },
+        function () {
+            GPInt.prototype.HideSplash();
+        });
+    }
+
+    moneytransfer.createDeposit = function (form, data, methodId) {
+        var _self = this;
+
+        _self.methodId = methodId;
+        _self.offlineDeposit(form, data);
+    };
+
+    moneytransfer.createWithdraw = function (data, methodId) {
+        var _self = this;
+        _self.methodId = methodId;
+        _self.withdraw(data);
     };
 
     return moneytransfer;

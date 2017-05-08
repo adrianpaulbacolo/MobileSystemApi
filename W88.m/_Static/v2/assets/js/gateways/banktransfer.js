@@ -74,19 +74,6 @@ function BankTransferv2() {
             });
         });
 
-        $('input[id$="txtDepositDate"]').datebox({
-            mode: 'calbox',
-            showInitialValue: true,
-            overrideDateFormat: '%m/%d/%Y',
-            minDays: 3,
-            maxDays: 3
-        });
-
-        $('input[id$="txtDepositTime"]').datebox({
-            mode: 'timebox',
-            showInitialValue: true,
-        });
-
         $('select[id$="drpBank"]').change(function () {
             banktransfer.toogleBank(this.value);
         });

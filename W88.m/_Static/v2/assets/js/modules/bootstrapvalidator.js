@@ -15,6 +15,7 @@ function validator() {
     function initiateValidator($formEl, setting) {
         pubsub.subscribe('validatorStatus', onValidatorStatus);
 
+        setDateTime();
         setNumericValidator();
 
         pubsub.publish("validatorStatus", status.Started);
@@ -161,5 +162,27 @@ function validator() {
 
     function onValidatorStatus(topic, data) {
         validatorStatus = data;
+    }
+
+    function setDateTime() {
+        _.forEach($('[data-date-box]'), function (item, index) {
+            var numeric = item.getAttribute('data-date-box');
+
+            if (_.isEmpty(numeric)) {
+                $(item).datebox({
+                    mode: 'calbox',
+                    showInitialValue: true,
+                    overrideDateFormat: '%m/%d/%Y',
+                    minDays: 3,
+                    maxDays: 3,
+                });
+            }
+            else {
+                $(item).datebox({
+                    mode: 'timebox',
+                    showInitialValue: true,
+                });
+            }
+        });
     }
 };
