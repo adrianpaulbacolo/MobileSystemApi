@@ -7,10 +7,10 @@ public partial class v2_Deposit_Pay1202105 : PaymentBasePage
         base.PageName = Convert.ToString(commonVariables.DepositMethod.NineVPayAlipay);
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.NineVPayAlipay);
-
     }
 
     protected void Page_Load(object sender, EventArgs e)
     {
+
     }
 }
