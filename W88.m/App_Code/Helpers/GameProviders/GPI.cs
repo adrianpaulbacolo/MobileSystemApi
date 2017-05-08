@@ -91,9 +91,10 @@ namespace Helpers.GameProviders
             var lang = GetGameLanguage(element);
             var gameName = element.Attribute("Id") != null ? element.Attribute("Id").Value : "";
             var slotType = IsRslot(element) ? mrSlot : mSlot;
+            var opSettings = new customConfig.OperatorSettings(ConfigurationManager.AppSettings.Get("Operator"));
             var domainLauncher = LanguageCode.ToLower() == "cn"
-                ? ConfigurationManager.AppSettings.Get("GPIGameLauncherCN")
-                : ConfigurationManager.AppSettings.Get("GPIGameLauncherDefault");
+                ? opSettings.Values.Get("GPIGameLauncherCN")
+                : opSettings.Values.Get("GPIGameLauncherDefault");
 
             if (setting == GameLinkSetting.Real)
                 url = url.Replace("{TOKEN}", _gameLink.MemberSessionId);
