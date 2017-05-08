@@ -42,8 +42,25 @@ function Gateway(paymentSvc) {
         }
     }
 
-    this.withdraw = function(data, successCallback, completeCallback) {
-        _self.send("/payments/" + _self.methodId, "POST", data, successCallback, completeCallback);
+    this.withdraw = function (data, successCallback, completeCallback) {
+        var _self = this;
+
+        _self.send("/payments/" + _self.methodId, "POST", data, function (response) {
+            switch (response.ResponseCode) {
+                case 1:
+                    w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + _w88_contents.translate("LABEL_TRANSACTION_ID") + ": " + response.ResponseData.TransactionId + "</p>", function () {
+                        window.location = "/v2/Withdrawal/";
+                    });
+
+                    break;
+                default:
+                    if (_.isArray(response.ResponseMessage))
+                        w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
+                    else
+                        w88Mobile.Growl.shout(response.ResponseMessage);
+                    break;
+            }
+        }, function () { });
     }
 
     this.getUrlVars = function()

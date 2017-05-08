@@ -114,25 +114,25 @@
                     <div class="btn-group" role="group">
                         <button type="button" class="btn btn-menu-funds <%= (base.Page.Title == "Funds") ? "active" : "" %>">
                             <span class="icon icon-wallet"></span>
-                            <%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%>
+                            <span id="funds"></span>
                         </button>
                     </div>
                     <div class="btn-group" role="group">
                         <button type="button" class="btn btn-menu-rewards">
                             <span class="icon icon-rewards"></span>
-                            <%=commonCulture.ElementValues.getResourceString("rewards", commonVariables.LeftMenuXML)%>
+                            <span id="rewards"></span>
                         </button>
                     </div>
                     <div class="btn-group" role="group">
                         <button type="button" class="btn btn-menu-promo">
                             <span class="icon icon-promo"></span>
-                            <%=commonCulture.ElementValues.getResourceString("promotions", commonVariables.LeftMenuXML)%>
+                            <span id="promotions"></span>
                         </button>
                     </div>
                     <div class="btn-group" role="group">
                         <button type="button" class="btn btn-menu-chat">
                             <span class="icon icon-chat"></span>
-                            <%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%>
+                            <span id="livechat"></span>
                         </button>
                     </div>
                 </div>
@@ -203,6 +203,10 @@
                     }
                 });
 
+                $('#funds').text(_w88_contents.translate("LABEL_MENU_FUNDS"));
+                $('#rewards').text(_w88_contents.translate("LABEL_MENU_REWARDS"));
+                $('#promotions').text(_w88_contents.translate("LABEL_MENU_PROMOTIONS"));
+                $('#livechat').text(_w88_contents.translate("LABEL_MENU_LIVE_CHAT"));
             });
 
             // hackish way to communicate in between iframes lol, check slots page, surprisingly, it has too

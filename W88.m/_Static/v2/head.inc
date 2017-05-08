@@ -61,8 +61,7 @@
     $(function () {
       if (_.isEmpty(siteCookie.getCookie("fingerprint"))) {
           new Fingerprint2().get(function (result, components) {
-              var domain = "." + location.hostname.split('.').slice(-2).join('.');
-              siteCookie.setCookie("fingerprint", result, 5, domain);
+              siteCookie.setCookie("fingerprint", result, 5);
           });
       } else {
           var deviceObj = {

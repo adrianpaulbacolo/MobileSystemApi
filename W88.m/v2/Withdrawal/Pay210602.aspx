@@ -7,86 +7,68 @@
     </div>
     <div class="form-group">
         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
-        <asp:DropDownList ID="drpBank" runat="server" CssClass="form-control" data-bankequals="-1" />
+        <asp:DropDownList ID="drpBank" runat="server" CssClass="form-control" required data-selectequals="-1" />
     </div>
-    <div class="form-group" id="divOtherBank" runat="server" style="display: none;">
+    <div class="form-group otherbank" hidden>
         <asp:Label ID="lblSecondBank" runat="server" AssociatedControlID="drpSecondaryBank" />
         <asp:DropDownList ID="drpSecondaryBank" runat="server" CssClass="form-control">
         </asp:DropDownList>
     </div>
-    <div class="form-group location" id="divBankLocation" runat="server" style="display: none;">
+    <div class="form-group location" hidden>
         <asp:Label ID="lblBankLocation" runat="server" AssociatedControlID="txtBankName" />
         <asp:DropDownList ID="drpBankLocation" runat="server" CssClass="form-control">
         </asp:DropDownList>
     </div>
-    <div class="form-group branch" id="divBankNameSelection" runat="server" style="display: none;">
+    <div class="form-group branchlist" hidden>
         <asp:Label ID="lblBranch" runat="server" AssociatedControlID="txtBankName" />
         <asp:DropDownList ID="drpBankBranchList" runat="server" CssClass="form-control">
         </asp:DropDownList>
     </div>
-    <div class="form-group" id="divBankName" style="display: none;">
+    <div class="form-group bankname" hidden>
         <asp:Label ID="lblBankName" runat="server" AssociatedControlID="txtBankName" />
         <asp:TextBox ID="txtBankName" runat="server" CssClass="form-control" />
     </div>
-    <div class="form-group" id="divBankBranch" runat="server">
+    <div class="form-group branch">
         <asp:Label ID="lblBankBranch" runat="server" AssociatedControlID="txtBankBranch" />
-        <asp:TextBox ID="txtBankBranch" runat="server" CssClass="form-control" required />
+        <asp:TextBox ID="txtBankBranch" runat="server" CssClass="form-control" required data-require="" />
     </div>
-    <div class="form-group" id="divAddress" runat="server">
+    <div class="form-group address">
         <asp:Label ID="lblAddress" runat="server" AssociatedControlID="txtAddress" />
-        <asp:TextBox ID="txtAddress" runat="server" CssClass="form-control" required />
+        <asp:TextBox ID="txtAddress" runat="server" CssClass="form-control" required data-require="" />
     </div>
     <div class="form-group">
         <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" />
-        <asp:TextBox ID="txtAccountName" runat="server" CssClass="form-control" required data-accountNo="0" />
+        <asp:TextBox ID="txtAccountName" runat="server" CssClass="form-control" required data-require="" />
     </div>
     <div class="form-group">
         <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" />
-        <asp:TextBox ID="txtAccountNumber" runat="server" CssClass="form-control" type="number" required data-accountName="0" />
+        <asp:TextBox ID="txtAccountNumber" runat="server" CssClass="form-control" type="number" required data-require="" />
     </div>
-    <div class="form-group" runat="server">
+    <div class="form-group">
         <asp:Label ID="lblContact" runat="server" AssociatedControlID="drpCountryCode" />
-        <div class="row thin-gutter">
-            <div class="col-xs-6">
-                <asp:DropDownList ID="drpCountryCode" runat="server" CssClass="form-control" data-selectequals="-1"/>
+        <div class="row">
+            <div class="col-xs-6 col-sm-6">
+                <asp:DropDownList ID="drpCountryCode" runat="server" CssClass="form-control" required data-selectequals="-1" />
             </div>
-            <div class="col-xs-6">
-                <asp:TextBox ID="txtPhoneNumber" runat="server" CssClass="form-control" type="number" required />
+            <div class="col-xs-6 col-sm-6">
+                <asp:TextBox ID="txtPhoneNumber" runat="server" CssClass="form-control" required data-require="" />
             </div>
         </div>
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">
-    <script type="text/javascript" src="/_static/v2/assets/js/gateways/banktransfer.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/gateways/banktransfer.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
 
-            var currency = '<%= commonCookie.CookieCurrency.ToLower() %>';
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
-            window.w88Mobile.Gateways.BankTransferv2.initWidraw();
-            window.w88Mobile.Gateways.BankTransferv2.loadSecondaryBankWidraw();
-
-            $('select[id$="drpBank"]').change(function () {
-                window.w88Mobile.Gateways.BankTransferv2.toggleBankWidraw(this.value, currency);
-            });
-
-            $('select[id$="drpSecondaryBank"]').change(function () {
-                window.w88Mobile.Gateways.BankTransferv2.toggleSecondaryBankWidraw(this.value, $('select[id$="drpBankLocation"]').val());
-            });
-
-            $('select[id$="drpBankLocation"]').change(function () {
-                if (this.value != '-1') {
-                    window.w88Mobile.Gateways.BankTransferv2.toogleBankBranchWidraw(this.value, "");
-                }
-            });
+            _w88_banktransfer.initWidraw();
 
             $('#form1').validator().on('submit', function (e) {
-
                 if (!e.isDefaultPrevented()) {
-
                     e.preventDefault();
 
                     var data = {
@@ -95,7 +77,7 @@
                         AccountNumber: $('input[id$="txtAccountNumber"]').val(),
                         CountryCode: $('select[id$="drpCountryCode"]').val(),
                         Phone: $('input[id$="txtPhoneNumber"]').val(),
-                        Bank : {
+                        Bank: {
                             Text: $('select[id$="drpBank"] option:selected').text(),
                             Value: $('select[id$="drpBank"]').val()
                         }
@@ -112,7 +94,7 @@
                         data.BankBranch = $('input[id$="txtBankBranch"]').val();
                     }
 
-                    if ($('select[id$="drpSecondaryBank"]').val() != 'OTHER' && currency == 'vnd') {
+                    if ($('select[id$="drpSecondaryBank"]').val() != 'OTHER' && _.isEqual(siteCookie.getCookie('currencyCode'), 'VND')) {
                         data.BankAddressId = $('select[id$="drpBankLocation"]').val();
                         data.BankBranchId = $('select[id$="drpBankBranchList"]').val();
                     } else {
@@ -121,7 +103,7 @@
                         data.BankName = $('input[id$="txtBankName"]').val();
                     }
 
-                    _w88_paymentSvcV2.CreateWithdraw(data, "<%=base.PaymentMethodId %>");
+                    _w88_banktransfer.createWithdraw(data, "<%=base.PaymentMethodId%>");
                 }
             });
         });

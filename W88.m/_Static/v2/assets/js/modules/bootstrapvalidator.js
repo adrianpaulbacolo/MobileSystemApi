@@ -25,26 +25,48 @@ function validator() {
                     $el.parent("div.form-group").removeClass('has-error');
                     $el.parent("div.form-group").children("span.help-block").remove();
 
+                    if ($el.parent("div.form-group").length == 0) {
+                        $el.parent("div").removeClass('has-error');
+                        $el.parent("div").children("span.help-block").remove();
+                    }
+
                     if (!_.isEqual(validatorStatus, status.Started)) {
                         if (_.isEmpty($el.val())) {
                             $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("RequiredField") + '</span>');
-                            $el.parent("div.form-group").addClass('has-error');
+
+                            if ($el.parent("div.form-group").length == 0) {
+                                $el.parent("div").addClass('has-error');
+                            }
+                            else {
+                                $el.parent("div.form-group").addClass('has-error');
+                            }
+                            return true;
                         }
                     }
+                    return false;
                 },
                 selectequals: function ($el) {
                     $el.parent("div.form-group").removeClass('has-error');
                     $el.parent("div.form-group").children("span.help-block").remove();
 
+                    if ($el.parent("div.form-group").length == 0) {
+                        $el.parent("div").removeClass('has-error');
+                        $el.parent("div").children("span.help-block").remove();
+                    }
+
                     if (!_.isEqual(validatorStatus, status.Started)) {
                         var matchValue = $el.data("selectequals");
                         if ($el.val() == matchValue) {
                             $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("RequiredField") + '</span>');
-                            $el.parent("div.form-group").addClass('has-error');
+                            if ($el.parent("div.form-group").length == 0) {
+                                $el.parent("div").addClass('has-error');
+                            }
+                            else {
+                                $el.parent("div.form-group").addClass('has-error');
+                            }
                             return true;
                         }
                     }
-
                     return false;
                 },
                 confirmvalue: function ($el) {
@@ -60,13 +82,12 @@ function validator() {
                         }
                     } else {
                         if ($el.context.required) {
-                            var reqErr = $el.context.getAttribute("data-required-error");
-                            if (reqErr !== null) {
-                                $el.parent("div").append('<span class="help-block">' + reqErr + '</span>');
-                                $el.parent("div.form-group").addClass('has-error');
-                            }
+                            $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("RequiredField") + '</span>');
+                            $el.parent("div.form-group").addClass('has-error');
+                            return true;
                         }
                     }
+                    return false;
                 },
                 confirmrange: function ($el) {
                     $el.parent("div.form-group").removeClass('has-error');
@@ -89,11 +110,9 @@ function validator() {
                     }
                     else {
                         if ($el.context.required) {
-                            var reqErr = $el.context.getAttribute("data-required-error");
-                            if (reqErr !== null) {
-                                $el.parent("div").append('<span class="help-block">' + reqErr + '</span>');
-                                $el.parent("div.form-group").addClass('has-error');
-                            }
+                            $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("RequiredField") + '</span>');
+                            $el.parent("div.form-group").addClass('has-error');
+                            return true;
                         }
                     }
                     return false;
@@ -119,6 +138,7 @@ function validator() {
                             return true;
                         }
                     }
+                    return false;
                 },
             }
         });

@@ -10,24 +10,28 @@
             <% var depositLinkId = (commonFunctions.isExternalPlatform()) ? "launch-deposit" : ""; %>
             <div class="dashboard-col <%=depositLinkId %>">
                 <a href="/v2/Deposit/Default.aspx">
-                    <span class="icon icon-deposit"></span><%=commonCulture.ElementValues.getResourceString("deposit", commonVariables.LeftMenuXML)%>
+                    <span class="icon icon-deposit"></span>
+                    <span id="deposit"></span>
                 </a>
             </div>
             <div class="dashboard-col">
                 <a href="/v2/FundTransfer/">
-                    <span class="icon icon-transfer"></span><%=commonCulture.ElementValues.getResourceString("transfer", commonVariables.LeftMenuXML)%>
+                    <span class="icon icon-transfer"></span>
+                    <span id="transfer"></span>
                 </a>
             </div>
         </div>
         <div class="dashboard-row">
             <div class="dashboard-col">
                 <a href="/v2/Withdrawal/">
-                    <span class="icon icon-withdraw"></span><%=commonCulture.ElementValues.getResourceString("withdrawal", commonVariables.LeftMenuXML)%>
+                    <span class="icon icon-withdraw"></span>
+                    <span id="withdraw"></span>
                 </a>
             </div>
             <div class="dashboard-col">
                 <a href="/v2/History/Default.aspx">
-                    <span class="icon icon-history"></span><%=commonCulture.ElementValues.getResourceString("history", commonVariables.HistoryXML)%>
+                    <span class="icon icon-history"></span>
+                     <span id="history"></span>
                 </a>
             </div>
         </div>

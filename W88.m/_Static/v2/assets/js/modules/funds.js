@@ -1,15 +1,8 @@
 ﻿var _w88_funds = w88Mobile.Funds = Funds();
 
 function Funds() {
-
-    var wallets = [];
-    var wallet = [];
-    var task = "";
-
     return {
         init: init,
-        wallets: wallets,
-        wallet: wallet,
         mainWalletInit: mainWalletInit
     }
 
@@ -27,6 +20,11 @@ function Funds() {
                 console.log("Native is not defined");
             }
         });
+
+        $('#deposit').text(_w88_contents.translate("LABEL_FUNDS_DEPOSIT"));
+        $('#transfer').text(_w88_contents.translate("LABEL_FUNDS_TRANSFER"));
+        $('#withdraw').text(_w88_contents.translate("LABEL_FUNDS_WIDRAW"));
+        $('#history').text(_w88_contents.translate("LABEL_FUNDS_HISTORY"));
     }
 
     function fetchWallets(data, isSelection) {
@@ -38,14 +36,11 @@ function Funds() {
                 console.log('Unable to fetch wallets.');
                 return;
             }
-            wallets = response.ResponseData;
-            pubsub.publish("fundsLoaded");
+            pubsub.publish("fundsLoaded", response.ResponseData);
         });
     }
 
-    function onFundsLoaded() {
-
-        var wallets = _w88_funds.wallets()
+    function onFundsLoaded(topic, data) {
 
         var mainWalletTpl = _.template(
             $("script#mainWallet").html()
@@ -56,11 +51,11 @@ function Funds() {
         );
 
         $("div.wallets").append(
-            mainWalletTpl(_.first(wallets))
+            mainWalletTpl(_.first(data))
         );
 
         $("div.wallets").append(
-            walletList({ wallets: wallets })
+            walletList({ wallets: data })
         );
     }
 
@@ -78,19 +73,18 @@ function Funds() {
                 console.log('Unable to fetch wallet.');
                 return;
             }
-            wallet = response.ResponseData;
-            pubsub.publish("mainWalletLoaded");
+            pubsub.publish("mainWalletLoaded", response.ResponseData);
         });
     }
 
-    function onMainWalletLoaded() {
+    function onMainWalletLoaded(topic, data) {
 
         var mainWalletTpl = _.template(
             $("script#mainWallet").html()
         );
 
         $("div.wallets").append(
-            mainWalletTpl(wallet)
+            mainWalletTpl(data)
         );
     }
 

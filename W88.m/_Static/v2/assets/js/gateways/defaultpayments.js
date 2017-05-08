@@ -19,7 +19,6 @@ function DefaultPaymentsV2() {
         formatDateTime: formatDateTime,
         init: init,
         payRoute: "/v2/Deposit/Pay.aspx",
-        CreateWithdraw: createWithdraw
     };
 
     var paymentCache = {};
@@ -477,28 +476,4 @@ function DefaultPaymentsV2() {
 
         return "Pay" + id + ".aspx";
     }
-
-    function createWithdraw(data, methodId) {
-        send("/payments/" + methodId, "POST", data, function (response) {
-            switch (response.ResponseCode) {
-                case 1:
-                    w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + _w88_contents.translate("LABEL_TRANSACTION_ID") + ": " + response.ResponseData.TransactionId + "</p>", function () {
-                        window.location = "/v2/Withdrawal/";
-                    });
-
-                    break;
-                default:
-                    if (_.isArray(response.ResponseMessage))
-                        w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
-                    else
-                        w88Mobile.Growl.shout(response.ResponseMessage);
-
-                    break;
-            }
-        },
-        function () {
-            pubsub.publish('stopLoadItem', { selector: "" });
-        });
-    }
-
 }
