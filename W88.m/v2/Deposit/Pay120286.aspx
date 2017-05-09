@@ -1,10 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/v2/MasterPages/Payment.master" AutoEventWireup="true" CodeFile="Pay120286.aspx.cs" Inherits="v2_Deposit_Pay120286" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
-    <div class="form-group pay-note">
-        <span id="paymentNote"></span>
-        <p id="paymentNoteContent"></p>
-    </div>
     <div class="form-group">
         <asp:Label ID="lblBanks" runat="server" AssociatedControlID="drpBanks" />
         <asp:DropDownList ID="drpBanks" runat="server" CssClass="form-control"  data-bankequals="-1">

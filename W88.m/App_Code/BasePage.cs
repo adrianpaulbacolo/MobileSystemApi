@@ -36,6 +36,8 @@ public class BasePage : System.Web.UI.Page
         string CDN_Value = getCDNValue();
         string key = getCDNKey();
 
+        commonCookie.Set("CDNCountryCode", GetCountryCode(CDN_Value, key), DateTime.Now.AddDays(1));
+
         if (string.IsNullOrWhiteSpace(commonCookie.CookieLanguage))
         {
             if (!string.IsNullOrEmpty(CDN_Value) && !string.IsNullOrEmpty(key))
@@ -77,6 +79,12 @@ public class BasePage : System.Web.UI.Page
         if (!string.IsNullOrEmpty(strIsApp))
         {
                commonCookie.CookieIsApp = (strIsApp == "1") ? strIsApp : null;
+        }
+
+        var strIsNative = HttpContext.Current.Request.QueryString.Get("isNative");
+        if (!string.IsNullOrEmpty(strIsNative))
+        {
+            commonCookie.CookieIsNative = (strIsNative == "1") ? strIsNative : null;
         }
 
         commonCookie.CookieSubPlatform(HttpContext.Current.Request.QueryString.Get("spfid"));
@@ -411,8 +419,7 @@ public class BasePage : System.Web.UI.Page
 
     protected void CheckAgentAndRedirect(string url)
     {
-        var userAgent = Request.UserAgent.ToString();
-        if (userAgent.ToLower().Contains("clubw"))
+        if (commonFunctions.isExternalPlatform())
         {
             Response.Redirect(url);
         }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/v2/MasterPages/Payment.master" AutoEventWireup="true" CodeFile="Pay999999.aspx.cs" Inherits="v2_Deposit_Pay999999" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/v2/MasterPages/Payment.master" AutoEventWireup="true" CodeFile="Pay120272ATM.aspx.cs" Inherits="v2_Deposit_Pay120272" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PaymentMainContent" runat="Server">
     <div class="form-group">
@@ -7,42 +7,42 @@
     </div>
     <div class="form-group">
         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
-        <asp:DropDownList ID="drpBank" runat="server" CssClass="form-control" data-bankequals="-1" />
+        <asp:DropDownList ID="drpBank" runat="server" CssClass="form-control"></asp:DropDownList>
     </div>
     <div class="form-group">
-        <div class="checkbox checkbox-custom">
-            <label>
-                <input type="checkbox" id="isSwitchLine">
-                <span id="lblSwitchLine"></span>
-            </label>
-        </div>
+        <asp:Label ID="lblEmail" runat="server" AssociatedControlID="txtEmail" />
+        <asp:TextBox ID="txtEmail" runat="server" type="email" CssClass="form-control" />
+    </div>
+    <div class="form-group">
+        <asp:Label ID="lblContact" runat="server" AssociatedControlID="txtContact" />
+        <asp:TextBox ID="txtContact" runat="server" type="tel" CssClass="form-control" />
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">
-    <script type="text/javascript" src="/_static/v2/assets/js/gateways/quickonline.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-    <script type="text/javascript" src="/_static/v2/assets/js/gateways/banner.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script type="text/javascript" src="/_static/v2/assets/js/gateways/baokim.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
-            _w88_paymentbanner.init("QuickOnline");
-
-            _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
+            var method = "ATM";
+                
+            _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>", method);
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
-            window.w88Mobile.Gateways.QuickOnlineV2.init("<%=base.PaymentMethodId %>", true);
+            window.w88Mobile.Gateways.BaokimV2.initATM(method);
 
             $('#form1').validator().on('submit', function (e) {
 
                 if (!e.isDefaultPrevented()) {
                     e.preventDefault();
                     var data = {
+                        Method: window.w88Mobile.Gateways.BaokimV2.method,
                         Amount: $('input[id$="txtAmount"]').autoNumeric('get'),
-                        BankText: $('select[id$="drpBank"] option:selected').val(),
+                        Email: $('input[id$="txtEmail"]').val(),
+                        Phone: $('input[id$="txtContact"]').val(),
+                        BankText: $('select[id$="drpBank"] option:selected').text(),
                         BankValue: $('select[id$="drpBank"]').val(),
-                        ThankYouPage: location.protocol + "//" + location.host + "/Index",
-                        SwitchLine: $('input[id$="isSwitchLine"]').is(':checked'),
                         MethodId: "<%=base.PaymentMethodId%>",
-                        AutoRoute: true
+                        ThankYouPage: location.protocol + "//" + location.host + "/Deposit/Thankyou.aspx"
                     };
 
                     var params = decodeURIComponent($.param(data));
@@ -50,9 +50,10 @@
                     _w88_paymentSvcV2.onTransactionCreated($(this));
                     return;
                 }
-
             });
+
         });
+
     </script>
 </asp:Content>
 

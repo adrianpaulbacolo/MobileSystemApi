@@ -19,20 +19,6 @@ else{
 
 var fishingWorld = FishingWorldProduct.GetLink();
 
-var isSuperBull = false;
-if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)){
-
-    if (commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase)){
-        isSuperBull = true;
-    }
-
-}
-else {
-    if (commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase)){
-         isSuperBull = true;
-    }
-}
-
 %>
 <div data-role="panel" id="divPanel">
     <ul data-role="listview" class="nav-menu">
@@ -482,25 +468,15 @@ else {
                 <%}catch(Exception){}%>
             </ul>
         </li>
-
         <!-- Texas Mahjong -->
         <li data-icon="false">
             <a class="nav-pmahjong">
-                <% if(isSuperBull) { %>
                     <i class="icon icon-super-bull"></i>
                     <div class="label menuP2PTitle"></div>
-                <% } else { %>
-                    <i class="icon icon-mahjong"></i>
-                    <div class="label menuTexasMahjongTitle"></div>
-                <%} %>
             </a>
             <ul class="sub-menu" data-rel="texasmahjong">
                 <!--<a class="close" data-rel="close">&times;</a>-->
-                <% if(isSuperBull) { %>
                 <h2 class="title menuP2PTitle"></h2>
-                <% } else { %>
-                <h2 class="title menuTexasMahjongTitle"></h2>
-                <% } %>
 
                 <%
                 try{
@@ -513,15 +489,12 @@ else {
                         <div class="title menuiOSDownloadTitle"></div>
                     </a>
                 </li>
-                <% if(isSuperBull) { %>
                 <li>
                     <a class="card" rel="superbull" href='/_static/Downloads/superbull.aspx' data-rel="dialog" data-ajax="false">
                         <img src="#" class="img-responsive SuperBull-Ios">
                         <div class="title menuSuperBullTitle"></div>
                     </a>
                 </li>
-                <% } %>
-
 
                 <%}%>
                 <%if(deviceId==2){%>
@@ -532,16 +505,12 @@ else {
                         <div class="title menuTexasMahjongTitle"></div>
                     </a>
                 </li>
-                
-                    <% if(isSuperBull) { %>
                         <li>
                             <a class="card" rel="superbull" href='<%= commonFunctions.GetSuperBullDownloadLink()%>' data-rel="dialog" data-ajax="false">
                                 <img src="#" class="img-responsive SuperBull-Android">
                                 <div class="title menuSuperBullTitle"></div>
                             </a>
                         </li>
-                    <% } %>
-
 
                 <%}%>
                 <%if(deviceId==3){%>
@@ -558,8 +527,6 @@ else {
                         <div class="title menuTexasMahjongTitle"></div>
                     </a>
                 </li>
-
-                    <% if(isSuperBull) { %>
                     <li>
                         <a class="card" rel="superbull" href='/_static/Downloads/superbull.aspx' data-rel="dialog" data-ajax="false">
                             <img src="#" class="img-responsive SuperBull-Ios">
@@ -572,7 +539,6 @@ else {
                             <div class="title menuSuperBullTitle"></div>
                         </a>
                     </li>
-                    <% } %>
 
                 <%}%>
 
@@ -874,7 +840,7 @@ else {
     });
 </script>
 
-<% if (commonFunctions.isNativeAgent(Request)){ %>
+<% if (commonFunctions.isExternalPlatform()){ %>
 <script type="text/javascript">
         $(function () {
             $("#aMenu").attr("href", "#");

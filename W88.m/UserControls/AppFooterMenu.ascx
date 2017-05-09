@@ -24,7 +24,8 @@
 </div>--%>
 
 <script type="text/javascript">
-    <% if (!commonFunctions.isNativeAgent(Request)) { %>
+    <% if (!commonFunctions.isExternalPlatform())
+       { %>
         $(document).ready(function () {
             window.w88Mobile.HideMenu.CheckIfApp();
         });

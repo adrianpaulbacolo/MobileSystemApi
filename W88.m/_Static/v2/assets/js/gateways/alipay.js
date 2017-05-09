@@ -17,17 +17,11 @@ function AlipayV2() {
 
         function setTranslations() {
             if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
-                $('label[id$="lblSwitchLine"]').text(_w88_contents.translate("LABEL_SWITCH_LINE"));
+                $('[id$="lblSwitchLine"]').text(_w88_contents.translate("LABEL_SWITCH_LINE"));
+
+                $(".pay-note").show();
                 $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-
-                if (!_.isUndefined(gatewayId)) {
-                    if (gatewayId == "120254") {
-                        $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_120254")); //SDA alipay note
-                    }
-                } else {
-                    $("#paymentNoteContent").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_ALIPAY"));
-                }
-
+                $("#paymentNoteContent").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_ALIPAY"));
             } else {
                 window.setInterval(function () {
                     setTranslations();

@@ -138,48 +138,12 @@
                     </a>
                 </li>
 
-
-                <%
-                    var isSuperBullIndex = false;
-
-                        if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-                        {
-
-                            if (commonCookie.CookieCurrency.Equals("rmb", StringComparison.OrdinalIgnoreCase))
-                            {
-                                isSuperBullIndex = true;
-                            }
-
-                        }
-                        else
-                        {
-                            if (commonVariables.SelectedLanguage.Equals("zh-cn", StringComparison.OrdinalIgnoreCase))
-                            {
-                                isSuperBullIndex = true;
-                            }
-                        }
-                %>
-
-
-                <% if (isSuperBullIndex)
-                   {
-                %>
                 <li class="col col-33 product">
                     <a href="#divPanel" class="tile nav-pmahjong">
                         <span class="icon icon-super-bull"></span>
                         <h4 class="title menuP2PTitle"></h4>
                     </a>
                 </li>
-                <%}
-                   else
-                   { %>
-                <li class="col col-33 product">
-                    <a href="#divPanel" class="tile nav-pmahjong">
-                        <span class="icon icon-mahjong"></span>
-                        <h4 class="title menuTexasMahjongTitle"></h4>
-                    </a>
-                </li>
-                <% } %>
 
                 <!-- Profile -->
                 <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
