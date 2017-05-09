@@ -1,5 +1,4 @@
 ﻿window.w88Mobile.Gateways.KexunPay = KexunPay();
-var _w88_kexunpay = window.w88Mobile.Gateways.KexunPay;
 
 function KexunPay() {
 

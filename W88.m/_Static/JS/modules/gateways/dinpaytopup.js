@@ -43,9 +43,11 @@
         $('select[id$="drpAmount"]').append($('<option>').text(_w88_contents.translate("LABEL_SELECT_DEFAULT")).attr('value', '-1'));
         $('select[id$="drpAmount"]').val("-1").selectmenu("refresh");
 
-        _.forOwn(card.Denominations, function (data) {
-            $('select[id$="drpAmount"]').append($('<option>').text(data.Text).attr('value', data.Value));
-        });
+        if (cards) {
+            _.forOwn(card.Denominations, function (data) {
+                $('select[id$="drpAmount"]').append($('<option>').text(data.Text).attr('value', data.Value));
+            });
+        }
     }
 
     function setFee(selectedValue) {
@@ -57,8 +59,6 @@
                 fee = i.Fee;
             }
         });
-
-        $('p[id$="IndicatorMsg"]').html(sessionStorage.getItem("indicator") + fee);
     }
 
 
@@ -71,9 +71,6 @@
 
             $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
             $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_1202112"));
-
-            sessionStorage.setItem("indicator", _w88_contents.translate("LABEL_INDICATOR_MSG"));
-            $('p[id$="IndicatorMsg"]').html(sessionStorage.getItem("indicator"));
         } else {
             window.setInterval(function () {
                 setTranslations();

@@ -7,8 +7,8 @@
 <head runat="server">
     <title></title>
     <!--#include virtual="~/_static/head.inc" -->
-    <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js"></script>
-    <script type="text/javascript" src="/_Static/JS/modules/gateways/baokimSc.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/defaultpayments.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/baokimSc.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
     <link href="/_Static/Css/payment.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
 </head>
 <body>
@@ -17,7 +17,14 @@
             <% if (commonCookie.CookieIsApp != "1")
                { %>
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
+                <% if (commonFunctions.isExternalPlatform())
+                   { %>
+                <i class="icon icon-back"></i>
+                <% }
+                   else
+                   { %>
                 <i class="icon icon-navicon"></i>
+                <% } %>
             </a>
             <% } %>
 

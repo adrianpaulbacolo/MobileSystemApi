@@ -13,7 +13,6 @@
         <header id="header" data-role="header" data-position="fixed" data-theme="b" data-tap-toggle="false">
             <a href="" role="button" data-rel="back" class="btn-clear ui-btn-left ui-btn" id="aMenu" data-load-ignore-splash="true">
                 <span class="icon icon-back"></span>
-                <%=commonCulture.ElementValues.getResourceString("back", commonVariables.LeftMenuXML)%>
             </a>
             <h1 class="title"><%=commonCulture.ElementValues.getResourceString("register", commonVariables.LeftMenuXML)%></h1>
         </header>
@@ -99,6 +98,13 @@
                             </div>
                         </div>
                     </li>
+                    <asp:Panel ID="pnlLineId" runat="server" Visible="False">
+                        <li class="item item-icon-left item-input">
+                              <i class="icon icon-info"></i>
+                            <asp:Label ID="lblLineId" runat="server" AssociatedControlID="txtLineId" Text="Line ID" />
+                            <asp:TextBox ID="txtLineId" runat="server" data-mini="true" MaxLength="25" />
+                        </li>                        
+                    </asp:Panel>
                     <li class="item item-icon-left item-input">
                         <i class="icon icon-referral-bonus"></i>
                         <asp:Label ID="lblAffiliateID" runat="server" AssociatedControlID="txtAffiliateID" />
@@ -326,7 +332,7 @@
 
             function EmailValidation(value) {
                 if (value.length > 0) {
-                    var regExEmail = /^(([\w-]+\.)+[\w-]+|([a-zA-Z]{1}|[\w-]{2,}))@((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|([a-zA-Z]+[\w-]+\.)+[a-zA-Z]{2,4})$/;
+                    var regExEmail = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
                     return regExEmail.test(value);
                 } else
                     return false;

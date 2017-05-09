@@ -67,6 +67,9 @@ public class PaymentBasePage : BasePage
 
     protected bool isSystemError = false;
     protected bool isProcessAbort = false;
+
+    protected string V2DepositPath = "/v2/Deposit/";
+    protected string V2WithdrawalPath = "/v2/Withdrawal/";
     #endregion
 
     #region Labels
@@ -118,8 +121,18 @@ public class PaymentBasePage : BasePage
     {
         base.OnPreLoad(e);
 
+
         InitialiseVariables();
         InitialisePaymentLimits();
+
+        if (!string.IsNullOrEmpty(PaymentMethodId))
+        {
+            try
+            {
+                Page.Items.Add("Parent", "/v2/Funds.aspx");
+            }
+            catch (Exception ex) { }
+        }
     }
     protected void InitialiseVariables()
     {
@@ -457,6 +470,7 @@ public class PaymentBasePage : BasePage
 
         return status;
     }
+
 }
 
 public class CommonStatus

@@ -28,6 +28,7 @@
 <script type="text/javascript" src="/_Static/JS/Mobile/jquery.mobile-1.4.5.min.js"></script>
 <script type="text/javascript" src="/_Static/JS/jquery.mask.min.js"></script>
 <script type="text/javascript" src="/_Static/JS/vendor/lodash.min.js"></script>
+<script type="text/javascript" src="/_Static/JS/vendor/pubsub.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 <script type="text/javascript" src="/_Static/JS/vendor/moment.min.js"></script>
 <script type="text/javascript" src="/_Static/JS/vendor/amplify.min.js"></script>
 <script type="text/javascript" src="/_Static/JS/Mobile/iscroll.js"></script>
@@ -88,3 +89,10 @@
 </script>
 
 <script type="text/javascript" src="/_Static/JS/modules/gateways/postForm.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+<script type="text/javascript" src="/_Static/v2/assets/js/products.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+<script type="text/javascript" src="/_Static/v2/assets/js/loader.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+<script>
+    $(function () {
+        w88Mobile.Loader.init();
+    });
+</script>

@@ -17,15 +17,16 @@ public partial class Withdrawal_Baokim : PaymentBasePage
 {
     protected void Page_Init(object sender, EventArgs e)
     {
-        base.PageName = Convert.ToString(commonVariables.WithdrawalMethod.BankTransfer);
+        base.PageName = Convert.ToString(commonVariables.WithdrawalMethod.Baokim);
         base.PaymentType = commonVariables.PaymentTransactionType.Withdrawal;
-        base.PaymentMethodId = Convert.ToString((int)commonVariables.WithdrawalMethod.BankTransfer);
+        base.PaymentMethodId = Convert.ToString((int)commonVariables.WithdrawalMethod.Baokim);
     }
 
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
         {
+            CheckAgentAndRedirect(string.Concat(V2WithdrawalPath, "Pay", PaymentMethodId, ".aspx"));
             base.InitialisePendingWithdrawals(sender.ToString().Contains("app"));
         }
         HtmlGenericControl withdrawalTabs = (HtmlGenericControl)FindControl("withdrawalTabs");

@@ -13,7 +13,14 @@
     <div data-role="page" data-theme="b">
         <header data-role="header" data-theme="b" data-position="fixed" id="header">
             <a class="btn-clear ui-btn-left ui-btn" href="#divPanel" data-role="none" id="aMenu" data-load-ignore-splash="true">
-                 <span class="icon icon-navicon"></span>
+                <% if (commonFunctions.isExternalPlatform() && !Request.Url.AbsolutePath.ToLower().Contains("index"))
+                   { %>
+                <span class="icon icon-back"></span>
+                <% }
+                   else
+                   { %>
+                <span class="icon icon-navicon"></span>
+                <% } %>
             </a>
             <h1 class="title" id="h1title"></h1>
         </header>
@@ -114,7 +121,7 @@
                     });
                 });
             });
-    </script>
+        </script>
     </div>
 </body>
 </html>

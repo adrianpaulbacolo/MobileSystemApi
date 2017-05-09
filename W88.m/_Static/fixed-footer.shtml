@@ -1,0 +1,48 @@
+<% if(commonFunctions.isExternalPlatform() && commonFunctions.isMainPage(Request)){ %>
+<div data-role="footer" data-position="fixed">
+    <div class="footer-nav">
+        <div>
+            <a href="/Funds.aspx" class="footer-nav-item" data-ajax="false"><i class="icon icon-wallet"></i><span><%=commonCulture.ElementValues.getResourceString("fundmanagement", commonVariables.LeftMenuXML)%></span></a>
+        </div>
+        <div>
+            <a href="#" class="footer-nav-item f-rewards-bottom" data-ajax="false"><i class="icon icon-rewards"></i><span><%=commonCulture.ElementValues.getResourceString("rewards", commonVariables.LeftMenuXML)%></span></a>
+        </div>
+        <div>
+            <a href="/Promotions" class="footer-nav-item" data-ajax="false"><i class="icon icon-promo"></i><span><%=commonCulture.ElementValues.getResourceString("promotions", commonVariables.LeftMenuXML)%></span></a>
+        </div>
+        <div>
+            <a href="/LiveChat/Default.aspx" class="footer-nav-item" data-ajax="false"><i class="icon icon-chat"></i><span><%=commonCulture.ElementValues.getResourceString("liveHelp", commonVariables.LeftMenuXML)%></span></a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+    _.forEach($(".footer-nav > div"), function(menu){
+        if($(menu).find(".footer-nav-item").attr("href") == location.pathname){
+            $(menu).addClass("active");
+        }
+    });
+
+    var urlRewards = window.location.protocol + '//mrewards.' + '<%=commonIp.DomainName %>' + '?lang=' + '<%=commonVariables.SelectedLanguage%>' + '&token=' + '<%=commonVariables.EncryptedCurrentMemberSessionId%>';
+    $(".f-rewards-bottom").attr('href', urlRewards);
+});
+</script>
+<% } if(commonFunctions.isExternalPlatform()){ %>
+<script type="text/javascript">
+    $(function () {
+
+    setTimeout(function(){
+        $("a[href*='Casino.aspx']").unbind("touch click");
+        $("a[href*='Casino.aspx']").bind("touch click", function(e){
+            e.preventDefault();
+            try{
+                $(this).attr("href", "#");
+                Native.openLiveCasino();
+            }catch(e){
+                console.log(e.message)
+            }
+        });
+    }, 1);
+});
+</script>
+<% } %>

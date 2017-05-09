@@ -705,6 +705,11 @@ public static class commonFunctions
             {
                 responseCode = 1;
             }
+            else if (strUserAgent.ToLower().Contains("clubw"))
+            {
+                // club w native embed
+                responseCode = 4;
+            }
             else if (strUserAgent.Contains("android"))
             {
                 responseCode = 2;
@@ -715,6 +720,30 @@ public static class commonFunctions
             }
         }
         return responseCode;
+    }
+
+    public static bool isExternalPlatform()
+    {
+        return commonCookie.CookieIsNative == "1";
+    }
+
+    public static bool isMainPage(HttpRequest request)
+    {
+        var path = request.Url.AbsolutePath;
+        var pageList = new string[] {
+            "/sports.aspx"
+            , "/promotions"
+            , "/funds.aspx"
+            , "/index.aspx"
+            , "/index"
+            , "/lang.aspx"
+            , "/lottery.aspx"
+            , "/profile/default.aspx"
+            , "/v2/dashboard.aspx"
+        };
+
+        return pageList.Any(path.ToLower().Contains);
+
     }
 
 
@@ -759,6 +788,13 @@ public static class commonFunctions
     public static string getTexasMahjongDownloadLinks()
     {
         return ConfigurationManager.AppSettings["TexasMahjongAndroid_URL"];
+    }
+
+    public static string GetSuperBullDownloadLink()
+    {
+        return commonCookie.CookieLanguage.ToLower() == "zh-cn"
+            ? ConfigurationManager.AppSettings["SuperBull_Android_URL"]
+            : ConfigurationManager.AppSettings["SuperBull_Android_URL_EN"];
     }
 
 }

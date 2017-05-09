@@ -1,0 +1,62 @@
+.wallets{
+	background-color: $wallet-bg;
+    height: 171px;
+	@include box-shadow(inset 0 -5px 5px 0 rgba(0,0,0,0.075));
+	.wallet-main{
+		text-align: center;
+		padding: 15px 0;
+		.wallet-title{
+			text-transform: capitalize;
+			color: $wallet-main-title;
+			margin-bottom: 0;
+		}
+		.wallet-value{
+			font-size: 1.313rem;
+			font-weight: 700;
+			color: $wallet-main-value;
+			margin-top: 0;
+			margin-bottom: 5px;
+		}
+		.wallet-currency{
+			font-size: 0.750rem;
+			margin-bottom: 0;
+			color: $wallet-main-currency;
+		}
+	}
+	.wallet-group{
+		border-top: 1px solid $wallet-group-border;
+		width: 100%;
+		overflow: auto;
+		> div{
+			display: table;
+		}
+		.wallet-group-item{
+			white-space: nowrap;
+			padding: 15px;
+			text-align: center;
+			width: 1%;
+			display: table-cell;
+			p{
+				text-transform: capitalize;
+				color: $wallet-group-name;
+				font-size: 0.750rem;
+				margin-bottom: 0;
+			}
+			h5{
+				font-size: 1rem;
+				font-weight: 700;
+				color: $wallet-group-value;
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+		}
+	}
+	&.wallet-auto{
+		height: auto !important;
+	}
+}
+
+.wallets.deposit{
+    height:101px;
+}
+

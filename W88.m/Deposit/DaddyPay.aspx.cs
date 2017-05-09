@@ -28,19 +28,24 @@ public partial class Deposit_DaddyPay : PaymentBasePage
 
     protected void Page_Init(object sender, EventArgs e)
     {
-        base.PageName = Convert.ToString(commonVariables.DepositMethod.DaddyPay);
+        var type = this.RouteData.DataTokens["type"].ToString();
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
 
-        if (Request.QueryString["value"].ToString() == "1")
+        switch (type)
         {
-            base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.DaddyPay);
-            strPageTitle = commonCulture.ElementValues.getResourceString("dDaddyPay", commonVariables.PaymentMethodsXML);
-        }
-        else if (Request.QueryString["value"].ToString() == "2")
-        {
-            isDaddyPayQR = true;
-            base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.DaddyPayQR);
-            strPageTitle = commonCulture.ElementValues.getResourceString("dDaddyPayQR", commonVariables.PaymentMethodsXML);
+            case "daddypay":
+                base.PageName = Convert.ToString(commonVariables.DepositMethod.DaddyPay);
+                base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.DaddyPay);
+                strPageTitle = commonCulture.ElementValues.getResourceString("dDaddyPay", commonVariables.PaymentMethodsXML);
+                isDaddyPayQR = false;
+                break;
+            case "daddypayqr":
+            default:
+                base.PageName = Convert.ToString(commonVariables.DepositMethod.DaddyPayQR);
+                base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.DaddyPayQR);
+                strPageTitle = commonCulture.ElementValues.getResourceString("dDaddyPayQR", commonVariables.PaymentMethodsXML);
+                isDaddyPayQR = true;
+                break;
         }
     }
 
@@ -48,21 +53,13 @@ public partial class Deposit_DaddyPay : PaymentBasePage
     {
         if (!Page.IsPostBack)
         {
+            CheckAgentAndRedirect(string.Concat(V2DepositPath, "Pay", PaymentMethodId, ".aspx"));
             this.InitializeLabels();
 
             string bank = isDaddyPayQR ? "DaddyPayQRBank" : "DaddyPayBank";
             drpBank.Items.AddRange(this.InitializeDaddyPayBank(bank).ToArray());
 
-            string value = Request.QueryString["value"].ToString();
-            if (value == "1")
-            {
-                txtAccountNumber.Visible = false;
-                txtAccountName.Visible = false;
-
-                lblAccountNumber.Visible = false;
-                lblAccountName.Visible = false;
-            }
-            else if (value == "2")
+            if (isDaddyPayQR)
             {
                 txtAccountNumber.Visible = true;
                 txtAccountName.Visible = true;
@@ -71,6 +68,14 @@ public partial class Deposit_DaddyPay : PaymentBasePage
                 lblAccountName.Visible = true;
 
                 this.InitializeWeChatDenominations();
+            }
+            else
+            {
+                txtAccountNumber.Visible = false;
+                txtAccountName.Visible = false;
+
+                lblAccountNumber.Visible = false;
+                lblAccountName.Visible = false;
             }
         }
     }
@@ -146,5 +151,5 @@ public partial class Deposit_DaddyPay : PaymentBasePage
         {
             return serverError;
         }
-    } 
+    }
 }

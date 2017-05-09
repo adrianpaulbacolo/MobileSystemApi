@@ -17,6 +17,7 @@
     </ul>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder1" runat="Server">
+    <script type="text/javascript" src="/_Static/JS/modules/gateways/quickonline.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
     <link href="/_Static/Css/payment.css?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>" rel="stylesheet" />
     <script type="text/javascript">
         $(document).ready(function () {
@@ -35,17 +36,7 @@
                 $('.idrBank').hide();
             }
 
-            setTranslations();
-            function setTranslations() {
-                if (_w88_contents.translate("LABEL_MSG_120254") != "LABEL_MSG_120254") {
-                    $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-                    $("#paymentNoteContent").text(_w88_contents.translate("LABEL_MSG_120265"));
-                } else {
-                    window.setInterval(function () {
-                        setTranslations();
-                    }, 500);
-                }
-            }
+            window.w88Mobile.Gateways.QuickOnline.init("<%=base.PaymentMethodId %>", true);
 
             $('#form1').submit(function (e) {
                 e.preventDefault();

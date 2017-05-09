@@ -26,7 +26,6 @@ public partial class Deposit_ECPSS : PaymentBasePage
     {
         if (!Page.IsPostBack)
         {
-            drpBank.Items.AddRange(base.InitializeBank("ECPSSBank").ToArray());
             this.InitializeLabels();
         }
     }

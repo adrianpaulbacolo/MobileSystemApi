@@ -1,0 +1,128 @@
+// Banner in Payment Page
+
+.arrow-container {
+    position: relative;
+    width: 100%;
+    max-width: 767px;
+    margin: 0 auto 70px;
+
+    .slick-arrow {
+        font-size: 1.125rem;
+        padding: 5px;
+        line-height: 1;
+        top: 40%;
+        color: #fff;
+        background: rgba(0,0,0,0.5);
+        border: none;
+        position: absolute;
+        z-index: 10;
+
+        &:focus,
+        &:active,
+        &:hover {
+            outline: 0 none;
+            background: rgba(0,0,0,0.75);
+        }
+
+        &.slick-disabled {
+            opacity: 0.2;
+        }
+    }
+
+    .slick-prev {
+        left: 0;
+    }
+
+    .slick-next {
+        right: 0;
+    }
+}
+.payment-banner.slick-slider {
+    background-color: rgba(0,0,0,0.1);
+    .slick-dots {
+        height: 22px;
+        text-align: center;
+        margin: 0 auto;
+        padding: 0;
+        left: 0;
+        right: 0;
+        bottom: -43px;
+        position: absolute;
+
+        li {
+            margin: 0 4px;
+            display: inline-block;
+
+            button {
+                padding: 0;
+                width: 7px;
+                height: 7px;
+                text-indent: -9999px;
+                border: none;
+                display: block;
+                @include border-radius(50%);
+                background-color: $text-color;
+                opacity: 0.9;
+            }
+
+            &.slick-active button {
+                background-color: $brand-primary;
+            }
+        }
+    }
+    .slick-slide{
+        padding: 32px 28px;
+        img{
+            margin: 0 auto;
+        }
+    }
+    .slick-arrow {
+        z-index: 10;
+    }
+
+    video {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+}
+
+.stop-video {
+    border: none;
+    color: #fff;
+    padding: 10px;
+    background: rgba(0,0,0,0.5);
+    top: 5px;
+    right: 5px;
+    z-index: 10;
+    position: absolute;
+}
+
+// Media
+
+.img-responsive {
+    margin: auto;
+}
+
+.embed-responsive {
+    padding: 0;
+    height: 0;
+    padding-bottom: 63%;
+    display: block;
+    position: relative;
+    overflow: hidden;
+
+    embed,
+    iframe,
+    video,
+    object {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        background: #222 center center;
+    }
+}

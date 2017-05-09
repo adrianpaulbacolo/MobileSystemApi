@@ -1,5 +1,9 @@
 ﻿w88Mobile.Translate = translate;
 
+var _w88_contents = new w88Mobile.Translate();
+_w88_contents.init();
+
+
 function translate() {
 
     this.items = {};
@@ -13,10 +17,11 @@ function translate() {
             _self.fetch(window.User.lang, "/messages");
         } else {
             _self.items = contents;
+            pubsub.publish("contentsLoaded", {});
         }
 
     }
-    
+
     this.fetch = function (lang, endpoint) {
         var _self = this;
         endpoint = (_.isUndefined(endpoint)) ? "/contents" : endpoint;
@@ -28,10 +33,11 @@ function translate() {
 
         $.ajax({
             type: "GET",
-            beforeSend: function () {
-            },
             url: url,
             data: {},
+            beforeSend: function () {
+                pubsub.publish('startLoadItem', {});
+            },
             headers: headers,
             success: function (response) {
                 if (_.isUndefined(response.ResponseData)) return;
@@ -42,6 +48,7 @@ function translate() {
                 var contents = amplify.store(location.hostname + "_translations");
                 if (!_.isEmpty(contents)) {
                     contents = _.assign(contents, response.ResponseData);
+                    pubsub.publish("contentsLoaded", {});
                 } else {
                     contents = response.ResponseData;
                 }
@@ -52,6 +59,7 @@ function translate() {
                 console.log("unable to load contents");
             },
             complete: function () {
+                pubsub.publish('stopLoadItem', {});
             }
         });
     }

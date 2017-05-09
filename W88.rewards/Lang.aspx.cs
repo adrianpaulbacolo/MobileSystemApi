@@ -31,9 +31,9 @@ public partial class _Lang : BasePage
                             divBuilder.Append(language);
                             break;
                     }
-  
+
                     divBuilder.Append("' class='flags'></span>")
-                        .Append(@"</div>");                    
+                        .Append(@"</div>");
                     break;
                 default:
                     divBuilder.Append(@"<div class='col-xs-6'>")
@@ -47,7 +47,7 @@ public partial class _Lang : BasePage
         divLanguageContainer.InnerHtml = divBuilder.ToString();
     }
 
-    private NameValueCollection OperatorSettings
+    private static NameValueCollection OperatorSettings
     {
         get
         {

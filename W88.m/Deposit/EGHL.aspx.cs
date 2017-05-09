@@ -25,10 +25,9 @@ public partial class Deposit_EGHL : PaymentBasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        drpBank.Items.AddRange(base.InitializeBank("EGHLBank").ToArray());
-
         if (!Page.IsPostBack)
         {
+            CheckAgentAndRedirect(string.Concat(V2DepositPath, "Pay", PaymentMethodId, ".aspx"));
             this.InitializeLabels();
         }
     }

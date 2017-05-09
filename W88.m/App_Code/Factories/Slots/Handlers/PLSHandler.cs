@@ -64,7 +64,18 @@ namespace Factories.Slots.Handlers
             string url = "";
             string realUrl = IsElementExists("Real", element, out url) ? url : GameLink.Real;
 
-            return realUrl.Replace("{GAME}", gameName).Replace("{LANG}", base.langCode).Replace("{TOKEN}", GameLink.MemberSessionId).Replace("{CASHIER}", GameLink.CashierPage).Replace("{LOBBY}", GameLink.LobbyPage);
+            return
+                realUrl.Replace("{GAME}", gameName)
+                    .Replace("{LANG}", base.langCode)
+                    .Replace("{TOKEN}", GameLink.MemberSessionId)
+                    .Replace("{CASHIER}", GameLink.CashierPage)
+                    .Replace("{LOBBY}", GameLink.LobbyPage)
+                    .Replace("{CURR}", GetUserCurrency());
+        }
+
+        private string GetUserCurrency()
+        {
+            return (commonCookie.CookieCurrency.ToUpper() == "RMB" ? "CNY" : commonCookie.CookieCurrency.ToUpper());
         }
     }
 }
