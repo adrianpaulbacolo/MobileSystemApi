@@ -1,4 +1,5 @@
 ﻿using System;
+using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Rewards.Models;
 using W88.BusinessLogic.Rewards.Models.SpinWheel;
 using W88.Utilities;
@@ -17,8 +18,22 @@ public partial class SpinWheel_Default : BasePage
             request.LanguageCode = Encryption.Encrypt(EncryptionType.TripleDESCS, Language);
             request.MemberCode = Encryption.Encrypt(EncryptionType.TripleDESCS, UserSessionInfo.MemberCode);
             request.RiskId = Encryption.Encrypt(EncryptionType.TripleDESCS, UserSessionInfo.RiskId);
-            request.IsMobile = false;
+            request.IsMobile = true;
             return Common.SerializeObject(request);
+        }
+    }
+
+    protected string PointLevelInfo
+    {
+        get
+        {
+            return Common.SerializeObject(new PointLevelInfo()
+            {
+                CurrencyCode = UserSessionInfo.CurrencyCode,
+                Language = Language,
+                MemberId = UserSessionInfo.MemberId,
+                MemberCode = UserSessionInfo.MemberCode
+            });
         }
     }
 
@@ -28,6 +43,6 @@ public partial class SpinWheel_Default : BasePage
         {
             Response.Redirect(string.Format("/Default.aspx?lang={0}", Language), true);
         }
-        PageTitle = W88.BusinessLogic.Rewards.Helpers.RewardsHelper.GetTranslation(TranslationKeys.Label.Brand);
+        PageTitle = RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.WheelLabel, Language);
     }
 }

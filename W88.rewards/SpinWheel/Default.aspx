@@ -6,8 +6,9 @@
     <link rel="stylesheet" href="/_Static/Css/spinwheel/spinwheel.css" />
     <script type="text/javascript" src="/_Static/JS/Mobile/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/_Static/JS/vendor/amplify.min.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/pointlevelbar.js"></script>
     <script type="text/javascript" src="/_Static/JS/dist/w88.mrewards.sw.min.js"></script>
-    <script type="text/javascript"> 
+    <script type="text/javascript">       
         var date = new Date('<%=DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")%>'),
             translations = {
                 message5: '<%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.ApplicationError, Language)%>',
@@ -29,12 +30,33 @@
             current += 1000;
             date = new Date(current);
         }, 1000);
+        $(function() {
+            var pointLevelBar = new PointLevelBar(<%=PointLevelInfo%>, {
+                from: '/_Static/Images/Levels/{0}a.png',
+                to: '/_Static/Images/Levels/{0}b.png',
+                barBackground: '/_Static/Images/Levels/blink.png'
+            });
+            pointLevelBar.getPointLevelBar();
+        });
     </script>
     <div class="main-content" role="main">
         <div id="spinWheelContainer">
             <div id="spinWheelHeader">
                 <h3><%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.WheelLabel, Language).ToUpper()%></h3>
                 <h5><%=HttpUtility.HtmlDecode(RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.Header, Language).Replace("&lt;br /&gt;", " "))%></h5>
+                <div id="levelBar">
+                    <div id="bar">
+                        <ul>
+                            <li><img class="ImgFrom" alt="" src="" style="text-align: left"/></li>
+                            <li><div class="barBackground"><div class="PointsLevelBar"></div></div></li> 
+                            <li><img class="ImgTo" alt="" src="" style="text-align: right"/></li>
+                        </ul>
+                    </div>           
+                    <div class="levelDesc" style="display:none;">                         
+                        <span class="levelNormal" id="pointlevelNext"><%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.PointLevelBarLabel, Language)%></span>
+                        <span class="level8" style="display:none;"><%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.PointLevelBarTopLevel, Language)%></span>  
+                    </div>                     
+                </div>
                 <hr />
             </div>
             <div id="spinWheelContent">               
