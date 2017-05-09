@@ -724,8 +724,7 @@ public static class commonFunctions
 
     public static bool isExternalPlatform()
     {
-        // @todo check if spfid not 22 is not applicable anymore to be treated as Native agent
-        return commonCookie.Get("spfid_mob") != "22";
+        return commonCookie.CookieIsNative == "1";
     }
 
     public static bool isMainPage(HttpRequest request)
@@ -793,7 +792,9 @@ public static class commonFunctions
 
     public static string GetSuperBullDownloadLink()
     {
-        return ConfigurationManager.AppSettings["SuperBull_Android_URL"];
+        return commonCookie.CookieLanguage.ToLower() == "zh-cn"
+            ? ConfigurationManager.AppSettings["SuperBull_Android_URL"]
+            : ConfigurationManager.AppSettings["SuperBull_Android_URL_EN"];
     }
 
 }
