@@ -5,7 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" href="/_Static/Css/spinwheel/spinwheel.css" />
     <script type="text/javascript" src="/_Static/JS/Mobile/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="/_Static/JS/modules/pointlevelbar.js"></script>
+    <script type="text/javascript" src="/_Static/JS/modules/pointlevelinfo.js"></script>
     <script type="text/javascript" src="/_Static/JS/dist/w88.mrewards.sw.min.js"></script>
     <script type="text/javascript">       
         var date = new Date('<%=DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")%>'),
@@ -30,12 +30,12 @@
             date = new Date(current);
         }, 1000);
         $(function() {
-            var pointLevelBar = new PointLevelBar(<%=PointLevelInfo%>, {
+            var pointLevelInfo = new PointLevelInfo(<%=PointLevelInfo%>, {
                 from: '/_Static/Images/Levels/{0}a.png',
                 to: '/_Static/Images/Levels/{0}b.png',
                 barBackground: '/_Static/Images/Levels/blink.png'
             });
-            pointLevelBar.getPointLevelBar();
+            pointLevelInfo.getPointLevelInfo();
         });
     </script>
     <div class="main-content" role="main">

@@ -1,10 +1,10 @@
-var PointLevelBar = function(data, images) {
+var PointLevelInfo = function(data, images) {
     this.data = data;
-    this.url = '/api/rewards/pointlevelbar';
+    this.url = '/api/rewards/pointlevelinfo';
     this.images = images;
 };
 
-PointLevelBar.prototype.getPointLevelBar = function() {
+PointLevelInfo.prototype.getPointLevelInfo = function() {
     var self = this;
     $.ajax({
         type: 'GET',
@@ -16,23 +16,23 @@ PointLevelBar.prototype.getPointLevelBar = function() {
         success: function(response) {
             try {
                 if (!response || response.ResponseCode != 1 || !response.ResponseData) return;
-                var pointLevelBarData = response.ResponseData,
+                var pointLevelData = response.ResponseData,
                     currentText = $('#pointlevelNext').html();
-                $("#pointlevelNext").html(currentText.replace('{0}', pointLevelBarData.RemainingPoints).replace('{1}', pointLevelBarData.NextPointLevel));
+                $("#pointlevelNext").html(currentText.replace('{0}', pointLevelData.RemainingPoints).replace('{1}', pointLevelData.NextPointLevel));
 
-                var nextPointLevelImgSrc = self.images.to.replace('{0}', pointLevelBarData.NextPointLevel);
-                $("#levelBar").find("img.ImgFrom").attr("src", self.images.from.replace('{0}', pointLevelBarData.CurrentLevel));
+                var nextPointLevelImgSrc = self.images.to.replace('{0}', pointLevelData.NextPointLevel);
+                $("#levelBar").find("img.ImgFrom").attr("src", self.images.from.replace('{0}', pointLevelData.CurrentLevel));
                 $("#levelBar").find("img.ImgTo").attr("src", nextPointLevelImgSrc);
 
-                self.colorBar(pointLevelBarData.CurrentLevel.toString(), pointLevelBarData.NextPointLevel.toString(), pointLevelBarData.PercentageColor, pointLevelBarData.Percentage);
+                self.colorBar(pointLevelData.CurrentLevel.toString(), pointLevelData.NextPointLevel.toString(), pointLevelData.PercentageColor, pointLevelData.Percentage);
 
-                if (pointLevelBarData.CurrentLevel >= 5 || pointLevelBarData.NextPointLevel >= 6) {
+                if (pointLevelData.CurrentLevel >= 5 || pointLevelData.NextPointLevel >= 6) {
                     $("#levelBar").find("div.levelDesc").hide();
                 } else {
                     $("#levelBar").find("div.levelDesc").show();
                 }
 
-                if (pointLevelBarData.CurrentLevel == 8) {
+                if (pointLevelData.CurrentLevel == 8) {
                     $("#levelBar").find("div.PointsLevelBar").css("style", "visibility:visible;");
                     $("#levelBar").find("img.ImgFrom").attr("style", "visibility:hidden;");
                     $("#levelBar").find("img.ImgTo").attr("style", "visibility:visible;");
@@ -50,7 +50,7 @@ PointLevelBar.prototype.getPointLevelBar = function() {
     });
 };
 
-PointLevelBar.prototype.colorBar = function(currentLevel, nextLevel, percentageColor, percentage) {
+PointLevelInfo.prototype.colorBar = function(currentLevel, nextLevel, percentageColor, percentage) {
     var self = this,
         color1 = "#fff100", //yellow
         color2 = "#a5dc00", //green
@@ -311,7 +311,7 @@ PointLevelBar.prototype.colorBar = function(currentLevel, nextLevel, percentageC
     $("#levelBar").find("div.PointsLevelBar").attr("style", "height:11px;visibility:visible;width:" + pixel + "px; box-shadow: inset 8px 8px 8px rgba(255,255,255,0.60);background: " + resultStart + " url('" + self.images.barBackground + "') ; /* Old browsers */ background:url('" + self.images.barBackground + "'), -moz-linear-gradient(left, " + display + "); /* FF3.6+ */ background:url('" + self.images.barBackground + "'), -webkit-gradient(linear, left top, right top, " + display2 + "); /* Chrome,Safari4+ */ background:url('" + self.images.barBackground + "'), -webkit-linear-gradient(left, " + display + "); /* Chrome10+,Safari5.1+ */ background:url('" + self.images.barBackground + "'), -o-linear-gradient(left, " + display + "); /* Opera 11.10+ */ background:url('" + self.images.barBackground + "'), -ms-linear-gradient(-left,  " + display + "); /* IE10+ */ background:url('" + self.images.barBackground + "'), linear-gradient(to right, " + display + ") ; /* W3C */ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='" + resultStart + "', endColorstr='" + result + "',GradientType=1 ); /* IE6-9 */ ");
 };
 
-PointLevelBar.prototype.colorToHex = function(color) {
+PointLevelInfo.prototype.colorToHex = function(color) {
     if (color.substr(0, 1) === '#') {
         return color;
     }
