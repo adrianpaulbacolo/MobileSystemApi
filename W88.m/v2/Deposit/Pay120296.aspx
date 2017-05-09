@@ -7,7 +7,7 @@
     </div>
     <div class="form-group">
         <asp:Label ID="lblAccountName" runat="server" AssociatedControlID="txtAccountName" />
-        <asp:TextBox ID="txtAccountName" runat="server" CssClass="form-control" required required data-require="" />
+        <asp:TextBox ID="txtAccountName" runat="server" CssClass="form-control" required data-require="" />
     </div>
     <div class="form-group">
         <asp:Label ID="lblAccountNumber" runat="server" AssociatedControlID="txtAccountNumber" />
