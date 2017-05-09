@@ -44,6 +44,8 @@ function MoneyTransfer() {
             case "1103132":
                 $('label[id$="lblReferenceId"]').text(_w88_contents.translate("LABEL_TRANSACTION_ID"));
                 break;
+
+            case "220895":
             case "120296":
                 $('label[id$="lblAccountName"]').text("Venus Point " + _w88_contents.translate("LABEL_ACCOUNT_ID"));
                 $('label[id$="lblAccountNumber"]').text("Venus Point " + _w88_contents.translate("LABEL_PASSWORD"));
@@ -61,10 +63,18 @@ function MoneyTransfer() {
                     }
                 });
                 break;
+
             case "120214":
                 $('label[id$="lblAccountName"]').text("Neteller " + _w88_contents.translate("LABEL_USERNAME"));
                 $('label[id$="lblAccountNumber"]').text("Neteller " + _w88_contents.translate("LABEL_PASSWORD"));
                 break;
+
+            case "2208121":
+                $('label[id$="lblAddress"]').text(_w88_contents.translate("LABEL_ADDRESS"));
+
+                $(".pay-note").show();
+                $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+                $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_" + methodId));
             case "110308":
             default:
                 $('label[id$="lblReferenceId"]').text(_w88_contents.translate("LABEL_REFERENCE_ID"));

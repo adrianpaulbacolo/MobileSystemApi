@@ -67,6 +67,10 @@ function BaokimV2() {
         baokim.getBanks();
     };
 
+    baokim.initWithdraw = function () {
+        $('label[id$="lblEmail"]').text(_w88_contents.translate("LABEL_EMAIL"));
+    };
+
     baokim.createWalletDeposit = function (data) {
         _w88_paymentSvcV2.Send("/payments/" + methodId, "POST", data, function (response) {
             switch (response.ResponseCode) {
@@ -174,6 +178,12 @@ function BaokimV2() {
                 }
             }
         }, undefined);
+    };
+
+    baokim.createWithdraw = function (data) {
+        var _self = this;
+        _self.methodId = methodId;
+        _self.withdraw(data);
     };
 
     return baokim;

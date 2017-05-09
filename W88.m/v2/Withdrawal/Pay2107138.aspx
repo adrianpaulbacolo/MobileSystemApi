@@ -17,7 +17,7 @@
         <asp:Label ID="lblContact" runat="server" AssociatedControlID="drpContactCountry" />
         <div class="row thin-gutter">
             <div class="col-xs-6">
-                <asp:DropDownList ID="drpContactCountry" runat="server" CssClass="form-control" />
+                <asp:DropDownList ID="drpContactCountry" runat="server" CssClass="form-control" required data-selectequals="-1" />
             </div>
             <div class="col-xs-6">
                 <asp:TextBox ID="txtPhoneNumber" runat="server" CssClass="form-control" required data-require="" />
@@ -26,11 +26,10 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">
-    <script type="text/javascript" src="/_static/v2/assets/js/gateways/moneytransfer.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/gateways/moneytransfer.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
-
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
@@ -54,4 +53,3 @@
         });
     </script>
 </asp:Content>
-

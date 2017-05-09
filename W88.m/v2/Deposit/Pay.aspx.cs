@@ -45,10 +45,6 @@ public partial class v2_Deposit_Pay : FundsBasePage
                 GatewayFile = "topup";
                 break;
 
-            case (int)commonVariables.DepositMethod.IWallet:
-                GatewayFile = "iwallet";
-                break;
-
             case (int)commonVariables.DepositMethod.Neteller:
                 GatewayFile = "neteller";
                 break;
@@ -75,7 +71,6 @@ public partial class v2_Deposit_Pay : FundsBasePage
                 GatewayFile = "alipaytransfer";
                 break;
 
-            case (int)commonVariables.DepositMethod.Cubits:
                 GatewayFile = "cubits";
                 break;
 
@@ -101,7 +96,9 @@ public partial class v2_Deposit_Pay : FundsBasePage
                 break;
 
             case (int)commonVariables.AutoRouteMethod.QuickOnline:
+            case (int)commonVariables.DepositMethod.IWallet:
             case (int)commonVariables.DepositMethod.NextPay:
+            case (int)commonVariables.DepositMethod.Cubits:
             case (int)commonVariables.DepositMethod.BofoPay:
             case (int)commonVariables.DepositMethod.NganLuong:
             case (int)commonVariables.DepositMethod.Help2Pay:
