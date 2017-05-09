@@ -28,7 +28,7 @@
         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
         <asp:DropDownList ID="drpBank" runat="server" CssClass="form-control" required data-selectequals="-1" />
     </div>
-    <div class="form-group bankName" hidden>
+    <div class="form-group bankname" hidden>
         <asp:Label ID="lblBankName" runat="server" AssociatedControlID="txtBankName" />
         <asp:TextBox ID="txtBankName" runat="server" CssClass="form-control" />
     </div>

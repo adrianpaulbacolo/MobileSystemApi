@@ -76,23 +76,16 @@ function DefaultPaymentsV2() {
     }
 
     function setTranslations(paymentOptions) {
-        if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
-            $('label[id$="lblAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
+        $('label[id$="lblAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
 
-            var headerTitle = paymentOptions == "Deposit" ? _w88_contents.translate("LABEL_FUNDS_DEPOSIT") : _w88_contents.translate("LABEL_FUNDS_WIDRAW");
-            $("header .header-title").text(headerTitle);
-            $('span[id$="lblMode"]').text(_w88_contents.translate("LABEL_MODE"));
-            $('span[id$="lblMinMaxLimit"]').text(_w88_contents.translate("LABEL_MINMAX_LIMIT"));
-            $('span[id$="lblDailyLimit"]').text(_w88_contents.translate("LABEL_DAILY_LIMIT"));
-            $('span[id$="lblTotalAllowed"]').text(_w88_contents.translate("LABEL_TOTAL_ALLOWED"));
+        var headerTitle = paymentOptions == "Deposit" ? _w88_contents.translate("LABEL_FUNDS_DEPOSIT") : _w88_contents.translate("LABEL_FUNDS_WIDRAW");
+        $("header .header-title").text(headerTitle);
+        $('span[id$="lblMode"]').text(_w88_contents.translate("LABEL_MODE"));
+        $('span[id$="lblMinMaxLimit"]').text(_w88_contents.translate("LABEL_MINMAX_LIMIT"));
+        $('span[id$="lblDailyLimit"]').text(_w88_contents.translate("LABEL_DAILY_LIMIT"));
+        $('span[id$="lblTotalAllowed"]').text(_w88_contents.translate("LABEL_TOTAL_ALLOWED"));
 
-            $('#btnSubmitPlacement').text(_w88_contents.translate("BUTTON_SUBMIT"));
-
-        } else {
-            window.setInterval(function () {
-                setTranslations(paymentOptions);
-            }, 500);
-        }
+        $('#btnSubmitPlacement').text(_w88_contents.translate("BUTTON_SUBMIT"));
     }
 
     function setPaymentTabs(type, activeMethodId, method) {

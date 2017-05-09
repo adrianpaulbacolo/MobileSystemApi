@@ -32,12 +32,10 @@ function MoneyTransfer() {
         $('label[id$="lblAccountNumber"]').text(_w88_contents.translate("LABEL_ACCOUNT_NUMBER"));
 
         if (isDeposit) {
-            $('label[id$="lblAmount"]').text(_w88_contents.translate("LABEL_DEPOSIT_AMOUNT"));
             $('label[id$="lblDepositDateTime"]').text(_w88_contents.translate("LABEL_DEPOSIT_DATETIME"));
             $('label[id$="lblSystemAccount"]').text(_w88_contents.translate("LABEL_SYSTEM_ACCOUNT"));
         }
         else {
-            $('label[id$="lblAmount"]').text(_w88_contents.translate("LABEL_WITHDRAWAL_AMOUNT"));
             $('label[id$="lblContact"]').text(_w88_contents.translate("LABEL_MOBILE_NUMBER"));
             $('input[id$="txtPhoneNumber"]').mask('999999999999');
         }
@@ -46,11 +44,31 @@ function MoneyTransfer() {
             case "1103132":
                 $('label[id$="lblReferenceId"]').text(_w88_contents.translate("LABEL_TRANSACTION_ID"));
                 break;
+            case "120296":
+                $('label[id$="lblAccountName"]').text("Venus Point " + _w88_contents.translate("LABEL_ACCOUNT_ID"));
+                $('label[id$="lblAccountNumber"]').text("Venus Point " + _w88_contents.translate("LABEL_PASSWORD"));
+                $('label[id$="lblReferenceId"]').text(_w88_contents.translate("LABEL_TRANSACTION_ID"));
+
+                $('input[id$="txtAmount"]').blur(function () {
+                    if ($(this).val() && _.isEqual(siteCookie.getCookie('currencyCode'), 'JPY')) {
+                        var data = {
+                            amount: $('input[id$="txtAmount"]').autoNumeric('get'),
+                            currencyFrom: "JPY",
+                            currencyTo: "USD"
+                        };
+
+                        moneytransfer.exchangeRate(data);
+                    }
+                });
+                break;
+            case "120214":
+                $('label[id$="lblAccountName"]').text("Neteller " + _w88_contents.translate("LABEL_USERNAME"));
+                $('label[id$="lblAccountNumber"]').text("Neteller " + _w88_contents.translate("LABEL_PASSWORD"));
+                break;
             case "110308":
             default:
                 $('label[id$="lblReferenceId"]').text(_w88_contents.translate("LABEL_REFERENCE_ID"));
                 break;
-
         }
     }
 
@@ -152,6 +170,17 @@ function MoneyTransfer() {
             GPInt.prototype.HideSplash();
         });
     }
+
+    moneytransfer.exchangeRate = function (data) {
+        _w88_paymentSvcV2.Send("/payments/exchangerate", "GET", data, function (response) {
+            if (response && _.isEqual(response.ResponseCode, 1)) {
+                var venusPoint = 'JPY Amount = ' + response.ResponseData.Amount + ' Venus Points';
+                $('span[id$="lblVenusPoints"]').text(venusPoint);
+                var exchange = '1 JPY = ' + response.ResponseData.ExchangeRate + ' USD';
+                $('span[id$="lblExchangeRate"]').text(exchange);
+            }
+        }, undefined);
+    };
 
     moneytransfer.createDeposit = function (form, data) {
         var _self = this;
