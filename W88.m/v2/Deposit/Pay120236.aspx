@@ -7,31 +7,31 @@
     </div>
     <div class="form-group">
         <asp:Label ID="lblCardType" runat="server" AssociatedControlID="ddlCardType" />
-        <asp:DropDownList ID="ddlCardType" runat="server" CssClass="form-control" required data-selectequals="-1">
+        <asp:DropDownList ID="ddlCardType" runat="server" CssClass="form-control" required data-selectequals="-1" >
         </asp:DropDownList>
     </div>
     <div class="form-group">
         <asp:Label ID="lblCardName" runat="server" AssociatedControlID="txtCardName" />
-        <asp:TextBox ID="txtCardName" runat="server"  CssClass="form-control" required/>
+        <asp:TextBox ID="txtCardName" runat="server"  CssClass="form-control" required data-require="" />
     </div>
     <div class="form-group">
         <asp:Label ID="lblCardNo" runat="server" AssociatedControlID="txtCardNo" />
-        <asp:TextBox ID="txtCardNo" runat="server"  CssClass="form-control" required/>
+        <asp:TextBox ID="txtCardNo" runat="server"  CssClass="form-control" required data-require="" />
     </div>
     <div class="form-group">
         <asp:Label ID="lblExpiry" runat="server" AssociatedControlID="ddlExpiryMonth" />
         <div class="row thin-gutter">
             <div class="col-xs-6">
-                <asp:DropDownList ID="ddlExpiryMonth" runat="server" CssClass="form-control" />
+                <asp:DropDownList ID="ddlExpiryMonth" runat="server" CssClass="form-control" required data-selectequals="-1" />
             </div>
             <div class="col-xs-6">
-                <asp:DropDownList ID="ddlExpiryYear" runat="server"  CssClass="form-control" />
+                <asp:DropDownList ID="ddlExpiryYear" runat="server"  CssClass="form-control" required data-selectequals="-1" />
             </div>
         </div>
     </div>
     <div class="form-group">
         <asp:Label ID="lblSecurityCode" runat="server" AssociatedControlID="txtSecurityCode" />
-        <asp:TextBox ID="txtSecurityCode" runat="server"  CssClass="form-control" required />
+        <asp:TextBox ID="txtSecurityCode" runat="server"  CssClass="form-control" required data-require="" />
         <a href="#" data-toggle="modal" data-target="#ccvModal"></a>
     </div>
 
@@ -51,20 +51,16 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">
-    <script type="text/javascript" src="/_static/v2/assets/js/gateways/alldebit.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/gateways/alldebit.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
-            window.w88Mobile.Gateways.AllDebit.init();
-
-            $('input[id$="txtCardNo"]').mask('9999-9999-9999-9999');
-            $('input[id$="txtSecurityCode"]').mask('999');
+            _w88_alldebit.init();
 
             $('#form1').validator().on('submit', function (e) {
-
                 if (!e.isDefaultPrevented()) {
                     e.preventDefault();
 

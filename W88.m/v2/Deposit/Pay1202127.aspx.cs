@@ -8,9 +8,4 @@ public partial class v2_Deposit_Pay1202127 : FundsBasePage
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.KexunPayWeChat);
     }
-
-    protected void Page_Load(object sender, EventArgs e)
-    {
-
-    }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-public partial class v2_Deposit_Pay : PaymentBasePage
+public partial class v2_Deposit_Pay : FundsBasePage
 {
     public string GatewayFile;
 
@@ -83,7 +83,6 @@ public partial class v2_Deposit_Pay : PaymentBasePage
             case (int)commonVariables.DepositMethod.NineVPayAlipay:
             case (int)commonVariables.DepositMethod.JuyPayAlipay:
             case (int)commonVariables.DepositMethod.JTPayAliPay:
-            case (int)commonVariables.DepositMethod.JutaPay:
             case (int)commonVariables.DepositMethod.ShengPayAliPay:
             case (int)commonVariables.DepositMethod.AifuAlipay:
             case (int)commonVariables.DepositMethod.AllDebitAlipay:
@@ -110,6 +109,7 @@ public partial class v2_Deposit_Pay : PaymentBasePage
             case (int)commonVariables.DepositMethod.EGHL:
             case (int)commonVariables.DepositMethod.NextPayGV:
             case (int)commonVariables.DepositMethod.PayTrust:
+            case (int)commonVariables.DepositMethod.JutaPay:
             case (int)commonVariables.DepositMethod.AllDebitB2C:
                 GatewayFile = "quickonline";
                 break;
