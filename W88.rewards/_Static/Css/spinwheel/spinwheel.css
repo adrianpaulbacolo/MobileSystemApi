@@ -467,9 +467,25 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         top: 510px;
     }
 }
+@media (min-width: 384px) {
+    #prizes {
+        top: -83px;
+        left: -104px;
+    }
+    #prizeContainer p {
+        top: 110px;
+        left: 35px;
+        font-size: 14px;
+        width: 80%;
+    }
+    #disclaimer {
+        top: 510px;
+    }
+}
 @media (min-width: 412px) {
     #roulette, #wheelPointer {
         width: 100.5%;
+        right: -2px;
     }
     #spinWheelContent {
         min-height: 571px;
@@ -529,6 +545,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
 @media (min-width: 414px) {
     #roulette, #wheelPointer {
         width: 100%;
+        right: 0;
     }
 }
 @media (min-width: 480px) {
@@ -619,7 +636,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
     }
     #prize4 {
         top: 323px;
-        left: 313px;
+        left: 322px;
     }
     #prize5 {
         top: 352px;
@@ -651,6 +668,25 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
     }
     #pic {
         left: 181px;
+    }
+}
+@media (min-width: 600px) {
+    #prizes {
+        top: -12px;
+        left: -10px;
+    }
+    #prizeContainer p {
+        top: 131px;
+        left: 121px;
+        font-size: 16px;
+        width: 59%;
+    }
+    #prizeContainer img {
+        width: 67.6%;
+    }
+    #pic {
+        left: 196px;
+        top: 15px;
     }
 }
 @media (min-width: 640px) {
@@ -791,22 +827,36 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         top: 16px;
     }
     #prizeContainer p {
-        top: 119px;
-        left: 260px;
+        top: 137px;
+        left: 230px;
         font-size: 16px;
-        width: 35%;
+        width: 42%;
     }
     #prizeContainer img {
         width: 52.8%;
     }
     #pic {
-        left: 249px
+        left: 249px;
+        top: 6px;
+    }
+}
+@media (min-width: 960px) {
+    #roulette, #wheelPointer {
+        width: 77%;
+        left: 170px;
+    }
+    #prizeContainer p {
+        top: 134px;
+        left: 300px;
+        font-size: 16px;
+        width: 37%;
+    }
+    #pic {
+        left: 325px;
+        top: 6px;
     }
 }
 @media (min-width: 1024px) {
-    #spinWheelContainer {
-        top: 80px;
-    }
     #roulette, #wheelPointer {
         width: 59.9%;
         left: 202px;

@@ -1,11 +1,10 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/Base.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="SpinWheel_Default" Async="true"%>
+<%@ Page Language="C#" MasterPageFile="~/MasterPages/Base.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="SpinWheel_Default" Async="true"%>
 <%@ Import Namespace="W88.BusinessLogic.Rewards.Helpers" %>
 <%@ Import Namespace="W88.BusinessLogic.Rewards.Models" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" href="/_Static/Css/spinwheel/spinwheel.css" />
     <script type="text/javascript" src="/_Static/JS/Mobile/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="/_Static/JS/vendor/amplify.min.js"></script>
     <script type="text/javascript" src="/_Static/JS/modules/pointlevelbar.js"></script>
     <script type="text/javascript" src="/_Static/JS/dist/w88.mrewards.sw.min.js"></script>
     <script type="text/javascript">       
