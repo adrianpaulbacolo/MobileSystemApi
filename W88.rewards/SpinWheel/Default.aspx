@@ -7,9 +7,14 @@
     <script type="text/javascript" src="/_Static/JS/Mobile/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/_Static/JS/modules/pointlevelinfo.js"></script>
     <script type="text/javascript" src="/_Static/JS/dist/w88.mrewards.sw.min.js"></script>
-    <script type="text/javascript">       
-        var date = new Date('<%=DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")%>'),
-            translations = {
+    <script type="text/javascript">
+        var date = new Date('<%=DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")%>');
+        setInterval(function() {
+            var current = date.getTime();
+            current += 1000;
+            date = new Date(current);
+        }, 1000);
+        var translations = {
                 message5: '<%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.ApplicationError, Language)%>',
                 claimMessage: '<%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.ClaimPrize, Language)%>',
                 wonNothing: '<%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.NoPrizeWon, Language)%>',
@@ -22,13 +27,8 @@
                 spinsLeftLabel2: '<%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.HeaderLabel2, Language)%>',
                 prizeListUpdated: '<%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.PrizesUpdated, Language)%>'
             },
-            md = JSON.parse('<%=SpinWheelRequest%>');  
-        var sw = new SW(md, translations, null, null, true, <%=Convert.ToString(HasSession).ToLower()%>, '<%=Language%>');
-        setInterval(function() {
-            var current = date.getTime();
-            current += 1000;
-            date = new Date(current);
-        }, 1000);
+            md = JSON.parse('<%=SpinWheelRequest%>'),
+            sw = new SW(md, translations, null, null, true, <%=Convert.ToString(HasSession).ToLower()%>, '<%=Language%>');
         $(function() {
             var pointLevelInfo = new PointLevelInfo(<%=PointLevelInfo%>, {
                 from: '/_Static/Images/Levels/{0}a.png',

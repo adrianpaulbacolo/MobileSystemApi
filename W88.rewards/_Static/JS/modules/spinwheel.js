@@ -30,7 +30,7 @@ function clickNS(e) {
     if(document.layers || (document.getElementById && !document.all)) {
         if (e.which == 2 || e.which == 3) { return false; }
     }
-}
+};
 
 if (document.layers)
 { document.captureEvents(Event.MOUSEDOWN); document.onmousedown = clickNS; }
@@ -346,13 +346,14 @@ SW.prototype._rpi_ = function (ctx, img, deg, x, y) {
     ctx.save();
 };
 
-SW.prototype._isw_ = function(isSpin, cb) {
+SW.prototype._isw_ = function() {
     var self = this;
     if (!self.isLoggedIn) {
         $('#loginFrame').modal('show');
         return;
     }
     self._t_(0);
+    self.u['CachedPrizeItems'] = null;
     $.ajax({
         type: 'GET',
         async: true,
@@ -361,20 +362,18 @@ SW.prototype._isw_ = function(isSpin, cb) {
         data: self.u,
         success: function(response) {
             try {
-                if (!response || !response.ResponseData) {
+                if (!response) {
                     self._sem_(self.t.message5, true);
                     $('#spinWheelContent').show();
                     return;
                 }
-                self.swr = response;
-                var diff = self._iv_(isSpin);
-                if (diff && self.is)
-                {
-                    self._ss_(true, true);
+                if (response.ResponseCode != 0) {
+                    self._sem_(!_.isEmpty(response.ResponseMessage) ? response.ResponseMessage : self.t.message5, true);
+                    $('#spinWheelContent').show();
                     return;
                 }
-                if (isSpin && cb instanceof Function)
-                    cb.call();
+                self.swr = response;
+                self._iv_();
             } catch (e) {
                 self._sem_(self.t.message5, true);
             }
@@ -454,15 +453,13 @@ SW.prototype._iv_ = function (isSpin) {
                     return prize;
             });
         if (!_.isEmpty(pdiff)) {
-            self._rdc_();
-            amplify.store(self.sk, self.swp);
-            if (!isSpin) self._ssw_(true);
+            self._rdc_(true);
+            if(!isSpin) self._ssw_(true);
             self._sem_(self.t.prizeListUpdated);
             return true;
         }
     } 
     amplify.store(self.sk, self.swp);
-    if (isSpin) return;
     self._dsw_();
     self._ssw_(true);
 };
@@ -485,7 +482,7 @@ SW.prototype._is_ = function () {
     self._ar_(self.la, self.la - 20, 600, false, true);
 };
 
-SW.prototype._ar_ = function(fromDegrees, toDegrees, duration, hasError, isInit, isUpdate) {
+SW.prototype._ar_ = function(fromDegrees, toDegrees, duration, hasError, isInit, response) {
     var self = this;
     $({ deg: fromDegrees }).animate({ deg: toDegrees }, {
         duration: duration,
@@ -495,12 +492,16 @@ SW.prototype._ar_ = function(fromDegrees, toDegrees, duration, hasError, isInit,
         },
         complete: function() {
             self.la = toDegrees;
-            if (hasError) {
-                if (isUpdate) {
-                    self._sem_(self.t.wonNothing);
-                    self._ssw_();
+            if (hasError && response) {
+                if (response.ResponseCode == 8) {
+                    self.swr = response;
+                    self._iv_(true);
                     return;
                 }
+                self._sem_(!_.isEmpty(response.ResponseMessage) ? response.ResponseMessage : self.t.message5);
+                return;
+            }
+            if (hasError) {
                 self._sem_(self.t.message5);
                 return;
             }
@@ -518,45 +519,52 @@ SW.prototype._ar_ = function(fromDegrees, toDegrees, duration, hasError, isInit,
     });
 };
 
-SW.prototype._ss_ = function(hasError, isUpdate) {
+SW.prototype._ss_ = function(hasError, response) {
     var self = this;
     clearInterval(self.siid);
-    self._ar_(self._gar_(), 720 + (self.wp === null || self.wp.c === undefined ? 0 : self.wp.o), 6000, hasError, false, isUpdate);
+    self._ar_(self._gar_(), 720 + (self.wp === null || self.wp.c === undefined ? 0 : self.wp.o), 6000, hasError, false, response);
 };
 
 function _gp_() {
     sw.is = true;
     sw._rs_();
     sw._is_();
-    sw._isw_(true, _sw_);
+    sw._sw_();
 }
 
-function _sw_() {
+SW.prototype._sw_ = function() {
+    var self = this;
+    if (!self.u) return;
+    self._pswp_();
     $.ajax({
         type: 'POST',
         async: true,
         url: '/api/rewards/spinwheel/spin',
         contentType: 'application/json',
-        data: JSON.stringify(sw.u),
-        success: function (response) {
+        data: JSON.stringify(self.u),
+        success: function(response) {
             try {
-                if (!response || !response.ResponseData) {
-                    sw._ss_(true);
+                if (!response) {
+                    self._ss_(true);
                     return;
                 }
-                setTimeout(function () {
-                    sw.swr = response;
-                    sw._gr_(sw.swr);
+                if (response.ResponseCode != 0) {
+                    self._ss_(true, response);
+                    return;
+                }
+                setTimeout(function() {
+                    self.swr = response;
+                    self._gr_(self.swr);
                 }, 700);
             } catch (e) {
-                sw._ss_(true);
+                self._ss_(true);
             }
         },
-        error: function () {
-            sw._ss_(true);
+        error: function() {
+            self._ss_(true);
         }
     });
-}
+};
 
 SW.prototype._gr_ = function (response) {
     var self = this;
@@ -795,7 +803,7 @@ SW.prototype._gcd_ = function () {
     self.swc = { h: $('#roulette').height(), w: $('#roulette').width() };
 };
 
-SW.prototype._rdc_ = function () {
+SW.prototype._rdc_ = function (shouldStore) {
     var self = this,
         c = document.getElementById('swc'),
         ctx = c.getContext('2d');
@@ -813,4 +821,22 @@ SW.prototype._rdc_ = function () {
         $('#prizes').show();
         $('#spinButton').show();
     }, 500);
+    if(shouldStore) 
+        amplify.store(self.sk, self.swp);
+};
+
+SW.prototype._pswp_ = function () {
+    var self = this,
+        pswp = [],
+        swp = amplify.store(self.sk);
+    if (_.isEmpty(swp)) return;
+    _.each(swp, function(p, i) {
+        pswp.push({
+            ImagePath: p.is,
+            PrizeName: p.pn,
+            ProductCode: p.c,
+            PrizePercentage: 0
+        });
+    });
+    self.u['CachedPrizeItems'] = pswp;
 };
