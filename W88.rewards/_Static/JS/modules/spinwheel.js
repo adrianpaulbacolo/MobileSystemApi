@@ -637,8 +637,12 @@ SW.prototype._sem_ = function (message, isInit) {
 function _tp_(isRedemption) {
     $('#prizeModal').modal('hide');
     $('#okButton').hide();
-    if (!isRedemption) return;
-    if (sw && (!_.isEmpty(sw.swr) && sw.swr.ResponseCode == 8)) {
+    var isUpdated = sw && (!_.isEmpty(sw.swr) && sw.swr.ResponseCode == 8);
+    if (!isRedemption) {
+        if (isUpdated) window.location.reload();
+        return;
+    }
+    if (isUpdated) {
         sw.wp = null;
         setTimeout(function() {
             sw._iv_(true);
@@ -664,17 +668,10 @@ SW.prototype._ssw_ = function (isInit) {
         $('#spinsLeft').show(); 
     if (self.swr.ResponseCode != 0) {
         self._sem_(null, isInit);
-        switch (self.swr.ResponseCode) {
-            case 8:
-                self._eb_();
-                break;
-            default:
-                self._db_();
-                $('#spinButton').hide();
-                if (self.swr.ResponseCode == 1) {
-                    self._scd_(self.swr.ResponseData.Frequency);
-                }
-                break;
+        self._db_();
+        $('#spinButton').hide();
+        if (self.swr.ResponseCode == 1) {
+            self._scd_(self.swr.ResponseData.Frequency);
         }
         return;
     }
