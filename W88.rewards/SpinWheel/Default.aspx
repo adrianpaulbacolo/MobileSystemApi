@@ -60,7 +60,7 @@
             </div>
             <div id="spinWheelContent">               
                 <p id="spinsLeft">
-                    <%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.HeaderLabel1)%><span></span><%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.HeaderLabel2, Language)%>
+                    <%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.HeaderLabel1, Language)%><span></span><%=RewardsHelper.GetTranslation(TranslationKeys.SpinWheel.HeaderLabel2, Language)%>
                 </p>                    
                 <img id="roulette" src="/_Static/Images/spinwheel/spinwheel1.png"/>                
                 <div id="spinWheel" class="spinWheel">
