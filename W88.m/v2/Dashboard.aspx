@@ -23,7 +23,7 @@
                 </a>
             </div>
             <div class="dashboard-col">
-                <a href="<%=FishingLink %>" target="_blank"><span class="icon icon-games"></span>
+                <a href="<%=FishingLink %>" target="_blank"><span class="icon icon-fish"></span>
                     <%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%>
                 </a>
             </div>
