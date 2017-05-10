@@ -9,9 +9,9 @@
         <asp:Label ID="lblEmail" runat="server" AssociatedControlID="txtEmail" />
         <asp:TextBox ID="txtEmail" runat="server" type="email" CssClass="form-control" required data-require="" />
     </div>
-    <div class="form-group otp">
+    <div class="form-group otp" hidden>
         <asp:Label ID="lblOtp" runat="server" AssociatedControlID="txtOtp" />
-        <asp:TextBox ID="txtOtp" runat="server" CssClass="form-control" required data-require="" />
+        <asp:TextBox ID="txtOtp" runat="server" CssClass="form-control" />
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">

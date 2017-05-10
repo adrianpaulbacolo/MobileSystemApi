@@ -30,12 +30,11 @@ function BaokimV2() {
             $('input[id$="txtAmount"]').autoNumeric('set', getQueryStringValue("requestAmount"));
             $('input[id$="txtAmount"]').attr('disabled', 'disabled');
 
-            $(".otp").show();
-            $('label[id$="lblOtp"]').text(_w88_contents.translate("LABEL_OTP"));
+            baokim.showOTP();
             baokim.method = "EWALLETCB";
         }
         else {
-            $(".otp").hide();
+            baokim.hideOTP();
             $('input[id$="txtAmount"]').removeAttr('disabled');
         }
 
@@ -47,6 +46,19 @@ function BaokimV2() {
         else {
             $('input[id$="txtEmail"]').removeAttr('disabled');
         }
+    };
+
+    baokim.showOTP = function () {
+        $('.otp').show();
+        $('label[id$="lblOtp"]').text(_w88_contents.translate("LABEL_OTP"));
+        $('input[id$="txtOtp"]').attr({ required: '', 'data-require': '' });
+        $('#form1').validator('update')
+    };
+
+    baokim.hideOTP = function () {
+        $('.otp').hide();
+        $('input[id$="txtOtp"]').removeAttr('required data-require');
+        $('#form1').validator('update')
     };
 
     baokim.initATM = function (id, method) {
