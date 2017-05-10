@@ -666,7 +666,7 @@ SW.prototype._ssw_ = function (isInit) {
     self.hl = true;
     if (isInit) 
         $('#spinsLeft').show(); 
-    if (self.swr.ResponseCode != 0) {
+    if (self.swr && self.swr.ResponseCode != 0) {
         self._sem_(null, isInit);
         self._db_();
         $('#spinButton').hide();
