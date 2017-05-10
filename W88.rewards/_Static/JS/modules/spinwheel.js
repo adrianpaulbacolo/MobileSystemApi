@@ -654,7 +654,8 @@ function _tp_(isRedemption) {
 
 SW.prototype._esw_ = function(isInit) {
     var self = this;
-    $('#spinsLeft').html(self.t.spinsLeftLabel1 + '<span>' + self.swr.ResponseData.Spins + '</span>' + self.t.spinsLeftLabel2);
+    if(self.swr && !_.isEmpty(self.swr.ResponseData))
+        $('#spinsLeft').html(self.t.spinsLeftLabel1 + '<span>' + self.swr.ResponseData.Spins + '</span>' + self.t.spinsLeftLabel2);
     self._eb_();
     if (isInit) {
         document.getElementById('spinWheel').style.display = 'block';
