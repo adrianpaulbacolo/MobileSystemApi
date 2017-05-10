@@ -307,14 +307,14 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         </div>
                         <%}%>
                         <!-- Fishing  World -->
-                        <% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
+                        <!--<% if (string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId)) { %>
                         <div class="col-xs-6">
                             <a href="<%=fishingWorld%>">
                                 <img src="#" alt="" class="img_fishing_world">
                                 <span class="title_fishing_world"></span>
                             </a>
                         </div>
-                        <% } %>
+                        <% } %>-->
                     </div>
                 </div>
             </li>
