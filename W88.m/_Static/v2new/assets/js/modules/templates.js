@@ -4,11 +4,11 @@ function Templates() {
 
     //templates
     var templates = [
-        { id: 'SearchList', url: 'assets/templates/search.html' }
-        , { id: 'SlotList', url: 'assets/templates/slotCategory.html' }
-        , { id: 'TopBar', url: 'assets/templates/header.html' }
-        , { id: 'MainPage', url: 'assets/templates/page.html' }
-        , { id: 'GameLauncher', url: 'assets/templates/launcher.html' }
+        { id: 'SearchList', url: '/_Static/v2new/assets/templates/search.html' }
+        , { id: 'SlotList', url: '/_Static/v2new/assets/templates/slotCategory.html' }
+        , { id: 'TopBar', url: '/_Static/v2new/assets/templates/header.html' }
+        , { id: 'MainPage', url: '/_Static/v2new/assets/templates/page.html' }
+        , { id: 'GameLauncher', url: '/_Static/v2new/assets/templates/launcher.html' }
     ];
 
     this.init = function () {

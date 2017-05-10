@@ -90,6 +90,15 @@ function clubsCtrl(routeObj, slotSvc, templateSvc) {
         });
     }
 
+    this.onSlotItemsChanged = function (data) {
+        var _self = this;
+        _self.games = slotSvc.itemsByClub(_self.club.providers);
+        _self.games = _.concat(_self.games, slotSvc.publishedItems(_self.club));
+        _self.filterClubSlots({
+            section: _self.club.section
+        });
+    }
+
     // hijack pushed data to include instance
     this.setPushData = function (data) {
         data._self = this;

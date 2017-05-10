@@ -2,6 +2,7 @@
 
 function slotsCtrl(routeObj, slotSvc, templateSvc) {
 
+    var _self = this;
     this.games = [];
     this.page = {};
     this.route = "";
@@ -10,23 +11,21 @@ function slotsCtrl(routeObj, slotSvc, templateSvc) {
 
     this.init = function () {
         var _self = this;
-        pubsub.subscribe("fetchSlotsByClub", onFetchSlotsByClub);
-        pubsub.subscribe("slotItemsChanged", onSlotItemsChanged);
         pubsub.subscribe("displaySlotList", onDisplaySlotList);
+        _self.games = w88Mobile.v2.Slots.items;
 
         switch (_self.route) {
             case "index":
-
-                _.forEach(w88Mobile.v2.Slots.clubs, function (club) {
-                    pubsub.publish("fetchSlotsByClub", _self.setPushData({
-                        club: club
-                    }));
+                _.forEach(slotSvc.clubs, function (club) {
+                    _.forEach(club.providers, function (provider) {
+                        _self.onSlotItemsChanged({
+                            provider: provider
+                        });
+                    })
                 });
-
                 break;
 
             case "index_search":
-                _self.games = w88Mobile.v2.Slots.items;
                 break;
         }
     }
@@ -73,13 +72,11 @@ function slotsCtrl(routeObj, slotSvc, templateSvc) {
     *
     **/
 
-    function onSlotItemsChanged(topic, data) {
-        var _self = data._self;
-        items = w88Mobile.v2.Slots.items;
+    this.onSlotItemsChanged = function(data) {
+        var _self = this;
 
         switch (_self.route) {
             case "index":
-                var self = this;
                 var clubs = _.filter(w88Mobile.v2.Slots.clubs, function (club) {
                     return _.indexOf(club.providers, data.provider.toLowerCase()) !== -1;
                 });
@@ -112,22 +109,6 @@ function slotsCtrl(routeObj, slotSvc, templateSvc) {
 
                 break;
         }
-    }
-
-    function onFetchSlotsByClub(topic, data) {
-        _.forEach(data.club.providers, function (provider) {
-            w88Mobile.v2.Slots.get(provider, function (response) {
-                _.forEach(response.ResponseData.Games, w88Mobile.v2.Slots.formatReleaseDate);
-                w88Mobile.v2.Slots.addItems(response.ResponseData.Games, response.ResponseData.Provider);
-                if (response.ResponseCode == 1) {
-                    pubsub.publish("slotItemsChanged", data._self.setPushData({
-                        provider: response.ResponseData.Provider
-                    }));
-                }
-            }, function () { })
-        });
-        data._self.games = w88Mobile.v2.Slots.items;
-
     }
 
     function onDisplaySlotList(topic, data) {

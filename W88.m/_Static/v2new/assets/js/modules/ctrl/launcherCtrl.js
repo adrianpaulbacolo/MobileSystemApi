@@ -32,8 +32,8 @@ function launcherCtrl(routeObj, slotSvc, templateSvc) {
                 game.url = _self.game.RealUrl;
                 break;
         }
-
-        switch (_self.club.name) {
+        var club = (!_.isUndefined(_self.club)) ? _self.club.name : "";
+        switch (club) {
             case "palazzo":
                 initPalazzo(
                     (_self.mode == "fun") ? 0 : 1
@@ -45,7 +45,7 @@ function launcherCtrl(routeObj, slotSvc, templateSvc) {
                     );
                 break
             default:
-                _self.attachGame(game);
+                _self.attachGame(game, true);
                 break;
         }
     }
@@ -55,8 +55,18 @@ function launcherCtrl(routeObj, slotSvc, templateSvc) {
         _self.init();
     }
 
-    this.attachGame = function (game)
+    this.attachGame = function (game, newWindow)
     {
+        if (newWindow == true) {
+            try {
+                Native.onSlotGameOpened();
+            } catch (e) {
+                console.log(e.message)
+            }
+            window.open(game.url, "_blank");
+            routeObj.previous();
+            return;
+        }
         var _self = this;
         var content = _.template(_templates.GameLauncher);
         var gameDiv = content({
@@ -129,7 +139,7 @@ function launcherCtrl(routeObj, slotSvc, templateSvc) {
             }
             else {
                 game.url = link.replace("{TOKEN}", response.sessionToken.sessionToken);
-                _self.attachGame(game);
+                _self.attachGame(game, true);
             }
         }
     }
