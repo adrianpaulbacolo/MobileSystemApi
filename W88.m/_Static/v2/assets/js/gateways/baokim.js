@@ -13,7 +13,7 @@ function BaokimV2() {
     }
 
     baokim.method = {};
-    baokim.init = function (id, method) {
+    baokim.initEWALLET = function (id, method) {
         methodId = id;
         baokim.method = method;
 
@@ -25,9 +25,7 @@ function BaokimV2() {
         $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
         $('label[id$="lblEmail"]').text(_w88_contents.translate("LABEL_EMAIL"));
 
-        if (_.isEqual(baokim.method, "EWALLET"))
-
-            var amount = getQueryStringValue("requestAmount");
+        var amount = getQueryStringValue("requestAmount");
         if (!_.isEmpty(amount)) {
             $('input[id$="txtAmount"]').autoNumeric('set', getQueryStringValue("requestAmount"));
             $('input[id$="txtAmount"]').attr('disabled', 'disabled');

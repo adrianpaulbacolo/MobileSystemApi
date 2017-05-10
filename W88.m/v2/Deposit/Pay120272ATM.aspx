@@ -23,10 +23,12 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+            var method = "ATM";
+
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>", method);
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
-            _w88_baokim.initATM("<%=base.PaymentMethodId%>", "ATM");
+            _w88_baokim.initATM("<%=base.PaymentMethodId%>", method);
 
             $('#form1').validator().on('submit', function (e) {
                 if (!e.isDefaultPrevented()) {

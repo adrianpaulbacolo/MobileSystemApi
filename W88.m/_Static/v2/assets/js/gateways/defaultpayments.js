@@ -198,7 +198,7 @@ function DefaultPaymentsV2() {
                 console.log("Error connecting to api");
             },
             complete: function () {
-                if (!_.isUndefined(complete)) complete();
+                if (_.isFunction(complete)) complete();
                 pubsub.publish('stopLoadItem', { selector: selector });
             }
         });

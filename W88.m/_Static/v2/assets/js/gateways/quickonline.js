@@ -20,7 +20,7 @@ function QuickOnlineV2() {
         if (gateway == '120265') { //EGHL
             if (siteCookie.getCookie('currencyCode') == 'MYR') {
                 $(".pay-note").show();
-                $('#paymentNoteContent').html(_w88_contents.translate("LABEL_MSG_120265"));
+                $('#paymentNoteContent').html(_w88_contents.translate("LABEL_MSG_" + gateway));
                 quickonline.showBank();
                 getBank = true;
             }
@@ -63,6 +63,10 @@ function QuickOnlineV2() {
     };
 
     quickonline.nganluongInit = function () {
+        $(".pay-note").show();
+        $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+        $('#paymentNoteContent').html(_w88_contents.translate("LABEL_MSG_120212"));
+
         $("#btnSubmitPlacement").text(_w88_contents.translate("BUTTON_PROCEED"));
     };
 

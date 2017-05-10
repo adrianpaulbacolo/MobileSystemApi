@@ -24,7 +24,7 @@
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>", method);
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
-            _w88_baokim.initATM("<%=base.PaymentMethodId%>", method);
+            _w88_baokim.initEWALLET("<%=base.PaymentMethodId%>", method);
 
             var ewalletcb = {};
 
