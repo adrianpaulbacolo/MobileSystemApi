@@ -353,6 +353,7 @@ SW.prototype._isw_ = function() {
         return;
     }
     self._t_(0);
+    self.swr = null;
     self.u['CachedPrizeItems'] = null;
     $.ajax({
         type: 'GET',
@@ -363,34 +364,33 @@ SW.prototype._isw_ = function() {
         success: function(response) {
             try {
                 if (!response) {
-                    self._sem_(self.t.message5, true);
-                    $('#spinWheelContent').show();
-                    return;
-                }
-                if (response.ResponseCode != 0) {
-                    self._sem_(!_.isEmpty(response.ResponseMessage) ? response.ResponseMessage : self.t.message5, true);
-                    $('#spinWheelContent').show();
+                    self._ssw_(true);
                     return;
                 }
                 self.swr = response;
                 self._iv_();
             } catch (e) {
-                self._sem_(self.t.message5, true);
+                self.swr = null;
+                self._ssw_(true);
+                return;
             }
             $('#spinWheelContent').show();
         },
         error: function() {
-            self._sem_(self.t.message5, true);
-            $('#spinWheelContent').show();
+            self._ssw_(true);          
         }
     });
 };
 
 SW.prototype._iv_ = function (isSpin) {
-    var self = this,
-        data = self.swr.ResponseData;
+    var self = this;
+    if (!self.swr) {
+        self._sem_(null, !isSpin);
+        return;
+    }
+    var data = self.swr.ResponseData;
     if (_.isEmpty(data) || _.isEmpty(data.PrizeItems)) {
-        self._sem_(self.swr.ResponseMessage, true);
+        self._sem_(null, !isSpin);
         return;
     }
     self.swp = [];
@@ -454,14 +454,13 @@ SW.prototype._iv_ = function (isSpin) {
             });
         if (!_.isEmpty(pdiff)) {
             self._rdc_(true);
-            if(!isSpin) self._ssw_(true);
-            self._sem_(self.t.prizeListUpdated);
-            return true;
+            self._ssw_(!isSpin);
+            return;
         }
     } 
     amplify.store(self.sk, self.swp);
     self._dsw_();
-    self._ssw_(true);
+    self._ssw_(!isSpin);
 };
 
 SW.prototype._sr_ = function() {
@@ -482,7 +481,7 @@ SW.prototype._is_ = function () {
     self._ar_(self.la, self.la - 20, 600, false, true);
 };
 
-SW.prototype._ar_ = function(fromDegrees, toDegrees, duration, hasError, isInit, response) {
+SW.prototype._ar_ = function(fromDegrees, toDegrees, duration, hasError, isInit) {
     var self = this;
     $({ deg: fromDegrees }).animate({ deg: toDegrees }, {
         duration: duration,
@@ -492,37 +491,33 @@ SW.prototype._ar_ = function(fromDegrees, toDegrees, duration, hasError, isInit,
         },
         complete: function() {
             self.la = toDegrees;
-            if (hasError && response) {
-                if (response.ResponseCode == 8) {
-                    self.swr = response;
-                    self._iv_(true);
-                    return;
-                }
-                self._sem_(!_.isEmpty(response.ResponseMessage) ? response.ResponseMessage : self.t.message5);
+            if (isInit) {
+                self._sr_();
                 return;
             }
             if (hasError) {
-                self._sem_(self.t.message5);
+                if (self.swr && self.swr.ResponseCode == 8) {
+                    self._iv_(true);
+                    return;
+                }
+                self._ssw_();
                 return;
             }
-            if (!self.wp || self.wp.c == 0) {
+            if (!self.wp || (!_.isEmpty(self.wp) && self.wp.c == 0)) {
                 self._sem_(self.t.wonNothing);
                 self._isw_();
                 return;
             }
-            if (isInit) {
-                self._sr_();
-            } else {
-                self._sp_(self.t.claimMessage);
-            }
+            self._sp_(self.t.claimMessage);        
         }
     });
 };
 
-SW.prototype._ss_ = function(hasError, response) {
-    var self = this;
+SW.prototype._ss_ = function(hasError) {
+    var self = this,
+        angle = 720 + (_.isEmpty(self.wp) || (!_.isEmpty(self.wp) && (self.wp.c === undefined || self.wp.c == 0)) ? 0 : self.wp.o);
     clearInterval(self.siid);
-    self._ar_(self._gar_(), 720 + (self.wp === null || self.wp.c === undefined ? 0 : self.wp.o), 6000, hasError, false, response);
+    self._ar_(self._gar_(), angle, 6000, hasError);
 };
 
 function _gp_() {
@@ -536,6 +531,7 @@ SW.prototype._sw_ = function() {
     var self = this;
     if (!self.u) return;
     self._pswp_();
+    self.swr = null;
     $.ajax({
         type: 'POST',
         async: true,
@@ -548,13 +544,9 @@ SW.prototype._sw_ = function() {
                     self._ss_(true);
                     return;
                 }
-                if (response.ResponseCode != 0) {
-                    self._ss_(true, response);
-                    return;
-                }
+                self.swr = response;
                 setTimeout(function() {
-                    self.swr = response;
-                    self._gr_(self.swr);
+                    self._gr_();
                 }, 700);
             } catch (e) {
                 self._ss_(true);
@@ -566,15 +558,21 @@ SW.prototype._sw_ = function() {
     });
 };
 
-SW.prototype._gr_ = function (response) {
+SW.prototype._gr_ = function () {
     var self = this;
-    self.wp = {};
-    self.wp = _.find(self.swp, { c: response.ResponseData.ProductCode });
+    if (!self.swr) {
+        self._ss_(true);
+        return;
+    }
+    self.wp = null;
+    self.wp = _.find(self.swp, { c: self.swr.ResponseData.ProductCode });
+    if (!self.wp)
+        self.wp = _.find(amplify.store(self.sk), { c: self.swr.ResponseData.ProductCode });
     if (!self.wp) {
         self._ss_(true);
-    } else {
-        self._ss_();
-    }
+        return;
+    } 
+    self._ss_(); 
 };
 
 function _rp_() {
@@ -618,7 +616,10 @@ SW.prototype._ssr_ = function(message) {
     $('#okButton').css('display', 'block');
 };
 
-SW.prototype._sem_ = function(message, isInit) {
+SW.prototype._sem_ = function (message, isInit) {
+    var self = this;
+    if(!message)
+        message = !_.isEmpty(self.swr) && !_.isEmpty(self.swr.ResponseMessage) ? self.swr.ResponseMessage : self.t.message5; 
     $('#claimButton').hide();
     $('#okButton').css('display', 'block');
     $('#spinsLeft').html(message);
@@ -627,18 +628,24 @@ SW.prototype._sem_ = function(message, isInit) {
     if (!isInit) {
         $('#spinMessage').html(message);
         $('#prizeModal').modal('show');
-    } else {
-        $('#spinsLeft').show();
-        $('#spinWheelContent').show();
-    }
+        return;
+    } 
+    $('#spinsLeft').show();
+    $('#spinWheelContent').show();  
 };
 
 function _tp_(isRedemption) {
     $('#prizeModal').modal('hide');
     $('#okButton').hide();
-    if (isRedemption) {
-        sw._ssw_(true);
+    if (!isRedemption) return;
+    if (sw && (!_.isEmpty(sw.swr) && sw.swr.ResponseCode == 8)) {
+        sw.wp = null;
+        setTimeout(function() {
+            sw._iv_(true);
+        }, 1000);
+        return;
     }
+    sw._ssw_(true);
 }
 
 SW.prototype._esw_ = function(isInit) {
@@ -653,15 +660,21 @@ SW.prototype._esw_ = function(isInit) {
 SW.prototype._ssw_ = function (isInit) {
     var self = this;
     self.hl = true;
-    if (isInit) {
-        $('#spinsLeft').show();
-    }
+    if (isInit) 
+        $('#spinsLeft').show(); 
     if (self.swr.ResponseCode != 0) {
-        self._db_();
-        $('#spinButton').hide();
-        self._sem_(self.swr.ResponseMessage, isInit);
-        if (self.swr.ResponseCode == 1) {
-            self._scd_(self.swr.ResponseData.Frequency);
+        self._sem_(null, isInit);
+        switch (self.swr.ResponseCode) {
+            case 8:
+                self._eb_();
+                break;
+            default:
+                self._db_();
+                $('#spinButton').hide();
+                if (self.swr.ResponseCode == 1) {
+                    self._scd_(self.swr.ResponseData.Frequency);
+                }
+                break;
         }
         return;
     }
@@ -762,6 +775,7 @@ SW.prototype._dp_ = function() {
     ctx.canvas.width = self.pic.w;
     ctx.canvas.height = self.pic.h;
     ctx.save();
+    if (!self.wp) return;
     pi.src = self.wp.is;
     pi.onload = function() {
         ctx.drawImage(pi, self.pic.a, self.pic.b);
