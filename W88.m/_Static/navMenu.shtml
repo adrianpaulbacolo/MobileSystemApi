@@ -396,16 +396,6 @@ var fishingWorld = FishingWorldProduct.GetLink();
                 </li>
                 <%}%>
                 <%}catch(Exception){}%>
-
-                <% if (!string.IsNullOrEmpty(commonVariables.CurrentMemberSessionId))
-        { %>
-                <li>
-                    <a class="card" data-rel="fish" rel="FishAndroid" href="<%=fishingWorld%>" data-ajax="false" target="_blank">
-                        <img src="#" class="img-responsive FishWorld3">
-                        <div class="title menuFishingWorldTitle"></div>
-                    </a>
-                </li>
-                <%}%>
             </ul>
         </li>
         <!-- Lottery -->
