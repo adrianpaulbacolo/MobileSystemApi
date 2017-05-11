@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Enhancement</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link href="/_Static/Css/errors/styles.ab50292d.css" rel="stylesheet" type="text/css">
+    <link href="/_Static/Css/errors/styles.css" rel="stylesheet" type="text/css">
     <script src="/_Static/JS/Mobile/jquery-1.11.3.min.js"></script>
 </head>
 <body class="enhancement-all">
