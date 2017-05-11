@@ -146,3 +146,37 @@ function TwoDecimalAndroid(ctrl, event) {
 function getQueryStringValue(key) {
     return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
 }
+
+function send(resource, method, data, success, complete) {
+
+    var selector = "";
+    if (!_.isEmpty(data.selector)) {
+        selector = _.clone(data.selector);
+        delete data["selector"];
+    }
+
+    var url = w88Mobile.APIUrl + resource;
+
+    var headers = {
+        'Token': window.User.token,
+        'LanguageCode': window.User.lang
+    };
+
+    $.ajax({
+        type: method,
+        url: url,
+        data: data,
+        beforeSend: function () {
+            pubsub.publish('startLoadItem', { selector: selector });
+        },
+        headers: headers,
+        success: success,
+        error: function () {
+            console.log("Error connecting to api");
+        },
+        complete: function () {
+            if (_.isFunction(complete)) complete();
+            pubsub.publish('stopLoadItem', { selector: selector });
+        }
+    });
+}
