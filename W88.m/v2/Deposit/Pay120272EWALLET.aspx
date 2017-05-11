@@ -59,7 +59,7 @@
                 if (!e.isDefaultPrevented()) {
                     e.preventDefault();
 
-                    if (!_.isEqual(window.w88Mobile.Gateways.BaokimV2.method, method)) {
+                    if (!_.isEqual(_w88_baokim.method, method)) {
                         var walletData = {
                             MerchantId: ewalletcb.MerchantId,
                             VendorTransactionId: ewalletcb.VendorTransactionId,
@@ -70,14 +70,14 @@
                     }
                     else {
                         var data = {
-                            Method: window.w88Mobile.Gateways.BaokimV2.method,
+                            Method: _w88_baokim.method,
                             Amount: $('input[id$="txtAmount"]').autoNumeric('get'),
                             Email: $('input[id$="txtEmail"]').val(),
                             MethodId: "<%=base.PaymentMethodId%>",
                             ThankYouPage: location.protocol + "//" + location.host + "/v2/Deposit/Pay120272EWALLET.aspx?requestAmount=" + $('input[id$="txtAmount"]').autoNumeric('get'),
                         };
 
-                        _w88_baokim.createWalletDeposit("<%=base.PaymentMethodId%>", data);
+                        _w88_baokim.createWalletDeposit(data);
                     }
                 }
             });

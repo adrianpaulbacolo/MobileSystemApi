@@ -3,7 +3,7 @@ var _w88_banktransfer = window.w88Mobile.Gateways.BankTransferv2;
 
 function BankTransferv2() {
     var banktransfer;
-
+    var methodId;
     try {
         banktransfer = Object.create(new w88Mobile.Gateway(_w88_paymentSvcV2));
     } catch (err) {
@@ -119,36 +119,11 @@ function BankTransferv2() {
         }
     };
 
-    banktransfer.createDeposit = function () {
+    banktransfer.createDeposit = function (form, data, methodId) {
         var _self = this;
-        var params = _self.getUrlVars();
-        var data = {
-            Amount: params.Amount,
-            Bank: { Text: params.BankText, Value: params.BankValue },
-            AccountName: params.AccountName,
-            AccountNumber: params.AccountNumber,
-            SystemBank: { Text: params.SystemBankText, Value: params.SystemBankValue },
-            BankName: params.BankName,
-            ReferenceId: params.ReferenceId,
-            DepositChannel: { Text: params.DepositChannelText, Value: params.DepositChannelValue },
-            DepositDateTime: params.DepositDateTime,
-        };
 
-        _self.methodId = params.MethodId;
-        _self.changeRoute();
-        _self.deposit(data, function (response) {
-
-            if (_.isArray(response.ResponseMessage))
-                w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage), _self.shoutCallback);
-            else
-                w88Mobile.Growl.shout(response.ResponseMessage, _self.shoutCallback);
-
-            banktransfer.toogleBank($('select[id$="drpBank"]').val());
-
-        },
-        function () {
-            pubsub.publish('stopLoadItem', { selector: "" });
-        });
+        _self.methodId = methodId;
+        _self.offlineDeposit(form, data);
     };
 
     // Withdrawal

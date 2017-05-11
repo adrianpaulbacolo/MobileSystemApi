@@ -82,7 +82,9 @@ function BaokimV2() {
     };
 
     baokim.createWalletDeposit = function (data) {
-        _w88_paymentSvcV2.Send("/payments/" + methodId, "POST", data, function (response) {
+        var _self = this;
+
+        _self.send("/payments/" + methodId, "POST", data, function (response) {
             switch (response.ResponseCode) {
                 case 1:
                     if (response.ResponseData.VendorRedirectionUrl) {
