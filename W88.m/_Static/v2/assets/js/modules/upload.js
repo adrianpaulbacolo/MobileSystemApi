@@ -6,9 +6,28 @@ function Upload() {
     upload.init = function () {
         window.w88Mobile.BootstrapValidator.initiateValidator();
 
-        $('[id$="lblFileUpload"]').text(_w88_contents.translate("LABEL_REFERENCE_ID"));
+        $('[id$="lblFileUpload"]').text(_w88_contents.translate("LABEL_FILE"));
         $('[id$="lblRemarks"]').text(_w88_contents.translate("LABEL_REMARKS"));
         $('[id$="btnSubmit"]').text(_w88_contents.translate("BUTTON_SUBMIT"));
+
+        // Script for Upload field
+        $(".btn-upload").click(function () {
+            var upload = $(this).parent().siblings('input[type="file"]');
+            upload.click();
+
+            $(document).on('change', upload, function () {
+                var filename = upload.val().replace(/C:\\fakepath\\/i, '')
+                upload.siblings('.input-upload').val(filename);
+            });
+        });
+
+        $('#form1').validator().on('submit', function (e) {
+            if (!e.isDefaultPrevented()) {
+                e.preventDefault();
+
+                upload.uploadImage();
+            }
+        });
     };
 
     upload.uploadImage = function () {
