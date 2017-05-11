@@ -29,6 +29,7 @@ public partial class Deposit_Pay : PaymentBasePage
                 GatewayFile = "ninevpay";
                 break;
             case commonVariables.DepositMethod.JuyPayAlipay:
+            case commonVariables.DepositMethod.SDPay:
                 GatewayFile = "juypay";
                 break;
             case commonVariables.DepositMethod.JTPayWeChat:
