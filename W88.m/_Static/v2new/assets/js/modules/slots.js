@@ -131,7 +131,7 @@ function Slots() {
 
         var data = {
             cashier: "v2/Funds.aspx",
-            lobby: "_static/v2new/slots.html",
+            lobby: "v2/Slots",
             configfile: "native"
         }
         if(provider == "pt"){
