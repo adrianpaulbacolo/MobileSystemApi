@@ -9,6 +9,16 @@
                     <asp:FileUpload ID="fileUpload" runat="server" AllowMultiple="false" accept="image/*" required data-require="" />
                 </div>
                 <div class="form-group">
+                    <label for="">Reference ID</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control input-upload" placeholder="Upload File" readonly>
+                        <input type="file" class="hidden" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary btn-upload" type="button"><span class="icon-submit"></span></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
                     <asp:Label ID="lblRemarks" runat="server" AssociatedControlID="txtRemarks" />
                     <asp:TextBox ID="txtRemarks" runat="server" CssClass="form-control" />
                 </div>
@@ -32,6 +42,18 @@
 
                     _w88_upload.uploadImage();
                 }
+            });
+
+
+            // Script for Upload field
+            $(".btn-upload").click(function() {
+                var upload = $(this).parent().siblings('input[type="file"]');
+                upload.click();
+               
+               $(document).on('change',upload, function(){
+                    var filename = upload.val().replace(/C:\\fakepath\\/i, '')
+                    upload.siblings('.input-upload').val(filename);
+               });
             });
         });
     </script>
