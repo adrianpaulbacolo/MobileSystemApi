@@ -18,19 +18,19 @@
         </div>
         <div class="dashboard-row">
             <div class="dashboard-col">
-                <a href="/_Static/v2new/slots.html"><span class="icon icon-slots"></span>
+                <a href="/v2/Slots"><span class="icon icon-slots"></span>
                     <%=commonCulture.ElementValues.getResourceString("slots", commonVariables.LeftMenuXML)%>
                 </a>
             </div>
             <div class="dashboard-col">
-                <a href="<%=FishingLink %>" target="_blank"><span class="icon icon-games"></span>
+                <a href="<%=FishingLink %>" target="_blank"><span class="icon icon-fish"></span>
                     <%=commonCulture.ElementValues.getResourceString("LuckyFishing", commonVariables.LeftMenuXML)%>
                 </a>
             </div>
         </div>
         <div class="dashboard-row">
             <div class="dashboard-col">
-                <a href="/Lottery.aspx?lang=<%=commonVariables.SelectedLanguage%>"><span class="icon icon-keno"></span>
+                <a href="/v2/Lottery.aspx?lang=<%=commonVariables.SelectedLanguage%>"><span class="icon icon-keno"></span>
                     <%=commonCulture.ElementValues.getResourceString("lottery", commonVariables.LeftMenuXML)%>
                 </a>
             </div>

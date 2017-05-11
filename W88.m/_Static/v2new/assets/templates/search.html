@@ -2,7 +2,7 @@
     <ul class="media-list game-list">
         {% _.forEach( slotData.games, function( game ){ %}
         <li class="media">
-            <a href="#" onclick="javascript: w88Mobile.v2.Slots.showGameModal('{%- game.Id %}')">
+            <a href="#" onclick="javascript: w88Mobile.v2.Slots.showGameModal('{%- game.Id %}', '{%- slotData.club.name %}')">
                 <div class="media-left">
                     <div class="game-list-thumbnail">
                         <img src="{%- game.ImagePath %}" alt="">
