@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using W88.BusinessLogic.Accounts.Helpers;
@@ -56,7 +57,7 @@ public class BasePage : Page
     #endregion
 
     #region Page Methods
-    protected override void OnPreInit(EventArgs e)
+    protected override async void OnPreInit(EventArgs e)
     {
         try
         {
@@ -72,13 +73,29 @@ public class BasePage : Page
         {
             var language = HttpContext.Current.Request.QueryString.Get("lang");
             Language = !string.IsNullOrEmpty(language) ? language : LanguageHelpers.SelectedLanguage;
-            CheckSession();
+        }
+
+        var hasSession = await CheckSession();
+        if (!IsUnderMaintenance)
+        {
+            return;
+        }
+        // Check if site is under maintenance and allow only certain users to have access
+        var isAllowedAccess = false;
+        var allowedUsers = Common.GetAppSetting<string>("allowedUsers");
+        if (!string.IsNullOrEmpty(allowedUsers) && hasSession
+            && Array.IndexOf(allowedUsers.ToLower().Split('|'), UserSessionInfo.MemberCode.ToLower()) >= 0)
+            isAllowedAccess = true;
+
+        if (!isAllowedAccess)
+        {
+            Response.Redirect("/_Static/Pages/enhancement-all.aspx", false);
         }
     }
     #endregion
 
     #region Protected Methods
-    protected async void CheckSession()
+    protected async Task<bool> CheckSession()
     {
         try
         {
@@ -94,42 +111,28 @@ public class BasePage : Page
                 if (string.IsNullOrEmpty(token))
                 {
                     var cookie = HttpContext.Current.Request.Cookies["user"];
-                    if (cookie == null) return;
+                    if (cookie == null) return false;
                     var user = Common.DeserializeObject<MemberSession>(cookie.Value);
-                    if (user == null) return;
+                    if (user == null) return false;
                     token = user.Token;     
                 }
             }
 
-            if (string.IsNullOrEmpty(token)) return;
+            if (string.IsNullOrEmpty(token)) return false;
             var process = await MembersHelper.MembersSessionCheck(token);
             HasSession = process.Code == 1 && !string.IsNullOrEmpty(process.Data.Token);
-            if (!HasSession) return;
+            if (!HasSession) return false;
             MemberSession = process.Data;
             UserSessionInfo = await MembersHelper.GetMemberInfo(token);
-
-            if (IsUnderMaintenance)
-            {
-                // Check if site is under maintenance and allow only certain users to have access
-                var isAllowedAccess = false;
-                var allowedUsers = Common.GetAppSetting<string>("allowedUsers");
-                if (!string.IsNullOrEmpty(allowedUsers) && !string.IsNullOrEmpty(UserSessionInfo.MemberCode) 
-                    && Array.IndexOf(allowedUsers.ToLower().Split('|'), UserSessionInfo.MemberCode.ToLower()) >= 0)
-                    isAllowedAccess = true;
-
-                if (!isAllowedAccess)
-                {
-                    Response.Redirect("/_Static/Pages/enhancement-all.aspx", false);
-                    return;
-                }
-            }
-         
+            HasSession = !string.IsNullOrEmpty(UserSessionInfo.MemberCode);
+            if (!HasSession) return false;
             SetMemberRewardsInfo();
         }
         catch (Exception)
-        {
-
+        { 
+            return false;
         }
+        return true;
     }
 
     protected async void SetMemberRewardsInfo()
