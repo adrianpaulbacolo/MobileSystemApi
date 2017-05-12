@@ -1,6 +1,6 @@
 ﻿using System;
 
-public partial class v2_Deposit_Pay1202120 : PaymentBasePage
+public partial class v2_Deposit_Pay1202120 : FundsBasePage
 {
     protected void Page_Init(object sender, EventArgs e)
     {
@@ -8,9 +8,4 @@ public partial class v2_Deposit_Pay1202120 : PaymentBasePage
         base.PaymentType = commonVariables.PaymentTransactionType.Deposit;
         base.PaymentMethodId = Convert.ToString((int)commonVariables.DepositMethod.Cubits);
     }
-
-    protected void Page_Load(object sender, EventArgs e)
-    {
-    }
-
 }

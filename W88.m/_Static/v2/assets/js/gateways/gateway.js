@@ -8,7 +8,7 @@ function Gateway(paymentSvc) {
         paymentSvc.Send(resource, method, data, success, complete);
     }
 
-    this.deposit = function(data, successCallback, completeCallback) {
+    this.deposit = function (data, successCallback, completeCallback) {
         var _self = this;
 
         if (_.includes(_w88_paymentSvcV2.AutoRouteIds, _self.methodId)) {
@@ -42,18 +42,65 @@ function Gateway(paymentSvc) {
         }
     }
 
-    this.withdraw = function(data, successCallback, completeCallback) {
-        _self.send("/payments/" + _self.methodId, "POST", data, successCallback, completeCallback);
+    this.offlineDeposit = function (form, data, successCallback, completeCallback) {
+        var _self = this;
+
+        if (_.isUndefined(successCallback)) {
+            _self.send("/payments/" + _self.methodId, "POST", data, function (response) {
+                switch (response.ResponseCode) {
+                    case 1:
+                        w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + _w88_contents.translate("LABEL_TRANSACTION_ID") + ": " + response.ResponseData.TransactionId + "</p>", function () {
+                            _self.formReset(form);
+                        });
+
+                        break;
+                    default:
+                        if (_.isArray(response.ResponseMessage))
+                            w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
+                        else
+                            w88Mobile.Growl.shout(response.ResponseMessage);
+                        break;
+                }
+            }, function () { });
+        }
+        else {
+            _self.send("/payments/" + _self.methodId, "POST", data, successCallback, completeCallback);
+        }
     }
 
-    this.getUrlVars = function()
-    {
+    this.withdraw = function (data, successCallback, completeCallback) {
+        var _self = this;
+
+        if (_.isUndefined(successCallback)) {
+            _self.send("/payments/" + _self.methodId, "POST", data, function (response) {
+                switch (response.ResponseCode) {
+                    case 1:
+                        w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + _w88_contents.translate("LABEL_TRANSACTION_ID") + ": " + response.ResponseData.TransactionId + "</p>", function () {
+                            window.location = "/v2/Withdrawal/";
+                        });
+
+                        break;
+                    default:
+                        if (_.isArray(response.ResponseMessage))
+                            w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
+                        else
+                            w88Mobile.Growl.shout(response.ResponseMessage);
+                        break;
+                }
+            }, function () { });
+        }
+        else {
+            _self.send("/payments/" + _self.methodId, "POST", data, successCallback, completeCallback);
+        }
+    }
+
+    this.getUrlVars = function () {
         var vars = [], hash;
         var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
         for (var i = 0; i < hashes.length; i++) {
             hash = hashes[i].split('=');
             vars.push(hash[0]);
-            vars[hash[0]] = hash[1];
+            vars[hash[0]] = decodeURIComponent(hash[1].replace(/\+/g, '%20'));
         }
         return vars;
     }
@@ -62,11 +109,18 @@ function Gateway(paymentSvc) {
         window.close();
     }
 
-    this.changeRoute = function(){
+    this.changeRoute = function () {
         if (history.pushState) {
             var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname;
             window.history.pushState({ path: newurl }, '', newurl);
         }
     }
 
+    this.formReset = function (form) {
+        if (!_.isUndefined(form)) _.first(form).reset();
+
+        _.forEach($('[data-date-box]'), function (item, index) {
+            $(item).datebox('setTheDate', new Date());
+        });
+    }
 }

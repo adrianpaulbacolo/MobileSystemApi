@@ -5,39 +5,25 @@
         <asp:Label ID="lblAmount" runat="server" AssociatedControlID="txtAmount" />
         <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" required data-paylimit="0" data-numeric />
     </div>
-    <div class="form-group idrBank">
+    <div class="form-group bank">
         <asp:Label ID="lblBank" runat="server" AssociatedControlID="drpBank" />
-        <asp:DropDownList ID="drpBank" runat="server" CssClass="form-control" data-bankequals="-1" />
-    </div>
-    <div class="form-group pay-note idrBank">
-        <asp:Label ID="paymentNoteContent" runat="server" ForeColor="Red" />
+        <asp:DropDownList ID="drpBank" runat="server" CssClass="form-control" />
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">
-    <script type="text/javascript" src="/_static/v2/assets/js/gateways/quickonline.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/gateways/quickonline.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>");
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
-            var currencyCode = '<%=commonVariables.GetSessionVariable("CurrencyCode")%>';
-            var hasBank = true;
-
-            if (currencyCode == "MYR") {
-                $('.idrBank').show();
-            }
-            else {
-                $('.idrBank').hide();
-                hasBank = false;
-            }
-
-            window.w88Mobile.Gateways.QuickOnlineV2.init("<%=base.PaymentMethodId %>", hasBank);
+            _w88_quickonline.init("<%=base.PaymentMethodId %>", true);
 
             $('#form1').validator().on('submit', function (e) {
-
                 if (!e.isDefaultPrevented()) {
                     e.preventDefault();
+
                     var data = {
                         Amount: $('input[id$="txtAmount"]').autoNumeric('get'),
                         BankText: $('select[id$="drpBank"] option:selected').val(),
@@ -52,9 +38,6 @@
                     return;
                 }
             });
-
         });
-
     </script>
 </asp:Content>
-

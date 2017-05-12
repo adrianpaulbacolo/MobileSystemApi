@@ -7,7 +7,6 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">
-
     <script type="text/javascript">
         $(document).ready(function () {
             if (_.isEqual('<%= commonCookie.CookieCurrency %>', "JPY")) {
@@ -21,8 +20,8 @@
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
             $('#form1').validator().on('submit', function (e) {
-
                 if (!e.isDefaultPrevented()) {
+
                     e.preventDefault();
                     var data = {
                         Amount: $('input[id$="txtAmount"]').autoNumeric('get'),
@@ -36,9 +35,6 @@
                     return;
                 }
             });
-
         });
-
     </script>
 </asp:Content>
-
