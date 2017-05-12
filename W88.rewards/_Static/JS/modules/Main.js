@@ -102,11 +102,15 @@ function clear() {
             Cookies().setCookie('user', null, -1);
         if (!_.isEmpty(Cookies().getCookie('isvip')))
             Cookies().setCookie('isvip', null, -1);
+        if (!_.isEmpty(Cookies().getCookie('token')))
+            Cookies().setCookie('token', null, -1);
     } catch (e) {
         if (!_.isEmpty(Cookies().getCookie('user')))
             Cookies().setCookie('user', null, -1);
         if (!_.isEmpty(Cookies().getCookie('isvip')))
             Cookies().setCookie('isvip', null, -1);
+        if (!_.isEmpty(Cookies().getCookie('token')))
+            Cookies().setCookie('token', null, -1);
     }
     window.user = null;
     $.mobile.loading('hide');
