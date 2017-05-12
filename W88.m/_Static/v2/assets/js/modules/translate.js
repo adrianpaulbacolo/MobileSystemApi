@@ -13,6 +13,8 @@ function translate() {
             _self.fetch(window.User.lang, "/messages");
         } else {
             _self.items = contents;
+            $.i18n().load(contents, window.User.lang);
+            $("body").i18n();
         }
 
     }
@@ -46,6 +48,8 @@ function translate() {
                     contents = response.ResponseData;
                 }
                 _self.items = contents;
+                $.i18n().load(contents, lang);
+                $("body").i18n();
                 amplify.store(location.hostname + "_translations", contents, settings);
             },
             error: function () {
