@@ -84,22 +84,10 @@ public class BasePage : Page
 
     protected override async void OnPreInit(EventArgs e)
     {
-        try
-        {
-            if (bool.Parse(Common.GetAppSetting<string>("ClearWebCache")))
-            {
-                foreach (System.Collections.DictionaryEntry deCache in HttpContext.Current.Cache)
-                {
-                    HttpContext.Current.Cache.Remove(Convert.ToString(deCache.Key));
-                }
-            }
-        }
-        finally
-        {
-            var language = HttpContext.Current.Request.QueryString.Get("lang");
-            Language = !string.IsNullOrEmpty(language) ? language : LanguageHelpers.SelectedLanguage;
-        }
+        base.OnPreInit(e);
 
+        var language = HttpContext.Current.Request.QueryString.Get("lang");
+        Language = !string.IsNullOrEmpty(language) ? language : LanguageHelpers.SelectedLanguage;
         var hasSession = await CheckSession();
         if (!IsUnderMaintenance)
         {

@@ -27,12 +27,10 @@ User.prototype.save = function () {
     var user = self.convertToJsonString();
     try {
         window.localStorage.setItem('user', user);
-        window.localStorage.setItem('token', self.Token);
-        Cookies().setCookie('user', user, 30);
-        Cookies().setCookie('token', self.Token, 30);
+        if(_.isEmpty(window.localStorage.getItem('user'))) 
+            Cookies().setCookie('user', user, 30);
     } catch (e) {
         Cookies().setCookie('user', user, 30);
-        Cookies().setCookie('token', self.Token, 30);
     }
 };
 
