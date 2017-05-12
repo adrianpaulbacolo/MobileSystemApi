@@ -16,13 +16,13 @@ public class Login : HttpTaskAsyncHandler, System.Web.SessionState.IReadOnlySess
 {
     public override async Task ProcessRequestAsync(HttpContext context)
     {
-
-        var token = context.Request.Headers.Get("token");
+        var requestToken = context.Request.Headers.Get("token");
         bool isVipLogin;
         bool.TryParse(context.Request.Headers.Get("isVipLogin"), out isVipLogin);
               
-        var process = await (new Members()).MembersSessionCheck(token); 
+        var process = await (new Members()).MembersSessionCheck(requestToken); 
         var memberSession = process.Data as MemberSession;
+        var token = memberSession == null ? string.Empty : memberSession.Token;
         switch (process.Code)
         {
             case 1:
@@ -36,25 +36,23 @@ public class Login : HttpTaskAsyncHandler, System.Web.SessionState.IReadOnlySess
                     var vipCookie = CookieHelpers.CookieVip;
                     bool isVip;
                     bool.TryParse(vipCookie, out isVip);
-                    process.Code = isVip ? (int)Constants.StatusCode.Success : (int)Constants.StatusCode.Error;
-                    process.Data = isVip ? process.Data : null;
+                    if (!isVip)
+                    {
+                        process.Code = (int)Constants.StatusCode.Error;
+                        process.Data = null;
+                    }
+                    else
+                    {
+                        SetToken(token, ref process);
+                    }  
                 }
                 else
                 {
-                    var cookie = HttpContext.Current.Request.Cookies.Get("token");
-                    if(cookie == null) 
-                        cookie = new HttpCookie("token");
-                        
-                    cookie.Value = memberSession == null ? string.Empty : memberSession.Token;
-                    cookie.Domain = new W88.Utilities.Geo.IpHelper().DomainName;
-                    HttpContext.Current.Response.Cookies.Add(cookie);
-                    cookie = HttpContext.Current.Request.Cookies.Get("token");
-                    process.Code = cookie != null && !string.IsNullOrEmpty(cookie.Value) ? (int)Constants.StatusCode.Success : (int)Constants.StatusCode.Error;
-                    process.Data = process.Code == (int)Constants.StatusCode.Success ? process.Data : null;
+                    SetToken(token, ref process);
                 }
                 context.Response.ContentType = "application/json";
                 context.Response.Write(Common.SerializeObject(process));
-                context.Response.End();
+                context.Response.End();  
                 break;
             default:
                 process.Message = RewardsHelper.GetTranslation(TranslationKeys.Errors.SessionExpired);
@@ -63,6 +61,20 @@ public class Login : HttpTaskAsyncHandler, System.Web.SessionState.IReadOnlySess
                 context.Response.End();
                 break;
         }
+    }
+
+    private void SetToken(string token, ref ProcessCode process)
+    {
+        var cookie = HttpContext.Current.Request.Cookies.Get("token");
+        if (cookie == null)
+            cookie = new HttpCookie("token");
+
+        cookie.Value = token;
+        cookie.Domain = new W88.Utilities.Geo.IpHelper().DomainName;
+        HttpContext.Current.Response.Cookies.Add(cookie);
+        cookie = HttpContext.Current.Request.Cookies.Get("token");
+        process.Code = cookie != null && !string.IsNullOrEmpty(cookie.Value) ? (int)Constants.StatusCode.Success : (int)Constants.StatusCode.Error;
+        process.Data = process.Code == (int)Constants.StatusCode.Success ? process.Data : null;
     }
     
     public bool IsReusable {
