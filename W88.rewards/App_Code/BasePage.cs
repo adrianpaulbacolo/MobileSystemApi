@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
@@ -134,14 +133,11 @@ public class BasePage : Page
                 token = HttpContext.Current.Request.Headers.Get("token");
                 if (string.IsNullOrEmpty(token))
                 {
-                    var cookie = HttpContext.Current.Request.Cookies["user"];
+                    var cookie = Request.Cookies.Get("user");
                     if (cookie == null) return false;
-                    var keyValuePairs = cookie.Value.Replace("{", string.Empty).Replace("}", string.Empty).Replace("\"", string.Empty).Split(':');
-                    for (var index = keyValuePairs.Length - 1; index > 0; index--)
-                    {
-                        token = Regex.Match(keyValuePairs[index], "^[{(]?[0-9A-F]{8}[-]?([0-9A-F]{4}[-]?){3}[0-9A-F]{12}[)}]?$", RegexOptions.ECMAScript).Value;
-                        if (!string.IsNullOrEmpty(token)) break;
-                    }
+                    dynamic user = Common.DeserializeObject<Object>(cookie.Value);
+                    if (user == null) return false;
+                    token = user.Token;
                 }
                 if (string.IsNullOrEmpty(token)) return false;
             }
