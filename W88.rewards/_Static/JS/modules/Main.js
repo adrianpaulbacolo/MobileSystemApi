@@ -11,11 +11,12 @@ $(window).load(function () {
         sessionPoll = window.setInterval(function () {
             setUser();
             $.ajax({
-                contentType: 'application/json; charset=utf-8;',
+                contentType: 'text/html',
                 url: '/_Secure/AjaxHandlers/MemberSessionCheck.ashx',
                 type: 'POST',
-                data: JSON.stringify(window.user),
+                data: window.user.Token,
                 success: function (data) {
+                    if (!data) return;
                     if (data.Code === 1) {
                         return;
                     }
