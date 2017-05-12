@@ -16,9 +16,9 @@
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/pubsub.js"></script>
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/fingerprint2.min.js"></script>
 
-<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/jquery.i18n.js"></script>
-<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/jquery.i18n.messagestore.js"></script>
-<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/jquery.i18n.fallbacks.js"></script>
+<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/jquery.i18n.min.js"></script>
+<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/jquery.i18n.messagestore.min.js"></script>
+<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/jquery.i18n.fallbacks.min.js"></script>
 
 
 <!-- Include all related variables (below), or include individual files as needed -->
