@@ -1,50 +1,53 @@
 ﻿var User = function User() {
-    this.Balance = null;
-    this.CountryCode = null;
     this.CurrencyCode = null;
-    this.FirstName = null;
     this.LanguageCode = null;
     this.MemberId = null;
     this.ResetPassword = false;
-    this.PartialSignup = null;
     this.Token = null;
 };
 
 User.prototype.convertToJsonString = function () {
-    return JSON.stringify(this);
+    var self = this;
+    return JSON.stringify(self);
 };
 
 User.prototype.createUser = function (user) {
+    var self = this;
     var obj = JSON.parse(user);
-    this.CurrencyCode = _.isEmpty(obj.CurrencyCode) ? null : obj.CurrencyCode;
-    this.LanguageCode = _.isEmpty(obj.LanguageCode) ? null : obj.LanguageCode;
-    this.MemberId = _.isEmpty(obj.MemberId) ? null : obj.MemberId;
-    this.ResetPassword = _.isEmpty(obj.ResetPassword) ? false : obj.ResetPassword;
-    this.Token = _.isEmpty(obj.Token) ? null : obj.Token;
-    return this;
+    self.CurrencyCode = _.isEmpty(obj.CurrencyCode) ? null : obj.CurrencyCode;
+    self.LanguageCode = _.isEmpty(obj.LanguageCode) ? null : obj.LanguageCode;
+    self.MemberId = _.isEmpty(obj.MemberId) ? null : obj.MemberId;
+    self.ResetPassword = _.isEmpty(obj.ResetPassword) ? false : obj.ResetPassword;
+    self.Token = _.isEmpty(obj.Token) ? null : obj.Token;
+    return self;
 };
 
 User.prototype.save = function () {
-    if (_.isEmpty(this)) return;
-    var user = this.convertToJsonString();
+    var self = this;
+    var user = self.convertToJsonString();
     try {
         window.localStorage.setItem('user', user);
+        window.localStorage.setItem('token', self.Token);
         Cookies().setCookie('user', user, 30);
+        Cookies().setCookie('token', self.Token, 30);
     } catch (e) {
         Cookies().setCookie('user', user, 30);
+        Cookies().setCookie('token', self.Token, 30);
     }
 };
 
 User.prototype.hasSession = function () {
-    return !_.isEmpty(this.Token);
+    var self = this;
+    return !_.isEmpty(self.Token);
 };
 
 User.prototype.setProperties = function (data) {
     if (_.isEmpty(data)) return;
-    this.CurrencyCode = data.CurrencyCode || null;
-    this.LanguageCode = data.LanguageCode || null;
-    this.MemberId = data.MemberId || null;
-    this.ResetPassword = data.ResetPassword || false;
-    this.Token = data.Token || null;
-    return this;
+    var self = this;
+    self.CurrencyCode = data.CurrencyCode || null;
+    self.LanguageCode = data.LanguageCode || null;
+    self.MemberId = data.MemberId || null;
+    self.ResetPassword = data.ResetPassword || false;
+    self.Token = data.Token || null;
+    return self;
 };
