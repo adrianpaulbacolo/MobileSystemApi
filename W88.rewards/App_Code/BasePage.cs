@@ -133,11 +133,9 @@ public class BasePage : Page
                 token = HttpContext.Current.Request.Headers.Get("token");
                 if (string.IsNullOrEmpty(token))
                 {
-                    var cookie = Request.Cookies.Get("user");
+                    var cookie = Request.Cookies.Get("token");
                     if (cookie == null) return false;
-                    dynamic user = Common.DeserializeObject<Object>(cookie.Value);
-                    if (user == null) return false;
-                    token = user.Token;
+                    token = cookie.Value;
                 }
                 if (string.IsNullOrEmpty(token)) return false;
             }
