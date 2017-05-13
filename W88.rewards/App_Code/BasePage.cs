@@ -8,6 +8,7 @@ using W88.BusinessLogic.Rewards.Helpers;
 using W88.BusinessLogic.Rewards.Models;
 using W88.BusinessLogic.Shared.Helpers;
 using W88.Utilities;
+using W88.Utilities.Geo;
 
 
 public class BasePage : Page
@@ -19,6 +20,7 @@ public class BasePage : Page
     protected Members MembersHelper = new Members();
     protected RewardsHelper RewardsHelper = new RewardsHelper();
     protected string Language = string.Empty;
+    protected static readonly IpHelper IpHelper = new IpHelper();
 
     protected bool IsUnderMaintenance
     {
@@ -34,6 +36,22 @@ public class BasePage : Page
                 return true;
 
             return !(Array.IndexOf(maintenanceModules.Split('|'), Request.Url.AbsolutePath.ToLower()) < 0);
+        }
+    }
+
+    public static string Token 
+    {
+        get 
+        { 
+            var cookie = HttpContext.Current.Request.Cookies.Get("token");
+            return cookie == null ? string.Empty : cookie.Value;
+        }
+        set
+        {
+            var cookie = HttpContext.Current.Request.Cookies.Get("token") ?? new HttpCookie("token");
+            cookie.Value = value;
+            cookie.Domain = IpHelper.DomainName;
+            HttpContext.Current.Response.Cookies.Add(cookie);
         }
     }
 
@@ -76,9 +94,7 @@ public class BasePage : Page
                 token = HttpContext.Current.Request.Headers.Get("token");
                 if (string.IsNullOrEmpty(token))
                 {
-                    var cookie = Request.Cookies.Get("token");
-                    if (cookie == null) return false;
-                    token = cookie.Value;
+                    token = Token;
                 }
                 if (string.IsNullOrEmpty(token)) return false;
             }

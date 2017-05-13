@@ -63,17 +63,10 @@ public class Login : HttpTaskAsyncHandler, System.Web.SessionState.IReadOnlySess
         }
     }
 
-    private void SetToken(string token, ref ProcessCode process)
+    private static void SetToken(string token, ref ProcessCode process)
     {
-        var cookie = HttpContext.Current.Request.Cookies.Get("token");
-        if (cookie == null)
-            cookie = new HttpCookie("token");
-
-        cookie.Value = token;
-        cookie.Domain = new W88.Utilities.Geo.IpHelper().DomainName;
-        HttpContext.Current.Response.Cookies.Add(cookie);
-        cookie = HttpContext.Current.Request.Cookies.Get("token");
-        process.Code = cookie != null && !string.IsNullOrEmpty(cookie.Value) ? (int)Constants.StatusCode.Success : (int)Constants.StatusCode.Error;
+        BasePage.Token = token;
+        process.Code = !string.IsNullOrEmpty(BasePage.Token) ? (int)Constants.StatusCode.Success : (int)Constants.StatusCode.Error;
         process.Data = process.Code == (int)Constants.StatusCode.Success ? process.Data : null;
     }
     
