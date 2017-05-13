@@ -1,6 +1,5 @@
 ﻿<%@ WebHandler Language="C#" Class="Login" %>
 
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -50,17 +49,14 @@ public class Login : HttpTaskAsyncHandler, System.Web.SessionState.IReadOnlySess
                 {
                     SetToken(token, ref process);
                 }
-                context.Response.ContentType = "application/json";
-                context.Response.Write(Common.SerializeObject(process));
-                context.Response.End();  
                 break;
             default:
                 process.Message = RewardsHelper.GetTranslation(TranslationKeys.Errors.SessionExpired);
-                context.Response.ContentType = "application/json";
-                context.Response.Write(Common.SerializeObject(process));
-                context.Response.End();
                 break;
         }
+        context.Response.ContentType = "application/json";
+        context.Response.Write(Common.SerializeObject(process));
+        context.Response.End();  
     }
 
     private static void SetToken(string token, ref ProcessCode process)
