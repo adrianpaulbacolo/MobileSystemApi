@@ -173,8 +173,10 @@ canvas {
     max-width: 604px;
     max-height: 604px;
     margin: 0 auto;
-    position: relative;
-    top: 40px;
+    position: absolute;
+    top: 59px;
+    left: 0;
+    right: 0;
     -ms-transform-origin: 50% 50%;
     -webkit-transform-origin: 50% 50%;
     -moz-transform-origin: 50% 50%;
@@ -197,11 +199,10 @@ canvas {
     max-width: 240px;
     display: block;
     padding: 12px;
-    margin: 65px auto;
-}
-#spinButton {
-    top: 0;
-    position: relative;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    position: absolute;
 }
 #spinsLeft, #spinButton, #claimButton, #okButton {
     display: none;
@@ -222,8 +223,10 @@ canvas {
     width: 160px;
     height: 90px;
     background-color: #2f2e2e;
-    position: relative;
-    margin: 65px auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
     display: none;
 }
 #nextSpinLabel {
@@ -320,6 +323,9 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
     #roulette, #wheelPointer {
         width: 100%
     }
+    #spinButton, #countdownContainer {
+        top: 380px;
+    }
     #prizes {
         position: absolute;
         top: -115px;
@@ -378,6 +384,9 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
     }
 }
 @media (min-width: 360px) {
+    #spinButton, #countdownContainer {
+        top: 421px;
+    }
     #prizes {
         top: -95px;
         left: -116px;
@@ -425,6 +434,9 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
     }
 }
 @media (min-width: 375px) {
+    #spinButton, #countdownContainer {
+        top: 433px;
+    }
     #prizes {
         top: -87px;
         left: -107px;
@@ -472,6 +484,9 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
     }
 }
 @media (min-width: 384px) {
+    #spinButton, #countdownContainer {
+        top: 437px;
+    }
     #prizes {
         top: -83px;
         left: -104px;
@@ -484,6 +499,9 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
     }
 }
 @media (min-width: 412px) {
+    #spinButton, #countdownContainer {
+        top: 473px;
+    }
     #roulette, #wheelPointer {
         width: 100.5%;
         right: -2px;
@@ -550,6 +568,9 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
     }
 }
 @media (min-width: 480px) {
+    #spinButton, #countdownContainer {
+        top: 545px;
+    }
     #prizes {
         top: -37px;
         left: -56px;
@@ -604,6 +625,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
     }
     #pic {
         left: 137px;
+        top: 10px;
     }
 }
 @media (min-width: 568px) {
@@ -613,6 +635,9 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
     #roulette, #wheelPointer {
         width: 91.8%;
         left: 24px;
+    }
+    #spinButton, #countdownContainer {
+        top: 590px;
     }
     #prizes {
         top: -26px;
@@ -676,6 +701,9 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         top: -12px;
         left: -10px;
     }
+    #spinButton, #countdownContainer {
+        top: 605px;
+    }
     #prizeContainer p {
         top: 131px;
         left: 121px;
@@ -698,8 +726,11 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         width: 96.8%;
         left: 10px;
     }
+    #spinButton, #countdownContainer {
+        top: 675px;
+    }
     #prizes {
-        top: 16px;
+        top: 13px;
         left: 0;
     }
     #prizes p {
@@ -789,7 +820,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         width: 52.8%;
     }
     #disclaimer {
-        top: 755px;
+        top: 782px;
     }
     #pic {
         left: 215px;
@@ -807,7 +838,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         width: 47%;
     }
     #disclaimer {
-        top: 755px;
+        top: 785px
     }
     #pic {
         left: 232px

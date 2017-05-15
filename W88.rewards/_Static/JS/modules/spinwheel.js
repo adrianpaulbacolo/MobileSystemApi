@@ -295,6 +295,7 @@ SW.prototype._dsw_ = function() {
     ri.src = '/_static/Images/Spinwheel/spinwheel2.png';
     ri.onload = function () {
         ctx.drawImage(ri, 0, 0, self.swc.w, self.swc.h);
+        if (_.isEmpty(self.swp)) return;
         imgs[0].src = self.swp[0].is;
         imgs[0].onload = function() {
             // Draw prize 1
@@ -824,14 +825,12 @@ SW.prototype._rdc_ = function (shouldStore) {
     ctx = c.getContext('2d'),
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     $('#prizes').hide();
-    $('#spinButton').hide();
     setTimeout(function () {
         self._gcd_();
         self._gwc_();
         self._dsw_();
         self._dp_();
         $('#prizes').show();
-        $('#spinButton').show();
     }, 500);
     if(shouldStore) 
         amplify.store(self.sk, self.swp);
