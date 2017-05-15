@@ -4,7 +4,7 @@ function Upload() {
     var upload = {};
 
     upload.init = function () {
-        window.w88Mobile.BootstrapValidator.initiateValidator();
+        _w88_validator.initiateValidator();
 
         $('[id$="lblFileUpload"]').text(_w88_contents.translate("LABEL_FILE"));
         $('[id$="lblRemarks"]').text(_w88_contents.translate("LABEL_REMARKS"));
