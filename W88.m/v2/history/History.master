@@ -50,7 +50,7 @@
     <!--#include virtual="~/_static/v2/menu.shtml" -->
     <% } %>
 
-    <!--#include virtual="~/_sStatic/v2/head.inc" -->
+    <!--#include virtual="~/_static/v2/head.inc" -->
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 
     <asp:ContentPlaceHolder ID="ScriptsPlaceHolder" runat="server"></asp:ContentPlaceHolder>
