@@ -7,7 +7,7 @@ function ChangePassword() {
 
     changepassword.init = function (gatewayId) {
 
-        window.w88Mobile.BootstrapValidator.initiateValidator();
+        _w88_validator.initiateValidator();
 
         $('header .header-title').append(_w88_contents.translate("LABEL_CHANGEPASSWORD"));
 
