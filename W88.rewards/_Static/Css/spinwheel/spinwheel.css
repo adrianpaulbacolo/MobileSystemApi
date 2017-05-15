@@ -157,7 +157,7 @@ canvas {
     max-height: 604px;
     height: auto;
     position: absolute;
-    top: 45px;
+    top: 60px;
     bottom: 0;
     right: 0;
 }
@@ -174,7 +174,7 @@ canvas {
     max-height: 604px;
     margin: 0 auto;
     position: relative;
-    top: 5px;
+    top: 40px;
     -ms-transform-origin: 50% 50%;
     -webkit-transform-origin: 50% 50%;
     -moz-transform-origin: 50% 50%;
@@ -194,10 +194,10 @@ canvas {
     text-align: center;
 }
 #spinButton {
-    max-width: 300px;
+    max-width: 240px;
     display: block;
-    padding: 15px;
-    margin: 15px auto;
+    padding: 12px;
+    margin: 65px auto;
 }
 #spinButton {
     top: 0;
@@ -207,8 +207,12 @@ canvas {
     display: none;
 }
 #spinsLeft {
-    padding: 5px;
-    max-height: 29px;
+    max-height: 65px;
+    width: 100%;
+    word-wrap: break-word;
+    overflow: hidden;
+    margin: 0 auto;
+    text-align: center;
 }
 #spinsLeft span {
     font-size: inherit;
@@ -219,7 +223,7 @@ canvas {
     height: 90px;
     background-color: #2f2e2e;
     position: relative;
-    margin: 10px auto;
+    margin: 65px auto;
     display: none;
 }
 #nextSpinLabel {
@@ -370,7 +374,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         width: 90%;
     }
     #disclaimer {
-        top: 455px;
+        top: 485px;
     }
 }
 @media (min-width: 360px) {
@@ -417,7 +421,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         width: 82%;
     }
     #disclaimer {
-        top: 500px;
+        top: 530px;
     }
 }
 @media (min-width: 375px) {
@@ -464,7 +468,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         width: 80%;
     }
     #disclaimer {
-        top: 510px;
+        top: 540px;
     }
 }
 @media (min-width: 384px) {
@@ -477,9 +481,6 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         left: 35px;
         font-size: 14px;
         width: 80%;
-    }
-    #disclaimer {
-        top: 510px;
     }
 }
 @media (min-width: 412px) {
@@ -539,7 +540,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         width: 95%;
     }
     #disclaimer {
-        top: 550px;
+        top: 580px;
     }
 }
 @media (min-width: 414px) {
@@ -590,7 +591,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         left: 173px;
     }
     #disclaimer {
-        top: 635px;
+        top: 665px;
     }
     #prizeContainer img {
         width: 68%;
@@ -664,7 +665,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         width: 52.8%;
     }
     #disclaimer {
-        top: 680px;
+        top: 710px;
     }
     #pic {
         left: 181px;
@@ -748,7 +749,7 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
         width: 52.8%;
     }
     #disclaimer {
-        top: 755px;
+        top: 785px;
     }
     #pic {
         left: 168px;
@@ -768,9 +769,6 @@ div#countdownContainer>div.countdownElement:nth-child(4) {
     }
     #prizeContainer img {
         width: 52.8%;
-    }
-    #disclaimer {
-        top: 755px;
     }
     #pic {
         left: 181px;
