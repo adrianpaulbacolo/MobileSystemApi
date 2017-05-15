@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" MasterPageFile="~/v2/MasterPages/Main.master" AutoEventWireup="true" CodeFile="LiveChat.aspx.cs" Inherits="v2_LiveChat" %>
