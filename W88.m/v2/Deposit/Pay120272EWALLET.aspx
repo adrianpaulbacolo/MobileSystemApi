@@ -42,8 +42,6 @@
                 _w88_baokim.verifyOtp(data, function (response) {
                     switch (response.ResponseCode) {
                         case 1:
-                            window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
-
                             ewalletcb.TransactionId = response.ResponseData.TransactionId;
                             ewalletcb.VendorTransactionId = response.ResponseData.VendorTransactionId;
                             ewalletcb.MerchantId = response.ResponseData.MerchantId;

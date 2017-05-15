@@ -18,8 +18,6 @@ function validator() {
         setDateTime();
         setNumericValidator();
 
-        pubsub.publish("validatorStatus", status.Started);
-
         $($formEl).validator({
             custom: {
                 require: function ($el) {
@@ -31,18 +29,16 @@ function validator() {
                         $el.parent("div").children("span.help-block").remove();
                     }
 
-                    if (!_.isEqual(validatorStatus, status.Started)) {
-                        if (_.isEmpty($el.val())) {
-                            $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("RequiredField") + '</span>');
+                    if (_.isEmpty($el.val())) {
+                        $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("RequiredField") + '</span>');
 
-                            if ($el.parent("div.form-group").length == 0) {
-                                $el.parent("div").addClass('has-error');
-                            }
-                            else {
-                                $el.parent("div.form-group").addClass('has-error');
-                            }
-                            return true;
+                        if ($el.parent("div.form-group").length == 0) {
+                            $el.parent("div").addClass('has-error');
                         }
+                        else {
+                            $el.parent("div.form-group").addClass('has-error');
+                        }
+                        return true;
                     }
                     return false;
                 },
@@ -55,19 +51,18 @@ function validator() {
                         $el.parent("div").children("span.help-block").remove();
                     }
 
-                    if (!_.isEqual(validatorStatus, status.Started)) {
-                        var matchValue = $el.data("selectequals");
-                        if ($el.val() == matchValue) {
-                            $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("RequiredField") + '</span>');
-                            if ($el.parent("div.form-group").length == 0) {
-                                $el.parent("div").addClass('has-error');
-                            }
-                            else {
-                                $el.parent("div.form-group").addClass('has-error');
-                            }
-                            return true;
+                    var matchValue = $el.data("selectequals");
+                    if ($el.val() == matchValue) {
+                        $el.parent("div").append('<span class="help-block">' + _w88_contents.translate("RequiredField") + '</span>');
+                        if ($el.parent("div.form-group").length == 0) {
+                            $el.parent("div").addClass('has-error');
                         }
+                        else {
+                            $el.parent("div.form-group").addClass('has-error');
+                        }
+                        return true;
                     }
+
                     return false;
                 },
                 confirmvalue: function ($el) {
@@ -142,10 +137,6 @@ function validator() {
                     return false;
                 },
             }
-        });
-
-        $($formEl).on('validated.bs.validator', function () {
-            pubsub.publish("validatorStatus", status.Done);
         });
     }
 

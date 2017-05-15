@@ -6,8 +6,7 @@
         <div class="empty-state-icon">
             <i class="icon icon-error"></i>
         </div>
-        <p id="paymentNote">
-        </p>
+        <p class="paymentNote"></p>
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsHolder" runat="Server">
