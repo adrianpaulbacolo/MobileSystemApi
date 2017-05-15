@@ -12,7 +12,7 @@ function BankDetails() {
     return bankdetails;
 
     function init() {
-        _w88_validator.initiateValidator();
+        _w88_validator.initiateValidator("#form1");
 
         $('header .header-title').html(_w88_contents.translate("LABEL_MENU_BANK_DETAILS"));
         $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
