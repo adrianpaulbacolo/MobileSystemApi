@@ -1,11 +1,10 @@
 ﻿var siteCookie = new Cookies();
 
 function Cookies() {
-    var setCookie = function (cname, cvalue, expiryDays, domain) {
+    var setCookie = function (cname, cvalue, expiryDays) {
         var site = "";
-        if (domain != undefined) {
-            site = "domain=" + domain + ";";
-        }
+        var domain = "." + location.hostname.split('.').slice(-2).join('.');
+        site = "domain=" + domain + ";";
         var date = new Date();
         date.setTime(date.getTime() + (expiryDays * 24 * 60 * 60 * 1000));
         var expires = "expires=" + date.toUTCString() + ";";

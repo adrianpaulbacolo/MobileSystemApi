@@ -57,9 +57,11 @@ function launcherCtrl(routeObj, slotSvc, templateSvc) {
 
     this.attachGame = function (game, newWindow)
     {
+        var _self = this;
+        var provider = (_self.game.providers.length > 0) ? _.toLower(_.first(_self.game.providers)) : "";
         if (newWindow == true) {
             try {
-                Native.onSlotGameOpened();
+                Native.onSlotGameOpened(provider, _self.game.Id);
             } catch (e) {
                 console.log(e.message)
             }
@@ -67,7 +69,6 @@ function launcherCtrl(routeObj, slotSvc, templateSvc) {
             routeObj.previous();
             return;
         }
-        var _self = this;
         var content = _.template(_templates.GameLauncher);
         var gameDiv = content({
             game: game
@@ -76,7 +77,7 @@ function launcherCtrl(routeObj, slotSvc, templateSvc) {
         _self.page.find(".main-content").append(gameDiv);
         _self.page.find(".iframe-launcher").on("load", function (e) {
             try {
-                Native.onSlotGameOpened();
+                Native.onSlotGameOpened(provider, _self.game.Id);
             } catch (e) {
                 console.log(e.message)
             }
