@@ -221,3 +221,21 @@ select.form-control{
       font-weight: 700;
   }
 }
+.payment-info{
+  margin-bottom: 30px;
+}
+@media (max-width: 320px){
+  .payment-info{
+    p{
+      font-size: 0.750rem;
+    }
+  }
+}
+
+@media (max-width: 470px){
+  .payment-info{
+    .payment-label{
+      font-size: 0.750rem;
+    }
+  }
+}

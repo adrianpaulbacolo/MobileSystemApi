@@ -202,6 +202,9 @@
                 });
             });
 
+            var redirectUrl = '<%=strRedirect%>';
+            var isSlotRedirect = _.toLower('<%=isSlotRedirect %>') == 'true';
+
             function initiateLogin() {
                 var udata = { Username: $('#txtUsername').val(), Password: $('#txtPassword').val(), Captcha: $('#txtCaptcha').val(), ioBlackBox: $('#ioBlackBox').val() };
                 $.ajax({
@@ -259,13 +262,16 @@
                                     if (xml.Code == "resetPassword")
                                         window.location.replace('/Settings/ChangePassword.aspx?lang=<%=commonVariables.SelectedLanguage.ToLower()%>');
                                     else {
-                                        if ('<%=strRedirect%>' !== '') {
-                                            switch ('<%=strRedirect%>') {
+                                        if (redirectUrl !== '') {
+                                            switch (redirectUrl) {
                                             case 'mlotto':
                                                 window.location.replace('<%=commonLottery.getKenoUrl%>');
                                                 break;
-                                            default:
-                                                window.location.replace('<%=strRedirect%>');
+                                                default:
+                                                    if(isSlotRedirect){
+                                                        redirectUrl += "&s=" + window.User.token;
+                                                    }
+                                                    window.location.replace(redirectUrl);
                                                 break;
                                             }
                                         }

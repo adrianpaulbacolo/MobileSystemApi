@@ -71,6 +71,12 @@ public class BasePage : System.Web.UI.Page
             commonCookie.CookieIsApp = (strIsApp == "1") ? strIsApp : null;
         }
 
+        var strIsNative = HttpContext.Current.Request.QueryString.Get("isNative");
+        if (!string.IsNullOrEmpty(strIsNative))
+        {
+            commonCookie.CookieIsNative = (strIsNative == "1") ? strIsNative : null;
+        }
+
         commonCookie.CookieSubPlatform(HttpContext.Current.Request.QueryString.Get("spfid"));
 
         var strLanguage = HttpContext.Current.Request.QueryString.Get("lang");
@@ -447,8 +453,7 @@ public class BasePage : System.Web.UI.Page
 
     protected void CheckAgentAndRedirect(string url)
     {
-        var userAgent = Request.UserAgent.ToString();
-        if (userAgent.ToLower().Contains("clubw"))
+        if (commonFunctions.isExternalPlatform())
         {
             Response.Redirect(url);
         }

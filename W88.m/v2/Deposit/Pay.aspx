@@ -6,11 +6,10 @@
 <head runat="server">
     <title></title>
     <!--#include virtual="~/_static/head.inc" -->
-    <%--<script type="text/javascript" src="/_Static/JS/PreLoad.js"></script>--%>
-    <script src="/_static/v2/assets/js/vendor/pubsub.js"></script>
-    <script type="text/javascript" src="/_static/v2/assets/js/gateways/defaultpayments.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-    <script type="text/javascript" src="/_static/v2/assets/js/gateways/gateway.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-    <script type="text/javascript" src="/_static/v2/assets/js/gateways/<%=base.GatewayFile %>.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/pubsub.js"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/gateways/defaultpayments.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/gateways/gateway.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/gateways/<%=base.GatewayFile %>.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 </head>
 <body>
     <form id="form1" runat="server">

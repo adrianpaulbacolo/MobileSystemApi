@@ -12,22 +12,11 @@ function AlipayV2() {
     }
 
     alipay.init = function (gatewayId) {
+        $('[id$="lblSwitchLine"]').text(_w88_contents.translate("LABEL_SWITCH_LINE"));
 
-        setTranslations();
-
-        function setTranslations() {
-            if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
-                $('[id$="lblSwitchLine"]').text(_w88_contents.translate("LABEL_SWITCH_LINE"));
-
-                $(".pay-note").show();
-                $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-                $("#paymentNoteContent").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_ALIPAY"));
-            } else {
-                window.setInterval(function () {
-                    setTranslations();
-                }, 500);
-            }
-        }
+        $(".pay-note").show();
+        $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+        $("#paymentNoteContent").html(_w88_contents.translate("LABEL_PAYMENT_NOTE_ALIPAY"));
     };
 
     alipay.createDeposit = function () {

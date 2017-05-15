@@ -14,7 +14,7 @@
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/lodash.min.js"></script>
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/amplify.min.js"></script>
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/pubsub.js"></script>
-<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/fingerprint2.min.js"></script>  
+<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/fingerprint2.min.js"></script>
 
 
 <!-- Include all related variables (below), or include individual files as needed -->
@@ -61,8 +61,7 @@
     $(function () {
       if (_.isEmpty(siteCookie.getCookie("fingerprint"))) {
           new Fingerprint2().get(function (result, components) {
-              var domain = "." + location.hostname.split('.').slice(-2).join('.');
-              siteCookie.setCookie("fingerprint", result, 5, domain);
+              siteCookie.setCookie("fingerprint", result, 5);
           });
       } else {
           var deviceObj = {
@@ -72,15 +71,6 @@
           , scope: "visit"
           }
           w88Mobile.PiwikManager.setDeviceId(deviceObj);
-      }
-
-      if (siteCookie.getCookie("CDNCountryCode") == "VN") {
-          (function(w,d,s,l,i){
-              w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-              var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-              j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-              f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-W854N4G');
       }
     });
 </script>
@@ -113,5 +103,6 @@
     w88Mobile.Loader.init();
 </script>
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/interceptor.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
-<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/products.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/products.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>    
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/modules/menu.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/gateways/postForm.js?v="<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>

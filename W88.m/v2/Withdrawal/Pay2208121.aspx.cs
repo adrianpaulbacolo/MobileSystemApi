@@ -1,6 +1,6 @@
 ﻿using System;
 
-public partial class v2_Withdrawal_Pay2208121 : PaymentBasePage
+public partial class v2_Withdrawal_Pay2208121 : FundsBasePage
 {
     protected void Page_Init(object sender, EventArgs e)
     {

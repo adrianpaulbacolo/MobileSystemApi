@@ -19,7 +19,6 @@ function DefaultPaymentsV2() {
         formatDateTime: formatDateTime,
         init: init,
         payRoute: "/v2/Deposit/Pay.aspx",
-        CreateWithdraw: createWithdraw
     };
 
     var paymentCache = {};
@@ -50,7 +49,6 @@ function DefaultPaymentsV2() {
 
     function displaySettings(methodId, options) {
         paymentOptions = options;
-        initiateValidator(methodId);
         fetchSettings(paymentOptions.type, function () {
             if (!_.isEmpty(paymentCache)) {
                 var setting = _.find(paymentCache.settings, function (data) {
@@ -70,31 +68,27 @@ function DefaultPaymentsV2() {
                 }
 
                 setTranslations(paymentOptions.type);
+
+                _w88_validator.initiateValidator("#form1", setting);
             }
         });
+
     }
 
     function setTranslations(paymentOptions) {
-        if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
-            $('label[id$="lblAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
+        $('label[id$="lblAmount"]').text(_w88_contents.translate("LABEL_AMOUNT"));
 
-            var headerTitle = paymentOptions == "Deposit" ? _w88_contents.translate("LABEL_FUNDS_DEPOSIT") : _w88_contents.translate("LABEL_FUNDS_WIDRAW");
-            $("header .header-title").text(headerTitle);
-            $('span[id$="lblMode"]').text(_w88_contents.translate("LABEL_MODE"));
-            $('span[id$="lblMinMaxLimit"]').text(_w88_contents.translate("LABEL_MINMAX_LIMIT"));
-            $('span[id$="lblDailyLimit"]').text(_w88_contents.translate("LABEL_DAILY_LIMIT"));
-            $('span[id$="lblTotalAllowed"]').text(_w88_contents.translate("LABEL_TOTAL_ALLOWED"));
+        var headerTitle = paymentOptions == "Deposit" ? _w88_contents.translate("LABEL_FUNDS_DEPOSIT") : _w88_contents.translate("LABEL_FUNDS_WIDRAW");
+        $("header .header-title").text(headerTitle);
+        $('span[id$="lblMode"]').text(_w88_contents.translate("LABEL_MODE"));
+        $('span[id$="lblMinMaxLimit"]').text(_w88_contents.translate("LABEL_MINMAX_LIMIT"));
+        $('span[id$="lblDailyLimit"]').text(_w88_contents.translate("LABEL_DAILY_LIMIT"));
+        $('span[id$="lblTotalAllowed"]').text(_w88_contents.translate("LABEL_TOTAL_ALLOWED"));
 
-            $('#btnSubmitPlacement').text(_w88_contents.translate("BUTTON_SUBMIT"));
-
-        } else {
-            window.setInterval(function () {
-                setTranslations(paymentOptions);
-            }, 500);
-        }
+        $('#btnSubmitPlacement').text(_w88_contents.translate("BUTTON_SUBMIT"));
     }
 
-    function setPaymentTabs(type, activeMethodId) {
+    function setPaymentTabs(type, activeMethodId, method) {
         if (type.toLowerCase() == "deposit") {
             fetchSettings(type, function () {
                 if (paymentCache.settings.length == 0) {
@@ -109,7 +103,7 @@ function DefaultPaymentsV2() {
                 }
                 else {
                     // payment cache variable is now present once callback is triggered
-                    setDepositPaymentTab(paymentCache.settings, activeMethodId);
+                    setDepositPaymentTab(paymentCache.settings, activeMethodId, method);
                 }
             });
         } else {
@@ -204,7 +198,7 @@ function DefaultPaymentsV2() {
                 console.log("Error connecting to api");
             },
             complete: function () {
-                if (!_.isUndefined(complete)) complete();
+                if (_.isFunction(complete)) complete();
                 pubsub.publish('stopLoadItem', { selector: selector });
             }
         });
@@ -319,7 +313,7 @@ function DefaultPaymentsV2() {
         });
     }
 
-    function setDepositPaymentTab(responseData, activeTabId) {
+    function setDepositPaymentTab(responseData, activeTabId, method) {
         if (responseData.length > 0) {
             var routing = [
                 autorouteIds.QuickOnline,
@@ -331,13 +325,21 @@ function DefaultPaymentsV2() {
 
             var isAutoRoute = false, title = "", page = null, deposit = "/v2/Deposit/";
 
+            if (_.isEmpty(method))
+                method = "";
+
+            activeTabId = activeTabId + method;
+
             for (var i = 0; i < responseData.length; i++) {
                 var data = responseData[i];
 
-                if (data.Method)
+                data.Method = _.isEmpty(data.Method) ? "" : data.Method;
+                data.Id = data.Id + data.Method;
+
+                if (_.isEmpty(data.Method) && _.isEqual(data.Name, "Baokim"))
                     continue;
 
-                page = setPaymentPage(data.Id);
+                page = setPaymentPage(data.Id, data.Method);
 
                 if (page)
                     page = deposit + page;
@@ -345,15 +347,20 @@ function DefaultPaymentsV2() {
                     continue;
 
                 if (activeTabId) {
-                    if (_.isEqual(data.Id, activeTabId))
-                        title = data.Title;
+                    if (!_.isEmpty(data.Method) && _.isEqual(data.Name, "Baokim")) {
+                        if (_.isEqual(data.Id, activeTabId) && _.isEqual(data.Method, method)) {
+                            title = data.Title;
+                        }
+                    } else {
+                        if (_.isEqual(data.Id, activeTabId))
+                            title = data.Title;
+                    }
 
                     var anchor = $('<a />', { class: 'list-group-item', id: data.Id, href: page }).text(data.Title);
 
                     if ($('#paymentTabs').length > 0)
                         $('#paymentTabs').append(anchor);
 
-                    $('#' + activeTabId).addClass('active');
                 }
             }
 
@@ -361,6 +368,8 @@ function DefaultPaymentsV2() {
                 if (title) {
                     if ($('#activeTab').length > 0)
                         $('#activeTab').text(title);
+
+                    $('#' + activeTabId).addClass('active');
 
                     $('header .header-title').append(' - ' + title);
                 } else {
@@ -455,31 +464,9 @@ function DefaultPaymentsV2() {
     }
 
     function setPaymentPage(id) {
-        if (_.isEmpty(id)) return "";
+        if (_.isEmpty(id))
+            return "";
+
         return "Pay" + id + ".aspx";
     }
-
-    function createWithdraw(data, methodId) {
-        send("/payments/" + methodId, "POST", data, function (response) {
-            switch (response.ResponseCode) {
-                case 1:
-                    w88Mobile.Growl.shout("<p>" + response.ResponseMessage + "</p> <p>" + _w88_contents.translate("LABEL_TRANSACTION_ID") + ": " + response.ResponseData.TransactionId + "</p>", function () {
-                        window.location = "/v2/Withdrawal/";
-                    });
-
-                    break;
-                default:
-                    if (_.isArray(response.ResponseMessage))
-                        w88Mobile.Growl.shout(w88Mobile.Growl.bulletedList(response.ResponseMessage));
-                    else
-                        w88Mobile.Growl.shout(response.ResponseMessage);
-
-                    break;
-            }
-        },
-            function () {
-                pubsub.publish('stopLoadItem', { selector: "" });
-            });
-    }
-
 }
