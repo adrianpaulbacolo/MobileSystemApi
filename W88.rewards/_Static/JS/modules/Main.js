@@ -180,20 +180,9 @@ function toggleButtons() {
         window.user && window.user.hasSession() ? (loginFooterButton.hide(), logoutFooterButton.show())
         : (logoutFooterButton.hide(), loginFooterButton.show());
     if (submitButton)
-        window.user && window.user.hasSession() ? $("#btnSubmit").hide() : $("#btnSubmit").show();
-        }
-
-        if (spinWheelLinkButton) 
-            spinWheelLinkButton.show();
-        
-        if (submitButton) 
-            $('#btnSubmit').hide();      
-        if (headerLoginButton && headerLogoutButton) {
-            headerLogoutButton.hide();
-            headerLoginButton.show();
-        }
-        if (loginFooterButton && logoutFooterButton) {
-            spinWheelLinkButton.hide();
+        window.user && window.user.hasSession() ? $("#btnSubmit").hide() : $("#btnSubmit").show();     
+    if (spinWheelLinkButton) 
+        window.user && window.user.hasSession() ? spinWheelLinkButton.show() : spinWheelLinkButton.hide();
 }
 
 // toggle full screen

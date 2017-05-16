@@ -104,7 +104,7 @@ public class BasePage : Page
     
     public static string Token 
     {
-    	get
+        get
         { 
             var cookie = HttpContext.Current.Request.Cookies.Get("token");
             return cookie == null ? string.Empty : cookie.Value;
