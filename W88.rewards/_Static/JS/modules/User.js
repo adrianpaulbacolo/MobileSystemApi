@@ -27,9 +27,9 @@ User.prototype.save = function () {
     var user = self.convertToJsonString();
     try {
         window.localStorage.setItem('user', user);
-    } catch (e) { }
-    if (_.isEmpty(window.localStorage.getItem('user')))
+    } catch (e) {
         Cookies().setCookie('user', user, 30);
+    }
 };
 
 User.prototype.hasSession = function () {
