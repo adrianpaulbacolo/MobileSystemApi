@@ -105,21 +105,21 @@
 			top: 0;
 			left: 0;
 			position: absolute;
-			display: none;
+			visibility: hidden;
+			opacity: 0;
+			@include transition(linear all 300ms);
 		}
-		&:focus ,
-		&:hover {
+		&:focus >,
+		&:hover > {
 			.title{
 				color: $brand-primary;
 			}
-			> img,
-			> img{
+			img{
 				opacity: 0.3;
 			}
-			> .nav-category-btns,
-			> .nav-category-btns{
-				display: block;
-
+			.nav-category-btns{
+				visibility: visible;
+				opacity: 1;
 			}
 		}
 	}
