@@ -1,9 +1,7 @@
 ﻿using System;
 
-
-public partial class v2_Withdrawal_Pay220815 : PaymentBasePage
+public partial class v2_Withdrawal_Pay220815 : FundsBasePage
 {
-
     protected void Page_Init(object sender, EventArgs e)
     {
         base.PageName = Convert.ToString(commonVariables.WithdrawalMethod.Neteller);

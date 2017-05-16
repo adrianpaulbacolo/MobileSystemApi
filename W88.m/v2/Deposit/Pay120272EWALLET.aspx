@@ -7,15 +7,15 @@
     </div>
     <div class="form-group">
         <asp:Label ID="lblEmail" runat="server" AssociatedControlID="txtEmail" />
-        <asp:TextBox ID="txtEmail" runat="server" type="email" CssClass="form-control" required />
+        <asp:TextBox ID="txtEmail" runat="server" type="email" CssClass="form-control" required data-require="" />
     </div>
-    <div class="form-group otp">
+    <div class="form-group otp" hidden>
         <asp:Label ID="lblOtp" runat="server" AssociatedControlID="txtOtp" />
-        <asp:TextBox ID="txtOtp" runat="server" CssClass="form-control"/>
+        <asp:TextBox ID="txtOtp" runat="server" CssClass="form-control" />
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsHolder" runat="Server">
-    <script type="text/javascript" src="/_static/v2/assets/js/gateways/baokim.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
+    <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/gateways/baokim.js?v=<%=ConfigurationManager.AppSettings.Get("scriptVersion") %>"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -24,13 +24,13 @@
             _w88_paymentSvcV2.setPaymentTabs("<%=base.PaymentType %>", "<%=base.PaymentMethodId %>", method);
             _w88_paymentSvcV2.DisplaySettings("<%=base.PaymentMethodId %>", { type: "<%=base.PaymentType %>" });
 
-            window.w88Mobile.Gateways.BaokimV2.init(method);
+            _w88_baokim.initEWALLET("<%=base.PaymentMethodId%>", method);
 
             var ewalletcb = {};
 
-            if (!_.isEqual(window.w88Mobile.Gateways.BaokimV2.method, method)) {
+            if (!_.isEqual(_w88_baokim.method, method)) {
                 var data = {
-                    Method: window.w88Mobile.Gateways.BaokimV2.method,
+                    Method: _w88_baokim.method,
                     Amount: $('input[id$="txtAmount"]').autoNumeric('get'),
                     Email: $('input[id$="txtEmail"]').val(),
                     Phone: getQueryStringValue("phone_no"),
@@ -39,11 +39,9 @@
                     CheckSum: getQueryStringValue("checksum"),
                 };
 
-                window.w88Mobile.Gateways.BaokimV2.verifyOtp(data, function (response) {
+                _w88_baokim.verifyOtp(data, function (response) {
                     switch (response.ResponseCode) {
                         case 1:
-                            window.w88Mobile.FormValidator.enableSubmitButton('#btnSubmit');
-
                             ewalletcb.TransactionId = response.ResponseData.TransactionId;
                             ewalletcb.VendorTransactionId = response.ResponseData.VendorTransactionId;
                             ewalletcb.MerchantId = response.ResponseData.MerchantId;
@@ -56,35 +54,31 @@
             }
 
             $('#form1').validator().on('submit', function (e) {
-
                 if (!e.isDefaultPrevented()) {
                     e.preventDefault();
 
-                    if (!_.isEqual(window.w88Mobile.Gateways.BaokimV2.method, method)) {
+                    if (!_.isEqual(_w88_baokim.method, method)) {
                         var walletData = {
                             MerchantId: ewalletcb.MerchantId,
                             VendorTransactionId: ewalletcb.VendorTransactionId,
                             Otp: $('input[id$="txtOtp"]').val()
                         };
 
-                        window.w88Mobile.Gateways.BaokimV2.validateWallet(walletData, ewalletcb.TransactionId);
+                        _w88_baokim.validateWallet(walletData, ewalletcb.TransactionId);
                     }
                     else {
                         var data = {
-                            Method: window.w88Mobile.Gateways.BaokimV2.method,
+                            Method: _w88_baokim.method,
                             Amount: $('input[id$="txtAmount"]').autoNumeric('get'),
                             Email: $('input[id$="txtEmail"]').val(),
                             MethodId: "<%=base.PaymentMethodId%>",
                             ThankYouPage: location.protocol + "//" + location.host + "/v2/Deposit/Pay120272EWALLET.aspx?requestAmount=" + $('input[id$="txtAmount"]').autoNumeric('get'),
                         };
 
-                        window.w88Mobile.Gateways.BaokimV2.createWalletDeposit("<%=base.PaymentMethodId%>", data);
+                        _w88_baokim.createWalletDeposit(data);
                     }
                 }
             });
-
         });
-
     </script>
 </asp:Content>
-

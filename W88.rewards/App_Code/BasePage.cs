@@ -10,7 +10,6 @@ using W88.BusinessLogic.Shared.Helpers;
 using W88.Utilities;
 using W88.Utilities.Geo;
 
-
 public class BasePage : Page
 {
     protected bool HasSession = false;
@@ -21,8 +20,54 @@ public class BasePage : Page
     protected RewardsHelper RewardsHelper = new RewardsHelper();
     protected string Language = string.Empty;
     protected static readonly IpHelper IpHelper = new IpHelper();
-
+    
     #region Page Properties
+    protected string ContentLanguage
+    {
+        get
+        { 
+            if (!IsDebugMode)
+            {
+                return new RewardsHelper(Language).ContentLanguage;
+            }
+
+            switch (CountryCode)
+            {
+                case "my":
+                    switch (Language)
+                    {
+                        case "en-us":
+                            return "en-my";
+                        case "zh-cn":
+                            return "zh-my";
+                    }
+                    return Language;
+                default:
+                    return Language;
+            }
+        }
+    }
+
+    public static string CountryCode
+    {
+        get
+        {
+            var debugCountryCode = Common.GetAppSetting<string>("debugCountryCode");
+            if (IsDebugMode && !string.IsNullOrEmpty(debugCountryCode)) return debugCountryCode.Trim().ToLower();
+            return RewardsHelper.CountryCode.ToLower();
+    	}
+    }
+
+    public static bool IsDebugMode
+    {
+	    get
+	    {
+            bool isDebugMode;
+            Boolean.TryParse(Common.GetAppSetting<string>("isDebugMode"), out isDebugMode);
+            return isDebugMode;
+        }
+    }
+
     protected bool IsUnderMaintenance
     {
         get
@@ -59,7 +104,7 @@ public class BasePage : Page
     
     public static string Token 
     {
-        get 
+    	get
         { 
             var cookie = HttpContext.Current.Request.Cookies.Get("token");
             return cookie == null ? string.Empty : cookie.Value;
@@ -68,16 +113,16 @@ public class BasePage : Page
         {
             var cookie = HttpContext.Current.Request.Cookies.Get("token") ?? new HttpCookie("token");
             cookie.Value = value;
-            cookie.Domain = IpHelper.DomainName;
+            if (!string.IsNullOrEmpty(IpHelper.DomainName)) { cookie.Domain = IpHelper.DomainName; }
             HttpContext.Current.Response.Cookies.Add(cookie);
-        }
+        }   
     }
     #endregion
 
     #region Page Methods
     protected override async void OnPreInit(EventArgs e)
     {
-        base.OnPreInit(e);
+        base.OnPreInit(e);        
 
         var language = HttpContext.Current.Request.QueryString.Get("lang");
         Language = !string.IsNullOrEmpty(language) ? language : LanguageHelpers.SelectedLanguage;
@@ -85,7 +130,7 @@ public class BasePage : Page
         if (!IsUnderMaintenance)
         {
             return;
-        }
+       	}
         // Check if site is under maintenance and allow only certain users to have access
         var isAllowedAccess = false;
         var allowedUsers = Common.GetAppSetting<string>("allowedUsers");

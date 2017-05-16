@@ -16,10 +16,15 @@
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/pubsub.js"></script>
 <script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/fingerprint2.min.js"></script>
 
+<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/jquery.i18n.min.js"></script>
+<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/jquery.i18n.messagestore.min.js"></script>
+<script src="<%=ConfigurationManager.AppSettings.Get("AssetsPath") %>/assets/js/vendor/jquery.i18n.fallbacks.min.js"></script>
+
 
 <!-- Include all related variables (below), or include individual files as needed -->
 <script type="text/javascript">
     var siteCookie = new Cookies();
+    $.i18n.debug = true;
 
     _.templateSettings = {
     interpolate: /\{\{(.+?)\}\}/g,      // print value: {{ value_name }}
@@ -61,8 +66,7 @@
     $(function () {
       if (_.isEmpty(siteCookie.getCookie("fingerprint"))) {
           new Fingerprint2().get(function (result, components) {
-              var domain = "." + location.hostname.split('.').slice(-2).join('.');
-              siteCookie.setCookie("fingerprint", result, 5, domain);
+              siteCookie.setCookie("fingerprint", result, 5);
           });
       } else {
           var deviceObj = {

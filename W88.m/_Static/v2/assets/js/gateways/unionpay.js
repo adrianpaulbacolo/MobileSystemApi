@@ -12,26 +12,14 @@ function UnionPay() {
     }
 
     unionpay.init = function (gatewayId) {
+        $(".pay-note").show();
+        $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
 
-        setTranslations();
-        function setTranslations() {
-            if (_w88_contents.translate("LABEL_PAYMENT_NOTE") != "LABEL_PAYMENT_NOTE") {
-
-                $(".pay-note").show();
-                $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
-
-                if (!_.isUndefined(gatewayId)) {
-                    if (gatewayId == "120223") {
-                        $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_120223")); //SD pay
-                        $("#securePayAndroid").html(_w88_contents.translate("LABEL_ANDROID_DOWNLOAD_SECURE_PAY"));
-                        $("#securePayiOS").html(_w88_contents.translate("LABEL_IOS_DOWNLOAD_SECURE_PAY"));
-                    }
-                }
-
-            } else {
-                window.setInterval(function () {
-                    setTranslations();
-                }, 500);
+        if (!_.isUndefined(gatewayId)) {
+            if (gatewayId == "120223") {
+                $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_120223")); //SD pay
+                $("#securePayAndroid").html(_w88_contents.translate("LABEL_ANDROID_DOWNLOAD_SECURE_PAY"));
+                $("#securePayiOS").html(_w88_contents.translate("LABEL_IOS_DOWNLOAD_SECURE_PAY"));
             }
         }
     };
@@ -50,7 +38,7 @@ function UnionPay() {
             switch (response.ResponseCode) {
                 case 1:
                     if (response.ResponseData.VendorRedirectionUrl) {
-                        window.open(response.ResponseData.VendorRedirectionUrl, '_blank');
+                        window.open(response.ResponseData.VendorRedirectionUrl);
                     } else {
                         if (response.ResponseData.PostUrl) {
                             w88Mobile.PostPaymentForm.createv2(response.ResponseData.FormData, response.ResponseData.PostUrl, "body");

@@ -1,21 +1,24 @@
 ﻿using System;
 
-public partial class v2_Deposit_Pay : PaymentBasePage
+public partial class v2_Deposit_Pay : FundsBasePage
 {
     public string GatewayFile;
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        var isAutoRoute = false;
+        var methodId = Convert.ToInt32(Request.QueryString["MethodId"]);
+        if (methodId < 0)
+            return;
 
-        if (Request.QueryString["AutoRoute"] != null)
+        if (Enum.IsDefined(typeof(commonVariables.AutoRouteMethod), methodId))
+            methodId = (int)Enum.Parse(typeof(commonVariables.AutoRouteMethod), methodId.ToString());
+        else
         {
-            isAutoRoute = Boolean.TryParse(Request.QueryString["AutoRoute"], out isAutoRoute);
+            if (Enum.IsDefined(typeof(commonVariables.DepositMethod), methodId))
+                methodId = (int)Enum.Parse(typeof(commonVariables.DepositMethod), methodId.ToString());
+            else
+                return;
         }
-
-        var methodId = (isAutoRoute)
-             ? (int)Enum.Parse(typeof(commonVariables.AutoRouteMethod), Request.QueryString["MethodId"])
-             : (int)Enum.Parse(typeof(commonVariables.DepositMethod), Request.QueryString["MethodId"]);
 
         switch (methodId)
         {
@@ -38,15 +41,8 @@ public partial class v2_Deposit_Pay : PaymentBasePage
                 break;
 
             case (int)commonVariables.DepositMethod.BaokimScratchCard:
-                GatewayFile = "baokimscratchcard";
-                break;
-            
             case (int)commonVariables.DepositMethod.DinPayTopUp:
-                GatewayFile = "dinpaytopup";
-                break;
-
-            case (int)commonVariables.DepositMethod.IWallet:
-                GatewayFile = "iwallet";
+                GatewayFile = "topup";
                 break;
 
             case (int)commonVariables.DepositMethod.Neteller:
@@ -75,7 +71,6 @@ public partial class v2_Deposit_Pay : PaymentBasePage
                 GatewayFile = "alipaytransfer";
                 break;
 
-            case (int)commonVariables.DepositMethod.Cubits:
                 GatewayFile = "cubits";
                 break;
 
@@ -83,7 +78,6 @@ public partial class v2_Deposit_Pay : PaymentBasePage
             case (int)commonVariables.DepositMethod.NineVPayAlipay:
             case (int)commonVariables.DepositMethod.JuyPayAlipay:
             case (int)commonVariables.DepositMethod.JTPayAliPay:
-            case (int)commonVariables.DepositMethod.JutaPay:
             case (int)commonVariables.DepositMethod.ShengPayAliPay:
             case (int)commonVariables.DepositMethod.AifuAlipay:
             case (int)commonVariables.DepositMethod.AllDebitAlipay:
@@ -98,11 +92,14 @@ public partial class v2_Deposit_Pay : PaymentBasePage
             case (int)commonVariables.DepositMethod.AifuWeChat:
             case (int)commonVariables.DepositMethod.AloGatewayWeChat:
             case (int)commonVariables.DepositMethod.AllDebitWeChat:
+            case (int)commonVariables.DepositMethod.HebaoWeChat:
                 GatewayFile = "wechat";
                 break;
 
             case (int)commonVariables.AutoRouteMethod.QuickOnline:
+            case (int)commonVariables.DepositMethod.IWallet:
             case (int)commonVariables.DepositMethod.NextPay:
+            case (int)commonVariables.DepositMethod.Cubits:
             case (int)commonVariables.DepositMethod.BofoPay:
             case (int)commonVariables.DepositMethod.NganLuong:
             case (int)commonVariables.DepositMethod.Help2Pay:
@@ -110,7 +107,9 @@ public partial class v2_Deposit_Pay : PaymentBasePage
             case (int)commonVariables.DepositMethod.EGHL:
             case (int)commonVariables.DepositMethod.NextPayGV:
             case (int)commonVariables.DepositMethod.PayTrust:
+            case (int)commonVariables.DepositMethod.JutaPay:
             case (int)commonVariables.DepositMethod.AllDebitB2C:
+            case (int)commonVariables.DepositMethod.HebaoB2C:
                 GatewayFile = "quickonline";
                 break;
 

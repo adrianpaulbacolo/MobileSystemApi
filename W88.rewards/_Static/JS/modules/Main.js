@@ -42,7 +42,8 @@ $(window).load(function () {
 });
 
 $(document).on('pagecontainerbeforeshow', function (event, ui) {
-    toggleLoginButton();
+    toggleButtons();
+
     var baseUri = [event.target.baseURI];
     if (_.some(baseUri, _.method('match', /Login/i))) {
         if (window.user && window.user.Token) {
@@ -163,7 +164,7 @@ function setUser() {
     window.user = _.isEmpty(storedObject) ? new User() : (new User()).createUser(storedObject);
 }
 
-function toggleLoginButton() {
+function toggleButtons() {
     var headerLoginButton = $('div.dropdown ul>li#headerLoginButton'),
         headerLogoutButton = $('div.dropdown ul>li#headerLogoutButton'),
         loginFooterButton = $('div.btn-group a#loginFooterButton'),
@@ -171,14 +172,15 @@ function toggleLoginButton() {
         spinWheelLinkButton = $('div.dropdown ul>li#spinWheelLink'),
         submitButton = $('#btnSubmit');
 
-    if (window.user && window.user.hasSession()) {
-        if (headerLoginButton && headerLogoutButton) {
-            headerLoginButton.hide();
-            headerLogoutButton.show();
-        }
-        if (loginFooterButton && logoutFooterButton) {
-            loginFooterButton.hide();
-            logoutFooterButton.show();
+    setUser();
+    if (headerLoginButton && headerLogoutButton)
+        window.user && window.user.hasSession() ? (headerLoginButton.hide(), headerLogoutButton.show())
+        : (headerLogoutButton.hide(), headerLoginButton.show());
+    if (loginFooterButton && logoutFooterButton)
+        window.user && window.user.hasSession() ? (loginFooterButton.hide(), logoutFooterButton.show())
+        : (logoutFooterButton.hide(), loginFooterButton.show());
+    if (submitButton)
+        window.user && window.user.hasSession() ? $("#btnSubmit").hide() : $("#btnSubmit").show();
         }
 
         if (spinWheelLinkButton) 
@@ -186,21 +188,12 @@ function toggleLoginButton() {
         
         if (submitButton) 
             $('#btnSubmit').hide();      
-    } else {
         if (headerLoginButton && headerLogoutButton) {
             headerLogoutButton.hide();
             headerLoginButton.show();
         }
         if (loginFooterButton && logoutFooterButton) {
-            logoutFooterButton.hide();
-            loginFooterButton.show();
-        }
-        if (spinWheelLinkButton)
             spinWheelLinkButton.hide();
-        
-        if (submitButton) 
-            $('#btnSubmit').show();     
-    }
 }
 
 // toggle full screen
