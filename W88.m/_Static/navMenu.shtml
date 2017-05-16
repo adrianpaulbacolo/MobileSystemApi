@@ -413,6 +413,18 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <div class="title menuKenoTitle"></div>
                     </a>
                 </li>
+                <li>
+                    <div class="card">
+                        <img src="#" class="img-responsive keno">
+                        <div class="title menuKenoTitle"></div>
+                        <div class="card-hover">
+                            <div class="card-hover-btns">
+                                <a href="#" class="ui-btn btn-primary">PLAY NOW <span class="icon-arrow-right"></span></a>
+                                <a href="#" class="ui-btn btn-secondary">TRY NOW <span class="icon-arrow-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </li>
         <!-- Poker -->
