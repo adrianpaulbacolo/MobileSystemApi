@@ -337,11 +337,11 @@ var fishingWorld = FishingWorldProduct.GetLink();
                         <!-- Sample -->
                         <div class="col-xs-6">
                             <div>
-                                <img src="/_Static/Images/bnr_lottery.jpg" alt="">
-                                <span class="title">Keno</span>
+                                <img class="img_lottery_pk10" alt="">
+                                <span class="title title_pk10">Keno</span>
                                 <div class="nav-category-btns">
-                                    <a href="#" class="btn btn-block btn-sm btn-primary">Play Now</a>
-                                    <a href="#" class="btn btn-block btn-sm btn-gray">Try Now</a>
+                                    <a href="<%=commonLottery.getPK10Url(true)%>" class="btn btn-block btn-sm btn-primary play-pk"></a>
+                                    <a href="<%=commonLottery.getPK10Url(false)%>" class="btn btn-block btn-sm btn-gray try-pk"></a>
                                 </div>
                             </div>
                         </div>
