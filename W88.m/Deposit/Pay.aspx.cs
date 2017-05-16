@@ -47,6 +47,7 @@ public partial class Deposit_Pay : PaymentBasePage
                 break;
             case commonVariables.DepositMethod.KexunPayWeChat:
             case commonVariables.DepositMethod.AllDebitWeChat:
+            case commonVariables.DepositMethod.HebaoWeChat:
                 GatewayFile = "kexunpay";
                 break;
             case commonVariables.DepositMethod.KDPayWeChat:
@@ -82,6 +83,7 @@ public partial class Deposit_Pay : PaymentBasePage
                 GatewayFile = "alogateway";
                 break;
             case commonVariables.DepositMethod.AllDebitB2C:
+            case commonVariables.DepositMethod.HebaoB2C:
                 GatewayFile = "quickonline";
                 break;
         }

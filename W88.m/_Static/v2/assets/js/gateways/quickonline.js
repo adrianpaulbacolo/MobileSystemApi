@@ -12,12 +12,12 @@ function QuickOnlineV2() {
     }
 
     quickonline.init = function (gateway, getBank) {
-        $('[id$="lblSwitchLine"]').text(_w88_contents.translate("LABEL_SWITCH_LINE"));
-        $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
+                $('[id$="lblSwitchLine"]').text(_w88_contents.translate("LABEL_SWITCH_LINE"));
+                $('label[id$="lblBank"]').text(_w88_contents.translate("LABEL_BANK"));
 
-        $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
+                $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
 
-        if (gateway == '120265') { //EGHL
+                if (gateway == '120265') { //EGHL
             if (siteCookie.getCookie('currencyCode') == 'MYR') {
                 $(".pay-note").show();
                 $('#paymentNoteContent').html(_w88_contents.translate("LABEL_MSG_" + gateway));
@@ -28,10 +28,10 @@ function QuickOnlineV2() {
                 $(".pay-note").hide();
                 quickonline.hideBank();
             }
-        } else {
+                } else {
             $(".pay-note").show();
-            $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_BANK_NOT_SUPPORTED"));
-        }
+                    $("#paymentNoteContent").html(_w88_contents.translate("LABEL_MSG_BANK_NOT_SUPPORTED"));
+                }
 
         if (getBank == true) {
             _w88_paymentSvcV2.Send("/Banks/vendor/" + gateway, "GET", "", function (response) {
@@ -67,7 +67,7 @@ function QuickOnlineV2() {
         $("#paymentNote").text(_w88_contents.translate("LABEL_PAYMENT_NOTE"));
         $('#paymentNoteContent').html(_w88_contents.translate("LABEL_MSG_120212"));
 
-        $("#btnSubmitPlacement").text(_w88_contents.translate("BUTTON_PROCEED"));
+                $("#btnSubmitPlacement").text(_w88_contents.translate("BUTTON_PROCEED"));
     };
 
     quickonline.createDeposit = function () {

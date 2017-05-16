@@ -92,6 +92,7 @@ public partial class v2_Deposit_Pay : FundsBasePage
             case (int)commonVariables.DepositMethod.AifuWeChat:
             case (int)commonVariables.DepositMethod.AloGatewayWeChat:
             case (int)commonVariables.DepositMethod.AllDebitWeChat:
+            case (int)commonVariables.DepositMethod.HebaoWeChat:
                 GatewayFile = "wechat";
                 break;
 
@@ -108,6 +109,7 @@ public partial class v2_Deposit_Pay : FundsBasePage
             case (int)commonVariables.DepositMethod.PayTrust:
             case (int)commonVariables.DepositMethod.JutaPay:
             case (int)commonVariables.DepositMethod.AllDebitB2C:
+            case (int)commonVariables.DepositMethod.HebaoB2C:
                 GatewayFile = "quickonline";
                 break;
 
