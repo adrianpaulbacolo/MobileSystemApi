@@ -97,7 +97,8 @@
                     top: 0;
                     left: 0;
                     position: absolute;
-                    display: none;
+                    visibility: hidden;
+                    opacity: 0;
                     @include transition(.3s);
                 }
                 .card-hover-btns{
@@ -110,19 +111,17 @@
                         }
                     }
                 }
-                &:focus,
-                &:hover{
-                    > img,
-                    > img{
+                &:focus >,
+                &:hover >{
+                    img{
                         opacity: 0.3;
                     }
-                    > .card-hover,
-                    > .card-hover{
+                    .card-hover{
                         border: 1px solid $primary-color;
-                        display: block;
+                        visibility: visible;
+                        opacity: 1;
                     }
-                    > .title,
-                    > .title{
+                    .title{
                         color: $primary-color;
                     }
 
