@@ -10,7 +10,6 @@ using W88.BusinessLogic.Shared.Helpers;
 using W88.Utilities;
 using W88.Utilities.Geo;
 
-
 public class BasePage : Page
 {
     protected bool HasSession = false;
@@ -38,6 +37,52 @@ public class BasePage : Page
             return !(Array.IndexOf(maintenanceModules.Split('|'), Request.Url.AbsolutePath.ToLower()) < 0);
         }
     }
+    
+    protected string ContentLanguage
+    {
+        get
+        { 
+            if (!IsDebugMode)
+            {
+                return new RewardsHelper().ContentLanguage;
+            }
+
+            switch (CountryCode)
+            {
+                case "my":
+                    switch (Language)
+                    {
+                        case "en-us":
+                            return "en-my";
+                        case "zh-cn":
+                            return "zh-my";
+                    }
+                    return Language;
+                default:
+                    return Language;
+            }
+        }
+    }
+
+    public static string CountryCode
+    {
+        get
+        {
+            var debugCountryCode = Common.GetAppSetting<string>("debugCountryCode");
+            if (IsDebugMode && !string.IsNullOrEmpty(debugCountryCode)) return debugCountryCode.Trim().ToLower();
+            return RewardsHelper.CountryCode.ToLower();
+    	}
+    }
+
+    public static bool IsDebugMode
+    {
+	    get
+	    {
+            bool isDebugMode;
+            Boolean.TryParse(Common.GetAppSetting<string>("isDebugMode"), out isDebugMode);
+            return isDebugMode;
+        }
+    }
 
     public static string Token 
     {
@@ -52,27 +97,25 @@ public class BasePage : Page
             cookie.Value = value;
             cookie.Domain = IpHelper.DomainName;
             HttpContext.Current.Response.Cookies.Add(cookie);
-        }
+        }   
     }
 
     protected override async void OnPreInit(EventArgs e)
     {
-        base.OnPreInit(e);
-
+        base.OnPreInit(e);        
         var language = HttpContext.Current.Request.QueryString.Get("lang");
         Language = !string.IsNullOrEmpty(language) ? language : LanguageHelpers.SelectedLanguage;
         var hasSession = await CheckSession();
         if (!IsUnderMaintenance)
         {
             return;
-        }
+       	}
         // Check if site is under maintenance and allow only certain users to have access
         var isAllowedAccess = false;
         var allowedUsers = Common.GetAppSetting<string>("allowedUsers");
         if (!string.IsNullOrEmpty(allowedUsers) && hasSession
             && Array.IndexOf(allowedUsers.ToLower().Split('|'), UserSessionInfo.MemberCode.ToLower()) >= 0)
             isAllowedAccess = true;
-
         if (!isAllowedAccess)
         {
             Response.Redirect("/_Static/Pages/enhancement-all.aspx", false);
